@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class TrackFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,43 +56,43 @@ public final class TrackFragment {
         }
     }
 
-    public long getSamplePresentationTime(int i2) {
+    public long getSamplePresentationTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.sampleDecodingTimeTable[i2] + this.sampleCompositionTimeOffsetTable[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.sampleDecodingTimeTable[i] + this.sampleCompositionTimeOffsetTable[i] : invokeI.longValue;
     }
 
-    public void initEncryptionData(int i2) {
+    public void initEncryptionData(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             ParsableByteArray parsableByteArray = this.sampleEncryptionData;
-            if (parsableByteArray == null || parsableByteArray.limit() < i2) {
-                this.sampleEncryptionData = new ParsableByteArray(i2);
+            if (parsableByteArray == null || parsableByteArray.limit() < i) {
+                this.sampleEncryptionData = new ParsableByteArray(i);
             }
-            this.sampleEncryptionDataLength = i2;
+            this.sampleEncryptionDataLength = i;
             this.definesEncryptionData = true;
             this.sampleEncryptionDataNeedsFill = true;
         }
     }
 
-    public void initTables(int i2, int i3) {
+    public void initTables(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.trunCount = i2;
-            this.sampleCount = i3;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.trunCount = i;
+            this.sampleCount = i2;
             int[] iArr = this.trunLength;
-            if (iArr == null || iArr.length < i2) {
-                this.trunDataPosition = new long[i2];
-                this.trunLength = new int[i2];
+            if (iArr == null || iArr.length < i) {
+                this.trunDataPosition = new long[i];
+                this.trunLength = new int[i];
             }
             int[] iArr2 = this.sampleSizeTable;
-            if (iArr2 == null || iArr2.length < i3) {
-                int i4 = (i3 * 125) / 100;
-                this.sampleSizeTable = new int[i4];
-                this.sampleCompositionTimeOffsetTable = new int[i4];
-                this.sampleDecodingTimeTable = new long[i4];
-                this.sampleIsSyncFrameTable = new boolean[i4];
-                this.sampleHasSubsampleEncryptionTable = new boolean[i4];
+            if (iArr2 == null || iArr2.length < i2) {
+                int i3 = (i2 * 125) / 100;
+                this.sampleSizeTable = new int[i3];
+                this.sampleCompositionTimeOffsetTable = new int[i3];
+                this.sampleDecodingTimeTable = new long[i3];
+                this.sampleIsSyncFrameTable = new boolean[i3];
+                this.sampleHasSubsampleEncryptionTable = new boolean[i3];
             }
         }
     }

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s1.h.e;
-import c.a.r0.t1.b.h;
+import c.a.p0.u1.h.e;
+import c.a.p0.v1.b.h;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,24 +34,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MessageCenterFragment extends BaseFragment implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: j  reason: collision with root package name */
-    public static boolean f43864j;
+    /* renamed from: f  reason: collision with root package name */
+    public static boolean f34043f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public h f34044b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public VoiceManager f34045c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final CustomMessageListener f34046d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43865e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public h f43866f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public VoiceManager f43867g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final CustomMessageListener f43868h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f43869i;
+    public CustomMessageListener f34047e;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -60,17 +58,17 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         public final /* synthetic */ MessageCenterFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MessageCenterFragment messageCenterFragment, int i2) {
-            super(i2);
+        public a(MessageCenterFragment messageCenterFragment, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {messageCenterFragment, Integer.valueOf(i2)};
+                Object[] objArr = {messageCenterFragment, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -86,7 +84,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 MessageCenterFragment messageCenterFragment = this.a;
-                messageCenterFragment.e(messageCenterFragment.getView());
+                messageCenterFragment.E0(messageCenterFragment.getView());
             }
         }
     }
@@ -98,17 +96,17 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         public final /* synthetic */ MessageCenterFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(MessageCenterFragment messageCenterFragment, int i2) {
-            super(i2);
+        public b(MessageCenterFragment messageCenterFragment, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {messageCenterFragment, Integer.valueOf(i2)};
+                Object[] objArr = {messageCenterFragment, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -122,8 +120,8 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3 && this.a.isPrimary() && this.a.f43866f != null) {
-                this.a.f43866f.m();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3 && this.a.isPrimary() && this.a.f34044b != null) {
+                this.a.f34044b.o();
             }
         }
     }
@@ -141,7 +139,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                 return;
             }
         }
-        f43864j = !UbsABTestHelper.isLaunchUpA();
+        f34043f = !UbsABTestHelper.isLaunchUpA();
     }
 
     public MessageCenterFragment() {
@@ -149,70 +147,102 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f43865e = false;
-        this.f43868h = new a(this, 2921617);
-        this.f43869i = new b(this, 2001384);
+        this.a = false;
+        this.f34046d = new a(this, 2921617);
+        this.f34047e = new b(this, 2001384);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void changeSkinType(int i2) {
+    public final void E0(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f43866f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.a) {
             return;
         }
-        super.changeSkinType(i2);
-    }
-
-    public final void e(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.f43865e) {
-            return;
-        }
-        ViewStub viewStub = (ViewStub) view.findViewById(R.id.message_viewpager_viewstub);
+        ViewStub viewStub = (ViewStub) view.findViewById(R.id.obfuscated_res_0x7f091411);
         if (viewStub != null) {
             viewStub.inflate();
         }
         h hVar = new h(this);
-        this.f43866f = hVar;
-        hVar.h(view);
-        this.f43866f.n(2);
-        f(getActivity().getIntent());
+        this.f34044b = hVar;
+        hVar.j(view);
+        this.f34044b.p(2);
+        I0(getActivity().getIntent());
         VoiceManager voiceManager = getVoiceManager();
-        this.f43867g = voiceManager;
+        this.f34045c = voiceManager;
         voiceManager.onCreate(getPageContext());
         TiebaStatic.log(new StatisticItem("c11941"));
-        this.f43865e = true;
+        this.a = true;
     }
 
-    public final void f(Intent intent) {
+    public void F0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            getActivity().finish();
+        }
+    }
+
+    public void G0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
+            atListActivityConfig.setIsForChat(true);
+            sendMessage(new CustomMessage(2002001, atListActivityConfig));
+            TiebaStatic.log("c12929");
+        }
+    }
+
+    public void H0(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            e.m().c();
+            if (this.f34045c == null) {
+                VoiceManager voiceManager = getVoiceManager();
+                this.f34045c = voiceManager;
+                voiceManager.onCreate(getPageContext());
+            }
+            if (intent != null) {
+                I0(intent);
+            }
+        }
+    }
+
+    public final void I0(Intent intent) {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || (hVar = this.f43866f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (hVar = this.f34044b) == null) {
             return;
         }
-        hVar.n(1);
+        hVar.p(1);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void changeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || this.f34044b == null) {
+            return;
+        }
+        super.changeSkinType(i);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager.i getRealView(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
@@ -222,35 +252,35 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     public VoiceManager getVoiceManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f43867g == null) {
-                this.f43867g = VoiceManager.instance();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.f34045c == null) {
+                this.f34045c = VoiceManager.instance();
             }
-            return this.f43867g;
+            return this.f34045c;
         }
         return (VoiceManager) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            h hVar = this.f43866f;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            h hVar = this.f34044b;
             if (hVar != null) {
-                hVar.k(i2, i3, intent);
+                hVar.m(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            h hVar = this.f43866f;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            super.onChangeSkinType(i);
+            h hVar = this.f34044b;
             if (hVar != null) {
-                hVar.onChangeSkinType(i2);
+                hVar.onChangeSkinType(i);
             }
         }
     }
@@ -258,10 +288,10 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            registerListener(this.f43869i);
-            registerListener(this.f43868h);
+            registerListener(this.f34047e);
+            registerListener(this.f34046d);
         }
     }
 
@@ -270,12 +300,12 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.message_center_activity, viewGroup, false);
-            if (!f43864j) {
-                e(inflate);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0554, viewGroup, false);
+            if (!f34043f) {
+                E0(inflate);
             } else {
-                f43864j = false;
+                f34043f = false;
             }
             return inflate;
         }
@@ -285,48 +315,16 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
             e.m().c();
-            h hVar = this.f43866f;
+            h hVar = this.f34044b;
             if (hVar != null) {
-                hVar.l();
+                hVar.n();
             }
-            VoiceManager voiceManager = this.f43867g;
+            VoiceManager voiceManager = this.f34045c;
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
-            }
-        }
-    }
-
-    public void onNavigationBarBackBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            getActivity().finish();
-        }
-    }
-
-    public void onNavigationBarChatBtnClick() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
-            atListActivityConfig.setIsForChat(true);
-            sendMessage(new CustomMessage(2002001, atListActivityConfig));
-            TiebaStatic.log("c12929");
-        }
-    }
-
-    public void onNewIntent(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, intent) == null) {
-            e.m().c();
-            if (this.f43867g == null) {
-                VoiceManager voiceManager = getVoiceManager();
-                this.f43867g = voiceManager;
-                voiceManager.onCreate(getPageContext());
-            }
-            if (intent != null) {
-                f(intent);
             }
         }
     }
@@ -336,7 +334,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            VoiceManager voiceManager = this.f43867g;
+            VoiceManager voiceManager = this.f34045c;
             if (voiceManager != null) {
                 voiceManager.onPause(getPageContext());
             }
@@ -348,7 +346,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
-            VoiceManager voiceManager = this.f43867g;
+            VoiceManager voiceManager = this.f34045c;
             if (voiceManager != null) {
                 voiceManager.onResume(getPageContext());
             }
@@ -360,7 +358,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         h hVar;
         TbTabLayout.f d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) || (hVar = this.f43866f) == null || (d2 = hVar.d()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) || (hVar = this.f34044b) == null || (d2 = hVar.d()) == null) {
             return;
         }
         bundle.putInt("Selected_Tab", d2.d());
@@ -371,7 +369,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStart();
-            VoiceManager voiceManager = this.f43867g;
+            VoiceManager voiceManager = this.f34045c;
             if (voiceManager != null) {
                 voiceManager.onStart(getPageContext());
             }
@@ -383,7 +381,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            VoiceManager voiceManager = this.f43867g;
+            VoiceManager voiceManager = this.f34045c;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
             }
@@ -395,9 +393,9 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
             super.setPrimary(z);
-            h hVar = this.f43866f;
+            h hVar = this.f34044b;
             if (hVar != null) {
-                hVar.o(z);
+                hVar.q(z);
             }
         }
     }
@@ -408,7 +406,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             super.setUserVisibleHint(z);
             if (z) {
-                e(getView());
+                E0(getView());
             }
         }
     }

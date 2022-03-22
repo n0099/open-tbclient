@@ -20,21 +20,21 @@ public class a {
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C1758a> xm;
+    public BlockingQueue<C1719a> xm;
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1758a {
+    public static class C1719a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C1759a> xq;
+        public BlockingQueue<C1720a> xq;
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C1759a {
+        public static class C1720a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int count;
@@ -42,14 +42,14 @@ public class a {
             public String xr;
             public long xs;
 
-            public C1759a() {
+            public C1720a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -57,14 +57,14 @@ public class a {
             }
         }
 
-        public C1758a() {
+        public C1719a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,9 +79,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,20 +102,20 @@ public class a {
                 jSONObject.put("mem_total", String.valueOf(this.xk));
                 jSONObject.put("mem_used", String.valueOf(this.xl));
                 JSONArray jSONArray = new JSONArray();
-                for (C1758a c1758a : this.xm) {
+                for (C1719a c1719a : this.xm) {
                     try {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("frame_index", c1758a.xn);
-                        jSONObject2.put("frame_in", c1758a.xo);
-                        jSONObject2.put("frame_out", c1758a.xp);
+                        jSONObject2.put("frame_index", c1719a.xn);
+                        jSONObject2.put("frame_in", c1719a.xo);
+                        jSONObject2.put("frame_out", c1719a.xp);
                         JSONArray jSONArray2 = new JSONArray();
-                        for (C1758a.C1759a c1759a : c1758a.xq) {
+                        for (C1719a.C1720a c1720a : c1719a.xq) {
                             try {
                                 JSONObject jSONObject3 = new JSONObject();
-                                jSONObject3.put("name", c1759a.name);
-                                jSONObject3.put("func", c1759a.xr);
-                                jSONObject3.put("time_cost", c1759a.xs);
-                                jSONObject3.put("count", c1759a.count);
+                                jSONObject3.put("name", c1720a.name);
+                                jSONObject3.put("func", c1720a.xr);
+                                jSONObject3.put("time_cost", c1720a.xs);
+                                jSONObject3.put("count", c1720a.count);
                                 jSONArray2.put(jSONObject3);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();

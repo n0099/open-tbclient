@@ -46,9 +46,9 @@ public class DistrictResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,9 +68,9 @@ public class DistrictResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -84,7 +84,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         int readInt = parcel.readInt();
         if (readInt > 0) {
             this.polylines = new ArrayList();
-            for (int i4 = 0; i4 < readInt; i4++) {
+            for (int i3 = 0; i3 < readInt; i3++) {
                 this.polylines.add(parcel.createTypedArrayList(LatLng.CREATOR));
             }
         }
@@ -133,10 +133,10 @@ public class DistrictResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setCityCode(int i2) {
+    public void setCityCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.cityCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.cityCode = i;
         }
     }
 
@@ -155,11 +155,11 @@ public class DistrictResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
-            parcel.writeParcelable(this.centerPt, i2);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
+            parcel.writeParcelable(this.centerPt, i);
             List<List<LatLng>> list = this.polylines;
             parcel.writeInt(list == null ? 0 : list.size());
             for (List<LatLng> list2 : this.polylines) {

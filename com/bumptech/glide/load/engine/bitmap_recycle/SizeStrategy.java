@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 @RequiresApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SizeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE_MULTIPLE = 8;
@@ -24,7 +24,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     public final NavigableMap<Integer, Integer> sortedSizes;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class SizeStrategy implements LruPoolStrategy {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {keyPool};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,10 +61,10 @@ public final class SizeStrategy implements LruPoolStrategy {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.size : invokeV.intValue;
         }
 
-        public void init(int i2) {
+        public void init(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.size = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.size = i;
             }
         }
 
@@ -84,7 +84,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,21 +94,21 @@ public final class SizeStrategy implements LruPoolStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public Key get(int i2) {
+        public Key get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
                 Key key = (Key) super.get();
-                key.init(i2);
+                key.init(i);
                 return key;
             }
             return (Key) invokeI.objValue;
@@ -128,9 +128,9 @@ public final class SizeStrategy implements LruPoolStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,11 +161,11 @@ public final class SizeStrategy implements LruPoolStrategy {
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
     @Nullable
-    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+    public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) {
-            int bitmapByteSize = Util.getBitmapByteSize(i2, i3, config);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
+            int bitmapByteSize = Util.getBitmapByteSize(i, i2, config);
             Key key = this.keyPool.get(bitmapByteSize);
             Integer ceilingKey = this.sortedSizes.ceilingKey(Integer.valueOf(bitmapByteSize));
             if (ceilingKey != null && ceilingKey.intValue() != bitmapByteSize && ceilingKey.intValue() <= bitmapByteSize * 8) {
@@ -174,7 +174,7 @@ public final class SizeStrategy implements LruPoolStrategy {
             }
             Bitmap bitmap = this.groupedMap.get(key);
             if (bitmap != null) {
-                bitmap.reconfigure(i2, i3, config);
+                bitmap.reconfigure(i, i2, config);
                 decrementBitmapOfSize(ceilingKey);
             }
             return bitmap;
@@ -232,17 +232,17 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(int i2, int i3, Bitmap.Config config) {
+    public String logBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config)) == null) ? getBitmapString(Util.getBitmapByteSize(i2, i3, config)) : (String) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) ? getBitmapString(Util.getBitmapByteSize(i, i2, config)) : (String) invokeIIL.objValue;
     }
 
-    public static String getBitmapString(int i2) {
+    public static String getBitmapString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + i + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeI.objValue;
     }

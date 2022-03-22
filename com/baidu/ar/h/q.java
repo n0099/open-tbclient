@@ -6,8 +6,10 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -46,9 +48,9 @@ public class q {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -78,102 +80,99 @@ public class q {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00a4 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v1, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r10v15 */
+    /* JADX WARN: Type inference failed for: r10v3 */
+    /* JADX WARN: Type inference failed for: r10v6, types: [java.io.BufferedReader] */
     public static long B(Context context) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
-        BufferedReader bufferedReader;
         Exception e2;
-        long j2;
+        BufferedReader bufferedReader;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            ?? r10 = HardwareInfoUtils.MEM_INFO_FILE;
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream(HardwareInfoUtils.MEM_INFO_FILE), Charset.forName("utf-8"));
+                try {
+                    inputStreamReader = new InputStreamReader(new FileInputStream(HardwareInfoUtils.MEM_INFO_FILE), Charset.forName(IMAudioTransRequest.CHARSET));
+                } catch (Throwable th2) {
+                    th = th2;
+                }
             } catch (Exception e3) {
                 inputStreamReader = null;
                 e2 = e3;
                 bufferedReader = null;
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
                 inputStreamReader = null;
-                th = th2;
-                bufferedReader = null;
+                th = th3;
+                r10 = 0;
             }
             try {
                 bufferedReader = new BufferedReader(inputStreamReader, 8192);
                 try {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        String[] split = readLine.split("\\s+");
-                        for (String str : split) {
-                            String str2 = readLine + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + "\t";
-                        }
-                        j2 = Integer.parseInt(split[1]);
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace(System.out);
-                        }
-                        try {
-                            inputStreamReader.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace(System.out);
-                        }
-                    } catch (Exception e6) {
-                        e2 = e6;
-                        e2.printStackTrace(System.out);
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace(System.out);
-                            }
-                        }
-                        if (inputStreamReader != null) {
-                            try {
-                                inputStreamReader.close();
-                            } catch (IOException e8) {
-                                e8.printStackTrace(System.out);
-                            }
-                        }
-                        j2 = 0;
-                        return j2 / 1024;
+                    String readLine = bufferedReader.readLine();
+                    String[] split = readLine.split("\\s+");
+                    for (String str : split) {
+                        Log.i("bdar:", readLine + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + "\t");
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                    j = Integer.parseInt(split[1]);
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace(System.out);
+                    }
+                    try {
+                        inputStreamReader.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace(System.out);
+                    }
+                } catch (Exception e6) {
+                    e2 = e6;
+                    e2.printStackTrace(System.out);
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace(System.out);
+                        } catch (IOException e7) {
+                            e7.printStackTrace(System.out);
                         }
                     }
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
-                        } catch (IOException e10) {
-                            e10.printStackTrace(System.out);
+                        } catch (IOException e8) {
+                            e8.printStackTrace(System.out);
                         }
                     }
-                    throw th;
+                    j = 0;
+                    return j / 1024;
                 }
-            } catch (Exception e11) {
-                e2 = e11;
+            } catch (Exception e9) {
+                e2 = e9;
                 bufferedReader = null;
             } catch (Throwable th4) {
                 th = th4;
-                bufferedReader = null;
-                if (bufferedReader != null) {
+                r10 = 0;
+                if (r10 != 0) {
+                    try {
+                        r10.close();
+                    } catch (IOException e10) {
+                        e10.printStackTrace(System.out);
+                    }
                 }
                 if (inputStreamReader != null) {
+                    try {
+                        inputStreamReader.close();
+                    } catch (IOException e11) {
+                        e11.printStackTrace(System.out);
+                    }
                 }
                 throw th;
             }
-            return j2 / 1024;
+            return j / 1024;
         }
         return invokeL.longValue;
     }
@@ -259,7 +258,7 @@ public class q {
         }
         try {
             try {
-                inputStreamReader = new InputStreamReader(new FileInputStream("/proc/cpuinfo"), Charset.forName("utf-8"));
+                inputStreamReader = new InputStreamReader(new FileInputStream("/proc/cpuinfo"), Charset.forName(IMAudioTransRequest.CHARSET));
             } catch (Throwable th2) {
                 th = th2;
             }
@@ -276,7 +275,7 @@ public class q {
             bufferedReader2 = new BufferedReader(inputStreamReader);
             try {
                 String[] split = bufferedReader2.readLine().split(":\\s+", 2);
-                for (int i2 = 0; i2 < split.length; i2++) {
+                for (int i = 0; i < split.length; i++) {
                 }
                 String str = split[1];
                 try {
@@ -334,14 +333,15 @@ public class q {
     }
 
     public static int gG() {
-        File[] listFiles;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             try {
-                String str = "CPU Count: " + listFiles.length;
-                return new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
+                Log.d("bdar", "CPU Count: " + listFiles.length);
+                return listFiles.length;
             } catch (Exception e2) {
+                Log.d("bdar", "CPU Count: Failed.");
                 e2.printStackTrace(System.out);
                 return 1;
             }
@@ -356,10 +356,10 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53881c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39040c).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
-                    str2 = str2 + new String(bArr, "utf-8");
+                    str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
                 }
                 inputStream.close();
                 str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
@@ -384,10 +384,10 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53880b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39039b).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
-                    str2 = str2 + new String(bArr, "utf-8");
+                    str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
                 }
                 inputStream.close();
                 str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
@@ -442,7 +442,7 @@ public class q {
             try {
                 try {
                     try {
-                        r2 = new InputStreamReader(new FileInputStream(DeviceInfoUtil.CurPath), Charset.forName("utf-8"));
+                        r2 = new InputStreamReader(new FileInputStream(DeviceInfoUtil.CurPath), Charset.forName(IMAudioTransRequest.CHARSET));
                     } catch (Throwable th) {
                         th = th;
                         r1 = interceptable;

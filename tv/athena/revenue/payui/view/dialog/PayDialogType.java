@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PayDialogType {
     public static final /* synthetic */ PayDialogType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -47,16 +47,16 @@ public final class PayDialogType {
         $VALUES = new PayDialogType[]{PAY_AMOUNT_DIALOG, PAY_INPUT_DIALOG, PAY_WAY_DIALOG, PAY_RESULT_DIALOG, PAY_CONFIRM_FINISH_DIALOG, PAY_SHOW_GIFT_DIALOG, payDialogType};
     }
 
-    public PayDialogType(String str, int i2, int i3) {
+    public PayDialogType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

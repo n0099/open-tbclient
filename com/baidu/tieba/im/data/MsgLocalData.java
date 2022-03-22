@@ -25,9 +25,9 @@ public class MsgLocalData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -64,24 +64,24 @@ public class MsgLocalData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upload_offset : (String) invokeV.objValue;
     }
 
-    public void setErrno(long j2) {
+    public void setErrno(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.errno = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.errno = j;
         }
     }
 
-    public void setRetry(long j2) {
+    public void setRetry(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.retry = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.retry = j;
         }
     }
 
-    public void setRid(long j2) {
+    public void setRid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.rid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.rid = j;
         }
     }
 

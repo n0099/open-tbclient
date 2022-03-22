@@ -61,9 +61,9 @@ public final class TrdVpnConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -136,17 +136,17 @@ public final class TrdVpnConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? RoutePrefixLength : invokeV.intValue;
     }
 
-    public final void setADDRPrefixLength(int i2) {
+    public final void setADDRPrefixLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            ADDRPrefixLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            ADDRPrefixLength = i;
         }
     }
 
-    public final void setADDRPrefixLength6(int i2) {
+    public final void setADDRPrefixLength6(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            ADDRPrefixLength6 = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            ADDRPrefixLength6 = i;
         }
     }
 
@@ -190,10 +190,10 @@ public final class TrdVpnConfig {
         }
     }
 
-    public final void setMtu(int i2) {
+    public final void setMtu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            Mtu = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            Mtu = i;
         }
     }
 
@@ -213,10 +213,10 @@ public final class TrdVpnConfig {
         }
     }
 
-    public final void setRoutePrefixLength(int i2) {
+    public final void setRoutePrefixLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            RoutePrefixLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            RoutePrefixLength = i;
         }
     }
 }

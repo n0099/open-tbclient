@@ -56,9 +56,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -81,9 +81,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -113,9 +113,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -166,9 +166,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     public void activityPaused() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.mResumedCounter - 1;
-            this.mResumedCounter = i2;
-            if (i2 == 0) {
+            int i = this.mResumedCounter - 1;
+            this.mResumedCounter = i;
+            if (i == 0) {
                 this.mHandler.postDelayed(this.mDelayedPauseRunnable, 700L);
             }
         }
@@ -177,9 +177,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     public void activityResumed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.mResumedCounter + 1;
-            this.mResumedCounter = i2;
-            if (i2 == 1) {
+            int i = this.mResumedCounter + 1;
+            this.mResumedCounter = i;
+            if (i == 1) {
                 if (this.mPauseSent) {
                     this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
                     this.mPauseSent = false;
@@ -193,9 +193,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     public void activityStarted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.mStartedCounter + 1;
-            this.mStartedCounter = i2;
-            if (i2 == 1 && this.mStopSent) {
+            int i = this.mStartedCounter + 1;
+            this.mStartedCounter = i;
+            if (i == 1 && this.mStopSent) {
                 this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
                 this.mStopSent = false;
             }
@@ -227,9 +227,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -271,9 +271,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;

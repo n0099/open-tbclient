@@ -12,7 +12,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class MutableOnWriteList<T> extends AbstractList<T> implements Rand
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,45 +45,45 @@ public final class MutableOnWriteList<T> extends AbstractList<T> implements Rand
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i2, T t) {
+    public void add(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
             if (this.mutableList == this.immutableList) {
                 this.mutableList = new ArrayList(this.immutableList);
             }
-            this.mutableList.add(i2, t);
+            this.mutableList.add(i, t);
         }
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T get(int i2) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mutableList.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mutableList.get(i) : (T) invokeI.objValue;
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T remove(int i2) {
+    public T remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (this.mutableList == this.immutableList) {
                 this.mutableList = new ArrayList(this.immutableList);
             }
-            return this.mutableList.remove(i2);
+            return this.mutableList.remove(i);
         }
         return (T) invokeI.objValue;
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T set(int i2, T t) {
+    public T set(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, t)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, t)) == null) {
             if (this.mutableList == this.immutableList) {
                 this.mutableList = new ArrayList(this.immutableList);
             }
-            return this.mutableList.set(i2, t);
+            return this.mutableList.set(i, t);
         }
         return (T) invokeIL.objValue;
     }

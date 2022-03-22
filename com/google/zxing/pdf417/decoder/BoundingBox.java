@@ -31,9 +31,9 @@ public final class BoundingBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,21 +85,21 @@ public final class BoundingBox {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BoundingBox addMissingRows(int i2, int i3, boolean z) throws NotFoundException {
+    public BoundingBox addMissingRows(int i, int i2, boolean z) throws NotFoundException {
         InterceptResult invokeCommon;
         ResultPoint resultPoint;
         ResultPoint resultPoint2;
         ResultPoint resultPoint3;
         ResultPoint resultPoint4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             ResultPoint resultPoint5 = this.topLeft;
             ResultPoint resultPoint6 = this.bottomLeft;
             ResultPoint resultPoint7 = this.topRight;
             ResultPoint resultPoint8 = this.bottomRight;
-            if (i2 > 0) {
+            if (i > 0) {
                 ResultPoint resultPoint9 = z ? resultPoint5 : resultPoint7;
-                int y = ((int) resultPoint9.getY()) - i2;
+                int y = ((int) resultPoint9.getY()) - i;
                 if (y < 0) {
                     y = 0;
                 }
@@ -107,9 +107,9 @@ public final class BoundingBox {
                 if (!z) {
                     resultPoint2 = resultPoint10;
                     resultPoint = resultPoint5;
-                    if (i3 <= 0) {
+                    if (i2 <= 0) {
                         ResultPoint resultPoint11 = z ? this.bottomLeft : this.bottomRight;
-                        int y2 = ((int) resultPoint11.getY()) + i3;
+                        int y2 = ((int) resultPoint11.getY()) + i2;
                         if (y2 >= this.image.getHeight()) {
                             y2 = this.image.getHeight() - 1;
                         }
@@ -133,7 +133,7 @@ public final class BoundingBox {
                 resultPoint = resultPoint5;
             }
             resultPoint2 = resultPoint7;
-            if (i3 <= 0) {
+            if (i2 <= 0) {
             }
             resultPoint4 = resultPoint8;
             calculateMinMaxValues();
@@ -197,9 +197,9 @@ public final class BoundingBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {boundingBox};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

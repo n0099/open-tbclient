@@ -20,9 +20,9 @@ public final class PDF417ResultMetadata {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -74,10 +74,10 @@ public final class PDF417ResultMetadata {
         }
     }
 
-    public void setSegmentIndex(int i2) {
+    public void setSegmentIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.segmentIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.segmentIndex = i;
         }
     }
 }

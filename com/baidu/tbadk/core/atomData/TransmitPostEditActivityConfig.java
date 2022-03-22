@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -47,17 +47,17 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TransmitPostEditActivityConfig(Context context, int i2, String str, String str2, String str3, AntiData antiData, int i3, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
+    public TransmitPostEditActivityConfig(Context context, int i, String str, String str2, String str3, AntiData antiData, int i2, AdditionData additionData, PostPrefixData postPrefixData, String str4, OriginalThreadInfo.ShareInfo shareInfo) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2, str3, antiData, Integer.valueOf(i3), additionData, postPrefixData, str4, shareInfo};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, antiData, Integer.valueOf(i2), additionData, postPrefixData, str4, shareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -65,12 +65,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i3);
+        setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
             n.N(context, antiData.getForbid_info());
             return;
         }
-        getIntent().putExtra("type", i2);
+        getIntent().putExtra("type", i);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("from", str4);
@@ -104,10 +104,10 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         getIntent().putExtra("KEY_CALL_FROM", str);
     }
 
-    public void setCategroyId(int i2) {
+    public void setCategroyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra("category_id", i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra("category_id", i);
         }
     }
 
@@ -120,12 +120,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumLevel(int i2) {
+    public void setForumLevel(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("key_write_level", i2);
+        getIntent().putExtra("key_write_level", i);
     }
 
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
@@ -144,12 +144,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         getIntent().putExtra("from_share", z);
     }
 
-    public void setPrivateThread(int i2) {
+    public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("private_thread", i2);
+        getIntent().putExtra("private_thread", i);
     }
 
     public void setTitleAndContent(String str, String str2, boolean z) {

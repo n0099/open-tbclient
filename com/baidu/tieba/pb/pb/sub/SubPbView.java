@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.r0.u2.h.u;
+import c.a.p0.w2.i.v;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeListView;
@@ -26,47 +26,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubPbView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BlankView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f35127b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f35128c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BdTypeListView f35129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BlankView f45364e;
+    public RelativeLayout f35130e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f45365f;
+    public float f35131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f45366g;
+    public float f35132g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f45367h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f45368i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f45369j;
-    public float k;
-    public boolean l;
+    public boolean f35133h;
+    public boolean i;
+    public ValueAnimator j;
+    public int k;
+    public int l;
     public boolean m;
-    public ValueAnimator n;
+    public boolean n;
     public int o;
-    public int p;
+    public float p;
     public boolean q;
-    public boolean r;
-    public int s;
-    public float t;
-    public boolean u;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubPbView f45370e;
+        public final /* synthetic */ SubPbView a;
 
         public a(SubPbView subPbView) {
             Interceptable interceptable = $ic;
@@ -75,33 +75,33 @@ public class SubPbView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subPbView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45370e = subPbView;
+            this.a = subPbView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f45370e.o = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                SubPbView subPbView = this.f45370e;
-                subPbView.t = 1.0f - (subPbView.o / n.i(this.f45370e.getContext()));
-                if (this.f45370e.o == 0) {
-                    this.f45370e.t = 1.0f;
-                } else if (this.f45370e.o == n.i(this.f45370e.getContext())) {
-                    this.f45370e.t = 0.0f;
-                    if (this.f45370e.m && (this.f45370e.getContext() instanceof Activity)) {
-                        ((Activity) this.f45370e.getContext()).finish();
+                this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SubPbView subPbView = this.a;
+                subPbView.p = 1.0f - (subPbView.k / n.i(this.a.getContext()));
+                if (this.a.k == 0) {
+                    this.a.p = 1.0f;
+                } else if (this.a.k == n.i(this.a.getContext())) {
+                    this.a.p = 0.0f;
+                    if (this.a.i && (this.a.getContext() instanceof Activity)) {
+                        ((Activity) this.a.getContext()).finish();
                     }
                 }
-                this.f45370e.requestLayout();
+                this.a.requestLayout();
             }
         }
     }
@@ -115,9 +115,9 @@ public class SubPbView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -139,9 +139,9 @@ public class SubPbView extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.f45364e != null && this.u) {
-                if (this.n.isRunning()) {
-                    this.n.end();
+            if (this.a != null && this.q) {
+                if (this.j.isRunning()) {
+                    this.j.end();
                     return true;
                 }
                 int action = motionEvent.getAction();
@@ -149,55 +149,55 @@ public class SubPbView extends LinearLayout {
                     if (action != 1) {
                         if (action == 2) {
                             float rawY = motionEvent.getRawY();
-                            this.k = rawY;
-                            this.t = 1.0f - ((rawY - this.f45369j) / n.i(getContext()));
-                            if ((this.q || this.r) && this.f45365f.getTop() == 0 && this.f45367h.getFirstVisiblePosition() == 0 && !this.m) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.k, this.f45369j, this.o, this.t, this.m)));
+                            this.f35132g = rawY;
+                            this.p = 1.0f - ((rawY - this.f35131f) / n.i(getContext()));
+                            if ((this.m || this.n) && this.f35127b.getTop() == 0 && this.f35129d.getFirstVisiblePosition() == 0 && !this.i) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new v(this.f35132g, this.f35131f, this.k, this.p, this.i)));
                             }
                         }
                     }
-                    this.l = false;
-                    z = this.k > this.f45369j && this.f45365f.getTop() == 0 && this.f45367h.getFirstVisiblePosition() == 0;
-                    boolean z2 = this.k - this.f45369j > ((float) this.s) && this.f45365f.getTop() == 0 && this.f45367h.getFirstVisiblePosition() == 0;
-                    this.m = z2;
+                    this.f35133h = false;
+                    z = this.f35132g > this.f35131f && this.f35127b.getTop() == 0 && this.f35129d.getFirstVisiblePosition() == 0;
+                    boolean z2 = this.f35132g - this.f35131f > ((float) this.o) && this.f35127b.getTop() == 0 && this.f35129d.getFirstVisiblePosition() == 0;
+                    this.i = z2;
                     if (z2) {
-                        if (this.q || this.r) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.k, this.f45369j, this.o, this.t, this.m)));
+                        if (this.m || this.n) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new v(this.f35132g, this.f35131f, this.k, this.p, this.i)));
                         }
-                        this.n.setIntValues((int) (this.k - this.f45369j), n.i(getContext()));
-                        this.n.setDuration(300L);
-                        this.n.start();
+                        this.j.setIntValues((int) (this.f35132g - this.f35131f), n.i(getContext()));
+                        this.j.setDuration(300L);
+                        this.j.start();
                     } else {
-                        this.t = 1.0f;
-                        this.f45369j = 0.0f;
-                        this.k = 0.0f;
-                        if (this.q || this.r) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.k, this.f45369j, this.o, this.t, this.m)));
+                        this.p = 1.0f;
+                        this.f35131f = 0.0f;
+                        this.f35132g = 0.0f;
+                        if (this.m || this.n) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new v(this.f35132g, this.f35131f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
-                    if (!this.l || (this.k > this.f45369j && this.f45365f.getTop() == 0 && this.f45367h.getFirstVisiblePosition() == 0)) {
-                        this.l = true;
+                    if (!this.f35133h || (this.f35132g > this.f35131f && this.f35127b.getTop() == 0 && this.f35129d.getFirstVisiblePosition() == 0)) {
+                        this.f35133h = true;
                         requestLayout();
                         return true;
                     } else if (z) {
-                        this.l = true;
+                        this.f35133h = true;
                         return true;
                     } else {
-                        this.l = false;
+                        this.f35133h = false;
                         return super.dispatchTouchEvent(motionEvent);
                     }
                 }
-                this.k = motionEvent.getRawY();
-                if (this.f45365f.getTop() == 0 && this.f45367h.getFirstVisiblePosition() == 0) {
-                    this.f45369j = motionEvent.getRawY();
+                this.f35132g = motionEvent.getRawY();
+                if (this.f35127b.getTop() == 0 && this.f35129d.getFirstVisiblePosition() == 0) {
+                    this.f35131f = motionEvent.getRawY();
                 } else {
-                    this.f45369j = this.k;
+                    this.f35131f = this.f35132g;
                 }
                 z = false;
-                if (this.l) {
+                if (this.f35133h) {
                 }
-                this.l = true;
+                this.f35133h = true;
                 requestLayout();
                 return true;
             }
@@ -206,171 +206,171 @@ public class SubPbView extends LinearLayout {
         return invokeL.booleanValue;
     }
 
-    public boolean isDrag() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35133h : invokeV.booleanValue;
     }
 
-    public void onDestroy() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.n.cancel();
-            this.n.removeAllUpdateListeners();
+            this.j.cancel();
+            this.j.removeAllUpdateListeners();
             clearAnimation();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.i = true;
+            if (this.m || this.n) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new v(this.f35132g, this.f35131f, this.k, this.p, this.i)));
+            }
+            this.j.setIntValues(0, n.i(getContext()));
+            this.j.setDuration(300L);
+            this.j.start();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.p == 0.0f) {
+            this.j.setDuration(this.l);
+            this.j.start();
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            float f2 = this.t;
-            if (f2 >= 0.0f && this.f45364e != null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+            float f2 = this.p;
+            if (f2 >= 0.0f && this.a != null) {
                 canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
             }
-            if (this.q || this.r) {
+            if (this.m || this.n) {
                 canvas.drawColor(Color.argb(0, 255, 255, 255), PorterDuff.Mode.CLEAR);
             }
             super.onDraw(canvas);
         }
     }
 
-    public void onFinish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.m = true;
-            if (this.q || this.r) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.k, this.f45369j, this.o, this.t, this.m)));
-            }
-            this.n.setIntValues(0, n.i(getContext()));
-            this.n.setDuration(300L);
-            this.n.start();
-        }
-    }
-
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            if (this.f45364e == null) {
-                super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            if (this.a == null) {
+                super.onLayout(z, i, i2, i3, i4);
                 return;
             }
-            int i6 = this.o;
-            if (i6 == 0) {
-                super.onLayout(z, i2, i3, i4, i5);
-                float f2 = this.k;
-                float f3 = this.f45369j;
-                if (f2 <= f3 || !this.l) {
+            int i5 = this.k;
+            if (i5 == 0) {
+                super.onLayout(z, i, i2, i3, i4);
+                float f2 = this.f35132g;
+                float f3 = this.f35131f;
+                if (f2 <= f3 || !this.f35133h) {
                     return;
                 }
-                LinearLayout linearLayout = this.f45366g;
-                linearLayout.layout(i2, (int) (f2 - f3), i4, ((int) (f2 - f3)) + linearLayout.getHeight());
-                this.f45368i.layout(i2, ((int) (this.k - this.f45369j)) + this.f45366g.getHeight(), i4, i5);
+                LinearLayout linearLayout = this.f35128c;
+                linearLayout.layout(i, (int) (f2 - f3), i3, ((int) (f2 - f3)) + linearLayout.getHeight());
+                this.f35130e.layout(i, ((int) (this.f35132g - this.f35131f)) + this.f35128c.getHeight(), i3, i4);
                 return;
             }
-            LinearLayout linearLayout2 = this.f45366g;
-            linearLayout2.layout(i2, i6, i4, linearLayout2.getMeasuredHeight() + i6);
-            this.f45368i.layout(i2, this.o + this.f45366g.getMeasuredHeight(), i4, i5);
+            LinearLayout linearLayout2 = this.f35128c;
+            linearLayout2.layout(i, i5, i3, linearLayout2.getMeasuredHeight() + i5);
+            this.f35130e.layout(i, this.k + this.f35128c.getMeasuredHeight(), i3, i4);
         }
     }
 
-    public void setAnimTime(int i2) {
+    public void setAnimTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.p = i2;
-            this.n.setDuration(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.l = i;
+            this.j.setDuration(i);
         }
     }
 
     public void setBlankView(BlankView blankView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, blankView) == null) {
-            this.f45364e = blankView;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, blankView) == null) {
+            this.a = blankView;
         }
     }
 
     public void setContentView(RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, relativeLayout) == null) {
-            this.f45368i = relativeLayout;
+        if (interceptable == null || interceptable.invokeL(1048585, this, relativeLayout) == null) {
+            this.f35130e = relativeLayout;
         }
     }
 
     public void setEnableDragExit(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.u = z;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.q = z;
         }
     }
 
     public void setIsFromFoldComment(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.r = z;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.n = z;
         }
     }
 
     public void setIsFromVideoTab(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.q = z;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.m = z;
         }
     }
 
     public void setListView(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdTypeListView) == null) {
-            this.f45367h = bdTypeListView;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bdTypeListView) == null) {
+            this.f35129d = bdTypeListView;
         }
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, linearLayout) == null) {
-            this.f45366g = linearLayout;
+        if (interceptable == null || interceptable.invokeL(1048590, this, linearLayout) == null) {
+            this.f35128c = linearLayout;
         }
     }
 
-    public void setSubPbViewData(u uVar) {
+    public void setSubPbViewData(v vVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, uVar) == null) || uVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, vVar) == null) || vVar == null) {
             return;
         }
-        this.t = uVar.f23152d;
-        float f2 = uVar.f23150b;
-        this.f45369j = f2;
-        float f3 = uVar.a;
-        this.k = f3;
-        this.o = uVar.f23151c;
-        this.m = uVar.f23153e;
+        this.p = vVar.f19868d;
+        float f2 = vVar.f19866b;
+        this.f35131f = f2;
+        float f3 = vVar.a;
+        this.f35132g = f3;
+        this.k = vVar.f19867c;
+        this.i = vVar.f19869e;
         boolean z = f3 > f2;
-        if (this.m) {
-            this.n.setIntValues((int) (this.k - this.f45369j), n.i(getContext()));
-            this.n.setDuration(0L);
-            this.n.start();
+        if (this.i) {
+            this.j.setIntValues((int) (this.f35132g - this.f35131f), n.i(getContext()));
+            this.j.setDuration(0L);
+            this.j.start();
         }
-        if (this.k > this.f45369j) {
-            this.l = true;
+        if (this.f35132g > this.f35131f) {
+            this.f35133h = true;
         } else {
-            this.l = z;
+            this.f35133h = z;
         }
         requestLayout();
     }
 
     public void setTopView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            this.f45365f = view;
-        }
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.t == 0.0f) {
-            this.n.setDuration(this.p);
-            this.n.start();
+        if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
+            this.f35127b = view;
         }
     }
 
@@ -383,9 +383,9 @@ public class SubPbView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -396,17 +396,17 @@ public class SubPbView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SubPbView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -414,20 +414,20 @@ public class SubPbView extends LinearLayout {
                 return;
             }
         }
-        this.p = 300;
-        this.q = false;
-        this.r = false;
-        this.t = 0.0f;
+        this.l = 300;
+        this.m = false;
+        this.n = false;
+        this.p = 0.0f;
         if (0 != 0) {
-            this.s = n.i(context) / 10;
+            this.o = n.i(context) / 10;
         } else {
-            this.s = (n.i(context) / 3) - n.f(TbadkCoreApplication.getInst(), R.dimen.ds160);
+            this.o = (n.i(context) / 3) - n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07024b);
         }
-        this.o = n.i(context);
+        this.k = n.i(context);
         ValueAnimator ofInt = ValueAnimator.ofInt(n.i(context), 0);
-        this.n = ofInt;
-        ofInt.setDuration(this.p);
-        this.n.setInterpolator(new LinearInterpolator());
-        this.n.addUpdateListener(new a(this));
+        this.j = ofInt;
+        ofInt.setDuration(this.l);
+        this.j.setInterpolator(new LinearInterpolator());
+        this.j.addUpdateListener(new a(this));
     }
 }

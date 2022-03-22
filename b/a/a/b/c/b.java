@@ -2,6 +2,7 @@ package b.a.a.b.c;
 
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 import b.a.a.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cloudbase.download.exception.DownloadException;
@@ -20,18 +21,16 @@ import java.util.ArrayList;
 public class b implements b.a.a.b.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final String f1014e;
+    /* renamed from: b  reason: collision with root package name */
+    public final a.InterfaceC0004a f990b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final a.InterfaceC0004a f1015f;
+    /* renamed from: c  reason: collision with root package name */
+    public volatile int f991c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public volatile int f1016g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public volatile long f1017h;
+    /* renamed from: d  reason: collision with root package name */
+    public volatile long f992d;
 
     public b(String str, a.InterfaceC0004a interfaceC0004a) {
         Interceptable interceptable = $ic;
@@ -40,28 +39,29 @@ public class b implements b.a.a.b.a.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, interfaceC0004a};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f1014e = str;
-        this.f1015f = interfaceC0004a;
+        this.a = str;
+        this.f990b = interfaceC0004a;
     }
 
     public final void a() {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1017h = System.currentTimeMillis();
+            Log.d("RtcDownSo", "execute connnection");
+            this.f992d = System.currentTimeMillis();
             try {
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     try {
-                        httpURLConnection = (HttpURLConnection) new URL(this.f1014e).openConnection();
+                        httpURLConnection = (HttpURLConnection) new URL(this.a).openConnection();
                     } catch (Throwable th) {
                         th = th;
                     }
@@ -81,7 +81,7 @@ public class b implements b.a.a.b.a.a {
                     } else if (responseCode == 206) {
                         c(httpURLConnection, true);
                     } else {
-                        r0 = "UnSupported response code:" + responseCode;
+                        Log.d("RtcDownSo", "UnSupported response code:" + responseCode);
                         throw new DownloadException(108, "UnSupported response code:" + responseCode);
                     }
                     httpURLConnection.disconnect();
@@ -112,21 +112,21 @@ public class b implements b.a.a.b.a.a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
             switch (downloadException.getErrorCode()) {
                 case 106:
-                    synchronized (this.f1015f) {
-                        this.f1016g = 106;
-                        ((g) this.f1015f).h();
+                    synchronized (this.f990b) {
+                        this.f991c = 106;
+                        ((g) this.f990b).h();
                     }
                     return;
                 case 107:
-                    synchronized (this.f1015f) {
-                        this.f1016g = 107;
-                        ((g) this.f1015f).e();
+                    synchronized (this.f990b) {
+                        this.f991c = 107;
+                        ((g) this.f990b).e();
                     }
                     return;
                 case 108:
-                    synchronized (this.f1015f) {
-                        this.f1016g = 108;
-                        ((g) this.f1015f).c(downloadException);
+                    synchronized (this.f990b) {
+                        this.f991c = 108;
+                        ((g) this.f990b).c(downloadException);
                     }
                     return;
                 default:
@@ -139,6 +139,7 @@ public class b implements b.a.a.b.a.a {
         long contentLength;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection, z) == null) {
+            Log.d("RtcDownSo", "start parse response");
             String headerField = httpURLConnection.getHeaderField("Content-Length");
             if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
                 contentLength = Long.parseLong(headerField);
@@ -158,46 +159,46 @@ public class b implements b.a.a.b.a.a {
             }
             if (!d()) {
                 if (!e()) {
-                    this.f1016g = 103;
-                    long currentTimeMillis = System.currentTimeMillis() - this.f1017h;
-                    g gVar = (g) this.f1015f;
-                    if (((b) gVar.f1031i).d()) {
+                    this.f991c = 103;
+                    long currentTimeMillis = System.currentTimeMillis() - this.f992d;
+                    g gVar = (g) this.f990b;
+                    if (((b) gVar.i).d()) {
                         gVar.e();
                         return;
                     }
-                    gVar.f1029g = 103;
-                    a aVar = gVar.f1024b;
-                    aVar.f1013b.s(currentTimeMillis);
-                    aVar.f1013b.j(z);
-                    aVar.f1013b.r(103);
-                    aVar.a.a(aVar.f1013b);
-                    gVar.f1030h.b(z);
-                    gVar.f1030h.f1019c = contentLength;
-                    gVar.f1029g = 104;
-                    gVar.f1032j.clear();
+                    gVar.f1004g = 103;
+                    a aVar = gVar.f999b;
+                    aVar.f989b.s(currentTimeMillis);
+                    aVar.f989b.j(z);
+                    aVar.f989b.r(103);
+                    aVar.a.a(aVar.f989b);
+                    gVar.f1005h.b(z);
+                    gVar.f1005h.f994c = contentLength;
+                    gVar.f1004g = 104;
+                    gVar.j.clear();
                     if (z) {
                         ArrayList<e> arrayList = new ArrayList();
-                        int a = gVar.f1027e.a();
+                        int a = gVar.f1002e.a();
+                        int i = 0;
+                        while (i < a) {
+                            long j = contentLength / a;
+                            long j2 = j * i;
+                            arrayList.add(new e(i, gVar.f1001d, gVar.a.c(), j2, i == a + (-1) ? contentLength : (j + j2) - 1, 0L));
+                            i++;
+                        }
                         int i2 = 0;
-                        while (i2 < a) {
-                            long j2 = contentLength / a;
-                            long j3 = j2 * i2;
-                            arrayList.add(new e(i2, gVar.f1026d, gVar.a.c(), j3, i2 == a + (-1) ? contentLength : (j2 + j3) - 1, 0L));
-                            i2++;
-                        }
-                        int i3 = 0;
                         for (e eVar : arrayList) {
-                            i3 = (int) (i3 + eVar.f1023d);
+                            i2 = (int) (i2 + eVar.f998d);
                         }
-                        gVar.f1030h.a(i3);
+                        gVar.f1005h.a(i2);
                         for (e eVar2 : arrayList) {
-                            gVar.f1032j.add(new d(gVar.f1030h, eVar2, gVar));
+                            gVar.j.add(new d(gVar.f1005h, eVar2, gVar));
                         }
                     } else {
-                        gVar.f1032j.add(new f(gVar.f1030h, new e(0, gVar.f1026d, gVar.a.c(), 0L, 0L, 0L), gVar));
+                        gVar.j.add(new f(gVar.f1005h, new e(0, gVar.f1001d, gVar.a.c(), 0L, 0L, 0L), gVar));
                     }
-                    for (b.a.a.b.a.b bVar : gVar.f1032j) {
-                        gVar.f1025c.execute(bVar);
+                    for (b.a.a.b.a.b bVar : gVar.j) {
+                        gVar.f1000c.execute(bVar);
                     }
                     return;
                 }
@@ -210,13 +211,13 @@ public class b implements b.a.a.b.a.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1016g == 107 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f991c == 107 : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1016g == 106 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f991c == 106 : invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
@@ -224,12 +225,12 @@ public class b implements b.a.a.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Process.setThreadPriority(10);
-            this.f1016g = 102;
-            g gVar = (g) this.f1015f;
-            gVar.f1029g = 102;
-            a aVar = gVar.f1024b;
-            aVar.f1013b.r(102);
-            aVar.a.a(aVar.f1013b);
+            this.f991c = 102;
+            g gVar = (g) this.f990b;
+            gVar.f1004g = 102;
+            a aVar = gVar.f999b;
+            aVar.f989b.r(102);
+            aVar.a.a(aVar.f989b);
             try {
                 a();
             } catch (DownloadException e2) {

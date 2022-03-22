@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* compiled from: DefaultLifecycleObserver.java */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final /* synthetic */ class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

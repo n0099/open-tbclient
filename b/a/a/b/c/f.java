@@ -24,9 +24,9 @@ public class f extends i {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, eVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c) objArr2[0], (e) objArr2[1], (b.a) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -37,10 +37,10 @@ public class f extends i {
     }
 
     @Override // b.a.a.b.c.i
-    public RandomAccessFile a(File file, String str, long j2) {
+    public RandomAccessFile a(File file, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
             randomAccessFile.seek(0L);
             return randomAccessFile;

@@ -15,38 +15,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CheckRealNameModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_APP_FIRST_START = "app_first_start";
     public static final String TYPE_LIVE_SHARE = "live_share";
     public static final String TYPE_PB_SHARE = "pb_share";
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f44563e;
+    /* renamed from: b  reason: collision with root package name */
+    public c.a.d.c.g.a f34534b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f44564f;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CheckRealNameModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CheckRealNameModel checkRealNameModel, int i2, int i3) {
-            super(i2, i3);
+        public a(CheckRealNameModel checkRealNameModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {checkRealNameModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {checkRealNameModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -65,16 +63,16 @@ public class CheckRealNameModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                 CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                if (this.a.f44563e != null) {
-                    this.a.f44563e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
+                if (this.a.a != null) {
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(int i2, String str, String str2, Object obj);
+        void a(int i, String str, String str2, Object obj);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,24 +84,42 @@ public class CheckRealNameModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44564f = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
-        z();
-        registerListener(this.f44564f);
+        this.f34534b = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
+        B();
+        registerListener(this.f34534b);
     }
 
-    public void A(b bVar) {
+    public void A(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f44563e = bVar;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
+            CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
+            checkRealNameRequestNetMessage.setObjSource(str);
+            checkRealNameRequestNetMessage.setObjTag(obj);
+            sendMessage(checkRealNameRequestNetMessage);
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c.a.p0.a4.g0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+        }
+    }
+
+    public void C(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 
@@ -111,7 +127,7 @@ public class CheckRealNameModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -121,36 +137,18 @@ public class CheckRealNameModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void x(String str) {
+    public void z(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
             checkRealNameRequestNetMessage.setObjSource(str);
             sendMessage(checkRealNameRequestNetMessage);
-        }
-    }
-
-    public void y(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, obj) == null) {
-            CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
-            checkRealNameRequestNetMessage.setObjSource(str);
-            checkRealNameRequestNetMessage.setObjTag(obj);
-            sendMessage(checkRealNameRequestNetMessage);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.y3.g0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

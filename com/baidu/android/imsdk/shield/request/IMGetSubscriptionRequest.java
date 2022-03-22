@@ -26,17 +26,17 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMGetSubscriptionRequest(Context context, long j2, List<Long> list, List<String> list2, String str, String str2) {
-        super(context, j2, list, list2, str2, str);
+    public IMGetSubscriptionRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), list, list2, str, str2};
+            Object[] objArr = {context, Long.valueOf(j), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (List) objArr2[2], (List) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -72,10 +72,10 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null || !(removeListener instanceof IGetSubscriptionListener)) {
@@ -89,34 +89,34 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        long j2;
+    public void onSuccess(int i, byte[] bArr) {
+        long j;
         Exception exc;
         String str;
         String str2;
         String str3;
-        int i3;
+        int i2;
         IMListener removeListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
             String str4 = "";
             String str5 = new String(bArr);
             LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str5);
             ArrayList arrayList = new ArrayList();
-            long j3 = 0;
+            long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str5);
-                i3 = jSONObject.optInt("error_code");
-                if (i3 == 0) {
+                i2 = jSONObject.optInt("error_code");
+                if (i2 == 0) {
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    j3 = jSONObject.optLong("pa_uid");
+                    j2 = jSONObject.optLong("pa_uid");
                     str2 = jSONObject.optString("pa_avatar");
                     try {
                         str4 = jSONObject.optString("pa_nickname");
                         JSONArray optJSONArray = jSONObject.optJSONArray("data");
                         if (optJSONArray != null && optJSONArray.length() > 0) {
-                            for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                                GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i4));
+                            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                                GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i3));
                                 if (generateSubscriptionInfo != null) {
                                     arrayList.add(generateSubscriptionInfo);
                                 }
@@ -125,7 +125,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         str3 = str4;
                         str4 = optString;
                     } catch (Exception e2) {
-                        j2 = j3;
+                        j = j2;
                         exc = e2;
                         str = str4;
                         str4 = str2;
@@ -133,8 +133,8 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                         str2 = str4;
                         str3 = str;
                         str4 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                        j3 = j2;
-                        i3 = 1010;
+                        j2 = j;
+                        i2 = 1010;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
                         if (removeListener == null) {
                         }
@@ -145,16 +145,16 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str2 = str3;
                 }
             } catch (Exception e3) {
-                j2 = j3;
+                j = j2;
                 exc = e3;
                 str = "";
             }
             removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null && (removeListener instanceof IGetSubscriptionListener)) {
                 GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
-                getSubscriptionResult.setErrorCode(i3);
+                getSubscriptionResult.setErrorCode(i2);
                 getSubscriptionResult.setErrorMsg(str4);
-                getSubscriptionResult.setPauid(j3);
+                getSubscriptionResult.setPauid(j2);
                 getSubscriptionResult.setPaAvatar(str2);
                 getSubscriptionResult.setPaNickName(str3);
                 getSubscriptionResult.setSubscriptionList(arrayList);

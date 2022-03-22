@@ -43,9 +43,9 @@ public class ARAuthFacade implements j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -157,9 +157,9 @@ public class ARAuthFacade implements j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, iCallbackWith};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -203,9 +203,9 @@ public class ARAuthFacade implements j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, a, context, iAuthCallback, fVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -234,9 +234,9 @@ public class ARAuthFacade implements j {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -246,20 +246,20 @@ public class ARAuthFacade implements j {
                                 }
 
                                 @Override // com.baidu.ar.auth.IAuthCallback
-                                public void onError(String str, int i2) {
+                                public void onError(String str, int i) {
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeLI(1048576, this, str, i2) == null) {
+                                    if (interceptable3 == null || interceptable3.invokeLI(1048576, this, str, i) == null) {
                                         AnonymousClass8 anonymousClass8 = this.jq;
                                         anonymousClass8.jj.a(str, anonymousClass8.jp, anonymousClass8.val$context);
                                         IAuthCallback iAuthCallback2 = this.jq.jl;
                                         if (iAuthCallback2 != null) {
-                                            iAuthCallback2.onError(str, i2);
+                                            iAuthCallback2.onError(str, i);
                                         }
                                         if (this.jq.jj.jc.isEmpty()) {
                                             return;
                                         }
                                         for (IAuthCallback iAuthCallback3 : this.jq.jj.jc) {
-                                            iAuthCallback3.onError(str, i2);
+                                            iAuthCallback3.onError(str, i);
                                         }
                                     }
                                 }
@@ -351,10 +351,10 @@ public class ARAuthFacade implements j {
         }
     }
 
-    private void u(int i2) {
+    private void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65550, this, i2) == null) {
-            r.a(new Runnable(this, i2) { // from class: com.baidu.ar.auth.ARAuthFacade.6
+        if (interceptable == null || interceptable.invokeI(65550, this, i) == null) {
+            r.a(new Runnable(this, i) { // from class: com.baidu.ar.auth.ARAuthFacade.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ARAuthFacade jj;
@@ -365,18 +365,18 @@ public class ARAuthFacade implements j {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.jj = this;
-                    this.jm = i2;
+                    this.jm = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -431,9 +431,9 @@ public class ARAuthFacade implements j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -468,9 +468,9 @@ public class ARAuthFacade implements j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, runnable};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -481,10 +481,10 @@ public class ARAuthFacade implements j {
                     }
 
                     @Override // com.baidu.ar.auth.IAuthCallback
-                    public void onError(String str, int i2) {
+                    public void onError(String str, int i) {
                         Runnable runnable2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i2) == null) || (runnable2 = this.jk) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) || (runnable2 = this.jk) == null) {
                             return;
                         }
                         runnable2.run();
@@ -511,9 +511,9 @@ public class ARAuthFacade implements j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -561,9 +561,9 @@ public class ARAuthFacade implements j {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iCallbackWith, iCallbackWith2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -585,13 +585,13 @@ public class ARAuthFacade implements j {
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback
-                public void onFeatureRejected(int i2) {
+                public void onFeatureRejected(int i) {
                     ICallbackWith iCallbackWith3;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (iCallbackWith3 = this.ji) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (iCallbackWith3 = this.ji) == null) {
                         return;
                     }
-                    iCallbackWith3.run(Integer.valueOf(i2));
+                    iCallbackWith3.run(Integer.valueOf(i));
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback
@@ -606,17 +606,17 @@ public class ARAuthFacade implements j {
     }
 
     @Override // com.baidu.ar.auth.j
-    public boolean checkFeatureAuth(int i2) {
+    public boolean checkFeatureAuth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            boolean v = this.iZ != null ? this.iZ.v(i2) : true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            boolean v = this.iZ != null ? this.iZ.v(i) : true;
             if (!v) {
-                u(i2);
+                u(i);
             }
             if (v) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("feature_code", String.valueOf(i2));
+                hashMap.put("feature_code", String.valueOf(i));
                 StatisticApi.onEventDebounce(StatisticConstants.EVENT_FEATURE_AUTH, 200L, hashMap);
             }
             return v;
@@ -694,9 +694,9 @@ public class ARAuthFacade implements j {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iAuthCallback};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -718,12 +718,12 @@ public class ARAuthFacade implements j {
     }
 
     @Override // com.baidu.ar.auth.j
-    public boolean enableFeature(int i2) {
+    public boolean enableFeature(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             if (this.iZ != null) {
-                return this.iZ.v(i2);
+                return this.iZ.v(i);
             }
             return true;
         }
@@ -751,10 +751,10 @@ public class ARAuthFacade implements j {
     }
 
     @Override // com.baidu.ar.auth.j
-    public void receiveAuthFailMessage(int i2) {
+    public void receiveAuthFailMessage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            u(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            u(i);
         }
     }
 

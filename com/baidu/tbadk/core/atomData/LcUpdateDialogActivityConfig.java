@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LcUpdateDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LC_UPDATE_APKMD5RSA = "key_lc_update_apkmd5rsa";
@@ -29,9 +30,9 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, clientUpdateInfo, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,7 +40,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.setFlags(268435456);
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra(KEY_LC_UPDATE_DATA, clientUpdateInfo);
         intent.putExtra(KEY_LC_UPDATE_APKMD5RSA, str);
         TbadkCoreApplication.getInst().setHasNewVersion(true);
@@ -53,7 +54,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             if (Build.VERSION.SDK_INT >= 9) {
                 return true;
             }
-            UtilHelper.showToast(getContext(), getContext().getString(R.string.live_error_system_not_support));
+            UtilHelper.showToast(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f09ef));
             return false;
         }
         return invokeV.booleanValue;

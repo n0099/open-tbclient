@@ -37,7 +37,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExtendedFloatingActionButton extends MaterialButton implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_STATE_HIDING = 1;
@@ -45,7 +45,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_SHOWING = 2;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_ExtendedFloatingActionButton_Icon = 2131755903;
+    public static final int obfuscated_res_0x7f10035d = 2131755869;
     public static final Property<View, Float> HEIGHT;
     public static final Property<View, Float> WIDTH;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     @NonNull
     public final MotionStrategy shrinkStrategy;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ChangeSizeStrategy extends BaseMotionStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extendedFloatingActionButton, animatorTracker, size, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ExtendedFloatingActionButton) objArr2[0], (AnimatorTracker) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -119,7 +119,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public int getDefaultMotionSpecResource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.animator.mtrl_extended_fab_change_size_motion_spec : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.animator.obfuscated_res_0x7f020007 : invokeV.intValue;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
@@ -183,7 +183,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ExtendedFloatingActionButtonBehavior<T extends ExtendedFloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = false;
@@ -202,9 +202,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -368,14 +368,14 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, int i2) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull ExtendedFloatingActionButton extendedFloatingActionButton, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, extendedFloatingActionButton, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, extendedFloatingActionButton, i)) == null) {
                 List<View> dependencies = coordinatorLayout.getDependencies(extendedFloatingActionButton);
                 int size = dependencies.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    View view = dependencies.get(i3);
+                for (int i2 = 0; i2 < size; i2++) {
+                    View view = dependencies.get(i2);
                     if (view instanceof AppBarLayout) {
                         if (updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view, extendedFloatingActionButton)) {
                             break;
@@ -386,7 +386,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                         }
                     }
                 }
-                coordinatorLayout.onLayoutChild(extendedFloatingActionButton, i2);
+                coordinatorLayout.onLayoutChild(extendedFloatingActionButton, i);
                 return true;
             }
             return invokeLLI.booleanValue;
@@ -401,9 +401,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -411,14 +411,14 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.behavior_autoHide, R.attr.behavior_autoShrink});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c6, R.attr.obfuscated_res_0x7f0400c7});
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, false);
             this.autoShrinkEnabled = obtainStyledAttributes.getBoolean(1, true);
             obtainStyledAttributes.recycle();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class HideStrategy extends BaseMotionStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -434,9 +434,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extendedFloatingActionButton, animatorTracker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ExtendedFloatingActionButton) objArr2[0], (AnimatorTracker) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -451,7 +451,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public int getDefaultMotionSpecResource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.mtrl_extended_fab_hide_motion_spec : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020008 : invokeV.intValue;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
@@ -512,7 +512,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class OnChangedCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -522,9 +522,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -556,7 +556,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ShowStrategy extends BaseMotionStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -571,9 +571,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extendedFloatingActionButton, animatorTracker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ExtendedFloatingActionButton) objArr2[0], (AnimatorTracker) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -588,7 +588,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         public int getDefaultMotionSpecResource() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.mtrl_extended_fab_show_motion_spec : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.animator.obfuscated_res_0x7f020009 : invokeV.intValue;
         }
 
         @Override // com.google.android.material.floatingactionbutton.BaseMotionStrategy, com.google.android.material.floatingactionbutton.MotionStrategy
@@ -638,7 +638,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Size {
         int getHeight();
 
@@ -673,9 +673,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -717,9 +717,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -759,9 +759,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -813,9 +813,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, motionStrategy, onChangedCallback};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1006,10 +1006,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    public void setExtendMotionSpecResource(@AnimatorRes int i2) {
+    public void setExtendMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            setExtendMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            setExtendMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
@@ -1032,10 +1032,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    public void setHideMotionSpecResource(@AnimatorRes int i2) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
@@ -1046,10 +1046,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    public void setShowMotionSpecResource(@AnimatorRes int i2) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
@@ -1060,10 +1060,10 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    public void setShrinkMotionSpecResource(@AnimatorRes int i2) {
+    public void setShrinkMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            setShrinkMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            setShrinkMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
@@ -1083,16 +1083,16 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.extendedFloatingActionButtonStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0401f8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1131,17 +1131,17 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_ExtendedFloatingActionButton_Icon), attributeSet, i2);
+    public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035d), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1157,7 +1157,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.isExtended = true;
         Context context2 = getContext();
         this.behavior = new ExtendedFloatingActionButtonBehavior(context2, attributeSet);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.elevation, R.attr.extendMotionSpec, R.attr.hideMotionSpec, R.attr.showMotionSpec, R.attr.shrinkMotionSpec}, i2, Widget_MaterialComponents_ExtendedFloatingActionButton_Icon, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0401f7, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f040556, R.attr.obfuscated_res_0x7f04055c}, i, obfuscated_res_0x7f10035d, new int[0]);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 3);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 2);
         MotionSpec createFromAttribute3 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 1);
@@ -1175,9 +1175,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1219,9 +1219,9 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1256,6 +1256,6 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         this.extendStrategy.setMotionSpec(createFromAttribute3);
         this.shrinkStrategy.setMotionSpec(createFromAttribute4);
         obtainStyledAttributes.recycle();
-        setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_MaterialComponents_ExtendedFloatingActionButton_Icon, ShapeAppearanceModel.PILL).build());
+        setShapeAppearanceModel(ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f10035d, ShapeAppearanceModel.PILL).build());
     }
 }

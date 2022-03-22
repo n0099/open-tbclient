@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bn extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class bn extends ai.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,12 +35,12 @@ public class bn extends ai.a {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m138a().isEventUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m117a().isEventUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a  reason: collision with other method in class */
-    public String mo247a() {
+    public String mo226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100886" : (String) invokeV.objValue;
@@ -53,7 +53,7 @@ public class bn extends ai.a {
             try {
                 if (a()) {
                     com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + " begin upload event");
-                    com.xiaomi.clientreport.manager.a.a(this.a).m140b();
+                    com.xiaomi.clientreport.manager.a.a(this.a).m119b();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

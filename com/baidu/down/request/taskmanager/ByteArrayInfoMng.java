@@ -1,5 +1,6 @@
 package com.baidu.down.request.taskmanager;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ByteArrayInfoMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -42,9 +43,9 @@ public class ByteArrayInfoMng {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -90,12 +91,12 @@ public class ByteArrayInfoMng {
         return (ByteArrayInfo) invokeV.objValue;
     }
 
-    public void initByteArray(int i2) {
+    public void initByteArray(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.mAllocateMemory) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.mAllocateMemory) {
             return;
         }
-        for (int i3 = 0; i3 < i2; i3++) {
+        for (int i2 = 0; i2 < i; i2++) {
             this.mByteArrayGetList.offer(new ByteArrayInfo());
         }
         this.mCurDataCount = mMaxByteSize;
@@ -109,7 +110,9 @@ public class ByteArrayInfoMng {
             return;
         }
         synchronized (queue) {
-            if (!byteArrayInfo.mRecycled) {
+            if (byteArrayInfo.mRecycled) {
+                Log.w(TAG, "### ByteArrayInfo duplicated recycled!");
+            } else {
                 byteArrayInfo.mRecycled = true;
                 if (this.mByteArrayRecycleList != null) {
                     this.mByteArrayRecycleList.offer(byteArrayInfo);

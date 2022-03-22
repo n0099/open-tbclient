@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.content.Context;
-import c.a.r0.s1.f.i.c;
+import c.a.p0.u1.f.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
@@ -23,9 +23,9 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,16 +37,16 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     public void O(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f43760i = tbPageContext;
+            this.f33963e = tbPageContext;
         }
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, c.a.r0.s1.f.i.c
+    @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, c.a.p0.u1.f.i.c
     public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData) == null) {
             super.g(aVar, imMessageCenterShowItemData);
-            aVar.f21713b.setIsRound(true);
+            aVar.f18694b.setIsRound(true);
         }
     }
 }

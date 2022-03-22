@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PayResultData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 955562840790302592L;
@@ -18,7 +18,7 @@ public class PayResultData extends OrmObject implements Serializable {
     public PayVcodeInfoData vcode;
     public int wrongtime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class UnusualInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7762965384357134074L;
@@ -31,9 +31,9 @@ public class PayResultData extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,9 +72,9 @@ public class PayResultData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -126,10 +126,10 @@ public class PayResultData extends OrmObject implements Serializable {
         }
     }
 
-    public void setWrongtime(int i2) {
+    public void setWrongtime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.wrongtime = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.wrongtime = i;
         }
     }
 }

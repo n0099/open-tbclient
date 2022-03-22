@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidubce.http.Headers;
 import com.kwad.sdk.api.core.RequestParamsUtils;
 import com.kwad.sdk.api.core.SpeedLimitApiHolder;
 import com.kwad.sdk.api.core.TLSConnectionUtils;
@@ -46,16 +47,16 @@ public class h {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(int i2, Map<String, List<String>> map) {
+        public void a(int i, Map<String, List<String>> map) {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(long j2) {
+        public void a(long j) {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(byte[] bArr, int i2, int i3) {
-            this.a.write(bArr, i2, i3);
+        public void a(byte[] bArr, int i, int i2) {
+            this.a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
@@ -66,16 +67,16 @@ public class h {
 
     /* loaded from: classes7.dex */
     public interface c {
-        boolean a(int i2, int i3, Object obj);
+        boolean a(int i, int i2, Object obj);
     }
 
     /* loaded from: classes7.dex */
     public interface d extends Closeable {
-        void a(int i2, Map<String, List<String>> map);
+        void a(int i, Map<String, List<String>> map);
 
-        void a(long j2);
+        void a(long j);
 
-        void a(byte[] bArr, int i2, int i3);
+        void a(byte[] bArr, int i, int i2);
     }
 
     @NonNull
@@ -103,16 +104,16 @@ public class h {
         return str2 + File.separator + "ksadsdk";
     }
 
-    public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
+    public static URLConnection a(String str, int i, int i2, boolean z, boolean z2) {
         try {
             URLConnection openConnection = new URL(str).openConnection();
             TLSConnectionUtils.wrapHttpURLConnection(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
-            if (i2 > 0) {
-                openConnection.setConnectTimeout(i2);
+            if (i > 0) {
+                openConnection.setConnectTimeout(i);
             }
-            if (i3 > 0) {
-                openConnection.setReadTimeout(i3);
+            if (i2 > 0) {
+                openConnection.setReadTimeout(i2);
             }
             openConnection.setUseCaches(z);
             openConnection.setDoInput(true);
@@ -161,7 +162,7 @@ public class h {
         });
     }
 
-    public static boolean a(String str, File file, c cVar, int i2) {
+    public static boolean a(String str, File file, c cVar, int i) {
         b bVar;
         b bVar2 = null;
         try {
@@ -170,7 +171,7 @@ public class h {
             th = th;
         }
         try {
-            boolean a2 = a(str, (String) null, bVar, cVar, i2);
+            boolean a2 = a(str, (String) null, bVar, cVar, i);
             a(bVar);
             return a2;
         } catch (Throwable th2) {
@@ -181,17 +182,17 @@ public class h {
         }
     }
 
-    public static boolean a(String str, String str2, d dVar, c cVar, int i2) {
-        return a(str, str2, dVar, cVar, i2, -1L, -1L, false);
+    public static boolean a(String str, String str2, d dVar, c cVar, int i) {
+        return a(str, str2, dVar, cVar, i, -1L, -1L, false);
     }
 
-    public static boolean a(String str, String str2, d dVar, c cVar, int i2, long j2, long j3, boolean z) {
+    public static boolean a(String str, String str2, d dVar, c cVar, int i, long j, long j2, boolean z) {
         HttpURLConnection httpURLConnection = null;
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i2 > 0 ? i2 : 120000, false, true);
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i > 0 ? i : 120000, false, true);
             try {
                 if (httpURLConnection2 != null) {
-                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i2, j2, j3, z);
+                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i, j, j2, z);
                     a(dVar);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
@@ -222,21 +223,21 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i2, long j2, long j3, boolean z) {
+    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i, long j, long j2, boolean z) {
         Object valueOf;
         FileOutputStream fileOutputStream;
         File file;
         HashMap hashMap;
         File file2;
         InputStream inputStream = null;
-        int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        if (i3 > 0 || j3 > 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 > 0 || j2 > 0) {
             try {
                 Object[] objArr = new Object[2];
-                objArr[0] = Long.valueOf(j2);
-                if (j3 > 0) {
+                objArr[0] = Long.valueOf(j);
+                if (j2 > 0) {
                     try {
-                        valueOf = Long.valueOf(j3);
+                        valueOf = Long.valueOf(j2);
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream = null;
@@ -275,7 +276,7 @@ public class h {
             httpURLConnection.setRequestProperty("Host", str);
             httpURLConnection.setInstanceFollowRedirects(false);
             if (httpURLConnection.getResponseCode() == 302) {
-                boolean a2 = a(httpURLConnection.getHeaderField("Location"), (String) null, dVar, cVar, i2);
+                boolean a2 = a(httpURLConnection.getHeaderField(Headers.LOCATION), (String) null, dVar, cVar, i);
                 a(dVar);
                 a((Closeable) null);
                 if (httpURLConnection != null) {
@@ -327,22 +328,22 @@ public class h {
                 }
                 try {
                     byte[] bArr = new byte[10240];
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
                         int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
                             break;
                         }
-                        i4 += read;
+                        i3 += read;
                         fileOutputStream.write(bArr, 0, read);
                     }
                     a(bufferedInputStream2);
                     a(fileOutputStream);
                     BufferedInputStream bufferedInputStream3 = new BufferedInputStream(new FileInputStream(file2));
                     try {
-                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i4)));
+                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i3)));
                         bufferedInputStream2 = bufferedInputStream3;
-                        contentLength = i4;
+                        contentLength = i3;
                         file2 = file2;
                     } catch (Throwable th7) {
                         th = th7;
@@ -362,12 +363,12 @@ public class h {
                 fileOutputStream = null;
                 file2 = null;
             }
-            int i5 = (i3 <= 0 || !z) ? 0 : (int) j2;
-            int i6 = contentLength + i5;
-            dVar.a(i6);
+            int i4 = (i2 <= 0 || !z) ? 0 : (int) j;
+            int i5 = contentLength + i4;
+            dVar.a(i5);
             dVar.a(httpURLConnection.getResponseCode(), hashMap);
             if (cVar != null) {
-                cVar.a(i5, i6, null);
+                cVar.a(i4, i5, null);
             }
             byte[] bArr2 = new byte[10240];
             if (SpeedLimitApiHolder.getInstance() != null) {
@@ -378,14 +379,14 @@ public class h {
                 if (read2 == -1) {
                     break;
                 }
-                i5 += read2;
+                i4 += read2;
                 dVar.a(bArr2, 0, read2);
                 if (cVar != null) {
-                    cVar.a(i5, i6, null);
+                    cVar.a(i4, i5, null);
                 }
             }
             if (cVar != null) {
-                cVar.a(i6, i6, null);
+                cVar.a(i5, i5, null);
             }
             a(dVar);
             a(bufferedInputStream2);

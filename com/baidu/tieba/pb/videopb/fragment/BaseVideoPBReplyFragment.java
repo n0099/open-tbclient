@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.videopb.fragment;
 
-import c.a.r0.u2.o.i.a;
+import c.a.p0.w2.q.i.a;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseVideoPBReplyFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,20 +19,20 @@ public abstract class BaseVideoPBReplyFragment extends BaseFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public abstract a getAdapterManager();
+    public abstract a C0();
 
-    public abstract AbsPbActivity getPbActivity();
+    public abstract AbsVideoPbFragment t();
 
-    public abstract PbModel getPbModel();
+    public abstract PbModel w();
 
-    public abstract AbsVideoPbFragment getVideoPbFragment();
+    public abstract AbsPbActivity x();
 }

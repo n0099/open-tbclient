@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UIUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,19 +19,19 @@ public class UIUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int dip2px(int i2, Context context) {
+    public static int dip2px(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, context)) == null) ? (int) ((i2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, context)) == null) ? (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeIL.intValue;
     }
 
     public static void showAlert(Context context, String str, String str2) {
@@ -42,37 +42,37 @@ public class UIUtils {
         new AlertDialog.Builder(context).setTitle(str).setMessage(str2).create().show();
     }
 
-    public static void showToast(Context context, int i2, int i3) {
+    public static void showToast(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, i3) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2) == null) || context == null) {
             return;
         }
-        Toast.makeText(context, i2, i3).show();
+        Toast.makeText(context, i, i2).show();
     }
 
-    public static void showToastInCenter(Context context, int i2, int i3) {
+    public static void showToastInCenter(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65542, null, context, i2, i3) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65542, null, context, i, i2) == null) || context == null) {
             return;
         }
-        Toast makeText = Toast.makeText(context, i2, i3);
+        Toast makeText = Toast.makeText(context, i, i2);
         makeText.setGravity(17, 0, 0);
         makeText.show();
     }
 
-    public static void showToast(Context context, CharSequence charSequence, int i2) {
+    public static void showToast(Context context, CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, context, charSequence, i2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, context, charSequence, i) == null) || context == null) {
             return;
         }
-        Toast.makeText(context, charSequence, i2).show();
+        Toast.makeText(context, charSequence, i).show();
     }
 
-    public static void showAlert(Context context, int i2, int i3) {
+    public static void showAlert(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65538, null, context, i2, i3) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65538, null, context, i, i2) == null) || context == null) {
             return;
         }
-        showAlert(context, context.getString(i2), context.getString(i3));
+        showAlert(context, context.getString(i), context.getString(i2));
     }
 }

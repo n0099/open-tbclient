@@ -6,13 +6,13 @@ import java.nio.Buffer;
 public interface IVlogEditViewManager {
     void cancelStickerSelected();
 
-    Buffer captureVideoCover(int i2, long j2, int i3, int i4);
+    Buffer captureVideoCover(int i, long j, int i2, int i3);
 
     void deleteStickerData(MultiMediaData multiMediaData, String str);
 
     void moveBoundsCheckEnabled(boolean z);
 
-    void setCurrentStickerData(int i2, String str);
+    void setCurrentStickerData(int i, String str);
 
     void setStickerDeleteButton(String str, String str2);
 

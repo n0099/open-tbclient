@@ -18,22 +18,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class BannerDownloadStateBar extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int STATE_DOWNLOADING = 1;
-    public static final int STATE_FINISHED = 3;
-    public static final int STATE_NONE = 0;
-    public static final int STATE_OPEN_APP = 4;
-    public static final int STATE_PAUSE = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public View f40370e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f31128b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f40371f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f40372g;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f31129c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerDownloadStateBar(Context context) {
@@ -44,9 +37,9 @@ public class BannerDownloadStateBar extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -59,55 +52,55 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40370e = LayoutInflater.from(getContext()).inflate(R.layout.ad_apk_download_action_view, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0063, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
-            setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-            this.f40372g = (ImageView) this.f40370e.findViewById(R.id.apk_download_state_icon);
-            this.f40371f = (TextView) this.f40370e.findViewById(R.id.apk_download_state_text);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+            this.f31129c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090279);
+            this.f31128b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09027c);
             setState(0);
         }
     }
 
-    public void setState(int i2) {
+    public void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 0) {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f40372g.setVisibility(8);
-                this.f40372g.setImageDrawable(null);
-                this.f40371f.setText(R.string.ad_button_download_now);
-                this.f40371f.setTextColor(Color.parseColor("#333333"));
-            } else if (i2 == 1) {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f40372g.setVisibility(0);
-                this.f40372g.setImageResource(R.drawable.ad_banner_download_pause);
-                this.f40371f.setText(R.string.ad_button_pause);
-                this.f40371f.setTextColor(Color.parseColor("#333333"));
-            } else if (i2 == 2) {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f40372g.setVisibility(0);
-                this.f40372g.setImageResource(R.drawable.ad_banner_download_resume);
-                this.f40371f.setText(R.string.ad_button_resume);
-                this.f40371f.setTextColor(Color.parseColor("#333333"));
-            } else if (i2 == 3) {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f40372g.setVisibility(8);
-                this.f40372g.setImageDrawable(null);
-                this.f40371f.setText(R.string.ad_button_install);
-                this.f40371f.setTextColor(Color.parseColor("#FFFFFF"));
-            } else if (i2 != 4) {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.f40372g.setVisibility(8);
-                this.f40372g.setImageDrawable(null);
-                this.f40371f.setText(R.string.ad_button_download_now);
-                this.f40371f.setTextColor(Color.parseColor("#333333"));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 0) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                this.f31129c.setVisibility(8);
+                this.f31129c.setImageDrawable(null);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.f31128b.setTextColor(Color.parseColor("#333333"));
+            } else if (i == 1) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                this.f31129c.setVisibility(0);
+                this.f31129c.setImageResource(R.drawable.obfuscated_res_0x7f0800c0);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009e);
+                this.f31128b.setTextColor(Color.parseColor("#333333"));
+            } else if (i == 2) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                this.f31129c.setVisibility(0);
+                this.f31129c.setImageResource(R.drawable.obfuscated_res_0x7f0800c1);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009f);
+                this.f31128b.setTextColor(Color.parseColor("#333333"));
+            } else if (i == 3) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
+                this.f31129c.setVisibility(8);
+                this.f31129c.setImageDrawable(null);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009c);
+                this.f31128b.setTextColor(Color.parseColor("#FFFFFF"));
+            } else if (i != 4) {
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                this.f31129c.setVisibility(8);
+                this.f31129c.setImageDrawable(null);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.f31128b.setTextColor(Color.parseColor("#333333"));
             } else {
-                setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.f40372g.setVisibility(8);
-                this.f40372g.setImageDrawable(null);
-                this.f40371f.setText(R.string.ad_button_open);
-                this.f40371f.setTextColor(Color.parseColor("#FFFFFF"));
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
+                this.f31129c.setVisibility(8);
+                this.f31129c.setImageDrawable(null);
+                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009d);
+                this.f31128b.setTextColor(Color.parseColor("#FFFFFF"));
             }
         }
     }
@@ -121,9 +114,9 @@ public class BannerDownloadStateBar extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -134,17 +127,17 @@ public class BannerDownloadStateBar extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BannerDownloadStateBar(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

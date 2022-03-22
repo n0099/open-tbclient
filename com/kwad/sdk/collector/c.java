@@ -8,7 +8,7 @@ public class c {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(int i2, String str);
+        void a(int i, String str);
 
         void a(AppStatusRules appStatusRules);
     }
@@ -60,11 +60,11 @@ public class c {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.a.a aVar2, int i2, String str) {
-                super.a((AnonymousClass3) aVar2, i2, str);
+            public void a(@NonNull com.kwad.sdk.collector.a.a aVar2, int i, String str) {
+                super.a((AnonymousClass3) aVar2, i, str);
                 a aVar3 = a.this;
                 if (aVar3 != null) {
-                    aVar3.a(i2, str);
+                    aVar3.a(i, str);
                 }
             }
 

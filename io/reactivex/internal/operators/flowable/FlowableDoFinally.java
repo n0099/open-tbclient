@@ -21,13 +21,13 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onFinally;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DoFinallyConditionalSubscriber<T> extends BasicIntQueueSubscription<T> implements ConditionalSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
@@ -45,9 +45,9 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {conditionalSubscriber, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -135,23 +135,23 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.s.request(j);
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 QueueSubscription<T> queueSubscription = this.qs;
-                if (queueSubscription == null || (i2 & 4) != 0) {
+                if (queueSubscription == null || (i & 4) != 0) {
                     return 0;
                 }
-                int requestFusion = queueSubscription.requestFusion(i2);
+                int requestFusion = queueSubscription.requestFusion(i);
                 if (requestFusion != 0) {
                     this.syncFused = requestFusion == 1;
                 }
@@ -180,7 +180,7 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DoFinallySubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
@@ -198,9 +198,9 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -288,23 +288,23 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.s.request(j);
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 QueueSubscription<T> queueSubscription = this.qs;
-                if (queueSubscription == null || (i2 & 4) != 0) {
+                if (queueSubscription == null || (i & 4) != 0) {
                     return 0;
                 }
-                int requestFusion = queueSubscription.requestFusion(i2);
+                int requestFusion = queueSubscription.requestFusion(i);
                 if (requestFusion != 0) {
                     this.syncFused = requestFusion == 1;
                 }
@@ -335,9 +335,9 @@ public final class FlowableDoFinally<T> extends AbstractFlowableWithUpstream<T, 
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -55,9 +55,9 @@ public class GroupPermData implements n, Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -155,45 +155,45 @@ public class GroupPermData implements n, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.isManager == 1 : invokeV.booleanValue;
     }
 
-    public void setCanCreateNormal(int i2) {
+    public void setCanCreateNormal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.canCreateNormal = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.canCreateNormal = i;
         }
     }
 
-    public void setCanCreateNormalNum(int i2) {
+    public void setCanCreateNormalNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.canCreateNormalNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.canCreateNormalNum = i;
         }
     }
 
-    public void setCanCreateOfficial(int i2) {
+    public void setCanCreateOfficial(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.canCreateOfficial = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.canCreateOfficial = i;
         }
     }
 
-    public void setCanCreateOfficialNum(int i2) {
+    public void setCanCreateOfficialNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.canCreateOfficialNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.canCreateOfficialNum = i;
         }
     }
 
-    public void setCanCreatePersonal(int i2) {
+    public void setCanCreatePersonal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.canCreatePersonal = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.canCreatePersonal = i;
         }
     }
 
-    public void setCanCreatePersonalNum(int i2) {
+    public void setCanCreatePersonalNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.canCreatePersonalNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.canCreatePersonalNum = i;
         }
     }
 
@@ -225,10 +225,10 @@ public class GroupPermData implements n, Serializable {
         }
     }
 
-    public void setIsManager(int i2) {
+    public void setIsManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.isManager = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.isManager = i;
         }
     }
 }

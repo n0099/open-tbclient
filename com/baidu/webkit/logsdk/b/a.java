@@ -11,16 +11,16 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51453b;
+    public int f37906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51454c;
+    public String f37907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51455d;
+    public String f37908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51456e;
+    public String f37909e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51456e = "full";
+        this.f37909e = "full";
         this.a = str;
     }
 }

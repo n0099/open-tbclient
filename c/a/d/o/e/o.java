@@ -3,7 +3,7 @@ package c.a.d.o.e;
 public interface o<T> {
     int getCount();
 
-    T getItem(int i2);
+    T getItem(int i);
 
     void notifyDataSetChanged();
 }

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class i implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ThreadFactory a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31997b;
+    public final String f25259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f31998c;
+    public final AtomicInteger f25260c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -29,9 +29,9 @@ public class i implements ThreadFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (ThreadFactory) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -48,23 +48,23 @@ public class i implements ThreadFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, threadFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f31998c = new AtomicInteger(0);
-        this.f31997b = str;
+        this.f25260c = new AtomicInteger(0);
+        this.f25259b = str;
         this.a = threadFactory;
     }
 
-    private String a(int i2) {
+    private String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f31997b, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) ? String.format("%s-%d", this.f25259b, Integer.valueOf(i)) : (String) invokeI.objValue;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -73,7 +73,7 @@ public class i implements ThreadFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             Thread newThread = this.a.newThread(runnable);
-            newThread.setName(a(this.f31998c.getAndIncrement()));
+            newThread.setName(a(this.f25260c.getAndIncrement()));
             return newThread;
         }
         return (Thread) invokeL.objValue;

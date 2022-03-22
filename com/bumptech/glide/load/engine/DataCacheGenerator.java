@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
             newInitContext.initArgs = r2;
             Object[] objArr = {decodeHelper, fetcherReadyCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((List) objArr2[0], (DecodeHelper) objArr2[1], (DataFetcherGenerator.FetcherReadyCallback) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -94,9 +94,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
                 this.loadData = null;
                 while (!z && hasNextModelLoader()) {
                     List<ModelLoader<File, ?>> list = this.modelLoaders;
-                    int i2 = this.modelLoaderIndex;
-                    this.modelLoaderIndex = i2 + 1;
-                    this.loadData = list.get(i2).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                    int i = this.modelLoaderIndex;
+                    this.modelLoaderIndex = i + 1;
+                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
                     if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
                         this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                         z = true;
@@ -104,9 +104,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
                 }
                 return z;
             }
-            int i3 = this.sourceIdIndex + 1;
-            this.sourceIdIndex = i3;
-            if (i3 >= this.cacheKeys.size()) {
+            int i2 = this.sourceIdIndex + 1;
+            this.sourceIdIndex = i2;
+            if (i2 >= this.cacheKeys.size()) {
                 return false;
             }
             Key key = this.cacheKeys.get(this.sourceIdIndex);
@@ -127,9 +127,9 @@ public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.Dat
             newInitContext.initArgs = r2;
             Object[] objArr = {list, decodeHelper, fetcherReadyCallback};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

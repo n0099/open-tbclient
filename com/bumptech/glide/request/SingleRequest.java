@@ -33,7 +33,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SingleRequest<R> implements Request, SizeReadyCallback, ResourceCallback, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_TAG = "Glide";
@@ -73,7 +73,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -108,16 +108,16 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
             $VALUES = new Status[]{PENDING, RUNNING, WAITING_FOR_SIZE, COMPLETE, FAILED, status};
         }
 
-        public Status(String str, int i2) {
+        public Status(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -162,9 +162,9 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -188,9 +188,9 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -299,16 +299,16 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         return (Drawable) invokeV.objValue;
     }
 
-    private void init(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i2, int i3, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
+    private void init(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i2), Integer.valueOf(i3), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory}) == null) {
             this.context = context;
             this.glideContext = glideContext;
             this.model = obj;
             this.transcodeClass = cls;
             this.requestOptions = requestOptions;
-            this.overrideWidth = i2;
-            this.overrideHeight = i3;
+            this.overrideWidth = i;
+            this.overrideHeight = i2;
             this.priority = priority;
             this.target = target;
             this.targetListener = requestListener;
@@ -342,11 +342,11 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         return invokeLL.booleanValue;
     }
 
-    private Drawable loadDrawable(@DrawableRes int i2) {
+    private Drawable loadDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i2)) == null) {
-            return DrawableDecoderCompat.getDrawable(this.glideContext, i2, this.requestOptions.getTheme() != null ? this.requestOptions.getTheme() : this.context.getTheme());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
+            return DrawableDecoderCompat.getDrawable(this.glideContext, i, this.requestOptions.getTheme() != null ? this.requestOptions.getTheme() : this.context.getTheme());
         }
         return (Drawable) invokeI.objValue;
     }
@@ -354,14 +354,14 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     private void logV(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
-            String str2 = str + " this: " + this.tag;
+            Log.v(TAG, str + " this: " + this.tag);
         }
     }
 
-    public static int maybeApplySizeMultiplier(int i2, float f2) {
+    public static int maybeApplySizeMultiplier(int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? i2 == Integer.MIN_VALUE ? i2 : Math.round(f2 * i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? i == Integer.MIN_VALUE ? i : Math.round(f2 * i) : invokeCommon.intValue;
     }
 
     private void notifyLoadFailed() {
@@ -382,15 +382,15 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         requestCoordinator.onRequestSuccess(this);
     }
 
-    public static <R> SingleRequest<R> obtain(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i2, int i3, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
+    public static <R> SingleRequest<R> obtain(Context context, GlideContext glideContext, Object obj, Class<R> cls, RequestOptions requestOptions, int i, int i2, Priority priority, Target<R> target, RequestListener<R> requestListener, @Nullable List<RequestListener<R>> list, RequestCoordinator requestCoordinator, Engine engine, TransitionFactory<? super R> transitionFactory) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i2), Integer.valueOf(i3), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, glideContext, obj, cls, requestOptions, Integer.valueOf(i), Integer.valueOf(i2), priority, target, requestListener, list, requestCoordinator, engine, transitionFactory})) == null) {
             SingleRequest<?> acquire = POOL.acquire();
             if (acquire == null) {
                 acquire = new SingleRequest();
             }
-            acquire.init(context, glideContext, obj, cls, requestOptions, i2, i3, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory);
+            acquire.init(context, glideContext, obj, cls, requestOptions, i, i2, priority, target, requestListener, list, requestCoordinator, engine, transitionFactory);
             return acquire;
         }
         return (SingleRequest) invokeCommon.objValue;
@@ -589,9 +589,9 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     }
 
     @Override // com.bumptech.glide.request.target.SizeReadyCallback
-    public void onSizeReady(int i2, int i3) {
+    public void onSizeReady(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
             this.stateVerifier.throwIfRecycled();
             if (IS_VERBOSE_LOGGABLE) {
                 logV("Got onSizeReady in " + LogTime.getElapsedMillis(this.startTime));
@@ -601,8 +601,8 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
             }
             this.status = Status.RUNNING;
             float sizeMultiplier = this.requestOptions.getSizeMultiplier();
-            this.width = maybeApplySizeMultiplier(i2, sizeMultiplier);
-            this.height = maybeApplySizeMultiplier(i3, sizeMultiplier);
+            this.width = maybeApplySizeMultiplier(i, sizeMultiplier);
+            this.height = maybeApplySizeMultiplier(i2, sizeMultiplier);
             if (IS_VERBOSE_LOGGABLE) {
                 logV("finished setup for calling load in " + LogTime.getElapsedMillis(this.startTime));
             }
@@ -643,14 +643,14 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
         }
     }
 
-    private void onLoadFailed(GlideException glideException, int i2) {
+    private void onLoadFailed(GlideException glideException, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65555, this, glideException, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65555, this, glideException, i) == null) {
             this.stateVerifier.throwIfRecycled();
             int logLevel = this.glideContext.getLogLevel();
-            if (logLevel <= i2) {
-                String str = "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT;
+            if (logLevel <= i) {
+                Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT, glideException);
                 if (logLevel <= 4) {
                     glideException.logRootCauses("Glide");
                 }
@@ -691,7 +691,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
             this.status = Status.COMPLETE;
             this.resource = resource;
             if (this.glideContext.getLogLevel() <= 3) {
-                String str = "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms";
+                Log.d("Glide", "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
             }
             boolean z2 = true;
             this.isCallingCallbacks = true;

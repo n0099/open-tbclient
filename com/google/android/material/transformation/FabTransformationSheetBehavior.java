@@ -23,7 +23,7 @@ import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,8 +54,8 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
                 if (Build.VERSION.SDK_INT >= 16 && z) {
                     this.importantForAccessibilityMap = new HashMap(childCount);
                 }
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = coordinatorLayout.getChildAt(i2);
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = coordinatorLayout.getChildAt(i);
                     boolean z2 = (childAt.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) && (((CoordinatorLayout.LayoutParams) childAt.getLayoutParams()).getBehavior() instanceof FabTransformationScrimBehavior);
                     if (childAt != view && !z2) {
                         if (!z) {
@@ -85,9 +85,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, context, z)) == null) {
-            int i2 = z ? R.animator.mtrl_fab_transformation_sheet_expand_spec : R.animator.mtrl_fab_transformation_sheet_collapse_spec;
+            int i = z ? R.animator.obfuscated_res_0x7f02000e : R.animator.obfuscated_res_0x7f02000d;
             FabTransformationBehavior.FabTransformationSpec fabTransformationSpec = new FabTransformationBehavior.FabTransformationSpec();
-            fabTransformationSpec.timings = MotionSpec.createFromResource(context, i2);
+            fabTransformationSpec.timings = MotionSpec.createFromResource(context, i);
             fabTransformationSpec.positioning = new Positioning(17, 0.0f, 0.0f);
             return fabTransformationSpec;
         }
@@ -115,9 +115,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

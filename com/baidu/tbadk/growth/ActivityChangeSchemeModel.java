@@ -2,7 +2,7 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import c.a.q0.a0.b;
+import c.a.o0.a0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -27,9 +27,7 @@ import java.lang.reflect.InvocationTargetException;
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f39679e;
+    public final HttpMessageListener a;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -38,17 +36,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         public final /* synthetic */ ActivityChangeSchemeModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ActivityChangeSchemeModel activityChangeSchemeModel, int i2) {
-            super(i2);
+        public a(ActivityChangeSchemeModel activityChangeSchemeModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activityChangeSchemeModel, Integer.valueOf(i2)};
+                Object[] objArr = {activityChangeSchemeModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -81,11 +79,11 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
                     b.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    this.a.y();
+                    this.a.A();
                 } else {
-                    int a = c.a.q0.r.f0.b.a();
+                    int a = c.a.o0.r.f0.b.a();
                     if (a != 2) {
-                        this.a.z(a);
+                        this.a.B(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
@@ -100,23 +98,23 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39679e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.a = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
-        A();
-        this.f39679e.setTag(getUniqueId());
-        this.f39679e.setSelfListener(true);
-        registerListener(this.f39679e);
+        C();
+        this.a.setTag(getUniqueId());
+        this.a.setSelfListener(true);
+        registerListener(this.a);
     }
 
-    public static void A() {
+    public static void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_DEEPLINK_SCHEME);
@@ -127,36 +125,9 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public void B() {
+    public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sendMessage(new HttpMessage(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME));
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 Object invoke = c.a.d.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.g().b(), new Object[0]);
                 b.b(invoke != null ? (String) invoke : null);
@@ -170,18 +141,45 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public final void z(int i2) {
+    public final void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 1) {
                 b.b("a025");
-            } else if (i2 == 22) {
+            } else if (i == 22) {
                 b.b("a088");
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 b.b("a079");
-            } else if (i2 == 8) {
+            } else if (i == 8) {
                 b.b("a011");
             }
         }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sendMessage(new HttpMessage(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME));
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

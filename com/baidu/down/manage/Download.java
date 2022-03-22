@@ -17,7 +17,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Download {
     public static /* synthetic */ Interceptable $ic;
     public static final DecimalFormat DFOEMAT;
@@ -54,7 +54,7 @@ public class Download {
     public String mUrl;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class DownloadState {
         public static final /* synthetic */ DownloadState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,16 +91,16 @@ public class Download {
             $VALUES = new DownloadState[]{WAITING, DOWNLOADING, PAUSE, FAILED, CANCEL, FINISH, downloadState};
         }
 
-        public DownloadState(String str, int i2) {
+        public DownloadState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -110,16 +110,16 @@ public class Download {
             }
         }
 
-        public static DownloadState getState(int i2) {
+        public static DownloadState getState(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 != 4) {
-                                    if (i2 != 5) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
+                                    if (i != 5) {
                                         return UNKNOWN;
                                     }
                                     return FINISH;
@@ -171,9 +171,9 @@ public class Download {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -207,23 +207,23 @@ public class Download {
         this.mNotificationNeeded = false;
     }
 
-    private void addControlFlag(long j2) {
+    private void addControlFlag(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
-            this.mControlFlag = Long.valueOf(j2 | this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
+            this.mControlFlag = Long.valueOf(j | this.mControlFlag.longValue());
         }
     }
 
-    private boolean hasControlFlag(long j2) {
+    private boolean hasControlFlag(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) ? (j2 & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) ? (j & this.mControlFlag.longValue()) > 0 : invokeJ.booleanValue;
     }
 
-    private void removeControlFlag(long j2) {
+    private void removeControlFlag(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            this.mControlFlag = Long.valueOf((~j2) & this.mControlFlag.longValue());
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            this.mControlFlag = Long.valueOf((~j) & this.mControlFlag.longValue());
         }
     }
 
@@ -557,10 +557,10 @@ public class Download {
         }
     }
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.mPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.mPriority = i;
         }
     }
 

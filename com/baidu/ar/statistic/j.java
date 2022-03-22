@@ -40,9 +40,9 @@ public class j implements e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -95,8 +95,8 @@ public class j implements e {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = null;
             try {
-                Map<String, Object> i2 = i(list);
-                Set<String> keySet = i2 != null ? i2.keySet() : null;
+                Map<String, Object> i = i(list);
+                Set<String> keySet = i != null ? i.keySet() : null;
                 for (a aVar : list) {
                     if (jSONObject == null) {
                         JSONObject jSONObject2 = new JSONObject();
@@ -116,8 +116,8 @@ public class j implements e {
                     jSONArray.put(a);
                 }
                 if (jSONObject != null) {
-                    if (i2 != null) {
-                        for (Map.Entry<String, Object> entry : i2.entrySet()) {
+                    if (i != null) {
+                        for (Map.Entry<String, Object> entry : i.entrySet()) {
                             jSONObject.put(entry.getKey(), entry.getValue());
                         }
                     }
@@ -217,7 +217,7 @@ public class j implements e {
     public void h(JSONObject jSONObject) {
         IHttpRequest newRequest;
         String str;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || (newRequest = HttpFactory.newRequest()) == null) {
             return;
@@ -225,14 +225,14 @@ public class j implements e {
         newRequest.setUrl(s.gQ()).setMethod("POST").setBody(jSONObject);
         IHttpResponse execute = newRequest.execute();
         if (execute.isSuccess()) {
-            i2 = execute.getCode();
+            i = execute.getCode();
             str = execute.getContent();
         } else {
             str = "";
-            i2 = 0;
+            i = 0;
         }
-        if (i2 != 200 || !str.equals("success")) {
-            throw new IOException(String.format("stats response is error. code: %d response: %s", Integer.valueOf(i2), str));
+        if (i != 200 || !str.equals("success")) {
+            throw new IOException(String.format("stats response is error. code: %d response: %s", Integer.valueOf(i), str));
         }
     }
 
@@ -255,8 +255,8 @@ public class j implements e {
                 }
             }
             int size = list.size();
-            for (int i2 = 1; i2 < size; i2++) {
-                a aVar2 = list.get(i2);
+            for (int i = 1; i < size; i++) {
+                a aVar2 = list.get(i);
                 for (String str : arrayList) {
                     if (hashMap2.containsKey(str) && !hashMap.get(str).equals(aVar2.aC(str))) {
                         hashMap2.remove(str);

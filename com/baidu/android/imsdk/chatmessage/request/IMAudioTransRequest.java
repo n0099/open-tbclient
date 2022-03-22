@@ -71,16 +71,16 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         FORM_LINEEND = System.getProperty("line.separator");
     }
 
-    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i2, String str4) {
+    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), str4};
+            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i), str4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,7 +91,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         this.mFilePath = str;
         this.mContentType = str2;
         this.mFormat = str3;
-        this.mReqSource = i2;
+        this.mReqSource = i;
     }
 
     public void execute() {
@@ -109,9 +109,9 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -168,7 +168,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                         stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
                                         stringBuffer.append(entry.getValue());
                                         stringBuffer.append(IMAudioTransRequest.FORM_LINEEND);
-                                        dataOutputStream.write(stringBuffer.toString().getBytes("utf-8"));
+                                        dataOutputStream.write(stringBuffer.toString().getBytes(IMAudioTransRequest.CHARSET));
                                     }
                                     StringBuffer stringBuffer2 = new StringBuffer();
                                     stringBuffer2.append("--");
@@ -180,7 +180,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     sb.append(IMAudioTransRequest.FORM_LINEEND);
                                     stringBuffer2.append(sb.toString());
                                     stringBuffer2.append(IMAudioTransRequest.FORM_LINEEND);
-                                    dataOutputStream.write(stringBuffer2.toString().getBytes("utf-8"));
+                                    dataOutputStream.write(stringBuffer2.toString().getBytes(IMAudioTransRequest.CHARSET));
                                     fileInputStream = new FileInputStream(file);
                                 } catch (Exception e2) {
                                     e = e2;
@@ -207,8 +207,8 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
                                     }
                                     dataOutputStream.write(bArr, 0, read);
                                 }
-                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes("utf-8"));
-                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes("utf-8"));
+                                dataOutputStream.write(IMAudioTransRequest.FORM_LINEEND.getBytes(IMAudioTransRequest.CHARSET));
+                                dataOutputStream.write(("--" + IMAudioTransRequest.FORM_BOUNDARY + "--" + IMAudioTransRequest.FORM_LINEEND).getBytes(IMAudioTransRequest.CHARSET));
                                 dataOutputStream.flush();
                                 int responseCode = httpURLConnection.getResponseCode();
                                 if (responseCode == 200) {
@@ -369,64 +369,64 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMAudio Trans onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         String str2;
         String str3;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str4 = new String(bArr);
             LogUtils.d("IMGenBosObjectUrlRequest", str4);
             try {
                 jSONObject = new JSONObject(str4);
-                i3 = jSONObject.optInt("error_code", -1);
+                i2 = jSONObject.optInt("error_code", -1);
             } catch (Exception e2) {
                 LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e2);
                 LogUtils.e(TAG, e2.getMessage(), e2);
-                i3 = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 str3 = jSONObject.optString("base64_file");
                 str2 = Constants.ERROR_MSG_SUCCESS;
-                ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);
+                ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i2, str2, str3);
             }
-            i3 = jSONObject.getInt("error_code");
+            i2 = jSONObject.getInt("error_code");
             str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
             str2 = str;
             str3 = "";
-            ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);
+            ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i2, str2, str3);
         }
     }
 
-    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, bArr, th)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, bArr, th)) == null) {
             if (th != null) {
-                i2 = 1012;
+                i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-            } else if (i2 == 1005) {
+            } else if (i == 1005) {
                 str = new String(bArr);
             } else {
-                str = "http response is error! response code:" + i2;
-                i2 = 1011;
+                str = "http response is error! response code:" + i;
+                i = 1011;
             }
-            return new Pair<>(Integer.valueOf(i2), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

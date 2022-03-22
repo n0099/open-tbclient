@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialToolbar extends Toolbar {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_Toolbar = 2131755951;
+    public static final int obfuscated_res_0x7f10038d = 2131755917;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,9 +55,9 @@ public class MaterialToolbar extends Toolbar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -102,16 +102,16 @@ public class MaterialToolbar extends Toolbar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.toolbarStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040654);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -122,17 +122,17 @@ public class MaterialToolbar extends Toolbar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_Toolbar), attributeSet, i2);
+    public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10038d), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

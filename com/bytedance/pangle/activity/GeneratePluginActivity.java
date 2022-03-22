@@ -65,7 +65,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class GeneratePluginActivity extends Activity implements IPluginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,9 +77,9 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -87,10 +87,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // com.bytedance.pangle.activity.IPluginActivity
-    public void _requestPermissions(String[] strArr, int i2) {
+    public void _requestPermissions(String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, strArr, i2) == null) {
-            this.mProxyActivity.requestPermissions(strArr, i2);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, strArr, i) == null) {
+            this.mProxyActivity.requestPermissions(strArr, i);
         }
     }
 
@@ -134,10 +134,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public PendingIntent createPendingResult(int i2, Intent intent, int i3) {
+    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), intent, Integer.valueOf(i3)})) == null) ? this.mProxyActivity.zeusSuperCreatePendingResult(i2, intent, i3) : (PendingIntent) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? this.mProxyActivity.zeusSuperCreatePendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -199,10 +199,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public View findViewById(int i2) {
+    public View findViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? this.mProxyActivity.zeusSuperFindViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? this.mProxyActivity.zeusSuperFindViewById(i) : (View) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -214,18 +214,18 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void finishActivity(int i2) {
+    public void finishActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mProxyActivity.zeusSuperFinishActivity(i2);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mProxyActivity.zeusSuperFinishActivity(i);
         }
     }
 
     @Override // android.app.Activity
-    public void finishActivityFromChild(Activity activity, int i2) {
+    public void finishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, activity, i2) == null) {
-            this.mProxyActivity.zeusSuperFinishActivityFromChild(activity, i2);
+        if (interceptable == null || interceptable.invokeLI(1048595, this, activity, i) == null) {
+            this.mProxyActivity.zeusSuperFinishActivityFromChild(activity, i);
         }
     }
 
@@ -381,10 +381,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public SharedPreferences getPreferences(int i2) {
+    public SharedPreferences getPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) ? this.mProxyActivity.zeusSuperGetPreferences(i2) : (SharedPreferences) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i)) == null) ? this.mProxyActivity.zeusSuperGetPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -566,26 +566,26 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void onActivityReenter(int i2, Intent intent) {
+    public void onActivityReenter(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048643, this, i2, intent) == null) {
-            this.mProxyActivity.zeusSuperOnActivityReenter(i2, intent);
+        if (interceptable == null || interceptable.invokeIL(1048643, this, i, intent) == null) {
+            this.mProxyActivity.zeusSuperOnActivityReenter(i, intent);
         }
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048644, this, i2, i3, intent) == null) {
-            this.mProxyActivity.zeusSuperOnActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048644, this, i, i2, intent) == null) {
+            this.mProxyActivity.zeusSuperOnActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.mProxyActivity.zeusSuperOnApplyThemeResource(theme, i2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.mProxyActivity.zeusSuperOnApplyThemeResource(theme, i, z);
         }
     }
 
@@ -678,10 +678,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public Dialog onCreateDialog(int i2) {
+    public Dialog onCreateDialog(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048658, this, i2)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i2) : (Dialog) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048658, this, i)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i) : (Dialog) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -700,17 +700,17 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i2, Menu menu) {
+    public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048662, this, i2, menu)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048662, this, i, menu)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public View onCreatePanelView(int i2) {
+    public View onCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048663, this, i2)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048663, this, i)) == null) ? this.mProxyActivity.zeusSuperOnCreatePanelView(i) : (View) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -767,38 +767,38 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048672, this, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyDown(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048672, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048673, this, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyLongPress(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048673, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048674, this, i2, i3, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048674, this, i, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
     @Override // android.app.Activity
-    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048675, this, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyShortcut(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048675, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyShortcut(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i2, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyUp(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, keyEvent)) == null) ? this.mProxyActivity.zeusSuperOnKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -826,10 +826,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i2, Menu menu) {
+    public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048680, this, i2, menu)) == null) ? this.mProxyActivity.zeusSuperOnMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048680, this, i, menu)) == null) ? this.mProxyActivity.zeusSuperOnMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -878,10 +878,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i2, Menu menu) {
+    public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048688, this, i2, menu) == null) {
-            this.mProxyActivity.zeusSuperOnPanelClosed(i2, menu);
+        if (interceptable == null || interceptable.invokeIL(1048688, this, i, menu) == null) {
+            this.mProxyActivity.zeusSuperOnPanelClosed(i, menu);
         }
     }
 
@@ -933,10 +933,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void onPrepareDialog(int i2, Dialog dialog) {
+    public void onPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048697, this, i2, dialog) == null) {
-            this.mProxyActivity.zeusSuperOnPrepareDialog(i2, dialog);
+        if (interceptable == null || interceptable.invokeIL(1048697, this, i, dialog) == null) {
+            this.mProxyActivity.zeusSuperOnPrepareDialog(i, dialog);
         }
     }
 
@@ -956,10 +956,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i2, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048701, this, i2, view, menu)) == null) ? this.mProxyActivity.zeusSuperOnPreparePanel(i2, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048701, this, i, view, menu)) == null) ? this.mProxyActivity.zeusSuperOnPreparePanel(i, view, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -979,10 +979,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onProvideKeyboardShortcuts(List list, Menu menu, int i2) {
+    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048704, this, list, menu, i2) == null) {
-            this.mProxyActivity.zeusSuperOnProvideKeyboardShortcuts(list, menu, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048704, this, list, menu, i) == null) {
+            this.mProxyActivity.zeusSuperOnProvideKeyboardShortcuts(list, menu, i);
         }
     }
 
@@ -994,10 +994,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048706, this, i2, strArr, iArr) == null) {
-            this.mProxyActivity.zeusSuperOnRequestPermissionsResult(i2, strArr, iArr);
+        if (interceptable == null || interceptable.invokeILL(1048706, this, i, strArr, iArr) == null) {
+            this.mProxyActivity.zeusSuperOnRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -1065,10 +1065,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i2) {
+    public void onTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048718, this, charSequence, i2) == null) {
-            this.mProxyActivity.zeusSuperOnTitleChanged(charSequence, i2);
+        if (interceptable == null || interceptable.invokeLI(1048718, this, charSequence, i) == null) {
+            this.mProxyActivity.zeusSuperOnTitleChanged(charSequence, i);
         }
     }
 
@@ -1095,10 +1095,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i2) {
+    public void onTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048722, this, i2) == null) {
-            this.mProxyActivity.zeusSuperOnTrimMemory(i2);
+        if (interceptable == null || interceptable.invokeI(1048722, this, i) == null) {
+            this.mProxyActivity.zeusSuperOnTrimMemory(i);
         }
     }
 
@@ -1166,10 +1166,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048732, this, i2, i3) == null) {
-            this.mProxyActivity.zeusSuperOverridePendingTransition(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048732, this, i, i2) == null) {
+            this.mProxyActivity.zeusSuperOverridePendingTransition(i, i2);
         }
     }
 
@@ -1251,10 +1251,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048743, this, i2) == null) {
-            this.mProxyActivity.zeusSuperSetContentView(i2);
+        if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
+            this.mProxyActivity.zeusSuperSetContentView(i);
             c.a(this, findViewById(16908290));
         }
     }
@@ -1333,21 +1333,21 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // com.bytedance.pangle.activity.IPluginActivity
-    public void setProxyTheme2Plugin(int i2) {
+    public void setProxyTheme2Plugin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048755, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048755, this, i) == null) {
             try {
-                super.setTheme(i2);
+                super.setTheme(i);
             } catch (Exception unused) {
             }
         }
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048756, this, i2) == null) {
-            this.mProxyActivity.zeusSuperSetRequestedOrientation(i2);
+        if (interceptable == null || interceptable.invokeI(1048756, this, i) == null) {
+            this.mProxyActivity.zeusSuperSetRequestedOrientation(i);
         }
     }
 
@@ -1368,26 +1368,26 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048759, this, i2) == null) {
-            this.mProxyActivity.zeusSuperSetTheme(i2);
+        if (interceptable == null || interceptable.invokeI(1048759, this, i) == null) {
+            this.mProxyActivity.zeusSuperSetTheme(i);
         }
     }
 
     @Override // android.app.Activity
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048760, this, i2) == null) {
-            this.mProxyActivity.zeusSuperSetTitle(i2);
+        if (interceptable == null || interceptable.invokeI(1048760, this, i) == null) {
+            this.mProxyActivity.zeusSuperSetTitle(i);
         }
     }
 
     @Override // android.app.Activity
-    public void setTitleColor(int i2) {
+    public void setTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048762, this, i2) == null) {
-            this.mProxyActivity.zeusSuperSetTitleColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048762, this, i) == null) {
+            this.mProxyActivity.zeusSuperSetTitleColor(i);
         }
     }
 
@@ -1475,57 +1475,57 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i2) {
+    public void startActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048777, this, intent, i2) == null) {
-            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048777, this, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i2) {
+    public void startActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048779, this, activity, intent, i2) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048779, this, activity, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048781, this, fragment, intent, i2) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048781, this, fragment, intent, i) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i2) {
+    public boolean startActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048783, this, intent, i2)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048783, this, intent, i)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048785, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048785, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048787, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048787, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) {
+    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
         }
     }
 
@@ -1640,10 +1640,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public Dialog onCreateDialog(int i2, Bundle bundle) {
+    public Dialog onCreateDialog(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048659, this, i2, bundle)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i2, bundle) : (Dialog) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048659, this, i, bundle)) == null) ? this.mProxyActivity.zeusSuperOnCreateDialog(i, bundle) : (Dialog) invokeIL.objValue;
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
@@ -1678,10 +1678,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void onPrepareDialog(int i2, Dialog dialog, Bundle bundle) {
+    public void onPrepareDialog(int i, Dialog dialog, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048698, this, i2, dialog, bundle) == null) {
-            this.mProxyActivity.zeusSuperOnPrepareDialog(i2, dialog, bundle);
+        if (interceptable == null || interceptable.invokeILL(1048698, this, i, dialog, bundle) == null) {
+            this.mProxyActivity.zeusSuperOnPrepareDialog(i, dialog, bundle);
         }
     }
 
@@ -1709,10 +1709,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048729, this, callback, i2)) == null) ? this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048729, this, callback, i)) == null) ? this.mProxyActivity.zeusSuperOnWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     @Override // android.app.Activity
@@ -1724,10 +1724,10 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public ActionMode startActionMode(ActionMode.Callback callback, int i2) {
+    public ActionMode startActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048772, this, callback, i2)) == null) ? this.mProxyActivity.zeusSuperStartActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048772, this, callback, i)) == null) ? this.mProxyActivity.zeusSuperStartActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -1747,57 +1747,57 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i2, Bundle bundle) {
+    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048778, this, intent, i2, bundle) == null) {
-            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLIL(1048778, this, intent, i, bundle) == null) {
+            this.mProxyActivity.zeusSuperStartActivityForResult(intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i2, Bundle bundle) {
+    public void startActivityFromChild(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048780, this, activity, intent, i2, bundle) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLLIL(1048780, this, activity, intent, i, bundle) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromChild(activity, intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2, Bundle bundle) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048782, this, fragment, intent, i2, bundle) == null) {
-            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLLIL(1048782, this, fragment, intent, i, bundle) == null) {
+            this.mProxyActivity.zeusSuperStartActivityFromFragment(fragment, intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i2, Bundle bundle) {
+    public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048784, this, intent, i2, bundle)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i2, bundle) : invokeLIL.booleanValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048784, this, intent, i, bundle)) == null) ? this.mProxyActivity.zeusSuperStartActivityIfNeeded(intent, i, bundle) : invokeLIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4, Bundle bundle) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048786, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i2, i3, i4, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048786, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSender(intentSender, intent, i, i2, i3, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5, Bundle bundle) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5, Bundle bundle) {
+    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i2, intent, i3, i4, i5, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+            this.mProxyActivity.zeusSuperStartIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 

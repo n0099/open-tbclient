@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ABNameDefine {
     public static final /* synthetic */ ABNameDefine[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,16 +42,16 @@ public final class ABNameDefine {
         $VALUES = new ABNameDefine[]{GSLB, VERIFY_RETURN, NEW_SEND_MODULE, aBNameDefine};
     }
 
-    public ABNameDefine(String str, int i2, String str2, int i3) {
+    public ABNameDefine(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -61,7 +61,7 @@ public final class ABNameDefine {
             }
         }
         this.name = str2;
-        this.defaultValue = i3;
+        this.defaultValue = i2;
     }
 
     public static ABNameDefine valueOf(String str) {
@@ -88,10 +88,10 @@ public final class ABNameDefine {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
-    public void setDefaultValue(int i2) {
+    public void setDefaultValue(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.defaultValue = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.defaultValue = i;
         }
     }
 

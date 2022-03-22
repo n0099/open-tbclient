@@ -1,13 +1,13 @@
 package com.kwai.filedownloader.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
     void a();
 
-    void a(long j2);
+    void a(long j);
 
-    void a(byte[] bArr, int i2, int i3);
+    void a(byte[] bArr, int i, int i2);
 
     void b();
 
-    void b(long j2);
+    void b(long j);
 }

@@ -5,45 +5,40 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class q {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f58614b;
+    public final String f43326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f58615c;
+    public final String f43327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f58616d;
+    public final boolean f43328d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<m> f58617e;
+    public final List<m> f43329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f58618f;
+    public int f43330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58619g;
+    public boolean f43331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f58620h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f58621i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final AtomicLong f58622j;
+    public int f43332h;
+    public String i;
+    public final AtomicLong j;
 
     public q(String str, boolean z) {
-        this.f58617e = new ArrayList();
-        this.f58622j = new AtomicLong();
+        this.f43329e = new ArrayList();
+        this.j = new AtomicLong();
         this.a = str;
-        this.f58616d = z;
-        this.f58614b = null;
-        this.f58615c = null;
+        this.f43328d = z;
+        this.f43326b = null;
+        this.f43327c = null;
     }
 
     private String a(String str) {
@@ -63,35 +58,35 @@ public class q {
     }
 
     private String e() {
-        if (this.f58621i == null) {
+        if (this.i == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("_");
-            String str = this.f58614b;
+            String str = this.f43326b;
             if (str == null) {
                 str = "";
             }
             sb.append(str);
             sb.append("_");
-            sb.append(this.f58616d);
-            this.f58621i = sb.toString();
+            sb.append(this.f43328d);
+            this.i = sb.toString();
         }
-        return this.f58621i;
+        return this.i;
     }
 
     public synchronized void b(m mVar) {
         try {
-            this.f58617e.remove(mVar);
+            this.f43329e.remove(mVar);
         } catch (Throwable unused) {
         }
     }
 
     public synchronized void c() {
-        this.f58619g = false;
+        this.f43331g = false;
     }
 
     public synchronized boolean d() {
-        return this.f58619g;
+        return this.f43331g;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -105,39 +100,39 @@ public class q {
     }
 
     public int hashCode() {
-        if (this.f58620h == 0) {
-            this.f58620h = e().hashCode();
+        if (this.f43332h == 0) {
+            this.f43332h = e().hashCode();
         }
-        return this.f58620h;
+        return this.f43332h;
     }
 
     public String toString() {
-        return "UrlRecord{url='" + this.a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f58614b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f58615c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f58616d + ", failedTimes=" + this.f58618f + ", isCurrentFailed=" + this.f58619g + ExtendedMessageFormat.END_FE;
+        return "UrlRecord{url='" + this.a + "', ip='" + this.f43326b + "', ipFamily='" + this.f43327c + "', isMainUrl=" + this.f43328d + ", failedTimes=" + this.f43330f + ", isCurrentFailed=" + this.f43331g + '}';
     }
 
     public synchronized void b() {
-        this.f58618f++;
-        this.f58619g = true;
+        this.f43330f++;
+        this.f43331g = true;
     }
 
     public synchronized void a(m mVar) {
-        this.f58617e.add(mVar);
+        this.f43329e.add(mVar);
     }
 
     public q(String str, String str2) {
-        this.f58617e = new ArrayList();
-        this.f58622j = new AtomicLong();
+        this.f43329e = new ArrayList();
+        this.j = new AtomicLong();
         this.a = str;
-        this.f58616d = false;
-        this.f58614b = str2;
-        this.f58615c = a(str2);
+        this.f43328d = false;
+        this.f43326b = str2;
+        this.f43327c = a(str2);
     }
 
     public synchronized int a() {
-        return this.f58617e.size();
+        return this.f43329e.size();
     }
 
-    public void a(long j2) {
-        this.f58622j.addAndGet(j2);
+    public void a(long j) {
+        this.j.addAndGet(j);
     }
 }

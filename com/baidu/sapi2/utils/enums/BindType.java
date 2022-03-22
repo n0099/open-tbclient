@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,22 +36,22 @@ public final class BindType {
             }
         }
         EXPLICIT = new BindType("EXPLICIT", 0, "explicit", "afterauth", "finishbind");
-        SMS = new BindType("SMS", 1, "sms", "afterauth", "finishbind");
+        SMS = new BindType("SMS", 1, LoginConstants.SMS_LOGIN, "afterauth", "finishbind");
         BindType bindType = new BindType("BIND_MOBILE", 2, "bind_mobile", "afterauth", "afterauth");
         BIND_MOBILE = bindType;
         $VALUES = new BindType[]{EXPLICIT, SMS, bindType};
     }
 
-    public BindType(String str, int i2, String str2, String str3, String str4) {
+    public BindType(String str, int i, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, str4};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str5 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

@@ -1,6 +1,7 @@
 package com.baidu.android.common.security;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +41,9 @@ public final class RSAUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,7 +54,7 @@ public final class RSAUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, str)) == null) {
-            PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
+            PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePrivate);
             return cipher.doFinal(bArr);
@@ -65,7 +66,7 @@ public final class RSAUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
+            PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePublic);
             return cipher.doFinal(bArr);
@@ -73,25 +74,25 @@ public final class RSAUtil {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i2) throws Exception {
+    public static byte[] decryptLongByPrivateKey(byte[] bArr, String str, int i) throws Exception {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, bArr, str, i2)) == null) {
-            PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, bArr, str, i)) == null) {
+            PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePrivate);
-            int i3 = i2 / 8;
+            int i2 = i / 8;
             StringBuilder sb = new StringBuilder();
             int length = bArr.length;
-            int i4 = 0;
-            while (i4 < length) {
-                int i5 = length - i4;
-                if (i3 < i5) {
-                    i5 = i3;
+            int i3 = 0;
+            while (i3 < length) {
+                int i4 = length - i3;
+                if (i2 < i4) {
+                    i4 = i2;
                 }
-                byte[] bArr2 = new byte[i5];
-                System.arraycopy(bArr, i4, bArr2, 0, i5);
-                i4 += i5;
+                byte[] bArr2 = new byte[i4];
+                System.arraycopy(bArr, i3, bArr2, 0, i4);
+                i3 += i4;
                 sb.append(new String(cipher.doFinal(bArr2)));
             }
             return sb.toString().getBytes();
@@ -103,7 +104,7 @@ public final class RSAUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            PrivateKey generatePrivate = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
+            PrivateKey generatePrivate = KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePrivate);
             return cipher.doFinal(bArr);
@@ -115,7 +116,7 @@ public final class RSAUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, str)) == null) {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
+            PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return cipher.doFinal(bArr);
@@ -123,41 +124,41 @@ public final class RSAUtil {
         return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i2) throws Exception {
+    public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i) throws Exception {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bArr, str, i2)) == null) {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bArr, str, i)) == null) {
+            PublicKey generatePublic = KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
-            int i3 = i2 / 8;
-            int i4 = i3 - 11;
+            int i2 = i / 8;
+            int i3 = i2 - 11;
             int length = bArr.length;
-            byte[] bArr2 = new byte[(((length + i4) - 1) / i4) * i3];
+            byte[] bArr2 = new byte[(((length + i3) - 1) / i3) * i2];
+            int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
-            while (i5 < length) {
-                int i7 = length - i5;
-                if (i4 < i7) {
-                    i7 = i4;
+            while (i4 < length) {
+                int i6 = length - i4;
+                if (i3 < i6) {
+                    i6 = i3;
                 }
-                byte[] bArr3 = new byte[i7];
-                System.arraycopy(bArr, i5, bArr3, 0, i7);
-                i5 += i7;
-                System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i6, i3);
-                i6 += i3;
+                byte[] bArr3 = new byte[i6];
+                System.arraycopy(bArr, i4, bArr3, 0, i6);
+                i4 += i6;
+                System.arraycopy(cipher.doFinal(bArr3), 0, bArr2, i5, i2);
+                i5 += i2;
             }
             return bArr2;
         }
         return (byte[]) invokeLLI.objValue;
     }
 
-    public static Map<String, Object> generateKey(int i2) throws NoSuchAlgorithmException {
+    public static Map<String, Object> generateKey(int i) throws NoSuchAlgorithmException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            keyPairGenerator.initialize(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM_RSA);
+            keyPairGenerator.initialize(i);
             KeyPair generateKeyPair = keyPairGenerator.generateKeyPair();
             HashMap hashMap = new HashMap(2);
             hashMap.put(PUBLIC_KEY, (RSAPublicKey) generateKeyPair.getPublic());
@@ -173,7 +174,7 @@ public final class RSAUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bigInteger, bigInteger2)) == null) {
             try {
                 try {
-                    return (RSAPrivateKey) KeyFactory.getInstance("RSA").generatePrivate(new RSAPrivateKeySpec(bigInteger, bigInteger2));
+                    return (RSAPrivateKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new RSAPrivateKeySpec(bigInteger, bigInteger2));
                 } catch (InvalidKeySpecException e2) {
                     throw new Exception(e2.getMessage());
                 }
@@ -190,7 +191,7 @@ public final class RSAUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bigInteger, bigInteger2)) == null) {
             try {
                 try {
-                    return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
+                    return (RSAPublicKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
                 } catch (InvalidKeySpecException e2) {
                     throw new Exception(e2.getMessage());
                 }
@@ -204,12 +205,12 @@ public final class RSAUtil {
     public static String getPrivateKey(Map<String, Object> map) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, map)) == null) ? Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, map)) == null) ? Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
     }
 
     public static String getPublicKey(Map<String, Object> map) throws UnsupportedEncodingException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) ? Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, map)) == null) ? Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
     }
 }

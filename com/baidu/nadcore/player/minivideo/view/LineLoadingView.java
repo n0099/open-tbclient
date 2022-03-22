@@ -6,8 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import c.a.b0.h0.f;
+import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
-import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000Q\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u000f\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\"\u0018\u00002\u00020\u0001B\u0019\u0012\u0006\u00104\u001a\u000203\u0012\b\u00106\u001a\u0004\u0018\u000105¢\u0006\u0004\b7\u00108J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\n\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00042\b\b\u0002\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0013\u001a\u00020\u00122\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J\u001f\u0010\u0017\u001a\u00020\u00122\u0006\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J/\u0010\u001d\u001a\u00020\u00122\u0006\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u001c\u001a\u00020\u0004H\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\r\u0010\u001f\u001a\u00020\u0012¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\u0012¢\u0006\u0004\b!\u0010 R\u0016\u0010#\u001a\u00020\"8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R\u0016\u0010'\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u0010&R\u0016\u0010(\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b(\u0010&R\u0016\u0010)\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010&R\u0016\u0010*\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010,\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010&R\u0016\u0010.\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0016\u00100\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00102\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010&¨\u00069"}, d2 = {"Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView;", "Landroid/view/View;", "", "color", "", "checkColor", "(Ljava/lang/String;)I", "measureSpec", "", "isWidth", "getValue", "(IZ)I", "value", "", "halfValue", "(I)F", "Landroid/graphics/Canvas;", "canvas", "", "onDraw", "(Landroid/graphics/Canvas;)V", "widthMeasureSpec", "heightMeasureSpec", "onMeasure", "(II)V", "w", "h", "oldw", "oldh", "onSizeChanged", "(IIII)V", "start", "()V", IntentConfig.STOP, "com/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1", "counter", "Lcom/baidu/nadcore/player/minivideo/view/LineLoadingView$counter$1;", "curHeight", "I", "curWidth", "defaultHeight", "defaultWidth", "isStop", "Z", "minProgressWidth", "Landroid/graphics/Paint;", "paint", "Landroid/graphics/Paint;", WBConstants.TRANS_PROGRESS_COLOR, "Ljava/lang/String;", "progressWidth", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -24,37 +22,36 @@ import kotlin.jvm.internal.Intrinsics;
 public final class LineLoadingView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f27574b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f27575c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f27576d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35699e;
+    public int f27577e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35700f;
+    public int f27578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35701g;
+    public String f27579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35702h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f35703i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f35704j;
-    public String k;
-    public Paint l;
-    public boolean m;
-    public final a n;
-    public HashMap o;
+    public Paint f27580h;
+    public boolean i;
+    public final a j;
 
     /* loaded from: classes4.dex */
     public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LineLoadingView f35705e;
+        public final /* synthetic */ LineLoadingView a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LineLoadingView lineLoadingView) {
@@ -64,25 +61,25 @@ public final class LineLoadingView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lineLoadingView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f35705e = lineLoadingView;
+            this.a = lineLoadingView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35705e.m) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i) {
                 return;
             }
-            this.f35705e.invalidate();
-            this.f35705e.post(this);
+            this.a.invalidate();
+            this.a.post(this);
         }
     }
 
@@ -95,9 +92,9 @@ public final class LineLoadingView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -106,58 +103,31 @@ public final class LineLoadingView extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.k = "#D3D3D3";
-        this.l = new Paint();
-        this.m = true;
-        this.n = new a(this);
-        this.f35699e = f.c.e(context);
-        this.f35700f = f.c.a(context, 1.5f);
+        this.f27579g = "#D3D3D3";
+        this.f27580h = new Paint();
+        this.i = true;
+        this.j = new a(this);
+        this.a = f.c.e(context);
+        this.f27574b = f.c.a(context, 1.5f);
         int a2 = f.c.a(context, 100.0f);
-        this.f35704j = a2;
-        this.f35703i = a2;
-        this.l.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.l.setAntiAlias(true);
+        this.f27578f = a2;
+        this.f27577e = a2;
+        this.f27580h.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.f27580h.setAntiAlias(true);
     }
 
-    public static /* synthetic */ int c(LineLoadingView lineLoadingView, int i2, boolean z, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
+    public static /* synthetic */ int d(LineLoadingView lineLoadingView, int i, boolean z, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
             z = true;
         }
-        return lineLoadingView.b(i2, z);
+        return lineLoadingView.c(i, z);
     }
 
-    public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.o) == null) {
-            return;
-        }
-        hashMap.clear();
-    }
-
-    public View _$_findCachedViewById(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.o == null) {
-                this.o = new HashMap();
-            }
-            View view = (View) this.o.get(Integer.valueOf(i2));
-            if (view == null) {
-                View findViewById = findViewById(i2);
-                this.o.put(Integer.valueOf(i2), findViewById);
-                return findViewById;
-            }
-            return view;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public final int a(String str) {
+    public final int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int parseColor = Color.parseColor(this.k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int parseColor = Color.parseColor(this.f27579g);
             if (str == null || str.length() == 0) {
                 return parseColor;
             }
@@ -170,24 +140,42 @@ public final class LineLoadingView extends View {
         return invokeL.intValue;
     }
 
-    public final int b(int i2, boolean z) {
+    public final int c(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             if (mode != Integer.MIN_VALUE) {
-                return mode != 0 ? mode != 1073741824 ? z ? this.f35699e : this.f35700f : size : z ? this.f35699e : this.f35700f;
+                return mode != 0 ? mode != 1073741824 ? z ? this.a : this.f27574b : size : z ? this.a : this.f27574b;
             }
-            return Math.min(z ? this.f35699e : this.f35700f, size);
+            return Math.min(z ? this.a : this.f27574b, size);
         }
         return invokeCommon.intValue;
     }
 
-    public final float d(int i2) {
+    public final float e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 / 2 : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i / 2 : invokeI.floatValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.i = false;
+            post(this.j);
+            setVisibility(0);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = true;
+            removeCallbacks(this.j);
+            setVisibility(4);
+        }
     }
 
     @Override // android.view.View
@@ -195,24 +183,24 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f35703i;
-            if (i2 < this.f35701g) {
-                this.f35703i = i2 + 30;
+            int i = this.f27577e;
+            if (i < this.f27575c) {
+                this.f27577e = i + 30;
             } else {
-                this.f35703i = this.f35704j;
+                this.f27577e = this.f27578f;
             }
-            int i3 = 255 - ((this.f35703i * 255) / this.f35701g);
-            int i4 = i3 <= 255 ? i3 : 255;
-            String hexString = Integer.toHexString(i4 >= 30 ? i4 : 30);
+            int i2 = 255 - ((this.f27577e * 255) / this.f27575c);
+            int i3 = i2 <= 255 ? i2 : 255;
+            String hexString = Integer.toHexString(i3 >= 30 ? i3 : 30);
             Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
-            String str = this.k;
+            String str = this.f27579g;
             int length = str.length();
             if (str != null) {
                 String substring = str.substring(1, length);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                this.l.setColor(a('#' + hexString + substring));
+                this.f27580h.setColor(b('#' + hexString + substring));
                 if (canvas != null) {
-                    canvas.drawLine(d(this.f35701g) - d(this.f35703i), d(this.f35700f), d(this.f35701g) + d(this.f35703i), d(this.f35700f), this.l);
+                    canvas.drawLine(e(this.f27575c) - e(this.f27577e), e(this.f27574b), e(this.f27575c) + e(this.f27577e), e(this.f27574b), this.f27580h);
                     return;
                 }
                 return;
@@ -222,40 +210,22 @@ public final class LineLoadingView extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            setMeasuredDimension(c(this, i2, false, 2, null), b(i3, false));
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(d(this, i, false, 2, null), c(i2, false));
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            this.f35701g = i2;
-            this.f35702h = i3;
-            this.l.setStrokeWidth(i3);
-        }
-    }
-
-    public final void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.m = false;
-            post(this.n);
-            setVisibility(0);
-        }
-    }
-
-    public final void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.m = true;
-            removeCallbacks(this.n);
-            setVisibility(4);
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.f27575c = i;
+            this.f27576d = i2;
+            this.f27580h.setStrokeWidth(i2);
         }
     }
 }

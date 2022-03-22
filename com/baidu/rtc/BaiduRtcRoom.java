@@ -69,24 +69,24 @@ public abstract class BaiduRtcRoom {
         public static final int RTC_STATE_STREAM_SLOW_LINK_LEVEL9 = 2109;
         public static final int RTC_STATE_STREAM_UP = 2000;
 
-        void onEngineStatisticsInfo(int i2);
+        void onEngineStatisticsInfo(int i);
 
-        void onErrorInfoUpdate(int i2);
+        void onErrorInfoUpdate(int i);
 
-        void onPeerConnectStateUpdate(int i2);
+        void onPeerConnectStateUpdate(int i);
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i2, long j2, String str);
+        void onRoomEventUpdate(int i, long j, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
     /* loaded from: classes4.dex */
     public interface BaiduRtcRoomVideoObserver {
-        void getInputBuffer(int i2, int i3, RtcVideoFormat rtcVideoFormat);
+        void getInputBuffer(int i, int i2, RtcVideoFormat rtcVideoFormat);
 
-        void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j2);
+        void onVideoFrame(RTCVideoFrame rTCVideoFrame, long j);
     }
 
     /* loaded from: classes4.dex */
@@ -101,9 +101,9 @@ public abstract class BaiduRtcRoom {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,16 +142,16 @@ public abstract class BaiduRtcRoom {
             $VALUES = new RtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION, rtcLiveTransferMode};
         }
 
-        public RtcLiveTransferMode(String str, int i2) {
+        public RtcLiveTransferMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -187,9 +187,9 @@ public abstract class BaiduRtcRoom {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -215,9 +215,9 @@ public abstract class BaiduRtcRoom {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -238,9 +238,9 @@ public abstract class BaiduRtcRoom {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -276,16 +276,16 @@ public abstract class BaiduRtcRoom {
             $VALUES = new RtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, rtcSoundMode};
         }
 
-        public RtcSoundMode(String str, int i2) {
+        public RtcSoundMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -336,16 +336,16 @@ public abstract class BaiduRtcRoom {
             $VALUES = new RtcVideoFormat[]{RTC_VIDEO_FORMAT_YUV420, rtcVideoFormat};
         }
 
-        public RtcVideoFormat(String str, int i2) {
+        public RtcVideoFormat(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -375,28 +375,28 @@ public abstract class BaiduRtcRoom {
         public long[] Listeners;
         public long[] Publishers;
 
-        public UserList(int i2, int i3) {
+        public UserList(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (i2 > 0) {
-                this.Publishers = new long[i2];
+            if (i > 0) {
+                this.Publishers = new long[i];
             } else {
                 this.Publishers = null;
             }
-            if (i3 > 0) {
-                this.Listeners = new long[i3];
+            if (i2 > 0) {
+                this.Listeners = new long[i2];
             } else {
                 this.Listeners = null;
             }
@@ -424,9 +424,9 @@ public abstract class BaiduRtcRoom {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -475,11 +475,11 @@ public abstract class BaiduRtcRoom {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? Constraints.version() : (String) invokeV.objValue;
     }
 
-    public abstract void addExternalRenderer(long j2, RTCVideoExternalRender rTCVideoExternalRender);
+    public abstract void addExternalRenderer(long j, RTCVideoExternalRender rTCVideoExternalRender);
 
-    public abstract void cameraFocusWithPoint(int i2, int i3);
+    public abstract void cameraFocusWithPoint(int i, int i2);
 
-    public abstract void changeSurfaceSize(long j2, int i2, int i3);
+    public abstract void changeSurfaceSize(long j, int i, int i2);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -498,7 +498,7 @@ public abstract class BaiduRtcRoom {
         }
     }
 
-    public abstract void destroyExternalSurface(long j2, Surface surface);
+    public abstract void destroyExternalSurface(long j, Surface surface);
 
     public abstract void disbandRoom();
 
@@ -524,9 +524,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract RtcRoomAudioLevel[] getRemoteAudioLevels();
 
-    public abstract RtcRoomVideoDimension getRemoteVideoDimension(long j2);
+    public abstract RtcRoomVideoDimension getRemoteVideoDimension(long j);
 
-    public abstract void getUserAttribute(long j2);
+    public abstract void getUserAttribute(long j);
 
     public abstract RtcRoomUserInfo[] getUserListOfRoom();
 
@@ -534,13 +534,13 @@ public abstract class BaiduRtcRoom {
 
     public abstract boolean isSpeakerOn();
 
-    public abstract void kickOffUserWithId(long j2);
+    public abstract void kickOffUserWithId(long j);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z, boolean z2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
 
     public abstract boolean logoutRtcRoom();
 
@@ -558,11 +558,11 @@ public abstract class BaiduRtcRoom {
 
     public abstract UserList queryUserListOfRoom();
 
-    public abstract void removeExternalRenderer(long j2);
+    public abstract void removeExternalRenderer(long j);
 
     public abstract void sendData(ByteBuffer byteBuffer);
 
-    public abstract void sendMessageToUser(String str, long j2);
+    public abstract void sendMessageToUser(String str, long j);
 
     public abstract void setAudioRecordDelegate(RTCAudioSamples.RTCSamplesReadyCallback rTCSamplesReadyCallback);
 
@@ -578,11 +578,11 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setBuffingFactor(float f2);
 
-    public abstract void setCameraID(int i2);
+    public abstract void setCameraID(int i);
 
     public abstract void setEngineStateStatistics(boolean z);
 
-    public abstract void setExternalSurface(long j2, Surface surface);
+    public abstract void setExternalSurface(long j, Surface surface);
 
     public abstract boolean setLiveStreamingMix(boolean z);
 
@@ -604,17 +604,17 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setRedenFactor(float f2);
 
-    public abstract void setRemoteAudioPlayState(boolean z, long j2);
+    public abstract void setRemoteAudioPlayState(boolean z, long j);
 
     public abstract void setRemoteAudioSamplesCallback(RTCAudioSamples.RTCRemoteSamplesReadyCallback rTCRemoteSamplesReadyCallback);
 
     public abstract void setRemoteDisplay(RTCVideoView rTCVideoView);
 
-    public abstract void setRemoteDisplay(RTCVideoView rTCVideoView, long j2);
+    public abstract void setRemoteDisplay(RTCVideoView rTCVideoView, long j);
 
     public abstract void setRemoteDisplayGroup(RTCVideoView[] rTCVideoViewArr);
 
-    public abstract void setRemoteVideoPlayState(boolean z, long j2);
+    public abstract void setRemoteVideoPlayState(boolean z, long j);
 
     public abstract void setSoLaterLoadUrl(String str);
 
@@ -626,9 +626,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract void setWhitenFactor(float f2);
 
-    public abstract void shutUpUserWithId(long j2);
+    public abstract void shutUpUserWithId(long j);
 
-    public abstract void shutUpUserWithId(long j2, boolean z);
+    public abstract void shutUpUserWithId(long j, boolean z);
 
     public abstract boolean startLiveServerStreaming(String str, boolean z, boolean z2, String str2, RtcLiveTransferMode rtcLiveTransferMode);
 
@@ -642,9 +642,9 @@ public abstract class BaiduRtcRoom {
 
     public abstract void stopPublish();
 
-    public abstract void stopSubscribeStreaming(long j2);
+    public abstract void stopSubscribeStreaming(long j);
 
-    public abstract void subscribeStreaming(int i2, long j2);
+    public abstract void subscribeStreaming(int i, long j);
 
     public abstract void switchCamera();
 

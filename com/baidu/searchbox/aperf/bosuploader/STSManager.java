@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.Closeables;
@@ -52,9 +53,9 @@ public class STSManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -91,11 +92,6 @@ public class STSManager {
         return (STSInfo) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0074 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v4, types: [java.io.Closeable] */
     public static STSInfo loadStsFromFile(String str) {
         InterceptResult invokeL;
         Throwable th;
@@ -104,27 +100,21 @@ public class STSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                try {
-                    file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
-                } catch (Throwable th2) {
-                    th = th2;
-                    Closeables.closeSafely((Closeable) str);
-                    throw th;
-                }
+                file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
             } catch (FileNotFoundException e2) {
                 e = e2;
                 fileInputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                str = 0;
-                Closeables.closeSafely((Closeable) str);
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
+                Closeables.closeSafely(fileInputStream);
                 throw th;
             }
             if (!file.exists()) {
                 Closeables.closeSafely((Closeable) null);
                 return null;
             }
-            File file2 = new File(file, ".sts_" + ((String) str) + ".log");
+            File file2 = new File(file, ".sts_" + str + ".log");
             if (!file2.exists()) {
                 Closeables.closeSafely((Closeable) null);
                 return null;
@@ -134,20 +124,26 @@ public class STSManager {
             } else {
                 fileInputStream = new FileInputStream(file2);
                 try {
-                    String readFromFileInputStream = FileUtil.readFromFileInputStream(fileInputStream);
-                    if (!TextUtils.isEmpty(readFromFileInputStream)) {
-                        STSInfo createSTSInfo = ContentUtil.createSTSInfo(readFromFileInputStream);
+                    try {
+                        String readFromFileInputStream = FileUtil.readFromFileInputStream(fileInputStream);
+                        if (!TextUtils.isEmpty(readFromFileInputStream)) {
+                            STSInfo createSTSInfo = ContentUtil.createSTSInfo(readFromFileInputStream);
+                            Closeables.closeSafely(fileInputStream);
+                            return createSTSInfo;
+                        }
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        Log.e(TAG, e.getMessage(), e);
                         Closeables.closeSafely(fileInputStream);
-                        return createSTSInfo;
+                        return null;
                     }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    e.getMessage();
                     Closeables.closeSafely(fileInputStream);
                     return null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    Closeables.closeSafely(fileInputStream);
+                    throw th;
                 }
-                Closeables.closeSafely(fileInputStream);
-                return null;
             }
         }
         return (STSInfo) invokeL.objValue;

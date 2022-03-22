@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class dn {
     public static /* synthetic */ Interceptable $ic;
     public static volatile dn a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f245a;
+    public Context f221a;
 
     public dn(Context context) {
         Interceptable interceptable = $ic;
@@ -28,21 +28,21 @@ public class dn {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f245a = context;
+        this.f221a = context;
     }
 
-    private int a(int i2) {
+    private int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) ? Math.max(60, i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? Math.max(60, i) : invokeI.intValue;
     }
 
     public static dn a(Context context) {
@@ -64,11 +64,11 @@ public class dn {
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.a.a(), true)) {
-            ds dsVar = new ds(this.f245a);
+            ds dsVar = new ds(this.f221a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f59749b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f44344b.a(), 86400)));
             } else {
-                aiVar.m205a((ai.a) dsVar);
+                aiVar.m184a((ai.a) dsVar);
             }
         }
     }
@@ -79,7 +79,7 @@ public class dn {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (Build.VERSION.SDK_INT >= 14) {
                 try {
-                    ((Application) (this.f245a instanceof Application ? this.f245a : this.f245a.getApplicationContext())).registerActivityLifecycleCallbacks(new dh(this.f245a, String.valueOf(System.currentTimeMillis() / 1000)));
+                    ((Application) (this.f221a instanceof Application ? this.f221a : this.f221a.getApplicationContext())).registerActivityLifecycleCallbacks(new dh(this.f221a, String.valueOf(System.currentTimeMillis() / 1000)));
                     return true;
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -94,27 +94,27 @@ public class dn {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            ai a2 = ai.a(this.f245a);
-            com.xiaomi.push.service.aq a3 = com.xiaomi.push.service.aq.a(this.f245a);
-            SharedPreferences sharedPreferences = this.f245a.getSharedPreferences("mipush_extra", 0);
+            ai a2 = ai.a(this.f221a);
+            com.xiaomi.push.service.aq a3 = com.xiaomi.push.service.aq.a(this.f221a);
+            SharedPreferences sharedPreferences = this.f221a.getSharedPreferences("mipush_extra", 0);
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
-            if (j2 == currentTimeMillis) {
+            long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
+            if (j == currentTimeMillis) {
                 sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
             }
-            if (Math.abs(currentTimeMillis - j2) < 172800000) {
+            if (Math.abs(currentTimeMillis - j) < 172800000) {
                 return;
             }
             a(a3, a2, false);
             if (a3.a(hk.aI.a(), true)) {
                 int a4 = a(a3.a(hk.aJ.a(), 86400));
-                a2.a(new dr(this.f245a, a4), a4, 0);
+                a2.a(new dr(this.f221a, a4), a4, 0);
             }
             boolean a5 = a3.a(hk.aO.a(), false);
             String a6 = a3.a(hk.aQ.a(), (String) null);
             if (a5 && !TextUtils.isEmpty(a6)) {
                 int a7 = a(a3.a(hk.aP.a(), 86400));
-                a2.a(new dp(this.f245a, a7, a6), a7, 0);
+                a2.a(new dp(this.f221a, a7, a6), a7, 0);
             }
             if (a3.a(hk.ap.a(), false)) {
                 a();
@@ -124,10 +124,10 @@ public class dn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m310a() {
+    public void m289a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ai.a(this.f245a).a(new Cdo(this));
+            ai.a(this.f221a).a(new Cdo(this));
         }
     }
 }

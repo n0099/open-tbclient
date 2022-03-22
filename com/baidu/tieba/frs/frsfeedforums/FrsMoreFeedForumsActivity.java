@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import c.a.r0.d1.t1.d;
-import c.a.r0.y3.y;
+import c.a.p0.a4.y;
+import c.a.p0.f1.t1.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,9 +39,7 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsMoreFeedForumsActivity f41995e;
+        public final /* synthetic */ FrsMoreFeedForumsActivity a;
 
         public a(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity) {
             Interceptable interceptable = $ic;
@@ -50,22 +48,22 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsMoreFeedForumsActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41995e = frsMoreFeedForumsActivity;
+            this.a = frsMoreFeedForumsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f41995e.mBackLogo.getId()) {
-                this.f41995e.finish();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.a.mBackLogo.getId()) {
+                this.a.finish();
             }
         }
     }
@@ -77,17 +75,17 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         public final /* synthetic */ FrsMoreFeedForumsActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i2) {
-            super(i2);
+        public b(FrsMoreFeedForumsActivity frsMoreFeedForumsActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsMoreFeedForumsActivity, Integer.valueOf(i2)};
+                Object[] objArr = {frsMoreFeedForumsActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -112,9 +110,9 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -125,11 +123,11 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             this.mAdapter.notifyDataSetChanged();
         }
     }
@@ -139,23 +137,23 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.frs_more_feed_forums_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d033f);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mFeedForumDataList = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
             }
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackLogo = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.mOnClickListener);
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.group_fourm_content_extend_title));
-            this.mFeedForumListView = (ListView) getPageContext().getPageActivity().findViewById(R.id.listView_feed_forum);
+            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f07d8));
+            this.mFeedForumListView = (ListView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f09127a);
             registerListener(this.mLikeUpdateListener);
             d dVar = new d(getPageContext());
             this.mAdapter = dVar;
             dVar.g(this.mFeedForumDataList);
-            this.mFeedForumListView.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.frs_more_feed_forums_header, (ViewGroup) null));
+            this.mFeedForumListView.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0340, (ViewGroup) null));
             this.mFeedForumListView.setAdapter((ListAdapter) this.mAdapter);
             this.mAdapter.notifyDataSetChanged();
         }

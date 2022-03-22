@@ -51,9 +51,9 @@ public class Lifecycling {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -133,9 +133,9 @@ public class Lifecycling {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r6};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -198,8 +198,8 @@ public class Lifecycling {
                     return new SingleGeneratedAdapterObserver(createGeneratedAdapter(list.get(0), obj));
                 }
                 GeneratedAdapter[] generatedAdapterArr = new GeneratedAdapter[list.size()];
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    generatedAdapterArr[i2] = createGeneratedAdapter(list.get(i2), obj);
+                for (int i = 0; i < list.size(); i++) {
+                    generatedAdapterArr[i] = createGeneratedAdapter(list.get(i), obj);
                 }
                 return new CompositeGeneratedAdaptersObserver(generatedAdapterArr);
             }

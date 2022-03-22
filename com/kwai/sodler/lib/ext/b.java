@@ -10,10 +10,10 @@ import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import com.kwai.sodler.lib.kwai.a;
 import com.kwai.sodler.lib.kwai.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b<P extends com.kwai.sodler.lib.kwai.a, R extends f<P>> {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements b<g, h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public interface b<P extends com.kwai.sodler.lib.kwai.a, R extends f<P>> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }

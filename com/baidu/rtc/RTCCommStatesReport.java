@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class RTCCommStatesReport {
     public static /* synthetic */ Interceptable $ic;
@@ -30,9 +29,9 @@ public class RTCCommStatesReport {
             newInitContext.initArgs = r2;
             Object[] objArr = {bigInteger, str, str2, str3, hUDStatistics};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,7 +53,7 @@ public class RTCCommStatesReport {
             if (this.mPlayTransactionId == null || this.mRoomId == null || this.mUserId == null || this.mRemoteHandleId == null) {
                 return "";
             }
-            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + StringUtils.LF;
+            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + "\n";
         }
         return (String) invokeV.objValue;
     }
@@ -172,10 +171,10 @@ public class RTCCommStatesReport {
         return invokeV.intValue;
     }
 
-    public void setDebugFlag(int i2) {
+    public void setDebugFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mDebugStatesFlag = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mDebugStatesFlag = i;
         }
     }
 

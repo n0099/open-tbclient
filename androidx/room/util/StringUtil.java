@@ -1,8 +1,10 @@
 package androidx.room.util;
 
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
+import androidx.room.Room;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,21 +43,21 @@ public class StringUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void appendPlaceholders(StringBuilder sb, int i2) {
+    public static void appendPlaceholders(StringBuilder sb, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, sb, i2) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
+        if (interceptable == null || interceptable.invokeLI(65538, null, sb, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
                 sb.append("?");
-                if (i3 < i2 - 1) {
+                if (i2 < i - 1) {
                     sb.append(",");
                 }
             }
@@ -75,9 +77,9 @@ public class StringUtil {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < size; i2++) {
-                sb.append(Integer.toString(list.get(i2).intValue()));
-                if (i2 < size - 1) {
+            for (int i = 0; i < size; i++) {
+                sb.append(Integer.toString(list.get(i).intValue()));
+                if (i < size - 1) {
                     sb.append(",");
                 }
             }
@@ -105,7 +107,8 @@ public class StringUtil {
             while (stringTokenizer.hasMoreElements()) {
                 try {
                     arrayList.add(Integer.valueOf(Integer.parseInt(stringTokenizer.nextToken())));
-                } catch (NumberFormatException unused) {
+                } catch (NumberFormatException e2) {
+                    Log.e(Room.LOG_TAG, "Malformed integer list", e2);
                 }
             }
             return arrayList;

@@ -12,7 +12,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.Pointcut;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PointcutImpl implements Pointcut {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class PointcutImpl implements Pointcut {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, method, ajType, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,8 +52,8 @@ public class PointcutImpl implements Pointcut {
             StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
             int countTokens = stringTokenizer.countTokens();
             String[] strArr = new String[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                strArr[i2] = stringTokenizer.nextToken().trim();
+            for (int i = 0; i < countTokens; i++) {
+                strArr[i] = stringTokenizer.nextToken().trim();
             }
             return strArr;
         }
@@ -96,8 +96,8 @@ public class PointcutImpl implements Pointcut {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
             int length = parameterTypes.length;
             AjType<?>[] ajTypeArr = new AjType[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                ajTypeArr[i2] = AjTypeSystem.getAjType(parameterTypes[i2]);
+            for (int i = 0; i < length; i++) {
+                ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
             }
             return ajTypeArr;
         }
@@ -119,16 +119,16 @@ public class PointcutImpl implements Pointcut {
             stringBuffer.append(getName());
             stringBuffer.append("(");
             AjType<?>[] parameterTypes = getParameterTypes();
-            int i2 = 0;
-            while (i2 < parameterTypes.length) {
-                stringBuffer.append(parameterTypes[i2].getName());
+            int i = 0;
+            while (i < parameterTypes.length) {
+                stringBuffer.append(parameterTypes[i].getName());
                 String[] strArr = this.parameterNames;
-                if (strArr != null && strArr[i2] != null) {
+                if (strArr != null && strArr[i] != null) {
                     stringBuffer.append(" ");
-                    stringBuffer.append(this.parameterNames[i2]);
+                    stringBuffer.append(this.parameterNames[i]);
                 }
-                i2++;
-                if (i2 < parameterTypes.length) {
+                i++;
+                if (i < parameterTypes.length) {
                     stringBuffer.append(",");
                 }
             }

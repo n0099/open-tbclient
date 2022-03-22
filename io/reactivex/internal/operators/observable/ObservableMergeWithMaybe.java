@@ -57,9 +57,9 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
                     newInitContext.initArgs = r2;
                     Object[] objArr = {mergeWithObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -108,9 +108,9 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -148,7 +148,7 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 Observer<? super T> observer = this.actual;
-                int i2 = 1;
+                int i = 1;
                 while (!this.disposed) {
                     if (this.error.get() != null) {
                         this.singleItem = null;
@@ -156,24 +156,24 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
                         observer.onError(this.error.terminate());
                         return;
                     }
-                    int i3 = this.otherState;
-                    if (i3 == 1) {
+                    int i2 = this.otherState;
+                    if (i2 == 1) {
                         this.singleItem = null;
                         this.otherState = 2;
                         observer.onNext((T) this.singleItem);
-                        i3 = 2;
+                        i2 = 2;
                     }
                     boolean z = this.mainDone;
                     SimplePlainQueue<T> simplePlainQueue = this.queue;
                     T poll = simplePlainQueue != null ? simplePlainQueue.poll() : (Object) null;
                     boolean z2 = poll == null;
-                    if (z && z2 && i3 == 2) {
+                    if (z && z2 && i2 == 2) {
                         this.queue = null;
                         observer.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -303,9 +303,9 @@ public final class ObservableMergeWithMaybe<T> extends AbstractObservableWithUps
             newInitContext.initArgs = r2;
             Object[] objArr = {observable, maybeSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

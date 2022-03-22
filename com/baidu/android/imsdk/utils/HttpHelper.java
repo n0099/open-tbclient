@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -66,9 +67,9 @@ public class HttpHelper {
 
     /* loaded from: classes3.dex */
     public interface ResponseHandler {
-        void onFailure(int i2, byte[] bArr, Throwable th);
+        void onFailure(int i, byte[] bArr, Throwable th);
 
-        void onSuccess(int i2, byte[] bArr);
+        void onSuccess(int i, byte[] bArr);
     }
 
     /* loaded from: classes3.dex */
@@ -83,9 +84,9 @@ public class HttpHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -104,10 +105,10 @@ public class HttpHelper {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mErrorMsg : (String) invokeV.objValue;
         }
 
-        public void setErrorCode(int i2) {
+        public void setErrorCode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.mErrorCode = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.mErrorCode = i;
             }
         }
 
@@ -136,9 +137,9 @@ public class HttpHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpHelper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -171,9 +172,9 @@ public class HttpHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -184,13 +185,13 @@ public class HttpHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static HttpURLConnection createConnection(int i2, String str, byte[] bArr, Map<String, String> map, int i3, int i4) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         InterceptResult invokeCommon;
         String str2;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), str, bArr, map, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if ((i2 & 1) != 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if ((i & 1) != 0) {
                 if (bArr != null && bArr.length > 0) {
                     str2 = str + "?" + new String(bArr);
                     LogUtils.d(TAG, "requestUrl:" + str2);
@@ -199,11 +200,11 @@ public class HttpHelper {
                         LogUtils.e(TAG, "HttpURLConnection is null");
                     }
                     setConnectionHeader(str, httpURLConnection, map);
-                    setConnectionParametersForRequest(httpURLConnection, i2, bArr, false, i3, i4);
+                    setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
                     return httpURLConnection;
                 }
             } else if (bArr != null && bArr.length > 0) {
-                LogUtils.d(TAG, "requestparamter:" + new String(bArr, "utf-8"));
+                LogUtils.d(TAG, "requestparamter:" + new String(bArr, IMAudioTransRequest.CHARSET));
             }
             str2 = str;
             LogUtils.d(TAG, "requestUrl:" + str2);
@@ -211,21 +212,21 @@ public class HttpHelper {
             if (httpURLConnection == null) {
             }
             setConnectionHeader(str, httpURLConnection, map);
-            setConnectionParametersForRequest(httpURLConnection, i2, bArr, false, i3, i4);
+            setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
             return httpURLConnection;
         }
         return (HttpURLConnection) invokeCommon.objValue;
     }
 
-    public static void dealResonsResult(int i2, InputStream inputStream, ResponseHandler responseHandler) {
+    public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i2, inputStream, responseHandler) == null) {
+        if (interceptable == null || interceptable.invokeILL(65539, null, i, inputStream, responseHandler) == null) {
             byte[] dealResonsResult = dealResonsResult(inputStream);
             String str = new String(dealResonsResult);
             String str2 = TAG;
             LogUtils.d(str2, "request response : " + str);
             if (dealResonsResult != null && dealResonsResult.length != 0) {
-                responseHandler.onSuccess(i2, dealResonsResult);
+                responseHandler.onSuccess(i, dealResonsResult);
             } else {
                 responseHandler.onFailure(-10, "IOException for inputStream".getBytes(), new IOException("IOException for inputStream"));
             }
@@ -260,9 +261,9 @@ public class HttpHelper {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {request, responseHandler};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -274,7 +275,7 @@ public class HttpHelper {
 
                     @Override // java.lang.Runnable
                     public void run() {
-                        int i2;
+                        int i;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
@@ -282,11 +283,11 @@ public class HttpHelper {
                                     this.val$handler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
                                 }
                                 if (this.val$request.getMethod().equals("GET")) {
-                                    i2 = 1;
+                                    i = 1;
                                 } else {
-                                    i2 = this.val$request.getMethod().equals("POST") ? 16 : 256;
+                                    i = this.val$request.getMethod().equals("POST") ? 16 : 256;
                                 }
-                                HttpExecutor.getInstance().execute(i2, this.val$request.getHost(), this.val$request.getRequestParameter(), this.val$request.getHeaders(), this.val$request.getContentType(), this.val$handler);
+                                HttpExecutor.getInstance().execute(i, this.val$request.getHost(), this.val$request.getRequestParameter(), this.val$request.getHeaders(), this.val$request.getContentType(), this.val$handler);
                             } catch (Exception e2) {
                                 LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e2);
                                 this.val$handler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
@@ -320,19 +321,19 @@ public class HttpHelper {
         }
     }
 
-    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i2, byte[] bArr, boolean z, int i3, int i4) throws IOException {
+    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, Integer.valueOf(i2), bArr, Boolean.valueOf(z), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{httpURLConnection, Integer.valueOf(i), bArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setConnectTimeout(i3);
+            httpURLConnection.setConnectTimeout(i2);
             if (z) {
                 httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
             }
-            httpURLConnection.setReadTimeout(i4);
-            if (i2 == 1) {
+            httpURLConnection.setReadTimeout(i3);
+            if (i == 1) {
                 httpURLConnection.setRequestMethod("GET");
-            } else if (i2 != 16) {
-                if (i2 == 256) {
+            } else if (i != 16) {
+                if (i == 256) {
                     if (bArr == null || bArr.length <= 0) {
                         return;
                     }
@@ -406,15 +407,15 @@ public class HttpHelper {
         }
     }
 
-    public static void executor(int i2, String str, byte[] bArr, Map<String, String> map, int i3, int i4, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), str, bArr, map, Integer.valueOf(i3), Integer.valueOf(i4), responseHandler}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, bArr, map, Integer.valueOf(i2), Integer.valueOf(i3), responseHandler}) != null) {
             return;
         }
         InputStream inputStream = null;
         try {
-            httpURLConnection = createConnection(i2, str, bArr, map, i3, i4);
+            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
             try {
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode != -1) {

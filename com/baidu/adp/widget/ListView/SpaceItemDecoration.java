@@ -15,29 +15,29 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30010b;
+    public int f23989b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30011c;
+    public int f23990c;
 
-    public SpaceItemDecoration(int i2, int i3, int i4) {
+    public SpaceItemDecoration(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f30010b = i3;
-        this.f30011c = i4;
+        this.a = i;
+        this.f23989b = i2;
+        this.f23990c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -49,10 +49,10 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
                     rect.top = this.a;
                 } else {
-                    rect.top = this.f30010b;
+                    rect.top = this.f23989b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.bottom = this.f30011c;
+                    rect.bottom = this.f23990c;
                     return;
                 }
                 return;
@@ -60,10 +60,10 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
                 rect.left = this.a;
             } else {
-                rect.left = this.f30010b;
+                rect.left = this.f23989b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.right = this.f30011c;
+                rect.right = this.f23990c;
             }
         }
     }

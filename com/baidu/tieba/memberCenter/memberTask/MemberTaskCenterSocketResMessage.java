@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import c.a.r0.h2.c.k.r;
+import c.a.p0.j2.c.b.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -64,9 +64,9 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetMemberTaskListResIdl getMemberTaskListResIdl = (GetMemberTaskListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberTaskListResIdl.class);
             if (getMemberTaskListResIdl == null) {
                 return;
@@ -87,9 +87,9 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
                 return;
             }
             int size = getMemberTaskListResIdl.data.task_list.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                if (getMemberTaskListResIdl.data.task_list.get(i3) != null) {
-                    this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i3)));
+            for (int i2 = 0; i2 < size; i2++) {
+                if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
+                    this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i2)));
                 }
             }
         }

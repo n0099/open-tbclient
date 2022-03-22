@@ -20,27 +20,27 @@ public final class a implements j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final C0164a f3675c;
+    public static final C0170a f3163c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f3676b;
+    public byte[] f3164b;
 
     /* renamed from: c.a.j.h.b.b$b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0164a {
+    public static final class C0170a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0164a() {
+        public C0170a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -68,7 +68,7 @@ public final class a implements j {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? a(c.a.j.h.d.i.a(bArr)) : (a) invokeL.objValue;
         }
 
-        public /* synthetic */ C0164a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0170a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -86,40 +86,40 @@ public final class a implements j {
                 return;
             }
         }
-        f3675c = new C0164a(null);
+        f3163c = new C0170a(null);
     }
 
-    public a(int i2, byte[] bArr) {
+    public a(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr};
+            Object[] objArr = {Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f3676b = bArr;
+        this.a = i;
+        this.f3164b = bArr;
     }
 
     @JvmStatic
     public static final a a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f3675c.b(bArr) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f3163c.b(bArr) : (a) invokeL.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = c.a.j.h.d.i.a(c.a.j.h.d.i.d(this.f3676b));
+            String a = c.a.j.h.d.i.a(c.a.j.h.d.i.d(this.f3164b));
             Intrinsics.checkExpressionValueIsNotNull(a, "StringUtils.bytes2Str(St…ase64Decode(description))");
             return a;
         }
@@ -133,7 +133,7 @@ public final class a implements j {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.putOpt("Level", Integer.valueOf(this.a));
-            jSONObject.putOpt("Description", this.f3676b);
+            jSONObject.putOpt("Description", this.f3164b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -152,7 +152,7 @@ public final class a implements j {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f3676b, aVar.f3676b)) {
+                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f3164b, aVar.f3164b)) {
                     }
                 }
                 return false;
@@ -166,9 +166,9 @@ public final class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.a * 31;
-            byte[] bArr = this.f3676b;
-            return i2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            int i = this.a * 31;
+            byte[] bArr = this.f3164b;
+            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -177,7 +177,7 @@ public final class a implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "Alert(level=" + this.a + ", description=" + Arrays.toString(this.f3676b) + SmallTailInfo.EMOTION_SUFFIX;
+            return "Alert(level=" + this.a + ", description=" + Arrays.toString(this.f3164b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

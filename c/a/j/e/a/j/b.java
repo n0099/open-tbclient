@@ -25,9 +25,9 @@ public final class b extends BuoyComponent {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, taskBuoyViewModel, taskInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c.a.j.h.c.a.a) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -38,9 +38,9 @@ public final class b extends BuoyComponent {
     }
 
     @Override // c.a.j.d.b
-    public void b(TaskInfo taskInfo, int i2, String str) {
+    public void b(TaskInfo taskInfo, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, taskInfo, i2, str) == null) || i2 == 304) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, taskInfo, i, str) == null) || i == 304) {
             return;
         }
         p();

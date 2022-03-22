@@ -17,12 +17,10 @@ import com.compatible.menukey.MenuKeyUtils;
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public a f47731e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Rect f47732f;
+    /* renamed from: b  reason: collision with root package name */
+    public Rect f36904b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -38,9 +36,9 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -48,32 +46,32 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.f47732f = new Rect();
+        this.f36904b = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i2);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f47732f);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f47732f.top) - size;
-            if (this.f47731e != null) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f36904b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f36904b.top) - size;
+            if (this.a != null) {
                 boolean z = true;
                 if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= n.d(activity, 48.0f) + 128) {
                     z = false;
                 }
-                this.f47731e.a(z);
+                this.a.a(z);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f47731e = aVar;
+            this.a = aVar;
         }
     }
 }

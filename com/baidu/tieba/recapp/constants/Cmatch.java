@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Cmatch {
     public static final /* synthetic */ Cmatch[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -52,16 +52,16 @@ public final class Cmatch {
         $VALUES = new Cmatch[]{HOMEPAGE, FRS, PB_BANNER, PB_COMMENT, PIC_PAGE, VIDEO_PB_COMMENT, VIDEO_PB_RECOMMEND, VIDEO_LIST, VIDEO_PASTER, cmatch};
     }
 
-    public Cmatch(String str, int i2, String str2) {
+    public Cmatch(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

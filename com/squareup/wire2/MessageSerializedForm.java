@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MessageSerializedForm<M extends Message<M, B>, B extends Message.a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -26,9 +26,9 @@ public final class MessageSerializedForm<M extends Message<M, B>, B extends Mess
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

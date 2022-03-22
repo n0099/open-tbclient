@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import org.apache.commons.base.CharEncoding;
 /* loaded from: classes7.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
@@ -39,17 +39,17 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             public ByteBuffer value;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public DefaulPlayReadyRecord(int i2) {
-                super(i2);
+            public DefaulPlayReadyRecord(int i) {
+                super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2)};
+                    Object[] objArr = {Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -87,9 +87,9 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -118,7 +118,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    return "EmeddedLicenseStore{length=" + getValue().limit() + ExtendedMessageFormat.END_FE;
+                    return "EmeddedLicenseStore{length=" + getValue().limit() + '}';
                 }
                 return (String) invokeV.objValue;
             }
@@ -137,9 +137,9 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -160,7 +160,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
-                        return ByteBuffer.wrap(this.header.getBytes("UTF-16LE"));
+                        return ByteBuffer.wrap(this.header.getBytes(CharEncoding.UTF_16LE));
                     } catch (UnsupportedEncodingException e2) {
                         throw new RuntimeException(e2);
                     }
@@ -175,7 +175,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                     try {
                         byte[] bArr = new byte[byteBuffer.slice().limit()];
                         byteBuffer.get(bArr);
-                        this.header = new String(bArr, "UTF-16LE");
+                        this.header = new String(bArr, CharEncoding.UTF_16LE);
                     } catch (UnsupportedEncodingException e2) {
                         throw new RuntimeException(e2);
                     }
@@ -194,37 +194,37 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    return "RMHeader{length=" + getValue().limit() + ", header='" + this.header + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                    return "RMHeader{length=" + getValue().limit() + ", header='" + this.header + "'}";
                 }
                 return (String) invokeV.objValue;
             }
         }
 
-        public PlayReadyRecord(int i2) {
+        public PlayReadyRecord(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.type = i2;
+            this.type = i;
         }
 
-        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i2) {
+        public static List<PlayReadyRecord> createFor(ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLI;
             PlayReadyRecord rMHeader;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i2)) == null) {
-                ArrayList arrayList = new ArrayList(i2);
-                for (int i3 = 0; i3 < i2; i3++) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i)) == null) {
+                ArrayList arrayList = new ArrayList(i);
+                for (int i2 = 0; i2 < i; i2++) {
                     int readUInt16BE = IsoTypeReader.readUInt16BE(byteBuffer);
                     int readUInt16BE2 = IsoTypeReader.readUInt16BE(byteBuffer);
                     if (readUInt16BE == 1) {
@@ -253,7 +253,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "PlayReadyRecord{type=" + this.type + ", length=" + getValue().limit() + ExtendedMessageFormat.END_FE;
+                return "PlayReadyRecord{type=" + this.type + ", length=" + getValue().limit() + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -281,9 +281,9 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -295,12 +295,12 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = 6;
+            int i = 6;
             for (PlayReadyRecord playReadyRecord : this.records) {
-                i2 = i2 + 4 + playReadyRecord.getValue().rewind().limit();
+                i = i + 4 + playReadyRecord.getValue().rewind().limit();
             }
-            ByteBuffer allocate = ByteBuffer.allocate(i2);
-            IsoTypeWriter.writeUInt32BE(allocate, i2);
+            ByteBuffer allocate = ByteBuffer.allocate(i);
+            IsoTypeWriter.writeUInt32BE(allocate, i);
             IsoTypeWriter.writeUInt16BE(allocate, this.records.size());
             for (PlayReadyRecord playReadyRecord2 : this.records) {
                 IsoTypeWriter.writeUInt16BE(allocate, playReadyRecord2.type);
@@ -346,7 +346,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "PlayReadyHeader{length=" + this.length + ", recordCount=" + this.records.size() + ", records=" + this.records + ExtendedMessageFormat.END_FE;
+            return "PlayReadyHeader{length=" + this.length + ", recordCount=" + this.records.size() + ", records=" + this.records + '}';
         }
         return (String) invokeV.objValue;
     }

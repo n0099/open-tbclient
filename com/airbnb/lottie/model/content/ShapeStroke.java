@@ -69,9 +69,9 @@ public class ShapeStroke implements ContentModel {
         UNKNOWN;
 
         public Paint.Cap toPaintCap() {
-            int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return Paint.Cap.SQUARE;
                 }
                 return Paint.Cap.ROUND;
@@ -87,10 +87,10 @@ public class ShapeStroke implements ContentModel {
         BEVEL;
 
         public Paint.Join toPaintJoin() {
-            int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
                     return Paint.Join.ROUND;

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.launch;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -84,9 +85,9 @@ public class ExternalTransferSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -131,9 +132,9 @@ public class ExternalTransferSpeedStats {
                             jSONObject2.put("begin_time", LaunchStatsUtils.getAppCreateTime());
                             long appCreateTime = LaunchStatsUtils.getAppCreateTime();
                             if (sSchemeDispatcherStartTimeStamp != 0) {
-                                long j2 = sSchemeDispatcherStartTimeStamp - appCreateTime;
-                                if (j2 > 0 && j2 < 15000) {
-                                    jSONObject2.put(UBC_DISPATCH_START_KEY, j2);
+                                long j = sSchemeDispatcherStartTimeStamp - appCreateTime;
+                                if (j > 0 && j < 15000) {
+                                    jSONObject2.put(UBC_DISPATCH_START_KEY, j);
                                 } else {
                                     jSONObject2.put(UBC_DISPATCH_START_KEY, -1);
                                 }
@@ -141,9 +142,9 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_DISPATCH_START_KEY, -1);
                             }
                             if (sSchemeDispatcherEndTimeStamp != 0) {
-                                long j3 = sSchemeDispatcherEndTimeStamp - appCreateTime;
-                                if (j3 > 0 && j3 < 15000) {
-                                    jSONObject2.put(UBC_DISPATCH_END_KEY, j3);
+                                long j2 = sSchemeDispatcherEndTimeStamp - appCreateTime;
+                                if (j2 > 0 && j2 < 15000) {
+                                    jSONObject2.put(UBC_DISPATCH_END_KEY, j2);
                                 } else {
                                     jSONObject2.put(UBC_DISPATCH_END_KEY, -1);
                                 }
@@ -151,9 +152,9 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_DISPATCH_END_KEY, -1);
                             }
                             if (sBusinessPageCreateTimeStamp != 0) {
-                                long j4 = sBusinessPageCreateTimeStamp - appCreateTime;
-                                if (j4 > 0 && j4 < 15000) {
-                                    jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, j4);
+                                long j3 = sBusinessPageCreateTimeStamp - appCreateTime;
+                                if (j3 > 0 && j3 < 15000) {
+                                    jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, j3);
                                 } else {
                                     jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, -1);
                                 }
@@ -161,8 +162,8 @@ public class ExternalTransferSpeedStats {
                                 jSONObject2.put(UBC_PAGE_WILL_SHOW_DURATION_KEY, -1);
                             }
                             if (sBusinessPageUiReadyTimeStamp != 0) {
-                                long j5 = sBusinessPageUiReadyTimeStamp - appCreateTime;
-                                if (j5 > 0 && j5 < 15000) {
+                                long j4 = sBusinessPageUiReadyTimeStamp - appCreateTime;
+                                if (j4 > 0 && j4 < 15000) {
                                     jSONObject2.put("duration", sBusinessPageUiReadyTimeStamp - LaunchStatsUtils.getAppCreateTime());
                                 } else {
                                     jSONObject2.put("duration", -1);
@@ -174,7 +175,7 @@ public class ExternalTransferSpeedStats {
                             jSONObject.put("ext", jSONObject2);
                             uBCManager.onEvent(UBC_EXTERNAL_TRANSFER_ID, jSONObject.toString());
                             if (DEBUG) {
-                                jSONObject.toString();
+                                Log.d(TAG, jSONObject.toString());
                             }
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -182,7 +183,9 @@ public class ExternalTransferSpeedStats {
                         resetFlow();
                         return;
                     }
-                    boolean z = DEBUG;
+                    if (DEBUG) {
+                        Log.d(TAG, "hot launch , drop data");
+                    }
                     resetFlow();
                     return;
                 }
@@ -237,7 +240,9 @@ public class ExternalTransferSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
             synchronized (ExternalTransferSpeedStats.class) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "resetFlow");
+                }
             }
         }
     }
@@ -249,12 +254,12 @@ public class ExternalTransferSpeedStats {
                 if (LaunchStatsUtils.isAppCreateTimeValid() && !TextUtils.isEmpty(sSource)) {
                     if (FEED_PAGE != str && "search" != str && "swan" != str) {
                         if (DEBUG) {
-                            String str2 = "cannot distinguish the page: " + str;
+                            Log.d(TAG, "cannot distinguish the page: " + str);
                         }
                     }
                     sBusinessPage = str;
                     if (DEBUG) {
-                        String str3 = "set external transfer page: " + str;
+                        Log.d(TAG, "set external transfer page: " + str);
                     }
                 }
             }
@@ -266,14 +271,14 @@ public class ExternalTransferSpeedStats {
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
             synchronized (ExternalTransferSpeedStats.class) {
                 if (LaunchStatsUtils.isAppCreateTimeValid()) {
-                    if ("push" != str && SOURCE_FROM_WISE != str && "scheme" != str) {
+                    if ("push" != str && "wise" != str && "scheme" != str) {
                         if (DEBUG) {
-                            String str2 = "cannot distinguish the source: " + str;
+                            Log.d(TAG, "cannot distinguish the source: " + str);
                         }
                     }
                     sSource = str;
                     if (DEBUG) {
-                        String str3 = "set external transfer source: " + str;
+                        Log.d(TAG, "set external transfer source: " + str);
                     }
                 }
             }
@@ -312,22 +317,22 @@ public class ExternalTransferSpeedStats {
                     if (TextUtils.equals(str, SCHEME_DISPATCHER_START_ID) && sSchemeDispatcherStartTimeStamp == 0) {
                         sSchemeDispatcherStartTimeStamp = Long.valueOf(str2).longValue();
                         if (DEBUG) {
-                            String str3 = "set sSchemeDispatcherStartTimeStamp: " + sSchemeDispatcherStartTimeStamp;
+                            Log.d(TAG, "set sSchemeDispatcherStartTimeStamp: " + sSchemeDispatcherStartTimeStamp);
                         }
                     } else if (TextUtils.equals(str, SCHEME_DISPATCHER_END_ID) && sSchemeDispatcherEndTimeStamp == 0) {
                         sSchemeDispatcherEndTimeStamp = Long.valueOf(str2).longValue();
                         if (DEBUG) {
-                            String str4 = "set sSchemeDispatcherEndTimeStamp: " + sSchemeDispatcherEndTimeStamp;
+                            Log.d(TAG, "set sSchemeDispatcherEndTimeStamp: " + sSchemeDispatcherEndTimeStamp);
                         }
                     } else if (TextUtils.equals(str, BUSINESS_PAGE_CREATE_ID) && sBusinessPageCreateTimeStamp == 0) {
                         sBusinessPageCreateTimeStamp = Long.valueOf(str2).longValue();
                         if (DEBUG) {
-                            String str5 = "set sBusinessPageCreateTimeStamp: " + sBusinessPageCreateTimeStamp;
+                            Log.d(TAG, "set sBusinessPageCreateTimeStamp: " + sBusinessPageCreateTimeStamp);
                         }
                     } else if (TextUtils.equals(str, BUSINESS_PAGE_UI_READY_ID) && sBusinessPageUiReadyTimeStamp == 0) {
                         sBusinessPageUiReadyTimeStamp = Long.valueOf(str2).longValue();
                         if (DEBUG) {
-                            String str6 = "set sBusinessPageUiReadyTimeStamp: " + sBusinessPageUiReadyTimeStamp;
+                            Log.d(TAG, "set sBusinessPageUiReadyTimeStamp: " + sBusinessPageUiReadyTimeStamp);
                         }
                     } else if (TextUtils.equals(str, FEED_UI_READY_ID) && sBusinessPage == FEED_PAGE) {
                         sBusinessPageUiReadyTimeStamp = Long.valueOf(str2).longValue();
@@ -339,7 +344,7 @@ public class ExternalTransferSpeedStats {
                             }
                             additionInfos.put(str, str2);
                             if (DEBUG) {
-                                String str7 = "set additionInfos: " + additionInfos.toString();
+                                Log.d(TAG, "set additionInfos: " + additionInfos.toString());
                             }
                         } catch (JSONException e2) {
                             e2.printStackTrace();

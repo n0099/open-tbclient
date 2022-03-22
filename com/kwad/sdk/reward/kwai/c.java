@@ -10,14 +10,14 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.kwai.b;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends g implements b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f55881b;
+    public AdTemplate f40848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55882c = false;
+    public boolean f40849c = false;
 
     public static boolean a(AdInfo adInfo) {
         AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(adInfo);
@@ -27,7 +27,7 @@ public class c extends g implements b.a {
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f55881b = ((g) this).a.f55769g;
+        this.f40848b = ((g) this).a.f40747g;
     }
 
     @Override // com.kwad.sdk.reward.kwai.b.a
@@ -36,12 +36,12 @@ public class c extends g implements b.a {
     }
 
     public void e() {
-        com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f55882c);
-        if (this.f55882c) {
+        com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "onBind hasShown : " + this.f40849c);
+        if (this.f40849c) {
             return;
         }
-        AdInfo j2 = d.j(this.f55881b);
-        ViewGroup viewGroup = (ViewGroup) ((g) this).a.f55772j.findViewById(R.id.ksad_reward_order_coupon_list);
+        AdInfo j = d.j(this.f40848b);
+        ViewGroup viewGroup = (ViewGroup) ((g) this).a.j.findViewById(R.id.obfuscated_res_0x7f091111);
         if (viewGroup == null) {
             return;
         }
@@ -51,15 +51,15 @@ public class c extends g implements b.a {
             view = viewGroup.getChildAt(0);
         }
         final int[] c2 = bb.c(view);
-        if (!a(j2) || c2 == null) {
+        if (!a(j) || c2 == null) {
             return;
         }
         view.post(new Runnable() { // from class: com.kwad.sdk.reward.kwai.c.1
             @Override // java.lang.Runnable
             public void run() {
                 com.kwad.sdk.core.d.a.a("RewardCouponDialogPresenter", "targetView x: " + c2[0] + ", y: " + c2[1]);
-                b.a(c.this.o(), c.this.f55881b, c.this, c2);
-                c.this.f55882c = true;
+                b.a(c.this.o(), c.this.f40848b, c.this, c2);
+                c.this.f40849c = true;
             }
         });
     }

@@ -46,9 +46,9 @@ public class DeleteApkTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -73,9 +73,9 @@ public class DeleteApkTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -90,7 +90,7 @@ public class DeleteApkTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
                         String name = file2.getName();
-                        return !TextUtils.isEmpty(name) && name.contains(TbadkCoreApplication.getInst().getString(R.string.app_name)) && name.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                        return !TextUtils.isEmpty(name) && name.contains(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029e)) && name.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                     }
                     return invokeL.booleanValue;
                 }
@@ -130,9 +130,9 @@ public class DeleteApkTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

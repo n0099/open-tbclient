@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
-import c.a.r0.d1.p2.e;
+import c.a.p0.f1.p2.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ public class TabData extends LinkedList<e> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,9 +41,9 @@ public class TabData extends LinkedList<e> {
             try {
                 LinkedList linkedList = (LinkedList) collection;
                 int size = size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    e eVar = get(i2);
-                    if (eVar == null || !eVar.equals(linkedList.get(i2))) {
+                for (int i = 0; i < size; i++) {
+                    e eVar = get(i);
+                    if (eVar == null || !eVar.equals(linkedList.get(i))) {
                         return false;
                     }
                 }

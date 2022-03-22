@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,10 +35,10 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
     }
 
     @VisibleForTesting
-    public float calculateScore(DiskStorage.Entry entry, long j2) {
+    public float calculateScore(DiskStorage.Entry entry, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, entry, j2)) == null) ? (this.mAgeWeight * ((float) (j2 - entry.getTimestamp()))) + (this.mSizeWeight * ((float) entry.getSize())) : invokeLJ.floatValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, entry, j)) == null) ? (this.mAgeWeight * ((float) (j - entry.getTimestamp()))) + (this.mSizeWeight * ((float) entry.getSize())) : invokeLJ.floatValue;
     }
 
     @Override // com.facebook.cache.disk.EntryEvictionComparatorSupplier
@@ -58,9 +58,9 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeReaderVariable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,30 +16,30 @@ public final class IsoTypeReaderVariable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static long read(ByteBuffer byteBuffer, int i2) {
+    public static long read(ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         int readUInt8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i)) == null) {
+            if (i == 1) {
                 readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 readUInt8 = IsoTypeReader.readUInt16(byteBuffer);
-            } else if (i2 != 3) {
-                if (i2 != 4) {
-                    if (i2 == 8) {
+            } else if (i != 3) {
+                if (i != 4) {
+                    if (i == 8) {
                         return IsoTypeReader.readUInt64(byteBuffer);
                     }
-                    throw new RuntimeException("I don't know how to read " + i2 + " bytes");
+                    throw new RuntimeException("I don't know how to read " + i + " bytes");
                 }
                 return IsoTypeReader.readUInt32(byteBuffer);
             } else {

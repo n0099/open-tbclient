@@ -39,9 +39,9 @@ public final class PreferenceUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -72,16 +72,16 @@ public final class PreferenceUtils {
         return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, str, f2)) == null) ? getPreference().getFloat(str, f2) : invokeLF.floatValue;
     }
 
-    public static int getInt(String str, int i2) {
+    public static int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) ? getPreference().getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) ? getPreference().getInt(str, i) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j2) {
+    public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j2)) == null) ? getPreference().getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) ? getPreference().getLong(str, j) : invokeLJ.longValue;
     }
 
     public static SharedPreferences getPreference() {
@@ -136,20 +136,20 @@ public final class PreferenceUtils {
         }
     }
 
-    public static void setInt(String str, int i2) {
+    public static void setInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65550, null, str, i) == null) {
             SharedPreferences.Editor edit = getPreference().edit();
-            edit.putInt(str, i2);
+            edit.putInt(str, i);
             edit.apply();
         }
     }
 
-    public static void setLong(String str, long j2) {
+    public static void setLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65551, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65551, null, str, j) == null) {
             SharedPreferences.Editor edit = getPreference().edit();
-            edit.putLong(str, j2);
+            edit.putLong(str, j);
             edit.apply();
         }
     }

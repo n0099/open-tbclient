@@ -41,9 +41,9 @@ public class RequestCall implements Cancelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {request};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,10 +75,10 @@ public class RequestCall implements Cancelable {
         }
     }
 
-    private void recordStatusCode(int i2, String str) {
+    private void recordStatusCode(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65543, this, i2, str) == null) && StatusCodeException.isStatusCodeMatched(i2)) {
-            StatusCodeException statusCodeException = new StatusCodeException(String.format("Server statusCode Error; statusCode=%s; response.message=%s", Integer.valueOf(i2), str));
+        if ((interceptable == null || interceptable.invokeIL(65543, this, i, str) == null) && StatusCodeException.isStatusCodeMatched(i)) {
+            StatusCodeException statusCodeException = new StatusCodeException(String.format("Server statusCode Error; statusCode=%s; response.message=%s", Integer.valueOf(i), str));
             Request request = this.request;
             if (request != null) {
                 request.onException4NetworkStatRecord(statusCodeException);
@@ -110,9 +110,9 @@ public class RequestCall implements Cancelable {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, responseCallback, name, wrapNoNetworkExceptionWithDetail};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -166,9 +166,9 @@ public class RequestCall implements Cancelable {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, parseResponse, responseCallback, response};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -247,9 +247,9 @@ public class RequestCall implements Cancelable {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, handler, responseCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -317,9 +317,9 @@ public class RequestCall implements Cancelable {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, handler, responseCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -359,7 +359,7 @@ public class RequestCall implements Cancelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = DoRecordManager.FAILED_MSG;
+            int i = DoRecordManager.FAILED_MSG;
             NetworkStatRecord networkStatRecord = this.request.getNetworkStatRecord();
             try {
                 try {
@@ -368,7 +368,7 @@ public class RequestCall implements Cancelable {
                     if (execute != null) {
                         recordStatusCode(execute.code(), execute.message());
                         networkStatRecord = execute.getStatRecord();
-                        i2 = DoRecordManager.SUCCESSFUL_MSG;
+                        i = DoRecordManager.SUCCESSFUL_MSG;
                     }
                     return execute;
                 } catch (Exception e2) {
@@ -376,11 +376,11 @@ public class RequestCall implements Cancelable {
                     wrapNoNetworkExceptionWithDetail.printStackTrace();
                     this.request.onException4NetworkStatRecord(wrapNoNetworkExceptionWithDetail);
                     this.request.getNetworkStatRecord();
-                    int i3 = DoRecordManager.FAILED_MSG;
+                    int i2 = DoRecordManager.FAILED_MSG;
                     throw new RequestCallException(TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage()) ? Log.getStackTraceString(e2) : wrapNoNetworkExceptionWithDetail.getMessage(), wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord());
                 }
             } finally {
-                DoRecordManager.getInstance().doRecord(networkStatRecord, i2);
+                DoRecordManager.getInstance().doRecord(networkStatRecord, i);
             }
         }
         return (Response) invokeV.objValue;

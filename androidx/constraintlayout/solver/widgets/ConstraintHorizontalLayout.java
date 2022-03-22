@@ -55,16 +55,16 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
             $VALUES = new ContentAlignment[]{BEGIN, MIDDLE, END, TOP, VERTICAL_MIDDLE, BOTTOM, LEFT, contentAlignment};
         }
 
-        public ContentAlignment(String str, int i2) {
+        public ContentAlignment(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -92,9 +92,9 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,11 +108,11 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, linearSystem) == null) {
             if (this.mChildren.size() != 0) {
-                int i2 = 0;
+                int i = 0;
                 int size = this.mChildren.size();
                 ConstraintWidget constraintWidget = this;
-                while (i2 < size) {
-                    ConstraintWidget constraintWidget2 = this.mChildren.get(i2);
+                while (i < size) {
+                    ConstraintWidget constraintWidget2 = this.mChildren.get(i);
                     if (constraintWidget != this) {
                         constraintWidget2.connect(ConstraintAnchor.Type.LEFT, constraintWidget, ConstraintAnchor.Type.RIGHT);
                         constraintWidget.connect(ConstraintAnchor.Type.RIGHT, constraintWidget2, ConstraintAnchor.Type.LEFT);
@@ -128,7 +128,7 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
                     constraintWidget2.connect(type2, this, type2);
                     ConstraintAnchor.Type type3 = ConstraintAnchor.Type.BOTTOM;
                     constraintWidget2.connect(type3, this, type3);
-                    i2++;
+                    i++;
                     constraintWidget = constraintWidget2;
                 }
                 if (constraintWidget != this) {
@@ -145,17 +145,17 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintHorizontalLayout(int i2, int i3, int i4, int i5) {
-        super(i2, i3, i4, i5);
+    public ConstraintHorizontalLayout(int i, int i2, int i3, int i4) {
+        super(i, i2, i3, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -167,17 +167,17 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintHorizontalLayout(int i2, int i3) {
-        super(i2, i3);
+    public ConstraintHorizontalLayout(int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

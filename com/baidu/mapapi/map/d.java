@@ -20,9 +20,9 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
             newInitContext.initArgs = r2;
             Object[] objArr = {baiduMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,7 +32,7 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.o
-    public Bundle a(int i2, int i3, int i4) {
+    public Bundle a(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Lock lock;
         Lock lock2;
@@ -40,14 +40,14 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
         Lock lock3;
         HeatMap heatMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
             lock = this.a.I;
             lock.lock();
             try {
                 heatMap = this.a.H;
                 if (heatMap != null) {
                     heatMap2 = this.a.H;
-                    Tile a = heatMap2.a(i2, i3, i4);
+                    Tile a = heatMap2.a(i, i2, i3);
                     if (a != null) {
                         return a.toBundle();
                     }

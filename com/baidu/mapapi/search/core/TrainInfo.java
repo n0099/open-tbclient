@@ -18,7 +18,7 @@ public class TrainInfo extends TransitBaseInfo {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34160b;
+    public String f26394b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,9 +41,9 @@ public class TrainInfo extends TransitBaseInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -59,9 +59,9 @@ public class TrainInfo extends TransitBaseInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -69,7 +69,7 @@ public class TrainInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f34160b = parcel.readString();
+        this.f26394b = parcel.readString();
     }
 
     public void a(double d2) {
@@ -82,7 +82,7 @@ public class TrainInfo extends TransitBaseInfo {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f34160b = str;
+            this.f26394b = str;
         }
     }
 
@@ -97,12 +97,12 @@ public class TrainInfo extends TransitBaseInfo {
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f34160b);
+            parcel.writeString(this.f26394b);
         }
     }
 }

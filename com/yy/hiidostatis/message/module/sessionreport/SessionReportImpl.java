@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SessionReportImpl implements SessionReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class SessionReportImpl implements SessionReport {
     public Packer packer;
     public Map<String, Session> sessions;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class Session {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class SessionReportImpl implements SessionReport {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sessionReportImpl, str, str2, processor, afterFlush};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -133,9 +133,9 @@ public class SessionReportImpl implements SessionReport {
             newInitContext.initArgs = r2;
             Object[] objArr = {messageConfig, packer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

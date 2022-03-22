@@ -16,8 +16,8 @@ public class v implements com.kwad.sdk.core.d<AdInfo.AdTrackInfo> {
         adTrackInfo.urls = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("url");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                adTrackInfo.urls.add((String) optJSONArray.opt(i2));
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                adTrackInfo.urls.add((String) optJSONArray.opt(i));
             }
         }
     }

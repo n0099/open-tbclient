@@ -25,9 +25,9 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -165,41 +165,41 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                return drawable.setLevel(i2);
+                return drawable.setLevel(i);
             }
-            return super.onLevelChange(i2);
+            return super.onLevelChange(i);
         }
         return invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i2) {
+    public void setChangingConfigurations(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.setChangingConfigurations(i2);
+                drawable.setChangingConfigurations(i);
             } else {
-                super.setChangingConfigurations(i2);
+                super.setChangingConfigurations(i);
             }
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i2, PorterDuff.Mode mode) {
+    public void setColorFilter(int i, PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, mode) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, mode) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.setColorFilter(i2, mode);
+                drawable.setColorFilter(i, mode);
             } else {
-                super.setColorFilter(i2, mode);
+                super.setColorFilter(i, mode);
             }
         }
     }
@@ -225,13 +225,13 @@ public abstract class VectorDrawableCommon extends Drawable implements TintAware
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048591, this, i2, i3, i4, i5) == null) || (drawable = this.mDelegateDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048591, this, i, i2, i3, i4) == null) || (drawable = this.mDelegateDrawable) == null) {
             return;
         }
-        DrawableCompat.setHotspotBounds(drawable, i2, i3, i4, i5);
+        DrawableCompat.setHotspotBounds(drawable, i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable

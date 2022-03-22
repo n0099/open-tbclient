@@ -1,6 +1,8 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +20,7 @@ import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MetadataUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LANGUAGE_UNDEFINED = "und";
@@ -71,7 +73,7 @@ public final class MetadataUtil {
         SHORT_TYPE_NAME_1 = Util.getIntegerCodeForString("nam");
         SHORT_TYPE_NAME_2 = Util.getIntegerCodeForString("trk");
         SHORT_TYPE_COMMENT = Util.getIntegerCodeForString("cmt");
-        SHORT_TYPE_YEAR = Util.getIntegerCodeForString("day");
+        SHORT_TYPE_YEAR = Util.getIntegerCodeForString(Config.TRACE_VISIT_RECENT_DAY);
         SHORT_TYPE_ARTIST = Util.getIntegerCodeForString("ART");
         SHORT_TYPE_ENCODER = Util.getIntegerCodeForString("too");
         SHORT_TYPE_ALBUM = Util.getIntegerCodeForString("alb");
@@ -105,26 +107,26 @@ public final class MetadataUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static CommentFrame parseCommentAttribute(int i2, ParsableByteArray parsableByteArray) {
+    public static CommentFrame parseCommentAttribute(int i, ParsableByteArray parsableByteArray) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, parsableByteArray)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, parsableByteArray)) == null) {
             int readInt = parsableByteArray.readInt();
             if (parsableByteArray.readInt() == Atom.TYPE_data) {
                 parsableByteArray.skipBytes(8);
                 String readNullTerminatedString = parsableByteArray.readNullTerminatedString(readInt - 16);
                 return new CommentFrame(LANGUAGE_UNDEFINED, readNullTerminatedString, readNullTerminatedString);
             }
-            String str = "Failed to parse comment attribute: " + Atom.getAtomTypeString(i2);
+            Log.w(TAG, "Failed to parse comment attribute: " + Atom.getAtomTypeString(i));
             return null;
         }
         return (CommentFrame) invokeIL.objValue;
@@ -139,15 +141,16 @@ public final class MetadataUtil {
                 int parseFullAtomFlags = Atom.parseFullAtomFlags(parsableByteArray.readInt());
                 String str = parseFullAtomFlags == 13 ? "image/jpeg" : parseFullAtomFlags == 14 ? "image/png" : null;
                 if (str == null) {
-                    String str2 = "Unrecognized cover art flags: " + parseFullAtomFlags;
+                    Log.w(TAG, "Unrecognized cover art flags: " + parseFullAtomFlags);
                     return null;
                 }
                 parsableByteArray.skipBytes(4);
-                int i2 = readInt - 16;
-                byte[] bArr = new byte[i2];
-                parsableByteArray.readBytes(bArr, 0, i2);
+                int i = readInt - 16;
+                byte[] bArr = new byte[i];
+                parsableByteArray.readBytes(bArr, 0, i);
                 return new ApicFrame(str, null, 3, bArr);
             }
+            Log.w(TAG, "Failed to parse cover art attribute");
             return null;
         }
         return (ApicFrame) invokeL.objValue;
@@ -159,9 +162,9 @@ public final class MetadataUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
             int position = parsableByteArray.getPosition() + parsableByteArray.readInt();
             int readInt = parsableByteArray.readInt();
-            int i2 = (readInt >> 24) & 255;
+            int i = (readInt >> 24) & 255;
             try {
-                if (i2 != 169 && i2 != 65533) {
+                if (i != 169 && i != 65533) {
                     if (readInt == TYPE_GENRE) {
                         return parseStandardGenreAttribute(parsableByteArray);
                     }
@@ -214,31 +217,31 @@ public final class MetadataUtil {
                         return parseInternalAttribute(parsableByteArray, position);
                     }
                 } else {
-                    int i3 = 16777215 & readInt;
-                    if (i3 == SHORT_TYPE_COMMENT) {
+                    int i2 = 16777215 & readInt;
+                    if (i2 == SHORT_TYPE_COMMENT) {
                         return parseCommentAttribute(readInt, parsableByteArray);
                     }
-                    if (i3 != SHORT_TYPE_NAME_1 && i3 != SHORT_TYPE_NAME_2) {
-                        if (i3 != SHORT_TYPE_COMPOSER_1 && i3 != SHORT_TYPE_COMPOSER_2) {
-                            if (i3 == SHORT_TYPE_YEAR) {
+                    if (i2 != SHORT_TYPE_NAME_1 && i2 != SHORT_TYPE_NAME_2) {
+                        if (i2 != SHORT_TYPE_COMPOSER_1 && i2 != SHORT_TYPE_COMPOSER_2) {
+                            if (i2 == SHORT_TYPE_YEAR) {
                                 return parseTextAttribute(readInt, "TDRC", parsableByteArray);
                             }
-                            if (i3 == SHORT_TYPE_ARTIST) {
+                            if (i2 == SHORT_TYPE_ARTIST) {
                                 return parseTextAttribute(readInt, "TPE1", parsableByteArray);
                             }
-                            if (i3 == SHORT_TYPE_ENCODER) {
+                            if (i2 == SHORT_TYPE_ENCODER) {
                                 return parseTextAttribute(readInt, "TSSE", parsableByteArray);
                             }
-                            if (i3 == SHORT_TYPE_ALBUM) {
+                            if (i2 == SHORT_TYPE_ALBUM) {
                                 return parseTextAttribute(readInt, "TALB", parsableByteArray);
                             }
-                            if (i3 == SHORT_TYPE_LYRICS) {
+                            if (i2 == SHORT_TYPE_LYRICS) {
                                 return parseTextAttribute(readInt, "USLT", parsableByteArray);
                             }
-                            if (i3 == SHORT_TYPE_GENRE) {
+                            if (i2 == SHORT_TYPE_GENRE) {
                                 return parseTextAttribute(readInt, "TCON", parsableByteArray);
                             }
-                            if (i3 == TYPE_GROUPING) {
+                            if (i2 == TYPE_GROUPING) {
                                 return parseTextAttribute(readInt, "TIT1", parsableByteArray);
                             }
                         }
@@ -246,7 +249,7 @@ public final class MetadataUtil {
                     }
                     return parseTextAttribute(readInt, "TIT2", parsableByteArray);
                 }
-                String str = "Skipped unknown metadata entry: " + Atom.getAtomTypeString(readInt);
+                Log.d(TAG, "Skipped unknown metadata entry: " + Atom.getAtomTypeString(readInt));
                 return null;
             } finally {
                 parsableByteArray.setPosition(position);
@@ -255,10 +258,10 @@ public final class MetadataUtil {
         return (Metadata.Entry) invokeL.objValue;
     }
 
-    public static TextInformationFrame parseIndexAndCountAttribute(int i2, String str, ParsableByteArray parsableByteArray) {
+    public static TextInformationFrame parseIndexAndCountAttribute(int i, String str, ParsableByteArray parsableByteArray) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i2, str, parsableByteArray)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i, str, parsableByteArray)) == null) {
             int readInt = parsableByteArray.readInt();
             if (parsableByteArray.readInt() == Atom.TYPE_data && readInt >= 22) {
                 parsableByteArray.skipBytes(10);
@@ -272,21 +275,21 @@ public final class MetadataUtil {
                     return new TextInformationFrame(str, null, str2);
                 }
             }
-            String str3 = "Failed to parse index/count attribute: " + Atom.getAtomTypeString(i2);
+            Log.w(TAG, "Failed to parse index/count attribute: " + Atom.getAtomTypeString(i));
             return null;
         }
         return (TextInformationFrame) invokeILL.objValue;
     }
 
-    public static Id3Frame parseInternalAttribute(ParsableByteArray parsableByteArray, int i2) {
+    public static Id3Frame parseInternalAttribute(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, parsableByteArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, parsableByteArray, i)) == null) {
             String str = null;
             String str2 = null;
+            int i2 = -1;
             int i3 = -1;
-            int i4 = -1;
-            while (parsableByteArray.getPosition() < i2) {
+            while (parsableByteArray.getPosition() < i) {
                 int position = parsableByteArray.getPosition();
                 int readInt = parsableByteArray.readInt();
                 int readInt2 = parsableByteArray.readInt();
@@ -297,16 +300,16 @@ public final class MetadataUtil {
                     str2 = parsableByteArray.readNullTerminatedString(readInt - 12);
                 } else {
                     if (readInt2 == Atom.TYPE_data) {
-                        i3 = position;
-                        i4 = readInt;
+                        i2 = position;
+                        i3 = readInt;
                     }
                     parsableByteArray.skipBytes(readInt - 12);
                 }
             }
-            if ("com.apple.iTunes".equals(str) && GaplessInfoHolder.GAPLESS_COMMENT_ID.equals(str2) && i3 != -1) {
-                parsableByteArray.setPosition(i3);
+            if ("com.apple.iTunes".equals(str) && GaplessInfoHolder.GAPLESS_COMMENT_ID.equals(str2) && i2 != -1) {
+                parsableByteArray.setPosition(i2);
                 parsableByteArray.skipBytes(16);
-                return new CommentFrame(LANGUAGE_UNDEFINED, str2, parsableByteArray.readNullTerminatedString(i4 - 16));
+                return new CommentFrame(LANGUAGE_UNDEFINED, str2, parsableByteArray.readNullTerminatedString(i3 - 16));
             }
             return null;
         }
@@ -314,7 +317,7 @@ public final class MetadataUtil {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0020 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0020  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -333,6 +336,7 @@ public final class MetadataUtil {
                 if (str == null) {
                     return new TextInformationFrame("TCON", null, str);
                 }
+                Log.w(TAG, "Failed to parse standard genre code");
                 return null;
             }
         }
@@ -341,25 +345,25 @@ public final class MetadataUtil {
         }
     }
 
-    public static TextInformationFrame parseTextAttribute(int i2, String str, ParsableByteArray parsableByteArray) {
+    public static TextInformationFrame parseTextAttribute(int i, String str, ParsableByteArray parsableByteArray) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65544, null, i2, str, parsableByteArray)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65544, null, i, str, parsableByteArray)) == null) {
             int readInt = parsableByteArray.readInt();
             if (parsableByteArray.readInt() == Atom.TYPE_data) {
                 parsableByteArray.skipBytes(8);
                 return new TextInformationFrame(str, null, parsableByteArray.readNullTerminatedString(readInt - 16));
             }
-            String str2 = "Failed to parse text attribute: " + Atom.getAtomTypeString(i2);
+            Log.w(TAG, "Failed to parse text attribute: " + Atom.getAtomTypeString(i));
             return null;
         }
         return (TextInformationFrame) invokeILL.objValue;
     }
 
-    public static Id3Frame parseUint8Attribute(int i2, String str, ParsableByteArray parsableByteArray, boolean z, boolean z2) {
+    public static Id3Frame parseUint8Attribute(int i, String str, ParsableByteArray parsableByteArray, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i2), str, parsableByteArray, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), str, parsableByteArray, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int parseUint8AttributeValue = parseUint8AttributeValue(parsableByteArray);
             if (z2) {
                 parseUint8AttributeValue = Math.min(1, parseUint8AttributeValue);
@@ -370,7 +374,7 @@ public final class MetadataUtil {
                 }
                 return new CommentFrame(LANGUAGE_UNDEFINED, str, Integer.toString(parseUint8AttributeValue));
             }
-            String str2 = "Failed to parse uint8 attribute: " + Atom.getAtomTypeString(i2);
+            Log.w(TAG, "Failed to parse uint8 attribute: " + Atom.getAtomTypeString(i));
             return null;
         }
         return (Id3Frame) invokeCommon.objValue;
@@ -385,6 +389,7 @@ public final class MetadataUtil {
                 parsableByteArray.skipBytes(8);
                 return parsableByteArray.readUnsignedByte();
             }
+            Log.w(TAG, "Failed to parse uint8 attribute value");
             return -1;
         }
         return invokeL.intValue;

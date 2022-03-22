@@ -21,12 +21,10 @@ public class d<T> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public View a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public View f2378e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2379f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ d f1951b;
 
         public a(d dVar, View view) {
             Interceptable interceptable = $ic;
@@ -35,27 +33,27 @@ public class d<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2379f = dVar;
-            this.f2378e = null;
-            this.f2378e = view;
+            this.f1951b = dVar;
+            this.a = null;
+            this.a = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             f<T> fVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f2379f.mContext) == null || fVar.getPageActivity() == null || this.f2379f.mContext.getPageActivity().isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f1951b.mContext) == null || fVar.getPageActivity() == null || this.f1951b.mContext.getPageActivity().isFinishing()) {
                 return;
             }
-            this.f2379f.ShowSoftKeyPad(this.f2378e);
+            this.f1951b.ShowSoftKeyPad(this.a);
         }
     }
 
@@ -66,9 +64,9 @@ public class d<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,10 +104,10 @@ public class d<T> {
         }
     }
 
-    public void ShowSoftKeyPadDelay(View view, int i2) {
+    public void ShowSoftKeyPadDelay(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-            new Handler().postDelayed(new a(this, view), i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            new Handler().postDelayed(new a(this, view), i);
         }
     }
 

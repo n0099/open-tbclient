@@ -25,19 +25,19 @@ public class StatisticUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i2) {
+    public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65537, null, list, list2, list3, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65537, null, list, list2, list3, i) == null) {
             String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_BULK_DOWNLOADED, Integer.valueOf(list.size()), Integer.valueOf(list2.size()), Integer.valueOf(list3.size()));
             if (list.size() > 0) {
                 str = list.get(0).channelId;
@@ -46,7 +46,7 @@ public class StatisticUtils {
             } else {
                 str = list3.size() > 0 ? list3.get(0).channelId : "";
             }
-            PackageFileStatisticManager.getInstance().addDownloadStatistic2(ErrorConstant.Code.DOWNLOAD_BULK_DOWNLOADED, format, str, null, 0L, "", "", 0, i2);
+            PackageFileStatisticManager.getInstance().addDownloadStatistic2(ErrorConstant.Code.DOWNLOAD_BULK_DOWNLOADED, format, str, null, 0L, "", "", 0, i);
         }
     }
 
@@ -97,10 +97,10 @@ public class StatisticUtils {
         }
     }
 
-    public static void sendDownload(PackageInfo packageInfo, int i2) {
+    public static void sendDownload(PackageInfo packageInfo, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, packageInfo, i2) == null) {
-            sendDownload(packageInfo, new ErrorInfo(i2));
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, packageInfo, i) == null) {
+            sendDownload(packageInfo, new ErrorInfo(i));
         }
     }
 

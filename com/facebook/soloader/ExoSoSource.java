@@ -15,26 +15,26 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExoSoSource extends UnpackingSoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.soloader.ExoSoSource$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ExoUnpacker extends UnpackingSoSource.Unpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileDso[] mDsos;
         public final /* synthetic */ ExoSoSource this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public final class FileBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public final class ExoSoSource extends UnpackingSoSource {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {exoUnpacker};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -72,9 +72,9 @@ public final class ExoSoSource extends UnpackingSoSource {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     FileDso[] fileDsoArr = this.this$1.mDsos;
-                    int i2 = this.mCurrentDso;
-                    this.mCurrentDso = i2 + 1;
-                    FileDso fileDso = fileDsoArr[i2];
+                    int i = this.mCurrentDso;
+                    this.mCurrentDso = i + 1;
+                    FileDso fileDso = fileDsoArr[i];
                     FileInputStream fileInputStream = new FileInputStream(fileDso.backingFile);
                     try {
                         return new UnpackingSoSource.InputDso(fileDso, fileInputStream);
@@ -107,9 +107,9 @@ public final class ExoSoSource extends UnpackingSoSource {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {exoSoSource, unpackingSoSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -122,10 +122,10 @@ public final class ExoSoSource extends UnpackingSoSource {
             LinkedHashSet linkedHashSet = new LinkedHashSet();
             String[] supportedAbis = SysUtil.getSupportedAbis();
             int length = supportedAbis.length;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            loop0: while (i5 < length) {
-                String str = supportedAbis[i5];
+            loop0: while (i4 < length) {
+                String str = supportedAbis[i4];
                 File file2 = new File(file, str);
                 if (file2.isDirectory()) {
                     linkedHashSet.add(str);
@@ -142,25 +142,25 @@ public final class ExoSoSource extends UnpackingSoSource {
                                         if (indexOf == -1) {
                                             break loop0;
                                         }
-                                        String str2 = readLine.substring(i4, indexOf) + ".so";
+                                        String str2 = readLine.substring(i3, indexOf) + ".so";
                                         int size = arrayList.size();
-                                        int i6 = 0;
+                                        int i5 = 0;
                                         while (true) {
-                                            if (i6 >= size) {
+                                            if (i5 >= size) {
                                                 z = false;
                                                 break;
-                                            } else if (((FileDso) arrayList.get(i6)).name.equals(str2)) {
+                                            } else if (((FileDso) arrayList.get(i5)).name.equals(str2)) {
                                                 z = true;
                                                 break;
                                             } else {
-                                                i6++;
+                                                i5++;
                                             }
                                         }
                                         if (!z) {
                                             String substring = readLine.substring(indexOf + 1);
                                             arrayList.add(new FileDso(str2, substring, new File(file2, substring)));
                                         }
-                                        i4 = 0;
+                                        i3 = 0;
                                     }
                                 } else {
                                     bufferedReader.close();
@@ -174,8 +174,8 @@ public final class ExoSoSource extends UnpackingSoSource {
                         continue;
                     }
                 }
-                i5++;
-                i4 = 0;
+                i4++;
+                i3 = 0;
             }
             unpackingSoSource.setSoSourceAbis((String[]) linkedHashSet.toArray(new String[linkedHashSet.size()]));
             this.mDsos = (FileDso[]) arrayList.toArray(new FileDso[arrayList.size()]);
@@ -196,7 +196,7 @@ public final class ExoSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FileDso extends UnpackingSoSource.Dso {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,9 +211,9 @@ public final class ExoSoSource extends UnpackingSoSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -234,9 +234,9 @@ public final class ExoSoSource extends UnpackingSoSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;

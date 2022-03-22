@@ -30,22 +30,22 @@ public final class SingleEquals<T> extends Single<Boolean> {
         public final CompositeDisposable set;
         public final Object[] values;
 
-        public InnerObserver(int i2, CompositeDisposable compositeDisposable, Object[] objArr, SingleObserver<? super Boolean> singleObserver, AtomicInteger atomicInteger) {
+        public InnerObserver(int i, CompositeDisposable compositeDisposable, Object[] objArr, SingleObserver<? super Boolean> singleObserver, AtomicInteger atomicInteger) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {Integer.valueOf(i2), compositeDisposable, objArr, singleObserver, atomicInteger};
+                Object[] objArr2 = {Integer.valueOf(i), compositeDisposable, objArr, singleObserver, atomicInteger};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.index = i2;
+            this.index = i;
             this.set = compositeDisposable;
             this.values = objArr;
             this.s = singleObserver;
@@ -54,16 +54,16 @@ public final class SingleEquals<T> extends Single<Boolean> {
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 do {
-                    i2 = this.count.get();
-                    if (i2 >= 2) {
+                    i = this.count.get();
+                    if (i >= 2) {
                         RxJavaPlugins.onError(th);
                         return;
                     }
-                } while (!this.count.compareAndSet(i2, 2));
+                } while (!this.count.compareAndSet(i, 2));
                 this.set.dispose();
                 this.s.onError(th);
             }
@@ -98,9 +98,9 @@ public final class SingleEquals<T> extends Single<Boolean> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource, singleSource2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

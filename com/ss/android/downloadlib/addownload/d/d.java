@@ -1,5 +1,5 @@
 package com.ss.android.downloadlib.addownload.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface d {
-    boolean a(com.ss.android.downloadad.api.a.b bVar, int i2, c cVar);
+    boolean a(com.ss.android.downloadad.api.a.b bVar, int i, c cVar);
 }

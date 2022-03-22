@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclarePrecedence;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DeclarePrecedenceImpl implements DeclarePrecedence {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class DeclarePrecedenceImpl implements DeclarePrecedence {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, ajType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,14 +37,14 @@ public class DeclarePrecedenceImpl implements DeclarePrecedence {
         this.precedenceString = str;
         StringTokenizer stringTokenizer = new StringTokenizer(str.startsWith("(") ? str.substring(1, str.length() - 1) : str, ",");
         this.precedenceList = new TypePattern[stringTokenizer.countTokens()];
-        int i4 = 0;
+        int i3 = 0;
         while (true) {
             TypePattern[] typePatternArr = this.precedenceList;
-            if (i4 >= typePatternArr.length) {
+            if (i3 >= typePatternArr.length) {
                 return;
             }
-            typePatternArr[i4] = new TypePatternImpl(stringTokenizer.nextToken().trim());
-            i4++;
+            typePatternArr[i3] = new TypePatternImpl(stringTokenizer.nextToken().trim());
+            i3++;
         }
     }
 

@@ -2,7 +2,6 @@ package com.baidu.tieba.faceshop.forumpackage.view;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,75 +29,75 @@ import java.util.List;
 public class ForumEmotionItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HListView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f32159b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32160c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f41639e;
+    public TextView f32162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41640f;
+    public TextView f32163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41641g;
+    public View f32164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41642h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f41643i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f41644j;
-    public View k;
-    public View l;
-    public TextView m;
-    public ViewGroup n;
-    public TextView o;
-    public a p;
-    public TbPageContext q;
+    public View f32165h;
+    public TextView i;
+    public ViewGroup j;
+    public TextView k;
+    public a l;
+    public TbPageContext m;
 
     /* loaded from: classes5.dex */
     public static class a extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public List<EmotionPackageData.SingleEmotionData> a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public List<EmotionPackageData.SingleEmotionData> f41645e;
+        /* renamed from: b  reason: collision with root package name */
+        public TbPageContext f32166b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public TbPageContext f41646f;
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f32167c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public boolean f41647g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f41648h;
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f32168d;
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C1900a {
+        public static class C1844a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TbImageView f41649b;
+            public TbImageView f32169b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f41650c;
+            public TextView f32170c;
 
             /* renamed from: d  reason: collision with root package name */
-            public View f41651d;
+            public View f32171d;
 
-            public C1900a(View view) {
+            public C1844a(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {view};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -106,31 +105,31 @@ public class ForumEmotionItemView extends LinearLayout {
                 }
                 this.a = view;
                 view.setEnabled(false);
-                this.f41649b = (TbImageView) this.a.findViewById(R.id.emotion_img);
-                this.f41650c = (TextView) this.a.findViewById(R.id.emotion_single_bar_icon);
-                View findViewById = this.a.findViewById(R.id.emotion_cover_view);
-                this.f41651d = findViewById;
+                this.f32169b = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090887);
+                this.f32170c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908ab);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090874);
+                this.f32171d = findViewById;
                 findViewById.setVisibility(8);
             }
 
-            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i2) {
+            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, boolean z, boolean z2, int i) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{singleEmotionData, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || singleEmotionData == null) {
+                if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{singleEmotionData, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || singleEmotionData == null) {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.f41649b.setDefaultResource(R.drawable.img_default_100);
-                    this.f41649b.startLoad(singleEmotionData.thumbnail, 10, false);
+                    this.f32169b.setDefaultResource(R.drawable.obfuscated_res_0x7f080b75);
+                    this.f32169b.J(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
-                    this.f41650c.setVisibility(0);
+                    this.f32170c.setVisibility(0);
                 } else {
-                    this.f41650c.setVisibility(8);
+                    this.f32170c.setVisibility(8);
                 }
-                if (i2 == 7 && z2) {
-                    this.f41651d.setVisibility(0);
+                if (i == 7 && z2) {
+                    this.f32171d.setVisibility(0);
                 } else {
-                    this.f41651d.setVisibility(8);
+                    this.f32171d.setVisibility(8);
                 }
             }
         }
@@ -142,18 +141,18 @@ public class ForumEmotionItemView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41645e = new ArrayList();
-            this.f41647g = false;
-            this.f41648h = false;
-            this.f41646f = tbPageContext;
+            this.a = new ArrayList();
+            this.f32167c = false;
+            this.f32168d = false;
+            this.f32166b = tbPageContext;
         }
 
         public void a(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
@@ -161,13 +160,13 @@ public class ForumEmotionItemView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f41647g = z;
+            this.f32167c = z;
             if (list.size() > 8) {
-                this.f41645e = list.subList(0, 8);
-                this.f41648h = true;
+                this.a = list.subList(0, 8);
+                this.f32168d = true;
             } else {
-                this.f41645e = list;
-                this.f41648h = false;
+                this.a = list;
+                this.f32168d = false;
             }
             notifyDataSetChanged();
         }
@@ -177,7 +176,7 @@ public class ForumEmotionItemView extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<EmotionPackageData.SingleEmotionData> list = this.f41645e;
+                List<EmotionPackageData.SingleEmotionData> list = this.a;
                 if (list == null) {
                     return 0;
                 }
@@ -187,40 +186,40 @@ public class ForumEmotionItemView extends LinearLayout {
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i2) {
+        public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                List<EmotionPackageData.SingleEmotionData> list = this.f41645e;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                List<EmotionPackageData.SingleEmotionData> list = this.a;
                 if (list == null) {
                     return null;
                 }
-                return list.get(i2);
+                return list.get(i);
             }
             return invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C1900a c1900a;
+            C1844a c1844a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f41646f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                    c1900a = new C1900a(view);
-                    view.setTag(c1900a);
+                    view = LayoutInflater.from(this.f32166b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025e, (ViewGroup) null);
+                    c1844a = new C1844a(view);
+                    view.setTag(c1844a);
                 } else {
-                    c1900a = (C1900a) view.getTag();
+                    c1844a = (C1844a) view.getTag();
                 }
-                c1900a.a(this.f41645e.get(i2), i2 == 0 && this.f41647g, this.f41648h, i2);
+                c1844a.a(this.a.get(i), i == 0 && this.f32167c, this.f32168d, i);
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -236,167 +235,123 @@ public class ForumEmotionItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = tbPageContext;
+        this.m = tbPageContext;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
-            this.f41639e = (HListView) findViewById(R.id.forum_emotion_item_list);
-            this.l = findViewById(R.id.forum_emotion_list_head);
-            this.m = (TextView) findViewById(R.id.forum_emotion_filter);
-            this.n = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-            this.f41644j = (TextView) findViewById(R.id.forum_emotion_rank);
-            this.f41640f = (TextView) findViewById(R.id.forum_emotion_title_tv);
-            this.f41641g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
-            this.f41642h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
-            this.f41643i = (TextView) findViewById(R.id.forum_emotion_download_tv);
-            this.k = findViewById(R.id.line);
-            this.o = (TextView) findViewById(R.id.forum_emotion_board_title);
-            this.f41639e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-            this.f41639e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
-            a aVar = new a(this.q);
-            this.p = aVar;
-            this.f41639e.setAdapter((ListAdapter) aVar);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b4, this);
+            this.a = (HListView) findViewById(R.id.obfuscated_res_0x7f090a31);
+            this.f32165h = findViewById(R.id.obfuscated_res_0x7f090a33);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2f);
+            this.j = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a30);
+            this.f32163f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a35);
+            this.f32159b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a37);
+            this.f32160c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2d);
+            this.f32161d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a36);
+            this.f32162e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2e);
+            this.f32164g = findViewById(R.id.obfuscated_res_0x7f091255);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2b);
+            this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
+            this.a.setSelector(this.m.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081200));
+            a aVar = new a(this.m);
+            this.l = aVar;
+            this.a.setAdapter((ListAdapter) aVar);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setViewTextColor(this.f32159b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f32160c, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f32161d, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f32162e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f32163f, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f32164g, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.j.getChildAt(0), (int) R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.j.getChildAt(0), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.j.getChildAt(1), (int) R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.j.getChildAt(1), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0107);
         }
     }
 
     public a getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (a) invokeV.objValue;
     }
 
     public TextView getDownLoadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41643i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32162e : (TextView) invokeV.objValue;
     }
 
     public TextView getDownloadNumView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41641g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32160c : (TextView) invokeV.objValue;
     }
 
     public ViewGroup getFilterDropDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (ViewGroup) invokeV.objValue;
     }
 
     public TextView getFilterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.m : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (TextView) invokeV.objValue;
     }
 
     public View getHeaderView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32165h : (View) invokeV.objValue;
     }
 
     public View getLineView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32164g : (View) invokeV.objValue;
     }
 
     public HListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41639e : (HListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (HListView) invokeV.objValue;
     }
 
     public TextView getRankView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41644j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f32163f : (TextView) invokeV.objValue;
     }
 
     public TextView getShareNumView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41642h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f32161d : (TextView) invokeV.objValue;
     }
 
     public TextView getTitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41640f : (TextView) invokeV.objValue;
-    }
-
-    public void onChangeSkin(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f41640f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f41641g, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f41642h, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f41643i, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f41644j, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.n.getChildAt(0), (int) R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.n.getChildAt(0), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.n.getChildAt(1), (int) R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.n.getChildAt(1), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0107);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumEmotionItemView(TbPageContext tbPageContext, AttributeSet attributeSet) {
-        super(tbPageContext.getPageActivity(), attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumEmotionItemView(TbPageContext tbPageContext, AttributeSet attributeSet, int i2) {
-        super(tbPageContext.getPageActivity(), attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        a();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f32159b : (TextView) invokeV.objValue;
     }
 }

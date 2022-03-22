@@ -32,7 +32,7 @@ public class b {
     public static String a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f54465b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
+    public static OkHttpClient f39586b = new OkHttpClient.Builder().connectTimeout(3000, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS)).build();
 
     public static c a(String str, @Nullable Map<String, String> map) {
         return a(str, map, true);
@@ -49,7 +49,7 @@ public class b {
             b(url, map2);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f54453b = a(execute);
+            cVar.f39576b = a(execute);
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -67,7 +67,7 @@ public class b {
             a(url, jSONObject);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f54453b = a(execute);
+            cVar.f39576b = a(execute);
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -84,7 +84,7 @@ public class b {
             a(url, map);
             Response execute = a().newCall(url.build()).execute();
             cVar.a = execute.code();
-            cVar.f54453b = z ? a(execute) : "";
+            cVar.f39576b = z ? a(execute) : "";
         } catch (Exception e2) {
             a(cVar, e2);
         }
@@ -174,14 +174,14 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f54465b;
+        return f39586b;
     }
 
     public static void a(@NonNull c cVar, Exception exc) {
-        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f54454b;
+        f fVar = exc instanceof SocketTimeoutException ? f.a : f.f39577b;
         cVar.a = fVar.n;
-        cVar.f54453b = fVar.o;
-        if (com.kwad.sdk.b.f54002c.booleanValue()) {
+        cVar.f39576b = fVar.o;
+        if (com.kwad.sdk.b.f39154c.booleanValue()) {
             com.kwad.sdk.core.d.a.b(exc);
         }
     }

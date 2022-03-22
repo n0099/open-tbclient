@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class eq {
     public static /* synthetic */ Interceptable $ic;
     public static Vector<Pair<String, Long>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ConcurrentHashMap<String, Long> f337a;
+    public static ConcurrentHashMap<String, Long> f313a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class eq {
             }
         }
         a = new Vector<>();
-        f337a = new ConcurrentHashMap<>();
+        f313a = new ConcurrentHashMap<>();
     }
 
     public static String a() {
@@ -40,12 +40,12 @@ public class eq {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             StringBuilder sb = new StringBuilder();
             synchronized (a) {
-                for (int i2 = 0; i2 < a.size(); i2++) {
-                    Pair<String, Long> elementAt = a.elementAt(i2);
+                for (int i = 0; i < a.size(); i++) {
+                    Pair<String, Long> elementAt = a.elementAt(i);
                     sb.append((String) elementAt.first);
                     sb.append(":");
                     sb.append(elementAt.second);
-                    if (i2 < a.size() - 1) {
+                    if (i < a.size() - 1) {
                         sb.append(";");
                     }
                 }

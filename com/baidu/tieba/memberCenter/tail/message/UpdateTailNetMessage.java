@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.UpdateTail.ReqData;
 import tbclient.UpdateTail.UpdateTailReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UpdateTailNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,17 +19,17 @@ public class UpdateTailNetMessage extends NetMessage {
     public UpdateTailReqIdl.Builder idl;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UpdateTailNetMessage(int i2, String str, String str2, String str3) {
+    public UpdateTailNetMessage(int i, String str, String str2, String str3) {
         super(CmdConfigHttp.CMD_TAIL_UPDATE, 305102);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -39,7 +39,7 @@ public class UpdateTailNetMessage extends NetMessage {
         }
         this.data = new ReqData.Builder();
         this.idl = new UpdateTailReqIdl.Builder();
-        this.data.tailId = Integer.valueOf(i2);
+        this.data.tailId = Integer.valueOf(i);
         ReqData.Builder builder = this.data;
         builder.tailContent = str;
         builder.fontColor = str2;

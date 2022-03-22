@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ThumbnailStreamOpener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileService DEFAULT_SERVICE;
@@ -62,9 +62,9 @@ public class ThumbnailStreamOpener {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, thumbnailQuery, arrayPool, contentResolver};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((List) objArr2[0], (FileService) objArr2[1], (ThumbnailQuery) objArr2[2], (ArrayPool) objArr2[3], (ContentResolver) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -123,7 +123,7 @@ public class ThumbnailStreamOpener {
                     }
                     return orientation;
                 } catch (Throwable th) {
-                    if (inputStream != null) {
+                    if (0 != 0) {
                         try {
                             inputStream.close();
                         } catch (IOException unused2) {
@@ -131,15 +131,15 @@ public class ThumbnailStreamOpener {
                     }
                     throw th;
                 }
-            } catch (IOException | NullPointerException unused3) {
+            } catch (IOException | NullPointerException e2) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Failed to open uri: " + uri;
+                    Log.d(TAG, "Failed to open uri: " + uri, e2);
                 }
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                         return -1;
-                    } catch (IOException unused4) {
+                    } catch (IOException unused3) {
                         return -1;
                     }
                 }
@@ -178,9 +178,9 @@ public class ThumbnailStreamOpener {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, fileService, thumbnailQuery, arrayPool, contentResolver};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

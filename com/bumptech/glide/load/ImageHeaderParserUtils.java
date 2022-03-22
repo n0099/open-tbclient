@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImageHeaderParserUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARK_POSITION = 5242880;
@@ -25,9 +25,9 @@ public final class ImageHeaderParserUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,9 +46,9 @@ public final class ImageHeaderParserUtils {
             }
             inputStream.mark(5242880);
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    int orientation = list.get(i2).getOrientation(inputStream, arrayPool);
+                    int orientation = list.get(i).getOrientation(inputStream, arrayPool);
                     if (orientation != -1) {
                         return orientation;
                     }
@@ -75,9 +75,9 @@ public final class ImageHeaderParserUtils {
             }
             inputStream.mark(5242880);
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    ImageHeaderParser.ImageType type = list.get(i2).getType(inputStream);
+                    ImageHeaderParser.ImageType type = list.get(i).getType(inputStream);
                     if (type != ImageHeaderParser.ImageType.UNKNOWN) {
                         return type;
                     }
@@ -100,8 +100,8 @@ public final class ImageHeaderParserUtils {
                 return ImageHeaderParser.ImageType.UNKNOWN;
             }
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ImageHeaderParser.ImageType type = list.get(i2).getType(byteBuffer);
+            for (int i = 0; i < size; i++) {
+                ImageHeaderParser.ImageType type = list.get(i).getType(byteBuffer);
                 if (type != ImageHeaderParser.ImageType.UNKNOWN) {
                     return type;
                 }

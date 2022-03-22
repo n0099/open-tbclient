@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.aspectj.internal.lang.reflect.AjTypeImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AjTypeSystem {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Class, WeakReference<AjType>> ajTypes;
@@ -39,9 +39,9 @@ public class AjTypeSystem {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

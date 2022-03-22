@@ -34,9 +34,9 @@ public class f extends d {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,15 +45,15 @@ public class f extends d {
         }
     }
 
-    private byte[] a(long j2, g gVar) {
+    private byte[] a(long j, g gVar) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, this, j2, gVar)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, this, j, gVar)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             com.baidu.android.pushservice.i.e eVar = new com.baidu.android.pushservice.i.e(byteArrayOutputStream);
             try {
                 try {
-                    eVar.a(j2);
+                    eVar.a(j);
                     eVar.b(gVar.a());
                     eVar.b(0);
                     if (gVar.b() != null) {
@@ -103,14 +103,14 @@ public class f extends d {
         return (byte[]) invokeJL.objValue;
     }
 
-    private byte[] a(String str, int i2) {
+    private byte[] a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, str, i2)) == null) {
-            byte[] bArr = new byte[i2];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, str, i)) == null) {
+            byte[] bArr = new byte[i];
             if (str != null) {
                 byte[] bytes = str.getBytes();
-                System.arraycopy(bytes, 0, bArr, 0, Math.min(i2, bytes.length));
+                System.arraycopy(bytes, 0, bArr, 0, Math.min(i, bytes.length));
             }
             return bArr;
         }
@@ -127,7 +127,7 @@ public class f extends d {
             try {
                 try {
                     eVar.a((int) s);
-                    if (s != h.f30940f.b() && s != h.f30941g.b()) {
+                    if (s != h.f24779f.b() && s != h.f24780g.b()) {
                         eVar.a((int) com.baidu.android.pushservice.a.a());
                         eVar.b(0);
                         eVar.a(a(m.d(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
@@ -179,7 +179,7 @@ public class f extends d {
             com.baidu.android.pushservice.i.d dVar = new com.baidu.android.pushservice.i.d(byteArrayInputStream);
             short c2 = dVar.c();
             e eVar = new e(c2);
-            if (c2 != h.f30941g.b() && c2 != h.f30940f.b()) {
+            if (c2 != h.f24780g.b() && c2 != h.f24779f.b()) {
                 dVar.c();
                 dVar.b();
                 dVar.a(new byte[16]);
@@ -194,7 +194,7 @@ public class f extends d {
                     bArr2 = new byte[b2];
                     dVar.a(bArr2);
                 }
-                eVar.f30930b = bArr2;
+                eVar.f24769b = bArr2;
             }
             byteArrayInputStream.close();
             dVar.a();
@@ -209,11 +209,11 @@ public class f extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(int i2) {
+    public void a(int i) {
         b.c cVar;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.a).b());
@@ -243,7 +243,7 @@ public class f extends d {
                 }
                 jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.a) ? 1 : 0);
                 jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.a.getPackageName());
-                jSONObject.put("source", i2);
+                jSONObject.put("source", i);
                 long a2 = com.baidu.android.pushservice.i.i.a(this.a, "last_time", System.currentTimeMillis());
                 jSONObject.put("last_time", a2 + "");
                 jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.a) ? 1 : 0);
@@ -284,27 +284,27 @@ public class f extends d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            byte[] a3 = a(h.f30936b.b(), str.getBytes());
-            e eVar = new e(h.f30936b.b());
-            eVar.f30930b = a3;
-            eVar.f30931c = true;
+            byte[] a3 = a(h.f24775b.b(), str.getBytes());
+            e eVar = new e(h.f24775b.b());
+            eVar.f24769b = a3;
+            eVar.f24770c = true;
             eVar.a(false);
             a(eVar);
         }
     }
 
     @Override // com.baidu.android.pushservice.message.d
-    public void a(int i2, String str, byte[] bArr) {
+    public void a(int i, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, bArr) == null) {
             g gVar = new g();
-            gVar.a(i2);
+            gVar.a(i);
             if (bArr != null) {
                 gVar.a(bArr);
             }
-            e eVar = new e(h.f30939e.b());
+            e eVar = new e(h.f24778e.b());
             try {
-                eVar.f30930b = a(h.f30939e.b(), a(Long.parseLong(str), gVar));
+                eVar.f24769b = a(h.f24778e.b(), a(Long.parseLong(str), gVar));
                 a(eVar);
             } catch (NumberFormatException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
@@ -329,14 +329,14 @@ public class f extends d {
         a aVar = new a(this.a);
         h a2 = h.a(eVar.a);
         c a3 = aVar.a(a2);
-        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f30932d) {
+        if (a3 == null || (a = a3.a(eVar)) == null || !eVar.f24771d) {
             return;
         }
         e eVar2 = new e(eVar.a);
-        if (a2 == h.f30939e) {
-            eVar2.f30930b = a(h.f30939e.b(), a(eVar.e().g(), a));
-        } else if (a2 == h.f30941g || a2 == h.f30937c) {
-            eVar2.f30930b = a(eVar.a, (byte[]) null);
+        if (a2 == h.f24778e) {
+            eVar2.f24769b = a(h.f24778e.b(), a(eVar.e().g(), a));
+        } else if (a2 == h.f24780g || a2 == h.f24776c) {
+            eVar2.f24769b = a(eVar.a, (byte[]) null);
         }
         a(eVar2);
     }
@@ -345,10 +345,10 @@ public class f extends d {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            byte[] a = a(h.f30940f.b(), (byte[]) null);
-            e eVar = new e(h.f30940f.b());
-            eVar.f30930b = a;
-            eVar.f30931c = true;
+            byte[] a = a(h.f24779f.b(), (byte[]) null);
+            e eVar = new e(h.f24779f.b());
+            eVar.f24769b = a;
+            eVar.f24770c = true;
             eVar.a(true);
             a(eVar);
         }

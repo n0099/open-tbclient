@@ -2,16 +2,16 @@ package com.meizu.cloud.pushsdk.c.b;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public final ArrayList<com.meizu.cloud.pushsdk.c.a.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<Long> f57235b;
+    public final LinkedList<Long> f42073b;
 
     public b(ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList, LinkedList<Long> linkedList) {
         this.a = arrayList;
-        this.f57235b = linkedList;
+        this.f42073b = linkedList;
     }
 
     public ArrayList<com.meizu.cloud.pushsdk.c.a.a> a() {
@@ -19,6 +19,6 @@ public class b {
     }
 
     public LinkedList<Long> b() {
-        return this.f57235b;
+        return this.f42073b;
     }
 }

@@ -32,9 +32,9 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, onConnectListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -164,11 +164,11 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
             } else {
                 contentLength = httpURLConnection.getContentLength();
             }
-            long j2 = contentLength;
-            if (j2 > 0) {
+            long j = contentLength;
+            if (j > 0) {
                 checkCanceledOrPaused();
                 this.mStatus = 103;
-                this.mOnConnectListener.onConnected(System.currentTimeMillis() - this.mStartTime, j2, z);
+                this.mOnConnectListener.onConnected(System.currentTimeMillis() - this.mStartTime, j, z);
                 return;
             }
             throw new DownloadException(108, "length <= 0");

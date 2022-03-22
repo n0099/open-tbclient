@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.giftTab;
 
-import c.a.q0.r.r.j0;
+import c.a.o0.r.r.j0;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,9 +29,9 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -54,11 +54,11 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetGiftListByCategoryIdResIdl getGiftListByCategoryIdResIdl;
         List<PresentGiftListByCategoryId1> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (getGiftListByCategoryIdResIdl = (GetGiftListByCategoryIdResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListByCategoryIdResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getGiftListByCategoryIdResIdl = (GetGiftListByCategoryIdResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListByCategoryIdResIdl.class)) == null) {
             return;
         }
         Error error = getGiftListByCategoryIdResIdl.error;
@@ -73,16 +73,16 @@ public class CategoryGiftListSocketResponseMessage extends SocketResponsedMessag
                 if (presentGiftListByCategoryId1 != null) {
                     j0 j0Var = new j0();
                     j0Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                    j0Var.f13306b = presentGiftListByCategoryId1.gift_name;
-                    j0Var.f13307c = presentGiftListByCategoryId1.price.intValue();
-                    j0Var.f13308d = presentGiftListByCategoryId1.thumbnail_url;
+                    j0Var.f10890b = presentGiftListByCategoryId1.gift_name;
+                    j0Var.f10891c = presentGiftListByCategoryId1.price.intValue();
+                    j0Var.f10892d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    j0Var.f13309e = presentGiftListByCategoryId1.gift_desc;
-                    j0Var.f13310f = presentGiftListByCategoryId1.activity_type.intValue();
-                    j0Var.f13311g = presentGiftListByCategoryId1.mark_url;
-                    j0Var.f13312h = presentGiftListByCategoryId1.begin_time.intValue();
-                    j0Var.f13313i = presentGiftListByCategoryId1.end_time.intValue();
-                    j0Var.f13314j = presentGiftListByCategoryId1.discount.intValue();
+                    j0Var.f10893e = presentGiftListByCategoryId1.gift_desc;
+                    j0Var.f10894f = presentGiftListByCategoryId1.activity_type.intValue();
+                    j0Var.f10895g = presentGiftListByCategoryId1.mark_url;
+                    j0Var.f10896h = presentGiftListByCategoryId1.begin_time.intValue();
+                    j0Var.i = presentGiftListByCategoryId1.end_time.intValue();
+                    j0Var.j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();

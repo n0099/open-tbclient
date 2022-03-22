@@ -51,9 +51,9 @@ public class d extends j {
             newInitContext.initArgs = r2;
             Object[] objArr = {sensorManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SensorManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -73,15 +73,15 @@ public class d extends j {
     private void a(Quaternion quaternion) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, quaternion) == null) {
-            Quaternion m33clone = quaternion.m33clone();
-            m33clone.w(-m33clone.w());
+            Quaternion m31clone = quaternion.m31clone();
+            m31clone.w(-m31clone.w());
             synchronized (this.sy) {
                 this.sB.copyVec4(quaternion);
-                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m33clone.toArray());
+                SensorManager.getRotationMatrixFromVector(this.sA.matrix, m31clone.toArray());
                 eQ();
-                int i2 = this.rB + 1;
-                this.rB = i2;
-                if (i2 > 100) {
+                int i = this.rB + 1;
+                this.rB = i;
+                if (i > 100) {
                     setChanged();
                 } else if (!eR()) {
                     setChanged();
@@ -135,8 +135,8 @@ public class d extends j {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
             if (sensorEvent.sensor.getType() == 11) {
                 synchronized (this.sw) {
-                    for (int i2 = 0; i2 < sensorEvent.values.length; i2++) {
-                        if (Float.isNaN(sensorEvent.values[i2])) {
+                    for (int i = 0; i < sensorEvent.values.length; i++) {
+                        if (Float.isNaN(sensorEvent.values[i])) {
                             this.sx = Boolean.FALSE;
                             return;
                         }
@@ -157,9 +157,9 @@ public class d extends j {
             } else if (sensorEvent.sensor.getType() == 4) {
                 synchronized (this.sw) {
                     if (this.sx.booleanValue()) {
-                        long j2 = this.timestamp;
-                        if (j2 != 0) {
-                            float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
+                        long j = this.timestamp;
+                        if (j != 0) {
+                            float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
                             float[] fArr2 = sensorEvent.values;
                             float f3 = fArr2[0];
                             float f4 = fArr2[1];

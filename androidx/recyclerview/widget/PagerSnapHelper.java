@@ -29,9 +29,9 @@ public class PagerSnapHelper extends SnapHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,13 +55,13 @@ public class PagerSnapHelper extends SnapHelper {
                 return null;
             }
             int startAfterPadding = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
-            int i2 = Integer.MAX_VALUE;
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = layoutManager.getChildAt(i3);
+            int i = Integer.MAX_VALUE;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = layoutManager.getChildAt(i2);
                 int abs = Math.abs((orientationHelper.getDecoratedStart(childAt) + (orientationHelper.getDecoratedMeasurement(childAt) / 2)) - startAfterPadding);
-                if (abs < i2) {
+                if (abs < i) {
                     view = childAt;
-                    i2 = abs;
+                    i = abs;
                 }
             }
             return view;
@@ -113,10 +113,10 @@ public class PagerSnapHelper extends SnapHelper {
         return (OrientationHelper) invokeL.objValue;
     }
 
-    private boolean isForwardFling(RecyclerView.LayoutManager layoutManager, int i2, int i3) {
+    private boolean isForwardFling(RecyclerView.LayoutManager layoutManager, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, this, layoutManager, i2, i3)) == null) ? layoutManager.canScrollHorizontally() ? i2 > 0 : i3 > 0 : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, this, layoutManager, i, i2)) == null) ? layoutManager.canScrollHorizontally() ? i > 0 : i2 > 0 : invokeLII.booleanValue;
     }
 
     private boolean isReverseLayout(RecyclerView.LayoutManager layoutManager) {
@@ -175,9 +175,9 @@ public class PagerSnapHelper extends SnapHelper {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((Context) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -195,10 +195,10 @@ public class PagerSnapHelper extends SnapHelper {
                     }
 
                     @Override // androidx.recyclerview.widget.LinearSmoothScroller
-                    public int calculateTimeForScrolling(int i2) {
+                    public int calculateTimeForScrolling(int i) {
                         InterceptResult invokeI;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? Math.min(100, super.calculateTimeForScrolling(i2)) : invokeI.intValue;
+                        return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? Math.min(100, super.calculateTimeForScrolling(i)) : invokeI.intValue;
                     }
 
                     @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
@@ -207,11 +207,11 @@ public class PagerSnapHelper extends SnapHelper {
                         if (interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, state, action) == null) {
                             PagerSnapHelper pagerSnapHelper = this.this$0;
                             int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.mRecyclerView.getLayoutManager(), view);
-                            int i2 = calculateDistanceToFinalSnap[0];
-                            int i3 = calculateDistanceToFinalSnap[1];
-                            int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i2), Math.abs(i3)));
+                            int i = calculateDistanceToFinalSnap[0];
+                            int i2 = calculateDistanceToFinalSnap[1];
+                            int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
                             if (calculateTimeForDeceleration > 0) {
-                                action.update(i2, i3, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+                                action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
                             }
                         }
                     }
@@ -240,35 +240,35 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
-    public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i2, int i3) {
+    public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
         InterceptResult invokeLII;
         OrientationHelper orientationHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, layoutManager, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, layoutManager, i, i2)) == null) {
             int itemCount = layoutManager.getItemCount();
             if (itemCount == 0 || (orientationHelper = getOrientationHelper(layoutManager)) == null) {
                 return -1;
             }
-            int i4 = Integer.MIN_VALUE;
-            int i5 = Integer.MAX_VALUE;
+            int i3 = Integer.MIN_VALUE;
+            int i4 = Integer.MAX_VALUE;
             int childCount = layoutManager.getChildCount();
             View view = null;
             View view2 = null;
-            for (int i6 = 0; i6 < childCount; i6++) {
-                View childAt = layoutManager.getChildAt(i6);
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = layoutManager.getChildAt(i5);
                 if (childAt != null) {
                     int distanceToCenter = distanceToCenter(layoutManager, childAt, orientationHelper);
-                    if (distanceToCenter <= 0 && distanceToCenter > i4) {
+                    if (distanceToCenter <= 0 && distanceToCenter > i3) {
                         view2 = childAt;
-                        i4 = distanceToCenter;
+                        i3 = distanceToCenter;
                     }
-                    if (distanceToCenter >= 0 && distanceToCenter < i5) {
+                    if (distanceToCenter >= 0 && distanceToCenter < i4) {
                         view = childAt;
-                        i5 = distanceToCenter;
+                        i4 = distanceToCenter;
                     }
                 }
             }
-            boolean isForwardFling = isForwardFling(layoutManager, i2, i3);
+            boolean isForwardFling = isForwardFling(layoutManager, i, i2);
             if (!isForwardFling || view == null) {
                 if (isForwardFling || view2 == null) {
                     if (isForwardFling) {

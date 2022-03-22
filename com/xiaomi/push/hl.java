@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class hl {
     public static /* synthetic */ Interceptable $ic;
     public static final hl a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hl[] f499a;
+    public static final /* synthetic */ hl[] f475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hl f59758b;
+    public static final hl f44351b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f500a;
+    public final int f476a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,20 +39,20 @@ public final class hl {
         }
         a = new hl("MISC_CONFIG", 0, 1);
         hl hlVar = new hl("PLUGIN_CONFIG", 1, 2);
-        f59758b = hlVar;
-        f499a = new hl[]{a, hlVar};
+        f44351b = hlVar;
+        f475a = new hl[]{a, hlVar};
     }
 
-    public hl(String str, int i2, int i3) {
+    public hl(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -61,18 +61,18 @@ public final class hl {
                 return;
             }
         }
-        this.f500a = i3;
+        this.f476a = i2;
     }
 
-    public static hl a(int i2) {
+    public static hl a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
                     return null;
                 }
-                return f59758b;
+                return f44351b;
             }
             return a;
         }
@@ -88,12 +88,12 @@ public final class hl {
     public static hl[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f499a.clone() : (hl[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hl[]) f475a.clone() : (hl[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f500a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f476a : invokeV.intValue;
     }
 }

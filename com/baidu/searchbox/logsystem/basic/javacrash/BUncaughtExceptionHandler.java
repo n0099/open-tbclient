@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.i0.b.a.a;
+import c.a.g0.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -54,9 +54,9 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((List) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -155,9 +155,13 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
                 if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                     hashSet.add(obtainFragmentSnapShot);
                 }
-                if (LLog.sDebug && hashSet.size() > 0) {
-                    String str = "uploadLogFiles.size() = " + hashSet.size();
-                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
+                if (LLog.sDebug) {
+                    if (hashSet.size() > 0) {
+                        Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
+                        for (int i = 0; i < hashSet.size(); i++) {
+                        }
+                    } else {
+                        Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");
                     }
                 }
             } else {
@@ -167,17 +171,17 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             if (hashSet != null) {
                 file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
                 if (LLog.sDebug && file != null) {
-                    String str2 = "pathNameKeeper = " + file.getAbsolutePath();
+                    Log.d(TAG, "pathNameKeeper = " + file.getAbsolutePath());
                 }
             }
             onReport(this.mContext, sb, file, createLogExtra);
         }
     }
 
-    public void setProcessLaunchTime(long j2) {
+    public void setProcessLaunchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mProcessLaunchTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mProcessLaunchTime = j;
         }
     }
 
@@ -190,9 +194,9 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;

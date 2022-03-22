@@ -1,9 +1,9 @@
 package c.a.r0.m0;
 
-import c.a.q0.r.r.e2;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,64 +11,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class b extends BaseCardInfo {
+/* loaded from: classes3.dex */
+public class b extends SharedPrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f19243f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public e2 f19244e;
+    /* loaded from: classes3.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1790271066, "Lc/a/r0/m0/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1831410307, "Lc/a/r0/m0/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1831410307, "Lc/a/r0/m0/b$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1790271066, "Lc/a/r0/m0/b;");
-                return;
-            }
+            a = new b();
         }
-        f19243f = BdUniqueId.gen();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
+        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((SharedPreferences) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void g(e2 e2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e2Var) == null) {
-            this.f19244e = e2Var;
-        }
-    }
-
-    public e2 getThreadData() {
+    public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19244e : (e2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f19243f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (b) invokeV.objValue;
     }
 }

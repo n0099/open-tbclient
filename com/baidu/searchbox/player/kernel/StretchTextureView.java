@@ -33,9 +33,9 @@ public class StretchTextureView extends TextureView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,16 +45,16 @@ public class StretchTextureView extends TextureView {
         this.mStyle = 0;
     }
 
-    private int setStyleMatchHeight(int i2, int i3, int i4, int i5) {
+    private int setStyleMatchHeight(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i2, i3, i4, i5)) == null) ? (i4 <= 0 || i5 <= 0) ? i2 : (int) (i4 * (i3 / i5)) : invokeIIII.intValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i : (int) (i3 * (i2 / i4)) : invokeIIII.intValue;
     }
 
-    private int setStyleMatchWidth(int i2, int i3, int i4, int i5) {
+    private int setStyleMatchWidth(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i2, i3, i4, i5)) == null) ? (i4 <= 0 || i5 <= 0) ? i3 : (int) (i5 * (i2 / i4)) : invokeIIII.intValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i, i2, i3, i4)) == null) ? (i3 <= 0 || i4 <= 0) ? i2 : (int) (i4 * (i / i3)) : invokeIIII.intValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:51:0x00e5, code lost:
@@ -65,65 +65,65 @@ public class StretchTextureView extends TextureView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int defaultSize = TextureView.getDefaultSize(this.mVideoWidth, i2);
-            int defaultSize2 = TextureView.getDefaultSize(this.mVideoHeight, i3);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            int defaultSize = TextureView.getDefaultSize(this.mVideoWidth, i);
+            int defaultSize2 = TextureView.getDefaultSize(this.mVideoHeight, i2);
             BdVideoLog.d(TAG, "onMeasure ** mVideoWidth : " + this.mVideoWidth + ", mVideoHeight : " + this.mVideoHeight + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
-            int i6 = this.mStyle;
-            if (i6 == 0) {
-                int defaultSize3 = TextureView.getDefaultSize(this.mVideoWidth, i2);
-                int defaultSize4 = TextureView.getDefaultSize(this.mVideoHeight, i3);
+            int i5 = this.mStyle;
+            if (i5 == 0) {
+                int defaultSize3 = TextureView.getDefaultSize(this.mVideoWidth, i);
+                int defaultSize4 = TextureView.getDefaultSize(this.mVideoHeight, i2);
                 if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
-                    int mode = View.MeasureSpec.getMode(i2);
-                    int size = View.MeasureSpec.getSize(i2);
-                    int mode2 = View.MeasureSpec.getMode(i3);
-                    int size2 = View.MeasureSpec.getSize(i3);
+                    int mode = View.MeasureSpec.getMode(i);
+                    int size = View.MeasureSpec.getSize(i);
+                    int mode2 = View.MeasureSpec.getMode(i2);
+                    int size2 = View.MeasureSpec.getSize(i2);
                     if (mode == 1073741824 && mode2 == 1073741824) {
-                        int i7 = this.mVideoWidth;
-                        int i8 = i7 * size2;
-                        int i9 = this.mVideoHeight;
-                        if (i8 < size * i9) {
-                            defaultSize = (i7 * size2) / i9;
+                        int i6 = this.mVideoWidth;
+                        int i7 = i6 * size2;
+                        int i8 = this.mVideoHeight;
+                        if (i7 < size * i8) {
+                            defaultSize = (i6 * size2) / i8;
                             defaultSize2 = size2;
                         } else {
-                            if (i7 * size2 > size * i9) {
-                                defaultSize2 = (i9 * size) / i7;
+                            if (i6 * size2 > size * i8) {
+                                defaultSize2 = (i8 * size) / i6;
                                 defaultSize = size;
                             }
                             defaultSize = size;
                             defaultSize2 = size2;
                         }
                     } else if (mode == 1073741824) {
-                        int i10 = (this.mVideoHeight * size) / this.mVideoWidth;
-                        if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
-                            defaultSize2 = i10;
+                        int i9 = (this.mVideoHeight * size) / this.mVideoWidth;
+                        if (mode2 != Integer.MIN_VALUE || i9 <= size2) {
+                            defaultSize2 = i9;
                             defaultSize = size;
                         }
                         defaultSize = size;
                         defaultSize2 = size2;
                     } else if (mode2 == 1073741824) {
-                        int i11 = (this.mVideoWidth * size2) / this.mVideoHeight;
-                        if (mode != Integer.MIN_VALUE || i11 <= size) {
-                            defaultSize = i11;
+                        int i10 = (this.mVideoWidth * size2) / this.mVideoHeight;
+                        if (mode != Integer.MIN_VALUE || i10 <= size) {
+                            defaultSize = i10;
                             defaultSize2 = size2;
                         }
                         defaultSize = size;
                         defaultSize2 = size2;
                     } else {
-                        int i12 = this.mVideoWidth;
-                        int i13 = this.mVideoHeight;
-                        if (mode2 != Integer.MIN_VALUE || i13 <= size2) {
-                            defaultSize2 = i13;
+                        int i11 = this.mVideoWidth;
+                        int i12 = this.mVideoHeight;
+                        if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
+                            defaultSize2 = i12;
                         } else {
-                            i12 = (i12 * size2) / i13;
+                            i11 = (i11 * size2) / i12;
                             defaultSize2 = size2;
                         }
-                        if (mode != Integer.MIN_VALUE || i12 <= size) {
-                            defaultSize = i12;
+                        if (mode != Integer.MIN_VALUE || i11 <= size) {
+                            defaultSize = i11;
                         } else {
                             defaultSize2 = (this.mVideoHeight * size) / this.mVideoWidth;
                             defaultSize = size;
@@ -139,17 +139,17 @@ public class StretchTextureView extends TextureView {
                         defaultSize2 = defaultSize3;
                     }
                 }
-            } else if (i6 == 1) {
+            } else if (i5 == 1) {
                 defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, this.mVideoWidth, this.mVideoHeight);
-            } else if (i6 == 2) {
+            } else if (i5 == 2) {
                 defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, this.mVideoWidth, this.mVideoHeight);
-            } else if (i6 == 3 && (i4 = this.mVideoWidth) > 0 && (i5 = this.mVideoHeight) > 0) {
-                if (i4 / i5 > 1.0f) {
-                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i4, i5);
-                } else if (i4 / i5 <= defaultSize / defaultSize2) {
-                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i4, i5);
+            } else if (i5 == 3 && (i3 = this.mVideoWidth) > 0 && (i4 = this.mVideoHeight) > 0) {
+                if (i3 / i4 > 1.0f) {
+                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
+                } else if (i3 / i4 <= defaultSize / defaultSize2) {
+                    defaultSize2 = setStyleMatchWidth(defaultSize, defaultSize2, i3, i4);
                 } else {
-                    defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, i4, i5);
+                    defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, i3, i4);
                 }
             }
             BdVideoLog.d(TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
@@ -157,23 +157,23 @@ public class StretchTextureView extends TextureView {
         }
     }
 
-    public void setRenderStyle(int i2) {
+    public void setRenderStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 != 0 && i2 != 1 && i2 != 2 && i2 != 3) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i != 0 && i != 1 && i != 2 && i != 3) {
                 this.mStyle = 0;
             } else {
-                this.mStyle = i2;
+                this.mStyle = i;
             }
             requestLayout();
         }
     }
 
-    public void setVideoWidthAndHeight(int i2, int i3) {
+    public void setVideoWidthAndHeight(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.mVideoWidth = i2;
-            this.mVideoHeight = i3;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.mVideoWidth = i;
+            this.mVideoHeight = i2;
         }
     }
 
@@ -186,9 +186,9 @@ public class StretchTextureView extends TextureView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -20,15 +20,14 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pools.Pool<List<Throwable>> exceptionListPool;
     public final List<ModelLoader<Model, Data>> modelLoaders;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +46,9 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list, pool};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -155,9 +154,9 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, pool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,17 +167,17 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         ModelLoader.LoadData<Data> buildLoadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             int size = this.modelLoaders.size();
             ArrayList arrayList = new ArrayList(size);
             Key key = null;
-            for (int i4 = 0; i4 < size; i4++) {
-                ModelLoader<Model, Data> modelLoader = this.modelLoaders.get(i4);
-                if (modelLoader.handles(model) && (buildLoadData = modelLoader.buildLoadData(model, i2, i3, options)) != null) {
+            for (int i3 = 0; i3 < size; i3++) {
+                ModelLoader<Model, Data> modelLoader = this.modelLoaders.get(i3);
+                if (modelLoader.handles(model) && (buildLoadData = modelLoader.buildLoadData(model, i, i2, options)) != null) {
                     key = buildLoadData.sourceKey;
                     arrayList.add(buildLoadData.fetcher);
                 }
@@ -210,7 +209,7 @@ public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + ExtendedMessageFormat.END_FE;
+            return "MultiModelLoader{modelLoaders=" + Arrays.toString(this.modelLoaders.toArray()) + '}';
         }
         return (String) invokeV.objValue;
     }

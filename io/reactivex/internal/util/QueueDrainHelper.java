@@ -31,9 +31,9 @@ public final class QueueDrainHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,14 +80,14 @@ public final class QueueDrainHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static <T> SimpleQueue<T> createQueue(int i2) {
+    public static <T> SimpleQueue<T> createQueue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 < 0) {
-                return new SpscLinkedArrayQueue(-i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i < 0) {
+                return new SpscLinkedArrayQueue(-i);
             }
-            return new SpscArrayQueue(i2);
+            return new SpscArrayQueue(i);
         }
         return (SimpleQueue) invokeI.objValue;
     }
@@ -95,7 +95,7 @@ public final class QueueDrainHelper {
     public static <T, U> void drainLoop(SimplePlainQueue<T> simplePlainQueue, Observer<? super U> observer, boolean z, Disposable disposable, ObservableQueueDrain<T, U> observableQueueDrain) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{simplePlainQueue, observer, Boolean.valueOf(z), disposable, observableQueueDrain}) == null) {
-            int i2 = 1;
+            int i = 1;
             while (!checkTerminated(observableQueueDrain.done(), simplePlainQueue.isEmpty(), observer, z, simplePlainQueue, disposable, observableQueueDrain)) {
                 while (true) {
                     boolean done = observableQueueDrain.done();
@@ -105,8 +105,8 @@ public final class QueueDrainHelper {
                         return;
                     }
                     if (z2) {
-                        i2 = observableQueueDrain.leave(-i2);
-                        if (i2 == 0) {
+                        i = observableQueueDrain.leave(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -122,7 +122,7 @@ public final class QueueDrainHelper {
         if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{simplePlainQueue, subscriber, Boolean.valueOf(z), disposable, queueDrain}) != null) {
             return;
         }
-        int i2 = 1;
+        int i = 1;
         while (true) {
             boolean done = queueDrain.done();
             T poll = simplePlainQueue.poll();
@@ -134,8 +134,8 @@ public final class QueueDrainHelper {
                 }
                 return;
             } else if (z2) {
-                i2 = queueDrain.leave(-i2);
-                if (i2 == 0) {
+                i = queueDrain.leave(-i);
+                if (i == 0) {
                     return;
                 }
             } else {
@@ -171,8 +171,8 @@ public final class QueueDrainHelper {
     }
 
     public static <T> void postComplete(Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65543, null, subscriber, queue, atomicLong, booleanSupplier) == null) {
             if (queue.isEmpty()) {
@@ -180,28 +180,28 @@ public final class QueueDrainHelper {
             } else if (postCompleteDrain(atomicLong.get(), subscriber, queue, atomicLong, booleanSupplier)) {
             } else {
                 do {
-                    j2 = atomicLong.get();
-                    if ((j2 & Long.MIN_VALUE) != 0) {
+                    j = atomicLong.get();
+                    if ((j & Long.MIN_VALUE) != 0) {
                         return;
                     }
-                    j3 = j2 | Long.MIN_VALUE;
-                } while (!atomicLong.compareAndSet(j2, j3));
-                if (j2 != 0) {
-                    postCompleteDrain(j3, subscriber, queue, atomicLong, booleanSupplier);
+                    j2 = j | Long.MIN_VALUE;
+                } while (!atomicLong.compareAndSet(j, j2));
+                if (j != 0) {
+                    postCompleteDrain(j2, subscriber, queue, atomicLong, booleanSupplier);
                 }
             }
         }
     }
 
-    public static <T> boolean postCompleteDrain(long j2, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+    public static <T> boolean postCompleteDrain(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j2), subscriber, queue, atomicLong, booleanSupplier})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) != null) {
             return invokeCommon.booleanValue;
         }
-        long j3 = j2 & Long.MIN_VALUE;
+        long j2 = j & Long.MIN_VALUE;
         while (true) {
-            if (j3 != j2) {
+            if (j2 != j) {
                 if (isCancelled(booleanSupplier)) {
                     return true;
                 }
@@ -211,7 +211,7 @@ public final class QueueDrainHelper {
                     return true;
                 }
                 subscriber.onNext(obj);
-                j3++;
+                j2++;
             } else if (isCancelled(booleanSupplier)) {
                 return true;
             } else {
@@ -219,14 +219,14 @@ public final class QueueDrainHelper {
                     subscriber.onComplete();
                     return true;
                 }
-                j2 = atomicLong.get();
-                if (j2 == j3) {
-                    long addAndGet = atomicLong.addAndGet(-(j3 & Long.MAX_VALUE));
+                j = atomicLong.get();
+                if (j == j2) {
+                    long addAndGet = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
                     if ((Long.MAX_VALUE & addAndGet) == 0) {
                         return false;
                     }
-                    j2 = addAndGet;
-                    j3 = addAndGet & Long.MIN_VALUE;
+                    j = addAndGet;
+                    j2 = addAndGet & Long.MIN_VALUE;
                 } else {
                     continue;
                 }
@@ -234,16 +234,16 @@ public final class QueueDrainHelper {
         }
     }
 
-    public static <T> boolean postCompleteRequest(long j2, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
+    public static <T> boolean postCompleteRequest(long j, Subscriber<? super T> subscriber, Queue<T> queue, AtomicLong atomicLong, BooleanSupplier booleanSupplier) {
         InterceptResult invokeCommon;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), subscriber, queue, atomicLong, booleanSupplier})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), subscriber, queue, atomicLong, booleanSupplier})) == null) {
             do {
-                j3 = atomicLong.get();
-            } while (!atomicLong.compareAndSet(j3, BackpressureHelper.addCap(Long.MAX_VALUE & j3, j2) | (j3 & Long.MIN_VALUE)));
-            if (j3 == Long.MIN_VALUE) {
-                postCompleteDrain(j2 | Long.MIN_VALUE, subscriber, queue, atomicLong, booleanSupplier);
+                j2 = atomicLong.get();
+            } while (!atomicLong.compareAndSet(j2, BackpressureHelper.addCap(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
+            if (j2 == Long.MIN_VALUE) {
+                postCompleteDrain(j | Long.MIN_VALUE, subscriber, queue, atomicLong, booleanSupplier);
                 return true;
             }
             return false;
@@ -251,10 +251,10 @@ public final class QueueDrainHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static void request(Subscription subscription, int i2) {
+    public static void request(Subscription subscription, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, subscription, i2) == null) {
-            subscription.request(i2 < 0 ? Long.MAX_VALUE : i2);
+        if (interceptable == null || interceptable.invokeLI(65546, null, subscription, i) == null) {
+            subscription.request(i < 0 ? Long.MAX_VALUE : i);
         }
     }
 

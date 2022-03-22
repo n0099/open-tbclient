@@ -6,9 +6,9 @@ import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
-import c.a.c0.g.a;
-import c.a.c0.h.c;
-import c.a.c0.h.e;
+import c.a.b0.g.a;
+import c.a.b0.h.c;
+import c.a.b0.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
@@ -40,9 +40,9 @@ public class Bundle {
             newInitContext.initArgs = r2;
             Object[] objArr = {bundleInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

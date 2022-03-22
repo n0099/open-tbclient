@@ -44,9 +44,9 @@ public final class AsyncProcessor<T> extends FlowableProcessor<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, asyncProcessor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -106,9 +106,9 @@ public final class AsyncProcessor<T> extends FlowableProcessor<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -219,19 +219,19 @@ public final class AsyncProcessor<T> extends FlowableProcessor<T> {
             }
             T t = this.value;
             AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(asyncSubscriptionArr2);
-            int i2 = 0;
+            int i = 0;
             if (t == null) {
                 int length = andSet.length;
-                while (i2 < length) {
-                    andSet[i2].onComplete();
-                    i2++;
+                while (i < length) {
+                    andSet[i].onComplete();
+                    i++;
                 }
                 return;
             }
             int length2 = andSet.length;
-            while (i2 < length2) {
-                andSet[i2].complete(t);
-                i2++;
+            while (i < length2) {
+                andSet[i].complete(t);
+                i++;
             }
         }
     }
@@ -292,27 +292,27 @@ public final class AsyncProcessor<T> extends FlowableProcessor<T> {
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (asyncSubscriptionArr[i3] == asyncSubscription) {
-                        i2 = i3;
+                    } else if (asyncSubscriptionArr[i2] == asyncSubscription) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     asyncSubscriptionArr2 = EMPTY;
                 } else {
                     AsyncSubscription[] asyncSubscriptionArr3 = new AsyncSubscription[length - 1];
-                    System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr3, 0, i2);
-                    System.arraycopy(asyncSubscriptionArr, i2 + 1, asyncSubscriptionArr3, i2, (length - i2) - 1);
+                    System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr3, 0, i);
+                    System.arraycopy(asyncSubscriptionArr, i + 1, asyncSubscriptionArr3, i, (length - i) - 1);
                     asyncSubscriptionArr2 = asyncSubscriptionArr3;
                 }
             } while (!this.subscribers.compareAndSet(asyncSubscriptionArr, asyncSubscriptionArr2));

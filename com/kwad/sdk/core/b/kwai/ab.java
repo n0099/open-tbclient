@@ -11,9 +11,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
             return;
         }
         aVar.a = jSONObject.optInt("streamType");
-        aVar.f54735b = jSONObject.optInt("maxVolume");
-        aVar.f54736c = jSONObject.optInt("minVolume");
-        aVar.f54737d = jSONObject.optInt("currentVolume");
+        aVar.f39838b = jSONObject.optInt("maxVolume");
+        aVar.f39839c = jSONObject.optInt("minVolume");
+        aVar.f39840d = jSONObject.optInt("currentVolume");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,9 +23,9 @@ public class ab implements com.kwad.sdk.core.d<g.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "streamType", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f54735b);
-        com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f54736c);
-        com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f54737d);
+        com.kwad.sdk.utils.t.a(jSONObject, "maxVolume", aVar.f39838b);
+        com.kwad.sdk.utils.t.a(jSONObject, "minVolume", aVar.f39839c);
+        com.kwad.sdk.utils.t.a(jSONObject, "currentVolume", aVar.f39840d);
         return jSONObject;
     }
 }

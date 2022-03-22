@@ -19,9 +19,9 @@ public final class VEventResultParser extends ResultParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,8 +51,8 @@ public final class VEventResultParser extends ResultParser {
             }
             int size = matchVCardPrefixedField.size();
             String[] strArr = new String[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                strArr[i2] = matchVCardPrefixedField.get(i2).get(0);
+            for (int i = 0; i < size; i++) {
+                strArr[i] = matchVCardPrefixedField.get(i).get(0);
             }
             return strArr;
         }
@@ -87,8 +87,8 @@ public final class VEventResultParser extends ResultParser {
             String stripMailto = stripMailto(matchSingleVCardPrefixedField("ORGANIZER", massagedText, true));
             String[] matchVCardPrefixedField = matchVCardPrefixedField("ATTENDEE", massagedText, true);
             if (matchVCardPrefixedField != null) {
-                for (int i2 = 0; i2 < matchVCardPrefixedField.length; i2++) {
-                    matchVCardPrefixedField[i2] = stripMailto(matchVCardPrefixedField[i2]);
+                for (int i = 0; i < matchVCardPrefixedField.length; i++) {
+                    matchVCardPrefixedField[i] = stripMailto(matchVCardPrefixedField[i]);
                 }
             }
             String matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("DESCRIPTION", massagedText, true);

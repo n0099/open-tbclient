@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public final class Insets {
     public static /* synthetic */ Interceptable $ic;
@@ -41,36 +40,36 @@ public final class Insets {
         NONE = new Insets(0, 0, 0, 0);
     }
 
-    public Insets(int i2, int i3, int i4, int i5) {
+    public Insets(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.left = i2;
-        this.top = i3;
-        this.right = i4;
-        this.bottom = i5;
+        this.left = i;
+        this.top = i2;
+        this.right = i3;
+        this.bottom = i4;
     }
 
     @NonNull
-    public static Insets of(int i2, int i3, int i4, int i5) {
+    public static Insets of(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i2, i3, i4, i5)) == null) {
-            if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
+            if (i == 0 && i2 == 0 && i3 == 0 && i4 == 0) {
                 return NONE;
             }
-            return new Insets(i2, i3, i4, i5);
+            return new Insets(i, i2, i3, i4);
         }
         return (Insets) invokeIIII.objValue;
     }
@@ -127,7 +126,7 @@ public final class Insets {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + ExtendedMessageFormat.END_FE;
+            return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + '}';
         }
         return (String) invokeV.objValue;
     }

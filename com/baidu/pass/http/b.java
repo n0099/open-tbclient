@@ -31,23 +31,23 @@ public class b {
     public static final String a = "HttpStack";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36314b = "Set-Cookie";
+    public static final String f28135b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f36315c;
+    public static final char[] f28136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36316d = "User-Agent";
+    public static final String f28137d = "User-Agent";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f36317e = 15000;
+    public static final int f28138e = 15000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36318f;
+    public String f28139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36319g;
+    public boolean f28140g;
 
     static {
         InterceptResult invokeClinit;
@@ -62,7 +62,7 @@ public class b {
                 return;
             }
         }
-        f36315c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f28136c = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public b() {
@@ -70,16 +70,16 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36318f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
-        this.f36319g = false;
+        this.f28139f = "AgzTBLLDxWSdvY0AbyfzsK8KCwpuSV";
+        this.f28140g = false;
     }
 
     private HttpURLConnection b(PassHttpParamDTO passHttpParamDTO) throws IOException {
@@ -115,12 +115,12 @@ public class b {
             return;
         }
         a();
-        int i2 = a.a[passHttpClientRequest.method.ordinal()];
+        int i = a.a[passHttpClientRequest.method.ordinal()];
         OutputStream outputStream = null;
-        if (i2 == 1) {
+        if (i == 1) {
             a2 = a(passHttpClientRequest.paramDTO);
             bArr = null;
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             a2 = b(passHttpClientRequest.paramDTO);
             bArr = a(a2, passHttpClientRequest.paramDTO);
         } else {
@@ -181,14 +181,14 @@ public class b {
         httpURLConnection.setRequestProperty("User-Agent", str);
     }
 
-    private void a(HttpURLConnection httpURLConnection, int i2) {
+    private void a(HttpURLConnection httpURLConnection, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, this, httpURLConnection, i2) == null) {
-            httpURLConnection.setConnectTimeout(i2 == 0 ? 15000 : i2);
-            if (i2 == 0) {
-                i2 = 15000;
+        if (interceptable == null || interceptable.invokeLI(65545, this, httpURLConnection, i) == null) {
+            httpURLConnection.setConnectTimeout(i == 0 ? 15000 : i);
+            if (i == 0) {
+                i = 15000;
             }
-            httpURLConnection.setReadTimeout(i2);
+            httpURLConnection.setReadTimeout(i);
         }
     }
 
@@ -198,7 +198,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, httpURLConnection, passHttpParamDTO)) == null) {
             HttpHashMap httpHashMap = passHttpParamDTO.paramsMap;
             if (httpHashMap instanceof MultipartHashMap) {
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f36318f);
+                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + this.f28139f);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 HttpHashMap httpHashMap2 = passHttpParamDTO.paramsMap;
                 if (httpHashMap2 != null) {
@@ -209,7 +209,7 @@ public class b {
                     }
                 }
                 MultipartHashMap.a aVar = ((MultipartHashMap) passHttpParamDTO.paramsMap).fileWrapper;
-                a(byteArrayOutputStream, aVar.a, aVar.f36305b, aVar.f36307d, aVar.f36306c);
+                a(byteArrayOutputStream, aVar.a, aVar.f28126b, aVar.f28128d, aVar.f28127c);
                 a(byteArrayOutputStream);
                 return byteArrayOutputStream.toByteArray();
             } else if (httpHashMap instanceof HttpHashMap) {
@@ -305,9 +305,9 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, httpURLConnection)) == null) {
             HashMap<String, String> hashMap = new HashMap<>();
             int size = httpURLConnection.getHeaderFields().size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String headerFieldKey = httpURLConnection.getHeaderFieldKey(i2);
-                String headerField = httpURLConnection.getHeaderField(i2);
+            for (int i = 0; i < size; i++) {
+                String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
+                String headerField = httpURLConnection.getHeaderField(i);
                 if ("Set-Cookie".equals(headerFieldKey) && !TextUtils.isEmpty(headerField) && headerField.contains("=")) {
                     headerFieldKey = headerField.substring(0, headerField.indexOf("="));
                 }
@@ -323,11 +323,11 @@ public class b {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f36315c;
+            for (int i = 0; i < 30; i++) {
+                char[] cArr = f28136c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            this.f36318f = sb.toString();
+            this.f28139f = sb.toString();
         }
     }
 
@@ -336,14 +336,14 @@ public class b {
         if (interceptable == null || interceptable.invokeL(65543, this, byteArrayOutputStream) == null) {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
-            for (int i2 = 0; i2 < 30; i2++) {
-                char[] cArr = f36315c;
+            for (int i = 0; i < 30; i++) {
+                char[] cArr = f28136c;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
-            byte[] bytes = ("\r\n--" + this.f36318f + "\r\n").getBytes();
-            if (!this.f36319g) {
-                this.f36319g = true;
-                byteArrayOutputStream.write(("--" + this.f36318f + "\r\n").getBytes());
+            byte[] bytes = ("\r\n--" + this.f28139f + "\r\n").getBytes();
+            if (!this.f28140g) {
+                this.f28140g = true;
+                byteArrayOutputStream.write(("--" + this.f28139f + "\r\n").getBytes());
                 return;
             }
             byteArrayOutputStream.write(bytes);

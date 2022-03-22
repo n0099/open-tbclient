@@ -14,15 +14,13 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ObjectAnimator a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f47607e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f36797b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f47608f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f47609g;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f36798c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -33,17 +31,17 @@ public class AlaPlayAnimationView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47608f = false;
-        this.f47609g = false;
+        this.f36797b = false;
+        this.f36798c = false;
         a();
     }
 
@@ -51,22 +49,48 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f, 1.0f);
-            this.f47607e = ofFloat;
+            this.a = ofFloat;
             ofFloat.setRepeatMode(1);
-            this.f47607e.setRepeatCount(-1);
-            this.f47607e.setDuration(700L);
+            this.a.setRepeatCount(-1);
+            this.a.setDuration(700L);
             setVisibility(8);
-            this.f47608f = false;
+            this.f36797b = false;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36797b) {
+            return;
+        }
+        this.f36797b = true;
+        if (this.a != null) {
+            setVisibility(0);
+            this.a.start();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ObjectAnimator objectAnimator = this.a;
+            if (objectAnimator != null) {
+                objectAnimator.setRepeatCount(-1);
+                this.a.cancel();
+                clearAnimation();
+            }
+            this.f36797b = false;
+            setVisibility(8);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            if (this.f47609g) {
-                startPlayAnimation();
+            if (this.f36798c) {
+                b();
             }
         }
     }
@@ -74,42 +98,16 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            stopPlayAnimation();
+            c();
         }
     }
 
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f47609g = z;
-        }
-    }
-
-    public void startPlayAnimation() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f47608f) {
-            return;
-        }
-        this.f47608f = true;
-        if (this.f47607e != null) {
-            setVisibility(0);
-            this.f47607e.start();
-        }
-    }
-
-    public void stopPlayAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ObjectAnimator objectAnimator = this.f47607e;
-            if (objectAnimator != null) {
-                objectAnimator.setRepeatCount(-1);
-                this.f47607e.cancel();
-                clearAnimation();
-            }
-            this.f47608f = false;
-            setVisibility(8);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f36798c = z;
         }
     }
 
@@ -122,9 +120,9 @@ public class AlaPlayAnimationView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -132,8 +130,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f47608f = false;
-        this.f47609g = false;
+        this.f36797b = false;
+        this.f36798c = false;
         a();
     }
 }

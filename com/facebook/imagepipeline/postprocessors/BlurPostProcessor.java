@@ -17,7 +17,7 @@ import com.facebook.imagepipeline.filter.IterativeBoxBlurFilter;
 import com.facebook.imagepipeline.filter.RenderScriptBlurFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BlurPostProcessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ITERATIONS = 3;
@@ -44,26 +44,26 @@ public class BlurPostProcessor extends BasePostprocessor {
         canUseRenderScript = RenderScriptBlurFilter.canUseRenderScript();
     }
 
-    public BlurPostProcessor(int i2, Context context, int i3) {
+    public BlurPostProcessor(int i, Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), context, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        Preconditions.checkArgument(i2 > 0 && i2 <= 25);
-        Preconditions.checkArgument(i3 > 0);
+        Preconditions.checkArgument(i > 0 && i <= 25);
+        Preconditions.checkArgument(i2 > 0);
         Preconditions.checkNotNull(context);
-        this.mIterations = i3;
-        this.mBlurRadius = i2;
+        this.mIterations = i2;
+        this.mBlurRadius = i;
         this.mContext = context;
     }
 
@@ -102,17 +102,17 @@ public class BlurPostProcessor extends BasePostprocessor {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BlurPostProcessor(int i2, Context context) {
-        this(i2, context, 3);
+    public BlurPostProcessor(int i, Context context) {
+        this(i, context, 3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), context};
+            Object[] objArr = {Integer.valueOf(i), context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (Context) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

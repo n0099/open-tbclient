@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -131,6 +131,8 @@ public class CommonStatisticKey {
     public static final String KEY_PB_FOLD_FLOOR_COMPLAINT_SHOW = "c14437";
     public static final String KEY_PB_FOLD_ICON_CLICK = "c14435";
     public static final String KEY_PB_FOLD_ICON_SHOW = "c14434";
+    public static final String KEY_PB_FORUM_GUIDE_VIEW_CLICK = "c14595";
+    public static final String KEY_PB_FORUM_GUIDE_VIEW_SHOW = "c14594";
     public static final String KEY_PB_HAS_FOLD_ICON_SHOW = "c14436";
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK = "c14517";
@@ -140,6 +142,7 @@ public class CommonStatisticKey {
     public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW = "c14528";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK = "c14519";
     public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW = "c14518";
+    public static final String KEY_PB_OPTIMIZE_LOAD_DURATION = "c14610";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
@@ -214,7 +217,7 @@ public class CommonStatisticKey {
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";
@@ -227,9 +230,9 @@ public class CommonStatisticKey {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -242,9 +245,9 @@ public class CommonStatisticKey {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

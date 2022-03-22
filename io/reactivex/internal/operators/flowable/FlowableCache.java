@@ -21,14 +21,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean once;
     public final CacheState<T> state;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CacheState<T> extends LinkedArrayList implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public static final ReplaySubscription[] EMPTY;
@@ -58,17 +58,17 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CacheState(Flowable<T> flowable, int i2) {
-            super(i2);
+        public CacheState(Flowable<T> flowable, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flowable, Integer.valueOf(i2)};
+                Object[] objArr = {flowable, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -173,27 +173,27 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (replaySubscriptionArr[i3].equals(replaySubscription)) {
-                            i2 = i3;
+                        } else if (replaySubscriptionArr[i2].equals(replaySubscription)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         replaySubscriptionArr2 = EMPTY;
                     } else {
                         ReplaySubscription[] replaySubscriptionArr3 = new ReplaySubscription[length - 1];
-                        System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i2);
-                        System.arraycopy(replaySubscriptionArr, i2 + 1, replaySubscriptionArr3, i2, (length - i2) - 1);
+                        System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i);
+                        System.arraycopy(replaySubscriptionArr, i + 1, replaySubscriptionArr3, i, (length - i) - 1);
                         replaySubscriptionArr2 = replaySubscriptionArr3;
                     }
                 } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
@@ -201,7 +201,7 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ReplaySubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long CANCELLED = Long.MIN_VALUE;
@@ -222,9 +222,9 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, cacheState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -251,12 +251,12 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
             }
             Subscriber<? super T> subscriber = this.child;
             AtomicLong atomicLong = this.requested;
-            long j2 = this.emitted;
+            long j = this.emitted;
+            int i = 1;
             int i2 = 1;
-            int i3 = 1;
             while (true) {
-                long j3 = atomicLong.get();
-                if (j3 == Long.MIN_VALUE) {
+                long j2 = atomicLong.get();
+                if (j2 == Long.MIN_VALUE) {
                     return;
                 }
                 int size = this.state.size();
@@ -266,29 +266,29 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                         objArr = this.state.head();
                         this.currentBuffer = objArr;
                     }
-                    int length = objArr.length - i2;
-                    int i4 = this.index;
-                    int i5 = this.currentIndexInBuffer;
-                    while (i4 < size && j2 != j3) {
+                    int length = objArr.length - i;
+                    int i3 = this.index;
+                    int i4 = this.currentIndexInBuffer;
+                    while (i3 < size && j != j2) {
                         if (atomicLong.get() == Long.MIN_VALUE) {
                             return;
                         }
-                        if (i5 == length) {
+                        if (i4 == length) {
                             objArr = (Object[]) objArr[length];
-                            i5 = 0;
+                            i4 = 0;
                         }
-                        if (NotificationLite.accept(objArr[i5], subscriber)) {
+                        if (NotificationLite.accept(objArr[i4], subscriber)) {
                             return;
                         }
-                        i5++;
                         i4++;
-                        j2++;
+                        i3++;
+                        j++;
                     }
                     if (atomicLong.get() == Long.MIN_VALUE) {
                         return;
                     }
-                    if (j3 == j2) {
-                        Object obj = objArr[i5];
+                    if (j2 == j) {
+                        Object obj = objArr[i4];
                         if (NotificationLite.isComplete(obj)) {
                             subscriber.onComplete();
                             return;
@@ -297,48 +297,48 @@ public final class FlowableCache<T> extends AbstractFlowableWithUpstream<T, T> {
                             return;
                         }
                     }
-                    this.index = i4;
-                    this.currentIndexInBuffer = i5;
+                    this.index = i3;
+                    this.currentIndexInBuffer = i4;
                     this.currentBuffer = objArr;
                 }
-                this.emitted = j2;
-                i3 = addAndGet(-i3);
-                if (i3 == 0) {
+                this.emitted = j;
+                i2 = addAndGet(-i2);
+                if (i2 == 0) {
                     return;
                 }
-                i2 = 1;
+                i = 1;
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.addCancel(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.addCancel(this.requested, j);
                 replay();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableCache(Flowable<T> flowable, int i2) {
+    public FlowableCache(Flowable<T> flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.state = new CacheState<>(flowable, i2);
+        this.state = new CacheState<>(flowable, i);
         this.once = new AtomicBoolean();
     }
 

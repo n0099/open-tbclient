@@ -1,9 +1,16 @@
 package com.baidu.tieba.gift.buyGift;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyGiftActivityConfig;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.tieba.gift.myGiftList.MyGiftListActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,6 +24,56 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GiftStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements UrlManager.UrlDealListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
+        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
+            InterceptResult invokeLL;
+            String str;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
+                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
+                    String str2 = strArr[0];
+                    if ((str2.startsWith(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT) || str2.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_USER_GIFT)) && ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                        String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
+                        if (currentAccount != null && currentAccount.length() > 0) {
+                            if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                                str = TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow();
+                                i = TbadkCoreApplication.getCurrentAccountInfo().getSex();
+                            } else {
+                                str = currentAccountName;
+                                i = 0;
+                            }
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(tbPageContext.getPageActivity(), currentAccount, currentAccountName, str, i)));
+                            return 0;
+                        }
+                    }
+                }
+                return 3;
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,6 +91,7 @@ public class GiftStatic {
         TbadkApplication.getInst().RegisterIntent(MyGiftListActivityConfig.class, MyGiftListActivity.class);
         TbadkApplication.getInst().RegisterIntent(BuyGiftActivityConfig.class, BuyGiftActivity.class);
         TbadkApplication.getInst().RegisterIntent(GiftTabActivityConfig.class, GiftTabActivity.class);
+        a();
     }
 
     public GiftStatic() {
@@ -41,12 +99,19 @@ public class GiftStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            UrlManager.getInstance().addListener(new a());
         }
     }
 }

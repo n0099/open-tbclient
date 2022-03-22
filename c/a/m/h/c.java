@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.kwad.yoga.YogaNodeJNIBase;
 import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +36,7 @@ public final class c {
     public static byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{10, 28, -53, -126, 11, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new byte[]{10, 28, -53, -126, Constants.GZIP_CAST_TYPE, -111, 68, -11, -28, Constants.SHORT_PING_CMD_TYPE, 81, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 59, -1, 98, -58, -25, -60, -55, 70, 66, 51, -63, -79, -96, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 70, 7, 108, 59, -79, -65} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] e() {
@@ -47,13 +48,13 @@ public final class c {
     public static byte[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, ContentUtil.GZIP_HEAD_2, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, 14, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, ContentUtil.GZIP_HEAD_2, 89, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, -63, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, -31, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, -62, 49, 108, 61, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new byte[]{-14, -21, -20, -77, 32, 107, -63, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -44, -86, 57, -31, 102, 90, 4, 13, 91, 22, 84, 30, -86, 4, -106, -62, 49, 108, BaseNCodec.PAD_DEFAULT, 48, -101, 90, -110, 88} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] h() {

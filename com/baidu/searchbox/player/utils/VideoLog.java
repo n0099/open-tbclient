@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public abstract class VideoLog {
     public static /* synthetic */ Interceptable $ic;
@@ -28,9 +27,9 @@ public abstract class VideoLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,23 +65,23 @@ public abstract class VideoLog {
         }
     }
 
-    public void doLog(int i2, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+    public void doLog(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) && isLoggable(i2, str)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) && isLoggable(i, str)) {
             if (TextUtils.isEmpty(str2)) {
                 if (th == null) {
                     return;
                 }
                 str2 = getStackTraceString(th);
             } else if (th != null) {
-                str2 = str2 + StringUtils.LF + getStackTraceString(th);
+                str2 = str2 + "\n" + getStackTraceString(th);
             }
             if (TextUtils.isEmpty(str)) {
-                log(i2, null, str2);
+                log(i, null, str2);
             } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
-                log(i2, str.substring(0, 23), str2);
+                log(i, str.substring(0, 23), str2);
             } else {
-                log(i2, str, str2);
+                log(i, str, str2);
             }
         }
     }
@@ -101,42 +100,42 @@ public abstract class VideoLog {
         }
     }
 
-    public abstract boolean isLoggable(int i2, @Nullable String str);
+    public abstract boolean isLoggable(int i, @Nullable String str);
 
-    public void log(int i2, @Nullable String str, @NonNull String str2) {
+    public void log(int i, @Nullable String str, @NonNull String str2) {
         int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048587, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048587, this, i, str, str2) == null) {
             if (str2.length() < 4096) {
-                if (i2 == 7) {
+                if (i == 7) {
                     Log.wtf(str, str2);
                     return;
                 } else {
-                    Log.println(i2, str, str2);
+                    Log.println(i, str, str2);
                     return;
                 }
             }
-            int i3 = 0;
+            int i2 = 0;
             int length = str2.length();
-            while (i3 < length) {
-                int indexOf = str2.indexOf(10, i3);
+            while (i2 < length) {
+                int indexOf = str2.indexOf(10, i2);
                 if (indexOf == -1) {
                     indexOf = length;
                 }
                 while (true) {
-                    min = Math.min(indexOf, i3 + 4096);
-                    String substring = str2.substring(i3, min);
-                    if (i2 == 7) {
+                    min = Math.min(indexOf, i2 + 4096);
+                    String substring = str2.substring(i2, min);
+                    if (i == 7) {
                         Log.wtf(str, substring);
                     } else {
-                        Log.println(i2, str, substring);
+                        Log.println(i, str, substring);
                     }
                     if (min >= indexOf) {
                         break;
                     }
-                    i3 = min;
+                    i2 = min;
                 }
-                i3 = min + 1;
+                i2 = min + 1;
             }
         }
     }

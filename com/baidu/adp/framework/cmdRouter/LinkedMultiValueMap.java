@@ -23,9 +23,9 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,15 +72,15 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public V getValue(K k, int i2) {
+    public V getValue(K k, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, k, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, k, i)) == null) {
             List<V> list = this.mSource.get(k);
-            if (list == null || i2 >= list.size()) {
+            if (list == null || i >= list.size()) {
                 return null;
             }
-            return list.get(i2);
+            return list.get(i);
         }
         return (V) invokeLI.objValue;
     }

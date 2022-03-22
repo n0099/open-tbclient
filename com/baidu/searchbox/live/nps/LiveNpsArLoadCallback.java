@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.nps;
 /* loaded from: classes4.dex */
 public interface LiveNpsArLoadCallback {
-    void onProgress(int i2, int i3);
+    void onProgress(int i, int i2);
 
     void onResult(boolean z, String str);
 }

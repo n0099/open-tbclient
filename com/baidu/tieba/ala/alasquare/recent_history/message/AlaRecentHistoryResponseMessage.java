@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.recent_history.message;
 
-import c.a.r0.a0.f.f.b.a;
-import c.a.r0.a0.f.f.b.b;
+import c.a.p0.c0.f.f.b.a;
+import c.a.p0.c0.f.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -26,9 +26,9 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,10 +38,10 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null) {
                 return;
             }
@@ -53,14 +53,14 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
-                for (int i3 = 0; i3 < length; i3++) {
+                for (int i2 = 0; i2 < length; i2++) {
                     b bVar = new b();
-                    bVar.a(optJSONArray.optJSONObject(i3));
+                    bVar.a(optJSONArray.optJSONObject(i2));
                     arrayList2.add(bVar);
                 }
                 arrayList = arrayList2;
             }
-            this.mHistoryData.f14416b = arrayList;
+            this.mHistoryData.f13055b = arrayList;
         }
     }
 

@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.j;
+import g.d;
+import g.j;
 /* loaded from: classes4.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
@@ -53,9 +53,9 @@ public final class DelegateUtils implements DelegateDef {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -115,9 +115,9 @@ public final class DelegateUtils implements DelegateDef {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {delegateListener, delegateResult};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -156,9 +156,9 @@ public final class DelegateUtils implements DelegateDef {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context, cls, bundle};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -170,7 +170,7 @@ public final class DelegateUtils implements DelegateDef {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // i.d.a, i.n.b
+            @Override // g.d.a, g.n.b
             public void call(j<? super DelegateResult> jVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, jVar) == null) {
@@ -214,9 +214,9 @@ public final class DelegateUtils implements DelegateDef {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {name, delegateListener, cls2, bundle};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -229,17 +229,17 @@ public final class DelegateUtils implements DelegateDef {
                     }
 
                     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-                    public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i2, Intent intent) {
+                    public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
                         InterceptResult invokeLIL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, activityResultDispatcher, i2, intent)) == null) {
+                        if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
                             if (intent == null || !this.val$delegationName.equals(intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME))) {
                                 return false;
                             }
-                            if (-1 != i2) {
+                            if (-1 != i) {
                                 DelegateListener delegateListener2 = this.val$listener;
                                 DelegateResult delegateResult = new DelegateResult(3, this.val$delegation, this.val$params);
-                                DelegateUtils.notifyResult(delegateListener2, delegateResult.addDesc("activity resultCode = " + i2));
+                                DelegateUtils.notifyResult(delegateListener2, delegateResult.addDesc("activity resultCode = " + i));
                                 return true;
                             }
                             DelegateResult delegateResult2 = new DelegateResult(intent.getIntExtra(DelegateDef.EXTRA_RESULT_CODE, 0), this.val$delegation, this.val$params, intent.getBundleExtra(DelegateDef.EXTRA_RESULT));
@@ -250,7 +250,7 @@ public final class DelegateUtils implements DelegateDef {
                         return invokeLIL.booleanValue;
                     }
                 });
-                resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra("extra_params", bundle));
+                resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra(DelegateDef.EXTRA_PARAMS, bundle));
             }
         }
     }

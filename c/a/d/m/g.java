@@ -27,9 +27,9 @@ public class g extends DefaultDownloadCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {defaultDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,7 +63,7 @@ public class g extends DefaultDownloadCallback {
             File file2 = new File(b2);
             if ((!file2.exists() || file2.delete()) && file.renameTo(file2)) {
                 if (b2.contains(".so")) {
-                    if (j.a(BdBaseApplication.getInst().getContext(), i.a(packageInfo.name))) {
+                    if (k.a(BdBaseApplication.getInst().getContext(), i.a(packageInfo.name))) {
                         ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
                         String str = packageInfo.name;
                         resHashMap.put(str, i.a(str));

@@ -54,9 +54,9 @@ public class JsObject extends JsReleaser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Long) objArr[0]).longValue(), ((Long) objArr[1]).longValue(), ((Long) objArr[2]).longValue());
                 newInitContext.thisArg = this;
@@ -68,59 +68,59 @@ public class JsObject extends JsReleaser {
         this.mSize = 0;
     }
 
-    private boolean checkValid(int i2) {
+    private boolean checkValid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
             V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-            return this.mNativeObject.get() != 0 && i2 >= 0 && i2 < this.mSize;
+            return this.mNativeObject.get() != 0 && i >= 0 && i < this.mSize;
         }
         return invokeI.booleanValue;
     }
 
-    private native JsSerializeValue nativeAsSerializeValue(long j2);
+    private native JsSerializeValue nativeAsSerializeValue(long j);
 
-    private native int nativeGetPropertyIndex(long j2, String str);
+    private native int nativeGetPropertyIndex(long j, String str);
 
-    private native String nativeGetPropertyName(long j2, int i2);
+    private native String nativeGetPropertyName(long j, int i);
 
-    private native int nativePropertyType(long j2, int i2);
+    private native int nativePropertyType(long j, int i);
 
-    private native boolean nativeStrictEquals(long j2, long j3);
+    private native boolean nativeStrictEquals(long j, long j2);
 
-    private native boolean nativeToBoolean(long j2, int i2);
+    private native boolean nativeToBoolean(long j, int i);
 
-    private native double nativeToDouble(long j2, int i2);
+    private native double nativeToDouble(long j, int i);
 
-    private native double[] nativeToDoubleArray(long j2, int i2);
+    private native double[] nativeToDoubleArray(long j, int i);
 
-    private native int nativeToInteger(long j2, int i2);
+    private native int nativeToInteger(long j, int i);
 
-    private native int[] nativeToIntegerArray(long j2, int i2);
+    private native int[] nativeToIntegerArray(long j, int i);
 
-    private native JsArrayBuffer nativeToJsArrayBuffer(long j2, int i2);
+    private native JsArrayBuffer nativeToJsArrayBuffer(long j, int i);
 
-    private native JsFunction nativeToJsFunction(long j2, long j3, int i2);
+    private native JsFunction nativeToJsFunction(long j, long j2, int i);
 
-    private native JsObject nativeToJsObject(long j2, int i2);
+    private native JsObject nativeToJsObject(long j, int i);
 
-    private native long nativeToLong(long j2, int i2);
+    private native long nativeToLong(long j, int i);
 
-    private native JsObject[] nativeToObjectArray(long j2, int i2);
+    private native JsObject[] nativeToObjectArray(long j, int i);
 
-    private native JsSerializeValue nativeToSerializeValue(long j2, int i2);
+    private native JsSerializeValue nativeToSerializeValue(long j, int i);
 
-    private native String nativeToString(long j2, int i2);
+    private native String nativeToString(long j, int i);
 
-    private native String[] nativeToStringArray(long j2, int i2);
+    private native String[] nativeToStringArray(long j, int i);
 
-    private native int nativeType(long j2);
+    private native int nativeType(long j);
 
-    public static String typeToString(int i2) {
+    public static String typeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) {
+            switch (i) {
                 case 0:
                     return "Jnonsupport";
                 case 1:
@@ -167,34 +167,34 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0;
             }
-            return nativeGetPropertyIndex(j2, str);
+            return nativeGetPropertyIndex(j, str);
         }
         return invokeL.intValue;
     }
 
-    public String getPropertyName(int i2) {
+    public String getPropertyName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            return j2 == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j2, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            return j == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j, i);
         }
         return (String) invokeI.objValue;
     }
 
-    public int getPropertyType(int i2) {
+    public int getPropertyType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0;
             }
-            return nativePropertyType(j2, i2);
+            return nativePropertyType(j, i);
         }
         return invokeI.intValue;
     }
@@ -204,67 +204,67 @@ public class JsObject extends JsReleaser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0;
             }
-            return nativeType(j2);
+            return nativeType(j);
         }
         return invokeV.intValue;
     }
 
-    public boolean isArray(int i2) {
+    public boolean isArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? getPropertyType(i2) == 6 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? getPropertyType(i) == 6 : invokeI.booleanValue;
     }
 
-    public boolean isBoolean(int i2) {
+    public boolean isBoolean(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? getPropertyType(i2) == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getPropertyType(i) == 1 : invokeI.booleanValue;
     }
 
-    public boolean isDouble(int i2) {
+    public boolean isDouble(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? getPropertyType(i2) == 5 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? getPropertyType(i) == 5 : invokeI.booleanValue;
     }
 
-    public boolean isInteger(int i2) {
+    public boolean isInteger(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? getPropertyType(i2) == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? getPropertyType(i) == 2 : invokeI.booleanValue;
     }
 
-    public boolean isJsArrayBuffer(int i2) {
+    public boolean isJsArrayBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? getPropertyType(i2) == 10 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? getPropertyType(i) == 10 : invokeI.booleanValue;
     }
 
-    public boolean isJsFunction(int i2) {
+    public boolean isJsFunction(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? getPropertyType(i2) == 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? getPropertyType(i) == 8 : invokeI.booleanValue;
     }
 
-    public boolean isJsObject(int i2) {
+    public boolean isJsObject(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? getPropertyType(i2) == 9 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? getPropertyType(i) == 9 : invokeI.booleanValue;
     }
 
-    public boolean isLong(int i2) {
+    public boolean isLong(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? getPropertyType(i2) == 3 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? getPropertyType(i) == 3 : invokeI.booleanValue;
     }
 
-    public boolean isString(int i2) {
+    public boolean isString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? getPropertyType(i2) == 7 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? getPropertyType(i) == 7 : invokeI.booleanValue;
     }
 
     public int length() {
@@ -289,184 +289,184 @@ public class JsObject extends JsReleaser {
         return invokeL.booleanValue;
     }
 
-    public boolean toBoolean(int i2) {
+    public boolean toBoolean(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return false;
             }
-            return nativeToBoolean(j2, i2);
+            return nativeToBoolean(j, i);
         }
         return invokeI.booleanValue;
     }
 
-    public double toDouble(int i2) {
+    public double toDouble(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0.0d;
             }
-            return nativeToDouble(j2, i2);
+            return nativeToDouble(j, i);
         }
         return invokeI.doubleValue;
     }
 
-    public double[] toDoubleArray(int i2) {
+    public double[] toDoubleArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToDoubleArray(j2, i2);
+            return nativeToDoubleArray(j, i);
         }
         return (double[]) invokeI.objValue;
     }
 
-    public int toInteger(int i2) {
+    public int toInteger(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0;
             }
-            return nativeToInteger(j2, i2);
+            return nativeToInteger(j, i);
         }
         return invokeI.intValue;
     }
 
-    public int[] toIntegerArray(int i2) {
+    public int[] toIntegerArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToIntegerArray(j2, i2);
+            return nativeToIntegerArray(j, i);
         }
         return (int[]) invokeI.objValue;
     }
 
-    public JsArrayBuffer toJsArrayBuffer(int i2) {
+    public JsArrayBuffer toJsArrayBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToJsArrayBuffer(j2, i2);
+            return nativeToJsArrayBuffer(j, i);
         }
         return (JsArrayBuffer) invokeI.objValue;
     }
 
-    public JsFunction toJsFunction(int i2) {
+    public JsFunction toJsFunction(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToJsFunction(this.mOwnedNativeEngine, j2, i2);
+            return nativeToJsFunction(this.mOwnedNativeEngine, j, i);
         }
         return (JsFunction) invokeI.objValue;
     }
 
-    public JsObject toJsObject(int i2) {
+    public JsObject toJsObject(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToJsObject(j2, i2);
+            return nativeToJsObject(j, i);
         }
         return (JsObject) invokeI.objValue;
     }
 
-    public long toLong(int i2) {
+    public long toLong(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return 0L;
             }
-            return nativeToLong(j2, i2);
+            return nativeToLong(j, i);
         }
         return invokeI.longValue;
     }
 
-    public JsObject[] toObjectArray(int i2) {
+    public JsObject[] toObjectArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToObjectArray(j2, i2);
+            return nativeToObjectArray(j, i);
         }
         return (JsObject[]) invokeI.objValue;
     }
 
-    public JsSerializeValue toSerializeValue(int i2) {
+    public JsSerializeValue toSerializeValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToSerializeValue(j2, i2);
+            return nativeToSerializeValue(j, i);
         }
         return (JsSerializeValue) invokeI.objValue;
     }
 
-    public String toString(int i2) {
+    public String toString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            return j2 == 0 ? StringUtil.NULL_STRING : nativeToString(j2, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            return j == 0 ? StringUtil.NULL_STRING : nativeToString(j, i);
         }
         return (String) invokeI.objValue;
     }
 
-    public String[] toStringArray(int i2) {
+    public String[] toStringArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            long j2 = this.mNativeObject.get();
-            if (j2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            long j = this.mNativeObject.get();
+            if (j == 0) {
                 return null;
             }
-            return nativeToStringArray(j2, i2);
+            return nativeToStringArray(j, i);
         }
         return (String[]) invokeI.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsObject(long j2, long j3, long j4, int i2) {
-        super(j2, j3, j4);
+    public JsObject(long j, long j2, long j3, int i) {
+        super(j, j2, j3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;
@@ -475,6 +475,6 @@ public class JsObject extends JsReleaser {
             }
         }
         this.mSize = 0;
-        this.mSize = i2;
+        this.mSize = i;
     }
 }

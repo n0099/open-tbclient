@@ -28,9 +28,9 @@ public class IMConnectParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -103,10 +103,10 @@ public class IMConnectParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.isLogin : invokeV.booleanValue;
     }
 
-    public void setAccountType(int i2) {
+    public void setAccountType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.accountType = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.accountType = i;
         }
     }
 
@@ -145,10 +145,10 @@ public class IMConnectParams {
         }
     }
 
-    public void setPl(int i2) {
+    public void setPl(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.pl = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.pl = i;
         }
     }
 

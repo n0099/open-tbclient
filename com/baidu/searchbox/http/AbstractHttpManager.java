@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.RequestHandler;
@@ -62,9 +63,9 @@ public abstract class AbstractHttpManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -323,7 +324,8 @@ public abstract class AbstractHttpManager {
                 if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getEventListener() != null) {
                     builder.eventListener(HttpRuntime.getHttpContext().getEventListener());
                 }
-            } catch (IllegalArgumentException unused) {
+            } catch (IllegalArgumentException e2) {
+                Log.e("HttpManager", " set timeout illegal exception, we will use the 10_000 mills default", e2);
             }
             return builder.build();
         }

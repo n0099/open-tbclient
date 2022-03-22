@@ -40,7 +40,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -63,7 +63,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -97,9 +97,9 @@ public final class Downsampler {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -131,9 +131,9 @@ public final class Downsampler {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, displayMetrics, bitmapPool, arrayPool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -157,18 +157,18 @@ public final class Downsampler {
         return invokeCommon.intValue;
     }
 
-    private void calculateConfig(InputStream inputStream, DecodeFormat decodeFormat, boolean z, boolean z2, BitmapFactory.Options options, int i2, int i3) {
+    private void calculateConfig(InputStream inputStream, DecodeFormat decodeFormat, boolean z, boolean z2, BitmapFactory.Options options, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{inputStream, decodeFormat, Boolean.valueOf(z), Boolean.valueOf(z2), options, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || this.hardwareConfigState.setHardwareConfigIfAllowed(i2, i3, options, decodeFormat, z, z2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{inputStream, decodeFormat, Boolean.valueOf(z), Boolean.valueOf(z2), options, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || this.hardwareConfigState.setHardwareConfigIfAllowed(i, i2, options, decodeFormat, z, z2)) {
             return;
         }
         if (decodeFormat != DecodeFormat.PREFER_ARGB_8888 && Build.VERSION.SDK_INT != 16) {
             boolean z3 = false;
             try {
                 z3 = ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool).hasAlpha();
-            } catch (IOException unused) {
+            } catch (IOException e2) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Cannot determine whether the image has alpha or not from header, format " + decodeFormat;
+                    Log.d(TAG, "Cannot determine whether the image has alpha or not from header, format " + decodeFormat, e2);
                 }
             }
             Bitmap.Config config = z3 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
@@ -182,34 +182,34 @@ public final class Downsampler {
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
     }
 
-    public static void calculateScaling(ImageHeaderParser.ImageType imageType, InputStream inputStream, DecodeCallbacks decodeCallbacks, BitmapPool bitmapPool, DownsampleStrategy downsampleStrategy, int i2, int i3, int i4, int i5, int i6, BitmapFactory.Options options) throws IOException {
+    public static void calculateScaling(ImageHeaderParser.ImageType imageType, InputStream inputStream, DecodeCallbacks decodeCallbacks, BitmapPool bitmapPool, DownsampleStrategy downsampleStrategy, int i, int i2, int i3, int i4, int i5, BitmapFactory.Options options) throws IOException {
         float scaleFactor;
         int min;
         int max;
         int floor;
         double floor2;
-        int i7;
+        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{imageType, inputStream, decodeCallbacks, bitmapPool, downsampleStrategy, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), options}) == null) {
-            if (i3 <= 0 || i4 <= 0) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{imageType, inputStream, decodeCallbacks, bitmapPool, downsampleStrategy, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), options}) == null) {
+            if (i2 <= 0 || i3 <= 0) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Unable to determine dimensions for: " + imageType + " with target [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT;
+                    Log.d(TAG, "Unable to determine dimensions for: " + imageType + " with target [" + i4 + "x" + i5 + PreferencesUtil.RIGHT_MOUNT);
                     return;
                 }
                 return;
             }
-            if (i2 != 90 && i2 != 270) {
-                scaleFactor = downsampleStrategy.getScaleFactor(i3, i4, i5, i6);
+            if (i != 90 && i != 270) {
+                scaleFactor = downsampleStrategy.getScaleFactor(i2, i3, i4, i5);
             } else {
-                scaleFactor = downsampleStrategy.getScaleFactor(i4, i3, i5, i6);
+                scaleFactor = downsampleStrategy.getScaleFactor(i3, i2, i4, i5);
             }
             if (scaleFactor > 0.0f) {
-                DownsampleStrategy.SampleSizeRounding sampleSizeRounding = downsampleStrategy.getSampleSizeRounding(i3, i4, i5, i6);
+                DownsampleStrategy.SampleSizeRounding sampleSizeRounding = downsampleStrategy.getSampleSizeRounding(i2, i3, i4, i5);
                 if (sampleSizeRounding != null) {
-                    float f2 = i3;
-                    float f3 = i4;
-                    int round = i3 / round(scaleFactor * f2);
-                    int round2 = i4 / round(scaleFactor * f3);
+                    float f2 = i2;
+                    float f3 = i3;
+                    int round = i2 / round(scaleFactor * f2);
+                    int round2 = i3 / round(scaleFactor * f3);
                     if (sampleSizeRounding == DownsampleStrategy.SampleSizeRounding.MEMORY) {
                         min = Math.max(round, round2);
                     } else {
@@ -227,28 +227,28 @@ public final class Downsampler {
                     if (imageType == ImageHeaderParser.ImageType.JPEG) {
                         float min2 = Math.min(max, 8);
                         floor = (int) Math.ceil(f2 / min2);
-                        i7 = (int) Math.ceil(f3 / min2);
-                        int i8 = max / 8;
-                        if (i8 > 0) {
-                            floor /= i8;
-                            i7 /= i8;
+                        i6 = (int) Math.ceil(f3 / min2);
+                        int i7 = max / 8;
+                        if (i7 > 0) {
+                            floor /= i7;
+                            i6 /= i7;
                         }
                     } else {
                         if (imageType != ImageHeaderParser.ImageType.PNG && imageType != ImageHeaderParser.ImageType.PNG_A) {
                             if (imageType != ImageHeaderParser.ImageType.WEBP && imageType != ImageHeaderParser.ImageType.WEBP_A) {
-                                if (i3 % max == 0 && i4 % max == 0) {
-                                    floor = i3 / max;
-                                    i7 = i4 / max;
+                                if (i2 % max == 0 && i3 % max == 0) {
+                                    floor = i2 / max;
+                                    i6 = i3 / max;
                                 } else {
                                     int[] dimensions = getDimensions(inputStream, options, decodeCallbacks, bitmapPool);
-                                    int i9 = dimensions[0];
-                                    i7 = dimensions[1];
-                                    floor = i9;
+                                    int i8 = dimensions[0];
+                                    i6 = dimensions[1];
+                                    floor = i8;
                                 }
                             } else if (Build.VERSION.SDK_INT >= 24) {
                                 float f4 = max;
                                 floor = Math.round(f2 / f4);
-                                i7 = Math.round(f3 / f4);
+                                i6 = Math.round(f3 / f4);
                             } else {
                                 float f5 = max;
                                 floor = (int) Math.floor(f2 / f5);
@@ -259,9 +259,9 @@ public final class Downsampler {
                             floor = (int) Math.floor(f2 / f6);
                             floor2 = Math.floor(f3 / f6);
                         }
-                        i7 = (int) floor2;
+                        i6 = (int) floor2;
                     }
-                    double scaleFactor2 = downsampleStrategy.getScaleFactor(floor, i7, i5, i6);
+                    double scaleFactor2 = downsampleStrategy.getScaleFactor(floor, i6, i4, i5);
                     if (Build.VERSION.SDK_INT >= 19) {
                         options.inTargetDensity = adjustTargetDensityForError(scaleFactor2);
                         options.inDensity = getDensityMultiplier(scaleFactor2);
@@ -273,55 +273,55 @@ public final class Downsampler {
                         options.inDensity = 0;
                     }
                     if (Log.isLoggable(TAG, 2)) {
-                        String str2 = "Calculate scaling, source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + "], power of two scaled: [" + floor + "x" + i7 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity;
+                        Log.v(TAG, "Calculate scaling, source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + "], power of two scaled: [" + floor + "x" + i6 + "], exact scale factor: " + scaleFactor + ", power of 2 sample size: " + max + ", adjusted scale factor: " + scaleFactor2 + ", target density: " + options.inTargetDensity + ", density: " + options.inDensity);
                         return;
                     }
                     return;
                 }
                 throw new IllegalArgumentException("Cannot round with null rounding");
             }
-            throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i3 + "x" + i4 + "], target: [" + i5 + "x" + i6 + PreferencesUtil.RIGHT_MOUNT);
+            throw new IllegalArgumentException("Cannot scale with factor: " + scaleFactor + " from: " + downsampleStrategy + ", source: [" + i2 + "x" + i3 + "], target: [" + i4 + "x" + i5 + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
-    private Bitmap decodeFromWrappedStreams(InputStream inputStream, BitmapFactory.Options options, DownsampleStrategy downsampleStrategy, DecodeFormat decodeFormat, boolean z, int i2, int i3, boolean z2, DecodeCallbacks decodeCallbacks) throws IOException {
+    private Bitmap decodeFromWrappedStreams(InputStream inputStream, BitmapFactory.Options options, DownsampleStrategy downsampleStrategy, DecodeFormat decodeFormat, boolean z, int i, int i2, boolean z2, DecodeCallbacks decodeCallbacks) throws IOException {
         InterceptResult invokeCommon;
         Downsampler downsampler;
         int round;
         int round2;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{inputStream, options, downsampleStrategy, decodeFormat, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), decodeCallbacks})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{inputStream, options, downsampleStrategy, decodeFormat, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2), decodeCallbacks})) == null) {
             long logTime = LogTime.getLogTime();
             int[] dimensions = getDimensions(inputStream, options, decodeCallbacks, this.bitmapPool);
-            int i5 = dimensions[0];
-            int i6 = dimensions[1];
+            int i4 = dimensions[0];
+            int i5 = dimensions[1];
             String str = options.outMimeType;
-            boolean z3 = (i5 == -1 || i6 == -1) ? false : z;
+            boolean z3 = (i4 == -1 || i5 == -1) ? false : z;
             int orientation = ImageHeaderParserUtils.getOrientation(this.parsers, inputStream, this.byteArrayPool);
             int exifOrientationDegrees = TransformationUtils.getExifOrientationDegrees(orientation);
             boolean isExifOrientationRequired = TransformationUtils.isExifOrientationRequired(orientation);
+            int i6 = i == Integer.MIN_VALUE ? i4 : i;
             int i7 = i2 == Integer.MIN_VALUE ? i5 : i2;
-            int i8 = i3 == Integer.MIN_VALUE ? i6 : i3;
             ImageHeaderParser.ImageType type = ImageHeaderParserUtils.getType(this.parsers, inputStream, this.byteArrayPool);
-            calculateScaling(type, inputStream, decodeCallbacks, this.bitmapPool, downsampleStrategy, exifOrientationDegrees, i5, i6, i7, i8, options);
-            calculateConfig(inputStream, decodeFormat, z3, isExifOrientationRequired, options, i7, i8);
+            calculateScaling(type, inputStream, decodeCallbacks, this.bitmapPool, downsampleStrategy, exifOrientationDegrees, i4, i5, i6, i7, options);
+            calculateConfig(inputStream, decodeFormat, z3, isExifOrientationRequired, options, i6, i7);
             boolean z4 = Build.VERSION.SDK_INT >= 19;
             if (options.inSampleSize == 1 || z4) {
                 downsampler = this;
                 if (downsampler.shouldUsePool(type)) {
-                    if (i5 < 0 || i6 < 0 || !z2 || !z4) {
+                    if (i4 < 0 || i5 < 0 || !z2 || !z4) {
                         float f2 = isScaling(options) ? options.inTargetDensity / options.inDensity : 1.0f;
-                        int i9 = options.inSampleSize;
-                        float f3 = i9;
-                        round = Math.round(((int) Math.ceil(i5 / f3)) * f2);
-                        round2 = Math.round(((int) Math.ceil(i6 / f3)) * f2);
+                        int i8 = options.inSampleSize;
+                        float f3 = i8;
+                        round = Math.round(((int) Math.ceil(i4 / f3)) * f2);
+                        round2 = Math.round(((int) Math.ceil(i5 / f3)) * f2);
                         if (Log.isLoggable(TAG, 2)) {
-                            String str2 = "Calculated target [" + round + "x" + round2 + "] for source [" + i5 + "x" + i6 + "], sampleSize: " + i9 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2;
+                            Log.v(TAG, "Calculated target [" + round + "x" + round2 + "] for source [" + i4 + "x" + i5 + "], sampleSize: " + i8 + ", targetDensity: " + options.inTargetDensity + ", density: " + options.inDensity + ", density multiplier: " + f2);
                         }
                     } else {
-                        round = i7;
-                        round2 = i8;
+                        round = i6;
+                        round2 = i7;
                     }
                     if (round > 0 && round2 > 0) {
                         setInBitmap(options, downsampler.bitmapPool, round, round2);
@@ -333,15 +333,15 @@ public final class Downsampler {
             Bitmap decodeStream = decodeStream(inputStream, options, decodeCallbacks, downsampler.bitmapPool);
             decodeCallbacks.onDecodeComplete(downsampler.bitmapPool, decodeStream);
             if (Log.isLoggable(TAG, 2)) {
-                i4 = orientation;
-                logDecode(i5, i6, str, options, decodeStream, i2, i3, logTime);
+                i3 = orientation;
+                logDecode(i4, i5, str, options, decodeStream, i, i2, logTime);
             } else {
-                i4 = orientation;
+                i3 = orientation;
             }
             Bitmap bitmap = null;
             if (decodeStream != null) {
                 decodeStream.setDensity(downsampler.displayMetrics.densityDpi);
-                bitmap = TransformationUtils.rotateImageExif(downsampler.bitmapPool, decodeStream, i4);
+                bitmap = TransformationUtils.rotateImageExif(downsampler.bitmapPool, decodeStream, i3);
                 if (!decodeStream.equals(bitmap)) {
                     downsampler.bitmapPool.put(decodeStream);
                 }
@@ -360,8 +360,8 @@ public final class Downsampler {
             } else {
                 decodeCallbacks.onObtainBounds();
             }
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
+            int i = options.outWidth;
+            int i2 = options.outHeight;
             String str = options.outMimeType;
             TransformationUtils.getBitmapDrawableLock().lock();
             try {
@@ -373,8 +373,10 @@ public final class Downsampler {
                     }
                     return decodeStream;
                 } catch (IllegalArgumentException e2) {
-                    IOException newIoExceptionForInBitmapAssertion = newIoExceptionForInBitmapAssertion(e2, i2, i3, str, options);
-                    Log.isLoggable(TAG, 3);
+                    IOException newIoExceptionForInBitmapAssertion = newIoExceptionForInBitmapAssertion(e2, i, i2, str, options);
+                    if (Log.isLoggable(TAG, 3)) {
+                        Log.d(TAG, "Failed to decode with inBitmap, trying again without Bitmap re-use", newIoExceptionForInBitmapAssertion);
+                    }
                     if (options.inBitmap != null) {
                         try {
                             inputStream.reset();
@@ -468,27 +470,27 @@ public final class Downsampler {
 
     public static boolean isScaling(BitmapFactory.Options options) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, options)) == null) {
-            int i3 = options.inTargetDensity;
-            return i3 > 0 && (i2 = options.inDensity) > 0 && i3 != i2;
+            int i2 = options.inTargetDensity;
+            return i2 > 0 && (i = options.inDensity) > 0 && i2 != i;
         }
         return invokeL.booleanValue;
     }
 
-    public static void logDecode(int i2, int i3, String str, BitmapFactory.Options options, Bitmap bitmap, int i4, int i5, long j2) {
+    public static void logDecode(int i, int i2, String str, BitmapFactory.Options options, Bitmap bitmap, int i3, int i4, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, options, bitmap, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
-            String str2 = "Decoded " + getBitmapString(bitmap) + " from [" + i2 + "x" + i3 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i4 + "x" + i5 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j2);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, options, bitmap, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+            Log.v(TAG, "Decoded " + getBitmapString(bitmap) + " from [" + i + "x" + i2 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i3 + "x" + i4 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j));
         }
     }
 
-    public static IOException newIoExceptionForInBitmapAssertion(IllegalArgumentException illegalArgumentException, int i2, int i3, String str, BitmapFactory.Options options) {
+    public static IOException newIoExceptionForInBitmapAssertion(IllegalArgumentException illegalArgumentException, int i, int i2, String str, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{illegalArgumentException, Integer.valueOf(i2), Integer.valueOf(i3), str, options})) == null) {
-            return new IOException("Exception decoding bitmap, outWidth: " + i2 + ", outHeight: " + i3 + ", outMimeType: " + str + ", inBitmap: " + getInBitmapString(options), illegalArgumentException);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{illegalArgumentException, Integer.valueOf(i), Integer.valueOf(i2), str, options})) == null) {
+            return new IOException("Exception decoding bitmap, outWidth: " + i + ", outHeight: " + i2 + ", outMimeType: " + str + ", inBitmap: " + getInBitmapString(options), illegalArgumentException);
         }
         return (IOException) invokeCommon.objValue;
     }
@@ -529,10 +531,10 @@ public final class Downsampler {
     }
 
     @TargetApi(26)
-    public static void setInBitmap(BitmapFactory.Options options, BitmapPool bitmapPool, int i2, int i3) {
+    public static void setInBitmap(BitmapFactory.Options options, BitmapPool bitmapPool, int i, int i2) {
         Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65554, null, options, bitmapPool, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65554, null, options, bitmapPool, i, i2) == null) {
             if (Build.VERSION.SDK_INT < 26) {
                 config = null;
             } else if (options.inPreferredConfig == Bitmap.Config.HARDWARE) {
@@ -543,7 +545,7 @@ public final class Downsampler {
             if (config == null) {
                 config = options.inPreferredConfig;
             }
-            options.inBitmap = bitmapPool.getDirty(i2, i3, config);
+            options.inBitmap = bitmapPool.getDirty(i, i2, config);
         }
     }
 
@@ -559,10 +561,10 @@ public final class Downsampler {
         return invokeL.booleanValue;
     }
 
-    public Resource<Bitmap> decode(InputStream inputStream, int i2, int i3, Options options) throws IOException {
+    public Resource<Bitmap> decode(InputStream inputStream, int i, int i2, Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? decode(inputStream, i2, i3, options, EMPTY_CALLBACKS) : (Resource) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? decode(inputStream, i, i2, options, EMPTY_CALLBACKS) : (Resource) invokeCommon.objValue;
     }
 
     public boolean handles(InputStream inputStream) {
@@ -583,17 +585,17 @@ public final class Downsampler {
         return invokeL.booleanValue;
     }
 
-    public Resource<Bitmap> decode(InputStream inputStream, int i2, int i3, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
+    public Resource<Bitmap> decode(InputStream inputStream, int i, int i2, Options options, DecodeCallbacks decodeCallbacks) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, Integer.valueOf(i2), Integer.valueOf(i3), options, decodeCallbacks})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options, decodeCallbacks})) == null) {
             Preconditions.checkArgument(inputStream.markSupported(), "You must provide an InputStream that supports mark()");
             byte[] bArr = (byte[]) this.byteArrayPool.get(65536, byte[].class);
             BitmapFactory.Options defaultOptions = getDefaultOptions();
             defaultOptions.inTempStorage = bArr;
             DecodeFormat decodeFormat = (DecodeFormat) options.get(DECODE_FORMAT);
             try {
-                return BitmapResource.obtain(decodeFromWrappedStreams(inputStream, defaultOptions, (DownsampleStrategy) options.get(DownsampleStrategy.OPTION), decodeFormat, options.get(ALLOW_HARDWARE_CONFIG) != null && ((Boolean) options.get(ALLOW_HARDWARE_CONFIG)).booleanValue(), i2, i3, ((Boolean) options.get(FIX_BITMAP_SIZE_TO_REQUESTED_DIMENSIONS)).booleanValue(), decodeCallbacks), this.bitmapPool);
+                return BitmapResource.obtain(decodeFromWrappedStreams(inputStream, defaultOptions, (DownsampleStrategy) options.get(DownsampleStrategy.OPTION), decodeFormat, options.get(ALLOW_HARDWARE_CONFIG) != null && ((Boolean) options.get(ALLOW_HARDWARE_CONFIG)).booleanValue(), i, i2, ((Boolean) options.get(FIX_BITMAP_SIZE_TO_REQUESTED_DIMENSIONS)).booleanValue(), decodeCallbacks), this.bitmapPool);
             } finally {
                 releaseOptions(defaultOptions);
                 this.byteArrayPool.put(bArr);

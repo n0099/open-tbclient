@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.extractor.flv.TagPayloadReader;
 import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.video.AvcConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VideoTagPayloadReader extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AVC_PACKET_TYPE_AVC_NALU = 1;
@@ -37,9 +37,9 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackOutput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TrackOutput) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,23 +56,23 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parsableByteArray)) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
-            int i2 = (readUnsignedByte >> 4) & 15;
-            int i3 = readUnsignedByte & 15;
-            if (i3 == 7) {
-                this.frameType = i2;
-                return i2 != 5;
+            int i = (readUnsignedByte >> 4) & 15;
+            int i2 = readUnsignedByte & 15;
+            if (i2 == 7) {
+                this.frameType = i;
+                return i != 5;
             }
-            throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i3);
+            throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i2);
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public void parsePayload(ParsableByteArray parsableByteArray, long j2) throws ParserException {
+    public void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parsableByteArray, j) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
-            long readInt24 = j2 + (parsableByteArray.readInt24() * 1000);
+            long readInt24 = j + (parsableByteArray.readInt24() * 1000);
             if (readUnsignedByte == 0 && !this.hasOutputFormat) {
                 ParsableByteArray parsableByteArray2 = new ParsableByteArray(new byte[parsableByteArray.bytesLeft()]);
                 parsableByteArray.readBytes(parsableByteArray2.data, 0, parsableByteArray.bytesLeft());
@@ -85,18 +85,18 @@ public final class VideoTagPayloadReader extends TagPayloadReader {
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i2 = 4 - this.nalUnitLengthFieldLength;
-                int i3 = 0;
+                int i = 4 - this.nalUnitLengthFieldLength;
+                int i2 = 0;
                 while (parsableByteArray.bytesLeft() > 0) {
-                    parsableByteArray.readBytes(this.nalLength.data, i2, this.nalUnitLengthFieldLength);
+                    parsableByteArray.readBytes(this.nalLength.data, i, this.nalUnitLengthFieldLength);
                     this.nalLength.setPosition(0);
                     int readUnsignedIntToInt = this.nalLength.readUnsignedIntToInt();
                     this.nalStartCode.setPosition(0);
                     this.output.sampleData(this.nalStartCode, 4);
                     this.output.sampleData(parsableByteArray, readUnsignedIntToInt);
-                    i3 = i3 + 4 + readUnsignedIntToInt;
+                    i2 = i2 + 4 + readUnsignedIntToInt;
                 }
-                this.output.sampleMetadata(readInt24, this.frameType == 1 ? 1 : 0, i3, 0, null);
+                this.output.sampleMetadata(readInt24, this.frameType == 1 ? 1 : 0, i2, 0, null);
             }
         }
     }

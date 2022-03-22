@@ -6,13 +6,13 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AnimationBackend extends AnimationInformation {
     public static final int INTRINSIC_DIMENSION_UNSET = -1;
 
     void clear();
 
-    boolean drawFrame(Drawable drawable, Canvas canvas, int i2);
+    boolean drawFrame(Drawable drawable, Canvas canvas, int i);
 
     int getIntrinsicHeight();
 
@@ -20,7 +20,7 @@ public interface AnimationBackend extends AnimationInformation {
 
     int getSizeInBytes();
 
-    void setAlpha(@IntRange(from = 0, to = 255) int i2);
+    void setAlpha(@IntRange(from = 0, to = 255) int i);
 
     void setBounds(Rect rect);
 

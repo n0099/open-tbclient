@@ -35,16 +35,16 @@ public abstract class MapCollections<K, V> {
         public int mSize;
         public final /* synthetic */ MapCollections this$0;
 
-        public ArrayIterator(MapCollections mapCollections, int i2) {
+        public ArrayIterator(MapCollections mapCollections, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mapCollections, Integer.valueOf(i2)};
+                Object[] objArr = {mapCollections, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,7 +52,7 @@ public abstract class MapCollections<K, V> {
             }
             this.this$0 = mapCollections;
             this.mCanRemove = false;
-            this.mOffset = i2;
+            this.mOffset = i;
             this.mSize = mapCollections.colGetSize();
         }
 
@@ -84,11 +84,11 @@ public abstract class MapCollections<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.mCanRemove) {
-                    int i2 = this.mIndex - 1;
-                    this.mIndex = i2;
+                    int i = this.mIndex - 1;
+                    this.mIndex = i;
                     this.mSize--;
                     this.mCanRemove = false;
-                    this.this$0.colRemoveAt(i2);
+                    this.this$0.colRemoveAt(i);
                     return;
                 }
                 throw new IllegalStateException();
@@ -109,9 +109,9 @@ public abstract class MapCollections<K, V> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mapCollections};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -193,13 +193,13 @@ public abstract class MapCollections<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = 0;
+                int i = 0;
                 for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
                     Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
                     Object colGetEntry2 = this.this$0.colGetEntry(colGetSize, 1);
-                    i2 += (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 == null ? 0 : colGetEntry2.hashCode());
+                    i += (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 == null ? 0 : colGetEntry2.hashCode());
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -298,9 +298,9 @@ public abstract class MapCollections<K, V> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mapCollections};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -363,12 +363,12 @@ public abstract class MapCollections<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i2 = 0;
+                int i = 0;
                 for (int colGetSize = this.this$0.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
                     Object colGetEntry = this.this$0.colGetEntry(colGetSize, 0);
-                    i2 += colGetEntry == null ? 0 : colGetEntry.hashCode();
+                    i += colGetEntry == null ? 0 : colGetEntry.hashCode();
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -454,9 +454,9 @@ public abstract class MapCollections<K, V> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mapCollections};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -600,9 +600,9 @@ public abstract class MapCollections<K, V> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mapCollections};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -697,16 +697,16 @@ public abstract class MapCollections<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) {
                 int colGetSize = this.this$0.colGetSize();
-                int i2 = 0;
+                int i = 0;
                 boolean z = false;
-                while (i2 < colGetSize) {
-                    if (collection.contains(this.this$0.colGetEntry(i2, 1))) {
-                        this.this$0.colRemoveAt(i2);
-                        i2--;
+                while (i < colGetSize) {
+                    if (collection.contains(this.this$0.colGetEntry(i, 1))) {
+                        this.this$0.colRemoveAt(i);
+                        i--;
                         colGetSize--;
                         z = true;
                     }
-                    i2++;
+                    i++;
                 }
                 return z;
             }
@@ -719,16 +719,16 @@ public abstract class MapCollections<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) {
                 int colGetSize = this.this$0.colGetSize();
-                int i2 = 0;
+                int i = 0;
                 boolean z = false;
-                while (i2 < colGetSize) {
-                    if (!collection.contains(this.this$0.colGetEntry(i2, 1))) {
-                        this.this$0.colRemoveAt(i2);
-                        i2--;
+                while (i < colGetSize) {
+                    if (!collection.contains(this.this$0.colGetEntry(i, 1))) {
+                        this.this$0.colRemoveAt(i);
+                        i--;
                         colGetSize--;
                         z = true;
                     }
-                    i2++;
+                    i++;
                 }
                 return z;
             }
@@ -762,9 +762,9 @@ public abstract class MapCollections<K, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -842,7 +842,7 @@ public abstract class MapCollections<K, V> {
 
     public abstract void colClear();
 
-    public abstract Object colGetEntry(int i2, int i3);
+    public abstract Object colGetEntry(int i, int i2);
 
     public abstract Map<K, V> colGetMap();
 
@@ -854,9 +854,9 @@ public abstract class MapCollections<K, V> {
 
     public abstract void colPut(K k, V v);
 
-    public abstract void colRemoveAt(int i2);
+    public abstract void colRemoveAt(int i);
 
-    public abstract V colSetValue(int i2, V v);
+    public abstract V colSetValue(int i, V v);
 
     public Set<Map.Entry<K, V>> getEntrySet() {
         InterceptResult invokeV;
@@ -894,14 +894,14 @@ public abstract class MapCollections<K, V> {
         return (Collection) invokeV.objValue;
     }
 
-    public Object[] toArrayHelper(int i2) {
+    public Object[] toArrayHelper(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             int colGetSize = colGetSize();
             Object[] objArr = new Object[colGetSize];
-            for (int i3 = 0; i3 < colGetSize; i3++) {
-                objArr[i3] = colGetEntry(i3, i2);
+            for (int i2 = 0; i2 < colGetSize; i2++) {
+                objArr[i2] = colGetEntry(i2, i);
             }
             return objArr;
         }
@@ -910,16 +910,16 @@ public abstract class MapCollections<K, V> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v9, resolved type: T[] */
     /* JADX WARN: Multi-variable type inference failed */
-    public <T> T[] toArrayHelper(T[] tArr, int i2) {
+    public <T> T[] toArrayHelper(T[] tArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, tArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, tArr, i)) == null) {
             int colGetSize = colGetSize();
             if (tArr.length < colGetSize) {
                 tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), colGetSize));
             }
-            for (int i3 = 0; i3 < colGetSize; i3++) {
-                tArr[i3] = colGetEntry(i3, i2);
+            for (int i2 = 0; i2 < colGetSize; i2++) {
+                tArr[i2] = colGetEntry(i2, i);
             }
             if (tArr.length > colGetSize) {
                 tArr[colGetSize] = null;

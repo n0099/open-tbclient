@@ -23,9 +23,9 @@ public class h implements k {
             newInitContext.initArgs = r2;
             Object[] objArr = {kVarArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,9 +70,9 @@ public class h implements k {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, iAuthCallback};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -112,9 +112,9 @@ public class h implements k {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, iArr, iAuthCallback};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -126,15 +126,15 @@ public class h implements k {
                         }
 
                         @Override // com.baidu.ar.auth.IAuthCallback
-                        public void onError(String str, int i2) {
+                        public void onError(String str, int i) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
                                 synchronized (this) {
                                     boolean z = this.jU.jR;
                                     this.jU.jR = false;
                                     this.jU.a((k.a) null);
                                     if (z && this.jl != null) {
-                                        this.jl.onError(str, i2);
+                                        this.jl.onError(str, i);
                                     }
                                 }
                             }

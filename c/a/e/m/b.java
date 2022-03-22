@@ -1,8 +1,8 @@
 package c.a.e.m;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.j3.m0.e;
-import c.a.r0.j3.m0.g;
+import c.a.p0.l3.m0.e;
+import c.a.p0.l3.m0.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
@@ -13,20 +13,20 @@ public class b {
     public static void a(c.a.e.m.g.a aVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, aVar, str) == null) {
-            c.a.r0.j3.m0.c f2 = g.f(aVar);
+            c.a.p0.l3.m0.c f2 = g.f(aVar);
             f2.c(str);
-            f2.j(aVar.f3245h);
+            f2.j(aVar.f2711h);
             e.b().d(f2);
         }
     }
 
-    public static void b(c.a.e.m.g.a aVar, int i2) {
+    public static void b(c.a.e.m.g.a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, aVar, i2) == null) {
-            c.a.r0.j3.m0.c f2 = g.f(aVar);
-            f2.j(aVar.f3245h);
-            f2.l(aVar.f3243f);
-            f2.n(i2);
+        if (interceptable == null || interceptable.invokeLI(65537, null, aVar, i) == null) {
+            c.a.p0.l3.m0.c f2 = g.f(aVar);
+            f2.j(aVar.f2711h);
+            f2.l(aVar.f2709f);
+            f2.n(i);
             e.b().d(f2);
         }
     }
@@ -48,8 +48,8 @@ public class b {
     public static void e(c.a.e.m.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
-            c.a.r0.j3.m0.c f2 = g.f(aVar);
-            f2.j(aVar.f3245h);
+            c.a.p0.l3.m0.c f2 = g.f(aVar);
+            f2.j(aVar.f2711h);
             e.b().d(f2);
         }
     }
@@ -61,15 +61,15 @@ public class b {
         }
     }
 
-    public static void g(c.a.e.m.g.a aVar, int i2) {
+    public static void g(c.a.e.m.g.a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, aVar, i2) == null) {
-            c.a.r0.j3.m0.c n = g.n(aVar);
+        if (interceptable == null || interceptable.invokeLI(65542, null, aVar, i) == null) {
+            c.a.p0.l3.m0.c n = g.n(aVar);
             n.i(706);
-            boolean z = i2 == 1000;
+            boolean z = i == 1000;
             n.c(z ? "APP" : "URL");
             if (!z) {
-                n.l(i2);
+                n.l(i);
             }
             n.h("DEEPLINK");
             e.b().d(n);

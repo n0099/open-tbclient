@@ -17,25 +17,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TextProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextPaint f23993b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint.FontMetrics f23994c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f23995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30021e;
+    public int f23996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f30022f;
+    public int f23997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint.FontMetrics f30023g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30024h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f30025i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f30026j;
-    public int k;
+    public int f23998g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextProgressBar(Context context) {
@@ -46,9 +46,9 @@ public class TextProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -61,12 +61,12 @@ public class TextProgressBar extends ProgressBar {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30021e = "0%";
+            this.a = "0%";
             TextPaint textPaint = new TextPaint();
-            this.f30022f = textPaint;
+            this.f23993b = textPaint;
             textPaint.setTextSize(20.0f);
-            this.f30022f.setColor(-1);
-            this.f30023g = new Paint.FontMetrics();
+            this.f23993b.setColor(-1);
+            this.f23994c = new Paint.FontMetrics();
         }
     }
 
@@ -77,46 +77,46 @@ public class TextProgressBar extends ProgressBar {
             synchronized (this) {
                 super.onDraw(canvas);
                 canvas.save();
-                this.f30025i = (int) Layout.getDesiredWidth(this.f30021e, this.f30022f);
-                this.f30022f.getFontMetrics(this.f30023g);
-                this.f30024h = (int) (this.f30023g.descent - this.f30023g.top);
-                canvas.drawText(this.f30021e, (getMeasuredWidth() - this.f30025i) / 2, getMeasuredHeight(), this.f30022f);
+                this.f23996e = (int) Layout.getDesiredWidth(this.a, this.f23993b);
+                this.f23993b.getFontMetrics(this.f23994c);
+                this.f23995d = (int) (this.f23994c.descent - this.f23994c.top);
+                canvas.drawText(this.a, (getMeasuredWidth() - this.f23996e) / 2, getMeasuredHeight(), this.f23993b);
                 canvas.restore();
             }
         }
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    public synchronized void onMeasure(int i2, int i3) {
+    public synchronized void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             synchronized (this) {
-                this.f30025i = (int) Layout.getDesiredWidth("100%", this.f30022f);
-                this.f30022f.getFontMetrics(this.f30023g);
-                this.f30024h = (int) (this.f30023g.descent - this.f30023g.top);
-                super.onMeasure(i2, i3);
-                this.f30026j = getMeasuredWidth();
-                this.k = getMeasuredHeight();
-                setMeasuredDimension(Math.max(this.f30025i, getMeasuredWidth()), getMeasuredHeight() + this.f30024h + 0);
+                this.f23996e = (int) Layout.getDesiredWidth("100%", this.f23993b);
+                this.f23993b.getFontMetrics(this.f23994c);
+                this.f23995d = (int) (this.f23994c.descent - this.f23994c.top);
+                super.onMeasure(i, i2);
+                this.f23997f = getMeasuredWidth();
+                this.f23998g = getMeasuredHeight();
+                setMeasuredDimension(Math.max(this.f23996e, getMeasuredWidth()), getMeasuredHeight() + this.f23995d + 0);
             }
         }
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            int paddingRight = (this.f30026j - getPaddingRight()) - getPaddingLeft();
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            int paddingRight = (this.f23997f - getPaddingRight()) - getPaddingLeft();
             int width = (getWidth() - paddingRight) / 2;
-            int i6 = paddingRight + width;
-            int paddingBottom = (this.k - getPaddingBottom()) - getPaddingTop();
+            int i5 = paddingRight + width;
+            int paddingBottom = (this.f23998g - getPaddingBottom()) - getPaddingTop();
             Drawable indeterminateDrawable = getIndeterminateDrawable();
             if (indeterminateDrawable != null) {
-                indeterminateDrawable.setBounds(width, 0, i6, paddingBottom);
+                indeterminateDrawable.setBounds(width, 0, i5, paddingBottom);
             }
             Drawable progressDrawable = getProgressDrawable();
             if (progressDrawable != null) {
-                progressDrawable.setBounds(width, 0, i6, paddingBottom);
+                progressDrawable.setBounds(width, 0, i5, paddingBottom);
             }
         }
     }
@@ -125,16 +125,16 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             synchronized (this) {
-                this.f30021e = str;
+                this.a = str;
                 drawableStateChanged();
             }
         }
     }
 
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f30022f.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f23993b.setColor(i);
             drawableStateChanged();
         }
     }
@@ -148,9 +148,9 @@ public class TextProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -162,17 +162,17 @@ public class TextProgressBar extends ProgressBar {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TextProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TextProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -6,12 +6,12 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = 1941263519515554943L;
     public ShareUrlInfo data = new ShareUrlInfo();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ShareUrlInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -7887599282226106153L;
         public String mediaShareItem;

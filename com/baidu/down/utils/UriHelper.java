@@ -3,6 +3,7 @@ package com.baidu.down.utils;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UriHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -44,9 +45,9 @@ public class UriHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -69,7 +70,7 @@ public class UriHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                return URLDecoder.decode(str, "utf-8");
+                return URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException | Exception unused) {
                 return str;
             }
@@ -153,9 +154,9 @@ public class UriHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

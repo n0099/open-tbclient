@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WeiboAppManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_INT_FILE_NAME = "weibo_for_sdk.json";
@@ -55,9 +55,9 @@ public class WeiboAppManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

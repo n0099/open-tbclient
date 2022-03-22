@@ -25,9 +25,9 @@ public class LoadingUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,11 +51,11 @@ public class LoadingUtil {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.layout_sapi_sdk_common_night_loading, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c9, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.layout_sapi_sdk_common_loading, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c8, (ViewGroup) null);
             }
-            ((TextView) inflate.findViewById(R.id.sapi_sdk_toast_msg_tv)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd8)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;

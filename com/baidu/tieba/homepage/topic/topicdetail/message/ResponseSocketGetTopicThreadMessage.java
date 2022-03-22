@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import c.a.d.o.e.n;
-import c.a.r0.o1.l.b.c.c;
+import c.a.p0.q1.l.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,9 +30,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,11 +56,11 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         NewTopicThreadResIdl newTopicThreadResIdl;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (newTopicThreadResIdl = (NewTopicThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicThreadResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (newTopicThreadResIdl = (NewTopicThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicThreadResIdl.class)) == null) {
             return;
         }
         setError(newTopicThreadResIdl.error.errorno.intValue());
@@ -75,7 +75,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
                 c cVar = new c();
-                cVar.i(topicThread);
+                cVar.g(topicThread);
                 this.mDataList.add(cVar);
             }
         }

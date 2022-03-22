@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseActivity";
@@ -25,9 +25,9 @@ public class BaseActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -93,13 +93,13 @@ public class BaseActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (Build.VERSION.SDK_INT == 26 && isTranslucentOrFloating()) {
                 LogUtil.i("BaseActivity", "avoid calling setRequestedOrientation when Oreo.");
             } else {
-                super.setRequestedOrientation(i2);
+                super.setRequestedOrientation(i);
             }
         }
     }

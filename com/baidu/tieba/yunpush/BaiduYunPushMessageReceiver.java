@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushMessageReceiver;
@@ -33,9 +33,9 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,11 +43,11 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onBind(Context context, int i2, String str, String str2, String str3, String str4) {
+    public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            String str5 = "onBind errorCode=" + i2;
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            String str5 = "onBind errorCode=" + i;
+            if (i == 0) {
                 b.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
@@ -55,23 +55,23 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onDelTags(Context context, int i2, List<String> list, List<String> list2, String str) {
+    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onListTags(Context context, int i2, List<String> list, String str) {
+    public void onListTags(Context context, int i, List<String> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, context, i2, list, str) == null) {
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, context, i, list, str) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onMessage(Context context, String str, String str2, int i2) {
+    public void onMessage(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i2) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, str2, i) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -96,10 +96,10 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             if (e2 < 2500) {
                 e2 += 2500;
             }
-            int i3 = e2;
+            int i2 = e2;
             Intent parseUri = Intent.parseUri(str3, 1);
             parseUri.setFlags(276824064);
-            NotificationHelper.showNotification(context, i3, string, string2, string2, PendingIntent.getActivity(context, i3, parseUri, 134217728), false);
+            NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
         } catch (Exception unused) {
         }
     }
@@ -137,16 +137,16 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str) {
+    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), list, list2, str}) == null) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onUnbind(Context context, int i2, String str) {
+    public void onUnbind(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i, str) == null) {
         }
     }
 }

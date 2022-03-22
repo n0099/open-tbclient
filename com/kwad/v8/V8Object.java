@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8Object extends V8Value {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Undefined extends V8Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class V8Object extends V8Value {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -45,10 +45,10 @@ public class V8Object extends V8Value {
         }
 
         @Override // com.kwad.v8.V8Object
-        public V8Object add(String str, int i2) {
+        public V8Object add(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Object) invokeLI.objValue;
@@ -392,9 +392,9 @@ public class V8Object extends V8Value {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -410,9 +410,9 @@ public class V8Object extends V8Value {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((V8) objArr2[0], objArr2[1]);
                 newInitContext.thisArg = this;
@@ -431,9 +431,9 @@ public class V8Object extends V8Value {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8, obj};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -466,14 +466,14 @@ public class V8Object extends V8Value {
         return (V8Object) invokeCommon.objValue;
     }
 
-    public V8Object add(String str, int i2) {
+    public V8Object add(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            v8.add(v8.getV8RuntimePtr(), this.objectHandle, str, i2);
+            v8.add(v8.getV8RuntimePtr(), this.objectHandle, str, i);
             return this;
         }
         return (V8Object) invokeLI.objValue;

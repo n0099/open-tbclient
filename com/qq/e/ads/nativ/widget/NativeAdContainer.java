@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NativeAdContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewStatusListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStatus f57589b;
+    public ViewStatus f42380b;
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -57,7 +57,7 @@ public class NativeAdContainer extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ViewStatus {
         public static /* synthetic */ Interceptable $ic;
         public static final ViewStatus ATTACHED;
@@ -86,16 +86,16 @@ public class NativeAdContainer extends FrameLayout {
             a = new ViewStatus[]{INIT, ATTACHED, viewStatus};
         }
 
-        public ViewStatus(String str, int i2) {
+        public ViewStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -142,16 +142,16 @@ public class NativeAdContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f57589b = ViewStatus.INIT;
+        this.f42380b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -163,9 +163,9 @@ public class NativeAdContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -173,21 +173,21 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f57589b = ViewStatus.INIT;
+        this.f42380b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NativeAdContainer(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NativeAdContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -195,7 +195,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f57589b = ViewStatus.INIT;
+        this.f42380b = ViewStatus.INIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -218,7 +218,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
             GDTLogger.d("NativeAdContainer onAttachedToWindow");
-            this.f57589b = ViewStatus.ATTACHED;
+            this.f42380b = ViewStatus.ATTACHED;
             ViewStatusListener viewStatusListener = this.a;
             if (viewStatusListener != null) {
                 viewStatusListener.onAttachToWindow();
@@ -232,7 +232,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
             GDTLogger.d("NativeAdContainer onDetachedFromWindow");
-            this.f57589b = ViewStatus.DETACHED;
+            this.f42380b = ViewStatus.DETACHED;
             ViewStatusListener viewStatusListener = this.a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDetachFromWindow();
@@ -254,14 +254,14 @@ public class NativeAdContainer extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i2) {
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onWindowVisibilityChanged(i2);
-            GDTLogger.d("onWindowVisibilityChanged: visibility: " + i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onWindowVisibilityChanged(i);
+            GDTLogger.d("onWindowVisibilityChanged: visibility: " + i);
             ViewStatusListener viewStatusListener = this.a;
             if (viewStatusListener != null) {
-                viewStatusListener.onWindowVisibilityChanged(i2);
+                viewStatusListener.onWindowVisibilityChanged(i);
             }
         }
     }
@@ -271,7 +271,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, viewStatusListener) == null) {
             this.a = viewStatusListener;
             if (viewStatusListener != null) {
-                int ordinal = this.f57589b.ordinal();
+                int ordinal = this.f42380b.ordinal();
                 if (ordinal == 1) {
                     this.a.onAttachToWindow();
                 } else if (ordinal != 2) {

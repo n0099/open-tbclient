@@ -9,7 +9,6 @@ import com.baidu.ar.h.t;
 import com.baidu.ar.ihttp.Downloader;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,9 +31,9 @@ public class c extends com.baidu.ar.e.a<String, Void> {
             newInitContext.initArgs = r2;
             Object[] objArr = {aRCaseBundleInfo, str, aVar, iProgressCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,12 +70,12 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         return (String) invokeL.objValue;
     }
 
-    private boolean a(String str, f fVar, int i2) {
+    private boolean a(String str, f fVar, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, fVar, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, fVar, i)) == null) {
             File file = new File(str);
-            if (file.exists() && file.length() == i2) {
+            if (file.exists() && file.length() == i) {
                 if ("gzip".equalsIgnoreCase(fVar.xM)) {
                     return t.a(new File(str), new File(this.xx.caseDir).getParentFile());
                 }
@@ -94,7 +93,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) {
             if (TextUtils.isEmpty(str)) {
                 iError.onError(2, "res url is not exists", null);
-            } else if (MainTabActivity.TAB_CODE_LOCAL.equals(str)) {
+            } else if ("local".equals(str)) {
                 iCallbackWith.run(null);
             } else {
                 f aN = this.xz.aN(this.xy);

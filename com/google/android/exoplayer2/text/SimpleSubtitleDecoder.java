@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.decoder.SimpleDecoder;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputBuffer, SubtitleOutputBuffer, SubtitleDecoderException> implements SubtitleDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DecoderInputBuffer[]) objArr2[0], (OutputBuffer[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -39,7 +39,7 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
         setInitialInputBufferSize(1024);
     }
 
-    public abstract Subtitle decode(byte[] bArr, int i2, boolean z) throws SubtitleDecoderException;
+    public abstract Subtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException;
 
     @Override // com.google.android.exoplayer2.decoder.Decoder
     public final String getName() {
@@ -49,9 +49,9 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
     }
 
     @Override // com.google.android.exoplayer2.text.SubtitleDecoder
-    public void setPositionUs(long j2) {
+    public void setPositionUs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
         }
     }
 

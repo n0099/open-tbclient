@@ -32,9 +32,9 @@ public class BdViewOpUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -244,9 +244,9 @@ public class BdViewOpUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {decorView, activity};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -274,12 +274,12 @@ public class BdViewOpUtils {
         }
     }
 
-    public static void saveDisplayCutoutMode(Activity activity, int i2) {
+    public static void saveDisplayCutoutMode(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65556, null, activity, i2) == null) || activity.getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65556, null, activity, i) == null) || activity.getIntent() == null) {
             return;
         }
-        activity.getIntent().putExtra(KEY_DISPLAY_CUTOUT_MODE, i2);
+        activity.getIntent().putExtra(KEY_DISPLAY_CUTOUT_MODE, i);
     }
 
     public static void saveSystemUiVisibility(@Nullable Activity activity) {

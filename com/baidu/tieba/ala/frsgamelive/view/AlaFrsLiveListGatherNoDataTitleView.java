@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.a0.g.b.a;
-import c.a.r0.f0.b;
+import c.a.p0.c0.g.b.a;
+import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -19,36 +19,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView m;
-    public TextView n;
-    public TbPageContext o;
-    public int p;
+    public TextView i;
+    public TextView j;
+    public TbPageContext k;
+    public int l;
 
     /* loaded from: classes5.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public AlaFrsLiveListGatherNoDataTitleView mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
-            super(alaFrsLiveListGatherNoDataTitleView.j());
+            super(alaFrsLiveListGatherNoDataTitleView.k());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaFrsLiveListGatherNoDataTitleView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mView = alaFrsLiveListGatherNoDataTitleView;
         }
     }
 
@@ -61,39 +59,39 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = 3;
-        this.o = tbPageContext;
-        View j2 = j();
-        this.m = (TextView) j2.findViewById(R.id.frs_game_live_recommand1);
-        this.n = (TextView) j2.findViewById(R.id.frs_game_live_recommand2);
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.l = 3;
+        this.k = tbPageContext;
+        View k = k();
+        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b01);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b02);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.r0.f0.b
-    public int f() {
+    @Override // c.a.p0.h0.b
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_no_data_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f5 : invokeV.intValue;
     }
 
-    @Override // c.a.r0.f0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.h0.b
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.p == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.l == i) {
             return;
         }
-        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
-        this.p = i2;
+        SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+        this.l = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -104,12 +102,12 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.f0.b
-    /* renamed from: p */
-    public void k(a aVar) {
+    @Override // c.a.p0.h0.b
+    /* renamed from: q */
+    public void l(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            l(this.o, TbadkCoreApplication.getInst().getSkinType());
+            m(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

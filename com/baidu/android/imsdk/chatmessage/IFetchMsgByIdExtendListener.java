@@ -16,9 +16,9 @@ public abstract class IFetchMsgByIdExtendListener implements IFetchMsgByIdListen
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -26,11 +26,11 @@ public abstract class IFetchMsgByIdExtendListener implements IFetchMsgByIdListen
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-    public void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j2, long j3, long j4, int i4, int i5, long j5, ArrayList<ChatMsg> arrayList) {
+    public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j5), arrayList}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4), arrayList}) == null) {
         }
     }
 
-    public abstract void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j2, long j3, long j4, int i4, int i5, long j5, ArrayList<ChatMsg> arrayList, boolean z);
+    public abstract void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList, boolean z);
 }

@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.common.BytesRange;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FetchState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class FetchState {
             newInitContext.initArgs = r2;
             Object[] objArr = {consumer, producerContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,17 +110,17 @@ public class FetchState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mContext.getImageRequest().getSourceUri() : (Uri) invokeV.objValue;
     }
 
-    public void setLastIntermediateResultTimeMs(long j2) {
+    public void setLastIntermediateResultTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mLastIntermediateResultTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mLastIntermediateResultTimeMs = j;
         }
     }
 
-    public void setOnNewResultStatusFlags(int i2) {
+    public void setOnNewResultStatusFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mOnNewResultStatusFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mOnNewResultStatusFlags = i;
         }
     }
 

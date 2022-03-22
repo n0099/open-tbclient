@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -60,9 +60,9 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -164,9 +164,9 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(78);
             dataSource.read(allocate);
             allocate.position(6);
@@ -196,7 +196,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             }
             this.depth = IsoTypeReader.readUInt16(allocate);
             IsoTypeReader.readUInt16(allocate);
-            parseContainer(dataSource, j2 - 78, boxParser);
+            parseContainer(dataSource, j - 78, boxParser);
         }
     }
 
@@ -207,24 +207,24 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         }
     }
 
-    public void setDepth(int i2) {
+    public void setDepth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.depth = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.depth = i;
         }
     }
 
-    public void setFrameCount(int i2) {
+    public void setFrameCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.frameCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.frameCount = i;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -249,10 +249,10 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.width = i;
         }
     }
 
@@ -265,9 +265,9 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

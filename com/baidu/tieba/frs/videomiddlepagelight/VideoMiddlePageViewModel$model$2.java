@@ -35,9 +35,9 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
                 newInitContext.initArgs = r2;
                 Object[] objArr = {videoMiddlePageViewModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,8 +51,8 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                this.a.isLoading().setValue(Boolean.FALSE);
-                this.a.getLoadErrorMsg().setValue(errMsg);
+                this.a.k().setValue(Boolean.FALSE);
+                this.a.g().setValue(errMsg);
             }
         }
 
@@ -61,10 +61,10 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, newData, z) == null) {
                 Intrinsics.checkNotNullParameter(newData, "newData");
-                this.a.isLoading().setValue(Boolean.FALSE);
-                this.a.getHasMore().setValue(Boolean.valueOf(z));
-                this.a.addData(CollectionsKt___CollectionsKt.toMutableList((Collection) newData));
-                this.a.getLoadErrorMsg().setValue("");
+                this.a.k().setValue(Boolean.FALSE);
+                this.a.f().setValue(Boolean.valueOf(z));
+                this.a.a(CollectionsKt___CollectionsKt.toMutableList((Collection) newData));
+                this.a.g().setValue("");
             }
         }
     }
@@ -78,9 +78,9 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
             newInitContext.initArgs = r2;
             Object[] objArr = {videoMiddlePageViewModel};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -96,6 +96,6 @@ public final class VideoMiddlePageViewModel$model$2 extends Lambda implements Fu
     public final VideoMiddleModel invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoMiddleModel(this.this$0.getPageContext(), new a(this.this$0)) : (VideoMiddleModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoMiddleModel(this.this$0.i(), new a(this.this$0)) : (VideoMiddleModel) invokeV.objValue;
     }
 }

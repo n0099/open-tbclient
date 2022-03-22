@@ -12,40 +12,36 @@ public class FavSyncPoi {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34423b;
+    public String f26636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f34424c;
+    public Point f26637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34425d;
+    public String f26638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34426e;
+    public String f26639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34427f;
+    public String f26640f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f34428g;
+    public int f26641g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34429h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f34430i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f34431j;
+    public String f26642h;
+    public boolean i;
+    public String j;
 
     public FavSyncPoi() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

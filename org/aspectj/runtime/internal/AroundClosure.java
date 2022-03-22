@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.ProceedingJoinPoint;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AroundClosure {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public abstract class AroundClosure {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,9 +70,9 @@ public abstract class AroundClosure {
             newInitContext.initArgs = r2;
             Object[] objArr2 = {objArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -82,14 +82,14 @@ public abstract class AroundClosure {
         this.state = objArr;
     }
 
-    public ProceedingJoinPoint linkClosureAndJoinPoint(int i2) {
+    public ProceedingJoinPoint linkClosureAndJoinPoint(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             Object[] objArr = this.state;
             ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) objArr[objArr.length - 1];
             proceedingJoinPoint.set$AroundClosure(this);
-            this.bitflags = i2;
+            this.bitflags = i;
             return proceedingJoinPoint;
         }
         return (ProceedingJoinPoint) invokeI.objValue;

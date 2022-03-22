@@ -3,7 +3,6 @@ package com.yy.hiidostatis.message.hiidoapi;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.dxmpay.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +35,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessagePacker implements Packer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MAGIC = "HiidoData";
@@ -60,9 +59,9 @@ public class MessagePacker implements Packer {
             newInitContext.initArgs = r2;
             Object[] objArr = {messageConfig, messageMonitor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,9 +94,9 @@ public class MessagePacker implements Packer {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, list};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -151,7 +150,7 @@ public class MessagePacker implements Packer {
             statisContent.put("oaid", OaidController.INSTANCE.oaid());
             statisContent.put(BaseStatisContent.BDCUID, this.config.getBdCuid());
             if (this.config.isGaidEnable()) {
-                statisContent.put(Config.GAID, GAIDClient.getGAID(this.config.getApplicationContext()));
+                statisContent.put("gaid", GAIDClient.getGAID(this.config.getApplicationContext()));
             }
         }
     }
@@ -168,12 +167,12 @@ public class MessagePacker implements Packer {
                     statisContent.put("htime", DeviceProxy.getCreateTime(applicationContext));
                     statisContent.put("sdpm", DeviceProxy.getSdPermission(applicationContext));
                 } else {
-                    int i2 = 1;
+                    int i = 1;
                     if (act.equals(Act.MBSDK_RUN.toString())) {
                         if (!ArdUtil.isRoot()) {
-                            i2 = 0;
+                            i = 0;
                         }
-                        statisContent.put("root", i2);
+                        statisContent.put("root", i);
                         WifiInfo wifiInfo = ArdUtil.getWifiInfo(applicationContext);
                         if (wifiInfo != null) {
                             statisContent.put("bssid", wifiInfo.getBSSID());
@@ -247,9 +246,9 @@ public class MessagePacker implements Packer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -261,7 +260,7 @@ public class MessagePacker implements Packer {
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, INVOKE, MOVE_EXCEPTION] complete} */
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i2;
+                    int i;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
@@ -299,19 +298,19 @@ public class MessagePacker implements Packer {
                                 }
                             }
                             if (arrayList.isEmpty()) {
-                                i2 = 0;
+                                i = 0;
                             } else {
-                                i2 = this.this$0.store.save(arrayList);
+                                i = this.this$0.store.save(arrayList);
                                 TraceLog.saveMessageLog(sb2.toString());
                             }
                             if (!arrayList2.isEmpty()) {
-                                i2 = this.this$0.store.notSave(arrayList2);
+                                i = this.this$0.store.notSave(arrayList2);
                                 TraceLog.saveMessageLog(sb.toString());
                             }
                             this.this$0.notifyListeners(arrayList3);
                             int addAndGet = this.this$0.saveCount.addAndGet(arrayList.size());
                             L.debug(this, "save count:" + addAndGet, new Object[0]);
-                            if (z || i2 >= this.this$0.config.getBatchThreshold() || (MessageConfigFactory.getMainConfig() != null && MessageConfigFactory.getMainConfig().getInterval() == 0)) {
+                            if (z || i >= this.this$0.config.getBatchThreshold() || (MessageConfigFactory.getMainConfig() != null && MessageConfigFactory.getMainConfig().getInterval() == 0)) {
                                 this.this$0.sender.execute();
                             }
                         } finally {

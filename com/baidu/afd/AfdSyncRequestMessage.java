@@ -10,6 +10,8 @@ import c.a.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -69,9 +71,9 @@ public class AfdSyncRequestMessage extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {hVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -82,7 +84,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
-        addParam("ac", "1");
+        addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "1");
         addParam("ft", hVar.c());
         addParam("ext", getExt(hVar));
         addParam("flr", String.valueOf(hVar.b()));
@@ -103,7 +105,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam("fmt", "json");
             addParam(HttpRequest.ANDROID_ID, androidId());
             addParam("ot", "2");
-            addParam("ct", "2");
+            addParam(Config.EXCEPTION_CRASH_TYPE, "2");
             addParam("nt", String.valueOf(l.I()));
             addParam("uid", TbadkCoreApplication.getCurrentAccount());
             addParam("is_https", 1);

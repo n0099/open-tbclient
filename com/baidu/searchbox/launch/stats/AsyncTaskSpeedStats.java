@@ -23,9 +23,9 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,12 +35,12 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsDuration(String str, long j2) {
+    public void addStatsDuration(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-            super.addStatsDuration(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            super.addStatsDuration(str, j);
             synchronized (this.mLaunchTaskDuration) {
-                this.mLaunchTaskDuration.put(str, Long.valueOf(j2));
+                this.mLaunchTaskDuration.put(str, Long.valueOf(j));
             }
         }
     }
@@ -53,12 +53,12 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
             super.packData(jSONObject);
             HashMap hashMap = new HashMap();
             synchronized (this.mLaunchTaskDuration) {
-                long j2 = 0;
+                long j = 0;
                 for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                     hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-                    j2 += entry.getValue().longValue();
+                    j += entry.getValue().longValue();
                 }
-                JSONObject jsonData = SpeedStatsUtils.getJsonData(j2, hashMap);
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(j, hashMap);
                 if (jsonData != null) {
                     try {
                         jSONObject.put(SpeedStatsMainTable.ASYNC_TASK, jsonData);

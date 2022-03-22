@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableInterval extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class FlowableInterval extends Flowable<Long> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class IntervalSubscriber extends AtomicLong implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
@@ -43,9 +43,9 @@ public final class FlowableInterval extends Flowable<Long> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,10 +64,10 @@ public final class FlowableInterval extends Flowable<Long> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this, j);
             }
         }
 
@@ -79,9 +79,9 @@ public final class FlowableInterval extends Flowable<Long> {
             }
             if (get() != 0) {
                 Subscriber<? super Long> subscriber = this.actual;
-                long j2 = this.count;
-                this.count = j2 + 1;
-                subscriber.onNext(Long.valueOf(j2));
+                long j = this.count;
+                this.count = j + 1;
+                subscriber.onNext(Long.valueOf(j));
                 BackpressureHelper.produced(this, 1L);
                 return;
             }
@@ -98,23 +98,23 @@ public final class FlowableInterval extends Flowable<Long> {
         }
     }
 
-    public FlowableInterval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableInterval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.initialDelay = j2;
-        this.period = j3;
+        this.initialDelay = j;
+        this.period = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

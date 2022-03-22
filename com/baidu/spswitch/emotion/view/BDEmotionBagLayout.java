@@ -67,9 +67,9 @@ public class BDEmotionBagLayout extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDEmotionBagLayout, context, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,31 +92,31 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             LinearLayout linearLayout;
             Bitmap emotionBitmapByName;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
                 if (view == null) {
-                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.emotion_grid_item, viewGroup, false);
+                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d025c, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                     layoutParams.height = (int) UIUtils.dp2px(this.mContext, 48.0f);
                     linearLayout.setLayoutParams(layoutParams);
                 } else {
                     linearLayout = (LinearLayout) view;
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.img_item);
-                if (i2 == getCount() - 1) {
-                    imageView.setImageResource(R.drawable.face_delete);
-                } else if (i2 < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i2))) != null) {
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eba);
+                if (i == getCount() - 1) {
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080554);
+                } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i))) != null) {
                     imageView.setImageBitmap(emotionBitmapByName);
                 }
                 return linearLayout;
@@ -126,12 +126,12 @@ public class BDEmotionBagLayout extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        public String getItem(int i2) {
+        public String getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (i2 < this.mList.size()) {
-                    return this.mList.get(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i < this.mList.size()) {
+                    return this.mList.get(i);
                 }
                 return null;
             }
@@ -153,9 +153,9 @@ public class BDEmotionBagLayout extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDEmotionBagLayout, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -166,10 +166,10 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-                viewGroup.removeView(this.mList.get(i2));
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
+                viewGroup.removeView(this.mList.get(i));
             }
         }
 
@@ -181,12 +181,12 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public Object instantiateItem(ViewGroup viewGroup, int i2) {
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                viewGroup.addView(this.mList.get(i2));
-                return this.mList.get(i2);
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+                viewGroup.addView(this.mList.get(i));
+                return this.mList.get(i);
             }
             return invokeLI.objValue;
         }
@@ -208,9 +208,9 @@ public class BDEmotionBagLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -220,16 +220,16 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    private List<String> getEmotionListForPage(int i2) {
+    private List<String> getEmotionListForPage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
-            int i3 = i2 * 20;
-            int min = Math.min(i3 + 20, this.mEmotionList.size());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
+            int i2 = i * 20;
+            int min = Math.min(i2 + 20, this.mEmotionList.size());
             ArrayList arrayList = new ArrayList();
-            while (i3 < min) {
-                arrayList.add(this.mEmotionList.get(i3));
-                i3++;
+            while (i2 < min) {
+                arrayList.add(this.mEmotionList.get(i2));
+                i2++;
             }
             return arrayList;
         }
@@ -263,24 +263,24 @@ public class BDEmotionBagLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int size = this.mPageList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mPageList.get(i2).setAdapter((ListAdapter) new EmotionGridViewAdapter(this, getContext(), getEmotionListForPage(i2)));
+            for (int i = 0; i < size; i++) {
+                this.mPageList.get(i).setAdapter((ListAdapter) new EmotionGridViewAdapter(this, getContext(), getEmotionListForPage(i)));
             }
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         ViewPager viewPager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
             int measuredHeight = getChildAt(0).getMeasuredHeight() - (((int) UIUtils.dp2px(getContext(), 48.0f)) * 3);
             int dp2px = (int) ((measuredHeight / 4) + UIUtils.dp2px(getContext(), 8.0f));
             this.mGridViewVerticalSpace = (measuredHeight - (dp2px * 2)) / 2;
             int size = this.mPageList.size();
-            for (int i6 = 0; i6 < size; i6++) {
-                GridView gridView = this.mPageList.get(i6);
+            for (int i5 = 0; i5 < size; i5++) {
+                GridView gridView = this.mPageList.get(i5);
                 int dp2px2 = (int) UIUtils.dp2px(getContext(), 10.0f);
                 gridView.setPadding(dp2px2, dp2px, dp2px2, dp2px);
                 gridView.setVerticalSpacing(this.mGridViewVerticalSpace);
@@ -300,9 +300,9 @@ public class BDEmotionBagLayout extends LinearLayout {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, emotionGridViewAdapter};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i7 = newInitContext.flag;
-                                if ((i7 & 1) != 0) {
-                                    int i8 = i7 & 2;
+                                int i6 = newInitContext.flag;
+                                if ((i6 & 1) != 0) {
+                                    int i7 = i6 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -333,12 +333,12 @@ public class BDEmotionBagLayout extends LinearLayout {
                 return;
             }
             int size = this.mEmotionList.size();
-            int i2 = size % 20;
-            int i3 = size / 20;
-            if (i2 != 0) {
-                i3++;
+            int i = size % 20;
+            int i2 = size / 20;
+            if (i != 0) {
+                i2++;
             }
-            for (int i4 = 0; i4 < i3; i4++) {
+            for (int i3 = 0; i3 < i2; i3++) {
                 NoScrollGridView noScrollGridView = new NoScrollGridView(getContext());
                 noScrollGridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 noScrollGridView.setNumColumns(7);
@@ -346,7 +346,7 @@ public class BDEmotionBagLayout extends LinearLayout {
                 noScrollGridView.setVerticalScrollBarEnabled(false);
                 noScrollGridView.setOverScrollMode(2);
                 GlobalOnItemClickListenerManager globalOnItemClickListenerManager = GlobalOnItemClickListenerManager.getInstance();
-                noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i4));
+                noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i3));
                 noScrollGridView.setOnItemLongClickListener(globalOnItemClickListenerManager.getOnItemLongClickListener(EmotionType.EMOTION_CLASSIC_TYPE));
                 noScrollGridView.setOnTouchListener(globalOnItemClickListenerManager.getOnTouchListener(EmotionType.EMOTION_CLASSIC_TYPE));
                 noScrollGridView.setSelector(new ColorDrawable(0));
@@ -369,9 +369,9 @@ public class BDEmotionBagLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -382,17 +382,17 @@ public class BDEmotionBagLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BDEmotionBagLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

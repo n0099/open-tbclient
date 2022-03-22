@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.j.b;
-import c.a.y0.r.h;
-import c.a.y0.r.w;
+import c.a.v0.j.b;
+import c.a.v0.r.h;
+import c.a.v0.r.w;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -60,9 +60,9 @@ public class TemplateInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,9 +92,9 @@ public class TemplateInfo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -214,8 +214,8 @@ public class TemplateInfo implements Serializable {
         ArrayList arrayList = new ArrayList();
         b bVar = new b();
         int b2 = h.b(mediaTrackConfig.transitionResourceList);
-        for (int i2 = 0; i2 < b2; i2++) {
-            arrayList.add((MediaTransition) bVar.b(FileUtils.readText(new File(str + File.separator + ((String) h.c(mediaTrackConfig.transitionResourceList, i2)))), MediaTransition.class));
+        for (int i = 0; i < b2; i++) {
+            arrayList.add((MediaTransition) bVar.b(FileUtils.readText(new File(str + File.separator + ((String) h.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
         }
         mediaTrackConfig.transitionConfigs = arrayList;
         mediaTrackConfig.transitionResourceList = null;

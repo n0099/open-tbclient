@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.m.f;
-import c.a.q0.j0.h;
-import c.a.q0.n0.c;
+import c.a.o0.j0.h;
+import c.a.o0.n0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -28,6 +28,7 @@ import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
@@ -41,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
@@ -153,13 +154,11 @@ public class IntentConfig extends OrmObject {
     public ServiceConnection mServiceConnection;
     public int mServiceConnectionFlags;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f38908e;
+        public final /* synthetic */ IntentConfig a;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -168,15 +167,15 @@ public class IntentConfig extends OrmObject {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {intentConfig};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38908e = intentConfig;
+            this.a = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -185,17 +184,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f38908e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f38908e.mReplyMessenger != null) {
+            this.a.mReplyMessenger = new Messenger(iBinder);
+            if (this.a.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f38908e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f38908e.mComponentClass.getName());
+                if (this.a.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.a.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f38908e.mClientMessenger;
+                obtain.replyTo = this.a.mClientMessenger;
                 try {
-                    this.f38908e.mReplyMessenger.send(obtain);
+                    this.a.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -210,7 +209,7 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,9 +222,9 @@ public class IntentConfig extends OrmObject {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {intentConfig};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -283,9 +282,9 @@ public class IntentConfig extends OrmObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -309,7 +308,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.q0.o0.b tbPageInfo = b2 instanceof c.a.q0.o0.a ? ((c.a.q0.o0.a) b2).getTbPageInfo() : null;
+        c.a.o0.o0.b tbPageInfo = b2 instanceof c.a.o0.o0.a ? ((c.a.o0.o0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -354,7 +353,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.q0.p0.a ? (ArrayList) ((c.a.q0.p0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.o0.p0.a ? (ArrayList) ((c.a.o0.p0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -507,10 +506,10 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    public void setRequestCode(int i2) {
+    public void setRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mRequestCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mRequestCode = i;
         }
     }
 
@@ -521,10 +520,10 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    public void setServiceConnectionFlags(int i2) {
+    public void setServiceConnectionFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mServiceConnectionFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mServiceConnectionFlags = i;
         }
     }
 
@@ -546,27 +545,6 @@ public class IntentConfig extends OrmObject {
             if (cls2 == null || this.mContext == null || !checkStartActivityInterval(cls2)) {
                 return false;
             }
-            String pluginNameByClassloader = PluginCenter.getInstance().getPluginNameByClassloader(this.mComponentClass.getClassLoader());
-            if (!TextUtils.isEmpty(pluginNameByClassloader) && !pluginNameByClassloader.equals(BdBaseApplication.getInst().getPackageName())) {
-                if (c.a.d.j.j.f.c.j().m(pluginNameByClassloader)) {
-                    return false;
-                }
-                return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-            }
-            Intent intent = this.mIntent;
-            if (intent != null) {
-                try {
-                    Class<?> loadClass2 = BdBaseApplication.getInst().getClassLoader().loadClass(intent.getComponent().getClassName());
-                    if (loadClass2 != null && PluginBaseActivity.class.isAssignableFrom(loadClass2)) {
-                        PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                        return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
-                    }
-                } catch (Exception e2) {
-                    c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
-                    BdLog.detailException(e2);
-                    return false;
-                }
-            }
             try {
                 if (this.mComponentClass.getClassLoader() == null) {
                     loadClass = Class.forName(this.mComponentClass.getName());
@@ -577,7 +555,7 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
                 if (this.mIntent != null && !(this.mContext instanceof Activity)) {
-                    this.mIntent.addFlags(268435456);
+                    this.mIntent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
                 if (this.mIntent != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(this.mComponentClass.getName())) {
                     this.mIntent.addFlags(603979776);
@@ -585,7 +563,6 @@ public class IntentConfig extends OrmObject {
                 this.mContext.startActivity(this.mIntent);
                 return true;
             } catch (Throwable th) {
-                c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return false;
             }
@@ -603,23 +580,23 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    public void startActivityForResult(int i2) {
+    public void startActivityForResult(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048599, this, i2) == null) && checkStartActivityInterval(this.mComponentClass)) {
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && checkStartActivityInterval(this.mComponentClass)) {
             if (this.mIntent != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(this.mComponentClass.getName())) {
                 this.mIntent.addFlags(603979776);
             }
             Context context = this.mContext;
             if (context instanceof Activity) {
-                ((Activity) context).startActivityForResult(this.mIntent, i2);
+                ((Activity) context).startActivityForResult(this.mIntent, i);
             }
         }
     }
 
-    public void startActivityForResultForRemote(int i2, Class<?> cls) {
+    public void startActivityForResultForRemote(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048601, this, i2, cls) == null) {
-            setRequestCode(i2);
+        if (interceptable == null || interceptable.invokeIL(1048601, this, i, cls) == null) {
+            setRequestCode(i);
             this.isForResult = true;
             setComponentClass(cls);
             Intent intent = new Intent();
@@ -678,10 +655,10 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    public void startActivityForResult(int i2, Class<?> cls) {
+    public void startActivityForResult(int i, Class<?> cls) {
         Class<?> loadClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i, cls) == null) {
             setComponentClass(cls);
             if (this.mComponentClass == null || this.mContext == null) {
                 return;
@@ -715,7 +692,7 @@ public class IntentConfig extends OrmObject {
                 if (loadClass == null) {
                     return;
                 }
-                startActivityForResult(i2);
+                startActivityForResult(i);
             } catch (Throwable th) {
                 c.a.d.j.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
@@ -744,9 +721,9 @@ public class IntentConfig extends OrmObject {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

@@ -15,7 +15,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MetaBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "meta";
@@ -30,9 +30,9 @@ public class MetaBox extends AbstractContainerBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -77,13 +77,13 @@ public class MetaBox extends AbstractContainerBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(4);
             dataSource.read(allocate);
             parseVersionAndFlags((ByteBuffer) allocate.rewind());
-            parseContainer(dataSource, j2 - 4, boxParser);
+            parseContainer(dataSource, j - 4, boxParser);
         }
     }
 
@@ -98,17 +98,17 @@ public class MetaBox extends AbstractContainerBox {
         return invokeL.longValue;
     }
 
-    public void setFlags(int i2) {
+    public void setFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.flags = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.flags = i;
         }
     }
 
-    public void setVersion(int i2) {
+    public void setVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.version = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.version = i;
         }
     }
 

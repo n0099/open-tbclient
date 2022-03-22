@@ -21,7 +21,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi;
 import kotlinx.coroutines.ObsoleteCoroutinesApi;
 import kotlinx.coroutines.selects.SelectClause1;
 @Metadata(bv = {1, 0, 3}, d1 = {"kotlinx/coroutines/channels/ChannelsKt__ChannelsKt", "kotlinx/coroutines/channels/ChannelsKt__Channels_commonKt"}, d2 = {}, k = 4, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt {
     public static final String DEFAULT_CLOSE_MESSAGE = "Channel was closed";
 
@@ -101,8 +101,8 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> ReceiveChannel<E> drop(ReceiveChannel<? extends E> receiveChannel, int i2, CoroutineContext coroutineContext) {
-        return ChannelsKt__Channels_commonKt.drop(receiveChannel, i2, coroutineContext);
+    public static final <E> ReceiveChannel<E> drop(ReceiveChannel<? extends E> receiveChannel, int i, CoroutineContext coroutineContext) {
+        return ChannelsKt__Channels_commonKt.drop(receiveChannel, i, coroutineContext);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -111,18 +111,18 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> Object elementAt(ReceiveChannel<? extends E> receiveChannel, int i2, Continuation<? super E> continuation) {
-        return ChannelsKt__Channels_commonKt.elementAt(receiveChannel, i2, continuation);
+    public static final <E> Object elementAt(ReceiveChannel<? extends E> receiveChannel, int i, Continuation<? super E> continuation) {
+        return ChannelsKt__Channels_commonKt.elementAt(receiveChannel, i, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> Object elementAtOrElse(ReceiveChannel<? extends E> receiveChannel, int i2, Function1<? super Integer, ? extends E> function1, Continuation<? super E> continuation) {
-        return ChannelsKt__Channels_commonKt.elementAtOrElse(receiveChannel, i2, function1, continuation);
+    public static final <E> Object elementAtOrElse(ReceiveChannel<? extends E> receiveChannel, int i, Function1<? super Integer, ? extends E> function1, Continuation<? super E> continuation) {
+        return ChannelsKt__Channels_commonKt.elementAtOrElse(receiveChannel, i, function1, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> Object elementAtOrNull(ReceiveChannel<? extends E> receiveChannel, int i2, Continuation<? super E> continuation) {
-        return ChannelsKt__Channels_commonKt.elementAtOrNull(receiveChannel, i2, continuation);
+    public static final <E> Object elementAtOrNull(ReceiveChannel<? extends E> receiveChannel, int i, Continuation<? super E> continuation) {
+        return ChannelsKt__Channels_commonKt.elementAtOrNull(receiveChannel, i, continuation);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
@@ -360,8 +360,8 @@ public final class ChannelsKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")
-    public static final <E> ReceiveChannel<E> take(ReceiveChannel<? extends E> receiveChannel, int i2, CoroutineContext coroutineContext) {
-        return ChannelsKt__Channels_commonKt.take(receiveChannel, i2, coroutineContext);
+    public static final <E> ReceiveChannel<E> take(ReceiveChannel<? extends E> receiveChannel, int i, CoroutineContext coroutineContext) {
+        return ChannelsKt__Channels_commonKt.take(receiveChannel, i, coroutineContext);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Channel operators are deprecated in favour of Flow and will be removed in 1.4")

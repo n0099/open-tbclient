@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import kotlin.Metadata;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\bf\u0018\u0000 \u000f2\u00020\u0001:\u0003\u000f\u0010\u0011J!\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ+\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\n\u001a\u0004\u0018\u00010\t2\u0006\u0010\u0005\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\u000bJ5\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\n\u001a\u0004\u0018\u00010\t2\b\u0010\r\u001a\u0004\u0018\u00010\f2\u0006\u0010\u0005\u001a\u00020\u0004H&¢\u0006\u0004\b\u0007\u0010\u000e¨\u0006\u0012"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/YYPayService;", "Lkotlin/Any;", "Landroid/content/Context;", "ctx", "Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultCallback;", WebChromeClient.KEY_ARG_CALLBACK, "", "startPayment", "(Landroid/content/Context;Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultCallback;)V", "", "title", "(Landroid/content/Context;Ljava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultCallback;)V", "", PayUiEventContent.AMOUNT, "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Long;Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultCallback;)V", "Companion", "YYPayResultCallback", "YYPayResultMessage", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public interface YYPayService {
@@ -51,9 +50,9 @@ public interface YYPayService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -70,7 +69,7 @@ public interface YYPayService {
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\bf\u0018\u00002\u00020\u0001J!\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\n\u001a\u00020\u00062\b\u0010\u0005\u001a\u0004\u0018\u00010\tH&¢\u0006\u0004\b\n\u0010\u000b¨\u0006\f"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultCallback;", "Lkotlin/Any;", "", "code", "", "msg", "", "onFail", "(ILjava/lang/String;)V", "Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultMessage;", "onSuccess", "(Lcom/baidu/searchbox/live/interfaces/service/YYPayService$YYPayResultMessage;)V", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes4.dex */
     public interface YYPayResultCallback {
-        void onFail(int i2, String str);
+        void onFail(int i, String str);
 
         void onSuccess(YYPayResultMessage yYPayResultMessage);
     }
@@ -96,9 +95,9 @@ public interface YYPayService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -165,31 +164,31 @@ public interface YYPayService {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.usedChannel : invokeV.intValue;
         }
 
-        public final void setAmount(long j2) {
+        public final void setAmount(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-                this.amount = j2;
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+                this.amount = j;
             }
         }
 
-        public final void setAppid(int i2) {
+        public final void setAppid(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.appid = i2;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.appid = i;
             }
         }
 
-        public final void setCurrencyAmount(long j2) {
+        public final void setCurrencyAmount(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-                this.currencyAmount = j2;
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+                this.currencyAmount = j;
             }
         }
 
-        public final void setCurrencyType(int i2) {
+        public final void setCurrencyType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-                this.currencyType = i2;
+            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+                this.currencyType = i;
             }
         }
 
@@ -214,24 +213,24 @@ public interface YYPayService {
             }
         }
 
-        public final void setStatus(int i2) {
+        public final void setStatus(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-                this.status = i2;
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+                this.status = i;
             }
         }
 
-        public final void setUid(long j2) {
+        public final void setUid(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-                this.uid = j2;
+            if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+                this.uid = j;
             }
         }
 
-        public final void setUsedChannel(int i2) {
+        public final void setUsedChannel(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-                this.usedChannel = i2;
+            if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+                this.usedChannel = i;
             }
         }
 
@@ -239,7 +238,7 @@ public interface YYPayService {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                return "YYPayResultMessage{appid=" + this.appid + ", uid=" + this.uid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + ExtendedMessageFormat.QUOTE + ", status='" + this.status + ExtendedMessageFormat.QUOTE + ", pollingTimeout='" + this.pollingTimeout + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "YYPayResultMessage{appid=" + this.appid + ", uid=" + this.uid + ", usedChannel=" + this.usedChannel + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", orderId=" + this.orderId + ", expand='" + this.expand + "', status='" + this.status + "', pollingTimeout='" + this.pollingTimeout + "'}";
             }
             return (String) invokeV.objValue;
         }

@@ -12,31 +12,31 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.x;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends g implements View.OnClickListener, Observer {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f56154b;
+    public ImageView f41088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f56155c;
+    public AdTemplate f41089c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f56156d;
+    public com.kwad.sdk.reward.c.a f41090d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j.a f56157e = new j.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1
+    public j.a f41091e = new j.a() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1
         @Override // com.kwad.sdk.utils.j.a
         public void a() {
-            if (d.this.f56154b == null || com.kwad.sdk.core.config.b.F()) {
+            if (d.this.f41088b == null || com.kwad.sdk.core.config.b.F()) {
                 return;
             }
-            d.this.f56154b.post(new Runnable() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1.1
+            d.this.f41088b.post(new Runnable() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.f56154b.setSelected(false);
-                    d.this.f56156d.a(false, false);
+                    d.this.f41088b.setSelected(false);
+                    d.this.f41090d.a(false, false);
                 }
             });
         }
@@ -47,7 +47,7 @@ public class d extends g implements View.OnClickListener, Observer {
     };
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f56158f = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.2
+    public com.kwad.sdk.contentalliance.detail.video.d f41092f = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.d.2
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
             d.this.e();
@@ -56,7 +56,7 @@ public class d extends g implements View.OnClickListener, Observer {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f56154b.setOnClickListener(this);
+        this.f41088b.setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
@@ -65,25 +65,25 @@ public class d extends g implements View.OnClickListener, Observer {
         boolean z;
         super.a();
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f56155c = aVar.f55769g;
+        this.f41089c = aVar.f40747g;
         com.kwad.sdk.reward.c.a aVar2 = aVar.k;
-        this.f56156d = aVar2;
-        KsVideoPlayConfig ksVideoPlayConfig = aVar.f55766d;
+        this.f41090d = aVar2;
+        KsVideoPlayConfig ksVideoPlayConfig = aVar.f40744d;
         if (!aVar2.a() && com.kwad.sdk.utils.b.a(q()).a()) {
-            imageView = this.f56154b;
+            imageView = this.f41088b;
             z = false;
         } else if (ksVideoPlayConfig != null) {
-            this.f56154b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
-            this.f56156d.a(this.f56158f);
-            this.f56156d.a(this.f56157e);
+            this.f41088b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
+            this.f41090d.a(this.f41092f);
+            this.f41090d.a(this.f41091e);
             x.a().addObserver(this);
         } else {
-            imageView = this.f56154b;
+            imageView = this.f41088b;
             z = true;
         }
         imageView.setSelected(z);
-        this.f56156d.a(this.f56158f);
-        this.f56156d.a(this.f56157e);
+        this.f41090d.a(this.f41092f);
+        this.f41090d.a(this.f41091e);
         x.a().addObserver(this);
     }
 
@@ -91,22 +91,22 @@ public class d extends g implements View.OnClickListener, Observer {
     public void c() {
         super.c();
         x.a().deleteObserver(this);
-        this.f56156d.b(this.f56158f);
-        this.f56156d.b(this.f56157e);
+        this.f41090d.b(this.f41092f);
+        this.f41090d.b(this.f41091e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f56154b = (ImageView) a(R.id.ksad_video_sound_switch);
+        this.f41088b = (ImageView) a(R.id.obfuscated_res_0x7f09117c);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ImageView imageView = this.f56154b;
+        ImageView imageView = this.f41088b;
         if (view == imageView) {
-            this.f56156d.a(!imageView.isSelected(), true);
-            ImageView imageView2 = this.f56154b;
+            this.f41090d.a(!imageView.isSelected(), true);
+            ImageView imageView2 = this.f41088b;
             imageView2.setSelected(!imageView2.isSelected());
         }
     }
@@ -127,15 +127,15 @@ public class d extends g implements View.OnClickListener, Observer {
                 c2 = 1;
             }
             if (c2 == 0) {
-                AdTemplate adTemplate = this.f56155c;
+                AdTemplate adTemplate = this.f41089c;
                 if (adTemplate.mXiaomiAppStoreDetailViewOpen && (sceneImpl = adTemplate.mAdScene) != null && sceneImpl.getAdStyle() == 2) {
-                    this.f56156d.d();
+                    this.f41090d.d();
                 }
             } else if (c2 != 1) {
             } else {
-                AdTemplate adTemplate2 = this.f56155c;
+                AdTemplate adTemplate2 = this.f41089c;
                 if (adTemplate2.mXiaomiAppStoreDetailViewOpen && (sceneImpl2 = adTemplate2.mAdScene) != null && sceneImpl2.getAdStyle() == 2) {
-                    this.f56156d.b();
+                    this.f41090d.b();
                 }
             }
         }

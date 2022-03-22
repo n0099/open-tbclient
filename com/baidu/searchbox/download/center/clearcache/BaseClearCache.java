@@ -20,7 +20,7 @@ public abstract class BaseClearCache {
 
     /* loaded from: classes4.dex */
     public interface CacheSizeCallback {
-        void onCacheSizeResult(long j2);
+        void onCacheSizeResult(long j);
     }
 
     public BaseClearCache() {
@@ -28,9 +28,9 @@ public abstract class BaseClearCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,10 +75,10 @@ public abstract class BaseClearCache {
         return invokeV.booleanValue;
     }
 
-    public void setCacheSize(long j2) {
+    public void setCacheSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.mCacheSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.mCacheSize = j;
         }
     }
 

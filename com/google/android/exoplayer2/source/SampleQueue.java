@@ -22,7 +22,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SampleQueue implements TrackOutput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADVANCE_FAILED = -1;
@@ -44,7 +44,7 @@ public final class SampleQueue implements TrackOutput {
     public UpstreamFormatChangedListener upstreamFormatChangeListener;
     public AllocationNode writeAllocationNode;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AllocationNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,23 +56,23 @@ public final class SampleQueue implements TrackOutput {
         public final long startPosition;
         public boolean wasInitialized;
 
-        public AllocationNode(long j2, int i2) {
+        public AllocationNode(long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.startPosition = j2;
-            this.endPosition = j2 + i2;
+            this.startPosition = j;
+            this.endPosition = j + i;
         }
 
         public AllocationNode clear() {
@@ -96,14 +96,14 @@ public final class SampleQueue implements TrackOutput {
             }
         }
 
-        public int translateOffset(long j2) {
+        public int translateOffset(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ((int) (j2 - this.startPosition)) + this.allocation.offset : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ((int) (j - this.startPosition)) + this.allocation.offset : invokeJ.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface UpstreamFormatChangedListener {
         void onUpstreamFormatChanged(Format format);
     }
@@ -115,9 +115,9 @@ public final class SampleQueue implements TrackOutput {
             newInitContext.initArgs = r2;
             Object[] objArr = {allocator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,14 +134,14 @@ public final class SampleQueue implements TrackOutput {
         this.writeAllocationNode = allocationNode;
     }
 
-    private void advanceReadTo(long j2) {
+    private void advanceReadTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeJ(65537, this, j2) != null) {
+        if (interceptable != null && interceptable.invokeJ(65537, this, j) != null) {
             return;
         }
         while (true) {
             AllocationNode allocationNode = this.readAllocationNode;
-            if (j2 < allocationNode.endPosition) {
+            if (j < allocationNode.endPosition) {
                 return;
             }
             this.readAllocationNode = allocationNode.next;
@@ -152,25 +152,25 @@ public final class SampleQueue implements TrackOutput {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, allocationNode) == null) && allocationNode.wasInitialized) {
             AllocationNode allocationNode2 = this.writeAllocationNode;
-            int i2 = (allocationNode2.wasInitialized ? 1 : 0) + (((int) (allocationNode2.startPosition - allocationNode.startPosition)) / this.allocationLength);
-            Allocation[] allocationArr = new Allocation[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                allocationArr[i3] = allocationNode.allocation;
+            int i = (allocationNode2.wasInitialized ? 1 : 0) + (((int) (allocationNode2.startPosition - allocationNode.startPosition)) / this.allocationLength);
+            Allocation[] allocationArr = new Allocation[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                allocationArr[i2] = allocationNode.allocation;
                 allocationNode = allocationNode.clear();
             }
             this.allocator.release(allocationArr);
         }
     }
 
-    private void discardDownstreamTo(long j2) {
+    private void discardDownstreamTo(long j) {
         AllocationNode allocationNode;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65539, this, j2) == null) || j2 == -1) {
+        if (!(interceptable == null || interceptable.invokeJ(65539, this, j) == null) || j == -1) {
             return;
         }
         while (true) {
             allocationNode = this.firstAllocationNode;
-            if (j2 < allocationNode.endPosition) {
+            if (j < allocationNode.endPosition) {
                 break;
             }
             this.allocator.release(allocationNode.allocation);
@@ -181,59 +181,59 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    public static Format getAdjustedSampleFormat(Format format, long j2) {
+    public static Format getAdjustedSampleFormat(Format format, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, format, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, format, j)) == null) {
             if (format == null) {
                 return null;
             }
-            if (j2 != 0) {
-                long j3 = format.subsampleOffsetUs;
-                return j3 != Long.MAX_VALUE ? format.copyWithSubsampleOffsetUs(j3 + j2) : format;
+            if (j != 0) {
+                long j2 = format.subsampleOffsetUs;
+                return j2 != Long.MAX_VALUE ? format.copyWithSubsampleOffsetUs(j2 + j) : format;
             }
             return format;
         }
         return (Format) invokeLJ.objValue;
     }
 
-    private void postAppend(int i2) {
+    private void postAppend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
-            long j2 = this.totalBytesWritten + i2;
-            this.totalBytesWritten = j2;
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
+            long j = this.totalBytesWritten + i;
+            this.totalBytesWritten = j;
             AllocationNode allocationNode = this.writeAllocationNode;
-            if (j2 == allocationNode.endPosition) {
+            if (j == allocationNode.endPosition) {
                 this.writeAllocationNode = allocationNode.next;
             }
         }
     }
 
-    private int preAppend(int i2) {
+    private int preAppend(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
             AllocationNode allocationNode = this.writeAllocationNode;
             if (!allocationNode.wasInitialized) {
                 allocationNode.initialize(this.allocator.allocate(), new AllocationNode(this.writeAllocationNode.endPosition, this.allocationLength));
             }
-            return Math.min(i2, (int) (this.writeAllocationNode.endPosition - this.totalBytesWritten));
+            return Math.min(i, (int) (this.writeAllocationNode.endPosition - this.totalBytesWritten));
         }
         return invokeI.intValue;
     }
 
-    private void readData(long j2, ByteBuffer byteBuffer, int i2) {
+    private void readData(long j, ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), byteBuffer, Integer.valueOf(i2)}) == null) {
-            advanceReadTo(j2);
-            while (i2 > 0) {
-                int min = Math.min(i2, (int) (this.readAllocationNode.endPosition - j2));
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
+            advanceReadTo(j);
+            while (i > 0) {
+                int min = Math.min(i, (int) (this.readAllocationNode.endPosition - j));
                 AllocationNode allocationNode = this.readAllocationNode;
-                byteBuffer.put(allocationNode.allocation.data, allocationNode.translateOffset(j2), min);
-                i2 -= min;
-                j2 += min;
+                byteBuffer.put(allocationNode.allocation.data, allocationNode.translateOffset(j), min);
+                i -= min;
+                j += min;
                 AllocationNode allocationNode2 = this.readAllocationNode;
-                if (j2 == allocationNode2.endPosition) {
+                if (j == allocationNode2.endPosition) {
                     this.readAllocationNode = allocationNode2.next;
                 }
             }
@@ -241,68 +241,68 @@ public final class SampleQueue implements TrackOutput {
     }
 
     private void readEncryptionData(DecoderInputBuffer decoderInputBuffer, SampleMetadataQueue.SampleExtrasHolder sampleExtrasHolder) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, decoderInputBuffer, sampleExtrasHolder) == null) {
-            long j2 = sampleExtrasHolder.offset;
+            long j = sampleExtrasHolder.offset;
             this.scratch.reset(1);
-            readData(j2, this.scratch.data, 1);
-            long j3 = j2 + 1;
+            readData(j, this.scratch.data, 1);
+            long j2 = j + 1;
             byte b2 = this.scratch.data[0];
             boolean z = (b2 & 128) != 0;
-            int i3 = b2 & ByteCompanionObject.MAX_VALUE;
+            int i2 = b2 & ByteCompanionObject.MAX_VALUE;
             CryptoInfo cryptoInfo = decoderInputBuffer.cryptoInfo;
             if (cryptoInfo.iv == null) {
                 cryptoInfo.iv = new byte[16];
             }
-            readData(j3, decoderInputBuffer.cryptoInfo.iv, i3);
-            long j4 = j3 + i3;
+            readData(j2, decoderInputBuffer.cryptoInfo.iv, i2);
+            long j3 = j2 + i2;
             if (z) {
                 this.scratch.reset(2);
-                readData(j4, this.scratch.data, 2);
-                j4 += 2;
-                i2 = this.scratch.readUnsignedShort();
+                readData(j3, this.scratch.data, 2);
+                j3 += 2;
+                i = this.scratch.readUnsignedShort();
             } else {
-                i2 = 1;
+                i = 1;
             }
             int[] iArr = decoderInputBuffer.cryptoInfo.numBytesOfClearData;
-            if (iArr == null || iArr.length < i2) {
-                iArr = new int[i2];
+            if (iArr == null || iArr.length < i) {
+                iArr = new int[i];
             }
             int[] iArr2 = iArr;
             int[] iArr3 = decoderInputBuffer.cryptoInfo.numBytesOfEncryptedData;
-            if (iArr3 == null || iArr3.length < i2) {
-                iArr3 = new int[i2];
+            if (iArr3 == null || iArr3.length < i) {
+                iArr3 = new int[i];
             }
             int[] iArr4 = iArr3;
             if (z) {
-                int i4 = i2 * 6;
-                this.scratch.reset(i4);
-                readData(j4, this.scratch.data, i4);
-                j4 += i4;
+                int i3 = i * 6;
+                this.scratch.reset(i3);
+                readData(j3, this.scratch.data, i3);
+                j3 += i3;
                 this.scratch.setPosition(0);
-                for (int i5 = 0; i5 < i2; i5++) {
-                    iArr2[i5] = this.scratch.readUnsignedShort();
-                    iArr4[i5] = this.scratch.readUnsignedIntToInt();
+                for (int i4 = 0; i4 < i; i4++) {
+                    iArr2[i4] = this.scratch.readUnsignedShort();
+                    iArr4[i4] = this.scratch.readUnsignedIntToInt();
                 }
             } else {
                 iArr2[0] = 0;
-                iArr4[0] = sampleExtrasHolder.size - ((int) (j4 - sampleExtrasHolder.offset));
+                iArr4[0] = sampleExtrasHolder.size - ((int) (j3 - sampleExtrasHolder.offset));
             }
             TrackOutput.CryptoData cryptoData = sampleExtrasHolder.cryptoData;
             CryptoInfo cryptoInfo2 = decoderInputBuffer.cryptoInfo;
-            cryptoInfo2.set(i2, iArr2, iArr4, cryptoData.encryptionKey, cryptoInfo2.iv, cryptoData.cryptoMode, cryptoData.encryptedBlocks, cryptoData.clearBlocks);
-            long j5 = sampleExtrasHolder.offset;
-            int i6 = (int) (j4 - j5);
-            sampleExtrasHolder.offset = j5 + i6;
-            sampleExtrasHolder.size -= i6;
+            cryptoInfo2.set(i, iArr2, iArr4, cryptoData.encryptionKey, cryptoInfo2.iv, cryptoData.cryptoMode, cryptoData.encryptedBlocks, cryptoData.clearBlocks);
+            long j4 = sampleExtrasHolder.offset;
+            int i5 = (int) (j3 - j4);
+            sampleExtrasHolder.offset = j4 + i5;
+            sampleExtrasHolder.size -= i5;
         }
     }
 
-    public int advanceTo(long j2, boolean z, boolean z2) {
+    public int advanceTo(long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.metadataQueue.advanceTo(j2, z, z2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.metadataQueue.advanceTo(j, z, z2) : invokeCommon.intValue;
     }
 
     public int advanceToEnd() {
@@ -311,10 +311,10 @@ public final class SampleQueue implements TrackOutput {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.metadataQueue.advanceToEnd() : invokeV.intValue;
     }
 
-    public void discardTo(long j2, boolean z, boolean z2) {
+    public void discardTo(long j, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            discardDownstreamTo(this.metadataQueue.discardTo(j2, z, z2));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            discardDownstreamTo(this.metadataQueue.discardTo(j, z, z2));
         }
     }
 
@@ -332,10 +332,10 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    public void discardUpstreamSamples(int i2) {
+    public void discardUpstreamSamples(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            long discardUpstreamSamples = this.metadataQueue.discardUpstreamSamples(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            long discardUpstreamSamples = this.metadataQueue.discardUpstreamSamples(i);
             this.totalBytesWritten = discardUpstreamSamples;
             if (discardUpstreamSamples != 0) {
                 AllocationNode allocationNode = this.firstAllocationNode;
@@ -418,10 +418,10 @@ public final class SampleQueue implements TrackOutput {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.metadataQueue.peekSourceId() : invokeV.intValue;
     }
 
-    public int read(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z, boolean z2, long j2) {
+    public int read(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z, boolean z2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{formatHolder, decoderInputBuffer, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{formatHolder, decoderInputBuffer, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j)})) == null) {
             int read = this.metadataQueue.read(formatHolder, decoderInputBuffer, z, z2, this.downstreamFormat, this.extrasHolder);
             if (read == -5) {
                 this.downstreamFormat = formatHolder.format;
@@ -433,7 +433,7 @@ public final class SampleQueue implements TrackOutput {
                 throw new IllegalStateException();
             } else {
                 if (!decoderInputBuffer.isEndOfStream()) {
-                    if (decoderInputBuffer.timeUs < j2) {
+                    if (decoderInputBuffer.timeUs < j) {
                         decoderInputBuffer.addFlag(Integer.MIN_VALUE);
                     }
                     if (decoderInputBuffer.isEncrypted()) {
@@ -465,11 +465,11 @@ public final class SampleQueue implements TrackOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public int sampleData(ExtractorInput extractorInput, int i2, boolean z) throws IOException, InterruptedException {
+    public int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{extractorInput, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int preAppend = preAppend(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{extractorInput, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int preAppend = preAppend(i);
             AllocationNode allocationNode = this.writeAllocationNode;
             int read = extractorInput.read(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
             if (read != -1) {
@@ -485,28 +485,28 @@ public final class SampleQueue implements TrackOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void sampleMetadata(long j2, int i2, int i3, int i4, TrackOutput.CryptoData cryptoData) {
+    public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), cryptoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
             if (this.pendingFormatAdjustment) {
                 format(this.lastUnadjustedFormat);
             }
             if (this.pendingSplice) {
-                if ((i2 & 1) == 0 || !this.metadataQueue.attemptSplice(j2)) {
+                if ((i & 1) == 0 || !this.metadataQueue.attemptSplice(j)) {
                     return;
                 }
                 this.pendingSplice = false;
             }
-            this.metadataQueue.commitSample(j2 + this.sampleOffsetUs, i2, (this.totalBytesWritten - i3) - i4, i3, cryptoData);
+            this.metadataQueue.commitSample(j + this.sampleOffsetUs, i, (this.totalBytesWritten - i2) - i3, i2, cryptoData);
         }
     }
 
-    public void setSampleOffsetUs(long j2) {
+    public void setSampleOffsetUs(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) || this.sampleOffsetUs == j2) {
+        if (!(interceptable == null || interceptable.invokeJ(1048596, this, j) == null) || this.sampleOffsetUs == j) {
             return;
         }
-        this.sampleOffsetUs = j2;
+        this.sampleOffsetUs = j;
         this.pendingFormatAdjustment = true;
     }
 
@@ -517,10 +517,10 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    public void sourceId(int i2) {
+    public void sourceId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.metadataQueue.sourceId(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.metadataQueue.sourceId(i);
         }
     }
 
@@ -545,19 +545,19 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    private void readData(long j2, byte[] bArr, int i2) {
+    private void readData(long j, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2)}) == null) {
-            advanceReadTo(j2);
-            int i3 = i2;
-            while (i3 > 0) {
-                int min = Math.min(i3, (int) (this.readAllocationNode.endPosition - j2));
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i)}) == null) {
+            advanceReadTo(j);
+            int i2 = i;
+            while (i2 > 0) {
+                int min = Math.min(i2, (int) (this.readAllocationNode.endPosition - j));
                 AllocationNode allocationNode = this.readAllocationNode;
-                System.arraycopy(allocationNode.allocation.data, allocationNode.translateOffset(j2), bArr, i2 - i3, min);
-                i3 -= min;
-                j2 += min;
+                System.arraycopy(allocationNode.allocation.data, allocationNode.translateOffset(j), bArr, i - i2, min);
+                i2 -= min;
+                j += min;
                 AllocationNode allocationNode2 = this.readAllocationNode;
-                if (j2 == allocationNode2.endPosition) {
+                if (j == allocationNode2.endPosition) {
                     this.readAllocationNode = allocationNode2.next;
                 }
             }
@@ -565,14 +565,14 @@ public final class SampleQueue implements TrackOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void sampleData(ParsableByteArray parsableByteArray, int i2) {
+    public void sampleData(ParsableByteArray parsableByteArray, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048594, this, parsableByteArray, i2) == null) {
-            while (i2 > 0) {
-                int preAppend = preAppend(i2);
+        if (interceptable == null || interceptable.invokeLI(1048594, this, parsableByteArray, i) == null) {
+            while (i > 0) {
+                int preAppend = preAppend(i);
                 AllocationNode allocationNode = this.writeAllocationNode;
                 parsableByteArray.readBytes(allocationNode.allocation.data, allocationNode.translateOffset(this.totalBytesWritten), preAppend);
-                i2 -= preAppend;
+                i -= preAppend;
                 postAppend(preAppend);
             }
         }

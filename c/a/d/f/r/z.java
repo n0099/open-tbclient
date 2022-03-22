@@ -11,24 +11,24 @@ public class z extends r {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2918b;
+    public String f2431b;
 
-    public z(int i2, String str) {
+    public z(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f2918b = str;
+        this.a = i;
+        this.f2431b = str;
     }
 }

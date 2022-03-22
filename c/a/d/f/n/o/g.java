@@ -25,32 +25,30 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile g f2779i;
+    public static volatile g i;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConcurrentHashMap<String, c.a.d.f.n.j.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2780b;
+    public String f2301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.f.n.b f2781c;
+    public c.a.d.f.n.b f2302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f2782d;
+    public i f2303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f2783e;
+    public f f2304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.f.n.d f2784f;
+    public c.a.d.f.n.d f2305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f2785g;
+    public Handler f2306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f2786h;
+    public j f2307h;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -67,9 +65,9 @@ public class g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -103,10 +101,10 @@ public class g {
         public final /* synthetic */ c.a.d.f.n.j.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f2787b;
+        public final /* synthetic */ boolean f2308b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f2788c;
+        public final /* synthetic */ boolean f2309c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar, boolean z, boolean z2) {
@@ -117,9 +115,9 @@ public class g {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {gVar, str, str2, str3, str4, action, aVar, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -128,8 +126,8 @@ public class g {
                 }
             }
             this.a = aVar;
-            this.f2787b = z;
-            this.f2788c = z2;
+            this.f2308b = z;
+            this.f2309c = z2;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -139,7 +137,7 @@ public class g {
                 super.callback(z);
                 if (z) {
                     this.a.H(0L);
-                    c.a.d.f.n.n.b.m().t(this.a, this.f2787b, true, this.f2788c);
+                    c.a.d.f.n.n.b.m().t(this.a, this.f2308b, true, this.f2309c);
                 }
             }
         }
@@ -160,9 +158,9 @@ public class g {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {gVar, str, str2, str3, str4, action, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -191,7 +189,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f2789c;
+        public final /* synthetic */ c.a.d.f.n.j.a f2310c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(g gVar, String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar) {
@@ -202,9 +200,9 @@ public class g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gVar, str, str2, action, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -212,7 +210,7 @@ public class g {
                     return;
                 }
             }
-            this.f2789c = aVar;
+            this.f2310c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -221,7 +219,7 @@ public class g {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f2789c.H(getFileInfo().length());
+                    this.f2310c.H(getFileInfo().length());
                 }
             }
         }
@@ -240,9 +238,9 @@ public class g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -281,9 +279,9 @@ public class g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -321,22 +319,22 @@ public class g {
             }
         }
         this.a = new ConcurrentHashMap<>();
-        this.f2785g = new a(this, Looper.getMainLooper());
-        this.f2786h = new e(this);
+        this.f2306g = new a(this, Looper.getMainLooper());
+        this.f2307h = new e(this);
     }
 
     public static g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f2779i == null) {
+            if (i == null) {
                 synchronized (g.class) {
-                    if (f2779i == null) {
-                        f2779i = new g();
+                    if (i == null) {
+                        i = new g();
                     }
                 }
             }
-            return f2779i;
+            return i;
         }
         return (g) invokeV.objValue;
     }
@@ -367,18 +365,18 @@ public class g {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f2780b = str;
+            this.f2301b = str;
         }
     }
 
     public void D(String str, String str2, String str3, String str4, c.a.d.f.n.a aVar, Object... objArr) {
-        c.a.d.f.n.j.a j2;
+        c.a.d.f.n.j.a j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, str4, aVar, objArr}) == null) {
             if (str == null && str2 == null) {
                 return;
             }
-            if ((aVar == null && (objArr == null || objArr.length == 0)) || (j2 = j(str)) == null || !c.a.d.f.n.m.a.o().v(str, str2)) {
+            if ((aVar == null && (objArr == null || objArr.length == 0)) || (j = j(str)) == null || !c.a.d.f.n.m.a.o().v(str, str2)) {
                 return;
             }
             if (aVar == null) {
@@ -390,8 +388,8 @@ public class g {
             if (objArr != null && objArr.length > 0) {
                 aVar.c(objArr);
             }
-            if (this.f2780b != null && !str.equals("stat")) {
-                aVar.b("uid", this.f2780b);
+            if (this.f2301b != null && !str.equals("stat")) {
+                aVar.b("uid", this.f2301b);
             }
             if (str3 != null && !str.equals("stat")) {
                 aVar.b("c_logid", str3);
@@ -410,16 +408,16 @@ public class g {
                     aVar.b("ismainproc", "0");
                 }
             }
-            if (c.a.d.f.n.g.e() && c.a.d.f.n.g.d(j2)) {
-                aVar.d(this.f2784f);
-                j2.c(aVar);
+            if (c.a.d.f.n.g.e() && c.a.d.f.n.g.d(j)) {
+                aVar.d(this.f2305f);
+                j.c(aVar);
             }
             if (c.a.d.f.n.m.a.o().u(str, str2)) {
-                j2.a(aVar);
+                j.a(aVar);
             } else {
-                j2.b(aVar);
+                j.b(aVar);
             }
-            c.a.d.f.n.i.e(j2, aVar);
+            c.a.d.f.n.i.e(j, aVar);
         }
     }
 
@@ -428,12 +426,12 @@ public class g {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             for (Map.Entry<String, c.a.d.f.n.j.a> entry : this.a.entrySet()) {
                 c.a.d.f.n.j.a value = entry.getValue();
-                c.a.d.f.n.b bVar = this.f2781c;
+                c.a.d.f.n.b bVar = this.f2302c;
                 if (bVar != null) {
                     long logUploadTime = bVar.getLogUploadTime(value.o());
                     if (logUploadTime <= 0) {
                         logUploadTime = System.currentTimeMillis();
-                        this.f2781c.setLogUploadTime(value.o(), logUploadTime);
+                        this.f2302c.setLogUploadTime(value.o(), logUploadTime);
                     }
                     value.L(logUploadTime);
                 }
@@ -462,30 +460,30 @@ public class g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f2782d == null) {
-                this.f2782d = new i();
+            if (this.f2303d == null) {
+                this.f2303d = new i();
             }
-            this.f2782d.a();
+            this.f2303d.a();
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Message obtainMessage = this.f2785g.obtainMessage();
+            Message obtainMessage = this.f2306g.obtainMessage();
             obtainMessage.what = 6;
-            this.f2785g.removeMessages(6);
-            this.f2785g.sendMessageDelayed(obtainMessage, 3000L);
+            this.f2306g.removeMessages(6);
+            this.f2306g.sendMessageDelayed(obtainMessage, 3000L);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Message obtainMessage = this.f2785g.obtainMessage();
+            Message obtainMessage = this.f2306g.obtainMessage();
             obtainMessage.what = 6;
-            this.f2785g.removeMessages(6);
-            this.f2785g.sendMessage(obtainMessage);
+            this.f2306g.removeMessages(6);
+            this.f2306g.sendMessage(obtainMessage);
         }
     }
 
@@ -503,15 +501,15 @@ public class g {
                     if ("alert".equals(g2)) {
                         aVar = new c.a.d.f.n.o.a(null);
                     } else if ("error".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.c(this.f2786h);
+                        aVar = new c.a.d.f.n.o.c(this.f2307h);
                     } else if ("dbg".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.b(this.f2786h);
+                        aVar = new c.a.d.f.n.o.b(this.f2307h);
                     } else if ("stat".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.f(this.f2786h);
+                        aVar = new c.a.d.f.n.o.f(this.f2307h);
                     } else if ("pfmonitor".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.e(this.f2786h);
+                        aVar = new c.a.d.f.n.o.e(this.f2307h);
                     } else {
-                        aVar = new c.a.d.f.n.o.c(this.f2786h);
+                        aVar = new c.a.d.f.n.o.c(this.f2307h);
                     }
                     aVar.I(g2);
                     this.a.put(g2, aVar);
@@ -525,20 +523,20 @@ public class g {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2780b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2301b : (String) invokeV.objValue;
     }
 
     public void l(c.a.d.f.n.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            if (this.f2783e == null) {
-                this.f2783e = new f(this, null);
+            if (this.f2304e == null) {
+                this.f2304e = new f(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-                BdBaseApplication.getInst().registerReceiver(this.f2783e, intentFilter);
+                BdBaseApplication.getInst().registerReceiver(this.f2304e, intentFilter);
             }
-            this.f2781c = BdStatisticsManager.getInstance().getBdLogSetting();
-            this.f2784f = dVar;
+            this.f2302c = BdStatisticsManager.getInstance().getBdLogSetting();
+            this.f2305f = dVar;
         }
     }
 
@@ -624,10 +622,10 @@ public class g {
     public void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            c.a.d.f.n.j.a j2 = i().j(str);
-            B(j2);
-            y(j2, false, true);
-            w(j2);
+            c.a.d.f.n.j.a j = i().j(str);
+            B(j);
+            y(j, false, true);
+            w(j);
         }
     }
 

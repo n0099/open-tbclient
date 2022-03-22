@@ -2,6 +2,7 @@ package com.baidu.searchbox.devicescore;
 
 import android.content.Context;
 import android.os.Looper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformanceboxproxy.device.DevicePortraitManagerSingleton;
@@ -54,9 +55,9 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,10 +92,11 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
             if (Float.compare(staticDeviceScore, 0.0f) >= 0) {
                 float floatValue = new BigDecimal(String.valueOf(staticDeviceScore)).setScale(4, RoundingMode.DOWN).floatValue();
                 if (DEBUG) {
-                    String str = "getStaticScoreFloat: " + staticDeviceScore + " float: " + floatValue;
+                    Log.d(TAG, "getStaticScoreFloat: " + staticDeviceScore + " float: " + floatValue);
                 }
                 return floatValue;
             }
+            Log.e(TAG, "getStaticScoreFloat error!");
             return -1.0f;
         }
         return invokeL.floatValue;
@@ -135,7 +137,7 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
             IDynamicScoreManager dynamicScoreManager = DynamicScoreFactory.getDynamicScoreManager(str);
             float score = dynamicScoreManager != null ? dynamicScoreManager.getScore(context) : -1.0f;
             if (DEBUG) {
-                String str2 = "getDynamicScoreByType type:" + str + " score:" + score;
+                Log.d(TAG, "getDynamicScoreByType type:" + str + " score:" + score);
             }
             return score;
         }
@@ -149,7 +151,7 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             if (Float.compare(this.mFloatFinalScore, 0.0f) >= 0) {
                 if (DEBUG) {
-                    String str = "getFloatFinalScore from mem:" + this.mFloatFinalScore;
+                    Log.d(TAG, "getFloatFinalScore from mem:" + this.mFloatFinalScore);
                 }
                 return this.mFloatFinalScore;
             }
@@ -157,13 +159,13 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
             this.mFloatFinalScore = f2;
             if (Float.compare(f2, 0.0f) >= 0) {
                 if (DEBUG) {
-                    String str2 = "getFloatFinalScore from sp:" + this.mFloatFinalScore;
+                    Log.d(TAG, "getFloatFinalScore from sp:" + this.mFloatFinalScore);
                 }
                 return this.mFloatFinalScore;
             }
             this.mFloatFinalScore = getStaticScoreFloat(context);
             if (DEBUG) {
-                String str3 = "getFloatFinalScore:" + this.mFloatFinalScore;
+                Log.d(TAG, "getFloatFinalScore:" + this.mFloatFinalScore);
             }
             updateScore(context);
             return this.mFloatFinalScore;
@@ -198,8 +200,10 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
             float staticScoreFloat = getStaticScoreFloat(context);
             this.mStaticScore = staticScoreFloat;
             if (DEBUG) {
-                Float.compare(staticScoreFloat, 0.0f);
-                String str = "getStaticScore:" + this.mStaticScore;
+                if (Float.compare(staticScoreFloat, 0.0f) < 0) {
+                    Log.e(TAG, "getStaticScore failed!");
+                }
+                Log.d(TAG, "getStaticScore:" + this.mStaticScore);
             }
             return this.mStaticScore;
         }
@@ -234,9 +238,9 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, deviceScoreConfig};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -251,7 +255,7 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             if (DeviceScoreManager.DEBUG) {
-                                String str = "updateConfig:" + this.val$config;
+                                Log.d(DeviceScoreManager.TAG, "updateConfig:" + this.val$config);
                             }
                             DeviceScoreStrategy.updateStrategy(this.val$config);
                         }
@@ -281,9 +285,9 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

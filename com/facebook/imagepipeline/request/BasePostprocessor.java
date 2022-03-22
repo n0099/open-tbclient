@@ -16,7 +16,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BasePostprocessor implements Postprocessor {
     public static /* synthetic */ Interceptable $ic;
     public static final Bitmap.Config FALLBACK_BITMAP_CONFIGURATION;
@@ -43,9 +43,9 @@ public abstract class BasePostprocessor implements Postprocessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

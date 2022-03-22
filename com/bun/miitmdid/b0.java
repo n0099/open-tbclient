@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b0 extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Context f51504i;
+    public Context i;
 
     public b0(Context context) {
         Interceptable interceptable = $ic;
@@ -23,15 +21,15 @@ public class b0 extends m {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51504i = context;
+        this.i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -42,7 +40,7 @@ public class b0 extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            this.f51504i = a(this.f51504i);
+            this.i = a(this.i);
             try {
                 cls = Class.forName("android.app.ZteDeviceIdentifyManager");
             } catch (Exception e2) {
@@ -55,15 +53,15 @@ public class b0 extends m {
                 Constructor<?> declaredConstructor = cls.getDeclaredConstructor(Context.class);
                 if (declaredConstructor != null) {
                     declaredConstructor.setAccessible(true);
-                    obj = declaredConstructor.newInstance(this.f51504i);
+                    obj = declaredConstructor.newInstance(this.i);
                     if (obj != null) {
                         Class<?> cls2 = cls;
                         Object obj2 = obj;
                         gVar.e(new h(cls2, obj2, "isSupported", null, null));
                         gVar.d(null);
-                        gVar.b(new h(cls2, obj2, "getOAID", new Class[]{Context.class}, new Object[]{this.f51504i}));
-                        gVar.c(new h(cls2, obj2, "getVAID", new Class[]{Context.class}, new Object[]{this.f51504i}));
-                        gVar.a(new h(cls2, obj2, "getAAID", new Class[]{Context.class}, new Object[]{this.f51504i}));
+                        gVar.b(new h(cls2, obj2, "getOAID", new Class[]{Context.class}, new Object[]{this.i}));
+                        gVar.c(new h(cls2, obj2, "getVAID", new Class[]{Context.class}, new Object[]{this.i}));
+                        gVar.a(new h(cls2, obj2, "getAAID", new Class[]{Context.class}, new Object[]{this.i}));
                         return gVar;
                     }
                     throw new RuntimeException("get ZteDeviceIdentifyManager object failed");
@@ -88,13 +86,13 @@ public class b0 extends m {
             getAAID();
             if (this.a == null) {
                 e0.d("ZteNewProvider", "doStart: callback Listener is null");
-            } else if (this.f51549g && (str = this.f51546d) != null && !str.isEmpty()) {
+            } else if (this.f37993g && (str = this.f37990d) != null && !str.isEmpty()) {
                 e0.c("ZteNewProvider", "new interface success");
-                a(this.f51546d, this.f51547e, this.f51548f, this.f51549g, this.f51550h);
+                a(this.f37990d, this.f37991e, this.f37992f, this.f37993g, this.f37994h);
             } else {
-                this.f51504i = a(this.f51504i);
+                this.i = a(this.i);
                 e0.c("ZteNewProvider", "try to call old interface");
-                new c0(this.f51504i).doStartInThreadPool(this.a);
+                new c0(this.i).doStartInThreadPool(this.a);
             }
         }
     }

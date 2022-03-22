@@ -23,16 +23,16 @@ public class SingleBarFragment extends BaseFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class SingleBarFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
         }
     }
 
@@ -71,7 +71,7 @@ public class SingleBarFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            layoutInflater.inflate(R.layout.fragment_single_forum, (ViewGroup) null);
+            layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
             return null;
         }
         return (View) invokeLLL.objValue;

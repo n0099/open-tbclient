@@ -40,16 +40,16 @@ public final class RotationType {
         $VALUES = new RotationType[]{ROTATE_0, ROTATE_90, ROTATE_180, rotationType};
     }
 
-    public RotationType(String str, int i2, int i3) {
+    public RotationType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -58,7 +58,7 @@ public final class RotationType {
                 return;
             }
         }
-        this.mDegree = i3;
+        this.mDegree = i2;
     }
 
     public static RotationType valueOf(String str) {

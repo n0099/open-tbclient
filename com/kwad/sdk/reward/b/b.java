@@ -1,5 +1,5 @@
 package com.kwad.sdk.reward.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b {
     String c();
 

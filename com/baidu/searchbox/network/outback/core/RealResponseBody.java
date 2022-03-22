@@ -17,23 +17,23 @@ public final class RealResponseBody extends ResponseBody {
     public final String contentTypeString;
     public final InputStream inputStream;
 
-    public RealResponseBody(@Nullable String str, long j2, InputStream inputStream) {
+    public RealResponseBody(@Nullable String str, long j, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), inputStream};
+            Object[] objArr = {str, Long.valueOf(j), inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.contentTypeString = str;
-        this.contentLength = j2;
+        this.contentLength = j;
         this.inputStream = inputStream;
     }
 

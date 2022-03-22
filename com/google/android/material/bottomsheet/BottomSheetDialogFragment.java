@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BottomSheetDialogFragment extends AppCompatDialogFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean waitingForDismissAllowingStateLoss;
 
     /* renamed from: com.google.android.material.bottomsheet.BottomSheetDialogFragment$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class BottomSheetDismissCallback extends BottomSheetBehavior.BottomSheetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bottomSheetDialogFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,9 +60,9 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         }
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onStateChanged(@NonNull View view, int i2) {
+        public void onStateChanged(@NonNull View view, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) && i2 == 5) {
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) && i == 5) {
                 this.this$0.dismissAfterAnimation();
             }
         }
@@ -77,9 +77,9 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -15,7 +15,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f2964b;
+    public static volatile d f2472b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, a> a;
 
@@ -26,7 +26,7 @@ public class d {
         public ServiceProxy a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Intent f2965b;
+        public Intent f2473b;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
             Interceptable interceptable = $ic;
@@ -35,16 +35,16 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {serviceProxy, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = serviceProxy;
-            this.f2965b = intent;
+            this.f2473b = intent;
         }
     }
 
@@ -53,9 +53,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,14 +69,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2964b == null) {
+            if (f2472b == null) {
                 synchronized (d.class) {
-                    if (f2964b == null) {
-                        f2964b = new d();
+                    if (f2472b == null) {
+                        f2472b = new d();
                     }
                 }
             }
-            return f2964b;
+            return f2472b;
         }
         return (d) invokeV.objValue;
     }

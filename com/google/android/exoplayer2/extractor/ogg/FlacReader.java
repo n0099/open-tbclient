@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FlacReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte AUDIO_PACKET_TYPE = -1;
@@ -30,7 +30,7 @@ public final class FlacReader extends StreamReader {
     public FlacOggSeeker flacOggSeeker;
     public FlacStreamInfo streamInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FlacOggSeeker implements OggSeeker, SeekMap {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int METADATA_LENGTH_OFFSET = 1;
@@ -49,9 +49,9 @@ public final class FlacReader extends StreamReader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flacReader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,10 +77,10 @@ public final class FlacReader extends StreamReader {
         }
 
         @Override // com.google.android.exoplayer2.extractor.SeekMap
-        public long getPosition(long j2) {
+        public long getPosition(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.firstFrameOffset + this.seekPointOffsets[Util.binarySearchFloor(this.seekPointGranules, this.this$0.convertTimeToGranule(j2), true, true)] : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.firstFrameOffset + this.seekPointOffsets[Util.binarySearchFloor(this.seekPointGranules, this.this$0.convertTimeToGranule(j), true, true)] : invokeJ.longValue;
         }
 
         @Override // com.google.android.exoplayer2.extractor.SeekMap
@@ -100,9 +100,9 @@ public final class FlacReader extends StreamReader {
                 int readUnsignedInt24 = parsableByteArray.readUnsignedInt24() / 18;
                 this.seekPointGranules = new long[readUnsignedInt24];
                 this.seekPointOffsets = new long[readUnsignedInt24];
-                for (int i2 = 0; i2 < readUnsignedInt24; i2++) {
-                    this.seekPointGranules[i2] = parsableByteArray.readLong();
-                    this.seekPointOffsets[i2] = parsableByteArray.readLong();
+                for (int i = 0; i < readUnsignedInt24; i++) {
+                    this.seekPointGranules[i] = parsableByteArray.readLong();
+                    this.seekPointOffsets[i] = parsableByteArray.readLong();
                     parsableByteArray.skipBytes(2);
                 }
             }
@@ -113,30 +113,30 @@ public final class FlacReader extends StreamReader {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, extractorInput)) == null) {
-                long j2 = this.pendingSeekGranule;
-                if (j2 >= 0) {
-                    long j3 = -(j2 + 2);
+                long j = this.pendingSeekGranule;
+                if (j >= 0) {
+                    long j2 = -(j + 2);
                     this.pendingSeekGranule = -1L;
-                    return j3;
+                    return j2;
                 }
                 return -1L;
             }
             return invokeL.longValue;
         }
 
-        public void setFirstFrameOffset(long j2) {
+        public void setFirstFrameOffset(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.firstFrameOffset = j2;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.firstFrameOffset = j;
             }
         }
 
         @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
-        public long startSeek(long j2) {
+        public long startSeek(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                long convertTimeToGranule = this.this$0.convertTimeToGranule(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                long convertTimeToGranule = this.this$0.convertTimeToGranule(j);
                 this.pendingSeekGranule = this.seekPointGranules[Util.binarySearchFloor(this.seekPointGranules, convertTimeToGranule, true, true)];
                 return convertTimeToGranule;
             }
@@ -149,9 +149,9 @@ public final class FlacReader extends StreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -160,26 +160,26 @@ public final class FlacReader extends StreamReader {
 
     private int getFlacFrameBlockSize(ParsableByteArray parsableByteArray) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, parsableByteArray)) == null) {
-            int i4 = (parsableByteArray.data[2] & 255) >> 4;
-            switch (i4) {
+            int i3 = (parsableByteArray.data[2] & 255) >> 4;
+            switch (i3) {
                 case 1:
                     return 192;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    i2 = 576;
-                    i3 = i4 - 2;
+                    i = 576;
+                    i2 = i3 - 2;
                     break;
                 case 6:
                 case 7:
                     parsableByteArray.skipBytes(4);
                     parsableByteArray.readUtf8EncodedLong();
-                    int readUnsignedByte = i4 == 6 ? parsableByteArray.readUnsignedByte() : parsableByteArray.readUnsignedShort();
+                    int readUnsignedByte = i3 == 6 ? parsableByteArray.readUnsignedByte() : parsableByteArray.readUnsignedShort();
                     parsableByteArray.setPosition(0);
                     return readUnsignedByte + 1;
                 case 8:
@@ -190,13 +190,13 @@ public final class FlacReader extends StreamReader {
                 case 13:
                 case 14:
                 case 15:
-                    i2 = 256;
-                    i3 = i4 - 8;
+                    i = 256;
+                    i2 = i3 - 8;
                     break;
                 default:
                     return -1;
             }
-            return i2 << i3;
+            return i << i2;
         }
         return invokeL.intValue;
     }
@@ -227,10 +227,10 @@ public final class FlacReader extends StreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public boolean readHeaders(ParsableByteArray parsableByteArray, long j2, StreamReader.SetupData setupData) throws IOException, InterruptedException {
+    public boolean readHeaders(ParsableByteArray parsableByteArray, long j, StreamReader.SetupData setupData) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j2), setupData})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j), setupData})) == null) {
             byte[] bArr = parsableByteArray.data;
             if (this.streamInfo == null) {
                 this.streamInfo = new FlacStreamInfo(bArr, 17);
@@ -249,7 +249,7 @@ public final class FlacReader extends StreamReader {
             } else if (isAudioPacket(bArr)) {
                 FlacOggSeeker flacOggSeeker2 = this.flacOggSeeker;
                 if (flacOggSeeker2 != null) {
-                    flacOggSeeker2.setFirstFrameOffset(j2);
+                    flacOggSeeker2.setFirstFrameOffset(j);
                     setupData.oggSeeker = this.flacOggSeeker;
                 }
                 return false;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ProbeTB implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HOST = "host";
@@ -29,9 +29,9 @@ public class ProbeTB implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,24 +94,24 @@ public class ProbeTB implements Serializable {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.id = i;
         }
     }
 
-    public void setMethod(int i2) {
+    public void setMethod(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.method = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.method = i;
         }
     }
 
-    public void setProtocol(int i2) {
+    public void setProtocol(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.protocol = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.protocol = i;
         }
     }
 

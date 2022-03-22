@@ -9,7 +9,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 import com.kwad.sdk.utils.aj;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends IActivityProxy {
     public static final String FRAGMENTS_TAG = "android:fragments";
     public static final String KEY_START_TIME = "key_start_time";
@@ -66,8 +66,8 @@ public abstract class a extends IActivityProxy {
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void setContentView(int i2) {
-        super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i2, null));
+    public void setContentView(int i) {
+        super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i, null));
     }
 
     public void setEnableDestroyer(boolean z) {

@@ -26,9 +26,9 @@ public class j implements h {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,10 +48,10 @@ public class j implements h {
                 Class<?> componentType = a.getComponentType();
                 Object newInstance = Array.newInstance(componentType, this.a.length());
                 int length = this.a.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    Object a2 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i2)).a(new c.a.d.f.b.b.a.e.c(componentType));
+                for (int i = 0; i < length; i++) {
+                    Object a2 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i)).a(new c.a.d.f.b.b.a.e.c(componentType));
                     if (a2 != null) {
-                        Array.set(newInstance, i2, a2);
+                        Array.set(newInstance, i, a2);
                     }
                 }
                 return newInstance;
@@ -62,8 +62,8 @@ public class j implements h {
                     List<Object> a3 = c.a.d.f.b.b.a.e.a.a(cVar, this.a.length());
                     if (a3 != null) {
                         int length2 = this.a.length();
-                        for (int i3 = 0; i3 < length2; i3++) {
-                            Object a4 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i3)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            Object a4 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i2)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
                             if (a4 != null) {
                                 a3.add(a4);
                             }
@@ -74,8 +74,8 @@ public class j implements h {
                     Set<Object> d2 = c.a.d.f.b.b.a.e.a.d(cVar, this.a.length());
                     if (d2 != null) {
                         int length3 = this.a.length();
-                        for (int i4 = 0; i4 < length3; i4++) {
-                            Object a5 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i4)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
+                        for (int i3 = 0; i3 < length3; i3++) {
+                            Object a5 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i3)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
                             if (a5 != null) {
                                 d2.add(a5);
                             }
@@ -86,10 +86,10 @@ public class j implements h {
                     Map<String, Object> b3 = c.a.d.f.b.b.a.e.a.b(cVar, this.a.length());
                     if (b3 != null) {
                         int length4 = this.a.length();
-                        for (int i5 = 0; i5 < length4; i5++) {
-                            Object a6 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i5)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
+                        for (int i4 = 0; i4 < length4; i4++) {
+                            Object a6 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i4)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
                             if (a6 != null) {
-                                b3.put(String.valueOf(i5), a6);
+                                b3.put(String.valueOf(i4), a6);
                             }
                         }
                     }
@@ -98,8 +98,8 @@ public class j implements h {
                     Queue<Object> c2 = c.a.d.f.b.b.a.e.a.c(cVar, this.a.length());
                     if (c2 != null) {
                         int length5 = this.a.length();
-                        for (int i6 = 0; i6 < length5; i6++) {
-                            Object a7 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i6)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
+                        for (int i5 = 0; i5 < length5; i5++) {
+                            Object a7 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i5)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
                             if (a7 != null) {
                                 c2.add(a7);
                             }
@@ -109,10 +109,10 @@ public class j implements h {
                 } else if (a == SparseArray.class) {
                     SparseArray sparseArray = new SparseArray(this.a.length());
                     int length6 = this.a.length();
-                    for (int i7 = 0; i7 < length6; i7++) {
-                        Object a8 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i7)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
+                    for (int i6 = 0; i6 < length6; i6++) {
+                        Object a8 = c.a.d.f.b.b.a.e.g.a(this.a.opt(i6)).a(new c.a.d.f.b.b.a.e.c(b2[0]));
                         if (a8 != null) {
-                            sparseArray.put(i7, a8);
+                            sparseArray.put(i6, a8);
                         }
                     }
                     return sparseArray;

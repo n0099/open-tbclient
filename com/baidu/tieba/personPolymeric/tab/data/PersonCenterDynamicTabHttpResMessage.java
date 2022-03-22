@@ -1,8 +1,8 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import c.a.q0.r.r.e2;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +16,13 @@ import tbclient.GetShoubaiThreadList.DataRes;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListResIdl;
 import tbclient.GetShoubaiThreadList.PageInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCursor;
     public boolean mHasMore;
-    public List<e2> mThreadDataList;
+    public List<ThreadData> mThreadDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonCenterDynamicTabHttpResMessage() {
@@ -31,9 +31,9 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,10 +47,10 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetShoubaiThreadListResIdl getShoubaiThreadListResIdl = (GetShoubaiThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetShoubaiThreadListResIdl.class);
             if (getShoubaiThreadListResIdl == null || (dataRes = getShoubaiThreadListResIdl.data) == null) {
                 return;
@@ -65,9 +65,9 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             }
             for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                 if (threadInfo != null) {
-                    e2 e2Var = new e2();
-                    e2Var.d3(threadInfo);
-                    this.mThreadDataList.add(e2Var);
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    this.mThreadDataList.add(threadData);
                 }
             }
         }

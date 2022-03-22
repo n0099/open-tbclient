@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -51,13 +51,13 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     public final Map<Bitmap, Object> mOtherEntries;
     public final ValueDescriptor<V> mValueDescriptor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface CacheTrimStrategy {
         double getTrimRatio(MemoryTrimType memoryTrimType);
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +75,9 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
                 newInitContext.initArgs = r2;
                 Object[] objArr = {k, closeableReference, entryStateObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,7 +98,7 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EntryStateObserver<K> {
         void onExclusivityChanged(K k, boolean z);
     }
@@ -126,9 +126,9 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
             newInitContext.initArgs = r2;
             Object[] objArr = {valueDescriptor, cacheTrimStrategy, supplier};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -306,9 +306,9 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, entry};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -370,15 +370,15 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     }
 
     @Nullable
-    private synchronized ArrayList<Entry<K, V>> trimExclusivelyOwnedEntries(int i2, int i3) {
+    private synchronized ArrayList<Entry<K, V>> trimExclusivelyOwnedEntries(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(65554, this, i2, i3)) != null) {
+        if (interceptable != null && (invokeII = interceptable.invokeII(65554, this, i, i2)) != null) {
             return (ArrayList) invokeII.objValue;
         }
         synchronized (this) {
-            int max = Math.max(i2, 0);
-            int max2 = Math.max(i3, 0);
+            int max = Math.max(i, 0);
+            int max2 = Math.max(i2, 0);
             if (this.mExclusiveEntries.getCount() <= max && this.mExclusiveEntries.getSizeInBytes() <= max2) {
                 return null;
             }
@@ -410,9 +410,9 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, valueDescriptor};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

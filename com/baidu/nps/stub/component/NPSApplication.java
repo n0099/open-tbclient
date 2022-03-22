@@ -58,9 +58,9 @@ public class NPSApplication extends Application {
             newInitContext.initArgs = r2;
             Object[] objArr = {application, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,17 +73,17 @@ public class NPSApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public boolean bindIsolatedService(Intent intent, int i2, String str, Executor executor, ServiceConnection serviceConnection) {
+    public boolean bindIsolatedService(Intent intent, int i, String str, Executor executor, ServiceConnection serviceConnection) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{intent, Integer.valueOf(i2), str, executor, serviceConnection})) == null) ? this.mOriginalApplication.bindIsolatedService(intent, i2, str, executor, serviceConnection) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{intent, Integer.valueOf(i), str, executor, serviceConnection})) == null) ? this.mOriginalApplication.bindIsolatedService(intent, i, str, executor, serviceConnection) : invokeCommon.booleanValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, intent, serviceConnection, i2)) == null) ? this.mOriginalApplication.bindService(intent, serviceConnection, i2) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, intent, serviceConnection, i)) == null) ? this.mOriginalApplication.bindService(intent, serviceConnection, i) : invokeLLI.booleanValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -94,10 +94,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkCallingOrSelfUriPermission(Uri uri, int i2) {
+    public int checkCallingOrSelfUriPermission(Uri uri, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, uri, i2)) == null) ? this.mOriginalApplication.checkCallingOrSelfUriPermission(uri, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, uri, i)) == null) ? this.mOriginalApplication.checkCallingOrSelfUriPermission(uri, i) : invokeLI.intValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -108,17 +108,17 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkCallingUriPermission(Uri uri, int i2) {
+    public int checkCallingUriPermission(Uri uri, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, uri, i2)) == null) ? this.mOriginalApplication.checkCallingUriPermission(uri, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, uri, i)) == null) ? this.mOriginalApplication.checkCallingUriPermission(uri, i) : invokeLI.intValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkPermission(String str, int i2, int i3) {
+    public int checkPermission(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, str, i2, i3)) == null) ? this.mOriginalApplication.checkPermission(str, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, str, i, i2)) == null) ? this.mOriginalApplication.checkPermission(str, i, i2) : invokeLII.intValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -130,10 +130,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkUriPermission(Uri uri, int i2, int i3, int i4) {
+    public int checkUriPermission(Uri uri, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, uri, i2, i3, i4)) == null) ? this.mOriginalApplication.checkUriPermission(uri, i2, i3, i4) : invokeLIII.intValue;
+        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, uri, i, i2, i3)) == null) ? this.mOriginalApplication.checkUriPermission(uri, i, i2, i3) : invokeLIII.intValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -175,10 +175,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public Context createPackageContext(String str, int i2) throws PackageManager.NameNotFoundException {
+    public Context createPackageContext(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, str, i2)) == null) ? this.mOriginalApplication.createPackageContext(str, i2) : (Context) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, str, i)) == null) ? this.mOriginalApplication.createPackageContext(str, i) : (Context) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -211,10 +211,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceCallingOrSelfUriPermission(Uri uri, int i2, String str) {
+    public void enforceCallingOrSelfUriPermission(Uri uri, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048597, this, uri, i2, str) == null) {
-            this.mOriginalApplication.enforceCallingOrSelfUriPermission(uri, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048597, this, uri, i, str) == null) {
+            this.mOriginalApplication.enforceCallingOrSelfUriPermission(uri, i, str);
         }
     }
 
@@ -227,26 +227,26 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceCallingUriPermission(Uri uri, int i2, String str) {
+    public void enforceCallingUriPermission(Uri uri, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048599, this, uri, i2, str) == null) {
-            this.mOriginalApplication.enforceCallingUriPermission(uri, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048599, this, uri, i, str) == null) {
+            this.mOriginalApplication.enforceCallingUriPermission(uri, i, str);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforcePermission(String str, int i2, int i3, String str2) {
+    public void enforcePermission(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) {
-            this.mOriginalApplication.enforcePermission(str, i2, i3, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
+            this.mOriginalApplication.enforcePermission(str, i, i2, str2);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceUriPermission(Uri uri, int i2, int i3, int i4, String str) {
+    public void enforceUriPermission(Uri uri, int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
-            this.mOriginalApplication.enforceUriPermission(uri, i2, i3, i4, str);
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            this.mOriginalApplication.enforceUriPermission(uri, i, i2, i3, str);
         }
     }
 
@@ -334,10 +334,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i2) {
+    public File getDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048614, this, str, i2)) == null) ? this.mOriginalApplication.getDir(str, i2) : (File) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048614, this, str, i)) == null) ? this.mOriginalApplication.getDir(str, i) : (File) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -471,10 +471,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i2) {
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048633, this, str, i2)) == null) ? this.mOriginalApplication.getSharedPreferences(str, i2) : (SharedPreferences) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048633, this, str, i)) == null) ? this.mOriginalApplication.getSharedPreferences(str, i) : (SharedPreferences) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -534,10 +534,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void grantUriPermission(String str, Uri uri, int i2) {
+    public void grantUriPermission(String str, Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048640, this, str, uri, i2) == null) {
-            this.mOriginalApplication.grantUriPermission(str, uri, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048640, this, str, uri, i) == null) {
+            this.mOriginalApplication.grantUriPermission(str, uri, i);
         }
     }
 
@@ -572,17 +572,17 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048645, this, str, i2)) == null) ? this.mOriginalApplication.openFileOutput(str, i2) : (FileOutputStream) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048645, this, str, i)) == null) ? this.mOriginalApplication.openFileOutput(str, i) : (FileOutputStream) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048646, this, str, i2, cursorFactory)) == null) ? this.mOriginalApplication.openOrCreateDatabase(str, i2, cursorFactory) : (SQLiteDatabase) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048646, this, str, i, cursorFactory)) == null) ? this.mOriginalApplication.openOrCreateDatabase(str, i, cursorFactory) : (SQLiteDatabase) invokeLIL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -624,10 +624,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void revokeUriPermission(Uri uri, int i2) {
+    public void revokeUriPermission(Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048656, this, uri, i2) == null) {
-            this.mOriginalApplication.revokeUriPermission(uri, i2);
+        if (interceptable == null || interceptable.invokeLI(1048656, this, uri, i) == null) {
+            this.mOriginalApplication.revokeUriPermission(uri, i);
         }
     }
 
@@ -648,10 +648,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
-            this.mOriginalApplication.setTheme(i2);
+        if (interceptable == null || interceptable.invokeI(1048662, this, i) == null) {
+            this.mOriginalApplication.setTheme(i);
         }
     }
 
@@ -695,10 +695,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048671, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mOriginalApplication.startIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048671, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mOriginalApplication.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
@@ -758,57 +758,57 @@ public class NPSApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public void updateServiceGroup(ServiceConnection serviceConnection, int i2, int i3) {
+    public void updateServiceGroup(ServiceConnection serviceConnection, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048680, this, serviceConnection, i2, i3) == null) {
-            this.mOriginalApplication.updateServiceGroup(serviceConnection, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048680, this, serviceConnection, i, i2) == null) {
+            this.mOriginalApplication.updateServiceGroup(serviceConnection, i, i2);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(29)
-    public boolean bindService(Intent intent, int i2, Executor executor, ServiceConnection serviceConnection) {
+    public boolean bindService(Intent intent, int i, Executor executor, ServiceConnection serviceConnection) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i2, executor, serviceConnection)) == null) ? this.mOriginalApplication.bindService(intent, i2, executor, serviceConnection) : invokeLILL.booleanValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, executor, serviceConnection)) == null) ? this.mOriginalApplication.bindService(intent, i, executor, serviceConnection) : invokeLILL.booleanValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public int checkUriPermission(Uri uri, String str, String str2, int i2, int i3, int i4) {
+    public int checkUriPermission(Uri uri, String str, String str2, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{uri, str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? this.mOriginalApplication.checkUriPermission(uri, str, str2, i2, i3, i4) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{uri, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? this.mOriginalApplication.checkUriPermission(uri, str, str2, i, i2, i3) : invokeCommon.intValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void enforceUriPermission(Uri uri, String str, String str2, int i2, int i3, int i4, String str3) {
+    public void enforceUriPermission(Uri uri, String str, String str2, int i, int i2, int i3, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{uri, str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str3}) == null) {
-            this.mOriginalApplication.enforceUriPermission(uri, str, str2, i2, i3, i4, str3);
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{uri, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str3}) == null) {
+            this.mOriginalApplication.enforceUriPermission(uri, str, str2, i, i2, i3, str3);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048647, this, str, i2, cursorFactory, databaseErrorHandler)) == null) ? this.mOriginalApplication.openOrCreateDatabase(str, i2, cursorFactory, databaseErrorHandler) : (SQLiteDatabase) invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048647, this, str, i, cursorFactory, databaseErrorHandler)) == null) ? this.mOriginalApplication.openOrCreateDatabase(str, i, cursorFactory, databaseErrorHandler) : (SQLiteDatabase) invokeLILL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(26)
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int i2) {
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048653, this, broadcastReceiver, intentFilter, i2)) == null) ? this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, i2) : (Intent) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048653, this, broadcastReceiver, intentFilter, i)) == null) ? this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, i) : (Intent) invokeLLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(26)
-    public void revokeUriPermission(String str, Uri uri, int i2) {
+    public void revokeUriPermission(String str, Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048657, this, str, uri, i2) == null) {
-            this.mOriginalApplication.revokeUriPermission(str, uri, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048657, this, str, uri, i) == null) {
+            this.mOriginalApplication.revokeUriPermission(str, uri, i);
         }
     }
 
@@ -821,10 +821,10 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str2, Bundle bundle) {
+    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{intent, str, broadcastReceiver, handler, Integer.valueOf(i2), str2, bundle}) == null) {
-            this.mOriginalApplication.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i2, str2, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{intent, str, broadcastReceiver, handler, Integer.valueOf(i), str2, bundle}) == null) {
+            this.mOriginalApplication.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
         }
     }
 
@@ -860,18 +860,18 @@ public class NPSApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048672, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mOriginalApplication.startIntentSender(intentSender, intent, i2, i3, i4, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048672, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+            this.mOriginalApplication.startIntentSender(intentSender, intent, i, i2, i3, bundle);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @TargetApi(26)
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i2) {
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{broadcastReceiver, intentFilter, str, handler, Integer.valueOf(i2)})) == null) ? this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, str, handler, i2) : (Intent) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{broadcastReceiver, intentFilter, str, handler, Integer.valueOf(i)})) == null) ? this.mOriginalApplication.registerReceiver(broadcastReceiver, intentFilter, str, handler, i) : (Intent) invokeCommon.objValue;
     }
 }

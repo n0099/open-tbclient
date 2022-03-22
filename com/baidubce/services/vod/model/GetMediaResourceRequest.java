@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GetMediaResourceRequest extends VodBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +19,9 @@ public class GetMediaResourceRequest extends VodBceRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,7 +52,7 @@ public class GetMediaResourceRequest extends VodBceRequest {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + StringUtils.LF + "}\n";
+            return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + "\n}\n";
         }
         return (String) invokeV.objValue;
     }

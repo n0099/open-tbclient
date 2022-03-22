@@ -62,9 +62,9 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -173,26 +173,26 @@ public abstract class AbstractTrackEncryptionBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this));
-            int i2 = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
+            int i = ((this.defaultAlgorithmId * 31) + this.defaultIvSize) * 31;
             byte[] bArr = this.default_KID;
-            return i2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
 
-    public void setDefaultAlgorithmId(int i2) {
+    public void setDefaultAlgorithmId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.defaultAlgorithmId = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.defaultAlgorithmId = i;
         }
     }
 
-    public void setDefaultIvSize(int i2) {
+    public void setDefaultIvSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.defaultIvSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.defaultIvSize = i;
         }
     }
 

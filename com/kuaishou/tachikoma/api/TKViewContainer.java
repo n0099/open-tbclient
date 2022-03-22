@@ -51,9 +51,9 @@ public class TKViewContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8AssociateReference};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,14 +70,14 @@ public class TKViewContainer extends FrameLayout {
             return;
         }
         if (view instanceof ViewGroup) {
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 ViewGroup viewGroup = (ViewGroup) view;
-                if (i2 >= viewGroup.getChildCount()) {
+                if (i >= viewGroup.getChildCount()) {
                     break;
                 }
-                dfsDestroyChildren(viewGroup.getChildAt(i2));
-                i2++;
+                dfsDestroyChildren(viewGroup.getChildAt(i));
+                i++;
             }
         }
         TKBase tKBaseFromView = TKBase.getTKBaseFromView(view);
@@ -109,9 +109,9 @@ public class TKViewContainer extends FrameLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iJS2NativeInvoker};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -138,9 +138,9 @@ public class TKViewContainer extends FrameLayout {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, iV8Function};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -213,9 +213,9 @@ public class TKViewContainer extends FrameLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iFunction};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -13,11 +13,11 @@ import kotlin.random.FallbackThreadLocalRandom;
 import kotlin.random.Random;
 import kotlin.text.MatchGroup;
 @Metadata(d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0003\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010 \n\u0002\b\u0002\b\u0010\u0018\u00002\u00020\u0001:\u0001\u0012B\u0005¢\u0006\u0002\u0010\u0002J\u0018\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u0006H\u0016J\b\u0010\b\u001a\u00020\tH\u0016J\u001a\u0010\n\u001a\u0004\u0018\u00010\u000b2\u0006\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\u0016\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00060\u00112\u0006\u0010\u0007\u001a\u00020\u0006H\u0016¨\u0006\u0013"}, d2 = {"Lkotlin/internal/PlatformImplementations;", "", "()V", "addSuppressed", "", "cause", "", "exception", "defaultPlatformRandom", "Lkotlin/random/Random;", "getMatchResultNamedGroup", "Lkotlin/text/MatchGroup;", "matchResult", "Ljava/util/regex/MatchResult;", "name", "", "getSuppressed", "", "ReflectThrowable", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PlatformImplementations {
 
     @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\bÂ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0012\u0010\u0003\u001a\u0004\u0018\u00010\u00048\u0006X\u0087\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006X\u0087\u0004¢\u0006\u0002\n\u0000¨\u0006\u0006"}, d2 = {"Lkotlin/internal/PlatformImplementations$ReflectThrowable;", "", "()V", "addSuppressed", "Ljava/lang/reflect/Method;", "getSuppressed", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ReflectThrowable {
         public static final ReflectThrowable INSTANCE = new ReflectThrowable();
         @JvmField
@@ -34,15 +34,15 @@ public class PlatformImplementations {
             Method[] throwableMethods = Throwable.class.getMethods();
             Intrinsics.checkNotNullExpressionValue(throwableMethods, "throwableMethods");
             int length = throwableMethods.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             while (true) {
                 method = null;
-                if (i3 >= length) {
+                if (i2 >= length) {
                     it = null;
                     break;
                 }
-                it = throwableMethods[i3];
+                it = throwableMethods[i2];
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 if (Intrinsics.areEqual(it.getName(), "addSuppressed")) {
                     Class<?>[] parameterTypes = it.getParameterTypes();
@@ -52,7 +52,7 @@ public class PlatformImplementations {
                         if (!z) {
                             break;
                         }
-                        i3++;
+                        i2++;
                     }
                 }
                 z = false;
@@ -62,16 +62,16 @@ public class PlatformImplementations {
             addSuppressed = it;
             int length2 = throwableMethods.length;
             while (true) {
-                if (i2 >= length2) {
+                if (i >= length2) {
                     break;
                 }
-                Method it2 = throwableMethods[i2];
+                Method it2 = throwableMethods[i];
                 Intrinsics.checkNotNullExpressionValue(it2, "it");
                 if (Intrinsics.areEqual(it2.getName(), "getSuppressed")) {
                     method = it2;
                     break;
                 }
-                i2++;
+                i++;
             }
             getSuppressed = method;
         }

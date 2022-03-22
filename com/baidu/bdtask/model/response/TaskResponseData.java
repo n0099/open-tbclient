@@ -18,7 +18,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000e\b\u0086\b\u0018\u0000 /2\u00020\u0001:\u0001/B/\u0012\b\b\u0002\u0010\u000e\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u000f\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0010\u001a\u00020\b\u0012\b\b\u0002\u0010\u0011\u001a\u00020\u000b¢\u0006\u0004\b-\u0010.J\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0010\u0010\t\u001a\u00020\bHÆ\u0003¢\u0006\u0004\b\t\u0010\nJ\u0010\u0010\f\u001a\u00020\u000bHÆ\u0003¢\u0006\u0004\b\f\u0010\rJ8\u0010\u0012\u001a\u00020\u00002\b\b\u0002\u0010\u000e\u001a\u00020\u00022\b\b\u0002\u0010\u000f\u001a\u00020\u00052\b\b\u0002\u0010\u0010\u001a\u00020\b2\b\b\u0002\u0010\u0011\u001a\u00020\u000bHÆ\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u001a\u0010\u0019\u001a\u00020\u00182\b\u0010\u0017\u001a\u0004\u0018\u00010\u0016HÖ\u0003¢\u0006\u0004\b\u0019\u0010\u001aJ\u0010\u0010\u001b\u001a\u00020\u0002HÖ\u0001¢\u0006\u0004\b\u001b\u0010\u0004J\u000f\u0010\u001c\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u001c\u0010\u001dJ\r\u0010\u001e\u001a\u00020\u0018¢\u0006\u0004\b\u001e\u0010\u001dJ\u000f\u0010 \u001a\u00020\u001fH\u0016¢\u0006\u0004\b \u0010!J\u0010\u0010#\u001a\u00020\"HÖ\u0001¢\u0006\u0004\b#\u0010$R\u0019\u0010\u0011\u001a\u00020\u000b8\u0006@\u0006¢\u0006\f\n\u0004\b\u0011\u0010%\u001a\u0004\b&\u0010\rR\u0019\u0010\u000f\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u000f\u0010'\u001a\u0004\b(\u0010\u0007R\u0019\u0010\u0010\u001a\u00020\b8\u0006@\u0006¢\u0006\f\n\u0004\b\u0010\u0010)\u001a\u0004\b*\u0010\nR\u0019\u0010\u000e\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u000e\u0010+\u001a\u0004\b,\u0010\u0004¨\u00060"}, d2 = {"Lcom/baidu/bdtask/model/response/TaskResponseData;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()I", "Lcom/baidu/bdtask/model/response/TaskProcessData;", "component2", "()Lcom/baidu/bdtask/model/response/TaskProcessData;", "Lcom/baidu/bdtask/model/ui/TaskUIData;", "component3", "()Lcom/baidu/bdtask/model/ui/TaskUIData;", "Lcom/baidu/bdtask/model/response/NextActive;", "component4", "()Lcom/baidu/bdtask/model/response/NextActive;", TaskResponseData.keyUiType, "processData", "ui", TaskResponseData.keyNextActive, "copy", "(ILcom/baidu/bdtask/model/response/TaskProcessData;Lcom/baidu/bdtask/model/ui/TaskUIData;Lcom/baidu/bdtask/model/response/NextActive;)Lcom/baidu/bdtask/model/response/TaskResponseData;", "deepCopy", "()Lcom/baidu/bdtask/model/response/TaskResponseData;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "isEmpty", "()Z", "isLayer", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "toString", "()Ljava/lang/String;", "Lcom/baidu/bdtask/model/response/NextActive;", "getNextActive", "Lcom/baidu/bdtask/model/response/TaskProcessData;", "getProcessData", "Lcom/baidu/bdtask/model/ui/TaskUIData;", "getUi", "I", "getUiType", "<init>", "(ILcom/baidu/bdtask/model/response/TaskProcessData;Lcom/baidu/bdtask/model/ui/TaskUIData;Lcom/baidu/bdtask/model/response/NextActive;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskResponseData implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -35,7 +35,7 @@ public final class TaskResponseData implements ITaskModelData {
     public final TaskUIData ui;
     public final int uiType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public final class TaskResponseData implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -82,9 +82,9 @@ public final class TaskResponseData implements ITaskModelData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), (TaskProcessData) objArr[1], (TaskUIData) objArr[2], (NextActive) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
                 newInitContext.thisArg = this;
@@ -94,41 +94,41 @@ public final class TaskResponseData implements ITaskModelData {
         }
     }
 
-    public TaskResponseData(int i2, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
+    public TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), taskProcessData, taskUIData, nextActive};
+            Object[] objArr = {Integer.valueOf(i), taskProcessData, taskUIData, nextActive};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.uiType = i2;
+        this.uiType = i;
         this.processData = taskProcessData;
         this.ui = taskUIData;
         this.nextActive = nextActive;
     }
 
-    public static /* synthetic */ TaskResponseData copy$default(TaskResponseData taskResponseData, int i2, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = taskResponseData.uiType;
+    public static /* synthetic */ TaskResponseData copy$default(TaskResponseData taskResponseData, int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = taskResponseData.uiType;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             taskProcessData = taskResponseData.processData;
         }
-        if ((i3 & 4) != 0) {
+        if ((i2 & 4) != 0) {
             taskUIData = taskResponseData.ui;
         }
-        if ((i3 & 8) != 0) {
+        if ((i2 & 8) != 0) {
             nextActive = taskResponseData.nextActive;
         }
-        return taskResponseData.copy(i2, taskProcessData, taskUIData, nextActive);
+        return taskResponseData.copy(i, taskProcessData, taskUIData, nextActive);
     }
 
     public final int component1() {
@@ -155,10 +155,10 @@ public final class TaskResponseData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.nextActive : (NextActive) invokeV.objValue;
     }
 
-    public final TaskResponseData copy(int i2, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
+    public final TaskResponseData copy(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), taskProcessData, taskUIData, nextActive})) == null) ? new TaskResponseData(i2, taskProcessData, taskUIData, nextActive) : (TaskResponseData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), taskProcessData, taskUIData, nextActive})) == null) ? new TaskResponseData(i, taskProcessData, taskUIData, nextActive) : (TaskResponseData) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -206,9 +206,9 @@ public final class TaskResponseData implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.uiType * 31;
+            int i = this.uiType * 31;
             TaskProcessData taskProcessData = this.processData;
-            int hashCode = (i2 + (taskProcessData != null ? taskProcessData.hashCode() : 0)) * 31;
+            int hashCode = (i + (taskProcessData != null ? taskProcessData.hashCode() : 0)) * 31;
             TaskUIData taskUIData = this.ui;
             int hashCode2 = (hashCode + (taskUIData != null ? taskUIData.hashCode() : 0)) * 31;
             NextActive nextActive = this.nextActive;
@@ -228,8 +228,8 @@ public final class TaskResponseData implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i2 = this.uiType;
-            return i2 == 2 || i2 == 4;
+            int i = this.uiType;
+            return i == 2 || i == 4;
         }
         return invokeV.booleanValue;
     }
@@ -258,20 +258,20 @@ public final class TaskResponseData implements ITaskModelData {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ TaskResponseData(int i2, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+    public /* synthetic */ TaskResponseData(int i, TaskProcessData taskProcessData, TaskUIData taskUIData, NextActive nextActive, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         TaskResponseData taskResponseData;
         NextActive nextActive2;
-        int i4 = (i3 & 1) != 0 ? -1 : i2;
-        TaskProcessData taskProcessData2 = (i3 & 2) != 0 ? new TaskProcessData(0, 0, false, 7, null) : taskProcessData;
-        TaskUIData taskUIData2 = (i3 & 4) != 0 ? new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null) : taskUIData;
-        if ((i3 & 8) != 0) {
+        int i3 = (i2 & 1) != 0 ? -1 : i;
+        TaskProcessData taskProcessData2 = (i2 & 2) != 0 ? new TaskProcessData(0, 0, false, 7, null) : taskProcessData;
+        TaskUIData taskUIData2 = (i2 & 4) != 0 ? new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null) : taskUIData;
+        if ((i2 & 8) != 0) {
             nextActive2 = new NextActive(0L, null, 3, null);
             taskResponseData = this;
         } else {
             taskResponseData = this;
             nextActive2 = nextActive;
         }
-        new TaskResponseData(i4, taskProcessData2, taskUIData2, nextActive2);
+        new TaskResponseData(i3, taskProcessData2, taskUIData2, nextActive2);
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData

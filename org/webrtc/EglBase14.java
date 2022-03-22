@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EglBase14 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CURRENT_SDK_VERSION;
@@ -35,7 +35,7 @@ public class EglBase14 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public class EglBase14 implements EglBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eGLContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -91,9 +91,9 @@ public class EglBase14 implements EglBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -223,17 +223,17 @@ public class EglBase14 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void createPbufferSurface(int i2, int i3) {
+    public void createPbufferSurface(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             checkIsNotReleased();
             if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, 12344}, 0);
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i, 12374, i2, 12344}, 0);
                 this.eglSurface = eglCreatePbufferSurface;
                 if (eglCreatePbufferSurface != EGL14.EGL_NO_SURFACE) {
                     return;
                 }
-                throw new RuntimeException("Failed to create pixel buffer surface with size " + i2 + "x" + i3 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
+                throw new RuntimeException("Failed to create pixel buffer surface with size " + i + "x" + i2 + ": 0x" + Integer.toHexString(EGL14.eglGetError()));
             }
             throw new RuntimeException("Already has an EGLSurface");
         }
@@ -366,13 +366,13 @@ public class EglBase14 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void swapBuffers(long j2) {
+    public void swapBuffers(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             checkIsNotReleased();
             if (this.eglSurface != EGL14.EGL_NO_SURFACE) {
                 synchronized (EglBase.lock) {
-                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j2);
+                    EGLExt.eglPresentationTimeANDROID(this.eglDisplay, this.eglSurface, j);
                     EGL14.eglSwapBuffers(this.eglDisplay, this.eglSurface);
                 }
                 return;

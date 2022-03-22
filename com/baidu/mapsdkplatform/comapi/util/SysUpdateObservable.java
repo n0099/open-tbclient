@@ -16,23 +16,23 @@ public class SysUpdateObservable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SysUpdateObserver> f34721b;
+    public List<SysUpdateObserver> f26899b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34721b = null;
-        this.f34721b = new ArrayList();
+        this.f26899b = null;
+        this.f26899b = new ArrayList();
     }
 
     public static SysUpdateObservable getInstance() {
@@ -54,14 +54,14 @@ public class SysUpdateObservable {
     public void addObserver(SysUpdateObserver sysUpdateObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sysUpdateObserver) == null) {
-            this.f34721b.add(sysUpdateObserver);
+            this.f26899b.add(sysUpdateObserver);
         }
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f34721b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.init();
                 }
@@ -72,7 +72,7 @@ public class SysUpdateObservable {
     public void updateNetworkInfo(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f34721b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkInfo(context);
                 }
@@ -83,7 +83,7 @@ public class SysUpdateObservable {
     public void updateNetworkProxy(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f34721b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkProxy(context);
                 }
@@ -94,7 +94,7 @@ public class SysUpdateObservable {
     public void updatePhoneInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f34721b) {
+            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updatePhoneInfo();
                 }

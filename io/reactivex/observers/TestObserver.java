@@ -54,16 +54,16 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             $VALUES = new EmptyObserver[]{emptyObserver};
         }
 
-        public EmptyObserver(String str, int i2) {
+        public EmptyObserver(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -121,9 +121,9 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Observer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -138,14 +138,14 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new TestObserver<>() : (TestObserver) invokeV.objValue;
     }
 
-    public static String fusionModeToString(int i2) {
+    public static String fusionModeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return "Unknown(" + i2 + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return "Unknown(" + i + SmallTailInfo.EMOTION_SUFFIX;
                     }
                     return "ASYNC";
                 }
@@ -168,14 +168,14 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         return (TestObserver) invokeV.objValue;
     }
 
-    public final TestObserver<T> assertFusionMode(int i2) {
+    public final TestObserver<T> assertFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.establishedFusionMode;
-            if (i3 != i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.establishedFusionMode;
+            if (i2 != i) {
                 if (this.qs != null) {
-                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i2) + ", actual: " + fusionModeToString(i3));
+                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i) + ", actual: " + fusionModeToString(i2));
                 }
                 throw fail("Upstream is not fuseable");
             }
@@ -337,11 +337,11 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
                     this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + disposable));
                 }
             } else {
-                int i2 = this.initialFusionMode;
-                if (i2 != 0 && (disposable instanceof QueueDisposable)) {
+                int i = this.initialFusionMode;
+                if (i != 0 && (disposable instanceof QueueDisposable)) {
                     QueueDisposable<T> queueDisposable = (QueueDisposable) disposable;
                     this.qs = queueDisposable;
-                    int requestFusion = queueDisposable.requestFusion(i2);
+                    int requestFusion = queueDisposable.requestFusion(i);
                     this.establishedFusionMode = requestFusion;
                     if (requestFusion == 1) {
                         this.checkSubscriptionOnce = true;
@@ -377,11 +377,11 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
         }
     }
 
-    public final TestObserver<T> setInitialFusionMode(int i2) {
+    public final TestObserver<T> setInitialFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            this.initialFusionMode = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.initialFusionMode = i;
             return this;
         }
         return (TestObserver) invokeI.objValue;
@@ -394,9 +394,9 @@ public class TestObserver<T> extends BaseTestConsumer<T, TestObserver<T>> implem
             newInitContext.initArgs = r2;
             Object[] objArr = {observer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -8,9 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.r0.h2.c.k.d;
+import c.a.p0.j2.c.b.d;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
@@ -23,33 +22,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f34449b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34450c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44427e;
+    public ImageView f34452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f44428f;
+    public d f34453f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44429g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f44430h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f44431i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public d f44432j;
-    public View.OnClickListener k;
+    public View.OnClickListener f34454g;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CategoryView f44433e;
+        public final /* synthetic */ CategoryView a;
 
         public a(CategoryView categoryView) {
             Interceptable interceptable = $ic;
@@ -58,32 +55,32 @@ public class CategoryView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {categoryView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44433e = categoryView;
+            this.a = categoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f44433e.f44432j == null || StringUtils.isNull(this.f44433e.f44432j.d()) || StringUtils.isNull(this.f44433e.f44432j.c())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.a.f34453f == null || StringUtils.isNull(this.a.f34453f.c()) || StringUtils.isNull(this.a.f34453f.b())) {
                 return;
             }
-            int b2 = this.f44433e.f44432j.b();
-            if (b2 == 1) {
+            int a = this.a.f34453f.a();
+            if (a == 1) {
                 TiebaStatic.log("c10441");
-            } else if (b2 == 2) {
+            } else if (a == 2) {
                 TiebaStatic.log("c10443");
-            } else if (b2 == 3) {
+            } else if (a == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(this.f44433e.f44427e), new String[]{this.f44433e.f44432j.d()});
+            MemberCenterStatic.a((TbPageContext) j.a(this.a.a), new String[]{this.a.f34453f.c()});
         }
     }
 
@@ -96,58 +93,30 @@ public class CategoryView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new a(this);
-        this.f44427e = context;
+        this.f34454g = new a(this);
+        this.a = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f44427e).inflate(R.layout.index_category, this);
-            this.f44428f = inflate;
-            this.f44429g = (TextView) inflate.findViewById(R.id.class_name);
-            this.f44430h = (TextView) this.f44428f.findViewById(R.id.sprend_name);
-            this.f44431i = (ImageView) this.f44428f.findViewById(R.id.spread_icon);
-            this.f44428f.setOnClickListener(this.k);
-            this.f44431i.setOnClickListener(this.k);
-        }
-    }
-
-    public void fillView(d dVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || dVar == null) {
-            return;
-        }
-        this.f44432j = dVar;
-        this.f44429g.setText(dVar.a());
-        if (StringUtils.isNull(dVar.d())) {
-            this.f44431i.setVisibility(8);
-            this.f44430h.setVisibility(8);
-            return;
-        }
-        if (StringUtils.isNull(dVar.c())) {
-            this.f44430h.setVisibility(8);
-        } else {
-            this.f44430h.setVisibility(0);
-            this.f44430h.setText(dVar.c());
-        }
-        this.f44431i.setVisibility(0);
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.q0.w0.a.a((TbPageContext) j.a(this.f44427e), this.f44428f);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e3, this);
+            this.f34449b = inflate;
+            this.f34450c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09064f);
+            this.f34451d = (TextView) this.f34449b.findViewById(R.id.obfuscated_res_0x7f091d65);
+            this.f34452e = (ImageView) this.f34449b.findViewById(R.id.obfuscated_res_0x7f091d63);
+            this.f34449b.setOnClickListener(this.f34454g);
+            this.f34452e.setOnClickListener(this.f34454g);
         }
     }
 
@@ -160,9 +129,9 @@ public class CategoryView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -170,23 +139,23 @@ public class CategoryView extends LinearLayout {
                 return;
             }
         }
-        this.k = new a(this);
-        this.f44427e = context;
+        this.f34454g = new a(this);
+        this.a = context;
         c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CategoryView(Context context, AttributeSet attributeSet, int i2) {
+    public CategoryView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -194,8 +163,8 @@ public class CategoryView extends LinearLayout {
                 return;
             }
         }
-        this.k = new a(this);
-        this.f44427e = context;
+        this.f34454g = new a(this);
+        this.a = context;
         c();
     }
 }

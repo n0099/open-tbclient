@@ -24,25 +24,25 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
     public String quanping;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseNewFriendUpdateUiMsg(int i2, long j2, String str, String str2, String str3, String str4) {
+    public ResponseNewFriendUpdateUiMsg(int i, long j, String str, String str2, String str3, String str4) {
         super(2001174);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), str, str2, str3, str4};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.action = i2;
-        this.friendId = j2;
+        this.action = i;
+        this.friendId = j;
         this.portrait = str;
         this.name = str2;
         this.key = str3;
@@ -91,10 +91,10 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.quanping : (String) invokeV.objValue;
     }
 
-    public void setAction(int i2) {
+    public void setAction(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.action = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.action = i;
         }
     }
 
@@ -105,10 +105,10 @@ public class ResponseNewFriendUpdateUiMsg extends CustomResponsedMessage<Object>
         }
     }
 
-    public void setFriendId(long j2) {
+    public void setFriendId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.friendId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.friendId = j;
         }
     }
 

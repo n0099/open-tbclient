@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class ReferenceDisposable<T> extends AtomicReference<T> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6537757548749041217L;
@@ -24,9 +24,9 @@ public abstract class ReferenceDisposable<T> extends AtomicReference<T> implemen
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double BITRATE_ADJUSTMENT_MAX_SCALE = 4.0d;
@@ -23,9 +23,9 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,17 +46,17 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
-    public void reportEncodedFrame(int i2) {
-        int i3;
+    public void reportEncodedFrame(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (i3 = this.targetFps) == 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (i2 = this.targetFps) == 0) {
             return;
         }
-        int i4 = this.targetBitrateBps;
-        double d2 = this.deviationBytes + (i2 - ((i4 / 8.0d) / i3));
+        int i3 = this.targetBitrateBps;
+        double d2 = this.deviationBytes + (i - ((i3 / 8.0d) / i2));
         this.deviationBytes = d2;
-        this.timeSinceLastAdjustmentMs += 1000.0d / i3;
-        double d3 = i4 / 8.0d;
+        this.timeSinceLastAdjustmentMs += 1000.0d / i2;
+        double d3 = i3 / 8.0d;
         double d4 = 3.0d * d3;
         double min = Math.min(d2, d4);
         this.deviationBytes = min;
@@ -66,16 +66,16 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
             return;
         }
         if (max > d3) {
-            int i5 = this.bitrateAdjustmentScaleExp - ((int) ((max / d3) + 0.5d));
-            this.bitrateAdjustmentScaleExp = i5;
-            this.bitrateAdjustmentScaleExp = Math.max(i5, -20);
+            int i4 = this.bitrateAdjustmentScaleExp - ((int) ((max / d3) + 0.5d));
+            this.bitrateAdjustmentScaleExp = i4;
+            this.bitrateAdjustmentScaleExp = Math.max(i4, -20);
             this.deviationBytes = d3;
         } else {
             double d5 = -d3;
             if (max < d5) {
-                int i6 = this.bitrateAdjustmentScaleExp + ((int) (((-max) / d3) + 0.5d));
-                this.bitrateAdjustmentScaleExp = i6;
-                this.bitrateAdjustmentScaleExp = Math.min(i6, 20);
+                int i5 = this.bitrateAdjustmentScaleExp + ((int) (((-max) / d3) + 0.5d));
+                this.bitrateAdjustmentScaleExp = i5;
+                this.bitrateAdjustmentScaleExp = Math.min(i5, 20);
                 this.deviationBytes = d5;
             }
         }
@@ -83,14 +83,14 @@ public class DynamicBitrateAdjuster extends BaseBitrateAdjuster {
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
-    public void setTargets(int i2, int i3) {
+    public void setTargets(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int i4 = this.targetBitrateBps;
-            if (i4 > 0 && i2 < i4) {
-                this.deviationBytes = (this.deviationBytes * i2) / i4;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            int i3 = this.targetBitrateBps;
+            if (i3 > 0 && i < i3) {
+                this.deviationBytes = (this.deviationBytes * i) / i3;
             }
-            super.setTargets(i2, i3);
+            super.setTargets(i, i2);
         }
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.searchbox.player.ubc;
 /* loaded from: classes4.dex */
 public interface IPlayerStatisticsDispatcher {
-    void end(int i2);
+    void end(int i);
 
     void endInitPlayer();
 
     void endInitPlayerKernel();
 
-    void goBackOrForeground(boolean z, int i2);
+    void goBackOrForeground(boolean z, int i);
 
-    void onError(int i2, int i3, Object obj);
+    void onError(int i, int i2, Object obj);
 
-    void onInfo(int i2, int i3, Object obj);
+    void onInfo(int i, int i2, Object obj);
 
     void pause();
 
@@ -25,5 +25,5 @@ public interface IPlayerStatisticsDispatcher {
 
     void startInitPlayerKernel();
 
-    void stop(int i2);
+    void stop(int i);
 }

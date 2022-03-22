@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class x extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59217b;
+    public long f43852b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x() {
@@ -26,9 +26,9 @@ public final class x extends com.vivo.push.o {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,7 +49,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f59217b);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f43852b);
         }
     }
 
@@ -58,7 +58,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
-            this.f59217b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f59217b);
+            this.f43852b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f43852b);
         }
     }
 
@@ -67,30 +67,30 @@ public final class x extends com.vivo.push.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ReporterCommand（" + this.f59217b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.f43852b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x(long j2) {
+    public x(long j) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f59217b = j2;
+        this.f43852b = j;
     }
 
     public final void d() {
@@ -101,7 +101,7 @@ public final class x extends com.vivo.push.o {
                 return;
             }
             StringBuilder sb = new StringBuilder("report message reportType:");
-            sb.append(this.f59217b);
+            sb.append(this.f43852b);
             sb.append(",msgId:");
             String str = this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {

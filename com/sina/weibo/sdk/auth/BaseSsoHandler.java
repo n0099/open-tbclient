@@ -32,7 +32,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseSsoHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
@@ -45,7 +45,7 @@ public class BaseSsoHandler {
     public int ssoRequestType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class AuthType {
         public static final /* synthetic */ AuthType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,16 +74,16 @@ public class BaseSsoHandler {
             $VALUES = new AuthType[]{ALL, SsoOnly, authType};
         }
 
-        public AuthType(String str, int i2) {
+        public AuthType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -113,9 +113,9 @@ public class BaseSsoHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -135,11 +135,11 @@ public class BaseSsoHandler {
         }
     }
 
-    public void authorizeCallBack(int i2, int i3, Intent intent) {
+    public void authorizeCallBack(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) && 32973 == i2) {
-            if (i3 != -1) {
-                if (i3 == 0) {
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) && 32973 == i) {
+            if (i2 != -1) {
+                if (i2 == 0) {
                     this.authListener.cancel();
                     return;
                 }
@@ -186,9 +186,9 @@ public class BaseSsoHandler {
         }
     }
 
-    public void fillExtraIntent(Intent intent, int i2) {
+    public void fillExtraIntent(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
         }
     }
 
@@ -206,9 +206,9 @@ public class BaseSsoHandler {
         }
     }
 
-    public void startClientAuth(int i2) {
+    public void startClientAuth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             try {
                 WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
                 Intent intent = new Intent();
@@ -221,7 +221,7 @@ public class BaseSsoHandler {
                     this.authListener.onFailure(new WbConnectErrorMessage(WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_MESSAGE, WbAuthConstants.AUTH_FAILED_INSTALL_APP_COUNTERFEIT_CODE));
                     return;
                 }
-                fillExtraIntent(intent, i2);
+                fillExtraIntent(intent, i);
                 try {
                     ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
                 } catch (Exception unused) {
@@ -241,9 +241,9 @@ public class BaseSsoHandler {
             AuthInfo authInfo = WbSdk.getAuthInfo();
             WeiboParameters weiboParameters = new WeiboParameters(authInfo.getAppKey());
             weiboParameters.put("client_id", authInfo.getAppKey());
-            weiboParameters.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, authInfo.getRedirectUrl());
+            weiboParameters.put("redirect_uri", authInfo.getRedirectUrl());
             weiboParameters.put("scope", authInfo.getScope());
-            weiboParameters.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "code");
+            weiboParameters.put("response_type", "code");
             weiboParameters.put("version", WbSdkVersion.WEIBO_SDK_VERSION_CODE);
             weiboParameters.put("luicode", "10000360");
             Oauth2AccessToken readAccessToken = AccessTokenKeeper.readAccessToken(this.mAuthActivity);
@@ -280,9 +280,9 @@ public class BaseSsoHandler {
         }
     }
 
-    private void authorize(int i2, WbAuthListener wbAuthListener, AuthType authType) {
+    private void authorize(int i, WbAuthListener wbAuthListener, AuthType authType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, this, i2, wbAuthListener, authType) == null) {
+        if (interceptable == null || interceptable.invokeILL(65538, this, i, wbAuthListener, authType) == null) {
             resetIntentFillData();
             if (wbAuthListener != null) {
                 this.authListener = wbAuthListener;
@@ -293,7 +293,7 @@ public class BaseSsoHandler {
                 boolean z = authType == AuthType.SsoOnly;
                 WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.mAuthActivity).getWbAppInfo();
                 if (isWbAppInstalled() && wbAppInfo != null) {
-                    startClientAuth(i2);
+                    startClientAuth(i);
                     return;
                 } else if (z) {
                     this.authListener.onFailure(new WbConnectErrorMessage());
@@ -314,9 +314,9 @@ public class BaseSsoHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -19,9 +19,9 @@ public class a extends com.baidu.ar.d.b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,10 +53,10 @@ public class a extends com.baidu.ar.d.b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.me : invokeV.intValue;
     }
 
-    public void setDegree(int i2) {
+    public void setDegree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.me = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.me = i;
         }
     }
 

@@ -22,7 +22,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PluginContext extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class PluginContext extends e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -237,9 +237,9 @@ public class PluginContext extends e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, plugin2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

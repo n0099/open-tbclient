@@ -1,12 +1,12 @@
 package com.baidu.sapi2.common;
 
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.IWalletLoginListener;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LoginHistoryModel implements NoProguard {
@@ -26,9 +26,9 @@ public class LoginHistoryModel implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -48,8 +48,8 @@ public class LoginHistoryModel implements NoProguard {
             loginHistoryModel.username = jSONObject.optString("username");
             loginHistoryModel.portrait = jSONObject.optString("portrait");
             loginHistoryModel.portraitSign = jSONObject.optString("portraitSign");
-            loginHistoryModel.recent = jSONObject.optBoolean("recent");
-            loginHistoryModel.loginType = jSONObject.optString(IWalletLoginListener.KEY_LOGIN_TYPE);
+            loginHistoryModel.recent = jSONObject.optBoolean(Config.TRACE_VISIT_RECENT);
+            loginHistoryModel.loginType = jSONObject.optString("loginType");
             loginHistoryModel.bduss = jSONObject.optString("bduss");
             return loginHistoryModel;
         }

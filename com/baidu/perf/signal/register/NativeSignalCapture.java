@@ -1,8 +1,8 @@
 package com.baidu.perf.signal.register;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.a.a;
-import c.a.e0.a.a.b;
+import c.a.d0.a.a.a;
+import c.a.d0.a.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,9 +45,9 @@ public class NativeSignalCapture {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -94,35 +94,35 @@ public class NativeSignalCapture {
 
     public static native int makeNativeCrash();
 
-    public static final void onNativeANR(int i2) {
+    public static final void onNativeANR(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65543, null, i2) == null) || sANRListeners == null) {
+        if (!(interceptable == null || interceptable.invokeI(65543, null, i) == null) || sANRListeners == null) {
             return;
         }
         synchronized (sANRMutex) {
             Iterator<a> it = sANRListeners.iterator();
             while (it.hasNext()) {
-                it.next().onNativeANR(i2);
+                it.next().onNativeANR(i);
             }
         }
     }
 
-    public static final void onNativeException(int i2, int i3, int i4) {
+    public static final void onNativeException(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(65544, null, i2, i3, i4) == null) || sExceptionListeners == null) {
+        if (!(interceptable == null || interceptable.invokeIII(65544, null, i, i2, i3) == null) || sExceptionListeners == null) {
             return;
         }
         synchronized (sExceptionMutex) {
             Iterator<b> it = sExceptionListeners.iterator();
             while (it.hasNext()) {
-                it.next().a(i2, i3, i4);
+                it.next().a(i, i2, i3);
             }
         }
     }
 
-    public static native int registerANR(int i2);
+    public static native int registerANR(int i);
 
-    public static native int registerException(int i2);
+    public static native int registerException(int i);
 
     public static void removeANRListener(a aVar) {
         Interceptable interceptable = $ic;

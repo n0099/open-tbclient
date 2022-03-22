@@ -4,11 +4,11 @@ import com.facebook.imageformat.ImageFormat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface WebpTranscoder {
     boolean isWebpNativelySupported(ImageFormat imageFormat);
 
-    void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException;
+    void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
 
     void transcodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
 }

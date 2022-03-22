@@ -7,17 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.sdk.base.framework.c.f;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.i.e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57829b;
+    public static boolean f42596b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +32,7 @@ public class e extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f57829b = f.f57798b;
+        f42596b = f.f42567b;
     }
 
     public e() {
@@ -41,9 +40,9 @@ public class e extends com.sdk.base.framework.f.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,7 +70,7 @@ public class e extends com.sdk.base.framework.f.a {
                 }
                 return sb.toString();
             } catch (Exception e2) {
-                com.sdk.base.framework.f.a.a(a, LightappBusinessClient.MTD_ENCRYPT, e2.getMessage(), f57829b);
+                com.sdk.base.framework.f.a.a(a, "encrypt", e2.getMessage(), f42596b);
                 return null;
             }
         }

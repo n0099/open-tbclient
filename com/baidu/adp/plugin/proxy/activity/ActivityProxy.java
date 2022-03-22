@@ -73,9 +73,9 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,15 +98,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, serviceConnection, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, serviceConnection, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.bindService(intent, serviceConnection, i2);
+                return pluginBaseActivity.bindService(intent, serviceConnection, i);
             }
-            return super.bindService(intent, serviceConnection, i2);
+            return super.bindService(intent, serviceConnection, i);
         }
         return invokeLLI.booleanValue;
     }
@@ -138,15 +138,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public PendingIntent createPendingResult(int i2, Intent intent, int i3) {
+    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), intent, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.createPendingResult(i2, intent, i3);
+                return pluginBaseActivity.createPendingResult(i, intent, i2);
             }
-            return super.createPendingResult(i2, intent, i3);
+            return super.createPendingResult(i, intent, i2);
         }
         return (PendingIntent) invokeCommon.objValue;
     }
@@ -243,15 +243,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public View findViewById(int i2) {
+    public View findViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.findViewById(i2);
+                return pluginBaseActivity.findViewById(i);
             }
-            return super.findViewById(i2);
+            return super.findViewById(i);
         }
         return (View) invokeI.objValue;
     }
@@ -270,27 +270,27 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void finishActivity(int i2) {
+    public void finishActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.finishActivity(i2);
+                pluginBaseActivity.finishActivity(i);
             } else {
-                super.finishActivity(i2);
+                super.finishActivity(i);
             }
         }
     }
 
     @Override // android.app.Activity
-    public void finishActivityFromChild(Activity activity, int i2) {
+    public void finishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048591, this, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048591, this, activity, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.finishActivityFromChild(activity, i2);
+                pluginBaseActivity.finishActivityFromChild(activity, i);
             } else {
-                super.finishActivityFromChild(activity, i2);
+                super.finishActivityFromChild(activity, i);
             }
         }
     }
@@ -501,15 +501,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public SharedPreferences getPreferences(int i2) {
+    public SharedPreferences getPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.getPreferences(i2);
+                return pluginBaseActivity.getPreferences(i);
             }
-            return super.getPreferences(i2);
+            return super.getPreferences(i);
         }
         return (SharedPreferences) invokeI.objValue;
     }
@@ -550,15 +550,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i2) {
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048611, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048611, this, str, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.getSharedPreferences(str, i2);
+                return pluginBaseActivity.getSharedPreferences(str, i);
             }
-            return super.getSharedPreferences(str, i2);
+            return super.getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }
@@ -808,28 +808,28 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048628, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048628, this, i, i2, intent) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
                 Class cls = Integer.TYPE;
-                d.k(pluginBaseActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent});
+                d.k(pluginBaseActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
                 return;
             }
-            super.onActivityResult(i2, i3, intent);
+            super.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                d.k(pluginBaseActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)});
+                d.k(pluginBaseActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
             } else {
-                super.onApplyThemeResource(theme, i2, z);
+                super.onApplyThemeResource(theme, i, z);
             }
         }
     }
@@ -963,40 +963,40 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public Dialog onCreateDialog(int i2) {
+    public Dialog onCreateDialog(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048641, this, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
-            return pluginBaseActivity != null ? (Dialog) d.k(pluginBaseActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i2)}) : super.onCreateDialog(i2);
+            return pluginBaseActivity != null ? (Dialog) d.k(pluginBaseActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
         }
         return (Dialog) invokeI.objValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i2, Menu menu) {
+    public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048642, this, i2, menu)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048642, this, i, menu)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onCreatePanelMenu(i2, menu);
+                return pluginBaseActivity.onCreatePanelMenu(i, menu);
             }
-            return super.onCreatePanelMenu(i2, menu);
+            return super.onCreatePanelMenu(i, menu);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public View onCreatePanelView(int i2) {
+    public View onCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onCreatePanelView(i2);
+                return pluginBaseActivity.onCreatePanelView(i);
             }
-            return super.onCreatePanelView(i2);
+            return super.onCreatePanelView(i);
         }
         return (View) invokeI.objValue;
     }
@@ -1056,57 +1056,57 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048649, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048649, this, i, keyEvent)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onKeyDown(i2, keyEvent);
+                return pluginBaseActivity.onKeyDown(i, keyEvent);
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048650, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048650, this, i, keyEvent)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onKeyLongPress(i2, keyEvent);
+                return pluginBaseActivity.onKeyLongPress(i, keyEvent);
             }
-            return super.onKeyLongPress(i2, keyEvent);
+            return super.onKeyLongPress(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048651, this, i2, i3, keyEvent)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048651, this, i, i2, keyEvent)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onKeyMultiple(i2, i3, keyEvent);
+                return pluginBaseActivity.onKeyMultiple(i, i2, keyEvent);
             }
-            return super.onKeyMultiple(i2, i3, keyEvent);
+            return super.onKeyMultiple(i, i2, keyEvent);
         }
         return invokeIIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048652, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048652, this, i, keyEvent)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onKeyUp(i2, keyEvent);
+                return pluginBaseActivity.onKeyUp(i, keyEvent);
             }
-            return super.onKeyUp(i2, keyEvent);
+            return super.onKeyUp(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -1125,29 +1125,29 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048654, this, i2, menuItem)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048654, this, i, menuItem)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onMenuItemSelected(i2, menuItem);
+                return pluginBaseActivity.onMenuItemSelected(i, menuItem);
             }
-            return super.onMenuItemSelected(i2, menuItem);
+            return super.onMenuItemSelected(i, menuItem);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i2, Menu menu) {
+    public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048655, this, i2, menu)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048655, this, i, menu)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onMenuOpened(i2, menu);
+                return pluginBaseActivity.onMenuOpened(i, menu);
             }
-            return super.onMenuOpened(i2, menu);
+            return super.onMenuOpened(i, menu);
         }
         return invokeIL.booleanValue;
     }
@@ -1193,14 +1193,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i2, Menu menu) {
+    public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048659, this, i2, menu) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048659, this, i, menu) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.onPanelClosed(i2, menu);
+                pluginBaseActivity.onPanelClosed(i, menu);
             } else {
-                super.onPanelClosed(i2, menu);
+                super.onPanelClosed(i, menu);
             }
         }
     }
@@ -1255,14 +1255,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void onPrepareDialog(int i2, Dialog dialog) {
+    public void onPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048664, this, i2, dialog) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048664, this, i, dialog) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.onPrepareDialog(i2, dialog);
+                pluginBaseActivity.onPrepareDialog(i, dialog);
             } else {
-                super.onPrepareDialog(i2, dialog);
+                super.onPrepareDialog(i, dialog);
             }
         }
     }
@@ -1282,15 +1282,15 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i2, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048666, this, i2, view, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048666, this, i, view, menu)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.onPreparePanel(i2, view, menu);
+                return pluginBaseActivity.onPreparePanel(i, view, menu);
             }
-            return super.onPreparePanel(i2, view, menu);
+            return super.onPreparePanel(i, view, menu);
         }
         return invokeILL.booleanValue;
     }
@@ -1388,14 +1388,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i2) {
+    public void onTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048674, this, charSequence, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048674, this, charSequence, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                d.k(pluginBaseActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i2)});
+                d.k(pluginBaseActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
             } else {
-                super.onTitleChanged(charSequence, i2);
+                super.onTitleChanged(charSequence, i);
             }
         }
     }
@@ -1502,14 +1502,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048683, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048683, this, i, i2) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.overridePendingTransition(i2, i3);
+                pluginBaseActivity.overridePendingTransition(i, i2);
             } else {
-                super.overridePendingTransition(i2, i3);
+                super.overridePendingTransition(i, i2);
             }
         }
     }
@@ -1523,10 +1523,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048685, this, intent, serviceConnection, i2)) == null) ? super.bindService(intent, serviceConnection, i2) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048685, this, intent, serviceConnection, i)) == null) ? super.bindService(intent, serviceConnection, i) : invokeLLI.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1546,10 +1546,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public PendingIntent proxyCreatePendingResult(int i2, Intent intent, int i3) {
+    public PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Integer.valueOf(i2), intent, Integer.valueOf(i3)})) == null) ? super.createPendingResult(i2, intent, i3) : (PendingIntent) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? super.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1595,10 +1595,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public View proxyFindViewById(int i2) {
+    public View proxyFindViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048695, this, i2)) == null) ? super.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048695, this, i)) == null) ? super.findViewById(i) : (View) invokeI.objValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1610,18 +1610,18 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyFinishActivity(int i2) {
+    public void proxyFinishActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048697, this, i2) == null) {
-            super.finishActivity(i2);
+        if (interceptable == null || interceptable.invokeI(1048697, this, i) == null) {
+            super.finishActivity(i);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyFinishActivityFromChild(Activity activity, int i2) {
+    public void proxyFinishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048698, this, activity, i2) == null) {
-            super.finishActivityFromChild(activity, i2);
+        if (interceptable == null || interceptable.invokeLI(1048698, this, activity, i) == null) {
+            super.finishActivityFromChild(activity, i);
         }
     }
 
@@ -1713,10 +1713,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public SharedPreferences proxyGetPreferences(int i2) {
+    public SharedPreferences proxyGetPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048711, this, i2)) == null) ? super.getPreferences(i2) : (SharedPreferences) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048711, this, i)) == null) ? super.getPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1727,10 +1727,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public SharedPreferences proxyGetSharedPreferences(String str, int i2) {
+    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048713, this, str, i2)) == null) ? super.getSharedPreferences(str, i2) : (SharedPreferences) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048713, this, str, i)) == null) ? super.getSharedPreferences(str, i) : (SharedPreferences) invokeLI.objValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1804,18 +1804,18 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOnActivityResult(int i2, int i3, Intent intent) {
+    public void proxyOnActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048724, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048724, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOnApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+    public void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048725, this, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            super.onApplyThemeResource(theme, i2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048725, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.onApplyThemeResource(theme, i, z);
         }
     }
 
@@ -1891,10 +1891,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnCreatePanelMenu(int i2, Menu menu) {
+    public boolean proxyOnCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048735, this, i2, menu)) == null) ? super.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048735, this, i, menu)) == null) ? super.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1928,31 +1928,31 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean proxyOnKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048741, this, i2, keyEvent)) == null) ? super.onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048741, this, i, keyEvent)) == null) ? super.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnKeyLongPress(int i2, KeyEvent keyEvent) {
+    public boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048742, this, i2, keyEvent)) == null) ? super.onKeyLongPress(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048742, this, i, keyEvent)) == null) ? super.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+    public boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048743, this, i2, i3, keyEvent)) == null) ? super.onKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048743, this, i, i2, keyEvent)) == null) ? super.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean proxyOnKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048744, this, i2, keyEvent)) == null) ? super.onKeyUp(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048744, this, i, keyEvent)) == null) ? super.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1964,17 +1964,17 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnMenuItemSelected(int i2, MenuItem menuItem) {
+    public boolean proxyOnMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048746, this, i2, menuItem)) == null) ? super.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048746, this, i, menuItem)) == null) ? super.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnMenuOpened(int i2, Menu menu) {
+    public boolean proxyOnMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i2, menu)) == null) ? super.onMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048747, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -1993,10 +1993,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOnPanelClosed(int i2, Menu menu) {
+    public void proxyOnPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048750, this, i2, menu) == null) {
-            super.onPanelClosed(i2, menu);
+        if (interceptable == null || interceptable.invokeIL(1048750, this, i, menu) == null) {
+            super.onPanelClosed(i, menu);
         }
     }
 
@@ -2025,10 +2025,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOnPrepareDialog(int i2, Dialog dialog) {
+    public void proxyOnPrepareDialog(int i, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048754, this, i2, dialog) == null) {
-            super.onPrepareDialog(i2, dialog);
+        if (interceptable == null || interceptable.invokeIL(1048754, this, i, dialog) == null) {
+            super.onPrepareDialog(i, dialog);
         }
     }
 
@@ -2040,10 +2040,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyOnPreparePanel(int i2, View view, Menu menu) {
+    public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048756, this, i2, view, menu)) == null) ? super.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048756, this, i, view, menu)) == null) ? super.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
@@ -2109,10 +2109,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOnTitleChanged(CharSequence charSequence, int i2) {
+    public void proxyOnTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048765, this, charSequence, i2) == null) {
-            super.onTitleChanged(charSequence, i2);
+        if (interceptable == null || interceptable.invokeLI(1048765, this, charSequence, i) == null) {
+            super.onTitleChanged(charSequence, i);
         }
     }
 
@@ -2171,10 +2171,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyOverridePendingTransition(int i2, int i3) {
+    public void proxyOverridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048773, this, i2, i3) == null) {
-            super.overridePendingTransition(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048773, this, i, i2) == null) {
+            super.overridePendingTransition(i, i2);
         }
     }
 
@@ -2187,10 +2187,10 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxySetContentView(int i2) {
+    public void proxySetContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048775, this, i2) == null) {
-            super.setContentView(i2);
+        if (interceptable == null || interceptable.invokeI(1048775, this, i) == null) {
+            super.setContentView(i);
         }
     }
 
@@ -2203,26 +2203,26 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxySetRequestedOrientation(int i2) {
+    public void proxySetRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048779, this, i2) == null) {
-            super.setRequestedOrientation(i2);
+        if (interceptable == null || interceptable.invokeI(1048779, this, i) == null) {
+            super.setRequestedOrientation(i);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxySetTitle(int i2) {
+    public void proxySetTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048780, this, i2) == null) {
-            super.setTitle(i2);
+        if (interceptable == null || interceptable.invokeI(1048780, this, i) == null) {
+            super.setTitle(i);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxySetTitleColor(int i2) {
+    public void proxySetTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048782, this, i2) == null) {
-            super.setTitleColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048782, this, i) == null) {
+            super.setTitleColor(i);
         }
     }
 
@@ -2243,48 +2243,48 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyStartActivityForResult(Intent intent, int i2) {
+    public void proxyStartActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048785, this, intent, i2) == null) {
-            super.startActivityForResult(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048785, this, intent, i) == null) {
+            super.startActivityForResult(intent, i);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyStartActivityFromChild(Activity activity, Intent intent, int i2) {
+    public void proxyStartActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048786, this, activity, intent, i2) == null) {
-            super.startActivityFromChild(activity, intent, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048786, this, activity, intent, i) == null) {
+            super.startActivityFromChild(activity, intent, i);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public boolean proxyStartActivityIfNeeded(Intent intent, int i2) {
+    public boolean proxyStartActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048787, this, intent, i2)) == null) ? super.startActivityIfNeeded(intent, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048787, this, intent, i)) == null) ? super.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            super.startIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048788, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            super.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
     @Override // c.a.d.j.f.a
-    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
+    public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048789, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
-    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
+    public void proxyStartIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.startIntentSenderFromChild(activity, intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048790, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
         }
     }
 
@@ -2377,14 +2377,14 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048802, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048802, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.setContentView(i2);
+                pluginBaseActivity.setContentView(i);
             } else {
-                super.setContentView(i2);
+                super.setContentView(i);
             }
         }
     }
@@ -2413,53 +2413,53 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048807, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048807, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.setRequestedOrientation(i2);
+                pluginBaseActivity.setRequestedOrientation(i);
             } else {
-                super.setRequestedOrientation(i2);
+                super.setRequestedOrientation(i);
             }
         }
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048808, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048808, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.setTheme(i2);
+                pluginBaseActivity.setTheme(i);
             } else {
-                super.setTheme(i2);
+                super.setTheme(i);
             }
         }
     }
 
     @Override // android.app.Activity
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048809, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048809, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.setTitle(i2);
+                pluginBaseActivity.setTitle(i);
             } else {
-                super.setTitle(i2);
+                super.setTitle(i);
             }
         }
     }
 
     @Override // android.app.Activity
-    public void setTitleColor(int i2) {
+    public void setTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048811, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048811, this, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.setTitleColor(i2);
+                pluginBaseActivity.setTitleColor(i);
             } else {
-                super.setTitleColor(i2);
+                super.setTitleColor(i);
             }
         }
     }
@@ -2491,67 +2491,67 @@ public class ActivityProxy extends Activity implements a, i, Handler.Callback, g
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i2) {
+    public void startActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048814, this, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048814, this, intent, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.startActivityForResult(intent, i2);
+                pluginBaseActivity.startActivityForResult(intent, i);
             } else {
-                super.startActivityForResult(intent, i2);
+                super.startActivityForResult(intent, i);
             }
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i2) {
+    public void startActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048815, this, activity, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048815, this, activity, intent, i) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.startActivityFromChild(activity, intent, i2);
+                pluginBaseActivity.startActivityFromChild(activity, intent, i);
             } else {
-                super.startActivityFromChild(activity, intent, i2);
+                super.startActivityFromChild(activity, intent, i);
             }
         }
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i2) {
+    public boolean startActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048816, this, intent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048816, this, intent, i)) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                return pluginBaseActivity.startActivityIfNeeded(intent, i2);
+                return pluginBaseActivity.startActivityIfNeeded(intent, i);
             }
-            return super.startActivityIfNeeded(intent, i2);
+            return super.startActivityIfNeeded(intent, i);
         }
         return invokeLI.booleanValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048817, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048817, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.startIntentSender(intentSender, intent, i2, i3, i4);
+                pluginBaseActivity.startIntentSender(intentSender, intent, i, i2, i3);
             } else {
-                super.startIntentSender(intentSender, intent, i2, i3, i4);
+                super.startIntentSender(intentSender, intent, i, i2, i3);
             }
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048818, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048818, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             PluginBaseActivity pluginBaseActivity = this.mEntity;
             if (pluginBaseActivity != null) {
-                pluginBaseActivity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+                pluginBaseActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
             } else {
-                super.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+                super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
             }
         }
     }

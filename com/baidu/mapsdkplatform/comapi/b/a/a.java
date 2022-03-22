@@ -21,16 +21,16 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f34415b;
+    public static volatile boolean f26628b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f34416c;
+    public Thread.UncaughtExceptionHandler f26629c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1812a {
+    public static class C1766a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,16 +72,16 @@ public class a implements Thread.UncaughtExceptionHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f34416c = Thread.getDefaultUncaughtExceptionHandler();
+        this.f26629c = Thread.getDefaultUncaughtExceptionHandler();
     }
 
     public /* synthetic */ a(b bVar) {
@@ -91,7 +91,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1812a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1766a.a : (a) invokeV.objValue;
     }
 
     private void a(Throwable th) {
@@ -141,12 +141,12 @@ public class a implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f34415b) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) || f26628b) {
             return;
         }
-        f34415b = true;
+        f26628b = true;
         a(th);
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f34416c;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f26629c;
         if (uncaughtExceptionHandler != null) {
             uncaughtExceptionHandler.uncaughtException(thread, th);
         }

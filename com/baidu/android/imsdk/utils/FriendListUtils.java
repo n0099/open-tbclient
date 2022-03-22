@@ -46,9 +46,9 @@ public class FriendListUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -89,39 +89,39 @@ public class FriendListUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            long j2 = mLastTime;
-            long j3 = mPenultTime;
-            return j2 != j3 || j3 == 0;
+            long j = mLastTime;
+            long j2 = mPenultTime;
+            return j != j2 || j2 == 0;
         }
         return invokeL.booleanValue;
     }
 
-    public static void setLastTimeStamp(Context context, long j2) {
+    public static void setLastTimeStamp(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65542, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(LAST_TIMESTAMP_PREFIX + mUk + mAppid, j2).commit();
+            edit.putLong(LAST_TIMESTAMP_PREFIX + mUk + mAppid, j).commit();
         }
     }
 
-    public static void setPenultTimeStamp(Context context, long j2) {
+    public static void setPenultTimeStamp(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65543, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(PENULT_TIMESTAMP_PREFIX + mUk + mAppid, j2).commit();
+            edit.putLong(PENULT_TIMESTAMP_PREFIX + mUk + mAppid, j).commit();
         }
     }
 
-    public static void updateGetFriendListTime(Context context, long j2) {
+    public static void updateGetFriendListTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, null, context, j2) == null) {
-            mCurTime = j2;
-            long j3 = mLastTime;
-            mPenultTime = j3;
-            setPenultTimeStamp(context, j3);
-            long j4 = mCurTime;
-            mLastTime = j4;
-            setLastTimeStamp(context, j4);
+        if (interceptable == null || interceptable.invokeLJ(65544, null, context, j) == null) {
+            mCurTime = j;
+            long j2 = mLastTime;
+            mPenultTime = j2;
+            setPenultTimeStamp(context, j2);
+            long j3 = mCurTime;
+            mLastTime = j3;
+            setLastTimeStamp(context, j3);
         }
     }
 }

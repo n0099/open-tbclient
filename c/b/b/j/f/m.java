@@ -11,7 +11,7 @@ public class m extends b<c.b.b.k.b, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.k.b f27136b;
+    public c.b.b.k.b f22392b;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.k.b> {
@@ -23,9 +23,9 @@ public class m extends b<c.b.b.k.b, a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -42,9 +42,9 @@ public class m extends b<c.b.b.k.b, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -71,7 +71,7 @@ public class m extends b<c.b.b.k.b, a> {
     public void c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
-            this.f27136b = c.b.b.f.f27075c.a(aVar);
+            this.f22392b = c.b.b.f.f22332c.a(aVar);
         }
     }
 
@@ -82,8 +82,8 @@ public class m extends b<c.b.b.k.b, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.k.b bVar = this.f27136b;
-            this.f27136b = null;
+            c.b.b.k.b bVar = this.f22392b;
+            this.f22392b = null;
             return bVar;
         }
         return (c.b.b.k.b) invokeLLLL.objValue;

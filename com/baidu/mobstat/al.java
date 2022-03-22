@@ -27,7 +27,7 @@ public class al implements Window.Callback {
     public Window.Callback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35024b;
+    public a f27179b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -43,16 +43,16 @@ public class al implements Window.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {callback, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = callback;
-        this.f35024b = aVar;
+        this.f27179b = aVar;
     }
 
     public Window.Callback a() {
@@ -73,7 +73,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
-            a aVar = this.f35024b;
+            a aVar = this.f27179b;
             if (aVar != null) {
                 aVar.a(keyEvent);
             }
@@ -101,7 +101,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            a aVar = this.f35024b;
+            a aVar = this.f27179b;
             if (aVar != null) {
                 aVar.a(motionEvent);
             }
@@ -150,17 +150,17 @@ public class al implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i2, Menu menu) {
+    public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, menu)) == null) ? this.a.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, menu)) == null) ? this.a.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
-    public View onCreatePanelView(int i2) {
+    public View onCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.a.onCreatePanelView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.a.onCreatePanelView(i) : (View) invokeI.objValue;
     }
 
     @Override // android.view.Window.Callback
@@ -172,24 +172,24 @@ public class al implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i2, menuItem)) == null) ? this.a.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048590, this, i, menuItem)) == null) ? this.a.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
-    public boolean onMenuOpened(int i2, Menu menu) {
+    public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, menu)) == null) ? this.a.onMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, menu)) == null) ? this.a.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
-    public void onPanelClosed(int i2, Menu menu) {
+    public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, menu) == null) {
-            this.a.onPanelClosed(i2, menu);
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, menu) == null) {
+            this.a.onPanelClosed(i, menu);
         }
     }
 
@@ -203,18 +203,18 @@ public class al implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i2, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i2, view, menu)) == null) ? this.a.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view, menu)) == null) ? this.a.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.view.Window.Callback
     @SuppressLint({"NewApi"})
-    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i2) {
+    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i2) == null) {
-            this.a.onProvideKeyboardShortcuts(list, menu, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, list, menu, i) == null) {
+            this.a.onProvideKeyboardShortcuts(list, menu, i);
         }
     }
 
@@ -258,9 +258,9 @@ public class al implements Window.Callback {
 
     @Override // android.view.Window.Callback
     @SuppressLint({"NewApi"})
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048601, this, callback, i2)) == null) ? this.a.onWindowStartingActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048601, this, callback, i)) == null) ? this.a.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 }

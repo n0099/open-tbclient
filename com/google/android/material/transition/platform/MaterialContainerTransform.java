@@ -21,6 +21,7 @@ import android.transition.PathMotion;
 import android.transition.Transition;
 import android.transition.TransitionValues;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -53,7 +54,7 @@ import com.google.android.material.transition.platform.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -117,17 +118,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,9 +144,9 @@ public final class MaterialContainerTransform extends Transition {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -170,7 +171,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,9 +191,9 @@ public final class MaterialContainerTransform extends Transition {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {progressThresholds, progressThresholds2, progressThresholds3, progressThresholds4};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -207,11 +208,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -270,9 +271,9 @@ public final class MaterialContainerTransform extends Transition {
             return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f2)) == null) ? (rectF.centerY() / f2) * 1.5f : invokeLF.floatValue;
         }
 
-        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i2) {
+        private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(65543, this, canvas, rectF, path, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(65543, this, canvas, rectF, path, i) == null) {
                 PointF motionPathPoint = getMotionPathPoint(rectF);
                 if (this.progress == 0.0f) {
                     path.reset();
@@ -280,15 +281,15 @@ public final class MaterialContainerTransform extends Transition {
                     return;
                 }
                 path.lineTo(motionPathPoint.x, motionPathPoint.y);
-                this.debugPaint.setColor(i2);
+                this.debugPaint.setColor(i);
                 canvas.drawPath(path, this.debugPaint);
             }
         }
 
-        private void drawDebugRect(Canvas canvas, RectF rectF, @ColorInt int i2) {
+        private void drawDebugRect(Canvas canvas, RectF rectF, @ColorInt int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(65544, this, canvas, rectF, i2) == null) {
-                this.debugPaint.setColor(i2);
+            if (interceptable == null || interceptable.invokeLLI(65544, this, canvas, rectF, i) == null) {
+                this.debugPaint.setColor(i);
                 canvas.drawRect(rectF, this.debugPaint);
             }
         }
@@ -351,9 +352,9 @@ public final class MaterialContainerTransform extends Transition {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -391,9 +392,9 @@ public final class MaterialContainerTransform extends Transition {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -527,9 +528,9 @@ public final class MaterialContainerTransform extends Transition {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i2) {
+        public void setAlpha(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 throw new UnsupportedOperationException("Setting alpha on is not supported");
             }
         }
@@ -542,16 +543,16 @@ public final class MaterialContainerTransform extends Transition {
             }
         }
 
-        public TransitionDrawable(PathMotion pathMotion, View view, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f2, View view2, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f3, @ColorInt int i2, @ColorInt int i3, @ColorInt int i4, int i5, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
+        public TransitionDrawable(PathMotion pathMotion, View view, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f2, View view2, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f3, @ColorInt int i, @ColorInt int i2, @ColorInt int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pathMotion, view, rectF, shapeAppearanceModel, Float.valueOf(f2), view2, rectF2, shapeAppearanceModel2, Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
+                Object[] objArr = {pathMotion, view, rectF, shapeAppearanceModel, Float.valueOf(f2), view2, rectF2, shapeAppearanceModel2, Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -585,9 +586,9 @@ public final class MaterialContainerTransform extends Transition {
             ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             this.displayWidth = displayMetrics.widthPixels;
             this.displayHeight = displayMetrics.heightPixels;
-            this.containerPaint.setColor(i2);
-            this.startContainerPaint.setColor(i3);
-            this.endContainerPaint.setColor(i4);
+            this.containerPaint.setColor(i);
+            this.startContainerPaint.setColor(i2);
+            this.endContainerPaint.setColor(i3);
             this.compatShadowDrawable.setFillColor(ColorStateList.valueOf(0));
             this.compatShadowDrawable.setShadowCompatibilityMode(2);
             this.compatShadowDrawable.setShadowBitmapDrawingEnable(false);
@@ -604,7 +605,7 @@ public final class MaterialContainerTransform extends Transition {
             this.motionPathPosition[0] = rectF.centerX();
             this.motionPathPosition[1] = rectF.top;
             this.scrimPaint.setStyle(Paint.Style.FILL);
-            this.scrimPaint.setShader(TransitionUtils.createColorShader(i5));
+            this.scrimPaint.setShader(TransitionUtils.createColorShader(i4));
             this.debugPaint.setStyle(Paint.Style.STROKE);
             this.debugPaint.setStrokeWidth(10.0f);
             updateProgress(0.0f);
@@ -637,9 +638,9 @@ public final class MaterialContainerTransform extends Transition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -696,16 +697,16 @@ public final class MaterialContainerTransform extends Transition {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
     }
 
-    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view, @IdRes int i2, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view, i2, shapeAppearanceModel) == null) {
-            if (i2 != -1) {
-                transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i2);
+        if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view, i, shapeAppearanceModel) == null) {
+            if (i != -1) {
+                transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
             } else if (view != null) {
                 transitionValues.view = view;
-            } else if (transitionValues.view.getTag(R.id.mtrl_motion_snapshot_view) instanceof View) {
-                transitionValues.view.setTag(R.id.mtrl_motion_snapshot_view, null);
-                transitionValues.view = (View) transitionValues.view.getTag(R.id.mtrl_motion_snapshot_view);
+            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f09146c) instanceof View) {
+                transitionValues.view.setTag(R.id.obfuscated_res_0x7f09146c, null);
+                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f09146c);
             }
             View view2 = transitionValues.view;
             if (!ViewCompat.isLaidOut(view2) && view2.getWidth() == 0 && view2.getHeight() == 0) {
@@ -730,8 +731,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view.getTag(R.id.mtrl_motion_snapshot_view) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view.getTag(R.id.mtrl_motion_snapshot_view);
+            if (view.getTag(R.id.obfuscated_res_0x7f09146c) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view.getTag(R.id.obfuscated_res_0x7f09146c);
             }
             Context context = view.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
@@ -763,7 +764,7 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.transitionShapeAppearance});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f040669});
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -775,11 +776,11 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, rectF, rectF2)) == null) {
-            int i2 = this.transitionDirection;
-            if (i2 == 0) {
+            int i = this.transitionDirection;
+            if (i == 0) {
                 return TransitionUtils.calculateArea(rectF2) > TransitionUtils.calculateArea(rectF);
-            } else if (i2 != 1) {
-                if (i2 == 2) {
+            } else if (i != 1) {
+                if (i == 2) {
                     return false;
                 }
                 throw new IllegalArgumentException("Invalid transition direction: " + this.transitionDirection);
@@ -852,9 +853,9 @@ public final class MaterialContainerTransform extends Transition {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, transitionDrawable};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -888,9 +889,9 @@ public final class MaterialContainerTransform extends Transition {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, findAncestorById, transitionDrawable, view, view2};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -929,7 +930,10 @@ public final class MaterialContainerTransform extends Transition {
                         });
                         return ofFloat;
                     }
+                    Log.w(TAG, "Skipping due to null end bounds. Ensure end view is laid out and measured.");
+                    return null;
                 }
+                Log.w(TAG, "Skipping due to null start bounds. Ensure start view is laid out and measured.");
             }
             return null;
         }
@@ -1097,19 +1101,19 @@ public final class MaterialContainerTransform extends Transition {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.holdAtEndEnabled : invokeV.booleanValue;
     }
 
-    public void setAllContainerColors(@ColorInt int i2) {
+    public void setAllContainerColors(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.containerColor = i2;
-            this.startContainerColor = i2;
-            this.endContainerColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.containerColor = i;
+            this.startContainerColor = i;
+            this.endContainerColor = i;
         }
     }
 
-    public void setContainerColor(@ColorInt int i2) {
+    public void setContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.containerColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.containerColor = i;
         }
     }
 
@@ -1120,10 +1124,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setDrawingViewId(@IdRes int i2) {
+    public void setDrawingViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.drawingViewId = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.drawingViewId = i;
         }
     }
 
@@ -1134,10 +1138,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndContainerColor(@ColorInt int i2) {
+    public void setEndContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.endContainerColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.endContainerColor = i;
         }
     }
 
@@ -1162,17 +1166,17 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndViewId(@IdRes int i2) {
+    public void setEndViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.endViewId = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.endViewId = i;
         }
     }
 
-    public void setFadeMode(int i2) {
+    public void setFadeMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.fadeMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.fadeMode = i;
         }
     }
 
@@ -1183,10 +1187,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setFitMode(int i2) {
+    public void setFitMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.fitMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.fitMode = i;
         }
     }
 
@@ -1211,10 +1215,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setScrimColor(@ColorInt int i2) {
+    public void setScrimColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.scrimColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.scrimColor = i;
         }
     }
 
@@ -1225,10 +1229,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setStartContainerColor(@ColorInt int i2) {
+    public void setStartContainerColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.startContainerColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.startContainerColor = i;
         }
     }
 
@@ -1253,17 +1257,17 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setStartViewId(@IdRes int i2) {
+    public void setStartViewId(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            this.startViewId = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            this.startViewId = i;
         }
     }
 
-    public void setTransitionDirection(int i2) {
+    public void setTransitionDirection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.transitionDirection = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.transitionDirection = i;
         }
     }
 }

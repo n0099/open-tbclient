@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.r1;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,9 +37,9 @@ public class DownloaderHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,8 +58,8 @@ public class DownloaderHelper {
                 } else if (arrayList == null || arrayList.size() <= 0 || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
                     return true;
                 } else {
-                    for (int i2 = 0; i2 < listFiles.length; i2++) {
-                        if (!listFiles[i2].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i2]))) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (!listFiles[i].isDirectory() && !arrayList.contains(getFileMd5(listFiles[i]))) {
                             return true;
                         }
                     }
@@ -79,11 +78,11 @@ public class DownloaderHelper {
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (listFiles[i2].isFile()) {
-                            listFiles[i2].delete();
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
                         } else {
-                            cleanDir(listFiles[i2]);
+                            cleanDir(listFiles[i]);
                         }
                     }
                 }
@@ -124,9 +123,9 @@ public class DownloaderHelper {
         try {
             JSONArray jSONArray = new JSONArray(string);
             ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    String str2 = (String) jSONArray.opt(i2);
+                    String str2 = (String) jSONArray.opt(i);
                     if (str2 != null) {
                         arrayList2.add(str2);
                     }
@@ -194,7 +193,7 @@ public class DownloaderHelper {
             return (String) invokeLLL.objValue;
         }
         OutputStream outputStream = null;
-        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.k)) {
+        if (inputStream == null || StringUtils.isNull(str2) || str2.contains("/.")) {
             return null;
         }
         try {

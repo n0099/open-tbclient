@@ -8,9 +8,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f.d.k0;
-import c.a.p0.a.p1.j.g;
-import c.a.p0.a.z0.d.d.c;
+import c.a.n0.a.f.d.k0;
+import c.a.n0.a.p1.j.g;
+import c.a.n0.a.z0.d.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,37 +18,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PhotoChooseView extends GridView implements AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f29046b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f29047c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f29048d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37690e;
+    public c f29049e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37691f;
+    public c.a.n0.a.p1.h.f.a f29050f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37692g;
+    public Activity f29051g;
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f37693h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c f37694i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.p0.a.p1.h.f.a f37695j;
-    public Activity k;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PhotoChooseView f37696e;
+        public final /* synthetic */ PhotoChooseView a;
 
         public a(PhotoChooseView photoChooseView) {
             Interceptable interceptable = $ic;
@@ -57,30 +55,30 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
                 newInitContext.initArgs = r2;
                 Object[] objArr = {photoChooseView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f37696e = photoChooseView;
+            this.a = photoChooseView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PhotoChooseView photoChooseView = this.f37696e;
-                photoChooseView.setAdapter((ListAdapter) photoChooseView.f37695j);
+                PhotoChooseView photoChooseView = this.a;
+                photoChooseView.setAdapter((ListAdapter) photoChooseView.f29050f);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(int i2);
+        void a(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,16 +90,16 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f37690e = 9;
+        this.a = 9;
     }
 
     public final void b() {
@@ -109,23 +107,33 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getLeftCount() <= 0) {
             return;
         }
-        g.i(getLeftCount(), this.f37694i);
+        g.i(getLeftCount(), this.f29049e);
     }
 
-    public final void c(int i2) {
+    public final void c(int i) {
         k0 C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (C = c.a.p0.a.s0.a.C()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (C = c.a.n0.a.s0.a.C()) == null) {
             return;
         }
-        C.d(getContext(), (String[]) this.f37695j.c().toArray(new String[0]), i2);
+        C.d(getContext(), (String[]) this.f29050f.c().toArray(new String[0]), i);
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.f29051g = activity;
+            this.f29050f = new c.a.n0.a.p1.h.f.a(activity.getApplicationContext(), this.f29046b, this.f29048d);
+            setOnItemClickListener(this);
+            postDelayed(new a(this), 10L);
+        }
     }
 
     public List<String> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<String> c2 = this.f37695j.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<String> c2 = this.f29050f.c();
             if (c2 == null || c2.size() == 0) {
                 return null;
             }
@@ -137,111 +145,101 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
     public int getLeftCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int size = this.f37695j.c().size();
-            int i2 = this.f37690e;
-            if (size >= i2) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int size = this.f29050f.c().size();
+            int i = this.a;
+            if (size >= i) {
                 return 0;
             }
-            return i2 - size;
+            return i - size;
         }
         return invokeV.intValue;
     }
 
-    public void init(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            this.k = activity;
-            this.f37695j = new c.a.p0.a.p1.h.f.a(activity.getApplicationContext(), this.f37691f, this.f37693h);
-            setOnItemClickListener(this);
-            postDelayed(new a(this), 10L);
-        }
-    }
-
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            if (this.f37695j.e(i2)) {
-                if (i2 == this.f37695j.getCount() - 1) {
-                    c.a.p0.a.p1.j.c.onEvent("pic_clk_content");
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (this.f29050f.e(i)) {
+                if (i == this.f29050f.getCount() - 1) {
+                    c.a.n0.a.p1.j.c.onEvent("pic_clk_content");
                     b();
                     return;
                 }
-                c(i2);
+                c(i);
                 return;
             }
-            c(i2);
+            c(i);
         }
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         int measuredHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             if (getCount() <= 0 || getChildAt(0) == null || (measuredHeight = getChildAt(0).getMeasuredHeight()) == -1) {
                 return;
             }
-            setMeasuredDimension(i2, (measuredHeight * (((getCount() - 1) / this.f37693h) + 1)) + (this.f37692g * ((getCount() - 1) / this.f37693h)));
+            setMeasuredDimension(i, (measuredHeight * (((getCount() - 1) / this.f29048d) + 1)) + (this.f29047c * ((getCount() - 1) / this.f29048d)));
         }
     }
 
     public void setCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f37694i = cVar;
+            this.f29049e = cVar;
         }
     }
 
     public void setDeleteListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f37695j.g(bVar);
+            this.f29050f.g(bVar);
         }
     }
 
     @Override // android.widget.GridView
-    public void setHorizontalSpacing(int i2) {
+    public void setHorizontalSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            super.setHorizontalSpacing(i2);
-            this.f37691f = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            super.setHorizontalSpacing(i);
+            this.f29046b = i;
         }
     }
 
-    public void setMaxCount(int i2) {
+    public void setMaxCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f37690e = i2;
-            this.f37695j.h(i2);
-        }
-    }
-
-    @Override // android.widget.GridView
-    public void setNumColumns(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            super.setNumColumns(i2);
-            this.f37693h = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.a = i;
+            this.f29050f.h(i);
         }
     }
 
     @Override // android.widget.GridView
-    public void setVerticalSpacing(int i2) {
+    public void setNumColumns(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            super.setVerticalSpacing(i2);
-            this.f37692g = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            super.setNumColumns(i);
+            this.f29048d = i;
+        }
+    }
+
+    @Override // android.widget.GridView
+    public void setVerticalSpacing(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            super.setVerticalSpacing(i);
+            this.f29047c = i;
         }
     }
 
     public void update(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f37695j.f(list);
-            this.f37695j.notifyDataSetChanged();
+            this.f29050f.f(list);
+            this.f29050f.notifyDataSetChanged();
         }
     }
 
@@ -254,9 +252,9 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -264,31 +262,31 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
                 return;
             }
         }
-        this.f37690e = 9;
+        this.a = 9;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'c.a.p0.a.p1.h.f.a' to match base method */
+    /* JADX DEBUG: Return type fixed from 'c.a.n0.a.p1.h.f.a' to match base method */
     @Override // android.widget.GridView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37695j : (c.a.p0.a.p1.h.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29050f : (c.a.n0.a.p1.h.f.a) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PhotoChooseView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PhotoChooseView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -296,6 +294,6 @@ public class PhotoChooseView extends GridView implements AdapterView.OnItemClick
                 return;
             }
         }
-        this.f37690e = 9;
+        this.a = 9;
     }
 }

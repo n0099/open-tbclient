@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.recommend.detail;
 
 import c.a.d.f.d.l;
-import c.a.q0.r.s.a;
+import c.a.o0.r.s.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,17 +19,17 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
     public UserInfoBigVip mDetailInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendDetailHttpResponseMessage(int i2) {
-        super(i2);
+    public RecommendDetailHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,10 +46,10 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             a.f();
             l<byte[]> d2 = a.d("tb.im_recommend_detail");
             if (d2 == null || bArr == null || (userInfoBigVip = this.mDetailInfo) == null || userInfoBigVip.user_id == null) {
@@ -61,9 +61,9 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             BigvipResIdl bigvipResIdl = (BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class);
             setError(bigvipResIdl.error.errorno.intValue());
             setErrorString(bigvipResIdl.error.usermsg);

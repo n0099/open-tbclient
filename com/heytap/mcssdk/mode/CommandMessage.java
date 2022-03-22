@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -87,9 +86,9 @@ public class CommandMessage extends Message {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -146,9 +145,9 @@ public class CommandMessage extends Message {
             try {
                 JSONArray jSONArray = new JSONObject(str).getJSONArray(str2);
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
                         SubscribeResult subscribeResult = new SubscribeResult();
                         subscribeResult.setContent(jSONObject.getString(str4));
                         subscribeResult.setSubscribeId(jSONObject.getString(str3));
@@ -243,10 +242,10 @@ public class CommandMessage extends Message {
         }
     }
 
-    public void setCommand(int i2) {
+    public void setCommand(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mCommand = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mCommand = i;
         }
     }
 
@@ -271,10 +270,10 @@ public class CommandMessage extends Message {
         }
     }
 
-    public void setResponseCode(int i2) {
+    public void setResponseCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mResponseCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mResponseCode = i;
         }
     }
 
@@ -289,7 +288,7 @@ public class CommandMessage extends Message {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "CommandMessage{, mRegisterID='" + this.mRegisterID + ExtendedMessageFormat.QUOTE + ", mSdkVersion='" + this.mSdkVersion + ExtendedMessageFormat.QUOTE + ", mCommand=" + this.mCommand + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mResponseCode=" + this.mResponseCode + ExtendedMessageFormat.END_FE;
+            return "CommandMessage{, mRegisterID='" + this.mRegisterID + "', mSdkVersion='" + this.mSdkVersion + "', mCommand=" + this.mCommand + ", mContent='" + this.mContent + "', mResponseCode=" + this.mResponseCode + '}';
         }
         return (String) invokeV.objValue;
     }

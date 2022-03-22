@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NodeJS {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLOBAL = "global";
@@ -34,9 +34,9 @@ public class NodeJS {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,9 +70,9 @@ public class NodeJS {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {nodeJS};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -125,9 +125,9 @@ public class NodeJS {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, file};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

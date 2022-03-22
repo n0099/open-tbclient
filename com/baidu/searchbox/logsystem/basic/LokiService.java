@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.logsys.LogBaseObject;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -43,9 +44,9 @@ public class LokiService extends Service {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,9 +59,9 @@ public class LokiService extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,7 +80,7 @@ public class LokiService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             if (LLog.sDebug) {
-                String str = "LokiService.onBind(), pid = " + Process.myPid();
+                Log.d(TAG, "LokiService.onBind(), pid = " + Process.myPid());
                 return null;
             }
             return null;
@@ -93,7 +94,7 @@ public class LokiService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             if (LLog.sDebug) {
-                String str = "LokiService.onCreate(), pid = " + Process.myPid();
+                Log.d(TAG, "LokiService.onCreate(), pid = " + Process.myPid());
             }
         }
     }
@@ -104,33 +105,30 @@ public class LokiService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
             if (LLog.sDebug) {
-                String str = "LokiService.onDestroy(), pid = " + Process.myPid();
+                Log.d(TAG, "LokiService.onDestroy(), pid = " + Process.myPid());
             }
             Process.killProcess(Process.myPid());
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0115, code lost:
-        if (r6.isFile() != false) goto L59;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0058 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x005e A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x005f  */
     @Override // android.app.Service
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         File file;
         LogType logType;
         File file2;
         LogBaseObject logObject;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) != null) {
+        if (interceptable != null && (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) != null) {
             return invokeLII.intValue;
         }
         if (LLog.sDebug) {
-            String str = "LokiService.onStartCommand(), pid = " + Process.myPid();
+            Log.d(TAG, "LokiService.onStartCommand(), pid = " + Process.myPid());
         }
         if (intent == null) {
             return 2;
@@ -150,26 +148,30 @@ public class LokiService extends Service {
                     String stringExtra4 = intent.getStringExtra(Constant.LOG_EXTRA_PATHNAME_KEEPER);
                     String stringExtra5 = intent.getStringExtra(Constant.LOG_CRASH_TAG);
                     if (LLog.sDebug) {
-                        String str2 = "logType = " + logType.getTypeName();
+                        Log.d(TAG, "logType = " + logType.getTypeName());
                         StringBuilder sb = new StringBuilder();
                         sb.append("logBasicData = ");
                         sb.append(TextUtils.isEmpty(stringExtra) ? "logBasicData is empty or null" : stringExtra);
-                        sb.toString();
+                        Log.d(TAG, sb.toString());
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("processName = ");
                         sb2.append(TextUtils.isEmpty(stringExtra3) ? "process name is empty or null" : stringExtra3);
-                        sb2.toString();
+                        Log.d(TAG, sb2.toString());
                         if (!TextUtils.isEmpty(stringExtra4)) {
-                            String str3 = "logExtraPathNameKeeper = " + stringExtra4;
+                            Log.d(TAG, "logExtraPathNameKeeper = " + stringExtra4);
+                        } else {
+                            Log.d(TAG, "logExtraPathNameKeeper is null or empty ");
                         }
-                        String str4 = "crashTAG = " + stringExtra5;
+                        Log.d(TAG, "crashTAG = " + stringExtra5);
                     }
                     if (LogType.NONE == logType) {
                         logObject = new LogBaseObject();
                     } else {
                         if (!TextUtils.isEmpty(stringExtra4)) {
-                            file2 = new File(stringExtra4);
-                            if (file2.exists()) {
+                            File file4 = new File(stringExtra4);
+                            if (file4.exists() && file4.isFile()) {
+                                file2 = file4;
+                                logObject = new LogObject(logType, stringExtra3, stringExtra, file, file2, (LogExtra) intent.getParcelableExtra("logExtra"), stringExtra5);
                             }
                         }
                         file2 = null;
@@ -177,7 +179,7 @@ public class LokiService extends Service {
                     }
                     LogSystemProcessor logSystemProcessor = mProcessor;
                     if (logSystemProcessor != null) {
-                        logSystemProcessor.process(this, i3, logObject);
+                        logSystemProcessor.process(this, i2, logObject);
                     }
                     return 2;
                 }

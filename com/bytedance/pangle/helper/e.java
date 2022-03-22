@@ -14,13 +14,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ScheduledExecutorService f51718b;
+    public static ScheduledExecutorService f38139b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,13 +37,13 @@ public final class e {
             }
         }
         a = Executors.newCachedThreadPool();
-        f51718b = Executors.newSingleThreadScheduledExecutor();
+        f38139b = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public static ExecutorService a(int i2) {
+    public static ExecutorService a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? Executors.newFixedThreadPool(i2, new ThreadFactory() { // from class: com.bytedance.pangle.helper.e.1
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? Executors.newFixedThreadPool(i, new ThreadFactory() { // from class: com.bytedance.pangle.helper.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public AtomicInteger a;
@@ -53,9 +53,9 @@ public final class e {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

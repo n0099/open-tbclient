@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BaseBitrateAdjuster implements BitrateAdjuster {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public class BaseBitrateAdjuster implements BitrateAdjuster {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,18 +42,18 @@ public class BaseBitrateAdjuster implements BitrateAdjuster {
     }
 
     @Override // org.webrtc.BitrateAdjuster
-    public void reportEncodedFrame(int i2) {
+    public void reportEncodedFrame(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
     }
 
     @Override // org.webrtc.BitrateAdjuster
-    public void setTargets(int i2, int i3) {
+    public void setTargets(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.targetBitrateBps = i2;
-            this.targetFps = i3;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.targetBitrateBps = i;
+            this.targetFps = i2;
         }
     }
 }

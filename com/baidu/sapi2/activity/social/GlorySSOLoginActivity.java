@@ -54,27 +54,27 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    private void a(int i2, String str) {
+    private void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
-            if (((BaseSSOLoginActivity) this).f36710g == 2001) {
+        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
+            if (((BaseSSOLoginActivity) this).f28475g == 2001) {
                 Intent intent = new Intent();
-                intent.putExtra("result_code", i2);
+                intent.putExtra("result_code", i);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f36711h.setResultCode(i2);
-                ((BaseSSOLoginActivity) this).f36711h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f36711h);
+                ((BaseSSOLoginActivity) this).f28476h.setResultCode(i);
+                ((BaseSSOLoginActivity) this).f28476h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f28476h);
                 CoreViewRouter.getInstance().release();
             }
             finish();
@@ -85,7 +85,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                a(-204, getString(R.string.sapi_sdk_third_error_glory));
+                a(-204, getString(R.string.obfuscated_res_0x7f0f1043));
                 return;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -108,12 +108,12 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 != 1002) {
-                if (i2 == 1003) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i != 1002) {
+                if (i == 1003) {
                     Task parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
                     if (parseAuthResultFromIntent.isSuccessful()) {
                         AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.getResult();
@@ -123,12 +123,12 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
                         b(authHuaweiId.getAuthorizationCode());
                         return;
                     }
-                    a(-202, getString(R.string.sapi_sdk_glory_login_fail));
+                    a(-202, getString(R.string.obfuscated_res_0x7f0f101e));
                     String str2 = p;
                     Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                     return;
                 }
-                a(-202, getString(R.string.sapi_sdk_third_error_glory));
+                a(-202, getString(R.string.obfuscated_res_0x7f0f1043));
                 return;
             }
             Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
@@ -141,7 +141,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
                 b(authHuaweiId2.getAccessToken());
                 return;
             }
-            a(-202, getString(R.string.sapi_sdk_glory_login_fail));
+            a(-202, getString(R.string.obfuscated_res_0x7f0f101e));
             String str5 = p;
             Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
         }
@@ -161,7 +161,7 @@ public class GlorySSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_login_glory);
+            setTitleText(R.string.obfuscated_res_0x7f0f104c);
             try {
                 d();
             } catch (Exception e2) {

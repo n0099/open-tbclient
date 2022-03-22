@@ -75,9 +75,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -97,32 +97,32 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             }
         }
 
-        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j2) {
+        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j2) == null) {
-                downloadTask.setLastCallbackProcessTs(j2);
+            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j) == null) {
+                downloadTask.setLastCallbackProcessTs(j);
             }
         }
 
-        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j2) {
+        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j2) == null) {
-                downloadTask.setSpeedIncreaseBytes(j2);
+            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j) == null) {
+                downloadTask.setSpeedIncreaseBytes(j);
             }
         }
     }
 
-    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i2, int i3, int i4, int i5, boolean z, int i6, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
+    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i, int i2, int i3, int i4, boolean z, int i5, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
         Boolean bool3;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, uri, priority, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), Integer.valueOf(i6), map, str2, Boolean.valueOf(z2), Boolean.valueOf(z3), bool, num, bool2};
+            Object[] objArr = {str, uri, priority, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5), map, str2, Boolean.valueOf(z2), Boolean.valueOf(z3), bool, num, bool2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -132,12 +132,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         this.url = str;
         this.uri = uri;
         this.priority = priority;
-        this.readBufferSize = i2;
-        this.flushBufferSize = i3;
-        this.syncBufferSize = i4;
-        this.syncBufferIntervalMills = i5;
+        this.readBufferSize = i;
+        this.flushBufferSize = i2;
+        this.syncBufferSize = i3;
+        this.syncBufferIntervalMills = i4;
         this.autoCallbackToUIThread = z;
-        this.minIntervalMillisCallbackProcess = i6;
+        this.minIntervalMillisCallbackProcess = i5;
         this.headerMapFields = map;
         this.lastCallbackProcessTimestamp = new AtomicLong();
         this.passIfAlreadyCompleted = z2;
@@ -211,16 +211,16 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public static MockTaskForCompare mockTaskForCompare(int i2) {
+    public static MockTaskForCompare mockTaskForCompare(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new MockTaskForCompare(i2) : (MockTaskForCompare) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new MockTaskForCompare(i) : (MockTaskForCompare) invokeI.objValue;
     }
 
-    public synchronized DownloadTask addTag(int i2, Object obj) {
+    public synchronized DownloadTask addTag(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, obj)) == null) {
             synchronized (this) {
                 if (this.keyTagMap == null) {
                     synchronized (this) {
@@ -229,7 +229,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
                         }
                     }
                 }
-                this.keyTagMap.put(i2, obj);
+                this.keyTagMap.put(i, obj);
             }
             return this;
         }
@@ -440,14 +440,14 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.syncBufferSize : invokeV.intValue;
     }
 
-    public Object getTag(int i2) {
+    public Object getTag(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
             if (this.keyTagMap == null) {
                 return null;
             }
-            return this.keyTagMap.get(i2);
+            return this.keyTagMap.get(i);
         }
         return invokeI.objValue;
     }
@@ -500,18 +500,18 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     }
 
     @NonNull
-    public MockTaskForCompare mock(int i2) {
+    public MockTaskForCompare mock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? new MockTaskForCompare(i2, this) : (MockTaskForCompare) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? new MockTaskForCompare(i, this) : (MockTaskForCompare) invokeI.objValue;
     }
 
-    public synchronized void removeTag(int i2) {
+    public synchronized void removeTag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             synchronized (this) {
                 if (this.keyTagMap != null) {
-                    this.keyTagMap.remove(i2);
+                    this.keyTagMap.remove(i);
                 }
             }
         }
@@ -531,10 +531,10 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setLastCallbackProcessTs(long j2) {
+    public void setLastCallbackProcessTs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) {
-            this.lastCallbackProcessTimestamp.set(j2);
+        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
+            this.lastCallbackProcessTimestamp.set(j);
         }
     }
 
@@ -545,13 +545,13 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setSpeedIncreaseBytes(long j2) {
+    public void setSpeedIncreaseBytes(long j) {
         SpeedCalculator speedCalculator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) || (speedCalculator = this.speedCalculator) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j) == null) || (speedCalculator = this.speedCalculator) == null) {
             return;
         }
-        speedCalculator.downloading(j2);
+        speedCalculator.downloading(j);
     }
 
     public void setTag(Object obj) {
@@ -652,9 +652,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (Uri) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -702,11 +702,11 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setConnectionCount(@IntRange(from = 1) int i2) {
+        public Builder setConnectionCount(@IntRange(from = 1) int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.connectionCount = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.connectionCount = Integer.valueOf(i);
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -735,12 +735,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setFlushBufferSize(int i2) {
+        public Builder setFlushBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                if (i2 >= 0) {
-                    this.flushBufferSize = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                if (i >= 0) {
+                    this.flushBufferSize = i;
                     return this;
                 }
                 throw new IllegalArgumentException("Value must be positive!");
@@ -758,11 +758,11 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMinIntervalMillisCallbackProcess(int i2) {
+        public Builder setMinIntervalMillisCallbackProcess(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.minIntervalMillisCallbackProcess = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                this.minIntervalMillisCallbackProcess = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -798,12 +798,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setReadBufferSize(int i2) {
+        public Builder setReadBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-                if (i2 >= 0) {
-                    this.readBufferSize = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                if (i >= 0) {
+                    this.readBufferSize = i;
                     return this;
                 }
                 throw new IllegalArgumentException("Value must be positive!");
@@ -811,12 +811,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setSyncBufferIntervalMillis(int i2) {
+        public Builder setSyncBufferIntervalMillis(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                if (i2 >= 0) {
-                    this.syncBufferIntervalMillis = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                if (i >= 0) {
+                    this.syncBufferIntervalMillis = i;
                     return this;
                 }
                 throw new IllegalArgumentException("Value must be positive!");
@@ -824,12 +824,12 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setSyncBufferSize(int i2) {
+        public Builder setSyncBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                if (i2 >= 0) {
-                    this.syncBufferSize = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+                if (i >= 0) {
+                    this.syncBufferSize = i;
                     return this;
                 }
                 throw new IllegalArgumentException("Value must be positive!");
@@ -854,9 +854,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -882,9 +882,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -938,22 +938,22 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         @NonNull
         public final String url;
 
-        public MockTaskForCompare(int i2) {
+        public MockTaskForCompare(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.id = i2;
+            this.id = i;
             this.url = "";
             File file = IdentifiedTask.EMPTY_FILE;
             this.providedPathFile = file;
@@ -1000,22 +1000,22 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.url : (String) invokeV.objValue;
         }
 
-        public MockTaskForCompare(int i2, @NonNull DownloadTask downloadTask) {
+        public MockTaskForCompare(int i, @NonNull DownloadTask downloadTask) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), downloadTask};
+                Object[] objArr = {Integer.valueOf(i), downloadTask};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.id = i2;
+            this.id = i;
             this.url = downloadTask.url;
             this.parentFile = downloadTask.getParentFile();
             this.providedPathFile = downloadTask.providedPathFile;

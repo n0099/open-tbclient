@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import c.a.r0.z1.m.b;
+import c.a.p0.b2.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,9 +24,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,13 +38,13 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     public String getFidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1550b.a(str).d("fid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C0942b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1550b.a(str).d("touid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C0942b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -55,10 +55,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
             if (shouldResponseAttention()) {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                    return responseAttentionUser(aVar.f39406c, aVar.f39407d);
-                } else if (obj instanceof c.a.r0.z1.p.b) {
-                    c.a.r0.z1.p.b bVar = (c.a.r0.z1.p.b) obj;
-                    return responseAttentionForum(bVar.a, bVar.f25465b);
+                    return responseAttentionUser(aVar.f30338c, aVar.f30339d);
+                } else if (obj instanceof c.a.p0.b2.p.b) {
+                    c.a.p0.b2.p.b bVar = (c.a.p0.b2.p.b) obj;
+                    return responseAttentionForum(bVar.a, bVar.f12556b);
                 } else {
                     return false;
                 }

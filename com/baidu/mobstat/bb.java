@@ -13,11 +13,11 @@ public class bb extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bb f35141c;
+    public static bb f27282c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35142b;
+    public boolean f27283b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bb extends ba {
                 return;
             }
         }
-        f35141c = new bb();
+        f27282c = new bb();
     }
 
     public bb() {
@@ -40,9 +40,9 @@ public class bb extends ba {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,7 +52,7 @@ public class bb extends ba {
     public static bb c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35141c : (bb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27282c : (bb) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -66,6 +66,6 @@ public class bb extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35142b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27283b : invokeV.booleanValue;
     }
 }

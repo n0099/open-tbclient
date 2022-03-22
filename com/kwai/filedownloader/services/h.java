@@ -11,44 +11,44 @@ import com.kwai.filedownloader.download.DownloadLaunchRunnable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<DownloadLaunchRunnable> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ThreadPoolExecutor f56915b;
+    public ThreadPoolExecutor f41779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f56916c;
+    public final String f41780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f56917d;
+    public int f41781d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56918e;
+    public int f41782e;
 
-    public h(int i2) {
+    public h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new SparseArray<>();
-        this.f56916c = "Network";
-        this.f56918e = 0;
-        this.f56915b = com.kwai.filedownloader.e.b.a(i2, "Network");
-        this.f56917d = i2;
+        this.f41780c = "Network";
+        this.f41782e = 0;
+        this.f41779b = com.kwai.filedownloader.e.b.a(i, "Network");
+        this.f41781d = i;
     }
 
     private synchronized void c() {
@@ -57,8 +57,8 @@ public class h {
             synchronized (this) {
                 SparseArray<DownloadLaunchRunnable> sparseArray = new SparseArray<>();
                 int size = this.a.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    int keyAt = this.a.keyAt(i2);
+                for (int i = 0; i < size; i++) {
+                    int keyAt = this.a.keyAt(i);
                     DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(keyAt);
                     if (downloadLaunchRunnable.e()) {
                         sparseArray.put(keyAt, downloadLaunchRunnable);
@@ -83,17 +83,17 @@ public class h {
         return invokeV.intValue;
     }
 
-    public int a(String str, int i2) {
+    public int a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
             if (str == null) {
                 return 0;
             }
             int size = this.a.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                DownloadLaunchRunnable valueAt = this.a.valueAt(i3);
-                if (valueAt != null && valueAt.e() && valueAt.d() != i2 && str.equals(valueAt.f())) {
+            for (int i2 = 0; i2 < size; i2++) {
+                DownloadLaunchRunnable valueAt = this.a.valueAt(i2);
+                if (valueAt != null && valueAt.e() && valueAt.d() != i && str.equals(valueAt.f())) {
                     return valueAt.d();
                 }
             }
@@ -103,44 +103,44 @@ public class h {
     }
 
     public void a(DownloadLaunchRunnable downloadLaunchRunnable) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadLaunchRunnable) == null) {
             downloadLaunchRunnable.b();
             synchronized (this) {
                 this.a.put(downloadLaunchRunnable.d(), downloadLaunchRunnable);
             }
-            this.f56915b.execute(downloadLaunchRunnable);
-            int i3 = this.f56918e;
-            if (i3 >= 600) {
+            this.f41779b.execute(downloadLaunchRunnable);
+            int i2 = this.f41782e;
+            if (i2 >= 600) {
                 c();
-                i2 = 0;
+                i = 0;
             } else {
-                i2 = i3 + 1;
+                i = i2 + 1;
             }
-            this.f56918e = i2;
+            this.f41782e = i;
         }
     }
 
-    public synchronized boolean a(int i2) {
+    public synchronized boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             synchronized (this) {
                 if (a() > 0) {
                     com.kwai.filedownloader.e.d.d(this, "Can't change the max network thread count, because the  network thread pool isn't in IDLE, please try again after all running tasks are completed or invoking FileDownloader#pauseAll directly.", new Object[0]);
                     return false;
                 }
-                int a = com.kwai.filedownloader.e.e.a(i2);
+                int a = com.kwai.filedownloader.e.e.a(i);
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.f56917d), Integer.valueOf(a));
+                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.f41781d), Integer.valueOf(a));
                 }
-                List<Runnable> shutdownNow = this.f56915b.shutdownNow();
-                this.f56915b = com.kwai.filedownloader.e.b.a(a, "Network");
+                List<Runnable> shutdownNow = this.f41779b.shutdownNow();
+                this.f41779b = com.kwai.filedownloader.e.b.a(a, "Network");
                 if (shutdownNow.size() > 0) {
                     com.kwai.filedownloader.e.d.d(this, "recreate the network thread pool and discard %d tasks", Integer.valueOf(shutdownNow.size()));
                 }
-                this.f56917d = a;
+                this.f41781d = a;
                 return true;
             }
         }
@@ -155,8 +155,8 @@ public class h {
             synchronized (this) {
                 c();
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.a.size(); i2++) {
-                    arrayList.add(Integer.valueOf(this.a.get(this.a.keyAt(i2)).d()));
+                for (int i = 0; i < this.a.size(); i++) {
+                    arrayList.add(Integer.valueOf(this.a.get(this.a.keyAt(i)).d()));
                 }
             }
             return arrayList;
@@ -164,29 +164,29 @@ public class h {
         return (List) invokeV.objValue;
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             c();
             synchronized (this) {
-                DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i2);
+                DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i);
                 if (downloadLaunchRunnable != null) {
                     downloadLaunchRunnable.a();
-                    boolean remove = this.f56915b.remove(downloadLaunchRunnable);
+                    boolean remove = this.f41779b.remove(downloadLaunchRunnable);
                     if (com.kwai.filedownloader.e.d.a) {
-                        com.kwai.filedownloader.e.d.c(this, "successful cancel %d %B", Integer.valueOf(i2), Boolean.valueOf(remove));
+                        com.kwai.filedownloader.e.d.c(this, "successful cancel %d %B", Integer.valueOf(i), Boolean.valueOf(remove));
                     }
                 }
-                this.a.remove(i2);
+                this.a.remove(i);
             }
         }
     }
 
-    public boolean c(int i2) {
+    public boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i);
             return downloadLaunchRunnable != null && downloadLaunchRunnable.e();
         }
         return invokeI.booleanValue;

@@ -28,9 +28,9 @@ public class f extends k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,12 +65,12 @@ public class f extends k {
             return;
         }
         boolean z = true;
-        boolean z2 = this.t == null || this.u != this.k.f29838b;
+        boolean z2 = this.t == null || this.u != this.k.f23850b;
         Rect rect2 = this.v;
         if (rect2 != null && rect2.contains(rect)) {
             z = z2;
         }
-        this.u = this.k.f29838b;
+        this.u = this.k.f23850b;
         if (z) {
             this.v = rect;
             Path path = new Path();

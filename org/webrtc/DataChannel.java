@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DataChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeDataChannel;
     public long nativeObserver;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Buffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class DataChannel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {byteBuffer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,7 +45,7 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Init {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public class DataChannel {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -119,10 +119,10 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Observer {
         @CalledByNative("Observer")
-        void onBufferedAmountChange(long j2);
+        void onBufferedAmountChange(long j);
 
         @CalledByNative("Observer")
         void onMessage(Buffer buffer);
@@ -132,7 +132,7 @@ public class DataChannel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -163,16 +163,16 @@ public class DataChannel {
             $VALUES = new State[]{CONNECTING, OPEN, CLOSING, state};
         }
 
-        public State(String str, int i2) {
+        public State(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -183,10 +183,10 @@ public class DataChannel {
         }
 
         @CalledByNative("State")
-        public static State fromNativeIndex(int i2) {
+        public static State fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? values()[i2] : (State) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (State) invokeI.objValue;
         }
 
         public static State valueOf(String str) {
@@ -203,22 +203,22 @@ public class DataChannel {
     }
 
     @CalledByNative
-    public DataChannel(long j2) {
+    public DataChannel(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.nativeDataChannel = j2;
+        this.nativeDataChannel = j;
     }
 
     private void checkDataChannelExists() {
@@ -242,7 +242,7 @@ public class DataChannel {
 
     private native State nativeState();
 
-    private native void nativeUnregisterObserver(long j2);
+    private native void nativeUnregisterObserver(long j);
 
     public long bufferedAmount() {
         InterceptResult invokeV;
@@ -302,9 +302,9 @@ public class DataChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, observer) == null) {
             checkDataChannelExists();
-            long j2 = this.nativeObserver;
-            if (j2 != 0) {
-                nativeUnregisterObserver(j2);
+            long j = this.nativeObserver;
+            if (j != 0) {
+                nativeUnregisterObserver(j);
             }
             this.nativeObserver = nativeRegisterObserver(observer);
         }

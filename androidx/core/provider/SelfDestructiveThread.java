@@ -6,7 +6,6 @@ import android.os.Message;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,16 +42,16 @@ public class SelfDestructiveThread {
         void onReply(T t);
     }
 
-    public SelfDestructiveThread(String str, int i2, int i3) {
+    public SelfDestructiveThread(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,9 +70,9 @@ public class SelfDestructiveThread {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -87,11 +86,11 @@ public class SelfDestructiveThread {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
-                    int i6 = message.what;
-                    if (i6 == 0) {
+                    int i5 = message.what;
+                    if (i5 == 0) {
                         this.this$0.onDestruction();
                         return true;
-                    } else if (i6 != 1) {
+                    } else if (i5 != 1) {
                         return true;
                     } else {
                         this.this$0.onInvokeRunnable((Runnable) message.obj);
@@ -102,8 +101,8 @@ public class SelfDestructiveThread {
             }
         };
         this.mThreadName = str;
-        this.mPriority = i2;
-        this.mDestructAfterMillisec = i3;
+        this.mPriority = i;
+        this.mDestructAfterMillisec = i2;
         this.mGeneration = 0;
     }
 
@@ -127,13 +126,13 @@ public class SelfDestructiveThread {
     @VisibleForTesting
     public int getGeneration() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this.mLock) {
-                i2 = this.mGeneration;
+                i = this.mGeneration;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -195,9 +194,9 @@ public class SelfDestructiveThread {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, callable, r8, replyCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -232,9 +231,9 @@ public class SelfDestructiveThread {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, obj};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -258,10 +257,10 @@ public class SelfDestructiveThread {
         }
     }
 
-    public <T> T postAndWait(Callable<T> callable, int i2) throws InterruptedException {
+    public <T> T postAndWait(Callable<T> callable, int i) throws InterruptedException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, callable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, callable, i)) == null) {
             ReentrantLock reentrantLock = new ReentrantLock();
             Condition newCondition = reentrantLock.newCondition();
             AtomicReference atomicReference = new AtomicReference();
@@ -283,9 +282,9 @@ public class SelfDestructiveThread {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, atomicReference, callable, reentrantLock, atomicBoolean, newCondition};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -322,7 +321,7 @@ public class SelfDestructiveThread {
                 if (!atomicBoolean.get()) {
                     return (T) atomicReference.get();
                 }
-                long nanos = TimeUnit.MILLISECONDS.toNanos(i2);
+                long nanos = TimeUnit.MILLISECONDS.toNanos(i);
                 do {
                     try {
                         nanos = newCondition.awaitNanos(nanos);
@@ -332,7 +331,7 @@ public class SelfDestructiveThread {
                         return (T) atomicReference.get();
                     }
                 } while (nanos > 0);
-                throw new InterruptedException(a.O);
+                throw new InterruptedException("timeout");
             } finally {
                 reentrantLock.unlock();
             }

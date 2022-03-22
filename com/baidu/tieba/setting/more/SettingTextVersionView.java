@@ -15,10 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,9 +44,9 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -57,7 +56,7 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
         }
     }
 
-    public void refresh() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = false;
@@ -67,13 +66,13 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
-                this.tipView.setText((CharSequence) null);
+                SkinManager.setBackgroundResource(this.f30430e, R.drawable.icon_news_head_new);
+                this.f30430e.setText((CharSequence) null);
                 return;
             }
-            this.tipView.setText(TbConfig.getVersion());
-            this.tipView.setBackgroundDrawable(null);
-            this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.f30430e.setText(TbConfig.getVersion());
+            this.f30430e.setBackgroundDrawable(null);
+            this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
         }
     }
 }

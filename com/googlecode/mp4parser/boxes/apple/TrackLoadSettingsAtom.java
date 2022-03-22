@@ -56,9 +56,9 @@ public class TrackLoadSettingsAtom extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -151,35 +151,35 @@ public class TrackLoadSettingsAtom extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public void setDefaultHints(int i2) {
+    public void setDefaultHints(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i2)));
-            this.defaultHints = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+            this.defaultHints = i;
         }
     }
 
-    public void setPreloadDuration(int i2) {
+    public void setPreloadDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.preloadDuration = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.preloadDuration = i;
         }
     }
 
-    public void setPreloadFlags(int i2) {
+    public void setPreloadFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
-            this.preloadFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.preloadFlags = i;
         }
     }
 
-    public void setPreloadStartTime(int i2) {
+    public void setPreloadStartTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.preloadStartTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.preloadStartTime = i;
         }
     }
 }

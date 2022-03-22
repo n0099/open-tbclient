@@ -101,9 +101,9 @@ public class BdVideo implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -338,17 +338,17 @@ public class BdVideo implements Serializable, Cloneable {
         }
     }
 
-    public void setDecodeMode(int i2) {
+    public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.mDecodeMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.mDecodeMode = i;
         }
     }
 
-    public void setDownloadFrom(int i2) {
+    public void setDownloadFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.mDownloadFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.mDownloadFrom = i;
         }
     }
 
@@ -366,10 +366,10 @@ public class BdVideo implements Serializable, Cloneable {
         }
     }
 
-    public void setId(long j2) {
+    public void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j2) == null) {
-            this.mId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+            this.mId = j;
         }
     }
 
@@ -408,17 +408,17 @@ public class BdVideo implements Serializable, Cloneable {
         }
     }
 
-    public void setSeriesId(long j2) {
+    public void setSeriesId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048619, this, j2) == null) {
-            this.mSeriesId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
+            this.mSeriesId = j;
         }
     }
 
-    public void setSeriesNum(int i2) {
+    public void setSeriesNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.mSeriesNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.mSeriesNum = i;
         }
     }
 
@@ -471,10 +471,10 @@ public class BdVideo implements Serializable, Cloneable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+            this.mType = i;
         }
     }
 
@@ -510,7 +510,7 @@ public class BdVideo implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BdVideo m41clone() {
+    public BdVideo m39clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

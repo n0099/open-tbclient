@@ -7,7 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.b0.i0.a.d.b;
+import c.a.a0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f35807h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f35808i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f35809j;
-    public static final int k;
-    public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f27675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f35810e;
+    public static final int f27676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f35811f;
+    public static final int f27677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f35812g;
+    public static final int f27678g;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bitmap f27679b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f27680c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +53,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        f35807h = b.d(2.0f);
-        f35808i = b.d(2.0f);
-        f35809j = b.d(2.0f);
-        k = b.d(4.0f);
+        f27675d = b.d(2.0f);
+        f27676e = b.d(2.0f);
+        f27677f = b.d(2.0f);
+        f27678g = b.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,16 +68,16 @@ public class BdVideoBattery extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35810e = context;
+        this.a = context;
         a();
     }
 
@@ -85,7 +85,7 @@ public class BdVideoBattery extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f35812g = paint;
+            this.f27680c = paint;
             paint.setColor(-1);
         }
     }
@@ -97,32 +97,32 @@ public class BdVideoBattery extends View {
             super.onDraw(canvas);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.f35811f;
+            Bitmap bitmap = this.f27679b;
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f2 = (float) (c.a.b0.v.v0.b.a / 100.0d);
+            float f2 = (float) (c.a.a0.v.v0.b.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
-            int i2 = measuredWidth - k;
-            int i3 = f35809j;
-            canvas.drawRect(i3, f35807h, i3 + ((i2 - i3) * f3), measuredHeight - f35808i, this.f35812g);
+            int i = measuredWidth - f27678g;
+            int i2 = f27677f;
+            canvas.drawRect(i2, f27675d, i2 + ((i - i2) * f3), measuredHeight - f27676e, this.f27680c);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            View.MeasureSpec.getSize(i);
             View.MeasureSpec.getSize(i2);
-            View.MeasureSpec.getSize(i3);
-            setMeasuredDimension(this.f35811f.getWidth(), this.f35811f.getHeight());
+            setMeasuredDimension(this.f27679b.getWidth(), this.f27679b.getHeight());
         }
     }
 
-    public void setImage(int i2) {
+    public void setImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f35811f = BitmapFactory.decodeResource(this.f35810e.getResources(), i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f27679b = BitmapFactory.decodeResource(this.a.getResources(), i);
         }
     }
 
@@ -135,9 +135,9 @@ public class BdVideoBattery extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -145,22 +145,22 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f35810e = context;
+        this.a = context;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoBattery(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BdVideoBattery(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -168,7 +168,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f35810e = context;
+        this.a = context;
         a();
     }
 }

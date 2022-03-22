@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.lowFlows;
 
 import android.os.Bundle;
-import c.a.r0.o1.h.c;
-import c.a.r0.o1.h.i.a;
+import c.a.p0.q1.h.c;
+import c.a.p0.q1.h.i.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -24,16 +24,16 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,13 +41,13 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
             c cVar = this.mLowFlowsView;
             if (cVar != null) {
-                cVar.onChangeSkinType(i2);
+                cVar.onChangeSkinType(i);
             }
         }
     }
@@ -83,7 +83,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
                 cVar.loadData();
             }
             if (getIntent() != null) {
-                c.a.r0.o1.h.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
+                c.a.p0.q1.h.h.a.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
             }
         }
     }

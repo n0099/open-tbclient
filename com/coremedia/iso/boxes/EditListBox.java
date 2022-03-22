@@ -17,10 +17,9 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EditListBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "elst";
@@ -53,9 +52,9 @@ public class EditListBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -79,7 +78,7 @@ public class EditListBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.entries = new LinkedList();
-            for (int i2 = 0; i2 < l2i; i2++) {
+            for (int i = 0; i < l2i; i++) {
                 this.entries.add(new Entry(this, byteBuffer));
             }
         }
@@ -136,12 +135,12 @@ public class EditListBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "EditListBox{entries=" + this.entries + ExtendedMessageFormat.END_FE;
+            return "EditListBox{entries=" + this.entries + '}';
         }
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,23 +149,23 @@ public class EditListBox extends AbstractFullBox {
         public long mediaTime;
         public long segmentDuration;
 
-        public Entry(EditListBox editListBox, long j2, long j3, double d2) {
+        public Entry(EditListBox editListBox, long j, long j2, double d2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editListBox, Long.valueOf(j2), Long.valueOf(j3), Double.valueOf(d2)};
+                Object[] objArr = {editListBox, Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.segmentDuration = j2;
-            this.mediaTime = j3;
+            this.segmentDuration = j;
+            this.mediaTime = j2;
             this.mediaRate = d2;
             this.editListBox = editListBox;
         }
@@ -223,9 +222,9 @@ public class EditListBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                long j2 = this.segmentDuration;
-                long j3 = this.mediaTime;
-                return (((int) (j2 ^ (j2 >>> 32))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
+                long j = this.segmentDuration;
+                long j2 = this.mediaTime;
+                return (((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)));
             }
             return invokeV.intValue;
         }
@@ -237,17 +236,17 @@ public class EditListBox extends AbstractFullBox {
             }
         }
 
-        public void setMediaTime(long j2) {
+        public void setMediaTime(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.mediaTime = j2;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.mediaTime = j;
             }
         }
 
-        public void setSegmentDuration(long j2) {
+        public void setSegmentDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.segmentDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.segmentDuration = j;
             }
         }
 
@@ -255,7 +254,7 @@ public class EditListBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return "Entry{segmentDuration=" + this.segmentDuration + ", mediaTime=" + this.mediaTime + ", mediaRate=" + this.mediaRate + ExtendedMessageFormat.END_FE;
+                return "Entry{segmentDuration=" + this.segmentDuration + ", mediaTime=" + this.mediaTime + ", mediaRate=" + this.mediaRate + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -267,9 +266,9 @@ public class EditListBox extends AbstractFullBox {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {editListBox, byteBuffer};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

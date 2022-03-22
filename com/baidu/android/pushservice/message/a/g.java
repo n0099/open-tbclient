@@ -61,9 +61,9 @@ public class g extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -72,25 +72,25 @@ public class g extends c {
         }
     }
 
-    public static String[] a(Context context, int i2, String str, String str2, byte[] bArr, byte[] bArr2) {
+    public static String[] a(Context context, int i, String str, String str2, byte[] bArr, byte[] bArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), str, str2, bArr, bArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), str, str2, bArr, bArr2})) == null) {
             if (m.a(context, bArr, str2, bArr2)) {
                 String[] strArr = new String[2];
-                if (i2 == k.f30920b.b() || i2 == k.f30921c.b()) {
+                if (i == k.f24761b.b() || i == k.f24762c.b()) {
                     strArr[0] = new String(bArr2);
                     strArr[1] = null;
-                } else if (i2 == k.f30925g.b()) {
+                } else if (i == k.f24766g.b()) {
                     PublicMsg a = i.a(context, str2, str, bArr2);
                     strArr[0] = a.mDescription;
                     strArr[1] = a.mCustomContent;
-                } else if (i2 == k.f30927i.b()) {
+                } else if (i == k.i.b()) {
                     strArr[0] = new String(bArr2);
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("push_ack_msgid", str2);
-                        jSONObject.put("push_ack_msgtype", i2);
+                        jSONObject.put("push_ack_msgtype", i);
                     } catch (JSONException unused) {
                     }
                     strArr[1] = jSONObject.toString();
@@ -105,14 +105,14 @@ public class g extends c {
     @Override // com.baidu.android.pushservice.message.a.c
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         StringBuilder sb;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             String e2 = kVar.e();
             String h2 = kVar.h();
-            int i3 = kVar.i();
+            int i2 = kVar.i();
             byte[] k = kVar.k();
             String f2 = kVar.f();
             int b2 = kVar.b();
@@ -136,7 +136,7 @@ public class g extends c {
                         }
                         intent.putExtra("message_string", a3.mDescription);
                         intent.putExtra("message_id", h2);
-                        intent.putExtra("baidu_message_type", i3);
+                        intent.putExtra("baidu_message_type", i2);
                         intent.putExtra("baidu_message_body", bArr);
                         intent.putExtra("app_id", e2);
                         intent.putExtra("baidu_message_secur_info", k);
@@ -156,31 +156,31 @@ public class g extends c {
                             }
                         }
                         if (kVar.a() < 1 || !m.q(this.a)) {
-                            i2 = m.a(this.a, intent, str, a2);
-                            String str2 = ">>> Deliver message to client: " + a2 + " msg: " + a3.mDescription + " result: " + i2;
+                            i = m.a(this.a, intent, str, a2);
+                            String str2 = ">>> Deliver message to client: " + a2 + " msg: " + a3.mDescription + " result: " + i;
                         } else {
-                            i2 = new d(this.a).a(kVar, bArr).a();
+                            i = new d(this.a).a(kVar, bArr).a();
                         }
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
                 } catch (PackageManager.NameNotFoundException unused) {
-                    i2 = 8;
+                    i = 8;
                     sb = new StringBuilder();
                     sb.append(">>> NOT deliver to app: ");
                     e2 = a.a.b();
                 }
                 com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-                gVar.a(i2);
+                gVar.a(i);
                 return gVar;
             }
-            i2 = 7;
+            i = 7;
             sb = new StringBuilder();
             sb.append(">>> NOT found client for privateMessageHandler appid ");
             sb.append(e2);
             sb.toString();
             com.baidu.android.pushservice.message.g gVar2 = new com.baidu.android.pushservice.message.g();
-            gVar2.a(i2);
+            gVar2.a(i);
             return gVar2;
         }
         return (com.baidu.android.pushservice.message.g) invokeLL.objValue;

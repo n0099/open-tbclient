@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultEbmlReader implements EbmlReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ELEMENT_STATE_READ_CONTENT = 2;
@@ -33,40 +33,40 @@ public final class DefaultEbmlReader implements EbmlReader {
     public final VarintReader varintReader;
 
     /* renamed from: com.google.android.exoplayer2.extractor.mkv.DefaultEbmlReader$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MasterElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long elementEndPosition;
         public final int elementId;
 
-        public /* synthetic */ MasterElement(int i2, long j2, AnonymousClass1 anonymousClass1) {
-            this(i2, j2);
+        public /* synthetic */ MasterElement(int i, long j, AnonymousClass1 anonymousClass1) {
+            this(i, j);
         }
 
-        public MasterElement(int i2, long j2) {
+        public MasterElement(int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.elementId = i2;
-            this.elementEndPosition = j2;
+            this.elementId = i;
+            this.elementEndPosition = j;
         }
     }
 
@@ -75,9 +75,9 @@ public final class DefaultEbmlReader implements EbmlReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,12 +109,12 @@ public final class DefaultEbmlReader implements EbmlReader {
         }
     }
 
-    private double readFloat(ExtractorInput extractorInput, int i2) throws IOException, InterruptedException {
+    private double readFloat(ExtractorInput extractorInput, int i) throws IOException, InterruptedException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, extractorInput, i2)) == null) {
-            long readInteger = readInteger(extractorInput, i2);
-            if (i2 == 4) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, extractorInput, i)) == null) {
+            long readInteger = readInteger(extractorInput, i);
+            if (i == 4) {
                 return Float.intBitsToFloat((int) readInteger);
             }
             return Double.longBitsToDouble(readInteger);
@@ -122,29 +122,29 @@ public final class DefaultEbmlReader implements EbmlReader {
         return invokeLI.doubleValue;
     }
 
-    private long readInteger(ExtractorInput extractorInput, int i2) throws IOException, InterruptedException {
+    private long readInteger(ExtractorInput extractorInput, int i) throws IOException, InterruptedException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, extractorInput, i2)) == null) {
-            extractorInput.readFully(this.scratch, 0, i2);
-            long j2 = 0;
-            for (int i3 = 0; i3 < i2; i3++) {
-                j2 = (j2 << 8) | (this.scratch[i3] & 255);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, extractorInput, i)) == null) {
+            extractorInput.readFully(this.scratch, 0, i);
+            long j = 0;
+            for (int i2 = 0; i2 < i; i2++) {
+                j = (j << 8) | (this.scratch[i2] & 255);
             }
-            return j2;
+            return j;
         }
         return invokeLI.longValue;
     }
 
-    private String readString(ExtractorInput extractorInput, int i2) throws IOException, InterruptedException {
+    private String readString(ExtractorInput extractorInput, int i) throws IOException, InterruptedException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, extractorInput, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, extractorInput, i)) == null) {
+            if (i == 0) {
                 return "";
             }
-            byte[] bArr = new byte[i2];
-            extractorInput.readFully(bArr, 0, i2);
+            byte[] bArr = new byte[i];
+            extractorInput.readFully(bArr, 0, i);
             return new String(bArr);
         }
         return (String) invokeLI.objValue;
@@ -195,17 +195,17 @@ public final class DefaultEbmlReader implements EbmlReader {
                     this.elementState = 0;
                     return true;
                 } else if (elementType == 2) {
-                    long j2 = this.elementContentSize;
-                    if (j2 <= 8) {
-                        this.output.integerElement(this.elementId, readInteger(extractorInput, (int) j2));
+                    long j = this.elementContentSize;
+                    if (j <= 8) {
+                        this.output.integerElement(this.elementId, readInteger(extractorInput, (int) j));
                         this.elementState = 0;
                         return true;
                     }
                     throw new ParserException("Invalid integer size: " + this.elementContentSize);
                 } else if (elementType == 3) {
-                    long j3 = this.elementContentSize;
-                    if (j3 <= 2147483647L) {
-                        this.output.stringElement(this.elementId, readString(extractorInput, (int) j3));
+                    long j2 = this.elementContentSize;
+                    if (j2 <= 2147483647L) {
+                        this.output.stringElement(this.elementId, readString(extractorInput, (int) j2));
                         this.elementState = 0;
                         return true;
                     }
@@ -215,8 +215,8 @@ public final class DefaultEbmlReader implements EbmlReader {
                     this.elementState = 0;
                     return true;
                 } else if (elementType == 5) {
-                    long j4 = this.elementContentSize;
-                    if (j4 != 4 && j4 != 8) {
+                    long j3 = this.elementContentSize;
+                    if (j3 != 4 && j3 != 8) {
                         throw new ParserException("Invalid float size: " + this.elementContentSize);
                     }
                     this.output.floatElement(this.elementId, readFloat(extractorInput, (int) this.elementContentSize));

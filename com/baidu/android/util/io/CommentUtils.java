@@ -2,6 +2,8 @@ package com.baidu.android.util.io;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +28,9 @@ public class CommentUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,7 +68,7 @@ public class CommentUtils {
                 byte[] bArr2 = new byte[stream2Short];
                 randomAccessFile2.seek(length - stream2Short);
                 randomAccessFile2.readFully(bArr2);
-                String str = new String(bArr2, "utf-8");
+                String str = new String(bArr2, IMAudioTransRequest.CHARSET);
                 try {
                     randomAccessFile2.close();
                 } catch (IOException e3) {
@@ -188,14 +190,14 @@ public class CommentUtils {
         return (byte[]) invokeCommon.objValue;
     }
 
-    public static short stream2Short(byte[] bArr, int i2) {
+    public static short stream2Short(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(2);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
-            allocate.put(bArr[i2]);
-            allocate.put(bArr[i2 + 1]);
+            allocate.put(bArr[i]);
+            allocate.put(bArr[i + 1]);
             return allocate.getShort(0);
         }
         return invokeLI.shortValue;
@@ -253,7 +255,7 @@ public class CommentUtils {
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
-                    return "good";
+                    return FrsActivityConfig.GOOD;
                 } catch (IOException e5) {
                     e = e5;
                     zipFile = zipFile2;

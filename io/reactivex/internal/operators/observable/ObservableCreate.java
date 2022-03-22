@@ -41,9 +41,9 @@ public final class ObservableCreate<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -166,9 +166,9 @@ public final class ObservableCreate<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observableEmitter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -192,7 +192,7 @@ public final class ObservableCreate<T> extends Observable<T> {
                 ObservableEmitter<T> observableEmitter = this.emitter;
                 SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.error;
-                int i2 = 1;
+                int i = 1;
                 while (!observableEmitter.isDisposed()) {
                     if (atomicThrowable.get() != null) {
                         spscLinkedArrayQueue.clear();
@@ -206,8 +206,8 @@ public final class ObservableCreate<T> extends Observable<T> {
                         observableEmitter.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -322,9 +322,9 @@ public final class ObservableCreate<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observableOnSubscribe};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

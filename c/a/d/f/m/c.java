@@ -11,6 +11,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,18 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends Resources {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ColorStateList f2694c;
+    public static final ColorStateList f2226c;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2695b;
+    public boolean f2227b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +46,7 @@ public class c extends Resources {
                 return;
             }
         }
-        f2694c = ColorStateList.valueOf(-16777216);
+        f2226c = ColorStateList.valueOf(-16777216);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,9 +58,9 @@ public class c extends Resources {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -67,15 +69,15 @@ public class c extends Resources {
             }
         }
         this.a = resources;
-        this.f2695b = false;
+        this.f2227b = false;
     }
 
-    public final void a(String str, int i2) {
+    public final void a(String str, int i) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
             try {
-                str2 = this.a.getResourceEntryName(i2);
+                str2 = this.a.getResourceEntryName(i);
             } catch (Exception unused) {
                 str2 = null;
             }
@@ -83,7 +85,7 @@ public class c extends Resources {
                 str2 = "";
             }
             try {
-                BdStatisticsManager.getInstance().error("resources", str, null, -9115, null, "resid", Integer.valueOf(i2), "resname", str2);
+                BdStatisticsManager.getInstance().error("resources", str, null, -9115, null, "resid", Integer.valueOf(i), "resname", str2);
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -91,120 +93,120 @@ public class c extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public int getColor(int i2) throws Resources.NotFoundException {
+    public int getColor(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            for (int i3 = 0; i3 < 3; i3++) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    return this.a.getColor(i2);
+                    return this.a.getColor(i);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            a("color", i2);
+            a("color", i);
             return 0;
         }
         return invokeI.intValue;
     }
 
     @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i2) throws Resources.NotFoundException {
+    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            for (int i3 = 0; i3 < 3; i3++) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    return this.a.getColorStateList(i2);
+                    return this.a.getColorStateList(i);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            a("colorstatelist", i2);
-            return f2694c;
+            a("colorstatelist", i);
+            return f2226c;
         }
         return (ColorStateList) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            for (int i3 = 0; i3 < 3; i3++) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    return this.a.getDrawable(i2);
+                    return this.a.getDrawable(i);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            a("drawable", i2);
+            a(ResourceManager.DRAWABLE, i);
             return null;
         }
         return (Drawable) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getString(int i2) throws Resources.NotFoundException {
+    public String getString(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            for (int i3 = 0; i3 < 3; i3++) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    return this.a.getString(i2);
+                    return this.a.getString(i);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2695b)) {
+                    if (i2 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2227b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
-            a("string", i2);
+            a(EMABTest.TYPE_STRING, i);
             return "";
         }
         return (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i2) throws Resources.NotFoundException {
+    public InputStream openRawResource(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.a.openRawResource(i2) : (InputStream) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.a.openRawResource(i) : (InputStream) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i2, TypedValue typedValue) throws Resources.NotFoundException {
+    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, typedValue)) == null) ? this.a.openRawResource(i2, typedValue) : (InputStream) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, typedValue)) == null) ? this.a.openRawResource(i, typedValue) : (InputStream) invokeIL.objValue;
     }
 }

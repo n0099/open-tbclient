@@ -37,27 +37,27 @@ public class a {
             int[] iArr = new int[h.a().length];
             a = iArr;
             try {
-                iArr[h.f30936b.ordinal()] = 1;
+                iArr[h.f24775b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[h.f30937c.ordinal()] = 2;
+                a[h.f24776c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[h.f30941g.ordinal()] = 3;
+                a[h.f24780g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[h.f30938d.ordinal()] = 4;
+                a[h.f24777d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[h.f30940f.ordinal()] = 5;
+                a[h.f24779f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[h.f30939e.ordinal()] = 6;
+                a[h.f24778e.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -70,9 +70,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,12 +85,12 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
-            int i2 = AnonymousClass1.a[hVar.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2 || i2 == 3) {
+            int i = AnonymousClass1.a[hVar.ordinal()];
+            if (i != 1) {
+                if (i == 2 || i == 3) {
                     return new l(this.a);
                 }
-                if (i2 != 6) {
+                if (i != 6) {
                     return null;
                 }
                 return new j(this.a);

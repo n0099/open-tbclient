@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class StaticLayoutBuilderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
@@ -45,7 +45,7 @@ public final class StaticLayoutBuilderCompat {
     public int start;
     public final int width;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StaticLayoutBuilderCompatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public final class StaticLayoutBuilderCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -72,16 +72,16 @@ public final class StaticLayoutBuilderCompat {
         }
     }
 
-    public StaticLayoutBuilderCompat(CharSequence charSequence, TextPaint textPaint, int i2) {
+    public StaticLayoutBuilderCompat(CharSequence charSequence, TextPaint textPaint, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {charSequence, textPaint, Integer.valueOf(i2)};
+            Object[] objArr = {charSequence, textPaint, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,7 +89,7 @@ public final class StaticLayoutBuilderCompat {
         }
         this.source = charSequence;
         this.paint = textPaint;
-        this.width = i2;
+        this.width = i;
         this.start = 0;
         this.end = charSequence.length();
         this.alignment = Layout.Alignment.ALIGN_NORMAL;
@@ -127,10 +127,10 @@ public final class StaticLayoutBuilderCompat {
     }
 
     @NonNull
-    public static StaticLayoutBuilderCompat obtain(@NonNull CharSequence charSequence, @NonNull TextPaint textPaint, @IntRange(from = 0) int i2) {
+    public static StaticLayoutBuilderCompat obtain(@NonNull CharSequence charSequence, @NonNull TextPaint textPaint, @IntRange(from = 0) int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i2)) == null) ? new StaticLayoutBuilderCompat(charSequence, textPaint, i2) : (StaticLayoutBuilderCompat) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, charSequence, textPaint, i)) == null) ? new StaticLayoutBuilderCompat(charSequence, textPaint, i) : (StaticLayoutBuilderCompat) invokeLLI.objValue;
     }
 
     public StaticLayout build() throws StaticLayoutBuilderCompatException {
@@ -194,11 +194,11 @@ public final class StaticLayoutBuilderCompat {
     }
 
     @NonNull
-    public StaticLayoutBuilderCompat setEnd(@IntRange(from = 0) int i2) {
+    public StaticLayoutBuilderCompat setEnd(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.end = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.end = i;
             return this;
         }
         return (StaticLayoutBuilderCompat) invokeI.objValue;
@@ -226,22 +226,22 @@ public final class StaticLayoutBuilderCompat {
     }
 
     @NonNull
-    public StaticLayoutBuilderCompat setMaxLines(@IntRange(from = 0) int i2) {
+    public StaticLayoutBuilderCompat setMaxLines(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.maxLines = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.maxLines = i;
             return this;
         }
         return (StaticLayoutBuilderCompat) invokeI.objValue;
     }
 
     @NonNull
-    public StaticLayoutBuilderCompat setStart(@IntRange(from = 0) int i2) {
+    public StaticLayoutBuilderCompat setStart(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.start = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            this.start = i;
             return this;
         }
         return (StaticLayoutBuilderCompat) invokeI.objValue;

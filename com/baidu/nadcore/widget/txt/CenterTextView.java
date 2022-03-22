@@ -7,7 +7,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.b0.h0.f;
+import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,15 +17,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public StaticLayout a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f35988e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextPaint f27797b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextPaint f35989f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f35990g;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f27798c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context) {
@@ -36,27 +34,27 @@ public class CenterTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35990g = true;
+        this.f27798c = true;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f35989f = textPaint;
+            this.f27797b = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f35989f.setFakeBoldText(this.f35990g);
-            this.f35989f.setColor(getCurrentTextColor());
-            this.f35988e = new StaticLayout(getText(), this.f35989f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, f.c.a(getContext(), 6.0f), false);
+            this.f27797b.setFakeBoldText(this.f27798c);
+            this.f27797b.setColor(getCurrentTextColor());
+            this.a = new StaticLayout(getText(), this.f27797b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, f.c.a(getContext(), 6.0f), false);
         }
     }
 
@@ -64,7 +62,7 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            StaticLayout staticLayout = this.f35988e;
+            StaticLayout staticLayout = this.a;
             if (staticLayout != null) {
                 staticLayout.draw(canvas);
             } else {
@@ -74,10 +72,10 @@ public class CenterTextView extends TextView {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
             a();
         }
     }
@@ -85,7 +83,7 @@ public class CenterTextView extends TextView {
     public void setTextBold(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f35990g = z;
+            this.f27798c = z;
         }
     }
 
@@ -98,9 +96,9 @@ public class CenterTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -108,21 +106,21 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f35990g = true;
+        this.f27798c = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CenterTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CenterTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -130,6 +128,6 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f35990g = true;
+        this.f27798c = true;
     }
 }

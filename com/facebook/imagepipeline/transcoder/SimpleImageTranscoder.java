@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SimpleImageTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleImageTranscoder";
@@ -26,23 +26,23 @@ public class SimpleImageTranscoder implements ImageTranscoder {
     public final int mMaxBitmapSize;
     public final boolean mResizingEnabled;
 
-    public SimpleImageTranscoder(boolean z, int i2) {
+    public SimpleImageTranscoder(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mResizingEnabled = z;
-        this.mMaxBitmapSize = i2;
+        this.mMaxBitmapSize = i;
     }
 
     public static Bitmap.CompressFormat getOutputFormat(@Nullable ImageFormat imageFormat) {

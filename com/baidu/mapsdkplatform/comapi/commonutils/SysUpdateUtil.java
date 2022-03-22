@@ -21,13 +21,13 @@ public class SysUpdateUtil implements SysUpdateObserver {
     public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f34420b;
+    public static boolean f26633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f34421c;
+    public static String f26634c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f34422d;
+    public static int f26635d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class SysUpdateUtil implements SysUpdateObserver {
             }
         }
         a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f34420b = false;
-        f34421c = "";
-        f34422d = 0;
+        f26633b = false;
+        f26634c = "";
+        f26635d = 0;
     }
 
     public SysUpdateUtil() {
@@ -54,9 +54,9 @@ public class SysUpdateUtil implements SysUpdateObserver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -82,11 +82,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c9, code lost:
         if ("10.0.0.200".equals(r9.trim()) != false) goto L47;
      */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00d9  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00dc  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -100,46 +100,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f34420b = false;
+            f26633b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f34420b = false;
+            f26633b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f34421c = "10.0.0.172";
+                    f26634c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f34420b = false;
+                            f26633b = false;
                         }
-                        if (f34420b) {
-                            AppEngine.SetProxyInfo(f34421c, f34422d);
+                        if (f26633b) {
+                            AppEngine.SetProxyInfo(f26634c, f26635d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f34421c = "10.0.0.200";
+                    f26634c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f34421c = "10.0.0.172";
-                        f34422d = defaultPort;
-                        f34420b = true;
+                        f26634c = "10.0.0.172";
+                        f26635d = defaultPort;
+                        f26633b = true;
                     }
                 }
-                if (f34420b) {
+                if (f26633b) {
                 }
             }
-            f34422d = 80;
-            f34420b = true;
-            if (f34420b) {
+            f26635d = 80;
+            f26633b = true;
+            if (f26633b) {
             }
         }
     }

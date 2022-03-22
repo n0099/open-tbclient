@@ -13,10 +13,9 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.payflow.PayFlowContent;
 import kotlin.Metadata;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0012\b\u0017\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b8\u00109J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\"\u0010\u0006\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0006\u0010\u0007\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR$\u0010\f\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u0004\"\u0004\b\u000f\u0010\u0010R\"\u0010\u0011\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010\u0007\u001a\u0004\b\u0012\u0010\t\"\u0004\b\u0013\u0010\u000bR$\u0010\u0014\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0014\u0010\r\u001a\u0004\b\u0015\u0010\u0004\"\u0004\b\u0016\u0010\u0010R$\u0010\u0018\u001a\u0004\u0018\u00010\u00178\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001b\"\u0004\b\u001c\u0010\u001dR$\u0010\u001f\u001a\u0004\u0018\u00010\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$R$\u0010%\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010\r\u001a\u0004\b&\u0010\u0004\"\u0004\b'\u0010\u0010R$\u0010)\u001a\u0004\u0018\u00010(8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,\"\u0004\b-\u0010.R\"\u0010/\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u0010\u0007\u001a\u0004\b0\u0010\t\"\u0004\b1\u0010\u000bR$\u00102\u001a\u0004\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b2\u0010\r\u001a\u0004\b3\u0010\u0004\"\u0004\b4\u0010\u0010R\"\u00105\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u0010\u0007\u001a\u0004\b6\u0010\t\"\u0004\b7\u0010\u000b¨\u0006:"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/request/ReportPurchaseReqParams;", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "", "toString", "()Ljava/lang/String;", "", "currencyType", "I", "getCurrencyType", "()I", "setCurrencyType", "(I)V", "data", "Ljava/lang/String;", "getData", "setData", "(Ljava/lang/String;)V", "from", "getFrom", "setFrom", "orderId", "getOrderId", "setOrderId", "Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/IPayMethod;", "payMethod", "Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/IPayMethod;", "getPayMethod", "()Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/IPayMethod;", "setPayMethod", "(Lcom/yy/mobile/framework/revenuesdk/payapi/payservice/IPayMethod;)V", "Lcom/yy/mobile/framework/revenuesdk/payapi/PayType;", "payType", "Lcom/yy/mobile/framework/revenuesdk/payapi/PayType;", "getPayType", "()Lcom/yy/mobile/framework/revenuesdk/payapi/PayType;", "setPayType", "(Lcom/yy/mobile/framework/revenuesdk/payapi/PayType;)V", PayFlowContent.PRODUCTID, "getProductid", "setProductid", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;", "purchaseInfo", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;", "getPurchaseInfo", "()Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;", "setPurchaseInfo", "(Lcom/yy/mobile/framework/revenuesdk/payapi/bean/PurchaseInfo;)V", "sid", "getSid", "setSid", "sign", "getSign", "setSign", "subscriptionType", "getSubscriptionType", "setSubscriptionType", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ReportPurchaseReqParams extends RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +36,9 @@ public class ReportPurchaseReqParams extends RequestParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -114,10 +113,10 @@ public class ReportPurchaseReqParams extends RequestParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.subscriptionType : invokeV.intValue;
     }
 
-    public final void setCurrencyType(int i2) {
+    public final void setCurrencyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.currencyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.currencyType = i;
         }
     }
 
@@ -128,10 +127,10 @@ public class ReportPurchaseReqParams extends RequestParams {
         }
     }
 
-    public final void setFrom(int i2) {
+    public final void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.from = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.from = i;
         }
     }
 
@@ -170,10 +169,10 @@ public class ReportPurchaseReqParams extends RequestParams {
         }
     }
 
-    public final void setSid(int i2) {
+    public final void setSid(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.sid = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.sid = i;
         }
     }
 
@@ -184,10 +183,10 @@ public class ReportPurchaseReqParams extends RequestParams {
         }
     }
 
-    public final void setSubscriptionType(int i2) {
+    public final void setSubscriptionType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.subscriptionType = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.subscriptionType = i;
         }
     }
 
@@ -195,7 +194,7 @@ public class ReportPurchaseReqParams extends RequestParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "ReportPurchaseReqParams{cmd=" + getCmd() + ", appId=" + getAppId() + ", clientVersion =" + getClientVersion() + ",requestTime = " + getRequestTime() + ", clientVersion =" + getClientVersion() + ", productid =" + this.productid + ", retryCount =" + getRetryCount() + ", intervalMs =" + getIntervalMs() + ", retryType =" + getRetryType() + ", timeOutMs =" + getTimeOutMs() + ", data=" + this.data + ", sign=" + this.sign + ",orderId = " + this.orderId + ",payType = " + this.payType + ",subscriptionType = " + this.subscriptionType + ExtendedMessageFormat.END_FE;
+            return "ReportPurchaseReqParams{cmd=" + getCmd() + ", appId=" + getAppId() + ", clientVersion =" + getClientVersion() + ",requestTime = " + getRequestTime() + ", clientVersion =" + getClientVersion() + ", productid =" + this.productid + ", retryCount =" + getRetryCount() + ", intervalMs =" + getIntervalMs() + ", retryType =" + getRetryType() + ", timeOutMs =" + getTimeOutMs() + ", data=" + this.data + ", sign=" + this.sign + ",orderId = " + this.orderId + ",payType = " + this.payType + ",subscriptionType = " + this.subscriptionType + '}';
         }
         return (String) invokeV.objValue;
     }

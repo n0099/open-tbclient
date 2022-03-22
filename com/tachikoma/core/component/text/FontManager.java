@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FontManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EXTENSIONS;
@@ -26,13 +26,13 @@ public class FontManager {
     public Map<String, FontFamily> mFontCache;
 
     /* renamed from: com.tachikoma.core.component.text.FontManager$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class FontFamily {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class FontManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,16 +58,16 @@ public class FontManager {
             this();
         }
 
-        public Typeface getTypeface(int i2) {
+        public Typeface getTypeface(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.mTypefaceSparseArray.get(i2) : (Typeface) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.mTypefaceSparseArray.get(i) : (Typeface) invokeI.objValue;
         }
 
-        public void setTypeface(int i2, Typeface typeface) {
+        public void setTypeface(int i, Typeface typeface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, typeface) == null) {
-                this.mTypefaceSparseArray.put(i2, typeface);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, typeface) == null) {
+                this.mTypefaceSparseArray.put(i, typeface);
             }
         }
     }
@@ -94,9 +94,9 @@ public class FontManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -105,15 +105,15 @@ public class FontManager {
         this.mFontCache = new HashMap();
     }
 
-    public static Typeface createTypeface(String str, int i2, AssetManager assetManager, String str2) {
+    public static Typeface createTypeface(String str, int i, AssetManager assetManager, String str2) {
         InterceptResult invokeLILL;
         Typeface createFromFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i2, assetManager, str2)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i, assetManager, str2)) == null) {
             try {
                 return Typeface.createFromAsset(assetManager, FONTS_ASSET_PATH + str);
             } catch (RuntimeException unused) {
-                return (TextUtils.isEmpty(str2) || !new File(str2).exists() || (createFromFile = Typeface.createFromFile(str2)) == null) ? Typeface.create(str, i2) : createFromFile;
+                return (TextUtils.isEmpty(str2) || !new File(str2).exists() || (createFromFile = Typeface.createFromFile(str2)) == null) ? Typeface.create(str, i) : createFromFile;
             }
         }
         return (Typeface) invokeLILL.objValue;
@@ -131,27 +131,27 @@ public class FontManager {
         return (FontManager) invokeV.objValue;
     }
 
-    public Typeface getTypeface(String str, int i2, AssetManager assetManager, String str2) {
+    public Typeface getTypeface(String str, int i, AssetManager assetManager, String str2) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, str, i2, assetManager, str2)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, str, i, assetManager, str2)) == null) {
             FontFamily fontFamily = this.mFontCache.get(str);
             if (fontFamily == null) {
                 fontFamily = new FontFamily(null);
                 this.mFontCache.put(str, fontFamily);
             }
-            Typeface typeface = fontFamily.getTypeface(i2);
-            if (typeface == null && (typeface = createTypeface(str, i2, assetManager, str2)) != null) {
-                fontFamily.setTypeface(i2, typeface);
+            Typeface typeface = fontFamily.getTypeface(i);
+            if (typeface == null && (typeface = createTypeface(str, i, assetManager, str2)) != null) {
+                fontFamily.setTypeface(i, typeface);
             }
             return typeface;
         }
         return (Typeface) invokeLILL.objValue;
     }
 
-    public void setTypeface(String str, int i2, Typeface typeface) {
+    public void setTypeface(String str, int i, Typeface typeface) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, typeface) == null) || typeface == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, typeface) == null) || typeface == null) {
             return;
         }
         FontFamily fontFamily = this.mFontCache.get(str);
@@ -159,6 +159,6 @@ public class FontManager {
             fontFamily = new FontFamily(null);
             this.mFontCache.put(str, fontFamily);
         }
-        fontFamily.setTypeface(i2, typeface);
+        fontFamily.setTypeface(i, typeface);
     }
 }

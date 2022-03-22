@@ -25,7 +25,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -54,12 +54,12 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public Animation onCreateAnimation(int i2, boolean z, int i3) {
+    public Animation onCreateAnimation(int i, boolean z, int i2) {
         return null;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public Animator onCreateAnimator(int i2, boolean z, int i3) {
+    public Animator onCreateAnimator(int i, boolean z, int i2) {
         return null;
     }
 
@@ -135,7 +135,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle

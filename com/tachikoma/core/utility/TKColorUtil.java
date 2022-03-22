@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKColorUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,32 +16,32 @@ public class TKColorUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getOpacityFromColor(int i2) {
+    public static int getOpacityFromColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            int i3 = i2 >>> 24;
-            if (i3 == 255) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i >>> 24;
+            if (i2 == 255) {
                 return -1;
             }
-            return i3 == 0 ? -2 : -3;
+            return i2 == 0 ? -2 : -3;
         }
         return invokeI.intValue;
     }
 
-    public static int multiplyColorAlpha(int i2, int i3) {
+    public static int multiplyColorAlpha(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? i3 == 255 ? i2 : i3 == 0 ? i2 & 16777215 : (i2 & 16777215) | ((((i2 >>> 24) * (i3 + (i3 >> 7))) >> 8) << 24) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i2 == 255 ? i : i2 == 0 ? i & 16777215 : (i & 16777215) | ((((i >>> 24) * (i2 + (i2 >> 7))) >> 8) << 24) : invokeII.intValue;
     }
 
     public static String rgba2argb(String str) {

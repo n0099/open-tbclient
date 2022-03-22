@@ -87,23 +87,23 @@ public final class NotificationManagerCompat {
         public final String packageName;
         public final String tag;
 
-        public NotifyTask(String str, int i2, String str2, Notification notification) {
+        public NotifyTask(String str, int i, String str2, Notification notification) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, notification};
+                Object[] objArr = {str, Integer.valueOf(i), str2, notification};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.packageName = str;
-            this.id = i2;
+            this.id = i;
             this.tag = str2;
             this.notif = notification;
         }
@@ -141,9 +141,9 @@ public final class NotificationManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {componentName, iBinder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -185,9 +185,9 @@ public final class NotificationManagerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {componentName};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -207,9 +207,9 @@ public final class NotificationManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -236,7 +236,7 @@ public final class NotificationManagerCompat {
                 if (bindService) {
                     listenerRecord.retryCount = 0;
                 } else {
-                    String str = "Unable to bind to listener " + listenerRecord.componentName;
+                    Log.w(NotificationManagerCompat.TAG, "Unable to bind to listener " + listenerRecord.componentName);
                     this.mContext.unbindService(this);
                 }
                 return listenerRecord.bound;
@@ -299,7 +299,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65543, this, listenerRecord) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    String str = "Processing component " + listenerRecord.componentName + StringUtil.ARRAY_ELEMENT_SEPARATOR + listenerRecord.taskQueue.size() + " queued tasks";
+                    Log.d(NotificationManagerCompat.TAG, "Processing component " + listenerRecord.componentName + StringUtil.ARRAY_ELEMENT_SEPARATOR + listenerRecord.taskQueue.size() + " queued tasks");
                 }
                 if (listenerRecord.taskQueue.isEmpty()) {
                     return;
@@ -312,16 +312,16 @@ public final class NotificationManagerCompat {
                         }
                         try {
                             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                                String str2 = "Sending task " + peek;
+                                Log.d(NotificationManagerCompat.TAG, "Sending task " + peek);
                             }
                             peek.send(listenerRecord.service);
                             listenerRecord.taskQueue.remove();
                         } catch (DeadObjectException unused) {
                             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                                String str3 = "Remote service has died: " + listenerRecord.componentName;
+                                Log.d(NotificationManagerCompat.TAG, "Remote service has died: " + listenerRecord.componentName);
                             }
-                        } catch (RemoteException unused2) {
-                            String str4 = "RemoteException communicating with " + listenerRecord.componentName;
+                        } catch (RemoteException e2) {
+                            Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e2);
                         }
                     }
                     if (listenerRecord.taskQueue.isEmpty()) {
@@ -339,18 +339,18 @@ public final class NotificationManagerCompat {
             if (!(interceptable == null || interceptable.invokeL(65544, this, listenerRecord) == null) || this.mHandler.hasMessages(3, listenerRecord.componentName)) {
                 return;
             }
-            int i2 = listenerRecord.retryCount + 1;
-            listenerRecord.retryCount = i2;
-            if (i2 > 6) {
-                String str = "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries";
+            int i = listenerRecord.retryCount + 1;
+            listenerRecord.retryCount = i;
+            if (i > 6) {
+                Log.w(NotificationManagerCompat.TAG, "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
                 listenerRecord.taskQueue.clear();
                 return;
             }
-            int i3 = (1 << (i2 - 1)) * 1000;
+            int i2 = (1 << (i - 1)) * 1000;
             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                String str2 = "Scheduling retry for " + i3 + " ms";
+                Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i2 + " ms");
             }
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i3);
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i2);
         }
 
         private void updateListenerMap() {
@@ -368,7 +368,7 @@ public final class NotificationManagerCompat {
                         ServiceInfo serviceInfo = resolveInfo.serviceInfo;
                         ComponentName componentName = new ComponentName(serviceInfo.packageName, serviceInfo.name);
                         if (resolveInfo.serviceInfo.permission != null) {
-                            String str = "Permission present on component " + componentName + ", not adding listener record.";
+                            Log.w(NotificationManagerCompat.TAG, "Permission present on component " + componentName + ", not adding listener record.");
                         } else {
                             hashSet.add(componentName);
                         }
@@ -377,7 +377,7 @@ public final class NotificationManagerCompat {
                 for (ComponentName componentName2 : hashSet) {
                     if (!this.mRecordMap.containsKey(componentName2)) {
                         if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                            String str2 = "Adding listener record for " + componentName2;
+                            Log.d(NotificationManagerCompat.TAG, "Adding listener record for " + componentName2);
                         }
                         this.mRecordMap.put(componentName2, new ListenerRecord(componentName2));
                     }
@@ -387,7 +387,7 @@ public final class NotificationManagerCompat {
                     Map.Entry<ComponentName, ListenerRecord> next = it.next();
                     if (!hashSet.contains(next.getKey())) {
                         if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                            String str3 = "Removing listener record for " + next.getKey();
+                            Log.d(NotificationManagerCompat.TAG, "Removing listener record for " + next.getKey());
                         }
                         ensureServiceUnbound(next.getValue());
                         it.remove();
@@ -401,18 +401,18 @@ public final class NotificationManagerCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i2 = message.what;
-                if (i2 == 0) {
+                int i = message.what;
+                if (i == 0) {
                     handleQueueTask((Task) message.obj);
                     return true;
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     ServiceConnectedEvent serviceConnectedEvent = (ServiceConnectedEvent) message.obj;
                     handleServiceConnected(serviceConnectedEvent.componentName, serviceConnectedEvent.iBinder);
                     return true;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     handleServiceDisconnected((ComponentName) message.obj);
                     return true;
-                } else if (i2 != 3) {
+                } else if (i != 3) {
                     return false;
                 } else {
                     handleRetryListenerQueue((ComponentName) message.obj);
@@ -427,7 +427,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    String str = "Connected to service " + componentName;
+                    Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
                 }
                 this.mHandler.obtainMessage(1, new ServiceConnectedEvent(componentName, iBinder)).sendToTarget();
             }
@@ -438,7 +438,7 @@ public final class NotificationManagerCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, componentName) == null) {
                 if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                    String str = "Disconnected from service " + componentName;
+                    Log.d(NotificationManagerCompat.TAG, "Disconnected from service " + componentName);
                 }
                 this.mHandler.obtainMessage(2, componentName).sendToTarget();
             }
@@ -482,9 +482,9 @@ public final class NotificationManagerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -556,18 +556,18 @@ public final class NotificationManagerCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 24) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 24) {
                 return this.mNotificationManager.areNotificationsEnabled();
             }
-            if (i2 >= 19) {
+            if (i >= 19) {
                 AppOpsManager appOpsManager = (AppOpsManager) this.mContext.getSystemService("appops");
                 ApplicationInfo applicationInfo = this.mContext.getApplicationInfo();
                 String packageName = this.mContext.getApplicationContext().getPackageName();
-                int i3 = applicationInfo.uid;
+                int i2 = applicationInfo.uid;
                 try {
                     Class<?> cls = Class.forName(AppOpsManager.class.getName());
-                    return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i3), packageName)).intValue() == 0;
+                    return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i2), packageName)).intValue() == 0;
                 } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException | NoSuchMethodException | RuntimeException | InvocationTargetException unused) {
                     return true;
                 }
@@ -577,10 +577,10 @@ public final class NotificationManagerCompat {
         return invokeV.booleanValue;
     }
 
-    public void cancel(int i2) {
+    public void cancel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            cancel(null, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            cancel(null, i);
         }
     }
 
@@ -672,11 +672,11 @@ public final class NotificationManagerCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 28) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
                 return this.mNotificationManager.getNotificationChannelGroup(str);
             }
-            if (i2 >= 26) {
+            if (i >= 26) {
                 for (NotificationChannelGroup notificationChannelGroup : getNotificationChannelGroups()) {
                     if (notificationChannelGroup.getId().equals(str)) {
                         return notificationChannelGroup;
@@ -714,32 +714,32 @@ public final class NotificationManagerCompat {
         return (List) invokeV.objValue;
     }
 
-    public void notify(int i2, @NonNull Notification notification) {
+    public void notify(int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, notification) == null) {
-            notify(null, i2, notification);
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, notification) == null) {
+            notify(null, i, notification);
         }
     }
 
-    public void cancel(@Nullable String str, int i2) {
+    public void cancel(@Nullable String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            this.mNotificationManager.cancel(str, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            this.mNotificationManager.cancel(str, i);
             if (Build.VERSION.SDK_INT <= 19) {
-                pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i2, str));
+                pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
             }
         }
     }
 
-    public void notify(@Nullable String str, int i2, @NonNull Notification notification) {
+    public void notify(@Nullable String str, int i, @NonNull Notification notification) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i2, notification) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, notification) == null) {
             if (useSideChannelForNotification(notification)) {
-                pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i2, str, notification));
-                this.mNotificationManager.cancel(str, i2);
+                pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i, str, notification));
+                this.mNotificationManager.cancel(str, i);
                 return;
             }
-            this.mNotificationManager.notify(str, i2, notification);
+            this.mNotificationManager.notify(str, i, notification);
         }
     }
 
@@ -759,9 +759,9 @@ public final class NotificationManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -795,23 +795,23 @@ public final class NotificationManagerCompat {
             return (String) invokeV.objValue;
         }
 
-        public CancelTask(String str, int i2, String str2) {
+        public CancelTask(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.packageName = str;
-            this.id = i2;
+            this.id = i;
             this.tag = str2;
             this.all = false;
         }

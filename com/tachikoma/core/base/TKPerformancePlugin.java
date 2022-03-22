@@ -1,5 +1,5 @@
 package com.tachikoma.core.base;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface TKPerformancePlugin {
-    void printPerformance(String str, int i2);
+    void printPerformance(String str, int i);
 }

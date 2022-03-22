@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,9 +39,9 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {binaryReqTask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BinaryReqTask) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -155,16 +155,16 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     }
 
     @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
-    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j2, int i2, AsyncHttpRequest asyncHttpRequest) throws IOException {
+    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i, AsyncHttpRequest asyncHttpRequest) throws IOException {
         InterceptResult invokeCommon;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{iCommonRequestHandler, Long.valueOf(j2), Integer.valueOf(i2), asyncHttpRequest})) == null) {
-            long j3 = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{iCommonRequestHandler, Long.valueOf(j), Integer.valueOf(i), asyncHttpRequest})) == null) {
+            long j2 = j;
             InputStream inputStream = iCommonRequestHandler.getInputStream();
             iCommonRequestHandler.getContentLength();
             MultiSrcAsyncHttpRequest multiSrcAsyncHttpRequest = (MultiSrcAsyncHttpRequest) asyncHttpRequest;
-            if (this.isNeedMultiSrc && j3 != 0) {
+            if (this.isNeedMultiSrc && j2 != 0) {
                 if (!multiSrcAsyncHttpRequest.isTestSpeedRequest()) {
                     ((MultiSrcBinaryReqTask) this.mtask).savePriorityDownloadIpConnectTime(multiSrcAsyncHttpRequest.mRequestUrl, multiSrcAsyncHttpRequest.mRequestConnectedTime);
                 }
@@ -177,64 +177,64 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
             setHttpDNSInfoStatus(multiSrcAsyncHttpRequest.mRequestUrl, 2);
             if (inputStream != null) {
                 ByteArrayInfo byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
-                byteArray.mFilePos = j3;
+                byteArray.mFilePos = j2;
                 byteArray.mByteArrayLength = 0;
                 this.mRunning = true;
-                multiSrcAsyncHttpRequest.setSegBeginPos(j3);
-                long segEndByPos = this.mtask.mProgressInfo.getSegEndByPos(j3);
+                multiSrcAsyncHttpRequest.setSegBeginPos(j2);
+                long segEndByPos = this.mtask.mProgressInfo.getSegEndByPos(j2);
                 if (segEndByPos != 0) {
                     multiSrcAsyncHttpRequest.setSegEndPos(segEndByPos);
                 }
                 int length = byteArray.mByteArray.length;
                 byte[] bArr = new byte[length];
-                for (int i3 = -1; this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning() && (read = inputStream.read(bArr)) != i3; i3 = -1) {
-                    int i4 = length - byteArray.mByteArrayLength;
-                    if (read <= i4) {
-                        i4 = read;
+                for (int i2 = -1; this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning() && (read = inputStream.read(bArr)) != i2; i2 = -1) {
+                    int i3 = length - byteArray.mByteArrayLength;
+                    if (read <= i3) {
+                        i3 = read;
                     }
-                    int i5 = byteArray.mByteArrayLength;
-                    if (i5 + i4 >= length) {
-                        System.arraycopy(bArr, 0, byteArray.mByteArray, i5, i4);
-                        byteArray.mByteArrayLength += i4;
+                    int i4 = byteArray.mByteArrayLength;
+                    if (i4 + i3 >= length) {
+                        System.arraycopy(bArr, 0, byteArray.mByteArray, i4, i3);
+                        byteArray.mByteArrayLength += i3;
                         sendDownloadMessage(byteArray);
-                        j3 += i4;
+                        j2 += i3;
                         byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
-                        byteArray.mFilePos = j3;
+                        byteArray.mFilePos = j2;
                         byteArray.mByteArrayLength = 0;
                     } else {
-                        System.arraycopy(bArr, 0, byteArray.mByteArray, i5, i4);
-                        byteArray.mByteArrayLength += i4;
-                        j3 += i4;
+                        System.arraycopy(bArr, 0, byteArray.mByteArray, i4, i3);
+                        byteArray.mByteArrayLength += i3;
+                        j2 += i3;
                     }
-                    if (i4 < read) {
-                        int i6 = read - i4;
-                        System.arraycopy(bArr, i4, byteArray.mByteArray, byteArray.mByteArrayLength, i6);
-                        byteArray.mByteArrayLength += i6;
-                        j3 += i6;
+                    if (i3 < read) {
+                        int i5 = read - i3;
+                        System.arraycopy(bArr, i3, byteArray.mByteArray, byteArray.mByteArrayLength, i5);
+                        byteArray.mByteArrayLength += i5;
+                        j2 += i5;
                     }
                     if (this.isNeedMultiSrc && this.mTestSpeedStage == 1 && multiSrcAsyncHttpRequest.isTestSpeedRequest()) {
-                        multiSrcAsyncHttpRequest.updateAverageSpeed((MultiSrcBinaryReqTask) this.mtask, j3, read);
+                        multiSrcAsyncHttpRequest.updateAverageSpeed((MultiSrcBinaryReqTask) this.mtask, j2, read);
                     }
-                    if (j3 > multiSrcAsyncHttpRequest.getSegEndPos()) {
+                    if (j2 > multiSrcAsyncHttpRequest.getSegEndPos()) {
                         break;
                     }
                 }
                 if (this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning() && byteArray.mByteArrayLength > 0) {
                     sendDownloadMessage(byteArray);
                     if (this.isNeedMultiSrc && this.mTestSpeedStage == 1 && multiSrcAsyncHttpRequest.isTestSpeedRequest()) {
-                        multiSrcAsyncHttpRequest.updateAverageSpeed((MultiSrcBinaryReqTask) this.mtask, j3, byteArray.mByteArrayLength);
+                        multiSrcAsyncHttpRequest.updateAverageSpeed((MultiSrcBinaryReqTask) this.mtask, j2, byteArray.mByteArrayLength);
                     }
                 } else {
                     TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().recycle(byteArray);
                 }
             }
             if (this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning()) {
-                sendSuccessMessage(i2, null, j3);
+                sendSuccessMessage(i, null, j2);
             }
             if (this.mTrunked) {
                 this.mRunning = false;
             }
-            return j3;
+            return j2;
         }
         return invokeCommon.longValue;
     }
@@ -246,10 +246,10 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         }
     }
 
-    public void setHttpDNSInfoStatus(String str, int i2) {
+    public void setHttpDNSInfoStatus(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i2) == null) {
-            ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i2);
+        if (interceptable == null || interceptable.invokeLI(1048588, this, str, i) == null) {
+            ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i);
         }
     }
 
@@ -273,10 +273,10 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         }
     }
 
-    public void updateStatCstatus(int i2) {
+    public void updateStatCstatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mMultiSrcStatData.dyuse = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mMultiSrcStatData.dyuse = i;
         }
     }
 }

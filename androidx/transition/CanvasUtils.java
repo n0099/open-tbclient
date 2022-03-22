@@ -23,9 +23,9 @@ public class CanvasUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,18 +34,18 @@ public class CanvasUtils {
 
     @SuppressLint({"SoonBlockedPrivateApi"})
     public static void enableZ(@NonNull Canvas canvas, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) || (i2 = Build.VERSION.SDK_INT) < 21) {
+        if (!(interceptable == null || interceptable.invokeLZ(65537, null, canvas, z) == null) || (i = Build.VERSION.SDK_INT) < 21) {
             return;
         }
-        if (i2 >= 29) {
+        if (i >= 29) {
             if (z) {
                 canvas.enableZ();
             } else {
                 canvas.disableZ();
             }
-        } else if (i2 != 28) {
+        } else if (i != 28) {
             if (!sOrderMethodsFetched) {
                 try {
                     Method declaredMethod = Canvas.class.getDeclaredMethod("insertReorderBarrier", new Class[0]);

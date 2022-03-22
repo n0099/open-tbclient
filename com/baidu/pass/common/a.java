@@ -21,36 +21,36 @@ public class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1825a {
+    public static class C1777a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f36294b = "AES/CBC/NoPadding";
+        public static final String f28044b = "AES/CBC/NoPadding";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f36295c = "AES";
+        public static final String f28045c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36296d;
+        public String f28046d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f36297e;
+        public String f28047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f36298f;
+        public String f28048f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1825a() {
+        public C1777a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     this((String) objArr[0], (String) objArr[1], (String) objArr[2]);
                     newInitContext.thisArg = this;
@@ -66,9 +66,9 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f36296d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f36298f);
-                        Cipher cipher = Cipher.getInstance(this.f36297e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f28046d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f28048f);
+                        Cipher cipher = Cipher.getInstance(this.f28047e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
                     } catch (NoSuchAlgorithmException e2) {
@@ -84,27 +84,27 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C1825a(String str, String str2, String str3) {
+        public C1777a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f36296d = "UTF-8";
-            this.f36297e = "AES/CBC/NoPadding";
-            this.f36298f = "AES";
-            this.f36298f = str;
-            this.f36297e = str2;
-            this.f36296d = str3;
+            this.f28046d = "UTF-8";
+            this.f28047e = "AES/CBC/NoPadding";
+            this.f28048f = "AES";
+            this.f28048f = str;
+            this.f28047e = str2;
+            this.f28046d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -114,9 +114,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f36296d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f36298f);
-                        Cipher cipher = Cipher.getInstance(this.f36297e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f28046d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f28048f);
+                        Cipher cipher = Cipher.getInstance(this.f28047e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {
@@ -134,7 +134,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
                 int length = 16 - (str.getBytes().length % 16);
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     str = str + WebvttCueParser.CHAR_SPACE;
                 }
                 return str;
@@ -148,9 +148,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -200,7 +200,7 @@ public class a {
 
     public String a(byte[] bArr) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             if (bArr == null || bArr.length == 0) {
@@ -208,37 +208,37 @@ public class a {
             }
             StringBuilder sb = new StringBuilder();
             int length = bArr.length * 8;
-            int i3 = 0;
-            int i4 = 6;
+            int i2 = 0;
+            int i3 = 6;
+            int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
             byte b2 = 0;
             do {
-                if (i3 > 0 && i4 > 0) {
-                    int i7 = (bArr[i5] & 255) << i4;
-                    int i8 = 8 - i4;
-                    b2 = (byte) (((byte) (i7 | ((bArr[i5 + 1] & 255) >> i8))) & 63);
-                    i4 = 6 - i8;
-                    i3 = i8;
+                if (i2 > 0 && i3 > 0) {
+                    int i6 = (bArr[i4] & 255) << i3;
+                    int i7 = 8 - i3;
+                    b2 = (byte) (((byte) (i6 | ((bArr[i4 + 1] & 255) >> i7))) & 63);
+                    i3 = 6 - i7;
+                    i2 = i7;
+                } else if (i2 == 0) {
+                    b2 = (byte) ((bArr[i4] & 255) >> (8 - i3));
+                    i2 = 2;
+                    i3 = 4;
                 } else if (i3 == 0) {
-                    b2 = (byte) ((bArr[i5] & 255) >> (8 - i4));
-                    i3 = 2;
-                    i4 = 4;
-                } else if (i4 == 0) {
-                    b2 = (byte) (bArr[i5] & 63);
-                    i3 = 0;
-                    i4 = 6;
+                    b2 = (byte) (bArr[i4] & 63);
+                    i2 = 0;
+                    i3 = 6;
                 }
                 sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
-                i6 += 6;
-                i5 = i6 / 8;
-                i2 = length - i6;
-            } while (i2 >= 6);
-            if (i2 > 0) {
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i2)) & 63)));
+                i5 += 6;
+                i4 = i5 / 8;
+                i = length - i5;
+            } while (i >= 6);
+            if (i > 0) {
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
             }
-            int i9 = length % 3;
-            for (int i10 = 0; i10 < i9; i10++) {
+            int i8 = length % 3;
+            for (int i9 = 0; i9 < i8; i9++) {
                 sb.append("=");
             }
             return sb.toString();

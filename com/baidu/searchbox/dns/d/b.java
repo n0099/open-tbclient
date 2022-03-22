@@ -1,6 +1,7 @@
 package com.baidu.searchbox.dns.d;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -58,19 +59,19 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.K : (b) invokeV.objValue;
     }
 
-    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i2) {
+    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             synchronized (this.J) {
                 if (this.I.get(str) == null) {
                     if (DnsUtil.DEBUG) {
-                        String str2 = " creat dns transmit task isBatch: " + z + " host: " + str;
+                        Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
                     }
-                    return new com.baidu.searchbox.dns.d.a(z, str, i2);
+                    return new com.baidu.searchbox.dns.d.a(z, str, i);
                 }
                 return null;
             }
@@ -87,7 +88,7 @@ public class b {
             this.I.remove(str);
         }
         if (DnsUtil.DEBUG) {
-            String str2 = " remove dns transmit task: " + str;
+            Log.d(DnsUtil.TAG, " remove dns transmit task: " + str);
         }
     }
 
@@ -96,9 +97,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -117,7 +118,7 @@ public class b {
             this.I.put(str, aVar);
         }
         if (DnsUtil.DEBUG) {
-            String str2 = " add dns transmit task: " + str;
+            Log.d(DnsUtil.TAG, " add dns transmit task: " + str);
         }
     }
 }

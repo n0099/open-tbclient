@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StoryMessage implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<StoryMessage> CREATOR;
@@ -41,9 +41,9 @@ public class StoryMessage implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -62,10 +62,10 @@ public class StoryMessage implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public StoryMessage[] newArray(int i2) {
+            public StoryMessage[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new StoryMessage[i2] : (StoryMessage[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new StoryMessage[i] : (StoryMessage[]) invokeI.objValue;
             }
         };
     }
@@ -75,9 +75,9 @@ public class StoryMessage implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -133,11 +133,11 @@ public class StoryMessage implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            parcel.writeParcelable(this.imageUri, i2);
-            parcel.writeParcelable(this.videoUri, i2);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+            parcel.writeParcelable(this.imageUri, i);
+            parcel.writeParcelable(this.videoUri, i);
         }
     }
 
@@ -148,9 +148,9 @@ public class StoryMessage implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

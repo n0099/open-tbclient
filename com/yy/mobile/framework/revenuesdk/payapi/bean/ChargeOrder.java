@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\t\n\u0002\b\u001a\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b+\b\u0086\b\u0018\u0000B\u007f\u0012\u0006\u0010\u0016\u001a\u00020\u0001\u0012\u0006\u0010\u0017\u001a\u00020\f\u0012\u0006\u0010\u0018\u001a\u00020\u0004\u0012\u0006\u0010\u0019\u001a\u00020\u0001\u0012\u0006\u0010\u001a\u001a\u00020\u0001\u0012\u0006\u0010\u001b\u001a\u00020\f\u0012\u0006\u0010\u001c\u001a\u00020\u0004\u0012\u0006\u0010\u001d\u001a\u00020\u0004\u0012\u0006\u0010\u001e\u001a\u00020\u0004\u0012\u0006\u0010\u001f\u001a\u00020\u0004\u0012\u0006\u0010 \u001a\u00020\u0004\u0012\u0006\u0010!\u001a\u00020\u0004\u0012\u0006\u0010\"\u001a\u00020\u0004\u0012\u0006\u0010#\u001a\u00020\u0001\u0012\u0006\u0010$\u001a\u00020\u0004¢\u0006\u0004\bR\u0010SJ\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0010\u0010\u0005\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J\u0010\u0010\u0007\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0007\u0010\u0006J\u0010\u0010\b\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\b\u0010\u0006J\u0010\u0010\t\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\t\u0010\u0006J\u0010\u0010\n\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\n\u0010\u0003J\u0010\u0010\u000b\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0006J\u0010\u0010\r\u001a\u00020\fHÆ\u0003¢\u0006\u0004\b\r\u0010\u000eJ\u0010\u0010\u000f\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u000f\u0010\u0006J\u0010\u0010\u0010\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0010\u0010\u0003J\u0010\u0010\u0011\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0003J\u0010\u0010\u0012\u001a\u00020\fHÆ\u0003¢\u0006\u0004\b\u0012\u0010\u000eJ\u0010\u0010\u0013\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0013\u0010\u0006J\u0010\u0010\u0014\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0014\u0010\u0006J\u0010\u0010\u0015\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0015\u0010\u0006J¦\u0001\u0010%\u001a\u00020\u00002\b\b\u0002\u0010\u0016\u001a\u00020\u00012\b\b\u0002\u0010\u0017\u001a\u00020\f2\b\b\u0002\u0010\u0018\u001a\u00020\u00042\b\b\u0002\u0010\u0019\u001a\u00020\u00012\b\b\u0002\u0010\u001a\u001a\u00020\u00012\b\b\u0002\u0010\u001b\u001a\u00020\f2\b\b\u0002\u0010\u001c\u001a\u00020\u00042\b\b\u0002\u0010\u001d\u001a\u00020\u00042\b\b\u0002\u0010\u001e\u001a\u00020\u00042\b\b\u0002\u0010\u001f\u001a\u00020\u00042\b\b\u0002\u0010 \u001a\u00020\u00042\b\b\u0002\u0010!\u001a\u00020\u00042\b\b\u0002\u0010\"\u001a\u00020\u00042\b\b\u0002\u0010#\u001a\u00020\u00012\b\b\u0002\u0010$\u001a\u00020\u0004HÆ\u0001¢\u0006\u0004\b%\u0010&J\u001a\u0010*\u001a\u00020)2\b\u0010(\u001a\u0004\u0018\u00010'HÖ\u0003¢\u0006\u0004\b*\u0010+J\u0010\u0010,\u001a\u00020\u0004HÖ\u0001¢\u0006\u0004\b,\u0010\u0006J\u0010\u0010-\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b-\u0010\u0003R\"\u0010$\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010.\u001a\u0004\b/\u0010\u0006\"\u0004\b0\u00101R\"\u0010\u0017\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u00102\u001a\u0004\b3\u0010\u000e\"\u0004\b4\u00105R\"\u0010\u0019\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u00106\u001a\u0004\b7\u0010\u0003\"\u0004\b8\u00109R\"\u0010 \u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010.\u001a\u0004\b:\u0010\u0006\"\u0004\b;\u00101R\"\u0010!\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b!\u0010.\u001a\u0004\b<\u0010\u0006\"\u0004\b=\u00101R\"\u0010\u0018\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010.\u001a\u0004\b>\u0010\u0006\"\u0004\b?\u00101R\"\u0010\u001b\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u00102\u001a\u0004\b@\u0010\u000e\"\u0004\bA\u00105R\"\u0010\u001e\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010.\u001a\u0004\bB\u0010\u0006\"\u0004\bC\u00101R\"\u0010\u001d\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010.\u001a\u0004\bD\u0010\u0006\"\u0004\bE\u00101R\"\u0010#\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u00106\u001a\u0004\bF\u0010\u0003\"\u0004\bG\u00109R\"\u0010\"\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010.\u001a\u0004\bH\u0010\u0006\"\u0004\bI\u00101R\"\u0010\u001a\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u00106\u001a\u0004\bJ\u0010\u0003\"\u0004\bK\u00109R\"\u0010\u0016\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u00106\u001a\u0004\bL\u0010\u0003\"\u0004\bM\u00109R\"\u0010\u001f\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010.\u001a\u0004\bN\u0010\u0006\"\u0004\bO\u00101R\"\u0010\u001c\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010.\u001a\u0004\bP\u0010\u0006\"\u0004\bQ\u00101¨\u0006T"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ChargeOrder;", "", "component1", "()Ljava/lang/String;", "", "component10", "()I", "component11", "component12", "component13", "component14", "component15", "", "component2", "()J", "component3", "component4", "component5", "component6", "component7", "component8", "component9", "rechargeAmount", "createTime", "diamondAmount", "currencySymbol", "payChannel", "id", "status", "offersType", "offersRate", "srcAmount", "destAmount", "destCurrencyType", "payAmount", "otherChargeOrderId", "chargeConfigType", "copy", "(Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;JIIIIIIILjava/lang/String;I)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ChargeOrder;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "toString", "I", "getChargeConfigType", "setChargeConfigType", "(I)V", "J", "getCreateTime", "setCreateTime", "(J)V", "Ljava/lang/String;", "getCurrencySymbol", "setCurrencySymbol", "(Ljava/lang/String;)V", "getDestAmount", "setDestAmount", "getDestCurrencyType", "setDestCurrencyType", "getDiamondAmount", "setDiamondAmount", "getId", "setId", "getOffersRate", "setOffersRate", "getOffersType", "setOffersType", "getOtherChargeOrderId", "setOtherChargeOrderId", "getPayAmount", "setPayAmount", "getPayChannel", "setPayChannel", "getRechargeAmount", "setRechargeAmount", "getSrcAmount", "setSrcAmount", "getStatus", "setStatus", "<init>", "(Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;JIIIIIIILjava/lang/String;I)V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\t\n\u0002\b\u001a\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b+\b\u0086\b\u0018\u0000B\u007f\u0012\u0006\u0010\u0016\u001a\u00020\u0001\u0012\u0006\u0010\u0017\u001a\u00020\f\u0012\u0006\u0010\u0018\u001a\u00020\u0004\u0012\u0006\u0010\u0019\u001a\u00020\u0001\u0012\u0006\u0010\u001a\u001a\u00020\u0001\u0012\u0006\u0010\u001b\u001a\u00020\f\u0012\u0006\u0010\u001c\u001a\u00020\u0004\u0012\u0006\u0010\u001d\u001a\u00020\u0004\u0012\u0006\u0010\u001e\u001a\u00020\u0004\u0012\u0006\u0010\u001f\u001a\u00020\u0004\u0012\u0006\u0010 \u001a\u00020\u0004\u0012\u0006\u0010!\u001a\u00020\u0004\u0012\u0006\u0010\"\u001a\u00020\u0004\u0012\u0006\u0010#\u001a\u00020\u0001\u0012\u0006\u0010$\u001a\u00020\u0004¢\u0006\u0004\bR\u0010SJ\u0010\u0010\u0002\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0002\u0010\u0003J\u0010\u0010\u0005\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0005\u0010\u0006J\u0010\u0010\u0007\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0007\u0010\u0006J\u0010\u0010\b\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\b\u0010\u0006J\u0010\u0010\t\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\t\u0010\u0006J\u0010\u0010\n\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\n\u0010\u0003J\u0010\u0010\u000b\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0006J\u0010\u0010\r\u001a\u00020\fHÆ\u0003¢\u0006\u0004\b\r\u0010\u000eJ\u0010\u0010\u000f\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u000f\u0010\u0006J\u0010\u0010\u0010\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0010\u0010\u0003J\u0010\u0010\u0011\u001a\u00020\u0001HÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0003J\u0010\u0010\u0012\u001a\u00020\fHÆ\u0003¢\u0006\u0004\b\u0012\u0010\u000eJ\u0010\u0010\u0013\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0013\u0010\u0006J\u0010\u0010\u0014\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0014\u0010\u0006J\u0010\u0010\u0015\u001a\u00020\u0004HÆ\u0003¢\u0006\u0004\b\u0015\u0010\u0006J¦\u0001\u0010%\u001a\u00020\u00002\b\b\u0002\u0010\u0016\u001a\u00020\u00012\b\b\u0002\u0010\u0017\u001a\u00020\f2\b\b\u0002\u0010\u0018\u001a\u00020\u00042\b\b\u0002\u0010\u0019\u001a\u00020\u00012\b\b\u0002\u0010\u001a\u001a\u00020\u00012\b\b\u0002\u0010\u001b\u001a\u00020\f2\b\b\u0002\u0010\u001c\u001a\u00020\u00042\b\b\u0002\u0010\u001d\u001a\u00020\u00042\b\b\u0002\u0010\u001e\u001a\u00020\u00042\b\b\u0002\u0010\u001f\u001a\u00020\u00042\b\b\u0002\u0010 \u001a\u00020\u00042\b\b\u0002\u0010!\u001a\u00020\u00042\b\b\u0002\u0010\"\u001a\u00020\u00042\b\b\u0002\u0010#\u001a\u00020\u00012\b\b\u0002\u0010$\u001a\u00020\u0004HÆ\u0001¢\u0006\u0004\b%\u0010&J\u001a\u0010*\u001a\u00020)2\b\u0010(\u001a\u0004\u0018\u00010'HÖ\u0003¢\u0006\u0004\b*\u0010+J\u0010\u0010,\u001a\u00020\u0004HÖ\u0001¢\u0006\u0004\b,\u0010\u0006J\u0010\u0010-\u001a\u00020\u0001HÖ\u0001¢\u0006\u0004\b-\u0010\u0003R\"\u0010$\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010.\u001a\u0004\b/\u0010\u0006\"\u0004\b0\u00101R\"\u0010\u0017\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u00102\u001a\u0004\b3\u0010\u000e\"\u0004\b4\u00105R\"\u0010\u0019\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u00106\u001a\u0004\b7\u0010\u0003\"\u0004\b8\u00109R\"\u0010 \u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010.\u001a\u0004\b:\u0010\u0006\"\u0004\b;\u00101R\"\u0010!\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b!\u0010.\u001a\u0004\b<\u0010\u0006\"\u0004\b=\u00101R\"\u0010\u0018\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010.\u001a\u0004\b>\u0010\u0006\"\u0004\b?\u00101R\"\u0010\u001b\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u00102\u001a\u0004\b@\u0010\u000e\"\u0004\bA\u00105R\"\u0010\u001e\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010.\u001a\u0004\bB\u0010\u0006\"\u0004\bC\u00101R\"\u0010\u001d\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010.\u001a\u0004\bD\u0010\u0006\"\u0004\bE\u00101R\"\u0010#\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u00106\u001a\u0004\bF\u0010\u0003\"\u0004\bG\u00109R\"\u0010\"\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010.\u001a\u0004\bH\u0010\u0006\"\u0004\bI\u00101R\"\u0010\u001a\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u00106\u001a\u0004\bJ\u0010\u0003\"\u0004\bK\u00109R\"\u0010\u0016\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u00106\u001a\u0004\bL\u0010\u0003\"\u0004\bM\u00109R\"\u0010\u001f\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010.\u001a\u0004\bN\u0010\u0006\"\u0004\bO\u00101R\"\u0010\u001c\u001a\u00020\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010.\u001a\u0004\bP\u0010\u0006\"\u0004\bQ\u00101¨\u0006T"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ChargeOrder;", "", "component1", "()Ljava/lang/String;", "", "component10", "()I", "component11", "component12", "component13", "component14", "component15", "", "component2", "()J", "component3", "component4", "component5", "component6", "component7", "component8", "component9", "rechargeAmount", FileMetaUtil.CREATE_TIME, "diamondAmount", "currencySymbol", "payChannel", "id", "status", "offersType", "offersRate", "srcAmount", "destAmount", "destCurrencyType", "payAmount", "otherChargeOrderId", "chargeConfigType", "copy", "(Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;JIIIIIIILjava/lang/String;I)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ChargeOrder;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "toString", "I", "getChargeConfigType", "setChargeConfigType", "(I)V", "J", "getCreateTime", "setCreateTime", "(J)V", "Ljava/lang/String;", "getCurrencySymbol", "setCurrencySymbol", "(Ljava/lang/String;)V", "getDestAmount", "setDestAmount", "getDestCurrencyType", "setDestCurrencyType", "getDiamondAmount", "setDiamondAmount", "getId", "setId", "getOffersRate", "setOffersRate", "getOffersType", "setOffersType", "getOtherChargeOrderId", "setOtherChargeOrderId", "getPayAmount", "setPayAmount", "getPayChannel", "setPayChannel", "getRechargeAmount", "setRechargeAmount", "getSrcAmount", "setSrcAmount", "getStatus", "setStatus", "<init>", "(Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;JIIIIIIILjava/lang/String;I)V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
 public final class ChargeOrder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,36 +33,36 @@ public final class ChargeOrder {
     public int srcAmount;
     public int status;
 
-    public ChargeOrder(String str, long j2, int i2, String str2, String str3, long j3, int i3, int i4, int i5, int i6, int i7, int i8, int i9, String str4, int i10) {
+    public ChargeOrder(String str, long j, int i, String str2, String str3, long j2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, String str4, int i9) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2), str2, str3, Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), str4, Integer.valueOf(i10)};
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i), str2, str3, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), str4, Integer.valueOf(i9)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i11 = newInitContext.flag;
-            if ((i11 & 1) != 0) {
-                int i12 = i11 & 2;
+            int i10 = newInitContext.flag;
+            if ((i10 & 1) != 0) {
+                int i11 = i10 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.rechargeAmount = str;
-        this.createTime = j2;
-        this.diamondAmount = i2;
+        this.createTime = j;
+        this.diamondAmount = i;
         this.currencySymbol = str2;
         this.payChannel = str3;
-        this.id = j3;
-        this.status = i3;
-        this.offersType = i4;
-        this.offersRate = i5;
-        this.srcAmount = i6;
-        this.destAmount = i7;
-        this.destCurrencyType = i8;
-        this.payAmount = i9;
+        this.id = j2;
+        this.status = i2;
+        this.offersType = i3;
+        this.offersRate = i4;
+        this.srcAmount = i5;
+        this.destAmount = i6;
+        this.destCurrencyType = i7;
+        this.payAmount = i8;
         this.otherChargeOrderId = str4;
-        this.chargeConfigType = i10;
+        this.chargeConfigType = i9;
     }
 
     public final String component1() {
@@ -154,10 +155,10 @@ public final class ChargeOrder {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.offersRate : invokeV.intValue;
     }
 
-    public final ChargeOrder copy(String str, long j2, int i2, String str2, String str3, long j3, int i3, int i4, int i5, int i6, int i7, int i8, int i9, String str4, int i10) {
+    public final ChargeOrder copy(String str, long j, int i, String str2, String str3, long j2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, String str4, int i9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), str2, str3, Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), str4, Integer.valueOf(i10)})) == null) ? new ChargeOrder(str, j2, i2, str2, str3, j3, i3, i4, i5, i6, i7, i8, i9, str4, i10) : (ChargeOrder) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, str3, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), str4, Integer.valueOf(i9)})) == null) ? new ChargeOrder(str, j, i, str2, str3, j2, i2, i3, i4, i5, i6, i7, i8, str4, i9) : (ChargeOrder) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -295,31 +296,31 @@ public final class ChargeOrder {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             String str = this.rechargeAmount;
             int hashCode = str != null ? str.hashCode() : 0;
-            long j2 = this.createTime;
-            int i2 = ((((hashCode * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.diamondAmount) * 31;
+            long j = this.createTime;
+            int i = ((((hashCode * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.diamondAmount) * 31;
             String str2 = this.currencySymbol;
-            int hashCode2 = (i2 + (str2 != null ? str2.hashCode() : 0)) * 31;
+            int hashCode2 = (i + (str2 != null ? str2.hashCode() : 0)) * 31;
             String str3 = this.payChannel;
             int hashCode3 = str3 != null ? str3.hashCode() : 0;
-            long j3 = this.id;
-            int i3 = (((((((((((((((((hashCode2 + hashCode3) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + this.status) * 31) + this.offersType) * 31) + this.offersRate) * 31) + this.srcAmount) * 31) + this.destAmount) * 31) + this.destCurrencyType) * 31) + this.payAmount) * 31;
+            long j2 = this.id;
+            int i2 = (((((((((((((((((hashCode2 + hashCode3) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.status) * 31) + this.offersType) * 31) + this.offersRate) * 31) + this.srcAmount) * 31) + this.destAmount) * 31) + this.destCurrencyType) * 31) + this.payAmount) * 31;
             String str4 = this.otherChargeOrderId;
-            return ((i3 + (str4 != null ? str4.hashCode() : 0)) * 31) + this.chargeConfigType;
+            return ((i2 + (str4 != null ? str4.hashCode() : 0)) * 31) + this.chargeConfigType;
         }
         return invokeV.intValue;
     }
 
-    public final void setChargeConfigType(int i2) {
+    public final void setChargeConfigType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.chargeConfigType = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.chargeConfigType = i;
         }
     }
 
-    public final void setCreateTime(long j2) {
+    public final void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j2) == null) {
-            this.createTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
+            this.createTime = j;
         }
     }
 
@@ -330,45 +331,45 @@ public final class ChargeOrder {
         }
     }
 
-    public final void setDestAmount(int i2) {
+    public final void setDestAmount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.destAmount = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.destAmount = i;
         }
     }
 
-    public final void setDestCurrencyType(int i2) {
+    public final void setDestCurrencyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.destCurrencyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.destCurrencyType = i;
         }
     }
 
-    public final void setDiamondAmount(int i2) {
+    public final void setDiamondAmount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.diamondAmount = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.diamondAmount = i;
         }
     }
 
-    public final void setId(long j2) {
+    public final void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
-            this.id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.id = j;
         }
     }
 
-    public final void setOffersRate(int i2) {
+    public final void setOffersRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.offersRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.offersRate = i;
         }
     }
 
-    public final void setOffersType(int i2) {
+    public final void setOffersType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.offersType = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.offersType = i;
         }
     }
 
@@ -379,10 +380,10 @@ public final class ChargeOrder {
         }
     }
 
-    public final void setPayAmount(int i2) {
+    public final void setPayAmount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.payAmount = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.payAmount = i;
         }
     }
 
@@ -400,17 +401,17 @@ public final class ChargeOrder {
         }
     }
 
-    public final void setSrcAmount(int i2) {
+    public final void setSrcAmount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.srcAmount = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.srcAmount = i;
         }
     }
 
-    public final void setStatus(int i2) {
+    public final void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            this.status = i;
         }
     }
 

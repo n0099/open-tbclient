@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SubPbRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,17 +36,17 @@ public class SubPbRequestMessage extends NetMessage {
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbRequestMessage(Context context, long j2, long j3, long j4, int i2, int i3, int i4, double d2, String str, int i5) {
+    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d2, String str, int i4) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Double.valueOf(d2), str, Integer.valueOf(i5)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2), str, Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -54,15 +54,15 @@ public class SubPbRequestMessage extends NetMessage {
                 return;
             }
         }
-        this.kz = j2;
-        this.pid = j3;
-        this.spid = j4;
-        this.pn = i2;
-        this.scr_w = i3;
-        this.scr_h = i4;
+        this.kz = j;
+        this.pid = j2;
+        this.spid = j3;
+        this.pn = i;
+        this.scr_w = i2;
+        this.scr_h = i3;
         this.scr_dip = d2;
         this.stType = str;
-        this.is_comm_reverse = i5;
+        this.is_comm_reverse = i4;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -102,10 +102,10 @@ public class SubPbRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.treatDelPage : invokeV.booleanValue;
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.forumId = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.forumId = j;
         }
     }
 
@@ -130,10 +130,10 @@ public class SubPbRequestMessage extends NetMessage {
         }
     }
 
-    public void setOriUgcType(int i2) {
+    public void setOriUgcType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.oriUgcType = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.oriUgcType = i;
         }
     }
 

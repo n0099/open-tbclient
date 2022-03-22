@@ -9,8 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.b0.j.d.a;
-import c.a.b0.j.f.i;
+import c.a.a0.j.d.a;
+import c.a.a0.j.f.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
@@ -23,9 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BannerDownloadView f35655e;
+    public BannerDownloadView a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDownloadViewLP(@NonNull Context context) {
@@ -36,9 +34,9 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,16 +49,25 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.nad_download_lp_view, this);
-            setBackgroundResource(R.color.nad_white);
-            this.f35655e = (BannerDownloadView) findViewById(R.id.lp_download_btn);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ad, this);
+            setBackgroundResource(R.color.obfuscated_res_0x7f060859);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f09135a);
         }
     }
 
-    @Override // c.a.b0.j.f.i
-    public void bind(@NonNull ViewGroup viewGroup) {
+    public void b(boolean z) {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0914b7)) == null) {
+            return;
+        }
+        findViewById.setVisibility(z ? 0 : 8);
+    }
+
+    @Override // c.a.a0.j.f.i
+    public void c(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             viewGroup.addView(this, layoutParams);
@@ -70,18 +77,18 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.b0.j.f.i
+    @Override // c.a.a0.j.f.i
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (DefaultDownloadViewLP) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (DefaultDownloadViewLP) invokeV.objValue;
     }
 
     public void setProgress(float f2) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (bannerDownloadView = this.f35655e) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048581, this, f2) == null) || (bannerDownloadView = this.a) == null) {
             return;
         }
         bannerDownloadView.setProgress(f2);
@@ -90,28 +97,19 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void setText(String str) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bannerDownloadView = this.f35655e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (bannerDownloadView = this.a) == null) {
             return;
         }
         bannerDownloadView.setText(str);
     }
 
-    public void showSafeTip(boolean z) {
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (findViewById = findViewById(R.id.nad_download_lp_safe_tip)) == null) {
-            return;
-        }
-        findViewById.setVisibility(z ? 0 : 8);
-    }
-
-    @Override // c.a.b0.j.f.i
+    @Override // c.a.a0.j.f.i
     public void update(String str, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, aVar) == null) {
-            if (aVar.f1613c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.nad_download_progress_text) + str;
-                setProgress(aVar.f1619i);
+            if (aVar.f1246c == AdDownloadStatus.DOWNLOADING) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b7f) + str;
+                setProgress(aVar.i);
             } else {
                 setProgress(0.0f);
             }
@@ -129,9 +127,9 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -142,17 +140,17 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public DefaultDownloadViewLP(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

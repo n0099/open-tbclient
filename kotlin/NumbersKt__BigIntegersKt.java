@@ -87,16 +87,16 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigInteger shl(BigInteger bigInteger, int i2) {
-        BigInteger shiftLeft = bigInteger.shiftLeft(i2);
+    public static final BigInteger shl(BigInteger bigInteger, int i) {
+        BigInteger shiftLeft = bigInteger.shiftLeft(i);
         Intrinsics.checkNotNullExpressionValue(shiftLeft, "this.shiftLeft(n)");
         return shiftLeft;
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigInteger shr(BigInteger bigInteger, int i2) {
-        BigInteger shiftRight = bigInteger.shiftRight(i2);
+    public static final BigInteger shr(BigInteger bigInteger, int i) {
+        BigInteger shiftRight = bigInteger.shiftRight(i);
         Intrinsics.checkNotNullExpressionValue(shiftRight, "this.shiftRight(n)");
         return shiftRight;
     }
@@ -115,21 +115,21 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
         return new BigDecimal(bigInteger);
     }
 
-    public static /* synthetic */ BigDecimal toBigDecimal$default(BigInteger bigInteger, int i2, MathContext mathContext, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ BigDecimal toBigDecimal$default(BigInteger bigInteger, int i, MathContext mathContext, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 0;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             mathContext = MathContext.UNLIMITED;
             Intrinsics.checkNotNullExpressionValue(mathContext, "MathContext.UNLIMITED");
         }
-        return new BigDecimal(bigInteger, i2, mathContext);
+        return new BigDecimal(bigInteger, i, mathContext);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigInteger toBigInteger(int i2) {
-        BigInteger valueOf = BigInteger.valueOf(i2);
+    public static final BigInteger toBigInteger(int i) {
+        BigInteger valueOf = BigInteger.valueOf(i);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
         return valueOf;
     }
@@ -152,14 +152,14 @@ public class NumbersKt__BigIntegersKt extends NumbersKt__BigDecimalsKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(BigInteger bigInteger, int i2, MathContext mathContext) {
-        return new BigDecimal(bigInteger, i2, mathContext);
+    public static final BigDecimal toBigDecimal(BigInteger bigInteger, int i, MathContext mathContext) {
+        return new BigDecimal(bigInteger, i, mathContext);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigInteger toBigInteger(long j2) {
-        BigInteger valueOf = BigInteger.valueOf(j2);
+    public static final BigInteger toBigInteger(long j) {
+        BigInteger valueOf = BigInteger.valueOf(j);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this)");
         return valueOf;
     }

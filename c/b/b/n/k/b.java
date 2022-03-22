@@ -37,9 +37,9 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -48,19 +48,19 @@ public class b {
         new c.b.b.q.a();
         new c.b.b.q.a();
         new c.b.b.n.a(1.0f, 1.0f, 1.0f, 1.0f);
-        int i4 = aVar.f27247f.f27499f;
-        if (i4 != 0) {
-            float[][] fArr = new float[i4];
-            int[] iArr = new int[i4];
-            if (i4 > 1) {
-                l[] lVarArr = new l[i4];
+        int i3 = aVar.f22493b.f22717b;
+        if (i3 != 0) {
+            float[][] fArr = new float[i3];
+            int[] iArr = new int[i3];
+            if (i3 > 1) {
+                l[] lVarArr = new l[i3];
                 this.a = lVarArr;
                 int length = lVarArr.length;
-                for (int i5 = 0; i5 < length; i5++) {
-                    this.a[i5] = new l();
+                for (int i4 = 0; i4 < length; i4++) {
+                    this.a[i4] = new l();
                 }
             }
-            int[] iArr2 = new int[i4];
+            int[] iArr2 = new int[i3];
             return;
         }
         throw new IllegalArgumentException("The specified font must contain at least one texture page.");

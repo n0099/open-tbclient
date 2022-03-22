@@ -1,117 +1,39 @@
 package c.a.n0.m;
 
-import android.content.Context;
-import android.os.Build;
-import c.a.n0.n.b;
-import c.a.n0.q.c;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
-public class a implements c.a.n0.n.a {
+/* loaded from: classes2.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static a f4470c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.n0.n.a a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f4471b;
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(109967139, "Lc/a/n0/m/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(109967139, "Lc/a/n0/m/a;");
                 return;
             }
         }
-        this.a = null;
-        this.f4471b = false;
+        SDKInitializer.initialize(AppRuntime.getAppContext());
+        SDKInitializer.setCoordType(CoordType.GCJ02);
+        SDKInitializer.setHttpsEnable(true);
     }
 
-    public static a b() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4470c == null) {
-                synchronized (a.class) {
-                    if (f4470c == null) {
-                        f4470c = new a();
-                    }
-                }
-            }
-            return f4470c;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    @Override // c.a.n0.n.a
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.n0.n.a aVar = this.a;
-            if (aVar == null) {
-                return null;
-            }
-            try {
-                return aVar.a();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // c.a.n0.n.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, b bVar) {
-        c.a.n0.n.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) != null) {
-            return;
-        }
-        try {
-            if (this.f4471b) {
-                return;
-            }
-            this.f4471b = true;
-            int ordinal = com.baidu.sso.r.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                aVar = null;
-            } else if (ordinal == 1) {
-                aVar = new c.a.n0.o.b();
-            } else if (ordinal == 2) {
-                aVar = new c.a.n0.r.b();
-            } else if (ordinal == 3) {
-                aVar = new c();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, bVar);
-                    return;
-                }
-                return;
-            } else {
-                aVar = new c.a.n0.p.b();
-            }
-            this.a = aVar;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
     }
 }

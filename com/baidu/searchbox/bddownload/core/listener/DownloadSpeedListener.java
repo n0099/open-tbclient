@@ -37,9 +37,9 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,10 +52,10 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-        public ListenerSpeedAssistExtend.Listener4SpeedModel create(int i2) {
+        public ListenerSpeedAssistExtend.Listener4SpeedModel create(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ListenerSpeedAssistExtend.Listener4SpeedModel(i2) : (ListenerSpeedAssistExtend.Listener4SpeedModel) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ListenerSpeedAssistExtend.Listener4SpeedModel(i) : (ListenerSpeedAssistExtend.Listener4SpeedModel) invokeI.objValue;
         }
     }
 
@@ -68,9 +68,9 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
             newInitContext.initArgs = r2;
             Object[] objArr = {listenerSpeedAssistExtend};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((DownloadBlockProgressListenerAssist) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -82,9 +82,9 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void blockEnd(DownloadTask downloadTask, int i2, BlockInfo blockInfo) {
+    public final void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i2, blockInfo) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i, blockInfo) == null) {
         }
     }
 
@@ -96,16 +96,16 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void progress(DownloadTask downloadTask, long j2) {
+    public final void progress(DownloadTask downloadTask, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, downloadTask, j) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void progressBlock(DownloadTask downloadTask, int i2, long j2) {
+    public final void progressBlock(DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
@@ -123,9 +123,9 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ListenerSpeedAssistExtend) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

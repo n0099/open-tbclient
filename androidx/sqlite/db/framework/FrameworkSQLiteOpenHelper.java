@@ -43,9 +43,9 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {frameworkSQLiteDatabaseArr, callback};
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                             return;
@@ -71,9 +71,9 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, str, frameworkSQLiteDatabaseArr, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -159,11 +159,11 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
                 this.mMigrated = true;
-                this.mCallback.onDowngrade(getWrappedDb(sQLiteDatabase), i2, i3);
+                this.mCallback.onDowngrade(getWrappedDb(sQLiteDatabase), i, i2);
             }
         }
 
@@ -177,11 +177,11 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
                 this.mMigrated = true;
-                this.mCallback.onUpgrade(getWrappedDb(sQLiteDatabase), i2, i3);
+                this.mCallback.onUpgrade(getWrappedDb(sQLiteDatabase), i, i2);
             }
         }
     }
@@ -193,9 +193,9 @@ public class FrameworkSQLiteOpenHelper implements SupportSQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, callback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -55,9 +55,9 @@ public class VideoInfo extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -341,24 +341,24 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoDuration(int i2) {
+    public void setVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.videoDuration = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.videoDuration = i;
         }
     }
 
-    public void setVideoHeight(int i2) {
+    public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.videoHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.videoHeight = i;
         }
     }
 
-    public void setVideoLength(long j2) {
+    public void setVideoLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.videoLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.videoLength = j;
         }
     }
 
@@ -376,10 +376,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoSource(int i2) {
+    public void setVideoSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.videoSource = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.videoSource = i;
         }
     }
 
@@ -397,10 +397,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoWidth(int i2) {
+    public void setVideoWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.videoWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.videoWidth = i;
         }
     }
 }

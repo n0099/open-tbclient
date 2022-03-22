@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -55,9 +54,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -76,10 +75,10 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public BIMInviteRtcInfo[] newArray(int i2) {
+            public BIMInviteRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BIMInviteRtcInfo[i2] : (BIMInviteRtcInfo[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMInviteRtcInfo[i] : (BIMInviteRtcInfo[]) invokeI.objValue;
             }
         };
     }
@@ -93,9 +92,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -135,28 +134,28 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
     }
 
-    public void setMediaType(int i2) {
+    public void setMediaType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mMediaType = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mMediaType = i;
         }
     }
 
-    public void setRtcRoomType(int i2) {
+    public void setRtcRoomType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mRtcRoomType = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mRtcRoomType = i;
         }
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, str, str2)) == null) {
-            BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i2, str, str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, str, str2)) == null) {
+            BIMInviteRtcInfo bIMInviteRtcInfo = new BIMInviteRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 bIMInviteRtcInfo.setMediaType(jSONObject.optInt("media_type"));
@@ -167,9 +166,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     BIMInviteUser bIMInviteUser = new BIMInviteUser();
-                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                     bIMInviteUser.appId = jSONObject2.optLong("appid");
                     bIMInviteUser.uk = jSONObject2.optLong("uk");
                     bIMInviteUser.cuid = jSONObject2.optString("cuid");
@@ -225,16 +224,16 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ExtendedMessageFormat.END_FE;
+            return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + '}';
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.mRtcRoomType);
             parcel.writeInt(this.mMediaType);
             parcel.writeString(this.mRtcExt);
@@ -275,9 +274,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -296,10 +295,10 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public BIMInviteUser[] newArray(int i2) {
+                public BIMInviteUser[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BIMInviteUser[i2] : (BIMInviteUser[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMInviteUser[i] : (BIMInviteUser[]) invokeI.objValue;
                 }
             };
         }
@@ -311,9 +310,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -337,9 +336,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 parcel.writeLong(this.appId);
                 parcel.writeLong(this.uk);
                 parcel.writeString(this.cuid);
@@ -353,9 +352,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -370,9 +369,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -389,9 +388,9 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {bIMRtcInfo};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

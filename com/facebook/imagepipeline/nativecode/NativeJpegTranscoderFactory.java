@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.transcoder.ImageTranscoder;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public final boolean mUseDownSamplingRatio;
 
     @DoNotStrip
-    public NativeJpegTranscoderFactory(int i2, boolean z) {
+    public NativeJpegTranscoderFactory(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mMaxBitmapSize = i2;
+        this.mMaxBitmapSize = i;
         this.mUseDownSamplingRatio = z;
     }
 

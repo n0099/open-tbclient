@@ -9,7 +9,7 @@ import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.Supplier;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.common.memory.PooledByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EncodedCountingMemoryCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public class EncodedCountingMemoryCacheFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,9 +41,9 @@ public class EncodedCountingMemoryCacheFactory {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }

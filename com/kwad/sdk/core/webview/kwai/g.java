@@ -9,32 +9,32 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f55031b;
+    public WebView f40116b;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f55033d;
+    public boolean f40118d;
     public final Map<String, a> a = new ConcurrentHashMap();
 
     /* renamed from: c  reason: collision with root package name */
-    public a f55032c = new d();
+    public a f40117c = new d();
 
     public g(WebView webView) {
-        this.f55031b = webView;
+        this.f40116b = webView;
         b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
         String str3;
-        if (this.f55033d) {
+        if (this.f40118d) {
             str3 = "callJS after destroy jsInterface, " + str2;
         } else if (!TextUtils.isEmpty(str)) {
             com.kwad.sdk.core.d.a.a("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
-            WebView webView = this.f55031b;
+            WebView webView = this.f40116b;
             if (webView == null) {
                 return;
             }
@@ -59,7 +59,7 @@ public class g {
                 value.b();
             }
         }
-        this.f55033d = true;
+        this.f40118d = true;
     }
 
     public void a(a aVar) {
@@ -81,22 +81,22 @@ public class g {
             bVar.parseJson(new JSONObject(str));
             a aVar = this.a.get(bVar.a);
             if (aVar == null) {
-                aVar = this.f55032c;
+                aVar = this.f40117c;
             }
             if (aVar != null) {
-                aVar.a(bVar.f55027b, !TextUtils.isEmpty(bVar.f55028c) ? new c() { // from class: com.kwad.sdk.core.webview.kwai.g.1
+                aVar.a(bVar.f40112b, !TextUtils.isEmpty(bVar.f40113c) ? new c() { // from class: com.kwad.sdk.core.webview.kwai.g.1
                     @Override // com.kwad.sdk.core.webview.kwai.c
-                    public void a(int i2, String str2) {
-                        g.this.a(bVar.f55028c, new e(i2, str2).toJson().toString());
+                    public void a(int i, String str2) {
+                        g.this.a(bVar.f40113c, new e(i, str2).toJson().toString());
                     }
 
                     @Override // com.kwad.sdk.core.webview.kwai.c
                     public void a(com.kwad.sdk.core.b bVar2) {
-                        g.this.a(bVar.f55028c, new f(bVar2).toJson().toString());
+                        g.this.a(bVar.f40113c, new f(bVar2).toJson().toString());
                     }
                 } : new c() { // from class: com.kwad.sdk.core.webview.kwai.g.2
                     @Override // com.kwad.sdk.core.webview.kwai.c
-                    public void a(int i2, String str2) {
+                    public void a(int i, String str2) {
                     }
 
                     @Override // com.kwad.sdk.core.webview.kwai.c

@@ -42,9 +42,9 @@ public final class TextUtilsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -89,8 +89,8 @@ public final class TextUtilsCompat {
                 return TextUtils.htmlEncode(str);
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt == '\"') {
                     sb.append("&quot;");
                 } else if (charAt == '<') {

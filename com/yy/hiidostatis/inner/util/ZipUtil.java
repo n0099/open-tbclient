@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ZipUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class ZipUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -124,8 +124,8 @@ public class ZipUtil {
                     zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
                     zipOutputStream.closeEntry();
                 }
-                for (int i2 = 0; i2 < list.length; i2++) {
-                    zipFiles(str, str2 + File.separator + list[i2], zipOutputStream);
+                for (int i = 0; i < list.length; i++) {
+                    zipFiles(str, str2 + File.separator + list[i], zipOutputStream);
                 }
             }
             if (fileInputStream != null) {

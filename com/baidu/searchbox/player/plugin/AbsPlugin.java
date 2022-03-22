@@ -29,9 +29,9 @@ public abstract class AbsPlugin implements IPlugin {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,8 +46,8 @@ public abstract class AbsPlugin implements IPlugin {
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (subscribeEvent = getSubscribeEvent()) == null || subscribeEvent.length <= 0) {
             return;
         }
-        for (int i2 : subscribeEvent) {
-            this.mMessenger.register(i2, this);
+        for (int i : subscribeEvent) {
+            this.mMessenger.register(i, this);
         }
     }
 
@@ -233,9 +233,9 @@ public abstract class AbsPlugin implements IPlugin {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -13,40 +13,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class s extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f52889b;
+    public float f38645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52890c;
+    public int f38646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52891d;
+    public int f38647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52892e;
+    public int f38648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f52893f;
+    public float f38649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52894g;
+    public float f38650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f52895h;
+    public final int f38651h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f52896e;
+        public final /* synthetic */ s a;
 
         public a(s sVar) {
             Interceptable interceptable = $ic;
@@ -55,46 +53,46 @@ public class s extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f52896e = sVar;
+            this.a = sVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = (View) this.f52896e.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = (View) this.a.getParent()) == null) {
                 return;
             }
             int width = view.getWidth();
             int height = view.getHeight();
-            s sVar = this.f52896e;
+            s sVar = this.a;
             int height2 = height - sVar.getHeight();
-            s sVar2 = this.f52896e;
-            sVar.f52892e = height2 - sVar2.f52890c;
-            sVar2.f52891d = (width - sVar2.getWidth()) - this.f52896e.f52890c;
+            s sVar2 = this.a;
+            sVar.f38648e = height2 - sVar2.f38646c;
+            sVar2.f38647d = (width - sVar2.getWidth()) - this.a.f38646c;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(Context context, int i2) {
+    public s(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -107,8 +105,8 @@ public class s extends FrameLayout {
         if (Build.VERSION.SDK_INT >= 21) {
             setClipToOutline(true);
         }
-        this.f52890c = i2;
-        this.f52895h = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f38646c = i;
+        this.f38651h = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -134,39 +132,39 @@ public class s extends FrameLayout {
             int action = motionEvent.getAction();
             if (action == 0) {
                 this.a = getX() - motionEvent.getRawX();
-                this.f52889b = getY() - motionEvent.getRawY();
-                this.f52893f = 0.0f;
-                this.f52894g = 0.0f;
+                this.f38645b = getY() - motionEvent.getRawY();
+                this.f38649f = 0.0f;
+                this.f38650g = 0.0f;
             } else if (action == 1) {
-                float f2 = this.f52891d;
+                float f2 = this.f38647d;
                 if ((motionEvent.getRawX() + this.a) * 2.0f <= f2) {
-                    f2 = this.f52890c;
+                    f2 = this.f38646c;
                 }
                 animate().x(f2).setDuration(0L).start();
-                float f3 = this.f52893f;
-                float f4 = this.f52895h;
-                if (f3 > f4 || this.f52894g > f4) {
+                float f3 = this.f38649f;
+                float f4 = this.f38651h;
+                if (f3 > f4 || this.f38650g > f4) {
                     return true;
                 }
             } else if (action == 2) {
                 float rawX = motionEvent.getRawX() + this.a;
-                float rawY = motionEvent.getRawY() + this.f52889b;
-                this.f52893f += Math.abs(rawX - getX());
-                this.f52894g += Math.abs(rawY - getY());
-                int i2 = this.f52890c;
-                float f5 = i2;
+                float rawY = motionEvent.getRawY() + this.f38645b;
+                this.f38649f += Math.abs(rawX - getX());
+                this.f38650g += Math.abs(rawY - getY());
+                int i = this.f38646c;
+                float f5 = i;
                 if (rawX < f5) {
                     rawX = f5;
                 } else {
-                    float f6 = this.f52891d;
+                    float f6 = this.f38647d;
                     if (rawX > f6) {
                         rawX = f6;
                     }
                 }
                 if (rawY >= f5) {
-                    i2 = this.f52892e;
+                    i = this.f38648e;
                 }
-                rawY = i2;
+                rawY = i;
                 animate().x(rawX).y(rawY).setDuration(0L).start();
             }
             return super.onInterceptTouchEvent(motionEvent);

@@ -22,18 +22,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ImageProblemItemView extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int COMMON = 1;
-    public static final int DISABLED = 3;
-    public static final int ENABLED = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout container;
-    public ImageView imageView;
-    public LinearLayout ll_container;
-    public Context mContext;
-    public TextView textView;
-    public TextView tipView;
-    public TextView tv_help;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f34123b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34124c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34125d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f34126e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public LinearLayout f34127f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f34128g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -44,9 +53,9 @@ public class ImageProblemItemView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -54,22 +63,62 @@ public class ImageProblemItemView extends FrameLayout {
                 return;
             }
         }
-        this.mContext = context;
-        initialieView();
-        initializeStyle(attributeSet);
+        this.a = context;
+        a();
+        b(attributeSet);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d6, (ViewGroup) this, true);
+            this.f34123b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
+            this.f34124c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
+            this.f34125d = (TextView) findViewById(R.id.obfuscated_res_0x7f092002);
+            this.f34126e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a4);
+            this.f34127f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.f34128g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c1);
+        }
+    }
+
+    public void b(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f040548});
+            String string = obtainStyledAttributes.getString(1);
+            int color = obtainStyledAttributes.getColor(2, -1);
+            String string2 = obtainStyledAttributes.getString(4);
+            int color2 = obtainStyledAttributes.getColor(5, -1);
+            if (string != null) {
+                this.f34124c.setText(string);
+            }
+            if (color > -1) {
+                this.f34124c.setTextColor(color);
+            }
+            if (string2 != null) {
+                this.f34125d.setText(string2);
+            }
+            if (color2 > -1) {
+                this.f34125d.setTextColor(color2);
+            }
+            obtainStyledAttributes.recycle();
+            this.f34123b.setClickable(false);
+            this.f34123b.setFocusable(false);
+            this.f34126e.setVisibility(4);
+        }
     }
 
     public void displayArrow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.imageView.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f34126e.setVisibility(0);
         }
     }
 
     public void displayTip() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.tipView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (textView = this.f34125d) == null) {
             return;
         }
         textView.setVisibility(0);
@@ -78,69 +127,29 @@ public class ImageProblemItemView extends FrameLayout {
     public CharSequence getTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tipView.getText() : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34125d.getText() : (CharSequence) invokeV.objValue;
     }
 
     public void hideArrow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.imageView.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f34126e.setVisibility(8);
         }
     }
 
     public void hideTip() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (textView = this.tipView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.f34125d) == null) {
             return;
         }
         textView.setVisibility(8);
     }
 
-    public void initialieView() {
+    public void setArrowImg(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-            this.container = (LinearLayout) findViewById(R.id.container);
-            this.textView = (TextView) findViewById(R.id.text);
-            this.tipView = (TextView) findViewById(R.id.tip);
-            this.imageView = (ImageView) findViewById(R.id.arrow2);
-            this.ll_container = (LinearLayout) findViewById(R.id.ll_container);
-            this.tv_help = (TextView) findViewById(R.id.tv_help);
-        }
-    }
-
-    public void initializeStyle(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, new int[]{R.attr.settingShowArraw, R.attr.settingText, R.attr.settingTextColor, R.attr.settingTextSize, R.attr.settingTip, R.attr.settingTipColor});
-            String string = obtainStyledAttributes.getString(1);
-            int color = obtainStyledAttributes.getColor(2, -1);
-            String string2 = obtainStyledAttributes.getString(4);
-            int color2 = obtainStyledAttributes.getColor(5, -1);
-            if (string != null) {
-                this.textView.setText(string);
-            }
-            if (color > -1) {
-                this.textView.setTextColor(color);
-            }
-            if (string2 != null) {
-                this.tipView.setText(string2);
-            }
-            if (color2 > -1) {
-                this.tipView.setTextColor(color2);
-            }
-            obtainStyledAttributes.recycle();
-            this.container.setClickable(false);
-            this.container.setFocusable(false);
-            this.imageView.setVisibility(4);
-        }
-    }
-
-    public void setArrowImg(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.imageView.setImageResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f34126e.setImageResource(i);
         }
     }
 
@@ -148,32 +157,32 @@ public class ImageProblemItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ll_container.getLayoutParams();
-                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-                this.ll_container.setLayoutParams(layoutParams);
-                this.tv_help.setText("");
-                this.tv_help.setVisibility(8);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34127f.getLayoutParams();
+                layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f0);
+                this.f34127f.setLayoutParams(layoutParams);
+                this.f34128g.setText("");
+                this.f34128g.setVisibility(8);
                 return;
             }
-            this.ll_container.setVisibility(0);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ll_container.getLayoutParams();
-            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-            this.ll_container.setLayoutParams(layoutParams2);
-            this.tv_help.setText(str);
-            this.tv_help.setVisibility(0);
+            this.f34127f.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f34127f.getLayoutParams();
+            layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070229);
+            this.f34127f.setLayoutParams(layoutParams2);
+            this.f34128g.setText(str);
+            this.f34128g.setVisibility(0);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 == 1) {
-                this.textView.setTextColor(getResources().getColor(R.color.CAM_X0105));
-            } else if (i2 == 2) {
-                this.textView.setTextColor(getResources().getColor(R.color.CAM_X0305));
-            } else if (i2 == 3) {
-                this.textView.setTextColor(getResources().getColor(R.color.CAM_X0110));
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i == 1) {
+                this.f34124c.setTextColor(getResources().getColor(R.color.CAM_X0105));
+            } else if (i == 2) {
+                this.f34124c.setTextColor(getResources().getColor(R.color.CAM_X0305));
+            } else if (i == 3) {
+                this.f34124c.setTextColor(getResources().getColor(R.color.CAM_X0110));
             }
         }
     }
@@ -181,37 +190,37 @@ public class ImageProblemItemView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.textView.setText(str);
+            this.f34124c.setText(str);
         }
     }
 
     public void setTip(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.tipView.setText(str);
+            this.f34125d.setText(str);
         }
     }
 
     public void setTipBackground(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
-            this.tipView.setBackgroundDrawable(drawable);
+            this.f34125d.setBackgroundDrawable(drawable);
         }
     }
 
-    public void setTipColor(int i2) {
+    public void setTipColor(int i) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (textView = this.tipView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (textView = this.f34125d) == null) {
             return;
         }
-        textView.setTextColor(i2);
+        textView.setTextColor(i);
     }
 
-    public void setText(int i2) {
+    public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.textView.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.f34124c.setText(i);
         }
     }
 
@@ -224,16 +233,16 @@ public class ImageProblemItemView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = context;
-        initialieView();
+        this.a = context;
+        a();
     }
 }

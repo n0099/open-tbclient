@@ -10,8 +10,8 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.o.a.b;
-import c.a.p0.o.a.c;
+import c.a.n0.o.a.b;
+import c.a.n0.o.a.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAudioPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE_IN_FRAMES = 192;
@@ -53,7 +53,7 @@ public class SwanAudioPlayer {
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class SwanAudioPlayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanAudioPlayer, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -84,37 +84,37 @@ public class SwanAudioPlayer {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                if (i2 == -1) {
+                int i = message.what;
+                if (i == -1) {
                     MediaPlayer.OnErrorListener onErrorListener = (MediaPlayer.OnErrorListener) this.a.mErrorMap.get(message.arg1);
                     if (onErrorListener != null) {
                         onErrorListener.onError(null, message.arg1, message.arg2);
                     }
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     MediaPlayer.OnPreparedListener onPreparedListener = (MediaPlayer.OnPreparedListener) this.a.mPreparedMap.get(message.arg1);
                     if (onPreparedListener != null) {
                         onPreparedListener.onPrepared(null);
                     }
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = (MediaPlayer.OnSeekCompleteListener) this.a.mSeekMap.get(message.arg1);
                     if (onSeekCompleteListener != null) {
                         onSeekCompleteListener.onSeekComplete(null);
                     }
-                } else if (i2 == 4) {
+                } else if (i == 4) {
                     MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) this.a.mEndMap.get(message.arg1);
                     if (onCompletionListener != null) {
                         onCompletionListener.onCompletion(null);
                     }
-                } else if (i2 == 5) {
+                } else if (i == 5) {
                     c cVar = (c) this.a.mPausedMap.get(message.arg1);
                     if (cVar != null) {
                         cVar.onPause();
                     }
-                } else if (i2 == 100) {
+                } else if (i == 100) {
                     this.a.postRunnable(Long.parseLong(message.obj.toString()));
-                } else if (i2 != 101) {
+                } else if (i != 101) {
                 } else {
-                    c.a.p0.o.a.a aVar = (c.a.p0.o.a.a) message.obj;
+                    c.a.n0.o.a.a aVar = (c.a.n0.o.a.a) message.obj;
                     if (this.a.mAudioRecordListener != null) {
                         this.a.mAudioRecordListener.a(aVar);
                     }
@@ -143,9 +143,9 @@ public class SwanAudioPlayer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -169,7 +169,7 @@ public class SwanAudioPlayer {
         }
     }
 
-    private native void destroy(int i2);
+    private native void destroy(int i);
 
     public static SwanAudioPlayer getInstance() {
         InterceptResult invokeV;
@@ -187,10 +187,10 @@ public class SwanAudioPlayer {
         return (SwanAudioPlayer) invokeV.objValue;
     }
 
-    public static native void init(int i2, int i3);
+    public static native void init(int i, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void postRunnable(long j2);
+    public native void postRunnable(long j);
 
     public static native void release();
 
@@ -212,72 +212,72 @@ public class SwanAudioPlayer {
         }
     }
 
-    public native int getDuration(int i2);
+    public native int getDuration(int i);
 
-    public native int getPosition(int i2);
+    public native int getPosition(int i);
 
-    public native int getState(int i2);
+    public native int getState(int i);
 
     public native boolean isAudioPlayer();
 
-    public native void pause(int i2);
+    public native void pause(int i);
 
     public native void pauseAll();
 
-    public native void play(int i2, float f2, boolean z);
+    public native void play(int i, float f2, boolean z);
 
-    public void postAudioData(byte[] bArr, long j2) {
+    public void postAudioData(byte[] bArr, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j2) == null) || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j) == null) || bArr == null) {
             return;
         }
-        c.a.p0.o.a.a aVar = new c.a.p0.o.a.a();
+        c.a.n0.o.a.a aVar = new c.a.n0.o.a.a();
         aVar.a = bArr;
-        aVar.f10914b = j2;
-        aVar.f10915c = System.nanoTime();
+        aVar.f9104b = j;
+        aVar.f9105c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 
-    public void postEventFromNative(int i2, int i3, int i4, Object obj) {
+    public void postEventFromNative(int i, int i2, int i3, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), obj}) == null) {
-            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(i2, i3, i4, obj));
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(i, i2, i3, obj));
         }
     }
 
-    public void postRunnableFromNative(long j2) {
+    public void postRunnableFromNative(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(100, 0, 0, Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(100, 0, 0, Long.valueOf(j)));
         }
     }
 
-    public native void prepare(int i2);
+    public native void prepare(int i);
 
-    public synchronized void release(int i2) {
+    public synchronized void release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             synchronized (this) {
-                this.mErrorMap.remove(i2);
-                this.mEndMap.remove(i2);
-                this.mSeekMap.remove(i2);
-                this.mPreparedMap.remove(i2);
-                this.mPausedMap.remove(i2);
+                this.mErrorMap.remove(i);
+                this.mEndMap.remove(i);
+                this.mSeekMap.remove(i);
+                this.mPreparedMap.remove(i);
+                this.mPausedMap.remove(i);
             }
         }
     }
 
     public native void resume();
 
-    public native void seek(int i2, int i3);
+    public native void seek(int i, int i2);
 
     public native void setAudioRecord(boolean z);
 
     public native int setDataSource(AssetManager assetManager, String str);
 
-    public native int setDataSource(String str, int i2);
+    public native int setDataSource(String str, int i);
 
-    public native void setLoop(int i2, boolean z);
+    public native void setLoop(int i, boolean z);
 
     public void setOnAudioRecordListener(b bVar) {
         Interceptable interceptable = $ic;
@@ -286,44 +286,44 @@ public class SwanAudioPlayer {
         }
     }
 
-    public void setOnCompletionListener(int i2, MediaPlayer.OnCompletionListener onCompletionListener) {
+    public void setOnCompletionListener(int i, MediaPlayer.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i2, onCompletionListener) == null) {
-            this.mEndMap.put(i2, onCompletionListener);
+        if (interceptable == null || interceptable.invokeIL(1048595, this, i, onCompletionListener) == null) {
+            this.mEndMap.put(i, onCompletionListener);
         }
     }
 
-    public void setOnErrorListener(int i2, MediaPlayer.OnErrorListener onErrorListener) {
+    public void setOnErrorListener(int i, MediaPlayer.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048596, this, i2, onErrorListener) == null) {
-            this.mErrorMap.put(i2, onErrorListener);
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i, onErrorListener) == null) {
+            this.mErrorMap.put(i, onErrorListener);
         }
     }
 
-    public void setOnPauseListener(int i2, c cVar) {
+    public void setOnPauseListener(int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, cVar) == null) {
-            this.mPausedMap.put(i2, cVar);
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, cVar) == null) {
+            this.mPausedMap.put(i, cVar);
         }
     }
 
-    public void setOnPreparedListener(int i2, MediaPlayer.OnPreparedListener onPreparedListener) {
+    public void setOnPreparedListener(int i, MediaPlayer.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, onPreparedListener) == null) {
-            this.mPreparedMap.put(i2, onPreparedListener);
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i, onPreparedListener) == null) {
+            this.mPreparedMap.put(i, onPreparedListener);
         }
     }
 
-    public void setOnSeekCompleteListener(int i2, MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
+    public void setOnSeekCompleteListener(int i, MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048599, this, i2, onSeekCompleteListener) == null) {
-            this.mSeekMap.put(i2, onSeekCompleteListener);
+        if (interceptable == null || interceptable.invokeIL(1048599, this, i, onSeekCompleteListener) == null) {
+            this.mSeekMap.put(i, onSeekCompleteListener);
         }
     }
 
-    public native void setVolume(int i2, float f2);
+    public native void setVolume(int i, float f2);
 
-    public native void stop(int i2);
+    public native void stop(int i);
 
     public native void stopAll();
 }

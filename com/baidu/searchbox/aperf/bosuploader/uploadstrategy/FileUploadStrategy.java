@@ -2,10 +2,11 @@ package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.i0.b.a.a;
+import c.a.g0.b.a.a;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -49,9 +50,9 @@ public class FileUploadStrategy implements IUpload {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -75,9 +76,9 @@ public class FileUploadStrategy implements IUpload {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {file, fileName};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -106,11 +107,11 @@ public class FileUploadStrategy implements IUpload {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fileEntity)) == null) {
-                int i2 = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
-                if (i2 > 0) {
+                int i = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
+                if (i > 0) {
                     return -1;
                 }
-                return i2 < 0 ? 1 : 0;
+                return i < 0 ? 1 : 0;
             }
             return invokeL.intValue;
         }
@@ -127,32 +128,32 @@ public class FileUploadStrategy implements IUpload {
         public String mProcessName;
         public Long mTimestamp;
 
-        public FileName(@NonNull String str, long j2, @NonNull String str2, @NonNull String str3) {
+        public FileName(@NonNull String str, long j, @NonNull String str2, @NonNull String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2), str2, str3};
+                Object[] objArr = {str, Long.valueOf(j), str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mFileID = str;
-            this.mTimestamp = Long.valueOf(j2);
+            this.mTimestamp = Long.valueOf(j);
             this.mProcessName = str2;
             this.mFileType = str3;
         }
 
-        public static String createFileID(@NonNull String str, long j2) {
+        public static String createFileID(@NonNull String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j2)) == null) {
-                return str.replace("_", "").replace("#", "") + "_" + j2;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
+                return str.replace("_", "").replace("#", "") + "_" + j;
             }
             return (String) invokeLJ.objValue;
         }
@@ -182,18 +183,18 @@ public class FileUploadStrategy implements IUpload {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, str3)) == null) {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    long j2 = -1;
+                    long j = -1;
                     String[] split = str.split("_");
                     if (split != null && split.length == 2) {
                         try {
-                            j2 = Long.valueOf(split[1]).longValue();
+                            j = Long.valueOf(split[1]).longValue();
                         } catch (NumberFormatException unused) {
                             return null;
                         }
                     }
-                    long j3 = j2;
-                    if (j3 > 0) {
-                        return new FileName(str, j3, str2, str3);
+                    long j2 = j;
+                    if (j2 > 0) {
+                        return new FileName(str, j2, str2, str3);
                     }
                 }
                 return null;
@@ -208,13 +209,13 @@ public class FileUploadStrategy implements IUpload {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
                 if (!TextUtils.isEmpty(str) && (split = str.split("#")) != null && split.length == 3) {
-                    long j2 = -1;
+                    long j = -1;
                     String str2 = split[0];
                     if (!TextUtils.isEmpty(str2) && (split2 = str2.split("_")) != null && split2.length == 2) {
                         String str3 = split2[1];
                         if (!TextUtils.isEmpty(str3)) {
                             try {
-                                j2 = Long.valueOf(str3).longValue();
+                                j = Long.valueOf(str3).longValue();
                             } catch (NumberFormatException unused) {
                                 return null;
                             }
@@ -222,8 +223,8 @@ public class FileUploadStrategy implements IUpload {
                     }
                     String str4 = split[1];
                     String str5 = split[2];
-                    if (!TextUtils.isEmpty(str2) && j2 > 0 && !TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
-                        return new FileName(str2, j2, str4, str5);
+                    if (!TextUtils.isEmpty(str2) && j > 0 && !TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
+                        return new FileName(str2, j, str4, str5);
                     }
                 }
                 return null;
@@ -246,9 +247,9 @@ public class FileUploadStrategy implements IUpload {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -302,23 +303,23 @@ public class FileUploadStrategy implements IUpload {
         public long mLifeTime;
         public int mMaxCount;
 
-        public TrimConfig(int i2, long j2) {
+        public TrimConfig(int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mMaxCount = i2;
-            this.mLifeTime = j2;
+            this.mMaxCount = i;
+            this.mLifeTime = j;
         }
     }
 
@@ -343,9 +344,9 @@ public class FileUploadStrategy implements IUpload {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -385,7 +386,7 @@ public class FileUploadStrategy implements IUpload {
                     File file = (File) it.next();
                     if (file != null) {
                         if (DEBUG) {
-                            String str = "invalid delete = " + file.getAbsolutePath();
+                            Log.d(TAG, "invalid delete = " + file.getAbsolutePath());
                         }
                         file.delete();
                     }
@@ -417,7 +418,7 @@ public class FileUploadStrategy implements IUpload {
                 obtainFilePath.createNewFile();
             } catch (IOException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                 }
             }
             if (obtainFilePath.exists()) {
@@ -438,7 +439,7 @@ public class FileUploadStrategy implements IUpload {
                     return obtainFilePath;
                 } catch (IOException e3) {
                     if (DEBUG) {
-                        e3.getMessage();
+                        Log.d(TAG, e3.getMessage());
                     }
                 }
             }
@@ -448,22 +449,22 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean doUpload(int i2) {
+    public boolean doUpload(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles = clearInvalidFiles();
             if (clearInvalidFiles == null) {
                 return false;
             }
             if (((LinkedList) clearInvalidFiles.first).size() > 0) {
                 Iterator it = ((LinkedList) clearInvalidFiles.first).iterator();
-                i3 = 0;
-                while (it.hasNext() && i3 < i2) {
+                i2 = 0;
+                while (it.hasNext() && i2 < i) {
                     FileEntity fileEntity = (FileEntity) it.next();
                     if (fileEntity != null) {
-                        i3++;
+                        i2++;
                         ResponseEntity uploadAction = uploadAction(fileEntity);
                         if (uploadAction == null || !uploadAction.isSuccess()) {
                             break;
@@ -472,9 +473,9 @@ public class FileUploadStrategy implements IUpload {
                     }
                 }
             } else {
-                i3 = 0;
+                i2 = 0;
             }
-            return i3 == i2;
+            return i2 == i;
         }
         return invokeI.booleanValue;
     }
@@ -487,7 +488,7 @@ public class FileUploadStrategy implements IUpload {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
             long currentTimeMillis = System.currentTimeMillis();
-            int i2 = 0;
+            int i = 0;
             for (File file : fileArr) {
                 if (file != null && file.exists()) {
                     FileEntity fileEntity = FileEntity.getFileEntity(file);
@@ -506,13 +507,13 @@ public class FileUploadStrategy implements IUpload {
             if (linkedList.size() > trimConfig.mMaxCount) {
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
-                    i2++;
+                    i++;
                     FileEntity fileEntity2 = (FileEntity) it.next();
-                    if (i2 > trimConfig.mMaxCount) {
+                    if (i > trimConfig.mMaxCount) {
                         linkedList2.add(fileEntity2.mFile);
                         it.remove();
                         if (DEBUG) {
-                            String str = "fileCluster + " + Thread.currentThread().getName();
+                            Log.d(TAG, "fileCluster + " + Thread.currentThread().getName());
                         }
                     }
                 }
@@ -578,10 +579,10 @@ public class FileUploadStrategy implements IUpload {
                     uploadSync = new ResponseEntity(false);
                 }
                 if (DEBUG && uploadSync != null) {
-                    String str2 = "attachment upload success = " + uploadSync.isSuccess() + "," + file.getAbsolutePath();
+                    Log.d(TAG, "attachment upload success = " + uploadSync.isSuccess() + "," + file.getAbsolutePath());
                     String message = uploadSync.getMessage();
                     if (!TextUtils.isEmpty(message)) {
-                        String str3 = "attachment upload message = " + message;
+                        Log.d(TAG, "attachment upload message = " + message);
                     }
                 }
                 return uploadSync;
@@ -591,13 +592,13 @@ public class FileUploadStrategy implements IUpload {
         return (ResponseEntity) invokeLL.objValue;
     }
 
-    public void reUpload(int i2) {
+    public void reUpload(int i) {
         ThreadPoolExecutor threadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 <= 0 || (threadPoolExecutor = this.mUploadExecutor) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0 || (threadPoolExecutor = this.mUploadExecutor) == null) {
             return;
         }
-        threadPoolExecutor.execute(new Runnable(this, i2) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.2
+        threadPoolExecutor.execute(new Runnable(this, i) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ FileUploadStrategy this$0;
@@ -608,18 +609,18 @@ public class FileUploadStrategy implements IUpload {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2)};
+                    Object[] objArr = {this, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$maxFileCount = i2;
+                this.val$maxFileCount = i;
             }
 
             @Override // java.lang.Runnable
@@ -673,9 +674,9 @@ public class FileUploadStrategy implements IUpload {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, createAttachZipFile, str};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -696,7 +697,7 @@ public class FileUploadStrategy implements IUpload {
                     }
                     this.this$0.updateFileFlag();
                     if (FileUploadStrategy.DEBUG) {
-                        String str3 = "new attachement file = " + this.val$attachZipFile.getAbsolutePath();
+                        Log.d(FileUploadStrategy.TAG, "new attachement file = " + this.val$attachZipFile.getAbsolutePath());
                     }
                     ResponseEntity uploadAttachmentSync = this.this$0.uploadAttachmentSync(this.val$fileIDPrefix, this.val$attachZipFile);
                     if (uploadAttachmentSync.isSuccess()) {

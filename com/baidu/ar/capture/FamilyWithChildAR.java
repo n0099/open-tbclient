@@ -2,6 +2,7 @@ package com.baidu.ar.capture;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arrender.n;
 import com.baidu.ar.callback.ICallbackWith;
@@ -45,9 +46,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,9 +79,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -136,9 +137,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -188,9 +189,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -237,7 +238,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, cVar) == null) {
-            String str = "camera time: " + cVar.getTimestamp();
+            Log.d("ChildLook", "camera time: " + cVar.getTimestamp());
             e eVar = this.lu;
             if ((eVar == null || eVar.le == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
                 d dVar = this.ln;
@@ -257,7 +258,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (!(interceptable == null || interceptable.invokeL(65545, this, lVar) == null) || this.lv) {
             return;
         }
-        String str = "face time: " + lVar.getTimestamp();
+        Log.d("ChildLook", "face time: " + lVar.getTimestamp());
         if (!b(lVar) || (eA = lVar.eA()) == null) {
             return;
         }
@@ -279,7 +280,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, cVar) == null) {
-            String str = "output time: " + cVar.getTimestamp();
+            Log.d("ChildLook", "output time: " + cVar.getTimestamp());
             e eVar = this.lu;
             if ((eVar == null || eVar.lf == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
                 d dVar = this.lo;
@@ -384,9 +385,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -435,15 +436,15 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 23) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 23) {
                 return;
             }
-            this.cb.destroyHandle(j2);
+            this.cb.destroyHandle(j);
         }
     }
 
@@ -542,14 +543,14 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
             super.setup(hashMap);
-            int i2 = this.mInputWidth;
-            int i3 = this.mInputHeight;
-            if (i2 > i3) {
-                this.ll = i3;
-                this.lm = i2;
-            } else {
+            int i = this.mInputWidth;
+            int i2 = this.mInputHeight;
+            if (i > i2) {
                 this.ll = i2;
-                this.lm = i3;
+                this.lm = i;
+            } else {
+                this.ll = i;
+                this.lm = i2;
             }
             this.cb = new AlgoHandleController();
             LuaMsgListener luaMsgListener = new LuaMsgListener(this) { // from class: com.baidu.ar.capture.FamilyWithChildAR.1
@@ -564,9 +565,9 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

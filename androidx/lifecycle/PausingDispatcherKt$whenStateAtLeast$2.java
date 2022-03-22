@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -19,7 +20,7 @@ import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.Job;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "T", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "androidx.lifecycle.PausingDispatcherKt$whenStateAtLeast$2", f = "PausingDispatcher.kt", i = {0, 0, 0, 0}, l = {163}, m = "invokeSuspend", n = {"$this$withContext", "job", "dispatcher", "controller"}, s = {"L$0", "L$1", "L$2", "L$3"})
+@DebugMetadata(c = "androidx.lifecycle.PausingDispatcherKt$whenStateAtLeast$2", f = "PausingDispatcher.kt", i = {0, 0, 0, 0}, l = {MatroskaExtractor.ID_SIMPLE_BLOCK}, m = "invokeSuspend", n = {"$this$withContext", "job", "dispatcher", "controller"}, s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes.dex */
 public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super T>, Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,9 +44,9 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
             newInitContext.initArgs = r2;
             Object[] objArr = {lifecycle, state, function2, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -85,8 +86,8 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = this.p$;
                 Job job = (Job) coroutineScope.getCoroutineContext().get(Job.Key);
@@ -114,7 +115,7 @@ public final class PausingDispatcherKt$whenStateAtLeast$2 extends SuspendLambda 
                 } else {
                     throw new IllegalStateException("when[State] methods should have a parent job".toString());
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 lifecycleController = (LifecycleController) this.L$3;

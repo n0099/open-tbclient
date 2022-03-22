@@ -23,10 +23,10 @@ public final class DanmuPostDraftManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f47451b;
+    public static final a f36659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Lazy<DanmuPostDraftManager> f47452c;
+    public static final Lazy<DanmuPostDraftManager> f36660c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
@@ -40,9 +40,9 @@ public final class DanmuPostDraftManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -56,7 +56,7 @@ public final class DanmuPostDraftManager {
         public final DanmuPostDraftManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuPostDraftManager) DanmuPostDraftManager.f47452c.getValue() : (DanmuPostDraftManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuPostDraftManager) DanmuPostDraftManager.f36660c.getValue() : (DanmuPostDraftManager) invokeV.objValue;
         }
     }
 
@@ -73,8 +73,8 @@ public final class DanmuPostDraftManager {
                 return;
             }
         }
-        f47451b = new a(null);
-        f47452c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuPostDraftManager$Companion$instance$2.INSTANCE);
+        f36659b = new a(null);
+        f36660c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuPostDraftManager$Companion$instance$2.INSTANCE);
     }
 
     public DanmuPostDraftManager() {
@@ -82,9 +82,9 @@ public final class DanmuPostDraftManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

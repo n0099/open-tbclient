@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class COSPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f49a;
+    public static volatile boolean f25a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,9 +40,9 @@ public class COSPushHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -61,8 +61,8 @@ public class COSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j2 = a;
-                if (j2 <= 0 || j2 + 300000 <= elapsedRealtime) {
+                long j = a;
+                if (j <= 0 || j + 300000 <= elapsedRealtime) {
                     a = elapsedRealtime;
                     registerCOSAssemblePush(context);
                 }
@@ -73,13 +73,13 @@ public class COSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f49a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f25a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m195a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m174a(context) : invokeL.booleanValue;
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -97,10 +97,10 @@ public class COSPushHelper {
     public static void registerCOSAssemblePush(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f59461c)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, context) == null) || (a2 = f.a(context).a(e.f44080c)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH :  register cos when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH :  register cos when network change!");
         a2.register();
     }
 
@@ -108,7 +108,7 @@ public class COSPushHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
             synchronized (COSPushHelper.class) {
-                f49a = z;
+                f25a = z;
             }
         }
     }
@@ -116,7 +116,7 @@ public class COSPushHelper {
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            i.a(context, e.f59461c, str);
+            i.a(context, e.f44080c, str);
         }
     }
 }

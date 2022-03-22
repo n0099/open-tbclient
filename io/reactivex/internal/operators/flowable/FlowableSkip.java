@@ -24,23 +24,23 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public long remaining;
         public Subscription s;
 
-        public SkipSubscriber(Subscriber<? super T> subscriber, long j2) {
+        public SkipSubscriber(Subscriber<? super T> subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2)};
+                Object[] objArr = {subscriber, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.remaining = j2;
+            this.remaining = j;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -71,9 +71,9 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j2 = this.remaining;
-                if (j2 != 0) {
-                    this.remaining = j2 - 1;
+                long j = this.remaining;
+                if (j != 0) {
+                    this.remaining = j - 1;
                 } else {
                     this.actual.onNext(t);
                 }
@@ -84,41 +84,41 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                long j2 = this.remaining;
+                long j = this.remaining;
                 this.s = subscription;
                 this.actual.onSubscribe(this);
-                subscription.request(j2);
+                subscription.request(j);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkip(Flowable<T> flowable, long j2) {
+    public FlowableSkip(Flowable<T> flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2)};
+            Object[] objArr = {flowable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = j2;
+        this.n = j;
     }
 
     @Override // io.reactivex.Flowable

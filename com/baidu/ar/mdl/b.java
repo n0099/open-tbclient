@@ -29,9 +29,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -114,18 +114,18 @@ public class b {
         try {
             JSONArray jSONArray = new JSONArray(str);
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                int i3 = jSONObject.getInt("type");
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                int i2 = jSONObject.getInt("type");
                 JSONArray jSONArray2 = jSONObject.getJSONArray("models");
                 int length2 = jSONArray2.length();
                 a aVar = new a();
-                aVar.type = i3;
-                aVar.f31475tv = z;
+                aVar.type = i2;
+                aVar.f24836tv = z;
                 aVar.tw = new String[length2];
-                for (int i4 = 0; i4 < length2; i4++) {
-                    JSONObject jSONObject2 = jSONArray2.getJSONObject(i4);
-                    int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i4);
+                for (int i3 = 0; i3 < length2; i3++) {
+                    JSONObject jSONObject2 = jSONArray2.getJSONObject(i3);
+                    int optInt = jSONObject2.optInt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, i3);
                     File file = new File(str2, jSONObject2.getString("dir"));
                     String optString = jSONObject2.optString("design_model", "");
                     if (!TextUtils.isEmpty(optString)) {
@@ -138,7 +138,7 @@ public class b {
                     aVar.tw[optInt] = absolutePath;
                 }
                 try {
-                    this.cD.put(i3, aVar);
+                    this.cD.put(i2, aVar);
                 } catch (JSONException e2) {
                     e = e2;
                     e.printStackTrace();

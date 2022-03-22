@@ -22,9 +22,9 @@ public class TKExceptionHandlerInnerImpl implements ITKExceptionHandlerInner {
             newInitContext.initArgs = r2;
             Object[] objArr = {iTKExceptionHandler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,23 +34,23 @@ public class TKExceptionHandlerInnerImpl implements ITKExceptionHandlerInner {
     }
 
     @Override // com.tachikoma.core.api.ITKExceptionHandlerInner
-    public void handleException(Throwable th, int i2) {
+    public void handleException(Throwable th, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, th, i2) == null) || this.mHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, th, i) == null) || this.mHandler == null) {
             return;
         }
-        this.mHandler.handleException(new TKException(th), BundleContextMap.get(i2));
+        this.mHandler.handleException(new TKException(th), BundleContextMap.get(i));
     }
 
     @Override // com.tachikoma.core.api.ITKExceptionHandlerInner
-    public void handleJSException(Throwable th, int i2) {
+    public void handleJSException(Throwable th, int i) {
         ITKExceptionHandler iTKExceptionHandler;
         Throwable tKJSCompilationException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i2) == null) || this.mHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i) == null) || this.mHandler == null) {
             return;
         }
-        TKBundle tKBundle = BundleContextMap.get(i2);
+        TKBundle tKBundle = BundleContextMap.get(i);
         if (th instanceof V8ScriptExecutionException) {
             V8ScriptExecutionException v8ScriptExecutionException = (V8ScriptExecutionException) th;
             iTKExceptionHandler = this.mHandler;
@@ -67,14 +67,14 @@ public class TKExceptionHandlerInnerImpl implements ITKExceptionHandlerInner {
     }
 
     @Override // com.tachikoma.core.api.ITKExceptionHandlerInner
-    public void handleJSException(Throwable th, String str, int i2) {
+    public void handleJSException(Throwable th, String str, int i) {
         ITKExceptionHandler iTKExceptionHandler;
         Throwable tKJSCompilationException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, th, str, i2) == null) || this.mHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, th, str, i) == null) || this.mHandler == null) {
             return;
         }
-        TKBundle tKBundle = BundleContextMap.get(i2);
+        TKBundle tKBundle = BundleContextMap.get(i);
         if (th instanceof V8ScriptExecutionException) {
             V8ScriptExecutionException v8ScriptExecutionException = (V8ScriptExecutionException) th;
             iTKExceptionHandler = this.mHandler;

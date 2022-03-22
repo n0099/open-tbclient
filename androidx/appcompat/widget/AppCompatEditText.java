@@ -44,9 +44,9 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -140,13 +140,13 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i2) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            super.setBackgroundResource(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.setBackgroundResource(i);
             AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
             if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i2);
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
             }
         }
     }
@@ -182,13 +182,13 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i2) {
+    public void setTextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, context, i2) == null) {
-            super.setTextAppearance(context, i2);
+        if (interceptable == null || interceptable.invokeLI(1048588, this, context, i) == null) {
+            super.setTextAppearance(context, i);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.onSetTextAppearance(context, i2);
+                appCompatTextHelper.onSetTextAppearance(context, i);
             }
         }
     }
@@ -209,16 +209,16 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.editTextStyle);
+        this(context, attributeSet, R$attr.obfuscated);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -244,17 +244,17 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(TintContextWrapper.wrap(context), attributeSet, i2);
+    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -265,10 +265,10 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
         this.mTextHelper.applyCompoundDrawablesTints();
         this.mTextClassifierHelper = new AppCompatTextClassifierHelper(this);
     }

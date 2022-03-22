@@ -32,9 +32,9 @@ public abstract class AbsHandlerTask implements ITimerTask {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {absHandlerTask, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -59,9 +59,9 @@ public abstract class AbsHandlerTask implements ITimerTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,12 +82,12 @@ public abstract class AbsHandlerTask implements ITimerTask {
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
     @PublicMethod
-    public void setInterval(int i2) {
+    public void setInterval(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
             return;
         }
-        this.mInterval = i2;
+        this.mInterval = i;
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask

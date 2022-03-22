@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class WXMediaMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
@@ -34,7 +34,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
@@ -45,9 +45,9 @@ public final class WXMediaMessage {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -99,17 +99,17 @@ public final class WXMediaMessage {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                Log.i("MicroMsg.SDK.WXMediaMessage", "pathOldToNew, oldPath = ".concat(String.valueOf(str)));
+                Log.i("MicroMsg.SDK.WXMediaMessage", "pathOldToNew, oldPath = " + str);
                 if (str == null || str.length() == 0) {
                     Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, oldPath is null");
                     return str;
                 }
                 int lastIndexOf = str.lastIndexOf(46);
-                if (lastIndexOf == -1) {
-                    Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, invalid pos, oldPath = ".concat(String.valueOf(str)));
-                    return str;
+                if (lastIndexOf != -1) {
+                    return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
                 }
-                return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
+                Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, invalid pos, oldPath = " + str);
+                return str;
             }
             return (String) invokeL.objValue;
         }
@@ -137,7 +137,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface IMediaObject {
         public static final int TYPE_APPBRAND = 33;
         public static final int TYPE_APPDATA = 7;
@@ -188,9 +188,9 @@ public final class WXMediaMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((IMediaObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -206,9 +206,9 @@ public final class WXMediaMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {iMediaObject};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

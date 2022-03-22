@@ -19,9 +19,9 @@ public class ChatUserManager extends BaseManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,24 +41,24 @@ public class ChatUserManager extends BaseManager {
         return (ArrayList) invokeL.objValue;
     }
 
-    public static ChatUser getChatUserSync(Context context, long j2) {
+    public static ChatUser getChatUserSync(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return null;
             }
-            return ChatUserManagerImpl.getInstance(context).getChatUserSync(j2);
+            return ChatUserManagerImpl.getInstance(context).getChatUserSync(j);
         }
         return (ChatUser) invokeLJ.objValue;
     }
 
-    public static void getUKbyBuid(Context context, long j2, IGetUkByBuidListener iGetUkByBuidListener) {
+    public static void getUKbyBuid(Context context, long j, IGetUkByBuidListener iGetUkByBuidListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j2), iGetUkByBuidListener}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), iGetUkByBuidListener}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).getUKbyBuid(j2, iGetUkByBuidListener);
+        ChatUserManagerImpl.getInstance(context).getUKbyBuid(j, iGetUkByBuidListener);
     }
 
     public static void getUnconcernedUserDisturb(Context context, IGetUnconcernedMsgListener iGetUnconcernedMsgListener) {
@@ -69,20 +69,20 @@ public class ChatUserManager extends BaseManager {
         ChatUserManagerImpl.getInstance(context).getUnconcernedUserDisturb(iGetUnconcernedMsgListener);
     }
 
-    public static void getUser(Context context, long j2, IGetUserListener iGetUserListener) {
+    public static void getUser(Context context, long j, IGetUserListener iGetUserListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j2), iGetUserListener}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j), iGetUserListener}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).getUser(j2, 0, iGetUserListener);
+        ChatUserManagerImpl.getInstance(context).getUser(j, 0, iGetUserListener);
     }
 
-    public static void getUserByBuid(Context context, long j2, IGetUserListener iGetUserListener) {
+    public static void getUserByBuid(Context context, long j, IGetUserListener iGetUserListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j2), iGetUserListener}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), iGetUserListener}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).getUserByBuid(j2, 0, iGetUserListener);
+        ChatUserManagerImpl.getInstance(context).getUserByBuid(j, 0, iGetUserListener);
     }
 
     public static void getUsersProfileBatch(Context context, ArrayList<Long> arrayList, IGetUsersProfileBatchListener iGetUsersProfileBatchListener) {
@@ -118,32 +118,32 @@ public class ChatUserManager extends BaseManager {
     }
 
     @Deprecated
-    public static boolean isUserExist(Context context, long j2) {
+    public static boolean isUserExist(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, context, j2)) == null) {
-            if (!BaseManager.isNullContext(context) && 0 <= j2) {
-                return ChatUserManagerImpl.getInstance(context).isUserExist(j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, context, j)) == null) {
+            if (!BaseManager.isNullContext(context) && 0 <= j) {
+                return ChatUserManagerImpl.getInstance(context).isUserExist(j);
             }
             return false;
         }
         return invokeLJ.booleanValue;
     }
 
-    public static void setUserBlack(Context context, long j2, int i2, IUserPrivacyListener iUserPrivacyListener) {
+    public static void setUserBlack(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iUserPrivacyListener}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), iUserPrivacyListener}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j2, -1, i2, iUserPrivacyListener);
+        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, -1, i, iUserPrivacyListener);
     }
 
-    public static void setUserDisturb(Context context, long j2, int i2, IUserPrivacyListener iUserPrivacyListener) {
+    public static void setUserDisturb(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), iUserPrivacyListener}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), iUserPrivacyListener}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j2, i2, -1, iUserPrivacyListener);
+        ChatUserManagerImpl.getInstance(context).setUserPrivacy(j, i, -1, iUserPrivacyListener);
     }
 
     public static void syncUsersProfileBatch(Context context) {

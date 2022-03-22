@@ -39,7 +39,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public c.a.r0.a0.j.a.a mGameEntryAdapter;
+    public c.a.p0.c0.j.a.a mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -54,9 +54,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f40742e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity a;
 
         public a(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -65,22 +63,22 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaAllGameLiveEntryActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40742e = alaAllGameLiveEntryActivity;
+            this.a = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f40742e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.a.getPageContext().getPageActivity())));
             }
         }
     }
@@ -89,9 +87,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f40743e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity a;
 
         public b(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -100,31 +96,31 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaAllGameLiveEntryActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40743e = alaAllGameLiveEntryActivity;
+            this.a = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             AlaSquareTabInfo alaSquareTabInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.f40743e.mGameEntryAdapter.a(), i2)) == null || this.f40743e.mSquareTabController == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.a.mGameEntryAdapter.a(), i)) == null || this.a.mSquareTabController == null) {
                 return;
             }
-            int tabIndex = this.f40743e.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
+            int tabIndex = this.a.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
             if (tabIndex >= 0) {
-                this.f40743e.mSquareTabController.goToTab(tabIndex);
-                this.f40743e.finish();
+                this.a.mSquareTabController.goToTab(tabIndex);
+                this.a.finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.f40743e, alaSquareTabInfo)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.a, alaSquareTabInfo)));
         }
     }
 
@@ -133,9 +129,9 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -155,28 +151,28 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.ala_all_game_entry_activity, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e9, null);
             this.mRootView = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.ala_all_game_entry_title));
-            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
+            this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f5));
+            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c23);
             this.mSearchRoot = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.search_text);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c4b);
             this.mTextSearchHint = textView;
             textView.setClickable(false);
-            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.search_icon);
+            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c35);
             this.mSearchRoot.setOnClickListener(new a(this));
             if (this.mHasSearchTab == 1) {
                 this.mSearchRoot.setVisibility(0);
             } else {
                 this.mSearchRoot.setVisibility(8);
             }
-            this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
-            this.mCustomScrollView = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-            this.mGameEntryAdapter = new c.a.r0.a0.j.a.a(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
+            this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null);
+            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c0d);
+            this.mGameEntryAdapter = new c.a.p0.c0.j.a.a(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0901e7);
             this.mGridView = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
             this.mGridView.setAdapter((ListAdapter) this.mGameEntryAdapter);
@@ -194,10 +190,10 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             SkinManager.setImageResource(this.mSearchIcon, R.drawable.icon_search);
             SkinManager.setViewTextColor(this.mTextSearchHint, (int) R.color.enter_forum_search_text_color);
             SkinManager.setBackgroundResource(this.mSearchRoot, R.drawable.all_game_search_frame);

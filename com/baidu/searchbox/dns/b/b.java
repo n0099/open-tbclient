@@ -1,11 +1,11 @@
 package com.baidu.searchbox.dns.b;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.dns.util.DnsChecker;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,8 +70,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
             if (map != null) {
-                if (map.containsKey(MainTabActivity.TAB_CODE_LOCAL)) {
-                    return map.get(MainTabActivity.TAB_CODE_LOCAL);
+                if (map.containsKey("local")) {
+                    return map.get("local");
                 }
                 if (map.containsKey(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)) {
                     return map.get(UnitedSchemeConstants.UNITED_SCHEME_BACKUP);
@@ -97,18 +97,18 @@ public class b {
             try {
                 List<String> parseRawAddressList = DnsUtil.parseRawAddressList(Arrays.asList(InetAddress.getAllByName(str)));
                 if (parseRawAddressList != null) {
-                    hashMap.put(MainTabActivity.TAB_CODE_LOCAL, parseRawAddressList);
+                    hashMap.put("local", parseRawAddressList);
                 }
                 return hashMap;
             } catch (UnknownHostException e2) {
                 if (v) {
                     if (DnsChecker.isIPv4Reachable()) {
-                        String i2 = i(str.trim());
-                        if (i2 != null && !TextUtils.isEmpty(i2)) {
+                        String i = i(str.trim());
+                        if (i != null && !TextUtils.isEmpty(i)) {
                             ArrayList arrayList = new ArrayList();
-                            arrayList.add(i2);
+                            arrayList.add(i);
                             if (DnsUtil.DEBUG) {
-                                String str2 = " backup ip " + arrayList + " for \"" + str.trim() + "\"";
+                                Log.d(DnsUtil.TAG, " backup ip " + arrayList + " for \"" + str.trim() + "\"");
                             }
                             hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, arrayList);
                             return hashMap;
@@ -135,47 +135,47 @@ public class b {
             if (ipList == null || ipList.size() <= 0) {
                 return null;
             }
-            int i2 = 0;
+            int i = 0;
             if ("m.baidu.com".equals(str)) {
-                i2 = a(ipList.size());
+                i = a(ipList.size());
             } else if ("mbd.baidu.com".equals(str)) {
-                i2 = b(ipList.size());
+                i = b(ipList.size());
             }
-            return ipList.get(i2);
+            return ipList.get(i);
         }
         return (String) invokeL.objValue;
     }
 
-    public static synchronized int b(int i2) {
+    public static synchronized int b(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             synchronized (b.class) {
-                if (t >= i2 || t < 0) {
+                if (t >= i || t < 0) {
                     t = 0;
                 }
-                i3 = t;
-                t = i3 + 1;
+                i2 = t;
+                t = i2 + 1;
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
 
-    public static synchronized int a(int i2) {
+    public static synchronized int a(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             synchronized (b.class) {
-                if (u >= i2 || u < 0) {
+                if (u >= i || u < 0) {
                     u = 0;
                 }
-                i3 = u;
-                u = i3 + 1;
+                i2 = u;
+                u = i2 + 1;
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }

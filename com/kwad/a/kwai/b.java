@@ -12,16 +12,16 @@ public class b extends c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b(f fVar, c.b bVar, long j2, int i2) {
+    public b(f fVar, c.b bVar, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, bVar, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {fVar, bVar, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -29,8 +29,8 @@ public class b extends c.a {
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(bVar.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j3 = j2 + (i2 * 16);
-        this.a = fVar.b(allocate, j3);
-        this.f53904b = fVar.b(allocate, j3 + 8);
+        long j2 = j + (i * 16);
+        this.a = fVar.b(allocate, j2);
+        this.f39061b = fVar.b(allocate, j2 + 8);
     }
 }

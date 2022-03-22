@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_BAR_TEXT_SIZE = 14;
@@ -25,9 +25,9 @@ public class BaseActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,9 +42,9 @@ public class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.finish();
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(R.anim.aiapps_hold, R.anim.aiapps_slide_out_to_bottom_zadjustment_top);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010024);
             } else {
-                overridePendingTransition(R.anim.aiapps_hold, R.anim.aiapps_slide_out_to_right_zadjustment_top);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010026);
             }
         }
     }
@@ -54,9 +54,9 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(R.anim.aiapps_slide_in_from_bottom, R.anim.aiapps_hold);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
             } else {
-                overridePendingTransition(R.anim.aiapps_slide_in_from_right, R.anim.aiapps_hold);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
             }
             super.onCreate(bundle);
             LogUtil.logActivity(this, "onCreate");
@@ -76,9 +76,9 @@ public class BaseActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             if (this.mIsSlideInFromBottom) {
-                overridePendingTransition(R.anim.aiapps_slide_in_from_bottom, R.anim.aiapps_hold);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
             } else {
-                overridePendingTransition(R.anim.aiapps_slide_in_from_right, R.anim.aiapps_hold);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
             }
             super.onNewIntent(intent);
         }

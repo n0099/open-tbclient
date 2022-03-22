@@ -1,5 +1,6 @@
 package com.baidu.tieba.share;
 
+import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
 import c.a.d.f.m.e;
 import com.baidu.adp.base.BdBaseModel;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIME = 2000;
@@ -28,26 +29,22 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c f46468e;
+    /* renamed from: b  reason: collision with root package name */
+    public ContriInfo f35932b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ContriInfo f46469f;
+    /* renamed from: c  reason: collision with root package name */
+    public Runnable f35933c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Runnable f46470g;
+    /* renamed from: d  reason: collision with root package name */
+    public HttpMessageListener f35934d;
 
-    /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f46471h;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddExperiencedModel f46472e;
+        public final /* synthetic */ AddExperiencedModel a;
 
         public a(AddExperiencedModel addExperiencedModel) {
             Interceptable interceptable = $ic;
@@ -56,45 +53,45 @@ public class AddExperiencedModel extends BdBaseModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addExperiencedModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46472e = addExperiencedModel;
+            this.a = addExperiencedModel;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46472e.f46468e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            this.f46472e.f46468e.a(this.f46472e.f46469f);
+            this.a.a.a(this.a.f35932b);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddExperiencedModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AddExperiencedModel addExperiencedModel, int i2, boolean z) {
-            super(i2, z);
+        public b(AddExperiencedModel addExperiencedModel, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {addExperiencedModel, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {addExperiencedModel, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -110,13 +107,13 @@ public class AddExperiencedModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                this.a.f46469f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                e.a().postDelayed(this.a.f46470g, 2000L);
+                this.a.f35932b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                e.a().postDelayed(this.a.f35933c, 2000L);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void a(ContriInfo contriInfo);
     }
@@ -145,28 +142,28 @@ public class AddExperiencedModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f46470g = new a(this);
-        this.f46471h = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
+        this.f35933c = new a(this);
+        this.f35934d = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
         registerTask();
-        registerListener(this.f46471h);
+        registerListener(this.f35934d);
     }
 
-    public static boolean B(String str) {
+    public static boolean D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? c.a.d.f.m.b.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? c.a.d.f.m.b.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
     }
 
-    public void A(String str, String str2) {
+    public void C(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
@@ -199,7 +196,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e.a().removeCallbacks(this.f46470g);
+            e.a().removeCallbacks(this.f35933c);
         }
     }
 

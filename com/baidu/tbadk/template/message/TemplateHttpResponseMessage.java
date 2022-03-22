@@ -1,6 +1,7 @@
 package com.baidu.tbadk.template.message;
 
-import c.a.q0.a1.e.d;
+import android.util.Log;
+import c.a.o0.a1.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +16,17 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public d mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TemplateHttpResponseMessage(int i2) {
-        super(i2);
+    public TemplateHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -54,34 +55,37 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         TemplateNetMessage templateNetMessage;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) != null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) != null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         TemplateNetMessage templateNetMessage;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i2, bArr) != null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, bArr) != null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        TemplateNetMessage templateNetMessage;
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) || (templateNetMessage = getTemplateNetMessage()) == null || templateNetMessage.getIResp() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
+            Log.i("Template", "TemplateHttpResponseMessage-->decodeInBackGround");
+            TemplateNetMessage templateNetMessage = getTemplateNetMessage();
+            if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
+                return;
+            }
+            d iResp = templateNetMessage.getIResp();
+            this.mIResp = iResp;
+            iResp.a(i, bArr);
+            setError(this.mIResp.getErrorCode());
+            setErrorString(this.mIResp.getErrorMsg());
         }
-        d iResp = templateNetMessage.getIResp();
-        this.mIResp = iResp;
-        iResp.a(i2, bArr);
-        setError(this.mIResp.getErrorCode());
-        setErrorString(this.mIResp.getErrorMsg());
     }
 }

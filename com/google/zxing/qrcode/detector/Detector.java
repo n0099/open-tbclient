@@ -33,9 +33,9 @@ public class Detector {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,10 +60,10 @@ public class Detector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{resultPoint, resultPoint2, resultPoint3, Float.valueOf(f2)})) == null) {
             int round = ((MathUtils.round(ResultPoint.distance(resultPoint, resultPoint2) / f2) + MathUtils.round(ResultPoint.distance(resultPoint, resultPoint3) / f2)) / 2) + 7;
-            int i2 = round & 3;
-            if (i2 != 0) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = round & 3;
+            if (i != 0) {
+                if (i != 2) {
+                    if (i != 3) {
                         return round;
                     }
                     throw NotFoundException.getNotFoundInstance();
@@ -75,14 +75,14 @@ public class Detector {
         return invokeCommon.intValue;
     }
 
-    public static PerspectiveTransform createTransform(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i2) {
+    public static PerspectiveTransform createTransform(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i) {
         InterceptResult invokeCommon;
         float x;
         float y;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i2)})) == null) {
-            float f3 = i2 - 3.5f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i)})) == null) {
+            float f3 = i - 3.5f;
             if (resultPoint4 != null) {
                 x = resultPoint4.getX();
                 y = resultPoint4.getY();
@@ -97,121 +97,121 @@ public class Detector {
         return (PerspectiveTransform) invokeCommon.objValue;
     }
 
-    public static BitMatrix sampleGrid(BitMatrix bitMatrix, PerspectiveTransform perspectiveTransform, int i2) throws NotFoundException {
+    public static BitMatrix sampleGrid(BitMatrix bitMatrix, PerspectiveTransform perspectiveTransform, int i) throws NotFoundException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitMatrix, perspectiveTransform, i2)) == null) ? GridSampler.getInstance().sampleGrid(bitMatrix, i2, i2, perspectiveTransform) : (BitMatrix) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitMatrix, perspectiveTransform, i)) == null) ? GridSampler.getInstance().sampleGrid(bitMatrix, i, i, perspectiveTransform) : (BitMatrix) invokeLLI.objValue;
     }
 
-    private float sizeOfBlackWhiteBlackRun(int i2, int i3, int i4, int i5) {
+    private float sizeOfBlackWhiteBlackRun(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
+        int i5;
         int i6;
         int i7;
         int i8;
         int i9;
-        int i10;
         Detector detector;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i2, i3, i4, i5)) == null) {
-            int i11 = 1;
-            boolean z3 = Math.abs(i5 - i3) > Math.abs(i4 - i2);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i, i2, i3, i4)) == null) {
+            int i10 = 1;
+            boolean z3 = Math.abs(i4 - i2) > Math.abs(i3 - i);
             if (z3) {
-                i7 = i2;
-                i6 = i3;
-                i9 = i4;
-                i8 = i5;
+                i6 = i;
+                i5 = i2;
+                i8 = i3;
+                i7 = i4;
             } else {
+                i5 = i;
                 i6 = i2;
                 i7 = i3;
                 i8 = i4;
-                i9 = i5;
             }
-            int abs = Math.abs(i8 - i6);
-            int abs2 = Math.abs(i9 - i7);
-            int i12 = (-abs) / 2;
+            int abs = Math.abs(i7 - i5);
+            int abs2 = Math.abs(i8 - i6);
+            int i11 = (-abs) / 2;
+            int i12 = i5 < i7 ? 1 : -1;
             int i13 = i6 < i8 ? 1 : -1;
-            int i14 = i7 < i9 ? 1 : -1;
-            int i15 = i8 + i13;
+            int i14 = i7 + i12;
+            int i15 = i5;
             int i16 = i6;
-            int i17 = i7;
-            int i18 = 0;
+            int i17 = 0;
             while (true) {
-                if (i16 == i15) {
-                    i10 = i15;
+                if (i15 == i14) {
+                    i9 = i14;
                     break;
                 }
-                int i19 = z3 ? i17 : i16;
-                int i20 = z3 ? i16 : i17;
-                if (i18 == i11) {
+                int i18 = z3 ? i16 : i15;
+                int i19 = z3 ? i15 : i16;
+                if (i17 == i10) {
                     detector = this;
                     z = z3;
-                    i10 = i15;
+                    i9 = i14;
                     z2 = true;
                 } else {
                     detector = this;
                     z = z3;
-                    i10 = i15;
+                    i9 = i14;
                     z2 = false;
                 }
-                if (z2 == detector.image.get(i19, i20)) {
-                    if (i18 == 2) {
-                        return MathUtils.distance(i16, i17, i6, i7);
+                if (z2 == detector.image.get(i18, i19)) {
+                    if (i17 == 2) {
+                        return MathUtils.distance(i15, i16, i5, i6);
                     }
-                    i18++;
+                    i17++;
                 }
-                i12 += abs2;
-                if (i12 > 0) {
-                    if (i17 == i9) {
+                i11 += abs2;
+                if (i11 > 0) {
+                    if (i16 == i8) {
                         break;
                     }
-                    i17 += i14;
-                    i12 -= abs;
+                    i16 += i13;
+                    i11 -= abs;
                 }
-                i16 += i13;
-                i15 = i10;
+                i15 += i12;
+                i14 = i9;
                 z3 = z;
-                i11 = 1;
+                i10 = 1;
             }
-            if (i18 == 2) {
-                return MathUtils.distance(i10, i9, i6, i7);
+            if (i17 == 2) {
+                return MathUtils.distance(i9, i8, i5, i6);
             }
             return Float.NaN;
         }
         return invokeIIII.floatValue;
     }
 
-    private float sizeOfBlackWhiteBlackRunBothWays(int i2, int i3, int i4, int i5) {
+    private float sizeOfBlackWhiteBlackRunBothWays(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         float f2;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i2, i3, i4, i5)) == null) {
-            float sizeOfBlackWhiteBlackRun = sizeOfBlackWhiteBlackRun(i2, i3, i4, i5);
-            int i6 = i2 - (i4 - i2);
-            int i7 = 0;
-            if (i6 < 0) {
-                f2 = i2 / (i2 - i6);
-                i6 = 0;
-            } else if (i6 >= this.image.getWidth()) {
-                f2 = ((this.image.getWidth() - 1) - i2) / (i6 - i2);
-                i6 = this.image.getWidth() - 1;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i, i2, i3, i4)) == null) {
+            float sizeOfBlackWhiteBlackRun = sizeOfBlackWhiteBlackRun(i, i2, i3, i4);
+            int i5 = i - (i3 - i);
+            int i6 = 0;
+            if (i5 < 0) {
+                f2 = i / (i - i5);
+                i5 = 0;
+            } else if (i5 >= this.image.getWidth()) {
+                f2 = ((this.image.getWidth() - 1) - i) / (i5 - i);
+                i5 = this.image.getWidth() - 1;
             } else {
                 f2 = 1.0f;
             }
-            float f4 = i3;
-            int i8 = (int) (f4 - ((i5 - i3) * f2));
-            if (i8 < 0) {
-                f3 = f4 / (i3 - i8);
-            } else if (i8 >= this.image.getHeight()) {
-                f3 = ((this.image.getHeight() - 1) - i3) / (i8 - i3);
-                i7 = this.image.getHeight() - 1;
+            float f4 = i2;
+            int i7 = (int) (f4 - ((i4 - i2) * f2));
+            if (i7 < 0) {
+                f3 = f4 / (i2 - i7);
+            } else if (i7 >= this.image.getHeight()) {
+                f3 = ((this.image.getHeight() - 1) - i2) / (i7 - i2);
+                i6 = this.image.getHeight() - 1;
             } else {
-                i7 = i8;
+                i6 = i7;
                 f3 = 1.0f;
             }
-            return (sizeOfBlackWhiteBlackRun + sizeOfBlackWhiteBlackRun(i2, i3, (int) (i2 + ((i6 - i2) * f3)), i7)) - 1.0f;
+            return (sizeOfBlackWhiteBlackRun + sizeOfBlackWhiteBlackRun(i, i2, (int) (i + ((i5 - i) * f3)), i6)) - 1.0f;
         }
         return invokeIIII.floatValue;
     }
@@ -228,17 +228,17 @@ public class Detector {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? detect(null) : (DetectorResult) invokeV.objValue;
     }
 
-    public final AlignmentPattern findAlignmentInRegion(float f2, int i2, int i3, float f3) throws NotFoundException {
+    public final AlignmentPattern findAlignmentInRegion(float f2, int i, int i2, float f3) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f3)})) == null) {
-            int i4 = (int) (f3 * f2);
-            int max = Math.max(0, i2 - i4);
-            int min = Math.min(this.image.getWidth() - 1, i2 + i4) - max;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3)})) == null) {
+            int i3 = (int) (f3 * f2);
+            int max = Math.max(0, i - i3);
+            int min = Math.min(this.image.getWidth() - 1, i + i3) - max;
             float f4 = 3.0f * f2;
             if (min >= f4) {
-                int max2 = Math.max(0, i3 - i4);
-                int min2 = Math.min(this.image.getHeight() - 1, i3 + i4) - max2;
+                int max2 = Math.max(0, i2 - i3);
+                int min2 = Math.min(this.image.getHeight() - 1, i2 + i3) - max2;
                 if (min2 >= f4) {
                     return new AlignmentPatternFinder(this.image, max, max2, min, min2, f2, this.resultPointCallback).find();
                 }
@@ -280,9 +280,9 @@ public class Detector {
                     float f2 = 1.0f - (3.0f / dimensionForVersion);
                     int x2 = (int) (topLeft.getX() + ((x - topLeft.getX()) * f2));
                     int y2 = (int) (topLeft.getY() + (f2 * (y - topLeft.getY())));
-                    for (int i2 = 4; i2 <= 16; i2 <<= 1) {
+                    for (int i = 4; i <= 16; i <<= 1) {
                         try {
-                            alignmentPattern = findAlignmentInRegion(calculateModuleSize, x2, y2, i2);
+                            alignmentPattern = findAlignmentInRegion(calculateModuleSize, x2, y2, i);
                             break;
                         } catch (NotFoundException unused) {
                         }

@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ht {
     public static /* synthetic */ Interceptable $ic;
     public static final ht a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ht[] f559a;
+    public static final /* synthetic */ ht[] f535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ht f59799b;
+    public static final ht f44386b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ht f59800c;
+    public static final ht f44387c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f560a;
+    public final int f536a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,22 +41,22 @@ public final class ht {
             }
         }
         a = new ht("RegIdExpired", 0, 0);
-        f59799b = new ht("PackageUnregistered", 1, 1);
+        f44386b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f59800c = htVar;
-        f559a = new ht[]{a, f59799b, htVar};
+        f44387c = htVar;
+        f535a = new ht[]{a, f44386b, htVar};
     }
 
-    public ht(String str, int i2, int i3) {
+    public ht(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -65,21 +65,21 @@ public final class ht {
                 return;
             }
         }
-        this.f560a = i3;
+        this.f536a = i2;
     }
 
-    public static ht a(int i2) {
+    public static ht a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
                         return null;
                     }
-                    return f59800c;
+                    return f44387c;
                 }
-                return f59799b;
+                return f44386b;
             }
             return a;
         }
@@ -95,12 +95,12 @@ public final class ht {
     public static ht[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ht[]) f559a.clone() : (ht[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ht[]) f535a.clone() : (ht[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f560a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f536a : invokeV.intValue;
     }
 }

@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ThrottlingProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "ThrottlingProducer";
@@ -24,13 +24,13 @@ public class ThrottlingProducer<T> implements Producer<T> {
     public final ConcurrentLinkedQueue<Pair<Consumer<T>, ProducerContext>> mPendingRequests;
 
     /* renamed from: com.facebook.imagepipeline.producers.ThrottlingProducer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class ThrottlingProducer<T> implements Producer<T> {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, pair};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -109,11 +109,11 @@ public class ThrottlingProducer<T> implements Producer<T> {
         }
 
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(T t, int i2) {
+        public void onNewResultImpl(T t, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i2) == null) {
-                getConsumer().onNewResult(t, i2);
-                if (BaseConsumer.isLast(i2)) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i) == null) {
+                getConsumer().onNewResult(t, i);
+                if (BaseConsumer.isLast(i)) {
                     onRequestFinished();
                 }
             }
@@ -128,9 +128,9 @@ public class ThrottlingProducer<T> implements Producer<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {throttlingProducer, consumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -141,22 +141,22 @@ public class ThrottlingProducer<T> implements Producer<T> {
         }
     }
 
-    public ThrottlingProducer(int i2, Executor executor, Producer<T> producer) {
+    public ThrottlingProducer(int i, Executor executor, Producer<T> producer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), executor, producer};
+            Object[] objArr = {Integer.valueOf(i), executor, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mMaxSimultaneousRequests = i2;
+        this.mMaxSimultaneousRequests = i;
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
         this.mPendingRequests = new ConcurrentLinkedQueue<>();
@@ -164,9 +164,9 @@ public class ThrottlingProducer<T> implements Producer<T> {
     }
 
     public static /* synthetic */ int access$210(ThrottlingProducer throttlingProducer) {
-        int i2 = throttlingProducer.mNumCurrentRequests;
-        throttlingProducer.mNumCurrentRequests = i2 - 1;
-        return i2;
+        int i = throttlingProducer.mNumCurrentRequests;
+        throttlingProducer.mNumCurrentRequests = i - 1;
+        return i;
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMKickRequestRtcInfo extends BIMRtcInfo {
@@ -25,9 +24,9 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,11 +64,11 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, str, str2)) == null) {
-            BIMKickRequestRtcInfo bIMKickRequestRtcInfo = new BIMKickRequestRtcInfo(super.toRtcInfo(i2, str, str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, str, str2)) == null) {
+            BIMKickRequestRtcInfo bIMKickRequestRtcInfo = new BIMKickRequestRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 JSONObject optJSONObject = jSONObject.optJSONObject("kick_user");
@@ -135,7 +134,7 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "BIMKickRequestRtcInfo{" + super.toString() + ", kickUser: uk:" + this.mKickUser.uk + ", appId: " + this.mKickUser.appId + ", cuid:" + this.mKickUser.cuid + ", thirdId: " + this.mKickUser.thirdUserId + ", kickUser: uk:" + this.mKickedUser.uk + ", appId: " + this.mKickedUser.appId + ", cuid:" + this.mKickedUser.cuid + ", thirdId: " + this.mKickedUser.thirdUserId + ExtendedMessageFormat.END_FE;
+            return "BIMKickRequestRtcInfo{" + super.toString() + ", kickUser: uk:" + this.mKickUser.uk + ", appId: " + this.mKickUser.appId + ", cuid:" + this.mKickUser.cuid + ", thirdId: " + this.mKickUser.thirdUserId + ", kickUser: uk:" + this.mKickedUser.uk + ", appId: " + this.mKickedUser.appId + ", cuid:" + this.mKickedUser.cuid + ", thirdId: " + this.mKickedUser.thirdUserId + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -147,9 +146,9 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {bIMRtcInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

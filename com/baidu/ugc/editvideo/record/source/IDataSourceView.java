@@ -18,9 +18,9 @@ public interface IDataSourceView {
 
         Camera.PreviewCallback getPreviewCallback();
 
-        void notifyBuildDataSourceFail(int i2);
+        void notifyBuildDataSourceFail(int i);
 
-        void setPreviewSize(int i2, int i3);
+        void setPreviewSize(int i, int i2);
     }
 
     /* loaded from: classes6.dex */
@@ -34,14 +34,14 @@ public interface IDataSourceView {
     public interface IPlayerDataSourceView {
         void onCompletion(IPlayer iPlayer);
 
-        void onError(IPlayer iPlayer, int i2, int i3, Exception exc);
+        void onError(IPlayer iPlayer, int i, int i2, Exception exc);
 
-        void onInfo(IPlayer iPlayer, int i2, int i3);
+        void onInfo(IPlayer iPlayer, int i, int i2);
 
-        void onPlayStateListener(IPlayer iPlayer, int i2);
+        void onPlayStateListener(IPlayer iPlayer, int i);
 
         void onPrepared(IPlayer iPlayer);
 
-        void onVideoSizeChanged(int i2, int i3);
+        void onVideoSizeChanged(int i, int i2);
     }
 }

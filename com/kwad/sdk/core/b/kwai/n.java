@@ -17,9 +17,9 @@ public class n implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
         adMaterialInfo.materialFeatureList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
-                materialFeature.parseJson(optJSONArray.optJSONObject(i2));
+                materialFeature.parseJson(optJSONArray.optJSONObject(i));
                 adMaterialInfo.materialFeatureList.add(materialFeature);
             }
         }

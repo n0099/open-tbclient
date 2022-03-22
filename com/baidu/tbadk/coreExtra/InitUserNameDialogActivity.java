@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra;
 
 import android.os.Bundle;
-import c.a.q0.s.i.b;
+import c.a.o0.s.i.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.q0.s.i.b mInputUserNameDialog;
+    public c.a.o0.s.i.b mInputUserNameDialog;
 
     /* loaded from: classes5.dex */
     public class a implements b.e {
@@ -32,9 +32,9 @@ public class InitUserNameDialogActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {initUserNameDialogActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.q0.s.i.b.e
+        @Override // c.a.o0.s.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -66,9 +66,9 @@ public class InitUserNameDialogActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {initUserNameDialogActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,7 +77,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.q0.s.i.b.e
+        @Override // c.a.o0.s.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -92,9 +92,9 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -127,7 +127,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            c.a.q0.s.i.b bVar = new c.a.q0.s.i.b(this);
+            c.a.o0.s.i.b bVar = new c.a.o0.s.i.b(this);
             this.mInputUserNameDialog = bVar;
             bVar.v(new a(this));
             this.mInputUserNameDialog.w(new b(this));

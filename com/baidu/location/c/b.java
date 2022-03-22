@@ -21,7 +21,6 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.idl.authority.AuthorityState;
 import com.baidu.location.e.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,33 +41,29 @@ public class b {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f33715b;
+    public static int f26004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f33716c;
+    public static b f26005c;
     public static Class<?> k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public TelephonyManager f33717d;
+    public TelephonyManager f26006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.location.c.a f33718e;
+    public com.baidu.location.c.a f26007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.location.c.a f33719f;
+    public com.baidu.location.c.a f26008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.baidu.location.c.a> f33720g;
+    public List<com.baidu.location.c.a> f26009g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f33721h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f33722i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f33723j;
+    public a f26010h;
+    public boolean i;
+    public boolean j;
     public Handler l;
 
     /* loaded from: classes4.dex */
@@ -84,9 +79,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -109,19 +104,19 @@ public class b {
             com.baidu.location.c.a aVar;
             int cdmaDbm;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, signalStrength) == null) || this.a.f33718e == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, signalStrength) == null) || this.a.f26007e == null) {
                 return;
             }
-            if (this.a.f33718e.f33713i == 'g') {
-                aVar = this.a.f33718e;
+            if (this.a.f26007e.i == 'g') {
+                aVar = this.a.f26007e;
                 cdmaDbm = signalStrength.getGsmSignalStrength();
-            } else if (this.a.f33718e.f33713i != 'c') {
+            } else if (this.a.f26007e.i != 'c') {
                 return;
             } else {
-                aVar = this.a.f33718e;
+                aVar = this.a.f26007e;
                 cdmaDbm = signalStrength.getCdmaDbm();
             }
-            aVar.f33712h = cdmaDbm;
+            aVar.f26003h = cdmaDbm;
         }
     }
 
@@ -145,32 +140,32 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f33717d = null;
-        this.f33718e = new com.baidu.location.c.a();
-        this.f33719f = null;
-        this.f33720g = null;
-        this.f33721h = null;
-        this.f33722i = false;
-        this.f33723j = false;
+        this.f26006d = null;
+        this.f26007e = new com.baidu.location.c.a();
+        this.f26008f = null;
+        this.f26009g = null;
+        this.f26010h = null;
+        this.i = false;
+        this.j = false;
         this.l = new Handler();
     }
 
-    private int a(int i2) {
+    private int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            if (i2 == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            if (i == Integer.MAX_VALUE) {
                 return -1;
             }
-            return i2;
+            return i;
         }
         return invokeI.intValue;
     }
@@ -180,7 +175,7 @@ public class b {
         if (r2 <= 0) goto L11;
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:0x0174, code lost:
-        r1.f33711g = java.lang.System.currentTimeMillis();
+        r1.f26002g = java.lang.System.currentTimeMillis();
      */
     /* JADX WARN: Removed duplicated region for block: B:39:0x011b A[ADDED_TO_REGION] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0121 A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #0 {Exception -> 0x015f, blocks: (B:40:0x011d, B:42:0x0121), top: B:52:0x011d }] */
@@ -191,7 +186,7 @@ public class b {
     private com.baidu.location.c.a a(CellInfo cellInfo) {
         InterceptResult invokeL;
         int asuLevel;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, cellInfo)) == null) {
             int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
@@ -205,75 +200,75 @@ public class b {
                     if (cellInfo instanceof CellInfoLte) {
                         CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
                         CellIdentityLte cellIdentity = cellInfoLte.getCellIdentity();
-                        aVar.f33707c = a(cellIdentity.getMcc());
-                        aVar.f33708d = a(cellIdentity.getMnc());
+                        aVar.f25998c = a(cellIdentity.getMcc());
+                        aVar.f25999d = a(cellIdentity.getMnc());
                         aVar.a = a(cellIdentity.getTac());
-                        aVar.f33706b = a(cellIdentity.getCi());
-                        aVar.f33713i = 'g';
+                        aVar.f25997b = a(cellIdentity.getCi());
+                        aVar.i = 'g';
                         asuLevel = cellInfoLte.getCellSignalStrength().getAsuLevel();
                     }
                     if (intValue >= 18) {
                         if (cellInfo instanceof CellInfoWcdma) {
                         }
                     }
-                    aVar.f33711g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+                    aVar.f26002g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
                     return aVar;
                 }
                 CellInfoCdma cellInfoCdma = (CellInfoCdma) cellInfo;
                 CellIdentityCdma cellIdentity2 = cellInfoCdma.getCellIdentity();
-                aVar.f33709e = cellIdentity2.getLatitude();
-                aVar.f33710f = cellIdentity2.getLongitude();
-                aVar.f33708d = a(cellIdentity2.getSystemId());
+                aVar.f26000e = cellIdentity2.getLatitude();
+                aVar.f26001f = cellIdentity2.getLongitude();
+                aVar.f25999d = a(cellIdentity2.getSystemId());
                 aVar.a = a(cellIdentity2.getNetworkId());
-                aVar.f33706b = a(cellIdentity2.getBasestationId());
-                aVar.f33713i = 'c';
-                aVar.f33712h = cellInfoCdma.getCellSignalStrength().getCdmaDbm();
-                com.baidu.location.c.a aVar2 = this.f33718e;
-                if (aVar2 == null || (i2 = aVar2.f33707c) <= 0) {
-                    i2 = -1;
+                aVar.f25997b = a(cellIdentity2.getBasestationId());
+                aVar.i = 'c';
+                aVar.f26003h = cellInfoCdma.getCellSignalStrength().getCdmaDbm();
+                com.baidu.location.c.a aVar2 = this.f26007e;
+                if (aVar2 == null || (i = aVar2.f25998c) <= 0) {
+                    i = -1;
                     try {
-                        String networkOperator = this.f33717d.getNetworkOperator();
+                        String networkOperator = this.f26006d.getNetworkOperator();
                         if (networkOperator != null && networkOperator.length() > 0 && networkOperator.length() >= 3) {
                             int intValue2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                             if (intValue2 >= 0) {
-                                i2 = intValue2;
+                                i = intValue2;
                             }
                         }
                     } catch (Exception unused) {
                     }
                 }
-                aVar.f33707c = i2;
+                aVar.f25998c = i;
                 z = true;
                 if (intValue >= 18 && !z) {
                     try {
                         if (cellInfo instanceof CellInfoWcdma) {
                             CellIdentityWcdma cellIdentity3 = ((CellInfoWcdma) cellInfo).getCellIdentity();
-                            aVar.f33707c = a(cellIdentity3.getMcc());
-                            aVar.f33708d = a(cellIdentity3.getMnc());
+                            aVar.f25998c = a(cellIdentity3.getMcc());
+                            aVar.f25999d = a(cellIdentity3.getMnc());
                             aVar.a = a(cellIdentity3.getLac());
-                            aVar.f33706b = a(cellIdentity3.getCid());
-                            aVar.f33713i = 'g';
-                            aVar.f33712h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
+                            aVar.f25997b = a(cellIdentity3.getCid());
+                            aVar.i = 'g';
+                            aVar.f26003h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
                         }
                     } catch (Exception unused2) {
                     }
                 }
-                aVar.f33711g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+                aVar.f26002g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
                 return aVar;
             }
             CellInfoGsm cellInfoGsm = (CellInfoGsm) cellInfo;
             CellIdentityGsm cellIdentity4 = cellInfoGsm.getCellIdentity();
-            aVar.f33707c = a(cellIdentity4.getMcc());
-            aVar.f33708d = a(cellIdentity4.getMnc());
+            aVar.f25998c = a(cellIdentity4.getMcc());
+            aVar.f25999d = a(cellIdentity4.getMnc());
             aVar.a = a(cellIdentity4.getLac());
-            aVar.f33706b = a(cellIdentity4.getCid());
-            aVar.f33713i = 'g';
+            aVar.f25997b = a(cellIdentity4.getCid());
+            aVar.i = 'g';
             asuLevel = cellInfoGsm.getCellSignalStrength().getAsuLevel();
-            aVar.f33712h = asuLevel;
+            aVar.f26003h = asuLevel;
             z = true;
             if (intValue >= 18) {
             }
-            aVar.f33711g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+            aVar.f26002g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
             return aVar;
         }
         return (com.baidu.location.c.a) invokeL.objValue;
@@ -289,47 +284,47 @@ public class b {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, this, cellLocation, z)) == null) {
-            if (cellLocation == null || this.f33717d == null) {
+            if (cellLocation == null || this.f26006d == null) {
                 return null;
             }
             com.baidu.location.c.a aVar = new com.baidu.location.c.a();
             if (z) {
                 aVar.f();
             }
-            aVar.f33711g = System.currentTimeMillis();
+            aVar.f26002g = System.currentTimeMillis();
             try {
-                String networkOperator = this.f33717d.getNetworkOperator();
+                String networkOperator = this.f26006d.getNetworkOperator();
                 if (networkOperator != null && networkOperator.length() > 0) {
-                    int i2 = -1;
+                    int i = -1;
                     if (networkOperator.length() >= 3) {
-                        i2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
-                        aVar.f33707c = i2 < 0 ? this.f33718e.f33707c : i2;
+                        i = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
+                        aVar.f25998c = i < 0 ? this.f26007e.f25998c : i;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
                         char[] charArray = substring.toCharArray();
-                        int i3 = 0;
-                        while (i3 < charArray.length && Character.isDigit(charArray[i3])) {
-                            i3++;
+                        int i2 = 0;
+                        while (i2 < charArray.length && Character.isDigit(charArray[i2])) {
+                            i2++;
                         }
-                        i2 = Integer.valueOf(substring.substring(0, i3)).intValue();
+                        i = Integer.valueOf(substring.substring(0, i2)).intValue();
                     }
-                    if (i2 < 0) {
-                        i2 = this.f33718e.f33708d;
+                    if (i < 0) {
+                        i = this.f26007e.f25999d;
                     }
-                    aVar.f33708d = i2;
+                    aVar.f25999d = i;
                 }
-                a = this.f33717d.getSimState();
+                a = this.f26006d.getSimState();
             } catch (Exception unused) {
-                f33715b = 1;
+                f26004b = 1;
             }
             if (cellLocation instanceof GsmCellLocation) {
                 GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                 aVar.a = gsmCellLocation.getLac();
-                aVar.f33706b = gsmCellLocation.getCid();
-                aVar.f33713i = 'g';
+                aVar.f25997b = gsmCellLocation.getCid();
+                aVar.i = 'g';
             } else if (cellLocation instanceof CdmaCellLocation) {
-                aVar.f33713i = 'c';
+                aVar.i = 'c';
                 if (k == null) {
                     try {
                         k = Class.forName("android.telephony.cdma.CdmaCellLocation");
@@ -343,21 +338,21 @@ public class b {
                     try {
                         int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
                         if (systemId < 0) {
-                            systemId = this.f33718e.f33708d;
+                            systemId = this.f26007e.f25999d;
                         }
-                        aVar.f33708d = systemId;
-                        aVar.f33706b = ((CdmaCellLocation) cellLocation).getBaseStationId();
+                        aVar.f25999d = systemId;
+                        aVar.f25997b = ((CdmaCellLocation) cellLocation).getBaseStationId();
                         aVar.a = ((CdmaCellLocation) cellLocation).getNetworkId();
                         int baseStationLatitude = ((CdmaCellLocation) cellLocation).getBaseStationLatitude();
                         if (baseStationLatitude < Integer.MAX_VALUE) {
-                            aVar.f33709e = baseStationLatitude;
+                            aVar.f26000e = baseStationLatitude;
                         }
                         int baseStationLongitude = ((CdmaCellLocation) cellLocation).getBaseStationLongitude();
                         if (baseStationLongitude < Integer.MAX_VALUE) {
-                            aVar.f33710f = baseStationLongitude;
+                            aVar.f26001f = baseStationLongitude;
                         }
                     } catch (Exception unused3) {
-                        f33715b = 3;
+                        f26004b = 3;
                         return aVar;
                     }
                 }
@@ -374,10 +369,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (b.class) {
-                if (f33716c == null) {
-                    f33716c = new b();
+                if (f26005c == null) {
+                    f26005c = new b();
                 }
-                bVar = f33716c;
+                bVar = f26005c;
             }
             return bVar;
         }
@@ -387,32 +382,32 @@ public class b {
     private void c(com.baidu.location.c.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, aVar) == null) && aVar.b()) {
-            com.baidu.location.c.a aVar2 = this.f33718e;
+            com.baidu.location.c.a aVar2 = this.f26007e;
             if (aVar2 == null || !aVar2.a(aVar)) {
-                this.f33718e = aVar;
+                this.f26007e = aVar;
                 if (!aVar.b()) {
-                    List<com.baidu.location.c.a> list = this.f33720g;
+                    List<com.baidu.location.c.a> list = this.f26009g;
                     if (list != null) {
                         list.clear();
                         return;
                     }
                     return;
                 }
-                int size = this.f33720g.size();
-                com.baidu.location.c.a aVar3 = size == 0 ? null : this.f33720g.get(size - 1);
+                int size = this.f26009g.size();
+                com.baidu.location.c.a aVar3 = size == 0 ? null : this.f26009g.get(size - 1);
                 if (aVar3 != null) {
-                    int i2 = aVar3.f33706b;
-                    com.baidu.location.c.a aVar4 = this.f33718e;
-                    if (i2 == aVar4.f33706b && aVar3.a == aVar4.a) {
+                    int i = aVar3.f25997b;
+                    com.baidu.location.c.a aVar4 = this.f26007e;
+                    if (i == aVar4.f25997b && aVar3.a == aVar4.a) {
                         return;
                     }
                 }
-                this.f33720g.add(this.f33718e);
-                if (this.f33720g.size() > 3) {
-                    this.f33720g.remove(0);
+                this.f26009g.add(this.f26007e);
+                if (this.f26009g.size() > 3) {
+                    this.f26009g.remove(0);
                 }
                 j();
-                this.f33723j = false;
+                this.j = false;
             }
         }
     }
@@ -427,25 +422,25 @@ public class b {
             StringBuilder sb2 = new StringBuilder();
             if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
                 try {
-                    List<CellInfo> allCellInfo = this.f33717d.getAllCellInfo();
+                    List<CellInfo> allCellInfo = this.f26006d.getAllCellInfo();
                     if (allCellInfo != null && allCellInfo.size() > 0) {
                         sb2.append("&nc=");
                         for (CellInfo cellInfo : allCellInfo) {
-                            if (!cellInfo.isRegistered() && (a2 = a(cellInfo)) != null && a2.a != -1 && a2.f33706b != -1) {
+                            if (!cellInfo.isRegistered() && (a2 = a(cellInfo)) != null && a2.a != -1 && a2.f25997b != -1) {
                                 if (aVar.a != a2.a) {
                                     sb = new StringBuilder();
                                     sb.append(a2.a);
                                     sb.append("|");
-                                    sb.append(a2.f33706b);
+                                    sb.append(a2.f25997b);
                                     sb.append("|");
-                                    sb.append(a2.f33712h);
+                                    sb.append(a2.f26003h);
                                     sb.append(";");
                                 } else {
                                     sb = new StringBuilder();
                                     sb.append("|");
-                                    sb.append(a2.f33706b);
+                                    sb.append(a2.f25997b);
                                     sb.append("|");
-                                    sb.append(a2.f33712h);
+                                    sb.append(a2.f26003h);
                                     sb.append(";");
                                 }
                                 sb2.append(sb.toString());
@@ -461,16 +456,16 @@ public class b {
     }
 
     private void i() {
-        String i2;
+        String i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (i2 = k.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (i = k.i()) == null) {
             return;
         }
-        File file = new File(i2 + File.separator + "lcvif.dat");
+        File file = new File(i + File.separator + "lcvif.dat");
         if (file.exists()) {
             try {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                long j2 = 0;
+                long j = 0;
                 randomAccessFile.seek(0L);
                 if (System.currentTimeMillis() - randomAccessFile.readLong() > 60000) {
                     randomAccessFile.close();
@@ -478,8 +473,8 @@ public class b {
                     return;
                 }
                 randomAccessFile.readInt();
-                int i3 = 0;
-                while (i3 < 3) {
+                int i2 = 0;
+                while (i2 < 3) {
                     long readLong = randomAccessFile.readLong();
                     int readInt = randomAccessFile.readInt();
                     int readInt2 = randomAccessFile.readInt();
@@ -487,16 +482,16 @@ public class b {
                     int readInt4 = randomAccessFile.readInt();
                     int readInt5 = randomAccessFile.readInt();
                     char c2 = readInt5 == 2 ? 'c' : readInt5 == 1 ? 'g' : (char) 0;
-                    if (readLong != j2) {
+                    if (readLong != j) {
                         com.baidu.location.c.a aVar = new com.baidu.location.c.a(readInt3, readInt4, readInt, readInt2, 0, c2, -1);
-                        aVar.f33711g = readLong;
+                        aVar.f26002g = readLong;
                         if (aVar.b()) {
-                            this.f33723j = true;
-                            this.f33720g.add(aVar);
+                            this.j = true;
+                            this.f26009g.add(aVar);
                         }
                     }
-                    i3++;
-                    j2 = 0;
+                    i2++;
+                    j = 0;
                 }
                 randomAccessFile.close();
             } catch (Exception unused) {
@@ -508,20 +503,20 @@ public class b {
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            if (this.f33720g == null && this.f33719f == null) {
+            if (this.f26009g == null && this.f26008f == null) {
                 return;
             }
-            if (this.f33720g == null && this.f33719f != null) {
+            if (this.f26009g == null && this.f26008f != null) {
                 LinkedList linkedList = new LinkedList();
-                this.f33720g = linkedList;
-                linkedList.add(this.f33719f);
+                this.f26009g = linkedList;
+                linkedList.add(this.f26008f);
             }
-            String i2 = k.i();
-            if (i2 == null || this.f33720g == null) {
+            String i = k.i();
+            if (i == null || this.f26009g == null) {
                 return;
             }
-            File file = new File(i2 + File.separator + "lcvif.dat");
-            int size = this.f33720g.size();
+            File file = new File(i + File.separator + "lcvif.dat");
+            int size = this.f26009g.size();
             try {
                 if (file.exists()) {
                     file.delete();
@@ -529,9 +524,9 @@ public class b {
                 file.createNewFile();
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
                 randomAccessFile.seek(0L);
-                randomAccessFile.writeLong(this.f33720g.get(size - 1).f33711g);
+                randomAccessFile.writeLong(this.f26009g.get(size - 1).f26002g);
                 randomAccessFile.writeInt(size);
-                for (int i3 = 0; i3 < 3 - size; i3++) {
+                for (int i2 = 0; i2 < 3 - size; i2++) {
                     randomAccessFile.writeLong(0L);
                     randomAccessFile.writeInt(-1);
                     randomAccessFile.writeInt(-1);
@@ -539,15 +534,15 @@ public class b {
                     randomAccessFile.writeInt(-1);
                     randomAccessFile.writeInt(2);
                 }
-                for (int i4 = 0; i4 < size; i4++) {
-                    randomAccessFile.writeLong(this.f33720g.get(i4).f33711g);
-                    randomAccessFile.writeInt(this.f33720g.get(i4).f33707c);
-                    randomAccessFile.writeInt(this.f33720g.get(i4).f33708d);
-                    randomAccessFile.writeInt(this.f33720g.get(i4).a);
-                    randomAccessFile.writeInt(this.f33720g.get(i4).f33706b);
-                    if (this.f33720g.get(i4).f33713i == 'g') {
+                for (int i3 = 0; i3 < size; i3++) {
+                    randomAccessFile.writeLong(this.f26009g.get(i3).f26002g);
+                    randomAccessFile.writeInt(this.f26009g.get(i3).f25998c);
+                    randomAccessFile.writeInt(this.f26009g.get(i3).f25999d);
+                    randomAccessFile.writeInt(this.f26009g.get(i3).a);
+                    randomAccessFile.writeInt(this.f26009g.get(i3).f25997b);
+                    if (this.f26009g.get(i3).i == 'g') {
                         randomAccessFile.writeInt(1);
-                    } else if (this.f33720g.get(i4).f33713i == 'c') {
+                    } else if (this.f26009g.get(i3).i == 'c') {
                         randomAccessFile.writeInt(2);
                     } else {
                         randomAccessFile.writeInt(3);
@@ -570,7 +565,7 @@ public class b {
             }
             if (l == null || !l.b()) {
                 try {
-                    cellLocation = this.f33717d.getCellLocation();
+                    cellLocation = this.f26006d.getCellLocation();
                 } catch (Throwable unused) {
                     cellLocation = null;
                 }
@@ -590,8 +585,8 @@ public class b {
                 return null;
             }
             try {
-                a = this.f33717d.getSimState();
-                List<CellInfo> allCellInfo = this.f33717d.getAllCellInfo();
+                a = this.f26006d.getSimState();
+                List<CellInfo> allCellInfo = this.f26006d.getAllCellInfo();
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
@@ -653,46 +648,46 @@ public class b {
 
     public String b(com.baidu.location.c.a aVar) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             StringBuffer stringBuffer = new StringBuffer(128);
             stringBuffer.append("&nw=");
-            stringBuffer.append(aVar.f33713i);
-            stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(aVar.f33707c), Integer.valueOf(aVar.f33708d), Integer.valueOf(aVar.a), Integer.valueOf(aVar.f33706b), Integer.valueOf(aVar.f33712h)));
-            if (aVar.f33709e < Integer.MAX_VALUE && (i2 = aVar.f33710f) < Integer.MAX_VALUE) {
-                stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(i2 / 14400.0d), Double.valueOf(aVar.f33709e / 14400.0d)));
+            stringBuffer.append(aVar.i);
+            stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(aVar.f25998c), Integer.valueOf(aVar.f25999d), Integer.valueOf(aVar.a), Integer.valueOf(aVar.f25997b), Integer.valueOf(aVar.f26003h)));
+            if (aVar.f26000e < Integer.MAX_VALUE && (i = aVar.f26001f) < Integer.MAX_VALUE) {
+                stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(i / 14400.0d), Double.valueOf(aVar.f26000e / 14400.0d)));
             }
             stringBuffer.append("&cl_t=");
-            stringBuffer.append(aVar.f33711g);
-            if (Build.VERSION.SDK_INT >= 28 && aVar.f33714j != Integer.MAX_VALUE) {
+            stringBuffer.append(aVar.f26002g);
+            if (Build.VERSION.SDK_INT >= 28 && aVar.j != Integer.MAX_VALUE) {
                 stringBuffer.append("&cl_cs=");
-                stringBuffer.append(aVar.f33714j);
+                stringBuffer.append(aVar.j);
             }
             try {
-                if (this.f33720g != null && this.f33720g.size() > 0) {
-                    int size = this.f33720g.size();
+                if (this.f26009g != null && this.f26009g.size() > 0) {
+                    int size = this.f26009g.size();
                     stringBuffer.append("&clt=");
-                    for (int i3 = 0; i3 < size; i3++) {
-                        com.baidu.location.c.a aVar2 = this.f33720g.get(i3);
+                    for (int i2 = 0; i2 < size; i2++) {
+                        com.baidu.location.c.a aVar2 = this.f26009g.get(i2);
                         if (aVar2 != null) {
-                            if (aVar2.f33707c != aVar.f33707c) {
-                                stringBuffer.append(aVar2.f33707c);
+                            if (aVar2.f25998c != aVar.f25998c) {
+                                stringBuffer.append(aVar2.f25998c);
                             }
                             stringBuffer.append("|");
-                            if (aVar2.f33708d != aVar.f33708d) {
-                                stringBuffer.append(aVar2.f33708d);
+                            if (aVar2.f25999d != aVar.f25999d) {
+                                stringBuffer.append(aVar2.f25999d);
                             }
                             stringBuffer.append("|");
                             if (aVar2.a != aVar.a) {
                                 stringBuffer.append(aVar2.a);
                             }
                             stringBuffer.append("|");
-                            if (aVar2.f33706b != aVar.f33706b) {
-                                stringBuffer.append(aVar2.f33706b);
+                            if (aVar2.f25997b != aVar.f25997b) {
+                                stringBuffer.append(aVar2.f25997b);
                             }
                             stringBuffer.append("|");
-                            stringBuffer.append((System.currentTimeMillis() - aVar2.f33711g) / 1000);
+                            stringBuffer.append((System.currentTimeMillis() - aVar2.f26002g) / 1000);
                             stringBuffer.append(";");
                         }
                     }
@@ -702,8 +697,8 @@ public class b {
             if (a > 100) {
                 a = 0;
             }
-            int i4 = a + (f33715b << 8);
-            stringBuffer.append("&cs=" + i4);
+            int i3 = a + (f26004b << 8);
+            stringBuffer.append("&cs=" + i3);
             String str = aVar.k;
             if (str != null) {
                 stringBuffer.append(str);
@@ -717,22 +712,22 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f33722i) {
+                if (this.i) {
                     return;
                 }
                 if (com.baidu.location.f.isServing) {
-                    this.f33717d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
-                    this.f33720g = new LinkedList();
-                    this.f33721h = new a(this);
+                    this.f26006d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
+                    this.f26009g = new LinkedList();
+                    this.f26010h = new a(this);
                     i();
-                    if (this.f33717d == null || this.f33721h == null) {
+                    if (this.f26006d == null || this.f26010h == null) {
                         return;
                     }
                     try {
-                        this.f33717d.listen(this.f33721h, AuthorityState.STATE_INIT_ING);
+                        this.f26006d.listen(this.f26010h, 272);
                     } catch (Exception unused) {
                     }
-                    this.f33722i = true;
+                    this.i = true;
                 }
             }
         }
@@ -742,16 +737,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f33722i) {
-                    if (this.f33721h != null && this.f33717d != null) {
-                        this.f33717d.listen(this.f33721h, 0);
+                if (this.i) {
+                    if (this.f26010h != null && this.f26006d != null) {
+                        this.f26006d.listen(this.f26010h, 0);
                     }
-                    this.f33721h = null;
-                    this.f33717d = null;
-                    this.f33720g.clear();
-                    this.f33720g = null;
+                    this.f26010h = null;
+                    this.f26006d = null;
+                    this.f26009g.clear();
+                    this.f26009g = null;
                     j();
-                    this.f33722i = false;
+                    this.i = false;
                 }
             }
         }
@@ -760,14 +755,14 @@ public class b {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33723j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TelephonyManager telephonyManager = this.f33717d;
+            TelephonyManager telephonyManager = this.f26006d;
             if (telephonyManager == null) {
                 return 0;
             }
@@ -785,28 +780,28 @@ public class b {
         com.baidu.location.c.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            com.baidu.location.c.a aVar2 = this.f33718e;
-            if ((aVar2 == null || !aVar2.a() || !this.f33718e.b()) && this.f33717d != null) {
+            com.baidu.location.c.a aVar2 = this.f26007e;
+            if ((aVar2 == null || !aVar2.a() || !this.f26007e.b()) && this.f26006d != null) {
                 try {
                     k();
                 } catch (Exception unused) {
                 }
             }
-            com.baidu.location.c.a aVar3 = this.f33718e;
+            com.baidu.location.c.a aVar3 = this.f26007e;
             if (aVar3 != null && aVar3.e()) {
-                this.f33719f = null;
-                com.baidu.location.c.a aVar4 = this.f33718e;
-                this.f33719f = new com.baidu.location.c.a(aVar4.a, aVar4.f33706b, aVar4.f33707c, aVar4.f33708d, aVar4.f33712h, aVar4.f33713i, aVar4.f33714j);
+                this.f26008f = null;
+                com.baidu.location.c.a aVar4 = this.f26007e;
+                this.f26008f = new com.baidu.location.c.a(aVar4.a, aVar4.f25997b, aVar4.f25998c, aVar4.f25999d, aVar4.f26003h, aVar4.i, aVar4.j);
             }
-            com.baidu.location.c.a aVar5 = this.f33718e;
-            if (aVar5 != null && aVar5.d() && (aVar = this.f33719f) != null) {
-                com.baidu.location.c.a aVar6 = this.f33718e;
-                if (aVar6.f33713i == 'g') {
-                    aVar6.f33708d = aVar.f33708d;
-                    aVar6.f33707c = aVar.f33707c;
+            com.baidu.location.c.a aVar5 = this.f26007e;
+            if (aVar5 != null && aVar5.d() && (aVar = this.f26008f) != null) {
+                com.baidu.location.c.a aVar6 = this.f26007e;
+                if (aVar6.i == 'g') {
+                    aVar6.f25999d = aVar.f25999d;
+                    aVar6.f25998c = aVar.f25998c;
                 }
             }
-            return this.f33718e;
+            return this.f26007e;
         }
         return (com.baidu.location.c.a) invokeV.objValue;
     }
@@ -815,14 +810,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = -1;
+            int i = -1;
             try {
-                if (this.f33717d != null) {
-                    i2 = this.f33717d.getSimState();
+                if (this.f26006d != null) {
+                    i = this.f26006d.getSimState();
                 }
             } catch (Exception unused) {
             }
-            return "&sim=" + i2;
+            return "&sim=" + i;
         }
         return (String) invokeV.objValue;
     }

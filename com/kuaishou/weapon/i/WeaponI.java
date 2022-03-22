@@ -5,7 +5,7 @@ public interface WeaponI {
 
     void b(String str, String str2, String str3, String str4, String str5);
 
-    void e(int i2);
+    void e(int i);
 
     String k();
 }

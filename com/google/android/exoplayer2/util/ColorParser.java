@@ -3,8 +3,8 @@ package com.google.android.exoplayer2.util;
 import android.text.TextUtils;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ColorParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> COLOR_MAP;
@@ -98,7 +98,7 @@ public final class ColorParser {
         COLOR_MAP.put("ghostwhite", -460545);
         COLOR_MAP.put("gold", -10496);
         COLOR_MAP.put("goldenrod", -2448096);
-        COLOR_MAP.put("gray", -8355712);
+        COLOR_MAP.put(ShareLoginStat.GetShareListStat.KEY_GRAY, -8355712);
         COLOR_MAP.put("green", -16744448);
         COLOR_MAP.put("greenyellow", -5374161);
         COLOR_MAP.put("grey", -8355712);
@@ -186,7 +186,7 @@ public final class ColorParser {
         COLOR_MAP.put("teal", -16744320);
         COLOR_MAP.put("thistle", -2572328);
         COLOR_MAP.put("tomato", -40121);
-        COLOR_MAP.put(OpenFlutter.EXTRA_TRANSPARANT, 0);
+        COLOR_MAP.put("transparent", 0);
         COLOR_MAP.put("turquoise", -12525360);
         COLOR_MAP.put("violet", -1146130);
         COLOR_MAP.put("wheat", -663885);
@@ -201,19 +201,19 @@ public final class ColorParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int argb(int i2, int i3, int i4, int i5) {
+    public static int argb(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i2, i3, i4, i5)) == null) ? (i2 << 24) | (i3 << 16) | (i4 << 8) | i5 : invokeIIII.intValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) ? (i << 24) | (i2 << 16) | (i3 << 8) | i4 : invokeIIII.intValue;
     }
 
     public static int parseColorInternal(String str, boolean z) {
@@ -271,9 +271,9 @@ public final class ColorParser {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? parseColorInternal(str, false) : invokeL.intValue;
     }
 
-    public static int rgb(int i2, int i3, int i4) {
+    public static int rgb(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) ? argb(255, i2, i3, i4) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) ? argb(255, i, i2, i3) : invokeIII.intValue;
     }
 }

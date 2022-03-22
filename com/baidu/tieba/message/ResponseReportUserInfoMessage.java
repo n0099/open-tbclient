@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,17 +18,17 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     public int timeInterval;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseReportUserInfoMessage(int i2) {
-        super(i2);
+    public ResponseReportUserInfoMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,9 +38,9 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) && getStatusCode() == 200 && jSONObject != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && getStatusCode() == 200 && jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
             this.errorMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
             this.timeInterval = jSONObject.optInt("time_interval", 0);
@@ -65,10 +65,10 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.timeInterval : invokeV.intValue;
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.errorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.errorCode = i;
         }
     }
 
@@ -79,10 +79,10 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setTimeInterval(int i2) {
+    public void setTimeInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.timeInterval = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.timeInterval = i;
         }
     }
 }

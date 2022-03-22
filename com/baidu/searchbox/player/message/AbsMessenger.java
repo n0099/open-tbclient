@@ -38,9 +38,9 @@ public abstract class AbsMessenger implements IMessenger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -209,10 +209,10 @@ public abstract class AbsMessenger implements IMessenger {
     public abstract void publishEventToQueue(@NonNull VideoEvent videoEvent);
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void register(int i2, @NonNull INeuron iNeuron) {
+    public void register(int i, @NonNull INeuron iNeuron) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, iNeuron) == null) {
-            CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iNeuron) == null) {
+            CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(i));
             if (copyOnWriteArrayList == null) {
                 copyOnWriteArrayList = new CopyOnWriteArrayList<>();
             }
@@ -226,7 +226,7 @@ public abstract class AbsMessenger implements IMessenger {
                     copyOnWriteArrayList.add(copyOnWriteArrayList.size(), iNeuron);
                 }
             }
-            this.mSubscribers.put(Integer.valueOf(i2), copyOnWriteArrayList);
+            this.mSubscribers.put(Integer.valueOf(i), copyOnWriteArrayList);
         }
     }
 
@@ -289,13 +289,13 @@ public abstract class AbsMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void addInterceptor(int i2, @NonNull IVideoEventInterceptor iVideoEventInterceptor) {
+    public void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, iVideoEventInterceptor) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, iVideoEventInterceptor) == null) {
             if (this.mInterceptorList == null) {
                 this.mInterceptorList = new ArrayList();
             }
-            this.mInterceptorList.add(i2, iVideoEventInterceptor);
+            this.mInterceptorList.add(i, iVideoEventInterceptor);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
@@ -39,23 +40,23 @@ public class ARPMessage {
         public int mMessageId;
         public int mMessageType;
 
-        public ArCallback(int i2, int i3, MessageHandler messageHandler) {
+        public ArCallback(int i, int i2, MessageHandler messageHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), messageHandler};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), messageHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mMessageType = i2;
-            this.mMessageId = i3;
+            this.mMessageType = i;
+            this.mMessageId = i2;
             this.mHandler = messageHandler;
         }
     }
@@ -69,31 +70,31 @@ public class ARPMessage {
         public int mMessageType;
         public int mResMessageID;
 
-        public ArMessage(int i2, int i3, HashMap<String, Object> hashMap, int i4) {
+        public ArMessage(int i, int i2, HashMap<String, Object> hashMap, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), hashMap, Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mMessageType = i2;
-            this.mMessageID = i3;
+            this.mMessageType = i;
+            this.mMessageID = i2;
             this.mData = hashMap;
-            this.mResMessageID = i4;
+            this.mResMessageID = i3;
         }
     }
 
     /* loaded from: classes3.dex */
     public interface MessageHandler {
-        void handleMessage(int i2, int i3, HashMap<String, Object> hashMap);
+        void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
     }
 
     static {
@@ -116,9 +117,9 @@ public class ARPMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -140,9 +141,9 @@ public class ARPMessage {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -193,10 +194,10 @@ public class ARPMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, arMessage) == null) {
             for (ArCallback arCallback : this.mMsgHandlers) {
-                int i2 = arCallback.mMessageType;
-                if (i2 == 0 || arMessage.mMessageType == i2) {
-                    int i3 = arCallback.mMessageId;
-                    if (-1 == i3 || arMessage.mResMessageID == i3) {
+                int i = arCallback.mMessageType;
+                if (i == 0 || arMessage.mMessageType == i) {
+                    int i2 = arCallback.mMessageId;
+                    if (-1 == i2 || arMessage.mResMessageID == i2) {
                         arCallback.mHandler.handleMessage(arMessage.mMessageType, arMessage.mMessageID, arMessage.mData);
                     }
                 }
@@ -204,29 +205,29 @@ public class ARPMessage {
         }
     }
 
-    public static void receiveMsgFromEngine(Object obj, int i2, int i3, HashMap<String, Object> hashMap, int i4) {
+    public static void receiveMsgFromEngine(Object obj, int i, int i2, HashMap<String, Object> hashMap, int i3) {
         ARPMessage aRPMessage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{obj, Integer.valueOf(i2), Integer.valueOf(i3), hashMap, Integer.valueOf(i4)}) == null) || (aRPMessage = (ARPMessage) ((WeakReference) obj).get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) || (aRPMessage = (ARPMessage) ((WeakReference) obj).get()) == null) {
             return;
         }
-        aRPMessage.receiveMsgFromEngine(i2, i3, hashMap, i4);
+        aRPMessage.receiveMsgFromEngine(i, i2, hashMap, i3);
     }
 
-    private void sendMessageImpl(int i2, int i3, HashMap<String, Object> hashMap, int i4) {
+    private void sendMessageImpl(int i, int i2, HashMap<String, Object> hashMap, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), hashMap, Integer.valueOf(i4)}) == null) && ARPEngine.getInstance().isEngineCanAccess()) {
-            if (-1 == i3) {
-                i3 = getMessageID();
+        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) && ARPEngine.getInstance().isEngineCanAccess()) {
+            if (-1 == i2) {
+                i2 = getMessageID();
             }
-            sendMessageToEngine(i2, i3, hashMap, i4);
+            sendMessageToEngine(i, i2, hashMap, i3);
         }
     }
 
-    private void sendMessageImpl(int i2, HashMap<String, Object> hashMap, int i3) {
+    private void sendMessageImpl(int i, HashMap<String, Object> hashMap, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) {
-            sendMessageImpl(i2, -1, hashMap, i3);
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
+            sendMessageImpl(i, -1, hashMap, i2);
         }
     }
 
@@ -236,19 +237,19 @@ public class ARPMessage {
 
     public native void nativeSetup(Object obj);
 
-    public void receiveMsgFromEngine(int i2, int i3, HashMap<String, Object> hashMap, int i4) {
+    public void receiveMsgFromEngine(int i, int i2, HashMap<String, Object> hashMap, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), hashMap, Integer.valueOf(i4)}) == null) {
-            String str = "receiveMsgFromEngine :" + i2;
-            this.mHandler.obtainMessage(1, new ArMessage(i2, i3, hashMap, i4)).sendToTarget();
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) {
+            Log.d("ARPMessage", "receiveMsgFromEngine :" + i);
+            this.mHandler.obtainMessage(1, new ArMessage(i, i2, hashMap, i3)).sendToTarget();
         }
     }
 
-    public synchronized void registerMessageHandler(int i2, MessageHandler messageHandler) {
+    public synchronized void registerMessageHandler(int i, MessageHandler messageHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, messageHandler) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, messageHandler) == null) {
             synchronized (this) {
-                this.mHandler.post(new Runnable(this, i2, messageHandler) { // from class: com.baidu.ar.arplay.core.message.ARPMessage.2
+                this.mHandler.post(new Runnable(this, i, messageHandler) { // from class: com.baidu.ar.arplay.core.message.ARPMessage.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ARPMessage this$0;
@@ -260,18 +261,18 @@ public class ARPMessage {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i2), messageHandler};
+                            Object[] objArr = {this, Integer.valueOf(i), messageHandler};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$aMessageType = i2;
+                        this.val$aMessageType = i;
                         this.val$aMessageHandler = messageHandler;
                     }
 
@@ -303,9 +304,9 @@ public class ARPMessage {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -345,9 +346,9 @@ public class ARPMessage {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, messageHandler};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -385,27 +386,27 @@ public class ARPMessage {
         sendMessage(2001, hashMap);
     }
 
-    public void sendMessage(int i2, HashMap<String, Object> hashMap) {
+    public void sendMessage(int i, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, hashMap) == null) {
-            sendMessageImpl(i2, hashMap, -1);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, hashMap) == null) {
+            sendMessageImpl(i, hashMap, -1);
         }
     }
 
-    public native void sendMessageToEngine(int i2, int i3, HashMap<String, Object> hashMap, int i4);
+    public native void sendMessageToEngine(int i, int i2, HashMap<String, Object> hashMap, int i3);
 
-    public void sendResponseMessage(int i2, HashMap<String, Object> hashMap, int i3) {
+    public void sendResponseMessage(int i, HashMap<String, Object> hashMap, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), hashMap, Integer.valueOf(i3)}) == null) {
-            sendMessageImpl(i2, hashMap, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
+            sendMessageImpl(i, hashMap, i2);
         }
     }
 
-    public void setModelVirtualColor(int i2, boolean z) {
+    public void setModelVirtualColor(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_COLOR_KEY, Integer.valueOf(i2));
+            hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_COLOR_KEY, Integer.valueOf(i));
             if (!z) {
                 hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, 1);
             }

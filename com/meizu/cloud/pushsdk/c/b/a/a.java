@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     public final String u;
     public d v;
@@ -22,7 +22,7 @@ public class a extends c {
     public a(c.a aVar) {
         super(aVar);
         this.u = a.class.getSimpleName();
-        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f57238d, this.o);
+        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f42076d, this.o);
         this.v = aVar2;
         if (aVar2.a()) {
             return;
@@ -39,10 +39,10 @@ public class a extends c {
             linkedList3.add(b.a(b(it.next().a())));
         }
         com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Request Futures: %s", Integer.valueOf(linkedList3.size()));
-        for (int i2 = 0; i2 < linkedList3.size(); i2++) {
-            int i3 = -1;
+        for (int i = 0; i < linkedList3.size(); i++) {
+            int i2 = -1;
             try {
-                i3 = ((Integer) ((Future) linkedList3.get(i2)).get(5L, TimeUnit.SECONDS)).intValue();
+                i2 = ((Integer) ((Future) linkedList3.get(i)).get(5L, TimeUnit.SECONDS)).intValue();
             } catch (InterruptedException e2) {
                 com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Request Future was interrupted: %s", e2.getMessage());
             } catch (ExecutionException e3) {
@@ -50,10 +50,10 @@ public class a extends c {
             } catch (TimeoutException e4) {
                 com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Request Future had a timeout: %s", e4.getMessage());
             }
-            if (linkedList.get(i2).c()) {
-                linkedList2.add(new g(true, linkedList.get(i2).b()));
+            if (linkedList.get(i).c()) {
+                linkedList2.add(new g(true, linkedList.get(i).b()));
             } else {
-                linkedList2.add(new g(a(i3), linkedList.get(i2).b()));
+                linkedList2.add(new g(a(i2), linkedList.get(i).b()));
             }
         }
         return linkedList2;
@@ -79,9 +79,9 @@ public class a extends c {
             linkedList3.add(b.a(a(it.next())));
         }
         com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Removal Futures: %s", Integer.valueOf(linkedList3.size()));
-        for (int i2 = 0; i2 < linkedList3.size(); i2++) {
+        for (int i = 0; i < linkedList3.size(); i++) {
             try {
-                z = ((Boolean) ((Future) linkedList3.get(i2)).get(5L, TimeUnit.SECONDS)).booleanValue();
+                z = ((Boolean) ((Future) linkedList3.get(i)).get(5L, TimeUnit.SECONDS)).booleanValue();
             } catch (InterruptedException e2) {
                 com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Removal Future was interrupted: %s", e2.getMessage());
                 z = false;
@@ -113,15 +113,15 @@ public class a extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f57238d)) {
+        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f42076d)) {
             if (this.v.c() > 0) {
                 this.w = 0;
                 LinkedList<g> a = a(a(this.v.d()));
                 com.meizu.cloud.pushsdk.c.f.c.c(this.u, "Processing emitter results.", new Object[0]);
                 LinkedList<Long> linkedList = new LinkedList<>();
                 Iterator<g> it = a.iterator();
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 while (it.hasNext()) {
                     g next = it.next();
                     if (next.a()) {
@@ -129,42 +129,42 @@ public class a extends c {
                         while (it2.hasNext()) {
                             linkedList.add(it2.next());
                         }
-                        i2 += next.b().size();
+                        i += next.b().size();
                     } else {
-                        i3 += next.b().size();
+                        i2 += next.b().size();
                         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Request sending failed but we will retry later.", new Object[0]);
                     }
                 }
                 b(linkedList);
-                com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Success Count: %s", Integer.valueOf(i2));
-                com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Failure Count: %s", Integer.valueOf(i3));
-                f fVar = this.f57240f;
+                com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Success Count: %s", Integer.valueOf(i));
+                com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Failure Count: %s", Integer.valueOf(i2));
+                f fVar = this.f42078f;
                 if (fVar != null) {
-                    if (i3 != 0) {
-                        fVar.a(i2, i3);
+                    if (i2 != 0) {
+                        fVar.a(i, i2);
                     } else {
-                        fVar.a(i2);
+                        fVar.a(i);
                     }
                 }
-                if (i3 > 0 && i2 == 0) {
-                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f57238d)) {
+                if (i2 > 0 && i == 0) {
+                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f42076d)) {
                         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Ensure collector path is valid: %s", b());
                     }
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: failures.", new Object[0]);
                 }
             } else {
-                int i4 = this.w;
-                if (i4 >= this.n) {
+                int i3 = this.w;
+                if (i3 >= this.n) {
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: empty limit reached.", new Object[0]);
                     this.t.compareAndSet(true, false);
-                    f fVar2 = this.f57240f;
+                    f fVar2 = this.f42078f;
                     if (fVar2 != null) {
                         fVar2.a(true);
                         return;
                     }
                     return;
                 }
-                this.w = i4 + 1;
+                this.w = i3 + 1;
                 String str = this.u;
                 com.meizu.cloud.pushsdk.c.f.c.a(str, "Emitter database empty: " + this.w, new Object[0]);
                 try {

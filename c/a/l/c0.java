@@ -20,9 +20,9 @@ public class c0 extends t0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -32,9 +32,9 @@ public class c0 extends t0 {
     }
 
     @Override // c.a.l.t0
-    public c.a.r0.a3.v.a p() {
+    public c.a.p0.c3.w.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.r0.a3.v.d(this.f4007f, this.m) : (c.a.r0.a3.v.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.p0.c3.w.d(this.f3392b, this.i) : (c.a.p0.c3.w.a) invokeV.objValue;
     }
 }

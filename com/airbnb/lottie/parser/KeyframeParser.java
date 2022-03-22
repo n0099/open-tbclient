@@ -11,6 +11,7 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
@@ -18,13 +19,13 @@ public class KeyframeParser {
     public static final float MAX_CP_VALUE = 100.0f;
     public static SparseArrayCompat<WeakReference<Interpolator>> pathInterpolatorCache;
     public static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    public static JsonReader.Options NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", "to", "ti");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", "to", Config.FEED_LIST_PART);
 
     @Nullable
-    public static WeakReference<Interpolator> getInterpolator(int i2) {
+    public static WeakReference<Interpolator> getInterpolator(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (KeyframeParser.class) {
-            weakReference = pathInterpolatorCache().get(i2);
+            weakReference = pathInterpolatorCache().get(i);
         }
         return weakReference;
     }
@@ -145,9 +146,9 @@ public class KeyframeParser {
         return pathInterpolatorCache;
     }
 
-    public static void putInterpolator(int i2, WeakReference<Interpolator> weakReference) {
+    public static void putInterpolator(int i, WeakReference<Interpolator> weakReference) {
         synchronized (KeyframeParser.class) {
-            pathInterpolatorCache.put(i2, weakReference);
+            pathInterpolatorCache.put(i, weakReference);
         }
     }
 }

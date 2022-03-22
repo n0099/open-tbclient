@@ -7,11 +7,11 @@ import kotlin.Metadata;
 public interface IBdBottomListMenu {
     void dismissMenu();
 
-    void dispatchMenuClick(int i2);
+    void dispatchMenuClick(int i);
 
     boolean isShowing();
 
     void showMenu(View view);
 
-    void updateMenuContent(int i2);
+    void updateMenuContent(int i);
 }

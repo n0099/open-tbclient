@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -12,73 +11,29 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int MIN_NUM_SHOW_ENTERFORUM_ICON = 7;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f34341b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbPageContext<?> f34342c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f34343d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f44307e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f44308f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbPageContext<?> f44309g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Context f44310h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f44311i;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f44312e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SearchPageFocusBar f44313f;
-
-        public a(SearchPageFocusBar searchPageFocusBar, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {searchPageFocusBar, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f44313f = searchPageFocusBar;
-            this.f44312e = tbPageContext;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44312e.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f44312e.getPageActivity()).createNormalCfg(1)));
-            }
-        }
-    }
+    public TextView f34344e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPageFocusBar(Context context) {
@@ -89,9 +44,9 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -104,66 +59,29 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f44310h = context;
-            LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-            this.f44307e = (RelativeLayout) findViewById(R.id.focusbar_container);
-            TextView textView = (TextView) findViewById(R.id.focusbar_hint);
-            this.f44311i = textView;
+            this.f34343d = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a2, this);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0909e9);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ea);
+            this.f34344e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-            this.f44311i.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.focusbar_show);
-            this.f44308f = textView2;
+            this.f34344e.setVisibility(8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ec);
+            this.f34341b = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-            this.f44308f.setVisibility(8);
-        }
-    }
-
-    public final void b(String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            int dimension = i2 % 2 > 0 ? (int) getResources().getDimension(R.dimen.ds330) : 0;
-            TextView textView = (TextView) LayoutInflater.from(this.f44310h).inflate(R.layout.home_search_focusbar_item, (ViewGroup) null);
-            int dimension2 = (i2 / 2) * ((int) getResources().getDimension(R.dimen.ds110));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) getResources().getDimension(R.dimen.ds321), (int) getResources().getDimension(R.dimen.ds96));
-            layoutParams.leftMargin = dimension;
-            layoutParams.topMargin = dimension2;
-            textView.setLayoutParams(layoutParams);
-            textView.setText(str);
-            textView.setOnClickListener(this);
-            SkinManager.setBackgroundResource(textView, R.drawable.home_like_item_bg);
-            SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-            this.f44307e.addView(textView);
-        }
-    }
-
-    public void fillData(List<String> list, TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, tbPageContext) == null) {
-            this.f44309g = tbPageContext;
-            this.f44307e.removeAllViews();
-            if (list != null && list.size() > 0) {
-                this.f44311i.setVisibility(0);
-                for (int i2 = 0; i2 < list.size() && i2 <= 5; i2++) {
-                    b(list.get(i2), i2);
-                }
-            }
-            if (list == null || list.size() < 7) {
-                return;
-            }
-            this.f44308f.setVisibility(0);
-            this.f44308f.setOnClickListener(new a(this, tbPageContext));
+            this.f34341b.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && (view instanceof TextView)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view instanceof TextView)) {
             String charSequence = ((TextView) view).getText().toString();
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f44309g.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f44309g.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.f34342c.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f34342c.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 
@@ -176,9 +94,9 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -190,17 +108,17 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchPageFocusBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SearchPageFocusBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

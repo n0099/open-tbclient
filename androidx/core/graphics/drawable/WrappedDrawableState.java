@@ -29,9 +29,9 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
             newInitContext.initArgs = r2;
             Object[] objArr = {wrappedDrawableState};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,9 +58,9 @@ public final class WrappedDrawableState extends Drawable.ConstantState {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.mChangingConfigurations;
+            int i = this.mChangingConfigurations;
             Drawable.ConstantState constantState = this.mDrawableState;
-            return i2 | (constantState != null ? constantState.getChangingConfigurations() : 0);
+            return i | (constantState != null ? constantState.getChangingConfigurations() : 0);
         }
         return invokeV.intValue;
     }

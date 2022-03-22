@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class r implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c a;
 

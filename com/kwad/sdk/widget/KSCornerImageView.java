@@ -11,7 +11,7 @@ import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
 import com.kwad.sdk.widget.i;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KSCornerImageView extends ImageView {
     public i a;
 
@@ -25,20 +25,20 @@ public class KSCornerImageView extends ImageView {
         a(context, attributeSet, 0);
     }
 
-    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        a(context, attributeSet, i2);
+    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context, attributeSet, i);
     }
 
     @RequiresApi(api = 21)
-    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        a(context, attributeSet, i2);
+    public KSCornerImageView(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        a(context, attributeSet, i);
     }
 
-    private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
+    private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         i.a aVar = new i.a();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.ksad_bottomLeftCorner, R.attr.ksad_leftTopCorner, R.attr.ksad_rightBottomCorner, R.attr.ksad_topRightCorner});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040348});
         aVar.a(obtainStyledAttributes.getBoolean(1, true));
         aVar.b(obtainStyledAttributes.getBoolean(3, true));
         aVar.c(obtainStyledAttributes.getBoolean(2, true));
@@ -64,9 +64,9 @@ public class KSCornerImageView extends ImageView {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.a.a(i2, i3);
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        this.a.a(i, i2);
     }
 
     public void setRadius(float f2) {

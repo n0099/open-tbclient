@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FactoryPools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_POOL_SIZE = 20;
@@ -22,12 +22,12 @@ public final class FactoryPools {
     public static final String TAG = "FactoryPools";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory<T> {
         T create();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public final class FactoryPools {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pool, factory, resetter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,7 +64,7 @@ public final class FactoryPools {
                 if (acquire == null) {
                     acquire = this.factory.create();
                     if (Log.isLoggable(FactoryPools.TAG, 2)) {
-                        String str = "Created new " + acquire.getClass();
+                        Log.v(FactoryPools.TAG, "Created new " + acquire.getClass());
                     }
                 }
                 if (acquire instanceof Poolable) {
@@ -90,13 +90,13 @@ public final class FactoryPools {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Poolable {
         @NonNull
         StateVerifier getVerifier();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Resetter<T> {
         void reset(@NonNull T t);
     }
@@ -123,9 +123,9 @@ public final class FactoryPools {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -146,9 +146,9 @@ public final class FactoryPools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -170,17 +170,17 @@ public final class FactoryPools {
     }
 
     @NonNull
-    public static <T extends Poolable> Pools.Pool<T> simple(int i2, @NonNull Factory<T> factory) {
+    public static <T extends Poolable> Pools.Pool<T> simple(int i, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, factory)) == null) ? build(new Pools.SimplePool(i2), factory) : (Pools.Pool) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, factory)) == null) ? build(new Pools.SimplePool(i), factory) : (Pools.Pool) invokeIL.objValue;
     }
 
     @NonNull
-    public static <T extends Poolable> Pools.Pool<T> threadSafe(int i2, @NonNull Factory<T> factory) {
+    public static <T extends Poolable> Pools.Pool<T> threadSafe(int i, @NonNull Factory<T> factory) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, factory)) == null) ? build(new Pools.SynchronizedPool(i2), factory) : (Pools.Pool) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, factory)) == null) ? build(new Pools.SynchronizedPool(i), factory) : (Pools.Pool) invokeIL.objValue;
     }
 
     @NonNull
@@ -198,10 +198,10 @@ public final class FactoryPools {
     }
 
     @NonNull
-    public static <T> Pools.Pool<List<T>> threadSafeList(int i2) {
+    public static <T> Pools.Pool<List<T>> threadSafeList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? build(new Pools.SynchronizedPool(i2), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? build(new Pools.SynchronizedPool(i), new Factory<List<T>>() { // from class: com.bumptech.glide.util.pool.FactoryPools.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,9 +210,9 @@ public final class FactoryPools {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -236,9 +236,9 @@ public final class FactoryPools {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }

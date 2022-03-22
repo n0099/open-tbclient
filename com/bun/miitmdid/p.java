@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.opendeviceidlibrary.OpenDeviceId;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class p extends l implements OpenDeviceId.CallBack<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Context f51558j;
+    public Context j;
     public OpenDeviceId k;
 
     public p(Context context) {
@@ -25,15 +23,15 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51558j = context;
+        this.j = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,21 +45,21 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
             if (str.equals("Deviceid Service Connected")) {
-                this.f51541f = true;
+                this.f37986f = true;
                 try {
-                    this.f51538c = openDeviceId.getOAID();
-                    this.f51540e = openDeviceId.getAAID();
-                    this.f51539d = openDeviceId.getVAID();
+                    this.f37983c = openDeviceId.getOAID();
+                    this.f37985e = openDeviceId.getAAID();
+                    this.f37984d = openDeviceId.getVAID();
                 } catch (Exception e2) {
                     e0.b("LenovoProvider", "serviceConnected: Exception: " + e2.getMessage());
                 }
-                this.f51542g = false;
-                a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
+                this.f37987g = false;
+                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
             }
             e0.d("LenovoProvider", "serviceConnected error: " + str);
             a();
-            this.f51542g = false;
-            a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
+            this.f37987g = false;
+            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
         }
     }
 
@@ -71,25 +69,25 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (isSync()) {
                 e0.c("LenovoProvider", "doStart: sync, unsupported");
-                this.f51538c = "";
-                this.f51539d = "";
-                this.f51540e = "";
-                this.f51541f = false;
-                this.f51542g = false;
+                this.f37983c = "";
+                this.f37984d = "";
+                this.f37985e = "";
+                this.f37986f = false;
+                this.f37987g = false;
                 a("", "", "", false, false);
                 return;
             }
             e0.c("LenovoProvider", "doStart: async");
             this.k = new OpenDeviceId();
-            this.f51558j = a(this.f51558j);
+            this.j = a(this.j);
             try {
                 c();
-                this.k.init(this.f51558j, this);
+                this.k.init(this.j, this);
                 b();
             } catch (Exception e2) {
                 e0.b("LenovoProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f51538c, this.f51539d, this.f51540e, this.f51541f, this.f51542g);
+                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
             }
         }
     }

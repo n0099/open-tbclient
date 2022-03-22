@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class YogaNodeJNIFinalizer extends YogaNodeJNIBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,9 +15,9 @@ public class YogaNodeJNIFinalizer extends YogaNodeJNIBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,9 +33,9 @@ public class YogaNodeJNIFinalizer extends YogaNodeJNIBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {yogaConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((YogaConfig) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -58,10 +58,10 @@ public class YogaNodeJNIFinalizer extends YogaNodeJNIBase {
     public void freeNatives() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.mNativePointer;
-            if (j2 != 0) {
+            long j = this.mNativePointer;
+            if (j != 0) {
                 this.mNativePointer = 0L;
-                YogaNative.jni_YGNodeFree(j2);
+                YogaNative.jni_YGNodeFree(j);
             }
         }
     }

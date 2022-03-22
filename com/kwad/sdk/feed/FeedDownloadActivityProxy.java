@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
@@ -23,12 +24,12 @@ import com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertic
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.OnClickListener {
     public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template_json";
     public static final String TAG = "FeedDownloadActivity";
-    public static a.InterfaceC2122a sInnerAdInteractionListener;
+    public static a.InterfaceC1983a sInnerAdInteractionListener;
     public KsAdContainer mAdContainer;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -40,9 +41,9 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
     private void bindDownloadListener() {
         this.mApkDownloadHelper = new com.kwad.sdk.core.download.a.b(this.mAdTemplate, null, new c() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.1
             @Override // com.kwad.sdk.core.download.a.c
-            public void a(int i2) {
+            public void a(int i) {
                 FeedDownloadActivityProxy.this.mAppTailFrameView.a(FeedDownloadActivityProxy.this.mAdInfo);
-                FeedDownloadActivityProxy.this.mProgressBarTv.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
+                FeedDownloadActivityProxy.this.mProgressBarTv.a(com.kwad.sdk.core.response.a.a.b(i), i);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -70,9 +71,9 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onProgressUpdate(int i2) {
+            public void onProgressUpdate(int i) {
                 FeedDownloadActivityProxy.this.mAppTailFrameView.a(FeedDownloadActivityProxy.this.mAdInfo);
-                FeedDownloadActivityProxy.this.mProgressBarTv.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
+                FeedDownloadActivityProxy.this.mProgressBarTv.a(com.kwad.sdk.core.response.a.a.a(i), i);
             }
         });
     }
@@ -96,10 +97,10 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
     }
 
     private void intiView() {
-        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.ksad_container);
+        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091059);
         this.mAdContainer = ksAdContainer;
         ksAdContainer.setOnClickListener(this);
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.ksad_download_container);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f09106b);
         this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.a(this.mAdTemplate);
         this.mAppTailFrameView.a(d.j(this.mAdTemplate));
@@ -110,21 +111,21 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC2122a interfaceC2122a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1983a interfaceC1983a) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
-        intent.setFlags(268435456);
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
-        sInnerAdInteractionListener = interfaceC2122a;
+        sInnerAdInteractionListener = interfaceC1983a;
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAdClick() {
         com.kwad.sdk.core.report.a.a(this.mAdTemplate, this.mAdContainer.getTouchCoords());
-        a.InterfaceC2122a interfaceC2122a = sInnerAdInteractionListener;
-        if (interfaceC2122a != null) {
-            interfaceC2122a.a();
+        a.InterfaceC1983a interfaceC1983a = sInnerAdInteractionListener;
+        if (interfaceC1983a != null) {
+            interfaceC1983a.a();
         }
     }
 
@@ -143,7 +144,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2095a(view.getContext()).a(this.mAdTemplate).a(this.mApkDownloadHelper).a(view == this.mProgressBarTv ? 1 : 2).a(view == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+        com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.mAdTemplate).a(this.mApkDownloadHelper).a(view == this.mProgressBarTv ? 1 : 2).a(view == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
@@ -159,7 +160,7 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
             this.mContext.finish();
             return;
         }
-        setContentView(R.layout.ksad_activity_feed_download);
+        setContentView(R.layout.obfuscated_res_0x7f0d0419);
         intiView();
     }
 }

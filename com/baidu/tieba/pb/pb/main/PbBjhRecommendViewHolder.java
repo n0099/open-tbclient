@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.lifecycle.ViewModelProviders;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.q;
+import c.a.o0.r.r.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -31,59 +31,56 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.VideoInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String ST_TYPE = "pb";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsPbActivity a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public q f45018b;
+    public AbsPbActivity f34860b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f45019c;
-    public TextView contentView;
+    public q f34861c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45020d;
+    public String f34862d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f45021e;
+    public boolean f34863e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45022f;
+    public String f34864f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45023g;
+    public int f34865g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f45024h;
-    public View mClickContainer;
-    public View mCrossLine;
-    public View mHeadView;
-    public TbImageView mImageView;
-    public View mMainContent;
-    public View mMainView;
-    public TextView mMoreVideoTv;
-    public int mSkinType;
-    public View mTailContainer;
-    public View mTailDividerLine;
-    public View mTailPadding;
-    public TextView mUserInfoTv;
-    public TextView mVideoInfoTv;
-    public View mVideoMaskIv;
-    public TextView videoDuringTv;
-    public View videoLogoContainer;
-    public ImageView videoPlayIcon;
+    public boolean f34866h;
+    public View i;
+    public View j;
+    public View k;
+    public View l;
+    public TbImageView m;
+    public View n;
+    public TextView o;
+    public View p;
+    public ImageView q;
+    public TextView r;
+    public View s;
+    public View t;
+    public View u;
+    public TextView v;
+    public TextView w;
+    public TextView x;
+    public View y;
+    public View.OnClickListener z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbBjhRecommendViewHolder f45025e;
+        public final /* synthetic */ PbBjhRecommendViewHolder a;
 
         public a(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
             Interceptable interceptable = $ic;
@@ -92,15 +89,15 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbBjhRecommendViewHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45025e = pbBjhRecommendViewHolder;
+            this.a = pbBjhRecommendViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
@@ -110,94 +107,94 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
-                if (this.f45025e.f45018b == null) {
+                if (this.a.f34861c == null) {
                     return;
                 }
-                int i2 = 3;
-                if (id == R.id.tail_more_video) {
-                    VideoInfo u1 = this.f45025e.f45018b.u1();
-                    if (u1 != null) {
-                        if (u1.is_vertical.intValue() == 1) {
+                int i = 3;
+                if (id == R.id.obfuscated_res_0x7f091ee5) {
+                    VideoInfo threadVideoInfo = this.a.f34861c.getThreadVideoInfo();
+                    if (threadVideoInfo != null) {
+                        if (threadVideoInfo.is_vertical.intValue() == 1) {
                             VideoItemData videoItemData = new VideoItemData();
-                            videoItemData.buildWithThreadData(this.f45025e.f45018b);
+                            videoItemData.buildWithThreadData(this.a.f34861c);
                             ArrayList arrayList = new ArrayList();
                             arrayList.add(videoItemData);
-                            if (this.f45025e.f45022f == 2) {
+                            if (this.a.f34865g == 2) {
                                 str2 = "index";
-                            } else if (this.f45025e.f45022f == 1) {
+                            } else if (this.a.f34865g == 1) {
                                 str2 = "concern_tab";
                             } else {
-                                str2 = this.f45025e.f45022f == 3 ? "frs" : "";
+                                str2 = this.a.f34865g == 3 ? "frs" : "";
                             }
-                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f45025e.a, arrayList, 0, null, "from_nani_video", "", "", str2);
+                            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.f34860b, arrayList, 0, null, "from_nani_video", "", "", str2);
                             videoPlayActivityConfig.setIsFromBjhPb(true);
-                            if (this.f45025e.f45018b.getThreadData() != null && this.f45025e.f45018b.L() != null) {
-                                videoPlayActivityConfig.setNid(this.f45025e.f45018b.L().oriUgcNid);
+                            if (this.a.f34861c.getThreadData() != null && this.a.f34861c.getBaijiahaoData() != null) {
+                                videoPlayActivityConfig.setNid(this.a.f34861c.getBaijiahaoData().oriUgcNid);
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                        } else if (u1.is_vertical.intValue() == 0) {
+                        } else if (threadVideoInfo.is_vertical.intValue() == 0) {
                             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-                            videoSerializeVideoThreadInfo.copyFromThreadInfo(this.f45025e.f45018b);
-                            if (this.f45025e.f45022f == 2) {
+                            videoSerializeVideoThreadInfo.copyFromThreadInfo(this.a.f34861c);
+                            if (this.a.f34865g == 2) {
                                 str = "index";
-                            } else if (this.f45025e.f45022f == 1) {
+                            } else if (this.a.f34865g == 1) {
                                 str = "concern_tab";
                             } else {
-                                str = this.f45025e.f45022f == 3 ? "frs" : "";
+                                str = this.a.f34865g == 3 ? "frs" : "";
                             }
-                            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.f45025e.a, str, this.f45025e.f45018b.w1(), "", "", videoSerializeVideoThreadInfo);
-                            videoMiddlePageActivityConfig.setNid(this.f45025e.f45021e);
+                            VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this.a.f34860b, str, this.a.f34861c.getTid(), "", "", videoSerializeVideoThreadInfo);
+                            videoMiddlePageActivityConfig.setNid(this.a.f34864f);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
                         }
                     }
-                } else if (id == R.id.main_view || id == R.id.bjh_imageView || id == R.id.bjh_gradient_cover) {
-                    String w1 = this.f45025e.f45018b.w1();
-                    if (this.f45025e.f45022f == 2) {
-                        i2 = 1;
-                    } else if (this.f45025e.f45022f == 1) {
-                        i2 = 2;
-                    } else if (this.f45025e.f45022f != 3) {
-                        i2 = 4;
+                } else if (id == R.id.obfuscated_res_0x7f091380 || id == R.id.obfuscated_res_0x7f090376 || id == R.id.obfuscated_res_0x7f090375) {
+                    String tid = this.a.f34861c.getTid();
+                    if (this.a.f34865g == 2) {
+                        i = 1;
+                    } else if (this.a.f34865g == 1) {
+                        i = 2;
+                    } else if (this.a.f34865g != 3) {
+                        i = 4;
                     }
-                    if (i2 != 0) {
-                        if (this.f45025e.f45018b.d0 == 40) {
-                            StatisticItem.make("c13535").param("tid", w1).param("fid", this.f45025e.f45018b.U()).param("obj_source", i2).param("obj_locate", this.f45025e.f45018b.U4()).param("obj_id", this.f45025e.f45019c).param("obj_type", this.f45025e.f45018b.V1() ? 1 : 0).eventStat();
+                    if (i != 0) {
+                        if (this.a.f34861c.threadType == 40) {
+                            StatisticItem.make("c13535").param("tid", tid).param("fid", this.a.f34861c.getFid()).param("obj_source", i).param("obj_locate", this.a.f34861c.e()).param("obj_id", this.a.f34862d).param("obj_type", this.a.f34861c.isBjhDynamicThread() ? 1 : 0).eventStat();
                         } else {
-                            StatisticItem.make("c13534").param("tid", w1).param("fid", this.f45025e.f45018b.U()).param("obj_source", i2).param("obj_locate", this.f45025e.f45018b.U4()).param("obj_id", this.f45025e.f45019c).eventStat();
+                            StatisticItem.make("c13534").param("tid", tid).param("fid", this.a.f34861c.getFid()).param("obj_source", i).param("obj_locate", this.a.f34861c.e()).param("obj_id", this.a.f34862d).eventStat();
                         }
                     }
-                    if (this.f45025e.f45020d) {
+                    if (this.a.f34863e) {
                         StatisticItem statisticItem = new StatisticItem("c13589");
-                        statisticItem.param("tid", this.f45025e.f45018b.w1());
-                        if (this.f45025e.f45018b.Z() != null) {
-                            statisticItem.param("fid", this.f45025e.f45018b.Z().getForumId());
+                        statisticItem.param("tid", this.a.f34861c.getTid());
+                        if (this.a.f34861c.getForumData() != null) {
+                            statisticItem.param("fid", this.a.f34861c.getForumData().c());
                         }
-                        statisticItem.param("obj_param1", this.f45025e.f45018b.a1);
-                        statisticItem.param("obj_source", this.f45025e.f45018b.Z0);
-                        statisticItem.param("obj_id", this.f45025e.f45019c);
-                        statisticItem.param("obj_locate", this.f45025e.f45018b.U4());
+                        statisticItem.param("obj_param1", this.a.f34861c.mRecomWeight);
+                        statisticItem.param("obj_source", this.a.f34861c.mRecomSource);
+                        statisticItem.param("obj_id", this.a.f34862d);
+                        statisticItem.param("obj_locate", this.a.f34861c.e());
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        if (this.f45025e.f45018b.getThreadData().L() != null) {
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, this.f45025e.f45018b.getThreadData().L().oriUgcNid);
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.f45025e.f45018b.getThreadData().L().oriUgcVid);
+                        if (this.a.f34861c.getThreadData().getBaijiahaoData() != null) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, this.a.f34861c.getThreadData().getBaijiahaoData().oriUgcNid);
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.a.f34861c.getThreadData().getBaijiahaoData().oriUgcVid);
                         }
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.f45025e.f45018b.E1());
-                        statisticItem.param("ab_tag", this.f45025e.f45018b.b1);
-                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.f45025e.f45018b.u1().is_vertical.intValue());
-                        statisticItem.param("extra", this.f45025e.f45018b.c1);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, this.a.f34861c.getVideoRecStaticticType());
+                        statisticItem.param("ab_tag", this.a.f34861c.mRecomAbTag);
+                        statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.a.f34861c.getThreadVideoInfo().is_vertical.intValue());
+                        statisticItem.param("extra", this.a.f34861c.mRecomExtra);
                         TiebaStatic.log(statisticItem);
                     }
-                    if (this.f45025e.f45023g) {
-                        ((VideoPbViewModel) ViewModelProviders.of(this.f45025e.a).get(VideoPbViewModel.class)).loadTargetVideo(this.f45025e.f45018b);
+                    if (this.a.f34866h) {
+                        ((VideoPbViewModel) ViewModelProviders.of(this.a.f34860b).get(VideoPbViewModel.class)).q(this.a.f34861c);
                         return;
                     }
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f45025e.a);
-                    pbActivityConfig.createNormalCfg(w1, null, "pb");
-                    pbActivityConfig.setBjhFrom(this.f45025e.f45022f);
-                    pbActivityConfig.setLastTid(this.f45025e.f45019c);
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.f34860b);
+                    pbActivityConfig.createNormalCfg(tid, null, "pb");
+                    pbActivityConfig.setBjhFrom(this.a.f34865g);
+                    pbActivityConfig.setLastTid(this.a.f34862d);
                     pbActivityConfig.setStartFrom(20);
-                    pbActivityConfig.setThreadData(this.f45025e.f45018b);
+                    pbActivityConfig.setThreadData(this.a.f34861c);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
             }
@@ -213,112 +210,112 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, absPbActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mSkinType = 3;
-        this.f45024h = new a(this);
-        this.a = absPbActivity;
-        this.mMainView = view.findViewById(R.id.main_view);
-        this.mHeadView = view.findViewById(R.id.first_head_divider_line);
-        this.mMainContent = view.findViewById(R.id.bjh_main_content);
-        this.mClickContainer = view.findViewById(R.id.bjh_click_container);
-        this.mImageView = (TbImageView) view.findViewById(R.id.bjh_imageView);
-        this.mVideoMaskIv = view.findViewById(R.id.bjh_gradient_cover);
-        this.contentView = (TextView) view.findViewById(R.id.bjh_content);
-        this.videoLogoContainer = view.findViewById(R.id.bjh_video_during_container);
-        this.videoPlayIcon = (ImageView) view.findViewById(R.id.bjh_vidoe_play_iv);
-        this.videoDuringTv = (TextView) view.findViewById(R.id.bjh_video_during_tv);
-        this.mTailContainer = view.findViewById(R.id.last_video_tail);
-        this.mMoreVideoTv = (TextView) view.findViewById(R.id.tail_more_video);
-        this.mTailDividerLine = view.findViewById(R.id.last_tail_divider_line);
-        this.mTailPadding = view.findViewById(R.id.last_tail_padding);
-        this.mUserInfoTv = (TextView) view.findViewById(R.id.bjh_user_info);
-        this.mVideoInfoTv = (TextView) view.findViewById(R.id.bjh_video_info);
-        this.mCrossLine = view.findViewById(R.id.bjh_item_cross_line);
+        this.a = 3;
+        this.z = new a(this);
+        this.f34860b = absPbActivity;
+        this.i = view.findViewById(R.id.obfuscated_res_0x7f091380);
+        this.j = view.findViewById(R.id.obfuscated_res_0x7f09099d);
+        this.k = view.findViewById(R.id.obfuscated_res_0x7f090378);
+        this.l = view.findViewById(R.id.obfuscated_res_0x7f090373);
+        this.m = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090376);
+        this.n = view.findViewById(R.id.obfuscated_res_0x7f090375);
+        this.o = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090374);
+        this.p = view.findViewById(R.id.obfuscated_res_0x7f09037a);
+        this.q = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f09037d);
+        this.r = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09037b);
+        this.s = view.findViewById(R.id.obfuscated_res_0x7f0911ab);
+        this.v = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091ee5);
+        this.t = view.findViewById(R.id.obfuscated_res_0x7f0911a9);
+        this.u = view.findViewById(R.id.obfuscated_res_0x7f0911aa);
+        this.w = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090379);
+        this.x = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09037c);
+        this.y = view.findViewById(R.id.obfuscated_res_0x7f090377);
     }
 
-    public void bindData(q qVar) {
+    public void j(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f45018b = qVar;
-            this.mHeadView.setVisibility(qVar.V4() ? 0 : 8);
-            this.mTailPadding.setVisibility(qVar.X4() ? 0 : 8);
-            this.mMainContent.setVisibility(qVar.W4() ? 8 : 0);
-            this.mTailContainer.setVisibility(qVar.W4() ? 0 : 8);
-            this.mMoreVideoTv.setOnClickListener(this.f45024h);
-            this.mVideoMaskIv.setOnClickListener(this.f45024h);
-            this.mImageView.setOnClickListener(this.f45024h);
-            this.mImageView.setConrers(15);
-            this.mImageView.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
-            this.mImageView.setDrawCorner(true);
-            this.mImageView.setPlaceHolder(2);
-            if (qVar.u1() != null) {
-                this.contentView.setText(qVar.getTitle());
-                this.mImageView.startLoad(qVar.u1().thumbnail_url, 10, false);
-                this.mVideoMaskIv.setVisibility(0);
-                this.mVideoMaskIv.setAlpha(0.5f);
-                this.videoLogoContainer.setVisibility(0);
-                this.videoDuringTv.setText(StringUtils.translateSecondsToString(qVar.u1().video_duration.intValue()));
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mVideoInfoTv.getLayoutParams();
-                if (qVar.J() != null && !m.isEmpty(qVar.J().getName_show())) {
-                    this.mUserInfoTv.setText(qVar.J().getName_show());
-                    this.mUserInfoTv.setVisibility(0);
+            this.f34861c = qVar;
+            this.j.setVisibility(qVar.g() ? 0 : 8);
+            this.u.setVisibility(qVar.k() ? 0 : 8);
+            this.k.setVisibility(qVar.i() ? 8 : 0);
+            this.s.setVisibility(qVar.i() ? 0 : 8);
+            this.v.setOnClickListener(this.z);
+            this.n.setOnClickListener(this.z);
+            this.m.setOnClickListener(this.z);
+            this.m.setConrers(15);
+            this.m.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.m.setDrawCorner(true);
+            this.m.setPlaceHolder(2);
+            if (qVar.getThreadVideoInfo() != null) {
+                this.o.setText(qVar.getTitle());
+                this.m.J(qVar.getThreadVideoInfo().thumbnail_url, 10, false);
+                this.n.setVisibility(0);
+                this.n.setAlpha(0.5f);
+                this.p.setVisibility(0);
+                this.r.setText(StringUtils.translateSecondsToString(qVar.getThreadVideoInfo().video_duration.intValue()));
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.x.getLayoutParams();
+                if (qVar.getAuthor() != null && !m.isEmpty(qVar.getAuthor().getName_show())) {
+                    this.w.setText(qVar.getAuthor().getName_show());
+                    this.w.setVisibility(0);
                     layoutParams.leftMargin = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
-                    this.mUserInfoTv.setVisibility(8);
+                    this.w.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
-                this.mVideoInfoTv.setLayoutParams(layoutParams);
-                this.mVideoInfoTv.setText(String.format(this.a.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(qVar.u1().play_count.intValue())));
+                this.x.setLayoutParams(layoutParams);
+                this.x.setText(String.format(this.f34860b.getResources().getString(R.string.obfuscated_res_0x7f0f0302), StringHelper.numFormatOverWan(qVar.getThreadVideoInfo().play_count.intValue())));
             } else {
-                this.videoLogoContainer.setVisibility(8);
-                this.mVideoMaskIv.setVisibility(8);
-                this.mImageView.startLoad(qVar.H(), 10, false);
-                this.contentView.setText(qVar.getTitle());
+                this.p.setVisibility(8);
+                this.n.setVisibility(8);
+                this.m.J(qVar.getArticeCover(), 10, false);
+                this.o.setText(qVar.getTitle());
             }
-            this.mMainView.setOnClickListener(this.f45024h);
+            this.i.setOnClickListener(this.z);
         }
     }
 
-    public void setBjhFrom(int i2) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45022f = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f34865g = i;
         }
     }
 
-    public void setNid(String str) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f45021e = str;
+            this.f34864f = str;
         }
     }
 
-    public void setOriginIsVideoThread(boolean z) {
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f45020d = z;
+            this.f34863e = z;
         }
     }
 
-    public void setOriginTid(String str) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f45019c = str;
+            this.f34862d = str;
         }
     }
 
-    public void setRefreshCurrentPage(boolean z) {
+    public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f45023g = z;
+            this.f34866h = z;
         }
     }
 }

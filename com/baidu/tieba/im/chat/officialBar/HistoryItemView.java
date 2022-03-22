@@ -21,21 +21,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HistoryItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbRichTextView f33679b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33680c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ChatImageWithTailView f33681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43398e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f43399f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f43400g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ChatImageWithTailView f43401h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f43402i;
+    public LinearLayout f33682e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HistoryItemView(Context context) {
@@ -46,62 +44,62 @@ public class HistoryItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43398e = context;
-        a();
+        this.a = context;
+        b();
     }
 
-    public final void a() {
+    public void a(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOrientation(1);
-            LayoutInflater.from(this.f43398e).inflate(R.layout.official_history_item, (ViewGroup) this, true);
-            setClickable(false);
-            setFocusable(false);
-            this.f43402i = (LinearLayout) findViewById(R.id.history_container);
-            this.f43400g = (TextView) findViewById(R.id.history_send_time);
-            this.f43399f = (TbRichTextView) findViewById(R.id.history_txt);
-            this.f43401h = (ChatImageWithTailView) findViewById(R.id.history_pic);
-            SkinManager.setBackgroundResource(this.f43402i, R.drawable.selector_history_multi_single_bg);
-            SkinManager.setViewTextColor(this.f43400g, R.color.common_color_10067, 1);
-            this.f43399f.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            this.f43401h.setIsSupportNight(true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            this.f33682e.setBackgroundDrawable(null);
+            this.f33682e.removeAllViews();
+            this.f33682e.addView(view);
         }
     }
 
-    public void addMultiView(View view) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f43402i.setBackgroundDrawable(null);
-            this.f43402i.removeAllViews();
-            this.f43402i.addView(view);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setOrientation(1);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0643, (ViewGroup) this, true);
+            setClickable(false);
+            setFocusable(false);
+            this.f33682e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d58);
+            this.f33680c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d5d);
+            this.f33679b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090d5f);
+            this.f33681d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090d5c);
+            SkinManager.setBackgroundResource(this.f33682e, R.drawable.selector_history_multi_single_bg);
+            SkinManager.setViewTextColor(this.f33680c, R.color.common_color_10067, 1);
+            this.f33679b.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            this.f33681d.setIsSupportNight(true);
         }
     }
 
     public ChatImageWithTailView getImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43401h : (ChatImageWithTailView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33681d : (ChatImageWithTailView) invokeV.objValue;
     }
 
     public TbRichTextView getRichTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43399f : (TbRichTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33679b : (TbRichTextView) invokeV.objValue;
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f43400g.setText(str);
+            this.f33680c.setText(str);
         }
     }
 
@@ -114,9 +112,9 @@ public class HistoryItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -124,7 +122,7 @@ public class HistoryItemView extends LinearLayout {
                 return;
             }
         }
-        this.f43398e = context;
-        a();
+        this.a = context;
+        b();
     }
 }

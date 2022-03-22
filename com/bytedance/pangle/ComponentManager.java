@@ -25,7 +25,7 @@ import com.bytedance.pangle.receiver.c;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ComponentManager {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> stubString2PluginPkgName;
@@ -58,9 +58,9 @@ public class ComponentManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -94,7 +94,7 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter);
-                    a.f51735b.put(pluginBroadcastReceiver, aVar);
+                    a.f38156b.put(pluginBroadcastReceiver, aVar);
                     a.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
                 }
@@ -111,10 +111,10 @@ public class ComponentManager {
         }
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i2, String str) {
+    public static void startActivityForResult(Activity activity, Intent intent, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, null, activity, intent, i2, str) == null) {
-            startActivityForResult(activity, intent, i2, null, str);
+        if (interceptable == null || interceptable.invokeLLIL(65546, null, activity, intent, i, str) == null) {
+            startActivityForResult(activity, intent, i, null, str);
         }
     }
 
@@ -129,18 +129,18 @@ public class ComponentManager {
             c.a value = entry.getValue();
             if (value != null && pluginBroadcastReceiver != null) {
                 try {
-                    if (value.f51737b.size() > 0 && (remove = value.f51737b.remove(pluginBroadcastReceiver))) {
+                    if (value.f38158b.size() > 0 && (remove = value.f38158b.remove(pluginBroadcastReceiver))) {
                         ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "unregisterReceiver->[移除Action]:" + value.a + ",receiver.hashCode()=" + pluginBroadcastReceiver.hashCode() + ",是否成功，success:" + remove);
                     }
                 } catch (Throwable th) {
                     ZeusLogger.e(ZeusLogger.TAG_RECEIVER, "unregisterReceiver-plugin-receiver->action:" + value.a + "[exception]:", th);
                 }
             }
-            BroadcastReceiver broadcastReceiver = a.f51735b.get(pluginBroadcastReceiver);
+            BroadcastReceiver broadcastReceiver = a.f38156b.get(pluginBroadcastReceiver);
             if (broadcastReceiver != null) {
                 try {
-                    a.f51736c.remove(Integer.valueOf(broadcastReceiver.hashCode()));
-                    a.f51735b.remove(pluginBroadcastReceiver);
+                    a.f38157c.remove(Integer.valueOf(broadcastReceiver.hashCode()));
+                    a.f38156b.remove(pluginBroadcastReceiver);
                     context.unregisterReceiver(broadcastReceiver);
                 } catch (Throwable th2) {
                     ZeusLogger.e(ZeusLogger.TAG_RECEIVER, "unregisterReceiver-移除系统注册的广播发生异常:", th2);
@@ -174,9 +174,9 @@ public class ComponentManager {
         }
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i2, Bundle bundle, String str) {
+    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{activity, intent, Integer.valueOf(i2), bundle, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{activity, intent, Integer.valueOf(i), bundle, str}) == null) {
             if (intent.getComponent() != null) {
                 String className = intent.getComponent().getClassName();
                 Zeus.loadPlugin(str);
@@ -185,11 +185,11 @@ public class ComponentManager {
                     intent.setComponent(new ComponentName(activity, str2));
                     intent.putExtra("targetPlugin", className);
                 }
-                activity.startActivityForResult(intent, i2, bundle);
+                activity.startActivityForResult(intent, i, bundle);
                 return;
             }
             try {
-                activity.startActivityForResult(intent, i2, bundle);
+                activity.startActivityForResult(intent, i, bundle);
             } catch (Throwable th) {
                 throw new RuntimeException("隐式意图 todo", th);
             }
@@ -206,9 +206,9 @@ public class ComponentManager {
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
                     Intent registerReceiver = context.registerReceiver(aVar, intentFilter, str, handler);
-                    a.f51735b.put(pluginBroadcastReceiver, aVar);
+                    a.f38156b.put(pluginBroadcastReceiver, aVar);
                     if (handler != null) {
-                        a.f51736c.add(Integer.valueOf(aVar.hashCode()));
+                        a.f38157c.add(Integer.valueOf(aVar.hashCode()));
                     }
                     a.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
@@ -219,17 +219,17 @@ public class ComponentManager {
         return (Intent) invokeCommon.objValue;
     }
 
-    public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i2, String str) {
+    public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i), str})) == null) {
             Zeus.loadPlugin(str);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null && Build.VERSION.SDK_INT >= 26) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
-                    Intent registerReceiver = context.registerReceiver(aVar, intentFilter, i2);
-                    a.f51735b.put(pluginBroadcastReceiver, aVar);
+                    Intent registerReceiver = context.registerReceiver(aVar, intentFilter, i);
+                    a.f38156b.put(pluginBroadcastReceiver, aVar);
                     a.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;
                 }
@@ -239,19 +239,19 @@ public class ComponentManager {
         return (Intent) invokeCommon.objValue;
     }
 
-    public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i2, String str2) {
+    public static Intent registerReceiver(Context context, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i), str2})) == null) {
             Zeus.loadPlugin(str2);
             if (pluginBroadcastReceiver != null) {
                 com.bytedance.pangle.receiver.c a = com.bytedance.pangle.receiver.c.a();
                 if (pluginBroadcastReceiver != null && intentFilter != null && intentFilter.actionsIterator() != null && Build.VERSION.SDK_INT >= 26) {
                     com.bytedance.pangle.receiver.a aVar = new com.bytedance.pangle.receiver.a();
-                    Intent registerReceiver = context.registerReceiver(aVar, intentFilter, str, handler, i2);
-                    a.f51735b.put(pluginBroadcastReceiver, aVar);
+                    Intent registerReceiver = context.registerReceiver(aVar, intentFilter, str, handler, i);
+                    a.f38156b.put(pluginBroadcastReceiver, aVar);
                     if (handler != null) {
-                        a.f51736c.add(Integer.valueOf(aVar.hashCode()));
+                        a.f38157c.add(Integer.valueOf(aVar.hashCode()));
                     }
                     a.a(intentFilter, pluginBroadcastReceiver);
                     return registerReceiver;

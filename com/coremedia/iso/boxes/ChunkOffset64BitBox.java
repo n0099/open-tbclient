@@ -15,7 +15,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "co64";
@@ -46,9 +46,9 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -69,8 +69,8 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
             parseVersionAndFlags(byteBuffer);
             int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.chunkOffsets = new long[l2i];
-            for (int i2 = 0; i2 < l2i; i2++) {
-                this.chunkOffsets[i2] = IsoTypeReader.readUInt64(byteBuffer);
+            for (int i = 0; i < l2i; i++) {
+                this.chunkOffsets[i] = IsoTypeReader.readUInt64(byteBuffer);
             }
         }
     }
@@ -92,8 +92,8 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.chunkOffsets.length);
-            for (long j2 : this.chunkOffsets) {
-                IsoTypeWriter.writeUInt64(byteBuffer, j2);
+            for (long j : this.chunkOffsets) {
+                IsoTypeWriter.writeUInt64(byteBuffer, j);
             }
         }
     }

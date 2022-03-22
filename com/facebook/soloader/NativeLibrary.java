@@ -1,5 +1,6 @@
 package com.facebook.soloader;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class NativeLibrary {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.facebook.soloader.NativeLibrary";
@@ -45,9 +46,9 @@ public abstract class NativeLibrary {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,7 +100,13 @@ public abstract class NativeLibrary {
                     this.mLibrariesLoaded = true;
                     this.mLibraryNames = null;
                 } catch (UnsatisfiedLinkError e2) {
+                    Log.e(TAG, "Failed to load native lib (initial check): ", e2);
                     this.mLinkError = e2;
+                    this.mLibrariesLoaded = false;
+                } catch (Throwable th) {
+                    Log.e(TAG, "Failed to load native lib (other error): ", th);
+                    this.mLinkError = new UnsatisfiedLinkError("Failed loading libraries");
+                    this.mLinkError.initCause(th);
                     this.mLibrariesLoaded = false;
                 }
                 this.mLoadLibraries = Boolean.FALSE;

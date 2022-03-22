@@ -7,8 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.FormattableUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +17,9 @@ public class CheckUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,21 +40,21 @@ public class CheckUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, objArr)) == null) {
             String valueOf = String.valueOf(str);
             StringBuilder sb = new StringBuilder(valueOf.length() + (objArr.length * 16));
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < objArr.length && (indexOf = valueOf.indexOf(FormattableUtils.SIMPLEST_FORMAT, i3)) != -1) {
-                sb.append(valueOf.substring(i3, indexOf));
-                sb.append(objArr[i2]);
-                i3 = indexOf + 2;
-                i2++;
+            while (i < objArr.length && (indexOf = valueOf.indexOf("%s", i2)) != -1) {
+                sb.append(valueOf.substring(i2, indexOf));
+                sb.append(objArr[i]);
+                i2 = indexOf + 2;
+                i++;
             }
-            sb.append(valueOf.substring(i3));
-            if (i2 < objArr.length) {
+            sb.append(valueOf.substring(i2));
+            if (i < objArr.length) {
                 sb.append(" [");
-                sb.append(objArr[i2]);
-                for (int i4 = i2 + 1; i4 < objArr.length; i4++) {
+                sb.append(objArr[i]);
+                for (int i3 = i + 1; i3 < objArr.length; i3++) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(objArr[i4]);
+                    sb.append(objArr[i3]);
                 }
                 sb.append(']');
             }

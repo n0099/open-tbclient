@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f59287b;
+    public Handler f43920b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f59288c;
+    public final Object f43921c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public abstract class q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {qVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -64,18 +64,18 @@ public abstract class q {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59288c = new Object();
+        this.f43921c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f59287b = new a(this, handlerThread.getLooper());
+        this.f43920b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
@@ -90,12 +90,12 @@ public abstract class q {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f59288c) {
-                if (this.f59287b == null) {
+            synchronized (this.f43921c) {
+                if (this.f43920b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f59287b.sendMessage(message);
+                    this.f43920b.sendMessage(message);
                 }
             }
         }

@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.b.a.a;
+import c.a.g0.b.a.a;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -32,9 +32,9 @@ public class LogSystemServiceUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,21 +53,25 @@ public class LogSystemServiceUtil {
             try {
                 if (logType == LogType.NONE) {
                     if (LLog.sDebug) {
+                        Log.d(TAG, "logType should not be LogType.NONE");
                         throw new RuntimeException("logType should not be LogType.NONE");
                     }
                 } else if (TextUtils.isEmpty(str)) {
                     if (LLog.sDebug) {
+                        Log.d(TAG, "basicData should no be null or length = 0");
                         throw new RuntimeException("basicData should no be null or length = 0");
                     }
                 } else if (str.length() > 25600) {
-                    boolean z = LLog.sDebug;
+                    if (LLog.sDebug) {
+                        Log.d(TAG, "basicData.length() > 25600");
+                    }
                     tranLogHandlerAction(context, logType, str, file, logExtra);
                 } else {
                     startService(context, logType, str, null, file, logExtra);
                 }
             } catch (Exception e2) {
                 if (LLog.sDebug) {
-                    Log.getStackTraceString(e2);
+                    Log.d(TAG, Log.getStackTraceString(e2));
                 }
             }
         }
@@ -114,8 +118,8 @@ public class LogSystemServiceUtil {
             if (Utility.createNewEmptyFile(file2)) {
                 Utility.writeStringToFile(file2, str);
                 if (LLog.sDebug) {
-                    String str2 = "basicData" + str;
-                    String str3 = "logBasicFile = " + file2;
+                    Log.d(TAG, "basicData" + str);
+                    Log.d(TAG, "logBasicFile = " + file2);
                 }
                 startLogHandlerService(context, logType, file2, file, logExtra);
             }
@@ -141,7 +145,7 @@ public class LogSystemServiceUtil {
                 }
             } catch (Exception e2) {
                 if (LLog.sDebug) {
-                    Log.getStackTraceString(e2);
+                    Log.d(TAG, Log.getStackTraceString(e2));
                 }
             }
         }
@@ -164,7 +168,7 @@ public class LogSystemServiceUtil {
                 context.startService(intent);
             } catch (Exception e2) {
                 if (LLog.sDebug) {
-                    Log.getStackTraceString(e2);
+                    Log.d(TAG, Log.getStackTraceString(e2));
                 }
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, String> a;
@@ -39,16 +39,16 @@ public class x {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 File[] listFiles = file.listFiles();
-                for (int i2 = 0; i2 < listFiles.length; i2++) {
-                    j2 += listFiles[i2].isDirectory() ? a(listFiles[i2]) : listFiles[i2].length();
+                for (int i = 0; i < listFiles.length; i++) {
+                    j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

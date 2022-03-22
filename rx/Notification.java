@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Notification<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Notification<Void> f61013d;
+    public static final Notification<Void> f45371d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Kind a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Throwable f61014b;
+    public final Throwable f45372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final T f61015c;
+    public final T f45373c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Kind {
         public static final /* synthetic */ Kind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -55,16 +55,16 @@ public final class Notification<T> {
             $VALUES = new Kind[]{OnNext, OnError, kind};
         }
 
-        public Kind(String str, int i2) {
+        public Kind(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -100,7 +100,7 @@ public final class Notification<T> {
                 return;
             }
         }
-        f61013d = new Notification<>(Kind.OnCompleted, null, null);
+        f45371d = new Notification<>(Kind.OnCompleted, null, null);
     }
 
     public Notification(Kind kind, T t, Throwable th) {
@@ -110,23 +110,23 @@ public final class Notification<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {kind, t, th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f61015c = t;
-        this.f61014b = th;
+        this.f45373c = t;
+        this.f45372b = th;
         this.a = kind;
     }
 
     public static <T> Notification<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) f61013d : (Notification) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (Notification<T>) f45371d : (Notification) invokeV.objValue;
     }
 
     public static <T> Notification<T> b(Throwable th) {
@@ -150,7 +150,7 @@ public final class Notification<T> {
     public Throwable e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61014b : (Throwable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45372b : (Throwable) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -168,11 +168,11 @@ public final class Notification<T> {
             }
             Notification notification = (Notification) obj;
             if (notification.d() == d()) {
-                T t = this.f61015c;
-                T t2 = notification.f61015c;
+                T t = this.f45373c;
+                T t2 = notification.f45373c;
                 if (t == t2 || (t != null && t.equals(t2))) {
-                    Throwable th = this.f61014b;
-                    Throwable th2 = notification.f61014b;
+                    Throwable th = this.f45372b;
+                    Throwable th2 = notification.f45372b;
                     return th == th2 || (th != null && th.equals(th2));
                 }
                 return false;
@@ -185,19 +185,19 @@ public final class Notification<T> {
     public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61015c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45373c : (T) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() && this.f61014b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() && this.f45372b != null : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && this.f61015c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? k() && this.f45373c != null : invokeV.booleanValue;
     }
 
     public int hashCode() {

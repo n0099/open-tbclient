@@ -18,18 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f47779e;
+    /* renamed from: b  reason: collision with root package name */
+    public Path f36951b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Path f47780f;
+    /* renamed from: c  reason: collision with root package name */
+    public RectF f36952c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public RectF f47781g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float[] f47782h;
+    /* renamed from: d  reason: collision with root package name */
+    public float[] f36953d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundRelativeLayout(Context context) {
@@ -40,17 +38,17 @@ public class RoundRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47779e = 100.0f;
-        this.f47782h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.a = 100.0f;
+        this.f36953d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
@@ -58,8 +56,8 @@ public class RoundRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
-            this.f47780f = new Path();
-            this.f47781g = new RectF();
+            this.f36951b = new Path();
+            this.f36952c = new RectF();
         }
     }
 
@@ -72,7 +70,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47780f.addRoundRect(this.f47781g, this.f47782h, Path.Direction.CW);
+            this.f36951b.addRoundRect(this.f36952c, this.f36953d, Path.Direction.CW);
         }
     }
 
@@ -82,18 +80,18 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || b()) {
             return;
         }
-        canvas.clipPath(this.f47780f);
+        canvas.clipPath(this.f36951b);
         super.draw(canvas);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || b()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || b()) {
             return;
         }
-        super.onLayout(z, i2, i3, i4, i5);
-        this.f47781g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        super.onLayout(z, i, i2, i3, i4);
+        this.f36952c.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         c();
     }
 
@@ -102,13 +100,13 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable != null && interceptable.invokeF(1048581, this, f2) != null) {
             return;
         }
-        this.f47782h = new float[8];
-        int i2 = 0;
+        this.f36953d = new float[8];
+        int i = 0;
         while (true) {
-            float[] fArr = this.f47782h;
-            if (i2 < fArr.length) {
-                fArr[i2] = f2;
-                i2++;
+            float[] fArr = this.f36953d;
+            if (i < fArr.length) {
+                fArr[i] = f2;
+                i++;
             } else {
                 c();
                 invalidate();
@@ -122,9 +120,9 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) || fArr == null || fArr.length <= 0) {
             return;
         }
-        this.f47782h = new float[fArr.length];
-        for (int i2 = 0; i2 < fArr.length; i2++) {
-            this.f47782h[i2] = fArr[i2];
+        this.f36953d = new float[fArr.length];
+        for (int i = 0; i < fArr.length; i++) {
+            this.f36953d[i] = fArr[i];
         }
         c();
         invalidate();
@@ -139,9 +137,9 @@ public class RoundRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -149,23 +147,23 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f47779e = 100.0f;
-        this.f47782h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.a = 100.0f;
+        this.f36953d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -173,8 +171,8 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f47779e = 100.0f;
-        this.f47782h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        this.a = 100.0f;
+        this.f36953d = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
         a();
     }
 }

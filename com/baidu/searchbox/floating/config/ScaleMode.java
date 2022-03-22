@@ -51,9 +51,9 @@ public abstract class ScaleMode {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -78,10 +78,10 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair<Integer, Integer> scale(int i2, int i3) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new Pair<>(Integer.valueOf(i2), Integer.valueOf(i3)) : (Pair) invokeII.objValue;
+                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? new Pair<>(Integer.valueOf(i), Integer.valueOf(i2)) : (Pair) invokeII.objValue;
             }
         };
         S = scaleMode;
@@ -99,9 +99,9 @@ public abstract class ScaleMode {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -126,10 +126,10 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair<Integer, Integer> scale(int i2, int i3) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new Pair<>(Integer.valueOf((int) (i2 * 1.25d)), Integer.valueOf((int) (i3 * 1.25d))) : (Pair) invokeII.objValue;
+                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? new Pair<>(Integer.valueOf((int) (i * 1.25d)), Integer.valueOf((int) (i2 * 1.25d))) : (Pair) invokeII.objValue;
             }
         };
         M = scaleMode2;
@@ -147,9 +147,9 @@ public abstract class ScaleMode {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (DefaultConstructorMarker) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -174,26 +174,26 @@ public abstract class ScaleMode {
             }
 
             @Override // com.baidu.searchbox.floating.config.ScaleMode
-            public Pair<Integer, Integer> scale(int i2, int i3) {
+            public Pair<Integer, Integer> scale(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new Pair<>(Integer.valueOf((int) (i2 * 1.5d)), Integer.valueOf((int) (i3 * 1.5d))) : (Pair) invokeII.objValue;
+                return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? new Pair<>(Integer.valueOf((int) (i * 1.5d)), Integer.valueOf((int) (i2 * 1.5d))) : (Pair) invokeII.objValue;
             }
         };
         L = scaleMode3;
         $VALUES = new ScaleMode[]{scaleMode, scaleMode2, scaleMode3};
     }
 
-    public ScaleMode(String str, int i2) {
+    public ScaleMode(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -219,9 +219,9 @@ public abstract class ScaleMode {
 
     public abstract ScaleMode pre();
 
-    public abstract Pair<Integer, Integer> scale(int i2, int i3);
+    public abstract Pair<Integer, Integer> scale(int i, int i2);
 
-    public /* synthetic */ ScaleMode(String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, i2);
+    public /* synthetic */ ScaleMode(String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i);
     }
 }

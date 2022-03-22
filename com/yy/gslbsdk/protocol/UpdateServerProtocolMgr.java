@@ -1,7 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.restnet.http.b;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UpdateServerProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpdateServerProtocolMgr";
@@ -28,9 +27,9 @@ public class UpdateServerProtocolMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,18 +71,18 @@ public class UpdateServerProtocolMgr {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int translateErrCode = translateErrCode(jSONObject.getInt("s"));
-                int i2 = jSONObject.getInt("ver");
-                JSONArray jSONArray = jSONObject.getJSONArray(b.c.f31217b);
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                    int i4 = jSONObject2.getInt("v");
-                    if (!linkedHashMap.containsKey(Integer.valueOf(i4))) {
+                int i = jSONObject.getInt("ver");
+                JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    int i3 = jSONObject2.getInt("v");
+                    if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
                         UpdateServerInfo updateServerInfo = new UpdateServerInfo();
-                        updateServerInfo.setVer(i2);
-                        updateServerInfo.setIsp(i4);
-                        linkedHashMap.put(Integer.valueOf(i4), updateServerInfo);
+                        updateServerInfo.setVer(i);
+                        updateServerInfo.setIsp(i3);
+                        linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
                     }
-                    linkedHashMap.get(Integer.valueOf(i4)).getIps().add(jSONObject2.getString("ip"));
+                    linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                 }
                 return translateErrCode;
             } catch (Exception e2) {
@@ -104,18 +103,18 @@ public class UpdateServerProtocolMgr {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 int translateErrCode = translateErrCode(jSONObject.getInt("s"));
-                int i2 = jSONObject.getInt("ver");
+                int i = jSONObject.getInt("ver");
                 JSONArray jSONArray = jSONObject.getJSONArray("dns_v6");
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                    int i4 = jSONObject2.getInt("v");
-                    if (!linkedHashMap.containsKey(Integer.valueOf(i4))) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    int i3 = jSONObject2.getInt("v");
+                    if (!linkedHashMap.containsKey(Integer.valueOf(i3))) {
                         UpdateServerInfo updateServerInfo = new UpdateServerInfo();
-                        updateServerInfo.setVer(i2);
-                        updateServerInfo.setIsp(i4);
-                        linkedHashMap.put(Integer.valueOf(i4), updateServerInfo);
+                        updateServerInfo.setVer(i);
+                        updateServerInfo.setIsp(i3);
+                        linkedHashMap.put(Integer.valueOf(i3), updateServerInfo);
                     }
-                    linkedHashMap.get(Integer.valueOf(i4)).getIps().add(jSONObject2.getString("ip"));
+                    linkedHashMap.get(Integer.valueOf(i3)).getIps().add(jSONObject2.getString("ip"));
                 }
                 return translateErrCode;
             } catch (Exception e2) {
@@ -126,15 +125,15 @@ public class UpdateServerProtocolMgr {
         return invokeLL.intValue;
     }
 
-    public static int translateErrCode(int i2) {
+    public static int translateErrCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            return i2 != 4 ? 8 : 7;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return i != 4 ? 8 : 7;
                         }
                         return 5;
                     }

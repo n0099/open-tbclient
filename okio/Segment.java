@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Segment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHARE_MINIMUM = 1024;
@@ -26,9 +26,9 @@ public final class Segment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,17 +39,17 @@ public final class Segment {
         this.shared = false;
     }
 
-    public final void compact() {
+    public void compact() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Segment segment = this.prev;
             if (segment != this) {
                 if (segment.owner) {
-                    int i2 = this.limit - this.pos;
-                    if (i2 > (8192 - segment.limit) + (segment.shared ? 0 : segment.pos)) {
+                    int i = this.limit - this.pos;
+                    if (i > (8192 - segment.limit) + (segment.shared ? 0 : segment.pos)) {
                         return;
                     }
-                    writeTo(this.prev, i2);
+                    writeTo(this.prev, i);
                     pop();
                     SegmentPool.recycle(this);
                     return;
@@ -61,7 +61,7 @@ public final class Segment {
     }
 
     @Nullable
-    public final Segment pop() {
+    public Segment pop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -79,7 +79,7 @@ public final class Segment {
         return (Segment) invokeV.objValue;
     }
 
-    public final Segment push(Segment segment) {
+    public Segment push(Segment segment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, segment)) == null) {
@@ -92,7 +92,7 @@ public final class Segment {
         return (Segment) invokeL.objValue;
     }
 
-    public final Segment sharedCopy() {
+    public Segment sharedCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -102,20 +102,20 @@ public final class Segment {
         return (Segment) invokeV.objValue;
     }
 
-    public final Segment split(int i2) {
+    public Segment split(int i) {
         InterceptResult invokeI;
         Segment take;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 > 0 && i2 <= this.limit - this.pos) {
-                if (i2 >= 1024) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i > 0 && i <= this.limit - this.pos) {
+                if (i >= 1024) {
                     take = sharedCopy();
                 } else {
                     take = SegmentPool.take();
-                    System.arraycopy(this.data, this.pos, take.data, 0, i2);
+                    System.arraycopy(this.data, this.pos, take.data, 0, i);
                 }
-                take.limit = take.pos + i2;
-                this.pos += i2;
+                take.limit = take.pos + i;
+                this.pos += i;
                 this.prev.push(take);
                 return take;
             }
@@ -124,23 +124,23 @@ public final class Segment {
         return (Segment) invokeI.objValue;
     }
 
-    public final Segment unsharedCopy() {
+    public Segment unsharedCopy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new Segment((byte[]) this.data.clone(), this.pos, this.limit, false, true) : (Segment) invokeV.objValue;
     }
 
-    public final void writeTo(Segment segment, int i2) {
+    public void writeTo(Segment segment, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, segment, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, segment, i) == null) {
             if (segment.owner) {
-                int i3 = segment.limit;
-                if (i3 + i2 > 8192) {
+                int i2 = segment.limit;
+                if (i2 + i > 8192) {
                     if (!segment.shared) {
-                        int i4 = segment.pos;
-                        if ((i3 + i2) - i4 <= 8192) {
+                        int i3 = segment.pos;
+                        if ((i2 + i) - i3 <= 8192) {
                             byte[] bArr = segment.data;
-                            System.arraycopy(bArr, i4, bArr, 0, i3 - i4);
+                            System.arraycopy(bArr, i3, bArr, 0, i2 - i3);
                             segment.limit -= segment.pos;
                             segment.pos = 0;
                         } else {
@@ -150,33 +150,33 @@ public final class Segment {
                         throw new IllegalArgumentException();
                     }
                 }
-                System.arraycopy(this.data, this.pos, segment.data, segment.limit, i2);
-                segment.limit += i2;
-                this.pos += i2;
+                System.arraycopy(this.data, this.pos, segment.data, segment.limit, i);
+                segment.limit += i;
+                this.pos += i;
                 return;
             }
             throw new IllegalArgumentException();
         }
     }
 
-    public Segment(byte[] bArr, int i2, int i3, boolean z, boolean z2) {
+    public Segment(byte[] bArr, int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.data = bArr;
-        this.pos = i2;
-        this.limit = i3;
+        this.pos = i;
+        this.limit = i2;
         this.shared = z;
         this.owner = z2;
     }

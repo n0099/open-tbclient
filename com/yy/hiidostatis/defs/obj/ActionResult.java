@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,24 +22,24 @@ public class ActionResult implements IJsonSerialize {
     public int scode;
     public String uri;
 
-    public ActionResult(int i2, String str, long j2, String str2) {
+    public ActionResult(int i, String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2), str2};
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.scode = i2;
+        this.scode = i;
         this.uri = str;
-        this.reqTime = j2;
+        this.reqTime = j;
         this.ret = str2;
         this.rtime = System.currentTimeMillis();
     }
@@ -51,9 +52,9 @@ public class ActionResult implements IJsonSerialize {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("scode", this.scode);
-                jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
+                jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
                 jSONObject.put("reqtime", this.reqTime);
-                jSONObject.put(Constants.KEYS.RET, URLEncoder.encode(this.ret, "utf-8"));
+                jSONObject.put(Constants.KEYS.RET, URLEncoder.encode(this.ret, IMAudioTransRequest.CHARSET));
                 jSONObject.put("rtime", this.rtime);
                 if (this.moreinfo != null && !this.moreinfo.isEmpty()) {
                     JSONObject jSONObject2 = new JSONObject();
@@ -72,17 +73,17 @@ public class ActionResult implements IJsonSerialize {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionResult(int i2, String str, long j2, String str2, Map<String, String> map) {
-        this(i2, str, j2, str2);
+    public ActionResult(int i, String str, long j, String str2, Map<String, String> map) {
+        this(i, str, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Integer.valueOf(i2), str, Long.valueOf(j2), str2, map};
+            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), str2, map};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Long) objArr2[2]).longValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;

@@ -20,14 +20,14 @@ public class f {
     public static final String a = "f";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34600c = true;
+    public static boolean f26791c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f34601d = 1;
+    public static int f26792d = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f34602b;
+    public com.baidu.mapsdkplatform.comapi.synchronization.d.d f26793b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,43 +51,43 @@ public class f {
             newInitContext.initArgs = r2;
             Object[] objArr = {historyTraceQueryOptions};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f34602b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
+        this.f26793b = new com.baidu.mapsdkplatform.comapi.synchronization.d.d();
         a(historyTraceQueryOptions);
     }
 
-    public static void a(int i2) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            f34601d = i2;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            f26792d = i;
         }
     }
 
     private void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, historyTraceQueryOptions) == null) {
-            this.f34602b.a("order_id", b(historyTraceQueryOptions));
-            this.f34602b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
-            this.f34602b.a("company", historyTraceQueryOptions.getUserId());
-            this.f34602b.a("order_attr", historyTraceQueryOptions.getDriverId());
-            this.f34602b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
-            this.f34602b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
+            this.f26793b.a("order_id", b(historyTraceQueryOptions));
+            this.f26793b.a("original_order_id", historyTraceQueryOptions.getOrderId().toLowerCase());
+            this.f26793b.a("company", historyTraceQueryOptions.getUserId());
+            this.f26793b.a("order_attr", historyTraceQueryOptions.getDriverId());
+            this.f26793b.a("track_status", String.valueOf(historyTraceQueryOptions.getQueryOrderState()));
+            this.f26793b.a("status", String.valueOf(historyTraceQueryOptions.getCurrentOrderState()));
             if (CoordType.BD09LL != SDKInitializer.getCoordType() && CoordType.GCJ02 == SDKInitializer.getCoordType()) {
-                this.f34602b.a("coord_type", "gcj02");
+                this.f26793b.a("coord_type", "gcj02");
             } else {
-                this.f34602b.a("coord_type", "bd09ll");
+                this.f26793b.a("coord_type", "bd09ll");
             }
-            this.f34602b.a("page_index", String.valueOf(f34601d));
-            f34601d = 1;
-            this.f34602b.a("page_size", "5000");
-            this.f34602b.a("is_processed", "1");
+            this.f26793b.a("page_index", String.valueOf(f26792d));
+            f26792d = 1;
+            this.f26793b.a("page_size", "5000");
+            this.f26793b.a("is_processed", "1");
             b();
         }
     }
@@ -124,21 +124,21 @@ public class f {
                 }
                 authToken = SyncSysInfo.getAuthToken();
             }
-            this.f34602b.a("token", authToken);
+            this.f26793b.a("token", authToken);
         }
     }
 
     private String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? f34600c ? g.a() : g.b() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? f26791c ? g.a() : g.b() : (String) invokeV.objValue;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(this.f34602b.a());
+            StringBuffer stringBuffer = new StringBuffer(this.f26793b.a());
             stringBuffer.append(SyncSysInfo.getPhoneInfo());
             String signMD5String = AppMD5.getSignMD5String(stringBuffer.toString());
             stringBuffer.append("&sign=");

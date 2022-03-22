@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.o.d.j.i;
+import g.o.d.j.i;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> implements Queue<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6210984603741293445L;
@@ -24,17 +24,17 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     public final AtomicLong producerIndex;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpscExactAtomicArrayQueue(int i2) {
-        super(i.b(i2));
+    public SpscExactAtomicArrayQueue(int i) {
+        super(i.b(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,7 +43,7 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         }
         int length = length();
         this.mask = length - 1;
-        this.capacitySkip = length - i2;
+        this.capacitySkip = length - i;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
     }
@@ -134,13 +134,13 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t)) == null) {
             if (t != null) {
-                long j2 = this.producerIndex.get();
-                int i2 = this.mask;
-                if (get(((int) (this.capacitySkip + j2)) & i2) != null) {
+                long j = this.producerIndex.get();
+                int i = this.mask;
+                if (get(((int) (this.capacitySkip + j)) & i) != null) {
                     return false;
                 }
-                this.producerIndex.lazySet(j2 + 1);
-                lazySet(i2 & ((int) j2), t);
+                this.producerIndex.lazySet(j + 1);
+                lazySet(i & ((int) j), t);
                 return true;
             }
             throw null;
@@ -160,14 +160,14 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            long j2 = this.consumerIndex.get();
-            int i2 = ((int) j2) & this.mask;
-            T t = get(i2);
+            long j = this.consumerIndex.get();
+            int i = ((int) j) & this.mask;
+            T t = get(i);
             if (t == null) {
                 return null;
             }
-            this.consumerIndex.lazySet(j2 + 1);
-            lazySet(i2, null);
+            this.consumerIndex.lazySet(j + 1);
+            lazySet(i, null);
             return t;
         }
         return (T) invokeV.objValue;
@@ -210,14 +210,14 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
         if (interceptable != null && (invokeV = interceptable.invokeV(1048591, this)) != null) {
             return invokeV.intValue;
         }
-        long j2 = this.consumerIndex.get();
+        long j = this.consumerIndex.get();
         while (true) {
-            long j3 = this.producerIndex.get();
-            long j4 = this.consumerIndex.get();
-            if (j2 == j4) {
-                return (int) (j3 - j4);
+            long j2 = this.producerIndex.get();
+            long j3 = this.consumerIndex.get();
+            if (j == j3) {
+                return (int) (j2 - j3);
             }
-            j2 = j4;
+            j = j3;
         }
     }
 

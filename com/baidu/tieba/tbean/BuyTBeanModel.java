@@ -3,7 +3,7 @@ package com.baidu.tieba.tbean;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.r0.y3.k0.g;
+import c.a.p0.a4.k0.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -38,24 +38,22 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public static final String GET_ICON_URL = "c/e/pay/geticonlist";
     public static final int SUPER_MEMBER = 2;
     public transient /* synthetic */ FieldHolder $fh;
+    public BuyTBeanActivity a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f36220b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<c.a.p0.b4.e.b> f36221c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<c.a.p0.b4.e.a> f36222d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BuyTBeanActivity f46849e;
+    public c.a.p0.b4.e.c f36223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f46850f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<c.a.r0.z3.e.b> f46851g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<c.a.r0.z3.e.a> f46852h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.z3.e.c f46853i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public UserInfo f46854j;
+    public UserInfo f36224f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.c {
@@ -64,17 +62,17 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public final /* synthetic */ BuyTBeanModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(BuyTBeanModel buyTBeanModel, int i2) {
-            super(i2);
+        public a(BuyTBeanModel buyTBeanModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanModel, Integer.valueOf(i2)};
+                Object[] objArr = {buyTBeanModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -90,28 +88,28 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.neterror));
+                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
                 if (getYinJiResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
-                        this.a.f46850f.onFailed(getYinJiResponseMessage.getErrorString());
+                        this.a.f36220b.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.neterror));
+                        this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     }
-                    if (this.a.f46849e == null || getYinJiResponseMessage.getError() != 1990055) {
+                    if (this.a.a == null || getYinJiResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.a.f46849e.finish();
+                    this.a.a.finish();
                     return;
                 }
-                this.a.f46854j = getYinJiResponseMessage.getUserInfo();
-                this.a.A(getYinJiResponseMessage);
+                this.a.f36224f = getYinJiResponseMessage.getUserInfo();
+                this.a.C(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.no_data_tip));
+                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2e));
                 } else {
-                    this.a.f46850f.onSuccess();
+                    this.a.f36220b.onSuccess();
                 }
             }
         }
@@ -124,17 +122,17 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public final /* synthetic */ BuyTBeanModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(BuyTBeanModel buyTBeanModel, int i2) {
-            super(i2);
+        public b(BuyTBeanModel buyTBeanModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanModel, Integer.valueOf(i2)};
+                Object[] objArr = {buyTBeanModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -150,8 +148,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof GetBigTbeanWalletH5ResponseMessage)) {
                 GetBigTbeanWalletH5ResponseMessage getBigTbeanWalletH5ResponseMessage = (GetBigTbeanWalletH5ResponseMessage) httpResponsedMessage;
-                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.f46850f != null) {
-                    this.a.f46850f.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
+                if (getBigTbeanWalletH5ResponseMessage.getError() == 0 && this.a.f36220b != null) {
+                    this.a.f36220b.onGetWalletUrl(getBigTbeanWalletH5ResponseMessage.url);
                 }
             }
         }
@@ -164,17 +162,17 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public final /* synthetic */ BuyTBeanModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(BuyTBeanModel buyTBeanModel, int i2) {
-            super(i2);
+        public c(BuyTBeanModel buyTBeanModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanModel, Integer.valueOf(i2)};
+                Object[] objArr = {buyTBeanModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -190,28 +188,28 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.neterror));
+                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
                 if (getYinJiHttpResponseMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
-                        this.a.f46850f.onFailed(getYinJiHttpResponseMessage.getErrorString());
+                        this.a.f36220b.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.neterror));
+                        this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     }
-                    if (this.a.f46849e == null || getYinJiHttpResponseMessage.getError() != 1990055) {
+                    if (this.a.a == null || getYinJiHttpResponseMessage.getError() != 1990055) {
                         return;
                     }
-                    this.a.f46849e.finish();
+                    this.a.a.finish();
                     return;
                 }
-                this.a.f46854j = getYinJiHttpResponseMessage.getUserInfo();
-                this.a.A(getYinJiHttpResponseMessage);
+                this.a.f36224f = getYinJiHttpResponseMessage.getUserInfo();
+                this.a.C(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    this.a.f46850f.onFailed(this.a.f46849e.getPageContext().getString(R.string.no_data_tip));
+                    this.a.f36220b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2e));
                 } else {
-                    this.a.f46850f.onSuccess();
+                    this.a.f36220b.onSuccess();
                 }
             }
         }
@@ -224,17 +222,17 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         public final /* synthetic */ BuyTBeanModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(BuyTBeanModel buyTBeanModel, int i2) {
-            super(i2);
+        public d(BuyTBeanModel buyTBeanModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {buyTBeanModel, Integer.valueOf(i2)};
+                Object[] objArr = {buyTBeanModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -250,8 +248,8 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
-                    if (this.a.f46849e != null) {
-                        this.a.f46849e.showToast(R.string.neterror);
+                    if (this.a.a != null) {
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                         return;
                     }
                     return;
@@ -262,36 +260,36 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 HttpMessage httpMessage = (HttpMessage) responseGetPayinfoMessage.getOrginalMessage();
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
-                        if (this.a.f46849e != null) {
-                            this.a.f46849e.showToast(R.string.buy_tbean_failed_tip);
+                        if (this.a.a != null) {
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0351);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
-                            if (this.a.f46849e != null) {
-                                this.a.f46849e.showToast(R.string.buy_tbean_failed_tip);
+                            if (this.a.a != null) {
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0351);
                                 return;
                             }
                         } else {
-                            c.a.r0.z3.c.a("c10297");
+                            c.a.p0.b4.c.a("c10297");
                             String str = httpMessage.getExtra() instanceof String ? (String) httpMessage.getExtra() : "";
                             g gVar = new g();
                             gVar.d(str);
                             gVar.c(pay_status);
-                            gVar.b(this.a.f46849e.isFromDecreaseGiftStepStrategy());
+                            gVar.b(this.a.a.isFromDecreaseGiftStepStrategy());
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, gVar));
-                            if (this.a.f46849e != null) {
-                                this.a.f46849e.finish();
+                            if (this.a.a != null) {
+                                this.a.a.finish();
                                 return;
                             }
                         }
                     }
                 }
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
-                    this.a.f46849e.showToast(responseGetPayinfoMessage.getErrorString());
+                    this.a.a.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    this.a.f46849e.showToast(R.string.neterror);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 }
             }
         }
@@ -315,112 +313,112 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {buyTBeanActivity, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46851g = new LinkedList();
-        this.f46852h = new LinkedList();
-        this.f46849e = buyTBeanActivity;
-        this.f46850f = eVar;
+        this.f36221c = new LinkedList();
+        this.f36222d = new LinkedList();
+        this.a = buyTBeanActivity;
+        this.f36220b = eVar;
     }
 
-    public final void A(c.a.r0.z3.f.a aVar) {
+    public final void C(c.a.p0.b4.f.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getUserInfo() == null || ListUtils.isEmpty(aVar.getIconInfoList())) {
             return;
         }
-        List<c.a.r0.z3.e.b> list = this.f46851g;
+        List<c.a.p0.b4.e.b> list = this.f36221c;
         if (list != null) {
             list.clear();
         }
-        List<c.a.r0.z3.e.a> list2 = this.f46852h;
+        List<c.a.p0.b4.e.a> list2 = this.f36222d;
         if (list2 != null) {
             list2.clear();
         }
-        ArrayList<c.a.r0.z3.e.a> arrayList = new ArrayList();
+        ArrayList<c.a.p0.b4.e.a> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         if (!ListUtils.isEmpty(aVar.getCustomList())) {
             for (Custom custom : aVar.getCustomList()) {
                 if (custom.is_custom_price.intValue() == 1) {
-                    c.a.r0.z3.e.c cVar = new c.a.r0.z3.e.c();
-                    cVar.f25825e = custom;
+                    c.a.p0.b4.e.c cVar = new c.a.p0.b4.e.c();
+                    cVar.a = custom;
                     arrayList2.add(cVar);
                 } else if (custom.is_custom_price.intValue() == 0) {
-                    c.a.r0.z3.e.a aVar2 = new c.a.r0.z3.e.a();
-                    aVar2.f25819e = custom;
+                    c.a.p0.b4.e.a aVar2 = new c.a.p0.b4.e.a();
+                    aVar2.a = custom;
                     arrayList.add(aVar2);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            for (c.a.r0.z3.e.a aVar3 : arrayList) {
-                aVar3.f25820f = aVar.getSetting();
-                this.f46852h.add(aVar3);
+            for (c.a.p0.b4.e.a aVar3 : arrayList) {
+                aVar3.f12833b = aVar.getSetting();
+                this.f36222d.add(aVar3);
             }
         }
         if (!ListUtils.isEmpty(aVar.getIconInfoList())) {
             for (IconInfo iconInfo : aVar.getIconInfoList()) {
-                c.a.r0.z3.e.b bVar = new c.a.r0.z3.e.b();
-                bVar.f25823f = iconInfo;
+                c.a.p0.b4.e.b bVar = new c.a.p0.b4.e.b();
+                bVar.f12835b = iconInfo;
                 aVar.getUserInfo();
-                bVar.f25822e = aVar.getSetting();
-                this.f46851g.add(bVar);
+                bVar.a = aVar.getSetting();
+                this.f36221c.add(bVar);
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
-        c.a.r0.z3.e.c cVar2 = (c.a.r0.z3.e.c) ListUtils.getItem(arrayList2, 0);
-        this.f46853i = cVar2;
-        cVar2.f25827g = aVar.getSetting();
-        this.f46853i.f25826f = aVar.getUserInfo();
+        c.a.p0.b4.e.c cVar2 = (c.a.p0.b4.e.c) ListUtils.getItem(arrayList2, 0);
+        this.f36223e = cVar2;
+        cVar2.f12838c = aVar.getSetting();
+        this.f36223e.f12837b = aVar.getUserInfo();
     }
 
-    public List<c.a.r0.z3.e.b> B() {
+    public List<c.a.p0.b4.e.b> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46851g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36221c : (List) invokeV.objValue;
     }
 
-    public List<c.a.r0.z3.e.a> C() {
+    public List<c.a.p0.b4.e.a> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46852h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36222d : (List) invokeV.objValue;
     }
 
-    public c.a.r0.z3.e.c D() {
+    public c.a.p0.b4.e.c F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46853i : (c.a.r0.z3.e.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36223e : (c.a.p0.b4.e.c) invokeV.objValue;
     }
 
-    public UserInfo E() {
+    public UserInfo G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46854j : (UserInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36224f : (UserInfo) invokeV.objValue;
     }
 
-    public void F() {
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new b(this, CmdConfigHttp.CMD_HTTP_GET_BIG_TBEAN_URL));
         }
     }
 
-    public void G() {
+    public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             registerListener(new d(this, CmdConfigHttp.GETPAYINFO_CMD));
         }
     }
 
-    public void H() {
+    public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             c cVar = new c(this, CmdConfigHttp.CMD_HTTP_GET_YINJI);
@@ -429,7 +427,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         }
     }
 
-    public void I() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             a aVar = new a(this, 306001);
@@ -438,7 +436,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         }
     }
 
-    public void J() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             sendMessage(new GetYinJiRequestMessage());

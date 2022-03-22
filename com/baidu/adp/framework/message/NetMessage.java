@@ -60,16 +60,16 @@ public abstract class NetMessage {
             $VALUES = new NetType[]{SOCKET, HTTP, netType};
         }
 
-        public NetType(String str, int i2) {
+        public NetType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -97,16 +97,16 @@ public abstract class NetMessage {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }
 
-    public NetMessage(int i2, int i3) {
+    public NetMessage(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -117,14 +117,14 @@ public abstract class NetMessage {
         this.mNetType = NetType.AUTO;
         this.socketErrNo = 0;
         this.socketCostTime = 0L;
-        init(i2, i3, null);
+        init(i, i2, null);
     }
 
-    private void init(int i2, int i3, BdUniqueId bdUniqueId) {
+    private void init(int i, int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, this, i2, i3, bdUniqueId) == null) {
-            this.httpCmd = i2;
-            this.socketCmd = i3;
+        if (interceptable == null || interceptable.invokeIIL(65538, this, i, i2, bdUniqueId) == null) {
+            this.httpCmd = i;
+            this.socketCmd = i2;
             this.tag = bdUniqueId;
             this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
         }
@@ -233,10 +233,10 @@ public abstract class NetMessage {
         }
     }
 
-    public void setLogID(long j2) {
+    public void setLogID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.clientLogID = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.clientLogID = j;
         }
     }
 
@@ -247,17 +247,17 @@ public abstract class NetMessage {
         }
     }
 
-    public void setSocketCostTime(long j2) {
+    public void setSocketCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.socketCostTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.socketCostTime = j;
         }
     }
 
-    public void setSocketErrNo(int i2) {
+    public void setSocketErrNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.socketErrNo = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.socketErrNo = i;
         }
     }
 
@@ -276,16 +276,16 @@ public abstract class NetMessage {
         }
     }
 
-    public NetMessage(int i2, int i3, BdUniqueId bdUniqueId) {
+    public NetMessage(int i, int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -296,6 +296,6 @@ public abstract class NetMessage {
         this.mNetType = NetType.AUTO;
         this.socketErrNo = 0;
         this.socketCostTime = 0L;
-        init(i2, i3, bdUniqueId);
+        init(i, i2, bdUniqueId);
     }
 }

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.c.e;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,9 +48,9 @@ public class d extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -102,8 +103,8 @@ public class d extends BroadcastReceiver {
             return;
         }
         int size = fS.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            a aVar = fS.get(i2);
+        for (int i = 0; i < size; i++) {
+            a aVar = fS.get(i);
             if (aVar != null) {
                 if (bk()) {
                     aVar.a(fR);
@@ -133,9 +134,11 @@ public class d extends BroadcastReceiver {
         fT = this;
         if ("android.net.conn.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction()) || "com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction())) {
             if (e.f(context)) {
+                Log.e(d.class.getName(), "<--- network connected --->");
                 fQ = true;
                 fR = e.g(context);
             } else {
+                Log.e(d.class.getName(), "<--- network disconnected --->");
                 fQ = false;
             }
             bl();

@@ -28,11 +28,11 @@ public interface BRTCPlayerEvents {
     public static final int BRTC_PLAYER_EVENT_REMOTE_SDP_ACQUIRED = 1010;
     public static final int BRTC_PLAYER_EVENT_STATS_UPDATED = 1003;
 
-    void onError(int i2, String str);
+    void onError(int i, String str);
 
     void onFirstFrameRendered();
 
-    void onInfoUpdated(int i2, Object obj);
+    void onInfoUpdated(int i, Object obj);
 
     void onPlayerStateChanged(BRTCPlayer.PlayerState playerState);
 
@@ -40,7 +40,7 @@ public interface BRTCPlayerEvents {
 
     void onRemoteStreamStats(boolean z, boolean z2, BigInteger bigInteger);
 
-    void onResolutionChanged(int i2, int i3);
+    void onResolutionChanged(int i, int i2);
 
     void onSEIRecv(ByteBuffer byteBuffer);
 }

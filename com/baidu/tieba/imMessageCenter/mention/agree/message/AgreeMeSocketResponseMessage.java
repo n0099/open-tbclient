@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
-import c.a.r0.t1.b.p.a;
+import c.a.p0.v1.b.p.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,9 +28,9 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,22 +42,22 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            c.a.q0.r.s.a.f();
-            c.a.q0.r.s.a.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
+            c.a.o0.r.s.a.f();
+            c.a.o0.r.s.a.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
             if (agreeMeResIdl == null) {
                 return;
@@ -75,7 +75,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
                         a aVar = new a();
-                        aVar.H(agreeList);
+                        aVar.D(agreeList);
                         this.datas.add(aVar);
                     }
                 }

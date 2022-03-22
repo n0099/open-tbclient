@@ -20,48 +20,48 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f59326b;
+    public InsideNotificationItem f43957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f59327c;
+    public long f43958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f59328d;
+    public boolean f43959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59329e;
+    public int f43960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public r.a f59330f;
+    public r.a f43961f;
 
-    public k(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z, r.a aVar) {
+    public k(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z, r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j2), Boolean.valueOf(z), aVar};
+            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j), Boolean.valueOf(z), aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59329e = 0;
+        this.f43960e = 0;
         this.a = context;
-        this.f59326b = insideNotificationItem;
-        this.f59327c = j2;
-        this.f59328d = z;
-        this.f59330f = aVar;
+        this.f43957b = insideNotificationItem;
+        this.f43958c = j;
+        this.f43959d = z;
+        this.f43961f = aVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -98,16 +98,16 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
-            this.f59329e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+            this.f43960e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
             InputStream inputStream2 = null;
-            if (!this.f59328d) {
+            if (!this.f43959d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < 2; i2++) {
-                String str = strArr[i2];
-                p.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
+            for (int i = 0; i < 2; i++) {
+                String str = strArr[i];
+                p.d("ImageDownTask", "imgUrl=" + str + " i=" + i);
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -156,7 +156,7 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
                         th = th2;
                     }
                     arrayList.add(bitmap);
-                } else if (i2 == 0) {
+                } else if (i == 0) {
                     arrayList.add(null);
                 }
             }

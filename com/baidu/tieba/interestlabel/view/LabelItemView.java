@@ -11,11 +11,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.x1.b.a;
+import c.a.p0.z1.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,21 +26,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelItemView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int COLUM_NUM = 3;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f43997e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f34157b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f43998f;
+    /* renamed from: c  reason: collision with root package name */
+    public int f34158c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f43999g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Paint f44000h;
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f34159d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LabelItemView(Context context) {
@@ -50,9 +48,9 @@ public class LabelItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -65,7 +63,7 @@ public class LabelItemView extends LinearLayout {
     public final TextView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.label_recommend_column_item, (ViewGroup) this, false) : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d048a, (ViewGroup) this, false) : (TextView) invokeV.objValue;
     }
 
     public final void b() {
@@ -74,12 +72,12 @@ public class LabelItemView extends LinearLayout {
             setWeightSum(3.0f);
             setOrientation(0);
             Paint paint = new Paint();
-            this.f44000h = paint;
+            this.f34159d = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f44000h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f44000h.setStrokeWidth(1.0f);
-            this.f43999g = n.f(getContext(), R.dimen.ds46);
-            for (int i2 = 0; i2 < 3; i2++) {
+            this.f34159d.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f34159d.setStrokeWidth(1.0f);
+            this.f34158c = n.f(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            for (int i = 0; i < 3; i++) {
                 addView(a());
             }
         }
@@ -92,54 +90,54 @@ public class LabelItemView extends LinearLayout {
             super.dispatchDraw(canvas);
             int width = getWidth() / 3;
             int height = getHeight();
-            for (int i2 = 1; i2 < this.f43998f; i2++) {
-                int i3 = width * i2;
-                int i4 = this.f43999g;
-                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f44000h);
+            for (int i = 1; i < this.f34157b; i++) {
+                int i2 = width * i;
+                int i3 = this.f34158c;
+                canvas.drawLine(i2, (height - i3) / 2, i2 + 1, (i3 + height) / 2, this.f34159d);
             }
-            if (this.f43997e) {
+            if (this.a) {
                 return;
             }
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f44000h);
+            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f34159d);
         }
     }
 
     public void setData(List<a> list, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f43997e = z;
-        this.f43998f = Math.min(list.size(), 3);
-        int i3 = 0;
+        this.a = z;
+        this.f34157b = Math.min(list.size(), 3);
+        int i2 = 0;
         while (true) {
-            i2 = this.f43998f;
-            if (i3 >= i2) {
+            i = this.f34157b;
+            if (i2 >= i) {
                 break;
             }
-            a aVar = list.get(i3);
-            if (aVar != null && (getChildAt(i3) instanceof TextView)) {
-                TextView textView = (TextView) getChildAt(i3);
+            a aVar = list.get(i2);
+            if (aVar != null && (getChildAt(i2) instanceof TextView)) {
+                TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = aVar.f24509b;
-                if (!StringUtils.isNull(str) && aVar.f24509b.length() > 4) {
-                    str = aVar.f24509b.substring(0, 3) + "...";
+                String str = aVar.f20890b;
+                if (!StringUtils.isNull(str) && aVar.f20890b.length() > 4) {
+                    str = aVar.f20890b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f24510c);
+                textView.setSelected(aVar.f20891c);
                 textView.setTag(aVar);
             }
-            i3++;
+            i2++;
         }
-        while (i2 < getChildCount()) {
-            View childAt = getChildAt(i2);
+        while (i < getChildCount()) {
+            View childAt = getChildAt(i);
             if (childAt != null) {
                 childAt.setVisibility(8);
             }
-            i2++;
+            i++;
         }
     }
 
@@ -149,8 +147,8 @@ public class LabelItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        for (int i2 = 0; i2 < getChildCount(); i2++) {
-            View childAt = getChildAt(i2);
+        for (int i = 0; i < getChildCount(); i++) {
+            View childAt = getChildAt(i);
             if (childAt != null) {
                 childAt.setOnClickListener(onClickListener);
             }
@@ -166,9 +164,9 @@ public class LabelItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -180,17 +178,17 @@ public class LabelItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LabelItemView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LabelItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

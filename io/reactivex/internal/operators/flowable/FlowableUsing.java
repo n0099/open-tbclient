@@ -47,9 +47,9 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, d2, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -156,10 +156,10 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
@@ -171,9 +171,9 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {callable, function, consumer, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

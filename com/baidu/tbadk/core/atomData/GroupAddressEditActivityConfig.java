@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupAddressEditActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_GROUP_ADDRESS_ISHIDDEN = "HiddenAddress";
@@ -17,17 +17,17 @@ public class GroupAddressEditActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupAddressEditActivityConfig(Context context, int i2, List<String> list, int i3, boolean z) {
+    public GroupAddressEditActivityConfig(Context context, int i, List<String> list, int i2, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), list, Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i), list, Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,13 +35,13 @@ public class GroupAddressEditActivityConfig extends IntentConfig {
             }
         }
         String[] strArr = new String[list.size()];
-        for (int i6 = 0; i6 < list.size(); i6++) {
-            strArr[i6] = list.get(i6);
+        for (int i5 = 0; i5 < list.size(); i5++) {
+            strArr[i5] = list.get(i5);
         }
         getIntent().putExtra(INTENT_GROUP_ADRESS_LIST, strArr);
         getIntent().putExtra(INTENT_GROUP_ADDRESS_ISHIDDEN, z);
-        getIntent().putExtra(INTENT_GROUP_SELECTEDINDEX, i3);
-        setRequestCode(i2);
+        getIntent().putExtra(INTENT_GROUP_SELECTEDINDEX, i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

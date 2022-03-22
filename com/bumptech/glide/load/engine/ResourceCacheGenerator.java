@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
             newInitContext.initArgs = r2;
             Object[] objArr = {decodeHelper, fetcherReadyCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,9 +102,9 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
                 this.loadData = null;
                 while (!z && hasNextModelLoader()) {
                     List<ModelLoader<File, ?>> list = this.modelLoaders;
-                    int i2 = this.modelLoaderIndex;
-                    this.modelLoaderIndex = i2 + 1;
-                    this.loadData = list.get(i2).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
+                    int i = this.modelLoaderIndex;
+                    this.modelLoaderIndex = i + 1;
+                    this.loadData = list.get(i).buildLoadData(this.cacheFile, this.helper.getWidth(), this.helper.getHeight(), this.helper.getOptions());
                     if (this.loadData != null && this.helper.hasLoadPath(this.loadData.fetcher.getDataClass())) {
                         this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                         z = true;
@@ -112,12 +112,12 @@ public class ResourceCacheGenerator implements DataFetcherGenerator, DataFetcher
                 }
                 return z;
             }
-            int i3 = this.resourceClassIndex + 1;
-            this.resourceClassIndex = i3;
-            if (i3 >= registeredResourceClasses.size()) {
-                int i4 = this.sourceIdIndex + 1;
-                this.sourceIdIndex = i4;
-                if (i4 >= cacheKeys.size()) {
+            int i2 = this.resourceClassIndex + 1;
+            this.resourceClassIndex = i2;
+            if (i2 >= registeredResourceClasses.size()) {
+                int i3 = this.sourceIdIndex + 1;
+                this.sourceIdIndex = i3;
+                if (i3 >= cacheKeys.size()) {
                     return false;
                 }
                 this.resourceClassIndex = 0;

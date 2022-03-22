@@ -17,7 +17,6 @@ import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class MultiplyTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
@@ -25,33 +24,33 @@ public class MultiplyTimeScaleTrack implements Track {
     public Track source;
     public int timeScaleFactor;
 
-    public MultiplyTimeScaleTrack(Track track, int i2) {
+    public MultiplyTimeScaleTrack(Track track, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Integer.valueOf(i2)};
+            Object[] objArr = {track, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = track;
-        this.timeScaleFactor = i2;
+        this.timeScaleFactor = i;
     }
 
-    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i2) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
             if (list != null) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (CompositionTimeToSample.Entry entry : list) {
-                    arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), entry.getOffset() * i2));
+                    arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), entry.getOffset() * i));
                 }
                 return arrayList;
             }
@@ -108,8 +107,8 @@ public class MultiplyTimeScaleTrack implements Track {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             long[] jArr = new long[this.source.getSampleDurations().length];
-            for (int i2 = 0; i2 < this.source.getSampleDurations().length; i2++) {
-                jArr[i2] = this.source.getSampleDurations()[i2] * this.timeScaleFactor;
+            for (int i = 0; i < this.source.getSampleDurations().length; i++) {
+                jArr[i] = this.source.getSampleDurations()[i] * this.timeScaleFactor;
             }
             return jArr;
         }
@@ -153,7 +152,7 @@ public class MultiplyTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "MultiplyTimeScaleTrack{source=" + this.source + ExtendedMessageFormat.END_FE;
+            return "MultiplyTimeScaleTrack{source=" + this.source + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -43,16 +43,16 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
         public T v1;
         public T v2;
 
-        public EqualCoordinator(SingleObserver<? super Boolean> singleObserver, int i2, ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate) {
+        public EqualCoordinator(SingleObserver<? super Boolean> singleObserver, int i, ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, Integer.valueOf(i2), observableSource, observableSource2, biPredicate};
+                Object[] objArr = {singleObserver, Integer.valueOf(i), observableSource, observableSource2, biPredicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,7 +63,7 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
             this.second = observableSource2;
             this.comparer = biPredicate;
             this.observers = r8;
-            EqualObserver<T>[] equalObserverArr = {new EqualObserver<>(this, 0, i2), new EqualObserver<>(this, 1, i2)};
+            EqualObserver<T>[] equalObserverArr = {new EqualObserver<>(this, 0, i), new EqualObserver<>(this, 1, i)};
             this.resources = new ArrayCompositeDisposable(2);
         }
 
@@ -103,7 +103,7 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
                 SpscLinkedArrayQueue<T> spscLinkedArrayQueue = equalObserver.queue;
                 EqualObserver<T> equalObserver2 = equalObserverArr[1];
                 SpscLinkedArrayQueue<T> spscLinkedArrayQueue2 = equalObserver2.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z = equalObserver.done;
                     if (z && (th2 = equalObserver.error) != null) {
@@ -150,8 +150,8 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
                             }
                         }
                         if (z3 || z4) {
-                            i2 = addAndGet(-i2);
-                            if (i2 == 0) {
+                            i = addAndGet(-i);
+                            if (i == 0) {
                                 return;
                             }
                         }
@@ -169,10 +169,10 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.cancelled : invokeV.booleanValue;
         }
 
-        public boolean setDisposable(Disposable disposable, int i2) {
+        public boolean setDisposable(Disposable disposable, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, disposable, i2)) == null) ? this.resources.setResource(i2, disposable) : invokeLI.booleanValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, disposable, i)) == null) ? this.resources.setResource(i, disposable) : invokeLI.booleanValue;
         }
 
         public void subscribe() {
@@ -195,24 +195,24 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
         public final EqualCoordinator<T> parent;
         public final SpscLinkedArrayQueue<T> queue;
 
-        public EqualObserver(EqualCoordinator<T> equalCoordinator, int i2, int i3) {
+        public EqualObserver(EqualCoordinator<T> equalCoordinator, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {equalCoordinator, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {equalCoordinator, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = equalCoordinator;
-            this.index = i2;
-            this.queue = new SpscLinkedArrayQueue<>(i3);
+            this.index = i;
+            this.queue = new SpscLinkedArrayQueue<>(i2);
         }
 
         @Override // io.reactivex.Observer
@@ -252,16 +252,16 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
         }
     }
 
-    public ObservableSequenceEqualSingle(ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate, int i2) {
+    public ObservableSequenceEqualSingle(ObservableSource<? extends T> observableSource, ObservableSource<? extends T> observableSource2, BiPredicate<? super T, ? super T> biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, observableSource2, biPredicate, Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, observableSource2, biPredicate, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -270,7 +270,7 @@ public final class ObservableSequenceEqualSingle<T> extends Single<Boolean> impl
         this.first = observableSource;
         this.second = observableSource2;
         this.comparer = biPredicate;
-        this.bufferSize = i2;
+        this.bufferSize = i;
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable

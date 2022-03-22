@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -68,9 +69,9 @@ public class CompatibleUtile {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {fullscreenableChromeClient, context};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Context) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -99,9 +100,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,9 +155,9 @@ public class CompatibleUtile {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, customViewCallback) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, customViewCallback) == null) {
                 if (this.mCustomView != null) {
                     customViewCallback.onCustomViewHidden();
                     return;
@@ -169,8 +170,8 @@ public class CompatibleUtile {
                 this.mCustomView = view;
                 setFullscreen(true);
                 this.mCustomViewCallback = customViewCallback;
-                this.mActivity.setRequestedOrientation(i2);
-                super.onShowCustomView(view, i2, customViewCallback);
+                this.mActivity.setRequestedOrientation(i);
+                super.onShowCustomView(view, i, customViewCallback);
             }
         }
     }
@@ -188,9 +189,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -223,9 +224,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -298,9 +299,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -339,9 +340,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -350,16 +351,16 @@ public class CompatibleUtile {
             this.this$0 = compatibleUtile;
         }
 
-        public long getUidRxBytes(int i2) {
+        public long getUidRxBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? TrafficStats.getUidRxBytes(i2) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TrafficStats.getUidRxBytes(i) : invokeI.longValue;
         }
 
-        public long getUidTxBytes(int i2) {
+        public long getUidTxBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? TrafficStats.getUidTxBytes(i2) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? TrafficStats.getUidTxBytes(i) : invokeI.longValue;
         }
 
         public boolean isAutoBrightness(Context context) {
@@ -382,16 +383,16 @@ public class CompatibleUtile {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("referer", TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
+            hashMap.put(Config.LAUNCH_REFERER, TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
             webView.loadUrl(str, hashMap);
         }
 
-        public void setCameraDisplayOrientation(Camera camera, int i2) {
+        public void setCameraDisplayOrientation(Camera camera, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048580, this, camera, i2) == null) || camera == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048580, this, camera, i) == null) || camera == null) {
                 return;
             }
-            camera.setDisplayOrientation(i2);
+            camera.setDisplayOrientation(i);
         }
 
         public /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
@@ -412,9 +413,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -431,17 +432,17 @@ public class CompatibleUtile {
                 if (numberOfCameras == 0) {
                     return null;
                 }
-                int i2 = 0;
-                while (i2 < numberOfCameras) {
+                int i = 0;
+                while (i < numberOfCameras) {
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                    Camera.getCameraInfo(i2, cameraInfo);
+                    Camera.getCameraInfo(i, cameraInfo);
                     if (cameraInfo.facing == 0) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
-                if (i2 < numberOfCameras) {
-                    return Camera.open(i2);
+                if (i < numberOfCameras) {
+                    return Camera.open(i);
                 }
                 return Camera.open(0);
             }
@@ -473,9 +474,9 @@ public class CompatibleUtile {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -600,31 +601,31 @@ public class CompatibleUtile {
         return (Object9) invokeV.objValue;
     }
 
-    public static void scrollListViewBy(ListView listView, int i2, int i3) {
+    public static void scrollListViewBy(ListView listView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65547, null, listView, i2, i3) == null) || Build.VERSION.SDK_INT < 8) {
+        if (!(interceptable == null || interceptable.invokeLII(65547, null, listView, i, i2) == null) || Build.VERSION.SDK_INT < 8) {
             return;
         }
-        listView.smoothScrollBy(i2, i3);
+        listView.smoothScrollBy(i, i2);
     }
 
-    public static void scrollListViewTo(ListView listView, int i2) {
+    public static void scrollListViewTo(ListView listView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, null, listView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65548, null, listView, i) == null) {
             if (Build.VERSION.SDK_INT >= 8) {
-                listView.smoothScrollToPosition(i2);
+                listView.smoothScrollToPosition(i);
             } else {
-                listView.setSelection(i2);
+                listView.setSelection(i);
             }
         }
     }
 
-    public static void setAnim(Activity activity, int i2, int i3) {
+    public static void setAnim(Activity activity, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65549, null, activity, i2, i3) == null) || Build.VERSION.SDK_INT < 5) {
+        if (!(interceptable == null || interceptable.invokeLII(65549, null, activity, i, i2) == null) || Build.VERSION.SDK_INT < 5) {
             return;
         }
-        activity.overridePendingTransition(i2, i3);
+        activity.overridePendingTransition(i, i2);
     }
 
     public void WebViewNoDataBase(WebSettings webSettings) {
@@ -731,24 +732,24 @@ public class CompatibleUtile {
         return invokeL.intValue;
     }
 
-    public long getUidRxBytes(int i2) {
+    public long getUidRxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             if (getObject8() != null) {
-                return getObject8().getUidRxBytes(i2);
+                return getObject8().getUidRxBytes(i);
             }
             return 0L;
         }
         return invokeI.longValue;
     }
 
-    public long getUidTxBytes(int i2) {
+    public long getUidTxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             if (getObject8() != null) {
-                return getObject8().getUidTxBytes(i2);
+                return getObject8().getUidTxBytes(i);
             }
             return 0L;
         }
@@ -846,12 +847,12 @@ public class CompatibleUtile {
         getObject11().removeJavascriptInterface(webView);
     }
 
-    public void setCameraDisplayOrientation(Camera camera, int i2) {
+    public void setCameraDisplayOrientation(Camera camera, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048596, this, camera, i2) == null) || getObject8() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048596, this, camera, i) == null) || getObject8() == null) {
             return;
         }
-        getObject8().setCameraDisplayOrientation(camera, i2);
+        getObject8().setCameraDisplayOrientation(camera, i);
     }
 
     public boolean supportMultiTouch(Context context) {
@@ -880,9 +881,9 @@ public class CompatibleUtile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {compatibleUtile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

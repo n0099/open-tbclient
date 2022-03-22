@@ -19,16 +19,16 @@ public class a extends ThreadPoolExecutor {
 
     /* renamed from: com.baidu.android.pushservice.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1712a<V> extends FutureTask<V> implements Comparable<C1712a<V>> {
+    public class C1680a<V> extends FutureTask<V> implements Comparable<C1680a<V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f30574b;
+        public Object f24446b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1712a(a aVar, Runnable runnable, V v) {
+        public C1680a(a aVar, Runnable runnable, V v) {
             super(runnable, v);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -36,9 +36,9 @@ public class a extends ThreadPoolExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, runnable, v};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Runnable) objArr2[0], objArr2[1]);
                     newInitContext.thisArg = this;
@@ -47,11 +47,11 @@ public class a extends ThreadPoolExecutor {
                 }
             }
             this.a = aVar;
-            this.f30574b = runnable;
+            this.f24446b = runnable;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1712a(a aVar, Callable<V> callable) {
+        public C1680a(a aVar, Callable<V> callable) {
             super(callable);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,9 +59,9 @@ public class a extends ThreadPoolExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, callable};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Callable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -69,45 +69,45 @@ public class a extends ThreadPoolExecutor {
                 }
             }
             this.a = aVar;
-            this.f30574b = callable;
+            this.f24446b = callable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
-        public int compareTo(C1712a<V> c1712a) {
+        public int compareTo(C1680a<V> c1680a) {
             InterceptResult invokeL;
             Object obj;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c1712a)) == null) {
-                if (this == c1712a) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c1680a)) == null) {
+                if (this == c1680a) {
                     return 0;
                 }
-                if (c1712a == null) {
+                if (c1680a == null) {
                     return -1;
                 }
-                Object obj2 = this.f30574b;
-                if (obj2 == null || (obj = c1712a.f30574b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
+                Object obj2 = this.f24446b;
+                if (obj2 == null || (obj = c1680a.f24446b) == null || !(obj2 instanceof c) || !(obj instanceof c)) {
                     return 0;
                 }
-                return ((c) obj).d() - ((c) this.f30574b).d();
+                return ((c) obj).d() - ((c) this.f24446b).d();
             }
             return invokeL.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(int i2, int i3, long j2, TimeUnit timeUnit, b<Runnable> bVar) {
-        super(i2, i3, j2, timeUnit, bVar);
+    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
+        super(i, i2, j, timeUnit, bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), timeUnit, bVar};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), timeUnit, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue(), (TimeUnit) objArr2[3], (BlockingQueue) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -139,13 +139,13 @@ public class a extends ThreadPoolExecutor {
     public <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, t)) == null) ? new C1712a(this, runnable, t) : (RunnableFuture) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, t)) == null) ? new C1680a(this, runnable, t) : (RunnableFuture) invokeLL.objValue;
     }
 
     @Override // java.util.concurrent.AbstractExecutorService
     public <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable)) == null) ? new C1712a(this, callable) : (RunnableFuture) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable)) == null) ? new C1680a(this, callable) : (RunnableFuture) invokeL.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bg;
 import com.xiaomi.push.service.bc;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class aq extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class aq extends ContentObserver {
             newInitContext.initArgs = r2;
             Object[] objArr = {anVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,15 +45,15 @@ public class aq extends ContentObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             an anVar = this.a;
-            context = anVar.f72a;
-            anVar.f76a = Integer.valueOf(bc.a(context).a());
-            num = this.a.f76a;
+            context = anVar.f48a;
+            anVar.f52a = Integer.valueOf(bc.a(context).a());
+            num = this.a.f52a;
             if (num.intValue() != 0) {
-                context2 = this.a.f72a;
+                context2 = this.a.f48a;
                 context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.a.f72a;
+                context3 = this.a.f48a;
                 if (bg.b(context3)) {
-                    this.a.m171c();
+                    this.a.m150c();
                 }
             }
         }

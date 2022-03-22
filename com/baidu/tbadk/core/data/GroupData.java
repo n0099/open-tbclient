@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupData extends BaseGroupData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5616188082014345808L;
@@ -24,9 +24,9 @@ public class GroupData extends BaseGroupData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,17 +83,17 @@ public class GroupData extends BaseGroupData {
         }
     }
 
-    public void setGrade(int i2) {
+    public void setGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.grade = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.grade = i;
         }
     }
 
-    public void setIsHidePosition(int i2) {
+    public void setIsHidePosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.isHidePosition = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.isHidePosition = i;
         }
     }
 

@@ -9,10 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.NavigableSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Cache {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CacheException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public interface Cache {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -46,9 +46,9 @@ public interface Cache {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -58,7 +58,7 @@ public interface Cache {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Listener {
         void onSpanAdded(Cache cache, CacheSpan cacheSpan);
 
@@ -73,7 +73,7 @@ public interface Cache {
 
     long getCacheSpace();
 
-    long getCachedBytes(String str, long j2, long j3);
+    long getCachedBytes(String str, long j, long j2);
 
     @Nullable
     NavigableSet<CacheSpan> getCachedSpans(String str);
@@ -82,7 +82,7 @@ public interface Cache {
 
     Set<String> getKeys();
 
-    boolean isCached(String str, long j2, long j3);
+    boolean isCached(String str, long j, long j2);
 
     void releaseHoleSpan(CacheSpan cacheSpan);
 
@@ -90,12 +90,12 @@ public interface Cache {
 
     void removeSpan(CacheSpan cacheSpan) throws CacheException;
 
-    void setContentLength(String str, long j2) throws CacheException;
+    void setContentLength(String str, long j) throws CacheException;
 
-    File startFile(String str, long j2, long j3) throws CacheException;
+    File startFile(String str, long j, long j2) throws CacheException;
 
-    CacheSpan startReadWrite(String str, long j2) throws InterruptedException, CacheException;
+    CacheSpan startReadWrite(String str, long j) throws InterruptedException, CacheException;
 
     @Nullable
-    CacheSpan startReadWriteNonBlocking(String str, long j2) throws CacheException;
+    CacheSpan startReadWriteNonBlocking(String str, long j) throws CacheException;
 }

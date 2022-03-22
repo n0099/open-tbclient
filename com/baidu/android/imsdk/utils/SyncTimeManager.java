@@ -37,9 +37,9 @@ public class SyncTimeManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -66,19 +66,19 @@ public class SyncTimeManager {
         return invokeL.longValue;
     }
 
-    public static void writeFriendGroupInfoSyncTime(Context context, long j2) {
+    public static void writeFriendGroupInfoSyncTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(Constants.FRINEDGROUP_PREFIX + Utility.getUK(context) + lightAppId, j2).commit();
+            edit.putLong(Constants.FRINEDGROUP_PREFIX + Utility.getUK(context) + lightAppId, j).commit();
         }
     }
 
-    public static void writeUserInfoSyncTime(Context context, long j2) {
+    public static void writeUserInfoSyncTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65541, null, context, j) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit();
-            edit.putLong(Constants.USERINFO_PREFIX + Utility.getUK(context) + lightAppId, j2).commit();
+            edit.putLong(Constants.USERINFO_PREFIX + Utility.getUK(context) + lightAppId, j).commit();
         }
     }
 }

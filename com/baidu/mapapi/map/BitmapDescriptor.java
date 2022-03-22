@@ -20,7 +20,7 @@ public final class BitmapDescriptor {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bundle f33867b;
+    public Bundle f26136b;
 
     public BitmapDescriptor(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -29,9 +29,9 @@ public final class BitmapDescriptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,11 +42,11 @@ public final class BitmapDescriptor {
         }
     }
 
-    private Bitmap a(Bitmap bitmap, int i2, int i3) {
+    private Bitmap a(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, bitmap, i2, i3)) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, bitmap, i, i2)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             Paint paint = new Paint();
             paint.setAntiAlias(true);
@@ -73,7 +73,7 @@ public final class BitmapDescriptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.a != null) {
-                if (this.f33867b == null) {
+                if (this.f26136b == null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("image_width", this.a.getWidth());
                     bundle.putInt("image_height", this.a.getHeight());
@@ -94,9 +94,9 @@ public final class BitmapDescriptor {
                         }
                         bundle.putString("image_hashcode", sb.toString());
                     }
-                    this.f33867b = bundle;
+                    this.f26136b = bundle;
                 }
-                return this.f33867b;
+                return this.f26136b;
             }
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }

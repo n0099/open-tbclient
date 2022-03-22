@@ -5,12 +5,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.f1.l;
-import c.a.p0.a.o1.b.e;
-import c.a.p0.a.p2.q0;
-import c.a.p0.a.x.u.g;
+import c.a.n0.a.f1.l;
+import c.a.n0.a.o1.b.e;
+import c.a.n0.a.p2.q0;
+import c.a.n0.a.x.u.g;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -26,14 +27,14 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -71,16 +72,16 @@ public class SwanAppNetworkUtils {
             $VALUES = new NetType[]{NONE, WIFI, _2G, _3G, _4G, _5G, netType};
         }
 
-        public NetType(String str, int i2, String str2) {
+        public NetType(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -105,8 +106,8 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class a implements c.a.p0.a.o1.b.a<Bundle> {
+    /* loaded from: classes4.dex */
+    public static class a implements c.a.n0.a.o1.b.a<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -118,9 +119,9 @@ public class SwanAppNetworkUtils {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,7 +131,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.p0.a.o1.b.a
+        @Override // c.a.n0.a.o1.b.a
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -142,9 +143,9 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void onResult(int i2);
+        void onResult(int i);
     }
 
     static {
@@ -160,7 +161,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = c.a.p0.a.a.a;
+        a = c.a.n0.a.a.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -208,14 +209,14 @@ public class SwanAppNetworkUtils {
         return (NetworkInfo) invokeL.objValue;
     }
 
-    public static String d(int i2, String str) {
+    public static String d(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
             if (a) {
-                String str2 = "——> getNetworkType: netType " + i2 + " subTypeName " + str;
+                Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
             }
-            switch (i2) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 4:
@@ -364,17 +365,17 @@ public class SwanAppNetworkUtils {
         if (!(interceptable == null || interceptable.invokeLLL(65547, null, context, callbackHandler, str) == null) || context == null || TextUtils.isEmpty(str) || callbackHandler == null) {
             return;
         }
-        boolean i2 = i(context);
+        boolean i = i(context);
         String e2 = e();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isConnected", i2);
+            jSONObject.put("isConnected", i);
             if (TextUtils.equals(e2, "no")) {
                 e2 = "none";
             }
             jSONObject.put("networkType", e2);
             if (a) {
-                String str2 = "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType");
+                Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
             }
         } catch (JSONException e3) {
             if (a) {
@@ -382,6 +383,8 @@ public class SwanAppNetworkUtils {
             }
         }
         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-        boolean z = a;
+        if (a) {
+            Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: post success ");
+        }
     }
 }

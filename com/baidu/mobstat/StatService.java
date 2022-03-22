@@ -34,7 +34,7 @@ public class StatService {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f34998b;
+    public static boolean f27153b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -62,9 +62,9 @@ public class StatService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,8 +77,8 @@ public class StatService {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, cls, str)) == null) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             boolean z = false;
-            for (int i2 = 2; i2 < stackTrace.length; i2++) {
-                StackTraceElement stackTraceElement = stackTrace[i2];
+            for (int i = 2; i < stackTrace.length; i++) {
+                StackTraceElement stackTraceElement = stackTrace[i];
                 if (stackTraceElement.getMethodName().equals(str)) {
                     try {
                         for (Class<?> cls2 = Class.forName(stackTraceElement.getClassName()); cls2.getSuperclass() != null && cls2.getSuperclass() != cls; cls2 = cls2.getSuperclass()) {
@@ -152,17 +152,17 @@ public class StatService {
         }
     }
 
-    public static void onEvent(Context context, String str, String str2, int i2, Map<String, String> map) {
+    public static void onEvent(Context context, String str, String str2, int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{context, str, str2, Integer.valueOf(i2), map}) == null) {
-            a(context, str, str2, i2, (ExtraInfo) null, map);
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{context, str, str2, Integer.valueOf(i), map}) == null) {
+            a(context, str, str2, i, (ExtraInfo) null, map);
         }
     }
 
-    public static void onEventDuration(Context context, String str, String str2, long j2, Map<String, String> map) {
+    public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, str, str2, Long.valueOf(j2), map}) == null) {
-            a(context, str, str2, j2, (ExtraInfo) null, map);
+        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, str, str2, Long.valueOf(j), map}) == null) {
+            a(context, str, str2, j, (ExtraInfo) null, map);
         }
     }
 
@@ -316,7 +316,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f34998b = true;
+            f27153b = true;
         }
     }
 
@@ -355,20 +355,20 @@ public class StatService {
         view.setTag(-97001, str);
     }
 
-    public static void setLogSenderDelayed(int i2) {
+    public static void setLogSenderDelayed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65585, null, i2) == null) {
-            LogSender.instance().setLogSenderDelayed(i2);
+        if (interceptable == null || interceptable.invokeI(65585, null, i) == null) {
+            LogSender.instance().setLogSenderDelayed(i);
         }
     }
 
-    public static void setOn(Context context, int i2) {
+    public static void setOn(Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i2) == null) && a(context, "setOn(...)") && !a) {
+        if ((interceptable == null || interceptable.invokeLI(65586, null, context, i) == null) && a(context, "setOn(...)") && !a) {
             a = true;
-            if ((i2 & 1) != 0) {
+            if ((i & 1) != 0) {
                 a(context, false);
-            } else if ((i2 & 16) != 0) {
+            } else if ((i & 16) != 0) {
                 a(context, true);
             }
             BDStatCore.instance().init(context);
@@ -398,22 +398,22 @@ public class StatService {
     }
 
     @Deprecated
-    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2, boolean z) {
+    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65589, null, new Object[]{context, sendStrategyEnum, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && a(context, "setSendLogStrategy(...)")) {
+        if ((interceptable == null || interceptable.invokeCommon(65589, null, new Object[]{context, sendStrategyEnum, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && a(context, "setSendLogStrategy(...)")) {
             boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
                 bc.c().c("[WARNING] setSendLogStrategy 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
             BDStatCore.instance().onSessionStart(context, a2);
-            LogSender.instance().setSendLogStrategy(context.getApplicationContext(), sendStrategyEnum, i2, z);
+            LogSender.instance().setSendLogStrategy(context.getApplicationContext(), sendStrategyEnum, i, z);
         }
     }
 
-    public static void setSessionTimeOut(int i2) {
+    public static void setSessionTimeOut(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65590, null, i2) == null) {
-            BDStatCore.instance().setSessionTimeOut(i2);
+        if (interceptable == null || interceptable.invokeI(65590, null, i) == null) {
+            BDStatCore.instance().setSessionTimeOut(i);
         }
     }
 
@@ -463,7 +463,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f34998b) {
+            if (!f27153b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -478,17 +478,17 @@ public class StatService {
         }
     }
 
-    public static void onEvent(Context context, String str, String str2, int i2) {
+    public static void onEvent(Context context, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65559, null, context, str, str2, i2) == null) {
-            a(context, str, str2, i2, (ExtraInfo) null, (Map<String, String>) null);
+        if (interceptable == null || interceptable.invokeLLLI(65559, null, context, str, str2, i) == null) {
+            a(context, str, str2, i, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 
-    public static void onEventDuration(Context context, String str, String str2, long j2) {
+    public static void onEventDuration(Context context, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
-            a(context, str, str2, j2, (ExtraInfo) null, (Map<String, String>) null);
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, str, str2, Long.valueOf(j)}) == null) {
+            a(context, str, str2, j, (ExtraInfo) null, (Map<String, String>) null);
         }
     }
 
@@ -530,10 +530,10 @@ public class StatService {
     }
 
     @Deprecated
-    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2) {
+    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65588, null, context, sendStrategyEnum, i2) == null) {
-            setSendLogStrategy(context, sendStrategyEnum, i2, false);
+        if (interceptable == null || interceptable.invokeLLI(65588, null, context, sendStrategyEnum, i) == null) {
+            setSendLogStrategy(context, sendStrategyEnum, i, false);
         }
     }
 
@@ -560,14 +560,14 @@ public class StatService {
         }
     }
 
-    public static void a(Context context, String str, String str2, int i2, ExtraInfo extraInfo, Map<String, String> map) {
+    public static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i2), extraInfo, map}) == null) && a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, Integer.valueOf(i), extraInfo, map}) == null) && a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
             boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
                 bc.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i2, extraInfo, bx.a(map), a2);
+            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i, extraInfo, bx.a(map), a2);
         }
     }
 
@@ -585,10 +585,10 @@ public class StatService {
         }
     }
 
-    public static void a(Context context, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map) {
+    public static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Long.valueOf(j2), extraInfo, map}) == null) && a(context, "onEventDuration(...)") && !TextUtils.isEmpty(str)) {
-            if (j2 <= 0) {
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Long.valueOf(j), extraInfo, map}) == null) && a(context, "onEventDuration(...)") && !TextUtils.isEmpty(str)) {
+            if (j <= 0) {
                 bc.c().b("[WARNING] onEventDuration duration must be greater than zero");
                 return;
             }
@@ -596,7 +596,7 @@ public class StatService {
             if (a2) {
                 bc.c().c("[WARNING] onEventDuration 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j2, extraInfo, bx.a(map), a2);
+            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j, extraInfo, bx.a(map), a2);
         }
     }
 
@@ -616,9 +616,9 @@ public class StatService {
 
     @SuppressLint({"NewApi"})
     public static void a(WebView webView) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, webView) == null) || (i2 = Build.VERSION.SDK_INT) < 11 || i2 > 18) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, webView) == null) || (i = Build.VERSION.SDK_INT) < 11 || i > 18) {
             return;
         }
         webView.removeJavascriptInterface("searchBoxJavaBridge_");

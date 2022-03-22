@@ -44,16 +44,16 @@ public final class AddressLevel {
         $VALUES = new AddressLevel[]{COUNTRY, PROVINCE, CITY, DISTRICT, addressLevel};
     }
 
-    public AddressLevel(String str, int i2, int i3, String str2) {
+    public AddressLevel(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -62,7 +62,7 @@ public final class AddressLevel {
                 return;
             }
         }
-        this.value = i3;
+        this.value = i2;
         this.name = str2;
     }
 

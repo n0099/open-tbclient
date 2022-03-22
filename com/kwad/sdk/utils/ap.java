@@ -9,15 +9,15 @@ import com.kwad.sdk.core.config.item.p;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ap {
     public static volatile ap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56460b = false;
+    public boolean f41351b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public p.a f56461c;
+    public p.a f41352c;
 
     public static ap a() {
         if (a == null) {
@@ -55,29 +55,29 @@ public class ap {
     }
 
     private void c() {
-        p.a aVar = this.f56461c;
+        p.a aVar = this.f41352c;
         if (aVar == null) {
             return;
         }
-        if (!this.f56460b && aVar.f54211c.size() > 0) {
-            for (String str : this.f56461c.f54211c) {
+        if (!this.f41351b && aVar.f39346c.size() > 0) {
+            for (String str : this.f41352c.f39346c) {
                 boolean a2 = a(str);
-                this.f56460b = a2;
+                this.f41351b = a2;
                 if (a2) {
                     break;
                 }
             }
         }
-        if (this.f56460b) {
+        if (this.f41351b) {
             ArrayList arrayList = new ArrayList();
-            if (this.f56461c.a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f56461c.a.entrySet()) {
+            if (this.f41352c.a.size() > 0) {
+                for (Map.Entry<Integer, String> entry : this.f41352c.a.entrySet()) {
                     if (a(entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
             }
-            com.kwad.sdk.core.report.d.a(a(this.f56461c.f54210b), arrayList);
+            com.kwad.sdk.core.report.d.a(a(this.f41352c.f39345b), arrayList);
         }
     }
 
@@ -86,24 +86,24 @@ public class ap {
             SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
             if (sharedPreferences != null) {
                 b.a.aX.a(sharedPreferences);
-                this.f56461c = b.a.aX.a();
+                this.f41352c = b.a.aX.a();
             }
-            if (this.f56461c != null) {
+            if (this.f41352c != null) {
                 c();
             }
         }
     }
 
     public boolean a(KsScene ksScene, String str) {
-        boolean a2 = this.f56460b ? a(this.f56461c.f54210b) : false;
+        boolean a2 = this.f41351b ? a(this.f41352c.f39345b) : false;
         com.kwad.sdk.core.report.d.a(ksScene, a2, str);
         return a2;
     }
 
     public int b() {
-        p.a aVar = this.f56461c;
+        p.a aVar = this.f41352c;
         if (aVar != null) {
-            return aVar.f54212d;
+            return aVar.f39347d;
         }
         return 0;
     }

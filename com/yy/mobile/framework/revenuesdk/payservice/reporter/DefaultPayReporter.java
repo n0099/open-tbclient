@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B!\u0012\b\u0010\u0015\u001a\u0004\u0018\u00010\u0014\u0012\u0006\u0010\u0012\u001a\u00020\u0011\u0012\u0006\u0010\u0017\u001a\u00020\u0011¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\b\u0010\u0006J\u0017\u0010\t\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\t\u0010\u0006J\u0017\u0010\n\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\n\u0010\u0006J\u0017\u0010\u000b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000b\u0010\u0006J\u0017\u0010\f\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\f\u0010\u0006J\u0017\u0010\r\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\r\u0010\u0006R\u0016\u0010\u000f\u001a\u00020\u000e8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010R\u0016\u0010\u0012\u001a\u00020\u00118\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0012\u0010\u0013R\u0018\u0010\u0015\u001a\u0004\u0018\u00010\u00148\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\u00118\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0017\u0010\u0013¨\u0006\u001a"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/reporter/DefaultPayReporter;", "Lcom/yy/mobile/framework/revenuesdk/payapi/reporter/IPayReporter;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport$CReportResponse;", "response", "", "onOrderResult", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/HiidoReport$CReportResponse;)V", "onPayEntrancePage", "onPayResult", "onQueryChargeOrderStatus", "onQueryProductList", "onQueryUserYbDetails", "onRequestPay", "onShowPayResult", "", "TAG", "Ljava/lang/String;", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/IMonitorReporter;", "monitorReporter", "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/IMonitorReporter;", "usedChannel", "<init>", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/IMonitorReporter;II)V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DefaultPayReporter implements IPayReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,24 +22,24 @@ public final class DefaultPayReporter implements IPayReporter {
     public final IMonitorReporter monitorReporter;
     public final int usedChannel;
 
-    public DefaultPayReporter(IMonitorReporter iMonitorReporter, int i2, int i3) {
+    public DefaultPayReporter(IMonitorReporter iMonitorReporter, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iMonitorReporter, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {iMonitorReporter, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.monitorReporter = iMonitorReporter;
-        this.appId = i2;
-        this.usedChannel = i3;
+        this.appId = i;
+        this.usedChannel = i2;
         this.TAG = "DefaultPayReporter";
     }
 
@@ -58,10 +58,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onOrderResult uri:" + revenueUri);
     }
 
@@ -87,10 +87,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onPayResult uri:" + revenueUri);
     }
 
@@ -109,10 +109,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onQueryChargeOrderStatus uri:" + revenueUri);
     }
 
@@ -131,10 +131,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onQueryProductList uri:" + revenueUri);
     }
 
@@ -153,10 +153,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onQueryUserYbDetails uri:" + revenueUri);
     }
 
@@ -182,10 +182,10 @@ public final class DefaultPayReporter implements IPayReporter {
         }
         String revenueUri = HiidoReport.getInstance().getRevenueUri(this.appId, this.usedChannel, str);
         Intrinsics.checkExpressionValueIsNotNull(revenueUri, "HiidoReport.getInstance(…(appId, usedChannel, cmd)");
-        int i2 = HiidoReport.CReportParam.REVENUE_SCODE;
+        int i = HiidoReport.CReportParam.REVENUE_SCODE;
         String str2 = cReportResponse.mDelay;
         Intrinsics.checkExpressionValueIsNotNull(str2, "(response.mDelay)");
-        iMonitorReporter.reportReturnCode(i2, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
+        iMonitorReporter.reportReturnCode(i, revenueUri, Long.parseLong(str2), cReportResponse.mErrCode.toString());
         RLog.debug(this.TAG, "onShowPayResult uri:" + revenueUri);
     }
 }

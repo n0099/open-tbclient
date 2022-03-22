@@ -17,14 +17,14 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f32231b;
+    public c f25465b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -33,9 +33,9 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,24 +44,24 @@ public class b {
         this.a = new ArrayList<>();
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.f32231b = cVar;
+        this.f25465b = cVar;
         cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.f32231b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
-        this.f32231b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.f32231b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.f32231b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.f25465b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
+        this.f25465b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f25465b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f25465b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            this.f32231b.a(jSONObject);
+            this.f25465b.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
             int size = this.a.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 JSONObject jSONObject2 = new JSONObject();
-                this.a.get(i2).a(jSONObject2);
+                this.a.get(i).a(jSONObject2);
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("data", jSONArray);
@@ -70,13 +70,13 @@ public class b {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static void a(Context context, int i2, HashMap<String, String> hashMap) {
+    public static void a(Context context, int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65538, null, context, i2, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLIL(65538, null, context, i, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
             return;
         }
         b bVar = new b(context);
-        bVar.a(i2, hashMap);
+        bVar.a(i, hashMap);
         bVar.a();
     }
 
@@ -87,35 +87,35 @@ public class b {
         }
     }
 
-    public void a(int i2, String str, String str2) {
+    public void a(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
-            if (24323 == i2) {
-                this.f32231b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
+            if (24323 == i) {
+                this.f25465b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
                 return;
             }
-            e eVar = new e(i2, str, str2);
+            e eVar = new e(i, str, str2);
             int size = this.a.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                c cVar = this.a.get(i3);
-                if (cVar != null && cVar.a() == i2) {
+            for (int i2 = 0; i2 < size; i2++) {
+                c cVar = this.a.get(i2);
+                if (cVar != null && cVar.a() == i) {
                     cVar.a(eVar);
                     return;
                 }
             }
-            c cVar2 = new c(i2);
+            c cVar2 = new c(i);
             cVar2.a(eVar);
             this.a.add(cVar2);
         }
     }
 
-    public void a(int i2, HashMap<String, String> hashMap) {
+    public void a(int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, hashMap) == null) || hashMap == null || hashMap.size() <= 0) {
             return;
         }
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            a(i2, entry.getKey(), entry.getValue());
+            a(i, entry.getKey(), entry.getValue());
         }
     }
 

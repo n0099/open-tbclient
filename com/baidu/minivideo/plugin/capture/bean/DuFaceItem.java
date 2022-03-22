@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import c.a.a0.a.a;
+import c.a.z.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
@@ -25,9 +25,9 @@ public class DuFaceItem extends FaceItem {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -12,14 +12,14 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f54391b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f39515b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f54392c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.a.1
+    public ServiceConnection f39516c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                a.this.f54391b.put(iBinder);
+                a.this.f39515b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -42,16 +42,16 @@ public class a {
             Intent intent = new Intent();
             intent.setAction("com.asus.msa.action.ACCESS_DID");
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
-            if (this.a.bindService(intent, this.f54392c, 1)) {
+            if (this.a.bindService(intent, this.f39516c, 1)) {
                 try {
-                    str = new a.C2098a(this.f54391b.take()).a();
+                    str = new a.C1959a(this.f39515b.take()).a();
                     com.kwad.sdk.core.d.a.c("ASUSDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f54392c;
+                    serviceConnection = this.f39516c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f54392c;
+                    serviceConnection = this.f39516c;
                 }
                 context.unbindService(serviceConnection);
             }

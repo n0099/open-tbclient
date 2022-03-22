@@ -16,7 +16,6 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -74,9 +73,9 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -96,7 +95,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "long"), Cea708Decoder.COMMAND_DLC);
         ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setFlags", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "long", "flags", "", "void"), Cea708Decoder.COMMAND_SPL);
         ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "[B"), 150);
-        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "[B", "rest", "", "void"), 154);
+        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setRest", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "[B", "rest", "", "void"), Cea708Decoder.COMMAND_DF2);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "java.lang.String"), 91);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "", "", "", "int"), 102);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setTimeScale", "com.googlecode.mp4parser.boxes.apple.TimeCodeBox", "int", "timeScale", "", "void"), 106);
@@ -230,51 +229,51 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
-    public void setDataReferenceIndex(int i2) {
+    public void setDataReferenceIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.dataReferenceIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.dataReferenceIndex = i;
         }
     }
 
-    public void setFlags(long j2) {
+    public void setFlags(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j2)));
-            this.flags = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_14, this, this, Conversions.longObject(j)));
+            this.flags = j;
         }
     }
 
-    public void setFrameDuration(int i2) {
+    public void setFrameDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.intObject(i2)));
-            this.frameDuration = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.intObject(i)));
+            this.frameDuration = i;
         }
     }
 
-    public void setNumberOfFrames(int i2) {
+    public void setNumberOfFrames(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i2)));
-            this.numberOfFrames = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i)));
+            this.numberOfFrames = i;
         }
     }
 
-    public void setReserved1(int i2) {
+    public void setReserved1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this, Conversions.intObject(i2)));
-            this.reserved1 = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this, Conversions.intObject(i)));
+            this.reserved1 = i;
         }
     }
 
-    public void setReserved2(int i2) {
+    public void setReserved2(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this, Conversions.intObject(i2)));
-            this.reserved2 = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this, Conversions.intObject(i)));
+            this.reserved2 = i;
         }
     }
 
@@ -286,11 +285,11 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         }
     }
 
-    public void setTimeScale(int i2) {
+    public void setTimeScale(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i2)));
-            this.timeScale = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i)));
+            this.timeScale = i;
         }
     }
 
@@ -299,7 +298,7 @@ public class TimeCodeBox extends AbstractBox implements SampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TimeCodeBox{timeScale=" + this.timeScale + ", frameDuration=" + this.frameDuration + ", numberOfFrames=" + this.numberOfFrames + ", reserved1=" + this.reserved1 + ", reserved2=" + this.reserved2 + ", flags=" + this.flags + ExtendedMessageFormat.END_FE;
+            return "TimeCodeBox{timeScale=" + this.timeScale + ", frameDuration=" + this.frameDuration + ", numberOfFrames=" + this.numberOfFrames + ", reserved1=" + this.reserved1 + ", reserved2=" + this.reserved2 + ", flags=" + this.flags + '}';
         }
         return (String) invokeV.objValue;
     }

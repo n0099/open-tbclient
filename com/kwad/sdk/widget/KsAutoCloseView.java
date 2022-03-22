@@ -9,29 +9,29 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56597b = "%s秒后自动关闭";
+    public static String f41476b = "%s秒后自动关闭";
     public int a;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f56598c;
+    public TextView f41477c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f56599d;
+    public ImageView f41478d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f56600e;
+    public a f41479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56601f;
+    public boolean f41480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56602g;
+    public boolean f41481g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
@@ -41,68 +41,68 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public KsAutoCloseView(Context context) {
         super(context);
         this.a = 10;
-        this.f56601f = true;
-        this.f56602g = false;
+        this.f41480f = true;
+        this.f41481g = false;
         a(context, null, 0);
     }
 
     public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 10;
-        this.f56601f = true;
-        this.f56602g = false;
+        this.f41480f = true;
+        this.f41481g = false;
         a(context, attributeSet, 0);
     }
 
-    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.a = 10;
-        this.f56601f = true;
-        this.f56602g = false;
-        a(context, attributeSet, i2);
+        this.f41480f = true;
+        this.f41481g = false;
+        a(context, attributeSet, i);
     }
 
     @RequiresApi(api = 21)
-    public KsAutoCloseView(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
+    public KsAutoCloseView(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
         this.a = 10;
-        this.f56601f = true;
-        this.f56602g = false;
-        a(context, attributeSet, i2);
+        this.f41480f = true;
+        this.f41481g = false;
+        a(context, attributeSet, i);
     }
 
-    private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        LinearLayout.inflate(context, R.layout.ksad_interstitial_auto_close, this);
-        this.f56598c = (TextView) findViewById(R.id.ksad_auto_close_text);
-        ImageView imageView = (ImageView) findViewById(R.id.ksad_auto_close_btn);
-        this.f56599d = imageView;
+    private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0446, this);
+        this.f41477c = (TextView) findViewById(R.id.obfuscated_res_0x7f091043);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091042);
+        this.f41478d = imageView;
         imageView.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i2) {
-        this.f56598c.setText(String.format(f56597b, Integer.valueOf(i2)));
+    public void b(int i) {
+        this.f41477c.setText(String.format(f41476b, Integer.valueOf(i)));
     }
 
     public static /* synthetic */ int e(KsAutoCloseView ksAutoCloseView) {
-        int i2 = ksAutoCloseView.a;
-        ksAutoCloseView.a = i2 - 1;
-        return i2;
+        int i = ksAutoCloseView.a;
+        ksAutoCloseView.a = i - 1;
+        return i;
     }
 
-    public void a(int i2) {
-        if (i2 <= 0) {
+    public void a(int i) {
+        if (i <= 0) {
             return;
         }
-        this.a = i2;
+        this.a = i;
         post(new Runnable() { // from class: com.kwad.sdk.widget.KsAutoCloseView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (KsAutoCloseView.this.f56601f) {
-                    if (!KsAutoCloseView.this.f56602g) {
+                if (KsAutoCloseView.this.f41480f) {
+                    if (!KsAutoCloseView.this.f41481g) {
                         if (KsAutoCloseView.this.a == 0) {
-                            if (KsAutoCloseView.this.f56600e != null) {
-                                KsAutoCloseView.this.f56600e.a();
+                            if (KsAutoCloseView.this.f41479e != null) {
+                                KsAutoCloseView.this.f41479e.a();
                                 return;
                             }
                             return;
@@ -118,26 +118,26 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     public void a(boolean z) {
-        this.f56601f = z;
-        int i2 = z ? 0 : 8;
-        TextView textView = this.f56598c;
+        this.f41480f = z;
+        int i = z ? 0 : 8;
+        TextView textView = this.f41477c;
         if (textView != null) {
-            textView.setVisibility(i2);
+            textView.setVisibility(i);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f56600e != null && view.equals(this.f56599d)) {
-            this.f56600e.b();
+        if (this.f41479e != null && view.equals(this.f41478d)) {
+            this.f41479e.b();
         }
     }
 
     public void setCountDownPaused(boolean z) {
-        this.f56602g = z;
+        this.f41481g = z;
     }
 
     public void setViewListener(a aVar) {
-        this.f56600e = aVar;
+        this.f41479e = aVar;
     }
 }

@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";
@@ -61,9 +61,9 @@ public class FormatTools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -93,9 +93,9 @@ public class FormatTools {
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 calendar.setTime(simpleDateFormat.parse(str + " 00:00:00"));
-                int i2 = calendar.get(6);
+                int i = calendar.get(6);
                 calendar.setTime(simpleDateFormat.parse(str2 + " 00:00:00"));
-                return calendar.get(6) - i2;
+                return calendar.get(6) - i;
             } catch (Exception unused) {
                 return 0;
             }
@@ -103,12 +103,12 @@ public class FormatTools {
         return invokeLL.intValue;
     }
 
-    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j2) {
+    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j)) == null) {
             try {
-                return simpleDateFormat.format(new Date(j2));
+                return simpleDateFormat.format(new Date(j));
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);
                 return null;
@@ -134,10 +134,10 @@ public class FormatTools {
         return invokeLL.longValue;
     }
 
-    public static String getDayBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i2) {
+    public static String getDayBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, simpleDateFormat, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, simpleDateFormat, str, i)) == null) {
             try {
                 Calendar calendar = Calendar.getInstance();
                 if (str == null) {
@@ -145,7 +145,7 @@ public class FormatTools {
                 } else {
                     calendar.setTime(simpleDateFormat.parse(str));
                 }
-                calendar.add(5, i2);
+                calendar.add(5, i);
                 return simpleDateFormat.format(calendar.getTime());
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);
@@ -155,10 +155,10 @@ public class FormatTools {
         return (String) invokeLLI.objValue;
     }
 
-    public static Date getSecondBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i2) {
+    public static Date getSecondBeginFromOne(SimpleDateFormat simpleDateFormat, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, simpleDateFormat, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, simpleDateFormat, str, i)) == null) {
             try {
                 Calendar calendar = Calendar.getInstance();
                 if (str == null) {
@@ -166,7 +166,7 @@ public class FormatTools {
                 } else {
                     calendar.setTime(simpleDateFormat.parse(str));
                 }
-                calendar.add(13, i2);
+                calendar.add(13, i);
                 return calendar.getTime();
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);

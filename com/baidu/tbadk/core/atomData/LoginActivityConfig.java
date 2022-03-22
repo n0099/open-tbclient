@@ -2,10 +2,11 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.d0.a;
+import c.a.o0.r.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_ID = "activity_id";
@@ -50,24 +51,24 @@ public class LoginActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context, int i2) {
+    public LoginActivityConfig(Context context, int i) {
         this(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -113,10 +114,10 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
-    public void setJumpToAfterDestroy(int i2) {
+    public void setJumpToAfterDestroy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            getIntent().putExtra(JUMP_AFTER_DESTROY, i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            getIntent().putExtra(JUMP_AFTER_DESTROY, i);
         }
     }
 
@@ -136,10 +137,10 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
-    public void setThirdPartyLoginForResult(int i2, String str) {
+    public void setThirdPartyLoginForResult(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
-            getIntent().putExtra("social_type", i2);
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+            getIntent().putExtra("social_type", i);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);
             setIntentAction(IntentAction.ActivityForResult);
@@ -154,17 +155,17 @@ public class LoginActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoginActivityConfig(Context context, boolean z, int i2) {
+    public LoginActivityConfig(Context context, boolean z, int i) {
         this(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
@@ -172,7 +173,7 @@ public class LoginActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra(IntentConfig.CLOSE, z);
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -185,16 +186,16 @@ public class LoginActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a.a("account", -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        a.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -206,9 +207,9 @@ public class LoginActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -227,9 +228,9 @@ public class LoginActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), str, str2};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);

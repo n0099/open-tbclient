@@ -19,6 +19,7 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
@@ -47,7 +48,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
@@ -86,7 +87,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     public final Region transparentRegion;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface CompatibilityShadowMode {
     }
 
@@ -153,9 +154,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Float.valueOf(r7)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -206,13 +207,13 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @ColorInt
-    private int compositeElevationOverlayIfNeeded(@ColorInt int i2) {
+    private int compositeElevationOverlayIfNeeded(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) {
             float z = getZ() + getParentAbsoluteElevation();
             ElevationOverlayProvider elevationOverlayProvider = this.drawableState.elevationOverlayProvider;
-            return elevationOverlayProvider != null ? elevationOverlayProvider.compositeOverlayIfNeeded(i2, z) : i2;
+            return elevationOverlayProvider != null ? elevationOverlayProvider.compositeOverlayIfNeeded(i, z) : i;
         }
         return invokeI.intValue;
     }
@@ -227,13 +228,15 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     private void drawCompatShadow(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, canvas) == null) {
-            this.containsIncompatibleShadowOp.cardinality();
+            if (this.containsIncompatibleShadowOp.cardinality() > 0) {
+                Log.w(TAG, "Compatibility shadow requested but can't be drawn for all operations in this shape.");
+            }
             if (this.drawableState.shadowCompatOffset != 0) {
                 canvas.drawPath(this.path, this.shadowRenderer.getShadowPaint());
             }
-            for (int i2 = 0; i2 < 4; i2++) {
-                this.cornerShadowOperation[i2].draw(this.shadowRenderer, this.drawableState.shadowCompatRadius, canvas);
-                this.edgeShadowOperation[i2].draw(this.shadowRenderer, this.drawableState.shadowCompatRadius, canvas);
+            for (int i = 0; i < 4; i++) {
+                this.cornerShadowOperation[i].draw(this.shadowRenderer, this.drawableState.shadowCompatRadius, canvas);
+                this.edgeShadowOperation[i].draw(this.shadowRenderer, this.drawableState.shadowCompatRadius, canvas);
             }
             if (this.shadowBitmapDrawingEnable) {
                 int shadowOffsetX = getShadowOffsetX();
@@ -289,8 +292,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, this)) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            int i2 = materialShapeDrawableState.shadowCompatMode;
-            return i2 != 1 && materialShapeDrawableState.shadowCompatRadius > 0 && (i2 == 2 || requiresCompatShadow());
+            int i = materialShapeDrawableState.shadowCompatMode;
+            return i != 1 && materialShapeDrawableState.shadowCompatRadius > 0 && (i == 2 || requiresCompatShadow());
         }
         return invokeV.booleanValue;
     }
@@ -350,10 +353,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public static int modulateAlpha(int i2, int i3) {
+    public static int modulateAlpha(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65566, null, i2, i3)) == null) ? (i2 * (i3 + (i3 >>> 7))) >>> 8 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65566, null, i, i2)) == null) ? (i * (i2 + (i2 >>> 7))) >>> 8 : invokeII.intValue;
     }
 
     private void prepareCanvasForShadow(@NonNull Canvas canvas) {
@@ -363,8 +366,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             int shadowOffsetY = getShadowOffsetY();
             if (Build.VERSION.SDK_INT < 21 && this.shadowBitmapDrawingEnable) {
                 Rect clipBounds = canvas.getClipBounds();
-                int i2 = this.drawableState.shadowCompatRadius;
-                clipBounds.inset(-i2, -i2);
+                int i = this.drawableState.shadowCompatRadius;
+                clipBounds.inset(-i, -i);
                 clipBounds.offset(shadowOffsetX, shadowOffsetY);
                 canvas.clipRect(clipBounds, Region.Op.REPLACE);
             }
@@ -580,10 +583,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @Deprecated
-    public void getPathForSize(int i2, int i3, @NonNull Path path) {
+    public void getPathForSize(int i, int i2, @NonNull Path path) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, path) == null) {
-            calculatePathForSize(new RectF(0.0f, 0.0f, i2, i3), path);
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, path) == null) {
+            calculatePathForSize(new RectF(0.0f, 0.0f, i, i2), path);
         }
     }
 
@@ -766,10 +769,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.drawableState.elevationOverlayProvider != null : invokeV.booleanValue;
     }
 
-    public boolean isPointInTransparentRegion(int i2, int i3) {
+    public boolean isPointInTransparentRegion(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048615, this, i2, i3)) == null) ? getTransparentRegion().contains(i2, i3) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048615, this, i, i2)) == null) ? getTransparentRegion().contains(i, i2) : invokeII.booleanValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -784,8 +787,8 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            int i2 = this.drawableState.shadowCompatMode;
-            return i2 == 0 || i2 == 2;
+            int i = this.drawableState.shadowCompatMode;
+            return i == 0 || i == 2;
         }
         return invokeV.booleanValue;
     }
@@ -843,12 +846,12 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.alpha != i2) {
-                materialShapeDrawableState.alpha = i2;
+            if (materialShapeDrawableState.alpha != i) {
+                materialShapeDrawableState.alpha = i;
                 invalidateSelfIgnoreShape();
             }
         }
@@ -912,14 +915,14 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setPadding(int i2, int i3, int i4, int i5) {
+    public void setPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048631, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048631, this, i, i2, i3, i4) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
             if (materialShapeDrawableState.padding == null) {
                 materialShapeDrawableState.padding = new Rect();
             }
-            this.drawableState.padding.set(i2, i3, i4, i5);
+            this.drawableState.padding.set(i, i2, i3, i4);
             invalidateSelf();
         }
     }
@@ -962,42 +965,42 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setShadowColor(int i2) {
+    public void setShadowColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
-            this.shadowRenderer.setShadowColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
+            this.shadowRenderer.setShadowColor(i);
             this.drawableState.useTintColorForShadow = false;
             invalidateSelfIgnoreShape();
         }
     }
 
-    public void setShadowCompatRotation(int i2) {
+    public void setShadowCompatRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.shadowCompatRotation != i2) {
-                materialShapeDrawableState.shadowCompatRotation = i2;
+            if (materialShapeDrawableState.shadowCompatRotation != i) {
+                materialShapeDrawableState.shadowCompatRotation = i;
                 invalidateSelfIgnoreShape();
             }
         }
     }
 
-    public void setShadowCompatibilityMode(int i2) {
+    public void setShadowCompatibilityMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.shadowCompatMode != i2) {
-                materialShapeDrawableState.shadowCompatMode = i2;
+            if (materialShapeDrawableState.shadowCompatMode != i) {
+                materialShapeDrawableState.shadowCompatMode = i;
                 invalidateSelfIgnoreShape();
             }
         }
     }
 
     @Deprecated
-    public void setShadowElevation(int i2) {
+    public void setShadowElevation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            setElevation(i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            setElevation(i);
         }
     }
 
@@ -1010,20 +1013,20 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @Deprecated
-    public void setShadowRadius(int i2) {
+    public void setShadowRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            this.drawableState.shadowCompatRadius = i2;
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+            this.drawableState.shadowCompatRadius = i;
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void setShadowVerticalOffset(int i2) {
+    public void setShadowVerticalOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
             MaterialShapeDrawableState materialShapeDrawableState = this.drawableState;
-            if (materialShapeDrawableState.shadowCompatOffset != i2) {
-                materialShapeDrawableState.shadowCompatOffset = i2;
+            if (materialShapeDrawableState.shadowCompatOffset != i) {
+                materialShapeDrawableState.shadowCompatOffset = i;
                 invalidateSelfIgnoreShape();
             }
         }
@@ -1046,11 +1049,11 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setStroke(float f2, @ColorInt int i2) {
+    public void setStroke(float f2, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             setStrokeWidth(f2);
-            setStrokeColor(ColorStateList.valueOf(i2));
+            setStrokeColor(ColorStateList.valueOf(i));
         }
     }
 
@@ -1083,10 +1086,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(@ColorInt int i2) {
+    public void setTint(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
-            setTintList(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
+            setTintList(ColorStateList.valueOf(i));
         }
     }
 
@@ -1149,9 +1152,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ShapeAppearanceModel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -1165,7 +1168,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65554, null, context, f2)) == null) {
-            int color = MaterialColors.getColor(context, (int) R.attr.colorSurface, MaterialShapeDrawable.class.getSimpleName());
+            int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f04016b, MaterialShapeDrawable.class.getSimpleName());
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
             materialShapeDrawable.initializeElevationOverlay(context);
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));
@@ -1195,17 +1198,17 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialShapeDrawable(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
-        this(ShapeAppearanceModel.builder(context, attributeSet, i2, i3).build());
+    public MaterialShapeDrawable(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+        this(ShapeAppearanceModel.builder(context, attributeSet, i, i2).build());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 this((ShapeAppearanceModel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -1232,9 +1235,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             newInitContext.initArgs = r2;
             Object[] objArr = {shapePathModel};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ShapeAppearanceModel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65542, newInitContext);
@@ -1243,10 +1246,10 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         }
     }
 
-    public void setStrokeTint(@ColorInt int i2) {
+    public void setStrokeTint(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            setStrokeTint(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+            setStrokeTint(ColorStateList.valueOf(i));
         }
     }
 
@@ -1259,9 +1262,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             newInitContext.initArgs = r2;
             Object[] objArr = {shapeAppearanceModel};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((MaterialShapeDrawableState) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
@@ -1277,9 +1280,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             newInitContext.initArgs = r2;
             Object[] objArr = {materialShapeDrawableState};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -1320,9 +1323,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1332,26 +1335,26 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
             }
 
             @Override // com.google.android.material.shape.ShapeAppearancePathProvider.PathListener
-            public void onCornerPathCreated(@NonNull ShapePath shapePath, Matrix matrix, int i4) {
+            public void onCornerPathCreated(@NonNull ShapePath shapePath, Matrix matrix, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, shapePath, matrix, i4) == null) {
-                    this.this$0.containsIncompatibleShadowOp.set(i4, shapePath.containsIncompatibleShadowOp());
-                    this.this$0.cornerShadowOperation[i4] = shapePath.createShadowCompatOperation(matrix);
+                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, shapePath, matrix, i3) == null) {
+                    this.this$0.containsIncompatibleShadowOp.set(i3, shapePath.containsIncompatibleShadowOp());
+                    this.this$0.cornerShadowOperation[i3] = shapePath.createShadowCompatOperation(matrix);
                 }
             }
 
             @Override // com.google.android.material.shape.ShapeAppearancePathProvider.PathListener
-            public void onEdgePathCreated(@NonNull ShapePath shapePath, Matrix matrix, int i4) {
+            public void onEdgePathCreated(@NonNull ShapePath shapePath, Matrix matrix, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shapePath, matrix, i4) == null) {
-                    this.this$0.containsIncompatibleShadowOp.set(i4 + 4, shapePath.containsIncompatibleShadowOp());
-                    this.this$0.edgeShadowOperation[i4] = shapePath.createShadowCompatOperation(matrix);
+                if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shapePath, matrix, i3) == null) {
+                    this.this$0.containsIncompatibleShadowOp.set(i3 + 4, shapePath.containsIncompatibleShadowOp());
+                    this.this$0.edgeShadowOperation[i3] = shapePath.createShadowCompatOperation(matrix);
                 }
             }
         };
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1394,9 +1397,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shapeAppearanceModel, elevationOverlayProvider};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1454,9 +1457,9 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {materialShapeDrawableState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

@@ -13,19 +13,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TriangleShapeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f45310e;
+    /* renamed from: b  reason: collision with root package name */
+    public Path f35091b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Path f45311f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f45312g;
+    /* renamed from: c  reason: collision with root package name */
+    public int f35092c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TriangleShapeView(Context context) {
@@ -36,27 +34,27 @@ public class TriangleShapeView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45312g = R.color.CAM_X0205;
+        this.f35092c = R.color.CAM_X0205;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f45310e == null) {
-                this.f45310e = new Paint();
+            if (this.a == null) {
+                this.a = new Paint();
             }
-            this.f45310e.setAntiAlias(true);
-            this.f45310e.setStyle(Paint.Style.FILL);
-            this.f45310e.setColor(SkinManager.getColor(this.f45312g));
+            this.a.setAntiAlias(true);
+            this.a.setStyle(Paint.Style.FILL);
+            this.a.setColor(SkinManager.getColor(this.f35092c));
         }
     }
 
@@ -71,23 +69,23 @@ public class TriangleShapeView extends View {
                 return;
             }
             a();
-            if (this.f45311f == null) {
-                this.f45311f = new Path();
+            if (this.f35091b == null) {
+                this.f35091b = new Path();
             }
             float f2 = height;
-            this.f45311f.moveTo(0.0f, f2);
+            this.f35091b.moveTo(0.0f, f2);
             float f3 = width;
-            this.f45311f.lineTo(f3 / 2.0f, 0.0f);
-            this.f45311f.lineTo(f3, f2);
-            this.f45311f.close();
-            canvas.drawPath(this.f45311f, this.f45310e);
+            this.f35091b.lineTo(f3 / 2.0f, 0.0f);
+            this.f35091b.lineTo(f3, f2);
+            this.f35091b.close();
+            canvas.drawPath(this.f35091b, this.a);
         }
     }
 
-    public void setColorId(int i2) {
+    public void setColorId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f45312g = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f35092c = i;
         }
     }
 
@@ -100,9 +98,9 @@ public class TriangleShapeView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -110,21 +108,21 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f45312g = R.color.CAM_X0205;
+        this.f35092c = R.color.CAM_X0205;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TriangleShapeView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TriangleShapeView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -132,6 +130,6 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f45312g = R.color.CAM_X0205;
+        this.f35092c = R.color.CAM_X0205;
     }
 }

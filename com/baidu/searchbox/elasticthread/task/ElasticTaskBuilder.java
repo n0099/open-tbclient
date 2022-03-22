@@ -36,9 +36,9 @@ public class ElasticTaskBuilder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,16 +63,16 @@ public class ElasticTaskBuilder {
         return (ElasticTaskBuilder) invokeV.objValue;
     }
 
-    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i2) {
+    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i) {
         InterceptResult invokeLLI;
         ElasticTask elasticTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
             if (runnable != null && !TextUtils.isEmpty(str)) {
                 synchronized (this) {
-                    long j2 = this.currentTaskId + 1;
-                    this.currentTaskId = j2;
-                    elasticTask = new ElasticTask(runnable, str, j2, i2);
+                    long j = this.currentTaskId + 1;
+                    this.currentTaskId = j;
+                    elasticTask = new ElasticTask(runnable, str, j, i);
                 }
                 return elasticTask;
             }

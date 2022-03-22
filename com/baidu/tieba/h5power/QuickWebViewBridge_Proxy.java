@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
 import c.a.d.f.p.m;
-import c.a.r0.y3.o0.d.a;
-import c.a.r0.y3.o0.d.b;
-import c.a.r0.y3.o0.d.c;
-import c.a.r0.y3.o0.d.e;
+import c.a.p0.a4.o0.d.a;
+import c.a.p0.a4.o0.d.b;
+import c.a.p0.a4.o0.d.c;
+import c.a.p0.a4.o0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -40,9 +40,9 @@ public class QuickWebViewBridge_Proxy extends a {
             newInitContext.initArgs = r2;
             Object[] objArr = {quickWebViewBridge};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,10 +70,10 @@ public class QuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // c.a.r0.y3.o0.d.a
+    @Override // c.a.p0.a4.o0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, cVar)) == null) {
             c cVar2 = cVar == null ? new c() : cVar;
@@ -595,21 +595,21 @@ public class QuickWebViewBridge_Proxy extends a {
                     cVar2.o(requestByNative.a());
                     cVar2.w(requestByNative.e());
                     if (!cVar2.h()) {
-                        i2 = 0;
+                        i = 0;
                         cVar2.n(false);
                         addObserver("RequestByNativeToH5", cVar2, false);
-                        cVar2.y(i2);
+                        cVar2.y(i);
                     }
                 }
-                i2 = 0;
-                cVar2.y(i2);
+                i = 0;
+                cVar2.y(i);
             }
             return cVar2;
         }
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.y3.o0.d.a
+    @Override // c.a.p0.a4.o0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

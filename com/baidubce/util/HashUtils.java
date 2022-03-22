@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HashUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;
@@ -43,9 +43,9 @@ public class HashUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

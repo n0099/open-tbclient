@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.g.c;
-import c.a.q0.r.t.a;
-import c.a.q0.s.d.d;
+import c.a.o0.r.t.a;
+import c.a.o0.s.d.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
@@ -33,9 +34,9 @@ public class AlaLivePushRemindDialog {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,9 +56,9 @@ public class AlaLivePushRemindDialog {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -94,7 +95,7 @@ public class AlaLivePushRemindDialog {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
                 Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName()));
-                intent.setFlags(268435456);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 this.mPageContext.getPageActivity().startActivity(intent);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
@@ -118,8 +119,8 @@ public class AlaLivePushRemindDialog {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             a aVar = new a(this.mPageContext.getPageActivity());
             aVar.setAutoNight(false);
-            aVar.setTitle(R.string.ala_live_push_remind);
-            aVar.setPositiveButton(R.string.ala_live_push_remind_open, new a.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
+            aVar.setTitle(R.string.obfuscated_res_0x7f0f0223);
+            aVar.setPositiveButton(R.string.obfuscated_res_0x7f0f0225, new a.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AlaLivePushRemindDialog this$0;
@@ -132,9 +133,9 @@ public class AlaLivePushRemindDialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -144,7 +145,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.q0.r.t.a.e
+                @Override // c.a.o0.r.t.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -157,7 +158,7 @@ public class AlaLivePushRemindDialog {
                     }
                 }
             });
-            aVar.setNegativeButton(R.string.ala_live_push_remind_close, new a.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
+            aVar.setNegativeButton(R.string.obfuscated_res_0x7f0f0224, new a.e(this, z) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AlaLivePushRemindDialog this$0;
@@ -170,9 +171,9 @@ public class AlaLivePushRemindDialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -182,7 +183,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.q0.r.t.a.e
+                @Override // c.a.o0.r.t.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

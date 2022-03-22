@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes6.dex */
 public final class BdJsCallInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +24,9 @@ public final class BdJsCallInfo implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -116,7 +115,7 @@ public final class BdJsCallInfo implements INoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "BdJsCallInfo{mJsInterfaceName='" + this.mJsInterfaceName + ExtendedMessageFormat.QUOTE + ", mMethodDeclaration='" + this.mMethodDeclaration + ExtendedMessageFormat.QUOTE + ", mPermissionChecked=" + this.mPermissionChecked + ", mUrl='" + this.mUrl + ExtendedMessageFormat.QUOTE + ", mWebViewFrameName='" + this.mWebViewFrameName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "BdJsCallInfo{mJsInterfaceName='" + this.mJsInterfaceName + "', mMethodDeclaration='" + this.mMethodDeclaration + "', mPermissionChecked=" + this.mPermissionChecked + ", mUrl='" + this.mUrl + "', mWebViewFrameName='" + this.mWebViewFrameName + "'}";
         }
         return (String) invokeV.objValue;
     }

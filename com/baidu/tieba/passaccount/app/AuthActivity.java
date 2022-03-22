@@ -31,7 +31,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -49,7 +49,7 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public class AuthActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {authActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,7 +82,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,9 +95,9 @@ public class AuthActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {authActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -115,7 +115,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,9 +128,9 @@ public class AuthActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {authActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -166,7 +166,7 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,9 +179,9 @@ public class AuthActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {authActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -204,9 +204,9 @@ public class AuthActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -219,15 +219,15 @@ public class AuthActivity extends BaseActivity {
     public void finishActivity(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
-            int i2 = this.type;
-            if (i2 == 0) {
-                c.a.r0.s2.d.b.f().b(z, str);
-            } else if (i2 == 1) {
-                c.a.r0.s2.d.b.f().e(z);
-            } else if (i2 == 2) {
-                c.a.r0.s2.d.b.f().c(z);
+            int i = this.type;
+            if (i == 0) {
+                c.a.p0.u2.d.b.f().b(z, str);
+            } else if (i == 1) {
+                c.a.p0.u2.d.b.f().e(z);
+            } else if (i == 2) {
+                c.a.p0.u2.d.b.f().c(z);
             } else {
-                c.a.r0.s2.d.b.f().a(null);
+                c.a.p0.u2.d.b.f().a(null);
             }
             finish();
         }
@@ -359,7 +359,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 PassManagerStatic.z();
                 init();
                 setupViews();
@@ -391,17 +391,17 @@ public class AuthActivity extends BaseActivity {
             setBtnVisibility(4, 0, 4);
             this.sapiWebView.setOnBackCallback(new a(this));
             this.sapiWebView.setOnFinishCallback(new b(this));
-            int i2 = this.type;
-            if (i2 == 0) {
+            int i = this.type;
+            if (i == 0) {
                 setTitleText("身份验证");
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
-            } else if (i2 == 1) {
-                setTitleText(R.string.sapi_sdk_title_modify_pwd);
+            } else if (i == 1) {
+                setTitleText(R.string.obfuscated_res_0x7f0f1055);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 setTitleText("绑定手机");
                 this.sapiWebView.loadBindWidget(BindWidgetAction.BIND_MOBILE, this.bduss, null, true, null);
             } else {

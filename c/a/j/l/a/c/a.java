@@ -10,6 +10,7 @@ import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
 import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,9 +25,9 @@ public final class a extends b<c.a.j.e.b.a> {
 
     /* renamed from: c.a.j.l.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0175a<T> implements c<TaskDialogViewData> {
+    public static final class C0181a<T> implements c<TaskDialogViewData> {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0175a a;
+        public static final C0181a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,17 +43,17 @@ public final class a extends b<c.a.j.e.b.a> {
                     return;
                 }
             }
-            a = new C0175a();
+            a = new C0181a();
         }
 
-        public C0175a() {
+        public C0181a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -74,7 +75,7 @@ public final class a extends b<c.a.j.e.b.a> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("data", taskDialogViewData);
             intent.putExtras(bundle);
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             if (appContext != null) {
                 appContext.startActivity(intent);
             }
@@ -86,9 +87,9 @@ public final class a extends b<c.a.j.e.b.a> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -101,7 +102,7 @@ public final class a extends b<c.a.j.e.b.a> {
     public void a(c.a.j.e.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a().l(C0175a.a);
+            aVar.a().l(C0181a.a);
         }
     }
 }

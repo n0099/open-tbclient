@@ -38,9 +38,9 @@ public final class SingleZipArray<T, R> extends Single<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleZipArray};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,17 +69,17 @@ public final class SingleZipArray<T, R> extends Single<R> {
         public final Function<? super Object[], ? extends R> zipper;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ZipCoordinator(SingleObserver<? super R> singleObserver, int i2, Function<? super Object[], ? extends R> function) {
-            super(i2);
+        public ZipCoordinator(SingleObserver<? super R> singleObserver, int i, Function<? super Object[], ? extends R> function) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, Integer.valueOf(i2), function};
+                Object[] objArr = {singleObserver, Integer.valueOf(i), function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -88,12 +88,12 @@ public final class SingleZipArray<T, R> extends Single<R> {
             }
             this.actual = singleObserver;
             this.zipper = function;
-            ZipSingleObserver<T>[] zipSingleObserverArr = new ZipSingleObserver[i2];
-            for (int i5 = 0; i5 < i2; i5++) {
-                zipSingleObserverArr[i5] = new ZipSingleObserver<>(this, i5);
+            ZipSingleObserver<T>[] zipSingleObserverArr = new ZipSingleObserver[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                zipSingleObserverArr[i4] = new ZipSingleObserver<>(this, i4);
             }
             this.observers = zipSingleObserverArr;
-            this.values = new Object[i2];
+            this.values = new Object[i];
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -108,30 +108,30 @@ public final class SingleZipArray<T, R> extends Single<R> {
             }
         }
 
-        public void disposeExcept(int i2) {
+        public void disposeExcept(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) != null) {
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
                 return;
             }
             ZipSingleObserver<T>[] zipSingleObserverArr = this.observers;
             int length = zipSingleObserverArr.length;
-            for (int i3 = 0; i3 < i2; i3++) {
-                zipSingleObserverArr[i3].dispose();
+            for (int i2 = 0; i2 < i; i2++) {
+                zipSingleObserverArr[i2].dispose();
             }
             while (true) {
-                i2++;
-                if (i2 >= length) {
+                i++;
+                if (i >= length) {
                     return;
                 }
-                zipSingleObserverArr[i2].dispose();
+                zipSingleObserverArr[i].dispose();
             }
         }
 
-        public void innerError(Throwable th, int i2) {
+        public void innerError(Throwable th, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, th, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, th, i) == null) {
                 if (getAndSet(0) > 0) {
-                    disposeExcept(i2);
+                    disposeExcept(i);
                     this.actual.onError(th);
                     return;
                 }
@@ -140,10 +140,10 @@ public final class SingleZipArray<T, R> extends Single<R> {
         }
 
         /* JADX DEBUG: Type inference failed for r6v2. Raw type applied. Possible types: ? super java.lang.Object[] */
-        public void innerSuccess(T t, int i2) {
+        public void innerSuccess(T t, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048579, this, t, i2) == null) {
-                this.values[i2] = t;
+            if (interceptable == null || interceptable.invokeLI(1048579, this, t, i) == null) {
+                this.values[i] = t;
                 if (decrementAndGet() == 0) {
                     try {
                         this.actual.onSuccess(ObjectHelper.requireNonNull(this.zipper.apply(this.values), "The zipper returned a null value"));
@@ -171,23 +171,23 @@ public final class SingleZipArray<T, R> extends Single<R> {
         public final int index;
         public final ZipCoordinator<T, ?> parent;
 
-        public ZipSingleObserver(ZipCoordinator<T, ?> zipCoordinator, int i2) {
+        public ZipSingleObserver(ZipCoordinator<T, ?> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zipCoordinator, Integer.valueOf(i2)};
+                Object[] objArr = {zipCoordinator, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = zipCoordinator;
-            this.index = i2;
+            this.index = i;
         }
 
         public void dispose() {
@@ -229,9 +229,9 @@ public final class SingleZipArray<T, R> extends Single<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSourceArr, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -253,13 +253,13 @@ public final class SingleZipArray<T, R> extends Single<R> {
             }
             ZipCoordinator zipCoordinator = new ZipCoordinator(singleObserver, length, this.zipper);
             singleObserver.onSubscribe(zipCoordinator);
-            for (int i2 = 0; i2 < length && !zipCoordinator.isDisposed(); i2++) {
-                SingleSource<? extends T> singleSource = singleSourceArr[i2];
+            for (int i = 0; i < length && !zipCoordinator.isDisposed(); i++) {
+                SingleSource<? extends T> singleSource = singleSourceArr[i];
                 if (singleSource == null) {
-                    zipCoordinator.innerError(new NullPointerException("One of the sources is null"), i2);
+                    zipCoordinator.innerError(new NullPointerException("One of the sources is null"), i);
                     return;
                 }
-                singleSource.subscribe(zipCoordinator.observers[i2]);
+                singleSource.subscribe(zipCoordinator.observers[i]);
             }
         }
     }

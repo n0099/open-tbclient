@@ -17,9 +17,9 @@ public class EditorHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,13 +54,13 @@ public class EditorHelper {
         }
     }
 
-    public static void putInt(SharedPreferences sharedPreferences, String str, int i2) {
+    public static void putInt(SharedPreferences sharedPreferences, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, sharedPreferences, str, i2) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, sharedPreferences, str, i) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putInt(str, i2);
+        edit.putInt(str, i);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {
@@ -68,13 +68,13 @@ public class EditorHelper {
         }
     }
 
-    public static void putLong(SharedPreferences sharedPreferences, String str, long j2) {
+    public static void putLong(SharedPreferences sharedPreferences, String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sharedPreferences, str, Long.valueOf(j2)}) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sharedPreferences, str, Long.valueOf(j)}) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putLong(str, j2);
+        edit.putLong(str, j);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {

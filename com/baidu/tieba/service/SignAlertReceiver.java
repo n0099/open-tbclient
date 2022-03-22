@@ -4,9 +4,10 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.q0.s.d.b;
+import c.a.o0.s.d.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -17,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +28,9 @@ public class SignAlertReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,13 +46,13 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 9);
                 intent2.putExtra("is_message_pv", true);
                 intent2.putExtra("is_notify", true);
-                intent2.putExtra("refresh_all", true);
+                intent2.putExtra(FrsActivityConfig.KEY_REFRESH, true);
                 intent2.putExtra("close_dialog", true);
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(R.string.sign_notification_content);
-                String string2 = context.getString(R.string.app_name);
+                String string = context.getString(R.string.obfuscated_res_0x7f0f115d);
+                String string2 = context.getString(R.string.obfuscated_res_0x7f0f029e);
                 b.g0().j(b.g0().C(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_SHOW);

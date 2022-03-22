@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements c {
     public List<e<a>> mHolders;
 

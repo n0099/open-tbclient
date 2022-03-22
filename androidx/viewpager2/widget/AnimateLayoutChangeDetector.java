@@ -49,9 +49,9 @@ public final class AnimateLayoutChangeDetector {
             newInitContext.initArgs = r2;
             Object[] objArr = {linearLayoutManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,9 +64,9 @@ public final class AnimateLayoutChangeDetector {
         InterceptResult invokeV;
         ViewGroup.MarginLayoutParams marginLayoutParams;
         int top;
-        int i2;
+        int i;
         int bottom;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int childCount = this.mLayoutManager.getChildCount();
@@ -75,8 +75,8 @@ public final class AnimateLayoutChangeDetector {
             }
             boolean z = this.mLayoutManager.getOrientation() == 0;
             int[][] iArr = (int[][]) Array.newInstance(int.class, childCount, 2);
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = this.mLayoutManager.getChildAt(i4);
+            for (int i3 = 0; i3 < childCount; i3++) {
+                View childAt = this.mLayoutManager.getChildAt(i3);
                 if (childAt != null) {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -84,24 +84,24 @@ public final class AnimateLayoutChangeDetector {
                     } else {
                         marginLayoutParams = ZERO_MARGIN_LAYOUT_PARAMS;
                     }
-                    int[] iArr2 = iArr[i4];
+                    int[] iArr2 = iArr[i3];
                     if (z) {
                         top = childAt.getLeft();
-                        i2 = marginLayoutParams.leftMargin;
+                        i = marginLayoutParams.leftMargin;
                     } else {
                         top = childAt.getTop();
-                        i2 = marginLayoutParams.topMargin;
+                        i = marginLayoutParams.topMargin;
                     }
-                    iArr2[0] = top - i2;
-                    int[] iArr3 = iArr[i4];
+                    iArr2[0] = top - i;
+                    int[] iArr3 = iArr[i3];
                     if (z) {
                         bottom = childAt.getRight();
-                        i3 = marginLayoutParams.rightMargin;
+                        i2 = marginLayoutParams.rightMargin;
                     } else {
                         bottom = childAt.getBottom();
-                        i3 = marginLayoutParams.bottomMargin;
+                        i2 = marginLayoutParams.bottomMargin;
                     }
-                    iArr3[1] = bottom + i3;
+                    iArr3[1] = bottom + i2;
                 } else {
                     throw new IllegalStateException("null view contained in the view hierarchy");
                 }
@@ -118,9 +118,9 @@ public final class AnimateLayoutChangeDetector {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -137,8 +137,8 @@ public final class AnimateLayoutChangeDetector {
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr4, iArr5)) == null) ? iArr4[0] - iArr5[0] : invokeLL.intValue;
                 }
             });
-            for (int i5 = 1; i5 < childCount; i5++) {
-                if (iArr[i5 - 1][1] != iArr[i5][0]) {
+            for (int i4 = 1; i4 < childCount; i4++) {
+                if (iArr[i4 - 1][1] != iArr[i4][0]) {
                     return false;
                 }
             }
@@ -152,8 +152,8 @@ public final class AnimateLayoutChangeDetector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int childCount = this.mLayoutManager.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (hasRunningChangingLayoutTransition(this.mLayoutManager.getChildAt(i2))) {
+            for (int i = 0; i < childCount; i++) {
+                if (hasRunningChangingLayoutTransition(this.mLayoutManager.getChildAt(i))) {
                     return true;
                 }
             }
@@ -179,8 +179,8 @@ public final class AnimateLayoutChangeDetector {
                     return true;
                 }
                 int childCount = viewGroup.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    if (hasRunningChangingLayoutTransition(viewGroup.getChildAt(i2))) {
+                for (int i = 0; i < childCount; i++) {
+                    if (hasRunningChangingLayoutTransition(viewGroup.getChildAt(i))) {
                         return true;
                     }
                 }

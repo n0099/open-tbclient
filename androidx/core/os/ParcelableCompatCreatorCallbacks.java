@@ -6,5 +6,5 @@ import android.os.Parcel;
 public interface ParcelableCompatCreatorCallbacks<T> {
     T createFromParcel(Parcel parcel, ClassLoader classLoader);
 
-    T[] newArray(int i2);
+    T[] newArray(int i);
 }

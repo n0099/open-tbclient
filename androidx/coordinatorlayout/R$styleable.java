@@ -75,11 +75,11 @@ public final class R$styleable {
                 return;
             }
         }
-        ColorStateListItem = new int[]{16843173, 16843551, R.attr.alpha};
-        CoordinatorLayout = new int[]{R.attr.keylines, R.attr.statusBarBackground};
-        CoordinatorLayout_Layout = new int[]{16842931, R.attr.layout_anchor, R.attr.layout_anchorGravity, R.attr.layout_behavior, R.attr.layout_dodgeInsetEdges, R.attr.layout_insetEdge, R.attr.layout_keyline};
-        FontFamily = new int[]{R.attr.fontProviderAuthority, R.attr.fontProviderCerts, R.attr.fontProviderFetchStrategy, R.attr.fontProviderFetchTimeout, R.attr.fontProviderPackage, R.attr.fontProviderQuery};
-        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.font, R.attr.fontStyle, R.attr.fontVariationSettings, R.attr.fontWeight, R.attr.ttcIndex};
+        ColorStateListItem = new int[]{16843173, 16843551, R.attr.obfuscated_res_0x7f040087};
+        CoordinatorLayout = new int[]{R.attr.obfuscated_res_0x7f0402f2, R.attr.obfuscated_res_0x7f04058d};
+        CoordinatorLayout_Layout = new int[]{16842931, R.attr.obfuscated_res_0x7f040385, R.attr.obfuscated_res_0x7f040386, R.attr.obfuscated_res_0x7f040387, R.attr.obfuscated_res_0x7f04038c, R.attr.obfuscated_res_0x7f040390, R.attr.obfuscated_res_0x7f040391};
+        FontFamily = new int[]{R.attr.obfuscated_res_0x7f04021c, R.attr.obfuscated_res_0x7f04021d, R.attr.obfuscated_res_0x7f040247, R.attr.obfuscated_res_0x7f040250, R.attr.obfuscated_res_0x7f040251, R.attr.obfuscated_res_0x7f040252};
+        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f04021a, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f040256, R.attr.obfuscated_res_0x7f04066c};
         GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
         GradientColorItem = new int[]{16843173, 16844052};
     }
@@ -89,9 +89,9 @@ public final class R$styleable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

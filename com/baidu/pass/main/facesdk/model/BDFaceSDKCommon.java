@@ -42,16 +42,16 @@ public class BDFaceSDKCommon {
             $VALUES = new AlignType[]{BDFACE_ALIGN_TYPE_RGB_ACCURATE, BDFACE_ALIGN_TYPE_RGB_FAST, alignType};
         }
 
-        public AlignType(String str, int i2) {
+        public AlignType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -112,16 +112,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceActionLiveType[]{BDFace_ACTION_LIVE_BLINK, BDFACE_ACTION_LIVE_OPEN_MOUTH, BDFACE_ACTION_LIVE_NOD, BDFACE_ACTION_LIVE_SHAKE_HEAD, BDFACE_ACTION_LIVE_LOOK_UP, BDFACE_ACTION_LIVE_TURN_LEFT, bDFaceActionLiveType};
         }
 
-        public BDFaceActionLiveType(String str, int i2) {
+        public BDFaceActionLiveType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -180,16 +180,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceCoreRunMode[]{BDFACE_LITE_POWER_HIGH, BDFACE_LITE_POWER_LOW, BDFACE_LITE_POWER_FULL, BDFACE_LITE_POWER_NO_BIND, BDFACE_LITE_POWER_RAND_HIGH, bDFaceCoreRunMode};
         }
 
-        public BDFaceCoreRunMode(String str, int i2) {
+        public BDFaceCoreRunMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -242,16 +242,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceEmotion[]{BDFACE_EMOTION_FROWN, BDFACE_EMOTION_SMILE, bDFaceEmotion};
         }
 
-        public BDFaceEmotion(String str, int i2) {
+        public BDFaceEmotion(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -312,16 +312,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceEmotionEnum[]{BDFACE_EMOTIONS_ANGRY, BDFACE_EMOTIONS_DISGUST, BDFACE_EMOTIONS_FEAR, BDFACE_EMOTIONS_HAPPY, BDFACE_EMOTIONS_SAD, BDFACE_EMOTIONS_SURPRISE, bDFaceEmotionEnum};
         }
 
-        public BDFaceEmotionEnum(String str, int i2) {
+        public BDFaceEmotionEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -380,16 +380,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceGazeDirection[]{BDFACE_GACE_DIRECTION_UP, BDFACE_GACE_DIRECTION_DOWN, BDFACE_GACE_DIRECTION_RIGHT, BDFACE_GACE_DIRECTION_LEFT, BDFACE_GACE_DIRECTION_FRONT, bDFaceGazeDirection};
         }
 
-        public BDFaceGazeDirection(String str, int i2) {
+        public BDFaceGazeDirection(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -440,16 +440,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceGender[]{BDFACE_GENDER_FEMALE, bDFaceGender};
         }
 
-        public BDFaceGender(String str, int i2) {
+        public BDFaceGender(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -502,16 +502,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceGlasses[]{BDFACE_NO_GLASSES, BDFACE_GLASSES, bDFaceGlasses};
         }
 
-        public BDFaceGlasses(String str, int i2) {
+        public BDFaceGlasses(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -576,16 +576,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceImageType[]{BDFACE_IMAGE_TYPE_RGB, BDFACE_IMAGE_TYPE_BGR, BDFACE_IMAGE_TYPE_RGBA, BDFACE_IMAGE_TYPE_BGRA, BDFACE_IMAGE_TYPE_GRAY, BDFACE_IMAGE_TYPE_DEPTH, BDFACE_IMAGE_TYPE_YUV_NV21, BDFACE_IMAGE_TYPE_YUV_NV12, bDFaceImageType};
         }
 
-        public BDFaceImageType(String str, int i2) {
+        public BDFaceImageType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -642,16 +642,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceLogInfo[]{BDFACE_LOG_ERROR_MESSAGE, BDFACE_LOG_VALUE_MESSAGE, BDFACE_LOG_TYPE_PERF, BDFACE_LOG_TYPE_ALL, bDFaceLogInfo};
         }
 
-        public BDFaceLogInfo(String str, int i2) {
+        public BDFaceLogInfo(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -706,16 +706,16 @@ public class BDFaceSDKCommon {
             $VALUES = new BDFaceRace[]{BDFACE_RACE_YELLOW, BDFACE_RACE_WHITE, BDFACE_RACE_BLACK, bDFaceRace};
         }
 
-        public BDFaceRace(String str, int i2) {
+        public BDFaceRace(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -766,16 +766,16 @@ public class BDFaceSDKCommon {
             $VALUES = new DetectType[]{DETECT_VIS, detectType};
         }
 
-        public DetectType(String str, int i2) {
+        public DetectType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -828,16 +828,16 @@ public class BDFaceSDKCommon {
             $VALUES = new FaceQualityType[]{BLUR, OCCLUSION, faceQualityType};
         }
 
-        public FaceQualityType(String str, int i2) {
+        public FaceQualityType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -892,16 +892,16 @@ public class BDFaceSDKCommon {
             $VALUES = new FeatureType[]{BDFACE_FEATURE_TYPE_LIVE_PHOTO, BDFACE_FEATURE_TYPE_ID_PHOTO, BDFACE_FEATURE_TYPE_NIR, featureType};
         }
 
-        public FeatureType(String str, int i2) {
+        public FeatureType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -954,16 +954,16 @@ public class BDFaceSDKCommon {
             $VALUES = new LiveType[]{BDFACE_SILENT_LIVE_TYPE_RGB, BDFACE_SILENT_LIVE_TYPE_NIR, liveType};
         }
 
-        public LiveType(String str, int i2) {
+        public LiveType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -991,9 +991,9 @@ public class BDFaceSDKCommon {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

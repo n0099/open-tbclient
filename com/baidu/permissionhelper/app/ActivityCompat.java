@@ -19,7 +19,7 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes4.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
+        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
     public ActivityCompat() {
@@ -27,22 +27,22 @@ public class ActivityCompat extends ContextCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i2) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
             if (ApiUtil.shouldCheckPermission()) {
-                ActivityCompatApi23.requestPermissions(activity, strArr, i2);
+                ActivityCompatApi23.requestPermissions(activity, strArr, i);
             } else if (activity instanceof OnRequestPermissionsResultCallback) {
-                requestPermissions(activity, strArr, i2, (OnRequestPermissionsResultCallback) activity);
+                requestPermissions(activity, strArr, i, (OnRequestPermissionsResultCallback) activity);
             }
         }
     }
@@ -76,14 +76,14 @@ public class ActivityCompat extends ContextCompat {
         return invokeLL.booleanValue;
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i2, OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i, OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i2, onRequestPermissionsResultCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, onRequestPermissionsResultCallback) == null) {
             if (ApiUtil.shouldCheckPermission()) {
-                ActivityCompatApi23.requestPermissions(activity, strArr, i2);
+                ActivityCompatApi23.requestPermissions(activity, strArr, i);
             } else if (activity.isFinishing() || onRequestPermissionsResultCallback == null) {
             } else {
-                new Handler(Looper.getMainLooper()).post(new Runnable(strArr, activity, onRequestPermissionsResultCallback, i2) { // from class: com.baidu.permissionhelper.app.ActivityCompat.1
+                new Handler(Looper.getMainLooper()).post(new Runnable(strArr, activity, onRequestPermissionsResultCallback, i) { // from class: com.baidu.permissionhelper.app.ActivityCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Activity val$activity;
@@ -96,11 +96,11 @@ public class ActivityCompat extends ContextCompat {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {strArr, activity, onRequestPermissionsResultCallback, Integer.valueOf(i2)};
+                            Object[] objArr = {strArr, activity, onRequestPermissionsResultCallback, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -109,7 +109,7 @@ public class ActivityCompat extends ContextCompat {
                         this.val$permissions = strArr;
                         this.val$activity = activity;
                         this.val$callback = onRequestPermissionsResultCallback;
-                        this.val$requestCode = i2;
+                        this.val$requestCode = i;
                     }
 
                     @Override // java.lang.Runnable
@@ -120,8 +120,8 @@ public class ActivityCompat extends ContextCompat {
                             PackageManager packageManager = this.val$activity.getPackageManager();
                             String packageName = this.val$activity.getPackageName();
                             int length = this.val$permissions.length;
-                            for (int i3 = 0; i3 < length; i3++) {
-                                iArr[i3] = packageManager.checkPermission(this.val$permissions[i3], packageName);
+                            for (int i2 = 0; i2 < length; i2++) {
+                                iArr[i2] = packageManager.checkPermission(this.val$permissions[i2], packageName);
                             }
                             this.val$callback.onRequestPermissionsResult(this.val$requestCode, this.val$permissions, iArr);
                         }

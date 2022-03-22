@@ -3,6 +3,7 @@ package com.vivo.push.cache;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import com.vivo.push.util.f;
 import com.vivo.push.util.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +28,9 @@ public final class e extends c<com.vivo.push.model.a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -74,7 +75,7 @@ public final class e extends c<com.vivo.push.model.a> {
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), IMAudioTransRequest.CHARSET) : (String) invokeL.objValue;
     }
 
     public final String c(String str) {
@@ -82,7 +83,7 @@ public final class e extends c<com.vivo.push.model.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (c.a) {
-                for (T t : this.f59248b) {
+                for (T t : this.f43883b) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t.b();
                     }

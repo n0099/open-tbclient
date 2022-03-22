@@ -17,22 +17,22 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class fr {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f415a = null;
+    public static Vector<String> f391a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f59649b = 330000;
+    public static int f44255b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f59650c = 600000;
+    public static int f44256c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f59651d = 330000;
+    public static int f44257d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,9 +48,9 @@ public final class fr {
                 return;
             }
         }
-        f415a = new Vector<>();
+        f391a = new Vector<>();
         try {
-            for (ClassLoader classLoader : m395a()) {
+            for (ClassLoader classLoader : m374a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -67,9 +67,9 @@ public final class fr {
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
                                     a = a(newPullParser, a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f59649b = a(newPullParser, f59649b);
+                                    f44255b = a(newPullParser, f44255b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f415a.add(newPullParser.nextText());
+                                    f391a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -93,9 +93,9 @@ public final class fr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -105,25 +105,25 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f59649b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f44255b : invokeV.intValue;
     }
 
-    public static int a(XmlPullParser xmlPullParser, int i2) {
+    public static int a(XmlPullParser xmlPullParser, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, xmlPullParser, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, xmlPullParser, i)) == null) {
             try {
                 return Integer.parseInt(xmlPullParser.nextText());
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m394a() {
+    public static String m373a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
@@ -143,14 +143,14 @@ public final class fr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m395a() {
+    public static ClassLoader[] m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             ClassLoader[] classLoaderArr = {fr.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < 2; i2++) {
-                ClassLoader classLoader = classLoaderArr[i2];
+            for (int i = 0; i < 2; i++) {
+                ClassLoader classLoader = classLoaderArr[i];
                 if (classLoader != null) {
                     arrayList.add(classLoader);
                 }
@@ -163,6 +163,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f59650c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f44256c : invokeV.intValue;
     }
 }

@@ -15,13 +15,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ScanLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f46079e;
+    public TBLottieAnimationView a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScanLoadingView(Context context) {
@@ -32,9 +30,9 @@ public class ScanLoadingView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -44,24 +42,10 @@ public class ScanLoadingView extends LinearLayout {
         }
     }
 
-    public final void a(Context context) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-            this.f46079e = tBLottieAnimationView;
-            tBLottieAnimationView.loop(true);
-            this.f46079e.setFrame(0);
-            SkinManager.setLottieAnimation(this.f46079e, R.raw.scan_refresh);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
-            setVisibility(8);
-        }
-    }
-
-    public void hideLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.f46079e;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.a;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.cancelAnimation();
             }
@@ -69,16 +53,30 @@ public class ScanLoadingView extends LinearLayout {
         }
     }
 
-    public void showLoading() {
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e7, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09130a);
+            this.a = tBLottieAnimationView;
+            tBLottieAnimationView.loop(true);
+            this.a.setFrame(0);
+            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f11004f);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091317), R.color.CAM_X0108, 1);
+            setVisibility(8);
+        }
+    }
+
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            TBLottieAnimationView tBLottieAnimationView = this.f46079e;
+            TBLottieAnimationView tBLottieAnimationView = this.a;
             if (tBLottieAnimationView != null) {
                 if (tBLottieAnimationView.isAnimating()) {
-                    this.f46079e.cancelAnimation();
+                    this.a.cancelAnimation();
                 }
-                this.f46079e.playAnimation();
+                this.a.playAnimation();
             }
         }
     }
@@ -92,9 +90,9 @@ public class ScanLoadingView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -105,17 +103,17 @@ public class ScanLoadingView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -123,6 +121,6 @@ public class ScanLoadingView extends LinearLayout {
                 return;
             }
         }
-        a(context);
+        b(context);
     }
 }

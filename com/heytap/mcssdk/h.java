@@ -7,9 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: app_name */
-    public static final int design_appbar_state_list_animator = 2130837504;
+    public static final int app_name = 2130837504;
     public transient /* synthetic */ FieldHolder $fh;
 
     public h() {
@@ -17,9 +15,9 @@ public final class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

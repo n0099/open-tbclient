@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59182b;
+    public String f43819b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59183c;
+    public String f43820c;
 
     public a(String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -31,16 +31,16 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, bundle};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59182b = str;
-        this.f59183c = str2;
+        this.f43819b = str;
+        this.f43820c = str2;
         this.a = bundle;
     }
 
@@ -80,12 +80,12 @@ public final class a {
         return (a) invokeL.objValue;
     }
 
-    public final int b(String str, int i2) {
+    public final int b(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
             Bundle bundle = this.a;
-            return bundle == null ? i2 : bundle.getInt(str, i2);
+            return bundle == null ? i : bundle.getInt(str, i);
         }
         return invokeLI.intValue;
     }
@@ -142,12 +142,12 @@ public final class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public final long b(String str, long j2) {
+    public final long b(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
             Bundle bundle = this.a;
-            return bundle == null ? j2 : bundle.getLong(str, j2);
+            return bundle == null ? j : bundle.getLong(str, j);
         }
         return invokeLJ.longValue;
     }
@@ -158,23 +158,23 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : (Bundle) invokeV.objValue;
     }
 
-    public final void a(String str, int i2) {
+    public final void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
             if (this.a == null) {
                 this.a = new Bundle();
             }
-            this.a.putInt(str, i2);
+            this.a.putInt(str, i);
         }
     }
 
-    public final void a(String str, long j2) {
+    public final void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
             if (this.a == null) {
                 this.a = new Bundle();
             }
-            this.a.putLong(str, j2);
+            this.a.putLong(str, j);
         }
     }
 
@@ -244,6 +244,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59182b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43819b : (String) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.lego;
 
 import android.view.View;
-import c.a.r0.z1.o.l.e;
+import c.a.p0.b2.o.l.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,9 +21,9 @@ public class LegoItemHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

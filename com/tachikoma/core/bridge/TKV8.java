@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKV8 extends V8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class TKV8 extends V8 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,13 +52,13 @@ public class TKV8 extends V8 {
     }
 
     @Override // com.kwad.v8.V8
-    public Object callObjectJavaMethod(long j2, V8Object v8Object, V8Array v8Array) {
+    public Object callObjectJavaMethod(long j, V8Object v8Object, V8Array v8Array) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), v8Object, v8Array})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), v8Object, v8Array})) == null) {
             try {
                 this.jsCallJavaStack++;
-                return super.callObjectJavaMethod(j2, v8Object, v8Array);
+                return super.callObjectJavaMethod(j, v8Object, v8Array);
             } finally {
                 this.jsCallJavaStack--;
             }
@@ -67,12 +67,12 @@ public class TKV8 extends V8 {
     }
 
     @Override // com.kwad.v8.V8
-    public void callVoidJavaMethod(long j2, V8Object v8Object, V8Array v8Array) {
+    public void callVoidJavaMethod(long j, V8Object v8Object, V8Array v8Array) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), v8Object, v8Array}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), v8Object, v8Array}) == null) {
             try {
                 this.jsCallJavaStack++;
-                super.callVoidJavaMethod(j2, v8Object, v8Array);
+                super.callVoidJavaMethod(j, v8Object, v8Array);
             } finally {
                 this.jsCallJavaStack--;
             }
@@ -101,9 +101,9 @@ public class TKV8 extends V8 {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

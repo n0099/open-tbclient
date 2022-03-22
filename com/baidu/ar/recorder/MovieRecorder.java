@@ -68,9 +68,9 @@ public class MovieRecorder implements b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {movieRecorder, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -148,9 +148,9 @@ public class MovieRecorder implements b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -171,21 +171,21 @@ public class MovieRecorder implements b {
         }
     }
 
-    public static void P(int i2) {
+    public static void P(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
-            uf = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            uf = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void e(int i2, boolean z) {
+    public synchronized void e(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
                 String str = TAG;
-                com.baidu.ar.h.b.k(str, "checkMovieRecordStartState condition = " + i2 + " && state = " + z);
-                f(i2, z);
+                com.baidu.ar.h.b.k(str, "checkMovieRecordStartState condition = " + i + " && state = " + z);
+                f(i, z);
                 String str2 = TAG;
                 com.baidu.ar.h.b.k(str2, "checkMovieRecordStartState sMovieRecordState = " + uf);
                 if (fE()) {
@@ -195,11 +195,11 @@ public class MovieRecorder implements b {
         }
     }
 
-    private void f(int i2, boolean z) {
+    private void f(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z) {
-                uf = i2 | uf;
+                uf = i | uf;
             }
             this.ug++;
         }
@@ -293,13 +293,13 @@ public class MovieRecorder implements b {
             synchronized (this) {
                 String str = TAG;
                 com.baidu.ar.h.b.k(str, "isMovieRecordStarted sMovieRecordState = " + uf);
-                int i2 = (uf ^ 1) ^ 2;
+                int i = (uf ^ 1) ^ 2;
                 if (this.tW != null) {
                     if (this.tW.isAudioIncluded()) {
-                        i2 ^= 4;
+                        i ^= 4;
                     }
                 }
-                z = i2 == 0;
+                z = i == 0;
             }
             return z;
         }
@@ -394,9 +394,9 @@ public class MovieRecorder implements b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -459,9 +459,9 @@ public class MovieRecorder implements b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -518,9 +518,9 @@ public class MovieRecorder implements b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -554,13 +554,13 @@ public class MovieRecorder implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void g(int i2, boolean z) {
+    public synchronized void g(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
                 String str = TAG;
-                com.baidu.ar.h.b.k(str, "checkMovieRecordStopState condition = " + i2 + " && state = " + z);
-                h(i2, z);
+                com.baidu.ar.h.b.k(str, "checkMovieRecordStopState condition = " + i + " && state = " + z);
+                h(i, z);
                 String str2 = TAG;
                 com.baidu.ar.h.b.k(str2, "checkMovieRecordStopState sMovieRecordState = " + uf);
                 if (fG() && this.ul != null) {
@@ -586,11 +586,11 @@ public class MovieRecorder implements b {
         return (MovieRecorder) invokeV.objValue;
     }
 
-    private void h(int i2, boolean z) {
+    private void h(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65575, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65575, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z) {
-                uf = i2 ^ uf;
+                uf = i ^ uf;
             }
             this.ug--;
         }
@@ -603,15 +603,15 @@ public class MovieRecorder implements b {
         }
     }
 
-    private void s(long j2) {
+    private void s(long j) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65577, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65577, this, j) == null) {
             if (!this.um.fI()) {
-                this.um.t(j2);
+                this.um.t(j);
                 return;
             }
-            int u = this.um.u(j2);
+            int u = this.um.u(j);
             if (u <= 0 || (aVar = this.ul) == null) {
                 return;
             }
@@ -620,11 +620,11 @@ public class MovieRecorder implements b {
     }
 
     @Override // com.baidu.ar.record.b
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
         com.baidu.ar.recorder.a.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
-            this.uq.a(byteBuffer, i2, j2);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
+            this.uq.a(byteBuffer, i, j);
         }
     }
 
@@ -651,12 +651,12 @@ public class MovieRecorder implements b {
     }
 
     @Override // com.baidu.ar.record.b
-    public void onVideoFrameAvailable(long j2) {
+    public void onVideoFrameAvailable(long j) {
         com.baidu.ar.recorder.a.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
-            this.ut.v(j2);
-            s(j2 / 1000000);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
+            this.ut.v(j);
+            s(j / 1000000);
         }
     }
 

@@ -11,7 +11,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.ResourceReleaser;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapCounter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,25 +23,25 @@ public class BitmapCounter {
     public long mSize;
     public final ResourceReleaser<Bitmap> mUnpooledBitmapsReleaser;
 
-    public BitmapCounter(int i2, int i3) {
+    public BitmapCounter(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Preconditions.checkArgument(i > 0);
         Preconditions.checkArgument(i2 > 0);
-        Preconditions.checkArgument(i3 > 0);
-        this.mMaxCount = i2;
-        this.mMaxSize = i3;
+        this.mMaxCount = i;
+        this.mMaxSize = i2;
         this.mUnpooledBitmapsReleaser = new ResourceReleaser<Bitmap>(this) { // from class: com.facebook.imagepipeline.memory.BitmapCounter.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public class BitmapCounter {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -86,9 +86,9 @@ public class BitmapCounter {
             synchronized (this) {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
                 Preconditions.checkArgument(this.mCount > 0, "No bitmaps registered.");
-                long j2 = sizeInBytes;
-                Preconditions.checkArgument(j2 <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
-                this.mSize -= j2;
+                long j = sizeInBytes;
+                Preconditions.checkArgument(j <= this.mSize, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(sizeInBytes), Long.valueOf(this.mSize));
+                this.mSize -= j;
                 this.mCount--;
             }
         }
@@ -96,39 +96,39 @@ public class BitmapCounter {
 
     public synchronized int getCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                i2 = this.mCount;
+                i = this.mCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public synchronized int getMaxCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                i2 = this.mMaxCount;
+                i = this.mMaxCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public synchronized int getMaxSize() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                i2 = this.mMaxSize;
+                i = this.mMaxSize;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -141,13 +141,13 @@ public class BitmapCounter {
 
     public synchronized long getSize() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j2 = this.mSize;
+                j = this.mSize;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -159,10 +159,10 @@ public class BitmapCounter {
             synchronized (this) {
                 int sizeInBytes = BitmapUtil.getSizeInBytes(bitmap);
                 if (this.mCount < this.mMaxCount) {
-                    long j2 = sizeInBytes;
-                    if (this.mSize + j2 <= this.mMaxSize) {
+                    long j = sizeInBytes;
+                    if (this.mSize + j <= this.mMaxSize) {
                         this.mCount++;
-                        this.mSize += j2;
+                        this.mSize += j;
                         return true;
                     }
                 }

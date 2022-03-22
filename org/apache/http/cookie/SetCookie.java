@@ -2,7 +2,7 @@ package org.apache.http.cookie;
 
 import java.util.Date;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface SetCookie extends Cookie {
     void setComment(String str);
 
@@ -16,5 +16,5 @@ public interface SetCookie extends Cookie {
 
     void setValue(String str);
 
-    void setVersion(int i2);
+    void setVersion(int i);
 }

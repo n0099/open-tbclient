@@ -12,29 +12,29 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JsCallJava {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59388b;
+    public String f44014b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59389c;
+    public String f44015c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f59390d;
+    public JSONObject f44016d;
 
     public JsCallJava() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -57,26 +57,26 @@ public class JsCallJava {
             this.a = parse.getHost();
             String path = parse.getPath();
             if (TextUtils.isEmpty(path)) {
-                this.f59388b = "";
+                this.f44014b = "";
             } else {
-                this.f59388b = path.replace("/", "");
+                this.f44014b = path.replace("/", "");
             }
-            this.f59389c = String.valueOf(parse.getPort());
+            this.f44015c = String.valueOf(parse.getPort());
             try {
-                this.f59390d = new JSONObject(parse.getQuery());
+                this.f44016d = new JSONObject(parse.getQuery());
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                this.f59390d = new JSONObject();
+                this.f44016d = new JSONObject();
             }
         }
-        Method findMethod = NativeMethodInjectHelper.getInstance().findMethod(this.a, this.f59388b);
-        JsCallback newInstance = JsCallback.newInstance(webView, this.f59389c);
+        Method findMethod = NativeMethodInjectHelper.getInstance().findMethod(this.a, this.f44014b);
+        JsCallback newInstance = JsCallback.newInstance(webView, this.f44015c);
         if (findMethod == null) {
-            JsCallback.invokeJsCallback(newInstance, false, null, "Method (" + this.f59388b + ") in this class (" + this.a + ") not found!");
+            JsCallback.invokeJsCallback(newInstance, false, null, "Method (" + this.f44014b + ") in this class (" + this.a + ") not found!");
             return;
         }
         try {
-            findMethod.invoke(null, webView, this.f59390d, newInstance);
+            findMethod.invoke(null, webView, this.f44016d, newInstance);
         } catch (IllegalAccessException e3) {
             e3.printStackTrace();
         } catch (InvocationTargetException e4) {

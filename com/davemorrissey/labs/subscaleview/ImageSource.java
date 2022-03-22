@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImageSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_SCHEME = "file:///android_asset/";
@@ -31,9 +31,9 @@ public final class ImageSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -71,10 +71,10 @@ public final class ImageSource {
         return (ImageSource) invokeL.objValue;
     }
 
-    public static ImageSource resource(int i2) {
+    public static ImageSource resource(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new ImageSource(i2) : (ImageSource) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new ImageSource(i) : (ImageSource) invokeI.objValue;
     }
 
     private void setInvariants() {
@@ -106,13 +106,13 @@ public final class ImageSource {
         return (ImageSource) invokeL.objValue;
     }
 
-    public ImageSource dimensions(int i2, int i3) {
+    public ImageSource dimensions(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             if (this.bitmap == null) {
-                this.sWidth = i2;
-                this.sHeight = i3;
+                this.sWidth = i;
+                this.sHeight = i2;
             }
             setInvariants();
             return this;
@@ -214,9 +214,9 @@ public final class ImageSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -228,16 +228,16 @@ public final class ImageSource {
         this.tile = true;
     }
 
-    public ImageSource(int i2) {
+    public ImageSource(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -245,7 +245,7 @@ public final class ImageSource {
         }
         this.bitmap = null;
         this.uri = null;
-        this.resource = Integer.valueOf(i2);
+        this.resource = Integer.valueOf(i);
         this.tile = true;
     }
 }

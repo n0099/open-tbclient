@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
@@ -26,7 +27,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
@@ -38,27 +39,27 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public ViewGroup mWebDownloadContainer;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C2095a getAdClickConfig(boolean z) {
-        return new a.C2095a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
+    public a.C1956a getAdClickConfig(boolean z) {
+        return new a.C1956a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
     }
 
     private void initView() {
-        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.ksad_web_download_progress);
-        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.ksad_web_download_container);
-        final AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
-        if (com.kwad.sdk.core.response.a.a.B(j2)) {
+        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09118e);
+        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09118d);
+        final AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
+        if (com.kwad.sdk.core.response.a.a.B(j)) {
             this.mWebDownloadContainer.setVisibility(0);
             this.mApkDownloadHelper = new com.kwad.sdk.core.download.a.b(this.mAdTemplate, new com.kwad.sdk.core.download.a.c() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.1
                 @Override // com.kwad.sdk.core.download.a.c
-                public void a(int i2) {
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(i2);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.b(i2));
+                public void a(int i) {
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(i);
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.b(i));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onDownloadFailed() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.A(j2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.A(j));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -70,19 +71,19 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onIdle() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.A(j2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.A(j));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
                 public void onInstalled() {
                     AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(100.0f);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.m(j2));
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.m(j));
                 }
 
                 @Override // com.kwad.sdk.api.KsAppDownloadListener
-                public void onProgressUpdate(int i2) {
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(i2);
-                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.a(i2));
+                public void onProgressUpdate(int i) {
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setProgress(i);
+                    AdWebViewVideoActivityProxy.this.mProgressbar.setText(com.kwad.sdk.core.response.a.a.a(i));
                 }
             });
             this.mProgressbar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.2
@@ -94,9 +95,9 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
         } else {
             this.mWebDownloadContainer.setVisibility(8);
         }
-        TextView textView = (TextView) findViewById(R.id.ksad_kwad_titlebar_title);
-        ImageView imageView = (ImageView) findViewById(R.id.ksad_kwad_web_navi_back);
-        ImageView imageView2 = (ImageView) findViewById(R.id.ksad_kwad_web_navi_close);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ac);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ad);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ae);
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
@@ -119,7 +120,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
                 b a = b.a(this.mAdTemplate);
                 this.mFragment = a;
                 a.a(this.mApkDownloadHelper);
-                getSupportFragmentManager().beginTransaction().replace(R.id.ksad_recycler_container, this.mFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c9, this.mFragment).commitAllowingStateLoss();
             }
         }
         textView.setText("详情页面");
@@ -140,7 +141,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
         b a2 = b.a(this.mAdTemplate);
         this.mFragment = a2;
         a2.a(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_recycler_container, this.mFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c9, this.mFragment).commitAllowingStateLoss();
     }
 
     private boolean isFormAdExitInterceptEnable() {
@@ -158,7 +159,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
             return;
         }
         Intent intent = new Intent(context, BaseFragmentActivity.FragmentActivity3.class);
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra(KEY_TEMPLATE, adTemplate);
         intent.putExtra(KEY_REPORTED, adTemplate.mPvReported);
         context.startActivity(intent);
@@ -214,7 +215,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     @Override // com.kwad.sdk.h.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.ksad_activity_ad_video_webview);
+        setContentView(R.layout.obfuscated_res_0x7f0d0416);
         Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
         showingAdWebViewVideoActivity = true;
         if (!(serializableExtra instanceof AdTemplate)) {

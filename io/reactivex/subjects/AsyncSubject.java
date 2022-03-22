@@ -44,9 +44,9 @@ public final class AsyncSubject<T> extends Subject<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, asyncSubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Observer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -106,9 +106,9 @@ public final class AsyncSubject<T> extends Subject<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -219,19 +219,19 @@ public final class AsyncSubject<T> extends Subject<T> {
             }
             T t = this.value;
             AsyncDisposable<T>[] andSet = this.subscribers.getAndSet(asyncDisposableArr2);
-            int i2 = 0;
+            int i = 0;
             if (t == null) {
                 int length = andSet.length;
-                while (i2 < length) {
-                    andSet[i2].onComplete();
-                    i2++;
+                while (i < length) {
+                    andSet[i].onComplete();
+                    i++;
                 }
                 return;
             }
             int length2 = andSet.length;
-            while (i2 < length2) {
-                andSet[i2].complete(t);
-                i2++;
+            while (i < length2) {
+                andSet[i].complete(t);
+                i++;
             }
         }
     }
@@ -288,27 +288,27 @@ public final class AsyncSubject<T> extends Subject<T> {
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (asyncDisposableArr[i3] == asyncDisposable) {
-                        i2 = i3;
+                    } else if (asyncDisposableArr[i2] == asyncDisposable) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     asyncDisposableArr2 = EMPTY;
                 } else {
                     AsyncDisposable[] asyncDisposableArr3 = new AsyncDisposable[length - 1];
-                    System.arraycopy(asyncDisposableArr, 0, asyncDisposableArr3, 0, i2);
-                    System.arraycopy(asyncDisposableArr, i2 + 1, asyncDisposableArr3, i2, (length - i2) - 1);
+                    System.arraycopy(asyncDisposableArr, 0, asyncDisposableArr3, 0, i);
+                    System.arraycopy(asyncDisposableArr, i + 1, asyncDisposableArr3, i, (length - i) - 1);
                     asyncDisposableArr2 = asyncDisposableArr3;
                 }
             } while (!this.subscribers.compareAndSet(asyncDisposableArr, asyncDisposableArr2));

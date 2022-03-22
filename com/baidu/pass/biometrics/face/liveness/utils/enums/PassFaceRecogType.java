@@ -20,12 +20,12 @@ public final class PassFaceRecogType {
     public static final PassFaceRecogType RECOG_TYPE_OUTER;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ PassFaceRecogType[] f36263c;
+    public static final /* synthetic */ PassFaceRecogType[] f28017c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36264b;
+    public int f28018b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,19 +47,19 @@ public final class PassFaceRecogType {
         RECOG_TYPE_OUTER = new PassFaceRecogType("RECOG_TYPE_OUTER", 4, "recog_type_outer", 5);
         PassFaceRecogType passFaceRecogType = new PassFaceRecogType("RECOG_TYPE_FACEIMAGE", 5, "recog_type_facedimage", 6);
         RECOG_TYPE_FACEIMAGE = passFaceRecogType;
-        f36263c = new PassFaceRecogType[]{RECOG_TYPE_BDUSS, RECOG_TYPE_AUTHTOKEN, RECOG_TYPE_CERTINFO, RECOG_TYPE_FACEDETECT, RECOG_TYPE_OUTER, passFaceRecogType};
+        f28017c = new PassFaceRecogType[]{RECOG_TYPE_BDUSS, RECOG_TYPE_AUTHTOKEN, RECOG_TYPE_CERTINFO, RECOG_TYPE_FACEDETECT, RECOG_TYPE_OUTER, passFaceRecogType};
     }
 
-    public PassFaceRecogType(String str, int i2, String str2, int i3) {
+    public PassFaceRecogType(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -69,7 +69,7 @@ public final class PassFaceRecogType {
             }
         }
         this.a = str2;
-        this.f36264b = i3;
+        this.f28018b = i2;
     }
 
     public static PassFaceRecogType valueOf(String str) {
@@ -81,7 +81,7 @@ public final class PassFaceRecogType {
     public static PassFaceRecogType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PassFaceRecogType[]) f36263c.clone() : (PassFaceRecogType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PassFaceRecogType[]) f28017c.clone() : (PassFaceRecogType[]) invokeV.objValue;
     }
 
     public String getRecogTypeName() {
@@ -93,6 +93,6 @@ public final class PassFaceRecogType {
     public int getRecogTypeNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36264b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28018b : invokeV.intValue;
     }
 }

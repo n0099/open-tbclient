@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskDataSet implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<TaskData> DATA_COMPARATOR;
@@ -25,13 +25,13 @@ public class TaskDataSet implements Serializable {
     public Set<TaskData> dataSet;
 
     /* renamed from: com.yy.hiidostatis.inner.implementation.TaskDataSet$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class MyComparator implements Comparator<TaskData>, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 605434724079570979L;
@@ -42,9 +42,9 @@ public class TaskDataSet implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -98,9 +98,9 @@ public class TaskDataSet implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -178,11 +178,11 @@ public class TaskDataSet implements Serializable {
                 Iterator<TaskData> it = this.dataSet.iterator();
                 while (it.hasNext()) {
                     taskData = it.next();
-                    int i2 = nextInt - 1;
+                    int i = nextInt - 1;
                     if (nextInt <= 0) {
                         break;
                     }
-                    nextInt = i2;
+                    nextInt = i;
                 }
             }
             return taskData;

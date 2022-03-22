@@ -50,9 +50,9 @@ public class e extends a {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ByteBuffer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -61,17 +61,17 @@ public class e extends a {
         }
     }
 
-    public void a(int i2, int i3, boolean z, int i4, boolean z2, long j2) {
+    public void a(int i, int i2, boolean z, int i3, boolean z2, long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2), Long.valueOf(j)}) == null) {
             dJ();
             this.or = this.oc.dY();
             if (this.oc.ee() && (algoHandleController = this.or) != null) {
                 this.oh = algoHandleController.createHandle();
-                this.oc.dY().setHandleInput(this.oh, 10, j2, 2, i2, i3, z, i4, z2, this.oe);
+                this.oc.dY().setHandleInput(this.oh, 10, j, 2, i, i2, z, i3, z2, this.oe);
             }
-            this.oq = new FAUImage(this.oe, i2, i3, 2);
+            this.oq = new FAUImage(this.oe, i, i2, 2);
         }
     }
 
@@ -87,9 +87,9 @@ public class e extends a {
             this.ob.setFaceFrame(new FaceFrame());
             AlgoHandleController algoHandleController = this.or;
             if (algoHandleController != null) {
-                long j2 = this.oh;
-                if (j2 > 0) {
-                    algoHandleController.setHandleFaceHandle(j2, this.mf);
+                long j = this.oh;
+                if (j > 0) {
+                    algoHandleController.setHandleFaceHandle(j, this.mf);
                 }
             }
         }

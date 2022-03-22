@@ -17,22 +17,22 @@ public class i extends n<c.b.b.n.k.d, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27123b;
+        public String f22379b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27124c;
+        public String f22380c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b.b.m.a f27125d;
+        public c.b.b.m.a f22381d;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -49,9 +49,9 @@ public class i extends n<c.b.b.n.k.d, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -67,11 +67,11 @@ public class i extends n<c.b.b.n.k.d, a> {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
-            if (aVar2 == null || aVar2.f27123b == null) {
+            if (aVar2 == null || aVar2.f22379b == null) {
                 return null;
             }
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            aVar3.a(new c.b.b.j.a(aVar2.f27123b, c.b.b.n.k.h.class));
+            aVar3.a(new c.b.b.j.a(aVar2.f22379b, c.b.b.n.k.h.class));
             return aVar3;
         }
         return (c.b.b.q.a) invokeLLL.objValue;
@@ -87,9 +87,9 @@ public class i extends n<c.b.b.n.k.d, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, eVar, str, aVar, aVar2)) == null) {
             c.b.b.n.k.d dVar = new c.b.b.n.k.d();
-            if (aVar2 != null && (str2 = aVar2.f27123b) != null) {
-                dVar.f(aVar, (c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class), aVar2.f27124c);
-            } else if (aVar2 != null && (aVar3 = aVar2.f27125d) != null) {
+            if (aVar2 != null && (str2 = aVar2.f22379b) != null) {
+                dVar.f(aVar, (c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class), aVar2.f22380c);
+            } else if (aVar2 != null && (aVar3 = aVar2.f22381d) != null) {
                 dVar.a(aVar, aVar3);
             } else {
                 dVar.a(aVar, aVar.i());

@@ -7,6 +7,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -127,7 +128,7 @@ public final class a {
                         Object invoke = declaredMethod4.invoke(null, (IBinder) declaredMethod3.invoke(null, "lock_settings"));
                         boolean z = Process.myUid() == 1000;
                         if (hashSet2.contains(str) && invoke != null && !z) {
-                            return (String) invoke.getClass().getDeclaredMethod("getString", String.class, String.class, Integer.TYPE).invoke(str, "0", Integer.valueOf(intValue));
+                            return (String) invoke.getClass().getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_STRING, String.class, String.class, Integer.TYPE).invoke(str, "0", Integer.valueOf(intValue));
                         }
                     }
                 }

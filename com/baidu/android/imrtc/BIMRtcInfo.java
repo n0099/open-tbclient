@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMRtcInfo implements Parcelable {
@@ -52,9 +51,9 @@ public class BIMRtcInfo implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -73,10 +72,10 @@ public class BIMRtcInfo implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public BIMRtcInfo[] newArray(int i2) {
+            public BIMRtcInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BIMRtcInfo[i2] : (BIMRtcInfo[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BIMRtcInfo[i] : (BIMRtcInfo[]) invokeI.objValue;
             }
         };
     }
@@ -86,9 +85,9 @@ public class BIMRtcInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -144,10 +143,10 @@ public class BIMRtcInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mSource : (String) invokeV.objValue;
     }
 
-    public void setAction(int i2) {
+    public void setAction(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mAction = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mAction = i;
         }
     }
 
@@ -172,10 +171,10 @@ public class BIMRtcInfo implements Parcelable {
         }
     }
 
-    public void setSeq(long j2) {
+    public void setSeq(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mSeq = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mSeq = j;
         }
     }
 
@@ -187,14 +186,14 @@ public class BIMRtcInfo implements Parcelable {
     }
 
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i2, str, str2)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, str, str2)) == null) {
             BIMRtcInfo bIMRtcInfo = new BIMRtcInfo();
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                bIMRtcInfo.setAction(i2);
+                bIMRtcInfo.setAction(i);
                 bIMRtcInfo.setRtcRoomId(str);
                 bIMRtcInfo.setRtcExt(jSONObject.optString("ext"));
                 bIMRtcInfo.setRtcDeviceId(jSONObject.optString("rtc_device_id"));
@@ -239,15 +238,15 @@ public class BIMRtcInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "BIMRtcInfo{mAction=" + this.mAction + ", mRtcRoomId='" + this.mRtcRoomId + ExtendedMessageFormat.QUOTE + ", mSeq=" + this.mSeq + ", mCuid='" + this.mCuid + ExtendedMessageFormat.QUOTE + ", mRtcExt='" + this.mRtcExt + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "BIMRtcInfo{mAction=" + this.mAction + ", mRtcRoomId='" + this.mRtcRoomId + "', mSeq=" + this.mSeq + ", mCuid='" + this.mCuid + "', mRtcExt='" + this.mRtcExt + "'}";
         }
         return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048592, this, parcel, i) == null) {
             parcel.writeInt(this.mAction);
             parcel.writeString(this.mRtcRoomId);
             parcel.writeLong(this.mSeq);
@@ -263,9 +262,9 @@ public class BIMRtcInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -283,9 +282,9 @@ public class BIMRtcInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

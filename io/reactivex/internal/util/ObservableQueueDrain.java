@@ -13,5 +13,5 @@ public interface ObservableQueueDrain<T, U> {
 
     Throwable error();
 
-    int leave(int i2);
+    int leave(int i);
 }

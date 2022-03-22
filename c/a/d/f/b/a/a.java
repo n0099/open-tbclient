@@ -67,41 +67,41 @@ public class a {
                         if (parameterTypes != null || objArr != null) {
                             if (parameterTypes != null && objArr != null && parameterTypes.length == objArr.length) {
                                 boolean z = true;
-                                for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                                    if (parameterTypes[i2].isPrimitive()) {
-                                        if (parameterTypes[i2] == Integer.TYPE) {
-                                            if (objArr[i2].getClass() == Integer.class) {
+                                for (int i = 0; i < parameterTypes.length; i++) {
+                                    if (parameterTypes[i].isPrimitive()) {
+                                        if (parameterTypes[i] == Integer.TYPE) {
+                                            if (objArr[i].getClass() == Integer.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Short.TYPE) {
-                                            if (objArr[i2].getClass() == Short.class) {
+                                        if (parameterTypes[i] == Short.TYPE) {
+                                            if (objArr[i].getClass() == Short.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Long.TYPE) {
-                                            if (objArr[i2].getClass() == Long.class) {
+                                        if (parameterTypes[i] == Long.TYPE) {
+                                            if (objArr[i].getClass() == Long.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Float.TYPE) {
-                                            if (objArr[i2].getClass() == Float.class) {
+                                        if (parameterTypes[i] == Float.TYPE) {
+                                            if (objArr[i].getClass() == Float.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Double.TYPE) {
-                                            if (objArr[i2].getClass() == Double.class) {
+                                        if (parameterTypes[i] == Double.TYPE) {
+                                            if (objArr[i].getClass() == Double.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Boolean.TYPE) {
-                                            if (objArr[i2].getClass() == Boolean.class) {
+                                        if (parameterTypes[i] == Boolean.TYPE) {
+                                            if (objArr[i].getClass() == Boolean.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Byte.TYPE) {
-                                            if (objArr[i2].getClass() == Byte.class) {
+                                        if (parameterTypes[i] == Byte.TYPE) {
+                                            if (objArr[i].getClass() == Byte.class) {
                                             }
                                         }
-                                        if (parameterTypes[i2] == Character.TYPE && objArr[i2].getClass() == Character.class) {
+                                        if (parameterTypes[i] == Character.TYPE && objArr[i].getClass() == Character.class) {
                                         }
                                         z = false;
                                     } else {
-                                        if (objArr[i2].getClass() == parameterTypes[i2]) {
+                                        if (objArr[i].getClass() == parameterTypes[i]) {
                                         }
                                         z = false;
                                     }
@@ -199,11 +199,11 @@ public class a {
         return invokeL.objValue;
     }
 
-    public static final Object g(Class<?> cls, int i2) {
+    public static final Object g(Class<?> cls, int i) {
         InterceptResult invokeLI;
         Object newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i)) == null) {
             try {
                 Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
                 if (declaredConstructors.length != 1) {
@@ -211,7 +211,7 @@ public class a {
                         constructor.setAccessible(true);
                         if (constructor.getParameterTypes().length == 1) {
                             constructor.setAccessible(true);
-                            newInstance = constructor.newInstance(Integer.valueOf(i2));
+                            newInstance = constructor.newInstance(Integer.valueOf(i));
                         }
                     }
                     return null;
@@ -221,7 +221,7 @@ public class a {
                     return null;
                 }
                 constructor2.setAccessible(true);
-                newInstance = constructor2.newInstance(Integer.valueOf(i2));
+                newInstance = constructor2.newInstance(Integer.valueOf(i));
                 return newInstance;
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();

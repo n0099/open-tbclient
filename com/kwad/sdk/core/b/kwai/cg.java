@@ -58,9 +58,9 @@ public class cg implements com.kwad.sdk.core.d<LiveInfo> {
         liveInfo.cover_thumbnail_urls = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("cover_thumbnail_urls");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 LiveInfo.CoverThumbnailUrl coverThumbnailUrl = new LiveInfo.CoverThumbnailUrl();
-                coverThumbnailUrl.parseJson(optJSONArray.optJSONObject(i2));
+                coverThumbnailUrl.parseJson(optJSONArray.optJSONObject(i));
                 liveInfo.cover_thumbnail_urls.add(coverThumbnailUrl);
             }
         }
@@ -71,9 +71,9 @@ public class cg implements com.kwad.sdk.core.d<LiveInfo> {
         liveInfo.liveStreamPlayCdnList = new ArrayList();
         JSONArray optJSONArray2 = jSONObject.optJSONArray("liveStreamPlayCdnList");
         if (optJSONArray2 != null) {
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 LiveInfo.LiveStreamPlayCDNNode liveStreamPlayCDNNode = new LiveInfo.LiveStreamPlayCDNNode();
-                liveStreamPlayCDNNode.parseJson(optJSONArray2.optJSONObject(i3));
+                liveStreamPlayCDNNode.parseJson(optJSONArray2.optJSONObject(i2));
                 liveInfo.liveStreamPlayCdnList.add(liveStreamPlayCDNNode);
             }
         }

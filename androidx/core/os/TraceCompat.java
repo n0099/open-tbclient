@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.Trace;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -36,8 +37,8 @@ public final class TraceCompat {
                 return;
             }
         }
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 < 18 || i2 >= 29) {
+        int i = Build.VERSION.SDK_INT;
+        if (i < 18 || i >= 29) {
             return;
         }
         try {
@@ -46,7 +47,8 @@ public final class TraceCompat {
             sAsyncTraceBeginMethod = Trace.class.getMethod("asyncTraceBegin", Long.TYPE, String.class, Integer.TYPE);
             sAsyncTraceEndMethod = Trace.class.getMethod("asyncTraceEnd", Long.TYPE, String.class, Integer.TYPE);
             sTraceCounterMethod = Trace.class.getMethod("traceCounter", Long.TYPE, String.class, Integer.TYPE);
-        } catch (Exception unused) {
+        } catch (Exception e2) {
+            Log.i(TAG, "Unable to initialize via reflection.", e2);
         }
     }
 
@@ -55,25 +57,26 @@ public final class TraceCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void beginAsyncSection(@NonNull String str, int i2) {
+    public static void beginAsyncSection(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, str, i2) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 29) {
-                Trace.beginAsyncSection(str, i2);
-            } else if (i3 >= 18) {
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 29) {
+                Trace.beginAsyncSection(str, i);
+            } else if (i2 >= 18) {
                 try {
-                    sAsyncTraceBeginMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
+                    sAsyncTraceBeginMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i));
                 } catch (Exception unused) {
+                    Log.v(TAG, "Unable to invoke asyncTraceBegin() via reflection.");
                 }
             }
         }
@@ -87,16 +90,17 @@ public final class TraceCompat {
         Trace.beginSection(str);
     }
 
-    public static void endAsyncSection(@NonNull String str, int i2) {
+    public static void endAsyncSection(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 29) {
-                Trace.endAsyncSection(str, i2);
-            } else if (i3 >= 18) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 29) {
+                Trace.endAsyncSection(str, i);
+            } else if (i2 >= 18) {
                 try {
-                    sAsyncTraceEndMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
+                    sAsyncTraceEndMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i));
                 } catch (Exception unused) {
+                    Log.v(TAG, "Unable to invoke endAsyncSection() via reflection.");
                 }
             }
         }
@@ -114,14 +118,15 @@ public final class TraceCompat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 29) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
                 return Trace.isEnabled();
             }
-            if (i2 >= 18) {
+            if (i >= 18) {
                 try {
                     return ((Boolean) sIsTagEnabledMethod.invoke(null, Long.valueOf(sTraceTagApp))).booleanValue();
                 } catch (Exception unused) {
+                    Log.v(TAG, "Unable to invoke isTagEnabled() via reflection.");
                 }
             }
             return false;
@@ -129,16 +134,17 @@ public final class TraceCompat {
         return invokeV.booleanValue;
     }
 
-    public static void setCounter(@NonNull String str, int i2) {
+    public static void setCounter(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, str, i2) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 29) {
-                Trace.setCounter(str, i2);
-            } else if (i3 >= 18) {
+        if (interceptable == null || interceptable.invokeLI(65543, null, str, i) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 29) {
+                Trace.setCounter(str, i);
+            } else if (i2 >= 18) {
                 try {
-                    sTraceCounterMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
+                    sTraceCounterMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i));
                 } catch (Exception unused) {
+                    Log.v(TAG, "Unable to invoke traceCounter() via reflection.");
                 }
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SVProgressHUDAnimateUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID = -1;
@@ -17,27 +17,27 @@ public class SVProgressHUDAnimateUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getAnimationResource(int i2, boolean z) {
+    public static int getAnimationResource(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 17) {
-                return z ? R.anim.svfade_in_center : R.anim.svfade_out_center;
-            } else if (i2 == 48) {
-                return z ? R.anim.svslide_in_top : R.anim.svslide_out_top;
-            } else if (i2 != 80) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i == 17) {
+                return z ? R.anim.obfuscated_res_0x7f010120 : R.anim.obfuscated_res_0x7f010121;
+            } else if (i == 48) {
+                return z ? R.anim.obfuscated_res_0x7f010123 : R.anim.obfuscated_res_0x7f010125;
+            } else if (i != 80) {
                 return -1;
             } else {
-                return z ? R.anim.svslide_in_bottom : R.anim.svslide_out_bottom;
+                return z ? R.anim.obfuscated_res_0x7f010122 : R.anim.obfuscated_res_0x7f010124;
             }
         }
         return invokeCommon.intValue;

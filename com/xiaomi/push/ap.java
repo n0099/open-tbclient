@@ -15,34 +15,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f123a;
+    public volatile int f99a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f124a;
+    public Context f100a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f125a;
+    public ServiceConnection f101a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f126a;
+    public final Object f102a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile String f127a;
+    public volatile String f103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f59472b;
+    public volatile String f44091b;
 
     /* renamed from: b  reason: collision with other field name */
-    public volatile boolean f128b;
+    public volatile boolean f104b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class ap implements ar {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {apVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,31 +76,31 @@ public class ap implements ar {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.a.f127a = b.a(iBinder);
-                    this.a.f128b = b.m213a(iBinder);
+                    this.a.f103a = b.a(iBinder);
+                    this.a.f104b = b.m192a(iBinder);
                     this.a.b();
-                    this.a.f123a = 2;
-                    synchronized (this.a.f126a) {
+                    this.a.f99a = 2;
+                    synchronized (this.a.f102a) {
                         try {
-                            this.a.f126a.notifyAll();
+                            this.a.f102a.notifyAll();
                         } catch (Exception unused) {
                         }
                     }
                 } catch (Exception unused2) {
                     this.a.b();
-                    this.a.f123a = 2;
-                    synchronized (this.a.f126a) {
+                    this.a.f99a = 2;
+                    synchronized (this.a.f102a) {
                         try {
-                            this.a.f126a.notifyAll();
+                            this.a.f102a.notifyAll();
                         } catch (Exception unused3) {
                         }
                     }
                 } catch (Throwable th) {
                     this.a.b();
-                    this.a.f123a = 2;
-                    synchronized (this.a.f126a) {
+                    this.a.f99a = 2;
+                    synchronized (this.a.f102a) {
                         try {
-                            this.a.f126a.notifyAll();
+                            this.a.f102a.notifyAll();
                         } catch (Exception unused4) {
                         }
                         throw th;
@@ -117,7 +117,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m213a(IBinder iBinder) {
+        public static boolean m192a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -169,20 +169,20 @@ public class ap implements ar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f123a = 0;
-        this.f127a = null;
-        this.f128b = false;
-        this.f59472b = null;
-        this.f126a = new Object();
-        this.f124a = context;
+        this.f99a = 0;
+        this.f103a = null;
+        this.f104b = false;
+        this.f44091b = null;
+        this.f102a = new Object();
+        this.f100a = context;
         a();
     }
 
@@ -226,25 +226,25 @@ public class ap implements ar {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f125a = new a(this, null);
+            this.f101a = new a(this, null);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
             try {
-                z = this.f124a.bindService(intent, this.f125a, 1);
+                z = this.f100a.bindService(intent, this.f101a, 1);
             } catch (Exception unused) {
                 z = false;
             }
-            this.f123a = z ? 1 : 2;
+            this.f99a = z ? 1 : 2;
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f123a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
-            synchronized (this.f126a) {
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f99a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f102a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("huawei's " + str + " wait...");
-                    this.f126a.wait(3000L);
+                    com.xiaomi.channel.commonutils.logger.b.m112a("huawei's " + str + " wait...");
+                    this.f102a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -252,7 +252,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m211a(Context context) {
+    public static boolean m190a(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -272,11 +272,11 @@ public class ap implements ar {
     public void b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (serviceConnection = this.f125a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (serviceConnection = this.f101a) == null) {
             return;
         }
         try {
-            this.f124a.unbindService(serviceConnection);
+            this.f100a.unbindService(serviceConnection);
         } catch (Exception unused) {
         }
     }
@@ -300,12 +300,12 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo212b() {
+    public String mo191b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             a("getOAID");
-            return this.f127a;
+            return this.f103a;
         }
         return (String) invokeV.objValue;
     }
@@ -325,14 +325,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f59472b == null) {
+            if (this.f44091b == null) {
                 synchronized (this) {
-                    if (this.f59472b == null) {
-                        this.f59472b = a(this.f124a);
+                    if (this.f44091b == null) {
+                        this.f44091b = a(this.f100a);
                     }
                 }
             }
-            return this.f59472b;
+            return this.f44091b;
         }
         return (String) invokeV.objValue;
     }

@@ -5,18 +5,18 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a(String str) {
         try {
             byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
             StringBuffer stringBuffer = new StringBuffer();
             for (byte b2 : digest) {
-                int i2 = b2 & 255;
-                if (i2 < 16) {
+                int i = b2 & 255;
+                if (i < 16) {
                     stringBuffer.append(0);
                 }
-                stringBuffer.append(Integer.toHexString(i2));
+                stringBuffer.append(Integer.toHexString(i));
             }
             return stringBuffer.toString();
         } catch (NoSuchAlgorithmException e2) {

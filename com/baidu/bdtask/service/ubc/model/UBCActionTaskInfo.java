@@ -16,7 +16,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u00122\u00020\u0001:\u0001\u0012B'\u0012\u0006\u0010\t\u001a\u00020\b\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\f\u001a\u00020\u000b\u0012\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\t\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\t\u0010\nR\u0016\u0010\f\u001a\u00020\u000b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\r¨\u0006\u0013"}, d2 = {"Lcom/baidu/bdtask/service/ubc/model/UBCActionTaskInfo;", "Lcom/baidu/bdtask/service/ubc/model/UBCTaskStatusInfo;", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "duplicateId", "Ljava/lang/String;", "", "duration", "J", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "taskInfoStatus", "<init>", "(JLjava/lang/String;Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
@@ -25,7 +25,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
     public final long duration;
     public final TaskInfo taskInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,19 +35,19 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public final UBCActionTaskInfo a(long j2, String str, TaskInfo taskInfo, TaskStatus taskStatus) {
+        public final UBCActionTaskInfo a(long j, String str, TaskInfo taskInfo, TaskStatus taskStatus) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), str, taskInfo, taskStatus})) == null) ? new UBCActionTaskInfo(j2, str, taskInfo, taskStatus) : (UBCActionTaskInfo) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, taskInfo, taskStatus})) == null) ? new UBCActionTaskInfo(j, str, taskInfo, taskStatus) : (UBCActionTaskInfo) invokeCommon.objValue;
         }
 
         public final UBCActionTaskInfo b(String str, TaskInfo taskInfo, TaskStatus taskStatus) {
@@ -78,17 +78,17 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UBCActionTaskInfo(long j2, String str, TaskInfo taskInfo, TaskStatus taskStatus) {
+    public UBCActionTaskInfo(long j, String str, TaskInfo taskInfo, TaskStatus taskStatus) {
         super(taskInfo, taskStatus, 0, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), str, taskInfo, taskStatus};
+            Object[] objArr = {Long.valueOf(j), str, taskInfo, taskStatus};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TaskInfo) objArr2[0], (TaskStatus) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -96,7 +96,7 @@ public final class UBCActionTaskInfo extends UBCTaskStatusInfo {
                 return;
             }
         }
-        this.duration = j2;
+        this.duration = j;
         this.duplicateId = str;
         this.taskInfo = taskInfo;
     }

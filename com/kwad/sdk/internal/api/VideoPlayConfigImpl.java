@@ -1,7 +1,7 @@
 package com.kwad.sdk.internal.api;
 
 import com.kwad.sdk.api.KsVideoPlayConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VideoPlayConfigImpl implements KsVideoPlayConfig {
     public static final long serialVersionUID = -7203854889686049813L;
     public boolean showLandscape;

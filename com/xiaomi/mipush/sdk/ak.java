@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ak implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f67a;
+    public final /* synthetic */ Intent f43a;
 
     public ak(Context context, Intent intent) {
         Interceptable interceptable = $ic;
@@ -22,23 +22,23 @@ public final class ak implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, intent};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f67a = intent;
+        this.f43a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PushMessageHandler.b(this.a, this.f67a);
+            PushMessageHandler.b(this.a, this.f43a);
         }
     }
 }

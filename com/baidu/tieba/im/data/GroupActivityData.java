@@ -31,9 +31,9 @@ public class GroupActivityData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -112,10 +112,10 @@ public class GroupActivityData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.gActivityTitle : (String) invokeV.objValue;
     }
 
-    public void setActivityId(int i2) {
+    public void setActivityId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.activityId = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.activityId = i;
         }
     }
 
@@ -126,10 +126,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.groupId = j;
         }
     }
 
@@ -140,10 +140,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setIsEnd(int i2) {
+    public void setIsEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.isEnd = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.isEnd = i;
         }
     }
 
@@ -154,10 +154,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.userId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.userId = j;
         }
     }
 
@@ -182,10 +182,10 @@ public class GroupActivityData implements Serializable {
         }
     }
 
-    public void setgActivityTime(long j2) {
+    public void setgActivityTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.gActivityTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.gActivityTime = j;
         }
     }
 

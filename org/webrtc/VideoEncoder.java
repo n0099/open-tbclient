@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class BitrateAllocation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public interface VideoEncoder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,24 +44,24 @@ public interface VideoEncoder {
             int[][] iArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = 0;
+                int i = 0;
                 for (int[] iArr2 : this.bitratesBbs) {
-                    for (int i3 : iArr2) {
-                        i2 += i3;
+                    for (int i2 : iArr2) {
+                        i += i2;
                     }
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,9 +71,9 @@ public interface VideoEncoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -81,7 +81,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public interface VideoEncoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -101,7 +101,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +111,9 @@ public interface VideoEncoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -121,7 +121,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,9 +131,9 @@ public interface VideoEncoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -141,7 +141,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class EncodeInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,9 +155,9 @@ public interface VideoEncoder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frameTypeArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -167,7 +167,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,27 +180,27 @@ public interface VideoEncoder {
         public final int width;
 
         @CalledByNative("Settings")
-        public Settings(int i2, int i3, int i4, int i5, int i6, int i7, boolean z) {
+        public Settings(int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i8 = newInitContext.flag;
-                if ((i8 & 1) != 0) {
-                    int i9 = i8 & 2;
+                int i7 = newInitContext.flag;
+                if ((i7 & 1) != 0) {
+                    int i8 = i7 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.numberOfCores = i2;
-            this.width = i3;
-            this.height = i4;
-            this.startBitrate = i5;
-            this.maxFramerate = i6;
-            this.numberOfSimulcastStreams = i7;
+            this.numberOfCores = i;
+            this.width = i2;
+            this.height = i3;
+            this.startBitrate = i4;
+            this.maxFramerate = i5;
+            this.numberOfSimulcastStreams = i6;
             this.automaticResizeOn = z;
         }
     }
@@ -227,9 +227,9 @@ public interface VideoEncoder {
     VideoCodecStatus release();
 
     @CalledByNative
-    VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i2);
+    VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ScalingSettings {
         public static /* synthetic */ Interceptable $ic;
         public static final ScalingSettings OFF;
@@ -256,24 +256,24 @@ public interface VideoEncoder {
             OFF = new ScalingSettings();
         }
 
-        public ScalingSettings(int i2, int i3) {
+        public ScalingSettings(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
             this.on = true;
-            this.low = Integer.valueOf(i2);
-            this.high = Integer.valueOf(i3);
+            this.low = Integer.valueOf(i);
+            this.high = Integer.valueOf(i2);
         }
 
         public String toString() {
@@ -293,9 +293,9 @@ public interface VideoEncoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -314,9 +314,9 @@ public interface VideoEncoder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;
@@ -328,24 +328,24 @@ public interface VideoEncoder {
         }
 
         @Deprecated
-        public ScalingSettings(boolean z, int i2, int i3) {
+        public ScalingSettings(boolean z, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
             this.on = z;
-            this.low = Integer.valueOf(i2);
-            this.high = Integer.valueOf(i3);
+            this.low = Integer.valueOf(i);
+            this.high = Integer.valueOf(i2);
         }
     }
 }

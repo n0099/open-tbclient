@@ -46,16 +46,16 @@ public final class MaterialLoadErrorCode {
         $VALUES = new MaterialLoadErrorCode[]{ERROR_CODE_REQUEST_ERROR, ERROR_CODE_URL_NULL, ERROR_CODE_VIEW_NULL, ERROR_CODE_PARSE_ERROR, ERROR_CODE_TYPE_ERROR, materialLoadErrorCode};
     }
 
-    public MaterialLoadErrorCode(String str, int i2, int i3, String str2) {
+    public MaterialLoadErrorCode(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -64,7 +64,7 @@ public final class MaterialLoadErrorCode {
                 return;
             }
         }
-        this.code = i3;
+        this.code = i2;
         this.msg = str2;
     }
 

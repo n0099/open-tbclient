@@ -7,7 +7,7 @@ import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";
@@ -20,8 +20,8 @@ public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Ser
     public URLPackage() {
     }
 
-    public URLPackage(@NonNull String str, int i2) {
-        this.page = i2;
+    public URLPackage(@NonNull String str, int i) {
+        this.page = i;
         this.identity = str;
     }
 
@@ -51,10 +51,10 @@ public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Ser
         }
     }
 
-    public void putParams(String str, long j2) {
+    public void putParams(String str, long j) {
         if (this.mJsonObjectParams == null) {
             this.mJsonObjectParams = new JSONObject();
         }
-        t.a(this.mJsonObjectParams, str, j2);
+        t.a(this.mJsonObjectParams, str, j);
     }
 }

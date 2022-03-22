@@ -34,9 +34,9 @@ public class TitleBarView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,11 +49,11 @@ public class TitleBarView extends RelativeLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_address_title_bar, (ViewGroup) this, true);
-            this.leftBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_btn);
-            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.sapi_sdk_titlebar_left_back_btn);
-            this.titleTv = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_title_tv);
-            this.rightBtn = (TextView) inflate.findViewById(R.id.sapi_sdk_titlebar_right_btn);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04b9, (ViewGroup) this, true);
+            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd4);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd3);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd6);
+            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd5);
         }
     }
 
@@ -61,10 +61,10 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.isDarkMode = true;
-            setBackgroundResource(R.drawable.sapi_sdk_title_bar_dark_bg);
-            this.leftBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_title_bar_left_text_dark_color));
-            this.titleTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_title_bar_text_dark_color));
-            this.rightBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_title_bar_right_text_dark_color));
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f081069);
+            this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06095d));
+            this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060963));
+            this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060960));
         }
     }
 
@@ -107,9 +107,9 @@ public class TitleBarView extends RelativeLayout {
             if (this.isDarkMode) {
                 TextView textView = this.rightBtn;
                 if (z) {
-                    color = getResources().getColor(R.color.sapi_sdk_addr_list_title_bar_right_text_dark_color_enable);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f060961);
                 } else {
-                    color = getResources().getColor(R.color.sapi_sdk_addr_list_title_bar_right_text_dark_color);
+                    color = getResources().getColor(R.color.obfuscated_res_0x7f060960);
                 }
                 textView.setTextColor(color);
             }
@@ -132,9 +132,9 @@ public class TitleBarView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -146,17 +146,17 @@ public class TitleBarView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TitleBarView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TitleBarView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

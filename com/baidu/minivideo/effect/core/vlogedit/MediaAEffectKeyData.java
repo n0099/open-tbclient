@@ -34,9 +34,9 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -55,10 +55,10 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaAEffectKeyData[] newArray(int i2) {
+        public MediaAEffectKeyData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new MediaAEffectKeyData[i2] : (MediaAEffectKeyData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaAEffectKeyData[i] : (MediaAEffectKeyData[]) invokeI.objValue;
         }
     }
 
@@ -83,9 +83,9 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -105,9 +105,9 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.type);
             parcel.writeString(this.keyMode);
             parcel.writeStringList(this.effectConfigKeys);
@@ -120,7 +120,7 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public MediaAEffectKeyData m36clone() {
+    public MediaAEffectKeyData m34clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -141,9 +141,9 @@ public class MediaAEffectKeyData implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

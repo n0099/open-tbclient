@@ -45,17 +45,17 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EqualCoordinator(Subscriber<? super Boolean> subscriber, int i2, BiPredicate<? super T, ? super T> biPredicate) {
+        public EqualCoordinator(Subscriber<? super Boolean> subscriber, int i, BiPredicate<? super T, ? super T> biPredicate) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), biPredicate};
+                Object[] objArr = {subscriber, Integer.valueOf(i), biPredicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -64,8 +64,8 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             }
             this.comparer = biPredicate;
             this.wip = new AtomicInteger();
-            this.first = new EqualSubscriber<>(this, i2);
-            this.second = new EqualSubscriber<>(this, i2);
+            this.first = new EqualSubscriber<>(this, i);
+            this.second = new EqualSubscriber<>(this, i);
             this.error = new AtomicThrowable();
         }
 
@@ -97,7 +97,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         public void drain() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.wip.getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 do {
                     SimpleQueue<T> simpleQueue = this.first.queue;
                     SimpleQueue<T> simpleQueue2 = this.second.queue;
@@ -177,8 +177,8 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
                         this.actual.onError(this.error.terminate());
                         return;
                     }
-                    i2 = this.wip.addAndGet(-i2);
-                } while (i2 != 0);
+                    i = this.wip.addAndGet(-i);
+                } while (i != 0);
             }
         }
 
@@ -223,24 +223,24 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         public volatile SimpleQueue<T> queue;
         public int sourceMode;
 
-        public EqualSubscriber(EqualCoordinatorHelper equalCoordinatorHelper, int i2) {
+        public EqualSubscriber(EqualCoordinatorHelper equalCoordinatorHelper, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {equalCoordinatorHelper, Integer.valueOf(i2)};
+                Object[] objArr = {equalCoordinatorHelper, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = equalCoordinatorHelper;
-            this.limit = i2 - (i2 >> 2);
-            this.prefetch = i2;
+            this.limit = i - (i >> 2);
+            this.prefetch = i;
         }
 
         public void cancel() {
@@ -318,26 +318,26 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
             if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.sourceMode == 1) {
                 return;
             }
-            long j2 = this.produced + 1;
-            if (j2 >= this.limit) {
+            long j = this.produced + 1;
+            if (j >= this.limit) {
                 this.produced = 0L;
-                get().request(j2);
+                get().request(j);
                 return;
             }
-            this.produced = j2;
+            this.produced = j;
         }
     }
 
-    public FlowableSequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i2) {
+    public FlowableSequenceEqual(Publisher<? extends T> publisher, Publisher<? extends T> publisher2, BiPredicate<? super T, ? super T> biPredicate, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, publisher2, biPredicate, Integer.valueOf(i2)};
+            Object[] objArr = {publisher, publisher2, biPredicate, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -346,7 +346,7 @@ public final class FlowableSequenceEqual<T> extends Flowable<Boolean> {
         this.first = publisher;
         this.second = publisher2;
         this.comparer = biPredicate;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Flowable

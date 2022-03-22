@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt;
 
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public enum FilterType {
     FILTER_NONE(0),
     FILTER_SUB(1),
@@ -29,8 +29,8 @@ public enum FilterType {
         }
     }
 
-    FilterType(int i2) {
-        this.val = i2;
+    FilterType(int i) {
+        this.val = i;
     }
 
     public static FilterType[] getAllStandard() {
@@ -49,17 +49,17 @@ public enum FilterType {
         return new FilterType[]{FILTER_SUB, FILTER_UP, FILTER_AVERAGE, FILTER_PAETH, FILTER_NONE};
     }
 
-    public static FilterType getByVal(int i2) {
-        return byVal.get(Integer.valueOf(i2));
+    public static FilterType getByVal(int i) {
+        return byVal.get(Integer.valueOf(i));
     }
 
     public static boolean isAdaptive(FilterType filterType) {
-        int i2 = filterType.val;
-        return i2 <= -2 && i2 >= -4;
+        int i = filterType.val;
+        return i <= -2 && i >= -4;
     }
 
-    public static boolean isValidStandard(int i2) {
-        return i2 >= 0 && i2 <= 4;
+    public static boolean isValidStandard(int i) {
+        return i >= 0 && i <= 4;
     }
 
     public static boolean isValidStandard(FilterType filterType) {

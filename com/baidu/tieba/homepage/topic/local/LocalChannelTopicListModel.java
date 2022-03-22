@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.local;
 
 import c.a.d.a.f;
-import c.a.r0.o1.l.a.c.c;
+import c.a.p0.q1.l.a.c.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -18,12 +18,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f43182e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f43183f;
+    /* renamed from: b  reason: collision with root package name */
+    public final HttpMessageListener f33520b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -32,17 +30,17 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         public final /* synthetic */ LocalChannelTopicListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(LocalChannelTopicListModel localChannelTopicListModel, int i2) {
-            super(i2);
+        public a(LocalChannelTopicListModel localChannelTopicListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {localChannelTopicListModel, Integer.valueOf(i2)};
+                Object[] objArr = {localChannelTopicListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -58,15 +56,15 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof LocalChannelTopicListResponseMessage)) {
                 if (httpResponsedMessage.getError() != 0) {
-                    if (this.a.f43182e != null) {
-                        this.a.f43182e.onFail(httpResponsedMessage.getErrorString());
+                    if (this.a.a != null) {
+                        this.a.a.onFail(httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 c cVar = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
-                if (this.a.f43182e != null) {
-                    this.a.f43182e.a(cVar);
+                if (this.a.a != null) {
+                    this.a.a.a(cVar);
                 }
             }
         }
@@ -88,9 +86,9 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -98,7 +96,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_LOCAL_CHANNEL_TOPIC_LIST);
-        this.f43183f = aVar;
+        this.f33520b = aVar;
         registerListener(aVar);
     }
 
@@ -123,10 +121,10 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         return invokeV.booleanValue;
     }
 
-    public void x(b bVar) {
+    public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f43182e = bVar;
+            this.a = bVar;
         }
     }
 }

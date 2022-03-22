@@ -1,6 +1,7 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,23 +15,23 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PublicKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f57703b;
+    public final boolean f42477b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class C2172a {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class C2033a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -59,9 +60,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,10 +74,10 @@ public class a {
         } catch (Throwable unused) {
             z = false;
         }
-        this.f57703b = z;
+        this.f42477b = z;
     }
 
-    public /* synthetic */ a(C2172a c2172a) {
+    public /* synthetic */ a(C2033a c2033a) {
         this();
     }
 
@@ -91,7 +92,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             try {
-                return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥数据为空");
             } catch (NoSuchAlgorithmException unused2) {
@@ -111,7 +112,7 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f57703b) {
+            if (this.f42477b) {
                 if (this.a != null) {
                     byte[] decode = Base64.decode(str, 0);
                     try {

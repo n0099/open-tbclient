@@ -5,5 +5,5 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public interface IFetchMessageListener extends IMListener {
-    void onFetchMessageResult(int i2, ArrayList<ChatMsg> arrayList);
+    void onFetchMessageResult(int i, ArrayList<ChatMsg> arrayList);
 }

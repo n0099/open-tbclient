@@ -1,9 +1,9 @@
 package com.tachikoma.core.api;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ITKExceptionHandlerInner {
-    void handleException(Throwable th, int i2);
+    void handleException(Throwable th, int i);
 
-    void handleJSException(Throwable th, int i2);
+    void handleJSException(Throwable th, int i);
 
-    void handleJSException(Throwable th, String str, int i2);
+    void handleJSException(Throwable th, String str, int i);
 }

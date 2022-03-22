@@ -13,8 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import com.tachikoma.core.utility.TKUtility;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ViewBackgroundManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +32,9 @@ public class ViewBackgroundManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,21 +99,21 @@ public class ViewBackgroundManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getOrCreateReactViewBackground().getColor() : invokeV.intValue;
     }
 
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (i2 == 0 && this.mReactBackgroundDrawable == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i == 0 && this.mReactBackgroundDrawable == null) {
                 return;
             }
-            this.mBackgroundColor = i2;
-            getOrCreateReactViewBackground().setColor(i2);
+            this.mBackgroundColor = i;
+            getOrCreateReactViewBackground().setColor(i);
         }
     }
 
-    public void setBackgroundGradientColor(int i2, int[] iArr, float[] fArr) {
+    public void setBackgroundGradientColor(int i, int[] iArr, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, iArr, fArr) == null) {
-            getOrCreateReactViewBackground().setBackgroundGradientColor(i2, iArr, fArr);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, iArr, fArr) == null) {
+            getOrCreateReactViewBackground().setBackgroundGradientColor(i, iArr, fArr);
         }
     }
 
@@ -124,17 +125,17 @@ public class ViewBackgroundManager {
                 if (str.startsWith("/")) {
                     drawable = new BitmapDrawable(BitmapFactory.decodeFile(str));
                 } else {
-                    drawable = this.mView.getResources().getDrawable(TKUtility.getResourceId(str, "drawable", null));
+                    drawable = this.mView.getResources().getDrawable(TKUtility.getResourceId(str, ResourceManager.DRAWABLE, null));
                 }
             }
             setBackgroundDrawable(drawable);
         }
     }
 
-    public void setBorderColor(int i2, float f2, float f3) {
+    public void setBorderColor(int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            getOrCreateReactViewBackground().setBorderColor(i2, f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            getOrCreateReactViewBackground().setBorderColor(i, f2, f3);
         }
     }
 
@@ -153,14 +154,14 @@ public class ViewBackgroundManager {
         }
     }
 
-    public void setBorderRadius(float f2, int i2) {
+    public void setBorderRadius(float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-            getOrCreateReactViewBackground().setRadius(f2, i2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+            getOrCreateReactViewBackground().setRadius(f2, i);
             float[] fArr = this.mRadius;
-            int i3 = (i2 % 4) * 2;
-            fArr[i3] = f2;
-            fArr[i3 + 1] = f2;
+            int i2 = (i % 4) * 2;
+            fArr[i2] = f2;
+            fArr[i2 + 1] = f2;
         }
     }
 
@@ -171,10 +172,10 @@ public class ViewBackgroundManager {
         }
     }
 
-    public void setBorderWidth(int i2, float f2) {
+    public void setBorderWidth(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            getOrCreateReactViewBackground().setBorderWidth(i2, f2);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            getOrCreateReactViewBackground().setBorderWidth(i, f2);
         }
     }
 
@@ -185,10 +186,10 @@ public class ViewBackgroundManager {
         }
     }
 
-    public void setShadow(float f2, float f3, float f4, int i2) {
+    public void setShadow(float f2, float f3, float f4, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)}) == null) {
-            getOrCreateReactViewBackground().setShadow(f2, f3, f4, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)}) == null) {
+            getOrCreateReactViewBackground().setShadow(f2, f3, f4, i);
         }
     }
 }

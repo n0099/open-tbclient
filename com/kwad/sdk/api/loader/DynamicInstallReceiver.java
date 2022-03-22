@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
+import android.util.Log;
 import androidx.annotation.Keep;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
@@ -21,13 +22,14 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
             return;
         }
         String str = context.getPackageName() + ".loader.install.DynamicApk";
-        String str2 = "registerToApp action:" + str;
+        Log.i(TAG, "registerToApp action:" + str);
         context.getApplicationContext().registerReceiver(new DynamicInstallReceiver(), new IntentFilter(str));
         HAS_REGISTER.set(true);
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, Intent intent) {
+        Log.i(TAG, "onReceive success");
         if (intent == null) {
             return;
         }
@@ -35,17 +37,18 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
         final String stringExtra2 = intent.getStringExtra(CommandMessage.SDK_VERSION);
         final File file = new File(stringExtra);
         if (file.exists()) {
-            String str = "downloadFile is exists, apkPath :" + stringExtra + " sdkVersion:" + stringExtra2;
+            Log.i(TAG, "downloadFile is exists, apkPath :" + stringExtra + " sdkVersion:" + stringExtra2);
             AsyncTask.execute(new Runnable() { // from class: com.kwad.sdk.api.loader.DynamicInstallReceiver.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         if (b.a(context, file.getPath(), stringExtra2)) {
+                            Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk success");
                             f.a(context, f.a, stringExtra2);
                             g.a(file);
                         }
                     } catch (Exception e2) {
-                        String str2 = "onReceive ApkInstaller installApk error:" + e2;
+                        Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:" + e2);
                         e2.printStackTrace();
                     }
                 }

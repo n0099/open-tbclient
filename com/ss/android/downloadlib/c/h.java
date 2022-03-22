@@ -7,10 +7,10 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static h a = new h();
     }
@@ -45,7 +45,7 @@ public class h {
         return a.a;
     }
 
-    private void b(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j2) {
+    private void b(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;
@@ -65,10 +65,10 @@ public class h {
                 }
                 com.ss.android.downloadlib.d.a.a().b("download_notification_try_show", jSONObject, bVar);
             }
-        }, j2 * 1000);
+        }, j * 1000);
     }
 
-    private void c(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j2) {
+    private void c(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;
@@ -88,14 +88,14 @@ public class h {
                 }
                 com.ss.android.downloadlib.d.a.a().b("download_notification_try_show", jSONObject, bVar);
             }
-        }, j2 * 1000);
+        }, j * 1000);
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar) {
         b(bVar, 5L);
     }
 
-    public void a(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j2) {
+    public void a(@NonNull final com.ss.android.downloadad.api.a.b bVar, long j) {
         final int s = bVar.s();
         if (com.ss.android.socialbase.downloader.g.a.a(s).b("notification_opt_2") != 1) {
             return;
@@ -115,24 +115,24 @@ public class h {
                 }
                 com.ss.android.downloadlib.d.a.a().b("download_notification_try_show", jSONObject, bVar);
             }
-        }, j2 * 1000);
+        }, j * 1000);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject) {
+    public void a(int i, com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject) {
         if (!com.ss.android.socialbase.appdownloader.e.d.a()) {
             l.a(jSONObject, "error_code", (Object) 1004);
             return;
         }
-        DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(i2);
+        DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(i);
         if (downloadInfo == null) {
             l.a(jSONObject, "error_code", (Object) 1005);
             return;
         }
-        if (com.ss.android.socialbase.downloader.notification.b.a().e(i2) != null) {
-            com.ss.android.socialbase.downloader.notification.b.a().f(i2);
+        if (com.ss.android.socialbase.downloader.notification.b.a().e(i) != null) {
+            com.ss.android.socialbase.downloader.notification.b.a().f(i);
         }
-        com.ss.android.socialbase.appdownloader.e.a aVar = new com.ss.android.socialbase.appdownloader.e.a(j.getContext(), i2, downloadInfo.getTitle(), downloadInfo.getSavePath(), downloadInfo.getName(), downloadInfo.getExtra());
+        com.ss.android.socialbase.appdownloader.e.a aVar = new com.ss.android.socialbase.appdownloader.e.a(j.getContext(), i, downloadInfo.getTitle(), downloadInfo.getSavePath(), downloadInfo.getName(), downloadInfo.getExtra());
         aVar.a(downloadInfo.getCurBytes());
         aVar.b(downloadInfo.getTotalBytes());
         aVar.a(downloadInfo.getStatus(), null, false, false);
@@ -141,11 +141,11 @@ public class h {
         com.ss.android.downloadlib.d.a.a().b("download_notification_show", jSONObject, bVar);
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         DownloadInfo downloadInfo;
-        if (com.ss.android.socialbase.appdownloader.e.c.a().a(i2) != null || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(i2)) == null) {
+        if (com.ss.android.socialbase.appdownloader.e.c.a().a(i) != null || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(i)) == null) {
             return;
         }
-        com.ss.android.socialbase.appdownloader.e.c.a().a(i2, downloadInfo.getIconUrl());
+        com.ss.android.socialbase.appdownloader.e.c.a().a(i, downloadInfo.getIconUrl());
     }
 }

@@ -17,20 +17,20 @@ public abstract class ViewStructure {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public abstract int addChildCount(int i2);
+    public abstract int addChildCount(int i);
 
     public abstract void asyncCommit();
 
-    public abstract ViewStructure asyncNewChild(int i2);
+    public abstract ViewStructure asyncNewChild(int i);
 
     public abstract int getChildCount();
 
@@ -48,7 +48,7 @@ public abstract class ViewStructure {
 
     public abstract boolean hasExtras();
 
-    public abstract ViewStructure newChild(int i2);
+    public abstract ViewStructure newChild(int i);
 
     public abstract void setAccessibilityFocused(boolean z);
 
@@ -62,7 +62,7 @@ public abstract class ViewStructure {
 
     public abstract void setChecked(boolean z);
 
-    public abstract void setChildCount(int i2);
+    public abstract void setChildCount(int i);
 
     public abstract void setClassName(String str);
 
@@ -72,7 +72,7 @@ public abstract class ViewStructure {
 
     public abstract void setContextClickable(boolean z);
 
-    public abstract void setDimens(int i2, int i3, int i4, int i5, int i6, int i7);
+    public abstract void setDimens(int i, int i2, int i3, int i4, int i5, int i6);
 
     public abstract void setElevation(float f2);
 
@@ -84,7 +84,7 @@ public abstract class ViewStructure {
 
     public abstract void setHint(CharSequence charSequence);
 
-    public abstract void setId(int i2, String str, String str2, String str3);
+    public abstract void setId(int i, String str, String str2, String str3);
 
     public abstract void setLongClickable(boolean z);
 
@@ -92,13 +92,13 @@ public abstract class ViewStructure {
 
     public abstract void setText(CharSequence charSequence);
 
-    public abstract void setText(CharSequence charSequence, int i2, int i3);
+    public abstract void setText(CharSequence charSequence, int i, int i2);
 
     public abstract void setTextLines(int[] iArr, int[] iArr2);
 
-    public abstract void setTextStyle(float f2, int i2, int i3, int i4);
+    public abstract void setTextStyle(float f2, int i, int i2, int i3);
 
     public abstract void setTransformation(Matrix matrix);
 
-    public abstract void setVisibility(int i2);
+    public abstract void setVisibility(int i);
 }

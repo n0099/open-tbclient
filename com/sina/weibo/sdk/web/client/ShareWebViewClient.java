@@ -24,7 +24,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ShareWebViewClient extends BaseWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RESP_PARAM_CODE = "code";
@@ -43,9 +43,9 @@ public class ShareWebViewClient extends BaseWebViewClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, webViewRequestCallback, baseWebViewRequestParam};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((WebViewRequestCallback) objArr2[0], (BaseWebViewRequestParam) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -91,10 +91,10 @@ public class ShareWebViewClient extends BaseWebViewClient {
         return invokeL.booleanValue;
     }
 
-    private void sendSdkResponse(Activity activity, int i2, String str) {
+    private void sendSdkResponse(Activity activity, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, this, activity, i2, str) == null) {
-            LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i2 + ",errMsg:" + str);
+        if (interceptable == null || interceptable.invokeLIL(65538, this, activity, i, str) == null) {
+            LogUtil.i("Share", "WebActivity.sendSdkResponse,errCode:" + i + ",errMsg:" + str);
             Bundle extras = activity.getIntent().getExtras();
             if (extras == null || this.hasCallbacked) {
                 return;
@@ -105,7 +105,7 @@ public class ShareWebViewClient extends BaseWebViewClient {
             intent.setPackage(string);
             intent.putExtras(extras);
             intent.putExtra(WBConstants.Base.APP_PKG, activity.getPackageName());
-            intent.putExtra(WBConstants.Response.ERRCODE, i2);
+            intent.putExtra(WBConstants.Response.ERRCODE, i);
             intent.putExtra(WBConstants.Response.ERRMSG, str);
             try {
                 activity.startActivityForResult(intent, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
@@ -229,13 +229,13 @@ public class ShareWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i2, String str, String str2) {
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i2, str, str2) == null) {
-            super.onReceivedError(webView, i2, str, str2);
+        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
             WebViewRequestCallback webViewRequestCallback = this.requestCallback;
             if (webViewRequestCallback != null) {
-                webViewRequestCallback.onReceivedErrorCallBack(webView, i2, str, str2);
+                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
             }
         }
     }

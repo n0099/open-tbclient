@@ -34,9 +34,9 @@ public class Voice implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,10 +61,10 @@ public class Voice implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public Voice[] newArray(int i2) {
+        public Voice[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new Voice[i2] : (Voice[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new Voice[i] : (Voice[]) invokeI.objValue;
         }
     }
 
@@ -89,9 +89,9 @@ public class Voice implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -151,17 +151,17 @@ public class Voice implements Parcelable {
         }
     }
 
-    public void setDuration(int i2) {
+    public void setDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.duration = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.duration = i;
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -172,24 +172,24 @@ public class Voice implements Parcelable {
         }
     }
 
-    public void setSob(long j2) {
+    public void setSob(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.sob = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.sob = j;
         }
     }
 
-    public void setStas(int i2) {
+    public void setStas(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.stas = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.stas = i;
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeLong(this.duration);
             parcel.writeString(this.name);
         }

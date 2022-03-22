@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PriorityDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,16 @@ public final class PriorityDataSource implements DataSource {
     public final PriorityTaskManager priorityTaskManager;
     public final DataSource upstream;
 
-    public PriorityDataSource(DataSource dataSource, PriorityTaskManager priorityTaskManager, int i2) {
+    public PriorityDataSource(DataSource dataSource, PriorityTaskManager priorityTaskManager, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, priorityTaskManager, Integer.valueOf(i2)};
+            Object[] objArr = {dataSource, priorityTaskManager, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public final class PriorityDataSource implements DataSource {
         }
         this.upstream = (DataSource) Assertions.checkNotNull(dataSource);
         this.priorityTaskManager = (PriorityTaskManager) Assertions.checkNotNull(priorityTaskManager);
-        this.priority = i2;
+        this.priority = i;
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
@@ -65,12 +65,12 @@ public final class PriorityDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
             this.priorityTaskManager.proceedOrThrow(this.priority);
-            return this.upstream.read(bArr, i2, i3);
+            return this.upstream.read(bArr, i, i2);
         }
         return invokeLII.intValue;
     }

@@ -31,9 +31,9 @@ public abstract class OneDReader implements Reader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,35 +43,35 @@ public abstract class OneDReader implements Reader {
     private Result doDecode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeLL;
         Map<DecodeHintType, ?> map2;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, binaryBitmap, map)) == null) {
             EnumMap enumMap = map;
             int width = binaryBitmap.getWidth();
             int height = binaryBitmap.getHeight();
             BitArray bitArray = new BitArray(width);
-            int i3 = height >> 1;
+            int i2 = height >> 1;
             char c2 = 0;
-            int i4 = 1;
+            int i3 = 1;
             boolean z = enumMap != null && enumMap.containsKey(DecodeHintType.TRY_HARDER);
             int max = Math.max(1, height >> (z ? 8 : 5));
-            int i5 = z ? height : 15;
-            int i6 = 0;
-            while (i6 < i5) {
-                int i7 = i6 + 1;
-                int i8 = i7 / 2;
-                if (!((i6 & 1) == 0)) {
-                    i8 = -i8;
+            int i4 = z ? height : 15;
+            int i5 = 0;
+            while (i5 < i4) {
+                int i6 = i5 + 1;
+                int i7 = i6 / 2;
+                if (!((i5 & 1) == 0)) {
+                    i7 = -i7;
                 }
-                int i9 = (i8 * max) + i3;
-                if (i9 < 0 || i9 >= height) {
+                int i8 = (i7 * max) + i2;
+                if (i8 < 0 || i8 >= height) {
                     break;
                 }
                 try {
-                    bitArray = binaryBitmap.getBlackRow(i9, bitArray);
-                    int i10 = 0;
-                    while (i10 < 2) {
-                        if (i10 == i4) {
+                    bitArray = binaryBitmap.getBlackRow(i8, bitArray);
+                    int i9 = 0;
+                    while (i9 < 2) {
+                        if (i9 == i3) {
                             bitArray.reverse();
                             if (enumMap != null && enumMap.containsKey(DecodeHintType.NEED_RESULT_POINT_CALLBACK)) {
                                 EnumMap enumMap2 = new EnumMap(DecodeHintType.class);
@@ -81,22 +81,22 @@ public abstract class OneDReader implements Reader {
                             }
                         }
                         try {
-                            Result decodeRow = decodeRow(i9, bitArray, enumMap);
-                            if (i10 == i4) {
+                            Result decodeRow = decodeRow(i8, bitArray, enumMap);
+                            if (i9 == i3) {
                                 decodeRow.putMetadata(ResultMetadataType.ORIENTATION, 180);
                                 ResultPoint[] resultPoints = decodeRow.getResultPoints();
                                 if (resultPoints != null) {
                                     map2 = enumMap;
                                     float f2 = width;
                                     try {
-                                        i2 = width;
+                                        i = width;
                                     } catch (ReaderException unused) {
-                                        i2 = width;
-                                        i10++;
+                                        i = width;
+                                        i9++;
                                         enumMap = map2;
-                                        width = i2;
+                                        width = i;
                                         c2 = 0;
-                                        i4 = 1;
+                                        i3 = 1;
                                     }
                                     try {
                                         resultPoints[0] = new ResultPoint((f2 - resultPoints[c2].getX()) - 1.0f, resultPoints[c2].getY());
@@ -104,18 +104,18 @@ public abstract class OneDReader implements Reader {
                                             resultPoints[1] = new ResultPoint((f2 - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
                                         } catch (ReaderException unused2) {
                                             continue;
-                                            i10++;
+                                            i9++;
                                             enumMap = map2;
-                                            width = i2;
+                                            width = i;
                                             c2 = 0;
-                                            i4 = 1;
+                                            i3 = 1;
                                         }
                                     } catch (ReaderException unused3) {
-                                        i10++;
+                                        i9++;
                                         enumMap = map2;
-                                        width = i2;
+                                        width = i;
                                         c2 = 0;
-                                        i4 = 1;
+                                        i3 = 1;
                                     }
                                 }
                             }
@@ -127,10 +127,10 @@ public abstract class OneDReader implements Reader {
                     continue;
                 } catch (NotFoundException unused5) {
                 }
-                i6 = i7;
+                i5 = i6;
                 width = width;
                 c2 = 0;
-                i4 = 1;
+                i3 = 1;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -142,22 +142,22 @@ public abstract class OneDReader implements Reader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{iArr, iArr2, Float.valueOf(f2)})) == null) {
             int length = iArr.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                i2 += iArr[i4];
-                i3 += iArr2[i4];
+            for (int i3 = 0; i3 < length; i3++) {
+                i += iArr[i3];
+                i2 += iArr2[i3];
             }
-            if (i2 < i3) {
+            if (i < i2) {
                 return Float.POSITIVE_INFINITY;
             }
-            float f3 = i2;
-            float f4 = f3 / i3;
+            float f3 = i;
+            float f4 = f3 / i2;
             float f5 = f2 * f4;
             float f6 = 0.0f;
-            for (int i5 = 0; i5 < length; i5++) {
-                float f7 = iArr2[i5] * f4;
-                float f8 = iArr[i5];
+            for (int i4 = 0; i4 < length; i4++) {
+                float f7 = iArr2[i4] * f4;
+                float f8 = iArr[i4];
                 float f9 = f8 > f7 ? f8 - f7 : f7 - f8;
                 if (f9 > f5) {
                     return Float.POSITIVE_INFINITY;
@@ -169,30 +169,30 @@ public abstract class OneDReader implements Reader {
         return invokeCommon.floatValue;
     }
 
-    public static void recordPattern(BitArray bitArray, int i2, int[] iArr) throws NotFoundException {
+    public static void recordPattern(BitArray bitArray, int i, int[] iArr) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65539, null, bitArray, i2, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65539, null, bitArray, i, iArr) == null) {
             int length = iArr.length;
-            int i3 = 0;
+            int i2 = 0;
             Arrays.fill(iArr, 0, length, 0);
             int size = bitArray.getSize();
-            if (i2 < size) {
-                boolean z = !bitArray.get(i2);
-                while (i2 < size) {
-                    if (!(bitArray.get(i2) ^ z)) {
-                        i3++;
-                        if (i3 == length) {
+            if (i < size) {
+                boolean z = !bitArray.get(i);
+                while (i < size) {
+                    if (!(bitArray.get(i) ^ z)) {
+                        i2++;
+                        if (i2 == length) {
                             break;
                         }
-                        iArr[i3] = 1;
+                        iArr[i2] = 1;
                         z = !z;
                     } else {
-                        iArr[i3] = iArr[i3] + 1;
+                        iArr[i2] = iArr[i2] + 1;
                     }
-                    i2++;
+                    i++;
                 }
-                if (i3 != length) {
-                    if (i3 != length - 1 || i2 != size) {
+                if (i2 != length) {
+                    if (i2 != length - 1 || i != size) {
                         throw NotFoundException.getNotFoundInstance();
                     }
                     return;
@@ -203,20 +203,20 @@ public abstract class OneDReader implements Reader {
         }
     }
 
-    public static void recordPatternInReverse(BitArray bitArray, int i2, int[] iArr) throws NotFoundException {
+    public static void recordPatternInReverse(BitArray bitArray, int i, int[] iArr) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i2, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i, iArr) == null) {
             int length = iArr.length;
-            boolean z = bitArray.get(i2);
-            while (i2 > 0 && length >= 0) {
-                i2--;
-                if (bitArray.get(i2) != z) {
+            boolean z = bitArray.get(i);
+            while (i > 0 && length >= 0) {
+                i--;
+                if (bitArray.get(i) != z) {
                     length--;
                     z = !z;
                 }
             }
             if (length < 0) {
-                recordPattern(bitArray, i2 + 1, iArr);
+                recordPattern(bitArray, i + 1, iArr);
                 return;
             }
             throw NotFoundException.getNotFoundInstance();
@@ -230,7 +230,7 @@ public abstract class OneDReader implements Reader {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, binaryBitmap)) == null) ? decode(binaryBitmap, null) : (Result) invokeL.objValue;
     }
 
-    public abstract Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
+    public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
 
     @Override // com.google.zxing.Reader
     public void reset() {
@@ -251,16 +251,16 @@ public abstract class OneDReader implements Reader {
                     BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                     Result doDecode = doDecode(rotateCounterClockwise, map);
                     Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
-                    int i2 = 270;
+                    int i = 270;
                     if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
-                        i2 = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;
+                        i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;
                     }
-                    doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i2));
+                    doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i));
                     ResultPoint[] resultPoints = doDecode.getResultPoints();
                     if (resultPoints != null) {
                         int height = rotateCounterClockwise.getHeight();
-                        for (int i3 = 0; i3 < resultPoints.length; i3++) {
-                            resultPoints[i3] = new ResultPoint((height - resultPoints[i3].getY()) - 1.0f, resultPoints[i3].getX());
+                        for (int i2 = 0; i2 < resultPoints.length; i2++) {
+                            resultPoints[i2] = new ResultPoint((height - resultPoints[i2].getY()) - 1.0f, resultPoints[i2].getX());
                         }
                     }
                     return doDecode;

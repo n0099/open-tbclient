@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "vmhd";
@@ -52,9 +52,9 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -82,8 +82,8 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
             parseVersionAndFlags(byteBuffer);
             this.graphicsmode = IsoTypeReader.readUInt16(byteBuffer);
             this.opcolor = new int[3];
-            for (int i2 = 0; i2 < 3; i2++) {
-                this.opcolor[i2] = IsoTypeReader.readUInt16(byteBuffer);
+            for (int i = 0; i < 3; i++) {
+                this.opcolor[i] = IsoTypeReader.readUInt16(byteBuffer);
             }
         }
     }
@@ -94,8 +94,8 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, byteBuffer) == null) {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt16(byteBuffer, this.graphicsmode);
-            for (int i2 : this.opcolor) {
-                IsoTypeWriter.writeUInt16(byteBuffer, i2);
+            for (int i : this.opcolor) {
+                IsoTypeWriter.writeUInt16(byteBuffer, i);
             }
         }
     }
@@ -130,11 +130,11 @@ public class VideoMediaHeaderBox extends AbstractMediaHeaderBox {
         return (int[]) invokeV.objValue;
     }
 
-    public void setGraphicsmode(int i2) {
+    public void setGraphicsmode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i2)));
-            this.graphicsmode = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this, Conversions.intObject(i)));
+            this.graphicsmode = i;
         }
     }
 

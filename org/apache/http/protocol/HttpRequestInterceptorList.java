@@ -3,15 +3,15 @@ package org.apache.http.protocol;
 import java.util.List;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HttpRequestInterceptorList {
     void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor);
 
-    void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2);
+    void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i);
 
     void clearRequestInterceptors();
 
-    HttpRequestInterceptor getRequestInterceptor(int i2);
+    HttpRequestInterceptor getRequestInterceptor(int i);
 
     int getRequestInterceptorCount();
 

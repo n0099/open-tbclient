@@ -45,16 +45,16 @@ public class IMSyncDialog extends Message {
         TAG = IMDelMsg.class.getSimpleName();
     }
 
-    public IMSyncDialog(Context context, long j2) {
+    public IMSyncDialog(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,7 +65,7 @@ public class IMSyncDialog extends Message {
         initCommonParameter(context);
         setNeedReplay(true);
         setType(94);
-        this.mMaxMsgid = j2;
+        this.mMaxMsgid = j;
     }
 
     public static IMSyncDialog newInstance(Context context, Intent intent) {
@@ -93,35 +93,35 @@ public class IMSyncDialog extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             ArrayList arrayList = new ArrayList();
-            long j2 = -1;
-            if (i2 == 0 && jSONObject != null) {
+            long j = -1;
+            if (i == 0 && jSONObject != null) {
                 try {
                     JSONArray jSONArray = jSONObject.getJSONArray("dialogue");
                     int length = jSONArray.length();
-                    for (int i3 = 0; i3 < length; i3++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                        long j3 = jSONObject2.getLong("contacter");
-                        int i4 = jSONObject2.getInt("category");
-                        long j4 = jSONObject2.getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG).getLong("msgid");
+                    for (int i2 = 0; i2 < length; i2++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        long j2 = jSONObject2.getLong("contacter");
+                        int i3 = jSONObject2.getInt("category");
+                        long j3 = jSONObject2.getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG).getLong("msgid");
                         DialogRecord dialogRecord = new DialogRecord();
-                        dialogRecord.setCategory(i4);
-                        dialogRecord.setContacter(j3);
-                        dialogRecord.setDialogueMsgid(j4);
+                        dialogRecord.setCategory(i3);
+                        dialogRecord.setContacter(j2);
+                        dialogRecord.setDialogueMsgid(j3);
                         arrayList.add(dialogRecord);
-                        if (j2 < j4) {
-                            j2 = j4;
+                        if (j < j3) {
+                            j = j3;
                         }
                     }
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "handle IMSyncMsg exception :", e2);
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i2, str, getListenerKey(), j2, arrayList);
+            super.handleMessageResult(context, jSONObject, i, str);
+            ChatSessionManagerImpl.getInstance(this.mContext).onSyncDialogResult(i, str, getListenerKey(), j, arrayList);
         }
     }
 }

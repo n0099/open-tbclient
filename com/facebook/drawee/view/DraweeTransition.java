@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DraweeTransition extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPNAME_BOUNDS = "draweeTransition:bounds";
@@ -40,9 +40,9 @@ public class DraweeTransition extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {scaleType, scaleType2, pointF, pointF2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -113,9 +113,9 @@ public class DraweeTransition extends Transition {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, interpolatingScaleType};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -146,9 +146,9 @@ public class DraweeTransition extends Transition {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, genericDraweeView};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -198,9 +198,9 @@ public class DraweeTransition extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {scaleType, scaleType2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ScalingUtils.ScaleType) objArr2[0], (ScalingUtils.ScaleType) objArr2[1], (PointF) objArr2[2], (PointF) objArr2[3]);
                 newInitContext.thisArg = this;

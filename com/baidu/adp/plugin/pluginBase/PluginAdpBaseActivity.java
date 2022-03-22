@@ -41,9 +41,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginAdpBaseActivity f29881e;
+        public final /* synthetic */ PluginAdpBaseActivity a;
 
         public a(PluginAdpBaseActivity pluginAdpBaseActivity) {
             Interceptable interceptable = $ic;
@@ -52,22 +50,22 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginAdpBaseActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29881e = pluginAdpBaseActivity;
+            this.a = pluginAdpBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PluginAdpBaseActivity pluginAdpBaseActivity = this.f29881e;
+                PluginAdpBaseActivity pluginAdpBaseActivity = this.a;
                 pluginAdpBaseActivity.onPreLoad(pluginAdpBaseActivity.onGetPreLoadListView());
             }
         }
@@ -78,9 +76,9 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,8 +101,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                refreshImage(viewGroup.getChildAt(i2));
+            for (int i = 0; i < childCount; i++) {
+                refreshImage(viewGroup.getChildAt(i));
             }
         }
     }
@@ -134,9 +132,9 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i2) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, dialogInterface, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, dialogInterface, i) == null) {
         }
     }
 
@@ -180,17 +178,17 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             return true;
         }
         return invokeCommon.booleanValue;
@@ -237,8 +235,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             int childCount = frameLayout.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                refreshImage(frameLayout.getChildAt(i2));
+            for (int i = 0; i < childCount; i++) {
+                refreshImage(frameLayout.getChildAt(i));
             }
             this.mHandler.removeCallbacks(this.preLoadRunnable);
             this.mHandler.postDelayed(this.preLoadRunnable, 100L);
@@ -285,21 +283,21 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            for (int i3 = 0; i3 < 3; i3++) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 try {
-                    super.setContentView(i2);
+                    super.setContentView(i);
                     return;
                 } catch (OutOfMemoryError e2) {
-                    if (i3 != 2) {
+                    if (i2 != 2) {
                         BdBaseApplication.getInst().onAppMemoryLow();
                     } else {
                         throw e2;
                     }
                 } catch (RuntimeException e3) {
-                    if (i3 != 2) {
+                    if (i2 != 2) {
                         BdBaseApplication.getInst().onAppMemoryLow();
                     } else {
                         throw e3;
@@ -324,13 +322,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(int i2, c.a.d.c.g.a aVar) {
+    public void registerListener(int i, c.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, aVar) == null) {
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i2, aVar);
+            MessageManager.getInstance().registerListener(i, aVar);
         }
     }
 
@@ -355,13 +353,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         }
     }
 
-    public void registerListener(int i2, MessageListener<?> messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i2, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i, messageListener) == null) {
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i2, messageListener);
+            MessageManager.getInstance().registerListener(i, messageListener);
         }
     }
 }

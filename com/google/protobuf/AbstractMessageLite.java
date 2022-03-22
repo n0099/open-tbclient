@@ -24,9 +24,9 @@ public abstract class AbstractMessageLite implements MessageLite {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -105,9 +105,9 @@ public abstract class AbstractMessageLite implements MessageLite {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -180,24 +180,24 @@ public abstract class AbstractMessageLite implements MessageLite {
             public int limit;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public LimitedInputStream(InputStream inputStream, int i2) {
+            public LimitedInputStream(InputStream inputStream, int i) {
                 super(inputStream);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {inputStream, Integer.valueOf(i2)};
+                    Object[] objArr = {inputStream, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         super((InputStream) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.limit = i2;
+                this.limit = i;
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
@@ -225,11 +225,11 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j2) throws IOException {
+            public long skip(long j) throws IOException {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                    long skip = super.skip(Math.min(j2, this.limit));
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                    long skip = super.skip(Math.min(j, this.limit));
                     if (skip >= 0) {
                         this.limit = (int) (this.limit - skip);
                     }
@@ -239,15 +239,15 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i2, int i3) throws IOException {
+            public int read(byte[] bArr, int i, int i2) throws IOException {
                 InterceptResult invokeLII;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
-                    int i4 = this.limit;
-                    if (i4 <= 0) {
+                if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+                    int i3 = this.limit;
+                    if (i3 <= 0) {
                         return -1;
                     }
-                    int read = super.read(bArr, i2, Math.min(i3, i4));
+                    int read = super.read(bArr, i, Math.min(i2, i3));
                     if (read >= 0) {
                         this.limit -= read;
                     }
@@ -322,12 +322,12 @@ public abstract class AbstractMessageLite implements MessageLite {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException {
+        public BuilderType mergeFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i, i2)) == null) {
                 try {
-                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i2, i3);
+                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
                     mergeFrom(newInstance);
                     newInstance.checkLastTagWas(0);
                     return this;
@@ -350,12 +350,12 @@ public abstract class AbstractMessageLite implements MessageLite {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
-        public BuilderType mergeFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        public BuilderType mergeFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), extensionRegistryLite})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), extensionRegistryLite})) == null) {
                 try {
-                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i2, i3);
+                    CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
                     mergeFrom(newInstance, extensionRegistryLite);
                     newInstance.checkLastTagWas(0);
                     return this;

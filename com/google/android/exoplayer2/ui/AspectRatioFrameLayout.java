@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AspectRatioFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_ASPECT_RATIO_DEFORMATION_FRACTION = 0.01f;
@@ -28,7 +28,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
     public float videoAspectRatio;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface ResizeMode {
     }
 
@@ -41,9 +41,9 @@ public final class AspectRatioFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,12 +60,12 @@ public final class AspectRatioFrameLayout extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         float f2;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             if (this.resizeMode == 3 || this.videoAspectRatio <= 0.0f) {
                 return;
             }
@@ -77,14 +77,14 @@ public final class AspectRatioFrameLayout extends FrameLayout {
             if (Math.abs(f6) <= 0.01f) {
                 return;
             }
-            int i4 = this.resizeMode;
-            if (i4 == 1) {
+            int i3 = this.resizeMode;
+            if (i3 == 1) {
                 f2 = this.videoAspectRatio;
             } else {
-                if (i4 == 2) {
+                if (i3 == 2) {
                     f3 = this.videoAspectRatio;
                 } else {
-                    if (i4 != 4) {
+                    if (i3 != 4) {
                         if (f6 > 0.0f) {
                             f2 = this.videoAspectRatio;
                         } else {
@@ -114,12 +114,12 @@ public final class AspectRatioFrameLayout extends FrameLayout {
         requestLayout();
     }
 
-    public void setResizeMode(int i2) {
+    public void setResizeMode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.resizeMode == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.resizeMode == i) {
             return;
         }
-        this.resizeMode = i2;
+        this.resizeMode = i;
         requestLayout();
     }
 
@@ -132,9 +132,9 @@ public final class AspectRatioFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -144,7 +144,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
         }
         this.resizeMode = 0;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.resize_mode}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404f7}, 0, 0);
             try {
                 this.resizeMode = obtainStyledAttributes.getInt(0, 0);
             } finally {

@@ -13,19 +13,19 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HybridAD extends AbstractAD<HADI> implements HADI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public HybridADListener f57532f;
+    public HybridADListener f42337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CountDownLatch f57533g;
+    public CountDownLatch f42338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HybridADSetting f57534h;
+    public HybridADSetting f42339h;
 
     public HybridAD(Context context, HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
         Interceptable interceptable = $ic;
@@ -34,17 +34,17 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, hybridADSetting, hybridADListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f57533g = new CountDownLatch(1);
-        this.f57534h = hybridADSetting;
-        this.f57532f = hybridADListener;
+        this.f42338g = new CountDownLatch(1);
+        this.f42339h = hybridADSetting;
+        this.f42337f = hybridADListener;
         a(context, "NO_POS_ID");
     }
 
@@ -58,9 +58,9 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, hybridADSetting, hybridADListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (HybridADSetting) objArr2[1], (HybridADListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -74,7 +74,7 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
     public HADI a(POFactory pOFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pOFactory)) == null) ? pOFactory.getHybridAD(this.f57534h, this.f57532f) : (HADI) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pOFactory)) == null) ? pOFactory.getHybridAD(this.f42339h, this.f42337f) : (HADI) invokeL.objValue;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
@@ -90,21 +90,21 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
     }
 
     @Override // com.qq.e.ads.AbstractAD
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            HybridADListener hybridADListener = this.f57532f;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            HybridADListener hybridADListener = this.f42337f;
             if (hybridADListener != null) {
-                hybridADListener.onError(AdErrorConvertor.formatErrorCode(i2));
+                hybridADListener.onError(AdErrorConvertor.formatErrorCode(i));
             }
-            this.f57533g.countDown();
+            this.f42338g.countDown();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f57533g.countDown();
+            this.f42338g.countDown();
         }
     }
 
@@ -119,7 +119,7 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ HybridAD f57535b;
+                    public final /* synthetic */ HybridAD f42340b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,15 +128,15 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f57535b = this;
+                        this.f42340b = this;
                         this.a = str;
                     }
 
@@ -145,16 +145,16 @@ public class HybridAD extends AbstractAD<HADI> implements HADI {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                this.f57535b.f57533g.await(30L, TimeUnit.SECONDS);
-                                if (!this.f57535b.b() || this.f57535b.a == null) {
+                                this.f42340b.f42338g.await(30L, TimeUnit.SECONDS);
+                                if (!this.f42340b.b() || this.f42340b.a == null) {
                                     GDTLogger.e("初始化错误：广告实例未被初始化");
-                                    this.f57535b.a(2001);
+                                    this.f42340b.a(2001);
                                 } else {
-                                    ((HADI) this.f57535b.a).loadUrl(this.a);
+                                    ((HADI) this.f42340b.a).loadUrl(this.a);
                                 }
                             } catch (InterruptedException unused) {
                                 GDTLogger.e("初始化错误：广告实例未被初始化");
-                                this.f57535b.a(2001);
+                                this.f42340b.a(2001);
                             }
                         }
                     }

@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import androidx.annotation.NonNull;
-import c.a.p0.a.x.o.g.c.b.a;
-import c.a.p0.a.x.o.g.f.h;
+import c.a.n0.a.x.o.g.c.b.a;
+import c.a.n0.a.x.o.g.f.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +22,9 @@ public class CustomStrategyImpl implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,9 +42,9 @@ public class CustomStrategyImpl implements a {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -57,7 +57,7 @@ public class CustomStrategyImpl implements a {
         };
     }
 
-    @Override // c.a.p0.a.x.o.g.c.b.a
+    @Override // c.a.n0.a.x.o.g.c.b.a
     public boolean a(@NonNull h.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

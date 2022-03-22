@@ -21,9 +21,7 @@ import java.util.List;
 public class ConcernVideoImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TbImageView f42831e;
+    public TbImageView a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernVideoImageView(Context context) {
@@ -34,9 +32,9 @@ public class ConcernVideoImageView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,12 +47,12 @@ public class ConcernVideoImageView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.concern_video_img);
-            this.f42831e = tbImageView;
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0201, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906b8);
+            this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-            int k = n.k(getContext()) - n.f(getContext(), R.dimen.ds68);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42831e.getLayoutParams();
+            int k = n.k(getContext()) - n.f(getContext(), R.dimen.obfuscated_res_0x7f070261);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.height = (k * 9) / 16;
             layoutParams.width = k;
         }
@@ -65,21 +63,21 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list) || StringUtils.isNull(list.get(0).getPicUrl())) {
             return;
         }
-        this.f42831e.startLoad(list.get(0).getPicUrl(), 10, false);
+        this.a.J(list.get(0).getPicUrl(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConcernVideoImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ConcernVideoImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -99,9 +97,9 @@ public class ConcernVideoImageView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -63,9 +63,9 @@ public class TachikomaApi {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -96,9 +96,9 @@ public class TachikomaApi {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,9 +129,9 @@ public class TachikomaApi {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -208,9 +208,9 @@ public class TachikomaApi {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, tKContextInitCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -354,9 +354,9 @@ public class TachikomaApi {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iHostService};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -382,9 +382,9 @@ public class TachikomaApi {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -394,34 +394,34 @@ public class TachikomaApi {
                             }
 
                             @Override // com.tachikoma.core.api.IWebImageHandlerInner
-                            public void load(ImageView imageView, String str, Drawable drawable, int i2) {
+                            public void load(ImageView imageView, String str, Drawable drawable, int i) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLLLI(1048576, this, imageView, str, drawable, i2) == null) {
-                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, str, drawable, i2);
+                                if (interceptable3 == null || interceptable3.invokeLLLI(1048576, this, imageView, str, drawable, i) == null) {
+                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, str, drawable, i);
                                 }
                             }
 
                             @Override // com.tachikoma.core.api.IWebImageHandlerInner
-                            public void load(ImageView imageView, List<TKCDNUrlInner> list, int i2, int i3, int i4) {
+                            public void load(ImageView imageView, List<TKCDNUrlInner> list, int i, int i2, int i3) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i2, i3, i4);
+                                if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i, i2, i3);
                                 }
                             }
 
                             @Override // com.tachikoma.core.api.IWebImageHandlerInner
-                            public void load(ImageView imageView, List<TKCDNUrlInner> list, int i2, int i3, Drawable drawable, int i4) {
+                            public void load(ImageView imageView, List<TKCDNUrlInner> list, int i, int i2, Drawable drawable, int i3) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{imageView, list, Integer.valueOf(i2), Integer.valueOf(i3), drawable, Integer.valueOf(i4)}) == null) {
-                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i2, i3, drawable, i4);
+                                if (interceptable3 == null || interceptable3.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{imageView, list, Integer.valueOf(i), Integer.valueOf(i2), drawable, Integer.valueOf(i3)}) == null) {
+                                    this.this$1.val$hostService.obtainWebImageService().load(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i, i2, drawable, i3);
                                 }
                             }
 
                             @Override // com.tachikoma.core.api.IWebImageHandlerInner
-                            public void load(String str, ImageView imageView, int i2) {
+                            public void load(String str, ImageView imageView, int i) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLLI(1048579, this, str, imageView, i2) == null) {
-                                    this.this$1.val$hostService.obtainWebImageService().load(str, imageView, i2);
+                                if (interceptable3 == null || interceptable3.invokeLLI(1048579, this, str, imageView, i) == null) {
+                                    this.this$1.val$hostService.obtainWebImageService().load(str, imageView, i);
                                 }
                             }
                         });
@@ -437,9 +437,9 @@ public class TachikomaApi {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -481,9 +481,9 @@ public class TachikomaApi {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -515,10 +515,10 @@ public class TachikomaApi {
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setBorderRadius(ImageView imageView, int i2) {
+                            public void setBorderRadius(ImageView imageView, int i) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLI(1048579, this, imageView, i2) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setBorderRadius(imageView, i2);
+                                if (interceptable3 == null || interceptable3.invokeLI(1048579, this, imageView, i) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setBorderRadius(imageView, i);
                                 }
                             }
 
@@ -531,10 +531,10 @@ public class TachikomaApi {
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setCDNUrls(ImageView imageView, List<TKCDNUrlInner> list, int i2, int i3, String str) {
+                            public void setCDNUrls(ImageView imageView, List<TKCDNUrlInner> list, int i, int i2, String str) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(1048581, this, new Object[]{imageView, list, Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setCDNUrls(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i2, i3, str);
+                                if (interceptable3 == null || interceptable3.invokeCommon(1048581, this, new Object[]{imageView, list, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setCDNUrls(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i, i2, str);
                                 }
                             }
 
@@ -547,26 +547,26 @@ public class TachikomaApi {
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setUri(ImageView imageView, String str, String str2, int i2, int i3) {
+                            public void setUri(ImageView imageView, String str, String str2, int i, int i2) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(1048583, this, new Object[]{imageView, str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setUri(imageView, str, str2, i2, i3);
+                                if (interceptable3 == null || interceptable3.invokeCommon(1048583, this, new Object[]{imageView, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setUri(imageView, str, str2, i, i2);
                                 }
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setUrlAndPlaceHolder(ImageView imageView, String str, String str2, String str3, int i2, int i3) {
+                            public void setUrlAndPlaceHolder(ImageView imageView, String str, String str2, String str3, int i, int i2) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{imageView, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setUrlAndPlaceHolder(imageView, str, str2, str3, i2, i3);
+                                if (interceptable3 == null || interceptable3.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{imageView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setUrlAndPlaceHolder(imageView, str, str2, str3, i, i2);
                                 }
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setUrls(ImageView imageView, List<TKCDNUrlInner> list, int i2, int i3) {
+                            public void setUrls(ImageView imageView, List<TKCDNUrlInner> list, int i, int i2) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLLII(1048585, this, imageView, list, i2, i3) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setUrls(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i2, i3);
+                                if (interceptable3 == null || interceptable3.invokeLLII(1048585, this, imageView, list, i, i2) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setUrls(imageView, this.this$1.this$0.convertToTKCDNUrl(list), i, i2);
                                 }
                             }
 
@@ -615,9 +615,9 @@ public class TachikomaApi {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iTKLog};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

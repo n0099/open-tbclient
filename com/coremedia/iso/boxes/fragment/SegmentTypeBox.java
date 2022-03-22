@@ -23,7 +23,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SegmentTypeBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "styp";
@@ -61,9 +61,9 @@ public class SegmentTypeBox extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -91,7 +91,7 @@ public class SegmentTypeBox extends AbstractBox {
             this.minorVersion = IsoTypeReader.readUInt32(byteBuffer);
             int remaining = byteBuffer.remaining() / 4;
             this.compatibleBrands = new LinkedList();
-            for (int i2 = 0; i2 < remaining; i2++) {
+            for (int i = 0; i < remaining; i++) {
                 this.compatibleBrands.add(IsoTypeReader.read4cc(byteBuffer));
             }
         }
@@ -162,11 +162,11 @@ public class SegmentTypeBox extends AbstractBox {
         }
     }
 
-    public void setMinorVersion(int i2) {
+    public void setMinorVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i2)));
-            this.minorVersion = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i)));
+            this.minorVersion = i;
         }
     }
 
@@ -194,17 +194,17 @@ public class SegmentTypeBox extends AbstractBox {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SegmentTypeBox(String str, long j2, List<String> list) {
+    public SegmentTypeBox(String str, long j, List<String> list) {
         super(TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), list};
+            Object[] objArr = {str, Long.valueOf(j), list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -213,7 +213,7 @@ public class SegmentTypeBox extends AbstractBox {
         }
         this.compatibleBrands = Collections.emptyList();
         this.majorBrand = str;
-        this.minorVersion = j2;
+        this.minorVersion = j;
         this.compatibleBrands = list;
     }
 }

@@ -8,19 +8,19 @@ public final class ULongArrayKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
-    public static final long[] ULongArray(int i2, Function1<? super Integer, ULong> function1) {
-        long[] jArr = new long[i2];
-        for (int i3 = 0; i3 < i2; i3++) {
-            jArr[i3] = function1.invoke(Integer.valueOf(i3)).m936unboximpl();
+    public static final long[] ULongArray(int i, Function1<? super Integer, ULong> function1) {
+        long[] jArr = new long[i];
+        for (int i2 = 0; i2 < i; i2++) {
+            jArr[i2] = function1.invoke(Integer.valueOf(i2)).m915unboximpl();
         }
-        return ULongArray.m939constructorimpl(jArr);
+        return ULongArray.m918constructorimpl(jArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ulongArrayOf-QwZRm1k  reason: not valid java name */
-    public static final long[] m955ulongArrayOfQwZRm1k(long... jArr) {
+    public static final long[] m934ulongArrayOfQwZRm1k(long... jArr) {
         return jArr;
     }
 }

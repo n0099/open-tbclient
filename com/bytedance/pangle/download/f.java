@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static volatile f a;
@@ -22,9 +22,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,7 +52,7 @@ public class f {
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             g a2 = g.a();
             b a3 = b.a();
-            a3.f51642b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
+            a3.f38068b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -64,9 +64,9 @@ public class f {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {a2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -103,9 +103,9 @@ public class f {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -153,16 +153,16 @@ public class f {
                 public final void onActivityStarted(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        if (this.a.f51644e == 0) {
+                        if (this.a.f38070e == 0) {
                             this.a.a = false;
                             b bVar = this.a;
-                            if (!bVar.f51643c) {
-                                for (a aVar : bVar.f51642b) {
+                            if (!bVar.f38069c) {
+                                for (a aVar : bVar.f38068b) {
                                     aVar.b();
                                 }
-                                this.a.f51643c = true;
+                                this.a.f38069c = true;
                             }
-                            for (a aVar2 : this.a.f51642b) {
+                            for (a aVar2 : this.a.f38068b) {
                                 aVar2.a();
                             }
                         }
@@ -175,9 +175,9 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
                         b.d(this.a);
-                        if (this.a.f51644e == 0) {
+                        if (this.a.f38070e == 0) {
                             this.a.a = true;
-                            Iterator it = this.a.f51642b.iterator();
+                            Iterator it = this.a.f38068b.iterator();
                             while (it.hasNext()) {
                                 it.next();
                             }

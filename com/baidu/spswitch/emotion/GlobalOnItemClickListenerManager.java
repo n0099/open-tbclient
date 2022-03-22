@@ -44,9 +44,9 @@ public class GlobalOnItemClickListenerManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,9 +65,9 @@ public class GlobalOnItemClickListenerManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -148,10 +148,10 @@ public class GlobalOnItemClickListenerManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mEmotionSlideCount : invokeV.intValue;
     }
 
-    public AdapterView.OnItemClickListener getOnItemClickListener(EmotionType emotionType, int i2) {
+    public AdapterView.OnItemClickListener getOnItemClickListener(EmotionType emotionType, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, emotionType, i2)) == null) ? new AdapterView.OnItemClickListener(this, emotionType, i2) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.2
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, emotionType, i)) == null) ? new AdapterView.OnItemClickListener(this, emotionType, i) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ GlobalOnItemClickListenerManager this$0;
@@ -163,11 +163,11 @@ public class GlobalOnItemClickListenerManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, emotionType, Integer.valueOf(i2)};
+                    Object[] objArr = {this, emotionType, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -175,21 +175,21 @@ public class GlobalOnItemClickListenerManager {
                 }
                 this.this$0 = this;
                 this.val$type = emotionType;
-                this.val$page = i2;
+                this.val$page = i;
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j2) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                     Object adapter = adapterView.getAdapter();
                     if (adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) {
                         BDEmotionBagLayout.EmotionGridViewAdapter emotionGridViewAdapter = (BDEmotionBagLayout.EmotionGridViewAdapter) adapter;
                         if (this.this$0.mEditText == null) {
                             return;
                         }
-                        if (i3 < emotionGridViewAdapter.getCount() - 1) {
-                            String item = emotionGridViewAdapter.getItem(i3);
+                        if (i2 < emotionGridViewAdapter.getCount() - 1) {
+                            String item = emotionGridViewAdapter.getItem(i2);
                             if (TextUtils.isEmpty(item)) {
                                 return;
                             }
@@ -197,7 +197,7 @@ public class GlobalOnItemClickListenerManager {
                             if (this.this$0.mEmotionClickListener != null) {
                                 this.this$0.mEmotionClickListener.onEmotionClick(this.val$type, this.val$page, EmotionUtils.getInstance().getEmotionIdByName(this.val$type, item), item);
                             }
-                        } else if (i3 == emotionGridViewAdapter.getCount() - 1) {
+                        } else if (i2 == emotionGridViewAdapter.getCount() - 1) {
                             if (!this.this$0.mIsDeleteItemLongClick) {
                                 this.this$0.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
                                 if (this.this$0.mEmotionClickListener != null) {
@@ -227,9 +227,9 @@ public class GlobalOnItemClickListenerManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -239,12 +239,12 @@ public class GlobalOnItemClickListenerManager {
             }
 
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                     Object adapter = adapterView.getAdapter();
-                    if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i2 == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
+                    if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
                         this.this$0.performDelLongClick();
                         return false;
                     }
@@ -270,9 +270,9 @@ public class GlobalOnItemClickListenerManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -312,9 +312,9 @@ public class GlobalOnItemClickListenerManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -324,12 +324,12 @@ public class GlobalOnItemClickListenerManager {
             }
 
             @Override // com.baidu.spswitch.emotion.view.PopupEmotionManager.IShowListener
-            public void show(int i2, String str, int i3, int i4) {
+            public void show(int i, String str, int i2, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || this.this$0.mVerticalEmotionListener == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || this.this$0.mVerticalEmotionListener == null) {
                     return;
                 }
-                this.this$0.mVerticalEmotionListener.onVerticalEmotionLongClick(EmotionType.EMOTION_CLASSIC_TYPE, i2, EmotionUtils.getInstance().getEmotionIdByName(EmotionType.EMOTION_CLASSIC_TYPE, str), str, i3, i4);
+                this.this$0.mVerticalEmotionListener.onVerticalEmotionLongClick(EmotionType.EMOTION_CLASSIC_TYPE, i, EmotionUtils.getInstance().getEmotionIdByName(EmotionType.EMOTION_CLASSIC_TYPE, str), str, i2, i3);
             }
         } : (PopupEmotionManager.IShowListener) invokeV.objValue;
     }
@@ -410,24 +410,24 @@ public class GlobalOnItemClickListenerManager {
         }
     }
 
-    public void updateEmotionShownMaxRow(int i2) {
+    public void updateEmotionShownMaxRow(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= this.mEmotionShownMaxRow) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i <= this.mEmotionShownMaxRow) {
             return;
         }
-        this.mEmotionShownMaxRow = i2;
+        this.mEmotionShownMaxRow = i;
     }
 
-    public void verticalOnItemClick(String str, BDEmotionBagVerticalLayout.EmotionGridViewAdapter.StatisticData statisticData, int i2) {
+    public void verticalOnItemClick(String str, BDEmotionBagVerticalLayout.EmotionGridViewAdapter.StatisticData statisticData, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048595, this, str, statisticData, i2) == null) || this.mEditText == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048595, this, str, statisticData, i) == null) || this.mEditText == null || TextUtils.isEmpty(str)) {
             return;
         }
         this.mEditText.getEditableText().insert(this.mEditText.getSelectionStart(), EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), str, this.mEditText));
         EmotionUtils.getInstance().playEmotionClickSound();
         EmotionUsageUtil.recordEmotionUsage(str);
         if (this.mVerticalEmotionListener != null) {
-            this.mVerticalEmotionListener.onVerticalEmotionClick(statisticData.type, statisticData.sectionType, EmotionUtils.getInstance().getEmotionIdByName(statisticData.type, str), str, statisticData.rowIndex, i2);
+            this.mVerticalEmotionListener.onVerticalEmotionClick(statisticData.type, statisticData.sectionType, EmotionUtils.getInstance().getEmotionIdByName(statisticData.type, str), str, statisticData.rowIndex, i);
         }
     }
 

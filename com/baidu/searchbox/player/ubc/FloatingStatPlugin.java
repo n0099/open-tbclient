@@ -55,9 +55,9 @@ public class FloatingStatPlugin extends AbsPlugin {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -121,13 +121,13 @@ public class FloatingStatPlugin extends AbsPlugin {
         }
     }
 
-    private void updateScaleAndPosition(String str, int i2, int i3) {
+    private void updateScaleAndPosition(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65542, this, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65542, this, str, i, i2) == null) {
             try {
                 JSONObject extStatisticsLog = this.mUBCContent.getExtStatisticsLog();
                 extStatisticsLog.put("size", str);
-                extStatisticsLog.put("pos", i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3);
+                extStatisticsLog.put("pos", i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

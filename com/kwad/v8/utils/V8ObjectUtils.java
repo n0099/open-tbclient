@@ -21,14 +21,14 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8ObjectUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter DEFAULT_TYPE_ADAPTER;
     public static final Object IGNORE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class DefaultTypeAdapter implements TypeAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class V8ObjectUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -48,14 +48,14 @@ public class V8ObjectUtils {
         }
 
         @Override // com.kwad.v8.utils.TypeAdapter
-        public Object adapt(int i2, Object obj) {
+        public Object adapt(int i, Object obj) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, obj)) == null) ? TypeAdapter.DEFAULT : invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, obj)) == null) ? TypeAdapter.DEFAULT : invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ListWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class V8ObjectUtils {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -114,72 +114,72 @@ public class V8ObjectUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Object getTypedArray(V8Array v8Array, int i2) {
+    public static Object getTypedArray(V8Array v8Array, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, v8Array, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, v8Array, i)) == null) {
             int length = v8Array.length();
-            if (i2 == 1) {
+            if (i == 1) {
                 return v8Array.getIntegers(0, length);
             }
-            if (i2 == 2) {
+            if (i == 2) {
                 return v8Array.getDoubles(0, length);
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 return v8Array.getBooleans(0, length);
             }
-            if (i2 == 4) {
+            if (i == 4) {
                 return v8Array.getStrings(0, length);
             }
-            throw new RuntimeException("Unsupported bulk load type: " + i2);
+            throw new RuntimeException("Unsupported bulk load type: " + i);
         }
         return invokeLI.objValue;
     }
 
-    public static Object getTypedArray(V8Array v8Array, int i2, Object obj) {
+    public static Object getTypedArray(V8Array v8Array, int i, Object obj) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, v8Array, i2, obj)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, v8Array, i, obj)) == null) {
             int length = v8Array.length();
-            if (i2 == 1) {
+            if (i == 1) {
                 int[] iArr = (int[]) obj;
                 if (iArr == null || iArr.length < length) {
                     iArr = new int[length];
                 }
                 v8Array.getIntegers(0, length, iArr);
                 return iArr;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 double[] dArr = (double[]) obj;
                 if (dArr == null || dArr.length < length) {
                     dArr = new double[length];
                 }
                 v8Array.getDoubles(0, length, dArr);
                 return dArr;
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 boolean[] zArr = (boolean[]) obj;
                 if (zArr == null || zArr.length < length) {
                     zArr = new boolean[length];
                 }
                 v8Array.getBooleans(0, length, zArr);
                 return zArr;
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 String[] strArr = (String[]) obj;
                 if (strArr == null || strArr.length < length) {
                     strArr = new String[length];
                 }
                 v8Array.getStrings(0, length, strArr);
                 return strArr;
-            } else if (i2 != 9) {
-                throw new RuntimeException("Unsupported bulk load type: " + i2);
+            } else if (i != 9) {
+                throw new RuntimeException("Unsupported bulk load type: " + i);
             } else {
                 byte[] bArr = (byte[]) obj;
                 if (bArr == null || bArr.length < length) {
@@ -225,18 +225,18 @@ public class V8ObjectUtils {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, v8, obj, map)) == null) ? map.containsKey(obj) ? map.get(obj) : obj instanceof Map ? toV8Object(v8, (Map) obj, map) : obj instanceof List ? toV8Array(v8, (List) obj, map) : obj instanceof TypedArray ? toV8TypedArray(v8, (TypedArray) obj, map) : obj instanceof ArrayBuffer ? toV8ArrayBuffer(v8, (ArrayBuffer) obj, map) : obj : invokeLLL.objValue;
     }
 
-    public static Object getValue(V8Array v8Array, int i2) {
+    public static Object getValue(V8Array v8Array, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65542, null, v8Array, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65542, null, v8Array, i)) != null) {
             return invokeLI.objValue;
         }
         V8Map v8Map = new V8Map();
         try {
-            obj = v8Array.get(i2);
+            obj = v8Array.get(i);
             try {
-                Object value = getValue(obj, v8Array.getType(i2), v8Map, DEFAULT_TYPE_ADAPTER);
+                Object value = getValue(obj, v8Array.getType(i), v8Map, DEFAULT_TYPE_ADAPTER);
                 if (value != obj || !(value instanceof V8Value)) {
                     if (obj instanceof Releasable) {
                         ((Releasable) obj).release();
@@ -264,18 +264,18 @@ public class V8ObjectUtils {
         }
     }
 
-    public static Object getValue(V8Array v8Array, int i2, TypeAdapter typeAdapter) {
+    public static Object getValue(V8Array v8Array, int i, TypeAdapter typeAdapter) {
         InterceptResult invokeLIL;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, null, v8Array, i2, typeAdapter)) != null) {
+        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, null, v8Array, i, typeAdapter)) != null) {
             return invokeLIL.objValue;
         }
         V8Map v8Map = new V8Map();
         try {
-            obj = v8Array.get(i2);
+            obj = v8Array.get(i);
             try {
-                Object value = getValue(obj, v8Array.getType(i2), v8Map, typeAdapter);
+                Object value = getValue(obj, v8Array.getType(i), v8Map, typeAdapter);
                 if (value != obj || !(value instanceof V8Value)) {
                     if (obj instanceof Releasable) {
                         ((Releasable) obj).release();
@@ -354,17 +354,17 @@ public class V8ObjectUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? getValue(obj, DEFAULT_TYPE_ADAPTER) : invokeL.objValue;
     }
 
-    public static Object getValue(Object obj, int i2, V8Map<Object> v8Map, TypeAdapter typeAdapter) {
+    public static Object getValue(Object obj, int i, V8Map<Object> v8Map, TypeAdapter typeAdapter) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65547, null, obj, i2, v8Map, typeAdapter)) == null) {
-            Object adapt = typeAdapter.adapt(i2, obj);
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65547, null, obj, i, v8Map, typeAdapter)) == null) {
+            Object adapt = typeAdapter.adapt(i, obj);
             if (TypeAdapter.DEFAULT != adapt) {
                 return adapt;
             }
-            if (i2 != 10) {
-                if (i2 != 99) {
-                    switch (i2) {
+            if (i != 10) {
+                if (i != 99) {
+                    switch (i) {
                         case 0:
                             return null;
                         case 1:
@@ -381,7 +381,7 @@ public class V8ObjectUtils {
                         case 8:
                             return new TypedArray((V8TypedArray) obj);
                         default:
-                            throw new IllegalStateException("Cannot convert type " + V8Value.getStringRepresentation(i2));
+                            throw new IllegalStateException("Cannot convert type " + V8Value.getStringRepresentation(i));
                     }
                 }
                 return V8.getUndefined();
@@ -538,11 +538,11 @@ public class V8ObjectUtils {
             }
             ArrayList arrayList = new ArrayList();
             v8Map.put2((V8Value) v8Array, (V8Array) arrayList);
-            for (int i2 = 0; i2 < v8Array.length(); i2++) {
+            for (int i = 0; i < v8Array.length(); i++) {
                 Object obj = null;
                 try {
-                    obj = v8Array.get(i2);
-                    Object value = getValue(obj, v8Array.getType(i2), v8Map, typeAdapter);
+                    obj = v8Array.get(i);
+                    Object value = getValue(obj, v8Array.getType(i), v8Map, typeAdapter);
                     if (value != IGNORE) {
                         arrayList.add(value);
                     }
@@ -634,9 +634,9 @@ public class V8ObjectUtils {
             }
             V8Array v8Array = new V8Array(v8);
             map.put(new ListWrapper(list), v8Array);
-            for (int i2 = 0; i2 < list.size(); i2++) {
+            for (int i = 0; i < list.size(); i++) {
                 try {
-                    pushValue(v8, v8Array, list.get(i2), map);
+                    pushValue(v8, v8Array, list.get(i), map);
                 } catch (IllegalStateException e2) {
                     v8Array.close();
                     throw e2;

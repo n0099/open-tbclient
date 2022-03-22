@@ -10,15 +10,15 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final HashMap<String, g.a> a = new HashMap<>();
 
     public static boolean a(JSONArray jSONArray, String str) {
         if (jSONArray != null && !TextUtils.isEmpty(str)) {
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null && str.equals(optJSONObject.optString("type")) && a(optJSONObject)) {
                     return true;
                 }
@@ -31,18 +31,18 @@ public class a {
         if (jSONObject == null) {
             return true;
         }
-        int i2 = Build.VERSION.SDK_INT;
+        int i = Build.VERSION.SDK_INT;
         String optString = jSONObject.optString("allow_os_api_range");
         int optInt = jSONObject.optInt("min_os_api", -1);
         if (TextUtils.isEmpty(optString)) {
-            return optInt <= 0 || i2 >= optInt;
+            return optInt <= 0 || i >= optInt;
         }
         try {
             String[] split = optString.split("[-,]");
-            for (int i3 = 0; i3 < split.length; i3 += 2) {
-                int parseInt = Integer.parseInt(split[i3]);
-                int parseInt2 = Integer.parseInt(split[i3 + 1]);
-                if (i2 >= parseInt && i2 <= parseInt2) {
+            for (int i2 = 0; i2 < split.length; i2 += 2) {
+                int parseInt = Integer.parseInt(split[i2]);
+                int parseInt2 = Integer.parseInt(split[i2 + 1]);
+                if (i >= parseInt && i <= parseInt2) {
                     return true;
                 }
             }
@@ -70,8 +70,8 @@ public class a {
             return true;
         }
         boolean z = false;
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
                 String optString = optJSONObject.optString("package_names");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("version_allow");
@@ -98,8 +98,8 @@ public class a {
     public static boolean b(JSONArray jSONArray, String str) {
         if (jSONArray != null && str != null) {
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (str.equalsIgnoreCase(jSONArray.optString(i2).trim())) {
+            for (int i = 0; i < length; i++) {
+                if (str.equalsIgnoreCase(jSONArray.optString(i).trim())) {
                     return true;
                 }
             }
@@ -130,9 +130,9 @@ public class a {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split("[-,]");
-                for (int i2 = 0; i2 < split.length; i2 += 2) {
-                    int parseInt = Integer.parseInt(split[i2]);
-                    int parseInt2 = Integer.parseInt(split[i2 + 1]);
+                for (int i = 0; i < split.length; i += 2) {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split[i + 1]);
                     if (f2 >= parseInt && f2 <= parseInt2) {
                         return true;
                     }

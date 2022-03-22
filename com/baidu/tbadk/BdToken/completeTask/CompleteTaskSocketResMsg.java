@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
-import c.a.q0.a.c0.a;
+import c.a.o0.a.d0.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,10 +44,10 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         CompleteTaskResIdl completeTaskResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (completeTaskResIdl = (CompleteTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, CompleteTaskResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (completeTaskResIdl = (CompleteTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, CompleteTaskResIdl.class)) == null) {
             return;
         }
         Error error = completeTaskResIdl.error;
@@ -58,23 +58,23 @@ public class CompleteTaskSocketResMsg extends SocketResponsedMessage {
         if (completeTaskResIdl.data != null) {
             a aVar = new a();
             this.mData = aVar;
-            aVar.f11809c = completeTaskResIdl.data.show_type.intValue();
-            this.mData.f11810d = completeTaskResIdl.data.ahead_type.intValue();
+            aVar.f9630c = completeTaskResIdl.data.show_type.intValue();
+            this.mData.f9631d = completeTaskResIdl.data.ahead_type.intValue();
             a aVar2 = this.mData;
             DataRes dataRes = completeTaskResIdl.data;
-            aVar2.f11811e = dataRes.message;
-            aVar2.f11812f = dataRes.btn_text;
-            aVar2.f11813g = dataRes.btn_confirm;
-            aVar2.f11814h = dataRes.btn_cancel;
-            aVar2.f11815i = dataRes.toast_duration.intValue();
+            aVar2.f9632e = dataRes.message;
+            aVar2.f9633f = dataRes.btn_text;
+            aVar2.f9634g = dataRes.btn_confirm;
+            aVar2.f9635h = dataRes.btn_cancel;
+            aVar2.i = dataRes.toast_duration.intValue();
             a aVar3 = this.mData;
             DataRes dataRes2 = completeTaskResIdl.data;
-            aVar3.f11816j = dataRes2.img_url;
+            aVar3.j = dataRes2.img_url;
             aVar3.k = dataRes2.url;
             aVar3.l = dataRes2.schema;
             aVar3.m = dataRes2.token;
             aVar3.a = dataRes2.activity_id.intValue();
-            this.mData.f11808b = completeTaskResIdl.data.mission_id.intValue();
+            this.mData.f9629b = completeTaskResIdl.data.mission_id.intValue();
             a aVar4 = this.mData;
             DataRes dataRes3 = completeTaskResIdl.data;
             aVar4.o = dataRes3.btn_color;

@@ -20,9 +20,9 @@ public abstract class Binarizer {
             newInitContext.initArgs = r2;
             Object[] objArr = {luminanceSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public abstract class Binarizer {
 
     public abstract BitMatrix getBlackMatrix() throws NotFoundException;
 
-    public abstract BitArray getBlackRow(int i2, BitArray bitArray) throws NotFoundException;
+    public abstract BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException;
 
     public final int getHeight() {
         InterceptResult invokeV;

@@ -7,8 +7,8 @@ import android.webkit.JsPromptResult;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.o0.b;
-import c.a.r0.y3.o0.c;
+import c.a.p0.a4.o0.b;
+import c.a.p0.a4.o0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,7 +33,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.y3.o0.a jsBridge;
+    public c.a.p0.a4.o0.a jsBridge;
     public c jsCallback;
     public b jsPromptInterface;
     public NavigationBar mNavigationBar;
@@ -53,9 +53,9 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {accountRestoreActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,7 +64,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.a = accountRestoreActivity;
         }
 
-        @Override // c.a.r0.y3.o0.c
+        @Override // c.a.p0.a4.o0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -83,9 +83,9 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,9 +103,9 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -114,12 +114,12 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // c.a.r0.y3.o0.b
+            @Override // c.a.p0.a4.o0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLLLL = interceptable2.invokeLLLL(1048576, this, str, str2, str3, jsPromptResult)) == null) {
-                    if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
+                    if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, str2)) {
                         jsPromptResult.confirm();
                         this.this$0.exitPage();
                         return true;
@@ -146,11 +146,11 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -159,17 +159,17 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.account_restore_activity);
-            c.a.r0.y3.o0.a aVar = new c.a.r0.y3.o0.a();
+            setContentView(R.layout.obfuscated_res_0x7f0d0024);
+            c.a.p0.a4.o0.a aVar = new c.a.p0.a4.o0.a();
             this.jsBridge = aVar;
             aVar.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.anti_account_restore));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.webview_acc_restore);
+            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f027b));
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920d1)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09244b);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);
             BaseWebView baseWebView2 = this.mWebView;

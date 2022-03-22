@@ -61,9 +61,9 @@ public class StatusbarColorUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,13 +77,13 @@ public class StatusbarColorUtils {
             try {
                 Field declaredField = layoutParams.getClass().getDeclaredField(str);
                 declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(layoutParams);
+                int i = declaredField.getInt(layoutParams);
                 Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
                 declaredField2.setAccessible(true);
-                int i3 = declaredField2.getInt(layoutParams);
-                int i4 = z ? i2 | i3 : (~i2) & i3;
-                if (i3 != i4) {
-                    declaredField2.setInt(layoutParams, i4);
+                int i2 = declaredField2.getInt(layoutParams);
+                int i3 = z ? i | i2 : (~i) & i2;
+                if (i2 != i3) {
+                    declaredField2.setInt(layoutParams, i3);
                     return true;
                 }
                 return false;
@@ -104,21 +104,21 @@ public class StatusbarColorUtils {
         return invokeLLZ.booleanValue;
     }
 
-    public static boolean isBlackColor(int i2, int i3) {
+    public static boolean isBlackColor(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? toGrey(i2) < i3 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? toGrey(i) < i2 : invokeII.booleanValue;
     }
 
-    public static void setStatusBarColor(Window window, int i2) {
+    public static void setStatusBarColor(Window window, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i) == null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
             Field field = mStatusBarColorFiled;
             if (field != null) {
                 try {
-                    if (field.getInt(attributes) != i2) {
-                        mStatusBarColorFiled.set(attributes, Integer.valueOf(i2));
+                    if (field.getInt(attributes) != i) {
+                        mStatusBarColorFiled.set(attributes, Integer.valueOf(i));
                         window.setAttributes(attributes);
                     }
                 } catch (IllegalAccessException e2) {
@@ -128,13 +128,13 @@ public class StatusbarColorUtils {
         }
     }
 
-    public static void setStatusBarDarkIcon(Activity activity, int i2) {
+    public static void setStatusBarDarkIcon(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, null, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) {
             Method method = mSetStatusBarColorIcon;
             if (method != null) {
                 try {
-                    method.invoke(activity, Integer.valueOf(i2));
+                    method.invoke(activity, Integer.valueOf(i));
                     return;
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
@@ -144,27 +144,27 @@ public class StatusbarColorUtils {
                     return;
                 }
             }
-            boolean isBlackColor = isBlackColor(i2, 50);
+            boolean isBlackColor = isBlackColor(i, 50);
             if (mStatusBarColorFiled != null) {
                 setStatusBarDarkIcon(activity, isBlackColor, isBlackColor);
-                setStatusBarDarkIcon(activity.getWindow(), i2);
+                setStatusBarDarkIcon(activity.getWindow(), i);
                 return;
             }
             setStatusBarDarkIcon(activity, isBlackColor);
         }
     }
 
-    public static int toGrey(int i2) {
+    public static int toGrey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? (((((i2 & 16711680) >> 16) * 38) + (((65280 & i2) >> 8) * 75)) + ((i2 & 255) * 15)) >> 7 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? (((((i & 16711680) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7 : invokeI.intValue;
     }
 
-    public static void setStatusBarDarkIcon(Window window, int i2) {
+    public static void setStatusBarDarkIcon(Window window, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, window, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, null, window, i) == null) {
             try {
-                setStatusBarColor(window, i2);
+                setStatusBarColor(window, i);
                 if (Build.VERSION.SDK_INT > 22) {
                     setStatusBarDarkIcon(window.getDecorView(), true);
                 }
@@ -182,17 +182,17 @@ public class StatusbarColorUtils {
     }
 
     public static void setStatusBarDarkIcon(View view, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, view, z) == null) {
             int systemUiVisibility = view.getSystemUiVisibility();
             if (z) {
-                i2 = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
+                i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
             } else {
-                i2 = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
+                i = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
             }
-            if (i2 != systemUiVisibility) {
-                view.setSystemUiVisibility(i2);
+            if (i != systemUiVisibility) {
+                view.setSystemUiVisibility(i);
             }
         }
     }

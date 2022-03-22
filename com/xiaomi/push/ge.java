@@ -10,41 +10,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ge extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f436a;
+    public a f412a;
 
     /* renamed from: a  reason: collision with other field name */
-    public b f437a;
+    public b f413a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59684b;
+    public String f44287b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f438a;
+        public static final /* synthetic */ a[] f414a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f59685b;
+        public static final a f44288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f59686c;
+        public static final a f44289c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f59687d;
+        public static final a f44290d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f59688e;
+        public static final a f44291e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,24 +61,24 @@ public class ge extends gc {
                 }
             }
             a = new a("chat", 0);
-            f59685b = new a("available", 1);
-            f59686c = new a("away", 2);
-            f59687d = new a("xa", 3);
+            f44288b = new a("available", 1);
+            f44289c = new a("away", 2);
+            f44290d = new a("xa", 3);
             a aVar = new a("dnd", 4);
-            f59688e = aVar;
-            f438a = new a[]{a, f59685b, f59686c, f59687d, aVar};
+            f44291e = aVar;
+            f414a = new a[]{a, f44288b, f44289c, f44290d, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -97,39 +97,39 @@ public class ge extends gc {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f438a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f414a.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ b[] f439a;
+        public static final /* synthetic */ b[] f415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f59689b;
+        public static final b f44292b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f59690c;
+        public static final b f44293c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f59691d;
+        public static final b f44294d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f59692e;
+        public static final b f44295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f59693f;
+        public static final b f44296f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b f59694g;
+        public static final b f44297g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final b f59695h;
+        public static final b f44298h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,27 +146,27 @@ public class ge extends gc {
                 }
             }
             a = new b("available", 0);
-            f59689b = new b("unavailable", 1);
-            f59690c = new b(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, 2);
-            f59691d = new b("subscribed", 3);
-            f59692e = new b("unsubscribe", 4);
-            f59693f = new b("unsubscribed", 5);
-            f59694g = new b("error", 6);
+            f44292b = new b("unavailable", 1);
+            f44293c = new b(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, 2);
+            f44294d = new b("subscribed", 3);
+            f44295e = new b("unsubscribe", 4);
+            f44296f = new b("unsubscribed", 5);
+            f44297g = new b("error", 6);
             b bVar = new b("probe", 7);
-            f59695h = bVar;
-            f439a = new b[]{a, f59689b, f59690c, f59691d, f59692e, f59693f, f59694g, bVar};
+            f44298h = bVar;
+            f415a = new b[]{a, f44292b, f44293c, f44294d, f44295e, f44296f, f44297g, bVar};
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -185,7 +185,7 @@ public class ge extends gc {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f439a.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f415a.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -198,30 +198,30 @@ public class ge extends gc {
             newInitContext.initArgs = r2;
             Object[] objArr = {bundle};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Bundle) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f437a = b.a;
-        this.f59684b = null;
+        this.f413a = b.a;
+        this.f44287b = null;
         this.a = Integer.MIN_VALUE;
-        this.f436a = null;
+        this.f412a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f437a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f413a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
-            this.f59684b = bundle.getString("ext_pres_status");
+            this.f44287b = bundle.getString("ext_pres_status");
         }
         if (bundle.containsKey("ext_pres_prio")) {
             this.a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f436a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f412a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
@@ -232,18 +232,18 @@ public class ge extends gc {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f437a = b.a;
-        this.f59684b = null;
+        this.f413a = b.a;
+        this.f44287b = null;
         this.a = Integer.MIN_VALUE;
-        this.f436a = null;
+        this.f412a = null;
         a(bVar);
     }
 
@@ -253,20 +253,20 @@ public class ge extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            b bVar = this.f437a;
+            b bVar = this.f413a;
             if (bVar != null) {
                 a2.putString("ext_pres_type", bVar.toString());
             }
-            String str = this.f59684b;
+            String str = this.f44287b;
             if (str != null) {
                 a2.putString("ext_pres_status", str);
             }
-            int i2 = this.a;
-            if (i2 != Integer.MIN_VALUE) {
-                a2.putInt("ext_pres_prio", i2);
+            int i = this.a;
+            if (i != Integer.MIN_VALUE) {
+                a2.putInt("ext_pres_prio", i);
             }
-            a aVar = this.f436a;
-            if (aVar != null && aVar != a.f59685b) {
+            a aVar = this.f412a;
+            if (aVar != null && aVar != a.f44288b) {
                 a2.putString("ext_pres_mode", aVar.toString());
             }
             return a2;
@@ -306,15 +306,15 @@ public class ge extends gc {
                 sb.append(gn.a(k()));
                 sb.append("\"");
             }
-            if (this.f437a != null) {
+            if (this.f413a != null) {
                 sb.append(" type=\"");
-                sb.append(this.f437a);
+                sb.append(this.f413a);
                 sb.append("\"");
             }
             sb.append(">");
-            if (this.f59684b != null) {
+            if (this.f44287b != null) {
                 sb.append("<status>");
-                sb.append(gn.a(this.f59684b));
+                sb.append(gn.a(this.f44287b));
                 sb.append("</status>");
             }
             if (this.a != Integer.MIN_VALUE) {
@@ -322,16 +322,16 @@ public class ge extends gc {
                 sb.append(this.a);
                 sb.append("</priority>");
             }
-            a aVar = this.f436a;
-            if (aVar != null && aVar != a.f59685b) {
+            a aVar = this.f412a;
+            if (aVar != null && aVar != a.f44288b) {
                 sb.append("<show>");
-                sb.append(this.f436a);
+                sb.append(this.f412a);
                 sb.append("</show>");
             }
             sb.append(o());
-            gg m406a = m406a();
-            if (m406a != null) {
-                sb.append(m406a.m410a());
+            gg m385a = m385a();
+            if (m385a != null) {
+                sb.append(m385a.m389a());
             }
             sb.append("</presence>");
             return sb.toString();
@@ -339,21 +339,21 @@ public class ge extends gc {
         return (String) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (i2 >= -128 && i2 <= 128) {
-                this.a = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i >= -128 && i <= 128) {
+                this.a = i;
                 return;
             }
-            throw new IllegalArgumentException("Priority value " + i2 + " is not valid. Valid range is -128 through 128.");
+            throw new IllegalArgumentException("Priority value " + i + " is not valid. Valid range is -128 through 128.");
         }
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f436a = aVar;
+            this.f412a = aVar;
         }
     }
 
@@ -363,7 +363,7 @@ public class ge extends gc {
             if (bVar == null) {
                 throw new NullPointerException("Type cannot be null");
             }
-            this.f437a = bVar;
+            this.f413a = bVar;
         }
     }
 
@@ -371,7 +371,7 @@ public class ge extends gc {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f59684b = str;
+            this.f44287b = str;
         }
     }
 }

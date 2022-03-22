@@ -10,22 +10,24 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 public class a {
     public static int a;
 
     public static int a(@Nullable Context context) {
-        int i2 = a;
-        if (i2 <= 0 && context != null) {
-            int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int i = a;
+        if (i <= 0 && context != null) {
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 a = context.getResources().getDimensionPixelSize(identifier);
             } else {
                 try {
                     Class<?> cls = Class.forName("com.android.internal.R$dimen");
                     Object newInstance = cls.newInstance();
-                    Field field = cls.getField("status_bar_height");
+                    Field field = cls.getField(SapiSystemBarTintManager.SystemBarConfig.f27942g);
                     field.setAccessible(true);
                     a = context.getResources().getDimensionPixelSize(Integer.parseInt(field.get(newInstance).toString()));
                 } catch (Throwable th) {
@@ -37,7 +39,7 @@ public class a {
             }
             return a;
         }
-        return i2;
+        return i;
     }
 
     public static int a(Context context, float f2) {
@@ -48,26 +50,26 @@ public class a {
         return a(activity.getWindow());
     }
 
-    public static View a(ViewGroup viewGroup, int i2, boolean z) {
-        return d(viewGroup.getContext()).inflate(i2, viewGroup, z);
+    public static View a(ViewGroup viewGroup, int i, boolean z) {
+        return d(viewGroup.getContext()).inflate(i, viewGroup, z);
     }
 
     public static View a(@NonNull Window window) {
         return window.getDecorView().findViewById(16908290);
     }
 
-    public static void a(View view, int i2) {
-        if (view == null || i2 == 0) {
+    public static void a(View view, int i) {
+        if (view == null || i == 0) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.height = i2;
+        layoutParams.height = i;
         view.setLayoutParams(layoutParams);
     }
 
-    public static void a(View view, int i2, int i3) {
+    public static void a(View view, int i, int i2) {
         View view2;
-        if (view == null || i2 == 0 || i3 == 0 || (view2 = (View) view.getParent()) == null) {
+        if (view == null || i == 0 || i2 == 0 || (view2 = (View) view.getParent()) == null) {
             return;
         }
         int width = view2.getWidth();
@@ -77,16 +79,16 @@ public class a {
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (width > height) {
-            if (i2 <= i3) {
-                layoutParams.width = (int) ((i2 / (i3 * 1.0f)) * height);
+            if (i <= i2) {
+                layoutParams.width = (int) ((i / (i2 * 1.0f)) * height);
                 layoutParams.height = height;
             }
             layoutParams.width = -1;
             layoutParams.height = -1;
         } else {
-            if (i3 <= i2) {
+            if (i2 <= i) {
                 layoutParams.width = width;
-                layoutParams.height = (int) ((i3 / (i2 * 1.0f)) * width);
+                layoutParams.height = (int) ((i2 / (i * 1.0f)) * width);
             }
             layoutParams.width = -1;
             layoutParams.height = -1;
@@ -108,9 +110,9 @@ public class a {
         return displayMetrics.heightPixels;
     }
 
-    public static void b(View view, int i2, int i3) {
+    public static void b(View view, int i, int i2) {
         View view2;
-        if (view == null || i2 == 0 || i3 == 0 || (view2 = (View) view.getParent()) == null) {
+        if (view == null || i == 0 || i2 == 0 || (view2 = (View) view.getParent()) == null) {
             return;
         }
         int width = view2.getWidth();
@@ -119,11 +121,11 @@ public class a {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (i2 > i3) {
+        if (i > i2) {
             layoutParams.width = width;
-            layoutParams.height = (int) ((i3 / (i2 * 1.0f)) * width);
+            layoutParams.height = (int) ((i2 / (i * 1.0f)) * width);
         } else {
-            layoutParams.width = (int) ((i2 / (i3 * 1.0f)) * height);
+            layoutParams.width = (int) ((i / (i2 * 1.0f)) * height);
             layoutParams.height = height;
         }
         view.setLayoutParams(layoutParams);
@@ -139,9 +141,9 @@ public class a {
         return displayMetrics.widthPixels;
     }
 
-    public static void c(View view, int i2, int i3) {
+    public static void c(View view, int i, int i2) {
         View view2;
-        if (view == null || i2 == 0 || i3 == 0 || (view2 = (View) view.getParent()) == null) {
+        if (view == null || i == 0 || i2 == 0 || (view2 = (View) view.getParent()) == null) {
             return;
         }
         int width = view2.getWidth();
@@ -150,11 +152,11 @@ public class a {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (width <= height || i2 > i3) {
+        if (width <= height || i > i2) {
             layoutParams.width = width;
-            layoutParams.height = (int) ((i3 / (i2 * 1.0f)) * width);
+            layoutParams.height = (int) ((i2 / (i * 1.0f)) * width);
         } else {
-            layoutParams.width = (int) ((i2 / (i3 * 1.0f)) * height);
+            layoutParams.width = (int) ((i / (i2 * 1.0f)) * height);
             layoutParams.height = height;
         }
         view.setLayoutParams(layoutParams);

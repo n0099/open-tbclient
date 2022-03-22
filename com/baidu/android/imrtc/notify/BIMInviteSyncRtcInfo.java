@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
@@ -31,9 +30,9 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -109,10 +108,10 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mRtcUserId : invokeV.longValue;
     }
 
-    public void setMediaType(int i2) {
+    public void setMediaType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mMediaType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mMediaType = i;
         }
     }
 
@@ -144,17 +143,17 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         }
     }
 
-    public void setRtcRoomType(int i2) {
+    public void setRtcRoomType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mRtcRoomType = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mRtcRoomType = i;
         }
     }
 
-    public void setRtcUserId(long j2) {
+    public void setRtcUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.mRtcUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.mRtcUserId = j;
         }
     }
 
@@ -189,7 +188,7 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return "BIMInviteSyncRtcInfo{" + super.toString() + ", mRtcRoomName='" + this.mRtcRoomName + ExtendedMessageFormat.QUOTE + ", mRtcRoomToken='" + this.mRtcRoomToken + ExtendedMessageFormat.QUOTE + ", mRtcRoomDes='" + this.mRtcRoomDes + ExtendedMessageFormat.QUOTE + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ", mInitiatorUk=" + this.mInitiatorUk + ", mInviteId=" + this.mInviteId + ", mRtcUserId=" + this.mRtcUserId + ", ext=" + this.mRtcExt + ExtendedMessageFormat.END_FE;
+            return "BIMInviteSyncRtcInfo{" + super.toString() + ", mRtcRoomName='" + this.mRtcRoomName + "', mRtcRoomToken='" + this.mRtcRoomToken + "', mRtcRoomDes='" + this.mRtcRoomDes + "', mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ", mInitiatorUk=" + this.mInitiatorUk + ", mInviteId=" + this.mInviteId + ", mRtcUserId=" + this.mRtcUserId + ", ext=" + this.mRtcExt + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -12,7 +12,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] ADDRESSES_OTHER;
@@ -48,9 +48,9 @@ public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

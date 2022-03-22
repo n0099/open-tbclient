@@ -16,7 +16,7 @@ import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableCache extends Completable implements CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
     public static final InnerCompletableCache[] EMPTY;
@@ -27,7 +27,7 @@ public final class CompletableCache extends Completable implements CompletableOb
     public final AtomicBoolean once;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class InnerCompletableCache extends AtomicBoolean implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8943152917179642732L;
@@ -42,9 +42,9 @@ public final class CompletableCache extends Completable implements CompletableOb
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableCache, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,9 +94,9 @@ public final class CompletableCache extends Completable implements CompletableOb
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -173,27 +173,27 @@ public final class CompletableCache extends Completable implements CompletableOb
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (innerCompletableCacheArr[i3] == innerCompletableCache) {
-                        i2 = i3;
+                    } else if (innerCompletableCacheArr[i2] == innerCompletableCache) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     innerCompletableCacheArr2 = EMPTY;
                 } else {
                     InnerCompletableCache[] innerCompletableCacheArr3 = new InnerCompletableCache[length - 1];
-                    System.arraycopy(innerCompletableCacheArr, 0, innerCompletableCacheArr3, 0, i2);
-                    System.arraycopy(innerCompletableCacheArr, i2 + 1, innerCompletableCacheArr3, i2, (length - i2) - 1);
+                    System.arraycopy(innerCompletableCacheArr, 0, innerCompletableCacheArr3, 0, i);
+                    System.arraycopy(innerCompletableCacheArr, i + 1, innerCompletableCacheArr3, i, (length - i) - 1);
                     innerCompletableCacheArr2 = innerCompletableCacheArr3;
                 }
             } while (!this.observers.compareAndSet(innerCompletableCacheArr, innerCompletableCacheArr2));

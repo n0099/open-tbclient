@@ -14,12 +14,11 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +50,8 @@ public final class b {
                 Method method3 = cls.getMethod("isRemovable", new Class[0]);
                 Object invoke = method.invoke(storageManager, new Object[0]);
                 int length = Array.getLength(invoke);
-                for (int i2 = 0; i2 < length; i2++) {
-                    Object obj = Array.get(invoke, i2);
+                for (int i = 0; i < length; i++) {
+                    Object obj = Array.get(invoke, i);
                     String str = (String) method2.invoke(obj, new Object[0]);
                     if (!((Boolean) method3.invoke(obj, new Object[0])).booleanValue() && !TextUtils.isEmpty(str)) {
                         return new File(str);
@@ -80,20 +79,20 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             byte[] bArr2 = new byte[256];
-            for (int i2 = 0; i2 < 256; i2++) {
-                bArr2[i2] = (byte) i2;
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
             if (bArr == null || bArr.length == 0) {
                 return null;
             }
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < 256; i5++) {
-                i4 = ((bArr[i3] & 255) + (bArr2[i5] & 255) + i4) & 255;
-                byte b2 = bArr2[i5];
-                bArr2[i5] = bArr2[i4];
-                bArr2[i4] = b2;
-                i3 = (i3 + 1) % bArr.length;
+            for (int i4 = 0; i4 < 256; i4++) {
+                i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                byte b2 = bArr2[i4];
+                bArr2[i4] = bArr2[i3];
+                bArr2[i3] = b2;
+                i2 = (i2 + 1) % bArr.length;
             }
             return bArr2;
         }
@@ -141,7 +140,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
-                if (e.a(context, new String[]{s.f53804c})) {
+                if (e.a(context, new String[]{"android.permission.READ_PHONE_STATE"})) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     int phoneCount = Build.VERSION.SDK_INT >= 23 ? ((TelephonyManager) context.getSystemService("phone")).getPhoneCount() : Build.VERSION.SDK_INT >= 22 ? SubscriptionManager.from(context).getActiveSubscriptionInfoCount() : 1;
                     if (phoneCount == 0) {
@@ -218,16 +217,16 @@ public final class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
             byte[] a = a(bArr2);
             byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < bArr.length; i4++) {
-                i2 = (i2 + 1) & 255;
-                i3 = ((a[i2] & 255) + i3) & 255;
-                byte b2 = a[i2];
-                a[i2] = a[i3];
-                a[i3] = b2;
-                bArr3[i4] = (byte) (a[((a[i2] & 255) + (a[i3] & 255)) & 255] ^ bArr[i4]);
-                bArr3[i4] = (byte) (bArr3[i4] ^ 42);
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b2 = a[i];
+                a[i] = a[i2];
+                a[i2] = b2;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ 42);
             }
             return bArr3;
         }

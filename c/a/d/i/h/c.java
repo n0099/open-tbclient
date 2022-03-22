@@ -18,9 +18,9 @@ public class c implements IStatisticManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,49 +28,49 @@ public class c implements IStatisticManager {
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordDownloadResult(int i2, String str, int i3, String str2) {
+    public void recordDownloadResult(int i, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
         }
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordException(int i2, String str, String str2) {
+    public void recordException(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
         }
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInstallResult(int i2, String str, int i3, String str2) {
+    public void recordInstallResult(int i, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
-            b.c(str, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
+            b.c(str, i, i2);
         }
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordInvokeResult(int i2, String str, int i3, String str2) {
+    public void recordInvokeResult(int i, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
-            if (i2 == 14) {
-                b.a(str, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
+            if (i == 14) {
+                b.a(str, i2);
             }
-            b.d(str, i2, i3);
+            b.d(str, i, i2);
         }
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordPeriod(long j2, long j3) {
+    public void recordPeriod(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
     @Override // com.baidu.nps.interfa.IStatisticManager
-    public void recordResult(long j2, int i2, String str) {
+    public void recordResult(long j, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
         }
     }
 }

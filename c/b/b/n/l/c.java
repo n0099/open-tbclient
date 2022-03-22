@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static int f27324i;
+    /* renamed from: e  reason: collision with root package name */
+    public static int f22552e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f27325h;
+    /* renamed from: d  reason: collision with root package name */
+    public String f22553d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,9 +44,9 @@ public class c extends b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -55,23 +55,23 @@ public class c extends b {
         }
         StringBuilder sb = new StringBuilder();
         sb.append("mtl");
-        int i4 = f27324i + 1;
-        f27324i = i4;
-        sb.append(i4);
+        int i3 = f22552e + 1;
+        f22552e = i3;
+        sb.append(i3);
     }
 
     @Override // c.b.b.n.l.b, java.util.Comparator
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f27325h.equals(this.f27325h) && super.equals(obj))) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof c) && (obj == this || (((c) obj).f22553d.equals(this.f22553d) && super.equals(obj))) : invokeL.booleanValue;
     }
 
     @Override // c.b.b.n.l.b
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f27325h.hashCode() * 3) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.hashCode() + (this.f22553d.hashCode() * 3) : invokeV.intValue;
     }
 
     public c(String str) {
@@ -81,14 +81,14 @@ public class c extends b {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f27325h = str;
+        this.f22553d = str;
     }
 }

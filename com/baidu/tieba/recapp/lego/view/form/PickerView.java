@@ -27,42 +27,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PickerView extends FormItemBaseView implements View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePicker.OnTimeChangedListener, DialogInterface.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public String[] B;
+    public String C;
+    public String D;
+    public DialogInterface.OnClickListener E;
+    public TextView t;
+    public ImageView u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public int z;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f46191e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f46192f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f46193g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f46194h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f46195i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f46196j;
-    public int k;
-    public int l;
-    public String[] m;
-    public String n;
-    public String o;
-    public DialogInterface.OnClickListener p;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickerView f46197e;
+        public final /* synthetic */ PickerView a;
 
         public a(PickerView pickerView) {
             Interceptable interceptable = $ic;
@@ -71,35 +57,33 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pickerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46197e = pickerView;
+            this.a = pickerView;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i2) {
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                PickerView pickerView = this.f46197e;
-                pickerView.o = pickerView.m[i2];
-                this.f46197e.f46191e.setText(this.f46197e.o);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                PickerView pickerView = this.a;
+                pickerView.D = pickerView.B[i];
+                this.a.t.setText(this.a.D);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickerView f46198e;
+        public final /* synthetic */ PickerView a;
 
         public b(PickerView pickerView) {
             Interceptable interceptable = $ic;
@@ -108,28 +92,28 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pickerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46198e = pickerView;
+            this.a = pickerView;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (!this.f46198e.isPrepareToCommit()) {
-                    PickerView pickerView = this.f46198e;
-                    pickerView.drawBackgroundFrame(pickerView, FormItemBaseView.DrawableType.ERROR_FRAME);
+                if (!this.a.a()) {
+                    PickerView pickerView = this.a;
+                    pickerView.c(pickerView, FormItemBaseView.DrawableType.ERROR_FRAME);
                     return;
                 }
-                PickerView pickerView2 = this.f46198e;
-                pickerView2.drawBackgroundFrame(pickerView2, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                PickerView pickerView2 = this.a;
+                pickerView2.c(pickerView2, FormItemBaseView.DrawableType.ORDINARY_FRAME);
             }
         }
     }
@@ -143,104 +127,192 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46191e = null;
-        this.f46192f = null;
-        this.f46193g = -1;
-        this.f46194h = 0;
-        this.f46195i = 0;
-        this.f46196j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = null;
-        this.n = "";
-        this.o = "";
-        this.p = new a(this);
-        f();
+        this.t = null;
+        this.u = null;
+        this.v = -1;
+        this.w = 0;
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.A = 0;
+        this.B = null;
+        this.C = "";
+        this.D = "";
+        this.E = new a(this);
+        l();
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.D) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public int compoundHeight() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSize80 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35743f : invokeV.intValue;
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-            g();
-            setOnClickListener(this);
-            drawBackgroundFrame(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        }
-    }
-
-    public final void g() {
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Drawable drawable = this.mResources.getDrawable(R.drawable.form_picker_arrow);
-            ImageView imageView = new ImageView(this.mContext);
-            this.f46192f = imageView;
-            imageView.setBackgroundDrawable(drawable);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(11);
-            layoutParams.addRule(15);
-            addView(this.f46192f, layoutParams);
+            this.D = "";
         }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public boolean g(FormCard.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
+            if (super.g(bVar)) {
+                FormCard.e eVar = (FormCard.e) bVar;
+                this.v = eVar.a;
+                String str = eVar.f35706b;
+                this.C = str;
+                this.t.setText(str);
+                this.t.setTextSize(0, this.j);
+                ((ViewGroup.MarginLayoutParams) this.t.getLayoutParams()).leftMargin = this.f35740c;
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.u.getLayoutParams();
+                int i = this.f35740c;
+                marginLayoutParams.width = i;
+                marginLayoutParams.rightMargin = i;
+                int i2 = this.v;
+                if (i2 == 6) {
+                    String[] strArr = eVar.f35712d;
+                    if (strArr == null || strArr.length <= 0) {
+                        return false;
+                    }
+                    this.B = strArr;
+                } else if (i2 == 7) {
+                    Calendar calendar = Calendar.getInstance();
+                    this.w = calendar.get(1);
+                    this.x = calendar.get(2);
+                    this.y = calendar.get(5);
+                } else if (i2 != 8) {
+                    this.w = 0;
+                    this.x = 0;
+                    this.y = 0;
+                    this.A = 0;
+                    this.z = 0;
+                    return false;
+                } else {
+                    Calendar calendar2 = Calendar.getInstance();
+                    this.A = calendar2.get(10);
+                    this.z = calendar2.get(12);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public String getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.o : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.D : (String) invokeV.objValue;
     }
 
-    public final void h() {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TextView textView = new TextView(this.mContext);
-            this.f46191e = textView;
-            textView.setTextSize(0, this.mFontSize);
-            this.f46191e.setTextColor(this.mHintFontColor);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(15);
-            layoutParams.addRule(9);
-            addView(this.f46191e, layoutParams);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n();
+            m();
+            setOnClickListener(this);
+            c(this, FormItemBaseView.DrawableType.ORDINARY_FRAME);
         }
     }
 
-    public final void i(Dialog dialog) {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dialog) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            Drawable drawable = this.f35739b.getDrawable(R.drawable.obfuscated_res_0x7f080581);
+            ImageView imageView = new ImageView(this.a);
+            this.u = imageView;
+            imageView.setBackgroundDrawable(drawable);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(11);
+            layoutParams.addRule(15);
+            addView(this.u, layoutParams);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TextView textView = new TextView(this.a);
+            this.t = textView;
+            textView.setTextSize(0, this.j);
+            this.t.setTextColor(this.i);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(15);
+            layoutParams.addRule(9);
+            addView(this.t, layoutParams);
+        }
+    }
+
+    public final void o(Dialog dialog) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialog) == null) {
             dialog.setOnDismissListener(new b(this));
         }
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView, com.baidu.tieba.recapp.lego.view.form.FormCardView.d
-    public boolean isPrepareToCommit() {
-        InterceptResult invokeV;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.o) : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeLI(1048585, this, dialogInterface, i) == null) && i == -1) {
+            if (TextUtils.isEmpty(this.D)) {
+                this.D = p(this.A, this.z);
+            }
+            this.t.setText(this.D);
+        }
     }
 
-    public final String j(int i2, int i3) {
+    @Override // android.app.DatePickerDialog.OnDateSetListener
+    public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048587, this, datePicker, i, i2, i3) == null) {
+            this.w = datePicker.getYear();
+            this.x = datePicker.getMonth();
+            this.y = datePicker.getDayOfMonth();
+            String str = this.w + "-" + (this.x + 1) + "-" + this.y;
+            this.D = str;
+            this.t.setText(str);
+        }
+    }
+
+    @Override // android.widget.TimePicker.OnTimeChangedListener
+    public void onTimeChanged(TimePicker timePicker, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048588, this, timePicker, i, i2) == null) {
+            this.D = p(i, i2);
+        }
+    }
+
+    public final String p(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
-            this.l = i2;
-            this.k = i3;
-            String num = Integer.toString(i3);
-            String num2 = Integer.toString(this.l);
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
+            this.A = i;
+            this.z = i2;
+            String num = Integer.toString(i2);
+            String num2 = Integer.toString(this.A);
             if (Pattern.matches("\\d", num2)) {
                 num2 = "0" + num2;
             }
@@ -252,119 +324,31 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
         return (String) invokeII.objValue;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, dialogInterface, i2) == null) && i2 == -1) {
-            if (TextUtils.isEmpty(this.o)) {
-                this.o = j(this.l, this.k);
-            }
-            this.f46191e.setText(this.o);
-        }
-    }
-
-    @Override // android.app.DatePickerDialog.OnDateSetListener
-    public void onDateSet(DatePicker datePicker, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048586, this, datePicker, i2, i3, i4) == null) {
-            this.f46194h = datePicker.getYear();
-            this.f46195i = datePicker.getMonth();
-            this.f46196j = datePicker.getDayOfMonth();
-            String str = this.f46194h + "-" + (this.f46195i + 1) + "-" + this.f46196j;
-            this.o = str;
-            this.f46191e.setText(str);
-        }
-    }
-
-    @Override // android.widget.TimePicker.OnTimeChangedListener
-    public void onTimeChanged(TimePicker timePicker, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048587, this, timePicker, i2, i3) == null) {
-            this.o = j(i2, i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.o = "";
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public boolean updateView(FormCard.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bVar)) == null) {
-            if (super.updateView(bVar)) {
-                FormCard.e eVar = (FormCard.e) bVar;
-                this.f46193g = eVar.a;
-                String str = eVar.f46099b;
-                this.n = str;
-                this.f46191e.setText(str);
-                this.f46191e.setTextSize(0, this.mFontSize);
-                ((ViewGroup.MarginLayoutParams) this.f46191e.getLayoutParams()).leftMargin = this.mSize20;
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f46192f.getLayoutParams();
-                int i2 = this.mSize20;
-                marginLayoutParams.width = i2;
-                marginLayoutParams.rightMargin = i2;
-                int i3 = this.f46193g;
-                if (i3 == 6) {
-                    String[] strArr = eVar.f46105d;
-                    if (strArr == null || strArr.length <= 0) {
-                        return false;
-                    }
-                    this.m = strArr;
-                } else if (i3 == 7) {
-                    Calendar calendar = Calendar.getInstance();
-                    this.f46194h = calendar.get(1);
-                    this.f46195i = calendar.get(2);
-                    this.f46196j = calendar.get(5);
-                } else if (i3 != 8) {
-                    this.f46194h = 0;
-                    this.f46195i = 0;
-                    this.f46196j = 0;
-                    this.l = 0;
-                    this.k = 0;
-                    return false;
-                } else {
-                    Calendar calendar2 = Calendar.getInstance();
-                    this.l = calendar2.get(10);
-                    this.k = calendar2.get(12);
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            int i2 = this.f46193g;
-            if (i2 == 6) {
-                String[] strArr = this.m;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
+            int i = this.v;
+            if (i == 6) {
+                String[] strArr = this.B;
                 if (strArr == null || strArr.length <= 0) {
                     return;
                 }
-                i(new AlertDialog.Builder(this.mContext).setTitle(this.n).setItems(this.m, this.p).show());
-            } else if (i2 == 7) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this.mContext, this, this.f46194h, this.f46195i, this.f46196j);
+                o(new AlertDialog.Builder(this.a).setTitle(this.C).setItems(this.B, this.E).show());
+            } else if (i == 7) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(this.a, this, this.w, this.x, this.y);
                 datePickerDialog.getDatePicker().setDescendantFocusability(393216);
                 datePickerDialog.show();
-                i(datePickerDialog);
-            } else if (i2 != 8) {
+                o(datePickerDialog);
+            } else if (i != 8) {
             } else {
-                TimePicker timePicker = new TimePicker(this.mContext);
-                timePicker.setCurrentHour(Integer.valueOf(this.l));
-                timePicker.setCurrentMinute(Integer.valueOf(this.k));
+                TimePicker timePicker = new TimePicker(this.a);
+                timePicker.setCurrentHour(Integer.valueOf(this.A));
+                timePicker.setCurrentMinute(Integer.valueOf(this.z));
                 timePicker.setDescendantFocusability(393216);
                 timePicker.setOnTimeChangedListener(this);
                 timePicker.setIs24HourView(Boolean.TRUE);
-                i(new AlertDialog.Builder(this.mContext).setView(timePicker).setPositiveButton(R.string.dialog_ok, this).setNegativeButton(R.string.dialog_cancel, this).show());
+                o(new AlertDialog.Builder(this.a).setView(timePicker).setPositiveButton(R.string.obfuscated_res_0x7f0f04d6, this).setNegativeButton(R.string.obfuscated_res_0x7f0f04d1, this).show());
             }
         }
     }
@@ -378,9 +362,9 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -388,33 +372,33 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 return;
             }
         }
-        this.f46191e = null;
-        this.f46192f = null;
-        this.f46193g = -1;
-        this.f46194h = 0;
-        this.f46195i = 0;
-        this.f46196j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = null;
-        this.n = "";
-        this.o = "";
-        this.p = new a(this);
-        f();
+        this.t = null;
+        this.u = null;
+        this.v = -1;
+        this.w = 0;
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.A = 0;
+        this.B = null;
+        this.C = "";
+        this.D = "";
+        this.E = new a(this);
+        l();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PickerView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PickerView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -422,18 +406,18 @@ public class PickerView extends FormItemBaseView implements View.OnClickListener
                 return;
             }
         }
-        this.f46191e = null;
-        this.f46192f = null;
-        this.f46193g = -1;
-        this.f46194h = 0;
-        this.f46195i = 0;
-        this.f46196j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = null;
-        this.n = "";
-        this.o = "";
-        this.p = new a(this);
-        f();
+        this.t = null;
+        this.u = null;
+        this.v = -1;
+        this.w = 0;
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.A = 0;
+        this.B = null;
+        this.C = "";
+        this.D = "";
+        this.E = new a(this);
+        l();
     }
 }

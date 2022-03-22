@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import java.util.concurrent.CancellationException;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -19,7 +20,7 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.DelayKt;
 import kotlinx.coroutines.Job;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "androidx.lifecycle.BlockRunner$cancel$1", f = "CoroutineLiveData.kt", i = {0}, l = {187}, m = "invokeSuspend", n = {"$this$launch"}, s = {"L$0"})
+@DebugMetadata(c = "androidx.lifecycle.BlockRunner$cancel$1", f = "CoroutineLiveData.kt", i = {0}, l = {MatroskaExtractor.ID_CUE_POINT}, m = "invokeSuspend", n = {"$this$launch"}, s = {"L$0"})
 /* loaded from: classes.dex */
 public final class BlockRunner$cancel$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -38,9 +39,9 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
             newInitContext.initArgs = r2;
             Object[] objArr = {blockRunner, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -74,23 +75,23 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         CoroutineLiveData coroutineLiveData;
         Job job;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = this.p$;
-                j2 = this.this$0.timeoutInMs;
+                j = this.this$0.timeoutInMs;
                 this.L$0 = coroutineScope;
                 this.label = 1;
-                if (DelayKt.delay(j2, this) == coroutine_suspended) {
+                if (DelayKt.delay(j, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 CoroutineScope coroutineScope2 = (CoroutineScope) this.L$0;

@@ -16,7 +16,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
     public final LongConsumer onRequest;
     public final Consumer<? super Subscription> onSubscribe;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class SubscriptionLambdaSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, consumer, longConsumer, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -118,16 +118,16 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
                 try {
-                    this.onRequest.accept(j2);
+                    this.onRequest.accept(j);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
                 }
-                this.s.request(j2);
+                this.s.request(j);
             }
         }
     }
@@ -141,9 +141,9 @@ public final class FlowableDoOnLifecycle<T> extends AbstractFlowableWithUpstream
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, consumer, longConsumer, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

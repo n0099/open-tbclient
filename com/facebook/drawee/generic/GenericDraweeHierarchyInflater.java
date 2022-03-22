@@ -17,7 +17,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeHierarchyInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class GenericDraweeHierarchyInflater {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,11 +37,11 @@ public class GenericDraweeHierarchyInflater {
     }
 
     @Nullable
-    public static Drawable getDrawable(Context context, TypedArray typedArray, int i2) {
+    public static Drawable getDrawable(Context context, TypedArray typedArray, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, typedArray, i2)) == null) {
-            int resourceId = typedArray.getResourceId(i2, 0);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, typedArray, i)) == null) {
+            int resourceId = typedArray.getResourceId(i, 0);
             if (resourceId == 0) {
                 return null;
             }
@@ -64,11 +64,11 @@ public class GenericDraweeHierarchyInflater {
     }
 
     @Nullable
-    public static ScalingUtils.ScaleType getScaleTypeFromXml(TypedArray typedArray, int i2) {
+    public static ScalingUtils.ScaleType getScaleTypeFromXml(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, typedArray, i2)) == null) {
-            switch (typedArray.getInt(i2, -2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, typedArray, i)) == null) {
+            switch (typedArray.getInt(i, -2)) {
                 case -1:
                     return null;
                 case 0:
@@ -128,23 +128,23 @@ public class GenericDraweeHierarchyInflater {
     public static GenericDraweeHierarchyBuilder updateBuilder(GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder, Context context, @Nullable AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         boolean z;
-        int i2;
+        int i;
         boolean z2;
-        int i3;
+        int i2;
         boolean z3;
         boolean z4;
-        int i4;
+        int i3;
         boolean z5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, genericDraweeHierarchyBuilder, context, attributeSet)) == null) {
             Context context2 = context;
             ?? r4 = 0;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.actualImageScaleType, R.attr.backgroundImage, R.attr.fadeDuration, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.overlayImage, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.pressedStateOverlayImage, R.attr.progressBarAutoRotateInterval, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.roundAsCircle, R.attr.roundBottomEnd, R.attr.roundBottomLeft, R.attr.roundBottomRight, R.attr.roundBottomStart, R.attr.roundTopEnd, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundTopStart, R.attr.roundWithOverlayColor, R.attr.roundedCornerRadius, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.roundingBorderWidth, R.attr.viewAspectRatio});
+                TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489});
                 try {
                     int indexCount = obtainStyledAttributes.getIndexCount();
+                    int i4 = 0;
                     int i5 = 0;
-                    int i6 = 0;
                     boolean z6 = true;
                     boolean z7 = true;
                     boolean z8 = true;
@@ -153,10 +153,10 @@ public class GenericDraweeHierarchyInflater {
                     boolean z11 = true;
                     boolean z12 = true;
                     boolean z13 = true;
-                    int i7 = 0;
-                    while (i6 < indexCount) {
+                    int i6 = 0;
+                    while (i5 < indexCount) {
                         try {
-                            int index = obtainStyledAttributes.getIndex(i6);
+                            int index = obtainStyledAttributes.getIndex(i5);
                             if (index == 0) {
                                 try {
                                     genericDraweeHierarchyBuilder.setActualImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
@@ -191,7 +191,7 @@ public class GenericDraweeHierarchyInflater {
                                 genericDraweeHierarchyBuilder.setProgressBarImageScaleType(getScaleTypeFromXml(obtainStyledAttributes, index));
                             } else {
                                 if (index == 9) {
-                                    i5 = obtainStyledAttributes.getInteger(index, i5);
+                                    i4 = obtainStyledAttributes.getInteger(index, i4);
                                 } else if (index == 1) {
                                     genericDraweeHierarchyBuilder.setBackground(getDrawable(context2, obtainStyledAttributes, index));
                                 } else if (index == 5) {
@@ -199,9 +199,9 @@ public class GenericDraweeHierarchyInflater {
                                 } else if (index == 14) {
                                     getRoundingParams(genericDraweeHierarchyBuilder).setRoundAsCircle(obtainStyledAttributes.getBoolean(index, r4));
                                 } else if (index == 24) {
-                                    i7 = obtainStyledAttributes.getDimensionPixelSize(index, i7);
+                                    i6 = obtainStyledAttributes.getDimensionPixelSize(index, i6);
                                 } else {
-                                    int i8 = i7;
+                                    int i7 = i6;
                                     if (index == 20) {
                                         z6 = obtainStyledAttributes.getBoolean(index, z6);
                                     } else if (index == 21) {
@@ -229,45 +229,45 @@ public class GenericDraweeHierarchyInflater {
                                         z5 = z13;
                                         if (index == 15) {
                                             z11 = obtainStyledAttributes.getBoolean(index, z11);
-                                            i7 = i8;
+                                            i6 = i7;
                                             z13 = z5;
                                         } else {
                                             if (index == 23) {
-                                                i4 = i8;
+                                                i3 = i7;
                                                 getRoundingParams(genericDraweeHierarchyBuilder).setOverlayColor(obtainStyledAttributes.getColor(index, 0));
                                             } else {
-                                                i4 = i8;
+                                                i3 = i7;
                                                 if (index == 27) {
                                                     getRoundingParams(genericDraweeHierarchyBuilder).setBorderWidth(obtainStyledAttributes.getDimensionPixelSize(index, 0));
                                                 } else if (index == 25) {
                                                     getRoundingParams(genericDraweeHierarchyBuilder).setBorderColor(obtainStyledAttributes.getColor(index, 0));
                                                 } else if (index == 26) {
                                                     getRoundingParams(genericDraweeHierarchyBuilder).setPadding(obtainStyledAttributes.getDimensionPixelSize(index, 0));
-                                                    i7 = i4;
+                                                    i6 = i3;
                                                     z13 = z5;
-                                                    i6++;
+                                                    i5++;
                                                     context2 = context;
                                                     r4 = 0;
                                                 }
                                             }
-                                            i7 = i4;
+                                            i6 = i3;
                                             z13 = z5;
-                                            i6++;
+                                            i5++;
                                             context2 = context;
                                             r4 = 0;
                                         }
                                     }
-                                    i7 = i8;
+                                    i6 = i7;
                                 }
-                                i6++;
+                                i5++;
                                 context2 = context;
                                 r4 = 0;
                             }
                             z5 = z13;
-                            i4 = i7;
-                            i7 = i4;
+                            i3 = i6;
+                            i6 = i3;
                             z13 = z5;
-                            i6++;
+                            i5++;
                             context2 = context;
                             r4 = 0;
                         } catch (Throwable th3) {
@@ -275,15 +275,15 @@ public class GenericDraweeHierarchyInflater {
                         }
                     }
                     boolean z14 = z13;
-                    int i9 = i7;
+                    int i8 = i6;
                     obtainStyledAttributes.recycle();
                     if (Build.VERSION.SDK_INT < 17 || context.getResources().getConfiguration().getLayoutDirection() != 1) {
                         boolean z15 = z6 && z7;
                         z = z8 && z9;
                         boolean z16 = z10 && z11;
                         z4 = z12 && z14;
-                        i3 = i5;
-                        i2 = i9;
+                        i2 = i4;
+                        i = i8;
                         boolean z17 = z16;
                         z3 = z15;
                         z2 = z17;
@@ -294,25 +294,25 @@ public class GenericDraweeHierarchyInflater {
                         z4 = z12 && z11;
                         z3 = z18;
                         z2 = z19;
-                        i3 = i5;
-                        i2 = i9;
+                        i2 = i4;
+                        i = i8;
                     }
                 } catch (Throwable th4) {
                     th = th4;
                 }
             } else {
                 z = true;
-                i2 = 0;
+                i = 0;
                 z2 = true;
-                i3 = 0;
+                i2 = 0;
                 z3 = true;
                 z4 = true;
             }
-            if (genericDraweeHierarchyBuilder.getProgressBarImage() != null && i3 > 0) {
-                genericDraweeHierarchyBuilder.setProgressBarImage(new AutoRotateDrawable(genericDraweeHierarchyBuilder.getProgressBarImage(), i3));
+            if (genericDraweeHierarchyBuilder.getProgressBarImage() != null && i2 > 0) {
+                genericDraweeHierarchyBuilder.setProgressBarImage(new AutoRotateDrawable(genericDraweeHierarchyBuilder.getProgressBarImage(), i2));
             }
-            if (i2 > 0) {
-                getRoundingParams(genericDraweeHierarchyBuilder).setCornersRadii(z3 ? i2 : 0.0f, z ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f);
+            if (i > 0) {
+                getRoundingParams(genericDraweeHierarchyBuilder).setCornersRadii(z3 ? i : 0.0f, z ? i : 0.0f, z2 ? i : 0.0f, z4 ? i : 0.0f);
             }
             return genericDraweeHierarchyBuilder;
         }

@@ -2,6 +2,7 @@ package com.sdk.base.framework.a;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -25,26 +25,26 @@ import java.util.Map;
 import java.util.UUID;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "h";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57760b;
+    public static boolean f42532b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f57761c;
+    public static String f42533c;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final HostnameVerifier f57762f;
+    public static final HostnameVerifier f42534f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f57763d;
+    public Context f42535d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k<T> f57764e;
+    public k<T> f42536e;
 
     static {
         InterceptResult invokeClinit;
@@ -59,9 +59,9 @@ public class h<T> {
                 return;
             }
         }
-        f57760b = com.sdk.base.framework.c.f.f57798b;
-        f57761c = UUID.randomUUID().toString();
-        f57762f = new i();
+        f42532b = com.sdk.base.framework.c.f.f42567b;
+        f42533c = UUID.randomUUID().toString();
+        f42534f = new i();
     }
 
     public h(Context context, k<T> kVar) {
@@ -71,16 +71,16 @@ public class h<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, kVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f57763d = context;
-        this.f57764e = kVar;
+        this.f42535d = context;
+        this.f42536e = kVar;
     }
 
     private ByteArrayOutputStream a(k<T> kVar) {
@@ -90,33 +90,33 @@ public class h<T> {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (kVar != null) {
                 try {
-                    String b2 = k.b(this.f57764e.e());
+                    String b2 = k.b(this.f42536e.e());
                     if (kVar.d().contains("/dro/log/v1.0/log")) {
                         b2 = kVar.e().toString();
                     }
                     ArrayList<File> b3 = kVar.b();
                     if (b3 == null || b3.size() <= 0) {
-                        byteArrayOutputStream.write(b2.getBytes("utf-8"));
+                        byteArrayOutputStream.write(b2.getBytes(IMAudioTransRequest.CHARSET));
                     } else {
-                        byteArrayOutputStream.write(("--" + f57761c + "\r\n").getBytes("utf-8"));
-                        byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes("utf-8"));
-                        byteArrayOutputStream.write("\r\n\r\n".getBytes("utf-8"));
-                        byteArrayOutputStream.write(b2.getBytes("utf-8"));
-                        byteArrayOutputStream.write("\r\n".getBytes("utf-8"));
-                        for (int i2 = 0; i2 < b3.size(); i2++) {
-                            File file = b3.get(i2);
+                        byteArrayOutputStream.write(("--" + f42533c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
+                        byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes(IMAudioTransRequest.CHARSET));
+                        byteArrayOutputStream.write("\r\n\r\n".getBytes(IMAudioTransRequest.CHARSET));
+                        byteArrayOutputStream.write(b2.getBytes(IMAudioTransRequest.CHARSET));
+                        byteArrayOutputStream.write("\r\n".getBytes(IMAudioTransRequest.CHARSET));
+                        for (int i = 0; i < b3.size(); i++) {
+                            File file = b3.get(i);
                             if (file != null) {
                                 FileInputStream fileInputStream = new FileInputStream(file);
                                 String name = file.getName();
-                                byteArrayOutputStream.write(("--" + f57761c + "\r\n").getBytes("utf-8"));
+                                byteArrayOutputStream.write(("--" + f42533c + "\r\n").getBytes(IMAudioTransRequest.CHARSET));
                                 StringBuilder sb = new StringBuilder("Content-Disposition: form-data; name=\"");
                                 sb.append(name);
                                 sb.append("\"; filename=\"");
                                 sb.append(name);
                                 sb.append("\"\r\n");
-                                byteArrayOutputStream.write(sb.toString().getBytes("utf-8"));
-                                byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n".getBytes("utf-8"));
-                                byteArrayOutputStream.write("Content-Transfer-Encoding: binary\r\n\r\n".getBytes("utf-8"));
+                                byteArrayOutputStream.write(sb.toString().getBytes(IMAudioTransRequest.CHARSET));
+                                byteArrayOutputStream.write("Content-Type: application/octet-stream\r\n".getBytes(IMAudioTransRequest.CHARSET));
+                                byteArrayOutputStream.write("Content-Transfer-Encoding: binary\r\n\r\n".getBytes(IMAudioTransRequest.CHARSET));
                                 byte[] bArr = new byte[1024];
                                 while (true) {
                                     int read = fileInputStream.read(bArr);
@@ -126,9 +126,9 @@ public class h<T> {
                                     byteArrayOutputStream.write(bArr, 0, read);
                                 }
                                 StringBuilder sb2 = new StringBuilder("\r\n--");
-                                sb2.append(f57761c);
+                                sb2.append(f42533c);
                                 sb2.append("--\r\n");
-                                byteArrayOutputStream.write(sb2.toString().getBytes("utf-8"));
+                                byteArrayOutputStream.write(sb2.toString().getBytes(IMAudioTransRequest.CHARSET));
                                 byteArrayOutputStream.flush();
                                 fileInputStream.close();
                             }
@@ -136,7 +136,7 @@ public class h<T> {
                     }
                 } catch (Exception e2) {
                     com.sdk.base.framework.f.f.a.b(e2.toString());
-                    com.sdk.base.framework.a.a.c.b(a, e2.toString(), Boolean.valueOf(f57760b));
+                    com.sdk.base.framework.a.a.c.b(a, e2.toString(), Boolean.valueOf(f42532b));
                 }
             }
             return byteArrayOutputStream;
@@ -157,12 +157,12 @@ public class h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f57764e != null) {
-                    String a2 = this.f57764e.a();
-                    String d2 = this.f57764e.d();
+                if (this.f42536e != null) {
+                    String a2 = this.f42536e.a();
+                    String d2 = this.f42536e.d();
                     str = j.a.k;
                     if (a2.equals(str)) {
-                        String b2 = k.b(this.f57764e.e());
+                        String b2 = k.b(this.f42536e.e());
                         if (!com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
                             return d2;
                         }
@@ -181,7 +181,7 @@ public class h<T> {
                     return sb.toString();
                 }
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), Boolean.valueOf(f57760b));
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), Boolean.valueOf(f42532b));
             }
             return null;
         }
@@ -205,40 +205,40 @@ public class h<T> {
         com.sdk.base.framework.f.g.c a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            com.sdk.base.framework.f.g.c.f57821c.a();
+            com.sdk.base.framework.f.g.c.f42588c.a();
             try {
                 HttpsURLConnection httpsURLConnection = null;
                 r1 = null;
                 HttpURLConnection httpURLConnection3 = null;
                 if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
                     URL url = new URL(str);
-                    int a3 = com.sdk.base.framework.f.g.b.a(this.f57763d, null).a();
+                    int a3 = com.sdk.base.framework.f.g.b.a(this.f42535d, null).a();
                     System.currentTimeMillis();
-                    if (a(str) && a3 != com.sdk.base.framework.f.g.c.f57820b.a()) {
+                    if (a(str) && a3 != com.sdk.base.framework.f.g.c.f42587b.a()) {
                         int b2 = com.sdk.base.framework.f.a.a.b();
                         if (b2 < 23) {
-                            String d2 = this.f57764e.d();
+                            String d2 = this.f42536e.d();
                             if (a(d2)) {
                                 ArrayList arrayList = new ArrayList();
                                 if (com.sdk.base.framework.a.a.c.b(d2).booleanValue()) {
                                     arrayList.add(d2);
                                 }
-                                a2 = com.sdk.base.framework.f.g.b.a(this.f57763d, arrayList);
+                                a2 = com.sdk.base.framework.f.g.b.a(this.f42535d, arrayList);
                             } else {
-                                a2 = com.sdk.base.framework.f.g.b.a(this.f57763d, null);
+                                a2 = com.sdk.base.framework.f.g.b.a(this.f42535d, null);
                             }
                             a3 = a2.a();
-                            if (b2 <= 21 || a3 == com.sdk.base.framework.f.g.c.f57820b.a()) {
+                            if (b2 <= 21 || a3 == com.sdk.base.framework.f.g.c.f42587b.a()) {
                                 httpURLConnection2 = null;
                                 if (httpURLConnection2 != null) {
                                     return null;
                                 }
                                 httpURLConnection3 = httpURLConnection2;
                             } else {
-                                aVar = new a(this.f57763d, url);
+                                aVar = new a(this.f42535d, url);
                             }
                         } else {
-                            aVar = new a(this.f57763d, url);
+                            aVar = new a(this.f42535d, url);
                         }
                         httpURLConnection2 = aVar.a();
                         if (httpURLConnection2 != null) {
@@ -262,7 +262,7 @@ public class h<T> {
                             httpsURLConnection = httpURLConnection;
                             if ("https".equals(protocol.toLowerCase(Locale.getDefault()))) {
                                 HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) httpURLConnection;
-                                httpsURLConnection2.setHostnameVerifier(f57762f);
+                                httpsURLConnection2.setHostnameVerifier(f42534f);
                                 httpsURLConnection = httpsURLConnection2;
                             }
                         }
@@ -271,12 +271,12 @@ public class h<T> {
                     httpsURLConnection.setConnectTimeout(30000);
                     httpsURLConnection.setReadTimeout(30000);
                     httpsURLConnection.setInstanceFollowRedirects(false);
-                    httpsURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.d.a.a(this.f57763d));
+                    httpsURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.d.a.a(this.f42535d));
                     StringBuilder sb = new StringBuilder();
                     sb.append(a3);
                     httpsURLConnection.setRequestProperty("netType", sb.toString());
-                    httpsURLConnection.setRequestProperty(UrlOcrConfig.IdCardKey.OS, "android");
-                    HashMap<String, Object> h2 = this.f57764e.h();
+                    httpsURLConnection.setRequestProperty("os", "android");
+                    HashMap<String, Object> h2 = this.f42536e.h();
                     if (h2 != null && h2.size() > 0) {
                         for (Map.Entry<String, Object> entry : h2.entrySet()) {
                             Object value = entry.getValue();
@@ -289,7 +289,7 @@ public class h<T> {
                 return httpsURLConnection;
             } catch (Exception e2) {
                 com.sdk.base.framework.f.f.a.b(e2.toString());
-                com.sdk.base.framework.a.a.c.b(a, e2.toString(), Boolean.valueOf(f57760b));
+                com.sdk.base.framework.a.a.c.b(a, e2.toString(), Boolean.valueOf(f42532b));
                 throw e2;
             }
         }
@@ -303,21 +303,21 @@ public class h<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpURLConnection)) == null) {
             if (httpURLConnection != null) {
-                k<T> kVar = this.f57764e;
+                k<T> kVar = this.f42536e;
                 if (kVar == null || !kVar.c()) {
                     str = "application/x-www-form-urlencoded";
                 } else {
-                    str = "multipart/form-data; boundary=" + f57761c;
+                    str = "multipart/form-data; boundary=" + f42533c;
                 }
                 httpURLConnection.setRequestProperty("Content-Type", str);
                 httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                 httpURLConnection.setRequestProperty("connection", "keep-alive");
-                if (this.f57764e != null) {
-                    str2 = j.f57765b.k;
-                    if (str2.equals(this.f57764e.a())) {
+                if (this.f42536e != null) {
+                    str2 = j.f42537b.k;
+                    if (str2.equals(this.f42536e.a())) {
                         httpURLConnection.setRequestMethod("POST");
                         httpURLConnection.connect();
-                        httpURLConnection.getOutputStream().write(a(this.f57764e).toByteArray());
+                        httpURLConnection.getOutputStream().write(a(this.f42536e).toByteArray());
                     } else {
                         httpURLConnection.setRequestMethod("GET");
                         httpURLConnection.connect();
@@ -332,13 +332,13 @@ public class h<T> {
     public final k<T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57764e : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42536e : (k) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f57764e.a(j.a.toString());
+            this.f42536e.a(j.a.toString());
         }
     }
 }

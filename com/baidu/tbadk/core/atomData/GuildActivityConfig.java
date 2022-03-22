@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GuildActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_ABOUT_PAGE = "from_about_page";
@@ -29,9 +29,9 @@ public class GuildActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,13 +52,13 @@ public class GuildActivityConfig extends IntentConfig {
         return (GuildActivityConfig) invokeLZ.objValue;
     }
 
-    public GuildActivityConfig createNormalCfg(String str, int i2) {
+    public GuildActivityConfig createNormalCfg(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             Intent intent = getIntent();
             intent.putExtra(FROM_PAGE, str);
-            intent.putExtra(GUIDE_TYPE, i2);
+            intent.putExtra(GUIDE_TYPE, i);
             return this;
         }
         return (GuildActivityConfig) invokeLI.objValue;

@@ -47,9 +47,9 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, it};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,9 +81,9 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
                     if (obj != null) {
                         boolean z = true;
                         if (obj != NotificationLite.COMPLETE) {
-                            long j2 = this.produced;
-                            if (j2 != this.requested.get()) {
-                                this.produced = j2 + 1;
+                            long j = this.produced;
+                            if (j != this.requested.get()) {
+                                this.produced = j + 1;
                                 atomicReference.lazySet(null);
                                 subscriber.onNext(obj);
                             } else {
@@ -155,10 +155,10 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -171,9 +171,9 @@ public final class MaybeConcatIterable<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

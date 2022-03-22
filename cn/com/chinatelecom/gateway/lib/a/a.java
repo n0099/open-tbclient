@@ -2,6 +2,7 @@ package cn.com.chinatelecom.gateway.lib.a;
 
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +19,10 @@ public class a {
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f29211b;
+    public static byte[] f23640b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static byte[] f29212c;
+    public static byte[] f23641c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,8 +38,8 @@ public class a {
                 return;
             }
         }
-        f29211b = "0000000000000000".getBytes();
-        f29212c = "vrf5g7h0tededwx3".getBytes();
+        f23640b = "0000000000000000".getBytes();
+        f23641c = "vrf5g7h0tededwx3".getBytes();
     }
 
     public a() {
@@ -46,9 +47,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,10 +61,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f29211b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f23640b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                byte[] bytes = str.getBytes("utf-8");
+                byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return e.a(cipher.doFinal(bytes));
             } catch (Throwable th) {
@@ -79,20 +80,20 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                byte[] bytes = str.getBytes("utf-8");
+                byte[] bytes = str.getBytes(IMAudioTransRequest.CHARSET);
                 int length = bytes.length;
                 while (length % 16 != 0) {
                     length++;
                 }
                 byte[] bArr = new byte[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (i2 < bytes.length) {
-                        bArr[i2] = bytes[i2];
+                for (int i = 0; i < length; i++) {
+                    if (i < bytes.length) {
+                        bArr[i] = bytes[i];
                     } else {
-                        bArr[i2] = 0;
+                        bArr[i] = 0;
                     }
                 }
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f29212c);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f23641c);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
@@ -110,7 +111,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(f29211b);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(f23640b);
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);

@@ -23,15 +23,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f47097e;
+    /* renamed from: b  reason: collision with root package name */
+    public c.a.o0.m.a f36388b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.q0.m.a f47098f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f47099g;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f36389c;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -40,17 +38,17 @@ public class UserBlockSetModel extends BdBaseModel {
         public final /* synthetic */ UserBlockSetModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(UserBlockSetModel userBlockSetModel, int i2, int i3) {
-            super(i2, i3);
+        public a(UserBlockSetModel userBlockSetModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {userBlockSetModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {userBlockSetModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -65,27 +63,27 @@ public class UserBlockSetModel extends BdBaseModel {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UserBlockSetRequestMessage userBlockSetRequestMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f47098f == null || responsedMessage == null || (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockSetRequestMessage.getBlockUserId() != this.a.f47097e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || this.a.f36388b == null || responsedMessage == null || (userBlockSetRequestMessage = (UserBlockSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) == null || userBlockSetRequestMessage.getBlockUserId() != this.a.a) {
                 return;
             }
             if (!(responsedMessage instanceof UserBlockSetSocketResponseMessage) && !(responsedMessage instanceof UserBlockSetHttpResponseMessage)) {
-                this.a.f47098f.onError(-1, this.a.A(R.string.block_user_fail));
+                this.a.f36388b.onError(-1, this.a.C(R.string.obfuscated_res_0x7f0f0311));
                 return;
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
             if (error == 0 && !responsedMessage.hasError()) {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.A(R.string.block_user_success);
+                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0313);
                 }
-                this.a.f47098f.onSuccess(errorString);
+                this.a.f36388b.onSuccess(errorString);
             } else {
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.A(R.string.block_user_fail);
+                    errorString = this.a.C(R.string.obfuscated_res_0x7f0f0311);
                 }
-                this.a.f47098f.onError(error, errorString);
+                this.a.f36388b.onError(error, errorString);
             }
-            this.a.f47097e = -1L;
+            this.a.a = -1L;
         }
     }
 
@@ -98,54 +96,54 @@ public class UserBlockSetModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47099g = new a(this, CmdConfigHttp.CMD_USER_BLOCK_SET, 309697);
+        this.f36389c = new a(this, CmdConfigHttp.CMD_USER_BLOCK_SET, 309697);
         setUniqueId(bdUniqueId);
-        B();
+        D();
     }
 
-    public final String A(int i2) {
+    public final String C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? TbadkCoreApplication.getInst().getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
     }
 
-    public void B() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.r0.y3.g0.a.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
-            this.f47099g.getHttpMessageListener().setSelfListener(true);
-            this.f47099g.getSocketMessageListener().setSelfListener(true);
-            registerListener(this.f47099g);
+            c.a.p0.a4.g0.a.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            this.f36389c.getHttpMessageListener().setSelfListener(true);
+            this.f36389c.getSocketMessageListener().setSelfListener(true);
+            registerListener(this.f36389c);
         }
     }
 
-    public void C(long j2, int i2, int i3, int i4) {
+    public void E(long j, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.f47097e = j2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.a = j;
             UserBlockSetRequestMessage userBlockSetRequestMessage = new UserBlockSetRequestMessage();
-            userBlockSetRequestMessage.setFollow(i2);
-            userBlockSetRequestMessage.setInteract(i3);
-            userBlockSetRequestMessage.setChat(i4);
-            userBlockSetRequestMessage.setBlockUserId(this.f47097e);
+            userBlockSetRequestMessage.setFollow(i);
+            userBlockSetRequestMessage.setInteract(i2);
+            userBlockSetRequestMessage.setChat(i3);
+            userBlockSetRequestMessage.setBlockUserId(this.a);
             sendMessage(userBlockSetRequestMessage);
         }
     }
 
-    public void D(c.a.q0.m.a aVar) {
+    public void F(c.a.o0.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f47098f = aVar;
+            this.f36388b = aVar;
         }
     }
 
@@ -172,8 +170,8 @@ public class UserBlockSetModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f47097e = -1L;
-            MessageManager.getInstance().unRegisterListener(this.f47099g);
+            this.a = -1L;
+            MessageManager.getInstance().unRegisterListener(this.f36389c);
         }
     }
 }

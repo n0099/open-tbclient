@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ThemeEnforcement;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialDialogs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class MaterialDialogs {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,15 +38,15 @@ public class MaterialDialogs {
     }
 
     @NonNull
-    public static Rect getDialogBackgroundInsets(@NonNull Context context, @AttrRes int i2, int i3) {
+    public static Rect getDialogBackgroundInsets(@NonNull Context context, @AttrRes int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, context, i2, i3)) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, null, new int[]{R.attr.backgroundInsetBottom, R.attr.backgroundInsetEnd, R.attr.backgroundInsetStart, R.attr.backgroundInsetTop}, i2, i3, new int[0]);
-            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(2, context.getResources().getDimensionPixelSize(R.dimen.mtrl_alert_dialog_background_inset_start));
-            int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(3, context.getResources().getDimensionPixelSize(R.dimen.mtrl_alert_dialog_background_inset_top));
-            int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(1, context.getResources().getDimensionPixelSize(R.dimen.mtrl_alert_dialog_background_inset_end));
-            int dimensionPixelSize4 = obtainStyledAttributes.getDimensionPixelSize(0, context.getResources().getDimensionPixelSize(R.dimen.mtrl_alert_dialog_background_inset_bottom));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, context, i, i2)) == null) {
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, null, new int[]{R.attr.obfuscated_res_0x7f0400a7, R.attr.obfuscated_res_0x7f0400a8, R.attr.obfuscated_res_0x7f0400a9, R.attr.obfuscated_res_0x7f0400aa}, i, i2, new int[0]);
+            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(2, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d8));
+            int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(3, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d9));
+            int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d7));
+            int dimensionPixelSize4 = obtainStyledAttributes.getDimensionPixelSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d6));
             obtainStyledAttributes.recycle();
             if (Build.VERSION.SDK_INT >= 17 && context.getResources().getConfiguration().getLayoutDirection() == 1) {
                 dimensionPixelSize3 = dimensionPixelSize;

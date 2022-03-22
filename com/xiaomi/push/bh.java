@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,20 +12,20 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bh {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f157a;
+        public final T f133a;
     }
 
     static {
@@ -121,7 +122,7 @@ public class bh {
                 sb.append(cls != null ? cls.getSimpleName() : "");
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append(e2);
-                sb.toString();
+                Log.w("JavaCalls", sb.toString());
                 return null;
             }
         }
@@ -131,7 +132,7 @@ public class bh {
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m239a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m218a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static <T> T a(Object obj, String str) {
@@ -141,7 +142,7 @@ public class bh {
             try {
                 return (T) a((Class<? extends Object>) obj.getClass(), obj, str);
             } catch (Exception e2) {
-                String str2 = "Meet exception when call getField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2;
+                Log.w("JavaCalls", "Meet exception when call getField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return null;
             }
         }
@@ -155,7 +156,7 @@ public class bh {
             try {
                 return (T) b(obj, str, objArr);
             } catch (Exception e2) {
-                String str2 = "Meet exception when call Method '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2;
+                Log.w("JavaCalls", "Meet exception when call Method '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return null;
             }
         }
@@ -169,7 +170,7 @@ public class bh {
             try {
                 return (T) a((Class<? extends Object>) t.a(null, str), (Object) null, str2);
             } catch (Exception e2) {
-                String str3 = "Meet exception when call getStaticField '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2;
+                Log.w("JavaCalls", "Meet exception when call getStaticField '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return null;
             }
         }
@@ -183,7 +184,7 @@ public class bh {
             try {
                 return (T) a(t.a(null, str), str2, objArr);
             } catch (Exception e2) {
-                String str3 = "Meet exception when call Method '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2;
+                Log.w("JavaCalls", "Meet exception when call Method '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return null;
             }
         }
@@ -230,7 +231,7 @@ public class bh {
             try {
                 b(obj, str, obj2);
             } catch (Exception e2) {
-                String str2 = "Meet exception when call setField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2;
+                Log.w("JavaCalls", "Meet exception when call setField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
             }
         }
     }
@@ -246,8 +247,8 @@ public class bh {
             } else if (clsArr.length != clsArr2.length) {
                 return false;
             } else {
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (clsArr2[i2] != null && !clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!a.containsKey(clsArr[i2]) || !a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
+                for (int i = 0; i < clsArr.length; i++) {
+                    if (clsArr2[i] != null && !clsArr[i].isAssignableFrom(clsArr2[i]) && (!a.containsKey(clsArr[i]) || !a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
                         return false;
                     }
                 }
@@ -265,12 +266,12 @@ public class bh {
                 return null;
             }
             Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
                 if (obj == null || !(obj instanceof a)) {
-                    clsArr[i2] = obj == null ? null : obj.getClass();
+                    clsArr[i] = obj == null ? null : obj.getClass();
                 } else {
-                    clsArr[i2] = ((a) obj).a;
+                    clsArr[i] = ((a) obj).a;
                 }
             }
             return clsArr;
@@ -279,7 +280,7 @@ public class bh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m239a(Object... objArr) {
+    public static Object[] m218a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, objArr)) == null) {
@@ -287,12 +288,12 @@ public class bh {
                 return null;
             }
             Object[] objArr2 = new Object[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
                 if (obj == null || !(obj instanceof a)) {
-                    objArr2[i2] = obj;
+                    objArr2[i] = obj;
                 } else {
-                    objArr2[i2] = ((a) obj).f157a;
+                    objArr2[i] = ((a) obj).f133a;
                 }
             }
             return objArr2;
@@ -303,7 +304,7 @@ public class bh {
     public static <T> T b(Object obj, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m239a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m218a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static void b(Object obj, String str, Object obj2) {

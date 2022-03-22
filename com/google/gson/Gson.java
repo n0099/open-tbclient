@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Gson {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
@@ -83,7 +83,7 @@ public final class Gson {
     public final int timeStyle;
     public final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public final class Gson {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -165,9 +165,9 @@ public final class Gson {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((Excluder) objArr[0], (FieldNamingStrategy) objArr[1], (Map) objArr[2], ((Boolean) objArr[3]).booleanValue(), ((Boolean) objArr[4]).booleanValue(), ((Boolean) objArr[5]).booleanValue(), ((Boolean) objArr[6]).booleanValue(), ((Boolean) objArr[7]).booleanValue(), ((Boolean) objArr[8]).booleanValue(), ((Boolean) objArr[9]).booleanValue(), (LongSerializationPolicy) objArr[10], (String) objArr[11], ((Integer) objArr[12]).intValue(), ((Integer) objArr[13]).intValue(), (List) objArr[14], (List) objArr[15], (List) objArr[16]);
                 newInitContext.thisArg = this;
@@ -209,9 +209,9 @@ public final class Gson {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {typeAdapter};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -254,9 +254,9 @@ public final class Gson {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {typeAdapter};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -279,8 +279,8 @@ public final class Gson {
                     jsonReader.endArray();
                     int size = arrayList.size();
                     AtomicLongArray atomicLongArray = new AtomicLongArray(size);
-                    for (int i2 = 0; i2 < size; i2++) {
-                        atomicLongArray.set(i2, ((Long) arrayList.get(i2)).longValue());
+                    for (int i = 0; i < size; i++) {
+                        atomicLongArray.set(i, ((Long) arrayList.get(i)).longValue());
                     }
                     return atomicLongArray;
                 }
@@ -294,8 +294,8 @@ public final class Gson {
                 if (interceptable2 == null || interceptable2.invokeLL(1048579, this, jsonWriter, atomicLongArray) == null) {
                     jsonWriter.beginArray();
                     int length = atomicLongArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLongArray.get(i2)));
+                    for (int i = 0; i < length; i++) {
+                        this.val$longAdapter.write(jsonWriter, Long.valueOf(atomicLongArray.get(i)));
                     }
                     jsonWriter.endArray();
                 }
@@ -331,9 +331,9 @@ public final class Gson {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -396,9 +396,9 @@ public final class Gson {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -458,9 +458,9 @@ public final class Gson {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -710,16 +710,16 @@ public final class Gson {
         return (T) invokeLL.objValue;
     }
 
-    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i2, int i3, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
+    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, LongSerializationPolicy longSerializationPolicy, String str, int i, int i2, List<TypeAdapterFactory> list, List<TypeAdapterFactory> list2, List<TypeAdapterFactory> list3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excluder, fieldNamingStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), longSerializationPolicy, str, Integer.valueOf(i2), Integer.valueOf(i3), list, list2, list3};
+            Object[] objArr = {excluder, fieldNamingStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Boolean.valueOf(z7), longSerializationPolicy, str, Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -740,8 +740,8 @@ public final class Gson {
         this.serializeSpecialFloatingPointValues = z7;
         this.longSerializationPolicy = longSerializationPolicy;
         this.datePattern = str;
-        this.dateStyle = i2;
-        this.timeStyle = i3;
+        this.dateStyle = i;
+        this.timeStyle = i2;
         this.builderFactories = list;
         this.builderHierarchyFactories = list2;
         ArrayList arrayList = new ArrayList();

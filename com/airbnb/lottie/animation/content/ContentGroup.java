@@ -42,8 +42,8 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
 
     public static List<Content> contentsFromModels(LottieDrawable lottieDrawable, BaseLayer baseLayer, List<ContentModel> list) {
         ArrayList arrayList = new ArrayList(list.size());
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2).toContent(lottieDrawable, baseLayer);
+        for (int i = 0; i < list.size(); i++) {
+            Content content = list.get(i).toContent(lottieDrawable, baseLayer);
             if (content != null) {
                 arrayList.add(content);
             }
@@ -53,8 +53,8 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
 
     @Nullable
     public static AnimatableTransform findTransform(List<ContentModel> list) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            ContentModel contentModel = list.get(i2);
+        for (int i = 0; i < list.size(); i++) {
+            ContentModel contentModel = list.get(i);
             if (contentModel instanceof AnimatableTransform) {
                 return (AnimatableTransform) contentModel;
             }
@@ -63,9 +63,9 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
     }
 
     private boolean hasTwoOrMoreDrawableContent() {
-        int i2 = 0;
-        for (int i3 = 0; i3 < this.contents.size(); i3++) {
-            if ((this.contents.get(i3) instanceof DrawingContent) && (i2 = i2 + 1) >= 2) {
+        int i = 0;
+        for (int i2 = 0; i2 < this.contents.size(); i2++) {
+            if ((this.contents.get(i2) instanceof DrawingContent) && (i = i + 1) >= 2) {
                 return true;
             }
         }
@@ -81,7 +81,7 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         if (this.hidden) {
             return;
         }
@@ -89,22 +89,22 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
         TransformKeyframeAnimation transformKeyframeAnimation = this.transformAnimation;
         if (transformKeyframeAnimation != null) {
             this.matrix.preConcat(transformKeyframeAnimation.getMatrix());
-            i2 = (int) (((((this.transformAnimation.getOpacity() == null ? 100 : this.transformAnimation.getOpacity().getValue().intValue()) / 100.0f) * i2) / 255.0f) * 255.0f);
+            i = (int) (((((this.transformAnimation.getOpacity() == null ? 100 : this.transformAnimation.getOpacity().getValue().intValue()) / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && hasTwoOrMoreDrawableContent() && i2 != 255;
+        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && hasTwoOrMoreDrawableContent() && i != 255;
         if (z) {
             this.offScreenRectF.set(0.0f, 0.0f, 0.0f, 0.0f);
             getBounds(this.offScreenRectF, this.matrix, true);
-            this.offScreenPaint.setAlpha(i2);
+            this.offScreenPaint.setAlpha(i);
             Utils.saveLayerCompat(canvas, this.offScreenRectF, this.offScreenPaint);
         }
         if (z) {
-            i2 = 255;
+            i = 255;
         }
         for (int size = this.contents.size() - 1; size >= 0; size--) {
             Content content = this.contents.get(size);
             if (content instanceof DrawingContent) {
-                ((DrawingContent) content).draw(canvas, this.matrix, i2);
+                ((DrawingContent) content).draw(canvas, this.matrix, i);
             }
         }
         if (z) {
@@ -157,8 +157,8 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
     public List<PathContent> getPathList() {
         if (this.pathContents == null) {
             this.pathContents = new ArrayList();
-            for (int i2 = 0; i2 < this.contents.size(); i2++) {
-                Content content = this.contents.get(i2);
+            for (int i = 0; i < this.contents.size(); i++) {
+                Content content = this.contents.get(i);
                 if (content instanceof PathContent) {
                     this.pathContents.add((PathContent) content);
                 }
@@ -182,18 +182,18 @@ public class ContentGroup implements DrawingContent, PathContent, BaseKeyframeAn
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        if (keyPath.matches(getName(), i2)) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        if (keyPath.matches(getName(), i)) {
             if (!"__container".equals(getName())) {
                 keyPath2 = keyPath2.addKey(getName());
-                if (keyPath.fullyResolvesTo(getName(), i2)) {
+                if (keyPath.fullyResolvesTo(getName(), i)) {
                     list.add(keyPath2.resolve(this));
                 }
             }
-            if (keyPath.propagateToChildren(getName(), i2)) {
-                int incrementDepthBy = i2 + keyPath.incrementDepthBy(getName(), i2);
-                for (int i3 = 0; i3 < this.contents.size(); i3++) {
-                    Content content = this.contents.get(i3);
+            if (keyPath.propagateToChildren(getName(), i)) {
+                int incrementDepthBy = i + keyPath.incrementDepthBy(getName(), i);
+                for (int i2 = 0; i2 < this.contents.size(); i2++) {
+                    Content content = this.contents.get(i2);
                     if (content instanceof KeyPathElement) {
                         ((KeyPathElement) content).resolveKeyPath(keyPath, incrementDepthBy, list, keyPath2);
                     }

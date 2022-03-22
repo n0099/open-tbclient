@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StagingArea {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -48,9 +48,9 @@ public class StagingArea {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -82,8 +82,8 @@ public class StagingArea {
                 arrayList = new ArrayList(this.mMap.values());
                 this.mMap.clear();
             }
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                EncodedImage encodedImage = (EncodedImage) arrayList.get(i2);
+            for (int i = 0; i < arrayList.size(); i++) {
+                EncodedImage encodedImage = (EncodedImage) arrayList.get(i);
                 if (encodedImage != null) {
                     encodedImage.close();
                 }

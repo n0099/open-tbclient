@@ -15,8 +15,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LoadPath<Data, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +31,9 @@ public class LoadPath<Data, ResourceType, Transcode> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, cls2, cls3, list, pool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,15 +45,15 @@ public class LoadPath<Data, ResourceType, Transcode> {
         this.failureMessage = "Failed LoadPath{" + cls.getSimpleName() + "->" + cls2.getSimpleName() + "->" + cls3.getSimpleName() + "}";
     }
 
-    private Resource<Transcode> loadWithExceptionList(DataRewinder<Data> dataRewinder, @NonNull Options options, int i2, int i3, DecodePath.DecodeCallback<ResourceType> decodeCallback, List<Throwable> list) throws GlideException {
+    private Resource<Transcode> loadWithExceptionList(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback, List<Throwable> list) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{dataRewinder, options, Integer.valueOf(i2), Integer.valueOf(i3), decodeCallback, list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{dataRewinder, options, Integer.valueOf(i), Integer.valueOf(i2), decodeCallback, list})) == null) {
             int size = this.decodePaths.size();
             Resource<Transcode> resource = null;
-            for (int i4 = 0; i4 < size; i4++) {
+            for (int i3 = 0; i3 < size; i3++) {
                 try {
-                    resource = this.decodePaths.get(i4).decode(dataRewinder, i2, i3, options, decodeCallback);
+                    resource = this.decodePaths.get(i3).decode(dataRewinder, i, i2, options, decodeCallback);
                 } catch (GlideException e2) {
                     list.add(e2);
                 }
@@ -76,13 +75,13 @@ public class LoadPath<Data, ResourceType, Transcode> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.dataClass : (Class) invokeV.objValue;
     }
 
-    public Resource<Transcode> load(DataRewinder<Data> dataRewinder, @NonNull Options options, int i2, int i3, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+    public Resource<Transcode> load(DataRewinder<Data> dataRewinder, @NonNull Options options, int i, int i2, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRewinder, options, Integer.valueOf(i2), Integer.valueOf(i3), decodeCallback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRewinder, options, Integer.valueOf(i), Integer.valueOf(i2), decodeCallback})) == null) {
             List<Throwable> list = (List) Preconditions.checkNotNull(this.listPool.acquire());
             try {
-                return loadWithExceptionList(dataRewinder, options, i2, i3, decodeCallback, list);
+                return loadWithExceptionList(dataRewinder, options, i, i2, decodeCallback, list);
             } finally {
                 this.listPool.release(list);
             }
@@ -94,7 +93,7 @@ public class LoadPath<Data, ResourceType, Transcode> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "LoadPath{decodePaths=" + Arrays.toString(this.decodePaths.toArray()) + ExtendedMessageFormat.END_FE;
+            return "LoadPath{decodePaths=" + Arrays.toString(this.decodePaths.toArray()) + '}';
         }
         return (String) invokeV.objValue;
     }

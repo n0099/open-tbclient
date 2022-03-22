@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DownloadParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38315b;
+    public String f29461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38316c;
+    public String f29462c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38317d;
+    public String f29463d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38318e;
+    public String f29464e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f38319f;
+    public long f29465f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,16 +74,16 @@ public class DownloadParams {
             $VALUES = new SwanAppDownloadType[]{TYPE_QUERY_STATUS, TYPE_START_DOWNLOAD, TYPE_PAUSE_DOWNLOAD, TYPE_CANCEL_DOWNLOAD, TYPE_RESUME_DOWNLOAD, TYPE_INSTALL_APP, TYPE_STOP_SERVICE, swanAppDownloadType};
         }
 
-        public SwanAppDownloadType(String str, int i2, String str2) {
+        public SwanAppDownloadType(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -136,16 +136,16 @@ public class DownloadParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f38315b = str2;
+        this.f29461b = str2;
     }
 
     public JSONObject a() {
@@ -155,11 +155,11 @@ public class DownloadParams {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("url", this.a);
-                jSONObject.put("name", this.f38315b);
-                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f38316c);
-                jSONObject.put("contentDisposition", this.f38317d);
-                jSONObject.put("mimeType", this.f38318e);
-                jSONObject.put("contentLength", this.f38319f);
+                jSONObject.put("name", this.f29461b);
+                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f29462c);
+                jSONObject.put("contentDisposition", this.f29463d);
+                jSONObject.put("mimeType", this.f29464e);
+                jSONObject.put("contentLength", this.f29465f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -174,15 +174,15 @@ public class DownloadParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f38315b = str2;
+        this.f29461b = str2;
     }
 }

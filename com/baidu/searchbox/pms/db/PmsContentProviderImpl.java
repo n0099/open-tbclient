@@ -74,9 +74,9 @@ public class PmsContentProviderImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -217,16 +217,16 @@ public class PmsContentProviderImpl {
             if (TextUtils.isEmpty(type)) {
                 return null;
             }
-            long j2 = 0;
+            long j = 0;
             try {
-                j2 = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
+                j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
             } catch (SQLiteFullException e2) {
                 DebugUtils.printStackTrace(e2);
             } catch (SQLiteReadOnlyDatabaseException e3) {
                 DebugUtils.printStackTrace(e3);
             }
             Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
-            return appendPath.appendQueryParameter("id", j2 + "").build();
+            return appendPath.appendQueryParameter("id", j + "").build();
         }
         return (Uri) invokeLL.objValue;
     }

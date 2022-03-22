@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VorbisReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class VorbisReader extends StreamReader {
     public VorbisUtil.VorbisIdHeader vorbisIdHeader;
     public VorbisSetup vorbisSetup;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class VorbisSetup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,16 +35,16 @@ public final class VorbisReader extends StreamReader {
         public final VorbisUtil.Mode[] modes;
         public final byte[] setupHeaderData;
 
-        public VorbisSetup(VorbisUtil.VorbisIdHeader vorbisIdHeader, VorbisUtil.CommentHeader commentHeader, byte[] bArr, VorbisUtil.Mode[] modeArr, int i2) {
+        public VorbisSetup(VorbisUtil.VorbisIdHeader vorbisIdHeader, VorbisUtil.CommentHeader commentHeader, byte[] bArr, VorbisUtil.Mode[] modeArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vorbisIdHeader, commentHeader, bArr, modeArr, Integer.valueOf(i2)};
+                Object[] objArr = {vorbisIdHeader, commentHeader, bArr, modeArr, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -54,7 +54,7 @@ public final class VorbisReader extends StreamReader {
             this.commentHeader = commentHeader;
             this.setupHeaderData = bArr;
             this.modes = modeArr;
-            this.iLogModes = i2;
+            this.iLogModes = i;
         }
     }
 
@@ -63,23 +63,23 @@ public final class VorbisReader extends StreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void appendNumberOfSamples(ParsableByteArray parsableByteArray, long j2) {
+    public static void appendNumberOfSamples(ParsableByteArray parsableByteArray, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, parsableByteArray, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65537, null, parsableByteArray, j) == null) {
             parsableByteArray.setLimit(parsableByteArray.limit() + 4);
-            parsableByteArray.data[parsableByteArray.limit() - 4] = (byte) (j2 & 255);
-            parsableByteArray.data[parsableByteArray.limit() - 3] = (byte) ((j2 >>> 8) & 255);
-            parsableByteArray.data[parsableByteArray.limit() - 2] = (byte) ((j2 >>> 16) & 255);
-            parsableByteArray.data[parsableByteArray.limit() - 1] = (byte) ((j2 >>> 24) & 255);
+            parsableByteArray.data[parsableByteArray.limit() - 4] = (byte) (j & 255);
+            parsableByteArray.data[parsableByteArray.limit() - 3] = (byte) ((j >>> 8) & 255);
+            parsableByteArray.data[parsableByteArray.limit() - 2] = (byte) ((j >>> 16) & 255);
+            parsableByteArray.data[parsableByteArray.limit() - 1] = (byte) ((j >>> 24) & 255);
         }
     }
 
@@ -95,10 +95,10 @@ public final class VorbisReader extends StreamReader {
         return invokeCommon.intValue;
     }
 
-    public static int readBits(byte b2, int i2, int i3) {
+    public static int readBits(byte b2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? (b2 >> i3) & (255 >>> (8 - i2)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (b2 >> i2) & (255 >>> (8 - i)) : invokeCommon.intValue;
     }
 
     public static boolean verifyBitstreamType(ParsableByteArray parsableByteArray) {
@@ -115,11 +115,11 @@ public final class VorbisReader extends StreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public void onSeekEnd(long j2) {
+    public void onSeekEnd(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.onSeekEnd(j2);
-            this.seenFirstAudioPacket = j2 != 0;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.onSeekEnd(j);
+            this.seenFirstAudioPacket = j != 0;
             VorbisUtil.VorbisIdHeader vorbisIdHeader = this.vorbisIdHeader;
             this.previousPacketBlockSize = vorbisIdHeader != null ? vorbisIdHeader.blockSize0 : 0;
         }
@@ -135,20 +135,20 @@ public final class VorbisReader extends StreamReader {
                 return -1L;
             }
             int decodeBlockSize = decodeBlockSize(bArr[0], this.vorbisSetup);
-            long j2 = this.seenFirstAudioPacket ? (this.previousPacketBlockSize + decodeBlockSize) / 4 : 0;
-            appendNumberOfSamples(parsableByteArray, j2);
+            long j = this.seenFirstAudioPacket ? (this.previousPacketBlockSize + decodeBlockSize) / 4 : 0;
+            appendNumberOfSamples(parsableByteArray, j);
             this.seenFirstAudioPacket = true;
             this.previousPacketBlockSize = decodeBlockSize;
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public boolean readHeaders(ParsableByteArray parsableByteArray, long j2, StreamReader.SetupData setupData) throws IOException, InterruptedException {
+    public boolean readHeaders(ParsableByteArray parsableByteArray, long j, StreamReader.SetupData setupData) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{parsableByteArray, Long.valueOf(j2), setupData})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{parsableByteArray, Long.valueOf(j), setupData})) == null) {
             if (this.vorbisSetup != null) {
                 return false;
             }

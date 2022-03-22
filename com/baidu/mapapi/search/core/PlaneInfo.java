@@ -19,13 +19,13 @@ public class PlaneInfo extends TransitBaseInfo {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34140b;
+    public String f26374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f34141c;
+    public double f26375c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34142d;
+    public String f26376d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,9 +48,9 @@ public class PlaneInfo extends TransitBaseInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -66,9 +66,9 @@ public class PlaneInfo extends TransitBaseInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -76,9 +76,9 @@ public class PlaneInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f34140b = parcel.readString();
-        this.f34141c = parcel.readDouble();
-        this.f34142d = parcel.readString();
+        this.f26374b = parcel.readString();
+        this.f26375c = parcel.readDouble();
+        this.f26376d = parcel.readString();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -94,13 +94,13 @@ public class PlaneInfo extends TransitBaseInfo {
     public String getAirlines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34140b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26374b : (String) invokeV.objValue;
     }
 
     public String getBooking() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34142d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26376d : (String) invokeV.objValue;
     }
 
     public double getDiscount() {
@@ -112,20 +112,20 @@ public class PlaneInfo extends TransitBaseInfo {
     public double getPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34141c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26375c : invokeV.doubleValue;
     }
 
     public void setAirlines(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f34140b = str;
+            this.f26374b = str;
         }
     }
 
     public void setBooking(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f34142d = str;
+            this.f26376d = str;
         }
     }
 
@@ -139,19 +139,19 @@ public class PlaneInfo extends TransitBaseInfo {
     public void setPrice(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f34141c = d2;
+            this.f26375c = d2;
         }
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f34140b);
-            parcel.writeDouble(this.f34141c);
-            parcel.writeString(this.f34142d);
+            parcel.writeString(this.f26374b);
+            parcel.writeDouble(this.f26375c);
+            parcel.writeString(this.f26376d);
         }
     }
 }

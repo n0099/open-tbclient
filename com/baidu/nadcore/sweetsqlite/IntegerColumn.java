@@ -1,6 +1,6 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import c.a.b0.c0.b;
+import c.a.a0.c0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +24,9 @@ public class IntegerColumn extends Column implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,22 +50,22 @@ public class IntegerColumn extends Column implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : invokeV.intValue;
     }
 
-    public IntegerColumn setDefaultValue(int i2) {
+    public IntegerColumn setDefaultValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.value = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.value = i;
             return this;
         }
         return (IntegerColumn) invokeI.objValue;
     }
 
-    public IntegerColumn setValue(int i2) {
+    public IntegerColumn setValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             this.isAssignedValue = true;
-            this.value = i2;
+            this.value = i;
             return this;
         }
         return (IntegerColumn) invokeI.objValue;
@@ -82,7 +82,7 @@ public class IntegerColumn extends Column implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.field.f1401b + ":" + this.value + ":" + this.field.f1402c + ":" + this.field.f1403d;
+            return this.field.f1052b + ":" + this.value + ":" + this.field.f1053c + ":" + this.field.f1054d;
         }
         return (String) invokeV.objValue;
     }

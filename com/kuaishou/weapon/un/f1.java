@@ -18,9 +18,9 @@ public class f1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,13 +34,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String networkCountryIso = telephonyManager.getNetworkCountryIso();
-                return TextUtils.isEmpty(networkCountryIso) ? y0.f53872c : networkCountryIso;
+                return TextUtils.isEmpty(networkCountryIso) ? y0.f39033c : networkCountryIso;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -53,13 +53,13 @@ public class f1 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String networkOperator = telephonyManager.getNetworkOperator();
-                return TextUtils.isEmpty(networkOperator) ? y0.f53872c : networkOperator;
+                return TextUtils.isEmpty(networkOperator) ? y0.f39033c : networkOperator;
             } catch (Throwable th) {
                 x0.a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;

@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseStatisContent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACT = "act";
@@ -81,9 +81,9 @@ public class BaseStatisContent {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -121,9 +121,9 @@ public class BaseStatisContent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -200,10 +200,10 @@ public class BaseStatisContent {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.raw.isEmpty() : invokeV.booleanValue;
     }
 
-    public String put(String str, int i2) {
+    public String put(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) ? put(str, String.valueOf(i2)) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? put(str, String.valueOf(i)) : (String) invokeLI.objValue;
     }
 
     public synchronized void putContent(BaseStatisContent baseStatisContent, boolean z) {
@@ -236,10 +236,10 @@ public class BaseStatisContent {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getContent() : (String) invokeV.objValue;
     }
 
-    public String put(String str, long j2) {
+    public String put(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j2)) == null) ? put(str, String.valueOf(j2)) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? put(str, String.valueOf(j)) : (String) invokeLJ.objValue;
     }
 
     public String put(String str, double d2) {

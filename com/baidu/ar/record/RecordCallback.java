@@ -3,7 +3,7 @@ package com.baidu.ar.record;
 public interface RecordCallback {
     void onRecorderComplete(boolean z, String str);
 
-    void onRecorderProcess(int i2);
+    void onRecorderProcess(int i);
 
     void onRecorderStart(boolean z);
 }

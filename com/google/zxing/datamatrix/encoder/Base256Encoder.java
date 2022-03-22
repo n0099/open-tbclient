@@ -1,6 +1,5 @@
 package com.google.zxing.datamatrix.encoder;
 
-import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,21 +16,21 @@ public final class Base256Encoder implements Encoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static char randomize255State(char c2, int i2) {
+    public static char randomize255State(char c2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i2)})) == null) {
-            int i3 = c2 + ((i2 * Opcodes.FCMPL) % 255) + 1;
-            return i3 <= 255 ? (char) i3 : (char) (i3 - 256);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+            int i2 = c2 + ((i * 149) % 255) + 1;
+            return i2 <= 255 ? (char) i2 : (char) (i2 - 256);
         }
         return invokeCommon.charValue;
     }
@@ -69,8 +68,8 @@ public final class Base256Encoder implements Encoder {
                 }
             }
             int length2 = sb.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                encoderContext.writeCodeword(randomize255State(sb.charAt(i2), encoderContext.getCodewordCount() + 1));
+            for (int i = 0; i < length2; i++) {
+                encoderContext.writeCodeword(randomize255State(sb.charAt(i), encoderContext.getCodewordCount() + 1));
             }
         }
     }

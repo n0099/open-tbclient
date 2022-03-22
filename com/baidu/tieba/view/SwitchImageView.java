@@ -13,28 +13,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class SwitchImageView extends AppCompatImageView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int STATE_NORMAL = 0;
-    public static final int STATE_PRESSED = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36980b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36981c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f36982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47814e;
+    public AbsSvgType f36983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47815f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f47816g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f47817h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public AbsSvgType f47818i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public AbsSvgType f47819j;
+    public AbsSvgType f36984f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchImageView(Context context) {
@@ -45,82 +41,82 @@ public class SwitchImageView extends AppCompatImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47817h = false;
-        a();
+        this.f36982d = false;
+        f();
     }
 
-    public final void a() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47814e = 0;
-            this.f47815f = 0;
-            this.f47816g = 0;
+            this.a = 0;
+            this.f36980b = 0;
+            this.f36981c = 0;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == 0) {
+                this.a = 1;
+                setState(1);
+                return;
+            }
+            this.a = 0;
+            setState(0);
         }
     }
 
     public int getCurrentState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47814e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void setState(int i2) {
+    public void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (i2 == 0) {
-                this.f47814e = 0;
-                if (this.f47817h) {
-                    setImageDrawable(this.f47818i.getDrawable());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i == 0) {
+                this.a = 0;
+                if (this.f36982d) {
+                    setImageDrawable(this.f36983e.getDrawable());
                 } else {
-                    setImageResource(this.f47815f);
+                    setImageResource(this.f36980b);
                 }
-            } else if (i2 == 1) {
-                this.f47814e = 1;
-                if (this.f47817h) {
-                    setImageDrawable(this.f47819j.getDrawable());
+            } else if (i == 1) {
+                this.a = 1;
+                if (this.f36982d) {
+                    setImageDrawable(this.f36984f.getDrawable());
                 } else {
-                    setImageResource(this.f47816g);
+                    setImageResource(this.f36981c);
                 }
             }
         }
     }
 
-    public void setStateImage(int i2, int i3) {
+    public void setStateImage(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f47815f = i2;
-            this.f47816g = i3;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.f36980b = i;
+            this.f36981c = i2;
         }
     }
 
     public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, absSvgType, absSvgType2) == null) {
-            this.f47818i = absSvgType;
-            this.f47819j = absSvgType2;
-            this.f47817h = true;
-        }
-    }
-
-    public void switchState() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f47814e == 0) {
-                this.f47814e = 1;
-                setState(1);
-                return;
-            }
-            this.f47814e = 0;
-            setState(0);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, absSvgType, absSvgType2) == null) {
+            this.f36983e = absSvgType;
+            this.f36984f = absSvgType2;
+            this.f36982d = true;
         }
     }
 
@@ -133,9 +129,9 @@ public class SwitchImageView extends AppCompatImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -143,22 +139,22 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f47817h = false;
-        a();
+        this.f36982d = false;
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -166,7 +162,7 @@ public class SwitchImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f47817h = false;
-        a();
+        this.f36982d = false;
+        f();
     }
 }

@@ -48,9 +48,9 @@ public final class a implements Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -147,11 +147,11 @@ public final class a implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.wi = null;
-            int i2 = wm;
-            if (i2 < 500) {
+            int i = wm;
+            if (i < 500) {
                 this.wj = wl;
                 wl = this;
-                wm = i2 + 1;
+                wm = i + 1;
             }
         }
     }
@@ -325,11 +325,11 @@ public final class a implements Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wi.keys() : (Iterator) invokeV.objValue;
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
             try {
-                this.wi.putOpt("time", Long.valueOf(j2));
+                this.wi.putOpt("time", Long.valueOf(j));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

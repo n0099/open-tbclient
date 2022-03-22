@@ -24,9 +24,9 @@ public final class Decoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,18 +35,18 @@ public final class Decoder {
         this.rsDecoder = new ReedSolomonDecoder(GenericGF.DATA_MATRIX_FIELD_256);
     }
 
-    private void correctErrors(byte[] bArr, int i2) throws ChecksumException {
+    private void correctErrors(byte[] bArr, int i) throws ChecksumException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, this, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65537, this, bArr, i) == null) {
             int length = bArr.length;
             int[] iArr = new int[length];
-            for (int i3 = 0; i3 < length; i3++) {
-                iArr[i3] = bArr[i3] & 255;
+            for (int i2 = 0; i2 < length; i2++) {
+                iArr[i2] = bArr[i2] & 255;
             }
             try {
-                this.rsDecoder.decode(iArr, bArr.length - i2);
-                for (int i4 = 0; i4 < i2; i4++) {
-                    bArr[i4] = (byte) iArr[i4];
+                this.rsDecoder.decode(iArr, bArr.length - i);
+                for (int i3 = 0; i3 < i; i3++) {
+                    bArr[i3] = (byte) iArr[i3];
                 }
             } catch (ReedSolomonException unused) {
                 throw ChecksumException.getChecksumInstance();
@@ -60,10 +60,10 @@ public final class Decoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zArr)) == null) {
             int length = zArr.length;
             BitMatrix bitMatrix = new BitMatrix(length);
-            for (int i2 = 0; i2 < length; i2++) {
-                for (int i3 = 0; i3 < length; i3++) {
-                    if (zArr[i2][i3]) {
-                        bitMatrix.set(i3, i2);
+            for (int i = 0; i < length; i++) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (zArr[i][i2]) {
+                        bitMatrix.set(i2, i);
                     }
                 }
             }
@@ -78,19 +78,19 @@ public final class Decoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitMatrix)) == null) {
             BitMatrixParser bitMatrixParser = new BitMatrixParser(bitMatrix);
             DataBlock[] dataBlocks = DataBlock.getDataBlocks(bitMatrixParser.readCodewords(), bitMatrixParser.getVersion());
-            int i2 = 0;
+            int i = 0;
             for (DataBlock dataBlock : dataBlocks) {
-                i2 += dataBlock.getNumDataCodewords();
+                i += dataBlock.getNumDataCodewords();
             }
-            byte[] bArr = new byte[i2];
+            byte[] bArr = new byte[i];
             int length = dataBlocks.length;
-            for (int i3 = 0; i3 < length; i3++) {
-                DataBlock dataBlock2 = dataBlocks[i3];
+            for (int i2 = 0; i2 < length; i2++) {
+                DataBlock dataBlock2 = dataBlocks[i2];
                 byte[] codewords = dataBlock2.getCodewords();
                 int numDataCodewords = dataBlock2.getNumDataCodewords();
                 correctErrors(codewords, numDataCodewords);
-                for (int i4 = 0; i4 < numDataCodewords; i4++) {
-                    bArr[(i4 * length) + i3] = codewords[i4];
+                for (int i3 = 0; i3 < numDataCodewords; i3++) {
+                    bArr[(i3 * length) + i2] = codewords[i3];
                 }
             }
             return DecodedBitStreamParser.decode(bArr);

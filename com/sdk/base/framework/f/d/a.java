@@ -24,13 +24,13 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f57817b;
+    public static final Boolean f42584b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f57817b = Boolean.valueOf(f.f57798b);
+        f42584b = Boolean.valueOf(f.f42567b);
     }
 
     public a() {
@@ -54,9 +54,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -113,8 +113,8 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
-                    for (int i2 = 0; i2 < str2.length(); i2++) {
-                        if (!Character.isDigit(str2.charAt(i2))) {
+                    for (int i = 0; i < str2.length(); i++) {
+                        if (!Character.isDigit(str2.charAt(i))) {
                             return false;
                         }
                     }
@@ -154,7 +154,7 @@ public class a {
         InterceptResult invokeL;
         String defaultUserAgent;
         int length;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
@@ -164,8 +164,8 @@ public class a {
                 }
                 StringBuilder sb = new StringBuilder();
                 length = defaultUserAgent.length();
-                for (i2 = 0; i2 < length; i2++) {
-                    char charAt = defaultUserAgent.charAt(i2);
+                for (i = 0; i < length; i++) {
+                    char charAt = defaultUserAgent.charAt(i);
                     if (charAt <= 31 || charAt >= 127) {
                         sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                     } else {
@@ -177,7 +177,7 @@ public class a {
             defaultUserAgent = System.getProperty("http.agent");
             StringBuilder sb2 = new StringBuilder();
             length = defaultUserAgent.length();
-            while (i2 < length) {
+            while (i < length) {
             }
             return sb2.toString();
         }
@@ -198,7 +198,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(a, th.getMessage(), f57817b);
+                    c.b(a, th.getMessage(), f42584b);
                 }
             }
             return null;

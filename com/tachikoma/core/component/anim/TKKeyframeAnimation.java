@@ -24,13 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKKeyframeAnimation extends TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<KeyFrame> keyframes;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class KeyFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tKKeyframeAnimation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,9 +67,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -84,9 +84,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
-            for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
-                KeyFrame keyFrame = this.keyframes.get(i2);
-                keyframeArr[i2] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
+            for (int i = 0; i < this.keyframes.size(); i++) {
+                KeyFrame keyFrame = this.keyframes.get(i);
+                keyframeArr[i] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.OPACITY, keyframeArr));
             this.animator = ofPropertyValuesHolder;
@@ -105,9 +105,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
-            for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
-                KeyFrame keyFrame = this.keyframes.get(i2);
-                keyframeArr[i2] = Keyframe.ofInt(keyFrame.percent, parseColor(trans2String(keyFrame.value)));
+            for (int i = 0; i < this.keyframes.size(); i++) {
+                KeyFrame keyFrame = this.keyframes.get(i);
+                keyframeArr[i] = Keyframe.ofInt(keyFrame.percent, parseColor(trans2String(keyFrame.value)));
             }
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe("backgroundColor", keyframeArr));
             this.animator = ofPropertyValuesHolder;
@@ -123,14 +123,14 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animRotation(View view, int i2) {
+    public void animRotation(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-            String str = i2 != 1 ? i2 != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            String str = i != 1 ? i != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X;
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
-            for (int i3 = 0; i3 < this.keyframes.size(); i3++) {
-                KeyFrame keyFrame = this.keyframes.get(i3);
-                keyframeArr[i3] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
+            for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
+                KeyFrame keyFrame = this.keyframes.get(i2);
+                keyframeArr[i2] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(str, keyframeArr));
             this.animator = ofPropertyValuesHolder;
@@ -145,15 +145,15 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
     }
 
     @Override // com.tachikoma.core.component.anim.TKBasicAnimation
-    public void animScale(View view, int i2) {
+    public void animScale(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
-            for (int i3 = 0; i3 < this.keyframes.size(); i3++) {
-                KeyFrame keyFrame = this.keyframes.get(i3);
-                keyframeArr[i3] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
+            for (int i2 = 0; i2 < this.keyframes.size(); i2++) {
+                KeyFrame keyFrame = this.keyframes.get(i2);
+                keyframeArr[i2] = Keyframe.ofFloat(keyFrame.percent, parseFloatValue(trans2String(keyFrame.value)));
             }
-            ObjectAnimator ofPropertyValuesHolder = i2 != 11 ? i2 != 12 ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr));
+            ObjectAnimator ofPropertyValuesHolder = i != 11 ? i != 12 ? ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_Y, keyframeArr)) : ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.SCALE_X, keyframeArr));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setDuration(getAnimDuration());
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
@@ -171,18 +171,18 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             Keyframe[] keyframeArr = new Keyframe[this.keyframes.size()];
             Keyframe[] keyframeArr2 = new Keyframe[this.keyframes.size()];
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= this.keyframes.size()) {
+                if (i >= this.keyframes.size()) {
                     break;
                 }
-                KeyFrame keyFrame = this.keyframes.get(i2);
+                KeyFrame keyFrame = this.keyframes.get(i);
                 String[] trans2StringArray = trans2StringArray(keyFrame.value);
                 Keyframe ofFloat = Keyframe.ofFloat(keyFrame.percent, parsePxValue(trans2StringArray[0]));
                 Keyframe ofFloat2 = Keyframe.ofFloat(keyFrame.percent, parsePxValue(trans2StringArray[1]));
-                keyframeArr[i2] = ofFloat;
-                keyframeArr2[i2] = ofFloat2;
-                i2++;
+                keyframeArr[i] = ofFloat;
+                keyframeArr2[i] = ofFloat2;
+                i++;
             }
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_X, keyframeArr), PropertyValuesHolder.ofKeyframe(AnimationProperty.TRANSLATE_Y, keyframeArr2));
             this.animator = ofPropertyValuesHolder;
@@ -204,9 +204,9 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
             return;
         }
         int length = this.animationV8Array.length();
-        for (int i2 = 0; i2 < length; i2++) {
+        for (int i = 0; i < length; i++) {
             try {
-                Object obj = this.animationV8Array.get(i2);
+                Object obj = this.animationV8Array.get(i);
                 if (obj instanceof V8Function) {
                     V8Function v8Function = (V8Function) obj;
                     V8Array createV8Array = V8Proxy.createV8Array((V8Value) v8Function, new String[0]);
@@ -250,8 +250,8 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.keyframes = new ArrayList<>();
             Object[] array = arrayList.toArray();
-            for (int i2 = 0; i2 < array.length; i2++) {
-                Object obj = array[i2];
+            for (int i = 0; i < array.length; i++) {
+                Object obj = array[i];
                 KeyFrame keyFrame = new KeyFrame(this);
                 Map map = (Map) obj;
                 if (map.containsKey("percent")) {
@@ -266,8 +266,8 @@ public class TKKeyframeAnimation extends TKBasicAnimation {
                 if (keyFrame.percent == 0.0f) {
                     float f2 = 1.0f;
                     if (array.length != 1) {
-                        if (i2 > 0) {
-                            f2 = (1.0f / (array.length - 1)) * i2;
+                        if (i > 0) {
+                            f2 = (1.0f / (array.length - 1)) * i;
                         }
                     }
                     keyFrame.percent = f2;

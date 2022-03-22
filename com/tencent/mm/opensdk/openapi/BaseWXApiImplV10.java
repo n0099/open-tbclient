@@ -1,10 +1,10 @@
 package com.tencent.mm.opensdk.openapi;
 
-import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -93,9 +93,9 @@ public class BaseWXApiImplV10 implements IWXAPI {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -118,8 +118,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
             if (bArr == null || bArr.length == 0 || bArr2 == null || bArr2.length == 0) {
                 str = "checkSumConsistent fail, invalid arguments";
             } else if (bArr.length == bArr2.length) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (bArr[i2] != bArr2[i2]) {
+                for (int i = 0; i < bArr.length; i++) {
+                    if (bArr[i] != bArr2[i]) {
                         return false;
                     }
                 }
@@ -151,12 +151,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/genTokenForOpenSdk"), null, null, new String[]{this.appId, "637928448"}, null);
+            Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/genTokenForOpenSdk"), null, null, new String[]{this.appId, "621086720"}, null);
             if (query == null || !query.moveToFirst()) {
                 return null;
             }
             String string = query.getString(0);
-            Log.i("MicroMsg.SDK.WXApiImplV10", "getTokenFromWX token is ".concat(String.valueOf(string)));
+            Log.i("MicroMsg.SDK.WXApiImplV10", "getTokenFromWX token is " + string);
             query.close();
             return string;
         }
@@ -169,11 +169,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
         String queryParameter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, iWXAPIEventHandler)) == null) {
-            Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, extInfo = ".concat(String.valueOf(str)));
+            Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, extInfo = " + str);
             try {
                 parse = Uri.parse(str);
                 queryParameter = parse.getQueryParameter("wx_internal_resptype");
-                Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, respType = ".concat(String.valueOf(queryParameter)));
+                Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, respType = " + queryParameter);
             } catch (Exception e2) {
                 Log.e("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType fail, ex = " + e2.getMessage());
             }
@@ -257,66 +257,17 @@ public class BaseWXApiImplV10 implements IWXAPI {
 
     private void launchWXIfNeed() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || Build.VERSION.SDK_INT < 29) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || Build.VERSION.SDK_INT < 28) {
             return;
         }
-        launchWXUsingPendingIntent();
-    }
-
-    private void launchWXUsingPendingIntent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.detached) {
-                throw new IllegalStateException("openWXApp fail, WXMsgImpl has been detached");
-            }
-            if (!isWXAppInstalled()) {
-                Log.e("MicroMsg.SDK.WXApiImplV10", "openWXApp failed, not installed or signature check failed");
-                return;
-            }
-            try {
-                Log.i("MicroMsg.SDK.WXApiImplV10", "launchWXUsingPendingIntent");
-                PendingIntent.getActivity(this.context, 1, this.context.getPackageManager().getLaunchIntentForPackage("com.tencent.mm"), 134217728).send(this.context, 2, null, new PendingIntent.OnFinished(this) { // from class: com.tencent.mm.opensdk.openapi.BaseWXApiImplV10.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ BaseWXApiImplV10 this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // android.app.PendingIntent.OnFinished
-                    public void onSendFinished(PendingIntent pendingIntent, Intent intent, int i2, String str, Bundle bundle) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pendingIntent, intent, Integer.valueOf(i2), str, bundle}) == null) {
-                            Log.d("MicroMsg.SDK.WXApiImplV10", "onSendFinished resultCode: " + i2 + ", resultData: " + str);
-                        }
-                    }
-                }, null);
-            } catch (Exception e2) {
-                Log.e("MicroMsg.SDK.WXApiImplV10", "launchWXUsingPendingIntent pendingIntent send failed: " + e2.getMessage());
-                openWXApp();
-            }
-        }
+        Log.i("MicroMsg.SDK.WXApiImplV10", "openWXApp before api call");
+        openWXApp();
     }
 
     private boolean sendAddCardToWX(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/addCardToWX"), null, null, new String[]{this.appId, bundle.getString("_wxapi_add_card_to_wx_card_list"), bundle.getString("_wxapi_basereq_transaction")}, null);
             if (query != null) {
@@ -330,7 +281,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendChooseCardFromWX(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/chooseCardFromWX"), null, null, new String[]{bundle.getString("_wxapi_choose_card_from_wx_card_app_id"), bundle.getString("_wxapi_choose_card_from_wx_card_location_id"), bundle.getString("_wxapi_choose_card_from_wx_card_sign_type"), bundle.getString("_wxapi_choose_card_from_wx_card_card_sign"), bundle.getString("_wxapi_choose_card_from_wx_card_time_stamp"), bundle.getString("_wxapi_choose_card_from_wx_card_nonce_str"), bundle.getString("_wxapi_choose_card_from_wx_card_card_id"), bundle.getString("_wxapi_choose_card_from_wx_card_card_type"), bundle.getString("_wxapi_choose_card_from_wx_card_can_multi_select"), bundle.getString("_wxapi_basereq_transaction")}, null);
             if (query != null) {
@@ -344,7 +295,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendHandleScanResult(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/handleScanResult"), null, null, new String[]{this.appId, bundle.getString("_wxapi_scan_qrcode_result")}, null);
             if (query != null) {
@@ -358,7 +309,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendInvoiceAuthInsert(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, context, baseReq)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openTypeWebview"), null, null, new String[]{this.appId, "2", URLEncoder.encode(String.format("url=%s", URLEncoder.encode(((WXInvoiceAuthInsert.Req) baseReq).url)))}, null);
             if (query != null) {
@@ -372,7 +323,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendJumpToOfflinePayReq(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/jumpToOfflinePay"), null, null, new String[]{this.appId}, null);
             if (query != null) {
@@ -387,7 +338,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendLaunchWXMiniprogram(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, context, baseReq)) == null) {
             launchWXIfNeed();
             WXLaunchMiniProgram.Req req = (WXLaunchMiniProgram.Req) baseReq;
             ContentResolver contentResolver = context.getContentResolver();
@@ -406,7 +357,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendLaunchWXMiniprogramWithToken(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, this, context, baseReq)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/launchWXMiniprogramWithToken"), null, null, new String[]{this.appId, ((WXLaunchMiniProgramWithToken.Req) baseReq).token}, null);
             if (query != null) {
@@ -420,7 +371,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendNonTaxPay(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, context, baseReq)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openTypeWebview"), null, null, new String[]{this.appId, "3", URLEncoder.encode(String.format("url=%s", URLEncoder.encode(((WXNontaxPay.Req) baseReq).url)))}, null);
             if (query != null) {
@@ -434,7 +385,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendOpenBusiLuckyMoney(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openBusiLuckyMoney"), null, null, new String[]{this.appId, bundle.getString("_wxapi_open_busi_lucky_money_timeStamp"), bundle.getString("_wxapi_open_busi_lucky_money_nonceStr"), bundle.getString("_wxapi_open_busi_lucky_money_signType"), bundle.getString("_wxapi_open_busi_lucky_money_signature"), bundle.getString("_wxapi_open_busi_lucky_money_package")}, null);
             if (query != null) {
@@ -448,10 +399,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendOpenBusinessView(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, this, context, baseReq)) == null) {
             launchWXIfNeed();
             WXOpenBusinessView.Req req = (WXOpenBusinessView.Req) baseReq;
-            Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openBusinessView"), null, null, new String[]{this.appId, req.businessType, req.query, req.extInfo, req.transaction, req.openId}, null);
+            Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openBusinessView"), null, null, new String[]{this.appId, req.businessType, req.query, req.extInfo, req.transaction}, null);
             if (query != null) {
                 query.close();
             }
@@ -464,7 +415,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendOpenBusinessWebview(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, this, context, baseReq)) == null) {
             launchWXIfNeed();
             WXOpenBusinessWebview.Req req = (WXOpenBusinessWebview.Req) baseReq;
             ContentResolver contentResolver = context.getContentResolver();
@@ -485,7 +436,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendOpenRankListReq(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openRankList"), null, null, new String[0], null);
             if (query != null) {
@@ -500,7 +451,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendOpenWebview(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, context, bundle)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openWebview"), null, null, new String[]{this.appId, bundle.getString("_wxapi_jump_to_webview_url"), bundle.getString("_wxapi_basereq_transaction")}, null);
             if (query != null) {
@@ -514,7 +465,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendPayInSurance(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, this, context, baseReq)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openTypeWebview"), null, null, new String[]{this.appId, "4", URLEncoder.encode(String.format("url=%s", URLEncoder.encode(((WXPayInsurance.Req) baseReq).url)))}, null);
             if (query != null) {
@@ -528,7 +479,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendPayReq(Context context, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, this, context, bundle)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, this, context, bundle)) == null) {
             if (wxappPayEntryClassname == null) {
                 wxappPayEntryClassname = new MMSharedPreferences(context).getString("_wxapp_pay_entry_classname_", null);
                 Log.d("MicroMsg.SDK.WXApiImplV10", "pay, set wxappPayEntryClassname = " + wxappPayEntryClassname);
@@ -557,7 +508,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendPreloadWXMiniprogram(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, this, context, baseReq)) == null) {
             WXPreloadMiniProgram.Req req = (WXPreloadMiniProgram.Req) baseReq;
             ContentResolver contentResolver = context.getContentResolver();
             Uri parse = Uri.parse("content://com.tencent.mm.sdk.comm.provider/preloadWXMiniprogram");
@@ -575,7 +526,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendSubscribeMessage(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, this, context, baseReq)) == null) {
             launchWXIfNeed();
             SubscribeMessage.Req req = (SubscribeMessage.Req) baseReq;
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openTypeWebview"), null, null, new String[]{this.appId, "1", String.valueOf(req.scene), req.templateID, req.reserved}, null);
@@ -590,7 +541,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
     private boolean sendSubscribeMiniProgramMsg(Context context, BaseReq baseReq) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, context, baseReq)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, this, context, baseReq)) == null) {
             launchWXIfNeed();
             Cursor query = context.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.comm.provider/openTypeWebview"), null, null, new String[]{this.appId, "5", ((SubscribeMiniProgramMsg.Req) baseReq).miniProgramAppId}, null);
             if (query != null) {
@@ -638,9 +589,9 @@ public class BaseWXApiImplV10 implements IWXAPI {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, countDownLatch};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -707,7 +658,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                         return false;
                     }
                     int intExtra2 = intent.getIntExtra("_wxapi_command_type", 0);
-                    Log.i("MicroMsg.SDK.WXApiImplV10", "handleIntent, cmd = ".concat(String.valueOf(intExtra2)));
+                    Log.i("MicroMsg.SDK.WXApiImplV10", "handleIntent, cmd = " + intExtra2);
                     switch (intExtra2) {
                         case 1:
                             iWXAPIEventHandler.onResp(new SendAuth.Resp(intent.getExtras()));
@@ -723,7 +674,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                             String str = req.message.messageExt;
                             if (str != null && str.contains("wx_internal_resptype")) {
                                 boolean handleWxInternalRespType = handleWxInternalRespType(str, iWXAPIEventHandler);
-                                Log.i("MicroMsg.SDK.WXApiImplV10", "handleIntent, extInfo contains wx_internal_resptype, ret = ".concat(String.valueOf(handleWxInternalRespType)));
+                                Log.i("MicroMsg.SDK.WXApiImplV10", "handleIntent, extInfo contains wx_internal_resptype, ret = " + handleWxInternalRespType);
                                 return handleWxInternalRespType;
                             }
                             if (str != null && str.contains("openbusinesswebview")) {
@@ -744,7 +695,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                                         iWXAPIEventHandler.onResp(resp);
                                         return true;
                                     }
-                                    Log.d("MicroMsg.SDK.WXApiImplV10", "not openbusinesswebview %".concat(String.valueOf(str)));
+                                    Log.d("MicroMsg.SDK.WXApiImplV10", "not openbusinesswebview %" + str);
                                 } catch (Exception e3) {
                                     Log.e("MicroMsg.SDK.WXApiImplV10", "parse fail, ex = " + e3.getMessage());
                                 }
@@ -768,7 +719,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                         case 22:
                         case 23:
                         default:
-                            Log.e("MicroMsg.SDK.WXApiImplV10", "unknown cmd = ".concat(String.valueOf(intExtra2)));
+                            Log.e("MicroMsg.SDK.WXApiImplV10", "unknown cmd = " + intExtra2);
                             break;
                         case 9:
                             iWXAPIEventHandler.onResp(new AddCardToWXCardPackage.Resp(intent.getExtras()));
@@ -833,7 +784,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                     return false;
                 }
                 return WXApiImplComm.validateAppSignature(this.context, packageInfo.signatures, this.checkSignature);
-            } catch (Exception unused) {
+            } catch (PackageManager.NameNotFoundException unused) {
                 return false;
             }
         }
@@ -873,10 +824,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
-    public boolean registerApp(String str, long j2) {
+    public boolean registerApp(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             if (this.detached) {
                 throw new IllegalStateException("registerApp fail, WXMsgImpl has been detached");
             }
@@ -884,32 +835,35 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 Log.e("MicroMsg.SDK.WXApiImplV10", "register app failed for wechat app signature check failed");
                 return false;
             }
-            Log.d("MicroMsg.SDK.WXApiImplV10", "registerApp, appId = ".concat(String.valueOf(str)));
+            Log.d("MicroMsg.SDK.WXApiImplV10", "registerApp, appId = " + str);
             if (str != null) {
                 this.appId = str;
             }
-            Log.d("MicroMsg.SDK.WXApiImplV10", "registerApp, appId = ".concat(String.valueOf(str)));
+            Log.d("MicroMsg.SDK.WXApiImplV10", "registerApp, appId = " + str);
             if (str != null) {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C2243a c2243a = new a.C2243a();
-            c2243a.a = "com.tencent.mm";
-            c2243a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c2243a.content = "weixin://registerapp?appid=" + this.appId;
-            c2243a.f59018b = j2;
-            return a.a(this.context, c2243a);
+            a.C2101a c2101a = new a.C2101a();
+            c2101a.a = "com.tencent.mm";
+            c2101a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c2101a.content = "weixin://registerapp?appid=" + this.appId;
+            c2101a.f43670b = j;
+            return a.a(this.context, c2101a);
         }
         return invokeLJ.booleanValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:117:0x020e  */
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean sendReq(BaseReq baseReq) {
         InterceptResult invokeL;
         StringBuilder sb;
         String str;
         WXWebpageObject wXWebpageObject;
-        int i2;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, baseReq)) == null) {
@@ -1007,8 +961,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                                 sb.append(str);
                                 wXMiniProgramObject.path = sb.toString();
                             }
-                            i2 = req.scene;
-                            if (i2 != 3 && i2 != 1) {
+                            if (req.scene != 3) {
                                 req.scene = 0;
                             }
                             baseReq.toBundle(bundle);
@@ -1017,9 +970,7 @@ public class BaseWXApiImplV10 implements IWXAPI {
                         }
                         wXWebpageObject.webpageUrl = bundle.getString("_wxminiprogram_webpageurl");
                         req.message.mediaObject = wXWebpageObject;
-                        i2 = req.scene;
-                        if (i2 != 3) {
-                            req.scene = 0;
+                        if (req.scene != 3) {
                         }
                         baseReq.toBundle(bundle);
                     }
@@ -1101,11 +1052,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C2243a c2243a = new a.C2243a();
-            c2243a.a = "com.tencent.mm";
-            c2243a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c2243a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c2243a);
+            a.C2101a c2101a = new a.C2101a();
+            c2101a.a = "com.tencent.mm";
+            c2101a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c2101a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c2101a);
         }
     }
 }

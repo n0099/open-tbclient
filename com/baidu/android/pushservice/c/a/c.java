@@ -11,22 +11,22 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30342b;
+    public long f24239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30343c;
+    public String f24240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30344d;
+    public long f24241d;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

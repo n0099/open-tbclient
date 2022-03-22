@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.listener;
 
 import com.facebook.imagepipeline.producers.ProducerListener;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface RequestListener extends ProducerListener {
     void onRequestCancellation(String str);
 

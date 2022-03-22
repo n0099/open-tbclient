@@ -15,13 +15,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f30162b = null;
+    public static b f24117b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f30163c = "";
+    public static String f24118c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f30164d = "";
+    public static volatile String f24119d = "";
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -47,9 +47,9 @@ public final class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,10 +62,10 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f30163c)) {
-                f30163c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f24118c)) {
+                f24118c = "0newiqr3mini0";
             }
-            return f30163c;
+            return f24118c;
         }
         return (String) invokeV.objValue;
     }
@@ -83,16 +83,16 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f30164d)) {
-                    f30164d = str;
+                if (TextUtils.isEmpty(f24119d)) {
+                    f24119d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
                     stringBuffer.append(str);
-                    for (int i2 = 0; i2 < length; i2++) {
+                    for (int i = 0; i < length; i++) {
                         stringBuffer.append("0");
                     }
-                    f30163c = stringBuffer.toString().trim();
+                    f24118c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -126,14 +126,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f30162b == null) {
+            if (f24117b == null) {
                 synchronized (b.class) {
-                    if (f30162b == null) {
-                        f30162b = new c(context).b();
+                    if (f24117b == null) {
+                        f24117b = new c(context).b();
                     }
                 }
             }
-            return f30162b;
+            return f24117b;
         }
         return (b) invokeL.objValue;
     }

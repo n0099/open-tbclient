@@ -22,21 +22,19 @@ import java.util.List;
 public class ForumEmotionVoteEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f32172b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f32173c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32174d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41652e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f41653f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f41654g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f41655h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f41656i;
+    public View f32175e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumEmotionVoteEntryView(Context context) {
@@ -47,9 +45,9 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -62,29 +60,29 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-            this.f41654g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-            this.f41652e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-            this.f41653f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f41655h = (TextView) findViewById(R.id.forum_emotion_vote_title);
-            this.f41656i = findViewById(R.id.forum_vote_bottom_line);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b6, this);
+            this.f32173c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a9f);
+            this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
+            this.f32172b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.f32174d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a38);
+            this.f32175e = findViewById(R.id.obfuscated_res_0x7f090aa0);
         }
     }
 
-    public void onChangeSkin(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f41654g, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f41655h, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f41656i, R.color.common_color_10312);
+            SkinManager.setBackgroundColor(this.f32173c, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f32174d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f32175e, R.color.common_color_10312);
         }
     }
 
     public void setAvatarList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f41654g.removeAllViews();
+            this.f32173c.removeAllViews();
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -94,12 +92,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     tbImageView.setDrawerType(1);
                     tbImageView.setIsRound(true);
                     tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    int i2 = this.f41652e;
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-                    layoutParams.leftMargin = this.f41653f;
+                    int i = this.a;
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
+                    layoutParams.leftMargin = this.f32172b;
                     layoutParams.gravity = 17;
-                    tbImageView.startLoad(str, 10, false);
-                    this.f41654g.addView(tbImageView, layoutParams);
+                    tbImageView.J(str, 10, false);
+                    this.f32173c.addView(tbImageView, layoutParams);
                 }
             }
         }
@@ -114,9 +112,9 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -128,17 +126,17 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ForumEmotionVoteEntryView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

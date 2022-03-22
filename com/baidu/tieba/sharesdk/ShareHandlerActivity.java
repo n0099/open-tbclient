@@ -5,12 +5,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.r0.o3.d.a;
-import c.a.r0.o3.d.c;
-import c.a.r0.o3.d.d;
-import c.a.r0.o3.d.e;
-import c.a.r0.o3.d.f;
-import c.a.r0.o3.e.b;
+import c.a.p0.q3.d.a;
+import c.a.p0.q3.d.c;
+import c.a.p0.q3.d.d;
+import c.a.p0.q3.d.e;
+import c.a.p0.q3.d.f;
+import c.a.p0.q3.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static int skinType = 3;
@@ -58,9 +58,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -78,7 +78,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         if (this.mShareReportModel == null) {
             this.mShareReportModel = new ShareReportModel(getPageContext());
         }
-        this.mShareReportModel.x(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
+        this.mShareReportModel.z(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -100,11 +100,11 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 != 10103 && i2 != 10104) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i != 10103 && i != 10104) {
                 a aVar = this.mCurrentShare;
                 if (aVar != null) {
                     aVar.l(intent);
@@ -112,7 +112,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 }
                 return;
             }
-            Tencent.onActivityResultData(i2, i3, intent, null);
+            Tencent.onActivityResultData(i, i2, intent, null);
         }
     }
 
@@ -145,20 +145,20 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 eVar.p();
                 this.mShareByWeibo = null;
             }
-            int i2 = this.mShareChannel;
-            if (i2 == 0) {
+            int i = this.mShareChannel;
+            if (i == 0) {
                 this.mCurrentShare = new d(this);
-            } else if (i2 == 6) {
+            } else if (i == 6) {
                 e eVar2 = new e(this, this, this);
                 this.mShareByWeibo = eVar2;
                 this.mCurrentShare = eVar2;
-            } else if (i2 == 8) {
-                this.mCurrentShare = new c.a.r0.o3.d.b(this);
-            } else if (i2 == 2) {
+            } else if (i == 8) {
+                this.mCurrentShare = new c.a.p0.q3.d.b(this);
+            } else if (i == 2) {
                 this.mCurrentShare = new f(this, 2);
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 this.mCurrentShare = new f(this, 3);
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 this.mCurrentShare = null;
             } else {
                 this.mCurrentShare = new c(this);
@@ -252,25 +252,25 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // c.a.r0.o3.e.b
-    public void onShare(int i2, int i3) {
+    @Override // c.a.p0.q3.e.b
+    public void onShare(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            if (i3 == 1) {
-                c.a.r0.o3.f.b.b(i2, this.mShareEntity);
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            if (i2 == 1) {
+                c.a.p0.q3.f.b.b(i, this.mShareEntity);
             }
-            if (i3 == 3) {
-                if (i2 != 8 && i2 != 6) {
-                    c.a.r0.o3.f.b.a(i2, this.mShareEntity);
+            if (i2 == 3) {
+                if (i != 8 && i != 6) {
+                    c.a.p0.q3.f.b.a(i, this.mShareEntity);
                 } else {
-                    c.a.r0.o3.f.b.b(i2, this.mShareEntity);
+                    c.a.p0.q3.f.b.b(i, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {
                 this.mShareEntity.getStats().getString("tid");
                 this.mShareEntity.getStats().getString("pid");
             }
-            finishWithResult(i2, i3, this.mShareEntity.getStats(), m.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
+            finishWithResult(i, i2, this.mShareEntity.getStats(), m.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
         }
     }
 

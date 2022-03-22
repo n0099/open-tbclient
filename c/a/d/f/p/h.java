@@ -25,10 +25,10 @@ public class h {
     public static String a = "baidu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f2806b;
+    public static final File f2328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f2807c;
+    public static final char f2329c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +44,8 @@ public class h {
                 return;
             }
         }
-        f2806b = Environment.getExternalStorageDirectory();
-        f2807c = File.separatorChar;
+        f2328b = Environment.getExternalStorageDirectory();
+        f2329c = File.separatorChar;
     }
 
     public static int A(String str) {
@@ -81,7 +81,7 @@ public class h {
     public static boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f2807c == '\\' : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f2329c == '\\' : invokeV.booleanValue;
     }
 
     public static void D(OutputStream outputStream) throws IOException {
@@ -134,7 +134,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
-                StatFs statFs = new StatFs(f2806b.getPath());
+                StatFs statFs = new StatFs(f2328b.getPath());
                 return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
             } catch (Exception unused) {
                 return false;
@@ -388,10 +388,10 @@ public class h {
             try {
                 fileChannel3 = r6.getChannel();
                 long size = fileChannel2.size();
-                long j2 = 0;
-                while (j2 < size) {
-                    long j3 = size - j2;
-                    j2 += fileChannel3.transferFrom(fileChannel2, j2, j3 > 31457280 ? 31457280L : j3);
+                long j = 0;
+                while (j < size) {
+                    long j2 = size - j;
+                    j += fileChannel3.transferFrom(fileChannel2, j, j2 > 31457280 ? 31457280L : j2);
                 }
                 o.d(fileChannel3);
                 o.f(r6);
@@ -517,9 +517,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
             if (str != null) {
-                return f2806b + "/" + a + "/" + str + "/" + str2;
+                return f2328b + "/" + a + "/" + str + "/" + str2;
             }
-            return f2806b + "/" + a + "/" + str2;
+            return f2328b + "/" + a + "/" + str2;
         }
         return (String) invokeLL.objValue;
     }
@@ -528,13 +528,13 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             FileInputStream fileInputStream = null;
             try {
                 if (file.exists()) {
                     FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
-                        j2 = fileInputStream2.available();
+                        j = fileInputStream2.available();
                     } catch (Exception unused) {
                     } catch (Throwable th) {
                         th = th;
@@ -549,7 +549,7 @@ public class h {
                 th = th2;
             }
             c.a.d.f.m.a.c(fileInputStream);
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -575,9 +575,9 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
             if (str != null) {
-                return f2806b + "/" + a + "/" + str + "/";
+                return f2328b + "/" + a + "/" + str + "/";
             }
-            return f2806b + "/" + a + "/";
+            return f2328b + "/" + a + "/";
         }
         return (String) invokeL.objValue;
     }

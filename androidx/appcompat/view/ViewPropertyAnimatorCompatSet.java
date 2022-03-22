@@ -31,9 +31,9 @@ public class ViewPropertyAnimatorCompatSet {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,9 +54,9 @@ public class ViewPropertyAnimatorCompatSet {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -71,9 +71,9 @@ public class ViewPropertyAnimatorCompatSet {
             public void onAnimationEnd(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    int i4 = this.mProxyEndCount + 1;
-                    this.mProxyEndCount = i4;
-                    if (i4 == this.this$0.mAnimators.size()) {
+                    int i3 = this.mProxyEndCount + 1;
+                    this.mProxyEndCount = i3;
+                    if (i3 == this.this$0.mAnimators.size()) {
                         ViewPropertyAnimatorListener viewPropertyAnimatorListener = this.this$0.mListener;
                         if (viewPropertyAnimatorListener != null) {
                             viewPropertyAnimatorListener.onAnimationEnd(null);
@@ -150,12 +150,12 @@ public class ViewPropertyAnimatorCompatSet {
         return (ViewPropertyAnimatorCompatSet) invokeLL.objValue;
     }
 
-    public ViewPropertyAnimatorCompatSet setDuration(long j2) {
+    public ViewPropertyAnimatorCompatSet setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
             if (!this.mIsStarted) {
-                this.mDuration = j2;
+                this.mDuration = j;
             }
             return this;
         }
@@ -194,9 +194,9 @@ public class ViewPropertyAnimatorCompatSet {
         Iterator<ViewPropertyAnimatorCompat> it = this.mAnimators.iterator();
         while (it.hasNext()) {
             ViewPropertyAnimatorCompat next = it.next();
-            long j2 = this.mDuration;
-            if (j2 >= 0) {
-                next.setDuration(j2);
+            long j = this.mDuration;
+            if (j >= 0) {
+                next.setDuration(j);
             }
             Interpolator interpolator = this.mInterpolator;
             if (interpolator != null) {

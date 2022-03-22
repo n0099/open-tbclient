@@ -77,9 +77,9 @@ public class DrawerArrowDrawable extends Drawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -93,7 +93,7 @@ public class DrawerArrowDrawable extends Drawable {
         this.mPaint.setStrokeJoin(Paint.Join.MITER);
         this.mPaint.setStrokeCap(Paint.Cap.BUTT);
         this.mPaint.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, R$styleable.DrawerArrowToggle, R$attr.drawerArrowStyle, R$style.Base_Widget_AppCompat_DrawerArrowToggle);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, R$styleable.DrawerArrowToggle, R$attr.drawerArrowStyle, R$style.obfuscated_res_0x7f1000b9);
         setColor(obtainStyledAttributes.getColor(R$styleable.DrawerArrowToggle_color, 0));
         setBarThickness(obtainStyledAttributes.getDimension(R$styleable.DrawerArrowToggle_thickness, 0.0f));
         setSpinEnabled(obtainStyledAttributes.getBoolean(R$styleable.DrawerArrowToggle_spinBars, true));
@@ -117,9 +117,9 @@ public class DrawerArrowDrawable extends Drawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             Rect bounds = getBounds();
-            int i2 = this.mDirection;
+            int i = this.mDirection;
             boolean z = false;
-            if (i2 != 0 && (i2 == 1 || (i2 == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
+            if (i != 0 && (i == 1 || (i == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
                 z = true;
             }
             float f3 = this.mArrowHeadLength;
@@ -244,12 +244,12 @@ public class DrawerArrowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || i2 == this.mPaint.getAlpha()) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || i == this.mPaint.getAlpha()) {
             return;
         }
-        this.mPaint.setAlpha(i2);
+        this.mPaint.setAlpha(i);
         invalidateSelf();
     }
 
@@ -290,12 +290,12 @@ public class DrawerArrowDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setColor(@ColorInt int i2) {
+    public void setColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || i2 == this.mPaint.getColor()) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i == this.mPaint.getColor()) {
             return;
         }
-        this.mPaint.setColor(i2);
+        this.mPaint.setColor(i);
         invalidateSelf();
     }
 
@@ -308,12 +308,12 @@ public class DrawerArrowDrawable extends Drawable {
         }
     }
 
-    public void setDirection(int i2) {
+    public void setDirection(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || i2 == this.mDirection) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || i == this.mDirection) {
             return;
         }
-        this.mDirection = i2;
+        this.mDirection = i;
         invalidateSelf();
     }
 

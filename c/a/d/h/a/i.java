@@ -16,9 +16,9 @@ public class i extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,7 +29,7 @@ public class i extends c {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            this.f2920b.setColorFilter(null);
+            this.f2433b.setColorFilter(null);
             super.h(canvas, dVar, imageView);
         }
     }

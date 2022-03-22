@@ -51,12 +51,12 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_Design_BottomNavigationView = 2131755850;
+    public static final int obfuscated_res_0x7f100323 = 2131755811;
     public static final int MENU_PRESENTER_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -71,17 +71,17 @@ public class BottomNavigationView extends FrameLayout {
     public OnNavigationItemReselectedListener reselectedListener;
     public OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -111,9 +111,9 @@ public class BottomNavigationView extends FrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -123,10 +123,10 @@ public class BottomNavigationView extends FrameLayout {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -159,9 +159,9 @@ public class BottomNavigationView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -178,10 +178,10 @@ public class BottomNavigationView extends FrameLayout {
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeBundle(this.menuPresenterState);
             }
         }
@@ -195,9 +195,9 @@ public class BottomNavigationView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -233,9 +233,9 @@ public class BottomNavigationView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -249,8 +249,8 @@ public class BottomNavigationView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             View view = new View(context);
-            view.setBackgroundColor(ContextCompat.getColor(context, R.color.design_bottom_navigation_shadow_color));
-            view.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.design_bottom_navigation_shadow_height)));
+            view.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606d0));
+            view.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb)));
             addView(view);
         }
     }
@@ -270,9 +270,9 @@ public class BottomNavigationView extends FrameLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -326,10 +326,10 @@ public class BottomNavigationView extends FrameLayout {
     }
 
     @Nullable
-    public BadgeDrawable getBadge(int i2) {
+    public BadgeDrawable getBadge(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.menuView.getBadge(i2) : (BadgeDrawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.menuView.getBadge(i) : (BadgeDrawable) invokeI.objValue;
     }
 
     @Nullable
@@ -411,10 +411,10 @@ public class BottomNavigationView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.menu : (Menu) invokeV.objValue;
     }
 
-    public BadgeDrawable getOrCreateBadge(int i2) {
+    public BadgeDrawable getOrCreateBadge(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.menuView.getOrCreateBadge(i2) : (BadgeDrawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.menuView.getOrCreateBadge(i) : (BadgeDrawable) invokeI.objValue;
     }
 
     @IdRes
@@ -424,11 +424,11 @@ public class BottomNavigationView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.menuView.getSelectedItemId() : invokeV.intValue;
     }
 
-    public void inflateMenu(int i2) {
+    public void inflateMenu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.presenter.setUpdateSuspended(true);
-            getMenuInflater().inflate(i2, this.menu);
+            getMenuInflater().inflate(i, this.menu);
             this.presenter.setUpdateSuspended(false);
             this.presenter.updateMenuView(true);
         }
@@ -477,10 +477,10 @@ public class BottomNavigationView extends FrameLayout {
         return (Parcelable) invokeV.objValue;
     }
 
-    public void removeBadge(int i2) {
+    public void removeBadge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.menuView.removeBadge(i2);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.menuView.removeBadge(i);
         }
     }
 
@@ -502,10 +502,10 @@ public class BottomNavigationView extends FrameLayout {
         }
     }
 
-    public void setItemBackgroundResource(@DrawableRes int i2) {
+    public void setItemBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.menuView.setItemBackgroundRes(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.menuView.setItemBackgroundRes(i);
             this.itemRippleColor = null;
         }
     }
@@ -519,17 +519,17 @@ public class BottomNavigationView extends FrameLayout {
         this.presenter.updateMenuView(false);
     }
 
-    public void setItemIconSize(@Dimension int i2) {
+    public void setItemIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.menuView.setItemIconSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.menuView.setItemIconSize(i);
         }
     }
 
-    public void setItemIconSizeRes(@DimenRes int i2) {
+    public void setItemIconSizeRes(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            setItemIconSize(getResources().getDimensionPixelSize(i2));
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            setItemIconSize(getResources().getDimensionPixelSize(i));
         }
     }
 
@@ -568,17 +568,17 @@ public class BottomNavigationView extends FrameLayout {
         }
     }
 
-    public void setItemTextAppearanceActive(@StyleRes int i2) {
+    public void setItemTextAppearanceActive(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.menuView.setItemTextAppearanceActive(i2);
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.menuView.setItemTextAppearanceActive(i);
         }
     }
 
-    public void setItemTextAppearanceInactive(@StyleRes int i2) {
+    public void setItemTextAppearanceInactive(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.menuView.setItemTextAppearanceInactive(i2);
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.menuView.setItemTextAppearanceInactive(i);
         }
     }
 
@@ -589,12 +589,12 @@ public class BottomNavigationView extends FrameLayout {
         }
     }
 
-    public void setLabelVisibilityMode(int i2) {
+    public void setLabelVisibilityMode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || this.menuView.getLabelVisibilityMode() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || this.menuView.getLabelVisibilityMode() == i) {
             return;
         }
-        this.menuView.setLabelVisibilityMode(i2);
+        this.menuView.setLabelVisibilityMode(i);
         this.presenter.updateMenuView(false);
     }
 
@@ -612,10 +612,10 @@ public class BottomNavigationView extends FrameLayout {
         }
     }
 
-    public void setSelectedItemId(@IdRes int i2) {
+    public void setSelectedItemId(@IdRes int i) {
         MenuItem findItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048610, this, i2) == null) || (findItem = this.menu.findItem(i2)) == null || this.menu.performItemAction(findItem, this.presenter, 0)) {
+        if (!(interceptable == null || interceptable.invokeI(1048610, this, i) == null) || (findItem = this.menu.findItem(i)) == null || this.menu.performItemAction(findItem, this.presenter, 0)) {
             return;
         }
         findItem.setChecked(true);
@@ -623,16 +623,16 @@ public class BottomNavigationView extends FrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.bottomNavigationStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -643,17 +643,17 @@ public class BottomNavigationView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_BottomNavigationView), attributeSet, i2);
+    public BottomNavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100323), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -673,14 +673,14 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.elevation, R.attr.itemBackground, R.attr.itemHorizontalTranslationEnabled, R.attr.itemIconSize, R.attr.itemIconTint, R.attr.itemRippleColor, R.attr.itemTextAppearanceActive, R.attr.itemTextAppearanceInactive, R.attr.itemTextColor, R.attr.labelVisibilityMode, R.attr.menu}, i2, Widget_Design_BottomNavigationView, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402dc, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e2, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f04037d, R.attr.obfuscated_res_0x7f040427}, i, R.style.obfuscated_res_0x7f100323, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {
             BottomNavigationMenuView bottomNavigationMenuView = this.menuView;
             bottomNavigationMenuView.setIconTintList(bottomNavigationMenuView.createDefaultColorStateList(16842808));
         }
-        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.design_bottom_navigation_icon_size)));
+        setItemIconSize(obtainTintedStyledAttributes.getDimensionPixelSize(4, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f6)));
         if (obtainTintedStyledAttributes.hasValue(8)) {
             setItemTextAppearanceInactive(obtainTintedStyledAttributes.getResourceId(8, 0));
         }
@@ -725,9 +725,9 @@ public class BottomNavigationView extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

@@ -10,7 +10,7 @@ public final class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51426b;
+    public static boolean f37883b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2) {

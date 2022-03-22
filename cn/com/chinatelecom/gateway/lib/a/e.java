@@ -15,7 +15,7 @@ public class e {
     public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f29219b;
+    public static final char[] f23648b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class e {
                 return;
             }
         }
-        f29219b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f23648b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -39,9 +39,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -56,9 +56,9 @@ public class e {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(f29219b[(bArr[i2] >> 4) & 15]);
-                sb.append(f29219b[bArr[i2] & 15]);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(f23648b[(bArr[i] >> 4) & 15]);
+                sb.append(f23648b[bArr[i] & 15]);
             }
             return sb.toString();
         }
@@ -75,13 +75,13 @@ public class e {
             char[] charArray = str.toCharArray();
             int length = charArray.length / 2;
             byte[] bArr = new byte[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i2 * 2;
-                int digit = Character.digit(charArray[i3 + 1], 16) | (Character.digit(charArray[i3], 16) << 4);
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                int digit = Character.digit(charArray[i2 + 1], 16) | (Character.digit(charArray[i2], 16) << 4);
                 if (digit > 127) {
                     digit -= 256;
                 }
-                bArr[i2] = (byte) digit;
+                bArr[i] = (byte) digit;
             }
             return bArr;
         }

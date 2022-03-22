@@ -50,7 +50,7 @@ public interface KsNativeAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoPlayError(int i2, int i3);
+        void onVideoPlayError(int i, int i2);
 
         @KsAdSdkApi
         @Keep
@@ -73,7 +73,7 @@ public interface KsNativeAd {
     @Nullable
     @KsAdSdkApi
     @Keep
-    String getAdSourceLogoUrl(@AdSourceLogoType int i2);
+    String getAdSourceLogoUrl(@AdSourceLogoType int i);
 
     @Nullable
     @KsAdSdkApi
@@ -193,7 +193,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
+    void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep
@@ -205,7 +205,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i2);
+    void setBidEcpm(int i);
 
     @KsAdSdkApi
     @Keep

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HWPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -39,9 +39,9 @@ public class HWPushHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,7 +58,7 @@ public class HWPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m195a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m174a(context) : invokeL.booleanValue;
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -70,7 +70,7 @@ public class HWPushHelper {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f59449c);
+            String a4 = ae.a(context).a(at.f44068c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -102,16 +102,16 @@ public class HWPushHelper {
                 try {
                     JSONArray jSONArray = new JSONArray(str);
                     if (jSONArray.length() > 0) {
-                        int i2 = 0;
+                        int i = 0;
                         while (true) {
-                            if (i2 >= jSONArray.length()) {
+                            if (i >= jSONArray.length()) {
                                 break;
                             }
-                            JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                            JSONObject jSONObject = jSONArray.getJSONObject(i);
                             if (jSONObject.has("pushMsg")) {
                                 break;
                             }
-                            i2++;
+                            i++;
                         }
                     }
                 } catch (Exception e2) {
@@ -159,10 +159,10 @@ public class HWPushHelper {
         a2.register();
     }
 
-    public static void reportError(String str, int i2) {
+    public static void reportError(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, str, i2) == null) {
-            i.a(str, i2);
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            i.a(str, i);
         }
     }
 

@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +24,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,24 +36,24 @@ public class b {
         this.yH = true;
     }
 
-    public void T(int i2) {
+    public void T(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.yC = i2;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.yC = i;
         }
     }
 
-    public void U(int i2) {
+    public void U(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.yE = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.yE = i;
         }
     }
 
-    public void V(int i2) {
+    public void V(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.yF = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.yF = i;
         }
     }
 
@@ -126,7 +125,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "SlamModel{id='" + this.id + ExtendedMessageFormat.QUOTE + ", placeType=" + this.yC + ", position='" + this.yD + ExtendedMessageFormat.QUOTE + ", distance=" + this.yE + ", pitchAngle=" + this.yF + ", rotation='" + this.yG + ExtendedMessageFormat.QUOTE + ", mImmediatelyPlaceModel=" + this.yH + ExtendedMessageFormat.END_FE;
+            return "SlamModel{id='" + this.id + "', placeType=" + this.yC + ", position='" + this.yD + "', distance=" + this.yE + ", pitchAngle=" + this.yF + ", rotation='" + this.yG + "', mImmediatelyPlaceModel=" + this.yH + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -17,12 +17,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f3001c;
+    public static volatile d f2502c;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginNetConfigInfos a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f3002b;
+    public b f2503b;
 
     /* loaded from: classes.dex */
     public class a implements c.a.d.j.j.e.a {
@@ -36,9 +36,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,9 +51,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,14 +66,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3001c == null) {
+            if (f2502c == null) {
                 synchronized (d.class) {
-                    if (f3001c == null) {
-                        f3001c = new d();
+                    if (f2502c == null) {
+                        f2502c = new d();
                     }
                 }
             }
-            return f3001c;
+            return f2502c;
         }
         return (d) invokeV.objValue;
     }
@@ -88,7 +88,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{pluginSettings, Boolean.valueOf(z), aVar}) == null) {
             c d2 = d(pluginSettings);
-            b bVar = this.f3002b;
+            b bVar = this.f2503b;
             if (bVar != null) {
                 bVar.a(z, d2, new a(this, aVar));
             }

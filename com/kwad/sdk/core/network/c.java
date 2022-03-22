@@ -4,5 +4,5 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54453b;
+    public String f39576b;
 }

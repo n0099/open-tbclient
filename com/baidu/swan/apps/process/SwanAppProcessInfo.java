@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SwanAppProcessInfo {
     public static final /* synthetic */ SwanAppProcessInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -77,16 +77,16 @@ public final class SwanAppProcessInfo {
         sCurrent = swanAppProcessInfo2;
     }
 
-    public SwanAppProcessInfo(String str, int i2, int i3, boolean z, boolean z2, Class cls, Class cls2) {
+    public SwanAppProcessInfo(String str, int i, int i2, boolean z, boolean z2, Class cls, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), cls, cls2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), cls, cls2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -95,17 +95,17 @@ public final class SwanAppProcessInfo {
                 return;
             }
         }
-        this.index = i3;
+        this.index = i2;
         this.activity = cls;
         this.service = cls2;
         this.isSwanService = z;
         this.isSwanClient = z2;
     }
 
-    public static boolean checkProcessId(int i2) {
+    public static boolean checkProcessId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 >= 0 && i2 <= 5 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i <= 5 : invokeI.booleanValue;
     }
 
     @NonNull
@@ -115,38 +115,38 @@ public final class SwanAppProcessInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (isInited() || !ProcessUtils.isMainProcess()) ? sCurrent : init(SERVICE) : (SwanAppProcessInfo) invokeV.objValue;
     }
 
-    public static SwanAppProcessInfo indexOf(int i2) {
+    public static SwanAppProcessInfo indexOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? indices()[i2] : (SwanAppProcessInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? indices()[i] : (SwanAppProcessInfo) invokeI.objValue;
     }
 
     public static SwanAppProcessInfo[] indices() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (sIndices == null) {
                 SwanAppProcessInfo[] values = values();
                 sIndices = new SwanAppProcessInfo[values.length];
-                int i3 = 0;
+                int i2 = 0;
                 for (SwanAppProcessInfo swanAppProcessInfo : values) {
-                    if (swanAppProcessInfo != null && (i2 = swanAppProcessInfo.index) >= 0) {
+                    if (swanAppProcessInfo != null && (i = swanAppProcessInfo.index) >= 0) {
                         SwanAppProcessInfo[] swanAppProcessInfoArr = sIndices;
-                        if (i2 < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i2] == null) {
-                            swanAppProcessInfoArr[i2] = swanAppProcessInfo;
+                        if (i < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i] == null) {
+                            swanAppProcessInfoArr[i] = swanAppProcessInfo;
                         }
                     }
                 }
                 while (true) {
                     SwanAppProcessInfo[] swanAppProcessInfoArr2 = sIndices;
-                    if (i3 >= swanAppProcessInfoArr2.length) {
+                    if (i2 >= swanAppProcessInfoArr2.length) {
                         break;
                     }
-                    if (swanAppProcessInfoArr2[i3] == null) {
-                        swanAppProcessInfoArr2[i3] = UNKNOWN;
+                    if (swanAppProcessInfoArr2[i2] == null) {
+                        swanAppProcessInfoArr2[i2] = UNKNOWN;
                     }
-                    i3++;
+                    i2++;
                 }
             }
             return sIndices;

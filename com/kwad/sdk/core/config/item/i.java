@@ -12,7 +12,7 @@ public class i extends b<a> {
         public int a = TiebaStatic.MAX_COST_VALUE;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54209b = 90000;
+        public int f39344b = 90000;
     }
 
     public i(String str) {

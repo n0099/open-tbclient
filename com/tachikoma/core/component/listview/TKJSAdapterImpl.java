@@ -18,7 +18,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEIGHT_INVALID = -1;
@@ -36,9 +36,9 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object, tKJSContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,13 +49,13 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
         this.mTKJSContext = tKJSContext;
     }
 
-    private int getItemHeight(V8Object v8Object, int i2) {
+    private int getItemHeight(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, v8Object, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, v8Object, i)) == null) {
             V8Object v8Object2 = null;
             try {
-                v8Object2 = sizeForItemView(v8Object, i2);
+                v8Object2 = sizeForItemView(v8Object, i);
                 int dp2Px = SizeUtil.dp2Px(((Number) v8Object2.get("height")).intValue());
                 V8Proxy.release(v8Object2);
                 return dp2Px;
@@ -71,10 +71,10 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public int countOfItems(V8Object v8Object, int i2) {
+    public int countOfItems(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, v8Object, i2)) == null) ? ((Integer) this.mJSAdapter.executeJSFunction("countOfItems", v8Object)).intValue() : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, v8Object, i)) == null) ? ((Integer) this.mJSAdapter.executeJSFunction("countOfItems", v8Object)).intValue() : invokeLI.intValue;
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
@@ -95,20 +95,20 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public V8Object createSectionFooter(V8Object v8Object, int i2, String str) {
+    public V8Object createSectionFooter(V8Object v8Object, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, v8Object, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, v8Object, i, str)) == null) {
             return null;
         }
         return (V8Object) invokeLIL.objValue;
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public V8Object createSectionHeader(V8Object v8Object, int i2, String str) {
+    public V8Object createSectionHeader(V8Object v8Object, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, v8Object, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, v8Object, i, str)) == null) {
             return null;
         }
         return (V8Object) invokeLIL.objValue;
@@ -122,20 +122,20 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     }
 
     @Override // com.tachikoma.core.component.listview.ITKRecyclerAdapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? itemType(0, i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? itemType(0, i) : invokeI.intValue;
     }
 
     @Override // com.tachikoma.core.component.listview.ITKRecyclerAdapter
-    public boolean isFullWidgetForView(int i2) {
+    public boolean isFullWidgetForView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             if (this.mIsSupportForSetFullSpan) {
                 try {
-                    return ((Boolean) this.mJSAdapter.executeJSFunction("isFullWidgetForView", Integer.valueOf(i2))).booleanValue();
+                    return ((Boolean) this.mJSAdapter.executeJSFunction("isFullWidgetForView", Integer.valueOf(i))).booleanValue();
                 } catch (Throwable unused) {
                 }
             }
@@ -144,34 +144,34 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
         return invokeI.booleanValue;
     }
 
-    public int itemType(int i2, int i3) {
+    public int itemType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) ? reusableKeyForItemView(this.mJSAdapter, i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) ? reusableKeyForItemView(this.mJSAdapter, i2) : invokeII.intValue;
     }
 
     @Override // com.tachikoma.core.component.listview.ITKRecyclerAdapter
-    public void onBindViewHolder(TKRecyclerAdapter.TKViewHolder tKViewHolder, int i2) {
+    public void onBindViewHolder(TKRecyclerAdapter.TKViewHolder tKViewHolder, int i) {
         int itemHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, tKViewHolder, i2) == null) {
-            if (this.mNeedFixHeight && (itemHeight = getItemHeight(this.mJSAdapter, i2)) != -1) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, tKViewHolder, i) == null) {
+            if (this.mNeedFixHeight && (itemHeight = getItemHeight(this.mJSAdapter, i)) != -1) {
                 if (tKViewHolder.itemView.getLayoutParams() != null) {
                     tKViewHolder.itemView.getLayoutParams().height = itemHeight;
                 } else {
                     tKViewHolder.itemView.setLayoutParams(new YogaLayout.LayoutParams(-1, itemHeight));
                 }
             }
-            reuseItemView(this.mJSAdapter, tKViewHolder.mJSObject, i2);
+            reuseItemView(this.mJSAdapter, tKViewHolder.mJSObject, i);
         }
     }
 
     @Override // com.tachikoma.core.component.listview.ITKRecyclerAdapter
-    public TKRecyclerAdapter.TKViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+    public TKRecyclerAdapter.TKViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i2)) == null) {
-            V8Object createItemView = createItemView(this.mJSAdapter, null, String.valueOf(i2));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) {
+            V8Object createItemView = createItemView(this.mJSAdapter, null, String.valueOf(i));
             TKView tKView = new TKView(viewGroup.getContext(), new ArrayList());
             tKView.setTKJSContext(this.mTKJSContext);
             tKView.add(createItemView);
@@ -199,51 +199,51 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public int reusableKeyForItemView(V8Object v8Object, int i2) {
+    public int reusableKeyForItemView(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, v8Object, i2)) == null) ? ((Number) this.mJSAdapter.executeJSFunction("reusableKeyForItemView", v8Object, Integer.valueOf(i2))).intValue() : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, v8Object, i)) == null) ? ((Number) this.mJSAdapter.executeJSFunction("reusableKeyForItemView", v8Object, Integer.valueOf(i))).intValue() : invokeLI.intValue;
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public String reusableKeyForSectionHeader(V8Object v8Object, int i2) {
+    public String reusableKeyForSectionHeader(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, v8Object, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, v8Object, i)) == null) {
             return null;
         }
         return (String) invokeLI.objValue;
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public String reusableKeyForSetionFooter(V8Object v8Object, int i2) {
+    public String reusableKeyForSetionFooter(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, v8Object, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, v8Object, i)) == null) {
             return null;
         }
         return (String) invokeLI.objValue;
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public void reuseItemView(V8Object v8Object, V8Object v8Object2, int i2) {
+    public void reuseItemView(V8Object v8Object, V8Object v8Object2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048591, this, v8Object, v8Object2, i2) == null) {
-            this.mJSAdapter.executeJSFunction("reuseItemView", v8Object, v8Object2, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLLI(1048591, this, v8Object, v8Object2, i) == null) {
+            this.mJSAdapter.executeJSFunction("reuseItemView", v8Object, v8Object2, Integer.valueOf(i));
         }
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public void reuseSectionFooter(V8Object v8Object, V8Object v8Object2, int i2) {
+    public void reuseSectionFooter(V8Object v8Object, V8Object v8Object2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048592, this, v8Object, v8Object2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048592, this, v8Object, v8Object2, i) == null) {
         }
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public void reuseSectionHeader(V8Object v8Object, V8Object v8Object2, int i2) {
+    public void reuseSectionHeader(V8Object v8Object, V8Object v8Object2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048593, this, v8Object, v8Object2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048593, this, v8Object, v8Object2, i) == null) {
         }
     }
 
@@ -264,9 +264,9 @@ public class TKJSAdapterImpl implements ITKRecyclerAdapter, ITKListDataSource {
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListDataSource
-    public V8Object sizeForItemView(V8Object v8Object, int i2) {
+    public V8Object sizeForItemView(V8Object v8Object, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, v8Object, i2)) == null) ? (V8Object) this.mJSAdapter.executeJSFunction("sizeForItemView", v8Object, Integer.valueOf(i2)) : (V8Object) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, v8Object, i)) == null) ? (V8Object) this.mJSAdapter.executeJSFunction("sizeForItemView", v8Object, Integer.valueOf(i)) : (V8Object) invokeLI.objValue;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DataSourceInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class DataSourceInputStream extends InputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, dataSpec};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,13 +96,13 @@ public final class DataSourceInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
             Assertions.checkState(!this.closed);
             checkOpened();
-            int read = this.dataSource.read(bArr, i2, i3);
+            int read = this.dataSource.read(bArr, i, i2);
             if (read == -1) {
                 return -1;
             }

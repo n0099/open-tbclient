@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q4.k.e;
+import c.a.p0.s4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -32,9 +32,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,24 +90,24 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 == -1) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1) {
                 this.albumView.H(intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.mStatebarView, R.color.CAM_X0201, i);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.onViewChangeSkinType(i2);
+                eVar.onViewChangeSkinType(i);
             }
         }
     }
@@ -128,11 +128,11 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.album_activity);
-            this.mStatebarView = findViewById(R.id.statebar_view);
+            setContentView(R.layout.obfuscated_res_0x7f0d0115);
+            this.mStatebarView = findViewById(R.id.obfuscated_res_0x7f091da5);
             this.canUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
             checkStyleImmersiveStickyStatusBarForBg();
-            this.albumView = new e(this, bundle, R.id.fragment, R.id.fragment);
+            this.albumView = new e(this, bundle, R.id.obfuscated_res_0x7f090aa6, R.id.obfuscated_res_0x7f090aa6);
         }
     }
 
@@ -153,15 +153,15 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 this.albumView.A();
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

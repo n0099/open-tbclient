@@ -23,9 +23,9 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,41 +40,41 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String C();
 
-    public abstract WriteData D(String str);
+    public abstract String D();
 
-    public boolean E() {
+    public abstract String E();
+
+    public abstract WriteData F(String str);
+
+    public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? F() || G() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? H() || I() : invokeV.booleanValue;
     }
 
-    public abstract boolean F();
-
-    public abstract boolean G();
-
     public abstract boolean H();
+
+    public abstract boolean I();
+
+    public abstract boolean J();
 
     public abstract String getForumId();
 
     public abstract String getFromForumId();
 
     @Nullable
-    public String w() {
+    public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? getFromForumId() : (String) invokeV.objValue;
     }
 
-    public int x() {
+    public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return -1;
         }
         return invokeV.intValue;
     }
-
-    public abstract String y();
-
-    public abstract String z();
 }

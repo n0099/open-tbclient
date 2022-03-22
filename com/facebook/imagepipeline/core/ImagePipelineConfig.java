@@ -50,7 +50,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImagePipelineConfig {
     public static /* synthetic */ Interceptable $ic;
     public static DefaultImageRequestConfig sDefaultImageRequestConfig;
@@ -90,7 +90,7 @@ public class ImagePipelineConfig {
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,11 +264,11 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setHttpConnectionTimeout(int i2) {
+        public Builder setHttpConnectionTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-                this.mHttpConnectionTimeout = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+                this.mHttpConnectionTimeout = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -314,11 +314,11 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setImageTranscoderType(int i2) {
+        public Builder setImageTranscoderType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-                this.mImageTranscoderType = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+                this.mImageTranscoderType = Integer.valueOf(i);
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -344,11 +344,11 @@ public class ImagePipelineConfig {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setMemoryChunkType(int i2) {
+        public Builder setMemoryChunkType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-                this.mMemoryChunkType = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+                this.mMemoryChunkType = Integer.valueOf(i);
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -441,9 +441,9 @@ public class ImagePipelineConfig {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -461,7 +461,7 @@ public class ImagePipelineConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultImageRequestConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -485,9 +485,9 @@ public class ImagePipelineConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -750,9 +750,9 @@ public class ImagePipelineConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -796,9 +796,9 @@ public class ImagePipelineConfig {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

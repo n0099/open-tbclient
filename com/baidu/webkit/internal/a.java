@@ -29,29 +29,27 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Object> f51370b;
+    public HashMap<String, Object> f37828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f51371c;
+    public WebView f37829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51372d;
+    public String f37830d;
     @SuppressLint({"SdCardPath"})
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51373e;
+    public String f37831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f51374f;
+    public boolean f37832f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51375g;
+    public String f37833g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51376h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f51377i;
+    public boolean f37834h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -76,21 +74,21 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {webView};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f51373e = "/data/data/";
-        this.f51374f = true;
-        this.f51376h = true;
-        this.f51377i = true;
-        this.f51371c = webView;
+        this.f37831e = "/data/data/";
+        this.f37832f = true;
+        this.f37834h = true;
+        this.i = true;
+        this.f37829c = webView;
         try {
-            this.f51373e += webView.getContext().getPackageName();
+            this.f37831e += webView.getContext().getPackageName();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -152,16 +150,16 @@ public final class a {
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.f51377i || str == null || str.startsWith("javascript")) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.i || str == null || str.startsWith("javascript")) {
             return;
         }
-        this.f51375g = str;
-        WebView webView = this.f51371c;
+        this.f37833g = str;
+        WebView webView = this.f37829c;
         if (webView == null || webView.getSettings() == null) {
             return;
         }
-        if (!this.f51375g.startsWith("file://")) {
-            this.f51371c.getSettings().setJavaScriptEnabled(true);
+        if (!this.f37833g.startsWith("file://")) {
+            this.f37829c.getSettings().setJavaScriptEnabled(true);
             return;
         }
         boolean z = false;
@@ -174,53 +172,53 @@ public final class a {
         } catch (Throwable th) {
             Log.e("WebViewSecureProcessor", "getStaticWebSeting error:".concat(String.valueOf(th)));
         }
-        this.f51371c.getSettings().setJavaScriptEnabled(z);
+        this.f37829c.getSettings().setJavaScriptEnabled(z);
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z == this.f51374f) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z == this.f37832f) {
             return;
         }
         if (z) {
             throw new RuntimeException("can not reverse!!");
         }
-        this.f51374f = z;
+        this.f37832f = z;
         for (String str : d().keySet()) {
-            this.f51371c.addJavascriptInterface(d().get(str), str, false);
+            this.f37829c.addJavascriptInterface(d().get(str), str, false);
         }
-        HashMap<String, Object> hashMap = this.f51370b;
+        HashMap<String, Object> hashMap = this.f37828b;
         if (hashMap != null) {
             hashMap.clear();
         }
-        this.f51372d = null;
+        this.f37830d = null;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51374f && (g() ^ true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37832f && (g() ^ true) : invokeV.booleanValue;
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f51376h = z;
+            this.f37834h = z;
         }
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51376h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37834h : invokeV.booleanValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f51376h && a()) {
-            String str = this.f51372d;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f37834h && a()) {
+            String str = this.f37830d;
             if (str != null) {
-                this.f51371c.execJavaScript(str);
+                this.f37829c.execJavaScript(str);
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -234,8 +232,8 @@ public final class a {
             sb.append("}");
             sb.append(")()");
             String sb2 = sb.toString();
-            this.f51372d = sb2;
-            this.f51371c.execJavaScript(sb2);
+            this.f37830d = sb2;
+            this.f37829c.execJavaScript(sb2);
         }
     }
 
@@ -243,10 +241,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f51370b == null) {
-                this.f51370b = new HashMap<>();
+            if (this.f37828b == null) {
+                this.f37828b = new HashMap<>();
             }
-            return this.f51370b;
+            return this.f37828b;
         }
         return (HashMap) invokeV.objValue;
     }
@@ -258,7 +256,7 @@ public final class a {
             if (g()) {
                 return false;
             }
-            this.f51371c.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f37829c.removeJavascriptInterface("searchBoxJavaBridge_");
             return true;
         }
         return invokeV.booleanValue;
@@ -279,9 +277,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -294,12 +292,12 @@ public final class a {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        for (int i2 = 0; i2 < 100; i2++) {
+                        for (int i = 0; i < 100; i++) {
                             try {
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            if (this.a.f51371c != null && !this.a.f51371c.isDestroyed()) {
+                            if (this.a.f37829c != null && !this.a.f37829c.isDestroyed()) {
                                 this.a.e();
                                 Thread.sleep(20L);
                             }

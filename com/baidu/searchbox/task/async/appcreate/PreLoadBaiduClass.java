@@ -1,5 +1,6 @@
 package com.baidu.searchbox.task.async.appcreate;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -20,9 +21,9 @@ public class PreLoadBaiduClass extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,45 +35,45 @@ public class PreLoadBaiduClass extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Class.forName("c.a.i0.b.b.c");
+                Class.forName("c.a.g0.b.b.c");
             } catch (ClassNotFoundException e2) {
-                String str = "preLoadClass exception " + e2.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e2.toString());
                 e2.printStackTrace();
             }
             try {
                 Class.forName("androidx.recyclerview.widget.RecyclerView");
             } catch (ClassNotFoundException e3) {
-                String str2 = "preLoadClass exception " + e3.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e3.toString());
                 e3.printStackTrace();
             }
             try {
                 Class.forName("androidx.recyclerview.widget.LinearLayoutManager");
             } catch (ClassNotFoundException e4) {
-                String str3 = "preLoadClass exception " + e4.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e4.toString());
                 e4.printStackTrace();
             }
             try {
                 Class.forName(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
             } catch (ClassNotFoundException e5) {
-                String str4 = "preLoadClass exception " + e5.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();
             }
             try {
-                Class.forName("c.a.r0.a4.h");
+                Class.forName("c.a.p0.c4.h");
             } catch (ClassNotFoundException e6) {
-                String str5 = "preLoadClass exception " + e6.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e6.toString());
                 e6.printStackTrace();
             }
             try {
                 Class.forName("com.baidu.tbadk.core.tabHost.FragmentTabHost");
             } catch (ClassNotFoundException e7) {
-                String str6 = "preLoadClass exception " + e7.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e7.toString());
                 e7.printStackTrace();
             }
             try {
                 Class.forName("com.baidu.sapi2.utils.SapiUtils");
             } catch (ClassNotFoundException e8) {
-                String str7 = "preLoadClass exception " + e8.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e8.toString());
                 e8.printStackTrace();
             }
             if (Fresco.hasBeenInitialized()) {
@@ -81,7 +82,7 @@ public class PreLoadBaiduClass extends LaunchTask {
             try {
                 Class.forName("com.baidu.webkit.sdk.WebView");
             } catch (ClassNotFoundException e9) {
-                String str8 = "preLoadClass exception " + e9.toString();
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e9.toString());
                 e9.printStackTrace();
             }
         }

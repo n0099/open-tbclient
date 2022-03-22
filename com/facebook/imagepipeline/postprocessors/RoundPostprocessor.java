@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.filter.InPlaceRoundFilter;
 import com.facebook.imagepipeline.filter.XferRoundFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundPostprocessor extends BasePostprocessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_ANTI_ALIASING = true;
@@ -49,9 +49,9 @@ public class RoundPostprocessor extends BasePostprocessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -99,9 +99,9 @@ public class RoundPostprocessor extends BasePostprocessor {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

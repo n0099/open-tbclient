@@ -32,42 +32,38 @@ import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.utils.ax;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TailFrameBarAppPortraitVertical extends LinearLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f56296b;
+    public TextView f41208b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f56297c;
+    public AppScoreView f41209c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f56298d;
+    public TextView f41210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f56299e;
+    public TextView f41211e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f56300f;
+    public TextProgressBar f41212f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f56301g;
+    public ValueAnimator f41213g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f56302h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f56303i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Button f56304j;
+    public LinearLayout f41214h;
+    public View i;
+    public Button j;
     public Button k;
     @Nullable
     public Animator l;
     public View m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
@@ -94,8 +90,8 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public TailFrameBarAppPortraitVertical(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TailFrameBarAppPortraitVertical(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         c();
     }
 
@@ -111,7 +107,7 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, f3);
         ofFloat.setDuration(200L);
         ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f));
-        final float dimension = view.getResources().getDimension(R.dimen.ksad_reward_apk_info_card_actionbar_text_size);
+        final float dimension = view.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036a);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -136,10 +132,10 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
         return ofFloat;
     }
 
-    public static Animator a(final View view, View view2, int i2, int i3) {
+    public static Animator a(final View view, View view2, int i, int i2) {
         Animator a2 = a(view);
-        float f2 = i2;
-        float f3 = i3;
+        float f2 = i;
+        float f3 = i2;
         Animator a3 = a(view2, f2, f3);
         a3.addListener(new a() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.3
             @Override // com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.a, android.animation.Animator.AnimatorListener
@@ -164,56 +160,56 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
     }
 
     private void a(LinearLayout linearLayout, String str) {
-        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.ksad_reward_apk_info_card_tag_item, (ViewGroup) linearLayout, false);
+        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0462, (ViewGroup) linearLayout, false);
         textView.setText(str);
-        this.f56302h.addView(textView);
+        this.f41214h.addView(textView);
     }
 
     private void c() {
-        this.m = LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_portrait_vertical, this);
-        this.a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f56297c = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f56298d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f56296b = (TextView) findViewById(R.id.ksad_app_name);
-        this.f56299e = (TextView) findViewById(R.id.ksad_app_introduce);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-        this.f56300f = textProgressBar;
+        this.m = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0480, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091036);
+        this.f41209c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091039);
+        this.f41210d = (TextView) findViewById(R.id.obfuscated_res_0x7f091035);
+        this.f41208b = (TextView) findViewById(R.id.obfuscated_res_0x7f091038);
+        this.f41211e = (TextView) findViewById(R.id.obfuscated_res_0x7f091037);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091069);
+        this.f41212f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
-        this.f56300f.setTextColor(-1);
-        this.f56302h = (LinearLayout) findViewById(R.id.ksad_reward_apk_info_tags);
-        this.f56304j = (Button) findViewById(R.id.ksad_reward_apk_info_install_action);
-        this.k = (Button) findViewById(R.id.ksad_reward_apk_info_install_start);
-        this.f56303i = findViewById(R.id.ksad_reward_apk_info_install_container);
+        this.f41212f.setTextColor(-1);
+        this.f41214h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910ed);
+        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910e7);
+        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910e9);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0910e8);
     }
 
     private void d() {
-        ValueAnimator valueAnimator = this.f56301g;
+        ValueAnimator valueAnimator = this.f41213g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f56301g = ofFloat;
+            this.f41213g = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f56301g.setRepeatCount(-1);
-            this.f56301g.setRepeatMode(1);
-            this.f56301g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.5
+            this.f41213g.setRepeatCount(-1);
+            this.f41213g.setRepeatMode(1);
+            this.f41213g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    TailFrameBarAppPortraitVertical.this.f56300f.setScaleY(floatValue);
-                    TailFrameBarAppPortraitVertical.this.f56300f.setScaleX(floatValue);
+                    TailFrameBarAppPortraitVertical.this.f41212f.setScaleY(floatValue);
+                    TailFrameBarAppPortraitVertical.this.f41212f.setScaleX(floatValue);
                 }
             });
-            this.f56301g.start();
+            this.f41213g.start();
         }
     }
 
     public void a() {
-        int height = this.f56303i.getHeight();
-        int width = this.f56303i.getWidth();
+        int height = this.i.getHeight();
+        int width = this.i.getWidth();
         if (height == 0 || width == 0) {
             return;
         }
         if (this.l == null) {
-            Animator a2 = a(this.k, this.f56304j, width, height);
+            Animator a2 = a(this.k, this.j, width, height);
             this.l = a2;
             a2.addListener(new a() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.2
                 @Override // com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.a, android.animation.Animator.AnimatorListener
@@ -234,8 +230,8 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
     }
 
     public void a(@NonNull AdInfo adInfo) {
-        int i2 = adInfo.status;
-        if (i2 == 1 || i2 == 2 || i2 == 3) {
+        int i = adInfo.status;
+        if (i == 1 || i == 2 || i == 3) {
             b();
         } else {
             d();
@@ -248,86 +244,86 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
         TextView textView;
         String at;
         if (d.v(adTemplate)) {
-            this.m.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.ksad_translucent));
-            this.f56296b.setTextColor(Color.parseColor("#FFFFFF"));
-            this.f56299e.setTextColor(Color.parseColor("#FFFFFF"));
+            this.m.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06075b));
+            this.f41208b.setTextColor(Color.parseColor("#FFFFFF"));
+            this.f41211e.setTextColor(Color.parseColor("#FFFFFF"));
         } else {
             this.m.setBackgroundColor(Color.parseColor("#E6FFFFFF"));
         }
-        AdInfo j2 = d.j(adTemplate);
+        AdInfo j = d.j(adTemplate);
         if (d.v(adTemplate)) {
             imageView = this.a;
-            au = com.kwad.sdk.core.response.a.a.aE(j2);
+            au = com.kwad.sdk.core.response.a.a.aE(j);
         } else {
             imageView = this.a;
-            au = com.kwad.sdk.core.response.a.a.au(j2);
+            au = com.kwad.sdk.core.response.a.a.au(j);
         }
         KSImageLoader.loadAppIcon(imageView, au, adTemplate, 12);
         if (d.v(adTemplate)) {
-            textView = this.f56296b;
-            at = com.kwad.sdk.core.response.a.a.u(j2);
+            textView = this.f41208b;
+            at = com.kwad.sdk.core.response.a.a.u(j);
         } else {
-            textView = this.f56296b;
-            at = com.kwad.sdk.core.response.a.a.at(j2);
+            textView = this.f41208b;
+            at = com.kwad.sdk.core.response.a.a.at(j);
         }
         textView.setText(at);
-        int i2 = 0;
+        int i = 0;
         if (!d.v(adTemplate)) {
-            float x = com.kwad.sdk.core.response.a.a.x(j2);
+            float x = com.kwad.sdk.core.response.a.a.x(j);
             if (x >= 3.0f) {
-                this.f56297c.setScore(x);
-                this.f56297c.setVisibility(0);
+                this.f41209c.setScore(x);
+                this.f41209c.setVisibility(0);
             } else {
-                this.f56297c.setVisibility(8);
+                this.f41209c.setVisibility(8);
             }
-            String w = com.kwad.sdk.core.response.a.a.w(j2);
+            String w = com.kwad.sdk.core.response.a.a.w(j);
             if (TextUtils.isEmpty(w)) {
-                this.f56298d.setVisibility(8);
+                this.f41210d.setVisibility(8);
             } else {
-                this.f56298d.setText(w);
-                this.f56298d.setVisibility(0);
+                this.f41210d.setText(w);
+                this.f41210d.setVisibility(0);
             }
         }
-        this.f56299e.setText(com.kwad.sdk.core.response.a.a.s(j2));
+        this.f41211e.setText(com.kwad.sdk.core.response.a.a.s(j));
         if (d.v(adTemplate)) {
-            this.f56300f.setVisibility(8);
-            this.f56303i.setVisibility(0);
+            this.f41212f.setVisibility(8);
+            this.i.setVisibility(0);
             this.k.setText("查看详情");
-            Button button = this.f56304j;
+            Button button = this.j;
             button.setText(String.format("浏览详情页%s秒，领取奖励", b.aA() + ""));
-            this.f56303i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.1
+            this.i.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertical.1
                 @Override // java.lang.Runnable
                 public void run() {
                     TailFrameBarAppPortraitVertical.this.a();
                 }
             }, 1600L);
         } else {
-            this.f56300f.setVisibility(0);
-            this.f56303i.setVisibility(8);
+            this.f41212f.setVisibility(0);
+            this.i.setVisibility(8);
             a(d.j(adTemplate));
         }
         if (d.v(adTemplate)) {
-            List<String> i3 = c.i(adTemplate);
-            if (i3 == null || i3.size() <= 0) {
-                this.f56302h.setVisibility(8);
+            List<String> i2 = c.i(adTemplate);
+            if (i2 == null || i2.size() <= 0) {
+                this.f41214h.setVisibility(8);
             } else {
-                this.f56302h.setVisibility(0);
+                this.f41214h.setVisibility(0);
             }
-            for (String str : i3) {
-                i2++;
-                if (i2 > 3) {
+            for (String str : i2) {
+                i++;
+                if (i > 3) {
                     return;
                 }
-                a(this.f56302h, str);
+                a(this.f41214h, str);
             }
         }
     }
 
     public void b() {
-        ValueAnimator valueAnimator = this.f56301g;
+        ValueAnimator valueAnimator = this.f41213g;
         if (valueAnimator != null && valueAnimator.isRunning()) {
-            this.f56301g.cancel();
-            this.f56301g.end();
+            this.f41213g.cancel();
+            this.f41213g.end();
         }
         Animator animator = this.l;
         if (animator == null || !animator.isRunning()) {
@@ -338,6 +334,6 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
     }
 
     public TextProgressBar getTextProgressBar() {
-        return this.f56300f;
+        return this.f41212f;
     }
 }

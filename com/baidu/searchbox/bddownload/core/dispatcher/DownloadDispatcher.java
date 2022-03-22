@@ -54,9 +54,9 @@ public class DownloadDispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((List) objArr[0], (List) objArr[1], (List) objArr[2], (List) objArr[3]);
                 newInitContext.thisArg = this;
@@ -182,19 +182,19 @@ public class DownloadDispatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, downloadCall) == null) {
             synchronized (this) {
-                int i2 = Integer.MAX_VALUE;
+                int i = Integer.MAX_VALUE;
                 ArrayList arrayList = new ArrayList();
                 for (DownloadCall downloadCall2 : this.runningAsyncCalls) {
                     if (!downloadCall2.isCanceled()) {
                         if (downloadCall2.task.getLastSeconds() >= this.cancleSecondsFromRunning) {
                             arrayList.add(downloadCall2);
                         }
-                        if (downloadCall2.getPriority() <= i2) {
-                            i2 = downloadCall2.getPriority();
+                        if (downloadCall2.getPriority() <= i) {
+                            i = downloadCall2.getPriority();
                         }
                     }
                 }
-                if (downloadCall.getPriority() > i2) {
+                if (downloadCall.getPriority() > i) {
                     Collections.sort(arrayList);
                     if (arrayList.size() > 0) {
                         DownloadCall downloadCall3 = (DownloadCall) arrayList.get(arrayList.size() - 1);
@@ -304,12 +304,12 @@ public class DownloadDispatcher {
         return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? this.runningAsyncCalls.size() - this.flyingCanceledAsyncCallCount.get() : invokeV.intValue;
     }
 
-    public static void setMaxParallelRunningCount(int i2) {
+    public static void setMaxParallelRunningCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65550, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
             DownloadDispatcher downloadDispatcher = BdDownload.with().downloadDispatcher();
             if (downloadDispatcher.getClass() == DownloadDispatcher.class) {
-                downloadDispatcher.maxParallelRunningCount = Math.max(1, i2);
+                downloadDispatcher.maxParallelRunningCount = Math.max(1, i);
                 return;
             }
             throw new IllegalStateException("The current dispatcher is " + downloadDispatcher + " not DownloadDispatcher exactly!");
@@ -577,9 +577,9 @@ public class DownloadDispatcher {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, list2, list3, list4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -684,12 +684,12 @@ public class DownloadDispatcher {
         return invokeLLLL.booleanValue;
     }
 
-    public boolean cancel(int i2) {
+    public boolean cancel(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             this.skipProceedCallCount.incrementAndGet();
-            boolean cancelLocked = cancelLocked(DownloadTask.mockTaskForCompare(i2));
+            boolean cancelLocked = cancelLocked(DownloadTask.mockTaskForCompare(i));
             this.skipProceedCallCount.decrementAndGet();
             processCalls();
             return cancelLocked;

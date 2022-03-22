@@ -11,15 +11,15 @@ import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f57224b;
+    public static BroadcastReceiver f42062b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f57225c = new AtomicBoolean(false);
+    public static AtomicBoolean f42063c = new AtomicBoolean(false);
 
     public static b a(Context context) {
         return new b.a().a(context).a();
@@ -31,7 +31,7 @@ public class a {
                 if (a == null) {
                     a = a(b(context, aVar, fVar), (b) null, context);
                 }
-                if (f57225c.compareAndSet(false, true)) {
+                if (f42063c.compareAndSet(false, true)) {
                     a(context, a);
                 }
             }
@@ -51,7 +51,7 @@ public class a {
                 }
             }
         }
-        c.k.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
+        c.h.a.a.a.d("PushAndroidTracker", "can upload subject " + z);
         if (z) {
             a.a(a(context));
         }
@@ -66,7 +66,7 @@ public class a {
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
             return "push-statics.in.meizu.com";
         }
-        c.k.a.a.a.b("QuickTracker", "current statics domain is push-statics.meizu.com");
+        c.h.a.a.a.b("QuickTracker", "current statics domain is push-statics.meizu.com");
         return "push-statics.meizu.com";
     }
 
@@ -81,7 +81,7 @@ public class a {
                 }
             }
         };
-        f57224b = broadcastReceiver;
+        f42062b = broadcastReceiver;
         context.registerReceiver(broadcastReceiver, intentFilter);
     }
 

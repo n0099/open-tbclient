@@ -13,7 +13,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -93,19 +93,19 @@ public final class Utility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean availableNotificationPaType(int i2) {
+    public static boolean availableNotificationPaType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? 32 <= i2 && 56 >= i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 32 <= i && 56 >= i : invokeI.booleanValue;
     }
 
     public static String byte2Hex(byte[] bArr) {
@@ -160,8 +160,8 @@ public final class Utility {
                 if (reliableMaxMsg != null && reliableMaxMsg.length() > 0) {
                     int length = reliableMaxMsg.length();
                     JSONArray jSONArray = new JSONArray();
-                    for (int i2 = 0; i2 <= length; i2++) {
-                        JSONObject optJSONObject = reliableMaxMsg.optJSONObject(i2);
+                    for (int i = 0; i <= length; i++) {
+                        JSONObject optJSONObject = reliableMaxMsg.optJSONObject(i);
                         if (optJSONObject != null && System.currentTimeMillis() - optJSONObject.optLong(Constants.RELIABLE_UPDATTIME) < Constants.EXPIRED_TIME.longValue()) {
                             jSONArray.put(optJSONObject);
                         }
@@ -202,12 +202,12 @@ public final class Utility {
         return (Intent) invokeL.objValue;
     }
 
-    public static Intent creatMethodIntent(Context context, int i2) {
+    public static Intent creatMethodIntent(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, context, i)) == null) {
             Intent intent = new Intent(context, a.class);
-            intent.putExtra("method", i2);
+            intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
             return intent;
@@ -215,12 +215,12 @@ public final class Utility {
         return (Intent) invokeLI.objValue;
     }
 
-    public static Intent createMcastMethodIntent(Context context, int i2) {
+    public static Intent createMcastMethodIntent(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
             Intent intent = new Intent(context, a.class);
-            intent.putExtra("method", i2);
+            intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
             return intent;
@@ -361,33 +361,33 @@ public final class Utility {
         return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) ? readLongData(context, "buid", 0L) : invokeL.longValue;
     }
 
-    public static int getBusinessType(int i2, int i3) {
+    public static int getBusinessType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65559, null, i2, i3)) == null) {
-            if (i2 == 7 && i3 == 16) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65559, null, i, i2)) == null) {
+            if (i == 7 && i2 == 16) {
                 return 4;
             }
-            if (i2 == 7 && i3 == 21) {
+            if (i == 7 && i2 == 21) {
                 return 6;
             }
-            if (i2 != 7 || i3 > 0) {
-                if (i2 == 17) {
+            if (i != 7 || i2 > 0) {
+                if (i == 17) {
                     return 7;
                 }
-                if (i2 == 1 || i2 == 5) {
+                if (i == 1 || i == 5) {
                     return 8;
                 }
-                if (i2 == 23) {
+                if (i == 23) {
                     return 9;
                 }
-                if (i2 == 19 || i2 == 29) {
+                if (i == 19 || i == 29) {
                     return 10;
                 }
-                if (i2 == 25) {
+                if (i == 25) {
                     return 20;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return 1;
                 }
             }
@@ -435,11 +435,11 @@ public final class Utility {
         return (String) invokeL.objValue;
     }
 
-    public static void getGroupProfile(String str, Context context, long j2) {
+    public static void getGroupProfile(String str, Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{str, context, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{str, context, Long.valueOf(j)}) == null) {
             Intent creatMethodIntent = creatMethodIntent(context, 61);
-            creatMethodIntent.putExtra("group_id", j2);
+            creatMethodIntent.putExtra("group_id", j);
             if (!TextUtils.isEmpty(str)) {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
@@ -575,10 +575,10 @@ public final class Utility {
         return (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) ? readIntData(context, Constants.KEY_LOGIN_ROLE, 0) : invokeL.intValue;
     }
 
-    public static long getLongByString(String str, long j2) {
+    public static long getLongByString(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65580, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65580, null, str, j)) == null) {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     return Long.parseLong(str);
@@ -586,7 +586,7 @@ public final class Utility {
             } catch (NumberFormatException unused) {
                 LogUtils.e("Utility", "getLongByString exception");
             }
-            return j2;
+            return j;
         }
         return invokeLJ.longValue;
     }
@@ -620,18 +620,18 @@ public final class Utility {
         return invokeLL.objValue;
     }
 
-    public static int getMsgInfoIndex(JSONArray jSONArray, String str, long j2) {
+    public static int getMsgInfoIndex(JSONArray jSONArray, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65583, null, new Object[]{jSONArray, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65583, null, new Object[]{jSONArray, str, Long.valueOf(j)})) == null) {
             if (jSONArray != null) {
                 try {
                     if (jSONArray.length() > 0) {
                         int length = jSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                            if (optJSONObject != null && optJSONObject.optLong(str) == j2) {
-                                return i2;
+                        for (int i = 0; i < length; i++) {
+                            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                            if (optJSONObject != null && optJSONObject.optLong(str) == j) {
+                                return i;
                             }
                         }
                         return -1;
@@ -672,16 +672,16 @@ public final class Utility {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            int i2 = 0;
+            int i = 0;
             try {
                 Class<?> cls = Class.forName("com.baidu.searchbox.interfere.NetworkInterfereHelper");
                 if (((Boolean) cls.getMethod("isPeakTime", new Class[0]).invoke(null, new Object[0])).booleanValue()) {
-                    i2 = ((Integer) cls.getMethod("getDelayTime", new Class[0]).invoke(null, new Object[0])).intValue();
+                    i = ((Integer) cls.getMethod("getDelayTime", new Class[0]).invoke(null, new Object[0])).intValue();
                 }
             } catch (Exception unused) {
                 LogUtils.e("Utility", "Utility.getPeakDelayTime java.lang.ClassNotFoundException: com.baidu.searchbox.interfere.NetworkInterfereHelper");
             }
-            return i2 * 1000;
+            return i * 1000;
         }
         return invokeV.intValue;
     }
@@ -726,21 +726,21 @@ public final class Utility {
         return (JSONArray) invokeL.objValue;
     }
 
-    public static Long getReliableMaxMsgId(Context context, long j2) {
+    public static Long getReliableMaxMsgId(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65592, null, context, j2)) == null) {
-            long j3 = 0;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65592, null, context, j)) == null) {
+            long j2 = 0;
             Long l = 0L;
             try {
                 JSONArray reliableMaxMsg = getReliableMaxMsg(context);
-                int msgInfoIndex = getMsgInfoIndex(reliableMaxMsg, Constants.RELIABLE_CASTID, j2);
+                int msgInfoIndex = getMsgInfoIndex(reliableMaxMsg, Constants.RELIABLE_CASTID, j);
                 if (msgInfoIndex >= 0) {
                     JSONObject optJSONObject = reliableMaxMsg.optJSONObject(msgInfoIndex);
                     if (optJSONObject != null) {
-                        j3 = optJSONObject.optLong(Constants.RELIABLE_MSGID);
+                        j2 = optJSONObject.optLong(Constants.RELIABLE_MSGID);
                     }
-                    l = Long.valueOf(j3);
+                    l = Long.valueOf(j2);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -781,16 +781,16 @@ public final class Utility {
         return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? Build.VERSION.SDK_INT >= 29 : invokeV.booleanValue;
     }
 
-    public static boolean isCategoryCorrect(int i2) {
+    public static boolean isCategoryCorrect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65598, null, i2)) == null) ? i2 > -1 && i2 < 3 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65598, null, i)) == null) ? i > -1 && i < 3 : invokeI.booleanValue;
     }
 
-    public static boolean isContacterCorrect(long j2) {
+    public static boolean isContacterCorrect(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65599, null, j2)) == null) ? j2 >= 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65599, null, j)) == null) ? j >= 0 : invokeJ.booleanValue;
     }
 
     public static boolean isCreateTlsSocket(Context context) {
@@ -927,22 +927,22 @@ public final class Utility {
         return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, context)) == null) ? readStringData(context, Constants.KEY_LOGIN_CUID, null) : (String) invokeL.objValue;
     }
 
-    public static int readIntData(Context context, String str, int i2) {
+    public static int readIntData(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65616, null, context, str, i2)) == null) ? context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65616, null, context, str, i)) == null) ? context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getInt(str, i) : invokeLLI.intValue;
     }
 
     public static int readLoginType(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, context)) == null) ? readIntData(context, "login_type", -1) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, context)) == null) ? readIntData(context, Constants.KEY_LOGIN_TYPE, -1) : invokeL.intValue;
     }
 
-    public static long readLongData(Context context, String str, long j2) {
+    public static long readLongData(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65618, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65618, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static int readPrivate(Context context) {
@@ -979,7 +979,7 @@ public final class Utility {
     public static void removeLoginType(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65624, null, context) == null) {
-            removeKey(context, "login_type");
+            removeKey(context, Constants.KEY_LOGIN_TYPE);
         }
     }
 
@@ -1012,13 +1012,13 @@ public final class Utility {
         return invokeLLLL.booleanValue;
     }
 
-    public static void sendConnectionStateBroadCast(Context context, int i2) {
+    public static void sendConnectionStateBroadCast(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65628, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65628, null, context, i) == null) {
             try {
                 Intent intent = new Intent(IMConstants.LONG_CONNECTION_STATE);
                 intent.setPackage(context.getPackageName());
-                intent.putExtra("lcs", i2);
+                intent.putExtra("lcs", i);
                 context.sendBroadcast(intent);
             } catch (Exception e2) {
                 LogUtils.e("Utility", "Exception ", e2);
@@ -1026,25 +1026,25 @@ public final class Utility {
         }
     }
 
-    public static void setBdDnsEnable(Context context, int i2) {
+    public static void setBdDnsEnable(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65629, null, context, i2) == null) {
-            writeIntData(context, Constants.KEY_BDDNS_TYPE, i2);
+        if (interceptable == null || interceptable.invokeLI(65629, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_BDDNS_TYPE, i);
         }
     }
 
-    public static void setConnType(Context context, int i2) {
+    public static void setConnType(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65630, null, context, i2) == null) {
-            writeIntData(context, Constants.KEY_CONN_TYPE, i2);
+        if (interceptable == null || interceptable.invokeLI(65630, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_CONN_TYPE, i);
         }
     }
 
-    public static boolean setCuidAuthority(Context context, int i2) {
+    public static boolean setCuidAuthority(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65631, null, context, i2)) == null) {
-            writeIntData(context, Constants.KEY_CUID_AUTHORITY, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65631, null, context, i)) == null) {
+            writeIntData(context, Constants.KEY_CUID_AUTHORITY, i);
             return true;
         }
         return invokeLI.booleanValue;
@@ -1059,10 +1059,10 @@ public final class Utility {
         }
     }
 
-    public static void setIMTrackFailCount(Context context, int i2) {
+    public static void setIMTrackFailCount(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65633, null, context, i2) == null) {
-            writeIntData(context, Constants.IM_TRACK_FAIL_COUNT, i2);
+        if (interceptable == null || interceptable.invokeLI(65633, null, context, i) == null) {
+            writeIntData(context, Constants.IM_TRACK_FAIL_COUNT, i);
         }
     }
 
@@ -1091,9 +1091,9 @@ public final class Utility {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {context, Boolean.valueOf(z)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1120,28 +1120,28 @@ public final class Utility {
         }
     }
 
-    public static void setLastSyncPushTime(Context context, long j2) {
+    public static void setLastSyncPushTime(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65636, null, context, j2) == null) {
-            writeLongData(context, Constants.KEY_SYNC_PUSH_TIME, j2);
+        if (interceptable == null || interceptable.invokeLJ(65636, null, context, j) == null) {
+            writeLongData(context, Constants.KEY_SYNC_PUSH_TIME, j);
         }
     }
 
-    public static boolean setNotifyPaid(Context context, long j2) {
+    public static boolean setNotifyPaid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65637, null, context, j2)) == null) {
-            writeLongData(context, Constants.KEY_NOTIFY_PAID, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65637, null, context, j)) == null) {
+            writeLongData(context, Constants.KEY_NOTIFY_PAID, j);
             return true;
         }
         return invokeLJ.booleanValue;
     }
 
-    public static boolean setPaid(Context context, long j2) {
+    public static boolean setPaid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65638, null, context, j2)) == null) {
-            writeLongData(context, Constants.KEY_CURRENT_PAID, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65638, null, context, j)) == null) {
+            writeLongData(context, Constants.KEY_CURRENT_PAID, j);
             return true;
         }
         return invokeLJ.booleanValue;
@@ -1185,25 +1185,25 @@ public final class Utility {
         }
     }
 
-    public static void setUploadIMInitTrack(Context context, int i2) {
+    public static void setUploadIMInitTrack(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65641, null, context, i2) == null) {
-            writeIntData(context, Constants.IM_INIT_TRACK_UPLOAD, i2);
+        if (interceptable == null || interceptable.invokeLI(65641, null, context, i) == null) {
+            writeIntData(context, Constants.IM_INIT_TRACK_UPLOAD, i);
         }
     }
 
-    public static void setUploadIMTrack(Context context, int i2) {
+    public static void setUploadIMTrack(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65642, null, context, i2) == null) {
-            writeIntData(context, Constants.IM_TRACK_UPLOAD, i2);
+        if (interceptable == null || interceptable.invokeLI(65642, null, context, i) == null) {
+            writeIntData(context, Constants.IM_TRACK_UPLOAD, i);
         }
     }
 
-    public static boolean setZhidaAppid(Context context, long j2) {
+    public static boolean setZhidaAppid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65643, null, context, j2)) == null) {
-            writeLongData(context, Constants.KEY_CURRENT_ZHIDAID, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65643, null, context, j)) == null) {
+            writeLongData(context, Constants.KEY_CURRENT_ZHIDAID, j);
             return true;
         }
         return invokeLJ.booleanValue;
@@ -1244,23 +1244,23 @@ public final class Utility {
         long length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65646, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
-                    for (int i2 = 0; i2 < listFiles.length; i2++) {
-                        if (listFiles[i2].isDirectory()) {
-                            length = sumFolderSize(listFiles[i2]);
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            length = sumFolderSize(listFiles[i]);
                         } else {
-                            length = listFiles[i2].length();
+                            length = listFiles[i].length();
                         }
-                        j2 += length;
+                        j += length;
                     }
                 }
             } catch (Exception e2) {
                 LogUtils.e("Utility", "Exception ", e2);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -1274,20 +1274,20 @@ public final class Utility {
             }
             Collections.sort(list);
             Collections.sort(list2);
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < list.size() && i3 < list2.size()) {
-                if (list.get(i2).equals(list2.get(i3))) {
-                    i2++;
-                } else if (list.get(i2).longValue() < list2.get(i3).longValue()) {
-                    arrayList.add(list.get(i2));
-                    i2++;
+            while (i < list.size() && i2 < list2.size()) {
+                if (list.get(i).equals(list2.get(i2))) {
+                    i++;
+                } else if (list.get(i).longValue() < list2.get(i2).longValue()) {
+                    arrayList.add(list.get(i));
+                    i++;
                 }
-                i3++;
-            }
-            while (i2 < list.size()) {
-                arrayList.add(list.get(i2));
                 i2++;
+            }
+            while (i < list.size()) {
+                arrayList.add(list.get(i));
+                i++;
             }
             for (Long l : arrayList) {
                 deleteItem.deleteItem(context, l);
@@ -1339,18 +1339,18 @@ public final class Utility {
         return (String) invokeL.objValue;
     }
 
-    public static void transformGroupMediaNotify(Context context, int i2, long j2, int i3, long j3) {
+    public static void transformGroupMediaNotify(Context context, int i, long j, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Long.valueOf(j3)}) == null) {
-            LogUtils.d("Utility", "transformGroupMediaNotify category = " + i2 + ", groupId = " + j2 + ", type = " + i3 + ", msgid = " + j3);
-            if (AccountManager.getMediaRole(context) && i2 == 1) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            LogUtils.d("Utility", "transformGroupMediaNotify category = " + i + ", groupId = " + j + ", type = " + i2 + ", msgid = " + j2);
+            if (AccountManager.getMediaRole(context) && i == 1) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("type", i3);
+                    jSONObject.put("type", i2);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("contacter_type", 2);
-                    jSONObject2.put("contacter_bduid", j2);
-                    jSONObject2.put("msgid", j3);
+                    jSONObject2.put("contacter_bduid", j);
+                    jSONObject2.put("msgid", j2);
                     jSONObject.put("content", jSONObject2);
                     ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
                 } catch (JSONException unused) {
@@ -1360,20 +1360,20 @@ public final class Utility {
         }
     }
 
-    public static void transformMediaNotify(Context context, int i2, long j2, long j3, String str, int i3, long j4) {
+    public static void transformMediaNotify(Context context, int i, long j, long j2, String str, int i2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65652, null, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i3), Long.valueOf(j4)}) == null) {
-            LogUtils.d("Utility", "transformMediaNotify businessType = " + i2 + ", bduid = " + j2 + ", paid = " + j3 + ", thirdId = " + str + ", type = " + i3 + ", msgid = " + j4);
+        if (interceptable == null || interceptable.invokeCommon(65652, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3)}) == null) {
+            LogUtils.d("Utility", "transformMediaNotify businessType = " + i + ", bduid = " + j + ", paid = " + j2 + ", thirdId = " + str + ", type = " + i2 + ", msgid = " + j3);
             if (AccountManager.getMediaRole(context)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("type", i3);
+                    jSONObject.put("type", i2);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("contacter_type", i2);
-                    jSONObject2.put("contacter_bduid", j2);
-                    jSONObject2.put("contacter_pauid", j3);
+                    jSONObject2.put("contacter_type", i);
+                    jSONObject2.put("contacter_bduid", j);
+                    jSONObject2.put("contacter_pauid", j2);
                     jSONObject2.put("contacter_third_id", str);
-                    jSONObject2.put("msgid", j4);
+                    jSONObject2.put("msgid", j3);
                     jSONObject.put("content", jSONObject2);
                     ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
                 } catch (JSONException unused) {
@@ -1383,10 +1383,10 @@ public final class Utility {
         }
     }
 
-    public static void updateBindPushCUIDStatus(Context context, int i2) {
+    public static void updateBindPushCUIDStatus(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65653, null, context, i2) == null) {
-            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i2).apply();
+        if (interceptable == null || interceptable.invokeLI(65653, null, context, i) == null) {
+            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i).apply();
         }
     }
 
@@ -1400,10 +1400,10 @@ public final class Utility {
         return invokeLL.booleanValue;
     }
 
-    public static void writeAppId(Context context, long j2) {
+    public static void writeAppId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65655, null, context, j2) == null) {
-            writeLongData(context, "appid", j2);
+        if (interceptable == null || interceptable.invokeLJ(65655, null, context, j) == null) {
+            writeLongData(context, "appid", j);
         }
     }
 
@@ -1435,10 +1435,10 @@ public final class Utility {
         }
     }
 
-    public static void writeIntData(Context context, String str, int i2) {
+    public static void writeIntData(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65660, null, context, str, i2) == null) {
-            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i2).apply();
+        if (interceptable == null || interceptable.invokeLLI(65660, null, context, str, i) == null) {
+            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i).apply();
         }
     }
 
@@ -1484,9 +1484,9 @@ public final class Utility {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {context, str2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1523,38 +1523,38 @@ public final class Utility {
         return invokeLL.booleanValue;
     }
 
-    public static void writeLoginOpenType(Context context, int i2) {
+    public static void writeLoginOpenType(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65666, null, context, i2) == null) {
-            writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i2);
+        if (interceptable == null || interceptable.invokeLI(65666, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
         }
     }
 
-    public static void writeLoginRole(Context context, int i2) {
+    public static void writeLoginRole(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65667, null, context, i2) == null) {
-            writeIntData(context, Constants.KEY_LOGIN_ROLE, i2);
+        if (interceptable == null || interceptable.invokeLI(65667, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_LOGIN_ROLE, i);
         }
     }
 
-    public static void writeLoginType(Context context, int i2) {
+    public static void writeLoginType(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65668, null, context, i2) == null) {
-            writeIntData(context, "login_type", i2);
+        if (interceptable == null || interceptable.invokeLI(65668, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_LOGIN_TYPE, i);
         }
     }
 
-    public static void writeLongData(Context context, String str, long j2) {
+    public static void writeLongData(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65669, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putLong(str, j2).apply();
+        if (interceptable == null || interceptable.invokeCommon(65669, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putLong(str, j).apply();
         }
     }
 
-    public static void writePrivate(Context context, int i2) {
+    public static void writePrivate(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65670, null, context, i2) == null) {
-            writeIntData(context, Constants.KEY_ACCOUNT_PRIVATE, i2);
+        if (interceptable == null || interceptable.invokeLI(65670, null, context, i) == null) {
+            writeIntData(context, Constants.KEY_ACCOUNT_PRIVATE, i);
         }
     }
 
@@ -1566,10 +1566,10 @@ public final class Utility {
         context.getSharedPreferences(Constants.PREF_RELIABLE_MSG_DATA, 0).edit().putString(Constants.RELIABLE_MAX_MSGINFO_KEY, jSONArray.toString()).apply();
     }
 
-    public static void writeRestApiDisable(int i2) {
+    public static void writeRestApiDisable(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65672, null, i2) == null) {
-            mDisableRestapi = i2;
+        if (interceptable == null || interceptable.invokeI(65672, null, i) == null) {
+            mDisableRestapi = i;
         }
     }
 
@@ -1580,17 +1580,17 @@ public final class Utility {
         }
     }
 
-    public static void writeTriggerId(Context context, long j2) {
+    public static void writeTriggerId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65674, null, context, j2) == null) {
-            writeLongData(context, Constants.KEY_TRIGGER_ID, j2);
+        if (interceptable == null || interceptable.invokeLJ(65674, null, context, j) == null) {
+            writeLongData(context, Constants.KEY_TRIGGER_ID, j);
         }
     }
 
-    public static void writeUK(Context context, long j2) {
+    public static void writeUK(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65675, null, context, j2) == null) {
-            writeLongData(context, "uk", j2);
+        if (interceptable == null || interceptable.invokeLJ(65675, null, context, j) == null) {
+            writeLongData(context, "uk", j);
         }
     }
 

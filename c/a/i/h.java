@@ -16,10 +16,10 @@ public class h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, a> f3553b;
+    public final LruCache<String, a> f2998b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f3554c;
+    public boolean f2999c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -28,32 +28,32 @@ public class h {
         public ArrayList<String> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f3555b;
+        public ArrayList<String> f3000b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f3556c;
+        public long f3001c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f3557d;
+        public long f3002d;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void a(long j2) {
+        public void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.f3556c = j2;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.f3001c = j;
             }
         }
 
@@ -67,7 +67,7 @@ public class h {
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f3556c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f3001c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
         }
 
         public ArrayList<String> d() {
@@ -76,36 +76,36 @@ public class h {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
         }
 
-        public void e(long j2) {
+        public void e(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.f3557d = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.f3002d = j;
             }
         }
 
         public void f(ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-                this.f3555b = arrayList;
+                this.f3000b = arrayList;
             }
         }
 
         public ArrayList<String> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3555b : (ArrayList) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3000b : (ArrayList) invokeV.objValue;
         }
 
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3556c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3001c : invokeV.longValue;
         }
 
         public long i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3557d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3002d : invokeV.longValue;
         }
     }
 
@@ -116,27 +116,27 @@ public class h {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3554c = false;
-        this.f3553b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+        this.f2999c = false;
+        this.f2998b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
         this.a = str;
-        this.f3554c = z;
+        this.f2999c = z;
     }
 
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            a aVar = this.f3553b.get(str);
-            if (aVar != null && aVar.c() && this.f3554c) {
-                this.f3553b.remove(str);
+            a aVar = this.f2998b.get(str);
+            if (aVar != null && aVar.c() && this.f2999c) {
+                this.f2998b.remove(str);
                 k.a("Remove expired entry from %s cache while reading, host(%s)", this.a, str);
                 return null;
             }
@@ -148,7 +148,7 @@ public class h {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f3553b.evictAll();
+            this.f2998b.evictAll();
             k.a("Clear %s cache", this.a);
         }
     }
@@ -161,7 +161,7 @@ public class h {
             if ((d2 == null || d2.isEmpty()) && (g2 == null || g2.isEmpty())) {
                 return;
             }
-            this.f3553b.put(str, aVar);
+            this.f2998b.put(str, aVar);
             Object[] objArr = new Object[5];
             objArr[0] = this.a;
             objArr[1] = str;
@@ -175,7 +175,7 @@ public class h {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f3554c = z;
+            this.f2999c = z;
         }
     }
 
@@ -184,7 +184,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : this.f3553b.snapshot().keySet()) {
+            for (String str : this.f2998b.snapshot().keySet()) {
                 arrayList.add(str);
             }
             return arrayList;
@@ -196,7 +196,7 @@ public class h {
         a a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (a2 = a(str)) != null && a2.c()) {
-            this.f3553b.remove(str);
+            this.f2998b.remove(str);
             k.a("Remove expired entry from %s cache, host(%s)", this.a, str);
         }
     }

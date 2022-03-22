@@ -17,14 +17,18 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: j  reason: collision with root package name */
-    public int f41697j;
-    public float k;
-    public Activity l;
-    public boolean m;
-    public a n;
-    public boolean o;
-    public boolean p;
+    /* renamed from: f  reason: collision with root package name */
+    public int f32257f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f32258g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Activity f32259h;
+    public boolean i;
+    public a j;
+    public boolean k;
+    public boolean l;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -42,9 +46,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -59,30 +63,30 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.k = motionEvent.getRawX();
+            this.f32258g = motionEvent.getRawX();
             int action = motionEvent.getAction();
             boolean z = false;
             if (action == 0) {
-                a aVar = this.n;
+                a aVar = this.j;
                 if (aVar != null) {
                     aVar.a();
                 }
-                if (this.k >= getMeasuredWidth() - this.f41697j && this.k <= getMeasuredWidth()) {
+                if (this.f32258g >= getMeasuredWidth() - this.f32257f && this.f32258g <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
-                    this.m = true;
-                    this.p = true;
+                    this.i = true;
+                    this.l = true;
                 } else {
-                    this.p = false;
+                    this.l = false;
                 }
             } else if (action != 1) {
-                if (action == 2 && this.p) {
-                    a aVar2 = this.n;
+                if (action == 2 && this.l) {
+                    a aVar2 = this.j;
                     boolean b2 = aVar2 != null ? aVar2.b() : true;
-                    setmDisallowSlip((this.m && b2) ? true : true);
-                    this.p = b2;
+                    setmDisallowSlip((this.i && b2) ? true : true);
+                    this.l = b2;
                 }
             } else {
-                this.p = true;
+                this.l = true;
             }
             return super.dispatchTouchEvent(motionEvent);
         }
@@ -94,7 +98,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.o || this.m) {
+            if (this.k || this.i) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -107,13 +111,13 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            this.k = motionEvent.getRawX();
+            this.f32258g = motionEvent.getRawX();
             if (motionEvent.getAction() == 1) {
-                if (this.m) {
-                    this.m = false;
+                if (this.i) {
+                    this.i = false;
                 }
-                if (this.o) {
-                    this.o = false;
+                if (this.k) {
+                    this.k = false;
                 }
                 setmDisallowSlip(false);
             }
@@ -125,14 +129,14 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     public void setForceIntercept(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.o = z;
+            this.k = z;
         }
     }
 
     public void setOnTouchEventListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.n = aVar;
+            this.j = aVar;
         }
     }
 
@@ -145,9 +149,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -155,12 +159,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 return;
             }
         }
-        this.f41697j = 0;
-        this.p = true;
+        this.f32257f = 0;
+        this.l = true;
         Activity activity = (Activity) context;
-        this.l = activity;
-        this.f41697j = n.d(activity, 0);
-        BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.l);
+        this.f32259h = activity;
+        this.f32257f = n.d(activity, 0);
+        BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.f32259h);
         aVar.b(1000);
         aVar.a(this);
     }

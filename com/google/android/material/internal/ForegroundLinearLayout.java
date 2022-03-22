@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -138,19 +138,19 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             this.foregroundBoundsChanged = z | this.foregroundBoundsChanged;
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
             this.foregroundBoundsChanged = true;
         }
     }
@@ -184,19 +184,19 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
-    public void setForegroundGravity(int i2) {
+    public void setForegroundGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.foregroundGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.foregroundGravity == i) {
             return;
         }
-        if ((8388615 & i2) == 0) {
-            i2 |= GravityCompat.START;
+        if ((8388615 & i) == 0) {
+            i |= GravityCompat.START;
         }
-        if ((i2 & 112) == 0) {
-            i2 |= 48;
+        if ((i & 112) == 0) {
+            i |= 48;
         }
-        this.foregroundGravity = i2;
-        if (i2 == 119 && this.foreground != null) {
+        this.foregroundGravity = i;
+        if (i == 119 && this.foreground != null) {
             this.foreground.getPadding(new Rect());
         }
         requestLayout();
@@ -218,9 +218,9 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -231,17 +231,17 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -254,7 +254,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         this.foregroundGravity = 119;
         this.mForegroundInPadding = true;
         this.foregroundBoundsChanged = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.foregroundInsidePadding}, i2, 0, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f040259}, i, 0, new int[0]);
         this.foregroundGravity = obtainStyledAttributes.getInt(1, this.foregroundGravity);
         Drawable drawable = obtainStyledAttributes.getDrawable(0);
         if (drawable != null) {

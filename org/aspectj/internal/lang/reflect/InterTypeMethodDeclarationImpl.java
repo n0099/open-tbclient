@@ -15,7 +15,7 @@ import java.lang.reflect.TypeVariable;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeMethodDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,17 +29,17 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     public AjType<?> returnType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeMethodDeclarationImpl(AjType<?> ajType, String str, int i2, String str2, Method method) {
-        super(ajType, str, i2);
+    public InterTypeMethodDeclarationImpl(AjType<?> ajType, String str, int i, String str2, Method method) {
+        super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ajType, str, Integer.valueOf(i2), str2, method};
+            Object[] objArr = {ajType, str, Integer.valueOf(i), str2, method};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AjType) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -59,8 +59,8 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Class<?>[] exceptionTypes = this.baseMethod.getExceptionTypes();
             AjType<?>[] ajTypeArr = new AjType[exceptionTypes.length];
-            for (int i2 = 0; i2 < exceptionTypes.length; i2++) {
-                ajTypeArr[i2] = AjTypeSystem.getAjType(exceptionTypes[i2]);
+            for (int i = 0; i < exceptionTypes.length; i++) {
+                ajTypeArr[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
             }
             return ajTypeArr;
         }
@@ -76,15 +76,15 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Type[] genericParameterTypes = this.baseMethod.getGenericParameterTypes();
             int length = genericParameterTypes.length;
-            int i2 = this.parameterAdjustmentFactor;
-            AjType[] ajTypeArr = new AjType[length - i2];
-            while (i2 < genericParameterTypes.length) {
-                if (genericParameterTypes[i2] instanceof Class) {
-                    ajTypeArr[i2 - this.parameterAdjustmentFactor] = AjTypeSystem.getAjType((Class) genericParameterTypes[i2]);
+            int i = this.parameterAdjustmentFactor;
+            AjType[] ajTypeArr = new AjType[length - i];
+            while (i < genericParameterTypes.length) {
+                if (genericParameterTypes[i] instanceof Class) {
+                    ajTypeArr[i - this.parameterAdjustmentFactor] = AjTypeSystem.getAjType((Class) genericParameterTypes[i]);
                 } else {
-                    ajTypeArr[i2 - this.parameterAdjustmentFactor] = genericParameterTypes[i2];
+                    ajTypeArr[i - this.parameterAdjustmentFactor] = genericParameterTypes[i];
                 }
-                i2++;
+                i++;
             }
             return ajTypeArr;
         }
@@ -116,11 +116,11 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Class<?>[] parameterTypes = this.baseMethod.getParameterTypes();
             int length = parameterTypes.length;
-            int i2 = this.parameterAdjustmentFactor;
-            AjType<?>[] ajTypeArr = new AjType[length - i2];
-            while (i2 < parameterTypes.length) {
-                ajTypeArr[i2 - this.parameterAdjustmentFactor] = AjTypeSystem.getAjType(parameterTypes[i2]);
-                i2++;
+            int i = this.parameterAdjustmentFactor;
+            AjType<?>[] ajTypeArr = new AjType[length - i];
+            while (i < parameterTypes.length) {
+                ajTypeArr[i - this.parameterAdjustmentFactor] = AjTypeSystem.getAjType(parameterTypes[i]);
+                i++;
             }
             return ajTypeArr;
         }
@@ -155,8 +155,8 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
             stringBuffer.append(getName());
             stringBuffer.append("(");
             AjType<?>[] parameterTypes = getParameterTypes();
-            for (int i2 = 0; i2 < parameterTypes.length - 1; i2++) {
-                stringBuffer.append(parameterTypes[i2].toString());
+            for (int i = 0; i < parameterTypes.length - 1; i++) {
+                stringBuffer.append(parameterTypes[i].toString());
                 stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             if (parameterTypes.length > 0) {
@@ -169,17 +169,17 @@ public class InterTypeMethodDeclarationImpl extends InterTypeDeclarationImpl imp
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeMethodDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, Method method, int i2) {
-        super(ajType, ajType2, i2);
+    public InterTypeMethodDeclarationImpl(AjType<?> ajType, AjType<?> ajType2, Method method, int i) {
+        super(ajType, ajType2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ajType, ajType2, method, Integer.valueOf(i2)};
+            Object[] objArr = {ajType, ajType2, method, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AjType) objArr2[0], (AjType) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

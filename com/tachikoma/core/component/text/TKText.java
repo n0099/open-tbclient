@@ -29,7 +29,7 @@ import com.tachikoma.core.utility.TKConverter;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKText extends TKBase<AppCompatTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class TKText extends TKBase<AppCompatTextView> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,13 +66,13 @@ public class TKText extends TKBase<AppCompatTextView> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Build.VERSION.SDK_INT >= 24 ? Html.fromHtml(str, 0) : Html.fromHtml(str) : (Spanned) invokeL.objValue;
     }
 
-    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i2) {
+    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
         int fontMetricsInt;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65538, null, textView, i2) == null) || i2 < 0 || i2 == (fontMetricsInt = textView.getPaint().getFontMetricsInt(null))) {
+        if (!(interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) || i < 0 || i == (fontMetricsInt = textView.getPaint().getFontMetricsInt(null))) {
             return;
         }
-        textView.setLineSpacing(i2 - fontMetricsInt, 1.0f);
+        textView.setLineSpacing(i - fontMetricsInt, 1.0f);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -113,11 +113,11 @@ public class TKText extends TKBase<AppCompatTextView> {
         }
     }
 
-    public void setFontSize(int i2) {
+    public void setFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mFontSize = i2;
-            getView().setTextSize(1, i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mFontSize = i;
+            getView().setTextSize(1, i);
             setMinimumScaleFactor(this.mMinimumScaleFactor);
         }
     }
@@ -170,8 +170,8 @@ public class TKText extends TKBase<AppCompatTextView> {
             if (f2 < 0.0f || f2 > 1.0f || this.mFontSize == 0) {
                 return;
             }
-            int i2 = this.mFontSize;
-            getView().setAutoSizeTextTypeUniformWithConfiguration((int) (i2 * f2), i2, 1, 1);
+            int i = this.mFontSize;
+            getView().setAutoSizeTextTypeUniformWithConfiguration((int) (i * f2), i, 1, 1);
         }
     }
 
@@ -214,7 +214,7 @@ public class TKText extends TKBase<AppCompatTextView> {
     public void setTextAlign(String str) {
         char c2;
         AppCompatTextView view;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             int hashCode = str.hashCode();
@@ -236,24 +236,24 @@ public class TKText extends TKBase<AppCompatTextView> {
             }
             if (c2 == 0) {
                 view = getView();
-                i2 = 17;
+                i = 17;
             } else if (c2 == 1) {
                 view = getView();
-                i2 = 3;
+                i = 3;
             } else if (c2 != 2) {
                 return;
             } else {
                 view = getView();
-                i2 = 5;
+                i = 5;
             }
-            view.setGravity(i2);
+            view.setGravity(i);
         }
     }
 
     public void setTextDecoration(String str) {
         char c2;
         TextPaint paint;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             int hashCode = str.hashCode();
@@ -270,21 +270,21 @@ public class TKText extends TKBase<AppCompatTextView> {
             }
             if (c2 == 0) {
                 paint = getView().getPaint();
-                i2 = 8;
+                i = 8;
             } else if (c2 != 1) {
                 return;
             } else {
                 paint = getView().getPaint();
-                i2 = 16;
+                i = 16;
             }
-            paint.setFlags(i2);
+            paint.setFlags(i);
         }
     }
 
-    public void setTextLineClamp(int i2) {
+    public void setTextLineClamp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            getView().setMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            getView().setMaxLines(i);
         }
     }
 

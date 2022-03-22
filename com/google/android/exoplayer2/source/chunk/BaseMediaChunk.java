@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseMediaChunk extends MediaChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,17 +17,17 @@ public abstract class BaseMediaChunk extends MediaChunk {
     public BaseMediaChunkOutput output;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseMediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i2, Object obj, long j2, long j3, int i3) {
-        super(dataSource, dataSpec, format, i2, obj, j2, j3, i3);
+    public BaseMediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i, Object obj, long j, long j2, int i2) {
+        super(dataSource, dataSpec, format, i, obj, j, j2, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)};
+            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i), obj, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DataSource) objArr2[0], (DataSpec) objArr2[1], (Format) objArr2[2], ((Integer) objArr2[3]).intValue(), objArr2[4], ((Long) objArr2[5]).longValue(), ((Long) objArr2[6]).longValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -37,10 +37,10 @@ public abstract class BaseMediaChunk extends MediaChunk {
         }
     }
 
-    public final int getFirstSampleIndex(int i2) {
+    public final int getFirstSampleIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.firstSampleIndices[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.firstSampleIndices[i] : invokeI.intValue;
     }
 
     public final BaseMediaChunkOutput getOutput() {

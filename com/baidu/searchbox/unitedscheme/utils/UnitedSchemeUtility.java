@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -64,20 +65,20 @@ public final class UnitedSchemeUtility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static JSONObject callCallback(CallbackHandler callbackHandler, String str, int i2) {
+    public static JSONObject callCallback(CallbackHandler callbackHandler, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, callbackHandler, str, i2)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, callbackHandler, str, i)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i);
             return TextUtils.isEmpty(str) ? wrapCallbackParams : callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), wrapCallbackParams);
         }
         return (JSONObject) invokeLLI.objValue;
@@ -96,38 +97,38 @@ public final class UnitedSchemeUtility {
         return (String) invokeL.objValue;
     }
 
-    public static String getErrMessage(int i2) {
+    public static String getErrMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 101) {
-                    if (i2 != 201) {
-                        if (i2 != 202) {
-                            if (i2 != 301) {
-                                if (i2 != 302) {
-                                    switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
                                         case 401:
-                                            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_action_sec_check_fail);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1472);
                                         case 402:
-                                            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_action_acl_check_fail);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f146f);
                                         case 403:
-                                            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_action_allow_close);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1470);
                                         default:
-                                            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_parse_fail);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1477);
                                     }
                                 }
-                                return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_action_notfound);
+                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1471);
                             }
-                            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_module_notfound);
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1473);
                         }
-                        return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_params_parse_fail);
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1476);
                     }
-                    return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_parse_fail);
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1477);
                 }
-                return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_not_support);
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1474);
             }
-            return SchemeConfig.getAppContext().getString(R.string.united_scheme_err_message_ok);
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1475);
         }
         return (String) invokeI.objValue;
     }
@@ -170,9 +171,9 @@ public final class UnitedSchemeUtility {
                 return hashMap;
             }
             if (indexOf2 >= 0) {
-                int i2 = indexOf + 1;
-                if (indexOf2 > i2) {
-                    substring = str.substring(i2, indexOf2);
+                int i = indexOf + 1;
+                if (indexOf2 > i) {
+                    substring = str.substring(i, indexOf2);
                 }
                 return hashMap;
             }
@@ -335,7 +336,7 @@ public final class UnitedSchemeUtility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65556, null, callbackHandler, unitedSchemeEntity, str, str2) == null) {
             if (DEBUG) {
-                String str3 = "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2;
+                Log.i(TAG, "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2);
             }
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 safeCallbackOnUiThread(callbackHandler, unitedSchemeEntity, str, str2);
@@ -355,9 +356,9 @@ public final class UnitedSchemeUtility {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {callbackHandler, unitedSchemeEntity, str, str2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -385,7 +386,7 @@ public final class UnitedSchemeUtility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65557, null, callbackHandler, unitedSchemeEntity, str, str2) == null) {
             if (DEBUG) {
-                String str3 = "safeCallback callback:" + str2;
+                Log.i(TAG, "safeCallback callback:" + str2);
             }
             if ((callbackHandler instanceof NullableCallbackHandler) || !(callbackHandler == null || TextUtils.isEmpty(str2))) {
                 if (unitedSchemeEntity != null) {
@@ -393,7 +394,9 @@ public final class UnitedSchemeUtility {
                         return;
                     }
                 }
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.i(TAG, "safeCallback check success");
+                }
                 callbackHandler.handleSchemeDispatchCallback(str2, str);
             }
         }
@@ -415,17 +418,17 @@ public final class UnitedSchemeUtility {
         }
     }
 
-    public static JSONObject wrapCallbackParams(int i2) {
+    public static JSONObject wrapCallbackParams(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i2)) == null) ? wrapCallbackParams((JSONObject) null, i2) : (JSONObject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) ? wrapCallbackParams((JSONObject) null, i) : (JSONObject) invokeI.objValue;
     }
 
-    public static JSONObject wrapCallbackParamsWithBase64(String str, int i2, String str2) {
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, str, i2, str2)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i2, str2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65564, null, str, i, str2)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str2);
             if (str != null) {
                 try {
                     wrapCallbackParams.put("data", Base64.encodeToString(str.getBytes("UTF-8"), 2));
@@ -438,11 +441,11 @@ public final class UnitedSchemeUtility {
         return (JSONObject) invokeLIL.objValue;
     }
 
-    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i2, String str) {
+    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65566, null, jSONObject, i2, str)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i2, str);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65566, null, jSONObject, i, str)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
             if (jSONObject != null) {
                 try {
                     wrapCallbackParams.put("data", Uri.encode(jSONObject.toString(), "UTF-8"));
@@ -455,17 +458,17 @@ public final class UnitedSchemeUtility {
         return (JSONObject) invokeLIL.objValue;
     }
 
-    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i2) {
+    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, jSONObject, i2)) == null) ? wrapCallbackParams(jSONObject, i2, getErrMessage(i2)) : (JSONObject) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, jSONObject, i)) == null) ? wrapCallbackParams(jSONObject, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
     }
 
-    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i2, String str) {
+    public static JSONObject wrapCallbackParams(JSONObject jSONObject, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65562, null, jSONObject, i2, str)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i2, str);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65562, null, jSONObject, i, str)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i, str);
             if (jSONObject != null) {
                 try {
                     wrapCallbackParams.put("data", jSONObject);
@@ -490,35 +493,35 @@ public final class UnitedSchemeUtility {
         return invokeL.booleanValue;
     }
 
-    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i2) {
+    public static JSONObject wrapCallbackParamsWithEncode(JSONObject jSONObject, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65565, null, jSONObject, i2)) == null) ? wrapCallbackParamsWithEncode(jSONObject, i2, getErrMessage(i2)) : (JSONObject) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65565, null, jSONObject, i)) == null) ? wrapCallbackParamsWithEncode(jSONObject, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
     }
 
-    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, int i2) {
+    public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, callbackHandler, unitedSchemeEntity, i2)) == null) {
-            JSONObject wrapCallbackParams = wrapCallbackParams(i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, callbackHandler, unitedSchemeEntity, i)) == null) {
+            JSONObject wrapCallbackParams = wrapCallbackParams(i);
             return unitedSchemeEntity == null ? wrapCallbackParams : callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
         }
         return (JSONObject) invokeLLI.objValue;
     }
 
-    public static JSONObject wrapCallbackParamsWithBase64(String str, int i2) {
+    public static JSONObject wrapCallbackParamsWithBase64(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, str, i2)) == null) ? wrapCallbackParamsWithBase64(str, i2, getErrMessage(i2)) : (JSONObject) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, str, i)) == null) ? wrapCallbackParamsWithBase64(str, i, getErrMessage(i)) : (JSONObject) invokeLI.objValue;
     }
 
-    public static JSONObject wrapCallbackParams(int i2, String str) {
+    public static JSONObject wrapCallbackParams(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65560, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65560, null, i, str)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("status", String.valueOf(i2));
+                jSONObject.put("status", String.valueOf(i));
                 jSONObject.put("message", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -553,7 +556,7 @@ public final class UnitedSchemeUtility {
             }
             String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
             if (DEBUG) {
-                String str = unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString();
+                Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString());
             }
             if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
                 safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);

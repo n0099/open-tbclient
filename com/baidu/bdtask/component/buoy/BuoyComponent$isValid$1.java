@@ -10,7 +10,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BuoyComponent$isValid$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public final class BuoyComponent$isValid$1 extends Lambda implements Function0<S
             newInitContext.initArgs = r2;
             Object[] objArr = {buoyComponent};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,7 +49,7 @@ public final class BuoyComponent$isValid$1 extends Lambda implements Function0<S
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             z = this.this$0.a;
             if (!z && BuoyComponent.x(this.this$0, null, 1, null)) {
-                z4 = this.this$0.f31571b;
+                z4 = this.this$0.f24911b;
                 if (!z4) {
                     return "cur component is valid";
                 }
@@ -61,7 +61,7 @@ public final class BuoyComponent$isValid$1 extends Lambda implements Function0<S
             sb.append(" taskSignCheck:");
             sb.append(BuoyComponent.x(this.this$0, null, 1, null));
             sb.append(" bindTaskHasUnRegistered:");
-            z3 = this.this$0.f31571b;
+            z3 = this.this$0.f24911b;
             sb.append(z3);
             return sb.toString();
         }

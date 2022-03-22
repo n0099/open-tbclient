@@ -10,70 +10,62 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51583b = "request_finish";
+    public static String f38017b = "request_finish";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51584c = "download_start";
+    public static String f38018c = "download_start";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f51585d = "download_finish";
+    public static String f38019d = "download_finish";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f51586e = "install_start";
+    public static String f38020e = "install_start";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f51587f = "install_finish";
+    public static String f38021f = "install_finish";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f51588g = "load_start";
+    public static String f38022g = "load_start";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f51589h = "load_finish";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f51590i = "zeus_error";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static volatile b f51591j;
+    public static String f38023h = "load_finish";
+    public static String i = "zeus_error";
+    public static volatile b j;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<com.bytedance.pangle.b.a> a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 11000;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f51592b = 12000;
+        public static int f38024b = 12000;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f51593c = 12001;
+        public static int f38025c = 12001;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f51594d = 20000;
+        public static int f38026d = 20000;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f51595e = 21000;
+        public static int f38027e = 21000;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f51596f = 21001;
+        public static int f38028f = 21001;
 
         /* renamed from: g  reason: collision with root package name */
-        public static int f51597g = 21002;
+        public static int f38029g = 21002;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f51598h = 22000;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static int f51599i = 22001;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static int f51600j = 22002;
+        public static int f38030h = 22000;
+        public static int i = 22001;
+        public static int j = 22002;
         public static int k = 22999;
         public static int l = 30000;
         public static int m = 31000;
@@ -142,12 +134,12 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f51591j == null) {
+            if (j == null) {
                 synchronized (b.class) {
-                    f51591j = new b();
+                    j = new b();
                 }
             }
-            return f51591j;
+            return j;
         }
         return (b) invokeV.objValue;
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MiPushCommandMessage implements PushMessageHandler.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CATEGORY = "category";
@@ -31,9 +31,9 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,7 +46,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.command = bundle.getString("command");
-            miPushCommandMessage.resultCode = bundle.getLong(KEY_RESULT_CODE);
+            miPushCommandMessage.resultCode = bundle.getLong("resultCode");
             miPushCommandMessage.reason = bundle.getString("reason");
             miPushCommandMessage.commandArguments = bundle.getStringArrayList(KEY_COMMAND_ARGUMENTS);
             miPushCommandMessage.category = bundle.getString("category");
@@ -113,10 +113,10 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         }
     }
 
-    public void setResultCode(long j2) {
+    public void setResultCode(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.resultCode = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.resultCode = j;
         }
     }
 
@@ -126,7 +126,7 @@ public class MiPushCommandMessage implements PushMessageHandler.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("command", this.command);
-            bundle.putLong(KEY_RESULT_CODE, this.resultCode);
+            bundle.putLong("resultCode", this.resultCode);
             bundle.putString("reason", this.reason);
             List<String> list = this.commandArguments;
             if (list != null) {

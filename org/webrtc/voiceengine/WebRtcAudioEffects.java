@@ -19,7 +19,7 @@ import com.tachikoma.core.component.button.StyleHelper;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioEffects {
     public static /* synthetic */ Interceptable $ic = null;
     public static final UUID AOSP_ACOUSTIC_ECHO_CANCELER;
@@ -58,9 +58,9 @@ public class WebRtcAudioEffects {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -248,17 +248,17 @@ public class WebRtcAudioEffects {
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? isNoiseSuppressorEffectAvailable() : invokeV.booleanValue;
     }
 
-    public void enable(int i2) {
+    public void enable(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            Logging.d(TAG, "enable(audioSession=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Logging.d(TAG, "enable(audioSession=" + i + SmallTailInfo.EMOTION_SUFFIX);
             boolean z = true;
             assertTrue(this.aec == null);
             assertTrue(this.ns == null);
             boolean isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported();
             String str = SapiOptions.KEY_CACHE_ENABLED;
             if (isAcousticEchoCancelerSupported) {
-                AcousticEchoCanceler create = AcousticEchoCanceler.create(i2);
+                AcousticEchoCanceler create = AcousticEchoCanceler.create(i);
                 this.aec = create;
                 if (create != null) {
                     boolean enabled = create.getEnabled();
@@ -279,7 +279,7 @@ public class WebRtcAudioEffects {
                 }
             }
             if (isNoiseSuppressorSupported()) {
-                NoiseSuppressor create2 = NoiseSuppressor.create(i2);
+                NoiseSuppressor create2 = NoiseSuppressor.create(i);
                 this.ns = create2;
                 if (create2 != null) {
                     boolean enabled2 = create2.getEnabled();

@@ -1,6 +1,7 @@
 package com.baidu.rtc.record;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.RemoteAudioSamplesInterceptor;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import f.c.i0;
 import java.io.File;
 import java.io.IOException;
 import org.webrtc.VideoTrack;
@@ -30,9 +31,9 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
             newInitContext.initArgs = r2;
             Object[] objArr = {videoTrack, remoteAudioSamplesInterceptor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,7 +50,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.isRunning : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x009a, code lost:
         r11.onRecordCompleted(false, "Is current recording with file path " + r9);
      */
     @Override // com.baidu.rtc.record.IMediaRecord
@@ -94,6 +95,7 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                         }
                         this.isRunning = true;
                     } else {
+                        Log.e(TAG, "Video track is null");
                         if (this.audioInterceptor != null) {
                             recorderCallback.onRecordCompleted(false, "Audio only is not support, add video track");
                         }

@@ -18,7 +18,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UDPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UDPMgr";
@@ -50,9 +50,9 @@ public class UDPMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -89,10 +89,10 @@ public class UDPMgr {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String queryByUDP(String str, int i2, String str2) {
+    public static String queryByUDP(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, str, i, str2)) == null) {
             int enablePort = getEnablePort();
             String str3 = null;
             try {
@@ -100,22 +100,22 @@ public class UDPMgr {
                     try {
                         try {
                             DatagramSocket datagramSocket = new DatagramSocket(enablePort);
-                            DatagramPacket datagramPacket = new DatagramPacket(str2.getBytes(), str2.getBytes().length, InetAddress.getByName(str), i2);
+                            DatagramPacket datagramPacket = new DatagramPacket(str2.getBytes(), str2.getBytes().length, InetAddress.getByName(str), i);
                             byte[] bArr = new byte[10240];
                             DatagramPacket datagramPacket2 = new DatagramPacket(bArr, 10240);
                             datagramSocket.setSoTimeout(GlobalTools.UDP_TIMEOUT);
                             datagramSocket.send(datagramPacket);
                             boolean z = false;
-                            int i3 = 0;
+                            int i2 = 0;
                             while (!z) {
-                                if (i3 > 0) {
+                                if (i2 > 0) {
                                     try {
                                         datagramSocket.send(datagramPacket);
                                     } catch (SocketTimeoutException e2) {
                                         e = e2;
                                         LogTools.printError(TAG, "queryByUDP：" + e.getMessage());
-                                        i3++;
-                                        if (i3 < GlobalTools.UDP_RETRY_TIME) {
+                                        i2++;
+                                        if (i2 < GlobalTools.UDP_RETRY_TIME) {
                                         }
                                     }
                                 }
@@ -127,8 +127,8 @@ public class UDPMgr {
                                         e = e3;
                                         z = true;
                                         LogTools.printError(TAG, "queryByUDP：" + e.getMessage());
-                                        i3++;
-                                        if (i3 < GlobalTools.UDP_RETRY_TIME) {
+                                        i2++;
+                                        if (i2 < GlobalTools.UDP_RETRY_TIME) {
                                             z = true;
                                         }
                                     }

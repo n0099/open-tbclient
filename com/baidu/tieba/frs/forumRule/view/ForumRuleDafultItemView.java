@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.q0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -18,9 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumRuleDafultItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f41994e;
+    public Context a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumRuleDafultItemView(Context context) {
@@ -31,9 +28,9 @@ public class ForumRuleDafultItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,13 +43,13 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            EMTextView eMTextView = new EMTextView(this.f41994e);
+            EMTextView eMTextView = new EMTextView(this.a);
             eMTextView.setText(str);
             addView(eMTextView);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) eMTextView.getLayoutParams();
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X008);
             eMTextView.setLayoutParams(marginLayoutParams);
-            EMTextView eMTextView2 = new EMTextView(this.f41994e);
+            EMTextView eMTextView2 = new EMTextView(this.a);
             eMTextView2.setText(str2);
             addView(eMTextView2);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) eMTextView2.getLayoutParams();
@@ -64,29 +61,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.f41994e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f41994e.getResources().getString(R.string.forum_rule_defalt_one_content));
-            a(this.f41994e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f41994e.getResources().getString(R.string.forum_rule_defalt_two_content));
-            a(this.f41994e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f41994e.getResources().getString(R.string.forum_rule_defalt_three_content));
-            a(this.f41994e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f41994e.getResources().getString(R.string.forum_rule_defalt_four_content));
-        }
-    }
-
-    public void changeSkin(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || getChildCount() <= 0) {
-            return;
-        }
-        for (int i3 = 0; i3 < getChildCount(); i3++) {
-            EMTextView eMTextView = (EMTextView) getChildAt(i3);
-            if (i3 % 2 != 0) {
-                c d2 = c.d(eMTextView);
-                d2.v(R.color.CAM_X0107);
-                d2.w(R.dimen.M_T_X003);
-            } else {
-                c d3 = c.d(eMTextView);
-                d3.v(R.color.CAM_X0107);
-                d3.A(R.string.F_X02);
-            }
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067b), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067a));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0687), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0686));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067f), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f067e));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0674), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0673));
         }
     }
 
@@ -99,9 +77,9 @@ public class ForumRuleDafultItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -112,17 +90,17 @@ public class ForumRuleDafultItemView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleDafultItemView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ForumRuleDafultItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -130,7 +108,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 return;
             }
         }
-        this.f41994e = context;
+        this.a = context;
         setOrientation(1);
         b();
     }

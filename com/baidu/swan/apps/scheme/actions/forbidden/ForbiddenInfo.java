@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.v0.e.b;
+import c.a.n0.a.v0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForbiddenInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR;
@@ -23,14 +22,14 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public c.a.p0.a.k2.a errCode;
+    public c.a.n0.a.k2.a errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
     public String launchPath;
     public String launchSource;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +39,9 @@ public class ForbiddenInfo implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,10 +60,10 @@ public class ForbiddenInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ForbiddenInfo[] newArray(int i2) {
+        public ForbiddenInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ForbiddenInfo[i2] : (ForbiddenInfo[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ForbiddenInfo[i] : (ForbiddenInfo[]) invokeI.objValue;
         }
     }
 
@@ -120,15 +119,15 @@ public class ForbiddenInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ForbiddenInfo{appId='" + this.appId + ExtendedMessageFormat.QUOTE + ", appKey='" + this.appKey + ExtendedMessageFormat.QUOTE + ", forbiddenReason='" + this.forbiddenReason + ExtendedMessageFormat.QUOTE + ", forbiddenDetail='" + this.forbiddenDetail + ExtendedMessageFormat.QUOTE + ", appTitle='" + this.appTitle + ExtendedMessageFormat.QUOTE + ", launchPath='" + this.launchPath + ExtendedMessageFormat.QUOTE + ", launchSource='" + this.launchSource + ExtendedMessageFormat.QUOTE + ", enableSlidingFlag='" + enableSliding() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "ForbiddenInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', forbiddenReason='" + this.forbiddenReason + "', forbiddenDetail='" + this.forbiddenDetail + "', appTitle='" + this.appTitle + "', launchPath='" + this.launchPath + "', launchSource='" + this.launchSource + "', enableSlidingFlag='" + enableSliding() + "'}";
         }
         return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.appId);
             parcel.writeString(this.appKey);
             parcel.writeString(this.forbiddenReason);
@@ -145,9 +144,9 @@ public class ForbiddenInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -163,9 +162,9 @@ public class ForbiddenInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar, str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -184,9 +183,9 @@ public class ForbiddenInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

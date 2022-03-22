@@ -128,9 +128,9 @@ public class SevenZipUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -177,12 +177,12 @@ public class SevenZipUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (this.m7zCount <= 0 || this.m7zTotal <= 0) {
                 return 0;
             }
             this.mContext.getResources().getAssets();
-            int i3 = this.m7zCount;
+            int i2 = this.m7zCount;
             String str = this.m7zFile;
             int[] iArr = this.m7zSizes;
             int[] iArr2 = this.m7zOffsets;
@@ -196,9 +196,9 @@ public class SevenZipUtils {
             if (doInit != 0) {
                 return doInit;
             }
-            ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i3);
-            while (i2 < i3) {
-                newFixedThreadPool.submit(new Runnable(this, str, iArr2, i2, iArr, iArr3) { // from class: com.baidu.webkit.sdk.SevenZipUtils.2
+            ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i2);
+            while (i < i2) {
+                newFixedThreadPool.submit(new Runnable(this, str, iArr2, i, iArr, iArr3) { // from class: com.baidu.webkit.sdk.SevenZipUtils.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SevenZipUtils this$0;
@@ -213,11 +213,11 @@ public class SevenZipUtils {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, iArr2, Integer.valueOf(i2), iArr, iArr3};
+                            Object[] objArr = {this, str, iArr2, Integer.valueOf(i), iArr, iArr3};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -226,7 +226,7 @@ public class SevenZipUtils {
                         this.this$0 = this;
                         this.val$ffile = str;
                         this.val$foffsets = iArr2;
-                        this.val$n = i2;
+                        this.val$n = i;
                         this.val$fsizes = iArr;
                         this.val$fszoffsets = iArr3;
                     }
@@ -238,13 +238,13 @@ public class SevenZipUtils {
                             SevenZipUtils sevenZipUtils = this.this$0;
                             String str3 = this.val$ffile;
                             int[] iArr4 = this.val$foffsets;
-                            int i4 = this.val$n;
-                            sevenZipUtils.decodeAndMerge(null, str3, iArr4[i4], this.val$fsizes[i4], this.val$fszoffsets[i4]);
+                            int i3 = this.val$n;
+                            sevenZipUtils.decodeAndMerge(null, str3, iArr4[i3], this.val$fsizes[i3], this.val$fszoffsets[i3]);
                         }
                     }
                 });
-                i2++;
-                i3 = i3;
+                i++;
+                i2 = i2;
             }
             shutdownAndAwaitTermination(newFixedThreadPool);
             return !this.mHooked ? submit() : doInit;
@@ -253,17 +253,17 @@ public class SevenZipUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void decodeAndMerge(AssetManager assetManager, String str, int i2, int i3, int i4);
+    public native void decodeAndMerge(AssetManager assetManager, String str, int i, int i2, int i3);
 
-    private native int doHook(int i2, boolean z);
+    private native int doHook(int i, boolean z);
 
-    private int doInit(String str, String str2, int i2, int i3, int i4, int i5) {
+    private int doInit(String str, String str2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (sLibraryLoaded) {
                 try {
-                    return init(str, str2, i2, i3, i4, i5);
+                    return init(str, str2, i, i2, i3, i4);
                 } catch (UnsatisfiedLinkError e2) {
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                     loadErrorCode.trace("512:" + e2.toString());
@@ -275,7 +275,7 @@ public class SevenZipUtils {
         return invokeCommon.intValue;
     }
 
-    private native int extract(String str, String str2, int i2, int i3);
+    private native int extract(String str, String str2, int i, int i2);
 
     public static synchronized SevenZipUtils getInstance() {
         InterceptResult invokeV;
@@ -306,15 +306,15 @@ public class SevenZipUtils {
         return (String) invokeV.objValue;
     }
 
-    private native int init(String str, String str2, int i2, int i3, int i4, int i5);
+    private native int init(String str, String str2, int i, int i2, int i3, int i4);
 
-    private boolean isEnoughSpace(long j2) {
+    private boolean isEnoughSpace(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, this, j)) == null) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j2;
+                return ((long) statFs.getBlockSize()) * ((long) statFs.getAvailableBlocks()) > j;
             } catch (Exception e2) {
                 Log.i(TAG, "[WARNING]get available blocks failed : " + e2.toString());
                 return true;
@@ -330,23 +330,23 @@ public class SevenZipUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
             try {
-                int i2 = this.mJson_meta.getInt("count");
-                this.m7zCount = i2;
-                this.m7zSizes = new int[i2];
-                this.m7zOffsets = new int[i2];
-                this.m7zSzOffsets = new int[i2];
+                int i = this.mJson_meta.getInt("count");
+                this.m7zCount = i;
+                this.m7zSizes = new int[i];
+                this.m7zOffsets = new int[i];
+                this.m7zSzOffsets = new int[i];
                 this.m7zFile = getNativeLibraryDir() + "/" + this.mJson_meta.getString("file");
                 JSONArray jSONArray = this.mJson_meta.getJSONArray(LZMA_META_KEY_OFFSET);
                 JSONArray jSONArray2 = this.mJson_meta.getJSONArray(LZMA_META_KEY_SZ_OFFSET);
                 this.m7zOffsets[0] = 0;
-                for (int i3 = 0; i3 < this.m7zCount; i3++) {
-                    this.m7zSizes[i3] = jSONArray.getInt(i3);
-                    if (i3 > 0) {
+                for (int i2 = 0; i2 < this.m7zCount; i2++) {
+                    this.m7zSizes[i2] = jSONArray.getInt(i2);
+                    if (i2 > 0) {
                         int[] iArr = this.m7zOffsets;
-                        int i4 = i3 - 1;
-                        iArr[i3] = iArr[i4] + this.m7zSizes[i4];
+                        int i3 = i2 - 1;
+                        iArr[i2] = iArr[i3] + this.m7zSizes[i3];
                     }
-                    this.m7zSzOffsets[i3] = jSONArray2.getInt(i3) + this.mOffset_7z;
+                    this.m7zSzOffsets[i2] = jSONArray2.getInt(i2) + this.mOffset_7z;
                 }
                 this.m7zTotal = this.mJson_meta.getInt("total");
                 return 0;
@@ -498,9 +498,9 @@ public class SevenZipUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -511,20 +511,20 @@ public class SevenZipUtils {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i2;
+                    int i;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            i2 = this.this$0.submit();
+                            i = this.this$0.submit();
                         } catch (UnsatisfiedLinkError e2) {
                             LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                             loadErrorCode.trace("512:" + e2.toString());
-                            i2 = 89;
+                            i = 89;
                         }
-                        if (i2 == 0) {
+                        if (i == 0) {
                             this.this$0.createTimestamp();
                         } else {
-                            LoadErrorCode.getInstance().set(101, "write back: ".concat(String.valueOf(i2)));
+                            LoadErrorCode.getInstance().set(101, "write back: ".concat(String.valueOf(i)));
                             LoadErrorCode.Statistics.record();
                         }
                         this.this$0.unLock();
@@ -627,23 +627,23 @@ public class SevenZipUtils {
                         this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
                         JSONObject jSONObject = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
                         this.mJson_elf = jSONObject;
-                        int i2 = Integer.MAX_VALUE;
+                        int i = Integer.MAX_VALUE;
                         JSONArray jSONArray = jSONObject.getJSONArray(LZMA_META_KEY_LOADABLE);
-                        int i3 = 0;
-                        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
-                            int i5 = jSONObject2.getInt(LZMA_META_KEY_VADDR);
-                            int i6 = jSONObject2.getInt(LZMA_META_KEY_MEMSZ);
-                            if (i5 < i2) {
-                                i2 = i5;
+                        int i2 = 0;
+                        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                            int i4 = jSONObject2.getInt(LZMA_META_KEY_VADDR);
+                            int i5 = jSONObject2.getInt(LZMA_META_KEY_MEMSZ);
+                            if (i4 < i) {
+                                i = i4;
                             }
-                            int i7 = i5 + i6;
-                            if (i7 > i3) {
-                                i3 = i7;
+                            int i6 = i4 + i5;
+                            if (i6 > i2) {
+                                i2 = i6;
                             }
                         }
-                        this.mMinAddr = i2;
-                        this.mMaxAddr = i3;
+                        this.mMinAddr = i;
+                        this.mMaxAddr = i2;
                         this.mPrepared = true;
                         try {
                             fileInputStream.close();
@@ -684,7 +684,7 @@ public class SevenZipUtils {
     }
 
     public void unzip(String str, String str2) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && this.mErrorCode == 0) {
             if (sLibraryLoaded) {
@@ -693,21 +693,21 @@ public class SevenZipUtils {
                     file.mkdirs();
                 }
                 try {
-                    int i3 = Build.VERSION.SDK_INT;
-                    if (i3 == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
-                        i3 = 20;
+                    int i2 = Build.VERSION.SDK_INT;
+                    if (i2 == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
+                        i2 = 20;
                     }
-                    if (extract(str, str2, this.mOffset_7z, i3) == 0) {
+                    if (extract(str, str2, this.mOffset_7z, i2) == 0) {
                         return;
                     }
                 } catch (Throwable th) {
                     Log.e(TAG, "failed to extract " + str + ": " + th);
                 }
-                i2 = 91;
+                i = 91;
             } else {
-                i2 = 92;
+                i = 92;
             }
-            this.mErrorCode = i2;
+            this.mErrorCode = i;
         }
     }
 

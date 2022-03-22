@@ -21,7 +21,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public Type mType;
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -109,16 +109,16 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             $VALUES = new Type[]{OVERLAY_COLOR, type};
         }
 
-        public Type(String str, int i2) {
+        public Type(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -150,9 +150,9 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -201,14 +201,14 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mTempRectangle.centerX(), this.mTempRectangle.centerY(), Math.min(this.mTempRectangle.width(), this.mTempRectangle.height()) / 2.0f, Path.Direction.CW);
             } else {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     fArr = this.mBorderRadii;
-                    if (i2 >= fArr.length) {
+                    if (i >= fArr.length) {
                         break;
                     }
-                    fArr[i2] = (this.mRadii[i2] + this.mPadding) - (this.mBorderWidth / 2.0f);
-                    i2++;
+                    fArr[i] = (this.mRadii[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                    i++;
                 }
                 this.mBorderPath.addRoundRect(this.mTempRectangle, fArr, Path.Direction.CW);
             }
@@ -223,14 +223,14 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             this.mBounds.set(getBounds());
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type[this.mType.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type[this.mType.ordinal()];
+            if (i == 1) {
                 int save = canvas.save();
                 this.mPath.setFillType(Path.FillType.EVEN_ODD);
                 canvas.clipPath(this.mPath);
                 super.draw(canvas);
                 canvas.restoreToCount(save);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 if (this.mScaleDownInsideBorders) {
                     RectF rectF = this.mInsideBorderBounds;
                     if (rectF == null) {
@@ -355,10 +355,10 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i2, float f2) {
+    public void setBorder(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mBorderColor = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.mBorderColor = i;
             this.mBorderWidth = f2;
             updatePath();
             invalidateSelf();
@@ -392,10 +392,10 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         }
     }
 
-    public void setOverlayColor(int i2) {
+    public void setOverlayColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mOverlayColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mOverlayColor = i;
             invalidateSelf();
         }
     }

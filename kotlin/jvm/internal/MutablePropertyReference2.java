@@ -4,7 +4,7 @@ import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KMutableProperty2;
 import kotlin.reflect.KProperty2;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class MutablePropertyReference2 extends MutablePropertyReference implements KMutableProperty2 {
     public MutablePropertyReference2() {
     }
@@ -26,8 +26,8 @@ public abstract class MutablePropertyReference2 extends MutablePropertyReference
     }
 
     @SinceKotlin(version = "1.4")
-    public MutablePropertyReference2(Class cls, String str, String str2, int i2) {
-        super(CallableReference.NO_RECEIVER, cls, str, str2, i2);
+    public MutablePropertyReference2(Class cls, String str, String str2, int i) {
+        super(CallableReference.NO_RECEIVER, cls, str, str2, i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -6,25 +6,25 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.at;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55911b;
+        public String f40875b;
 
         public a(String str) {
             JSONObject jSONObject;
-            this.f55911b = "-";
+            this.f40875b = "-";
             try {
                 jSONObject = new JSONObject(str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 this.a = false;
-                this.f55911b = "数据解析失败";
+                this.f40875b = "数据解析失败";
                 jSONObject = null;
             }
             a(jSONObject);
@@ -33,7 +33,7 @@ public class m {
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.a = jSONObject.optBoolean("isValid");
-                this.f55911b = jSONObject.toString();
+                this.f40875b = jSONObject.toString();
             }
         }
 
@@ -65,14 +65,14 @@ public class m {
                     if (doGet == null) {
                         str = "Network Error: url invalid";
                     } else if (doGet.a == 200) {
-                        a aVar = new a(doGet.f54453b);
+                        a aVar = new a(doGet.f39576b);
                         if (aVar.a()) {
                             a();
                             return;
                         }
-                        str = aVar.f55911b;
+                        str = aVar.f40875b;
                     } else {
-                        str = "Network Error: " + doGet.f54453b;
+                        str = "Network Error: " + doGet.f39576b;
                     }
                     a(str);
                 } catch (Throwable th) {

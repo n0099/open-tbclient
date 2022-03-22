@@ -2,8 +2,8 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.q4.j.a;
-import c.a.r0.q4.j.b;
+import c.a.p0.s4.j.a;
+import c.a.p0.s4.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -37,9 +37,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -76,15 +76,15 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 == -1) {
-                if (i2 == 12006) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1) {
+                if (i == 12006) {
                     setResult(-1, intent);
                 }
-            } else if (i3 == 0 && i2 == 12006) {
+            } else if (i2 == 0 && i == 12006) {
                 setResult(0, intent);
             }
             finish();
@@ -109,7 +109,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 this.mWriteModel = newWriteModel;
                 newWriteModel.setWriteData(this.mWriteData);
                 if (this.mWriteData.getWriteImagesInfo() != null) {
-                    this.mWriteModel.g0(this.mWriteData.getWriteImagesInfo().size() > 0);
+                    this.mWriteModel.i0(this.mWriteData.getWriteImagesInfo().size() > 0);
                 }
                 a aVar = new a(this.mView, this.mWriteModel);
                 this.mPresenter = aVar;

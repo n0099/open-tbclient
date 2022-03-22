@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
@@ -22,9 +21,9 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +38,10 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mKickedStatus : invokeV.intValue;
     }
 
-    public void setBIMKickedStatus(int i2) {
+    public void setBIMKickedStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mKickedStatus = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mKickedStatus = i;
         }
     }
 
@@ -70,7 +69,7 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "BIMKickResSyncRtcInfo{" + super.toString() + ", status" + this.mKickedStatus + ExtendedMessageFormat.END_FE;
+            return "BIMKickResSyncRtcInfo{" + super.toString() + ", status" + this.mKickedStatus + '}';
         }
         return (String) invokeV.objValue;
     }

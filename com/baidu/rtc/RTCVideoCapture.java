@@ -31,9 +31,9 @@ public abstract class RTCVideoCapture implements VideoCapturer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,9 +52,9 @@ public abstract class RTCVideoCapture implements VideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -90,9 +90,9 @@ public abstract class RTCVideoCapture implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i2, int i3, int i4) {
+    public void changeCaptureFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
         }
     }
 
@@ -125,9 +125,9 @@ public abstract class RTCVideoCapture implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i2, int i3, int i4) {
+    public void startCapture(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048581, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048581, this, i, i2, i3) == null) {
         }
     }
 

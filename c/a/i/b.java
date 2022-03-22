@@ -11,12 +11,10 @@ import java.util.ArrayList;
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ BDHttpDns.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f3539e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArrayList f3540f;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ArrayList f2988b;
 
     public b(BDHttpDns bDHttpDns, BDHttpDns.a aVar, ArrayList arrayList) {
         Interceptable interceptable = $ic;
@@ -25,23 +23,23 @@ public class b implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDHttpDns, aVar, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3539e = aVar;
-        this.f3540f = arrayList;
+        this.a = aVar;
+        this.f2988b = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3539e.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, this.f3540f));
+            this.a.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, this.f2988b));
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -31,7 +32,7 @@ public class ae implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
         baseInfo.likeCount = jSONObject.optLong("likeCount");
         baseInfo.commentCount = jSONObject.optLong("commentCount");
         baseInfo.viewCount = jSONObject.optLong("viewCount");
-        baseInfo.createTime = jSONObject.optLong("createTime");
+        baseInfo.createTime = jSONObject.optLong(FileMetaUtil.CREATE_TIME);
         baseInfo.videoDesc = jSONObject.optString("videoDesc");
         if (jSONObject.opt("videoDesc") == JSONObject.NULL) {
             baseInfo.videoDesc = "";
@@ -56,7 +57,7 @@ public class ae implements com.kwad.sdk.core.d<PhotoInfo.BaseInfo> {
         com.kwad.sdk.utils.t.a(jSONObject, "likeCount", baseInfo.likeCount);
         com.kwad.sdk.utils.t.a(jSONObject, "commentCount", baseInfo.commentCount);
         com.kwad.sdk.utils.t.a(jSONObject, "viewCount", baseInfo.viewCount);
-        com.kwad.sdk.utils.t.a(jSONObject, "createTime", baseInfo.createTime);
+        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.CREATE_TIME, baseInfo.createTime);
         com.kwad.sdk.utils.t.a(jSONObject, "videoDesc", baseInfo.videoDesc);
         com.kwad.sdk.utils.t.a(jSONObject, "playTimes", baseInfo.playTimes);
         com.kwad.sdk.utils.t.a(jSONObject, "videoUrlCacheTime", baseInfo.videoUrlCacheTime);

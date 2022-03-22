@@ -4,8 +4,8 @@ import android.text.Editable;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.r.l0.s.a;
-import c.a.q0.r.r.w;
+import c.a.o0.r.l0.s.a;
+import c.a.o0.r.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,12 +28,8 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public w f39358i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public LINK_TYPE f39359j;
+    public w i;
+    public LINK_TYPE j;
     public int k;
     public CharSequence l;
     public CharSequence m;
@@ -76,16 +72,16 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
             $VALUES = new LINK_TYPE[]{INTERNAL_LINK, PARSED_EXTERNAL_LINK, PARSABLE_EXTERNAL_LINK, UNPAESABLE_EXTERNAL_LINK, link_type};
         }
 
-        public LINK_TYPE(String str, int i2) {
+        public LINK_TYPE(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -121,7 +117,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1548);
     }
 
     public TbLinkSpanGroup() {
@@ -129,16 +125,16 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.k = 0;
-        this.f39359j = LINK_TYPE.DEAULT;
+        this.j = LINK_TYPE.DEAULT;
     }
 
     public static TbLinkSpanGroup x(@NonNull TbLinkSpanGroup tbLinkSpanGroup, @NonNull Editable editable) {
@@ -156,7 +152,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public void A(LINK_TYPE link_type) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, link_type) == null) {
-            this.f39359j = link_type;
+            this.j = link_type;
         }
     }
 
@@ -187,7 +183,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         if (f() > this.q || f() + 3 > this.q || c() > this.q) {
             return;
         }
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_post_link16, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080962, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
@@ -203,37 +199,37 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         String str = "[p]" + this.p + ((Object) this.m);
         this.q = str.length();
         i(str);
-        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_post_link16, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+        EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080962, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
         eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         l(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // c.a.q0.r.l0.s.a
-    public void a(Editable editable, int i2, int i3, int i4) {
+    @Override // c.a.o0.r.l0.s.a
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i2, i3, i4) == null) {
-            super.a(editable, i2, i3, i4);
-            if (this.f39359j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+        if (interceptable == null || interceptable.invokeLIII(1048581, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
+            if (this.j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
                 this.m = " ";
                 return;
             }
-            int i5 = i3 - 1;
-            this.l = editable.subSequence(i2, i5);
-            this.m = editable.subSequence(i5, i3);
+            int i4 = i2 - 1;
+            this.l = editable.subSequence(i, i4);
+            this.m = editable.subSequence(i4, i2);
         }
     }
 
-    @Override // c.a.q0.r.l0.s.a
+    @Override // c.a.o0.r.l0.s.a
     public void p(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editable) == null) {
-            w wVar = this.f39358i;
-            if (wVar != null && wVar.f13397f == 2) {
-                if (wVar.l != null) {
+            w wVar = this.i;
+            if (wVar != null && wVar.f10972b == 2) {
+                if (wVar.f10978h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
-                    sb.append(this.f39358i.l);
+                    sb.append(this.i.f10978h);
                     sb.append("_commo)");
                     i(sb);
                     return;
@@ -247,13 +243,13 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         }
     }
 
-    @Override // c.a.q0.r.l0.s.a
-    public void q(Editable editable, int i2) {
+    @Override // c.a.o0.r.l0.s.a
+    public void q(Editable editable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable, i2) == null) {
-            if (this.f39358i == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable, i) == null) {
+            if (this.i == null) {
                 String str = m.isEmpty(this.n) ? "0" : this.n;
-                String str2 = (this.f39359j == LINK_TYPE.INTERNAL_LINK && m.isEmpty(this.o)) ? "" : this.p;
+                String str2 = (this.j == LINK_TYPE.INTERNAL_LINK && m.isEmpty(this.o)) ? "" : this.p;
                 StringBuilder sb = new StringBuilder();
                 sb.append("#(url,");
                 sb.append(str);
@@ -266,16 +262,16 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                 i(sb);
                 return;
             }
-            LINK_TYPE link_type = this.f39359j;
+            LINK_TYPE link_type = this.j;
             if (link_type != LINK_TYPE.INTERNAL_LINK && link_type != LINK_TYPE.PARSABLE_EXTERNAL_LINK) {
                 if (link_type == LINK_TYPE.PARSED_EXTERNAL_LINK) {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("goods_id", this.f39358i.q);
-                        jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i2);
-                        jSONObject2.put("title", this.f39358i.f13399h);
-                        jSONObject2.put("url", this.f39358i.o);
+                        jSONObject2.put("goods_id", this.i.m);
+                        jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i);
+                        jSONObject2.put("title", this.i.f10974d);
+                        jSONObject2.put("url", this.i.k);
                         StringBuilder sb2 = new StringBuilder();
                         jSONObject.put("goods", jSONObject2);
                         sb2.append("#(goods,");
@@ -298,15 +294,15 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
             sb3.append(",");
             sb3.append(m.getUrlEncode(str3));
             sb3.append(",");
-            sb3.append(m.getUrlEncode(this.f39358i.p));
+            sb3.append(m.getUrlEncode(this.i.l));
             sb3.append(",");
-            sb3.append(this.f39358i.f13400i);
+            sb3.append(this.i.f10975e);
             sb3.append(",");
-            sb3.append(m.getUrlEncode(this.f39358i.f13401j));
+            sb3.append(m.getUrlEncode(this.i.f10976f));
             sb3.append(",");
-            sb3.append(i2);
+            sb3.append(i);
             sb3.append(",");
-            sb3.append(this.f39358i.s);
+            sb3.append(this.i.o);
             sb3.append(SmallTailInfo.EMOTION_SUFFIX);
             sb3.append(this.m);
             i(sb3);
@@ -317,7 +313,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             o(true);
-            if (this.f39359j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+            if (this.j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
                 E();
             } else {
                 D();
@@ -326,33 +322,33 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.q0.r.l0.s.a
+    @Override // c.a.o0.r.l0.s.a
     /* renamed from: s */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tbLinkSpanGroup) == null) {
             super.b(tbLinkSpanGroup);
-            this.f39359j = tbLinkSpanGroup.f39359j;
+            this.j = tbLinkSpanGroup.j;
             this.k = tbLinkSpanGroup.k;
             this.l = tbLinkSpanGroup.l;
             this.m = tbLinkSpanGroup.m;
             this.n = tbLinkSpanGroup.n;
             this.o = tbLinkSpanGroup.o;
             this.p = tbLinkSpanGroup.p;
-            this.f39358i = tbLinkSpanGroup.f39358i;
+            this.i = tbLinkSpanGroup.i;
         }
     }
 
     public w t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f39358i : (w) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.i : (w) invokeV.objValue;
     }
 
     public LINK_TYPE u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f39359j : (LINK_TYPE) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : (LINK_TYPE) invokeV.objValue;
     }
 
     public String v() {
@@ -370,7 +366,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public void y(w wVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, wVar) == null) {
-            this.f39358i = wVar;
+            this.i = wVar;
         }
     }
 
@@ -388,15 +384,15 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
             newInitContext.initArgs = r2;
             Object[] objArr = {link_type};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.k = 0;
-        this.f39359j = link_type;
+        this.j = link_type;
     }
 }

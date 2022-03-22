@@ -1,5 +1,6 @@
 package com.airbnb.lottie.utils;
 
+import android.util.Log;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieLogger;
 import java.util.HashSet;
@@ -15,7 +16,9 @@ public class LogcatLogger implements LottieLogger {
 
     @Override // com.airbnb.lottie.LottieLogger
     public void error(String str, Throwable th) {
-        boolean z = L.DBG;
+        if (L.DBG) {
+            Log.d(L.TAG, str, th);
+        }
     }
 
     @Override // com.airbnb.lottie.LottieLogger
@@ -25,7 +28,9 @@ public class LogcatLogger implements LottieLogger {
 
     @Override // com.airbnb.lottie.LottieLogger
     public void debug(String str, Throwable th) {
-        boolean z = L.DBG;
+        if (L.DBG) {
+            Log.d(L.TAG, str, th);
+        }
     }
 
     @Override // com.airbnb.lottie.LottieLogger
@@ -33,6 +38,7 @@ public class LogcatLogger implements LottieLogger {
         if (loggedMessages.contains(str)) {
             return;
         }
+        Log.w(L.TAG, str, th);
         loggedMessages.add(str);
     }
 }

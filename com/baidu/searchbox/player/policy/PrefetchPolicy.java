@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class PrefetchPolicy {
@@ -36,9 +35,9 @@ public class PrefetchPolicy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -135,7 +134,7 @@ public class PrefetchPolicy {
 
     public static boolean needPrefetch(PrefetchPolicy prefetchPolicy) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, prefetchPolicy)) == null) {
             if (prefetchPolicy == null) {
@@ -148,32 +147,32 @@ public class PrefetchPolicy {
             if (parseIntSafe <= 0 || parseIntSafe2 <= 0 || parseIntSafe3 <= 0) {
                 return true;
             }
-            long j2 = 0;
+            long j = 0;
             int size = PlayPerRecord.sRecords.size();
-            int i3 = size - 1;
-            int i4 = 0;
-            while (size >= parseIntSafe4 && i3 >= 0) {
-                PlayPerRecord.PerRecord perRecord = PlayPerRecord.sRecords.get(i3);
-                i2 = parseIntSafe;
+            int i2 = size - 1;
+            int i3 = 0;
+            while (size >= parseIntSafe4 && i2 >= 0) {
+                PlayPerRecord.PerRecord perRecord = PlayPerRecord.sRecords.get(i2);
+                i = parseIntSafe;
                 if (Math.abs(perRecord.endTime - System.currentTimeMillis()) < parseIntSafe2) {
                     BdVideoLog.d(TAG, "=======>calculate record : " + perRecord);
-                    j2 += perRecord.getDuration();
-                    i4++;
-                    if (i4 >= parseIntSafe3) {
+                    j += perRecord.getDuration();
+                    i3++;
+                    if (i3 >= parseIntSafe3) {
                         break;
                     }
                 }
-                i3--;
-                parseIntSafe = i2;
+                i2--;
+                parseIntSafe = i;
             }
-            i2 = parseIntSafe;
-            if (i4 > 0) {
+            i = parseIntSafe;
+            if (i3 > 0) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("=======>average time : ");
-                long j3 = j2 / i4;
-                sb.append(j3);
+                long j2 = j / i3;
+                sb.append(j2);
                 BdVideoLog.d(TAG, sb.toString());
-                return j3 >= ((long) i2);
+                return j2 >= ((long) i);
             }
             return true;
         }
@@ -190,7 +189,7 @@ public class PrefetchPolicy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SmartPrefetchPolicy{lineDuration='" + this.lineDuration + ExtendedMessageFormat.QUOTE + ", expiredTime='" + this.expiredTime + ExtendedMessageFormat.QUOTE + ", expiredCount='" + this.expiredCount + ExtendedMessageFormat.QUOTE + ", calcCnt='" + this.calcCnt + ExtendedMessageFormat.QUOTE + ", ctrPass='" + this.ctrPass + ExtendedMessageFormat.QUOTE + ", coeDuration='" + this.coeDuration + ExtendedMessageFormat.QUOTE + ", coeNetwork='" + this.coeNetwork + ExtendedMessageFormat.QUOTE + ", coeDeviceStatic='" + this.coeDeviceStatic + ExtendedMessageFormat.QUOTE + ", coeDeviceDynamic='" + this.coeDeviceDynamic + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SmartPrefetchPolicy{lineDuration='" + this.lineDuration + "', expiredTime='" + this.expiredTime + "', expiredCount='" + this.expiredCount + "', calcCnt='" + this.calcCnt + "', ctrPass='" + this.ctrPass + "', coeDuration='" + this.coeDuration + "', coeNetwork='" + this.coeNetwork + "', coeDeviceStatic='" + this.coeDeviceStatic + "', coeDeviceDynamic='" + this.coeDeviceDynamic + "'}";
         }
         return (String) invokeV.objValue;
     }

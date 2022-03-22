@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean k;
-    public boolean l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f30643h;
+    public boolean i;
 
     /* loaded from: classes5.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ContinuousAnimationView f39786e;
+        public final /* synthetic */ ContinuousAnimationView a;
 
         public a(ContinuousAnimationView continuousAnimationView) {
             Interceptable interceptable = $ic;
@@ -36,22 +36,22 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
                 newInitContext.initArgs = r2;
                 Object[] objArr = {continuousAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39786e = continuousAnimationView;
+            this.a = continuousAnimationView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.f39786e.n();
+                this.a.v();
             }
         }
 
@@ -59,12 +59,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f39786e.o();
-                if (this.f39786e.l) {
-                    this.f39786e.l = false;
+                this.a.w();
+                if (this.a.i) {
+                    this.a.i = false;
                 }
-                this.f39786e.k = false;
-                this.f39786e.setFrame(0);
+                this.a.f30643h = false;
+                this.a.setFrame(0);
             }
         }
 
@@ -72,10 +72,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.f39786e.p();
-                if (this.f39786e.l) {
-                    this.f39786e.cancelAnimation();
-                    this.f39786e.l = false;
+                this.a.x();
+                if (this.a.i) {
+                    this.a.cancelAnimation();
+                    this.a.i = false;
                 }
             }
         }
@@ -84,8 +84,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f39786e.q();
-                this.f39786e.k = true;
+                this.a.y();
+                this.a.f30643h = true;
             }
         }
     }
@@ -99,9 +99,9 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -111,10 +111,33 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && isAnimating()) {
+            cancelAnimation();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            playAnimation();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void c(float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        }
+    }
+
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void cancelAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.cancelAnimation();
         }
     }
@@ -122,8 +145,22 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     @Override // android.view.View
     public void clearAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.clearAnimation();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -131,7 +168,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     public long getCompleteAnimTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return 0L;
         }
         return invokeV.longValue;
@@ -141,86 +178,31 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return null;
         }
         return (View) invokeV.objValue;
     }
 
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onCompleteRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void onFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onPullPercentChange(float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onPullToRefresh() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && isAnimating()) {
-            cancelAnimation();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onRefreshing() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void onReleaseToRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            playAnimation();
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.k) {
-            this.l = true;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f30643h) {
+            this.i = true;
         }
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void playAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (isAnimating()) {
                 cancelAnimation();
             }
@@ -229,13 +211,31 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void q() {
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    public final void r() {
+    public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             addAnimatorListener(new a(this));
@@ -254,9 +254,9 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -267,17 +267,17 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -285,8 +285,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
                 return;
             }
         }
-        this.k = false;
-        this.l = false;
-        r();
+        this.f30643h = false;
+        this.i = false;
+        z();
     }
 }

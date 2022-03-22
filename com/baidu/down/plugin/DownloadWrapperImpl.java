@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadWrapperImpl implements IDownloadWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -28,9 +28,9 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,10 +63,10 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public StatisticInfo getStatisticInfo(long j2) {
+    public StatisticInfo getStatisticInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.mTaskManager.getStatsticInfo(j2) : (StatisticInfo) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mTaskManager.getStatsticInfo(j) : (StatisticInfo) invokeJ.objValue;
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
@@ -78,18 +78,18 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void pauseDownload(String str, long j2) {
+    public void pauseDownload(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
-            this.mTaskManager.pauseDownload(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            this.mTaskManager.pauseDownload(str, j);
         }
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void setMaxDownloadThread(int i2) {
+    public void setMaxDownloadThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mTaskManager.setMaxDownloadThread(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mTaskManager.setMaxDownloadThread(i);
         }
     }
 
@@ -109,10 +109,10 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void stopDownload(String str, long j2, boolean z) {
+    public void stopDownload(String str, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.mTaskManager.stopDownload(str, j2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.mTaskManager.stopDownload(str, j, z);
         }
     }
 }

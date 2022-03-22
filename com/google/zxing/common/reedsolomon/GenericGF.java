@@ -55,57 +55,57 @@ public final class GenericGF {
         MAXICODE_FIELD_64 = AZTEC_DATA_6;
     }
 
-    public GenericGF(int i2, int i3, int i4) {
+    public GenericGF(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.primitive = i2;
-        this.size = i3;
-        this.generatorBase = i4;
-        this.expTable = new int[i3];
-        this.logTable = new int[i3];
-        int i7 = 1;
-        for (int i8 = 0; i8 < i3; i8++) {
-            this.expTable[i8] = i7;
-            i7 <<= 1;
-            if (i7 >= i3) {
-                i7 = (i7 ^ i2) & (i3 - 1);
+        this.primitive = i;
+        this.size = i2;
+        this.generatorBase = i3;
+        this.expTable = new int[i2];
+        this.logTable = new int[i2];
+        int i6 = 1;
+        for (int i7 = 0; i7 < i2; i7++) {
+            this.expTable[i7] = i6;
+            i6 <<= 1;
+            if (i6 >= i2) {
+                i6 = (i6 ^ i) & (i2 - 1);
             }
         }
-        for (int i9 = 0; i9 < i3 - 1; i9++) {
-            this.logTable[this.expTable[i9]] = i9;
+        for (int i8 = 0; i8 < i2 - 1; i8++) {
+            this.logTable[this.expTable[i8]] = i8;
         }
         this.zero = new GenericGFPoly(this, new int[]{0});
         this.one = new GenericGFPoly(this, new int[]{1});
     }
 
-    public static int addOrSubtract(int i2, int i3) {
+    public static int addOrSubtract(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? i2 ^ i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i ^ i2 : invokeII.intValue;
     }
 
-    public GenericGFPoly buildMonomial(int i2, int i3) {
+    public GenericGFPoly buildMonomial(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            if (i2 >= 0) {
-                if (i3 == 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            if (i >= 0) {
+                if (i2 == 0) {
                     return this.zero;
                 }
-                int[] iArr = new int[i2 + 1];
-                iArr[0] = i3;
+                int[] iArr = new int[i + 1];
+                iArr[0] = i2;
                 return new GenericGFPoly(this, iArr);
             }
             throw new IllegalArgumentException();
@@ -113,10 +113,10 @@ public final class GenericGF {
         return (GenericGFPoly) invokeII.objValue;
     }
 
-    public int exp(int i2) {
+    public int exp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.expTable[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.expTable[i] : invokeI.intValue;
     }
 
     public int getGeneratorBase() {
@@ -143,40 +143,40 @@ public final class GenericGF {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zero : (GenericGFPoly) invokeV.objValue;
     }
 
-    public int inverse(int i2) {
+    public int inverse(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 != 0) {
-                return this.expTable[(this.size - this.logTable[i2]) - 1];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 0) {
+                return this.expTable[(this.size - this.logTable[i]) - 1];
             }
             throw new ArithmeticException();
         }
         return invokeI.intValue;
     }
 
-    public int log(int i2) {
+    public int log(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 != 0) {
-                return this.logTable[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 0) {
+                return this.logTable[i];
             }
             throw new IllegalArgumentException();
         }
         return invokeI.intValue;
     }
 
-    public int multiply(int i2, int i3) {
+    public int multiply(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
-            if (i2 == 0 || i3 == 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+            if (i == 0 || i2 == 0) {
                 return 0;
             }
             int[] iArr = this.expTable;
             int[] iArr2 = this.logTable;
-            return iArr[(iArr2[i2] + iArr2[i3]) % (this.size - 1)];
+            return iArr[(iArr2[i] + iArr2[i2]) % (this.size - 1)];
         }
         return invokeII.intValue;
     }

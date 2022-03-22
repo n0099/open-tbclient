@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InsideNotificationItem extends UPSNotificationMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,17 +68,17 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsShowBigPicOnMobileNet : invokeV.booleanValue;
     }
 
-    public void setAppType(int i2) {
+    public void setAppType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mAppType = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mAppType = i;
         }
     }
 
-    public void setInnerPriority(int i2) {
+    public void setInnerPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mInnerPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mInnerPriority = i;
         }
     }
 
@@ -89,10 +89,10 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         }
     }
 
-    public void setMessageType(int i2) {
+    public void setMessageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mMessageType = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mMessageType = i;
         }
     }
 

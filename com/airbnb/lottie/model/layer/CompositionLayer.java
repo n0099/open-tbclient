@@ -54,7 +54,7 @@ public class CompositionLayer extends BaseLayer {
 
     public CompositionLayer(LottieDrawable lottieDrawable, Layer layer, List<Layer> list, LottieComposition lottieComposition) {
         super(lottieDrawable, layer);
-        int i2;
+        int i;
         BaseLayer baseLayer;
         this.layers = new ArrayList();
         this.rect = new RectF();
@@ -85,16 +85,16 @@ public class CompositionLayer extends BaseLayer {
                     baseLayer2 = null;
                 } else {
                     this.layers.add(0, forModel);
-                    int i3 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[layer2.getMatteType().ordinal()];
-                    if (i3 == 1 || i3 == 2) {
+                    int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[layer2.getMatteType().ordinal()];
+                    if (i2 == 1 || i2 == 2) {
                         baseLayer2 = forModel;
                     }
                 }
             }
             size--;
         }
-        for (i2 = 0; i2 < longSparseArray.size(); i2++) {
-            BaseLayer baseLayer3 = (BaseLayer) longSparseArray.get(longSparseArray.keyAt(i2));
+        for (i = 0; i < longSparseArray.size(); i++) {
+            BaseLayer baseLayer3 = (BaseLayer) longSparseArray.get(longSparseArray.keyAt(i));
             if (baseLayer3 != null && (baseLayer = (BaseLayer) longSparseArray.get(baseLayer3.getLayerModel().getParentId())) != null) {
                 baseLayer3.setParentLayer(baseLayer);
             }
@@ -121,23 +121,23 @@ public class CompositionLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
+    public void drawLayer(Canvas canvas, Matrix matrix, int i) {
         L.beginSection("CompositionLayer#draw");
         this.newClipRect.set(0.0f, 0.0f, this.layerModel.getPreCompWidth(), this.layerModel.getPreCompHeight());
         matrix.mapRect(this.newClipRect);
-        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i2 != 255;
+        boolean z = this.lottieDrawable.isApplyingOpacityToLayersEnabled() && this.layers.size() > 1 && i != 255;
         if (z) {
-            this.layerPaint.setAlpha(i2);
+            this.layerPaint.setAlpha(i);
             Utils.saveLayerCompat(canvas, this.newClipRect, this.layerPaint);
         } else {
             canvas.save();
         }
         if (z) {
-            i2 = 255;
+            i = 255;
         }
         for (int size = this.layers.size() - 1; size >= 0; size--) {
             if (!this.newClipRect.isEmpty() ? canvas.clipRect(this.newClipRect) : true) {
-                this.layers.get(size).draw(canvas, matrix, i2);
+                this.layers.get(size).draw(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -191,9 +191,9 @@ public class CompositionLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void resolveChildKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        for (int i3 = 0; i3 < this.layers.size(); i3++) {
-            this.layers.get(i3).resolveKeyPath(keyPath, i2, list, keyPath2);
+    public void resolveChildKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        for (int i2 = 0; i2 < this.layers.size(); i2++) {
+            this.layers.get(i2).resolveKeyPath(keyPath, i, list, keyPath2);
         }
     }
 

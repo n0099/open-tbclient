@@ -13,15 +13,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedEntry<K, V> head;
     public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +36,9 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -92,9 +91,9 @@ public class GroupedLinkedMap<K extends Poolable, V> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {k};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -111,9 +110,9 @@ public class GroupedLinkedMap<K extends Poolable, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -222,7 +221,7 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             boolean z = false;
             for (LinkedEntry linkedEntry = this.head.next; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.next) {
                 z = true;
-                sb.append(ExtendedMessageFormat.START_FE);
+                sb.append('{');
                 sb.append(linkedEntry.key);
                 sb.append(':');
                 sb.append(linkedEntry.size());

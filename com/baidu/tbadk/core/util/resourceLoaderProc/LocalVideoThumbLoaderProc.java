@@ -4,7 +4,7 @@ import android.media.ThumbnailUtils;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
 import c.a.d.o.d.a;
-import c.a.q0.b0.c;
+import c.a.o0.b0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,22 +25,22 @@ public class LocalVideoThumbLoaderProc implements e<a> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public a createVideoThumbnail(String str, int i2, int i3) {
+    public a createVideoThumbnail(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
                 if (new File(str).exists()) {
-                    return new a(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i2, i3), false, str);
+                    return new a(BitmapHelper.checkBitmapSize(ThumbnailUtils.createVideoThumbnail(str, 1), i, i2), false, str);
                 }
                 return null;
             } catch (OutOfMemoryError unused) {
@@ -52,7 +52,7 @@ public class LocalVideoThumbLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m52decodeToResource(byte[] bArr, Object... objArr) {
+    public a m50decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, objArr)) == null) {
@@ -84,10 +84,10 @@ public class LocalVideoThumbLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             return null;
         }
         return (a) invokeCommon.objValue;
@@ -119,13 +119,13 @@ public class LocalVideoThumbLoaderProc implements e<a> {
     }
 
     @Override // c.a.d.f.l.e
-    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                aVar.A(i2);
-                aVar.z(i3);
+                aVar.A(i);
+                aVar.z(i2);
                 c.k().d(toCacheKey(str), aVar);
             }
         }
@@ -134,14 +134,14 @@ public class LocalVideoThumbLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return createVideoThumbnail(str, i2, i3);
+            return createVideoThumbnail(str, i, i2);
         }
         return (a) invokeCommon.objValue;
     }
@@ -149,11 +149,11 @@ public class LocalVideoThumbLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), c.k().m(toCacheKey(str)), i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), c.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

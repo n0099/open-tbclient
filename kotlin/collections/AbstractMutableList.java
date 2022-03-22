@@ -9,19 +9,19 @@ import kotlin.jvm.internal.markers.KMutableList;
 /* loaded from: classes8.dex */
 public abstract class AbstractMutableList<E> extends java.util.AbstractList<E> implements List<E>, KMutableList {
     @Override // java.util.AbstractList, java.util.List
-    public abstract void add(int i2, E e2);
+    public abstract void add(int i, E e2);
 
     public abstract int getSize();
 
     @Override // java.util.AbstractList, java.util.List
-    public final /* bridge */ E remove(int i2) {
-        return removeAt(i2);
+    public final /* bridge */ E remove(int i) {
+        return removeAt(i);
     }
 
-    public abstract E removeAt(int i2);
+    public abstract E removeAt(int i);
 
     @Override // java.util.AbstractList, java.util.List
-    public abstract E set(int i2, E e2);
+    public abstract E set(int i, E e2);
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public final /* bridge */ int size() {

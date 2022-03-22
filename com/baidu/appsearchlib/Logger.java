@@ -3,6 +3,7 @@ package com.baidu.appsearchlib;
 import android.app.ActivityManager;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,9 +68,9 @@ public class Logger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -96,9 +97,9 @@ public class Logger {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -111,13 +112,13 @@ public class Logger {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i2 = 0;
+                        int i = 0;
                         while (!Logger.looperDisabled) {
                             try {
                                 Thread.sleep(1000L);
-                                i2++;
+                                i++;
                                 if (Logger.isAppOnForeground()) {
-                                    if (Logger.LOG_TIMES.contains(Integer.valueOf(i2))) {
+                                    if (Logger.LOG_TIMES.contains(Integer.valueOf(i))) {
                                         Logger.onAlive(this.val$context);
                                     }
                                 } else {
@@ -144,7 +145,7 @@ public class Logger {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                return URLEncoder.encode(str, "utf-8");
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
                 return "";
@@ -245,7 +246,7 @@ public class Logger {
         if (interceptable == null || interceptable.invokeLL(65550, null, context, str) == null) {
             String timeStr = Util.getTimeStr();
             String encode = encode(Util.getDeviceId(context));
-            StringBuilder sb = new StringBuilder(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, "pid", "201", Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), "t", timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), "module_name", Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))));
+            StringBuilder sb = new StringBuilder(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, "pid", Info.kBaiduPIDValue, Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), "t", timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), Info.kBaiduModuleKey, Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))));
             sb.append(str);
             StringBuilder sb2 = new StringBuilder(String.valueOf(String.valueOf(sb.toString()) + "&vcode2="));
             sb2.append(Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
@@ -268,9 +269,9 @@ public class Logger {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

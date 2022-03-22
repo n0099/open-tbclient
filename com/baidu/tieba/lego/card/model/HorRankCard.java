@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.z1.o.j.c;
-import c.a.r0.z1.o.k.b;
+import c.a.p0.b2.o.j.c;
+import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
@@ -40,31 +40,27 @@ public class HorRankCard extends BaseCardInfo {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44080b;
+        public String f34213b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44081c;
+        public String f34214c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44082d;
+        public String f34215d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44083e;
+        public String f34216e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44084f;
+        public String f34217f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f44085g;
+        public boolean f34218g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f44086h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f44087i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f44088j;
+        public String f34219h;
+        public String i;
+        public String j;
         public int k;
         public int l;
         public HorRankCard m;
@@ -74,9 +70,9 @@ public class HorRankCard extends BaseCardInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -93,9 +89,9 @@ public class HorRankCard extends BaseCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -120,19 +116,19 @@ public class HorRankCard extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("ranks");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.rankInfoList = new ArrayList(length);
-        for (int i4 = 0; i4 < length; i4++) {
+        for (int i3 = 0; i3 < length; i3++) {
             a aVar = new a();
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             aVar.a = optJSONObject.optInt("rank");
-            aVar.f44080b = optJSONObject.optString("picUrl");
-            aVar.f44081c = optJSONObject.optString("picIcon");
-            aVar.f44082d = optJSONObject.optString("title");
-            aVar.f44083e = optJSONObject.optString("subTitle");
-            aVar.f44084f = optJSONObject.optString("postUrl");
-            aVar.f44085g = optJSONObject.optInt("isDone") == 1;
-            aVar.f44086h = optJSONObject.optString("btnText");
-            aVar.f44087i = optJSONObject.optString("btnDone");
-            aVar.f44088j = optJSONObject.optString("picScheme");
+            aVar.f34213b = optJSONObject.optString("picUrl");
+            aVar.f34214c = optJSONObject.optString("picIcon");
+            aVar.f34215d = optJSONObject.optString("title");
+            aVar.f34216e = optJSONObject.optString("subTitle");
+            aVar.f34217f = optJSONObject.optString("postUrl");
+            aVar.f34218g = optJSONObject.optInt("isDone") == 1;
+            aVar.f34219h = optJSONObject.optString("btnText");
+            aVar.i = optJSONObject.optString("btnDone");
+            aVar.j = optJSONObject.optString("picScheme");
             aVar.k = b.b(optJSONObject.optString("bgColor", ""));
             aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
@@ -222,8 +218,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f44084f) && !TextUtils.isEmpty(aVar.f44086h) && !TextUtils.isEmpty(aVar.f44087i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f44084f))) {
-                    aVar.f44085g = z;
+                if (!TextUtils.isEmpty(aVar.f34217f) && !TextUtils.isEmpty(aVar.f34219h) && !TextUtils.isEmpty(aVar.i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f34217f))) {
+                    aVar.f34218g = z;
                     z2 = true;
                 }
             }
@@ -239,8 +235,8 @@ public class HorRankCard extends BaseCardInfo {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, str, z)) == null) {
             boolean z2 = false;
             for (a aVar : this.rankInfoList) {
-                if (!TextUtils.isEmpty(aVar.f44084f) && !TextUtils.isEmpty(aVar.f44086h) && !TextUtils.isEmpty(aVar.f44087i) && TextUtils.equals(getTouidFromPostUrl(aVar.f44084f), str)) {
-                    aVar.f44085g = z;
+                if (!TextUtils.isEmpty(aVar.f34217f) && !TextUtils.isEmpty(aVar.f34219h) && !TextUtils.isEmpty(aVar.i) && TextUtils.equals(getTouidFromPostUrl(aVar.f34217f), str)) {
+                    aVar.f34218g = z;
                     z2 = true;
                 }
             }

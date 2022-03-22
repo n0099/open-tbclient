@@ -14,24 +14,24 @@ public class BDFaceGazeInfo {
     public float rightEyeConf;
     public BDFaceSDKCommon.BDFaceGazeDirection rightEyeGaze;
 
-    public BDFaceGazeInfo(int i2, float f2, int i3, float f3) {
+    public BDFaceGazeInfo(int i, float f2, int i2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.leftEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i2];
+        this.leftEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i];
         this.leftEyeConf = f2;
-        this.rightEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i3];
+        this.rightEyeGaze = BDFaceSDKCommon.BDFaceGazeDirection.values()[i2];
         this.rightEyeConf = f3;
     }
 }

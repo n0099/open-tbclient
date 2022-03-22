@@ -15,24 +15,24 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.fsg.base.router.RouterCallback;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
-import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31999b;
+    public static String f25261b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public final class j {
             }
         }
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f31999b = "";
+        f25261b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -104,15 +104,15 @@ public final class j {
             Intent intent = new Intent("android.intent.action.VIEW");
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
-                    intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f31999b;
-                    if (TextUtils.isEmpty(f31999b)) {
+                    intent.setFlags(268435457);
+                    String str = f25261b;
+                    if (TextUtils.isEmpty(f25261b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
                 } else {
                     intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(268435456);
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
                 LogUtil.logD("Utility", "启动系统安装界面");
                 context.startActivity(intent);
@@ -128,7 +128,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f31999b = str;
+            f25261b = str;
         }
     }
 
@@ -167,7 +167,7 @@ public final class j {
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? context.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") == 0 && context.checkCallingOrSelfPermission(s.a) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? context.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") == 0 && context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0 : invokeL.booleanValue;
     }
 
     public static long c(Context context) {
@@ -222,8 +222,8 @@ public final class j {
             if (next == null) {
                 return null;
             }
-            int i2 = recentTaskInfo.id;
-            if (i2 == -1 || next.id != i2) {
+            int i = recentTaskInfo.id;
+            if (i == -1 || next.id != i) {
                 String packageName = recentTaskInfo.baseIntent.getComponent().getPackageName();
                 if (next.baseActivity.getPackageName().equals(packageName)) {
                     while (it2.hasNext()) {
@@ -241,12 +241,32 @@ public final class j {
         return (ActivityManager.RunningTaskInfo) invokeL.objValue;
     }
 
+    public static void f(Context context) {
+        String[] fileList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
+            try {
+                String a2 = com.baidu.util.a.a(context).a("lcsdk_xml", "apkName", "");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
+                }
+                for (String str : context.getApplicationContext().fileList()) {
+                    if (str.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && str.contains(a2)) {
+                        context.getApplicationContext().deleteFile(str);
+                    }
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
     @TargetApi(9)
-    public static Object[] f(Context context) {
+    public static Object[] g(Context context) {
         InterceptResult invokeL;
         Object a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 9 && (a2 = a((StorageManager) context.getSystemService("storage"), "getVolumeList", null, null)) != null) {
                 return (Object[]) a2;
             }

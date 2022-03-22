@@ -38,9 +38,9 @@ public final class FlowableRetryWhen<T> extends AbstractFlowableWithUpstream<T, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, flowableProcessor, subscription};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], (FlowableProcessor) objArr2[1], (Subscription) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -77,9 +77,9 @@ public final class FlowableRetryWhen<T> extends AbstractFlowableWithUpstream<T, 
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

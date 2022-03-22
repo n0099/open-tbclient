@@ -22,9 +22,9 @@ public class ResultData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,9 +39,9 @@ public class ResultData {
             sb.append(list.size());
             if (list.size() > 0) {
                 sb.append(" [");
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    PackageInfo packageInfo = list.get(i2);
-                    if (i2 == 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    PackageInfo packageInfo = list.get(i);
+                    if (i == 0) {
                         sb.append(packageInfo.packageName);
                     } else {
                         sb.append(",");

@@ -2,9 +2,9 @@ package com.baidu.ugc.editvideo.magicmusic;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.j.b;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
+import c.a.v0.j.b;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +29,9 @@ public class VideoEffectData implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -172,9 +172,9 @@ public class VideoEffectData implements Serializable, Cloneable {
                 } else if (h.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
                     return false;
                 } else {
-                    for (int i2 = 0; i2 < this.mMagicEffectList.size(); i2++) {
-                        BaseEffect baseEffect4 = videoEffectData.mMagicEffectList.get(i2);
-                        BaseEffect baseEffect5 = this.mMagicEffectList.get(i2);
+                    for (int i = 0; i < this.mMagicEffectList.size(); i++) {
+                        BaseEffect baseEffect4 = videoEffectData.mMagicEffectList.get(i);
+                        BaseEffect baseEffect5 = this.mMagicEffectList.get(i);
                         if (baseEffect4 != null) {
                             if (baseEffect5 == null || baseEffect4.effectType != baseEffect5.effectType || baseEffect4.startTime != baseEffect5.startTime || baseEffect4.endTime != baseEffect5.endTime) {
                                 return false;
@@ -223,15 +223,15 @@ public class VideoEffectData implements Serializable, Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTransitionEffectList : (List) invokeV.objValue;
     }
 
-    public BaseEffect remove(int i2) {
+    public BaseEffect remove(int i) {
         InterceptResult invokeI;
         List<BaseEffect> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 < 0 || (list = this.mMagicEffectList) == null || list.size() <= i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i < 0 || (list = this.mMagicEffectList) == null || list.size() <= i) {
                 return null;
             }
-            return this.mMagicEffectList.remove(i2);
+            return this.mMagicEffectList.remove(i);
         }
         return (BaseEffect) invokeI.objValue;
     }

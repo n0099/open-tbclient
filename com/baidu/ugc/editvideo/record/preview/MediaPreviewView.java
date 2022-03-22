@@ -8,10 +8,10 @@ import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.y0.a;
-import c.a.y0.r.h;
-import c.a.y0.r.v;
+import c.a.v0.a;
+import c.a.v0.r.h;
+import c.a.v0.r.v;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +49,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
 
     /* loaded from: classes6.dex */
     public interface OnSurfaceTextureCreateListener {
-        void onSurfaceTextureCreate(SurfaceTexture surfaceTexture, int i2);
+        void onSurfaceTextureCreate(SurfaceTexture surfaceTexture, int i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -61,9 +61,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -82,9 +82,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -120,9 +120,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -132,9 +132,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             }
 
             @Override // com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer.OnMediaGLRendererStatusListener
-            public void onError(int i4, String str) {
+            public void onError(int i3, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
                     a.a("v_log_preview_render_error", str, null);
                 }
             }
@@ -146,8 +146,8 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
             int b2 = h.b(this.mIEffectProcessorList);
-            for (int i2 = 0; i2 < b2; i2++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i2);
+            for (int i = 0; i < b2; i++) {
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onDestroyInGlThread();
                 } else {
@@ -172,8 +172,8 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65547, this, z) == null) {
             int b2 = h.b(this.mIEffectProcessorList);
-            for (int i2 = 0; i2 < b2; i2++) {
-                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i2);
+            for (int i = 0; i < b2; i++) {
+                IEffectProcessor iEffectProcessor = (IEffectProcessor) h.c(this.mIEffectProcessorList, i);
                 if (z) {
                     iEffectProcessor.onPauseInGlThread();
                 } else {
@@ -198,8 +198,8 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         if (interceptable == null || interceptable.invokeL(65548, this, gLViewPortLocation) == null) {
             if (!(this.mScaleX == 1.0f && this.mScaleY == 1.0f) && gLViewPortLocation.width > v.c()) {
                 GLES20.glEnable(3089);
-                int i2 = gLViewPortLocation.width;
-                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i2) / 2.0f) - (((i2 - v.c()) * this.mScaleX) / 2.0f));
+                int i = gLViewPortLocation.width;
+                int ceil = (int) Math.ceil((((1.0f - this.mScaleX) * i) / 2.0f) - (((i - v.c()) * this.mScaleX) / 2.0f));
                 int ceil2 = (int) Math.ceil((1.0f - this.mScaleY) * gLViewPortLocation.height);
                 int ceil3 = (int) Math.ceil((gLViewPortLocation.width - v.c()) * this.mScaleX);
                 int ceil4 = (int) Math.ceil(gLViewPortLocation.height * this.mScaleY);
@@ -242,9 +242,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -262,9 +262,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                             this.this$0.mSurfaceTexture.release();
                             this.this$0.mSurfaceTexture = null;
                         }
-                        int i2 = this.this$0.mTextureIdEXT;
-                        if (i2 != 0) {
-                            GLES20.glDeleteTextures(1, new int[]{i2}, 0);
+                        int i = this.this$0.mTextureIdEXT;
+                        if (i != 0) {
+                            GLES20.glDeleteTextures(1, new int[]{i}, 0);
                             this.this$0.mTextureIdEXT = 0;
                         }
                         this.this$0.notifyOnDestroy(true);
@@ -320,9 +320,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -351,8 +351,8 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
             super.onResume();
             this.mRenderer.onResume();
             int b2 = h.b(this.mIEffectProcessorList);
-            for (int i2 = 0; i2 < b2; i2++) {
-                ((IEffectProcessor) h.c(this.mIEffectProcessorList, i2)).onResume();
+            for (int i = 0; i < b2; i++) {
+                ((IEffectProcessor) h.c(this.mIEffectProcessorList, i)).onResume();
             }
             List<IMediaRenderer> list = this.mIMediaRendererList;
             if (list != null) {
@@ -364,9 +364,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         }
     }
 
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, gl10, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048583, this, gl10, i, i2) == null) {
         }
     }
 
@@ -408,9 +408,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -480,9 +480,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -516,16 +516,16 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
         }
     }
 
-    public void setSurfaceTexture(SurfaceTexture surfaceTexture, int i2) {
+    public void setSurfaceTexture(SurfaceTexture surfaceTexture, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048591, this, surfaceTexture, i2) == null) || surfaceTexture == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048591, this, surfaceTexture, i) == null) || surfaceTexture == null) {
             return;
         }
         this.mSurfaceTexture = surfaceTexture;
         surfaceTexture.setOnFrameAvailableListener(this);
         OnSurfaceTextureCreateListener onSurfaceTextureCreateListener = this.mOnSurfaceTextureCreateListener;
         if (onSurfaceTextureCreateListener != null) {
-            onSurfaceTextureCreateListener.onSurfaceTextureCreate(surfaceTexture, i2);
+            onSurfaceTextureCreateListener.onSurfaceTextureCreate(surfaceTexture, i);
         }
         requestRender();
     }
@@ -553,9 +553,9 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

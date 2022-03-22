@@ -11,16 +11,16 @@ public final class c extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
-    public c(int i2) {
+    public c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,8 +34,8 @@ public final class c extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.a;
-            String str = i2 != 1 ? i2 != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
+            int i = this.a;
+            String str = i != 1 ? i != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
             StringBuilder sb = new StringBuilder(str.length() + 17);
             sb.append("LoaderException{");
             sb.append(str);

@@ -1,19 +1,19 @@
 package com.baidu.ugc.editvideo.record.processor;
 
-import c.a.a0.b.a.e;
+import c.a.z.b.a.e;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 /* loaded from: classes6.dex */
 public interface IEffectProcessor extends IMediaLifeCycleIncludeGlThread {
     int getOutputTextureMode();
 
-    int onProcessFrame(e eVar, int i2, float[] fArr);
+    int onProcessFrame(e eVar, int i, float[] fArr);
 
     void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2);
 
     void setGlClearColor(float f2, float f3, float f4, float f5);
 
-    void setInputTextureMode(int i2);
+    void setInputTextureMode(int i);
 
-    void setPreviewSize(int i2, int i3);
+    void setPreviewSize(int i, int i2);
 }

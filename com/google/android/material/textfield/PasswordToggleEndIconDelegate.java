@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
             newInitContext.initArgs = r2;
             Object[] objArr = {textInputLayout};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TextInputLayout) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -54,9 +54,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -73,18 +73,18 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i3, i4, i5) == null) {
                     PasswordToggleEndIconDelegate passwordToggleEndIconDelegate = this.this$0;
                     passwordToggleEndIconDelegate.endIconView.setChecked(!passwordToggleEndIconDelegate.hasPasswordTransformation());
                 }
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
                 }
             }
         };
@@ -100,9 +100,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -137,9 +137,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -149,10 +149,10 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEndIconChangedListener
-            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i4) {
+            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i3) {
                 EditText editText;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i4) == null) && (editText = textInputLayout2.getEditText()) != null && i4 == 1) {
+                if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i3) == null) && (editText = textInputLayout2.getEditText()) != null && i3 == 1) {
                     editText.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     editText.removeTextChangedListener(this.this$0.textWatcher);
                 }
@@ -181,9 +181,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.design_password_eye));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080490));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.password_toggle_content_description));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0d39));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -196,9 +196,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

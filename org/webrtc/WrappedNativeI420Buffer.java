@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,38 +24,38 @@ public class WrappedNativeI420Buffer implements VideoFrame.I420Buffer {
     public final int width;
 
     @CalledByNative
-    public WrappedNativeI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, long j2) {
+    public WrappedNativeI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), byteBuffer2, Integer.valueOf(i4), byteBuffer3, Integer.valueOf(i5), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.dataY = byteBuffer;
-        this.strideY = i4;
+        this.strideY = i3;
         this.dataU = byteBuffer2;
-        this.strideU = i5;
+        this.strideU = i4;
         this.dataV = byteBuffer3;
-        this.strideV = i6;
-        this.nativeBuffer = j2;
+        this.strideV = i5;
+        this.nativeBuffer = j;
         retain();
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) ? JavaI420Buffer.cropAndScaleI420(this, i2, i3, i4, i5, i6, i7) : (VideoFrame.Buffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? JavaI420Buffer.cropAndScaleI420(this, i, i2, i3, i4, i5, i6) : (VideoFrame.Buffer) invokeCommon.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer

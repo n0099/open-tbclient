@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.giftTab;
 
 import c.a.d.a.f;
-import c.a.q0.r.r.j0;
+import c.a.o0.r.r.j0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,15 +17,13 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<j0> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<j0> f42665e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f33103b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f42666f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f42667g;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f33104c;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -34,17 +32,17 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         public final /* synthetic */ CategoryGiftListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CategoryGiftListModel categoryGiftListModel, int i2, int i3) {
-            super(i2, i3);
+        public a(CategoryGiftListModel categoryGiftListModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {categoryGiftListModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {categoryGiftListModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -63,18 +61,18 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof CategoryGiftListHttpResponseMessage;
             if (z || (responsedMessage instanceof CategoryGiftListSocketResponseMessage)) {
-                int i2 = 0;
+                int i = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    this.a.f42665e = categoryGiftListHttpResponseMessage.getGiftList();
-                    i2 = categoryGiftListHttpResponseMessage.getCategoryId();
+                    this.a.a = categoryGiftListHttpResponseMessage.getGiftList();
+                    i = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    this.a.f42665e = categoryGiftListSocketResponseMessage.getGiftList();
-                    i2 = categoryGiftListSocketResponseMessage.getCategoryId();
+                    this.a.a = categoryGiftListSocketResponseMessage.getGiftList();
+                    i = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (this.a.f42666f != null) {
-                    this.a.f42666f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.a.f42665e);
+                if (this.a.f33103b != null) {
+                    this.a.f33103b.a(responsedMessage.getError(), responsedMessage.getErrorString(), i, this.a.a);
                 }
             }
         }
@@ -82,7 +80,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i2, String str, int i3, ArrayList<j0> arrayList);
+        void a(int i, String str, int i2, ArrayList<j0> arrayList);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,24 +92,33 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42667g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f33104c = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
 
-    public void A(b bVar) {
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f42666f = bVar;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            CategoryGiftListRequest categoryGiftListRequest = new CategoryGiftListRequest();
+            categoryGiftListRequest.setCategoryId(i);
+            sendMessage(categoryGiftListRequest);
+        }
+    }
+
+    public void C(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.f33103b = bVar;
         }
     }
 
@@ -119,7 +126,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -129,7 +136,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -137,25 +144,16 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     public final void registerListener() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f42667g);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerListener(this.f33104c);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.r0.y3.g0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
-        }
-    }
-
-    public void z(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            CategoryGiftListRequest categoryGiftListRequest = new CategoryGiftListRequest();
-            categoryGiftListRequest.setCategoryId(i2);
-            sendMessage(categoryGiftListRequest);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c.a.p0.a4.g0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

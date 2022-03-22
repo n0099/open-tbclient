@@ -11,28 +11,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.InterfaceC1826a a;
+    public final /* synthetic */ a.InterfaceC1779a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f36377b;
+    public final /* synthetic */ a f28194b;
 
-    public b(a aVar, a.InterfaceC1826a interfaceC1826a) {
+    public b(a aVar, a.InterfaceC1779a interfaceC1779a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC1826a};
+            Object[] objArr = {aVar, interfaceC1779a};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36377b = aVar;
-        this.a = interfaceC1826a;
+        this.f28194b = aVar;
+        this.a = interfaceC1779a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
@@ -48,9 +48,9 @@ public class b extends HttpClient.ProtoResultCallback {
         c a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC1826a interfaceC1826a = this.a;
-            a = this.f36377b.a(str);
-            interfaceC1826a.a((a.InterfaceC1826a) a);
+            a.InterfaceC1779a interfaceC1779a = this.a;
+            a = this.f28194b.a(str);
+            interfaceC1779a.a((a.InterfaceC1779a) a);
         }
     }
 }

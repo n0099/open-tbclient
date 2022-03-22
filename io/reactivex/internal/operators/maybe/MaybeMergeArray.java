@@ -45,9 +45,9 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,23 +130,23 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public final CompositeDisposable set;
         public final int sourceCount;
 
-        public MergeMaybeObserver(Subscriber<? super T> subscriber, int i2, SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex) {
+        public MergeMaybeObserver(Subscriber<? super T> subscriber, int i, SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), simpleQueueWithConsumerIndex};
+                Object[] objArr = {subscriber, Integer.valueOf(i), simpleQueueWithConsumerIndex};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.sourceCount = i2;
+            this.sourceCount = i;
             this.set = new CompositeDisposable();
             this.requested = new AtomicLong();
             this.error = new AtomicThrowable();
@@ -190,7 +190,7 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 Subscriber<? super T> subscriber = this.actual;
                 SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex = this.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     Throwable th = this.error.get();
                     if (th != null) {
@@ -206,8 +206,8 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                         subscriber.onComplete();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -255,13 +255,13 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 Subscriber<? super T> subscriber = this.actual;
                 SimpleQueueWithConsumerIndex<Object> simpleQueueWithConsumerIndex = this.queue;
-                long j2 = this.consumed;
-                int i2 = 1;
+                long j = this.consumed;
+                int i = 1;
                 do {
-                    long j3 = this.requested.get();
+                    long j2 = this.requested.get();
                     while (true) {
-                        int i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i3 == 0) {
+                        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
                             simpleQueueWithConsumerIndex.clear();
@@ -279,11 +279,11 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
                                 break;
                             } else if (poll != NotificationLite.COMPLETE) {
                                 subscriber.onNext(poll);
-                                j2++;
+                                j++;
                             }
                         }
                     }
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -356,20 +356,20 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -401,9 +401,9 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSourceArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -445,17 +445,17 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public final AtomicInteger producerIndex;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MpscFillOnceSimpleQueue(int i2) {
-            super(i2);
+        public MpscFillOnceSimpleQueue(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -485,9 +485,9 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
         public void drop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i2 = this.consumerIndex;
-                lazySet(i2, null);
-                this.consumerIndex = i2 + 1;
+                int i = this.consumerIndex;
+                lazySet(i, null);
+                this.consumerIndex = i + 1;
             }
         }
 
@@ -519,11 +519,11 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i2 = this.consumerIndex;
-                if (i2 == length()) {
+                int i = this.consumerIndex;
+                if (i == length()) {
                     return null;
                 }
-                return get(i2);
+                return get(i);
             }
             return (T) invokeV.objValue;
         }
@@ -534,19 +534,19 @@ public final class MaybeMergeArray<T> extends Flowable<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = this.consumerIndex;
-                if (i2 == length()) {
+                int i = this.consumerIndex;
+                if (i == length()) {
                     return null;
                 }
                 AtomicInteger atomicInteger = this.producerIndex;
                 do {
-                    T t = get(i2);
+                    T t = get(i);
                     if (t != null) {
-                        this.consumerIndex = i2 + 1;
-                        lazySet(i2, null);
+                        this.consumerIndex = i + 1;
+                        lazySet(i, null);
                         return t;
                     }
-                } while (atomicInteger.get() != i2);
+                } while (atomicInteger.get() != i);
                 return null;
             }
             return (T) invokeV.objValue;

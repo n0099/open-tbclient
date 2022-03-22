@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils.enums;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,21 +35,21 @@ public final class FromType {
             }
         }
         LOGIN = new FromType("LOGIN", 0, "login");
-        FromType fromType = new FromType("REG", 1, "reg");
+        FromType fromType = new FromType("REG", 1, TbConfig.ST_TYPE_REG);
         REG = fromType;
         $VALUES = new FromType[]{LOGIN, fromType};
     }
 
-    public FromType(String str, int i2, String str2) {
+    public FromType(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -64,7 +65,7 @@ public final class FromType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if ("reg".equals(str)) {
+            if (TbConfig.ST_TYPE_REG.equals(str)) {
                 return REG;
             }
             return LOGIN;

@@ -6,39 +6,39 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ab {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f108a;
+    public static final String f84a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f109a;
+    public static final boolean f85a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f59465b;
+    public static final boolean f44084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f59466c;
+    public static final boolean f44085c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f59467d;
+    public static final boolean f44086d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f59468e;
+    public static boolean f44087e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f59469f;
+    public static final boolean f44088f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f59470g;
+    public static final boolean f44089g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
-        int i2;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-56379841, "Lcom/xiaomi/push/ab;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -50,31 +50,31 @@ public class ab {
                 return;
             }
         }
-        String str = ae.f110a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f108a = str;
+        String str = ae.f86a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f84a = str;
         boolean contains = str.contains("2A2FE0D7");
-        f109a = contains;
+        f85a = contains;
         boolean z = false;
-        f59465b = contains || "DEBUG".equalsIgnoreCase(f108a);
-        f59466c = "LOGABLE".equalsIgnoreCase(f108a);
-        f59467d = f108a.contains("YY");
-        f59468e = f108a.equalsIgnoreCase("TEST");
-        f59469f = "BETA".equalsIgnoreCase(f108a);
-        String str2 = f108a;
+        f44084b = contains || "DEBUG".equalsIgnoreCase(f84a);
+        f44085c = "LOGABLE".equalsIgnoreCase(f84a);
+        f44086d = f84a.contains("YY");
+        f44087e = f84a.equalsIgnoreCase("TEST");
+        f44088f = "BETA".equalsIgnoreCase(f84a);
+        String str2 = f84a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f59470g = z;
+        f44089g = z;
         a = 1;
-        if (f108a.equalsIgnoreCase("SANDBOX")) {
-            i2 = 2;
-        } else if (!f108a.equalsIgnoreCase("ONEBOX")) {
+        if (f84a.equalsIgnoreCase("SANDBOX")) {
+            i = 2;
+        } else if (!f84a.equalsIgnoreCase("ONEBOX")) {
             a = 1;
             return;
         } else {
-            i2 = 3;
+            i = 3;
         }
-        a = i2;
+        a = i;
     }
 
     public static int a() {
@@ -83,15 +83,15 @@ public class ab {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
     }
 
-    public static void a(int i2) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            a = i2;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m202a() {
+    public static boolean m181a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a == 2 : invokeV.booleanValue;

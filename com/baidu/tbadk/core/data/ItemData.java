@@ -22,7 +22,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
@@ -47,9 +47,9 @@ public class ItemData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -133,8 +133,8 @@ public class ItemData extends OrmObject implements Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("tags");
                 ArrayList arrayList = new ArrayList();
                 if (optJSONArray != null) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        arrayList.add(optJSONArray.optString(i2));
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        arrayList.add(optJSONArray.optString(i));
                     }
                     this.mTags = arrayList;
                 }

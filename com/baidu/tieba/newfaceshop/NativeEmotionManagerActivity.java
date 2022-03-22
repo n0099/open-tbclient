@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.r0.p2.h.c.a<Boolean> {
+/* loaded from: classes5.dex */
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements c.a.p0.r2.h.c.a<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment createEmotionFragment;
@@ -51,7 +51,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     public MyEmotionManagerFragment myEmotionManagerFragment;
     public SingleThreadEmotionFragment singleThreadEmotionFragment;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {nativeEmotionManagerActivity, fragmentManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FragmentManager) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -92,33 +92,31 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i2) {
+        public Fragment getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.a.fragments) || this.a.fragments.size() <= i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (ListUtils.isEmpty(this.a.fragments) || this.a.fragments.size() <= i) {
                     return null;
                 }
-                return (Fragment) this.a.fragments.get(i2);
+                return (Fragment) this.a.fragments.get(i);
             }
             return (Fragment) invokeI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public CharSequence getPageTitle(int i2) {
+        public CharSequence getPageTitle(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i) : (CharSequence) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends ViewPager.SimpleOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f44715e;
+        public final /* synthetic */ NativeEmotionManagerActivity a;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -127,27 +125,27 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {nativeEmotionManagerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44715e = nativeEmotionManagerActivity;
+            this.a = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                super.onPageSelected(i2);
-                if (this.f44715e.mManager == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                super.onPageSelected(i);
+                if (this.a.mManager == null) {
                     return;
                 }
-                this.f44715e.fragmentPostion = i2;
-                this.f44715e.ctrlIfShowEditButton();
+                this.a.fragmentPostion = i;
+                this.a.ctrlIfShowEditButton();
             }
         }
     }
@@ -157,9 +155,9 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -187,11 +185,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.isModerator = getIntent().getIntExtra(NativeEmotionManagerActivityConfig.KEY, 0);
-            this.mEmotionRootView = (LinearLayout) findViewById(R.id.emotion_root_view);
+            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a9);
             this.mTitles.add("我的表情");
             MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
             this.myEmotionManagerFragment = myEmotionManagerFragment;
-            myEmotionManagerFragment.setFragmentManagerListener(this);
+            myEmotionManagerFragment.I0(this);
             this.fragments.add(this.myEmotionManagerFragment);
             if (this.isModerator == 1) {
                 this.mTitles.add("单吧表情");
@@ -202,21 +200,21 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             TextView textView = new TextView(getPageContext().getPageActivity());
             this.mManager = textView;
-            textView.setPadding(0, n.f(this, R.dimen.ds20), n.f(this, R.dimen.ds31), n.f(this, R.dimen.ds20));
+            textView.setPadding(0, n.f(this, R.dimen.obfuscated_res_0x7f0701d5), n.f(this, R.dimen.obfuscated_res_0x7f070294), n.f(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.mManager.setClickable(true);
             this.mManager.setLayoutParams(layoutParams);
-            this.mManager.setText(R.string.emotion_manage_edit);
+            this.mManager.setText(R.string.obfuscated_res_0x7f0f0544);
             this.mManager.setOnClickListener(this);
             SkinManager.setViewTextColor(this.mManager, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_manager_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091529);
             this.mNavigationBar = navigationBar;
             navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mManager, (View.OnClickListener) null);
             this.mBackImg = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.emotion_navigation_manager_bar, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.mNavigationBar.findViewById(R.id.emotion_manager_nav);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0266, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.mNavigationBar.findViewById(R.id.obfuscated_res_0x7f09089e);
             this.mTabStrip = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.build(n.f(this, R.dimen.ds32), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds8), n.f(this, R.dimen.ds68), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.emotion_manager_viewpager);
+            commonPagerSlidingTabStrip.k(n.f(this, R.dimen.obfuscated_res_0x7f070207), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0702fb), n.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908a1);
             this.mViewPager = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.mViewPager.setOffscreenPageLimit(1);
@@ -229,23 +227,23 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Bundle bundle = new Bundle();
             bundle.putInt(NativeEmotionManagerActivityConfig.KEY, this.isModerator);
             this.createEmotionFragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.emotion_manager_create_new_emotion, this.createEmotionFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09089d, this.createEmotionFragment).commit();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mSkinType = i2;
-            getLayoutMode().k(i2 == 1);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mSkinType = i;
+            getLayoutMode().k(i == 1);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.mTabStrip;
             if (commonPagerSlidingTabStrip != null) {
-                commonPagerSlidingTabStrip.onChangeSkinType(i2);
+                commonPagerSlidingTabStrip.n(i);
             }
             TextView textView = this.mManager;
             if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0302, i2);
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0302, i);
             }
             LinearLayout linearLayout = this.mEmotionRootView;
             if (linearLayout != null) {
@@ -260,12 +258,12 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
             if (view == this.mManager) {
-                boolean z = !c.a.r0.p2.h.a.b().a();
-                c.a.r0.p2.h.a.b().d(z);
+                boolean z = !c.a.p0.r2.h.a.b().a();
+                c.a.p0.r2.h.a.b().d(z);
                 if (z) {
-                    this.mManager.setText(R.string.emotion_manage_finish);
+                    this.mManager.setText(R.string.obfuscated_res_0x7f0f0545);
                 } else {
-                    this.mManager.setText(R.string.emotion_manage_edit);
+                    this.mManager.setText(R.string.obfuscated_res_0x7f0f0544);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921310));
             }
@@ -278,13 +276,13 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.emotion_native_manager_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d0263);
             init();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.p2.h.c.a
+    @Override // c.a.p0.r2.h.c.a
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bool) == null) || bool == null) {

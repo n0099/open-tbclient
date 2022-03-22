@@ -13,7 +13,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, 
     public final boolean errorOnFewer;
     public final long index;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ElementAtSubscriber<T> extends DeferredScalarSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4066607327284737757L;
@@ -34,24 +34,24 @@ public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, 
         public Subscription s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ElementAtSubscriber(Subscriber<? super T> subscriber, long j2, T t, boolean z) {
+        public ElementAtSubscriber(Subscriber<? super T> subscriber, long j, T t, boolean z) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), t, Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, Long.valueOf(j), t, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.index = j2;
+            this.index = j;
             this.defaultValue = t;
             this.errorOnFewer = z;
         }
@@ -104,14 +104,14 @@ public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, 
             if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.cancel();
                 complete(t);
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -126,24 +126,24 @@ public final class FlowableElementAt<T> extends AbstractFlowableWithUpstream<T, 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableElementAt(Flowable<T> flowable, long j2, T t, boolean z) {
+    public FlowableElementAt(Flowable<T> flowable, long j, T t, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), t, Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), t, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.index = j2;
+        this.index = j;
         this.defaultValue = t;
         this.errorOnFewer = z;
     }

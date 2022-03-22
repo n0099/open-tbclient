@@ -44,9 +44,9 @@ public class IMSocketAddrProvider {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,11 +64,11 @@ public class IMSocketAddrProvider {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             if (list != null && !list.isEmpty()) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (Utility.isIpv4(list.get(i2))) {
-                        arrayList.add(list.get(i2));
+                for (int i = 0; i < list.size(); i++) {
+                    if (Utility.isIpv4(list.get(i))) {
+                        arrayList.add(list.get(i));
                     } else {
-                        arrayList2.add(list.get(i2));
+                        arrayList2.add(list.get(i));
                     }
                 }
             }
@@ -151,9 +151,9 @@ public class IMSocketAddrProvider {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -181,9 +181,9 @@ public class IMSocketAddrProvider {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;

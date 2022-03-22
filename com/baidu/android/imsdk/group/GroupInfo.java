@@ -66,9 +66,9 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -87,10 +87,10 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public GroupInfo[] newArray(int i2) {
+            public GroupInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new GroupInfo[i2] : (GroupInfo[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupInfo[i] : (GroupInfo[]) invokeI.objValue;
             }
         };
     }
@@ -102,9 +102,9 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -271,31 +271,31 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mUk : invokeV.longValue;
     }
 
-    public void setActiveState(int i2) {
+    public void setActiveState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mActiveState = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mActiveState = i;
         }
     }
 
-    public void setBrief(int i2) {
+    public void setBrief(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.brief = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.brief = i;
         }
     }
 
-    public void setBuid(long j2) {
+    public void setBuid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-            this.mBduid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.mBduid = j;
         }
     }
 
-    public void setCreateTime(long j2) {
+    public void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            this.mCreateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            this.mCreateTime = j;
         }
     }
 
@@ -306,17 +306,17 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setDisturb(int i2) {
+    public void setDisturb(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.mDisturb = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.mDisturb = i;
         }
     }
 
-    public void setGroupCapacity(int i2) {
+    public void setGroupCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.mGroupCapacity = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.mGroupCapacity = i;
         }
     }
 
@@ -334,10 +334,10 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setGroupVerify(int i2) {
+    public void setGroupVerify(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.mGroupVerify = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.mGroupVerify = i;
         }
     }
 
@@ -348,73 +348,73 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setInfoVersion(long j2) {
+    public void setInfoVersion(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
-            this.mInfoVersion = j2;
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
+            this.mInfoVersion = j;
         }
     }
 
-    public void setLocalInfoVersion(long j2) {
+    public void setLocalInfoVersion(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048612, this, j2) == null) {
-            this.mLocalInfoVersion = j2;
+        if (interceptable == null || interceptable.invokeJ(1048612, this, j) == null) {
+            this.mLocalInfoVersion = j;
         }
     }
 
-    public void setLocalMembersVersion(long j2) {
+    public void setLocalMembersVersion(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j2) == null) {
-            this.mLocalMembersVersion = j2;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+            this.mLocalMembersVersion = j;
         }
     }
 
-    public void setMarkTop(int i2) {
+    public void setMarkTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mMarkTop = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mMarkTop = i;
         }
     }
 
-    public void setMarkTopTime(long j2) {
+    public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
-            this.mMarkTopTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.mMarkTopTime = j;
         }
     }
 
-    public void setMembersVersion(long j2) {
+    public void setMembersVersion(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.mMembersVersion = j2;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.mMembersVersion = j;
         }
     }
 
-    public void setNum(int i2) {
+    public void setNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.mNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mNum = i;
         }
     }
 
-    public void setState(int i2) {
+    public void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.state = i2;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.state = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.mType = i;
         }
     }
 
-    public void setUk(long j2) {
+    public void setUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
-            this.mUk = j2;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.mUk = j;
         }
     }
 
@@ -428,9 +428,9 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048622, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048622, this, parcel, i) == null) {
             parcel.writeString(this.mGroupId);
             parcel.writeString(this.mGroupName);
             parcel.writeString(this.mDescription);
@@ -462,9 +462,9 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

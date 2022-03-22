@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
 import com.baidu.minivideo.plugin.capture.utils.StringUtils;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,9 +43,9 @@ public class FaceItem implements Jsonable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -215,7 +216,7 @@ public class FaceItem implements Jsonable {
                 this.bgurl = jSONObject.optString("bgurl");
                 this.file = jSONObject.optString("file");
                 this.sk = jSONObject.optString("sk");
-                this.musicId = jSONObject.optString("music_id");
+                this.musicId = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
                 this.tip = jSONObject.optString("tip");
                 this.filterId = jSONObject.optString("filter_id");
                 this.mResFile = jSONObject.optString("mResFile");

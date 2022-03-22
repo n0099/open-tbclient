@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KTTimer implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class KTTimer implements NativeModule {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,16 +48,16 @@ public class KTTimer implements NativeModule {
         this.timer = new Timer();
     }
 
-    public void clearInterval(int i2) {
+    public void clearInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             try {
-                V8Function v8Function = this.cMap.get(Integer.valueOf(i2));
+                V8Function v8Function = this.cMap.get(Integer.valueOf(i));
                 if (v8Function != null) {
                     V8Proxy.release(v8Function);
                 }
-                this.cMap.remove(Integer.valueOf(i2));
-                TimerTask timerTask = this.tasks.get(Integer.valueOf(i2));
+                this.cMap.remove(Integer.valueOf(i));
+                TimerTask timerTask = this.tasks.get(Integer.valueOf(i));
                 if (timerTask != null) {
                     timerTask.cancel();
                 }
@@ -70,15 +70,15 @@ public class KTTimer implements NativeModule {
         }
     }
 
-    public void clearTimeout(int i2) {
+    public void clearTimeout(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.timeoutCallbacks.containsKey(Integer.valueOf(i2))) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.timeoutCallbacks.containsKey(Integer.valueOf(i))) {
             try {
-                V8Function v8Function = this.timeoutCallbacks.get(Integer.valueOf(i2));
+                V8Function v8Function = this.timeoutCallbacks.get(Integer.valueOf(i));
                 if (v8Function != null) {
                     V8Proxy.release(v8Function);
                 }
-                this.timeoutCallbacks.remove(Integer.valueOf(i2));
+                this.timeoutCallbacks.remove(Integer.valueOf(i));
             } catch (Throwable th) {
                 TKExceptionDispatcher.reportException(null, th);
             }
@@ -112,10 +112,10 @@ public class KTTimer implements NativeModule {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "KTTimer" : (String) invokeV.objValue;
     }
 
-    public int setInterval(V8Function v8Function, long j2) {
+    public int setInterval(V8Function v8Function, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, v8Function, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, v8Function, j)) == null) {
             try {
                 V8Function twin = v8Function.twin();
                 TimerTask timerTask = new TimerTask(this, twin) { // from class: com.tachikoma.core.component.timer.KTTimer.1
@@ -131,9 +131,9 @@ public class KTTimer implements NativeModule {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, twin};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -159,9 +159,9 @@ public class KTTimer implements NativeModule {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -187,7 +187,7 @@ public class KTTimer implements NativeModule {
                         }
                     }
                 };
-                this.timer.schedule(timerTask, j2, j2);
+                this.timer.schedule(timerTask, j, j);
                 int hashCode = timerTask.hashCode();
                 this.cMap.put(Integer.valueOf(hashCode), twin);
                 this.tasks.put(Integer.valueOf(hashCode), timerTask);
@@ -200,10 +200,10 @@ public class KTTimer implements NativeModule {
         return invokeLJ.intValue;
     }
 
-    public int setTimeout(V8Function v8Function, long j2) {
+    public int setTimeout(V8Function v8Function, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, v8Function, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, v8Function, j)) == null) {
             try {
                 V8Function twin = v8Function.twin();
                 int hashCode = twin.hashCode();
@@ -221,9 +221,9 @@ public class KTTimer implements NativeModule {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, twin, Integer.valueOf(hashCode)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -251,7 +251,7 @@ public class KTTimer implements NativeModule {
                     }
                 };
                 this.pendingRunnableList.add(runnable);
-                UIThreadUtil.postDelay(runnable, j2);
+                UIThreadUtil.postDelay(runnable, j);
                 this.timeoutCallbacks.put(Integer.valueOf(hashCode), twin);
                 return hashCode;
             } catch (Throwable th) {

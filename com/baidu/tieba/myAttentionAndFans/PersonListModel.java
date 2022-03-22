@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.q0.r.r.i1;
+import c.a.o0.r.r.g1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -15,6 +15,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -32,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
@@ -43,51 +44,53 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static final int TYPE_ALL = 0;
     public static final int TYPE_EACH = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f34563b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f34564c;
     public CustomMessageListener customListener;
 
+    /* renamed from: d  reason: collision with root package name */
+    public d f34565d;
+
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44612e;
+    public int f34566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44613f;
+    public PersonListActivity f34567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44614g;
+    public c.a.o0.s.e.a f34568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f44615h;
+    public int f34569h;
     public HttpMessageListener httpListener;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f44616i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public PersonListActivity f44617j;
-    public c.a.q0.s.e.a k;
-    public int l;
-    public int m;
+    public int i;
+    public String j;
+    public int k;
     public HttpMessageListener mFollowSwitchListener;
-    public String n;
-    public int o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PersonListModel personListModel, int i2) {
-            super(i2);
+        public a(PersonListModel personListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                Object[] objArr = {personListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -105,35 +108,35 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode == 200 && error == 0) {
-                    this.a.K();
+                    this.a.M();
                     return;
                 }
                 BdLog.e("follow switch request fail");
-                if (this.a.f44615h != null) {
-                    this.a.f44615h.b("follow switch request fail", false);
+                if (this.a.f34565d != null) {
+                    this.a.f34565d.b("follow switch request fail", false);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(PersonListModel personListModel, int i2) {
-            super(i2);
+        public b(PersonListModel personListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                Object[] objArr = {personListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -155,51 +158,51 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 if (statusCode != 200 || error != 0) {
-                    if (this.a.f44615h != null) {
+                    if (this.a.f34565d != null) {
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.f44617j.getResources().getString(R.string.neterror);
+                            errorString = this.a.f34567f.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
-                        this.a.f44615h.b(errorString, false);
+                        this.a.f34565d.b(errorString, false);
                         return;
                     }
                     return;
                 }
-                i1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                g1 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    if (!StringUtils.isNull(data.f13302g)) {
-                        this.a.n = data.f13302g;
-                        this.a.m = data.f13303h;
+                    if (!StringUtils.isNull(data.f10877g)) {
+                        this.a.j = data.f10877g;
+                        this.a.i = data.f10878h;
                     }
-                    data.f13303h = this.a.m;
-                    data.f13302g = this.a.n;
+                    data.f10878h = this.a.i;
+                    data.f10877g = this.a.j;
                 }
-                if (this.a.f44615h != null) {
-                    this.a.f44615h.a(data, false);
+                if (this.a.f34565d != null) {
+                    this.a.f34565d.a(data, false);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(PersonListModel personListModel, int i2) {
-            super(i2);
+        public c(PersonListModel personListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personListModel, Integer.valueOf(i2)};
+                Object[] objArr = {personListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -214,35 +217,35 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
-                i1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+                g1 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                 if (data2 == null) {
-                    if (this.a.f44615h != null) {
-                        this.a.f44615h.b("", true);
+                    if (this.a.f34565d != null) {
+                        this.a.f34565d.b("", true);
                         return;
                     }
                     return;
                 }
-                if (!StringUtils.isNull(data2.f13302g)) {
-                    this.a.n = data2.f13302g;
-                    this.a.m = data2.f13303h;
+                if (!StringUtils.isNull(data2.f10877g)) {
+                    this.a.j = data2.f10877g;
+                    this.a.i = data2.f10878h;
                 }
-                data2.f13303h = this.a.m;
-                data2.f13302g = this.a.n;
-                if (this.a.f44615h != null) {
-                    this.a.f44615h.a(data2, true);
+                data2.f10878h = this.a.i;
+                data2.f10877g = this.a.j;
+                if (this.a.f34565d != null) {
+                    this.a.f34565d.a(data2, true);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface d {
-        i1 a(i1 i1Var, boolean z);
+        g1 a(g1 g1Var, boolean z);
 
         void b(String str, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class e extends BdAsyncTask<Void, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,9 +258,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -310,58 +313,58 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {personListActivity, dVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f44616i = 0;
-        this.l = 0;
-        this.o = 0;
+        this.f34566e = 0;
+        this.f34569h = 0;
+        this.k = 0;
         this.mFollowSwitchListener = new a(this, CmdConfigHttp.CMD_FOLLOW_SWITCH);
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
-        this.f44617j = personListActivity;
-        c.a.q0.s.e.a aVar = new c.a.q0.s.e.a(personListActivity.getPageContext());
-        this.k = aVar;
+        this.f34567f = personListActivity;
+        c.a.o0.s.e.a aVar = new c.a.o0.s.e.a(personListActivity.getPageContext());
+        this.f34568g = aVar;
         aVar.j(this.mLoadDataCallBack);
-        this.f44612e = true;
-        this.f44613f = null;
-        this.f44615h = dVar;
+        this.a = true;
+        this.f34563b = null;
+        this.f34565d = dVar;
     }
 
-    public boolean C() {
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44612e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public int D() {
+    public int F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34569h : invokeV.intValue;
     }
 
-    public int E() {
+    public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44616i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34566e : invokeV.intValue;
     }
 
-    public void F(int i2) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.l = i2;
-            this.f44616i = 0;
-            K();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f34569h = i;
+            this.f34566e = 0;
+            M();
         }
     }
 
-    public void G() {
+    public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -372,12 +375,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void H() {
+    public void J() {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            if (this.f44612e) {
+            if (this.a) {
                 str = TbConfig.SERVER_ADDRESS + "c/u/follow/followList";
             } else {
                 str = TbConfig.SERVER_ADDRESS + "c/u/fans/page";
@@ -389,7 +392,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void I() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.customListener);
@@ -398,68 +401,68 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         }
     }
 
-    public void J(int i2) {
+    public void L(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.o = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.k = i;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FOLLOW_SWITCH);
-            httpMessage.addParam("follow_list_switch", i2);
+            httpMessage.addParam("follow_list_switch", i);
             sendMessage(httpMessage);
         }
     }
 
-    public void K() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
             HashMap hashMap = new HashMap();
-            if (this.f44612e) {
+            if (this.a) {
                 httpMessage.setTag(FOLLOWME);
             } else {
                 httpMessage.setTag(MYFOLLOW);
             }
-            String str = this.f44613f;
+            String str = this.f34563b;
             if (str != null && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                httpMessage.addParam("uid", this.f44613f);
+                httpMessage.addParam("uid", this.f34563b);
             }
-            hashMap.put("id", String.valueOf(this.f44613f));
-            int i2 = this.f44616i;
-            if (i2 != 0) {
-                int i3 = i2 + 1;
-                this.f44616i = i3;
-                httpMessage.addParam("pn", String.valueOf(i3));
+            hashMap.put("id", String.valueOf(this.f34563b));
+            int i = this.f34566e;
+            if (i != 0) {
+                int i2 = i + 1;
+                this.f34566e = i2;
+                httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(i2));
             }
-            httpMessage.addParam("tab", this.l);
-            httpMessage.addParam("follow_list_switch", this.o);
-            hashMap.put("page", String.valueOf(this.f44616i));
+            httpMessage.addParam("tab", this.f34569h);
+            httpMessage.addParam("follow_list_switch", this.k);
+            hashMap.put("page", String.valueOf(this.f34566e));
             hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
             httpMessage.setExtra(hashMap);
             sendMessage(httpMessage);
         }
     }
 
-    public void L(String str) {
+    public void N(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f44613f = str;
+            this.f34563b = str;
         }
     }
 
-    public void M(boolean z) {
+    public void O(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f44612e = z;
+            this.a = z;
         }
     }
 
-    public void N(int i2) {
+    public void P(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f44616i = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f34566e = i;
         }
     }
 
-    public void O(String str) {
+    public void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             new e(str).execute(new Void[0]);
@@ -479,13 +482,13 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f44613f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f34563b : (String) invokeV.objValue;
     }
 
     public int getSex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f44614g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f34564c : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -498,10 +501,10 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return invokeV.booleanValue;
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f44614g = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.f34564c = i;
         }
     }
 }

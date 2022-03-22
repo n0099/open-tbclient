@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.c1.a0;
-import c.a.r0.v2.c.a;
-import c.a.r0.v2.c.d;
-import c.a.r0.v2.c.e;
+import c.a.o0.c1.a0;
+import c.a.p0.x2.c.a;
+import c.a.p0.x2.c.d;
+import c.a.p0.x2.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_KEY_PRAISE_TOTAL = "KeyIntentPraiseId";
@@ -37,9 +37,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,10 +68,10 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mZanListView.c(getLayoutMode(), i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mZanListView.c(getLayoutMode(), i);
         }
     }
 
@@ -79,16 +79,16 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view == this.mZanListView.e()) {
+            if (view == this.mZanListView.g()) {
                 beforeFinishActivity();
                 if (this.mZanListModel.l()) {
                     finish();
                     return;
                 }
                 a0.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
-            } else if (view != this.mZanListView.d() || this.mZanListView.f()) {
+            } else if (view != this.mZanListView.d() || this.mZanListView.h()) {
             } else {
-                this.mZanListView.i(true);
+                this.mZanListView.k(true);
                 this.mZanListModel.m(this.pageType);
             }
         }
@@ -119,7 +119,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             this.mZanListModel.t(z);
             e eVar = new e(this, this.mZanListModel.i());
             this.mZanListView = eVar;
-            eVar.i(false);
+            eVar.k(false);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -134,32 +134,32 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        a j3;
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        a j2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (j3 = this.mZanListModel.j(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.mZanListModel.j(i)) == null) {
             return;
         }
-        a0.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j3.c(), j3.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a0.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // c.a.r0.v2.c.d.b
+    @Override // c.a.p0.x2.c.d.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (m.isEmpty(str)) {
-                str = getResources().getString(R.string.neterror);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
             }
-            this.mZanListView.j();
-            this.mZanListView.h(str, this.pageType);
+            this.mZanListView.l();
+            this.mZanListView.j(str, this.pageType);
         }
     }
 
-    @Override // c.a.r0.v2.c.d.b
-    public void onLoadSuccessed(int i2, List<a> list, int i3, int i4) {
+    @Override // c.a.p0.x2.c.d.b
+    public void onLoadSuccessed(int i, List<a> list, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mZanListView.k(i2, list, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mZanListView.m(i, list, i2, i3);
         }
     }
 
@@ -168,7 +168,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            this.mZanListView.g();
+            this.mZanListView.i();
         }
     }
 

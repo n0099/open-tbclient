@@ -1,10 +1,10 @@
 package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.r0.s1.f.c;
-import c.a.r0.s1.h.l;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.p0.u1.f.c;
+import c.a.p0.u1.h.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,9 +27,7 @@ import java.util.LinkedList;
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f43904e;
+    public CustomMessageListener a;
 
     /* loaded from: classes5.dex */
     public class a extends k0<Boolean> {
@@ -38,7 +36,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         public final /* synthetic */ ChatMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OfficialNotificationListModel f43905b;
+        public final /* synthetic */ OfficialNotificationListModel f34076b;
 
         public a(OfficialNotificationListModel officialNotificationListModel, ChatMessage chatMessage) {
             Interceptable interceptable = $ic;
@@ -47,25 +45,25 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {officialNotificationListModel, chatMessage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43905b = officialNotificationListModel;
+            this.f34076b = officialNotificationListModel;
             this.a = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.c1.k0
+        @Override // c.a.o0.c1.k0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l.t().c(String.valueOf(this.f43905b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l.t().c(String.valueOf(this.f34076b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -76,17 +74,17 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         public final /* synthetic */ OfficialNotificationListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(OfficialNotificationListModel officialNotificationListModel, int i2) {
-            super(i2);
+        public b(OfficialNotificationListModel officialNotificationListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {officialNotificationListModel, Integer.valueOf(i2)};
+                Object[] objArr = {officialNotificationListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -118,15 +116,15 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43904e = new b(this, 0);
+        this.a = new b(this, 0);
         this.mDatas = new MsgPageData();
         registerListener();
         this.customGroupType = 4;
@@ -190,10 +188,10 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f43632c = 20;
+            aVar.f33853c = 20;
             aVar.a = null;
-            aVar.f43631b = null;
-            aVar.f43633d = this.mUser.getUserIdLong() + "";
+            aVar.f33852b = null;
+            aVar.f33854d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
             return true;
         }
@@ -203,25 +201,25 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadPrepage() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.mUser == null) {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f43632c = 20;
+            aVar.f33853c = 20;
             MsgPageData msgPageData = this.mDatas;
-            long j3 = 0;
+            long j2 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-                j2 = 0;
+                j = 0;
             } else {
-                j3 = this.mDatas.getChatMessages().get(0).getMsgId();
-                j2 = this.mDatas.getChatMessages().get(0).getRecordId();
+                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+                j = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.a = String.valueOf(j3);
-            aVar.f43631b = String.valueOf(j2);
-            aVar.f43633d = this.mUser.getUserIdLong() + "";
+            aVar.a = String.valueOf(j2);
+            aVar.f33852b = String.valueOf(j);
+            aVar.f33854d = this.mUser.getUserIdLong() + "";
             super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
             return true;
         }
@@ -268,8 +266,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            MessageManager.getInstance().registerListener(2012123, this.f43904e);
-            MessageManager.getInstance().registerListener(2001147, this.f43904e);
+            MessageManager.getInstance().registerListener(2012123, this.a);
+            MessageManager.getInstance().registerListener(2001147, this.a);
         }
     }
 
@@ -286,7 +284,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     public final void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f43904e);
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
     }
 }

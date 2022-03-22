@@ -12,14 +12,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Predicate;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableOnErrorComplete extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Predicate<? super Throwable> predicate;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class OnError implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public final class CompletableOnErrorComplete extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableOnErrorComplete, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,9 +86,9 @@ public final class CompletableOnErrorComplete extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSource, predicate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -52,9 +52,9 @@ public class c implements a, b {
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -177,16 +177,16 @@ public class c implements a, b {
     }
 
     @Override // com.baidu.ar.vo.b.a
-    public int insertModel(String str, int i2, int i3, float[] fArr, float f2) {
+    public int insertModel(String str, int i, int i2, float[] fArr, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), fArr, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)})) == null) {
             if (this.yL) {
                 this.yP = f2;
                 if (fArr == null) {
                     fArr = yI;
                 }
-                int insertModel = ARVOJniClient.insertModel(str, i2, i3, fArr, 1.0f);
+                int insertModel = ARVOJniClient.insertModel(str, i, i2, fArr, 1.0f);
                 this.yO = true;
                 return insertModel;
             }

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source;
 import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface SampleStream {
     boolean isReady();
 
@@ -11,5 +11,5 @@ public interface SampleStream {
 
     int readData(FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z);
 
-    int skipData(long j2);
+    int skipData(long j);
 }

@@ -27,9 +27,9 @@ public final class DirectHeader$byteArray$2 extends Lambda implements Function2<
             newInitContext.initArgs = r2;
             Object[] objArr = {directHeader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,9 +47,9 @@ public final class DirectHeader$byteArray$2 extends Lambda implements Function2<
         return Unit.INSTANCE;
     }
 
-    public final void invoke(int i2, List<Byte> value) {
+    public final void invoke(int i, List<Byte> value) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, value) != null) {
+        if (interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, value) != null) {
             return;
         }
         Intrinsics.checkNotNullParameter(value, "value");
@@ -57,14 +57,14 @@ public final class DirectHeader$byteArray$2 extends Lambda implements Function2<
         if (size < 0) {
             return;
         }
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
-            int i4 = i3 + 1;
-            this.this$0.getBuffer()[i2 + i3] = value.get(i3).byteValue();
-            if (i4 > size) {
+            int i3 = i2 + 1;
+            this.this$0.getBuffer()[i + i2] = value.get(i2).byteValue();
+            if (i3 > size) {
                 return;
             }
-            i3 = i4;
+            i2 = i3;
         }
     }
 }

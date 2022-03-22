@@ -18,23 +18,23 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2757b;
+    public String f2279b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 0L;
-        this.f2757b = null;
+        this.f2279b = null;
     }
 
     public boolean a() {
@@ -52,7 +52,7 @@ public class b {
             try {
                 JSONObject jSONObject = new JSONObject(a);
                 this.a = jSONObject.getLong("time");
-                this.f2757b = jSONObject.getString("data");
+                this.f2279b = jSONObject.getString("data");
                 return true;
             } catch (JSONException e2) {
                 e2.printStackTrace();

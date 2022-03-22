@@ -34,9 +34,9 @@ public class IMPaSubscribedListMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,18 +115,18 @@ public class IMPaSubscribedListMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             List<PaInfo> list = null;
-            if (i2 == 0) {
+            if (i == 0) {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");
                     if (optJSONArray != null) {
                         ArrayList arrayList = new ArrayList();
-                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             try {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                                 long optLong = jSONObject2.optLong("pa_uid");
                                 String optString = jSONObject2.optString("pa_nickname");
                                 String optString2 = jSONObject2.optString("pa_avatar");
@@ -147,8 +147,8 @@ public class IMPaSubscribedListMsg extends Message {
                                 list = arrayList;
                                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                super.handleMessageResult(context, jSONObject, i2, str);
-                                PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
+                                super.handleMessageResult(context, jSONObject, i, str);
+                                PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                             }
                         }
                         localSyncSubscribedPaList(context, arrayList);
@@ -157,22 +157,22 @@ public class IMPaSubscribedListMsg extends Message {
                 } catch (Exception e3) {
                     e = e3;
                 }
-            } else if (1001 == i2) {
+            } else if (1001 == i) {
                 try {
                     str = "query from local db";
                     list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
-                    i2 = 0;
+                    i = 0;
                 } catch (Exception e4) {
                     e = e4;
-                    i2 = 0;
+                    i = 0;
                     LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    super.handleMessageResult(context, jSONObject, i2, str);
-                    PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
+                    super.handleMessageResult(context, jSONObject, i, str);
+                    PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i2, str, list);
+            super.handleMessageResult(context, jSONObject, i, str);
+            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
         }
     }
 }

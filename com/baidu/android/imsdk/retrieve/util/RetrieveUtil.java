@@ -20,25 +20,25 @@ public class RetrieveUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean isRetrievePaUid(Context context, long j2) {
+    public static boolean isRetrievePaUid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
             int readIntData = Utility.readIntData(context, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
-                if ((readIntData != 1 && readIntData != 2 && readIntData != 3) || j2 != RETRIEVE_PAUID_TEST) {
+                if ((readIntData != 1 && readIntData != 2 && readIntData != 3) || j != RETRIEVE_PAUID_TEST) {
                     return false;
                 }
-            } else if (j2 != RETRIEVE_PAUID_ONLINE) {
+            } else if (j != RETRIEVE_PAUID_ONLINE) {
                 return false;
             }
             return true;

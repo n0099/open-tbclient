@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.b0.h.b;
-import c.a.q.g.a.a;
-import c.a.t0.c0;
+import c.a.a0.h.b;
+import c.a.p.g.a.a;
+import c.a.r0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -24,9 +24,9 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,7 +45,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            a.C0799a.c(TbadkCoreApplication.getInst()).b().t();
+            a.C0889a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -53,7 +53,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (c.a.i0.b.a.a.g()) {
+            if (c.a.g0.b.a.a.g()) {
                 c0.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }

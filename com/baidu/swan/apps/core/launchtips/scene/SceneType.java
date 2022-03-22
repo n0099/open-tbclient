@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.launchtips.scene;
 
 import androidx.annotation.NonNull;
-import c.a.p0.a.x.i.b;
+import c.a.n0.a.x.i.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,23 +45,23 @@ public final class SceneType {
         SCENE_SKELETON_TIMEOUT = new SceneType("SCENE_SKELETON_TIMEOUT", 2, "skeleton", "5秒内未触发骨架屏移除；");
         SCENE_WHITE_SCREEN_L1 = new SceneType("SCENE_WHITE_SCREEN_L1", 3, "whiteScreen_L1", "检测到纯白屏；");
         SCENE_WHITE_SCREEN_L2 = new SceneType("SCENE_WHITE_SCREEN_L2", 4, "whiteScreen_L2", b.a);
-        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", b.f8436b);
+        SCENE_WHITE_SCREEN_L3 = new SceneType("SCENE_WHITE_SCREEN_L3", 5, "whiteScreen_L3", b.f7088b);
         SCENE_INIT_DATA_ERROR = new SceneType("SCENE_INIT_DATA_ERROR", 6, "data_init", "业务数据初始化异常；");
         SceneType sceneType = new SceneType("SCENE_SKELETON_DEV_TIMEOUT", 7, "skeleton_dev", "开发者骨架屏异常；");
         SCENE_SKELETON_DEV_TIMEOUT = sceneType;
         $VALUES = new SceneType[]{SCENE_PMS_TIMEOUT, SCENE_DOWNLOAD_PKG_TIMEOUT, SCENE_SKELETON_TIMEOUT, SCENE_WHITE_SCREEN_L1, SCENE_WHITE_SCREEN_L2, SCENE_WHITE_SCREEN_L3, SCENE_INIT_DATA_ERROR, sceneType};
     }
 
-    public SceneType(@NonNull String str, @NonNull int i2, String str2, String str3) {
+    public SceneType(@NonNull String str, @NonNull int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str4 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

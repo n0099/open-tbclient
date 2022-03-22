@@ -1,6 +1,7 @@
 package com.faceunity.gles;
 
 import android.opengl.GLES20;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlatShadedProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER = "precision mediump float;uniform vec4 uColor;void main() {    gl_FragColor = uColor;}";
@@ -25,9 +26,9 @@ public class FlatShadedProgram {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,7 +41,7 @@ public class FlatShadedProgram {
         int createProgram = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER);
         this.mProgramHandle = createProgram;
         if (createProgram != 0) {
-            String str = "Created program " + this.mProgramHandle;
+            Log.d("Grafika", "Created program " + this.mProgramHandle);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -55,9 +56,9 @@ public class FlatShadedProgram {
         throw new RuntimeException("Unable to create program");
     }
 
-    public void draw(float[] fArr, float[] fArr2, FloatBuffer floatBuffer, int i2, int i3, int i4, int i5) {
+    public void draw(float[] fArr, float[] fArr2, FloatBuffer floatBuffer, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{fArr, fArr2, floatBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{fArr, fArr2, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             GlUtil.checkGlError("draw start");
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
@@ -67,9 +68,9 @@ public class FlatShadedProgram {
             GlUtil.checkGlError("glUniform4fv ");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
-            GLES20.glDrawArrays(5, i2, i3);
+            GLES20.glDrawArrays(5, i, i2);
             GlUtil.checkGlError("glDrawArrays");
             GLES20.glDisableVertexAttribArray(this.maPositionLoc);
             GLES20.glUseProgram(0);

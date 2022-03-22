@@ -3,11 +3,11 @@ package com.baidu.nadcore.stats.request;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.a0.c.c;
-import c.a.b0.a0.c.d;
-import c.a.b0.x.b;
-import com.alipay.sdk.encrypt.a;
+import c.a.a0.a0.c.c;
+import c.a.a0.a0.c.d;
+import c.a.a0.x.b;
 import com.baidu.adp.ApsConstants;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,7 +27,7 @@ public class ClogBuilder extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final JSONObject f35771c;
+    public final JSONObject f27642c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -101,16 +100,16 @@ public class ClogBuilder extends c {
             $VALUES = new Area[]{ICON, NAME, BUTTON, INSTALL_NOW_BUTTON, INSTALL_LATER_BUTTON, HOTAREA, AD_NOTIFICATION_ITEM_CLICK, AD_NOTIFICATION_BTN_CLICK, AD_NOTIFICATION_SHOW, AD_NOTIFICATION_NOTIFY, AD_NOTIFICATION_REMOVE, DIALOG, DIALOG_POSITIVE, DIALOG_NEGATIVE, DIALOG_KEYBACK, AD_CALL, APP_PRIVACY, APP_PERMISSION, FLOATING, IMAGE, CLOSE_BTN, AUTO_HIDE, area};
         }
 
-        public Area(String str, int i2, String str2) {
+        public Area(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -228,14 +227,14 @@ public class ClogBuilder extends c {
             FAIL = new LogType("FAIL", 3, "6");
             CLOSE = new LogType("CLOSE", 4, "7");
             FREE_SHOW = new LogType("FREE_SHOW", 5, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-            FREE_CLICK = new LogType("FREE_CLICK", 6, TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY);
+            FREE_CLICK = new LogType("FREE_CLICK", 6, "102");
             VIDEO_LP_BT = new LogType("VIDEO_LP_BT", 7, "12");
             VIDEO_LP_PV = new LogType("VIDEO_LP_PV", 8, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
             VIDEO_LP_VIDEO_HIDE = new LogType("VIDEO_LP_VIDEO_HIDE", 9, "131");
             CHAN_MORE = new LogType("CHAN_MORE", 10, "22");
             DEEP_LINK = new LogType("DEEP_LINK", 11, "706");
-            VISIBLE_SHOW = new LogType("VISIBLE_SHOW", 12, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE203);
-            VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY);
+            VISIBLE_SHOW = new LogType("VISIBLE_SHOW", 12, "203");
+            VIDEO_LP_TAIL_CLICK = new LogType("VIDEO_LP_TAIL_CLICK", 13, "102");
             DOWNLOAD_START = new LogType("DOWNLOAD_START", 14, "701");
             DOWNLOAD_PAUSE = new LogType("DOWNLOAD_PAUSE", 15, "702");
             DOWNLOAD_CONTINUE = new LogType("DOWNLOAD_CONTINUE", 16, "703");
@@ -253,15 +252,15 @@ public class ClogBuilder extends c {
             DAZZLE_IN = new LogType("DAZZLE_IN", 28, "51");
             DAZZLE_OUT = new LogType("DAZZLE_OUT", 29, "52");
             DAZZLE_TRANS_SLIDING_COUNT = new LogType("DAZZLE_TRANS_SLIDING_COUNT", 30, "54");
-            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 31, TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY);
+            DAZZLE_CLICK = new LogType("DAZZLE_CLICK", 31, "102");
             DAZZLE_CARD_SHOW = new LogType("DAZZLE_CARD_SHOW", 32, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
             PLAY_ZERO_SEC = new LogType("PLAY_ZERO_SEC", 33, "30");
             VIDEO_START = new LogType("VIDEO_START", 34, "31");
             VIDEO_PAUSE = new LogType("VIDEO_PAUSE", 35, "32");
             VIDEO_RESUME = new LogType("VIDEO_RESUME", 36, "33");
             VIDEO_COMPLETED = new LogType("VIDEO_COMPLETED", 37, "34");
-            EXCEPTION = new LogType("EXCEPTION", 38, "501");
-            CHECK = new LogType("CHECK", 39, "502");
+            EXCEPTION = new LogType("EXCEPTION", 38, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT);
+            CHECK = new LogType("CHECK", 39, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC);
             TOP_VIEW_SPEED_STATE = new LogType("TOP_VIEW_SPEED_STATE", 40, "801");
             NAVIDEO_POP_CLOSE = new LogType("NAVIDEO_POP_CLOSE", 41, "8");
             INTERACTION_PRAISE = new LogType("INTERACTION_PRAISE", 42, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
@@ -292,16 +291,16 @@ public class ClogBuilder extends c {
             $VALUES = new LogType[]{CLICK, SHOW, DISCARD, FAIL, CLOSE, FREE_SHOW, FREE_CLICK, VIDEO_LP_BT, VIDEO_LP_PV, VIDEO_LP_VIDEO_HIDE, CHAN_MORE, DEEP_LINK, VISIBLE_SHOW, VIDEO_LP_TAIL_CLICK, DOWNLOAD_START, DOWNLOAD_PAUSE, DOWNLOAD_CONTINUE, DOWNLOAD_COMPLETE, DOWNLOAD_INSTALL, DOWNLOAD_RETRY, DOWNLOAD_FAILED, INSTALL_COMPLETE, OPEN_APP, AD_CALL, VISIBLE_TWO_SEC, TAIL_FRAME_SHOW_TIME, DURATION, TRUE_VIEW, DAZZLE_IN, DAZZLE_OUT, DAZZLE_TRANS_SLIDING_COUNT, DAZZLE_CLICK, DAZZLE_CARD_SHOW, PLAY_ZERO_SEC, VIDEO_START, VIDEO_PAUSE, VIDEO_RESUME, VIDEO_COMPLETED, EXCEPTION, CHECK, TOP_VIEW_SPEED_STATE, NAVIDEO_POP_CLOSE, INTERACTION_PRAISE, INTERACTION_SHARE, INTERACTION_COMMENT, SKIP, STOCK, GESTURE_MATCH_SUCCESS, GESTURE_MATCH_FAILURE, INTERACTION_FOLLOW, AD_NOTIFICATION_NOTIFY_FAILED, LOTTIE_LONG_PRESS, LOTTIE_SHOW, LOTTIE_DISMISS, LOTTIE_CLICK, LOTTIE_RES_PREFETCH_FAIL, LOTTIE_LOAD_FAIL, HOME_PAGE_FIRST_SCREEN_AD_SHOW, HW_API_REQUEST, DEEPLINK_STAY_TRANS, DEEPLINK_STAY_TIME, INTERACTION_COLLECT, PHONE_STATE_LISTEN, REWARD_TOKEN_FAIL, REWARD_COIN_FAIL, logType};
         }
 
-        public LogType(String str, int i2, String str2) {
+        public LogType(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -393,16 +392,16 @@ public class ClogBuilder extends c {
             $VALUES = new Page[]{AD_CALL, AD_NOTIFICATION, RETARGET, AD_START_INSTALL_TIPS, AD_INSTALL_TIPS, POPUP, PAGE_NA, PAGE_SEARCHBOX, AD_TAIL, PAGE_VIDEO_LANDING, PAGE_VIDEO_TAIL, REWARD_VIDEO, NA_SPLASH, DOWNLOAD_RECTIFY, VIDEO_LIST, WELFAREPANEL, WELFAREMAXLP, WELFARETAIL, PAGE_VIDEO_IMMERSIVE_LP, NAVIDEO_POP, page};
         }
 
-        public Page(String str, int i2, String str2) {
+        public Page(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -432,19 +431,19 @@ public class ClogBuilder extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35771c = b.b(null);
+        this.f27642c = b.b(null);
         c("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // c.a.b0.a0.c.a, c.a.b0.a0.c.d
+    @Override // c.a.a0.a0.c.a, c.a.a0.a0.c.d
     public <T extends d> T a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -455,7 +454,7 @@ public class ClogBuilder extends c {
         return (T) invokeLL.objValue;
     }
 
-    @Override // c.a.b0.a0.c.a
+    @Override // c.a.a0.a0.c.a
     public <T extends d> T c(String str, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -463,7 +462,7 @@ public class ClogBuilder extends c {
             if (TextUtils.isEmpty(str)) {
                 return this;
             }
-            b.e(this.f35771c, str, obj);
+            b.e(this.f27642c, str, obj);
             return this;
         }
         return (T) invokeLL.objValue;
@@ -473,7 +472,7 @@ public class ClogBuilder extends c {
     public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35771c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27642c : (JSONObject) invokeV.objValue;
     }
 
     public ClogBuilder g(Area area) {
@@ -506,12 +505,12 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.b0.a0.c.c, c.a.b0.a0.c.d
+    @Override // c.a.a0.a0.c.c, c.a.a0.a0.c.d
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f35771c.optString("da_type"))) {
+            if (TextUtils.isEmpty(this.f27642c.optString("da_type"))) {
                 return false;
             }
             return super.isValid();
@@ -629,7 +628,7 @@ public class ClogBuilder extends c {
         return (ClogBuilder) invokeL.objValue;
     }
 
-    @Override // c.a.b0.a0.c.c, c.a.b0.a0.c.a, c.a.b0.a0.c.d
+    @Override // c.a.a0.a0.c.c, c.a.a0.a0.c.a, c.a.a0.a0.c.d
     @NonNull
     public String toString() {
         InterceptResult invokeV;
@@ -641,14 +640,14 @@ public class ClogBuilder extends c {
             }
             try {
                 JSONArray jSONArray = new JSONArray();
-                jSONArray.put(this.f35771c);
-                String encode = URLEncoder.encode(jSONArray.toString(), "utf-8");
+                jSONArray.put(this.f27642c);
+                String encode = URLEncoder.encode(jSONArray.toString(), IMAudioTransRequest.CHARSET);
                 if (this.a.length() > 0) {
                     this.a.append('&');
                 }
                 StringBuilder sb = this.a;
                 sb.append("ad");
-                sb.append(a.f29503h);
+                sb.append('=');
                 sb.append(encode);
                 return sb.toString();
             } catch (Exception unused) {

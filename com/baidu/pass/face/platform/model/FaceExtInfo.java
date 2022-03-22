@@ -77,13 +77,54 @@ public class FaceExtInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
+    }
+
+    public FaceExtInfo(FaceInfo faceInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {faceInfo};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mFaceID = faceInfo.faceID;
+        this.mCenterX = faceInfo.centerX;
+        this.mCenterY = faceInfo.centerY;
+        this.mWidth = faceInfo.width;
+        this.mHeight = faceInfo.height;
+        this.mAngle = faceInfo.angle;
+        this.mScore = faceInfo.score;
+        this.mLandmarks = faceInfo.landmarks;
+        this.mPitch = faceInfo.pitch;
+        this.mRoll = faceInfo.roll;
+        this.mYaw = faceInfo.yaw;
+        this.mBluriness = faceInfo.bluriness;
+        this.mIllum = faceInfo.illum;
+        BDFaceOcclusion bDFaceOcclusion = faceInfo.occlusion;
+        this.mOcclusion = bDFaceOcclusion;
+        bDFaceOcclusion.leftEye = bDFaceOcclusion.leftEye;
+        bDFaceOcclusion.rightEye = bDFaceOcclusion.rightEye;
+        bDFaceOcclusion.nose = bDFaceOcclusion.nose;
+        bDFaceOcclusion.mouth = bDFaceOcclusion.mouth;
+        bDFaceOcclusion.leftCheek = bDFaceOcclusion.leftCheek;
+        bDFaceOcclusion.rightCheek = bDFaceOcclusion.rightCheek;
+        bDFaceOcclusion.chin = bDFaceOcclusion.chin;
+        this.mLeftEyeClose = faceInfo.leftEyeclose;
+        this.mRightEyeClose = faceInfo.rightEyeclose;
     }
 
     public void addFaceInfo(FaceInfo faceInfo) {
@@ -157,6 +198,18 @@ public class FaceExtInfo {
         return (Rect) invokeV.objValue;
     }
 
+    public Rect getFaceRect(float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            float f5 = this.mCenterX * f2;
+            float f6 = this.mCenterY * f3;
+            float f7 = this.mWidth;
+            return new Rect((int) (f5 - (((f7 / 2.0f) * f2) * f4)), (int) (f6 - (((f7 / 2.0f) * f3) * f4)), (int) (f5 + ((f7 / 2.0f) * f2 * f4)), (int) (f6 + ((f7 / 2.0f) * f3 * f4)));
+        }
+        return (Rect) invokeCommon.objValue;
+    }
+
     public int getFaceWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,25 +235,25 @@ public class FaceExtInfo {
             if (this.mLandmarks.length == 144) {
                 int[][] iArr = {comp1, comp2, comp3, comp4, comp5, comp6, comp7, comp8, comp9};
                 float[] fArr = new float[4];
-                int i2 = 0;
-                for (int i3 = 0; i3 < nComponents; i3++) {
-                    int i4 = 0;
-                    while (i4 < nPoints[i3] - 1) {
+                int i = 0;
+                for (int i2 = 0; i2 < nComponents; i2++) {
+                    int i3 = 0;
+                    while (i3 < nPoints[i2] - 1) {
                         float[] fArr2 = this.mLandmarks;
-                        fArr[0] = fArr2[iArr[i3][i4] << 1];
-                        fArr[1] = fArr2[(iArr[i3][i4] << 1) + 1];
-                        i4++;
-                        fArr[2] = fArr2[iArr[i3][i4] << 1];
-                        fArr[3] = fArr2[(iArr[i3][i4] << 1) + 1];
+                        fArr[0] = fArr2[iArr[i2][i3] << 1];
+                        fArr[1] = fArr2[(iArr[i2][i3] << 1) + 1];
+                        i3++;
+                        fArr[2] = fArr2[iArr[i2][i3] << 1];
+                        fArr[3] = fArr2[(iArr[i2][i3] << 1) + 1];
                         if (!rect.contains((int) (fArr[0] * 1.0f), (int) (fArr[1] * 1.0f))) {
-                            i2++;
+                            i++;
                         }
                         if (!rect.contains((int) (fArr[2] * 1.0f), (int) (fArr[3] * 1.0f))) {
-                            i2++;
+                            i++;
                         }
                     }
                 }
-                return i2;
+                return i;
             }
             return 0;
         }
@@ -233,27 +286,27 @@ public class FaceExtInfo {
             double cos = Math.cos(d2);
             double sin = Math.sin(d2);
             float f2 = this.mWidth;
-            int i2 = (int) ((this.mCenterX + ((f2 * cos) / 2.0d)) - ((f2 * sin) / 2.0d));
-            int i3 = (int) (this.mCenterY + ((sin * f2) / 2.0d) + ((cos * f2) / 2.0d));
+            int i = (int) ((this.mCenterX + ((f2 * cos) / 2.0d)) - ((f2 * sin) / 2.0d));
+            int i2 = (int) (this.mCenterY + ((sin * f2) / 2.0d) + ((cos * f2) / 2.0d));
             double d3 = (this.mAngle * 3.14159d) / 180.0d;
             double cos2 = Math.cos(d3) * 0.5d;
             double sin2 = Math.sin(d3) * 0.5d;
             if (iArr2 == null || iArr2.length == 0) {
                 iArr2 = new int[8];
             }
-            double d4 = i2;
+            double d4 = i;
             float f3 = this.mWidth;
             iArr2[0] = (int) ((d4 - (f3 * sin2)) - (f3 * cos2));
-            double d5 = i3;
+            double d5 = i2;
             iArr2[1] = (int) (((f3 * cos2) + d5) - (f3 * sin2));
             iArr2[2] = (int) ((d4 + (f3 * sin2)) - (f3 * cos2));
             iArr2[3] = (int) ((d5 - (cos2 * f3)) - (sin2 * f3));
+            int i3 = i * 2;
+            iArr2[4] = i3 - iArr2[0];
             int i4 = i2 * 2;
-            iArr2[4] = i4 - iArr2[0];
-            int i5 = i3 * 2;
-            iArr2[5] = i5 - iArr2[1];
-            iArr2[6] = i4 - iArr2[2];
-            iArr2[7] = i5 - iArr2[3];
+            iArr2[5] = i4 - iArr2[1];
+            iArr2[6] = i3 - iArr2[2];
+            iArr2[7] = i4 - iArr2[3];
         }
     }
 
@@ -320,58 +373,5 @@ public class FaceExtInfo {
         if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
             this.mRightEyeClose = f2;
         }
-    }
-
-    public FaceExtInfo(FaceInfo faceInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {faceInfo};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.mFaceID = faceInfo.faceID;
-        this.mCenterX = faceInfo.centerX;
-        this.mCenterY = faceInfo.centerY;
-        this.mWidth = faceInfo.width;
-        this.mHeight = faceInfo.height;
-        this.mAngle = faceInfo.angle;
-        this.mScore = faceInfo.score;
-        this.mLandmarks = faceInfo.landmarks;
-        this.mPitch = faceInfo.pitch;
-        this.mRoll = faceInfo.roll;
-        this.mYaw = faceInfo.yaw;
-        this.mBluriness = faceInfo.bluriness;
-        this.mIllum = faceInfo.illum;
-        BDFaceOcclusion bDFaceOcclusion = faceInfo.occlusion;
-        this.mOcclusion = bDFaceOcclusion;
-        bDFaceOcclusion.leftEye = bDFaceOcclusion.leftEye;
-        bDFaceOcclusion.rightEye = bDFaceOcclusion.rightEye;
-        bDFaceOcclusion.nose = bDFaceOcclusion.nose;
-        bDFaceOcclusion.mouth = bDFaceOcclusion.mouth;
-        bDFaceOcclusion.leftCheek = bDFaceOcclusion.leftCheek;
-        bDFaceOcclusion.rightCheek = bDFaceOcclusion.rightCheek;
-        bDFaceOcclusion.chin = bDFaceOcclusion.chin;
-        this.mLeftEyeClose = faceInfo.leftEyeclose;
-        this.mRightEyeClose = faceInfo.rightEyeclose;
-    }
-
-    public Rect getFaceRect(float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float f5 = this.mCenterX * f2;
-            float f6 = this.mCenterY * f3;
-            float f7 = this.mWidth;
-            return new Rect((int) (f5 - (((f7 / 2.0f) * f2) * f4)), (int) (f6 - (((f7 / 2.0f) * f3) * f4)), (int) (f5 + ((f7 / 2.0f) * f2 * f4)), (int) (f6 + ((f7 / 2.0f) * f3 * f4)));
-        }
-        return (Rect) invokeCommon.objValue;
     }
 }

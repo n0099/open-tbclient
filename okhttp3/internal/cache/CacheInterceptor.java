@@ -29,7 +29,7 @@ import okio.Source;
 import okio.Timeout;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CacheInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public final class CacheInterceptor implements Interceptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {internalCache};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,9 +77,9 @@ public final class CacheInterceptor implements Interceptor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7, cacheRequest, r9};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -104,12 +104,12 @@ public final class CacheInterceptor implements Interceptor {
                 }
 
                 @Override // okio.Source
-                public long read(Buffer buffer, long j2) throws IOException {
+                public long read(Buffer buffer, long j) throws IOException {
                     InterceptResult invokeLJ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
                         try {
-                            long read = this.val$source.read(buffer, j2);
+                            long read = this.val$source.read(buffer, j);
                             if (read == -1) {
                                 if (!this.cacheRequestClosed) {
                                     this.cacheRequestClosed = true;
@@ -148,18 +148,18 @@ public final class CacheInterceptor implements Interceptor {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, headers, headers2)) == null) {
             Headers.Builder builder = new Headers.Builder();
             int size = headers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String name = headers.name(i2);
-                String value = headers.value(i2);
+            for (int i = 0; i < size; i++) {
+                String name = headers.name(i);
+                String value = headers.value(i);
                 if ((!"Warning".equalsIgnoreCase(name) || !value.startsWith("1")) && (isContentSpecificHeader(name) || !isEndToEnd(name) || headers2.get(name) == null)) {
                     Internal.instance.addLenient(builder, name, value);
                 }
             }
             int size2 = headers2.size();
-            for (int i3 = 0; i3 < size2; i3++) {
-                String name2 = headers2.name(i3);
+            for (int i2 = 0; i2 < size2; i2++) {
+                String name2 = headers2.name(i2);
                 if (!isContentSpecificHeader(name2) && isEndToEnd(name2)) {
-                    Internal.instance.addLenient(builder, name2, headers2.value(i3));
+                    Internal.instance.addLenient(builder, name2, headers2.value(i2));
                 }
             }
             return builder.build();

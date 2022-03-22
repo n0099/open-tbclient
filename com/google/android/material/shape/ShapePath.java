@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shadow.ShadowRenderer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShapePath {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ANGLE_LEFT = 180.0f;
@@ -40,7 +40,7 @@ public class ShapePath {
     @Deprecated
     public float startY;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ArcShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class ShapePath {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pathArcOperation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,15 +65,15 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i2, @NonNull Canvas canvas) {
+        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i2, canvas) == null) {
-                shadowRenderer.drawCornerShadow(canvas, matrix, new RectF(this.operation.getLeft(), this.operation.getTop(), this.operation.getRight(), this.operation.getBottom()), i2, this.operation.getStartAngle(), this.operation.getSweepAngle());
+            if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) == null) {
+                shadowRenderer.drawCornerShadow(canvas, matrix, new RectF(this.operation.getLeft(), this.operation.getTop(), this.operation.getRight(), this.operation.getBottom()), i, this.operation.getStartAngle(), this.operation.getSweepAngle());
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LineShadowOperation extends ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,9 +88,9 @@ public class ShapePath {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pathLineOperation, Float.valueOf(f2), Float.valueOf(f3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,14 +102,14 @@ public class ShapePath {
         }
 
         @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i2, @NonNull Canvas canvas) {
+        public void draw(Matrix matrix, @NonNull ShadowRenderer shadowRenderer, int i, @NonNull Canvas canvas) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i2, canvas) == null) {
+            if (interceptable == null || interceptable.invokeLLIL(1048576, this, matrix, shadowRenderer, i, canvas) == null) {
                 RectF rectF = new RectF(0.0f, 0.0f, (float) Math.hypot(this.operation.y - this.startY, this.operation.x - this.startX), 0.0f);
                 Matrix matrix2 = new Matrix(matrix);
                 matrix2.preTranslate(this.startX, this.startY);
                 matrix2.preRotate(getAngle());
-                shadowRenderer.drawEdgeShadow(canvas, matrix2, rectF, i2);
+                shadowRenderer.drawEdgeShadow(canvas, matrix2, rectF, i);
             }
         }
 
@@ -120,7 +120,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PathArcOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final RectF rectF;
@@ -161,9 +161,9 @@ public class ShapePath {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -275,7 +275,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PathCubicOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,9 +293,9 @@ public class ShapePath {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -400,7 +400,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PathLineOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -412,9 +412,9 @@ public class ShapePath {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -434,7 +434,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -445,9 +445,9 @@ public class ShapePath {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -459,7 +459,7 @@ public class ShapePath {
         public abstract void applyToPath(Matrix matrix, Path path);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PathQuadOperation extends PathOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -477,9 +477,9 @@ public class ShapePath {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -555,7 +555,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ShadowCompatOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final Matrix IDENTITY_MATRIX;
@@ -582,21 +582,21 @@ public class ShapePath {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public abstract void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i2, Canvas canvas);
+        public abstract void draw(Matrix matrix, ShadowRenderer shadowRenderer, int i, Canvas canvas);
 
-        public final void draw(ShadowRenderer shadowRenderer, int i2, Canvas canvas) {
+        public final void draw(ShadowRenderer shadowRenderer, int i, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shadowRenderer, i2, canvas) == null) {
-                draw(IDENTITY_MATRIX, shadowRenderer, i2, canvas);
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shadowRenderer, i, canvas) == null) {
+                draw(IDENTITY_MATRIX, shadowRenderer, i, canvas);
             }
         }
     }
@@ -606,9 +606,9 @@ public class ShapePath {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -722,8 +722,8 @@ public class ShapePath {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix, path) == null) {
             int size = this.operations.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.operations.get(i2).applyToPath(matrix, path);
+            for (int i = 0; i < size; i++) {
+                this.operations.get(i).applyToPath(matrix, path);
             }
         }
     }
@@ -754,9 +754,9 @@ public class ShapePath {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7, matrix};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -768,11 +768,11 @@ public class ShapePath {
                 }
 
                 @Override // com.google.android.material.shape.ShapePath.ShadowCompatOperation
-                public void draw(Matrix matrix2, ShadowRenderer shadowRenderer, int i2, Canvas canvas) {
+                public void draw(Matrix matrix2, ShadowRenderer shadowRenderer, int i, Canvas canvas) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLIL(1048576, this, matrix2, shadowRenderer, i2, canvas) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLLIL(1048576, this, matrix2, shadowRenderer, i, canvas) == null) {
                         for (ShadowCompatOperation shadowCompatOperation : this.val$operations) {
-                            shadowCompatOperation.draw(this.val$transform, shadowRenderer, i2, canvas);
+                            shadowCompatOperation.draw(this.val$transform, shadowRenderer, i, canvas);
                         }
                     }
                 }
@@ -875,9 +875,9 @@ public class ShapePath {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

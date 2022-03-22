@@ -6,8 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,16 +16,16 @@ public final class ResponseInfo {
     public int stateCode;
     public String url;
 
-    public ResponseInfo(String str, String str2, int i2) {
+    public ResponseInfo(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,7 +38,7 @@ public final class ResponseInfo {
         this.responseHeaders = null;
         this.method = str;
         this.url = str2;
-        this.stateCode = i2;
+        this.stateCode = i;
         this.requestHeaders = new HashMap();
         this.responseHeaders = new HashMap();
     }
@@ -48,19 +47,19 @@ public final class ResponseInfo {
         com.baidu.titan.sdk.runtime.InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder(this.method + " " + this.stateCode + " " + this.url + StringUtils.LF);
+            StringBuilder sb = new StringBuilder(this.method + " " + this.stateCode + " " + this.url + "\n");
             for (String str : this.requestHeaders.keySet()) {
                 sb.append(str);
                 sb.append(":");
                 sb.append(this.requestHeaders.get(str));
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("=== Response ===\n");
             for (String str2 : this.responseHeaders.keySet()) {
                 sb.append(str2);
                 sb.append(":");
                 sb.append(this.responseHeaders.get(str2));
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             return sb.toString();
         }

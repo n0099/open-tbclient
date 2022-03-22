@@ -1,6 +1,7 @@
 package com.baidu.searchbox.dns.d.a;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -30,25 +31,25 @@ public class a {
     public String S;
     public List<String> l;
 
-    public a(String str, int i2, String str2, long j2, List<String> list, List<String> list2) {
+    public a(String str, int i, String str2, long j, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j2), list, list2};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Long.valueOf(j), list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.C = str;
-        this.B = i2;
+        this.B = i;
         this.Q = str2;
-        this.D = j2;
+        this.D = j;
         this.l = list;
         this.R = list2;
         this.S = A();
@@ -105,7 +106,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.l != null) {
                 if (DnsUtil.DEBUG) {
-                    String str = " getIp v4 List: " + b(this.l);
+                    Log.i(DnsUtil.TAG, " getIp v4 List: " + b(this.l));
                 }
                 return Collections.unmodifiableList(this.l);
             }
@@ -126,7 +127,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.R != null) {
                 if (DnsUtil.DEBUG) {
-                    String str = " getIp v6 List: " + b(this.R);
+                    Log.i(DnsUtil.TAG, " getIp v6 List: " + b(this.R));
                 }
                 return Collections.unmodifiableList(this.R);
             }
@@ -142,9 +143,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -162,16 +163,16 @@ public class a {
             this.D = jSONObject.optLong("cachetime", -1L);
             JSONArray optJSONArray = jSONObject.optJSONArray("ip");
             this.l = new ArrayList(optJSONArray.length());
-            for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                this.l.add(optJSONArray.getString(i4));
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                this.l.add(optJSONArray.getString(i3));
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
             if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                 return;
             }
             this.R = new ArrayList(optJSONArray2.length());
-            for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
-                this.R.add(optJSONArray2.getString(i5));
+            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                this.R.add(optJSONArray2.getString(i4));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

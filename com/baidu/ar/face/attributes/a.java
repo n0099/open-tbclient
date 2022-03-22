@@ -35,9 +35,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {lVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,12 +61,12 @@ public class a {
         return invokeL.booleanValue;
     }
 
-    public static float[] a(ByteBuffer byteBuffer, FAUFaceBox fAUFaceBox, int i2, int i3) {
+    public static float[] a(ByteBuffer byteBuffer, FAUFaceBox fAUFaceBox, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, byteBuffer, fAUFaceBox, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, byteBuffer, fAUFaceBox, i, i2)) == null) {
             float[] fArr = new float[2];
-            if (FaceAttributesJni.predictGenderDetect(byteBuffer, i2, i3, new float[]{fAUFaceBox.getX(), fAUFaceBox.getY(), fAUFaceBox.getWidth(), fAUFaceBox.getHeight(), fAUFaceBox.getAngle()}, fArr) == 0) {
+            if (FaceAttributesJni.predictGenderDetect(byteBuffer, i, i2, new float[]{fAUFaceBox.getX(), fAUFaceBox.getY(), fAUFaceBox.getWidth(), fAUFaceBox.getHeight(), fAUFaceBox.getAngle()}, fArr) == 0) {
                 return fArr;
             }
             return null;
@@ -105,10 +105,10 @@ public class a {
         return invokeL.booleanValue;
     }
 
-    public void a(m mVar, FaceResultData faceResultData, int i2, int i3) {
+    public void a(m mVar, FaceResultData faceResultData, int i, int i2) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(1048576, this, mVar, faceResultData, i2, i3) == null) && d(mVar)) {
+        if ((interceptable == null || interceptable.invokeLLII(1048576, this, mVar, faceResultData, i, i2) == null) && d(mVar)) {
             FaceAlgoData eC = mVar.eC();
             FaceFrame faceFrame = eC == null ? null : eC.getFaceFrame();
             if (faceFrame == null) {
@@ -118,17 +118,17 @@ public class a {
                 int[] faceIDList = faceFrame.getFaceIDList();
                 if (faceBoxes != null && faceBoxes.size() != 0 && faceIDList != null && faceIDList.length != 0) {
                     faceResultData.setFaceIds(faceIDList);
-                    int i4 = faceIDList[0];
-                    float[] fArr = this.nY.get(Integer.valueOf(i4));
+                    int i3 = faceIDList[0];
+                    float[] fArr = this.nY.get(Integer.valueOf(i3));
                     if (fArr != null) {
                         faceResultData.setGenders(fArr);
                         return;
                     }
-                    float[] a = a(mVar.eB(), faceBoxes.get(0), i2, i3);
+                    float[] a = a(mVar.eB(), faceBoxes.get(0), i, i2);
                     if (a == null || !this.nZ) {
                         return;
                     }
-                    this.nY.put(Integer.valueOf(i4), a);
+                    this.nY.put(Integer.valueOf(i3), a);
                     faceResultData.setGenders(a);
                     l lVar = this.oa;
                     if (lVar != null) {

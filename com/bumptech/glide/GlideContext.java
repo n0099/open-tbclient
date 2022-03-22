@@ -21,7 +21,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.ImageViewTargetFactory;
 import com.bumptech.glide.request.target.ViewTarget;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GlideContext extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -53,17 +53,17 @@ public class GlideContext extends ContextWrapper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GlideContext(@NonNull Context context, @NonNull ArrayPool arrayPool, @NonNull Registry registry, @NonNull ImageViewTargetFactory imageViewTargetFactory, @NonNull RequestOptions requestOptions, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull Engine engine, int i2) {
+    public GlideContext(@NonNull Context context, @NonNull ArrayPool arrayPool, @NonNull Registry registry, @NonNull ImageViewTargetFactory imageViewTargetFactory, @NonNull RequestOptions requestOptions, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull Engine engine, int i) {
         super(context.getApplicationContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayPool, registry, imageViewTargetFactory, requestOptions, map, engine, Integer.valueOf(i2)};
+            Object[] objArr = {context, arrayPool, registry, imageViewTargetFactory, requestOptions, map, engine, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -76,7 +76,7 @@ public class GlideContext extends ContextWrapper {
         this.defaultRequestOptions = requestOptions;
         this.defaultTransitionOptions = map;
         this.engine = engine;
-        this.logLevel = i2;
+        this.logLevel = i;
         this.mainHandler = new Handler(Looper.getMainLooper());
     }
 

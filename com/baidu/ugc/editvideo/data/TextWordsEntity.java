@@ -1,10 +1,11 @@
 package com.baidu.ugc.editvideo.data;
 
-import c.a.y0.r.e;
-import c.a.y0.r.l;
-import c.a.y0.r.w;
+import c.a.v0.r.e;
+import c.a.v0.r.l;
+import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,6 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ public class TextWordsEntity {
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName(AnimationProperty.OPACITY)
         public String mBackgroudAlpha;
-        @SerializedName("bottom")
+        @SerializedName(TipsConfigItem.TipConfigData.BOTTOM)
         public int mBackgroudBottom;
         @SerializedName("color")
         public String mBackgroudColor;
@@ -44,7 +46,7 @@ public class TextWordsEntity {
         public int mBackgroudLeft;
         @SerializedName("right")
         public int mBackgroudRight;
-        @SerializedName("top")
+        @SerializedName(AnimationProperty.TOP)
         public int mBackgroudTop;
         @SerializedName("width")
         public int mBackgroudWidth;
@@ -63,9 +65,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,17 +91,17 @@ public class TextWordsEntity {
                     styleBackgroudInfoEntity.mBackgroudImageUrl = jSONObject.optString("imageUrl");
                     styleBackgroudInfoEntity.mLocalParentFile = jSONObject.optString("localParentFile");
                     styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt("left");
-                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt("top");
+                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt(AnimationProperty.TOP);
                     styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt("right");
-                    styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt("bottom");
+                    styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt(TipsConfigItem.TipConfigData.BOTTOM);
                     styleBackgroudInfoEntity.mBackgroudWidth = jSONObject.optInt("width");
                     styleBackgroudInfoEntity.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE);
                     JSONArray optJSONArray = jSONObject.optJSONArray("stretchableX");
                     JSONArray optJSONArray2 = jSONObject.optJSONArray("stretchableY");
                     ArrayList<Div> arrayList = new ArrayList<>();
                     if (optJSONArray != null && optJSONArray.length() > 0) {
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                             Div div = new Div();
                             div.start = optJSONObject.optInt("start");
                             div.stop = optJSONObject.optInt(IntentConfig.STOP);
@@ -109,8 +111,8 @@ public class TextWordsEntity {
                     styleBackgroudInfoEntity.mStretchableX = arrayList;
                     ArrayList<Div> arrayList2 = new ArrayList<>();
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                             Div div2 = new Div();
                             div2.parse(optJSONObject2);
                             arrayList2.add(div2);
@@ -139,9 +141,9 @@ public class TextWordsEntity {
                     jSONObject.put("imageUrl", styleBackgroudInfoEntity.mBackgroudImageUrl);
                     jSONObject.put("localParentFile", styleBackgroudInfoEntity.mLocalParentFile);
                     jSONObject.put("left", styleBackgroudInfoEntity.mBackgroudLeft);
-                    jSONObject.put("top", styleBackgroudInfoEntity.mBackgroudTop);
+                    jSONObject.put(AnimationProperty.TOP, styleBackgroudInfoEntity.mBackgroudTop);
                     jSONObject.put("right", styleBackgroudInfoEntity.mBackgroudRight);
-                    jSONObject.put("bottom", styleBackgroudInfoEntity.mBackgroudBottom);
+                    jSONObject.put(TipsConfigItem.TipConfigData.BOTTOM, styleBackgroudInfoEntity.mBackgroudBottom);
                     jSONObject.put("width", styleBackgroudInfoEntity.mBackgroudWidth);
                     jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, styleBackgroudInfoEntity.mImageType);
                     JSONArray jSONArray = new JSONArray();
@@ -209,7 +211,7 @@ public class TextWordsEntity {
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName(AnimationProperty.OPACITY)
         public String mShadowAlpha;
-        @SerializedName("blur")
+        @SerializedName(ConstPath.KEY_BLUR)
         public String mShadowBlur;
         @SerializedName("color")
         public String mShadowColor;
@@ -225,9 +227,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -247,7 +249,7 @@ public class TextWordsEntity {
                     styleShadowInfoEntity.mShadowAlpha = jSONObject.optString(AnimationProperty.OPACITY);
                     styleShadowInfoEntity.mShadowOffsetX = jSONObject.optString("offset_x");
                     styleShadowInfoEntity.mShadowOffsetY = jSONObject.optString("offset_y");
-                    styleShadowInfoEntity.mShadowBlur = jSONObject.optString("blur");
+                    styleShadowInfoEntity.mShadowBlur = jSONObject.optString(ConstPath.KEY_BLUR);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -269,7 +271,7 @@ public class TextWordsEntity {
                     jSONObject.put(AnimationProperty.OPACITY, styleShadowInfoEntity.mShadowAlpha);
                     jSONObject.put("offset_x", styleShadowInfoEntity.mShadowOffsetX);
                     jSONObject.put("offset_y", styleShadowInfoEntity.mShadowOffsetY);
-                    jSONObject.put("blur", styleShadowInfoEntity.mShadowBlur);
+                    jSONObject.put(ConstPath.KEY_BLUR, styleShadowInfoEntity.mShadowBlur);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -295,9 +297,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -359,9 +361,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -420,9 +422,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -488,9 +490,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -627,9 +629,9 @@ public class TextWordsEntity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -661,8 +663,8 @@ public class TextWordsEntity {
                     textStyleEntity.mTextStyleType = jSONObject.optInt("type");
                     if (jSONObject.has("text_infos") && (optJSONArray3 = jSONObject.optJSONArray("text_infos")) != null && optJSONArray3.length() > 0) {
                         textStyleEntity.mTextInfoList = new ArrayList();
-                        for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
-                            JSONObject optJSONObject = optJSONArray3.optJSONObject(i2);
+                        for (int i = 0; i < optJSONArray3.length(); i++) {
+                            JSONObject optJSONObject = optJSONArray3.optJSONObject(i);
                             if (optJSONObject != null && (parse3 = StyleTextInfoEntity.parse(optJSONObject)) != null) {
                                 textStyleEntity.mTextInfoList.add(parse3);
                             }
@@ -670,8 +672,8 @@ public class TextWordsEntity {
                     }
                     if (jSONObject.has("stroke_infos") && (optJSONArray2 = jSONObject.optJSONArray("stroke_infos")) != null && optJSONArray2.length() > 0) {
                         textStyleEntity.mStrokeInfoList = new ArrayList();
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                             if (optJSONObject2 != null && (parse2 = StyleStrokeInfoEntity.parse(optJSONObject2)) != null) {
                                 textStyleEntity.mStrokeInfoList.add(parse2);
                             }
@@ -679,8 +681,8 @@ public class TextWordsEntity {
                     }
                     if (jSONObject.has("shadow_infos") && (optJSONArray = jSONObject.optJSONArray("shadow_infos")) != null && optJSONArray.length() > 0) {
                         textStyleEntity.mShadowInfoList = new ArrayList();
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i4);
+                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
                             if (optJSONObject3 != null && (parse = StyleShadowInfoEntity.parse(optJSONObject3)) != null) {
                                 textStyleEntity.mShadowInfoList.add(parse);
                             }
@@ -747,9 +749,9 @@ public class TextWordsEntity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -770,8 +772,8 @@ public class TextWordsEntity {
             try {
                 if (jSONObject.has("style") && (optJSONArray3 = jSONObject.optJSONArray("style")) != null && optJSONArray3.length() > 0) {
                     textWordsEntity.mCoverStyleList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
-                        JSONObject optJSONObject = optJSONArray3.optJSONObject(i2);
+                    for (int i = 0; i < optJSONArray3.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray3.optJSONObject(i);
                         if (optJSONObject != null && (parse3 = TextStyleEntity.parse(optJSONObject)) != null) {
                             textWordsEntity.mCoverStyleList.add(parse3);
                         }
@@ -779,8 +781,8 @@ public class TextWordsEntity {
                 }
                 if (jSONObject.has("font") && (optJSONArray2 = jSONObject.optJSONArray("font")) != null && optJSONArray2.length() > 0) {
                     textWordsEntity.mCoverFontList = new ArrayList();
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                         if (optJSONObject2 != null && (parse2 = TextFontEntity.parse(optJSONObject2)) != null) {
                             textWordsEntity.mCoverFontList.add(parse2);
                         }
@@ -788,8 +790,8 @@ public class TextWordsEntity {
                 }
                 if (jSONObject.has("color") && (optJSONArray = jSONObject.optJSONArray("color")) != null && optJSONArray.length() > 0) {
                     textWordsEntity.mCoverTextColorList = new ArrayList();
-                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i4);
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject3 != null && (parse = TextColorEntity.parse(optJSONObject3)) != null) {
                             textWordsEntity.mCoverTextColorList.add(parse);
                         }

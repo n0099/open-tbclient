@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int defaultDataType = 0;
@@ -56,9 +56,9 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -270,17 +270,17 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setDataType(int i2) {
+    public void setDataType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.dataType = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.dataType = i;
         }
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j2) == null) {
-            this.forumId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
+            this.forumId = j;
         }
     }
 
@@ -326,10 +326,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setFriendStatus(int i2) {
+    public void setFriendStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.friendStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.friendStatus = i;
         }
     }
 
@@ -340,24 +340,24 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setHasMore(int i2) {
+    public void setHasMore(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.hasMore = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.hasMore = i;
         }
     }
 
-    public void setIsLike(int i2) {
+    public void setIsLike(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.isLike = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.isLike = i;
         }
     }
 
-    public void setMemberCount(int i2) {
+    public void setMemberCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.memberCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.memberCount = i;
         }
     }
 
@@ -396,17 +396,17 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setSendStatus(int i2) {
+    public void setSendStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            this.sendStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
+            this.sendStatus = i;
         }
     }
 
-    public void setServerTime(long j2) {
+    public void setServerTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
-            this.serverTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
+            this.serverTime = j;
         }
     }
 
@@ -417,17 +417,17 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            this.status = i;
         }
     }
 
-    public void setThreadCount(int i2) {
+    public void setThreadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.threadCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.threadCount = i;
         }
     }
 
@@ -438,30 +438,30 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUnReadCount(int i2) {
+    public void setUnReadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
-            this.unReadCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            this.unReadCount = i;
         }
     }
 
-    public void setUnReadCountExtra(int i2) {
+    public void setUnReadCountExtra(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            this.unReadCountExtra = i2;
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+            this.unReadCountExtra = i;
         }
     }
 
-    public void setUserType(int i2) {
+    public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            this.userType = i2;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            this.userType = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m44clone() {
+    public ImMessageCenterShowItemData m42clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

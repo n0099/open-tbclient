@@ -25,9 +25,9 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,17 +38,17 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
         this.mPanelLayout = view;
     }
 
-    public boolean filterSetVisibility(int i2) {
+    public boolean filterSetVisibility(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
                 this.mIsHide = false;
             }
-            if (i2 == this.mPanelLayout.getVisibility()) {
+            if (i == this.mPanelLayout.getVisibility()) {
                 return true;
             }
-            return isSoftInputShowing() && i2 == 0;
+            return isSoftInputShowing() && i == 0;
         }
         return invokeI.booleanValue;
     }
@@ -83,25 +83,25 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !this.mIsHide : invokeV.booleanValue;
     }
 
-    public int[] processOnMeasure(int i2, int i3) {
+    public int[] processOnMeasure(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
             if (this.mIsHide) {
                 this.mPanelLayout.setVisibility(8);
                 int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = makeMeasureSpec;
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
             }
-            return new int[]{i2, i3};
+            return new int[]{i, i2};
         }
         return (int[]) invokeII.objValue;
     }
 
-    public void refreshPanelHeight(int i2) {
+    public void refreshPanelHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            ViewUtil.refreshHeight(this.mPanelLayout, i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            ViewUtil.refreshHeight(this.mPanelLayout, i);
         }
     }
 

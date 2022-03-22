@@ -55,13 +55,13 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANIMATION_DURATION = 300;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_BottomAppBar = 2131755872;
+    public static final int obfuscated_res_0x7f10033e = 2131755838;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
     public static final int FAB_ALIGNMENT_MODE_END = 1;
     public static final int FAB_ANIMATION_MODE_SCALE = 0;
@@ -91,14 +91,14 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public final boolean paddingRightSystemWindowInsets;
     public int rightInset;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
         void onAnimationStart(BottomAppBar bottomAppBar);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,9 +113,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -133,9 +133,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -145,9 +145,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 }
 
                 @Override // android.view.View.OnLayoutChangeListener
-                public void onLayoutChange(View view, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+                public void onLayoutChange(View view, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
                         BottomAppBar bottomAppBar = (BottomAppBar) this.this$0.viewRef.get();
                         if (bottomAppBar != null && (view instanceof FloatingActionButton)) {
                             FloatingActionButton floatingActionButton = (FloatingActionButton) view;
@@ -156,7 +156,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.mtrl_bottomappbar_fab_bottom_margin) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703e2) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -178,10 +178,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, int i2) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, bottomAppBar, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, bottomAppBar, i)) == null) {
                 this.viewRef = new WeakReference<>(bottomAppBar);
                 View findDependentView = bottomAppBar.findDependentView();
                 if (findDependentView != null && !ViewCompat.isLaidOut(findDependentView)) {
@@ -195,18 +195,18 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     }
                     bottomAppBar.setCutoutState();
                 }
-                coordinatorLayout.onLayoutChild(bottomAppBar, i2);
-                return super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) bottomAppBar, i2);
+                coordinatorLayout.onLayoutChild(bottomAppBar, i);
+                return super.onLayoutChild(coordinatorLayout, (CoordinatorLayout) bottomAppBar, i);
             }
             return invokeLLI.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.material.behavior.HideBottomViewOnScrollBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, @NonNull View view, @NonNull View view2, int i2, int i3) {
+        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull BottomAppBar bottomAppBar, @NonNull View view, @NonNull View view2, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, bottomAppBar, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? bottomAppBar.getHideOnScroll() && super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) bottomAppBar, view, view2, i2, i3) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, bottomAppBar, view, view2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? bottomAppBar.getHideOnScroll() && super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) bottomAppBar, view, view2, i, i2) : invokeCommon.booleanValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -218,9 +218,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -240,9 +240,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         newInitContext2.initArgs = objArr;
                         Object[] objArr3 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -252,9 +252,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 }
 
                 @Override // android.view.View.OnLayoutChangeListener
-                public void onLayoutChange(View view, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+                public void onLayoutChange(View view, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
                         BottomAppBar bottomAppBar = (BottomAppBar) this.this$0.viewRef.get();
                         if (bottomAppBar != null && (view instanceof FloatingActionButton)) {
                             FloatingActionButton floatingActionButton = (FloatingActionButton) view;
@@ -263,7 +263,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.mtrl_bottomappbar_fab_bottom_margin) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703e2) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -285,16 +285,16 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FabAlignmentMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FabAnimationMode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -324,9 +324,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -336,10 +336,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -372,9 +372,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -384,10 +384,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeInt(this.fabAlignmentMode);
                 parcel.writeInt(this.fabAttached ? 1 : 0);
             }
@@ -402,9 +402,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -441,9 +441,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -470,9 +470,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -512,25 +512,25 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    private void createFabTranslationXAnimation(int i2, @NonNull List<Animator> list) {
+    private void createFabTranslationXAnimation(int i, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65571, this, i2, list) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), AnimationProperty.TRANSLATE_X, getFabTranslationX(i2));
+        if (interceptable == null || interceptable.invokeIL(65571, this, i, list) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), AnimationProperty.TRANSLATE_X, getFabTranslationX(i));
             ofFloat.setDuration(300L);
             list.add(ofFloat);
         }
     }
 
-    private void createMenuViewTranslationAnimation(int i2, boolean z, @NonNull List<Animator> list) {
+    private void createMenuViewTranslationAnimation(int i, boolean z, @NonNull List<Animator> list) {
         ActionMenuView actionMenuView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) || (actionMenuView = getActionMenuView()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) || (actionMenuView = getActionMenuView()) == null) {
             return;
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, AnimationProperty.OPACITY, 1.0f);
-        if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i2, z)) > 1.0f) {
+        if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i, z)) > 1.0f) {
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, AnimationProperty.OPACITY, 0.0f);
-            ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i2, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
+            ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public boolean cancelled;
@@ -544,11 +544,11 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, actionMenuView, Integer.valueOf(i2), Boolean.valueOf(z)};
+                        Object[] objArr = {this, actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -556,7 +556,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     }
                     this.this$0 = this;
                     this.val$actionMenuView = actionMenuView;
-                    this.val$targetMode = i2;
+                    this.val$targetMode = i;
                     this.val$targetAttached = z;
                 }
 
@@ -591,9 +591,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         ArrayList<AnimationListener> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            int i2 = this.animatingModeChangeCounter - 1;
-            this.animatingModeChangeCounter = i2;
-            if (i2 != 0 || (arrayList = this.animationListeners) == null) {
+            int i = this.animatingModeChangeCounter - 1;
+            this.animatingModeChangeCounter = i;
+            if (i != 0 || (arrayList = this.animationListeners) == null) {
                 return;
             }
             Iterator<AnimationListener> it = arrayList.iterator();
@@ -608,9 +608,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         ArrayList<AnimationListener> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            int i2 = this.animatingModeChangeCounter;
-            this.animatingModeChangeCounter = i2 + 1;
-            if (i2 != 0 || (arrayList = this.animationListeners) == null) {
+            int i = this.animatingModeChangeCounter;
+            this.animatingModeChangeCounter = i + 1;
+            if (i != 0 || (arrayList = this.animationListeners) == null) {
                 return;
             }
             Iterator<AnimationListener> it = arrayList.iterator();
@@ -665,8 +665,8 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65577, this)) == null) {
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
                 if (childAt instanceof ActionMenuView) {
                     return (ActionMenuView) childAt;
                 }
@@ -684,12 +684,12 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public float getFabTranslationX(int i2) {
+    public float getFabTranslationX(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65580, this, i)) == null) {
             boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-            if (i2 == 1) {
+            if (i == 1) {
                 return ((getMeasuredWidth() / 2) - (this.fabOffsetEndMode + (isLayoutRtl ? this.leftInset : this.rightInset))) * (isLayoutRtl ? -1 : 1);
             }
             return 0.0f;
@@ -736,19 +736,19 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void maybeAnimateMenuView(int i2, boolean z) {
+    public void maybeAnimateMenuView(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && ViewCompat.isLaidOut(this)) {
+        if ((interceptable == null || interceptable.invokeCommon(65586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && ViewCompat.isLaidOut(this)) {
             Animator animator = this.menuAnimator;
             if (animator != null) {
                 animator.cancel();
             }
             ArrayList arrayList = new ArrayList();
             if (!isFabVisibleOrWillBeShown()) {
-                i2 = 0;
+                i = 0;
                 z = false;
             }
-            createMenuViewTranslationAnimation(i2, z, arrayList);
+            createMenuViewTranslationAnimation(i, z, arrayList);
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(arrayList);
             this.menuAnimator = animatorSet;
@@ -764,9 +764,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -796,18 +796,18 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    private void maybeAnimateModeChange(int i2) {
+    private void maybeAnimateModeChange(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65587, this, i2) == null) && this.fabAlignmentMode != i2 && ViewCompat.isLaidOut(this)) {
+        if ((interceptable == null || interceptable.invokeI(65587, this, i) == null) && this.fabAlignmentMode != i && ViewCompat.isLaidOut(this)) {
             Animator animator = this.modeAnimator;
             if (animator != null) {
                 animator.cancel();
             }
             ArrayList arrayList = new ArrayList();
             if (this.fabAnimationMode == 1) {
-                createFabTranslationXAnimation(i2, arrayList);
+                createFabTranslationXAnimation(i, arrayList);
             } else {
-                createFabDefaultXAnimation(i2, arrayList);
+                createFabDefaultXAnimation(i, arrayList);
             }
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(arrayList);
@@ -824,9 +824,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -885,10 +885,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void translateActionMenuView(@NonNull ActionMenuView actionMenuView, int i2, boolean z) {
+    public void translateActionMenuView(@NonNull ActionMenuView actionMenuView, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65590, this, new Object[]{actionMenuView, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            actionMenuView.setTranslationX(getActionMenuViewTranslationX(actionMenuView, i2, z));
+        if (interceptable == null || interceptable.invokeCommon(65590, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            actionMenuView.setTranslationX(getActionMenuViewTranslationX(actionMenuView, i, z));
         }
     }
 
@@ -902,14 +902,14 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    public void createFabDefaultXAnimation(int i2, List<Animator> list) {
+    public void createFabDefaultXAnimation(int i, List<Animator> list) {
         FloatingActionButton findDependentFab;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, list) == null) || (findDependentFab = findDependentFab()) == null || findDependentFab.isOrWillBeHidden()) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) || (findDependentFab = findDependentFab()) == null || findDependentFab.isOrWillBeHidden()) {
             return;
         }
         dispatchAnimationStart();
-        findDependentFab.hide(new FloatingActionButton.OnVisibilityChangedListener(this, i2) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5
+        findDependentFab.hide(new FloatingActionButton.OnVisibilityChangedListener(this, i) { // from class: com.google.android.material.bottomappbar.BottomAppBar.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BottomAppBar this$0;
@@ -920,18 +920,18 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2)};
+                    Object[] objArr = {this, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$targetMode = i2;
+                this.val$targetMode = i;
             }
 
             @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener
@@ -951,9 +951,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -975,15 +975,15 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         });
     }
 
-    public int getActionMenuViewTranslationX(@NonNull ActionMenuView actionMenuView, int i2, boolean z) {
+    public int getActionMenuViewTranslationX(@NonNull ActionMenuView actionMenuView, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{actionMenuView, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 1 && z) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{actionMenuView, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i == 1 && z) {
                 boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
                 int measuredWidth = isLayoutRtl ? getMeasuredWidth() : 0;
-                for (int i3 = 0; i3 < getChildCount(); i3++) {
-                    View childAt = getChildAt(i3);
+                for (int i2 = 0; i2 < getChildCount(); i2++) {
+                    View childAt = getChildAt(i2);
                     if ((childAt.getLayoutParams() instanceof Toolbar.LayoutParams) && (((Toolbar.LayoutParams) childAt.getLayoutParams()).gravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK) == 8388611) {
                         if (isLayoutRtl) {
                             measuredWidth = Math.min(measuredWidth, childAt.getLeft());
@@ -1057,10 +1057,10 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Override // androidx.appcompat.widget.Toolbar, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (z) {
                 cancelAnimations();
                 setCutoutState();
@@ -1121,11 +1121,11 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         arrayList.remove(animationListener);
     }
 
-    public void replaceMenu(@MenuRes int i2) {
+    public void replaceMenu(@MenuRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             getMenu().clear();
-            inflateMenu(i2);
+            inflateMenu(i);
         }
     }
 
@@ -1155,19 +1155,19 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         }
     }
 
-    public void setFabAlignmentMode(int i2) {
+    public void setFabAlignmentMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            maybeAnimateModeChange(i2);
-            maybeAnimateMenuView(i2, this.fabAttached);
-            this.fabAlignmentMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            maybeAnimateModeChange(i);
+            maybeAnimateMenuView(i, this.fabAttached);
+            this.fabAlignmentMode = i;
         }
     }
 
-    public void setFabAnimationMode(int i2) {
+    public void setFabAnimationMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.fabAnimationMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.fabAnimationMode = i;
         }
     }
 
@@ -1189,11 +1189,11 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.materialShapeDrawable.invalidateSelf();
     }
 
-    public boolean setFabDiameter(@Px int i2) {
+    public boolean setFabDiameter(@Px int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-            float f2 = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            float f2 = i;
             if (f2 != getTopEdgeTreatment().getFabDiameter()) {
                 getTopEdgeTreatment().setFabDiameter(f2);
                 this.materialShapeDrawable.invalidateSelf();
@@ -1227,16 +1227,16 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.bottomAppBarStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1262,17 +1262,17 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_BottomAppBar), attributeSet, i2);
+    public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10033e), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1295,9 +1295,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1327,9 +1327,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1367,7 +1367,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.elevation, R.attr.fabAlignmentMode, R.attr.fabAnimationMode, R.attr.fabCradleMargin, R.attr.fabCradleRoundedCornerRadius, R.attr.fabCradleVerticalOffset, R.attr.hideOnScroll, R.attr.paddingBottomSystemWindowInsets, R.attr.paddingLeftSystemWindowInsets, R.attr.paddingRightSystemWindowInsets}, i2, Widget_MaterialComponents_BottomAppBar, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0401fb, R.attr.obfuscated_res_0x7f0401fc, R.attr.obfuscated_res_0x7f0401fd, R.attr.obfuscated_res_0x7f0401fe, R.attr.obfuscated_res_0x7f0401ff, R.attr.obfuscated_res_0x7f040288, R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f040462, R.attr.obfuscated_res_0x7f040464}, i, obfuscated_res_0x7f10033e, new int[0]);
         ColorStateList colorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.fabAlignmentMode = obtainStyledAttributes.getInt(2, 0);
@@ -1377,7 +1377,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.paddingLeftSystemWindowInsets = obtainStyledAttributes.getBoolean(9, false);
         this.paddingRightSystemWindowInsets = obtainStyledAttributes.getBoolean(10, false);
         obtainStyledAttributes.recycle();
-        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.mtrl_bottomappbar_fabOffsetEndMode);
+        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703e1);
         this.materialShapeDrawable.setShapeAppearanceModel(ShapeAppearanceModel.builder().setTopEdge(new BottomAppBarTopEdgeTreatment(obtainStyledAttributes.getDimensionPixelOffset(4, 0), obtainStyledAttributes.getDimensionPixelOffset(5, 0), obtainStyledAttributes.getDimensionPixelOffset(6, 0))).build());
         this.materialShapeDrawable.setShadowCompatibilityMode(2);
         this.materialShapeDrawable.setPaintStyle(Paint.Style.FILL);
@@ -1385,7 +1385,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         setElevation(dimensionPixelSize);
         DrawableCompat.setTintList(this.materialShapeDrawable, colorStateList);
         ViewCompat.setBackground(this, this.materialShapeDrawable);
-        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i2, Widget_MaterialComponents_BottomAppBar, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
+        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i, obfuscated_res_0x7f10033e, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BottomAppBar this$0;
@@ -1397,9 +1397,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

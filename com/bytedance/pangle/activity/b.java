@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.bytedance.pangle.plugin.Plugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface b {
     void finish();
 
@@ -27,5 +27,5 @@ public interface b {
 
     void zeusSuperOnCreate(Bundle bundle);
 
-    void zeusSuperSetTheme(int i2);
+    void zeusSuperSetTheme(int i);
 }

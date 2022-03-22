@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.b0.c;
-import c.a.q0.r.l;
-import c.a.q0.r0.k;
-import c.a.r0.l4.h;
+import c.a.o0.b0.c;
+import c.a.o0.r.l;
+import c.a.o0.r0.k;
+import c.a.p0.n4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -33,9 +33,9 @@ public class InitViewConfigTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,9 +59,9 @@ public class InitViewConfigTask extends LaunchTask {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -74,7 +74,7 @@ public class InitViewConfigTask extends LaunchTask {
                     public void createToastView() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.custom_toast_textview, (ViewGroup) null);
+                            TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0215, (ViewGroup) null);
                         }
                     }
 

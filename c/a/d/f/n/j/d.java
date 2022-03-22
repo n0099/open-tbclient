@@ -11,28 +11,28 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2745b;
+    public String f2269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2746c;
+    public long f2270c;
 
-    public d(String str, long j2, long j3) {
+    public d(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2745b = str;
-        this.a = j2;
-        this.f2746c = j3;
+        this.f2269b = str;
+        this.a = j;
+        this.f2270c = j2;
     }
 }

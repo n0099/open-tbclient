@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PnPController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class PnPController {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, dlnaProvider};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,13 +107,13 @@ public class PnPController {
         ctrlPointProvider.play();
     }
 
-    public void seek(long j2) {
+    public void seek(long j) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || (ctrlPointProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || (ctrlPointProvider = this.a) == null) {
             return;
         }
-        ctrlPointProvider.seek(j2);
+        ctrlPointProvider.seek(j);
     }
 
     public void setAVTransportUrl(String str) {
@@ -143,13 +143,13 @@ public class PnPController {
         ctrlPointProvider.setMute(z ? 1 : 0);
     }
 
-    public void setPlaybackVolume(int i2) {
+    public void setPlaybackVolume(int i) {
         CtrlPointProvider ctrlPointProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (ctrlPointProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (ctrlPointProvider = this.a) == null) {
             return;
         }
-        ctrlPointProvider.setPlaybackVolume(i2);
+        ctrlPointProvider.setPlaybackVolume(i);
     }
 
     @Deprecated

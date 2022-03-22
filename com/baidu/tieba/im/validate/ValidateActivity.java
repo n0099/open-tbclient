@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
-import c.a.q0.c1.s;
-import c.a.q0.r.t.c;
+import c.a.o0.c1.s;
+import c.a.o0.r.t.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -43,7 +43,7 @@ import java.util.List;
 public class ValidateActivity extends BaseActivity<ValidateActivity> implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.q0.r.t.c deleteItemDialog;
+    public c.a.o0.r.t.c deleteItemDialog;
     public s<LinkedList<GroupNewsPojo>> getDataCallBack;
     public s<Integer> getDataCountCallBack;
     public boolean isLoading;
@@ -55,7 +55,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public int perCount;
     public int totalCount;
     public s<Boolean> updateDataCallBack;
-    public c.a.r0.s1.x.c valiateView;
+    public c.a.p0.u1.x.c valiateView;
 
     /* loaded from: classes5.dex */
     public class a implements s<Boolean> {
@@ -70,9 +70,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {validateActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,14 +82,14 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || this.a.isWaitNetResponse) {
                 return;
             }
-            this.a.valiateView.h(false);
+            this.a.valiateView.j(false);
         }
     }
 
@@ -106,9 +106,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {validateActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -118,17 +118,17 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
-                this.a.valiateView.g(ValidateModel.convertToValidateItemDataList(linkedList));
+                this.a.valiateView.i(ValidateModel.convertToValidateItemDataList(linkedList));
                 if (linkedList != null) {
                     this.a.offset += linkedList.size();
                 }
                 if (!this.a.isWaitNetResponse) {
-                    this.a.valiateView.h(false);
+                    this.a.valiateView.j(false);
                 }
                 this.a.isLoading = false;
             }
@@ -148,9 +148,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {validateActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -160,7 +160,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     /* loaded from: classes5.dex */
-    public class d implements c.InterfaceC0876c {
+    public class d implements c.InterfaceC0843c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValidateActivity a;
@@ -187,9 +187,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {validateActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -198,15 +198,15 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             this.a = validateActivity;
         }
 
-        @Override // c.a.q0.r.t.c.InterfaceC0876c
-        public void a(c.a.q0.r.t.c cVar, int i2, View view) {
+        @Override // c.a.o0.r.t.c.InterfaceC0843c
+        public void a(c.a.o0.r.t.c cVar, int i, View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i, view) == null) {
                 cVar.e();
-                if (i2 != 0) {
+                if (i != 0) {
                     return;
                 }
-                this.a.valiateView.h(true);
+                this.a.valiateView.j(true);
                 ValidateActivity validateActivity = this.a;
                 validateActivity.processDel(validateActivity.pendingToDel);
             }
@@ -220,17 +220,17 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public final /* synthetic */ ValidateActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(ValidateActivity validateActivity, int i2) {
-            super(i2);
+        public e(ValidateActivity validateActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {validateActivity, Integer.valueOf(i2)};
+                Object[] objArr = {validateActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -245,7 +245,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.valiateView.h(false);
+                this.a.valiateView.j(false);
                 this.a.isWaitNetResponse = false;
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage)) {
                     int cmd = socketResponsedMessage.getCmd();
@@ -258,17 +258,17 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                                 byNoticeId.setShown(true);
                                 ValidateModel.updateValidateData(this.a.updateDataCallBack, byNoticeId);
                                 if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                                    this.a.showToast(R.string.validate_succ);
+                                    this.a.showToast(R.string.obfuscated_res_0x7f0f14b6);
                                 } else {
                                     this.a.showToast(socketResponsedMessage.getErrorString());
                                 }
-                                this.a.valiateView.e().notifyDataSetChanged();
+                                this.a.valiateView.g().notifyDataSetChanged();
                             }
                         } else if (requestAddGroupUserMessage != null) {
                             socketResponsedMessage.getError();
                             String errorString = socketResponsedMessage.getErrorString();
                             if (TextUtils.isEmpty(errorString)) {
-                                this.a.showToast(R.string.validate_fail);
+                                this.a.showToast(R.string.obfuscated_res_0x7f0f14b1);
                             } else {
                                 this.a.showToast(errorString);
                             }
@@ -277,7 +277,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                                 byNoticeId2.setPass(false);
                                 byNoticeId2.setShown(true);
                                 ValidateModel.updateValidateData(this.a.updateDataCallBack, byNoticeId2);
-                                this.a.valiateView.e().notifyDataSetChanged();
+                                this.a.valiateView.g().notifyDataSetChanged();
                             }
                         }
                     } else if (202004 == cmd) {
@@ -289,17 +289,17 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         ValidateModel.deleteValidateData(this.a.pendingToDel, this.a.updateDataCallBack);
                         this.a.offset--;
                         this.a.totalCount--;
-                        c.a.r0.s1.x.a e2 = this.a.valiateView.e();
-                        e2.b().remove(this.a.pendingToDel);
+                        c.a.p0.u1.x.a g2 = this.a.valiateView.g();
+                        g2.b().remove(this.a.pendingToDel);
                         ImMessageCenterPojo imMessageCenterPojo = null;
-                        if (e2.b().size() > 0) {
+                        if (g2.b().size() > 0) {
                             imMessageCenterPojo = new ImMessageCenterPojo();
-                            imMessageCenterPojo.setLast_content(e2.b().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + e2.b().get(0).getGroupName());
-                            imMessageCenterPojo.setLast_content_time(e2.b().get(0).getApplyTime());
+                            imMessageCenterPojo.setLast_content(g2.b().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14b3) + g2.b().get(0).getGroupName());
+                            imMessageCenterPojo.setLast_content_time(g2.b().get(0).getApplyTime());
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001211, imMessageCenterPojo));
-                        e2.notifyDataSetChanged();
-                        if (e2 == null || e2.b() == null || e2.b().size() != 0) {
+                        g2.notifyDataSetChanged();
+                        if (g2 == null || g2.b() == null || g2.b().size() != 0) {
                             return;
                         }
                         this.a.finish();
@@ -316,17 +316,17 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public final /* synthetic */ ValidateActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(ValidateActivity validateActivity, int i2) {
-            super(i2);
+        public f(ValidateActivity validateActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {validateActivity, Integer.valueOf(i2)};
+                Object[] objArr = {validateActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -344,8 +344,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
                 this.a.offset++;
                 this.a.totalCount++;
-                this.a.valiateView.e().b().add(0, ValidateModel.convertToValidateItemData(p));
-                this.a.valiateView.e().notifyDataSetChanged();
+                this.a.valiateView.g().b().add(0, ValidateModel.convertToValidateItemData(p));
+                this.a.valiateView.g().notifyDataSetChanged();
             }
         }
     }
@@ -355,9 +355,9 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -375,7 +375,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         List<ValidateItemData> b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
-            if (str != null && (b2 = this.valiateView.e().b()) != null) {
+            if (str != null && (b2 = this.valiateView.g().b()) != null) {
                 for (ValidateItemData validateItemData : b2) {
                     if (str.equals(validateItemData.getNotice_id())) {
                         return validateItemData;
@@ -396,7 +396,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             registerListener(103111, this.mListener);
             registerListener(202004, this.mListener);
             registerListener(this.mCustomListener);
-            this.valiateView.h(true);
+            this.valiateView.j(true);
             ValidateModel.requestValidateDataCountFromDB(this.getDataCountCallBack);
         }
     }
@@ -404,11 +404,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     private void initDeleteDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            String string = getPageContext().getString(R.string.delete_user_chat);
+            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f04a8);
             d dVar = new d(this);
-            c.a.q0.r.t.c cVar = new c.a.q0.r.t.c(getPageContext().getPageActivity());
+            c.a.o0.r.t.c cVar = new c.a.o0.r.t.c(getPageContext().getPageActivity());
             this.deleteItemDialog = cVar;
-            cVar.k(R.string.operation);
+            cVar.k(R.string.obfuscated_res_0x7f0f0cd8);
             this.deleteItemDialog.j(new String[]{string}, dVar);
             this.deleteItemDialog.c(getPageContext());
         }
@@ -426,12 +426,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, validateItemData) == null) {
             if (!l.z()) {
-                showToast(R.string.neterror);
+                showToast(R.string.obfuscated_res_0x7f0f0c15);
             } else if (validateItemData == null || validateItemData.isPass() || this.isWaitNetResponse) {
             } else {
                 try {
                     validateItemData.setShown(true);
-                    this.valiateView.h(true);
+                    this.valiateView.j(true);
                     RequestAddGroupUserMessage requestAddGroupUserMessage = new RequestAddGroupUserMessage();
                     requestAddGroupUserMessage.setInviterUserId(validateItemData.getInviterUserId());
                     requestAddGroupUserMessage.setJoinType(validateItemData.getJoinType());
@@ -439,7 +439,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     requestAddGroupUserMessage.setGroupId(c.a.d.f.m.b.g(validateItemData.getGroupId(), 0L));
                     requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                     String notice_id = validateItemData.getNotice_id();
-                    String c2 = c.a.r0.s1.p.b.b().c();
+                    String c2 = c.a.p0.u1.p.b.b().c();
                     if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(c2) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(c2)) {
                         requestAddGroupUserMessage.setSysGroupId(c.a.d.f.m.b.e(c2, 0));
                         requestAddGroupUserMessage.setSysMsgId(String.valueOf(c.a.d.f.m.b.g(notice_id, 0L) / 100));
@@ -459,14 +459,14 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, validateItemData) == null) {
             if (!l.z()) {
-                showToast(R.string.neterror);
+                showToast(R.string.obfuscated_res_0x7f0f0c15);
             } else if (validateItemData == null) {
             } else {
-                long g2 = c.a.d.f.m.b.g(c.a.r0.s1.p.b.b().c(), 0L);
+                long g2 = c.a.d.f.m.b.g(c.a.p0.u1.p.b.b().c(), 0L);
                 if (g2 == 0) {
                     return;
                 }
-                this.valiateView.h(true);
+                this.valiateView.j(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
                 requestDelSystemMessage.setGroupId(g2);
                 long parseLong = Long.parseLong(validateItemData.getNotice_id());
@@ -486,20 +486,20 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            c.a.r0.s1.x.c cVar = this.valiateView;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            c.a.p0.u1.x.c cVar = this.valiateView;
             if (cVar != null) {
-                cVar.onChangeSkinType(i2);
+                cVar.onChangeSkinType(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.r0.s1.x.c cVar;
+        c.a.p0.u1.x.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || (cVar = this.valiateView) == null || !view.equals(cVar.d())) {
             return;
@@ -512,7 +512,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.valiateView = new c.a.r0.s1.x.c(this);
+            this.valiateView = new c.a.p0.u1.x.c(this);
             initDataCallBack();
         }
     }
@@ -522,7 +522,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.r0.s1.x.c cVar = this.valiateView;
+            c.a.p0.u1.x.c cVar = this.valiateView;
             if (cVar != null) {
                 cVar.destroy();
             }
@@ -530,21 +530,21 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
     }
 
-    public void onItemViewClick(View view, int i2, int i3, long j2, ValidateItemData validateItemData) {
+    public void onItemViewClick(View view, int i, int i2, long j, ValidateItemData validateItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), validateItemData}) == null) || validateItemData == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), validateItemData}) == null) || validateItemData == null) {
             return;
         }
-        if (100 == i2) {
+        if (100 == i) {
             onValidateBtnClick(validateItemData);
-        } else if (101 == i2) {
+        } else if (101 == i) {
             onHeadClick(validateItemData);
         }
     }
 
-    public void onItemViewLongClick(View view, int i2, int i3, long j2, ValidateItemData validateItemData) {
+    public void onItemViewLongClick(View view, int i, int i2, long j, ValidateItemData validateItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), validateItemData}) == null) || view == null || validateItemData == null || 200 != i2) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), validateItemData}) == null) || view == null || validateItemData == null || 200 != i) {
             return;
         }
         this.pendingToDel = validateItemData;
@@ -576,20 +576,20 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            c.a.q0.s.d.b.g0().f(1);
+            c.a.o0.s.d.b.g0().f(1);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.GROUP_VALIDATION, -4)));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.isLoading || (i2 = this.offset) >= this.totalCount) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.isLoading || (i = this.offset) >= this.totalCount) {
             return;
         }
         this.isLoading = true;
-        ValidateModel.requestValidateDataFromDB(this.perCount, i2, this.getDataCallBack);
+        ValidateModel.requestValidateDataFromDB(this.perCount, i, this.getDataCallBack);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -603,16 +603,16 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        c.a.r0.s1.x.a e2;
+        c.a.p0.u1.x.a g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStop();
             ChatStatusManager.getInst().setIsOpen(7, false);
-            c.a.r0.s1.x.c cVar = this.valiateView;
-            if (cVar == null || (e2 = cVar.e()) == null) {
+            c.a.p0.u1.x.c cVar = this.valiateView;
+            if (cVar == null || (g2 = cVar.g()) == null) {
                 return;
             }
-            ValidateModel.markShown(e2.b());
+            ValidateModel.markShown(g2.b());
         }
     }
 }

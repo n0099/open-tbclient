@@ -43,38 +43,34 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConditionVariable f48779b;
+    public final ConditionVariable f37692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f48780c;
+    public final AtomicInteger f37693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f48781d;
+    public long f37694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PowerManager f48782e;
+    public PowerManager f37695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ActivityManager f48783f;
+    public ActivityManager f37696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48784g;
+    public String f37697g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f48785h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Executor f48786i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final Object f48787j;
+    public final Object f37698h;
+    public Executor i;
+    public final Object j;
     public final Map<Object, HashSet<UrlRequest>> k;
     public ProxyConfig l;
     public TurbonetEngine.TCPNetworkQualityStatus m;
     @GuardedBy("mDataTrafficMonitorLock")
-    public final c.a.s0.a.b<DataTrafficListener> n;
+    public final c.a.q0.a.b<DataTrafficListener> n;
     @GuardedBy("mNetworkQualityLock")
-    public final c.a.s0.a.b<NetworkQualityListener> o;
+    public final c.a.q0.a.b<NetworkQualityListener> o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -106,16 +102,16 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             $VALUES = new AppThreadState[]{APP_THREAD_ERROR, APP_THREAD_BACKGROUND, appThreadState};
         }
 
-        public AppThreadState(String str, int i2) {
+        public AppThreadState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -149,9 +145,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -177,12 +173,10 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TurbonetEngine.Builder a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TurbonetEngine.Builder f48788e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequestContext f48789f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ CronetUrlRequestContext f37699b;
 
         public a(CronetUrlRequestContext cronetUrlRequestContext, TurbonetEngine.Builder builder) {
             Interceptable interceptable = $ic;
@@ -191,25 +185,25 @@ public class CronetUrlRequestContext extends TurbonetEngine {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cronetUrlRequestContext, builder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48789f = cronetUrlRequestContext;
-            this.f48788e = builder;
+            this.f37699b = cronetUrlRequestContext;
+            this.a = builder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CronetLibraryLoader.b(this.f48788e.getContext());
-                synchronized (this.f48789f.a) {
-                    this.f48789f.nativeInitRequestContextOnInitThread(this.f48789f.f48781d);
+                CronetLibraryLoader.b(this.a.getContext());
+                synchronized (this.f37699b.a) {
+                    this.f37699b.nativeInitRequestContextOnInitThread(this.f37699b.f37694d);
                 }
             }
         }
@@ -219,44 +213,42 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f48790e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f37700b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48791f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ CronetUrlRequestContext f37701c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CronetUrlRequestContext f48792g;
-
-        public b(CronetUrlRequestContext cronetUrlRequestContext, int i2, int i3) {
+        public b(CronetUrlRequestContext cronetUrlRequestContext, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequestContext, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {cronetUrlRequestContext, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48792g = cronetUrlRequestContext;
-            this.f48790e = i2;
-            this.f48791f = i3;
+            this.f37701c = cronetUrlRequestContext;
+            this.a = i;
+            this.f37700b = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f48792g.f48787j) {
-                    Iterator it = this.f48792g.n.iterator();
+                synchronized (this.f37701c.j) {
+                    Iterator it = this.f37701c.n.iterator();
                     while (it.hasNext()) {
-                        ((DataTrafficListener) it.next()).a(this.f48790e, this.f48791f);
+                        ((DataTrafficListener) it.next()).a(this.a, this.f37700b);
                     }
                 }
             }
@@ -267,58 +259,17 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NetworkQualityListener a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetworkQualityListener f48793e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f37702b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48794f;
-
-        public c(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, int i2) {
+        public c(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequestContext, networkQualityListener, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f48793e = networkQualityListener;
-            this.f48794f = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48793e.b(this.f48794f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetworkQualityListener f48795e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f48796f;
-
-        public d(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequestContext, networkQualityListener, str};
+                Object[] objArr = {cronetUrlRequestContext, networkQualityListener, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -328,15 +279,52 @@ public class CronetUrlRequestContext extends TurbonetEngine {
                     return;
                 }
             }
-            this.f48795e = networkQualityListener;
-            this.f48796f = str;
+            this.a = networkQualityListener;
+            this.f37702b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48795e.c(this.f48796f);
+                this.a.b(this.f37702b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NetworkQualityListener a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f37703b;
+
+        public d(CronetUrlRequestContext cronetUrlRequestContext, NetworkQualityListener networkQualityListener, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cronetUrlRequestContext, networkQualityListener, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = networkQualityListener;
+            this.f37703b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c(this.f37703b);
             }
         }
     }
@@ -366,44 +354,44 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = new Object();
-        this.f48779b = new ConditionVariable(false);
-        this.f48780c = new AtomicInteger(0);
-        this.f48781d = 0L;
-        this.f48785h = new Object();
-        this.f48787j = new Object();
+        this.f37692b = new ConditionVariable(false);
+        this.f37693c = new AtomicInteger(0);
+        this.f37694d = 0L;
+        this.f37698h = new Object();
+        this.j = new Object();
         this.k = new HashMap();
-        this.l = ProxyConfig.f48911b;
+        this.l = ProxyConfig.f37801b;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new c.a.s0.a.b<>();
-        this.o = new c.a.s0.a.b<>();
-        this.f48784g = builder.f();
+        this.n = new c.a.q0.a.b<>();
+        this.o = new c.a.q0.a.b<>();
+        this.f37697g = builder.f();
         try {
-            this.f48782e = (PowerManager) builder.getContext().getSystemService("power");
+            this.f37695e = (PowerManager) builder.getContext().getSystemService("power");
         } catch (Exception e2) {
-            e2.getMessage();
-            this.f48782e = null;
+            Log.e("ChromiumNetwork", e2.getMessage());
+            this.f37695e = null;
         }
         try {
-            this.f48783f = (ActivityManager) builder.getContext().getSystemService("activity");
+            this.f37696f = (ActivityManager) builder.getContext().getSystemService("activity");
         } catch (Exception e3) {
-            e3.getMessage();
-            this.f48783f = null;
+            Log.e("ChromiumNetwork", e3.getMessage());
+            this.f37696f = null;
         }
         CronetLibraryLoader.a(builder.getContext(), builder);
         nativeSetMinLogLevel(p());
         synchronized (this.a) {
             long nativeCreateRequestContextAdapter = nativeCreateRequestContextAdapter(o(builder.getContext(), builder));
-            this.f48781d = nativeCreateRequestContextAdapter;
+            this.f37694d = nativeCreateRequestContextAdapter;
             if (nativeCreateRequestContextAdapter != 0) {
                 builder.n();
             } else {
@@ -419,17 +407,17 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                if (this.f48783f != null) {
-                    if (this.f48782e != null) {
+                if (this.f37696f != null) {
+                    if (this.f37695e != null) {
                         if (Build.VERSION.SDK_INT >= 20) {
-                            if (!this.f48782e.isInteractive()) {
+                            if (!this.f37695e.isInteractive()) {
                                 return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
                             }
-                        } else if (!this.f48782e.isScreenOn()) {
+                        } else if (!this.f37695e.isScreenOn()) {
                             return AppThreadState.APP_THREAD_BACKGROUND.ordinal();
                         }
-                        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f48783f.getRunningAppProcesses()) {
-                            if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f48784g)) {
+                        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f37696f.getRunningAppProcesses()) {
+                            if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f37697g)) {
                                 if (runningAppProcessInfo.importance == 100) {
                                     return AppThreadState.APP_THREAD_FOREGROUND.ordinal();
                                 }
@@ -442,7 +430,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
                 }
                 throw new NullPointerException("Error: mActivityManager is null.");
             } catch (Exception e2) {
-                e2.getMessage();
+                Log.e("ChromiumNetwork", e2.getMessage());
                 return AppThreadState.APP_THREAD_ERROR.ordinal();
             }
         }
@@ -458,7 +446,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
             }
             synchronized (this.a) {
                 Thread.currentThread();
-                this.f48779b.open();
+                this.f37692b.open();
             }
             Thread.currentThread().setName("TurboNet");
             Process.setThreadPriority(10);
@@ -472,11 +460,11 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
             } catch (Exception e2) {
-                e2.getMessage();
+                Log.e("ChromiumNetwork", e2.getMessage());
             }
-            if (this.f48783f != null) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f48783f.getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f48784g)) {
+            if (this.f37696f != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : this.f37696f.getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.processName.equalsIgnoreCase(this.f37697g)) {
                         return runningAppProcessInfo.importance == 100;
                     }
                 }
@@ -493,105 +481,105 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             try {
-                if (this.f48782e != null) {
+                if (this.f37695e != null) {
                     if (Build.VERSION.SDK_INT >= 20) {
-                        return this.f48782e.isInteractive();
+                        return this.f37695e.isInteractive();
                     }
-                    return this.f48782e.isScreenOn();
+                    return this.f37695e.isScreenOn();
                 }
                 throw new NullPointerException("Error: mPowerManager is null.");
             } catch (Exception e2) {
-                e2.getMessage();
+                Log.e("ChromiumNetwork", e2.getMessage());
                 return false;
             }
         }
         return invokeV.booleanValue;
     }
 
-    public static native void nativeApplyBaiduConfigDictionary(long j2, String str);
+    public static native void nativeApplyBaiduConfigDictionary(long j, String str);
 
-    public static native void nativeApplyBaiduConfiguration(long j2, String str);
+    public static native void nativeApplyBaiduConfiguration(long j, String str);
 
-    public static native long nativeCreateRequestContextAdapter(long j2);
+    public static native long nativeCreateRequestContextAdapter(long j);
 
-    public static native long nativeCreateRequestContextConfig(String str, String str2, boolean z, String str3, boolean z2, boolean z3, String str4, String str5, String str6, String str7, boolean z4, int i2, long j2, String str8, long j3, boolean z5);
-
-    @NativeClassQualifiedName
-    private native void nativeDestroy(long j2);
+    public static native long nativeCreateRequestContextConfig(String str, String str2, boolean z, String str3, boolean z2, boolean z3, String str4, String str5, String str6, String str7, boolean z4, int i, long j, String str8, long j2, boolean z5);
 
     @NativeClassQualifiedName
-    private native void nativeDetectQuicConnectStatusByPreconnect(long j2);
+    private native void nativeDestroy(long j);
 
     @NativeClassQualifiedName
-    private native void nativeDisableSpdyPingByHost(long j2, String str);
+    private native void nativeDetectQuicConnectStatusByPreconnect(long j);
 
     @NativeClassQualifiedName
-    private native void nativeEnableCustomProxy(long j2, boolean z);
+    private native void nativeDisableSpdyPingByHost(long j, String str);
 
     @NativeClassQualifiedName
-    private native void nativeEnableDataTrafficMonitor(long j2);
+    private native void nativeEnableCustomProxy(long j, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeEnableMulConnect(long j2, boolean z);
+    private native void nativeEnableDataTrafficMonitor(long j);
 
     @NativeClassQualifiedName
-    private native void nativeEnableSpdyPingByHost(long j2, String str, int i2, int i3);
+    private native void nativeEnableMulConnect(long j, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeForceDisableQuic(long j2, boolean z);
+    private native void nativeEnableSpdyPingByHost(long j, String str, int i, int i2);
+
+    @NativeClassQualifiedName
+    private native void nativeForceDisableQuic(long j, boolean z);
 
     public static native byte[] nativeGetHistogramDeltas();
 
     @NativeClassQualifiedName
-    private native void nativeGetNetworkQualityStats(long j2, NetworkQualityListener networkQualityListener);
+    private native void nativeGetNetworkQualityStats(long j, NetworkQualityListener networkQualityListener);
 
     @NativeClassQualifiedName
     public static native String nativeGetTurboNetVersion();
 
     /* JADX INFO: Access modifiers changed from: private */
     @NativeClassQualifiedName
-    public native void nativeInitRequestContextOnInitThread(long j2);
+    public native void nativeInitRequestContextOnInitThread(long j);
 
     @NativeClassQualifiedName
-    private native void nativeOnBdAppStatusChange(long j2, int i2);
+    private native void nativeOnBdAppStatusChange(long j, int i);
 
     @NativeClassQualifiedName
-    private native void nativePreconnectURL(long j2, String str, int i2, boolean z);
+    private native void nativePreconnectURL(long j, String str, int i, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeProvideDataTrafficObservations(long j2, boolean z);
+    private native void nativeProvideDataTrafficObservations(long j, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeProvideNetworkQualityObservations(long j2, boolean z);
+    private native void nativeProvideNetworkQualityObservations(long j, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeResolveHost(long j2, ResolveResult resolveResult, String str, boolean z);
+    private native void nativeResolveHost(long j, ResolveResult resolveResult, String str, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeSetAltQuicInterceptor(long j2, boolean z);
+    private native void nativeSetAltQuicInterceptor(long j, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeSetAltQuicInterceptorWhitelist(long j2, String str);
+    private native void nativeSetAltQuicInterceptorWhitelist(long j, String str);
 
     @NativeClassQualifiedName
-    private native void nativeSetDataTrafficThreshold(long j2, int i2, int i3, int i4);
+    private native void nativeSetDataTrafficThreshold(long j, int i, int i2, int i3);
 
     @NativeClassQualifiedName
-    private native void nativeSetDualStackBdnsCachePolicy(long j2, int i2);
+    private native void nativeSetDualStackBdnsCachePolicy(long j, int i);
 
-    public static native int nativeSetMinLogLevel(int i2);
-
-    @NativeClassQualifiedName
-    private native void nativeStartNetLogToFile(long j2, String str, boolean z);
+    public static native int nativeSetMinLogLevel(int i);
 
     @NativeClassQualifiedName
-    private native void nativeStopNetLog(long j2);
+    private native void nativeStartNetLogToFile(long j, String str, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeUploadNativeRequestLog(long j2, String str, String str2, int i2, int i3, long j3, long j4, long j5, long j6);
+    private native void nativeStopNetLog(long j);
 
     @NativeClassQualifiedName
-    private native void nativeUploadNetLog(long j2, String str);
+    private native void nativeUploadNativeRequestLog(long j, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5);
+
+    @NativeClassQualifiedName
+    private native void nativeUploadNetLog(long j, String str);
 
     public static long o(Context context, TurbonetEngine.Builder builder) {
         InterceptResult invokeLL;
@@ -610,10 +598,10 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @CalledByNative
-    private void onDataTrafficObservation(int i2, int i3) {
+    private void onDataTrafficObservation(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65578, this, i2, i3) == null) {
-            u(new b(this, i2, i3));
+        if (interceptable == null || interceptable.invokeII(65578, this, i, i2) == null) {
+            u(new b(this, i, i2));
         }
     }
 
@@ -631,14 +619,14 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @CalledByNative
-    private void onNetworkQualityObservation(int i2) {
+    private void onNetworkQualityObservation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65580, this, i2) == null) {
-            synchronized (this.f48785h) {
+        if (interceptable == null || interceptable.invokeI(65580, this, i) == null) {
+            synchronized (this.f37698h) {
                 Iterator<NetworkQualityListener> it = this.o.iterator();
                 while (it.hasNext()) {
                     NetworkQualityListener next = it.next();
-                    c cVar = new c(this, next, i2);
+                    c cVar = new c(this, next, i);
                     if (next.a() != null) {
                         v(next.a(), cVar);
                     } else {
@@ -646,7 +634,7 @@ public class CronetUrlRequestContext extends TurbonetEngine {
                     }
                 }
             }
-            w(i2);
+            w(i);
         }
     }
 
@@ -662,12 +650,12 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @CalledByNative
-    private void updateQUICConnectStatus(int i2) {
+    private void updateQUICConnectStatus(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65582, this, i2) == null) || i2 < 0 || i2 > 2) {
+        if (!(interceptable == null || interceptable.invokeI(65582, this, i) == null) || i < 0 || i > 2) {
             return;
         }
-        TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.values()[i2];
+        TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.values()[i];
     }
 
     public static void v(Executor executor, Runnable runnable) {
@@ -675,20 +663,21 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         if (interceptable == null || interceptable.invokeLL(65583, null, executor, runnable) == null) {
             try {
                 executor.execute(runnable);
-            } catch (RejectedExecutionException unused) {
+            } catch (RejectedExecutionException e2) {
+                Log.e("ChromiumNetwork", "Exception posting task to executor", e2);
             }
         }
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i2, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
+    public UrlRequest b(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         CronetUrlRequest cronetUrlRequest;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, callback, executor, Integer.valueOf(i2), collection, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, callback, executor, Integer.valueOf(i), collection, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             synchronized (this.a) {
                 n();
-                cronetUrlRequest = new CronetUrlRequest(this, str, i2, callback, executor, collection, false, z, z2, z3);
+                cronetUrlRequest = new CronetUrlRequest(this, str, i, callback, executor, collection, false, z, z2, z3);
             }
             return cronetUrlRequest;
         }
@@ -723,16 +712,16 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public void g(String str, String str2, int i2, int i3, long j2, long j3, long j4, long j5) {
+    public void g(String str, String str2, int i, int i2, long j, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) != null) {
             return;
         }
         synchronized (this.a) {
             try {
                 try {
                     n();
-                    nativeUploadNativeRequestLog(this.f48781d, str, str2, i2, i3, j2, j3, j4, j5);
+                    nativeUploadNativeRequestLog(this.f37694d, str, str2, i, i2, j, j2, j3, j4);
                 } catch (Throwable th) {
                     th = th;
                     throw th;
@@ -778,14 +767,14 @@ public class CronetUrlRequestContext extends TurbonetEngine {
 
     public long q() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this.a) {
                 n();
-                j2 = this.f48781d;
+                j = this.f37694d;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -793,20 +782,20 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public final boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f48781d != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37694d != 0 : invokeV.booleanValue;
     }
 
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f48780c.decrementAndGet();
+            this.f37693c.decrementAndGet();
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f48780c.incrementAndGet();
+            this.f37693c.incrementAndGet();
         }
     }
 
@@ -814,20 +803,21 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, runnable) == null) {
             try {
-                this.f48786i.execute(runnable);
-            } catch (RejectedExecutionException unused) {
+                this.i.execute(runnable);
+            } catch (RejectedExecutionException e2) {
+                Log.e("ChromiumNetwork", "Exception posting task to executor", e2);
             }
         }
     }
 
-    public final void w(int i2) {
+    public final void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            if (this.m != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i2 == 7) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (this.m != TurbonetEngine.TCPNetworkQualityStatus.WEAK && i == 7) {
                 this.m = TurbonetEngine.TCPNetworkQualityStatus.NORMAL;
-            } else if (i2 == 3 || i2 == 6) {
+            } else if (i == 3 || i == 6) {
                 this.m = TurbonetEngine.TCPNetworkQualityStatus.WEAK;
-            } else if (i2 == 0 || i2 == 4) {
+            } else if (i == 0 || i == 4) {
                 this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
             }
         }
@@ -838,7 +828,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         if (interceptable == null || interceptable.invokeL(1048590, this, urlRequest) == null) {
             synchronized (this.k) {
                 HashSet<UrlRequest> hashSet = this.k.get(urlRequest.getTag());
-                if (hashSet != null) {
+                if (hashSet == null) {
+                    Log.e("ChromiumNetwork", "Remove a tagged request which is not in mTaggedRequestList");
+                } else {
                     hashSet.remove(urlRequest);
                     if (hashSet.isEmpty()) {
                         this.k.remove(urlRequest.getTag());

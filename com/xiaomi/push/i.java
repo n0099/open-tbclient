@@ -25,34 +25,34 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f621a = false;
+    public static volatile boolean f597a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f622a;
+    public static final String[] f598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59834b = null;
+    public static String f44415b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59835c = "";
+    public static String f44416c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59836d;
+    public static String f44417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f59837e;
+    public static String f44418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f59838f;
+    public static final String f44419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f59839g;
+    public static String f44420g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,10 +68,10 @@ public class i {
                 return;
             }
         }
-        f59838f = String.valueOf((char) 2);
-        f622a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
-        f59839g = null;
-        f621a = false;
+        f44419f = String.valueOf((char) 2);
+        f598a = new String[]{"--", "a-", "u-", "v-", "o-", "g-"};
+        f44420g = null;
+        f597a = false;
     }
 
     public static double a(double d2) {
@@ -80,21 +80,21 @@ public class i {
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2)})) != null) {
             return invokeCommon.doubleValue;
         }
-        int i2 = 1;
+        int i = 1;
         while (true) {
-            double d3 = i2;
+            double d3 = i;
             if (d3 >= d2) {
                 return d3;
             }
-            i2 <<= 1;
+            i <<= 1;
         }
     }
 
-    public static float a(int i2) {
+    public static float a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            float f2 = ((((((i2 + 102400) / 524288) + 1) * 512) * 1024) / 1024.0f) / 1024.0f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            float f2 = ((((((i + 102400) / 524288) + 1) * 512) * 1024) / 1024.0f) / 1024.0f;
             double d2 = f2;
             return d2 > 0.5d ? (float) Math.ceil(d2) : f2;
         }
@@ -123,11 +123,11 @@ public class i {
                 return 0;
             }
             int length = str.length();
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 = (i2 * 31) + str.charAt(i3);
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = (i * 31) + str.charAt(i2);
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -152,7 +152,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m498a() {
+    public static String m477a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
@@ -162,17 +162,17 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m499a(int i2) {
+    public static String m478a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            if (i2 > 0) {
-                String[] strArr = f622a;
-                if (i2 < strArr.length) {
-                    return strArr[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            if (i > 0) {
+                String[] strArr = f598a;
+                if (i < strArr.length) {
+                    return strArr[i];
                 }
             }
-            return f622a[0];
+            return f598a[0];
         }
         return (String) invokeI.objValue;
     }
@@ -184,7 +184,7 @@ public class i {
             try {
                 return j.a(context).a();
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("failure to get gaid:" + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m112a("failure to get gaid:" + e2.getMessage());
                 return null;
             }
         }
@@ -195,43 +195,43 @@ public class i {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, context, z)) == null) {
-            if (f59836d == null) {
+            if (f44417d == null) {
                 String e2 = e(context);
                 String f2 = !l.d() ? z ? f(context) : o(context) : "";
                 String d2 = d(context);
-                int i2 = 1;
+                int i = 1;
                 if (!(Build.VERSION.SDK_INT < 26) && b(f2) && b(d2)) {
                     String a2 = ax.a(context).a();
                     if (TextUtils.isEmpty(a2)) {
                         String n = n(context);
                         if (TextUtils.isEmpty(n)) {
-                            String mo212b = ax.a(context).mo212b();
-                            if (TextUtils.isEmpty(mo212b)) {
-                                i2 = 5;
+                            String mo191b = ax.a(context).mo191b();
+                            if (TextUtils.isEmpty(mo191b)) {
+                                i = 5;
                             } else {
-                                i2 = 4;
-                                e2 = mo212b;
+                                i = 4;
+                                e2 = mo191b;
                             }
                         } else {
                             e2 = n;
-                            i2 = 3;
+                            i = 3;
                         }
                     } else {
                         e2 = a2 + e2;
-                        i2 = 2;
+                        i = 2;
                     }
                 } else {
                     e2 = f2 + e2 + d2;
                 }
-                com.xiaomi.channel.commonutils.logger.b.b("devid rule select:" + i2);
-                if (i2 == 3) {
-                    f59836d = e2;
+                com.xiaomi.channel.commonutils.logger.b.b("devid rule select:" + i);
+                if (i == 3) {
+                    f44417d = e2;
                 } else {
-                    f59836d = m499a(i2) + bm.b(e2);
+                    f44417d = m478a(i) + bm.b(e2);
                 }
-                b(context, f59836d);
+                b(context, f44417d);
             }
-            return f59836d;
+            return f44417d;
         }
         return (String) invokeLZ.objValue;
     }
@@ -244,26 +244,26 @@ public class i {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            f59839g = str;
+            f44420g = str;
             u uVar = null;
             try {
                 try {
-                    if (m505c(context)) {
+                    if (m484c(context)) {
                         File file = new File(Environment.getExternalStorageDirectory(), "/.vdevdir/");
                         if (file.exists() && file.isFile()) {
                             file.delete();
                         }
                         File file2 = new File(file, ".vdevid");
                         uVar = u.a(context, file2);
-                        y.m705a(file2);
-                        y.a(file2, f59839g);
+                        y.m684a(file2);
+                        y.a(file2, f44420g);
                     }
-                    y.a(new File(context.getFilesDir(), ".vdevid"), f59839g);
+                    y.a(new File(context.getFilesDir(), ".vdevid"), f44420g);
                     if (uVar == null) {
                         return;
                     }
                 } catch (IOException unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("update vdevid failure.");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("update vdevid failure.");
                     if (uVar == null) {
                         return;
                     }
@@ -291,7 +291,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m500a(Context context) {
+    public static boolean m479a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -306,7 +306,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m501a(String str) {
+    public static boolean m480a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, str)) != null) {
@@ -315,16 +315,16 @@ public class i {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            String[] strArr = f622a;
-            if (i2 >= strArr.length) {
+            String[] strArr = f598a;
+            if (i >= strArr.length) {
                 return false;
             }
-            if (str.startsWith(strArr[i2])) {
+            if (str.startsWith(strArr[i])) {
                 return true;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -376,7 +376,7 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m502b() {
+    public static String m481b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
@@ -392,34 +392,34 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
             u uVar = null;
-            if (m505c(context)) {
-                if (TextUtils.isEmpty(f59839g)) {
+            if (m484c(context)) {
+                if (TextUtils.isEmpty(f44420g)) {
                     String a2 = y.a(new File(context.getFilesDir(), ".vdevid"));
-                    f59839g = a2;
+                    f44420g = a2;
                     try {
                         if (TextUtils.isEmpty(a2)) {
                             try {
                                 File file = new File(new File(Environment.getExternalStorageDirectory(), "/.vdevdir/"), ".vdevid");
                                 uVar = u.a(context, file);
-                                f59839g = "";
+                                f44420g = "";
                                 String a3 = y.a(file);
                                 if (a3 != null) {
-                                    f59839g = a3;
+                                    f44420g = a3;
                                 }
-                                String str = f59839g;
+                                String str = f44420g;
                                 if (uVar != null) {
                                     uVar.a();
                                 }
                                 return str;
                             } catch (IOException unused) {
-                                com.xiaomi.channel.commonutils.logger.b.m133a("getVDevID failure.");
+                                com.xiaomi.channel.commonutils.logger.b.m112a("getVDevID failure.");
                                 if (uVar != null) {
                                     uVar.a();
                                 }
-                                return f59839g;
+                                return f44420g;
                             }
                         }
-                        return f59839g;
+                        return f44420g;
                     } catch (Throwable th) {
                         if (uVar != null) {
                             uVar.a();
@@ -427,7 +427,7 @@ public class i {
                         throw th;
                     }
                 }
-                return f59839g;
+                return f44420g;
             }
             return null;
         }
@@ -445,7 +445,7 @@ public class i {
             u uVar = null;
             try {
                 try {
-                    if (m505c(context)) {
+                    if (m484c(context)) {
                         File file = new File(Environment.getExternalStorageDirectory(), "/.vdevdir/");
                         if (file.exists() && file.isFile()) {
                             file.delete();
@@ -456,17 +456,17 @@ public class i {
                             return;
                         }
                         uVar = u.a(context, file2);
-                        y.m705a(file2);
-                        y.a(file2, f59836d + f59838f + a(f59836d));
+                        y.m684a(file2);
+                        y.a(file2, f44417d + f44419f + a(f44417d));
                         com.xiaomi.channel.commonutils.logger.b.b("lvdd write succ.");
                     } else {
-                        com.xiaomi.channel.commonutils.logger.b.m133a("not support write lvdd.");
+                        com.xiaomi.channel.commonutils.logger.b.m112a("not support write lvdd.");
                     }
                     if (uVar == null) {
                         return;
                     }
                 } catch (IOException unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("write lvdd failure.");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("write lvdd failure.");
                     if (0 == 0) {
                         return;
                     }
@@ -482,7 +482,7 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m503b(Context context) {
+    public static boolean m482b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
@@ -512,7 +512,7 @@ public class i {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m504c() {
+    public static String m483c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
@@ -539,10 +539,10 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, context)) == null) {
             u uVar2 = null;
-            if (!m505c(context) || f621a) {
+            if (!m484c(context) || f597a) {
                 return null;
             }
-            f621a = true;
+            f597a = true;
             ?? filesDir = context.getFilesDir();
             String a2 = y.a(new File((File) filesDir, ".vdevid"));
             try {
@@ -555,7 +555,7 @@ public class i {
                             uVar.a();
                         }
                     } catch (IOException unused) {
-                        com.xiaomi.channel.commonutils.logger.b.m133a("check id failure.");
+                        com.xiaomi.channel.commonutils.logger.b.m112a("check id failure.");
                         if (uVar != null) {
                             uVar.a();
                         }
@@ -582,31 +582,31 @@ public class i {
             }
             filesDir = TextUtils.isEmpty(a2);
             if (filesDir == 0) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("empty local vid");
+                com.xiaomi.channel.commonutils.logger.b.m112a("empty local vid");
                 return "F*";
             }
-            f59839g = a2;
+            f44420g = a2;
             if (TextUtils.isEmpty(str) || str.length() > 128) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("recover vid :" + str);
+                com.xiaomi.channel.commonutils.logger.b.m112a("recover vid :" + str);
                 a(context, a2);
             } else if (!TextUtils.equals(a2, str)) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("vid changed, need sync");
+                com.xiaomi.channel.commonutils.logger.b.m112a("vid changed, need sync");
                 return str;
             }
-            com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + f59839g + " " + str);
+            com.xiaomi.channel.commonutils.logger.b.c("vdevid = " + f44420g + " " + str);
             return null;
         }
         return (String) invokeL.objValue;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m505c(Context context) {
+    public static boolean m484c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if ((Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && m.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && !l.m598a()) {
+            if ((Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && m.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && !l.m577a()) {
                 boolean z = Build.VERSION.SDK_INT >= 26;
-                return !z ? t.m703a(context) : z;
+                return !z ? t.m682a(context) : z;
             }
             return false;
         }
@@ -616,7 +616,7 @@ public class i {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 15 && str.length() >= 14 && bm.m246b(str) && !bm.c(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? !TextUtils.isEmpty(str) && str.length() <= 15 && str.length() >= 14 && bm.m225b(str) && !bm.c(str) : invokeL.booleanValue;
     }
 
     public static String d() {
@@ -633,9 +633,9 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            if (m506d(context)) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 <= 8 || i2 >= 26) {
+            if (m485d(context)) {
+                int i = Build.VERSION.SDK_INT;
+                if (i <= 8 || i >= 26) {
                     if (Build.VERSION.SDK_INT >= 26) {
                         return (String) bh.a("android.os.Build", "getSerial", (Object[]) null);
                     }
@@ -649,12 +649,12 @@ public class i {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m506d(Context context) {
+    public static boolean m485d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             String packageName = context.getPackageName();
-            return context.getPackageManager().checkPermission(com.kuaishou.weapon.un.s.f53804c, packageName) == 0 || context.getPackageManager().checkPermission("android.permission.READ_PRIVILEGED_PHONE_STATE", packageName) == 0;
+            return context.getPackageManager().checkPermission("android.permission.READ_PHONE_STATE", packageName) == 0 || context.getPackageManager().checkPermission("android.permission.READ_PRIVILEGED_PHONE_STATE", packageName) == 0;
         }
         return invokeL.booleanValue;
     }
@@ -663,16 +663,16 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            String str = f59834b;
+            String str = f44415b;
             if (str != null) {
                 return str;
             }
             try {
-                f59834b = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                f44415b = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("failure to get androidId: " + th);
+                com.xiaomi.channel.commonutils.logger.b.m112a("failure to get androidId: " + th);
             }
-            return f59834b;
+            return f44415b;
         }
         return (String) invokeL.objValue;
     }
@@ -684,7 +684,7 @@ public class i {
             int c2 = c();
             String g2 = g(context);
             while (g2 == null) {
-                int i2 = c2 - 1;
+                int i = c2 - 1;
                 if (c2 <= 0) {
                     break;
                 }
@@ -693,7 +693,7 @@ public class i {
                 } catch (InterruptedException unused) {
                 }
                 g2 = g(context);
-                c2 = i2;
+                c2 = i;
             }
             return g2;
         }
@@ -716,8 +716,8 @@ public class i {
                 return str2;
             }
             try {
-                if (m506d(context)) {
-                    str = (!l.m598a() || (a2 = bh.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = bh.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
+                if (m485d(context)) {
+                    str = (!l.m577a() || (a2 = bh.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = bh.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
                     if (str == null) {
                         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                         if (Build.VERSION.SDK_INT < 26) {
@@ -740,7 +740,7 @@ public class i {
                 }
                 return "";
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("failure to get id:" + th);
+                com.xiaomi.channel.commonutils.logger.b.m112a("failure to get id:" + th);
                 return null;
             }
         }
@@ -752,9 +752,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             int c2 = c();
-            String j2 = j(context);
-            while (j2 == null) {
-                int i2 = c2 - 1;
+            String j = j(context);
+            while (j == null) {
+                int i = c2 - 1;
                 if (c2 <= 0) {
                     break;
                 }
@@ -762,10 +762,10 @@ public class i {
                     Thread.sleep(500L);
                 } catch (InterruptedException unused) {
                 }
-                j2 = j(context);
-                c2 = i2;
+                j = j(context);
+                c2 = i;
             }
-            return j2;
+            return j;
         }
         return (String) invokeL.objValue;
     }
@@ -776,49 +776,49 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             if (!l.d() && Build.VERSION.SDK_INT >= 22) {
-                if (TextUtils.isEmpty(f59835c)) {
+                if (TextUtils.isEmpty(f44416c)) {
                     g(context);
                     if (TextUtils.isEmpty(a)) {
                         return "";
                     }
                     try {
-                        if (m506d(context)) {
+                        if (m485d(context)) {
                             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                             Integer num = (Integer) bh.a((Object) telephonyManager, "getPhoneCount", new Object[0]);
                             if (num != null && num.intValue() > 1) {
                                 String str = null;
-                                for (int i2 = 0; i2 < num.intValue(); i2++) {
+                                for (int i = 0; i < num.intValue(); i++) {
                                     if (Build.VERSION.SDK_INT < 26) {
-                                        a2 = bh.a((Object) telephonyManager, "getDeviceId", Integer.valueOf(i2));
+                                        a2 = bh.a((Object) telephonyManager, "getDeviceId", Integer.valueOf(i));
                                     } else if (1 == telephonyManager.getPhoneType()) {
-                                        a2 = bh.a((Object) telephonyManager, "getImei", Integer.valueOf(i2));
+                                        a2 = bh.a((Object) telephonyManager, "getImei", Integer.valueOf(i));
                                     } else {
                                         if (2 == telephonyManager.getPhoneType()) {
-                                            a2 = bh.a((Object) telephonyManager, "getMeid", Integer.valueOf(i2));
+                                            a2 = bh.a((Object) telephonyManager, "getMeid", Integer.valueOf(i));
                                         }
                                         if (!TextUtils.isEmpty(str) && !TextUtils.equals(a, str) && c(str)) {
-                                            f59835c += str + ",";
+                                            f44416c += str + ",";
                                         }
                                     }
                                     str = (String) a2;
                                     if (!TextUtils.isEmpty(str)) {
-                                        f59835c += str + ",";
+                                        f44416c += str + ",";
                                     }
                                 }
-                                int length = f59835c.length();
+                                int length = f44416c.length();
                                 if (length > 0) {
-                                    f59835c = f59835c.substring(0, length - 1);
+                                    f44416c = f44416c.substring(0, length - 1);
                                 }
-                                return f59835c;
+                                return f44416c;
                             }
                         }
                         return "";
                     } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m133a("failure to get ids: " + e2);
+                        com.xiaomi.channel.commonutils.logger.b.m112a("failure to get ids: " + e2);
                         return "";
                     }
                 }
-                return f59835c;
+                return f44416c;
             }
             return "";
         }
@@ -831,10 +831,10 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             i(context);
             String str = "";
-            if (TextUtils.isEmpty(f59835c)) {
+            if (TextUtils.isEmpty(f44416c)) {
                 return "";
             }
-            for (String str2 : f59835c.split(",")) {
+            for (String str2 : f44416c.split(",")) {
                 if (c(str2)) {
                     str = str + bm.a(str2) + ",";
                 }
@@ -850,13 +850,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             synchronized (i.class) {
-                if (f59837e != null) {
-                    return f59837e;
+                if (f44418e != null) {
+                    return f44418e;
                 }
                 String e2 = e(context);
                 String d2 = d(context);
                 String b2 = bm.b(e2 + d2);
-                f59837e = b2;
+                f44418e = b2;
                 return b2;
             }
         }
@@ -913,8 +913,8 @@ public class i {
         String str2 = null;
         r1 = null;
         u uVar2 = null;
-        if (!m505c(context)) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("not support read lvdd.");
+        if (!m484c(context)) {
+            com.xiaomi.channel.commonutils.logger.b.m112a("not support read lvdd.");
             return null;
         }
         try {
@@ -926,7 +926,7 @@ public class i {
                         try {
                             String a3 = y.a(file);
                             if (!TextUtils.isEmpty(a3)) {
-                                String[] split = a3.split(f59838f);
+                                String[] split = a3.split(f44419f);
                                 if (split.length == 2) {
                                     String str3 = split[0];
                                     try {
@@ -938,7 +938,7 @@ public class i {
                                 }
                             }
                             if (TextUtils.isEmpty(str2)) {
-                                y.m705a(file);
+                                y.m684a(file);
                                 com.xiaomi.channel.commonutils.logger.b.b("lvdd content invalid, remove it.");
                             }
                             String str4 = str2;
@@ -956,7 +956,7 @@ public class i {
                         String str5 = str2;
                         uVar2 = a2;
                         str = str5;
-                        com.xiaomi.channel.commonutils.logger.b.m133a("get lvdd failure.");
+                        com.xiaomi.channel.commonutils.logger.b.m112a("get lvdd failure.");
                     }
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.b("lvdf not exists");
@@ -977,7 +977,7 @@ public class i {
             int c2 = c();
             String g2 = g(context);
             while (TextUtils.isEmpty(g2)) {
-                int i2 = c2 - 1;
+                int i = c2 - 1;
                 if (c2 <= 0) {
                     break;
                 }
@@ -986,7 +986,7 @@ public class i {
                 } catch (InterruptedException unused) {
                 }
                 g2 = g(context);
-                c2 = i2;
+                c2 = i;
             }
             return g2;
         }

@@ -45,9 +45,9 @@ public final class TouchHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, config};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,26 +65,26 @@ public final class TouchHelper {
         this.mBlockOffset$delegate = LazyKt__LazyJVMKt.lazy(new TouchHelper$mBlockOffset$2(this));
     }
 
-    private final int calculateX(int i2, int i3, int i4) {
+    private final int calculateX(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, this, i2, i3, i4)) == null) {
-            int i5 = i2 + i4;
-            int i6 = getMBlockOffset().left;
-            int i7 = (this.mDisplayWidth - i3) - getMBlockOffset().right;
-            return i5 < i6 ? i6 : i5 > i7 ? i7 : i5;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, this, i, i2, i3)) == null) {
+            int i4 = i + i3;
+            int i5 = getMBlockOffset().left;
+            int i6 = (this.mDisplayWidth - i2) - getMBlockOffset().right;
+            return i4 < i5 ? i5 : i4 > i6 ? i6 : i4;
         }
         return invokeIII.intValue;
     }
 
-    private final int calculateY(int i2, int i3) {
+    private final int calculateY(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
-            int i4 = i2 + i3;
-            int i5 = getMBlockOffset().top;
-            int i6 = this.mEmptyHeight - getMBlockOffset().bottom;
-            return i4 < i5 ? i5 : i4 > i6 ? i6 : i4;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i, i2)) == null) {
+            int i3 = i + i2;
+            int i4 = getMBlockOffset().top;
+            int i5 = this.mEmptyHeight - getMBlockOffset().bottom;
+            return i3 < i4 ? i4 : i3 > i5 ? i5 : i3;
         }
         return invokeII.intValue;
     }

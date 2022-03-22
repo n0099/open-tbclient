@@ -18,22 +18,22 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
     @NonNull
     public final List<ViewPager2.OnPageChangeCallback> mCallbacks;
 
-    public CompositeOnPageChangeCallback(int i2) {
+    public CompositeOnPageChangeCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mCallbacks = new ArrayList(i2);
+        this.mCallbacks = new ArrayList(i);
     }
 
     private void throwCallbackListModifiedWhileInUse(ConcurrentModificationException concurrentModificationException) {
@@ -51,12 +51,12 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrollStateChanged(int i2) {
+    public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             try {
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
-                    onPageChangeCallback.onPageScrollStateChanged(i2);
+                    onPageChangeCallback.onPageScrollStateChanged(i);
                 }
             } catch (ConcurrentModificationException e2) {
                 throwCallbackListModifiedWhileInUse(e2);
@@ -65,12 +65,12 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrolled(int i2, float f2, @Px int i3) {
+    public void onPageScrolled(int i, float f2, @Px int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
             try {
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
-                    onPageChangeCallback.onPageScrolled(i2, f2, i3);
+                    onPageChangeCallback.onPageScrolled(i, f2, i2);
                 }
             } catch (ConcurrentModificationException e2) {
                 throwCallbackListModifiedWhileInUse(e2);
@@ -79,12 +79,12 @@ public final class CompositeOnPageChangeCallback extends ViewPager2.OnPageChange
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageSelected(int i2) {
+    public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             try {
                 for (ViewPager2.OnPageChangeCallback onPageChangeCallback : this.mCallbacks) {
-                    onPageChangeCallback.onPageSelected(i2);
+                    onPageChangeCallback.onPageSelected(i);
                 }
             } catch (ConcurrentModificationException e2) {
                 throwCallbackListModifiedWhileInUse(e2);

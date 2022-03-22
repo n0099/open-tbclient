@@ -1,6 +1,6 @@
 package com.baidu.tieba.pushdialog.data;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PullTidReqNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullTidReqNetMessage(int i2, int i3) {
-        super(i2, i3);
+    public PullTidReqNetMessage(int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -55,17 +55,17 @@ public class PullTidReqNetMessage extends NetMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PullTidReqNetMessage(int i2, int i3, BdUniqueId bdUniqueId) {
-        super(i2, i3, bdUniqueId);
+    public PullTidReqNetMessage(int i, int i2, BdUniqueId bdUniqueId) {
+        super(i, i2, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;

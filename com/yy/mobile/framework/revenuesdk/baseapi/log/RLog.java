@@ -1,5 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER = "MidPay:";
@@ -38,9 +39,9 @@ public class RLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -66,8 +67,7 @@ public class RLog {
                 return;
             }
             try {
-                tagWithHeader(obj);
-                String.format(str, objArr);
+                Log.d(tagWithHeader(obj), String.format(str, objArr));
             } catch (Exception unused) {
             }
         }
@@ -83,8 +83,7 @@ public class RLog {
                 }
             } else {
                 try {
-                    tagWithHeader(obj);
-                    String.format(str, objArr);
+                    Log.e(tagWithHeader(obj), String.format(str, objArr));
                 } catch (Exception unused) {
                 }
             }
@@ -105,8 +104,7 @@ public class RLog {
                 }
             } else {
                 try {
-                    tagWithHeader(obj);
-                    String.format(str, objArr);
+                    Log.i(tagWithHeader(obj), String.format(str, objArr));
                 } catch (Exception unused) {
                 }
             }
@@ -136,8 +134,7 @@ public class RLog {
                 }
             } else {
                 try {
-                    tagWithHeader(obj);
-                    String.format(str, objArr);
+                    Log.v(tagWithHeader(obj), String.format(str, objArr));
                 } catch (Exception unused) {
                 }
             }
@@ -158,8 +155,7 @@ public class RLog {
                 }
             } else {
                 try {
-                    tagWithHeader(obj);
-                    String.format(str, objArr);
+                    Log.w(tagWithHeader(obj), String.format(str, objArr));
                 } catch (Exception unused) {
                 }
             }
@@ -180,7 +176,7 @@ public class RLog {
                 }
                 return;
             }
-            tagWithHeader(obj);
+            Log.d(tagWithHeader(obj), str);
         }
     }
 
@@ -193,7 +189,7 @@ public class RLog {
                     it.next().error(tagWithHeader(obj), str, th);
                 }
             } else {
-                tagWithHeader(obj);
+                Log.e(tagWithHeader(obj), str, th);
             }
             try {
                 String tagWithHeader = tagWithHeader(obj);
@@ -212,7 +208,7 @@ public class RLog {
                     it.next().info(tagWithHeader(obj), str);
                 }
             } else {
-                tagWithHeader(obj);
+                Log.i(tagWithHeader(obj), str);
             }
             try {
                 CloudLogUtil.addLogContent(tagWithHeader(obj), str);
@@ -230,7 +226,7 @@ public class RLog {
                     it.next().verbose(tagWithHeader(obj), str);
                 }
             } else {
-                tagWithHeader(obj);
+                Log.v(tagWithHeader(obj), str);
             }
             try {
                 CloudLogUtil.addLogContent(tagWithHeader(obj), str);
@@ -248,7 +244,7 @@ public class RLog {
                     it.next().warn(tagWithHeader(obj), str);
                 }
             } else {
-                tagWithHeader(obj);
+                Log.w(tagWithHeader(obj), str);
             }
             try {
                 CloudLogUtil.addLogContent(tagWithHeader(obj), str);
@@ -267,7 +263,7 @@ public class RLog {
                 }
                 return;
             }
-            tagWithHeader(obj);
+            Log.d(tagWithHeader(obj), str, th);
         }
     }
 }

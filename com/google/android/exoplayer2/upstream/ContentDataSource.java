@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ContentDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class ContentDataSource implements DataSource {
     public final ContentResolver resolver;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public final class ContentDataSource implements DataSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iOException};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -62,9 +62,9 @@ public final class ContentDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (TransferListener) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -163,7 +163,7 @@ public final class ContentDataSource implements DataSource {
                     long startOffset = this.assetFileDescriptor.getStartOffset();
                     long skip = this.inputStream.skip(dataSpec.position + startOffset) - startOffset;
                     if (skip == dataSpec.position) {
-                        long j2 = -1;
+                        long j = -1;
                         if (dataSpec.length != -1) {
                             this.bytesRemaining = dataSpec.length;
                         } else {
@@ -172,9 +172,9 @@ public final class ContentDataSource implements DataSource {
                                 FileChannel channel = this.inputStream.getChannel();
                                 long size = channel.size();
                                 if (size != 0) {
-                                    j2 = size - channel.position();
+                                    j = size - channel.position();
                                 }
-                                this.bytesRemaining = j2;
+                                this.bytesRemaining = j;
                             } else {
                                 this.bytesRemaining = length - skip;
                             }
@@ -197,34 +197,34 @@ public final class ContentDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws ContentDataSourceException {
+    public int read(byte[] bArr, int i, int i2) throws ContentDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
                 return 0;
             }
-            long j2 = this.bytesRemaining;
-            if (j2 == 0) {
+            long j = this.bytesRemaining;
+            if (j == 0) {
                 return -1;
             }
-            if (j2 != -1) {
+            if (j != -1) {
                 try {
-                    i3 = (int) Math.min(j2, i3);
+                    i2 = (int) Math.min(j, i2);
                 } catch (IOException e2) {
                     throw new ContentDataSourceException(e2);
                 }
             }
-            int read = this.inputStream.read(bArr, i2, i3);
+            int read = this.inputStream.read(bArr, i, i2);
             if (read == -1) {
                 if (this.bytesRemaining == -1) {
                     return -1;
                 }
                 throw new ContentDataSourceException(new EOFException());
             }
-            long j3 = this.bytesRemaining;
-            if (j3 != -1) {
-                this.bytesRemaining = j3 - read;
+            long j2 = this.bytesRemaining;
+            if (j2 != -1) {
+                this.bytesRemaining = j2 - read;
             }
             TransferListener<? super ContentDataSource> transferListener = this.listener;
             if (transferListener != null) {
@@ -242,9 +242,9 @@ public final class ContentDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, transferListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

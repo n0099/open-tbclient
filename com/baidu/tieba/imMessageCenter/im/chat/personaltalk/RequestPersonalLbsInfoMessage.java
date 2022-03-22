@@ -17,24 +17,24 @@ public class RequestPersonalLbsInfoMessage extends TbSocketMessage {
     public long touid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestPersonalLbsInfoMessage(int i2, long j2, String str, String str2) {
-        super(i2);
+    public RequestPersonalLbsInfoMessage(int i, long j, String str, String str2) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), str, str2};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.touid = j2;
+        this.touid = j;
         this.lat = str;
         this.lng = str2;
     }

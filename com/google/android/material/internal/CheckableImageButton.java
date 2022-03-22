@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] DRAWABLE_STATE_CHECKED;
@@ -35,7 +35,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     public boolean checked;
     public boolean pressable;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -64,9 +64,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -76,10 +76,10 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -112,9 +112,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -131,10 +131,10 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeInt(this.checked ? 1 : 0);
             }
         }
@@ -148,9 +148,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -187,9 +187,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -219,14 +219,14 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (this.checked) {
-                return ImageButton.mergeDrawableStates(super.onCreateDrawableState(i2 + DRAWABLE_STATE_CHECKED.length), DRAWABLE_STATE_CHECKED);
+                return ImageButton.mergeDrawableStates(super.onCreateDrawableState(i + DRAWABLE_STATE_CHECKED.length), DRAWABLE_STATE_CHECKED);
             }
-            return super.onCreateDrawableState(i2);
+            return super.onCreateDrawableState(i);
         }
         return (int[]) invokeI.objValue;
     }
@@ -309,9 +309,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -322,17 +322,17 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CheckableImageButton(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CheckableImageButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -354,9 +354,9 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

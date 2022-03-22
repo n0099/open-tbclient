@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a;
+import c.a.p0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +48,9 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,9 +70,9 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -267,10 +267,10 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
-    public BaseLegoCardInfo getViewItem(int i2, int i3) {
+    public BaseLegoCardInfo getViewItem(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i2, i3)) == null) ? this : (BaseLegoCardInfo) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) ? this : (BaseLegoCardInfo) invokeII.objValue;
     }
 
     public String getsExtras() {
@@ -330,25 +330,25 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         }
     }
 
-    public void setShowLine(int i2) {
+    public void setShowLine(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.showLine = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.showLine = i;
         }
     }
 
-    public void setShowSpace(int i2) {
+    public void setShowSpace(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.showSpace = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.showSpace = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
-    public final BaseLegoCardInfo getAdapterItem(int i2) {
+    public final BaseLegoCardInfo getAdapterItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? getViewItem(i2, 0) : (BaseLegoCardInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? getViewItem(i, 0) : (BaseLegoCardInfo) invokeI.objValue;
     }
 }

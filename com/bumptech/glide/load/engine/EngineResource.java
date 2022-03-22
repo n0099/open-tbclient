@@ -11,8 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EngineResource<Z> implements Resource<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +23,7 @@ public class EngineResource<Z> implements Resource<Z> {
     public ResourceListener listener;
     public final Resource<Z> resource;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }
@@ -36,9 +35,9 @@ public class EngineResource<Z> implements Resource<Z> {
             newInitContext.initArgs = r2;
             Object[] objArr = {resource, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -122,9 +121,9 @@ public class EngineResource<Z> implements Resource<Z> {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.acquired > 0) {
                 if (Looper.getMainLooper().equals(Looper.myLooper())) {
-                    int i2 = this.acquired - 1;
-                    this.acquired = i2;
-                    if (i2 == 0) {
+                    int i = this.acquired - 1;
+                    this.acquired = i;
+                    if (i == 0) {
                         this.listener.onResourceReleased(this.key, this);
                         return;
                     }
@@ -148,7 +147,7 @@ public class EngineResource<Z> implements Resource<Z> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + ExtendedMessageFormat.END_FE;
+            return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
         }
         return (String) invokeV.objValue;
     }

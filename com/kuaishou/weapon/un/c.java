@@ -15,7 +15,7 @@ public class c extends FileObserver {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53596b;
+    public String f38801b;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -30,9 +30,9 @@ public class c extends FileObserver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,10 +47,10 @@ public class c extends FileObserver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.class) {
                     if (!l1.a(this.a.a)) {
-                        l1.c(this.a.f53596b, this.a.a);
+                        l1.c(this.a.f38801b, this.a.a);
                         l1.a(this.a.a, Boolean.TRUE);
                         b.a(new File(this.a.a));
-                        b.a(new File(this.a.a), new File(this.a.f53596b));
+                        b.a(new File(this.a.a), new File(this.a.f38801b));
                     }
                 }
             }
@@ -66,9 +66,9 @@ public class c extends FileObserver {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -77,7 +77,7 @@ public class c extends FileObserver {
             }
         }
         this.a = str;
-        this.f53596b = str2;
+        this.f38801b = str2;
     }
 
     public boolean a() {
@@ -85,7 +85,7 @@ public class c extends FileObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                File file = new File(this.f53596b);
+                File file = new File(this.f38801b);
                 if (file.exists()) {
                     file.delete();
                     return true;
@@ -100,10 +100,10 @@ public class c extends FileObserver {
     }
 
     @Override // android.os.FileObserver
-    public void onEvent(int i2, String str) {
+    public void onEvent(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            if (i2 == 2 || i2 == 4 || i2 == 64 || i2 == 128 || i2 == 512 || i2 == 1024 || i2 == 2048) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            if (i == 2 || i == 4 || i == 64 || i == 128 || i == 512 || i == 1024 || i == 2048) {
                 try {
                     t1.a().a(new a(this));
                 } catch (Throwable th) {

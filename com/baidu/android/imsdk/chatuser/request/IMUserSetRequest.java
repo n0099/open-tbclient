@@ -28,27 +28,27 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public long mUserUk;
 
-    public IMUserSetRequest(Context context, String str, long j2, long j3, int i2, int i3) {
+    public IMUserSetRequest(Context context, String str, long j, long j2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mUserUk = j2;
+        this.mUserUk = j;
         this.mKey = str;
-        this.mDisturb = i2;
-        this.mBlack = i3;
-        this.mAppid = j3;
+        this.mDisturb = i;
+        this.mBlack = i2;
+        this.mAppid = j2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -89,40 +89,40 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUserUk, this.mDisturb, this.mBlack);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
+        int i2;
         int i3;
-        int i4;
         String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(new String(bArr));
                 if (jSONObject.has("response_params")) {
-                    i4 = jSONObject.getJSONObject("response_params").getInt("error_code");
+                    i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
                     optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
                 } else {
-                    i4 = jSONObject.getInt("error_code");
+                    i3 = jSONObject.getInt("error_code");
                     optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
-                i3 = i4;
+                i2 = i3;
                 str = optString;
             } catch (JSONException e2) {
                 LogUtils.e("IMUserSetRequest", "JSONException", e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
+                i2 = 1010;
             }
-            ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i3, str, this.mUserUk, this.mDisturb, this.mBlack);
+            ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i2, str, this.mUserUk, this.mDisturb, this.mBlack);
         }
     }
 

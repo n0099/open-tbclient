@@ -23,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskManagerNew implements ITaskManager {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAX_CACHE_DAY;
@@ -47,7 +47,7 @@ public class TaskManagerNew implements ITaskManager {
     public final TaskExecutor mSaveExecutor;
     public AtomicInteger sendFailedCount;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class FailSendControler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
@@ -56,16 +56,16 @@ public class TaskManagerNew implements ITaskManager {
         public long lastFailTime;
         public final long sleepTime;
 
-        public FailSendControler(long j2) {
+        public FailSendControler(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,7 +73,7 @@ public class TaskManagerNew implements ITaskManager {
             }
             this.lastFailTime = 0L;
             this.failContinuous = 0;
-            this.sleepTime = j2 <= 0 ? 10000L : j2;
+            this.sleepTime = j <= 0 ? 10000L : j;
         }
 
         public int getFailContinuous() {
@@ -135,9 +135,9 @@ public class TaskManagerNew implements ITaskManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, abstractConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -170,9 +170,9 @@ public class TaskManagerNew implements ITaskManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -194,9 +194,9 @@ public class TaskManagerNew implements ITaskManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void createSendTask(Context context, boolean z, int i2) {
+    public void createSendTask(Context context, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.mIsWorking) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || this.mIsWorking) {
             return;
         }
         this.mIsWorking = true;
@@ -217,9 +217,9 @@ public class TaskManagerNew implements ITaskManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, r10, context, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Context) objArr2[0], (TaskData) objArr2[1]);
                             newInitContext.thisArg = this;
@@ -236,10 +236,10 @@ public class TaskManagerNew implements ITaskManager {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int i3 = 0;
+                        int i2 = 0;
                         do {
                             try {
-                                i3 = this.this$0.sendNext(this.val$c, this.val$isSendFront, i3);
+                                i2 = this.this$0.sendNext(this.val$c, this.val$isSendFront, i2);
                             } catch (Throwable th) {
                                 try {
                                     L.debug(this, "exception:%s", th);
@@ -249,14 +249,14 @@ public class TaskManagerNew implements ITaskManager {
                                     this.this$0.createSendTask(this.val$c, true, 15000);
                                 }
                             }
-                        } while (i3 == 0);
+                        } while (i2 == 0);
                         this.this$0.mIsWorking = false;
-                        if (i3 > 0) {
-                            this.this$0.createSendTask(this.val$c, true, i3);
+                        if (i2 > 0) {
+                            this.this$0.createSendTask(this.val$c, true, i2);
                         }
                     }
                 }
-            }, i2);
+            }, i);
         } catch (Throwable th) {
             this.mIsWorking = false;
             L.debug(this, "noticeSend:RejectedExecutionException=%s,do nothing.", th);
@@ -399,14 +399,14 @@ public class TaskManagerNew implements ITaskManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int sendNext(Context context, boolean z, int i2) {
+    public int sendNext(Context context, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (!this.isEnableSend) {
                 L.brief("isEnableSend:false,end send.", new Object[0]);
                 return -1;
-            } else if (i2 != 0 && !ArdUtil.isNetworkAvailable(context)) {
+            } else if (i != 0 && !ArdUtil.isNetworkAvailable(context)) {
                 L.brief("isNetworkAvailable:false,end send.", new Object[0]);
                 return 2000;
             } else {
@@ -504,9 +504,9 @@ public class TaskManagerNew implements ITaskManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

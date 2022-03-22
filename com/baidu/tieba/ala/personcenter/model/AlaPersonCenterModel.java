@@ -22,15 +22,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.p0.c0.l.f.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a0.l.f.a f40755e;
+    /* renamed from: b  reason: collision with root package name */
+    public String f31463b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f40756f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f40757g;
+    /* renamed from: c  reason: collision with root package name */
+    public final HttpMessageListener f31464c;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -39,17 +37,17 @@ public class AlaPersonCenterModel extends BdBaseModel {
         public final /* synthetic */ AlaPersonCenterModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AlaPersonCenterModel alaPersonCenterModel, int i2) {
-            super(i2);
+        public a(AlaPersonCenterModel alaPersonCenterModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaPersonCenterModel, Integer.valueOf(i2)};
+                Object[] objArr = {alaPersonCenterModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -63,19 +61,19 @@ public class AlaPersonCenterModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || this.a.f40755e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1021001 || this.a.a == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof AlaPersonCenterResponseMessage)) {
-                this.a.f40755e.b(statusCode, null, null);
+                this.a.a.b(statusCode, null, null);
                 return;
             }
             AlaPersonCenterResponseMessage alaPersonCenterResponseMessage = (AlaPersonCenterResponseMessage) httpResponsedMessage;
             if (alaPersonCenterResponseMessage.getError() == 0) {
-                this.a.f40755e.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
+                this.a.a.c(alaPersonCenterResponseMessage.getPersonCenterData(), 1);
             } else {
-                this.a.f40755e.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
+                this.a.a.b(alaPersonCenterResponseMessage.getError(), alaPersonCenterResponseMessage.getErrMsg(), null);
             }
         }
     }
@@ -89,22 +87,22 @@ public class AlaPersonCenterModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40757g = new a(this, AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
+        this.f31464c = new a(this, AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_USER_CENTER, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_USER_CENTER_URL);
         tbHttpMessageTask.setResponsedClass(AlaPersonCenterResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f40757g.setSelfListener(true);
-        this.f40757g.setTag(getUniqueId());
-        registerListener(this.f40757g);
+        this.f31464c.setSelfListener(true);
+        this.f31464c.setTag(getUniqueId());
+        registerListener(this.f31464c);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -133,7 +131,7 @@ public class AlaPersonCenterModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_USER_CENTER);
-            httpMessage.addParam("user_id", this.f40756f);
+            httpMessage.addParam("user_id", this.f31463b);
             sendMessage(httpMessage);
             return true;
         }
@@ -143,14 +141,14 @@ public class AlaPersonCenterModel extends BdBaseModel {
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f40756f = str;
+            this.f31463b = str;
         }
     }
 
-    public void x(c.a.r0.a0.l.f.a aVar) {
+    public void z(c.a.p0.c0.l.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f40755e = aVar;
+            this.a = aVar;
         }
     }
 }

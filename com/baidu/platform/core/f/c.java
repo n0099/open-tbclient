@@ -1,5 +1,6 @@
 package com.baidu.platform.core.f;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
@@ -28,7 +29,7 @@ public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36398b = "c";
+    public static final String f28215b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,9 +52,9 @@ public class c extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -82,8 +83,8 @@ public class c extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null && optJSONObject.length() != 0) {
                     PoiChildrenInfo poiChildrenInfo = new PoiChildrenInfo();
                     poiChildrenInfo.setUid(optJSONObject.optString("uid"));
@@ -113,7 +114,8 @@ public class c extends com.baidu.platform.base.d {
                     suggestionResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
                 }
-            } catch (JSONException unused) {
+            } catch (JSONException e2) {
+                Log.e(f28215b, "Parse sug search error", e2);
             }
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
@@ -130,8 +132,8 @@ public class c extends com.baidu.platform.base.d {
                 JSONArray optJSONArray = jSONObject.optJSONArray("result");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
                     ArrayList<SuggestionResult.SuggestionInfo> arrayList = new ArrayList<>();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                         if (jSONObject2 != null && jSONObject2.length() != 0) {
                             SuggestionResult.SuggestionInfo suggestionInfo = new SuggestionResult.SuggestionInfo();
                             suggestionInfo.setKey(jSONObject2.optString("name"));
@@ -169,7 +171,8 @@ public class c extends com.baidu.platform.base.d {
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException unused) {
+                } catch (JSONException e2) {
+                    Log.e(f28215b, "Parse suggestion search result error", e2);
                 }
                 if (jSONObject.length() != 0) {
                     if (jSONObject.has("SDK_InnerError")) {

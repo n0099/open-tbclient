@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.implementation.ITaskExecutor;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractTaskExecutor implements ITaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {abstractTaskExecutor, runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,9 +66,9 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -96,7 +96,7 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
 
     public abstract void submitTask(Runnable runnable);
 
-    public abstract void submitTask(Runnable runnable, int i2);
+    public abstract void submitTask(Runnable runnable, int i);
 
     @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
     public void submit(ITaskExecutor.ExecutorTask executorTask) {
@@ -107,18 +107,18 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
-    public void submit(Runnable runnable, int i2) {
+    public void submit(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, runnable, i2) == null) {
-            submitTask(new Task(this, runnable), i2);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, runnable, i) == null) {
+            submitTask(new Task(this, runnable), i);
         }
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.ITaskExecutor
-    public void submit(ITaskExecutor.ExecutorTask executorTask, int i2) {
+    public void submit(ITaskExecutor.ExecutorTask executorTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, executorTask, i2) == null) {
-            submitTask(new Task(this, executorTask), i2);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, executorTask, i) == null) {
+            submitTask(new Task(this, executorTask), i);
         }
     }
 }

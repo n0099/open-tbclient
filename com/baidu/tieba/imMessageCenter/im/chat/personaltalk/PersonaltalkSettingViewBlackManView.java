@@ -14,9 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f43792e;
+    public TextView a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
@@ -27,9 +25,9 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -43,24 +41,24 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0654, this);
             setOrientation(1);
-            this.f43792e = (TextView) findViewById(R.id.black_man_text);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090381);
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 1) {
-                string = getResources().getString(R.string.he);
-            } else if (i2 != 2) {
-                string = getResources().getString(R.string.ta);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 1) {
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0818);
+            } else if (i != 2) {
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f1316);
             } else {
-                string = getResources().getString(R.string.she);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f1150);
             }
-            this.f43792e.setText(getResources().getString(R.string.in_black_desc_1, string));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f08ca, string));
         }
     }
 
@@ -73,9 +71,9 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

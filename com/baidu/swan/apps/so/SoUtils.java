@@ -3,9 +3,10 @@ package com.baidu.swan.apps.so;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.a2.c;
+import c.a.n0.a.a2.c;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARM64_V8A = "arm64-v8a";
@@ -37,7 +38,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -55,7 +56,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = c.a.p0.a.a.a;
+        DEBUG = c.a.n0.a.a.a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -65,31 +66,31 @@ public final class SoUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i2) {
+    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, inputStream, outputStream, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, inputStream, outputStream, i)) == null) {
             if (inputStream != null && outputStream != null) {
                 try {
-                    byte[] bArr = new byte[i2 * 1024];
-                    long j2 = 0;
+                    byte[] bArr = new byte[i * 1024];
+                    long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j2 += read;
+                            j += read;
                         } else {
                             outputStream.flush();
-                            return j2;
+                            return j;
                         }
                     }
                 } catch (IOException e2) {
@@ -127,7 +128,7 @@ public final class SoUtils {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
                 if (DEBUG) {
-                    String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;
+                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + substring);
                 }
                 return substring;
             }
@@ -136,11 +137,11 @@ public final class SoUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getUriName(String str, int i2) {
+    public static String getUriName(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
-            return uris[i2] + File.separator + str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            return uris[i] + File.separator + str;
         }
         return (String) invokeLI.objValue;
     }
@@ -167,7 +168,7 @@ public final class SoUtils {
                 aVar.onEvent(str, str2);
             }
             if (DEBUG) {
-                String str3 = "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2;
+                Log.d("SoUtils", "onEvent:UbcImpl=" + aVar + ";eventId=" + str + ";content=" + str2);
             }
         }
     }

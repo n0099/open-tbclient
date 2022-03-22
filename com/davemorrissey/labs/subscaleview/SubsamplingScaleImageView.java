@@ -20,6 +20,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.FloatMath;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -46,7 +47,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SubsamplingScaleImageView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EASE_IN_OUT_QUAD = 2;
@@ -137,7 +138,7 @@ public class SubsamplingScaleImageView extends View {
     public PointF vTranslateStart;
     public boolean zoomEnabled;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,9 +157,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, context, decoderFactory, uri, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -188,7 +189,7 @@ public class SubsamplingScaleImageView extends View {
                     this.bitmap = decoderFactory.make().decode(context, this.source);
                     return Integer.valueOf(subsamplingScaleImageView.getExifOrientation(uri));
                 } catch (Exception e2) {
-                    String unused = SubsamplingScaleImageView.TAG;
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to load bitmap", e2);
                     this.exception = e2;
                     return null;
                 }
@@ -222,7 +223,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,9 +233,9 @@ public class SubsamplingScaleImageView extends View {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -277,7 +278,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -290,7 +291,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,9 +308,9 @@ public class SubsamplingScaleImageView extends View {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -321,7 +322,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -337,9 +338,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, imageRegionDecoder, tile};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -378,7 +379,7 @@ public class SubsamplingScaleImageView extends View {
                     }
                     return decodeRegion;
                 } catch (Exception e2) {
-                    String unused = SubsamplingScaleImageView.TAG;
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to decode tile", e2);
                     this.exception = e2;
                     return null;
                 } catch (OutOfMemoryError e3) {
@@ -412,7 +413,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -430,9 +431,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, context, decoderFactory, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -461,16 +462,16 @@ public class SubsamplingScaleImageView extends View {
                     ImageRegionDecoder make = decoderFactory.make();
                     this.decoder = make;
                     Point init = make.init(context, this.source);
-                    int i2 = init.x;
-                    int i3 = init.y;
+                    int i = init.x;
+                    int i2 = init.y;
                     int exifOrientation = subsamplingScaleImageView.getExifOrientation(uri);
                     if (subsamplingScaleImageView.sRegion != null) {
-                        i2 = subsamplingScaleImageView.sRegion.width();
-                        i3 = subsamplingScaleImageView.sRegion.height();
+                        i = subsamplingScaleImageView.sRegion.width();
+                        i2 = subsamplingScaleImageView.sRegion.height();
                     }
-                    return new int[]{i2, i3, exifOrientation};
+                    return new int[]{i, i2, exifOrientation};
                 } catch (Exception e2) {
-                    String unused = SubsamplingScaleImageView.TAG;
+                    Log.e(SubsamplingScaleImageView.TAG, "Failed to initialise bitmap decoder", e2);
                     this.exception = e2;
                     return null;
                 }
@@ -528,9 +529,9 @@ public class SubsamplingScaleImageView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -569,9 +570,9 @@ public class SubsamplingScaleImageView extends View {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -638,7 +639,7 @@ public class SubsamplingScaleImageView extends View {
         if (sWidth == 0 || sHeight == 0) {
             return 32;
         }
-        int i2 = 1;
+        int i = 1;
         if (sHeight() > sHeight || sWidth() > sWidth) {
             round = Math.round(sHeight() / sHeight);
             int round2 = Math.round(sWidth() / sWidth);
@@ -649,11 +650,11 @@ public class SubsamplingScaleImageView extends View {
             round = 1;
         }
         while (true) {
-            int i3 = i2 * 2;
-            if (i3 >= round) {
-                return i2;
+            int i2 = i * 2;
+            if (i2 >= round) {
+                return i;
             }
-            i2 = i3;
+            i = i2;
         }
     }
 
@@ -744,44 +745,44 @@ public class SubsamplingScaleImageView extends View {
             float min = Math.min(this.maxScale, this.doubleTapZoomScale);
             boolean z = ((double) this.scale) <= ((double) min) * 0.9d;
             float minScale = z ? min : minScale();
-            int i2 = this.doubleTapZoomStyle;
-            if (i2 == 4) {
+            int i = this.doubleTapZoomStyle;
+            if (i == 4) {
                 if (!z) {
                     min = this.mInitScale.floatValue();
                 }
                 new AnimationBuilder(this, min, pointF, (AnimationBuilder) null).withInterruptible(false).start();
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 setScaleAndCenter(minScale, pointF);
-            } else if (i2 == 2 || !z || !this.panEnabled) {
+            } else if (i == 2 || !z || !this.panEnabled) {
                 new AnimationBuilder(this, minScale, pointF, (AnimationBuilder) null).withInterruptible(false).start();
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 new AnimationBuilder(this, minScale, pointF, pointF2, null).withInterruptible(false).start();
             }
             invalidate();
         }
     }
 
-    private float ease(int i2, long j2, float f2, float f3, long j3) {
+    private float ease(int i, long j, float f2, float f3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
-            if (i2 != 1) {
-                if (i2 == 2) {
-                    return easeInOutQuad(j2, f2, f3, j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+            if (i != 1) {
+                if (i == 2) {
+                    return easeInOutQuad(j, f2, f3, j2);
                 }
-                throw new IllegalStateException("Unexpected easing type: " + i2);
+                throw new IllegalStateException("Unexpected easing type: " + i);
             }
-            return easeOutQuad(j2, f2, f3, j3);
+            return easeOutQuad(j, f2, f3, j2);
         }
         return invokeCommon.floatValue;
     }
 
-    private float easeInOutQuad(long j2, float f2, float f3, long j3) {
+    private float easeInOutQuad(long j, float f2, float f3, long j2) {
         InterceptResult invokeCommon;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
-            float f5 = ((float) j2) / (((float) j3) / 2.0f);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+            float f5 = ((float) j) / (((float) j2) / 2.0f);
             if (f5 < 1.0f) {
                 f4 = (f3 / 2.0f) * f5;
             } else {
@@ -794,11 +795,11 @@ public class SubsamplingScaleImageView extends View {
         return invokeCommon.floatValue;
     }
 
-    private float easeOutQuad(long j2, float f2, float f3, long j3) {
+    private float easeOutQuad(long j, float f2, float f3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
-            float f4 = ((float) j2) / ((float) j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+            float f4 = ((float) j) / ((float) j2);
             return ((-f3) * f4 * (f4 - 2.0f)) + f2;
         }
         return invokeCommon.floatValue;
@@ -811,16 +812,16 @@ public class SubsamplingScaleImageView extends View {
             if (getRequiredRotation() == 0) {
                 rect2.set(rect);
             } else if (getRequiredRotation() == 90) {
-                int i2 = rect.top;
-                int i3 = this.sHeight;
-                rect2.set(i2, i3 - rect.right, rect.bottom, i3 - rect.left);
+                int i = rect.top;
+                int i2 = this.sHeight;
+                rect2.set(i, i2 - rect.right, rect.bottom, i2 - rect.left);
             } else if (getRequiredRotation() == 180) {
-                int i4 = this.sWidth;
-                int i5 = this.sHeight;
-                rect2.set(i4 - rect.right, i5 - rect.bottom, i4 - rect.left, i5 - rect.top);
+                int i3 = this.sWidth;
+                int i4 = this.sHeight;
+                rect2.set(i3 - rect.right, i4 - rect.bottom, i3 - rect.left, i4 - rect.top);
             } else {
-                int i6 = this.sWidth;
-                rect2.set(i6 - rect.bottom, rect.left, i6 - rect.top, rect.right);
+                int i5 = this.sWidth;
+                rect2.set(i5 - rect.bottom, rect.left, i5 - rect.top, rect.right);
             }
         }
     }
@@ -894,11 +895,13 @@ public class SubsamplingScaleImageView extends View {
                     if (attributeInt == 8) {
                         return 270;
                     }
-                    String str2 = "Unsupported EXIF orientation: " + attributeInt;
+                    String str2 = TAG;
+                    Log.w(str2, "Unsupported EXIF orientation: " + attributeInt);
                     return 0;
                 }
                 return 0;
             } catch (Exception unused) {
+                Log.w(TAG, "Could not get EXIF orientation of image");
                 return 0;
             }
         }
@@ -924,8 +927,8 @@ public class SubsamplingScaleImageView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65593, this)) == null) {
-            int i2 = this.orientation;
-            return i2 == -1 ? this.sOrientation : i2;
+            int i = this.orientation;
+            return i == -1 ? this.sOrientation : i;
         }
         return invokeV.intValue;
     }
@@ -959,53 +962,53 @@ public class SubsamplingScaleImageView extends View {
             return;
         }
         this.tileMap = new LinkedHashMap();
-        int i2 = this.fullImageSampleSize;
+        int i = this.fullImageSampleSize;
+        int i2 = 1;
         int i3 = 1;
         int i4 = 1;
-        int i5 = 1;
         while (true) {
-            int sWidth = sWidth() / i4;
-            int sHeight = sHeight() / i5;
-            int i6 = sWidth / i2;
-            int i7 = sHeight / i2;
+            int sWidth = sWidth() / i3;
+            int sHeight = sHeight() / i4;
+            int i5 = sWidth / i;
+            int i6 = sHeight / i;
             while (true) {
-                if (i6 + i4 + i3 > point.x || (i6 > getWidth() * 1.25d && i2 < this.fullImageSampleSize)) {
+                if (i5 + i3 + i2 > point.x || (i5 > getWidth() * 1.25d && i < this.fullImageSampleSize)) {
+                    i3++;
+                    sWidth = sWidth() / i3;
+                    i5 = sWidth / i;
+                    i2 = 1;
+                }
+            }
+            while (true) {
+                if (i6 + i4 + i2 > point.y || (i6 > getHeight() * 1.25d && i < this.fullImageSampleSize)) {
                     i4++;
-                    sWidth = sWidth() / i4;
-                    i6 = sWidth / i2;
-                    i3 = 1;
+                    sHeight = sHeight() / i4;
+                    i6 = sHeight / i;
+                    i2 = 1;
                 }
             }
-            while (true) {
-                if (i7 + i5 + i3 > point.y || (i7 > getHeight() * 1.25d && i2 < this.fullImageSampleSize)) {
-                    i5++;
-                    sHeight = sHeight() / i5;
-                    i7 = sHeight / i2;
-                    i3 = 1;
-                }
-            }
-            ArrayList arrayList = new ArrayList(i4 * i5);
-            int i8 = 0;
-            while (i8 < i4) {
-                int i9 = 0;
-                while (i9 < i5) {
+            ArrayList arrayList = new ArrayList(i3 * i4);
+            int i7 = 0;
+            while (i7 < i3) {
+                int i8 = 0;
+                while (i8 < i4) {
                     Tile tile = new Tile(null);
-                    tile.sampleSize = i2;
-                    tile.visible = i2 == this.fullImageSampleSize;
-                    tile.sRect = new Rect(i8 * sWidth, i9 * sHeight, i8 == i4 + (-1) ? sWidth() : (i8 + 1) * sWidth, i9 == i5 + (-1) ? sHeight() : (i9 + 1) * sHeight);
+                    tile.sampleSize = i;
+                    tile.visible = i == this.fullImageSampleSize;
+                    tile.sRect = new Rect(i7 * sWidth, i8 * sHeight, i7 == i3 + (-1) ? sWidth() : (i7 + 1) * sWidth, i8 == i4 + (-1) ? sHeight() : (i8 + 1) * sHeight);
                     tile.vRect = new Rect(0, 0, 0, 0);
                     tile.fileSRect = new Rect(tile.sRect);
                     arrayList.add(tile);
-                    i9++;
-                    i3 = 1;
+                    i8++;
+                    i2 = 1;
                 }
-                i8++;
+                i7++;
             }
-            this.tileMap.put(Integer.valueOf(i2), arrayList);
-            if (i2 == i3) {
+            this.tileMap.put(Integer.valueOf(i), arrayList);
+            if (i == i2) {
                 return;
             }
-            i2 /= 2;
+            i /= 2;
         }
     }
 
@@ -1060,11 +1063,11 @@ public class SubsamplingScaleImageView extends View {
         if (interceptable == null || (invokeV = interceptable.invokeV(65599, this)) == null) {
             int paddingBottom = getPaddingBottom() + getPaddingTop();
             int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int i2 = this.minimumScaleType;
-            if (i2 == 2) {
+            int i = this.minimumScaleType;
+            if (i == 2) {
                 return Math.max((getWidth() - paddingLeft) / sWidth(), (getHeight() - paddingBottom) / sHeight());
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 float f2 = this.minScale;
                 if (f2 > 0.0f) {
                     return f2;
@@ -1076,9 +1079,9 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void onImageLoaded(Bitmap bitmap, int i2) {
+    public synchronized void onImageLoaded(Bitmap bitmap, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65600, this, bitmap, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65600, this, bitmap, i) == null) {
             synchronized (this) {
                 if (this.sWidth > 0 && this.sHeight > 0 && (this.sWidth != bitmap.getWidth() || this.sHeight != bitmap.getHeight())) {
                     reset(false);
@@ -1090,7 +1093,7 @@ public class SubsamplingScaleImageView extends View {
                 this.bitmap = bitmap;
                 this.sWidth = bitmap.getWidth();
                 this.sHeight = bitmap.getHeight();
-                this.sOrientation = i2;
+                this.sOrientation = i;
                 if (checkReady() || checkImageLoaded()) {
                     invalidate();
                     requestLayout();
@@ -1140,11 +1143,11 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void onTilesInited(ImageRegionDecoder imageRegionDecoder, int i2, int i3, int i4) {
+    public synchronized void onTilesInited(ImageRegionDecoder imageRegionDecoder, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(65603, this, imageRegionDecoder, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(65603, this, imageRegionDecoder, i, i2, i3) == null) {
             synchronized (this) {
-                if (this.sWidth > 0 && this.sHeight > 0 && (this.sWidth != i2 || this.sHeight != i3)) {
+                if (this.sWidth > 0 && this.sHeight > 0 && (this.sWidth != i || this.sHeight != i2)) {
                     reset(false);
                     if (this.bitmap != null) {
                         this.bitmap.recycle();
@@ -1153,9 +1156,9 @@ public class SubsamplingScaleImageView extends View {
                     }
                 }
                 this.decoder = imageRegionDecoder;
-                this.sWidth = i2;
-                this.sHeight = i3;
-                this.sOrientation = i4;
+                this.sWidth = i;
+                this.sHeight = i2;
+                this.sOrientation = i3;
                 checkReady();
                 checkImageLoaded();
                 invalidate();
@@ -1347,9 +1350,9 @@ public class SubsamplingScaleImageView extends View {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1664,7 +1667,7 @@ public class SubsamplingScaleImageView extends View {
     public void onDraw(Canvas canvas) {
         Bitmap bitmap;
         float f2;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, canvas) == null) {
             super.onDraw(canvas);
@@ -1677,7 +1680,7 @@ public class SubsamplingScaleImageView extends View {
             }
             if (checkReady()) {
                 preDraw();
-                int i3 = 1;
+                int i2 = 1;
                 char c2 = 0;
                 if (this.anim != null) {
                     long currentTimeMillis = System.currentTimeMillis() - this.anim.time;
@@ -1699,16 +1702,16 @@ public class SubsamplingScaleImageView extends View {
                     int min2 = Math.min(this.fullImageSampleSize, calculateInSampleSize(this.scale));
                     boolean z2 = false;
                     for (Map.Entry<Integer, List<Tile>> entry : this.tileMap.entrySet()) {
-                        int i4 = min2;
-                        if (entry.getKey().intValue() == i4) {
+                        int i3 = min2;
+                        if (entry.getKey().intValue() == i3) {
                             for (Tile tile : entry.getValue()) {
                                 if (tile.visible && (tile.loading || tile.bitmap == null)) {
                                     z2 = true;
                                 }
                             }
                         }
-                        min2 = i4;
-                        i3 = 1;
+                        min2 = i3;
+                        i2 = 1;
                         c2 = 0;
                     }
                     for (Map.Entry<Integer, List<Tile>> entry2 : this.tileMap.entrySet()) {
@@ -1716,7 +1719,7 @@ public class SubsamplingScaleImageView extends View {
                             for (Tile tile2 : entry2.getValue()) {
                                 sourceToViewRect(tile2.sRect, tile2.vRect);
                                 if (tile2.loading || tile2.bitmap == null) {
-                                    i2 = min2;
+                                    i = min2;
                                     if (tile2.loading && this.debug) {
                                         canvas.drawText("LOADING", tile2.vRect.left + 5, tile2.vRect.top + 35, this.debugPaint);
                                     }
@@ -1728,7 +1731,7 @@ public class SubsamplingScaleImageView extends View {
                                         this.matrix = new Matrix();
                                     }
                                     this.matrix.reset();
-                                    i2 = min2;
+                                    i = min2;
                                     setMatrixArray(this.srcArray, 0.0f, 0.0f, tile2.bitmap.getWidth(), 0.0f, tile2.bitmap.getWidth(), tile2.bitmap.getHeight(), 0.0f, tile2.bitmap.getHeight());
                                     if (getRequiredRotation() == 0) {
                                         setMatrixArray(this.dstArray, tile2.vRect.left, tile2.vRect.top, tile2.vRect.right, tile2.vRect.top, tile2.vRect.right, tile2.vRect.bottom, tile2.vRect.left, tile2.vRect.bottom);
@@ -1748,34 +1751,34 @@ public class SubsamplingScaleImageView extends View {
                                 if (tile2.visible && this.debug) {
                                     canvas.drawText("ISS " + tile2.sampleSize + " RECT " + tile2.sRect.top + "," + tile2.sRect.left + "," + tile2.sRect.bottom + "," + tile2.sRect.right, tile2.vRect.left + 5, tile2.vRect.top + 15, this.debugPaint);
                                 }
-                                min2 = i2;
-                                i3 = 1;
+                                min2 = i;
+                                i2 = 1;
                                 c2 = 0;
                             }
                         }
                     }
                     if (this.debug) {
                         StringBuilder sb = new StringBuilder("Scale: ");
-                        Object[] objArr = new Object[i3];
+                        Object[] objArr = new Object[i2];
                         objArr[c2] = Float.valueOf(this.scale);
                         sb.append(String.format("%.2f", objArr));
                         canvas.drawText(sb.toString(), 5.0f, 15.0f, this.debugPaint);
                         StringBuilder sb2 = new StringBuilder("Translate: ");
-                        Object[] objArr2 = new Object[i3];
+                        Object[] objArr2 = new Object[i2];
                         objArr2[c2] = Float.valueOf(this.vTranslate.x);
                         sb2.append(String.format("%.2f", objArr2));
                         sb2.append(":");
-                        Object[] objArr3 = new Object[i3];
+                        Object[] objArr3 = new Object[i2];
                         objArr3[c2] = Float.valueOf(this.vTranslate.y);
                         sb2.append(String.format("%.2f", objArr3));
                         canvas.drawText(sb2.toString(), 5.0f, 35.0f, this.debugPaint);
                         PointF center = getCenter();
                         StringBuilder sb3 = new StringBuilder("Source center: ");
-                        Object[] objArr4 = new Object[i3];
+                        Object[] objArr4 = new Object[i2];
                         objArr4[c2] = Float.valueOf(center.x);
                         sb3.append(String.format("%.2f", objArr4));
                         sb3.append(":");
-                        Object[] objArr5 = new Object[i3];
+                        Object[] objArr5 = new Object[i2];
                         objArr5[c2] = Float.valueOf(center.y);
                         sb3.append(String.format("%.2f", objArr5));
                         canvas.drawText(sb3.toString(), 5.0f, 55.0f, this.debugPaint);
@@ -1841,13 +1844,13 @@ public class SubsamplingScaleImageView extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i2, i3) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
             boolean z = mode != 1073741824;
             boolean z2 = mode2 != 1073741824;
             if (this.sWidth > 0 && this.sHeight > 0) {
@@ -1871,9 +1874,9 @@ public class SubsamplingScaleImageView extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048599, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048599, this, i, i2, i3, i4) == null) {
             PointF center = getCenter();
             if (!this.readySent || center == null) {
                 return;
@@ -1884,7 +1887,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0082, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0088, code lost:
         if (r5 != 262) goto L42;
      */
     @Override // android.view.View
@@ -1908,7 +1911,7 @@ public class SubsamplingScaleImageView extends View {
             boolean z = false;
             if (!this.isQuickScaling && ((gestureDetector = this.detector) == null || gestureDetector.onTouchEvent(motionEvent))) {
                 if (motionEvent.getAction() == 1) {
-                    String str = "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent);
+                    Log.e("SubsamplingScaleImageView", "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent));
                 }
                 this.isZooming = false;
                 this.isPanning = false;
@@ -2010,8 +2013,8 @@ public class SubsamplingScaleImageView extends View {
                                     }
                                     float abs3 = Math.abs(x2 - this.vCenterStart.x);
                                     float abs4 = Math.abs(y2 - this.vCenterStart.y);
-                                    int i2 = (abs3 > 100.0f ? 1 : (abs3 == 100.0f ? 0 : -1));
-                                    if (i2 > 0 || abs4 > 100.0f || this.isPanning) {
+                                    int i = (abs3 > 100.0f ? 1 : (abs3 == 100.0f ? 0 : -1));
+                                    if (i > 0 || abs4 > 100.0f || this.isPanning) {
                                         this.vTranslate.x = this.vTranslateStart.x + (motionEvent.getX() - this.vCenterStart.x);
                                         this.vTranslate.y = this.vTranslateStart.y + (motionEvent.getY() - this.vCenterStart.y);
                                         PointF pointF8 = this.vTranslate;
@@ -2023,7 +2026,7 @@ public class SubsamplingScaleImageView extends View {
                                         boolean z5 = f13 == this.vTranslate.y && abs4 > 15.0f;
                                         if (!z4 && (!z3 || z5 || this.isPanning)) {
                                             this.isPanning = true;
-                                        } else if (i2 > 0) {
+                                        } else if (i > 0) {
                                             this.maxTouchCount = 0;
                                             this.handler.removeMessages(1);
                                             getParent().requestDisallowInterceptTouchEvent(false);
@@ -2170,11 +2173,11 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setDoubleTapZoomDpi(int i2) {
+    public final void setDoubleTapZoomDpi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            setDoubleTapZoomScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i2);
+            setDoubleTapZoomScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i);
         }
     }
 
@@ -2185,14 +2188,14 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setDoubleTapZoomStyle(int i2) {
+    public final void setDoubleTapZoomStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            if (VALID_ZOOM_STYLES.contains(Integer.valueOf(i2))) {
-                this.doubleTapZoomStyle = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            if (VALID_ZOOM_STYLES.contains(Integer.valueOf(i))) {
+                this.doubleTapZoomStyle = i;
                 return;
             }
-            throw new IllegalArgumentException("Invalid zoom style: " + i2);
+            throw new IllegalArgumentException("Invalid zoom style: " + i);
         }
     }
 
@@ -2224,11 +2227,11 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setMaximumDpi(int i2) {
+    public final void setMaximumDpi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            setMinScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i2);
+            setMinScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i);
         }
     }
 
@@ -2239,19 +2242,19 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setMinimumDpi(int i2) {
+    public final void setMinimumDpi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            setMaxScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i2);
+            setMaxScale(((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f) / i);
         }
     }
 
-    public final void setMinimumScaleType(int i2) {
+    public final void setMinimumScaleType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            if (VALID_SCALE_TYPES.contains(Integer.valueOf(i2))) {
-                this.minimumScaleType = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            if (VALID_SCALE_TYPES.contains(Integer.valueOf(i))) {
+                this.minimumScaleType = i;
                 if (isReady()) {
                     fitToBounds(true);
                     invalidate();
@@ -2259,15 +2262,15 @@ public class SubsamplingScaleImageView extends View {
                 }
                 return;
             }
-            throw new IllegalArgumentException("Invalid scale type: " + i2);
+            throw new IllegalArgumentException("Invalid scale type: " + i);
         }
     }
 
-    public void setMinimumTileDpi(int i2) {
+    public void setMinimumTileDpi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            this.minimumTileDpi = (int) Math.min((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f, i2);
+            this.minimumTileDpi = (int) Math.min((displayMetrics.xdpi + displayMetrics.ydpi) / 2.0f, i);
             if (isReady()) {
                 reset(false);
                 invalidate();
@@ -2290,17 +2293,17 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setOrientation(int i2) {
+    public final void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            if (VALID_ORIENTATIONS.contains(Integer.valueOf(i2))) {
-                this.orientation = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            if (VALID_ORIENTATIONS.contains(Integer.valueOf(i))) {
+                this.orientation = i;
                 reset(false);
                 invalidate();
                 requestLayout();
                 return;
             }
-            throw new IllegalArgumentException("Invalid orientation: " + i2);
+            throw new IllegalArgumentException("Invalid orientation: " + i);
         }
     }
 
@@ -2321,11 +2324,11 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setPanLimit(int i2) {
+    public final void setPanLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            if (VALID_PAN_LIMITS.contains(Integer.valueOf(i2))) {
-                this.panLimit = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            if (VALID_PAN_LIMITS.contains(Integer.valueOf(i))) {
+                this.panLimit = i;
                 if (isReady()) {
                     fitToBounds(true);
                     invalidate();
@@ -2333,7 +2336,7 @@ public class SubsamplingScaleImageView extends View {
                 }
                 return;
             }
-            throw new IllegalArgumentException("Invalid pan limit: " + i2);
+            throw new IllegalArgumentException("Invalid pan limit: " + i);
         }
     }
 
@@ -2377,16 +2380,16 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    public final void setTileBackgroundColor(int i2) {
+    public final void setTileBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            if (Color.alpha(i2) == 0) {
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            if (Color.alpha(i) == 0) {
                 this.tileBgPaint = null;
             } else {
                 Paint paint = new Paint();
                 this.tileBgPaint = paint;
                 paint.setStyle(Paint.Style.FILL);
-                this.tileBgPaint.setColor(i2);
+                this.tileBgPaint.setColor(i);
             }
             invalidate();
         }
@@ -2430,7 +2433,7 @@ public class SubsamplingScaleImageView extends View {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? viewToSourceCoord(f2, f3, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2444,9 +2447,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), pointF};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2568,7 +2571,7 @@ public class SubsamplingScaleImageView extends View {
         return (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2589,9 +2592,9 @@ public class SubsamplingScaleImageView extends View {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2608,7 +2611,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class AnimationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2628,9 +2631,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, pointF};
                 interceptable.invokeUnInit(65542, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65542, newInitContext);
                     return;
@@ -2696,25 +2699,25 @@ public class SubsamplingScaleImageView extends View {
             }
         }
 
-        public AnimationBuilder withDuration(long j2) {
+        public AnimationBuilder withDuration(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.duration = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                this.duration = j;
                 return this;
             }
             return (AnimationBuilder) invokeJ.objValue;
         }
 
-        public AnimationBuilder withEasing(int i2) {
+        public AnimationBuilder withEasing(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (SubsamplingScaleImageView.VALID_EASING_STYLES.contains(Integer.valueOf(i2))) {
-                    this.easing = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (SubsamplingScaleImageView.VALID_EASING_STYLES.contains(Integer.valueOf(i))) {
+                    this.easing = i;
                     return this;
                 }
-                throw new IllegalArgumentException("Unknown easing type: " + i2);
+                throw new IllegalArgumentException("Unknown easing type: " + i);
             }
             return (AnimationBuilder) invokeI.objValue;
         }
@@ -2740,9 +2743,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2769,9 +2772,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2), pointF};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -2798,9 +2801,9 @@ public class SubsamplingScaleImageView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, Float.valueOf(f2), pointF, pointF2};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -2858,9 +2861,9 @@ public class SubsamplingScaleImageView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

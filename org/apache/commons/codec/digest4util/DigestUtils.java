@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DigestUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STREAM_BUFFER_LENGTH = 1024;
@@ -32,9 +32,9 @@ public class DigestUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -338,9 +338,9 @@ public class DigestUtils {
             newInitContext.initArgs = r2;
             Object[] objArr = {messageDigest};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -489,9 +489,9 @@ public class DigestUtils {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((MessageDigest) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

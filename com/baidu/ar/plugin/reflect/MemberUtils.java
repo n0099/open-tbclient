@@ -63,9 +63,9 @@ public class MemberUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -122,19 +122,19 @@ public class MemberUtils {
                 cls = wrapperToPrimitive(cls);
                 f2 = 0.1f;
             }
-            int i2 = 0;
+            int i = 0;
             while (cls != cls2) {
                 Class<?>[] clsArr = ORDERED_PRIMITIVE_TYPES;
-                if (i2 >= clsArr.length) {
+                if (i >= clsArr.length) {
                     break;
                 }
-                if (cls == clsArr[i2]) {
+                if (cls == clsArr[i]) {
                     f2 += 0.1f;
-                    if (i2 < clsArr.length - 1) {
-                        cls = clsArr[i2 + 1];
+                    if (i < clsArr.length - 1) {
+                        cls = clsArr[i + 1];
                     }
                 }
-                i2++;
+                i++;
             }
             return f2;
         }
@@ -146,8 +146,8 @@ public class MemberUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, clsArr, clsArr2)) == null) {
             float f2 = 0.0f;
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                f2 += getObjectTransformationCost(clsArr[i2], clsArr2[i2]);
+            for (int i = 0; i < clsArr.length; i++) {
+                f2 += getObjectTransformationCost(clsArr[i], clsArr2[i]);
             }
             return f2;
         }
@@ -166,10 +166,10 @@ public class MemberUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, cls2)) == null) ? isAssignable(cls, cls2, true) : invokeLL.booleanValue;
     }
 
-    public static boolean isPackageAccess(int i2) {
+    public static boolean isPackageAccess(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? (i2 & 7) == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (i & 7) == 0 : invokeI.booleanValue;
     }
 
     public static Class<?> primitiveToWrapper(Class<?> cls) {
@@ -214,8 +214,8 @@ public class MemberUtils {
                 if (clsArr2 == null) {
                     clsArr2 = Utils.EMPTY_CLASS_ARRAY;
                 }
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!isAssignable(clsArr[i2], clsArr2[i2], z)) {
+                for (int i = 0; i < clsArr.length; i++) {
+                    if (!isAssignable(clsArr[i], clsArr2[i], z)) {
                         return false;
                     }
                 }

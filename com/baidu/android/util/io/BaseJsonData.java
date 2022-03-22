@@ -36,9 +36,9 @@ public class BaseJsonData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,10 +116,10 @@ public class BaseJsonData {
         }
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mErrorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mErrorCode = i;
         }
     }
 
@@ -137,30 +137,30 @@ public class BaseJsonData {
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.mTimestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.mTimestamp = j;
         }
     }
 
-    public BaseJsonData(int i2, JSONObject jSONObject) {
+    public BaseJsonData(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), jSONObject};
+            Object[] objArr = {Integer.valueOf(i), jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mErrorCode = -1;
-        this.mErrorCode = i2;
+        this.mErrorCode = i;
         this.mData = jSONObject;
     }
 
@@ -172,13 +172,13 @@ public class BaseJsonData {
         }
         BaseJsonData baseJsonData = null;
         try {
-            int i2 = jSONObject.getInt("errno");
+            int i = jSONObject.getInt("errno");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONObject == null) {
                 optJSONObject = (optJSONArray == null || optJSONArray.length() <= 0) ? null : optJSONArray.getJSONObject(0);
             }
-            BaseJsonData baseJsonData2 = new BaseJsonData(i2, optJSONObject);
+            BaseJsonData baseJsonData2 = new BaseJsonData(i, optJSONObject);
             try {
                 if (jSONObject.has("errmsg") && !jSONObject.isNull("errmsg")) {
                     baseJsonData2.setErrorMessage(jSONObject.getString("errmsg"));

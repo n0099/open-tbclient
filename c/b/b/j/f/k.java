@@ -11,10 +11,10 @@ public class k extends b<c.b.b.n.m.i, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27127b;
+    public String f22383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27128c;
+    public String f22384c;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.m.i> {
@@ -22,34 +22,34 @@ public class k extends b<c.b.b.n.m.i, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27129b;
+        public String f22385b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27130c;
+        public String f22386c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27131d;
+        public boolean f22387d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27132e;
+        public String f22388e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f27133f;
+        public String f22389f;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27131d = true;
+            this.f22387d = true;
         }
     }
 
@@ -62,17 +62,17 @@ public class k extends b<c.b.b.n.m.i, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27127b = ".vert";
-        this.f27128c = ".frag";
+        this.f22383b = ".vert";
+        this.f22384c = ".frag";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public class k extends b<c.b.b.n.m.i, a> {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
             String str3 = null;
             if (aVar2 != null) {
-                String str4 = aVar2.f27129b;
+                String str4 = aVar2.f22385b;
                 if (str4 == null) {
                     str4 = null;
                 }
-                str2 = aVar2.f27130c;
+                str2 = aVar2.f22386c;
                 if (str2 == null) {
                     str2 = null;
                 }
@@ -118,11 +118,11 @@ public class k extends b<c.b.b.n.m.i, a> {
             } else {
                 str2 = null;
             }
-            if (str3 == null && str.endsWith(this.f27128c)) {
-                str3 = str.substring(0, str.length() - this.f27128c.length()) + this.f27127b;
+            if (str3 == null && str.endsWith(this.f22384c)) {
+                str3 = str.substring(0, str.length() - this.f22384c.length()) + this.f22383b;
             }
-            if (str2 == null && str.endsWith(this.f27127b)) {
-                str2 = str.substring(0, str.length() - this.f27127b.length()) + this.f27128c;
+            if (str2 == null && str.endsWith(this.f22383b)) {
+                str2 = str.substring(0, str.length() - this.f22383b.length()) + this.f22384c;
             }
             c.b.b.m.a b2 = str3 == null ? aVar : b(str3);
             if (str2 != null) {
@@ -131,15 +131,15 @@ public class k extends b<c.b.b.n.m.i, a> {
             String o = b2.o();
             String o2 = b2.equals(aVar) ? o : aVar.o();
             if (aVar2 != null) {
-                if (aVar2.f27132e != null) {
-                    o = aVar2.f27132e + o;
+                if (aVar2.f22388e != null) {
+                    o = aVar2.f22388e + o;
                 }
-                if (aVar2.f27133f != null) {
-                    o2 = aVar2.f27133f + o2;
+                if (aVar2.f22389f != null) {
+                    o2 = aVar2.f22389f + o2;
                 }
             }
             c.b.b.n.m.i iVar = new c.b.b.n.m.i(o, o2);
-            if ((aVar2 == null || aVar2.f27131d) && !iVar.o()) {
+            if ((aVar2 == null || aVar2.f22387d) && !iVar.o()) {
                 eVar.p().b("ShaderProgram " + str + " failed to compile:\n" + iVar.l());
             }
             return iVar;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public abstract class b<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,16 +32,16 @@ public abstract class b<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.a;
-            if (i2 < 200) {
+            int i = this.a;
+            if (i < 200) {
                 return 200;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public abstract void a(int i2, Object obj);
+    public abstract void a(int i, Object obj);
 
     public abstract void a(l<T> lVar);
 }

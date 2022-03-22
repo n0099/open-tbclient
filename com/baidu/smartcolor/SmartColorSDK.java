@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import c.a.m0.a;
+import c.a.k0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,28 +44,28 @@ public class SmartColorSDK {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int a(int i2, int i3, int i4, int i5) {
+    public static int a(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i2, i3, i4, i5)) == null) {
-            int i6 = 1;
-            if (i3 > i4 || i2 > i5) {
-                int i7 = i3 / 2;
-                int i8 = i2 / 2;
-                while (i7 / i6 >= i4 && i8 / i6 >= i5) {
-                    i6 *= 2;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
+            int i5 = 1;
+            if (i2 > i3 || i > i4) {
+                int i6 = i2 / 2;
+                int i7 = i / 2;
+                while (i6 / i5 >= i3 && i7 / i5 >= i4) {
+                    i5 *= 2;
                 }
             }
-            return i6;
+            return i5;
         }
         return invokeIIII.intValue;
     }
@@ -98,15 +98,15 @@ public class SmartColorSDK {
         return (SmartColorSDK) invokeV.objValue;
     }
 
-    private native String getNativeSmartColor(byte[] bArr, int i2, int i3, int i4, int i5, String str, String str2, int i6, int i7, int i8, int i9, long j2, long j3, long j4, long j5);
+    private native String getNativeSmartColor(byte[] bArr, int i, int i2, int i3, int i4, String str, String str2, int i5, int i6, int i7, int i8, long j, long j2, long j3, long j4);
 
-    public final byte[] b(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i2) {
+    public final byte[] b(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, bitmap, compressFormat, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, bitmap, compressFormat, i)) == null) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(compressFormat, i2, byteArrayOutputStream);
+                bitmap.compress(compressFormat, i, byteArrayOutputStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
                 return byteArray;
@@ -149,10 +149,10 @@ public class SmartColorSDK {
             if (bitmap2 == null) {
                 return null;
             }
-            for (int i2 = 0; i2 < bitmap2.getHeight(); i2++) {
-                for (int i3 = 0; i3 < bitmap2.getWidth(); i3++) {
-                    if (Color.alpha(bitmap2.getPixel(i3, i2)) == 0) {
-                        bitmap2.setPixel(i3, i2, -1);
+            for (int i = 0; i < bitmap2.getHeight(); i++) {
+                for (int i2 = 0; i2 < bitmap2.getWidth(); i2++) {
+                    if (Color.alpha(bitmap2.getPixel(i2, i)) == 0) {
+                        bitmap2.setPixel(i2, i, -1);
                     }
                 }
             }
@@ -168,14 +168,14 @@ public class SmartColorSDK {
         return (String) invokeLL.objValue;
     }
 
-    public final String f(a aVar, byte[] bArr, int i2) {
+    public final String f(a aVar, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, aVar, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, aVar, bArr, i)) == null) {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            return getNativeSmartColor(bArr, i2, aVar.j(), aVar.k(), aVar.o(), aVar.v(), aVar.l(), c(aVar.m()), c(aVar.n()), c(aVar.i()), c(aVar.g()), aVar.t(), aVar.q(), aVar.u(), aVar.r());
+            return getNativeSmartColor(bArr, i, aVar.j(), aVar.k(), aVar.o(), aVar.v(), aVar.l(), c(aVar.m()), c(aVar.n()), c(aVar.i()), c(aVar.g()), aVar.t(), aVar.q(), aVar.u(), aVar.r());
         }
         return (String) invokeLLI.objValue;
     }

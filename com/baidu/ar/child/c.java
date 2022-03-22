@@ -26,9 +26,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -81,24 +81,24 @@ public class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mb : invokeV.longValue;
     }
 
-    public void setHandle(long j2) {
+    public void setHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.mb = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.mb = j;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.height = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.width = i;
         }
     }
 
@@ -109,10 +109,10 @@ public class c {
         }
     }
 
-    public void w(int i2) {
+    public void w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.angle = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.angle = i;
         }
     }
 }

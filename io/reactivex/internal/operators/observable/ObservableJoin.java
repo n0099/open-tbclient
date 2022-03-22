@@ -84,9 +84,9 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, function, function2, biFunction};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -132,7 +132,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
                 SpscLinkedArrayQueue<?> spscLinkedArrayQueue = this.queue;
                 Observer<? super R> observer = this.actual;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (this.error.get() != null) {
                         spscLinkedArrayQueue.clear();
@@ -150,19 +150,19 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                         observer.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
                         Object poll = spscLinkedArrayQueue.poll();
                         if (num == LEFT_VALUE) {
-                            int i3 = this.leftIndex;
-                            this.leftIndex = i3 + 1;
-                            this.lefts.put(Integer.valueOf(i3), poll);
+                            int i2 = this.leftIndex;
+                            this.leftIndex = i2 + 1;
+                            this.lefts.put(Integer.valueOf(i2), poll);
                             try {
                                 ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
-                                ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver = new ObservableGroupJoin.LeftRightEndObserver(this, true, i3);
+                                ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver = new ObservableGroupJoin.LeftRightEndObserver(this, true, i2);
                                 this.disposables.add(leftRightEndObserver);
                                 observableSource.subscribe(leftRightEndObserver);
                                 if (this.error.get() != null) {
@@ -185,12 +185,12 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                                 return;
                             }
                         } else if (num == RIGHT_VALUE) {
-                            int i4 = this.rightIndex;
-                            this.rightIndex = i4 + 1;
-                            this.rights.put(Integer.valueOf(i4), poll);
+                            int i3 = this.rightIndex;
+                            this.rightIndex = i3 + 1;
+                            this.rights.put(Integer.valueOf(i3), poll);
                             try {
                                 ObservableSource observableSource2 = (ObservableSource) ObjectHelper.requireNonNull(this.rightEnd.apply(poll), "The rightEnd returned a null ObservableSource");
-                                ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver2 = new ObservableGroupJoin.LeftRightEndObserver(this, false, i4);
+                                ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver2 = new ObservableGroupJoin.LeftRightEndObserver(this, false, i3);
                                 this.disposables.add(leftRightEndObserver2);
                                 observableSource2.subscribe(leftRightEndObserver2);
                                 if (this.error.get() != null) {
@@ -322,9 +322,9 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSource2, function, function2, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

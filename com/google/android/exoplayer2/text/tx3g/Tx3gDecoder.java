@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Tx3gDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char BOM_UTF16_BE = 65279;
@@ -78,9 +78,9 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -113,47 +113,47 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
         }
     }
 
-    public static void attachColor(SpannableStringBuilder spannableStringBuilder, int i2, int i3, int i4, int i5, int i6) {
+    public static void attachColor(SpannableStringBuilder spannableStringBuilder, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{spannableStringBuilder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || i == i2) {
             return;
         }
-        spannableStringBuilder.setSpan(new ForegroundColorSpan((i2 >>> 8) | ((i2 & 255) << 24)), i4, i5, i6 | 33);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan((i >>> 8) | ((i & 255) << 24)), i3, i4, i5 | 33);
     }
 
-    public static void attachFontFace(SpannableStringBuilder spannableStringBuilder, int i2, int i3, int i4, int i5, int i6) {
+    public static void attachFontFace(SpannableStringBuilder spannableStringBuilder, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{spannableStringBuilder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{spannableStringBuilder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || i == i2) {
             return;
         }
-        int i7 = i6 | 33;
-        boolean z = (i2 & 1) != 0;
-        boolean z2 = (i2 & 2) != 0;
+        int i6 = i5 | 33;
+        boolean z = (i & 1) != 0;
+        boolean z2 = (i & 2) != 0;
         if (z) {
             if (z2) {
-                spannableStringBuilder.setSpan(new StyleSpan(3), i4, i5, i7);
+                spannableStringBuilder.setSpan(new StyleSpan(3), i3, i4, i6);
             } else {
-                spannableStringBuilder.setSpan(new StyleSpan(1), i4, i5, i7);
+                spannableStringBuilder.setSpan(new StyleSpan(1), i3, i4, i6);
             }
         } else if (z2) {
-            spannableStringBuilder.setSpan(new StyleSpan(2), i4, i5, i7);
+            spannableStringBuilder.setSpan(new StyleSpan(2), i3, i4, i6);
         }
-        boolean z3 = (i2 & 4) != 0;
+        boolean z3 = (i & 4) != 0;
         if (z3) {
-            spannableStringBuilder.setSpan(new UnderlineSpan(), i4, i5, i7);
+            spannableStringBuilder.setSpan(new UnderlineSpan(), i3, i4, i6);
         }
         if (z3 || z || z2) {
             return;
         }
-        spannableStringBuilder.setSpan(new StyleSpan(0), i4, i5, i7);
+        spannableStringBuilder.setSpan(new StyleSpan(0), i3, i4, i6);
     }
 
-    public static void attachFontFamily(SpannableStringBuilder spannableStringBuilder, String str, String str2, int i2, int i3, int i4) {
+    public static void attachFontFamily(SpannableStringBuilder spannableStringBuilder, String str, String str2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{spannableStringBuilder, str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || str == str2) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{spannableStringBuilder, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || str == str2) {
             return;
         }
-        spannableStringBuilder.setSpan(new TypefaceSpan(str), i2, i3, i4 | 33);
+        spannableStringBuilder.setSpan(new TypefaceSpan(str), i, i2, i3 | 33);
     }
 
     private void decodeInitializationData(List<byte[]> list) {
@@ -203,11 +203,11 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
     }
 
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
-    public Subtitle decode(byte[] bArr, int i2, boolean z) throws SubtitleDecoderException {
+    public Subtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            this.parsableByteArray.reset(bArr, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.parsableByteArray.reset(bArr, i);
             String readSubtitleText = readSubtitleText(this.parsableByteArray);
             if (readSubtitleText.isEmpty()) {
                 return Tx3gSubtitle.EMPTY;
@@ -224,7 +224,7 @@ public final class Tx3gDecoder extends SimpleSubtitleDecoder {
                 if (readInt2 == TYPE_STYL) {
                     assertTrue(this.parsableByteArray.bytesLeft() >= 2);
                     int readUnsignedShort = this.parsableByteArray.readUnsignedShort();
-                    for (int i3 = 0; i3 < readUnsignedShort; i3++) {
+                    for (int i2 = 0; i2 < readUnsignedShort; i2++) {
                         applyStyleRecord(this.parsableByteArray, spannableStringBuilder);
                     }
                 } else if (readInt2 == TYPE_TBOX && this.customVerticalPlacement) {

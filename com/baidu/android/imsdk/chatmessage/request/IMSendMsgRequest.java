@@ -35,9 +35,9 @@ public class IMSendMsgRequest extends BaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, chatMsg, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -143,29 +143,29 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.msg, -1L, this.key);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str = new String(bArr);
             LogUtils.d(TAG, "onSuccess :" + str);
             try {
-                i3 = new JSONObject(str).getInt("error_code");
+                i2 = new JSONObject(str).getInt("error_code");
             } catch (Exception e2) {
                 LogUtils.e(TAG, "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i3, this.msg, System.currentTimeMillis(), this.key);
+            ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, this.msg, System.currentTimeMillis(), this.key);
         }
     }
 

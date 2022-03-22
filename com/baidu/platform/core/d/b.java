@@ -22,9 +22,9 @@ public class b extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {bikingRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,9 +59,9 @@ public class b extends com.baidu.platform.base.e {
             }
             this.a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
             this.a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
-            int i2 = bikingRoutePlanOption.mRidingType;
-            if (i2 == 1) {
-                this.a.a("riding_type", String.valueOf(i2));
+            int i = bikingRoutePlanOption.mRidingType;
+            if (i == 1) {
+                this.a.a("riding_type", String.valueOf(i));
             }
             this.a.a("output", "json");
             this.a.a("from", "android_map_sdk");

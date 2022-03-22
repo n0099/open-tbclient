@@ -5,5 +5,5 @@ public interface IFrameCallback {
 
     void onFrameStart();
 
-    void onFrameUpdate(int i2);
+    void onFrameUpdate(int i);
 }

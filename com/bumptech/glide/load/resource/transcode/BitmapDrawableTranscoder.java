@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.LazyBitmapDrawableResource;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapDrawableTranscoder implements ResourceTranscoder<Bitmap, BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class BitmapDrawableTranscoder implements ResourceTranscoder<Bitmap, Bitm
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Resources) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,9 +60,9 @@ public class BitmapDrawableTranscoder implements ResourceTranscoder<Bitmap, Bitm
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, bitmapPool};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Resources) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -78,9 +78,9 @@ public class BitmapDrawableTranscoder implements ResourceTranscoder<Bitmap, Bitm
             newInitContext.initArgs = r2;
             Object[] objArr = {resources};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

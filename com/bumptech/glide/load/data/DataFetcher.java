@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface DataFetcher<T> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DataCallback<T> {
         void onDataReady(@Nullable T t);
 

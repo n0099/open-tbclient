@@ -28,7 +28,7 @@ import okhttp3.internal.Platform;
 import okhttp3.internal.http.HttpEngine;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class HttpLoggingInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;
@@ -37,7 +37,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
     public final Logger logger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -68,16 +68,16 @@ public final class HttpLoggingInterceptor implements Interceptor {
             $VALUES = new Level[]{NONE, BASIC, HEADERS, level};
         }
 
-        public Level(String str, int i2) {
+        public Level(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -100,7 +100,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Logger {
         public static final Logger DEFAULT = new Logger() { // from class: okhttp3.logging.HttpLoggingInterceptor.Logger.1
             public static /* synthetic */ Interceptable $ic;
@@ -111,9 +111,9 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -155,9 +155,9 @@ public final class HttpLoggingInterceptor implements Interceptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Logger) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -186,7 +186,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
     public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
         Headers headers;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
             Level level = this.level;
@@ -215,17 +215,17 @@ public final class HttpLoggingInterceptor implements Interceptor {
                 }
                 Headers headers2 = request.headers();
                 int size = headers2.size();
-                int i3 = 0;
-                while (i3 < size) {
-                    String name = headers2.name(i3);
+                int i2 = 0;
+                while (i2 < size) {
+                    String name = headers2.name(i2);
                     if ("Content-Type".equalsIgnoreCase(name) || "Content-Length".equalsIgnoreCase(name)) {
-                        i2 = size;
+                        i = size;
                     } else {
-                        i2 = size;
-                        this.logger.log(name + ": " + headers2.value(i3));
+                        i = size;
+                        this.logger.log(name + ": " + headers2.value(i2));
                     }
-                    i3++;
-                    size = i2;
+                    i2++;
+                    size = i;
                 }
                 if (z && z3) {
                     if (bodyEncoded(request.headers())) {
@@ -268,8 +268,8 @@ public final class HttpLoggingInterceptor implements Interceptor {
             logger.log(sb.toString());
             if (z2) {
                 int size2 = proceed.headers().size();
-                for (int i4 = 0; i4 < size2; i4++) {
-                    this.logger.log(headers.name(i4) + ": " + headers.value(i4));
+                for (int i3 = 0; i3 < size2; i3++) {
+                    this.logger.log(headers.name(i3) + ": " + headers.value(i3));
                 }
                 if (z && HttpEngine.hasBody(proceed)) {
                     if (bodyEncoded(proceed.headers())) {
@@ -325,9 +325,9 @@ public final class HttpLoggingInterceptor implements Interceptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {logger};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

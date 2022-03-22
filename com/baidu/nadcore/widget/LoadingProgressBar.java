@@ -16,18 +16,16 @@ import java.lang.reflect.Field;
 public class LoadingProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f35888e;
+    /* renamed from: b  reason: collision with root package name */
+    public Drawable f27739b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Drawable f35889f;
+    /* renamed from: c  reason: collision with root package name */
+    public long f27740c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public long f35890g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f35891h;
+    /* renamed from: d  reason: collision with root package name */
+    public int f27741d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingProgressBar(Context context) {
@@ -38,33 +36,33 @@ public class LoadingProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35888e = 0;
+        this.a = 0;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35891h = 200;
+            this.f27741d = 200;
             try {
                 Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f35891h = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                    this.f27741d = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.f35891h = (int) ((((this.f35891h * 12.0f) / 36.0f) / 2.0f) + 0.5f);
+            this.f27741d = (int) ((((this.f27741d * 12.0f) / 36.0f) / 2.0f) + 0.5f);
         }
     }
 
@@ -80,20 +78,20 @@ public class LoadingProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f35889f;
+                Drawable drawable = this.f27739b;
                 if (drawable == null) {
                     return;
                 }
                 drawable.draw(canvas);
-                if (SystemClock.uptimeMillis() - this.f35890g >= this.f35891h) {
-                    this.f35890g = SystemClock.uptimeMillis();
-                    int i2 = this.f35888e + 277;
-                    this.f35888e = i2;
-                    if (i2 >= 10000) {
-                        this.f35888e = i2 - 10000;
+                if (SystemClock.uptimeMillis() - this.f27740c >= this.f27741d) {
+                    this.f27740c = SystemClock.uptimeMillis();
+                    int i = this.a + 277;
+                    this.a = i;
+                    if (i >= 10000) {
+                        this.a = i - 10000;
                     }
-                    drawable.setLevel(this.f35888e);
-                    postInvalidateDelayed(this.f35891h);
+                    drawable.setLevel(this.a);
+                    postInvalidateDelayed(this.f27741d);
                 }
             }
         }
@@ -106,7 +104,7 @@ public class LoadingProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminate(z);
                 if (z) {
-                    this.f35889f = getIndeterminateDrawable();
+                    this.f27739b = getIndeterminateDrawable();
                 }
             }
         }
@@ -119,7 +117,7 @@ public class LoadingProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminateDrawable(drawable);
                 if (isIndeterminate()) {
-                    this.f35889f = drawable;
+                    this.f27739b = drawable;
                 }
             }
         }
@@ -134,9 +132,9 @@ public class LoadingProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -144,22 +142,22 @@ public class LoadingProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f35888e = 0;
+        this.a = 0;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadingProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LoadingProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -167,7 +165,7 @@ public class LoadingProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.f35888e = 0;
+        this.a = 0;
         a();
     }
 }

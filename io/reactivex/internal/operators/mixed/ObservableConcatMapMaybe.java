@@ -68,9 +68,9 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {concatMapMaybeMainObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -119,16 +119,16 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             }
         }
 
-        public ConcatMapMaybeMainObserver(Observer<? super R> observer, Function<? super T, ? extends MaybeSource<? extends R>> function, int i2, ErrorMode errorMode) {
+        public ConcatMapMaybeMainObserver(Observer<? super R> observer, Function<? super T, ? extends MaybeSource<? extends R>> function, int i, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2), errorMode};
+                Object[] objArr = {observer, function, Integer.valueOf(i), errorMode};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,7 +139,7 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
             this.errorMode = errorMode;
             this.errors = new AtomicThrowable();
             this.inner = new ConcatMapMaybeObserver<>(this);
-            this.queue = new SpscLinkedArrayQueue(i2);
+            this.queue = new SpscLinkedArrayQueue(i);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -164,15 +164,15 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
                 ErrorMode errorMode = this.errorMode;
                 SimplePlainQueue<T> simplePlainQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
-                int i2 = 1;
+                int i = 1;
                 while (true) {
                     if (this.cancelled) {
                         simplePlainQueue.clear();
                         this.item = null;
                     }
-                    int i3 = this.state;
-                    if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i3 != 0))) {
-                        if (i3 == 0) {
+                    int i2 = this.state;
+                    if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i2 != 0))) {
+                        if (i2 == 0) {
                             boolean z = this.done;
                             T poll = simplePlainQueue.poll();
                             boolean z2 = poll == null;
@@ -199,13 +199,13 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
                                     return;
                                 }
                             }
-                        } else if (i3 == 2) {
+                        } else if (i2 == 2) {
                             this.item = null;
                             observer.onNext((R) this.item);
                             this.state = 0;
                         }
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     }
@@ -299,16 +299,16 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
         }
     }
 
-    public ObservableConcatMapMaybe(Observable<T> observable, Function<? super T, ? extends MaybeSource<? extends R>> function, ErrorMode errorMode, int i2) {
+    public ObservableConcatMapMaybe(Observable<T> observable, Function<? super T, ? extends MaybeSource<? extends R>> function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observable, function, errorMode, Integer.valueOf(i2)};
+            Object[] objArr = {observable, function, errorMode, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -317,7 +317,7 @@ public final class ObservableConcatMapMaybe<T, R> extends Observable<R> {
         this.source = observable;
         this.mapper = function;
         this.errorMode = errorMode;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Observable

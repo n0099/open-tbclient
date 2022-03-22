@@ -26,9 +26,9 @@ public final class ViewGroupKt$iterator$1 implements Iterator<View>, KMutableIte
             newInitContext.initArgs = r2;
             Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,9 +49,9 @@ public final class ViewGroupKt$iterator$1 implements Iterator<View>, KMutableIte
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup viewGroup = this.$this_iterator;
-            int i2 = this.index - 1;
-            this.index = i2;
-            viewGroup.removeViewAt(i2);
+            int i = this.index - 1;
+            this.index = i;
+            viewGroup.removeViewAt(i);
         }
     }
 
@@ -63,9 +63,9 @@ public final class ViewGroupKt$iterator$1 implements Iterator<View>, KMutableIte
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ViewGroup viewGroup = this.$this_iterator;
-            int i2 = this.index;
-            this.index = i2 + 1;
-            View childAt = viewGroup.getChildAt(i2);
+            int i = this.index;
+            this.index = i + 1;
+            View childAt = viewGroup.getChildAt(i);
             if (childAt != null) {
                 return childAt;
             }

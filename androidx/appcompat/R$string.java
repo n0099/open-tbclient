@@ -34,8 +34,8 @@ public final class R$string {
     public static final int abc_shareactionprovider_share_with = 2131689552;
     public static final int abc_shareactionprovider_share_with_application = 2131689553;
     public static final int abc_toolbar_collapse_description = 2131689554;
-    public static final int search_menu_title = 2131694366;
-    public static final int status_bar_notification_info_overflow = 2131694666;
+    public static final int search_menu_title = 2131693725;
+    public static final int status_bar_notification_info_overflow = 2131694025;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$string() {
@@ -43,9 +43,9 @@ public final class R$string {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

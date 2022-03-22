@@ -25,9 +25,9 @@ public final class GeoParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

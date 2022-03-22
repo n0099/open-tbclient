@@ -24,16 +24,16 @@ public abstract class Message<T> extends OrmObject {
     public BdUniqueId mTag;
     public int squencedId;
 
-    public Message(int i2) {
+    public Message(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,7 +44,7 @@ public abstract class Message<T> extends OrmObject {
         this.mStartTime = 0L;
         this.encodedBinarySize = 0L;
         this.squencedId = 0;
-        this.mCmd = i2;
+        this.mCmd = i;
         check();
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
@@ -56,7 +56,7 @@ public abstract class Message<T> extends OrmObject {
         }
     }
 
-    public abstract boolean checkCmd(int i2);
+    public abstract boolean checkCmd(int i);
 
     public abstract /* synthetic */ T encodeInBackGround();
 
@@ -108,17 +108,17 @@ public abstract class Message<T> extends OrmObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTag : (BdUniqueId) invokeV.objValue;
     }
 
-    public void setClientLogID(long j2) {
+    public void setClientLogID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.clientLogID = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.clientLogID = j;
         }
     }
 
-    public void setEncodedBinarySize(long j2) {
+    public void setEncodedBinarySize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.encodedBinarySize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.encodedBinarySize = j;
         }
     }
 
@@ -136,17 +136,17 @@ public abstract class Message<T> extends OrmObject {
         }
     }
 
-    public void setSquencedId(int i2) {
+    public void setSquencedId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.squencedId = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.squencedId = i;
         }
     }
 
-    public void setStartTime(long j2) {
+    public void setStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mStartTime = j;
         }
     }
 
@@ -157,16 +157,16 @@ public abstract class Message<T> extends OrmObject {
         }
     }
 
-    public Message(int i2, BdUniqueId bdUniqueId) {
+    public Message(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -177,7 +177,7 @@ public abstract class Message<T> extends OrmObject {
         this.mStartTime = 0L;
         this.encodedBinarySize = 0L;
         this.squencedId = 0;
-        this.mCmd = i2;
+        this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();

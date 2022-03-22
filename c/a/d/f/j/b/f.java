@@ -16,37 +16,37 @@ public class f {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f2613b;
+    public h f2153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<e> f2614c;
+    public LinkedList<e> f2154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f2615d;
+    public e f2155d;
 
     public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new g();
-        this.f2613b = new h();
-        this.f2614c = new LinkedList<>();
-        this.f2615d = null;
+        this.f2153b = new h();
+        this.f2154c = new LinkedList<>();
+        this.f2155d = null;
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2615d : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2155d : (e) invokeV.objValue;
     }
 
     public g b() {
@@ -58,13 +58,13 @@ public class f {
     public h c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2613b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2153b : (h) invokeV.objValue;
     }
 
     public List<e> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f2614c) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Collections.unmodifiableList(this.f2154c) : (List) invokeV.objValue;
     }
 
     public void e(e eVar) {
@@ -72,13 +72,13 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f2614c.add(eVar);
+        this.f2154c.add(eVar);
     }
 
     public void f(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f2615d = eVar;
+            this.f2155d = eVar;
         }
     }
 }

@@ -18,15 +18,15 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i2) {
+    public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
-            int i3 = -101;
-            if (i2 != -101) {
-                i3 = -1;
-                if (i2 != -1) {
-                    switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int i2 = -101;
+            if (i != -101) {
+                i2 = -1;
+                if (i != -1) {
+                    switch (i) {
                         case 1:
                         case 2:
                         case 4:
@@ -50,11 +50,11 @@ public class f {
                         case 19:
                             return 3;
                         default:
-                            return i2;
+                            return i;
                     }
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -162,32 +162,32 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int i2 = 0;
+            int i = 0;
             try {
                 NetworkInfo a = a(context);
                 if (a != null && a.isAvailable() && a.isConnected()) {
                     int type = a.getType();
                     if (type == 1) {
-                        i2 = -101;
+                        i = -101;
                     } else if (type == 0) {
                         try {
-                            i2 = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
+                            i = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        if (i2 == 0) {
-                            i2 = a.getSubtype();
+                        if (i == 0) {
+                            i = a.getSubtype();
                         }
                     }
                 } else {
-                    i2 = -1;
+                    i = -1;
                 }
             } catch (NullPointerException e3) {
                 e3.printStackTrace();
             } catch (Exception e4) {
                 e4.printStackTrace();
             }
-            return a(i2);
+            return a(i);
         }
         return invokeL.intValue;
     }

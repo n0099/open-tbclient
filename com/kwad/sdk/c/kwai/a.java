@@ -4,11 +4,11 @@ public class a extends com.kwad.sdk.core.response.kwai.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54021b;
+    public String f39171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54022c;
+    public String f39172c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54023d;
+    public String f39173d;
 }

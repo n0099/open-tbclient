@@ -48,9 +48,9 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -69,26 +69,26 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public VideoMsg[] newArray(int i2) {
+            public VideoMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new VideoMsg[i2] : (VideoMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new VideoMsg[i] : (VideoMsg[]) invokeI.objValue;
             }
         };
     }
 
-    private String getVideoContent(String str, int i2, int i3, byte[] bArr) {
+    private String getVideoContent(String str, int i, int i2, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put("format", i2);
-                jSONObject.put("duration", i3);
+                jSONObject.put("format", i);
+                jSONObject.put("duration", i2);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 return jSONObject.toString();
             } catch (JSONException e2) {
@@ -146,26 +146,26 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         return invokeV.booleanValue;
     }
 
-    public void setContent(String str, int i2, int i3, byte[] bArr) {
+    public void setContent(String str, int i, int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr}) == null) {
-            setMsgContent(getVideoContent(str, i2, i3, bArr));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr}) == null) {
+            setMsgContent(getVideoContent(str, i, i2, bArr));
         }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg
-    public void setProgress(int i2) {
+    public void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mProgress = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mProgress = i;
         }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.mFormat);
             parcel.writeInt(this.mDuration);
             parcel.writeInt(this.mProgress);
@@ -177,9 +177,9 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -200,9 +200,9 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

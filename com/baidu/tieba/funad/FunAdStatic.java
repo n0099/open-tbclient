@@ -1,9 +1,8 @@
 package com.baidu.tieba.funad;
 
-import c.a.r0.e1.a;
-import c.a.r0.e1.b;
-import c.a.r0.f1.c;
-import c.a.r0.f1.d;
+import c.a.p0.g1.b;
+import c.a.p0.h1.c;
+import c.a.p0.h1.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,7 +26,7 @@ public class FunAdStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<a.f> {
+    public static class a implements CustomMessageTask.CustomRunnable<b.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,9 +35,9 @@ public class FunAdStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -46,7 +45,7 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<a.f> run(CustomMessage<a.f> customMessage) {
+        public CustomResponsedMessage<b.f> run(CustomMessage<b.f> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921525, new c()) : (CustomResponsedMessage) invokeL.objValue;
@@ -67,7 +66,7 @@ public class FunAdStatic {
             }
         }
         GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
-        b.a.set(new d());
+        c.a.p0.g1.c.a.set(new d());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -86,9 +85,9 @@ public class FunAdStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

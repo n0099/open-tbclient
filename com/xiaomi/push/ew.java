@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ew {
     public static /* synthetic */ Interceptable $ic;
     public static final ew A;
@@ -42,7 +42,7 @@ public final class ew {
     public static final ew a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ew[] f346a;
+    public static final /* synthetic */ ew[] f322a;
     public static final ew aa;
     public static final ew ab;
     public static final ew ac;
@@ -50,31 +50,27 @@ public final class ew {
     public static final ew ae;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ew f59612b;
+    public static final ew f44222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ew f59613c;
+    public static final ew f44223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ew f59614d;
+    public static final ew f44224d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ew f59615e;
+    public static final ew f44225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final ew f59616f;
+    public static final ew f44226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final ew f59617g;
+    public static final ew f44227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ew f59618h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final ew f59619i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final ew f59620j;
+    public static final ew f44228h;
+    public static final ew i;
+    public static final ew j;
     public static final ew k;
     public static final ew l;
     public static final ew m;
@@ -94,7 +90,7 @@ public final class ew {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f347a;
+    public final int f323a;
 
     static {
         InterceptResult invokeClinit;
@@ -110,15 +106,15 @@ public final class ew {
             }
         }
         a = new ew("TCP_CONN_FAIL", 0, 1);
-        f59612b = new ew("TCP_CONN_TIME", 1, 2);
-        f59613c = new ew("PING_RTT", 2, 3);
-        f59614d = new ew("CHANNEL_CON_FAIL", 3, 4);
-        f59615e = new ew("CHANNEL_CON_OK", 4, 5);
-        f59616f = new ew("ICMP_PING_FAIL", 5, 6);
-        f59617g = new ew("ICMP_PING_OK", 6, 7);
-        f59618h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
-        f59619i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
-        f59620j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
+        f44222b = new ew("TCP_CONN_TIME", 1, 2);
+        f44223c = new ew("PING_RTT", 2, 3);
+        f44224d = new ew("CHANNEL_CON_FAIL", 3, 4);
+        f44225e = new ew("CHANNEL_CON_OK", 4, 5);
+        f44226f = new ew("ICMP_PING_FAIL", 5, 6);
+        f44227g = new ew("ICMP_PING_OK", 6, 7);
+        f44228h = new ew("CHANNEL_ONLINE_RATE", 7, 8);
+        i = new ew("BATCH_TCP_CONN_SUCCESS", 8, 1000);
+        j = new ew("BATCH_TCP_CONN_FAIL", 9, 1001);
         k = new ew("CHANNEL_STATS_COUNTER", 10, 8000);
         l = new ew("GSLB_REQUEST_SUCCESS", 11, 10000);
         m = new ew("GSLB_TCP_NOACCESS", 12, 10101);
@@ -167,7 +163,7 @@ public final class ew {
         ad = new ew("CHANNEL_BOSH_EXCEPTION", 55, 40499);
         ew ewVar = new ew("CHANNEL_TIMER_DELAYED", 56, 50001);
         ae = ewVar;
-        f346a = new ew[]{a, f59612b, f59613c, f59614d, f59615e, f59616f, f59617g, f59618h, f59619i, f59620j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
+        f322a = new ew[]{a, f44222b, f44223c, f44224d, f44225e, f44226f, f44227g, f44228h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ewVar};
     }
 
     public ew(String str, int i2, int i3) {
@@ -188,7 +184,7 @@ public final class ew {
                 return;
             }
         }
-        this.f347a = i3;
+        this.f323a = i3;
     }
 
     public static ew a(int i2) {
@@ -201,19 +197,19 @@ public final class ew {
                         case 1:
                             return a;
                         case 2:
-                            return f59612b;
+                            return f44222b;
                         case 3:
-                            return f59613c;
+                            return f44223c;
                         case 4:
-                            return f59614d;
+                            return f44224d;
                         case 5:
-                            return f59615e;
+                            return f44225e;
                         case 6:
-                            return f59616f;
+                            return f44226f;
                         case 7:
-                            return f59617g;
+                            return f44227g;
                         case 8:
-                            return f59618h;
+                            return f44228h;
                         default:
                             switch (i2) {
                                 case 8000:
@@ -345,12 +341,12 @@ public final class ew {
     public static ew[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ew[]) f346a.clone() : (ew[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ew[]) f322a.clone() : (ew[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f347a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f323a : invokeV.intValue;
     }
 }

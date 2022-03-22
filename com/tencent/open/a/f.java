@@ -24,13 +24,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f59065b;
+    public static f f43710b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,9 +58,9 @@ public class f extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -76,10 +76,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f59065b == null) {
-                    f59065b = new f(com.tencent.open.utils.f.a());
+                if (f43710b == null) {
+                    f43710b = new f(com.tencent.open.utils.f.a());
                 }
-                fVar = f59065b;
+                fVar = f43710b;
             }
             return fVar;
         }
@@ -131,9 +131,9 @@ public class f extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048580, this, sQLiteDatabase, i, i2) == null) {
             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS via_cgi_report");
             onCreate(sQLiteDatabase);
         }
@@ -311,8 +311,8 @@ public class f extends SQLiteOpenHelper {
             writableDatabase.beginTransaction();
             try {
                 ContentValues contentValues = new ContentValues();
-                for (int i2 = 0; i2 < size; i2++) {
-                    Serializable serializable = list.get(i2);
+                for (int i = 0; i < size; i++) {
+                    Serializable serializable = list.get(i);
                     if (serializable != null) {
                         contentValues.put("type", str);
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);

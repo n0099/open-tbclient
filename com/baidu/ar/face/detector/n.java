@@ -1,6 +1,7 @@
 package com.baidu.ar.face.detector;
 
 import android.os.SystemClock;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.face.algo.FaceAlgoData;
@@ -46,9 +47,9 @@ public class n extends a {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ByteBuffer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -64,9 +65,10 @@ public class n extends a {
             com.baidu.ar.b.a.as().a(13, true);
             this.time = System.currentTimeMillis();
             this.ob = FaceJniClient.trackFace(this.pK, this.ob, this.mf);
-            com.baidu.ar.h.b.k(TAG, "track-time= " + (System.currentTimeMillis() - this.time));
+            String str = TAG;
+            com.baidu.ar.h.b.k(str, "track-time= " + (System.currentTimeMillis() - this.time));
             com.baidu.ar.h.b.c(TAG, "detect_frame track task executing");
-            String str = "face track: " + this.mf + "   ,  " + this.pK;
+            Log.d("vvv", "face track: " + this.mf + "   ,  " + this.pK);
             com.baidu.ar.b.a.as().a(13, false);
         }
     }
@@ -94,10 +96,10 @@ public class n extends a {
         }
     }
 
-    public void p(long j2) {
+    public void p(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.oh = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.oh = j;
         }
     }
 
@@ -108,10 +110,10 @@ public class n extends a {
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.timestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.timestamp = j;
         }
     }
 }

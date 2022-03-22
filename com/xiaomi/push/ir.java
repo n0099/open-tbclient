@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,13 +17,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ir {
     public static /* synthetic */ Interceptable $ic;
     public static final Comparator a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +33,9 @@ public final class ir {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -93,26 +94,26 @@ public final class ir {
         return invokeCommon.intValue;
     }
 
-    public static int a(int i2, int i3) {
+    public static int a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            if (i2 < i3) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            if (i < i2) {
                 return -1;
             }
-            return i3 < i2 ? 1 : 0;
+            return i2 < i ? 1 : 0;
         }
         return invokeII.intValue;
     }
 
-    public static int a(long j2, long j3) {
+    public static int a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (j2 < j3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j < j2) {
                 return -1;
             }
-            return j3 < j2 ? 1 : 0;
+            return j2 < j ? 1 : 0;
         }
         return invokeCommon.intValue;
     }
@@ -129,12 +130,12 @@ public final class ir {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? str.compareTo(str2) : invokeLL.intValue;
     }
 
-    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i2) {
+    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, byteBuffer, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, byteBuffer, bArr, i)) == null) {
             int remaining = byteBuffer.remaining();
-            System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i2, remaining);
+            System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i, remaining);
             return remaining;
         }
         return invokeLLI.intValue;
@@ -148,8 +149,8 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                int compare = a.compare(list.get(i2), list2.get(i2));
+            for (int i = 0; i < list.size(); i++) {
+                int compare = a.compare(list.get(i), list2.get(i));
                 if (compare != 0) {
                     return compare;
                 }
@@ -241,8 +242,8 @@ public final class ir {
             if (a2 != 0) {
                 return a2;
             }
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                int a3 = a(bArr[i2], bArr2[i2]);
+            for (int i = 0; i < bArr.length; i++) {
+                int a3 = a(bArr[i], bArr2[i]);
                 if (a3 != 0) {
                     return a3;
                 }
@@ -261,7 +262,7 @@ public final class ir {
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m577a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m578a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m556a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m557a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -270,32 +271,32 @@ public final class ir {
             byte[] array = byteBuffer.array();
             int arrayOffset = byteBuffer.arrayOffset();
             int limit = byteBuffer.limit();
-            int i2 = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
-            for (int i3 = arrayOffset; i3 < i2; i3++) {
-                if (i3 > arrayOffset) {
+            int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
+            for (int i2 = arrayOffset; i2 < i; i2++) {
+                if (i2 > arrayOffset) {
                     sb.append(" ");
                 }
-                sb.append(a(array[i3]));
+                sb.append(a(array[i2]));
             }
-            if (limit != i2) {
-                sb.append("...");
+            if (limit != i) {
+                sb.append(StringHelper.STRING_MORE);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m577a(ByteBuffer byteBuffer) {
+    public static boolean m556a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity() : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m578a(ByteBuffer byteBuffer) {
+    public static byte[] m557a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
-            if (m577a(byteBuffer)) {
+            if (m556a(byteBuffer)) {
                 return byteBuffer.array();
             }
             byte[] bArr = new byte[byteBuffer.remaining()];

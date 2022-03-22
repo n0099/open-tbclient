@@ -18,7 +18,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UuidManager {
     public static /* synthetic */ Interceptable $ic;
     public static Object LOCK_KEY;
@@ -52,9 +52,9 @@ public class UuidManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

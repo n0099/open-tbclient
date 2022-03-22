@@ -13,10 +13,10 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AdaptiveMediaSourceEventListener {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public interface AdaptiveMediaSourceEventListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler, adaptiveMediaSourceEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Handler) objArr2[0], (AdaptiveMediaSourceEventListener) objArr2[1], ((Long) objArr2[2]).longValue());
                     newInitContext.thisArg = this;
@@ -46,28 +46,28 @@ public interface AdaptiveMediaSourceEventListener {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public long adjustMediaTime(long j2) {
+        public long adjustMediaTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2)) == null) {
-                long usToMs = C.usToMs(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
+                long usToMs = C.usToMs(j);
                 return usToMs == C.TIME_UNSET ? C.TIME_UNSET : this.mediaTimeOffsetMs + usToMs;
             }
             return invokeJ.longValue;
         }
 
-        public EventDispatcher copyWithMediaTimeOffsetMs(long j2) {
+        public EventDispatcher copyWithMediaTimeOffsetMs(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? new EventDispatcher(this.handler, this.listener, j2) : (EventDispatcher) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new EventDispatcher(this.handler, this.listener, j) : (EventDispatcher) invokeJ.objValue;
         }
 
-        public void downstreamFormatChanged(int i2, Format format, int i3, Object obj, long j2) {
+        public void downstreamFormatChanged(int i, Format format, int i2, Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j2)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), format, Integer.valueOf(i2), obj, Long.valueOf(j)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2, format, i3, obj, j2) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.6
+            this.handler.post(new Runnable(this, i, format, i2, obj, j) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -82,22 +82,22 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j2)};
+                        Object[] objArr = {this, Integer.valueOf(i), format, Integer.valueOf(i2), obj, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$trackType = i2;
+                    this.val$trackType = i;
                     this.val$trackFormat = format;
-                    this.val$trackSelectionReason = i3;
+                    this.val$trackSelectionReason = i2;
                     this.val$trackSelectionData = obj;
-                    this.val$mediaTimeUs = j2;
+                    this.val$mediaTimeUs = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -110,40 +110,40 @@ public interface AdaptiveMediaSourceEventListener {
             });
         }
 
-        public void loadCanceled(DataSpec dataSpec, int i2, long j2, long j3, long j4) {
+        public void loadCanceled(DataSpec dataSpec, int i, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{dataSpec, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                loadCanceled(dataSpec, i2, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j2, j3, j4);
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{dataSpec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                loadCanceled(dataSpec, i, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j, j2, j3);
             }
         }
 
-        public void loadCompleted(DataSpec dataSpec, int i2, long j2, long j3, long j4) {
+        public void loadCompleted(DataSpec dataSpec, int i, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSpec, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                loadCompleted(dataSpec, i2, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j2, j3, j4);
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSpec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                loadCompleted(dataSpec, i, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j, j2, j3);
             }
         }
 
-        public void loadError(DataSpec dataSpec, int i2, long j2, long j3, long j4, IOException iOException, boolean z) {
+        public void loadError(DataSpec dataSpec, int i, long j, long j2, long j3, IOException iOException, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dataSpec, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), iOException, Boolean.valueOf(z)}) == null) {
-                loadError(dataSpec, i2, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j2, j3, j4, iOException, z);
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dataSpec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), iOException, Boolean.valueOf(z)}) == null) {
+                loadError(dataSpec, i, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j, j2, j3, iOException, z);
             }
         }
 
-        public void loadStarted(DataSpec dataSpec, int i2, long j2) {
+        public void loadStarted(DataSpec dataSpec, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSpec, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                loadStarted(dataSpec, i2, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j2);
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSpec, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                loadStarted(dataSpec, i, -1, null, 0, null, C.TIME_UNSET, C.TIME_UNSET, j);
             }
         }
 
-        public void upstreamDiscarded(int i2, long j2, long j3) {
+        public void upstreamDiscarded(int i, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2, j2, j3) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.5
+            this.handler.post(new Runnable(this, i, j, j2) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -156,20 +156,20 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$trackType = i2;
-                    this.val$mediaStartTimeUs = j2;
-                    this.val$mediaEndTimeUs = j3;
+                    this.val$trackType = i;
+                    this.val$mediaStartTimeUs = j;
+                    this.val$mediaEndTimeUs = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -182,16 +182,16 @@ public interface AdaptiveMediaSourceEventListener {
             });
         }
 
-        public EventDispatcher(Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, long j2) {
+        public EventDispatcher(Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {handler, adaptiveMediaSourceEventListener, Long.valueOf(j2)};
+                Object[] objArr = {handler, adaptiveMediaSourceEventListener, Long.valueOf(j)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -199,15 +199,15 @@ public interface AdaptiveMediaSourceEventListener {
             }
             this.handler = adaptiveMediaSourceEventListener != null ? (Handler) Assertions.checkNotNull(handler) : null;
             this.listener = adaptiveMediaSourceEventListener;
-            this.mediaTimeOffsetMs = j2;
+            this.mediaTimeOffsetMs = j;
         }
 
-        public void loadCanceled(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
+        public void loadCanceled(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, dataSpec, i2, i3, format, i4, obj, j2, j3, j4, j5, j6) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.3
+            this.handler.post(new Runnable(this, dataSpec, i, i2, format, i3, obj, j, j2, j3, j4, j5) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -228,11 +228,11 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+                        Object[] objArr = {this, dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -240,16 +240,16 @@ public interface AdaptiveMediaSourceEventListener {
                     }
                     this.this$0 = this;
                     this.val$dataSpec = dataSpec;
-                    this.val$dataType = i2;
-                    this.val$trackType = i3;
+                    this.val$dataType = i;
+                    this.val$trackType = i2;
                     this.val$trackFormat = format;
-                    this.val$trackSelectionReason = i4;
+                    this.val$trackSelectionReason = i3;
                     this.val$trackSelectionData = obj;
-                    this.val$mediaStartTimeUs = j2;
-                    this.val$mediaEndTimeUs = j3;
-                    this.val$elapsedRealtimeMs = j4;
-                    this.val$loadDurationMs = j5;
-                    this.val$bytesLoaded = j6;
+                    this.val$mediaStartTimeUs = j;
+                    this.val$mediaEndTimeUs = j2;
+                    this.val$elapsedRealtimeMs = j3;
+                    this.val$loadDurationMs = j4;
+                    this.val$bytesLoaded = j5;
                 }
 
                 @Override // java.lang.Runnable
@@ -262,12 +262,12 @@ public interface AdaptiveMediaSourceEventListener {
             });
         }
 
-        public void loadCompleted(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6) {
+        public void loadCompleted(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, dataSpec, i2, i3, format, i4, obj, j2, j3, j4, j5, j6) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.2
+            this.handler.post(new Runnable(this, dataSpec, i, i2, format, i3, obj, j, j2, j3, j4, j5) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -288,11 +288,11 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+                        Object[] objArr = {this, dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -300,16 +300,16 @@ public interface AdaptiveMediaSourceEventListener {
                     }
                     this.this$0 = this;
                     this.val$dataSpec = dataSpec;
-                    this.val$dataType = i2;
-                    this.val$trackType = i3;
+                    this.val$dataType = i;
+                    this.val$trackType = i2;
                     this.val$trackFormat = format;
-                    this.val$trackSelectionReason = i4;
+                    this.val$trackSelectionReason = i3;
                     this.val$trackSelectionData = obj;
-                    this.val$mediaStartTimeUs = j2;
-                    this.val$mediaEndTimeUs = j3;
-                    this.val$elapsedRealtimeMs = j4;
-                    this.val$loadDurationMs = j5;
-                    this.val$bytesLoaded = j6;
+                    this.val$mediaStartTimeUs = j;
+                    this.val$mediaEndTimeUs = j2;
+                    this.val$elapsedRealtimeMs = j3;
+                    this.val$loadDurationMs = j4;
+                    this.val$bytesLoaded = j5;
                 }
 
                 @Override // java.lang.Runnable
@@ -322,12 +322,12 @@ public interface AdaptiveMediaSourceEventListener {
             });
         }
 
-        public void loadError(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6, IOException iOException, boolean z) {
+        public void loadError(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5, IOException iOException, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), iOException, Boolean.valueOf(z)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), iOException, Boolean.valueOf(z)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, dataSpec, i2, i3, format, i4, obj, j2, j3, j4, j5, j6, iOException, z) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.4
+            this.handler.post(new Runnable(this, dataSpec, i, i2, format, i3, obj, j, j2, j3, j4, j5, iOException, z) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -350,11 +350,11 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), iOException, Boolean.valueOf(z)};
+                        Object[] objArr = {this, dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), iOException, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -362,16 +362,16 @@ public interface AdaptiveMediaSourceEventListener {
                     }
                     this.this$0 = this;
                     this.val$dataSpec = dataSpec;
-                    this.val$dataType = i2;
-                    this.val$trackType = i3;
+                    this.val$dataType = i;
+                    this.val$trackType = i2;
                     this.val$trackFormat = format;
-                    this.val$trackSelectionReason = i4;
+                    this.val$trackSelectionReason = i3;
                     this.val$trackSelectionData = obj;
-                    this.val$mediaStartTimeUs = j2;
-                    this.val$mediaEndTimeUs = j3;
-                    this.val$elapsedRealtimeMs = j4;
-                    this.val$loadDurationMs = j5;
-                    this.val$bytesLoaded = j6;
+                    this.val$mediaStartTimeUs = j;
+                    this.val$mediaEndTimeUs = j2;
+                    this.val$elapsedRealtimeMs = j3;
+                    this.val$loadDurationMs = j4;
+                    this.val$bytesLoaded = j5;
                     this.val$error = iOException;
                     this.val$wasCanceled = z;
                 }
@@ -386,12 +386,12 @@ public interface AdaptiveMediaSourceEventListener {
             });
         }
 
-        public void loadStarted(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4) {
+        public void loadStarted(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, dataSpec, i2, i3, format, i4, obj, j2, j3, j4) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.1
+            this.handler.post(new Runnable(this, dataSpec, i, i2, format, i3, obj, j, j2, j3) { // from class: com.google.android.exoplayer2.source.AdaptiveMediaSourceEventListener.EventDispatcher.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -410,11 +410,11 @@ public interface AdaptiveMediaSourceEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r4;
-                        Object[] objArr = {this, dataSpec, Integer.valueOf(i2), Integer.valueOf(i3), format, Integer.valueOf(i4), obj, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                        Object[] objArr = {this, dataSpec, Integer.valueOf(i), Integer.valueOf(i2), format, Integer.valueOf(i3), obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -422,14 +422,14 @@ public interface AdaptiveMediaSourceEventListener {
                     }
                     this.this$0 = this;
                     this.val$dataSpec = dataSpec;
-                    this.val$dataType = i2;
-                    this.val$trackType = i3;
+                    this.val$dataType = i;
+                    this.val$trackType = i2;
                     this.val$trackFormat = format;
-                    this.val$trackSelectionReason = i4;
+                    this.val$trackSelectionReason = i3;
                     this.val$trackSelectionData = obj;
-                    this.val$mediaStartTimeUs = j2;
-                    this.val$mediaEndTimeUs = j3;
-                    this.val$elapsedRealtimeMs = j4;
+                    this.val$mediaStartTimeUs = j;
+                    this.val$mediaEndTimeUs = j2;
+                    this.val$elapsedRealtimeMs = j3;
                 }
 
                 @Override // java.lang.Runnable
@@ -443,15 +443,15 @@ public interface AdaptiveMediaSourceEventListener {
         }
     }
 
-    void onDownstreamFormatChanged(int i2, Format format, int i3, Object obj, long j2);
+    void onDownstreamFormatChanged(int i, Format format, int i2, Object obj, long j);
 
-    void onLoadCanceled(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6);
+    void onLoadCanceled(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5);
 
-    void onLoadCompleted(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6);
+    void onLoadCompleted(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5);
 
-    void onLoadError(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4, long j5, long j6, IOException iOException, boolean z);
+    void onLoadError(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3, long j4, long j5, IOException iOException, boolean z);
 
-    void onLoadStarted(DataSpec dataSpec, int i2, int i3, Format format, int i4, Object obj, long j2, long j3, long j4);
+    void onLoadStarted(DataSpec dataSpec, int i, int i2, Format format, int i3, Object obj, long j, long j2, long j3);
 
-    void onUpstreamDiscarded(int i2, long j2, long j3);
+    void onUpstreamDiscarded(int i, long j, long j2);
 }

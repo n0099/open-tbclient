@@ -10,30 +10,30 @@ import com.kwai.filedownloader.e.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f56848b;
+    public final HashMap<String, LinkedList<c>> f41712b;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = com.kwai.filedownloader.e.b.a(10, "EventPool");
-        this.f56848b = new HashMap<>();
+        this.f41712b = new HashMap<>();
     }
 
     private void a(LinkedList<c> linkedList, b bVar) {
@@ -61,10 +61,10 @@ public class a {
             }
             if (bVar != null) {
                 String b2 = bVar.b();
-                LinkedList<c> linkedList = this.f56848b.get(b2);
+                LinkedList<c> linkedList = this.f41712b.get(b2);
                 if (linkedList == null) {
                     synchronized (b2.intern()) {
-                        linkedList = this.f56848b.get(b2);
+                        linkedList = this.f41712b.get(b2);
                         if (linkedList == null) {
                             if (d.a) {
                                 d.c(this, "No listener for this event %s", b2);
@@ -90,12 +90,12 @@ public class a {
                 d.e(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList<c> linkedList = this.f56848b.get(str);
+                LinkedList<c> linkedList = this.f41712b.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = this.f56848b.get(str);
+                        linkedList = this.f41712b.get(str);
                         if (linkedList == null) {
-                            HashMap<String, LinkedList<c>> hashMap = this.f56848b;
+                            HashMap<String, LinkedList<c>> hashMap = this.f41712b;
                             LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
@@ -127,7 +127,7 @@ public class a {
                 public final /* synthetic */ b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f56849b;
+                public final /* synthetic */ a f41713b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -136,15 +136,15 @@ public class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, bVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f56849b = this;
+                    this.f41713b = this;
                     this.a = bVar;
                 }
 
@@ -153,7 +153,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f56849b.a(this.a);
+                            this.f41713b.a(this.a);
                         } catch (Exception unused) {
                         }
                     }

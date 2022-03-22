@@ -33,23 +33,23 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
         public final TimeUnit unit;
         public T value;
 
-        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {maybeObserver, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = maybeObserver;
-            this.delay = j2;
+            this.delay = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -130,24 +130,24 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDelay(MaybeSource<T> maybeSource, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public MaybeDelay(MaybeSource<T> maybeSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {maybeSource, Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {maybeSource, Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MaybeSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.delay = j2;
+        this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.category;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -26,9 +26,9 @@ public class PersonalCardCategoryRequest extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -68,17 +68,17 @@ public class PersonalCardCategoryRequest extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rn : invokeV.intValue;
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setRn(int i2) {
+    public void setRn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.rn = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.rn = i;
         }
     }
 }

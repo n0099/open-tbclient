@@ -9,7 +9,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.c;
+import c.a.p0.a4.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ public class SelectorHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,16 +42,16 @@ public class SelectorHelper {
         return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) ? (int) ((f2 * getResources().getDisplayMetrics().density) + 0.5f) : invokeF.intValue;
     }
 
-    public static int getColor(@ColorRes int i2) {
+    public static int getColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? SkinManager.getColor(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? SkinManager.getColor(i) : invokeI.intValue;
     }
 
-    public static Drawable getColorDrawable(@ColorRes int i2) {
+    public static Drawable getColorDrawable(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new ColorDrawable(getColor(i2)) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new ColorDrawable(getColor(i)) : (Drawable) invokeI.objValue;
     }
 
     public static Context getContext() {
@@ -60,16 +60,16 @@ public class SelectorHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TbadkCoreApplication.getInst() : (Context) invokeV.objValue;
     }
 
-    public static int getDimens(@DimenRes int i2) {
+    public static int getDimens(@DimenRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? getResources().getDimensionPixelSize(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? getResources().getDimensionPixelSize(i) : invokeI.intValue;
     }
 
-    public static Drawable getDrawable(@DrawableRes int i2) {
+    public static Drawable getDrawable(@DrawableRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? SkinManager.getDrawable(i2) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? SkinManager.getDrawable(i) : (Drawable) invokeI.objValue;
     }
 
     public static Resources getResources() {
@@ -78,10 +78,10 @@ public class SelectorHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? getContext().getResources() : (Resources) invokeV.objValue;
     }
 
-    public static boolean isColorInvalid(int i2) {
+    public static boolean isColorInvalid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? i2 == Integer.MAX_VALUE : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
     }
 
     public static int parseColor(String str) {
@@ -105,16 +105,16 @@ public class SelectorHelper {
         return invokeL.intValue;
     }
 
-    public static int getColor(@ColorRes int i2, float f2) {
+    public static int getColor(@ColorRes int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? c.a(SkinManager.getColor(i2), f2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? c.a(SkinManager.getColor(i), f2) : invokeCommon.intValue;
     }
 
-    public static Drawable getColorDrawable(@ColorRes int i2, float f2) {
+    public static Drawable getColorDrawable(@ColorRes int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? new ColorDrawable(getColor(i2, f2)) : (Drawable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? new ColorDrawable(getColor(i, f2)) : (Drawable) invokeCommon.objValue;
     }
 
     public static Drawable getColorDrawable(String str) {

@@ -17,20 +17,20 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        public he f473a;
+        public he f449a;
 
         public a(Context context, he heVar) {
             Interceptable interceptable = $ic;
@@ -39,15 +39,15 @@ public class hb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, heVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f473a = heVar;
+            this.f449a = heVar;
             this.a = context;
         }
 
@@ -55,7 +55,7 @@ public class hb {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.a, this.f473a);
+                hb.c(this.a, this.f449a);
             }
         }
     }
@@ -112,8 +112,8 @@ public class hb {
             try {
                 BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
                 loop0: while (true) {
+                    int i = 0;
                     int i2 = 0;
-                    int i3 = 0;
                     while (true) {
                         try {
                             int read = bufferedInputStream2.read(bArr2);
@@ -136,9 +136,9 @@ public class hb {
                                     ip.a(hjVar, a3);
                                     hjVar.a("item_size", String.valueOf(a3.length));
                                     arrayList.add(hjVar);
-                                    i2++;
-                                    i3 += a3.length;
-                                    if (i2 >= 8 || i3 >= 10240) {
+                                    i++;
+                                    i2 += a3.length;
+                                    if (i >= 8 || i2 >= 10240) {
                                     }
                                 }
                                 com.xiaomi.channel.commonutils.logger.b.d("TinyData read from cache file failed cause decrypt fail");
@@ -165,7 +165,7 @@ public class hb {
                 com.xiaomi.channel.commonutils.logger.b.d(str);
                 hc.a(context, heVar, arrayList);
                 if (file != null && file.exists() && !file.delete()) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("TinyData delete reading temp file failed");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("TinyData delete reading temp file failed");
                 }
                 y.a(bufferedInputStream2);
             } catch (Throwable th2) {
@@ -196,13 +196,13 @@ public class hb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, context, heVar) == null) {
             if (a) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("TinyData extractTinyData is running");
+                com.xiaomi.channel.commonutils.logger.b.m112a("TinyData extractTinyData is running");
                 return;
             }
             a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("TinyData no ready file to get data.");
+                com.xiaomi.channel.commonutils.logger.b.m112a("TinyData no ready file to get data.");
                 return;
             }
             a(context);
@@ -210,7 +210,7 @@ public class hb {
             FileLock fileLock = null;
             try {
                 File file3 = new File(context.getFilesDir(), "tiny_data.lock");
-                y.m706a(file3);
+                y.m685a(file3);
                 randomAccessFile = new RandomAccessFile(file3, "rw");
                 try {
                     try {
@@ -275,7 +275,7 @@ public class hb {
             y.a(randomAccessFile);
             file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
             if (file.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("TinyData no ready file to get data.");
+                com.xiaomi.channel.commonutils.logger.b.m112a("TinyData no ready file to get data.");
                 return;
             }
             a(context, heVar, file, a2);

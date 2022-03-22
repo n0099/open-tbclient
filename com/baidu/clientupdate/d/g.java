@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static char[] a;
@@ -39,11 +39,11 @@ public class g {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) ? a(file, 131072) : (String) invokeL.objValue;
     }
 
-    public static String a(File file, int i2) {
+    public static String a(File file, int i) {
         MessageDigest messageDigest;
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65538, null, file, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65538, null, file, i)) != null) {
             return (String) invokeLI.objValue;
         }
         try {
@@ -55,7 +55,7 @@ public class g {
             return "";
         }
         FileInputStream fileInputStream = new FileInputStream(file);
-        byte[] bArr = new byte[i2];
+        byte[] bArr = new byte[i];
         while (true) {
             int read = fileInputStream.read(bArr);
             if (read <= 0) {
@@ -76,15 +76,15 @@ public class g {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? a(bArr, 0, bArr.length) : (String) invokeL.objValue;
     }
 
-    public static String a(byte[] bArr, int i2, int i3) {
+    public static String a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(i3 * 2);
-            int i4 = i3 + i2;
-            while (i2 < i4) {
-                a(bArr[i2], stringBuffer);
-                i2++;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(i2 * 2);
+            int i3 = i2 + i;
+            while (i < i3) {
+                a(bArr[i], stringBuffer);
+                i++;
             }
             return stringBuffer.toString();
         }

@@ -37,52 +37,52 @@ public final class ModulusGF {
         PDF417_GF = new ModulusGF(PDF417Common.NUMBER_OF_CODEWORDS, 3);
     }
 
-    public ModulusGF(int i2, int i3) {
+    public ModulusGF(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.modulus = i2;
-        this.expTable = new int[i2];
-        this.logTable = new int[i2];
-        int i6 = 1;
-        for (int i7 = 0; i7 < i2; i7++) {
-            this.expTable[i7] = i6;
-            i6 = (i6 * i3) % i2;
+        this.modulus = i;
+        this.expTable = new int[i];
+        this.logTable = new int[i];
+        int i5 = 1;
+        for (int i6 = 0; i6 < i; i6++) {
+            this.expTable[i6] = i5;
+            i5 = (i5 * i2) % i;
         }
-        for (int i8 = 0; i8 < i2 - 1; i8++) {
-            this.logTable[this.expTable[i8]] = i8;
+        for (int i7 = 0; i7 < i - 1; i7++) {
+            this.logTable[this.expTable[i7]] = i7;
         }
         this.zero = new ModulusPoly(this, new int[]{0});
         this.one = new ModulusPoly(this, new int[]{1});
     }
 
-    public int add(int i2, int i3) {
+    public int add(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? (i2 + i3) % this.modulus : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? (i + i2) % this.modulus : invokeII.intValue;
     }
 
-    public ModulusPoly buildMonomial(int i2, int i3) {
+    public ModulusPoly buildMonomial(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            if (i2 >= 0) {
-                if (i3 == 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            if (i >= 0) {
+                if (i2 == 0) {
                     return this.zero;
                 }
-                int[] iArr = new int[i2 + 1];
-                iArr[0] = i3;
+                int[] iArr = new int[i + 1];
+                iArr[0] = i2;
                 return new ModulusPoly(this, iArr);
             }
             throw new IllegalArgumentException();
@@ -90,10 +90,10 @@ public final class ModulusGF {
         return (ModulusPoly) invokeII.objValue;
     }
 
-    public int exp(int i2) {
+    public int exp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.expTable[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.expTable[i] : invokeI.intValue;
     }
 
     public ModulusPoly getOne() {
@@ -114,50 +114,50 @@ public final class ModulusGF {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.zero : (ModulusPoly) invokeV.objValue;
     }
 
-    public int inverse(int i2) {
+    public int inverse(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 != 0) {
-                return this.expTable[(this.modulus - this.logTable[i2]) - 1];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 0) {
+                return this.expTable[(this.modulus - this.logTable[i]) - 1];
             }
             throw new ArithmeticException();
         }
         return invokeI.intValue;
     }
 
-    public int log(int i2) {
+    public int log(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 != 0) {
-                return this.logTable[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i != 0) {
+                return this.logTable[i];
             }
             throw new IllegalArgumentException();
         }
         return invokeI.intValue;
     }
 
-    public int multiply(int i2, int i3) {
+    public int multiply(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
-            if (i2 == 0 || i3 == 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+            if (i == 0 || i2 == 0) {
                 return 0;
             }
             int[] iArr = this.expTable;
             int[] iArr2 = this.logTable;
-            return iArr[(iArr2[i2] + iArr2[i3]) % (this.modulus - 1)];
+            return iArr[(iArr2[i] + iArr2[i2]) % (this.modulus - 1)];
         }
         return invokeII.intValue;
     }
 
-    public int subtract(int i2, int i3) {
+    public int subtract(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
-            int i4 = this.modulus;
-            return ((i2 + i4) - i3) % i4;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            int i3 = this.modulus;
+            return ((i + i3) - i2) % i3;
         }
         return invokeII.intValue;
     }

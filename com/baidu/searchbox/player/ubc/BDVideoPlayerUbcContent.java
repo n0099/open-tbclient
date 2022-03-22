@@ -59,9 +59,9 @@ public class BDVideoPlayerUbcContent {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -132,11 +132,11 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder playerPrepareTime(long j2) {
+        public Builder playerPrepareTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.playerPrepareTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.playerPrepareTime = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -162,11 +162,11 @@ public class BDVideoPlayerUbcContent {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder selectType(int i2) {
+        public Builder selectType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.selectType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+                this.selectType = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -341,9 +341,9 @@ public class BDVideoPlayerUbcContent {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

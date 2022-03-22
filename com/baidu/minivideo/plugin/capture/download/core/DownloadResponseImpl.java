@@ -25,9 +25,9 @@ public class DownloadResponseImpl implements DownloadResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadStatusDelivery, downloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,10 +59,10 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnected(long j2, long j3, boolean z) {
+    public void onConnected(long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.mDownloadStatus.setTime(j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.mDownloadStatus.setTime(j);
             this.mDownloadStatus.setAcceptRanges(z);
             this.mDownloadStatus.setStatus(103);
             this.mDelivery.post(this.mDownloadStatus);
@@ -117,12 +117,12 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadProgress(long j2, long j3, int i2) {
+    public void onDownloadProgress(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-            this.mDownloadStatus.setFinished(j2);
-            this.mDownloadStatus.setLength(j3);
-            this.mDownloadStatus.setPercent(i2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.mDownloadStatus.setFinished(j);
+            this.mDownloadStatus.setLength(j2);
+            this.mDownloadStatus.setPercent(i);
             this.mDownloadStatus.setStatus(104);
             this.mDelivery.post(this.mDownloadStatus);
         }

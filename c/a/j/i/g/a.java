@@ -16,31 +16,31 @@ public final class a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final TaskUIData f3765b;
+    public final TaskUIData f3240b;
 
-    public a(int i2, TaskUIData taskUIData) {
+    public a(int i, TaskUIData taskUIData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), taskUIData};
+            Object[] objArr = {Integer.valueOf(i), taskUIData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f3765b = taskUIData;
+        this.a = i;
+        this.f3240b = taskUIData;
     }
 
     public final TaskUIData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3765b : (TaskUIData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3240b : (TaskUIData) invokeV.objValue;
     }
 
     public final int b() {
@@ -56,7 +56,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f3765b, aVar.f3765b)) {
+                    if (!(this.a == aVar.a) || !Intrinsics.areEqual(this.f3240b, aVar.f3240b)) {
                     }
                 }
                 return false;
@@ -70,9 +70,9 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.a * 31;
-            TaskUIData taskUIData = this.f3765b;
-            return i2 + (taskUIData != null ? taskUIData.hashCode() : 0);
+            int i = this.a * 31;
+            TaskUIData taskUIData = this.f3240b;
+            return i + (taskUIData != null ? taskUIData.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -81,7 +81,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "CurUIData(uiType=" + this.a + ", UIData=" + this.f3765b + SmallTailInfo.EMOTION_SUFFIX;
+            return "CurUIData(uiType=" + this.a + ", UIData=" + this.f3240b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

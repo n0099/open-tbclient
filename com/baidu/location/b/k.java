@@ -27,35 +27,31 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static long f33654j = 12000;
+    public static long j = 12000;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f33655b;
+    public Context f25951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f33656c;
+    public WebView f25952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LocationClient f33657d;
+    public LocationClient f25953d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f33658e;
+    public a f25954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b> f33659f;
+    public List<b> f25955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33660g;
+    public boolean f25956g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33661h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public BDLocation f33662i;
+    public long f25957h;
+    public BDLocation i;
     public f k;
     public boolean l;
 
@@ -81,9 +77,9 @@ public class k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -133,18 +129,18 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
                 if (this.a.l) {
-                    this.a.f33658e.removeCallbacks(this.a.k);
+                    this.a.f25954e.removeCallbacks(this.a.k);
                     this.a.l = false;
                 }
-                if (this.a.f33659f == null || this.a.f33659f.size() <= 0) {
+                if (this.a.f25955f == null || this.a.f25955f.size() <= 0) {
                     return;
                 }
-                Iterator it = this.a.f33659f.iterator();
+                Iterator it = this.a.f25955f.iterator();
                 while (it.hasNext()) {
                     try {
                         b bVar = (b) it.next();
                         if (bVar.b() != null) {
-                            this.a.f33656c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
+                            this.a.f25952c.loadUrl("javascript:" + bVar.b() + "('" + str + "')");
                         }
                         it.remove();
                     } catch (Exception unused) {
@@ -168,31 +164,31 @@ public class k {
                 switch (message.what) {
                     case 1:
                         b bVar = (b) message.obj;
-                        if (this.a.f33659f != null) {
-                            this.a.f33659f.add(bVar);
+                        if (this.a.f25955f != null) {
+                            this.a.f25955f.add(bVar);
                         }
-                        if (this.a.f33657d == null) {
+                        if (this.a.f25953d == null) {
                             return;
                         }
-                        if (this.a.f33657d.requestLocation() != 0) {
-                            long currentTimeMillis = System.currentTimeMillis() - this.a.f33661h;
-                            if (this.a.f33662i != null && currentTimeMillis <= 10000) {
-                                Message obtainMessage = this.a.f33658e.obtainMessage(2);
-                                obtainMessage.obj = this.a.f33662i;
+                        if (this.a.f25953d.requestLocation() != 0) {
+                            long currentTimeMillis = System.currentTimeMillis() - this.a.f25957h;
+                            if (this.a.i != null && currentTimeMillis <= 10000) {
+                                Message obtainMessage = this.a.f25954e.obtainMessage(2);
+                                obtainMessage.obj = this.a.i;
                                 obtainMessage.sendToTarget();
                                 z = false;
                                 if (z) {
                                     return;
                                 }
                                 if (this.a.l) {
-                                    this.a.f33658e.removeCallbacks(this.a.k);
+                                    this.a.f25954e.removeCallbacks(this.a.k);
                                     this.a.l = false;
                                 }
                                 if (this.a.k == null) {
                                     k kVar = this.a;
                                     kVar.k = new f(kVar, null);
                                 }
-                                this.a.f33658e.postDelayed(this.a.k, k.f33654j);
+                                this.a.f25954e.postDelayed(this.a.k, k.j);
                                 this.a.l = true;
                                 return;
                             }
@@ -205,23 +201,23 @@ public class k {
                         a(a((BDLocation) message.obj));
                         return;
                     case 3:
-                        if (this.a.f33659f == null) {
-                            this.a.f33659f = new ArrayList();
+                        if (this.a.f25955f == null) {
+                            this.a.f25955f = new ArrayList();
                         } else {
-                            this.a.f33659f.clear();
+                            this.a.f25955f.clear();
                         }
-                        this.a.f33657d.registerLocationListener(this.a.a);
+                        this.a.f25953d.registerLocationListener(this.a.a);
                         return;
                     case 4:
-                        if (this.a.f33659f != null) {
-                            this.a.f33659f.clear();
-                            this.a.f33659f = null;
+                        if (this.a.f25955f != null) {
+                            this.a.f25955f.clear();
+                            this.a.f25955f = null;
                         }
-                        this.a.f33657d.unRegisterLocationListener(this.a.a);
-                        this.a.f33661h = 0L;
-                        this.a.f33662i = null;
+                        this.a.f25953d.unRegisterLocationListener(this.a.a);
+                        this.a.f25957h = 0L;
+                        this.a.i = null;
                         if (this.a.k != null && this.a.l) {
-                            this.a.f33658e.removeCallbacks(this.a.k);
+                            this.a.f25954e.removeCallbacks(this.a.k);
                         }
                         this.a.l = false;
                         return;
@@ -262,13 +258,13 @@ public class k {
         public final /* synthetic */ k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f33663b;
+        public String f25958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f33664c;
+        public String f25959c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f33665d;
+        public long f25960d;
 
         public b(k kVar, String str) {
             Interceptable interceptable = $ic;
@@ -277,49 +273,49 @@ public class k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = kVar;
-            this.f33663b = null;
-            this.f33664c = null;
-            this.f33665d = 0L;
+            this.f25958b = null;
+            this.f25959c = null;
+            this.f25960d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("action")) {
-                    this.f33663b = jSONObject.getString("action");
+                    this.f25958b = jSONObject.getString("action");
                 }
                 if (jSONObject.has(WebChromeClient.KEY_ARG_CALLBACK)) {
-                    this.f33664c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
+                    this.f25959c = jSONObject.getString(WebChromeClient.KEY_ARG_CALLBACK);
                 }
-                if (jSONObject.has(com.alipay.sdk.data.a.O)) {
-                    long j2 = jSONObject.getLong(com.alipay.sdk.data.a.O);
-                    if (j2 >= 1000) {
-                        long unused = k.f33654j = j2;
+                if (jSONObject.has("timeout")) {
+                    long j = jSONObject.getLong("timeout");
+                    if (j >= 1000) {
+                        long unused = k.j = j;
                     }
                 }
-                this.f33665d = System.currentTimeMillis();
+                this.f25960d = System.currentTimeMillis();
             } catch (Exception unused2) {
-                this.f33663b = null;
-                this.f33664c = null;
+                this.f25958b = null;
+                this.f25959c = null;
             }
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33663b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25958b : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33664c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25959c : (String) invokeV.objValue;
         }
     }
 
@@ -359,9 +355,9 @@ public class k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -377,12 +373,12 @@ public class k {
         @JavascriptInterface
         public void sendMessage(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f33660g) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.a.f25956g) {
                 b bVar = new b(this.a, str);
-                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f33658e == null) {
+                if (bVar.a() == null || !bVar.a().equals("requestLoc") || this.a.f25954e == null) {
                     return;
                 }
-                Message obtainMessage = this.a.f33658e.obtainMessage(1);
+                Message obtainMessage = this.a.f25954e.obtainMessage(1);
                 obtainMessage.obj = bVar;
                 obtainMessage.sendToTarget();
             }
@@ -409,9 +405,9 @@ public class k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -425,7 +421,7 @@ public class k {
             Message obtainMessage;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f33660g && bDLocation != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) && this.a.f25956g && bDLocation != null) {
                 BDLocation bDLocation2 = new BDLocation(bDLocation);
                 int locType = bDLocation2.getLocType();
                 String coorType = bDLocation2.getCoorType();
@@ -442,12 +438,12 @@ public class k {
                             bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, str), "gcj2wgs");
                         }
                     }
-                    this.a.f33661h = System.currentTimeMillis();
-                    this.a.f33662i = new BDLocation(bDLocation2);
-                    obtainMessage = this.a.f33658e.obtainMessage(2);
+                    this.a.f25957h = System.currentTimeMillis();
+                    this.a.i = new BDLocation(bDLocation2);
+                    obtainMessage = this.a.f25954e.obtainMessage(2);
                     obtainMessage.obj = bDLocation2;
                 } else {
-                    obtainMessage = this.a.f33658e.obtainMessage(5);
+                    obtainMessage = this.a.f25954e.obtainMessage(5);
                 }
                 obtainMessage.sendToTarget();
             }
@@ -467,9 +463,9 @@ public class k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -487,7 +483,7 @@ public class k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.l = false;
-                this.a.f33658e.obtainMessage(6).sendToTarget();
+                this.a.f25954e.obtainMessage(6).sendToTarget();
             }
         }
     }
@@ -512,22 +508,22 @@ public class k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f33655b = null;
-        this.f33657d = null;
+        this.f25951b = null;
+        this.f25953d = null;
         this.a = new e(this);
-        this.f33658e = null;
-        this.f33659f = null;
-        this.f33660g = false;
-        this.f33661h = 0L;
-        this.f33662i = null;
+        this.f25954e = null;
+        this.f25955f = null;
+        this.f25956g = false;
+        this.f25957h = 0L;
+        this.i = null;
         this.k = null;
         this.l = false;
     }
@@ -552,25 +548,25 @@ public class k {
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f33660g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, webView, locationClient) == null) || this.f25956g || Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return;
         }
-        this.f33655b = context;
-        this.f33656c = webView;
-        this.f33657d = locationClient;
+        this.f25951b = context;
+        this.f25952c = webView;
+        this.f25953d = locationClient;
         a aVar = new a(this, Looper.getMainLooper());
-        this.f33658e = aVar;
+        this.f25954e = aVar;
         aVar.obtainMessage(3).sendToTarget();
         webView.getSettings().setJavaScriptEnabled(true);
-        a(this.f33656c);
-        this.f33660g = true;
+        a(this.f25952c);
+        this.f25956g = true;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f33660g) {
-            this.f33658e.obtainMessage(4).sendToTarget();
-            this.f33660g = false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25956g) {
+            this.f25954e.obtainMessage(4).sendToTarget();
+            this.f25956g = false;
         }
     }
 }

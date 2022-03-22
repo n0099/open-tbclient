@@ -11,7 +11,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PooledByteStreams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_TEMP_BUF_SIZE = 16384;
@@ -28,9 +28,9 @@ public class PooledByteStreams {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteArrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ByteArrayPool) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -47,15 +47,15 @@ public class PooledByteStreams {
             return invokeLL.longValue;
         }
         byte[] bArr = this.mByteArrayPool.get(this.mTempBufSize);
-        long j2 = 0;
+        long j = 0;
         while (true) {
             try {
                 int read = inputStream.read(bArr, 0, this.mTempBufSize);
                 if (read == -1) {
-                    return j2;
+                    return j;
                 }
                 outputStream.write(bArr, 0, read);
-                j2 += read;
+                j += read;
             } finally {
                 this.mByteArrayPool.release(bArr);
             }
@@ -63,46 +63,46 @@ public class PooledByteStreams {
     }
 
     @VisibleForTesting
-    public PooledByteStreams(ByteArrayPool byteArrayPool, int i2) {
+    public PooledByteStreams(ByteArrayPool byteArrayPool, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteArrayPool, Integer.valueOf(i2)};
+            Object[] objArr = {byteArrayPool, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Preconditions.checkArgument(i2 > 0);
-        this.mTempBufSize = i2;
+        Preconditions.checkArgument(i > 0);
+        this.mTempBufSize = i;
         this.mByteArrayPool = byteArrayPool;
     }
 
-    public long copy(InputStream inputStream, OutputStream outputStream, long j2) throws IOException {
+    public long copy(InputStream inputStream, OutputStream outputStream, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, outputStream, Long.valueOf(j2)})) == null) {
-            long j3 = 0;
-            Preconditions.checkState(j2 > 0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{inputStream, outputStream, Long.valueOf(j)})) == null) {
+            long j2 = 0;
+            Preconditions.checkState(j > 0);
             byte[] bArr = this.mByteArrayPool.get(this.mTempBufSize);
-            while (j3 < j2) {
+            while (j2 < j) {
                 try {
-                    int read = inputStream.read(bArr, 0, (int) Math.min(this.mTempBufSize, j2 - j3));
+                    int read = inputStream.read(bArr, 0, (int) Math.min(this.mTempBufSize, j - j2));
                     if (read == -1) {
                         break;
                     }
                     outputStream.write(bArr, 0, read);
-                    j3 += read;
+                    j2 += read;
                 } finally {
                     this.mByteArrayPool.release(bArr);
                 }
             }
-            return j3;
+            return j2;
         }
         return invokeCommon.longValue;
     }

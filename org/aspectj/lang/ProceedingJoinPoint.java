@@ -1,7 +1,7 @@
 package org.aspectj.lang;
 
 import org.aspectj.runtime.internal.AroundClosure;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ProceedingJoinPoint extends JoinPoint {
     Object proceed() throws Throwable;
 

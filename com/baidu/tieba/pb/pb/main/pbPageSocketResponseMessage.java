@@ -1,13 +1,14 @@
 package com.baidu.tieba.pb.pb.main;
 
-import c.a.r0.j3.m0.b;
-import c.a.r0.u2.h.d;
-import c.a.r0.u2.h.f;
-import c.a.r0.u2.k.f.k;
+import c.a.p0.l3.m0.b;
+import c.a.p0.w2.i.d;
+import c.a.p0.w2.i.f;
+import c.a.p0.w2.m.f.n;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +37,9 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -81,24 +82,24 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            int i3 = this.updateType;
-            if (i3 == 3) {
-                k.b().e(this.cacheKey, this.isFromMark, bArr);
-            } else if (i3 != 4) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            int i2 = this.updateType;
+            if (i2 == 3) {
+                n.b().e(this.cacheKey, this.isFromMark, bArr);
+            } else if (i2 != 4) {
             } else {
-                k.b().f(this.cacheKey, bArr);
+                n.b().f(this.cacheKey, bArr);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
             setError(pbPageResIdl.error.errorno.intValue());
             setErrorString(pbPageResIdl.error.usermsg);
@@ -111,11 +112,11 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
                     dVar.a = appealInfo.source;
-                    dVar.f23088c = appealInfo.appeal_url;
+                    dVar.f19812c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f23087b = simpleForum.name;
+                    this.mAppealInfo.f19811b = simpleForum.name;
                     return;
                 }
                 return;

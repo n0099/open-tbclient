@@ -9,7 +9,7 @@ import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
 import c.a.d.f.p.n;
-import c.a.q0.r.c;
+import c.a.o0.r.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -44,9 +44,9 @@ public class MorePopupWindow extends PopupWindow {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, view, view2, drawable, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -65,13 +65,13 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    private void applaySkin(c cVar, int i2, Drawable drawable) {
+    private void applaySkin(c cVar, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, cVar, i2, drawable) == null) || this.mContentView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65539, this, cVar, i, drawable) == null) || this.mContentView == null) {
             return;
         }
         setBackgroundDrawable(drawable);
-        cVar.k(i2 == 1);
+        cVar.k(i == 1);
         try {
             cVar.j(this.mContentView);
         } catch (IllegalArgumentException e2) {
@@ -107,10 +107,10 @@ public class MorePopupWindow extends PopupWindow {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIsIntercepted : invokeV.booleanValue;
     }
 
-    public void onChangeSkinType(BaseActivity baseActivity, int i2, Drawable drawable) {
+    public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseActivity, i2, drawable) == null) {
-            applaySkin(baseActivity.getLayoutMode(), i2, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseActivity, i, drawable) == null) {
+            applaySkin(baseActivity.getLayoutMode(), i, drawable);
         }
     }
 
@@ -134,7 +134,7 @@ public class MorePopupWindow extends PopupWindow {
         int measuredWidth = this.mContentView.getMeasuredWidth();
         int measuredHeight = this.mContentView.getMeasuredHeight();
         setWidth(measuredWidth);
-        int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
+        int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
         this.mWindowHeight = dimension;
         setHeight(dimension);
         int[] p = n.p(this.mActivity);
@@ -161,16 +161,16 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void setWindowHeight(int i2) {
+    public void setWindowHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            setHeight(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            setHeight(i);
         }
     }
 
-    public void showWindowInCustomPosition(int i2, int i3) {
+    public void showWindowInCustomPosition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (isShowing()) {
                 g.d(this, this.mActivity);
                 return;
@@ -179,18 +179,18 @@ public class MorePopupWindow extends PopupWindow {
             if (view == null) {
                 return;
             }
-            g.l(this, view, i2, i3);
+            g.l(this, view, i, i2);
         }
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, view, z) == null) {
-            setAnimationStyle(R.style.pop_window_anim);
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003cb);
             setFocusable(z);
-            int i2 = this.mShowLeftCenterXOff;
-            int i3 = this.mWindowHeight;
-            g.l(this, view, i2, (-i3) + ((i3 - view.getHeight()) / 2));
+            int i = this.mShowLeftCenterXOff;
+            int i2 = this.mWindowHeight;
+            g.l(this, view, i, (-i2) + ((i2 - view.getHeight()) / 2));
         }
     }
 
@@ -209,23 +209,23 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i2, Drawable drawable) {
+    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, baseFragmentActivity, i2, drawable) == null) {
-            applaySkin(baseFragmentActivity.getLayoutMode(), i2, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, baseFragmentActivity, i, drawable) == null) {
+            applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
         }
     }
 
-    public void onChangeSkinType(c cVar, int i2, Drawable drawable) {
+    public void onChangeSkinType(c cVar, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, cVar, i2, drawable) == null) {
-            applaySkin(cVar, i2, drawable);
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, cVar, i, drawable) == null) {
+            applaySkin(cVar, i, drawable);
         }
     }
 
-    public void showWindowInRightBottomOfHost(int i2) {
+    public void showWindowInRightBottomOfHost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             if (isShowing()) {
                 g.d(this, this.mActivity);
                 return;
@@ -234,7 +234,7 @@ public class MorePopupWindow extends PopupWindow {
             if (view == null) {
                 return;
             }
-            g.l(this, view, this.mShowRightTopXOff - i2, 0);
+            g.l(this, view, this.mShowRightTopXOff - i, 0);
         }
     }
 
@@ -247,9 +247,9 @@ public class MorePopupWindow extends PopupWindow {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, view, drawable, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -276,9 +276,9 @@ public class MorePopupWindow extends PopupWindow {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

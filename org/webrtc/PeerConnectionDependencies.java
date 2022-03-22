@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.PeerConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PeerConnectionDependencies {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,13 +16,13 @@ public final class PeerConnectionDependencies {
     public final SSLCertificateVerifier sslCertificateVerifier;
 
     /* renamed from: org.webrtc.PeerConnectionDependencies$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public final class PeerConnectionDependencies {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,9 +98,9 @@ public final class PeerConnectionDependencies {
             newInitContext.initArgs = r2;
             Object[] objArr = {observer, sSLCertificateVerifier};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

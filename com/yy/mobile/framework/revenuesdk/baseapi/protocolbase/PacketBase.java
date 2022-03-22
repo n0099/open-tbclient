@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PacketBase implements IPacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,21 +19,21 @@ public class PacketBase implements IPacket {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void checkPacket(int i2) throws Exception {
+    public void checkPacket(int i) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             ByteBuffer byteBuffer = this.buffer;
             if (byteBuffer != null) {
-                if (byteBuffer.capacity() - this.buffer.position() < i2) {
+                if (byteBuffer.capacity() - this.buffer.position() < i) {
                     throw new Exception("cause stack overflow exception when unmarshall the pack");
                 }
                 return;
@@ -90,9 +90,9 @@ public class PacketBase implements IPacket {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

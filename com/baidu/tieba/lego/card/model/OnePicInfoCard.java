@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.r0.z1.o.j.b;
+import c.a.p0.b2.o.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,9 +32,9 @@ public class OnePicInfoCard extends BaseCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,19 +44,19 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = c.a.r0.z1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = c.a.r0.z1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = c.a.p0.b2.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = c.a.p0.b2.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
-        for (int i4 = 0; i4 < length; i4++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f25404c = optJSONObject.optInt("type");
+                bVar.f12519c = optJSONObject.optInt("type");
                 bVar.a = optJSONObject.optString("url");
-                bVar.f25403b = optJSONObject.optString("urlNight");
-                bVar.f25405d = optJSONObject.optString("content", "");
+                bVar.f12518b = optJSONObject.optString("urlNight");
+                bVar.f12520d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

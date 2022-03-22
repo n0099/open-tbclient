@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SectionReader implements TsPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SECTION_BUFFER_LENGTH = 32;
@@ -31,9 +31,9 @@ public final class SectionReader implements TsPayloadReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {sectionPayloadReader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,9 +57,9 @@ public final class SectionReader implements TsPayloadReader {
                 this.bytesRead = 0;
             }
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.bytesRead;
-                if (i2 < 3) {
-                    if (i2 == 0) {
+                int i = this.bytesRead;
+                if (i < 3) {
+                    if (i == 0) {
                         int readUnsignedByte = parsableByteArray.readUnsignedByte();
                         parsableByteArray.setPosition(parsableByteArray.getPosition() - 1);
                         if (readUnsignedByte == 255) {
@@ -69,9 +69,9 @@ public final class SectionReader implements TsPayloadReader {
                     }
                     int min = Math.min(parsableByteArray.bytesLeft(), 3 - this.bytesRead);
                     parsableByteArray.readBytes(this.sectionData.data, this.bytesRead, min);
-                    int i3 = this.bytesRead + min;
-                    this.bytesRead = i3;
-                    if (i3 == 3) {
+                    int i2 = this.bytesRead + min;
+                    this.bytesRead = i2;
+                    if (i2 == 3) {
                         this.sectionData.reset(3);
                         this.sectionData.skipBytes(1);
                         int readUnsignedByte2 = this.sectionData.readUnsignedByte();
@@ -79,31 +79,31 @@ public final class SectionReader implements TsPayloadReader {
                         this.sectionSyntaxIndicator = (readUnsignedByte2 & 128) != 0;
                         this.totalSectionLength = (((readUnsignedByte2 & 15) << 8) | readUnsignedByte3) + 3;
                         int capacity = this.sectionData.capacity();
-                        int i4 = this.totalSectionLength;
-                        if (capacity < i4) {
+                        int i3 = this.totalSectionLength;
+                        if (capacity < i3) {
                             ParsableByteArray parsableByteArray2 = this.sectionData;
                             byte[] bArr = parsableByteArray2.data;
-                            parsableByteArray2.reset(Math.min(4098, Math.max(i4, bArr.length * 2)));
+                            parsableByteArray2.reset(Math.min(4098, Math.max(i3, bArr.length * 2)));
                             System.arraycopy(bArr, 0, this.sectionData.data, 0, 3);
                         }
                     }
                 } else {
                     int min2 = Math.min(parsableByteArray.bytesLeft(), this.totalSectionLength - this.bytesRead);
                     parsableByteArray.readBytes(this.sectionData.data, this.bytesRead, min2);
-                    int i5 = this.bytesRead + min2;
-                    this.bytesRead = i5;
-                    int i6 = this.totalSectionLength;
-                    if (i5 != i6) {
+                    int i4 = this.bytesRead + min2;
+                    this.bytesRead = i4;
+                    int i5 = this.totalSectionLength;
+                    if (i4 != i5) {
                         continue;
                     } else {
                         if (this.sectionSyntaxIndicator) {
-                            if (Util.crc(this.sectionData.data, 0, i6, -1) != 0) {
+                            if (Util.crc(this.sectionData.data, 0, i5, -1) != 0) {
                                 this.waitingForPayloadStart = true;
                                 return;
                             }
                             this.sectionData.reset(this.totalSectionLength - 4);
                         } else {
-                            this.sectionData.reset(i6);
+                            this.sectionData.reset(i5);
                         }
                         this.reader.consume(this.sectionData);
                         this.bytesRead = 0;

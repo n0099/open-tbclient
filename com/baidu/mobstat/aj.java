@@ -23,12 +23,12 @@ public class aj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f35019c;
+    public static final ByteBuffer f27174c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f35020b;
+    public b f27175b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -56,9 +56,9 @@ public class aj {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {ajVar, th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -82,7 +82,7 @@ public class aj {
                 return;
             }
         }
-        f35019c = ByteBuffer.allocate(0);
+        f27174c = ByteBuffer.allocate(0);
     }
 
     public aj(URI uri, a aVar) throws c {
@@ -92,9 +92,9 @@ public class aj {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -103,7 +103,7 @@ public class aj {
         this.a = aVar;
         try {
             b bVar = new b(this, uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f35020b = bVar;
+            this.f27175b = bVar;
             bVar.c();
         } catch (InterruptedException e2) {
             throw new c(this, e2);
@@ -137,13 +137,13 @@ public class aj {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f35020b.f() || this.f35020b.g() || this.f35020b.e()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f27175b.f() || this.f27175b.g() || this.f27175b.e()) ? false : true : invokeV.booleanValue;
     }
 
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f35020b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f27175b) == null) {
             return;
         }
         bVar.d();
@@ -156,17 +156,17 @@ public class aj {
         public final /* synthetic */ aj a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(aj ajVar, URI uri, int i2, Socket socket) throws InterruptedException {
-            super(uri, new cf(), null, i2);
+        public b(aj ajVar, URI uri, int i, Socket socket) throws InterruptedException {
+            super(uri, new cf(), null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ajVar, uri, Integer.valueOf(i2), socket};
+                Object[] objArr = {ajVar, uri, Integer.valueOf(i), socket};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((URI) objArr2[0], (cd) objArr2[1], (Map) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
@@ -226,12 +226,12 @@ public class aj {
                         return;
                     }
                 }
-                int i2 = -1;
+                int i = -1;
                 try {
-                    i2 = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
+                    i = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
                 } catch (Exception unused4) {
                 }
-                switch (i2) {
+                switch (i) {
                     case 801020:
                         bc.c().a("autotrace: connect established");
                         am.a().a(2);
@@ -257,9 +257,9 @@ public class aj {
         }
 
         @Override // com.baidu.mobstat.cc
-        public void a(int i2, String str, boolean z) {
+        public void a(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
                 if (bd.c().b()) {
                     bd c2 = bd.c();
                     c2.a("onClose,  reason:" + str + ", remote:" + z);
@@ -285,9 +285,9 @@ public class aj {
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f35020b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f27175b == null) {
             return;
         }
-        this.f35020b.a(jSONObject.toString().getBytes());
+        this.f27175b.a(jSONObject.toString().getBytes());
     }
 }

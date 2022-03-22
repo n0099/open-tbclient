@@ -25,9 +25,9 @@ public class ARVOJniClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -64,13 +64,13 @@ public class ARVOJniClient {
         return (ArrayList) invokeV.objValue;
     }
 
-    public static synchronized int insertModel(String str, int i2, int i3, float[] fArr, float f2) {
+    public static synchronized int insertModel(String str, int i, int i2, float[] fArr, float f2) {
         InterceptResult invokeCommon;
         int insertModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), fArr, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)})) == null) {
             synchronized (ARVOJniClient.class) {
-                insertModel = ARAlgoJniClient.getAlgoInstance().insertModel(sTrackerId, i2, i3, str, f2, fArr);
+                insertModel = ARAlgoJniClient.getAlgoInstance().insertModel(sTrackerId, i, i2, str, f2, fArr);
                 if (insertModel == 0) {
                     if (sModelIds == null) {
                         sModelIds = new ArrayList();
@@ -113,15 +113,15 @@ public class ARVOJniClient {
             synchronized (ARVOJniClient.class) {
                 removeModel = ARAlgoJniClient.getAlgoInstance().removeModel(sTrackerId, str);
                 if (removeModel == 0 && sModelIds != null) {
-                    int i2 = 0;
+                    int i = 0;
                     int size = sModelIds.size();
                     while (true) {
-                        if (i2 >= size) {
+                        if (i >= size) {
                             break;
-                        } else if (sModelIds.get(i2).equals(str)) {
+                        } else if (sModelIds.get(i).equals(str)) {
                             break;
                         } else {
-                            i2++;
+                            i++;
                         }
                     }
                 }
@@ -142,12 +142,12 @@ public class ARVOJniClient {
         }
     }
 
-    public static synchronized boolean start(int i2, int i3, float[] fArr, float[] fArr2) {
+    public static synchronized boolean start(int i, int i2, float[] fArr, float[] fArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), fArr, fArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), fArr, fArr2})) == null) {
             synchronized (ARVOJniClient.class) {
-                if (ARAlgoJniClient.getAlgoInstance().createTrackingSystem(i2, i3, fArr, fArr2) == 0) {
+                if (ARAlgoJniClient.getAlgoInstance().createTrackingSystem(i, i2, fArr, fArr2) == 0) {
                     int addTrackerVO = ARAlgoJniClient.getAlgoInstance().addTrackerVO("");
                     sTrackerId = addTrackerVO;
                     return addTrackerVO >= 0;

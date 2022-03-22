@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TextRenderer extends BaseRenderer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_UPDATE_OUTPUT = 0;
@@ -41,7 +41,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     public SubtitleOutputBuffer subtitle;
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Output extends TextOutput {
     }
 
@@ -54,9 +54,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
             newInitContext.initArgs = r2;
             Object[] objArr = {textOutput, looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TextOutput) objArr2[0], (Looper) objArr2[1], (SubtitleDecoderFactory) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -77,8 +77,8 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            int i2 = this.nextSubtitleEventIndex;
-            if (i2 == -1 || i2 >= this.subtitle.getEventTimeCount()) {
+            int i = this.nextSubtitleEventIndex;
+            if (i == -1 || i >= this.subtitle.getEventTimeCount()) {
                 return Long.MAX_VALUE;
             }
             return this.subtitle.getEventTime(this.nextSubtitleEventIndex);
@@ -183,9 +183,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onPositionReset(long j2, boolean z) {
+    public void onPositionReset(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             clearOutput();
             this.inputStreamEnded = false;
             this.outputStreamEnded = false;
@@ -199,9 +199,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onStreamChanged(Format[] formatArr, long j2) throws ExoPlaybackException {
+    public void onStreamChanged(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, formatArr, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, formatArr, j) == null) {
             Format format = formatArr[0];
             this.streamFormat = format;
             if (this.decoder != null) {
@@ -213,14 +213,14 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public void render(long j2, long j3) throws ExoPlaybackException {
+    public void render(long j, long j2) throws ExoPlaybackException {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.outputStreamEnded) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.outputStreamEnded) {
             return;
         }
         if (this.nextSubtitle == null) {
-            this.decoder.setPositionUs(j2);
+            this.decoder.setPositionUs(j);
             try {
                 this.nextSubtitle = this.decoder.dequeueOutputBuffer();
             } catch (SubtitleDecoderException e2) {
@@ -233,7 +233,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
         if (this.subtitle != null) {
             long nextEventTime = getNextEventTime();
             z = false;
-            while (nextEventTime <= j2) {
+            while (nextEventTime <= j) {
                 this.nextSubtitleEventIndex++;
                 nextEventTime = getNextEventTime();
                 z = true;
@@ -252,7 +252,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
                         this.outputStreamEnded = true;
                     }
                 }
-            } else if (this.nextSubtitle.timeUs <= j2) {
+            } else if (this.nextSubtitle.timeUs <= j) {
                 SubtitleOutputBuffer subtitleOutputBuffer2 = this.subtitle;
                 if (subtitleOutputBuffer2 != null) {
                     subtitleOutputBuffer2.release();
@@ -260,12 +260,12 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
                 SubtitleOutputBuffer subtitleOutputBuffer3 = this.nextSubtitle;
                 this.subtitle = subtitleOutputBuffer3;
                 this.nextSubtitle = null;
-                this.nextSubtitleEventIndex = subtitleOutputBuffer3.getNextEventTimeIndex(j2);
+                this.nextSubtitleEventIndex = subtitleOutputBuffer3.getNextEventTimeIndex(j);
                 z = true;
             }
         }
         if (z) {
-            updateOutput(this.subtitle.getCues(j2));
+            updateOutput(this.subtitle.getCues(j));
         }
         if (this.decoderReplacementState == 2) {
             return;
@@ -321,9 +321,9 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
             newInitContext.initArgs = r2;
             Object[] objArr = {textOutput, looper, subtitleDecoderFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

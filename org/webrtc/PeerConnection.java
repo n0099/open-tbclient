@@ -1,6 +1,7 @@
 package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PeerConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,14 +31,14 @@ public class PeerConnection {
     public List<RtpTransceiver> transceivers;
 
     /* renamed from: org.webrtc.PeerConnection$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AdapterType {
         public static final /* synthetic */ AdapterType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -72,16 +73,16 @@ public class PeerConnection {
             $VALUES = new AdapterType[]{UNKNOWN, ETHERNET, WIFI, CELLULAR, VPN, adapterType};
         }
 
-        public AdapterType(String str, int i2) {
+        public AdapterType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -105,7 +106,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class BundlePolicy {
         public static final /* synthetic */ BundlePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -134,16 +135,16 @@ public class PeerConnection {
             $VALUES = new BundlePolicy[]{BALANCED, MAXBUNDLE, bundlePolicy};
         }
 
-        public BundlePolicy(String str, int i2) {
+        public BundlePolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -167,7 +168,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class CandidateNetworkPolicy {
         public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,16 +195,16 @@ public class PeerConnection {
             $VALUES = new CandidateNetworkPolicy[]{ALL, candidateNetworkPolicy};
         }
 
-        public CandidateNetworkPolicy(String str, int i2) {
+        public CandidateNetworkPolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -227,7 +228,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ContinualGatheringPolicy {
         public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -254,16 +255,16 @@ public class PeerConnection {
             $VALUES = new ContinualGatheringPolicy[]{GATHER_ONCE, continualGatheringPolicy};
         }
 
-        public ContinualGatheringPolicy(String str, int i2) {
+        public ContinualGatheringPolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -287,7 +288,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class IceConnectionState {
         public static final /* synthetic */ IceConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -324,16 +325,16 @@ public class PeerConnection {
             $VALUES = new IceConnectionState[]{NEW, CHECKING, CONNECTED, COMPLETED, FAILED, DISCONNECTED, iceConnectionState};
         }
 
-        public IceConnectionState(String str, int i2) {
+        public IceConnectionState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -344,10 +345,10 @@ public class PeerConnection {
         }
 
         @CalledByNative("IceConnectionState")
-        public static IceConnectionState fromNativeIndex(int i2) {
+        public static IceConnectionState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? values()[i2] : (IceConnectionState) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (IceConnectionState) invokeI.objValue;
         }
 
         public static IceConnectionState valueOf(String str) {
@@ -364,7 +365,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class IceGatheringState {
         public static final /* synthetic */ IceGatheringState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -393,16 +394,16 @@ public class PeerConnection {
             $VALUES = new IceGatheringState[]{NEW, GATHERING, iceGatheringState};
         }
 
-        public IceGatheringState(String str, int i2) {
+        public IceGatheringState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -413,10 +414,10 @@ public class PeerConnection {
         }
 
         @CalledByNative("IceGatheringState")
-        public static IceGatheringState fromNativeIndex(int i2) {
+        public static IceGatheringState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? values()[i2] : (IceGatheringState) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (IceGatheringState) invokeI.objValue;
         }
 
         public static IceGatheringState valueOf(String str) {
@@ -432,7 +433,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class IceServer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,7 +447,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -536,9 +537,9 @@ public class PeerConnection {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {list};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -638,9 +639,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -666,9 +667,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (TlsCertPolicy) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -688,9 +689,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, tlsCertPolicy};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (TlsCertPolicy) objArr2[3], (String) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -710,9 +711,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, tlsCertPolicy, str4};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (List) objArr2[1], (String) objArr2[2], (String) objArr2[3], (TlsCertPolicy) objArr2[4], (String) objArr2[5], (List) objArr2[6], (List) objArr2[7]);
                     newInitContext.thisArg = this;
@@ -729,9 +730,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, list, str2, str3, tlsCertPolicy, str4, list2, list3};
                 interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
@@ -767,7 +768,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class IceTransportsType {
         public static final /* synthetic */ IceTransportsType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -798,16 +799,16 @@ public class PeerConnection {
             $VALUES = new IceTransportsType[]{NONE, RELAY, NOHOST, iceTransportsType};
         }
 
-        public IceTransportsType(String str, int i2) {
+        public IceTransportsType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -830,30 +831,30 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class IntervalRange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int max;
         public final int min;
 
-        public IntervalRange(int i2, int i3) {
+        public IntervalRange(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.min = i2;
-            this.max = i3;
+            this.min = i;
+            this.max = i2;
         }
 
         @CalledByNative("IntervalRange")
@@ -872,7 +873,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class KeyType {
         public static final /* synthetic */ KeyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -893,22 +894,22 @@ public class PeerConnection {
                     return;
                 }
             }
-            RSA = new KeyType("RSA", 0);
+            RSA = new KeyType(RSAUtil.ALGORITHM_RSA, 0);
             KeyType keyType = new KeyType("ECDSA", 1);
             ECDSA = keyType;
             $VALUES = new KeyType[]{RSA, keyType};
         }
 
-        public KeyType(String str, int i2) {
+        public KeyType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -931,7 +932,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
@@ -974,7 +975,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class PeerConnectionState {
         public static final /* synthetic */ PeerConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1009,16 +1010,16 @@ public class PeerConnection {
             $VALUES = new PeerConnectionState[]{NEW, CONNECTING, CONNECTED, DISCONNECTED, FAILED, peerConnectionState};
         }
 
-        public PeerConnectionState(String str, int i2) {
+        public PeerConnectionState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1029,10 +1030,10 @@ public class PeerConnection {
         }
 
         @CalledByNative("PeerConnectionState")
-        public static PeerConnectionState fromNativeIndex(int i2) {
+        public static PeerConnectionState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? values()[i2] : (PeerConnectionState) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (PeerConnectionState) invokeI.objValue;
         }
 
         public static PeerConnectionState valueOf(String str) {
@@ -1048,7 +1049,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class RTCConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1113,9 +1114,9 @@ public class PeerConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1456,7 +1457,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class RtcpMuxPolicy {
         public static final /* synthetic */ RtcpMuxPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1483,16 +1484,16 @@ public class PeerConnection {
             $VALUES = new RtcpMuxPolicy[]{NEGOTIATE, rtcpMuxPolicy};
         }
 
-        public RtcpMuxPolicy(String str, int i2) {
+        public RtcpMuxPolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1516,7 +1517,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class SdpSemantics {
         public static final /* synthetic */ SdpSemantics[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1543,16 +1544,16 @@ public class PeerConnection {
             $VALUES = new SdpSemantics[]{PLAN_B, sdpSemantics};
         }
 
-        public SdpSemantics(String str, int i2) {
+        public SdpSemantics(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1576,7 +1577,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class SignalingState {
         public static final /* synthetic */ SignalingState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1611,16 +1612,16 @@ public class PeerConnection {
             $VALUES = new SignalingState[]{STABLE, HAVE_LOCAL_OFFER, HAVE_LOCAL_PRANSWER, HAVE_REMOTE_OFFER, HAVE_REMOTE_PRANSWER, signalingState};
         }
 
-        public SignalingState(String str, int i2) {
+        public SignalingState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1631,10 +1632,10 @@ public class PeerConnection {
         }
 
         @CalledByNative("SignalingState")
-        public static SignalingState fromNativeIndex(int i2) {
+        public static SignalingState fromNativeIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? values()[i2] : (SignalingState) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? values()[i] : (SignalingState) invokeI.objValue;
         }
 
         public static SignalingState valueOf(String str) {
@@ -1651,7 +1652,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class TcpCandidatePolicy {
         public static final /* synthetic */ TcpCandidatePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1678,16 +1679,16 @@ public class PeerConnection {
             $VALUES = new TcpCandidatePolicy[]{ENABLED, tcpCandidatePolicy};
         }
 
-        public TcpCandidatePolicy(String str, int i2) {
+        public TcpCandidatePolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1711,7 +1712,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class TlsCertPolicy {
         public static final /* synthetic */ TlsCertPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1738,16 +1739,16 @@ public class PeerConnection {
             $VALUES = new TlsCertPolicy[]{TLS_CERT_POLICY_SECURE, tlsCertPolicy};
         }
 
-        public TlsCertPolicy(String str, int i2) {
+        public TlsCertPolicy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -1779,9 +1780,9 @@ public class PeerConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {nativePeerConnectionFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -1796,15 +1797,15 @@ public class PeerConnection {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, observer)) == null) ? nativeCreatePeerConnectionObserver(observer) : invokeL.longValue;
     }
 
-    private native boolean nativeAddIceCandidate(String str, int i2, String str2);
+    private native boolean nativeAddIceCandidate(String str, int i, String str2);
 
-    private native boolean nativeAddLocalStream(long j2);
+    private native boolean nativeAddLocalStream(long j);
 
-    private native RtpSender nativeAddTrack(long j2, List<String> list);
+    private native RtpSender nativeAddTrack(long j, List<String> list);
 
     private native RtpTransceiver nativeAddTransceiverOfType(MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
-    private native RtpTransceiver nativeAddTransceiverWithTrack(long j2, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
+    private native RtpTransceiver nativeAddTransceiverWithTrack(long j, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
     private native void nativeClose();
 
@@ -1820,7 +1821,7 @@ public class PeerConnection {
 
     private native RtpSender nativeCreateSender(String str, String str2);
 
-    public static native void nativeFreeOwnedPeerConnection(long j2);
+    public static native void nativeFreeOwnedPeerConnection(long j);
 
     private native RtcCertificatePem nativeGetCertificate();
 
@@ -1842,13 +1843,13 @@ public class PeerConnection {
 
     private native void nativeNewGetStats(RTCStatsCollectorCallback rTCStatsCollectorCallback);
 
-    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j2);
+    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j);
 
     private native boolean nativeRemoveIceCandidates(IceCandidate[] iceCandidateArr);
 
-    private native void nativeRemoveLocalStream(long j2);
+    private native void nativeRemoveLocalStream(long j);
 
-    private native boolean nativeRemoveTrack(long j2);
+    private native boolean nativeRemoveTrack(long j);
 
     private native void nativeSetAudioPlayout(boolean z);
 
@@ -1864,7 +1865,7 @@ public class PeerConnection {
 
     private native SignalingState nativeSignalingState();
 
-    private native boolean nativeStartRtcEventLog(int i2, int i3);
+    private native boolean nativeStartRtcEventLog(int i, int i2);
 
     private native void nativeStopRtcEventLog();
 
@@ -2137,10 +2138,10 @@ public class PeerConnection {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? nativeSignalingState() : (SignalingState) invokeV.objValue;
     }
 
-    public boolean startRtcEventLog(int i2, int i3) {
+    public boolean startRtcEventLog(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i2, i3)) == null) ? nativeStartRtcEventLog(i2, i3) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i, i2)) == null) ? nativeStartRtcEventLog(i, i2) : invokeII.booleanValue;
     }
 
     public void stopRtcEventLog() {
@@ -2150,16 +2151,16 @@ public class PeerConnection {
         }
     }
 
-    public PeerConnection(long j2) {
+    public PeerConnection(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -2169,7 +2170,7 @@ public class PeerConnection {
         this.senders = new ArrayList();
         this.receivers = new ArrayList();
         this.transceivers = new ArrayList();
-        this.nativePeerConnection = j2;
+        this.nativePeerConnection = j;
     }
 
     public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List<String> list) {

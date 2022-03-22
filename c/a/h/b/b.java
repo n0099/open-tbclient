@@ -1,7 +1,7 @@
 package c.a.h.b;
 
 import android.content.Context;
-import c.a.q0.w.m;
+import c.a.o0.w.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,16 +19,16 @@ public class b extends m {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ae0), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -36,17 +36,17 @@ public class b extends m {
                 return;
             }
         }
-        this.f14000d = R.drawable.icon_pure_post_voice24;
-        this.f14001e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.f14003g = false;
-        this.f14004h = true;
+        this.f11510d = R.drawable.obfuscated_res_0x7f080975;
+        this.f11511e = R.drawable.obfuscated_res_0x7f080810;
+        this.f11513g = false;
+        this.f11514h = true;
         this.l = 6;
         this.m = true;
         this.k = new NewVoiceRecordButton(context);
         this.n = new int[]{1, 9};
     }
 
-    @Override // c.a.q0.w.m
+    @Override // c.a.o0.w.m
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class b extends m {
             if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
                 String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
                 if (StringUtils.isNull(uegVoiceWarning)) {
-                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f145a);
                 }
                 UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
                 return false;

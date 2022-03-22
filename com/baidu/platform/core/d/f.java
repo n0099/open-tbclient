@@ -29,9 +29,9 @@ public class f extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,12 +59,12 @@ public class f extends com.baidu.platform.base.d {
         JSONObject optJSONObject;
         JSONObject optJSONObject2;
         JSONArray jSONArray;
-        int i2;
+        int i;
         IndoorRouteLine indoorRouteLine;
         JSONArray jSONArray2;
         JSONArray jSONArray3;
         String str2;
-        int i3;
+        int i2;
         IndoorRouteLine indoorRouteLine2;
         String str3;
         String str4;
@@ -101,13 +101,13 @@ public class f extends com.baidu.platform.base.d {
                 if (optJSONArray2 == null) {
                     return false;
                 }
-                int i4 = 0;
-                while (i4 < optJSONArray2.length()) {
+                int i3 = 0;
+                while (i3 < optJSONArray2.length()) {
                     IndoorRouteLine indoorRouteLine3 = new IndoorRouteLine();
-                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i4);
+                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject4 == null) {
                         jSONArray = optJSONArray2;
-                        i2 = i4;
+                        i = i3;
                     } else {
                         String str6 = "distance";
                         indoorRouteLine3.setDistance(optJSONObject4.optInt("distance"));
@@ -120,10 +120,10 @@ public class f extends com.baidu.platform.base.d {
                         JSONArray optJSONArray3 = optJSONObject4.optJSONArray("steps");
                         if (optJSONArray3 != null) {
                             ArrayList arrayList2 = new ArrayList();
-                            int i5 = 0;
-                            while (i5 < optJSONArray3.length()) {
+                            int i4 = 0;
+                            while (i4 < optJSONArray3.length()) {
                                 IndoorRouteLine.IndoorRouteStep indoorRouteStep = new IndoorRouteLine.IndoorRouteStep();
-                                JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i5);
+                                JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i4);
                                 if (optJSONObject5 != null) {
                                     indoorRouteStep.setDistance(optJSONObject5.optInt(str6));
                                     indoorRouteStep.setDuration(optJSONObject5.optInt(str7));
@@ -137,13 +137,13 @@ public class f extends com.baidu.platform.base.d {
                                         ArrayList arrayList3 = new ArrayList();
                                         jSONArray3 = optJSONArray3;
                                         str2 = str6;
-                                        int i6 = 5;
+                                        int i5 = 5;
                                         double d2 = 0.0d;
                                         double d3 = 0.0d;
-                                        while (i6 < optJSONArray4.length()) {
-                                            double optDouble = d2 + optJSONArray4.optDouble(i6 + 1);
+                                        while (i5 < optJSONArray4.length()) {
+                                            double optDouble = d2 + optJSONArray4.optDouble(i5 + 1);
                                             String str10 = str8;
-                                            double optDouble2 = d3 + optJSONArray4.optDouble(i6);
+                                            double optDouble2 = d3 + optJSONArray4.optDouble(i5);
                                             JSONArray jSONArray4 = optJSONArray4;
                                             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
                                             geoPoint.setLatitudeE6(optDouble);
@@ -151,9 +151,9 @@ public class f extends com.baidu.platform.base.d {
                                             LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
                                             arrayList3.add(Double.valueOf(mc2ll.latitude));
                                             arrayList3.add(Double.valueOf(mc2ll.longitude));
-                                            i6 += 2;
+                                            i5 += 2;
                                             optJSONArray4 = jSONArray4;
-                                            i4 = i4;
+                                            i3 = i3;
                                             indoorRouteLine3 = indoorRouteLine3;
                                             d2 = optDouble;
                                             d3 = optDouble2;
@@ -161,7 +161,7 @@ public class f extends com.baidu.platform.base.d {
                                             str8 = str10;
                                             str9 = str9;
                                         }
-                                        i3 = i4;
+                                        i2 = i3;
                                         indoorRouteLine2 = indoorRouteLine3;
                                         str3 = str7;
                                         str4 = str8;
@@ -171,8 +171,8 @@ public class f extends com.baidu.platform.base.d {
                                         JSONArray optJSONArray5 = optJSONObject5.optJSONArray("pois");
                                         if (optJSONArray5 != null) {
                                             ArrayList arrayList4 = new ArrayList();
-                                            for (int i7 = 0; i7 < optJSONArray5.length(); i7++) {
-                                                JSONObject optJSONObject6 = optJSONArray5.optJSONObject(i7);
+                                            for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
+                                                JSONObject optJSONObject6 = optJSONArray5.optJSONObject(i6);
                                                 if (optJSONObject6 != null) {
                                                     IndoorRouteLine.IndoorRouteStep.IndoorStepNode indoorStepNode = new IndoorRouteLine.IndoorRouteStep.IndoorStepNode();
                                                     indoorStepNode.setDetail(optJSONObject6.optString("detail"));
@@ -185,37 +185,37 @@ public class f extends com.baidu.platform.base.d {
                                             indoorRouteStep.setStepNodes(arrayList4);
                                         }
                                         arrayList2.add(indoorRouteStep);
-                                        i5++;
+                                        i4++;
                                         optJSONArray2 = jSONArray2;
                                         str7 = str3;
                                         str6 = str2;
                                         optJSONArray3 = jSONArray3;
-                                        i4 = i3;
+                                        i3 = i2;
                                         indoorRouteLine3 = indoorRouteLine2;
                                         str8 = str4;
                                         str9 = str5;
                                     }
                                 }
                                 jSONArray2 = optJSONArray2;
-                                i3 = i4;
+                                i2 = i3;
                                 indoorRouteLine2 = indoorRouteLine3;
                                 jSONArray3 = optJSONArray3;
                                 str2 = str6;
                                 str3 = str7;
                                 str4 = str8;
                                 str5 = str9;
-                                i5++;
+                                i4++;
                                 optJSONArray2 = jSONArray2;
                                 str7 = str3;
                                 str6 = str2;
                                 optJSONArray3 = jSONArray3;
-                                i4 = i3;
+                                i3 = i2;
                                 indoorRouteLine3 = indoorRouteLine2;
                                 str8 = str4;
                                 str9 = str5;
                             }
                             jSONArray = optJSONArray2;
-                            i2 = i4;
+                            i = i3;
                             IndoorRouteLine indoorRouteLine4 = indoorRouteLine3;
                             if (arrayList2.size() > 0) {
                                 indoorRouteLine = indoorRouteLine4;
@@ -225,12 +225,12 @@ public class f extends com.baidu.platform.base.d {
                             }
                         } else {
                             jSONArray = optJSONArray2;
-                            i2 = i4;
+                            i = i3;
                             indoorRouteLine = indoorRouteLine3;
                         }
                         arrayList.add(indoorRouteLine);
                     }
-                    i4 = i2 + 1;
+                    i3 = i + 1;
                     optJSONArray2 = jSONArray;
                 }
                 indoorRouteResult.setRouteLines(arrayList);

@@ -1,11 +1,11 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import android.os.Bundle;
-import c.a.r0.b1.a.e;
-import c.a.r0.b1.a.f;
-import c.a.r0.b1.a.g;
-import c.a.r0.b1.a.i;
-import c.a.r0.b1.c.l;
+import c.a.p0.c1.a.e;
+import c.a.p0.c1.a.f;
+import c.a.p0.c1.a.g;
+import c.a.p0.c1.a.i;
+import c.a.p0.c1.c.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -39,9 +39,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bawuTeamInfoActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,22 +50,22 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // c.a.r0.b1.a.e.c
-        public void a(ArrayList<i> arrayList, l lVar, boolean z, int i2, String str) {
+        @Override // c.a.p0.c1.a.e.c
+        public void a(ArrayList<i> arrayList, l lVar, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
                         BawuTeamInfoActivity bawuTeamInfoActivity = this.a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.mView.d());
                         this.a.mView.k(arrayList, lVar, false);
                     }
-                    this.a.mModel.i(this.a.forumId);
+                    this.a.mModel.m(this.a.forumId);
                     return;
                 }
                 BawuTeamInfoActivity bawuTeamInfoActivity2 = this.a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.mView.d());
-                if (i2 == 0) {
+                if (i == 0) {
                     this.a.mView.k(arrayList, lVar, true);
                     return;
                 }
@@ -81,9 +81,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f41676e;
+        public final /* synthetic */ BawuTeamInfoActivity a;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -92,22 +90,22 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bawuTeamInfoActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41676e = bawuTeamInfoActivity;
+            this.a = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void onNetworkChange(boolean z) {
+        public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f41676e.refreshData();
+                this.a.refreshData();
             }
         }
     }
@@ -117,9 +115,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,7 +131,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             showLoadingView(this.mView.d(), true);
-            this.mModel.i(this.forumId);
+            this.mModel.m(this.forumId);
         }
     }
 
@@ -143,8 +141,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.mModel = new e();
             a aVar = new a(this);
             this.mDataCallback = aVar;
-            this.mModel.k(aVar);
-            this.mModel.h(this.forumId);
+            this.mModel.o(aVar);
+            this.mModel.l(this.forumId);
             showLoadingView(this.mView.d(), true);
         }
     }
@@ -152,18 +150,18 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g gVar = new g(this);
+            g gVar = new g(this, this.forumId);
             this.mView = gVar;
             gVar.h(this.mNetworkChangedListener);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mView.f(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mView.f(i);
         }
     }
 
@@ -188,7 +186,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             super.onDestroy();
             e eVar = this.mModel;
             if (eVar != null) {
-                eVar.g();
+                eVar.h();
             }
             g gVar = this.mView;
             if (gVar != null) {
@@ -208,9 +206,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.y3.g0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            c.a.r0.y3.g0.a.b(2003005, f.class);
+            c.a.p0.a4.g0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            c.a.p0.a4.g0.a.b(2003005, f.class);
         }
     }
 }

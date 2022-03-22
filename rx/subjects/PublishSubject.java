@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.e;
-import i.f;
-import i.j;
-import i.k;
-import i.o.a.a;
-import i.t.d;
+import g.d;
+import g.e;
+import g.f;
+import g.j;
+import g.k;
+import g.o.a.a;
+import g.t.d;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PublishSubject<T> extends d<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f61143f;
+    /* renamed from: b  reason: collision with root package name */
+    public final PublishSubjectState<T> f45480b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6451806817170721536L;
@@ -43,9 +43,9 @@ public final class PublishSubject<T> extends d<T, T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {publishSubjectState, jVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,14 +55,14 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual = jVar;
         }
 
-        @Override // i.k
+        @Override // g.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || get() == Long.MIN_VALUE) {
@@ -71,7 +71,7 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onCompleted();
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) || get() == Long.MIN_VALUE) {
@@ -80,15 +80,15 @@ public final class PublishSubject<T> extends d<T, T> {
             this.actual.onError(th);
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j2 = get();
-                if (j2 != Long.MIN_VALUE) {
-                    long j3 = this.produced;
-                    if (j2 != j3) {
-                        this.produced = j3 + 1;
+                long j = get();
+                if (j != Long.MIN_VALUE) {
+                    long j2 = this.produced;
+                    if (j != j2) {
+                        this.produced = j2 + 1;
                         this.actual.onNext(t);
                         return;
                     }
@@ -98,21 +98,21 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // i.f
-        public void request(long j2) {
-            long j3;
+        @Override // g.f
+        public void request(long j) {
+            long j2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && a.h(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && a.h(j)) {
                 do {
-                    j3 = get();
-                    if (j3 == Long.MIN_VALUE) {
+                    j2 = get();
+                    if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j3, a.a(j3, j2)));
+                } while (!compareAndSet(j2, a.a(j2, j)));
             }
         }
 
-        @Override // i.k
+        @Override // g.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
@@ -122,7 +122,7 @@ public final class PublishSubject<T> extends d<T, T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class PublishSubjectState<T> extends AtomicReference<PublishSubjectProducer<T>[]> implements d.a<T>, e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final PublishSubjectProducer[] EMPTY;
@@ -153,9 +153,9 @@ public final class PublishSubject<T> extends d<T, T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -185,12 +185,12 @@ public final class PublishSubject<T> extends d<T, T> {
             return invokeL.booleanValue;
         }
 
-        @Override // i.d.a, i.n.b
+        @Override // g.d.a, g.n.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
             call((j) ((j) obj));
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -200,7 +200,7 @@ public final class PublishSubject<T> extends d<T, T> {
             }
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
@@ -216,11 +216,11 @@ public final class PublishSubject<T> extends d<T, T> {
                         arrayList.add(th2);
                     }
                 }
-                i.m.a.d(arrayList);
+                g.m.a.d(arrayList);
             }
         }
 
-        @Override // i.e
+        @Override // g.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
@@ -241,27 +241,27 @@ public final class PublishSubject<T> extends d<T, T> {
                         return;
                     }
                     int length = publishSubjectProducerArr.length;
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (publishSubjectProducerArr[i3] == publishSubjectProducer) {
-                            i2 = i3;
+                        } else if (publishSubjectProducerArr[i2] == publishSubjectProducer) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         publishSubjectProducerArr2 = EMPTY;
                     } else {
                         PublishSubjectProducer[] publishSubjectProducerArr3 = new PublishSubjectProducer[length - 1];
-                        System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i2);
-                        System.arraycopy(publishSubjectProducerArr, i2 + 1, publishSubjectProducerArr3, i2, (length - i2) - 1);
+                        System.arraycopy(publishSubjectProducerArr, 0, publishSubjectProducerArr3, 0, i);
+                        System.arraycopy(publishSubjectProducerArr, i + 1, publishSubjectProducerArr3, i, (length - i) - 1);
                         publishSubjectProducerArr2 = publishSubjectProducerArr3;
                     }
                 } while (!compareAndSet(publishSubjectProducerArr, publishSubjectProducerArr2));
@@ -300,16 +300,16 @@ public final class PublishSubject<T> extends d<T, T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {publishSubjectState};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((d.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f61143f = publishSubjectState;
+        this.f45480b = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> F() {
@@ -318,27 +318,27 @@ public final class PublishSubject<T> extends d<T, T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new PublishSubject<>(new PublishSubjectState()) : (PublishSubject) invokeV.objValue;
     }
 
-    @Override // i.e
+    @Override // g.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f61143f.onCompleted();
+            this.f45480b.onCompleted();
         }
     }
 
-    @Override // i.e
+    @Override // g.e
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f61143f.onError(th);
+            this.f45480b.onError(th);
         }
     }
 
-    @Override // i.e
+    @Override // g.e
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f61143f.onNext(t);
+            this.f45480b.onNext(t);
         }
     }
 }

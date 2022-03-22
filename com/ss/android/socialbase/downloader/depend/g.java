@@ -6,23 +6,23 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface g extends IInterface {
     Uri a(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements g {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2201a implements g {
+        /* loaded from: classes7.dex */
+        public static class C2062a implements g {
             public static g a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58494b;
+            public IBinder f43222b;
 
-            public C2201a(IBinder iBinder) {
-                this.f58494b = iBinder;
+            public C2062a(IBinder iBinder) {
+                this.f43222b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -33,7 +33,7 @@ public interface g extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f58494b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f43222b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(str, str2);
                     }
                     obtain2.readException();
@@ -46,7 +46,7 @@ public interface g extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58494b;
+                return this.f43222b;
             }
         }
 
@@ -62,7 +62,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C2201a(iBinder);
+            return new C2062a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -71,10 +71,10 @@ public interface g extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                 return true;
@@ -92,7 +92,7 @@ public interface g extends IInterface {
         }
 
         public static g a() {
-            return C2201a.a;
+            return C2062a.a;
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public final ImageTranscoderFactory mPrimaryImageTranscoderFactory;
     public final boolean mUseDownSamplingRatio;
 
-    public MultiImageTranscoderFactory(int i2, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num) {
+    public MultiImageTranscoderFactory(int i, boolean z, @Nullable ImageTranscoderFactory imageTranscoderFactory, @Nullable Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), imageTranscoderFactory, num};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), imageTranscoderFactory, num};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mMaxBitmapSize = i2;
+        this.mMaxBitmapSize = i;
         this.mUseDownSamplingRatio = z;
         this.mPrimaryImageTranscoderFactory = imageTranscoderFactory;
         this.mImageTranscoderType = num;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import c.a.d.f.m.b;
 import c.a.d.o.d.a;
-import c.a.q0.b0.c;
+import c.a.o0.b0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,22 +18,22 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public transient /* synthetic */ FieldHolder $fh;
     public int procType;
 
-    public LocalPicDrawableLoaderProc(int i2) {
+    public LocalPicDrawableLoaderProc(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.procType = i2;
+        this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -76,10 +76,10 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
             a m = c.k().m(str3);
             if (m == null) {

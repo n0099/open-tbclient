@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-import c.a.p0.a.g.f.a;
+import c.a.n0.a.g.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CustomerAdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f37280e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f28731b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f37281f;
+    /* renamed from: c  reason: collision with root package name */
+    public float f28732c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public float f37282g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public a f37283h;
+    /* renamed from: d  reason: collision with root package name */
+    public a f28733d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -36,18 +34,18 @@ public class CustomerAdScrollView extends ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f37280e = false;
-        this.f37281f = false;
-        this.f37283h = null;
+        this.a = false;
+        this.f28731b = false;
+        this.f28733d = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -59,13 +57,13 @@ public class CustomerAdScrollView extends ScrollView {
             float y = motionEvent.getY();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f37282g = y;
+                this.f28732c = y;
             } else if (action == 2) {
-                if (y - this.f37282g < 0.0f) {
-                    if (!this.f37280e || this.f37281f) {
+                if (y - this.f28732c < 0.0f) {
+                    if (!this.a || this.f28731b) {
                         return false;
                     }
-                } else if (!this.f37281f) {
+                } else if (!this.f28731b) {
                     return false;
                 }
             }
@@ -75,13 +73,13 @@ public class CustomerAdScrollView extends ScrollView {
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f37283h;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onScrollChanged(i, i2, i3, i4);
+            a aVar = this.f28733d;
             if (aVar != null) {
-                aVar.onScrollChanged(i2, i3, i4, i5);
+                aVar.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -89,21 +87,21 @@ public class CustomerAdScrollView extends ScrollView {
     public void setIsFooterLayoutShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f37281f = z;
+            this.f28731b = z;
         }
     }
 
     public void setIsWebViewOnBottom(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37280e = z;
+            this.a = z;
         }
     }
 
     public void setScrollViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f37283h = aVar;
+            this.f28733d = aVar;
         }
     }
 }

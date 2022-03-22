@@ -1,7 +1,8 @@
 package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
-import c.a.i0.b.a.a;
+import android.util.Log;
+import c.a.g0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -35,9 +36,9 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,7 +50,9 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
         LinkedList<TrackUI> trackUIs;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, perfExpInfo) == null) {
-            AppConfig.isDebug();
+            if (AppConfig.isDebug()) {
+                Log.d("PerfFrame", "onException  at UbcPerfFrameRegister");
+            }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(Constant.KEY_PERFTYPE, perfExpInfo.getType());
@@ -62,7 +65,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    int i2 = 1;
+                    int i = 1;
                     int size = trackUIs.size() - 1;
                     while (true) {
                         TrackUI trackUI = trackUIs.get(size);
@@ -72,16 +75,16 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                         jSONObject3.put("page", PerfFrameTrackUIUtil.trackUI2StringPage(trackUI));
                         jSONObject3.put("event", trackUI.getEvent());
                         jSONArray.put(jSONObject3);
-                        int i3 = i2 + 1;
-                        if (i2 >= 20) {
+                        int i2 = i + 1;
+                        if (i >= 20) {
                             break;
                         }
-                        int i4 = size - 1;
+                        int i3 = size - 1;
                         if (size <= 0) {
                             break;
                         }
-                        size = i4;
-                        i2 = i3;
+                        size = i3;
+                        i = i2;
                     }
                     jSONObject2.put("pageTrace", jSONArray);
                 }
@@ -101,7 +104,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     jSONObject4.put("PSS", CommonUtils.getPSS());
                     jSONObject4.put("isLowMemory", CommonUtils.isLowMemory());
                     if (AppConfig.isDebug()) {
-                        String str = "dynamicperfObj : " + jSONObject4;
+                        Log.d(TAG, "dynamicperfObj : " + jSONObject4);
                     }
                     jSONObject2.put(Constant.KEY_DYNAMICPERF, jSONObject4);
                 }
@@ -135,20 +138,20 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     jSONObject5.put("procBit", CommonUtils.getProcessBit());
                     jSONObject5.put("ROM", CommonUtils.getROM());
                     if (AppConfig.isDebug()) {
-                        String str2 = "staticperfObj : " + jSONObject5;
+                        Log.d(TAG, "staticperfObj : " + jSONObject5);
                     }
                     jSONObject2.put(Constant.KEY_STATICPERF, jSONObject5);
                 }
                 if (perfExpInfo.isNeedMainStackTrace()) {
                     String mainThreadStackTrace = ThreadCollector.getMainThreadStackTrace();
                     if (AppConfig.isDebug()) {
-                        String str3 = "stack : " + mainThreadStackTrace;
+                        Log.d(TAG, "stack : " + mainThreadStackTrace);
                     }
                     jSONObject2.put("stacktrace", mainThreadStackTrace);
                 }
                 jSONObject.put("ext", jSONObject2);
                 if (AppConfig.isDebug()) {
-                    String str4 = "content : " + jSONObject.toString();
+                    Log.d(TAG, "content : " + jSONObject.toString());
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {

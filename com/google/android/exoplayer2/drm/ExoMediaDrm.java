@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ExoMediaDrm<T extends ExoMediaCrypto> {
     public static final int EVENT_KEY_EXPIRED = 3;
     public static final int EVENT_KEY_REQUIRED = 2;
@@ -25,7 +25,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
     public static final int KEY_TYPE_RELEASE = 3;
     public static final int KEY_TYPE_STREAMING = 1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultKeyRequest implements KeyRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,29 +66,29 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultKeyStatus implements KeyStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final byte[] keyId;
         public final int statusCode;
 
-        public DefaultKeyStatus(int i2, byte[] bArr) {
+        public DefaultKeyStatus(int i, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), bArr};
+                Object[] objArr = {Integer.valueOf(i), bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.statusCode = i2;
+            this.statusCode = i;
             this.keyId = bArr;
         }
 
@@ -107,7 +107,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultProvisionRequest implements ProvisionRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,9 +121,9 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -148,31 +148,31 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface KeyRequest {
         byte[] getData();
 
         String getDefaultUrl();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface KeyStatus {
         byte[] getKeyId();
 
         int getStatusCode();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnEventListener<T extends ExoMediaCrypto> {
-        void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i2, int i3, byte[] bArr2);
+        void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnKeyStatusChangeListener<T extends ExoMediaCrypto> {
         void onKeyStatusChange(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, List<KeyStatus> list, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ProvisionRequest {
         byte[] getData();
 
@@ -183,7 +183,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
 
     T createMediaCrypto(byte[] bArr) throws MediaCryptoException;
 
-    KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i2, HashMap<String, String> hashMap) throws NotProvisionedException;
+    KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap<String, String> hashMap) throws NotProvisionedException;
 
     byte[] getPropertyByteArray(String str);
 

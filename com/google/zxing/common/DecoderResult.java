@@ -32,9 +32,9 @@ public final class DecoderResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr, str, list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((byte[]) objArr2[0], (String) objArr2[1], (List) objArr2[2], (String) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -124,10 +124,10 @@ public final class DecoderResult {
         }
     }
 
-    public void setNumBits(int i2) {
+    public void setNumBits(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.numBits = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.numBits = i;
         }
     }
 
@@ -138,16 +138,16 @@ public final class DecoderResult {
         }
     }
 
-    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2, int i2, int i3) {
+    public DecoderResult(byte[] bArr, String str, List<byte[]> list, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str, list, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {bArr, str, list, str2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -158,7 +158,7 @@ public final class DecoderResult {
         this.text = str;
         this.byteSegments = list;
         this.ecLevel = str2;
-        this.structuredAppendParity = i3;
-        this.structuredAppendSequenceNumber = i2;
+        this.structuredAppendParity = i2;
+        this.structuredAppendSequenceNumber = i;
     }
 }

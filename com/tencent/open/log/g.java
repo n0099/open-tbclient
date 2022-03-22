@@ -2,6 +2,7 @@ package com.tencent.open.log;
 
 import android.text.format.Time;
 import android.util.Log;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
@@ -38,39 +39,39 @@ public final class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final String a(int i2) {
+    public final String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? i2 != 16 ? i2 != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : "A" : "E" : "W" : "I" : "D" : "V" : (String) invokeI.objValue;
     }
 
-    public String a(int i2, Thread thread, long j2, String str, String str2, Throwable th) {
+    public String a(int i, Thread thread, long j, String str, String str2, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j2), str, str2, th})) == null) {
-            long j3 = j2 % 1000;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), thread, Long.valueOf(j), str, str2, th})) == null) {
+            long j2 = j % 1000;
             Time time = new Time();
-            time.set(j2);
+            time.set(j);
             StringBuilder sb = new StringBuilder();
-            sb.append(a(i2));
+            sb.append(a(i));
             sb.append(WebvttCueParser.CHAR_SLASH);
             sb.append(time.format("%Y-%m-%d %H:%M:%S"));
-            sb.append('.');
-            if (j3 < 10) {
+            sb.append(IStringUtil.EXTENSION_SEPARATOR);
+            if (j2 < 10) {
                 sb.append("00");
-            } else if (j3 < 100) {
+            } else if (j2 < 100) {
                 sb.append('0');
             }
-            sb.append(j3);
+            sb.append(j2);
             sb.append(WebvttCueParser.CHAR_SPACE);
             sb.append('[');
             if (thread == null) {

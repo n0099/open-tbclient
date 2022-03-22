@@ -35,9 +35,9 @@ public class ARMdlInterfaceJNI {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,9 +50,9 @@ public class ARMdlInterfaceJNI {
 
     public static native int initBodyKeyPointFromAssetDir(String str);
 
-    public static native int initGesture(String str, String str2, String str3, int i2, int i3, float f2, float f3, float f4, int i4);
+    public static native int initGesture(String str, String str2, String str3, int i, int i2, float f2, float f3, float f4, int i3);
 
-    public static native int initGestureFromAsset(String str, String str2, String str3, int i2, int i3, float f2, float f3, float f4, int i4);
+    public static native int initGestureFromAsset(String str, String str2, String str3, int i, int i2, float f2, float f3, float f4, int i3);
 
     public static native int initHairSeg(String str);
 
@@ -66,17 +66,17 @@ public class ARMdlInterfaceJNI {
 
     public static native int initHeadSegFromAsset(String str);
 
-    public static native int initHumanSeg(String str, int i2, int[] iArr);
+    public static native int initHumanSeg(String str, int i, int[] iArr);
 
-    public static native int initHumanSegFromAssetDir(String str, int i2, int[] iArr);
+    public static native int initHumanSegFromAssetDir(String str, int i, int[] iArr);
 
     public static native int initObjDetect(String str, String str2);
 
     public static native int initObjDetectFromAsset(String str, String str2);
 
-    public static native int initPose(String str, String str2, String str3, int i2, float f2, float[] fArr, float[] fArr2);
+    public static native int initPose(String str, String str2, String str3, int i, float f2, float[] fArr, float[] fArr2);
 
-    public static native int initPoseFromAsset(String str, String str2, String str3, int i2, float f2, float[] fArr, float[] fArr2);
+    public static native int initPoseFromAsset(String str, String str2, String str3, int i, float f2, float[] fArr, float[] fArr2);
 
     public static native int initSkySeg(String str);
 
@@ -84,27 +84,27 @@ public class ARMdlInterfaceJNI {
 
     public static native int initStyleConversation(String str, int[] iArr);
 
-    public static native int predictBodyKeyPoint(ByteBuffer byteBuffer, int i2, int i3, int i4, float[] fArr);
+    public static native int predictBodyKeyPoint(ByteBuffer byteBuffer, int i, int i2, int i3, float[] fArr);
 
-    public static native int predictGesture(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
+    public static native int predictGesture(ByteBuffer byteBuffer, int i, int i2, int i3, boolean z, float[] fArr);
 
-    public static native int predictHairSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j2);
+    public static native int predictHairSeg(ByteBuffer byteBuffer, int i, int i2, int i3, int i4, int i5, int i6, boolean z, byte[] bArr, long j);
 
-    public static native float[] predictHandSkeleton(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z);
+    public static native float[] predictHandSkeleton(ByteBuffer byteBuffer, int i, int i2, int i3, boolean z);
 
-    public static native int predictHandSkeletonByHandle(long j2, int i2);
+    public static native int predictHandSkeletonByHandle(long j, int i);
 
-    public static native int predictHeadSeg(long j2, boolean z);
+    public static native int predictHeadSeg(long j, boolean z);
 
-    public static native int predictHumanSeg(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, byte[] bArr, int[] iArr, long j2);
+    public static native int predictHumanSeg(ByteBuffer byteBuffer, int i, int i2, int i3, boolean z, byte[] bArr, int[] iArr, long j);
 
-    public static native int predictObjDetect(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
+    public static native int predictObjDetect(ByteBuffer byteBuffer, int i, int i2, int i3, boolean z, float[] fArr);
 
-    public static native int predictPose(ByteBuffer byteBuffer, int i2, int i3, int i4, boolean z, float[] fArr);
+    public static native int predictPose(ByteBuffer byteBuffer, int i, int i2, int i3, boolean z, float[] fArr);
 
-    public static native int predictSkySeg(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, byte[] bArr, long j2);
+    public static native int predictSkySeg(ByteBuffer byteBuffer, int i, int i2, int i3, int i4, int i5, int i6, boolean z, byte[] bArr, long j);
 
-    public static native int predictStyleConversation(ByteBuffer byteBuffer, int i2, int i3, byte[] bArr);
+    public static native int predictStyleConversation(ByteBuffer byteBuffer, int i, int i2, byte[] bArr);
 
     public static native int releaseBodyKeyPoint();
 
@@ -130,5 +130,5 @@ public class ARMdlInterfaceJNI {
 
     public static native int setCacheDir(String str);
 
-    public static native int updateLastFaceInfo(long j2);
+    public static native int updateLastFaceInfo(long j);
 }

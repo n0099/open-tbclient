@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 /* loaded from: classes3.dex */
 public interface DrawingContent extends Content {
-    void draw(Canvas canvas, Matrix matrix, int i2);
+    void draw(Canvas canvas, Matrix matrix, int i);
 
     void getBounds(RectF rectF, Matrix matrix, boolean z);
 }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.retrieve.file.util;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,9 +48,9 @@ public class FileZipUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -61,8 +62,8 @@ public class FileZipUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             String str = "";
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                str = str + Integer.toString((bArr[i2] & 255) + 256, 16).substring(1);
+            for (int i = 0; i < bArr.length; i++) {
+                str = str + Integer.toString((bArr[i] & 255) + 256, 16).substring(1);
             }
             return str.toLowerCase();
         }
@@ -156,11 +157,11 @@ public class FileZipUtil {
             try {
                 byte[] bArr = new byte[1024];
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-                int i2 = 0;
-                while (i2 != -1) {
-                    i2 = fileInputStream.read(bArr);
-                    if (i2 > 0) {
-                        messageDigest.update(bArr, 0, i2);
+                int i = 0;
+                while (i != -1) {
+                    i = fileInputStream.read(bArr);
+                    if (i > 0) {
+                        messageDigest.update(bArr, 0, i);
                     }
                 }
                 String convertHashToString = convertHashToString(messageDigest.digest());
@@ -221,7 +222,7 @@ public class FileZipUtil {
                 ZipOutputStream zipOutputStream = new ZipOutputStream(fileOutputStream);
                 for (String str2 : arrayList) {
                     if (DEBUG) {
-                        String str3 = "Zipping " + str2;
+                        Log.d(TAG, "Zipping " + str2);
                     }
                     zipOutputStream.putNextEntry(new ZipEntry(str2.substring(file.getAbsolutePath().length() + 1, str2.length())));
                     FileInputStream fileInputStream = new FileInputStream(str2);
@@ -269,7 +270,7 @@ public class FileZipUtil {
                 fileInputStream.close();
                 fileOutputStream.close();
                 if (DEBUG) {
-                    String str2 = file.getCanonicalPath() + " is zipped to " + str;
+                    Log.d(TAG, file.getCanonicalPath() + " is zipped to " + str);
                 }
             } catch (IOException e2) {
                 if (DEBUG) {

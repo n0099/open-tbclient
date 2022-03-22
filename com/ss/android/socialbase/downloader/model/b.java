@@ -10,35 +10,31 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements Parcelable {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58774b;
+    public int f43469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f58775c;
+    public long f43470c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicLong f58776d;
+    public AtomicLong f43471d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f58777e;
+    public long f43472e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f58778f;
+    public long f43473f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f58779g;
+    public int f43474g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f58780h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f58781i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public List<b> f58782j;
+    public AtomicInteger f43475h;
+    public long i;
+    public List<b> j;
     public b k;
     public int l;
     public boolean m;
@@ -56,72 +52,72 @@ public class b implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public b[] newArray(int i2) {
-            return new b[i2];
+        public b[] newArray(int i) {
+            return new b[i];
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58783b;
+        public long f43476b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f58784c;
+        public long f43477c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f58785d;
+        public long f43478d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f58786e;
+        public long f43479e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58787f;
+        public int f43480f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f58788g;
+        public long f43481g;
 
         /* renamed from: h  reason: collision with root package name */
-        public b f58789h;
+        public b f43482h;
 
-        public a(int i2) {
-            this.a = i2;
+        public a(int i) {
+            this.a = i;
         }
 
-        public a a(long j2) {
-            this.f58783b = j2;
+        public a a(long j) {
+            this.f43476b = j;
             return this;
         }
 
-        public a b(long j2) {
-            this.f58784c = j2;
+        public a b(long j) {
+            this.f43477c = j;
             return this;
         }
 
-        public a c(long j2) {
-            this.f58785d = j2;
+        public a c(long j) {
+            this.f43478d = j;
             return this;
         }
 
-        public a d(long j2) {
-            this.f58786e = j2;
+        public a d(long j) {
+            this.f43479e = j;
             return this;
         }
 
-        public a e(long j2) {
-            this.f58788g = j2;
+        public a e(long j) {
+            this.f43481g = j;
             return this;
         }
 
-        public a a(int i2) {
-            this.f58787f = i2;
+        public a a(int i) {
+            this.f43480f = i;
             return this;
         }
 
         public a a(b bVar) {
-            this.f58789h = bVar;
+            this.f43482h = bVar;
             return this;
         }
 
@@ -132,18 +128,18 @@ public class b implements Parcelable {
 
     public ContentValues a() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("_id", Integer.valueOf(this.f58774b));
-        contentValues.put("chunkIndex", Integer.valueOf(this.f58779g));
-        contentValues.put("startOffset", Long.valueOf(this.f58775c));
+        contentValues.put("_id", Integer.valueOf(this.f43469b));
+        contentValues.put("chunkIndex", Integer.valueOf(this.f43474g));
+        contentValues.put("startOffset", Long.valueOf(this.f43470c));
         contentValues.put("curOffset", Long.valueOf(n()));
-        contentValues.put("endOffset", Long.valueOf(this.f58777e));
-        contentValues.put("chunkContentLen", Long.valueOf(this.f58778f));
+        contentValues.put("endOffset", Long.valueOf(this.f43472e));
+        contentValues.put("chunkContentLen", Long.valueOf(this.f43473f));
         contentValues.put("hostChunkIndex", Integer.valueOf(b()));
         return contentValues;
     }
 
     public int b() {
-        AtomicInteger atomicInteger = this.f58780h;
+        AtomicInteger atomicInteger = this.f43475h;
         if (atomicInteger == null) {
             return -1;
         }
@@ -176,12 +172,12 @@ public class b implements Parcelable {
     }
 
     public boolean f() {
-        List<b> list = this.f58782j;
+        List<b> list = this.j;
         return list != null && list.size() > 0;
     }
 
     public List<b> g() {
-        return this.f58782j;
+        return this.j;
     }
 
     public boolean h() {
@@ -190,14 +186,14 @@ public class b implements Parcelable {
             return true;
         }
         if (bVar.f()) {
-            for (int i2 = 0; i2 < this.k.g().size(); i2++) {
-                b bVar2 = this.k.g().get(i2);
+            for (int i = 0; i < this.k.g().size(); i++) {
+                b bVar2 = this.k.g().get(i);
                 if (bVar2 != null) {
                     int indexOf = this.k.g().indexOf(this);
-                    if (indexOf > i2 && !bVar2.i()) {
+                    if (indexOf > i && !bVar2.i()) {
                         return false;
                     }
-                    if (indexOf == i2) {
+                    if (indexOf == i) {
                         return true;
                     }
                 }
@@ -208,14 +204,14 @@ public class b implements Parcelable {
     }
 
     public boolean i() {
-        long j2 = this.f58775c;
+        long j = this.f43470c;
         if (d()) {
-            long j3 = this.f58781i;
-            if (j3 > this.f58775c) {
-                j2 = j3;
+            long j2 = this.i;
+            if (j2 > this.f43470c) {
+                j = j2;
             }
         }
-        return n() - j2 >= this.f58778f;
+        return n() - j >= this.f43473f;
     }
 
     public long j() {
@@ -223,13 +219,13 @@ public class b implements Parcelable {
         if (bVar != null && bVar.g() != null) {
             int indexOf = this.k.g().indexOf(this);
             boolean z = false;
-            for (int i2 = 0; i2 < this.k.g().size(); i2++) {
-                b bVar2 = this.k.g().get(i2);
+            for (int i = 0; i < this.k.g().size(); i++) {
+                b bVar2 = this.k.g().get(i);
                 if (bVar2 != null) {
                     if (z) {
                         return bVar2.n();
                     }
-                    if (indexOf == i2) {
+                    if (indexOf == i) {
                         z = true;
                     }
                 }
@@ -239,15 +235,15 @@ public class b implements Parcelable {
     }
 
     public int k() {
-        return this.f58774b;
+        return this.f43469b;
     }
 
     public long l() {
-        return this.f58775c;
+        return this.f43470c;
     }
 
     public long m() {
-        AtomicLong atomicLong = this.f58776d;
+        AtomicLong atomicLong = this.f43471d;
         if (atomicLong != null) {
             return atomicLong.get();
         }
@@ -256,29 +252,29 @@ public class b implements Parcelable {
 
     public long n() {
         if (d() && f()) {
-            long j2 = 0;
-            for (int i2 = 0; i2 < this.f58782j.size(); i2++) {
-                b bVar = this.f58782j.get(i2);
+            long j = 0;
+            for (int i = 0; i < this.j.size(); i++) {
+                b bVar = this.j.get(i);
                 if (bVar != null) {
                     if (!bVar.i()) {
                         return bVar.m();
                     }
-                    if (j2 < bVar.m()) {
-                        j2 = bVar.m();
+                    if (j < bVar.m()) {
+                        j = bVar.m();
                     }
                 }
             }
-            return j2;
+            return j;
         }
         return m();
     }
 
     public long o() {
-        long n = n() - this.f58775c;
+        long n = n() - this.f43470c;
         if (f()) {
             n = 0;
-            for (int i2 = 0; i2 < this.f58782j.size(); i2++) {
-                b bVar = this.f58782j.get(i2);
+            for (int i = 0; i < this.j.size(); i++) {
+                b bVar = this.j.get(i);
                 if (bVar != null) {
                     n += bVar.n() - bVar.l();
                 }
@@ -288,31 +284,31 @@ public class b implements Parcelable {
     }
 
     public long p() {
-        return this.f58777e;
+        return this.f43472e;
     }
 
     public long q() {
-        return this.f58778f;
+        return this.f43473f;
     }
 
     public void r() {
-        this.f58781i = n();
+        this.i = n();
     }
 
     public int s() {
-        return this.f58779g;
+        return this.f43474g;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeInt(this.f58774b);
-        parcel.writeLong(this.f58775c);
-        AtomicLong atomicLong = this.f58776d;
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.f43469b);
+        parcel.writeLong(this.f43470c);
+        AtomicLong atomicLong = this.f43471d;
         parcel.writeLong(atomicLong != null ? atomicLong.get() : 0L);
-        parcel.writeLong(this.f58777e);
-        parcel.writeLong(this.f58778f);
-        parcel.writeInt(this.f58779g);
-        AtomicInteger atomicInteger = this.f58780h;
+        parcel.writeLong(this.f43472e);
+        parcel.writeLong(this.f43473f);
+        parcel.writeInt(this.f43474g);
+        AtomicInteger atomicInteger = this.f43475h;
         parcel.writeInt(atomicInteger != null ? atomicInteger.get() : -1);
     }
 
@@ -320,15 +316,15 @@ public class b implements Parcelable {
         if (aVar == null) {
             return;
         }
-        this.f58774b = aVar.a;
-        this.f58775c = aVar.f58783b;
-        this.f58776d = new AtomicLong(aVar.f58784c);
-        this.f58777e = aVar.f58785d;
-        this.f58778f = aVar.f58786e;
-        this.f58779g = aVar.f58787f;
-        this.f58781i = aVar.f58788g;
-        this.f58780h = new AtomicInteger(-1);
-        a(aVar.f58789h);
+        this.f43469b = aVar.a;
+        this.f43470c = aVar.f43476b;
+        this.f43471d = new AtomicLong(aVar.f43477c);
+        this.f43472e = aVar.f43478d;
+        this.f43473f = aVar.f43479e;
+        this.f43474g = aVar.f43480f;
+        this.i = aVar.f43481g;
+        this.f43475h = new AtomicInteger(-1);
+        a(aVar.f43482h);
         this.n = new AtomicBoolean(false);
     }
 
@@ -336,35 +332,35 @@ public class b implements Parcelable {
         this.m = z;
     }
 
-    public void c(int i2) {
-        this.f58779g = i2;
+    public void c(int i) {
+        this.f43474g = i;
     }
 
-    public void b(int i2) {
-        this.f58774b = i2;
+    public void b(int i) {
+        this.f43469b = i;
     }
 
     public long c(boolean z) {
         long n = n();
-        long j2 = this.f58778f;
-        long j3 = this.f58781i;
-        long j4 = j2 - (n - j3);
-        if (!z && n == j3) {
-            j4 = j2 - (n - this.f58775c);
+        long j = this.f43473f;
+        long j2 = this.i;
+        long j3 = j - (n - j2);
+        if (!z && n == j2) {
+            j3 = j - (n - this.f43470c);
         }
-        com.ss.android.socialbase.downloader.c.a.b("DownloadChunk", "contentLength:" + this.f58778f + " curOffset:" + n() + " oldOffset:" + this.f58781i + " retainLen:" + j4);
-        if (j4 < 0) {
+        com.ss.android.socialbase.downloader.c.a.b("DownloadChunk", "contentLength:" + this.f43473f + " curOffset:" + n() + " oldOffset:" + this.i + " retainLen:" + j3);
+        if (j3 < 0) {
             return 0L;
         }
-        return j4;
+        return j3;
     }
 
-    public void b(long j2) {
-        AtomicLong atomicLong = this.f58776d;
+    public void b(long j) {
+        AtomicLong atomicLong = this.f43471d;
         if (atomicLong != null) {
-            atomicLong.set(j2);
+            atomicLong.set(j);
         } else {
-            this.f58776d = new AtomicLong(j2);
+            this.f43471d = new AtomicLong(j);
         }
     }
 
@@ -374,62 +370,62 @@ public class b implements Parcelable {
         }
         this.l = 0;
         sQLiteStatement.clearBindings();
+        int i = this.l + 1;
+        this.l = i;
+        sQLiteStatement.bindLong(i, this.f43469b);
         int i2 = this.l + 1;
         this.l = i2;
-        sQLiteStatement.bindLong(i2, this.f58774b);
+        sQLiteStatement.bindLong(i2, this.f43474g);
         int i3 = this.l + 1;
         this.l = i3;
-        sQLiteStatement.bindLong(i3, this.f58779g);
+        sQLiteStatement.bindLong(i3, this.f43470c);
         int i4 = this.l + 1;
         this.l = i4;
-        sQLiteStatement.bindLong(i4, this.f58775c);
+        sQLiteStatement.bindLong(i4, n());
         int i5 = this.l + 1;
         this.l = i5;
-        sQLiteStatement.bindLong(i5, n());
+        sQLiteStatement.bindLong(i5, this.f43472e);
         int i6 = this.l + 1;
         this.l = i6;
-        sQLiteStatement.bindLong(i6, this.f58777e);
+        sQLiteStatement.bindLong(i6, this.f43473f);
         int i7 = this.l + 1;
         this.l = i7;
-        sQLiteStatement.bindLong(i7, this.f58778f);
-        int i8 = this.l + 1;
-        this.l = i8;
-        sQLiteStatement.bindLong(i8, b());
+        sQLiteStatement.bindLong(i7, b());
     }
 
     public b(Cursor cursor) {
         if (cursor == null) {
             return;
         }
-        this.f58774b = cursor.getInt(cursor.getColumnIndex("_id"));
-        this.f58779g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
-        this.f58775c = cursor.getLong(cursor.getColumnIndex("startOffset"));
+        this.f43469b = cursor.getInt(cursor.getColumnIndex("_id"));
+        this.f43474g = cursor.getInt(cursor.getColumnIndex("chunkIndex"));
+        this.f43470c = cursor.getLong(cursor.getColumnIndex("startOffset"));
         int columnIndex = cursor.getColumnIndex("curOffset");
         if (columnIndex != -1) {
-            this.f58776d = new AtomicLong(cursor.getLong(columnIndex));
+            this.f43471d = new AtomicLong(cursor.getLong(columnIndex));
         } else {
-            this.f58776d = new AtomicLong(0L);
+            this.f43471d = new AtomicLong(0L);
         }
-        this.f58777e = cursor.getLong(cursor.getColumnIndex("endOffset"));
+        this.f43472e = cursor.getLong(cursor.getColumnIndex("endOffset"));
         int columnIndex2 = cursor.getColumnIndex("hostChunkIndex");
         if (columnIndex2 != -1) {
-            this.f58780h = new AtomicInteger(cursor.getInt(columnIndex2));
+            this.f43475h = new AtomicInteger(cursor.getInt(columnIndex2));
         } else {
-            this.f58780h = new AtomicInteger(-1);
+            this.f43475h = new AtomicInteger(-1);
         }
         int columnIndex3 = cursor.getColumnIndex("chunkContentLen");
         if (columnIndex3 != -1) {
-            this.f58778f = cursor.getLong(columnIndex3);
+            this.f43473f = cursor.getLong(columnIndex3);
         }
         this.n = new AtomicBoolean(false);
     }
 
-    public void a(int i2) {
-        AtomicInteger atomicInteger = this.f58780h;
+    public void a(int i) {
+        AtomicInteger atomicInteger = this.f43475h;
         if (atomicInteger == null) {
-            this.f58780h = new AtomicInteger(i2);
+            this.f43475h = new AtomicInteger(i);
         } else {
-            atomicInteger.set(i2);
+            atomicInteger.set(i);
         }
     }
 
@@ -449,13 +445,13 @@ public class b implements Parcelable {
     }
 
     public b(Parcel parcel) {
-        this.f58774b = parcel.readInt();
-        this.f58775c = parcel.readLong();
-        this.f58776d = new AtomicLong(parcel.readLong());
-        this.f58777e = parcel.readLong();
-        this.f58778f = parcel.readLong();
-        this.f58779g = parcel.readInt();
-        this.f58780h = new AtomicInteger(parcel.readInt());
+        this.f43469b = parcel.readInt();
+        this.f43470c = parcel.readLong();
+        this.f43471d = new AtomicLong(parcel.readLong());
+        this.f43472e = parcel.readLong();
+        this.f43473f = parcel.readLong();
+        this.f43474g = parcel.readInt();
+        this.f43475h = new AtomicInteger(parcel.readInt());
     }
 
     public void a(b bVar) {
@@ -466,91 +462,91 @@ public class b implements Parcelable {
     }
 
     public void a(List<b> list) {
-        this.f58782j = list;
+        this.j = list;
     }
 
-    public void a(long j2) {
-        this.f58778f = j2;
+    public void a(long j) {
+        this.f43473f = j;
     }
 
-    public List<b> a(int i2, long j2) {
+    public List<b> a(int i, long j) {
         b bVar;
         long p;
+        long j2;
         long j3;
         long j4;
         long j5;
-        long j6;
         b bVar2 = this;
-        int i3 = i2;
+        int i2 = i;
         if (!d() || f()) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         long m = m();
         long c2 = bVar2.c(true);
-        long j7 = c2 / i3;
-        com.ss.android.socialbase.downloader.c.a.b(a, "retainLen:" + c2 + " divideChunkForReuse chunkSize:" + j7 + " current host downloadChunk index:" + bVar2.f58779g);
-        int i4 = 0;
-        while (i4 < i3) {
-            if (i4 == 0) {
-                j4 = l();
-                j3 = (m + j7) - 1;
+        long j6 = c2 / i2;
+        com.ss.android.socialbase.downloader.c.a.b(a, "retainLen:" + c2 + " divideChunkForReuse chunkSize:" + j6 + " current host downloadChunk index:" + bVar2.f43474g);
+        int i3 = 0;
+        while (i3 < i2) {
+            if (i3 == 0) {
+                j3 = l();
+                j2 = (m + j6) - 1;
             } else {
-                int i5 = i3 - 1;
-                if (i4 == i5) {
+                int i4 = i2 - 1;
+                if (i3 == i4) {
                     long p2 = p();
-                    j5 = p2 > m ? (p2 - m) + 1 : c2 - (i5 * j7);
-                    j6 = p2;
-                    j4 = m;
-                    long j8 = c2;
-                    long j9 = j6;
-                    b a2 = new a(bVar2.f58774b).a((-i4) - 1).a(j4).b(m).e(m).c(j9).d(j5).a(bVar2).a();
-                    com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i4 + " startOffset:" + j4 + " curOffset:" + m + " endOffset:" + j9 + " contentLen:" + j5);
+                    j4 = p2 > m ? (p2 - m) + 1 : c2 - (i4 * j6);
+                    j5 = p2;
+                    j3 = m;
+                    long j7 = c2;
+                    long j8 = j5;
+                    b a2 = new a(bVar2.f43469b).a((-i3) - 1).a(j3).b(m).e(m).c(j8).d(j4).a(bVar2).a();
+                    com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j8 + " contentLen:" + j4);
                     arrayList.add(a2);
-                    m += j7;
-                    i4++;
+                    m += j6;
+                    i3++;
                     bVar2 = this;
-                    i3 = i2;
-                    c2 = j8;
+                    i2 = i;
+                    c2 = j7;
                 } else {
-                    j3 = (m + j7) - 1;
-                    j4 = m;
+                    j2 = (m + j6) - 1;
+                    j3 = m;
                 }
             }
-            j5 = j7;
-            j6 = j3;
-            long j82 = c2;
-            long j92 = j6;
-            b a22 = new a(bVar2.f58774b).a((-i4) - 1).a(j4).b(m).e(m).c(j92).d(j5).a(bVar2).a();
-            com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i4 + " startOffset:" + j4 + " curOffset:" + m + " endOffset:" + j92 + " contentLen:" + j5);
+            j4 = j6;
+            j5 = j2;
+            long j72 = c2;
+            long j82 = j5;
+            b a22 = new a(bVar2.f43469b).a((-i3) - 1).a(j3).b(m).e(m).c(j82).d(j4).a(bVar2).a();
+            com.ss.android.socialbase.downloader.c.a.b(a, "divide sub chunk : " + i3 + " startOffset:" + j3 + " curOffset:" + m + " endOffset:" + j82 + " contentLen:" + j4);
             arrayList.add(a22);
-            m += j7;
-            i4++;
+            m += j6;
+            i3++;
             bVar2 = this;
-            i3 = i2;
-            c2 = j82;
+            i2 = i;
+            c2 = j72;
         }
-        long j10 = 0;
+        long j9 = 0;
         for (int size = arrayList.size() - 1; size > 0; size--) {
             b bVar3 = arrayList.get(size);
             if (bVar3 != null) {
-                j10 += bVar3.q();
+                j9 += bVar3.q();
             }
         }
-        com.ss.android.socialbase.downloader.c.a.b(a, "reuseChunkContentLen:" + j10);
+        com.ss.android.socialbase.downloader.c.a.b(a, "reuseChunkContentLen:" + j9);
         b bVar4 = arrayList.get(0);
         if (bVar4 != null) {
             if (p() == 0) {
-                p = j2 - l();
+                p = j - l();
             } else {
                 p = (p() - l()) + 1;
             }
-            bVar4.a(p - j10);
+            bVar4.a(p - j9);
             bVar = this;
-            bVar4.c(bVar.f58779g);
+            bVar4.c(bVar.f43474g);
             com.ss.android.socialbase.downloader.h.b bVar5 = bVar.o;
             if (bVar5 != null) {
-                bVar5.a(bVar4.p(), q() - j10);
+                bVar5.a(bVar4.p(), q() - j9);
             }
         } else {
             bVar = this;

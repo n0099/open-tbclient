@@ -36,9 +36,9 @@ public class DBConnection extends SQLiteOpenHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,23 +48,23 @@ public class DBConnection extends SQLiteOpenHelper {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE groupmember ADD COLUMN nickname TEXT");
                 } catch (Exception e2) {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
                 }
-                String str = LogUtils.TAG;
+                Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
             }
         }
     }
@@ -82,9 +82,9 @@ public class DBConnection extends SQLiteOpenHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,16 +94,16 @@ public class DBConnection extends SQLiteOpenHelper {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktop INTEGER DEFAULT 1");
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN marktoptime LONG ");
@@ -111,7 +111,7 @@ public class DBConnection extends SQLiteOpenHelper {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:27->28", e2);
                 }
-                String str = LogUtils.TAG;
+                Log.d(LogUtils.TAG, "DBConnection onUpgrade:27->28");
             }
         }
     }
@@ -129,9 +129,9 @@ public class DBConnection extends SQLiteOpenHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -141,16 +141,16 @@ public class DBConnection extends SQLiteOpenHelper {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN group_notice TEXT");
                     sQLiteDatabase.execSQL("ALTER TABLE groupinfo ADD COLUMN group_desc TEXT");
@@ -162,23 +162,23 @@ public class DBConnection extends SQLiteOpenHelper {
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(LogUtils.TAG, "DBConnection onUpgrade:49->50", e2);
                 }
-                String str = LogUtils.TAG;
+                Log.d(LogUtils.TAG, "DBConnection onUpgrade:49->50");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DBConnection(Context context, String str, int i2) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+    public DBConnection(Context context, String str, int i) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -204,7 +204,7 @@ public class DBConnection extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, sQLiteDatabase)) == null) {
-            int i2 = -1;
+            int i = -1;
             try {
                 if (sQLiteDatabase != null) {
                     try {
@@ -212,14 +212,14 @@ public class DBConnection extends SQLiteOpenHelper {
                         sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_LOCALMESSAGE);
                         sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_GROUPINFO);
                         sQLiteDatabase.execSQL(DBTableDefine.SQL_CREATE_TABLE_GROUP_MEMBER);
-                        i2 = 0;
+                        i = 0;
                         sQLiteDatabase.setTransactionSuccessful();
                     } catch (Exception e2) {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                         LogUtils.e(LogUtils.TAG, "createTable:", e2);
                     }
                 }
-                return i2;
+                return i;
             } finally {
                 sQLiteDatabase.endTransaction();
             }
@@ -231,7 +231,7 @@ public class DBConnection extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, sQLiteDatabase)) == null) {
-            int i2 = -1;
+            int i = -1;
             try {
                 if (sQLiteDatabase != null) {
                     try {
@@ -239,14 +239,14 @@ public class DBConnection extends SQLiteOpenHelper {
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS grouplocalmessage");
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupinfo");
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS groupmember");
-                        i2 = 0;
+                        i = 0;
                         sQLiteDatabase.setTransactionSuccessful();
                     } catch (Exception e2) {
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                         LogUtils.e(LogUtils.TAG, "dropTable:", e2);
                     }
                 }
-                return i2;
+                return i;
             } finally {
                 sQLiteDatabase.endTransaction();
             }
@@ -281,28 +281,28 @@ public class DBConnection extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     @TargetApi(11)
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) {
-            if (i2 <= 27 && i3 >= 28) {
-                new Version27And28Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 28;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            if (i <= 27 && i2 >= 28) {
+                new Version27And28Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 28;
             }
-            if (i2 <= 47 && i3 >= 48) {
-                new Version47And48Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 48;
+            if (i <= 47 && i2 >= 48) {
+                new Version47And48Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 48;
             }
-            if (i2 > 49 || i3 < 50) {
+            if (i > 49 || i2 < 50) {
                 return;
             }
-            new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
+            new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i, i2);
         }
     }
 }

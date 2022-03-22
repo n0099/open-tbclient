@@ -20,7 +20,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mdhd";
@@ -65,9 +65,9 @@ public class MediaHeaderBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -204,11 +204,11 @@ public class MediaHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j2)));
-            this.duration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.longObject(j)));
+            this.duration = j;
         }
     }
 
@@ -228,11 +228,11 @@ public class MediaHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setTimescale(long j2) {
+    public void setTimescale(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j2)));
-            this.timescale = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.longObject(j)));
+            this.timescale = j;
         }
     }
 

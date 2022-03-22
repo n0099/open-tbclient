@@ -82,9 +82,9 @@ public final class BIMLogPb {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                             return;
@@ -216,9 +216,9 @@ public final class BIMLogPb {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                         AuthInfo authInfo = new AuthInfo(this, (AnonymousClass1) null);
-                        int i2 = (this.bitField0_ & 1) != 1 ? 0 : 1;
+                        int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
                         authInfo.token_ = this.token_;
-                        authInfo.bitField0_ = i2;
+                        authInfo.bitField0_ = i;
                         return authInfo;
                     }
                     return (AuthInfo) invokeV.objValue;
@@ -333,9 +333,9 @@ public final class BIMLogPb {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -402,9 +402,9 @@ public final class BIMLogPb {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                    int i2 = this.memoizedSerializedSize;
-                    if (i2 != -1) {
-                        return i2;
+                    int i = this.memoizedSerializedSize;
+                    if (i != -1) {
+                        return i;
                     }
                     int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTokenBytes()) : 0;
                     this.memoizedSerializedSize = computeBytesSize;
@@ -543,9 +543,9 @@ public final class BIMLogPb {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {builder};
                     interceptable.invokeUnInit(65539, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65539, newInitContext);
@@ -581,9 +581,9 @@ public final class BIMLogPb {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {Boolean.valueOf(z)};
                     interceptable.invokeUnInit(65541, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65541, newInitContext);
                         return;
@@ -618,9 +618,9 @@ public final class BIMLogPb {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {codedInputStream, extensionRegistryLite};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                         return;
@@ -684,9 +684,9 @@ public final class BIMLogPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -964,12 +964,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRequestTimestampMs(long j2) {
+            public Builder setRequestTimestampMs(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.requestTimestampMs_ = j2;
+                    this.requestTimestampMs_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1031,12 +1031,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setVersion(long j2) {
+            public Builder setVersion(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
                     this.bitField0_ |= 1;
-                    this.version_ = j2;
+                    this.version_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1064,30 +1064,30 @@ public final class BIMLogPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     LogRequest logRequest = new LogRequest(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     logRequest.version_ = this.version_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     logRequest.serviceName_ = this.serviceName_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     logRequest.authInfo_ = this.authInfo_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     logRequest.requestTimestampMs_ = this.requestTimestampMs_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     logRequest.sign_ = this.sign_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     logRequest.payload_ = this.payload_;
-                    logRequest.bitField0_ = i3;
+                    logRequest.bitField0_ = i2;
                     return logRequest;
                 }
                 return (LogRequest) invokeV.objValue;
@@ -1101,21 +1101,21 @@ public final class BIMLogPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.version_ = 0L;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.serviceName_ = "";
-                    this.bitField0_ = i2 & (-3);
+                    this.bitField0_ = i & (-3);
                     this.authInfo_ = AuthInfo.getDefaultInstance();
-                    int i3 = this.bitField0_ & (-5);
-                    this.bitField0_ = i3;
+                    int i2 = this.bitField0_ & (-5);
+                    this.bitField0_ = i2;
                     this.requestTimestampMs_ = 0L;
-                    int i4 = i3 & (-9);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-9);
+                    this.bitField0_ = i3;
                     this.sign_ = "";
-                    int i5 = i4 & (-17);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-17);
+                    this.bitField0_ = i4;
                     this.payload_ = ByteString.EMPTY;
-                    this.bitField0_ = i5 & (-33);
+                    this.bitField0_ = i4 & (-33);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -1246,9 +1246,9 @@ public final class BIMLogPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -1341,9 +1341,9 @@ public final class BIMLogPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.version_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -1589,9 +1589,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -1627,9 +1627,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -1664,9 +1664,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1787,9 +1787,9 @@ public final class BIMLogPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -1921,12 +1921,12 @@ public final class BIMLogPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setErrorCode(int i2) {
+            public Builder setErrorCode(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
                     this.bitField0_ |= 1;
-                    this.errorCode_ = i2;
+                    this.errorCode_ = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
@@ -1960,12 +1960,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setPingIntervalMs(long j2) {
+            public Builder setPingIntervalMs(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.pingIntervalMs_ = j2;
+                    this.pingIntervalMs_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1993,18 +1993,18 @@ public final class BIMLogPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     LogResponse logResponse = new LogResponse(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     logResponse.errorCode_ = this.errorCode_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     logResponse.errorMsg_ = this.errorMsg_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     logResponse.pingIntervalMs_ = this.pingIntervalMs_;
-                    logResponse.bitField0_ = i3;
+                    logResponse.bitField0_ = i2;
                     return logResponse;
                 }
                 return (LogResponse) invokeV.objValue;
@@ -2018,13 +2018,13 @@ public final class BIMLogPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.errorCode_ = 0;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.errorMsg_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.pingIntervalMs_ = 0L;
-                    this.bitField0_ = i3 & (-5);
+                    this.bitField0_ = i2 & (-5);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -2134,9 +2134,9 @@ public final class BIMLogPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -2254,9 +2254,9 @@ public final class BIMLogPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt32Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.errorCode_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -2386,9 +2386,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -2424,9 +2424,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -2461,9 +2461,9 @@ public final class BIMLogPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -2542,9 +2542,9 @@ public final class BIMLogPb {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

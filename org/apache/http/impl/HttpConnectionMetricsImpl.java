@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpConnectionMetrics;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RECEIVED_BYTES_COUNT = "http.received-bytes-count";
@@ -26,9 +26,9 @@ public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpTransportMetrics, httpTransportMetrics2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

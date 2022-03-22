@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbEditVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENTER_ANIM_VALUES = "enter_anim_values";
@@ -39,9 +39,9 @@ public class TbEditVideoActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -97,17 +97,17 @@ public class TbEditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setPageModeType(int i2) {
+    public void setPageModeType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra(KEY_EDIT_PAGE_MODE_TYPE, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra(KEY_EDIT_PAGE_MODE_TYPE, i);
         }
     }
 
-    public void setVideoFrom(int i2) {
+    public void setVideoFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            getIntent().putExtra(KEY_EDIT_VIDEO_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            getIntent().putExtra(KEY_EDIT_VIDEO_FROM, i);
         }
     }
 

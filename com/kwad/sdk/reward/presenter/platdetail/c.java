@@ -4,7 +4,7 @@ import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.presenter.platdetail.kwai.d;
 import com.kwad.sdk.reward.presenter.platdetail.kwai.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends g {
     public c(boolean z) {
         Presenter bVar;

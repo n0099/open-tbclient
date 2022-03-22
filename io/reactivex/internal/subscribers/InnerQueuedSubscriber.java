@@ -27,24 +27,24 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
     public long produced;
     public volatile SimpleQueue<T> queue;
 
-    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport<T> innerQueuedSubscriberSupport, int i2) {
+    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport<T> innerQueuedSubscriberSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {innerQueuedSubscriberSupport, Integer.valueOf(i2)};
+            Object[] objArr = {innerQueuedSubscriberSupport, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.parent = innerQueuedSubscriberSupport;
-        this.prefetch = i2;
-        this.limit = i2 - (i2 >> 2);
+        this.prefetch = i;
+        this.limit = i - (i >> 2);
     }
 
     @Override // org.reactivestreams.Subscription
@@ -121,18 +121,18 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || this.fusionMode == 1) {
+        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j) == null) || this.fusionMode == 1) {
             return;
         }
-        long j3 = this.produced + j2;
-        if (j3 >= this.limit) {
+        long j2 = this.produced + j;
+        if (j2 >= this.limit) {
             this.produced = 0L;
-            get().request(j3);
+            get().request(j2);
             return;
         }
-        this.produced = j3;
+        this.produced = j2;
     }
 
     public void requestOne() {
@@ -140,13 +140,13 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.fusionMode == 1) {
             return;
         }
-        long j2 = this.produced + 1;
-        if (j2 == this.limit) {
+        long j = this.produced + 1;
+        if (j == this.limit) {
             this.produced = 0L;
-            get().request(j2);
+            get().request(j);
             return;
         }
-        this.produced = j2;
+        this.produced = j;
     }
 
     public void setDone() {

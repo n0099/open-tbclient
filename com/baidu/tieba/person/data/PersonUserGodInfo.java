@@ -11,7 +11,7 @@ import java.util.List;
 import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 import tbclient.Profile.UserGodInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonUserGodInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int USER_GOD_TYPE_MULTI = 1;
@@ -28,9 +28,9 @@ public class PersonUserGodInfo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,10 +72,10 @@ public class PersonUserGodInfo implements Serializable {
         this.sex = userGodInfo.sex.intValue();
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.sex = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.sex = i;
         }
     }
 }

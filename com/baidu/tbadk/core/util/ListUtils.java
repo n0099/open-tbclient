@@ -19,9 +19,9 @@ public class ListUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,14 +40,14 @@ public class ListUtils {
         return invokeLL.booleanValue;
     }
 
-    public static <T> boolean addAll(List<T> list, int i2, List<T> list2) {
+    public static <T> boolean addAll(List<T> list, int i, List<T> list2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, list, i2, list2)) == null) {
-            if (list == null || i2 > list.size() || i2 < 0 || list2 == null || list2.size() <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, list, i, list2)) == null) {
+            if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
                 return false;
             }
-            list.addAll(i2, list2);
+            list.addAll(i, list2);
             return true;
         }
         return invokeLIL.booleanValue;
@@ -70,8 +70,8 @@ public class ListUtils {
             }
             if (jSONArray != null) {
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    arrayList.add(jSONArray.opt(i2));
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(jSONArray.opt(i));
                 }
             }
             return arrayList;
@@ -103,14 +103,14 @@ public class ListUtils {
         return invokeL.intValue;
     }
 
-    public static <T> T getItem(List<T> list, int i2) {
+    public static <T> T getItem(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i2)) == null) {
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= list.size()) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
                 return null;
             }
-            return list.get(i2);
+            return list.get(i);
         }
         return (T) invokeLI.objValue;
     }
@@ -133,59 +133,59 @@ public class ListUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) ? getCount(list) <= 0 : invokeL.booleanValue;
     }
 
-    public static <T> T remove(List<T> list, int i2) {
+    public static <T> T remove(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, list, i2)) == null) {
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= list.size()) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
                 return null;
             }
-            return list.remove(i2);
+            return list.remove(i);
         }
         return (T) invokeLI.objValue;
     }
 
-    public static <T> void removeSubList(List<T> list, int i2, int i3) {
+    public static <T> void removeSubList(List<T> list, int i, int i2) {
         int count;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65548, null, list, i2, i3) == null) || (count = getCount(list)) <= 0 || i2 < 0 || i3 > count) {
+        if (!(interceptable == null || interceptable.invokeLII(65548, null, list, i, i2) == null) || (count = getCount(list)) <= 0 || i < 0 || i2 > count) {
             return;
         }
-        clear(list.subList(i2, i3));
+        clear(list.subList(i, i2));
     }
 
-    public static <T> List<T> subList(List<T> list, int i2, int i3) {
+    public static <T> List<T> subList(List<T> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, list, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, list, i, i2)) == null) {
             int count = getCount(list);
-            if (count > 0 && i2 >= 0 && i3 <= count) {
-                return list.subList(i2, i3);
+            if (count > 0 && i >= 0 && i2 <= count) {
+                return list.subList(i, i2);
             }
             return null;
         }
         return (List) invokeLII.objValue;
     }
 
-    public static <T> List<T> trimToSize(List<T> list, int i2) {
+    public static <T> List<T> trimToSize(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, list, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, list, i)) == null) {
             int count = getCount(list);
-            int min = Math.min(count, i2);
+            int min = Math.min(count, i);
             return (min <= 0 || min >= count) ? list : subList(list, 0, min);
         }
         return (List) invokeLI.objValue;
     }
 
-    public static <T> boolean add(List<T> list, int i2, T t) {
+    public static <T> boolean add(List<T> list, int i, T t) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, list, i2, t)) == null) {
-            if (list == null || i2 > list.size() || i2 < 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, list, i, t)) == null) {
+            if (list == null || i > list.size() || i < 0) {
                 return false;
             }
-            list.add(i2, t);
+            list.add(i, t);
             return true;
         }
         return invokeLIL.booleanValue;

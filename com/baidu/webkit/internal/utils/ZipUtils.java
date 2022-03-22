@@ -42,9 +42,9 @@ public class ZipUtils implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zipUtils, inputStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((InputStream) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -55,27 +55,27 @@ public class ZipUtils implements INoProGuard {
         }
 
         @Override // java.util.zip.ZipInputStream, java.util.zip.InflaterInputStream, java.io.FilterInputStream, java.io.InputStream
-        public final long skip(long j2) throws IOException {
+        public final long skip(long j) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                long j3 = 0;
-                if (j2 >= 0) {
-                    int min = (int) Math.min(j2, 4096L);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                long j2 = 0;
+                if (j >= 0) {
+                    int min = (int) Math.min(j, 4096L);
                     byte[] bArr = new byte[min];
-                    while (j3 != j2) {
-                        long j4 = j2 - j3;
-                        long j5 = min;
-                        if (j5 <= j4) {
-                            j4 = j5;
+                    while (j2 != j) {
+                        long j3 = j - j2;
+                        long j4 = min;
+                        if (j4 <= j3) {
+                            j3 = j4;
                         }
-                        int read = read(bArr, 0, (int) j4);
+                        int read = read(bArr, 0, (int) j3);
                         if (read <= 0) {
-                            return j3;
+                            return j2;
                         }
-                        j3 += read;
+                        j2 += read;
                     }
-                    return j3;
+                    return j2;
                 }
                 throw new IllegalArgumentException();
             }
@@ -88,9 +88,9 @@ public class ZipUtils implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -147,8 +147,8 @@ public class ZipUtils implements INoProGuard {
             if (str != null) {
                 str = str + "/";
             }
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                stack.push(str != null ? str + strArr[i2] : strArr[i2]);
+            for (int i = 0; i < strArr.length; i++) {
+                stack.push(str != null ? str + strArr[i] : strArr[i]);
             }
         }
     }

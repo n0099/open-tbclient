@@ -2,12 +2,12 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.xiaomi.push.ga;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class gk {
     public static /* synthetic */ Interceptable $ic;
     public static XmlPullParser a;
@@ -47,11 +47,11 @@ public class gk {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, xmlPullParser)) == null) {
-            Object m413a = gj.a().m413a("all", "xm:chat");
-            if (m413a == null || !(m413a instanceof com.xiaomi.push.service.f)) {
+            Object m392a = gj.a().m392a("all", "xm:chat");
+            if (m392a == null || !(m392a instanceof com.xiaomi.push.service.f)) {
                 return null;
             }
-            return ((com.xiaomi.push.service.f) m413a).b(xmlPullParser);
+            return ((com.xiaomi.push.service.f) m392a).b(xmlPullParser);
         }
         return (fz) invokeLLL.objValue;
     }
@@ -67,8 +67,8 @@ public class gk {
             ga.a a2 = ga.a.a(xmlPullParser.getAttributeValue("", "type"));
             HashMap hashMap = new HashMap();
             boolean z = false;
-            for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
-                String attributeName = xmlPullParser.getAttributeName(i2);
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                String attributeName = xmlPullParser.getAttributeName(i);
                 hashMap.put(attributeName, xmlPullParser.getAttributeValue("", attributeName));
             }
             ga gaVar = null;
@@ -79,7 +79,7 @@ public class gk {
                     String name = xmlPullParser.getName();
                     String namespace = xmlPullParser.getNamespace();
                     if (name.equals("error")) {
-                        ggVar = m417a(xmlPullParser);
+                        ggVar = m396a(xmlPullParser);
                     } else {
                         gaVar = new ga();
                         gaVar.a(a(name, namespace, xmlPullParser));
@@ -89,14 +89,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.a == a2 || ga.a.f59663b == a2) {
+                if (ga.a.a == a2 || ga.a.f44269b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f59665d);
+                    glVar.a(ga.a.f44271d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f59702e));
+                    glVar.a(new gg(gg.a.f44305e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -153,11 +153,11 @@ public class gk {
                                 gbVar.k(attributeValue2);
                                 gbVar.f(attributeValue5);
                                 fz fzVar = new fz("s", null, null, null);
-                                fzVar.m398a(text);
+                                fzVar.m377a(text);
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f59986h, attributeValue2), text));
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f44552h, attributeValue2), text));
                             a.next();
                             gcVar = a(a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {
@@ -232,21 +232,21 @@ public class gk {
                     }
                     if (name.equals("subject")) {
                         b(xmlPullParser);
-                        gbVar2.g(m418a(xmlPullParser));
+                        gbVar2.g(m397a(xmlPullParser));
                     } else if (name.equals(TtmlNode.TAG_BODY)) {
-                        String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                        String m418a = m418a(xmlPullParser);
+                        String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.f27906c);
+                        String m397a = m397a(xmlPullParser);
                         if (TextUtils.isEmpty(attributeValue11)) {
-                            gbVar2.h(m418a);
+                            gbVar2.h(m397a);
                         } else {
-                            gbVar2.a(m418a, attributeValue11);
+                            gbVar2.a(m397a, attributeValue11);
                         }
                     } else if (name.equals("thread")) {
                         if (str2 == null) {
                             str2 = xmlPullParser.nextText();
                         }
                     } else if (name.equals("error")) {
-                        gbVar2.a(m417a(xmlPullParser));
+                        gbVar2.a(m396a(xmlPullParser));
                     } else {
                         gbVar2.a(a(name, namespace, xmlPullParser));
                     }
@@ -261,7 +261,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ge m415a(XmlPullParser xmlPullParser) {
+    public static ge m394a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
@@ -308,7 +308,7 @@ public class gk {
                             printStream2.println("Found invalid presence mode " + nextText);
                         }
                     } else if (name.equals("error")) {
-                        geVar.a(m417a(xmlPullParser));
+                        geVar.a(m396a(xmlPullParser));
                     } else {
                         geVar.a(a(name, namespace, xmlPullParser));
                     }
@@ -322,7 +322,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m416a(XmlPullParser xmlPullParser) {
+    public static gf m395a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xmlPullParser)) == null) {
@@ -342,7 +342,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m417a(XmlPullParser xmlPullParser) {
+    public static gg m396a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
@@ -351,14 +351,14 @@ public class gk {
             String str = "-1";
             String str2 = null;
             String str3 = null;
-            for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
-                if (xmlPullParser.getAttributeName(i2).equals("code")) {
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                if (xmlPullParser.getAttributeName(i).equals("code")) {
                     str = xmlPullParser.getAttributeValue("", "code");
                 }
-                if (xmlPullParser.getAttributeName(i2).equals("type")) {
+                if (xmlPullParser.getAttributeName(i).equals("type")) {
                     str3 = xmlPullParser.getAttributeValue("", "type");
                 }
-                if (xmlPullParser.getAttributeName(i2).equals("reason")) {
+                if (xmlPullParser.getAttributeName(i).equals("reason")) {
                     str2 = xmlPullParser.getAttributeValue("", "reason");
                 }
             }
@@ -386,13 +386,13 @@ public class gk {
                     str5 = xmlPullParser.getText();
                 }
             }
-            return new gg(Integer.parseInt(str), str3 == null ? QueryResponse.Options.CANCEL : str3, str2, str4, str5, arrayList);
+            return new gg(Integer.parseInt(str), str3 == null ? "cancel" : str3, str2, str4, str5, arrayList);
         }
         return (gg) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m418a(XmlPullParser xmlPullParser) {
+    public static String m397a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) != null) {
@@ -428,10 +428,10 @@ public class gk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, xmlPullParser)) == null) {
-            for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
-                String attributeName = xmlPullParser.getAttributeName(i2);
-                if ("xml:lang".equals(attributeName) || (WebvttCueParser.TAG_LANG.equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i2)))) {
-                    return xmlPullParser.getAttributeValue(i2);
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                String attributeName = xmlPullParser.getAttributeName(i);
+                if ("xml:lang".equals(attributeName) || (WebvttCueParser.TAG_LANG.equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i)))) {
+                    return xmlPullParser.getAttributeValue(i);
                 }
             }
             return null;

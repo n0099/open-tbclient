@@ -2,10 +2,10 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.c1.s;
-import c.a.r0.s1.h.d;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.c1.s;
+import c.a.p0.u1.h.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -32,9 +32,9 @@ public class UpdatesModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,9 +119,9 @@ public class UpdatesModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {updatesItemData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -132,7 +132,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.c1.k0
+            @Override // c.a.o0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -153,9 +153,9 @@ public class UpdatesModel {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -163,7 +163,7 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.q0.c1.k0
+                @Override // c.a.o0.c1.k0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -194,9 +194,9 @@ public class UpdatesModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {linkedList};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -207,7 +207,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.c1.k0
+            @Override // c.a.o0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -264,9 +264,9 @@ public class UpdatesModel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -277,7 +277,7 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.q0.c1.k0
+                @Override // c.a.o0.c1.k0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -297,11 +297,11 @@ public class UpdatesModel {
                 return null;
             }
             int size = this.dataToDelete.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                UpdatesItemData updatesItemData = this.dataToDelete.get(i2);
+            for (int i = 0; i < size; i++) {
+                UpdatesItemData updatesItemData = this.dataToDelete.get(i);
                 if (updatesItemData != null && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                     stringBuffer.append(Long.parseLong(updatesItemData.getNotice_id()) / 100);
-                    if (i2 < size - 1) {
+                    if (i < size - 1) {
                         stringBuffer.append(",");
                     }
                 }

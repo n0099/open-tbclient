@@ -46,21 +46,21 @@ public class d {
                 if (!str.startsWith("http") || (indexOf = str.indexOf(":")) == -1) {
                     return "";
                 }
-                int i2 = indexOf + 3;
-                int indexOf2 = str.indexOf(":", i2);
-                int indexOf3 = str.indexOf("/", i2);
+                int i = indexOf + 3;
+                int indexOf2 = str.indexOf(":", i);
+                int indexOf3 = str.indexOf("/", i);
                 if (indexOf2 != -1 && indexOf3 != -1) {
                     max = Math.min(indexOf2, indexOf3);
                 } else {
                     max = Math.max(indexOf2, indexOf3);
                 }
-                if (max != -1 || i2 >= str.length()) {
-                    if (i2 != -1 && i2 < max) {
-                        return str.substring(i2, max);
+                if (max != -1 || i >= str.length()) {
+                    if (i != -1 && i < max) {
+                        return str.substring(i, max);
                     }
                     return "";
                 }
-                return str.substring(i2);
+                return str.substring(i);
             }
         }
         return (String) invokeL.objValue;
@@ -97,7 +97,7 @@ public class d {
         HttpGet httpGet;
         byte[] bArr;
         byte[] bArr2;
-        int i2;
+        int i;
         HttpResponse execute;
         InputStream content;
         Interceptable interceptable = $ic;
@@ -118,14 +118,14 @@ public class d {
                 schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
                 DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
                 str = "";
-                int i3 = 0;
+                int i2 = 0;
                 InputStream inputStream = null;
                 try {
                     httpGet = new HttpGet("http://tb.hiphotos.baidu.com/album/%3Bq%3D90/sign=b0a01f07223fb80e409d69de06d12ffb/dcc451da81cb39db07b47460d3160924ab18308b.jpg");
                     try {
                         try {
                             execute = defaultHttpClient.execute(httpGet);
-                            i2 = execute.getStatusLine().getStatusCode();
+                            i = execute.getStatusLine().getStatusCode();
                         } catch (Exception e2) {
                             e = e2;
                         }
@@ -133,7 +133,7 @@ public class d {
                             content = execute.getEntity().getContent();
                         } catch (Exception e3) {
                             e = e3;
-                            i3 = i2;
+                            i2 = i;
                             bArr = null;
                             str = e.toString();
                             if (inputStream != null) {
@@ -150,11 +150,11 @@ public class d {
                                 }
                             }
                             bArr2 = bArr;
-                            i2 = i3;
+                            i = i2;
                             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                             sb.append("-imgResponseCode_");
-                            sb.append(i2);
-                            if (i2 == 200) {
+                            sb.append(i);
+                            if (i == 200) {
                             }
                             if (!m.isEmpty(str)) {
                             }
@@ -168,7 +168,7 @@ public class d {
                     try {
                     } catch (Exception e5) {
                         e = e5;
-                        i3 = i2;
+                        i2 = i;
                         inputStream = content;
                         bArr = null;
                         str = e.toString();
@@ -177,11 +177,11 @@ public class d {
                         if (httpGet != null) {
                         }
                         bArr2 = bArr;
-                        i2 = i3;
+                        i = i2;
                         long currentTimeMillis22 = System.currentTimeMillis() - currentTimeMillis;
                         sb.append("-imgResponseCode_");
-                        sb.append(i2);
-                        if (i2 == 200) {
+                        sb.append(i);
+                        if (i == 200) {
                         }
                         if (!m.isEmpty(str)) {
                         }
@@ -243,8 +243,8 @@ public class d {
                 }
                 long currentTimeMillis222 = System.currentTimeMillis() - currentTimeMillis;
                 sb.append("-imgResponseCode_");
-                sb.append(i2);
-                if (i2 == 200) {
+                sb.append(i);
+                if (i == 200) {
                     if (bArr2 != null) {
                         int length = bArr2.length;
                         String d2 = t.d(bArr2);
@@ -293,7 +293,7 @@ public class d {
         Exception e2;
         HttpURLConnection httpURLConnection;
         byte[] bArr;
-        int i2;
+        int i;
         HttpURLConnection httpURLConnection2;
         String str;
         byte[] bArr2;
@@ -313,7 +313,7 @@ public class d {
                         bArr = null;
                         e2 = e3;
                         httpURLConnection = r0;
-                        i2 = 0;
+                        i = 0;
                         httpURLConnection2 = httpURLConnection;
                         String exc = e2.toString();
                         if (inputStream2 != null) {
@@ -333,8 +333,8 @@ public class d {
                         bArr2 = bArr;
                         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                         sb.append("-imgResponseCode_");
-                        sb.append(i2);
-                        if (i2 == 200) {
+                        sb.append(i);
+                        if (i == 200) {
                         }
                         if (!m.isEmpty(str)) {
                         }
@@ -357,7 +357,7 @@ public class d {
                 r0.setConnectTimeout(3000);
                 r0.setReadTimeout(10000);
                 r0.connect();
-                i2 = r0.getResponseCode();
+                i = r0.getResponseCode();
                 try {
                     inputStream = r0.getInputStream();
                 } catch (Exception e6) {
@@ -381,8 +381,8 @@ public class d {
                     bArr2 = bArr;
                     long currentTimeMillis22 = System.currentTimeMillis() - currentTimeMillis;
                     sb.append("-imgResponseCode_");
-                    sb.append(i2);
-                    if (i2 == 200) {
+                    sb.append(i);
+                    if (i == 200) {
                     }
                     if (!m.isEmpty(str)) {
                     }
@@ -434,8 +434,8 @@ public class d {
                     str = "";
                     long currentTimeMillis222 = System.currentTimeMillis() - currentTimeMillis;
                     sb.append("-imgResponseCode_");
-                    sb.append(i2);
-                    if (i2 == 200) {
+                    sb.append(i);
+                    if (i == 200) {
                         if (bArr2 != null) {
                             int length = bArr2.length;
                             String d2 = t.d(bArr2);

@@ -19,7 +19,7 @@ public class g implements c {
     public Message a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f2496b;
+    public Set<String> f2054b;
 
     public g(Message message) {
         Interceptable interceptable = $ic;
@@ -28,9 +28,9 @@ public class g implements c {
             newInitContext.initArgs = r2;
             Object[] objArr = {message};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,13 +38,13 @@ public class g implements c {
         }
         this.a = message;
         List<Field> b2 = c.a.d.f.b.a.a.b(message.getClass());
-        this.f2496b = new HashSet();
+        this.f2054b = new HashSet();
         if (b2 == null || b2.size() <= 0) {
             return;
         }
         for (Field field : b2) {
             if (field != null) {
-                this.f2496b.add(field.getName());
+                this.f2054b.add(field.getName());
             }
         }
     }
@@ -83,6 +83,6 @@ public class g implements c {
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2496b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2054b : (Set) invokeV.objValue;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PreloadTarget<Z> extends SimpleTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Handler HANDLER;
@@ -45,9 +45,9 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -71,17 +71,17 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PreloadTarget(RequestManager requestManager, int i2, int i3) {
-        super(i2, i3);
+    public PreloadTarget(RequestManager requestManager, int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {requestManager, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {requestManager, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -92,10 +92,10 @@ public final class PreloadTarget<Z> extends SimpleTarget<Z> {
         this.requestManager = requestManager;
     }
 
-    public static <Z> PreloadTarget<Z> obtain(RequestManager requestManager, int i2, int i3) {
+    public static <Z> PreloadTarget<Z> obtain(RequestManager requestManager, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, requestManager, i2, i3)) == null) ? new PreloadTarget<>(requestManager, i2, i3) : (PreloadTarget) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, requestManager, i, i2)) == null) ? new PreloadTarget<>(requestManager, i, i2) : (PreloadTarget) invokeLII.objValue;
     }
 
     public void clear() {

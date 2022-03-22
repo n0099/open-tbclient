@@ -24,9 +24,9 @@ public class y extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {xVar, looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,40 +47,40 @@ public class y extends Handler {
         Handler handler2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i2 = message.what;
+            int i = message.what;
             try {
-                if (i2 != 1) {
-                    if (i2 == 2) {
+                if (i != 1) {
+                    if (i == 2) {
                         c2 = t.c();
                         n = com.baidu.location.c.i.a().n();
                         d2 = t.d();
                         a = t.a();
-                    } else if (i2 == 3) {
+                    } else if (i == 3) {
                         c2 = t.c();
                         n = null;
                         d2 = t.d();
                         a = a.a().c();
-                    } else if (i2 != 4) {
-                        if (i2 == 7) {
+                    } else if (i != 4) {
+                        if (i == 7) {
                             w.a().c();
                             return;
-                        } else if (i2 == 8 || i2 == 9) {
+                        } else if (i == 8 || i == 9) {
                             message.getData();
                             return;
                         } else {
                             return;
                         }
                     } else {
-                        boolean i3 = com.baidu.location.c.i.i();
+                        boolean i2 = com.baidu.location.c.i.i();
                         if (com.baidu.location.e.k.b()) {
-                            i3 = false;
+                            i2 = false;
                         }
-                        if (i3) {
+                        if (i2) {
                             h.a().d();
                         }
-                        handler = this.a.f33704d;
+                        handler = this.a.f25995d;
                         if (handler != null) {
-                            handler2 = this.a.f33704d;
+                            handler2 = this.a.f25995d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }

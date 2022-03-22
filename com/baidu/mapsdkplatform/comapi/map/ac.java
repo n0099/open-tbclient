@@ -34,78 +34,76 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34471b;
+    public static int f26678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f34472c;
+    public static int f26679c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public GestureDetector f34473d;
+    public GestureDetector f26680d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f34474e;
+    public Handler f26681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34475f;
+    public boolean f26682f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceTexture f34476g;
+    public SurfaceTexture f26683g;
 
     /* renamed from: h  reason: collision with root package name */
-    public m f34477h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public e f34478i;
+    public m f26684h;
+    public e i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(Context context, z zVar, String str, int i2) {
+    public ac(Context context, z zVar, String str, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, zVar, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, zVar, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34475f = false;
-        this.f34477h = null;
-        a(context, zVar, str, i2);
+        this.f26682f = false;
+        this.f26684h = null;
+        a(context, zVar, str, i);
     }
 
-    private void a(Context context, z zVar, String str, int i2) {
+    private void a(Context context, z zVar, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65538, this, context, zVar, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65538, this, context, zVar, str, i) == null) {
             setSurfaceTextureListener(this);
             if (context == null) {
                 throw new RuntimeException("BDMapSDKException: when you create an mapview, the context can not be null");
             }
-            this.f34473d = new GestureDetector(context, this);
+            this.f26680d = new GestureDetector(context, this);
             EnvironmentUtilities.initAppDirectory(context);
-            if (this.f34478i == null) {
-                this.f34478i = new e(context, str, i2);
+            if (this.i == null) {
+                this.i = new e(context, str, i);
             }
-            this.f34478i.a(context.hashCode());
-            this.f34478i.a();
-            this.f34478i.a(zVar);
+            this.i.a(context.hashCode());
+            this.i.a();
+            this.i.a(zVar);
             e();
-            this.f34478i.a(this.f34474e);
-            this.f34478i.f();
+            this.i.a(this.f26681e);
+            this.i.f();
         }
     }
 
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f34474e = new ad(this);
+            this.f26681e = new ad(this);
         }
     }
 
@@ -114,45 +112,45 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e eVar = this.f34478i;
+            e eVar = this.i;
             if (eVar == null) {
                 return 0;
             }
-            if (f34472c <= 1) {
-                MapRenderer.nativeResize(eVar.f34503j, a, f34471b);
-                f34472c++;
+            if (f26679c <= 1) {
+                MapRenderer.nativeResize(eVar.j, a, f26678b);
+                f26679c++;
             }
-            return MapRenderer.nativeRender(this.f34478i.f34503j);
+            return MapRenderer.nativeRender(this.i.j);
         }
         return invokeV.intValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            synchronized (this.f34478i) {
-                if (this.f34478i.f34501h != null) {
-                    for (l lVar : this.f34478i.f34501h) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this.i) {
+                if (this.i.f26705h != null) {
+                    for (l lVar : this.i.f26705h) {
                         if (lVar != null) {
                             lVar.f();
                         }
                     }
                 }
-                if (this.f34478i != null) {
-                    this.f34478i.b(this.f34474e);
-                    this.f34478i.b(i2);
-                    this.f34478i = null;
+                if (this.i != null) {
+                    this.i.b(this.f26681e);
+                    this.i.b(i);
+                    this.i = null;
                 }
-                this.f34474e.removeCallbacksAndMessages(null);
-                if (this.f34477h != null) {
-                    this.f34477h.c();
-                    this.f34477h = null;
+                this.f26681e.removeCallbacksAndMessages(null);
+                if (this.f26684h != null) {
+                    this.f26684h.c();
+                    this.f26684h = null;
                 }
-                if (this.f34476g != null) {
+                if (this.f26683g != null) {
                     if (Build.VERSION.SDK_INT >= 19) {
-                        this.f34476g.release();
+                        this.f26683g.release();
                     }
-                    this.f34476g = null;
+                    this.f26683g = null;
                 }
             }
         }
@@ -163,28 +161,28 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, rect) == null) || (eVar = this.f34478i) == null || (aVar = eVar.f34502i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, rect) == null) || (eVar = this.i) == null || (aVar = eVar.i) == null) {
             return;
         }
         if (rect != null) {
-            int i2 = rect.left;
-            int i3 = f34471b;
-            int i4 = rect.bottom;
-            int i5 = i3 < i4 ? 0 : i3 - i4;
+            int i = rect.left;
+            int i2 = f26678b;
+            int i3 = rect.bottom;
+            int i4 = i2 < i3 ? 0 : i2 - i3;
             int width = rect.width();
             int height = rect.height();
-            if (i2 < 0 || i5 < 0 || width <= 0 || height <= 0) {
+            if (i < 0 || i4 < 0 || width <= 0 || height <= 0) {
                 return;
             }
             if (width > a) {
                 width = Math.abs(rect.width()) - (rect.right - a);
             }
-            if (height > f34471b) {
-                height = Math.abs(rect.height()) - (rect.bottom - f34471b);
+            if (height > f26678b) {
+                height = Math.abs(rect.height()) - (rect.bottom - f26678b);
             }
-            if (i2 > SysOSUtil.getScreenSizeX() || i5 > SysOSUtil.getScreenSizeY()) {
-                this.f34478i.f34502i.a(str, (Bundle) null);
-                m mVar2 = this.f34477h;
+            if (i > SysOSUtil.getScreenSizeX() || i4 > SysOSUtil.getScreenSizeY()) {
+                this.i.i.a(str, (Bundle) null);
+                m mVar2 = this.f26684h;
                 if (mVar2 != null) {
                     mVar2.a();
                     return;
@@ -192,20 +190,20 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                 return;
             }
             a = width;
-            f34471b = height;
+            f26678b = height;
             Bundle bundle = new Bundle();
-            bundle.putInt("x", i2);
-            bundle.putInt("y", i5);
+            bundle.putInt("x", i);
+            bundle.putInt("y", i4);
             bundle.putInt("width", width);
             bundle.putInt("height", height);
-            this.f34478i.f34502i.a(str, bundle);
-            mVar = this.f34477h;
+            this.i.i.a(str, bundle);
+            mVar = this.f26684h;
             if (mVar == null) {
                 return;
             }
         } else {
             aVar.a(str, (Bundle) null);
-            mVar = this.f34477h;
+            mVar = this.f26684h;
             if (mVar == null) {
                 return;
             }
@@ -216,16 +214,16 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
     public e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34478i : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : (e) invokeV.objValue;
     }
 
     public void c() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (eVar = this.f34478i) == null || eVar.f34502i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (eVar = this.i) == null || eVar.i == null) {
             return;
         }
-        List<l> list = eVar.f34501h;
+        List<l> list = eVar.f26705h;
         if (list != null) {
             for (l lVar : list) {
                 if (lVar != null) {
@@ -233,15 +231,15 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                 }
             }
         }
-        this.f34478i.f34502i.g();
-        this.f34478i.f34502i.d();
-        this.f34478i.f34502i.n();
-        m mVar = this.f34477h;
+        this.i.i.g();
+        this.i.i.d();
+        this.i.i.n();
+        m mVar = this.f26684h;
         if (mVar != null) {
             mVar.a();
         }
-        if (this.f34478i.b()) {
-            this.f34475f = true;
+        if (this.i.b()) {
+            this.f26682f = true;
         }
     }
 
@@ -249,15 +247,15 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         e eVar;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.f34478i) == null || (aVar = eVar.f34502i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.i) == null || (aVar = eVar.i) == null) {
             return;
         }
-        this.f34475f = false;
+        this.f26682f = false;
         aVar.c();
-        synchronized (this.f34478i) {
-            this.f34478i.f34502i.c();
-            if (this.f34477h != null) {
-                this.f34477h.b();
+        synchronized (this.i) {
+            this.i.i.c();
+            if (this.f26684h != null) {
+                this.f26684h.b();
             }
         }
     }
@@ -267,13 +265,13 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            e eVar = this.f34478i;
-            if (eVar == null || eVar.f34502i == null || !eVar.k) {
+            e eVar = this.i;
+            if (eVar == null || eVar.i == null || !eVar.k) {
                 return true;
             }
             GeoPoint b2 = eVar.b((int) motionEvent.getX(), (int) motionEvent.getY());
             if (b2 != null) {
-                List<l> list = this.f34478i.f34501h;
+                List<l> list = this.i.f26705h;
                 if (list != null) {
                     for (l lVar : list) {
                         if (lVar != null) {
@@ -281,16 +279,16 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                         }
                     }
                 }
-                e eVar2 = this.f34478i;
-                if (eVar2.f34499f) {
+                e eVar2 = this.i;
+                if (eVar2.f26703f) {
                     ab E = eVar2.E();
                     E.a += 1.0f;
-                    if (!this.f34478i.f34500g) {
-                        E.f34456d = b2.getLongitudeE6();
-                        E.f34457e = b2.getLatitudeE6();
+                    if (!this.i.f26704g) {
+                        E.f26666d = b2.getLongitudeE6();
+                        E.f26667e = b2.getLatitudeE6();
                     }
                     BaiduMap.mapStatusReason |= 1;
-                    this.f34478i.a(E, 300);
+                    this.i.a(E, 300);
                     e.m = System.currentTimeMillis();
                     return true;
                 }
@@ -325,19 +323,19 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            e eVar = this.f34478i;
-            if (eVar == null || eVar.f34502i == null || !eVar.k) {
+            e eVar = this.i;
+            if (eVar == null || eVar.i == null || !eVar.k) {
                 return true;
             }
-            if (eVar.f34498e) {
+            if (eVar.f26702e) {
                 float sqrt = (float) Math.sqrt((f2 * f2) + (f3 * f3));
                 if (sqrt <= 500.0f) {
                     return false;
                 }
                 BaiduMap.mapStatusReason |= 1;
-                this.f34478i.A();
-                this.f34478i.a(34, (int) (sqrt * 0.6f), ((int) motionEvent2.getX()) | (((int) motionEvent2.getY()) << 16));
-                this.f34478i.M();
+                this.i.A();
+                this.i.a(34, (int) (sqrt * 0.6f), ((int) motionEvent2.getX()) | (((int) motionEvent2.getY()) << 16));
+                this.i.M();
                 return true;
             }
             return false;
@@ -350,27 +348,27 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         e eVar;
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, motionEvent) == null) || (eVar = this.f34478i) == null || (aVar = eVar.f34502i) == null || !eVar.k) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, motionEvent) == null) || (eVar = this.i) == null || (aVar = eVar.i) == null || !eVar.k) {
             return;
         }
-        String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f34478i.l);
-        if (this.f34478i.f34501h == null) {
+        String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.i.l);
+        if (this.i.f26705h == null) {
             return;
         }
         if (a2 == null || a2.equals("")) {
-            for (l lVar : this.f34478i.f34501h) {
-                GeoPoint b2 = this.f34478i.b((int) motionEvent.getX(), (int) motionEvent.getY());
+            for (l lVar : this.i.f26705h) {
+                GeoPoint b2 = this.i.b((int) motionEvent.getX(), (int) motionEvent.getY());
                 if (lVar != null) {
                     lVar.c(b2);
                 }
             }
             return;
         }
-        for (l lVar2 : this.f34478i.f34501h) {
+        for (l lVar2 : this.i.f26705h) {
             if (lVar2.b(a2)) {
-                this.f34478i.p = true;
+                this.i.p = true;
             } else {
-                lVar2.c(this.f34478i.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+                lVar2.c(this.i.b((int) motionEvent.getX(), (int) motionEvent.getY()));
             }
         }
     }
@@ -403,16 +401,16 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
-            e eVar = this.f34478i;
-            if (eVar == null || (aVar = eVar.f34502i) == null || !eVar.k || eVar.f34501h == null) {
+            e eVar = this.i;
+            if (eVar == null || (aVar = eVar.i) == null || !eVar.k || eVar.f26705h == null) {
                 return true;
             }
-            String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.f34478i.l);
+            String a2 = aVar.a(-1, (int) motionEvent.getX(), (int) motionEvent.getY(), this.i.l);
             JSONObject jSONObject2 = null;
             if (a2 == null || a2.equals("")) {
-                for (l lVar : this.f34478i.f34501h) {
+                for (l lVar : this.i.f26705h) {
                     if (lVar != null) {
-                        lVar.a(this.f34478i.b((int) motionEvent.getX(), (int) motionEvent.getY()));
+                        lVar.a(this.i.b((int) motionEvent.getX(), (int) motionEvent.getY()));
                     }
                 }
             } else {
@@ -433,7 +431,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                     }
                     return true;
                 }
-                for (l lVar2 : this.f34478i.f34501h) {
+                for (l lVar2 : this.i.f26705h) {
                     if (jSONObject != null && lVar2 != null) {
                         lVar2.a(jSONObject.toString());
                     }
@@ -464,43 +462,43 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048591, this, surfaceTexture, i2, i3) == null) || this.f34478i == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048591, this, surfaceTexture, i, i2) == null) || this.i == null) {
             return;
         }
-        SurfaceTexture surfaceTexture2 = this.f34476g;
+        SurfaceTexture surfaceTexture2 = this.f26683g;
         if (surfaceTexture2 != null) {
             setSurfaceTexture(surfaceTexture2);
             return;
         }
-        this.f34476g = surfaceTexture;
-        m mVar = new m(this.f34476g, this, new AtomicBoolean(true), this);
-        this.f34477h = mVar;
+        this.f26683g = surfaceTexture;
+        m mVar = new m(this.f26683g, this, new AtomicBoolean(true), this);
+        this.f26684h = mVar;
         mVar.start();
-        a = i2;
-        f34471b = i3;
-        ab E = this.f34478i.E();
+        a = i;
+        f26678b = i2;
+        ab E = this.i.E();
         if (E == null) {
             return;
         }
-        int i4 = E.f34458f;
+        int i3 = E.f26668f;
+        if (i3 != 0 && i3 != -1) {
+            WinRound winRound = E.j;
+        }
+        E.f26668f = -1;
+        int i4 = E.f26669g;
         if (i4 != 0 && i4 != -1) {
-            WinRound winRound = E.f34462j;
+            WinRound winRound2 = E.j;
         }
-        E.f34458f = -1;
-        int i5 = E.f34459g;
-        if (i5 != 0 && i5 != -1) {
-            WinRound winRound2 = E.f34462j;
-        }
-        E.f34459g = -1;
-        WinRound winRound3 = E.f34462j;
+        E.f26669g = -1;
+        WinRound winRound3 = E.j;
         winRound3.left = 0;
         winRound3.top = 0;
-        winRound3.bottom = i3;
-        winRound3.right = i2;
-        this.f34478i.a(E);
-        this.f34478i.a(a, f34471b);
+        winRound3.bottom = i2;
+        winRound3.right = i;
+        this.i.a(E);
+        this.i.a(a, f26678b);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -523,41 +521,41 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048593, this, surfaceTexture, i2, i3) == null) || (eVar = this.f34478i) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048593, this, surfaceTexture, i, i2) == null) || (eVar = this.i) == null) {
             return;
         }
-        a = i2;
-        f34471b = i3;
-        f34472c = 1;
+        a = i;
+        f26678b = i2;
+        f26679c = 1;
         ab E = eVar.E();
-        int i4 = E.f34458f;
+        int i3 = E.f26668f;
+        if (i3 != 0 && i3 != -1) {
+            WinRound winRound = E.j;
+        }
+        E.f26668f = -1;
+        int i4 = E.f26669g;
         if (i4 != 0 && i4 != -1) {
-            WinRound winRound = E.f34462j;
+            WinRound winRound2 = E.j;
         }
-        E.f34458f = -1;
-        int i5 = E.f34459g;
-        if (i5 != 0 && i5 != -1) {
-            WinRound winRound2 = E.f34462j;
-        }
-        E.f34459g = -1;
-        WinRound winRound3 = E.f34462j;
+        E.f26669g = -1;
+        WinRound winRound3 = E.j;
         winRound3.left = 0;
         winRound3.top = 0;
-        winRound3.bottom = i3;
-        winRound3.right = i2;
-        this.f34478i.a(E);
-        this.f34478i.a(a, f34471b);
-        MapRenderer.nativeResize(this.f34478i.f34503j, i2, i3);
+        winRound3.bottom = i2;
+        winRound3.right = i;
+        this.i.a(E);
+        this.i.a(a, f26678b);
+        MapRenderer.nativeResize(this.i.j, i, i2);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         m mVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, surfaceTexture) == null) && this.f34475f && (mVar = this.f34477h) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048594, this, surfaceTexture) == null) && this.f26682f && (mVar = this.f26684h) != null) {
             mVar.a();
         }
     }
@@ -567,12 +565,12 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, motionEvent)) == null) {
-            e eVar = this.f34478i;
-            if (eVar == null || eVar.f34502i == null) {
+            e eVar = this.i;
+            if (eVar == null || eVar.i == null) {
                 return true;
             }
             super.onTouchEvent(motionEvent);
-            List<l> list = this.f34478i.f34501h;
+            List<l> list = this.i.f26705h;
             if (list != null) {
                 for (l lVar : list) {
                     if (lVar != null) {
@@ -580,10 +578,10 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
                     }
                 }
             }
-            if (this.f34473d.onTouchEvent(motionEvent)) {
+            if (this.f26680d.onTouchEvent(motionEvent)) {
                 return true;
             }
-            return this.f34478i.a(motionEvent);
+            return this.i.a(motionEvent);
         }
         return invokeL.booleanValue;
     }

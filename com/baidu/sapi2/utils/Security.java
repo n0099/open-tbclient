@@ -26,20 +26,20 @@ public class Security {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String getZid(Context context, int i2) {
+    public static String getZid(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
-            String gzfi = FH.gzfi(context, null, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            String gzfi = FH.gzfi(context, null, i);
             return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
         }
         return (String) invokeLI.objValue;

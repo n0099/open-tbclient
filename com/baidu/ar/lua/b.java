@@ -32,9 +32,9 @@ public class b extends com.baidu.ar.arplay.b.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,24 +49,24 @@ public class b extends com.baidu.ar.arplay.b.a {
         c(dVar);
     }
 
-    private synchronized boolean b(int i2, int i3, HashMap<String, Object> hashMap) {
+    private synchronized boolean b(int i, int i2, HashMap<String, Object> hashMap) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, this, i2, i3, hashMap)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, this, i, i2, hashMap)) == null) {
             synchronized (this) {
-                if (i2 == 1001) {
+                if (i == 1001) {
                     hashMap.put("audio_status", "audio_play");
                     return true;
-                } else if (i2 == 1003) {
+                } else if (i == 1003) {
                     hashMap.put("audio_status", "audio_pause");
                     return true;
-                } else if (i2 == 1005) {
+                } else if (i == 1005) {
                     hashMap.put("audio_status", "audio_resume");
                     return true;
-                } else if (i2 == 1007) {
+                } else if (i == 1007) {
                     hashMap.put("audio_status", "audio_stop");
                     return true;
-                } else if (i2 != 1012) {
+                } else if (i != 1012) {
                     return false;
                 } else {
                     hashMap.put("audio_status", "audio_reset");
@@ -84,10 +84,10 @@ public class b extends com.baidu.ar.arplay.b.a {
         }
     }
 
-    public void b(int i2, HashMap<String, Object> hashMap) {
+    public void b(int i, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, hashMap) == null) {
-            ARPMessage.getInstance().sendMessage(i2, hashMap);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap) == null) {
+            ARPMessage.getInstance().sendMessage(i, hashMap);
         }
     }
 
@@ -164,32 +164,32 @@ public class b extends com.baidu.ar.arplay.b.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void handleMessage(int i2, int i3, HashMap<String, Object> hashMap) {
+    public synchronized void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIIL(1048582, this, i2, i3, hashMap) != null) {
+        if (interceptable != null && interceptable.invokeIIL(1048582, this, i, i2, hashMap) != null) {
             return;
         }
         synchronized (this) {
-            com.baidu.ar.h.b.c("EngineMsgBridge", "handleMessage aMessageType = " + i2 + " && aMessageID = " + i3);
-            if (this.aJ && b(i2, i3, hashMap)) {
-                i2 = 1901;
+            com.baidu.ar.h.b.c("EngineMsgBridge", "handleMessage aMessageType = " + i + " && aMessageID = " + i2);
+            if (this.aJ && b(i, i2, hashMap)) {
+                i = 1901;
                 if (this.sV != null) {
                     return;
                 }
-                for (int i4 = 0; i4 < this.sV.size(); i4++) {
-                    WeakReference<c> weakReference = this.sV.get(i4);
+                for (int i3 = 0; i3 < this.sV.size(); i3++) {
+                    WeakReference<c> weakReference = this.sV.get(i3);
                     if (weakReference != null && (cVar = weakReference.get()) != null && cVar.n() != null) {
                         for (Integer num : cVar.n()) {
-                            if (i2 == num.intValue()) {
-                                cVar.a(i2, i3, hashMap);
+                            if (i == num.intValue()) {
+                                cVar.a(i, i2, hashMap);
                             }
                         }
                     }
                 }
                 return;
             }
-            super.handleMessage(i2, i3, hashMap);
+            super.handleMessage(i, i2, hashMap);
             if (this.sV != null) {
             }
         }

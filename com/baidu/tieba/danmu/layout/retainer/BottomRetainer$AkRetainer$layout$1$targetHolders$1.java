@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.r0.l0.h.i.a;
-import c.a.r0.l0.j.b;
+import c.a.p0.n0.h.i.a;
+import c.a.p0.n0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,17 +40,17 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
     public final /* synthetic */ BottomRetainer.AkRetainer this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomRetainer$AkRetainer$layout$1$targetHolders$1(b bVar, BottomRetainer.AkRetainer akRetainer, int i2, Continuation<? super BottomRetainer$AkRetainer$layout$1$targetHolders$1> continuation) {
+    public BottomRetainer$AkRetainer$layout$1$targetHolders$1(b bVar, BottomRetainer.AkRetainer akRetainer, int i, Continuation<? super BottomRetainer$AkRetainer$layout$1$targetHolders$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, akRetainer, Integer.valueOf(i2), continuation};
+            Object[] objArr = {bVar, akRetainer, Integer.valueOf(i), continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,7 +60,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
         }
         this.$displayer = bVar;
         this.this$0 = akRetainer;
-        this.$margin = i2;
+        this.$margin = i;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -96,7 +96,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
         TreeSet treeSet;
         SequenceScope sequenceScope;
         Ref.IntRef intRef;
-        int i2;
+        int i;
         BottomRetainer$AkRetainer$layout$1$targetHolders$1 bottomRetainer$AkRetainer$layout$1$targetHolders$1;
         Iterator it;
         a.d dVar;
@@ -106,22 +106,22 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             return invokeL.objValue;
         }
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i3 = this.label;
-        if (i3 == 0) {
+        int i2 = this.label;
+        if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
             Ref.IntRef intRef2 = new Ref.IntRef();
             intRef2.element = this.$displayer.getHeight();
-            treeSet = this.this$0.f41086b;
-            int i4 = this.$margin;
+            treeSet = this.this$0.f31733b;
+            int i3 = this.$margin;
             sequenceScope = (SequenceScope) this.L$0;
             intRef = intRef2;
-            i2 = i4;
+            i = i3;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1 = this;
             it = treeSet.iterator();
             if (!it.hasNext()) {
             }
-        } else if (i3 == 1) {
-            i2 = this.I$0;
+        } else if (i2 == 1) {
+            i = this.I$0;
             dVar = (a.d) this.L$3;
             it = (Iterator) this.L$2;
             intRef = (Ref.IntRef) this.L$1;
@@ -133,37 +133,37 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$3 = dVar;
-            bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i2;
+            bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.label = 2;
             if (sequenceScope.yield(bVar, bottomRetainer$AkRetainer$layout$1$targetHolders$1) == coroutine_suspended) {
             }
-            intRef.element = dVar.g() - i2;
+            intRef.element = dVar.g() - i;
             if (!it.hasNext()) {
             }
-        } else if (i3 != 2) {
-            if (i3 != 3) {
+        } else if (i2 != 2) {
+            if (i2 != 3) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
             ResultKt.throwOnFailure(obj);
             return Unit.INSTANCE;
         } else {
-            i2 = this.I$0;
+            i = this.I$0;
             dVar = (a.d) this.L$3;
             it = (Iterator) this.L$2;
             intRef = (Ref.IntRef) this.L$1;
             sequenceScope = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
             bottomRetainer$AkRetainer$layout$1$targetHolders$1 = this;
-            intRef.element = dVar.g() - i2;
+            intRef.element = dVar.g() - i;
             if (!it.hasNext()) {
                 dVar = (a.d) it.next();
-                if (dVar.a() + i2 < intRef.element) {
-                    a.b bVar2 = new a.b(null, new IntRange(dVar.a() + i2, intRef.element));
+                if (dVar.a() + i < intRef.element) {
+                    a.b bVar2 = new a.b(null, new IntRange(dVar.a() + i, intRef.element));
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$0 = sequenceScope;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$3 = dVar;
-                    bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i2;
+                    bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.label = 1;
                     if (sequenceScope.yield(bVar2, bottomRetainer$AkRetainer$layout$1$targetHolders$1) == coroutine_suspended) {
                         return coroutine_suspended;
@@ -174,12 +174,12 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$3 = dVar;
-                bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i2;
+                bottomRetainer$AkRetainer$layout$1$targetHolders$1.I$0 = i;
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.label = 2;
                 if (sequenceScope.yield(bVar, bottomRetainer$AkRetainer$layout$1$targetHolders$1) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-                intRef.element = dVar.g() - i2;
+                intRef.element = dVar.g() - i;
                 if (!it.hasNext()) {
                     if (intRef.element > bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.e() + (bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.getHeight() * bottomRetainer$AkRetainer$layout$1$targetHolders$1.this$0.d())) {
                         a.b bVar3 = new a.b(null, new IntRange((int) bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.e(), intRef.element));

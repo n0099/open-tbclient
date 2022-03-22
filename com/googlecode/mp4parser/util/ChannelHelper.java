@@ -38,9 +38,9 @@ public class ChannelHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,21 +54,21 @@ public class ChannelHelper {
         }
     }
 
-    public static int readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer, int i2) throws IOException {
+    public static int readFully(ReadableByteChannel readableByteChannel, ByteBuffer byteBuffer, int i) throws IOException {
         InterceptResult invokeLLI;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, readableByteChannel, byteBuffer, i2)) == null) {
-            int i3 = 0;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, readableByteChannel, byteBuffer, i)) == null) {
+            int i2 = 0;
             do {
                 read = readableByteChannel.read(byteBuffer);
                 if (-1 == read) {
                     break;
                 }
-                i3 += read;
-            } while (i3 != i2);
+                i2 += read;
+            } while (i2 != i);
             if (read != -1) {
-                return i3;
+                return i2;
             }
             throw new EOFException("End of file. No more boxes.");
         }

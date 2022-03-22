@@ -15,17 +15,17 @@ public class SmoothProgressBar extends RotateProgressBar {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SmoothProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -39,7 +39,7 @@ public class SmoothProgressBar extends RotateProgressBar {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.mFrameDuration = (int) ((((this.mFrameDuration * 12.0f) / 36.0f) / 2.0f) + 0.5f);
+            this.f27789d = (int) ((((this.f27789d * 12.0f) / 36.0f) / 2.0f) + 0.5f);
         }
     }
 
@@ -48,18 +48,18 @@ public class SmoothProgressBar extends RotateProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.mCurrentDrawable;
+                Drawable drawable = this.f27787b;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.mLastDrawTime >= this.mFrameDuration) {
-                        this.mLastDrawTime = SystemClock.uptimeMillis();
-                        int i2 = this.mDegree + 277;
-                        this.mDegree = i2;
-                        if (i2 >= 10000) {
-                            this.mDegree = i2 - 10000;
+                    if (SystemClock.uptimeMillis() - this.f27788c >= this.f27789d) {
+                        this.f27788c = SystemClock.uptimeMillis();
+                        int i = this.a + 277;
+                        this.a = i;
+                        if (i >= 10000) {
+                            this.a = i - 10000;
                         }
-                        drawable.setLevel(this.mDegree);
-                        postInvalidateDelayed(this.mFrameDuration);
+                        drawable.setLevel(this.a);
+                        postInvalidateDelayed(this.f27789d);
                     }
                 }
             }
@@ -75,9 +75,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -97,9 +97,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

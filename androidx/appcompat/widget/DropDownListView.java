@@ -62,9 +62,9 @@ public class DropDownListView extends ListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {drawable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Drawable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -98,10 +98,10 @@ public class DropDownListView extends ListView {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-        public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+        public void setHotspotBounds(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) && this.mEnabled) {
-                super.setHotspotBounds(i2, i3, i4, i5);
+            if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && this.mEnabled) {
+                super.setHotspotBounds(i, i2, i3, i4);
             }
         }
 
@@ -145,9 +145,9 @@ public class DropDownListView extends ListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dropDownListView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -192,9 +192,9 @@ public class DropDownListView extends ListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -236,10 +236,10 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void clickPressedItem(View view, int i2) {
+    private void clickPressedItem(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, this, view, i2) == null) {
-            performItemClick(view, i2, getItemIdAtPosition(i2));
+        if (interceptable == null || interceptable.invokeLI(65538, this, view, i) == null) {
+            performItemClick(view, i, getItemIdAtPosition(i));
         }
     }
 
@@ -253,9 +253,9 @@ public class DropDownListView extends ListView {
         selector.draw(canvas);
     }
 
-    private void positionSelectorCompat(int i2, View view) {
+    private void positionSelectorCompat(int i, View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, view) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, view) == null) {
             Rect rect = this.mSelectorRect;
             rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
             rect.left -= this.mSelectionLeftPadding;
@@ -266,7 +266,7 @@ public class DropDownListView extends ListView {
                 boolean z = this.mIsChildViewEnabled.getBoolean(this);
                 if (view.isEnabled() != z) {
                     this.mIsChildViewEnabled.set(this, Boolean.valueOf(!z));
-                    if (i2 != -1) {
+                    if (i != -1) {
                         refreshDrawableState();
                     }
                 }
@@ -276,15 +276,15 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void positionSelectorLikeFocusCompat(int i2, View view) {
+    private void positionSelectorLikeFocusCompat(int i, View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, this, i2, view) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i, view) == null) {
             Drawable selector = getSelector();
-            boolean z = (selector == null || i2 == -1) ? false : true;
+            boolean z = (selector == null || i == -1) ? false : true;
             if (z) {
                 selector.setVisible(false, false);
             }
-            positionSelectorCompat(i2, view);
+            positionSelectorCompat(i, view);
             if (z) {
                 Rect rect = this.mSelectorRect;
                 float exactCenterX = rect.exactCenterX();
@@ -295,22 +295,22 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void positionSelectorLikeTouchCompat(int i2, View view, float f2, float f3) {
+    private void positionSelectorLikeTouchCompat(int i, View view, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            positionSelectorLikeFocusCompat(i2, view);
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            positionSelectorLikeFocusCompat(i, view);
             Drawable selector = getSelector();
-            if (selector == null || i2 == -1) {
+            if (selector == null || i == -1) {
                 return;
             }
             DrawableCompat.setHotspot(selector, f2, f3);
         }
     }
 
-    private void setPressedItem(View view, int i2, float f2, float f3) {
+    private void setPressedItem(View view, int i, float f2, float f3) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{view, Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{view, Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             this.mDrawsInPressedState = true;
             if (Build.VERSION.SDK_INT >= 21) {
                 drawableHotspotChanged(f2, f3);
@@ -319,11 +319,11 @@ public class DropDownListView extends ListView {
                 setPressed(true);
             }
             layoutChildren();
-            int i3 = this.mMotionPosition;
-            if (i3 != -1 && (childAt = getChildAt(i3 - getFirstVisiblePosition())) != null && childAt != view && childAt.isPressed()) {
+            int i2 = this.mMotionPosition;
+            if (i2 != -1 && (childAt = getChildAt(i2 - getFirstVisiblePosition())) != null && childAt != view && childAt.isPressed()) {
                 childAt.setPressed(false);
             }
-            this.mMotionPosition = i2;
+            this.mMotionPosition = i;
             float left = f2 - view.getLeft();
             float top = f3 - view.getTop();
             if (Build.VERSION.SDK_INT >= 21) {
@@ -332,7 +332,7 @@ public class DropDownListView extends ListView {
             if (!view.isPressed()) {
                 view.setPressed(true);
             }
-            positionSelectorLikeTouchCompat(i2, view, f2, f3);
+            positionSelectorLikeTouchCompat(i, view, f2, f3);
             setSelectorEnabled(false);
             refreshDrawableState();
         }
@@ -408,22 +408,22 @@ public class DropDownListView extends ListView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.mHijackFocus && this.mListSelectionHidden) || super.isInTouchMode() : invokeV.booleanValue;
     }
 
-    public int lookForSelectablePosition(int i2, boolean z) {
+    public int lookForSelectablePosition(int i, boolean z) {
         InterceptResult invokeCommon;
         int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             ListAdapter adapter = getAdapter();
             if (adapter != null && !isInTouchMode()) {
                 int count = adapter.getCount();
                 if (!getAdapter().areAllItemsEnabled()) {
                     if (z) {
-                        min = Math.max(0, i2);
+                        min = Math.max(0, i);
                         while (min < count && !adapter.isEnabled(min)) {
                             min++;
                         }
                     } else {
-                        min = Math.min(i2, count - 1);
+                        min = Math.min(i, count - 1);
                         while (min >= 0 && !adapter.isEnabled(min)) {
                             min--;
                         }
@@ -432,8 +432,8 @@ public class DropDownListView extends ListView {
                         return -1;
                     }
                     return min;
-                } else if (i2 >= 0 && i2 < count) {
-                    return i2;
+                } else if (i >= 0 && i < count) {
+                    return i;
                 }
             }
             return -1;
@@ -441,11 +441,11 @@ public class DropDownListView extends ListView {
         return invokeCommon.intValue;
     }
 
-    public int measureHeightOfChildrenCompat(int i2, int i3, int i4, int i5, int i6) {
+    public int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
             int listPaddingTop = getListPaddingTop();
             int listPaddingBottom = getListPaddingBottom();
             int dividerHeight = getDividerHeight();
@@ -454,46 +454,46 @@ public class DropDownListView extends ListView {
             if (adapter == null) {
                 return listPaddingTop + listPaddingBottom;
             }
-            int i7 = listPaddingTop + listPaddingBottom;
+            int i6 = listPaddingTop + listPaddingBottom;
             dividerHeight = (dividerHeight <= 0 || divider == null) ? 0 : 0;
             int count = adapter.getCount();
             View view = null;
+            int i7 = 0;
             int i8 = 0;
             int i9 = 0;
-            int i10 = 0;
-            while (i8 < count) {
-                int itemViewType = adapter.getItemViewType(i8);
-                if (itemViewType != i9) {
+            while (i7 < count) {
+                int itemViewType = adapter.getItemViewType(i7);
+                if (itemViewType != i8) {
                     view = null;
-                    i9 = itemViewType;
+                    i8 = itemViewType;
                 }
-                view = adapter.getView(i8, view, this);
+                view = adapter.getView(i7, view, this);
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = generateDefaultLayoutParams();
                     view.setLayoutParams(layoutParams);
                 }
-                int i11 = layoutParams.height;
-                if (i11 > 0) {
-                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i11, 1073741824);
+                int i10 = layoutParams.height;
+                if (i10 > 0) {
+                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10, 1073741824);
                 } else {
                     makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                 }
-                view.measure(i2, makeMeasureSpec);
+                view.measure(i, makeMeasureSpec);
                 view.forceLayout();
-                if (i8 > 0) {
-                    i7 += dividerHeight;
+                if (i7 > 0) {
+                    i6 += dividerHeight;
                 }
-                i7 += view.getMeasuredHeight();
-                if (i7 >= i5) {
-                    return (i6 < 0 || i8 <= i6 || i10 <= 0 || i7 == i5) ? i5 : i10;
+                i6 += view.getMeasuredHeight();
+                if (i6 >= i4) {
+                    return (i5 < 0 || i7 <= i5 || i9 <= 0 || i6 == i4) ? i4 : i9;
                 }
-                if (i6 >= 0 && i8 >= i6) {
-                    i10 = i7;
+                if (i5 >= 0 && i7 >= i5) {
+                    i9 = i6;
                 }
-                i8++;
+                i7++;
             }
-            return i7;
+            return i6;
         }
         return invokeCommon.intValue;
     }
@@ -516,19 +516,19 @@ public class DropDownListView extends ListView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onForwardedEvent(MotionEvent motionEvent, int i2) {
+    public boolean onForwardedEvent(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i)) == null) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 1) {
                 z = false;
             } else if (actionMasked == 2) {
                 z = true;
             }
-            int findPointerIndex = motionEvent.findPointerIndex(i2);
+            int findPointerIndex = motionEvent.findPointerIndex(i);
             if (findPointerIndex >= 0) {
                 int x = (int) motionEvent.getX(findPointerIndex);
                 int y = (int) motionEvent.getY(findPointerIndex);

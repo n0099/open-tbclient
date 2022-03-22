@@ -42,9 +42,9 @@ public class TransitionUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,11 +63,11 @@ public class TransitionUtils {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), matrix, matrix2})) == null) {
                 matrix.getValues(this.mTempStartValues);
                 matrix2.getValues(this.mTempEndValues);
-                for (int i2 = 0; i2 < 9; i2++) {
+                for (int i = 0; i < 9; i++) {
                     float[] fArr = this.mTempEndValues;
-                    float f3 = fArr[i2];
+                    float f3 = fArr[i];
                     float[] fArr2 = this.mTempStartValues;
-                    fArr[i2] = fArr2[i2] + ((f3 - fArr2[i2]) * f2);
+                    fArr[i] = fArr2[i] + ((f3 - fArr2[i]) * f2);
                 }
                 this.mTempMatrix.setValues(this.mTempEndValues);
                 return this.mTempMatrix;
@@ -99,9 +99,9 @@ public class TransitionUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -145,7 +145,7 @@ public class TransitionUtils {
         boolean z;
         boolean z2;
         ViewGroup viewGroup2;
-        int i2;
+        int i;
         int round;
         int round2;
         Interceptable interceptable = $ic;
@@ -157,12 +157,12 @@ public class TransitionUtils {
                     Bitmap bitmap = null;
                     if (HAS_OVERLAY || !z) {
                         viewGroup2 = null;
-                        i2 = 0;
+                        i = 0;
                     } else if (!z2) {
                         return null;
                     } else {
                         viewGroup2 = (ViewGroup) view.getParent();
-                        i2 = viewGroup2.indexOfChild(view);
+                        i = viewGroup2.indexOfChild(view);
                         viewGroup.getOverlay().add(view);
                     }
                     round = Math.round(rectF.width());
@@ -189,7 +189,7 @@ public class TransitionUtils {
                     }
                     if (HAS_OVERLAY && z) {
                         viewGroup.getOverlay().remove(view);
-                        viewGroup2.addView(view, i2);
+                        viewGroup2.addView(view, i);
                     }
                     return bitmap;
                 }
@@ -201,7 +201,7 @@ public class TransitionUtils {
             if (HAS_OVERLAY) {
             }
             viewGroup2 = null;
-            i2 = 0;
+            i = 0;
             round = Math.round(rectF.width());
             round2 = Math.round(rectF.height());
             if (round > 0) {
@@ -215,7 +215,7 @@ public class TransitionUtils {
             }
             if (HAS_OVERLAY) {
                 viewGroup.getOverlay().remove(view);
-                viewGroup2.addView(view, i2);
+                viewGroup2.addView(view, i);
             }
             return bitmap2;
         }

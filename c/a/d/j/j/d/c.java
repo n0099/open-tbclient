@@ -13,7 +13,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f3000b;
+    public static volatile c f2501b;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
@@ -22,9 +22,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,14 +35,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3000b == null) {
+            if (f2501b == null) {
                 synchronized (c.class) {
-                    if (f3000b == null) {
-                        f3000b = new c();
+                    if (f2501b == null) {
+                        f2501b = new c();
                     }
                 }
             }
-            return f3000b;
+            return f2501b;
         }
         return (c) invokeV.objValue;
     }

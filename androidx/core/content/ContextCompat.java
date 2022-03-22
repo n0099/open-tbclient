@@ -53,6 +53,7 @@ import android.print.PrintManager;
 import android.telecom.TelecomManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.WindowManager;
@@ -70,6 +71,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -144,7 +146,7 @@ public class ContextCompat {
                 SERVICES.put(NsdManager.class, "servicediscovery");
             }
             SERVICES.put(AccessibilityManager.class, "accessibility");
-            SERVICES.put(AccountManager.class, "account");
+            SERVICES.put(AccountManager.class, DI.ACCOUNT);
             SERVICES.put(ActivityManager.class, "activity");
             SERVICES.put(AlarmManager.class, NotificationCompat.CATEGORY_ALARM);
             SERVICES.put(AudioManager.class, "audio");
@@ -179,9 +181,9 @@ public class ContextCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -202,9 +204,9 @@ public class ContextCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -244,9 +246,9 @@ public class ContextCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -289,7 +291,7 @@ public class ContextCompat {
                 if (file.exists()) {
                     return file;
                 }
-                String str = "Unable to create files subdir " + file.getPath();
+                Log.w("ContextCompat", "Unable to create files subdir " + file.getPath());
                 return null;
             }
         }
@@ -309,27 +311,27 @@ public class ContextCompat {
     }
 
     @ColorInt
-    public static int getColor(@NonNull Context context, @ColorRes int i2) {
+    public static int getColor(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return context.getColor(i2);
+                return context.getColor(i);
             }
-            return context.getResources().getColor(i2);
+            return context.getResources().getColor(i);
         }
         return invokeLI.intValue;
     }
 
     @Nullable
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i2) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return context.getColorStateList(i2);
+                return context.getColorStateList(i);
             }
-            return context.getResources().getColorStateList(i2);
+            return context.getResources().getColorStateList(i);
         }
         return (ColorStateList) invokeLI.objValue;
     }
@@ -352,26 +354,26 @@ public class ContextCompat {
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i2)) == null) {
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 21) {
-                return context.getDrawable(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 21) {
+                return context.getDrawable(i);
             }
-            if (i4 >= 16) {
-                return context.getResources().getDrawable(i2);
+            if (i3 >= 16) {
+                return context.getResources().getDrawable(i);
             }
             synchronized (sLock) {
                 if (sTempValue == null) {
                     sTempValue = new TypedValue();
                 }
-                context.getResources().getValue(i2, sTempValue, true);
-                i3 = sTempValue.resourceId;
+                context.getResources().getValue(i, sTempValue, true);
+                i2 = sTempValue.resourceId;
             }
-            return context.getResources().getDrawable(i3);
+            return context.getResources().getDrawable(i2);
         }
         return (Drawable) invokeLI.objValue;
     }

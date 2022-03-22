@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.q0.e1.h.a;
+import c.a.o0.e1.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,22 +23,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class RefreshView extends FrameLayout implements a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int NORMAL = 1;
-    public static final int RELEASE = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f39963e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f30792b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f39964f;
+    /* renamed from: c  reason: collision with root package name */
+    public int f30793c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f39965g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f39966h;
+    /* renamed from: d  reason: collision with root package name */
+    public int f30794d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RefreshView(@NonNull Context context) {
@@ -49,9 +45,9 @@ public class RefreshView extends FrameLayout implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -61,53 +57,53 @@ public class RefreshView extends FrameLayout implements a {
         }
     }
 
-    public final void a(Context context) {
+    @Override // c.a.o0.e1.h.a
+    public void a(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-            this.f39963e = (ImageView) findViewById(R.id.arrow_icon);
-            this.f39964f = (TextView) findViewById(R.id.text);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f30794d == 2) {
+            return;
+        }
+        this.f30794d = 2;
+        this.f30792b.setText("释放跳转");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080608, R.color.CAM_X0109, null);
+    }
+
+    @Override // c.a.o0.e1.h.a
+    public void b(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f30794d == 1) {
+            return;
+        }
+        this.f30794d = 1;
+        this.f30792b.setText("查看更多");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f080609, R.color.CAM_X0109, null);
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070f, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a5);
+            this.f30792b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
         }
     }
 
-    @Override // c.a.q0.e1.h.a
+    public void d() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f30793c) {
+            return;
+        }
+        this.f30794d = 0;
+        this.f30793c = skinType;
+        SkinManager.setViewTextColor(this.f30792b, (int) R.color.CAM_X0109);
+    }
+
+    @Override // c.a.o0.e1.h.a
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
-    }
-
-    public void onChangeSkinType() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f39965g) {
-            return;
-        }
-        this.f39966h = 0;
-        this.f39965g = skinType;
-        SkinManager.setViewTextColor(this.f39964f, (int) R.color.CAM_X0109);
-    }
-
-    @Override // c.a.q0.e1.h.a
-    public void onNormal(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f39966h == 1) {
-            return;
-        }
-        this.f39966h = 1;
-        this.f39964f.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f39963e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
-    }
-
-    @Override // c.a.q0.e1.h.a
-    public void onRedayToRelease(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || this.f39966h == 2) {
-            return;
-        }
-        this.f39966h = 2;
-        this.f39964f.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f39963e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -119,9 +115,9 @@ public class RefreshView extends FrameLayout implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -132,17 +128,17 @@ public class RefreshView extends FrameLayout implements a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RefreshView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -150,7 +146,7 @@ public class RefreshView extends FrameLayout implements a {
                 return;
             }
         }
-        this.f39965g = 3;
-        a(context);
+        this.f30793c = 3;
+        c(context);
     }
 }

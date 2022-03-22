@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class MappingTrackSelector extends TrackSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
     public final SparseArray<Map<TrackGroupArray, SelectionOverride>> selectionOverrides;
     public int tunnelingAudioSessionId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SelectionOverride {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,33 +37,33 @@ public abstract class MappingTrackSelector extends TrackSelector {
         public final int length;
         public final int[] tracks;
 
-        public SelectionOverride(TrackSelection.Factory factory, int i2, int... iArr) {
+        public SelectionOverride(TrackSelection.Factory factory, int i, int... iArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {factory, Integer.valueOf(i2), iArr};
+                Object[] objArr = {factory, Integer.valueOf(i), iArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.factory = factory;
-            this.groupIndex = i2;
+            this.groupIndex = i;
             this.tracks = iArr;
             this.length = iArr.length;
         }
 
-        public boolean containsTrack(int i2) {
+        public boolean containsTrack(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                for (int i3 : this.tracks) {
-                    if (i3 == i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                for (int i2 : this.tracks) {
+                    if (i2 == i) {
                         return true;
                     }
                 }
@@ -84,9 +84,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,8 +103,8 @@ public abstract class MappingTrackSelector extends TrackSelector {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, rendererCapabilitiesArr, trackSelectionArr)) == null) {
             int length = trackSelectionArr.length;
             boolean[] zArr = new boolean[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                zArr[i2] = !this.rendererDisabledFlags.get(i2) && (rendererCapabilitiesArr[i2].getTrackType() == 5 || trackSelectionArr[i2] != null);
+            for (int i = 0; i < length; i++) {
+                zArr[i] = !this.rendererDisabledFlags.get(i) && (rendererCapabilitiesArr[i].getTrackType() == 5 || trackSelectionArr[i] != null);
             }
             return zArr;
         }
@@ -116,17 +116,17 @@ public abstract class MappingTrackSelector extends TrackSelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, rendererCapabilitiesArr, trackGroup)) == null) {
             int length = rendererCapabilitiesArr.length;
-            int i2 = 0;
-            for (int i3 = 0; i3 < rendererCapabilitiesArr.length; i3++) {
-                RendererCapabilities rendererCapabilities = rendererCapabilitiesArr[i3];
-                for (int i4 = 0; i4 < trackGroup.length; i4++) {
-                    int supportsFormat = rendererCapabilities.supportsFormat(trackGroup.getFormat(i4)) & 7;
-                    if (supportsFormat > i2) {
+            int i = 0;
+            for (int i2 = 0; i2 < rendererCapabilitiesArr.length; i2++) {
+                RendererCapabilities rendererCapabilities = rendererCapabilitiesArr[i2];
+                for (int i3 = 0; i3 < trackGroup.length; i3++) {
+                    int supportsFormat = rendererCapabilities.supportsFormat(trackGroup.getFormat(i3)) & 7;
+                    if (supportsFormat > i) {
                         if (supportsFormat == 4) {
-                            return i3;
+                            return i2;
                         }
-                        length = i3;
-                        i2 = supportsFormat;
+                        length = i2;
+                        i = supportsFormat;
                     }
                 }
             }
@@ -140,8 +140,8 @@ public abstract class MappingTrackSelector extends TrackSelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rendererCapabilities, trackGroup)) == null) {
             int[] iArr = new int[trackGroup.length];
-            for (int i2 = 0; i2 < trackGroup.length; i2++) {
-                iArr[i2] = rendererCapabilities.supportsFormat(trackGroup.getFormat(i2));
+            for (int i = 0; i < trackGroup.length; i++) {
+                iArr[i] = rendererCapabilities.supportsFormat(trackGroup.getFormat(i));
             }
             return iArr;
         }
@@ -154,49 +154,49 @@ public abstract class MappingTrackSelector extends TrackSelector {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rendererCapabilitiesArr)) == null) {
             int length = rendererCapabilitiesArr.length;
             int[] iArr = new int[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = rendererCapabilitiesArr[i2].supportsMixedMimeTypeAdaptation();
+            for (int i = 0; i < length; i++) {
+                iArr[i] = rendererCapabilitiesArr[i].supportsMixedMimeTypeAdaptation();
             }
             return iArr;
         }
         return (int[]) invokeL.objValue;
     }
 
-    public static void maybeConfigureRenderersForTunneling(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray[] trackGroupArrayArr, int[][][] iArr, RendererConfiguration[] rendererConfigurationArr, TrackSelection[] trackSelectionArr, int i2) {
+    public static void maybeConfigureRenderersForTunneling(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray[] trackGroupArrayArr, int[][][] iArr, RendererConfiguration[] rendererConfigurationArr, TrackSelection[] trackSelectionArr, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{rendererCapabilitiesArr, trackGroupArrayArr, iArr, rendererConfigurationArr, trackSelectionArr, Integer.valueOf(i2)}) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{rendererCapabilitiesArr, trackGroupArrayArr, iArr, rendererConfigurationArr, trackSelectionArr, Integer.valueOf(i)}) == null) || i == 0) {
             return;
         }
         boolean z2 = false;
+        int i2 = -1;
         int i3 = -1;
-        int i4 = -1;
-        for (int i5 = 0; i5 < rendererCapabilitiesArr.length; i5++) {
-            int trackType = rendererCapabilitiesArr[i5].getTrackType();
-            TrackSelection trackSelection = trackSelectionArr[i5];
-            if ((trackType == 1 || trackType == 2) && trackSelection != null && rendererSupportsTunneling(iArr[i5], trackGroupArrayArr[i5], trackSelection)) {
+        for (int i4 = 0; i4 < rendererCapabilitiesArr.length; i4++) {
+            int trackType = rendererCapabilitiesArr[i4].getTrackType();
+            TrackSelection trackSelection = trackSelectionArr[i4];
+            if ((trackType == 1 || trackType == 2) && trackSelection != null && rendererSupportsTunneling(iArr[i4], trackGroupArrayArr[i4], trackSelection)) {
                 if (trackType == 1) {
-                    if (i4 != -1) {
+                    if (i3 != -1) {
                         z = false;
                         break;
                     }
-                    i4 = i5;
-                } else if (i3 != -1) {
+                    i3 = i4;
+                } else if (i2 != -1) {
                     z = false;
                     break;
                 } else {
-                    i3 = i5;
+                    i2 = i4;
                 }
             }
         }
         z = true;
-        if (i4 != -1 && i3 != -1) {
+        if (i3 != -1 && i2 != -1) {
             z2 = true;
         }
         if (z && z2) {
-            RendererConfiguration rendererConfiguration = new RendererConfiguration(i2);
-            rendererConfigurationArr[i4] = rendererConfiguration;
+            RendererConfiguration rendererConfiguration = new RendererConfiguration(i);
             rendererConfigurationArr[i3] = rendererConfiguration;
+            rendererConfigurationArr[i2] = rendererConfiguration;
         }
     }
 
@@ -208,8 +208,8 @@ public abstract class MappingTrackSelector extends TrackSelector {
                 return false;
             }
             int indexOf = trackGroupArray.indexOf(trackSelection.getTrackGroup());
-            for (int i2 = 0; i2 < trackSelection.length(); i2++) {
-                if ((iArr[indexOf][trackSelection.getIndexInTrackGroup(i2)] & 32) != 32) {
+            for (int i = 0; i < trackSelection.length(); i++) {
+                if ((iArr[indexOf][trackSelection.getIndexInTrackGroup(i)] & 32) != 32) {
                     return false;
                 }
             }
@@ -218,25 +218,25 @@ public abstract class MappingTrackSelector extends TrackSelector {
         return invokeLLL.booleanValue;
     }
 
-    public final void clearSelectionOverride(int i2, TrackGroupArray trackGroupArray) {
+    public final void clearSelectionOverride(int i, TrackGroupArray trackGroupArray) {
         Map<TrackGroupArray, SelectionOverride> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, trackGroupArray) == null) && (map = this.selectionOverrides.get(i2)) != null && map.containsKey(trackGroupArray)) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, trackGroupArray) == null) && (map = this.selectionOverrides.get(i)) != null && map.containsKey(trackGroupArray)) {
             map.remove(trackGroupArray);
             if (map.isEmpty()) {
-                this.selectionOverrides.remove(i2);
+                this.selectionOverrides.remove(i);
             }
             invalidate();
         }
     }
 
-    public final void clearSelectionOverrides(int i2) {
+    public final void clearSelectionOverrides(int i) {
         Map<TrackGroupArray, SelectionOverride> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (map = this.selectionOverrides.get(i2)) == null || map.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (map = this.selectionOverrides.get(i)) == null || map.isEmpty()) {
             return;
         }
-        this.selectionOverrides.remove(i2);
+        this.selectionOverrides.remove(i);
         invalidate();
     }
 
@@ -246,17 +246,17 @@ public abstract class MappingTrackSelector extends TrackSelector {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.currentMappedTrackInfo : (MappedTrackInfo) invokeV.objValue;
     }
 
-    public final boolean getRendererDisabled(int i2) {
+    public final boolean getRendererDisabled(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.rendererDisabledFlags.get(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.rendererDisabledFlags.get(i) : invokeI.booleanValue;
     }
 
-    public final SelectionOverride getSelectionOverride(int i2, TrackGroupArray trackGroupArray) {
+    public final SelectionOverride getSelectionOverride(int i, TrackGroupArray trackGroupArray) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, trackGroupArray)) == null) {
-            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, trackGroupArray)) == null) {
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             if (map != null) {
                 return map.get(trackGroupArray);
             }
@@ -265,11 +265,11 @@ public abstract class MappingTrackSelector extends TrackSelector {
         return (SelectionOverride) invokeIL.objValue;
     }
 
-    public final boolean hasSelectionOverride(int i2, TrackGroupArray trackGroupArray) {
+    public final boolean hasSelectionOverride(int i, TrackGroupArray trackGroupArray) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, trackGroupArray)) == null) {
-            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, trackGroupArray)) == null) {
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             return map != null && map.containsKey(trackGroupArray);
         }
         return invokeIL.booleanValue;
@@ -292,52 +292,52 @@ public abstract class MappingTrackSelector extends TrackSelector {
             int length = rendererCapabilitiesArr.length + 1;
             TrackGroup[][] trackGroupArr = new TrackGroup[length];
             int[][][] iArr2 = new int[rendererCapabilitiesArr.length + 1][];
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = trackGroupArray.length;
-                trackGroupArr[i2] = new TrackGroup[i3];
-                iArr2[i2] = new int[i3];
+            for (int i = 0; i < length; i++) {
+                int i2 = trackGroupArray.length;
+                trackGroupArr[i] = new TrackGroup[i2];
+                iArr2[i] = new int[i2];
             }
             int[] mixedMimeTypeAdaptationSupport = getMixedMimeTypeAdaptationSupport(rendererCapabilitiesArr);
-            for (int i4 = 0; i4 < trackGroupArray.length; i4++) {
-                TrackGroup trackGroup = trackGroupArray.get(i4);
+            for (int i3 = 0; i3 < trackGroupArray.length; i3++) {
+                TrackGroup trackGroup = trackGroupArray.get(i3);
                 int findRenderer = findRenderer(rendererCapabilitiesArr, trackGroup);
                 int[] formatSupport = findRenderer == rendererCapabilitiesArr.length ? new int[trackGroup.length] : getFormatSupport(rendererCapabilitiesArr[findRenderer], trackGroup);
-                int i5 = iArr[findRenderer];
-                trackGroupArr[findRenderer][i5] = trackGroup;
-                iArr2[findRenderer][i5] = formatSupport;
+                int i4 = iArr[findRenderer];
+                trackGroupArr[findRenderer][i4] = trackGroup;
+                iArr2[findRenderer][i4] = formatSupport;
                 iArr[findRenderer] = iArr[findRenderer] + 1;
             }
             TrackGroupArray[] trackGroupArrayArr = new TrackGroupArray[rendererCapabilitiesArr.length];
             int[] iArr3 = new int[rendererCapabilitiesArr.length];
-            for (int i6 = 0; i6 < rendererCapabilitiesArr.length; i6++) {
-                int i7 = iArr[i6];
-                trackGroupArrayArr[i6] = new TrackGroupArray((TrackGroup[]) Arrays.copyOf(trackGroupArr[i6], i7));
-                iArr2[i6] = (int[][]) Arrays.copyOf(iArr2[i6], i7);
-                iArr3[i6] = rendererCapabilitiesArr[i6].getTrackType();
+            for (int i5 = 0; i5 < rendererCapabilitiesArr.length; i5++) {
+                int i6 = iArr[i5];
+                trackGroupArrayArr[i5] = new TrackGroupArray((TrackGroup[]) Arrays.copyOf(trackGroupArr[i5], i6));
+                iArr2[i5] = (int[][]) Arrays.copyOf(iArr2[i5], i6);
+                iArr3[i5] = rendererCapabilitiesArr[i5].getTrackType();
             }
             TrackGroupArray trackGroupArray2 = new TrackGroupArray((TrackGroup[]) Arrays.copyOf(trackGroupArr[rendererCapabilitiesArr.length], iArr[rendererCapabilitiesArr.length]));
             TrackSelection[] selectTracks = selectTracks(rendererCapabilitiesArr, trackGroupArrayArr, iArr2);
-            int i8 = 0;
+            int i7 = 0;
             while (true) {
-                if (i8 >= rendererCapabilitiesArr.length) {
+                if (i7 >= rendererCapabilitiesArr.length) {
                     break;
                 }
-                if (this.rendererDisabledFlags.get(i8)) {
-                    selectTracks[i8] = null;
+                if (this.rendererDisabledFlags.get(i7)) {
+                    selectTracks[i7] = null;
                 } else {
-                    TrackGroupArray trackGroupArray3 = trackGroupArrayArr[i8];
-                    if (hasSelectionOverride(i8, trackGroupArray3)) {
-                        SelectionOverride selectionOverride = this.selectionOverrides.get(i8).get(trackGroupArray3);
-                        selectTracks[i8] = selectionOverride != null ? selectionOverride.createTrackSelection(trackGroupArray3) : null;
+                    TrackGroupArray trackGroupArray3 = trackGroupArrayArr[i7];
+                    if (hasSelectionOverride(i7, trackGroupArray3)) {
+                        SelectionOverride selectionOverride = this.selectionOverrides.get(i7).get(trackGroupArray3);
+                        selectTracks[i7] = selectionOverride != null ? selectionOverride.createTrackSelection(trackGroupArray3) : null;
                     }
                 }
-                i8++;
+                i7++;
             }
             boolean[] determineEnabledRenderers = determineEnabledRenderers(rendererCapabilitiesArr, selectTracks);
             MappedTrackInfo mappedTrackInfo = new MappedTrackInfo(iArr3, trackGroupArrayArr, mixedMimeTypeAdaptationSupport, iArr2, trackGroupArray2);
             RendererConfiguration[] rendererConfigurationArr = new RendererConfiguration[rendererCapabilitiesArr.length];
-            for (int i9 = 0; i9 < rendererCapabilitiesArr.length; i9++) {
-                rendererConfigurationArr[i9] = determineEnabledRenderers[i9] ? RendererConfiguration.DEFAULT : null;
+            for (int i8 = 0; i8 < rendererCapabilitiesArr.length; i8++) {
+                rendererConfigurationArr[i8] = determineEnabledRenderers[i8] ? RendererConfiguration.DEFAULT : null;
             }
             maybeConfigureRenderersForTunneling(rendererCapabilitiesArr, trackGroupArrayArr, iArr2, rendererConfigurationArr, selectTracks, this.tunnelingAudioSessionId);
             return new TrackSelectorResult(trackGroupArray, determineEnabledRenderers, new TrackSelectionArray(selectTracks), mappedTrackInfo, rendererConfigurationArr);
@@ -347,22 +347,22 @@ public abstract class MappingTrackSelector extends TrackSelector {
 
     public abstract TrackSelection[] selectTracks(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray[] trackGroupArrayArr, int[][][] iArr) throws ExoPlaybackException;
 
-    public final void setRendererDisabled(int i2, boolean z) {
+    public final void setRendererDisabled(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.rendererDisabledFlags.get(i2) == z) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || this.rendererDisabledFlags.get(i) == z) {
             return;
         }
-        this.rendererDisabledFlags.put(i2, z);
+        this.rendererDisabledFlags.put(i, z);
         invalidate();
     }
 
-    public final void setSelectionOverride(int i2, TrackGroupArray trackGroupArray, SelectionOverride selectionOverride) {
+    public final void setSelectionOverride(int i, TrackGroupArray trackGroupArray, SelectionOverride selectionOverride) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048587, this, i2, trackGroupArray, selectionOverride) == null) {
-            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i2);
+        if (interceptable == null || interceptable.invokeILL(1048587, this, i, trackGroupArray, selectionOverride) == null) {
+            Map<TrackGroupArray, SelectionOverride> map = this.selectionOverrides.get(i);
             if (map == null) {
                 map = new HashMap<>();
-                this.selectionOverrides.put(i2, map);
+                this.selectionOverrides.put(i, map);
             }
             if (map.containsKey(trackGroupArray) && Util.areEqual(map.get(trackGroupArray), selectionOverride)) {
                 return;
@@ -372,12 +372,12 @@ public abstract class MappingTrackSelector extends TrackSelector {
         }
     }
 
-    public void setTunnelingAudioSessionId(int i2) {
+    public void setTunnelingAudioSessionId(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.tunnelingAudioSessionId == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || this.tunnelingAudioSessionId == i) {
             return;
         }
-        this.tunnelingAudioSessionId = i2;
+        this.tunnelingAudioSessionId = i;
         invalidate();
     }
 
@@ -390,7 +390,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
         invalidate();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MappedTrackInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RENDERER_SUPPORT_EXCEEDS_CAPABILITIES_TRACKS = 2;
@@ -412,9 +412,9 @@ public abstract class MappingTrackSelector extends TrackSelector {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iArr, trackGroupArrayArr, iArr2, iArr3, trackGroupArray};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -428,73 +428,73 @@ public abstract class MappingTrackSelector extends TrackSelector {
             this.length = trackGroupArrayArr.length;
         }
 
-        public int getAdaptiveSupport(int i2, int i3, boolean z) {
+        public int getAdaptiveSupport(int i, int i2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                int i4 = this.trackGroups[i2].get(i3).length;
-                int[] iArr = new int[i4];
-                int i5 = 0;
-                for (int i6 = 0; i6 < i4; i6++) {
-                    int trackFormatSupport = getTrackFormatSupport(i2, i3, i6);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                int i3 = this.trackGroups[i].get(i2).length;
+                int[] iArr = new int[i3];
+                int i4 = 0;
+                for (int i5 = 0; i5 < i3; i5++) {
+                    int trackFormatSupport = getTrackFormatSupport(i, i2, i5);
                     if (trackFormatSupport == 4 || (z && trackFormatSupport == 3)) {
-                        iArr[i5] = i6;
-                        i5++;
+                        iArr[i4] = i5;
+                        i4++;
                     }
                 }
-                return getAdaptiveSupport(i2, i3, Arrays.copyOf(iArr, i5));
+                return getAdaptiveSupport(i, i2, Arrays.copyOf(iArr, i4));
             }
             return invokeCommon.intValue;
         }
 
-        public int getRendererSupport(int i2) {
+        public int getRendererSupport(int i) {
             InterceptResult invokeI;
-            int i3;
+            int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                int[][] iArr = this.formatSupport[i2];
-                int i4 = 0;
-                for (int i5 = 0; i5 < iArr.length; i5++) {
-                    for (int i6 = 0; i6 < iArr[i5].length; i6++) {
-                        int i7 = iArr[i5][i6] & 7;
-                        if (i7 == 3) {
-                            i3 = 2;
-                        } else if (i7 == 4) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                int[][] iArr = this.formatSupport[i];
+                int i3 = 0;
+                for (int i4 = 0; i4 < iArr.length; i4++) {
+                    for (int i5 = 0; i5 < iArr[i4].length; i5++) {
+                        int i6 = iArr[i4][i5] & 7;
+                        if (i6 == 3) {
+                            i2 = 2;
+                        } else if (i6 == 4) {
                             return 3;
                         } else {
-                            i3 = 1;
+                            i2 = 1;
                         }
-                        i4 = Math.max(i4, i3);
+                        i3 = Math.max(i3, i2);
                     }
                 }
-                return i4;
+                return i3;
             }
             return invokeI.intValue;
         }
 
-        public int getTrackFormatSupport(int i2, int i3, int i4) {
+        public int getTrackFormatSupport(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i2, i3, i4)) == null) ? this.formatSupport[i2][i3][i4] & 7 : invokeIII.intValue;
+            return (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i, i2, i3)) == null) ? this.formatSupport[i][i2][i3] & 7 : invokeIII.intValue;
         }
 
-        public TrackGroupArray getTrackGroups(int i2) {
+        public TrackGroupArray getTrackGroups(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.trackGroups[i2] : (TrackGroupArray) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.trackGroups[i] : (TrackGroupArray) invokeI.objValue;
         }
 
-        public int getTrackTypeRendererSupport(int i2) {
+        public int getTrackTypeRendererSupport(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                int i3 = 0;
-                for (int i4 = 0; i4 < this.length; i4++) {
-                    if (this.rendererTrackTypes[i4] == i2) {
-                        i3 = Math.max(i3, getRendererSupport(i4));
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < this.length; i3++) {
+                    if (this.rendererTrackTypes[i3] == i) {
+                        i2 = Math.max(i2, getRendererSupport(i3));
                     }
                 }
-                return i3;
+                return i2;
             }
             return invokeI.intValue;
         }
@@ -505,28 +505,28 @@ public abstract class MappingTrackSelector extends TrackSelector {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.unassociatedTrackGroups : (TrackGroupArray) invokeV.objValue;
         }
 
-        public int getAdaptiveSupport(int i2, int i3, int[] iArr) {
+        public int getAdaptiveSupport(int i, int i2, int[] iArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, iArr)) == null) {
-                int i4 = 0;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iArr)) == null) {
+                int i3 = 0;
                 String str = null;
                 boolean z = false;
-                int i5 = 0;
-                int i6 = 16;
-                while (i4 < iArr.length) {
-                    String str2 = this.trackGroups[i2].get(i3).getFormat(iArr[i4]).sampleMimeType;
-                    int i7 = i5 + 1;
-                    if (i5 == 0) {
+                int i4 = 0;
+                int i5 = 16;
+                while (i3 < iArr.length) {
+                    String str2 = this.trackGroups[i].get(i2).getFormat(iArr[i3]).sampleMimeType;
+                    int i6 = i4 + 1;
+                    if (i4 == 0) {
                         str = str2;
                     } else {
                         z |= !Util.areEqual(str, str2);
                     }
-                    i6 = Math.min(i6, this.formatSupport[i2][i3][i4] & 24);
-                    i4++;
-                    i5 = i7;
+                    i5 = Math.min(i5, this.formatSupport[i][i2][i3] & 24);
+                    i3++;
+                    i4 = i6;
                 }
-                return z ? Math.min(i6, this.mixedMimeTypeAdaptiveSupport[i2]) : i6;
+                return z ? Math.min(i5, this.mixedMimeTypeAdaptiveSupport[i]) : i5;
             }
             return invokeIIL.intValue;
         }

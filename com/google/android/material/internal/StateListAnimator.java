@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class StateListAnimator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class StateListAnimator {
     public ValueAnimator runningAnimator;
     public final ArrayList<Tuple> tuples;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Tuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public final class StateListAnimator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iArr, valueAnimator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,9 +57,9 @@ public final class StateListAnimator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public final class StateListAnimator {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -147,17 +147,17 @@ public final class StateListAnimator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
             int size = this.tuples.size();
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= size) {
+                if (i >= size) {
                     tuple = null;
                     break;
                 }
-                tuple = this.tuples.get(i2);
+                tuple = this.tuples.get(i);
                 if (StateSet.stateSetMatches(tuple.specs, iArr)) {
                     break;
                 }
-                i2++;
+                i++;
             }
             Tuple tuple2 = this.lastMatch;
             if (tuple == tuple2) {

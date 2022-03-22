@@ -21,10 +21,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,30 +35,30 @@ public class TimeToSampleBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long count;
         public long delta;
 
-        public Entry(long j2, long j3) {
+        public Entry(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.count = j2;
-            this.delta = j3;
+            this.count = j;
+            this.delta = j2;
         }
 
         public long getCount() {
@@ -74,17 +73,17 @@ public class TimeToSampleBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.delta : invokeV.longValue;
         }
 
-        public void setCount(long j2) {
+        public void setCount(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                this.count = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.count = j;
             }
         }
 
-        public void setDelta(long j2) {
+        public void setDelta(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-                this.delta = j2;
+            if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+                this.delta = j;
             }
         }
 
@@ -92,7 +91,7 @@ public class TimeToSampleBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Entry{count=" + this.count + ", delta=" + this.delta + ExtendedMessageFormat.END_FE;
+                return "Entry{count=" + this.count + ", delta=" + this.delta + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -122,9 +121,9 @@ public class TimeToSampleBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -149,18 +148,18 @@ public class TimeToSampleBox extends AbstractFullBox {
             synchronized (TimeToSampleBox.class) {
                 SoftReference<long[]> softReference = cache.get(list);
                 if (softReference == null || (jArr = softReference.get()) == null) {
-                    long j2 = 0;
+                    long j = 0;
                     for (Entry entry : list) {
-                        j2 += entry.getCount();
+                        j += entry.getCount();
                     }
-                    long[] jArr2 = new long[(int) j2];
-                    int i2 = 0;
+                    long[] jArr2 = new long[(int) j];
+                    int i = 0;
                     for (Entry entry2 : list) {
-                        int i3 = 0;
-                        while (i3 < entry2.getCount()) {
-                            jArr2[i2] = entry2.getDelta();
-                            i3++;
+                        int i2 = 0;
+                        while (i2 < entry2.getCount()) {
+                            jArr2[i] = entry2.getDelta();
                             i2++;
+                            i++;
                         }
                     }
                     cache.put(list, new SoftReference<>(jArr2));
@@ -179,7 +178,7 @@ public class TimeToSampleBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.entries = new ArrayList(l2i);
-            for (int i2 = 0; i2 < l2i; i2++) {
+            for (int i = 0; i < l2i; i++) {
                 this.entries.add(new Entry(IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
             }
         }

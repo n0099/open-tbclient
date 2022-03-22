@@ -6,11 +6,11 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class az {
-    public static ValueAnimator a(final View view, int i2, final int i3) {
-        b(view, i2);
-        ValueAnimator ofInt = ValueAnimator.ofInt(i2, i3);
+    public static ValueAnimator a(final View view, int i, final int i2) {
+        b(view, i);
+        ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.utils.az.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -20,19 +20,19 @@ public class az {
         ofInt.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.utils.az.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                az.b(view, i3);
+                az.b(view, i2);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                az.b(view, i3);
+                az.b(view, i2);
             }
         });
         return ofInt;
     }
 
-    public static ValueAnimator b(final View view, int i2, int i3) {
-        ValueAnimator ofInt = ObjectAnimator.ofInt(i2, i3);
+    public static ValueAnimator b(final View view, int i, int i2) {
+        ValueAnimator ofInt = ObjectAnimator.ofInt(i, i2);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.utils.az.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -42,9 +42,9 @@ public class az {
         return ofInt;
     }
 
-    public static void b(View view, int i2) {
+    public static void b(View view, int i) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.height = i2;
+        layoutParams.height = i;
         view.setLayoutParams(layoutParams);
     }
 }

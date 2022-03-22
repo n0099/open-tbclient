@@ -3,6 +3,7 @@ package com.facebook.soloader;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.StrictMode;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ApplicationSoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,16 +22,16 @@ public class ApplicationSoSource extends SoSource {
     public int flags;
     public DirectorySoSource soSource;
 
-    public ApplicationSoSource(Context context, int i2) {
+    public ApplicationSoSource(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +40,11 @@ public class ApplicationSoSource extends SoSource {
         Context applicationContext = context.getApplicationContext();
         this.applicationContext = applicationContext;
         if (applicationContext == null) {
+            Log.w("SoLoader", "context.getApplicationContext returned null, holding reference to original context.");
             this.applicationContext = context;
         }
-        this.flags = i2;
-        this.soSource = new DirectorySoSource(new File(this.applicationContext.getApplicationInfo().nativeLibraryDir), i2);
+        this.flags = i;
+        this.soSource = new DirectorySoSource(new File(this.applicationContext.getApplicationInfo().nativeLibraryDir), i);
     }
 
     @Override // com.facebook.soloader.SoSource
@@ -64,10 +66,10 @@ public class ApplicationSoSource extends SoSource {
                 if (file.equals(file2)) {
                     return false;
                 }
-                String str = "Native library directory updated from " + file + " to " + file2;
-                int i2 = this.flags | 1;
-                this.flags = i2;
-                DirectorySoSource directorySoSource = new DirectorySoSource(file2, i2);
+                Log.d("SoLoader", "Native library directory updated from " + file + " to " + file2);
+                int i = this.flags | 1;
+                this.flags = i;
+                DirectorySoSource directorySoSource = new DirectorySoSource(file2, i);
                 this.soSource = directorySoSource;
                 directorySoSource.prepare(this.flags);
                 this.applicationContext = createPackageContext;
@@ -80,17 +82,17 @@ public class ApplicationSoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, threadPolicy)) == null) ? this.soSource.loadLibrary(str, i2, threadPolicy) : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, threadPolicy)) == null) ? this.soSource.loadLibrary(str, i, threadPolicy) : invokeLIL.intValue;
     }
 
     @Override // com.facebook.soloader.SoSource
-    public void prepare(int i2) throws IOException {
+    public void prepare(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.soSource.prepare(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.soSource.prepare(i);
         }
     }
 

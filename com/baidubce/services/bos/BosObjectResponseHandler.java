@@ -18,7 +18,7 @@ import com.baidubce.util.LengthCheckInputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BosObjectResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,17 +50,17 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
                 objectMetadata.setContentType(bceHttpResponse.getHeader("Content-Type"));
                 objectMetadata.setContentEncoding(bceHttpResponse.getHeader("Content-Encoding"));
                 objectMetadata.setContentMd5(bceHttpResponse.getHeader(Headers.CONTENT_MD5));
-                objectMetadata.setExpires(bceHttpResponse.getHeader("Expires"));
+                objectMetadata.setExpires(bceHttpResponse.getHeader(Headers.EXPIRES));
                 objectMetadata.setObjectType(bceHttpResponse.getHeader(Headers.BCE_OBJECT_TYPE));
                 objectMetadata.setAppendOffset(bceHttpResponse.getHeaderAsLong(Headers.BCE_NEXT_APPEND_OFFSET));
                 objectMetadata.setContentDisposition(bceHttpResponse.getHeader("Content-Disposition"));
-                objectMetadata.setCacheControl(bceHttpResponse.getHeader("Cache-Control"));
+                objectMetadata.setCacheControl(bceHttpResponse.getHeader(Headers.CACHE_CONTROL));
                 String header = bceHttpResponse.getHeader(Headers.BCE_STORAGE_CLASS);
                 if (header == null) {
                     header = BosClient.STORAGE_CLASS_STANDARD;
                 }
                 objectMetadata.setStorageClass(header);
-                String header2 = bceHttpResponse.getHeader("ETag");
+                String header2 = bceHttpResponse.getHeader(Headers.ETAG);
                 if (header2 != null) {
                     objectMetadata.setETag(JoinerUtils.cut("\"", header2));
                 }
@@ -82,7 +82,7 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
                         BLog.error("Fail to parse length from Content-Range: " + header4, (Throwable) e3);
                     }
                 }
-                objectMetadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date("Last-Modified"));
+                objectMetadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date(Headers.LAST_MODIFIED));
                 objectMetadata.setBceContentSha256(bceHttpResponse.getHeader(Headers.BCE_CONTENT_SHA256));
                 for (Map.Entry<String, String> entry : bceHttpResponse.getHeaders().entrySet()) {
                     String key = entry.getKey();

@@ -24,9 +24,9 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,9 +50,9 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -70,10 +70,10 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public Object colGetEntry(int i2, int i3) {
+                    public Object colGetEntry(int i, int i2) {
                         InterceptResult invokeII;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? this.this$0.mArray[(i2 << 1) + i3] : invokeII.objValue;
+                        return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.this$0.mArray[(i << 1) + i2] : invokeII.objValue;
                     }
 
                     @Override // androidx.collection.MapCollections
@@ -113,18 +113,18 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public void colRemoveAt(int i2) {
+                    public void colRemoveAt(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048583, this, i2) == null) {
-                            this.this$0.removeAt(i2);
+                        if (interceptable2 == null || interceptable2.invokeI(1048583, this, i) == null) {
+                            this.this$0.removeAt(i);
                         }
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public V colSetValue(int i2, V v) {
+                    public V colSetValue(int i, V v) {
                         InterceptResult invokeIL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, v)) == null) ? this.this$0.setValueAt(i2, v) : (V) invokeIL.objValue;
+                        return (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) ? this.this$0.setValueAt(i, v) : (V) invokeIL.objValue;
                     }
                 };
             }
@@ -184,17 +184,17 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ArrayMap(int i2) {
-        super(i2);
+    public ArrayMap(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -212,9 +212,9 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
             newInitContext.initArgs = r2;
             Object[] objArr = {simpleArrayMap};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SimpleArrayMap) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

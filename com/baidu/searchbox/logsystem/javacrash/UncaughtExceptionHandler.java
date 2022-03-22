@@ -26,9 +26,9 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,7 +49,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
         List<ProcessExceptionListener> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
-            Log.getStackTraceString(th);
+            Log.d(TAG, Log.getStackTraceString(th));
             List<ProcessExceptionListener> list3 = this.mProcessExceptionListeners;
             boolean z = list3 != null && list3.size() > 0;
             if (z) {
@@ -72,7 +72,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
                                     processExceptionListener2.onProcessExceptionFail(this, th, th2);
                                 } catch (Throwable th3) {
                                     if (LLog.sDebug) {
-                                        Log.getStackTraceString(th3);
+                                        Log.d(TAG, Log.getStackTraceString(th3));
                                     }
                                 }
                             }
@@ -111,7 +111,7 @@ public abstract class UncaughtExceptionHandler implements Thread.UncaughtExcepti
                                     processExceptionListener5.onProxyProcessExceptionFail(this.mPreHandler, th4, th4);
                                 } catch (Throwable th5) {
                                     if (LLog.sDebug) {
-                                        Log.getStackTraceString(th5);
+                                        Log.d(TAG, Log.getStackTraceString(th5));
                                     }
                                 }
                             }

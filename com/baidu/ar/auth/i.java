@@ -51,16 +51,16 @@ public class i {
             kb = new a[]{jY, jZ, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -90,9 +90,9 @@ public class i {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -152,8 +152,8 @@ public class i {
         }
         int[] iArr = new int[this.jW.size()];
         int size = this.jW.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            iArr[i2] = this.jW.get(i2).intValue();
+        for (int i = 0; i < size; i++) {
+            iArr[i] = this.jW.get(i).intValue();
         }
         AuthJni.setGrantedFeatures(iArr);
     }
@@ -186,9 +186,9 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.jV == a.jY : invokeV.booleanValue;
     }
 
-    public boolean v(int i2) {
+    public boolean v(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? (isFailed() || this.jW == null || !this.jW.contains(Integer.valueOf(i2))) ? false : true : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? (isFailed() || this.jW == null || !this.jW.contains(Integer.valueOf(i))) ? false : true : invokeI.booleanValue;
     }
 }

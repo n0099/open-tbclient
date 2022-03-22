@@ -2,10 +2,11 @@ package com.baidu.swan.apps.res.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.a;
+import c.a.n0.a.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -17,16 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final boolean f37778f;
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f29140b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f37779e;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +40,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        f37778f = a.a;
+        f29140b = a.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,57 +52,57 @@ public class SwanAppScrollView extends ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f37779e = -1;
+        this.a = -1;
     }
 
     private int getLimitHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i2 = getContext().getResources().getDisplayMetrics().heightPixels;
+            int i = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                i2 = getContext().getResources().getDisplayMetrics().widthPixels;
+                i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i2 - (getContext().getResources().getDimensionPixelSize(R.dimen.aiapps_dialog_message_margin_bottom) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.aiapps_dialog_title_height)) - getContext().getResources().getDimensionPixelSize(R.dimen.aiapps_dialog_btns_height);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070129) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012d)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070125);
         }
         return invokeV.intValue;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            if (f37778f) {
-                String str = "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (f29140b) {
+                Log.d("BoxScrollView", "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            if (f37778f) {
-                String str = "onMeasure( " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (f29140b) {
+                Log.d("BoxScrollView", "onMeasure( " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + SmallTailInfo.EMOTION_SUFFIX);
             }
-            int size = View.MeasureSpec.getSize(i3);
-            int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f37779e;
-            if (i4 > 0) {
-                size = Math.min(size, i4);
+            int size = View.MeasureSpec.getSize(i2);
+            int size2 = View.MeasureSpec.getSize(i);
+            int i3 = this.a;
+            if (i3 > 0) {
+                size = Math.min(size, i3);
             }
-            measureChildren(i2, i3);
+            measureChildren(i, i2);
             int measuredHeight = getChildAt(0).getMeasuredHeight();
             int measuredWidth = getChildAt(0).getMeasuredWidth();
             if (measuredHeight > 0) {
@@ -119,10 +118,10 @@ public class SwanAppScrollView extends ScrollView {
         }
     }
 
-    public void setMaxHeight(int i2) {
+    public void setMaxHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f37779e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -135,9 +134,9 @@ public class SwanAppScrollView extends ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -145,21 +144,21 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f37779e = -1;
+        this.a = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppScrollView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwanAppScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -167,6 +166,6 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f37779e = -1;
+        this.a = -1;
     }
 }

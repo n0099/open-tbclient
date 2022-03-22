@@ -35,9 +35,9 @@ public class TimeManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -66,10 +66,10 @@ public class TimeManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mActiveAnimTime : invokeV.intValue;
     }
 
-    public void setActiveAnimTime(int i2) {
+    public void setActiveAnimTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mActiveAnimTime = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mActiveAnimTime = i;
         }
     }
 }

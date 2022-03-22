@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class BasicCertificateChainCleaner extends CertificateChainCleaner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIGNERS = 9;
@@ -28,9 +28,9 @@ public final class BasicCertificateChainCleaner extends CertificateChainCleaner 
             newInitContext.initArgs = r2;
             Object[] objArr = {trustRootIndex};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,7 +65,7 @@ public final class BasicCertificateChainCleaner extends CertificateChainCleaner 
             ArrayList arrayList = new ArrayList();
             arrayList.add(arrayDeque.removeFirst());
             boolean z = false;
-            for (int i2 = 0; i2 < 9; i2++) {
+            for (int i = 0; i < 9; i++) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
                 X509Certificate findByIssuerAndSignature = this.trustRootIndex.findByIssuerAndSignature(x509Certificate);
                 if (findByIssuerAndSignature != null) {

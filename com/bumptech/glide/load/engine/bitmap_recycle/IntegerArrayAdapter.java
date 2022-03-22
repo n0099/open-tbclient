@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IntegerArrayPool";
@@ -17,9 +17,9 @@ public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,9 +53,9 @@ public final class IntegerArrayAdapter implements ArrayAdapterInterface<int[]> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
-    public int[] newArray(int i2) {
+    public int[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? new int[i2] : (int[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? new int[i] : (int[]) invokeI.objValue;
     }
 }

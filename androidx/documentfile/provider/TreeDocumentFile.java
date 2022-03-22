@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
@@ -32,9 +33,9 @@ public class TreeDocumentFile extends DocumentFile {
             newInitContext.initArgs = r2;
             Object[] objArr = {documentFile, context, uri};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((DocumentFile) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -198,12 +199,12 @@ public class TreeDocumentFile extends DocumentFile {
                         arrayList.add(DocumentsContract.buildDocumentUriUsingTree(this.mUri, cursor.getString(0)));
                     }
                 } catch (Exception e2) {
-                    String str = "Failed query: " + e2;
+                    Log.w("DocumentFile", "Failed query: " + e2);
                 }
                 Uri[] uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
                 DocumentFile[] documentFileArr = new DocumentFile[uriArr.length];
-                for (int i2 = 0; i2 < uriArr.length; i2++) {
-                    documentFileArr[i2] = new TreeDocumentFile(this, this.mContext, uriArr[i2]);
+                for (int i = 0; i < uriArr.length; i++) {
+                    documentFileArr[i] = new TreeDocumentFile(this, this.mContext, uriArr[i]);
                 }
                 return documentFileArr;
             } finally {

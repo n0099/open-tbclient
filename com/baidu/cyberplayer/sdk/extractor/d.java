@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d extends ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class d extends ExtractorProvider {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,7 +44,7 @@ public class d extends ExtractorProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC1788a.a(g.a().b());
+            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC1749a.a(g.a().b());
             if (a != null) {
                 return new d(a);
             }
@@ -138,14 +138,14 @@ public class d extends ExtractorProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
-    public void setOption(int i2, String str, long j2) {
+    public void setOption(int i, String str, long j) {
         com.baidu.cyberplayer.sdk.remote.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) || (aVar = this.a) == null) {
             return;
         }
         try {
-            aVar.a(i2, str, j2);
+            aVar.a(i, str, j);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }

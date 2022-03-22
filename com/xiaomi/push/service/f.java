@@ -12,7 +12,7 @@ import com.xiaomi.push.gj;
 import com.xiaomi.push.gn;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements gi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class f implements gi {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,9 +49,9 @@ public class f implements gi {
         if (xmlPullParser.getAttributeCount() > 0) {
             String[] strArr3 = new String[xmlPullParser.getAttributeCount()];
             String[] strArr4 = new String[xmlPullParser.getAttributeCount()];
-            for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
-                strArr3[i2] = xmlPullParser.getAttributeName(i2);
-                strArr4[i2] = gn.b(xmlPullParser.getAttributeValue(i2));
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                strArr3[i] = xmlPullParser.getAttributeName(i);
+                strArr4[i] = gn.b(xmlPullParser.getAttributeValue(i));
             }
             strArr = strArr3;
             str = null;

@@ -15,7 +15,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MergingMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERIOD_COUNT_UNSET = -1;
@@ -29,7 +29,7 @@ public final class MergingMediaSource implements MediaSource {
     public Timeline primaryTimeline;
     public final Timeline.Window window;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class IllegalMergeException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REASON_PERIOD_COUNT_MISMATCH = 1;
@@ -38,26 +38,26 @@ public final class MergingMediaSource implements MediaSource {
         public final int reason;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public @interface Reason {
         }
 
-        public IllegalMergeException(int i2) {
+        public IllegalMergeException(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.reason = i2;
+            this.reason = i;
         }
     }
 
@@ -68,9 +68,9 @@ public final class MergingMediaSource implements MediaSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {mediaSourceArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,8 +87,8 @@ public final class MergingMediaSource implements MediaSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, timeline)) == null) {
             int windowCount = timeline.getWindowCount();
-            for (int i2 = 0; i2 < windowCount; i2++) {
-                if (timeline.getWindow(i2, this.window, false).isDynamic) {
+            for (int i = 0; i < windowCount; i++) {
+                if (timeline.getWindow(i, this.window, false).isDynamic) {
                     return new IllegalMergeException(0);
                 }
             }
@@ -105,17 +105,17 @@ public final class MergingMediaSource implements MediaSource {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleSourceInfoRefreshed(int i2, Timeline timeline, Object obj) {
+    public void handleSourceInfoRefreshed(int i, Timeline timeline, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, this, i2, timeline, obj) == null) {
+        if (interceptable == null || interceptable.invokeILL(65539, this, i, timeline, obj) == null) {
             if (this.mergeError == null) {
                 this.mergeError = checkTimelineMerges(timeline);
             }
             if (this.mergeError != null) {
                 return;
             }
-            this.pendingTimelineSources.remove(this.mediaSources[i2]);
-            if (i2 == 0) {
+            this.pendingTimelineSources.remove(this.mediaSources[i]);
+            if (i == 0) {
                 this.primaryTimeline = timeline;
                 this.primaryManifest = obj;
             }
@@ -132,8 +132,8 @@ public final class MergingMediaSource implements MediaSource {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaPeriodId, allocator)) == null) {
             int length = this.mediaSources.length;
             MediaPeriod[] mediaPeriodArr = new MediaPeriod[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                mediaPeriodArr[i2] = this.mediaSources[i2].createPeriod(mediaPeriodId, allocator);
+            for (int i = 0; i < length; i++) {
+                mediaPeriodArr[i] = this.mediaSources[i].createPeriod(mediaPeriodId, allocator);
             }
             return new MergingMediaPeriod(mediaPeriodArr);
         }
@@ -162,13 +162,13 @@ public final class MergingMediaSource implements MediaSource {
             return;
         }
         this.listener = listener;
-        int i2 = 0;
+        int i = 0;
         while (true) {
             MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i2 >= mediaSourceArr.length) {
+            if (i >= mediaSourceArr.length) {
                 return;
             }
-            mediaSourceArr[i2].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i2) { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
+            mediaSourceArr[i].prepareSource(exoPlayer, false, new MediaSource.Listener(this, i) { // from class: com.google.android.exoplayer2.source.MergingMediaSource.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MergingMediaSource this$0;
@@ -179,18 +179,18 @@ public final class MergingMediaSource implements MediaSource {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$sourceIndex = i2;
+                    this.val$sourceIndex = i;
                 }
 
                 @Override // com.google.android.exoplayer2.source.MediaSource.Listener
@@ -201,7 +201,7 @@ public final class MergingMediaSource implements MediaSource {
                     }
                 }
             });
-            i2++;
+            i++;
         }
     }
 
@@ -212,14 +212,14 @@ public final class MergingMediaSource implements MediaSource {
             return;
         }
         MergingMediaPeriod mergingMediaPeriod = (MergingMediaPeriod) mediaPeriod;
-        int i2 = 0;
+        int i = 0;
         while (true) {
             MediaSource[] mediaSourceArr = this.mediaSources;
-            if (i2 >= mediaSourceArr.length) {
+            if (i >= mediaSourceArr.length) {
                 return;
             }
-            mediaSourceArr[i2].releasePeriod(mergingMediaPeriod.periods[i2]);
-            i2++;
+            mediaSourceArr[i].releasePeriod(mergingMediaPeriod.periods[i]);
+            i++;
         }
     }
 

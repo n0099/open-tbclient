@@ -3,10 +3,9 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";
@@ -21,8 +20,8 @@ public class NotificationStyle implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public NotificationStyle[] newArray(int i2) {
-            return new NotificationStyle[i2];
+        public NotificationStyle[] newArray(int i) {
+            return new NotificationStyle[i];
         }
     };
     public static final String EXPANDABLE_IMAGE_URL = "ei";
@@ -57,7 +56,7 @@ public class NotificationStyle implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -70,8 +69,8 @@ public class NotificationStyle implements Parcelable {
         NotificationStyle notificationStyle = new NotificationStyle();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull("bs")) {
-                    notificationStyle.setBaseStyle(jSONObject.getInt("bs"));
+                if (!jSONObject.isNull(BASE_STYLE)) {
+                    notificationStyle.setBaseStyle(jSONObject.getInt(BASE_STYLE));
                 }
                 if (!jSONObject.isNull("is")) {
                     notificationStyle.setInnerStyle(jSONObject.getInt("is"));
@@ -91,7 +90,7 @@ public class NotificationStyle implements Parcelable {
             return notificationStyle;
         }
         str = "no such tag notification_style";
-        c.k.a.a.a.b(TAG, str);
+        c.h.a.a.a.b(TAG, str);
         return notificationStyle;
     }
 
@@ -124,8 +123,8 @@ public class NotificationStyle implements Parcelable {
         this.bannerImageUrl = str;
     }
 
-    public void setBaseStyle(int i2) {
-        this.baseStyle = i2;
+    public void setBaseStyle(int i) {
+        this.baseStyle = i;
     }
 
     public void setExpandableImageUrl(String str) {
@@ -136,16 +135,16 @@ public class NotificationStyle implements Parcelable {
         this.expandableText = str;
     }
 
-    public void setInnerStyle(int i2) {
-        this.innerStyle = i2;
+    public void setInnerStyle(int i) {
+        this.innerStyle = i;
     }
 
     public String toString() {
-        return "NotificationStyle{baseStyle=" + this.baseStyle + ", innerStyle=" + this.innerStyle + ", expandableText='" + this.expandableText + ExtendedMessageFormat.QUOTE + ", expandableImageUrl='" + this.expandableImageUrl + ExtendedMessageFormat.QUOTE + ", bannerImageUrl='" + this.bannerImageUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotificationStyle{baseStyle=" + this.baseStyle + ", innerStyle=" + this.innerStyle + ", expandableText='" + this.expandableText + "', expandableImageUrl='" + this.expandableImageUrl + "', bannerImageUrl='" + this.bannerImageUrl + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.baseStyle);
         parcel.writeInt(this.innerStyle);
         parcel.writeString(this.expandableText);

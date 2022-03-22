@@ -28,9 +28,9 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,9 +50,9 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext2.callArgs;
                         super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                         newInitContext2.thisArg = this;
@@ -93,13 +93,13 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
         iSquareRefreshHandler.markHasReaded();
     }
 
-    public void markLoadedData(int i2) {
+    public void markLoadedData(int i) {
         ISquareRefreshHandler iSquareRefreshHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iSquareRefreshHandler = this.mSquareRefreshHandler) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (iSquareRefreshHandler = this.mSquareRefreshHandler) == null) {
             return;
         }
-        iSquareRefreshHandler.markDataLoaded(i2);
+        iSquareRefreshHandler.markDataLoaded(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

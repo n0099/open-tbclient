@@ -7,9 +7,11 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.down.utils.Utils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +27,9 @@ public class CommonUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,7 +42,8 @@ public class CommonUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException unused) {
+            } catch (PackageManager.NameNotFoundException e2) {
+                Log.e(Utils.TAG, "getAppVersionName NameNotFoundException", e2);
                 return "";
             }
         }
@@ -78,27 +81,27 @@ public class CommonUtils {
 
     public static IMPushPb.TerminalInfo getTerminalInfo(Context context) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            int i4 = 0;
+            int i3 = 0;
             if (windowManager != null) {
                 windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-                i2 = displayMetrics.widthPixels;
-                i4 = displayMetrics.heightPixels;
-                if (i2 > i4) {
-                    i4 = i2;
-                    i2 = i4;
+                i = displayMetrics.widthPixels;
+                i3 = displayMetrics.heightPixels;
+                if (i > i3) {
+                    i3 = i;
+                    i = i3;
                 }
-                i3 = displayMetrics.densityDpi;
+                i2 = displayMetrics.densityDpi;
             } else {
+                i = 0;
                 i2 = 0;
-                i3 = 0;
             }
-            return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i4).setResolutionV(i2).setPpi(i3).build();
+            return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i3).setResolutionV(i).setPpi(i2).build();
         }
         return (IMPushPb.TerminalInfo) invokeL.objValue;
     }

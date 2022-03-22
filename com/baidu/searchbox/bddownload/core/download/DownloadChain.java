@@ -78,16 +78,16 @@ public class DownloadChain implements Runnable {
         EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Cancel Block", false));
     }
 
-    public DownloadChain(int i2, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+    public DownloadChain(int i, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), downloadTask, breakpointInfo, downloadCache, downloadStore};
+            Object[] objArr = {Integer.valueOf(i), downloadTask, breakpointInfo, downloadCache, downloadStore};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,9 +110,9 @@ public class DownloadChain implements Runnable {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -129,7 +129,7 @@ public class DownloadChain implements Runnable {
                 }
             }
         };
-        this.blockIndex = i2;
+        this.blockIndex = i;
         this.task = downloadTask;
         this.cache = downloadCache;
         this.info = breakpointInfo;
@@ -137,10 +137,10 @@ public class DownloadChain implements Runnable {
         this.callbackDispatcher = BdDownload.with().callbackDispatcher();
     }
 
-    public static DownloadChain createChain(int i2, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+    public static DownloadChain createChain(int i, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), downloadTask, breakpointInfo, downloadCache, downloadStore})) == null) ? new DownloadChain(i2, downloadTask, breakpointInfo, downloadCache, downloadStore) : (DownloadChain) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), downloadTask, breakpointInfo, downloadCache, downloadStore})) == null) ? new DownloadChain(i, downloadTask, breakpointInfo, downloadCache, downloadStore) : (DownloadChain) invokeCommon.objValue;
     }
 
     public void cancel() {
@@ -246,10 +246,10 @@ public class DownloadChain implements Runnable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.task : (DownloadTask) invokeV.objValue;
     }
 
-    public void increaseCallbackBytes(long j2) {
+    public void increaseCallbackBytes(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.noCallbackIncreaseBytes += j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.noCallbackIncreaseBytes += j;
         }
     }
 
@@ -277,9 +277,9 @@ public class DownloadChain implements Runnable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (!this.cache.isInterrupt()) {
                 List<Interceptor.Connect> list = this.connectInterceptorList;
-                int i2 = this.connectIndex;
-                this.connectIndex = i2 + 1;
-                return list.get(i2).interceptConnect(this);
+                int i = this.connectIndex;
+                this.connectIndex = i + 1;
+                return list.get(i).interceptConnect(this);
             }
             throw InterruptException.SIGNAL;
         }
@@ -292,9 +292,9 @@ public class DownloadChain implements Runnable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (!this.cache.isInterrupt()) {
                 List<Interceptor.Fetch> list = this.fetchInterceptorList;
-                int i2 = this.fetchIndex;
-                this.fetchIndex = i2 + 1;
-                return list.get(i2).interceptFetch(this);
+                int i = this.fetchIndex;
+                this.fetchIndex = i + 1;
+                return list.get(i).interceptFetch(this);
             }
             throw InterruptException.SIGNAL;
         }
@@ -367,10 +367,10 @@ public class DownloadChain implements Runnable {
         }
     }
 
-    public void setResponseContentLength(long j2) {
+    public void setResponseContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.responseContentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.responseContentLength = j;
         }
     }
 

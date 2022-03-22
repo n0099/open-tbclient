@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,13 +41,13 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         this.a = context;
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             String str = null;
             try {
-                str = c(String.format("/proc/%d/cmdline", Integer.valueOf(i2)));
+                str = c(String.format("/proc/%d/cmdline", Integer.valueOf(i)));
                 if (!TextUtils.isEmpty(str)) {
                     return str.trim();
                 }
@@ -88,7 +88,7 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 d a = c.a(new String[]{str}, false, true);
-                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.f60105b) || !a.f60105b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.f44668b) || !a.f44668b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "KWE_PE";
@@ -125,7 +125,7 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, strArr)) == null) {
-            for (int i2 = 0; i2 <= 0; i2++) {
+            for (int i = 0; i <= 0; i++) {
                 try {
                     if (context.checkPermission(strArr[0], Process.myPid(), Process.myUid()) == -1) {
                         return false;
@@ -149,9 +149,9 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, strArr)) == null) {
-            for (int i2 = 0; i2 < 2; i2++) {
+            for (int i = 0; i < 2; i++) {
                 try {
-                    if (context.checkPermission(strArr[i2], Process.myPid(), Process.myUid()) == 0) {
+                    if (context.checkPermission(strArr[i], Process.myPid(), Process.myUid()) == 0) {
                         return true;
                     }
                 } catch (Throwable unused) {

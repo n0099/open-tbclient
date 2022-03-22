@@ -6,11 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +24,9 @@ public final class TrackGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {formatArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,10 +53,10 @@ public final class TrackGroup {
         return invokeL.booleanValue;
     }
 
-    public Format getFormat(int i2) {
+    public Format getFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.formats[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.formats[i] : (Format) invokeI.objValue;
     }
 
     public int hashCode() {
@@ -65,7 +64,7 @@ public final class TrackGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.hashCode == 0) {
-                this.hashCode = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.formats);
+                this.hashCode = 527 + Arrays.hashCode(this.formats);
             }
             return this.hashCode;
         }
@@ -78,16 +77,16 @@ public final class TrackGroup {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, format)) != null) {
             return invokeL.intValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Format[] formatArr = this.formats;
-            if (i2 >= formatArr.length) {
+            if (i >= formatArr.length) {
                 return -1;
             }
-            if (format == formatArr[i2]) {
-                return i2;
+            if (format == formatArr[i]) {
+                return i;
             }
-            i2++;
+            i++;
         }
     }
 }

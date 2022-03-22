@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecentAppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class RecentAppInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +41,7 @@ public class RecentAppInfo {
                 String string = jSONObject.getString("name");
                 String string2 = jSONObject.getString("pkg");
                 Long valueOf = Long.valueOf(jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING));
-                int i2 = jSONObject.getInt("type");
+                int i = jSONObject.getInt("type");
                 if (string2 == null || string2.isEmpty() || valueOf == null) {
                     return null;
                 }
@@ -49,7 +49,7 @@ public class RecentAppInfo {
                 recentAppInfo.setLastModified(valueOf.longValue());
                 recentAppInfo.setPkg(string2);
                 recentAppInfo.setName(string);
-                recentAppInfo.setType(i2);
+                recentAppInfo.setType(i);
                 return recentAppInfo;
             } catch (Throwable th) {
                 L.debug("RecentAppInfo", th.getMessage(), new Object[0]);
@@ -83,10 +83,10 @@ public class RecentAppInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.type : invokeV.intValue;
     }
 
-    public void setLastModified(long j2) {
+    public void setLastModified(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.lastModified = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.lastModified = j;
         }
     }
 
@@ -104,10 +104,10 @@ public class RecentAppInfo {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.type = i;
         }
     }
 

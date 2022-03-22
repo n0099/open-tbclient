@@ -12,7 +12,7 @@ import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.b.b;
 import com.sdk.base.framework.bean.DataInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,7 +37,7 @@ public final class a {
         String str3;
         b<T> a;
         j jVar;
-        int i2;
+        int i;
         String str4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, str, str2, aVar)) == null) {
@@ -45,22 +45,22 @@ public final class a {
             if (c.a(str2).booleanValue()) {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
-                str3 = aVar2.f57805b;
+                str3 = aVar2.f42574b;
                 a = aVar2.a();
-                jVar = j.f57765b;
-                i2 = 0;
+                jVar = j.f42537b;
+                i = 0;
                 str4 = "/api/netm/v1.0/qhbt";
             } else {
                 dataInfo = new DataInfo();
                 dataInfo.putData(YYInnerSSOLoginActivity.o, str);
                 dataInfo.putData("mobile", str2);
-                str3 = aVar2.f57805b;
+                str3 = aVar2.f42574b;
                 a = aVar2.a();
-                jVar = j.f57765b;
-                i2 = 0;
+                jVar = j.f42537b;
+                i = 0;
                 str4 = "/api/netm/v1.0/qhbv";
             }
-            return aVar2.a(str3, str4, dataInfo, a, i2, jVar);
+            return aVar2.a(str3, str4, dataInfo, a, i, jVar);
         }
         return (f) invokeLLLL.objValue;
     }

@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -57,24 +58,24 @@ public class BaiduAppSSOJni {
             if (key == null) {
                 return null;
             }
-            String str2 = new String(key, "utf-8");
+            String str2 = new String(key, IMAudioTransRequest.CHARSET);
             if (str2.length() > 0) {
-                return encryptAESwithKey(str2.substring(16), str2.substring(0, 16), new String(bArr, "utf-8"));
+                return encryptAESwithKey(str2.substring(16), str2.substring(0, 16), new String(bArr, IMAudioTransRequest.CHARSET));
             }
             return null;
         }
         return (byte[]) invokeLLL.objValue;
     }
 
-    public static native byte[] decryptAES(byte[] bArr, int i2, int i3);
+    public static native byte[] decryptAES(byte[] bArr, int i, int i2);
 
     public static native String encodeBySha1(byte[] bArr);
 
-    public static native byte[] encryptAES(String str, int i2);
+    public static native byte[] encryptAES(String str, int i);
 
     public static native byte[] encryptAESwithKey(String str, String str2, String str3);
 
     public static native byte[] getKey(String str);
 
-    public static native String getPublicKey(int i2);
+    public static native String getPublicKey(int i);
 }

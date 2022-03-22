@@ -3,27 +3,28 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.r0.c0.b.d;
-import c.a.r0.c0.b.e;
-import c.a.r0.c0.b.f;
-import c.a.r0.c0.e.a;
-import c.a.r0.c0.e.c;
-import com.baidu.android.imsdk.internal.Constants;
+import c.a.p0.e0.b.d;
+import c.a.p0.e0.b.e;
+import c.a.p0.e0.b.f;
+import c.a.p0.e0.e.a;
+import c.a.p0.e0.e.c;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f mData;
-    public d mElectionData;
-    public int status;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public f f31572b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f31573c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -34,9 +35,9 @@ public class CardBasicLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,64 +47,51 @@ public class CardBasicLayout extends LinearLayout {
         }
     }
 
-    public String numDeal(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= 100000) {
-                String format = new DecimalFormat(".0").format(Float.valueOf(i2 / 10000.0f));
-                return format + "W";
-            }
-            return i2 + "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void setData(int i2, f fVar) {
+    public void setData(int i, f fVar) {
         e a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, fVar) == null) {
-            this.mData = fVar;
-            if (fVar == null || fVar.a() == null || (a = this.mData.a()) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fVar) == null) {
+            this.f31572b = fVar;
+            if (fVar == null || fVar.a() == null || (a = this.f31572b.a()) == null) {
                 return;
             }
             int g2 = a.g();
-            if (g2 == c.f15248b) {
-                if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f15247d;
-                    this.mElectionData = this.mData.f();
+            if (g2 == c.f13760b) {
+                if (i == VoteCandidateCard.A) {
+                    this.a = a.f13759d;
+                    this.f31573c = this.f31572b.f();
                     return;
                 }
-                this.status = a.a;
-                List<d> b2 = this.mData.b();
-                if (b2 == null || b2.size() <= i2) {
+                this.a = a.a;
+                List<d> b2 = this.f31572b.b();
+                if (b2 == null || b2.size() <= i) {
                     return;
                 }
-                this.mElectionData = b2.get(i2);
-            } else if (g2 == c.f15249c) {
-                if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f15246c;
-                    List<d> b3 = this.mData.b();
+                this.f31573c = b2.get(i);
+            } else if (g2 == c.f13761c) {
+                if (i == VoteCandidateCard.A) {
+                    this.a = a.f13758c;
+                    List<d> b3 = this.f31572b.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
                     }
                     for (d dVar : b3) {
                         if (dVar.i() == 1) {
-                            this.mElectionData = dVar;
+                            this.f31573c = dVar;
                             return;
                         }
                     }
                     return;
                 }
-                this.status = a.f15245b;
-                List<d> b4 = this.mData.b();
-                if (b4 == null || b4.size() <= i2) {
+                this.a = a.f13757b;
+                List<d> b4 = this.f31572b.b();
+                if (b4 == null || b4.size() <= i) {
                     return;
                 }
-                d dVar2 = b4.get(i2);
-                this.mElectionData = dVar2;
-                if (dVar2.i() == 1 && i2 == 0) {
-                    this.status = a.f15246c;
+                d dVar2 = b4.get(i);
+                this.f31573c = dVar2;
+                if (dVar2.i() == 1 && i == 0) {
+                    this.a = a.f13758c;
                 }
             }
         }
@@ -118,9 +106,9 @@ public class CardBasicLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -128,6 +116,6 @@ public class CardBasicLayout extends LinearLayout {
                 return;
             }
         }
-        this.status = -1;
+        this.a = -1;
     }
 }

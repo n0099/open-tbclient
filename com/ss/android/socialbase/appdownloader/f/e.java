@@ -8,6 +8,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +19,7 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static Boolean a;
 
@@ -45,7 +46,7 @@ public class e {
     public static int d() {
         String str = null;
         try {
-            Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, a("726f2e736563757265"));
+            Object invoke = Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, a("726f2e736563757265"));
             if (invoke != null) {
                 str = (String) invoke;
             }
@@ -56,8 +57,8 @@ public class e {
 
     public static boolean e() {
         String[] strArr = {a("2f7362696e2f7375"), a("2f73797374656d2f62696e2f7375"), a("2f73797374656d2f7862696e2f7375"), a("2f646174612f6c6f63616c2f7862696e2f7375"), a("2f646174612f6c6f63616c2f62696e2f7375"), a("2f73797374656d2f73642f7862696e2f7375"), a("2f73797374656d2f62696e2f6661696c736166652f7375"), a("2f646174612f6c6f63616c2f7375")};
-        for (int i2 = 0; i2 < 8; i2++) {
-            if (new File(strArr[i2]).exists()) {
+        for (int i = 0; i < 8; i++) {
+            if (new File(strArr[i]).exists()) {
                 return true;
             }
         }

@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamGifDecoder";
@@ -35,9 +35,9 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
             newInitContext.initArgs = r2;
             Object[] objArr = {list, resourceDecoder, arrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,23 +66,26 @@ public class StreamGifDecoder implements ResourceDecoder<InputStream, GifDrawabl
                     return byteArrayOutputStream.toByteArray();
                 }
             }
-        } catch (IOException unused) {
-            Log.isLoggable(TAG, 5);
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 5)) {
+                Log.w(TAG, "Error reading data from stream", e2);
+                return null;
+            }
             return null;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i2, int i3, @NonNull Options options) throws IOException {
+    public Resource<GifDrawable> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{inputStream, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             byte[] inputStreamToBytes = inputStreamToBytes(inputStream);
             if (inputStreamToBytes == null) {
                 return null;
             }
-            return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i2, i3, options);
+            return this.byteBufferDecoder.decode(ByteBuffer.wrap(inputStreamToBytes), i, i2, options);
         }
         return (Resource) invokeCommon.objValue;
     }

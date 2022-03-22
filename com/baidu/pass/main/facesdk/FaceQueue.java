@@ -50,9 +50,9 @@ public class FaceQueue {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -73,15 +73,19 @@ public class FaceQueue {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {faceQueue};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = faceQueue;
+        }
+
+        public /* synthetic */ PoolWorker(FaceQueue faceQueue, AnonymousClass1 anonymousClass1) {
+            this(faceQueue);
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -108,34 +112,30 @@ public class FaceQueue {
                 }
             }
         }
-
-        public /* synthetic */ PoolWorker(FaceQueue faceQueue, AnonymousClass1 anonymousClass1) {
-            this(faceQueue);
-        }
     }
 
-    public FaceQueue(int i2) {
+    public FaceQueue(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.queue = null;
-        this.nThreads = i2;
+        this.nThreads = i;
         this.queue = new LinkedList();
-        this.threads = new PoolWorker[i2];
-        for (int i5 = 0; i5 < i2; i5++) {
-            this.threads[i5] = new PoolWorker(this, null);
-            this.threads[i5].start();
+        this.threads = new PoolWorker[i];
+        for (int i4 = 0; i4 < i; i4++) {
+            this.threads[i4] = new PoolWorker(this, null);
+            this.threads[i4].start();
         }
     }
 

@@ -15,17 +15,17 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleBlurLoaderProc(boolean z, int i2) {
-        super(z, true, false, i2);
+    public SimpleBlurLoaderProc(boolean z, int i) {
+        super(z, true, false, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -36,11 +36,11 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public a decodeToResourceWithWH(byte[] bArr, int i2, int i3) {
+    public a decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            Bitmap p = super.decodeToResourceWithWH(bArr, i2, i3).p();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            Bitmap p = super.decodeToResourceWithWH(bArr, i, i2).p();
             if (p == null) {
                 return null;
             }

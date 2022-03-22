@@ -28,7 +28,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TlsOnlySocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TlsOnlySocketFactory";
@@ -37,13 +37,13 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
     public final SSLSocketFactory delegate;
 
     /* renamed from: com.yy.gslbsdk.network.TlsOnlySocketFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class DelegateSSLSocket extends SSLSocket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tlsOnlySocketFactory, sSLSocket};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -363,10 +363,10 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
 
         @Override // java.net.Socket
-        public void sendUrgentData(int i2) throws IOException {
+        public void sendUrgentData(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-                this.delegate.sendUrgentData(i2);
+            if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+                this.delegate.sendUrgentData(i);
             }
         }
 
@@ -419,19 +419,19 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
 
         @Override // java.net.Socket
-        public void setPerformancePreferences(int i2, int i3, int i4) {
+        public void setPerformancePreferences(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048622, this, i2, i3, i4) == null) {
-                this.delegate.setPerformancePreferences(i2, i3, i4);
+            if (interceptable == null || interceptable.invokeIII(1048622, this, i, i2, i3) == null) {
+                this.delegate.setPerformancePreferences(i, i2, i3);
             }
         }
 
         @Override // java.net.Socket
-        public synchronized void setReceiveBufferSize(int i2) throws SocketException {
+        public synchronized void setReceiveBufferSize(int i) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
                 synchronized (this) {
-                    this.delegate.setReceiveBufferSize(i2);
+                    this.delegate.setReceiveBufferSize(i);
                 }
             }
         }
@@ -445,29 +445,29 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
 
         @Override // java.net.Socket
-        public synchronized void setSendBufferSize(int i2) throws SocketException {
+        public synchronized void setSendBufferSize(int i) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
                 synchronized (this) {
-                    this.delegate.setSendBufferSize(i2);
+                    this.delegate.setSendBufferSize(i);
                 }
             }
         }
 
         @Override // java.net.Socket
-        public void setSoLinger(boolean z, int i2) throws SocketException {
+        public void setSoLinger(boolean z, int i) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-                this.delegate.setSoLinger(z, i2);
+            if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                this.delegate.setSoLinger(z, i);
             }
         }
 
         @Override // java.net.Socket
-        public synchronized void setSoTimeout(int i2) throws SocketException {
+        public synchronized void setSoTimeout(int i) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
                 synchronized (this) {
-                    this.delegate.setSoTimeout(i2);
+                    this.delegate.setSoTimeout(i);
                 }
             }
         }
@@ -481,10 +481,10 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
 
         @Override // java.net.Socket
-        public void setTrafficClass(int i2) throws SocketException {
+        public void setTrafficClass(int i) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-                this.delegate.setTrafficClass(i2);
+            if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+                this.delegate.setTrafficClass(i);
             }
         }
 
@@ -536,15 +536,15 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
 
         @Override // java.net.Socket
-        public void connect(SocketAddress socketAddress, int i2) throws IOException {
+        public void connect(SocketAddress socketAddress, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, socketAddress, i2) == null) {
-                this.delegate.connect(socketAddress, i2);
+            if (interceptable == null || interceptable.invokeLI(1048580, this, socketAddress, i) == null) {
+                this.delegate.connect(socketAddress, i);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class TlsOnlySSLSocket extends DelegateSSLSocket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -588,9 +588,9 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tlsOnlySocketFactory, sSLSocket, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((TlsOnlySocketFactory) objArr2[0], (SSLSocket) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -600,7 +600,7 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             }
             this.this$0 = tlsOnlySocketFactory;
             this.compatible = z;
-            int i4 = 0;
+            int i3 = 0;
             if (z) {
                 ArrayList arrayList = new ArrayList(Arrays.asList(sSLSocket.getEnabledProtocols()));
                 arrayList.remove("SSLv2");
@@ -610,12 +610,12 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
                 Pattern compile = Pattern.compile(".*(EXPORT|NULL|TLS_FALLBACK_SCSV).*");
                 String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
                 int length = enabledCipherSuites.length;
-                while (i4 < length) {
-                    String str = enabledCipherSuites[i4];
+                while (i3 < length) {
+                    String str = enabledCipherSuites[i3];
                     if (!compile.matcher(str).matches()) {
                         arrayList2.add(str);
                     }
-                    i4++;
+                    i3++;
                 }
                 super.setEnabledCipherSuites((String[]) arrayList2.toArray(new String[arrayList2.size()]));
                 return;
@@ -628,12 +628,12 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             Pattern compile2 = Pattern.compile(".*(_DES|DH_|DSS|EXPORT|MD5|NULL|RC4|TLS_FALLBACK_SCSV).*");
             String[] supportedCipherSuites = sSLSocket.getSupportedCipherSuites();
             int length2 = supportedCipherSuites.length;
-            while (i4 < length2) {
-                String str2 = supportedCipherSuites[i4];
+            while (i3 < length2) {
+                String str2 = supportedCipherSuites[i3];
                 if (!compile2.matcher(str2).matches()) {
                     arrayList4.add(str2);
                 }
-                i4++;
+                i3++;
             }
             super.setEnabledCipherSuites((String[]) arrayList4.toArray(new String[arrayList4.size()]));
         }
@@ -644,9 +644,9 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -671,10 +671,10 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? makeSocketSafe(this.delegate.createSocket(socket, str, i2, z)) : (Socket) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? makeSocketSafe(this.delegate.createSocket(socket, str, i, z)) : (Socket) invokeCommon.objValue;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
@@ -692,31 +692,31 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2) throws IOException {
+    public Socket createSocket(String str, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? makeSocketSafe(this.delegate.createSocket(str, i2)) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? makeSocketSafe(this.delegate.createSocket(str, i)) : (Socket) invokeLI.objValue;
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException {
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) ? makeSocketSafe(this.delegate.createSocket(str, i2, inetAddress, i3)) : (Socket) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) ? makeSocketSafe(this.delegate.createSocket(str, i, inetAddress, i2)) : (Socket) invokeCommon.objValue;
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i2)) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i2)) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i)) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i)) : (Socket) invokeLI.objValue;
     }
 
     @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i2, inetAddress2, i3)) : (Socket) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) ? makeSocketSafe(this.delegate.createSocket(inetAddress, i, inetAddress2, i2)) : (Socket) invokeCommon.objValue;
     }
 
     public TlsOnlySocketFactory(SSLSocketFactory sSLSocketFactory) {
@@ -726,9 +726,9 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {sSLSocketFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -745,9 +745,9 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {sSLSocketFactory, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

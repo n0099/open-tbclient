@@ -1,6 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
@@ -20,57 +21,53 @@ public final class Polyline extends Overlay {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<LatLng> f34008b;
+    public List<LatLng> f26260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f34009c;
+    public int[] f26261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f34010d;
+    public int[] f26262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34011e;
+    public int f26263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f34012f;
+    public boolean f26264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34013g;
+    public boolean f26265g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34014h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public BitmapDescriptor f34015i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public List<BitmapDescriptor> f34016j;
+    public boolean f26266h;
+    public BitmapDescriptor i;
+    public List<BitmapDescriptor> j;
 
     public Polyline() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34011e = 5;
-        this.f34012f = false;
-        this.f34013g = false;
-        this.f34014h = true;
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f34515i;
+        this.f26263e = 5;
+        this.f26264f = false;
+        this.f26265g = false;
+        this.f26266h = true;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.i;
     }
 
     private Bundle a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, this, z)) == null) {
-            return (z ? BitmapDescriptorFactory.fromAsset("lineDashTexture.png") : this.f34015i).b();
+            return (z ? BitmapDescriptorFactory.fromAsset("lineDashTexture.png") : this.i).b();
         }
         return (Bundle) invokeZ.objValue;
     }
@@ -94,14 +91,14 @@ public final class Polyline extends Overlay {
                 return bundle;
             }
             Bundle bundle2 = new Bundle();
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.f34016j.size(); i3++) {
-                if (this.f34016j.get(i3) != null) {
-                    bundle2.putBundle("texture_" + String.valueOf(i2), this.f34016j.get(i3).b());
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < this.j.size(); i2++) {
+                if (this.j.get(i2) != null) {
+                    bundle2.putBundle("texture_" + String.valueOf(i), this.j.get(i2).b());
+                    i++;
                 }
             }
-            bundle2.putInt("total", i2);
+            bundle2.putInt("total", i);
             return bundle2;
         }
         return (Bundle) invokeZ.objValue;
@@ -122,46 +119,46 @@ public final class Polyline extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f34008b.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f26260b.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("width", this.f34011e);
-            Overlay.a(this.f34008b, bundle);
+            bundle.putInt("width", this.f26263e);
+            Overlay.a(this.f26260b, bundle);
             Overlay.a(this.a, bundle);
-            a(this.f34009c, bundle);
-            b(this.f34010d, bundle);
-            int[] iArr = this.f34009c;
-            int i2 = 1;
-            if (iArr != null && iArr.length > 0) {
-                int length = iArr.length;
-                int size = this.f34008b.size() - 1;
+            a(this.f26261c, bundle);
+            b(this.f26262d, bundle);
+            int[] iArr = this.f26261c;
+            int i = 1;
+            if (iArr != null && iArr.length > 0 && iArr.length > this.f26260b.size() - 1) {
+                Log.e("baidumapsdk", "the size of textureIndexs is larger than the size of points");
             }
-            bundle.putInt("dotline", this.f34012f ? 1 : 0);
-            bundle.putInt(AddFriendActivityConfig.TYPE_FOCUS, this.f34013g ? 1 : 0);
+            bundle.putInt("dotline", this.f26264f ? 1 : 0);
+            bundle.putInt(AddFriendActivityConfig.TYPE_FOCUS, this.f26265g ? 1 : 0);
             try {
-                if (this.f34015i != null) {
+                if (this.i != null) {
                     bundle.putInt("custom", 1);
                     bundle.putBundle("image_info", a(false));
                 } else {
-                    if (this.f34012f) {
+                    if (this.f26264f) {
                         bundle.putBundle("image_info", a(true));
                     }
                     bundle.putInt("custom", 0);
                 }
-                if (this.f34016j != null) {
+                if (this.j != null) {
                     bundle.putInt("customlist", 1);
                     bundle.putBundle("image_info_list", b(false));
                 } else {
-                    if (this.f34012f && ((this.f34009c != null && this.f34009c.length > 0) || (this.f34010d != null && this.f34010d.length > 0))) {
+                    if (this.f26264f && ((this.f26261c != null && this.f26261c.length > 0) || (this.f26262d != null && this.f26262d.length > 0))) {
                         bundle.putBundle("image_info_list", b(true));
                     }
                     bundle.putInt("customlist", 0);
                 }
-                if (!this.f34014h) {
-                    i2 = 0;
+                if (!this.f26266h) {
+                    i = 0;
                 }
-                bundle.putInt("keep", i2);
+                bundle.putInt("keep", i);
             } catch (Exception unused) {
+                Log.e("baidumapsdk", "load texture resource failed!");
                 bundle.putInt("dotline", 0);
             }
             return bundle;
@@ -178,49 +175,49 @@ public final class Polyline extends Overlay {
     public int[] getColorList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34010d : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26262d : (int[]) invokeV.objValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34008b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26260b : (List) invokeV.objValue;
     }
 
     public BitmapDescriptor getTexture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34015i : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (BitmapDescriptor) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34011e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26263e : invokeV.intValue;
     }
 
     public boolean isDottedLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34012f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26264f : invokeV.booleanValue;
     }
 
     public boolean isFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34013g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26265g : invokeV.booleanValue;
     }
 
     public boolean isIsKeepScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34014h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26266h : invokeV.booleanValue;
     }
 
-    public void setColor(int i2) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
             this.listener.b(this);
         }
     }
@@ -231,14 +228,14 @@ public final class Polyline extends Overlay {
             if (iArr == null || iArr.length == 0) {
                 throw new IllegalArgumentException("BDMapSDKException: colorList can not empty");
             }
-            this.f34010d = iArr;
+            this.f26262d = iArr;
         }
     }
 
     public void setDottedLine(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f34012f = z;
+            this.f26264f = z;
             this.listener.b(this);
         }
     }
@@ -246,7 +243,7 @@ public final class Polyline extends Overlay {
     public void setFocus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f34013g = z;
+            this.f26265g = z;
             this.listener.b(this);
         }
     }
@@ -257,14 +254,14 @@ public final class Polyline extends Overlay {
             if (iArr == null || iArr.length == 0) {
                 throw new IllegalArgumentException("BDMapSDKException: indexList can not empty");
             }
-            this.f34009c = iArr;
+            this.f26261c = iArr;
         }
     }
 
     public void setIsKeepScale(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f34014h = z;
+            this.f26266h = z;
         }
     }
 
@@ -280,7 +277,7 @@ public final class Polyline extends Overlay {
             if (list.contains(null)) {
                 throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
             }
-            this.f34008b = list;
+            this.f26260b = list;
             this.listener.b(this);
         }
     }
@@ -288,7 +285,7 @@ public final class Polyline extends Overlay {
     public void setTexture(BitmapDescriptor bitmapDescriptor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bitmapDescriptor) == null) {
-            this.f34015i = bitmapDescriptor;
+            this.i = bitmapDescriptor;
             this.listener.b(this);
         }
     }
@@ -299,16 +296,16 @@ public final class Polyline extends Overlay {
             if (list == null || list.isEmpty()) {
                 throw new IllegalArgumentException("BDMapSDKException: textureList can not empty");
             }
-            this.f34016j = list;
+            this.j = list;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i <= 0) {
             return;
         }
-        this.f34011e = i2;
+        this.f26263e = i;
         this.listener.b(this);
     }
 }

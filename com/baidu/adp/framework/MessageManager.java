@@ -119,9 +119,9 @@ public class MessageManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -157,11 +157,11 @@ public class MessageManager {
         return (MessageManager) invokeV.objValue;
     }
 
-    private c<?, ?, ?, ?> getManager(int i2) {
+    private c<?, ?, ?, ?> getManager(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+            FrameHelper.TYPE e2 = FrameHelper.e(i);
             if (e2 == FrameHelper.TYPE.HTTP) {
                 return this.mHttpManager;
             }
@@ -243,9 +243,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, fVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -286,9 +286,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, eVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -329,9 +329,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, gVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -377,9 +377,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, responsedMessage};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -431,20 +431,20 @@ public class MessageManager {
                         if (netMessage.getHttpMessage() != null && netMessage.getNetType() == NetMessage.NetType.AUTO) {
                             NetMessage.a switchToHttpStrategy = netMessage.getSwitchToHttpStrategy();
                             if ((switchToHttpStrategy != null ? switchToHttpStrategy.checkToSwitchHttp((SocketResponsedMessage) responsedMessage) : false) || responsedMessage.getError() == h.m) {
-                                int i2 = 5;
+                                int i = 5;
                                 if (responsedMessage.getError() == h.m) {
                                     netMessage.setSocketCostTime(System.currentTimeMillis() - orginalMessage.getStartTime());
                                 } else if (responsedMessage.getError() == 110004) {
-                                    i2 = 8;
+                                    i = 8;
                                 } else if (responsedMessage.getError() == 110005) {
-                                    i2 = 9;
+                                    i = 9;
                                 }
-                                netMessage.setSocketErrNo(i2);
+                                netMessage.setSocketErrNo(i);
                                 if (netMessage.getSocketMessage() != null) {
                                     netMessage.getHttpMessage().setSquencedId(netMessage.getSocketMessage().getSquencedId());
                                 }
                                 HttpMessage httpMessage = netMessage.getHttpMessage();
-                                if (httpMessage != null && i2 == 9) {
+                                if (httpMessage != null && i == 9) {
                                     httpMessage.addHeader("Retry-Count", "1");
                                 }
                                 if (sendMessage(httpMessage)) {
@@ -505,9 +505,9 @@ public class MessageManager {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, h2};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -568,13 +568,13 @@ public class MessageManager {
     }
 
     /* JADX DEBUG: Type inference failed for r5v3. Raw type applied. Possible types: java.util.LinkedList<?>, java.util.LinkedList<? extends com.baidu.adp.framework.message.Message> */
-    public LinkedList<? extends Message> findMessage(int i2, BdUniqueId bdUniqueId) {
+    public LinkedList<? extends Message> findMessage(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, bdUniqueId)) == null) {
-            c<?, ?, ?, ?> manager = getManager(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, bdUniqueId)) == null) {
+            c<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
-                return manager.e(i2, bdUniqueId);
+                return manager.e(i, bdUniqueId);
             }
             BdLog.e("cmd invalid");
             return null;
@@ -594,32 +594,32 @@ public class MessageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mSocketManager.i() : (ArrayList) invokeV.objValue;
     }
 
-    public MessageTask findTask(int i2) {
+    public MessageTask findTask(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            FrameHelper.TYPE e2 = FrameHelper.e(i);
             if (FrameHelper.TYPE.HTTP == e2) {
-                return this.mHttpManager.g(i2);
+                return this.mHttpManager.g(i);
             }
             if (FrameHelper.TYPE.SOCKET == e2) {
-                return this.mSocketManager.g(i2);
+                return this.mSocketManager.g(i);
             }
             if (FrameHelper.TYPE.CUSTOM == e2) {
                 try {
                     MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
-                    List<String> values = multiValueMap.getValues(i2 + "");
+                    List<String> values = multiValueMap.getValues(i + "");
                     if (values != null && values.size() > 0) {
                         for (String str : values) {
                             Class.forName(str);
                         }
                         MultiValueMap<String, String> multiValueMap2 = CmdRouter.cmdMaps;
-                        multiValueMap2.remove(i2 + "");
+                        multiValueMap2.remove(i + "");
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);
                 }
-                return this.mCustomManager.g(i2);
+                return this.mCustomManager.g(i);
             }
             return null;
         }
@@ -638,25 +638,25 @@ public class MessageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mSocketManager.x() : (c.a.d.c.e.c.g) invokeV.objValue;
     }
 
-    public boolean hasListener(int i2) {
+    public boolean hasListener(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            FrameHelper.TYPE e2 = FrameHelper.e(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            FrameHelper.TYPE e2 = FrameHelper.e(i);
             if (e2 == null) {
                 return false;
             }
-            int i3 = AnonymousClass18.$SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE[e2.ordinal()];
-            if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 != 3) {
+            int i2 = AnonymousClass18.$SwitchMap$com$baidu$adp$framework$FrameHelper$TYPE[e2.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
                         return false;
                     }
-                    return this.mCustomManager.j(i2);
+                    return this.mCustomManager.j(i);
                 }
-                return this.mSocketManager.j(i2);
+                return this.mSocketManager.j(i);
             }
-            return this.mHttpManager.j(i2);
+            return this.mHttpManager.j(i);
         }
         return invokeI.booleanValue;
     }
@@ -684,9 +684,9 @@ public class MessageManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, aVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -728,9 +728,9 @@ public class MessageManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, messageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -751,13 +751,13 @@ public class MessageManager {
         }
     }
 
-    public void registerStickyMode(int i2) {
+    public void registerStickyMode(int i) {
         c<?, ?, ?, ?> manager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || (manager = getManager(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || (manager = getManager(i)) == null) {
             return;
         }
-        manager.o(i2);
+        manager.o(i);
     }
 
     public void registerTask(MessageTask messageTask) {
@@ -792,13 +792,13 @@ public class MessageManager {
         }
     }
 
-    public void removeMessage(int i2, BdUniqueId bdUniqueId) {
+    public void removeMessage(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048602, this, i2, bdUniqueId) == null) {
-            c<?, ?, ?, ?> manager = getManager(i2);
+        if (interceptable == null || interceptable.invokeIL(1048602, this, i, bdUniqueId) == null) {
+            c<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
-                manager.h(i2, bdUniqueId);
-                this.mController.o(i2, bdUniqueId);
+                manager.h(i, bdUniqueId);
+                this.mController.o(i, bdUniqueId);
                 return;
             }
             BdLog.e("cmd invalid");
@@ -824,9 +824,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, fVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -867,9 +867,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, eVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -910,9 +910,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, gVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -942,10 +942,10 @@ public class MessageManager {
         }
     }
 
-    public <T> CustomResponsedMessage<T> runTask(int i2, Class<T> cls) {
+    public <T> CustomResponsedMessage<T> runTask(int i, Class<T> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i2, cls)) == null) ? runTask(i2, cls, null) : (CustomResponsedMessage) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i, cls)) == null) ? runTask(i, cls, null) : (CustomResponsedMessage) invokeIL.objValue;
     }
 
     public boolean sendMessage(Message<?> message) {
@@ -1015,9 +1015,9 @@ public class MessageManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, message};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1067,9 +1067,9 @@ public class MessageManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, aVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1090,43 +1090,43 @@ public class MessageManager {
         });
     }
 
-    public void unRegisterStickyMode(int i2) {
+    public void unRegisterStickyMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             n.c();
-            c<?, ?, ?, ?> manager = getManager(i2);
+            c<?, ?, ?, ?> manager = getManager(i);
             if (manager != null) {
-                manager.u(i2);
+                manager.u(i);
             }
         }
     }
 
-    public void unRegisterTask(int i2) {
+    public void unRegisterTask(int i) {
         c<?, ?, ?, ?> manager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048622, this, i2) == null) || (manager = getManager(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048622, this, i) == null) || (manager = getManager(i)) == null) {
             return;
         }
-        manager.v(i2);
+        manager.v(i);
     }
 
-    public <T> CustomResponsedMessage<T> runTask(int i2, Class<T> cls, Object obj) {
+    public <T> CustomResponsedMessage<T> runTask(int i, Class<T> cls, Object obj) {
         InterceptResult invokeILL;
         CustomMessage<?> customMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048609, this, i2, cls, obj)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048609, this, i, cls, obj)) == null) {
             if (obj != null) {
-                customMessage = new CustomMessage<>(i2);
+                customMessage = new CustomMessage<>(i);
                 customMessage.setData(obj);
             } else {
                 customMessage = null;
             }
             MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
-            if (multiValueMap.containsKey(i2 + "")) {
+            if (multiValueMap.containsKey(i + "")) {
                 try {
-                    if (i2 == 2002001) {
+                    if (i == 2002001) {
                         MultiValueMap<String, String> multiValueMap2 = CmdRouter.cmdMaps;
-                        List<String> values = multiValueMap2.getValues(i2 + "");
+                        List<String> values = multiValueMap2.getValues(i + "");
                         String cls2 = customMessage.getData().getClass().toString();
                         String substring = cls2.substring(cls2.lastIndexOf(".") + 1);
                         for (String str : values) {
@@ -1137,34 +1137,34 @@ public class MessageManager {
                         }
                     } else {
                         MultiValueMap<String, String> multiValueMap3 = CmdRouter.cmdMaps;
-                        for (String str2 : multiValueMap3.getValues(i2 + "")) {
+                        for (String str2 : multiValueMap3.getValues(i + "")) {
                             System.currentTimeMillis();
                             Class.forName(str2);
                         }
                         MultiValueMap<String, String> multiValueMap4 = CmdRouter.cmdMaps;
-                        multiValueMap4.remove(i2 + "");
+                        multiValueMap4.remove(i + "");
                     }
                 } catch (Throwable th) {
                     BdLog.e(th);
                 }
             }
             a aVar = this.mCustomManager;
-            return aVar.z(customMessage, aVar.g(i2), cls);
+            return aVar.z(customMessage, aVar.g(i), cls);
         }
         return (CustomResponsedMessage) invokeILL.objValue;
     }
 
-    public void registerListener(int i2, c.a.d.c.g.a aVar) {
+    public void registerListener(int i, c.a.d.c.g.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i, aVar) == null) || aVar == null) {
             return;
         }
         if (n.B()) {
-            this.mHttpManager.n(i2, aVar.getHttpMessageListener());
-            this.mSocketManager.n(i2, aVar.getSocketMessageListener());
+            this.mHttpManager.n(i, aVar.getHttpMessageListener());
+            this.mSocketManager.n(i, aVar.getSocketMessageListener());
             return;
         }
-        this.mUIHandler.post(new Runnable(this, i2, aVar) { // from class: com.baidu.adp.framework.MessageManager.3
+        this.mUIHandler.post(new Runnable(this, i, aVar) { // from class: com.baidu.adp.framework.MessageManager.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MessageManager this$0;
@@ -1176,18 +1176,18 @@ public class MessageManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2), aVar};
+                    Object[] objArr = {this, Integer.valueOf(i), aVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$cmd = i2;
+                this.val$cmd = i;
                 this.val$listener = aVar;
             }
 
@@ -1232,9 +1232,9 @@ public class MessageManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, messageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1284,9 +1284,9 @@ public class MessageManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, bdUniqueId};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1309,20 +1309,20 @@ public class MessageManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void registerListenerInternal(int i2, MessageListener<?> messageListener) {
+    public void registerListenerInternal(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65548, this, i2, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65548, this, i, messageListener) == null) || messageListener == null) {
             return;
         }
-        FrameHelper.TYPE e2 = FrameHelper.e(i2);
+        FrameHelper.TYPE e2 = FrameHelper.e(i);
         if (e2 == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
-            this.mHttpManager.n(i2, (HttpMessageListener) messageListener);
+            this.mHttpManager.n(i, (HttpMessageListener) messageListener);
         } else if (e2 == FrameHelper.TYPE.SOCKET && (messageListener instanceof c.a.d.c.g.c)) {
-            this.mSocketManager.n(i2, (c.a.d.c.g.c) messageListener);
+            this.mSocketManager.n(i, (c.a.d.c.g.c) messageListener);
         } else if (e2 == FrameHelper.TYPE.CUSTOM && (messageListener instanceof CustomMessageListener)) {
-            this.mCustomManager.n(i2, (CustomMessageListener) messageListener);
+            this.mCustomManager.n(i, (CustomMessageListener) messageListener);
         } else {
-            BdLog.e("listener invalid" + c.a.d.c.a.a().b(i2) + "|" + c.a.d.c.a.a().b(messageListener.getCmd()));
+            BdLog.e("listener invalid" + c.a.d.c.a.a().b(i) + "|" + c.a.d.c.a.a().b(messageListener.getCmd()));
         }
     }
 
@@ -1347,9 +1347,9 @@ public class MessageManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, messageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1370,15 +1370,15 @@ public class MessageManager {
         }
     }
 
-    public void registerListener(int i2, MessageListener<?> messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048594, this, i2, messageListener) == null) || messageListener == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048594, this, i, messageListener) == null) || messageListener == null) {
             return;
         }
         if (n.B()) {
-            registerListenerInternal(i2, messageListener);
+            registerListenerInternal(i, messageListener);
         } else {
-            this.mUIHandler.post(new Runnable(this, i2, messageListener) { // from class: com.baidu.adp.framework.MessageManager.7
+            this.mUIHandler.post(new Runnable(this, i, messageListener) { // from class: com.baidu.adp.framework.MessageManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MessageManager this$0;
@@ -1390,18 +1390,18 @@ public class MessageManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), messageListener};
+                        Object[] objArr = {this, Integer.valueOf(i), messageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$cmd = i2;
+                    this.val$cmd = i;
                     this.val$listener = messageListener;
                 }
 

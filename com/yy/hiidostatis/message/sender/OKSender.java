@@ -31,7 +31,7 @@ import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OKSender implements MessageSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class OKSender implements MessageSender {
     public MediaType mediaType;
 
     /* renamed from: com.yy.hiidostatis.message.sender.OKSender$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MyCallback implements Callback {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -79,9 +79,9 @@ public class OKSender implements MessageSender {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oKSender};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -147,7 +147,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MyDns implements Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,9 +160,9 @@ public class OKSender implements MessageSender {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oKSender};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -183,7 +183,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ReqTag {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,9 +196,9 @@ public class OKSender implements MessageSender {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {message};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -221,9 +221,9 @@ public class OKSender implements MessageSender {
             newInitContext.initArgs = r2;
             Object[] objArr = {hostManager, appInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

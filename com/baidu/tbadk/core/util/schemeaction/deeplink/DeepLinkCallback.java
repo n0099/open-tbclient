@@ -29,9 +29,9 @@ public interface DeepLinkCallback {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,10 +81,10 @@ public interface DeepLinkCallback {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        public void onFailed(String str, int i2) {
+        public void onFailed(String str, int i) {
             char c2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
                 switch (str.hashCode()) {
                     case -1081306052:
                         if (str.equals("market")) {
@@ -119,19 +119,19 @@ public interface DeepLinkCallback {
                         break;
                 }
                 if (c2 == 0) {
-                    this.mInnerResultCode = i2;
+                    this.mInnerResultCode = i;
                 } else if (c2 == 1) {
-                    this.mAppResultCode = i2;
+                    this.mAppResultCode = i;
                 } else if (c2 == 2) {
-                    this.mMarketResultCode = i2;
+                    this.mMarketResultCode = i;
                 } else if (c2 != 3) {
                     if (TbadkApplication.getInst().isDebugMode()) {
                         throw new IllegalArgumentException("invalid source code");
                     }
                 } else {
-                    this.mWebResultCode = i2;
+                    this.mWebResultCode = i;
                 }
-                SchemeActionHelper.printLog(str + " open onFailed-->errorCode=" + i2 + ":" + toString());
+                SchemeActionHelper.printLog(str + " open onFailed-->errorCode=" + i + ":" + toString());
             }
         }
 
@@ -201,7 +201,7 @@ public interface DeepLinkCallback {
         }
     }
 
-    void onFailed(int i2, String str, DeepLinkResponse deepLinkResponse);
+    void onFailed(int i, String str, DeepLinkResponse deepLinkResponse);
 
     void onSuccess(String str, DeepLinkResponse deepLinkResponse);
 }

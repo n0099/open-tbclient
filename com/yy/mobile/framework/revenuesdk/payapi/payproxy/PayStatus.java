@@ -12,7 +12,7 @@ import kotlin.Metadata;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0087\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007j\u0002\b\b¨\u0006\t"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/payproxy/PayStatus;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "GET_PAY_INFO_SUCCESS", "GET_PAY_INFO_FAIL", "PAY_SUCCESS", "PAY_FAIL", "PAY_CANCEL", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -49,16 +49,16 @@ public final class PayStatus {
         $VALUES = new PayStatus[]{payStatus, payStatus2, payStatus3, payStatus4, payStatus5};
     }
 
-    public PayStatus(String str, int i2) {
+    public PayStatus(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

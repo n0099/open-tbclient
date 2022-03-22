@@ -47,7 +47,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialDatePicker<S> extends DialogFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -87,7 +87,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface InputMode {
     }
 
@@ -114,9 +114,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -134,8 +134,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.material_ic_calendar_black_24dp));
-            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.material_ic_edit_black_24dp));
+            stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d3f));
+            stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080d41));
             return stateListDrawable;
         }
         return (Drawable) invokeL.objValue;
@@ -146,7 +146,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             Resources resources = context.getResources();
-            return resources.getDimensionPixelSize(R.dimen.mtrl_calendar_navigation_height) + resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_navigation_top_padding) + resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_navigation_bottom_padding) + resources.getDimensionPixelSize(R.dimen.mtrl_calendar_days_of_week_height) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.mtrl_calendar_day_height)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_month_vertical_padding)) + resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_bottom_padding);
+            return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070417) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070418) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070416) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070407) + (MonthAdapter.MAXIMUM_WEEKS * resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070402)) + ((MonthAdapter.MAXIMUM_WEEKS - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070415)) + resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0703ff);
         }
         return invokeL.intValue;
     }
@@ -156,9 +156,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             Resources resources = context.getResources();
-            int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_content_padding);
-            int i2 = Month.current().daysInWeek;
-            return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.mtrl_calendar_day_width) * i2) + ((i2 - 1) * resources.getDimensionPixelOffset(R.dimen.mtrl_calendar_month_horizontal_padding));
+            int dimensionPixelOffset = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070400);
+            int i = Month.current().daysInWeek;
+            return (dimensionPixelOffset * 2) + (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070406) * i) + ((i - 1) * resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070414));
         }
         return invokeL.intValue;
     }
@@ -167,8 +167,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
-            int i2 = this.overrideThemeResId;
-            return i2 != 0 ? i2 : this.dateSelector.getDefaultThemeResId(context);
+            int i = this.overrideThemeResId;
+            return i != 0 ? i : this.dateSelector.getDefaultThemeResId(context);
         }
         return invokeL.intValue;
     }
@@ -193,9 +193,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -223,7 +223,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarStyle, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f040412, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
             boolean z = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
             return z;
@@ -258,7 +258,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             this.pickerFragment = this.headerToggleButton.isChecked() ? MaterialTextInputPicker.newInstance(this.dateSelector, this.calendarConstraints) : this.calendar;
             updateHeader();
             FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-            beginTransaction.replace(R.id.mtrl_calendar_frame, this.pickerFragment);
+            beginTransaction.replace(R.id.obfuscated_res_0x7f091463, this.pickerFragment);
             beginTransaction.commitNow();
             this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
                 public static /* synthetic */ Interceptable $ic;
@@ -272,9 +272,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -320,7 +320,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             String headerText = getHeaderText();
-            this.headerSelectionText.setContentDescription(String.format(getString(R.string.mtrl_picker_announce_current_selection), headerText));
+            this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0ae9), headerText));
             this.headerSelectionText.setText(headerText);
         }
     }
@@ -331,9 +331,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, this, checkableImageButton) == null) {
             if (this.headerToggleButton.isChecked()) {
-                string = checkableImageButton.getContext().getString(R.string.mtrl_picker_toggle_to_calendar_input_mode);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b02);
             } else {
-                string = checkableImageButton.getContext().getString(R.string.mtrl_picker_toggle_to_text_input_mode);
+                string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0b04);
             }
             this.headerToggleButton.setContentDescription(string);
         }
@@ -442,8 +442,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             Dialog dialog = new Dialog(requireContext(), getThemeResId(requireContext()));
             Context context = dialog.getContext();
             this.fullscreen = isFullscreen(context);
-            int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.colorSurface, MaterialDatePicker.class.getCanonicalName());
-            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.materialCalendarStyle, 2131755907);
+            int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f04016b, MaterialDatePicker.class.getCanonicalName());
+            MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f040412, R.style.obfuscated_res_0x7f100361);
             this.background = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
             this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));
@@ -459,21 +459,21 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(this.fullscreen ? R.layout.mtrl_picker_fullscreen : R.layout.mtrl_picker_dialog, viewGroup);
+            View inflate = layoutInflater.inflate(this.fullscreen ? R.layout.obfuscated_res_0x7f0d0583 : R.layout.obfuscated_res_0x7f0d0582, viewGroup);
             Context context = inflate.getContext();
             if (this.fullscreen) {
-                inflate.findViewById(R.id.mtrl_calendar_frame).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+                inflate.findViewById(R.id.obfuscated_res_0x7f091463).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
             } else {
-                View findViewById = inflate.findViewById(R.id.mtrl_calendar_main_pane);
-                View findViewById2 = inflate.findViewById(R.id.mtrl_calendar_frame);
+                View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091464);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f091463);
                 findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
                 findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
             }
-            TextView textView = (TextView) inflate.findViewById(R.id.mtrl_picker_header_selection_text);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09146f);
             this.headerSelectionText = textView;
             ViewCompat.setAccessibilityLiveRegion(textView, 1);
-            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.mtrl_picker_header_toggle);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.mtrl_picker_title_text);
+            this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f091471);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091475);
             CharSequence charSequence = this.titleText;
             if (charSequence != null) {
                 textView2.setText(charSequence);
@@ -481,7 +481,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 textView2.setText(this.titleTextResId);
             }
             initHeaderToggle(context);
-            this.confirmButton = (Button) inflate.findViewById(R.id.confirm_button);
+            this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f0906bc);
             if (this.dateSelector.isSelectionComplete()) {
                 this.confirmButton.setEnabled(true);
             } else {
@@ -500,9 +500,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -525,7 +525,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                     }
                 }
             });
-            Button button = (Button) inflate.findViewById(R.id.cancel_button);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09048f);
             button.setTag(CANCEL_BUTTON_TAG);
             button.setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
                 public static /* synthetic */ Interceptable $ic;
@@ -539,9 +539,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -611,7 +611,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 window.setBackgroundDrawable(this.background);
             } else {
                 window.setLayout(-2, -2);
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.mtrl_calendar_dialog_background_inset);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070408);
                 Rect rect = new Rect(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset);
                 window.setBackgroundDrawable(new InsetDrawable((Drawable) this.background, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset));
                 window.getDecorView().setOnTouchListener(new InsetDialogOnTouchListener(requireDialog(), rect));
@@ -653,7 +653,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, materialPickerOnPositiveButtonClickListener)) == null) ? this.onPositiveButtonClickListeners.remove(materialPickerOnPositiveButtonClickListener) : invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder<S> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -673,9 +673,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dateSelector};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -743,11 +743,11 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         }
 
         @NonNull
-        public Builder<S> setInputMode(int i2) {
+        public Builder<S> setInputMode(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.inputMode = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.inputMode = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -765,22 +765,22 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         }
 
         @NonNull
-        public Builder<S> setTheme(@StyleRes int i2) {
+        public Builder<S> setTheme(@StyleRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.overrideThemeResId = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.overrideThemeResId = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
         @NonNull
-        public Builder<S> setTitleText(@StringRes int i2) {
+        public Builder<S> setTitleText(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.titleTextResId = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.titleTextResId = i;
                 this.titleText = null;
                 return this;
             }

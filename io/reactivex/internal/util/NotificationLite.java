@@ -31,7 +31,7 @@ public final class NotificationLite {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Disposable f60752d;
+        public final Disposable f45361d;
 
         public DisposableNotification(Disposable disposable) {
             Interceptable interceptable = $ic;
@@ -40,22 +40,22 @@ public final class NotificationLite {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {disposable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f60752d = disposable;
+            this.f45361d = disposable;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "NotificationLite.Disposable[" + this.f60752d + PreferencesUtil.RIGHT_MOUNT;
+                return "NotificationLite.Disposable[" + this.f45361d + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -68,7 +68,7 @@ public final class NotificationLite {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f60753e;
+        public final Throwable f45362e;
 
         public ErrorNotification(Throwable th) {
             Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public final class NotificationLite {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f60753e = th;
+            this.f45362e = th;
         }
 
         public boolean equals(Object obj) {
@@ -93,7 +93,7 @@ public final class NotificationLite {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof ErrorNotification) {
-                    return ObjectHelper.equals(this.f60753e, ((ErrorNotification) obj).f60753e);
+                    return ObjectHelper.equals(this.f45362e, ((ErrorNotification) obj).f45362e);
                 }
                 return false;
             }
@@ -103,14 +103,14 @@ public final class NotificationLite {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60753e.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45362e.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "NotificationLite.Error[" + this.f60753e + PreferencesUtil.RIGHT_MOUNT;
+                return "NotificationLite.Error[" + this.f45362e + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -130,9 +130,9 @@ public final class NotificationLite {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscription};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -169,16 +169,16 @@ public final class NotificationLite {
         $VALUES = new NotificationLite[]{notificationLite};
     }
 
-    public NotificationLite(String str, int i2) {
+    public NotificationLite(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -196,7 +196,7 @@ public final class NotificationLite {
                 subscriber.onComplete();
                 return true;
             } else if (obj instanceof ErrorNotification) {
-                subscriber.onError(((ErrorNotification) obj).f60753e);
+                subscriber.onError(((ErrorNotification) obj).f45362e);
                 return true;
             } else {
                 subscriber.onNext(obj);
@@ -214,7 +214,7 @@ public final class NotificationLite {
                 subscriber.onComplete();
                 return true;
             } else if (obj instanceof ErrorNotification) {
-                subscriber.onError(((ErrorNotification) obj).f60753e);
+                subscriber.onError(((ErrorNotification) obj).f45362e);
                 return true;
             } else if (obj instanceof SubscriptionNotification) {
                 subscriber.onSubscribe(((SubscriptionNotification) obj).s);
@@ -248,13 +248,13 @@ public final class NotificationLite {
     public static Disposable getDisposable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((DisposableNotification) obj).f60752d : (Disposable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((DisposableNotification) obj).f45361d : (Disposable) invokeL.objValue;
     }
 
     public static Throwable getError(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? ((ErrorNotification) obj).f60753e : (Throwable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, obj)) == null) ? ((ErrorNotification) obj).f45362e : (Throwable) invokeL.objValue;
     }
 
     public static Subscription getSubscription(Object obj) {
@@ -334,7 +334,7 @@ public final class NotificationLite {
                 observer.onComplete();
                 return true;
             } else if (obj instanceof ErrorNotification) {
-                observer.onError(((ErrorNotification) obj).f60753e);
+                observer.onError(((ErrorNotification) obj).f45362e);
                 return true;
             } else {
                 observer.onNext(obj);
@@ -352,10 +352,10 @@ public final class NotificationLite {
                 observer.onComplete();
                 return true;
             } else if (obj instanceof ErrorNotification) {
-                observer.onError(((ErrorNotification) obj).f60753e);
+                observer.onError(((ErrorNotification) obj).f45362e);
                 return true;
             } else if (obj instanceof DisposableNotification) {
-                observer.onSubscribe(((DisposableNotification) obj).f60752d);
+                observer.onSubscribe(((DisposableNotification) obj).f45361d);
                 return false;
             } else {
                 observer.onNext(obj);

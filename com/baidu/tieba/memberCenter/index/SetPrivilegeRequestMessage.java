@@ -21,9 +21,9 @@ public class SetPrivilegeRequestMessage extends HttpMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,10 +38,10 @@ public class SetPrivilegeRequestMessage extends HttpMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.propsID : invokeV.intValue;
     }
 
-    public void setPropsID(int i2) {
+    public void setPropsID(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.propsID = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.propsID = i;
         }
     }
 }

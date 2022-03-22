@@ -15,7 +15,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2385b;
+    public static volatile a f1957b;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<String> a;
 
@@ -24,9 +24,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,23 +40,23 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2385b == null) {
+            if (f1957b == null) {
                 synchronized (a.class) {
-                    if (f2385b == null) {
-                        f2385b = new a();
+                    if (f1957b == null) {
+                        f1957b = new a();
                     }
                 }
             }
-            return f2385b;
+            return f1957b;
         }
         return (a) invokeV.objValue;
     }
 
-    public String b(int i2) {
+    public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            String str = this.a.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = this.a.get(i);
             if (str != null) {
                 return str;
             }
@@ -86,12 +86,12 @@ public class a {
                     return;
                 }
                 for (Field field : fields) {
-                    int i2 = field.getInt(newInstance);
+                    int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.a.get(i2) == null) {
-                        this.a.put(i2, name);
+                    if (this.a.get(i) == null) {
+                        this.a.put(i, name);
                     } else {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i2) + " 重复");
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
                     }
                 }
             } catch (ClassNotFoundException e2) {

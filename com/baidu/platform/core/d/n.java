@@ -1,5 +1,6 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,9 +20,9 @@ public class n extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {transitRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,7 +37,7 @@ public class n extends com.baidu.platform.base.e {
             this.a.a("qt", "bus");
             com.baidu.platform.util.a aVar = this.a;
             aVar.a("sy", transitRoutePlanOption.mPolicy.getInt() + "");
-            this.a.a("ie", "utf-8");
+            this.a.a("ie", IMAudioTransRequest.CHARSET);
             this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "3");
             this.a.a("rp_format", "json");
@@ -44,7 +45,7 @@ public class n extends com.baidu.platform.base.e {
             this.a.a("ic_info", "2");
             this.a.a("exptype", "depall");
             this.a.a("sn", a(transitRoutePlanOption.mFrom));
-            this.a.a(com.baidu.fsg.base.statistics.h.a, a(transitRoutePlanOption.mTo));
+            this.a.a("en", a(transitRoutePlanOption.mTo));
             String str = transitRoutePlanOption.mCityName;
             if (str != null) {
                 this.a.a("c", str);

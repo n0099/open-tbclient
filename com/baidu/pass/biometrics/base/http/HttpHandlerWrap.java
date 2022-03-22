@@ -18,9 +18,9 @@ public class HttpHandlerWrap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,9 +33,9 @@ public class HttpHandlerWrap {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.executCallbackInChildThread : invokeV.booleanValue;
     }
 
-    public void onFailure(Throwable th, int i2, String str) {
+    public void onFailure(Throwable th, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, i, str) == null) {
         }
     }
 
@@ -51,9 +51,9 @@ public class HttpHandlerWrap {
         }
     }
 
-    public void onSuccess(int i2, String str) {
+    public void onSuccess(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
         }
     }
 
@@ -64,9 +64,9 @@ public class HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -80,9 +80,9 @@ public class HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
             }
@@ -96,9 +96,9 @@ public class HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

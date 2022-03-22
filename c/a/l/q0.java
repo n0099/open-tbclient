@@ -21,19 +21,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class q0 extends c.a.l.a<c.a.q0.r.r.a> {
+public class q0 extends c.a.l.a<c.a.o0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int q;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: j  reason: collision with root package name */
-    public View f4072j;
-    public TextView k;
-    public TextView l;
-    public OriginalThreadCardView m;
-    public c.a.q0.r.r.a n;
-    public boolean o;
-    public OriginalThreadCardView.b p;
+    /* renamed from: f  reason: collision with root package name */
+    public View f3471f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f3472g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f3473h;
+    public OriginalThreadCardView i;
+    public c.a.o0.r.r.a j;
+    public boolean k;
+    public OriginalThreadCardView.b l;
 
     /* loaded from: classes.dex */
     public class a implements OriginalThreadCardView.b {
@@ -48,9 +52,9 @@ public class q0 extends c.a.l.a<c.a.q0.r.r.a> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {q0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,16 +66,16 @@ public class q0 extends c.a.l.a<c.a.q0.r.r.a> {
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.a.n == null || this.a.n.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) || this.a.j == null || this.a.j.getThreadData() == null) {
                 return;
             }
-            if (this.a.c() != null) {
-                this.a.c().a(this.a.m, this.a.n);
+            if (this.a.d() != null) {
+                this.a.d().a(this.a.i, this.a.j);
             }
-            String h0 = this.a.n.getThreadData().h0();
-            c.a.r0.f0.m.a(h0);
-            this.a.r(h0);
-            this.a.f4006e.o(new a.C0203a(1));
+            String id = this.a.j.getThreadData().getId();
+            c.a.p0.h0.m.a(id);
+            this.a.s(id);
+            this.a.a.o(new a.C0196a(1));
         }
     }
 
@@ -88,7 +92,7 @@ public class q0 extends c.a.l.a<c.a.q0.r.r.a> {
                 return;
             }
         }
-        q = c.a.d.f.p.n.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        m = c.a.d.f.p.n.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,86 +104,86 @@ public class q0 extends c.a.l.a<c.a.q0.r.r.a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.p = new a(this);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().q != null && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
-            this.f4072j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+        this.k = false;
+        this.l = new a(this);
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
+            this.f3471f = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f4072j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+            this.f3471f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null, false);
         }
-        this.k = (TextView) this.f4072j.findViewById(R.id.thread_card_title);
-        this.l = (TextView) this.f4072j.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f4072j.findViewById(R.id.original_thread_view);
-        this.m = originalThreadCardView;
-        originalThreadCardView.setSubClickListener(this.p);
+        this.f3472g = (TextView) this.f3471f.findViewById(R.id.obfuscated_res_0x7f091f9b);
+        this.f3473h = (TextView) this.f3471f.findViewById(R.id.obfuscated_res_0x7f091f8d);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3471f.findViewById(R.id.obfuscated_res_0x7f091622);
+        this.i = originalThreadCardView;
+        originalThreadCardView.setSubClickListener(this.l);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4072j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3471f : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
-            super.k(b0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
+            super.l(b0Var);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.m.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.i.p();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: q */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: r */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
-        this.n = aVar;
-        ThreadCardUtils.setTitle(this.k, aVar.getThreadData(), this.o);
-        ThreadCardUtils.setAbstract(this.l, this.k, aVar.getThreadData(), q, this.o);
-        this.m.fillData(aVar.getThreadData().z1);
+        this.j = aVar;
+        ThreadCardUtils.setTitle(this.f3472g, aVar.getThreadData(), this.k);
+        ThreadCardUtils.setAbstract(this.f3473h, this.f3472g, aVar.getThreadData(), m, this.k);
+        this.i.g(aVar.getThreadData().originalThreadData);
     }
 
-    public final void r(String str) {
+    public final void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.r0.f0.m.l(this.k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            c.a.r0.f0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.m.setReadState(c.a.r0.f0.m.k(str));
+            c.a.p0.h0.m.l(this.f3472g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.p0.h0.m.l(this.f3473h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(c.a.p0.h0.m.k(str));
         }
     }
 
-    public void s(boolean z) {
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.o = z;
+            this.k = z;
         }
     }
 
-    public void t(int i2) {
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.m.sourceFormForPb = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i.m = i;
         }
     }
 }

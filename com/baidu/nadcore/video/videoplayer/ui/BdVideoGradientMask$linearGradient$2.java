@@ -27,9 +27,9 @@ public final class BdVideoGradientMask$linearGradient$2 extends Lambda implement
             newInitContext.initArgs = r2;
             Object[] objArr = {bdVideoGradientMask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,6 +45,6 @@ public final class BdVideoGradientMask$linearGradient$2 extends Lambda implement
     public final LinearGradient invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_start_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_50percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_75percent_color), this.this$0.getResources().getColor(R.color.nad_bd_full_more_left_mask_95percent_color)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LinearGradient(0.0f, 0.0f, this.this$0.getMeasuredWidth(), 0.0f, new int[]{this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0607e6), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0607e2), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0607e4), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0607e5)}, new float[]{0.0f, 0.5f, 0.75f, 1.0f}, Shader.TileMode.CLAMP) : (LinearGradient) invokeV.objValue;
     }
 }

@@ -35,7 +35,7 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
         public final long count;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60736d;
+        public Disposable f45346d;
         public final boolean delayError;
         public Throwable error;
         public final SpscLinkedArrayQueue<Object> queue;
@@ -43,27 +43,27 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
         public final long time;
         public final TimeUnit unit;
 
-        public TakeLastTimedObserver(Observer<? super T> observer, long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+        public TakeLastTimedObserver(Observer<? super T> observer, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.count = j2;
-            this.time = j3;
+            this.count = j;
+            this.time = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.delayError = z;
         }
 
@@ -74,7 +74,7 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
                 return;
             }
             this.cancelled = true;
-            this.f60736d.dispose();
+            this.f45346d.dispose();
             if (compareAndSet(false, true)) {
                 this.queue.clear();
             }
@@ -143,12 +143,12 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
                 SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                 long now = this.scheduler.now(this.unit);
-                long j2 = this.time;
-                long j3 = this.count;
-                boolean z = j3 == Long.MAX_VALUE;
+                long j = this.time;
+                long j2 = this.count;
+                boolean z = j2 == Long.MAX_VALUE;
                 spscLinkedArrayQueue.offer(Long.valueOf(now), t);
                 while (!spscLinkedArrayQueue.isEmpty()) {
-                    if (((Long) spscLinkedArrayQueue.peek()).longValue() > now - j2 && (z || (spscLinkedArrayQueue.size() >> 1) <= j3)) {
+                    if (((Long) spscLinkedArrayQueue.peek()).longValue() > now - j && (z || (spscLinkedArrayQueue.size() >> 1) <= j2)) {
                         return;
                     }
                     spscLinkedArrayQueue.poll();
@@ -160,36 +160,36 @@ public final class ObservableTakeLastTimed<T> extends AbstractObservableWithUpst
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f60736d, disposable)) {
-                this.f60736d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f45346d, disposable)) {
+                this.f45346d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableTakeLastTimed(ObservableSource<T> observableSource, long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+    public ObservableTakeLastTimed(ObservableSource<T> observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.count = j2;
-        this.time = j3;
+        this.count = j;
+        this.time = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayError = z;
     }
 

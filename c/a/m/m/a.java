@@ -13,10 +13,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4247b;
+    public boolean f3829b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4248c;
+    public boolean f3830c;
 
     public a(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -25,28 +25,28 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f4247b = z;
-        this.f4248c = z2;
+        this.f3829b = z;
+        this.f3830c = z2;
     }
 
-    public static int a(int i2) {
+    public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            return i2 != 5 ? -1 : 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
                         }
                         return 1;
                     }
@@ -61,24 +61,24 @@ public class a {
 
     public String b(byte[] bArr) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (int i3 = 0; i3 < (bArr.length + 4) / 5; i3++) {
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
                 short[] sArr = new short[5];
                 int[] iArr = new int[8];
-                int i4 = 5;
-                for (int i5 = 0; i5 < 5; i5++) {
-                    int i6 = (i3 * 5) + i5;
-                    if (i6 < bArr.length) {
-                        sArr[i5] = (short) (bArr[i6] & 255);
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
                     } else {
-                        sArr[i5] = 0;
-                        i4--;
+                        sArr[i4] = 0;
+                        i3--;
                     }
                 }
-                int a = a(i4);
+                int a = a(i3);
                 iArr[0] = (byte) ((sArr[0] >> 3) & 31);
                 iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
                 iArr[2] = (byte) ((sArr[1] >> 1) & 31);
@@ -87,23 +87,23 @@ public class a {
                 iArr[5] = (byte) ((sArr[3] >> 2) & 31);
                 iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
                 iArr[7] = (byte) (sArr[4] & 31);
-                int i7 = 0;
+                int i6 = 0;
                 while (true) {
-                    i2 = 8 - a;
-                    if (i7 >= i2) {
+                    i = 8 - a;
+                    if (i6 >= i) {
                         break;
                     }
-                    char charAt = this.a.charAt(iArr[i7]);
-                    if (this.f4248c) {
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.f3830c) {
                         charAt = Character.toLowerCase(charAt);
                     }
                     byteArrayOutputStream.write(charAt);
-                    i7++;
+                    i6++;
                 }
-                if (this.f4247b) {
-                    while (i2 < 8) {
+                if (this.f3829b) {
+                    while (i < 8) {
                         byteArrayOutputStream.write(61);
-                        i2++;
+                        i++;
                     }
                 }
             }

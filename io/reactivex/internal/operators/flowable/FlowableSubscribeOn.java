@@ -41,23 +41,23 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             public final long n;
             public final Subscription s;
 
-            public Request(Subscription subscription, long j2) {
+            public Request(Subscription subscription, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {subscription, Long.valueOf(j2)};
+                    Object[] objArr = {subscription, Long.valueOf(j)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.s = subscription;
-                this.n = j2;
+                this.n = j;
             }
 
             @Override // java.lang.Runnable
@@ -76,9 +76,9 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, worker, publisher, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,15 +139,15 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
                 Subscription subscription = this.s.get();
                 if (subscription != null) {
-                    requestUpstream(j2, subscription);
+                    requestUpstream(j, subscription);
                     return;
                 }
-                BackpressureHelper.add(this.requested, j2);
+                BackpressureHelper.add(this.requested, j);
                 Subscription subscription2 = this.s.get();
                 if (subscription2 != null) {
                     long andSet = this.requested.getAndSet(0L);
@@ -158,13 +158,13 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        public void requestUpstream(long j2, Subscription subscription) {
+        public void requestUpstream(long j, Subscription subscription) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048582, this, j2, subscription) == null) {
+            if (interceptable == null || interceptable.invokeJL(1048582, this, j, subscription) == null) {
                 if (!this.nonScheduledRequests && Thread.currentThread() != get()) {
-                    this.worker.schedule(new Request(subscription, j2));
+                    this.worker.schedule(new Request(subscription, j));
                 } else {
-                    subscription.request(j2);
+                    subscription.request(j);
                 }
             }
         }
@@ -190,9 +190,9 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -1,6 +1,6 @@
 package com.baidu.tieba.tbean.message;
 
-import c.a.r0.z3.f.a;
+import c.a.p0.b4.f.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,17 +26,17 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
     public UserInfo userInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetYinJiHttpResponseMessage(int i2) {
-        super(i2);
+    public GetYinJiHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,28 +45,28 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
         }
     }
 
-    @Override // c.a.r0.z3.f.a
+    @Override // c.a.p0.b4.f.a
     public List<Custom> getCustomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.customList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.z3.f.a
+    @Override // c.a.p0.b4.f.a
     public List<IconInfo> getIconInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.iconInfoList : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.z3.f.a
+    @Override // c.a.p0.b4.f.a
     public Setting getSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.setting : (Setting) invokeV.objValue;
     }
 
-    @Override // c.a.r0.z3.f.a
+    @Override // c.a.p0.b4.f.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,9 +75,9 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetIconListResIdl getIconListResIdl = (GetIconListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetIconListResIdl.class);
             setError(getIconListResIdl.error.errorno.intValue());
             setErrorString(getIconListResIdl.error.usermsg);

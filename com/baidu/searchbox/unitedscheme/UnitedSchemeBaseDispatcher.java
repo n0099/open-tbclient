@@ -2,6 +2,7 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.security.SchemeSecurity;
@@ -57,9 +58,9 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -138,7 +139,14 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
             if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
                 return false;
             }
-            return TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE) || DEBUG;
+            if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) || TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE)) {
+                return true;
+            }
+            if (DEBUG) {
+                Log.d(TAG, "invoke from outside");
+                return true;
+            }
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -161,9 +169,9 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, unitedSchemeEntity, callbackHandler};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

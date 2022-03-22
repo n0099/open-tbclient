@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class XmlPullParserUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public final class XmlPullParserUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,9 +32,9 @@ public final class XmlPullParserUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, xmlPullParser, str)) == null) {
             int attributeCount = xmlPullParser.getAttributeCount();
-            for (int i2 = 0; i2 < attributeCount; i2++) {
-                if (str.equals(xmlPullParser.getAttributeName(i2))) {
-                    return xmlPullParser.getAttributeValue(i2);
+            for (int i = 0; i < attributeCount; i++) {
+                if (str.equals(xmlPullParser.getAttributeName(i))) {
+                    return xmlPullParser.getAttributeValue(i);
                 }
             }
             return null;

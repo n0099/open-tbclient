@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.Beta;
 import io.reactivex.annotations.NonNull;
 @Beta
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class OnErrorNotImplementedException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6298857009889503852L;
@@ -22,9 +22,9 @@ public final class OnErrorNotImplementedException extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, th};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -43,9 +43,9 @@ public final class OnErrorNotImplementedException extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.BitmapCompat;
@@ -36,9 +37,9 @@ public final class RoundedBitmapDrawableFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resources, bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Resources) objArr2[0], (Bitmap) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -49,10 +50,10 @@ public final class RoundedBitmapDrawableFactory {
         }
 
         @Override // androidx.core.graphics.drawable.RoundedBitmapDrawable
-        public void gravityCompatApply(int i2, int i3, int i4, Rect rect, Rect rect2) {
+        public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect, rect2}) == null) {
-                GravityCompat.apply(i2, i3, i4, rect, rect2, 0);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2}) == null) {
+                GravityCompat.apply(i, i2, i3, rect, rect2, 0);
             }
         }
 
@@ -84,9 +85,9 @@ public final class RoundedBitmapDrawableFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -113,7 +114,7 @@ public final class RoundedBitmapDrawableFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, resources, str)) == null) {
             RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeFile(str));
             if (create.getBitmap() == null) {
-                String str2 = "RoundedBitmapDrawable cannot decode " + str;
+                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + str);
             }
             return create;
         }
@@ -127,7 +128,7 @@ public final class RoundedBitmapDrawableFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, resources, inputStream)) == null) {
             RoundedBitmapDrawable create = create(resources, BitmapFactory.decodeStream(inputStream));
             if (create.getBitmap() == null) {
-                String str = "RoundedBitmapDrawable cannot decode " + inputStream;
+                Log.w(TAG, "RoundedBitmapDrawable cannot decode " + inputStream);
             }
             return create;
         }

@@ -13,7 +13,7 @@ import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JsonPrimitive extends JsonElement {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] PRIMITIVE_TYPES;
@@ -43,9 +43,9 @@ public final class JsonPrimitive extends JsonElement {
             newInitContext.initArgs = r2;
             Object[] objArr = {bool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -301,9 +301,9 @@ public final class JsonPrimitive extends JsonElement {
             newInitContext.initArgs = r2;
             Object[] objArr = {number};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -319,9 +319,9 @@ public final class JsonPrimitive extends JsonElement {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -337,9 +337,9 @@ public final class JsonPrimitive extends JsonElement {
             newInitContext.initArgs = r2;
             Object[] objArr = {ch};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -355,9 +355,9 @@ public final class JsonPrimitive extends JsonElement {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;

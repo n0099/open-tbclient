@@ -33,9 +33,9 @@ public class ContextThemeWrapper extends ContextWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -143,7 +143,7 @@ public class ContextThemeWrapper extends ContextWrapper {
                 return theme;
             }
             if (this.mThemeResource == 0) {
-                this.mThemeResource = R$style.Theme_AppCompat_Light;
+                this.mThemeResource = R$style.obfuscated_res_0x7f10021f;
             }
             initializeTheme();
             return this.mTheme;
@@ -157,42 +157,42 @@ public class ContextThemeWrapper extends ContextWrapper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mThemeResource : invokeV.intValue;
     }
 
-    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{theme, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            theme.applyStyle(i2, true);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            theme.applyStyle(i, true);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.mThemeResource == i2) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || this.mThemeResource == i) {
             return;
         }
-        this.mThemeResource = i2;
+        this.mThemeResource = i;
         initializeTheme();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContextThemeWrapper(Context context, @StyleRes int i2) {
+    public ContextThemeWrapper(Context context, @StyleRes int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mThemeResource = i2;
+        this.mThemeResource = i;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -204,9 +204,9 @@ public class ContextThemeWrapper extends ContextWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, theme};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

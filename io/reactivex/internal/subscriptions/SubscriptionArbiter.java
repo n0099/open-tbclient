@@ -30,9 +30,9 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,21 +62,21 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
     public final void drainLoop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = 1;
+            int i = 1;
             Subscription subscription = null;
-            long j2 = 0;
+            long j = 0;
             do {
                 Subscription subscription2 = this.missedSubscription.get();
                 if (subscription2 != null) {
                     subscription2 = this.missedSubscription.getAndSet(null);
                 }
-                long j3 = this.missedRequested.get();
-                if (j3 != 0) {
-                    j3 = this.missedRequested.getAndSet(0L);
+                long j2 = this.missedRequested.get();
+                if (j2 != 0) {
+                    j2 = this.missedRequested.getAndSet(0L);
                 }
-                long j4 = this.missedProduced.get();
-                if (j4 != 0) {
-                    j4 = this.missedProduced.getAndSet(0L);
+                long j3 = this.missedProduced.get();
+                if (j3 != 0) {
+                    j3 = this.missedProduced.getAndSet(0L);
                 }
                 Subscription subscription3 = this.actual;
                 if (this.cancelled) {
@@ -88,36 +88,36 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                         subscription2.cancel();
                     }
                 } else {
-                    long j5 = this.requested;
-                    if (j5 != Long.MAX_VALUE) {
-                        j5 = BackpressureHelper.addCap(j5, j3);
-                        if (j5 != Long.MAX_VALUE) {
-                            j5 -= j4;
-                            if (j5 < 0) {
-                                SubscriptionHelper.reportMoreProduced(j5);
-                                j5 = 0;
+                    long j4 = this.requested;
+                    if (j4 != Long.MAX_VALUE) {
+                        j4 = BackpressureHelper.addCap(j4, j2);
+                        if (j4 != Long.MAX_VALUE) {
+                            j4 -= j3;
+                            if (j4 < 0) {
+                                SubscriptionHelper.reportMoreProduced(j4);
+                                j4 = 0;
                             }
                         }
-                        this.requested = j5;
+                        this.requested = j4;
                     }
                     if (subscription2 != null) {
                         if (subscription3 != null) {
                             subscription3.cancel();
                         }
                         this.actual = subscription2;
-                        if (j5 != 0) {
-                            j2 = BackpressureHelper.addCap(j2, j5);
+                        if (j4 != 0) {
+                            j = BackpressureHelper.addCap(j, j4);
                             subscription = subscription2;
                         }
-                    } else if (subscription3 != null && j3 != 0) {
-                        j2 = BackpressureHelper.addCap(j2, j3);
+                    } else if (subscription3 != null && j2 != 0) {
+                        j = BackpressureHelper.addCap(j, j2);
                         subscription = subscription3;
                     }
                 }
-                i2 = addAndGet(-i2);
-            } while (i2 != 0);
-            if (j2 != 0) {
-                subscription.request(j2);
+                i = addAndGet(-i);
+            } while (i != 0);
+            if (j != 0) {
+                subscription.request(j);
             }
         }
     }
@@ -134,20 +134,20 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.unbounded : invokeV.booleanValue;
     }
 
-    public final void produced(long j2) {
+    public final void produced(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || this.unbounded) {
+        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.unbounded) {
             return;
         }
         if (get() == 0 && compareAndSet(0, 1)) {
-            long j3 = this.requested;
-            if (j3 != Long.MAX_VALUE) {
-                long j4 = j3 - j2;
-                if (j4 < 0) {
-                    SubscriptionHelper.reportMoreProduced(j4);
-                    j4 = 0;
+            long j2 = this.requested;
+            if (j2 != Long.MAX_VALUE) {
+                long j3 = j2 - j;
+                if (j3 < 0) {
+                    SubscriptionHelper.reportMoreProduced(j3);
+                    j3 = 0;
                 }
-                this.requested = j4;
+                this.requested = j3;
             }
             if (decrementAndGet() == 0) {
                 return;
@@ -155,18 +155,18 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
             drainLoop();
             return;
         }
-        BackpressureHelper.add(this.missedProduced, j2);
+        BackpressureHelper.add(this.missedProduced, j);
         drain();
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
+    public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && !this.unbounded) {
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && !this.unbounded) {
             if (get() == 0 && compareAndSet(0, 1)) {
-                long j3 = this.requested;
-                if (j3 != Long.MAX_VALUE) {
-                    long addCap = BackpressureHelper.addCap(j3, j2);
+                long j2 = this.requested;
+                if (j2 != Long.MAX_VALUE) {
+                    long addCap = BackpressureHelper.addCap(j2, j);
                     this.requested = addCap;
                     if (addCap == Long.MAX_VALUE) {
                         this.unbounded = true;
@@ -177,12 +177,12 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                     drainLoop();
                 }
                 if (subscription != null) {
-                    subscription.request(j2);
+                    subscription.request(j);
                     return;
                 }
                 return;
             }
-            BackpressureHelper.add(this.missedRequested, j2);
+            BackpressureHelper.add(this.missedRequested, j);
             drain();
         }
     }
@@ -201,12 +201,12 @@ public class SubscriptionArbiter extends AtomicInteger implements Subscription {
                     subscription2.cancel();
                 }
                 this.actual = subscription;
-                long j2 = this.requested;
+                long j = this.requested;
                 if (decrementAndGet() != 0) {
                     drainLoop();
                 }
-                if (j2 != 0) {
-                    subscription.request(j2);
+                if (j != 0) {
+                    subscription.request(j);
                     return;
                 }
                 return;

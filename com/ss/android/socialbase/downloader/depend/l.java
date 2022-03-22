@@ -6,25 +6,25 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface l extends IInterface {
     void a(DownloadInfo downloadInfo) throws RemoteException;
 
     boolean b(DownloadInfo downloadInfo) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements l {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2205a implements l {
+        /* loaded from: classes7.dex */
+        public static class C2066a implements l {
             public static l a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58498b;
+            public IBinder f43226b;
 
-            public C2205a(IBinder iBinder) {
-                this.f58498b = iBinder;
+            public C2066a(IBinder iBinder) {
+                this.f43226b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -39,7 +39,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58498b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f43226b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -52,7 +52,7 @@ public interface l extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58498b;
+                return this.f43226b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -67,7 +67,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58498b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f43226b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -91,7 +91,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C2205a(iBinder);
+            return new C2066a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -100,15 +100,15 @@ public interface l extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
                 a(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 return true;
-            } else if (i2 != 2) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 2) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
                 return true;
@@ -122,7 +122,7 @@ public interface l extends IInterface {
         }
 
         public static l a() {
-            return C2205a.a;
+            return C2066a.a;
         }
     }
 }

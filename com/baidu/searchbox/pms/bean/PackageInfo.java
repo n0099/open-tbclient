@@ -1,6 +1,7 @@
 package com.baidu.searchbox.pms.bean;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.bdutil.cuid.sdk.AppCuidManager;
@@ -79,9 +80,9 @@ public class PackageInfo implements NoProGuard, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -136,7 +137,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
                 return parse2.getTime() > currentTimeMillis;
             } catch (Exception e2) {
                 if (PmsConstant.DEBUG) {
-                    String str = "checkTrafficLimitTime fail, exception = " + e2.toString();
+                    Log.d(TAG, "checkTrafficLimitTime fail, exception = " + e2.toString());
                     return false;
                 }
                 return false;
@@ -145,13 +146,13 @@ public class PackageInfo implements NoProGuard, Cloneable {
         return invokeL.booleanValue;
     }
 
-    private boolean checkTrafficRatio(String str, long j2) {
+    private boolean checkTrafficRatio(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, str, j)) == null) {
             CRC32 crc32 = new CRC32();
             crc32.update(str.getBytes());
-            boolean z = crc32.getValue() % 100 < j2;
+            boolean z = crc32.getValue() % 100 < j;
             this.isHitTrafficLimit = z;
             return z;
         }
@@ -352,7 +353,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
             }
         } catch (Exception e2) {
             if (PmsConstant.DEBUG) {
-                String str = "parseTrafficLimit fail, exception = " + e2.toString();
+                Log.d(TAG, "parseTrafficLimit fail, exception = " + e2.toString());
             }
         }
     }
@@ -396,9 +397,9 @@ public class PackageInfo implements NoProGuard, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

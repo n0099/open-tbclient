@@ -22,9 +22,9 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (SimpleMessageListener.b) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -32,13 +32,13 @@ public class OnActivityFinishListener<T> extends SimpleMessageListener {
                 return;
             }
         }
-        bindPage(tbPageContext);
+        a(tbPageContext);
     }
 
-    public static <T> void sendMessage(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static <T> void d(@NonNull TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, t) == null) {
-            SimpleMessageListener.sendMessage(2001459, tbPageContext, t);
+            SimpleMessageListener.b(2001459, tbPageContext, t);
         }
     }
 }

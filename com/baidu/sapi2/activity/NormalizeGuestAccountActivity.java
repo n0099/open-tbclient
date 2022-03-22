@@ -37,9 +37,9 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,9 +57,9 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -122,7 +122,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 this.u = getIntent().getStringExtra("EXTRA_BDUSS");
                 SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.u);
                 if (!TextUtils.isEmpty(this.u) && accountFromBduss != null) {
@@ -172,9 +172,9 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -203,9 +203,9 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -244,9 +244,9 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -256,10 +256,10 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.a.t.setResultCode(i2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
+                        this.a.t.setResultCode(i);
                         this.a.t.setResultMsg(str2);
                         this.a.b();
                     }

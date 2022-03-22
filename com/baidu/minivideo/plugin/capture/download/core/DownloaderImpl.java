@@ -41,9 +41,9 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadRequest, downloadResponse, executor, str, downloadConfig, onDownloaderDestroyedListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,29 +68,29 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         }
     }
 
-    private void download(long j2, boolean z) {
+    private void download(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.mStatus = 104;
-            initDownloadTasks(j2, z);
+            initDownloadTasks(j, z);
             for (DownloadTask downloadTask : this.mDownloadTasks) {
                 this.mExecutor.execute(downloadTask);
             }
         }
     }
 
-    private List<ThreadRecord> getMultiThreadRecords(long j2) {
+    private List<ThreadRecord> getMultiThreadRecords(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
             ArrayList arrayList = new ArrayList();
             int threadNum = this.mConfig.getThreadNum();
-            int i2 = 0;
-            while (i2 < threadNum) {
-                long j3 = j2 / threadNum;
-                long j4 = j3 * i2;
-                arrayList.add(new ThreadRecord(i2, this.mTag, this.mRequest.getUri(), j4, i2 == threadNum + (-1) ? j2 : (j3 + j4) - 1, 0L));
-                i2++;
+            int i = 0;
+            while (i < threadNum) {
+                long j2 = j / threadNum;
+                long j3 = j2 * i;
+                arrayList.add(new ThreadRecord(i, this.mTag, this.mRequest.getUri(), j3, i == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
+                i++;
             }
             return arrayList;
         }
@@ -111,17 +111,17 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         }
     }
 
-    private void initDownloadTasks(long j2, boolean z) {
+    private void initDownloadTasks(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.mDownloadTasks.clear();
             if (z) {
-                List<ThreadRecord> multiThreadRecords = getMultiThreadRecords(j2);
-                int i2 = 0;
+                List<ThreadRecord> multiThreadRecords = getMultiThreadRecords(j);
+                int i = 0;
                 for (ThreadRecord threadRecord : multiThreadRecords) {
-                    i2 = (int) (i2 + threadRecord.getFinished());
+                    i = (int) (i + threadRecord.getFinished());
                 }
-                this.mDownloadInfo.setFinished(i2);
+                this.mDownloadInfo.setFinished(i);
                 for (ThreadRecord threadRecord2 : multiThreadRecords) {
                     this.mDownloadTasks.add(new MultiDownloadTask(this.mDownloadInfo, threadRecord2, this));
                 }
@@ -218,8 +218,8 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.mStatus;
-            return i2 == 101 || i2 == 102 || i2 == 103 || i2 == 104;
+            int i = this.mStatus;
+            return i == 101 || i == 102 || i == 103 || i == 104;
         }
         return invokeV.booleanValue;
     }
@@ -260,18 +260,18 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask.OnConnectListener
-    public void onConnected(long j2, long j3, boolean z) {
+    public void onConnected(long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             if (this.mConnectTask.isCanceled()) {
                 onConnectCanceled();
                 return;
             }
             this.mStatus = 103;
-            this.mResponse.onConnected(j2, j3, z);
+            this.mResponse.onConnected(j, j2, z);
             this.mDownloadInfo.setAcceptRanges(z);
-            this.mDownloadInfo.setLength(j3);
-            download(j3, z);
+            this.mDownloadInfo.setLength(j2);
+            download(j2, z);
         }
     }
 
@@ -334,10 +334,10 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadTask.OnDownloadListener
-    public void onDownloadProgress(long j2, long j3) {
+    public void onDownloadProgress(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mResponse.onDownloadProgress(j2, j3, (int) ((100 * j2) / j3));
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mResponse.onDownloadProgress(j, j2, (int) ((100 * j) / j2));
         }
     }
 

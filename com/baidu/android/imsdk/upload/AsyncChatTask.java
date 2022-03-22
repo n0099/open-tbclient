@@ -67,9 +67,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
             newInitContext.initArgs = r2;
             Object[] objArr = {context, chatMsg, iUploadTransferListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -100,9 +100,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
             File file = new File(this.mFilePath);
             int chatType = this.mMsg.getChatType();
             if (file.exists()) {
-                int i2 = this.mType;
-                if (i2 != 1) {
-                    if (i2 == 2) {
+                int i = this.mType;
+                if (i != 1) {
+                    if (i == 2) {
                         this.mContentType = "audio/amr";
                         ChatMsgManager.audioTrans(this.mContext, this.mFilePath, "audio/amr", "amr", DuzhanUpMsgCreator.getReqType(chatType), new BIMValueCallBack(this, chatType) { // from class: com.baidu.android.imsdk.upload.AsyncChatTask.1
                             public static /* synthetic */ Interceptable $ic;
@@ -117,9 +117,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, Integer.valueOf(chatType)};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -134,14 +134,14 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                             /*
                                 Code decompiled incorrectly, please refer to instructions dump.
                             */
-                            public void onResult(int i3, String str3, Object obj) {
+                            public void onResult(int i2, String str3, Object obj) {
                                 FileOutputStream fileOutputStream;
                                 Throwable th;
                                 Exception e2;
                                 IMTrack.CrashBuilder crashBuilder;
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str3, obj) == null) {
-                                    if (i3 == 0) {
+                                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, obj) == null) {
+                                    if (i2 == 0) {
                                         FileOutputStream fileOutputStream2 = null;
                                         try {
                                             byte[] decode = Base64.decode((String) obj);
@@ -240,29 +240,29 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i2, int i3, String str) {
+    public void onFailed(int i, int i2, String str) {
         IUploadTransferListener iUploadTransferListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
             return;
         }
-        iUploadTransferListener.onFailed(i2, this.mType, this.mFilePath);
+        iUploadTransferListener.onFailed(i, this.mType, this.mFilePath);
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i2, String str) {
+    public void onFinished(int i, String str) {
         IUploadTransferListener iUploadTransferListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
             return;
         }
-        iUploadTransferListener.onFinished(i2, this.mGetUrl);
+        iUploadTransferListener.onFinished(i, this.mGetUrl);
     }
 
-    public void onGenBosObjectUrlListener(int i2, String str, String str2, Map<String, String> map) {
+    public void onGenBosObjectUrlListener(int i, String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, map}) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, map}) == null) {
+            if (i == 0) {
                 this.mGetUrl = map.get(GET_URL);
                 this.mPutUrl = map.get(PUT_URL);
                 this.mThumbUrl = map.get("thumb_url");
@@ -274,12 +274,12 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                 LogUtils.i(str5, "authorication:" + str);
                 String str6 = TAG;
                 LogUtils.i(str6, "xBceData:" + str2);
-                int i3 = this.mType;
-                if (i3 == 1) {
+                int i2 = this.mType;
+                if (i2 == 1) {
                     ((ImageMsg) this.mMsg).setRemoteUrl(this.mGetUrl);
                     ((ImageMsg) this.mMsg).setThumbUrl(this.mThumbUrl);
                     ((ImageMsg) this.mMsg).setContent(this.mGetUrl);
-                } else if (i3 == 2) {
+                } else if (i2 == 2) {
                     ChatMsg chatMsg = this.mMsg;
                     ((AudioMsg) chatMsg).setContent(this.mGetUrl, 1, ((AudioMsg) chatMsg).getDuration());
                     ((AudioMsg) this.mMsg).setRemoteUrl(this.mGetUrl);
@@ -289,26 +289,26 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
             }
             IUploadTransferListener iUploadTransferListener = this.mMsgListener;
             if (iUploadTransferListener != null) {
-                iUploadTransferListener.onFailed(i2, this.mType, this.mFilePath);
+                iUploadTransferListener.onFailed(i, this.mType, this.mFilePath);
             }
         }
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i2) {
+    public void onProgress(int i) {
         IUploadTransferListener iUploadTransferListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (iUploadTransferListener = this.mMsgListener) == null) {
             return;
         }
-        iUploadTransferListener.onProgress(i2);
+        iUploadTransferListener.onProgress(i);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i2, String str, String str2, String str3, Map<String, String> map) {
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, str3, map}) == null) {
-            onGenBosObjectUrlListener(i2, str2, str3, map);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            onGenBosObjectUrlListener(i, str2, str3, map);
         }
     }
 }

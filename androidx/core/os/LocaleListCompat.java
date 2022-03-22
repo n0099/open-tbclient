@@ -48,9 +48,9 @@ public final class LocaleListCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {localeListInterface};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -116,13 +116,13 @@ public final class LocaleListCompat {
                 String[] split = str.split(",", -1);
                 int length = split.length;
                 Locale[] localeArr = new Locale[length];
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        forLanguageTagCompat = Locale.forLanguageTag(split[i2]);
+                        forLanguageTagCompat = Locale.forLanguageTag(split[i]);
                     } else {
-                        forLanguageTagCompat = forLanguageTagCompat(split[i2]);
+                        forLanguageTagCompat = forLanguageTagCompat(split[i]);
                     }
-                    localeArr[i2] = forLanguageTagCompat;
+                    localeArr[i] = forLanguageTagCompat;
                 }
                 return create(localeArr);
             }
@@ -168,10 +168,10 @@ public final class LocaleListCompat {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof LocaleListCompat) && this.mImpl.equals(((LocaleListCompat) obj).mImpl) : invokeL.booleanValue;
     }
 
-    public Locale get(int i2) {
+    public Locale get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mImpl.get(i2) : (Locale) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mImpl.get(i) : (Locale) invokeI.objValue;
     }
 
     @Nullable

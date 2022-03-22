@@ -18,28 +18,28 @@ public final class Circle extends Overlay {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33869b;
+    public int f26138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33870c;
+    public int f26139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Stroke f33871d;
+    public Stroke f26140d;
 
     public Circle() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f34514h;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f26716h;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -51,13 +51,13 @@ public final class Circle extends Overlay {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.a, this.f33870c));
-            Overlay.a(this.f33869b, bundle);
-            if (this.f33871d == null) {
+            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.a, this.f26139c));
+            Overlay.a(this.f26138b, bundle);
+            if (this.f26140d == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
                 bundle.putInt("has_stroke", 1);
-                bundle.putBundle("stroke", this.f33871d.a(new Bundle()));
+                bundle.putBundle("stroke", this.f26140d.a(new Bundle()));
             }
             return bundle;
         }
@@ -73,19 +73,19 @@ public final class Circle extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33869b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26138b : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33870c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26139c : invokeV.intValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33871d : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26140d : (Stroke) invokeV.objValue;
     }
 
     public void setCenter(LatLng latLng) {
@@ -99,18 +99,18 @@ public final class Circle extends Overlay {
         }
     }
 
-    public void setFillColor(int i2) {
+    public void setFillColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f33869b = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f26138b = i;
             this.listener.b(this);
         }
     }
 
-    public void setRadius(int i2) {
+    public void setRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f33870c = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f26139c = i;
             this.listener.b(this);
         }
     }
@@ -118,7 +118,7 @@ public final class Circle extends Overlay {
     public void setStroke(Stroke stroke) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, stroke) == null) {
-            this.f33871d = stroke;
+            this.f26140d = stroke;
             this.listener.b(this);
         }
     }

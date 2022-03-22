@@ -1,0 +1,266 @@
+package c.a.p0.w0.m.c;
+
+import c.a.d.o.e.n;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.RecommendForumInfo;
+import tbclient.Recommforum.DataRes;
+import tbclient.Recommforum.RecommForum;
+import tbclient.Recommforum.TestInfo;
+/* loaded from: classes2.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<f> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HashMap<String, Integer> f19494b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinkedHashMap<String, List<b>> f19495c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<Long, Integer> f19496d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public HashMap<String, List<b>> f19497e;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public List<n> a(long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (j > 0) {
+                List<n> c2 = c(j, z);
+                if (c2 != null && !ListUtils.isEmpty(c2)) {
+                    arrayList.addAll(c2);
+                }
+                List<n> b2 = b(z);
+                if (b2 != null && !ListUtils.isEmpty(b2)) {
+                    arrayList.addAll(b2);
+                }
+            } else {
+                List<n> b3 = b(z);
+                if (b3 != null && !ListUtils.isEmpty(b3)) {
+                    arrayList.addAll(b3);
+                }
+            }
+            e eVar = new e();
+            eVar.a = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+            arrayList.add(eVar);
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public List<n> b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            HashMap<String, Integer> hashMap = this.f19494b;
+            if (hashMap != null && hashMap.size() > 0) {
+                for (String str : this.f19494b.keySet()) {
+                    if (!StringUtils.isNull(str)) {
+                        int intValue = this.f19494b.get(str).intValue();
+                        d dVar = new d();
+                        dVar.setTitle(str);
+                        dVar.needTopMargin = !z;
+                        dVar.s(intValue);
+                        dVar.r(e(str));
+                        arrayList.add(dVar);
+                        arrayList.addAll(dVar.q());
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public final List<n> c(long j, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (j <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            HashMap<String, List<b>> hashMap = this.f19497e;
+            if (hashMap != null && hashMap.size() > 0) {
+                Iterator<String> it = this.f19497e.keySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    String next = it.next();
+                    if (!StringUtils.isNull(next)) {
+                        String[] split = next.split("[|]");
+                        if (String.valueOf(j).equals(split[0]) && split.length == 2 && !StringUtils.isNull(split[1])) {
+                            String str = split[1];
+                            int intValue = this.f19496d.get(Long.valueOf(j)).intValue();
+                            d dVar = new d();
+                            dVar.setTitle(str);
+                            dVar.needTopMargin = !z;
+                            dVar.s(intValue);
+                            dVar.r(g(next));
+                            arrayList.add(dVar);
+                            arrayList.addAll(dVar.q());
+                            break;
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public List<f> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public final List<b> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            LinkedHashMap<String, List<b>> linkedHashMap = this.f19495c;
+            if (linkedHashMap != null && linkedHashMap.size() > 0) {
+                arrayList.addAll(this.f19495c.get(str));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<f> f(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int size = this.a.size();
+            int i = 0;
+            while (true) {
+                if (i >= size) {
+                    i = 0;
+                    break;
+                } else if (this.a.get(i).a == j) {
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            if (i == 0) {
+                int i2 = size - 1;
+                arrayList.add(this.a.get(i2));
+                arrayList.addAll(this.a.subList(0, i2));
+            } else {
+                int i3 = i - 1;
+                arrayList.addAll(this.a.subList(i3, size));
+                arrayList.addAll(this.a.subList(0, i3));
+            }
+            return arrayList;
+        }
+        return (List) invokeJ.objValue;
+    }
+
+    public final List<b> g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            HashMap<String, List<b>> hashMap = this.f19497e;
+            if (hashMap != null && hashMap.size() > 0) {
+                arrayList.addAll(this.f19497e.get(str));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void h(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.test_info)) {
+            this.a = new ArrayList();
+            this.f19496d = new HashMap<>();
+            this.f19497e = new HashMap<>();
+            for (TestInfo testInfo : dataRes.test_info) {
+                if (testInfo != null) {
+                    f fVar = new f();
+                    fVar.a(testInfo);
+                    this.a.add(fVar);
+                    RecommForum recommForum = testInfo.recomm_forum;
+                    if (recommForum != null && !ListUtils.isEmpty(recommForum.forums)) {
+                        ArrayList arrayList = new ArrayList();
+                        for (RecommendForumInfo recommendForumInfo : testInfo.recomm_forum.forums) {
+                            if (recommendForumInfo != null) {
+                                b bVar = new b();
+                                bVar.a(recommendForumInfo);
+                                bVar.f19504h = 1;
+                                arrayList.add(bVar);
+                            }
+                        }
+                        this.f19496d.put(Long.valueOf(fVar.a), testInfo.recomm_forum.page_size);
+                        HashMap<String, List<b>> hashMap = this.f19497e;
+                        hashMap.put(String.valueOf(fVar.a) + "|" + testInfo.recomm_forum.title, arrayList);
+                    }
+                }
+            }
+        }
+        if (ListUtils.isEmpty(dataRes.recomm_forum)) {
+            return;
+        }
+        this.f19494b = new HashMap<>();
+        this.f19495c = new LinkedHashMap<>();
+        for (RecommForum recommForum2 : dataRes.recomm_forum) {
+            if (recommForum2 != null && !ListUtils.isEmpty(recommForum2.forums)) {
+                ArrayList arrayList2 = new ArrayList();
+                for (RecommendForumInfo recommendForumInfo2 : recommForum2.forums) {
+                    if (recommendForumInfo2 != null) {
+                        b bVar2 = new b();
+                        bVar2.a(recommendForumInfo2);
+                        bVar2.f19504h = 2;
+                        arrayList2.add(bVar2);
+                    }
+                }
+                this.f19494b.put(recommForum2.title, recommForum2.page_size);
+                this.f19495c.put(recommForum2.title, arrayList2);
+            }
+        }
+    }
+}

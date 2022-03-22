@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\u0018\u0000 \u000b2\u00020\u0001:\u0001\u000bB\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004J\u000e\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\bJ\u000e\u0010\t\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\b¨\u0006\f"}, d2 = {"Lcom/baidu/tbadk/core/atomData/WorkPublishGuideActivityConfig;", "Lcom/baidu/tbadk/core/frameworkData/IntentConfig;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "setFrom", "", "from", "", "setPopStatus", "status", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WorkPublishGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -23,7 +23,7 @@ public final class WorkPublishGuideActivityConfig extends IntentConfig {
     public static final int PARAM_WORK_POP_STATUS_OLD = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public final class WorkPublishGuideActivityConfig extends IntentConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,9 +72,9 @@ public final class WorkPublishGuideActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -83,17 +83,17 @@ public final class WorkPublishGuideActivityConfig extends IntentConfig {
         }
     }
 
-    public final void setFrom(int i2) {
+    public final void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            getIntent().putExtra(PARAM_WORK_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            getIntent().putExtra(PARAM_WORK_FROM, i);
         }
     }
 
-    public final void setPopStatus(int i2) {
+    public final void setPopStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            getIntent().putExtra(PARAM_WORK_POP_STATUS, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            getIntent().putExtra(PARAM_WORK_POP_STATUS, i);
         }
     }
 }

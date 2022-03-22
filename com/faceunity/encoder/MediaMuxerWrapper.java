@@ -3,6 +3,7 @@ package com.faceunity.encoder;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaMuxerWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaMuxerWrapper";
@@ -29,9 +30,9 @@ public class MediaMuxerWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,7 +52,7 @@ public class MediaMuxerWrapper {
             synchronized (this) {
                 if (!this.mIsStarted) {
                     addTrack = this.mMediaMuxer.addTrack(mediaFormat);
-                    String str = "addTrack:trackNum=" + this.mEncoderCount + ",trackIx=" + addTrack + ",format=" + mediaFormat;
+                    Log.i(TAG, "addTrack:trackNum=" + this.mEncoderCount + ",trackIx=" + addTrack + ",format=" + mediaFormat);
                 } else {
                     throw new IllegalStateException("muxer already started");
                 }
@@ -80,12 +81,14 @@ public class MediaMuxerWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                int i2 = this.mStatredCount + 1;
-                this.mStatredCount = i2;
-                if (this.mEncoderCount > 0 && i2 == this.mEncoderCount) {
+                Log.v(TAG, "start:");
+                int i = this.mStatredCount + 1;
+                this.mStatredCount = i;
+                if (this.mEncoderCount > 0 && i == this.mEncoderCount) {
                     this.mMediaMuxer.start();
                     this.mIsStarted = true;
                     notifyAll();
+                    Log.v(TAG, "MediaMuxer started:");
                 }
                 z = this.mIsStarted;
             }
@@ -98,24 +101,25 @@ public class MediaMuxerWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                String str = "stop:mStatredCount=" + this.mStatredCount;
-                int i2 = this.mStatredCount - 1;
-                this.mStatredCount = i2;
-                if (this.mEncoderCount > 0 && i2 <= 0) {
+                Log.v(TAG, "stop:mStatredCount=" + this.mStatredCount);
+                int i = this.mStatredCount + (-1);
+                this.mStatredCount = i;
+                if (this.mEncoderCount > 0 && i <= 0) {
                     this.mMediaMuxer.stop();
                     this.mMediaMuxer.release();
                     this.mIsStarted = false;
+                    Log.v(TAG, "MediaMuxer stopped:");
                 }
             }
         }
     }
 
-    public synchronized void writeSampleData(int i2, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, byteBuffer, bufferInfo) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, byteBuffer, bufferInfo) == null) {
             synchronized (this) {
                 if (this.mStatredCount > 0) {
-                    this.mMediaMuxer.writeSampleData(i2, byteBuffer, bufferInfo);
+                    this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
                 }
             }
         }

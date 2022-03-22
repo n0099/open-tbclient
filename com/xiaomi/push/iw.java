@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ix;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class iw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public jb a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ji f806a;
+    public final ji f782a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ByteArrayOutputStream f807a;
+    public final ByteArrayOutputStream f783a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public iw() {
@@ -26,9 +26,9 @@ public class iw {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((jd) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,18 +44,18 @@ public class iw {
             newInitContext.initArgs = r2;
             Object[] objArr = {jdVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        this.f807a = byteArrayOutputStream;
+        this.f783a = byteArrayOutputStream;
         ji jiVar = new ji(byteArrayOutputStream);
-        this.f806a = jiVar;
+        this.f782a = jiVar;
         this.a = jdVar.a(jiVar);
     }
 
@@ -63,9 +63,9 @@ public class iw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iqVar)) == null) {
-            this.f807a.reset();
+            this.f783a.reset();
             iqVar.b(this.a);
-            return this.f807a.toByteArray();
+            return this.f783a.toByteArray();
         }
         return (byte[]) invokeL.objValue;
     }

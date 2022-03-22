@@ -44,11 +44,11 @@ public final class bx {
         return (HashMap) invokeL.objValue;
     }
 
-    public static String a(long j2) {
+    public static String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) {
-            Date date = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
+            Date date = new Date(j);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08:00"));
             return simpleDateFormat.format(date);
@@ -79,14 +79,14 @@ public final class bx {
         return invokeLL.booleanValue;
     }
 
-    public static String a(String str, int i2) {
+    public static String a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            return str.length() > i2 ? str.substring(0, i2) : str;
+            return str.length() > i ? str.substring(0, i) : str;
         }
         return (String) invokeLI.objValue;
     }

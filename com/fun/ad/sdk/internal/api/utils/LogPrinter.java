@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LogPrinter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FunAdSdk";
@@ -41,18 +40,18 @@ public final class LogPrinter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(Throwable th, int i2, String str, Object... objArr) {
+    public static void a(Throwable th, int i, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65538, null, th, i2, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
+        if ((interceptable == null || interceptable.invokeLILL(65538, null, th, i, str, objArr) == null) && FunAdSdk.isLogEnabled()) {
             try {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 StackTraceElement stackTraceElement = stackTrace[2];
@@ -71,10 +70,10 @@ public final class LogPrinter {
                 objArr2[0] = className.substring(className.lastIndexOf(46) + 1);
                 objArr2[1] = str;
                 if (th != null) {
-                    str2 = StringUtils.LF + Log.getStackTraceString(th);
+                    str2 = "\n" + Log.getStackTraceString(th);
                 }
                 objArr2[2] = str2;
-                Log.println(i2, TAG, String.format("[%s] %s%s", objArr2));
+                Log.println(i, TAG, String.format("[%s] %s%s", objArr2));
             } catch (Exception e2) {
                 e(e2);
             }

@@ -71,16 +71,16 @@ public class FramePixels {
         }
     }
 
-    public FramePixels(PixelType pixelType, ByteBuffer byteBuffer, int i2, int i3) {
+    public FramePixels(PixelType pixelType, ByteBuffer byteBuffer, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pixelType, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {pixelType, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,8 +93,8 @@ public class FramePixels {
         this.mTextureID = -1;
         this.mFrameType = PixelReadParams.FrameType.STREAM_FRAME;
         this.mPixelType = pixelType;
-        this.mWidth = i2;
-        this.mHeight = i3;
+        this.mWidth = i;
+        this.mHeight = i2;
         this.mPixelsAddress = byteBuffer;
     }
 
@@ -126,9 +126,9 @@ public class FramePixels {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.mPixelLength;
-            byte[] bArr = new byte[i2];
-            ARPRenderer.copyNativeBytebuffer(this.mPixelsAddress, bArr, 0, i2);
+            int i = this.mPixelLength;
+            byte[] bArr = new byte[i];
+            ARPRenderer.copyNativeBytebuffer(this.mPixelsAddress, bArr, 0, i);
             return bArr;
         }
         return (byte[]) invokeV.objValue;
@@ -157,13 +157,13 @@ public class FramePixels {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             PixelRotation pixelRotation = PixelRotation.NoRotation;
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[this.mOrientation.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[this.mOrientation.ordinal()];
+            if (i != 1) {
+                if (i == 2) {
                     return isFrontCamera() ? PixelRotation.FlipVertical : PixelRotation.Rotate180;
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     return isFrontCamera() ? PixelRotation.RotateRightFlipVertical : PixelRotation.RotateLeft;
-                } else if (i2 == 4) {
+                } else if (i == 4) {
                     return isFrontCamera() ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
                 }
             } else if (isFrontCamera()) {
@@ -211,10 +211,10 @@ public class FramePixels {
         }
     }
 
-    public void setDegree(int i2) {
+    public void setDegree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mDegree = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mDegree = i;
         }
     }
 
@@ -232,10 +232,10 @@ public class FramePixels {
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mHeight = i;
         }
     }
 
@@ -246,10 +246,10 @@ public class FramePixels {
         }
     }
 
-    public void setPixelLength(int i2) {
+    public void setPixelLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mPixelLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mPixelLength = i;
         }
     }
 
@@ -267,24 +267,24 @@ public class FramePixels {
         }
     }
 
-    public void setTextureID(int i2) {
+    public void setTextureID(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mTextureID = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mTextureID = i;
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.mTimestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.mTimestamp = j;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mWidth = i;
         }
     }
 }

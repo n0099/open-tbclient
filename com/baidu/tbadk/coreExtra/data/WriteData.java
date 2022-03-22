@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
@@ -35,7 +36,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -206,9 +206,9 @@ public class WriteData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -343,8 +343,8 @@ public class WriteData extends OrmObject implements Serializable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("items");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        writeData.addItemData((ItemData) new Gson().fromJson(optJSONArray2.getString(i2), (Class<Object>) ItemData.class));
+                    for (int i = 0; i < optJSONArray2.length(); i++) {
+                        writeData.addItemData((ItemData) new Gson().fromJson(optJSONArray2.getString(i), (Class<Object>) ItemData.class));
                     }
                 }
                 return writeData;
@@ -360,8 +360,8 @@ public class WriteData extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, itemData)) == null) {
             if (canAddItem() && itemData != null) {
-                long j2 = itemData.itemId;
-                if (j2 > 0 && ListUtils.getPosition(this.itemDataIds, Long.valueOf(j2)) < 0) {
+                long j = itemData.itemId;
+                if (j > 0 && ListUtils.getPosition(this.itemDataIds, Long.valueOf(j)) < 0) {
                     this.itemDatas.add(itemData);
                     this.itemDataIds.add(Long.valueOf(itemData.itemId));
                     return true;
@@ -385,9 +385,9 @@ public class WriteData extends OrmObject implements Serializable {
             try {
                 if (isHasImages()) {
                     LinkedList<ImageFileInfo> chosedFiles = this.writeImagesInfo.getChosedFiles();
-                    int i2 = 0;
-                    while (i2 < chosedFiles.size()) {
-                        ImageFileInfo imageFileInfo = chosedFiles.get(i2);
+                    int i = 0;
+                    while (i < chosedFiles.size()) {
+                        ImageFileInfo imageFileInfo = chosedFiles.get(i);
                         if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !m.isEmpty(imageFileInfo.getFilePath())) {
                             File file = new File(imageFileInfo.getFilePath());
                             if (file.exists()) {
@@ -395,10 +395,10 @@ public class WriteData extends OrmObject implements Serializable {
                             }
                         }
                         if (imageFileInfo.isAlreadyUploadedToServer()) {
-                            chosedFiles.remove(i2);
-                            i2--;
+                            chosedFiles.remove(i);
+                            i--;
                         }
-                        i2++;
+                        i++;
                     }
                 }
             } catch (Exception e2) {
@@ -589,10 +589,10 @@ public class WriteData extends OrmObject implements Serializable {
                     linkedList.addAll(this.writeImagesInfo.getChosedFiles());
                 }
                 StringBuilder sb = new StringBuilder(linkedList.size() * 50);
-                for (int i2 = 0; i2 < linkedList.size(); i2++) {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList.get(i2);
+                for (int i = 0; i < linkedList.size(); i++) {
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList.get(i);
                     if (imageFileInfo.isAlreadyUploadedToServer()) {
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                         sb.append(imageFileInfo.getServerImageCode());
                     }
                 }
@@ -1014,7 +1014,7 @@ public class WriteData extends OrmObject implements Serializable {
                 return "";
             }
             String jsonString = writeVoteData.toJsonString();
-            return com.baidu.adp.lib.util.StringUtils.isNull(jsonString) ? "" : String.format(WriteVoteData.VOTE_CONTENT_PREFIX_FORMAT, URLEncoder.encode(jsonString));
+            return StringUtils.isNull(jsonString) ? "" : String.format(WriteVoteData.VOTE_CONTENT_PREFIX_FORMAT, URLEncoder.encode(jsonString));
         }
         return (String) invokeV.objValue;
     }
@@ -1269,10 +1269,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setBarrageTime(long j2) {
+    public void setBarrageTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048707, this, j2) == null) {
-            this.mBarrageTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048707, this, j) == null) {
+            this.mBarrageTime = j;
         }
     }
 
@@ -1290,17 +1290,17 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setCategoryFrom(int i2) {
+    public void setCategoryFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048710, this, i2) == null) {
-            this.mCategoryFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048710, this, i) == null) {
+            this.mCategoryFrom = i;
         }
     }
 
-    public void setCategoryTo(int i2) {
+    public void setCategoryTo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048711, this, i2) == null) {
-            this.mCategoryTo = i2;
+        if (interceptable == null || interceptable.invokeI(1048711, this, i) == null) {
+            this.mCategoryTo = i;
         }
     }
 
@@ -1325,17 +1325,17 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setEntranceType(int i2) {
+    public void setEntranceType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048715, this, i2) == null) {
-            this.entranceType = i2;
+        if (interceptable == null || interceptable.invokeI(1048715, this, i) == null) {
+            this.entranceType = i;
         }
     }
 
-    public void setEvaluationStar(int i2) {
+    public void setEvaluationStar(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048716, this, i2) == null) {
-            this.mEvaluationStar = i2;
+        if (interceptable == null || interceptable.invokeI(1048716, this, i) == null) {
+            this.mEvaluationStar = i;
         }
     }
 
@@ -1353,10 +1353,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setFloorNum(int i2) {
+    public void setFloorNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048719, this, i2) == null) {
-            this.mFloorNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048719, this, i) == null) {
+            this.mFloorNum = i;
         }
     }
 
@@ -1451,10 +1451,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setIsGeneralTab(int i2) {
+    public void setIsGeneralTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048733, this, i2) == null) {
-            this.isGeneralTab = i2;
+        if (interceptable == null || interceptable.invokeI(1048733, this, i) == null) {
+            this.isGeneralTab = i;
         }
     }
 
@@ -1612,10 +1612,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setOtherGrade(int i2) {
+    public void setOtherGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048755, this, i2) == null) {
-            this.mOtherGrade = i2;
+        if (interceptable == null || interceptable.invokeI(1048755, this, i) == null) {
+            this.mOtherGrade = i;
         }
     }
 
@@ -1647,10 +1647,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setProZone(int i2) {
+    public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048760, this, i2) == null) {
-            this.proZone = i2;
+        if (interceptable == null || interceptable.invokeI(1048760, this, i) == null) {
+            this.proZone = i;
         }
     }
 
@@ -1724,10 +1724,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setShareImageType(int i2) {
+    public void setShareImageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048771, this, i2) == null) {
-            this.mShareImageType = i2;
+        if (interceptable == null || interceptable.invokeI(1048771, this, i) == null) {
+            this.mShareImageType = i;
         }
     }
 
@@ -1773,10 +1773,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setShareSummaryImgHeight(int i2) {
+    public void setShareSummaryImgHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048778, this, i2) == null) {
-            this.mShareSummaryImgHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048778, this, i) == null) {
+            this.mShareSummaryImgHeight = i;
         }
     }
 
@@ -1787,10 +1787,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setShareSummaryImgWidth(int i2) {
+    public void setShareSummaryImgWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048780, this, i2) == null) {
-            this.mShareSummaryImgWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048780, this, i) == null) {
+            this.mShareSummaryImgWidth = i;
         }
     }
 
@@ -1815,10 +1815,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setStatisticFrom(int i2) {
+    public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048784, this, i2) == null) {
-            this.statisticFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048784, this, i) == null) {
+            this.statisticFrom = i;
         }
     }
 
@@ -1829,10 +1829,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setTabId(int i2) {
+    public void setTabId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048786, this, i2) == null) {
-            this.mTabId = i2;
+        if (interceptable == null || interceptable.invokeI(1048786, this, i) == null) {
+            this.mTabId = i;
         }
     }
 
@@ -1843,10 +1843,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setTakePhotoNum(int i2) {
+    public void setTakePhotoNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048788, this, i2) == null) {
-            this.mTakePhotoNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048788, this, i) == null) {
+            this.mTakePhotoNum = i;
         }
     }
 
@@ -1892,10 +1892,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048795, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048795, this, i) == null) {
+            this.mType = i;
         }
     }
 
@@ -1962,10 +1962,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoReviewType(int i2) {
+    public void setVideoReviewType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048805, this, i2) == null) {
-            this.mVideoReviewType = i2;
+        if (interceptable == null || interceptable.invokeI(1048805, this, i) == null) {
+            this.mVideoReviewType = i;
         }
     }
 
@@ -1984,10 +1984,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setVoiceDuringTime(int i2) {
+    public void setVoiceDuringTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048807, this, i2) == null) {
-            this.mDuringTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048807, this, i) == null) {
+            this.mDuringTime = i;
         }
     }
 
@@ -2033,10 +2033,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setmBigEmtionCount(int i2) {
+    public void setmBigEmtionCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048814, this, i2) == null) {
-            this.mBigEmtionCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048814, this, i) == null) {
+            this.mBigEmtionCount = i;
         }
     }
 
@@ -2159,16 +2159,16 @@ public class WriteData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public WriteData(int i2) {
+    public WriteData(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -2187,7 +2187,7 @@ public class WriteData extends OrmObject implements Serializable {
         this.mBigEmtionCount = 0;
         this.isLinkThread = false;
         this.mPostLatLng = false;
-        this.mType = i2;
+        this.mType = i;
         this.mTitle = null;
         this.mContent = null;
         this.mReplyUid = null;

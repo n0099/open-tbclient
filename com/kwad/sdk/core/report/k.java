@@ -4,24 +4,24 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k extends SQLiteOpenHelper {
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54615b;
+    public String f39724b;
 
-    public k(@Nullable Context context, int i2) {
-        super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i2);
-        this.f54615b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
+    public k(@Nullable Context context, int i) {
+        super(context, "ksadrep.db", (SQLiteDatabase.CursorFactory) null, i);
+        this.f39724b = "CREATE TABLE IF NOT EXISTS ksad_actions (actionId varchar(60) primary key, aLog TEXT)";
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(this.f54615b);
+        sQLiteDatabase.execSQL(this.f39724b);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 }

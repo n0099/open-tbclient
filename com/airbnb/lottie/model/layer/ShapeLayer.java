@@ -22,8 +22,8 @@ public class ShapeLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(@NonNull Canvas canvas, Matrix matrix, int i2) {
-        this.contentGroup.draw(canvas, matrix, i2);
+    public void drawLayer(@NonNull Canvas canvas, Matrix matrix, int i) {
+        this.contentGroup.draw(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.animation.content.DrawingContent
@@ -33,7 +33,7 @@ public class ShapeLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void resolveChildKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        this.contentGroup.resolveKeyPath(keyPath, i2, list, keyPath2);
+    public void resolveChildKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        this.contentGroup.resolveKeyPath(keyPath, i, list, keyPath2);
     }
 }

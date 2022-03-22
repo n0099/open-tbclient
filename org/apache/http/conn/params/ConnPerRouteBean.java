@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ConnPerRouteBean(int i2) {
+    public ConnPerRouteBean(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -52,16 +52,16 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         return invokeL.intValue;
     }
 
-    public void setDefaultMaxPerRoute(int i2) {
+    public void setDefaultMaxPerRoute(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void setMaxForRoute(HttpRoute httpRoute, int i2) {
+    public void setMaxForRoute(HttpRoute httpRoute, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, httpRoute, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, httpRoute, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -78,9 +78,9 @@ public final class ConnPerRouteBean implements ConnPerRoute {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

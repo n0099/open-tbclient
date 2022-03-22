@@ -19,7 +19,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class Call {
     public static /* synthetic */ Interceptable $ic;
@@ -47,23 +46,23 @@ public class Call {
         public int mExitThreadTime;
         public final long mMethodId;
 
-        public Builder(long j2) {
+        public Builder(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mCallees = null;
-            this.mMethodId = j2;
+            this.mMethodId = j;
         }
 
         public void addCallee(Builder builder) {
@@ -120,19 +119,19 @@ public class Call {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mMethodId : invokeV.longValue;
         }
 
-        public void setMethodEntryTime(int i2, int i3) {
+        public void setMethodEntryTime(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-                this.mEntryThreadTime = i2;
-                this.mEntryGlobalTime = i3;
+            if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+                this.mEntryThreadTime = i;
+                this.mEntryGlobalTime = i2;
             }
         }
 
-        public void setMethodExitTime(int i2, int i3) {
+        public void setMethodExitTime(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-                this.mExitThreadTime = i2;
-                this.mExitGlobalTime = i3;
+            if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+                this.mExitThreadTime = i;
+                this.mExitGlobalTime = i2;
             }
         }
     }
@@ -150,9 +149,9 @@ public class Call {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {call};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -225,9 +224,9 @@ public class Call {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -249,13 +248,13 @@ public class Call {
             sb.append(LoadErrorCode.TOKEN_NEXT);
             sb.append(formatter.format(this));
             List<Call> callees = getCallees();
-            int length = sb.length() - (sb.lastIndexOf(StringUtils.LF) + 1);
-            for (int i2 = 0; i2 < callees.size(); i2++) {
-                if (i2 != 0) {
-                    sb.append(StringUtils.LF);
+            int length = sb.length() - (sb.lastIndexOf("\n") + 1);
+            for (int i = 0; i < callees.size(); i++) {
+                if (i != 0) {
+                    sb.append("\n");
                     sb.append(Strings.repeat(" ", length));
                 }
-                callees.get(i2).printCallHierarchy(sb, formatter);
+                callees.get(i).printCallHierarchy(sb, formatter);
             }
         }
     }
@@ -264,11 +263,11 @@ public class Call {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, list, clockType)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Call call : list) {
-                j2 += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
+                j += call.getInclusiveTime(clockType, TimeUnit.MICROSECONDS);
             }
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }
@@ -333,18 +332,18 @@ public class Call {
 
     public long getInclusiveTime(ClockType clockType, TimeUnit timeUnit) {
         InterceptResult invokeLL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, clockType, timeUnit)) == null) {
             if (clockType == ClockType.THREAD) {
-                i2 = this.mExitThreadTime;
-                i3 = this.mEntryThreadTime;
+                i = this.mExitThreadTime;
+                i2 = this.mEntryThreadTime;
             } else {
-                i2 = this.mExitGlobalTime;
-                i3 = this.mEntryGlobalTime;
+                i = this.mExitGlobalTime;
+                i2 = this.mEntryGlobalTime;
             }
-            return timeUnit.convert((i2 - i3) & 4294967295L, VmTraceData.getDefaultTimeUnits());
+            return timeUnit.convert((i - i2) & 4294967295L, VmTraceData.getDefaultTimeUnits());
         }
         return invokeLL.longValue;
     }
@@ -374,9 +373,9 @@ public class Call {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder, stack};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

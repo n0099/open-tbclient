@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import java.io.File;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PluginDirHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VERSION_PREFIX = "version-";
@@ -45,9 +46,9 @@ public class PluginDirHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -97,10 +98,10 @@ public class PluginDirHelper {
         return (String) invokeV.objValue;
     }
 
-    public static String getDalvikCacheDir(String str, int i2) {
+    public static String getDalvikCacheDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2)), "dalvik-cache") : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i)), "dalvik-cache") : (String) invokeLI.objValue;
     }
 
     public static String getDataDir(String str) {
@@ -123,10 +124,10 @@ public class PluginDirHelper {
         return (String) invokeV.objValue;
     }
 
-    public static String getNativeLibraryDir(String str, int i2) {
+    public static String getNativeLibraryDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2)), "lib") : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i)), "lib") : (String) invokeLI.objValue;
     }
 
     public static String getPackageDir(String str) {
@@ -135,10 +136,10 @@ public class PluginDirHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? buildPath(str) : (String) invokeL.objValue;
     }
 
-    public static String getPackageVersionDir(String str, int i2) {
+    public static String getPackageVersionDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i2)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2))) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) ? buildPath(str, VERSION_PREFIX.concat(String.valueOf(i))) : (String) invokeLI.objValue;
     }
 
     public static String getPushDir() {
@@ -163,10 +164,10 @@ public class PluginDirHelper {
         return (String) invokeV.objValue;
     }
 
-    public static String getSourceFile(String str, int i2) {
+    public static String getSourceFile(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i2)) == null) ? new File(buildPath(str, VERSION_PREFIX.concat(String.valueOf(i2)), "apk"), "base-1.apk").getPath() : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) ? new File(buildPath(str, VERSION_PREFIX.concat(String.valueOf(i)), D.COLUMU_PLUGIN_DEX_PATH), "base-1.apk").getPath() : (String) invokeLI.objValue;
     }
 
     public static void init() {
@@ -179,11 +180,11 @@ public class PluginDirHelper {
         }
     }
 
-    public static boolean isPackageVersionDirExists(@NonNull String str, int i2) {
+    public static boolean isPackageVersionDirExists(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, str, i2)) == null) {
-            return new File(getBaseDir() + File.separator + str + File.separator + VERSION_PREFIX + i2).exists();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, str, i)) == null) {
+            return new File(getBaseDir() + File.separator + str + File.separator + VERSION_PREFIX + i).exists();
         }
         return invokeLI.booleanValue;
     }

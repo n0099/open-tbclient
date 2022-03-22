@@ -22,7 +22,6 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class VmTraceParser {
     public static /* synthetic */ Interceptable $ic = null;
@@ -110,16 +109,16 @@ public class VmTraceParser {
             this(vmTraceParser, file);
         }
 
-        private void copyBytes(int i2) throws IOException {
+        private void copyBytes(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-                byte[] bArr = new byte[i2];
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+                byte[] bArr = new byte[i];
                 int read = this.mInputStream.read(bArr);
-                if (read == i2) {
+                if (read == i) {
                     this.mByteOutputStream.write(bArr);
                     return;
                 }
-                throw new RuntimeException(String.format("Invalid trace format: expected %d bytes, but found %d\n", Integer.valueOf(i2), Integer.valueOf(read)));
+                throw new RuntimeException(String.format("Invalid trace format: expected %d bytes, but found %d\n", Integer.valueOf(i), Integer.valueOf(read)));
             }
         }
 
@@ -127,7 +126,7 @@ public class VmTraceParser {
         /* JADX INFO: Access modifiers changed from: private */
         public ByteBuffer parse() throws IOException {
             InterceptResult invokeV;
-            int i2;
+            int i;
             int readUnsignedByte;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
@@ -144,13 +143,13 @@ public class VmTraceParser {
                     writeNumberLE(readNumberLE3 + 16, 2);
                     copyBytes(8);
                     if (readNumberLE2 == 1) {
-                        i2 = 9;
+                        i = 9;
                     } else if (readNumberLE2 != 2) {
-                        i2 = readNumberLE(2);
-                        writeNumberLE(i2, 2);
+                        i = readNumberLE(2);
+                        writeNumberLE(i, 2);
                         readNumberLE3 -= 2;
                     } else {
-                        i2 = 10;
+                        i = 10;
                     }
                     copyBytes(readNumberLE3);
                     while (true) {
@@ -168,7 +167,7 @@ public class VmTraceParser {
                                 }
                             } else {
                                 writeNumberLE(readNumberLE4, 2);
-                                copyBytes(i2 - 2);
+                                copyBytes(i - 2);
                             }
                         } catch (EOFException unused) {
                         }
@@ -191,47 +190,47 @@ public class VmTraceParser {
         private void processSummary(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-                String[] split = str.split(StringUtils.LF);
+                String[] split = str.split("\n");
                 String str2 = split[2];
-                for (int i2 = 2; i2 < split.length && !str2.equals("*threads\n"); i2++) {
-                    this.this$0.parseOption(split[i2]);
+                for (int i = 2; i < split.length && !str2.equals("*threads\n"); i++) {
+                    this.this$0.parseOption(split[i]);
                 }
             }
         }
 
-        private int readNumberLE(int i2) throws IOException {
+        private int readNumberLE(int i) throws IOException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
-                int i3 = 0;
-                for (int i4 = 0; i4 < i2; i4++) {
-                    i3 += this.mInputStream.readUnsignedByte() << (i4 * 8);
+            if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < i; i3++) {
+                    i2 += this.mInputStream.readUnsignedByte() << (i3 * 8);
                 }
-                return i3;
+                return i2;
             }
             return invokeI.intValue;
         }
 
         @NonNull
-        private String readString(int i2) throws IOException {
+        private String readString(int i) throws IOException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-                byte[] bArr = new byte[i2];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    bArr[i3] = (byte) this.mInputStream.readUnsignedByte();
+            if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+                byte[] bArr = new byte[i];
+                for (int i2 = 0; i2 < i; i2++) {
+                    bArr[i2] = (byte) this.mInputStream.readUnsignedByte();
                 }
                 return new String(bArr, Charset.forName("UTF-8"));
             }
             return (String) invokeI.objValue;
         }
 
-        private void writeNumberLE(int i2, int i3) throws IOException {
+        private void writeNumberLE(int i, int i2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(65545, this, i2, i3) == null) {
-                byte[] bArr = new byte[i3];
-                for (int i4 = 0; i4 < i3; i4++) {
-                    bArr[i4] = (byte) ((i2 >> (i4 * 8)) & 255);
+            if (interceptable == null || interceptable.invokeII(65545, this, i, i2) == null) {
+                byte[] bArr = new byte[i2];
+                for (int i3 = 0; i3 < i2; i3++) {
+                    bArr[i3] = (byte) ((i >> (i3 * 8)) & 255);
                 }
                 this.mByteOutputStream.write(bArr);
             }
@@ -244,9 +243,9 @@ public class VmTraceParser {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vmTraceParser, file};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -266,9 +265,9 @@ public class VmTraceParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, vmTraceHandler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -329,55 +328,55 @@ public class VmTraceParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void parseMethodTraceData(ByteBuffer byteBuffer, int i2) {
+    private void parseMethodTraceData(ByteBuffer byteBuffer, int i) {
+        int i2;
         int i3;
         int i4;
         int i5;
         int i6;
-        int i7;
         TraceAction traceAction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, this, byteBuffer, i2) == null) {
-            int i8 = this.mVersion;
+        if (interceptable == null || interceptable.invokeLI(65545, this, byteBuffer, i) == null) {
+            int i7 = this.mVersion;
             while (byteBuffer.hasRemaining()) {
                 int position = byteBuffer.position();
-                short s = i8 == 1 ? byteBuffer.get() : byteBuffer.getShort();
-                int i9 = byteBuffer.getInt();
-                int i10 = AnonymousClass1.$SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$VmClockType[this.mVmClockType.ordinal()];
-                if (i10 == 1) {
-                    i3 = byteBuffer.getInt();
-                } else if (i10 != 2) {
-                    i3 = byteBuffer.getInt();
+                short s = i7 == 1 ? byteBuffer.get() : byteBuffer.getShort();
+                int i8 = byteBuffer.getInt();
+                int i9 = AnonymousClass1.$SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$VmClockType[this.mVmClockType.ordinal()];
+                if (i9 == 1) {
+                    i2 = byteBuffer.getInt();
+                } else if (i9 != 2) {
+                    i2 = byteBuffer.getInt();
                 } else {
-                    i5 = byteBuffer.getInt();
                     i4 = byteBuffer.getInt();
+                    i3 = byteBuffer.getInt();
                     int position2 = byteBuffer.position();
-                    i6 = position2 - position;
-                    if (i6 < i2) {
-                        byteBuffer.position(position2 + (i2 - i6));
+                    i5 = position2 - position;
+                    if (i5 < i) {
+                        byteBuffer.position(position2 + (i - i5));
                     }
-                    i7 = i9 & 3;
-                    if (i7 != 0) {
+                    i6 = i8 & 3;
+                    if (i6 != 0) {
                         traceAction = TraceAction.METHOD_ENTER;
-                    } else if (i7 == 1) {
+                    } else if (i6 == 1) {
                         traceAction = TraceAction.METHOD_EXIT;
-                    } else if (i7 == 2) {
+                    } else if (i6 == 2) {
                         traceAction = TraceAction.METHOD_EXIT_UNROLL;
                     } else {
                         throw new RuntimeException("Invalid trace action, expected one of method entry, exit or unroll.");
                     }
-                    this.mTraceDataHandler.addMethodAction(s, 4294967295L & i9 & (-4), traceAction, i5, i4);
+                    this.mTraceDataHandler.addMethodAction(s, 4294967295L & i8 & (-4), traceAction, i4, i3);
                 }
-                i5 = i3;
-                i4 = i5;
+                i4 = i2;
+                i3 = i4;
                 int position22 = byteBuffer.position();
-                i6 = position22 - position;
-                if (i6 < i2) {
+                i5 = position22 - position;
+                if (i5 < i) {
                 }
-                i7 = i9 & 3;
-                if (i7 != 0) {
+                i6 = i8 & 3;
+                if (i6 != 0) {
                 }
-                this.mTraceDataHandler.addMethodAction(s, 4294967295L & i9 & (-4), traceAction, i5, i4);
+                this.mTraceDataHandler.addMethodAction(s, 4294967295L & i8 & (-4), traceAction, i4, i3);
             }
         }
     }
@@ -427,41 +426,41 @@ public class VmTraceParser {
         short s2 = byteBuffer.getShort();
         if (s2 == this.mVersion) {
             validateTraceVersion(s2);
-            int i2 = byteBuffer.getShort() - 16;
+            int i = byteBuffer.getShort() - 16;
             this.mTraceDataHandler.setStartTimeUs(byteBuffer.getLong());
             if (s2 == 1) {
                 s = 9;
             } else if (s2 != 2) {
                 s = byteBuffer.getShort();
-                i2 -= 2;
+                i -= 2;
             } else {
                 s = 10;
             }
             while (true) {
-                int i3 = i2 - 1;
-                if (i2 <= 0) {
+                int i2 = i - 1;
+                if (i <= 0) {
                     return s;
                 }
                 byteBuffer.get();
-                i2 = i3;
+                i = i2;
             }
         } else {
             throw new RuntimeException(String.format("Error: version number mismatch; got %d in data header but %d in options\n", Integer.valueOf(s2), Integer.valueOf(this.mVersion)));
         }
     }
 
-    public static void validateMagic(int i2) {
+    public static void validateMagic(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65549, null, i2) == null) && i2 != 1464814675) {
-            throw new RuntimeException(String.format("Error: magic number mismatch; got 0x%x, expected 0x%x\n", Integer.valueOf(i2), Integer.valueOf((int) TRACE_MAGIC)));
+        if ((interceptable == null || interceptable.invokeI(65549, null, i) == null) && i != 1464814675) {
+            throw new RuntimeException(String.format("Error: magic number mismatch; got 0x%x, expected 0x%x\n", Integer.valueOf(i), Integer.valueOf((int) TRACE_MAGIC)));
         }
     }
 
-    public static void validateTraceVersion(int i2) {
+    public static void validateTraceVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65550, null, i2) == null) {
-            if (i2 < 1 || i2 > 3) {
-                throw new RuntimeException(String.format("Error: unsupported trace version number %d.  Please use a newer version of TraceView to read this file.", Integer.valueOf(i2)));
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            if (i < 1 || i > 3) {
+                throw new RuntimeException(String.format("Error: unsupported trace version number %d.  Please use a newer version of TraceView to read this file.", Integer.valueOf(i)));
             }
         }
     }
@@ -494,7 +493,7 @@ public class VmTraceParser {
         BufferedReader bufferedReader = null;
         try {
             BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8")));
-            long j2 = 0;
+            long j = 0;
             loop0: while (true) {
                 char c2 = 0;
                 while (true) {
@@ -503,7 +502,7 @@ public class VmTraceParser {
                         if (readLine == null) {
                             break loop0;
                         }
-                        j2 += readLine.getBytes(Charset.forName("UTF-8")).length + 1;
+                        j += readLine.getBytes(Charset.forName("UTF-8")).length + 1;
                         if (readLine.startsWith("*")) {
                             if (readLine.equals(HEADER_SECTION_VERSION)) {
                                 break;
@@ -516,7 +515,7 @@ public class VmTraceParser {
                                     bufferedReader2.close();
                                 } catch (IOException unused) {
                                 }
-                                return j2;
+                                return j;
                             }
                         }
                         if (c2 == 0) {
@@ -553,7 +552,7 @@ public class VmTraceParser {
         String str2;
         String str3;
         String str4;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             String[] split = str.split("\t");
@@ -564,7 +563,7 @@ public class VmTraceParser {
                     String str6 = split[2];
                     String str7 = split[3];
                     String str8 = split[4];
-                    i2 = Integer.decode(split[5]).intValue();
+                    i = Integer.decode(split[5]).intValue();
                     str2 = str6;
                     str3 = str7;
                     str4 = constructPathname(str5, str8);
@@ -580,14 +579,14 @@ public class VmTraceParser {
                         str4 = null;
                     } else {
                         String str10 = split[2];
-                        i2 = Integer.decode(split[3]).intValue();
+                        i = Integer.decode(split[3]).intValue();
                         str4 = str10;
                         str2 = null;
                         str3 = null;
                     }
-                    i2 = -1;
+                    i = -1;
                 }
-                this.mTraceDataHandler.addMethod(longValue, new MethodInfo(longValue, str5, str2, str3, str4, i2));
+                this.mTraceDataHandler.addMethod(longValue, new MethodInfo(longValue, str5, str2, str3, str4, i));
             } catch (NumberFormatException unused) {
             }
         }

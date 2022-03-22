@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.YbChargeItemInfo;
 import java.util.List;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetUserYbDetailsResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,24 +18,24 @@ public class GetUserYbDetailsResult {
     public int total;
     public List<YbChargeItemInfo> ybChargeItemInfoList;
 
-    public GetUserYbDetailsResult(int i2, int i3, List<YbChargeItemInfo> list) {
+    public GetUserYbDetailsResult(int i, int i2, List<YbChargeItemInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), list};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.result = -1;
-        this.result = i2;
-        this.total = i3;
+        this.result = i;
+        this.total = i2;
         this.ybChargeItemInfoList = list;
     }
 
@@ -57,17 +57,17 @@ public class GetUserYbDetailsResult {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ybChargeItemInfoList : (List) invokeV.objValue;
     }
 
-    public void setResult(int i2) {
+    public void setResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.result = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.result = i;
         }
     }
 
-    public void setTotal(int i2) {
+    public void setTotal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.total = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.total = i;
         }
     }
 

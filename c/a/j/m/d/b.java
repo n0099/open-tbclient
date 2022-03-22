@@ -16,30 +16,30 @@ public final class b<T> implements a<T> {
     public final Stack<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ReentrantLock f3861b;
+    public final ReentrantLock f3308b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new Stack<>();
-        this.f3861b = new ReentrantLock(true);
+        this.f3308b = new ReentrantLock(true);
     }
 
     @Override // c.a.j.m.d.a
     public void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ReentrantLock reentrantLock = this.f3861b;
+            ReentrantLock reentrantLock = this.f3308b;
             reentrantLock.lock();
             try {
                 this.a.push(t);
@@ -53,7 +53,7 @@ public final class b<T> implements a<T> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ReentrantLock reentrantLock = this.f3861b;
+            ReentrantLock reentrantLock = this.f3308b;
             reentrantLock.lock();
             try {
                 this.a.clear();
@@ -69,7 +69,7 @@ public final class b<T> implements a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ReentrantLock reentrantLock = this.f3861b;
+            ReentrantLock reentrantLock = this.f3308b;
             reentrantLock.lock();
             try {
                 return this.a.isEmpty();
@@ -85,7 +85,7 @@ public final class b<T> implements a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ReentrantLock reentrantLock = this.f3861b;
+            ReentrantLock reentrantLock = this.f3308b;
             reentrantLock.lock();
             try {
                 if (!c()) {

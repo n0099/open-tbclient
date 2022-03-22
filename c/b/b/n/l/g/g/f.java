@@ -13,22 +13,22 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<g<Vector3>> f27390b;
+    public c.b.b.q.a<g<Vector3>> f22622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.a<g<Quaternion>> f27391c;
+    public c.b.b.q.a<g<Quaternion>> f22623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.b.q.a<g<Vector3>> f27392d;
+    public c.b.b.q.a<g<Vector3>> f22624d;
 
     public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

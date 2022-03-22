@@ -22,16 +22,16 @@ public abstract class RTCVideoExternalRender implements VideoSink {
     public BaiduRtcRoom.BaiduRtcRoomVideoObserver mVideoObserver;
     public StuckDataCalculator stuckDataCalculator;
 
-    public RTCVideoExternalRender(BaiduRtcRoom.BaiduRtcRoomVideoObserver baiduRtcRoomVideoObserver, long j2) {
+    public RTCVideoExternalRender(BaiduRtcRoom.BaiduRtcRoomVideoObserver baiduRtcRoomVideoObserver, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduRtcRoomVideoObserver, Long.valueOf(j2)};
+            Object[] objArr = {baiduRtcRoomVideoObserver, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,11 +42,11 @@ public abstract class RTCVideoExternalRender implements VideoSink {
         this.mIsRenderInited = false;
         this.stuckDataCalculator = new StuckDataCalculator(600);
         this.isEnableSLIDataReport = false;
-        this.mUserId = j2;
+        this.mUserId = j;
         this.mVideoObserver = baiduRtcRoomVideoObserver;
     }
 
-    public abstract void changeSurfaceSize(int i2, int i3);
+    public abstract void changeSurfaceSize(int i, int i2);
 
     public abstract void clearImage();
 

@@ -17,21 +17,21 @@ public class AES {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36154d = "UTF-8";
+    public static final String f27918d = "UTF-8";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36155e = "AES/CBC/NoPadding";
+    public static final String f27919e = "AES/CBC/NoPadding";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f36156f = "AES";
+    public static final String f27920f = "AES";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36157b;
+    public String f27921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36158c;
+    public String f27922c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES() {
@@ -40,9 +40,9 @@ public class AES {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((String) objArr[0], (String) objArr[1], (String) objArr[2]);
                 newInitContext.thisArg = this;
@@ -57,7 +57,7 @@ public class AES {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             int length = 16 - (str.getBytes().length % 16);
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 str = str + WebvttCueParser.CHAR_SPACE;
             }
             return str;
@@ -73,8 +73,8 @@ public class AES {
                 byte[] bArr2 = new byte[0];
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f36158c);
-                    Cipher cipher = Cipher.getInstance(this.f36157b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f27922c);
+                    Cipher cipher = Cipher.getInstance(this.f27921b);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable unused) {
@@ -93,8 +93,8 @@ public class AES {
             if (str != null && str.length() != 0) {
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f36158c);
-                    Cipher cipher = Cipher.getInstance(this.f36157b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f27922c);
+                    Cipher cipher = Cipher.getInstance(this.f27921b);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
@@ -115,9 +115,9 @@ public class AES {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -134,19 +134,19 @@ public class AES {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = "UTF-8";
-        this.f36157b = "AES/CBC/NoPadding";
-        this.f36158c = "AES";
-        this.f36158c = str;
-        this.f36157b = str2;
+        this.f27921b = "AES/CBC/NoPadding";
+        this.f27922c = "AES";
+        this.f27922c = str;
+        this.f27921b = str2;
         this.a = str3;
     }
 }

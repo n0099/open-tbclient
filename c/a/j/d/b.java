@@ -39,9 +39,9 @@ public interface b {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -55,5 +55,5 @@ public interface b {
 
     void a(TaskInfo taskInfo, TaskStatus taskStatus);
 
-    void b(TaskInfo taskInfo, int i2, String str);
+    void b(TaskInfo taskInfo, int i, String str);
 }

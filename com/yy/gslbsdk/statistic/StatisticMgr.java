@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StatisticMgr {
     public static /* synthetic */ Interceptable $ic;
     public static StatisticMgr sInstance;
@@ -24,7 +24,7 @@ public class StatisticMgr {
     public Map<String, StatisticInfo> mMapStatistic;
     public IGslbStatistic mStatistic;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface IGslbStatistic {
         void onStatistic(Map<String, String> map);
     }
@@ -49,9 +49,9 @@ public class StatisticMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -148,10 +148,10 @@ public class StatisticMgr {
         return invokeLL.booleanValue;
     }
 
-    public void addTask(ThreadInfo threadInfo, long j2) {
+    public void addTask(ThreadInfo threadInfo, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j2) == null) {
-            this.mExecutor.schedule(threadInfo, j2, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo, j) == null) {
+            this.mExecutor.schedule(threadInfo, j, TimeUnit.MILLISECONDS);
         }
     }
 }

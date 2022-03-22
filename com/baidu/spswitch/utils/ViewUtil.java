@@ -1,6 +1,7 @@
 package com.baidu.spswitch.utils;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
@@ -41,9 +42,9 @@ public class ViewUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -57,8 +58,8 @@ public class ViewUtil {
             View view2 = null;
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    View childAt = viewGroup.getChildAt(i2);
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    View childAt = viewGroup.getChildAt(i);
                     if (childAt instanceof SPSwitchRootLinearLayout) {
                         view2 = childAt;
                     }
@@ -79,7 +80,10 @@ public class ViewUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
             View sPSRootLayout = getSPSRootLayout(activity.getWindow().getDecorView());
             if (sPSRootLayout == null) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "#isFitsSystemWindows#, getSPSRootLayout is NULL");
+                    return false;
+                }
                 return false;
             }
             return sPSRootLayout.getFitsSystemWindows();
@@ -105,25 +109,25 @@ public class ViewUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) ? (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 : invokeL.booleanValue;
     }
 
-    public static boolean refreshHeight(View view, int i2) {
+    public static boolean refreshHeight(View view, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i2)) == null) {
-            if (view.getHeight() == i2) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i)) == null) {
+            if (view.getHeight() == i) {
                 return false;
             }
             if (DEBUG) {
-                String str = "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2;
+                Log.d(TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i);
             }
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
-                view.setLayoutParams(new ViewGroup.LayoutParams(-1, i2));
+                view.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
             } else {
-                layoutParams.height = i2;
+                layoutParams.height = i;
                 view.requestLayout();
             }
             if (DEBUG) {
-                String str2 = "refreshHeight, newHeight: " + view.getHeight();
+                Log.d(TAG, "refreshHeight, newHeight: " + view.getHeight());
                 return true;
             }
             return true;

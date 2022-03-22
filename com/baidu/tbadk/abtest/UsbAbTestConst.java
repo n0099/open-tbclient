@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UsbAbTestConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
@@ -23,6 +23,7 @@ public class UsbAbTestConst {
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
     public static final String KEY_LIVE_AUTO_PLAY = "12_9_live_autoplay_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
+    public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";
     public static final String KEY_MAIN_TAB_DATA_CACHE = "12_21_main_tab_data_b";
     public static final String KEY_MAIN_TAB_DATA_OFF = "12_21_main_tab_data_c";
     public static final String KEY_MAIN_TAB_DATA_PREFETCH = "12_21_main_tab_data_a";
@@ -30,18 +31,21 @@ public class UsbAbTestConst {
     public static final String KEY_MINE_PAGE_FOR_VISITOR = "12_14_personal_center_login_a";
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
-    public static final String KEY_NATIVE_AD_PERSONALIZE_FRS_STYLE = "12_14_personalize_frs_style_a";
+    public static final String KEY_NATIVE_AD_PERSONALIZE_FRS_STYLE = "12_22_personalize_frs_style_a";
     public static final String KEY_NEW_INTEREST_TEST_A = "12_21_interest_card_log_a";
     public static final String KEY_NEW_SPLASH_POLICY = "12_20_0_screen_fill_Ad_experiment";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
+    public static final String KEY_PB_FORUM_GUIDE_TEST_A = "12_22_pb_forum_guide_a";
     public static final String KEY_PERSONAL_VIDEO_TAB_FLOW = "12_10_zhuye_feed_b";
     public static final String KEY_RED_PACKAGE_SHOW_SECOND_TIME = "12_15_red_package_popup_view_a";
     public static final String KEY_REQUEST_INSERT_AD = "frontpage_popup_a";
+    public static final String KEY_SCHEME_START_OPTIMIZE_TEST_B = "12_22_android_scheme_b";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
     public static final String KEY_SHOW_WRITE_TITLE_TEST_A = "11_9_post_thread_title_out_a";
     public static final String KEY_SIGN_POP_STAMP_DIALOG = "12_18_medal_b";
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";
+    public static final String KEY_VIDEO_CARD_LAZY = "12_22_video_card_lazy_a";
     public static final String KEY_VIDEO_FEED_AUTO_PLAY = "12_17_feed_video_adjust_a";
     public static final String KEY_VIDEO_SET_URL_AGAIN = "12_20_repeatset_a";
     public static final String VIDEO_PLAY_DANMU_SHOW = "12_14_danmu_1";
@@ -52,9 +56,9 @@ public class UsbAbTestConst {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -3,12 +3,13 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsArActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AR_ID = "ar_id";
@@ -26,9 +27,9 @@ public class FrsArActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,6 +44,6 @@ public class FrsArActivityConfig extends IntentConfig {
         if (getContext() instanceof Activity) {
             return;
         }
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

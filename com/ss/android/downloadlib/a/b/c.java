@@ -10,22 +10,22 @@ import android.text.TextUtils;
 import com.ss.android.downloadlib.a.b.d;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements c {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2177a implements c {
+        /* loaded from: classes7.dex */
+        public static class C2038a implements c {
             public IBinder a;
 
-            public C2177a(IBinder iBinder) {
+            public C2038a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
-                    JSONObject i2 = j.i();
-                    String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("r"), i2.optString("s"));
+                    JSONObject i = j.i();
+                    String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("r"), i.optString("s"));
                 }
                 this.a = iBinder;
             }
@@ -59,13 +59,13 @@ public interface c extends IInterface {
 
         @Override // android.os.Binder
         @SuppressLint({"WrongConstant"})
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1598968902) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1598968902) {
                 parcel2.writeString(a);
                 return true;
             }
-            if (i2 != 1) {
-                return super.onTransact(i2, parcel, parcel2, i3);
+            if (i != 1) {
+                return super.onTransact(i, parcel, parcel2, i2);
             }
             parcel.enforceInterface(a);
             a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null, d.a.a(parcel.readStrongBinder()));
@@ -81,7 +81,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C2177a(iBinder);
+            return new C2038a(iBinder);
         }
     }
 

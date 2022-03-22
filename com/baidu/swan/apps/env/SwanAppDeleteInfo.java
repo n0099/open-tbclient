@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR;
@@ -23,7 +23,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     public int mCheckHisAndFavor;
     public int mPurgerScenes;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanAppDeleteInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -54,10 +54,10 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanAppDeleteInfo[] newArray(int i2) {
+        public SwanAppDeleteInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SwanAppDeleteInfo[i2] : (SwanAppDeleteInfo[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanAppDeleteInfo[i] : (SwanAppDeleteInfo[]) invokeI.objValue;
         }
     }
 
@@ -97,11 +97,11 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPurgerScenes : invokeV.intValue;
     }
 
-    public SwanAppDeleteInfo setPurgerScenes(int i2) {
+    public SwanAppDeleteInfo setPurgerScenes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.mPurgerScenes = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.mPurgerScenes = i;
             return this;
         }
         return (SwanAppDeleteInfo) invokeI.objValue;
@@ -117,9 +117,9 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeString(this.mAppId);
             parcel.writeInt(this.mCheckHisAndFavor);
             parcel.writeInt(this.mPurgerScenes);
@@ -133,9 +133,9 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -146,16 +146,16 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         this.mCheckHisAndFavor = 0;
     }
 
-    public SwanAppDeleteInfo(String str, int i2) {
+    public SwanAppDeleteInfo(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -163,7 +163,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         }
         this.mPurgerScenes = 0;
         this.mAppId = str;
-        this.mCheckHisAndFavor = i2;
+        this.mCheckHisAndFavor = i;
     }
 
     public SwanAppDeleteInfo(Parcel parcel) {
@@ -173,9 +173,9 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

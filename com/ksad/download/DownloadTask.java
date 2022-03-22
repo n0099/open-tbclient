@@ -64,9 +64,9 @@ public class DownloadTask implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -152,11 +152,11 @@ public class DownloadTask implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsPhotoAdDownloadRequest : invokeV.booleanValue;
         }
 
-        public DownloadRequest setAllowedNetworkTypes(int i2) {
+        public DownloadRequest setAllowedNetworkTypes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.mAllowedNetworkTypes = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                this.mAllowedNetworkTypes = i;
                 return this;
             }
             return (DownloadRequest) invokeI.objValue;
@@ -206,11 +206,11 @@ public class DownloadTask implements Serializable {
             }
         }
 
-        public DownloadRequest setNotificationVisibility(int i2) {
+        public DownloadRequest setNotificationVisibility(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-                this.mNotificationVisibility = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+                this.mNotificationVisibility = i;
                 return this;
             }
             return (DownloadRequest) invokeI.objValue;
@@ -234,9 +234,9 @@ public class DownloadTask implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadRequest};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -363,18 +363,18 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onConnected(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
-        long j2;
+    public void onConnected(com.kwai.filedownloader.a aVar, String str, boolean z, int i, int i2) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            long j3 = i3;
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            long j2 = i2;
             try {
-                j2 = com.ksad.download.c.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
+                j = com.ksad.download.c.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
             } catch (Exception e2) {
                 e2.printStackTrace();
-                j2 = j3;
+                j = j2;
             }
-            if (j2 < j3) {
+            if (j < j2) {
                 d.a().c(aVar.h());
                 e.a().a(aVar.h());
                 onLowStorage(aVar);
@@ -382,7 +382,7 @@ public class DownloadTask implements Serializable {
             }
             try {
                 for (c cVar : this.mDownloadListeners) {
-                    cVar.a(this, str, z, i2, i3);
+                    cVar.a(this, str, z, i, i2);
                 }
                 notifyDownloadProgress(aVar, false);
             } catch (Exception e3) {
@@ -392,12 +392,12 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onDownloading(com.kwai.filedownloader.a aVar, int i2, int i3) {
+    public void onDownloading(com.kwai.filedownloader.a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65556, this, aVar, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65556, this, aVar, i, i2) == null) {
             try {
                 for (c cVar : this.mDownloadListeners) {
-                    cVar.b(this, i2, i3);
+                    cVar.b(this, i, i2);
                 }
                 notifyDownloadProgress(this.mBaseDownloadTask, false);
             } catch (Exception e2) {
@@ -435,12 +435,12 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onPause(com.kwai.filedownloader.a aVar, int i2, int i3) {
+    public void onPause(com.kwai.filedownloader.a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65559, this, aVar, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65559, this, aVar, i, i2) == null) {
             try {
                 for (c cVar : this.mDownloadListeners) {
-                    cVar.c(this, i2, i3);
+                    cVar.c(this, i, i2);
                 }
                 notifyDownloadProgress(aVar, true);
             } catch (Exception e2) {
@@ -450,12 +450,12 @@ public class DownloadTask implements Serializable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onPending(com.kwai.filedownloader.a aVar, int i2, int i3) {
+    public void onPending(com.kwai.filedownloader.a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65560, this, aVar, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65560, this, aVar, i, i2) == null) {
             try {
                 for (c cVar : this.mDownloadListeners) {
-                    cVar.a(this, i2, i3);
+                    cVar.a(this, i, i2);
                 }
                 notifyDownloadPending(aVar);
             } catch (Exception e2) {
@@ -464,12 +464,12 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    private void onResume(com.kwai.filedownloader.a aVar, int i2, int i3) {
+    private void onResume(com.kwai.filedownloader.a aVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65561, this, aVar, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65561, this, aVar, i, i2) == null) {
             try {
                 for (c cVar : this.mDownloadListeners) {
-                    cVar.d(this, i2, i3);
+                    cVar.d(this, i, i2);
                 }
                 notifyDownloadProgress(aVar, true);
             } catch (Exception e2) {
@@ -679,9 +679,9 @@ public class DownloadTask implements Serializable {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -699,18 +699,18 @@ public class DownloadTask implements Serializable {
                 }
 
                 @Override // com.kwai.filedownloader.i
-                public void a(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                public void a(com.kwai.filedownloader.a aVar, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2, i3) == null) {
-                        this.a.onPending(aVar, i2, i3);
+                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i, i2) == null) {
+                        this.a.onPending(aVar, i, i2);
                     }
                 }
 
                 @Override // com.kwai.filedownloader.i
-                public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
+                public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                        this.a.onConnected(aVar, str, z, i2, i3);
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+                        this.a.onConnected(aVar, str, z, i, i2);
                     }
                 }
 
@@ -731,10 +731,10 @@ public class DownloadTask implements Serializable {
                 }
 
                 @Override // com.kwai.filedownloader.i
-                public void b(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                public void b(com.kwai.filedownloader.a aVar, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(1048581, this, aVar, i2, i3) == null) {
-                        this.a.onDownloading(aVar, i2, i3);
+                    if (interceptable2 == null || interceptable2.invokeLII(1048581, this, aVar, i, i2) == null) {
+                        this.a.onDownloading(aVar, i, i2);
                     }
                 }
 
@@ -747,10 +747,10 @@ public class DownloadTask implements Serializable {
                 }
 
                 @Override // com.kwai.filedownloader.i
-                public void c(com.kwai.filedownloader.a aVar, int i2, int i3) {
+                public void c(com.kwai.filedownloader.a aVar, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(1048583, this, aVar, i2, i3) == null) {
-                        this.a.onPause(aVar, i2, i3);
+                    if (interceptable2 == null || interceptable2.invokeLII(1048583, this, aVar, i, i2) == null) {
+                        this.a.onPause(aVar, i, i2);
                     }
                 }
 
@@ -858,11 +858,11 @@ public class DownloadTask implements Serializable {
         }
     }
 
-    public void setAllowedNetworkTypes(int i2) {
+    public void setAllowedNetworkTypes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mAllowedNetworkTypes = i2;
-            this.mBaseDownloadTask.b((i2 ^ 2) == 0);
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mAllowedNetworkTypes = i;
+            this.mBaseDownloadTask.b((i ^ 2) == 0);
         }
     }
 

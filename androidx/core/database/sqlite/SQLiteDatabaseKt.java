@@ -36,8 +36,8 @@ public final class SQLiteDatabaseKt {
         return (T) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ Object transaction$default(SQLiteDatabase sQLiteDatabase, boolean z, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Object transaction$default(SQLiteDatabase sQLiteDatabase, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = true;
         }
         if (z) {

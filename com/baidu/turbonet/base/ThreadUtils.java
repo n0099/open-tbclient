@@ -18,10 +18,10 @@ public class ThreadUtils {
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f48709b;
+    public static boolean f37648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f48710c;
+    public static Handler f37649c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,9 +45,9 @@ public class ThreadUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,14 +60,14 @@ public class ThreadUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f48710c == null) {
-                    if (!f48709b) {
-                        f48710c = new Handler(Looper.getMainLooper());
+                if (f37649c == null) {
+                    if (!f37648b) {
+                        f37649c = new Handler(Looper.getMainLooper());
                     } else {
                         throw new RuntimeException("Did not yet override the UI thread");
                     }
                 }
-                handler = f48710c;
+                handler = f37649c;
             }
             return handler;
         }
@@ -99,17 +99,17 @@ public class ThreadUtils {
     }
 
     @CalledByNative
-    public static boolean isThreadPriorityAudio(int i2) {
+    public static boolean isThreadPriorityAudio(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? Process.getThreadPriority(i2) == -16 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? Process.getThreadPriority(i) == -16 : invokeI.booleanValue;
     }
 
     @CalledByNative
-    public static void setThreadPriorityAudio(int i2) {
+    public static void setThreadPriorityAudio(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
-            Process.setThreadPriority(i2, -16);
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            Process.setThreadPriority(i, -16);
         }
     }
 }

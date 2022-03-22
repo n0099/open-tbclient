@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.RendererConfiguration;
 import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackSelectorResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class TrackSelectorResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackGroupArray, zArr, trackSelectionArray, obj, rendererConfigurationArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,8 +48,8 @@ public final class TrackSelectorResult {
             if (trackSelectorResult == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.selections.length; i2++) {
-                if (!isEquivalent(trackSelectorResult, i2)) {
+            for (int i = 0; i < this.selections.length; i++) {
+                if (!isEquivalent(trackSelectorResult, i)) {
                     return false;
                 }
             }
@@ -58,9 +58,9 @@ public final class TrackSelectorResult {
         return invokeL.booleanValue;
     }
 
-    public boolean isEquivalent(TrackSelectorResult trackSelectorResult, int i2) {
+    public boolean isEquivalent(TrackSelectorResult trackSelectorResult, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trackSelectorResult, i2)) == null) ? trackSelectorResult != null && this.renderersEnabled[i2] == trackSelectorResult.renderersEnabled[i2] && Util.areEqual(this.selections.get(i2), trackSelectorResult.selections.get(i2)) && Util.areEqual(this.rendererConfigurations[i2], trackSelectorResult.rendererConfigurations[i2]) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trackSelectorResult, i)) == null) ? trackSelectorResult != null && this.renderersEnabled[i] == trackSelectorResult.renderersEnabled[i] && Util.areEqual(this.selections.get(i), trackSelectorResult.selections.get(i)) && Util.areEqual(this.rendererConfigurations[i], trackSelectorResult.rendererConfigurations[i]) : invokeLI.booleanValue;
     }
 }

@@ -50,16 +50,16 @@ public class e {
             fY = new a[]{fU, fV, fW, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -89,8 +89,8 @@ public class e {
             try {
                 NetworkInfo[] allNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getAllNetworkInfo();
                 if (allNetworkInfo != null) {
-                    for (int i2 = 0; i2 < allNetworkInfo.length; i2++) {
-                        if (allNetworkInfo[i2] != null && allNetworkInfo[i2].getState() == NetworkInfo.State.CONNECTED) {
+                    for (int i = 0; i < allNetworkInfo.length; i++) {
+                        if (allNetworkInfo[i] != null && allNetworkInfo[i].getState() == NetworkInfo.State.CONNECTED) {
                             return true;
                         }
                     }

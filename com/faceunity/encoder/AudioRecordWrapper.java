@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AudioRecordWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] AUDIO_SOURCES;
@@ -47,21 +47,21 @@ public class AudioRecordWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         int minBufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, 16, 2);
-        int i4 = SAMPLES_PER_FRAME;
-        int i5 = FRAMES_PER_BUFFER * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        for (int i6 : AUDIO_SOURCES) {
+        int i3 = SAMPLES_PER_FRAME;
+        int i4 = FRAMES_PER_BUFFER * i3;
+        i4 = i4 < minBufferSize ? ((minBufferSize / i3) + 1) * i3 * 2 : i4;
+        for (int i5 : AUDIO_SOURCES) {
             try {
-                AudioRecord audioRecord = new AudioRecord(i6, SAMPLE_RATE, 16, 2, i5);
+                AudioRecord audioRecord = new AudioRecord(i5, SAMPLE_RATE, 16, 2, i4);
                 this.mAudioRecord = audioRecord;
                 if (audioRecord.getState() != 1) {
                     this.mAudioRecord = null;
@@ -84,15 +84,15 @@ public class AudioRecordWrapper {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHasReleased : invokeV.booleanValue;
     }
 
-    public int read(@NonNull ByteBuffer byteBuffer, int i2) {
+    public int read(@NonNull ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, i)) == null) {
             AudioRecord audioRecord = this.mAudioRecord;
             if (audioRecord == null) {
                 return 0;
             }
-            return audioRecord.read(byteBuffer, i2);
+            return audioRecord.read(byteBuffer, i);
         }
         return invokeLI.intValue;
     }

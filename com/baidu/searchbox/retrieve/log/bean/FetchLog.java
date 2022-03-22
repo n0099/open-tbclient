@@ -1,6 +1,7 @@
 package com.baidu.searchbox.retrieve.log.bean;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchTask;
@@ -53,16 +54,16 @@ public class FetchLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c2  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00c4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -99,8 +100,8 @@ public class FetchLog {
                 ArrayList arrayList = new ArrayList();
                 JSONArray optJSONArray = optJSONObject.optJSONArray("space");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        String string = optJSONArray.getString(i2);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        String string = optJSONArray.getString(i);
                         if (!TextUtils.isEmpty(string)) {
                             arrayList.add(string);
                         }
@@ -126,7 +127,7 @@ public class FetchLog {
                 str2 = optString3;
                 reportTaskCheckFail(optString, str, str2, jSONObject2);
                 if (DEBUG) {
-                    e.getMessage();
+                    Log.d("FetchFileData", e.getMessage());
                 }
                 reportTaskCheckFail(optString, str, str2, jSONObject2);
                 return null;

@@ -1,6 +1,5 @@
 package com.tachikoma.core;
 
-import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.sapi2.SapiOptions;
@@ -59,8 +58,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes8.dex */
+import kotlin.text.Typography;
+/* loaded from: classes7.dex */
 public class PropertyProvider implements IProvider<ArrayList<String>> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> attributeMap;
@@ -87,9 +86,9 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -134,7 +133,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
                     break;
                 case -1568538173:
                     if (str.equals("com.tachikoma.core.component.recyclerview.export.TKRefreshAnimatableView")) {
-                        c2 = JSONLexer.EOI;
+                        c2 = 26;
                         break;
                     }
                     c2 = 65535;
@@ -148,7 +147,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
                     break;
                 case -1414476437:
                     if (str.equals("com.tachikoma.core.component.text.TKMarqueeText")) {
-                        c2 = '\"';
+                        c2 = Typography.quote;
                         break;
                     }
                     c2 = 65535;
@@ -190,7 +189,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
                     break;
                 case -473380274:
                     if (str.equals("com.tachikoma.core.component.network.NetworkError")) {
-                        c2 = CharUtils.CR;
+                        c2 = '\r';
                         break;
                     }
                     c2 = 65535;

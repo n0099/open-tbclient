@@ -20,7 +20,7 @@ import java.nio.charset.Charset;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FileVideoCapturer implements VideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileVideoCapturer";
@@ -30,14 +30,14 @@ public class FileVideoCapturer implements VideoCapturer {
     public final Timer timer;
     public final VideoReader videoReader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface VideoReader {
         void close();
 
         VideoFrame getNextFrame();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class VideoReaderY4M implements VideoReader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FRAME_DELIMETER_LENGTH = 6;
@@ -73,9 +73,9 @@ public class FileVideoCapturer implements VideoCapturer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -92,26 +92,26 @@ public class FileVideoCapturer implements VideoCapturer {
                 } else if (read == 10) {
                     this.videoStart = this.mediaFileChannel.position();
                     String str2 = "";
+                    int i3 = 0;
                     int i4 = 0;
-                    int i5 = 0;
                     for (String str3 : sb.toString().split("[ ]")) {
                         char charAt = str3.charAt(0);
                         if (charAt == 'C') {
                             str2 = str3.substring(1);
                         } else if (charAt == 'H') {
-                            i5 = Integer.parseInt(str3.substring(1));
-                        } else if (charAt == 'W') {
                             i4 = Integer.parseInt(str3.substring(1));
+                        } else if (charAt == 'W') {
+                            i3 = Integer.parseInt(str3.substring(1));
                         }
                     }
                     Logging.d(TAG, "Color space: " + str2);
                     if (!str2.equals("420") && !str2.equals("420mpeg2")) {
                         throw new IllegalArgumentException("Does not support any other color space than I420 or I420mpeg2");
                     }
-                    if (i4 % 2 != 1 && i5 % 2 != 1) {
-                        this.frameWidth = i4;
-                        this.frameHeight = i5;
-                        Logging.d(TAG, "frame dim: (" + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX);
+                    if (i3 % 2 != 1 && i4 % 2 != 1) {
+                        this.frameWidth = i3;
+                        this.frameHeight = i4;
+                        Logging.d(TAG, "frame dim: (" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
                         return;
                     }
                     throw new IllegalArgumentException("Does not support odd width or height");
@@ -143,7 +143,7 @@ public class FileVideoCapturer implements VideoCapturer {
                 ByteBuffer dataY = allocate.getDataY();
                 ByteBuffer dataU = allocate.getDataU();
                 ByteBuffer dataV = allocate.getDataV();
-                int i2 = (this.frameHeight + 1) / 2;
+                int i = (this.frameHeight + 1) / 2;
                 allocate.getStrideY();
                 allocate.getStrideU();
                 allocate.getStrideV();
@@ -178,9 +178,9 @@ public class FileVideoCapturer implements VideoCapturer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -199,9 +199,9 @@ public class FileVideoCapturer implements VideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -227,9 +227,9 @@ public class FileVideoCapturer implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i2, int i3, int i4) {
+    public void changeCaptureFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
         }
     }
 
@@ -260,10 +260,10 @@ public class FileVideoCapturer implements VideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i2, int i3, int i4) {
+    public void startCapture(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
-            this.timer.schedule(this.tickTask, 0L, 1000 / i4);
+        if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
+            this.timer.schedule(this.tickTask, 0L, 1000 / i3);
         }
     }
 

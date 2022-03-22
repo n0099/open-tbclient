@@ -33,9 +33,9 @@ public class Placeholder extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,8 +56,8 @@ public class Placeholder extends View {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_placeholder);
                 int indexCount = obtainStyledAttributes.getIndexCount();
-                for (int i2 = 0; i2 < indexCount; i2++) {
-                    int index = obtainStyledAttributes.getIndex(i2);
+                for (int i = 0; i < indexCount; i++) {
+                    int index = obtainStyledAttributes.getIndex(i);
                     if (index == R$styleable.ConstraintLayout_placeholder_content) {
                         this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
                     } else if (index == R$styleable.ConstraintLayout_placeholder_emptyVisibility) {
@@ -100,10 +100,10 @@ public class Placeholder extends View {
         }
     }
 
-    public void setContentId(int i2) {
+    public void setContentId(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mContentId == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.mContentId == i) {
             return;
         }
         View view = this.mContent;
@@ -112,17 +112,17 @@ public class Placeholder extends View {
             ((ConstraintLayout.LayoutParams) this.mContent.getLayoutParams()).isInPlaceholder = false;
             this.mContent = null;
         }
-        this.mContentId = i2;
-        if (i2 == -1 || (findViewById = ((View) getParent()).findViewById(i2)) == null) {
+        this.mContentId = i;
+        if (i == -1 || (findViewById = ((View) getParent()).findViewById(i)) == null) {
             return;
         }
         findViewById.setVisibility(8);
     }
 
-    public void setEmptyVisibility(int i2) {
+    public void setEmptyVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mEmptyVisibility = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mEmptyVisibility = i;
         }
     }
 
@@ -164,9 +164,9 @@ public class Placeholder extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -181,17 +181,17 @@ public class Placeholder extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Placeholder(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public Placeholder(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -206,17 +206,17 @@ public class Placeholder extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Placeholder(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2);
+    public Placeholder(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -4,16 +4,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s {
     public static final Map<Class<?>, Class<?>> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a<T> {
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f56520b;
+        public final T f41407b;
     }
 
     static {
@@ -117,8 +117,8 @@ public class s {
         } else if (clsArr.length != clsArr2.length) {
             return false;
         } else {
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!a.containsKey(clsArr[i2]) || !a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (!clsArr[i].isAssignableFrom(clsArr2[i]) && (!a.containsKey(clsArr[i]) || !a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
                     return false;
                 }
             }
@@ -131,12 +131,12 @@ public class s {
             return null;
         }
         Class<?>[] clsArr = new Class[objArr.length];
-        for (int i2 = 0; i2 < objArr.length; i2++) {
-            Object obj = objArr[i2];
+        for (int i = 0; i < objArr.length; i++) {
+            Object obj = objArr[i];
             if (obj == null || !(obj instanceof a)) {
-                clsArr[i2] = obj == null ? null : obj.getClass();
+                clsArr[i] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((a) obj).a;
+                clsArr[i] = ((a) obj).a;
             }
         }
         return clsArr;
@@ -171,12 +171,12 @@ public class s {
             return null;
         }
         Object[] objArr2 = new Object[objArr.length];
-        for (int i2 = 0; i2 < objArr.length; i2++) {
-            Object obj = objArr[i2];
+        for (int i = 0; i < objArr.length; i++) {
+            Object obj = objArr[i];
             if (obj == null || !(obj instanceof a)) {
-                objArr2[i2] = obj;
+                objArr2[i] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f56520b;
+                objArr2[i] = ((a) obj).f41407b;
             }
         }
         return objArr2;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.constraintlayout.solver.widgets.Helper;
@@ -36,9 +37,9 @@ public abstract class ConstraintHelper extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,7 +53,7 @@ public abstract class ConstraintHelper extends View {
     }
 
     private void addID(String str) {
-        int i2;
+        int i;
         Object designInformation;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, str) == null) || str == null || this.myContext == null) {
@@ -60,21 +61,21 @@ public abstract class ConstraintHelper extends View {
         }
         String trim = str.trim();
         try {
-            i2 = R$id.class.getField(trim).getInt(null);
+            i = R$id.class.getField(trim).getInt(null);
         } catch (Exception unused) {
-            i2 = 0;
+            i = 0;
         }
-        if (i2 == 0) {
-            i2 = this.myContext.getResources().getIdentifier(trim, "id", this.myContext.getPackageName());
+        if (i == 0) {
+            i = this.myContext.getResources().getIdentifier(trim, "id", this.myContext.getPackageName());
         }
-        if (i2 == 0 && isInEditMode() && (getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
-            i2 = ((Integer) designInformation).intValue();
+        if (i == 0 && isInEditMode() && (getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
+            i = ((Integer) designInformation).intValue();
         }
-        if (i2 != 0) {
-            setTag(i2, null);
+        if (i != 0) {
+            setTag(i, null);
             return;
         }
-        String str2 = "Could not find id of \"" + trim + "\"";
+        Log.w("ConstraintHelper", "Could not find id of \"" + trim + "\"");
     }
 
     private void setIds(String str) {
@@ -82,15 +83,15 @@ public abstract class ConstraintHelper extends View {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || str == null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int indexOf = str.indexOf(44, i2);
+            int indexOf = str.indexOf(44, i);
             if (indexOf == -1) {
-                addID(str.substring(i2));
+                addID(str.substring(i));
                 return;
             } else {
-                addID(str.substring(i2, indexOf));
-                i2 = indexOf + 1;
+                addID(str.substring(i, indexOf));
+                i = indexOf + 1;
             }
         }
     }
@@ -108,8 +109,8 @@ public abstract class ConstraintHelper extends View {
         }
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
         int indexCount = obtainStyledAttributes.getIndexCount();
-        for (int i2 = 0; i2 < indexCount; i2++) {
-            int index = obtainStyledAttributes.getIndex(i2);
+        for (int i = 0; i < indexCount; i++) {
+            int index = obtainStyledAttributes.getIndex(i);
             if (index == R$styleable.ConstraintLayout_Layout_constraint_referenced_ids) {
                 String string = obtainStyledAttributes.getString(index);
                 this.mReferenceIds = string;
@@ -126,11 +127,11 @@ public abstract class ConstraintHelper extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (this.mUseViewMeasure) {
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
             } else {
                 setMeasuredDimension(0, 0);
             }
@@ -141,25 +142,25 @@ public abstract class ConstraintHelper extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) {
             this.mCount = 0;
-            for (int i2 : iArr) {
-                setTag(i2, null);
+            for (int i : iArr) {
+                setTag(i, null);
             }
         }
     }
 
     @Override // android.view.View
-    public void setTag(int i2, Object obj) {
+    public void setTag(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, obj) == null) {
-            int i3 = this.mCount + 1;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, obj) == null) {
+            int i2 = this.mCount + 1;
             int[] iArr = this.mIds;
-            if (i3 > iArr.length) {
+            if (i2 > iArr.length) {
                 this.mIds = Arrays.copyOf(iArr, iArr.length * 2);
             }
             int[] iArr2 = this.mIds;
-            int i4 = this.mCount;
-            iArr2[i4] = i2;
-            this.mCount = i4 + 1;
+            int i3 = this.mCount;
+            iArr2[i3] = i;
+            this.mCount = i3 + 1;
         }
     }
 
@@ -186,8 +187,8 @@ public abstract class ConstraintHelper extends View {
                 return;
             }
             helper.removeAllIds();
-            for (int i2 = 0; i2 < this.mCount; i2++) {
-                View viewById = constraintLayout.getViewById(this.mIds[i2]);
+            for (int i = 0; i < this.mCount; i++) {
+                View viewById = constraintLayout.getViewById(this.mIds[i]);
                 if (viewById != null) {
                     this.mHelperWidget.add(constraintLayout.getViewWidget(viewById));
                 }
@@ -215,9 +216,9 @@ public abstract class ConstraintHelper extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -232,17 +233,17 @@ public abstract class ConstraintHelper extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintHelper(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ConstraintHelper(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

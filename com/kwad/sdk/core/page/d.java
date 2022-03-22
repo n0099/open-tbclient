@@ -11,23 +11,23 @@ import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends com.kwad.sdk.h.b {
     public boolean a;
 
     private void a() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.ksad_request_install_title);
-        builder.setMessage(R.string.ksad_request_install_content);
-        builder.setNegativeButton(R.string.ksad_request_install_nagative, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.1
+        builder.setTitle(R.string.obfuscated_res_0x7f0f09af);
+        builder.setMessage(R.string.obfuscated_res_0x7f0f09ac);
+        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f09ad, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.1
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 d.this.finish();
             }
         });
-        builder.setPositiveButton(R.string.ksad_request_install_positive, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.2
+        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f09ae, new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.page.d.2
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 d.this.b();
             }
         });
@@ -64,8 +64,8 @@ public class d extends com.kwad.sdk.h.b {
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        if (i2 == 100 && i3 == -1) {
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (i == 100 && i2 == -1) {
             a(this.a);
         }
         finish();

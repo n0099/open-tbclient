@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +47,7 @@ public class BDEmotionPanelManager {
 
     /* loaded from: classes4.dex */
     public interface OnEmotionClickListener {
-        void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
+        void onEmotionClick(EmotionType emotionType, int i, String str, String str2);
     }
 
     /* loaded from: classes4.dex */
@@ -56,9 +55,9 @@ public class BDEmotionPanelManager {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
 
-        void onVerticalEmotionClick(EmotionType emotionType, int i2, String str, String str2, int i3, int i4);
+        void onVerticalEmotionClick(EmotionType emotionType, int i, String str, String str2, int i2, int i3);
 
-        void onVerticalEmotionLongClick(EmotionType emotionType, int i2, String str, String str2, int i3, int i4);
+        void onVerticalEmotionLongClick(EmotionType emotionType, int i, String str, String str2, int i2, int i3);
     }
 
     static {
@@ -83,9 +82,9 @@ public class BDEmotionPanelManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -117,7 +116,7 @@ public class BDEmotionPanelManager {
                 bDEmotionBagVerticalLayout.setEmotionList(EmotionUtils.getInstance().getPanelEmotionList());
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(bDEmotionBagVerticalLayout);
-                ((ViewPager) viewGroup.findViewById(R.id.vp_emotion_type)).setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                ((ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f091fad)).setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
             }
         }
     }
@@ -128,22 +127,22 @@ public class BDEmotionPanelManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragmentActivity)) == null) {
             List<Fragment> fragments = fragmentActivity.getSupportFragmentManager().getFragments();
             for (Fragment fragment : fragments) {
-                if (fragment.getView() != null && fragment.getView().findViewById(R.id.vp_emotion_type) != null) {
+                if (fragment.getView() != null && fragment.getView().findViewById(R.id.obfuscated_res_0x7f091fad) != null) {
                     return fragment.getChildFragmentManager();
                 }
             }
-            if (fragmentActivity.findViewById(R.id.vp_emotion_type) != null) {
+            if (fragmentActivity.findViewById(R.id.obfuscated_res_0x7f091fad) != null) {
                 return fragmentActivity.getSupportFragmentManager();
             }
             if (DEBUG) {
                 StringBuilder sb = new StringBuilder("emotion panel root layout[id:vp_emotion_type] not found, please recheck:\n");
-                sb.append("Activity: " + fragmentActivity + StringUtils.LF);
+                sb.append("Activity: " + fragmentActivity + "\n");
                 if (fragments != null) {
-                    sb.append("Fragments: " + fragments + StringUtils.LF);
+                    sb.append("Fragments: " + fragments + "\n");
                 }
                 sb.append("stack:\n");
                 sb.append(this.mLastStackInfo);
-                sb.toString();
+                Log.d(TAG, sb.toString());
             }
             return fragmentActivity.getSupportFragmentManager();
         }
@@ -169,8 +168,8 @@ public class BDEmotionPanelManager {
     private void handleEmotionTypeLayoutNightMode(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, viewGroup) == null) {
-            View findViewById = viewGroup.findViewById(R.id.emotion_type_placeholer);
-            View findViewById2 = viewGroup.findViewById(R.id.emotion_type_layout);
+            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f09093e);
+            View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f09093d);
             if (this.isNightMode) {
                 findViewById.setBackgroundColor(-14540254);
                 findViewById2.setBackgroundColor(-13421773);
@@ -219,9 +218,9 @@ public class BDEmotionPanelManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, activity, viewGroup, view, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

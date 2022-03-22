@@ -4,6 +4,7 @@ import android.os.Build;
 import android.system.Os;
 import android.system.OsConstants;
 import android.system.StructPollfd;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,9 +50,9 @@ public final class PingUDP {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -82,9 +83,9 @@ public final class PingUDP {
                 structPollfd.revents = (short) 0;
                 int recvfrom = Os.recvfrom(socketFD, bArr, 0, limit, 64, null);
                 if (recvfrom < 0) {
-                    Intrinsics.stringPlus("recvfrom() return failure: ", Integer.valueOf(recvfrom));
+                    Log.d(TAG, Intrinsics.stringPlus("recvfrom() return failure: ", Integer.valueOf(recvfrom)));
                 }
-                String str = ">>> Ping " + currentTimeMillis + WebvttCueParser.CHAR_SPACE + currentTimeMillis2;
+                Log.e(TAG, ">>> Ping " + currentTimeMillis + WebvttCueParser.CHAR_SPACE + currentTimeMillis2);
             }
             Os.close(socketFD);
             return null;
@@ -105,7 +106,7 @@ public final class PingUDP {
                 Intrinsics.checkNotNullExpressionValue(method, "Os::class.java.getMethod…:class.javaPrimitiveType)");
                 method.invoke(null, fd, Integer.valueOf(OsConstants.IPPROTO_IP), Integer.valueOf(OsConstants.IP_TOS), 16);
             } catch (Exception e2) {
-                Intrinsics.stringPlus("Exception: ", e2);
+                Log.e(TAG, Intrinsics.stringPlus("Exception: ", e2));
             }
         }
     }

@@ -35,7 +35,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
@@ -96,7 +96,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static final String TYPE_VIDEO = "VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LineIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +111,9 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                 newInitContext.initArgs = r2;
                 Object[] objArr = {queue, bufferedReader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -208,9 +208,9 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -229,8 +229,8 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                 read = bufferedReader.read();
             }
             int skipIgnorableWhitespace = skipIgnorableWhitespace(bufferedReader, true, read);
-            for (int i2 = 0; i2 < 7; i2++) {
-                if (skipIgnorableWhitespace != PLAYLIST_HEADER.charAt(i2)) {
+            for (int i = 0; i < 7; i++) {
+                if (skipIgnorableWhitespace != PLAYLIST_HEADER.charAt(i)) {
                     return false;
                 }
                 skipIgnorableWhitespace = bufferedReader.read();
@@ -283,9 +283,9 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
         char c2;
         int parseInt;
         String str2;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, lineIterator, str)) == null) {
             HashSet hashSet = new HashSet();
@@ -338,12 +338,12 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                                     parseInt = Integer.parseInt(parseStringAttr3.substring(7));
                                     str2 = MimeTypes.APPLICATION_CEA708;
                                 }
-                                int i5 = parseInt;
+                                int i4 = parseInt;
                                 String str3 = str2;
                                 if (arrayList5 == null) {
                                     arrayList5 = new ArrayList();
                                 }
-                                arrayList5.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i5));
+                                arrayList5.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i4));
                             }
                         }
                         c2 = 65535;
@@ -366,7 +366,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     if (parseOptionalStringAttr3 != null) {
                         parseIntAttr = Integer.parseInt(parseOptionalStringAttr3);
                     }
-                    int i6 = parseIntAttr;
+                    int i5 = parseIntAttr;
                     String parseOptionalStringAttr4 = parseOptionalStringAttr(next, REGEX_CODECS);
                     String parseOptionalStringAttr5 = parseOptionalStringAttr(next, REGEX_RESOLUTION);
                     if (parseOptionalStringAttr5 != null) {
@@ -375,21 +375,21 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         int parseInt3 = Integer.parseInt(split[1]);
                         if (parseInt2 <= 0 || parseInt3 <= 0) {
                             parseInt2 = -1;
-                            i4 = -1;
+                            i3 = -1;
                         } else {
-                            i4 = parseInt3;
+                            i3 = parseInt3;
                         }
-                        i2 = parseInt2;
-                        i3 = i4;
+                        i = parseInt2;
+                        i2 = i3;
                     } else {
+                        i = -1;
                         i2 = -1;
-                        i3 = -1;
                     }
                     String parseOptionalStringAttr6 = parseOptionalStringAttr(next, REGEX_FRAME_RATE);
                     float parseFloat = parseOptionalStringAttr6 != null ? Float.parseFloat(parseOptionalStringAttr6) : -1.0f;
                     String next2 = lineIterator.next();
                     if (hashSet.add(next2)) {
-                        arrayList.add(new HlsMasterPlaylist.HlsUrl(next2, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), MimeTypes.APPLICATION_M3U8, null, parseOptionalStringAttr4, i6, i2, i3, parseFloat, null, 0)));
+                        arrayList.add(new HlsMasterPlaylist.HlsUrl(next2, Format.createVideoContainerFormat(Integer.toString(arrayList.size()), MimeTypes.APPLICATION_M3U8, null, parseOptionalStringAttr4, i5, i, i2, parseFloat, null, 0)));
                     }
                 }
             }
@@ -405,27 +405,27 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, lineIterator, str)) == null) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
+            long j = -9223372036854775807L;
             long j2 = -9223372036854775807L;
-            long j3 = -9223372036854775807L;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            long j4 = 0;
+            long j3 = 0;
             boolean z = false;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            int i6 = 1;
+            int i5 = 1;
             boolean z2 = false;
             boolean z3 = false;
             DrmInitData drmInitData = null;
             HlsMediaPlaylist.Segment segment = null;
-            long j5 = 0;
-            int i7 = 0;
-            long j6 = -1;
+            long j4 = 0;
+            int i6 = 0;
+            long j5 = -1;
             String str2 = null;
-            long j7 = 0;
+            long j6 = 0;
             String str3 = null;
             loop0: while (true) {
-                long j8 = 0;
+                long j7 = 0;
                 while (lineIterator.hasNext()) {
                     String next = lineIterator.next();
                     if (next.startsWith(TAG_PREFIX)) {
@@ -434,34 +434,34 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     if (next.startsWith(TAG_PLAYLIST_TYPE)) {
                         String parseStringAttr = parseStringAttr(next, REGEX_PLAYLIST_TYPE);
                         if ("VOD".equals(parseStringAttr)) {
-                            i3 = 1;
+                            i2 = 1;
                         } else if ("EVENT".equals(parseStringAttr)) {
-                            i3 = 2;
+                            i2 = 2;
                         }
                     } else if (next.startsWith(TAG_START)) {
-                        j2 = (long) (parseDoubleAttr(next, REGEX_TIME_OFFSET) * 1000000.0d);
+                        j = (long) (parseDoubleAttr(next, REGEX_TIME_OFFSET) * 1000000.0d);
                     } else if (next.startsWith(TAG_INIT_SEGMENT)) {
                         String parseStringAttr2 = parseStringAttr(next, REGEX_URI);
                         String parseOptionalStringAttr = parseOptionalStringAttr(next, REGEX_ATTR_BYTERANGE);
                         if (parseOptionalStringAttr != null) {
                             String[] split = parseOptionalStringAttr.split("@");
-                            j6 = Long.parseLong(split[0]);
+                            j5 = Long.parseLong(split[0]);
                             if (split.length > 1) {
-                                j5 = Long.parseLong(split[1]);
+                                j4 = Long.parseLong(split[1]);
                             }
                         }
-                        segment = new HlsMediaPlaylist.Segment(parseStringAttr2, j5, j6);
-                        j5 = 0;
-                        j6 = -1;
+                        segment = new HlsMediaPlaylist.Segment(parseStringAttr2, j4, j5);
+                        j4 = 0;
+                        j5 = -1;
                     } else if (next.startsWith(TAG_TARGET_DURATION)) {
-                        j3 = 1000000 * parseIntAttr(next, REGEX_TARGET_DURATION);
+                        j2 = 1000000 * parseIntAttr(next, REGEX_TARGET_DURATION);
                     } else if (next.startsWith(TAG_MEDIA_SEQUENCE)) {
-                        i7 = parseIntAttr(next, REGEX_MEDIA_SEQUENCE);
-                        i5 = i7;
+                        i6 = parseIntAttr(next, REGEX_MEDIA_SEQUENCE);
+                        i4 = i6;
                     } else if (next.startsWith(TAG_VERSION)) {
-                        i6 = parseIntAttr(next, REGEX_VERSION);
+                        i5 = parseIntAttr(next, REGEX_VERSION);
                     } else if (next.startsWith(TAG_MEDIA_DURATION)) {
-                        j8 = (long) (parseDoubleAttr(next, REGEX_MEDIA_DURATION) * 1000000.0d);
+                        j7 = (long) (parseDoubleAttr(next, REGEX_MEDIA_DURATION) * 1000000.0d);
                     } else if (next.startsWith(TAG_KEY)) {
                         String parseStringAttr3 = parseStringAttr(next, REGEX_METHOD);
                         String parseOptionalStringAttr2 = parseOptionalStringAttr(next, REGEX_KEYFORMAT);
@@ -484,37 +484,37 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                         }
                     } else if (next.startsWith(TAG_BYTERANGE)) {
                         String[] split2 = parseStringAttr(next, REGEX_BYTERANGE).split("@");
-                        j6 = Long.parseLong(split2[0]);
+                        j5 = Long.parseLong(split2[0]);
                         if (split2.length > 1) {
-                            j5 = Long.parseLong(split2[1]);
+                            j4 = Long.parseLong(split2[1]);
                         }
                     } else if (next.startsWith(TAG_DISCONTINUITY_SEQUENCE)) {
-                        i4 = Integer.parseInt(next.substring(next.indexOf(58) + 1));
+                        i3 = Integer.parseInt(next.substring(next.indexOf(58) + 1));
                         z = true;
                     } else if (next.equals(TAG_DISCONTINUITY)) {
-                        i2++;
+                        i++;
                     } else if (next.startsWith(TAG_PROGRAM_DATE_TIME)) {
-                        if (j4 == 0) {
-                            j4 = C.msToUs(Util.parseXsDateTime(next.substring(next.indexOf(58) + 1))) - j7;
+                        if (j3 == 0) {
+                            j3 = C.msToUs(Util.parseXsDateTime(next.substring(next.indexOf(58) + 1))) - j6;
                         }
                     } else if (!next.startsWith("#")) {
                         if (str2 == null) {
                             hexString = null;
                         } else {
-                            hexString = str3 != null ? str3 : Integer.toHexString(i7);
+                            hexString = str3 != null ? str3 : Integer.toHexString(i6);
                         }
-                        int i8 = i7 + 1;
-                        int i9 = (j6 > (-1L) ? 1 : (j6 == (-1L) ? 0 : -1));
-                        if (i9 == 0) {
-                            j5 = 0;
+                        int i7 = i6 + 1;
+                        int i8 = (j5 > (-1L) ? 1 : (j5 == (-1L) ? 0 : -1));
+                        if (i8 == 0) {
+                            j4 = 0;
                         }
-                        arrayList.add(new HlsMediaPlaylist.Segment(next, j8, i2, j7, str2, hexString, j5, j6));
-                        j7 += j8;
-                        if (i9 != 0) {
-                            j5 += j6;
+                        arrayList.add(new HlsMediaPlaylist.Segment(next, j7, i, j6, str2, hexString, j4, j5));
+                        j6 += j7;
+                        if (i8 != 0) {
+                            j4 += j5;
                         }
-                        i7 = i8;
-                        j6 = -1;
+                        i6 = i7;
+                        j5 = -1;
                     } else if (next.equals(TAG_INDEPENDENT_SEGMENTS)) {
                         z2 = true;
                     } else if (next.equals(TAG_ENDLIST)) {
@@ -523,7 +523,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                 }
                 break loop0;
             }
-            return new HlsMediaPlaylist(i3, str, arrayList2, j2, j4, z, i4, i5, i6, j3, z2, z3, j4 != 0, drmInitData, segment, arrayList);
+            return new HlsMediaPlaylist(i2, str, arrayList2, j, j3, z, i3, i4, i5, j2, z2, z3, j3 != 0, drmInitData, segment, arrayList);
         }
         return (HlsMediaPlaylist) invokeLL.objValue;
     }
@@ -583,14 +583,14 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
         return (DrmInitData.SchemeData) invokeLL.objValue;
     }
 
-    public static int skipIgnorableWhitespace(BufferedReader bufferedReader, boolean z, int i2) throws IOException {
+    public static int skipIgnorableWhitespace(BufferedReader bufferedReader, boolean z, int i) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{bufferedReader, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            while (i2 != -1 && Character.isWhitespace(i2) && (z || !Util.isLinebreak(i2))) {
-                i2 = bufferedReader.read();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{bufferedReader, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            while (i != -1 && Character.isWhitespace(i) && (z || !Util.isLinebreak(i))) {
+                i = bufferedReader.read();
             }
-            return i2;
+            return i;
         }
         return invokeCommon.intValue;
     }

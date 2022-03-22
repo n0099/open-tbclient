@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -22,17 +22,17 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     public int mTabId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsGameStrategyRequestMessage(long j2, int i2, int i3, int i4) {
+    public FrsGameStrategyRequestMessage(long j, int i, int i2, int i3) {
         super(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -41,10 +41,10 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
             }
         }
         this.mPn = 0;
-        this.mFid = j2;
-        this.mPn = i2;
-        this.mTabId = i3;
-        this.mLabelId = i4;
+        this.mFid = j;
+        this.mPn = i;
+        this.mTabId = i2;
+        this.mLabelId = i3;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

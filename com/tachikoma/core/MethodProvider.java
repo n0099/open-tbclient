@@ -4,6 +4,8 @@ import android.database.DataSetObserver;
 import android.graphics.Rect;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.kwad.v8.V8Function;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +33,9 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -126,7 +129,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.exportMethodMap.put("com_tachikoma_core_component_text_TKSpan", hashMap2);
             HashMap<String, Class[]> hashMap3 = new HashMap<>(3);
             hashMap3.put("post", new Class[]{V8Function.class});
-            hashMap3.put("get", new Class[]{V8Function.class});
+            hashMap3.put(SharedPreferenceManager.OPERATION_GET_PERFIX, new Class[]{V8Function.class});
             this.exportMethodMap.put("com_tachikoma_core_component_network_Network", hashMap3);
             HashMap<String, Class[]> hashMap4 = new HashMap<>(6);
             hashMap4.put("setStartValue", new Class[]{Object.class});
@@ -272,7 +275,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             hashMap12.put("getOrigin", new Class[0]);
             hashMap12.put("setRotateX", new Class[]{Float.TYPE});
             hashMap12.put("removeAnimation", new Class[]{String.class});
-            hashMap12.put("layout", new Class[0]);
+            hashMap12.put(TtmlNode.TAG_LAYOUT, new Class[0]);
             hashMap12.put("getSize", new Class[0]);
             hashMap12.put("removeEventListener", new Class[]{String.class});
             hashMap12.put("setRotate", new Class[]{Float.TYPE});
@@ -658,7 +661,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.exportMethodMap.put("com_tachikoma_core_component_switchview_TKSwitch", hashMap27);
             HashMap<String, Class[]> hashMap28 = new HashMap<>(14);
             hashMap28.put("pageStatus", new Class[]{String.class});
-            hashMap28.put("trace", new Class[]{String.class});
+            hashMap28.put(Config.TRACE_PART, new Class[]{String.class});
             hashMap28.put("hide", new Class[0]);
             hashMap28.put("handleAdUrl", new Class[]{String.class});
             hashMap28.put(TbConfig.TMP_LOG_DIR_NAME, new Class[]{String.class});
@@ -711,7 +714,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.methodNameMap.put("handleAdUrl", "handleAdUrl");
             this.methodNameMap.put("removeAllAnimation", "removeAllAnimation");
             this.methodNameMap.put("setPlaceholder", "setPlaceholder");
-            this.methodNameMap.put("get", "get");
+            this.methodNameMap.put(SharedPreferenceManager.OPERATION_GET_PERFIX, SharedPreferenceManager.OPERATION_GET_PERFIX);
             this.methodNameMap.put("setDirection", "setDirection");
             this.methodNameMap.put(IntentConfig.CLOSE, IntentConfig.CLOSE);
             this.methodNameMap.put("getData", "getData");
@@ -763,7 +766,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.methodNameMap.put("startAnimation", "startAnimation");
             this.methodNameMap.put("setAnimatedView", "setAnimatedView");
             this.methodNameMap.put("pageStatus", "pageStatus");
-            this.methodNameMap.put("trace", "trace");
+            this.methodNameMap.put(Config.TRACE_PART, Config.TRACE_PART);
             this.methodNameMap.put("getSubview", "getElementById");
             this.methodNameMap.put(DebugKt.DEBUG_PROPERTY_VALUE_ON, DebugKt.DEBUG_PROPERTY_VALUE_ON);
             this.methodNameMap.put("scrollToPosition", "scrollTo");
@@ -774,7 +777,7 @@ public class MethodProvider implements IProvider<HashMap<String, Class[]>> {
             this.methodNameMap.put("removeHeaderView", "removeHeaderView");
             this.methodNameMap.put("removeAnimation", "removeAnimation");
             this.methodNameMap.put("clear", "clear");
-            this.methodNameMap.put("layout", "layout");
+            this.methodNameMap.put(TtmlNode.TAG_LAYOUT, TtmlNode.TAG_LAYOUT);
             this.methodNameMap.put("getSize", "getSize");
             this.methodNameMap.put("removeEventListener", "removeEventListener");
             this.methodNameMap.put("setColor", "setColor");

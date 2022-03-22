@@ -20,24 +20,24 @@ public final class AccessibilityClickableSpanCompat extends ClickableSpan {
     public final int mOriginalClickableSpanId;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public AccessibilityClickableSpanCompat(int i2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat, int i3) {
+    public AccessibilityClickableSpanCompat(int i, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), accessibilityNodeInfoCompat, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), accessibilityNodeInfoCompat, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mOriginalClickableSpanId = i2;
+        this.mOriginalClickableSpanId = i;
         this.mNodeInfoCompat = accessibilityNodeInfoCompat;
-        this.mClickableSpanActionId = i3;
+        this.mClickableSpanActionId = i2;
     }
 
     @Override // android.text.style.ClickableSpan

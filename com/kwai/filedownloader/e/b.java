@@ -14,25 +14,25 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f56832b;
+        public final String f41696b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f56833c;
+        public final ThreadGroup f41697c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f56834d;
+        public final AtomicInteger f41698d;
 
         static {
             InterceptResult invokeClinit;
@@ -57,17 +57,17 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f56834d = new AtomicInteger(1);
-            this.f56833c = Thread.currentThread().getThreadGroup();
-            this.f56832b = f.i(str);
+            this.f41698d = new AtomicInteger(1);
+            this.f41697c = Thread.currentThread().getThreadGroup();
+            this.f41696b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -75,8 +75,8 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f56833c;
-                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f56832b + this.f56834d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f41697c;
+                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f41696b + this.f41698d.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -89,17 +89,17 @@ public class b {
         }
     }
 
-    public static ThreadPoolExecutor a(int i2, String str) {
+    public static ThreadPoolExecutor a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, str)) == null) ? a(i2, new LinkedBlockingQueue(), str) : (ThreadPoolExecutor) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) ? a(i, new LinkedBlockingQueue(), str) : (ThreadPoolExecutor) invokeIL.objValue;
     }
 
-    public static ThreadPoolExecutor a(int i2, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
+    public static ThreadPoolExecutor a(int i, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i2, linkedBlockingQueue, str)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, linkedBlockingQueue, str)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
             threadPoolExecutor.allowCoreThreadTimeOut(true);
             return threadPoolExecutor;
         }

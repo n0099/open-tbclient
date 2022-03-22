@@ -25,9 +25,9 @@ public class ProxyControllerImpl extends ProxyController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,9 +65,9 @@ public class ProxyControllerImpl extends ProxyController {
             if (WebViewFeatureInternal.getFeature(WebViewFeature.PROXY_OVERRIDE).isSupportedByWebView()) {
                 List<ProxyConfig.ProxyRule> proxyRules = proxyConfig.getProxyRules();
                 String[][] strArr = (String[][]) Array.newInstance(String.class, proxyRules.size(), 2);
-                for (int i2 = 0; i2 < proxyRules.size(); i2++) {
-                    strArr[i2][0] = proxyRules.get(0).getSchemeFilter();
-                    strArr[i2][1] = proxyRules.get(0).getUrl();
+                for (int i = 0; i < proxyRules.size(); i++) {
+                    strArr[i][0] = proxyRules.get(0).getSchemeFilter();
+                    strArr[i][1] = proxyRules.get(0).getUrl();
                 }
                 getBoundaryInterface().setProxyOverride(strArr, (String[]) proxyConfig.getBypassRules().toArray(new String[0]), runnable, executor);
                 return;

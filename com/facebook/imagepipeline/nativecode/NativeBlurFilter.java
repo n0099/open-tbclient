@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeBlurFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,25 +37,25 @@ public class NativeBlurFilter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void iterativeBoxBlur(Bitmap bitmap, int i2, int i3) {
+    public static void iterativeBoxBlur(Bitmap bitmap, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, bitmap, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65538, null, bitmap, i, i2) == null) {
             Preconditions.checkNotNull(bitmap);
+            Preconditions.checkArgument(i > 0);
             Preconditions.checkArgument(i2 > 0);
-            Preconditions.checkArgument(i3 > 0);
-            nativeIterativeBoxBlur(bitmap, i2, i3);
+            nativeIterativeBoxBlur(bitmap, i, i2);
         }
     }
 
     @DoNotStrip
-    public static native void nativeIterativeBoxBlur(Bitmap bitmap, int i2, int i3);
+    public static native void nativeIterativeBoxBlur(Bitmap bitmap, int i, int i2);
 }

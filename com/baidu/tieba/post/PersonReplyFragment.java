@@ -12,9 +12,9 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.q0.f0.h;
-import c.a.q0.r.l0.f;
-import c.a.r0.d3.g;
+import c.a.o0.f0.h;
+import c.a.o0.r.l0.f;
+import c.a.p0.f3.g;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -39,47 +39,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, c.a.r0.d3.c {
+/* loaded from: classes5.dex */
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, c.a.p0.f3.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BdListView f35610b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public NavigationBarShadowView f35611c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public g f35612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f45977e;
+    public boolean f35613e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f45978f;
+    public NoDataView f35614f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBarShadowView f45979g;
+    public h f35615g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f45980h;
+    public c.a.o0.r.l0.g f35616h;
+    public PbListView i;
+    public View j;
+    public boolean k;
+    public int l;
+    public int m;
+    public boolean n;
+    public c.a.p0.f3.d o;
+    public View.OnClickListener p;
+    public PersonPostModel.c q;
 
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f45981i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public NoDataView f45982j;
-    public h k;
-    public c.a.q0.r.l0.g l;
-    public PbListView m;
-    public View n;
-    public boolean o;
-    public int p;
-    public int q;
-    public boolean r;
-    public c.a.r0.d3.d s;
-    public View.OnClickListener t;
-    public PersonPostModel.c u;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonReplyFragment f45983e;
+        public final /* synthetic */ PersonReplyFragment a;
 
         public a(PersonReplyFragment personReplyFragment) {
             Interceptable interceptable = $ic;
@@ -88,41 +88,39 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personReplyFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45983e = personReplyFragment;
+            this.a = personReplyFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A()) {
-                PersonReplyFragment personReplyFragment = this.f45983e;
-                h hVar = personReplyFragment.k;
+                PersonReplyFragment personReplyFragment = this.a;
+                h hVar = personReplyFragment.f35615g;
                 if (hVar != null) {
-                    hVar.dettachView(personReplyFragment.f45977e);
-                    this.f45983e.k = null;
+                    hVar.dettachView(personReplyFragment.a);
+                    this.a.f35615g = null;
                 }
-                if (this.f45983e.s != null) {
-                    this.f45983e.s.onNoNetRefresh();
+                if (this.a.o != null) {
+                    this.a.o.onNoNetRefresh();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonReplyFragment f45984e;
+        public final /* synthetic */ PersonReplyFragment a;
 
         public b(PersonReplyFragment personReplyFragment) {
             Interceptable interceptable = $ic;
@@ -131,33 +129,31 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personReplyFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45984e = personReplyFragment;
+            this.a = personReplyFragment;
         }
 
-        @Override // c.a.q0.r.l0.f.g
+        @Override // c.a.o0.r.l0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f45984e.f45980h.f(true);
+                this.a.f35612d.f(true);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements PersonPostModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonReplyFragment f45985e;
+        public final /* synthetic */ PersonReplyFragment a;
 
         public c(PersonReplyFragment personReplyFragment) {
             Interceptable interceptable = $ic;
@@ -166,70 +162,68 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personReplyFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45985e = personReplyFragment;
+            this.a = personReplyFragment;
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void onResult(PersonPostModel personPostModel, boolean z) {
+        public void I(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && this.f45985e.isAdded()) {
-                PersonReplyFragment personReplyFragment = this.f45985e;
-                personReplyFragment.hideLoadingView(personReplyFragment.f45977e);
-                this.f45985e.f45978f.completePullRefreshPostDelayed(0L);
-                if (personPostModel == null || (PersonReplyFragment.getRealPostCount(personPostModel.postList) == 0 && this.f45985e.r && StringUtils.isNull(personPostModel.getErrorString()))) {
-                    this.f45985e.f45978f.setVisibility(0);
-                    this.f45985e.r(true);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) && this.a.isAdded()) {
+                PersonReplyFragment personReplyFragment = this.a;
+                personReplyFragment.hideLoadingView(personReplyFragment.a);
+                this.a.f35610b.A(0L);
+                if (personPostModel == null || (PersonReplyFragment.Q0(personPostModel.postList) == 0 && this.a.n && StringUtils.isNull(personPostModel.getErrorString()))) {
+                    this.a.f35610b.setVisibility(0);
+                    this.a.O0(true);
                     return;
                 }
-                if (this.f45985e.f45980h.getCount() == 0) {
-                    this.f45985e.f45978f.setVisibility(8);
-                    this.f45985e.r(true);
+                if (this.a.f35612d.getCount() == 0) {
+                    this.a.f35610b.setVisibility(8);
+                    this.a.O0(true);
                 } else {
-                    this.f45985e.f45978f.setVisibility(0);
-                    this.f45985e.r(false);
+                    this.a.f35610b.setVisibility(0);
+                    this.a.O0(false);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    n.N(this.f45985e.getActivity(), personPostModel.getErrorString());
+                    n.N(this.a.getActivity(), personPostModel.getErrorString());
                 }
-                int realPostCount = PersonReplyFragment.getRealPostCount(personPostModel.postList);
-                if (realPostCount <= 0) {
+                int Q0 = PersonReplyFragment.Q0(personPostModel.postList);
+                if (Q0 <= 0) {
                     if (l.z()) {
-                        this.f45985e.o = false;
-                        this.f45985e.m.D(this.f45985e.getResources().getString(R.string.list_no_more));
-                        this.f45985e.n.setVisibility(0);
+                        this.a.k = false;
+                        this.a.i.D(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+                        this.a.j.setVisibility(0);
                     } else {
-                        this.f45985e.n.setVisibility(8);
+                        this.a.j.setVisibility(8);
                     }
                 }
-                this.f45985e.m.f();
+                this.a.i.f();
                 if (z) {
-                    if (realPostCount <= 0) {
-                        this.f45985e.o = false;
+                    if (Q0 <= 0) {
+                        this.a.k = false;
                     } else {
-                        this.f45985e.o = true;
+                        this.a.k = true;
                     }
-                    this.f45985e.p = 0;
-                    this.f45985e.r = false;
+                    this.a.l = 0;
+                    this.a.n = false;
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonReplyFragment f45986e;
+        public final /* synthetic */ PersonReplyFragment a;
 
         public d(PersonReplyFragment personReplyFragment) {
             Interceptable interceptable = $ic;
@@ -238,30 +232,30 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personReplyFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45986e = personReplyFragment;
+            this.a = personReplyFragment;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             PersonPostModel.PostInfoList h2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 < 0 || this.f45986e.f45980h == null || i2 >= this.f45986e.f45980h.getCount() || (h2 = this.f45986e.f45980h.h(i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || i < 0 || this.a.f35612d == null || i >= this.a.f35612d.getCount() || (h2 = this.a.f35612d.h(i)) == null) {
                 return;
             }
-            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.f45986e.getActivity()).createCfgForPersonCenter(String.valueOf(h2.thread_id), String.valueOf(h2.post_id), "person_page", 18005);
+            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.a.getActivity()).createCfgForPersonCenter(String.valueOf(h2.thread_id), String.valueOf(h2.post_id), "person_page", 18005);
             OriginalThreadInfo originalThreadInfo = h2.originalThreadInfo;
             if (originalThreadInfo != null) {
                 createCfgForPersonCenter.setBjhData(originalThreadInfo.p);
             }
-            this.f45986e.sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
+            this.a.sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
         }
     }
 
@@ -270,84 +264,138 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45981i = false;
-        this.f45982j = null;
-        this.o = false;
-        this.q = R.color.CAM_X0201;
-        this.r = true;
-        this.t = new a(this);
-        this.u = new c(this);
+        this.f35613e = false;
+        this.f35614f = null;
+        this.k = false;
+        this.m = R.color.CAM_X0201;
+        this.n = true;
+        this.p = new a(this);
+        this.q = new c(this);
     }
 
-    public static int getRealPostCount(List<c.a.d.o.e.n> list) {
+    public static int Q0(List<c.a.d.o.e.n> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, list)) == null) {
             if (list == null) {
                 return 0;
             }
             int size = list.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                if (list.get(i3) != null && (list.get(i3) instanceof PersonPostModel.PostInfoList)) {
-                    i2 += ((PersonPostModel.PostInfoList) list.get(i3)).content.length;
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                if (list.get(i2) != null && (list.get(i2) instanceof PersonPostModel.PostInfoList)) {
+                    i += ((PersonPostModel.PostInfoList) list.get(i2)).content.length;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    @Override // c.a.r0.d3.c
-    public void fetchDataOnNoNetRefresh() {
+    public final void O0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                if (this.f35610b != null) {
+                    NoDataView noDataView = this.f35614f;
+                    if (noDataView != null) {
+                        noDataView.setVisibility(0);
+                    }
+                    this.f35610b.removeHeaderView(this.f35614f);
+                    this.f35610b.addHeaderView(this.f35614f);
+                }
+            } else if (this.f35610b != null) {
+                NoDataView noDataView2 = this.f35614f;
+                if (noDataView2 != null) {
+                    noDataView2.setVisibility(8);
+                }
+                this.f35610b.removeHeaderView(this.f35614f);
+            }
+        }
+    }
+
+    public final void P0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (l.A()) {
+                this.f35612d.f(true);
+                return;
+            }
+            hideLoadingView(this.a);
+            O0(false);
+            c.a.p0.f3.f.b(this.f35615g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0c15), true);
+            this.f35610b.setVisibility(8);
+        }
+    }
+
+    public final void R0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g gVar = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+            this.f35612d = gVar;
+            gVar.i(this.q);
+            this.f35610b.setAdapter((ListAdapter) this.f35612d);
+            this.f35610b.setOnItemClickListener(new d(this));
+        }
+    }
+
+    public void S0() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f35613e) {
+            return;
+        }
+        R0();
+        this.f35613e = true;
+        showLoadingView(this.a);
+        P0();
+    }
+
+    public void T0(c.a.p0.f3.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            this.o = dVar;
+        }
+    }
+
+    @Override // c.a.p0.f3.c
+    public void Y() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f45980h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gVar = this.f35612d) == null) {
             return;
         }
         gVar.f(true);
     }
 
-    public void onActive() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f45981i) {
-            return;
-        }
-        t();
-        this.f45981i = true;
-        showLoadingView(this.f45977e);
-        s();
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.onChangeSkinType(i);
             if (isAdded()) {
-                View view = this.n;
+                View view = this.j;
                 if (view != null) {
-                    SkinManager.setViewTextColor((TextView) view.findViewById(R.id.pb_more_text), R.color.common_color_10215, 1);
+                    SkinManager.setViewTextColor((TextView) view.findViewById(R.id.obfuscated_res_0x7f0916ed), R.color.common_color_10215, 1);
                 }
-                NoDataView noDataView = this.f45982j;
+                NoDataView noDataView = this.f35614f;
                 if (noDataView != null) {
                     SkinManager.setBackgroundResource(noDataView, R.color.CAM_X0201);
                 }
-                PbListView pbListView = this.m;
+                PbListView pbListView = this.i;
                 if (pbListView != null) {
-                    pbListView.d(i2);
+                    pbListView.d(i);
                 }
-                this.l.C(i2);
-                SkinManager.setBackgroundColor(this.f45977e, this.q, i2);
-                g gVar = this.f45980h;
+                this.f35616h.H(i);
+                SkinManager.setBackgroundColor(this.a, this.m, i);
+                g gVar = this.f35612d;
                 if (gVar != null) {
                     gVar.notifyDataSetChanged();
                 }
@@ -358,7 +406,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -367,13 +415,13 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-            this.f45977e = inflate;
-            this.f45978f = (BdListView) inflate.findViewById(R.id.listview_reply);
-            this.f45979g = (NavigationBarShadowView) this.f45977e.findViewById(R.id.navi_shadow_view_my_reply);
-            this.f45982j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds102)), NoDataViewFactory.e.d(null, getArguments().getString(PersonPostActivity.KEY_EMPTYVIEW_TXT)), null);
-            return this.f45977e;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06dc, viewGroup, false);
+            this.a = inflate;
+            this.f35610b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09128d);
+            this.f35611c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f091507);
+            this.f35614f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07022a)), NoDataViewFactory.e.d(null, getArguments().getString(PersonPostActivity.KEY_EMPTYVIEW_TXT)), null);
+            return this.a;
         }
         return (View) invokeLLL.objValue;
     }
@@ -381,12 +429,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            g gVar = this.f45980h;
+            g gVar = this.f35612d;
             if (gVar != null) {
                 gVar.e();
-                this.f45980h.i(null);
+                this.f35612d.i(null);
             }
         }
     }
@@ -394,47 +442,47 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            onActive();
-            this.f45980h.notifyDataSetChanged();
+            S0();
+            this.f35612d.notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i2, i3, i4) == null) {
-            if (this.o && i4 > 2 && this.p != i4 && i3 + i2 == i4) {
-                this.p = i4;
-                this.f45980h.f(false);
-                this.n.setVisibility(0);
-                this.m.R();
+        if (interceptable == null || interceptable.invokeLIII(1048587, this, absListView, i, i2, i3) == null) {
+            if (this.k && i3 > 2 && this.l != i3 && i2 + i == i3) {
+                this.l = i3;
+                this.f35612d.f(false);
+                this.j.setVisibility(0);
+                this.i.R();
             }
-            if (i2 == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                this.f45979g.hide();
+            if (i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
+                this.f35611c.a();
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i2) {
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i2) == null) && i2 == 1) {
-            this.f45979g.show();
+        if ((interceptable == null || interceptable.invokeLI(1048588, this, absListView, i) == null) && i == 1) {
+            this.f35611c.c();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onStart();
-            NoDataView noDataView = this.f45982j;
+            NoDataView noDataView = this.f35614f;
             if (noDataView != null) {
-                noDataView.onActivityStart(getPageContext());
+                noDataView.d(getPageContext());
             }
         }
     }
@@ -442,11 +490,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            NoDataView noDataView = this.f45982j;
+            NoDataView noDataView = this.f35614f;
             if (noDataView != null) {
-                noDataView.onActivityStop();
+                noDataView.e();
             }
         }
     }
@@ -454,77 +502,23 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, view, bundle) == null) {
-            c.a.q0.r.l0.g gVar = new c.a.q0.r.l0.g(getPageContext());
-            this.l = gVar;
-            this.f45978f.setPullRefresh(gVar);
+        if (interceptable == null || interceptable.invokeLL(1048591, this, view, bundle) == null) {
+            c.a.o0.r.l0.g gVar = new c.a.o0.r.l0.g(getPageContext());
+            this.f35616h = gVar;
+            this.f35610b.setPullRefresh(gVar);
             TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + n.f(getActivity(), R.dimen.ds176)));
-            this.f45978f.addHeaderView(textView, 0);
-            this.l.a(new b(this));
-            this.f45978f.setOnScrollListener(this);
+            textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + n.f(getActivity(), R.dimen.obfuscated_res_0x7f070255)));
+            this.f35610b.x(textView, 0);
+            this.f35616h.f(new b(this));
+            this.f35610b.setOnScrollListener(this);
             PbListView pbListView = new PbListView(getActivity());
-            this.m = pbListView;
+            this.i = pbListView;
             pbListView.p(R.color.common_color_10022);
-            this.m.F(SkinManager.getColor(R.color.common_color_10039));
-            this.f45978f.setNextPage(this.m);
-            View findViewById = this.m.b().findViewById(R.id.pb_more_view);
-            this.n = findViewById;
+            this.i.F(SkinManager.getColor(R.color.common_color_10039));
+            this.f35610b.setNextPage(this.i);
+            View findViewById = this.i.b().findViewById(R.id.obfuscated_res_0x7f0916f0);
+            this.j = findViewById;
             findViewById.setVisibility(8);
-        }
-    }
-
-    public final void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (z) {
-                if (this.f45978f != null) {
-                    NoDataView noDataView = this.f45982j;
-                    if (noDataView != null) {
-                        noDataView.setVisibility(0);
-                    }
-                    this.f45978f.removeHeaderView(this.f45982j);
-                    this.f45978f.addHeaderView(this.f45982j);
-                }
-            } else if (this.f45978f != null) {
-                NoDataView noDataView2 = this.f45982j;
-                if (noDataView2 != null) {
-                    noDataView2.setVisibility(8);
-                }
-                this.f45978f.removeHeaderView(this.f45982j);
-            }
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (l.A()) {
-                this.f45980h.f(true);
-                return;
-            }
-            hideLoadingView(this.f45977e);
-            r(false);
-            c.a.r0.d3.f.b(this.k, this.t, getActivity(), this.f45977e, getString(R.string.neterror), true);
-            this.f45978f.setVisibility(8);
-        }
-    }
-
-    public void setNoNetRefreshListener(c.a.r0.d3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
-            this.s = dVar;
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            g gVar = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.f45980h = gVar;
-            gVar.i(this.u);
-            this.f45978f.setAdapter((ListAdapter) this.f45980h);
-            this.f45978f.setOnItemClickListener(new d(this));
         }
     }
 }

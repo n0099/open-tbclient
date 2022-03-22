@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,17 +33,17 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static File a(Context context, long j2, String str) {
+    public static File a(Context context, long j, String str) {
         InterceptResult invokeCommon;
         File file;
         boolean z;
         boolean z2;
         Runnable dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str})) == null) {
             Handler handler = new Handler(context.getMainLooper());
             boolean a = a();
-            boolean z3 = a(Environment.getExternalStorageDirectory()) > j2;
+            boolean z3 = a(Environment.getExternalStorageDirectory()) > j;
             if (a && z3) {
                 if (TextUtils.isEmpty(str)) {
                     file = new File(Environment.getExternalStorageDirectory().getPath() + "/lcsdk/downloads");
@@ -52,20 +52,20 @@ public final class b {
                 }
                 LogUtil.logD("Helpers", "Common ExternalStorage path =======" + file);
             } else {
-                Object[] f2 = j.f(context.getApplicationContext());
-                if (f2 != null) {
-                    int length = f2.length;
+                Object[] g2 = j.g(context.getApplicationContext());
+                if (g2 != null) {
+                    int length = g2.length;
                     LogUtil.logD("Helpers", "TotalvolumeCount=" + length);
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i >= length) {
                             file = null;
                             break;
                         }
-                        String a2 = j.a(f2[i2]);
-                        LogUtil.logD("Helpers", "invoke path[" + i2 + "]===========" + a2);
-                        if (!j.c(context.getApplicationContext(), a2).equals("mounted") || a(new File(a2)) <= j2) {
-                            i2++;
+                        String a2 = j.a(g2[i]);
+                        LogUtil.logD("Helpers", "invoke path[" + i + "]===========" + a2);
+                        if (!j.c(context.getApplicationContext(), a2).equals("mounted") || a(new File(a2)) <= j) {
+                            i++;
                         } else {
                             if (TextUtils.isEmpty(str)) {
                                 file = new File(a2 + "/lcsdk/downloads");
@@ -110,21 +110,21 @@ public final class b {
                     LogUtil.logD("Helpers", "available/totalBytes percent is: " + d2);
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("availablepercent<0.1 is: ");
-                    int i3 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
-                    sb2.append(i3 < 0);
+                    int i2 = (d2 > 0.1d ? 1 : (d2 == 0.1d ? 0 : -1));
+                    sb2.append(i2 < 0);
                     LogUtil.logD("Helpers", sb2.toString());
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append(" available < 20 * 1024 * 1024 is: ");
-                    int i4 = (a3 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a3 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
-                    sb3.append(i4 < 0);
+                    int i3 = (a3 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a3 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
+                    sb3.append(i3 < 0);
                     LogUtil.logD("Helpers", sb3.toString());
                     if (z2) {
-                        if (i3 < 0 || a3 < 2 * j2 || i4 < 0) {
+                        if (i2 < 0 || a3 < 2 * j || i3 < 0) {
                             handler.post(new f(context));
                             LogUtil.logD("Helpers", "download aborted - not enough free space on memory");
                             return null;
                         }
-                    } else if (a3 < j2) {
+                    } else if (a3 < j) {
                         LogUtil.logD("Helpers", "download aborted - not enough free space on external storage");
                     }
                     return file;

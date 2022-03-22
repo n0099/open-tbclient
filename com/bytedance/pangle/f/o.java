@@ -20,7 +20,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;
@@ -28,22 +28,22 @@ public final class o {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Signature[] f51705b;
+    public final Signature[] f38126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f51706c;
+    public final int f38127c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArraySet<PublicKey> f51707d;
+    public final ArraySet<PublicKey> f38128d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final Signature[] f51708e;
+    public final Signature[] f38129e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f51709f;
+    public final int[] f38130f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,26 +61,26 @@ public final class o {
         a = new o(null, 0, null, null, null);
     }
 
-    public o(Signature[] signatureArr, int i2, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
+    public o(Signature[] signatureArr, int i, ArraySet<PublicKey> arraySet, Signature[] signatureArr2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {signatureArr, Integer.valueOf(i2), arraySet, signatureArr2, iArr};
+            Object[] objArr = {signatureArr, Integer.valueOf(i), arraySet, signatureArr2, iArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f51705b = signatureArr;
-        this.f51706c = i2;
-        this.f51707d = arraySet;
-        this.f51708e = signatureArr2;
-        this.f51709f = iArr;
+        this.f38126b = signatureArr;
+        this.f38127c = i;
+        this.f38128d = arraySet;
+        this.f38129e = signatureArr2;
+        this.f38130f = iArr;
     }
 
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
@@ -113,12 +113,12 @@ public final class o {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, signatureArr, signatureArr2)) == null) {
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             Signature[] signatureArr3 = new Signature[signatureArr.length];
-            for (int i2 = 0; i2 < signatureArr.length; i2++) {
-                signatureArr3[i2] = a(certificateFactory, signatureArr[i2]);
+            for (int i = 0; i < signatureArr.length; i++) {
+                signatureArr3[i] = a(certificateFactory, signatureArr[i]);
             }
             Signature[] signatureArr4 = new Signature[signatureArr2.length];
-            for (int i3 = 0; i3 < signatureArr2.length; i3++) {
-                signatureArr4[i3] = a(certificateFactory, signatureArr2[i3]);
+            for (int i2 = 0; i2 < signatureArr2.length; i2++) {
+                signatureArr4[i2] = a(certificateFactory, signatureArr2[i2]);
             }
             return a(signatureArr3, signatureArr4);
         }
@@ -134,16 +134,16 @@ public final class o {
             }
             if (obj instanceof o) {
                 o oVar = (o) obj;
-                if (this.f51706c == oVar.f51706c && a(this.f51705b, oVar.f51705b)) {
-                    ArraySet<PublicKey> arraySet = this.f51707d;
+                if (this.f38127c == oVar.f38127c && a(this.f38126b, oVar.f38126b)) {
+                    ArraySet<PublicKey> arraySet = this.f38128d;
                     if (arraySet != null) {
-                        if (!arraySet.equals(oVar.f51707d)) {
+                        if (!arraySet.equals(oVar.f38128d)) {
                             return false;
                         }
-                    } else if (oVar.f51707d != null) {
+                    } else if (oVar.f38128d != null) {
                         return false;
                     }
-                    return Arrays.equals(this.f51708e, oVar.f51708e) && Arrays.equals(this.f51709f, oVar.f51709f);
+                    return Arrays.equals(this.f38129e, oVar.f38129e) && Arrays.equals(this.f38130f, oVar.f38130f);
                 }
                 return false;
             }
@@ -156,25 +156,25 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.f51705b) * 31) + this.f51706c) * 31;
-            ArraySet<PublicKey> arraySet = this.f51707d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f51708e)) * 31) + Arrays.hashCode(this.f51709f);
+            int hashCode = ((Arrays.hashCode(this.f38126b) * 31) + this.f38127c) * 31;
+            ArraySet<PublicKey> arraySet = this.f38128d;
+            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f38129e)) * 31) + Arrays.hashCode(this.f38130f);
         }
         return invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o(Signature[] signatureArr, int i2, Signature[] signatureArr2, int[] iArr) {
-        this(signatureArr, i2, a(signatureArr), signatureArr2, iArr);
+    public o(Signature[] signatureArr, int i, Signature[] signatureArr2, int[] iArr) {
+        this(signatureArr, i, a(signatureArr), signatureArr2, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {signatureArr, Integer.valueOf(i2), signatureArr2, iArr};
+            Object[] objArr = {signatureArr, Integer.valueOf(i), signatureArr2, iArr};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Signature[]) objArr2[0], ((Integer) objArr2[1]).intValue(), (ArraySet) objArr2[2], (Signature[]) objArr2[3], (int[]) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -193,9 +193,9 @@ public final class o {
             newInitContext.initArgs = r2;
             Object[] objArr = {signatureArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Signature[]) objArr2[0], ((Integer) objArr2[1]).intValue(), (Signature[]) objArr2[2], (int[]) objArr2[3]);
                 newInitContext.thisArg = this;

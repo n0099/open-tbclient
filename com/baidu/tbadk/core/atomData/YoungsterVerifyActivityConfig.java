@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAMA_AUTH_ID = "authid";
@@ -27,9 +28,9 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -44,7 +45,7 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                String encode = URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, "utf-8");
+                String encode = URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, IMAudioTransRequest.CHARSET);
                 return VERIFY_URL_PREFIX + encode + "&scene=" + PARAMA_TIEBA_AUTH;
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
@@ -54,10 +55,10 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
         return (String) invokeV.objValue;
     }
 
-    public void setKeyYoungsterPasswordFrom(int i2) {
+    public void setKeyYoungsterPasswordFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i);
         }
     }
 }

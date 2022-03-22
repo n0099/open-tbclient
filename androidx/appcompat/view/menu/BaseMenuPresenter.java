@@ -31,16 +31,16 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
     public Context mSystemContext;
     public LayoutInflater mSystemInflater;
 
-    public BaseMenuPresenter(Context context, int i2, int i3) {
+    public BaseMenuPresenter(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,18 +48,18 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         }
         this.mSystemContext = context;
         this.mSystemInflater = LayoutInflater.from(context);
-        this.mMenuLayoutRes = i2;
-        this.mItemLayoutRes = i3;
+        this.mMenuLayoutRes = i;
+        this.mItemLayoutRes = i2;
     }
 
-    public void addItemView(View view, int i2) {
+    public void addItemView(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup != null) {
                 viewGroup.removeView(view);
             }
-            ((ViewGroup) this.mMenuView).addView(view, i2);
+            ((ViewGroup) this.mMenuView).addView(view, i);
         }
     }
 
@@ -91,11 +91,11 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         return invokeLL.booleanValue;
     }
 
-    public boolean filterLeftoverView(ViewGroup viewGroup, int i2) {
+    public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            viewGroup.removeViewAt(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
+            viewGroup.removeViewAt(i);
             return true;
         }
         return invokeLI.booleanValue;
@@ -204,17 +204,17 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mId = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mId = i;
         }
     }
 
-    public boolean shouldIncludeItem(int i2, MenuItemImpl menuItemImpl) {
+    public boolean shouldIncludeItem(int i, MenuItemImpl menuItemImpl) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i2, menuItemImpl)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, menuItemImpl)) == null) {
             return true;
         }
         return invokeIL.booleanValue;
@@ -228,16 +228,16 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
             return;
         }
         MenuBuilder menuBuilder = this.mMenu;
-        int i2 = 0;
+        int i = 0;
         if (menuBuilder != null) {
             menuBuilder.flagActionItems();
             ArrayList<MenuItemImpl> visibleItems = this.mMenu.getVisibleItems();
             int size = visibleItems.size();
-            int i3 = 0;
-            for (int i4 = 0; i4 < size; i4++) {
-                MenuItemImpl menuItemImpl = visibleItems.get(i4);
-                if (shouldIncludeItem(i3, menuItemImpl)) {
-                    View childAt = viewGroup.getChildAt(i3);
+            int i2 = 0;
+            for (int i3 = 0; i3 < size; i3++) {
+                MenuItemImpl menuItemImpl = visibleItems.get(i3);
+                if (shouldIncludeItem(i2, menuItemImpl)) {
+                    View childAt = viewGroup.getChildAt(i2);
                     MenuItemImpl itemData = childAt instanceof MenuView.ItemView ? ((MenuView.ItemView) childAt).getItemData() : null;
                     View itemView = getItemView(menuItemImpl, childAt, viewGroup);
                     if (menuItemImpl != itemData) {
@@ -245,16 +245,16 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
                         itemView.jumpDrawablesToCurrentState();
                     }
                     if (itemView != childAt) {
-                        addItemView(itemView, i3);
+                        addItemView(itemView, i2);
                     }
-                    i3++;
+                    i2++;
                 }
             }
-            i2 = i3;
+            i = i2;
         }
-        while (i2 < viewGroup.getChildCount()) {
-            if (!filterLeftoverView(viewGroup, i2)) {
-                i2++;
+        while (i < viewGroup.getChildCount()) {
+            if (!filterLeftoverView(viewGroup, i)) {
+                i++;
             }
         }
     }

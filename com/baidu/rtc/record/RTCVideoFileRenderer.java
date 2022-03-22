@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import f.c.i0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -67,9 +67,9 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             newInitContext.initArgs = r2;
             Object[] objArr = {str, mediaEncodeParams, context, Boolean.valueOf(z), recorderCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -114,7 +114,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if (!(interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: c.a.j0.e.c
+        this.audioThreadHandler.post(new Runnable() { // from class: c.a.h0.e.c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,11 +143,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             if (dequeueOutputBuffer == -3) {
                 this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
+                Log.w(TAG, "encoder output buffers changed");
             } else {
                 boolean z = true;
                 if (dequeueOutputBuffer == -2) {
                     MediaFormat outputFormat = this.audioEncoder.getOutputFormat();
-                    String str = "audio encoder output format changed: " + outputFormat;
+                    Log.w(TAG, "audio encoder output format changed: " + outputFormat);
                     this.audioTrackIndex = this.mediaMuxer.addTrack(outputFormat);
                     if (this.trackIndex != -1 && !this.muxerStarted) {
                         this.mediaMuxer.start();
@@ -157,12 +158,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                         return;
                     }
                 } else if (dequeueOutputBuffer < 0) {
-                    String str2 = "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer;
+                    Log.e(TAG, "unexpected on audio encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
                     try {
                         ByteBuffer byteBuffer = this.audioOutputBuffers[dequeueOutputBuffer];
                         if (byteBuffer == null) {
-                            String str3 = "encoderOutputBuffer " + dequeueOutputBuffer + " was null";
+                            Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                             return;
                         }
                         byteBuffer.position(this.audioBufferInfo.offset);
@@ -179,7 +180,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                             return;
                         }
                     } catch (Exception e2) {
-                        e2.getMessage();
+                        Log.e(TAG, e2.getMessage());
                         return;
                     }
                 }
@@ -205,9 +206,10 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             if (dequeueOutputBuffer == -3) {
                 this.videoOutputBuffers = this.videoEncoder.getOutputBuffers();
+                Log.e(TAG, "video encoder output buffers changed");
             } else if (dequeueOutputBuffer == -2) {
                 MediaFormat outputFormat = this.videoEncoder.getOutputFormat();
-                String str = "video encoder output format changed: " + outputFormat;
+                Log.e(TAG, "video encoder output format changed: " + outputFormat);
                 this.trackIndex = this.mediaMuxer.addTrack(outputFormat);
                 if (this.audioTrackIndex != -1 && !this.muxerStarted) {
                     this.mediaMuxer.start();
@@ -217,12 +219,12 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                     return;
                 }
             } else if (dequeueOutputBuffer < 0) {
-                String str2 = "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer;
+                Log.e(TAG, "unexpected on video encoder dequeueOutputBuffer: " + dequeueOutputBuffer);
             } else {
                 try {
                     ByteBuffer byteBuffer = this.videoOutputBuffers[dequeueOutputBuffer];
                     if (byteBuffer == null) {
-                        String str3 = "encoderOutputBuffer " + dequeueOutputBuffer + " was null";
+                        Log.e(TAG, "encoderOutputBuffer " + dequeueOutputBuffer + " was null");
                         return;
                     }
                     byteBuffer.position(this.videoBufferInfo.offset);
@@ -265,7 +267,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 this.audioInputBuffers = this.audioEncoder.getInputBuffers();
                 this.audioOutputBuffers = this.audioEncoder.getOutputBuffers();
             } catch (IOException e2) {
-                e2.getMessage();
+                Log.e(TAG, e2.getMessage());
             }
         }
     }
@@ -282,7 +284,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: c.a.j0.e.b
+                this.renderThreadHandler.post(new Runnable() { // from class: c.a.h0.e.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -342,6 +344,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void d() {
+        Log.w(TAG, "stop audio encoder ...");
         MediaCodec mediaCodec = this.audioEncoder;
         if (mediaCodec != null) {
             mediaCodec.flush();
@@ -360,7 +363,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 this.mCallback.onRecordCompleted(false, "Record is not started!");
             }
         } catch (IllegalStateException e2) {
-            String str = "Stop media muxer exception : " + e2.getLocalizedMessage();
+            Log.e(TAG, "Stop media muxer exception : " + e2.getLocalizedMessage());
             RecorderCallback recorderCallback = this.mCallback;
             if (recorderCallback != null) {
                 recorderCallback.onRecordCompleted(false, e2.getLocalizedMessage());
@@ -370,6 +373,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
     }
 
     public /* synthetic */ void e() {
+        Log.w(TAG, "stop video encoder ...");
         MediaCodec mediaCodec = this.videoEncoder;
         if (mediaCodec != null) {
             mediaCodec.flush();
@@ -392,7 +396,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             if (this.videoEncoder == null) {
                 initVideoEncoder();
             }
-            this.renderThreadHandler.post(new Runnable() { // from class: c.a.j0.e.e
+            this.renderThreadHandler.post(new Runnable() { // from class: c.a.h0.e.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -427,7 +431,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: c.a.j0.e.a
+                handler.post(new Runnable() { // from class: c.a.h0.e.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -442,7 +446,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: c.a.j0.e.d
+                handler2.post(new Runnable() { // from class: c.a.h0.e.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

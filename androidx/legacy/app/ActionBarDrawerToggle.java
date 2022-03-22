@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,9 +61,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         @Nullable
         Drawable getThemeUpIndicator();
 
-        void setActionBarDescription(@StringRes int i2);
+        void setActionBarDescription(@StringRes int i);
 
-        void setActionBarUpIndicator(Drawable drawable, @StringRes int i2);
+        void setActionBarUpIndicator(Drawable drawable, @StringRes int i);
     }
 
     @Deprecated
@@ -87,9 +88,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -135,9 +136,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionBarDrawerToggle, drawable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -157,9 +158,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 copyBounds(this.mTmpRect);
                 canvas.save();
                 boolean z = ViewCompat.getLayoutDirection(this.this$0.mActivity.getWindow().getDecorView()) == 1;
-                int i2 = z ? -1 : 1;
+                int i = z ? -1 : 1;
                 float width = this.mTmpRect.width();
-                canvas.translate((-this.mOffset) * width * this.mPosition * i2, 0.0f);
+                canvas.translate((-this.mOffset) * width * this.mPosition * i, 0.0f);
                 if (z && !this.mHasMirroring) {
                     canvas.translate(width, 0.0f);
                     canvas.scale(-1.0f, 1.0f);
@@ -209,17 +210,17 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
-        this(activity, drawerLayout, !assumeMaterial(activity), i2, i3, i4);
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, @DrawableRes int i, @StringRes int i2, @StringRes int i3) {
+        this(activity, drawerLayout, !assumeMaterial(activity), i, i2, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, drawerLayout, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {activity, drawerLayout, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Activity) objArr2[0], (DrawerLayout) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -264,16 +265,16 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         return (Drawable) invokeV.objValue;
     }
 
-    private void setActionBarDescription(int i2) {
+    private void setActionBarDescription(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
             Delegate delegate = this.mActivityImpl;
             if (delegate != null) {
-                delegate.setActionBarDescription(i2);
+                delegate.setActionBarDescription(i);
             } else if (Build.VERSION.SDK_INT >= 18) {
                 ActionBar actionBar = this.mActivity.getActionBar();
                 if (actionBar != null) {
-                    actionBar.setHomeActionContentDescription(i2);
+                    actionBar.setHomeActionContentDescription(i);
                 }
             } else {
                 if (this.mSetIndicatorInfo == null) {
@@ -282,26 +283,27 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                 if (this.mSetIndicatorInfo.mSetHomeAsUpIndicator != null) {
                     try {
                         ActionBar actionBar2 = this.mActivity.getActionBar();
-                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
+                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
                         actionBar2.setSubtitle(actionBar2.getSubtitle());
-                    } catch (Exception unused) {
+                    } catch (Exception e2) {
+                        Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
                     }
                 }
             }
         }
     }
 
-    private void setActionBarUpIndicator(Drawable drawable, int i2) {
+    private void setActionBarUpIndicator(Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, this, drawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, this, drawable, i) == null) {
             Delegate delegate = this.mActivityImpl;
             if (delegate != null) {
-                delegate.setActionBarUpIndicator(drawable, i2);
+                delegate.setActionBarUpIndicator(drawable, i);
             } else if (Build.VERSION.SDK_INT >= 18) {
                 ActionBar actionBar = this.mActivity.getActionBar();
                 if (actionBar != null) {
                     actionBar.setHomeAsUpIndicator(drawable);
-                    actionBar.setHomeActionContentDescription(i2);
+                    actionBar.setHomeActionContentDescription(i);
                 }
             } else {
                 if (this.mSetIndicatorInfo == null) {
@@ -312,15 +314,18 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                     try {
                         ActionBar actionBar2 = this.mActivity.getActionBar();
                         this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
-                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i2));
+                        this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
                         return;
-                    } catch (Exception unused) {
+                    } catch (Exception e2) {
+                        Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
                         return;
                     }
                 }
                 ImageView imageView = setIndicatorInfo.mUpIndicatorView;
                 if (imageView != null) {
                     imageView.setImageDrawable(drawable);
+                } else {
+                    Log.w(TAG, "Couldn't set home-as-up indicator");
                 }
             }
         }
@@ -381,9 +386,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerStateChanged(int i2) {
+    public void onDrawerStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 
@@ -448,16 +453,16 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, boolean z, @DrawableRes int i2, @StringRes int i3, @StringRes int i4) {
+    public ActionBarDrawerToggle(Activity activity, DrawerLayout drawerLayout, boolean z, @DrawableRes int i, @StringRes int i2, @StringRes int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, drawerLayout, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {activity, drawerLayout, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -471,20 +476,20 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             this.mActivityImpl = null;
         }
         this.mDrawerLayout = drawerLayout;
-        this.mDrawerImageResource = i2;
-        this.mOpenDrawerContentDescRes = i3;
-        this.mCloseDrawerContentDescRes = i4;
+        this.mDrawerImageResource = i;
+        this.mOpenDrawerContentDescRes = i2;
+        this.mCloseDrawerContentDescRes = i3;
         this.mHomeAsUpIndicator = getThemeUpIndicator();
-        this.mDrawerImage = ContextCompat.getDrawable(activity, i2);
+        this.mDrawerImage = ContextCompat.getDrawable(activity, i);
         SlideDrawable slideDrawable = new SlideDrawable(this, this.mDrawerImage);
         this.mSlider = slideDrawable;
         slideDrawable.setOffset(z ? 0.33333334f : 0.0f);
     }
 
-    public void setHomeAsUpIndicator(int i2) {
+    public void setHomeAsUpIndicator(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            setHomeAsUpIndicator(i2 != 0 ? ContextCompat.getDrawable(this.mActivity, i2) : null);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            setHomeAsUpIndicator(i != 0 ? ContextCompat.getDrawable(this.mActivity, i) : null);
         }
     }
 }

@@ -14,7 +14,7 @@ import org.apache.http.ProtocolVersion;
 import org.apache.http.ReasonPhraseCatalog;
 import org.apache.http.StatusLine;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicHttpResponse extends AbstractHttpMessage implements HttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
             newInitContext.initArgs = r2;
             Object[] objArr = {statusLine, reasonPhraseCatalog, locale};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -67,10 +67,10 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
         return (ProtocolVersion) invokeV.objValue;
     }
 
-    public String getReason(int i2) {
+    public String getReason(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeI.objValue;
@@ -111,9 +111,9 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusCode(int i2) {
+    public void setStatusCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -133,9 +133,9 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
             newInitContext.initArgs = r2;
             Object[] objArr = {statusLine};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -145,23 +145,23 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusLine(ProtocolVersion protocolVersion, int i2) {
+    public void setStatusLine(ProtocolVersion protocolVersion, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, protocolVersion, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, protocolVersion, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public BasicHttpResponse(ProtocolVersion protocolVersion, int i2, String str) {
+    public BasicHttpResponse(ProtocolVersion protocolVersion, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {protocolVersion, Integer.valueOf(i2), str};
+            Object[] objArr = {protocolVersion, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -171,9 +171,9 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusLine(ProtocolVersion protocolVersion, int i2, String str) {
+    public void setStatusLine(ProtocolVersion protocolVersion, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048586, this, protocolVersion, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048586, this, protocolVersion, i, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

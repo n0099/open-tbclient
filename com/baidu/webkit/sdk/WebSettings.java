@@ -60,9 +60,9 @@ public abstract class WebSettings implements Observer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,16 +102,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new FlingAlgorithm[]{FAST, QUADRATIC, flingAlgorithm};
         }
 
-        public FlingAlgorithm(String str, int i2) {
+        public FlingAlgorithm(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -166,16 +166,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new ImgQuality[]{NO_COMPRESS, LOW_COMPRESS, MEDIUM_COMPRESS, imgQuality};
         }
 
-        public ImgQuality(String str, int i2) {
+        public ImgQuality(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -232,16 +232,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new LayoutAlgorithm[]{NORMAL, SINGLE_COLUMN, NARROW_COLUMNS, layoutAlgorithm};
         }
 
-        public LayoutAlgorithm(String str, int i2) {
+        public LayoutAlgorithm(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -300,16 +300,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new PluginState[]{ON, ON_DEMAND, pluginState};
         }
 
-        public PluginState(String str, int i2) {
+        public PluginState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -364,16 +364,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new ProxyType[]{NO_PROXY, SPDY_PROXY, OVERSEAS_PROXY, proxyType};
         }
 
-        public ProxyType(String str, int i2) {
+        public ProxyType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -426,16 +426,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new RemoveAdLevel[]{DISABLE, LOW_LEVEL, removeAdLevel};
         }
 
-        public RemoveAdLevel(String str, int i2) {
+        public RemoveAdLevel(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -488,16 +488,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new RenderPriority[]{NORMAL, HIGH, renderPriority};
         }
 
-        public RenderPriority(String str, int i2) {
+        public RenderPriority(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -560,16 +560,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new TextSize[]{SMALLEST, SMALLER, NORMAL, LARGERLITTLE, LARGER, LARGERMORE, textSize};
         }
 
-        public TextSize(String str, int i2, int i3) {
+        public TextSize(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -578,7 +578,7 @@ public abstract class WebSettings implements Observer {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
         public static TextSize valueOf(String str) {
@@ -625,16 +625,16 @@ public abstract class WebSettings implements Observer {
             $VALUES = new ZoomDensity[]{FAR, MEDIUM, zoomDensity};
         }
 
-        public ZoomDensity(String str, int i2, int i3) {
+        public ZoomDensity(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -643,7 +643,7 @@ public abstract class WebSettings implements Observer {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
         public static ZoomDensity valueOf(String str) {
@@ -670,9 +670,9 @@ public abstract class WebSettings implements Observer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -792,10 +792,10 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public static void setVideoPlayerMode(int i2) {
+    public static void setVideoPlayerMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, null, i2) == null) {
-            WebSettingsGlobalBlink.setVideoPlayerMode(i2);
+        if (interceptable == null || interceptable.invokeI(65552, null, i) == null) {
+            WebSettingsGlobalBlink.setVideoPlayerMode(i);
         }
     }
 
@@ -1152,15 +1152,15 @@ public abstract class WebSettings implements Observer {
                 textZoom = getTextZoom();
             }
             TextSize textSize = null;
-            int i2 = Integer.MAX_VALUE;
+            int i = Integer.MAX_VALUE;
             for (TextSize textSize2 : TextSize.values()) {
                 int abs = Math.abs(textZoom - textSize2.value);
                 if (abs == 0) {
                     return textSize2;
                 }
-                if (abs < i2) {
+                if (abs < i) {
                     textSize = textSize2;
-                    i2 = abs;
+                    i = abs;
                 }
             }
             return textSize != null ? textSize : TextSize.NORMAL;
@@ -1269,7 +1269,7 @@ public abstract class WebSettings implements Observer {
     public abstract void setAppCacheEnabled(boolean z);
 
     @Deprecated
-    public abstract void setAppCacheMaxSize(long j2);
+    public abstract void setAppCacheMaxSize(long j);
 
     public abstract void setAppCachePath(String str);
 
@@ -1291,7 +1291,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setBuiltInZoomControls(boolean z);
 
-    public abstract void setCacheMode(int i2);
+    public abstract void setCacheMode(int i);
 
     @Deprecated
     public void setCodeCacheSetting(CodeCacheSetting codeCacheSetting) {
@@ -1319,16 +1319,16 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public abstract void setDatabasePath(String str);
 
-    public abstract void setDefaultFixedFontSize(int i2);
+    public abstract void setDefaultFixedFontSize(int i);
 
-    public abstract void setDefaultFontSize(int i2);
+    public abstract void setDefaultFontSize(int i);
 
     public abstract void setDefaultTextEncodingName(String str);
 
     @Deprecated
     public abstract void setDefaultZoom(ZoomDensity zoomDensity);
 
-    public abstract void setDisabledActionModeMenuItems(int i2);
+    public abstract void setDisabledActionModeMenuItems(int i);
 
     public abstract void setDisplayZoomControls(boolean z);
 
@@ -1344,9 +1344,9 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public void setDomParserOptType(int i2) {
+    public void setDomParserOptType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048690, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048690, this, i) == null) {
         }
     }
 
@@ -1379,9 +1379,9 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public void setEyeShieldMode(int i2) {
+    public void setEyeShieldMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048699, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048699, this, i) == null) {
         }
     }
 
@@ -1450,9 +1450,9 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public void setImageMaxWidth(int i2) {
+    public void setImageMaxWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048714, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
         }
     }
 
@@ -1531,11 +1531,11 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setMediaPlaybackRequiresUserGesture(boolean z);
 
-    public abstract void setMinimumFontSize(int i2);
+    public abstract void setMinimumFontSize(int i);
 
-    public abstract void setMinimumLogicalFontSize(int i2);
+    public abstract void setMinimumLogicalFontSize(int i);
 
-    public abstract void setMixedContentMode(int i2);
+    public abstract void setMixedContentMode(int i);
 
     public void setMultiScaleEnableTextWrap(boolean z) {
         Interceptable interceptable = $ic;
@@ -1553,9 +1553,9 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setOffscreenPreRaster(boolean z);
 
-    public void setPageCacheCapacity(int i2) {
+    public void setPageCacheCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048739, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048739, this, i) == null) {
         }
     }
 
@@ -1621,9 +1621,9 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public abstract void setSavePassword(boolean z);
 
-    public void setScrollSpeed(int i2) {
+    public void setScrollSpeed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048753, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048753, this, i) == null) {
         }
     }
 
@@ -1675,7 +1675,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public abstract void setTextZoom(int i2);
+    public abstract void setTextZoom(int i);
 
     public void setUrlSecurityCheckEnabled(boolean z) {
         Interceptable interceptable = $ic;
@@ -1729,9 +1729,9 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setWebViewFrameName(String str);
 
-    public void setWiseSearchFirstScreenOptType(int i2) {
+    public void setWiseSearchFirstScreenOptType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048776, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048776, this, i) == null) {
         }
     }
 

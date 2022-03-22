@@ -1,11 +1,10 @@
 package com.baidu.ala.data;
 
 import android.text.TextUtils;
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,9 +72,9 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,7 +83,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -111,7 +110,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.charmCount = jSONObject.optLong("charm_count");
         this.userStatus = jSONObject.optInt("user_status");
         this.liveStatus = jSONObject.optInt(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS);
-        this.isLogin = jSONObject.optInt(ImageViewerConfig.IS_LOGIN);
+        this.isLogin = jSONObject.optInt("is_login");
         this.liveId = jSONObject.optLong("live_id");
         this.createTime = jSONObject.optInt("create_time");
         this.changeSex = jSONObject.optInt("change_sex");
@@ -140,8 +139,8 @@ public class AlaLiveUserInfoData extends p implements Serializable {
             if (this.live_mark_info_new == null) {
                 this.live_mark_info_new = new ArrayList();
             }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
                     alaLiveMarkData.parserJson(optJSONObject);

@@ -44,9 +44,9 @@ public class JSResultData extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -84,24 +84,24 @@ public class JSResultData extends OrmObject implements Serializable {
             }
         }
 
-        public void setDownload(int i2) {
+        public void setDownload(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.download = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.download = i;
             }
         }
 
-        public void setInstall(int i2) {
+        public void setInstall(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.install = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.install = i;
             }
         }
 
-        public void setIsInstall(int i2) {
+        public void setIsInstall(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.isInstall = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.isInstall = i;
             }
         }
     }
@@ -111,9 +111,9 @@ public class JSResultData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -165,10 +165,10 @@ public class JSResultData extends OrmObject implements Serializable {
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.status = i;
         }
     }
 }

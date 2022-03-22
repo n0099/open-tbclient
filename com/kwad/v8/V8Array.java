@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8Array extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Undefined extends V8Array {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class V8Array extends V8Object {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -44,10 +44,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Object
-        public V8Object add(String str, int i2) {
+        public V8Object add(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Object) invokeLI.objValue;
@@ -186,20 +186,20 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public Object get(int i2) {
+        public Object get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.objValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public V8Array getArray(int i2) {
+        public V8Array getArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Array) invokeI.objValue;
@@ -216,10 +216,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public boolean getBoolean(int i2) {
+        public boolean getBoolean(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.booleanValue;
@@ -236,60 +236,60 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getBooleans(int i2, int i3, boolean[] zArr) {
+        public int getBooleans(int i, int i2, boolean[] zArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048597, this, i2, i3, zArr)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048597, this, i, i2, zArr)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeIIL.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public boolean[] getBooleans(int i2, int i3) {
+        public boolean[] getBooleans(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (boolean[]) invokeII.objValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public byte getByte(int i2) {
+        public byte getByte(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.byteValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getBytes(int i2, int i3, byte[] bArr) {
+        public int getBytes(int i, int i2, byte[] bArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048600, this, i2, i3, bArr)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048600, this, i, i2, bArr)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeIIL.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public byte[] getBytes(int i2, int i3) {
+        public byte[] getBytes(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048601, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048601, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (byte[]) invokeII.objValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public double getDouble(int i2) {
+        public double getDouble(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.doubleValue;
@@ -306,30 +306,30 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getDoubles(int i2, int i3, double[] dArr) {
+        public int getDoubles(int i, int i2, double[] dArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048604, this, i2, i3, dArr)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048604, this, i, i2, dArr)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeIIL.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public double[] getDoubles(int i2, int i3) {
+        public double[] getDoubles(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (double[]) invokeII.objValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getInteger(int i2) {
+        public int getInteger(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.intValue;
@@ -346,20 +346,20 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getIntegers(int i2, int i3, int[] iArr) {
+        public int getIntegers(int i, int i2, int[] iArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048608, this, i2, i3, iArr)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048608, this, i, i2, iArr)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeIIL.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public int[] getIntegers(int i2, int i3) {
+        public int[] getIntegers(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048609, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048609, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (int[]) invokeII.objValue;
@@ -376,10 +376,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public V8Object getObject(int i2) {
+        public V8Object getObject(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Object) invokeI.objValue;
@@ -406,10 +406,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public String getString(int i2) {
+        public String getString(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (String) invokeI.objValue;
@@ -426,20 +426,20 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getStrings(int i2, int i3, String[] strArr) {
+        public int getStrings(int i, int i2, String[] strArr) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048616, this, i2, i3, strArr)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048616, this, i, i2, strArr)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeIIL.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public String[] getStrings(int i2, int i3) {
+        public String[] getStrings(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048617, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048617, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (String[]) invokeII.objValue;
@@ -456,20 +456,20 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getType(int i2) {
+        public int getType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.intValue;
         }
 
         @Override // com.kwad.v8.V8Array
-        public int getType(int i2, int i3) {
+        public int getType(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048620, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048620, this, i, i2)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeII.intValue;
@@ -533,10 +533,10 @@ public class V8Array extends V8Object {
         }
 
         @Override // com.kwad.v8.V8Array
-        public V8Array push(int i2) {
+        public V8Array push(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return (V8Array) invokeI.objValue;
@@ -651,9 +651,9 @@ public class V8Array extends V8Object {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -669,9 +669,9 @@ public class V8Array extends V8Object {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -690,9 +690,9 @@ public class V8Array extends V8Object {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8, obj};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((V8) objArr2[0], objArr2[1]);
                 newInitContext.thisArg = this;
@@ -709,26 +709,26 @@ public class V8Array extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new V8Array(this.v8) : (V8Value) invokeV.objValue;
     }
 
-    public Object get(int i2) {
+    public Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGet(v8.getV8RuntimePtr(), 6, this.objectHandle, i2);
+            return v8.arrayGet(v8.getV8RuntimePtr(), 6, this.objectHandle, i);
         }
         return invokeI.objValue;
     }
 
-    public V8Array getArray(int i2) {
+    public V8Array getArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            Object arrayGet = v8.arrayGet(v8.getV8RuntimePtr(), 5, this.objectHandle, i2);
+            Object arrayGet = v8.arrayGet(v8.getV8RuntimePtr(), 5, this.objectHandle, i);
             if (arrayGet == null || (arrayGet instanceof V8Array)) {
                 return (V8Array) arrayGet;
             }
@@ -737,170 +737,170 @@ public class V8Array extends V8Object {
         return (V8Array) invokeI.objValue;
     }
 
-    public boolean getBoolean(int i2) {
+    public boolean getBoolean(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetBoolean(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.arrayGetBoolean(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return invokeI.booleanValue;
     }
 
-    public int getBooleans(int i2, int i3, boolean[] zArr) {
+    public int getBooleans(int i, int i2, boolean[] zArr) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, zArr)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, zArr)) == null) {
             this.v8.checkThread();
             checkReleased();
-            if (i3 <= zArr.length) {
+            if (i2 <= zArr.length) {
                 V8 v8 = this.v8;
-                return v8.arrayGetBooleans(v8.getV8RuntimePtr(), getHandle(), i2, i3, zArr);
+                return v8.arrayGetBooleans(v8.getV8RuntimePtr(), getHandle(), i, i2, zArr);
             }
             throw new IndexOutOfBoundsException();
         }
         return invokeIIL.intValue;
     }
 
-    public boolean[] getBooleans(int i2, int i3) {
+    public boolean[] getBooleans(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetBooleans(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.arrayGetBooleans(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return (boolean[]) invokeII.objValue;
     }
 
-    public byte getByte(int i2) {
+    public byte getByte(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetByte(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.arrayGetByte(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return invokeI.byteValue;
     }
 
-    public int getBytes(int i2, int i3, byte[] bArr) {
+    public int getBytes(int i, int i2, byte[] bArr) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048583, this, i2, i3, bArr)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048583, this, i, i2, bArr)) == null) {
             this.v8.checkThread();
             checkReleased();
-            if (i3 <= bArr.length) {
+            if (i2 <= bArr.length) {
                 V8 v8 = this.v8;
-                return v8.arrayGetBytes(v8.getV8RuntimePtr(), getHandle(), i2, i3, bArr);
+                return v8.arrayGetBytes(v8.getV8RuntimePtr(), getHandle(), i, i2, bArr);
             }
             throw new IndexOutOfBoundsException();
         }
         return invokeIIL.intValue;
     }
 
-    public byte[] getBytes(int i2, int i3) {
+    public byte[] getBytes(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetBytes(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.arrayGetBytes(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return (byte[]) invokeII.objValue;
     }
 
-    public double getDouble(int i2) {
+    public double getDouble(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetDouble(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.arrayGetDouble(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return invokeI.doubleValue;
     }
 
-    public int getDoubles(int i2, int i3, double[] dArr) {
+    public int getDoubles(int i, int i2, double[] dArr) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i2, i3, dArr)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i, i2, dArr)) == null) {
             this.v8.checkThread();
             checkReleased();
-            if (i3 <= dArr.length) {
+            if (i2 <= dArr.length) {
                 V8 v8 = this.v8;
-                return v8.arrayGetDoubles(v8.getV8RuntimePtr(), getHandle(), i2, i3, dArr);
+                return v8.arrayGetDoubles(v8.getV8RuntimePtr(), getHandle(), i, i2, dArr);
             }
             throw new IndexOutOfBoundsException();
         }
         return invokeIIL.intValue;
     }
 
-    public double[] getDoubles(int i2, int i3) {
+    public double[] getDoubles(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetDoubles(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.arrayGetDoubles(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return (double[]) invokeII.objValue;
     }
 
-    public int getInteger(int i2) {
+    public int getInteger(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetInteger(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.arrayGetInteger(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return invokeI.intValue;
     }
 
-    public int getIntegers(int i2, int i3, int[] iArr) {
+    public int getIntegers(int i, int i2, int[] iArr) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048589, this, i2, i3, iArr)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048589, this, i, i2, iArr)) == null) {
             this.v8.checkThread();
             checkReleased();
-            if (i3 <= iArr.length) {
+            if (i2 <= iArr.length) {
                 V8 v8 = this.v8;
-                return v8.arrayGetIntegers(v8.getV8RuntimePtr(), getHandle(), i2, i3, iArr);
+                return v8.arrayGetIntegers(v8.getV8RuntimePtr(), getHandle(), i, i2, iArr);
             }
             throw new IndexOutOfBoundsException();
         }
         return invokeIIL.intValue;
     }
 
-    public int[] getIntegers(int i2, int i3) {
+    public int[] getIntegers(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetIntegers(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.arrayGetIntegers(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return (int[]) invokeII.objValue;
     }
 
-    public V8Object getObject(int i2) {
+    public V8Object getObject(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            Object arrayGet = v8.arrayGet(v8.getV8RuntimePtr(), 6, this.objectHandle, i2);
+            Object arrayGet = v8.arrayGet(v8.getV8RuntimePtr(), 6, this.objectHandle, i);
             if (arrayGet == null || (arrayGet instanceof V8Object)) {
                 return (V8Object) arrayGet;
             }
@@ -909,41 +909,41 @@ public class V8Array extends V8Object {
         return (V8Object) invokeI.objValue;
     }
 
-    public String getString(int i2) {
+    public String getString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetString(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.arrayGetString(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return (String) invokeI.objValue;
     }
 
-    public int getStrings(int i2, int i3, String[] strArr) {
+    public int getStrings(int i, int i2, String[] strArr) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048593, this, i2, i3, strArr)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048593, this, i, i2, strArr)) == null) {
             this.v8.checkThread();
             checkReleased();
-            if (i3 <= strArr.length) {
+            if (i2 <= strArr.length) {
                 V8 v8 = this.v8;
-                return v8.arrayGetStrings(v8.getV8RuntimePtr(), getHandle(), i2, i3, strArr);
+                return v8.arrayGetStrings(v8.getV8RuntimePtr(), getHandle(), i, i2, strArr);
             }
             throw new IndexOutOfBoundsException();
         }
         return invokeIIL.intValue;
     }
 
-    public String[] getStrings(int i2, int i3) {
+    public String[] getStrings(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.arrayGetStrings(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.arrayGetStrings(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return (String[]) invokeII.objValue;
     }
@@ -960,35 +960,35 @@ public class V8Array extends V8Object {
         return invokeV.intValue;
     }
 
-    public int getType(int i2) {
+    public int getType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.getType(v8.getV8RuntimePtr(), getHandle(), i2);
+            return v8.getType(v8.getV8RuntimePtr(), getHandle(), i);
         }
         return invokeI.intValue;
     }
 
-    public int getType(int i2, int i3) {
+    public int getType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            return v8.getType(v8.getV8RuntimePtr(), getHandle(), i2, i3);
+            return v8.getType(v8.getV8RuntimePtr(), getHandle(), i, i2);
         }
         return invokeII.intValue;
     }
 
     @Override // com.kwad.v8.V8Value
-    public void initialize(long j2, Object obj) {
+    public void initialize(long j, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048598, this, j2, obj) == null) {
-            long initNewV8Array = this.v8.initNewV8Array(j2);
+        if (interceptable == null || interceptable.invokeJL(1048598, this, j, obj) == null) {
+            long initNewV8Array = this.v8.initNewV8Array(j);
             this.released = false;
             addObjectReference(initNewV8Array);
         }
@@ -1019,14 +1019,14 @@ public class V8Array extends V8Object {
         return (V8Array) invokeCommon.objValue;
     }
 
-    public V8Array push(int i2) {
+    public V8Array push(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             V8 v8 = this.v8;
-            v8.addArrayIntItem(v8.getV8RuntimePtr(), getHandle(), i2);
+            v8.addArrayIntItem(v8.getV8RuntimePtr(), getHandle(), i);
             return this;
         }
         return (V8Array) invokeI.objValue;

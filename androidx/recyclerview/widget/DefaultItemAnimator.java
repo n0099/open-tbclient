@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class DefaultItemAnimator extends SimpleItemAnimator {
     public static /* synthetic */ Interceptable $ic;
@@ -48,26 +47,26 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         public int toX;
         public int toY;
 
-        public MoveInfo(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
+        public MoveInfo(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {viewHolder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.holder = viewHolder;
-            this.fromX = i2;
-            this.fromY = i3;
-            this.toX = i4;
-            this.toY = i5;
+            this.fromX = i;
+            this.fromY = i2;
+            this.toX = i3;
+            this.toY = i4;
         }
     }
 
@@ -76,9 +75,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,9 +117,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, viewHolder, animate, view};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -226,9 +225,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, viewHolder, view, animate};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -271,29 +270,29 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5) {
+    public boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{viewHolder, viewHolder2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{viewHolder, viewHolder2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (viewHolder == viewHolder2) {
-                return animateMove(viewHolder, i2, i3, i4, i5);
+                return animateMove(viewHolder, i, i2, i3, i4);
             }
             float translationX = viewHolder.itemView.getTranslationX();
             float translationY = viewHolder.itemView.getTranslationY();
             float alpha = viewHolder.itemView.getAlpha();
             resetAnimation(viewHolder);
-            int i6 = (int) ((i4 - i2) - translationX);
-            int i7 = (int) ((i5 - i3) - translationY);
+            int i5 = (int) ((i3 - i) - translationX);
+            int i6 = (int) ((i4 - i2) - translationY);
             viewHolder.itemView.setTranslationX(translationX);
             viewHolder.itemView.setTranslationY(translationY);
             viewHolder.itemView.setAlpha(alpha);
             if (viewHolder2 != null) {
                 resetAnimation(viewHolder2);
-                viewHolder2.itemView.setTranslationX(-i6);
-                viewHolder2.itemView.setTranslationY(-i7);
+                viewHolder2.itemView.setTranslationX(-i5);
+                viewHolder2.itemView.setTranslationY(-i6);
                 viewHolder2.itemView.setAlpha(0.0f);
             }
-            this.mPendingChanges.add(new ChangeInfo(viewHolder, viewHolder2, i2, i3, i4, i5));
+            this.mPendingChanges.add(new ChangeInfo(viewHolder, viewHolder2, i, i2, i3, i4));
             return true;
         }
         return invokeCommon.booleanValue;
@@ -326,9 +325,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, changeInfo, duration, view};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -381,9 +380,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, changeInfo, animate, view2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -422,47 +421,47 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
     }
 
     @Override // androidx.recyclerview.widget.SimpleItemAnimator
-    public boolean animateMove(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
+    public boolean animateMove(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{viewHolder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             View view = viewHolder.itemView;
-            int translationX = i2 + ((int) view.getTranslationX());
-            int translationY = i3 + ((int) viewHolder.itemView.getTranslationY());
+            int translationX = i + ((int) view.getTranslationX());
+            int translationY = i2 + ((int) viewHolder.itemView.getTranslationY());
             resetAnimation(viewHolder);
-            int i6 = i4 - translationX;
-            int i7 = i5 - translationY;
-            if (i6 == 0 && i7 == 0) {
+            int i5 = i3 - translationX;
+            int i6 = i4 - translationY;
+            if (i5 == 0 && i6 == 0) {
                 dispatchMoveFinished(viewHolder);
                 return false;
             }
+            if (i5 != 0) {
+                view.setTranslationX(-i5);
+            }
             if (i6 != 0) {
-                view.setTranslationX(-i6);
+                view.setTranslationY(-i6);
             }
-            if (i7 != 0) {
-                view.setTranslationY(-i7);
-            }
-            this.mPendingMoves.add(new MoveInfo(viewHolder, translationX, translationY, i4, i5));
+            this.mPendingMoves.add(new MoveInfo(viewHolder, translationX, translationY, i3, i4));
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public void animateMoveImpl(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5) {
+    public void animateMoveImpl(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{viewHolder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{viewHolder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             View view = viewHolder.itemView;
+            int i5 = i3 - i;
             int i6 = i4 - i2;
-            int i7 = i5 - i3;
-            if (i6 != 0) {
+            if (i5 != 0) {
                 view.animate().translationX(0.0f);
             }
-            if (i7 != 0) {
+            if (i6 != 0) {
                 view.animate().translationY(0.0f);
             }
             ViewPropertyAnimator animate = view.animate();
             this.mMoveAnimations.add(viewHolder);
-            animate.setDuration(getMoveDuration()).setListener(new AnimatorListenerAdapter(this, viewHolder, i6, view, i7, animate) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.6
+            animate.setDuration(getMoveDuration()).setListener(new AnimatorListenerAdapter(this, viewHolder, i5, view, i6, animate) { // from class: androidx.recyclerview.widget.DefaultItemAnimator.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DefaultItemAnimator this$0;
@@ -477,11 +476,11 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, viewHolder, Integer.valueOf(i6), view, Integer.valueOf(i7), animate};
+                        Object[] objArr = {this, viewHolder, Integer.valueOf(i5), view, Integer.valueOf(i6), animate};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i8 = newInitContext.flag;
-                        if ((i8 & 1) != 0) {
-                            int i9 = i8 & 2;
+                        int i7 = newInitContext.flag;
+                        if ((i7 & 1) != 0) {
+                            int i8 = i7 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -489,9 +488,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     }
                     this.this$0 = this;
                     this.val$holder = viewHolder;
-                    this.val$deltaX = i6;
+                    this.val$deltaX = i5;
                     this.val$view = view;
-                    this.val$deltaY = i7;
+                    this.val$deltaY = i6;
                     this.val$animation = animate;
                 }
 
@@ -757,9 +756,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, arrayList};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -807,9 +806,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, arrayList2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -856,9 +855,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, arrayList3};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -909,9 +908,9 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {viewHolder, viewHolder2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -925,23 +924,23 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ChangeInfo{oldHolder=" + this.oldHolder + ", newHolder=" + this.newHolder + ", fromX=" + this.fromX + ", fromY=" + this.fromY + ", toX=" + this.toX + ", toY=" + this.toY + ExtendedMessageFormat.END_FE;
+                return "ChangeInfo{oldHolder=" + this.oldHolder + ", newHolder=" + this.newHolder + ", fromX=" + this.fromX + ", fromY=" + this.fromY + ", toX=" + this.toX + ", toY=" + this.toY + '}';
             }
             return (String) invokeV.objValue;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5) {
+        public ChangeInfo(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4) {
             this(viewHolder, viewHolder2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {viewHolder, viewHolder2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {viewHolder, viewHolder2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((RecyclerView.ViewHolder) objArr2[0], (RecyclerView.ViewHolder) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -949,10 +948,10 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
                     return;
                 }
             }
-            this.fromX = i2;
-            this.fromY = i3;
-            this.toX = i4;
-            this.toY = i5;
+            this.fromX = i;
+            this.fromY = i2;
+            this.toX = i3;
+            this.toY = i4;
         }
     }
 

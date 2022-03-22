@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -65,16 +66,16 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         TAG = AsyncUploadTask.class.getSimpleName();
     }
 
-    public AsyncUploadTask(Context context, int i2, String str, String str2, String str3, String str4, String str5, IUploadTransferListener iUploadTransferListener) {
+    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, IUploadTransferListener iUploadTransferListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2, str3, str4, str5, iUploadTransferListener};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, str4, str5, iUploadTransferListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -84,7 +85,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         this.mContext = context;
         this.mListener = iUploadTransferListener;
         this.mUrl = str;
-        this.mType = i2;
+        this.mType = i;
         this.mFilePath = str2;
         this.mContentType = str3;
         this.mAuthorization = str4;
@@ -93,16 +94,12 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private Integer doUpload() {
         InterceptResult invokeV;
-        int i2;
         long length;
         InputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65539, this)) != null) {
-            return (Integer) invokeV.objValue;
-        }
-        try {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             try {
-                long j2 = 0;
+                long j = 0;
                 if (Utility.isMediaUri(this.mFilePath)) {
                     fileInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     length = fileInputStream != null ? fileInputStream.available() : 0L;
@@ -117,14 +114,15 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (fileInputStream == null) {
                     return 1007;
                 }
-                LogUtils.d(TAG, "upload url is " + this.mUrl);
+                String str = TAG;
+                LogUtils.d(str, "upload url is " + this.mUrl);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.mUrl).openConnection();
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
+                httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
                 httpURLConnection.setRequestProperty("Content-type", this.mContentType);
                 httpURLConnection.setRequestProperty("Authorization", this.mAuthorization);
                 httpURLConnection.setRequestProperty(Headers.BCE_DATE, this.mXbcs);
@@ -137,51 +135,48 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                         break;
                     }
                     dataOutputStream.write(bArr, 0, read);
-                    j2 += read;
-                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j2 + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
-                    onProgressUpdate(Integer.valueOf((int) ((100 * j2) / length)));
-                    httpURLConnection = httpURLConnection;
+                    HttpURLConnection httpURLConnection2 = httpURLConnection;
+                    j += read;
+                    String str2 = TAG;
+                    LogUtils.d(str2, "write bytes:" + read + "  total:" + j + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
+                    onProgressUpdate(Integer.valueOf((int) ((100 * j) / length)));
+                    httpURLConnection = httpURLConnection2;
                 }
                 fileInputStream.close();
                 dataOutputStream.flush();
                 dataOutputStream.close();
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == 200) {
-                    LogUtils.i(TAG, "upload success " + responseCode);
+                    String str3 = TAG;
+                    LogUtils.i(str3, "upload success " + responseCode);
                     return 0;
                 }
-                LogUtils.e(TAG, "upload failure " + responseCode);
-                i2 = 1008;
-                try {
-                    return 1008;
-                } catch (MalformedURLException e2) {
-                    e = e2;
-                    String str = "MalformedURLException:" + e;
-                    return Integer.valueOf(i2);
-                } catch (ProtocolException e3) {
-                    e = e3;
-                    String str2 = "ProtocolException:" + e;
-                    return Integer.valueOf(i2);
-                }
+                String str4 = TAG;
+                LogUtils.e(str4, "upload failure " + responseCode);
+                return 1008;
+            } catch (MalformedURLException e2) {
+                String str5 = TAG;
+                Log.e(str5, "MalformedURLException:" + e2);
+                return 1008;
+            } catch (ProtocolException e3) {
+                String str6 = TAG;
+                Log.e(str6, "ProtocolException:" + e3);
+                return 1008;
             } catch (IOException e4) {
-                String str3 = "IOException:" + e4;
+                String str7 = TAG;
+                Log.e(str7, "IOException:" + e4);
                 return 1008;
             }
-        } catch (MalformedURLException e5) {
-            e = e5;
-            i2 = 1008;
-        } catch (ProtocolException e6) {
-            e = e6;
-            i2 = 1008;
         }
+        return (Integer) invokeV.objValue;
     }
 
-    private void notifyFailed(int i2) {
+    private void notifyFailed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
             try {
                 if (this.mListener != null) {
-                    this.mListener.onFailed(i2, this.mType, this.mFilePath);
+                    this.mListener.onFailed(i, this.mType, this.mFilePath);
                 }
             } catch (Exception e2) {
                 LogUtils.e(TAG, "notifyFailed", e2);
@@ -249,17 +244,17 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AsyncUploadTask(Context context, int i2, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
-        this(context, i2, str, str3, str4, str5, str6, iUploadTransferListener);
+    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
+        this(context, i, str, str3, str4, str5, str6, iUploadTransferListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2, str3, str4, str5, str6, iUploadTransferListener};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, str4, str5, str6, iUploadTransferListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (IUploadTransferListener) objArr2[7]);
                 newInitContext.thisArg = this;

@@ -1,0 +1,256 @@
+package c.a.p0.n0.e;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt___StringsKt;
+/* loaded from: classes2.dex */
+public final class b implements Comparable<b> {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a p;
+    public static final b q;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final long f16446b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final String f16447c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public CharSequence f16448d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int f16449e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int f16450f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final int f16451g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final int f16452h;
+    public final int i;
+    public final int j;
+    public Long k;
+    public PostData l;
+    public int m;
+    public float n;
+    public float o;
+
+    /* loaded from: classes2.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final b b(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new b(Long.MIN_VALUE, j, "", "", 0, 0, 0, 0, 0, 0, null, null, 0, 0.0f, 16256, null) : (b) invokeJ.objValue;
+        }
+
+        public final b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.q : (b) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-550779641, "Lc/a/p0/n0/e/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-550779641, "Lc/a/p0/n0/e/b;");
+                return;
+            }
+        }
+        a aVar = new a(null);
+        p = aVar;
+        q = aVar.b(Long.MAX_VALUE);
+    }
+
+    public b(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, PostData postData, int i7, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), content, contentSpan, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), l, postData, Integer.valueOf(i7), Float.valueOf(f2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(content, "content");
+        Intrinsics.checkNotNullParameter(contentSpan, "contentSpan");
+        Intrinsics.checkNotNullParameter(postData, "postData");
+        this.a = j;
+        this.f16446b = j2;
+        this.f16447c = content;
+        this.f16448d = contentSpan;
+        this.f16449e = i;
+        this.f16450f = i2;
+        this.f16451g = i3;
+        this.f16452h = i4;
+        this.i = i5;
+        this.j = i6;
+        this.k = l;
+        this.l = postData;
+        this.m = i7;
+        this.n = f2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(b other) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            return (int) (this.f16446b - other.f16446b);
+        }
+        return invokeL.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16447c : (String) invokeV.objValue;
+    }
+
+    public final CharSequence d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16448d : (CharSequence) invokeV.objValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.o : invokeV.floatValue;
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public final float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.n : invokeV.floatValue;
+    }
+
+    public final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f16449e : invokeV.intValue;
+    }
+
+    public final long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f16446b : invokeV.longValue;
+    }
+
+    public final PostData l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : (PostData) invokeV.objValue;
+    }
+
+    public final int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f16451g : invokeV.intValue;
+    }
+
+    public final int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f16450f : invokeV.intValue;
+    }
+
+    public final Long o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.k : (Long) invokeV.objValue;
+    }
+
+    public final boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f16452h > 0 : invokeV.booleanValue;
+    }
+
+    public final void q(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
+            this.o = f2;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return "Danmaku{id: " + this.a + ", content: " + StringsKt___StringsKt.take(this.f16447c, 5) + ", position: " + this.f16446b + ", mode: " + this.f16449e + ", rank: " + this.j + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ b(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, PostData postData, int i7, float f2, int i8, DefaultConstructorMarker defaultConstructorMarker) {
+        this(j, j2, str, charSequence, i, i2, i3, (i8 & 128) != 0 ? 0 : i4, (i8 & 256) != 0 ? 1 : i5, (i8 & 512) != 0 ? 0 : i6, (i8 & 1024) != 0 ? null : l, (i8 & 2048) != 0 ? new PostData() : postData, (i8 & 4096) != 0 ? 0 : i7, (i8 & 8192) != 0 ? 0.0f : f2);
+    }
+}

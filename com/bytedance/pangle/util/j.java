@@ -12,12 +12,12 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f51767b;
+    public static volatile j f38188b;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
@@ -26,9 +26,9 @@ public class j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,14 +42,14 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f51767b == null) {
+            if (f38188b == null) {
                 synchronized (j.class) {
-                    if (f51767b == null) {
-                        f51767b = new j();
+                    if (f38188b == null) {
+                        f38188b = new j();
                     }
                 }
             }
-            return f51767b;
+            return f38188b;
         }
         return (j) invokeV.objValue;
     }
@@ -58,9 +58,9 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f51712b.getHostVersionCode() + "_" + str, true);
+            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f38133b.getHostVersionCode() + "_" + str, true);
             edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f51712b.getHostVersionCode());
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f38133b.getHostVersionCode());
         }
     }
 
@@ -68,9 +68,9 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             SharedPreferences.Editor edit = this.a.edit();
-            edit.remove("OFFLINE__" + com.bytedance.pangle.g.a().f51712b.getHostVersionCode() + "_" + str);
+            edit.remove("OFFLINE__" + com.bytedance.pangle.g.a().f38133b.getHostVersionCode() + "_" + str);
             edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f51712b.getHostVersionCode());
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f38133b.getHostVersionCode());
         }
     }
 
@@ -78,7 +78,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f51712b.getHostVersionCode() + "_" + str, false);
+            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f38133b.getHostVersionCode() + "_" + str, false);
         }
         return invokeL.booleanValue;
     }
@@ -97,18 +97,18 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int i2 = this.a.getInt("PLUGIN_API_VERSION_".concat(String.valueOf(str)), 0);
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getPluginApiVersion pluginPKg = " + str + ", pluginApiVersion = " + i2);
-            return i2;
+            int i = this.a.getInt("PLUGIN_API_VERSION_".concat(String.valueOf(str)), 0);
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getPluginApiVersion pluginPKg = " + str + ", pluginApiVersion = " + i);
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public final void a(String str, int i2, boolean z) {
+    public final void a(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             SharedPreferences.Editor edit = this.a.edit();
-            String str2 = "INSTALLED_" + str + "-" + i2;
+            String str2 = "INSTALLED_" + str + "-" + i;
             if (z) {
                 edit.putBoolean(str2, true);
             } else {
@@ -118,9 +118,9 @@ public class j {
         }
     }
 
-    public final boolean a(String str, int i2) {
+    public final boolean a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i2)), false) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i)), false) : invokeLI.booleanValue;
     }
 }

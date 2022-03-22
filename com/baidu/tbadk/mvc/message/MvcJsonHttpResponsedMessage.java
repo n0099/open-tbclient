@@ -3,10 +3,10 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import c.a.d.f.d.l;
 import c.a.d.f.j.b.f;
-import c.a.q0.k0.b.d;
-import c.a.q0.k0.b.e;
-import c.a.q0.k0.b.h;
-import c.a.q0.r.s.a;
+import c.a.o0.k0.b.d;
+import c.a.o0.k0.b.e;
+import c.a.o0.k0.b.h;
+import c.a.o0.r.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,17 +26,17 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MvcJsonHttpResponsedMessage(int i2) {
-        super(i2);
+    public MvcJsonHttpResponsedMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,9 +45,9 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
         }
     }
 
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i2, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
             if (createData instanceof h) {
                 D d2 = (D) createData;
@@ -58,10 +58,10 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i2, f fVar) {
+    public void logStatInBackground(int i, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, fVar) == null) {
-            super.logStatInBackground(i2, fVar);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, fVar) == null) {
+            super.logStatInBackground(i, fVar);
             TiebaStatic.netJson(fVar, getError(), getErrorString());
         }
     }
@@ -84,7 +84,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0598));
                     } else if (getError() != 0) {
                         setErrorString(errorData.getError_msg());
                     }
@@ -93,7 +93,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     e = e3;
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0598));
                     return jSONObject2;
                 }
             }
@@ -104,30 +104,30 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            super.afterDispatchInBackGround(i2, (int) bArr);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
                 if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof d)) {
                     d dVar = (d) mvcHttpMessage.getRequestData();
                     String cacheKey = dVar.getCacheKey();
-                    String v = dVar.v();
+                    String x = dVar.x();
                     String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                    if (cacheKey == null || TextUtils.isEmpty(v) || bArr == null) {
+                    if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
                         return;
                     }
-                    if (dVar.l()) {
+                    if (dVar.n()) {
                         a.f();
-                        l<byte[]> e2 = a.e(v, currentAccount);
+                        l<byte[]> e2 = a.e(x, currentAccount);
                         if (e2 == null) {
                             return;
                         }
                         e2.g(cacheKey, bArr);
                     } else if (mvcHttpMessage.getRequestData() instanceof e) {
                         a.f();
-                        l<String> h2 = a.h(v, currentAccount);
+                        l<String> h2 = a.h(x, currentAccount);
                         if (h2 == null) {
                             return;
                         }
@@ -144,11 +144,11 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public final void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String parseToString = parseToString(bArr);
-            decodeLogicInBackGround(i2, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
+            decodeLogicInBackGround(i, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
         }
     }
 }

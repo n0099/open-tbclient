@@ -24,21 +24,21 @@ public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_VALUE = 8;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36128d = "pass_face_sdk";
+    public static final String f27894d = "pass_face_sdk";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36129e = "illum_gray";
+    public static final String f27895e = "illum_gray";
 
     /* renamed from: f  reason: collision with root package name */
-    public static LocalConfigOptions f36130f;
+    public static LocalConfigOptions f27896f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f36131b;
+    public SharedPreferences f27897b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36132c;
+    public Context f27898c;
 
     public LocalConfigOptions(Context context) {
         Interceptable interceptable = $ic;
@@ -47,32 +47,32 @@ public class LocalConfigOptions {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36132c = context.getApplicationContext();
-        this.f36131b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
+        this.f27898c = context.getApplicationContext();
+        this.f27897b = context.getApplicationContext().getSharedPreferences("bio_pass_face_system", 0);
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f36131b.getString(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f27897b.getString(str, "") : (String) invokeL.objValue;
     }
 
     public static LocalConfigOptions getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f36130f == null) {
-                f36130f = new LocalConfigOptions(context);
+            if (f27896f == null) {
+                f27896f = new LocalConfigOptions(context);
             }
-            return f36130f;
+            return f27896f;
         }
         return (LocalConfigOptions) invokeL.objValue;
     }
@@ -81,9 +81,9 @@ public class LocalConfigOptions {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = a(f36128d);
+            String a = a(f27894d);
             if (!TextUtils.isEmpty(a)) {
-                String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a, a(this.f36132c));
+                String decryptAccountInfo = PassBioDataEncryptor.decryptAccountInfo(a, a(this.f27898c));
                 if (!TextUtils.isEmpty(decryptAccountInfo)) {
                     try {
                         return SdkConfigOptions.fromLocalJson(new JSONObject(decryptAccountInfo));
@@ -100,19 +100,19 @@ public class LocalConfigOptions {
     public int getIllumVlaueGray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getInt(f36129e, -1) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getInt(f27895e, -1) : invokeV.intValue;
     }
 
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.f36131b.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.f27897b.getInt(str, i) : invokeLI.intValue;
     }
 
-    public void put(String str, int i2) {
+    public void put(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            this.f36131b.edit().putInt(str, i2).apply();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            this.f27897b.edit().putInt(str, i).apply();
         }
     }
 
@@ -122,20 +122,20 @@ public class LocalConfigOptions {
             return;
         }
         Log.e("actions-setBioOptions", sdkConfigOptions);
-        a(f36128d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f36132c)));
+        a(f27894d, PassBioDataEncryptor.encryptAccountInfo(sdkConfigOptions.toJSON().toString(), a(this.f27898c)));
     }
 
-    public void setIllumValueGray(int i2) {
+    public void setIllumValueGray(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            put(f36129e, i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            put(f27895e, i);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
-            this.f36131b.edit().putString(str, str2).apply();
+            this.f27897b.edit().putString(str, str2).apply();
         }
     }
 

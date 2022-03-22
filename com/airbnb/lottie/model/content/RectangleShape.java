@@ -8,7 +8,6 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatablePointValue;
 import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class RectangleShape implements ContentModel {
     public final AnimatableFloatValue cornerRadius;
@@ -51,6 +50,6 @@ public class RectangleShape implements ContentModel {
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.position + ", size=" + this.size + ExtendedMessageFormat.END_FE;
+        return "RectangleShape{position=" + this.position + ", size=" + this.size + '}';
     }
 }

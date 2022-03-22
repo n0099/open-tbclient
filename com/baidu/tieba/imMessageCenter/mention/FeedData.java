@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.k0.b.a;
+import c.a.o0.k0.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -66,9 +66,9 @@ public class FeedData implements Serializable, a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -285,9 +285,9 @@ public class FeedData implements Serializable, a {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("liker_list");
                 if (optJSONArray != null) {
                     this.mPraiseList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
                         LikeData likeData = new LikeData();
-                        likeData.parserJson(optJSONArray.optJSONObject(i2));
+                        likeData.parserJson(optJSONArray.optJSONObject(i));
                         this.mPraiseList.add(likeData);
                     }
                 }
@@ -334,9 +334,9 @@ public class FeedData implements Serializable, a {
             List<User> list = zan.liker_list;
             if (list != null) {
                 this.mPraiseList = new ArrayList();
-                for (int i2 = 0; i2 < list.size(); i2++) {
+                for (int i = 0; i < list.size(); i++) {
                     LikeData likeData = new LikeData();
-                    likeData.parserProtoBuf(list.get(i2));
+                    likeData.parserProtoBuf(list.get(i));
                     this.mPraiseList.add(likeData);
                 }
             }
@@ -384,7 +384,7 @@ public class FeedData implements Serializable, a {
                 jSONObject.put("thread_type", this.thread_type);
                 jSONObject.put("v_forum_id", this.fromForumId);
                 jSONObject.put("hide_fname", this.hideForumName);
-                int i2 = 1;
+                int i = 1;
                 jSONObject.put("is_story", this.mIsStory ? 1 : 0);
                 jSONObject.put("post_from", this.postFrom);
                 JSONObject jSONObject2 = new JSONObject();
@@ -406,12 +406,12 @@ public class FeedData implements Serializable, a {
                 jSONObject4.put("gender", this.quote_user.getGender());
                 jSONObject.put("quote_user", jSONObject4);
                 if (!this.mIsShareThread) {
-                    i2 = 0;
+                    i = 0;
                 }
-                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i2);
+                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, i);
                 if (this.mOriginalThreadInfo != null) {
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("title", this.mOriginalThreadInfo.f38794g);
+                    jSONObject5.put("title", this.mOriginalThreadInfo.f29827g);
                     jSONObject.put("origin_thread_info", jSONObject5);
                 }
                 jSONArray.put(jSONObject);

@@ -83,12 +83,12 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class HttpStatusException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "http status code error:";
@@ -103,9 +103,9 @@ public class HttpUtils {
                 newInitContext.initArgs = objArr;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -115,7 +115,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class NetworkUnavailableException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_INFO = "network unavailable";
@@ -130,9 +130,9 @@ public class HttpUtils {
                 newInitContext.initArgs = objArr;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -142,32 +142,32 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f59144b;
+        public final int f43781b;
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = objArr;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f59144b = i2;
+            this.f43781b = i;
         }
     }
 
@@ -176,9 +176,9 @@ public class HttpUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -218,14 +218,14 @@ public class HttpUtils {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            int i2 = -1;
+            int i = -1;
             int size = bundle.size();
             for (String str2 : bundle.keySet()) {
-                i2++;
+                i++;
                 Object obj = bundle.get(str2);
                 if (obj instanceof String) {
                     sb.append("Content-Disposition: form-data; name=\"" + str2 + "\"\r\n\r\n" + ((String) obj));
-                    if (i2 < size - 1) {
+                    if (i < size - 1) {
                         sb.append("\r\n--" + str + "\r\n");
                     }
                 }
@@ -256,11 +256,11 @@ public class HttpUtils {
                         sb.append(URLEncoder.encode(str) + "=");
                         String[] stringArray = bundle.getStringArray(str);
                         if (stringArray != null) {
-                            for (int i2 = 0; i2 < stringArray.length; i2++) {
-                                if (i2 == 0) {
-                                    sb.append(URLEncoder.encode(stringArray[i2]));
+                            for (int i = 0; i < stringArray.length; i++) {
+                                if (i == 0) {
+                                    sb.append(URLEncoder.encode(stringArray[i]));
                                 } else {
-                                    sb.append(URLEncoder.encode("," + stringArray[i2]));
+                                    sb.append(URLEncoder.encode("," + stringArray[i]));
                                 }
                             }
                         }
@@ -401,7 +401,7 @@ public class HttpUtils {
 
     public static HttpClient getHttpClient(Context context, String str, String str2) {
         InterceptResult invokeLLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, str2)) == null) {
             SchemeRegistry schemeRegistry = new SchemeRegistry();
@@ -419,28 +419,28 @@ public class HttpUtils {
             }
             BasicHttpParams basicHttpParams = new BasicHttpParams();
             g a2 = context != null ? g.a(context, str) : null;
-            int i3 = 0;
+            int i2 = 0;
             if (a2 != null) {
-                i3 = a2.a("Common_HttpConnectionTimeout");
-                i2 = a2.a("Common_SocketConnectionTimeout");
+                i2 = a2.a("Common_HttpConnectionTimeout");
+                i = a2.a("Common_SocketConnectionTimeout");
             } else {
-                i2 = 0;
-            }
-            if (i3 == 0) {
-                i3 = 15000;
+                i = 0;
             }
             if (i2 == 0) {
-                i2 = 30000;
+                i2 = 15000;
             }
-            HttpConnectionParams.setConnectionTimeout(basicHttpParams, i3);
-            HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
+            if (i == 0) {
+                i = 30000;
+            }
+            HttpConnectionParams.setConnectionTimeout(basicHttpParams, i2);
+            HttpConnectionParams.setSoTimeout(basicHttpParams, i);
             HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
             HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
             HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + "_" + Build.DEVICE + "_" + Build.VERSION.RELEASE);
             DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
             a proxy = getProxy(context);
             if (proxy != null) {
-                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.a, proxy.f59144b));
+                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.a, proxy.f43781b));
             }
             return defaultHttpClient;
         }
@@ -485,11 +485,11 @@ public class HttpUtils {
             bundle2.remove("appid_for_getting_config");
             HttpClient httpClient = getHttpClient(context, string, str);
             HttpGet httpGet = null;
-            int i2 = 0;
-            int i3 = -1;
+            int i = 0;
+            int i2 = -1;
             if (str2.equals("GET")) {
                 String encodeUrl = encodeUrl(bundle2);
-                i2 = 0 + encodeUrl.length();
+                i = 0 + encodeUrl.length();
                 SLog.v("openSDK_LOG.HttpUtils", "-->openUrl2 before url =" + str);
                 String str3 = str.indexOf("?") == -1 ? str + "?" : str + "&";
                 if (com.tencent.open.log.d.b(bundle2) != bundle2) {
@@ -522,21 +522,21 @@ public class HttpUtils {
                     int size = bundle3.size();
                     byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                     for (String str5 : bundle3.keySet()) {
-                        i3++;
+                        i2++;
                         byteArrayOutputStream.write(l.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"\r\n"));
                         byteArrayOutputStream.write(l.i("Content-Type: content/unknown\r\n\r\n"));
                         byte[] byteArray = bundle3.getByteArray(str5);
                         if (byteArray != null) {
                             byteArrayOutputStream.write(byteArray);
                         }
-                        if (i3 < size - 1) {
+                        if (i2 < size - 1) {
                             byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                         }
                     }
                 }
                 byteArrayOutputStream.write(l.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
                 byte[] byteArray2 = byteArrayOutputStream.toByteArray();
-                i2 = 0 + byteArray2.length;
+                i = 0 + byteArray2.length;
                 byteArrayOutputStream.close();
                 httpPost.setEntity(new ByteArrayEntity(byteArray2));
                 httpGet = httpPost;
@@ -545,7 +545,7 @@ public class HttpUtils {
             int statusCode = execute.getStatusLine().getStatusCode();
             SLog.i("openSDK_LOG.HttpUtils", "-->openUrl2 response cdoe =" + statusCode);
             if (statusCode == 200) {
-                return new l.a(a(execute), i2);
+                return new l.a(a(execute), i);
             }
             throw new HttpStatusException(HttpStatusException.ERROR_INFO + statusCode);
         }
@@ -685,8 +685,8 @@ public class HttpUtils {
         Ld5:
             r13 = -4
         Ld6:
-            long r14 = r0.f59175b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            long r0 = r0.f59176c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r14 = r0.f43812b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r0 = r0.f43813c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             r9 = r0
             r0 = r3
             r11 = r13
@@ -808,19 +808,19 @@ public class HttpUtils {
                 public final /* synthetic */ QQToken a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f59139b;
+                public final /* synthetic */ Context f43776b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f59140c;
+                public final /* synthetic */ String f43777c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Bundle f59141d;
+                public final /* synthetic */ Bundle f43778d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f59142e;
+                public final /* synthetic */ String f43779e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ IRequestListener f59143f;
+                public final /* synthetic */ IRequestListener f43780f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -829,20 +829,20 @@ public class HttpUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {qQToken, context, str, bundle, str2, iRequestListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.a = qQToken;
-                    this.f59139b = context;
-                    this.f59140c = str;
-                    this.f59141d = bundle;
-                    this.f59142e = str2;
-                    this.f59143f = iRequestListener;
+                    this.f43776b = context;
+                    this.f43777c = str;
+                    this.f43778d = bundle;
+                    this.f43779e = str2;
+                    this.f43780f = iRequestListener;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -850,55 +850,55 @@ public class HttpUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            JSONObject request = HttpUtils.request(this.a, this.f59139b, this.f59140c, this.f59141d, this.f59142e);
-                            if (this.f59143f != null) {
-                                this.f59143f.onComplete(request);
+                            JSONObject request = HttpUtils.request(this.a, this.f43776b, this.f43777c, this.f43778d, this.f43779e);
+                            if (this.f43780f != null) {
+                                this.f43780f.onComplete(request);
                                 SLog.i("openSDK_LOG.HttpUtils", "OpenApi onComplete");
                             }
                         } catch (HttpStatusException e2) {
-                            IRequestListener iRequestListener2 = this.f59143f;
+                            IRequestListener iRequestListener2 = this.f43780f;
                             if (iRequestListener2 != null) {
                                 iRequestListener2.onHttpStatusException(e2);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onHttpStatusException" + e2.toString());
                             }
                         } catch (NetworkUnavailableException e3) {
-                            IRequestListener iRequestListener3 = this.f59143f;
+                            IRequestListener iRequestListener3 = this.f43780f;
                             if (iRequestListener3 != null) {
                                 iRequestListener3.onNetworkUnavailableException(e3);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onNetworkUnavailableException" + e3.toString());
                             }
                         } catch (MalformedURLException e4) {
-                            IRequestListener iRequestListener4 = this.f59143f;
+                            IRequestListener iRequestListener4 = this.f43780f;
                             if (iRequestListener4 != null) {
                                 iRequestListener4.onMalformedURLException(e4);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync MalformedURLException" + e4.toString());
                             }
                         } catch (SocketTimeoutException e5) {
-                            IRequestListener iRequestListener5 = this.f59143f;
+                            IRequestListener iRequestListener5 = this.f43780f;
                             if (iRequestListener5 != null) {
                                 iRequestListener5.onSocketTimeoutException(e5);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onSocketTimeoutException" + e5.toString());
                             }
                         } catch (ConnectTimeoutException e6) {
-                            IRequestListener iRequestListener6 = this.f59143f;
+                            IRequestListener iRequestListener6 = this.f43780f;
                             if (iRequestListener6 != null) {
                                 iRequestListener6.onConnectTimeoutException(e6);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onConnectTimeoutException" + e6.toString());
                             }
                         } catch (IOException e7) {
-                            IRequestListener iRequestListener7 = this.f59143f;
+                            IRequestListener iRequestListener7 = this.f43780f;
                             if (iRequestListener7 != null) {
                                 iRequestListener7.onIOException(e7);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync IOException" + e7.toString());
                             }
                         } catch (JSONException e8) {
-                            IRequestListener iRequestListener8 = this.f59143f;
+                            IRequestListener iRequestListener8 = this.f43780f;
                             if (iRequestListener8 != null) {
                                 iRequestListener8.onJSONException(e8);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync JSONException" + e8.toString());
                             }
                         } catch (Exception e9) {
-                            IRequestListener iRequestListener9 = this.f59143f;
+                            IRequestListener iRequestListener9 = this.f43780f;
                             if (iRequestListener9 != null) {
                                 iRequestListener9.onUnknowException(e9);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onUnknowException" + e9.toString());

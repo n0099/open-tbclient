@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.BiPredicate;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final BiPredicate<Object, Object> EQUALS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public final class ObjectHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -63,9 +63,9 @@ public final class ObjectHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -74,27 +74,27 @@ public final class ObjectHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static int compare(int i2, int i3) {
+    public static int compare(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            if (i2 < i3) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            if (i < i2) {
                 return -1;
             }
-            return i2 > i3 ? 1 : 0;
+            return i > i2 ? 1 : 0;
         }
         return invokeII.intValue;
     }
 
-    public static int compare(long j2, long j3) {
+    public static int compare(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-            if (i2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (i < 0) {
                 return -1;
             }
-            return i2 > 0 ? 1 : 0;
+            return i > 0 ? 1 : 0;
         }
         return invokeCommon.intValue;
     }
@@ -135,26 +135,26 @@ public final class ObjectHelper {
         return (T) invokeLL.objValue;
     }
 
-    public static int verifyPositive(int i2, String str) {
+    public static int verifyPositive(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, str)) == null) {
-            if (i2 > 0) {
-                return i2;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            if (i > 0) {
+                return i;
             }
-            throw new IllegalArgumentException(str + " > 0 required but it was " + i2);
+            throw new IllegalArgumentException(str + " > 0 required but it was " + i);
         }
         return invokeIL.intValue;
     }
 
-    public static long verifyPositive(long j2, String str) {
+    public static long verifyPositive(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65545, null, j2, str)) == null) {
-            if (j2 > 0) {
-                return j2;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65545, null, j, str)) == null) {
+            if (j > 0) {
+                return j;
             }
-            throw new IllegalArgumentException(str + " > 0 required but it was " + j2);
+            throw new IllegalArgumentException(str + " > 0 required but it was " + j);
         }
         return invokeJL.longValue;
     }

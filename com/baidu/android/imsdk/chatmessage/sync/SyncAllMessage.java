@@ -44,9 +44,9 @@ public class SyncAllMessage extends SyncStrategy {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -83,13 +83,13 @@ public class SyncAllMessage extends SyncStrategy {
         return (SyncAllMessage) invokeL.objValue;
     }
 
-    private void setDeviceMaxNotifyMsgid(long j2) {
+    private void setDeviceMaxNotifyMsgid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             String str = TAG;
-            LogUtils.d(str, "deal setDeviceMaxNotifyMsgid:" + j2);
-            if (j2 > this.mMaxMsgid) {
-                this.mMaxMsgid = j2;
+            LogUtils.d(str, "deal setDeviceMaxNotifyMsgid:" + j);
+            if (j > this.mMaxMsgid) {
+                this.mMaxMsgid = j;
             }
         }
     }
@@ -139,16 +139,16 @@ public class SyncAllMessage extends SyncStrategy {
 
     public int getState() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.mState == 1 && ((i2 = this.mTriggerReason) == 0 || i2 == 1)) ? 0 : 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (this.mState == 1 && ((i = this.mTriggerReason) == 0 || i == 1)) ? 0 : 1 : invokeV.intValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i2) {
+    public void onComplete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            super.onComplete(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.onComplete(i);
         }
     }
 
@@ -162,12 +162,12 @@ public class SyncAllMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void updateData(Context context, long j2) {
+    public void updateData(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) || j <= 0) {
             return;
         }
-        setDeviceMaxNotifyMsgid(j2);
+        setDeviceMaxNotifyMsgid(j);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy

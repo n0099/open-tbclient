@@ -17,18 +17,17 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.core.permission.BdPermissionActivity;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdUploadHandler implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_MIME_TYPE = "audio/*";
@@ -49,13 +48,11 @@ public class BdUploadHandler implements INoProGuard {
     public ValueCallback<Uri> mUploadMessage;
     public ValueCallback<Uri[]> mUploadMessage1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f31692e;
+        public final /* synthetic */ BdUploadHandler a;
 
         public a(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -64,44 +61,42 @@ public class BdUploadHandler implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdUploadHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31692e = bdUploadHandler;
+            this.a = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-        public final void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 4099) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
                 boolean z = iArr.length != 0;
-                for (int i3 : iArr) {
-                    if (i3 == -1) {
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
                         z = false;
                     }
                 }
                 if (z) {
-                    Intent createCameraIntentAfterCheckPermission = this.f31692e.createCameraIntentAfterCheckPermission();
-                    this.f31692e.mCanHandleResult = true;
-                    this.f31692e.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
+                    Intent createCameraIntentAfterCheckPermission = this.a.createCameraIntentAfterCheckPermission();
+                    this.a.mCanHandleResult = true;
+                    this.a.startActivityForResult(createCameraIntentAfterCheckPermission, 11);
                 }
                 c.a.k.a.j.a.b().d(4099);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements ActivityCompat.OnRequestPermissionsResultCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdUploadHandler f31693e;
+        public final /* synthetic */ BdUploadHandler a;
 
         public b(BdUploadHandler bdUploadHandler) {
             Interceptable interceptable = $ic;
@@ -110,30 +105,30 @@ public class BdUploadHandler implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdUploadHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31693e = bdUploadHandler;
+            this.a = bdUploadHandler;
         }
 
         @Override // com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-        public final void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 4099) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
                 boolean z = iArr.length != 0;
-                for (int i3 : iArr) {
-                    if (i3 == -1) {
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
                         z = false;
                     }
                 }
                 if (z) {
-                    this.f31693e.mCanHandleResult = true;
-                    this.f31693e.mActivity.startActivityForResult(this.f31693e.createCamcorderIntent(), 11);
+                    this.a.mCanHandleResult = true;
+                    this.a.mActivity.startActivityForResult(this.a.createCamcorderIntent(), 11);
                 }
                 c.a.k.a.j.a.b().d(4099);
             }
@@ -147,9 +142,9 @@ public class BdUploadHandler implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -169,7 +164,7 @@ public class BdUploadHandler implements INoProGuard {
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
-            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
+            intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
             c.a.k.a.j.a.b().a(4099, new b(this));
             return intent;
         }
@@ -188,7 +183,7 @@ public class BdUploadHandler implements INoProGuard {
                 File externalFilesDir = WebKitFactory.getContext().getExternalFilesDir(Environment.DIRECTORY_DCIM);
                 File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "browser-photos");
                 file.mkdirs();
-                this.mCameraFilePath = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                this.mCameraFilePath = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
                 if (Build.VERSION.SDK_INT >= 24) {
                     ContentValues contentValues = new ContentValues(1);
                     contentValues.put("_data", this.mCameraFilePath);
@@ -212,7 +207,7 @@ public class BdUploadHandler implements INoProGuard {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, intentArr)) == null) {
             Intent intent = new Intent("android.intent.action.CHOOSER");
             intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.c("string", "sailor_choose_upload")));
+            intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.c(EMABTest.TYPE_STRING, "sailor_choose_upload")));
             return intent;
         }
         return (Intent) invokeL.objValue;
@@ -247,7 +242,7 @@ public class BdUploadHandler implements INoProGuard {
             }
             Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
             intent.putExtra("request_code", 4099);
-            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"});
+            intent.putExtra("permissions", new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"});
             c.a.k.a.j.a.b().a(4099, new a(this));
             return intent;
         }
@@ -324,27 +319,27 @@ public class BdUploadHandler implements INoProGuard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onResult(int i2, Intent intent) {
+    public void onResult(int i, Intent intent) {
         Uri uri;
         File file;
         Uri fromFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, intent) == null) {
             try {
                 if (this.mCanHandleResult) {
                     this.mCanHandleResult = false;
                     return;
                 }
-                if (i2 == -1 && intent == null && this.mCameraFilePath == null) {
-                    i2 = 0;
+                if (i == -1 && intent == null && this.mCameraFilePath == null) {
+                    i = 0;
                 }
-                if (i2 == 0 && this.mCaughtActivityNotFoundException) {
+                if (i == 0 && this.mCaughtActivityNotFoundException) {
                     this.mCaughtActivityNotFoundException = false;
                     return;
                 }
-                if (intent != null && i2 == -1) {
+                if (intent != null && i == -1) {
                     uri = intent.getData();
-                    if (uri == null && ((intent == null || intent.getData() == null) && i2 == -1)) {
+                    if (uri == null && ((intent == null || intent.getData() == null) && i == -1)) {
                         file = new File(this.mCameraFilePath);
                         if (file.exists()) {
                             if (Build.VERSION.SDK_INT >= 24) {
@@ -546,17 +541,17 @@ public class BdUploadHandler implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
-    public boolean startActivityForResult(Intent intent, int i2) {
+    public boolean startActivityForResult(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, intent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, intent, i)) == null) {
             try {
-                this.mActivity.startActivityForResult(intent, i2);
+                this.mActivity.startActivityForResult(intent, i);
                 return true;
             } catch (ActivityNotFoundException e2) {
                 try {
                     this.mCaughtActivityNotFoundException = true;
-                    this.mActivity.startActivityForResult(createDefaultOpenableIntent(), i2);
+                    this.mActivity.startActivityForResult(createDefaultOpenableIntent(), i);
                     return true;
                 } catch (ActivityNotFoundException unused) {
                     Log.printStackTrace(e2);

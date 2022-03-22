@@ -50,9 +50,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newUserGuideActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +65,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void a(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, interestFrsData) == null) {
-                this.a.mNewUserGuideModel.C(false);
-                this.a.mNewUserGuideModel.B(interestFrsData);
-                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.a.mViewPager.getAdapter()).getItem(1)).setData(interestFrsData);
+                this.a.mNewUserGuideModel.E(false);
+                this.a.mNewUserGuideModel.D(interestFrsData);
+                ((NewUserGuideMainFragment) ((FragmentPagerAdapter) this.a.mViewPager.getAdapter()).getItem(1)).K0(interestFrsData);
             }
         }
 
@@ -75,9 +75,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         public void b(InterestFrsData interestFrsData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) {
-                this.a.mNewUserGuideModel.C(true);
-                this.a.mNewUserGuideModel.B(null);
-                this.a.showToast(R.string.neterror);
+                this.a.mNewUserGuideModel.E(true);
+                this.a.mNewUserGuideModel.D(null);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
             }
         }
     }
@@ -86,9 +86,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideActivity f46917e;
+        public final /* synthetic */ NewUserGuideActivity a;
 
         public b(NewUserGuideActivity newUserGuideActivity) {
             Interceptable interceptable = $ic;
@@ -97,43 +95,43 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newUserGuideActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46917e = newUserGuideActivity;
+            this.a = newUserGuideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i2) {
+        public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.f46917e.mViewPager.getAdapter()).getItem(0);
-                if (i2 == 0) {
-                    newUserGuideIntroduceFragment.startGoOnAnim();
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                NewUserGuideIntroduceFragment newUserGuideIntroduceFragment = (NewUserGuideIntroduceFragment) ((FragmentPagerAdapter) this.a.mViewPager.getAdapter()).getItem(0);
+                if (i == 0) {
+                    newUserGuideIntroduceFragment.G0();
                 } else {
-                    newUserGuideIntroduceFragment.stopGoOnAnim();
+                    newUserGuideIntroduceFragment.I0();
                 }
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i2, float f2, int i3) {
+        public void onPageScrolled(int i, float f2, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) && this.f46917e.mNewUserGuideModel.z() && i2 == 0 && f2 > 0.0f) {
-                this.f46917e.startMainTabEnterFourm();
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) && this.a.mNewUserGuideModel.B() && i == 0 && f2 > 0.0f) {
+                this.a.startMainTabEnterFourm();
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && i2 == 1) {
-                this.f46917e.mViewPager.setTag(null);
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i == 1) {
+                this.a.mViewPager.setTag(null);
             }
         }
     }
@@ -143,9 +141,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,20 +159,20 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.mIsNewUser = getIntent().getBooleanExtra("is_new_user", false);
             this.mHasLikes = getIntent().getBooleanExtra("has_like_bar", false);
-            int i2 = this.mIsNewUser ? 1 : 2;
+            int i = this.mIsNewUser ? 1 : 2;
             NewUserGuideModel newUserGuideModel = new NewUserGuideModel(this);
             this.mNewUserGuideModel = newUserGuideModel;
-            newUserGuideModel.A(i2, 0, 100, this.mCallBack);
+            newUserGuideModel.C(i, 0, 100, this.mCallBack);
         }
     }
 
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            RightSlideViewPager rightSlideViewPager = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
+            RightSlideViewPager rightSlideViewPager = (RightSlideViewPager) findViewById(R.id.obfuscated_res_0x7f090d04);
             this.mViewPager = rightSlideViewPager;
             rightSlideViewPager.setAdapter(new NewUserGuidePagerAdapter(getSupportFragmentManager()));
-            this.mViewPager.setTag(RightSlideViewPager.TAG_SCROLL);
+            this.mViewPager.setTag("canScroll");
             this.mViewPager.setOnPageChangeListener(new b(this));
         }
     }
@@ -197,8 +195,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         try {
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
             declaredField.setAccessible(true);
-            int i2 = declaredField.getInt(null);
-            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i2), Integer.valueOf(i2));
+            int i = declaredField.getInt(null);
+            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i), Integer.valueOf(i));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -229,9 +227,9 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 
@@ -242,7 +240,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             startHardAccelerated();
-            setContentView(R.layout.guide_activity_interestfrs);
+            setContentView(R.layout.obfuscated_res_0x7f0d0391);
             initUI();
             initData();
         }
@@ -255,21 +253,21 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
             super.onDestroy();
             NewUserGuideModel newUserGuideModel = this.mNewUserGuideModel;
             if (newUserGuideModel != null) {
-                newUserGuideModel.x();
+                newUserGuideModel.z();
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 startMainTabEnterFourm();
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

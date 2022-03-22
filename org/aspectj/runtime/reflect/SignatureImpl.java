@@ -1,6 +1,7 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 import org.aspectj.lang.Signature;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class SignatureImpl implements Signature {
     public static /* synthetic */ Interceptable $ic = null;
     public static Class[] EMPTY_CLASS_ARRAY = null;
@@ -30,14 +31,14 @@ public abstract class SignatureImpl implements Signature {
     public Cache stringCache;
     public String stringRep;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Cache {
-        String get(int i2);
+        String get(int i);
 
-        void set(int i2, String str);
+        void set(int i, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class CacheImpl implements Cache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +49,9 @@ public abstract class SignatureImpl implements Signature {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,28 +78,28 @@ public abstract class SignatureImpl implements Signature {
         }
 
         @Override // org.aspectj.runtime.reflect.SignatureImpl.Cache
-        public String get(int i2) {
+        public String get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 String[] array = array();
                 if (array == null) {
                     return null;
                 }
-                return array[i2];
+                return array[i];
             }
             return (String) invokeI.objValue;
         }
 
         @Override // org.aspectj.runtime.reflect.SignatureImpl.Cache
-        public void set(int i2, String str) {
+        public void set(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 String[] array = array();
                 if (array == null) {
                     array = makeCache();
                 }
-                array[i2] = str;
+                array[i] = str;
             }
         }
     }
@@ -120,16 +121,16 @@ public abstract class SignatureImpl implements Signature {
         EMPTY_CLASS_ARRAY = new Class[0];
     }
 
-    public SignatureImpl(int i2, String str, Class cls) {
+    public SignatureImpl(int i, String str, Class cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, cls};
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -137,7 +138,7 @@ public abstract class SignatureImpl implements Signature {
         }
         this.modifiers = -1;
         this.lookupClassLoader = null;
-        this.modifiers = i2;
+        this.modifiers = i;
         this.name = str;
         this.declaringType = cls;
     }
@@ -170,11 +171,11 @@ public abstract class SignatureImpl implements Signature {
     public void addFullTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, stringBuffer, clsArr) == null) {
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (i > 0) {
                     stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                stringBuffer.append(fullTypeName(clsArr[i2]));
+                stringBuffer.append(fullTypeName(clsArr[i]));
             }
         }
     }
@@ -182,11 +183,11 @@ public abstract class SignatureImpl implements Signature {
     public void addShortTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stringBuffer, clsArr) == null) {
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (i > 0) {
                     stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                stringBuffer.append(shortTypeName(clsArr[i2]));
+                stringBuffer.append(shortTypeName(clsArr[i]));
             }
         }
     }
@@ -200,65 +201,65 @@ public abstract class SignatureImpl implements Signature {
 
     public abstract String createToString(StringMaker stringMaker);
 
-    public int extractInt(int i2) {
+    public int extractInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? Integer.parseInt(extractString(i2), 16) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? Integer.parseInt(extractString(i), 16) : invokeI.intValue;
     }
 
-    public String extractString(int i2) {
+    public String extractString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             int indexOf = this.stringRep.indexOf(45);
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                int i4 = i2 - 1;
-                if (i2 <= 0) {
+                int i3 = i - 1;
+                if (i <= 0) {
                     break;
                 }
-                i3 = indexOf + 1;
-                indexOf = this.stringRep.indexOf(45, i3);
-                i2 = i4;
+                i2 = indexOf + 1;
+                indexOf = this.stringRep.indexOf(45, i2);
+                i = i3;
             }
             if (indexOf == -1) {
                 indexOf = this.stringRep.length();
             }
-            return this.stringRep.substring(i3, indexOf);
+            return this.stringRep.substring(i2, indexOf);
         }
         return (String) invokeI.objValue;
     }
 
-    public String[] extractStrings(int i2) {
+    public String[] extractStrings(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i2), ":");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
             int countTokens = stringTokenizer.countTokens();
             String[] strArr = new String[countTokens];
-            for (int i3 = 0; i3 < countTokens; i3++) {
-                strArr[i3] = stringTokenizer.nextToken();
+            for (int i2 = 0; i2 < countTokens; i2++) {
+                strArr[i2] = stringTokenizer.nextToken();
             }
             return strArr;
         }
         return (String[]) invokeI.objValue;
     }
 
-    public Class extractType(int i2) {
+    public Class extractType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? Factory.makeClass(extractString(i2), getLookupClassLoader()) : (Class) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? Factory.makeClass(extractString(i), getLookupClassLoader()) : (Class) invokeI.objValue;
     }
 
-    public Class[] extractTypes(int i2) {
+    public Class[] extractTypes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i2), ":");
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            StringTokenizer stringTokenizer = new StringTokenizer(extractString(i), ":");
             int countTokens = stringTokenizer.countTokens();
             Class[] clsArr = new Class[countTokens];
-            for (int i3 = 0; i3 < countTokens; i3++) {
-                clsArr[i3] = Factory.makeClass(stringTokenizer.nextToken(), getLookupClassLoader());
+            for (int i2 = 0; i2 < countTokens; i2++) {
+                clsArr[i2] = Factory.makeClass(stringTokenizer.nextToken(), getLookupClassLoader());
             }
             return clsArr;
         }
@@ -278,7 +279,7 @@ public abstract class SignatureImpl implements Signature {
                 stringBuffer.append("[]");
                 return stringBuffer.toString();
             }
-            return cls.getName().replace('$', '.');
+            return cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
         }
         return (String) invokeL.objValue;
     }
@@ -355,7 +356,7 @@ public abstract class SignatureImpl implements Signature {
                 stringBuffer.append("[]");
                 return stringBuffer.toString();
             }
-            return stripPackageName(cls.getName()).replace('$', '.');
+            return stripPackageName(cls.getName()).replace('$', IStringUtil.EXTENSION_SEPARATOR);
         }
         return (String) invokeL.objValue;
     }
@@ -430,9 +431,9 @@ public abstract class SignatureImpl implements Signature {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

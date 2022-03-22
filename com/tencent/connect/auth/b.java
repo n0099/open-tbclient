@@ -10,44 +10,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f58958d;
+    public static final /* synthetic */ boolean f43614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f58959e;
+    public static int f43615e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f58960b;
+    public HashMap<String, a> f43616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f58961c;
+    public final String f43617c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public IUiListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f58962b;
+        public com.tencent.connect.auth.a f43618b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58963c;
+        public String f43619c;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -68,8 +68,8 @@ public class b {
                 return;
             }
         }
-        f58958d = !b.class.desiredAssertionStatus();
-        f58959e = 0;
+        f43614d = !b.class.desiredAssertionStatus();
+        f43615e = 0;
     }
 
     public b() {
@@ -77,16 +77,16 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f58960b = new HashMap<>();
-        this.f58961c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        this.f43616b = new HashMap<>();
+        this.f43617c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 
     public static b a() {
@@ -105,9 +105,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i2 = f58959e + 1;
-            f58959e = i2;
-            return i2;
+            int i = f43615e + 1;
+            f43615e = i;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -120,7 +120,7 @@ public class b {
             char[] charArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
             int length = charArray.length;
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 = 0; i2 < ceil; i2++) {
+            for (int i = 0; i < ceil; i++) {
                 stringBuffer.append(charArray[(int) (Math.random() * length)]);
             }
             return stringBuffer.toString();
@@ -134,7 +134,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             int b2 = b();
             try {
-                HashMap<String, a> hashMap = this.f58960b;
+                HashMap<String, a> hashMap = this.f43616b;
                 hashMap.put("" + b2, aVar);
             } catch (Throwable th) {
                 th.printStackTrace();

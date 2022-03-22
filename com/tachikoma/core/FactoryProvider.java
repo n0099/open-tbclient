@@ -55,7 +55,7 @@ import com.tachikoma.core.module.TKWebCardBridgeImplFactory;
 import com.tachikoma.core.module.handler.TKLifeCycleFactory;
 import com.tachikoma.core.router.TKRouterFactory;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FactoryProvider implements IProvider<IFactory> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, IFactory> factoryMap;
@@ -82,9 +82,9 @@ public class FactoryProvider implements IProvider<IFactory> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

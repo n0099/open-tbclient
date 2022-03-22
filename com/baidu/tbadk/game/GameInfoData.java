@@ -3,7 +3,7 @@ package com.baidu.tbadk.game;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.k0.b.a;
+import c.a.o0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,9 +85,9 @@ public class GameInfoData implements Serializable, a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,7 +95,7 @@ public class GameInfoData implements Serializable, a {
         }
         this.fromView = 0;
         this.ref_id = GameCenterCoreUtils.REF_TYPE_OTHER;
-        this.ref_type = "606";
+        this.ref_type = GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER;
         this.is_detail = "0";
     }
 
@@ -563,10 +563,10 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setCategoryId(int i2) {
+    public void setCategoryId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.category_id = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.category_id = i;
         }
     }
 
@@ -598,24 +598,24 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setDayDownloads(int i2) {
+    public void setDayDownloads(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.day_downloads = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.day_downloads = i;
         }
     }
 
-    public void setDeadline(long j2) {
+    public void setDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048632, this, j2) == null) {
-            this.deadline = j2;
+        if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
+            this.deadline = j;
         }
     }
 
-    public void setDownloadTime(long j2) {
+    public void setDownloadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
-            this.downloadTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
+            this.downloadTime = j;
         }
     }
 
@@ -661,17 +661,17 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setGameType(int i2) {
+    public void setGameType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
-            this.game_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
+            this.game_type = i;
         }
     }
 
-    public void setGamestatus(int i2) {
+    public void setGamestatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            this.game_status = i2;
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+            this.game_status = i;
         }
     }
 
@@ -710,10 +710,10 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setInstallTime(long j2) {
+    public void setInstallTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048647, this, j2) == null) {
-            this.installTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048647, this, j) == null) {
+            this.installTime = j;
         }
     }
 
@@ -738,17 +738,17 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setMark(int i2) {
+    public void setMark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
-            this.mark = i2;
+        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
+            this.mark = i;
         }
     }
 
-    public void setOrderTime(long j2) {
+    public void setOrderTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048652, this, j2) == null) {
-            this.orderTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048652, this, j) == null) {
+            this.orderTime = j;
         }
     }
 
@@ -822,24 +822,24 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setServerOpenTime(int i2) {
+    public void setServerOpenTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048663, this, i2) == null) {
-            this.server_open_time = i2;
+        if (interceptable == null || interceptable.invokeI(1048663, this, i) == null) {
+            this.server_open_time = i;
         }
     }
 
-    public void setServerType(int i2) {
+    public void setServerType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048664, this, i2) == null) {
-            this.server_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048664, this, i) == null) {
+            this.server_type = i;
         }
     }
 
-    public void setStar(int i2) {
+    public void setStar(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048665, this, i2) == null) {
-            this.star = i2;
+        if (interceptable == null || interceptable.invokeI(1048665, this, i) == null) {
+            this.star = i;
         }
     }
 
@@ -850,10 +850,10 @@ public class GameInfoData implements Serializable, a {
         }
     }
 
-    public void setUpStatus(int i2) {
+    public void setUpStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048667, this, i2) == null) {
-            this.upStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
+            this.upStatus = i;
         }
     }
 

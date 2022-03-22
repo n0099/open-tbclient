@@ -17,6 +17,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import java.io.File;
@@ -139,15 +140,15 @@ public class FileProvider extends ContentProvider {
         return file;
     }
 
-    public static Object[] copyOf(Object[] objArr, int i2) {
-        Object[] objArr2 = new Object[i2];
-        System.arraycopy(objArr, 0, objArr2, 0, i2);
+    public static Object[] copyOf(Object[] objArr, int i) {
+        Object[] objArr2 = new Object[i];
+        System.arraycopy(objArr, 0, objArr2, 0, i);
         return objArr2;
     }
 
-    public static String[] copyOf(String[] strArr, int i2) {
-        String[] strArr2 = new String[i2];
-        System.arraycopy(strArr, 0, strArr2, 0, i2);
+    public static String[] copyOf(String[] strArr, int i) {
+        String[] strArr2 = new String[i];
+        System.arraycopy(strArr, 0, strArr2, 0, i);
         return strArr2;
     }
 
@@ -177,7 +178,7 @@ public class FileProvider extends ContentProvider {
 
     public static int modeToMode(String str) {
         if ("r".equals(str)) {
-            return 268435456;
+            return LaunchTaskConstants.OTHER_PROCESS;
         }
         if ("w".equals(str) || "wt".equals(str)) {
             return 738197504;
@@ -295,28 +296,28 @@ public class FileProvider extends ContentProvider {
     @KsAdSdkDynamicApi
     @Keep
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        int i2;
+        int i;
         File fileForUri = this.mStrategy.getFileForUri(uri);
         if (strArr == null) {
             strArr = COLUMNS;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
-        int i3 = 0;
+        int i2 = 0;
         for (String str3 : strArr) {
             if ("_display_name".equals(str3)) {
-                strArr3[i3] = "_display_name";
-                i2 = i3 + 1;
-                objArr[i3] = fileForUri.getName();
+                strArr3[i2] = "_display_name";
+                i = i2 + 1;
+                objArr[i2] = fileForUri.getName();
             } else if ("_size".equals(str3)) {
-                strArr3[i3] = "_size";
-                i2 = i3 + 1;
-                objArr[i3] = Long.valueOf(fileForUri.length());
+                strArr3[i2] = "_size";
+                i = i2 + 1;
+                objArr[i2] = Long.valueOf(fileForUri.length());
             }
-            i3 = i2;
+            i2 = i;
         }
-        String[] copyOf = copyOf(strArr3, i3);
-        Object[] copyOf2 = copyOf(objArr, i3);
+        String[] copyOf = copyOf(strArr3, i2);
+        Object[] copyOf2 = copyOf(objArr, i2);
         MatrixCursor matrixCursor = new MatrixCursor(copyOf, 1);
         matrixCursor.addRow(copyOf2);
         return matrixCursor;

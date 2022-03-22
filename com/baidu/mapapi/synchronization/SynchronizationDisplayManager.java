@@ -20,7 +20,7 @@ public class SynchronizationDisplayManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.a.a f34314b;
+    public com.baidu.mapsdkplatform.comapi.synchronization.a.a f26532b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,21 +44,21 @@ public class SynchronizationDisplayManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, baiduMap, roleOptions, displayOptions};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f34314b = new com.baidu.mapsdkplatform.comapi.synchronization.a.a(context, baiduMap, roleOptions, displayOptions);
+        this.f26532b = new com.baidu.mapsdkplatform.comapi.synchronization.a.a(context, baiduMap, roleOptions, displayOptions);
     }
 
     public void adjustVisibleSpanByUser() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -67,14 +67,14 @@ public class SynchronizationDisplayManager {
         }
     }
 
-    public void adjustVisibleSpanByUser(int i2, int i3, int i4, int i5) {
+    public void adjustVisibleSpanByUser(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
-                aVar.a(i2, i3, i4, i5);
+                aVar.a(i, i2, i3, i4);
             }
         }
     }
@@ -83,7 +83,7 @@ public class SynchronizationDisplayManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
                 return null;
@@ -97,7 +97,7 @@ public class SynchronizationDisplayManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
                 return null;
@@ -111,7 +111,7 @@ public class SynchronizationDisplayManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
                 return null;
@@ -125,7 +125,7 @@ public class SynchronizationDisplayManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
                 return true;
@@ -138,7 +138,7 @@ public class SynchronizationDisplayManager {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -150,7 +150,7 @@ public class SynchronizationDisplayManager {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -162,7 +162,7 @@ public class SynchronizationDisplayManager {
     public void registerSynchronizationDisplayListener(SynchronizationDisplayListener synchronizationDisplayListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, synchronizationDisplayListener) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -174,7 +174,7 @@ public class SynchronizationDisplayManager {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -183,14 +183,14 @@ public class SynchronizationDisplayManager {
         }
     }
 
-    public void setDriverPositionFreshFrequency(int i2) {
+    public void setDriverPositionFreshFrequency(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
-                aVar.b(i2);
+                aVar.b(i);
             }
         }
     }
@@ -198,7 +198,7 @@ public class SynchronizationDisplayManager {
     public void setHttpsEnable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -207,26 +207,26 @@ public class SynchronizationDisplayManager {
         }
     }
 
-    public void setOperatedMapFrozenInterval(int i2) {
+    public void setOperatedMapFrozenInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
-                aVar.c(i2);
+                aVar.c(i);
             }
         }
     }
 
-    public void setUnOperatedMapFrozenInterval(int i2) {
+    public void setUnOperatedMapFrozenInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
-                aVar.d(i2);
+                aVar.d(i);
             }
         }
     }
@@ -234,7 +234,7 @@ public class SynchronizationDisplayManager {
     public void unRegisterSynchronizationDisplayListener(SynchronizationDisplayListener synchronizationDisplayListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, synchronizationDisplayListener) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -246,7 +246,7 @@ public class SynchronizationDisplayManager {
     public void updateCarPositionInfoWindowView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -258,7 +258,7 @@ public class SynchronizationDisplayManager {
     public void updateDisplayOptions(DisplayOptions displayOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, displayOptions) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -270,7 +270,7 @@ public class SynchronizationDisplayManager {
     public void updateEndPositionInfoWindowView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, view) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -279,14 +279,14 @@ public class SynchronizationDisplayManager {
         }
     }
 
-    public void updateOrderState(int i2) {
+    public void updateOrderState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
-                aVar.a(i2);
+                aVar.a(i);
             }
         }
     }
@@ -294,7 +294,7 @@ public class SynchronizationDisplayManager {
     public void updateRoleOptions(RoleOptions roleOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, roleOptions) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {
@@ -306,7 +306,7 @@ public class SynchronizationDisplayManager {
     public void updateStartPositionInfoWindowView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, view) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f34314b;
+            com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f26532b;
             if (aVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The implement instance is null");
             } else {

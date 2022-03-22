@@ -7,8 +7,10 @@ import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +27,9 @@ public class VideoSystemHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -100,7 +102,7 @@ public class VideoSystemHelper {
                 return 0;
             }
             Resources resources = appContext.getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+            return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android"));
         }
         return invokeV.intValue;
     }
@@ -110,18 +112,18 @@ public class VideoSystemHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             Context appContext = BDPlayerConfig.getAppContext();
-            int i2 = 0;
+            int i = 0;
             if (appContext == null) {
                 return 0;
             }
-            int identifier = appContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 try {
-                    i2 = appContext.getResources().getDimensionPixelSize(identifier);
+                    i = appContext.getResources().getDimensionPixelSize(identifier);
                 } catch (Exception unused) {
                 }
             }
-            return i2 == 0 ? (int) (getDensity() * 25.0f) : i2;
+            return i == 0 ? (int) (getDensity() * 25.0f) : i;
         }
         return invokeV.intValue;
     }

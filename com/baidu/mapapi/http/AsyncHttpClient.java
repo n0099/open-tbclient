@@ -20,10 +20,10 @@ public class AsyncHttpClient {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33826b;
+    public int f26100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f33827c;
+    public ExecutorService f26101c;
 
     /* loaded from: classes4.dex */
     public static abstract class a implements Runnable {
@@ -35,9 +35,9 @@ public class AsyncHttpClient {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -82,17 +82,17 @@ public class AsyncHttpClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = 10000;
-        this.f33826b = 10000;
-        this.f33827c = Executors.newCachedThreadPool();
+        this.f26100b = 10000;
+        this.f26101c = Executors.newCachedThreadPool();
     }
 
     public void get(String str, HttpClient.ProtoResultCallback protoResultCallback) {
@@ -101,7 +101,7 @@ public class AsyncHttpClient {
             if (str == null) {
                 throw new IllegalArgumentException("URI cannot be null");
             }
-            this.f33827c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+            this.f26101c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
         }
     }
 

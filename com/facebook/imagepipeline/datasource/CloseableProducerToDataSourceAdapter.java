@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<CloseableReference<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
             newInitContext.initArgs = r2;
             Object[] objArr = {producer, settableProducerContext, requestListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Producer) objArr2[0], (SettableProducerContext) objArr2[1], (RequestListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -63,8 +63,8 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
     }
 
     @Override // com.facebook.imagepipeline.datasource.AbstractProducerToDataSourceAdapter
-    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i2) {
-        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i2);
+    public /* bridge */ /* synthetic */ void onNewResultImpl(Object obj, int i) {
+        onNewResultImpl((CloseableReference) ((CloseableReference) obj), i);
     }
 
     public void closeResult(CloseableReference<T> closeableReference) {
@@ -83,10 +83,10 @@ public class CloseableProducerToDataSourceAdapter<T> extends AbstractProducerToD
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CloseableReference.cloneOrNull((CloseableReference) super.getResult()) : (CloseableReference) invokeV.objValue;
     }
 
-    public void onNewResultImpl(CloseableReference<T> closeableReference, int i2) {
+    public void onNewResultImpl(CloseableReference<T> closeableReference, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, closeableReference, i2) == null) {
-            super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, closeableReference, i) == null) {
+            super.onNewResultImpl((CloseableProducerToDataSourceAdapter<T>) CloseableReference.cloneOrNull(closeableReference), i);
         }
     }
 }

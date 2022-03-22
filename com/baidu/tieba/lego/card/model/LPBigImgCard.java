@@ -2,9 +2,9 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.r0.z1.o.i.a;
-import c.a.r0.z1.o.k.b;
-import c.a.r0.z1.o.k.d;
+import c.a.p0.b2.o.i.a;
+import c.a.p0.b2.o.k.b;
+import c.a.p0.b2.o.k.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -42,9 +42,9 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -149,9 +149,9 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.picWidth;
-            if (i2 > 0) {
-                return this.picHeight / i2;
+            int i = this.picWidth;
+            if (i > 0) {
+                return this.picHeight / i;
             }
             return super.getRatio();
         }
@@ -159,7 +159,7 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.z1.o.i.a
+    @Override // c.a.p0.b2.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {

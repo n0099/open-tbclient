@@ -18,9 +18,7 @@ import java.util.List;
 public class HTypeListView extends HListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TypeAdapter f43326e;
+    public TypeAdapter a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HTypeListView(Context context) {
@@ -31,61 +29,47 @@ public class HTypeListView extends HListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43326e = null;
-        a();
+        this.a = null;
+        b();
     }
 
-    public final void a() {
+    public void a(List<a> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f43326e == null) {
-            this.f43326e = new TypeAdapter();
-        }
-    }
-
-    public void addAdapter(a<n, TypeAdapter.ViewHolder> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f43326e.a(aVar);
-            setAdapter((ListAdapter) this.f43326e);
-        }
-    }
-
-    public void addAdapters(List<a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             Iterator<a> it = list.iterator();
             while (it.hasNext()) {
-                this.f43326e.a(it.next());
+                this.a.a(it.next());
             }
-            setAdapter((ListAdapter) this.f43326e);
+            setAdapter((ListAdapter) this.a);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            this.a = new TypeAdapter();
         }
     }
 
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43326e.b() : (List) invokeV.objValue;
-    }
-
-    public n getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f43326e.getItem(i2) : (n) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.d() : (List) invokeV.objValue;
     }
 
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f43326e.f(list);
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.a.h(list);
         }
     }
 
@@ -98,9 +82,9 @@ public class HTypeListView extends HListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -108,22 +92,22 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f43326e = null;
-        a();
+        this.a = null;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HTypeListView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public HTypeListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -131,6 +115,6 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f43326e = null;
+        this.a = null;
     }
 }

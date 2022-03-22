@@ -12,10 +12,11 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ag {
     public static String a(String str) {
         PackageInfo packageArchiveInfo;
@@ -68,7 +69,7 @@ public class ag {
         if (context == null || str == null) {
             return -1;
         }
-        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f53810i) == 0) {
+        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, "android.permission.READ_EXTERNAL_STORAGE") == 0) {
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             File file = new File(absolutePath + "/Android/data/" + str);
             return (file.exists() && file.isDirectory()) ? 1 : 0;
@@ -142,7 +143,7 @@ public class ag {
             try {
                 File file = new File(str);
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.addFlags(3);
                 Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
                 intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");

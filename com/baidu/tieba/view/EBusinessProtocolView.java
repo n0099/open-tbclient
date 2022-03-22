@@ -33,34 +33,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EBusinessProtocolView extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f36830b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f36831c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public WebView f36832d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47649e;
+    public TBSpecificationBtn f36833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47650f;
+    public TBSpecificationBtn f36834f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47651g;
+    public TextView f36835g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WebView f47652h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f47653i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f47654j;
-    public TextView k;
-    public TBSpecificationBtn l;
-    public boolean m;
-    public String n;
-    public CharSequence o;
-    public String p;
-    public final WindowType q;
-    public int r;
-    public f s;
-    public WebViewClient t;
+    public TBSpecificationBtn f36836h;
+    public boolean i;
+    public String j;
+    public CharSequence k;
+    public String l;
+    public final WindowType m;
+    public int n;
+    public f o;
+    public WebViewClient p;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -90,16 +92,16 @@ public class EBusinessProtocolView extends Dialog {
             $VALUES = new WindowType[]{TIP, windowType};
         }
 
-        public WindowType(String str, int i2) {
+        public WindowType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -135,9 +137,9 @@ public class EBusinessProtocolView extends Dialog {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eBusinessProtocolView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,9 +152,9 @@ public class EBusinessProtocolView extends Dialog {
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                String str2 = "javascript:setContentTextColor(" + this.a.r + SmallTailInfo.EMOTION_SUFFIX;
-                if (this.a.f47652h != null) {
-                    this.a.f47652h.loadUrl(str2);
+                String str2 = "javascript:setContentTextColor(" + this.a.n + SmallTailInfo.EMOTION_SUFFIX;
+                if (this.a.f36832d != null) {
+                    this.a.f36832d.loadUrl(str2);
                 }
             }
         }
@@ -162,9 +164,7 @@ public class EBusinessProtocolView extends Dialog {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f47655e;
+        public final /* synthetic */ EBusinessProtocolView a;
 
         public b(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -173,26 +173,26 @@ public class EBusinessProtocolView extends Dialog {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eBusinessProtocolView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47655e = eBusinessProtocolView;
+            this.a = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47655e.m = true;
-                if (this.f47655e.s != null) {
-                    this.f47655e.s.a(this.f47655e.m);
+                this.a.i = true;
+                if (this.a.o != null) {
+                    this.a.o.a(this.a.i);
                 }
-                this.f47655e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -201,9 +201,7 @@ public class EBusinessProtocolView extends Dialog {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f47656e;
+        public final /* synthetic */ EBusinessProtocolView a;
 
         public c(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -212,26 +210,26 @@ public class EBusinessProtocolView extends Dialog {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eBusinessProtocolView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47656e = eBusinessProtocolView;
+            this.a = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47656e.m = false;
-                if (this.f47656e.s != null) {
-                    this.f47656e.s.a(this.f47656e.m);
+                this.a.i = false;
+                if (this.a.o != null) {
+                    this.a.o.a(this.a.i);
                 }
-                this.f47656e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -240,9 +238,7 @@ public class EBusinessProtocolView extends Dialog {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EBusinessProtocolView f47657e;
+        public final /* synthetic */ EBusinessProtocolView a;
 
         public d(EBusinessProtocolView eBusinessProtocolView) {
             Interceptable interceptable = $ic;
@@ -251,22 +247,22 @@ public class EBusinessProtocolView extends Dialog {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eBusinessProtocolView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47657e = eBusinessProtocolView;
+            this.a = eBusinessProtocolView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47657e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -310,16 +306,16 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.e_business_protocol_dialog);
+        super(context, R.style.obfuscated_res_0x7f1003a9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, windowType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -327,36 +323,36 @@ public class EBusinessProtocolView extends Dialog {
                 return;
             }
         }
-        this.m = false;
-        this.r = 0;
-        this.t = new a(this);
-        this.f47649e = context;
-        this.q = windowType;
+        this.i = false;
+        this.n = 0;
+        this.p = new a(this);
+        this.a = context;
+        this.m = windowType;
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.f47650f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
+        this.f36830b = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0247, (ViewGroup) null);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47654j.setOnClickListener(new b(this));
-            this.f47653i.setOnClickListener(new c(this));
-            this.l.setOnClickListener(new d(this));
+            this.f36834f.setOnClickListener(new b(this));
+            this.f36833e.setOnClickListener(new c(this));
+            this.f36836h.setOnClickListener(new d(this));
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47651g = (TextView) this.f47650f.findViewById(R.id.protocol_title);
-            this.f47652h = (WebView) this.f47650f.findViewById(R.id.protocol_content);
-            this.f47654j = (TBSpecificationBtn) this.f47650f.findViewById(R.id.agree_protocol);
-            this.f47653i = (TBSpecificationBtn) this.f47650f.findViewById(R.id.cancel_protocol);
-            this.k = (TextView) this.f47650f.findViewById(R.id.tip_content);
-            this.l = (TBSpecificationBtn) findViewById(R.id.tip_known);
+            this.f36831c = (TextView) this.f36830b.findViewById(R.id.obfuscated_res_0x7f09194a);
+            this.f36832d = (WebView) this.f36830b.findViewById(R.id.obfuscated_res_0x7f091945);
+            this.f36834f = (TBSpecificationBtn) this.f36830b.findViewById(R.id.obfuscated_res_0x7f09015b);
+            this.f36833e = (TBSpecificationBtn) this.f36830b.findViewById(R.id.obfuscated_res_0x7f090495);
+            this.f36835g = (TextView) this.f36830b.findViewById(R.id.obfuscated_res_0x7f09200d);
+            this.f36836h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09201d);
             h();
             f();
         }
@@ -365,122 +361,116 @@ public class EBusinessProtocolView extends Dialog {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47651g.setText(this.n);
-            int i2 = e.a[this.q.ordinal()];
-            if (i2 == 1) {
-                this.k.setVisibility(0);
-                this.l.setVisibility(0);
+            this.f36831c.setText(this.j);
+            int i = e.a[this.m.ordinal()];
+            if (i == 1) {
+                this.f36835g.setVisibility(0);
+                this.f36836h.setVisibility(0);
                 setCanceledOnTouchOutside(true);
-                this.k.setText(this.o);
-                this.l.setText(this.f47649e.getResources().getString(R.string.tip_known));
-                c.a.q0.r.l0.n.c cVar = new c.a.q0.r.l0.n.c();
+                this.f36835g.setText(this.k);
+                this.f36836h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13d6));
+                c.a.o0.r.l0.n.c cVar = new c.a.o0.r.l0.n.c();
                 cVar.p(R.color.CAM_X0302);
-                this.l.setTextSize(R.dimen.T_X08);
-                this.l.setConfig(cVar);
-            } else if (i2 != 2) {
+                this.f36836h.setTextSize(R.dimen.T_X08);
+                this.f36836h.setConfig(cVar);
+            } else if (i != 2) {
             } else {
-                j();
-                this.f47652h.setVisibility(0);
-                this.f47654j.setVisibility(0);
-                this.f47653i.setVisibility(0);
-                this.f47652h.loadUrl(this.p);
-                c.a.q0.r.l0.n.c cVar2 = new c.a.q0.r.l0.n.c();
+                n();
+                this.f36832d.setVisibility(0);
+                this.f36834f.setVisibility(0);
+                this.f36833e.setVisibility(0);
+                this.f36832d.loadUrl(this.l);
+                c.a.o0.r.l0.n.c cVar2 = new c.a.o0.r.l0.n.c();
                 cVar2.p(R.color.CAM_X0107);
-                this.f47653i.setConfig(cVar2);
-                this.f47653i.setTextSize(R.dimen.tbds42);
-                this.f47653i.setText(this.f47649e.getResources().getString(R.string.protocol_cancel));
-                this.f47654j.setTextSize(R.dimen.tbds42);
-                c.a.q0.r.l0.n.c cVar3 = new c.a.q0.r.l0.n.c();
+                this.f36833e.setConfig(cVar2);
+                this.f36833e.setTextSize(R.dimen.tbds42);
+                this.f36833e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eeb));
+                this.f36834f.setTextSize(R.dimen.tbds42);
+                c.a.o0.r.l0.n.c cVar3 = new c.a.o0.r.l0.n.c();
                 cVar3.p(R.color.CAM_X0302);
-                this.f47654j.setConfig(cVar3);
-                this.f47654j.setTextSize(R.dimen.tbds42);
-                this.f47654j.setText(this.f47649e.getResources().getString(R.string.protocol_agree));
+                this.f36834f.setConfig(cVar3);
+                this.f36834f.setTextSize(R.dimen.tbds42);
+                this.f36834f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eea));
             }
         }
     }
 
-    public final void i(int i2) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds30);
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(dimensionPixelSize);
-            gradientDrawable.setColor(SkinManager.getColor(i2, (int) R.color.CAM_X0211));
-            this.f47650f.setBackgroundDrawable(gradientDrawable);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.l = str;
         }
     }
 
-    public boolean isAgreeProtocol() {
-        InterceptResult invokeV;
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            l(i);
+            this.n = i;
+            SkinManager.setViewTextColor(this.f36831c, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f36832d, R.color.CAM_X0211);
+            SkinManager.setViewTextColor(this.f36833e, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f36834f, (int) R.color.CAM_X0303);
+            SkinManager.setViewTextColor(this.f36835g, (int) R.color.CAM_X0105);
+        }
     }
 
-    public final void j() {
+    public void k(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            WebSettings settings = this.f47652h.getSettings();
+        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
+            this.k = charSequence;
+        }
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds30);
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(dimensionPixelSize);
+            gradientDrawable.setColor(SkinManager.getColor(i, (int) R.color.CAM_X0211));
+            this.f36830b.setBackgroundDrawable(gradientDrawable);
+        }
+    }
+
+    public void m(f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
+            this.o = fVar;
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            WebSettings settings = this.f36832d.getSettings();
             settings.setUseWideViewPort(true);
             settings.setLoadWithOverviewMode(true);
             settings.setJavaScriptEnabled(true);
-            this.f47652h.setWebViewClient(this.t);
+            this.f36832d.setWebViewClient(this.p);
             settings.setTextZoom(115);
         }
     }
 
-    public void loadWebUrl(String str) {
+    public void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            i(i2);
-            this.r = i2;
-            SkinManager.setViewTextColor(this.f47651g, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f47652h, R.color.CAM_X0211);
-            SkinManager.setViewTextColor(this.f47653i, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f47654j, (int) R.color.CAM_X0303);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.j = str;
         }
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.f47649e.getResources().getDisplayMetrics().widthPixels - n.f(this.f47649e, R.dimen.tbds90);
-            layoutParams.height = n.f(this.f47649e, R.dimen.tbds879);
-            setContentView(this.f47650f, layoutParams);
+            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - n.f(this.a, R.dimen.tbds90);
+            layoutParams.height = n.f(this.a, R.dimen.tbds879);
+            setContentView(this.f36830b, layoutParams);
             setCanceledOnTouchOutside(true);
             g();
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void setContent(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            this.o = charSequence;
-        }
-    }
-
-    public void setOnProtocolStateListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            this.s = fVar;
-        }
-    }
-
-    public void setTitle(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.n = str;
+            j(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

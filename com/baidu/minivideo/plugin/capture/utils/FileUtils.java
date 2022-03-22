@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,9 +35,9 @@ public class FileUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -145,16 +144,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
-            for (int i2 = 0; i2 < length2; i2++) {
-                if (listFiles[i2].isDirectory()) {
-                    length = getDirectorySize(listFiles[i2]);
+            long j = 0;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = getDirectorySize(listFiles[i]);
                 } else {
-                    length = listFiles[i2].length();
+                    length = listFiles[i].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -254,7 +253,7 @@ public class FileUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, bitmap)) == null) {
             File videoCoverCacheDir = getVideoCoverCacheDir();
-            File file = new File(videoCoverCacheDir, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX);
+            File file = new File(videoCoverCacheDir, System.currentTimeMillis() + ".jpg");
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 if (bitmap != null) {
@@ -320,16 +319,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
-            for (int i2 = 0; i2 < length2; i2++) {
-                if (listFiles[i2].isDirectory()) {
-                    length = getDirectorySize(listFiles[i2]);
+            long j = 0;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = getDirectorySize(listFiles[i]);
                 } else {
-                    length = listFiles[i2].length();
+                    length = listFiles[i].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }

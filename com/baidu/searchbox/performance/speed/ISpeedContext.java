@@ -20,9 +20,9 @@ public interface ISpeedContext {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -144,9 +144,9 @@ public interface ISpeedContext {
         }
 
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-        public void launchTime(boolean z, long j2) {
+        public void launchTime(boolean z, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             }
         }
     };
@@ -175,5 +175,5 @@ public interface ISpeedContext {
 
     void launchData(HashMap<String, String> hashMap);
 
-    void launchTime(boolean z, long j2);
+    void launchTime(boolean z, long j);
 }

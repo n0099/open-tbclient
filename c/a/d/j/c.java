@@ -28,24 +28,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f2958g;
+    public static volatile c f2466g;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Class<?>, Class<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f2959b;
+    public Map<Class<?>, Class<?>> f2467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f2960c;
+    public Map<Class<?>, Class<?>> f2468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2961d;
+    public int f2469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2962e;
+    public int f2470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2963f;
+    public int f2471f;
 
     static {
         InterceptResult invokeClinit;
@@ -67,37 +67,37 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2959b = null;
-        this.f2960c = null;
-        this.f2961d = 0;
-        this.f2962e = 0;
-        this.f2963f = 0;
+        this.f2467b = null;
+        this.f2468c = null;
+        this.f2469d = 0;
+        this.f2470e = 0;
+        this.f2471f = 0;
         this.a = new HashMap();
-        this.f2959b = new HashMap();
-        this.f2960c = new HashMap();
+        this.f2467b = new HashMap();
+        this.f2468c = new HashMap();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2958g == null) {
+            if (f2466g == null) {
                 synchronized (c.class) {
-                    if (f2958g == null) {
-                        f2958g = new c();
+                    if (f2466g == null) {
+                        f2466g = new c();
                     }
                 }
             }
-            return f2958g;
+            return f2466g;
         }
         return (c) invokeV.objValue;
     }
@@ -114,14 +114,14 @@ public class c {
                 if (cls2 != null) {
                     return cls2;
                 }
-                int i2 = this.f2962e;
-                if (i2 == 20) {
+                int i = this.f2470e;
+                if (i == 20) {
                     BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
                     return null;
                 }
-                this.f2962e = i2 + 1;
+                this.f2470e = i + 1;
                 try {
-                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f2962e);
+                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f2470e);
                     this.a.put(cls, cls2);
                     return cls2;
                 } catch (Exception e2) {
@@ -129,19 +129,19 @@ public class c {
                     return cls2;
                 }
             } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls3 = this.f2959b.get(cls);
+                Class<?> cls3 = this.f2467b.get(cls);
                 if (cls3 != null) {
                     return cls3;
                 }
-                int i3 = this.f2963f;
-                if (i3 == 10) {
+                int i2 = this.f2471f;
+                if (i2 == 10) {
                     BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                     return null;
                 }
-                this.f2963f = i3 + 1;
+                this.f2471f = i2 + 1;
                 try {
-                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f2963f);
-                    this.f2959b.put(cls, cls3);
+                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f2471f);
+                    this.f2467b.put(cls, cls3);
                     return cls3;
                 } catch (Exception e3) {
                     BdLog.e(e3);
@@ -151,19 +151,19 @@ public class c {
                 return RemoteActivityProxy.class;
             } else {
                 if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                    Class<?> cls4 = this.f2960c.get(cls);
+                    Class<?> cls4 = this.f2468c.get(cls);
                     if (cls4 != null) {
                         return cls4;
                     }
-                    int i4 = this.f2961d;
-                    if (i4 == 10) {
+                    int i3 = this.f2469d;
+                    if (i3 == 10) {
                         BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
                         return null;
                     }
-                    this.f2961d = i4 + 1;
+                    this.f2469d = i3 + 1;
                     try {
-                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f2961d);
-                        this.f2960c.put(cls, cls4);
+                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f2469d);
+                        this.f2468c.put(cls, cls4);
                         return cls4;
                     } catch (Exception e4) {
                         BdLog.e(e4);

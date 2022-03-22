@@ -47,9 +47,9 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -68,10 +68,10 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ImageMsg[] newArray(int i2) {
+            public ImageMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ImageMsg[i2] : (ImageMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ImageMsg[i] : (ImageMsg[]) invokeI.objValue;
             }
         };
     }
@@ -81,9 +81,9 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -167,20 +167,20 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         return invokeV.booleanValue;
     }
 
-    public void setContent(String str, int i2, int i3) {
+    public void setContent(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i2, i3) == null) {
-            this.mWidth = i2;
-            this.mHeight = i3;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, str, i, i2) == null) {
+            this.mWidth = i;
+            this.mHeight = i2;
             setMsgContent(getImgContent(str));
         }
     }
 
-    public void setImgWH(int i2, int i3) {
+    public void setImgWH(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.mWidth = i2;
-            this.mHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.mWidth = i;
+            this.mHeight = i2;
         }
     }
 
@@ -192,10 +192,10 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.mHeight);
             parcel.writeInt(this.mWidth);
             parcel.writeString(this.mThumbUrl);
@@ -216,9 +216,9 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -231,16 +231,16 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         setLocalUrl(str);
     }
 
-    public ImageMsg(String str, int i2, int i3) {
+    public ImageMsg(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -251,8 +251,8 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         this.mHeight = 0;
         setMsgType(1);
         setLocalUrl(str);
-        this.mWidth = i2;
-        this.mHeight = i3;
+        this.mWidth = i;
+        this.mHeight = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -264,9 +264,9 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

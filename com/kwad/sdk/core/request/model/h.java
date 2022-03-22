@@ -6,31 +6,31 @@ import com.kwad.sdk.utils.ad;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h implements com.kwad.sdk.core.b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54738b;
+    public String f39841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54739c;
+    public int f39842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54740d;
+    public int f39843d;
 
     public static h a() {
         h hVar = new h();
         hVar.a = av.t();
-        hVar.f54738b = av.v(KsAdSDKImpl.get().getContext());
-        hVar.f54739c = ad.c(KsAdSDKImpl.get().getContext());
-        hVar.f54740d = ad.d(KsAdSDKImpl.get().getContext());
+        hVar.f39841b = av.v(KsAdSDKImpl.get().getContext());
+        hVar.f39842c = ad.c(KsAdSDKImpl.get().getContext());
+        hVar.f39843d = ad.d(KsAdSDKImpl.get().getContext());
         return hVar;
     }
 
     public static h b() {
         h hVar = new h();
-        hVar.f54739c = ad.c(KsAdSDKImpl.get().getContext());
+        hVar.f39842c = ad.c(KsAdSDKImpl.get().getContext());
         return hVar;
     }
 
@@ -42,9 +42,9 @@ public class h implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "ip", this.a);
-        t.a(jSONObject, "mac", this.f54738b);
-        t.a(jSONObject, "connectionType", this.f54739c);
-        t.a(jSONObject, "operatorType", this.f54740d);
+        t.a(jSONObject, "mac", this.f39841b);
+        t.a(jSONObject, "connectionType", this.f39842c);
+        t.a(jSONObject, "operatorType", this.f39843d);
         return jSONObject;
     }
 }

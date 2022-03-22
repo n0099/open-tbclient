@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsMasterPlaylist extends HlsPlaylist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
     public final List<HlsUrl> subtitles;
     public final List<HlsUrl> variants;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class HlsUrl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, format};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,9 +62,9 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, list, list2, list3, list4, format, list5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -84,8 +84,8 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, list2)) == null) {
             ArrayList arrayList = new ArrayList(list2.size());
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                HlsUrl hlsUrl = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                HlsUrl hlsUrl = list.get(i);
                 if (list2.contains(hlsUrl.url)) {
                     arrayList.add(hlsUrl);
                 }

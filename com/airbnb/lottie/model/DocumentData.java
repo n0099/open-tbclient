@@ -26,16 +26,16 @@ public class DocumentData {
         CENTER
     }
 
-    public DocumentData(String str, String str2, float f2, Justification justification, int i2, float f3, float f4, @ColorInt int i3, @ColorInt int i4, float f5, boolean z) {
+    public DocumentData(String str, String str2, float f2, Justification justification, int i, float f3, float f4, @ColorInt int i2, @ColorInt int i3, float f5, boolean z) {
         this.text = str;
         this.fontName = str2;
         this.size = f2;
         this.justification = justification;
-        this.tracking = i2;
+        this.tracking = i;
         this.lineHeight = f3;
         this.baselineShift = f4;
-        this.color = i3;
-        this.strokeColor = i4;
+        this.color = i2;
+        this.strokeColor = i3;
         this.strokeWidth = f5;
         this.strokeOverFill = z;
     }

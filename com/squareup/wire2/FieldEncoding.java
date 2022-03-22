@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FieldEncoding {
     public static final /* synthetic */ FieldEncoding[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +22,7 @@ public final class FieldEncoding {
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -83,16 +83,16 @@ public final class FieldEncoding {
         $VALUES = new FieldEncoding[]{VARINT, FIXED64, LENGTH_DELIMITED, fieldEncoding};
     }
 
-    public FieldEncoding(String str, int i2, int i3) {
+    public FieldEncoding(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -101,20 +101,20 @@ public final class FieldEncoding {
                 return;
             }
         }
-        this.value = i3;
+        this.value = i2;
     }
 
-    public static FieldEncoding get(int i2) throws IOException {
+    public static FieldEncoding get(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 == 5) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 5) {
                             return FIXED32;
                         }
-                        throw new ProtocolException("Unexpected FieldEncoding: " + i2);
+                        throw new ProtocolException("Unexpected FieldEncoding: " + i);
                     }
                     return LENGTH_DELIMITED;
                 }
@@ -141,11 +141,11 @@ public final class FieldEncoding {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.a[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
+            int i = a.a[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
                             return ProtoAdapter.BYTES;
                         }
                         throw new AssertionError();

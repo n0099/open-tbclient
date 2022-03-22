@@ -113,7 +113,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class Maybe<T> implements MaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +123,9 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -440,10 +440,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Maybe<Long> timer(long j2, TimeUnit timeUnit) {
+    public static Maybe<Long> timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65583, null, j2, timeUnit)) == null) ? timer(j2, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65583, null, j, timeUnit)) == null) ? timer(j, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -634,10 +634,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe<T> delay(long j2, TimeUnit timeUnit) {
+    public final Maybe<T> delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j2, timeUnit)) == null) ? delay(j2, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j, timeUnit)) == null) ? delay(j, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1143,10 +1143,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe<T> timeout(long j2, TimeUnit timeUnit) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048655, this, j2, timeUnit)) == null) ? timeout(j2, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048655, this, j, timeUnit)) == null) ? timeout(j, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1273,13 +1273,13 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Maybe<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Maybe<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new MaybeTimer(Math.max(0L, j2), timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new MaybeTimer(Math.max(0L, j), timeUnit, scheduler));
         }
         return (Maybe) invokeCommon.objValue;
     }
@@ -1300,13 +1300,13 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new MaybeDelay(this, Math.max(0L, j2), timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new MaybeDelay(this, Math.max(0L, j), timeUnit, scheduler));
         }
         return (Maybe) invokeCommon.objValue;
     }
@@ -1326,10 +1326,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> repeat(long j2) {
+    public final Flowable<T> repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j2)) == null) ? toFlowable().repeat(j2) : (Flowable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j)) == null) ? toFlowable().repeat(j) : (Flowable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1350,12 +1350,12 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe<T> timeout(long j2, TimeUnit timeUnit, MaybeSource<? extends T> maybeSource) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{Long.valueOf(j2), timeUnit, maybeSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{Long.valueOf(j), timeUnit, maybeSource})) == null) {
             ObjectHelper.requireNonNull(maybeSource, "other is null");
-            return timeout(j2, timeUnit, Schedulers.computation(), maybeSource);
+            return timeout(j, timeUnit, Schedulers.computation(), maybeSource);
         }
         return (Maybe) invokeCommon.objValue;
     }
@@ -1397,13 +1397,13 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static <T> Maybe<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit) {
+    public static <T> Maybe<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{future, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
             ObjectHelper.requireNonNull(future, "future is null");
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
-            return RxJavaPlugins.onAssembly(new MaybeFromFuture(future, j2, timeUnit));
+            return RxJavaPlugins.onAssembly(new MaybeFromFuture(future, j, timeUnit));
         }
         return (Maybe) invokeCommon.objValue;
     }
@@ -1411,13 +1411,13 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> merge(Publisher<? extends MaybeSource<? extends T>> publisher, int i2) {
+    public static <T> Flowable<T> merge(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65570, null, publisher, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65570, null, publisher, i)) == null) {
             ObjectHelper.requireNonNull(publisher, "source is null");
-            ObjectHelper.verifyPositive(i2, "maxConcurrency");
-            return RxJavaPlugins.onAssembly(new FlowableFlatMapPublisher(publisher, MaybeToPublisher.instance(), false, i2, 1));
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapPublisher(publisher, MaybeToPublisher.instance(), false, i, 1));
         }
         return (Flowable) invokeLI.objValue;
     }
@@ -1426,23 +1426,23 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     @Experimental
-    public static <T> Flowable<T> mergeDelayError(Publisher<? extends MaybeSource<? extends T>> publisher, int i2) {
+    public static <T> Flowable<T> mergeDelayError(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, publisher, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, publisher, i)) == null) {
             ObjectHelper.requireNonNull(publisher, "source is null");
-            ObjectHelper.verifyPositive(i2, "maxConcurrency");
-            return RxJavaPlugins.onAssembly(new FlowableFlatMapPublisher(publisher, MaybeToPublisher.instance(), true, i2, 1));
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            return RxJavaPlugins.onAssembly(new FlowableFlatMapPublisher(publisher, MaybeToPublisher.instance(), true, i, 1));
         }
         return (Flowable) invokeLI.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Maybe<T> delaySubscription(long j2, TimeUnit timeUnit) {
+    public final Maybe<T> delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048591, this, j2, timeUnit)) == null) ? delaySubscription(j2, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048591, this, j, timeUnit)) == null) ? delaySubscription(j, timeUnit, Schedulers.computation()) : (Maybe) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1473,10 +1473,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe<T> retry(long j2) {
+    public final Maybe<T> retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) ? retry(j2, Functions.alwaysTrue()) : (Maybe) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) ? retry(j, Functions.alwaysTrue()) : (Maybe) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1566,18 +1566,18 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delaySubscription(Flowable.timer(j2, timeUnit, scheduler)) : (Maybe) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delaySubscription(Flowable.timer(j, timeUnit, scheduler)) : (Maybe) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Maybe<T> retry(long j2, Predicate<? super Throwable> predicate) {
+    public final Maybe<T> retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048636, this, j2, predicate)) == null) ? toFlowable().retry(j2, predicate).singleElement() : (Maybe) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048636, this, j, predicate)) == null) ? toFlowable().retry(j, predicate).singleElement() : (Maybe) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1596,12 +1596,12 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, MaybeSource<? extends T> maybeSource) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, maybeSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, maybeSource})) == null) {
             ObjectHelper.requireNonNull(maybeSource, "fallback is null");
-            return timeout(timer(j2, timeUnit, scheduler), maybeSource);
+            return timeout(timer(j, timeUnit, scheduler), maybeSource);
         }
         return (Maybe) invokeCommon.objValue;
     }
@@ -1670,10 +1670,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Maybe<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Maybe<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048657, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout(timer(j2, timeUnit, scheduler)) : (Maybe) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048657, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? timeout(timer(j, timeUnit, scheduler)) : (Maybe) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1895,13 +1895,13 @@ public abstract class Maybe<T> implements MaybeSource<T> {
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends MaybeSource<? extends T>> publisher, int i2) {
+    public static <T> Flowable<T> concat(Publisher<? extends MaybeSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i)) == null) {
             ObjectHelper.requireNonNull(publisher, "sources is null");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapPublisher(publisher, MaybeToPublisher.instance(), i2, ErrorMode.IMMEDIATE));
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapPublisher(publisher, MaybeToPublisher.instance(), i, ErrorMode.IMMEDIATE));
         }
         return (Flowable) invokeLI.objValue;
     }

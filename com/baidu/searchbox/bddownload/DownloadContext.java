@@ -59,9 +59,9 @@ public class DownloadContext {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {downloadContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,9 +75,9 @@ public class DownloadContext {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, downloadTask, downloadTask2)) == null) {
                 DownloadTask[] downloadTaskArr = this.context.tasks;
-                for (int i2 = 0; i2 < downloadTaskArr.length; i2++) {
-                    if (downloadTaskArr[i2] == downloadTask) {
-                        downloadTaskArr[i2] = downloadTask2;
+                for (int i = 0; i < downloadTaskArr.length; i++) {
+                    if (downloadTaskArr[i] == downloadTask) {
+                        downloadTaskArr[i] = downloadTask2;
                     }
                 }
                 return this;
@@ -101,9 +101,9 @@ public class DownloadContext {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((QueueSet) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -171,9 +171,9 @@ public class DownloadContext {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {queueSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((QueueSet) objArr2[0], (ArrayList) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -183,11 +183,11 @@ public class DownloadContext {
             }
         }
 
-        public void unbind(int i2) {
+        public void unbind(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
                 for (DownloadTask downloadTask : (List) this.boundTaskList.clone()) {
-                    if (downloadTask.getId() == i2) {
+                    if (downloadTask.getId() == i) {
                         this.boundTaskList.remove(downloadTask);
                     }
                 }
@@ -201,9 +201,9 @@ public class DownloadContext {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {queueSet, arrayList};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -268,22 +268,22 @@ public class DownloadContext {
         public final DownloadContext hostContext;
         public final AtomicInteger remainCount;
 
-        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i2) {
+        public QueueAttachTaskStartEndListener(@NonNull DownloadContext downloadContext, @NonNull DownloadContextListener downloadContextListener, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {downloadContext, downloadContextListener, Integer.valueOf(i2)};
+                Object[] objArr = {downloadContext, downloadContextListener, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.remainCount = new AtomicInteger(i2);
+            this.remainCount = new AtomicInteger(i);
             this.contextListener = downloadContextListener;
             this.hostContext = downloadContext;
         }
@@ -330,9 +330,9 @@ public class DownloadContext {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -477,11 +477,11 @@ public class DownloadContext {
             return (QueueSet) invokeL.objValue;
         }
 
-        public QueueSet setFlushBufferSize(int i2) {
+        public QueueSet setFlushBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                this.flushBufferSize = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                this.flushBufferSize = Integer.valueOf(i);
                 return this;
             }
             return (QueueSet) invokeI.objValue;
@@ -543,31 +543,31 @@ public class DownloadContext {
             return (QueueSet) invokeZ.objValue;
         }
 
-        public QueueSet setReadBufferSize(int i2) {
+        public QueueSet setReadBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-                this.readBufferSize = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+                this.readBufferSize = Integer.valueOf(i);
                 return this;
             }
             return (QueueSet) invokeI.objValue;
         }
 
-        public QueueSet setSyncBufferIntervalMillis(int i2) {
+        public QueueSet setSyncBufferIntervalMillis(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-                this.syncBufferIntervalMillis = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+                this.syncBufferIntervalMillis = Integer.valueOf(i);
                 return this;
             }
             return (QueueSet) invokeI.objValue;
         }
 
-        public QueueSet setSyncBufferSize(int i2) {
+        public QueueSet setSyncBufferSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.syncBufferSize = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+                this.syncBufferSize = Integer.valueOf(i);
                 return this;
             }
             return (QueueSet) invokeI.objValue;
@@ -619,9 +619,9 @@ public class DownloadContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTaskArr, downloadContextListener, queueSet, handler};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DownloadTask[]) objArr2[0], (DownloadContextListener) objArr2[1], (QueueSet) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -655,9 +655,9 @@ public class DownloadContext {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -680,11 +680,11 @@ public class DownloadContext {
         downloadContextListener.queueEnd(this);
     }
 
-    public void addOneTask(int i2, DownloadListener downloadListener) {
+    public void addOneTask(int i, DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, downloadListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, downloadListener) == null) {
             this.started = true;
-            this.tasks[i2].enqueue(downloadListener);
+            this.tasks[i].enqueue(downloadListener);
         }
     }
 
@@ -740,9 +740,9 @@ public class DownloadContext {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, arrayList, downloadListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -811,9 +811,9 @@ public class DownloadContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTaskArr, downloadContextListener, queueSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

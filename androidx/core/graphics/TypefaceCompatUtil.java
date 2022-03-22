@@ -7,6 +7,7 @@ import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
 import android.os.Process;
 import android.os.StrictMode;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
@@ -38,9 +39,9 @@ public class TypefaceCompatUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,16 +61,16 @@ public class TypefaceCompatUtil {
 
     @Nullable
     @RequiresApi(19)
-    public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i2) {
+    public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, resources, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, resources, i)) == null) {
             File tempFile = getTempFile(context);
             if (tempFile == null) {
                 return null;
             }
             try {
-                if (copyToFile(tempFile, resources, i2)) {
+                if (copyToFile(tempFile, resources, i)) {
                     return mmap(tempFile);
                 }
                 return null;
@@ -113,7 +114,7 @@ public class TypefaceCompatUtil {
         } catch (IOException e3) {
             e = e3;
             fileOutputStream2 = fileOutputStream;
-            String str = "Error copying resource contents to temp file: " + e.getMessage();
+            Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
             closeQuietly(fileOutputStream2);
             StrictMode.setThreadPolicy(allowThreadDiskWrites);
             return false;
@@ -136,8 +137,8 @@ public class TypefaceCompatUtil {
                 return null;
             }
             String str = CACHE_FILE_PREFIX + Process.myPid() + "-" + Process.myTid() + "-";
-            for (int i2 = 0; i2 < 100; i2++) {
-                File file = new File(cacheDir, str + i2);
+            for (int i = 0; i < 100; i++) {
+                File file = new File(cacheDir, str + i);
                 if (file.createNewFile()) {
                     return file;
                 }
@@ -195,15 +196,15 @@ public class TypefaceCompatUtil {
         return (ByteBuffer) invokeLLL.objValue;
     }
 
-    public static boolean copyToFile(File file, Resources resources, int i2) {
+    public static boolean copyToFile(File file, Resources resources, int i) {
         InputStream inputStream;
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65539, null, file, resources, i2)) != null) {
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65539, null, file, resources, i)) != null) {
             return invokeLLI.booleanValue;
         }
         try {
-            inputStream = resources.openRawResource(i2);
+            inputStream = resources.openRawResource(i);
             try {
                 boolean copyToFile = copyToFile(file, inputStream);
                 closeQuietly(inputStream);

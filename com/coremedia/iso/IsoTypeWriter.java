@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -36,9 +36,9 @@ public final class IsoTypeWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -48,22 +48,22 @@ public final class IsoTypeWriter {
     public static void writeFixedPoint0230(ByteBuffer byteBuffer, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
-            int i2 = (int) (d2 * 1.073741824E9d);
-            byteBuffer.put((byte) (((-16777216) & i2) >> 24));
-            byteBuffer.put((byte) ((16711680 & i2) >> 16));
-            byteBuffer.put((byte) ((65280 & i2) >> 8));
-            byteBuffer.put((byte) (i2 & 255));
+            int i = (int) (d2 * 1.073741824E9d);
+            byteBuffer.put((byte) (((-16777216) & i) >> 24));
+            byteBuffer.put((byte) ((16711680 & i) >> 16));
+            byteBuffer.put((byte) ((65280 & i) >> 8));
+            byteBuffer.put((byte) (i & 255));
         }
     }
 
     public static void writeFixedPoint1616(ByteBuffer byteBuffer, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
-            int i2 = (int) (d2 * 65536.0d);
-            byteBuffer.put((byte) (((-16777216) & i2) >> 24));
-            byteBuffer.put((byte) ((16711680 & i2) >> 16));
-            byteBuffer.put((byte) ((65280 & i2) >> 8));
-            byteBuffer.put((byte) (i2 & 255));
+            int i = (int) (d2 * 65536.0d);
+            byteBuffer.put((byte) (((-16777216) & i) >> 24));
+            byteBuffer.put((byte) ((16711680 & i) >> 16));
+            byteBuffer.put((byte) ((65280 & i) >> 8));
+            byteBuffer.put((byte) (i & 255));
         }
     }
 
@@ -80,11 +80,11 @@ public final class IsoTypeWriter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, byteBuffer, str) == null) {
             if (str.getBytes().length == 3) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    i2 += (str.getBytes()[i3] - 96) << ((2 - i3) * 5);
+                int i = 0;
+                for (int i2 = 0; i2 < 3; i2++) {
+                    i += (str.getBytes()[i2] - 96) << ((2 - i2) * 5);
                 }
-                writeUInt16(byteBuffer, i2);
+                writeUInt16(byteBuffer, i);
                 return;
             }
             throw new IllegalArgumentException("\"" + str + "\" language string isn't exactly 3 characters long!");
@@ -100,59 +100,59 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeUInt16(ByteBuffer byteBuffer, int i2) {
+    public static void writeUInt16(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, byteBuffer, i2) == null) {
-            int i3 = i2 & 65535;
-            writeUInt8(byteBuffer, i3 >> 8);
-            writeUInt8(byteBuffer, i3 & 255);
+        if (interceptable == null || interceptable.invokeLI(65543, null, byteBuffer, i) == null) {
+            int i2 = i & 65535;
+            writeUInt8(byteBuffer, i2 >> 8);
+            writeUInt8(byteBuffer, i2 & 255);
         }
     }
 
-    public static void writeUInt16BE(ByteBuffer byteBuffer, int i2) {
+    public static void writeUInt16BE(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, byteBuffer, i2) == null) {
-            int i3 = i2 & 65535;
-            writeUInt8(byteBuffer, i3 & 255);
-            writeUInt8(byteBuffer, i3 >> 8);
+        if (interceptable == null || interceptable.invokeLI(65544, null, byteBuffer, i) == null) {
+            int i2 = i & 65535;
+            writeUInt8(byteBuffer, i2 & 255);
+            writeUInt8(byteBuffer, i2 >> 8);
         }
     }
 
-    public static void writeUInt24(ByteBuffer byteBuffer, int i2) {
+    public static void writeUInt24(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, byteBuffer, i2) == null) {
-            int i3 = i2 & 16777215;
-            writeUInt16(byteBuffer, i3 >> 8);
-            writeUInt8(byteBuffer, i3);
+        if (interceptable == null || interceptable.invokeLI(65545, null, byteBuffer, i) == null) {
+            int i2 = i & 16777215;
+            writeUInt16(byteBuffer, i2 >> 8);
+            writeUInt8(byteBuffer, i2);
         }
     }
 
-    public static void writeUInt32(ByteBuffer byteBuffer, long j2) {
+    public static void writeUInt32(ByteBuffer byteBuffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, byteBuffer, j2) == null) {
-            byteBuffer.putInt((int) j2);
+        if (interceptable == null || interceptable.invokeLJ(65546, null, byteBuffer, j) == null) {
+            byteBuffer.putInt((int) j);
         }
     }
 
-    public static void writeUInt32BE(ByteBuffer byteBuffer, long j2) {
+    public static void writeUInt32BE(ByteBuffer byteBuffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, byteBuffer, j2) == null) {
-            writeUInt16BE(byteBuffer, ((int) j2) & 65535);
-            writeUInt16BE(byteBuffer, (int) ((j2 >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+        if (interceptable == null || interceptable.invokeLJ(65547, null, byteBuffer, j) == null) {
+            writeUInt16BE(byteBuffer, ((int) j) & 65535);
+            writeUInt16BE(byteBuffer, (int) ((j >> 16) & WebSocketProtocol.PAYLOAD_SHORT_MAX));
         }
     }
 
-    public static void writeUInt64(ByteBuffer byteBuffer, long j2) {
+    public static void writeUInt64(ByteBuffer byteBuffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65548, null, byteBuffer, j2) == null) {
-            byteBuffer.putLong(j2);
+        if (interceptable == null || interceptable.invokeLJ(65548, null, byteBuffer, j) == null) {
+            byteBuffer.putLong(j);
         }
     }
 
-    public static void writeUInt8(ByteBuffer byteBuffer, int i2) {
+    public static void writeUInt8(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, byteBuffer, i2) == null) {
-            byteBuffer.put((byte) (i2 & 255));
+        if (interceptable == null || interceptable.invokeLI(65549, null, byteBuffer, i) == null) {
+            byteBuffer.put((byte) (i & 255));
         }
     }
 

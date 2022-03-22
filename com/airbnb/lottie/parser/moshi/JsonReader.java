@@ -31,10 +31,10 @@ public abstract class JsonReader implements Closeable {
             try {
                 ByteString[] byteStringArr = new ByteString[strArr.length];
                 Buffer buffer = new Buffer();
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    JsonReader.string(buffer, strArr[i2]);
+                for (int i = 0; i < strArr.length; i++) {
+                    JsonReader.string(buffer, strArr[i]);
                     buffer.readByte();
-                    byteStringArr[i2] = buffer.readByteString();
+                    byteStringArr[i] = buffer.readByteString();
                 }
                 return new Options((String[]) strArr.clone(), okio.Options.of(byteStringArr));
             } catch (IOException e2) {
@@ -58,8 +58,8 @@ public abstract class JsonReader implements Closeable {
     }
 
     static {
-        for (int i2 = 0; i2 <= 31; i2++) {
-            REPLACEMENT_CHARS[i2] = String.format("\\u%04x", Integer.valueOf(i2));
+        for (int i = 0; i <= 31; i++) {
+            REPLACEMENT_CHARS[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
         String[] strArr = REPLACEMENT_CHARS;
         strArr[34] = "\\\"";
@@ -80,36 +80,36 @@ public abstract class JsonReader implements Closeable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void string(BufferedSink bufferedSink, String str) throws IOException {
-        int i2;
+        int i;
         String str2;
         String[] strArr = REPLACEMENT_CHARS;
         bufferedSink.writeByte(34);
         int length = str.length();
-        int i3 = 0;
-        while (i2 < length) {
-            char charAt = str.charAt(i2);
+        int i2 = 0;
+        while (i < length) {
+            char charAt = str.charAt(i);
             if (charAt < 128) {
                 str2 = strArr[charAt];
-                i2 = str2 == null ? i2 + 1 : 0;
-                if (i3 < i2) {
-                    bufferedSink.writeUtf8(str, i3, i2);
+                i = str2 == null ? i + 1 : 0;
+                if (i2 < i) {
+                    bufferedSink.writeUtf8(str, i2, i);
                 }
                 bufferedSink.writeUtf8(str2);
-                i3 = i2 + 1;
+                i2 = i + 1;
             } else {
                 if (charAt == 8232) {
                     str2 = "\\u2028";
                 } else if (charAt == 8233) {
                     str2 = "\\u2029";
                 }
-                if (i3 < i2) {
+                if (i2 < i) {
                 }
                 bufferedSink.writeUtf8(str2);
-                i3 = i2 + 1;
+                i2 = i + 1;
             }
         }
-        if (i3 < length) {
-            bufferedSink.writeUtf8(str, i3, length);
+        if (i2 < length) {
+            bufferedSink.writeUtf8(str, i2, length);
         }
         bufferedSink.writeByte(34);
     }
@@ -140,11 +140,11 @@ public abstract class JsonReader implements Closeable {
 
     public abstract Token peek() throws IOException;
 
-    public final void pushScope(int i2) {
-        int i3 = this.stackSize;
+    public final void pushScope(int i) {
+        int i2 = this.stackSize;
         int[] iArr = this.scopes;
-        if (i3 == iArr.length) {
-            if (i3 != 256) {
+        if (i2 == iArr.length) {
+            if (i2 != 256) {
                 this.scopes = Arrays.copyOf(iArr, iArr.length * 2);
                 String[] strArr = this.pathNames;
                 this.pathNames = (String[]) Arrays.copyOf(strArr, strArr.length * 2);
@@ -155,9 +155,9 @@ public abstract class JsonReader implements Closeable {
             }
         }
         int[] iArr3 = this.scopes;
-        int i4 = this.stackSize;
-        this.stackSize = i4 + 1;
-        iArr3[i4] = i2;
+        int i3 = this.stackSize;
+        this.stackSize = i3 + 1;
+        iArr3[i3] = i;
     }
 
     public abstract int selectName(Options options) throws IOException;

@@ -10,11 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class TBLazyLottieAnimationView extends TBLottieAnimationView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int EMPTY_LOTTIE_RES = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean k;
-    public int l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f30842h;
+    public int i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TBLazyLottieAnimationView(Context context) {
@@ -25,41 +26,41 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
-        this.l = -1;
+        this.f30842h = false;
+        this.i = -1;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            int i2 = this.l;
-            if (i2 != -1) {
-                super.setAnimation(i2);
-                this.l = -1;
+            int i = this.i;
+            if (i != -1) {
+                super.setAnimation(i);
+                this.i = -1;
             }
-            this.k = true;
+            this.f30842h = true;
             super.onDraw(canvas);
         }
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
-    public void setAnimation(int i2) {
+    public void setAnimation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.k) {
-                super.setAnimation(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (this.f30842h) {
+                super.setAnimation(i);
             } else {
-                this.l = i2;
+                this.i = i;
             }
         }
     }
@@ -73,9 +74,9 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -83,22 +84,22 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.k = false;
-        this.l = -1;
+        this.f30842h = false;
+        this.i = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TBLazyLottieAnimationView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TBLazyLottieAnimationView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -106,7 +107,7 @@ public class TBLazyLottieAnimationView extends TBLottieAnimationView {
                 return;
             }
         }
-        this.k = false;
-        this.l = -1;
+        this.f30842h = false;
+        this.i = -1;
     }
 }

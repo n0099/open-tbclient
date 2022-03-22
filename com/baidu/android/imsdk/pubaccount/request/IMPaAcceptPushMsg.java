@@ -25,16 +25,16 @@ public class IMPaAcceptPushMsg extends Message {
     public Context mContext;
     public long mPaId;
 
-    public IMPaAcceptPushMsg(Context context, long j2, boolean z) {
+    public IMPaAcceptPushMsg(Context context, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public class IMPaAcceptPushMsg extends Message {
         this.mContext = null;
         initCommonParameter(context);
         this.mContext = context;
-        this.mPaId = j2;
+        this.mPaId = j;
         this.mAcceptPush = z;
         setNeedReplay(true);
         setType(105);
@@ -88,10 +88,10 @@ public class IMPaAcceptPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i2, str) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i, str) == null) {
+            if (i == 0) {
                 try {
                     PaInfoDBManager.getInstance(context).acceptPaPush(this.mPaId, this.mAcceptPush);
                 } catch (Exception e2) {
@@ -99,8 +99,8 @@ public class IMPaAcceptPushMsg extends Message {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            PaManagerImpl.getInstance(context).onAcceptPaPushResult(getListenerKey(), i2, str, this.mPaId);
+            super.handleMessageResult(context, jSONObject, i, str);
+            PaManagerImpl.getInstance(context).onAcceptPaPushResult(getListenerKey(), i, str, this.mPaId);
         }
     }
 }

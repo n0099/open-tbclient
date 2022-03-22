@@ -13,24 +13,24 @@ public class ServerCanceledException extends IOException {
     public final int responseCode;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ServerCanceledException(int i2, long j2) {
-        super("Response code can't handled on internal " + i2 + " with current offset " + j2);
+    public ServerCanceledException(int i, long j) {
+        super("Response code can't handled on internal " + i + " with current offset " + j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.responseCode = i2;
+        this.responseCode = i;
     }
 
     public int getResponseCode() {

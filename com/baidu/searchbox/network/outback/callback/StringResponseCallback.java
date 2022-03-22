@@ -19,9 +19,9 @@ public abstract class StringResponseCallback extends ResponseCallback<String> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,15 +30,15 @@ public abstract class StringResponseCallback extends ResponseCallback<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.network.outback.callback.ResponseCallback
-    public String parseResponse(Response response, int i2) throws Exception {
+    public String parseResponse(Response response, int i) throws Exception {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
             ResponseBody body = response.body();
             if (body != null) {
                 return body.string();
             }
-            throw new IOException("not get response body, status is " + i2);
+            throw new IOException("not get response body, status is " + i);
         }
         return (String) invokeLI.objValue;
     }

@@ -38,9 +38,9 @@ public final class ViewPropertyAnimatorCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {viewPropertyAnimatorCompat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,9 +66,9 @@ public final class ViewPropertyAnimatorCompat {
         public void onAnimationEnd(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                int i2 = this.mVpa.mOldLayerType;
-                if (i2 > -1) {
-                    view.setLayerType(i2, null);
+                int i = this.mVpa.mOldLayerType;
+                if (i > -1) {
+                    view.setLayerType(i, null);
                     this.mVpa.mOldLayerType = -1;
                 }
                 if (Build.VERSION.SDK_INT >= 16 || !this.mAnimEndCalled) {
@@ -118,9 +118,9 @@ public final class ViewPropertyAnimatorCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -150,9 +150,9 @@ public final class ViewPropertyAnimatorCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, viewPropertyAnimatorListener, view};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -397,13 +397,13 @@ public final class ViewPropertyAnimatorCompat {
         return (ViewPropertyAnimatorCompat) invokeF.objValue;
     }
 
-    public ViewPropertyAnimatorCompat setDuration(long j2) {
+    public ViewPropertyAnimatorCompat setDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             View view = this.mView.get();
             if (view != null) {
-                view.animate().setDuration(j2);
+                view.animate().setDuration(j);
             }
             return this;
         }
@@ -441,13 +441,13 @@ public final class ViewPropertyAnimatorCompat {
         return (ViewPropertyAnimatorCompat) invokeL.objValue;
     }
 
-    public ViewPropertyAnimatorCompat setStartDelay(long j2) {
+    public ViewPropertyAnimatorCompat setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
             View view = this.mView.get();
             if (view != null) {
-                view.animate().setStartDelay(j2);
+                view.animate().setStartDelay(j);
             }
             return this;
         }
@@ -474,9 +474,9 @@ public final class ViewPropertyAnimatorCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, viewPropertyAnimatorUpdateListener, view};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

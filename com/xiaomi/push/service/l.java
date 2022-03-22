@@ -9,52 +9,52 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.av;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f967a;
+    public final String f943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f60018b;
+    public final String f44581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f60019c;
+    public final String f44582c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f60020d;
+    public final String f44583d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f60021e;
+    public final String f44584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f60022f;
+    public final String f44585f;
 
-    public l(String str, String str2, String str3, String str4, String str5, String str6, int i2) {
+    public l(String str, String str2, String str3, String str4, String str5, String str6, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f967a = str;
-        this.f60018b = str2;
-        this.f60019c = str3;
-        this.f60020d = str4;
-        this.f60021e = str5;
-        this.f60022f = str6;
-        this.a = i2;
+        this.f943a = str;
+        this.f44581b = str2;
+        this.f44582c = str3;
+        this.f44583d = str4;
+        this.f44584e = str5;
+        this.f44585f = str6;
+        this.a = i;
     }
 
     public static boolean a() {
@@ -97,19 +97,19 @@ public class l {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, context, eVar, str)) == null) {
-            bVar.f916a = context.getPackageName();
-            bVar.f919b = this.f967a;
-            bVar.f59986h = this.f60019c;
-            bVar.f59981c = this.f60018b;
-            bVar.f59985g = "5";
-            bVar.f59982d = "XMPUSH-PASS";
-            bVar.f918a = false;
-            bVar.f59983e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
-            bVar.f59984f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f60020d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
+            bVar.f892a = context.getPackageName();
+            bVar.f895b = this.f943a;
+            bVar.f44552h = this.f44582c;
+            bVar.f44547c = this.f44581b;
+            bVar.f44551g = "5";
+            bVar.f44548d = "XMPUSH-PASS";
+            bVar.f894a = false;
+            bVar.f44549e = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s,%9$s:%10$s,%11$s:%12$s", "sdk_ver", 43, "cpvn", "3_8_5", "cpvc", 30805, "aapn", b(context) ? com.xiaomi.push.g.b(context) : "", "country_code", a.a(context).b(), "region", a.a(context).a());
+            bVar.f44550f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.f44583d, "locale", Locale.getDefault().toString(), com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_MIID, com.xiaomi.push.t.a(context));
             if (a(context)) {
-                bVar.f59984f += String.format(",%1$s:%2$s", "ab", str);
+                bVar.f44550f += String.format(",%1$s:%2$s", "ab", str);
             }
-            bVar.f915a = eVar;
+            bVar.f891a = eVar;
             return bVar;
         }
         return (av.b) invokeLLLL.objValue;

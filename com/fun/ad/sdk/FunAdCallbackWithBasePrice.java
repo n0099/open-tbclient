@@ -1,15 +1,15 @@
 package com.fun.ad.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import c.g.v0;
+import c.d.h0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes7.dex */
-public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
+/* loaded from: classes6.dex */
+public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -18,16 +18,16 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onAdClicked(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pid) == null) {
@@ -48,7 +48,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onAdClose(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pid) == null) {
@@ -69,7 +69,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onAdLoad(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pid) == null) {
@@ -90,28 +90,28 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         }
     }
 
-    @Override // c.g.v0
-    public final void onAdLoadError(Ssp.Pid pid, int i2, String str) {
+    @Override // c.d.h0
+    public final void onAdLoadError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048585, this, pid, i2, str) == null) {
-            onAdLoadError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048585, this, pid, i, str) == null) {
+            onAdLoadError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i, str);
         }
     }
 
-    public void onAdLoadError(String str, String str2, String str3, double d2, int i2, String str4) {
+    public void onAdLoadError(String str, String str2, String str3, double d2, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i2), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i), str4}) == null) {
         }
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public final void onAdLoadError(String str, String str2, String str3, int i2, String str4) {
+    public final void onAdLoadError(String str, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, Integer.valueOf(i2), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onAdLoaded(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, pid) == null) {
@@ -132,7 +132,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onAdShow(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, pid) == null) {
@@ -153,28 +153,28 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, v0 {
         }
     }
 
-    @Override // c.g.v0
-    public final void onAdShowError(Ssp.Pid pid, int i2, String str) {
+    @Override // c.d.h0
+    public final void onAdShowError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048594, this, pid, i2, str) == null) {
-            onAdShowError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i2, str);
+        if (interceptable == null || interceptable.invokeLIL(1048594, this, pid, i, str) == null) {
+            onAdShowError(pid.type, pid.pid, pid.ssp.sspId, pid.basePrice, i, str);
         }
     }
 
-    public void onAdShowError(String str, String str2, String str3, double d2, int i2, String str4) {
+    public void onAdShowError(String str, String str2, String str3, double d2, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i2), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i), str4}) == null) {
         }
     }
 
     @Override // com.fun.ad.sdk.FunAdCallback
-    public final void onAdShowError(String str, String str2, String str3, int i2, String str4) {
+    public final void onAdShowError(String str, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, str2, str3, Integer.valueOf(i2), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
         }
     }
 
-    @Override // c.g.v0
+    @Override // c.d.h0
     public final void onRewardedVideo(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, pid) == null) {

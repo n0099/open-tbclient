@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
@@ -32,9 +32,9 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryCache, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,9 +131,9 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, consumer, cacheKey, Boolean.valueOf(z)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Consumer) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -148,33 +148,33 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+            public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
                 CloseableReference<CloseableImage> closeableReference2;
                 boolean isTracing;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, closeableReference, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, closeableReference, i) == null) {
                     try {
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.beginSection("BitmapMemoryCacheProducer#onNewResultImpl");
                         }
-                        boolean isLast = BaseConsumer.isLast(i2);
+                        boolean isLast = BaseConsumer.isLast(i);
                         if (closeableReference == null) {
                             if (isLast) {
-                                getConsumer().onNewResult(null, i2);
+                                getConsumer().onNewResult(null, i);
                             }
                             if (isTracing) {
                                 return;
                             }
                             return;
                         }
-                        if (!closeableReference.get().isStateful() && !BaseConsumer.statusHasFlag(i2, 8)) {
+                        if (!closeableReference.get().isStateful() && !BaseConsumer.statusHasFlag(i, 8)) {
                             if (!isLast && (closeableReference2 = this.this$0.mMemoryCache.get(this.val$cacheKey)) != null) {
                                 QualityInfo qualityInfo = closeableReference.get().getQualityInfo();
                                 QualityInfo qualityInfo2 = closeableReference2.get().getQualityInfo();
                                 if (!qualityInfo2.isOfFullQuality() && qualityInfo2.getQuality() < qualityInfo.getQuality()) {
                                     CloseableReference.closeSafely(closeableReference2);
                                 } else {
-                                    getConsumer().onNewResult(closeableReference2, i2);
+                                    getConsumer().onNewResult(closeableReference2, i);
                                     CloseableReference.closeSafely(closeableReference2);
                                     if (FrescoSystrace.isTracing()) {
                                         FrescoSystrace.endSection();
@@ -191,7 +191,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                             if (cache != null) {
                                 closeableReference = cache;
                             }
-                            consumer2.onNewResult(closeableReference, i2);
+                            consumer2.onNewResult(closeableReference, i);
                             CloseableReference.closeSafely(cache);
                             if (FrescoSystrace.isTracing()) {
                                 FrescoSystrace.endSection();
@@ -199,7 +199,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
                             }
                             return;
                         }
-                        getConsumer().onNewResult(closeableReference, i2);
+                        getConsumer().onNewResult(closeableReference, i);
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
                         }

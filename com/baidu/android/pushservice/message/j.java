@@ -21,7 +21,7 @@ public class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f30953b;
+    public Context f24789b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context) {
@@ -32,16 +32,16 @@ public class j extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30953b = context.getApplicationContext();
+        this.f24789b = context.getApplicationContext();
     }
 
     public static String a(byte[] bArr) {
@@ -51,37 +51,37 @@ public class j extends c {
             if (bArr == null || bArr.length == 0) {
                 return "";
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= bArr.length) {
-                    i2 = 0;
+                if (i >= bArr.length) {
+                    i = 0;
                     break;
-                } else if (bArr[i2] == 0) {
+                } else if (bArr[i] == 0) {
                     break;
                 } else {
-                    i2++;
+                    i++;
                 }
             }
-            return new String(bArr, 0, i2);
+            return new String(bArr, 0, i);
         }
         return (String) invokeL.objValue;
     }
 
-    public static void a(Context context, com.baidu.android.pushservice.message.a.k kVar, String str, int i2) {
+    public static void a(Context context, com.baidu.android.pushservice.message.a.k kVar, String str, int i) {
         b.a c2;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65538, null, context, kVar, str, i2) == null) {
-            if (kVar == com.baidu.android.pushservice.message.a.k.f30920b || kVar == com.baidu.android.pushservice.message.a.k.f30921c || kVar == com.baidu.android.pushservice.message.a.k.f30925g) {
+        if (interceptable == null || interceptable.invokeLLLI(65538, null, context, kVar, str, i) == null) {
+            if (kVar == com.baidu.android.pushservice.message.a.k.f24761b || kVar == com.baidu.android.pushservice.message.a.k.f24762c || kVar == com.baidu.android.pushservice.message.a.k.f24766g) {
                 b.a a = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
-                c2 = a.c(i2 + "");
-                j2 = 601002;
+                c2 = a.c(i + "");
+                j = 601002;
             } else {
                 b.a a2 = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
-                c2 = a2.c(i2 + "");
-                j2 = 601001;
+                c2 = a2.c(i + "");
+                j = 601001;
             }
-            c2.b(j2).a();
+            c2.b(j).a();
         }
     }
 
@@ -95,10 +95,10 @@ public class j extends c {
         g gVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-            eVar.f30932d = true;
+            eVar.f24771d = true;
             g gVar4 = new g();
             gVar4.a(-1);
-            byte[] bArr = eVar.f30930b;
+            byte[] bArr = eVar.f24769b;
             if (bArr == null) {
                 return gVar4;
             }
@@ -144,9 +144,9 @@ public class j extends c {
                         if (!jSONObject.isNull("foreground_show")) {
                             kVar.b(jSONObject.getInt("foreground_show"));
                         }
-                        int i2 = !jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.i() != com.baidu.android.pushservice.message.a.k.f30926h.b() ? m.i(this.f30953b, kVar.h()) : 0;
+                        int i = !jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.i() != com.baidu.android.pushservice.message.a.k.f24767h.b() ? m.i(this.f24789b, kVar.h()) : 0;
                         if (!jSONObject.isNull(WebvttCueParser.ENTITY_LESS_THAN)) {
-                            com.baidu.android.pushservice.i.i.b(this.f30953b, "last_time", jSONObject.optLong(WebvttCueParser.ENTITY_LESS_THAN));
+                            com.baidu.android.pushservice.i.i.b(this.f24789b, "last_time", jSONObject.optLong(WebvttCueParser.ENTITY_LESS_THAN));
                         }
                         if (!jSONObject.isNull("wbn")) {
                             int optInt = jSONObject.optInt("wbn");
@@ -156,7 +156,7 @@ public class j extends c {
                             jSONObject2.put("widget_badge_num", optInt);
                             kVar.a(jSONObject2.toString());
                         }
-                        kVar.a(i2);
+                        kVar.a(i);
                         kVar.a(false);
                     } catch (JSONException e3) {
                         new b.c(this.a).a(Log.getStackTraceString(e3)).a();
@@ -171,16 +171,16 @@ public class j extends c {
                 if (c2 <= 0) {
                     c2 = 0;
                 }
-                int i3 = c2 + 204;
-                int length = bArr.length - i3;
+                int i2 = c2 + 204;
+                int length = bArr.length - i2;
                 if (length <= 0) {
                     length = 0;
                 }
                 byte[] bArr5 = new byte[length];
-                System.arraycopy(bArr, i3, bArr5, 0, length);
+                System.arraycopy(bArr, i2, bArr5, 0, length);
                 com.baidu.android.pushservice.message.a.k a = com.baidu.android.pushservice.message.a.k.a(kVar.i());
-                if (a != com.baidu.android.pushservice.message.a.k.f30927i && com.baidu.android.pushservice.c.c.c(this.a, kVar.g())) {
-                    com.baidu.android.pushservice.f.a.a("PushMessageHandler", "Message ID(" + kVar.h() + ") received duplicated, ack success to server directly.", this.f30953b);
+                if (a != com.baidu.android.pushservice.message.a.k.i && com.baidu.android.pushservice.c.c.c(this.a, kVar.g())) {
+                    com.baidu.android.pushservice.f.a.a("PushMessageHandler", "Message ID(" + kVar.h() + ") received duplicated, ack success to server directly.", this.f24789b);
                     a(this.a, a, kVar.h(), 4);
                     g gVar5 = gVar2;
                     gVar5.a(4);
@@ -197,9 +197,9 @@ public class j extends c {
                 if (gVar3 == null) {
                     return null;
                 }
-                if (a == com.baidu.android.pushservice.message.a.k.f30920b || a == com.baidu.android.pushservice.message.a.k.f30921c || a == com.baidu.android.pushservice.message.a.k.f30925g) {
+                if (a == com.baidu.android.pushservice.message.a.k.f24761b || a == com.baidu.android.pushservice.message.a.k.f24762c || a == com.baidu.android.pushservice.message.a.k.f24766g) {
                     com.baidu.android.pushservice.c.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), bArr5, kVar.j(), kVar.d(), gVar3.a(), kVar.b());
-                } else if (a != com.baidu.android.pushservice.message.a.k.f30927i) {
+                } else if (a != com.baidu.android.pushservice.message.a.k.i) {
                     com.baidu.android.pushservice.c.c.a(this.a, kVar.e(), kVar.i(), kVar.g(), null, null, 0L, gVar3.a(), kVar.b());
                 }
                 m.o(this.a);

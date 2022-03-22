@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_FLAG_ALLOW_IMPLICIT_PROVISION = 1;
@@ -30,9 +30,9 @@ public abstract class SoSource {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,11 +51,11 @@ public abstract class SoSource {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? SysUtil.getSupportedAbis() : (String[]) invokeV.objValue;
     }
 
-    public abstract int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException;
+    public abstract int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException;
 
-    public void prepare(int i2) throws IOException {
+    public void prepare(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 

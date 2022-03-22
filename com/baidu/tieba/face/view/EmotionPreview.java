@@ -21,12 +21,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EmotionPreview extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f41367e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f41368f;
+    /* renamed from: b  reason: collision with root package name */
+    public int f32012b;
 
     /* loaded from: classes5.dex */
     public class a extends c<c.a.d.o.d.a> {
@@ -35,10 +33,10 @@ public class EmotionPreview extends LinearLayout {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f41369b;
+        public final /* synthetic */ String f32013b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ EmotionPreview f41370c;
+        public final /* synthetic */ EmotionPreview f32014c;
 
         public a(EmotionPreview emotionPreview, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -47,45 +45,45 @@ public class EmotionPreview extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emotionPreview, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41370c = emotionPreview;
+            this.f32014c = emotionPreview;
             this.a = str;
-            this.f41369b = str2;
+            this.f32013b = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) || aVar == null) {
                 return;
             }
             if (aVar.t()) {
-                this.f41370c.f41367e = new GifView(this.f41370c.getContext());
-                ((GifView) this.f41370c.f41367e).setSupportNoImage(false);
+                this.f32014c.a = new GifView(this.f32014c.getContext());
+                ((GifView) this.f32014c.a).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 String str2 = this.a;
                 gifInfo.mSharpText = str2;
                 gifInfo.mDynamicUrl = str2;
-                gifInfo.mStaticUrl = this.f41369b;
-                this.f41370c.f41367e.setTag(gifInfo.mSharpText);
-                ((GifView) this.f41370c.f41367e).startLoad(gifInfo);
+                gifInfo.mStaticUrl = this.f32013b;
+                this.f32014c.a.setTag(gifInfo.mSharpText);
+                ((GifView) this.f32014c.a).f0(gifInfo);
             } else {
-                this.f41370c.f41367e = new TbImageView(this.f41370c.getContext());
-                ((TbImageView) this.f41370c.f41367e).setGifIconSupport(false);
-                aVar.h(this.f41370c.f41367e);
+                this.f32014c.a = new TbImageView(this.f32014c.getContext());
+                ((TbImageView) this.f32014c.a).setGifIconSupport(false);
+                aVar.h(this.f32014c.a);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f41370c.f41368f, this.f41370c.f41368f);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f32014c.f32012b, this.f32014c.f32012b);
             layoutParams.gravity = 17;
-            EmotionPreview emotionPreview = this.f41370c;
-            emotionPreview.addView(emotionPreview.f41367e, layoutParams);
+            EmotionPreview emotionPreview = this.f32014c;
+            emotionPreview.addView(emotionPreview.a, layoutParams);
         }
     }
 
@@ -98,9 +96,9 @@ public class EmotionPreview extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -114,35 +112,35 @@ public class EmotionPreview extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setBackgroundResource(R.drawable.bg_expression_bubble);
-            int f2 = n.f(getContext(), R.dimen.ds20);
-            setPadding(f2, f2, f2, n.f(getContext(), R.dimen.ds40));
-            this.f41368f = n.f(getContext(), R.dimen.ds200);
+            int f2 = n.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+            setPadding(f2, f2, f2, n.f(getContext(), R.dimen.obfuscated_res_0x7f070225));
+            this.f32012b = n.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
         }
     }
 
-    public void loadImage(String str, String str2, boolean z, int i2) {
+    public void e(String str, String str2, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         removeAllViews();
-        if (!z && i2 != 20) {
+        if (!z && i != 20) {
             d.h().m(str, 10, new a(this, str, str2), null);
             return;
         }
         GifView gifView = new GifView(getContext());
-        this.f41367e = gifView;
+        this.a = gifView;
         gifView.setSupportNoImage(false);
         GifInfo gifInfo = new GifInfo();
         gifInfo.mSharpText = str;
         gifInfo.mDynamicUrl = str;
         gifInfo.mStaticUrl = str2;
-        this.f41367e.setTag(str);
-        ((GifView) this.f41367e).startLoad(gifInfo);
-        int i3 = this.f41368f;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i3);
+        this.a.setTag(str);
+        ((GifView) this.a).f0(gifInfo);
+        int i2 = this.f32012b;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
         layoutParams.gravity = 17;
-        addView(this.f41367e, layoutParams);
+        addView(this.a, layoutParams);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -154,9 +152,9 @@ public class EmotionPreview extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -168,17 +166,17 @@ public class EmotionPreview extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionPreview(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EmotionPreview(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

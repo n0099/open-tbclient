@@ -5,34 +5,34 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface e extends IInterface {
-    int a(long j2) throws RemoteException;
+    int a(long j) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements e {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2199a implements e {
+        /* loaded from: classes7.dex */
+        public static class C2060a implements e {
             public static e a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58492b;
+            public IBinder f43220b;
 
-            public C2199a(IBinder iBinder) {
-                this.f58492b = iBinder;
+            public C2060a(IBinder iBinder) {
+                this.f43220b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.e
-            public int a(long j2) throws RemoteException {
+            public int a(long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
-                    obtain.writeLong(j2);
-                    if (!this.f58492b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                        return a.a().a(j2);
+                    obtain.writeLong(j);
+                    if (!this.f43220b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().a(j);
                     }
                     obtain2.readException();
                     return obtain2.readInt();
@@ -44,7 +44,7 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58492b;
+                return this.f43220b;
             }
         }
 
@@ -60,7 +60,7 @@ public interface e extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
                 return (e) queryLocalInterface;
             }
-            return new C2199a(iBinder);
+            return new C2060a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -69,10 +69,10 @@ public interface e extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IChunkCntAidlCalculator");
                 return true;
@@ -85,7 +85,7 @@ public interface e extends IInterface {
         }
 
         public static e a() {
-            return C2199a.a;
+            return C2060a.a;
         }
     }
 }

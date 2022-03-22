@@ -5,55 +5,55 @@ import android.content.IntentFilter;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k {
     public static final AtomicBoolean a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile k f56514b;
+    public static volatile k f41401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f56515c;
+    public Context f41402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56516d;
+    public a f41403d;
 
     public k(Context context) {
-        this.f56515c = context.getApplicationContext();
+        this.f41402c = context.getApplicationContext();
     }
 
     public static k a(@NonNull Context context) {
-        if (f56514b == null) {
+        if (f41401b == null) {
             synchronized (k.class) {
-                if (f56514b == null) {
-                    f56514b = new k(context);
+                if (f41401b == null) {
+                    f41401b = new k(context);
                 }
             }
         }
-        return f56514b;
+        return f41401b;
     }
 
     private void c() {
         Context context;
-        if (!a.get() || (context = this.f56515c) == null) {
+        if (!a.get() || (context = this.f41402c) == null) {
             return;
         }
-        context.unregisterReceiver(this.f56516d);
+        context.unregisterReceiver(this.f41403d);
         a.set(false);
     }
 
     public void a() {
-        if (this.f56515c == null || a.get()) {
+        if (this.f41402c == null || a.get()) {
             return;
         }
-        if (this.f56516d == null) {
-            this.f56516d = new a();
+        if (this.f41403d == null) {
+            this.f41403d = new a();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        this.f56515c.registerReceiver(this.f56516d, intentFilter);
+        this.f41402c.registerReceiver(this.f41403d, intentFilter);
         a.set(true);
     }
 

@@ -10,8 +10,8 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.e1.n.f;
-import c.a.r0.d1.s1.f.c;
+import c.a.o0.e1.n.f;
+import c.a.p0.f1.s1.f.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,14 +33,14 @@ import java.util.List;
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.d1.s1.b.a callback;
+    public c.a.p0.f1.s1.b.a callback;
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
     public CustomMessageListener richTextIntentClickListener;
 
     /* loaded from: classes5.dex */
-    public class a implements c.a.r0.d1.s1.b.a {
+    public class a implements c.a.p0.f1.s1.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRulesShowActivity a;
@@ -52,9 +52,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {forumRulesShowActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,51 +63,51 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a = forumRulesShowActivity;
         }
 
-        @Override // c.a.r0.d1.s1.b.a
+        @Override // c.a.p0.f1.s1.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mView == null) {
                 return;
             }
-            this.a.mView.k();
-            this.a.mView.v();
+            this.a.mView.m();
+            this.a.mView.x();
             ForumRulesShowActivity forumRulesShowActivity = this.a;
-            forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.i(), "");
+            forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.k(), "");
         }
 
-        @Override // c.a.r0.d1.s1.b.a
-        public void b(c.a.r0.d1.s1.c.a aVar) {
+        @Override // c.a.p0.f1.s1.b.a
+        public void b(c.a.p0.f1.s1.c.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.a.mView == null) {
                 return;
             }
-            this.a.mView.e(aVar);
+            this.a.mView.g(aVar);
         }
 
-        @Override // c.a.r0.d1.s1.b.a
-        public void c(List<c.a.r0.d1.s1.c.c> list) {
+        @Override // c.a.p0.f1.s1.b.a
+        public void c(List<c.a.p0.f1.s1.c.c> list) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || this.a.mView == null) {
                 return;
             }
-            this.a.mView.f(list);
+            this.a.mView.h(list);
         }
 
-        @Override // c.a.r0.d1.s1.b.a
+        @Override // c.a.p0.f1.s1.b.a
         public void d(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) || this.a.mView == null) {
                 return;
             }
             if (z) {
-                this.a.mView.x(str);
+                this.a.mView.z(str);
             } else {
-                this.a.mView.n();
+                this.a.mView.p();
             }
         }
 
-        @Override // c.a.r0.d1.s1.b.a
-        public void e(c.a.r0.d1.s1.c.b bVar) {
+        @Override // c.a.p0.f1.s1.b.a
+        public void e(c.a.p0.f1.s1.c.b bVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.a.mView == null) {
                 return;
@@ -115,26 +115,26 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             this.a.mView.d(bVar);
         }
 
-        @Override // c.a.r0.d1.s1.b.a
+        @Override // c.a.p0.f1.s1.b.a
         public void f(String str) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a.mView == null) {
                 return;
             }
-            this.a.mView.g(str);
+            this.a.mView.i(str);
         }
 
-        @Override // c.a.r0.d1.s1.b.a
+        @Override // c.a.p0.f1.s1.b.a
         public void finish() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.mView == null) {
                 return;
             }
             ForumRulesShowActivity forumRulesShowActivity = this.a;
-            forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.i());
-            this.a.mView.l();
-            this.a.mView.u();
-            this.a.mView.r();
+            forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.k());
+            this.a.mView.n();
+            this.a.mView.w();
+            this.a.mView.t();
         }
     }
 
@@ -145,17 +145,17 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         public final /* synthetic */ ForumRulesShowActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ForumRulesShowActivity forumRulesShowActivity, int i2) {
-            super(i2);
+        public b(ForumRulesShowActivity forumRulesShowActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumRulesShowActivity, Integer.valueOf(i2)};
+                Object[] objArr = {forumRulesShowActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -171,7 +171,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
                 f.a aVar = (f.a) customResponsedMessage.getData();
-                f.b(this.a.getPageContext(), aVar.a, aVar.f12454b, aVar.f12455c);
+                f.b(this.a.getPageContext(), aVar.a, aVar.f10185b, aVar.f10186c);
             }
         }
     }
@@ -181,9 +181,9 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -209,14 +209,14 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
             c cVar = new c(this, this.mFrom);
             this.mView = cVar;
-            cVar.s(getRefreshView());
+            cVar.u(getRefreshView());
         }
     }
 
     private void setModelCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.mModel.I(this.callback);
+            this.mModel.K(this.callback);
         }
     }
 
@@ -317,18 +317,21 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048587, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 == -1 && i2 == 25053) {
+        if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25053) {
                 String stringExtra = intent.getStringExtra("group_name");
                 if (!intent.getBooleanExtra("from", true)) {
-                    this.mView.q();
-                    this.mView.r.clear();
-                    this.mModel.H();
+                    this.mView.s();
+                    this.mView.n.clear();
+                    this.mModel.J();
                 }
-                new BdTopToast(this, 3000).setIcon(true).setContent(stringExtra).show(this.mView.j());
+                BdTopToast bdTopToast = new BdTopToast(this, 3000);
+                bdTopToast.i(true);
+                bdTopToast.h(stringExtra);
+                bdTopToast.j(this.mView.l());
             }
         }
     }
@@ -340,13 +343,13 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            super.onChangeSkinType(i);
             c cVar = this.mView;
             if (cVar != null) {
-                cVar.onChangeSkinType(i2);
+                cVar.onChangeSkinType(i);
             }
         }
     }
@@ -358,7 +361,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             super.onCreate(bundle);
             initData(bundle);
             initView();
-            this.mModel.C(bundle);
+            this.mModel.E(bundle);
         }
     }
 
@@ -373,7 +376,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
             c cVar = this.mView;
             if (cVar != null) {
-                cVar.h();
+                cVar.j();
             }
         }
     }
@@ -439,7 +442,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (forumRulesShowModel = this.mModel) == null) {
             return;
         }
-        forumRulesShowModel.H();
+        forumRulesShowModel.J();
     }
 
     public void setFrom(String str) {

@@ -24,14 +24,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int D(int i2) {
+    public static int D(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
-            if (i2 != -90) {
-                if (i2 != 0) {
-                    if (i2 != 90) {
-                        return i2 != 180 ? -1 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != -90) {
+                if (i != 0) {
+                    if (i != 90) {
+                        return i != 180 ? -1 : 2;
                     }
                     return 1;
                 }
@@ -113,16 +113,16 @@ public class c {
         return invokeLL.intValue;
     }
 
-    public static m a(FaceAlgoData faceAlgoData, long j2, long j3, long j4, ByteBuffer byteBuffer, long j5, boolean z) {
+    public static m a(FaceAlgoData faceAlgoData, long j, long j2, long j3, ByteBuffer byteBuffer, long j4, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{faceAlgoData, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer, Long.valueOf(j5), Boolean.valueOf(z)})) == null) {
-            m mVar = new m(j5);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{faceAlgoData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer, Long.valueOf(j4), Boolean.valueOf(z)})) == null) {
+            m mVar = new m(j4);
             mVar.a(faceAlgoData);
-            mVar.g(j3);
-            mVar.r(j2);
+            mVar.g(j2);
+            mVar.r(j);
             mVar.a(byteBuffer);
-            mVar.p(j4);
+            mVar.p(j3);
             mVar.setFrontCamera(z);
             if (faceAlgoData != null && faceAlgoData.getFaceFrame() != null) {
                 mVar.F(true);
@@ -197,23 +197,23 @@ public class c {
                 return null;
             }
             int[] iArr3 = new int[iArr.length - iArr2.length];
-            int i2 = 0;
-            for (int i3 = 0; i3 < iArr.length; i3++) {
-                int i4 = 0;
+            int i = 0;
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                int i3 = 0;
                 while (true) {
-                    if (i4 >= iArr2.length) {
+                    if (i3 >= iArr2.length) {
                         z = false;
                         break;
-                    } else if (iArr[i3] == iArr2[i4]) {
+                    } else if (iArr[i2] == iArr2[i3]) {
                         z = true;
                         break;
                     } else {
-                        i4++;
+                        i3++;
                     }
                 }
                 if (!z) {
-                    iArr3[i2] = iArr[i3];
-                    i2++;
+                    iArr3[i] = iArr[i2];
+                    i++;
                 }
             }
             return iArr3;
@@ -239,19 +239,19 @@ public class c {
         return invokeLZ.booleanValue;
     }
 
-    public static int c(String str, int i2) {
+    public static int c(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
             try {
-                int i3 = new JSONObject(str).getInt("maxFaceSupport");
-                if (i3 <= 1) {
+                int i2 = new JSONObject(str).getInt("maxFaceSupport");
+                if (i2 <= 1) {
                     return 1;
                 }
-                return i3;
+                return i2;
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
@@ -270,13 +270,13 @@ public class c {
                 if (faceFrame.getFaceBoxes() != null && faceFrame.getFaceBoxes().size() > 0) {
                     List<FAUFaceBox> faceBoxes = faceFrame.getFaceBoxes();
                     float[] fArr = new float[faceBoxes.size() * 4];
-                    for (int i2 = 0; i2 < faceBoxes.size(); i2++) {
-                        FAUFaceBox fAUFaceBox = faceBoxes.get(i2);
-                        int i3 = i2 * 4;
-                        fArr[i3] = fAUFaceBox.getX();
-                        fArr[i3 + 1] = fAUFaceBox.getY();
-                        fArr[i3 + 2] = fAUFaceBox.getWidth();
-                        fArr[i3 + 3] = fAUFaceBox.getHeight();
+                    for (int i = 0; i < faceBoxes.size(); i++) {
+                        FAUFaceBox fAUFaceBox = faceBoxes.get(i);
+                        int i2 = i * 4;
+                        fArr[i2] = fAUFaceBox.getX();
+                        fArr[i2 + 1] = fAUFaceBox.getY();
+                        fArr[i2 + 2] = fAUFaceBox.getWidth();
+                        fArr[i2 + 3] = fAUFaceBox.getHeight();
                     }
                     faceResultData.setFaceBoxes(fArr);
                 }

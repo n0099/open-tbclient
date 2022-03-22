@@ -18,7 +18,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements IHostService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class b implements IHostService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,9 +63,9 @@ public class b implements IHostService {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -119,9 +119,9 @@ public class b implements IHostService {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -131,35 +131,35 @@ public class b implements IHostService {
             }
 
             @Override // com.kuaishou.tachikoma.api.app.WebImageHandler
-            public void load(ImageView imageView, String str, Drawable drawable, int i2) {
+            public void load(ImageView imageView, String str, Drawable drawable, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLLI(1048576, this, imageView, str, drawable, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLLLI(1048576, this, imageView, str, drawable, i) == null) {
                     KSImageLoader.loadImage(imageView, str, (AdTemplate) null, new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnFail(drawable).showImageForEmptyUri(drawable).showImageOnLoading(drawable).build());
                 }
             }
 
             @Override // com.kuaishou.tachikoma.api.app.WebImageHandler
-            public void load(ImageView imageView, List<TKCDNUrl> list, int i2, int i3, int i4) {
+            public void load(ImageView imageView, List<TKCDNUrl> list, int i, int i2, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || list == null || list.isEmpty()) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || list == null || list.isEmpty()) {
                     return;
                 }
                 KSImageLoader.loadImage(imageView, list.get(0).getUrl(), null);
             }
 
             @Override // com.kuaishou.tachikoma.api.app.WebImageHandler
-            public void load(ImageView imageView, List<TKCDNUrl> list, int i2, int i3, Drawable drawable, int i4) {
+            public void load(ImageView imageView, List<TKCDNUrl> list, int i, int i2, Drawable drawable, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{imageView, list, Integer.valueOf(i2), Integer.valueOf(i3), drawable, Integer.valueOf(i4)}) == null) || list == null || list.isEmpty()) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{imageView, list, Integer.valueOf(i), Integer.valueOf(i2), drawable, Integer.valueOf(i3)}) == null) || list == null || list.isEmpty()) {
                     return;
                 }
                 KSImageLoader.loadImage(imageView, list.get(0).getUrl(), (AdTemplate) null, new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnFail(drawable).showImageForEmptyUri(drawable).showImageOnLoading(drawable).build());
             }
 
             @Override // com.kuaishou.tachikoma.api.app.WebImageHandler
-            public void load(String str, ImageView imageView, int i2) {
+            public void load(String str, ImageView imageView, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLI(1048579, this, str, imageView, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLLI(1048579, this, str, imageView, i) == null) {
                     KSImageLoader.loadImage(imageView, str, null);
                 }
             }

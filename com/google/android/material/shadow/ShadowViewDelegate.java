@@ -2,7 +2,7 @@ package com.google.android.material.shadow;
 
 import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ShadowViewDelegate {
     float getRadius();
 
@@ -10,5 +10,5 @@ public interface ShadowViewDelegate {
 
     void setBackgroundDrawable(@Nullable Drawable drawable);
 
-    void setShadowPadding(int i2, int i3, int i4, int i5);
+    void setShadowPadding(int i, int i2, int i3, int i4);
 }

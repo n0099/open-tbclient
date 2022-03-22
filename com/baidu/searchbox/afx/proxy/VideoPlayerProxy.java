@@ -1,5 +1,6 @@
 package com.baidu.searchbox.afx.proxy;
 
+import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -80,9 +81,9 @@ public class VideoPlayerProxy extends PlayerProxy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,9 +104,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -115,12 +116,12 @@ public class VideoPlayerProxy extends PlayerProxy {
             }
 
             @Override // com.baidu.searchbox.afx.decode.VideoPlayer.OnInfoListener
-            public boolean onInfo(VideoPlayer videoPlayer2, int i4, int i5) {
+            public boolean onInfo(VideoPlayer videoPlayer2, int i3, int i4) {
                 InterceptResult invokeLII;
                 OnVideoStartedListener onVideoStartedListener;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, videoPlayer2, i4, i5)) == null) {
-                    if (i4 == 3 && (onVideoStartedListener = this.this$0.mOnVideoStartedListener) != null) {
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, videoPlayer2, i3, i4)) == null) {
+                    if (i3 == 3 && (onVideoStartedListener = this.this$0.mOnVideoStartedListener) != null) {
                         onVideoStartedListener.onVideoStarted();
                         return true;
                     }
@@ -141,9 +142,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -176,9 +177,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -211,9 +212,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -307,13 +308,13 @@ public class VideoPlayerProxy extends PlayerProxy {
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i2 = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
-            if (i2 == 1 || i2 == 2 || i2 == 3) {
+            int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
+            if (i == 1 || i == 2 || i == 3) {
                 VideoPlayer.PlayTask playTask = this.mPlayTask;
                 if (playTask != null) {
                     playTask.execute();
                 }
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 resume();
             }
             super.play();
@@ -340,9 +341,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Long.valueOf(currentTimeMillis), onVideoPreparedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -367,6 +368,7 @@ public class VideoPlayerProxy extends PlayerProxy {
                 public void onFailed(Exception exc) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                        Log.e(VideoPlayerProxy.TAG, "onFailed, exception: ", exc);
                     }
                 }
 
@@ -400,13 +402,13 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j2, long j3) {
+    public void setLoopSection(long j, long j2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(j2, j3);
+        videoPlayer.setLoopSection(j, j2);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
@@ -456,22 +458,22 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j2) {
+    public void setLoopSection(long j) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(j2);
+        videoPlayer.setLoopSection(j);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
-    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             try {
                 if (this.mVideoPlayer != null) {
-                    this.mVideoPlayer.setDataSource(fileDescriptor, j2, j3);
+                    this.mVideoPlayer.setDataSource(fileDescriptor, j, j2);
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -480,22 +482,22 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i2, int i3) {
+    public void setLoopSection(int i, int i2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(i2, i3);
+        videoPlayer.setLoopSection(i, i2);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i2) {
+    public void setLoopSection(int i) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(i2);
+        videoPlayer.setLoopSection(i);
     }
 }

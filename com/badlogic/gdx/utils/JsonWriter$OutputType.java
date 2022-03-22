@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.FileUtil;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.CharUtils;
+import kotlin.text.Typography;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class JsonWriter$OutputType {
@@ -50,16 +50,16 @@ public final class JsonWriter$OutputType {
         minimalValuePattern = Pattern.compile("^[^\":,{\\[\\]/ ][^}\\],]*$");
     }
 
-    public JsonWriter$OutputType(String str, int i2) {
+    public JsonWriter$OutputType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -93,11 +93,11 @@ public final class JsonWriter$OutputType {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             j0 j0Var = new j0(str);
             j0Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            j0Var.G(CharUtils.CR, "\\r");
+            j0Var.G('\r', "\\r");
             j0Var.G('\n', "\\n");
             j0Var.G('\t', "\\t");
-            int i2 = q.a[ordinal()];
-            if (i2 == 1) {
+            int i = q.a[ordinal()];
+            if (i == 1) {
                 if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(j0Var).matches()) {
                     return j0Var.toString();
                 }
@@ -106,10 +106,10 @@ public final class JsonWriter$OutputType {
                 return j0Var.toString();
             }
             StringBuilder sb = new StringBuilder();
-            sb.append('\"');
-            j0Var.G('\"', "\\\"");
+            sb.append(Typography.quote);
+            j0Var.G(Typography.quote, "\\\"");
             sb.append(j0Var.toString());
-            sb.append('\"');
+            sb.append(Typography.quote);
             return sb.toString();
         }
         return (String) invokeL.objValue;
@@ -129,17 +129,17 @@ public final class JsonWriter$OutputType {
             }
             j0 j0Var = new j0(obj2);
             j0Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            j0Var.G(CharUtils.CR, "\\r");
+            j0Var.G('\r', "\\r");
             j0Var.G('\n', "\\n");
             j0Var.G('\t', "\\t");
             if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = j0Var.length()) > 0 && j0Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(j0Var).matches()) {
                 return j0Var.toString();
             }
             StringBuilder sb = new StringBuilder();
-            sb.append('\"');
-            j0Var.G('\"', "\\\"");
+            sb.append(Typography.quote);
+            j0Var.G(Typography.quote, "\\\"");
             sb.append(j0Var.toString());
-            sb.append('\"');
+            sb.append(Typography.quote);
             return sb.toString();
         }
         return (String) invokeL.objValue;

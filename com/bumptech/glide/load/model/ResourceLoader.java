@@ -17,7 +17,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResourceLoader";
@@ -25,7 +25,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public final Resources resources;
     public final ModelLoader<Uri, Data> uriLoader;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,7 +64,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,9 +77,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -104,7 +104,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,9 +117,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -144,7 +144,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,9 +157,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -191,9 +191,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, modelLoader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -210,9 +210,9 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, num)) == null) {
             try {
                 return Uri.parse("android.resource://" + this.resources.getResourcePackageName(num.intValue()) + WebvttCueParser.CHAR_SLASH + this.resources.getResourceTypeName(num.intValue()) + WebvttCueParser.CHAR_SLASH + this.resources.getResourceEntryName(num.intValue()));
-            } catch (Resources.NotFoundException unused) {
+            } catch (Resources.NotFoundException e2) {
                 if (Log.isLoggable(TAG, 5)) {
-                    String str = "Received invalid resource id: " + num;
+                    Log.w(TAG, "Received invalid resource id: " + num, e2);
                     return null;
                 }
                 return null;
@@ -234,15 +234,15 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Integer num, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Integer num, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{num, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{num, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             Uri resourceUri = getResourceUri(num);
             if (resourceUri == null) {
                 return null;
             }
-            return this.uriLoader.buildLoadData(resourceUri, i2, i3, options);
+            return this.uriLoader.buildLoadData(resourceUri, i, i2, options);
         }
         return (ModelLoader.LoadData) invokeCommon.objValue;
     }

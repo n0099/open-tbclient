@@ -17,32 +17,32 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f60142b;
+    public static final a f44680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f60143c;
+    public static final int f44681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f60144d;
+    public static final int f44682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f60145e;
+    public static final int f44683e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
     /* renamed from: e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class C2262a {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class C2120a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public final class a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -69,7 +69,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ b(C2262a c2262a) {
+        public /* synthetic */ b(C2120a c2120a) {
             this();
         }
     }
@@ -87,11 +87,11 @@ public final class a {
                 return;
             }
         }
-        f60142b = new a();
+        f44680b = new a();
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f60143c = availableProcessors;
-        f60144d = availableProcessors + 1;
-        f60145e = (availableProcessors * 2) + 1;
+        f44681c = availableProcessors;
+        f44682d = availableProcessors + 1;
+        f44683e = (availableProcessors * 2) + 1;
     }
 
     public a() {
@@ -99,9 +99,9 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,7 +123,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f60144d, f60145e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f44682d, f44683e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
             a(threadPoolExecutor, true);
             return threadPoolExecutor;
         }
@@ -133,6 +133,6 @@ public final class a {
     public static Executor c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f60142b.a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f44680b.a : (Executor) invokeV.objValue;
     }
 }

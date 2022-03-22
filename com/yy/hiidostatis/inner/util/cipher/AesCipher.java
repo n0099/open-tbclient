@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AesCipher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_CBC_NOPADDING = "AES/CBC/NoPadding";
@@ -42,9 +42,9 @@ public class AesCipher {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -75,9 +75,9 @@ public class AesCipher {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -225,14 +225,14 @@ public class AesCipher {
         return (String) invokeL.objValue;
     }
 
-    public byte[] decrypt(byte[] bArr, int i2, int i3) throws Exception {
+    public byte[] decrypt(byte[] bArr, int i, int i2) throws Exception {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
             try {
                 Cipher cipher = Cipher_AES_CBC_NOPADDING.get();
                 cipher.init(2, new SecretKeySpec(this.m_key, "AES"), createIv());
-                return cipher.doFinal(bArr, i2, i3);
+                return cipher.doFinal(bArr, i, i2);
             } catch (Throwable th) {
                 throw new Exception(th);
             }

@@ -28,7 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.IWalletLoginListener;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -68,9 +67,9 @@ public class SapiCoreUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -184,9 +183,9 @@ public class SapiCoreUtil {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {webView, r7, executeJsCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -215,9 +214,9 @@ public class SapiCoreUtil {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -467,7 +466,7 @@ public class SapiCoreUtil {
                             } else if (name.equals("livinguname")) {
                                 sapiAccountResponse2.livingUname = URLDecoder.decode(newPullParser.nextText());
                                 continue;
-                            } else if (IWalletLoginListener.KEY_LOGIN_TYPE.equals(name)) {
+                            } else if ("loginType".equals(name)) {
                                 if ("oneKeyLogin".equals(newPullParser.nextText()) || "business_from_one_key_login".equals(str)) {
                                     String operatorType = new OneKeyLoginSdkCall().getOperatorType();
                                     if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
@@ -528,23 +527,23 @@ public class SapiCoreUtil {
             HashMap hashMap = new HashMap();
             hashMap.put("r", 4);
             hashMap.put("w", 2);
-            int i2 = 1;
+            int i = 1;
             hashMap.put("x", 1);
             hashMap.put("-", 0);
             String str2 = "";
-            int i3 = 0;
-            while (i2 < 10) {
-                int i4 = i2 + 1;
-                Integer num = (Integer) hashMap.get(str.substring(i2, i4));
+            int i2 = 0;
+            while (i < 10) {
+                int i3 = i + 1;
+                Integer num = (Integer) hashMap.get(str.substring(i, i3));
                 if (num == null) {
                     return null;
                 }
-                i3 += num.intValue();
-                if (i2 % 3 == 0) {
-                    str2 = str2 + i3;
-                    i3 = 0;
+                i2 += num.intValue();
+                if (i % 3 == 0) {
+                    str2 = str2 + i2;
+                    i2 = 0;
                 }
-                i2 = i4;
+                i = i3;
             }
             if (str2.length() != 3) {
                 return null;

@@ -17,7 +17,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ConfigAPI implements IConfigAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class ConfigAPI implements IConfigAPI {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,10 +76,10 @@ public class ConfigAPI implements IConfigAPI {
         return (JSONObject) invokeLZ.objValue;
     }
 
-    public JSONObject getDeviceConfig(Context context, String str, String str2, long j2, boolean z) {
+    public JSONObject getDeviceConfig(Context context, String str, String str2, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             try {
                 HashMap hashMap = new HashMap();
                 hashMap.put("appkey", str);
@@ -87,7 +87,7 @@ public class ConfigAPI implements IConfigAPI {
                 if (str2 != null) {
                     hashMap.put("deviceid", str2);
                 }
-                hashMap.put("uid", j2 + "");
+                hashMap.put("uid", j + "");
                 return getConfig("api/getDeviceConfig", hashMap, context, z, true);
             } catch (Throwable th) {
                 L.debug("ConfigAPI", "getDeviceConfig error! %s", th);

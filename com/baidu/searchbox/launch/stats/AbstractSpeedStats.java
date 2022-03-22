@@ -1,5 +1,6 @@
 package com.baidu.searchbox.launch.stats;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,33 +40,33 @@ public abstract class AbstractSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void addStatsDuration(String str, long j2) {
+    public void addStatsDuration(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && DEBUG) {
-            String str2 = "addStatsDuration key: " + str + " duration " + j2;
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) && DEBUG) {
+            Log.d(TAG, "addStatsDuration key: " + str + " duration " + j);
         }
     }
 
     public void addStatsMap(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) && DEBUG) {
-            String str2 = "addStatsTimeStamp key: " + str + " map " + map.toString();
+            Log.d(TAG, "addStatsTimeStamp key: " + str + " map " + map.toString());
         }
     }
 
-    public void addStatsTimeStamp(int i2) {
+    public void addStatsTimeStamp(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && DEBUG) {
-            String str = "addStatsTimeStamp key: " + i2;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && DEBUG) {
+            Log.d(TAG, "addStatsTimeStamp key: " + i);
         }
     }
 
@@ -92,7 +93,7 @@ public abstract class AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
             if (DEBUG) {
-                String str = "addStatsTimeStamp json " + jSONObject.toString();
+                Log.d(TAG, "addStatsTimeStamp json " + jSONObject.toString());
                 return false;
             }
             return false;
@@ -106,10 +107,10 @@ public abstract class AbstractSpeedStats {
         }
     }
 
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && DEBUG) {
-            String str = "addStatsTimeStamp key: " + i2 + " timeStamp " + j2;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) && DEBUG) {
+            Log.d(TAG, "addStatsTimeStamp key: " + i + " timeStamp " + j);
         }
     }
 }

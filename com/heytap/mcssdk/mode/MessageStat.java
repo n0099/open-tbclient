@@ -33,9 +33,9 @@ public class MessageStat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,17 +46,17 @@ public class MessageStat {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MessageStat(int i2, String str, String str2, String str3) {
-        this(i2, str, null, null, str2, str3);
+    public MessageStat(int i, String str, String str2, String str3) {
+        this(i, str, null, null, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -66,16 +66,16 @@ public class MessageStat {
         }
     }
 
-    public MessageStat(int i2, String str, String str2, String str3, String str4, String str5) {
+    public MessageStat(int i, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, str5};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, str5};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -83,7 +83,7 @@ public class MessageStat {
         }
         this.mType = 4096;
         this.mEventTime = System.currentTimeMillis();
-        setType(i2);
+        setType(i);
         setAppPackage(str);
         setGlobalId(str2);
         setTaskID(str3);
@@ -100,9 +100,9 @@ public class MessageStat {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -121,9 +121,9 @@ public class MessageStat {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -212,10 +212,10 @@ public class MessageStat {
         }
     }
 
-    public void setEventTime(long j2) {
+    public void setEventTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mEventTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mEventTime = j;
         }
     }
 
@@ -233,10 +233,10 @@ public class MessageStat {
         }
     }
 
-    public void setTaskID(int i2) {
+    public void setTaskID(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mTaskID = String.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mTaskID = String.valueOf(i);
         }
     }
 
@@ -247,10 +247,10 @@ public class MessageStat {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mType = i;
         }
     }
 

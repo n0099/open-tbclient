@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IRemoteUBCService extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public interface IRemoteUBCService extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,9 +52,9 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         @Override // com.baidu.swan.ubc.IRemoteUBCService
-        public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException {
+        public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
             }
         }
 
@@ -101,24 +101,24 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         @Override // com.baidu.swan.ubc.IRemoteUBCService
-        public Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException {
+        public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, str2, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, str2, i)) == null) {
                 return null;
             }
             return (Flow) invokeLLI.objValue;
         }
 
         @Override // com.baidu.swan.ubc.IRemoteUBCService
-        public void ubcOnEvent(String str, String str2, int i2) throws RemoteException {
+        public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i) == null) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.ubc.IRemoteUBCService";
@@ -134,7 +134,7 @@ public interface IRemoteUBCService extends IInterface {
         public static final int TRANSACTION_ubcOnEvent = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IRemoteUBCService {
             public static /* synthetic */ Interceptable $ic;
             public static IRemoteUBCService sDefaultImpl;
@@ -148,9 +148,9 @@ public interface IRemoteUBCService extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -195,9 +195,9 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException {
+            public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
@@ -210,9 +210,9 @@ public interface IRemoteUBCService extends IInterface {
                         }
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         if (!this.mRemote.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().flowAddEventWithTime(flow, str, str2, j2);
+                            Stub.getDefaultImpl().flowAddEventWithTime(flow, str, str2, j);
                         } else {
                             obtain2.readException();
                         }
@@ -391,19 +391,19 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException {
+            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
                 InterceptResult invokeLLI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, str, str2, i2)) == null) {
+                if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, str, str2, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         if (!this.mRemote.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            return Stub.getDefaultImpl().ubcBeginFlow(str, str2, i2);
+                            return Stub.getDefaultImpl().ubcBeginFlow(str, str2, i);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? Flow.CREATOR.createFromParcel(obtain2) : null;
@@ -416,18 +416,18 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public void ubcOnEvent(String str, String str2, int i2) throws RemoteException {
+            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLI(1048587, this, str, str2, i2) == null) {
+                if (interceptable == null || interceptable.invokeLLI(1048587, this, str, str2, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().ubcOnEvent(str, str2, i2);
+                            Stub.getDefaultImpl().ubcOnEvent(str, str2, i);
                         } else {
                             obtain2.readException();
                         }
@@ -444,9 +444,9 @@ public interface IRemoteUBCService extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -498,12 +498,12 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 != 1598968902) {
-                    switch (i2) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i != 1598968902) {
+                    switch (i) {
                         case 1:
                             parcel.enforceInterface(DESCRIPTOR);
                             ubcOnEvent(parcel.readString(), parcel.readString(), parcel.readInt());
@@ -561,7 +561,7 @@ public interface IRemoteUBCService extends IInterface {
                             parcel2.writeNoException();
                             return true;
                         default:
-                            return super.onTransact(i2, parcel, parcel2, i3);
+                            return super.onTransact(i, parcel, parcel2, i2);
                     }
                 }
                 parcel2.writeString(DESCRIPTOR);
@@ -573,7 +573,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void flowAddEvent(Flow flow, String str, String str2) throws RemoteException;
 
-    void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException;
+    void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException;
 
     void flowCancel(Flow flow) throws RemoteException;
 
@@ -587,7 +587,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void flowStartSlot(Flow flow, String str, String str2) throws RemoteException;
 
-    Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException;
+    Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException;
 
-    void ubcOnEvent(String str, String str2, int i2) throws RemoteException;
+    void ubcOnEvent(String str, String str2, int i) throws RemoteException;
 }

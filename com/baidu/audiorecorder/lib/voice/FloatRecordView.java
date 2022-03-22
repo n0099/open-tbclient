@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s1.f.b;
+import c.a.p0.u1.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FloatRecordView implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f24840b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f24841c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public LinearLayout f24842d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f31481e;
+    public int f24843e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f31482f;
+    public long f24844f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f31483g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f31484h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f31485i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f31486j;
-    public int k;
+    public int f24845g;
 
     public FloatRecordView(Context context) {
         Interceptable interceptable = $ic;
@@ -46,73 +46,73 @@ public class FloatRecordView implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f31481e = null;
-        this.f31482f = null;
-        this.f31483g = null;
-        this.f31484h = null;
-        this.f31485i = 0;
-        this.f31486j = 0L;
-        this.k = 0;
+        this.a = null;
+        this.f24840b = null;
+        this.f24841c = null;
+        this.f24842d = null;
+        this.f24843e = 0;
+        this.f24844f = 0L;
+        this.f24845g = 0;
         d(context, null);
     }
 
     public LinearLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31484h : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24842d : (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31483g : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24841c : (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31482f : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24840b : (LinearLayout) invokeV.objValue;
     }
 
-    @Override // c.a.r0.s1.f.b
+    @Override // c.a.p0.u1.f.b
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f31484h.setVisibility(8);
+            this.f24842d.setVisibility(8);
         }
     }
 
-    @Override // c.a.r0.s1.f.b
+    @Override // c.a.p0.u1.f.b
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f31483g.setVisibility(8);
+            this.f24841c.setVisibility(8);
         }
     }
 
     public final void d(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, viewGroup) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.float_chat_recording_view, (ViewGroup) null);
-            this.f31482f = linearLayout;
-            this.f31481e = (ImageView) linearLayout.findViewById(R.id.img_msgsend_recording);
-            this.f31483g = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_too_short_view, (ViewGroup) null);
-            this.f31484h = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.floating_chat_cancel_view, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0294, (ViewGroup) null);
+            this.f24840b = linearLayout;
+            this.a = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ec5);
+            this.f24841c = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029a, (ViewGroup) null);
+            this.f24842d = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0299, (ViewGroup) null);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f31483g.setVisibility(0);
+            this.f24841c.setVisibility(0);
         }
     }
 
@@ -124,55 +124,55 @@ public class FloatRecordView implements b {
     }
 
     @Override // c.a.d.f.q.f
-    public void onSendVoice(String str, int i2) {
+    public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
         }
     }
 
     @Override // c.a.d.f.q.f
-    public void onShowErr(int i2, String str) {
+    public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
         }
     }
 
     @Override // c.a.d.f.q.f
-    public void onShowRecordTime(int i2) {
+    public void onShowRecordTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
     @Override // c.a.d.f.q.f
-    public void onShowRecording(int i2) {
+    public void onShowRecording(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f31485i = Math.max(i2, this.f31485i);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f24843e = Math.max(i, this.f24843e);
             long uptimeMillis = SystemClock.uptimeMillis();
-            if (uptimeMillis - this.f31486j > 150) {
-                this.f31485i = 0;
-                this.f31486j = uptimeMillis;
+            if (uptimeMillis - this.f24844f > 150) {
+                this.f24843e = 0;
+                this.f24844f = uptimeMillis;
             }
-            int i3 = this.k + 1;
-            this.k = i3;
-            if (i3 % 5 == 0) {
-                this.k = 0;
-                int i4 = this.f31485i;
-                if (i4 < 2) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
-                } else if (i4 < 10) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
-                } else if (i4 < 20) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
-                } else if (i4 < 30) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
-                } else if (i4 < 40) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
-                } else if (i4 < 50) {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+            int i2 = this.f24845g + 1;
+            this.f24845g = i2;
+            if (i2 % 5 == 0) {
+                this.f24845g = 0;
+                int i3 = this.f24843e;
+                if (i3 < 2) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c3);
+                } else if (i3 < 10) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c0);
+                } else if (i3 < 20) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c2);
+                } else if (i3 < 30) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c1);
+                } else if (i3 < 40) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bf);
+                } else if (i3 < 50) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806be);
                 } else {
-                    this.f31481e.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c1);
                 }
             }
         }
@@ -192,27 +192,27 @@ public class FloatRecordView implements b {
         }
     }
 
-    @Override // c.a.r0.s1.f.b
+    @Override // c.a.p0.u1.f.b
     public void showRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f31484h.setVisibility(0);
+            this.f24842d.setVisibility(0);
         }
     }
 
-    @Override // c.a.r0.s1.f.b
+    @Override // c.a.p0.u1.f.b
     public void startRecordVoice() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f31482f.setVisibility(0);
+            this.f24840b.setVisibility(0);
         }
     }
 
-    @Override // c.a.r0.s1.f.b
+    @Override // c.a.p0.u1.f.b
     public void stopRecordVoice() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f31482f.setVisibility(8);
+            this.f24840b.setVisibility(8);
         }
     }
 }

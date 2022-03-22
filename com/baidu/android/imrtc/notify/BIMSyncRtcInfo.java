@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMSyncRtcInfo extends BIMRtcInfo {
@@ -25,9 +24,9 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,24 +54,24 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInviteId : invokeV.intValue;
     }
 
-    public void setAnswerType(int i2) {
+    public void setAnswerType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mAnswerType = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mAnswerType = i;
         }
     }
 
-    public void setInitiatorUk(long j2) {
+    public void setInitiatorUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mInitiatorUk = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mInitiatorUk = j;
         }
     }
 
-    public void setInviteId(int i2) {
+    public void setInviteId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mInviteId = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mInviteId = i;
         }
     }
 
@@ -105,7 +104,7 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "BIMSyncRtcInfo{" + super.toString() + ", mInitiatorUk=" + this.mInitiatorUk + ", mAnswerType=" + this.mAnswerType + ", mInviteId=" + this.mInviteId + ExtendedMessageFormat.END_FE;
+            return "BIMSyncRtcInfo{" + super.toString() + ", mInitiatorUk=" + this.mInitiatorUk + ", mAnswerType=" + this.mAnswerType + ", mInviteId=" + this.mInviteId + '}';
         }
         return (String) invokeV.objValue;
     }

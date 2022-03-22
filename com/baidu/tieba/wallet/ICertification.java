@@ -7,7 +7,7 @@ public interface ICertification {
 
     /* loaded from: classes6.dex */
     public interface CertificationCallback {
-        void onResult(int i2, Map<String, Object> map);
+        void onResult(int i, Map<String, Object> map);
     }
 
     void certification(Context context, Map<String, Object> map, CertificationCallback certificationCallback);

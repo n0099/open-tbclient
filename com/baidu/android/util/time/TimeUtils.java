@@ -41,24 +41,24 @@ public class TimeUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String getFormatTeletextTime(Context context, long j2) {
+    public static String getFormatTeletextTime(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) ? getFormatTeletextTime(context, j2, true) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j2, boolean z) {
+    public static String getFormatTeletextTime(Context context, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j2, z) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtil.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
     }
 }

@@ -39,8 +39,8 @@ public final class PathKt {
         return (Iterable) invokeLF.objValue;
     }
 
-    public static /* synthetic */ Iterable flatten$default(Path path, float f2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Iterable flatten$default(Path path, float f2, int i, Object obj) {
+        if ((i & 1) != 0) {
             f2 = 0.5f;
         }
         return flatten(path, f2);

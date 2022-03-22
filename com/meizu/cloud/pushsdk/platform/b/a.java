@@ -6,15 +6,15 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57394b;
+    public int f42215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57395c;
+    public String f42216c;
 
     public a(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
@@ -26,8 +26,8 @@ public class a extends c {
         this.l = z;
     }
 
-    public void a(int i2) {
-        this.f57394b = i2;
+    public void a(int i) {
+        this.f42215b = i;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -35,7 +35,7 @@ public class a extends c {
     }
 
     public void a(String str) {
-        this.f57395c = str;
+        this.f42216c = str;
     }
 
     public void a(int... iArr) {
@@ -44,11 +44,11 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        int i2 = this.f57394b;
-        if (i2 != 0) {
+        int i = this.f42215b;
+        if (i != 0) {
             int[] iArr = this.a;
-            if (iArr == null || iArr.length <= 0 || i2 != 1) {
-                return this.f57394b == 2 && !TextUtils.isEmpty(this.f57395c);
+            if (iArr == null || iArr.length <= 0 || i != 1) {
+                return this.f42215b == 2 && !TextUtils.isEmpty(this.f42216c);
             }
             return true;
         }
@@ -63,14 +63,14 @@ public class a extends c {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra("strategy_package_name", this.f57399e.getPackageName());
+        intent.putExtra("strategy_package_name", this.f42220e.getPackageName());
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f57394b);
-        int i2 = this.f57394b;
-        if (i2 == 2) {
-            intent.putExtra("strategy_params", this.f57395c);
+        intent.putExtra("strategy_child_type", this.f42215b);
+        int i = this.f42215b;
+        if (i == 2) {
+            intent.putExtra("strategy_params", this.f42216c);
             return intent;
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             return null;
         } else {
             return intent;
@@ -82,14 +82,14 @@ public class a extends c {
         int[] iArr = this.a;
         if (iArr != null) {
             Intent[] intentArr = new Intent[iArr.length];
-            for (int i2 = 0; i2 < this.a.length; i2++) {
-                c.k.a.a.a.d("Strategy", "send notifyId " + this.a[i2] + " to PushManagerService");
+            for (int i = 0; i < this.a.length; i++) {
+                c.h.a.a.a.d("Strategy", "send notifyId " + this.a[i] + " to PushManagerService");
                 Intent intent = new Intent();
-                intent.putExtra("strategy_package_name", this.f57399e.getPackageName());
+                intent.putExtra("strategy_package_name", this.f42220e.getPackageName());
                 intent.putExtra("strategy_type", g());
-                intent.putExtra("strategy_child_type", this.f57394b);
-                intent.putExtra("strategy_params", "" + this.a[i2]);
-                intentArr[i2] = intent;
+                intent.putExtra("strategy_child_type", this.f42215b);
+                intent.putExtra("strategy_params", "" + this.a[i]);
+                intentArr[i] = intent;
             }
             return intentArr;
         }
@@ -98,26 +98,26 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public BasicPushStatus e() {
-        int i2 = this.f57394b;
-        if (i2 == 0) {
+        int i = this.f42215b;
+        if (i == 0) {
             if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
-                c.k.a.a.a.b("Strategy", "android 6.0 blow so cancel all by context");
-                com.meizu.cloud.pushsdk.notification.c.b.a(this.f57399e);
+                c.h.a.a.a.b("Strategy", "android 6.0 blow so cancel all by context");
+                com.meizu.cloud.pushsdk.notification.c.b.a(this.f42220e);
             }
-            com.meizu.cloud.pushsdk.notification.c.b.a(this.f57399e, this.f57402h);
+            com.meizu.cloud.pushsdk.notification.c.b.a(this.f42220e, this.f42223h);
             return null;
-        } else if (i2 != 1) {
-            if (i2 != 2) {
+        } else if (i != 1) {
+            if (i != 2) {
                 return null;
             }
-            com.meizu.cloud.pushsdk.notification.c.b.a(this.f57399e, this.f57402h, this.f57395c);
+            com.meizu.cloud.pushsdk.notification.c.b.a(this.f42220e, this.f42223h, this.f42216c);
             return null;
         } else {
             int[] iArr = this.a;
             if (iArr != null) {
-                for (int i3 : iArr) {
-                    c.k.a.a.a.b("Strategy", "clear notifyId " + i3);
-                    com.meizu.cloud.pushsdk.notification.c.b.a(this.f57399e, this.f57402h, i3);
+                for (int i2 : iArr) {
+                    c.h.a.a.a.b("Strategy", "clear notifyId " + i2);
+                    com.meizu.cloud.pushsdk.notification.c.b.a(this.f42220e, this.f42223h, i2);
                 }
                 return null;
             }

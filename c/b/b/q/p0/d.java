@@ -27,9 +27,9 @@ public final class d {
             newInitContext.initArgs = r2;
             Object[] objArr = {field};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,15 +59,15 @@ public final class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getDeclaringClass() : (Class) invokeV.objValue;
     }
 
-    public Class c(int i2) {
+    public Class c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             Type genericType = this.a.getGenericType();
             if (genericType instanceof ParameterizedType) {
                 Type[] actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments();
-                if (actualTypeArguments.length - 1 >= i2) {
-                    Type type = actualTypeArguments[i2];
+                if (actualTypeArguments.length - 1 >= i) {
+                    Type type = actualTypeArguments[i];
                     if (type instanceof Class) {
                         return (Class) type;
                     }

@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class hg {
     public static /* synthetic */ Interceptable $ic;
     public static final hg a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hg[] f478a;
+    public static final /* synthetic */ hg[] f454a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hg f59730b;
+    public static final hg f44329b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f479a;
+    public final int f455a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,20 +38,20 @@ public final class hg {
         }
         a = new hg("START", 0, 0);
         hg hgVar = new hg("BIND", 1, 1);
-        f59730b = hgVar;
-        f478a = new hg[]{a, hgVar};
+        f44329b = hgVar;
+        f454a = new hg[]{a, hgVar};
     }
 
-    public hg(String str, int i2, int i3) {
+    public hg(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -60,7 +60,7 @@ public final class hg {
                 return;
             }
         }
-        this.f479a = i3;
+        this.f455a = i2;
     }
 
     public static hg valueOf(String str) {
@@ -72,12 +72,12 @@ public final class hg {
     public static hg[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hg[]) f478a.clone() : (hg[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hg[]) f454a.clone() : (hg[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f479a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f455a : invokeV.intValue;
     }
 }

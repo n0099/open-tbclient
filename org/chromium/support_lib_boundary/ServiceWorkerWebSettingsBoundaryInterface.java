@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ServiceWorkerWebSettingsBoundaryInterface {
     boolean getAllowContentAccess();
 
@@ -15,5 +15,5 @@ public interface ServiceWorkerWebSettingsBoundaryInterface {
 
     void setBlockNetworkLoads(boolean z);
 
-    void setCacheMode(int i2);
+    void setCacheMode(int i);
 }

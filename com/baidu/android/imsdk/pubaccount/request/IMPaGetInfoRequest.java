@@ -53,25 +53,25 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    public IMPaGetInfoRequest(Context context, String str, long j2, long j3) {
+    public IMPaGetInfoRequest(Context context, String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
-        this.mUk = j3;
+        this.mUk = j2;
     }
 
     private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
@@ -155,35 +155,35 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str2 = new String(bArr);
             String str3 = TAG;
             LogUtils.d(str3, "FXF  json is " + str2);
             ArrayList arrayList = null;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                if (i3 == 0) {
+                if (i2 == 0) {
                     if (jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONArray("response_params");
                         ArrayList arrayList2 = new ArrayList();
-                        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                             try {
-                                JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                                 if (jSONObject2.optInt("pa_type") != 16) {
                                     PaInfo paInfo = new PaInfo();
                                     paInfo.setPaId(jSONObject2.optLong("pa_uid"));
@@ -219,10 +219,10 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                 e = e3;
                                 arrayList = arrayList2;
                                 LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
-                                i3 = 1010;
+                                i2 = 1010;
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                                PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i3, str, arrayList);
+                                PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
                             }
                         }
                         localSyncSubscribedPaList(this.mContext, arrayList2);
@@ -235,7 +235,7 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
             } catch (JSONException e4) {
                 e = e4;
             }
-            PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i3, str, arrayList);
+            PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
         }
     }
 

@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
-import i.j;
-import i.o.a.a;
+import g.f;
+import g.j;
+import g.o.a.a;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
@@ -25,9 +25,9 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
             newInitContext.initArgs = r2;
             Object[] objArr = {jVar, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,58 +55,58 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
         }
     }
 
-    @Override // i.f
-    public void request(long j2) {
+    @Override // g.f
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
-                throw new IllegalArgumentException("n >= 0 required but it was " + j2);
-            } else if (j2 == Long.MAX_VALUE) {
-                if (a.b(this, j2) == 0) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
+                throw new IllegalArgumentException("n >= 0 required but it was " + j);
+            } else if (j == Long.MAX_VALUE) {
+                if (a.b(this, j) == 0) {
                     fastPath();
                 }
-            } else if (i2 == 0 || a.b(this, j2) != 0) {
+            } else if (i == 0 || a.b(this, j) != 0) {
             } else {
-                slowPath(j2);
+                slowPath(j);
             }
         }
     }
 
-    public void slowPath(long j2) {
+    public void slowPath(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             j<? super T> jVar = this.child;
             T[] tArr = this.array;
             int length = tArr.length;
-            int i2 = this.index;
+            int i = this.index;
             do {
-                long j3 = 0;
+                long j2 = 0;
                 while (true) {
-                    if (j2 != 0 && i2 != length) {
+                    if (j != 0 && i != length) {
                         if (jVar.isUnsubscribed()) {
                             return;
                         }
-                        jVar.onNext((Object) tArr[i2]);
-                        i2++;
-                        if (i2 == length) {
+                        jVar.onNext((Object) tArr[i]);
+                        i++;
+                        if (i == length) {
                             if (jVar.isUnsubscribed()) {
                                 return;
                             }
                             jVar.onCompleted();
                             return;
                         }
+                        j--;
                         j2--;
-                        j3--;
                     } else {
-                        j2 = get() + j3;
-                        if (j2 == 0) {
-                            this.index = i2;
-                            j2 = addAndGet(j3);
+                        j = get() + j2;
+                        if (j == 0) {
+                            this.index = i;
+                            j = addAndGet(j2);
                         }
                     }
                 }
-            } while (j2 != 0);
+            } while (j != 0);
         }
     }
 }

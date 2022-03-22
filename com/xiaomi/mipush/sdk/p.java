@@ -10,14 +10,14 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f100a;
+    public final /* synthetic */ ie f76a;
 
     public p(ie ieVar, Context context) {
         Interceptable interceptable = $ic;
@@ -26,21 +26,21 @@ public final class p extends ai.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {ieVar, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f100a = ieVar;
+        this.f76a = ieVar;
         this.a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo247a() {
+    public String mo226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "22" : (String) invokeV.objValue;
@@ -50,10 +50,10 @@ public final class p extends ai.a {
     public void run() {
         ie ieVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f100a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ieVar = this.f76a) == null) {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f59728i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f76a, hf.i, true, (hs) null, true);
     }
 }

@@ -19,7 +19,7 @@ public final class PDF417CodewordDecoder {
 
     static {
         InterceptResult invokeClinit;
-        int i2;
+        int i;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(423460673, "Lcom/google/zxing/pdf417/decoder/PDF417CodewordDecoder;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -32,29 +32,29 @@ public final class PDF417CodewordDecoder {
             }
         }
         RATIOS_TABLE = (float[][]) Array.newInstance(float.class, PDF417Common.SYMBOL_TABLE.length, 8);
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
             int[] iArr = PDF417Common.SYMBOL_TABLE;
-            if (i3 >= iArr.length) {
+            if (i2 >= iArr.length) {
                 return;
             }
-            int i4 = iArr[i3];
-            int i5 = i4 & 1;
-            int i6 = 0;
-            while (i6 < 8) {
+            int i3 = iArr[i2];
+            int i4 = i3 & 1;
+            int i5 = 0;
+            while (i5 < 8) {
                 float f2 = 0.0f;
                 while (true) {
-                    i2 = i4 & 1;
-                    if (i2 == i5) {
+                    i = i3 & 1;
+                    if (i == i4) {
                         f2 += 1.0f;
-                        i4 >>= 1;
+                        i3 >>= 1;
                     }
                 }
-                RATIOS_TABLE[i3][(8 - i6) - 1] = f2 / 17.0f;
-                i6++;
-                i5 = i2;
+                RATIOS_TABLE[i2][(8 - i5) - 1] = f2 / 17.0f;
+                i5++;
+                i4 = i;
             }
-            i3++;
+            i2++;
         }
     }
 
@@ -63,9 +63,9 @@ public final class PDF417CodewordDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -76,18 +76,18 @@ public final class PDF417CodewordDecoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
-            long j2 = 0;
-            for (int i2 = 0; i2 < iArr.length; i2++) {
-                for (int i3 = 0; i3 < iArr[i2]; i3++) {
-                    int i4 = 1;
-                    long j3 = j2 << 1;
-                    if (i2 % 2 != 0) {
-                        i4 = 0;
+            long j = 0;
+            for (int i = 0; i < iArr.length; i++) {
+                for (int i2 = 0; i2 < iArr[i]; i2++) {
+                    int i3 = 1;
+                    long j2 = j << 1;
+                    if (i % 2 != 0) {
+                        i3 = 0;
                     }
-                    j2 = j3 | i4;
+                    j = j2 | i3;
                 }
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeL.intValue;
     }
@@ -100,31 +100,31 @@ public final class PDF417CodewordDecoder {
         }
         int sum = MathUtils.sum(iArr);
         float[] fArr = new float[8];
-        for (int i2 = 0; i2 < 8; i2++) {
-            fArr[i2] = iArr[i2] / sum;
+        for (int i = 0; i < 8; i++) {
+            fArr[i] = iArr[i] / sum;
         }
         float f2 = Float.MAX_VALUE;
-        int i3 = -1;
-        int i4 = 0;
+        int i2 = -1;
+        int i3 = 0;
         while (true) {
             float[][] fArr2 = RATIOS_TABLE;
-            if (i4 >= fArr2.length) {
-                return i3;
+            if (i3 >= fArr2.length) {
+                return i2;
             }
             float f3 = 0.0f;
-            float[] fArr3 = fArr2[i4];
-            for (int i5 = 0; i5 < 8; i5++) {
-                float f4 = fArr3[i5] - fArr[i5];
+            float[] fArr3 = fArr2[i3];
+            for (int i4 = 0; i4 < 8; i4++) {
+                float f4 = fArr3[i4] - fArr[i4];
                 f3 += f4 * f4;
                 if (f3 >= f2) {
                     break;
                 }
             }
             if (f3 < f2) {
-                i3 = PDF417Common.SYMBOL_TABLE[i4];
+                i2 = PDF417Common.SYMBOL_TABLE[i3];
                 f2 = f3;
             }
-            i4++;
+            i3++;
         }
     }
 
@@ -157,14 +157,14 @@ public final class PDF417CodewordDecoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iArr)) == null) {
             float sum = MathUtils.sum(iArr);
             int[] iArr2 = new int[8];
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < 17; i4++) {
-                if (iArr[i3] + i2 <= (sum / 34.0f) + ((i4 * sum) / 17.0f)) {
-                    i2 += iArr[i3];
-                    i3++;
+            for (int i3 = 0; i3 < 17; i3++) {
+                if (iArr[i2] + i <= (sum / 34.0f) + ((i3 * sum) / 17.0f)) {
+                    i += iArr[i2];
+                    i2++;
                 }
-                iArr2[i3] = iArr2[i3] + 1;
+                iArr2[i2] = iArr2[i2] + 1;
             }
             return iArr2;
         }

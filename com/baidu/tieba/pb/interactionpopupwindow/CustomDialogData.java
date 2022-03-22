@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POS_LEFT = "left";
@@ -24,7 +24,7 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class CustomDialogData implements IBaseDialogData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -47,7 +47,7 @@ public class CustomDialogData implements IBaseDialogData {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Head implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class CustomDialogData implements IBaseDialogData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -74,9 +74,9 @@ public class CustomDialogData implements IBaseDialogData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -100,8 +100,8 @@ public class CustomDialogData implements IBaseDialogData {
             customDialogData.body = jSONObject.optString(TtmlNode.TAG_BODY);
             JSONArray optJSONArray = jSONObject.optJSONArray("button");
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     Button button = new Button();
                     button.text = optJSONObject2.optString("text");
                     button.action = optJSONObject2.optString("action");

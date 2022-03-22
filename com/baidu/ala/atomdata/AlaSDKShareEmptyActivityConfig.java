@@ -29,17 +29,17 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i2, int i3) {
+    public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, shareItem, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,8 +50,8 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
         getIntent().putExtra("content", shareItem.s);
         getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.w);
         getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.t);
-        getIntent().putExtra("channel", i2);
-        getIntent().putExtra("action", i3);
+        getIntent().putExtra("channel", i);
+        getIntent().putExtra("action", i2);
         getIntent().putExtra("liveid", shareItem.q);
         getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.r0);
         getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.z);

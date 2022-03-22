@@ -35,69 +35,64 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT = 1;
-    public static final int FINISH = 4;
-    public static final int LARGE = 0;
-    public static final int PULL_TO_REFRESH = 0;
-    public static final int[] R;
-    public static final int REFRESHED = 3;
-    public static final int REFRESHING = 2;
-    public static final int RELEASE_TO_REFRESH = 1;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int[] P;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public float B;
-    public int C;
-    public Animation D;
-    public Animation E;
+    public Animation B;
+    public Animation C;
+    public boolean D;
+    public int E;
     public boolean F;
-    public int G;
+    public j G;
     public boolean H;
-    public j I;
+    public boolean I;
     public boolean J;
-    public boolean K;
+    public k K;
     public boolean L;
-    public k M;
-    public boolean N;
-    public Animation.AnimationListener O;
-    public final Animation P;
-    public final Animation Q;
+    public Animation.AnimationListener M;
+    public final Animation N;
+    public final Animation O;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f24062b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public l f24063c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f24064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30099e;
+    public int f24065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f30100f;
+    public float f24066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public l f30101g;
+    public float f24067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30102h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f30103i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f30104j;
-    public float k;
-    public final NestedScrollingParentHelper l;
-    public final NestedScrollingChildHelper m;
-    public int mFrom;
-    public int mOriginalOffsetTop;
-    public final int[] n;
-    public final int[] o;
-    public boolean p;
-    public int q;
-    public float r;
-    public float s;
-    public float t;
-    public boolean u;
-    public int v;
-    public boolean w;
-    public boolean x;
-    public final DecelerateInterpolator y;
-    public i z;
+    public final NestedScrollingParentHelper f24068h;
+    public final NestedScrollingChildHelper i;
+    public final int[] j;
+    public final int[] k;
+    public boolean l;
+    public int m;
+    public float n;
+    public float o;
+    public float p;
+    public boolean q;
+    public int r;
+    public boolean s;
+    public boolean t;
+    public final DecelerateInterpolator u;
+    public i v;
+    public int w;
+    public int x;
+    public float y;
+    public int z;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -112,9 +107,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,13 +124,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a;
-                if (bdSwipeRefreshLayout.f30102h) {
-                    bdSwipeRefreshLayout.t();
+                if (bdSwipeRefreshLayout.f24064d) {
+                    bdSwipeRefreshLayout.w();
                     BdSwipeRefreshLayout bdSwipeRefreshLayout2 = this.a;
-                    bdSwipeRefreshLayout2.q = bdSwipeRefreshLayout2.z.getView().getTop();
+                    bdSwipeRefreshLayout2.m = bdSwipeRefreshLayout2.v.getView().getTop();
                     return;
                 }
-                bdSwipeRefreshLayout.v();
+                bdSwipeRefreshLayout.y();
             }
         }
 
@@ -158,9 +153,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class b extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30105e;
+        public final /* synthetic */ BdSwipeRefreshLayout a;
 
         public b(BdSwipeRefreshLayout bdSwipeRefreshLayout) {
             Interceptable interceptable = $ic;
@@ -169,22 +162,22 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30105e = bdSwipeRefreshLayout;
+            this.a = bdSwipeRefreshLayout;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                this.f30105e.setAnimationProgress(1.0f - f2);
+                this.a.setAnimationProgress(1.0f - f2);
             }
         }
     }
@@ -202,9 +195,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -218,10 +211,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a;
-                if (!bdSwipeRefreshLayout.w) {
-                    bdSwipeRefreshLayout.z(null);
+                if (!bdSwipeRefreshLayout.s) {
+                    bdSwipeRefreshLayout.C(null);
                 }
-                this.a.l();
+                this.a.m();
             }
         }
 
@@ -244,9 +237,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class d extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30106e;
+        public final /* synthetic */ BdSwipeRefreshLayout a;
 
         public d(BdSwipeRefreshLayout bdSwipeRefreshLayout) {
             Interceptable interceptable = $ic;
@@ -255,31 +246,31 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30106e = bdSwipeRefreshLayout;
+            this.a = bdSwipeRefreshLayout;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f30106e;
-                if (!bdSwipeRefreshLayout.H) {
-                    i2 = bdSwipeRefreshLayout.C - Math.abs(bdSwipeRefreshLayout.mOriginalOffsetTop);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a;
+                if (!bdSwipeRefreshLayout.F) {
+                    i = bdSwipeRefreshLayout.A - Math.abs(bdSwipeRefreshLayout.z);
                 } else {
-                    i2 = bdSwipeRefreshLayout.C;
+                    i = bdSwipeRefreshLayout.A;
                 }
-                BdSwipeRefreshLayout bdSwipeRefreshLayout2 = this.f30106e;
-                int i3 = bdSwipeRefreshLayout2.mFrom;
-                this.f30106e.x((i3 + ((int) ((i2 - i3) * f2))) - bdSwipeRefreshLayout2.z.getView().getTop(), false, "AnimateToCorrectPosition");
+                BdSwipeRefreshLayout bdSwipeRefreshLayout2 = this.a;
+                int i2 = bdSwipeRefreshLayout2.x;
+                this.a.A((i2 + ((int) ((i - i2) * f2))) - bdSwipeRefreshLayout2.v.getView().getTop(), false, "AnimateToCorrectPosition");
             }
         }
     }
@@ -288,9 +279,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class e extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30107e;
+        public final /* synthetic */ BdSwipeRefreshLayout a;
 
         public e(BdSwipeRefreshLayout bdSwipeRefreshLayout) {
             Interceptable interceptable = $ic;
@@ -299,22 +288,22 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30107e = bdSwipeRefreshLayout;
+            this.a = bdSwipeRefreshLayout;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                this.f30107e.q(f2);
+                this.a.t(f2);
             }
         }
     }
@@ -323,9 +312,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class f extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30108e;
+        public final /* synthetic */ BdSwipeRefreshLayout a;
 
         public f(BdSwipeRefreshLayout bdSwipeRefreshLayout) {
             Interceptable interceptable = $ic;
@@ -334,25 +321,25 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30108e = bdSwipeRefreshLayout;
+            this.a = bdSwipeRefreshLayout;
         }
 
         @Override // android.view.animation.Animation
         public void applyTransformation(float f2, Transformation transformation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f30108e;
-                float f3 = bdSwipeRefreshLayout.B;
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a;
+                float f3 = bdSwipeRefreshLayout.y;
                 bdSwipeRefreshLayout.setAnimationProgress(f3 + ((-f3) * f2));
-                this.f30108e.q(f2);
+                this.a.t(f2);
             }
         }
     }
@@ -361,9 +348,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30109e;
+        public final /* synthetic */ BdSwipeRefreshLayout a;
 
         public g(BdSwipeRefreshLayout bdSwipeRefreshLayout) {
             Interceptable interceptable = $ic;
@@ -372,23 +357,23 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30109e = bdSwipeRefreshLayout;
+            this.a = bdSwipeRefreshLayout;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.f30109e;
-                bdSwipeRefreshLayout.h(bdSwipeRefreshLayout.q, bdSwipeRefreshLayout.O);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = this.a;
+                bdSwipeRefreshLayout.h(bdSwipeRefreshLayout.m, bdSwipeRefreshLayout.M);
             }
         }
     }
@@ -397,63 +382,59 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public class h implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public BdCircleImageView a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public c.a.d.o.k.a f24069b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Animation f24070c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Animation f24071d;
 
         /* renamed from: e  reason: collision with root package name */
-        public BdCircleImageView f30110e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public c.a.d.o.k.a f30111f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public Animation f30112g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public Animation f30113h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ BdSwipeRefreshLayout f30114i;
+        public final /* synthetic */ BdSwipeRefreshLayout f24072e;
 
         /* loaded from: classes3.dex */
         public class a extends Animation {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f30115e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ int f24073b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f30116f;
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ h f24074c;
 
-            /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h f30117g;
-
-            public a(h hVar, int i2, int i3) {
+            public a(h hVar, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {hVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {hVar, Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f30117g = hVar;
-                this.f30115e = i2;
-                this.f30116f = i3;
+                this.f24074c = hVar;
+                this.a = i;
+                this.f24073b = i2;
             }
 
             @Override // android.view.animation.Animation
             public void applyTransformation(float f2, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
-                    c.a.d.o.k.a aVar = this.f30117g.f30111f;
-                    int i2 = this.f30115e;
-                    aVar.setAlpha((int) (i2 + ((this.f30116f - i2) * f2)));
+                    c.a.d.o.k.a aVar = this.f24074c.f24069b;
+                    int i = this.a;
+                    aVar.setAlpha((int) (i + ((this.f24073b - i) * f2)));
                 }
             }
         }
@@ -465,44 +446,87 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSwipeRefreshLayout, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30114i = bdSwipeRefreshLayout;
-            this.f30110e = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            c.a.d.o.k.a aVar = new c.a.d.o.k.a(context, this.f30110e);
-            this.f30111f = aVar;
+            this.f24072e = bdSwipeRefreshLayout;
+            this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            c.a.d.o.k.a aVar = new c.a.d.o.k.a(context, this.a);
+            this.f24069b = aVar;
             aVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            this.f30110e.setImageDrawable(this.f30111f);
-            this.f30110e.setVisibility(8);
+            this.a.setImageDrawable(this.f24069b);
+            this.a.setVisibility(8);
         }
 
-        public void a(@ColorInt int i2) {
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f30110e.setBackgroundColor(i2);
-                this.f30111f.e(i2);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f24069b.setAlpha(76);
+                this.f24069b.l(true);
+                if (this.f24069b.getAlpha() <= 76 || this.f24072e.q(this.f24070c)) {
+                    return;
+                }
+                o();
             }
         }
 
-        public void b(@ColorInt int... iArr) {
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
-                this.f30111f.f(iArr);
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f24069b.getAlpha() >= 255 || this.f24072e.q(this.f24071d)) {
+                return;
+            }
+            n();
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void c(float f2, float f3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+                this.f24069b.j(0.0f, Math.min(0.8f, f2 * 0.8f));
+                this.f24069b.d(Math.min(1.0f, f2));
+                this.f24069b.g((((f2 * 0.4f) - 0.25f) + (f3 * 2.0f)) * 0.5f);
             }
         }
 
-        public void f(int i2) {
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f30110e.setImageDrawable(null);
-                this.f30111f.n(i2);
-                this.f30110e.setImageDrawable(this.f30111f);
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                if (Build.VERSION.SDK_INT >= 11) {
+                    this.f24069b.setAlpha(255);
+                }
+                this.f24069b.d(0.0f);
+                this.f24069b.setAlpha(255);
+                this.f24069b.start();
+            }
+        }
+
+        public void f(@ColorInt int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.a.setBackgroundColor(i);
+                this.f24069b.e(i);
+            }
+        }
+
+        public void g(@ColorInt int... iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
+                this.f24069b.f(iArr);
             }
         }
 
@@ -510,7 +534,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public long getCompleteAnimTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return 0L;
             }
             return invokeV.longValue;
@@ -520,122 +544,79 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30110e : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (View) invokeV.objValue;
+        }
+
+        public void k(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.a.setImageDrawable(null);
+                this.f24069b.n(i);
+                this.a.setImageDrawable(this.f24069b);
+            }
         }
 
         @SuppressLint({"NewApi"})
-        public final Animation h(int i2, int i3) {
+        public final Animation m(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-                if (this.f30114i.n()) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+                if (this.f24072e.p()) {
                     return null;
                 }
-                a aVar = new a(this, i2, i3);
+                a aVar = new a(this, i, i2);
                 aVar.setDuration(300L);
-                this.f30110e.setAnimationListener(null);
-                this.f30110e.clearAnimation();
-                this.f30110e.startAnimation(aVar);
+                this.a.setAnimationListener(null);
+                this.a.clearAnimation();
+                this.a.startAnimation(aVar);
                 return aVar;
             }
             return (Animation) invokeII.objValue;
         }
 
         @SuppressLint({"NewApi"})
-        public final void i() {
+        public final void n() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f30113h = h(this.f30111f.getAlpha(), 255);
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                this.f24071d = m(this.f24069b.getAlpha(), 255);
             }
         }
 
         @SuppressLint({"NewApi"})
-        public final void j() {
+        public final void o() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f30112g = h(this.f30111f.getAlpha(), 76);
-            }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void onCompleteRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+                this.f24070c = m(this.f24069b.getAlpha(), 76);
             }
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public void onFinish() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                this.f30111f.j(0.0f, 0.0f);
-                this.f30111f.stop();
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+                this.f24069b.j(0.0f, 0.0f);
+                this.f24069b.stop();
             }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void onPullPercentChange(float f2, float f3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                this.f30111f.j(0.0f, Math.min(0.8f, f2 * 0.8f));
-                this.f30111f.d(Math.min(1.0f, f2));
-                this.f30111f.g((((f2 * 0.4f) - 0.25f) + (f3 * 2.0f)) * 0.5f);
-            }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void onPullToRefresh() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-                this.f30111f.setAlpha(76);
-                this.f30111f.l(true);
-                if (this.f30111f.getAlpha() <= 76 || this.f30114i.o(this.f30112g)) {
-                    return;
-                }
-                j();
-            }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void onRefreshing() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-                if (Build.VERSION.SDK_INT >= 11) {
-                    this.f30111f.setAlpha(255);
-                }
-                this.f30111f.d(0.0f);
-                this.f30111f.setAlpha(255);
-                this.f30111f.start();
-            }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-        public void onReleaseToRefresh() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f30111f.getAlpha() >= 255 || this.f30114i.o(this.f30113h)) {
-                return;
-            }
-            i();
         }
     }
 
     /* loaded from: classes3.dex */
     public interface i {
+        void a();
+
+        void b();
+
+        void c(float f2, float f3);
+
+        void d();
+
+        void e();
+
         long getCompleteAnimTime();
 
         View getView();
 
-        void onCompleteRefresh();
-
         void onFinish();
-
-        void onPullPercentChange(float f2, float f3);
-
-        void onPullToRefresh();
-
-        void onRefreshing();
-
-        void onReleaseToRefresh();
     }
 
     /* loaded from: classes3.dex */
@@ -645,7 +626,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     /* loaded from: classes3.dex */
     public interface k {
-        void a(int i2, int i3, boolean z);
+        void a(int i, int i2, boolean z);
     }
 
     /* loaded from: classes3.dex */
@@ -666,7 +647,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 return;
             }
         }
-        R = new int[]{16842766};
+        P = new int[]{16842766};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -694,100 +675,124 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     private void setColorViewAlpha(int i2) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65545, this, i2) == null) || (iVar = this.z) == null || iVar.getView() == null || this.z.getView().getBackground() == null) {
+        if (!(interceptable == null || interceptable.invokeI(65545, this, i2) == null) || (iVar = this.v) == null || iVar.getView() == null || this.v.getView().getBackground() == null) {
             return;
         }
-        this.z.getView().getBackground().setAlpha(i2);
+        this.v.getView().getBackground().setAlpha(i2);
+    }
+
+    public void A(int i2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
+            this.v.getView().bringToFront();
+            ViewCompat.offsetTopAndBottom(this.v.getView(), i2);
+            View view = this.f24062b;
+            if (view != null && !this.J) {
+                ViewCompat.offsetTopAndBottom(view, i2);
+            }
+            this.m = this.v.getView().getTop();
+            if (!z || Build.VERSION.SDK_INT >= 11) {
+                return;
+            }
+            invalidate();
+        }
     }
 
     @SuppressLint({"NewApi"})
-    public final void A(int i2, Animation.AnimationListener animationListener) {
+    public final void B(float f2, float f3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, animationListener) == null) {
-            this.mFrom = i2;
-            this.B = ViewCompat.getScaleX(this.z.getView());
-            f fVar = new f(this);
-            this.E = fVar;
-            fVar.setDuration(150L);
-            if (animationListener != null) {
-                this.E.setAnimationListener(animationListener);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), str}) == null) {
+            float f4 = f2 - this.p;
+            float f5 = f3 - this.o;
+            boolean z = !this.L || Math.abs(f5) <= ((float) this.f24065e) || ((double) Math.abs(f4 / f5)) > Math.tan(Math.toRadians(30.0d));
+            int i2 = this.f24065e;
+            if (f4 <= i2 || this.q || !z) {
+                return;
             }
-            this.z.getView().clearAnimation();
-            this.z.getView().startAnimation(this.E);
+            this.n = this.p + i2;
+            this.q = true;
         }
     }
 
-    public boolean canChildScrollUp() {
-        InterceptResult invokeV;
+    public void C(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            j jVar = this.I;
-            if (jVar != null) {
-                return jVar.a(this, this.f30100f);
-            }
-            if (Build.VERSION.SDK_INT < 14) {
-                View view = this.f30100f;
-                if (!(view instanceof AbsListView)) {
-                    return ViewCompat.canScrollVertically(view, -1) || this.f30100f.getScrollY() > 0;
-                }
-                AbsListView absListView = (AbsListView) view;
-                return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
-            }
-            return ViewCompat.canScrollVertically(this.f30100f, -1);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animationListener) == null) {
+            b bVar = new b(this);
+            this.B = bVar;
+            bVar.setDuration(150L);
+            this.B.setAnimationListener(animationListener);
+            this.v.getView().clearAnimation();
+            this.v.getView().startAnimation(this.B);
         }
-        return invokeV.booleanValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public final void D(int i2, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, animationListener) == null) {
+            this.x = i2;
+            this.y = ViewCompat.getScaleX(this.v.getView());
+            f fVar = new f(this);
+            this.C = fVar;
+            fVar.setDuration(150L);
+            if (animationListener != null) {
+                this.C.setAnimationListener(animationListener);
+            }
+            this.v.getView().clearAnimation();
+            this.v.getView().startAnimation(this.C);
+        }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.m.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.i.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.m.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.i.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.m.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.i.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.m.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.i.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? super.dispatchTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public final void g(int i2, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, animationListener) == null) {
-            this.mFrom = i2;
-            this.P.reset();
-            this.P.setDuration(200L);
-            this.P.setInterpolator(this.y);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, animationListener) == null) {
+            this.x = i2;
+            this.N.reset();
+            this.N.setDuration(200L);
+            this.N.setInterpolator(this.u);
             if (animationListener != null) {
-                this.P.setAnimationListener(animationListener);
+                this.N.setAnimationListener(animationListener);
             }
-            if (this.z.getView().getVisibility() != 0) {
-                this.z.getView().setVisibility(0);
+            if (this.v.getView().getVisibility() != 0) {
+                this.v.getView().setVisibility(0);
             }
-            this.z.getView().clearAnimation();
-            this.z.getView().startAnimation(this.P);
+            this.v.getView().clearAnimation();
+            this.v.getView().startAnimation(this.N);
         }
     }
 
@@ -795,8 +800,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public int getChildDrawingOrder(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
-            int i4 = this.A;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
+            int i4 = this.w;
             return i4 < 0 ? i3 : i3 == i2 + (-1) ? i4 : i3 >= i4 ? i3 + 1 : i3;
         }
         return invokeII.intValue;
@@ -806,43 +811,43 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public int getNestedScrollAxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.l.getNestedScrollAxes() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f24068h.getNestedScrollAxes() : invokeV.intValue;
     }
 
     public int getProgressCircleDiameter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.G : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.E : invokeV.intValue;
     }
 
     public int getProgressViewEndOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.C : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.A : invokeV.intValue;
     }
 
     public int getProgressViewStartOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mOriginalOffsetTop : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.z : invokeV.intValue;
     }
 
     public final void h(int i2, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i2, animationListener) == null) {
-            if (this.w) {
-                A(i2, animationListener);
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, animationListener) == null) {
+            if (this.s) {
+                D(i2, animationListener);
                 return;
             }
-            this.mFrom = i2;
-            this.Q.reset();
-            this.Q.setDuration(200L);
-            this.Q.setInterpolator(this.y);
+            this.x = i2;
+            this.O.reset();
+            this.O.setDuration(200L);
+            this.O.setInterpolator(this.u);
             if (animationListener != null) {
-                this.Q.setAnimationListener(animationListener);
+                this.O.setAnimationListener(animationListener);
             }
-            this.z.getView().clearAnimation();
-            this.z.getView().startAnimation(this.Q);
+            this.v.getView().clearAnimation();
+            this.v.getView().startAnimation(this.O);
         }
     }
 
@@ -850,94 +855,97 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m.hasNestedScrollingParent() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.i.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
-    public final void i() {
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f30099e = 3;
-            this.z.onCompleteRefresh();
-            postDelayed(new g(this), this.z.getCompleteAnimTime());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            j jVar = this.G;
+            if (jVar != null) {
+                return jVar.a(this, this.f24062b);
+            }
+            if (Build.VERSION.SDK_INT < 14) {
+                View view = this.f24062b;
+                if (!(view instanceof AbsListView)) {
+                    return ViewCompat.canScrollVertically(view, -1) || this.f24062b.getScrollY() > 0;
+                }
+                AbsListView absListView = (AbsListView) view;
+                return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
+            }
+            return ViewCompat.canScrollVertically(this.f24062b, -1);
         }
-    }
-
-    public void interruptRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            k();
-            this.f30102h = false;
-            q(1.0f);
-            v();
-        }
+        return invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m.isNestedScrollingEnabled() : invokeV.booleanValue;
-    }
-
-    public boolean isRefreshing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f30102h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.i.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            h hVar = new h(this, getContext());
-            this.z = hVar;
-            addView(hVar.getView());
+            this.a = 3;
+            this.v.d();
+            postDelayed(new g(this), this.v.getCompleteAnimTime());
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.f30100f == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            h hVar = new h(this, getContext());
+            this.v = hVar;
+            addView(hVar.getView());
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.f24062b == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
-                if (!childAt.equals(this.z.getView())) {
-                    this.f30100f = childAt;
+                if (!childAt.equals(this.v.getView())) {
+                    this.f24062b = childAt;
                     return;
                 }
             }
         }
     }
 
-    public final void l() {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f30099e = 4;
-            this.z.getView().clearAnimation();
-            this.z.onFinish();
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.a = 4;
+            this.v.getView().clearAnimation();
+            this.v.onFinish();
         }
     }
 
-    public final void m(float f2, String str) {
+    public final void n(float f2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f2), str}) == null) {
-            if (f2 > this.f30104j) {
-                w(true, true);
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f2), str}) == null) {
+            if (f2 > this.f24066f) {
+                z(true, true);
                 return;
             }
-            this.f30102h = false;
-            h(this.q, this.w ? null : new c(this));
+            this.f24064d = false;
+            h(this.m, this.s ? null : new c(this));
         }
     }
 
-    public final boolean n() {
-        InterceptResult invokeV;
+    public void o() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? Build.VERSION.SDK_INT < 11 : invokeV.booleanValue;
-    }
-
-    public final boolean o(Animation animation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, animation)) == null) ? (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            l();
+            this.f24064d = false;
+            t(1.0f);
+            y();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -945,7 +953,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onDetachedFromWindow();
-            v();
+            y();
         }
     }
 
@@ -955,42 +963,42 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         int findPointerIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, motionEvent)) == null) {
-            k();
+            l();
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-            if (this.x && actionMasked == 0) {
-                this.x = false;
+            if (this.t && actionMasked == 0) {
+                this.t = false;
             }
-            if (!isEnabled() || this.x || canChildScrollUp() || this.p) {
+            if (!isEnabled() || this.t || i() || this.l) {
                 return false;
             }
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
-                        int i2 = this.v;
+                        int i2 = this.r;
                         if (i2 == -1 || (findPointerIndex = motionEvent.findPointerIndex(i2)) < 0) {
                             return false;
                         }
-                        y(motionEvent.getY(findPointerIndex), motionEvent.getX(findPointerIndex), "onInterceptTouchEvent");
+                        B(motionEvent.getY(findPointerIndex), motionEvent.getX(findPointerIndex), "onInterceptTouchEvent");
                     } else if (actionMasked != 3) {
                         if (actionMasked == 6) {
-                            r(motionEvent);
+                            u(motionEvent);
                         }
                     }
                 }
-                this.u = false;
-                this.v = -1;
+                this.q = false;
+                this.r = -1;
             } else {
                 int pointerId = motionEvent.getPointerId(0);
-                this.v = pointerId;
-                this.u = false;
+                this.r = pointerId;
+                this.q = false;
                 int findPointerIndex2 = motionEvent.findPointerIndex(pointerId);
                 if (findPointerIndex2 < 0) {
                     return false;
                 }
-                this.s = motionEvent.getX(findPointerIndex2);
-                this.t = motionEvent.getY(findPointerIndex2);
+                this.o = motionEvent.getX(findPointerIndex2);
+                this.p = motionEvent.getY(findPointerIndex2);
             }
-            return this.u;
+            return this.q;
         }
         return invokeL.booleanValue;
     }
@@ -1004,29 +1012,29 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             if (getChildCount() == 0) {
                 return;
             }
-            if (this.f30100f == null) {
-                k();
+            if (this.f24062b == null) {
+                l();
             }
-            View view = this.f30100f;
+            View view = this.f24062b;
             if (view == null) {
                 return;
             }
             int paddingLeft = getPaddingLeft();
-            int paddingTop = (getPaddingTop() + this.q) - this.mOriginalOffsetTop;
-            if (this.L) {
+            int paddingTop = (getPaddingTop() + this.m) - this.z;
+            if (this.J) {
                 paddingTop = getPaddingTop();
             }
             view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
-            int measuredWidth2 = this.z.getView().getMeasuredWidth();
-            int measuredHeight2 = this.z.getView().getMeasuredHeight();
+            int measuredWidth2 = this.v.getView().getMeasuredWidth();
+            int measuredHeight2 = this.v.getView().getMeasuredHeight();
             int i6 = measuredWidth / 2;
             int i7 = measuredWidth2 / 2;
-            int i8 = this.q;
-            this.z.getView().layout(i6 - i7, i8, i6 + i7, i8 + measuredHeight2);
-            k kVar = this.M;
+            int i8 = this.m;
+            this.v.getView().layout(i6 - i7, i8, i6 + i7, i8 + measuredHeight2);
+            k kVar = this.K;
             if (kVar != null) {
-                kVar.a(this.q, measuredHeight2, this.J);
-                this.J = false;
+                kVar.a(this.m, measuredHeight2, this.H);
+                this.H = false;
             }
         }
     }
@@ -1036,19 +1044,19 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048604, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f30100f == null) {
-                k();
+            if (this.f24062b == null) {
+                l();
             }
-            View view = this.f30100f;
+            View view = this.f24062b;
             if (view == null) {
                 return;
             }
             view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-            this.z.getView().measure(View.MeasureSpec.makeMeasureSpec(this.G, 1073741824), View.MeasureSpec.makeMeasureSpec(this.G, 1073741824));
-            this.A = -1;
+            this.v.getView().measure(View.MeasureSpec.makeMeasureSpec(this.E, 1073741824), View.MeasureSpec.makeMeasureSpec(this.E, 1073741824));
+            this.w = -1;
             for (int i4 = 0; i4 < getChildCount(); i4++) {
-                if (getChildAt(i4) == this.z.getView()) {
-                    this.A = i4;
+                if (getChildAt(i4) == this.v.getView()) {
+                    this.w = i4;
                     return;
                 }
             }
@@ -1061,8 +1069,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
-            int i3 = this.f30099e;
-            if ((i3 == 3 || i3 == 2) && f3 > 0.0f && (i2 = this.q) > this.mOriginalOffsetTop) {
+            int i3 = this.a;
+            if ((i3 == 3 || i3 == 2) && f3 > 0.0f && (i2 = this.m) > this.z) {
                 h(i2, null);
             }
             return dispatchNestedFling(f2, f3, z);
@@ -1075,8 +1083,8 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int i2 = this.f30099e;
-            if (i2 == 3 || i2 == 2 || this.z.getView() == null || this.z.getView().getBottom() <= 0) {
+            int i2 = this.a;
+            if (i2 == 3 || i2 == 2 || this.v.getView() == null || this.v.getView().getBottom() <= 0) {
                 return dispatchNestedPreFling(f2, f3);
             }
             return true;
@@ -1089,33 +1097,33 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
             if (i3 > 0) {
-                float f2 = this.k;
+                float f2 = this.f24067g;
                 if (f2 > 0.0f) {
                     float f3 = i3;
                     if (f3 > f2) {
                         iArr[1] = i3 - ((int) f2);
-                        this.k = 0.0f;
+                        this.f24067g = 0.0f;
                     } else {
-                        this.k = f2 - f3;
+                        this.f24067g = f2 - f3;
                         iArr[1] = i3;
                     }
-                    p(this.k, "onNestedPreScroll-2");
+                    s(this.f24067g, "onNestedPreScroll-2");
                 }
             }
-            if (this.H && i3 > 0 && this.k == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
-                this.z.getView().setVisibility(8);
+            if (this.F && i3 > 0 && this.f24067g == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
+                this.v.getView().setVisibility(8);
             }
-            int[] iArr2 = this.n;
+            int[] iArr2 = this.j;
             if (dispatchNestedPreScroll(i2 - iArr[0], i3 - iArr[1], iArr2, null)) {
                 iArr[0] = iArr[0] + iArr2[0];
                 iArr[1] = iArr[1] + iArr2[1];
             }
             int i4 = i3 - iArr[1];
-            if ((isRefreshing() || this.f30099e == 3) && Math.abs(i4) > 0) {
-                if ((i4 <= 0 || this.q <= this.mOriginalOffsetTop) && (i4 >= 0 || this.q >= this.mOriginalOffsetTop + this.C || canChildScrollUp())) {
+            if ((r() || this.a == 3) && Math.abs(i4) > 0) {
+                if ((i4 <= 0 || this.m <= this.z) && (i4 >= 0 || this.m >= this.z + this.A || i())) {
                     return;
                 }
-                p(Math.max(Math.min(this.C, (this.q - this.mOriginalOffsetTop) - i4), 0.0f), "onNestedPreScroll-1");
+                s(Math.max(Math.min(this.A, (this.m - this.z) - i4), 0.0f), "onNestedPreScroll-1");
                 iArr[1] = iArr[1] + i4;
             }
         }
@@ -1125,23 +1133,23 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            dispatchNestedScroll(i2, i3, i4, i5, this.o);
-            int i6 = i5 + this.o[1];
-            if (i6 >= 0 || canChildScrollUp() || this.f30102h) {
+            dispatchNestedScroll(i2, i3, i4, i5, this.k);
+            int i6 = i5 + this.k[1];
+            if (i6 >= 0 || i() || this.f24064d) {
                 return;
             }
-            float abs = this.k + Math.abs(i6);
-            this.k = abs;
-            if (this.K) {
-                float f2 = this.f30104j;
+            float abs = this.f24067g + Math.abs(i6);
+            this.f24067g = abs;
+            if (this.I) {
+                float f2 = this.f24066f;
                 if (abs > f2 * 0.6f) {
-                    this.k = f2 * 0.6f;
+                    this.f24067g = f2 * 0.6f;
                 }
-                if (this.k > this.f30104j * 0.6f * 0.8f) {
-                    this.J = true;
+                if (this.f24067g > this.f24066f * 0.6f * 0.8f) {
+                    this.H = true;
                 }
             }
-            p(this.k, "onNestedScroll");
+            s(this.f24067g, "onNestedScroll");
         }
     }
 
@@ -1149,10 +1157,10 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void onNestedScrollAccepted(View view, View view2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048609, this, view, view2, i2) == null) {
-            this.l.onNestedScrollAccepted(view, view2, i2);
+            this.f24068h.onNestedScrollAccepted(view, view2, i2);
             startNestedScroll(i2 & 2);
-            this.k = 0.0f;
-            this.p = true;
+            this.f24067g = 0.0f;
+            this.l = true;
         }
     }
 
@@ -1160,19 +1168,19 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public boolean onStartNestedScroll(View view, View view2, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048610, this, view, view2, i2)) == null) ? (!isEnabled() || this.x || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048610, this, view, view2, i2)) == null) ? (!isEnabled() || this.t || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onStopNestedScroll(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, view) == null) {
-            this.l.onStopNestedScroll(view);
-            this.p = false;
-            float f2 = this.k;
+            this.f24068h.onStopNestedScroll(view);
+            this.l = false;
+            float f2 = this.f24067g;
             if (f2 > 0.0f) {
-                m(f2, "onStopNestedScroll");
-                this.k = 0.0f;
+                n(f2, "onStopNestedScroll");
+                this.f24067g = 0.0f;
             }
             stopNestedScroll();
         }
@@ -1184,57 +1192,57 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, motionEvent)) == null) {
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-            if (this.x && actionMasked == 0) {
-                this.x = false;
+            if (this.t && actionMasked == 0) {
+                this.t = false;
             }
-            if (!isEnabled() || this.x || canChildScrollUp() || this.f30102h || this.p) {
+            if (!isEnabled() || this.t || i() || this.f24064d || this.l) {
                 return false;
             }
             if (actionMasked == 0) {
-                this.v = motionEvent.getPointerId(0);
-                this.u = false;
+                this.r = motionEvent.getPointerId(0);
+                this.q = false;
             } else if (actionMasked == 1) {
-                int findPointerIndex = motionEvent.findPointerIndex(this.v);
+                int findPointerIndex = motionEvent.findPointerIndex(this.r);
                 if (findPointerIndex < 0) {
                     return false;
                 }
-                if (this.u) {
-                    float y = (motionEvent.getY(findPointerIndex) - this.r) * 0.5f;
-                    this.u = false;
-                    if (this.K) {
-                        float f2 = this.f30104j;
+                if (this.q) {
+                    float y = (motionEvent.getY(findPointerIndex) - this.n) * 0.5f;
+                    this.q = false;
+                    if (this.I) {
+                        float f2 = this.f24066f;
                         if (y > f2 * 0.6f) {
                             y = f2 * 0.6f;
                         }
-                        if (y > this.f30104j * 0.6f * 0.8f) {
-                            this.J = true;
+                        if (y > this.f24066f * 0.6f * 0.8f) {
+                            this.H = true;
                         }
                     }
-                    m(y, "onTouchEvent(ACTION_UP)");
+                    n(y, "onTouchEvent(ACTION_UP)");
                 }
-                this.v = -1;
+                this.r = -1;
                 return false;
             } else if (actionMasked == 2) {
-                int findPointerIndex2 = motionEvent.findPointerIndex(this.v);
+                int findPointerIndex2 = motionEvent.findPointerIndex(this.r);
                 if (findPointerIndex2 < 0) {
                     return false;
                 }
                 float x = motionEvent.getX(findPointerIndex2);
                 float y2 = motionEvent.getY(findPointerIndex2);
-                y(y2, x, "onTouchEvent");
-                if (this.u) {
-                    float f3 = (y2 - this.r) * 0.5f;
+                B(y2, x, "onTouchEvent");
+                if (this.q) {
+                    float f3 = (y2 - this.n) * 0.5f;
                     if (f3 <= 0.0f) {
                         return false;
                     }
-                    if (this.K) {
-                        float f4 = this.f30104j;
+                    if (this.I) {
+                        float f4 = this.f24066f;
                         if (f3 > f4 * 0.6f) {
                             f3 = f4 * 0.6f;
                         }
-                        this.J = false;
+                        this.H = false;
                     }
-                    p(f3, "onTouchEvent(ACTION_MOVE)");
+                    s(f3, "onTouchEvent(ACTION_MOVE)");
                 }
             } else if (actionMasked == 3) {
                 return false;
@@ -1244,9 +1252,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                     if (actionIndex < 0) {
                         return false;
                     }
-                    this.v = motionEvent.getPointerId(actionIndex);
+                    this.r = motionEvent.getPointerId(actionIndex);
                 } else if (actionMasked == 6) {
-                    r(motionEvent);
+                    u(motionEvent);
                 }
             }
             return true;
@@ -1254,68 +1262,30 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         return invokeL.booleanValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public final void p(float f2, String str) {
-        int i2;
+    public final boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Float.valueOf(f2), str}) == null) {
-            float min = Math.min(1.0f, Math.abs(f2 / this.f30104j));
-            float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
-            float abs = Math.abs(f2) - this.f30104j;
-            float f3 = this.H ? this.C - this.mOriginalOffsetTop : this.C;
-            double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
-            float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
-            int i3 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
-            if (this.z.getView().getVisibility() != 0) {
-                this.z.getView().setVisibility(0);
-            }
-            if (!this.w) {
-                ViewCompat.setScaleX(this.z.getView(), 1.0f);
-                ViewCompat.setScaleY(this.z.getView(), 1.0f);
-            }
-            if (this.w) {
-                setAnimationProgress(Math.min(1.0f, f2 / this.f30104j));
-            }
-            if (!this.f30102h && (i2 = this.f30099e) != 3) {
-                int i4 = this.mOriginalOffsetTop;
-                int i5 = this.q;
-                if (i4 >= i5 || i5 >= i4 + this.C) {
-                    if (this.q >= this.mOriginalOffsetTop + this.C && this.f30099e != 1) {
-                        u();
-                    }
-                } else if (i2 != 0) {
-                    s();
-                }
-                this.z.onPullPercentChange(max, pow);
-            }
-            x(i3 - this.q, true, "moveSpinner");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? Build.VERSION.SDK_INT < 11 : invokeV.booleanValue;
     }
 
-    public void q(float f2) {
+    public final boolean q(Animation animation) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048614, this, f2) == null) {
-            int i2 = this.mFrom;
-            x((i2 + ((int) ((this.mOriginalOffsetTop - i2) * f2))) - this.z.getView().getTop(), false, "moveToStart");
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, animation)) == null) ? (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true : invokeL.booleanValue;
     }
 
-    public final void r(MotionEvent motionEvent) {
+    public boolean r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, motionEvent) == null) {
-            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (motionEvent.getPointerId(actionIndex) == this.v) {
-                this.v = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f24064d : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            if (Build.VERSION.SDK_INT >= 21 || !(this.f30100f instanceof AbsListView)) {
-                View view = this.f30100f;
+            if (Build.VERSION.SDK_INT >= 21 || !(this.f24062b instanceof AbsListView)) {
+                View view = this.f24062b;
                 if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
                     super.requestDisallowInterceptTouchEvent(z);
                 }
@@ -1323,33 +1293,63 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    public final void s() {
+    @SuppressLint({"NewApi"})
+    public final void s(float f2, String str) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            this.f30099e = 0;
-            this.z.onPullToRefresh();
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Float.valueOf(f2), str}) == null) {
+            float min = Math.min(1.0f, Math.abs(f2 / this.f24066f));
+            float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
+            float abs = Math.abs(f2) - this.f24066f;
+            float f3 = this.F ? this.A - this.z : this.A;
+            double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
+            float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
+            int i3 = this.z + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
+            if (this.v.getView().getVisibility() != 0) {
+                this.v.getView().setVisibility(0);
+            }
+            if (!this.s) {
+                ViewCompat.setScaleX(this.v.getView(), 1.0f);
+                ViewCompat.setScaleY(this.v.getView(), 1.0f);
+            }
+            if (this.s) {
+                setAnimationProgress(Math.min(1.0f, f2 / this.f24066f));
+            }
+            if (!this.f24064d && (i2 = this.a) != 3) {
+                int i4 = this.z;
+                int i5 = this.m;
+                if (i4 >= i5 || i5 >= i4 + this.A) {
+                    if (this.m >= this.z + this.A && this.a != 1) {
+                        x();
+                    }
+                } else if (i2 != 0) {
+                    v();
+                }
+                this.v.c(max, pow);
+            }
+            A(i3 - this.m, true, "moveSpinner");
         }
     }
 
     public void setAnimationProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048618, this, f2) == null) {
-            if (n()) {
+            if (p()) {
                 setColorViewAlpha((int) (f2 * 255.0f));
                 return;
             }
-            ViewCompat.setScaleX(this.z.getView(), f2);
-            ViewCompat.setScaleY(this.z.getView(), f2);
+            ViewCompat.setScaleX(this.v.getView(), f2);
+            ViewCompat.setScaleY(this.v.getView(), f2);
         }
     }
 
     public void setColorSchemeColors(@ColorInt int... iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, iArr) == null) {
-            k();
-            i iVar = this.z;
+            l();
+            i iVar = this.v;
             if (iVar instanceof h) {
-                ((h) iVar).b(iArr);
+                ((h) iVar).g(iArr);
             }
         }
     }
@@ -1369,7 +1369,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setDistanceToTriggerSync(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.f30104j = i2;
+            this.f24066f = i2;
         }
     }
 
@@ -1381,14 +1381,14 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             if (z) {
                 return;
             }
-            v();
+            y();
         }
     }
 
     public void setLimitDragDistance(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
-            this.K = z;
+            this.I = z;
         }
     }
 
@@ -1396,28 +1396,28 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.m.setNestedScrollingEnabled(z);
+            this.i.setNestedScrollingEnabled(z);
         }
     }
 
     public void setNoMoveTargetView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
-            this.L = z;
+            this.J = z;
         }
     }
 
     public void setOnChildScrollUpCallback(@Nullable j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, jVar) == null) {
-            this.I = jVar;
+            this.G = jVar;
         }
     }
 
     public void setOnRefreshListener(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, lVar) == null) {
-            this.f30101g = lVar;
+            this.f24063c = lVar;
         }
     }
 
@@ -1432,9 +1432,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setProgressBackgroundColorSchemeColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            i iVar = this.z;
+            i iVar = this.v;
             if (iVar instanceof h) {
-                ((h) iVar).a(i2);
+                ((h) iVar).f(i2);
             }
         }
     }
@@ -1449,50 +1449,50 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setProgressView(i iVar) {
         i iVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048631, this, iVar) == null) || iVar == null || iVar.getView() == null || iVar == (iVar2 = this.z) || this.f30099e != 4) {
+        if (!(interceptable == null || interceptable.invokeL(1048631, this, iVar) == null) || iVar == null || iVar.getView() == null || iVar == (iVar2 = this.v) || this.a != 4) {
             return;
         }
         removeView(iVar2.getView());
-        this.z = iVar;
+        this.v = iVar;
         iVar.getView().setVisibility(8);
-        addView(this.z.getView(), 0);
+        addView(this.v.getView(), 0);
     }
 
     public void setProgressViewCallback(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, kVar) == null) {
-            this.M = kVar;
+            this.K = kVar;
         }
     }
 
     public void setProgressViewEndTarget(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.C = i2;
-            this.w = z;
-            this.z.getView().invalidate();
+            this.A = i2;
+            this.s = z;
+            this.v.getView().invalidate();
         }
     }
 
     public void setProgressViewOffset(boolean z, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.w = z;
-            this.mOriginalOffsetTop = i2;
-            this.C = i3;
-            this.H = true;
-            v();
-            this.f30102h = false;
+            this.s = z;
+            this.z = i2;
+            this.A = i3;
+            this.F = true;
+            y();
+            this.f24064d = false;
         }
     }
 
     public void setRefreshing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
-            if (z && this.f30102h != z) {
-                w(z, false);
+            if (z && this.f24064d != z) {
+                z(z, false);
             } else {
-                w(z, false);
+                z(z, false);
             }
         }
     }
@@ -1500,14 +1500,14 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
-            if ((i2 == 0 || i2 == 1) && (this.z instanceof h)) {
+            if ((i2 == 0 || i2 == 1) && (this.v instanceof h)) {
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
                 if (i2 == 0) {
-                    this.G = (int) (displayMetrics.density * 56.0f);
+                    this.E = (int) (displayMetrics.density * 56.0f);
                 } else {
-                    this.G = (int) (displayMetrics.density * 61.0f);
+                    this.E = (int) (displayMetrics.density * 61.0f);
                 }
-                ((h) this.z).f(i2);
+                ((h) this.v).k(i2);
             }
         }
     }
@@ -1515,7 +1515,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public void setUseSlideAngleToPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
-            this.N = z;
+            this.L = z;
         }
     }
 
@@ -1523,110 +1523,91 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public boolean startNestedScroll(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048638, this, i2)) == null) ? this.m.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048638, this, i2)) == null) ? this.i.startNestedScroll(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            this.m.stopNestedScroll();
+            this.i.stopNestedScroll();
         }
     }
 
-    public final void t() {
+    public void t(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048640, this, f2) == null) {
+            int i2 = this.x;
+            A((i2 + ((int) ((this.z - i2) * f2))) - this.v.getView().getTop(), false, "moveToStart");
+        }
+    }
+
+    public final void u(MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048641, this, motionEvent) == null) {
+            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+            if (motionEvent.getPointerId(actionIndex) == this.r) {
+                this.r = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
+            }
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+            this.a = 0;
+            this.v.a();
+        }
+    }
+
+    public final void w() {
         l lVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
-            this.f30099e = 2;
-            this.z.onRefreshing();
-            if (!this.F || (lVar = this.f30101g) == null) {
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
+            this.a = 2;
+            this.v.e();
+            if (!this.D || (lVar = this.f24063c) == null) {
                 return;
             }
             lVar.onRefresh();
         }
     }
 
-    public final void u() {
+    public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
-            this.f30099e = 1;
-            this.z.onReleaseToRefresh();
+        if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
+            this.a = 1;
+            this.v.b();
         }
     }
 
-    public void v() {
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
-            l();
-            this.z.getView().setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
+            m();
+            this.v.getView().setVisibility(8);
             setColorViewAlpha(255);
-            if (this.w) {
+            if (this.s) {
                 setAnimationProgress(0.0f);
             } else {
-                x(this.mOriginalOffsetTop - this.q, true, "reset");
+                A(this.z - this.m, true, "reset");
             }
-            this.q = this.z.getView().getTop();
+            this.m = this.v.getView().getTop();
         }
     }
 
-    public final void w(boolean z, boolean z2) {
+    public final void z(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f30102h == z) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f24064d == z) {
             return;
         }
-        this.F = z2;
-        k();
-        this.f30102h = z;
+        this.D = z2;
+        l();
+        this.f24064d = z;
         if (z) {
-            g(this.q, this.O);
+            g(this.m, this.M);
         } else {
-            i();
-        }
-    }
-
-    public void x(int i2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.z.getView().bringToFront();
-            ViewCompat.offsetTopAndBottom(this.z.getView(), i2);
-            View view = this.f30100f;
-            if (view != null && !this.L) {
-                ViewCompat.offsetTopAndBottom(view, i2);
-            }
-            this.q = this.z.getView().getTop();
-            if (!z || Build.VERSION.SDK_INT >= 11) {
-                return;
-            }
-            invalidate();
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void y(float f2, float f3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), str}) == null) {
-            float f4 = f2 - this.t;
-            float f5 = f3 - this.s;
-            boolean z = !this.N || Math.abs(f5) <= ((float) this.f30103i) || ((double) Math.abs(f4 / f5)) > Math.tan(Math.toRadians(30.0d));
-            int i2 = this.f30103i;
-            if (f4 <= i2 || this.u || !z) {
-                return;
-            }
-            this.r = this.t + i2;
-            this.u = true;
-        }
-    }
-
-    public void z(Animation.AnimationListener animationListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, animationListener) == null) {
-            b bVar = new b(this);
-            this.D = bVar;
-            bVar.setDuration(150L);
-            this.D.setAnimationListener(animationListener);
-            this.z.getView().clearAnimation();
-            this.z.getView().startAnimation(this.D);
+            j();
         }
     }
 
@@ -1649,36 +1630,36 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 return;
             }
         }
-        this.f30099e = 4;
-        this.f30102h = false;
-        this.f30104j = -1.0f;
-        this.n = new int[2];
-        this.o = new int[2];
-        this.v = -1;
-        this.A = -1;
-        this.N = false;
-        this.O = new a(this);
-        this.P = new d(this);
-        this.Q = new e(this);
-        this.f30103i = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.a = 4;
+        this.f24064d = false;
+        this.f24066f = -1.0f;
+        this.j = new int[2];
+        this.k = new int[2];
+        this.r = -1;
+        this.w = -1;
+        this.L = false;
+        this.M = new a(this);
+        this.N = new d(this);
+        this.O = new e(this);
+        this.f24065e = ViewConfiguration.get(context).getScaledTouchSlop();
         getResources().getInteger(17694721);
         setWillNotDraw(false);
-        this.y = new DecelerateInterpolator(2.0f);
+        this.u = new DecelerateInterpolator(2.0f);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        this.G = displayMetrics.widthPixels;
-        j();
+        this.E = displayMetrics.widthPixels;
+        k();
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         int i4 = (int) (displayMetrics.density * 86.0f);
-        this.C = i4;
-        this.f30104j = i4;
-        this.l = new NestedScrollingParentHelper(this);
-        this.m = new NestedScrollingChildHelper(this);
+        this.A = i4;
+        this.f24066f = i4;
+        this.f24068h = new NestedScrollingParentHelper(this);
+        this.i = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
-        int i5 = -this.G;
-        this.q = i5;
-        this.mOriginalOffsetTop = i5;
-        q(1.0f);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R);
+        int i5 = -this.E;
+        this.m = i5;
+        this.z = i5;
+        t(1.0f);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, P);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
     }

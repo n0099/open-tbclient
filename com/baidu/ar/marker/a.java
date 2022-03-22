@@ -23,9 +23,9 @@ public class a extends d implements IMarker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -109,13 +109,13 @@ public class a extends d implements IMarker {
     }
 
     @Override // com.baidu.ar.marker.IMarker
-    public void postArrow(String str, int i2, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3) {
+    public void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3) {
         WeakReference<IMarker> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i2), dArr, dArr2, dArr3, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i), dArr, dArr2, dArr3, Float.valueOf(f2), Float.valueOf(f3)}) == null) || (weakReference = this.sZ) == null || weakReference.get() == null) {
             return;
         }
-        this.sZ.get().postArrow(str, i2, dArr, dArr2, dArr3, f2, f3);
+        this.sZ.get().postArrow(str, i, dArr, dArr2, dArr3, f2, f3);
     }
 
     @Override // com.baidu.ar.marker.IMarker

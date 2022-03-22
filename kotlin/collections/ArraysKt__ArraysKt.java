@@ -34,9 +34,9 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
             return false;
         }
         int length = tArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            T t = tArr[i2];
-            T t2 = tArr2[i2];
+        for (int i = 0; i < length; i++) {
+            T t = tArr[i];
+            T t2 = tArr2[i];
             if (t != t2) {
                 if (t == null || t2 == null) {
                     return false;
@@ -78,19 +78,19 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
                         return false;
                     }
                 } else if ((t instanceof UByteArray) && (t2 instanceof UByteArray)) {
-                    if (!UArraysKt___UArraysKt.m1255contentEqualskV0jMPg(((UByteArray) t).m797unboximpl(), ((UByteArray) t2).m797unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1234contentEqualskV0jMPg(((UByteArray) t).m776unboximpl(), ((UByteArray) t2).m776unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof UShortArray) && (t2 instanceof UShortArray)) {
-                    if (!UArraysKt___UArraysKt.m1252contentEqualsFGO6Aew(((UShortArray) t).m1057unboximpl(), ((UShortArray) t2).m1057unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1231contentEqualsFGO6Aew(((UShortArray) t).m1036unboximpl(), ((UShortArray) t2).m1036unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof UIntArray) && (t2 instanceof UIntArray)) {
-                    if (!UArraysKt___UArraysKt.m1253contentEqualsKJPZfPQ(((UIntArray) t).m875unboximpl(), ((UIntArray) t2).m875unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1232contentEqualsKJPZfPQ(((UIntArray) t).m854unboximpl(), ((UIntArray) t2).m854unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof ULongArray) && (t2 instanceof ULongArray)) {
-                    if (!UArraysKt___UArraysKt.m1257contentEqualslec5QzE(((ULongArray) t).m953unboximpl(), ((ULongArray) t2).m953unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1236contentEqualslec5QzE(((ULongArray) t).m932unboximpl(), ((ULongArray) t2).m932unboximpl())) {
                         return false;
                     }
                 } else if (!Intrinsics.areEqual(t, t2)) {
@@ -123,11 +123,11 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
         list.add(tArr);
         sb.append('[');
         int length = tArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (i2 != 0) {
+        for (int i = 0; i < length; i++) {
+            if (i != 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            T t = tArr[i2];
+            T t = tArr[i];
             if (t == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else if (t instanceof Object[]) {
@@ -166,16 +166,16 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
                 sb.append(arrays8);
             } else if (t instanceof UByteArray) {
                 UByteArray uByteArray = (UByteArray) t;
-                sb.append(UArraysKt___UArraysKt.m1269contentToString2csIQuQ(uByteArray != null ? uByteArray.m797unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1248contentToString2csIQuQ(uByteArray != null ? uByteArray.m776unboximpl() : null));
             } else if (t instanceof UShortArray) {
                 UShortArray uShortArray = (UShortArray) t;
-                sb.append(UArraysKt___UArraysKt.m1273contentToStringd6D3K8(uShortArray != null ? uShortArray.m1057unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1252contentToStringd6D3K8(uShortArray != null ? uShortArray.m1036unboximpl() : null));
             } else if (t instanceof UIntArray) {
                 UIntArray uIntArray = (UIntArray) t;
-                sb.append(UArraysKt___UArraysKt.m1272contentToStringXUkPCBk(uIntArray != null ? uIntArray.m875unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1251contentToStringXUkPCBk(uIntArray != null ? uIntArray.m854unboximpl() : null));
             } else if (t instanceof ULongArray) {
                 ULongArray uLongArray = (ULongArray) t;
-                sb.append(UArraysKt___UArraysKt.m1275contentToStringuLth9ew(uLongArray != null ? uLongArray.m953unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1254contentToStringuLth9ew(uLongArray != null ? uLongArray.m932unboximpl() : null));
             } else {
                 sb.append(t.toString());
             }
@@ -186,11 +186,11 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
 
     public static final <T> List<T> flatten(T[][] flatten) {
         Intrinsics.checkNotNullParameter(flatten, "$this$flatten");
-        int i2 = 0;
+        int i = 0;
         for (T[] tArr : flatten) {
-            i2 += tArr.length;
+            i += tArr.length;
         }
-        ArrayList arrayList = new ArrayList(i2);
+        ArrayList arrayList = new ArrayList(i);
         for (T[] tArr2 : flatten) {
             CollectionsKt__MutableCollectionsKt.addAll(arrayList, tArr2);
         }

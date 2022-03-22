@@ -10,10 +10,10 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface TrackOutput {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CryptoData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -22,25 +22,25 @@ public interface TrackOutput {
         public final int encryptedBlocks;
         public final byte[] encryptionKey;
 
-        public CryptoData(int i2, byte[] bArr, int i3, int i4) {
+        public CryptoData(int i, byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.cryptoMode = i2;
+            this.cryptoMode = i;
             this.encryptionKey = bArr;
-            this.encryptedBlocks = i3;
-            this.clearBlocks = i4;
+            this.encryptedBlocks = i2;
+            this.clearBlocks = i3;
         }
 
         public boolean equals(Object obj) {
@@ -68,9 +68,9 @@ public interface TrackOutput {
 
     void format(Format format);
 
-    int sampleData(ExtractorInput extractorInput, int i2, boolean z) throws IOException, InterruptedException;
+    int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException;
 
-    void sampleData(ParsableByteArray parsableByteArray, int i2);
+    void sampleData(ParsableByteArray parsableByteArray, int i);
 
-    void sampleMetadata(long j2, int i2, int i3, int i4, CryptoData cryptoData);
+    void sampleMetadata(long j, int i, int i2, int i3, CryptoData cryptoData);
 }

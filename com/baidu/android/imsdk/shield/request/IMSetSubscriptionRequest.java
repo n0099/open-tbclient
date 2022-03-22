@@ -24,17 +24,17 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public int mCategory;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMSetSubscriptionRequest(Context context, int i2, long j2, List<Long> list, List<String> list2, String str, String str2) {
-        super(context, j2, list, list2, str2, str);
+    public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), list, list2, str, str2};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Long) objArr2[1]).longValue(), (List) objArr2[2], (List) objArr2[3], (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -42,7 +42,7 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
                 return;
             }
         }
-        this.mCategory = i2;
+        this.mCategory = i;
     }
 
     @Override // com.baidu.android.imsdk.shield.request.IMSubscriptionBaseRequest
@@ -53,10 +53,10 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "IMSetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
@@ -67,27 +67,27 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "IMSetSubscriptionRequest onSuccess :" + str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             } catch (Exception e2) {
                 LogUtils.e(TAG, "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
                 return;
             }
-            ((ISetSubscriptionListener) removeListener).onResult(i3, str);
+            ((ISetSubscriptionListener) removeListener).onResult(i2, str);
         }
     }
 }

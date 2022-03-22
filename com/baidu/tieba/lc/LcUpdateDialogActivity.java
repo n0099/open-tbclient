@@ -17,6 +17,7 @@ import com.baidu.clientupdate.ClientUpdater;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.clientupdate.download.DownloadState;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -68,9 +69,9 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lcUpdateDialogActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,7 +93,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 if ("com.baidu.clientupdate.download.PROGRESS_CHANGE".equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.mProgressView.setVisibility(0);
-                    this.this$0.mProgressView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
+                    this.this$0.mProgressView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cd), String.valueOf(intExtra)));
                 } else if ("com.baidu.clientupdate.download.STATUS_CHANGE".equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.mClientId));
@@ -124,9 +125,9 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -156,15 +157,15 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransBgView = (LinearLayout) findViewById(R.id.lc_update_trans_bg);
-            this.mBgView = (LinearLayout) findViewById(R.id.lc_update_bg);
-            this.mTitleView = (TextView) findViewById(R.id.lc_update_title);
-            this.mDescView = (TextView) findViewById(R.id.lc_update_desc);
-            this.mContentLineView = findViewById(R.id.lc_update_content_divider);
-            this.mCancelView = (TextView) findViewById(R.id.lc_update_cancel);
-            this.mButtonLineView = findViewById(R.id.lc_update_button_divider);
-            this.mConfirmView = (TextView) findViewById(R.id.lc_update_confirm);
-            this.mProgressView = (TextView) findViewById(R.id.lc_update_progress);
+            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09120b);
+            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091203);
+            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f091208);
+            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f091207);
+            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f091205);
+            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f091204);
+            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f091206);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f091209);
             this.mTransBgView.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.mClientUpdateInfo;
             if (clientUpdateInfo != null) {
@@ -205,7 +206,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 return false;
             }
             Intent intent = new Intent(getPageContext().getPageActivity(), TiebaLcUpdateService.class);
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.putExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA, this.mClientUpdateInfo);
             getPageContext().getPageActivity().startService(intent);
             return true;
@@ -230,13 +231,13 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.mSkinType) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i == this.mSkinType) {
             return;
         }
-        this.mSkinType = i2;
-        super.onChangeSkinType(i2);
+        this.mSkinType = i;
+        super.onChangeSkinType(i);
         SkinManager.setBackgroundResource(this.mBgView, R.drawable.dialog_background);
         SkinManager.setViewTextColor(this.mTitleView, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.mDescView, (int) R.color.CAM_X0105);
@@ -258,7 +259,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             if (view == this.mCancelView) {
                 finish();
             } else if (view == this.mConfirmView && update()) {
-                showToast(R.string.download_begin_tip);
+                showToast(R.string.obfuscated_res_0x7f0f04e5);
                 finish();
             }
         }
@@ -270,7 +271,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.activity_lc_update_layout);
+            setContentView(R.layout.obfuscated_res_0x7f0d003f);
             initData(bundle);
             initView();
             registerReceiver();

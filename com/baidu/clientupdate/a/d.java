@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.d.j;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
-import com.baidu.pass.face.platform.common.ConstantHelper;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,23 +28,23 @@ import java.util.zip.GZIPOutputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f31974e;
+    public static d f25239e;
     public transient /* synthetic */ FieldHolder $fh;
     public List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List f31975b;
+    public List f25240b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f31976c;
+    public com.baidu.clientupdate.download.a f25241c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f31977d;
+    public b f25242d;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -53,20 +53,20 @@ public final class d {
             newInitContext.initArgs = r3;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f31976c = com.baidu.clientupdate.download.a.a(context);
-        this.f31977d = b.a(context);
+        this.f25241c = com.baidu.clientupdate.download.a.a(context);
+        this.f25242d = b.a(context);
         this.a = new ArrayList();
-        this.f31975b = new ArrayList();
+        this.f25240b = new ArrayList();
         try {
-            if (this.f31976c.h()) {
+            if (this.f25241c.h()) {
                 String a = com.baidu.util.a.a(context).a("lcsdk_xml", "apkMD5", "");
                 String a2 = j.a(context, context.getPackageName());
                 String a3 = com.baidu.util.a.a(context).a("lcsdk_xml", "sessionId", "-1");
@@ -83,7 +83,7 @@ public final class d {
         }
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f31976c.g()) {
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.f25241c.g()) {
                 LogUtil.logE(LogUtils.TAG, "符合wifi下、有a6动作的上报时机");
                 b();
                 if (this.a == null || this.a.size() == 0) {
@@ -101,7 +101,7 @@ public final class d {
                     return;
                 }
                 LogUtil.logE(LogUtils.TAG, "日志超过20k或者日志超过7天 ，将日志舍弃");
-                this.f31976c.b();
+                this.f25241c.b();
             }
         } catch (Exception e3) {
             e3.printStackTrace();
@@ -114,15 +114,15 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cursor)) == null) {
             a aVar = new a();
             try {
-                aVar.f31962b = cursor.getString(cursor.getColumnIndex("ug"));
-                aVar.f31963c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
+                aVar.f25228b = cursor.getString(cursor.getColumnIndex("ug"));
+                aVar.f25229c = cursor.getString(cursor.getColumnIndex(SearchView.IME_OPTION_NO_MICROPHONE));
                 aVar.a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
-                aVar.f31964d = cursor.getString(cursor.getColumnIndex("flag"));
-                aVar.f31965e = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_STM)));
-                aVar.f31966f = new JSONArray(cursor.getString(cursor.getColumnIndex("sc")));
-                aVar.f31967g = new JSONArray(cursor.getString(cursor.getColumnIndex(ConstantHelper.LOG_ETM)));
-                aVar.f31968h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
-                aVar.f31969i = new JSONArray(cursor.getString(cursor.getColumnIndex("ex")));
+                aVar.f25230d = cursor.getString(cursor.getColumnIndex("flag"));
+                aVar.f25231e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
+                aVar.f25232f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
+                aVar.f25233g = new JSONArray(cursor.getString(cursor.getColumnIndex("etm")));
+                aVar.f25234h = new JSONArray(cursor.getString(cursor.getColumnIndex("mg")));
+                aVar.i = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.EXCEPTION_PART)));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -137,10 +137,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (d.class) {
-                if (f31974e == null) {
-                    f31974e = new d(context);
+                if (f25239e == null) {
+                    f25239e = new d(context);
                 }
-                dVar = f31974e;
+                dVar = f25239e;
             }
             return dVar;
         }
@@ -161,10 +161,10 @@ public final class d {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject2.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.b());
                     jSONObject2.put("tm", aVar.c());
-                    jSONObject3.put("sc", aVar.d());
+                    jSONObject3.put(Config.STAT_SDK_CHANNEL, aVar.d());
                     jSONObject3.put("tm", aVar.e());
                     jSONObject3.put("mg", aVar.f());
-                    jSONObject3.put("ex", aVar.g());
+                    jSONObject3.put(Config.EXCEPTION_PART, aVar.g());
                     jSONObject2.put("in", jSONObject3);
                     jSONArray.put(jSONObject2);
                 }
@@ -186,7 +186,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LogUtil.logE(LogUtils.TAG, "把db数据的flag变为1");
-            this.f31976c.d();
+            this.f25241c.d();
         }
     }
 
@@ -209,21 +209,21 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             LogUtil.logE(LogUtils.TAG, "queryAllLog");
-            List list = this.f31975b;
+            List list = this.f25240b;
             Cursor cursor2 = null;
             if (list == null || list.size() == 0) {
                 try {
-                    cursor = this.f31976c.f();
+                    cursor = this.f25241c.f();
                     if (cursor != null) {
                         try {
                             try {
                                 cursor.moveToFirst();
                                 while (!cursor.isAfterLast()) {
-                                    this.f31975b.add(a(cursor));
+                                    this.f25240b.add(a(cursor));
                                     cursor.moveToNext();
                                 }
-                                this.a.addAll(this.f31975b);
-                                this.f31975b = null;
+                                this.a.addAll(this.f25240b);
+                                this.f25240b = null;
                                 List list2 = this.a;
                                 if (cursor != null) {
                                     cursor.close();
@@ -310,7 +310,7 @@ public final class d {
                 currentTimeMillis = System.currentTimeMillis();
                 LogUtil.logE(LogUtils.TAG, "打log");
                 str10 = TextUtils.isEmpty(str3) ? "{" : str3;
-                a = this.f31976c.a(str4);
+                a = this.f25241c.a(str4);
             } catch (Exception e2) {
                 e = e2;
             }
@@ -322,15 +322,15 @@ public final class d {
                 try {
                     if (a.moveToNext()) {
                         a a2 = a(a);
-                        if (a2.f31963c.equals(str4) && a2.f31964d.equals(str2)) {
+                        if (a2.f25229c.equals(str4) && a2.f25230d.equals(str2)) {
                             LogUtil.logE(LogUtils.TAG, "update");
                             a2.a(str10);
-                            a2.f31966f.put(str5);
-                            a2.f31965e.put(str6);
-                            a2.f31967g.put(System.currentTimeMillis() / 1000);
-                            a2.f31968h.put(str8);
-                            a2.f31969i.put(str9);
-                            this.f31976c.b(a2);
+                            a2.f25232f.put(str5);
+                            a2.f25231e.put(str6);
+                            a2.f25233g.put(System.currentTimeMillis() / 1000);
+                            a2.f25234h.put(str8);
+                            a2.i.put(str9);
+                            this.f25241c.b(a2);
                         }
                         cursor = a;
                         LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
@@ -354,7 +354,7 @@ public final class d {
                     throw th;
                 }
             }
-            this.f31976c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
+            this.f25241c.a(new a(str, str2, str10, str4, jSONArray, jSONArray2, jSONArray3, jSONArray4, jSONArray5));
             LogUtil.logE(LogUtils.TAG, "log time:" + (System.currentTimeMillis() - currentTimeMillis));
             if (cursor == null) {
             }

@@ -22,7 +22,6 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.barselect.view.ToastDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,10 +42,10 @@ public class IdentityReviewActivity extends BaseActivity {
     public long forumId;
     public View idCardView;
     public c.a.d.f.l.c<c.a.d.o.d.a> mCallBack;
-    public c.a.r0.c0.b.b mCheckModel;
+    public c.a.p0.e0.b.b mCheckModel;
     public HttpMessageListener mHttpMessageListener;
     public TextView mIdCardViewTitle;
-    public c.a.r0.c0.b.c mModel;
+    public c.a.p0.e0.b.c mModel;
     public NavigationBar mNavigationBar;
     public TbImageView mNegativeIdCard;
     public TextView mNegativeIdCardLogo;
@@ -56,7 +55,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView mPositiveIdCard;
     public TextView mPositiveIdCardLogo;
     public TextView mPositiveIdCardTip;
-    public ToastDialog mToastDialog;
+    public c.a.p0.e0.f.a mToastDialog;
     public boolean needRetry;
     public String negativeImagePath;
     public int negativeStatus;
@@ -68,9 +67,7 @@ public class IdentityReviewActivity extends BaseActivity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IdentityReviewActivity f40877e;
+        public final /* synthetic */ IdentityReviewActivity a;
 
         public a(IdentityReviewActivity identityReviewActivity) {
             Interceptable interceptable = $ic;
@@ -79,36 +76,36 @@ public class IdentityReviewActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {identityReviewActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40877e = identityReviewActivity;
+            this.a = identityReviewActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() == R.id.identity_card_positive) {
-                    IdentityReviewActivity identityReviewActivity = this.f40877e;
+                if (view.getId() == R.id.obfuscated_res_0x7f090e53) {
+                    IdentityReviewActivity identityReviewActivity = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.positiveImgePath, "IDCardFront", 101)));
-                } else if (view.getId() == R.id.identity_card_negative) {
-                    IdentityReviewActivity identityReviewActivity2 = this.f40877e;
+                } else if (view.getId() == R.id.obfuscated_res_0x7f090e51) {
+                    IdentityReviewActivity identityReviewActivity2 = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.negativeImagePath, "IDCardBack", 102)));
-                } else if (view.getId() == R.id.bottom_next_button) {
-                    IdentityReviewActivity identityReviewActivity3 = this.f40877e;
-                    new c.a.r0.c0.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
-                    this.f40877e.needRetry = true;
-                    this.f40877e.mToastDialog = new ToastDialog(this.f40877e);
-                    this.f40877e.mToastDialog.setCancelable(true);
-                    this.f40877e.mToastDialog.setCanceledOnTouchOutside(false);
-                    this.f40877e.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
-                    g.i(this.f40877e.mToastDialog, this.f40877e);
+                } else if (view.getId() == R.id.obfuscated_res_0x7f0903d0) {
+                    IdentityReviewActivity identityReviewActivity3 = this.a;
+                    new c.a.p0.e0.c.a(identityReviewActivity3.positiveImgePath, 1, identityReviewActivity3.mModel).execute(new Void[0]);
+                    this.a.needRetry = true;
+                    this.a.mToastDialog = new c.a.p0.e0.f.a(this.a);
+                    this.a.mToastDialog.setCancelable(true);
+                    this.a.mToastDialog.setCanceledOnTouchOutside(false);
+                    this.a.mToastDialog.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ab));
+                    g.i(this.a.mToastDialog, this.a);
                 }
             }
         }
@@ -127,9 +124,9 @@ public class IdentityReviewActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {identityReviewActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -140,10 +137,10 @@ public class IdentityReviewActivity extends BaseActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((b) aVar, str, i2);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) {
+                super.onLoaded((b) aVar, str, i);
                 if (str != null && aVar != null) {
                     if (str.equals(this.a.positiveImgePath)) {
                         aVar.h(this.a.mPositiveIdCard);
@@ -154,7 +151,7 @@ public class IdentityReviewActivity extends BaseActivity {
                     }
                 }
                 if (str != null) {
-                    c.a.q0.b0.c k = c.a.q0.b0.c.k();
+                    c.a.o0.b0.c k = c.a.o0.b0.c.k();
                     k.h(str + 32);
                 }
             }
@@ -168,17 +165,17 @@ public class IdentityReviewActivity extends BaseActivity {
         public final /* synthetic */ IdentityReviewActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(IdentityReviewActivity identityReviewActivity, int i2, int i3) {
-            super(i2, i3);
+        public c(IdentityReviewActivity identityReviewActivity, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {identityReviewActivity, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {identityReviewActivity, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -213,15 +210,15 @@ public class IdentityReviewActivity extends BaseActivity {
                     if (this.a.mModel != null) {
                         this.a.needRetry = false;
                         IdentityReviewActivity identityReviewActivity = this.a;
-                        new c.a.r0.c0.c.a(identityReviewActivity.positiveImgePath, 1, identityReviewActivity.mModel).execute(new Void[0]);
+                        new c.a.p0.e0.c.a(identityReviewActivity.positiveImgePath, 1, identityReviewActivity.mModel).execute(new Void[0]);
                         return;
                     }
                     return;
                 }
-                int i2 = ((CommitCardInfoReqMsg) extra).card_type;
-                if (i2 == 1) {
+                int i = ((CommitCardInfoReqMsg) extra).card_type;
+                if (i == 1) {
                     this.a.positiveStatus = 2;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     this.a.negativeStatus = 2;
                 }
                 if (this.a.positiveStatus < 2 || this.a.negativeStatus < 2) {
@@ -234,7 +231,7 @@ public class IdentityReviewActivity extends BaseActivity {
                             return;
                         }
                         IdentityReviewActivity identityReviewActivity2 = this.a;
-                        new c.a.r0.c0.c.a(identityReviewActivity2.negativeImagePath, 2, identityReviewActivity2.mModel).execute(new Void[0]);
+                        new c.a.p0.e0.c.a(identityReviewActivity2.negativeImagePath, 2, identityReviewActivity2.mModel).execute(new Void[0]);
                     }
                 } else if (this.a.mCheckModel != null) {
                     this.a.mCheckModel.a(this.a.forumId);
@@ -252,17 +249,17 @@ public class IdentityReviewActivity extends BaseActivity {
         public final /* synthetic */ IdentityReviewActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(IdentityReviewActivity identityReviewActivity, int i2) {
-            super(i2);
+        public d(IdentityReviewActivity identityReviewActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {identityReviewActivity, Integer.valueOf(i2)};
+                Object[] objArr = {identityReviewActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -301,9 +298,9 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -319,15 +316,15 @@ public class IdentityReviewActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 == -1) {
-                if (i2 == 101) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1) {
+                if (i == 101) {
                     c.a.d.f.l.d.h().m(this.positiveImgePath, 32, this.mCallBack, getUniqueId());
                     this.positiveStatus = 1;
-                } else if (i2 == 102) {
+                } else if (i == 102) {
                     c.a.d.f.l.d.h().m(this.negativeImagePath, 32, this.mCallBack, getUniqueId());
                     this.negativeStatus = 1;
                 }
@@ -344,29 +341,29 @@ public class IdentityReviewActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(getPageContext(), i2);
+                navigationBar.onChangeSkinType(getPageContext(), i);
             }
-            SkinManager.setViewTextColor(this.mNextButon, R.color.CAM_X0101, 1, i2);
-            SkinManager.setBackgroundResource(this.mNextButon, R.drawable.bg_id_card_button, i2);
-            SkinManager.setViewTextColor(this.mIdCardViewTitle, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.mPositiveIdCardTip, R.color.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.mNegativeIdCardTip, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.mNextButon, R.color.CAM_X0101, 1, i);
+            SkinManager.setBackgroundResource(this.mNextButon, R.drawable.bg_id_card_button, i);
+            SkinManager.setViewTextColor(this.mIdCardViewTitle, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.mPositiveIdCardTip, R.color.CAM_X0109, 1, i);
+            SkinManager.setViewTextColor(this.mNegativeIdCardTip, R.color.CAM_X0109, 1, i);
             int f2 = n.f(this, R.dimen.tbds10);
-            SkinManager.setViewTextColor(this.mPositiveIdCardLogo, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.mNegativeIdCardLogo, R.color.CAM_X0101, 1, i2);
-            SkinManager.setBackgroundShapeDrawable(this.mPositiveIdCardLogo, f2, R.color.cp_cont_b_alpha42, R.color.cp_cont_b_alpha42, i2);
-            SkinManager.setBackgroundShapeDrawable(this.mNegativeIdCardLogo, f2, R.color.cp_cont_b_alpha42, R.color.cp_cont_b_alpha42, i2);
+            SkinManager.setViewTextColor(this.mPositiveIdCardLogo, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.mNegativeIdCardLogo, R.color.CAM_X0101, 1, i);
+            SkinManager.setBackgroundShapeDrawable(this.mPositiveIdCardLogo, f2, R.color.cp_cont_b_alpha42, R.color.cp_cont_b_alpha42, i);
+            SkinManager.setBackgroundShapeDrawable(this.mNegativeIdCardLogo, f2, R.color.cp_cont_b_alpha42, R.color.cp_cont_b_alpha42, i);
             if (this.positiveStatus < 1) {
-                SkinManager.setImageResource(this.mPositiveIdCard, R.drawable.pic_id_front, i2);
+                SkinManager.setImageResource(this.mPositiveIdCard, R.drawable.pic_id_front, i);
             }
             if (this.negativeStatus < 1) {
-                SkinManager.setImageResource(this.mNegativeIdCard, R.drawable.pic_id_back, i2);
+                SkinManager.setImageResource(this.mNegativeIdCard, R.drawable.pic_id_back, i);
             }
         }
     }
@@ -376,27 +373,27 @@ public class IdentityReviewActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.identity_review_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d03c8);
             this.forumId = getIntent().getLongExtra("fid", 0L);
-            this.mModel = new c.a.r0.c0.b.c(getPageContext());
-            this.mCheckModel = new c.a.r0.c0.b.b(getPageContext());
+            this.mModel = new c.a.p0.e0.b.c(getPageContext());
+            this.mCheckModel = new c.a.p0.e0.b.b(getPageContext());
             this.positiveImgePath = new File(TbadkCoreApplication.getInst().getFilesDir(), POSITIVE_IMAGE_NAME).getAbsolutePath();
             this.negativeImagePath = new File(TbadkCoreApplication.getInst().getFilesDir(), NEGATIVE_IMAGE_NAME).getAbsolutePath();
-            this.idCardView = findViewById(R.id.id_card_view);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.id_review_navigation_bar);
+            this.idCardView = findViewById(R.id.obfuscated_res_0x7f090e25);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090e3e);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.bar_manager_apply));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02d4));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView textView = (TextView) findViewById(R.id.bottom_next_button);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903d0);
             this.mNextButon = textView;
             textView.setEnabled(false);
-            this.mIdCardViewTitle = (TextView) findViewById(R.id.identity_view_title);
-            this.mPositiveIdCardTip = (TextView) findViewById(R.id.positive_card_coloct_tip);
-            this.mNegativeIdCardTip = (TextView) findViewById(R.id.negative_card_coloct_tip);
-            this.mPositiveIdCard = (TbImageView) findViewById(R.id.identity_card_positive);
-            this.mNegativeIdCard = (TbImageView) findViewById(R.id.identity_card_negative);
-            this.mPositiveIdCardLogo = (TextView) findViewById(R.id.identity_card_positive_logo);
-            this.mNegativeIdCardLogo = (TextView) findViewById(R.id.identity_card_negative_logo);
+            this.mIdCardViewTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f090e56);
+            this.mPositiveIdCardTip = (TextView) findViewById(R.id.obfuscated_res_0x7f0918aa);
+            this.mNegativeIdCardTip = (TextView) findViewById(R.id.obfuscated_res_0x7f091536);
+            this.mPositiveIdCard = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e53);
+            this.mNegativeIdCard = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e51);
+            this.mPositiveIdCardLogo = (TextView) findViewById(R.id.obfuscated_res_0x7f090e54);
+            this.mNegativeIdCardLogo = (TextView) findViewById(R.id.obfuscated_res_0x7f090e52);
             MessageManager.getInstance().registerListener(this.mNetMessageListener);
             MessageManager.getInstance().registerListener(this.mHttpMessageListener);
             this.mPositiveIdCard.setOnClickListener(this.onClickListener);
@@ -412,8 +409,8 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.mNetMessageListener);
             MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
-            ToastDialog toastDialog = this.mToastDialog;
-            if (toastDialog != null && toastDialog.isShowing()) {
+            c.a.p0.e0.f.a aVar = this.mToastDialog;
+            if (aVar != null && aVar.isShowing()) {
                 g.a(this.mToastDialog, this);
             }
             super.onDestroy();

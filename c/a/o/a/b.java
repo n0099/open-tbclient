@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -42,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loki-native-NativeCrashHandler";
@@ -59,9 +60,9 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, supplier};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,7 +73,7 @@ public class b {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = c.a.i0.b.a.a.b();
+        this.mProcessName = c.a.g0.b.a.a.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         this.mForwardingHandlerSupplier = supplier;
     }
@@ -172,9 +173,13 @@ public class b {
                 if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                     hashSet.add(obtainFragmentSnapShot);
                 }
-                if (LLog.sDebug && hashSet.size() > 0) {
-                    String str2 = "uploadLogFiles.size() = " + hashSet.size();
-                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
+                if (LLog.sDebug) {
+                    if (hashSet.size() > 0) {
+                        Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
+                        for (int i = 0; i < hashSet.size(); i++) {
+                        }
+                    } else {
+                        Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");
                     }
                 }
             } else {
@@ -184,7 +189,7 @@ public class b {
             if (hashSet != null) {
                 file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
                 if (LLog.sDebug && file != null) {
-                    String str3 = "pathNameKeeper = " + file.getAbsolutePath();
+                    Log.d(TAG, "pathNameKeeper = " + file.getAbsolutePath());
                 }
             }
             onReport(this.mContext, str, file, logExtra);
@@ -222,9 +227,10 @@ public class b {
         }
     }
 
-    public void uncaughtNativeCrash(@NonNull String str, int i2, int i3) {
+    public void uncaughtNativeCrash(@NonNull String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, str, i, i2) == null) {
+            Log.d(TAG, str);
             try {
                 processNativeCrash(str, createLogExtra());
             } catch (Throwable th) {
@@ -242,9 +248,9 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -255,7 +261,7 @@ public class b {
         } else {
             this.mContext = context.getApplicationContext();
         }
-        this.mProcessName = c.a.i0.b.a.a.b();
+        this.mProcessName = c.a.g0.b.a.a.b();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             initKITKAT();

@@ -48,9 +48,9 @@ public class AudioMsg extends RichMediaMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -69,26 +69,26 @@ public class AudioMsg extends RichMediaMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public AudioMsg[] newArray(int i2) {
+            public AudioMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new AudioMsg[i2] : (AudioMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AudioMsg[i] : (AudioMsg[]) invokeI.objValue;
             }
         };
     }
 
-    private String getAudioContent(String str, int i2, int i3) {
+    private String getAudioContent(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i, i2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put("format", i2);
-                jSONObject.put("duration", i3);
+                jSONObject.put("format", i);
+                jSONObject.put("duration", i2);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 LogUtils.e(this.TAG, "getAudioContent Json", e2);
@@ -159,18 +159,18 @@ public class AudioMsg extends RichMediaMsg {
         return invokeV.booleanValue;
     }
 
-    public void setContent(String str, int i2, int i3) {
+    public void setContent(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, str, i2, i3) == null) {
-            setMsgContent(getAudioContent(str, i2, i3));
+        if (interceptable == null || interceptable.invokeLII(1048580, this, str, i, i2) == null) {
+            setMsgContent(getAudioContent(str, i, i2));
         }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.mFormat);
             parcel.writeInt(this.mDuration);
         }
@@ -181,9 +181,9 @@ public class AudioMsg extends RichMediaMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -195,16 +195,16 @@ public class AudioMsg extends RichMediaMsg {
         setMsgType(2);
     }
 
-    public AudioMsg(String str, int i2, int i3) {
+    public AudioMsg(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -215,8 +215,8 @@ public class AudioMsg extends RichMediaMsg {
         this.mDuration = -1;
         setMsgType(2);
         setLocalUrl(str);
-        this.mDuration = i2;
-        this.mFormat = i3;
+        this.mDuration = i;
+        this.mFormat = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -228,9 +228,9 @@ public class AudioMsg extends RichMediaMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

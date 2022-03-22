@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Md5Util {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -39,9 +39,9 @@ public class Md5Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,11 +53,11 @@ public class Md5Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 : bArr) {
-                if (i2 < 0) {
-                    i2 += 256;
+            for (int i : bArr) {
+                if (i < 0) {
+                    i += 256;
                 }
-                stringBuffer.append(a[i2 / 16] + a[i2 % 16]);
+                stringBuffer.append(a[i / 16] + a[i % 16]);
             }
             return stringBuffer.toString();
         }
@@ -158,16 +158,16 @@ public class Md5Util {
                 return null;
             }
             byte[] bArr = new byte[str.length() / 2];
-            for (int i2 = 0; i2 < str.length() - 1; i2 += 2) {
-                char charAt = str.charAt(i2);
-                char charAt2 = str.charAt(i2 + 1);
+            for (int i = 0; i < str.length() - 1; i += 2) {
+                char charAt = str.charAt(i);
+                char charAt2 = str.charAt(i + 1);
                 char lowerCase = Character.toLowerCase(charAt);
                 char lowerCase2 = Character.toLowerCase(charAt2);
-                int i3 = ((lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4) + (lowerCase2 <= '9' ? lowerCase2 - '0' : (lowerCase2 - 'a') + 10);
-                if (i3 > 127) {
-                    i3 -= 256;
+                int i2 = ((lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4) + (lowerCase2 <= '9' ? lowerCase2 - '0' : (lowerCase2 - 'a') + 10);
+                if (i2 > 127) {
+                    i2 -= 256;
                 }
-                bArr[i2 / 2] = (byte) i3;
+                bArr[i / 2] = (byte) i2;
             }
             return bArr;
         }

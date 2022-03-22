@@ -22,9 +22,9 @@ public class PluginBaseFragmentActivity extends PluginBaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,12 +63,12 @@ public class PluginBaseFragmentActivity extends PluginBaseActivity {
         }
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, fragment, intent, i2) == null) || (bVar = this.mProxyActivity) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, fragment, intent, i) == null) || (bVar = this.mProxyActivity) == null) {
             return;
         }
-        bVar.proxyStartActivityFromFragment(fragment, intent, i2);
+        bVar.proxyStartActivityFromFragment(fragment, intent, i);
     }
 }

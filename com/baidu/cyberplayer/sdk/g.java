@@ -15,26 +15,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g extends SurfaceView implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f32134b;
+    public a f25380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Surface f32135c;
+    public Surface f25381c;
 
     /* renamed from: com.baidu.cyberplayer.sdk.g$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements SurfaceHolder.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class g extends SurfaceView implements i {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,9 +63,9 @@ public class g extends SurfaceView implements i {
         }
 
         @Override // android.view.SurfaceHolder.Callback
-        public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
+        public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, surfaceHolder, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, surfaceHolder, i, i2, i3) == null) {
             }
         }
 
@@ -98,9 +98,9 @@ public class g extends SurfaceView implements i {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -109,15 +109,15 @@ public class g extends SurfaceView implements i {
         }
         CyberLog.d("CyberSurfaceView", "CyberSurfaceView constructor called");
         getHolder().setType(0);
-        this.f32134b = new a(this, null);
-        getHolder().addCallback(this.f32134b);
+        this.f25380b = new a(this, null);
+        getHolder().addCallback(this.f25380b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f2, int i2, int i3) {
+    public Bitmap a(float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return null;
         }
         return (Bitmap) invokeCommon.objValue;
@@ -127,19 +127,19 @@ public class g extends SurfaceView implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Surface surface = this.f32135c;
+            Surface surface = this.f25381c;
             if (surface != null) {
                 surface.release();
             }
-            this.f32135c = null;
-            CyberLog.d("BVideoView", "release mSurface:" + this.f32135c);
+            this.f25381c = null;
+            CyberLog.d("BVideoView", "release mSurface:" + this.f25381c);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void a(int i2, int i3, int i4, int i5) {
+    public void a(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
         }
     }
 
@@ -164,7 +164,7 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Surface surface = getHolder().getSurface();
-            this.f32135c = surface;
+            this.f25381c = surface;
             return surface;
         }
         return (Surface) invokeV.objValue;
@@ -184,12 +184,12 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.finalize();
-            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f32135c);
-            Surface surface = this.f32135c;
+            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f25381c);
+            Surface surface = this.f25381c;
             if (surface != null) {
                 surface.release();
-                this.f32135c = null;
-                getHolder().removeCallback(this.f32134b);
+                this.f25381c = null;
+                getHolder().removeCallback(this.f25380b);
             }
         }
     }
@@ -211,9 +211,9 @@ public class g extends SurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setClientRotation(int i2) {
+    public void setClientRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
@@ -226,16 +226,16 @@ public class g extends SurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setDisplayMode(int i2) {
+    public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setRawFrameRotation(int i2) {
+    public void setRawFrameRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
     }
 }

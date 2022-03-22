@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TaskManagerConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class TaskManagerConfiguration {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,11 +134,11 @@ public class TaskManagerConfiguration {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.retryNetDetect : invokeV.booleanValue;
     }
 
-    public void setBufferSize(int i2) {
+    public void setBufferSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            if (i2 > 0) {
-                this.bufferSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (i > 0) {
+                this.bufferSize = i;
                 return;
             }
             throw new RuntimeException("### bufferSize should be bigger than 0!");
@@ -180,29 +180,29 @@ public class TaskManagerConfiguration {
         }
     }
 
-    public void setLogLevel(int i2) {
+    public void setLogLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mLogLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mLogLevel = i;
         }
     }
 
-    public void setMaxBufferCount(int i2) {
+    public void setMaxBufferCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (this.maxTaskCount > 0) {
-                this.maxBufferCount = i2;
+                this.maxBufferCount = i;
                 return;
             }
             throw new RuntimeException("### maxBufferCount should be bigger than 0!");
         }
     }
 
-    public void setMaxTaskCount(int i2) {
+    public void setMaxTaskCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            if (i2 > 0 && i2 <= 3) {
-                this.maxTaskCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            if (i > 0 && i <= 3) {
+                this.maxTaskCount = i;
                 return;
             }
             throw new RuntimeException("### maxTaskCount should be 0-3");
@@ -231,10 +231,10 @@ public class TaskManagerConfiguration {
         }
     }
 
-    public void setTrafficStatsTag(int i2) {
+    public void setTrafficStatsTag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mTrafficStatsTag = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mTrafficStatsTag = i;
         }
     }
 

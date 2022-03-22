@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BceServiceException extends BceClientException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1483785729559154396L;
@@ -22,7 +22,7 @@ public class BceServiceException extends BceClientException {
     public int statusCode;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ErrorType {
         public static final /* synthetic */ ErrorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -51,16 +51,16 @@ public class BceServiceException extends BceClientException {
             $VALUES = new ErrorType[]{Client, Service, errorType};
         }
 
-        public ErrorType(String str, int i2) {
+        public ErrorType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -92,9 +92,9 @@ public class BceServiceException extends BceClientException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -173,10 +173,10 @@ public class BceServiceException extends BceClientException {
         }
     }
 
-    public void setStatusCode(int i2) {
+    public void setStatusCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.statusCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.statusCode = i;
         }
     }
 
@@ -189,9 +189,9 @@ public class BceServiceException extends BceClientException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, exc};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;

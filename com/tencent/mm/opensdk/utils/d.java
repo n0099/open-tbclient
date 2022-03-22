@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static Context D;
@@ -98,10 +98,10 @@ public final class d {
         return invokeLL.intValue;
     }
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == 36 || i2 == 46 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 36 || i == 46 : invokeI.booleanValue;
     }
 
     public static boolean b(String str) {

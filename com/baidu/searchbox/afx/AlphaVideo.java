@@ -39,9 +39,9 @@ public class AlphaVideo extends GLTextureView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -85,9 +85,9 @@ public class AlphaVideo extends GLTextureView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -272,13 +272,13 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setLoopSection(long j2, long j3) {
+    public void setLoopSection(long j, long j2) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(j2, j3);
+        iPlayer.setLoopSection(j, j2);
     }
 
     public void setLooping(boolean z) {
@@ -318,9 +318,9 @@ public class AlphaVideo extends GLTextureView {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, onVideoEndedListener};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -411,22 +411,22 @@ public class AlphaVideo extends GLTextureView {
         iPlayer.stop();
     }
 
-    public void setLoopSection(long j2) {
+    public void setLoopSection(long j) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(j2);
+        iPlayer.setLoopSection(j);
     }
 
-    public void setLoopSection(int i2, int i3) {
+    public void setLoopSection(int i, int i2) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(i2, i3);
+        iPlayer.setLoopSection(i, i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -438,9 +438,9 @@ public class AlphaVideo extends GLTextureView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -455,12 +455,12 @@ public class AlphaVideo extends GLTextureView {
         init();
     }
 
-    public void setLoopSection(int i2) {
+    public void setLoopSection(int i) {
         IPlayer iPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (iPlayer = this.mPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (iPlayer = this.mPlayer) == null) {
             return;
         }
-        iPlayer.setLoopSection(i2);
+        iPlayer.setLoopSection(i);
     }
 }

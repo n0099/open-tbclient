@@ -3,7 +3,6 @@ package org.webrtc;
 import android.hardware.Camera;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +14,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera1Enumerator";
@@ -30,9 +29,9 @@ public class Camera1Enumerator implements CameraEnumerator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -68,18 +67,18 @@ public class Camera1Enumerator implements CameraEnumerator {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public static List<CameraEnumerationAndroid.CaptureFormat> enumerateFormats(int i2) {
+    public static List<CameraEnumerationAndroid.CaptureFormat> enumerateFormats(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            Logging.d(TAG, "Get supported formats for camera index " + i2 + ".");
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            Logging.d(TAG, "Get supported formats for camera index " + i + ".");
             long elapsedRealtime = SystemClock.elapsedRealtime();
             Camera camera = null;
             try {
                 try {
-                    Logging.d(TAG, "Opening camera with index " + i2);
-                    camera = Camera.open(i2);
+                    Logging.d(TAG, "Opening camera with index " + i);
+                    camera = Camera.open(i);
                     Camera.Parameters parameters = camera.getParameters();
                     if (camera != null) {
                         camera.release();
@@ -87,25 +86,25 @@ public class Camera1Enumerator implements CameraEnumerator {
                     ArrayList arrayList = new ArrayList();
                     try {
                         List<int[]> supportedPreviewFpsRange = parameters.getSupportedPreviewFpsRange();
-                        int i4 = 0;
+                        int i3 = 0;
                         if (supportedPreviewFpsRange != null) {
                             int[] iArr = supportedPreviewFpsRange.get(supportedPreviewFpsRange.size() - 1);
-                            i4 = iArr[0];
-                            i3 = iArr[1];
+                            i3 = iArr[0];
+                            i2 = iArr[1];
                         } else {
-                            i3 = 0;
+                            i2 = 0;
                         }
                         for (Camera.Size size : parameters.getSupportedPreviewSizes()) {
-                            arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, i4, i3));
+                            arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, i3, i2));
                         }
                     } catch (Exception e2) {
-                        Logging.e(TAG, "getSupportedFormats() failed on camera index " + i2, e2);
+                        Logging.e(TAG, "getSupportedFormats() failed on camera index " + i, e2);
                     }
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                    Logging.d(TAG, "Get supported formats for camera index " + i2 + " done. Time spent: " + (elapsedRealtime2 - elapsedRealtime) + " ms.");
+                    Logging.d(TAG, "Get supported formats for camera index " + i + " done. Time spent: " + (elapsedRealtime2 - elapsedRealtime) + " ms.");
                     return arrayList;
                 } catch (RuntimeException e3) {
-                    Logging.e(TAG, "Open camera failed on camera index " + i2, e3);
+                    Logging.e(TAG, "Open camera failed on camera index " + i, e3);
                     ArrayList arrayList2 = new ArrayList();
                     if (camera != null) {
                         camera.release();
@@ -127,9 +126,9 @@ public class Camera1Enumerator implements CameraEnumerator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             Logging.d(TAG, "getCameraIndex: " + str);
-            for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
-                if (str.equals(getDeviceName(i2))) {
-                    return i2;
+            for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
+                if (str.equals(getDeviceName(i))) {
+                    return i;
                 }
             }
             throw new IllegalArgumentException("No such camera: " + str);
@@ -138,16 +137,16 @@ public class Camera1Enumerator implements CameraEnumerator {
     }
 
     @Nullable
-    public static Camera.CameraInfo getCameraInfo(int i2) {
+    public static Camera.CameraInfo getCameraInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             try {
-                Camera.getCameraInfo(i2, cameraInfo);
+                Camera.getCameraInfo(i, cameraInfo);
                 return cameraInfo;
             } catch (Exception e2) {
-                Logging.e(TAG, "getCameraInfo failed on index " + i2, e2);
+                Logging.e(TAG, "getCameraInfo failed on index " + i, e2);
                 return null;
             }
         }
@@ -155,16 +154,16 @@ public class Camera1Enumerator implements CameraEnumerator {
     }
 
     @Nullable
-    public static String getDeviceName(int i2) {
+    public static String getDeviceName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            Camera.CameraInfo cameraInfo = getCameraInfo(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            Camera.CameraInfo cameraInfo = getCameraInfo(i);
             if (cameraInfo == null) {
                 return null;
             }
-            String str = cameraInfo.facing == 1 ? "front" : d.u;
-            return "Camera " + i2 + ", Facing " + str + ", Orientation " + cameraInfo.orientation;
+            String str = cameraInfo.facing == 1 ? "front" : "back";
+            return "Camera " + i + ", Facing " + str + ", Orientation " + cameraInfo.orientation;
         }
         return (String) invokeI.objValue;
     }
@@ -182,13 +181,13 @@ public class Camera1Enumerator implements CameraEnumerator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
-                String deviceName = getDeviceName(i2);
+            for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
+                String deviceName = getDeviceName(i);
                 if (deviceName != null) {
                     arrayList.add(deviceName);
-                    Logging.d(TAG, "Index: " + i2 + ". " + deviceName);
+                    Logging.d(TAG, "Index: " + i + ". " + deviceName);
                 } else {
-                    Logging.e(TAG, "Index: " + i2 + ". Failed to query camera name.");
+                    Logging.e(TAG, "Index: " + i + ". Failed to query camera name.");
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -232,9 +231,9 @@ public class Camera1Enumerator implements CameraEnumerator {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -243,19 +242,19 @@ public class Camera1Enumerator implements CameraEnumerator {
         this.captureToTexture = z;
     }
 
-    public static synchronized List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(int i2) {
+    public static synchronized List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(int i) {
         InterceptResult invokeI;
         List<CameraEnumerationAndroid.CaptureFormat> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             synchronized (Camera1Enumerator.class) {
                 if (cachedSupportedFormats == null) {
                     cachedSupportedFormats = new ArrayList();
-                    for (int i3 = 0; i3 < Camera.getNumberOfCameras(); i3++) {
-                        cachedSupportedFormats.add(enumerateFormats(i3));
+                    for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
+                        cachedSupportedFormats.add(enumerateFormats(i2));
                     }
                 }
-                list = cachedSupportedFormats.get(i2);
+                list = cachedSupportedFormats.get(i);
             }
             return list;
         }

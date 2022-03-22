@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,9 +43,9 @@ public final class StatusBarUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,9 +132,9 @@ public final class StatusBarUtil {
             newInitContext.initArgs = r2;
             Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -158,7 +160,7 @@ public final class StatusBarUtil {
                 return 0;
             }
             Context applicationContext = context.getApplicationContext();
-            int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = applicationContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 return applicationContext.getResources().getDimensionPixelSize(identifier);
             }
@@ -192,14 +194,14 @@ public final class StatusBarUtil {
             WindowManager.LayoutParams attributes = this.window.getAttributes();
             try {
                 Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
-                int i2 = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
+                int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
                 Field declaredField = cls.getDeclaredField("meizuFlags");
                 declaredField.setAccessible(true);
-                int i3 = declaredField.getInt(attributes);
+                int i2 = declaredField.getInt(attributes);
                 if (z) {
-                    declaredField.set(attributes, Integer.valueOf(i3 | i2));
+                    declaredField.set(attributes, Integer.valueOf(i2 | i));
                 } else {
-                    declaredField.set(attributes, Integer.valueOf((~i2) & i3));
+                    declaredField.set(attributes, Integer.valueOf((~i) & i2));
                 }
                 return true;
             } catch (Exception unused) {
@@ -238,12 +240,12 @@ public final class StatusBarUtil {
             Class<?> cls = this.window.getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
                 Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
                 Window window = this.window;
                 Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i2 : 0);
-                objArr[1] = Integer.valueOf(i2);
+                objArr[0] = Integer.valueOf(z ? i : 0);
+                objArr[1] = Integer.valueOf(i);
                 method.invoke(window, objArr);
                 return true;
             } catch (Exception unused) {
@@ -257,9 +259,9 @@ public final class StatusBarUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
+            int i = Build.VERSION.SDK_INT;
             if (processPrivateAPI() || processLollipopAbove()) {
-                if (i2 == 19) {
+                if (i == 19) {
                     processKitkat();
                 }
                 processActionBar(this.actionBarView);
@@ -288,9 +290,9 @@ public final class StatusBarUtil {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, view};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

@@ -29,19 +29,19 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void getAddressGetRegion(int i2, AddrSelectorRequestParam addrSelectorRequestParam) {
+    public void getAddressGetRegion(int i, AddrSelectorRequestParam addrSelectorRequestParam) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, addrSelectorRequestParam) == null) {
-            AddressRequestFactory.newAddressGetRegion(addrSelectorRequestParam).submit(new NetCallback(this, i2) { // from class: com.baidu.pass.ecommerce.presenter.AddrListPagerPresenter.1
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, addrSelectorRequestParam) == null) {
+            AddressRequestFactory.newAddressGetRegion(addrSelectorRequestParam).submit(new NetCallback(this, i) { // from class: com.baidu.pass.ecommerce.presenter.AddrListPagerPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddrListPagerPresenter this$0;
@@ -52,25 +52,25 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$action = i2;
+                    this.val$action = i;
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i3, String str) {
+                public void onFailure(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
-                        this.this$0.doFailure(this.val$action, i3, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        this.this$0.doFailure(this.val$action, i2, str);
                     }
                 }
 
@@ -85,9 +85,9 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                             arrayList = new ArrayList();
                             ArrayList arrayList3 = new ArrayList();
                             String str = "";
-                            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                                 AddressBean addressBean = new AddressBean();
-                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                                 addressBean.id = optJSONObject.optString(AddrSelectorResponseParam.KEY_ID);
                                 addressBean.pid = optJSONObject.optString(AddrSelectorResponseParam.KEY_PID);
                                 addressBean.type = optJSONObject.optString(AddrSelectorResponseParam.KEY_TYPE);
@@ -111,9 +111,9 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
                         JSONArray optJSONArray2 = jSONObject.optJSONArray(AddrSelectorResponseParam.KEY_HOTLIST);
                         if (optJSONArray2 != null) {
                             arrayList2 = new ArrayList();
-                            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                                 AddressBean addressBean2 = new AddressBean();
-                                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i4);
+                                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
                                 addressBean2.pid = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PID);
                                 addressBean2.pname = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PNAME);
                                 addressBean2.ptype = optJSONObject2.optString(AddrSelectorResponseParam.KEY_PTYPE);
@@ -132,10 +132,10 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
         }
     }
 
-    public String getErrorMsg(int i2) {
+    public String getErrorMsg(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? "网络不给力，请稍后重试" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? "网络不给力，请稍后重试" : (String) invokeI.objValue;
     }
 
     public List<AddressBean> makeSelectedEntity(ElementNode.AddressEntity addressEntity, String str) {
@@ -147,20 +147,20 @@ public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
             }
             List<AddressBean> list = addressEntity.list;
             if (list != null && !list.isEmpty() && !TextUtils.isEmpty(str)) {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= list.size()) {
+                    if (i >= list.size()) {
                         break;
                     }
-                    AddressBean addressBean = list.get(i2);
+                    AddressBean addressBean = list.get(i);
                     if (addressBean != null && str.equals(addressBean.id)) {
                         addressEntity.selectedId = addressBean.id;
                         addressEntity.selectedName = addressBean.name;
                         addressEntity.selectedType = addressBean.type;
-                        addressEntity.selectedPosition = i2;
+                        addressEntity.selectedPosition = i;
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             }
             return list;

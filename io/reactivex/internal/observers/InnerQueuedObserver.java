@@ -14,7 +14,7 @@ import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5417183359794346637L;
@@ -25,23 +25,23 @@ public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> im
     public final int prefetch;
     public SimpleQueue<T> queue;
 
-    public InnerQueuedObserver(InnerQueuedObserverSupport<T> innerQueuedObserverSupport, int i2) {
+    public InnerQueuedObserver(InnerQueuedObserverSupport<T> innerQueuedObserverSupport, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {innerQueuedObserverSupport, Integer.valueOf(i2)};
+            Object[] objArr = {innerQueuedObserverSupport, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.parent = innerQueuedObserverSupport;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.disposables.Disposable

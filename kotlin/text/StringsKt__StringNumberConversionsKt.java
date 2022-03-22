@@ -4,13 +4,12 @@ import com.google.android.exoplayer2.C;
 import kotlin.Metadata;
 import kotlin.SinceKotlin;
 import kotlin.jvm.internal.Intrinsics;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Metadata(d1 = {"\u0000.\n\u0000\n\u0002\u0010\u0001\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0005\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\n\n\u0002\b\u0003\u001a\u0010\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u0000\u001a\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005*\u00020\u0003H\u0007¢\u0006\u0002\u0010\u0006\u001a\u001b\u0010\u0004\u001a\u0004\u0018\u00010\u0005*\u00020\u00032\u0006\u0010\u0007\u001a\u00020\bH\u0007¢\u0006\u0002\u0010\t\u001a\u0013\u0010\n\u001a\u0004\u0018\u00010\b*\u00020\u0003H\u0007¢\u0006\u0002\u0010\u000b\u001a\u001b\u0010\n\u001a\u0004\u0018\u00010\b*\u00020\u00032\u0006\u0010\u0007\u001a\u00020\bH\u0007¢\u0006\u0002\u0010\f\u001a\u0013\u0010\r\u001a\u0004\u0018\u00010\u000e*\u00020\u0003H\u0007¢\u0006\u0002\u0010\u000f\u001a\u001b\u0010\r\u001a\u0004\u0018\u00010\u000e*\u00020\u00032\u0006\u0010\u0007\u001a\u00020\bH\u0007¢\u0006\u0002\u0010\u0010\u001a\u0013\u0010\u0011\u001a\u0004\u0018\u00010\u0012*\u00020\u0003H\u0007¢\u0006\u0002\u0010\u0013\u001a\u001b\u0010\u0011\u001a\u0004\u0018\u00010\u0012*\u00020\u00032\u0006\u0010\u0007\u001a\u00020\bH\u0007¢\u0006\u0002\u0010\u0014¨\u0006\u0015"}, d2 = {"numberFormatError", "", "input", "", "toByteOrNull", "", "(Ljava/lang/String;)Ljava/lang/Byte;", "radix", "", "(Ljava/lang/String;I)Ljava/lang/Byte;", "toIntOrNull", "(Ljava/lang/String;)Ljava/lang/Integer;", "(Ljava/lang/String;I)Ljava/lang/Integer;", "toLongOrNull", "", "(Ljava/lang/String;)Ljava/lang/Long;", "(Ljava/lang/String;I)Ljava/lang/Long;", "toShortOrNull", "", "(Ljava/lang/String;)Ljava/lang/Short;", "(Ljava/lang/String;I)Ljava/lang/Short;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/text/StringsKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StringsKt__StringNumberConversionsKt extends StringsKt__StringNumberConversionsJVMKt {
     public static final Void numberFormatError(String input) {
         Intrinsics.checkNotNullParameter(input, "input");
-        throw new NumberFormatException("Invalid number format: '" + input + ExtendedMessageFormat.QUOTE);
+        throw new NumberFormatException("Invalid number format: '" + input + '\'');
     }
 
     @SinceKotlin(version = "1.1")
@@ -38,10 +37,10 @@ public class StringsKt__StringNumberConversionsKt extends StringsKt__StringNumbe
     }
 
     @SinceKotlin(version = "1.1")
-    public static final Byte toByteOrNull(String toByteOrNull, int i2) {
+    public static final Byte toByteOrNull(String toByteOrNull, int i) {
         int intValue;
         Intrinsics.checkNotNullParameter(toByteOrNull, "$this$toByteOrNull");
-        Integer intOrNull = toIntOrNull(toByteOrNull, i2);
+        Integer intOrNull = toIntOrNull(toByteOrNull, i);
         if (intOrNull == null || (intValue = intOrNull.intValue()) < -128 || intValue > 127) {
             return null;
         }
@@ -49,27 +48,27 @@ public class StringsKt__StringNumberConversionsKt extends StringsKt__StringNumbe
     }
 
     @SinceKotlin(version = "1.1")
-    public static final Integer toIntOrNull(String toIntOrNull, int i2) {
+    public static final Integer toIntOrNull(String toIntOrNull, int i) {
         boolean z;
-        int i3;
+        int i2;
         Intrinsics.checkNotNullParameter(toIntOrNull, "$this$toIntOrNull");
-        CharsKt__CharJVMKt.checkRadix(i2);
+        CharsKt__CharJVMKt.checkRadix(i);
         int length = toIntOrNull.length();
         if (length == 0) {
             return null;
         }
-        int i4 = 0;
+        int i3 = 0;
         char charAt = toIntOrNull.charAt(0);
-        int i5 = -2147483647;
-        int i6 = 1;
+        int i4 = -2147483647;
+        int i5 = 1;
         if (Intrinsics.compare((int) charAt, 48) >= 0) {
             z = false;
-            i6 = 0;
+            i5 = 0;
         } else if (length == 1) {
             return null;
         } else {
             if (charAt == '-') {
-                i5 = Integer.MIN_VALUE;
+                i4 = Integer.MIN_VALUE;
                 z = true;
             } else if (charAt != '+') {
                 return null;
@@ -77,19 +76,19 @@ public class StringsKt__StringNumberConversionsKt extends StringsKt__StringNumbe
                 z = false;
             }
         }
-        int i7 = -59652323;
-        while (i6 < length) {
-            int digitOf = CharsKt__CharJVMKt.digitOf(toIntOrNull.charAt(i6), i2);
+        int i6 = -59652323;
+        while (i5 < length) {
+            int digitOf = CharsKt__CharJVMKt.digitOf(toIntOrNull.charAt(i5), i);
             if (digitOf < 0) {
                 return null;
             }
-            if ((i4 < i7 && (i7 != -59652323 || i4 < (i7 = i5 / i2))) || (i3 = i4 * i2) < i5 + digitOf) {
+            if ((i3 < i6 && (i6 != -59652323 || i3 < (i6 = i4 / i))) || (i2 = i3 * i) < i4 + digitOf) {
                 return null;
             }
-            i4 = i3 - digitOf;
-            i6++;
+            i3 = i2 - digitOf;
+            i5++;
         }
-        return z ? Integer.valueOf(i4) : Integer.valueOf(-i4);
+        return z ? Integer.valueOf(i3) : Integer.valueOf(-i3);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0044  */
@@ -99,72 +98,72 @@ public class StringsKt__StringNumberConversionsKt extends StringsKt__StringNumbe
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Long toLongOrNull(String toLongOrNull, int i2) {
+    public static final Long toLongOrNull(String toLongOrNull, int i) {
         Intrinsics.checkNotNullParameter(toLongOrNull, "$this$toLongOrNull");
-        CharsKt__CharJVMKt.checkRadix(i2);
+        CharsKt__CharJVMKt.checkRadix(i);
         int length = toLongOrNull.length();
         if (length == 0) {
             return null;
         }
-        int i3 = 0;
+        int i2 = 0;
         char charAt = toLongOrNull.charAt(0);
         int compare = Intrinsics.compare((int) charAt, 48);
-        long j2 = C.TIME_UNSET;
+        long j = C.TIME_UNSET;
         boolean z = true;
         if (compare < 0) {
             if (length == 1) {
                 return null;
             }
             if (charAt == '-') {
-                j2 = Long.MIN_VALUE;
-                i3 = 1;
-                long j3 = -256204778801521550L;
-                long j4 = 0;
-                long j5 = -256204778801521550L;
-                while (i3 < length) {
-                    int digitOf = CharsKt__CharJVMKt.digitOf(toLongOrNull.charAt(i3), i2);
+                j = Long.MIN_VALUE;
+                i2 = 1;
+                long j2 = -256204778801521550L;
+                long j3 = 0;
+                long j4 = -256204778801521550L;
+                while (i2 < length) {
+                    int digitOf = CharsKt__CharJVMKt.digitOf(toLongOrNull.charAt(i2), i);
                     if (digitOf < 0) {
                         return null;
                     }
-                    if (j4 < j5) {
-                        if (j5 == j3) {
-                            j5 = j2 / i2;
-                            if (j4 < j5) {
+                    if (j3 < j4) {
+                        if (j4 == j2) {
+                            j4 = j / i;
+                            if (j3 < j4) {
                             }
                         }
                         return null;
                     }
-                    long j6 = j4 * i2;
-                    long j7 = digitOf;
-                    if (j6 < j2 + j7) {
+                    long j5 = j3 * i;
+                    long j6 = digitOf;
+                    if (j5 < j + j6) {
                         return null;
                     }
-                    j4 = j6 - j7;
-                    i3++;
-                    j3 = -256204778801521550L;
+                    j3 = j5 - j6;
+                    i2++;
+                    j2 = -256204778801521550L;
                 }
-                return !z ? Long.valueOf(j4) : Long.valueOf(-j4);
+                return !z ? Long.valueOf(j3) : Long.valueOf(-j3);
             } else if (charAt != '+') {
                 return null;
             } else {
-                i3 = 1;
+                i2 = 1;
             }
         }
         z = false;
-        long j32 = -256204778801521550L;
-        long j42 = 0;
-        long j52 = -256204778801521550L;
-        while (i3 < length) {
+        long j22 = -256204778801521550L;
+        long j32 = 0;
+        long j42 = -256204778801521550L;
+        while (i2 < length) {
         }
         if (!z) {
         }
     }
 
     @SinceKotlin(version = "1.1")
-    public static final Short toShortOrNull(String toShortOrNull, int i2) {
+    public static final Short toShortOrNull(String toShortOrNull, int i) {
         int intValue;
         Intrinsics.checkNotNullParameter(toShortOrNull, "$this$toShortOrNull");
-        Integer intOrNull = toIntOrNull(toShortOrNull, i2);
+        Integer intOrNull = toIntOrNull(toShortOrNull, i);
         if (intOrNull == null || (intValue = intOrNull.intValue()) < -32768 || intValue > 32767) {
             return null;
         }

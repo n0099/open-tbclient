@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialResources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class MaterialResources {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,63 +39,63 @@ public class MaterialResources {
     }
 
     @Nullable
-    public static ColorStateList getColorStateList(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i2) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int color;
         int resourceId;
         ColorStateList colorStateList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, typedArray, i2)) == null) {
-            if (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(context, resourceId)) == null) {
-                if (Build.VERSION.SDK_INT <= 15 && (color = typedArray.getColor(i2, -1)) != -1) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, typedArray, i)) == null) {
+            if (!typedArray.hasValue(i) || (resourceId = typedArray.getResourceId(i, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(context, resourceId)) == null) {
+                if (Build.VERSION.SDK_INT <= 15 && (color = typedArray.getColor(i, -1)) != -1) {
                     return ColorStateList.valueOf(color);
                 }
-                return typedArray.getColorStateList(i2);
+                return typedArray.getColorStateList(i);
             }
             return colorStateList;
         }
         return (ColorStateList) invokeLLI.objValue;
     }
 
-    public static int getDimensionPixelSize(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i2, int i3) {
+    public static int getDimensionPixelSize(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, context, typedArray, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, context, typedArray, i, i2)) == null) {
             TypedValue typedValue = new TypedValue();
-            if (typedArray.getValue(i2, typedValue) && typedValue.type == 2) {
+            if (typedArray.getValue(i, typedValue) && typedValue.type == 2) {
                 TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(new int[]{typedValue.data});
-                int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, i3);
+                int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, i2);
                 obtainStyledAttributes.recycle();
                 return dimensionPixelSize;
             }
-            return typedArray.getDimensionPixelSize(i2, i3);
+            return typedArray.getDimensionPixelSize(i, i2);
         }
         return invokeLLII.intValue;
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i2) {
+    public static Drawable getDrawable(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int resourceId;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, typedArray, i2)) == null) ? (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0 || (drawable = AppCompatResources.getDrawable(context, resourceId)) == null) ? typedArray.getDrawable(i2) : drawable : (Drawable) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, typedArray, i)) == null) ? (!typedArray.hasValue(i) || (resourceId = typedArray.getResourceId(i, 0)) == 0 || (drawable = AppCompatResources.getDrawable(context, resourceId)) == null) ? typedArray.getDrawable(i) : drawable : (Drawable) invokeLLI.objValue;
     }
 
     @StyleableRes
-    public static int getIndexWithValue(@NonNull TypedArray typedArray, @StyleableRes int i2, @StyleableRes int i3) {
+    public static int getIndexWithValue(@NonNull TypedArray typedArray, @StyleableRes int i, @StyleableRes int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, typedArray, i2, i3)) == null) ? typedArray.hasValue(i2) ? i2 : i3 : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, typedArray, i, i2)) == null) ? typedArray.hasValue(i) ? i : i2 : invokeLII.intValue;
     }
 
     @Nullable
-    public static TextAppearance getTextAppearance(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i2) {
+    public static TextAppearance getTextAppearance(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, typedArray, i2)) == null) {
-            if (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, typedArray, i)) == null) {
+            if (!typedArray.hasValue(i) || (resourceId = typedArray.getResourceId(i, 0)) == 0) {
                 return null;
             }
             return new TextAppearance(context, resourceId);
@@ -104,18 +104,18 @@ public class MaterialResources {
     }
 
     @Nullable
-    public static ColorStateList getColorStateList(@NonNull Context context, @NonNull TintTypedArray tintTypedArray, @StyleableRes int i2) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @NonNull TintTypedArray tintTypedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int color;
         int resourceId;
         ColorStateList colorStateList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, tintTypedArray, i2)) == null) {
-            if (!tintTypedArray.hasValue(i2) || (resourceId = tintTypedArray.getResourceId(i2, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(context, resourceId)) == null) {
-                if (Build.VERSION.SDK_INT <= 15 && (color = tintTypedArray.getColor(i2, -1)) != -1) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, tintTypedArray, i)) == null) {
+            if (!tintTypedArray.hasValue(i) || (resourceId = tintTypedArray.getResourceId(i, 0)) == 0 || (colorStateList = AppCompatResources.getColorStateList(context, resourceId)) == null) {
+                if (Build.VERSION.SDK_INT <= 15 && (color = tintTypedArray.getColor(i, -1)) != -1) {
                     return ColorStateList.valueOf(color);
                 }
-                return tintTypedArray.getColorStateList(i2);
+                return tintTypedArray.getColorStateList(i);
             }
             return colorStateList;
         }

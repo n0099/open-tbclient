@@ -1,6 +1,5 @@
 package com.baidu.ar.cloud;
 
-import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,22 +31,22 @@ public final class CloudIRState {
             }
         }
         START = new CloudIRState("START", 0);
-        SUCCESS = new CloudIRState(c.p, 1);
+        SUCCESS = new CloudIRState("SUCCESS", 1);
         CloudIRState cloudIRState = new CloudIRState("ERROR", 2);
         ERROR = cloudIRState;
         $VALUES = new CloudIRState[]{START, SUCCESS, cloudIRState};
     }
 
-    public CloudIRState(String str, int i2) {
+    public CloudIRState(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

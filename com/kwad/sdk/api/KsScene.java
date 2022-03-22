@@ -20,16 +20,16 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder(long j2) {
+        public Builder(long j) {
             KsScene ksScene = (KsScene) Loader.get().newInstance(KsScene.class);
             this.scene = ksScene;
-            ksScene.setPosId(j2);
+            ksScene.setPosId(j);
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder action(int i2) {
-            this.scene.setAction(i2);
+        public Builder action(int i) {
+            this.scene.setAction(i);
             return this;
         }
 
@@ -42,8 +42,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder adNum(int i2) {
-            this.scene.setAdNum(i2);
+        public Builder adNum(int i) {
+            this.scene.setAdNum(i);
             return this;
         }
 
@@ -55,8 +55,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder height(int i2) {
-            this.scene.setHeight(i2);
+        public Builder height(int i) {
+            this.scene.setHeight(i);
             return this;
         }
 
@@ -69,8 +69,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder posId(long j2) {
-            this.scene.setPosId(j2);
+        public Builder posId(long j) {
+            this.scene.setPosId(j);
             return this;
         }
 
@@ -90,8 +90,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder screenOrientation(int i2) {
-            this.scene.setScreenOrientation(i2);
+        public Builder screenOrientation(int i) {
+            this.scene.setScreenOrientation(i);
             return this;
         }
 
@@ -111,22 +111,22 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder setUserCommRateBuying(int i2) {
-            this.scene.setUserCommRateBuying(i2);
+        public Builder setUserCommRateBuying(int i) {
+            this.scene.setUserCommRateBuying(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setUserCommRateSharing(int i2) {
-            this.scene.setUserCommRateSharing(i2);
+        public Builder setUserCommRateSharing(int i) {
+            this.scene.setUserCommRateSharing(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder width(int i2) {
-            this.scene.setWidth(i2);
+        public Builder width(int i) {
+            this.scene.setWidth(i);
             return this;
         }
     }
@@ -189,15 +189,15 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setAction(int i2);
+    void setAction(int i);
 
     @KsAdSdkApi
     @Keep
-    void setAdNum(int i2);
+    void setAdNum(int i);
 
     @KsAdSdkApi
     @Keep
-    void setAdStyle(int i2);
+    void setAdStyle(int i);
 
     @KsAdSdkApi
     @Keep
@@ -209,7 +209,7 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setHeight(int i2);
+    void setHeight(int i);
 
     @KsAdSdkApi
     @Keep
@@ -217,7 +217,7 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setPosId(long j2);
+    void setPosId(long j);
 
     @KsAdSdkApi
     @Keep
@@ -229,19 +229,19 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setScreenOrientation(int i2);
+    void setScreenOrientation(int i);
 
     @KsAdSdkApi
     @Keep
-    void setUserCommRateBuying(int i2);
+    void setUserCommRateBuying(int i);
 
     @KsAdSdkApi
     @Keep
-    void setUserCommRateSharing(int i2);
+    void setUserCommRateSharing(int i);
 
     @KsAdSdkApi
     @Keep
-    void setWidth(int i2);
+    void setWidth(int i);
 
     @KsAdSdkApi
     @Keep

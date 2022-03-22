@@ -54,9 +54,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -69,9 +69,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,9 +91,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -124,9 +124,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                             newInitContext2.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext2);
-                            int i4 = newInitContext2.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext2.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext2.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext2);
                                 return;
@@ -160,9 +160,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -179,8 +179,8 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
                     }
                 }
             });
-            int i4 = Build.VERSION.SDK_INT;
-            if (19 > i4 || i4 > 23) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (19 > i3 || i3 > 23) {
                 return;
             }
             getLifecycle().addObserver(new ImmLeaksCleaner(this));
@@ -284,9 +284,9 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
             super.onCreate(bundle);
             this.mSavedStateRegistryController.performRestore(bundle);
             ReportFragment.injectIfNeededIn(this);
-            int i2 = this.mContentLayoutId;
-            if (i2 != 0) {
-                setContentView(i2);
+            int i = this.mContentLayoutId;
+            if (i != 0) {
+                setContentView(i);
             }
         }
     }
@@ -341,23 +341,23 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @ContentView
-    public ComponentActivity(@LayoutRes int i2) {
+    public ComponentActivity(@LayoutRes int i) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mContentLayoutId = i2;
+        this.mContentLayoutId = i;
     }
 }

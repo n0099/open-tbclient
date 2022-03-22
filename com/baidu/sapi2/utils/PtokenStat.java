@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +29,9 @@ public class PtokenStat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +42,7 @@ public class PtokenStat {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
             HashMap hashMap = new HashMap();
-            hashMap.put("device", Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("sys_version", Build.VERSION.RELEASE);
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             hashMap.put("uid", currentAccount == null ? "uid_is_empty" : currentAccount.uid);

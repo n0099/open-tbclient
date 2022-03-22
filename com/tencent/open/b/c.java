@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
 import com.tencent.open.web.security.SecureJsInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public KeyEvent f59090b;
+    public KeyEvent f43735b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.tencent.open.web.security.a f59091c;
+    public com.tencent.open.web.security.a f43736c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context) {
@@ -33,9 +33,9 @@ public class c extends b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -64,12 +64,12 @@ public class c extends b {
                             }
                             if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                                 KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.f59090b = keyEvent2;
+                                this.f43735b = keyEvent2;
                                 return super.dispatchKeyEvent(keyEvent2);
                             }
                             return super.dispatchKeyEvent(keyEvent);
                         }
-                        com.tencent.open.web.security.a.f59177b = true;
+                        com.tencent.open.web.security.a.f43814b = true;
                         return super.dispatchKeyEvent(keyEvent);
                     }
                     return super.dispatchKeyEvent(keyEvent);
@@ -92,7 +92,7 @@ public class c extends b {
             if (onCreateInputConnection != null) {
                 a = true;
                 com.tencent.open.web.security.a aVar = new com.tencent.open.web.security.a(super.onCreateInputConnection(editorInfo), false);
-                this.f59091c = aVar;
+                this.f43736c = aVar;
                 return aVar;
             }
             a = false;
@@ -102,14 +102,14 @@ public class c extends b {
     }
 
     @Override // android.webkit.WebView, android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         int unicodeChar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
             SLog.d("openSDK_LOG.SecureWebView", "-->onKeyDown, is device support: " + a);
             if (!a) {
-                return super.onKeyDown(i2, keyEvent);
+                return super.onKeyDown(i, keyEvent);
             }
             if (keyEvent.getAction() == 0) {
                 int keyCode = keyEvent.getKeyCode();
@@ -117,23 +117,23 @@ public class c extends b {
                     if (keyCode != 66) {
                         if (keyCode != 67) {
                             if (keyEvent.getUnicodeChar() == 0) {
-                                return super.onKeyDown(i2, keyEvent);
+                                return super.onKeyDown(i, keyEvent);
                             }
                             if (SecureJsInterface.isPWDEdit && (((unicodeChar = keyEvent.getUnicodeChar()) >= 33 && unicodeChar <= 95) || (unicodeChar >= 97 && unicodeChar <= 125))) {
                                 KeyEvent keyEvent2 = new KeyEvent(0, 17);
-                                this.f59090b = keyEvent2;
-                                return super.onKeyDown(keyEvent2.getKeyCode(), this.f59090b);
+                                this.f43735b = keyEvent2;
+                                return super.onKeyDown(keyEvent2.getKeyCode(), this.f43735b);
                             }
-                            return super.onKeyDown(i2, keyEvent);
+                            return super.onKeyDown(i, keyEvent);
                         }
-                        com.tencent.open.web.security.a.f59177b = true;
-                        return super.onKeyDown(i2, keyEvent);
+                        com.tencent.open.web.security.a.f43814b = true;
+                        return super.onKeyDown(i, keyEvent);
                     }
-                    return super.onKeyDown(i2, keyEvent);
+                    return super.onKeyDown(i, keyEvent);
                 }
-                return super.onKeyDown(i2, keyEvent);
+                return super.onKeyDown(i, keyEvent);
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

@@ -14,7 +14,7 @@ public class aa extends AnimatorListenerAdapter {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f34093b;
+    public final /* synthetic */ WearMapView f26329b;
 
     public aa(WearMapView wearMapView, View view) {
         Interceptable interceptable = $ic;
@@ -23,15 +23,15 @@ public class aa extends AnimatorListenerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {wearMapView, view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34093b = wearMapView;
+        this.f26329b = wearMapView;
         this.a = view;
     }
 

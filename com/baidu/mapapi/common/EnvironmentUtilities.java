@@ -17,22 +17,22 @@ public class EnvironmentUtilities {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33813b;
+    public static String f26087b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f33814c;
+    public static String f26088c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f33815d;
+    public static int f26089d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f33816e;
+    public static int f26090e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f33817f;
+    public static int f26091f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static h f33818g;
+    public static h f26092g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,9 +55,9 @@ public class EnvironmentUtilities {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,7 +67,7 @@ public class EnvironmentUtilities {
     public static String getAppCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f33813b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f26087b : (String) invokeV.objValue;
     }
 
     public static String getAppSDCardPath() {
@@ -89,25 +89,25 @@ public class EnvironmentUtilities {
     public static String getAppSecondCachePath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f33814c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f26088c : (String) invokeV.objValue;
     }
 
     public static int getDomTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f33816e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f26090e : invokeV.intValue;
     }
 
     public static int getItsTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f33817f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f26091f : invokeV.intValue;
     }
 
     public static int getMapTmpStgMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f33815d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f26089d : invokeV.intValue;
     }
 
     public static String getSDCardPath() {
@@ -120,23 +120,23 @@ public class EnvironmentUtilities {
         String c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            if (f33818g == null) {
+            if (f26092g == null) {
                 h a2 = h.a();
-                f33818g = a2;
+                f26092g = a2;
                 a2.a(context);
             }
             String str = a;
             if (str == null || str.length() <= 0) {
-                a = f33818g.b().a();
-                c2 = f33818g.b().c();
+                a = f26092g.b().a();
+                c2 = f26092g.b().c();
             } else {
                 c2 = a + File.separator + "BaiduMapSDKNew" + File.separator + "cache";
             }
-            f33813b = c2;
-            f33814c = f33818g.b().d();
-            f33815d = 20971520;
-            f33816e = 52428800;
-            f33817f = 5242880;
+            f26087b = c2;
+            f26088c = f26092g.b().d();
+            f26089d = 20971520;
+            f26090e = 52428800;
+            f26091f = 5242880;
         }
     }
 

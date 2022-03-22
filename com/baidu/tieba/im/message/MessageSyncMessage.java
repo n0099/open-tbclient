@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import androidx.collection.LongSparseArray;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s1.o.c;
+import c.a.p0.u1.o.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -40,9 +40,9 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -72,9 +72,9 @@ public class MessageSyncMessage extends TbSocketMessage {
             }
             long d2 = c.e().d();
             boolean z = false;
-            for (int i2 = 0; i2 < this.mMids.size(); i2++) {
-                long keyAt = this.mMids.keyAt(i2);
-                Long valueAt = this.mMids.valueAt(i2);
+            for (int i = 0; i < this.mMids.size(); i++) {
+                long keyAt = this.mMids.keyAt(i);
+                Long valueAt = this.mMids.valueAt(i);
                 if (valueAt != null) {
                     GroupLastId.Builder builder2 = new GroupLastId.Builder();
                     builder2.groupId = Long.valueOf(keyAt);
@@ -188,10 +188,10 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -230,17 +230,17 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
     }
 
-    public void setSmallHeight(int i2) {
+    public void setSmallHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.smallHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.smallHeight = i;
         }
     }
 
-    public void setSmallWidth(int i2) {
+    public void setSmallWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.smallWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.smallWidth = i;
         }
     }
 
@@ -251,10 +251,10 @@ public class MessageSyncMessage extends TbSocketMessage {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.width = i;
         }
     }
 }

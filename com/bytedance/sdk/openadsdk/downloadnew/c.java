@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.downloadnew;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -11,27 +12,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public InputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f51880b;
+        public Map<String, String> f38293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f51881c;
+        public int f38294c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f51882d;
+        public HttpURLConnection f38295d;
 
-        public a(InputStream inputStream, Map<String, String> map, int i2, HttpURLConnection httpURLConnection) {
+        public a(InputStream inputStream, Map<String, String> map, int i, HttpURLConnection httpURLConnection) {
             this.a = inputStream;
-            this.f51880b = map;
-            this.f51881c = i2;
-            this.f51882d = httpURLConnection;
+            this.f38293b = map;
+            this.f38294c = i;
+            this.f38295d = httpURLConnection;
         }
     }
 
@@ -57,7 +58,7 @@ public class c {
             }
             httpURLConnection.connect();
             int responseCode = httpURLConnection.getResponseCode();
-            return ((responseCode < 200 || responseCode >= 300) && responseCode >= 300 && responseCode < 400) ? a(httpURLConnection.getHeaderField("Location"), map) : httpURLConnection;
+            return ((responseCode < 200 || responseCode >= 300) && responseCode >= 300 && responseCode < 400) ? a(httpURLConnection.getHeaderField(Headers.LOCATION), map) : httpURLConnection;
         } catch (Exception unused2) {
             httpURLConnection3 = httpURLConnection2;
             return httpURLConnection3;
@@ -67,8 +68,8 @@ public class c {
     public static Map<String, String> a(HttpURLConnection httpURLConnection) {
         HashMap hashMap = new HashMap();
         int size = httpURLConnection.getHeaderFields().size();
-        for (int i2 = 0; i2 < size; i2++) {
-            hashMap.put(httpURLConnection.getHeaderFieldKey(i2), httpURLConnection.getHeaderField(i2));
+        for (int i = 0; i < size; i++) {
+            hashMap.put(httpURLConnection.getHeaderFieldKey(i), httpURLConnection.getHeaderField(i));
         }
         return hashMap;
     }

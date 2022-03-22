@@ -47,7 +47,7 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     boolean inTransaction();
 
-    long insert(String str, int i2, ContentValues contentValues) throws SQLException;
+    long insert(String str, int i, ContentValues contentValues) throws SQLException;
 
     boolean isDatabaseIntegrityOk();
 
@@ -60,7 +60,7 @@ public interface SupportSQLiteDatabase extends Closeable {
     @RequiresApi(api = 16)
     boolean isWriteAheadLoggingEnabled();
 
-    boolean needUpgrade(int i2);
+    boolean needUpgrade(int i);
 
     Cursor query(SupportSQLiteQuery supportSQLiteQuery);
 
@@ -76,19 +76,19 @@ public interface SupportSQLiteDatabase extends Closeable {
 
     void setLocale(Locale locale);
 
-    void setMaxSqlCacheSize(int i2);
+    void setMaxSqlCacheSize(int i);
 
-    long setMaximumSize(long j2);
+    long setMaximumSize(long j);
 
-    void setPageSize(long j2);
+    void setPageSize(long j);
 
     void setTransactionSuccessful();
 
-    void setVersion(int i2);
+    void setVersion(int i);
 
-    int update(String str, int i2, ContentValues contentValues, String str2, Object[] objArr);
+    int update(String str, int i, ContentValues contentValues, String str2, Object[] objArr);
 
     boolean yieldIfContendedSafely();
 
-    boolean yieldIfContendedSafely(long j2);
+    boolean yieldIfContendedSafely(long j);
 }

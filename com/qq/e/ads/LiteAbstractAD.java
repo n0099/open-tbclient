@@ -13,22 +13,22 @@ import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.pi.LADI;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> implements LADI, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadConfirmListener f57502f;
+    public DownloadConfirmListener f42309f;
 
     public LiteAbstractAD() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -96,22 +96,22 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     }
 
     @Override // com.qq.e.comm.compliance.DownloadConfirmListener
-    public void onDownloadConfirm(Activity activity, int i2, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
+    public void onDownloadConfirm(Activity activity, int i, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
         DownloadConfirmListener downloadConfirmListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048580, this, activity, i2, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f57502f) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(1048580, this, activity, i, str, downloadConfirmCallBack) == null) || (downloadConfirmListener = this.f42309f) == null) {
             return;
         }
-        downloadConfirmListener.onDownloadConfirm(activity, i2, str, downloadConfirmCallBack);
+        downloadConfirmListener.onDownloadConfirm(activity, i, str, downloadConfirmCallBack);
     }
 
     @Override // com.qq.e.comm.pi.LADI
-    public void sendLossNotification(int i2, int i3, String str) {
+    public void sendLossNotification(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
             T t = this.a;
             if (t != 0) {
-                ((LADI) t).sendLossNotification(i2, i3, str);
+                ((LADI) t).sendLossNotification(i, i2, str);
             } else {
                 a("sendLossNotification");
             }
@@ -119,12 +119,12 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     }
 
     @Override // com.qq.e.comm.pi.LADI
-    public void sendWinNotification(int i2) {
+    public void sendWinNotification(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             T t = this.a;
             if (t != 0) {
-                ((LADI) t).sendWinNotification(i2);
+                ((LADI) t).sendWinNotification(i);
             } else {
                 a("sendWinNotification");
             }
@@ -132,12 +132,12 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     }
 
     @Override // com.qq.e.comm.pi.LADI
-    public void setBidECPM(int i2) {
+    public void setBidECPM(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             T t = this.a;
             if (t != 0) {
-                ((LADI) t).setBidECPM(i2);
+                ((LADI) t).setBidECPM(i);
             } else {
                 a("setBidECPM");
             }
@@ -148,7 +148,7 @@ public abstract class LiteAbstractAD<T extends LADI> extends AbstractAD<T> imple
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadConfirmListener) == null) {
-            this.f57502f = downloadConfirmListener;
+            this.f42309f = downloadConfirmListener;
             T t = this.a;
             if (t != 0) {
                 ((LADI) t).setDownloadConfirmListener(this);

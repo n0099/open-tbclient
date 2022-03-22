@@ -50,9 +50,9 @@ public class CircleIndicator extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,9 +66,9 @@ public class CircleIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             this.mTabPaint.setColor(this.mCircleColor);
-            for (int i2 = 0; i2 < this.mTabCount; i2++) {
-                int i3 = this.mRadius;
-                canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i2), i3, i3, this.mTabPaint);
+            for (int i = 0; i < this.mTabCount; i++) {
+                int i2 = this.mRadius;
+                canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i), i2, i2, this.mTabPaint);
             }
         }
     }
@@ -93,8 +93,8 @@ public class CircleIndicator extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, canvas) == null) {
             this.mTabPaint.setColor(this.mRectColor);
-            int i2 = (this.mInitTranslationX + this.mTranslationX) - (this.mInterWidth / 2);
-            canvas.drawRoundRect(new RectF(i2, 0, this.mRectWidth + i2, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
+            int i = (this.mInitTranslationX + this.mTranslationX) - (this.mInterWidth / 2);
+            canvas.drawRoundRect(new RectF(i, 0, this.mRectWidth + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
         }
     }
 
@@ -125,12 +125,12 @@ public class CircleIndicator extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            this.mHeight = i3;
-            this.mWidth = i2;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.mHeight = i2;
+            this.mWidth = i;
             int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
             this.mInterWidth = dp2px;
             this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
@@ -139,10 +139,10 @@ public class CircleIndicator extends View {
         }
     }
 
-    public void scroll(int i2, float f2) {
+    public void scroll(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mTranslationX = (int) (this.mInterWidth * (f2 + i2));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.mTranslationX = (int) (this.mInterWidth * (f2 + i));
             invalidate();
         }
     }
@@ -171,9 +171,9 @@ public class CircleIndicator extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -184,17 +184,17 @@ public class CircleIndicator extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -216,9 +216,9 @@ public class CircleIndicator extends View {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -228,27 +228,27 @@ public class CircleIndicator extends View {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int i5) {
+            public void onPageScrollStateChanged(int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i5) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) {
                     GlobalOnItemClickListenerManager.getInstance().removeLongClickCallback();
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i5, float f2, int i6) {
+            public void onPageScrolled(int i4, float f2, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i5), Float.valueOf(f2), Integer.valueOf(i6)}) == null) || f2 <= 0.0f) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), Float.valueOf(f2), Integer.valueOf(i5)}) == null) || f2 <= 0.0f) {
                     return;
                 }
-                this.this$0.scroll(i5, f2);
+                this.this$0.scroll(i4, f2);
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageSelected(int i5) {
+            public void onPageSelected(int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i5) == null) {
-                    this.this$0.mCurrentPos = i5;
+                if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i4) == null) {
+                    this.this$0.mCurrentPos = i4;
                 }
             }
         };

@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 import android.app.Application;
 import android.content.res.Resources;
 import android.util.SparseArray;
-import c.a.c0.c.a.a;
+import c.a.b0.c.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.pm.BundleInfo;
@@ -40,9 +40,9 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -106,9 +106,9 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {yYPluginDownloadCallback, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -118,24 +118,24 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                     this.$pluginPackageName = str;
                 }
 
-                @Override // c.a.c0.c.a.a
-                public void onProgress(long j2, long j3) {
+                @Override // c.a.b0.c.a.a
+                public void onProgress(long j, long j2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
                         return;
                     }
-                    yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j2, j3);
+                    yYPluginDownloadCallback2.onProgress(this.$pluginPackageName, j, j2);
                 }
 
-                @Override // c.a.c0.c.a.a
-                public void onResult(int i2, String str2) {
+                @Override // c.a.b0.c.a.a
+                public void onResult(int i, String str2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
                         return;
                     }
-                    yYPluginDownloadCallback2.onResult(this.$pluginPackageName, i2 == 2, str2);
+                    yYPluginDownloadCallback2.onResult(this.$pluginPackageName, i == 2, str2);
                 }
             }, YYPluginManageServiceImpl$downloadBundle$2.INSTANCE, 1);
         }
@@ -160,9 +160,9 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str3, str4, yYPluginDownloadCallback, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -175,20 +175,20 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 }
 
                 @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void connected(DownloadTask downloadTask, int i2, long j2, long j3) {
+                public void connected(DownloadTask downloadTask, int i, long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
                 @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-                public void progress(DownloadTask downloadTask, long j2, long j3) {
+                public void progress(DownloadTask downloadTask, long j, long j2) {
                     YYPluginDownloadCallback yYPluginDownloadCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j2), Long.valueOf(j3)}) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Long.valueOf(j), Long.valueOf(j2)}) == null) || (yYPluginDownloadCallback2 = this.$callback) == null) {
                         return;
                     }
-                    yYPluginDownloadCallback2.onProgress(this.$packageName, j2, j3);
+                    yYPluginDownloadCallback2.onProgress(this.$packageName, j, j2);
                 }
 
                 @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
@@ -279,9 +279,9 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, yYPluginInstallCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -293,19 +293,19 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onProgress(long j2, long j3) {
+                public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                        this.$callback.onProgress(this.$pluginPackageName, j2, j3);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                        this.$callback.onProgress(this.$pluginPackageName, j, j2);
                     }
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onResult(int i2, String str2) {
+                public void onResult(int i, String str2) {
                     YYPluginBundleInfo transBundleInfo;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        if (i2 == 13) {
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
+                        if (i == 13) {
                             transBundleInfo = this.this$0.transBundleInfo(NPSPackageManager.getInstance().getBundleInfo(this.$pluginPackageName));
                             if (transBundleInfo == null) {
                                 this.$callback.onError(this.$pluginPackageName, -100, "transform error");
@@ -315,7 +315,7 @@ public final class YYPluginManageServiceImpl implements YYPluginManageService {
                                 return;
                             }
                         }
-                        this.$callback.onError(this.$pluginPackageName, i2, str2);
+                        this.$callback.onError(this.$pluginPackageName, i, str2);
                     }
                 }
             });

@@ -22,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -35,8 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -61,9 +61,9 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {proxyURLConnection, str, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -332,14 +332,14 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             if (isHttpRequestNull()) {
                 sb.append("Uri: null\n");
             } else if (z) {
-                sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + StringUtils.LF);
+                sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + "\n");
             } else {
-                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + StringUtils.LF);
+                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + "\n");
             }
             Map<String, String> map = this.mRequestHeader;
             if (map != null) {
                 for (String str : map.keySet()) {
-                    sb.append(str + ":" + this.mRequestHeader.get(str) + StringUtils.LF);
+                    sb.append(str + ":" + this.mRequestHeader.get(str) + "\n");
                 }
             }
             if (!isHttpRequestNull()) {
@@ -348,9 +348,9 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             if (!z && !isHttpRequestNull() && (headerFields = this.mURLConnectionRequest.getHeaderFields()) != null) {
                 for (String str2 : headerFields.keySet()) {
                     if (str2 == null) {
-                        sb.append(headerFields.get(str2).toString() + StringUtils.LF);
+                        sb.append(headerFields.get(str2).toString() + "\n");
                     } else {
-                        sb.append(str2.toString() + ":" + headerFields.get(str2).toString() + StringUtils.LF);
+                        sb.append(str2.toString() + ":" + headerFields.get(str2).toString() + "\n");
                     }
                 }
             }
@@ -377,7 +377,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public void onHandleFollowRedirect(HashSet<String> hashSet) throws RedirectException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, hashSet) == null) {
-            String headerField = this.mURLConnectionRequest.getHeaderField("Location");
+            String headerField = this.mURLConnectionRequest.getHeaderField(Headers.LOCATION);
             if (!TextUtils.isEmpty(headerField)) {
                 Utils.removeMapKeyIgnoreCase(this.mRequestHeader, "Host");
                 if (!hashSet.contains(headerField)) {
@@ -413,14 +413,14 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public boolean onRetryRequest(IOException iOException, int i2, int i3) {
+    public boolean onRetryRequest(IOException iOException, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048593, this, iOException, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048593, this, iOException, i, i2)) == null) {
             if (!isHttpRequestNull()) {
-                return this.mURLConnectionRetryHandler.retryRequest(iOException, i2, this.mURLConnectionRequest.getURL().getHost(), i3);
+                return this.mURLConnectionRetryHandler.retryRequest(iOException, i, this.mURLConnectionRequest.getURL().getHost(), i2);
             }
-            return this.mURLConnectionRetryHandler.retryRequest(iOException, i2, "", i3);
+            return this.mURLConnectionRetryHandler.retryRequest(iOException, i, "", i2);
         }
         return invokeLII.booleanValue;
     }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends RecyclerView {
     public boolean a;
 
@@ -17,8 +17,8 @@ public class g extends RecyclerView {
         super(context, attributeSet);
     }
 
-    public g(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public g(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup

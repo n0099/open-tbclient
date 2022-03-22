@@ -97,9 +97,9 @@ public final class WireFormat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r12, Integer.valueOf(r13), r14, Integer.valueOf(r15)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (JavaType) objArr2[2], ((Integer) objArr2[3]).intValue(), (AnonymousClass1) objArr2[4]);
                             newInitContext.thisArg = this;
@@ -132,9 +132,9 @@ public final class WireFormat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r12, Integer.valueOf(r13), r14, Integer.valueOf(r15)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (JavaType) objArr2[2], ((Integer) objArr2[3]).intValue(), (AnonymousClass1) objArr2[4]);
                             newInitContext.thisArg = this;
@@ -167,9 +167,9 @@ public final class WireFormat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r12, Integer.valueOf(r13), r14, Integer.valueOf(r15)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (JavaType) objArr2[2], ((Integer) objArr2[3]).intValue(), (AnonymousClass1) objArr2[4]);
                             newInitContext.thisArg = this;
@@ -202,9 +202,9 @@ public final class WireFormat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r12, Integer.valueOf(r13), r14, Integer.valueOf(r15)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (JavaType) objArr2[2], ((Integer) objArr2[3]).intValue(), (AnonymousClass1) objArr2[4]);
                             newInitContext.thisArg = this;
@@ -234,8 +234,8 @@ public final class WireFormat {
             $VALUES = new FieldType[]{DOUBLE, FLOAT, INT64, UINT64, INT32, FIXED64, FIXED32, BOOL, STRING, GROUP, MESSAGE, BYTES, UINT32, ENUM, SFIXED32, SFIXED64, SINT32, fieldType};
         }
 
-        public /* synthetic */ FieldType(String str, int i2, JavaType javaType, int i3, AnonymousClass1 anonymousClass1) {
-            this(str, i2, javaType, i3);
+        public /* synthetic */ FieldType(String str, int i, JavaType javaType, int i2, AnonymousClass1 anonymousClass1) {
+            this(str, i, javaType, i2);
         }
 
         public static FieldType valueOf(String str) {
@@ -271,16 +271,16 @@ public final class WireFormat {
             return invokeV.booleanValue;
         }
 
-        public FieldType(String str, int i2, JavaType javaType, int i3) {
+        public FieldType(String str, int i, JavaType javaType, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), javaType, Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), javaType, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -290,7 +290,7 @@ public final class WireFormat {
                 }
             }
             this.javaType = javaType;
-            this.wireType = i3;
+            this.wireType = i2;
         }
     }
 
@@ -337,16 +337,16 @@ public final class WireFormat {
             $VALUES = new JavaType[]{INT, LONG, FLOAT, DOUBLE, BOOLEAN, STRING, BYTE_STRING, ENUM, javaType};
         }
 
-        public JavaType(String str, int i2, Object obj) {
+        public JavaType(String str, int i, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), obj};
+                Object[] objArr = {str, Integer.valueOf(i), obj};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -401,30 +401,30 @@ public final class WireFormat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int getTagFieldNumber(int i2) {
+    public static int getTagFieldNumber(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 >>> 3 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >>> 3 : invokeI.intValue;
     }
 
-    public static int getTagWireType(int i2) {
+    public static int getTagWireType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 & 7 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 7 : invokeI.intValue;
     }
 
-    public static int makeTag(int i2, int i3) {
+    public static int makeTag(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? (i2 << 3) | i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? (i << 3) | i2 : invokeII.intValue;
     }
 }

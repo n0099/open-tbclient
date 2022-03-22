@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 import tbclient.BlockPopInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AntiData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2355009973517935888L;
@@ -57,9 +57,9 @@ public class AntiData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -272,10 +272,10 @@ public class AntiData implements Serializable {
         this.has_chance = anti.has_chance.intValue() == 1;
         this.ifaddition = anti.ifaddition.intValue();
         this.delThreadInfoList = new ArrayList();
-        for (int i2 = 0; i2 < anti.del_thread_text.size(); i2++) {
+        for (int i = 0; i < anti.del_thread_text.size(); i++) {
             DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
-            deleteThreadInfo.text_id = anti.del_thread_text.get(i2).text_id.intValue();
-            deleteThreadInfo.text_info = anti.del_thread_text.get(i2).text_info;
+            deleteThreadInfo.text_id = anti.del_thread_text.get(i).text_id.intValue();
+            deleteThreadInfo.text_info = anti.del_thread_text.get(i).text_info;
             this.delThreadInfoList.add(deleteThreadInfo);
         }
         this.poll_message = anti.poll_message;
@@ -313,10 +313,10 @@ public class AntiData implements Serializable {
         }
     }
 
-    public void setForbid_flag(int i2) {
+    public void setForbid_flag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.forbid_flag = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.forbid_flag = i;
         }
     }
 
@@ -334,31 +334,31 @@ public class AntiData implements Serializable {
         }
     }
 
-    public void setIfpost(int i2) {
+    public void setIfpost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.ifpost = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.ifpost = i;
         }
     }
 
-    public void setIfposta(int i2) {
+    public void setIfposta(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.ifposta = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.ifposta = i;
         }
     }
 
-    public void setNeed_vcode(int i2) {
+    public void setNeed_vcode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.need_vcode = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.need_vcode = i;
         }
     }
 
-    public void setPollLevel(int i2) {
+    public void setPollLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.pollLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.pollLevel = i;
         }
     }
 

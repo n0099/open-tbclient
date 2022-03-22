@@ -40,9 +40,9 @@ public final class UPCEANExtensionSupport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -52,15 +52,15 @@ public final class UPCEANExtensionSupport {
         this.fiveSupport = new UPCEANExtension5Support();
     }
 
-    public Result decodeRow(int i2, BitArray bitArray, int i3) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, int i2) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), bitArray, Integer.valueOf(i3)})) == null) {
-            int[] findGuardPattern = UPCEANReader.findGuardPattern(bitArray, i3, false, EXTENSION_START_PATTERN);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), bitArray, Integer.valueOf(i2)})) == null) {
+            int[] findGuardPattern = UPCEANReader.findGuardPattern(bitArray, i2, false, EXTENSION_START_PATTERN);
             try {
-                return this.fiveSupport.decodeRow(i2, bitArray, findGuardPattern);
+                return this.fiveSupport.decodeRow(i, bitArray, findGuardPattern);
             } catch (ReaderException unused) {
-                return this.twoSupport.decodeRow(i2, bitArray, findGuardPattern);
+                return this.twoSupport.decodeRow(i, bitArray, findGuardPattern);
             }
         }
         return (Result) invokeCommon.objValue;

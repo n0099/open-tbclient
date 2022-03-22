@@ -12,8 +12,10 @@ import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,8 +33,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttCueParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char CHAR_AMPERSAND = '&';
@@ -59,7 +60,7 @@ public final class WebvttCueParser {
     public transient /* synthetic */ FieldHolder $fh;
     public final StringBuilder textBuilder;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StartTag {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] NO_CLASSES;
@@ -85,33 +86,33 @@ public final class WebvttCueParser {
             NO_CLASSES = new String[0];
         }
 
-        public StartTag(String str, int i2, String str2, String[] strArr) {
+        public StartTag(String str, int i, String str2, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, strArr};
+                Object[] objArr = {str, Integer.valueOf(i), str2, strArr};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.position = i2;
+            this.position = i;
             this.name = str;
             this.voice = str2;
             this.classes = strArr;
         }
 
-        public static StartTag buildStartTag(String str, int i2) {
+        public static StartTag buildStartTag(String str, int i) {
             InterceptResult invokeLI;
             String str2;
             String[] strArr;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
                 String trim = str.trim();
                 if (trim.isEmpty()) {
                     return null;
@@ -131,7 +132,7 @@ public final class WebvttCueParser {
                 } else {
                     strArr = NO_CLASSES;
                 }
-                return new StartTag(str3, i2, str2, strArr);
+                return new StartTag(str3, i, str2, strArr);
             }
             return (StartTag) invokeLI.objValue;
         }
@@ -143,29 +144,29 @@ public final class WebvttCueParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StyleMatch implements Comparable<StyleMatch> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int score;
         public final WebvttCssStyle style;
 
-        public StyleMatch(int i2, WebvttCssStyle webvttCssStyle) {
+        public StyleMatch(int i, WebvttCssStyle webvttCssStyle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), webvttCssStyle};
+                Object[] objArr = {Integer.valueOf(i), webvttCssStyle};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.score = i2;
+            this.score = i;
             this.style = webvttCssStyle;
         }
 
@@ -200,9 +201,9 @@ public final class WebvttCueParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -244,7 +245,7 @@ public final class WebvttCueParser {
             } else if (c2 == 2) {
                 spannableStringBuilder.append(CHAR_SPACE);
             } else if (c2 != 3) {
-                String str2 = "ignoring unsupported entity: '&" + str + ";'";
+                Log.w(TAG, "ignoring unsupported entity: '&" + str + ";'");
             } else {
                 spannableStringBuilder.append('&');
             }
@@ -255,7 +256,7 @@ public final class WebvttCueParser {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, startTag, spannableStringBuilder, list, list2) == null) {
-            int i2 = startTag.position;
+            int i = startTag.position;
             int length = spannableStringBuilder.length();
             String str2 = startTag.name;
             int hashCode = str2.hashCode();
@@ -297,13 +298,13 @@ public final class WebvttCueParser {
             }
             switch (c2) {
                 case 0:
-                    spannableStringBuilder.setSpan(new StyleSpan(1), i2, length, 33);
+                    spannableStringBuilder.setSpan(new StyleSpan(1), i, length, 33);
                     break;
                 case 1:
-                    spannableStringBuilder.setSpan(new StyleSpan(2), i2, length, 33);
+                    spannableStringBuilder.setSpan(new StyleSpan(2), i, length, 33);
                     break;
                 case 2:
-                    spannableStringBuilder.setSpan(new UnderlineSpan(), i2, length, 33);
+                    spannableStringBuilder.setSpan(new UnderlineSpan(), i, length, 33);
                     break;
                 case 3:
                 case 4:
@@ -316,54 +317,54 @@ public final class WebvttCueParser {
             list2.clear();
             getApplicableStyles(list, str, startTag, list2);
             int size = list2.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                applyStyleToText(spannableStringBuilder, list2.get(i3).style, i2, length);
+            for (int i2 = 0; i2 < size; i2++) {
+                applyStyleToText(spannableStringBuilder, list2.get(i2).style, i, length);
             }
         }
     }
 
-    public static void applyStyleToText(SpannableStringBuilder spannableStringBuilder, WebvttCssStyle webvttCssStyle, int i2, int i3) {
+    public static void applyStyleToText(SpannableStringBuilder spannableStringBuilder, WebvttCssStyle webvttCssStyle, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, webvttCssStyle, i2, i3) == null) || webvttCssStyle == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, webvttCssStyle, i, i2) == null) || webvttCssStyle == null) {
             return;
         }
         if (webvttCssStyle.getStyle() != -1) {
-            spannableStringBuilder.setSpan(new StyleSpan(webvttCssStyle.getStyle()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new StyleSpan(webvttCssStyle.getStyle()), i, i2, 33);
         }
         if (webvttCssStyle.isLinethrough()) {
-            spannableStringBuilder.setSpan(new StrikethroughSpan(), i2, i3, 33);
+            spannableStringBuilder.setSpan(new StrikethroughSpan(), i, i2, 33);
         }
         if (webvttCssStyle.isUnderline()) {
-            spannableStringBuilder.setSpan(new UnderlineSpan(), i2, i3, 33);
+            spannableStringBuilder.setSpan(new UnderlineSpan(), i, i2, 33);
         }
         if (webvttCssStyle.hasFontColor()) {
-            spannableStringBuilder.setSpan(new ForegroundColorSpan(webvttCssStyle.getFontColor()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(webvttCssStyle.getFontColor()), i, i2, 33);
         }
         if (webvttCssStyle.hasBackgroundColor()) {
-            spannableStringBuilder.setSpan(new BackgroundColorSpan(webvttCssStyle.getBackgroundColor()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new BackgroundColorSpan(webvttCssStyle.getBackgroundColor()), i, i2, 33);
         }
         if (webvttCssStyle.getFontFamily() != null) {
-            spannableStringBuilder.setSpan(new TypefaceSpan(webvttCssStyle.getFontFamily()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new TypefaceSpan(webvttCssStyle.getFontFamily()), i, i2, 33);
         }
         if (webvttCssStyle.getTextAlign() != null) {
-            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(webvttCssStyle.getTextAlign()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new AlignmentSpan.Standard(webvttCssStyle.getTextAlign()), i, i2, 33);
         }
         int fontSizeUnit = webvttCssStyle.getFontSizeUnit();
         if (fontSizeUnit == 1) {
-            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) webvttCssStyle.getFontSize(), true), i2, i3, 33);
+            spannableStringBuilder.setSpan(new AbsoluteSizeSpan((int) webvttCssStyle.getFontSize(), true), i, i2, 33);
         } else if (fontSizeUnit == 2) {
-            spannableStringBuilder.setSpan(new RelativeSizeSpan(webvttCssStyle.getFontSize()), i2, i3, 33);
+            spannableStringBuilder.setSpan(new RelativeSizeSpan(webvttCssStyle.getFontSize()), i, i2, 33);
         } else if (fontSizeUnit != 3) {
         } else {
-            spannableStringBuilder.setSpan(new RelativeSizeSpan(webvttCssStyle.getFontSize() / 100.0f), i2, i3, 33);
+            spannableStringBuilder.setSpan(new RelativeSizeSpan(webvttCssStyle.getFontSize() / 100.0f), i, i2, 33);
         }
     }
 
-    public static int findEndOfTag(String str, int i2) {
+    public static int findEndOfTag(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
-            int indexOf = str.indexOf(62, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            int indexOf = str.indexOf(62, i);
             return indexOf == -1 ? str.length() : indexOf + 1;
         }
         return invokeLI.intValue;
@@ -373,8 +374,8 @@ public final class WebvttCueParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, list, str, startTag, list2) == null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                WebvttCssStyle webvttCssStyle = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                WebvttCssStyle webvttCssStyle = list.get(i);
                 int specificityScore = webvttCssStyle.getSpecificityScore(str, startTag.name, startTag.classes, startTag.voice);
                 if (specificityScore > 0) {
                     list2.add(new StyleMatch(specificityScore, webvttCssStyle));
@@ -449,17 +450,17 @@ public final class WebvttCueParser {
                 try {
                     if ("line".equals(group)) {
                         parseLineAttribute(group2, builder);
-                    } else if ("align".equals(group)) {
+                    } else if (ConstPath.KEY_ALIGN.equals(group)) {
                         builder.setTextAlignment(parseTextAlignment(group2));
                     } else if ("position".equals(group)) {
                         parsePositionAttribute(group2, builder);
                     } else if ("size".equals(group)) {
                         builder.setWidth(WebvttParserUtil.parsePercentage(group2));
                     } else {
-                        String str2 = "Unknown cue setting " + group + ":" + group2;
+                        Log.w(TAG, "Unknown cue setting " + group + ":" + group2);
                     }
                 } catch (NumberFormatException unused) {
-                    String str3 = "Skipping bad cue setting: " + matcher.group();
+                    Log.w(TAG, "Skipping bad cue setting: " + matcher.group());
                 }
             }
         }
@@ -471,42 +472,42 @@ public final class WebvttCueParser {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             Stack stack = new Stack();
             ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            while (i2 < str2.length()) {
-                char charAt = str2.charAt(i2);
+            int i = 0;
+            while (i < str2.length()) {
+                char charAt = str2.charAt(i);
                 if (charAt == '&') {
-                    i2++;
-                    int indexOf = str2.indexOf(59, i2);
-                    int indexOf2 = str2.indexOf(32, i2);
+                    i++;
+                    int indexOf = str2.indexOf(59, i);
+                    int indexOf2 = str2.indexOf(32, i);
                     if (indexOf == -1) {
                         indexOf = indexOf2;
                     } else if (indexOf2 != -1) {
                         indexOf = Math.min(indexOf, indexOf2);
                     }
                     if (indexOf != -1) {
-                        applyEntity(str2.substring(i2, indexOf), spannableStringBuilder);
+                        applyEntity(str2.substring(i, indexOf), spannableStringBuilder);
                         if (indexOf == indexOf2) {
                             spannableStringBuilder.append(" ");
                         }
-                        i2 = indexOf + 1;
+                        i = indexOf + 1;
                     } else {
                         spannableStringBuilder.append(charAt);
                     }
                 } else if (charAt != '<') {
                     spannableStringBuilder.append(charAt);
-                    i2++;
+                    i++;
                 } else {
-                    int i3 = i2 + 1;
-                    if (i3 < str2.length()) {
-                        boolean z = str2.charAt(i3) == '/';
-                        i3 = findEndOfTag(str2, i3);
-                        int i4 = i3 - 2;
-                        boolean z2 = str2.charAt(i4) == '/';
-                        int i5 = i2 + (z ? 2 : 1);
+                    int i2 = i + 1;
+                    if (i2 < str2.length()) {
+                        boolean z = str2.charAt(i2) == '/';
+                        i2 = findEndOfTag(str2, i2);
+                        int i3 = i2 - 2;
+                        boolean z2 = str2.charAt(i3) == '/';
+                        int i4 = i + (z ? 2 : 1);
                         if (!z2) {
-                            i4 = i3 - 1;
+                            i3 = i2 - 1;
                         }
-                        String substring = str2.substring(i5, i4);
+                        String substring = str2.substring(i4, i3);
                         String tagName = getTagName(substring);
                         if (tagName != null && isSupportedTag(tagName)) {
                             if (z) {
@@ -522,7 +523,7 @@ public final class WebvttCueParser {
                             }
                         }
                     }
-                    i2 = i3;
+                    i = i2;
                 }
             }
             while (!stack.isEmpty()) {
@@ -599,7 +600,7 @@ public final class WebvttCueParser {
                     return 1;
                 }
                 if (c2 != 3) {
-                    String str2 = "Invalid anchor value: " + str;
+                    Log.w(TAG, "Invalid anchor value: " + str);
                     return Integer.MIN_VALUE;
                 }
                 return 2;
@@ -683,7 +684,7 @@ public final class WebvttCueParser {
                 return Layout.Alignment.ALIGN_CENTER;
             }
             if (c2 != 4 && c2 != 5) {
-                String str2 = "Invalid alignment value: " + str;
+                Log.w(TAG, "Invalid alignment value: " + str);
                 return null;
             }
             return Layout.Alignment.ALIGN_OPPOSITE;
@@ -730,7 +731,7 @@ public final class WebvttCueParser {
                 String readLine = parsableByteArray.readLine();
                 if (!TextUtils.isEmpty(readLine)) {
                     if (sb.length() > 0) {
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                     }
                     sb.append(readLine.trim());
                 } else {
@@ -739,7 +740,7 @@ public final class WebvttCueParser {
                 }
             }
         } catch (NumberFormatException unused) {
-            String str2 = "Skipping cue with bad header: " + matcher.group();
+            Log.w(TAG, "Skipping cue with bad header: " + matcher.group());
             return false;
         }
     }

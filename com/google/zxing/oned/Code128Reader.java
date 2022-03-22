@@ -60,37 +60,37 @@ public final class Code128Reader extends OneDReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int decodeCode(BitArray bitArray, int[] iArr, int i2) throws NotFoundException {
+    public static int decodeCode(BitArray bitArray, int[] iArr, int i) throws NotFoundException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitArray, iArr, i2)) == null) {
-            OneDReader.recordPattern(bitArray, i2, iArr);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitArray, iArr, i)) == null) {
+            OneDReader.recordPattern(bitArray, i, iArr);
             float f2 = 0.25f;
-            int i3 = -1;
-            int i4 = 0;
+            int i2 = -1;
+            int i3 = 0;
             while (true) {
                 int[][] iArr2 = CODE_PATTERNS;
-                if (i4 >= iArr2.length) {
+                if (i3 >= iArr2.length) {
                     break;
                 }
-                float patternMatchVariance = OneDReader.patternMatchVariance(iArr, iArr2[i4], 0.7f);
+                float patternMatchVariance = OneDReader.patternMatchVariance(iArr, iArr2[i3], 0.7f);
                 if (patternMatchVariance < f2) {
-                    i3 = i4;
+                    i2 = i3;
                     f2 = patternMatchVariance;
                 }
-                i4++;
+                i3++;
             }
-            if (i3 >= 0) {
-                return i3;
+            if (i2 >= 0) {
+                return i2;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -104,35 +104,35 @@ public final class Code128Reader extends OneDReader {
             int size = bitArray.getSize();
             int nextSet = bitArray.getNextSet(0);
             int[] iArr = new int[6];
-            int i2 = nextSet;
+            int i = nextSet;
             boolean z = false;
-            int i3 = 0;
+            int i2 = 0;
             while (nextSet < size) {
                 if (bitArray.get(nextSet) ^ z) {
-                    iArr[i3] = iArr[i3] + 1;
+                    iArr[i2] = iArr[i2] + 1;
                 } else {
-                    if (i3 == 5) {
+                    if (i2 == 5) {
                         float f2 = 0.25f;
-                        int i4 = -1;
-                        for (int i5 = 103; i5 <= 105; i5++) {
-                            float patternMatchVariance = OneDReader.patternMatchVariance(iArr, CODE_PATTERNS[i5], 0.7f);
+                        int i3 = -1;
+                        for (int i4 = 103; i4 <= 105; i4++) {
+                            float patternMatchVariance = OneDReader.patternMatchVariance(iArr, CODE_PATTERNS[i4], 0.7f);
                             if (patternMatchVariance < f2) {
-                                i4 = i5;
+                                i3 = i4;
                                 f2 = patternMatchVariance;
                             }
                         }
-                        if (i4 >= 0 && bitArray.isRange(Math.max(0, i2 - ((nextSet - i2) / 2)), i2, false)) {
-                            return new int[]{i2, nextSet, i4};
+                        if (i3 >= 0 && bitArray.isRange(Math.max(0, i - ((nextSet - i) / 2)), i, false)) {
+                            return new int[]{i, nextSet, i3};
                         }
-                        i2 += iArr[0] + iArr[1];
+                        i += iArr[0] + iArr[1];
                         System.arraycopy(iArr, 2, iArr, 0, 4);
                         iArr[4] = 0;
                         iArr[5] = 0;
-                        i3--;
+                        i2--;
                     } else {
-                        i3++;
+                        i2++;
                     }
-                    iArr[i3] = 1;
+                    iArr[i2] = 1;
                     z = !z;
                 }
                 nextSet++;
@@ -161,19 +161,19 @@ public final class Code128Reader extends OneDReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeILL;
         char c2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, bitArray, map)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
             boolean z2 = false;
             boolean z3 = map != null && map.containsKey(DecodeHintType.ASSUME_GS1);
             int[] findStartPattern = findStartPattern(bitArray);
-            int i3 = findStartPattern[2];
+            int i2 = findStartPattern[2];
             ArrayList arrayList = new ArrayList(20);
-            arrayList.add(Byte.valueOf((byte) i3));
-            switch (i3) {
+            arrayList.add(Byte.valueOf((byte) i2));
+            switch (i2) {
                 case 103:
                     c2 = 'e';
                     break;
@@ -187,32 +187,32 @@ public final class Code128Reader extends OneDReader {
                     throw FormatException.getFormatInstance();
             }
             StringBuilder sb = new StringBuilder(20);
-            int i4 = 6;
+            int i3 = 6;
             int[] iArr = new int[6];
             boolean z4 = false;
             boolean z5 = false;
             boolean z6 = true;
             boolean z7 = false;
+            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            int i7 = 0;
             char c3 = c2;
-            int i8 = findStartPattern[0];
-            int i9 = findStartPattern[1];
+            int i7 = findStartPattern[0];
+            int i8 = findStartPattern[1];
             char c4 = c3;
             while (!z5) {
-                int decodeCode = decodeCode(bitArray, iArr, i9);
+                int decodeCode = decodeCode(bitArray, iArr, i8);
                 arrayList.add(Byte.valueOf((byte) decodeCode));
                 if (decodeCode != 106) {
                     z6 = true;
                 }
                 if (decodeCode != 106) {
-                    i6++;
-                    i3 += i6 * decodeCode;
+                    i5++;
+                    i2 += i5 * decodeCode;
                 }
-                int i10 = i9;
-                for (int i11 = 0; i11 < i4; i11++) {
-                    i10 += iArr[i11];
+                int i9 = i8;
+                for (int i10 = 0; i10 < i3; i10++) {
+                    i9 += iArr[i10];
                 }
                 switch (decodeCode) {
                     case 103:
@@ -382,19 +382,19 @@ public final class Code128Reader extends OneDReader {
                             c4 = c4 == 'e' ? 'd' : 'e';
                         }
                         z7 = z;
-                        i4 = 6;
+                        i3 = 6;
+                        i7 = i8;
                         i8 = i9;
-                        i9 = i10;
-                        i7 = i5;
-                        i5 = decodeCode;
+                        i6 = i4;
+                        i4 = decodeCode;
                         break;
                 }
             }
-            int i12 = i9 - i8;
-            int nextUnset = bitArray.getNextUnset(i9);
-            if (bitArray.isRange(nextUnset, Math.min(bitArray.getSize(), ((nextUnset - i8) / 2) + nextUnset), false)) {
-                int i13 = i7;
-                if ((i3 - (i6 * i13)) % 103 == i13) {
+            int i11 = i8 - i7;
+            int nextUnset = bitArray.getNextUnset(i8);
+            if (bitArray.isRange(nextUnset, Math.min(bitArray.getSize(), ((nextUnset - i7) / 2) + nextUnset), false)) {
+                int i12 = i6;
+                if ((i2 - (i5 * i12)) % 103 == i12) {
                     int length = sb.length();
                     if (length != 0) {
                         if (length > 0 && z6) {
@@ -405,13 +405,13 @@ public final class Code128Reader extends OneDReader {
                             }
                         }
                         float f2 = (findStartPattern[1] + findStartPattern[0]) / 2.0f;
-                        float f3 = i8 + (i12 / 2.0f);
+                        float f3 = i7 + (i11 / 2.0f);
                         int size = arrayList.size();
                         byte[] bArr = new byte[size];
-                        for (int i14 = 0; i14 < size; i14++) {
-                            bArr[i14] = ((Byte) arrayList.get(i14)).byteValue();
+                        for (int i13 = 0; i13 < size; i13++) {
+                            bArr[i13] = ((Byte) arrayList.get(i13)).byteValue();
                         }
-                        float f4 = i2;
+                        float f4 = i;
                         return new Result(sb.toString(), bArr, new ResultPoint[]{new ResultPoint(f2, f4), new ResultPoint(f3, f4)}, BarcodeFormat.CODE_128);
                     }
                     throw NotFoundException.getNotFoundInstance();

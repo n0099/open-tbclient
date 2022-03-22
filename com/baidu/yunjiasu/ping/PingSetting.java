@@ -45,9 +45,9 @@ public final class PingSetting {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -78,10 +78,10 @@ public final class PingSetting {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Timeout : invokeV.longValue;
     }
 
-    public final void setCount(int i2) {
+    public final void setCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            Count = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            Count = i;
         }
     }
 
@@ -92,17 +92,17 @@ public final class PingSetting {
         }
     }
 
-    public final void setTimeMicros(int i2) {
+    public final void setTimeMicros(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            TimeMicros = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            TimeMicros = i;
         }
     }
 
-    public final void setTimeout(long j2) {
+    public final void setTimeout(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            Timeout = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            Timeout = j;
         }
     }
 }

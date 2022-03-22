@@ -1,6 +1,7 @@
 package com.baidu.searchbox.anr.ubc;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
@@ -43,9 +44,9 @@ public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallb
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -61,7 +62,7 @@ public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallb
             if (uBCManager != null) {
                 String uploadType = uBCManager.getUploadType(UBC_ANR_ID);
                 if (AppConfig.isDebug()) {
-                    String str = "getSampleFlag uploadType " + uploadType;
+                    Log.d("ANRPerfSampleCallback", "getSampleFlag uploadType " + uploadType);
                 }
                 if (TextUtils.equals(ACTIVE_ANR_UPLOAD_TYPE, uploadType)) {
                     if (!UbcANRRegister.sEnable) {

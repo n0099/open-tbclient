@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, "com.meizu.flyme.push", str + "_pushId");
@@ -13,20 +13,20 @@ public class b {
         return l(context, str).getString(str2, "");
     }
 
-    public static void a(Context context, int i2, String str) {
-        a(context, "com.meizu.flyme.push", str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i2);
+    public static void a(Context context, int i, String str) {
+        a(context, "com.meizu.flyme.push", str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
     }
 
-    public static void a(Context context, String str, int i2) {
-        a(context, "mz_push_preference", str + ".notification_id", i2);
+    public static void a(Context context, String str, int i) {
+        a(context, "mz_push_preference", str + ".notification_id", i);
     }
 
-    public static void a(Context context, String str, String str2, int i2) {
-        l(context, str).edit().putInt(str2, i2).apply();
+    public static void a(Context context, String str, String str2, int i) {
+        l(context, str).edit().putInt(str2, i).apply();
     }
 
-    public static void a(Context context, String str, String str2, long j2) {
-        l(context, str).edit().putLong(str2, j2).apply();
+    public static void a(Context context, String str, String str2, long j) {
+        l(context, str).edit().putLong(str2, j).apply();
     }
 
     public static void a(Context context, String str, String str2, String str3) {
@@ -49,12 +49,12 @@ public class b {
         return l(context, str).getInt(str2, 0);
     }
 
-    public static void b(Context context, String str, int i2) {
-        a(context, "mz_push_preference", str + ".notification_push_task_id", i2);
+    public static void b(Context context, String str, int i) {
+        a(context, "mz_push_preference", str + ".notification_push_task_id", i);
     }
 
-    public static void b(Context context, String str, String str2, int i2) {
-        a(context, "mz_push_preference", str + "." + str2, i2);
+    public static void b(Context context, String str, String str2, int i) {
+        a(context, "mz_push_preference", str + "." + str2, i);
     }
 
     public static void b(Context context, String str, boolean z) {
@@ -70,8 +70,8 @@ public class b {
         return l(context, str).getLong(str2, 0L);
     }
 
-    public static void c(Context context, String str, int i2) {
-        a(context, "mz_push_preference", str + ".message_seq", i2);
+    public static void c(Context context, String str, int i) {
+        a(context, "mz_push_preference", str + ".message_seq", i);
     }
 
     public static int d(Context context, String str) {
@@ -126,7 +126,7 @@ public class b {
     public static int j(Context context, String str) {
         int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
         c(context, str, b2);
-        c.k.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
+        c.h.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
         return b2;
     }
 

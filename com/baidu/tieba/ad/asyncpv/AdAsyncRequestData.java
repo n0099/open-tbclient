@@ -4,11 +4,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.d.f.p.l;
-import c.a.q0.c1.h;
-import c.a.q0.c1.i;
-import c.a.r0.m.a;
+import c.a.o0.c1.h;
+import c.a.o0.c1.i;
+import c.a.p0.m.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,18 +37,18 @@ public class AdAsyncRequestData extends HttpMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i2) {
+    public AdAsyncRequestData(PlaceId placeId, Map<String, String> map, int i) {
         super(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
         CookieManager cookieManager;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, map, Integer.valueOf(i2)};
+            Object[] objArr = {placeId, map, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,13 +72,13 @@ public class AdAsyncRequestData extends HttpMessage {
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", 1);
         addParam("ft", 3);
-        addParam("ct", "2");
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
         addParam("pid", placeId.value);
         String ext = getExt(map);
         if (!TextUtils.isEmpty(ext)) {
             addParam("ext", ext);
         }
-        addParam("ac", i2);
+        addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, i);
     }
 
     private void addCommonParams() {
@@ -126,10 +128,10 @@ public class AdAsyncRequestData extends HttpMessage {
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
-            if (c.a.r0.a.h().y()) {
-                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.0.0.12"));
+            if (c.a.p0.a.h().y()) {
+                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.1.0.0"));
             }
-            if (!c.a.r0.z1.o.k.a.f(map)) {
+            if (!c.a.p0.b2.o.k.a.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

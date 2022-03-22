@@ -38,9 +38,9 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,10 +69,10 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -87,43 +87,43 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
-        int i3;
+        int i2;
         IMListener removeListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "onSuccess result = " + str2);
             ArrayList arrayList = new ArrayList();
-            int i4 = 0;
+            int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.optInt("error_code");
+                i2 = jSONObject.optInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                if (i3 == 0 && jSONObject.has("response_params")) {
+                if (i2 == 0 && jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                     int optInt = jSONObject2.optInt("server_sort", 0);
                     try {
                         if (jSONObject2.has("members")) {
                             JSONArray jSONArray = jSONObject2.getJSONArray("members");
-                            while (i4 < jSONArray.length()) {
-                                JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
-                                long j2 = jSONObject3.getLong("bd_uid");
+                            while (i3 < jSONArray.length()) {
+                                JSONObject jSONObject3 = jSONArray.getJSONObject(i3);
+                                long j = jSONObject3.getLong("bd_uid");
                                 String optString = jSONObject3.optString("display_name");
                                 String optString2 = jSONObject3.optString("group_name");
-                                ChatUser chatUser = new ChatUser(0L, j2, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
+                                ChatUser chatUser = new ChatUser(0L, j, TextUtils.isEmpty(optString2) ? optString : optString2, jSONObject3.optString("avatar"));
                                 chatUser.setGroupStatus(jSONObject3.optInt("group_status"));
                                 arrayList.add(chatUser);
-                                i4++;
+                                i3++;
                             }
                         }
-                        i4 = optInt;
+                        i3 = optInt;
                     } catch (JSONException e2) {
                         e = e2;
-                        i4 = optInt;
+                        i3 = optInt;
                         LogUtils.e(TAG, "IMGetFansGroupInviteMember JSONException", e);
-                        i3 = 1010;
+                        i2 = 1010;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
@@ -138,7 +138,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
             if (removeListener instanceof BIMValueCallBack) {
                 return;
             }
-            ((BIMValueCallBack) removeListener).onResult(i3, str, new GroupSortUserList(arrayList, i4));
+            ((BIMValueCallBack) removeListener).onResult(i2, str, new GroupSortUserList(arrayList, i3));
         }
     }
 

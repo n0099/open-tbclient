@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HostTB implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HOST = "host";
@@ -26,9 +26,9 @@ public class HostTB implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,24 +71,24 @@ public class HostTB implements Serializable {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.id = i;
         }
     }
 
-    public void setInsertTime(long j2) {
+    public void setInsertTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.insertTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.insertTime = j;
         }
     }
 
-    public void setIsPre(int i2) {
+    public void setIsPre(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.isPre = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.isPre = i;
         }
     }
 }

@@ -9,7 +9,7 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.at;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static boolean a(@NonNull AdTemplate adTemplate) {
         return (adTemplate.realShowType != 6 || adTemplate.mLiveInfo == null || adTemplate.adInfoList.isEmpty() || adTemplate.adInfoList.get(0) == null) ? false : true;
@@ -100,8 +100,8 @@ public class d {
     @Deprecated
     public static boolean s(@NonNull AdTemplate adTemplate) {
         AdStyleInfo h2 = c.h(adTemplate);
-        AdInfo j2 = j(adTemplate);
-        return (h2.playEndInfo.showLandingPage3 == 1) && !a.B(j2) && !(at.a(a.aJ(j2)) ^ true) && (at.a(a.G(j2)) ^ true);
+        AdInfo j = j(adTemplate);
+        return (h2.playEndInfo.showLandingPage3 == 1) && !a.B(j) && !(at.a(a.aJ(j)) ^ true) && (at.a(a.G(j)) ^ true);
     }
 
     public static int t(AdTemplate adTemplate) {
@@ -116,8 +116,8 @@ public class d {
         if (adTemplate == null) {
             return false;
         }
-        AdInfo j2 = j(adTemplate);
-        return a.B(j2) && !a.aG(j2) && w(adTemplate) == 2;
+        AdInfo j = j(adTemplate);
+        return a.B(j) && !a.aG(j) && w(adTemplate) == 2;
     }
 
     public static boolean v(AdTemplate adTemplate) {

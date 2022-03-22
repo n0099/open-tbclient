@@ -1,8 +1,8 @@
 package com.baidu.tieba.forumMember.member;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.b1.c.c;
-import c.a.r0.y3.y;
+import c.a.p0.a4.y;
+import c.a.p0.c1.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,17 +33,17 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     public y mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumMemberHttpResponseMessage(int i2) {
-        super(i2);
+    public ForumMemberHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -104,9 +104,9 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) && this.isNeedUpdateCache) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && this.isNeedUpdateCache) {
             ForumMemberRequestMessage forumMemberRequestMessage = null;
             if (getOrginalMessage() != null && getOrginalMessage().getExtra() != null) {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
@@ -120,9 +120,9 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             GetMemberInfoResIdl getMemberInfoResIdl = (GetMemberInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberInfoResIdl.class);
             if (getMemberInfoResIdl != null) {
                 Error error = getMemberInfoResIdl.error;
@@ -138,11 +138,11 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                     if (dataRes.forum_member_info != null) {
                         y yVar = new y();
                         this.mUserInfo = yVar;
-                        yVar.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
-                        this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
-                        this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.y(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
-                        this.mUserInfo.v(getMemberInfoResIdl.data.forum_member_info.level_name);
+                        yVar.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
+                        this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
+                        this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     DataRes dataRes2 = getMemberInfoResIdl.data;
                     this.mMemberGroupInfoList = dataRes2.member_group_info;

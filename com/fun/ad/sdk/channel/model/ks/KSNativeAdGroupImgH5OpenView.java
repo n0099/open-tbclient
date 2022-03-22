@@ -1,6 +1,7 @@
 package com.fun.ad.sdk.channel.model.ks;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,34 +20,32 @@ import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KSNativeAdGroupImgH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52818b;
+    public TextView f38562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f52819c;
+    public LinearLayout f38563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f52820d;
+    public ImageView f38564d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52821e;
+    public ImageView f38565e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f52822f;
+    public ImageView f38566f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f52823g;
+    public ImageView f38567g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52824h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Button f52825i;
+    public TextView f38568h;
+    public Button i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdGroupImgH5OpenView(Context context) {
@@ -57,9 +56,9 @@ public class KSNativeAdGroupImgH5OpenView extends x {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -78,9 +77,9 @@ public class KSNativeAdGroupImgH5OpenView extends x {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -91,17 +90,17 @@ public class KSNativeAdGroupImgH5OpenView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdGroupImgH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KSNativeAdGroupImgH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -123,21 +122,25 @@ public class KSNativeAdGroupImgH5OpenView extends x {
             if (imageList != null && imageList.size() >= 3) {
                 KsImage ksImage = imageList.get(0);
                 if (ksImage != null && ksImage.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f52820d);
+                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f38564d);
                 }
                 KsImage ksImage2 = imageList.get(1);
                 if (ksImage2 != null && ksImage2.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f52821e);
+                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f38565e);
                 }
                 KsImage ksImage3 = imageList.get(2);
                 if (ksImage3 != null && ksImage3.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f52822f);
+                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f38566f);
                 }
             }
-            this.f52823g.setImageBitmap(getSdkLogo());
-            this.f52818b.setText(ksNativeAd.getAdDescription());
-            this.f52824h.setText(ksNativeAd.getAdSource());
-            this.f52825i.setText(ksNativeAd.getActionDescription());
+            this.f38567g.setImageBitmap(getSdkLogo());
+            this.f38562b.setText(ksNativeAd.getAdDescription());
+            String adSource = ksNativeAd.getAdSource();
+            if (TextUtils.isEmpty(adSource)) {
+                adSource = "快手广告";
+            }
+            this.f38568h.setText(adSource);
+            this.i.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -146,30 +149,30 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f52818b = (TextView) findViewById(R.id.ad_description);
-            this.f52819c = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f52820d = (ImageView) findViewById(R.id.ad_img_1);
-            this.f52821e = (ImageView) findViewById(R.id.ad_img_2);
-            this.f52822f = (ImageView) findViewById(R.id.ad_img_3);
-            this.f52823g = (ImageView) findViewById(R.id.ad_logo);
-            this.f52824h = (TextView) findViewById(R.id.ad_h5_description);
-            this.f52825i = (Button) findViewById(R.id.ad_h5_open);
+            this.f38562b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
+            this.f38563c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ad);
+            this.f38564d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
+            this.f38565e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
+            this.f38566f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ac);
+            this.f38567g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d1);
+            this.f38568h = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a3);
+            this.i = (Button) findViewById(R.id.obfuscated_res_0x7f0900a4);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52819c.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f52820d.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f52821e.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f52822f.getLayoutParams();
-            layoutParams.width = i6;
-            layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-            this.f52819c.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38563c.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f38564d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f38565e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f38566f.getLayoutParams();
+            layoutParams.width = i5;
+            layoutParams.height = (int) (((((((i5 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
+            this.f38563c.setLayoutParams(layoutParams);
         }
     }
 }

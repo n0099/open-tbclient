@@ -16,9 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BigImgView extends BaseCardView<BigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbImageView f44112f;
+    public TbImageView m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BigImgView(TbPageContext tbPageContext) {
@@ -29,9 +27,9 @@ public class BigImgView extends BaseCardView<BigImgCard> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,43 +38,45 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View initLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TbImageView tbImageView = new TbImageView(getContext());
-            this.f44112f = tbImageView;
-            return tbImageView;
-        }
-        return (View) invokeV.objValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void onChangeSkinType(BigImgCard bigImgCard, int i2) {
+    /* renamed from: C */
+    public void t(BigImgCard bigImgCard, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bigImgCard, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, bigImgCard, i) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void onUpdateCardView(BigImgCard bigImgCard) {
+    /* renamed from: D */
+    public void u(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bigImgCard) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f44112f.getLayoutParams();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigImgCard) == null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
                 int ratio = (int) (bigImgCard.getRatio() * n.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
-                    this.f44112f.setLayoutParams(layoutParams);
+                    this.m.setLayoutParams(layoutParams);
                 }
             } else {
                 layoutParams.height = (int) ((n.k(getContext()) * 0.5f) + 0.5f);
-                this.f44112f.setLayoutParams(layoutParams);
+                this.m.setLayoutParams(layoutParams);
             }
-            this.f44112f.startLoad(bigImgCard.getUrl(), 10, false);
+            this.m.J(bigImgCard.getUrl(), 10, false);
         }
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    public View q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            TbImageView tbImageView = new TbImageView(getContext());
+            this.m = tbImageView;
+            return tbImageView;
+        }
+        return (View) invokeV.objValue;
     }
 }

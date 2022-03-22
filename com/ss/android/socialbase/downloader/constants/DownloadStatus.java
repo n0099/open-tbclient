@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadStatus {
     public static final int CANCELED = -4;
     public static final int CONNECTED = 3;
@@ -21,31 +21,31 @@ public class DownloadStatus {
     public static final int SUCCESSED = -3;
     public static final int WAITING_ASYNC_HANDLER = 8;
 
-    public static boolean isDownloadOver(int i2) {
-        return (i2 >= 0 || i2 == -2 || i2 == -5) ? false : true;
+    public static boolean isDownloadOver(int i) {
+        return (i >= 0 || i == -2 || i == -5) ? false : true;
     }
 
-    public static boolean isDownloading(int i2) {
-        return (i2 <= 0 || i2 == 7 || i2 == 8 || i2 == 10) ? false : true;
+    public static boolean isDownloading(int i) {
+        return (i <= 0 || i == 7 || i == 8 || i == 10) ? false : true;
     }
 
-    public static boolean isFailedStatus(int i2) {
-        return i2 == -1 || i2 == -7;
+    public static boolean isFailedStatus(int i) {
+        return i == -1 || i == -7;
     }
 
-    public static boolean isMonitorStatus(int i2) {
-        return i2 == 2 || i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 6 || i2 == 0;
+    public static boolean isMonitorStatus(int i) {
+        return i == 2 || i == -3 || i == -1 || i == -4 || i == -2 || i == 6 || i == 0;
     }
 
-    public static boolean isRealTimeUploadStatus(int i2) {
-        return i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 5 || i2 == 7 || i2 == 8;
+    public static boolean isRealTimeUploadStatus(int i) {
+        return i == -3 || i == -1 || i == -4 || i == -2 || i == 5 || i == 7 || i == 8;
     }
 
-    public static boolean isTimeUploadStatus(int i2) {
-        return i2 == -3 || i2 == -1 || i2 == -4;
+    public static boolean isTimeUploadStatus(int i) {
+        return i == -3 || i == -1 || i == -4;
     }
 
-    public static boolean isUnCompletedStatus(int i2) {
-        return i2 == -1 || i2 == -2 || i2 == -7 || i2 == -4 || i2 == -5;
+    public static boolean isUnCompletedStatus(int i) {
+        return i == -1 || i == -2 || i == -7 || i == -4 || i == -5;
     }
 }

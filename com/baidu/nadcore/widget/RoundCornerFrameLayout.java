@@ -18,24 +18,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RoundCornerFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f27749b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f27750c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f27751d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f35901e;
+    public int f27752e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35902f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f35903g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f35904h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f35905i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f35906j;
+    public boolean f27753f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundCornerFrameLayout(Context context) {
@@ -46,9 +44,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -62,30 +60,30 @@ public class RoundCornerFrameLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getWidth() == this.f35904h && getHeight() == this.f35905i && this.f35903g == this.f35902f) {
+            if (getWidth() == this.f27751d && getHeight() == this.f27752e && this.f27750c == this.f27749b) {
                 return false;
             }
-            this.f35904h = getWidth();
-            this.f35905i = getHeight();
-            this.f35903g = this.f35902f;
-            if (this.f35901e == null) {
+            this.f27751d = getWidth();
+            this.f27752e = getHeight();
+            this.f27750c = this.f27749b;
+            if (this.a == null) {
                 Path path = new Path();
-                this.f35901e = path;
+                this.a = path;
                 path.setFillType(Path.FillType.EVEN_ODD);
             }
-            Path path2 = this.f35901e;
-            RectF rectF = new RectF(0.0f, 0.0f, this.f35904h, this.f35905i);
-            int i2 = this.f35902f;
-            path2.addRoundRect(rectF, i2, i2, Path.Direction.CW);
+            Path path2 = this.a;
+            RectF rectF = new RectF(0.0f, 0.0f, this.f27751d, this.f27752e);
+            int i = this.f27749b;
+            path2.addRoundRect(rectF, i, i, Path.Direction.CW);
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void b(Context context, AttributeSet attributeSet, int i2) {
+    public final void b(Context context, AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.round_edge_radius});
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet, i) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040513});
             int dimension = (int) obtainStyledAttributes.getDimension(0, 0.0f);
             if (dimension > 0) {
                 setCornerRadius(dimension);
@@ -94,11 +92,11 @@ public class RoundCornerFrameLayout extends FrameLayout {
         }
     }
 
-    public final void c() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Path path = new Path();
-            this.f35901e = path;
+            this.a = path;
             path.setFillType(Path.FillType.EVEN_ODD);
         }
     }
@@ -117,21 +115,21 @@ public class RoundCornerFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f35906j) {
+            if (this.f27753f) {
                 a();
-                canvas.clipPath(this.f35901e);
+                canvas.clipPath(this.a);
             }
             super.onDraw(canvas);
         }
     }
 
-    public void setCornerRadius(int i2) {
+    public void setCornerRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (this.f35902f != i2) {
-                this.f35902f = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (this.f27749b != i) {
+                this.f27749b = i;
             }
-            this.f35906j = this.f35902f > 0;
+            this.f27753f = this.f27749b > 0;
         }
     }
 
@@ -144,9 +142,9 @@ public class RoundCornerFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -157,17 +155,17 @@ public class RoundCornerFrameLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -175,8 +173,8 @@ public class RoundCornerFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f35906j = false;
-        b(context, attributeSet, i2);
-        c();
+        this.f27753f = false;
+        b(context, attributeSet, i);
+        d();
     }
 }

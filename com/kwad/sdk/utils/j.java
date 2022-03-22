@@ -6,29 +6,29 @@ import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.os.Build;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public AudioManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager.OnAudioFocusChangeListener f56512b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.j.1
+    public AudioManager.OnAudioFocusChangeListener f41399b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.j.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
-        public void onAudioFocusChange(int i2) {
-            if (j.this.f56513c == null) {
+        public void onAudioFocusChange(int i) {
+            if (j.this.f41400c == null) {
                 return;
             }
-            if (i2 < 0) {
-                j.this.f56513c.a();
+            if (i < 0) {
+                j.this.f41400c.a();
             } else {
-                j.this.f56513c.b();
+                j.this.f41400c.b();
             }
         }
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public a f56513c;
+    public a f41400c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
@@ -41,16 +41,16 @@ public class j {
 
     @TargetApi(26)
     private AudioFocusRequest b() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f56512b).build();
+        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f41399b).build();
     }
 
     public void a(a aVar) {
-        this.f56513c = aVar;
+        this.f41400c = aVar;
     }
 
     public boolean a() {
         AudioManager audioManager;
-        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f56512b;
+        AudioManager.OnAudioFocusChangeListener onAudioFocusChangeListener = this.f41399b;
         if (onAudioFocusChangeListener == null || (audioManager = this.a) == null) {
             return false;
         }

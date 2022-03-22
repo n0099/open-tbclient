@@ -11,30 +11,30 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<f> f32239b;
+    public List<f> f25473b;
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f32239b = new ArrayList();
+        this.f25473b = new ArrayList();
     }
 
     public JSONObject a() throws JSONException {
@@ -46,12 +46,12 @@ public class g {
             if (cVar != null) {
                 cVar.a(jSONObject);
             }
-            if (this.f32239b != null) {
+            if (this.f25473b != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < this.f32239b.size(); i2++) {
+                for (int i = 0; i < this.f25473b.size(); i++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("type", this.f32239b.get(i2).a());
-                    if (this.f32239b.get(i2).a(jSONObject2) != null) {
+                    jSONObject2.put("type", this.f25473b.get(i).a());
+                    if (this.f25473b.get(i).a(jSONObject2) != null) {
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -64,24 +64,24 @@ public class g {
         return (JSONObject) invokeV.objValue;
     }
 
-    public void a(int i2, String str, String str2) {
+    public void a(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
             c cVar = this.a;
-            if (cVar != null && i2 == 24322) {
-                cVar.a(new e(i2, str, str2));
-            } else if (this.f32239b != null) {
-                e eVar = new e(i2, str, str2);
-                for (int i3 = 0; i3 < this.f32239b.size(); i3++) {
-                    f fVar = this.f32239b.get(i3);
-                    if (fVar.a() == i2) {
+            if (cVar != null && i == 24322) {
+                cVar.a(new e(i, str, str2));
+            } else if (this.f25473b != null) {
+                e eVar = new e(i, str, str2);
+                for (int i2 = 0; i2 < this.f25473b.size(); i2++) {
+                    f fVar = this.f25473b.get(i2);
+                    if (fVar.a() == i) {
                         fVar.a(eVar);
                         return;
                     }
                 }
-                f fVar2 = new f(i2);
+                f fVar2 = new f(i);
                 fVar2.a(eVar);
-                this.f32239b.add(fVar2);
+                this.f25473b.add(fVar2);
             }
         }
     }
@@ -93,7 +93,7 @@ public class g {
             if (cVar != null) {
                 cVar.b();
             }
-            List<f> list = this.f32239b;
+            List<f> list = this.f25473b;
             if (list != null) {
                 list.clear();
             }

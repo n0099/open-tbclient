@@ -2,10 +2,10 @@ package com.google.android.exoplayer2.upstream;
 
 import android.net.Uri;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface DataSource {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory {
         DataSource createDataSource();
     }
@@ -16,5 +16,5 @@ public interface DataSource {
 
     long open(DataSpec dataSpec) throws IOException;
 
-    int read(byte[] bArr, int i2, int i3) throws IOException;
+    int read(byte[] bArr, int i, int i2) throws IOException;
 }

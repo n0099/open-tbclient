@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SonicAudioProcessor implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CLOSE_THRESHOLD = 0.01f;
@@ -42,9 +42,9 @@ public final class SonicAudioProcessor implements AudioProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,24 +63,24 @@ public final class SonicAudioProcessor implements AudioProcessor {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i2, int i3, int i4) throws AudioProcessor.UnhandledFormatException {
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            if (i4 == 2) {
-                int i5 = this.pendingOutputSampleRateHz;
-                if (i5 == -1) {
-                    i5 = i2;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            if (i3 == 2) {
+                int i4 = this.pendingOutputSampleRateHz;
+                if (i4 == -1) {
+                    i4 = i;
                 }
-                if (this.sampleRateHz == i2 && this.channelCount == i3 && this.outputSampleRateHz == i5) {
+                if (this.sampleRateHz == i && this.channelCount == i2 && this.outputSampleRateHz == i4) {
                     return false;
                 }
-                this.sampleRateHz = i2;
-                this.channelCount = i3;
-                this.outputSampleRateHz = i5;
+                this.sampleRateHz = i;
+                this.channelCount = i2;
+                this.outputSampleRateHz = i4;
                 return true;
             }
-            throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
+            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         }
         return invokeIII.booleanValue;
     }
@@ -205,28 +205,28 @@ public final class SonicAudioProcessor implements AudioProcessor {
         }
     }
 
-    public long scaleDurationForSpeedup(long j2) {
+    public long scaleDurationForSpeedup(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            long j3 = this.outputBytes;
-            if (j3 >= 1024) {
-                int i2 = this.outputSampleRateHz;
-                int i3 = this.sampleRateHz;
-                if (i2 == i3) {
-                    return Util.scaleLargeTimestamp(j2, this.inputBytes, j3);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            long j2 = this.outputBytes;
+            if (j2 >= 1024) {
+                int i = this.outputSampleRateHz;
+                int i2 = this.sampleRateHz;
+                if (i == i2) {
+                    return Util.scaleLargeTimestamp(j, this.inputBytes, j2);
                 }
-                return Util.scaleLargeTimestamp(j2, this.inputBytes * i2, j3 * i3);
+                return Util.scaleLargeTimestamp(j, this.inputBytes * i, j2 * i2);
             }
-            return (long) (this.speed * j2);
+            return (long) (this.speed * j);
         }
         return invokeJ.longValue;
     }
 
-    public void setOutputSampleRateHz(int i2) {
+    public void setOutputSampleRateHz(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.pendingOutputSampleRateHz = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.pendingOutputSampleRateHz = i;
         }
     }
 

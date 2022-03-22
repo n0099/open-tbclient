@@ -23,9 +23,9 @@ public class NestedScrollingParentHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,10 +38,10 @@ public class NestedScrollingParentHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mNestedScrollAxesTouch | this.mNestedScrollAxesNonTouch : invokeV.intValue;
     }
 
-    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i2) {
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2, i2) == null) {
-            onNestedScrollAccepted(view, view2, i2, 0);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2, i) == null) {
+            onNestedScrollAccepted(view, view2, i, 0);
         }
     }
 
@@ -52,21 +52,21 @@ public class NestedScrollingParentHelper {
         }
     }
 
-    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i2, int i3) {
+    public void onNestedScrollAccepted(@NonNull View view, @NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, view, view2, i2, i3) == null) {
-            if (i3 == 1) {
-                this.mNestedScrollAxesNonTouch = i2;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, view, view2, i, i2) == null) {
+            if (i2 == 1) {
+                this.mNestedScrollAxesNonTouch = i;
             } else {
-                this.mNestedScrollAxesTouch = i2;
+                this.mNestedScrollAxesTouch = i;
             }
         }
     }
 
-    public void onStopNestedScroll(@NonNull View view, int i2) {
+    public void onStopNestedScroll(@NonNull View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, view, i2) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, view, i) == null) {
+            if (i == 1) {
                 this.mNestedScrollAxesNonTouch = 0;
             } else {
                 this.mNestedScrollAxesTouch = 0;

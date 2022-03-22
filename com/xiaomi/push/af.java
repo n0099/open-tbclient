@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -28,15 +28,15 @@ public class af {
         a = "0123456789ABCDEF".toCharArray();
     }
 
-    public static String a(byte[] bArr, int i2, int i3) {
+    public static String a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i2, i3)) == null) {
-            StringBuilder sb = new StringBuilder(i3 * 2);
-            for (int i4 = 0; i4 < i3; i4++) {
-                int i5 = bArr[i2 + i4] & 255;
-                sb.append(a[i5 >> 4]);
-                sb.append(a[i5 & 15]);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            StringBuilder sb = new StringBuilder(i2 * 2);
+            for (int i3 = 0; i3 < i2; i3++) {
+                int i4 = bArr[i + i3] & 255;
+                sb.append(a[i4 >> 4]);
+                sb.append(a[i4 & 15]);
             }
             return sb.toString();
         }
@@ -46,6 +46,6 @@ public class af {
     public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ae.f110a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? ae.f86a : invokeL.booleanValue;
     }
 }

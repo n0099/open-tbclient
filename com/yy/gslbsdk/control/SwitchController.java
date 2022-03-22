@@ -15,7 +15,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SwitchController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;
@@ -51,9 +51,9 @@ public class SwitchController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -102,12 +102,12 @@ public class SwitchController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                int i2 = PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).getInt(SHARED_KEY, 1);
-                if (i2 == 0 || i2 == 1 || i2 == -1) {
-                    this.mSwitchCache.compareAndSet(0, i2);
+                int i = PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).getInt(SHARED_KEY, 1);
+                if (i == 0 || i == 1 || i == -1) {
+                    this.mSwitchCache.compareAndSet(0, i);
                     return true;
                 }
-                LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController readCache, switchCache is illegal. switchCache: %d", Integer.valueOf(i2)));
+                LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController readCache, switchCache is illegal. switchCache: %d", Integer.valueOf(i)));
                 return false;
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);
@@ -121,15 +121,15 @@ public class SwitchController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            int i2 = this.mSwitchHttp.get();
-            if (i2 != 0 && i2 != 1 && i2 != -1) {
-                LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController writeCache, switchHttp is illegal. switchCache: %d", Integer.valueOf(i2)));
+            int i = this.mSwitchHttp.get();
+            if (i != 0 && i != 1 && i != -1) {
+                LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController writeCache, switchHttp is illegal. switchCache: %d", Integer.valueOf(i)));
                 return false;
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 return false;
             } else {
                 try {
-                    PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).edit().putInt(SHARED_KEY, i2).apply();
+                    PreferenceManager.getDefaultSharedPreferences(GlobalTools.APP_CONTEXT).edit().putInt(SHARED_KEY, i).apply();
                     return true;
                 } catch (Exception e2) {
                     LogTools.printWarning(TAG, e2);
@@ -140,11 +140,11 @@ public class SwitchController {
         return invokeV.booleanValue;
     }
 
-    public boolean deal(int i2) {
+    public boolean deal(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 == -1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == -1) {
                 this.mSwitchHttp.compareAndSet(0, -1);
             } else {
                 this.mSwitchHttp.compareAndSet(0, 1);
@@ -159,9 +159,9 @@ public class SwitchController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (init()) {
-                int i2 = this.mSwitchHttp.get();
-                int i3 = this.mSwitchCache.get();
-                return i2 != 0 ? i2 == 1 : i3 == 0 || i3 == 1;
+                int i = this.mSwitchHttp.get();
+                int i2 = this.mSwitchCache.get();
+                return i != 0 ? i == 1 : i2 == 0 || i2 == 1;
             }
             return true;
         }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageCompositor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class AnimatedImageCompositor {
     public final Paint mTransparentFillPaint;
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
         public static /* synthetic */ Interceptable $ic;
@@ -65,15 +65,15 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
-        CloseableReference<Bitmap> getCachedBitmap(int i2);
+        CloseableReference<Bitmap> getCachedBitmap(int i);
 
-        void onIntermediateResult(int i2, Bitmap bitmap);
+        void onIntermediateResult(int i, Bitmap bitmap);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FrameNeededResult {
         public static final /* synthetic */ FrameNeededResult[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,16 +104,16 @@ public class AnimatedImageCompositor {
             $VALUES = new FrameNeededResult[]{REQUIRED, NOT_REQUIRED, SKIP, frameNeededResult};
         }
 
-        public FrameNeededResult(String str, int i2) {
+        public FrameNeededResult(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -143,9 +143,9 @@ public class AnimatedImageCompositor {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedDrawableBackend, callback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -163,17 +163,17 @@ public class AnimatedImageCompositor {
     private void disposeToBackground(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, canvas, animatedDrawableFrameInfo) == null) {
-            int i2 = animatedDrawableFrameInfo.xOffset;
-            int i3 = animatedDrawableFrameInfo.yOffset;
-            canvas.drawRect(i2, i3, i2 + animatedDrawableFrameInfo.width, i3 + animatedDrawableFrameInfo.height, this.mTransparentFillPaint);
+            int i = animatedDrawableFrameInfo.xOffset;
+            int i2 = animatedDrawableFrameInfo.yOffset;
+            canvas.drawRect(i, i2, i + animatedDrawableFrameInfo.width, i2 + animatedDrawableFrameInfo.height, this.mTransparentFillPaint);
         }
     }
 
-    private FrameNeededResult isFrameNeededForRendering(int i2) {
+    private FrameNeededResult isFrameNeededForRendering(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
             AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
             if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT) {
                 return FrameNeededResult.REQUIRED;
@@ -198,15 +198,15 @@ public class AnimatedImageCompositor {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, animatedDrawableFrameInfo)) == null) ? animatedDrawableFrameInfo.xOffset == 0 && animatedDrawableFrameInfo.yOffset == 0 && animatedDrawableFrameInfo.width == this.mAnimatedDrawableBackend.getRenderedWidth() && animatedDrawableFrameInfo.height == this.mAnimatedDrawableBackend.getRenderedHeight() : invokeL.booleanValue;
     }
 
-    private boolean isKeyFrame(int i2) {
+    private boolean isKeyFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
+            if (i == 0) {
                 return true;
             }
-            AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
-            AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i2 - 1);
+            AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+            AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i - 1);
             if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && isFullFrame(frameInfo)) {
                 return true;
             }
@@ -215,48 +215,48 @@ public class AnimatedImageCompositor {
         return invokeI.booleanValue;
     }
 
-    private int prepareCanvasWithClosestCachedFrame(int i2, Canvas canvas) {
+    private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, canvas)) == null) {
-            while (i2 >= 0) {
-                int i3 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i2).ordinal()];
-                if (i3 == 1) {
-                    AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
-                    CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, canvas)) == null) {
+            while (i >= 0) {
+                int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
+                if (i2 == 1) {
+                    AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+                    CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i);
                     if (cachedBitmap != null) {
                         try {
                             canvas.drawBitmap(cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
                             if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
                                 disposeToBackground(canvas, frameInfo);
                             }
-                            return i2 + 1;
+                            return i + 1;
                         } finally {
                             cachedBitmap.close();
                         }
-                    } else if (isKeyFrame(i2)) {
-                        return i2;
+                    } else if (isKeyFrame(i)) {
+                        return i;
                     }
-                } else if (i3 == 2) {
-                    return i2 + 1;
+                } else if (i2 == 2) {
+                    return i + 1;
                 } else {
-                    if (i3 == 3) {
-                        return i2;
+                    if (i2 == 3) {
+                        return i;
                     }
                 }
-                i2--;
+                i--;
             }
             return 0;
         }
         return invokeIL.intValue;
     }
 
-    public void renderFrame(int i2, Bitmap bitmap) {
+    public void renderFrame(int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
             Canvas canvas = new Canvas(bitmap);
             canvas.drawColor(0, PorterDuff.Mode.SRC);
-            for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i2) ? prepareCanvasWithClosestCachedFrame(i2 - 1, canvas) : i2; prepareCanvasWithClosestCachedFrame < i2; prepareCanvasWithClosestCachedFrame++) {
+            for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i) ? prepareCanvasWithClosestCachedFrame(i - 1, canvas) : i; prepareCanvasWithClosestCachedFrame < i; prepareCanvasWithClosestCachedFrame++) {
                 AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(prepareCanvasWithClosestCachedFrame);
                 AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
                 if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
@@ -270,11 +270,11 @@ public class AnimatedImageCompositor {
                     }
                 }
             }
-            AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i2);
+            AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i);
             if (frameInfo2.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
                 disposeToBackground(canvas, frameInfo2);
             }
-            this.mAnimatedDrawableBackend.renderFrame(i2, canvas);
+            this.mAnimatedDrawableBackend.renderFrame(i, canvas);
         }
     }
 }

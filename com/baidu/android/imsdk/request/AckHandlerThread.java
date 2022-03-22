@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-import c.a.t.a;
-import c.a.u.a.b.d.b;
+import c.a.s.a;
+import c.a.t.a.b.d.b;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.pms.constants.PmsConstant;
@@ -57,9 +57,9 @@ public class AckHandlerThread extends HandlerThread {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -83,9 +83,9 @@ public class AckHandlerThread extends HandlerThread {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -125,15 +125,15 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f25914e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f21228e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.a = 2L;
-            bLCPRequest.f33258b = 95L;
-            bLCPRequest.f33259c = newAckMessage.getBody().getBytes();
-            bLCPRequest.f33260d = System.nanoTime();
+            bLCPRequest.f25611b = 95L;
+            bLCPRequest.f25612c = newAckMessage.getBody().getBytes();
+            bLCPRequest.f25613d = System.nanoTime();
             String str = TAG;
-            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f33260d);
-            c.a.u.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f25613d);
+            c.a.t.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
@@ -147,9 +147,9 @@ public class AckHandlerThread extends HandlerThread {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, newAckMessage, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -160,17 +160,17 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // c.a.u.a.b.d.b
-                public void onResponse(int i2, String str2, long j2, long j3, long j4, byte[] bArr) {
+                @Override // c.a.t.a.b.d.b
+                public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) && i2 == 0) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) && i == 0) {
                         try {
                             JSONObject jSONObject = new JSONObject(new String(bArr));
                             int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                             String optString = jSONObject.optString("msg", "");
-                            if (j3 == 95) {
+                            if (j2 == 95) {
                                 String str3 = AckHandlerThread.TAG;
-                                LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + j3 + ", data :" + bArr.length);
+                                LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + j2 + ", data :" + bArr.length);
                                 this.val$msg.handleMessageResult(this.val$context, new JSONObject(new String(bArr)), optInt, optString);
                                 if (optInt != 0) {
                                     if (this.this$0.mRetryCount.get() < 3) {

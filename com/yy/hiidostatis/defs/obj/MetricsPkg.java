@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MetricsPkg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,16 +23,16 @@ public class MetricsPkg {
     public ConcurrentLinkedQueue<IJsonSerialize> metricsValues;
     public ConcurrentLinkedQueue<IJsonSerialize> reqData;
 
-    public MetricsPkg(int i2) {
+    public MetricsPkg(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,13 +41,13 @@ public class MetricsPkg {
         this.reqData = new ConcurrentLinkedQueue<>();
         this.metricsValues = new ConcurrentLinkedQueue<>();
         this.counterData = new HashMap<>();
-        this.maxCount = i2;
+        this.maxCount = i;
     }
 
-    private JSONObject cutPiece(JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, long j2) {
+    private JSONObject cutPiece(JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{jSONArray, jSONArray2, jSONArray3, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{jSONArray, jSONArray2, jSONArray3, Long.valueOf(j)})) == null) {
             JSONObject jSONObject = new JSONObject();
             if (jSONArray != null) {
                 try {
@@ -63,7 +63,7 @@ public class MetricsPkg {
             if (jSONArray3 != null) {
                 jSONObject.put("flatdata", jSONArray3);
             }
-            jSONObject.put("clienttime", j2);
+            jSONObject.put("clienttime", j);
             return jSONObject;
         }
         return (JSONObject) invokeCommon.objValue;
@@ -116,7 +116,7 @@ public class MetricsPkg {
 
     public List<JSONObject> toJson() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         JSONObject cutPiece;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -125,11 +125,11 @@ public class MetricsPkg {
             Iterator<IJsonSerialize> it = this.reqData.iterator();
             JSONArray jSONArray = new JSONArray();
             loop0: while (true) {
-                i2 = 0;
+                i = 0;
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJson());
-                    i2++;
-                    if (i2 >= this.maxCount) {
+                    i++;
+                    if (i >= this.maxCount) {
                         JSONObject cutPiece2 = cutPiece(jSONArray, null, null, currentTimeMillis);
                         if (cutPiece2 != null) {
                             arrayList.add(cutPiece2);
@@ -142,23 +142,23 @@ public class MetricsPkg {
             JSONArray jSONArray2 = new JSONArray();
             for (Counter counter : this.counterData.values()) {
                 jSONArray2.put(counter.toJson());
-                i2++;
-                if (i2 >= this.maxCount) {
+                i++;
+                if (i >= this.maxCount) {
                     JSONObject cutPiece3 = cutPiece(jSONArray, jSONArray2, null, currentTimeMillis);
                     if (cutPiece3 != null) {
                         arrayList.add(cutPiece3);
                     }
                     jSONArray = new JSONArray();
                     jSONArray2 = new JSONArray();
-                    i2 = 0;
+                    i = 0;
                 }
             }
             Iterator<IJsonSerialize> it2 = this.metricsValues.iterator();
             JSONArray jSONArray3 = new JSONArray();
             while (it2.hasNext()) {
                 jSONArray3.put(it2.next().toJson());
-                i2++;
-                if (i2 >= this.maxCount) {
+                i++;
+                if (i >= this.maxCount) {
                     JSONObject cutPiece4 = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis);
                     if (cutPiece4 != null) {
                         arrayList.add(cutPiece4);
@@ -166,7 +166,7 @@ public class MetricsPkg {
                     jSONArray = new JSONArray();
                     jSONArray2 = new JSONArray();
                     jSONArray3 = new JSONArray();
-                    i2 = 0;
+                    i = 0;
                 }
             }
             if (jSONArray.length() + jSONArray2.length() + jSONArray3.length() > 0 && (cutPiece = cutPiece(jSONArray, jSONArray2, jSONArray3, currentTimeMillis)) != null) {

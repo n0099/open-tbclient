@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import c.a.q0.r.r.e2;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,8 +19,8 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<e2> liveList;
-    public List<e2> recommandList;
+    public List<ThreadData> liveList;
+    public List<ThreadData> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaFrsStoryLiveGatherRespMessage() {
@@ -29,9 +29,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,10 +43,10 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             if (optJSONObject != null) {
                 this.hasMore = optJSONObject.optInt("has_more") == 1;
@@ -57,24 +57,24 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i3 = 0; i3 < length; i3++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        e2 e2Var = new e2();
-                        e2Var.c3(optJSONObject2);
-                        this.liveList.add(e2Var);
+                        ThreadData threadData = new ThreadData();
+                        threadData.parserJson(optJSONObject2);
+                        this.liveList.add(threadData);
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
             if (optJSONArray2 != null) {
                 int length2 = optJSONArray2.length();
-                for (int i4 = 0; i4 < length2; i4++) {
-                    JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
+                for (int i3 = 0; i3 < length2; i3++) {
+                    JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        e2 e2Var2 = new e2();
-                        e2Var2.c3(optJSONObject3);
-                        this.recommandList.add(e2Var2);
+                        ThreadData threadData2 = new ThreadData();
+                        threadData2.parserJson(optJSONObject3);
+                        this.recommandList.add(threadData2);
                     }
                 }
             }
@@ -87,13 +87,13 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
     }
 
-    public List<e2> getLiveList() {
+    public List<ThreadData> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;
     }
 
-    public List<e2> getRecommandList() {
+    public List<ThreadData> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommandList : (List) invokeV.objValue;

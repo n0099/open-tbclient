@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.JsPromptResult;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebChromeClientExt implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final BdSailorWebChromeClientExt DEFAULT;
@@ -39,9 +39,9 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -70,9 +70,9 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void hideMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3) {
+    public void hideMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, bdSailorWebView, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048579, this, bdSailorWebView, i, i2) == null) {
         }
     }
 
@@ -83,9 +83,9 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void moveMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5) {
+    public void moveMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bdSailorWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
@@ -107,9 +107,9 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void notifyClientStatusExt(BdSailorWebView bdSailorWebView, int i2) {
+    public void notifyClientStatusExt(BdSailorWebView bdSailorWebView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdSailorWebView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdSailorWebView, i) == null) {
         }
     }
 
@@ -156,15 +156,15 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
         }
     }
 
-    public void onPrerenderChanged(int i2, WebView.PrerenderStatus prerenderStatus) {
+    public void onPrerenderChanged(int i, WebView.PrerenderStatus prerenderStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i2, prerenderStatus) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048591, this, i, prerenderStatus) == null) {
         }
     }
 
-    public void onReceivedFocusNodeHrefExt(BdSailorWebView bdSailorWebView, int i2, String str, String str2) {
+    public void onReceivedFocusNodeHrefExt(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048592, this, bdSailorWebView, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048592, this, bdSailorWebView, i, str, str2) == null) {
         }
     }
 
@@ -194,28 +194,28 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void performLongClickExt(BdSailorWebView bdSailorWebView, int i2, String str, String str2, int i3, int i4) {
+    public void performLongClickExt(BdSailorWebView bdSailorWebView, int i, String str, String str2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{bdSailorWebView, Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
         }
     }
 
-    public void performLongClickExt(BdSailorWebView bdSailorWebView, WebView.HitTestResult hitTestResult, int i2, int i3) {
+    public void performLongClickExt(BdSailorWebView bdSailorWebView, WebView.HitTestResult hitTestResult, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048598, this, bdSailorWebView, hitTestResult, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048598, this, bdSailorWebView, hitTestResult, i, i2) == null) {
         }
     }
 
     @Deprecated
-    public void showMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5) {
+    public void showMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{bdSailorWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
-    public void showSelectionActionDialogExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5, String str) {
+    public void showSelectionActionDialogExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{bdSailorWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
         }
     }
 }

@@ -18,32 +18,32 @@ public class Size {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public Size(int i2, int i3) {
+    public Size(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mWidth = i2;
-        this.mHeight = i3;
+        this.mWidth = i;
+        this.mHeight = i2;
     }
 
     public static Size parseSize(String str) {
@@ -102,24 +102,24 @@ public class Size {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.mHeight;
-            int i3 = this.mWidth;
-            return i2 ^ ((i3 >>> 16) | (i3 << 16));
+            int i = this.mHeight;
+            int i2 = this.mWidth;
+            return i ^ ((i2 >>> 16) | (i2 << 16));
         }
         return invokeV.intValue;
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mHeight = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mWidth = i;
         }
     }
 

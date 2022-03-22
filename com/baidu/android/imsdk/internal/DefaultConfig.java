@@ -27,9 +27,9 @@ public class DefaultConfig implements IIMConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,12 +38,12 @@ public class DefaultConfig implements IIMConfig {
         this.mRootComplete = true;
     }
 
-    public static String[] getTokens(String str, int i2) {
+    public static String[] getTokens(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            return (split == null || split.length != i2) ? new String[0] : split;
+            return (split == null || split.length != i) ? new String[0] : split;
         }
         return (String[]) invokeLI.objValue;
     }
@@ -76,10 +76,10 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public String getPaidCondition(String str, String str2, long j2) {
+    public String getPaidCondition(String str, String str2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) ? str : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)})) == null) ? str : (String) invokeCommon.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
@@ -134,10 +134,10 @@ public class DefaultConfig implements IIMConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig
-    public boolean isMsgTypeSupported(int i2) {
+    public boolean isMsgTypeSupported(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             return true;
         }
         return invokeI.booleanValue;

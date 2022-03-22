@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ci implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cg.a f192a;
+    public final /* synthetic */ cg.a f168a;
 
     public ci(cg.a aVar, Context context) {
         Interceptable interceptable = $ic;
@@ -23,15 +23,15 @@ public class ci implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f192a = aVar;
+        this.f168a = aVar;
         this.a = context;
     }
 
@@ -43,10 +43,10 @@ public class ci implements Runnable {
             SQLiteDatabase sQLiteDatabase = null;
             try {
                 try {
-                    sQLiteDatabase = this.f192a.a();
+                    sQLiteDatabase = this.f168a.a();
                     if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                         sQLiteDatabase.beginTransaction();
-                        this.f192a.a(this.a, sQLiteDatabase);
+                        this.f168a.a(this.a, sQLiteDatabase);
                         sQLiteDatabase.setTransactionSuccessful();
                     }
                     if (sQLiteDatabase != null) {
@@ -55,11 +55,11 @@ public class ci implements Runnable {
                         } catch (Exception e2) {
                             e = e2;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f192a.a(this.a);
+                            this.f168a.a(this.a);
                         }
                     }
-                    if (this.f192a.f183a != null) {
-                        this.f192a.f183a.close();
+                    if (this.f168a.f159a != null) {
+                        this.f168a.f159a.close();
                     }
                 } catch (Exception e3) {
                     com.xiaomi.channel.commonutils.logger.b.a(e3);
@@ -69,28 +69,28 @@ public class ci implements Runnable {
                         } catch (Exception e4) {
                             e = e4;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f192a.a(this.a);
+                            this.f168a.a(this.a);
                         }
                     }
-                    if (this.f192a.f183a != null) {
-                        this.f192a.f183a.close();
+                    if (this.f168a.f159a != null) {
+                        this.f168a.f159a.close();
                     }
                 }
-                this.f192a.a(this.a);
+                this.f168a.a(this.a);
             } catch (Throwable th) {
                 if (sQLiteDatabase != null) {
                     try {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e5) {
                         com.xiaomi.channel.commonutils.logger.b.a(e5);
-                        this.f192a.a(this.a);
+                        this.f168a.a(this.a);
                         throw th;
                     }
                 }
-                if (this.f192a.f183a != null) {
-                    this.f192a.f183a.close();
+                if (this.f168a.f159a != null) {
+                    this.f168a.f159a.close();
                 }
-                this.f192a.a(this.a);
+                this.f168a.a(this.a);
                 throw th;
             }
         }

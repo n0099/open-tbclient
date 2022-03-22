@@ -65,9 +65,9 @@ public class CdnCacheItem implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,11 +91,11 @@ public class CdnCacheItem implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            int i2 = this.ipDisableTime;
-            if (i2 < 0) {
+            int i = this.ipDisableTime;
+            if (i < 0) {
                 return 3600000;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -117,8 +117,8 @@ public class CdnCacheItem implements Serializable {
             }
             StringBuilder sb = new StringBuilder(50);
             int size = this.ipList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sb.append(this.ipList.get(i2).cdnIp);
+            for (int i = 0; i < size; i++) {
+                sb.append(this.ipList.get(i).cdnIp);
                 sb.append(",");
             }
             return sb.toString();
@@ -126,17 +126,17 @@ public class CdnCacheItem implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public String getIpString(int i2) {
+    public String getIpString(int i) {
         InterceptResult invokeI;
         ArrayList<TBIPListItem> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (!this.isUsedIp || (arrayList = this.ipList) == null || arrayList.size() == 0) {
                 return null;
             }
             synchronized (mLock) {
                 if (this.ipList != null && this.ipList.size() != 0) {
-                    int size = i2 % this.ipList.size();
+                    int size = i % this.ipList.size();
                     if (size >= this.ipList.size()) {
                         return null;
                     }
@@ -158,17 +158,17 @@ public class CdnCacheItem implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.isUsedIp : invokeV.booleanValue;
     }
 
-    public String getMobileCdnIp(int i2) {
+    public String getMobileCdnIp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             ArrayList<TBIPListItem> arrayList = this.mobileIpList;
             if (arrayList == null || arrayList.size() == 0) {
                 return null;
             }
             synchronized (mLock) {
                 if (this.mobileIpList != null && this.mobileIpList.size() != 0) {
-                    int size = i2 % this.mobileIpList.size();
+                    int size = i % this.mobileIpList.size();
                     if (size >= this.mobileIpList.size()) {
                         return null;
                     }
@@ -196,59 +196,59 @@ public class CdnCacheItem implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mobileIsUsedIp : invokeV.booleanValue;
     }
 
-    public int setCdnDomainRank(int i2, float f2) {
+    public int setCdnDomainRank(int i, float f2) {
         InterceptResult invokeCommon;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
             synchronized (mDomainLock) {
-                int i4 = this.cdnDomainRank + i2;
-                this.cdnDomainRank = i4;
-                if (i4 < 0) {
+                int i3 = this.cdnDomainRank + i;
+                this.cdnDomainRank = i3;
+                if (i3 < 0) {
                     this.cdnDomainRank = 0;
                 }
-                i3 = this.cdnDomainRank;
+                i2 = this.cdnDomainRank;
                 if (this.cdnDomainRank > f2) {
                     this.cdnDomainRank = 0;
                     this.isUsedIp = true;
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public int setIPRank(int i2, float f2, String str) {
+    public int setIPRank(int i, float f2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), str})) == null) {
             if (str == null) {
                 return -1;
             }
             synchronized (mLock) {
                 TBIPListItem tBIPListItem = null;
                 int size = this.ipList.size();
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= size) {
-                        i3 = 0;
+                    if (i2 >= size) {
+                        i2 = 0;
                         break;
                     }
-                    TBIPListItem tBIPListItem2 = this.ipList.get(i3);
+                    TBIPListItem tBIPListItem2 = this.ipList.get(i2);
                     if (str.equalsIgnoreCase(tBIPListItem2.cdnIp)) {
                         tBIPListItem = tBIPListItem2;
                         break;
                     }
-                    i3++;
+                    i2++;
                 }
                 if (tBIPListItem == null) {
                     return -1;
                 }
-                int i4 = tBIPListItem.ipRank + i2;
-                tBIPListItem.ipRank = i4;
-                if (i4 >= f2) {
+                int i3 = tBIPListItem.ipRank + i;
+                tBIPListItem.ipRank = i3;
+                if (i3 >= f2) {
                     this.ipHashMap.remove(tBIPListItem.cdnIp);
-                    this.ipList.remove(i3);
+                    this.ipList.remove(i2);
                     long currentTimeMillis = System.currentTimeMillis();
                     setDisableIpMap();
                     this.disableIpMap.put(tBIPListItem.cdnIp, Long.valueOf(currentTimeMillis));
@@ -265,10 +265,10 @@ public class CdnCacheItem implements Serializable {
         return invokeCommon.intValue;
     }
 
-    public void setIpDisableTime(int i2) {
+    public void setIpDisableTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.ipDisableTime = i2 * 1000;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.ipDisableTime = i * 1000;
         }
     }
 
@@ -285,8 +285,8 @@ public class CdnCacheItem implements Serializable {
             }
             this.isUsedIp = z;
             int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String str = arrayList.get(i2);
+            for (int i = 0; i < size; i++) {
+                String str = arrayList.get(i);
                 Long l = this.disableIpMap.get(str);
                 if (l != null && System.currentTimeMillis() - l.longValue() >= disableIpTime()) {
                     this.disableIpMap.remove(str);
@@ -312,54 +312,54 @@ public class CdnCacheItem implements Serializable {
             tBIPListItem.cdnIp = "c.hiphotos.baidu.com";
             this.mobileIpList.add(tBIPListItem);
             int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 TBIPListItem tBIPListItem2 = new TBIPListItem(this, null);
-                tBIPListItem2.cdnIp = arrayList.get(i2);
+                tBIPListItem2.cdnIp = arrayList.get(i);
                 this.mobileIpList.add(tBIPListItem2);
             }
         }
     }
 
-    public int setMoblieIPRank(int i2, float f2, String str) {
+    public int setMoblieIPRank(int i, float f2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), str})) == null) {
             synchronized (mLock) {
                 if (str == null) {
-                    int i3 = this.mobileCdnDomainRank + i2;
-                    this.mobileCdnDomainRank = i3;
-                    if (i3 < 0) {
+                    int i2 = this.mobileCdnDomainRank + i;
+                    this.mobileCdnDomainRank = i2;
+                    if (i2 < 0) {
                         this.mobileCdnDomainRank = 0;
                     }
-                    int i4 = this.mobileCdnDomainRank;
+                    int i3 = this.mobileCdnDomainRank;
                     if (this.mobileCdnDomainRank > f2) {
                         this.mobileCdnDomainRank = 0;
                         this.mobileIsUsedIp = true;
                     }
-                    return i4;
+                    return i3;
                 }
                 TBIPListItem tBIPListItem = null;
                 int size = this.mobileIpList.size();
-                int i5 = 0;
+                int i4 = 0;
                 while (true) {
-                    if (i5 >= size) {
-                        i5 = 0;
+                    if (i4 >= size) {
+                        i4 = 0;
                         break;
                     }
-                    TBIPListItem tBIPListItem2 = this.mobileIpList.get(i5);
+                    TBIPListItem tBIPListItem2 = this.mobileIpList.get(i4);
                     if (str.equalsIgnoreCase(tBIPListItem2.cdnIp)) {
                         tBIPListItem = tBIPListItem2;
                         break;
                     }
-                    i5++;
+                    i4++;
                 }
                 if (tBIPListItem == null) {
                     return -1;
                 }
-                int i6 = tBIPListItem.ipRank + i2;
-                tBIPListItem.ipRank = i6;
-                if (i6 >= f2) {
-                    this.mobileIpList.remove(i5);
+                int i5 = tBIPListItem.ipRank + i;
+                tBIPListItem.ipRank = i5;
+                if (i5 >= f2) {
+                    this.mobileIpList.remove(i4);
                     this.mobileIsUsedIp = true;
                 }
                 if (tBIPListItem.ipRank < 0) {
@@ -390,9 +390,9 @@ public class CdnCacheItem implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cdnCacheItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.relatelist;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,10 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RelateRecThread.DataReq;
 import tbclient.RelateRecThread.RelateRecThreadReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RelateRecThreadRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String eqid;
     public long forumId;
     public int sourceFrom;
     public int sourceType;
@@ -27,9 +28,9 @@ public class RelateRecThreadRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -49,6 +50,7 @@ public class RelateRecThreadRequestMessage extends NetMessage {
             builder.thread_id = Long.valueOf(this.threadId);
             builder.source_type = Integer.valueOf(this.sourceType);
             builder.source_from = Integer.valueOf(this.sourceFrom);
+            builder.eqid = this.eqid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 b0.a(builder, true);
             }

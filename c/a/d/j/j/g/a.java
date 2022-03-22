@@ -23,7 +23,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3018b;
+    public static a f2518b;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedHashMap<String, PluginStatus> a;
 
@@ -32,9 +32,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,14 +47,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3018b == null) {
+            if (f2518b == null) {
                 synchronized (a.class) {
-                    if (f3018b == null) {
-                        f3018b = new a();
+                    if (f2518b == null) {
+                        f2518b = new a();
                     }
                 }
             }
-            return f3018b;
+            return f2518b;
         }
         return (a) invokeV.objValue;
     }
@@ -68,7 +68,7 @@ public class a {
             synchronized (this.a) {
                 arrayList = new ArrayList(this.a.size());
                 for (Map.Entry<String, PluginStatus> entry : this.a.entrySet()) {
-                    if (entry != null && (value = entry.getValue()) != null && value.f29876f == PluginPackageManager.PluginStatus.ERROR) {
+                    if (entry != null && (value = entry.getValue()) != null && value.f23879b == PluginPackageManager.PluginStatus.ERROR) {
                         arrayList.add(value);
                     }
                 }
@@ -90,7 +90,7 @@ public class a {
                 pluginStatus = this.a.get(str);
                 if (pluginStatus == null) {
                     pluginStatus = new PluginStatus();
-                    pluginStatus.f29875e = str;
+                    pluginStatus.a = str;
                     this.a.put(str, pluginStatus);
                 }
             }
@@ -111,10 +111,10 @@ public class a {
         PluginStatus c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            int i2 = 1;
+            int i = 1;
             if ("rom_size".equals(str2)) {
-                str5 = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_rom_too_small);
-                str4 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_rom_too_small);
+                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
+                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e83);
             } else if ("plugin_install_retry_timeout".equals(str2) || "plugin_install_timeout".equals(str2)) {
                 return;
             } else {
@@ -124,40 +124,40 @@ public class a {
                         if (!lowerCase.contains("read-only_file_system") && !lowerCase.contains("read-only file system")) {
                             if (!lowerCase.contains("permission_denied") && !lowerCase.contains("permission denied")) {
                                 if (!lowerCase.contains("fsync_failed") && !lowerCase.contains("fsync failed")) {
-                                    string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-                                    string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+                                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+                                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e84);
                                 } else {
-                                    String string3 = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-                                    str4 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+                                    String string3 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+                                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e84);
                                     str5 = string3;
-                                    i2 = 5;
+                                    i = 5;
                                 }
                             } else {
-                                str5 = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_need_restart);
-                                str4 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_need_restart);
-                                i2 = 4;
+                                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e85);
+                                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e82);
+                                i = 4;
                             }
                         } else {
-                            str5 = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_need_restart);
-                            str4 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_need_restart);
-                            i2 = 3;
+                            str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e85);
+                            str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e82);
+                            i = 3;
                         }
                         c2 = c(str);
                         if (c2 == null) {
                             c2 = new PluginStatus();
                         }
-                        c2.f29876f = PluginPackageManager.PluginStatus.ERROR;
-                        c2.f29878h = str5;
-                        c2.f29879i = str4;
-                        c2.f29877g = i2;
-                        c2.f29880j = false;
+                        c2.f23879b = PluginPackageManager.PluginStatus.ERROR;
+                        c2.f23881d = str5;
+                        c2.f23882e = str4;
+                        c2.f23880c = i;
+                        c2.f23883f = false;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
                     }
-                    str5 = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_rom_too_small);
-                    str4 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_rom_too_small);
+                    str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
+                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e83);
                 } else {
-                    string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-                    string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e84);
                 }
                 String str6 = string;
                 str4 = string2;
@@ -165,22 +165,22 @@ public class a {
                 c2 = c(str);
                 if (c2 == null) {
                 }
-                c2.f29876f = PluginPackageManager.PluginStatus.ERROR;
-                c2.f29878h = str5;
-                c2.f29879i = str4;
-                c2.f29877g = i2;
-                c2.f29880j = false;
+                c2.f23879b = PluginPackageManager.PluginStatus.ERROR;
+                c2.f23881d = str5;
+                c2.f23882e = str4;
+                c2.f23880c = i;
+                c2.f23883f = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
             }
-            i2 = 2;
+            i = 2;
             c2 = c(str);
             if (c2 == null) {
             }
-            c2.f29876f = PluginPackageManager.PluginStatus.ERROR;
-            c2.f29878h = str5;
-            c2.f29879i = str4;
-            c2.f29877g = i2;
-            c2.f29880j = false;
+            c2.f23879b = PluginPackageManager.PluginStatus.ERROR;
+            c2.f23881d = str5;
+            c2.f23882e = str4;
+            c2.f23880c = i;
+            c2.f23883f = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, c2));
         }
     }
@@ -190,7 +190,7 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             PluginStatus c2 = b().c(str);
             if (c2 != null) {
-                c2.f29876f = PluginPackageManager.PluginStatus.NROMAL;
+                c2.f23879b = PluginPackageManager.PluginStatus.NROMAL;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, c2));
         }
@@ -203,10 +203,10 @@ public class a {
             if (c2 == null) {
                 c2 = new PluginStatus();
             }
-            c2.f29876f = PluginPackageManager.PluginStatus.ERROR;
-            c2.f29877g = 100;
-            c2.f29878h = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-            c2.f29879i = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+            c2.f23879b = PluginPackageManager.PluginStatus.ERROR;
+            c2.f23880c = 100;
+            c2.f23881d = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+            c2.f23882e = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e84);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, c2));
         }
     }

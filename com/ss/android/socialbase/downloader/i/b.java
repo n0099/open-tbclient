@@ -1,17 +1,15 @@
 package com.ss.android.socialbase.downloader.i;
 
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.dxmpay.wallet.utils.StatHelper;
 import org.apache.http.HttpStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public static String a(int i2) {
-        if (i2 != 449) {
-            if (i2 != 451) {
-                if (i2 != 600) {
-                    if (i2 != 509) {
-                        if (i2 != 510) {
-                            switch (i2) {
+    public static String a(int i) {
+        if (i != 449) {
+            if (i != 451) {
+                if (i != 600) {
+                    if (i != 509) {
+                        if (i != 510) {
+                            switch (i) {
                                 case 100:
                                     return "Continue";
                                 case 101:
@@ -19,9 +17,9 @@ public class b {
                                 case 102:
                                     return "Processing";
                                 default:
-                                    switch (i2) {
+                                    switch (i) {
                                         case 200:
-                                            return StatHelper.SENSOR_OK;
+                                            return "OK";
                                         case 201:
                                             return "Created";
                                         case 202:
@@ -37,7 +35,7 @@ public class b {
                                         case 207:
                                             return "Multi-Status";
                                         default:
-                                            switch (i2) {
+                                            switch (i) {
                                                 case 300:
                                                     return "Multiple Choices";
                                                 case 301:
@@ -50,12 +48,12 @@ public class b {
                                                     return "Not Modified";
                                                 case 305:
                                                     return "Use Proxy";
-                                                case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
+                                                case 306:
                                                     return "Switch Proxy";
                                                 case 307:
                                                     return "Temporary Redirect";
                                                 default:
-                                                    switch (i2) {
+                                                    switch (i) {
                                                         case 400:
                                                             return "Bad Request";
                                                         case 401:
@@ -95,7 +93,7 @@ public class b {
                                                         case 418:
                                                             return "I'm a teapot";
                                                         default:
-                                                            switch (i2) {
+                                                            switch (i) {
                                                                 case 421:
                                                                     return "Too Many Connections";
                                                                 case HttpStatus.SC_UNPROCESSABLE_ENTITY /* 422 */:
@@ -109,7 +107,7 @@ public class b {
                                                                 case 426:
                                                                     return "Upgrade Required";
                                                                 default:
-                                                                    switch (i2) {
+                                                                    switch (i) {
                                                                         case 500:
                                                                             return "Internal Server Error";
                                                                         case 501:

@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.ViewTransition;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Transition<R> transition;
     public final ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ConcreteViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,28 +49,28 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int animationId;
 
-        public ResourceViewTransitionAnimationFactory(int i2) {
+        public ResourceViewTransitionAnimationFactory(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.animationId = i2;
+            this.animationId = i;
         }
 
         @Override // com.bumptech.glide.request.transition.ViewTransition.ViewTransitionAnimationFactory
@@ -90,9 +90,9 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {animation};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ViewTransition.ViewTransitionAnimationFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -118,17 +118,17 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ViewAnimationFactory(int i2) {
-        this(new ResourceViewTransitionAnimationFactory(i2));
+    public ViewAnimationFactory(int i) {
+        this(new ResourceViewTransitionAnimationFactory(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((ViewTransition.ViewTransitionAnimationFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -144,9 +144,9 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewTransitionAnimationFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

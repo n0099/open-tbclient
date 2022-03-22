@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.s;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -23,7 +22,7 @@ public class g {
     public static ConnectivityManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TelephonyManager f30897b;
+    public static TelephonyManager f24738b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,9 +68,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                ConnectivityManager i2 = i(context.getApplicationContext());
-                if (i2 != null) {
-                    return i2.getActiveNetworkInfo();
+                ConnectivityManager i = i(context.getApplicationContext());
+                if (i != null) {
+                    return i.getActiveNetworkInfo();
                 }
                 return null;
             } catch (Exception e2) {
@@ -218,15 +217,15 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f53804c) == 0) {
+            if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 if (context == null) {
-                    return f30897b;
+                    return f24738b;
                 }
-                if (f30897b == null) {
-                    f30897b = (TelephonyManager) context.getSystemService("phone");
+                if (f24738b == null) {
+                    f24738b = (TelephonyManager) context.getSystemService("phone");
                 }
             }
-            return f30897b;
+            return f24738b;
         }
         return (TelephonyManager) invokeL.objValue;
     }

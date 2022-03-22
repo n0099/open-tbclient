@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class AspectRatio {
     public static /* synthetic */ Interceptable $ic;
@@ -32,30 +31,30 @@ public class AspectRatio {
         Extended_SAR = new AspectRatio(255);
     }
 
-    public AspectRatio(int i2) {
+    public AspectRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.value = i2;
+        this.value = i;
     }
 
-    public static AspectRatio fromValue(int i2) {
+    public static AspectRatio fromValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             AspectRatio aspectRatio = Extended_SAR;
-            return i2 == aspectRatio.value ? aspectRatio : new AspectRatio(i2);
+            return i == aspectRatio.value ? aspectRatio : new AspectRatio(i);
         }
         return (AspectRatio) invokeI.objValue;
     }
@@ -70,7 +69,7 @@ public class AspectRatio {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AspectRatio{value=" + this.value + ExtendedMessageFormat.END_FE;
+            return "AspectRatio{value=" + this.value + '}';
         }
         return (String) invokeV.objValue;
     }

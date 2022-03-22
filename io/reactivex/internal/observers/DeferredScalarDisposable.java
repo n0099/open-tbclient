@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISPOSED = 4;
@@ -30,9 +30,9 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,12 +53,12 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public final void complete(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            int i2 = get();
-            if ((i2 & 54) != 0) {
+            int i = get();
+            if ((i & 54) != 0) {
                 return;
             }
             Observer<? super T> observer = this.actual;
-            if (i2 == 8) {
+            if (i == 8) {
                 this.value = t;
                 lazySet(16);
                 observer.onNext(null);
@@ -125,11 +125,11 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public final int requestFusion(int i2) {
+    public final int requestFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if ((i2 & 2) != 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if ((i & 2) != 0) {
                 lazySet(8);
                 return 2;
             }

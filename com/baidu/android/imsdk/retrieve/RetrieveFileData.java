@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RetrieveFileData {
@@ -41,16 +40,16 @@ public class RetrieveFileData {
         public String mType;
         public String mVersion;
 
-        public RetrieveFileBean(String str, String str2, String str3, long j2, List<String> list, String str4, long j3) {
+        public RetrieveFileBean(String str, String str2, String str3, long j, List<String> list, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, Long.valueOf(j2), list, str4, Long.valueOf(j3)};
+                Object[] objArr = {str, str2, str3, Long.valueOf(j), list, str4, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,17 +59,17 @@ public class RetrieveFileData {
             this.mJobId = str;
             this.mType = str2;
             this.mVersion = str3;
-            this.mExpiredTime = j2;
+            this.mExpiredTime = j;
             this.mPathList = list;
             this.mPathStr = str4;
-            this.mMaxFileSize = j3;
+            this.mMaxFileSize = j2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "FetchBean{mJobId='" + this.mJobId + ExtendedMessageFormat.QUOTE + ", mType='" + this.mType + ExtendedMessageFormat.QUOTE + ", mVersion='" + this.mVersion + ExtendedMessageFormat.QUOTE + ", mExpiredTime=" + this.mExpiredTime + ", mPathList=" + this.mPathList + ", mMaxFileSize=" + this.mMaxFileSize + ExtendedMessageFormat.END_FE;
+                return "FetchBean{mJobId='" + this.mJobId + "', mType='" + this.mType + "', mVersion='" + this.mVersion + "', mExpiredTime=" + this.mExpiredTime + ", mPathList=" + this.mPathList + ", mMaxFileSize=" + this.mMaxFileSize + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -81,9 +80,9 @@ public class RetrieveFileData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

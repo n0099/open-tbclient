@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -57,14 +57,14 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void upgradeTo(SQLiteDatabase sQLiteDatabase, int i2) {
+    private void upgradeTo(SQLiteDatabase sQLiteDatabase, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, sQLiteDatabase, i2) == null) {
-            if (i2 == 2) {
+        if (interceptable == null || interceptable.invokeLI(65539, this, sQLiteDatabase, i) == null) {
+            if (i == 2) {
                 addColumn(sQLiteDatabase, "downloads", DownloadDataConstants.Columns.COLUMN_PROGRESS_MAP, "TEXT");
                 return;
             }
-            throw new IllegalStateException("Don't know how to upgrade to " + i2);
+            throw new IllegalStateException("Don't know how to upgrade to " + i);
         }
     }
 
@@ -77,25 +77,25 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
             createDownloadsTable(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) != null) {
+        if (interceptable != null && interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) != null) {
             return;
         }
         while (true) {
-            i2++;
-            if (i2 > i3) {
+            i++;
+            if (i > i2) {
                 return;
             }
-            upgradeTo(sQLiteDatabase, i2);
+            upgradeTo(sQLiteDatabase, i);
         }
     }
 }

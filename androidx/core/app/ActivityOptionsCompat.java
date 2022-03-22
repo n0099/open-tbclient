@@ -41,9 +41,9 @@ public class ActivityOptionsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activityOptions};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,9 +103,9 @@ public class ActivityOptionsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -126,12 +126,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view, int i2, int i3, int i4, int i5) {
+    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view, i2, i3, i4, i5));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view, i, i2, i3, i4));
             }
             return new ActivityOptionsCompat();
         }
@@ -139,12 +139,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeCustomAnimation(@NonNull Context context, int i2, int i3) {
+    public static ActivityOptionsCompat makeCustomAnimation(@NonNull Context context, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, context, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, context, i, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeCustomAnimation(context, i2, i3));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeCustomAnimation(context, i, i2));
             }
             return new ActivityOptionsCompat();
         }
@@ -152,12 +152,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view, int i2, int i3, int i4, int i5) {
+    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view, i2, i3, i4, i5));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4));
             }
             return new ActivityOptionsCompat();
         }
@@ -191,12 +191,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view, @NonNull Bitmap bitmap, int i2, int i3) {
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view, bitmap, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view, bitmap, i, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i2, i3));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
             }
             return new ActivityOptionsCompat();
         }
@@ -251,8 +251,8 @@ public class ActivityOptionsCompat {
                 android.util.Pair[] pairArr2 = null;
                 if (pairArr != null) {
                     pairArr2 = new android.util.Pair[pairArr.length];
-                    for (int i2 = 0; i2 < pairArr.length; i2++) {
-                        pairArr2[i2] = android.util.Pair.create(pairArr[i2].first, pairArr[i2].second);
+                    for (int i = 0; i < pairArr.length; i++) {
+                        pairArr2[i] = android.util.Pair.create(pairArr[i].first, pairArr[i].second);
                     }
                 }
                 return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, pairArr2));

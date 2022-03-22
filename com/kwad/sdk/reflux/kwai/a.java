@@ -20,59 +20,55 @@ import com.kwad.sdk.widget.DownloadProgressView;
 import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.KsLogoView;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public static int k = 8;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f55753b;
+    public TextView f40734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f55754c;
+    public TextView f40735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f55755d;
+    public ImageView f40736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f55756e;
+    public ImageView f40737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsLogoView f55757f;
+    public KsLogoView f40738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ComplianceTextView f55758g;
+    public ComplianceTextView f40739g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadProgressView f55759h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.reflux.b f55760i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public a.InterfaceC2122a f55761j;
+    public DownloadProgressView f40740h;
+    public com.kwad.sdk.reflux.b i;
+    public a.InterfaceC1983a j;
 
     public a(@NonNull Context context) {
         super(context);
         b(context, null, 0);
     }
 
-    private void b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        a(context, attributeSet, i2);
-        DownloadProgressView downloadProgressView = this.f55759h;
+    private void b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        a(context, attributeSet, i);
+        DownloadProgressView downloadProgressView = this.f40740h;
         if (downloadProgressView != null) {
             downloadProgressView.setOnClickListener(this);
         }
         setOnClickListener(this);
     }
 
-    public void a(int i2, boolean z) {
-        com.kwad.sdk.reflux.b bVar = this.f55760i;
+    public void a(int i, boolean z) {
+        com.kwad.sdk.reflux.b bVar = this.i;
         if (bVar == null) {
             return;
         }
         final AdTemplate c2 = bVar.c();
-        com.kwad.sdk.core.download.a.a.a(new a.C2095a(bb.a(this)).a(c2).a(this.f55760i.n()).a(i2).a(z).a(new a.b() { // from class: com.kwad.sdk.reflux.kwai.a.1
+        com.kwad.sdk.core.download.a.a.a(new a.C1956a(bb.a(this)).a(c2).a(this.i.n()).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.reflux.kwai.a.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 a.this.a(c2);
@@ -80,7 +76,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }));
     }
 
-    public abstract void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2);
+    public abstract void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i);
 
     @Override // com.kwad.sdk.widget.KSFrameLayout, com.kwad.sdk.widget.j
     public void a(View view) {
@@ -91,15 +87,15 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
 
     public void a(AdTemplate adTemplate) {
         p.a aVar = new p.a();
-        aVar.f54628g = getTouchCoords();
-        com.kwad.sdk.reflux.b bVar = this.f55760i;
+        aVar.f39737g = getTouchCoords();
+        com.kwad.sdk.reflux.b bVar = this.i;
         if (bVar != null) {
             aVar.z = bVar.j();
         }
         com.kwad.sdk.core.report.a.a(adTemplate, aVar, (JSONObject) null);
-        a.InterfaceC2122a interfaceC2122a = this.f55761j;
-        if (interfaceC2122a != null) {
-            interfaceC2122a.a();
+        a.InterfaceC1983a interfaceC1983a = this.j;
+        if (interfaceC1983a != null) {
+            interfaceC1983a.a();
         }
     }
 
@@ -107,56 +103,56 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         if (bVar == null) {
             return;
         }
-        this.f55760i = bVar;
+        this.i = bVar;
         if (this.a != null && bVar.d() != null) {
             this.a.setText(bVar.d());
         }
-        if (this.f55753b != null && bVar.f() != null) {
-            this.f55753b.setText(bVar.f());
+        if (this.f40734b != null && bVar.f() != null) {
+            this.f40734b.setText(bVar.f());
         }
-        if (this.f55754c != null && bVar.g() != null) {
-            this.f55754c.setText(bVar.g());
+        if (this.f40735c != null && bVar.g() != null) {
+            this.f40735c.setText(bVar.g());
         }
         AdTemplate c2 = bVar.c();
         if (c2 != null) {
-            if (this.f55755d != null && bVar.e() != null) {
-                KSImageLoader.loadAppIcon(this.f55755d, bVar.e(), c2, k);
+            if (this.f40736d != null && bVar.e() != null) {
+                KSImageLoader.loadAppIcon(this.f40736d, bVar.e(), c2, k);
             }
-            if (this.f55756e != null && bVar.h() != null) {
-                KSImageLoader.loadImage(this.f55756e, bVar.h(), c2);
+            if (this.f40737e != null && bVar.h() != null) {
+                KSImageLoader.loadImage(this.f40737e, bVar.h(), c2);
             }
-            KsLogoView ksLogoView = this.f55757f;
+            KsLogoView ksLogoView = this.f40738f;
             if (ksLogoView != null) {
                 ksLogoView.a(c2);
             }
-            ComplianceTextView complianceTextView = this.f55758g;
+            ComplianceTextView complianceTextView = this.f40739g;
             if (complianceTextView != null) {
                 complianceTextView.setAdTemplate(c2);
             }
-            DownloadProgressView downloadProgressView = this.f55759h;
+            DownloadProgressView downloadProgressView = this.f40740h;
             if (downloadProgressView != null) {
                 downloadProgressView.a(c2);
             }
-            AdInfo j2 = d.j(c2);
-            DownloadProgressView downloadProgressView2 = this.f55759h;
+            AdInfo j = d.j(c2);
+            DownloadProgressView downloadProgressView2 = this.f40740h;
             if (downloadProgressView2 != null) {
-                downloadProgressView2.a(j2, bVar.l(), bVar.m());
+                downloadProgressView2.a(j, bVar.l(), bVar.m());
             }
         }
     }
 
     public void c() {
-        a.InterfaceC2122a interfaceC2122a;
-        com.kwad.sdk.reflux.b bVar = this.f55760i;
+        a.InterfaceC1983a interfaceC1983a;
+        com.kwad.sdk.reflux.b bVar = this.i;
         if (bVar == null) {
             return;
         }
         AdTemplate c2 = bVar.c();
-        if (!c2.mPvReported && (interfaceC2122a = this.f55761j) != null) {
-            interfaceC2122a.b();
+        if (!c2.mPvReported && (interfaceC1983a = this.j) != null) {
+            interfaceC1983a.b();
         }
         p.a aVar = new p.a();
-        com.kwad.sdk.reflux.b bVar2 = this.f55760i;
+        com.kwad.sdk.reflux.b bVar2 = this.i;
         if (bVar2 != null) {
             aVar.z = bVar2.j();
         }
@@ -165,14 +161,14 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.equals(this.f55759h)) {
+        if (view.equals(this.f40740h)) {
             a(1, true);
         } else if (view.equals(this)) {
             a(2, true);
         }
     }
 
-    public void setAdClickListener(a.InterfaceC2122a interfaceC2122a) {
-        this.f55761j = interfaceC2122a;
+    public void setAdClickListener(a.InterfaceC1983a interfaceC1983a) {
+        this.j = interfaceC1983a;
     }
 }

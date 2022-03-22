@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class UploadFileBean {
     public static /* synthetic */ Interceptable $ic;
@@ -23,9 +22,9 @@ public class UploadFileBean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,7 +43,7 @@ public class UploadFileBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UploadFileBean{ak='" + this.ak + ExtendedMessageFormat.QUOTE + ", sk='" + this.sk + ExtendedMessageFormat.QUOTE + ", token='" + this.token + ExtendedMessageFormat.QUOTE + ", endpoint='" + this.endpoint + ExtendedMessageFormat.QUOTE + ", bucketName='" + this.bucketName + ExtendedMessageFormat.QUOTE + ", objectName='" + this.objectName + ExtendedMessageFormat.QUOTE + ", filePath='" + this.filePath + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "UploadFileBean{ak='" + this.ak + "', sk='" + this.sk + "', token='" + this.token + "', endpoint='" + this.endpoint + "', bucketName='" + this.bucketName + "', objectName='" + this.objectName + "', filePath='" + this.filePath + "'}";
         }
         return (String) invokeV.objValue;
     }

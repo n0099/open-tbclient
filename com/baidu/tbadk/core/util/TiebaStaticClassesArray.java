@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import android.util.Log;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,9 +18,9 @@ public class TiebaStaticClassesArray {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,12 +38,17 @@ public class TiebaStaticClassesArray {
                     return false;
                 }
                 for (String str : this.staticClassesArray) {
-                    Class.forName(str);
+                    try {
+                        Class.forName(str);
+                    } catch (Throwable th) {
+                        BdLog.e(th);
+                        Log.e("TiebaStaticClassesArray", "classforName failed. " + th.getMessage());
+                    }
                 }
                 return true;
-            } catch (Throwable th) {
-                BdLog.e(th);
-                String str2 = "init class failed. " + th.getMessage();
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+                Log.e("TiebaStaticClassesArray", "init class failed. " + th2.getMessage());
                 return false;
             }
         }

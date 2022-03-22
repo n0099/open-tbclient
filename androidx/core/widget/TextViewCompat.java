@@ -17,6 +17,7 @@ import android.text.TextDirectionHeuristic;
 import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -88,9 +89,9 @@ public final class TextViewCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {callback, textView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -191,9 +192,9 @@ public final class TextViewCompat {
                         }
                     }
                     List<ResolveInfo> supportedActivities = getSupportedActivities(context, packageManager);
-                    for (int i2 = 0; i2 < supportedActivities.size(); i2++) {
-                        ResolveInfo resolveInfo = supportedActivities.get(i2);
-                        menu.add(0, 0, i2 + 100, resolveInfo.loadLabel(packageManager)).setIntent(createProcessTextIntentForResolveInfo(resolveInfo, this.mTextView)).setShowAsAction(1);
+                    for (int i = 0; i < supportedActivities.size(); i++) {
+                        ResolveInfo resolveInfo = supportedActivities.get(i);
+                        menu.add(0, 0, i + 100, resolveInfo.loadLabel(packageManager)).setIntent(createProcessTextIntentForResolveInfo(resolveInfo, this.mTextView)).setShowAsAction(1);
                     }
                 } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused2) {
                 }
@@ -239,9 +240,9 @@ public final class TextViewCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -360,11 +361,11 @@ public final class TextViewCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, textView)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 18) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 18) {
                 return textView.getCompoundDrawablesRelative();
             }
-            if (i2 >= 17) {
+            if (i >= 17) {
                 boolean z = textView.getLayoutDirection() == 1;
                 Drawable[] compoundDrawables = textView.getCompoundDrawables();
                 if (z) {
@@ -546,7 +547,7 @@ public final class TextViewCompat {
                 field.setAccessible(true);
                 return field;
             } catch (NoSuchFieldException unused) {
-                String str2 = "Could not retrieve " + str + " field.";
+                Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
                 return field;
             }
         }
@@ -560,42 +561,42 @@ public final class TextViewCompat {
             try {
                 return field.getInt(textView);
             } catch (IllegalAccessException unused) {
-                String str = "Could not retrieve value of " + field.getName() + " field.";
+                Log.d(LOG_TAG, "Could not retrieve value of " + field.getName() + " field.");
                 return -1;
             }
         }
         return invokeLL.intValue;
     }
 
-    public static void setAutoSizeTextTypeUniformWithConfiguration(@NonNull TextView textView, int i2, int i3, int i4, int i5) throws IllegalArgumentException {
+    public static void setAutoSizeTextTypeUniformWithConfiguration(@NonNull TextView textView, int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
-                textView.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+                textView.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
             } else if (textView instanceof AutoSizeableTextView) {
-                ((AutoSizeableTextView) textView).setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+                ((AutoSizeableTextView) textView).setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
             }
         }
     }
 
-    public static void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull TextView textView, @NonNull int[] iArr, int i2) throws IllegalArgumentException {
+    public static void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull TextView textView, @NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65555, null, textView, iArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65555, null, textView, iArr, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
-                textView.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+                textView.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
             } else if (textView instanceof AutoSizeableTextView) {
-                ((AutoSizeableTextView) textView).setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+                ((AutoSizeableTextView) textView).setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
             }
         }
     }
 
-    public static void setAutoSizeTextTypeWithDefaults(@NonNull TextView textView, int i2) {
+    public static void setAutoSizeTextTypeWithDefaults(@NonNull TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65556, null, textView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65556, null, textView, i) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
-                textView.setAutoSizeTextTypeWithDefaults(i2);
+                textView.setAutoSizeTextTypeWithDefaults(i);
             } else if (textView instanceof AutoSizeableTextView) {
-                ((AutoSizeableTextView) textView).setAutoSizeTextTypeWithDefaults(i2);
+                ((AutoSizeableTextView) textView).setAutoSizeTextTypeWithDefaults(i);
             }
         }
     }
@@ -627,10 +628,10 @@ public final class TextViewCompat {
     public static void setCompoundDrawablesRelative(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65559, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 18) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 18) {
                 textView.setCompoundDrawablesRelative(drawable, drawable2, drawable3, drawable4);
-            } else if (i2 >= 17) {
+            } else if (i >= 17) {
                 boolean z = textView.getLayoutDirection() == 1;
                 Drawable drawable5 = z ? drawable3 : drawable;
                 if (!z) {
@@ -646,10 +647,10 @@ public final class TextViewCompat {
     public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @Nullable Drawable drawable, @Nullable Drawable drawable2, @Nullable Drawable drawable3, @Nullable Drawable drawable4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65561, null, textView, drawable, drawable2, drawable3, drawable4) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 18) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 18) {
                 textView.setCompoundDrawablesRelativeWithIntrinsicBounds(drawable, drawable2, drawable3, drawable4);
-            } else if (i2 >= 17) {
+            } else if (i >= 17) {
                 boolean z = textView.getLayoutDirection() == 1;
                 Drawable drawable5 = z ? drawable3 : drawable;
                 if (!z) {
@@ -669,51 +670,51 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setFirstBaselineToTopHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i2) {
-        int i3;
+    public static void setFirstBaselineToTopHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65563, null, textView, i2) == null) {
-            Preconditions.checkArgumentNonnegative(i2);
+        if (interceptable == null || interceptable.invokeLI(65563, null, textView, i) == null) {
+            Preconditions.checkArgumentNonnegative(i);
             if (Build.VERSION.SDK_INT >= 28) {
-                textView.setFirstBaselineToTopHeight(i2);
+                textView.setFirstBaselineToTopHeight(i);
                 return;
             }
             Paint.FontMetricsInt fontMetricsInt = textView.getPaint().getFontMetricsInt();
             if (Build.VERSION.SDK_INT >= 16 && !textView.getIncludeFontPadding()) {
-                i3 = fontMetricsInt.ascent;
+                i2 = fontMetricsInt.ascent;
             } else {
-                i3 = fontMetricsInt.top;
+                i2 = fontMetricsInt.top;
             }
-            if (i2 > Math.abs(i3)) {
-                textView.setPadding(textView.getPaddingLeft(), i2 + i3, textView.getPaddingRight(), textView.getPaddingBottom());
+            if (i > Math.abs(i2)) {
+                textView.setPadding(textView.getPaddingLeft(), i + i2, textView.getPaddingRight(), textView.getPaddingBottom());
             }
         }
     }
 
-    public static void setLastBaselineToBottomHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i2) {
-        int i3;
+    public static void setLastBaselineToBottomHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65564, null, textView, i2) == null) {
-            Preconditions.checkArgumentNonnegative(i2);
+        if (interceptable == null || interceptable.invokeLI(65564, null, textView, i) == null) {
+            Preconditions.checkArgumentNonnegative(i);
             Paint.FontMetricsInt fontMetricsInt = textView.getPaint().getFontMetricsInt();
             if (Build.VERSION.SDK_INT >= 16 && !textView.getIncludeFontPadding()) {
-                i3 = fontMetricsInt.descent;
+                i2 = fontMetricsInt.descent;
             } else {
-                i3 = fontMetricsInt.bottom;
+                i2 = fontMetricsInt.bottom;
             }
-            if (i2 > Math.abs(i3)) {
-                textView.setPadding(textView.getPaddingLeft(), textView.getPaddingTop(), textView.getPaddingRight(), i2 - i3);
+            if (i > Math.abs(i2)) {
+                textView.setPadding(textView.getPaddingLeft(), textView.getPaddingTop(), textView.getPaddingRight(), i - i2);
             }
         }
     }
 
-    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i2) {
+    public static void setLineHeight(@NonNull TextView textView, @IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65565, null, textView, i2) == null) {
-            Preconditions.checkArgumentNonnegative(i2);
+        if (interceptable == null || interceptable.invokeLI(65565, null, textView, i) == null) {
+            Preconditions.checkArgumentNonnegative(i);
             int fontMetricsInt = textView.getPaint().getFontMetricsInt(null);
-            if (i2 != fontMetricsInt) {
-                textView.setLineSpacing(i2 - fontMetricsInt, 1.0f);
+            if (i != fontMetricsInt) {
+                textView.setLineSpacing(i - fontMetricsInt, 1.0f);
             }
         }
     }
@@ -731,13 +732,13 @@ public final class TextViewCompat {
         }
     }
 
-    public static void setTextAppearance(@NonNull TextView textView, @StyleRes int i2) {
+    public static void setTextAppearance(@NonNull TextView textView, @StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65567, null, textView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65567, null, textView, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                textView.setTextAppearance(i2);
+                textView.setTextAppearance(i);
             } else {
-                textView.setTextAppearance(textView.getContext(), i2);
+                textView.setTextAppearance(textView.getContext(), i);
             }
         }
     }
@@ -769,27 +770,27 @@ public final class TextViewCompat {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65569, null, textView, callback)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return (i2 < 26 || i2 > 27 || (callback instanceof OreoCallback)) ? callback : new OreoCallback(callback, textView);
+            int i = Build.VERSION.SDK_INT;
+            return (i < 26 || i > 27 || (callback instanceof OreoCallback)) ? callback : new OreoCallback(callback, textView);
         }
         return (ActionMode.Callback) invokeLL.objValue;
     }
 
-    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @DrawableRes int i2, @DrawableRes int i3, @DrawableRes int i4, @DrawableRes int i5) {
+    public static void setCompoundDrawablesRelativeWithIntrinsicBounds(@NonNull TextView textView, @DrawableRes int i, @DrawableRes int i2, @DrawableRes int i3, @DrawableRes int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            int i6 = Build.VERSION.SDK_INT;
-            if (i6 >= 18) {
-                textView.setCompoundDrawablesRelativeWithIntrinsicBounds(i2, i3, i4, i5);
-            } else if (i6 >= 17) {
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = Build.VERSION.SDK_INT;
+            if (i5 >= 18) {
+                textView.setCompoundDrawablesRelativeWithIntrinsicBounds(i, i2, i3, i4);
+            } else if (i5 >= 17) {
                 boolean z = textView.getLayoutDirection() == 1;
-                int i7 = z ? i4 : i2;
+                int i6 = z ? i3 : i;
                 if (!z) {
-                    i2 = i4;
+                    i = i3;
                 }
-                textView.setCompoundDrawablesWithIntrinsicBounds(i7, i3, i2, i5);
+                textView.setCompoundDrawablesWithIntrinsicBounds(i6, i2, i, i4);
             } else {
-                textView.setCompoundDrawablesWithIntrinsicBounds(i2, i3, i4, i5);
+                textView.setCompoundDrawablesWithIntrinsicBounds(i, i2, i3, i4);
             }
         }
     }

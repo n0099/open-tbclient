@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LongArray {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_CAPACITY = 32;
@@ -22,9 +22,9 @@ public final class LongArray {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -33,29 +33,29 @@ public final class LongArray {
         }
     }
 
-    public void add(long j2) {
+    public void add(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            int i2 = this.size;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            int i = this.size;
             long[] jArr = this.values;
-            if (i2 == jArr.length) {
-                this.values = Arrays.copyOf(jArr, i2 * 2);
+            if (i == jArr.length) {
+                this.values = Arrays.copyOf(jArr, i * 2);
             }
             long[] jArr2 = this.values;
-            int i3 = this.size;
-            this.size = i3 + 1;
-            jArr2[i3] = j2;
+            int i2 = this.size;
+            this.size = i2 + 1;
+            jArr2[i2] = j;
         }
     }
 
-    public long get(int i2) {
+    public long get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0 && i2 < this.size) {
-                return this.values[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < this.size) {
+                return this.values[i];
             }
-            throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.size);
+            throw new IndexOutOfBoundsException("Invalid index " + i + ", size is " + this.size);
         }
         return invokeI.longValue;
     }
@@ -72,21 +72,21 @@ public final class LongArray {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.values, this.size) : (long[]) invokeV.objValue;
     }
 
-    public LongArray(int i2) {
+    public LongArray(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.values = new long[i2];
+        this.values = new long[i];
     }
 }

@@ -4,20 +4,20 @@ import kotlin.Metadata;
 import kotlin.Result;
 import kotlin.ResultKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0010\u000b\n\u0002\b\u0005\"\u001c\u0010\u0001\u001a\u00020\u00008\u0000@\u0000X\u0080\u0004¢\u0006\f\n\u0004\b\u0001\u0010\u0002\u001a\u0004\b\u0003\u0010\u0004¨\u0006\u0005"}, d2 = {"", "ANDROID_DETECTED", "Z", "getANDROID_DETECTED", "()Z", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class FastServiceLoaderKt {
     public static final boolean ANDROID_DETECTED;
 
     static {
-        Object m713constructorimpl;
+        Object m692constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m713constructorimpl = Result.m713constructorimpl(Class.forName("android.os.Build"));
+            m692constructorimpl = Result.m692constructorimpl(Class.forName("android.os.Build"));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m713constructorimpl = Result.m713constructorimpl(ResultKt.createFailure(th));
+            m692constructorimpl = Result.m692constructorimpl(ResultKt.createFailure(th));
         }
-        ANDROID_DETECTED = Result.m720isSuccessimpl(m713constructorimpl);
+        ANDROID_DETECTED = Result.m699isSuccessimpl(m692constructorimpl);
     }
 
     public static final boolean getANDROID_DETECTED() {

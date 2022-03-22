@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ChannelMappingAudioProcessor implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i2, int i3, int i4) throws AudioProcessor.UnhandledFormatException {
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) != null) {
+        if (interceptable != null && (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) != null) {
             return invokeIII.booleanValue;
         }
         boolean z = !Arrays.equals(this.pendingOutputChannels, this.outputChannels);
@@ -57,29 +57,29 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
         if (iArr == null) {
             this.active = false;
             return z;
-        } else if (i4 == 2) {
-            if (!z && this.sampleRateHz == i2 && this.channelCount == i3) {
+        } else if (i3 == 2) {
+            if (!z && this.sampleRateHz == i && this.channelCount == i2) {
                 return false;
             }
-            this.sampleRateHz = i2;
-            this.channelCount = i3;
-            this.active = i3 != this.outputChannels.length;
-            int i5 = 0;
+            this.sampleRateHz = i;
+            this.channelCount = i2;
+            this.active = i2 != this.outputChannels.length;
+            int i4 = 0;
             while (true) {
                 int[] iArr2 = this.outputChannels;
-                if (i5 >= iArr2.length) {
+                if (i4 >= iArr2.length) {
                     return true;
                 }
-                int i6 = iArr2[i5];
-                if (i6 < i3) {
-                    this.active = (i6 != i5) | this.active;
-                    i5++;
+                int i5 = iArr2[i4];
+                if (i5 < i2) {
+                    this.active = (i5 != i4) | this.active;
+                    i4++;
                 } else {
-                    throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
+                    throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
                 }
             }
         } else {
-            throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
+            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         }
     }
 
@@ -167,8 +167,8 @@ public final class ChannelMappingAudioProcessor implements AudioProcessor {
                 this.buffer.clear();
             }
             while (position < limit) {
-                for (int i2 : this.outputChannels) {
-                    this.buffer.putShort(byteBuffer.getShort((i2 * 2) + position));
+                for (int i : this.outputChannels) {
+                    this.buffer.putShort(byteBuffer.getShort((i * 2) + position));
                 }
                 position += this.channelCount * 2;
             }

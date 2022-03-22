@@ -37,9 +37,9 @@ public class IMBindPushMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,29 +112,29 @@ public class IMBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i2);
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
+            if (i == 0) {
                 setNeedReSend(false);
-            } else if (i2 != 1004 && i2 != 1001) {
-                int i3 = this.mReSendCount;
-                if (i3 >= 3) {
+            } else if (i != 1004 && i != 1001) {
+                int i2 = this.mReSendCount;
+                if (i2 >= 3) {
                     String str2 = LogUtils.TAG;
-                    LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i2);
+                    LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
                     setNeedReSend(false);
                 } else {
-                    this.mReSendCount = i3 + 1;
+                    this.mReSendCount = i2 + 1;
                     setNeedReSend(true);
                 }
             } else {
                 setNeedReSend(false);
-                LoginManager.getInstance(context).triggleLogoutListener(i2, str);
+                LoginManager.getInstance(context).triggleLogoutListener(i, str);
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
+            super.handleMessageResult(context, jSONObject, i, str);
             Utility.updateBindPushCUIDStatus(this.mContext, 1);
-            BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i2, str, this.mChannelIdIsEmpty);
+            BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
         }
     }
 

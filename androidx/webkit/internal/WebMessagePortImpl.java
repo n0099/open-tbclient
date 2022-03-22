@@ -33,9 +33,9 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {webMessagePort};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,8 +61,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
             }
             int length = webMessagePortCompatArr.length;
             WebMessagePort[] webMessagePortArr = new WebMessagePort[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                webMessagePortArr[i2] = webMessagePortCompatArr[i2].getFrameworkPort();
+            for (int i = 0; i < length; i++) {
+                webMessagePortArr[i] = webMessagePortCompatArr[i].getFrameworkPort();
             }
             return webMessagePortArr;
         }
@@ -109,8 +109,8 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
                 return null;
             }
             WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[webMessagePortArr.length];
-            for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
-                webMessagePortCompatArr[i2] = new WebMessagePortImpl(webMessagePortArr[i2]);
+            for (int i = 0; i < webMessagePortArr.length; i++) {
+                webMessagePortCompatArr[i] = new WebMessagePortImpl(webMessagePortArr[i]);
             }
             return webMessagePortCompatArr;
         }
@@ -184,9 +184,9 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, webMessageCallbackCompat};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -219,9 +219,9 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {invocationHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -250,9 +250,9 @@ public class WebMessagePortImpl extends WebMessagePortCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, webMessageCallbackCompat};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

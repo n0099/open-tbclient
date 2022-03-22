@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.text.TextUtils;
-import c.a.a0.b.a.k.c;
-import c.a.y0.r.h;
-import c.a.y0.r.w;
+import c.a.v0.r.h;
+import c.a.v0.r.w;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -37,9 +37,9 @@ public class VlogPkgManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -135,20 +135,20 @@ public class VlogPkgManager {
                 if (!FileUtils.isExists(str + "/theme_config.json")) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i >= length) {
                             str = "";
                             break;
                         }
-                        File file2 = listFiles[i2];
+                        File file2 = listFiles[i];
                         if (file2.isDirectory()) {
                             if (FileUtils.isExists(file2.getAbsolutePath() + "/theme_config.json")) {
                                 str = file2.getAbsolutePath();
                                 break;
                             }
                         }
-                        i2++;
+                        i++;
                     }
                 }
                 if (TextUtils.isEmpty(str)) {

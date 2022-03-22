@@ -15,17 +15,17 @@ public final class DecodedInformation extends DecodedObject {
     public final int remainingValue;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DecodedInformation(int i2, String str) {
-        super(i2);
+    public DecodedInformation(int i, String str) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,17 +56,17 @@ public final class DecodedInformation extends DecodedObject {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DecodedInformation(int i2, String str, int i3) {
-        super(i2);
+    public DecodedInformation(int i, String str, int i2) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -74,7 +74,7 @@ public final class DecodedInformation extends DecodedObject {
             }
         }
         this.remaining = true;
-        this.remainingValue = i3;
+        this.remainingValue = i2;
         this.newString = str;
     }
 }

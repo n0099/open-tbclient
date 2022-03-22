@@ -71,9 +71,9 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -239,75 +239,75 @@ public class GenericMediaHeaderTextAtom extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public void setUnknown_1(int i2) {
+    public void setUnknown_1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.unknown_1 = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.unknown_1 = i;
         }
     }
 
-    public void setUnknown_2(int i2) {
+    public void setUnknown_2(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.unknown_2 = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.unknown_2 = i;
         }
     }
 
-    public void setUnknown_3(int i2) {
+    public void setUnknown_3(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
-            this.unknown_3 = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.unknown_3 = i;
         }
     }
 
-    public void setUnknown_4(int i2) {
+    public void setUnknown_4(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i2)));
-            this.unknown_4 = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+            this.unknown_4 = i;
         }
     }
 
-    public void setUnknown_5(int i2) {
+    public void setUnknown_5(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i2)));
-            this.unknown_5 = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
+            this.unknown_5 = i;
         }
     }
 
-    public void setUnknown_6(int i2) {
+    public void setUnknown_6(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i2)));
-            this.unknown_6 = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
+            this.unknown_6 = i;
         }
     }
 
-    public void setUnknown_7(int i2) {
+    public void setUnknown_7(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i2)));
-            this.unknown_7 = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_13, this, this, Conversions.intObject(i)));
+            this.unknown_7 = i;
         }
     }
 
-    public void setUnknown_8(int i2) {
+    public void setUnknown_8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i2)));
-            this.unknown_8 = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
+            this.unknown_8 = i;
         }
     }
 
-    public void setUnknown_9(int i2) {
+    public void setUnknown_9(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i2)));
-            this.unknown_9 = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
+            this.unknown_9 = i;
         }
     }
 }

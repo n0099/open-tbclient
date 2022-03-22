@@ -7,11 +7,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.mobstat.dxmpay.Config;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.PM;
 import com.qq.e.comm.managers.status.APPStatus;
@@ -21,7 +20,7 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
-                jSONObject.putOpt(com.alipay.sdk.sys.a.r, aPPStatus.getAPPName());
+                jSONObject.putOpt("an", aPPStatus.getAPPName());
                 jSONObject.putOpt("appkey", aPPStatus.getAPPID());
                 jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
                 jSONObject.putOpt("appn", aPPStatus.getAPPRealName());
@@ -77,7 +76,7 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject.putOpt("so", deviceStatus.getScreenOrientation());
-                jSONObject.putOpt("dn", deviceStatus.getDataNet());
+                jSONObject.putOpt(Config.DEVICE_NAME, deviceStatus.getDataNet());
                 try {
                     activeNetworkInfo = ((ConnectivityManager) GDTADManager.getInstance().getAppContext().getSystemService("connectivity")).getActiveNetworkInfo();
                 } catch (Exception unused) {
@@ -113,10 +112,10 @@ public class a {
                 jSONObject.putOpt("lg", deviceStatus.getLanguage());
                 jSONObject.putOpt("w", Integer.valueOf(deviceStatus.getDeviceWidth()));
                 jSONObject.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
-                jSONObject.putOpt("dd", Integer.valueOf(deviceStatus.getDeviceDensity()));
+                jSONObject.putOpt(Config.DEVICE_ID_SEC, Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));
-                jSONObject.putOpt(UrlOcrConfig.IdCardKey.OS, "android");
-                jSONObject.putOpt("op", deviceStatus.getOperator());
+                jSONObject.putOpt("os", "android");
+                jSONObject.putOpt(Config.OPERATOR, deviceStatus.getOperator());
                 jSONObject.putOpt("mf", Build.MANUFACTURER);
                 SharedPreferences sharedPreferences = GDTADManager.getInstance().getAppContext().getSharedPreferences("com.qq.e.sdkconfig", 0);
                 if (sharedPreferences != null) {
@@ -126,7 +125,7 @@ public class a {
                         jSONObject.putOpt("td", string);
                     }
                     if (!TextUtils.isEmpty(string2)) {
-                        jSONObject.putOpt(Config.OAID, string2);
+                        jSONObject.putOpt("od", string2);
                     }
                 }
             }

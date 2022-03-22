@@ -38,9 +38,9 @@ public final class ObservableFromIterable<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, it};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,11 +103,11 @@ public final class ObservableFromIterable<T> extends Observable<T> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                if ((i2 & 1) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                if ((i & 1) != 0) {
                     this.fusionMode = true;
                     return 1;
                 }
@@ -155,9 +155,9 @@ public final class ObservableFromIterable<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

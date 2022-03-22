@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HotTopicBussinessData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1827556427330154557L;
@@ -24,16 +24,16 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
     public long mThreadNum;
     public String mTopicName;
 
-    public HotTopicBussinessData(long j2, String str, String str2, String str3, long j3, long j4, long j5, boolean z, String str4, int i2) {
+    public HotTopicBussinessData(long j, String str, String str2, String str3, long j2, long j3, long j4, boolean z, String str4, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, str3, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z), str4, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), str4, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -48,16 +48,16 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mFollowNum = 0L;
         this.mIsLiked = false;
         this.mIsGlobalBlock = 0;
-        this.mForumId = j2;
+        this.mForumId = j;
         this.mForumName = str;
         this.mForumAvatar = str2;
         this.mForumAbstract = str3;
-        this.mThreadNum = j3;
-        this.mPostNum = j4;
-        this.mFollowNum = j5;
+        this.mThreadNum = j2;
+        this.mPostNum = j3;
+        this.mFollowNum = j4;
         this.mIsLiked = z;
         this.mTopicName = str4;
-        this.mIsGlobalBlock = i2;
+        this.mIsGlobalBlock = i;
     }
 
     public String getForumAvatar() {
@@ -85,10 +85,10 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         }
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mForumId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mForumId = j;
         }
     }
 
@@ -99,16 +99,16 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         }
     }
 
-    public HotTopicBussinessData(long j2, String str, String str2, int i2) {
+    public HotTopicBussinessData(long j, String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,10 +123,10 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mFollowNum = 0L;
         this.mIsLiked = false;
         this.mIsGlobalBlock = 0;
-        this.mForumId = j2;
+        this.mForumId = j;
         this.mForumName = str;
         this.mTopicName = str2;
-        this.mIsGlobalBlock = i2;
+        this.mIsGlobalBlock = i;
     }
 
     public HotTopicBussinessData() {
@@ -134,9 +134,9 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

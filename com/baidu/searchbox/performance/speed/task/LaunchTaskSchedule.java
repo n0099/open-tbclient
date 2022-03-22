@@ -32,9 +32,9 @@ public class LaunchTaskSchedule {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,14 +44,14 @@ public class LaunchTaskSchedule {
         this.mChangeToSyncTaskSet = new HashSet<>();
     }
 
-    private boolean checkStartBefore(int i2) {
+    private boolean checkStartBefore(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            if (this.historyLifecycle.contains(Integer.valueOf(i2))) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            if (this.historyLifecycle.contains(Integer.valueOf(i))) {
                 return true;
             }
-            this.historyLifecycle.add(Integer.valueOf(i2));
+            this.historyLifecycle.add(Integer.valueOf(i));
             return false;
         }
         return invokeI.booleanValue;
@@ -69,10 +69,10 @@ public class LaunchTaskSchedule {
         return (LaunchTaskSchedule) invokeV.objValue;
     }
 
-    private void startAsyncTask(int i2) {
+    private void startAsyncTask(int i) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i) == null) || (taskList = this.mTaskPool.getTaskList(i, 2)) == null) {
             return;
         }
         try {
@@ -96,10 +96,10 @@ public class LaunchTaskSchedule {
         }
     }
 
-    private void startIdleTask(int i2) {
+    private void startIdleTask(int i) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 3)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) || (taskList = this.mTaskPool.getTaskList(i, 3)) == null) {
             return;
         }
         for (LaunchTask launchTask : taskList) {
@@ -117,9 +117,9 @@ public class LaunchTaskSchedule {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, launchTask};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -141,10 +141,10 @@ public class LaunchTaskSchedule {
         }
     }
 
-    private void startSyncTask(int i2) {
+    private void startSyncTask(int i) {
         List<LaunchTask> taskList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || (taskList = this.mTaskPool.getTaskList(i2, 1)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i) == null) || (taskList = this.mTaskPool.getTaskList(i, 1)) == null) {
             return;
         }
         for (LaunchTask launchTask : taskList) {
@@ -154,41 +154,41 @@ public class LaunchTaskSchedule {
         }
     }
 
-    public void init(int i2, @NonNull BaseTaskPool baseTaskPool, HashSet<String> hashSet) {
+    public void init(int i, @NonNull BaseTaskPool baseTaskPool, HashSet<String> hashSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, baseTaskPool, hashSet) == null) {
-            this.mProcessType = i2;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, baseTaskPool, hashSet) == null) {
+            this.mProcessType = i;
             this.mTaskPool = baseTaskPool;
             this.mChangeToSyncTaskSet = hashSet;
         }
     }
 
-    public void start(int i2) {
+    public void start(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.mProcessType <= 0 || this.mTaskPool == null || checkStartBefore(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.mProcessType <= 0 || this.mTaskPool == null || checkStartBefore(i)) {
             return;
         }
-        startAsyncTask(i2);
-        startSyncTask(i2);
-        startIdleTask(i2);
+        startAsyncTask(i);
+        startSyncTask(i);
+        startIdleTask(i);
     }
 
-    public void startTask(int i2) {
+    public void startTask(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            List<LaunchTask> taskList = this.mTaskPool.getTaskList(i2, 2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            List<LaunchTask> taskList = this.mTaskPool.getTaskList(i, 2);
             if (taskList != null) {
                 for (LaunchTask launchTask : taskList) {
                     launchTask.run();
                 }
             }
-            List<LaunchTask> taskList2 = this.mTaskPool.getTaskList(i2, 1);
+            List<LaunchTask> taskList2 = this.mTaskPool.getTaskList(i, 1);
             if (taskList2 != null) {
                 for (LaunchTask launchTask2 : taskList2) {
                     launchTask2.run();
                 }
             }
-            List<LaunchTask> taskList3 = this.mTaskPool.getTaskList(i2, 3);
+            List<LaunchTask> taskList3 = this.mTaskPool.getTaskList(i, 3);
             if (taskList3 != null) {
                 for (LaunchTask launchTask3 : taskList3) {
                     launchTask3.run();

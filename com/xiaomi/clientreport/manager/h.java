@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bn;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ bn f45a;
+    public final /* synthetic */ bn f21a;
 
     public h(a aVar, bn bnVar) {
         Interceptable interceptable = $ic;
@@ -21,23 +21,23 @@ public class h implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, bnVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = aVar;
-        this.f45a = bnVar;
+        this.f21a = bnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f45a.run();
+            this.f21a.run();
         }
     }
 }

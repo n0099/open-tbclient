@@ -1,10 +1,9 @@
 package com.kwad.sdk.e.kwai;
 
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.tachikoma.core.component.network.delegate.TKBaseResponseInner;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements com.kwad.sdk.e.e<TKBaseResponseInner> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.e.e
@@ -13,7 +12,7 @@ public class b implements com.kwad.sdk.e.e<TKBaseResponseInner> {
             return;
         }
         tKBaseResponseInner.body = jSONObject.optString(TtmlNode.TAG_BODY);
-        tKBaseResponseInner.statusCode = jSONObject.optInt(EnterDxmPayServiceAction.SERVICE_STATUS_CODE);
+        tKBaseResponseInner.statusCode = jSONObject.optInt("statusCode");
         tKBaseResponseInner.allHeaderFields = jSONObject.optString("allHeaderFields");
     }
 
@@ -24,7 +23,7 @@ public class b implements com.kwad.sdk.e.e<TKBaseResponseInner> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.e.f.a(jSONObject, TtmlNode.TAG_BODY, tKBaseResponseInner.body);
-        com.kwad.sdk.e.f.a(jSONObject, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, tKBaseResponseInner.statusCode);
+        com.kwad.sdk.e.f.a(jSONObject, "statusCode", tKBaseResponseInner.statusCode);
         com.kwad.sdk.e.f.a(jSONObject, "allHeaderFields", tKBaseResponseInner.allHeaderFields);
         return jSONObject;
     }

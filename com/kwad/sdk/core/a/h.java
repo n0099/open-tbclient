@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.a;
 
+import com.baidu.android.common.security.RSAUtil;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -31,7 +32,7 @@ public class h {
     public static byte[] a(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(c.b().a(str));
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
         PublicKey generatePublic = keyFactory.generatePublic(x509EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(1, generatePublic);
@@ -46,12 +47,12 @@ public class h {
                 try {
                     try {
                         int length = bArr.length;
-                        for (int i2 = 0; i2 < bArr.length; i2 += a) {
-                            int i3 = length - i2;
-                            if (i3 >= a) {
-                                i3 = a;
+                        for (int i = 0; i < bArr.length; i += a) {
+                            int i2 = length - i;
+                            if (i2 >= a) {
+                                i2 = a;
                             }
-                            byteArrayOutputStream.write(cipher.doFinal(bArr, i2, i3));
+                            byteArrayOutputStream.write(cipher.doFinal(bArr, i, i2));
                         }
                         bArr2 = byteArrayOutputStream.toByteArray();
                         byteArrayOutputStream.close();
@@ -105,7 +106,7 @@ public class h {
     public static byte[] b(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
         PKCS8EncodedKeySpec pKCS8EncodedKeySpec = new PKCS8EncodedKeySpec(c.b().a(str));
-        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
         PrivateKey generatePrivate = keyFactory.generatePrivate(pKCS8EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(2, generatePrivate);
@@ -122,12 +123,12 @@ public class h {
             }
             try {
                 int length = bArr.length;
-                for (int i2 = 0; i2 < length; i2 += b2) {
-                    int i3 = length - i2;
-                    if (i3 >= b2) {
-                        i3 = b2;
+                for (int i = 0; i < length; i += b2) {
+                    int i2 = length - i;
+                    if (i2 >= b2) {
+                        i2 = b2;
                     }
-                    byteArrayOutputStream.write(cipher.doFinal(bArr, i2, i3));
+                    byteArrayOutputStream.write(cipher.doFinal(bArr, i, i2));
                 }
                 bArr2 = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();

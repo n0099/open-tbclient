@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.HttpRetryException;
@@ -32,7 +33,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FOLLOW_UPS = 20;
@@ -50,9 +51,9 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -136,7 +137,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                 } else {
                     return this.client.authenticator().authenticate(route, response);
                 }
-                if (!this.client.followRedirects() || (header = response.header("Location")) == null || (resolve = response.request().url().resolve(header)) == null) {
+                if (!this.client.followRedirects() || (header = response.header(Headers.LOCATION)) == null || (resolve = response.request().url().resolve(header)) == null) {
                     return null;
                 }
                 if (resolve.scheme().equals(response.request().url().scheme()) || this.client.followSslRedirects()) {
@@ -191,13 +192,13 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
         return invokeCommon.booleanValue;
     }
 
-    private int retryAfter(Response response, int i2) {
+    private int retryAfter(Response response, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, response, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, response, i)) == null) {
             String header = response.header("Retry-After");
             if (header == null) {
-                return i2;
+                return i;
             }
             if (header.matches("\\d+")) {
                 return Integer.valueOf(header).intValue();
@@ -242,7 +243,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
             StreamAllocation streamAllocation = new StreamAllocation(this.client.connectionPool(), createAddress(request.url()), call, eventListener, this.callStackTrace);
             this.streamAllocation = streamAllocation;
             Response response = null;
-            int i2 = 0;
+            int i = 0;
             while (!this.canceled) {
                 try {
                     try {
@@ -277,8 +278,8 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                     return proceed;
                 }
                 Util.closeQuietly(proceed.body());
-                int i3 = i2 + 1;
-                if (i3 <= 20) {
+                int i2 = i + 1;
+                if (i2 <= 20) {
                     if (!(followUpRequest.body() instanceof UnrepeatableRequestBody)) {
                         if (!sameConnection(proceed, followUpRequest.url())) {
                             streamAllocation.release();
@@ -289,14 +290,14 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                         }
                         response = proceed;
                         request = followUpRequest;
-                        i2 = i3;
+                        i = i2;
                     } else {
                         streamAllocation.release();
                         throw new HttpRetryException("Cannot retry streamed HTTP body", proceed.code());
                     }
                 } else {
                     streamAllocation.release();
-                    throw new ProtocolException("Too many follow-up requests: " + i3);
+                    throw new ProtocolException("Too many follow-up requests: " + i2);
                 }
             }
             streamAllocation.release();

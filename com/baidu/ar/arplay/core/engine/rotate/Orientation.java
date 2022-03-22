@@ -45,16 +45,16 @@ public final class Orientation {
         $VALUES = new Orientation[]{UNKNOWN, PORTRAIT, PORTRAIT_REVERSE, LANDSCAPE, orientation};
     }
 
-    public Orientation(String str, int i2, int i3) {
+    public Orientation(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -63,13 +63,13 @@ public final class Orientation {
                 return;
             }
         }
-        this.mDegree = i3;
+        this.mDegree = i2;
     }
 
-    public static Orientation valueOf(int i2) {
+    public static Orientation valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == PORTRAIT.getDegree() ? PORTRAIT : i2 == PORTRAIT_REVERSE.getDegree() ? PORTRAIT_REVERSE : i2 == LANDSCAPE.getDegree() ? LANDSCAPE : i2 == LANDSCAPE_REVERSE.getDegree() ? LANDSCAPE_REVERSE : UNKNOWN : (Orientation) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == PORTRAIT.getDegree() ? PORTRAIT : i == PORTRAIT_REVERSE.getDegree() ? PORTRAIT_REVERSE : i == LANDSCAPE.getDegree() ? LANDSCAPE : i == LANDSCAPE_REVERSE.getDegree() ? LANDSCAPE_REVERSE : UNKNOWN : (Orientation) invokeI.objValue;
     }
 
     public static Orientation valueOf(String str) {

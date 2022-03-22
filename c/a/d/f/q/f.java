@@ -3,13 +3,13 @@ package c.a.d.f.q;
 public interface f {
     void onDeletedVoice(String str);
 
-    void onSendVoice(String str, int i2);
+    void onSendVoice(String str, int i);
 
-    void onShowErr(int i2, String str);
+    void onShowErr(int i, String str);
 
-    void onShowRecordTime(int i2);
+    void onShowRecordTime(int i);
 
-    void onShowRecording(int i2);
+    void onShowRecording(int i);
 
     void onStartedRecorder(boolean z);
 

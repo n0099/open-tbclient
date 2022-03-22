@@ -13,20 +13,20 @@ import com.ss.android.socialbase.downloader.a.a;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements h {
     public static String a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f58159b = new Handler(Looper.getMainLooper());
+    public Handler f42899b = new Handler(Looper.getMainLooper());
 
     @Override // com.ss.android.socialbase.appdownloader.c.h
-    public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
+    public void a(DownloadInfo downloadInfo, BaseException baseException, int i) {
         final DownloadModel a2;
         if (downloadInfo == null) {
             return;
         }
-        if (i2 == -1 && baseException != null) {
+        if (i == -1 && baseException != null) {
             JSONObject jSONObject = new JSONObject();
             com.ss.android.downloadlib.g.f.c(downloadInfo, jSONObject);
             a.a(jSONObject, downloadInfo);
@@ -37,14 +37,14 @@ public class c implements h {
             return;
         }
         try {
-            if (i2 != -1) {
-                if (i2 == -3) {
+            if (i != -1) {
+                if (i == -3) {
                     a.a(downloadInfo, a3);
                     return;
-                } else if (i2 == 2001) {
+                } else if (i == 2001) {
                     a.a().a(downloadInfo, a3, 2001);
                     return;
-                } else if (i2 == 11) {
+                } else if (i == 11) {
                     a.a().a(downloadInfo, a3, 2000);
                     if (a3.S()) {
                         return;
@@ -58,7 +58,7 @@ public class c implements h {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f58159b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.1
+                    this.f42899b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.1
                         @Override // java.lang.Runnable
                         public void run() {
                             j.c().a(5, j.getContext(), null, "无网络，请检查网络设置", null, 0);
@@ -77,7 +77,7 @@ public class c implements h {
                     if ((j.l() == null || !j.l().d()) && (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(a3.b())) != null && a2.isShowToast()) {
                         final com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
                         if (a4.a("show_no_enough_space_toast", 0) == 1) {
-                            this.f58159b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.2
+                            this.f42899b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     j.c().a(2, j.getContext(), a2, a4.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
@@ -106,12 +106,12 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2192a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2192a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2053a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
             public void b() {
                 if (!l.b(bVar)) {
-                    long j2 = a2;
-                    if (j2 <= -1 || totalBytes <= -1 || j2 >= d2) {
+                    long j = a2;
+                    if (j <= -1 || totalBytes <= -1 || j >= d2) {
                         return;
                     }
                     com.ss.android.downloadlib.d.a.a().a("clean_space_install", com.ss.android.downloadlib.addownload.d.a("install_no_enough_space"), bVar);
@@ -125,7 +125,7 @@ public class c implements h {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2192a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
             public void c() {
             }
         });

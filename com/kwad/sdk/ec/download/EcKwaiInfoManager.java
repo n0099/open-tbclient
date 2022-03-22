@@ -28,7 +28,7 @@ import com.kwad.sdk.utils.u;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public enum EcKwaiInfoManager {
     INSTAANCE;
     
@@ -50,7 +50,7 @@ public enum EcKwaiInfoManager {
     public int mDownloadSource = 0;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public a() {
             super(Looper.getMainLooper());
@@ -58,10 +58,10 @@ public enum EcKwaiInfoManager {
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
-            int i2 = message.what;
-            if (i2 == 2) {
+            int i = message.what;
+            if (i == 2) {
                 EcKwaiInfoManager.this.release();
-            } else if (i2 != 3) {
+            } else if (i != 3) {
             } else {
                 EcKwaiInfoManager.this.onDownloadEnd((EcKwaiInfo) message.obj);
             }
@@ -193,7 +193,7 @@ public enum EcKwaiInfoManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onDownloadReport(int i2) {
+    public void onDownloadReport(int i) {
         HashMap hashMap = new HashMap();
         hashMap.put("referElementType", Integer.valueOf(this.mDownloadSource));
         hashMap.put("adLogStr", this.mAdLogStr);
@@ -201,14 +201,14 @@ public enum EcKwaiInfoManager {
         hashMap.put("contentStyle", Integer.valueOf(this.mContentType));
         hashMap.put("position", Integer.valueOf(this.mAdPos + 1));
         hashMap.put("posId", Long.valueOf(this.mPosId));
-        if (i2 == 32) {
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
-            hashMap.put("isPackageChanged", Integer.valueOf(ag.b(j2.downloadId, com.kwad.sdk.core.response.a.a.v(j2))));
+        if (i == 32) {
+            AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
+            hashMap.put("isPackageChanged", Integer.valueOf(ag.b(j.downloadId, com.kwad.sdk.core.response.a.a.v(j))));
         }
-        if (i2 == 40) {
+        if (i == 40) {
             hashMap.put("downloadFailedReason", this.mApkDownloadHelper.a);
         }
-        f.a(new m(i2, hashMap));
+        f.a(new m(i, hashMap));
     }
 
     private void performDownload(Context context, String str, final String str2) {
@@ -218,9 +218,9 @@ public enum EcKwaiInfoManager {
         } else {
             com.kwad.sdk.core.response.a.d.j(adTemplate).adConversionInfo.deeplinkUrl = str;
         }
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
-        if (j2.status == 12) {
-            j2.status = 0;
+        AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
+        if (j.status == 12) {
+            j.status = 0;
         }
         if (this.mApkDownloadHelper == null) {
             this.mApkDownloadHelper = new com.kwad.sdk.ec.download.a(this.mAdTemplate, new e() { // from class: com.kwad.sdk.ec.download.EcKwaiInfoManager.3
@@ -307,7 +307,7 @@ public enum EcKwaiInfoManager {
         createRequest().a(new j<b, EcKwaiInfo>() { // from class: com.kwad.sdk.ec.download.EcKwaiInfoManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull b bVar, int i2, String str) {
+            public void a(@NonNull b bVar, int i, String str) {
                 EcKwaiInfoManager.this.postDownloadEndMessage(null);
             }
 
@@ -319,9 +319,9 @@ public enum EcKwaiInfoManager {
         });
     }
 
-    public void startDownload(Context context, AdTemplate adTemplate, String str, int i2, int i3, String str2) {
+    public void startDownload(Context context, AdTemplate adTemplate, String str, int i, int i2, String str2) {
         if (this.mDownloadSource == 0) {
-            this.mDownloadSource = i2;
+            this.mDownloadSource = i;
         }
         if (!TextUtils.isEmpty(adTemplate.photoInfo.productInfo.shennongjiaLog)) {
             this.mAdLogStr = adTemplate.photoInfo.productInfo.shennongjiaLog;
@@ -345,7 +345,7 @@ public enum EcKwaiInfoManager {
             performDownload(context, str, str2);
             return;
         }
-        u.a(context, context.getString(R.string.ksad_download_kwai_waiting), 0);
+        u.a(context, context.getString(R.string.obfuscated_res_0x7f0f098f), 0);
         init(context);
     }
 }

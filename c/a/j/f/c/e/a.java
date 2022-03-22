@@ -16,39 +16,39 @@ public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final C0160a f3644e;
+    public static final C0166a f3134e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3645d;
+    public final String f3135d;
 
     /* renamed from: c.a.j.f.c.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0160a {
+    public static final class C0166a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0160a() {
+        public C0166a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public final a a(TaskInfo taskInfo, int i2) {
+        public final a a(TaskInfo taskInfo, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i2)) == null) ? new a(taskInfo, null, i2, null, null, 26, null) : (a) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) ? new a(taskInfo, null, i, null, null, 26, null) : (a) invokeLI.objValue;
         }
 
-        public /* synthetic */ C0160a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0166a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -66,11 +66,11 @@ public final class a extends d {
                 return;
             }
         }
-        f3644e = new C0160a(null);
+        f3134e = new C0166a(null);
     }
 
-    public /* synthetic */ a(TaskInfo taskInfo, String str, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, (i3 & 2) != 0 ? taskInfo.getSingleKey() : str, (i3 & 4) != 0 ? 8 : i2, (i3 & 8) != 0 ? null : num, (i3 & 16) != 0 ? null : str2);
+    public /* synthetic */ a(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? null : num, (i2 & 16) != 0 ? null : str2);
     }
 
     @Override // c.a.j.h.a.a
@@ -84,21 +84,21 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3645d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3135d : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(TaskInfo taskInfo, String str, int i2, Integer num, String str2) {
+    public a(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
         super(str, num, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i2), num, str2};
+            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -106,6 +106,6 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3645d = str;
+        this.f3135d = str;
     }
 }

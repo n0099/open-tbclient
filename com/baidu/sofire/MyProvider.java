@@ -8,6 +8,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.core.MethodImpl;
+import com.baidu.sofire.mutiprocess.SubProcessManager;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.sofire.utility.CommonMethods;
+import com.baidu.sofire.utility.DbUtil;
+import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +23,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class MyProvider extends ContentProvider {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String BUNDLE_AGREE_POLICY = "_agree_policy";
+    public static final String BUNDLE_KEY_HANDLE_FLAG = "handle_flag";
+    public static final String BUNDLE_KEY_SERVER_VERSION = "server_version";
+    public static final String BUNDLE_KEY_ZID = "_zid";
+    public static final String CALL_METHOD_SET_AGREE_POLICY = "setAgreePolicy";
+    public static final String CALL_METHOD_ZID = "getRemoteZid";
+    public static final String METHOD_CALL_ARGS = "args";
+    public static final String METHOD_CALL_RESULT = "result";
+    public static boolean sIsProviderProcess;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,66 +55,66 @@ public class MyProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean a() {
+    public static boolean isProviderProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sIsProviderProcess : invokeV.booleanValue;
     }
 
     @Override // android.content.ContentProvider
     public Bundle call(String str, String str2, Bundle bundle) {
         InterceptResult invokeLLL;
-        Bundle a2;
+        Bundle ppcall;
         String callingPackage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
             try {
                 if ((Build.VERSION.SDK_INT < 19 || (callingPackage = getCallingPackage()) == null || callingPackage.equals(getContext().getPackageName())) && !TextUtils.isEmpty(str)) {
-                    if ("setAgreePolicy".equals(str)) {
-                        com.baidu.sofire.core.d.b(getContext(), bundle.getBoolean("_agree_policy", true));
-                        a2 = new Bundle();
-                        a2.putBoolean("handle_flag", true);
-                    } else if ("CallPreferences".equals(str)) {
-                        a2 = com.baidu.sofire.h.a.a(getContext()).a(bundle);
-                        if (a2 == null) {
-                            a2 = new Bundle();
+                    if (CALL_METHOD_SET_AGREE_POLICY.equals(str)) {
+                        MethodImpl.setAgreePolicy(getContext(), bundle.getBoolean(BUNDLE_AGREE_POLICY, true));
+                        ppcall = new Bundle();
+                        ppcall.putBoolean(BUNDLE_KEY_HANDLE_FLAG, true);
+                    } else if (SharedPreferenceManager.PROVIDER_METHOD_CALL_PREFERENCE.equals(str)) {
+                        ppcall = SharedPreferenceManager.getInstance(getContext()).handleRemoteCall(bundle);
+                        if (ppcall == null) {
+                            ppcall = new Bundle();
                         }
-                        a2.putBoolean("handle_flag", true);
-                    } else if (str.startsWith("sub_process_")) {
-                        a2 = com.baidu.sofire.mutiprocess.b.a(str, bundle);
-                        if (a2 == null) {
-                            a2 = new Bundle();
+                        ppcall.putBoolean(BUNDLE_KEY_HANDLE_FLAG, true);
+                    } else if (str.startsWith(SubProcessManager.CALL_METHOD_SUB_PROCESS_PREFIX)) {
+                        ppcall = SubProcessManager.handleProviderWork(str, str2, bundle);
+                        if (ppcall == null) {
+                            ppcall = new Bundle();
                         }
-                        a2.putBoolean("handle_flag", true);
-                    } else if ("getRemoteZid".equals(str)) {
-                        String b2 = com.baidu.sofire.utility.e.b(getContext());
+                        ppcall.putBoolean(BUNDLE_KEY_HANDLE_FLAG, true);
+                    } else if (CALL_METHOD_ZID.equals(str)) {
+                        String cuid = DbUtil.getCUID(getContext());
                         new Bundle();
                         Bundle bundle2 = new Bundle();
-                        if (!TextUtils.isEmpty(b2)) {
-                            bundle2.putString("_zid", b2);
+                        if (!TextUtils.isEmpty(cuid)) {
+                            bundle2.putString(BUNDLE_KEY_ZID, cuid);
                         }
-                        bundle2.putBoolean("handle_flag", true);
-                        a2 = bundle2;
+                        bundle2.putBoolean(BUNDLE_KEY_HANDLE_FLAG, true);
+                        ppcall = bundle2;
                     } else {
-                        a2 = com.baidu.sofire.core.d.a(getContext().getApplicationContext(), str, bundle);
+                        ppcall = MethodImpl.ppcall(getContext().getApplicationContext(), str, str2, bundle);
                     }
-                    if (a2 != null) {
-                        a2.putString("server_version", "3.5.8.8");
+                    if (ppcall != null) {
+                        ppcall.putString(BUNDLE_KEY_SERVER_VERSION, LocalConstant.V);
                     }
-                    return a2;
+                    return ppcall;
                 }
                 return null;
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return null;
             }
         }
@@ -142,7 +156,7 @@ public class MyProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            a = true;
+            sIsProviderProcess = true;
             return false;
         }
         return invokeV.booleanValue;

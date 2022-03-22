@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RandomTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Random random;
     public int selectedIndex;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class RandomTrackSelection extends BaseTrackSelection {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,22 +47,22 @@ public final class RandomTrackSelection extends BaseTrackSelection {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) ? new RandomTrackSelection(trackGroup, iArr, this.random) : (RandomTrackSelection) invokeLL.objValue;
         }
 
-        public Factory(int i2) {
+        public Factory(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.random = new Random(i2);
+            this.random = new Random(i);
         }
     }
 
@@ -75,9 +75,9 @@ public final class RandomTrackSelection extends BaseTrackSelection {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackGroup, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TrackGroup) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -118,27 +118,27 @@ public final class RandomTrackSelection extends BaseTrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public void updateSelectedTrack(long j2, long j3, long j4) {
+    public void updateSelectedTrack(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.length; i3++) {
-                if (!isBlacklisted(i3, elapsedRealtime)) {
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < this.length; i2++) {
+                if (!isBlacklisted(i2, elapsedRealtime)) {
+                    i++;
                 }
             }
-            this.selectedIndex = this.random.nextInt(i2);
-            if (i2 != this.length) {
-                int i4 = 0;
-                for (int i5 = 0; i5 < this.length; i5++) {
-                    if (!isBlacklisted(i5, elapsedRealtime)) {
-                        int i6 = i4 + 1;
-                        if (this.selectedIndex == i4) {
-                            this.selectedIndex = i5;
+            this.selectedIndex = this.random.nextInt(i);
+            if (i != this.length) {
+                int i3 = 0;
+                for (int i4 = 0; i4 < this.length; i4++) {
+                    if (!isBlacklisted(i4, elapsedRealtime)) {
+                        int i5 = i3 + 1;
+                        if (this.selectedIndex == i3) {
+                            this.selectedIndex = i4;
                             return;
                         }
-                        i4 = i6;
+                        i3 = i5;
                     }
                 }
             }
@@ -146,17 +146,17 @@ public final class RandomTrackSelection extends BaseTrackSelection {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RandomTrackSelection(TrackGroup trackGroup, int[] iArr, long j2) {
-        this(trackGroup, iArr, new Random(j2));
+    public RandomTrackSelection(TrackGroup trackGroup, int[] iArr, long j) {
+        this(trackGroup, iArr, new Random(j));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {trackGroup, iArr, Long.valueOf(j2)};
+            Object[] objArr = {trackGroup, iArr, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TrackGroup) objArr2[0], (int[]) objArr2[1], (Random) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -175,9 +175,9 @@ public final class RandomTrackSelection extends BaseTrackSelection {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackGroup, iArr, random};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TrackGroup) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -50,9 +50,9 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -107,20 +107,20 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i2) {
+    public void setFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.flags = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.flags = i;
         }
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i2) {
+    public void setVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this, Conversions.intObject(i2)));
-            this.version = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this, Conversions.intObject(i)));
+            this.version = i;
         }
     }
 
@@ -141,9 +141,9 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, bArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (byte[]) objArr2[1]);
                 newInitContext.thisArg = this;

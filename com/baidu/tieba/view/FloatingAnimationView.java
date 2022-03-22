@@ -8,7 +8,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
@@ -25,26 +24,22 @@ import java.util.List;
 public class FloatingAnimationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameAnimationView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public FrameAnimationView f47665e;
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f36844b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TbImageView f47666f;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f36845c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f47667g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public d f47668h;
+    /* renamed from: d  reason: collision with root package name */
+    public d f36846d;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FloatingAnimationView f47669e;
+        public final /* synthetic */ FloatingAnimationView a;
 
         public a(FloatingAnimationView floatingAnimationView) {
             Interceptable interceptable = $ic;
@@ -53,24 +48,24 @@ public class FloatingAnimationView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47669e = floatingAnimationView;
+            this.a = floatingAnimationView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47669e.f47668h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f36846d == null) {
                 return;
             }
-            this.f47669e.f47668h.b();
+            this.a.f36846d.b();
         }
     }
 
@@ -87,9 +82,9 @@ public class FloatingAnimationView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,8 +103,8 @@ public class FloatingAnimationView extends FrameLayout {
         @Override // com.baidu.tbadk.widget.TbImageView.h
         public void b(TbImageView tbImageView, Canvas canvas) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.a.f47665e.getBdImage() == null && !m.isEmpty(this.a.f47665e.getUrl())) {
-                this.a.f47665e.startLoad(this.a.f47665e.getUrl(), 10, false);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && this.a.a.getBdImage() == null && !m.isEmpty(this.a.a.getUrl())) {
+                this.a.a.J(this.a.a.getUrl(), 10, false);
             }
         }
     }
@@ -118,9 +113,7 @@ public class FloatingAnimationView extends FrameLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FloatingAnimationView f47670e;
+        public final /* synthetic */ FloatingAnimationView a;
 
         public c(FloatingAnimationView floatingAnimationView) {
             Interceptable interceptable = $ic;
@@ -129,24 +122,24 @@ public class FloatingAnimationView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingAnimationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47670e = floatingAnimationView;
+            this.a = floatingAnimationView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47670e.f47668h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f36846d == null) {
                 return;
             }
-            this.f47670e.f47668h.a();
+            this.a.f36846d.a();
         }
     }
 
@@ -166,9 +159,9 @@ public class FloatingAnimationView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -183,102 +176,61 @@ public class FloatingAnimationView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = getContext();
             FrameAnimationView frameAnimationView = new FrameAnimationView(context);
-            this.f47665e = frameAnimationView;
+            this.a = frameAnimationView;
             frameAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n.f(context, R.dimen.tbds200), n.f(context, R.dimen.tbds200));
             layoutParams.gravity = 17;
-            addView(this.f47665e, layoutParams);
+            addView(this.a, layoutParams);
             TbImageView tbImageView = new TbImageView(context);
-            this.f47666f = tbImageView;
+            this.f36844b = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(n.f(context, R.dimen.tbds62), n.f(context, R.dimen.tbds62));
             layoutParams2.gravity = 53;
-            this.f47666f.setAutoChangeStyle(false);
-            addView(this.f47666f, layoutParams2);
+            this.f36844b.setAutoChangeStyle(false);
+            addView(this.f36844b, layoutParams2);
             ImageView imageView = new ImageView(context);
-            this.f47667g = imageView;
+            this.f36845c = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams3.gravity = 51;
             layoutParams3.topMargin = n.f(context, R.dimen.tbds14);
-            addView(this.f47667g, layoutParams3);
-            this.f47665e.setOnClickListener(new a(this));
-            this.f47665e.setOnDrawListener(new b(this));
-            this.f47666f.setOnClickListener(new c(this));
-            onChangeSkinType();
+            addView(this.f36845c, layoutParams3);
+            this.a.setOnClickListener(new a(this));
+            this.a.setOnDrawListener(new b(this));
+            this.f36844b.setOnClickListener(new c(this));
+            d();
         }
     }
 
-    public void onChangeSkinType() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.f47666f, R.drawable.icon_live_close_n);
+            SkinManager.setImageResource(this.f36844b, R.drawable.obfuscated_res_0x7f0807a1);
         }
-    }
-
-    public void playAnimation() {
-        FrameAnimationView frameAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (frameAnimationView = this.f47665e) == null) {
-            return;
-        }
-        frameAnimationView.setImageResource(R.drawable.transparent_bg);
-        this.f47665e.playAnimation();
-    }
-
-    public void release() {
-        FrameAnimationView frameAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (frameAnimationView = this.f47665e) == null) {
-            return;
-        }
-        frameAnimationView.release();
     }
 
     public void setCallback(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f47668h = dVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+            this.f36846d = dVar;
         }
     }
 
     public void setData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || m.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || m.isEmpty(str)) {
             return;
         }
-        this.f47665e.setData(str);
+        this.a.setData(str);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         FrameAnimationView frameAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) || (frameAnimationView = this.f47665e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) || (frameAnimationView = this.a) == null) {
             return;
         }
         frameAnimationView.setPageId(bdUniqueId);
-    }
-
-    public void showTag(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (z) {
-                this.f47667g.setVisibility(0);
-                SkinManager.setImageResource(this.f47667g, R.drawable.icon_front_worldcup_new_n);
-                return;
-            }
-            this.f47667g.setVisibility(8);
-        }
-    }
-
-    public void stopAnimation() {
-        FrameAnimationView frameAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (frameAnimationView = this.f47665e) == null) {
-            return;
-        }
-        frameAnimationView.setImageDrawable(null);
-        this.f47665e.stopAnimation();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -290,9 +242,9 @@ public class FloatingAnimationView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -303,12 +255,12 @@ public class FloatingAnimationView extends FrameLayout {
         c();
     }
 
-    public void setData(List<String> list, int i2) {
+    public void setData(List<String> list, int i) {
         FrameAnimationView frameAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, list, i2) == null) || (frameAnimationView = this.f47665e) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, list, i) == null) || (frameAnimationView = this.a) == null) {
             return;
         }
-        frameAnimationView.setData(list, i2);
+        frameAnimationView.setData(list, i);
     }
 }

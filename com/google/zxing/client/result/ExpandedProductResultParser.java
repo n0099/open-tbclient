@@ -1,6 +1,5 @@
 package com.google.zxing.client.result;
 
-import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.tbadk.core.util.ColdStartStatsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.HashMap;
-import org.apache.commons.lang3.CharUtils;
+import kotlin.text.Typography;
 /* loaded from: classes7.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
@@ -23,26 +22,26 @@ public final class ExpandedProductResultParser extends ResultParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String findAIvalue(int i2, String str) {
+    public static String findAIvalue(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-            if (str.charAt(i2) != '(') {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            if (str.charAt(i) != '(') {
                 return null;
             }
-            String substring = str.substring(i2 + 1);
+            String substring = str.substring(i + 1);
             StringBuilder sb = new StringBuilder();
-            for (int i3 = 0; i3 < substring.length(); i3++) {
-                char charAt = substring.charAt(i3);
+            for (int i2 = 0; i2 < substring.length(); i2++) {
+                char charAt = substring.charAt(i2);
                 if (charAt == ')') {
                     return sb.toString();
                 }
@@ -56,16 +55,16 @@ public final class ExpandedProductResultParser extends ResultParser {
         return (String) invokeIL.objValue;
     }
 
-    public static String findValue(int i2, String str) {
+    public static String findValue(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            String substring = str.substring(i2);
-            for (int i3 = 0; i3 < substring.length(); i3++) {
-                char charAt = substring.charAt(i3);
+            String substring = str.substring(i);
+            for (int i2 = 0; i2 < substring.length(); i2++) {
+                char charAt = substring.charAt(i2);
                 if (charAt == '(') {
-                    if (findAIvalue(i3, substring) != null) {
+                    if (findAIvalue(i2, substring) != null) {
                         break;
                     }
                     sb.append('(');
@@ -110,14 +109,14 @@ public final class ExpandedProductResultParser extends ResultParser {
             String str11 = null;
             String str12 = null;
             String str13 = null;
-            int i2 = 0;
-            while (i2 < massagedText.length()) {
-                String findAIvalue = findAIvalue(i2, massagedText);
+            int i = 0;
+            while (i < massagedText.length()) {
+                String findAIvalue = findAIvalue(i, massagedText);
                 if (findAIvalue == null) {
                     return expandedProductParsedResult;
                 }
                 char c2 = 2;
-                int length = i2 + findAIvalue.length() + 2;
+                int length = i + findAIvalue.length() + 2;
                 String findValue = findValue(length, massagedText);
                 int length2 = length + findValue.length();
                 int hashCode = findAIvalue.hashCode();
@@ -195,7 +194,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                 break;
                             case 1567972:
                                 if (findAIvalue.equals("3106")) {
-                                    c2 = CharUtils.CR;
+                                    c2 = '\r';
                                     break;
                                 }
                                 c2 = 65535;
@@ -288,7 +287,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                         break;
                                     case 1568936:
                                         if (findAIvalue.equals("3209")) {
-                                            c2 = JSONLexer.EOI;
+                                            c2 = 26;
                                             break;
                                         }
                                         c2 = 65535;
@@ -348,7 +347,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                                                         break;
                                                     case 1575750:
                                                         if (findAIvalue.equals("3933")) {
-                                                            c2 = '\"';
+                                                            c2 = Typography.quote;
                                                             break;
                                                         }
                                                         c2 = 65535;
@@ -370,43 +369,43 @@ public final class ExpandedProductResultParser extends ResultParser {
                 switch (c2) {
                     case 0:
                         str2 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 1:
                         str = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 2:
                         str3 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 3:
                         str4 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 4:
                         str5 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 5:
                         str6 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 6:
                         str7 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
@@ -442,7 +441,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                     case 30:
                         str12 = findAIvalue.substring(3);
                         str11 = findValue;
-                        i2 = length2;
+                        i = length2;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     case 31:
@@ -455,18 +454,18 @@ public final class ExpandedProductResultParser extends ResultParser {
                         str11 = findValue.substring(3);
                         str13 = findValue.substring(0, 3);
                         str12 = findAIvalue.substring(3);
-                        i2 = length2;
+                        i = length2;
                         str10 = str15;
                         expandedProductParsedResult = null;
                     default:
                         hashMap.put(findAIvalue, findValue);
-                        i2 = length2;
+                        i = length2;
                         str11 = str14;
                         str10 = str15;
                         expandedProductParsedResult = null;
                 }
                 str8 = findValue;
-                i2 = length2;
+                i = length2;
                 str11 = str14;
                 expandedProductParsedResult = null;
             }

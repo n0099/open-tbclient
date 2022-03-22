@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheTrimStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryCacheTrimStrategy";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.cache.NativeMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
         public static /* synthetic */ Interceptable $ic;
@@ -66,9 +66,9 @@ public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,9 +80,9 @@ public class NativeMemoryCacheTrimStrategy implements CountingMemoryCache.CacheT
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, memoryTrimType)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$memory$MemoryTrimType[memoryTrimType.ordinal()];
+            if (i != 1) {
+                if (i == 2 || i == 3 || i == 4 || i == 5) {
                     return 1.0d;
                 }
                 FLog.wtf(TAG, "unknown trim type: %s", memoryTrimType);

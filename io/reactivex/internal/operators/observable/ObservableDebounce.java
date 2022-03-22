@@ -45,16 +45,16 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             public final DebounceObserver<T, U> parent;
             public final T value;
 
-            public DebounceInnerObserver(DebounceObserver<T, U> debounceObserver, long j2, T t) {
+            public DebounceInnerObserver(DebounceObserver<T, U> debounceObserver, long j, T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {debounceObserver, Long.valueOf(j2), t};
+                    Object[] objArr = {debounceObserver, Long.valueOf(j), t};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -62,7 +62,7 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
                 }
                 this.once = new AtomicBoolean();
                 this.parent = debounceObserver;
-                this.index = j2;
+                this.index = j;
                 this.value = t;
             }
 
@@ -115,9 +115,9 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -137,9 +137,9 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             }
         }
 
-        public void emit(long j2, T t) {
+        public void emit(long j, T t) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, t) == null) && j2 == this.index) {
+            if ((interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, t) == null) && j == this.index) {
                 this.actual.onNext(t);
             }
         }
@@ -181,15 +181,15 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.index + 1;
-            this.index = j2;
+            long j = this.index + 1;
+            this.index = j;
             Disposable disposable = this.debouncer.get();
             if (disposable != null) {
                 disposable.dispose();
             }
             try {
                 ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.debounceSelector.apply(t), "The ObservableSource supplied is null");
-                DebounceInnerObserver debounceInnerObserver = new DebounceInnerObserver(this, j2, t);
+                DebounceInnerObserver debounceInnerObserver = new DebounceInnerObserver(this, j, t);
                 if (this.debouncer.compareAndSet(disposable, debounceInnerObserver)) {
                     observableSource.subscribe(debounceInnerObserver);
                 }
@@ -219,9 +219,9 @@ public final class ObservableDebounce<T, U> extends AbstractObservableWithUpstre
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

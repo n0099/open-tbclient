@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.m;
 import c.a.l.p;
-import c.a.q0.r.r.a;
+import c.a.o0.r.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -27,21 +27,19 @@ import tbclient.SmartApp;
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HeadImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f30169b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f30170c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SmartApp f30171d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f39196e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f39197f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f39198g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public SmartApp f39199h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f39200i;
+    public View.OnClickListener f30172e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadSmartAppLayout(Context context) {
@@ -52,9 +50,9 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -64,10 +62,10 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    public final TbPageContext a(Context context) {
+    public final TbPageContext b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getPageContext();
             }
@@ -79,12 +77,41 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         return (TbPageContext) invokeL.objValue;
     }
 
-    public void onChangeSkinType() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.l.p
+    /* renamed from: c */
+    public void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = aVar.getThreadData().getSmartApp();
+                this.f30171d = smartApp;
+                if (!m.isEmpty(smartApp.avatar)) {
+                    this.a.K(this.f30171d.avatar, 10, false, false);
+                }
+                if (!m.isEmpty(this.f30171d.name)) {
+                    this.f30169b.setText(this.f30171d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1182));
+                } else {
+                    this.f30169b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08ec));
+                }
+                if (!m.isEmpty(this.f30171d._abstract)) {
+                    this.f30170c.setText(this.f30171d._abstract);
+                } else {
+                    this.f30170c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1181));
+                }
+                setVisibility(0);
+                return;
+            }
+            setVisibility(8);
+        }
+    }
+
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-            SkinManager.setViewTextColor(this.f39197f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f39198g, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f30169b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f30170c, (int) R.color.CAM_X0107);
         }
     }
 
@@ -92,16 +119,16 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void onClick(View view) {
         SmartApp smartApp;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (smartApp = this.f39199h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (smartApp = this.f30171d) == null) {
             return;
         }
-        if (!c.a.r0.z.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
-            if (m.isEmpty(this.f39199h.h5_url)) {
+        if (!c.a.p0.b0.a.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+            if (m.isEmpty(this.f30171d.h5_url)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(a(getContext()), new String[]{this.f39199h.h5_url});
+            UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{this.f30171d.h5_url});
         }
-        View.OnClickListener onClickListener = this.f39200i;
+        View.OnClickListener onClickListener = this.f30172e;
         if (onClickListener != null) {
             onClickListener.onClick(view);
         }
@@ -110,7 +137,7 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f39200i = onClickListener;
+            this.f30172e = onClickListener;
         }
     }
 
@@ -123,9 +150,9 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -135,46 +162,18 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
-    public void onBindDataToView(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().h1() != null) {
-                SmartApp h1 = aVar.getThreadData().h1();
-                this.f39199h = h1;
-                if (!m.isEmpty(h1.avatar)) {
-                    this.f39196e.startLoad(this.f39199h.avatar, 10, false, false);
-                }
-                if (!m.isEmpty(this.f39199h.name)) {
-                    this.f39197f.setText(this.f39199h.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
-                } else {
-                    this.f39197f.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
-                }
-                if (!m.isEmpty(this.f39199h._abstract)) {
-                    this.f39198g.setText(this.f39199h._abstract);
-                } else {
-                    this.f39198g.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
-                }
-                setVisibility(0);
-                return;
-            }
-            setVisibility(8);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -182,14 +181,14 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.f39196e = headImageView;
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0837, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ffa);
+        this.a = headImageView;
         headImageView.setIsRound(true);
-        this.f39196e.setPlaceHolder(1);
-        this.f39197f = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.f39198g = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.a.setPlaceHolder(1);
+        this.f30169b = (TextView) findViewById(R.id.obfuscated_res_0x7f09221a);
+        this.f30170c = (TextView) findViewById(R.id.obfuscated_res_0x7f092219);
         setOnClickListener(this);
-        onChangeSkinType();
+        d();
     }
 }

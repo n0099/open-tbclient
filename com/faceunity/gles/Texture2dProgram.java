@@ -1,6 +1,7 @@
 package com.faceunity.gles;
 
 import android.opengl.GLES20;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Texture2dProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";
@@ -38,7 +39,7 @@ public class Texture2dProgram {
     public int muTexOffsetLoc;
 
     /* renamed from: com.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$Texture2dProgram$ProgramType;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +80,7 @@ public class Texture2dProgram {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ProgramType {
         public static final /* synthetic */ ProgramType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,16 +111,16 @@ public class Texture2dProgram {
             $VALUES = new ProgramType[]{TEXTURE_2D, TEXTURE_EXT, TEXTURE_EXT_BW, programType};
         }
 
-        public ProgramType(String str, int i2) {
+        public ProgramType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -149,9 +150,9 @@ public class Texture2dProgram {
             newInitContext.initArgs = r2;
             Object[] objArr = {programType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -159,24 +160,24 @@ public class Texture2dProgram {
         }
         this.mKernel = new float[9];
         this.mProgramType = programType;
-        int i4 = AnonymousClass1.$SwitchMap$com$faceunity$gles$Texture2dProgram$ProgramType[programType.ordinal()];
-        if (i4 == 1) {
+        int i3 = AnonymousClass1.$SwitchMap$com$faceunity$gles$Texture2dProgram$ProgramType[programType.ordinal()];
+        if (i3 == 1) {
             this.mTextureTarget = 3553;
             this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", FRAGMENT_SHADER_2D);
-        } else if (i4 == 2) {
+        } else if (i3 == 2) {
             this.mTextureTarget = 36197;
             this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
-        } else if (i4 == 3) {
+        } else if (i3 == 3) {
             this.mTextureTarget = 36197;
             this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n");
-        } else if (i4 == 4) {
+        } else if (i3 == 4) {
             this.mTextureTarget = 36197;
             this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n");
         } else {
             throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            String str = "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX;
+            Log.d("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -217,46 +218,46 @@ public class Texture2dProgram {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             GlUtil.checkGlError("glGenTextures");
-            int i2 = iArr[0];
-            GLES20.glBindTexture(this.mTextureTarget, i2);
-            GlUtil.checkGlError("glBindTexture " + i2);
+            int i = iArr[0];
+            GLES20.glBindTexture(this.mTextureTarget, i);
+            GlUtil.checkGlError("glBindTexture " + i);
             GLES20.glTexParameterf(36197, 10241, 9728.0f);
             GLES20.glTexParameterf(36197, 10240, 9729.0f);
             GLES20.glTexParameteri(36197, 10242, 33071);
             GLES20.glTexParameteri(36197, 10243, 33071);
             GlUtil.checkGlError("glTexParameter");
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public void draw(float[] fArr, FloatBuffer floatBuffer, int i2, int i3, int i4, int i5, float[] fArr2, FloatBuffer floatBuffer2, int i6, int i7) {
+    public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fArr2, floatBuffer2, Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             GlUtil.checkGlError("draw start");
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(this.mTextureTarget, i6);
+            GLES20.glBindTexture(this.mTextureTarget, i5);
             GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i7, (Buffer) floatBuffer2);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
             GlUtil.checkGlError("glVertexAttribPointer");
-            int i8 = this.muKernelLoc;
-            if (i8 >= 0) {
-                GLES20.glUniform1fv(i8, 9, this.mKernel, 0);
+            int i7 = this.muKernelLoc;
+            if (i7 >= 0) {
+                GLES20.glUniform1fv(i7, 9, this.mKernel, 0);
                 GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
                 GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
             }
-            GLES20.glDrawArrays(5, i2, i3);
+            GLES20.glDrawArrays(5, i, i2);
             GlUtil.checkGlError("glDrawArrays");
             GLES20.glDisableVertexAttribArray(this.maPositionLoc);
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
@@ -274,7 +275,7 @@ public class Texture2dProgram {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String str = "deleting program " + this.mProgramHandle;
+            Log.d("Grafika", "deleting program " + this.mProgramHandle);
             GLES20.glDeleteProgram(this.mProgramHandle);
             this.mProgramHandle = -1;
         }
@@ -292,11 +293,11 @@ public class Texture2dProgram {
         }
     }
 
-    public void setTexSize(int i2, int i3) {
+    public void setTexSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            float f2 = 1.0f / i2;
-            float f3 = 1.0f / i3;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            float f2 = 1.0f / i;
+            float f3 = 1.0f / i2;
             float f4 = -f2;
             float f5 = -f3;
             this.mTexOffset = new float[]{f4, f5, 0.0f, f5, f2, f5, f4, 0.0f, 0.0f, 0.0f, f2, 0.0f, f4, f3, 0.0f, f3, f2, f3};

@@ -23,9 +23,9 @@ public abstract class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,7 +49,7 @@ public abstract class c {
     */
     public boolean a(byte[] bArr) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) != null) {
@@ -61,11 +61,11 @@ public abstract class c {
             new b.c(this.a).a(Log.getStackTraceString(e2)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
-            i2 = Integer.parseInt(jSONObject.getString("bccs_fb"));
-            return i2 != 1;
+            i = Integer.parseInt(jSONObject.getString("bccs_fb"));
+            return i != 1;
         }
-        i2 = 0;
-        if (i2 != 1) {
+        i = 0;
+        if (i != 1) {
         }
     }
 }

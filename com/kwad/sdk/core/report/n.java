@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static String a = f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f54617b = 0;
+    public static long f39726b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f54618c;
+    public static Context f39727c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
@@ -22,14 +22,14 @@ public class n {
     }
 
     public static void a(Context context) {
-        f54618c = context;
+        f39727c = context;
     }
 
     @WorkerThread
-    public static boolean a(Context context, long j2) {
+    public static boolean a(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_seq", 0).edit();
-            edit.putLong("seq", j2);
+            edit.putLong("seq", j);
             return edit.commit();
         }
         return false;
@@ -49,10 +49,10 @@ public class n {
     }
 
     @WorkerThread
-    public static boolean b(Context context, long j2) {
+    public static boolean b(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_mplogseq", 0).edit();
-            edit.putLong("seq", j2);
+            edit.putLong("seq", j);
             return edit.commit();
         }
         return false;
@@ -60,8 +60,8 @@ public class n {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f54618c);
-        a(f54618c, 1 + b2);
+        long b2 = b(f39727c);
+        a(f39727c, 1 + b2);
         return b2;
     }
 
@@ -78,14 +78,14 @@ public class n {
     public static synchronized long d() {
         long c2;
         synchronized (n.class) {
-            c2 = c(f54618c);
-            b(f54618c, 1 + c2);
+            c2 = c(f39727c);
+            b(f39727c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        return f54617b;
+        return f39726b;
     }
 
     public static String f() {

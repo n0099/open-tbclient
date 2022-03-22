@@ -20,23 +20,23 @@ public class x1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                bufferedReader = new BufferedReader(new FileReader(String.format("/proc/%1$s/cmdline", Integer.valueOf(i2))));
+                bufferedReader = new BufferedReader(new FileReader(String.format("/proc/%1$s/cmdline", Integer.valueOf(i))));
             } catch (FileNotFoundException | IOException unused) {
             } catch (Throwable th) {
                 th = th;
@@ -54,7 +54,7 @@ public class x1 {
                     bufferedReader2.close();
                 } catch (Exception unused4) {
                 }
-                return a(String.format("cat /proc/%1$s/cmdline", Integer.valueOf(i2))).trim();
+                return a(String.format("cat /proc/%1$s/cmdline", Integer.valueOf(i))).trim();
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;

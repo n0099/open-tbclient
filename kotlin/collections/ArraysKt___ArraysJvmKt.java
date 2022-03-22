@@ -32,20 +32,20 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return asList2;
     }
 
-    public static final <T> int binarySearch(T[] binarySearch, T t, Comparator<? super T> comparator, int i2, int i3) {
+    public static final <T> int binarySearch(T[] binarySearch, T t, Comparator<? super T> comparator, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        return Arrays.binarySearch(binarySearch, i2, i3, t, comparator);
+        return Arrays.binarySearch(binarySearch, i, i2, t, comparator);
     }
 
-    public static /* synthetic */ int binarySearch$default(Object[] objArr, Object obj, Comparator comparator, int i2, int i3, int i4, Object obj2) {
-        if ((i4 & 4) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(Object[] objArr, Object obj, Comparator comparator, int i, int i2, int i3, Object obj2) {
+        if ((i3 & 4) != 0) {
+            i = 0;
         }
-        if ((i4 & 8) != 0) {
-            i3 = objArr.length;
+        if ((i3 & 8) != 0) {
+            i2 = objArr.length;
         }
-        return binarySearch(objArr, obj, comparator, i2, i3);
+        return binarySearch(objArr, obj, comparator, i, i2);
     }
 
     @SinceKotlin(version = "1.1")
@@ -143,24 +143,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final <T> T[] copyInto(T[] copyInto, T[] destination, int i2, int i3, int i4) {
+    public static final <T> T[] copyInto(T[] copyInto, T[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ Object[] copyInto$default(Object[] objArr, Object[] objArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ Object[] copyInto$default(Object[] objArr, Object[] objArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = objArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = objArr.length;
-        }
-        return copyInto(objArr, objArr2, i2, i3, i4);
+        return copyInto(objArr, objArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -173,46 +173,46 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final <T> T[] copyOfRange(T[] copyOfRangeImpl, int i2, int i3) {
+    public static final <T> T[] copyOfRange(T[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        T[] tArr = (T[]) Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        T[] tArr = (T[]) Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(tArr, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return tArr;
     }
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final <T> T[] copyOfRangeInline(T[] tArr, int i2, int i3) {
+    public static final <T> T[] copyOfRangeInline(T[] tArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return (T[]) copyOfRange(tArr, i2, i3);
+            return (T[]) copyOfRange(tArr, i, i2);
         }
-        if (i3 <= tArr.length) {
-            T[] tArr2 = (T[]) Arrays.copyOfRange(tArr, i2, i3);
+        if (i2 <= tArr.length) {
+            T[] tArr2 = (T[]) Arrays.copyOfRange(tArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(tArr2, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return tArr2;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + tArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + tArr.length);
     }
 
     @InlineOnly
-    public static final <T> T elementAt(T[] tArr, int i2) {
-        return tArr[i2];
+    public static final <T> T elementAt(T[] tArr, int i) {
+        return tArr[i];
     }
 
-    public static final <T> void fill(T[] fill, T t, int i2, int i3) {
+    public static final <T> void fill(T[] fill, T t, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, t);
+        Arrays.fill(fill, i, i2, t);
     }
 
-    public static /* synthetic */ void fill$default(Object[] objArr, Object obj, int i2, int i3, int i4, Object obj2) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(Object[] objArr, Object obj, int i, int i2, int i3, Object obj2) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = objArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = objArr.length;
         }
-        fill(objArr, obj, i2, i3);
+        fill(objArr, obj, i, i2);
     }
 
     public static final <R> List<R> filterIsInstance(Object[] filterIsInstance, Class<R> klass) {
@@ -254,14 +254,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(Comparable[] comparableArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(Comparable[] comparableArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = comparableArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = comparableArr.length;
         }
-        sort(comparableArr, i2, i3);
+        sort(comparableArr, i, i2);
     }
 
     public static final <T> void sortWith(T[] sortWith, Comparator<? super T> comparator) {
@@ -272,14 +272,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sortWith$default(Object[] objArr, Comparator comparator, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sortWith$default(Object[] objArr, Comparator comparator, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = objArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = objArr.length;
         }
-        sortWith(objArr, comparator, i2, i3);
+        sortWith(objArr, comparator, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -319,8 +319,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Byte[] bArr = new Byte[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            bArr[i2] = Byte.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            bArr[i] = Byte.valueOf(toTypedArray[i]);
         }
         return bArr;
     }
@@ -330,19 +330,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$1(asList);
     }
 
-    public static final <T> int binarySearch(T[] binarySearch, T t, int i2, int i3) {
+    public static final <T> int binarySearch(T[] binarySearch, T t, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, t);
+        return Arrays.binarySearch(binarySearch, i, i2, t);
     }
 
-    public static /* synthetic */ int binarySearch$default(Object[] objArr, Object obj, int i2, int i3, int i4, Object obj2) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(Object[] objArr, Object obj, int i, int i2, int i3, Object obj2) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = objArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = objArr.length;
         }
-        return binarySearch(objArr, obj, i2, i3);
+        return binarySearch(objArr, obj, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -379,24 +379,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final byte[] copyInto(byte[] copyInto, byte[] destination, int i2, int i3, int i4) {
+    public static final byte[] copyInto(byte[] copyInto, byte[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ byte[] copyInto$default(byte[] bArr, byte[] bArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ byte[] copyInto$default(byte[] bArr, byte[] bArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = bArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = bArr.length;
-        }
-        return copyInto(bArr, bArr2, i2, i3, i4);
+        return copyInto(bArr, bArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -407,23 +407,23 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @InlineOnly
-    public static final byte elementAt(byte[] bArr, int i2) {
-        return bArr[i2];
+    public static final byte elementAt(byte[] bArr, int i) {
+        return bArr[i];
     }
 
-    public static final void fill(byte[] fill, byte b2, int i2, int i3) {
+    public static final void fill(byte[] fill, byte b2, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, b2);
+        Arrays.fill(fill, i, i2, b2);
     }
 
-    public static /* synthetic */ void fill$default(byte[] bArr, byte b2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = bArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = bArr.length;
         }
-        fill(bArr, b2, i2, i3);
+        fill(bArr, b2, i, i2);
     }
 
     public static final void sort(long[] sort) {
@@ -433,20 +433,20 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(byte[] bArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(byte[] bArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = bArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = bArr.length;
         }
-        sort(bArr, i2, i3);
+        sort(bArr, i, i2);
     }
 
-    public static final <T> void sortWith(T[] sortWith, Comparator<? super T> comparator, int i2, int i3) {
+    public static final <T> void sortWith(T[] sortWith, Comparator<? super T> comparator, int i, int i2) {
         Intrinsics.checkNotNullParameter(sortWith, "$this$sortWith");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        Arrays.sort(sortWith, i2, i3, comparator);
+        Arrays.sort(sortWith, i, i2, comparator);
     }
 
     public static final SortedSet<Byte> toSortedSet(byte[] toSortedSet) {
@@ -459,19 +459,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$2(asList);
     }
 
-    public static final int binarySearch(byte[] binarySearch, byte b2, int i2, int i3) {
+    public static final int binarySearch(byte[] binarySearch, byte b2, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, b2);
+        return Arrays.binarySearch(binarySearch, i, i2, b2);
     }
 
-    public static /* synthetic */ int binarySearch$default(byte[] bArr, byte b2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = bArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = bArr.length;
         }
-        return binarySearch(bArr, b2, i2, i3);
+        return binarySearch(bArr, b2, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -508,24 +508,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final short[] copyInto(short[] copyInto, short[] destination, int i2, int i3, int i4) {
+    public static final short[] copyInto(short[] copyInto, short[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ short[] copyInto$default(short[] sArr, short[] sArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ short[] copyInto$default(short[] sArr, short[] sArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = sArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = sArr.length;
-        }
-        return copyInto(sArr, sArr2, i2, i3, i4);
+        return copyInto(sArr, sArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -538,32 +538,32 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final byte[] copyOfRange(byte[] copyOfRangeImpl, int i2, int i3) {
+    public static final byte[] copyOfRange(byte[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        byte[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        byte[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
     @InlineOnly
-    public static final short elementAt(short[] sArr, int i2) {
-        return sArr[i2];
+    public static final short elementAt(short[] sArr, int i) {
+        return sArr[i];
     }
 
-    public static final void fill(short[] fill, short s, int i2, int i3) {
+    public static final void fill(short[] fill, short s, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, s);
+        Arrays.fill(fill, i, i2, s);
     }
 
-    public static /* synthetic */ void fill$default(short[] sArr, short s, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = sArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = sArr.length;
         }
-        fill(sArr, s, i2, i3);
+        fill(sArr, s, i, i2);
     }
 
     public static final void sort(byte[] sort) {
@@ -573,14 +573,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(short[] sArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(short[] sArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = sArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = sArr.length;
         }
-        sort(sArr, i2, i3);
+        sort(sArr, i, i2);
     }
 
     public static final SortedSet<Short> toSortedSet(short[] toSortedSet) {
@@ -593,19 +593,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$3(asList);
     }
 
-    public static final int binarySearch(short[] binarySearch, short s, int i2, int i3) {
+    public static final int binarySearch(short[] binarySearch, short s, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, s);
+        return Arrays.binarySearch(binarySearch, i, i2, s);
     }
 
-    public static /* synthetic */ int binarySearch$default(short[] sArr, short s, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = sArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = sArr.length;
         }
-        return binarySearch(sArr, s, i2, i3);
+        return binarySearch(sArr, s, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -642,24 +642,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final int[] copyInto(int[] copyInto, int[] destination, int i2, int i3, int i4) {
+    public static final int[] copyInto(int[] copyInto, int[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ int[] copyInto$default(int[] iArr, int[] iArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ int[] copyInto$default(int[] iArr, int[] iArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = iArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = iArr.length;
-        }
-        return copyInto(iArr, iArr2, i2, i3, i4);
+        return copyInto(iArr, iArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -670,23 +670,23 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @InlineOnly
-    public static final int elementAt(int[] iArr, int i2) {
-        return iArr[i2];
+    public static final int elementAt(int[] iArr, int i) {
+        return iArr[i];
     }
 
-    public static final void fill(int[] fill, int i2, int i3, int i4) {
+    public static final void fill(int[] fill, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i3, i4, i2);
+        Arrays.fill(fill, i2, i3, i);
     }
 
-    public static /* synthetic */ void fill$default(int[] iArr, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
-            i3 = 0;
+    public static /* synthetic */ void fill$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i4 = iArr.length;
+        if ((i4 & 4) != 0) {
+            i3 = iArr.length;
         }
-        fill(iArr, i2, i3, i4);
+        fill(iArr, i, i2, i3);
     }
 
     public static final void sort(short[] sort) {
@@ -696,14 +696,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(int[] iArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(int[] iArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = iArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = iArr.length;
         }
-        sort(iArr, i2, i3);
+        sort(iArr, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -743,8 +743,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Short[] shArr = new Short[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            shArr[i2] = Short.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            shArr[i] = Short.valueOf(toTypedArray[i]);
         }
         return shArr;
     }
@@ -754,19 +754,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$4(asList);
     }
 
-    public static final int binarySearch(int[] binarySearch, int i2, int i3, int i4) {
+    public static final int binarySearch(int[] binarySearch, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i3, i4, i2);
+        return Arrays.binarySearch(binarySearch, i2, i3, i);
     }
 
-    public static /* synthetic */ int binarySearch$default(int[] iArr, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
-            i3 = 0;
+    public static /* synthetic */ int binarySearch$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i4 = iArr.length;
+        if ((i4 & 4) != 0) {
+            i3 = iArr.length;
         }
-        return binarySearch(iArr, i2, i3, i4);
+        return binarySearch(iArr, i, i2, i3);
     }
 
     @SinceKotlin(version = "1.4")
@@ -803,24 +803,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final long[] copyInto(long[] copyInto, long[] destination, int i2, int i3, int i4) {
+    public static final long[] copyInto(long[] copyInto, long[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ long[] copyInto$default(long[] jArr, long[] jArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ long[] copyInto$default(long[] jArr, long[] jArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = jArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = jArr.length;
-        }
-        return copyInto(jArr, jArr2, i2, i3, i4);
+        return copyInto(jArr, jArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -833,32 +833,32 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final short[] copyOfRange(short[] copyOfRangeImpl, int i2, int i3) {
+    public static final short[] copyOfRange(short[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        short[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        short[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
     @InlineOnly
-    public static final long elementAt(long[] jArr, int i2) {
-        return jArr[i2];
+    public static final long elementAt(long[] jArr, int i) {
+        return jArr[i];
     }
 
-    public static final void fill(long[] fill, long j2, int i2, int i3) {
+    public static final void fill(long[] fill, long j, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, j2);
+        Arrays.fill(fill, i, i2, j);
     }
 
-    public static /* synthetic */ void fill$default(long[] jArr, long j2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = jArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = jArr.length;
         }
-        fill(jArr, j2, i2, i3);
+        fill(jArr, j, i, i2);
     }
 
     public static final byte[] plus(byte[] plus, byte b2) {
@@ -877,14 +877,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(long[] jArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(long[] jArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = jArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = jArr.length;
         }
-        sort(jArr, i2, i3);
+        sort(jArr, i, i2);
     }
 
     public static final SortedSet<Long> toSortedSet(long[] toSortedSet) {
@@ -897,19 +897,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$5(asList);
     }
 
-    public static final int binarySearch(long[] binarySearch, long j2, int i2, int i3) {
+    public static final int binarySearch(long[] binarySearch, long j, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, j2);
+        return Arrays.binarySearch(binarySearch, i, i2, j);
     }
 
-    public static /* synthetic */ int binarySearch$default(long[] jArr, long j2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = jArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = jArr.length;
         }
-        return binarySearch(jArr, j2, i2, i3);
+        return binarySearch(jArr, j, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -946,24 +946,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final float[] copyInto(float[] copyInto, float[] destination, int i2, int i3, int i4) {
+    public static final float[] copyInto(float[] copyInto, float[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ float[] copyInto$default(float[] fArr, float[] fArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ float[] copyInto$default(float[] fArr, float[] fArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = fArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = fArr.length;
-        }
-        return copyInto(fArr, fArr2, i2, i3, i4);
+        return copyInto(fArr, fArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -975,36 +975,36 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final byte[] copyOfRangeInline(byte[] bArr, int i2, int i3) {
+    public static final byte[] copyOfRangeInline(byte[] bArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(bArr, i2, i3);
+            return copyOfRange(bArr, i, i2);
         }
-        if (i3 <= bArr.length) {
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, i2, i3);
+        if (i2 <= bArr.length) {
+            byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + bArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + bArr.length);
     }
 
     @InlineOnly
-    public static final float elementAt(float[] fArr, int i2) {
-        return fArr[i2];
+    public static final float elementAt(float[] fArr, int i) {
+        return fArr[i];
     }
 
-    public static final void fill(float[] fill, float f2, int i2, int i3) {
+    public static final void fill(float[] fill, float f2, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, f2);
+        Arrays.fill(fill, i, i2, f2);
     }
 
-    public static /* synthetic */ void fill$default(float[] fArr, float f2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(float[] fArr, float f2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = fArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = fArr.length;
         }
-        fill(fArr, f2, i2, i3);
+        fill(fArr, f2, i, i2);
     }
 
     public static final void sort(float[] sort) {
@@ -1014,14 +1014,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(float[] fArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(float[] fArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = fArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = fArr.length;
         }
-        sort(fArr, i2, i3);
+        sort(fArr, i, i2);
     }
 
     public static final SortedSet<Float> toSortedSet(float[] toSortedSet) {
@@ -1034,19 +1034,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$6(asList);
     }
 
-    public static final int binarySearch(float[] binarySearch, float f2, int i2, int i3) {
+    public static final int binarySearch(float[] binarySearch, float f2, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, f2);
+        return Arrays.binarySearch(binarySearch, i, i2, f2);
     }
 
-    public static /* synthetic */ int binarySearch$default(float[] fArr, float f2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(float[] fArr, float f2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = fArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = fArr.length;
         }
-        return binarySearch(fArr, f2, i2, i3);
+        return binarySearch(fArr, f2, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1083,24 +1083,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final double[] copyInto(double[] copyInto, double[] destination, int i2, int i3, int i4) {
+    public static final double[] copyInto(double[] copyInto, double[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ double[] copyInto$default(double[] dArr, double[] dArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ double[] copyInto$default(double[] dArr, double[] dArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = dArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = dArr.length;
-        }
-        return copyInto(dArr, dArr2, i2, i3, i4);
+        return copyInto(dArr, dArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -1113,32 +1113,32 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final int[] copyOfRange(int[] copyOfRangeImpl, int i2, int i3) {
+    public static final int[] copyOfRange(int[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        int[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        int[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
     @InlineOnly
-    public static final double elementAt(double[] dArr, int i2) {
-        return dArr[i2];
+    public static final double elementAt(double[] dArr, int i) {
+        return dArr[i];
     }
 
-    public static final void fill(double[] fill, double d2, int i2, int i3) {
+    public static final void fill(double[] fill, double d2, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, d2);
+        Arrays.fill(fill, i, i2, d2);
     }
 
-    public static /* synthetic */ void fill$default(double[] dArr, double d2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(double[] dArr, double d2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = dArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = dArr.length;
         }
-        fill(dArr, d2, i2, i3);
+        fill(dArr, d2, i, i2);
     }
 
     public static final void sort(char[] sort) {
@@ -1148,14 +1148,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(double[] dArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(double[] dArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = dArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = dArr.length;
         }
-        sort(dArr, i2, i3);
+        sort(dArr, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1195,8 +1195,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Integer[] numArr = new Integer[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            numArr[i2] = Integer.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            numArr[i] = Integer.valueOf(toTypedArray[i]);
         }
         return numArr;
     }
@@ -1206,19 +1206,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$7(asList);
     }
 
-    public static final int binarySearch(double[] binarySearch, double d2, int i2, int i3) {
+    public static final int binarySearch(double[] binarySearch, double d2, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, d2);
+        return Arrays.binarySearch(binarySearch, i, i2, d2);
     }
 
-    public static /* synthetic */ int binarySearch$default(double[] dArr, double d2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(double[] dArr, double d2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = dArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = dArr.length;
         }
-        return binarySearch(dArr, d2, i2, i3);
+        return binarySearch(dArr, d2, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1255,24 +1255,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final boolean[] copyInto(boolean[] copyInto, boolean[] destination, int i2, int i3, int i4) {
+    public static final boolean[] copyInto(boolean[] copyInto, boolean[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ boolean[] copyInto$default(boolean[] zArr, boolean[] zArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ boolean[] copyInto$default(boolean[] zArr, boolean[] zArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = zArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = zArr.length;
-        }
-        return copyInto(zArr, zArr2, i2, i3, i4);
+        return copyInto(zArr, zArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -1283,23 +1283,23 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @InlineOnly
-    public static final boolean elementAt(boolean[] zArr, int i2) {
-        return zArr[i2];
+    public static final boolean elementAt(boolean[] zArr, int i) {
+        return zArr[i];
     }
 
-    public static final void fill(boolean[] fill, boolean z, int i2, int i3) {
+    public static final void fill(boolean[] fill, boolean z, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, z);
+        Arrays.fill(fill, i, i2, z);
     }
 
-    public static /* synthetic */ void fill$default(boolean[] zArr, boolean z, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(boolean[] zArr, boolean z, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = zArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = zArr.length;
         }
-        fill(zArr, z, i2, i3);
+        fill(zArr, z, i, i2);
     }
 
     @InlineOnly
@@ -1310,14 +1310,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         sort((Object[]) tArr);
     }
 
-    public static /* synthetic */ void sort$default(char[] cArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(char[] cArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = cArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = cArr.length;
         }
-        sort(cArr, i2, i3);
+        sort(cArr, i, i2);
     }
 
     public static final SortedSet<Boolean> toSortedSet(boolean[] toSortedSet) {
@@ -1330,19 +1330,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$8(asList);
     }
 
-    public static final int binarySearch(char[] binarySearch, char c2, int i2, int i3) {
+    public static final int binarySearch(char[] binarySearch, char c2, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i2, i3, c2);
+        return Arrays.binarySearch(binarySearch, i, i2, c2);
     }
 
-    public static /* synthetic */ int binarySearch$default(char[] cArr, char c2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(char[] cArr, char c2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = cArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = cArr.length;
         }
-        return binarySearch(cArr, c2, i2, i3);
+        return binarySearch(cArr, c2, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1379,24 +1379,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @SinceKotlin(version = "1.3")
-    public static final char[] copyInto(char[] copyInto, char[] destination, int i2, int i3, int i4) {
+    public static final char[] copyInto(char[] copyInto, char[] destination, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(copyInto, "$this$copyInto");
         Intrinsics.checkNotNullParameter(destination, "destination");
-        System.arraycopy(copyInto, i3, destination, i2, i4 - i3);
+        System.arraycopy(copyInto, i2, destination, i, i3 - i2);
         return destination;
     }
 
-    public static /* synthetic */ char[] copyInto$default(char[] cArr, char[] cArr2, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
+    public static /* synthetic */ char[] copyInto$default(char[] cArr, char[] cArr2, int i, int i2, int i3, int i4, Object obj) {
+        if ((i4 & 2) != 0) {
+            i = 0;
+        }
+        if ((i4 & 4) != 0) {
             i2 = 0;
         }
-        if ((i5 & 4) != 0) {
-            i3 = 0;
+        if ((i4 & 8) != 0) {
+            i3 = cArr.length;
         }
-        if ((i5 & 8) != 0) {
-            i4 = cArr.length;
-        }
-        return copyInto(cArr, cArr2, i2, i3, i4);
+        return copyInto(cArr, cArr2, i, i2, i3);
     }
 
     @InlineOnly
@@ -1409,32 +1409,32 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final long[] copyOfRange(long[] copyOfRangeImpl, int i2, int i3) {
+    public static final long[] copyOfRange(long[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        long[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        long[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
     @InlineOnly
-    public static final char elementAt(char[] cArr, int i2) {
-        return cArr[i2];
+    public static final char elementAt(char[] cArr, int i) {
+        return cArr[i];
     }
 
-    public static final void fill(char[] fill, char c2, int i2, int i3) {
+    public static final void fill(char[] fill, char c2, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i2, i3, c2);
+        Arrays.fill(fill, i, i2, c2);
     }
 
-    public static /* synthetic */ void fill$default(char[] cArr, char c2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void fill$default(char[] cArr, char c2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = cArr.length;
+        if ((i3 & 4) != 0) {
+            i2 = cArr.length;
         }
-        fill(cArr, c2, i2, i3);
+        fill(cArr, c2, i, i2);
     }
 
     public static final short[] plus(short[] plus, short s) {
@@ -1453,14 +1453,14 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         }
     }
 
-    public static /* synthetic */ void sort$default(Object[] objArr, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ void sort$default(Object[] objArr, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = objArr.length;
+        if ((i3 & 2) != 0) {
+            i2 = objArr.length;
         }
-        sort(objArr, i2, i3);
+        sort(objArr, i, i2);
     }
 
     public static final SortedSet<Character> toSortedSet(char[] toSortedSet) {
@@ -1469,16 +1469,16 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     }
 
     @InlineOnly
-    public static final byte[] copyOf(byte[] bArr, int i2) {
-        byte[] copyOf = Arrays.copyOf(bArr, i2);
+    public static final byte[] copyOf(byte[] bArr, int i) {
+        byte[] copyOf = Arrays.copyOf(bArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
 
     @SinceKotlin(version = "1.4")
-    public static final <T extends Comparable<? super T>> void sort(T[] sort, int i2, int i3) {
+    public static final <T extends Comparable<? super T>> void sort(T[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1488,8 +1488,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(int[] iArr, Function1<? super Integer, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (int i2 : iArr) {
-            valueOf = valueOf.add(function1.invoke(Integer.valueOf(i2)));
+        for (int i : iArr) {
+            valueOf = valueOf.add(function1.invoke(Integer.valueOf(i)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1502,8 +1502,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(int[] iArr, Function1<? super Integer, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (int i2 : iArr) {
-            valueOf = valueOf.add(function1.invoke(Integer.valueOf(i2)));
+        for (int i : iArr) {
+            valueOf = valueOf.add(function1.invoke(Integer.valueOf(i)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1519,15 +1519,15 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Long[] lArr = new Long[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            lArr[i2] = Long.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            lArr[i] = Long.valueOf(toTypedArray[i]);
         }
         return lArr;
     }
 
     @InlineOnly
-    public static final short[] copyOf(short[] sArr, int i2) {
-        short[] copyOf = Arrays.copyOf(sArr, i2);
+    public static final short[] copyOf(short[] sArr, int i) {
+        short[] copyOf = Arrays.copyOf(sArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
@@ -1535,48 +1535,48 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final float[] copyOfRange(float[] copyOfRangeImpl, int i2, int i3) {
+    public static final float[] copyOfRange(float[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        float[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        float[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final short[] copyOfRangeInline(short[] sArr, int i2, int i3) {
+    public static final short[] copyOfRangeInline(short[] sArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(sArr, i2, i3);
+            return copyOfRange(sArr, i, i2);
         }
-        if (i3 <= sArr.length) {
-            short[] copyOfRange = Arrays.copyOfRange(sArr, i2, i3);
+        if (i2 <= sArr.length) {
+            short[] copyOfRange = Arrays.copyOfRange(sArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + sArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + sArr.length);
     }
 
-    public static final void sort(byte[] sort, int i2, int i3) {
+    public static final void sort(byte[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @InlineOnly
-    public static final int[] copyOf(int[] iArr, int i2) {
-        int[] copyOf = Arrays.copyOf(iArr, i2);
+    public static final int[] copyOf(int[] iArr, int i) {
+        int[] copyOf = Arrays.copyOf(iArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
 
-    public static final void sort(short[] sort, int i2, int i3) {
+    public static final void sort(short[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @InlineOnly
-    public static final long[] copyOf(long[] jArr, int i2) {
-        long[] copyOf = Arrays.copyOf(jArr, i2);
+    public static final long[] copyOf(long[] jArr, int i) {
+        long[] copyOf = Arrays.copyOf(jArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
@@ -1584,26 +1584,26 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final double[] copyOfRange(double[] copyOfRangeImpl, int i2, int i3) {
+    public static final double[] copyOfRange(double[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        double[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        double[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
-    public static final int[] plus(int[] plus, int i2) {
+    public static final int[] plus(int[] plus, int i) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         int[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = i2;
+        result[length] = i;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
 
-    public static final void sort(int[] sort, int i2, int i3) {
+    public static final void sort(int[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1613,8 +1613,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(long[] jArr, Function1<? super Long, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (long j2 : jArr) {
-            valueOf = valueOf.add(function1.invoke(Long.valueOf(j2)));
+        for (long j : jArr) {
+            valueOf = valueOf.add(function1.invoke(Long.valueOf(j)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1627,8 +1627,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(long[] jArr, Function1<? super Long, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (long j2 : jArr) {
-            valueOf = valueOf.add(function1.invoke(Long.valueOf(j2)));
+        for (long j : jArr) {
+            valueOf = valueOf.add(function1.invoke(Long.valueOf(j)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1638,27 +1638,27 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Float[] fArr = new Float[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            fArr[i2] = Float.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            fArr[i] = Float.valueOf(toTypedArray[i]);
         }
         return fArr;
     }
 
     @InlineOnly
-    public static final float[] copyOf(float[] fArr, int i2) {
-        float[] copyOf = Arrays.copyOf(fArr, i2);
+    public static final float[] copyOf(float[] fArr, int i) {
+        float[] copyOf = Arrays.copyOf(fArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
 
-    public static final void sort(long[] sort, int i2, int i3) {
+    public static final void sort(long[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @InlineOnly
-    public static final double[] copyOf(double[] dArr, int i2) {
-        double[] copyOf = Arrays.copyOf(dArr, i2);
+    public static final double[] copyOf(double[] dArr, int i) {
+        double[] copyOf = Arrays.copyOf(dArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
@@ -1666,43 +1666,43 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final boolean[] copyOfRange(boolean[] copyOfRangeImpl, int i2, int i3) {
+    public static final boolean[] copyOfRange(boolean[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        boolean[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        boolean[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
-    public static final void sort(float[] sort, int i2, int i3) {
+    public static final void sort(float[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @InlineOnly
-    public static final boolean[] copyOf(boolean[] zArr, int i2) {
-        boolean[] copyOf = Arrays.copyOf(zArr, i2);
+    public static final boolean[] copyOf(boolean[] zArr, int i) {
+        boolean[] copyOf = Arrays.copyOf(zArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final int[] copyOfRangeInline(int[] iArr, int i2, int i3) {
+    public static final int[] copyOfRangeInline(int[] iArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(iArr, i2, i3);
+            return copyOfRange(iArr, i, i2);
         }
-        if (i3 <= iArr.length) {
-            int[] copyOfRange = Arrays.copyOfRange(iArr, i2, i3);
+        if (i2 <= iArr.length) {
+            int[] copyOfRange = Arrays.copyOfRange(iArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + iArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + iArr.length);
     }
 
-    public static final void sort(double[] sort, int i2, int i3) {
+    public static final void sort(double[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1737,15 +1737,15 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Double[] dArr = new Double[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            dArr[i2] = Double.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            dArr[i] = Double.valueOf(toTypedArray[i]);
         }
         return dArr;
     }
 
     @InlineOnly
-    public static final char[] copyOf(char[] cArr, int i2) {
-        char[] copyOf = Arrays.copyOf(cArr, i2);
+    public static final char[] copyOf(char[] cArr, int i) {
+        char[] copyOf = Arrays.copyOf(cArr, i);
         Intrinsics.checkNotNullExpressionValue(copyOf, "java.util.Arrays.copyOf(this, newSize)");
         return copyOf;
     }
@@ -1753,38 +1753,38 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @JvmName(name = "copyOfRange")
-    public static final char[] copyOfRange(char[] copyOfRangeImpl, int i2, int i3) {
+    public static final char[] copyOfRange(char[] copyOfRangeImpl, int i, int i2) {
         Intrinsics.checkNotNullParameter(copyOfRangeImpl, "$this$copyOfRangeImpl");
-        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i3, copyOfRangeImpl.length);
-        char[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i2, i3);
+        ArraysKt__ArraysJVMKt.copyOfRangeToIndexCheck(i2, copyOfRangeImpl.length);
+        char[] copyOfRange = Arrays.copyOfRange(copyOfRangeImpl, i, i2);
         Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;
     }
 
-    public static final long[] plus(long[] plus, long j2) {
+    public static final long[] plus(long[] plus, long j) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         long[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = j2;
+        result[length] = j;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
 
-    public static final void sort(char[] sort, int i2, int i3) {
+    public static final void sort(char[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @InlineOnly
-    public static final <T> T[] copyOf(T[] tArr, int i2) {
-        T[] tArr2 = (T[]) Arrays.copyOf(tArr, i2);
+    public static final <T> T[] copyOf(T[] tArr, int i) {
+        T[] tArr2 = (T[]) Arrays.copyOf(tArr, i);
         Intrinsics.checkNotNullExpressionValue(tArr2, "java.util.Arrays.copyOf(this, newSize)");
         return tArr2;
     }
 
-    public static final <T> void sort(T[] sort, int i2, int i3) {
+    public static final <T> void sort(T[] sort, int i, int i2) {
         Intrinsics.checkNotNullParameter(sort, "$this$sort");
-        Arrays.sort(sort, i2, i3);
+        Arrays.sort(sort, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1819,24 +1819,24 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Boolean[] boolArr = new Boolean[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            boolArr[i2] = Boolean.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            boolArr[i] = Boolean.valueOf(toTypedArray[i]);
         }
         return boolArr;
     }
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final long[] copyOfRangeInline(long[] jArr, int i2, int i3) {
+    public static final long[] copyOfRangeInline(long[] jArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(jArr, i2, i3);
+            return copyOfRange(jArr, i, i2);
         }
-        if (i3 <= jArr.length) {
-            long[] copyOfRange = Arrays.copyOfRange(jArr, i2, i3);
+        if (i2 <= jArr.length) {
+            long[] copyOfRange = Arrays.copyOfRange(jArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + jArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + jArr.length);
     }
 
     public static final float[] plus(float[] plus, float f2) {
@@ -1880,8 +1880,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(toTypedArray, "$this$toTypedArray");
         Character[] chArr = new Character[toTypedArray.length];
         int length = toTypedArray.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            chArr[i2] = Character.valueOf(toTypedArray[i2]);
+        for (int i = 0; i < length; i++) {
+            chArr[i] = Character.valueOf(toTypedArray[i]);
         }
         return chArr;
     }
@@ -1925,16 +1925,16 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final float[] copyOfRangeInline(float[] fArr, int i2, int i3) {
+    public static final float[] copyOfRangeInline(float[] fArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(fArr, i2, i3);
+            return copyOfRange(fArr, i, i2);
         }
-        if (i3 <= fArr.length) {
-            float[] copyOfRange = Arrays.copyOfRange(fArr, i2, i3);
+        if (i2 <= fArr.length) {
+            float[] copyOfRange = Arrays.copyOfRange(fArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + fArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + fArr.length);
     }
 
     public static final boolean[] plus(boolean[] plus, boolean z) {
@@ -1948,16 +1948,16 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final double[] copyOfRangeInline(double[] dArr, int i2, int i3) {
+    public static final double[] copyOfRangeInline(double[] dArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(dArr, i2, i3);
+            return copyOfRange(dArr, i, i2);
         }
-        if (i3 <= dArr.length) {
-            double[] copyOfRange = Arrays.copyOfRange(dArr, i2, i3);
+        if (i2 <= dArr.length) {
+            double[] copyOfRange = Arrays.copyOfRange(dArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + dArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + dArr.length);
     }
 
     public static final char[] plus(char[] plus, char c2) {
@@ -1971,16 +1971,16 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final boolean[] copyOfRangeInline(boolean[] zArr, int i2, int i3) {
+    public static final boolean[] copyOfRangeInline(boolean[] zArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(zArr, i2, i3);
+            return copyOfRange(zArr, i, i2);
         }
-        if (i3 <= zArr.length) {
-            boolean[] copyOfRange = Arrays.copyOfRange(zArr, i2, i3);
+        if (i2 <= zArr.length) {
+            boolean[] copyOfRange = Arrays.copyOfRange(zArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + zArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + zArr.length);
     }
 
     public static final <T> T[] plus(T[] plus, Collection<? extends T> elements) {
@@ -1998,16 +1998,16 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
 
     @InlineOnly
     @JvmName(name = "copyOfRangeInline")
-    public static final char[] copyOfRangeInline(char[] cArr, int i2, int i3) {
+    public static final char[] copyOfRangeInline(char[] cArr, int i, int i2) {
         if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
-            return copyOfRange(cArr, i2, i3);
+            return copyOfRange(cArr, i, i2);
         }
-        if (i3 <= cArr.length) {
-            char[] copyOfRange = Arrays.copyOfRange(cArr, i2, i3);
+        if (i2 <= cArr.length) {
+            char[] copyOfRange = Arrays.copyOfRange(cArr, i, i2);
             Intrinsics.checkNotNullExpressionValue(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
             return copyOfRange;
         }
-        throw new IndexOutOfBoundsException("toIndex: " + i3 + ", size: " + cArr.length);
+        throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + cArr.length);
     }
 
     public static final byte[] plus(byte[] plus, Collection<Byte> elements) {

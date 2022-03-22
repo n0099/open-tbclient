@@ -16,14 +16,14 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class BlockingMultiObserver<T> extends CountDownLatch implements SingleObserver<T>, CompletableObserver, MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f60678d;
+    public Disposable f45288d;
     public Throwable error;
     public T value;
 
@@ -34,9 +34,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,14 +45,14 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         }
     }
 
-    public boolean blockingAwait(long j2, TimeUnit timeUnit) {
+    public boolean blockingAwait(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
             if (getCount() != 0) {
                 try {
                     BlockingHelper.verifyNonBlocking();
-                    if (!await(j2, timeUnit)) {
+                    if (!await(j, timeUnit)) {
                         dispose();
                         return false;
                     }
@@ -114,7 +114,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f60678d;
+            Disposable disposable = this.f45288d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -142,7 +142,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-            this.f60678d = disposable;
+            this.f45288d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }
@@ -158,14 +158,14 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         }
     }
 
-    public Throwable blockingGetError(long j2, TimeUnit timeUnit) {
+    public Throwable blockingGetError(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
             if (getCount() != 0) {
                 try {
                     BlockingHelper.verifyNonBlocking();
-                    if (!await(j2, timeUnit)) {
+                    if (!await(j, timeUnit)) {
                         dispose();
                         throw ExceptionHelper.wrapOrThrow(new TimeoutException());
                     }

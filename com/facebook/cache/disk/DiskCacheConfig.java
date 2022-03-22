@@ -3,6 +3,7 @@ package com.facebook.cache.disk;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import java.io.File;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiskCacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +38,13 @@ public class DiskCacheConfig {
     public final int mVersion;
 
     /* renamed from: com.facebook.cache.disk.DiskCacheConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +84,9 @@ public class DiskCacheConfig {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -189,41 +190,41 @@ public class DiskCacheConfig {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setMaxCacheSize(long j2) {
+        public Builder setMaxCacheSize(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-                this.mMaxCacheSize = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                this.mMaxCacheSize = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setMaxCacheSizeOnLowDiskSpace(long j2) {
+        public Builder setMaxCacheSizeOnLowDiskSpace(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-                this.mMaxCacheSizeOnLowDiskSpace = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+                this.mMaxCacheSizeOnLowDiskSpace = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setMaxCacheSizeOnVeryLowDiskSpace(long j2) {
+        public Builder setMaxCacheSizeOnVeryLowDiskSpace(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-                this.mMaxCacheSizeOnVeryLowDiskSpace = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+                this.mMaxCacheSizeOnVeryLowDiskSpace = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setVersion(int i2) {
+        public Builder setVersion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-                this.mVersion = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                this.mVersion = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -236,9 +237,9 @@ public class DiskCacheConfig {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -247,7 +248,7 @@ public class DiskCacheConfig {
             this.mVersion = 1;
             this.mBaseDirectoryName = "image_cache";
             this.mMaxCacheSize = 41943040L;
-            this.mMaxCacheSizeOnLowDiskSpace = 10485760L;
+            this.mMaxCacheSizeOnLowDiskSpace = Config.FULL_TRACE_LOG_LIMIT;
             this.mMaxCacheSizeOnVeryLowDiskSpace = 2097152L;
             this.mEntryEvictionComparatorSupplier = new DefaultEntryEvictionComparatorSupplier();
             this.mContext = context;
@@ -346,9 +347,9 @@ public class DiskCacheConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

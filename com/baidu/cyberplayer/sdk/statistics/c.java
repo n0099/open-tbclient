@@ -9,32 +9,32 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f32232b;
+    public ArrayList<e> f25466b;
 
-    public c(int i2) {
+    public c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f32232b = new ArrayList<>();
+        this.a = i;
+        this.f25466b = new ArrayList<>();
     }
 
     public int a() {
@@ -50,13 +50,13 @@ public class c {
             if (jSONObject == null) {
                 return jSONObject;
             }
-            int i2 = this.a;
-            if (i2 != 24321 && i2 != 24323 && i2 != 24322 && i2 != 20488) {
-                jSONObject.put("type", i2);
+            int i = this.a;
+            if (i != 24321 && i != 24323 && i != 24322 && i != 20488) {
+                jSONObject.put("type", i);
             }
-            int size = this.f32232b.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                e eVar = this.f32232b.get(i3);
+            int size = this.f25466b.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                e eVar = this.f25466b.get(i2);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -69,14 +69,14 @@ public class c {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f32232b.add(eVar);
+            this.f25466b.add(eVar);
         }
     }
 
     public void b() {
         ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f32232b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f25466b) == null) {
             return;
         }
         arrayList.clear();

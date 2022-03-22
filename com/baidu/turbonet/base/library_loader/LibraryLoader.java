@@ -13,7 +13,7 @@ public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile LibraryLoader f48712b;
+    public static volatile LibraryLoader f37650b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,10 +37,10 @@ public class LibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f48712b == null) {
+            if (f37650b == null) {
                 return 0;
             }
-            return f48712b.a;
+            return f37650b.a;
         }
         return invokeV.intValue;
     }
@@ -55,11 +55,11 @@ public class LibraryLoader {
 
     public static native int nativePercentageOfResidentNativeLibraryCode();
 
-    private native void nativeRecordChromiumAndroidLinkerBrowserHistogram(boolean z, boolean z2, int i2, long j2);
+    private native void nativeRecordChromiumAndroidLinkerBrowserHistogram(boolean z, boolean z2, int i, long j);
 
-    private native void nativeRecordLibraryPreloaderBrowserHistogram(int i2);
+    private native void nativeRecordLibraryPreloaderBrowserHistogram(int i);
 
-    private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j2);
+    private native void nativeRegisterChromiumAndroidLinkerRendererHistogram(boolean z, boolean z2, long j);
 
-    private native void nativeRegisterLibraryPreloaderRendererHistogram(int i2);
+    private native void nativeRegisterLibraryPreloaderRendererHistogram(int i);
 }

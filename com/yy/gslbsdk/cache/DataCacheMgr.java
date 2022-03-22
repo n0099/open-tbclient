@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DataCacheMgr {
     public static final /* synthetic */ DataCacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -71,16 +71,16 @@ public final class DataCacheMgr {
         $VALUES = new DataCacheMgr[]{dataCacheMgr};
     }
 
-    public DataCacheMgr(String str, int i2) {
+    public DataCacheMgr(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -141,14 +141,14 @@ public final class DataCacheMgr {
         }
     }
 
-    public void addDnsCost(long j2) {
+    public void addDnsCost(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             if (this.mListDnsCost == null) {
                 this.mListDnsCost = new LinkedList();
             }
             synchronized (this.mListDnsCost) {
-                this.mListDnsCost.add(Long.valueOf(j2));
+                this.mListDnsCost.add(Long.valueOf(j));
             }
         }
     }

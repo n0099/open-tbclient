@@ -14,44 +14,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60081b;
+    public String f44644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f60082c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f44645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60083d;
+    public Context f44646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f60084e;
+    public CountDownLatch f44647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f60085f;
+    public ServiceConnection f44648f;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f60081b = null;
-        this.f60084e = new CountDownLatch(1);
-        this.f60085f = new e(this);
+        this.f44644b = null;
+        this.f44647e = new CountDownLatch(1);
+        this.f44648f = new e(this);
     }
 
     private void a(boolean z) {
@@ -61,7 +61,7 @@ public final class d {
                 try {
                     String b2 = b();
                     if (!TextUtils.isEmpty(b2)) {
-                        this.f60082c.a(b2);
+                        this.f44645c.a(b2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -69,7 +69,7 @@ public final class d {
                     return;
                 }
             }
-            this.f60082c.e();
+            this.f44645c.e();
         }
     }
 
@@ -92,7 +92,7 @@ public final class d {
     public final void a(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f60085f) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f44648f) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -102,15 +102,15 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f60082c = bVar;
-                this.f60083d = context;
+                this.f44645c = bVar;
+                this.f44646d = context;
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (!context.bindService(intent, this.f60085f, 1)) {
+                if (!context.bindService(intent, this.f44648f, 1)) {
                     a(false);
                     return;
                 }
-                this.f60084e.await(10L, TimeUnit.SECONDS);
+                this.f44647e.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

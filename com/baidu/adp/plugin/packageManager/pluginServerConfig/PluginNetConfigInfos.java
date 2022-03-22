@@ -39,9 +39,9 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -84,9 +84,9 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -112,9 +112,9 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,10 +141,10 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, pluginConfig) == null) || (list = this.plugin_config) == null || list.size() == 0 || pluginConfig == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.plugin_config.size(); i2++) {
-            PluginConfig pluginConfig2 = this.plugin_config.get(i2);
+        for (int i = 0; i < this.plugin_config.size(); i++) {
+            PluginConfig pluginConfig2 = this.plugin_config.get(i);
             if (pluginConfig2 != null && !TextUtils.isEmpty(pluginConfig2.package_name) && pluginConfig2.package_name.equals(pluginConfig.package_name)) {
-                this.plugin_config.set(i2, pluginConfig2);
+                this.plugin_config.set(i, pluginConfig2);
                 return;
             }
         }

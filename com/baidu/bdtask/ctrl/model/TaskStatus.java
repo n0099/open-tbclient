@@ -18,7 +18,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u001a\n\u0002\u0018\u0002\n\u0002\b\u001b\b\u0086\b\u0018\u0000 [2\u00020\u0001:\u0001[BK\u0012\b\b\u0002\u0010\u0019\u001a\u00020\b\u0012\b\b\u0002\u0010\u001a\u001a\u00020\b\u0012\b\b\u0002\u0010\u001b\u001a\u00020\f\u0012\b\b\u0002\u0010\u001c\u001a\u00020\b\u0012\b\b\u0002\u0010\u001d\u001a\u00020\u0010\u0012\b\b\u0002\u0010\u001e\u001a\u00020\u0013\u0012\u0006\u0010\u001f\u001a\u00020\u0016¢\u0006\u0004\bY\u0010ZJ\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0002¢\u0006\u0004\b\u0006\u0010\u0004J\r\u0010\u0007\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\u0004J\u0010\u0010\t\u001a\u00020\bHÂ\u0003¢\u0006\u0004\b\t\u0010\nJ\u0010\u0010\u000b\u001a\u00020\bHÆ\u0003¢\u0006\u0004\b\u000b\u0010\nJ\u0010\u0010\r\u001a\u00020\fHÆ\u0003¢\u0006\u0004\b\r\u0010\u000eJ\u0010\u0010\u000f\u001a\u00020\bHÆ\u0003¢\u0006\u0004\b\u000f\u0010\nJ\u0010\u0010\u0011\u001a\u00020\u0010HÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0014\u001a\u00020\u0013HÆ\u0003¢\u0006\u0004\b\u0014\u0010\u0015J\u0010\u0010\u0017\u001a\u00020\u0016HÆ\u0003¢\u0006\u0004\b\u0017\u0010\u0018JV\u0010 \u001a\u00020\u00002\b\b\u0002\u0010\u0019\u001a\u00020\b2\b\b\u0002\u0010\u001a\u001a\u00020\b2\b\b\u0002\u0010\u001b\u001a\u00020\f2\b\b\u0002\u0010\u001c\u001a\u00020\b2\b\b\u0002\u0010\u001d\u001a\u00020\u00102\b\b\u0002\u0010\u001e\u001a\u00020\u00132\b\b\u0002\u0010\u001f\u001a\u00020\u0016HÆ\u0001¢\u0006\u0004\b \u0010!J\u000f\u0010\"\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\"\u0010#J\u001a\u0010'\u001a\u00020&2\b\u0010%\u001a\u0004\u0018\u00010$HÖ\u0003¢\u0006\u0004\b'\u0010(J\r\u0010)\u001a\u00020&¢\u0006\u0004\b)\u0010*J\u0010\u0010+\u001a\u00020\bHÖ\u0001¢\u0006\u0004\b+\u0010\nJ\r\u0010,\u001a\u00020&¢\u0006\u0004\b,\u0010*J\u000f\u0010-\u001a\u00020&H\u0007¢\u0006\u0004\b-\u0010*J\r\u0010.\u001a\u00020&¢\u0006\u0004\b.\u0010*J\r\u0010/\u001a\u00020&¢\u0006\u0004\b/\u0010*J\r\u00100\u001a\u00020&¢\u0006\u0004\b0\u0010*J\r\u00101\u001a\u00020&¢\u0006\u0004\b1\u0010*J\r\u00102\u001a\u00020&¢\u0006\u0004\b2\u0010*J\r\u00103\u001a\u00020&¢\u0006\u0004\b3\u0010*J\r\u00104\u001a\u00020&¢\u0006\u0004\b4\u0010*J\r\u00105\u001a\u00020&¢\u0006\u0004\b5\u0010*J\r\u00106\u001a\u00020&¢\u0006\u0004\b6\u0010*J\r\u00107\u001a\u00020&¢\u0006\u0004\b7\u0010*J\r\u00108\u001a\u00020\u0002¢\u0006\u0004\b8\u0010\u0004J\u0017\u00109\u001a\u00020\u00022\b\b\u0002\u0010\u0003\u001a\u00020&¢\u0006\u0004\b9\u0010:J\r\u0010;\u001a\u00020\u0002¢\u0006\u0004\b;\u0010\u0004J\r\u0010<\u001a\u00020\u0002¢\u0006\u0004\b<\u0010\u0004J\r\u0010=\u001a\u00020&¢\u0006\u0004\b=\u0010*J\u0017\u0010?\u001a\u00020\u00022\u0006\u0010>\u001a\u00020\bH\u0002¢\u0006\u0004\b?\u0010@J\u000f\u0010B\u001a\u00020AH\u0016¢\u0006\u0004\bB\u0010CJ\u000f\u0010D\u001a\u00020\fH\u0016¢\u0006\u0004\bD\u0010\u000eR\u0016\u0010\u0019\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0019\u0010ER\"\u0010\u001d\u001a\u00020\u00108\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010F\u001a\u0004\bG\u0010\u0012\"\u0004\bH\u0010IR*\u0010J\u001a\u00020\b2\u0006\u0010>\u001a\u00020\b8\u0006@FX\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010E\u001a\u0004\bK\u0010\n\"\u0004\bL\u0010@R\"\u0010\u001a\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010E\u001a\u0004\bM\u0010\n\"\u0004\bN\u0010@R\"\u0010\u001b\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010O\u001a\u0004\bP\u0010\u000e\"\u0004\bQ\u0010RR\"\u0010\u001c\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010E\u001a\u0004\bS\u0010\n\"\u0004\bT\u0010@R\u0019\u0010\u001f\u001a\u00020\u00168\u0006@\u0006¢\u0006\f\n\u0004\b\u001f\u0010U\u001a\u0004\bV\u0010\u0018R\u0019\u0010\u001e\u001a\u00020\u00138\u0006@\u0006¢\u0006\f\n\u0004\b\u001e\u0010W\u001a\u0004\bX\u0010\u0015¨\u0006\\"}, d2 = {"Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "cleanDuplicateId", "()V", "cleanNoClickTime", "clear", "clearProcess", "", "component1", "()I", "component2", "", "component3", "()Ljava/lang/String;", "component4", "", "component5", "()J", "Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "component6", "()Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "component7", "()Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "_curStatus", TaskStatus.keyCurStatusCode, TaskStatus.keyCurStatusCodeMsg, TaskStatus.keyInterruptErrorNo, TaskStatus.keyCurActiveTime, "taskStatusRuntime", "process", "copy", "(IILjava/lang/String;IJLcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;Lcom/baidu/bdtask/ctrl/model/TaskProcess;)Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "deepCopy", "()Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "hasErrorCode", "()Z", TTDownloadField.TT_HASHCODE, "isActivated", "isCompleted", "isDuplicated", "isEnable", "isFinished", "isInited", "isInterrupted", "isLocalCompleted", "isOffLined", "isRegistered", "isRunning", "isUnRegistered", "reset2Interrupted", "reset2Running", "(Z)V", "reset2RunningStatus", "resetStatus", "responseDataIsCache", "value", "statusUpdate", "(I)V", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "I", "J", "getCurActiveTime", "setCurActiveTime", "(J)V", TaskStatus.keyCurStatus, "getCurStatus", "setCurStatus", "getCurStatusCode", "setCurStatusCode", "Ljava/lang/String;", "getCurStatusCodeMsg", "setCurStatusCodeMsg", "(Ljava/lang/String;)V", "getInterruptErrorNo", "setInterruptErrorNo", "Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "getProcess", "Lcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;", "getTaskStatusRuntime", "<init>", "(IILjava/lang/String;IJLcom/baidu/bdtask/ctrl/model/TaskStatusRuntime;Lcom/baidu/bdtask/ctrl/model/TaskProcess;)V", "INS", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskStatus implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_ACTION_TYPE_CLICK = 6;
@@ -49,7 +49,7 @@ public final class TaskStatus implements ITaskModelData {
     public final TaskProcess process;
     public final TaskStatusRuntime taskStatusRuntime;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public final class TaskStatus implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -89,29 +89,29 @@ public final class TaskStatus implements ITaskModelData {
         INS = new a(null);
     }
 
-    public TaskStatus(int i2, int i3, String str, int i4, long j2, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
+    public TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j2), taskStatusRuntime, taskProcess};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Long.valueOf(j), taskStatusRuntime, taskProcess};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this._curStatus = i2;
-        this.curStatusCode = i3;
+        this._curStatus = i;
+        this.curStatusCode = i2;
         this.curStatusCodeMsg = str;
-        this.interruptErrorNo = i4;
-        this.curActiveTime = j2;
+        this.interruptErrorNo = i3;
+        this.curActiveTime = j;
         this.taskStatusRuntime = taskStatusRuntime;
         this.process = taskProcess;
-        this.curStatus = i2;
+        this.curStatus = i;
     }
 
     private final int component1() {
@@ -120,20 +120,20 @@ public final class TaskStatus implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this._curStatus : invokeV.intValue;
     }
 
-    public static /* synthetic */ void reset2Running$default(TaskStatus taskStatus, boolean z, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ void reset2Running$default(TaskStatus taskStatus, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         taskStatus.reset2Running(z);
     }
 
-    private final void statusUpdate(int i2) {
+    private final void statusUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i2) == null) {
-            if (i2 == 2 || i2 == 8) {
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            if (i == 2 || i == 8) {
                 this.curActiveTime = System.currentTimeMillis();
             }
-            this.taskStatusRuntime.onStatusChanged(i2);
+            this.taskStatusRuntime.onStatusChanged(i);
         }
     }
 
@@ -206,10 +206,10 @@ public final class TaskStatus implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.process : (TaskProcess) invokeV.objValue;
     }
 
-    public final TaskStatus copy(int i2, int i3, String str, int i4, long j2, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
+    public final TaskStatus copy(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Long.valueOf(j2), taskStatusRuntime, taskProcess})) == null) ? new TaskStatus(i2, i3, str, i4, j2, taskStatusRuntime, taskProcess) : (TaskStatus) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Long.valueOf(j), taskStatusRuntime, taskProcess})) == null) ? new TaskStatus(i, i2, str, i3, j, taskStatusRuntime, taskProcess) : (TaskStatus) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -287,13 +287,13 @@ public final class TaskStatus implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            int i2 = ((this._curStatus * 31) + this.curStatusCode) * 31;
+            int i = ((this._curStatus * 31) + this.curStatusCode) * 31;
             String str = this.curStatusCodeMsg;
             int hashCode = str != null ? str.hashCode() : 0;
-            long j2 = this.curActiveTime;
-            int i3 = (((((i2 + hashCode) * 31) + this.interruptErrorNo) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
+            long j = this.curActiveTime;
+            int i2 = (((((i + hashCode) * 31) + this.interruptErrorNo) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
             TaskStatusRuntime taskStatusRuntime = this.taskStatusRuntime;
-            int hashCode2 = (i3 + (taskStatusRuntime != null ? taskStatusRuntime.hashCode() : 0)) * 31;
+            int hashCode2 = (i2 + (taskStatusRuntime != null ? taskStatusRuntime.hashCode() : 0)) * 31;
             TaskProcess taskProcess = this.process;
             return hashCode2 + (taskProcess != null ? taskProcess.hashCode() : 0);
         }
@@ -360,8 +360,8 @@ public final class TaskStatus implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            int i2 = this.curStatusCode;
-            return i2 == 11002 || i2 == 13002 || i2 == 12002 || i2 == 19004;
+            int i = this.curStatusCode;
+            return i == 11002 || i == 13002 || i == 12002 || i == 19004;
         }
         return invokeV.booleanValue;
     }
@@ -426,25 +426,25 @@ public final class TaskStatus implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.taskStatusRuntime.getResponseDataIsCache() : invokeV.booleanValue;
     }
 
-    public final void setCurActiveTime(long j2) {
+    public final void setCurActiveTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048617, this, j2) == null) {
-            this.curActiveTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048617, this, j) == null) {
+            this.curActiveTime = j;
         }
     }
 
-    public final void setCurStatus(int i2) {
+    public final void setCurStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.curStatus = i2;
-            statusUpdate(i2);
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.curStatus = i;
+            statusUpdate(i);
         }
     }
 
-    public final void setCurStatusCode(int i2) {
+    public final void setCurStatusCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.curStatusCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.curStatusCode = i;
         }
     }
 
@@ -455,10 +455,10 @@ public final class TaskStatus implements ITaskModelData {
         }
     }
 
-    public final void setInterruptErrorNo(int i2) {
+    public final void setInterruptErrorNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.interruptErrorNo = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.interruptErrorNo = i;
         }
     }
 
@@ -498,7 +498,7 @@ public final class TaskStatus implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new TaskStatus(this.curStatus, this.curStatusCode, this.curStatusCodeMsg, this.interruptErrorNo, this.curActiveTime, this.taskStatusRuntime.deepCopy(), this.process.deepCopy()) : (TaskStatus) invokeV.objValue;
     }
 
-    public /* synthetic */ TaskStatus(int i2, int i3, String str, int i4, long j2, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess, int i5, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i5 & 1) != 0 ? 1 : i2, (i5 & 2) != 0 ? 0 : i3, (i5 & 4) != 0 ? "" : str, (i5 & 8) != 0 ? 0 : i4, (i5 & 16) != 0 ? System.currentTimeMillis() : j2, (i5 & 32) != 0 ? TaskStatusRuntime.Companion.a() : taskStatusRuntime, taskProcess);
+    public /* synthetic */ TaskStatus(int i, int i2, String str, int i3, long j, TaskStatusRuntime taskStatusRuntime, TaskProcess taskProcess, int i4, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i4 & 1) != 0 ? 1 : i, (i4 & 2) != 0 ? 0 : i2, (i4 & 4) != 0 ? "" : str, (i4 & 8) != 0 ? 0 : i3, (i4 & 16) != 0 ? System.currentTimeMillis() : j, (i4 & 32) != 0 ? TaskStatusRuntime.Companion.a() : taskStatusRuntime, taskProcess);
     }
 }

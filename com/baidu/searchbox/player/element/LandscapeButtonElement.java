@@ -27,9 +27,9 @@ public class LandscapeButtonElement extends AbsElement implements View.OnClickLi
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,7 +61,7 @@ public class LandscapeButtonElement extends AbsElement implements View.OnClickLi
             }
             int dp2px = BdPlayerUtils.dp2px(imageView, 16.0f);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
-            imageView.setImageResource(R.drawable.bdvideoplayer_switch_land);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080217);
             imageView.setOnClickListener(this);
         }
     }
@@ -82,10 +82,10 @@ public class LandscapeButtonElement extends AbsElement implements View.OnClickLi
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
-    public void onParentVisibleChanged(int i2) {
+    public void onParentVisibleChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i == 0) {
                 BDVideoPlayer videoPlayer = getVideoPlayer();
                 if (!(videoPlayer instanceof UniversalPlayer)) {
                     videoPlayer = null;

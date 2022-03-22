@@ -123,9 +123,9 @@ public final class MotionEventCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -133,10 +133,10 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static int findPointerIndex(MotionEvent motionEvent, int i2) {
+    public static int findPointerIndex(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, motionEvent, i2)) == null) ? motionEvent.findPointerIndex(i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, motionEvent, i)) == null) ? motionEvent.findPointerIndex(i) : invokeLI.intValue;
     }
 
     @Deprecated
@@ -154,10 +154,10 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static float getAxisValue(MotionEvent motionEvent, int i2) {
+    public static float getAxisValue(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i2)) == null) ? motionEvent.getAxisValue(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) ? motionEvent.getAxisValue(i) : invokeLI.floatValue;
     }
 
     @Deprecated
@@ -175,10 +175,10 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static int getPointerId(MotionEvent motionEvent, int i2) {
+    public static int getPointerId(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, motionEvent, i2)) == null) ? motionEvent.getPointerId(i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, motionEvent, i)) == null) ? motionEvent.getPointerId(i) : invokeLI.intValue;
     }
 
     @Deprecated
@@ -189,29 +189,29 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static float getX(MotionEvent motionEvent, int i2) {
+    public static float getX(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, motionEvent, i2)) == null) ? motionEvent.getX(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, motionEvent, i)) == null) ? motionEvent.getX(i) : invokeLI.floatValue;
     }
 
     @Deprecated
-    public static float getY(MotionEvent motionEvent, int i2) {
+    public static float getY(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, motionEvent, i2)) == null) ? motionEvent.getY(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, motionEvent, i)) == null) ? motionEvent.getY(i) : invokeLI.floatValue;
     }
 
-    public static boolean isFromSource(MotionEvent motionEvent, int i2) {
+    public static boolean isFromSource(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionEvent, i2)) == null) ? (motionEvent.getSource() & i2) == i2 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, motionEvent, i)) == null) ? (motionEvent.getSource() & i) == i : invokeLI.booleanValue;
     }
 
     @Deprecated
-    public static float getAxisValue(MotionEvent motionEvent, int i2, int i3) {
+    public static float getAxisValue(MotionEvent motionEvent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, motionEvent, i2, i3)) == null) ? motionEvent.getAxisValue(i2, i3) : invokeLII.floatValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, motionEvent, i, i2)) == null) ? motionEvent.getAxisValue(i, i2) : invokeLII.floatValue;
     }
 }

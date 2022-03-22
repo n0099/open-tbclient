@@ -10,7 +10,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
             return;
         }
         bVar.a = jSONObject.optLong("lastShowShakeTimestamp");
-        bVar.f56449b = jSONObject.optInt("currentDailyCount");
+        bVar.f41340b = jSONObject.optInt("currentDailyCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "lastShowShakeTimestamp", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.f56449b);
+        com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.f41340b);
         return jSONObject;
     }
 }

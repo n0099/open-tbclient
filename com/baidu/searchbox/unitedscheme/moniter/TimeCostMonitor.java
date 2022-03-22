@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme.moniter;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,23 +38,23 @@ public class TimeCostMonitor {
         DEBUG = AppConfig.isDebug();
     }
 
-    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j2) {
+    public TimeCostMonitor(TimeCostHandler timeCostHandler, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timeCostHandler, Long.valueOf(j2)};
+            Object[] objArr = {timeCostHandler, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mTimeoutHandler = timeCostHandler;
-        this.mThresholdValue = j2;
+        this.mThresholdValue = j;
         this.mEventRecorder = new Hashtable<>();
     }
 
@@ -71,7 +72,7 @@ public class TimeCostMonitor {
             timeCostHandler.handle(l.longValue(), currentTimeMillis, this.mThresholdValue, str);
         }
         if (DEBUG) {
-            String str2 = "执行耗时：" + longValue + "，开始时间：" + l + "，结束时间：" + currentTimeMillis + "，event：" + str;
+            Log.i(TAG, "执行耗时：" + longValue + "，开始时间：" + l + "，结束时间：" + currentTimeMillis + "，event：" + str);
         }
         this.mEventRecorder.remove(str);
     }

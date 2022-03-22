@@ -13,7 +13,7 @@ import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class URLEncodedUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -24,9 +24,9 @@ public class URLEncodedUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -57,9 +57,9 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -137,22 +137,22 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i2) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            super.setBackgroundResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.setBackgroundResource(i);
             AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
             if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i2);
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
             }
         }
     }
 
     @Override // android.widget.AutoCompleteTextView
-    public void setDropDownBackgroundResource(@DrawableRes int i2) {
+    public void setDropDownBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            setDropDownBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            setDropDownBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
@@ -179,13 +179,13 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i2) {
+    public void setTextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, context, i2) == null) {
-            super.setTextAppearance(context, i2);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, context, i) == null) {
+            super.setTextAppearance(context, i);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.onSetTextAppearance(context, i2);
+                appCompatTextHelper.onSetTextAppearance(context, i);
             }
         }
     }
@@ -199,9 +199,9 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -212,17 +212,17 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(TintContextWrapper.wrap(context), attributeSet, i2);
+    public AppCompatMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -231,17 +231,17 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
             }
         }
         ThemeUtils.checkAppCompatTheme(this, getContext());
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i2, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
         if (obtainStyledAttributes.hasValue(0)) {
             setDropDownBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
         }
         obtainStyledAttributes.recycle();
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
         this.mTextHelper.applyCompoundDrawablesTints();
     }
 }

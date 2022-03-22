@@ -11,7 +11,7 @@ public final class j {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f33801b;
+    public static volatile j f26077b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

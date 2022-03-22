@@ -7,7 +7,7 @@ public interface DownloadResponse {
 
     void onConnectFailed(DownloadException downloadException);
 
-    void onConnected(long j2, long j3, boolean z);
+    void onConnected(long j, long j2, boolean z);
 
     void onConnecting();
 
@@ -19,7 +19,7 @@ public interface DownloadResponse {
 
     void onDownloadPaused();
 
-    void onDownloadProgress(long j2, long j3, int i2);
+    void onDownloadProgress(long j, long j2, int i);
 
     void onStarted();
 }

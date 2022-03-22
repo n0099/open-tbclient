@@ -20,109 +20,111 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import j.a.a.e.h.o;
-import j.a.a.e.i.b;
+import h.a.a.e.h.o;
+import h.a.a.e.i.b;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class YYPayAmountCampaignView extends LinearLayout implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RecyclerView f45842b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RelativeLayout f45843c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public GiftBagsInfo f45844d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f61505e;
+    public PayUIKitConfig f45845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f61506f;
+    public List<GiftBagItemInfo> f45846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f61507g;
+    public PayAmountCampaignListAdapter f45847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GiftBagsInfo f61508h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public PayUIKitConfig f61509i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public PayAmountCampaignListAdapter f61510j;
-    public LinearLayoutManager k;
-    public List<GiftBagItemInfo> mGiftBagList;
+    public LinearLayoutManager f45848h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPayAmountCampaignView(Activity activity, int i2, int i3, PayUIKitConfig payUIKitConfig) {
+    public YYPayAmountCampaignView(Activity activity, int i, int i2, PayUIKitConfig payUIKitConfig) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i2), Integer.valueOf(i3), payUIKitConfig};
+            Object[] objArr = {activity, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mGiftBagList = new ArrayList();
-        this.f61505e = activity;
-        this.f61509i = payUIKitConfig;
+        this.f45846f = new ArrayList();
+        this.a = activity;
+        this.f45845e = payUIKitConfig;
         a(activity);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.f61509i))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
-            this.f61506f = (RecyclerView) findViewById(R.id.rv_campaign);
-            this.f61507g = (RelativeLayout) findViewById(R.id.rl_content);
-            this.k = new LinearLayoutManager(context, 0, false);
-            this.f61510j = new PayAmountCampaignListAdapter(this.f61505e, this.mGiftBagList, this.f61509i);
-            this.f61506f.setLayoutManager(this.k);
-            this.f61506f.addItemDecoration(new PayCampaignListItemDecoration());
-            this.f61506f.setAdapter(this.f61510j);
+            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.f45845e))).inflate(R.layout.obfuscated_res_0x7f0d0668, (ViewGroup) this, true);
+            this.f45842b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b06);
+            this.f45843c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ac8);
+            this.f45848h = new LinearLayoutManager(context, 0, false);
+            this.f45847g = new PayAmountCampaignListAdapter(this.a, this.f45846f, this.f45845e);
+            this.f45842b.setLayoutManager(this.f45848h);
+            this.f45842b.addItemDecoration(new PayCampaignListItemDecoration());
+            this.f45842b.setAdapter(this.f45847g);
         }
     }
 
-    @Override // j.a.a.e.i.a
+    @Override // h.a.a.e.i.a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // j.a.a.e.i.a
+    @Override // h.a.a.e.i.a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            GiftBagsInfo giftBagsInfo = this.f61508h;
+            GiftBagsInfo giftBagsInfo = this.f45844d;
             if (giftBagsInfo == null) {
                 RLog.error("YYPayAmountCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
             }
             List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
-                this.mGiftBagList.clear();
-                this.mGiftBagList.addAll(this.f61508h.giftbag);
-                this.f61510j.notifyDataSetChanged();
+                this.f45846f.clear();
+                this.f45846f.addAll(this.f45844d.giftbag);
+                this.f45847g.notifyDataSetChanged();
                 return;
             }
             RLog.error("YYPayAmountCampaignView", "refreshView error giftbag null", new Object[0]);
         }
     }
 
-    @Override // j.a.a.e.i.b
+    @Override // h.a.a.e.i.b
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
             RLog.info("YYPayAmountCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.f61508h = giftBagsInfo;
+            this.f45844d = giftBagsInfo;
         }
     }
 }

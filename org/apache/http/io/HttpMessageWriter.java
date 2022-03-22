@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.HttpException;
 import org.apache.http.HttpMessage;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HttpMessageWriter {
     void write(HttpMessage httpMessage) throws IOException, HttpException;
 }

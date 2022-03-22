@@ -13,7 +13,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class HashingSource extends ForwardingSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class HashingSource extends ForwardingSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {source, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Source) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -76,7 +76,7 @@ public final class HashingSource extends ForwardingSource {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, source)) == null) ? new HashingSource(source, "SHA-256") : (HashingSource) invokeL.objValue;
     }
 
-    public final ByteString hash() {
+    public ByteString hash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -87,30 +87,30 @@ public final class HashingSource extends ForwardingSource {
     }
 
     @Override // okio.ForwardingSource, okio.Source
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
-            long read = super.read(buffer, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            long read = super.read(buffer, j);
             if (read != -1) {
-                long j3 = buffer.size;
-                long j4 = j3 - read;
+                long j2 = buffer.size;
+                long j3 = j2 - read;
                 Segment segment = buffer.head;
-                while (j3 > j4) {
+                while (j2 > j3) {
                     segment = segment.prev;
-                    j3 -= segment.limit - segment.pos;
+                    j2 -= segment.limit - segment.pos;
                 }
-                while (j3 < buffer.size) {
-                    int i2 = (int) ((segment.pos + j4) - j3);
+                while (j2 < buffer.size) {
+                    int i = (int) ((segment.pos + j3) - j2);
                     MessageDigest messageDigest = this.messageDigest;
                     if (messageDigest != null) {
-                        messageDigest.update(segment.data, i2, segment.limit - i2);
+                        messageDigest.update(segment.data, i, segment.limit - i);
                     } else {
-                        this.mac.update(segment.data, i2, segment.limit - i2);
+                        this.mac.update(segment.data, i, segment.limit - i);
                     }
-                    j4 = (segment.limit - segment.pos) + j3;
+                    j3 = (segment.limit - segment.pos) + j2;
                     segment = segment.next;
-                    j3 = j4;
+                    j2 = j3;
                 }
             }
             return read;
@@ -127,9 +127,9 @@ public final class HashingSource extends ForwardingSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {source, byteString, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Source) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

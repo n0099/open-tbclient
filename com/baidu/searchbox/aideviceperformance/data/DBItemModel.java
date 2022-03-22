@@ -20,23 +20,23 @@ public class DBItemModel {
         public long launchTime;
         public long timeStamp;
 
-        public LaunchTimeItemModel(long j2, long j3) {
+        public LaunchTimeItemModel(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.launchTime = j2;
-            this.timeStamp = j3;
+            this.launchTime = j;
+            this.timeStamp = j2;
         }
     }
 
@@ -45,9 +45,9 @@ public class DBItemModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,23 +70,23 @@ public class DBItemModel {
             public int count;
             public long firstTime;
 
-            public ItemDetailModel(int i2, long j2) {
+            public ItemDetailModel(int i, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                    Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.count = i2;
-                this.firstTime = j2;
+                this.count = i;
+                this.firstTime = j;
             }
 
             public String toString() {
@@ -99,23 +99,23 @@ public class DBItemModel {
             }
         }
 
-        public UserStickinessItemModel(long j2) {
+        public UserStickinessItemModel(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mIdToItemDetailMap = new HashMap<>();
-            this.timeStamp = j2;
+            this.timeStamp = j;
         }
 
         public HashMap<String, ItemDetailModel> getIdToItemDetailMap() {
@@ -145,16 +145,16 @@ public class DBItemModel {
             return (String) invokeV.objValue;
         }
 
-        public UserStickinessItemModel(String str, int i2, long j2, long j3) {
+        public UserStickinessItemModel(String str, int i, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -162,8 +162,8 @@ public class DBItemModel {
             }
             HashMap<String, ItemDetailModel> hashMap = new HashMap<>();
             this.mIdToItemDetailMap = hashMap;
-            this.timeStamp = j3;
-            hashMap.put(str, new ItemDetailModel(i2, j2));
+            this.timeStamp = j2;
+            hashMap.put(str, new ItemDetailModel(i, j));
         }
     }
 }

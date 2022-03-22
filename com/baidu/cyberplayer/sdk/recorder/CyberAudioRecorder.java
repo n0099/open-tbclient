@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CyberAudioRecorder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_INT_ENC_BIT_RATE = "enc_bit_rate";
@@ -27,31 +27,31 @@ public abstract class CyberAudioRecorder {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnEncBufferCallbackListener {
-        boolean onFrameRecorded(ByteBuffer byteBuffer, int i2, boolean z);
+        boolean onFrameRecorded(ByteBuffer byteBuffer, int i, boolean z);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnErrorListener {
-        boolean onError(int i2, int i3, Object obj);
+        boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnInfoListener {
-        boolean onInfo(int i2, int i3, Object obj);
+        boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
@@ -61,9 +61,9 @@ public abstract class CyberAudioRecorder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -88,7 +88,7 @@ public abstract class CyberAudioRecorder {
 
     public abstract void setOnPreparedListener(OnPreparedListener onPreparedListener);
 
-    public abstract void setParameter(String str, long j2);
+    public abstract void setParameter(String str, long j);
 
     public abstract void setParameter(String str, String str2);
 

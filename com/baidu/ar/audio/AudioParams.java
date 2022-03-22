@@ -34,9 +34,9 @@ public class AudioParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -129,52 +129,52 @@ public class AudioParams {
         }
     }
 
-    public void setAudioBufferSize(int i2) {
+    public void setAudioBufferSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mAudioBufferSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mAudioBufferSize = i;
         }
     }
 
-    public void setAudioFormat(int i2) {
+    public void setAudioFormat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mAudioFormat = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mAudioFormat = i;
         }
     }
 
-    public void setAudioSource(int i2) {
+    public void setAudioSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mAudioSource = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mAudioSource = i;
         }
     }
 
-    public void setChannelConfig(int i2) {
+    public void setChannelConfig(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mChannelConfig = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mChannelConfig = i;
         }
     }
 
-    public void setFrameBufferCount(int i2) {
+    public void setFrameBufferCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mFrameBufferCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mFrameBufferCount = i;
         }
     }
 
-    public void setFrameSize(int i2) {
+    public void setFrameSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mFrameSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mFrameSize = i;
         }
     }
 
-    public void setSampleRate(int i2) {
+    public void setSampleRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mSampleRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mSampleRate = i;
         }
     }
 }

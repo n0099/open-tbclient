@@ -32,9 +32,9 @@ public class StandardKt__StandardKt {
     }
 
     @InlineOnly
-    public static final void repeat(int i2, Function1<? super Integer, Unit> function1) {
-        for (int i3 = 0; i3 < i2; i3++) {
-            function1.invoke(Integer.valueOf(i3));
+    public static final void repeat(int i, Function1<? super Integer, Unit> function1) {
+        for (int i2 = 0; i2 < i; i2++) {
+            function1.invoke(Integer.valueOf(i2));
         }
     }
 

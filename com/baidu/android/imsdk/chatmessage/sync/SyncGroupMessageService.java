@@ -51,9 +51,9 @@ public class SyncGroupMessageService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -145,12 +145,12 @@ public class SyncGroupMessageService {
         this.mNewRecords.add(dialogRecord);
     }
 
-    private void remove(DialogRecord dialogRecord, int i2) {
+    private void remove(DialogRecord dialogRecord, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, this, dialogRecord, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65546, this, dialogRecord, i) == null) {
             String str = TAG;
-            LogUtils.d(str, "BB remove dialogRecord " + dialogRecord + " " + i2);
-            if (i2 == 0) {
+            LogUtils.d(str, "BB remove dialogRecord " + dialogRecord + " " + i);
+            if (i == 0) {
                 this.mDialogRecords.remove(dialogRecord);
             } else {
                 this.mNewRecords.remove(dialogRecord);
@@ -170,15 +170,15 @@ public class SyncGroupMessageService {
         }
     }
 
-    public void execute(Context context, int i2, long j2, long j3, int i3) {
+    public void execute(Context context, int i, long j, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             String str = TAG;
-            LogUtils.d(str, "SYNCGROUPNEW group sync execute 1 \"to\":" + j2 + " " + j3 + " " + i3);
+            LogUtils.d(str, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + " " + j2 + " " + i2);
             synchronized (synobject) {
-                DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i2, j2);
+                DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i, j);
                 if (dialogRecord == null) {
-                    dialogRecord = new DialogRecord().setCategory(i2).setContacter(j2).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
+                    dialogRecord = new DialogRecord().setCategory(i).setContacter(j).setJumpToRecent(0).setMaxMsgid(0L).setUpdateTime(System.currentTimeMillis());
                     long add = DialogRecordDBManager.getInstance(context).add(dialogRecord);
                     dialogRecord.setJumpToRecent(1);
                     String str2 = TAG;
@@ -195,7 +195,7 @@ public class SyncGroupMessageService {
                 }
                 dialogRecord.setState(0);
                 putNew(dialogRecord);
-                execute(context, dialogRecord, i3);
+                execute(context, dialogRecord, i2);
             }
         }
     }
@@ -210,11 +210,11 @@ public class SyncGroupMessageService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            int i2 = DialogRecordDBManager.getInstance(context).getUnCompleteItemCount() > 0 ? 0 : 1;
-            if (i2 == 0 && this.mComplete) {
+            int i = DialogRecordDBManager.getInstance(context).getUnCompleteItemCount() > 0 ? 0 : 1;
+            if (i == 0 && this.mComplete) {
                 return 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -225,26 +225,26 @@ public class SyncGroupMessageService {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mComplete : invokeV.booleanValue;
     }
 
-    public int getState(Context context, long j2) {
+    public int getState(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, context, j)) == null) {
             String str = TAG;
-            LogUtils.d(str, "getState --->" + j2);
-            return (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j2) == 0 || this.mComplete) ? 1 : 0;
+            LogUtils.d(str, "getState --->" + j);
+            return (DialogRecordDBManager.getInstance(context).getUnCompleteItemCount(j) == 0 || this.mComplete) ? 1 : 0;
         }
         return invokeLJ.intValue;
     }
 
-    public void execute(Context context, DialogRecord dialogRecord, int i2) {
+    public void execute(Context context, DialogRecord dialogRecord, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, dialogRecord, i2) == null) {
-            int i3 = 0;
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, dialogRecord, i) == null) {
+            int i2 = 0;
+            if (i == 0) {
                 this.mComplete = false;
             }
             synchronized (synobject) {
-                if (dialogRecord != null && i2 == 0) {
+                if (dialogRecord != null && i == 0) {
                     if (dialogRecord.getMaxMsgid() == 0) {
                         dialogRecord.setJumpToRecent(1);
                     }
@@ -256,11 +256,11 @@ public class SyncGroupMessageService {
                     dialogRecord2 = getNew();
                     if (dialogRecord2 != null) {
                         LogUtils.d(TAG, "SYNCGROUPNEW to work...");
-                        i2 = 2;
-                        i3 = 1;
+                        i = 2;
+                        i2 = 1;
                     }
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
                 if (dialogRecord2 == null) {
                     LogUtils.d(TAG, "SYNCGROUP loging trigger dialog is null --2");
@@ -270,9 +270,9 @@ public class SyncGroupMessageService {
                 SyncGroupMessage syncGroupMessage = this.mGroupSyncMap.size() < 1 ? new SyncGroupMessage(context) : null;
                 if (syncGroupMessage != null) {
                     LogUtils.d(TAG, "find sync group message worker!");
-                    remove(dialogRecord2, i3);
+                    remove(dialogRecord2, i2);
                     syncGroupMessage.setDialogRecord(dialogRecord2);
-                    syncGroupMessage.setCompleteListener(new SyncStrategy.CompleteListener(this, chatObject, i2, context) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService.1
+                    syncGroupMessage.setCompleteListener(new SyncStrategy.CompleteListener(this, chatObject, i, context) { // from class: com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ SyncGroupMessageService this$0;
@@ -285,11 +285,11 @@ public class SyncGroupMessageService {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, chatObject, Integer.valueOf(i2), context};
+                                Object[] objArr = {this, chatObject, Integer.valueOf(i), context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -297,7 +297,7 @@ public class SyncGroupMessageService {
                             }
                             this.this$0 = this;
                             this.val$key = chatObject;
-                            this.val$triggerReason = i2;
+                            this.val$triggerReason = i;
                             this.val$context = context;
                         }
 
@@ -317,7 +317,7 @@ public class SyncGroupMessageService {
                             }
                         }
                     });
-                    syncGroupMessage.start(i2);
+                    syncGroupMessage.start(i);
                     this.mGroupSyncMap.put(chatObject, syncGroupMessage);
                 }
             }

@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import c.a.j.h.b.b;
@@ -12,7 +13,6 @@ import c.a.j.h.d.e;
 import c.a.j.h.d.h;
 import c.a.j.m.g;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.ctrl.b;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
@@ -35,7 +35,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.kwad.sdk.api.core.RemoteViewBuilder;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -55,31 +54,27 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Þ\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010$\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000 \u0099\u0001:\u0002\u0099\u0001B\n\b\u0002¢\u0006\u0005\b\u0098\u0001\u0010\u001dJ\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0007J'\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000eJ/\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000fJ%\u0010\u0014\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u00102\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u001a\u001a\u00020\u00102\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001e\u001a\u00020\u0003H\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010!\u001a\u00020\u00032\u0006\u0010\u001f\u001a\u00020\u0001H\u0000¢\u0006\u0004\b \u0010\u0005J\u0017\u0010#\u001a\u00020\u00032\u0006\u0010\"\u001a\u00020\u0001H\u0016¢\u0006\u0004\b#\u0010\u0005J\u0017\u0010$\u001a\u00020\u00032\u0006\u0010\"\u001a\u00020\u0001H\u0016¢\u0006\u0004\b$\u0010\u0005J\u0017\u0010'\u001a\u00020\u00032\u0006\u0010&\u001a\u00020%H\u0002¢\u0006\u0004\b'\u0010(J\u001f\u0010.\u001a\u00020\u00032\u0006\u0010)\u001a\u00020\u00012\u0006\u0010+\u001a\u00020*H\u0000¢\u0006\u0004\b,\u0010-J\u001f\u0010/\u001a\u00020\u00102\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b/\u0010\u001bJ5\u00105\u001a\u0014\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020403022\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b5\u00106J+\u00109\u001a\u00020\u00032\u0006\u00108\u001a\u0002072\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b9\u0010:J\u0019\u0010;\u001a\u0004\u0018\u0001042\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b;\u0010<J\u001f\u0010>\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020=H\u0016¢\u0006\u0004\b>\u0010?J%\u0010@\u001a\u0004\u0018\u0001042\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b@\u0010AJ+\u0010B\u001a\u00020\u00032\u0006\u00108\u001a\u00020=2\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\bB\u0010CJ\u000f\u0010E\u001a\u00020DH\u0002¢\u0006\u0004\bE\u0010FJ\u0011\u0010G\u001a\u0004\u0018\u000104H\u0016¢\u0006\u0004\bG\u0010HJ\u001f\u0010M\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010J\u001a\u00020IH\u0000¢\u0006\u0004\bK\u0010LJ\u001f\u0010P\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020NH\u0016¢\u0006\u0004\bP\u0010QJ=\u0010X\u001a\u00020\u0003\"\b\b\u0000\u0010S*\u00020R2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010U\u001a\b\u0012\u0004\u0012\u00028\u00000T2\f\u0010W\u001a\b\u0012\u0004\u0012\u00028\u00000VH\u0016¢\u0006\u0004\bX\u0010YJ\u001f\u0010[\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020ZH\u0016¢\u0006\u0004\b[\u0010\\J\u001f\u0010^\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0004\b^\u0010_J'\u0010^\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]2\u0006\u0010`\u001a\u00020\u0010H\u0002¢\u0006\u0004\b^\u0010aJ\u001f\u0010b\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0004\bb\u0010_J\u001f\u0010d\u001a\u00020\u00032\u0006\u0010c\u001a\u00020\u00012\u0006\u0010O\u001a\u00020]H\u0016¢\u0006\u0004\bd\u0010eJ#\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\b\u0010O\u001a\u0004\u0018\u00010]H\u0002¢\u0006\u0004\bf\u0010_J+\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\u0006\u0010g\u001a\u00020\u00102\b\u0010O\u001a\u0004\u0018\u00010]H\u0002¢\u0006\u0004\bf\u0010hJ5\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\u0006\u0010g\u001a\u00020\u00102\b\u0010O\u001a\u0004\u0018\u00010]2\b\u0010j\u001a\u0004\u0018\u00010iH\u0002¢\u0006\u0004\bf\u0010kJ\u0017\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u0001H\u0016¢\u0006\u0004\bf\u0010\u0005J!\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u00012\b\u0010O\u001a\u0004\u0018\u00010]H\u0016¢\u0006\u0004\bf\u0010eJ+\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u00012\b\u0010O\u001a\u0004\u0018\u00010]2\b\u0010j\u001a\u0004\u0018\u00010iH\u0016¢\u0006\u0004\bf\u0010mJ\u0017\u0010n\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0002¢\u0006\u0004\bn\u0010oJ\u0017\u0010n\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\bn\u0010\u0005J\u0017\u0010q\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0000¢\u0006\u0004\bp\u0010oJ\u001f\u0010r\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010j\u001a\u00020iH\u0002¢\u0006\u0004\br\u0010sJ\u001f\u0010r\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010j\u001a\u00020iH\u0016¢\u0006\u0004\br\u0010tJ\u001f\u0010x\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010W\u001a\u00020uH\u0000¢\u0006\u0004\bv\u0010wJ\u0017\u0010y\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0002¢\u0006\u0004\by\u0010oJ/\u0010~\u001a\u00020\u00032\u0006\u0010z\u001a\u00020\u00012\u0006\u0010{\u001a\u00020\u00012\u0006\u0010|\u001a\u00020I2\u0006\u00108\u001a\u00020}H\u0016¢\u0006\u0004\b~\u0010\u007fJ<\u0010~\u001a\u00020\u00032\u0006\u0010z\u001a\u00020\u00012\u0006\u0010{\u001a\u00020\u00012\u0006\u0010|\u001a\u00020I2\n\u0010\u0081\u0001\u001a\u0005\u0018\u00010\u0080\u00012\u0006\u00108\u001a\u00020}H\u0016¢\u0006\u0005\b~\u0010\u0082\u0001J\u001c\u0010\u0084\u0001\u001a\u00020\u00032\t\u0010\u0083\u0001\u001a\u0004\u0018\u00010\u0001H\u0002¢\u0006\u0005\b\u0084\u0001\u0010\u0005J!\u0010\u0085\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020NH\u0016¢\u0006\u0005\b\u0085\u0001\u0010QJ2\u0010\u0086\u0001\u001a\u00020\u0003\"\b\b\u0000\u0010S*\u00020R2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010W\u001a\b\u0012\u0004\u0012\u00028\u00000VH\u0016¢\u0006\u0006\b\u0086\u0001\u0010\u0087\u0001J!\u0010\u0088\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020ZH\u0016¢\u0006\u0005\b\u0088\u0001\u0010\\J!\u0010\u0089\u0001\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0005\b\u0089\u0001\u0010_J!\u0010\u008a\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020]H\u0016¢\u0006\u0005\b\u008a\u0001\u0010eJ\u0019\u0010\u008b\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0005\b\u008b\u0001\u0010\u0005J\"\u0010\u008b\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0007\u0010\u008c\u0001\u001a\u00020\u0001H\u0000¢\u0006\u0005\b\u008d\u0001\u0010\u0007R\u001a\u0010\u008f\u0001\u001a\u00030\u008e\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0090\u0001R\u001a\u0010\u0092\u0001\u001a\u00030\u0091\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0092\u0001\u0010\u0093\u0001R'\u0010\u0096\u0001\u001a\u0010\u0012\u0004\u0012\u00020D\u0012\u0005\u0012\u00030\u0095\u00010\u0094\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0097\u0001¨\u0006\u009a\u0001"}, d2 = {"Lcom/baidu/bdtask/BDPTask;", "", "actionId", "", "addActionWithActionId", "(Ljava/lang/String;)V", "duplicateId", "(Ljava/lang/String;Ljava/lang/String;)V", "tag", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "", "sliceTimeMs", "addDurationWithActionId", "(Ljava/lang/String;J)V", "(Ljava/lang/String;JLjava/lang/String;)V", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "", TTDownloadField.TT_FORCE, "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "appStateASync", "(ZLcom/baidu/bdtask/model/info/TaskInfo;)V", "Landroid/app/Activity;", "curActivity", "attachCurActivity", "(Landroid/app/Activity;)V", "cacheDuplicateId", "(Ljava/lang/String;Ljava/lang/String;)Z", "cleanAllCallbacks$lib_bdtask_business_build_release", "()V", "cleanAllCallbacks", "taskInfoKey", "cleanTaskNoClickTimes$lib_bdtask_business_build_release", "cleanTaskNoClickTimes", TaskInfo.keyActTaskId, "clearPassiveTaskByActTaskId", "clearTaskByActTaskId", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "subState", "dispatchState", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "taskSingleKey", "Lcom/baidu/bdtask/utils/UniqueId;", TbEnum.SystemMessage.KEY_EVENT_ID, "dispatchTaskBusinessEvent$lib_bdtask_business_build_release", "(Ljava/lang/String;Lcom/baidu/bdtask/utils/UniqueId;)V", "dispatchTaskBusinessEvent", "duplicateIdIsRepeatedByActionId", "", "actionIds", "", "", "Lcom/baidu/bdtask/TaskState;", "findAllTaskStateByActionIds", "([Ljava/lang/String;)Ljava/util/Map;", "Lcom/baidu/bdtask/TaskAllStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "findAllTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskAllStateCallback;[Ljava/lang/String;)V", "findTaskStateByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/TaskStateCallback;", "findTaskStateByActionIdAsync", "(Ljava/lang/String;Lcom/baidu/bdtask/TaskStateCallback;)V", "findTaskStateByActionIds", "([Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "findTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskStateCallback;[Ljava/lang/String;)V", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "getAppState", "()Lcom/baidu/bdtask/ctrl/BDPTaskState;", "getCurActiveTaskState", "()Lcom/baidu/bdtask/TaskState;", "", "errNo", "interruptPassiveTask$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/model/info/TaskInfo;I)V", "interruptPassiveTask", "Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;", "taskCallback", "registerPassiveTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;)V", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", "T", "Ljava/lang/Class;", "eventClass", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "registerTaskBusinessEventAction", "(Ljava/lang/String;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", "registerTaskBusinessEventListener", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/callbacks/TaskCallback;", "registerTaskListener", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "sticky", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;Z)V", "registerTaskListenerSticky", "actonId", "registerTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "registerTaskWithInfo", "reset", "(Lcom/baidu/bdtask/model/info/TaskInfo;ZLcom/baidu/bdtask/callbacks/TaskCallback;)V", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "taskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;ZLcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "rawTaskStr", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "removeTaskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;)V", "resetTaskInfo2Running$lib_bdtask_business_build_release", "resetTaskInfo2Running", "setTaskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "(Ljava/lang/String;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "Lcom/baidu/bdtask/framework/redux/Action;", "storeDispatch$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/framework/redux/Action;)V", "storeDispatch", "subscribeStore", "token", RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, "behavior", "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "taskStateStr", "taskStateRestore", "unRegisterPassiveTaskListenerWithActionId", "unRegisterTaskBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "unRegisterTaskBusinessEventListener", "unRegisterTaskListener", "unRegisterTaskListenerWithActionId", "unregisterTaskWithActionId", "unRegisterMsg", "unregisterTaskWithActionId$lib_bdtask_business_build_release", "Lcom/baidu/bdtask/strategy/ExceptionStrategyImpl;", "exceptionStrategy", "Lcom/baidu/bdtask/strategy/ExceptionStrategyImpl;", "Lcom/baidu/bdtask/strategy/LifecycleStrategyImpl;", "lifecycleStrategy", "Lcom/baidu/bdtask/strategy/LifecycleStrategyImpl;", "Lcom/baidu/bdtask/framework/redux/Store;", "Lcom/baidu/bdtask/ctrl/DefaultTaskAction;", "store", "Lcom/baidu/bdtask/framework/redux/Store;", "<init>", "INSTANCE", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Þ\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010$\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000 \u0099\u0001:\u0002\u0099\u0001B\n\b\u0002¢\u0006\u0005\b\u0098\u0001\u0010\u001dJ\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0007J'\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000eJ/\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000fJ%\u0010\u0014\u001a\u00020\u00032\b\b\u0002\u0010\u0011\u001a\u00020\u00102\n\b\u0002\u0010\u0013\u001a\u0004\u0018\u00010\u0012H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u001a\u001a\u00020\u00102\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001e\u001a\u00020\u0003H\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010!\u001a\u00020\u00032\u0006\u0010\u001f\u001a\u00020\u0001H\u0000¢\u0006\u0004\b \u0010\u0005J\u0017\u0010#\u001a\u00020\u00032\u0006\u0010\"\u001a\u00020\u0001H\u0016¢\u0006\u0004\b#\u0010\u0005J\u0017\u0010$\u001a\u00020\u00032\u0006\u0010\"\u001a\u00020\u0001H\u0016¢\u0006\u0004\b$\u0010\u0005J\u0017\u0010'\u001a\u00020\u00032\u0006\u0010&\u001a\u00020%H\u0002¢\u0006\u0004\b'\u0010(J\u001f\u0010.\u001a\u00020\u00032\u0006\u0010)\u001a\u00020\u00012\u0006\u0010+\u001a\u00020*H\u0000¢\u0006\u0004\b,\u0010-J\u001f\u0010/\u001a\u00020\u00102\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b/\u0010\u001bJ5\u00105\u001a\u0014\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020403022\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b5\u00106J+\u00109\u001a\u00020\u00032\u0006\u00108\u001a\u0002072\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b9\u0010:J\u0019\u0010;\u001a\u0004\u0018\u0001042\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b;\u0010<J\u001f\u0010>\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020=H\u0016¢\u0006\u0004\b>\u0010?J%\u0010@\u001a\u0004\u0018\u0001042\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\b@\u0010AJ+\u0010B\u001a\u00020\u00032\u0006\u00108\u001a\u00020=2\u0012\u00101\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u000100\"\u00020\u0001H\u0016¢\u0006\u0004\bB\u0010CJ\u000f\u0010E\u001a\u00020DH\u0002¢\u0006\u0004\bE\u0010FJ\u0011\u0010G\u001a\u0004\u0018\u000104H\u0016¢\u0006\u0004\bG\u0010HJ\u001f\u0010M\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010J\u001a\u00020IH\u0000¢\u0006\u0004\bK\u0010LJ\u001f\u0010P\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020NH\u0016¢\u0006\u0004\bP\u0010QJ=\u0010X\u001a\u00020\u0003\"\b\b\u0000\u0010S*\u00020R2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010U\u001a\b\u0012\u0004\u0012\u00028\u00000T2\f\u0010W\u001a\b\u0012\u0004\u0012\u00028\u00000VH\u0016¢\u0006\u0004\bX\u0010YJ\u001f\u0010[\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020ZH\u0016¢\u0006\u0004\b[\u0010\\J\u001f\u0010^\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0004\b^\u0010_J'\u0010^\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]2\u0006\u0010`\u001a\u00020\u0010H\u0002¢\u0006\u0004\b^\u0010aJ\u001f\u0010b\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0004\bb\u0010_J\u001f\u0010d\u001a\u00020\u00032\u0006\u0010c\u001a\u00020\u00012\u0006\u0010O\u001a\u00020]H\u0016¢\u0006\u0004\bd\u0010eJ#\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\b\u0010O\u001a\u0004\u0018\u00010]H\u0002¢\u0006\u0004\bf\u0010_J+\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\u0006\u0010g\u001a\u00020\u00102\b\u0010O\u001a\u0004\u0018\u00010]H\u0002¢\u0006\u0004\bf\u0010hJ5\u0010f\u001a\u00020\u00032\b\u0010\u0013\u001a\u0004\u0018\u00010\u00122\u0006\u0010g\u001a\u00020\u00102\b\u0010O\u001a\u0004\u0018\u00010]2\b\u0010j\u001a\u0004\u0018\u00010iH\u0002¢\u0006\u0004\bf\u0010kJ\u0017\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u0001H\u0016¢\u0006\u0004\bf\u0010\u0005J!\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u00012\b\u0010O\u001a\u0004\u0018\u00010]H\u0016¢\u0006\u0004\bf\u0010eJ+\u0010f\u001a\u00020\u00032\u0006\u0010l\u001a\u00020\u00012\b\u0010O\u001a\u0004\u0018\u00010]2\b\u0010j\u001a\u0004\u0018\u00010iH\u0016¢\u0006\u0004\bf\u0010mJ\u0017\u0010n\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0002¢\u0006\u0004\bn\u0010oJ\u0017\u0010n\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\bn\u0010\u0005J\u0017\u0010q\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0000¢\u0006\u0004\bp\u0010oJ\u001f\u0010r\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010j\u001a\u00020iH\u0002¢\u0006\u0004\br\u0010sJ\u001f\u0010r\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010j\u001a\u00020iH\u0016¢\u0006\u0004\br\u0010tJ\u001f\u0010x\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010W\u001a\u00020uH\u0000¢\u0006\u0004\bv\u0010wJ\u0017\u0010y\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0012H\u0002¢\u0006\u0004\by\u0010oJ/\u0010~\u001a\u00020\u00032\u0006\u0010z\u001a\u00020\u00012\u0006\u0010{\u001a\u00020\u00012\u0006\u0010|\u001a\u00020I2\u0006\u00108\u001a\u00020}H\u0016¢\u0006\u0004\b~\u0010\u007fJ<\u0010~\u001a\u00020\u00032\u0006\u0010z\u001a\u00020\u00012\u0006\u0010{\u001a\u00020\u00012\u0006\u0010|\u001a\u00020I2\n\u0010\u0081\u0001\u001a\u0005\u0018\u00010\u0080\u00012\u0006\u00108\u001a\u00020}H\u0016¢\u0006\u0005\b~\u0010\u0082\u0001J\u001c\u0010\u0084\u0001\u001a\u00020\u00032\t\u0010\u0083\u0001\u001a\u0004\u0018\u00010\u0001H\u0002¢\u0006\u0005\b\u0084\u0001\u0010\u0005J!\u0010\u0085\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020NH\u0016¢\u0006\u0005\b\u0085\u0001\u0010QJ2\u0010\u0086\u0001\u001a\u00020\u0003\"\b\b\u0000\u0010S*\u00020R2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010W\u001a\b\u0012\u0004\u0012\u00028\u00000VH\u0016¢\u0006\u0006\b\u0086\u0001\u0010\u0087\u0001J!\u0010\u0088\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u00108\u001a\u00020ZH\u0016¢\u0006\u0005\b\u0088\u0001\u0010\\J!\u0010\u0089\u0001\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010O\u001a\u00020]H\u0002¢\u0006\u0005\b\u0089\u0001\u0010_J!\u0010\u008a\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010O\u001a\u00020]H\u0016¢\u0006\u0005\b\u008a\u0001\u0010eJ\u0019\u0010\u008b\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0005\b\u008b\u0001\u0010\u0005J\"\u0010\u008b\u0001\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0007\u0010\u008c\u0001\u001a\u00020\u0001H\u0000¢\u0006\u0005\b\u008d\u0001\u0010\u0007R\u001a\u0010\u008f\u0001\u001a\u00030\u008e\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0090\u0001R\u001a\u0010\u0092\u0001\u001a\u00030\u0091\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0092\u0001\u0010\u0093\u0001R'\u0010\u0096\u0001\u001a\u0010\u0012\u0004\u0012\u00020D\u0012\u0005\u0012\u00030\u0095\u00010\u0094\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0096\u0001\u0010\u0097\u0001¨\u0006\u009a\u0001"}, d2 = {"Lcom/baidu/bdtask/BDPTask;", "", "actionId", "", "addActionWithActionId", "(Ljava/lang/String;)V", "duplicateId", "(Ljava/lang/String;Ljava/lang/String;)V", "tag", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "", "sliceTimeMs", "addDurationWithActionId", "(Ljava/lang/String;J)V", "(Ljava/lang/String;JLjava/lang/String;)V", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "", TTDownloadField.TT_FORCE, "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "appStateASync", "(ZLcom/baidu/bdtask/model/info/TaskInfo;)V", "Landroid/app/Activity;", "curActivity", "attachCurActivity", "(Landroid/app/Activity;)V", "cacheDuplicateId", "(Ljava/lang/String;Ljava/lang/String;)Z", "cleanAllCallbacks$lib_bdtask_business_build_release", "()V", "cleanAllCallbacks", "taskInfoKey", "cleanTaskNoClickTimes$lib_bdtask_business_build_release", "cleanTaskNoClickTimes", TaskInfo.keyActTaskId, "clearPassiveTaskByActTaskId", "clearTaskByActTaskId", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "subState", "dispatchState", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "taskSingleKey", "Lcom/baidu/bdtask/utils/UniqueId;", TbEnum.SystemMessage.KEY_EVENT_ID, "dispatchTaskBusinessEvent$lib_bdtask_business_build_release", "(Ljava/lang/String;Lcom/baidu/bdtask/utils/UniqueId;)V", "dispatchTaskBusinessEvent", "duplicateIdIsRepeatedByActionId", "", "actionIds", "", "", "Lcom/baidu/bdtask/TaskState;", "findAllTaskStateByActionIds", "([Ljava/lang/String;)Ljava/util/Map;", "Lcom/baidu/bdtask/TaskAllStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "findAllTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskAllStateCallback;[Ljava/lang/String;)V", "findTaskStateByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/TaskStateCallback;", "findTaskStateByActionIdAsync", "(Ljava/lang/String;Lcom/baidu/bdtask/TaskStateCallback;)V", "findTaskStateByActionIds", "([Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "findTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskStateCallback;[Ljava/lang/String;)V", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "getAppState", "()Lcom/baidu/bdtask/ctrl/BDPTaskState;", "getCurActiveTaskState", "()Lcom/baidu/bdtask/TaskState;", "", "errNo", "interruptPassiveTask$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/model/info/TaskInfo;I)V", "interruptPassiveTask", "Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;", "taskCallback", "registerPassiveTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;)V", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", "T", "Ljava/lang/Class;", "eventClass", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "registerTaskBusinessEventAction", "(Ljava/lang/String;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", "registerTaskBusinessEventListener", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/callbacks/TaskCallback;", "registerTaskListener", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "sticky", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;Z)V", "registerTaskListenerSticky", "actonId", "registerTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "registerTaskWithInfo", "reset", "(Lcom/baidu/bdtask/model/info/TaskInfo;ZLcom/baidu/bdtask/callbacks/TaskCallback;)V", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "taskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;ZLcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "rawTaskStr", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "removeTaskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;)V", "resetTaskInfo2Running$lib_bdtask_business_build_release", "resetTaskInfo2Running", "setTaskInterceptor", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "(Ljava/lang/String;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "Lcom/baidu/bdtask/framework/redux/Action;", "storeDispatch$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/framework/redux/Action;)V", "storeDispatch", "subscribeStore", "token", "taskId", "behavior", "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "taskStateStr", "taskStateRestore", "unRegisterPassiveTaskListenerWithActionId", "unRegisterTaskBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "unRegisterTaskBusinessEventListener", "unRegisterTaskListener", "unRegisterTaskListenerWithActionId", "unregisterTaskWithActionId", "unRegisterMsg", "unregisterTaskWithActionId$lib_bdtask_business_build_release", "Lcom/baidu/bdtask/strategy/ExceptionStrategyImpl;", "exceptionStrategy", "Lcom/baidu/bdtask/strategy/ExceptionStrategyImpl;", "Lcom/baidu/bdtask/strategy/LifecycleStrategyImpl;", "lifecycleStrategy", "Lcom/baidu/bdtask/strategy/LifecycleStrategyImpl;", "Lcom/baidu/bdtask/framework/redux/Store;", "Lcom/baidu/bdtask/ctrl/DefaultTaskAction;", "store", "Lcom/baidu/bdtask/framework/redux/Store;", "<init>", "INSTANCE", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class BDPTask {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c.a.j.j.a.a f31559d;
+    public static final c.a.j.j.a.a f24903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BDPTask f31560e;
+    public static BDPTask f24904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f31561f;
+    public static volatile boolean f24905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f31562g;
+    public static volatile boolean f24906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final ReentrantLock f31563h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final Condition f31564i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static BDPTask f31565j;
+    public static final ReentrantLock f24907h;
+    public static final Condition i;
+    public static BDPTask j;
     public static final ConcurrentLinkedQueue<Function0<Object>> k;
     public static c.a.j.j.d.a l;
     public static final INSTANCE m;
@@ -87,12 +82,12 @@ public final class BDPTask {
     public final d<b, c.a.j.f.d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.k.d f31566b;
+    public final c.a.j.k.d f24908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.j.k.a f31567c;
+    public final c.a.j.k.a f24909c;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000ä\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010$\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0086\u0003\u0018\u0000B\n\b\u0002¢\u0006\u0005\b¡\u0001\u0010\u0011J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0007J'\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000eJ/\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001d\u0010\u0005J\u0017\u0010\u001e\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001e\u0010\u0005J\u001f\u0010\u001f\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001f\u0010\u001bJ7\u0010%\u001a\u0016\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020$0#\u0018\u00010\"2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b%\u0010&J+\u0010)\u001a\u00020\u00032\u0006\u0010(\u001a\u00020'2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b)\u0010*J\u0019\u0010+\u001a\u0004\u0018\u00010$2\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b+\u0010,J\u001f\u0010.\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020-H\u0016¢\u0006\u0004\b.\u0010/J%\u00100\u001a\u0004\u0018\u00010$2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b0\u00101J+\u00102\u001a\u00020\u00032\u0006\u0010(\u001a\u00020-2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b2\u00103J\u0011\u00104\u001a\u0004\u0018\u00010$H\u0016¢\u0006\u0004\b4\u00105J\u000f\u00107\u001a\u0004\u0018\u000106¢\u0006\u0004\b7\u00108J\r\u00109\u001a\u00020\u0019¢\u0006\u0004\b9\u0010:J\u0017\u0010=\u001a\u00020\u00032\u0006\u0010<\u001a\u00020;H\u0007¢\u0006\u0004\b=\u0010>J\u000f\u0010?\u001a\u00020\u0003H\u0003¢\u0006\u0004\b?\u0010\u0011J\u001f\u0010B\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bB\u0010CJ=\u0010J\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010G\u001a\b\u0012\u0004\u0012\u00028\u00000F2\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bJ\u0010KJ\u001f\u0010M\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bM\u0010NJ\u001d\u0010R\u001a\u00020\u00032\u0006\u0010P\u001a\u00020O2\u0006\u0010A\u001a\u00020Q¢\u0006\u0004\bR\u0010SJ\u001f\u0010U\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bU\u0010VJ\u0017\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u0001H\u0016¢\u0006\u0004\bX\u0010\u0005J!\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010QH\u0016¢\u0006\u0004\bX\u0010VJ+\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010Q2\b\u0010Z\u001a\u0004\u0018\u00010YH\u0016¢\u0006\u0004\bX\u0010[J\u000f\u0010\\\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\\\u0010\u0011J\u0017\u0010]\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b]\u0010\u0005J\u001f\u0010^\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010Z\u001a\u00020YH\u0016¢\u0006\u0004\b^\u0010_J/\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010fJ9\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\b\u0010h\u001a\u0004\u0018\u00010g2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010iJ\u001f\u0010j\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bj\u0010CJ/\u0010k\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bk\u0010lJ\u001f\u0010m\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bm\u0010NJ\u001f\u0010n\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bn\u0010VJ\u0017\u0010o\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\bo\u0010\u0005J1\u0010r\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010E2\b\b\u0002\u0010p\u001a\u00020\u00192\u000e\u0010I\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000qH\u0002¢\u0006\u0004\br\u0010sR*\u0010v\u001a\u0010\u0012\f\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010u0q0t8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\bv\u0010w\u001a\u0004\bx\u0010yR\u001c\u0010{\u001a\u00020z8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~R&\u0010\u007f\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0016\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0005\b\u0081\u0001\u0010:\"\u0006\b\u0082\u0001\u0010\u0083\u0001R\"\u0010\u0085\u0001\u001a\u00030\u0084\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u0085\u0001\u0010\u0086\u0001\u001a\u0006\b\u0087\u0001\u0010\u0088\u0001R,\u0010\u008b\u0001\u001a\r \u008a\u0001*\u0005\u0018\u00010\u0089\u00010\u0089\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u008b\u0001\u0010\u008c\u0001\u001a\u0006\b\u008d\u0001\u0010\u008e\u0001R(\u0010\u008f\u0001\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0017\n\u0006\b\u008f\u0001\u0010\u0080\u0001\u001a\u0005\b\u0090\u0001\u0010:\"\u0006\b\u0091\u0001\u0010\u0083\u0001R,\u0010\u0093\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0000@\u0000X\u0080\u000e¢\u0006\u0018\n\u0006\b\u0093\u0001\u0010\u0094\u0001\u001a\u0006\b\u0095\u0001\u0010\u0096\u0001\"\u0006\b\u0097\u0001\u0010\u0098\u0001R,\u0010\u0099\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0018\n\u0006\b\u0099\u0001\u0010\u0094\u0001\u001a\u0006\b\u009a\u0001\u0010\u0096\u0001\"\u0006\b\u009b\u0001\u0010\u0098\u0001R*\u0010\u009c\u0001\u001a\u0004\u0018\u0001068\u0002@\u0002X\u0082\u000e¢\u0006\u0017\n\u0006\b\u009c\u0001\u0010\u009d\u0001\u001a\u0005\b\u009e\u0001\u00108\"\u0006\b\u009f\u0001\u0010 \u0001¨\u0006¢\u0001"}, d2 = {"Lcom/baidu/bdtask/BDPTask$INSTANCE;", "", "actionId", "", "addActionWithActionId", "(Ljava/lang/String;)V", "duplicateId", "(Ljava/lang/String;Ljava/lang/String;)V", "tag", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "", "sliceTimeMs", "addDurationWithActionId", "(Ljava/lang/String;J)V", "(Ljava/lang/String;JLjava/lang/String;)V", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "asyncLockNotify", "()V", "waitTime", "asyncLockWait", "(J)V", "Landroid/app/Activity;", "curActivity", "attachCurActivity", "(Landroid/app/Activity;)V", "", "cacheDuplicateId", "(Ljava/lang/String;Ljava/lang/String;)Z", TaskInfo.keyActTaskId, "clearPassiveTaskByActTaskId", "clearTaskByActTaskId", "duplicateIdIsRepeatedByActionId", "", "actionIds", "", "", "Lcom/baidu/bdtask/TaskState;", "findAllTaskStateByActionIds", "([Ljava/lang/String;)Ljava/util/Map;", "Lcom/baidu/bdtask/TaskAllStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "findAllTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskAllStateCallback;[Ljava/lang/String;)V", "findTaskStateByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/TaskStateCallback;", "findTaskStateByActionIdAsync", "(Ljava/lang/String;Lcom/baidu/bdtask/TaskStateCallback;)V", "findTaskStateByActionIds", "([Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "findTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskStateCallback;[Ljava/lang/String;)V", "getCurActiveTaskState", "()Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/service/base/TaskService;", "getServiceManager", "()Lcom/baidu/bdtask/service/base/TaskService;", "hasInitialized", "()Z", "Lcom/baidu/bdtask/BDPTaskConfig;", "bdpTaskConfig", "init", "(Lcom/baidu/bdtask/BDPTaskConfig;)V", "offerActionQueue", "Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;", "taskCallback", "registerPassiveTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;)V", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", "T", "Ljava/lang/Class;", "eventType", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "registerTaskBusinessEventAction", "(Ljava/lang/String;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", "registerTaskBusinessEventListener", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/callbacks/TaskCallback;", "registerTaskListenerSticky", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "actonId", "registerTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "rawTaskStr", "registerTaskWithInfo", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "taskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "release", "removeTaskInterceptor", "setTaskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "token", RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, "", "behavior", "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "unRegisterPassiveTaskListenerWithActionId", "unRegisterTaskBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "unRegisterTaskBusinessEventListener", "unRegisterTaskListenerWithActionId", "unregisterTaskWithActionId", "aSync", "Lkotlin/Function0;", "withCheck", "(ZLkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "", "actionQueue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "getActionQueue", "()Ljava/util/concurrent/ConcurrentLinkedQueue;", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "activityLifecycleCallbacks", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "getActivityLifecycleCallbacks", "()Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "asyncLoaded", "Z", "getAsyncLoaded", "setAsyncLoaded", "(Z)V", "Ljava/util/concurrent/locks/ReentrantLock;", "asyncLock", "Ljava/util/concurrent/locks/ReentrantLock;", "getAsyncLock", "()Ljava/util/concurrent/locks/ReentrantLock;", "Ljava/util/concurrent/locks/Condition;", "kotlin.jvm.PlatformType", "asyncLockCondition", "Ljava/util/concurrent/locks/Condition;", "getAsyncLockCondition", "()Ljava/util/concurrent/locks/Condition;", "initialized", "getInitialized", "setInitialized", "Lcom/baidu/bdtask/BDPTask;", "innerInstance", "Lcom/baidu/bdtask/BDPTask;", "getInnerInstance$lib_bdtask_business_build_release", "()Lcom/baidu/bdtask/BDPTask;", "setInnerInstance$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/BDPTask;)V", Transition.MATCH_INSTANCE_STR, "getInstance", "setInstance", "taskServiceManager", "Lcom/baidu/bdtask/service/base/TaskService;", "getTaskServiceManager", "setTaskServiceManager", "(Lcom/baidu/bdtask/service/base/TaskService;)V", "<init>", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000ä\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010$\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0086\u0003\u0018\u0000B\n\b\u0002¢\u0006\u0005\b¡\u0001\u0010\u0011J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u001f\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\u0007J'\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0004\u0010\tJ\u001f\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\f\u0010\rJ'\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000eJ/\u0010\f\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\f\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\u00032\u0006\u0010\u0012\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0017\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001d\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001d\u0010\u0005J\u0017\u0010\u001e\u001a\u00020\u00032\u0006\u0010\u001c\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001e\u0010\u0005J\u001f\u0010\u001f\u001a\u00020\u00192\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0006\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u001f\u0010\u001bJ7\u0010%\u001a\u0016\u0012\u0004\u0012\u00020\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00020$0#\u0018\u00010\"2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b%\u0010&J+\u0010)\u001a\u00020\u00032\u0006\u0010(\u001a\u00020'2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b)\u0010*J\u0019\u0010+\u001a\u0004\u0018\u00010$2\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b+\u0010,J\u001f\u0010.\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020-H\u0016¢\u0006\u0004\b.\u0010/J%\u00100\u001a\u0004\u0018\u00010$2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b0\u00101J+\u00102\u001a\u00020\u00032\u0006\u0010(\u001a\u00020-2\u0012\u0010!\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00010 \"\u00020\u0001H\u0016¢\u0006\u0004\b2\u00103J\u0011\u00104\u001a\u0004\u0018\u00010$H\u0016¢\u0006\u0004\b4\u00105J\u000f\u00107\u001a\u0004\u0018\u000106¢\u0006\u0004\b7\u00108J\r\u00109\u001a\u00020\u0019¢\u0006\u0004\b9\u0010:J\u0017\u0010=\u001a\u00020\u00032\u0006\u0010<\u001a\u00020;H\u0007¢\u0006\u0004\b=\u0010>J\u000f\u0010?\u001a\u00020\u0003H\u0003¢\u0006\u0004\b?\u0010\u0011J\u001f\u0010B\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bB\u0010CJ=\u0010J\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010G\u001a\b\u0012\u0004\u0012\u00028\u00000F2\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bJ\u0010KJ\u001f\u0010M\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bM\u0010NJ\u001d\u0010R\u001a\u00020\u00032\u0006\u0010P\u001a\u00020O2\u0006\u0010A\u001a\u00020Q¢\u0006\u0004\bR\u0010SJ\u001f\u0010U\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bU\u0010VJ\u0017\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u0001H\u0016¢\u0006\u0004\bX\u0010\u0005J!\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010QH\u0016¢\u0006\u0004\bX\u0010VJ+\u0010X\u001a\u00020\u00032\u0006\u0010W\u001a\u00020\u00012\b\u0010A\u001a\u0004\u0018\u00010Q2\b\u0010Z\u001a\u0004\u0018\u00010YH\u0016¢\u0006\u0004\bX\u0010[J\u000f\u0010\\\u001a\u00020\u0003H\u0007¢\u0006\u0004\b\\\u0010\u0011J\u0017\u0010]\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b]\u0010\u0005J\u001f\u0010^\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010Z\u001a\u00020YH\u0016¢\u0006\u0004\b^\u0010_J/\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010fJ9\u0010e\u001a\u00020\u00032\u0006\u0010`\u001a\u00020\u00012\u0006\u0010a\u001a\u00020\u00012\u0006\u0010c\u001a\u00020b2\b\u0010h\u001a\u0004\u0018\u00010g2\u0006\u0010(\u001a\u00020dH\u0016¢\u0006\u0004\be\u0010iJ\u001f\u0010j\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010A\u001a\u00020@H\u0016¢\u0006\u0004\bj\u0010CJ/\u0010k\u001a\u00020\u0003\"\b\b\u0000\u0010E*\u00020D2\u0006\u0010\u0002\u001a\u00020\u00012\f\u0010I\u001a\b\u0012\u0004\u0012\u00028\u00000HH\u0016¢\u0006\u0004\bk\u0010lJ\u001f\u0010m\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010(\u001a\u00020LH\u0016¢\u0006\u0004\bm\u0010NJ\u001f\u0010n\u001a\u00020\u00032\u0006\u0010T\u001a\u00020\u00012\u0006\u0010A\u001a\u00020QH\u0016¢\u0006\u0004\bn\u0010VJ\u0017\u0010o\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\bo\u0010\u0005J1\u0010r\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010E2\b\b\u0002\u0010p\u001a\u00020\u00192\u000e\u0010I\u001a\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000qH\u0002¢\u0006\u0004\br\u0010sR*\u0010v\u001a\u0010\u0012\f\u0012\n\u0012\u0006\u0012\u0004\u0018\u00010u0q0t8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\bv\u0010w\u001a\u0004\bx\u0010yR\u001c\u0010{\u001a\u00020z8\u0002@\u0002X\u0082\u0004¢\u0006\f\n\u0004\b{\u0010|\u001a\u0004\b}\u0010~R&\u0010\u007f\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0016\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0005\b\u0081\u0001\u0010:\"\u0006\b\u0082\u0001\u0010\u0083\u0001R\"\u0010\u0085\u0001\u001a\u00030\u0084\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u0085\u0001\u0010\u0086\u0001\u001a\u0006\b\u0087\u0001\u0010\u0088\u0001R,\u0010\u008b\u0001\u001a\r \u008a\u0001*\u0005\u0018\u00010\u0089\u00010\u0089\u00018\u0002@\u0002X\u0082\u0004¢\u0006\u0010\n\u0006\b\u008b\u0001\u0010\u008c\u0001\u001a\u0006\b\u008d\u0001\u0010\u008e\u0001R(\u0010\u008f\u0001\u001a\u00020\u00198\u0002@\u0002X\u0083\u000e¢\u0006\u0017\n\u0006\b\u008f\u0001\u0010\u0080\u0001\u001a\u0005\b\u0090\u0001\u0010:\"\u0006\b\u0091\u0001\u0010\u0083\u0001R,\u0010\u0093\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0000@\u0000X\u0080\u000e¢\u0006\u0018\n\u0006\b\u0093\u0001\u0010\u0094\u0001\u001a\u0006\b\u0095\u0001\u0010\u0096\u0001\"\u0006\b\u0097\u0001\u0010\u0098\u0001R,\u0010\u0099\u0001\u001a\u0005\u0018\u00010\u0092\u00018\u0002@\u0002X\u0082\u000e¢\u0006\u0018\n\u0006\b\u0099\u0001\u0010\u0094\u0001\u001a\u0006\b\u009a\u0001\u0010\u0096\u0001\"\u0006\b\u009b\u0001\u0010\u0098\u0001R*\u0010\u009c\u0001\u001a\u0004\u0018\u0001068\u0002@\u0002X\u0082\u000e¢\u0006\u0017\n\u0006\b\u009c\u0001\u0010\u009d\u0001\u001a\u0005\b\u009e\u0001\u00108\"\u0006\b\u009f\u0001\u0010 \u0001¨\u0006¢\u0001"}, d2 = {"Lcom/baidu/bdtask/BDPTask$INSTANCE;", "", "actionId", "", "addActionWithActionId", "(Ljava/lang/String;)V", "duplicateId", "(Ljava/lang/String;Ljava/lang/String;)V", "tag", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "", "sliceTimeMs", "addDurationWithActionId", "(Ljava/lang/String;J)V", "(Ljava/lang/String;JLjava/lang/String;)V", "(Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "asyncLockNotify", "()V", "waitTime", "asyncLockWait", "(J)V", "Landroid/app/Activity;", "curActivity", "attachCurActivity", "(Landroid/app/Activity;)V", "", "cacheDuplicateId", "(Ljava/lang/String;Ljava/lang/String;)Z", TaskInfo.keyActTaskId, "clearPassiveTaskByActTaskId", "clearTaskByActTaskId", "duplicateIdIsRepeatedByActionId", "", "actionIds", "", "", "Lcom/baidu/bdtask/TaskState;", "findAllTaskStateByActionIds", "([Ljava/lang/String;)Ljava/util/Map;", "Lcom/baidu/bdtask/TaskAllStateCallback;", WebChromeClient.KEY_ARG_CALLBACK, "findAllTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskAllStateCallback;[Ljava/lang/String;)V", "findTaskStateByActionId", "(Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/TaskStateCallback;", "findTaskStateByActionIdAsync", "(Ljava/lang/String;Lcom/baidu/bdtask/TaskStateCallback;)V", "findTaskStateByActionIds", "([Ljava/lang/String;)Lcom/baidu/bdtask/TaskState;", "findTaskStateByActionIdsAsync", "(Lcom/baidu/bdtask/TaskStateCallback;[Ljava/lang/String;)V", "getCurActiveTaskState", "()Lcom/baidu/bdtask/TaskState;", "Lcom/baidu/bdtask/service/base/TaskService;", "getServiceManager", "()Lcom/baidu/bdtask/service/base/TaskService;", "hasInitialized", "()Z", "Lcom/baidu/bdtask/BDPTaskConfig;", "bdpTaskConfig", "init", "(Lcom/baidu/bdtask/BDPTaskConfig;)V", "offerActionQueue", "Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;", "taskCallback", "registerPassiveTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/PassiveTaskCallback;)V", "Lcom/baidu/bdtask/event/TaskBusinessEvent;", "T", "Ljava/lang/Class;", "eventType", "Lcom/baidu/bdtask/event/TaskBusinessEventAction;", "action", "registerTaskBusinessEventAction", "(Ljava/lang/String;Ljava/lang/Class;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "Lcom/baidu/bdtask/event/TaskBusinessEventCallback;", "registerTaskBusinessEventListener", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventCallback;)V", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/callbacks/TaskCallback;", "registerTaskListenerSticky", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "actonId", "registerTaskListenerWithActionId", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;)V", "rawTaskStr", "registerTaskWithInfo", "Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;", "taskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/callbacks/TaskCallback;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "release", "removeTaskInterceptor", "setTaskInterceptor", "(Ljava/lang/String;Lcom/baidu/bdtask/ctrl/interceptor/BaseTaskInterceptor;)V", "token", "taskId", "", "behavior", "Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;", "taskCompletedRequest", "(Ljava/lang/String;Ljava/lang/String;ILcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "Lorg/json/JSONObject;", LaunchStatsUtils.EXTERNAL_LAUNCH, "(Ljava/lang/String;Ljava/lang/String;ILorg/json/JSONObject;Lcom/baidu/bdtask/ctrl/repo/api/TaskResponseCallback;)V", "unRegisterPassiveTaskListenerWithActionId", "unRegisterTaskBusinessEventAction", "(Ljava/lang/String;Lcom/baidu/bdtask/event/TaskBusinessEventAction;)V", "unRegisterTaskBusinessEventListener", "unRegisterTaskListenerWithActionId", "unregisterTaskWithActionId", "aSync", "Lkotlin/Function0;", "withCheck", "(ZLkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "", "actionQueue", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "getActionQueue", "()Ljava/util/concurrent/ConcurrentLinkedQueue;", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "activityLifecycleCallbacks", "Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "getActivityLifecycleCallbacks", "()Lcom/baidu/bdtask/service/env/TaskActivityLifecycleCallbacks;", "asyncLoaded", "Z", "getAsyncLoaded", "setAsyncLoaded", "(Z)V", "Ljava/util/concurrent/locks/ReentrantLock;", "asyncLock", "Ljava/util/concurrent/locks/ReentrantLock;", "getAsyncLock", "()Ljava/util/concurrent/locks/ReentrantLock;", "Ljava/util/concurrent/locks/Condition;", "kotlin.jvm.PlatformType", "asyncLockCondition", "Ljava/util/concurrent/locks/Condition;", "getAsyncLockCondition", "()Ljava/util/concurrent/locks/Condition;", "initialized", "getInitialized", "setInitialized", "Lcom/baidu/bdtask/BDPTask;", "innerInstance", "Lcom/baidu/bdtask/BDPTask;", "getInnerInstance$lib_bdtask_business_build_release", "()Lcom/baidu/bdtask/BDPTask;", "setInnerInstance$lib_bdtask_business_build_release", "(Lcom/baidu/bdtask/BDPTask;)V", Transition.MATCH_INSTANCE_STR, "getInstance", "setInstance", "taskServiceManager", "Lcom/baidu/bdtask/service/base/TaskService;", "getTaskServiceManager", "setTaskServiceManager", "(Lcom/baidu/bdtask/service/base/TaskService;)V", "<init>", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class INSTANCE {
         public static /* synthetic */ Interceptable $ic;
@@ -129,9 +124,9 @@ public final class BDPTask {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
@@ -160,9 +155,7 @@ public final class BDPTask {
         /* loaded from: classes3.dex */
         public static final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: e  reason: collision with root package name */
-            public static final a f31568e;
+            public static final a a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -178,7 +171,7 @@ public final class BDPTask {
                         return;
                     }
                 }
-                f31568e = new a();
+                a = new a();
             }
 
             public a() {
@@ -186,9 +179,9 @@ public final class BDPTask {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                     }
@@ -200,14 +193,14 @@ public final class BDPTask {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    c.f31615i.a().m();
+                    c.i.a().m();
                     BDPTask.m.E(new BDPTask(null));
                     INSTANCE instance = BDPTask.m;
                     instance.D(instance.u());
-                    String a = com.baidu.bdtask.service.cache.b.f31607e.a().a();
+                    String a2 = com.baidu.bdtask.service.cache.b.f24944e.a().a();
                     BDPTask u = BDPTask.m.u();
                     if (u != null) {
-                        u.n0(a);
+                        u.n0(a2);
                     }
                     BDPTask.m.B(true);
                     BDPTask.m.j();
@@ -221,9 +214,7 @@ public final class BDPTask {
         /* loaded from: classes3.dex */
         public static final class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: e  reason: collision with root package name */
-            public static final b f31569e;
+            public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -239,7 +230,7 @@ public final class BDPTask {
                         return;
                     }
                 }
-                f31569e = new b();
+                a = new b();
             }
 
             public b() {
@@ -247,9 +238,9 @@ public final class BDPTask {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                     }
@@ -275,17 +266,17 @@ public final class BDPTask {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static /* synthetic */ Object J(INSTANCE instance, boolean z, Function0 function0, int i2, Object obj) {
-            if ((i2 & 1) != 0) {
+        public static /* synthetic */ Object J(INSTANCE instance, boolean z, Function0 function0, int i, Object obj) {
+            if ((i & 1) != 0) {
                 z = true;
             }
             return instance.I(z, function0);
@@ -301,28 +292,28 @@ public final class BDPTask {
         public final void B(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                BDPTask.f31562g = z;
+                BDPTask.f24906g = z;
             }
         }
 
         public final void C(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                BDPTask.f31561f = z;
+                BDPTask.f24905f = z;
             }
         }
 
         public final void D(BDPTask bDPTask) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bDPTask) == null) {
-                BDPTask.f31560e = bDPTask;
+                BDPTask.f24904e = bDPTask;
             }
         }
 
         public final void E(BDPTask bDPTask) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, bDPTask) == null) {
-                BDPTask.f31565j = bDPTask;
+                BDPTask.j = bDPTask;
             }
         }
 
@@ -351,33 +342,33 @@ public final class BDPTask {
             InterceptResult invokeZL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, function0)) == null) {
-                if (s()) {
-                    if (p()) {
-                        y();
-                        return function0.invoke();
-                    } else if (z) {
-                        n().add(function0);
-                        return null;
-                    } else {
-                        try {
-                            if (e.b()) {
-                                k(2000L);
-                            } else {
-                                k(5000L);
-                            }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                if (!s()) {
+                    Log.d("bdptask_sdk", "bdptask sdk is not inited!");
+                    return null;
+                } else if (p()) {
+                    y();
+                    return function0.invoke();
+                } else if (z) {
+                    n().add(function0);
+                    return null;
+                } else {
+                    try {
+                        if (e.b()) {
+                            k(2000L);
+                        } else {
+                            k(5000L);
                         }
-                        if (!p()) {
-                            DebugTrace debugTrace = DebugTrace.a;
-                            debugTrace.a("async lock released by timeOut, thread " + Thread.currentThread());
-                            return null;
-                        }
-                        y();
-                        return function0.invoke();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
+                    if (!p()) {
+                        DebugTrace debugTrace = DebugTrace.a;
+                        debugTrace.a("async lock released by timeOut, thread " + Thread.currentThread());
+                        return null;
+                    }
+                    y();
+                    return function0.invoke();
                 }
-                return null;
             }
             return (T) invokeZL.objValue;
         }
@@ -389,10 +380,10 @@ public final class BDPTask {
             }
         }
 
-        public void i(String str, long j2, String str2) {
+        public void i(String str, long j, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
-                J(this, false, new BDPTask$INSTANCE$addDurationWithActionId$2(str, j2, str2), 1, null);
+            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
+                J(this, false, new BDPTask$INSTANCE$addDurationWithActionId$2(str, j, str2), 1, null);
             }
         }
 
@@ -410,13 +401,13 @@ public final class BDPTask {
             }
         }
 
-        public final void k(long j2) {
+        public final void k(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
                 ReentrantLock q = q();
                 q.lock();
                 try {
-                    BDPTask.m.r().await(j2, TimeUnit.MILLISECONDS);
+                    BDPTask.m.r().await(j, TimeUnit.MILLISECONDS);
                 } finally {
                     q.unlock();
                 }
@@ -451,43 +442,43 @@ public final class BDPTask {
         public final c.a.j.j.a.a o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? BDPTask.f31559d : (c.a.j.j.a.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? BDPTask.f24903d : (c.a.j.j.a.a) invokeV.objValue;
         }
 
         public final boolean p() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? BDPTask.f31562g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? BDPTask.f24906g : invokeV.booleanValue;
         }
 
         public final ReentrantLock q() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? BDPTask.f31563h : (ReentrantLock) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? BDPTask.f24907h : (ReentrantLock) invokeV.objValue;
         }
 
         public final Condition r() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? BDPTask.f31564i : (Condition) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? BDPTask.i : (Condition) invokeV.objValue;
         }
 
         public final boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? BDPTask.f31561f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? BDPTask.f24905f : invokeV.booleanValue;
         }
 
         public final BDPTask t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? BDPTask.f31560e : (BDPTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? BDPTask.f24904e : (BDPTask) invokeV.objValue;
         }
 
         public final BDPTask u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? BDPTask.f31565j : (BDPTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? BDPTask.j : (BDPTask) invokeV.objValue;
         }
 
         public final c.a.j.j.d.a v() {
@@ -531,10 +522,10 @@ public final class BDPTask {
                         c.a.j.h.b.f.b n = aVar.n();
                         Intrinsics.checkExpressionValueIsNotNull(n, "bdpTaskConfig.imageService");
                         c.a.j.j.g.a aVar3 = new c.a.j.j.g.a();
-                        c.a.j.h.b.g.a j2 = aVar.j();
-                        Intrinsics.checkExpressionValueIsNotNull(j2, "bdpTaskConfig.appLifecycle");
-                        F(new c.a.j.j.b(bVar, m, p, aVar2, n, aVar3, j2, null, null, 384, null));
-                        b.a aVar4 = c.a.j.h.b.b.f3674c;
+                        c.a.j.h.b.g.a j = aVar.j();
+                        Intrinsics.checkExpressionValueIsNotNull(j, "bdpTaskConfig.appLifecycle");
+                        F(new c.a.j.j.b(bVar, m, p, aVar2, n, aVar3, j, null, null, 384, null));
+                        b.a aVar4 = c.a.j.h.b.b.f3162c;
                         c.a.j.j.d.a w2 = w();
                         if (w2 == null) {
                             Intrinsics.throwNpe();
@@ -549,7 +540,7 @@ public final class BDPTask {
                         }
                         application.registerActivityLifecycleCallbacks(o());
                         C(true);
-                        new Thread(a.f31568e, "taskSdkInit").start();
+                        new Thread(a.a, "taskSdkInit").start();
                         return;
                     }
                     throw new TypeCastException("null cannot be cast to non-null type android.app.Application");
@@ -562,7 +553,7 @@ public final class BDPTask {
             if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
                 synchronized (this) {
                     if (p() && !n().isEmpty()) {
-                        e.c(b.f31569e);
+                        e.c(b.a);
                     }
                 }
             }
@@ -595,9 +586,9 @@ public final class BDPTask {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDPTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -646,9 +637,9 @@ public final class BDPTask {
         }
         m = new INSTANCE(null);
         h.a(INSTANCE.AnonymousClass1.INSTANCE);
-        f31559d = new c.a.j.j.a.a();
-        f31563h = new ReentrantLock();
-        f31564i = m.q().newCondition();
+        f24903d = new c.a.j.j.a.a();
+        f24907h = new ReentrantLock();
+        i = m.q().newCondition();
         k = new ConcurrentLinkedQueue<>();
     }
 
@@ -667,8 +658,8 @@ public final class BDPTask {
         }
         d<com.baidu.bdtask.ctrl.b, c.a.j.f.d> dVar = new d<>(new BDPTask$store$1(new c.a.j.f.b()), new com.baidu.bdtask.ctrl.b(), CollectionsKt__CollectionsKt.listOf((Object[]) new Function2[]{new com.baidu.bdtask.ctrl.actions.exitstrategy.b().a(), new com.baidu.bdtask.ctrl.actions.duplicate.duplicate.b().a(), new com.baidu.bdtask.ctrl.actions.interrupt.b().a(), new com.baidu.bdtask.ctrl.actions.register.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.visit.b().a(), new com.baidu.bdtask.ctrl.actions.dotask.click.b().a(), new com.baidu.bdtask.ctrl.actions.finishreq.b().b()}));
         this.a = dVar;
-        this.f31566b = c.a.j.k.d.f3778d.a(dVar);
-        this.f31567c = c.a.j.k.a.f3776c.a();
+        this.f24908b = c.a.j.k.d.f3251d.a(dVar);
+        this.f24909c = c.a.j.k.a.f3249c.a();
     }
 
     public static /* synthetic */ void z(BDPTask bDPTask, boolean z, TaskInfo taskInfo, int i2, Object obj) {
@@ -699,7 +690,7 @@ public final class BDPTask {
             if (K != null) {
                 TaskInfo taskInfo = K.getTaskInfo();
                 if (taskInfo.getTaskRule().isNeedUnique() && !TextUtils.isEmpty(str2)) {
-                    j0(taskInfo, c.a.j.f.c.d.a.a.f3638f.a(taskInfo, str2));
+                    j0(taskInfo, c.a.j.f.c.d.a.a.f3128f.a(taskInfo, str2));
                     return true;
                 }
                 DebugTrace.a.c(new BDPTask$cacheDuplicateId$1(taskInfo, str2));
@@ -713,7 +704,7 @@ public final class BDPTask {
         SubTaskState k2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (k2 = O().k(str)) != null && k2.getTaskInfo().isPassiveTask()) {
-            j0(k2.getTaskInfo(), c.a.j.f.c.e.a.f3644e.a(k2.getTaskInfo(), k2.getTaskStatus().getCurStatus()));
+            j0(k2.getTaskInfo(), c.a.j.f.c.e.a.f3134e.a(k2.getTaskInfo(), k2.getTaskStatus().getCurStatus()));
         }
     }
 
@@ -724,8 +715,8 @@ public final class BDPTask {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (u = O().u(str)) == null || (deepCopy = u.deepCopy()) == null || !deepCopy.isPassiveTask()) {
             return;
         }
-        O().b(deepCopy, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, "clean passive task by force");
-        j0(deepCopy, c.a.j.f.c.b.a.f3628f.a(deepCopy, "clean passive task by force"));
+        O().b(deepCopy, 306, "clean passive task by force");
+        j0(deepCopy, c.a.j.f.c.b.a.f3118f.a(deepCopy, "clean passive task by force"));
     }
 
     public void E(String str) {
@@ -736,7 +727,7 @@ public final class BDPTask {
             return;
         }
         O().b(deepCopy, 307, "clean task by force");
-        j0(deepCopy, c.a.j.f.c.b.a.f3628f.a(deepCopy, "clean task by force"));
+        j0(deepCopy, c.a.j.f.c.b.a.f3118f.a(deepCopy, "clean task by force"));
     }
 
     public final void F(SubTaskState subTaskState) {
@@ -749,23 +740,23 @@ public final class BDPTask {
                 if (taskStatus.hasErrorCode()) {
                     DebugTrace.a.c(new BDPTask$dispatchState$2(taskStatus));
                     O().b(taskInfo, taskStatus.getCurStatusCode(), taskStatus.getCurStatusCodeMsg());
-                    if (!this.f31567c.b(taskInfo, taskStatus.getCurStatusCode())) {
-                        this.f31567c.c(subTaskState);
+                    if (!this.f24909c.b(taskInfo, taskStatus.getCurStatusCode())) {
+                        this.f24909c.c(subTaskState);
                         return;
                     }
                 } else {
                     O().a(taskInfo, taskStatus);
                 }
                 if (taskStatus.isFinished()) {
-                    this.f31566b.c(subTaskState);
+                    this.f24908b.c(subTaskState);
                 } else if (taskStatus.isRunning()) {
-                    this.f31566b.b(subTaskState);
+                    this.f24908b.b(subTaskState);
                 } else if (taskStatus.isRegistered()) {
-                    this.f31566b.a(subTaskState);
+                    this.f24908b.a(subTaskState);
                 } else if (taskStatus.isInterrupted()) {
-                    this.f31566b.d(subTaskState);
+                    this.f24908b.d(subTaskState);
                 } else if (taskStatus.isUnRegistered()) {
-                    this.f31566b.e(subTaskState);
+                    this.f24908b.e(subTaskState);
                 }
             } finally {
                 z(this, false, taskInfo, 1, null);
@@ -779,9 +770,9 @@ public final class BDPTask {
             SubTaskState k2 = O().k(str);
             TaskInfo taskInfo = k2 != null ? k2.getTaskInfo() : null;
             if (taskInfo != null) {
-                TaskBusinessEventManager.f31601c.c(taskInfo, uniqueId);
+                TaskBusinessEventManager.f24938c.c(taskInfo, uniqueId);
             } else {
-                TaskBusinessEventManager.f31601c.d(str, uniqueId);
+                TaskBusinessEventManager.f24938c.d(str, uniqueId);
             }
         }
     }
@@ -789,7 +780,7 @@ public final class BDPTask {
     public boolean H(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !com.baidu.bdtask.service.cache.b.f31607e.a().f(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) ? !com.baidu.bdtask.service.cache.b.f24944e.a().f(str, str2) : invokeLL.booleanValue;
     }
 
     public Map<String, List<TaskState>> I(String... strArr) {
@@ -885,7 +876,7 @@ public final class BDPTask {
     public final void Q(TaskInfo taskInfo, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048592, this, taskInfo, i2) == null) && taskInfo.isPassiveTask()) {
-            j0(taskInfo, c.a.j.f.c.g.a.f3650g.a(taskInfo, i2));
+            j0(taskInfo, c.a.j.f.c.g.a.f3140g.a(taskInfo, i2));
         }
     }
 
@@ -908,7 +899,7 @@ public final class BDPTask {
         if (!(interceptable == null || interceptable.invokeLLL(1048594, this, str, cls, bVar) == null) || (K = K(str)) == null || (taskInfo = K.getTaskInfo()) == null) {
             return;
         }
-        TaskBusinessEventManager.f31601c.a(taskInfo, cls, bVar);
+        TaskBusinessEventManager.f24938c.a(taskInfo, cls, bVar);
     }
 
     public void T(String str, c.a.j.g.c cVar) {
@@ -918,7 +909,7 @@ public final class BDPTask {
         if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, cVar) == null) || (K = K(str)) == null || (taskInfo = K.getTaskInfo()) == null) {
             return;
         }
-        TaskBusinessEventManager.f31601c.b(taskInfo, cVar);
+        TaskBusinessEventManager.f24938c.b(taskInfo, cVar);
     }
 
     public final void U(TaskInfo taskInfo, c.a.j.d.b bVar) {
@@ -1114,7 +1105,7 @@ public final class BDPTask {
     public void m0(String str, String str2, int i2, JSONObject jSONObject, c.a.j.f.g.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, str2, Integer.valueOf(i2), jSONObject, aVar}) == null) {
-            com.baidu.bdtask.ctrl.repo.api.a.f31599b.a(str, str2, i2, jSONObject, aVar);
+            com.baidu.bdtask.ctrl.repo.api.a.f24936b.a(str, str2, i2, jSONObject, aVar);
         }
     }
 
@@ -1150,14 +1141,14 @@ public final class BDPTask {
     public <T extends c.a.j.g.a> void p0(String str, c.a.j.g.b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048617, this, str, bVar) == null) {
-            TaskBusinessEventManager.f31601c.g(str, bVar);
+            TaskBusinessEventManager.f24938c.g(str, bVar);
         }
     }
 
     public void q0(String str, c.a.j.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048618, this, str, cVar) == null) {
-            TaskBusinessEventManager.f31601c.h(str, cVar);
+            TaskBusinessEventManager.f24938c.h(str, cVar);
         }
     }
 
@@ -1212,14 +1203,14 @@ public final class BDPTask {
             if (taskInfo2 == null || taskStatus == null) {
                 return;
             }
-            c.a.j.k.e.a.a.f3782c.d(UBCActionTaskInfo.Companion.b(str2, taskInfo2, taskStatus));
+            c.a.j.k.e.a.a.f3255c.d(UBCActionTaskInfo.Companion.b(str2, taskInfo2, taskStatus));
             if (taskInfo2.isClickAction()) {
                 if (H(str, str2)) {
                     TaskState K = K(str);
                     if (K == null || (taskInfo = K.getTaskInfo()) == null) {
                         return;
                     }
-                    j0(taskInfo, c.a.j.f.c.d.b.a.f3641f.a(taskInfo));
+                    j0(taskInfo, c.a.j.f.c.d.b.a.f3131f.a(taskInfo));
                     return;
                 }
                 j0(taskInfo2, new c.a.j.f.c.c.a.a(taskInfo2.getSingleKey(), str2, str3, null, null, 24, null));
@@ -1234,7 +1225,7 @@ public final class BDPTask {
         if (!(interceptable == null || interceptable.invokeLL(1048625, this, str, str2) == null) || (s = O().s(str)) == null || (deepCopy = s.deepCopy()) == null) {
             return;
         }
-        j0(deepCopy, c.a.j.f.c.b.a.f3628f.a(deepCopy, str2));
+        j0(deepCopy, c.a.j.f.c.b.a.f3118f.a(deepCopy, str2));
     }
 
     public void v(String str, long j2) {
@@ -1261,10 +1252,10 @@ public final class BDPTask {
             if (taskInfo == null || taskStatus == null) {
                 return;
             }
-            c.a.j.k.e.a.a.f3782c.d(UBCActionTaskInfo.Companion.a(j2, str2, taskInfo, taskStatus));
+            c.a.j.k.e.a.a.f3255c.d(UBCActionTaskInfo.Companion.a(j2, str2, taskInfo, taskStatus));
             if (taskInfo.isVisitAction()) {
                 if (H(str, str2)) {
-                    j0(taskInfo, c.a.j.f.c.d.b.a.f3641f.b(taskInfo));
+                    j0(taskInfo, c.a.j.f.c.d.b.a.f3131f.b(taskInfo));
                 } else {
                     j0(taskInfo, new c.a.j.f.c.c.b.a(j2, taskInfo.getSingleKey(), str2, str3, null, null, 48, null));
                 }
@@ -1275,7 +1266,7 @@ public final class BDPTask {
     public final void y(boolean z, TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048629, this, z, taskInfo) == null) {
-            com.baidu.bdtask.service.cache.b.f31607e.a().c(O(), taskInfo, z);
+            com.baidu.bdtask.service.cache.b.f24944e.a().c(O(), taskInfo, z);
         }
     }
 

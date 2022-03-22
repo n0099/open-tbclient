@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HASH_ACCUMULATOR = 17;
@@ -31,7 +31,7 @@ public final class Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -97,9 +97,9 @@ public final class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -152,12 +152,12 @@ public final class Util {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, cArr)) == null) {
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                int i3 = bArr[i2] & 255;
-                int i4 = i2 * 2;
+            for (int i = 0; i < bArr.length; i++) {
+                int i2 = bArr[i] & 255;
+                int i3 = i * 2;
                 char[] cArr2 = HEX_CHAR_ARRAY;
-                cArr[i4] = cArr2[i3 >>> 4];
-                cArr[i4 + 1] = cArr2[i3 & 15];
+                cArr[i3] = cArr2[i2 >>> 4];
+                cArr[i3 + 1] = cArr2[i2 & 15];
             }
             return new String(cArr);
         }
@@ -165,10 +165,10 @@ public final class Util {
     }
 
     @NonNull
-    public static <T> Queue<T> createQueue(int i2) {
+    public static <T> Queue<T> createQueue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? new ArrayDeque(i2) : (Queue) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? new ArrayDeque(i) : (Queue) invokeI.objValue;
     }
 
     @TargetApi(19)
@@ -197,12 +197,12 @@ public final class Util {
             if (config == null) {
                 config = Bitmap.Config.ARGB_8888;
             }
-            int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2 || i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+            if (i != 1) {
+                if (i == 2 || i == 3) {
                     return 2;
                 }
-                return i2 != 4 ? 4 : 8;
+                return i != 4 ? 4 : 8;
             }
             return 1;
         }
@@ -232,16 +232,16 @@ public final class Util {
         return (List) invokeL.objValue;
     }
 
-    public static int hashCode(int i2) {
+    public static int hashCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) ? hashCode(i2, 17) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) ? hashCode(i, 17) : invokeI.intValue;
     }
 
-    public static int hashCode(int i2, int i3) {
+    public static int hashCode(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65552, null, i2, i3)) == null) ? (i3 * 31) + i2 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65552, null, i, i2)) == null) ? (i2 * 31) + i : invokeII.intValue;
     }
 
     public static boolean isOnBackgroundThread() {
@@ -256,16 +256,16 @@ public final class Util {
         return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? Looper.myLooper() == Looper.getMainLooper() : invokeV.booleanValue;
     }
 
-    public static boolean isValidDimension(int i2) {
+    public static boolean isValidDimension(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i2)) == null) ? i2 > 0 || i2 == Integer.MIN_VALUE : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? i > 0 || i == Integer.MIN_VALUE : invokeI.booleanValue;
     }
 
-    public static boolean isValidDimensions(int i2, int i3) {
+    public static boolean isValidDimensions(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65559, null, i2, i3)) == null) ? isValidDimension(i2) && isValidDimension(i3) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65559, null, i, i2)) == null) ? isValidDimension(i) && isValidDimension(i2) : invokeII.booleanValue;
     }
 
     @NonNull
@@ -288,26 +288,26 @@ public final class Util {
         return (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f2)) == null) ? hashCode(f2, 17) : invokeF.intValue;
     }
 
-    public static int hashCode(float f2, int i2) {
+    public static int hashCode(float f2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)})) == null) ? hashCode(Float.floatToIntBits(f2), i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) ? hashCode(Float.floatToIntBits(f2), i) : invokeCommon.intValue;
     }
 
-    public static int hashCode(@Nullable Object obj, int i2) {
+    public static int hashCode(@Nullable Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, obj, i2)) == null) {
-            return hashCode(obj == null ? 0 : obj.hashCode(), i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, obj, i)) == null) {
+            return hashCode(obj == null ? 0 : obj.hashCode(), i);
         }
         return invokeLI.intValue;
     }
 
-    public static int hashCode(boolean z, int i2) {
+    public static int hashCode(boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            return hashCode(z ? 1 : 0, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return hashCode(z ? 1 : 0, i);
         }
         return invokeCommon.intValue;
     }
@@ -318,9 +318,9 @@ public final class Util {
         return (interceptable == null || (invokeZ = interceptable.invokeZ(65554, null, z)) == null) ? hashCode(z, 17) : invokeZ.intValue;
     }
 
-    public static int getBitmapByteSize(int i2, int i3, @Nullable Bitmap.Config config) {
+    public static int getBitmapByteSize(int i, int i2, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i2, i3, config)) == null) ? i2 * i3 * getBytesPerPixel(config) : invokeIIL.intValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65544, null, i, i2, config)) == null) ? i * i2 * getBytesPerPixel(config) : invokeIIL.intValue;
     }
 }

@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskExecutor extends AbstractTaskExecutor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class TaskExecutor extends AbstractTaskExecutor {
             newInitContext.initArgs = r2;
             Object[] objArr = {onTaskRejectedListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ITaskExecutor.OnTaskRejectedListener) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -74,9 +74,9 @@ public class TaskExecutor extends AbstractTaskExecutor {
             newInitContext.initArgs = r2;
             Object[] objArr = {onTaskRejectedListener, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -103,9 +103,9 @@ public class TaskExecutor extends AbstractTaskExecutor {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -133,14 +133,14 @@ public class TaskExecutor extends AbstractTaskExecutor {
     }
 
     @Override // com.yy.hiidostatis.inner.implementation.AbstractTaskExecutor
-    public void submitTask(Runnable runnable, int i2) {
+    public void submitTask(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, runnable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, runnable, i) == null) {
             try {
                 if (this.singleTaskExecutor != null) {
-                    this.singleTaskExecutor.execute(runnable, i2);
+                    this.singleTaskExecutor.execute(runnable, i);
                 } else {
-                    this.mExecutor.schedule(runnable, i2, TimeUnit.MILLISECONDS);
+                    this.mExecutor.schedule(runnable, i, TimeUnit.MILLISECONDS);
                 }
             } catch (Throwable unused) {
                 ThreadPool.getPool().executeQueue(runnable);

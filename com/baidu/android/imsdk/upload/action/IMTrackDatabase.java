@@ -81,16 +81,16 @@ public class IMTrackDatabase {
             $VALUES = new AckEnum[]{ackId, type, value, timestamp, ext, ackEnum};
         }
 
-        public AckEnum(String str, int i2) {
+        public AckEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -154,16 +154,16 @@ public class IMTrackDatabase {
             $VALUES = new ConnectionEnum[]{connectionId, startTime, stopTime, reason, retryTime, retryCount, ext, connectionEnum};
         }
 
-        public ConnectionEnum(String str, int i2) {
+        public ConnectionEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -221,16 +221,16 @@ public class IMTrackDatabase {
             $VALUES = new CrashEnum[]{crashId, exception, timestamp, ext, crashEnum};
         }
 
-        public CrashEnum(String str, int i2) {
+        public CrashEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -298,16 +298,16 @@ public class IMTrackDatabase {
             $VALUES = new DbEnum[]{dbId, tableName, className, method, action, startTime, endTime, duration, ext, dbEnum};
         }
 
-        public DbEnum(String str, int i2) {
+        public DbEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -410,17 +410,17 @@ public class IMTrackDatabase {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DbOpenHelper(Context context, String str, int i2, DatabaseErrorHandler databaseErrorHandler) {
-            super(context, str, null, i2, databaseErrorHandler);
+        public DbOpenHelper(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
+            super(context, str, null, i, databaseErrorHandler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2), databaseErrorHandler};
+                Object[] objArr = {context, str, Integer.valueOf(i), databaseErrorHandler};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -468,26 +468,26 @@ public class IMTrackDatabase {
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 dropTables(sQLiteDatabase);
                 onCreate(sQLiteDatabase);
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DbOpenHelper(Context context, String str, int i2) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+        public DbOpenHelper(Context context, String str, int i) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2)};
+                Object[] objArr = {context, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
@@ -540,16 +540,16 @@ public class IMTrackDatabase {
             $VALUES = new MsgEnum[]{msgId, msgCount, roomId, duration, startMsgId, endMsgId, ext, msgEnum};
         }
 
-        public MsgEnum(String str, int i2) {
+        public MsgEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -613,16 +613,16 @@ public class IMTrackDatabase {
             $VALUES = new RequestEnum[]{id, method, requestId, timestamp, responseTime, errorCode, ext, requestEnum};
         }
 
-        public RequestEnum(String str, int i2) {
+        public RequestEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -686,16 +686,16 @@ public class IMTrackDatabase {
             $VALUES = new UiEnum[]{uiId, category, page, startTime, endTime, duration, ext, uiEnum};
         }
 
-        public UiEnum(String str, int i2) {
+        public UiEnum(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -741,9 +741,9 @@ public class IMTrackDatabase {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -920,7 +920,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (myLock) {
-                long j2 = 0;
+                long j = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -929,7 +929,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from connection", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j2 = cursor.getInt(0);
+                        j = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -941,7 +941,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j2;
+                return j;
             }
         }
         return invokeV.longValue;
@@ -994,7 +994,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (myLock) {
-                long j2 = 0;
+                long j = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -1003,7 +1003,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from crash", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j2 = cursor.getInt(0);
+                        j = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -1015,7 +1015,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j2;
+                return j;
             }
         }
         return invokeV.longValue;
@@ -1151,7 +1151,7 @@ public class IMTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (myLock) {
-                long j2 = 0;
+                long j = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -1160,7 +1160,7 @@ public class IMTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from request", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j2 = cursor.getInt(0);
+                        j = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -1172,7 +1172,7 @@ public class IMTrackDatabase {
                     }
                 }
                 db.close();
-                return j2;
+                return j;
             }
         }
         return invokeV.longValue;

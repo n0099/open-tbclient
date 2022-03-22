@@ -27,9 +27,9 @@ public class KeyToIdMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((HashMap) objArr[0], (SparseArray) objArr[1]);
                 newInitContext.thisArg = this;
@@ -39,12 +39,12 @@ public class KeyToIdMap {
         }
     }
 
-    public void add(@NonNull DownloadTask downloadTask, int i2) {
+    public void add(@NonNull DownloadTask downloadTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i) == null) {
             String generateKey = generateKey(downloadTask);
-            this.keyToIdMap.put(generateKey, Integer.valueOf(i2));
-            this.idToKeyMap.put(i2, generateKey);
+            this.keyToIdMap.put(generateKey, Integer.valueOf(i));
+            this.idToKeyMap.put(i, generateKey);
         }
     }
 
@@ -71,14 +71,14 @@ public class KeyToIdMap {
         return (Integer) invokeL.objValue;
     }
 
-    public void remove(int i2) {
+    public void remove(int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (str = this.idToKeyMap.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (str = this.idToKeyMap.get(i)) == null) {
             return;
         }
         this.keyToIdMap.remove(str);
-        this.idToKeyMap.remove(i2);
+        this.idToKeyMap.remove(i);
     }
 
     public KeyToIdMap(@NonNull HashMap<String, Integer> hashMap, @NonNull SparseArray<String> sparseArray) {
@@ -88,9 +88,9 @@ public class KeyToIdMap {
             newInitContext.initArgs = r2;
             Object[] objArr = {hashMap, sparseArray};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

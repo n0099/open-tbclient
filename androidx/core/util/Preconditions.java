@@ -22,9 +22,9 @@ public final class Preconditions {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,28 +38,28 @@ public final class Preconditions {
         }
     }
 
-    public static int checkArgumentInRange(int i2, int i3, int i4, @NonNull String str) {
+    public static int checkArgumentInRange(int i, int i2, int i3, @NonNull String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
-            if (i2 >= i3) {
-                if (i2 <= i4) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
+            if (i >= i2) {
+                if (i <= i3) {
+                    return i;
                 }
-                throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%d, %d] (too high)", str, Integer.valueOf(i3), Integer.valueOf(i4)));
+                throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%d, %d] (too high)", str, Integer.valueOf(i2), Integer.valueOf(i3)));
             }
-            throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%d, %d] (too low)", str, Integer.valueOf(i3), Integer.valueOf(i4)));
+            throw new IllegalArgumentException(String.format(Locale.US, "%s is out of range of [%d, %d] (too low)", str, Integer.valueOf(i2), Integer.valueOf(i3)));
         }
         return invokeCommon.intValue;
     }
 
     @IntRange(from = 0)
-    public static int checkArgumentNonnegative(int i2, @Nullable String str) {
+    public static int checkArgumentNonnegative(int i, @Nullable String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, str)) == null) {
-            if (i2 >= 0) {
-                return i2;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i, str)) == null) {
+            if (i >= 0) {
+                return i;
             }
             throw new IllegalArgumentException(str);
         }
@@ -94,12 +94,12 @@ public final class Preconditions {
     }
 
     @IntRange(from = 0)
-    public static int checkArgumentNonnegative(int i2) {
+    public static int checkArgumentNonnegative(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 >= 0) {
-                return i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i >= 0) {
+                return i;
             }
             throw new IllegalArgumentException();
         }

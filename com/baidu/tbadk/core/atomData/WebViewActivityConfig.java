@@ -9,6 +9,7 @@ import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
@@ -50,9 +51,9 @@ public class WebViewActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -98,7 +99,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                n.N(getContext(), getContext().getString(R.string.web_view_corrupted));
+                n.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f154a));
                 return false;
             }
             return true;
@@ -179,24 +180,24 @@ public class WebViewActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
+        getIntent().putExtra("tag_title", str);
+        getIntent().putExtra("tag_url", addTiebaParams(str2));
         getIntent().putExtra(TAG_COOKIE, z);
         getIntent().putExtra(TAG_ENABLE_JS, true);
         getIntent().putExtra(TAG_NAV_BAR, true);
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         setIntentAction(IntentAction.Activity);
     }
@@ -210,24 +211,24 @@ public class WebViewActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra(TAG_TITLE, str);
-        getIntent().putExtra(TAG_URL, addTiebaParams(str2));
+        getIntent().putExtra("tag_title", str);
+        getIntent().putExtra("tag_url", addTiebaParams(str2));
         getIntent().putExtra(TAG_NAV_BAR, z);
         getIntent().putExtra(TAG_COOKIE, z2);
         getIntent().putExtra(TAG_ENABLE_JS, z3);
         getIntent().putExtra(TAG_NEED_STYLE_IMMERSIVE_STICKY, true);
         addPageIdParams(context);
         if (!(getContext() instanceof Activity)) {
-            getIntent().addFlags(268435456);
+            getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         setIntentAction(IntentAction.Activity);
     }

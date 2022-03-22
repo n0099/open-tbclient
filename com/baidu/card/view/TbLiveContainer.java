@@ -11,9 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.v.c;
-import c.a.r0.a3.e;
+import c.a.o0.r.v.c;
+import c.a.p0.c3.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,6 +21,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
@@ -35,50 +35,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbLiveContainer extends FrameLayout implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbLiveCyberView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RoundRelativeLayout f25193b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ViewGroup f25194c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f25195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbLiveCyberView f31920e;
+    public ThreadData f25196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundRelativeLayout f31921f;
+    public long f25197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f31922g;
+    public String f25198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f31923h;
+    public String f25199h;
+    public final CustomMessageListener i;
 
-    /* renamed from: i  reason: collision with root package name */
-    public e2 f31924i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f31925j;
-    public String k;
-    public String l;
-    public final CustomMessageListener m;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbLiveContainer a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TbLiveContainer tbLiveContainer, int i2) {
-            super(i2);
+        public a(TbLiveContainer tbLiveContainer, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbLiveContainer, Integer.valueOf(i2)};
+                Object[] objArr = {tbLiveContainer, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -98,7 +100,7 @@ public class TbLiveContainer extends FrameLayout implements e {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements TbLiveCyberView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +113,9 @@ public class TbLiveContainer extends FrameLayout implements e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tbLiveContainer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -133,10 +135,10 @@ public class TbLiveContainer extends FrameLayout implements e {
         @Override // com.baidu.tieba.ala.TbLiveCyberView.b
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f31921f == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f25193b == null) {
                 return;
             }
-            this.a.f31921f.setVisibility(0);
+            this.a.f25193b.setVisibility(0);
         }
     }
 
@@ -149,82 +151,119 @@ public class TbLiveContainer extends FrameLayout implements e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f31923h = false;
-        this.m = new a(this, 2000994);
-        b();
+        this.f25195d = false;
+        this.i = new a(this, 2000994);
+        c();
     }
 
     private void setLayout(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, alaInfoData) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31921f.getLayoutParams();
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f31922g.getLayoutParams();
-            int i2 = 0;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f25193b.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f25194c.getLayoutParams();
+            int i = 0;
             if (alaInfoData.isVertialLive()) {
                 layoutParams.height = (((n.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (n.f(getContext(), R.dimen.M_H_X003) * 2);
-                layoutParams.width = (this.f31921f.getLayoutParams().height * 9) / 16;
+                layoutParams.width = (this.f25193b.getLayoutParams().height * 9) / 16;
                 layoutParams2.rightMargin = n.f(getContext(), R.dimen.M_W_X004);
-                i2 = n.f(getContext(), R.dimen.L_X02);
+                i = n.f(getContext(), R.dimen.L_X02);
             } else {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
                 layoutParams2.rightMargin = 0;
             }
-            this.f31922g.setPadding(i2, i2, i2, i2);
+            this.f25194c.setPadding(i, i, i, i);
         }
     }
 
-    public void b() {
+    public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.view_live_container, (ViewGroup) null);
-            this.f31920e = (TbLiveCyberView) inflate.findViewById(R.id.tbLiveCyberView);
-            this.f31921f = (RoundRelativeLayout) inflate.findViewById(R.id.frame_video);
-            this.f31922g = (ViewGroup) inflate.findViewById(R.id.stroke_background);
-            addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.f31921f.setRoundLayoutRadius(c.a.q0.r.v.a.y(R.string.J_X05));
-            this.f31921f.setVisibility(8);
-            this.f31920e.setOuterListener(new b(this));
-        }
-    }
-
-    public void bindData(e2 e2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) {
-            this.f31921f.setVisibility(8);
-            if (e2Var == null || e2Var.p1() == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.f25193b.setVisibility(8);
+            if (threadData == null || threadData.getThreadAlaInfo() == null) {
                 return;
             }
-            this.f31924i = e2Var;
-            AlaInfoData p1 = e2Var.p1();
-            if (!this.f31923h) {
-                setLayout(p1);
-                this.f31923h = true;
+            this.f25196e = threadData;
+            AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
+            if (!this.f25195d) {
+                setLayout(threadAlaInfo);
+                this.f25195d = true;
             }
-            this.l = p1.hls_url;
+            this.f25199h = threadAlaInfo.hls_url;
         }
     }
 
-    @Override // c.a.r0.a3.e
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089b, (ViewGroup) null);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091efc);
+            this.f25193b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090aaf);
+            this.f25194c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091db7);
+            addView(inflate, new ViewGroup.LayoutParams(-1, -1));
+            this.f25193b.setRoundLayoutRadius(c.a.o0.r.v.a.y(R.string.J_X05));
+            this.f25193b.setVisibility(8);
+            this.a.setOuterListener(new b(this));
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            c d2 = c.d(this.f25194c);
+            d2.n(R.string.J_X05);
+            d2.f(R.color.CAM_X0201);
+        }
+    }
+
+    public void e() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (threadData = this.f25196e) == null || threadData.getThreadAlaInfo() == null || this.f25197f == 0) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis() - this.f25197f;
+        StatisticItem statisticItem = new StatisticItem("c14355");
+        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis);
+        statisticItem.param("tid", this.f25196e.getTid());
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("obj_locate", this.f25198g);
+        statisticItem.param("fid", this.f25196e.getFid());
+        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.f25196e.statFloor);
+        statisticItem.param("end_type", getEndType());
+        AlaInfoData threadAlaInfo = this.f25196e.getThreadAlaInfo();
+        if (threadAlaInfo.isLegalYYLiveData()) {
+            String str = StringUtils.isNull(threadAlaInfo.appId) ? null : threadAlaInfo.appId;
+            if (threadAlaInfo.mYyExtData != null) {
+                str = TiebaStatic.YYValues.YY_LIVE;
+            }
+            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(threadAlaInfo));
+            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str);
+            TiebaStaticHelper.addYYParam(statisticItem, threadAlaInfo.mYyExtData);
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    @Override // c.a.p0.c3.e
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31920e.getCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getCurrentPosition() : invokeV.intValue;
     }
 
     public String getEndType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             String str = (String) getTag(-1001);
             if (TextUtils.isEmpty(str)) {
                 str = "2";
@@ -235,108 +274,71 @@ public class TbLiveContainer extends FrameLayout implements e {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31920e.getOriginUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getOriginUrl() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31920e.isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31920e.isPlaying() : invokeV.booleanValue;
-    }
-
-    public void onChangeSkin(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            c d2 = c.d(this.f31922g);
-            d2.n(R.string.J_X05);
-            d2.f(R.color.CAM_X0201);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
     public void setStaticsLocationPage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.k = str;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f25198g = str;
         }
     }
 
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public void startPlay() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f31920e.setVideoPath(this.l);
-            this.f31920e.start();
-            this.f31925j = System.currentTimeMillis();
-            MessageManager.getInstance().registerListener(this.m);
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.setVideoPath(this.f25199h);
+            this.a.start();
+            this.f25197f = System.currentTimeMillis();
+            MessageManager.getInstance().registerListener(this.i);
         }
     }
 
-    public void statisticLiveDuration() {
-        e2 e2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (e2Var = this.f31924i) == null || e2Var.p1() == null || this.f31925j == 0) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis() - this.f31925j;
-        StatisticItem statisticItem = new StatisticItem("c14355");
-        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis);
-        statisticItem.param("tid", this.f31924i.w1());
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("obj_locate", this.k);
-        statisticItem.param("fid", this.f31924i.U());
-        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.f31924i.T1);
-        statisticItem.param("end_type", getEndType());
-        AlaInfoData p1 = this.f31924i.p1();
-        if (p1.isLegalYYLiveData()) {
-            String str = StringUtils.isNull(p1.appId) ? null : p1.appId;
-            if (p1.mYyExtData != null) {
-                str = TiebaStatic.YYValues.YY_LIVE;
-            }
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(p1));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str);
-            TiebaStaticHelper.addYYParam(statisticItem, p1.mYyExtData);
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    @Override // c.a.r0.a3.e
+    @Override // c.a.p0.c3.e
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f31920e.stop();
-            statisticLiveDuration();
-            this.f31925j = 0L;
-            this.f31921f.setVisibility(8);
-            MessageManager.getInstance().unRegisterListener(this.m);
+            this.a.stop();
+            e();
+            this.f25197f = 0L;
+            this.f25193b.setVisibility(8);
+            MessageManager.getInstance().unRegisterListener(this.i);
         }
     }
 
@@ -349,9 +351,9 @@ public class TbLiveContainer extends FrameLayout implements e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -359,23 +361,23 @@ public class TbLiveContainer extends FrameLayout implements e {
                 return;
             }
         }
-        this.f31923h = false;
-        this.m = new a(this, 2000994);
-        b();
+        this.f25195d = false;
+        this.i = new a(this, 2000994);
+        c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbLiveContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TbLiveContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -383,8 +385,8 @@ public class TbLiveContainer extends FrameLayout implements e {
                 return;
             }
         }
-        this.f31923h = false;
-        this.m = new a(this, 2000994);
-        b();
+        this.f25195d = false;
+        this.i = new a(this, 2000994);
+        c();
     }
 }

@@ -21,16 +21,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class v extends c.a.l.a<c.a.q0.r.r.a> {
+public class v extends c.a.l.a<c.a.o0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: j  reason: collision with root package name */
-    public MutiImgMutiPicLayout f4087j;
-    public c.a.q0.r.r.a k;
-    public int l;
-    public String m;
-    public Context n;
+    /* renamed from: f  reason: collision with root package name */
+    public MutiImgMutiPicLayout f3491f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.a.o0.r.r.a f3492g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f3493h;
+    public String i;
+    public Context j;
 
     /* loaded from: classes.dex */
     public class a implements c.a.d.f.k.c<ImageView> {
@@ -45,9 +49,9 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,7 +85,7 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (c.a.q0.r.l.c().g()) {
+                    if (c.a.o0.r.l.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -107,7 +111,7 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 imageView.setOnClickListener(null);
                 if (imageView instanceof ForeDrawableImageView) {
                     ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
+                    foreDrawableImageView.N();
                     foreDrawableImageView.setForegroundDrawable(0);
                     foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
                 }
@@ -121,8 +125,8 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.n);
-                boolean g2 = c.a.q0.r.l.c().g();
+                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
+                boolean g2 = c.a.o0.r.l.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -147,10 +151,10 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 imageView.setOnClickListener(null);
                 if (imageView instanceof ForeDrawableImageView) {
                     ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.stopLoading();
+                    foreDrawableImageView.N();
                     foreDrawableImageView.setForegroundDrawable(0);
                     foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.reset();
+                    foreDrawableImageView.F();
                 }
                 return imageView;
             }
@@ -171,9 +175,9 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -205,7 +209,7 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (c.a.q0.r.l.c().g()) {
+                if (c.a.o0.r.l.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -229,7 +233,7 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
                 gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.onDestroy();
+                gifView.Y();
             }
         }
 
@@ -240,8 +244,8 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.n);
-                boolean g2 = c.a.q0.r.l.c().g();
+                GifView gifView = new GifView(this.a.j);
+                boolean g2 = c.a.o0.r.l.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     gifView.setAdjustViewBounds(false);
@@ -260,10 +264,10 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.release();
-                gifView.onDestroy();
+                gifView.b0();
+                gifView.Y();
                 gifView.setImageDrawable(null);
-                gifView.resetDefaultNoImageDay();
+                gifView.c0();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -287,9 +291,9 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -299,16 +303,16 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0203a c0203a) {
+        public boolean a(a.C0196a c0196a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0203a)) == null) {
-                if (this.a.k != null && this.a.k.getThreadData() != null) {
-                    c.a.r0.f0.m.a(this.a.k.getThreadData().h0());
-                    TextView textView = this.a.f4087j.mTitle;
-                    TextView textView2 = this.a.f4087j.mAbstract;
-                    c.a.r0.f0.m.l(textView, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.f0.m.l(textView2, this.a.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0196a)) == null) {
+                if (this.a.f3492g != null && this.a.f3492g.getThreadData() != null) {
+                    c.a.p0.h0.m.a(this.a.f3492g.getThreadData().getId());
+                    TextView textView = this.a.f3491f.a;
+                    TextView textView2 = this.a.f3491f.f25125b;
+                    c.a.p0.h0.m.l(textView, this.a.f3492g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.p0.h0.m.l(textView2, this.a.f3492g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -325,87 +329,87 @@ public class v extends c.a.l.a<c.a.q0.r.r.a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 3;
+        this.f3493h = 3;
         new c.a.d.f.k.b(new a(this), 12, 0);
         new c.a.d.f.k.b(new b(this), 20, 0);
-        this.n = context;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j.getParent() == null) {
-            this.f4087j = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13323j;
+        this.j = context;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().i instanceof MutiImgMutiPicLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().i.getParent() == null) {
+            this.f3491f = (MutiImgMutiPicLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().i;
         } else {
-            this.f4087j = new MutiImgMutiPicLayout(context);
+            this.f3491f = new MutiImgMutiPicLayout(context);
         }
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4087j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3491f : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h(1, new c(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            i(1, new c(this));
         }
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f4087j.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, b0Var) == null) {
+            this.f3491f.setSubClickListener(b0Var);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.l = i2;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.f3493h = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: q */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: r */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.k = aVar;
-            this.f4087j.setFrom(this.m);
-            this.f4087j.onBindDataToView(aVar);
+            this.f3492g = aVar;
+            this.f3491f.setFrom(this.i);
+            this.f3491f.a(aVar);
         }
     }
 
-    public void r(String str) {
+    public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f4087j.setFromCDN(z);
+            this.i = str;
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f3491f.setFromCDN(z);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4087j.setNeedFrsTabName(z);
+            this.f3491f.setNeedFrsTabName(z);
         }
     }
 }

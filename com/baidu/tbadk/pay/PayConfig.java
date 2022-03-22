@@ -2,7 +2,7 @@ package com.baidu.tbadk.pay;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PageDialogHelper;
+import com.baidu.tbadk.util.PageDialogHelper$PayForm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class PayConfig implements Serializable {
     public String mMoney;
     public String mOrderInfo;
     public String mOrderName;
-    public PageDialogHelper.PayForm mPayForm;
+    public PageDialogHelper$PayForm mPayForm;
     public int mPayType;
     public String mPropsId;
     public String mPropsMon;
@@ -40,16 +40,16 @@ public class PayConfig implements Serializable {
     public String paymentPosKey;
     public int tBeanNum;
 
-    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, Boolean.valueOf(z), str5, str6};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z), str5, str6};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,9 +59,9 @@ public class PayConfig implements Serializable {
         this.mTitle = "";
         this.mOrderInfo = "";
         this.paymentPosKey = "";
-        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.mPayForm = PageDialogHelper$PayForm.NOT_SET;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i2;
+        this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;
@@ -149,24 +149,24 @@ public class PayConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsPay : invokeV.booleanValue;
     }
 
-    public void setAutoPay(int i2) {
+    public void setAutoPay(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.isAutoPay = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.isAutoPay = i;
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mFrom = i;
         }
     }
 
-    public void setFromDecreaseGiftStepStrategy(int i2) {
+    public void setFromDecreaseGiftStepStrategy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.isFromDecreaseGiftStepStrategy = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.isFromDecreaseGiftStepStrategy = i;
         }
     }
 
@@ -198,10 +198,10 @@ public class PayConfig implements Serializable {
         }
     }
 
-    public void setPayType(int i2) {
+    public void setPayType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mPayType = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mPayType = i;
         }
     }
 
@@ -219,10 +219,10 @@ public class PayConfig implements Serializable {
         }
     }
 
-    public void setTBeanNum(int i2) {
+    public void setTBeanNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.tBeanNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.tBeanNum = i;
         }
     }
 
@@ -233,16 +233,16 @@ public class PayConfig implements Serializable {
         }
     }
 
-    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper$PayForm pageDialogHelper$PayForm, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), payForm, str5, str6};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), pageDialogHelper$PayForm, str5, str6};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -252,10 +252,10 @@ public class PayConfig implements Serializable {
         this.mTitle = "";
         this.mOrderInfo = "";
         this.paymentPosKey = "";
-        PageDialogHelper.PayForm payForm2 = PageDialogHelper.PayForm.NOT_SET;
-        this.mPayForm = payForm2;
+        PageDialogHelper$PayForm pageDialogHelper$PayForm2 = PageDialogHelper$PayForm.NOT_SET;
+        this.mPayForm = pageDialogHelper$PayForm2;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i2;
+        this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;
@@ -263,26 +263,26 @@ public class PayConfig implements Serializable {
         this.mIsPay = z;
         this.mReferPage = str5;
         this.mClickZone = str6;
-        payForm = payForm == null ? payForm2 : payForm;
-        if (payForm == PageDialogHelper.PayForm.NOT_SET) {
+        pageDialogHelper$PayForm = pageDialogHelper$PayForm == null ? pageDialogHelper$PayForm2 : pageDialogHelper$PayForm;
+        if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.NOT_SET) {
             this.mIsPayDialog = z2;
-        } else if (payForm == PageDialogHelper.PayForm.NORMAL) {
+        } else if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.NORMAL) {
             this.mIsPayDialog = false;
-        } else if (payForm == PageDialogHelper.PayForm.DIALOG) {
+        } else if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.DIALOG) {
             this.mIsPayDialog = true;
         }
     }
 
-    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7) {
+    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper$PayForm pageDialogHelper$PayForm, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, Boolean.valueOf(z), str5, Boolean.valueOf(z2), payForm, str6, str7};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z), str5, Boolean.valueOf(z2), pageDialogHelper$PayForm, str6, str7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -292,9 +292,9 @@ public class PayConfig implements Serializable {
         this.mTitle = "";
         this.mOrderInfo = "";
         this.paymentPosKey = "";
-        this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
+        this.mPayForm = PageDialogHelper$PayForm.NOT_SET;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i2;
+        this.mPayType = i;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;
@@ -304,12 +304,12 @@ public class PayConfig implements Serializable {
         this.mReferPage = str6;
         this.mClickZone = str7;
         this.tBeanNum = Integer.parseInt(str5);
-        payForm = payForm == null ? PageDialogHelper.PayForm.NOT_SET : payForm;
-        if (payForm == PageDialogHelper.PayForm.NOT_SET) {
+        pageDialogHelper$PayForm = pageDialogHelper$PayForm == null ? PageDialogHelper$PayForm.NOT_SET : pageDialogHelper$PayForm;
+        if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.NOT_SET) {
             this.mIsPayDialog = z2;
-        } else if (payForm == PageDialogHelper.PayForm.NORMAL) {
+        } else if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.NORMAL) {
             this.mIsPayDialog = false;
-        } else if (payForm == PageDialogHelper.PayForm.DIALOG) {
+        } else if (pageDialogHelper$PayForm == PageDialogHelper$PayForm.DIALOG) {
             this.mIsPayDialog = true;
         }
     }

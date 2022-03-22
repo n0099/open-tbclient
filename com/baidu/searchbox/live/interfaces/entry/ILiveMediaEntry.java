@@ -13,7 +13,7 @@ public interface ILiveMediaEntry {
 
     void enterLiveRoom(Context context, String str, String str2, String str3, Uri uri);
 
-    void sendLog(int i2, Context context, String str);
+    void sendLog(int i, Context context, String str);
 
     void updateStatInfo(YYStatInfo yYStatInfo);
 }

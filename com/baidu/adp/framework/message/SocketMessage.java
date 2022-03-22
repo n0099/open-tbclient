@@ -38,17 +38,17 @@ public class SocketMessage extends Message<byte[]> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SocketMessage(int i2) {
-        super(i2);
+    public SocketMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -70,10 +70,10 @@ public class SocketMessage extends Message<byte[]> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i2) {
+    public boolean checkCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? FrameHelper.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? FrameHelper.c(i) : invokeI.booleanValue;
     }
 
     public byte[] encodeExtraDataInBackGround() {
@@ -128,10 +128,10 @@ public class SocketMessage extends Message<byte[]> {
         }
     }
 
-    public void setmRetryCount(int i2) {
+    public void setmRetryCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mRetryCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mRetryCount = i;
         }
     }
 
@@ -163,17 +163,17 @@ public class SocketMessage extends Message<byte[]> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SocketMessage(int i2, Object obj) {
-        super(i2);
+    public SocketMessage(int i, Object obj) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), obj};
+            Object[] objArr = {Integer.valueOf(i), obj};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -189,17 +189,17 @@ public class SocketMessage extends Message<byte[]> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SocketMessage(int i2, BdUniqueId bdUniqueId) {
-        super(i2, bdUniqueId);
+    public SocketMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;

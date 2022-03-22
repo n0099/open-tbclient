@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class DownloadStatusManager {
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ksad.download.f f54262f;
+    public static com.ksad.download.f f39395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BroadcastReceiver f54263g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.3
+    public static final BroadcastReceiver f39396g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.3
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             DownloadStatusManager.a().a(intent);
@@ -32,16 +32,16 @@ public class DownloadStatusManager {
     public final WeakHashMap<c, AdTemplate> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<c, AdTemplate> f54264b;
+    public final Map<c, AdTemplate> f39397b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f54265c;
+    public volatile boolean f39398c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, AdTemplate> f54266d;
+    public final HashMap<String, AdTemplate> f39399d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, AdTemplate> f54267e;
+    public final Map<String, AdTemplate> f39400e;
 
     /* loaded from: classes7.dex */
     public enum Holder {
@@ -54,7 +54,7 @@ public class DownloadStatusManager {
         }
 
         public DownloadStatusManager getInstance() {
-            if (!this.mInstance.f54265c) {
+            if (!this.mInstance.f39398c) {
                 synchronized (this.lock) {
                     this.mInstance.b();
                 }
@@ -66,11 +66,11 @@ public class DownloadStatusManager {
     public DownloadStatusManager() {
         WeakHashMap<c, AdTemplate> weakHashMap = new WeakHashMap<>();
         this.a = weakHashMap;
-        this.f54264b = Collections.synchronizedMap(weakHashMap);
-        this.f54265c = false;
+        this.f39397b = Collections.synchronizedMap(weakHashMap);
+        this.f39398c = false;
         HashMap<String, AdTemplate> hashMap = new HashMap<>();
-        this.f54266d = hashMap;
-        this.f54267e = Collections.synchronizedMap(hashMap);
+        this.f39399d = hashMap;
+        this.f39400e = Collections.synchronizedMap(hashMap);
         b();
     }
 
@@ -79,14 +79,14 @@ public class DownloadStatusManager {
     }
 
     public static void a(Context context) {
-        if (Holder.INSTANCE.mInstance.f54265c) {
+        if (Holder.INSTANCE.mInstance.f39398c) {
             try {
                 synchronized (Holder.INSTANCE.lock) {
-                    if (Holder.INSTANCE.mInstance.f54265c) {
-                        context.unregisterReceiver(f54263g);
-                        Holder.INSTANCE.mInstance.f54264b.clear();
-                        Holder.INSTANCE.mInstance.f54267e.clear();
-                        Holder.INSTANCE.mInstance.f54265c = false;
+                    if (Holder.INSTANCE.mInstance.f39398c) {
+                        context.unregisterReceiver(f39396g);
+                        Holder.INSTANCE.mInstance.f39397b.clear();
+                        Holder.INSTANCE.mInstance.f39400e.clear();
+                        Holder.INSTANCE.mInstance.f39398c = false;
                     }
                 }
             } catch (Exception unused) {
@@ -104,16 +104,16 @@ public class DownloadStatusManager {
             return;
         }
         f fVar = new f();
-        synchronized (this.f54264b) {
-            for (c cVar : this.f54264b.keySet()) {
+        synchronized (this.f39397b) {
+            for (c cVar : this.f39397b.keySet()) {
                 if (cVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, cVar.b())) {
                     cVar.a((String) null, 0, fVar);
                 }
             }
         }
-        f54262f.a(schemeSpecificPart);
-        synchronized (this.f54267e) {
-            Iterator<Map.Entry<String, AdTemplate>> it = this.f54267e.entrySet().iterator();
+        f39395f.a(schemeSpecificPart);
+        synchronized (this.f39400e) {
+            Iterator<Map.Entry<String, AdTemplate>> it = this.f39400e.entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry<String, AdTemplate> next = it.next();
                 if (next != null) {
@@ -127,8 +127,8 @@ public class DownloadStatusManager {
     }
 
     private void a(String str, com.kwad.sdk.b.a<c> aVar) {
-        Set<c> keySet = this.f54264b.keySet();
-        synchronized (this.f54264b) {
+        Set<c> keySet = this.f39397b.keySet();
+        synchronized (this.f39397b) {
             for (c cVar : keySet) {
                 if (cVar != null && TextUtils.equals(cVar.a(), str)) {
                     try {
@@ -143,11 +143,11 @@ public class DownloadStatusManager {
 
     private void a(String str, f fVar) {
         AdTemplate value;
-        for (Map.Entry<String, AdTemplate> entry : this.f54267e.entrySet()) {
+        for (Map.Entry<String, AdTemplate> entry : this.f39400e.entrySet()) {
             if (entry != null && (value = entry.getValue()) != null) {
-                AdInfo j2 = com.kwad.sdk.core.response.a.d.j(value);
+                AdInfo j = com.kwad.sdk.core.response.a.d.j(value);
                 com.kwad.sdk.core.a.a().a(str, value);
-                if (!TextUtils.isEmpty(str) && j2.downloadId.equals(str) && !value.mDownloadFinishReported) {
+                if (!TextUtils.isEmpty(str) && j.downloadId.equals(str) && !value.mDownloadFinishReported) {
                     if (fVar.b()) {
                         com.kwad.sdk.core.report.a.e(value, (JSONObject) null);
                         fVar.a();
@@ -161,23 +161,23 @@ public class DownloadStatusManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Context context = KsAdSDKImpl.get().getContext();
-        if (this.f54265c || context == null) {
+        if (this.f39398c || context == null) {
             return;
         }
-        f54262f = new com.kwad.sdk.core.download.b.a(context);
+        f39395f = new com.kwad.sdk.core.download.b.a(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        context.registerReceiver(f54263g, intentFilter);
-        this.f54265c = true;
+        context.registerReceiver(f39396g, intentFilter);
+        this.f39398c = true;
     }
 
     public void a(c cVar) {
-        this.f54264b.remove(cVar);
+        this.f39397b.remove(cVar);
     }
 
     public void a(c cVar, AdTemplate adTemplate) {
-        this.f54264b.put(cVar, adTemplate);
+        this.f39397b.put(cVar, adTemplate);
     }
 
     public void a(AdTemplate adTemplate) {
@@ -186,7 +186,7 @@ public class DownloadStatusManager {
             if (TextUtils.isEmpty(v)) {
                 return;
             }
-            this.f54267e.put(v, adTemplate);
+            this.f39400e.put(v, adTemplate);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -203,23 +203,23 @@ public class DownloadStatusManager {
         });
     }
 
-    public void a(final String str, final int i2, final int i3, final int i4) {
+    public void a(final String str, final int i, final int i2, final int i3) {
         a(str, new com.kwad.sdk.b.a<c>() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.b.a
             public void a(c cVar) {
-                cVar.a(str, i2, i3, i4);
+                cVar.a(str, i, i2, i3);
             }
         });
     }
 
-    public void a(final String str, final int i2, final String str2) {
+    public void a(final String str, final int i, final String str2) {
         final f fVar = new f();
         a(str, new com.kwad.sdk.b.a<c>() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.b.a
             public void a(c cVar) {
-                cVar.a(str, i2, str2, fVar);
+                cVar.a(str, i, str2, fVar);
             }
         });
     }

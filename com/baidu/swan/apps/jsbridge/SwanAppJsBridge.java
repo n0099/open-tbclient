@@ -3,12 +3,13 @@ package com.baidu.swan.apps.jsbridge;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.p0.a.e0.d.e;
-import c.a.p0.a.k1.g;
-import c.a.p0.a.t0.a;
-import c.a.p0.a.x.l.g.f;
+import c.a.n0.a.e0.d.e;
+import c.a.n0.a.k1.g;
+import c.a.n0.a.t0.a;
+import c.a.n0.a.x.l.g.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppJsBridge extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_aiapps_jsbridge";
@@ -30,7 +31,7 @@ public class SwanAppJsBridge extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.p0.a.x.f.a aVar) {
+    public SwanAppJsBridge(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, c.a.n0.a.x.f.a aVar) {
         super(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,11 +39,11 @@ public class SwanAppJsBridge extends a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (c.a.p0.a.x.f.a) objArr2[3]);
+                super((Context) objArr2[0], (UnitedSchemeMainDispatcher) objArr2[1], (CallbackHandler) objArr2[2], (c.a.n0.a.x.f.a) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,7 +58,7 @@ public class SwanAppJsBridge extends a {
             if (!TextUtils.isEmpty(str) && str.startsWith(UnitedSchemeEntity.UNITED_SCHEME)) {
                 UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(str));
                 if (a.DEBUG) {
-                    String str2 = "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler;
+                    Log.d(TAG, "doSchemeDispatch scheme: " + str + " mCallbackHandler: " + this.mCallbackHandler);
                 }
                 SchemeTimeCostMoniter.getInstance().schemeStart(str);
                 this.mMainDispatcher.dispatch(getDispatchContext(), unitedSchemeEntity, this.mCallbackHandler);
@@ -89,22 +90,23 @@ public class SwanAppJsBridge extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             if (a.DEBUG) {
-                String str3 = "slave id: " + str + " data: " + str2;
+                Log.d(TAG, "slave id: " + str + " data: " + str2);
             }
-            if (f.a(this.mJsContainer, "setData - " + str2)) {
+            c.a.n0.a.x.f.a aVar = this.mJsContainer;
+            if (f.a(aVar, "setData - " + str2)) {
                 return UnitedSchemeUtility.wrapCallbackParams(1001).toString();
             }
             g.a("postMessage", "PostMsg setData handle");
-            int i2 = 0;
+            int i = 0;
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                i2 = 202;
+                i = 202;
             } else {
                 e eVar = new e(str, str2);
                 g.a("postMessage", "PostMsg setData start");
-                c.a.p0.a.w0.f.U().y(eVar, false);
+                c.a.n0.a.w0.f.U().y(eVar, false);
                 g.a("postMessage", "PostMsg setData end");
             }
-            return UnitedSchemeUtility.wrapCallbackParams(i2).toString();
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
         }
         return (String) invokeLL.objValue;
     }

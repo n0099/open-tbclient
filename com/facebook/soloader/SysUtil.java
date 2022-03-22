@@ -19,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -27,7 +27,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public final class SysUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -47,14 +47,14 @@ public final class SysUtil {
         }
 
         @DoNotOptimize
-        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
+        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
                 try {
-                    Os.posix_fallocate(fileDescriptor, 0L, j2);
+                    Os.posix_fallocate(fileDescriptor, 0L, j);
                 } catch (ErrnoException e2) {
-                    int i2 = e2.errno;
-                    if (i2 != OsConstants.EOPNOTSUPP && i2 != OsConstants.ENOSYS && i2 != OsConstants.EINVAL) {
+                    int i = e2.errno;
+                    if (i != OsConstants.EOPNOTSUPP && i != OsConstants.ENOSYS && i != OsConstants.EINVAL) {
                         throw new IOException(e2.toString(), e2);
                     }
                 }
@@ -74,29 +74,29 @@ public final class SysUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int copyBytes(RandomAccessFile randomAccessFile, InputStream inputStream, int i2, byte[] bArr) throws IOException {
+    public static int copyBytes(RandomAccessFile randomAccessFile, InputStream inputStream, int i, byte[] bArr) throws IOException {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, randomAccessFile, inputStream, i2, bArr)) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int read = inputStream.read(bArr, 0, Math.min(bArr.length, i2 - i3));
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, randomAccessFile, inputStream, i, bArr)) == null) {
+            int i2 = 0;
+            while (i2 < i) {
+                int read = inputStream.read(bArr, 0, Math.min(bArr.length, i - i2));
                 if (read == -1) {
                     break;
                 }
                 randomAccessFile.write(bArr, 0, read);
-                i3 += read;
+                i2 += read;
             }
-            return i3;
+            return i2;
         }
         return invokeLLIL.intValue;
     }
@@ -128,21 +128,21 @@ public final class SysUtil {
         }
     }
 
-    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
+    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j2);
+        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j);
     }
 
     public static int findAbiScore(String[] strArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strArr, str)) == null) {
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                if (strArr[i2] != null && str.equals(strArr[i2])) {
-                    return i2;
+            for (int i = 0; i < strArr.length; i++) {
+                if (strArr[i] != null && str.equals(strArr[i])) {
+                    return i;
                 }
             }
             return -1;

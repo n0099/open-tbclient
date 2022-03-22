@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.metadata.emsg.EventMessageDecoder;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
 import com.google.android.exoplayer2.metadata.scte35.SpliceInfoDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface MetadataDecoderFactory {
     public static final MetadataDecoderFactory DEFAULT = new MetadataDecoderFactory() { // from class: com.google.android.exoplayer2.metadata.MetadataDecoderFactory.1
         public static /* synthetic */ Interceptable $ic;
@@ -22,9 +22,9 @@ public interface MetadataDecoderFactory {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }

@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.SapiOptions;
@@ -31,6 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -81,9 +81,9 @@ public final class SapiCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -141,9 +141,9 @@ public final class SapiCache {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, context};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -274,9 +274,9 @@ public final class SapiCache {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, module2, fromJSON, cache3};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -306,9 +306,9 @@ public final class SapiCache {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this, Boolean.valueOf(r8)};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
@@ -319,9 +319,9 @@ public final class SapiCache {
                                             }
 
                                             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onFailure(Throwable th, int i2, String str2) {
+                                            public void onFailure(Throwable th, int i, String str2) {
                                                 Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeLIL(1048576, this, th, i2, str2) == null) {
+                                                if (interceptable3 == null || interceptable3.invokeLIL(1048576, this, th, i, str2) == null) {
                                                     AnonymousClass4 anonymousClass4 = this.this$1;
                                                     anonymousClass4.val$newOptions.setCache(anonymousClass4.val$oldCache);
                                                     SapiContext.getInstance().setSapiOptions(this.this$1.val$newOptions);
@@ -329,9 +329,9 @@ public final class SapiCache {
                                             }
 
                                             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onSuccess(int i2, String str2) {
+                                            public void onSuccess(int i, String str2) {
                                                 Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                                                if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
                                                     AnonymousClass4 anonymousClass4 = this.this$1;
                                                     anonymousClass4.this$0.handleCachePage(str2, anonymousClass4.val$newModule);
                                                 }
@@ -364,9 +364,9 @@ public final class SapiCache {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -459,9 +459,9 @@ public final class SapiCache {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -503,7 +503,7 @@ public final class SapiCache {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
-            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + c.f32638g + File.separator + str);
+            return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + "files" + File.separator + str);
         }
         return (String) invokeLL.objValue;
     }
@@ -652,9 +652,9 @@ public final class SapiCache {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, Boolean.valueOf(r8), sapiOptions};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -666,35 +666,35 @@ public final class SapiCache {
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onFailure(Throwable th, int i2, String str) {
+                    public void onFailure(Throwable th, int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i, str) == null) {
                             this.this$0.initSomeSwitch(this.val$oldSapiOptions);
                             this.this$0.reportDi();
                         }
                     }
 
                     @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i2, String str, HashMap<String, String> hashMap2) {
+                    public void onSuccess(int i, String str, HashMap<String, String> hashMap2) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap2) == null) || str == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, hashMap2) == null) || str == null) {
                             return;
                         }
-                        int i3 = -1;
+                        int i2 = -1;
                         String str2 = null;
                         try {
                             JSONObject jSONObject = new JSONObject(str);
-                            i3 = jSONObject.optInt("errno");
+                            i2 = jSONObject.optInt("errno");
                             str2 = jSONObject.optString("data");
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (i3 != 0 || TextUtils.isEmpty(str2)) {
+                        if (i2 != 0 || TextUtils.isEmpty(str2)) {
                             return;
                         }
                         this.this$0.handleOptions(str2, this.val$oldSapiOptions);
                         if (hashMap2 != null) {
-                            SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get("ETag"));
+                            SapiContext.getInstance().put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get(Headers.ETAG));
                         }
                         this.this$0.reportDi();
                     }

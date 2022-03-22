@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.GlGenericDrawer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GlRectDrawer extends GlGenericDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER = "void main() {\n  gl_FragColor = sample(tc);\n}\n";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.GlRectDrawer$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class GlRectDrawer extends GlGenericDrawer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -46,9 +46,9 @@ public class GlRectDrawer extends GlGenericDrawer {
         }
 
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
-        public void onPrepareShader(GlShader glShader, float[] fArr, int i2, int i3, int i4, int i5) {
+        public void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glShader, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
         }
 
@@ -64,9 +64,9 @@ public class GlRectDrawer extends GlGenericDrawer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super((String) objArr[0], (GlGenericDrawer.ShaderCallbacks) objArr[1]);
                 newInitContext.thisArg = this;
@@ -77,18 +77,18 @@ public class GlRectDrawer extends GlGenericDrawer {
     }
 
     @Override // org.webrtc.GlGenericDrawer, org.webrtc.RendererCommon.GlDrawer
-    public /* bridge */ /* synthetic */ void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
-        super.drawOes(i2, fArr, i3, i4, i5, i6, i7, i8);
+    public /* bridge */ /* synthetic */ void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
+        super.drawOes(i, fArr, i2, i3, i4, i5, i6, i7);
     }
 
     @Override // org.webrtc.GlGenericDrawer, org.webrtc.RendererCommon.GlDrawer
-    public /* bridge */ /* synthetic */ void drawRgb(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
-        super.drawRgb(i2, fArr, i3, i4, i5, i6, i7, i8);
+    public /* bridge */ /* synthetic */ void drawRgb(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
+        super.drawRgb(i, fArr, i2, i3, i4, i5, i6, i7);
     }
 
     @Override // org.webrtc.GlGenericDrawer, org.webrtc.RendererCommon.GlDrawer
-    public /* bridge */ /* synthetic */ void drawYuv(int[] iArr, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
-        super.drawYuv(iArr, fArr, i2, i3, i4, i5, i6, i7);
+    public /* bridge */ /* synthetic */ void drawYuv(int[] iArr, float[] fArr, int i, int i2, int i3, int i4, int i5, int i6) {
+        super.drawYuv(iArr, fArr, i, i2, i3, i4, i5, i6);
     }
 
     @Override // org.webrtc.GlGenericDrawer, org.webrtc.RendererCommon.GlDrawer

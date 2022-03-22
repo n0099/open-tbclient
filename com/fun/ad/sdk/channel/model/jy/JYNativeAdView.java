@@ -16,29 +16,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBMediaView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JYNativeAdView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f52803b;
+    public FrameLayout f38549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f52804c;
+    public View f38550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f52805d;
+    public TextView f38551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52806e;
+    public ImageView f38552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f52807f;
+    public Button f38553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52808g;
+    public float f38554g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public JYNativeAdView(Context context) {
@@ -49,16 +49,16 @@ public final class JYNativeAdView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f52808g = 1.78f;
+        this.f38554g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,9 +70,9 @@ public final class JYNativeAdView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -80,21 +80,21 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f52808g = 1.78f;
+        this.f38554g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JYNativeAdView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public JYNativeAdView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -102,7 +102,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f52808g = 1.78f;
+        this.f38554g = 1.78f;
     }
 
     @Override // android.view.View
@@ -110,28 +110,28 @@ public final class JYNativeAdView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.ad_description);
-            this.f52803b = (FrameLayout) findViewById(R.id.ad_img_container);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
+            this.f38549b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900ad);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
-            this.f52804c = pBMediaView;
-            this.f52803b.addView(pBMediaView, layoutParams);
-            this.f52805d = (TextView) findViewById(R.id.ad_title);
-            this.f52806e = (ImageView) findViewById(R.id.ad_icon);
-            this.f52807f = (Button) findViewById(R.id.ad_creative);
+            this.f38550c = pBMediaView;
+            this.f38549b.addView(pBMediaView, layoutParams);
+            this.f38551d = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f3);
+            this.f38552e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a5);
+            this.f38553f = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52803b.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f52808g);
-            this.f52803b.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38549b.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / this.f38554g);
+            this.f38549b.setLayoutParams(layoutParams);
         }
     }
 }

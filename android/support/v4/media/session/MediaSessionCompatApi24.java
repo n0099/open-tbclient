@@ -4,6 +4,7 @@ import android.media.session.MediaSession;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompatApi23;
+import android.util.Log;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,9 +45,9 @@ public class MediaSessionCompatApi24 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((MediaSessionCompatApi23.Callback) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -96,9 +97,9 @@ public class MediaSessionCompatApi24 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -118,7 +119,8 @@ public class MediaSessionCompatApi24 {
             MediaSession mediaSession = (MediaSession) obj;
             try {
                 return (String) mediaSession.getClass().getMethod("getCallingPackage", new Class[0]).invoke(mediaSession, new Object[0]);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
+                Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e2);
                 return null;
             }
         }

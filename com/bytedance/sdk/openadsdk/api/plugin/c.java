@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.api.plugin;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public PublicKey a;
 
@@ -77,7 +78,7 @@ public final class c {
 
     public static PublicKey a(String str) throws Exception {
         try {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
         } catch (Exception e2) {
             throw new Exception("Init public key failed", e2);
         }

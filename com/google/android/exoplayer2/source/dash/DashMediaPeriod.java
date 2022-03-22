@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<DashChunkSource>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     public final TrackGroupInfo[] trackGroupInfos;
     public final TrackGroupArray trackGroups;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class TrackGroupInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,89 +64,89 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         public final int primaryTrackGroupIndex;
         public final int trackType;
 
-        public TrackGroupInfo(int i2, int[] iArr, int i3, boolean z, boolean z2, boolean z3) {
+        public TrackGroupInfo(int i, int[] iArr, int i2, boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), iArr, Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                Object[] objArr = {Integer.valueOf(i), iArr, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.trackType = i2;
+            this.trackType = i;
             this.adaptationSetIndices = iArr;
-            this.primaryTrackGroupIndex = i3;
+            this.primaryTrackGroupIndex = i2;
             this.isPrimary = z;
             this.hasEmbeddedEventMessageTrack = z2;
             this.hasEmbeddedCea608Track = z3;
         }
     }
 
-    public DashMediaPeriod(int i2, DashManifest dashManifest, int i3, DashChunkSource.Factory factory, int i4, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, long j2, LoaderErrorThrower loaderErrorThrower, Allocator allocator) {
+    public DashMediaPeriod(int i, DashManifest dashManifest, int i2, DashChunkSource.Factory factory, int i3, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, long j, LoaderErrorThrower loaderErrorThrower, Allocator allocator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), dashManifest, Integer.valueOf(i3), factory, Integer.valueOf(i4), eventDispatcher, Long.valueOf(j2), loaderErrorThrower, allocator};
+            Object[] objArr = {Integer.valueOf(i), dashManifest, Integer.valueOf(i2), factory, Integer.valueOf(i3), eventDispatcher, Long.valueOf(j), loaderErrorThrower, allocator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = i2;
+        this.id = i;
         this.manifest = dashManifest;
-        this.periodIndex = i3;
+        this.periodIndex = i2;
         this.chunkSourceFactory = factory;
-        this.minLoadableRetryCount = i4;
+        this.minLoadableRetryCount = i3;
         this.eventDispatcher = eventDispatcher;
-        this.elapsedRealtimeOffset = j2;
+        this.elapsedRealtimeOffset = j;
         this.manifestLoaderErrorThrower = loaderErrorThrower;
         this.allocator = allocator;
         ChunkSampleStream<DashChunkSource>[] newSampleStreamArray = newSampleStreamArray(0);
         this.sampleStreams = newSampleStreamArray;
         this.sequenceableLoader = new CompositeSequenceableLoader(newSampleStreamArray);
-        Pair<TrackGroupArray, TrackGroupInfo[]> buildTrackGroups = buildTrackGroups(dashManifest.getPeriod(i3).adaptationSets);
+        Pair<TrackGroupArray, TrackGroupInfo[]> buildTrackGroups = buildTrackGroups(dashManifest.getPeriod(i2).adaptationSets);
         this.trackGroups = (TrackGroupArray) buildTrackGroups.first;
         this.trackGroupInfos = (TrackGroupInfo[]) buildTrackGroups.second;
     }
 
-    private ChunkSampleStream<DashChunkSource> buildSampleStream(TrackGroupInfo trackGroupInfo, TrackSelection trackSelection, long j2) {
+    private ChunkSampleStream<DashChunkSource> buildSampleStream(TrackGroupInfo trackGroupInfo, TrackSelection trackSelection, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{trackGroupInfo, trackSelection, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{trackGroupInfo, trackSelection, Long.valueOf(j)})) == null) {
             int[] iArr = new int[2];
             boolean z = trackGroupInfo.hasEmbeddedEventMessageTrack;
-            int i2 = 0;
+            int i = 0;
             if (z) {
                 iArr[0] = 4;
-                i2 = 1;
+                i = 1;
             }
             boolean z2 = trackGroupInfo.hasEmbeddedCea608Track;
             if (z2) {
-                iArr[i2] = 3;
-                i2++;
+                iArr[i] = 3;
+                i++;
             }
-            if (i2 < 2) {
-                iArr = Arrays.copyOf(iArr, i2);
+            if (i < 2) {
+                iArr = Arrays.copyOf(iArr, i);
             }
-            return new ChunkSampleStream<>(trackGroupInfo.trackType, iArr, this.chunkSourceFactory.createDashChunkSource(this.manifestLoaderErrorThrower, this.manifest, this.periodIndex, trackGroupInfo.adaptationSetIndices, trackSelection, trackGroupInfo.trackType, this.elapsedRealtimeOffset, z, z2), this, this.allocator, j2, this.minLoadableRetryCount, this.eventDispatcher);
+            return new ChunkSampleStream<>(trackGroupInfo.trackType, iArr, this.chunkSourceFactory.createDashChunkSource(this.manifestLoaderErrorThrower, this.manifest, this.periodIndex, trackGroupInfo.adaptationSetIndices, trackSelection, trackGroupInfo.trackType, this.elapsedRealtimeOffset, z, z2), this, this.allocator, j, this.minLoadableRetryCount, this.eventDispatcher);
         }
         return (ChunkSampleStream) invokeCommon.objValue;
     }
 
     public static Pair<TrackGroupArray, TrackGroupInfo[]> buildTrackGroups(List<AdaptationSet> list) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
@@ -155,63 +155,63 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
             boolean[] zArr = new boolean[length];
             boolean[] zArr2 = new boolean[length];
             char c2 = 0;
-            int i3 = length;
-            int i4 = 0;
+            int i2 = length;
+            int i3 = 0;
             while (true) {
-                i2 = 1;
-                if (i4 >= length) {
+                i = 1;
+                if (i3 >= length) {
                     break;
                 }
-                if (hasEventMessageTrack(list, groupedAdaptationSetIndices[i4])) {
-                    zArr[i4] = true;
-                    i3++;
+                if (hasEventMessageTrack(list, groupedAdaptationSetIndices[i3])) {
+                    zArr[i3] = true;
+                    i2++;
                 }
-                if (hasCea608Track(list, groupedAdaptationSetIndices[i4])) {
-                    zArr2[i4] = true;
-                    i3++;
+                if (hasCea608Track(list, groupedAdaptationSetIndices[i3])) {
+                    zArr2[i3] = true;
+                    i2++;
                 }
-                i4++;
+                i3++;
             }
-            TrackGroup[] trackGroupArr = new TrackGroup[i3];
-            TrackGroupInfo[] trackGroupInfoArr = new TrackGroupInfo[i3];
+            TrackGroup[] trackGroupArr = new TrackGroup[i2];
+            TrackGroupInfo[] trackGroupInfoArr = new TrackGroupInfo[i2];
+            int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
-            while (i5 < length) {
-                int[] iArr = groupedAdaptationSetIndices[i5];
+            while (i4 < length) {
+                int[] iArr = groupedAdaptationSetIndices[i4];
                 ArrayList arrayList = new ArrayList();
-                for (int i7 : iArr) {
-                    arrayList.addAll(list.get(i7).representations);
+                for (int i6 : iArr) {
+                    arrayList.addAll(list.get(i6).representations);
                 }
                 int size = arrayList.size();
                 Format[] formatArr = new Format[size];
-                for (int i8 = 0; i8 < size; i8++) {
-                    formatArr[i8] = ((Representation) arrayList.get(i8)).format;
+                for (int i7 = 0; i7 < size; i7++) {
+                    formatArr[i7] = ((Representation) arrayList.get(i7)).format;
                 }
                 AdaptationSet adaptationSet = list.get(iArr[c2]);
-                boolean z = zArr[i5];
-                boolean z2 = zArr2[i5];
-                trackGroupArr[i6] = new TrackGroup(formatArr);
-                int i9 = i6 + 1;
-                trackGroupInfoArr[i6] = new TrackGroupInfo(adaptationSet.type, iArr, i6, true, z, z2);
+                boolean z = zArr[i4];
+                boolean z2 = zArr2[i4];
+                trackGroupArr[i5] = new TrackGroup(formatArr);
+                int i8 = i5 + 1;
+                trackGroupInfoArr[i5] = new TrackGroupInfo(adaptationSet.type, iArr, i5, true, z, z2);
                 if (z) {
-                    Format[] formatArr2 = new Format[i2];
+                    Format[] formatArr2 = new Format[i];
                     formatArr2[0] = Format.createSampleFormat(adaptationSet.id + ":emsg", MimeTypes.APPLICATION_EMSG, null, -1, null);
-                    trackGroupArr[i9] = new TrackGroup(formatArr2);
+                    trackGroupArr[i8] = new TrackGroup(formatArr2);
                     str = null;
-                    trackGroupInfoArr[i9] = new TrackGroupInfo(4, iArr, i6, false, false, false);
-                    i9++;
+                    trackGroupInfoArr[i8] = new TrackGroupInfo(4, iArr, i5, false, false, false);
+                    i8++;
                 } else {
                     str = null;
                 }
                 if (z2) {
-                    trackGroupArr[i9] = new TrackGroup(Format.createTextSampleFormat(adaptationSet.id + ":cea608", MimeTypes.APPLICATION_CEA608, 0, str));
-                    trackGroupInfoArr[i9] = new TrackGroupInfo(3, iArr, i6, false, false, false);
-                    i9++;
+                    trackGroupArr[i8] = new TrackGroup(Format.createTextSampleFormat(adaptationSet.id + ":cea608", MimeTypes.APPLICATION_CEA608, 0, str));
+                    trackGroupInfoArr[i8] = new TrackGroupInfo(3, iArr, i5, false, false, false);
+                    i8++;
                 }
-                i5++;
-                i6 = i9;
+                i4++;
+                i5 = i8;
                 c2 = 0;
-                i2 = 1;
+                i = 1;
             }
             return Pair.create(new TrackGroupArray(trackGroupArr), trackGroupInfoArr);
         }
@@ -222,8 +222,8 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                Descriptor descriptor = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                Descriptor descriptor = list.get(i);
                 if ("urn:mpeg:dash:adaptation-set-switching:2016".equals(descriptor.schemeIdUri)) {
                     return descriptor;
                 }
@@ -239,38 +239,38 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             int size = list.size();
             SparseIntArray sparseIntArray = new SparseIntArray(size);
-            for (int i2 = 0; i2 < size; i2++) {
-                sparseIntArray.put(list.get(i2).id, i2);
+            for (int i = 0; i < size; i++) {
+                sparseIntArray.put(list.get(i).id, i);
             }
             int[][] iArr = new int[size];
             boolean[] zArr = new boolean[size];
-            int i3 = 0;
-            for (int i4 = 0; i4 < size; i4++) {
-                if (!zArr[i4]) {
-                    zArr[i4] = true;
-                    Descriptor findAdaptationSetSwitchingProperty = findAdaptationSetSwitchingProperty(list.get(i4).supplementalProperties);
+            int i2 = 0;
+            for (int i3 = 0; i3 < size; i3++) {
+                if (!zArr[i3]) {
+                    zArr[i3] = true;
+                    Descriptor findAdaptationSetSwitchingProperty = findAdaptationSetSwitchingProperty(list.get(i3).supplementalProperties);
                     if (findAdaptationSetSwitchingProperty == null) {
                         int[] iArr2 = new int[1];
-                        iArr2[0] = i4;
-                        iArr[i3] = iArr2;
-                        i3++;
+                        iArr2[0] = i3;
+                        iArr[i2] = iArr2;
+                        i2++;
                     } else {
                         String[] split = findAdaptationSetSwitchingProperty.value.split(",");
                         int[] iArr3 = new int[split.length + 1];
-                        iArr3[0] = i4;
-                        int i5 = 0;
-                        while (i5 < split.length) {
-                            int i6 = sparseIntArray.get(Integer.parseInt(split[i5]));
-                            zArr[i6] = true;
-                            i5++;
-                            iArr3[i5] = i6;
+                        iArr3[0] = i3;
+                        int i4 = 0;
+                        while (i4 < split.length) {
+                            int i5 = sparseIntArray.get(Integer.parseInt(split[i4]));
+                            zArr[i5] = true;
+                            i4++;
+                            iArr3[i4] = i5;
                         }
-                        iArr[i3] = iArr3;
-                        i3++;
+                        iArr[i2] = iArr3;
+                        i2++;
                     }
                 }
             }
-            return i3 < size ? (int[][]) Arrays.copyOf(iArr, i3) : iArr;
+            return i2 < size ? (int[][]) Arrays.copyOf(iArr, i2) : iArr;
         }
         return (int[][]) invokeL.objValue;
     }
@@ -279,10 +279,10 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, list, iArr)) == null) {
-            for (int i2 : iArr) {
-                List<Descriptor> list2 = list.get(i2).accessibilityDescriptors;
-                for (int i3 = 0; i3 < list2.size(); i3++) {
-                    if ("urn:scte:dash:cc:cea-608:2015".equals(list2.get(i3).schemeIdUri)) {
+            for (int i : iArr) {
+                List<Descriptor> list2 = list.get(i).accessibilityDescriptors;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if ("urn:scte:dash:cc:cea-608:2015".equals(list2.get(i2).schemeIdUri)) {
                         return true;
                     }
                 }
@@ -296,10 +296,10 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, list, iArr)) == null) {
-            for (int i2 : iArr) {
-                List<Representation> list2 = list.get(i2).representations;
-                for (int i3 = 0; i3 < list2.size(); i3++) {
-                    if (!list2.get(i3).inbandEventStreams.isEmpty()) {
+            for (int i : iArr) {
+                List<Representation> list2 = list.get(i).representations;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (!list2.get(i2).inbandEventStreams.isEmpty()) {
                         return true;
                     }
                 }
@@ -309,10 +309,10 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         return invokeLL.booleanValue;
     }
 
-    public static ChunkSampleStream<DashChunkSource>[] newSampleStreamArray(int i2) {
+    public static ChunkSampleStream<DashChunkSource>[] newSampleStreamArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? new ChunkSampleStream[i2] : (ChunkSampleStream[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? new ChunkSampleStream[i] : (ChunkSampleStream[]) invokeI.objValue;
     }
 
     public static void releaseIfEmbeddedSampleStream(SampleStream sampleStream) {
@@ -323,18 +323,18 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j2) {
+    public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.sequenceableLoader.continueLoading(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.sequenceableLoader.continueLoading(j) : invokeJ.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j2) {
+    public void discardBuffer(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.discardEmbeddedTracksTo(j2);
+                chunkSampleStream.discardEmbeddedTracksTo(j);
             }
         }
     }
@@ -369,9 +369,9 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void prepare(MediaPeriod.Callback callback, long j2) {
+    public void prepare(MediaPeriod.Callback callback, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback, j) == null) {
             this.callback = callback;
             callback.onPrepared(this);
         }
@@ -394,57 +394,57 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long seekToUs(long j2) {
+    public long seekToUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
             for (ChunkSampleStream<DashChunkSource> chunkSampleStream : this.sampleStreams) {
-                chunkSampleStream.seekToUs(j2);
+                chunkSampleStream.seekToUs(j);
             }
-            return j2;
+            return j;
         }
         return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j2) {
+    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
         boolean z;
         SampleStream selectEmbeddedTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             HashMap hashMap = new HashMap();
-            for (int i2 = 0; i2 < trackSelectionArr.length; i2++) {
-                if (sampleStreamArr[i2] instanceof ChunkSampleStream) {
-                    ChunkSampleStream chunkSampleStream = (ChunkSampleStream) sampleStreamArr[i2];
-                    if (trackSelectionArr[i2] != null && zArr[i2]) {
-                        hashMap.put(Integer.valueOf(this.trackGroups.indexOf(trackSelectionArr[i2].getTrackGroup())), chunkSampleStream);
+            for (int i = 0; i < trackSelectionArr.length; i++) {
+                if (sampleStreamArr[i] instanceof ChunkSampleStream) {
+                    ChunkSampleStream chunkSampleStream = (ChunkSampleStream) sampleStreamArr[i];
+                    if (trackSelectionArr[i] != null && zArr[i]) {
+                        hashMap.put(Integer.valueOf(this.trackGroups.indexOf(trackSelectionArr[i].getTrackGroup())), chunkSampleStream);
                     } else {
                         chunkSampleStream.release();
-                        sampleStreamArr[i2] = null;
+                        sampleStreamArr[i] = null;
                     }
                 }
-                if (sampleStreamArr[i2] == null && trackSelectionArr[i2] != null) {
-                    int indexOf = this.trackGroups.indexOf(trackSelectionArr[i2].getTrackGroup());
+                if (sampleStreamArr[i] == null && trackSelectionArr[i] != null) {
+                    int indexOf = this.trackGroups.indexOf(trackSelectionArr[i].getTrackGroup());
                     TrackGroupInfo trackGroupInfo = this.trackGroupInfos[indexOf];
                     if (trackGroupInfo.isPrimary) {
-                        ChunkSampleStream<DashChunkSource> buildSampleStream = buildSampleStream(trackGroupInfo, trackSelectionArr[i2], j2);
+                        ChunkSampleStream<DashChunkSource> buildSampleStream = buildSampleStream(trackGroupInfo, trackSelectionArr[i], j);
                         hashMap.put(Integer.valueOf(indexOf), buildSampleStream);
-                        sampleStreamArr[i2] = buildSampleStream;
-                        zArr2[i2] = true;
+                        sampleStreamArr[i] = buildSampleStream;
+                        zArr2[i] = true;
                     }
                 }
             }
-            for (int i3 = 0; i3 < trackSelectionArr.length; i3++) {
-                if (((sampleStreamArr[i3] instanceof ChunkSampleStream.EmbeddedSampleStream) || (sampleStreamArr[i3] instanceof EmptySampleStream)) && (trackSelectionArr[i3] == null || !zArr[i3])) {
-                    releaseIfEmbeddedSampleStream(sampleStreamArr[i3]);
-                    sampleStreamArr[i3] = null;
+            for (int i2 = 0; i2 < trackSelectionArr.length; i2++) {
+                if (((sampleStreamArr[i2] instanceof ChunkSampleStream.EmbeddedSampleStream) || (sampleStreamArr[i2] instanceof EmptySampleStream)) && (trackSelectionArr[i2] == null || !zArr[i2])) {
+                    releaseIfEmbeddedSampleStream(sampleStreamArr[i2]);
+                    sampleStreamArr[i2] = null;
                 }
-                if (trackSelectionArr[i3] != null) {
-                    TrackGroupInfo trackGroupInfo2 = this.trackGroupInfos[this.trackGroups.indexOf(trackSelectionArr[i3].getTrackGroup())];
+                if (trackSelectionArr[i2] != null) {
+                    TrackGroupInfo trackGroupInfo2 = this.trackGroupInfos[this.trackGroups.indexOf(trackSelectionArr[i2].getTrackGroup())];
                     if (!trackGroupInfo2.isPrimary) {
                         ChunkSampleStream chunkSampleStream2 = (ChunkSampleStream) hashMap.get(Integer.valueOf(trackGroupInfo2.primaryTrackGroupIndex));
-                        SampleStream sampleStream = sampleStreamArr[i3];
+                        SampleStream sampleStream = sampleStreamArr[i2];
                         if (chunkSampleStream2 == null) {
                             z = sampleStream instanceof EmptySampleStream;
                         } else {
@@ -455,10 +455,10 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
                             if (chunkSampleStream2 == null) {
                                 selectEmbeddedTrack = new EmptySampleStream();
                             } else {
-                                selectEmbeddedTrack = chunkSampleStream2.selectEmbeddedTrack(j2, trackGroupInfo2.trackType);
+                                selectEmbeddedTrack = chunkSampleStream2.selectEmbeddedTrack(j, trackGroupInfo2.trackType);
                             }
-                            sampleStreamArr[i3] = selectEmbeddedTrack;
-                            zArr2[i3] = true;
+                            sampleStreamArr[i2] = selectEmbeddedTrack;
+                            zArr2[i2] = true;
                         }
                     }
                 }
@@ -466,20 +466,20 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
             this.sampleStreams = newSampleStreamArray(hashMap.size());
             hashMap.values().toArray(this.sampleStreams);
             this.sequenceableLoader = new CompositeSequenceableLoader(this.sampleStreams);
-            return j2;
+            return j;
         }
         return invokeCommon.longValue;
     }
 
-    public void updateManifest(DashManifest dashManifest, int i2) {
+    public void updateManifest(DashManifest dashManifest, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, dashManifest, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, dashManifest, i) == null) {
             this.manifest = dashManifest;
-            this.periodIndex = i2;
+            this.periodIndex = i;
             ChunkSampleStream<DashChunkSource>[] chunkSampleStreamArr = this.sampleStreams;
             if (chunkSampleStreamArr != null) {
                 for (ChunkSampleStream<DashChunkSource> chunkSampleStream : chunkSampleStreamArr) {
-                    chunkSampleStream.getChunkSource().updateManifest(dashManifest, i2);
+                    chunkSampleStream.getChunkSource().updateManifest(dashManifest, i);
                 }
                 this.callback.onContinueLoadingRequested(this);
             }

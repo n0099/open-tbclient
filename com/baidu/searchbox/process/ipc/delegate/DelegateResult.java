@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class DelegateResult implements DelegateDef.ResultCode {
     public static /* synthetic */ Interceptable $ic;
@@ -25,17 +24,17 @@ public class DelegateResult implements DelegateDef.ResultCode {
     public final int mResultCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i2, Class<? extends ActivityDelegation> cls) {
-        this(i2, cls, null);
+    public DelegateResult(int i, Class<? extends ActivityDelegation> cls) {
+        this(i, cls, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), cls};
+            Object[] objArr = {Integer.valueOf(i), cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (Class) objArr2[1], (Bundle) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -67,7 +66,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
                 StringBuilder sb = this.mDesc;
                 sb.append("[desc]:: ");
                 sb.append(str);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             return this;
         }
@@ -101,17 +100,17 @@ public class DelegateResult implements DelegateDef.ResultCode {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DelegateResult(int i2, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
-        this(i2, cls, bundle, null);
+    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
+        this(i, cls, bundle, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), cls, bundle};
+            Object[] objArr = {Integer.valueOf(i), cls, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (Class) objArr2[1], (Bundle) objArr2[2], (Bundle) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -121,16 +120,16 @@ public class DelegateResult implements DelegateDef.ResultCode {
         }
     }
 
-    public DelegateResult(int i2, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
+    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), cls, bundle, bundle2};
+            Object[] objArr = {Integer.valueOf(i), cls, bundle, bundle2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -139,7 +138,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
         this.mDesc = new StringBuilder();
         this.mParams = new Bundle();
         this.mResult = new Bundle();
-        this.mResultCode = i2;
+        this.mResultCode = i;
         this.mDelegation = cls;
         putParams(bundle);
         putResult(bundle2);

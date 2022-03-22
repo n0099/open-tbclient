@@ -36,9 +36,9 @@ public class Sticker extends BaseBeautyItem {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,9 +77,9 @@ public class Sticker extends BaseBeautyItem {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -160,10 +160,10 @@ public class Sticker extends BaseBeautyItem {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mSoFileList : (List) invokeV.objValue;
     }
 
-    public boolean isSupport(int i2) {
+    public boolean isSupport(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? i2 >= this.mMinVersion && i2 <= this.mMaxtVersion : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i >= this.mMinVersion && i <= this.mMaxtVersion : invokeI.booleanValue;
     }
 
     public boolean isTouchAble() {
@@ -179,10 +179,10 @@ public class Sticker extends BaseBeautyItem {
         }
     }
 
-    public void setArTyp(int i2) {
+    public void setArTyp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mArType = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mArType = i;
         }
     }
 
@@ -210,17 +210,17 @@ public class Sticker extends BaseBeautyItem {
         }
     }
 
-    public void setMaxVersion(int i2) {
+    public void setMaxVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mMaxtVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mMaxtVersion = i;
         }
     }
 
-    public void setMiniVersion(int i2) {
+    public void setMiniVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mMinVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mMinVersion = i;
         }
     }
 

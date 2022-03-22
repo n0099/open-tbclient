@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect;
 
 import c.a.d.o.e.n;
-import c.a.r0.a0.l.g.d.d.a;
+import c.a.p0.c0.l.g.d.d.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,9 +34,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,11 +47,11 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
@@ -76,16 +76,16 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
                 return;
             }
             this.mEffectList.clear();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     a aVar = new a();
                     aVar.a(optJSONObject2);
                     this.mEffectList.add(aVar);
                     JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                             if (optJSONObject3 != null) {
                                 AlaEnterEffectData alaEnterEffectData = new AlaEnterEffectData();
                                 alaEnterEffectData.parserJson(optJSONObject3);

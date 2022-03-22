@@ -5,7 +5,7 @@ import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,9 +36,9 @@ public class EglSurfaceBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {eglCore};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,13 +50,13 @@ public class EglSurfaceBase {
         this.mEglCore = eglCore;
     }
 
-    public void createOffscreenSurface(int i2, int i3) {
+    public void createOffscreenSurface(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (this.mEGLSurface == EGL14.EGL_NO_SURFACE) {
-                this.mEGLSurface = this.mEglCore.createOffscreenSurface(i2, i3);
-                this.mWidth = i2;
-                this.mHeight = i3;
+                this.mEGLSurface = this.mEglCore.createOffscreenSurface(i, i2);
+                this.mWidth = i;
+                this.mHeight = i2;
                 return;
             }
             throw new IllegalStateException("surface already created");
@@ -78,8 +78,8 @@ public class EglSurfaceBase {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.mHeight;
-            return i2 < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12374) : i2;
+            int i = this.mHeight;
+            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12374) : i;
         }
         return invokeV.intValue;
     }
@@ -88,8 +88,8 @@ public class EglSurfaceBase {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.mWidth;
-            return i2 < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12375) : i2;
+            int i = this.mWidth;
+            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12375) : i;
         }
         return invokeV.intValue;
     }
@@ -158,10 +158,10 @@ public class EglSurfaceBase {
         }
     }
 
-    public void setPresentationTime(long j2) {
+    public void setPresentationTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mEglCore.setPresentationTime(this.mEGLSurface, j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
         }
     }
 

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.MaterialCalendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int itemHeight;
     public final MaterialCalendar.OnDayClickListener onDayClickListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,19 +46,19 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {linearLayout, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.month_title);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091437);
             this.monthTitle = textView;
             ViewCompat.setAccessibilityHeading(textView, true);
-            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.month_grid);
+            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091431);
             if (z) {
                 return;
             }
@@ -73,9 +73,9 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, dateSelector, calendarConstraints, onDayClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,24 +106,24 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.calendarConstraints.getStart().monthsLater(i2).getStableId() : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.calendarConstraints.getStart().monthsLater(i).getStableId() : invokeI.longValue;
     }
 
     @NonNull
-    public Month getPageMonth(int i2) {
+    public Month getPageMonth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.calendarConstraints.getStart().monthsLater(i2) : (Month) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.calendarConstraints.getStart().monthsLater(i) : (Month) invokeI.objValue;
     }
 
     @NonNull
-    public CharSequence getPageTitle(int i2) {
+    public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? getPageMonth(i2).getLongName() : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? getPageMonth(i).getLongName() : (CharSequence) invokeI.objValue;
     }
 
     public int getPosition(@NonNull Month month) {
@@ -134,12 +134,12 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i2) == null) {
-            Month monthsLater = this.calendarConstraints.getStart().monthsLater(i2);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
+            Month monthsLater = this.calendarConstraints.getStart().monthsLater(i);
             viewHolder.monthTitle.setText(monthsLater.getLongName());
-            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.month_grid);
+            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f091431);
             if (materialCalendarGridView.getAdapter2() != null && monthsLater.equals(materialCalendarGridView.getAdapter2().month)) {
                 materialCalendarGridView.getAdapter2().notifyDataSetChanged();
             } else {
@@ -160,9 +160,9 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, materialCalendarGridView};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -173,10 +173,10 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j2) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j2)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i3)) {
-                        this.this$0.onDayClickListener.onDayClick(this.val$monthGrid.getAdapter2().getItem(i3).longValue());
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i2)) {
+                        this.this$0.onDayClickListener.onDayClick(this.val$monthGrid.getAdapter2().getItem(i2).longValue());
                     }
                 }
             });
@@ -186,11 +186,11 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_month_labeled, viewGroup, false);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
             if (MaterialDatePicker.isFullscreen(viewGroup.getContext())) {
                 linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, this.itemHeight));
                 return new ViewHolder(linearLayout, true);

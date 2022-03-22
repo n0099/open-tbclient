@@ -17,26 +17,26 @@ public final class Mp4Info {
     public final int mRotation;
     public final int mWidth;
 
-    public Mp4Info(int i2, int i3, int i4, int i5, long j2) {
+    public Mp4Info(int i, int i2, int i3, int i4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mWidth = i2;
-        this.mHeight = i3;
-        this.mRotation = i4;
-        this.mBitrate = i5;
-        this.mDurationUs = j2;
+        this.mWidth = i;
+        this.mHeight = i2;
+        this.mRotation = i3;
+        this.mBitrate = i4;
+        this.mDurationUs = j;
     }
 
     public int getBitrate() {

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.amendeddevicescore;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ai.AlgorithmType;
@@ -59,9 +60,9 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {iAmendedDeviceScoreModelProvider};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -88,9 +89,9 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -127,9 +128,9 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Float.valueOf(f2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -148,7 +149,7 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         DeviceInfoSharedPreferenceWrapper.getInstance().putLong(AmendedDeviceScoreManager.SP_KEY_AMENDED_DEVICE_SCORE_MODEL_VERSION, modelVersion);
                         DeviceInfoSharedPreferenceWrapper.getInstance().putLong(AmendedDeviceScoreManager.SP_KEY_AMENDED_DEVICE_SCORE_TIME, System.currentTimeMillis());
                         if (AmendedDeviceScoreManager.DEBUG) {
-                            String str = "save amended device score sp ## model version:" + modelVersion + " ## score:" + this.val$amendedDeviceScore;
+                            Log.d(AmendedDeviceScoreManager.TAG, "save amended device score sp ## model version:" + modelVersion + " ## score:" + this.val$amendedDeviceScore);
                         }
                     }
                 }
@@ -178,15 +179,15 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 long currentTimeMillis = System.currentTimeMillis();
                 inferenceWrapper.init(AlgorithmType.GLM_REGRESSOR, ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.AmendedDeviceScore));
                 if (DEBUG) {
-                    String str = "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis);
+                    Log.d(TAG, "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
                 double d2 = calculateAverageLaunchTime;
                 Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d2, 2.0d), (float) Math.pow(d2, 3.0d), (float) Math.pow(d2, 4.0d)}));
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Float f2 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
-                    String str2 = "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2);
-                    String str3 = "predictByLRModel Result: " + f2;
+                    Log.d(TAG, "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
+                    Log.d(TAG, "predictByLRModel Result: " + f2);
                 }
                 if (f2.floatValue() < 0.0f) {
                     f2 = Float.valueOf(0.0f);
@@ -262,20 +263,24 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
-            long j2 = DeviceInfoSharedPreferenceWrapper.getInstance().getLong(SP_KEY_AMENDED_DEVICE_SCORE_TIME, -1L);
-            if (System.currentTimeMillis() > j2 && System.currentTimeMillis() - j2 < 604800000) {
-                boolean z = DEBUG;
+            long j = DeviceInfoSharedPreferenceWrapper.getInstance().getLong(SP_KEY_AMENDED_DEVICE_SCORE_TIME, -1L);
+            if (System.currentTimeMillis() > j && System.currentTimeMillis() - j < 604800000) {
+                if (DEBUG) {
+                    Log.d(TAG, "amended device score cache hasn't expired.");
+                }
                 return false;
             }
             this.mModelManager.checkAndUpdatePresetModel();
             float predictByLRModel = predictByLRModel(context);
             if (predictByLRModel < 0.0f) {
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "predictByLRModel return invalid value");
+                }
                 return false;
             }
             DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_AMENDED_DEVICE_SCORE, predictByLRModel);
             if (DEBUG) {
-                String str = "amended device score updated.  amendedDeviceScore:" + predictByLRModel;
+                Log.d(TAG, "amended device score updated.  amendedDeviceScore:" + predictByLRModel);
             }
             DeviceInfoSharedPreferenceWrapper.getInstance().putLong(SP_KEY_AMENDED_DEVICE_SCORE_TIME, System.currentTimeMillis());
             return true;
@@ -290,14 +295,14 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (amendedDeviceScoreCache >= 0.0f) {
                 if (DEBUG) {
-                    String str = "get amended device score from mem cache : " + amendedDeviceScoreCache;
+                    Log.d(TAG, "get amended device score from mem cache : " + amendedDeviceScoreCache);
                 }
                 return amendedDeviceScoreCache;
             }
             float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_AMENDED_DEVICE_SCORE, -1.0f);
             if (f2 >= 0.0f) {
                 if (DEBUG) {
-                    String str2 = "get amended device score from file cache : " + f2;
+                    Log.d(TAG, "get amended device score from file cache : " + f2);
                 }
                 amendedDeviceScoreCache = f2;
                 postCheckAmendedStaticScoreStore(context);
@@ -309,7 +314,7 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
             float predictByLRModel = predictByLRModel(context);
             if (predictByLRModel >= 0.0f) {
                 if (DEBUG) {
-                    String str3 = "get amended device score from model : " + predictByLRModel;
+                    Log.d(TAG, "get amended device score from model : " + predictByLRModel);
                 }
                 amendedDeviceScoreCache = predictByLRModel;
                 postStaticScoreStore(predictByLRModel);

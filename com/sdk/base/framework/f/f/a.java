@@ -15,7 +15,7 @@ import com.sdk.base.framework.c.d;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
@@ -41,9 +41,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,16 +55,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         JSONObject jSONObject;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65538, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65538, null, i)) != null) {
             return (String) invokeI.objValue;
         }
-        if (i2 != 101005) {
-            switch (i2) {
+        if (i != 101005) {
+            switch (i) {
                 case 302001:
                     jSONObject = d();
                     break;
@@ -122,9 +122,9 @@ public class a {
         }
     }
 
-    public static void a(String str, long j2) {
+    public static void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65541, null, str, j) == null) {
             try {
                 if (c.b(str).booleanValue() && c.a(a.a()).booleanValue()) {
                     Uri parse = Uri.parse(str);
@@ -138,7 +138,7 @@ public class a {
                 List<d> b2 = a.c().b();
                 d dVar = new d();
                 dVar.a(str);
-                dVar.a(j2);
+                dVar.a(j);
                 b2.add(dVar);
                 a.c().a(b2);
             } catch (Throwable unused) {

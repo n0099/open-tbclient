@@ -45,9 +45,9 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {webBackForwardList};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -101,10 +101,10 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList
-    public final WebHistoryItem getItemAtIndex(int i2) {
+    public final WebHistoryItem getItemAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? WebHistoryItemImpl.from(this.mList.getItemAtIndex(i2)) : (WebHistoryItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? WebHistoryItemImpl.from(this.mList.getItemAtIndex(i)) : (WebHistoryItem) invokeI.objValue;
     }
 
     @Override // com.baidu.webkit.sdk.WebBackForwardList

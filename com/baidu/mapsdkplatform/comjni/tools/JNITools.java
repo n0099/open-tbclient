@@ -25,9 +25,9 @@ public class JNITools {
 
     public static native double[] gcjToBaidu(double d2, double d3);
 
-    public static native int initClass(Object obj, int i2);
+    public static native int initClass(Object obj, int i);
 
-    public static native void openLogEnable(boolean z, int i2);
+    public static native void openLogEnable(boolean z, int i);
 
     public static native double[] wgsToBaidu(double d2, double d3);
 }

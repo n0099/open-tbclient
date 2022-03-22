@@ -7,6 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.Picture;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,26 +27,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.xml.sax.SAXException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SVG {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.c.a.d f51909b;
+    public c.c.a.d f38322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f51910c;
+    public float f38323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CSSParser.e f51911d;
+    public CSSParser.e f38324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, j0> f51912e;
+    public Map<String, j0> f38325e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class GradientSpread {
         public static final /* synthetic */ GradientSpread[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,16 +75,16 @@ public class SVG {
             $VALUES = new GradientSpread[]{pad, reflect, gradientSpread};
         }
 
-        public GradientSpread(String str, int i2) {
+        public GradientSpread(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -106,63 +107,65 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Style implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c A;
-        public String B;
-        public String C;
-        public String D;
-        public Boolean E;
-        public Boolean F;
-        public m0 G;
-        public Float H;
-        public String I;
-        public FillRule J;
-        public String K;
-        public m0 L;
-        public Float M;
-        public m0 N;
-        public Float O;
-        public VectorEffect P;
+        public Boolean A;
+        public Boolean B;
+        public m0 C;
+        public Float D;
+        public String E;
+        public FillRule F;
+        public String G;
+        public m0 H;
+        public Float I;
+        public m0 J;
+        public Float K;
+        public VectorEffect L;
+        public long a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public m0 f38326b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public FillRule f38327c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public Float f38328d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f51913e;
+        public m0 f38329e;
 
         /* renamed from: f  reason: collision with root package name */
-        public m0 f51914f;
+        public Float f38330f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FillRule f51915g;
+        public o f38331g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f51916h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public m0 f51917i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public Float f51918j;
-        public o k;
-        public LineCaps l;
-        public LineJoin m;
-        public Float n;
-        public o[] o;
+        public LineCaps f38332h;
+        public LineJoin i;
+        public Float j;
+        public o[] k;
+        public o l;
+        public Float m;
+        public f n;
+        public List<String> o;
         public o p;
-        public Float q;
-        public f r;
-        public List<String> s;
-        public o t;
-        public Integer u;
-        public FontStyle v;
-        public TextDecoration w;
-        public TextDirection x;
-        public TextAnchor y;
-        public Boolean z;
+        public Integer q;
+        public FontStyle r;
+        public TextDecoration s;
+        public TextDirection t;
+        public TextAnchor u;
+        public Boolean v;
+        public c w;
+        public String x;
+        public String y;
+        public String z;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class FillRule {
             public static final /* synthetic */ FillRule[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -189,16 +192,16 @@ public class SVG {
                 $VALUES = new FillRule[]{NonZero, fillRule};
             }
 
-            public FillRule(String str, int i2) {
+            public FillRule(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -222,7 +225,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class FontStyle {
             public static final /* synthetic */ FontStyle[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -251,16 +254,16 @@ public class SVG {
                 $VALUES = new FontStyle[]{Normal, Italic, fontStyle};
             }
 
-            public FontStyle(String str, int i2) {
+            public FontStyle(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -284,7 +287,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class LineCaps {
             public static final /* synthetic */ LineCaps[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -313,16 +316,16 @@ public class SVG {
                 $VALUES = new LineCaps[]{Butt, Round, lineCaps};
             }
 
-            public LineCaps(String str, int i2) {
+            public LineCaps(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -346,7 +349,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class LineJoin {
             public static final /* synthetic */ LineJoin[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -375,16 +378,16 @@ public class SVG {
                 $VALUES = new LineJoin[]{Miter, Round, lineJoin};
             }
 
-            public LineJoin(String str, int i2) {
+            public LineJoin(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -408,7 +411,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class TextAnchor {
             public static final /* synthetic */ TextAnchor[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -437,16 +440,16 @@ public class SVG {
                 $VALUES = new TextAnchor[]{Start, Middle, textAnchor};
             }
 
-            public TextAnchor(String str, int i2) {
+            public TextAnchor(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -470,7 +473,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class TextDecoration {
             public static final /* synthetic */ TextDecoration[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -503,16 +506,16 @@ public class SVG {
                 $VALUES = new TextDecoration[]{None, Underline, Overline, LineThrough, textDecoration};
             }
 
-            public TextDecoration(String str, int i2) {
+            public TextDecoration(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -536,7 +539,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class TextDirection {
             public static final /* synthetic */ TextDirection[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -563,16 +566,16 @@ public class SVG {
                 $VALUES = new TextDirection[]{LTR, textDirection};
             }
 
-            public TextDirection(String str, int i2) {
+            public TextDirection(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -596,7 +599,7 @@ public class SVG {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class VectorEffect {
             public static final /* synthetic */ VectorEffect[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -623,16 +626,16 @@ public class SVG {
                 $VALUES = new VectorEffect[]{None, vectorEffect};
             }
 
-            public VectorEffect(String str, int i2) {
+            public VectorEffect(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -660,15 +663,15 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51913e = 0L;
+            this.a = 0L;
         }
 
         public static Style a() {
@@ -676,46 +679,46 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 Style style = new Style();
-                style.f51913e = -1L;
-                style.f51914f = f.f51929f;
-                style.f51915g = FillRule.NonZero;
+                style.a = -1L;
+                style.f38326b = f.f38342b;
+                style.f38327c = FillRule.NonZero;
                 Float valueOf = Float.valueOf(1.0f);
-                style.f51916h = valueOf;
-                style.f51917i = null;
-                style.f51918j = valueOf;
-                style.k = new o(1.0f);
-                style.l = LineCaps.Butt;
-                style.m = LineJoin.Miter;
-                style.n = Float.valueOf(4.0f);
+                style.f38328d = valueOf;
+                style.f38329e = null;
+                style.f38330f = valueOf;
+                style.f38331g = new o(1.0f);
+                style.f38332h = LineCaps.Butt;
+                style.i = LineJoin.Miter;
+                style.j = Float.valueOf(4.0f);
+                style.k = null;
+                style.l = new o(0.0f);
+                style.m = valueOf;
+                style.n = f.f38342b;
                 style.o = null;
-                style.p = new o(0.0f);
-                style.q = valueOf;
-                style.r = f.f51929f;
-                style.s = null;
-                style.t = new o(12.0f, Unit.pt);
-                style.u = 400;
-                style.v = FontStyle.Normal;
-                style.w = TextDecoration.None;
-                style.x = TextDirection.LTR;
-                style.y = TextAnchor.Start;
+                style.p = new o(12.0f, Unit.pt);
+                style.q = 400;
+                style.r = FontStyle.Normal;
+                style.s = TextDecoration.None;
+                style.t = TextDirection.LTR;
+                style.u = TextAnchor.Start;
                 Boolean bool = Boolean.TRUE;
-                style.z = bool;
-                style.A = null;
-                style.B = null;
-                style.C = null;
-                style.D = null;
-                style.E = bool;
-                style.F = bool;
-                style.G = f.f51929f;
-                style.H = valueOf;
-                style.I = null;
-                style.J = FillRule.NonZero;
-                style.K = null;
-                style.L = null;
-                style.M = valueOf;
-                style.N = null;
-                style.O = valueOf;
-                style.P = VectorEffect.None;
+                style.v = bool;
+                style.w = null;
+                style.x = null;
+                style.y = null;
+                style.z = null;
+                style.A = bool;
+                style.B = bool;
+                style.C = f.f38342b;
+                style.D = valueOf;
+                style.E = null;
+                style.F = FillRule.NonZero;
+                style.G = null;
+                style.H = null;
+                style.I = valueOf;
+                style.J = null;
+                style.K = valueOf;
+                style.L = VectorEffect.None;
                 return style;
             }
             return (Style) invokeV.objValue;
@@ -725,22 +728,22 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 Boolean bool = Boolean.TRUE;
-                this.E = bool;
+                this.A = bool;
                 if (!z) {
                     bool = Boolean.FALSE;
                 }
-                this.z = bool;
-                this.A = null;
-                this.I = null;
-                this.q = Float.valueOf(1.0f);
-                this.G = f.f51929f;
-                this.H = Float.valueOf(1.0f);
-                this.K = null;
-                this.L = null;
-                this.M = Float.valueOf(1.0f);
-                this.N = null;
-                this.O = Float.valueOf(1.0f);
-                this.P = VectorEffect.None;
+                this.v = bool;
+                this.w = null;
+                this.E = null;
+                this.m = Float.valueOf(1.0f);
+                this.C = f.f38342b;
+                this.D = Float.valueOf(1.0f);
+                this.G = null;
+                this.H = null;
+                this.I = Float.valueOf(1.0f);
+                this.J = null;
+                this.K = Float.valueOf(1.0f);
+                this.L = VectorEffect.None;
             }
         }
 
@@ -750,8 +753,8 @@ public class SVG {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
                     Style style = (Style) super.clone();
-                    if (this.o != null) {
-                        style.o = (o[]) this.o.clone();
+                    if (this.k != null) {
+                        style.k = (o[]) this.k.clone();
                     }
                     return style;
                 } catch (CloneNotSupportedException e2) {
@@ -763,7 +766,7 @@ public class SVG {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Unit {
         public static final /* synthetic */ Unit[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -793,27 +796,27 @@ public class SVG {
             }
             px = new Unit("px", 0);
             em = new Unit("em", 1);
-            ex = new Unit("ex", 2);
+            ex = new Unit(Config.EXCEPTION_PART, 2);
             in = new Unit("in", 3);
             cm = new Unit("cm", 4);
             mm = new Unit("mm", 5);
-            pt = new Unit("pt", 6);
+            pt = new Unit(Config.PLATFORM_TYPE, 6);
             pc = new Unit("pc", 7);
             Unit unit = new Unit("percent", 8);
             percent = unit;
             $VALUES = new Unit[]{px, em, ex, in, cm, mm, pt, pc, unit};
         }
 
-        public Unit(String str, int i2) {
+        public Unit(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -836,7 +839,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -896,7 +899,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a0 extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -912,9 +915,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -922,16 +925,16 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a1 extends l0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51919c;
+        public String f38333c;
 
         /* renamed from: d  reason: collision with root package name */
-        public z0 f51920d;
+        public z0 f38334d;
 
         public a1(String str) {
             Interceptable interceptable = $ic;
@@ -940,22 +943,22 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51919c = str;
+            this.f38333c = str;
         }
 
         @Override // com.caverock.androidsvg.SVG.v0
         public z0 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51920d : (z0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38334d : (z0) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.l0
@@ -963,28 +966,26 @@ public class SVG {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return a1.class.getSimpleName() + " '" + this.f51919c + "'";
+                return a1.class.getSimpleName() + " '" + this.f38333c + "'";
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public float a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public float f51921e;
+        /* renamed from: b  reason: collision with root package name */
+        public float f38335b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public float f51922f;
+        /* renamed from: c  reason: collision with root package name */
+        public float f38336c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public float f51923g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public float f51924h;
+        /* renamed from: d  reason: collision with root package name */
+        public float f38337d;
 
         public b(float f2, float f3, float f4, float f5) {
             Interceptable interceptable = $ic;
@@ -993,18 +994,18 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51921e = f2;
-            this.f51922f = f3;
-            this.f51923g = f4;
-            this.f51924h = f5;
+            this.a = f2;
+            this.f38335b = f3;
+            this.f38336c = f4;
+            this.f38337d = f5;
         }
 
         public static b a(float f2, float f3, float f4, float f5) {
@@ -1016,31 +1017,31 @@ public class SVG {
         public float b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51921e + this.f51923g : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a + this.f38336c : invokeV.floatValue;
         }
 
         public float c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51922f + this.f51924h : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38335b + this.f38337d : invokeV.floatValue;
         }
 
-        public void e(b bVar) {
+        public void d(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-                float f2 = bVar.f51921e;
-                if (f2 < this.f51921e) {
-                    this.f51921e = f2;
+                float f2 = bVar.a;
+                if (f2 < this.a) {
+                    this.a = f2;
                 }
-                float f3 = bVar.f51922f;
-                if (f3 < this.f51922f) {
-                    this.f51922f = f3;
+                float f3 = bVar.f38335b;
+                if (f3 < this.f38335b) {
+                    this.f38335b = f3;
                 }
                 if (bVar.b() > b()) {
-                    this.f51923g = bVar.b() - this.f51921e;
+                    this.f38336c = bVar.b() - this.a;
                 }
                 if (bVar.c() > c()) {
-                    this.f51924h = bVar.c() - this.f51922f;
+                    this.f38337d = bVar.c() - this.f38335b;
                 }
             }
         }
@@ -1049,13 +1050,13 @@ public class SVG {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return PreferencesUtil.LEFT_MOUNT + this.f51921e + " " + this.f51922f + " " + this.f51923g + " " + this.f51924h + PreferencesUtil.RIGHT_MOUNT;
+                return PreferencesUtil.LEFT_MOUNT + this.a + " " + this.f38335b + " " + this.f38336c + " " + this.f38337d + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b0 extends j0 implements h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1065,9 +1066,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1089,7 +1090,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b1 extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1104,9 +1105,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1114,20 +1115,20 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public o a;
 
         /* renamed from: b  reason: collision with root package name */
-        public o f51925b;
+        public o f38338b;
 
         /* renamed from: c  reason: collision with root package name */
-        public o f51926c;
+        public o f38339c;
 
         /* renamed from: d  reason: collision with root package name */
-        public o f51927d;
+        public o f38340d;
 
         public c(o oVar, o oVar2, o oVar3, o oVar4) {
             Interceptable interceptable = $ic;
@@ -1136,37 +1137,37 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oVar, oVar2, oVar3, oVar4};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = oVar;
-            this.f51925b = oVar2;
-            this.f51926c = oVar3;
-            this.f51927d = oVar4;
+            this.f38338b = oVar2;
+            this.f38339c = oVar3;
+            this.f38340d = oVar4;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c0 extends j0 implements h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public Float f51928h;
+        public Float f38341h;
 
         public c0() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1188,7 +1189,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c1 extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1198,9 +1199,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1208,7 +1209,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class d extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1221,9 +1222,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1231,7 +1232,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class d0 extends p0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1246,9 +1247,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1256,7 +1257,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class e extends l implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1267,9 +1268,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1277,7 +1278,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface e0 {
         String a();
 
@@ -1300,16 +1301,14 @@ public class SVG {
         Set<String> m();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class f extends m0 {
         public static /* synthetic */ Interceptable $ic;
 
-        /* renamed from: f  reason: collision with root package name */
-        public static final f f51929f;
+        /* renamed from: b  reason: collision with root package name */
+        public static final f f38342b;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f51930e;
+        public int a;
 
         static {
             InterceptResult invokeClinit;
@@ -1324,44 +1323,40 @@ public class SVG {
                     return;
                 }
             }
-            f51929f = new f(0);
+            f38342b = new f(0);
         }
 
-        public f(int i2) {
+        public f(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f51930e = i2;
+            this.a = i;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("#%06x", Integer.valueOf(this.f51930e)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("#%06x", Integer.valueOf(this.a)) : (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class f0 extends i0 implements h0, e0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: i  reason: collision with root package name */
-        public List<l0> f51931i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public Set<String> f51932j;
+        public List<l0> i;
+        public Set<String> j;
         public String k;
         public Set<String> l;
         public Set<String> m;
@@ -1371,16 +1366,16 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51931i = new ArrayList();
-            this.f51932j = null;
+            this.i = new ArrayList();
+            this.j = null;
             this.k = null;
             this.l = null;
             this.m = null;
@@ -1429,7 +1424,7 @@ public class SVG {
         public void g(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
-                this.f51932j = set;
+                this.j = set;
             }
         }
 
@@ -1437,21 +1432,21 @@ public class SVG {
         public List<l0> getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51931i : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (List) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
         public Set<String> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51932j : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (Set) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
         public void i(l0 l0Var) throws SAXException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l0Var) == null) {
-                this.f51931i.add(l0Var);
+                this.i.add(l0Var);
             }
         }
 
@@ -1479,12 +1474,10 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class g extends m0 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static g f51933e;
+        public static g a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -1500,7 +1493,7 @@ public class SVG {
                     return;
                 }
             }
-            f51933e = new g();
+            a = new g();
         }
 
         public g() {
@@ -1508,9 +1501,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -1520,20 +1513,16 @@ public class SVG {
         public static g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f51933e : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (g) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class g0 extends i0 implements e0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: i  reason: collision with root package name */
-        public Set<String> f51934i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f51935j;
+        public Set<String> i;
+        public String j;
         public Set<String> k;
         public Set<String> l;
         public Set<String> m;
@@ -1543,16 +1532,16 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51934i = null;
-            this.f51935j = null;
+            this.i = null;
+            this.j = null;
             this.k = null;
             this.l = null;
             this.m = null;
@@ -1562,7 +1551,7 @@ public class SVG {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51935j : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -1599,7 +1588,7 @@ public class SVG {
         public void g(Set<String> set) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, set) == null) {
-                this.f51934i = set;
+                this.i = set;
             }
         }
 
@@ -1607,7 +1596,7 @@ public class SVG {
         public Set<String> h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51934i : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (Set) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.e0
@@ -1622,7 +1611,7 @@ public class SVG {
         public void k(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.f51935j = str;
+                this.j = str;
             }
         }
 
@@ -1634,7 +1623,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class h extends l implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1644,9 +1633,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1654,14 +1643,14 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface h0 {
         List<l0> getChildren();
 
         void i(l0 l0Var) throws SAXException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class i extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1675,9 +1664,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1685,44 +1674,40 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class i0 extends j0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public b f51936h;
+        public b f38343h;
 
         public i0() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51936h = null;
+            this.f38343h = null;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class j extends j0 implements h0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<l0> f51937h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public Boolean f51938i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public Matrix f51939j;
+        public List<l0> f38344h;
+        public Boolean i;
+        public Matrix j;
         public GradientSpread k;
         public String l;
 
@@ -1731,22 +1716,22 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51937h = new ArrayList();
+            this.f38344h = new ArrayList();
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
         public List<l0> getChildren() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51937h : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38344h : (List) invokeV.objValue;
         }
 
         @Override // com.caverock.androidsvg.SVG.h0
@@ -1754,7 +1739,7 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l0Var) == null) {
                 if (l0Var instanceof c0) {
-                    this.f51937h.add(l0Var);
+                    this.f38344h.add(l0Var);
                     return;
                 }
                 throw new SAXException("Gradient elements cannot contain " + l0Var + " elements.");
@@ -1762,48 +1747,48 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class j0 extends l0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51940c;
+        public String f38345c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f51941d;
+        public Boolean f38346d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Style f51942e;
+        public Style f38347e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Style f51943f;
+        public Style f38348f;
 
         /* renamed from: g  reason: collision with root package name */
-        public List<String> f51944g;
+        public List<String> f38349g;
 
         public j0() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51940c = null;
-            this.f51941d = null;
-            this.f51942e = null;
-            this.f51943f = null;
-            this.f51944g = null;
+            this.f38345c = null;
+            this.f38346d = null;
+            this.f38347e = null;
+            this.f38348f = null;
+            this.f38349g = null;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class k extends g0 implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1814,9 +1799,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1832,7 +1817,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class k0 extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1846,9 +1831,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1856,7 +1841,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class l extends f0 implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1867,9 +1852,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1885,23 +1870,23 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class l0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SVG a;
 
         /* renamed from: b  reason: collision with root package name */
-        public h0 f51945b;
+        public h0 f38350b;
 
         public l0() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1915,12 +1900,12 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface m {
         void l(Matrix matrix);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class m0 implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1930,9 +1915,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1940,7 +1925,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class n extends n0 implements m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1956,9 +1941,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1974,7 +1959,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class n0 extends f0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1985,9 +1970,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1997,7 +1982,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class o0 extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2012,9 +1997,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2022,7 +2007,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class p extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2036,9 +2021,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2046,7 +2031,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class p0 extends n0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2057,9 +2042,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2067,7 +2052,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class q extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2083,9 +2068,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2093,7 +2078,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class q0 extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2103,9 +2088,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2113,7 +2098,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class r extends f0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2129,9 +2114,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2139,7 +2124,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class r0 extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2149,9 +2134,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2159,11 +2144,11 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface s {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class s0 extends w0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2175,9 +2160,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2199,16 +2184,14 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class t extends m0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public String f51948e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public m0 f51949f;
+        /* renamed from: b  reason: collision with root package name */
+        public m0 f38352b;
 
         public t(String str, m0 m0Var) {
             Interceptable interceptable = $ic;
@@ -2217,29 +2200,29 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, m0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51948e = str;
-            this.f51949f = m0Var;
+            this.a = str;
+            this.f38352b = m0Var;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f51948e + " " + this.f51949f;
+                return this.a + " " + this.f38352b;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class t0 extends y0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2250,9 +2233,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2274,7 +2257,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class u extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2286,9 +2269,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2296,7 +2279,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class u0 extends y0 implements z0, m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2307,9 +2290,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2325,40 +2308,40 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class v implements w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51950b;
+        public int f38353b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float[] f51951c;
+        public float[] f38354c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f51952d;
+        public int f38355d;
 
         public v() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = null;
-            this.f51950b = 0;
-            this.f51951c = null;
-            this.f51952d = 0;
+            this.f38353b = 0;
+            this.f38354c = null;
+            this.f38355d = 0;
             this.a = new byte[8];
-            this.f51951c = new float[16];
+            this.f38354c = new float[16];
         }
 
         @Override // com.caverock.androidsvg.SVG.w
@@ -2367,13 +2350,13 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 f((byte) 0);
                 g(2);
-                float[] fArr = this.f51951c;
-                int i2 = this.f51952d;
-                int i3 = i2 + 1;
-                this.f51952d = i3;
-                fArr[i2] = f2;
-                this.f51952d = i3 + 1;
-                fArr[i3] = f3;
+                float[] fArr = this.f38354c;
+                int i = this.f38355d;
+                int i2 = i + 1;
+                this.f38355d = i2;
+                fArr[i] = f2;
+                this.f38355d = i2 + 1;
+                fArr[i2] = f3;
             }
         }
 
@@ -2383,13 +2366,13 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 f((byte) 1);
                 g(2);
-                float[] fArr = this.f51951c;
-                int i2 = this.f51952d;
-                int i3 = i2 + 1;
-                this.f51952d = i3;
-                fArr[i2] = f2;
-                this.f51952d = i3 + 1;
-                fArr[i3] = f3;
+                float[] fArr = this.f38354c;
+                int i = this.f38355d;
+                int i2 = i + 1;
+                this.f38355d = i2;
+                fArr[i] = f2;
+                this.f38355d = i2 + 1;
+                fArr[i2] = f3;
             }
         }
 
@@ -2399,19 +2382,19 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
                 f((byte) 3);
                 g(4);
-                float[] fArr = this.f51951c;
-                int i2 = this.f51952d;
+                float[] fArr = this.f38354c;
+                int i = this.f38355d;
+                int i2 = i + 1;
+                this.f38355d = i2;
+                fArr[i] = f2;
                 int i3 = i2 + 1;
-                this.f51952d = i3;
-                fArr[i2] = f2;
+                this.f38355d = i3;
+                fArr[i2] = f3;
                 int i4 = i3 + 1;
-                this.f51952d = i4;
-                fArr[i3] = f3;
-                int i5 = i4 + 1;
-                this.f51952d = i5;
-                fArr[i4] = f4;
-                this.f51952d = i5 + 1;
-                fArr[i5] = f5;
+                this.f38355d = i4;
+                fArr[i3] = f4;
+                this.f38355d = i4 + 1;
+                fArr[i4] = f5;
             }
         }
 
@@ -2429,25 +2412,25 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)}) == null) {
                 f((byte) 2);
                 g(6);
-                float[] fArr = this.f51951c;
-                int i2 = this.f51952d;
+                float[] fArr = this.f38354c;
+                int i = this.f38355d;
+                int i2 = i + 1;
+                this.f38355d = i2;
+                fArr[i] = f2;
                 int i3 = i2 + 1;
-                this.f51952d = i3;
-                fArr[i2] = f2;
+                this.f38355d = i3;
+                fArr[i2] = f3;
                 int i4 = i3 + 1;
-                this.f51952d = i4;
-                fArr[i3] = f3;
+                this.f38355d = i4;
+                fArr[i3] = f4;
                 int i5 = i4 + 1;
-                this.f51952d = i5;
-                fArr[i4] = f4;
+                this.f38355d = i5;
+                fArr[i4] = f5;
                 int i6 = i5 + 1;
-                this.f51952d = i6;
-                fArr[i5] = f5;
-                int i7 = i6 + 1;
-                this.f51952d = i7;
-                fArr[i6] = f6;
-                this.f51952d = i7 + 1;
-                fArr[i7] = f7;
+                this.f38355d = i6;
+                fArr[i5] = f6;
+                this.f38355d = i6 + 1;
+                fArr[i6] = f7;
             }
         }
 
@@ -2457,111 +2440,111 @@ public class SVG {
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), Boolean.valueOf(z2), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
                 f((byte) ((z ? 2 : 0) | 4 | (z2 ? 1 : 0)));
                 g(5);
-                float[] fArr = this.f51951c;
-                int i2 = this.f51952d;
+                float[] fArr = this.f38354c;
+                int i = this.f38355d;
+                int i2 = i + 1;
+                this.f38355d = i2;
+                fArr[i] = f2;
                 int i3 = i2 + 1;
-                this.f51952d = i3;
-                fArr[i2] = f2;
+                this.f38355d = i3;
+                fArr[i2] = f3;
                 int i4 = i3 + 1;
-                this.f51952d = i4;
-                fArr[i3] = f3;
+                this.f38355d = i4;
+                fArr[i3] = f4;
                 int i5 = i4 + 1;
-                this.f51952d = i5;
-                fArr[i4] = f4;
-                int i6 = i5 + 1;
-                this.f51952d = i6;
-                fArr[i5] = f5;
-                this.f51952d = i6 + 1;
-                fArr[i6] = f6;
+                this.f38355d = i5;
+                fArr[i4] = f5;
+                this.f38355d = i5 + 1;
+                fArr[i5] = f6;
             }
         }
 
         public final void f(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(1048582, this, b2) == null) {
-                int i2 = this.f51950b;
+                int i = this.f38353b;
                 byte[] bArr = this.a;
-                if (i2 == bArr.length) {
+                if (i == bArr.length) {
                     byte[] bArr2 = new byte[bArr.length * 2];
                     System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
                     this.a = bArr2;
                 }
                 byte[] bArr3 = this.a;
-                int i3 = this.f51950b;
-                this.f51950b = i3 + 1;
-                bArr3[i3] = b2;
+                int i2 = this.f38353b;
+                this.f38353b = i2 + 1;
+                bArr3[i2] = b2;
             }
         }
 
-        public final void g(int i2) {
+        public final void g(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                float[] fArr = this.f51951c;
-                if (fArr.length < this.f51952d + i2) {
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                float[] fArr = this.f38354c;
+                if (fArr.length < this.f38355d + i) {
                     float[] fArr2 = new float[fArr.length * 2];
                     System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
-                    this.f51951c = fArr2;
+                    this.f38354c = fArr2;
                 }
             }
         }
 
         public void h(w wVar) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wVar) == null) {
-                int i3 = 0;
-                for (int i4 = 0; i4 < this.f51950b; i4++) {
-                    byte b2 = this.a[i4];
+                int i2 = 0;
+                for (int i3 = 0; i3 < this.f38353b; i3++) {
+                    byte b2 = this.a[i3];
                     if (b2 == 0) {
-                        float[] fArr = this.f51951c;
-                        int i5 = i3 + 1;
-                        i2 = i5 + 1;
-                        wVar.a(fArr[i3], fArr[i5]);
+                        float[] fArr = this.f38354c;
+                        int i4 = i2 + 1;
+                        i = i4 + 1;
+                        wVar.a(fArr[i2], fArr[i4]);
                     } else if (b2 != 1) {
                         if (b2 == 2) {
-                            float[] fArr2 = this.f51951c;
-                            int i6 = i3 + 1;
-                            float f2 = fArr2[i3];
+                            float[] fArr2 = this.f38354c;
+                            int i5 = i2 + 1;
+                            float f2 = fArr2[i2];
+                            int i6 = i5 + 1;
+                            float f3 = fArr2[i5];
                             int i7 = i6 + 1;
-                            float f3 = fArr2[i6];
+                            float f4 = fArr2[i6];
                             int i8 = i7 + 1;
-                            float f4 = fArr2[i7];
+                            float f5 = fArr2[i7];
                             int i9 = i8 + 1;
-                            float f5 = fArr2[i8];
-                            int i10 = i9 + 1;
-                            float f6 = fArr2[i9];
-                            i3 = i10 + 1;
-                            wVar.d(f2, f3, f4, f5, f6, fArr2[i10]);
+                            float f6 = fArr2[i8];
+                            i2 = i9 + 1;
+                            wVar.d(f2, f3, f4, f5, f6, fArr2[i9]);
                         } else if (b2 == 3) {
-                            float[] fArr3 = this.f51951c;
-                            int i11 = i3 + 1;
+                            float[] fArr3 = this.f38354c;
+                            int i10 = i2 + 1;
+                            int i11 = i10 + 1;
                             int i12 = i11 + 1;
-                            int i13 = i12 + 1;
-                            wVar.c(fArr3[i3], fArr3[i11], fArr3[i12], fArr3[i13]);
-                            i3 = i13 + 1;
+                            wVar.c(fArr3[i2], fArr3[i10], fArr3[i11], fArr3[i12]);
+                            i2 = i12 + 1;
                         } else if (b2 != 8) {
                             boolean z = (b2 & 2) != 0;
                             boolean z2 = (b2 & 1) != 0;
-                            float[] fArr4 = this.f51951c;
-                            int i14 = i3 + 1;
-                            float f7 = fArr4[i3];
+                            float[] fArr4 = this.f38354c;
+                            int i13 = i2 + 1;
+                            float f7 = fArr4[i2];
+                            int i14 = i13 + 1;
+                            float f8 = fArr4[i13];
                             int i15 = i14 + 1;
-                            float f8 = fArr4[i14];
+                            float f9 = fArr4[i14];
                             int i16 = i15 + 1;
-                            float f9 = fArr4[i15];
-                            int i17 = i16 + 1;
-                            wVar.e(f7, f8, f9, z, z2, fArr4[i16], fArr4[i17]);
-                            i3 = i17 + 1;
+                            wVar.e(f7, f8, f9, z, z2, fArr4[i15], fArr4[i16]);
+                            i2 = i16 + 1;
                         } else {
                             wVar.close();
                         }
                     } else {
-                        float[] fArr5 = this.f51951c;
-                        int i18 = i3 + 1;
-                        i2 = i18 + 1;
-                        wVar.b(fArr5[i3], fArr5[i18]);
+                        float[] fArr5 = this.f38354c;
+                        int i17 = i2 + 1;
+                        i = i17 + 1;
+                        wVar.b(fArr5[i2], fArr5[i17]);
                     }
-                    i3 = i2;
+                    i2 = i;
                 }
             }
         }
@@ -2569,16 +2552,16 @@ public class SVG {
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f51950b == 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f38353b == 0 : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface v0 {
         z0 c();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface w {
         void a(float f2, float f3);
 
@@ -2593,7 +2576,7 @@ public class SVG {
         void e(float f2, float f3, float f4, boolean z, boolean z2, float f5, float f6);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class w0 extends f0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2603,9 +2586,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2617,7 +2600,7 @@ public class SVG {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l0Var) == null) {
                 if (l0Var instanceof v0) {
-                    this.f51931i.add(l0Var);
+                    this.i.add(l0Var);
                     return;
                 }
                 throw new SAXException("Text content elements cannot contain " + l0Var + " elements.");
@@ -2625,7 +2608,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class x extends p0 implements s {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2643,9 +2626,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2653,7 +2636,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class x0 extends w0 implements v0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2666,9 +2649,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2690,7 +2673,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class y extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2701,9 +2684,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2711,7 +2694,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class y0 extends w0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2725,9 +2708,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2735,7 +2718,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class z extends y {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2745,9 +2728,9 @@ public class SVG {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2755,7 +2738,7 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface z0 {
     }
 
@@ -2773,10 +2756,10 @@ public class SVG {
             }
         }
         this.a = null;
-        this.f51909b = null;
-        this.f51910c = 96.0f;
-        this.f51911d = new CSSParser.e();
-        this.f51912e = new HashMap();
+        this.f38322b = null;
+        this.f38323c = 96.0f;
+        this.f38324d = new CSSParser.e();
+        this.f38325e = new HashMap();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -2832,14 +2815,14 @@ public class SVG {
     public void a(CSSParser.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f51911d.b(eVar);
+            this.f38324d.b(eVar);
         }
     }
 
     public List<CSSParser.d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51911d.c() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38324d.c() : (List) invokeV.objValue;
     }
 
     public final j0 c(h0 h0Var, String str) {
@@ -2848,13 +2831,13 @@ public class SVG {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h0Var, str)) == null) {
             j0 j0Var = (j0) h0Var;
-            if (str.equals(j0Var.f51940c)) {
+            if (str.equals(j0Var.f38345c)) {
                 return j0Var;
             }
             for (l0 l0Var : h0Var.getChildren()) {
                 if (l0Var instanceof j0) {
                     j0 j0Var2 = (j0) l0Var;
-                    if (str.equals(j0Var2.f51940c)) {
+                    if (str.equals(j0Var2.f38345c)) {
                         return j0Var2;
                     }
                     if ((l0Var instanceof h0) && (c2 = c((h0) l0Var, str)) != null) {
@@ -2874,14 +2857,14 @@ public class SVG {
             if (str == null || str.length() == 0) {
                 return null;
             }
-            if (str.equals(this.a.f51940c)) {
+            if (str.equals(this.a.f38345c)) {
                 return this.a;
             }
-            if (this.f51912e.containsKey(str)) {
-                return this.f51912e.get(str);
+            if (this.f38325e.containsKey(str)) {
+                return this.f38325e.get(str);
             }
             j0 c2 = c(this.a, str);
-            this.f51912e.put(str, c2);
+            this.f38325e.put(str, c2);
             return c2;
         }
         return (l0) invokeL.objValue;
@@ -2890,7 +2873,7 @@ public class SVG {
     public c.c.a.d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f51909b : (c.c.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38322b : (c.c.a.d) invokeV.objValue;
     }
 
     public d0 j() {
@@ -2902,7 +2885,7 @@ public class SVG {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f51911d.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f38324d.d() : invokeV.booleanValue;
     }
 
     public Picture l() {
@@ -2912,14 +2895,14 @@ public class SVG {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             o oVar = this.a.r;
             if (oVar != null) {
-                float b3 = oVar.b(this.f51910c);
+                float b3 = oVar.b(this.f38323c);
                 d0 d0Var = this.a;
                 b bVar = d0Var.o;
                 if (bVar != null) {
-                    b2 = (bVar.f51924h * b3) / bVar.f51923g;
+                    b2 = (bVar.f38337d * b3) / bVar.f38336c;
                 } else {
                     o oVar2 = d0Var.s;
-                    b2 = oVar2 != null ? oVar2.b(this.f51910c) : b3;
+                    b2 = oVar2 != null ? oVar2.b(this.f38323c) : b3;
                 }
                 return m((int) Math.ceil(b3), (int) Math.ceil(b2));
             }
@@ -2933,7 +2916,7 @@ public class SVG {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             Picture picture = new Picture();
-            new c.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f51910c).G0(this, null, null, false);
+            new c.c.a.c(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.f38323c).G0(this, null, null, false);
             picture.endRecording();
             return picture;
         }
@@ -2971,16 +2954,14 @@ public class SVG {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class o implements Cloneable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public float a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public float f51946e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Unit f51947f;
+        /* renamed from: b  reason: collision with root package name */
+        public Unit f38351b;
 
         public o(float f2, Unit unit) {
             Interceptable interceptable = $ic;
@@ -2989,48 +2970,48 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2), unit};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f51946e = 0.0f;
-            this.f51947f = Unit.px;
-            this.f51946e = f2;
-            this.f51947f = unit;
+            this.a = 0.0f;
+            this.f38351b = Unit.px;
+            this.a = f2;
+            this.f38351b = unit;
         }
 
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51946e : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
         }
 
         public float b(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                int i2 = a.a[this.f51947f.ordinal()];
-                if (i2 != 1) {
-                    switch (i2) {
+                int i = a.a[this.f38351b.ordinal()];
+                if (i != 1) {
+                    switch (i) {
                         case 4:
-                            return this.f51946e * f2;
+                            return this.a * f2;
                         case 5:
-                            return (this.f51946e * f2) / 2.54f;
+                            return (this.a * f2) / 2.54f;
                         case 6:
-                            return (this.f51946e * f2) / 25.4f;
+                            return (this.a * f2) / 25.4f;
                         case 7:
-                            return (this.f51946e * f2) / 72.0f;
+                            return (this.a * f2) / 72.0f;
                         case 8:
-                            return (this.f51946e * f2) / 6.0f;
+                            return (this.a * f2) / 6.0f;
                         default:
-                            return this.f51946e;
+                            return this.a;
                     }
                 }
-                return this.f51946e;
+                return this.a;
             }
             return invokeF.floatValue;
         }
@@ -3039,102 +3020,102 @@ public class SVG {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-                if (this.f51947f == Unit.percent) {
+                if (this.f38351b == Unit.percent) {
                     b W = cVar.W();
                     if (W == null) {
-                        return this.f51946e;
+                        return this.a;
                     }
-                    float f2 = W.f51923g;
-                    float f3 = W.f51924h;
+                    float f2 = W.f38336c;
+                    float f3 = W.f38337d;
                     if (f2 == f3) {
-                        return (this.f51946e * f2) / 100.0f;
+                        return (this.a * f2) / 100.0f;
                     }
-                    return (this.f51946e * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
+                    return (this.a * ((float) (Math.sqrt((f2 * f2) + (f3 * f3)) / 1.414213562373095d))) / 100.0f;
                 }
-                return f(cVar);
+                return e(cVar);
             }
             return invokeL.floatValue;
         }
 
-        public float e(c.c.a.c cVar, float f2) {
+        public float d(c.c.a.c cVar, float f2) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, cVar, f2)) == null) {
-                if (this.f51947f == Unit.percent) {
-                    return (this.f51946e * f2) / 100.0f;
+                if (this.f38351b == Unit.percent) {
+                    return (this.a * f2) / 100.0f;
                 }
-                return f(cVar);
+                return e(cVar);
             }
             return invokeLF.floatValue;
+        }
+
+        public float e(c.c.a.c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
+                switch (a.a[this.f38351b.ordinal()]) {
+                    case 1:
+                        return this.a;
+                    case 2:
+                        return this.a * cVar.U();
+                    case 3:
+                        return this.a * cVar.V();
+                    case 4:
+                        return this.a * cVar.X();
+                    case 5:
+                        return (this.a * cVar.X()) / 2.54f;
+                    case 6:
+                        return (this.a * cVar.X()) / 25.4f;
+                    case 7:
+                        return (this.a * cVar.X()) / 72.0f;
+                    case 8:
+                        return (this.a * cVar.X()) / 6.0f;
+                    case 9:
+                        b W = cVar.W();
+                        if (W == null) {
+                            return this.a;
+                        }
+                        return (this.a * W.f38336c) / 100.0f;
+                    default:
+                        return this.a;
+                }
+            }
+            return invokeL.floatValue;
         }
 
         public float f(c.c.a.c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-                switch (a.a[this.f51947f.ordinal()]) {
-                    case 1:
-                        return this.f51946e;
-                    case 2:
-                        return this.f51946e * cVar.U();
-                    case 3:
-                        return this.f51946e * cVar.V();
-                    case 4:
-                        return this.f51946e * cVar.X();
-                    case 5:
-                        return (this.f51946e * cVar.X()) / 2.54f;
-                    case 6:
-                        return (this.f51946e * cVar.X()) / 25.4f;
-                    case 7:
-                        return (this.f51946e * cVar.X()) / 72.0f;
-                    case 8:
-                        return (this.f51946e * cVar.X()) / 6.0f;
-                    case 9:
-                        b W = cVar.W();
-                        if (W == null) {
-                            return this.f51946e;
-                        }
-                        return (this.f51946e * W.f51923g) / 100.0f;
-                    default:
-                        return this.f51946e;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
+                if (this.f38351b == Unit.percent) {
+                    b W = cVar.W();
+                    if (W == null) {
+                        return this.a;
+                    }
+                    return (this.a * W.f38337d) / 100.0f;
                 }
+                return e(cVar);
             }
             return invokeL.floatValue;
         }
 
-        public float g(c.c.a.c cVar) {
-            InterceptResult invokeL;
+        public boolean g() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-                if (this.f51947f == Unit.percent) {
-                    b W = cVar.W();
-                    if (W == null) {
-                        return this.f51946e;
-                    }
-                    return (this.f51946e * W.f51924h) / 100.0f;
-                }
-                return f(cVar);
-            }
-            return invokeL.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a < 0.0f : invokeV.booleanValue;
         }
 
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51946e < 0.0f : invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f51946e == 0.0f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a == 0.0f : invokeV.booleanValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return String.valueOf(this.f51946e) + this.f51947f;
+                return String.valueOf(this.a) + this.f38351b;
             }
             return (String) invokeV.objValue;
         }
@@ -3146,19 +3127,19 @@ public class SVG {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51946e = 0.0f;
+            this.a = 0.0f;
             Unit unit = Unit.px;
-            this.f51947f = unit;
-            this.f51946e = f2;
-            this.f51947f = unit;
+            this.f38351b = unit;
+            this.a = f2;
+            this.f38351b = unit;
         }
     }
 }

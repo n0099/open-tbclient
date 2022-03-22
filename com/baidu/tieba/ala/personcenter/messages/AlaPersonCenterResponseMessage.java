@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter.messages;
 
-import c.a.r0.a0.l.d.c;
+import c.a.p0.c0.l.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,17 +18,17 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     public String errMsg;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaPersonCenterResponseMessage(int i2) {
-        super(i2);
+    public AlaPersonCenterResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,9 +41,9 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode != 200 || error < 0 || jSONObject == null) {
@@ -73,10 +73,10 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (c) invokeV.objValue;
     }
 
-    public void setErrCode(int i2) {
+    public void setErrCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.errCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.errCode = i;
         }
     }
 

@@ -11,7 +11,7 @@ import java.util.Date;
 import org.apache.http.cookie.ClientCookie;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicClientCookie implements SetCookie, ClientCookie {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -239,9 +239,9 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
     }
 
     @Override // org.apache.http.cookie.SetCookie
-    public void setVersion(int i2) {
+    public void setVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

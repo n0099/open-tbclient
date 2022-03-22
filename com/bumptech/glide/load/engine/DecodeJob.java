@@ -36,7 +36,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodeJob";
@@ -74,7 +74,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     public int width;
 
     /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
         public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
@@ -144,7 +144,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -153,7 +153,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         void reschedule(DecodeJob<?> decodeJob);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,9 +167,9 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {decodeJob, dataSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -188,7 +188,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DeferredEncodeManager<Z> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,9 +201,9 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -251,12 +251,12 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ReleaseManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,9 +269,9 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -339,7 +339,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RunReason {
         public static final /* synthetic */ RunReason[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -368,16 +368,16 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             $VALUES = new RunReason[]{INITIALIZE, SWITCH_TO_SOURCE_SERVICE, runReason};
         }
 
-        public RunReason(String str, int i2) {
+        public RunReason(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -401,7 +401,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Stage {
         public static final /* synthetic */ Stage[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -436,16 +436,16 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             $VALUES = new Stage[]{INITIALIZE, RESOURCE_CACHE, DATA_CACHE, SOURCE, ENCODE, stage};
         }
 
-        public Stage(String str, int i2) {
+        public Stage(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -475,9 +475,9 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             newInitContext.initArgs = r2;
             Object[] objArr = {diskCacheProvider, pool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -524,8 +524,8 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (Log.isLoggable(TAG, 2)) {
-                long j2 = this.startFetchTime;
-                logWithTimeAndKey("Retrieved data", j2, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
+                long j = this.startFetchTime;
+                logWithTimeAndKey("Retrieved data", j, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
             }
             Resource<R> resource = null;
             try {
@@ -546,11 +546,11 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[this.stage.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
+            int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[this.stage.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
                             return null;
                         }
                         throw new IllegalStateException("Unrecognized stage: " + this.stage);
@@ -568,15 +568,15 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, stage)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
+            if (i == 1) {
                 return this.diskCacheStrategy.decodeCachedData() ? Stage.DATA_CACHE : getNextStage(Stage.DATA_CACHE);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
-            } else if (i2 == 3 || i2 == 4) {
+            } else if (i == 3 || i == 4) {
                 return Stage.FINISHED;
             } else {
-                if (i2 == 5) {
+                if (i == 5) {
                     return this.diskCacheStrategy.decodeCachedResource() ? Stage.RESOURCE_CACHE : getNextStage(Stage.RESOURCE_CACHE);
                 }
                 throw new IllegalArgumentException("Unrecognized stage: " + stage);
@@ -613,10 +613,10 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.priority.ordinal() : invokeV.intValue;
     }
 
-    private void logWithTimeAndKey(String str, long j2) {
+    private void logWithTimeAndKey(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65544, this, str, j2) == null) {
-            logWithTimeAndKey(str, j2, null);
+        if (interceptable == null || interceptable.invokeLJ(65544, this, str, j) == null) {
+            logWithTimeAndKey(str, j, null);
         }
     }
 
@@ -747,14 +747,14 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
     private void runWrapped() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
+            if (i == 1) {
                 this.stage = getNextStage(Stage.INITIALIZE);
                 this.currentGenerator = getNextGenerator();
                 runGenerators();
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 runGenerators();
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 decodeFromRetrievedData();
             } else {
                 throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
@@ -793,22 +793,22 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.stateVerifier : (StateVerifier) invokeV.objValue;
     }
 
-    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i2, int i3, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i4) {
+    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i2), Integer.valueOf(i3), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback, Integer.valueOf(i4)})) == null) {
-            this.decodeHelper.init(glideContext, obj, key, i2, i3, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback, Integer.valueOf(i3)})) == null) {
+            this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
             this.glideContext = glideContext;
             this.signature = key;
             this.priority = priority;
             this.loadKey = engineKey;
-            this.width = i2;
-            this.height = i3;
+            this.width = i;
+            this.height = i2;
             this.diskCacheStrategy = diskCacheStrategy;
             this.onlyRetrieveFromCache = z3;
             this.options = options;
             this.callback = callback;
-            this.order = i4;
+            this.order = i3;
             this.runReason = RunReason.INITIALIZE;
             this.model = obj;
             return this;
@@ -887,10 +887,10 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             ResourceEncoder resourceEncoder2 = resourceEncoder;
             if (this.diskCacheStrategy.isResourceCacheable(!this.decodeHelper.isSourceKey(this.currentSourceKey), dataSource, encodeStrategy)) {
                 if (resourceEncoder2 != null) {
-                    int i2 = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
-                    if (i2 == 1) {
+                    int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
+                    if (i == 1) {
                         dataCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         dataCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
                     } else {
                         throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
@@ -924,8 +924,8 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0020, code lost:
-        if (r0 != null) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0022, code lost:
+        if (r1 != null) goto L15;
      */
     @Override // java.lang.Runnable
     /*
@@ -947,7 +947,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         } catch (Throwable th) {
             try {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "DecodeJob threw unexpectedly, isCancelled: " + this.isCancelled + ", stage: " + this.stage;
+                    Log.d(TAG, "DecodeJob threw unexpectedly, isCancelled: " + this.isCancelled + ", stage: " + this.stage, th);
                 }
                 if (this.stage != Stage.ENCODE) {
                     this.throwables.add(th);
@@ -980,14 +980,14 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
         return invokeV.booleanValue;
     }
 
-    private void logWithTimeAndKey(String str, long j2, String str2) {
+    private void logWithTimeAndKey(String str, long j, String str2) {
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append(" in ");
-            sb.append(LogTime.getElapsedMillis(j2));
+            sb.append(LogTime.getElapsedMillis(j));
             sb.append(", load key: ");
             sb.append(this.loadKey);
             if (str2 != null) {
@@ -998,7 +998,7 @@ public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, 
             sb.append(str3);
             sb.append(", thread: ");
             sb.append(Thread.currentThread().getName());
-            sb.toString();
+            Log.v(TAG, sb.toString());
         }
     }
 

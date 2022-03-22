@@ -9,15 +9,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InterestedForumStyleAMoreViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mInterestedMoreDivide;
-    public LinearLayout mInterestedMoreRootview;
-    public TextView mInterestedMoreTitle;
-    public View mInterestedMoreTitleInstead;
-    public LinearLayout mInterestedMoreTitleLl;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f34793b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34794c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f34795d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f34796e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumStyleAMoreViewHolder(View view) {
@@ -28,19 +36,19 @@ public class InterestedForumStyleAMoreViewHolder extends TypeAdapter.ViewHolder 
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mInterestedMoreRootview = (LinearLayout) view.findViewById(R.id.interested_more_rootview);
-        this.mInterestedMoreTitleLl = (LinearLayout) view.findViewById(R.id.interested_more_title_ll);
-        this.mInterestedMoreTitle = (TextView) view.findViewById(R.id.interested_more_title);
-        this.mInterestedMoreDivide = view.findViewById(R.id.interested_more_divide);
-        this.mInterestedMoreTitleInstead = view.findViewById(R.id.interested_more_title_instead);
+        this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090f33);
+        this.f34793b = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090f36);
+        this.f34794c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f34);
+        this.f34795d = view.findViewById(R.id.obfuscated_res_0x7f090f32);
+        this.f34796e = view.findViewById(R.id.obfuscated_res_0x7f090f35);
     }
 }

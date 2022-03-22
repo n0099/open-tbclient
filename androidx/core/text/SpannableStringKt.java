@@ -28,10 +28,10 @@ public final class SpannableStringKt {
         }
     }
 
-    public static final void set(Spannable spannable, int i2, int i3, Object obj) {
+    public static final void set(Spannable spannable, int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{spannable, Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
-            spannable.setSpan(obj, i2, i3, 17);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{spannable, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) {
+            spannable.setSpan(obj, i, i2, 17);
         }
     }
 

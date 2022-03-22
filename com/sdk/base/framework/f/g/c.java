@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f57820b;
+    public static final c f42587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f57821c;
+    public static final c f42588c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,9 +48,9 @@ public abstract class c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Byte) objArr2[2]).byteValue());
                         newInitContext.thisArg = this;
@@ -70,7 +70,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f57820b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        f42587b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,9 +83,9 @@ public abstract class c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Byte) objArr2[2]).byteValue());
                         newInitContext.thisArg = this;
@@ -105,7 +105,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f57821c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        f42588c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,9 +118,9 @@ public abstract class c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Byte) objArr2[2]).byteValue());
                         newInitContext.thisArg = this;
@@ -142,16 +142,16 @@ public abstract class c {
         };
     }
 
-    public c(String str, int i2) {
+    public c(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -161,8 +161,8 @@ public abstract class c {
         }
     }
 
-    public /* synthetic */ c(String str, int i2, byte b2) {
-        this(str, i2);
+    public /* synthetic */ c(String str, int i, byte b2) {
+        this(str, i);
     }
 
     public abstract int a();

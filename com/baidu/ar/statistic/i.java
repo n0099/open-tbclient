@@ -19,16 +19,16 @@ public class i {
     public e wH;
     public d wp;
 
-    public i(d dVar, int i2, e eVar, boolean z) {
+    public i(d dVar, int i, e eVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, Integer.valueOf(i2), eVar, Boolean.valueOf(z)};
+            Object[] objArr = {dVar, Integer.valueOf(i), eVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,7 +39,7 @@ public class i {
         }
         this.wp = dVar;
         this.wH = eVar;
-        this.wF = i2 <= 0 ? 10 : i2;
+        this.wF = i <= 0 ? 10 : i;
         this.wG = z;
     }
 
@@ -83,12 +83,12 @@ public class i {
                 HashMap hashMap = new HashMap();
                 int size = this.wp.size();
                 ArrayList arrayList3 = new ArrayList();
-                for (int i2 = 0; i2 < size; i2++) {
-                    a aVar = this.wp.get(i2);
+                for (int i = 0; i < size; i++) {
+                    a aVar = this.wp.get(i);
                     String gg = aVar.gg();
                     if (!hashMap.containsKey(gg)) {
                         if (l(aVar)) {
-                            arrayList3.add(Integer.valueOf(i2));
+                            arrayList3.add(Integer.valueOf(i));
                         } else {
                             hashMap.put(gg, 1);
                             arrayList2.add(aVar);
@@ -132,11 +132,11 @@ public class i {
         }
     }
 
-    public void update(int i2) {
+    public void update(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             synchronized (this.wp) {
-                this.wp.S(i2);
+                this.wp.S(i);
             }
         }
     }

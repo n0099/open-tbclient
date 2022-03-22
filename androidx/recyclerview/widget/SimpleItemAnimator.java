@@ -24,9 +24,9 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,26 +50,26 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         return invokeLLL.booleanValue;
     }
 
-    public abstract boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i2, int i3, int i4, int i5);
+    public abstract boolean animateChange(RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2, int i, int i2, int i3, int i4);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animateChange(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder2, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         InterceptResult invokeLLLL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewHolder, viewHolder2, itemHolderInfo, itemHolderInfo2)) == null) {
-            int i4 = itemHolderInfo.left;
-            int i5 = itemHolderInfo.top;
+            int i3 = itemHolderInfo.left;
+            int i4 = itemHolderInfo.top;
             if (viewHolder2.shouldIgnore()) {
-                int i6 = itemHolderInfo.left;
-                i3 = itemHolderInfo.top;
-                i2 = i6;
+                int i5 = itemHolderInfo.left;
+                i2 = itemHolderInfo.top;
+                i = i5;
             } else {
-                i2 = itemHolderInfo2.left;
-                i3 = itemHolderInfo2.top;
+                i = itemHolderInfo2.left;
+                i2 = itemHolderInfo2.top;
             }
-            return animateChange(viewHolder, viewHolder2, i4, i5, i2, i3);
+            return animateChange(viewHolder, viewHolder2, i3, i4, i, i2);
         }
         return invokeLLLL.booleanValue;
     }
@@ -79,21 +79,21 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
-            int i2 = itemHolderInfo.left;
-            int i3 = itemHolderInfo.top;
+            int i = itemHolderInfo.left;
+            int i2 = itemHolderInfo.top;
             View view = viewHolder.itemView;
             int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
             int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
-            if (!viewHolder.isRemoved() && (i2 != left || i3 != top)) {
+            if (!viewHolder.isRemoved() && (i != left || i2 != top)) {
                 view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
-                return animateMove(viewHolder, i2, i3, left, top);
+                return animateMove(viewHolder, i, i2, left, top);
             }
             return animateRemove(viewHolder);
         }
         return invokeLLL.booleanValue;
     }
 
-    public abstract boolean animateMove(RecyclerView.ViewHolder viewHolder, int i2, int i3, int i4, int i5);
+    public abstract boolean animateMove(RecyclerView.ViewHolder viewHolder, int i, int i2, int i3, int i4);
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemAnimator
     public boolean animatePersistence(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {

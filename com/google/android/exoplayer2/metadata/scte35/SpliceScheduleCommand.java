@@ -16,14 +16,14 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Event> events;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,23 +45,23 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             }
         }
 
-        public ComponentSplice(int i2, long j2) {
+        public ComponentSplice(int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.componentTag = i2;
-            this.utcSpliceTime = j2;
+            this.componentTag = i;
+            this.utcSpliceTime = j;
         }
     }
 
@@ -87,9 +87,9 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -108,10 +108,10 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SpliceScheduleCommand[] newArray(int i2) {
+            public SpliceScheduleCommand[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SpliceScheduleCommand[i2] : (SpliceScheduleCommand[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SpliceScheduleCommand[i] : (SpliceScheduleCommand[]) invokeI.objValue;
             }
         };
     }
@@ -122,7 +122,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray)) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             ArrayList arrayList = new ArrayList(readUnsignedByte);
-            for (int i2 = 0; i2 < readUnsignedByte; i2++) {
+            for (int i = 0; i < readUnsignedByte; i++) {
                 arrayList.add(Event.parseFromSection(parsableByteArray));
             }
             return new SpliceScheduleCommand(arrayList);
@@ -131,13 +131,13 @@ public final class SpliceScheduleCommand extends SpliceCommand {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
             int size = this.events.size();
             parcel.writeInt(size);
-            for (int i3 = 0; i3 < size; i3++) {
-                this.events.get(i3).writeToParcel(parcel);
+            for (int i2 = 0; i2 < size; i2++) {
+                this.events.get(i2).writeToParcel(parcel);
             }
         }
     }
@@ -149,9 +149,9 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -167,9 +167,9 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -177,13 +177,13 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         }
         int readInt = parcel.readInt();
         ArrayList arrayList = new ArrayList(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
+        for (int i3 = 0; i3 < readInt; i3++) {
             arrayList.add(Event.createFromParcel(parcel));
         }
         this.events = Collections.unmodifiableList(arrayList);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,32 +199,32 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         public final int uniqueProgramId;
         public final long utcSpliceTime;
 
-        public Event(long j2, boolean z, boolean z2, boolean z3, List<ComponentSplice> list, long j3, boolean z4, long j4, int i2, int i3, int i4) {
+        public Event(long j, boolean z, boolean z2, boolean z3, List<ComponentSplice> list, long j2, boolean z4, long j3, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r4;
-                Object[] objArr = {Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), list, Long.valueOf(j3), Boolean.valueOf(z4), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), list, Long.valueOf(j2), Boolean.valueOf(z4), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.spliceEventId = j2;
+            this.spliceEventId = j;
             this.spliceEventCancelIndicator = z;
             this.outOfNetworkIndicator = z2;
             this.programSpliceFlag = z3;
             this.componentSpliceList = Collections.unmodifiableList(list);
-            this.utcSpliceTime = j3;
+            this.utcSpliceTime = j2;
             this.autoReturn = z4;
-            this.breakDurationUs = j4;
-            this.uniqueProgramId = i2;
-            this.availNum = i3;
-            this.availsExpected = i4;
+            this.breakDurationUs = j3;
+            this.uniqueProgramId = i;
+            this.availNum = i2;
+            this.availsExpected = i3;
         }
 
         public static Event createFromParcel(Parcel parcel) {
@@ -237,15 +237,15 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             InterceptResult invokeL;
             ArrayList arrayList;
             boolean z;
-            long j2;
+            long j;
             boolean z2;
-            long j3;
+            long j2;
+            int i;
             int i2;
             int i3;
-            int i4;
             boolean z3;
             boolean z4;
-            long j4;
+            long j3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, parsableByteArray)) == null) {
                 long readUnsignedInt = parsableByteArray.readUnsignedInt();
@@ -254,12 +254,12 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 if (z5) {
                     arrayList = arrayList2;
                     z = false;
-                    j2 = C.TIME_UNSET;
+                    j = C.TIME_UNSET;
                     z2 = false;
-                    j3 = C.TIME_UNSET;
+                    j2 = C.TIME_UNSET;
+                    i = 0;
                     i2 = 0;
                     i3 = 0;
-                    i4 = 0;
                     z3 = false;
                 } else {
                     int readUnsignedByte = parsableByteArray.readUnsignedByte();
@@ -270,7 +270,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     if (!z7) {
                         int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
                         ArrayList arrayList3 = new ArrayList(readUnsignedByte2);
-                        for (int i5 = 0; i5 < readUnsignedByte2; i5++) {
+                        for (int i4 = 0; i4 < readUnsignedByte2; i4++) {
                             arrayList3.add(new ComponentSplice(parsableByteArray.readUnsignedByte(), parsableByteArray.readUnsignedInt()));
                         }
                         arrayList2 = arrayList3;
@@ -278,27 +278,27 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                     if (z8) {
                         long readUnsignedByte3 = parsableByteArray.readUnsignedByte();
                         boolean z9 = (128 & readUnsignedByte3) != 0;
-                        j4 = ((((readUnsignedByte3 & 1) << 32) | parsableByteArray.readUnsignedInt()) * 1000) / 90;
+                        j3 = ((((readUnsignedByte3 & 1) << 32) | parsableByteArray.readUnsignedInt()) * 1000) / 90;
                         z4 = z9;
                     } else {
                         z4 = false;
-                        j4 = C.TIME_UNSET;
+                        j3 = C.TIME_UNSET;
                     }
                     int readUnsignedShort = parsableByteArray.readUnsignedShort();
                     int readUnsignedByte4 = parsableByteArray.readUnsignedByte();
                     z3 = z7;
-                    i4 = parsableByteArray.readUnsignedByte();
-                    j3 = j4;
+                    i3 = parsableByteArray.readUnsignedByte();
+                    j2 = j3;
                     arrayList = arrayList2;
-                    long j5 = readUnsignedInt2;
-                    i2 = readUnsignedShort;
-                    i3 = readUnsignedByte4;
-                    j2 = j5;
+                    long j4 = readUnsignedInt2;
+                    i = readUnsignedShort;
+                    i2 = readUnsignedByte4;
+                    j = j4;
                     boolean z10 = z6;
                     z2 = z4;
                     z = z10;
                 }
-                return new Event(readUnsignedInt, z5, z, z3, arrayList, j2, z2, j3, i2, i3, i4);
+                return new Event(readUnsignedInt, z5, z, z3, arrayList, j, z2, j2, i, i2, i3);
             }
             return (Event) invokeL.objValue;
         }
@@ -313,8 +313,8 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 parcel.writeByte(this.programSpliceFlag ? (byte) 1 : (byte) 0);
                 int size = this.componentSpliceList.size();
                 parcel.writeInt(size);
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.componentSpliceList.get(i2).writeToParcel(parcel);
+                for (int i = 0; i < size; i++) {
+                    this.componentSpliceList.get(i).writeToParcel(parcel);
                 }
                 parcel.writeLong(this.utcSpliceTime);
                 parcel.writeByte(this.autoReturn ? (byte) 1 : (byte) 0);
@@ -332,9 +332,9 @@ public final class SpliceScheduleCommand extends SpliceCommand {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -346,7 +346,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
             this.programSpliceFlag = parcel.readByte() == 1;
             int readInt = parcel.readInt();
             ArrayList arrayList = new ArrayList(readInt);
-            for (int i4 = 0; i4 < readInt; i4++) {
+            for (int i3 = 0; i3 < readInt; i3++) {
                 arrayList.add(ComponentSplice.createFromParcel(parcel));
             }
             this.componentSpliceList = Collections.unmodifiableList(arrayList);

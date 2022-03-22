@@ -14,7 +14,7 @@ public interface DownloadTask extends Runnable {
 
         void onDownloadPaused();
 
-        void onDownloadProgress(long j2, long j3);
+        void onDownloadProgress(long j, long j2);
     }
 
     void cancel();

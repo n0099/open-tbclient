@@ -22,10 +22,10 @@ public class d {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2436b;
+    public int f1999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f2437c;
+    public final Handler f2000c;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -42,9 +42,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -62,20 +62,20 @@ public class d {
                 if (message.what != 1) {
                     return;
                 }
-                this.a.f2437c.removeMessages(1);
-                BdLog.i("this is reconn time:" + this.a.f2436b);
+                this.a.f2000c.removeMessages(1);
+                BdLog.i("this is reconn time:" + this.a.f1999b);
                 BdSocketLinkService.startService(true, "time to reconnStragety");
                 d.c(this.a);
                 if (l.z()) {
-                    if (this.a.f2436b >= c.a.d.f.n.m.a.o().q("alert_im", 3)) {
+                    if (this.a.f1999b >= c.a.d.f.n.m.a.o().q("alert_im", 3)) {
                         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                        bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.f2436b) + "_times");
+                        bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.f1999b) + "_times");
                     }
                 }
                 int[] c2 = h.c();
-                if (c2 != null && this.a.f2436b < c2.length) {
-                    BdLog.i("Next will be delay:" + c2[this.a.f2436b]);
-                    this.a.f2437c.sendMessageDelayed(this.a.f2437c.obtainMessage(1), (long) (c2[this.a.f2436b] * 1000));
+                if (c2 != null && this.a.f1999b < c2.length) {
+                    BdLog.i("Next will be delay:" + c2[this.a.f1999b]);
+                    this.a.f2000c.sendMessageDelayed(this.a.f2000c.obtainMessage(1), (long) (c2[this.a.f1999b] * 1000));
                     return;
                 }
                 this.a.f("reconnStragety to the end");
@@ -88,23 +88,23 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f2436b = 0;
-        this.f2437c = new a(this, Looper.getMainLooper());
+        this.f1999b = 0;
+        this.f2000c = new a(this, Looper.getMainLooper());
     }
 
     public static /* synthetic */ int c(d dVar) {
-        int i2 = dVar.f2436b;
-        dVar.f2436b = i2 + 1;
-        return i2;
+        int i = dVar.f1999b;
+        dVar.f1999b = i + 1;
+        return i;
     }
 
     public final void d() {
@@ -120,7 +120,7 @@ public class d {
                 f("online failed 5");
             } else if (!this.a) {
                 this.a = true;
-                this.f2437c.removeMessages(1);
+                this.f2000c.removeMessages(1);
                 if (c.a.d.f.r.h.j().l()) {
                     BdLog.d("启动重连策略失败，  WebSocketClient opened");
                     f("in Opened");
@@ -128,13 +128,13 @@ public class d {
                 }
                 d();
                 BdLog.d("启动重连策略");
-                this.f2436b = 0;
+                this.f1999b = 0;
                 int[] c2 = h.c();
                 if (c2 != null && c2.length >= 1) {
                     BdLog.i("start reconnStrategy... the first will be delay" + c2[0]);
-                    int i2 = BdSocketLinkService.STOP_RECONN;
-                    i.a("reconn", 0, 0, "reconn", i2, str + " retryTimes=" + String.valueOf(this.f2436b));
-                    Handler handler = this.f2437c;
+                    int i = BdSocketLinkService.STOP_RECONN;
+                    i.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.f1999b));
+                    Handler handler = this.f2000c;
                     handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c2[0] * 1000));
                     return;
                 }
@@ -151,9 +151,9 @@ public class d {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
             i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.a = false;
-            this.f2436b = 0;
+            this.f1999b = 0;
             BdLog.i("stop reconnStrategy");
-            this.f2437c.removeMessages(1);
+            this.f2000c.removeMessages(1);
         }
     }
 }

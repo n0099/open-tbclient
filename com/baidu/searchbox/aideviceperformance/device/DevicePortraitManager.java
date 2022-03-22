@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.device;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitManager;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
@@ -86,9 +87,9 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {iDevicePortraitResultHandler, iDevicePortraitThresholdsConfig, iDeviceInfoModelProvider};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -117,9 +118,9 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -144,7 +145,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                         return;
                     }
                     if (DevicePortraitManager.DEBUG) {
-                        String str = "model version updated ## gbdtVersionModel:" + gBDTVersion + " ## gbdtVersionCache:" + valueOf + " ## lrVersionModel:" + lRVersion + " ## lrVersionCache:" + valueOf2 + " ## mapperVersionModel:" + mapperVersion + " ## mapperVersionCache:" + valueOf3;
+                        Log.d(DevicePortraitManager.TAG, "model version updated ## gbdtVersionModel:" + gBDTVersion + " ## gbdtVersionCache:" + valueOf + " ## lrVersionModel:" + lRVersion + " ## lrVersionCache:" + valueOf2 + " ## mapperVersionModel:" + mapperVersion + " ## mapperVersionCache:" + valueOf3);
                     }
                     DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_GBDT);
                     DeviceInfoSharedPreferenceWrapper.getInstance().remove(DevicePortraitManager.SP_KEY_MODEL_VERSION_LR);
@@ -177,9 +178,9 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Float.valueOf(f2)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -197,7 +198,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     this.this$0.mResultHandler.putStaticScorePercent(this.val$deviceScorePercent);
                     DeviceInfoSharedPreferenceWrapper.getInstance().putLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_MAPPER, mapperVersion);
                     if (DevicePortraitManager.DEBUG) {
-                        String str = "save device score sp ## mapper version:" + mapperVersion;
+                        Log.d(DevicePortraitManager.TAG, "save device score sp ## mapper version:" + mapperVersion);
                     }
                 }
             }
@@ -222,9 +223,9 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Float.valueOf(f2)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -244,7 +245,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     DeviceInfoSharedPreferenceWrapper.getInstance().putLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_GBDT, gBDTVersion);
                     DeviceInfoSharedPreferenceWrapper.getInstance().putLong(DevicePortraitManager.SP_KEY_MODEL_VERSION_LR, lRVersion);
                     if (DevicePortraitManager.DEBUG) {
-                        String str = "save device score sp ## gbdt version:" + gBDTVersion + " lr version: " + lRVersion + " ## score:" + this.val$deviceScore;
+                        Log.d(DevicePortraitManager.TAG, "save device score sp ## gbdt version:" + gBDTVersion + " lr version: " + lRVersion + " ## score:" + this.val$deviceScore);
                     }
                 }
             }
@@ -259,9 +260,9 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             if (this.mResultHandler == null) {
                 return -1.0f;
             }
-            int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType[thresholdType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType[thresholdType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return -1.0f;
                 }
                 return this.mThresholdsConfig.getThresholdMidHigh();
@@ -282,14 +283,14 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             }
             if (DEVICE_SCORE_CACHE >= 0.0f) {
                 if (DEBUG) {
-                    String str = "get device score from mem cache : " + DEVICE_SCORE_CACHE;
+                    Log.d(TAG, "get device score from mem cache : " + DEVICE_SCORE_CACHE);
                 }
                 return DEVICE_SCORE_CACHE;
             }
             float staticPredictScore = iDevicePortraitResultHandler.getStaticPredictScore(-1.0f);
             if (staticPredictScore >= 0.0f) {
                 if (DEBUG) {
-                    String str2 = "get device score from file cache : " + staticPredictScore;
+                    Log.d(TAG, "get device score from file cache : " + staticPredictScore);
                 }
                 DEVICE_SCORE_CACHE = staticPredictScore;
                 postCheckStaticScoreStore(context);
@@ -301,7 +302,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             float predictByModel = this.mDeviceScoreModel.predictByModel(context);
             if (predictByModel >= 0.0f) {
                 if (DEBUG) {
-                    String str3 = "get device score from model : " + predictByModel;
+                    Log.d(TAG, "get device score from model : " + predictByModel);
                 }
                 DEVICE_SCORE_CACHE = predictByModel;
                 postStaticScoreStore(predictByModel);
@@ -310,7 +311,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             float predictByLRInline = DeviceScoreModel.predictByLRInline();
             if (predictByLRInline >= 0.0f) {
                 if (DEBUG) {
-                    String str4 = "get device score from LR inline : " + predictByLRInline;
+                    Log.d(TAG, "get device score from LR inline : " + predictByLRInline);
                 }
                 return predictByLRInline;
             }
@@ -330,14 +331,14 @@ public class DevicePortraitManager implements IDevicePortraitManager {
             }
             if (DEVICE_SCORE_PERCENTAGE_CACHE >= 0.0f) {
                 if (DEBUG) {
-                    String str = "get device score percentage from mem cache : " + DEVICE_SCORE_PERCENTAGE_CACHE;
+                    Log.d(TAG, "get device score percentage from mem cache : " + DEVICE_SCORE_PERCENTAGE_CACHE);
                 }
                 return DEVICE_SCORE_PERCENTAGE_CACHE;
             }
             float staticScorePercent = iDevicePortraitResultHandler.getStaticScorePercent(-1.0f);
             if (staticScorePercent >= 0.0f) {
                 if (DEBUG) {
-                    String str2 = "get device score percentage from file cache : " + staticScorePercent;
+                    Log.d(TAG, "get device score percentage from file cache : " + staticScorePercent);
                 }
                 DEVICE_SCORE_PERCENTAGE_CACHE = staticScorePercent;
                 postCheckStaticScoreStore(context);
@@ -351,7 +352,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                 float mapStaticScore = this.mDeviceScoreModel.mapStaticScore(staticDeviceScore);
                 if (mapStaticScore >= 0.0f) {
                     if (DEBUG) {
-                        String str3 = "get device score percentage from model : " + mapStaticScore;
+                        Log.d(TAG, "get device score percentage from model : " + mapStaticScore);
                     }
                     if (DEVICE_SCORE_CACHE >= 0.0f) {
                         DEVICE_SCORE_PERCENTAGE_CACHE = mapStaticScore;

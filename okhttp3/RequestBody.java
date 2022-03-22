@@ -16,7 +16,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public abstract class RequestBody {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,9 +79,9 @@ public abstract class RequestBody {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {mediaType, byteString};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -122,13 +122,13 @@ public abstract class RequestBody {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) ? create(mediaType, bArr, 0, bArr.length) : (RequestBody) invokeLL.objValue;
     }
 
-    public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i2, int i3) {
+    public static RequestBody create(@Nullable MediaType mediaType, byte[] bArr, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, mediaType, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, mediaType, bArr, i, i2)) == null) {
             if (bArr != null) {
-                Util.checkOffsetAndCount(bArr.length, i2, i3);
-                return new RequestBody(mediaType, i3, bArr, i2) { // from class: okhttp3.RequestBody.2
+                Util.checkOffsetAndCount(bArr.length, i, i2);
+                return new RequestBody(mediaType, i2, bArr, i) { // from class: okhttp3.RequestBody.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ int val$byteCount;
@@ -141,20 +141,20 @@ public abstract class RequestBody {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {mediaType, Integer.valueOf(i3), bArr, Integer.valueOf(i2)};
+                            Object[] objArr = {mediaType, Integer.valueOf(i2), bArr, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.val$contentType = mediaType;
-                        this.val$byteCount = i3;
+                        this.val$byteCount = i2;
                         this.val$content = bArr;
-                        this.val$offset = i2;
+                        this.val$offset = i;
                     }
 
                     @Override // okhttp3.RequestBody
@@ -204,9 +204,9 @@ public abstract class RequestBody {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {mediaType, file};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

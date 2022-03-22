@@ -54,7 +54,7 @@ public class StrokeContent extends BaseStrokeContent {
     }
 
     @Override // com.airbnb.lottie.animation.content.BaseStrokeContent, com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         if (this.hidden) {
             return;
         }
@@ -63,7 +63,7 @@ public class StrokeContent extends BaseStrokeContent {
         if (baseKeyframeAnimation != null) {
             this.paint.setColorFilter(baseKeyframeAnimation.getValue());
         }
-        super.draw(canvas, matrix, i2);
+        super.draw(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content

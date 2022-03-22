@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.e1.e.c;
-import c.a.q0.e1.e.d;
+import c.a.o0.e1.e.c;
+import c.a.o0.e1.e.d;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SimpleDragSortListView extends BdListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c K;
-    public AttributeSet L;
-    public final d M;
+    public c G;
+    public AttributeSet H;
+    public final d I;
 
     /* loaded from: classes5.dex */
     public class a implements d {
@@ -36,9 +36,9 @@ public class SimpleDragSortListView extends BdListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {simpleDragSortListView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,7 +47,7 @@ public class SimpleDragSortListView extends BdListView {
             this.a = simpleDragSortListView;
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -55,7 +55,7 @@ public class SimpleDragSortListView extends BdListView {
             }
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public void b(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -63,7 +63,7 @@ public class SimpleDragSortListView extends BdListView {
             }
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public void onDraw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
@@ -71,37 +71,37 @@ public class SimpleDragSortListView extends BdListView {
             }
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) ? SimpleDragSortListView.super.onInterceptTouchEvent(motionEvent) : invokeL.booleanValue;
         }
 
-        @Override // c.a.q0.e1.e.d
-        public void onMeasure(int i2, int i3) {
+        @Override // c.a.o0.e1.e.d
+        public void onMeasure(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-                SimpleDragSortListView.super.onMeasure(i2, i3);
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+                SimpleDragSortListView.super.onMeasure(i, i2);
             }
         }
 
-        @Override // c.a.q0.e1.e.d
-        public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        @Override // c.a.o0.e1.e.d
+        public void onSizeChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-                SimpleDragSortListView.super.onSizeChanged(i2, i3, i4, i5);
+            if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+                SimpleDragSortListView.super.onSizeChanged(i, i2, i3, i4);
             }
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public boolean onTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) ? SimpleDragSortListView.super.onTouchEvent(motionEvent) : invokeL.booleanValue;
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public void requestLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -109,7 +109,7 @@ public class SimpleDragSortListView extends BdListView {
             }
         }
 
-        @Override // c.a.q0.e1.e.d
+        @Override // c.a.o0.e1.e.d
         public void setAdapter(ListAdapter listAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, listAdapter) == null) {
@@ -127,9 +127,9 @@ public class SimpleDragSortListView extends BdListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -137,15 +137,15 @@ public class SimpleDragSortListView extends BdListView {
                 return;
             }
         }
-        this.M = new a(this);
-        this.L = attributeSet;
+        this.I = new a(this);
+        this.H = attributeSet;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 cVar.b(canvas);
             } else {
@@ -157,14 +157,14 @@ public class SimpleDragSortListView extends BdListView {
     public d getViewSuperMethods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.M : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.I : (d) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView
     public void layoutChildren() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 cVar.a();
             } else {
@@ -177,7 +177,7 @@ public class SimpleDragSortListView extends BdListView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 cVar.onDraw(canvas);
             } else {
@@ -191,7 +191,7 @@ public class SimpleDragSortListView extends BdListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 return cVar.onInterceptTouchEvent(motionEvent);
             }
@@ -201,27 +201,27 @@ public class SimpleDragSortListView extends BdListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            c cVar = this.K;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            c cVar = this.G;
             if (cVar != null) {
-                cVar.onMeasure(i2, i3);
+                cVar.onMeasure(i, i2);
             } else {
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
             }
         }
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            c cVar = this.K;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            c cVar = this.G;
             if (cVar != null) {
-                cVar.onSizeChanged(i2, i3, i4, i5);
+                cVar.onSizeChanged(i, i2, i3, i4);
             } else {
-                super.onSizeChanged(i2, i3, i4, i5);
+                super.onSizeChanged(i, i2, i3, i4);
             }
         }
     }
@@ -231,7 +231,7 @@ public class SimpleDragSortListView extends BdListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 return cVar.onTouchEvent(motionEvent);
             }
@@ -244,7 +244,7 @@ public class SimpleDragSortListView extends BdListView {
     public void requestLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 cVar.requestLayout();
             } else {
@@ -256,8 +256,8 @@ public class SimpleDragSortListView extends BdListView {
     public void setDragSortViewEventDelegate(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.K = cVar;
-            cVar.c(this, getContext(), this.L);
+            this.G = cVar;
+            cVar.c(this, getContext(), this.H);
         }
     }
 
@@ -266,7 +266,7 @@ public class SimpleDragSortListView extends BdListView {
     public void setAdapter(ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, listAdapter) == null) {
-            c cVar = this.K;
+            c cVar = this.G;
             if (cVar != null) {
                 cVar.setAdapter(listAdapter);
             } else {

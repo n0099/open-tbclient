@@ -22,12 +22,10 @@ import java.util.List;
 public class SearchMajorModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f44348e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f44349f;
+    /* renamed from: b  reason: collision with root package name */
+    public HttpMessageListener f34381b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -36,17 +34,17 @@ public class SearchMajorModel extends BdBaseModel {
         public final /* synthetic */ SearchMajorModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SearchMajorModel searchMajorModel, int i2) {
-            super(i2);
+        public a(SearchMajorModel searchMajorModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {searchMajorModel, Integer.valueOf(i2)};
+                Object[] objArr = {searchMajorModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -69,16 +67,16 @@ public class SearchMajorModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
             if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().a)) {
-                this.a.f44348e.onSuccess(searchMajorHttpResponsedMessage.getData().a);
+                this.a.a.onSuccess(searchMajorHttpResponsedMessage.getData().a);
             } else {
-                this.a.f44348e.onError(errorData);
+                this.a.a.onError(errorData);
             }
         }
     }
@@ -99,9 +97,9 @@ public class SearchMajorModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -109,10 +107,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f44349f = aVar;
+        this.f34381b = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f44349f);
-        this.f44348e = bVar;
+        registerListener(this.f34381b);
+        this.a = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

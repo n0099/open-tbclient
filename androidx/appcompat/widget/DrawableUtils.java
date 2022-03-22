@@ -11,6 +11,7 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.graphics.drawable.DrawableWrapper;
@@ -24,6 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.lang.reflect.Field;
 @SuppressLint({"RestrictedAPI"})
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -67,9 +70,9 @@ public class DrawableUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -160,13 +163,13 @@ public class DrawableUtils {
                             char c2 = 65535;
                             switch (name.hashCode()) {
                                 case -1383228885:
-                                    if (name.equals("bottom")) {
+                                    if (name.equals(TipsConfigItem.TipConfigData.BOTTOM)) {
                                         c2 = 3;
                                         break;
                                     }
                                     break;
                                 case 115029:
-                                    if (name.equals("top")) {
+                                    if (name.equals(AnimationProperty.TOP)) {
                                         c2 = 1;
                                         break;
                                     }
@@ -197,6 +200,7 @@ public class DrawableUtils {
                         return rect2;
                     }
                 } catch (Exception unused) {
+                    Log.e(TAG, "Couldn't obtain the optical insets. Ignoring.");
                 }
             }
             return INSETS_NONE;
@@ -204,14 +208,14 @@ public class DrawableUtils {
         return (Rect) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode parseTintMode(int i2, PorterDuff.Mode mode) {
+    public static PorterDuff.Mode parseTintMode(int i, PorterDuff.Mode mode) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, mode)) == null) {
-            if (i2 != 3) {
-                if (i2 != 5) {
-                    if (i2 != 9) {
-                        switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, mode)) == null) {
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 9) {
+                        switch (i) {
                             case 14:
                                 return PorterDuff.Mode.MULTIPLY;
                             case 15:

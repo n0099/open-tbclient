@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.r0.z1.o.k.b;
+import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,31 +30,31 @@ public class FocusListCard extends BaseCardInfo {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44074b;
+        public String f34207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44075c;
+        public String f34208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f44076d;
+        public int f34209d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44077e;
+        public int f34210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f44078f;
+        public String f34211f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f44079g;
+        public long f34212g;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,9 +72,9 @@ public class FocusListCard extends BaseCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -88,8 +88,8 @@ public class FocusListCard extends BaseCardInfo {
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
-        for (int i4 = 0; i4 < length; i4++) {
-            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("strList")) != null && optJSONArray.length() != 0) {
                 a aVar = new a();
                 try {
@@ -97,15 +97,15 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f44074b = optJSONArray.getString(1);
+                        aVar.f34207b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f44075c = optJSONArray.getString(2);
+                        aVar.f34208c = optJSONArray.getString(2);
                     }
-                    aVar.f44076d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f44077e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f44078f = optJSONObject.optString("scheme");
-                    aVar.f44079g = optJSONObject.optLong("resourceId");
+                    aVar.f34209d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f34210e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f34211f = optJSONObject.optString("scheme");
+                    aVar.f34212g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

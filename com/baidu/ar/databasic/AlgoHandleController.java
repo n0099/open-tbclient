@@ -43,9 +43,9 @@ public class AlgoHandleController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -55,13 +55,13 @@ public class AlgoHandleController {
             this.cC = false;
         }
 
-        public void a(int i2, Runnable runnable) {
+        public void a(int i, Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, runnable) == null) || this.cC) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, runnable) == null) || this.cC) {
                 return;
             }
             Message obtain = Message.obtain();
-            obtain.what = i2;
+            obtain.what = i;
             obtain.obj = runnable;
             sendMessage(obtain);
         }
@@ -87,9 +87,9 @@ public class AlgoHandleController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -139,22 +139,22 @@ public class AlgoHandleController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int l(long j2) {
+    public int l(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j2)) == null) {
-            m(j2);
-            return AlgoHandleAdapter.destroyHandle(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) {
+            m(j);
+            return AlgoHandleAdapter.destroyHandle(j);
         }
         return invokeJ.intValue;
     }
 
-    private void m(long j2) {
+    private void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65542, this, j) == null) {
             try {
-                if (this.ml.contains(Long.valueOf(j2))) {
-                    int indexOf = this.ml.indexOf(Long.valueOf(j2));
+                if (this.ml.contains(Long.valueOf(j))) {
+                    int indexOf = this.ml.indexOf(Long.valueOf(j));
                     if (indexOf >= 0) {
                         this.ml.remove(indexOf);
                         if (indexOf >= 1) {
@@ -163,7 +163,7 @@ public class AlgoHandleController {
                         }
                         return;
                     }
-                    b.aS("removeHandle cant find:" + j2);
+                    b.aS("removeHandle cant find:" + j);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -172,13 +172,13 @@ public class AlgoHandleController {
         }
     }
 
-    private void y(int i2) {
+    private void y(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65543, this, i2) == null) || i2 <= 5) {
+        if (!(interceptable == null || interceptable.invokeI(65543, this, i) == null) || i <= 5) {
             return;
         }
-        b.aR("type:" + this.ir + " destroyIgnoreHandles current size:" + i2);
-        for (int i3 = 0; i3 < i2; i3++) {
+        b.aR("type:" + this.ir + " destroyIgnoreHandles current size:" + i);
+        for (int i2 = 0; i2 < i; i2++) {
             long longValue = this.ml.get(0).longValue();
             this.ml.remove(0);
             AlgoHandleAdapter.destroyHandle(longValue);
@@ -207,9 +207,9 @@ public class AlgoHandleController {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, Long.valueOf(createHandle)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -235,16 +235,16 @@ public class AlgoHandleController {
         return invokeV.longValue;
     }
 
-    public int destroyHandle(long j2) {
+    public int destroyHandle(long j) {
         InterceptResult invokeJ;
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             HandlerThread handlerThread = this.mo;
             if (handlerThread == null || !handlerThread.isAlive() || (aVar = this.mp) == null) {
                 return -1;
             }
-            aVar.a(1003, new Runnable(this, j2) { // from class: com.baidu.ar.databasic.AlgoHandleController.4
+            aVar.a(1003, new Runnable(this, j) { // from class: com.baidu.ar.databasic.AlgoHandleController.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long mr;
@@ -255,18 +255,18 @@ public class AlgoHandleController {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2)};
+                        Object[] objArr = {this, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.mt = this;
-                    this.mr = j2;
+                    this.mr = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -282,28 +282,28 @@ public class AlgoHandleController {
         return invokeJ.intValue;
     }
 
-    public byte[] getHandleMaskData(long j2) {
+    public byte[] getHandleMaskData(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? AlgoHandleAdapter.getHandleMaskData(j2) : (byte[]) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? AlgoHandleAdapter.getHandleMaskData(j) : (byte[]) invokeJ.objValue;
     }
 
-    public int getHandleReserveData(long j2, ReserveHandleData reserveHandleData) {
+    public int getHandleReserveData(long j, ReserveHandleData reserveHandleData) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, reserveHandleData)) == null) ? AlgoHandleAdapter.getHandleReserveData(j2, reserveHandleData) : invokeJL.intValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, reserveHandleData)) == null) ? AlgoHandleAdapter.getHandleReserveData(j, reserveHandleData) : invokeJL.intValue;
     }
 
-    public int getHandleType(long j2) {
+    public int getHandleType(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? AlgoHandleAdapter.getHandleType(j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? AlgoHandleAdapter.getHandleType(j) : invokeJ.intValue;
     }
 
-    public int increaseHandleReference(long j2) {
+    public int increaseHandleReference(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? AlgoHandleAdapter.increaseHandleReference(j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) ? AlgoHandleAdapter.increaseHandleReference(j) : invokeJ.intValue;
     }
 
     public void release() {
@@ -327,9 +327,9 @@ public class AlgoHandleController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -349,14 +349,14 @@ public class AlgoHandleController {
         }
     }
 
-    public void sendHandleToRenderer(long j2, l lVar, String str) {
+    public void sendHandleToRenderer(long j, l lVar, String str) {
         HandlerThread handlerThread;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), lVar, str}) == null) || (handlerThread = this.mo) == null || !handlerThread.isAlive() || (aVar = this.mp) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), lVar, str}) == null) || (handlerThread = this.mo) == null || !handlerThread.isAlive() || (aVar = this.mp) == null) {
             return;
         }
-        aVar.a(1002, new Runnable(this, lVar, j2, str) { // from class: com.baidu.ar.databasic.AlgoHandleController.1
+        aVar.a(1002, new Runnable(this, lVar, j, str) { // from class: com.baidu.ar.databasic.AlgoHandleController.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ l mq;
@@ -369,11 +369,11 @@ public class AlgoHandleController {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, lVar, Long.valueOf(j2), str};
+                    Object[] objArr = {this, lVar, Long.valueOf(j), str};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -381,7 +381,7 @@ public class AlgoHandleController {
                 }
                 this.mt = this;
                 this.mq = lVar;
-                this.mr = j2;
+                this.mr = j;
                 this.ms = str;
             }
 
@@ -397,32 +397,32 @@ public class AlgoHandleController {
         });
     }
 
-    public int setHandleFaceHandle(long j2, long j3) {
+    public int setHandleFaceHandle(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? AlgoHandleAdapter.setHandleFaceHandle(j2, j3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? AlgoHandleAdapter.setHandleFaceHandle(j, j2) : invokeCommon.intValue;
     }
 
-    public int setHandleInput(long j2, int i2, long j3, int i3, int i4, int i5, boolean z, int i6, boolean z2, ByteBuffer byteBuffer) {
+    public int setHandleInput(long j, int i, long j2, int i2, int i3, int i4, boolean z, int i5, boolean z2, ByteBuffer byteBuffer) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), Integer.valueOf(i6), Boolean.valueOf(z2), byteBuffer})) == null) {
-            this.ir = i2;
-            return AlgoHandleAdapter.setHandleInput(j2, i2, j3, i3, i4, i5, z, i6, z2, byteBuffer);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5), Boolean.valueOf(z2), byteBuffer})) == null) {
+            this.ir = i;
+            return AlgoHandleAdapter.setHandleInput(j, i, j2, i2, i3, i4, z, i5, z2, byteBuffer);
         }
         return invokeCommon.intValue;
     }
 
-    public int setHandleMaskThreshold(long j2, float f2) {
+    public int setHandleMaskThreshold(long j, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2)})) == null) ? AlgoHandleAdapter.setHandleMaskThreshold(j2, f2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)})) == null) ? AlgoHandleAdapter.setHandleMaskThreshold(j, f2) : invokeCommon.intValue;
     }
 
-    public void setUsingHandle(long j2) {
+    public void setUsingHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mn = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mn = j;
         }
     }
 }

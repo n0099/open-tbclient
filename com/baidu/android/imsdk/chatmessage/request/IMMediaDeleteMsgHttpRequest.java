@@ -30,16 +30,16 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     public long mMaxId;
     public List<Long> mMsgIds;
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j2, long j3, List<Long> list, String str) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List<Long> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), list, str};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), list, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -48,8 +48,8 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
-        this.mMaxId = j3;
+        this.mContactor = j;
+        this.mMaxId = j2;
         this.mMsgIds = list;
         this.mListenerKey = str;
     }
@@ -107,8 +107,8 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
                 if (this.mMsgIds != null && this.mMsgIds.size() > 0) {
                     try {
                         JSONArray jSONArray = new JSONArray();
-                        for (int i2 = 0; i2 < this.mMsgIds.size(); i2++) {
-                            jSONArray.put(this.mMsgIds.get(i2));
+                        for (int i = 0; i < this.mMsgIds.size(); i++) {
+                            jSONArray.put(this.mMsgIds.get(i));
                         }
                         jSONObject.put("msgids", jSONArray);
                     } catch (Exception e2) {
@@ -127,33 +127,33 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str = new String(bArr);
-            LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i2 + ", result=" + str);
+            LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str);
             if (TextUtils.isEmpty(this.mListenerKey)) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (i2 == 200) {
-                    i2 = jSONObject.optInt("error_code", -1);
+                if (i == 200) {
+                    i = jSONObject.optInt("error_code", -1);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                i2 = 1010;
+                i = 1010;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i2, "success!");
+            ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i, "success!");
         }
     }
 
@@ -162,16 +162,16 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j2, int i2, long j3, String str, long j4, List<Long> list, String str2) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List<Long> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), list, str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -180,12 +180,12 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContactor = j2;
-        this.mMaxId = j4;
+        this.mContactor = j;
+        this.mMaxId = j3;
         this.mMsgIds = list;
         this.mListenerKey = str2;
-        this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }
 }

@@ -54,9 +54,9 @@ public class AppCompatProgressBarHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {progressBar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -85,13 +85,13 @@ public class AppCompatProgressBarHelper {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
                 Drawable[] drawableArr = new Drawable[numberOfLayers];
-                for (int i2 = 0; i2 < numberOfLayers; i2++) {
-                    int id = layerDrawable.getId(i2);
-                    drawableArr[i2] = tileify(layerDrawable.getDrawable(i2), id == 16908301 || id == 16908303);
+                for (int i = 0; i < numberOfLayers; i++) {
+                    int id = layerDrawable.getId(i);
+                    drawableArr[i] = tileify(layerDrawable.getDrawable(i), id == 16908301 || id == 16908303);
                 }
                 LayerDrawable layerDrawable2 = new LayerDrawable(drawableArr);
-                for (int i3 = 0; i3 < numberOfLayers; i3++) {
-                    layerDrawable2.setId(i3, layerDrawable.getId(i3));
+                for (int i2 = 0; i2 < numberOfLayers; i2++) {
+                    layerDrawable2.setId(i2, layerDrawable.getId(i2));
                 }
                 return layerDrawable2;
             } else if (drawable instanceof BitmapDrawable) {
@@ -119,10 +119,10 @@ public class AppCompatProgressBarHelper {
                 int numberOfFrames = animationDrawable.getNumberOfFrames();
                 AnimationDrawable animationDrawable2 = new AnimationDrawable();
                 animationDrawable2.setOneShot(animationDrawable.isOneShot());
-                for (int i2 = 0; i2 < numberOfFrames; i2++) {
-                    Drawable tileify = tileify(animationDrawable.getFrame(i2), true);
+                for (int i = 0; i < numberOfFrames; i++) {
+                    Drawable tileify = tileify(animationDrawable.getFrame(i), true);
                     tileify.setLevel(10000);
-                    animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i2));
+                    animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i));
                 }
                 animationDrawable2.setLevel(10000);
                 return animationDrawable2;
@@ -138,10 +138,10 @@ public class AppCompatProgressBarHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSampleTile : (Bitmap) invokeV.objValue;
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i, 0);
             Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
             if (drawableIfKnown != null) {
                 this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));

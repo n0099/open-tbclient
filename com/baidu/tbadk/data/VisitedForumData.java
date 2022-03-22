@@ -21,224 +21,226 @@ import tbclient.ThemeColorInfo;
 public class VisitedForumData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f30457b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f30458c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f30459d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f39549e;
+    public String f30460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39550f;
+    public String f30461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39551g;
+    public ThemeColorInfo f30462g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39552h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f39553i;
+    public int f30463h;
+    public boolean i;
     public boolean isForumBusinessAccount;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f39554j;
-    public ThemeColorInfo k;
-    public int l;
-    public boolean m;
-    public int n;
-    public boolean o;
-    public boolean p;
-    public String q;
-    public List<FrsTabItemData> r;
-    public PostPrefixData s;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public String m;
+    public List<FrsTabItemData> n;
+    public PostPrefixData o;
 
     public VisitedForumData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39549e = "";
-        this.f39550f = false;
-        this.f39551g = 0;
-        this.f39552h = "";
-        this.f39553i = "";
-        this.f39554j = "";
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.o = false;
-        this.p = false;
-        this.q = "";
+        this.a = "";
+        this.f30457b = false;
+        this.f30458c = 0;
+        this.f30459d = "";
+        this.f30460e = "";
+        this.f30461f = "";
+        this.f30462g = null;
+        this.f30463h = 0;
+        this.i = false;
+        this.k = false;
+        this.l = false;
+        this.m = "";
     }
 
-    public PostPrefixData A() {
+    public String A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.s : (PostPrefixData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public int B() {
+    public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39551g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.booleanValue;
     }
 
-    public List<FrsTabItemData> C() {
+    public PostPrefixData C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.o : (PostPrefixData) invokeV.objValue;
     }
 
-    public ThemeColorInfo D() {
+    public int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (ThemeColorInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30458c : invokeV.intValue;
     }
 
-    public String E() {
+    public List<FrsTabItemData> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39554j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (List) invokeV.objValue;
     }
 
-    public boolean F() {
+    public ThemeColorInfo F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39550f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30462g : (ThemeColorInfo) invokeV.objValue;
     }
 
-    public boolean G() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30461f : (String) invokeV.objValue;
     }
 
     public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30457b : invokeV.booleanValue;
     }
 
-    public void I(HistoryForumInfo historyForumInfo) {
+    public boolean I() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, historyForumInfo) == null) || historyForumInfo == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    public boolean J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public void K(HistoryForumInfo historyForumInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, historyForumInfo) == null) || historyForumInfo == null) {
             return;
         }
-        this.f39549e = historyForumInfo.avatar;
-        this.f39553i = String.valueOf(historyForumInfo.forum_id);
-        this.f39552h = historyForumInfo.forum_name;
-        this.f39550f = historyForumInfo.is_liveforum.intValue() == 1;
-        this.f39551g = historyForumInfo.unread_num.intValue();
-        this.f39554j = historyForumInfo.visit_time;
-        this.k = historyForumInfo.theme_color;
-        this.l = historyForumInfo.follow_num.intValue();
-        this.m = historyForumInfo.need_trans.booleanValue();
-        this.n = historyForumInfo.level_id.intValue();
+        this.a = historyForumInfo.avatar;
+        this.f30460e = String.valueOf(historyForumInfo.forum_id);
+        this.f30459d = historyForumInfo.forum_name;
+        this.f30457b = historyForumInfo.is_liveforum.intValue() == 1;
+        this.f30458c = historyForumInfo.unread_num.intValue();
+        this.f30461f = historyForumInfo.visit_time;
+        this.f30462g = historyForumInfo.theme_color;
+        this.f30463h = historyForumInfo.follow_num.intValue();
+        this.i = historyForumInfo.need_trans.booleanValue();
+        this.j = historyForumInfo.level_id.intValue();
         BlockPopInfo blockPopInfo = historyForumInfo.block_pop_info;
         if (blockPopInfo != null) {
-            this.p = blockPopInfo.can_post.intValue() == 1;
-            this.q = historyForumInfo.block_pop_info.block_info;
+            this.l = blockPopInfo.can_post.intValue() == 1;
+            this.m = historyForumInfo.block_pop_info.block_info;
         }
         if (!ListUtils.isEmpty(historyForumInfo.tab_info)) {
-            this.r = new ArrayList();
+            this.n = new ArrayList();
             for (FrsTabInfo frsTabInfo : historyForumInfo.tab_info) {
                 if (frsTabInfo != null) {
-                    this.r.add(new FrsTabItemData(frsTabInfo));
+                    this.n.add(new FrsTabItemData(frsTabInfo));
                 }
             }
         }
         if (historyForumInfo.has_postpre.booleanValue()) {
             PostPrefixData postPrefixData = new PostPrefixData();
-            this.s = postPrefixData;
+            this.o = postPrefixData;
             postPrefixData.parserProtobuf(historyForumInfo.post_prefix);
         }
         this.isForumBusinessAccount = historyForumInfo.is_forum_business_account.intValue() == 1;
     }
 
-    public void J(boolean z) {
+    public void L(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.o = z;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.k = z;
         }
     }
 
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39553i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30460e : (String) invokeV.objValue;
     }
 
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f39552h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30459d : (String) invokeV.objValue;
     }
 
     public int getLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f39553i = str;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.f30460e = str;
         }
-    }
-
-    public String w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : (String) invokeV.objValue;
-    }
-
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.l : invokeV.intValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f39549e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.m : (String) invokeV.objValue;
     }
 
-    public boolean z() {
+    public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f30463h : invokeV.intValue;
     }
 
-    public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i2) {
+    public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z), themeColorInfo, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z), themeColorInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f39549e = str3;
-        this.f39550f = z;
-        this.f39552h = str2;
-        this.f39553i = str;
-        this.f39554j = str4;
-        this.f39551g = 0;
-        this.k = themeColorInfo;
-        this.l = i2;
+        this.a = str3;
+        this.f30457b = z;
+        this.f30459d = str2;
+        this.f30460e = str;
+        this.f30461f = str4;
+        this.f30458c = 0;
+        this.f30462g = themeColorInfo;
+        this.f30463h = i;
     }
 }

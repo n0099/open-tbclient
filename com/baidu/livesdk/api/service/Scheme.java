@@ -18,5 +18,5 @@ public interface Scheme {
 
     void openScheme(String str, boolean z);
 
-    void showNickNameDialog(Activity activity, String str, int i2);
+    void showNickNameDialog(Activity activity, String str, int i);
 }

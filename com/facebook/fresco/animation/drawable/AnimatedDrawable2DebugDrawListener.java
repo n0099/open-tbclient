@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import com.facebook.fresco.animation.frame.FrameScheduler;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.DrawListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -41,9 +41,9 @@ public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.Dra
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -53,28 +53,28 @@ public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.Dra
     }
 
     @Override // com.facebook.fresco.animation.drawable.AnimatedDrawable2.DrawListener
-    public void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i2, boolean z, boolean z2, long j2, long j3, long j4, long j5, long j6, long j7, long j8) {
+    public void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{animatedDrawable2, frameScheduler, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8)}) == null) || animatedDrawable2.getAnimationBackend() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{animatedDrawable2, frameScheduler, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7)}) == null) || animatedDrawable2.getAnimationBackend() == null) {
             return;
         }
         int frameCount = animatedDrawable2.getAnimationBackend().getFrameCount();
-        long j9 = j3 - j4;
+        long j8 = j2 - j3;
         this.mDrawCalls++;
-        int i3 = this.mLastFrameNumber;
-        int i4 = (i3 + 1) % frameCount;
-        if (i4 != i2) {
-            if (i3 == i2) {
+        int i2 = this.mLastFrameNumber;
+        int i3 = (i2 + 1) % frameCount;
+        if (i3 != i) {
+            if (i2 == i) {
                 this.mDuplicateFrames++;
             } else {
-                int i5 = (i2 - i4) % frameCount;
-                if (i5 < 0) {
-                    i5 += frameCount;
+                int i4 = (i - i3) % frameCount;
+                if (i4 < 0) {
+                    i4 += frameCount;
                 }
-                this.mSkippedFrames += i5;
+                this.mSkippedFrames += i4;
             }
         }
-        this.mLastFrameNumber = i2;
-        FLog.d(TAG, "draw: frame: %2d, drawn: %b, delay: %3d ms, rendering: %3d ms, prev: %3d ms ago, duplicates: %3d, skipped: %3d, draw calls: %4d, anim time: %6d ms, next start: %6d ms, next scheduled: %6d ms", Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf((j3 % frameScheduler.getLoopDurationMs()) - frameScheduler.getTargetRenderTimeMs(i2)), Long.valueOf(j6 - j5), Long.valueOf(j9), Integer.valueOf(this.mDuplicateFrames), Integer.valueOf(this.mSkippedFrames), Integer.valueOf(this.mDrawCalls), Long.valueOf(j3), Long.valueOf(j7), Long.valueOf(j8));
+        this.mLastFrameNumber = i;
+        FLog.d(TAG, "draw: frame: %2d, drawn: %b, delay: %3d ms, rendering: %3d ms, prev: %3d ms ago, duplicates: %3d, skipped: %3d, draw calls: %4d, anim time: %6d ms, next start: %6d ms, next scheduled: %6d ms", Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf((j2 % frameScheduler.getLoopDurationMs()) - frameScheduler.getTargetRenderTimeMs(i)), Long.valueOf(j5 - j4), Long.valueOf(j8), Integer.valueOf(this.mDuplicateFrames), Integer.valueOf(this.mSkippedFrames), Integer.valueOf(this.mDrawCalls), Long.valueOf(j2), Long.valueOf(j6), Long.valueOf(j7));
     }
 }

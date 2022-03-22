@@ -7,11 +7,11 @@ import com.ss.android.download.api.model.b;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends com.ss.android.socialbase.appdownloader.c.a {
     public static String a = "g";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements k {
         public Dialog a;
 
@@ -45,87 +45,87 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
         return new l() { // from class: com.ss.android.downloadlib.c.g.1
 
             /* renamed from: c  reason: collision with root package name */
-            public b.a f58169c;
+            public b.a f42909c;
 
             /* renamed from: d  reason: collision with root package name */
-            public DialogInterface.OnClickListener f58170d;
+            public DialogInterface.OnClickListener f42910d;
 
             /* renamed from: e  reason: collision with root package name */
-            public DialogInterface.OnClickListener f58171e;
+            public DialogInterface.OnClickListener f42911e;
 
             /* renamed from: f  reason: collision with root package name */
-            public DialogInterface.OnCancelListener f58172f;
+            public DialogInterface.OnCancelListener f42912f;
 
             {
-                this.f58169c = new b.a(context);
+                this.f42909c = new b.a(context);
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
-            public l a(int i2) {
-                this.f58169c.a(context.getResources().getString(i2));
+            public l a(int i) {
+                this.f42909c.a(context.getResources().getString(i));
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
-            public l b(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f58169c.d(context.getResources().getString(i2));
-                this.f58171e = onClickListener;
+            public l b(int i, DialogInterface.OnClickListener onClickListener) {
+                this.f42909c.d(context.getResources().getString(i));
+                this.f42911e = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(String str) {
-                this.f58169c.b(str);
+                this.f42909c.b(str);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
-            public l a(int i2, DialogInterface.OnClickListener onClickListener) {
-                this.f58169c.c(context.getResources().getString(i2));
-                this.f58170d = onClickListener;
+            public l a(int i, DialogInterface.OnClickListener onClickListener) {
+                this.f42909c.c(context.getResources().getString(i));
+                this.f42910d = onClickListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(DialogInterface.OnCancelListener onCancelListener) {
-                this.f58172f = onCancelListener;
+                this.f42912f = onCancelListener;
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public l a(boolean z) {
-                this.f58169c.a(z);
+                this.f42909c.a(z);
                 return this;
             }
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public k a() {
-                this.f58169c.a(new b.InterfaceC2174b() { // from class: com.ss.android.downloadlib.c.g.1.1
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
+                this.f42909c.a(new b.InterfaceC2035b() { // from class: com.ss.android.downloadlib.c.g.1.1
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2035b
                     public void a(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f58170d != null) {
-                            AnonymousClass1.this.f58170d.onClick(dialogInterface, -1);
+                        if (AnonymousClass1.this.f42910d != null) {
+                            AnonymousClass1.this.f42910d.onClick(dialogInterface, -1);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2035b
                     public void b(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f58171e != null) {
-                            AnonymousClass1.this.f58171e.onClick(dialogInterface, -2);
+                        if (AnonymousClass1.this.f42911e != null) {
+                            AnonymousClass1.this.f42911e.onClick(dialogInterface, -2);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC2174b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC2035b
                     public void c(DialogInterface dialogInterface) {
-                        if (AnonymousClass1.this.f58172f == null || dialogInterface == null) {
+                        if (AnonymousClass1.this.f42912f == null || dialogInterface == null) {
                             return;
                         }
-                        AnonymousClass1.this.f58172f.onCancel(dialogInterface);
+                        AnonymousClass1.this.f42912f.onCancel(dialogInterface);
                     }
                 });
                 com.ss.android.downloadlib.g.k.a(g.a, "getThemedAlertDlgBuilder", null);
-                this.f58169c.a(3);
-                return new a(j.c().b(this.f58169c.a()));
+                this.f42909c.a(3);
+                return new a(j.c().b(this.f42909c.a()));
             }
         };
     }

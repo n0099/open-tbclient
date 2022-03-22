@@ -9,18 +9,18 @@ public class FlushedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) {
-        long j3 = 0;
-        while (j3 < j2) {
-            long skip = ((FilterInputStream) this).in.skip(j2 - j3);
+    public long skip(long j) {
+        long j2 = 0;
+        while (j2 < j) {
+            long skip = ((FilterInputStream) this).in.skip(j - j2);
             if (skip == 0) {
                 if (read() < 0) {
                     break;
                 }
                 skip = 1;
             }
-            j3 += skip;
+            j2 += skip;
         }
-        return j3;
+        return j2;
     }
 }

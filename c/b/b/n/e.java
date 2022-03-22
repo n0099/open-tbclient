@@ -17,27 +17,29 @@ import java.nio.FloatBuffer;
 /* loaded from: classes3.dex */
 public abstract class e implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
-    public static float l;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final int f27223e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f27224f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Texture.TextureFilter f27225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Texture.TextureFilter f27226h;
+    public static float f22472h;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
 
-    /* renamed from: i  reason: collision with root package name */
-    public Texture.TextureWrap f27227i;
+    /* renamed from: b  reason: collision with root package name */
+    public int f22473b;
 
-    /* renamed from: j  reason: collision with root package name */
-    public Texture.TextureWrap f27228j;
-    public float k;
+    /* renamed from: c  reason: collision with root package name */
+    public Texture.TextureFilter f22474c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Texture.TextureFilter f22475d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Texture.TextureWrap f22476e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Texture.TextureWrap f22477f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f22478g;
 
     static {
         InterceptResult invokeClinit;
@@ -55,17 +57,17 @@ public abstract class e implements c.b.b.q.h {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public e(int i2) {
-        this(i2, c.b.b.f.f27077e.a());
+    public e(int i) {
+        this(i, c.b.b.f.f22334e.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -79,42 +81,42 @@ public abstract class e implements c.b.b.q.h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            float f2 = l;
+            float f2 = f22472h;
             if (f2 > 0.0f) {
                 return f2;
             }
-            if (c.b.b.f.f27074b.a("GL_EXT_texture_filter_anisotropic")) {
+            if (c.b.b.f.f22331b.a("GL_EXT_texture_filter_anisotropic")) {
                 FloatBuffer c2 = BufferUtils.c(16);
                 c2.position(0);
                 c2.limit(c2.capacity());
-                c.b.b.f.f27078f.i(34047, c2);
+                c.b.b.f.f22335f.i(34047, c2);
                 float f3 = c2.get(0);
-                l = f3;
+                f22472h = f3;
                 return f3;
             }
-            l = 1.0f;
+            f22472h = 1.0f;
             return 1.0f;
         }
         return invokeV.floatValue;
     }
 
-    public static void q(int i2, TextureData textureData) {
+    public static void q(int i, TextureData textureData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, textureData) == null) {
-            r(i2, textureData, 0);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, textureData) == null) {
+            r(i, textureData, 0);
         }
     }
 
-    public static void r(int i2, TextureData textureData, int i3) {
+    public static void r(int i, TextureData textureData, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), textureData, Integer.valueOf(i3)}) == null) || textureData == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) == null) || textureData == null) {
             return;
         }
         if (!textureData.a()) {
             textureData.prepare();
         }
         if (textureData.getType() == TextureData.TextureDataType.Custom) {
-            textureData.c(i2);
+            textureData.c(i);
             return;
         }
         Pixmap d2 = textureData.d();
@@ -129,11 +131,11 @@ public abstract class e implements c.b.b.q.h {
             d2 = pixmap;
             h2 = true;
         }
-        c.b.b.f.f27077e.g(3317, 1);
+        c.b.b.f.f22334e.g(3317, 1);
         if (textureData.g()) {
-            c.b.b.n.m.h.a(i2, d2, d2.n(), d2.l());
+            c.b.b.n.m.h.a(i, d2, d2.n(), d2.l());
         } else {
-            c.b.b.f.f27077e.q(i2, i3, d2.j(), d2.n(), d2.l(), 0, d2.i(), d2.k(), d2.m());
+            c.b.b.f.f22334e.q(i, i2, d2.j(), d2.n(), d2.l(), 0, d2.i(), d2.k(), d2.m());
         }
         if (h2) {
             d2.dispose();
@@ -143,18 +145,18 @@ public abstract class e implements c.b.b.q.h {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.b.b.f.f27077e.N(this.f27223e, this.f27224f);
+            c.b.b.f.f22334e.N(this.a, this.f22473b);
         }
     }
 
     public void delete() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.f27224f) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i = this.f22473b) == 0) {
             return;
         }
-        c.b.b.f.f27077e.S(i2);
-        this.f27224f = 0;
+        c.b.b.f.f22334e.S(i);
+        this.f22473b = 0;
     }
 
     @Override // c.b.b.q.h
@@ -168,52 +170,52 @@ public abstract class e implements c.b.b.q.h {
     public Texture.TextureFilter f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27226h : (Texture.TextureFilter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22475d : (Texture.TextureFilter) invokeV.objValue;
     }
 
     public Texture.TextureFilter h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27225g : (Texture.TextureFilter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22474c : (Texture.TextureFilter) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27224f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22473b : invokeV.intValue;
     }
 
     public Texture.TextureWrap j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27227i : (Texture.TextureWrap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22476e : (Texture.TextureWrap) invokeV.objValue;
     }
 
     public Texture.TextureWrap k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27228j : (Texture.TextureWrap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22477f : (Texture.TextureWrap) invokeV.objValue;
     }
 
     public void l(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureFilter, textureFilter2) == null) {
-            this.f27225g = textureFilter;
-            this.f27226h = textureFilter2;
+            this.f22474c = textureFilter;
+            this.f22475d = textureFilter2;
             a();
-            c.b.b.f.f27077e.j(this.f27223e, 10241, textureFilter.getGLEnum());
-            c.b.b.f.f27077e.j(this.f27223e, 10240, textureFilter2.getGLEnum());
+            c.b.b.f.f22334e.j(this.a, 10241, textureFilter.getGLEnum());
+            c.b.b.f.f22334e.j(this.a, 10240, textureFilter2.getGLEnum());
         }
     }
 
     public void m(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, textureWrap, textureWrap2) == null) {
-            this.f27227i = textureWrap;
-            this.f27228j = textureWrap2;
+            this.f22476e = textureWrap;
+            this.f22477f = textureWrap2;
             a();
-            c.b.b.f.f27077e.j(this.f27223e, 10242, textureWrap.getGLEnum());
-            c.b.b.f.f27077e.j(this.f27223e, 10243, textureWrap2.getGLEnum());
+            c.b.b.f.f22334e.j(this.a, 10242, textureWrap.getGLEnum());
+            c.b.b.f.f22334e.j(this.a, 10243, textureWrap2.getGLEnum());
         }
     }
 
@@ -226,11 +228,11 @@ public abstract class e implements c.b.b.q.h {
                 return 1.0f;
             }
             float min = Math.min(f2, g2);
-            if (!z && com.badlogic.gdx.math.d.f(min, this.k, 0.1f)) {
-                return this.k;
+            if (!z && com.badlogic.gdx.math.d.f(min, this.f22478g, 0.1f)) {
+                return this.f22478g;
             }
-            c.b.b.f.f27078f.u(3553, 34046, min);
-            this.k = min;
+            c.b.b.f.f22335f.u(3553, 34046, min);
+            this.f22478g = min;
             return min;
         }
         return invokeCommon.floatValue;
@@ -239,14 +241,14 @@ public abstract class e implements c.b.b.q.h {
     public void o(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048587, this, textureFilter, textureFilter2, z) == null) {
-            if (textureFilter != null && (z || this.f27225g != textureFilter)) {
-                c.b.b.f.f27077e.j(this.f27223e, 10241, textureFilter.getGLEnum());
-                this.f27225g = textureFilter;
+            if (textureFilter != null && (z || this.f22474c != textureFilter)) {
+                c.b.b.f.f22334e.j(this.a, 10241, textureFilter.getGLEnum());
+                this.f22474c = textureFilter;
             }
             if (textureFilter2 != null) {
-                if (z || this.f27226h != textureFilter2) {
-                    c.b.b.f.f27077e.j(this.f27223e, 10240, textureFilter2.getGLEnum());
-                    this.f27226h = textureFilter2;
+                if (z || this.f22475d != textureFilter2) {
+                    c.b.b.f.f22334e.j(this.a, 10240, textureFilter2.getGLEnum());
+                    this.f22475d = textureFilter2;
                 }
             }
         }
@@ -255,42 +257,42 @@ public abstract class e implements c.b.b.q.h {
     public void p(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048588, this, textureWrap, textureWrap2, z) == null) {
-            if (textureWrap != null && (z || this.f27227i != textureWrap)) {
-                c.b.b.f.f27077e.j(this.f27223e, 10242, textureWrap.getGLEnum());
-                this.f27227i = textureWrap;
+            if (textureWrap != null && (z || this.f22476e != textureWrap)) {
+                c.b.b.f.f22334e.j(this.a, 10242, textureWrap.getGLEnum());
+                this.f22476e = textureWrap;
             }
             if (textureWrap2 != null) {
-                if (z || this.f27228j != textureWrap2) {
-                    c.b.b.f.f27077e.j(this.f27223e, 10243, textureWrap2.getGLEnum());
-                    this.f27228j = textureWrap2;
+                if (z || this.f22477f != textureWrap2) {
+                    c.b.b.f.f22334e.j(this.a, 10243, textureWrap2.getGLEnum());
+                    this.f22477f = textureWrap2;
                 }
             }
         }
     }
 
-    public e(int i2, int i3) {
+    public e(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-        this.f27225g = textureFilter;
-        this.f27226h = textureFilter;
+        this.f22474c = textureFilter;
+        this.f22475d = textureFilter;
         Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-        this.f27227i = textureWrap;
-        this.f27228j = textureWrap;
-        this.k = 1.0f;
-        this.f27223e = i2;
-        this.f27224f = i3;
+        this.f22476e = textureWrap;
+        this.f22477f = textureWrap;
+        this.f22478g = 1.0f;
+        this.a = i;
+        this.f22473b = i2;
     }
 }

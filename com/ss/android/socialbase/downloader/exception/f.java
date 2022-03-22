@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.exception;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f extends BaseException {
-    public f(int i2, String str) {
-        super(i2, str);
+    public f(int i, String str) {
+        super(i, str);
     }
 }

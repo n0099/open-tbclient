@@ -39,16 +39,16 @@ public class ViewUtils {
                 return;
             }
         }
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 29) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 29) {
             IMPL = new ViewUtilsApi29();
-        } else if (i2 >= 23) {
+        } else if (i >= 23) {
             IMPL = new ViewUtilsApi23();
-        } else if (i2 >= 22) {
+        } else if (i >= 22) {
             IMPL = new ViewUtilsApi22();
-        } else if (i2 >= 21) {
+        } else if (i >= 21) {
             IMPL = new ViewUtilsApi21();
-        } else if (i2 >= 19) {
+        } else if (i >= 19) {
             IMPL = new ViewUtilsApi19();
         } else {
             IMPL = new ViewUtilsBase();
@@ -66,9 +66,9 @@ public class ViewUtils {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -108,9 +108,9 @@ public class ViewUtils {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -144,9 +144,9 @@ public class ViewUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -204,10 +204,10 @@ public class ViewUtils {
         }
     }
 
-    public static void setLeftTopRightBottom(@NonNull View view, int i2, int i3, int i4, int i5) {
+    public static void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            IMPL.setLeftTopRightBottom(view, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            IMPL.setLeftTopRightBottom(view, i, i2, i3, i4);
         }
     }
 
@@ -218,10 +218,10 @@ public class ViewUtils {
         }
     }
 
-    public static void setTransitionVisibility(@NonNull View view, int i2) {
+    public static void setTransitionVisibility(@NonNull View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, view, i2) == null) {
-            IMPL.setTransitionVisibility(view, i2);
+        if (interceptable == null || interceptable.invokeLI(65546, null, view, i) == null) {
+            IMPL.setTransitionVisibility(view, i);
         }
     }
 

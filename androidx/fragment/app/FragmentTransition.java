@@ -54,9 +54,9 @@ public class FragmentTransition {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,9 +87,9 @@ public class FragmentTransition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -130,7 +130,7 @@ public class FragmentTransition {
     */
     public static void addToFirstInLastOut(BackStackRecord backStackRecord, FragmentTransaction.Op op, SparseArray<FragmentContainerTransition> sparseArray, boolean z, boolean z2) {
         Fragment fragment;
-        int i2;
+        int i;
         boolean z3;
         boolean z4;
         boolean z5;
@@ -138,19 +138,19 @@ public class FragmentTransition {
         FragmentContainerTransition fragmentContainerTransition;
         FragmentManager fragmentManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{backStackRecord, op, sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (fragment = op.mFragment) == null || (i2 = fragment.mContainerId) == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{backStackRecord, op, sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (fragment = op.mFragment) == null || (i = fragment.mContainerId) == 0) {
             return;
         }
-        int i3 = z ? INVERSE_OPS[op.mCmd] : op.mCmd;
+        int i2 = z ? INVERSE_OPS[op.mCmd] : op.mCmd;
         boolean z7 = false;
-        if (i3 != 1) {
-            if (i3 != 3) {
-                if (i3 == 4) {
+        if (i2 != 1) {
+            if (i2 != 3) {
+                if (i2 == 4) {
                     boolean z8 = !z2 ? false : false;
                     z5 = z8;
                     z4 = false;
                     z6 = true;
-                    fragmentContainerTransition = sparseArray.get(i2);
+                    fragmentContainerTransition = sparseArray.get(i);
                     if (z7) {
                     }
                     if (!z2) {
@@ -159,15 +159,15 @@ public class FragmentTransition {
                     }
                     if (z2) {
                     }
-                } else if (i3 != 5) {
-                    if (i3 != 6) {
-                        if (i3 != 7) {
+                } else if (i2 != 5) {
+                    if (i2 != 6) {
+                        if (i2 != 7) {
                             z4 = false;
                             z6 = false;
                             z5 = false;
-                            fragmentContainerTransition = sparseArray.get(i2);
+                            fragmentContainerTransition = sparseArray.get(i);
                             if (z7) {
-                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i2);
+                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
                                 fragmentContainerTransition.lastIn = fragment;
                                 fragmentContainerTransition.lastInIsPop = z;
                                 fragmentContainerTransition.lastInTransaction = backStackRecord;
@@ -183,7 +183,7 @@ public class FragmentTransition {
                                 }
                             }
                             if (z5 && (fragmentContainerTransition == null || fragmentContainerTransition.firstOut == null)) {
-                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i2);
+                                fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
                                 fragmentContainerTransition.firstOut = fragment;
                                 fragmentContainerTransition.firstOutIsPop = z;
                                 fragmentContainerTransition.firstOutTransaction = backStackRecord;
@@ -205,7 +205,7 @@ public class FragmentTransition {
                     z4 = true;
                     z6 = false;
                     z5 = false;
-                    fragmentContainerTransition = sparseArray.get(i2);
+                    fragmentContainerTransition = sparseArray.get(i);
                     if (z7) {
                     }
                     if (!z2) {
@@ -219,7 +219,7 @@ public class FragmentTransition {
                         }
                     }
                     if (z5) {
-                        fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i2);
+                        fragmentContainerTransition = ensureContainer(fragmentContainerTransition, sparseArray, i);
                         fragmentContainerTransition.firstOut = fragment;
                         fragmentContainerTransition.firstOutIsPop = z;
                         fragmentContainerTransition.firstOutTransaction = backStackRecord;
@@ -234,7 +234,7 @@ public class FragmentTransition {
                     z4 = true;
                     z6 = false;
                     z5 = false;
-                    fragmentContainerTransition = sparseArray.get(i2);
+                    fragmentContainerTransition = sparseArray.get(i);
                     if (z7) {
                     }
                     if (!z2) {
@@ -250,7 +250,7 @@ public class FragmentTransition {
             z5 = z8;
             z4 = false;
             z6 = true;
-            fragmentContainerTransition = sparseArray.get(i2);
+            fragmentContainerTransition = sparseArray.get(i);
             if (z7) {
             }
             if (!z2) {
@@ -266,7 +266,7 @@ public class FragmentTransition {
             z4 = true;
             z6 = false;
             z5 = false;
-            fragmentContainerTransition = sparseArray.get(i2);
+            fragmentContainerTransition = sparseArray.get(i);
             if (z7) {
             }
             if (!z2) {
@@ -283,7 +283,7 @@ public class FragmentTransition {
             z4 = true;
             z6 = false;
             z5 = false;
-            fragmentContainerTransition = sparseArray.get(i2);
+            fragmentContainerTransition = sparseArray.get(i);
             if (z7) {
             }
             if (!z2) {
@@ -299,23 +299,23 @@ public class FragmentTransition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, backStackRecord, sparseArray, z) == null) {
             int size = backStackRecord.mOps.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i2), sparseArray, false, z);
+            for (int i = 0; i < size; i++) {
+                addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(i), sparseArray, false, z);
             }
         }
     }
 
-    public static ArrayMap<String, String> calculateNameOverrides(int i2, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i3, int i4) {
+    public static ArrayMap<String, String> calculateNameOverrides(int i, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i2, int i3) {
         InterceptResult invokeCommon;
         ArrayList<String> arrayList3;
         ArrayList<String> arrayList4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             ArrayMap<String, String> arrayMap = new ArrayMap<>();
-            for (int i5 = i4 - 1; i5 >= i3; i5--) {
-                BackStackRecord backStackRecord = arrayList.get(i5);
-                if (backStackRecord.interactsWith(i2)) {
-                    boolean booleanValue = arrayList2.get(i5).booleanValue();
+            for (int i4 = i3 - 1; i4 >= i2; i4--) {
+                BackStackRecord backStackRecord = arrayList.get(i4);
+                if (backStackRecord.interactsWith(i)) {
+                    boolean booleanValue = arrayList2.get(i4).booleanValue();
                     ArrayList<String> arrayList5 = backStackRecord.mSharedElementSourceNames;
                     if (arrayList5 != null) {
                         int size = arrayList5.size();
@@ -327,9 +327,9 @@ public class FragmentTransition {
                             arrayList3 = backStackRecord.mSharedElementTargetNames;
                             arrayList4 = arrayList6;
                         }
-                        for (int i6 = 0; i6 < size; i6++) {
-                            String str = arrayList4.get(i6);
-                            String str2 = arrayList3.get(i6);
+                        for (int i5 = 0; i5 < size; i5++) {
+                            String str = arrayList4.get(i5);
+                            String str2 = arrayList3.get(i5);
                             String remove = arrayMap.remove(str2);
                             if (remove != null) {
                                 arrayMap.put(str, remove);
@@ -367,9 +367,9 @@ public class FragmentTransition {
                 ArrayList arrayList = new ArrayList();
                 ArrayList arrayList2 = new ArrayList();
                 int size = arrayMap == null ? 0 : arrayMap.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    arrayList2.add(arrayMap.keyAt(i2));
-                    arrayList.add(arrayMap.valueAt(i2));
+                for (int i = 0; i < size; i++) {
+                    arrayList2.add(arrayMap.keyAt(i));
+                    arrayList.add(arrayMap.valueAt(i));
                 }
                 if (z2) {
                     enterTransitionCallback.onSharedElementStart(arrayList2, arrayList, null);
@@ -385,8 +385,8 @@ public class FragmentTransition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, fragmentTransitionImpl, list)) == null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (!fragmentTransitionImpl.canHandle(list.get(i2))) {
+            for (int i = 0; i < size; i++) {
+                if (!fragmentTransitionImpl.canHandle(list.get(i))) {
                     return false;
                 }
             }
@@ -629,9 +629,9 @@ public class FragmentTransition {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {fragmentTransitionImpl, arrayMap, obj3, fragmentContainerTransition, arrayList2, view, fragment, fragment2, Boolean.valueOf(z), arrayList, obj, rect};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -746,9 +746,9 @@ public class FragmentTransition {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {fragment, fragment2, Boolean.valueOf(z), captureInSharedElements, view2, fragmentTransitionImpl, rect};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -780,14 +780,14 @@ public class FragmentTransition {
         return invokeCommon.objValue;
     }
 
-    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i2, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsOrdered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i2), fragmentContainerTransition, view, arrayMap, callback}) == null) {
-            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i2) : null;
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view, arrayMap, callback}) == null) {
+            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
             if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
             }
@@ -827,9 +827,9 @@ public class FragmentTransition {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {callback, fragment2, cancellationSignal};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -860,14 +860,14 @@ public class FragmentTransition {
         }
     }
 
-    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i2, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
+    public static void configureTransitionsReordered(FragmentManager fragmentManager, int i, FragmentContainerTransition fragmentContainerTransition, View view, ArrayMap<String, String> arrayMap, Callback callback) {
         Fragment fragment;
         Fragment fragment2;
         FragmentTransitionImpl chooseImpl;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i2), fragmentContainerTransition, view, arrayMap, callback}) == null) {
-            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i2) : null;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{fragmentManager, Integer.valueOf(i), fragmentContainerTransition, view, arrayMap, callback}) == null) {
+            ViewGroup viewGroup = fragmentManager.mContainer.onHasView() ? (ViewGroup) fragmentManager.mContainer.onFindViewById(i) : null;
             if (viewGroup == null || (chooseImpl = chooseImpl((fragment2 = fragmentContainerTransition.firstOut), (fragment = fragmentContainerTransition.lastIn))) == null) {
                 return;
             }
@@ -907,9 +907,9 @@ public class FragmentTransition {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {callback, fragment2, cancellationSignal};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -941,13 +941,13 @@ public class FragmentTransition {
         }
     }
 
-    public static FragmentContainerTransition ensureContainer(FragmentContainerTransition fragmentContainerTransition, SparseArray<FragmentContainerTransition> sparseArray, int i2) {
+    public static FragmentContainerTransition ensureContainer(FragmentContainerTransition fragmentContainerTransition, SparseArray<FragmentContainerTransition> sparseArray, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, fragmentContainerTransition, sparseArray, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, fragmentContainerTransition, sparseArray, i)) == null) {
             if (fragmentContainerTransition == null) {
                 FragmentContainerTransition fragmentContainerTransition2 = new FragmentContainerTransition();
-                sparseArray.put(i2, fragmentContainerTransition2);
+                sparseArray.put(i, fragmentContainerTransition2);
                 return fragmentContainerTransition2;
             }
             return fragmentContainerTransition;
@@ -960,9 +960,9 @@ public class FragmentTransition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, arrayMap, str)) == null) {
             int size = arrayMap.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (str.equals(arrayMap.valueAt(i2))) {
-                    return arrayMap.keyAt(i2);
+            for (int i = 0; i < size; i++) {
+                if (str.equals(arrayMap.valueAt(i))) {
+                    return arrayMap.keyAt(i);
                 }
             }
             return null;
@@ -1081,9 +1081,9 @@ public class FragmentTransition {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1149,9 +1149,9 @@ public class FragmentTransition {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {obj, fragmentTransitionImpl, view, fragment, arrayList, arrayList2, arrayList3, obj2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1210,25 +1210,25 @@ public class FragmentTransition {
         }
     }
 
-    public static void setViewVisibility(ArrayList<View> arrayList, int i2) {
+    public static void setViewVisibility(ArrayList<View> arrayList, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65565, null, arrayList, i2) == null) || arrayList == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65565, null, arrayList, i) == null) || arrayList == null) {
             return;
         }
         for (int size = arrayList.size() - 1; size >= 0; size--) {
-            arrayList.get(size).setVisibility(i2);
+            arrayList.get(size).setVisibility(i);
         }
     }
 
-    public static void startTransitions(FragmentManager fragmentManager, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i2, int i3, boolean z, Callback callback) {
+    public static void startTransitions(FragmentManager fragmentManager, ArrayList<BackStackRecord> arrayList, ArrayList<Boolean> arrayList2, int i, int i2, boolean z, Callback callback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{fragmentManager, arrayList, arrayList2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), callback}) == null) || fragmentManager.mCurState < 1) {
+        if (!(interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{fragmentManager, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), callback}) == null) || fragmentManager.mCurState < 1) {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        for (int i4 = i2; i4 < i3; i4++) {
-            BackStackRecord backStackRecord = arrayList.get(i4);
-            if (arrayList2.get(i4).booleanValue()) {
+        for (int i3 = i; i3 < i2; i3++) {
+            BackStackRecord backStackRecord = arrayList.get(i3);
+            if (arrayList2.get(i3).booleanValue()) {
                 calculatePopFragments(backStackRecord, sparseArray, z);
             } else {
                 calculateFragments(backStackRecord, sparseArray, z);
@@ -1237,10 +1237,10 @@ public class FragmentTransition {
         if (sparseArray.size() != 0) {
             View view = new View(fragmentManager.mHost.getContext());
             int size = sparseArray.size();
-            for (int i5 = 0; i5 < size; i5++) {
-                int keyAt = sparseArray.keyAt(i5);
-                ArrayMap<String, String> calculateNameOverrides = calculateNameOverrides(keyAt, arrayList, arrayList2, i2, i3);
-                FragmentContainerTransition fragmentContainerTransition = (FragmentContainerTransition) sparseArray.valueAt(i5);
+            for (int i4 = 0; i4 < size; i4++) {
+                int keyAt = sparseArray.keyAt(i4);
+                ArrayMap<String, String> calculateNameOverrides = calculateNameOverrides(keyAt, arrayList, arrayList2, i, i2);
+                FragmentContainerTransition fragmentContainerTransition = (FragmentContainerTransition) sparseArray.valueAt(i4);
                 if (z) {
                     configureTransitionsReordered(fragmentManager, keyAt, fragmentContainerTransition, view, calculateNameOverrides, callback);
                 } else {

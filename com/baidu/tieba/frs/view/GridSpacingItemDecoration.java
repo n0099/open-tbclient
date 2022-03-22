@@ -14,33 +14,33 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42529b;
+    public int f32990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42530c;
+    public int f32991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42531d;
+    public boolean f32992d;
 
-    public GridSpacingItemDecoration(int i2, int i3, int i4, boolean z) {
+    public GridSpacingItemDecoration(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f42529b = i3;
-        this.f42530c = i4;
-        this.f42531d = z;
+        this.a = i;
+        this.f32990b = i2;
+        this.f32991c = i3;
+        this.f32992d = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -48,23 +48,23 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-            int i2 = this.a;
-            int i3 = childAdapterPosition % i2;
-            if (this.f42531d) {
-                int i4 = this.f42529b;
-                rect.left = i4 - ((i3 * i4) / i2);
-                rect.right = ((i3 + 1) * i4) / i2;
-                if (childAdapterPosition < i2) {
-                    rect.top = i4;
+            int i = this.a;
+            int i2 = childAdapterPosition % i;
+            if (this.f32992d) {
+                int i3 = this.f32990b;
+                rect.left = i3 - ((i2 * i3) / i);
+                rect.right = ((i2 + 1) * i3) / i;
+                if (childAdapterPosition < i) {
+                    rect.top = i3;
                 }
-                rect.bottom = this.f42529b;
+                rect.bottom = this.f32990b;
                 return;
             }
-            int i5 = this.f42529b;
-            rect.left = (i3 * i5) / i2;
-            rect.right = i5 - (((i3 + 1) * i5) / i2);
-            if (childAdapterPosition >= i2) {
-                rect.top = this.f42530c;
+            int i4 = this.f32990b;
+            rect.left = (i2 * i4) / i;
+            rect.right = i4 - (((i2 + 1) * i4) / i);
+            if (childAdapterPosition >= i) {
+                rect.top = this.f32991c;
             }
         }
     }

@@ -7,10 +7,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
-import c.a.y0.r.q;
-import c.a.y0.r.w;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
+import c.a.v0.r.q;
+import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,9 +41,9 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -88,11 +88,11 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
         }
     }
 
-    public Bitmap getFrameAtExactTime(long j2, int i2) {
+    public Bitmap getFrameAtExactTime(long j, int i) {
         InterceptResult invokeCommon;
         Bitmap frameAtTime;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? (!isUseMediacodec() || Build.VERSION.SDK_INT < 21 || (frameAtTime = getVideoKeyFrameModel().getFrameAtTime(this.mPath, (long) ((int) j2), true)) == null) ? super.getFrameAtTime(j2, i2) : frameAtTime : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? (!isUseMediacodec() || Build.VERSION.SDK_INT < 21 || (frameAtTime = getVideoKeyFrameModel().getFrameAtTime(this.mPath, (long) ((int) j), true)) == null) ? super.getFrameAtTime(j, i) : frameAtTime : (Bitmap) invokeCommon.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0020, code lost:
@@ -101,16 +101,16 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void getFrameAtExactTime(long j2, int i2, VideoEffectData videoEffectData, OnGetFrameAtExactTimeListener onGetFrameAtExactTimeListener) {
+    public void getFrameAtExactTime(long j, int i, VideoEffectData videoEffectData, OnGetFrameAtExactTimeListener onGetFrameAtExactTimeListener) {
         Bitmap frameAtTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), videoEffectData, onGetFrameAtExactTimeListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), videoEffectData, onGetFrameAtExactTimeListener}) == null) {
             if (isUseMediacodec() && Build.VERSION.SDK_INT >= 21) {
                 VideoKeyFrameModel videoKeyFrameModel = getVideoKeyFrameModel();
                 videoKeyFrameModel.setVideoEffectData(videoEffectData);
-                frameAtTime = videoKeyFrameModel.getFrameAtTime(this.mPath, (int) j2, true);
+                frameAtTime = videoKeyFrameModel.getFrameAtTime(this.mPath, (int) j, true);
             }
-            frameAtTime = super.getFrameAtTime(j2, i2);
+            frameAtTime = super.getFrameAtTime(j, i);
             if (onGetFrameAtExactTimeListener != null) {
                 onGetFrameAtExactTimeListener.onFinish(frameAtTime);
             }
@@ -127,36 +127,36 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
 
     @Override // android.media.MediaMetadataRetriever
     @Deprecated
-    public Bitmap getFrameAtTime(long j2) {
+    public Bitmap getFrameAtTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? getFrameAtTime(j2, 2) : (Bitmap) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) ? getFrameAtTime(j, 2) : (Bitmap) invokeJ.objValue;
     }
 
     @Override // android.media.MediaMetadataRetriever
     @Deprecated
-    public Bitmap getFrameAtTime(long j2, int i2) {
+    public Bitmap getFrameAtTime(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? getFrameAtTime(j2, i2, 0, 0) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? getFrameAtTime(j, i, 0, 0) : (Bitmap) invokeCommon.objValue;
     }
 
-    public Bitmap getFrameAtTime(long j2, int i2, int i3, int i4) {
+    public Bitmap getFrameAtTime(long j, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Bitmap frameAtTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             try {
                 if (!isUseMediacodec() || Build.VERSION.SDK_INT < 21) {
-                    frameAtTime = super.getFrameAtTime(j2, i2);
+                    frameAtTime = super.getFrameAtTime(j, i);
                     if (frameAtTime == null) {
                         return null;
                     }
-                    if (i3 != 0 && i4 != 0) {
-                        frameAtTime = ThumbnailUtils.extractThumbnail(frameAtTime, i3, i4, 2);
+                    if (i2 != 0 && i3 != 0) {
+                        frameAtTime = ThumbnailUtils.extractThumbnail(frameAtTime, i2, i3, 2);
                     }
                 } else {
-                    frameAtTime = getVideoKeyFrameModel().getFrameAtTime(this.mPath, (int) j2, false, i3, i4);
+                    frameAtTime = getVideoKeyFrameModel().getFrameAtTime(this.mPath, (int) j, false, i2, i3);
                 }
                 return frameAtTime;
             } catch (Exception e2) {
@@ -167,16 +167,16 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public void getFrameAtTimeList(List<Long> list, int i2, int i3, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
+    public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i2), Integer.valueOf(i3), onDecodeFrameAvailableListener}) == null) || h.e(list) || onDecodeFrameAvailableListener == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || h.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
-            getVideoKeyFrameModel().getFrameAtTimeList(this.mPath, list, i2, i3, onDecodeFrameAvailableListener);
+            getVideoKeyFrameModel().getFrameAtTimeList(this.mPath, list, i, i2, onDecodeFrameAvailableListener);
         } else if (!TextUtils.isEmpty(this.mPath)) {
             for (Long l : list) {
-                onDecodeFrameAvailableListener.onFrameAvailable(l.longValue(), getFrameAtTime(l.longValue(), 2, i2, i3));
+                onDecodeFrameAvailableListener.onFrameAvailable(l.longValue(), getFrameAtTime(l.longValue(), 2, i, i2));
             }
         }
     }
@@ -195,13 +195,13 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
         }
     }
 
-    public void setAngle(int i2) {
+    public void setAngle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mAngle = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mAngle = i;
             VideoKeyFrameModel videoKeyFrameModel = this.mVideoKeyFrameModel;
             if (videoKeyFrameModel != null) {
-                videoKeyFrameModel.setAngle(i2);
+                videoKeyFrameModel.setAngle(i);
             }
         }
     }

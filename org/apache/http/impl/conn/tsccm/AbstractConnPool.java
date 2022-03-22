@@ -17,7 +17,7 @@ import org.apache.http.conn.OperatedClientConnection;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.impl.conn.IdleConnectionHandler;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractConnPool implements RefQueueHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,9 +58,9 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -74,12 +74,12 @@ public abstract class AbstractConnPool implements RefQueueHandler {
         }
     }
 
-    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j2, TimeUnit timeUnit);
+    public abstract void freeEntry(BasicPoolEntry basicPoolEntry, boolean z, long j, TimeUnit timeUnit);
 
-    public final BasicPoolEntry getEntry(HttpRoute httpRoute, Object obj, long j2, TimeUnit timeUnit) throws ConnectionPoolTimeoutException, InterruptedException {
+    public final BasicPoolEntry getEntry(HttpRoute httpRoute, Object obj, long j, TimeUnit timeUnit) throws ConnectionPoolTimeoutException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{httpRoute, obj, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{httpRoute, obj, Long.valueOf(j), timeUnit})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (BasicPoolEntry) invokeCommon.objValue;

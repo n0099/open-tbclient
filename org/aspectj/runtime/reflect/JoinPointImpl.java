@@ -13,7 +13,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.runtime.internal.AroundClosure;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class JoinPointImpl implements ProceedingJoinPoint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,23 +23,23 @@ public class JoinPointImpl implements ProceedingJoinPoint {
     public JoinPoint.StaticPart staticPart;
     public Object target;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class EnclosingStaticPartImpl extends StaticPartImpl implements JoinPoint.EnclosingStaticPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EnclosingStaticPartImpl(int i2, String str, Signature signature, SourceLocation sourceLocation) {
-            super(i2, str, signature, sourceLocation);
+        public EnclosingStaticPartImpl(int i, String str, Signature signature, SourceLocation sourceLocation) {
+            super(i, str, signature, sourceLocation);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, signature, sourceLocation};
+                Object[] objArr = {Integer.valueOf(i), str, signature, sourceLocation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Signature) objArr2[2], (SourceLocation) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -57,9 +57,9 @@ public class JoinPointImpl implements ProceedingJoinPoint {
             newInitContext.initArgs = r2;
             Object[] objArr2 = {staticPart, obj, obj2, objArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -182,38 +182,38 @@ public class JoinPointImpl implements ProceedingJoinPoint {
                 return null;
             }
             int flags = aroundClosure.getFlags();
-            int i2 = 1048576 & flags;
-            int i3 = 1;
+            int i = 1048576 & flags;
+            int i2 = 1;
             boolean z = (65536 & flags) != 0;
-            int i4 = (flags & 4096) != 0 ? 1 : 0;
-            int i5 = (flags & 256) != 0 ? 1 : 0;
+            int i3 = (flags & 4096) != 0 ? 1 : 0;
+            int i4 = (flags & 256) != 0 ? 1 : 0;
             boolean z2 = (flags & 16) != 0;
             boolean z3 = (flags & 1) != 0;
             Object[] state = this.arc.getState();
-            int i6 = i4 + 0 + ((!z2 || z) ? 0 : 1);
-            if (i4 == 0 || i5 == 0) {
-                i3 = 0;
+            int i5 = i3 + 0 + ((!z2 || z) ? 0 : 1);
+            if (i3 == 0 || i4 == 0) {
+                i2 = 0;
             } else {
                 state[0] = objArr[0];
             }
             if (z2 && z3) {
                 if (z) {
-                    i3 = i5 + 1;
-                    state[0] = objArr[i5];
+                    i2 = i4 + 1;
+                    state[0] = objArr[i4];
                 } else {
-                    i3 = i4 + 1;
-                    state[i4] = objArr[i4];
+                    i2 = i3 + 1;
+                    state[i3] = objArr[i3];
                 }
             }
-            for (int i7 = i3; i7 < objArr.length; i7++) {
-                state[(i7 - i3) + i6] = objArr[i7];
+            for (int i6 = i2; i6 < objArr.length; i6++) {
+                state[(i6 - i2) + i5] = objArr[i6];
             }
             return this.arc.run(state);
         }
         return invokeL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class StaticPartImpl implements JoinPoint.StaticPart {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,16 +222,16 @@ public class JoinPointImpl implements ProceedingJoinPoint {
         public Signature signature;
         public SourceLocation sourceLocation;
 
-        public StaticPartImpl(int i2, String str, Signature signature, SourceLocation sourceLocation) {
+        public StaticPartImpl(int i, String str, Signature signature, SourceLocation sourceLocation) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, signature, sourceLocation};
+                Object[] objArr = {Integer.valueOf(i), str, signature, sourceLocation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -240,7 +240,7 @@ public class JoinPointImpl implements ProceedingJoinPoint {
             this.kind = str;
             this.signature = signature;
             this.sourceLocation = sourceLocation;
-            this.id = i2;
+            this.id = i;
         }
 
         @Override // org.aspectj.lang.JoinPoint.StaticPart

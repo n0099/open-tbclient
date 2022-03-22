@@ -20,12 +20,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
     public static final String FROM_DEFAULT = "from_default";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_FRS_VIDEO_TOP = "from_frs_video_top";
     public static final String FROM_MAINTAB_CONCERN = "concern_tab";
     public static final String FROM_MAINTAB_DAILY = "daily_tab";
     public static final String FROM_MAINTAB_RECOMMEND = "index";
@@ -77,17 +78,17 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i2) {
+    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2)};
+            Object[] objArr = {context, list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -95,7 +96,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
     }
 
     public static void addFrsPageCount(String str) {
@@ -238,25 +239,25 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 
-    public void setVideoShowIndex(int i2) {
+    public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            getIntent().putExtra("video_show_index", i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            getIntent().putExtra("video_show_index", i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str) {
+    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -264,7 +265,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
     }
@@ -278,9 +279,9 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
@@ -293,17 +294,17 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4) {
+    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str, str2, str3, str4};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -311,7 +312,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
@@ -320,17 +321,17 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public FrsVideoTabPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str, str2, str3, str4, str5};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4, str5};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
@@ -338,7 +339,7 @@ public class FrsVideoTabPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);

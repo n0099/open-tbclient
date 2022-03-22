@@ -8,81 +8,73 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f56944b;
+    public final String f41808b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f56945c;
+    public final String f41809c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f56946d;
+    public final String f41810d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f56947e;
+    public final String f41811e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f56948f;
+    public final String f41812f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f56949g;
+    public final String f41813g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f56950h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final boolean f56951i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final boolean f56952j;
+    public final String f41814h;
+    public final boolean i;
+    public final boolean j;
     public String k;
     public byte[] l;
     public boolean m;
 
     /* renamed from: com.kwai.sodler.lib.ext.c$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56953b;
+        public String f41815b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56954c;
+        public String f41816c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f56955d;
+        public String f41817d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f56956e;
+        public String f41818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f56957f;
+        public String f41819f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f56958g;
+        public String f41820g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f56959h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f56960i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public boolean f56961j;
+        public String f41821h;
+        public boolean i;
+        public boolean j;
         public String k;
         public byte[] l;
         public boolean m;
@@ -92,31 +84,31 @@ public final class c {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = 3;
-            this.f56954c = "sodler";
-            this.f56955d = "code-cache";
-            this.f56956e = "lib";
-            this.f56957f = SevenZipUtils.FILE_NAME_TEMP;
-            this.f56958g = "base-1.apk";
-            this.f56959h = ".tmp";
-            this.f56960i = false;
-            this.f56961j = false;
+            this.f41816c = "sodler";
+            this.f41817d = "code-cache";
+            this.f41818e = "lib";
+            this.f41819f = SevenZipUtils.FILE_NAME_TEMP;
+            this.f41820g = "base-1.apk";
+            this.f41821h = ".tmp";
+            this.i = false;
+            this.j = false;
         }
 
-        public a a(int i2) {
+        public a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (i2 > 0) {
-                    this.a = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (i > 0) {
+                    this.a = i;
                 }
                 return this;
             }
@@ -127,7 +119,7 @@ public final class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f56954c = str;
+                this.f41816c = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,42 +138,42 @@ public final class c {
         public c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new c(this.f56961j, this.f56960i, this.f56953b, this.f56954c, this.f56955d, this.f56956e, this.f56957f, this.f56959h, this.f56958g, this.a, this.k, this.l, this.m, null) : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new c(this.j, this.i, this.f41815b, this.f41816c, this.f41817d, this.f41818e, this.f41819f, this.f41821h, this.f41820g, this.a, this.k, this.l, this.m, null) : (c) invokeV.objValue;
         }
     }
 
-    public c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, byte[] bArr, boolean z3) {
+    public c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, String str8, byte[] bArr, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i2), str8, bArr, Boolean.valueOf(z3)};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), str8, bArr, Boolean.valueOf(z3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f56944b = str2;
-        this.f56945c = str3;
-        this.f56946d = str4;
-        this.f56947e = str5;
-        this.f56948f = str6;
-        this.f56949g = str7;
-        this.f56950h = str;
-        this.f56951i = z;
-        this.f56952j = z2;
+        this.a = i;
+        this.f41808b = str2;
+        this.f41809c = str3;
+        this.f41810d = str4;
+        this.f41811e = str5;
+        this.f41812f = str6;
+        this.f41813g = str7;
+        this.f41814h = str;
+        this.i = z;
+        this.j = z2;
         this.k = str8;
         this.l = bArr;
         this.m = z3;
     }
 
-    public /* synthetic */ c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2, String str8, byte[] bArr, boolean z3, AnonymousClass1 anonymousClass1) {
-        this(z, z2, str, str2, str3, str4, str5, str6, str7, i2, str8, bArr, z3);
+    public /* synthetic */ c(boolean z, boolean z2, String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, String str8, byte[] bArr, boolean z3, AnonymousClass1 anonymousClass1) {
+        this(z, z2, str, str2, str3, str4, str5, str6, str7, i, str8, bArr, z3);
     }
 
     public int a() {
@@ -193,36 +185,36 @@ public final class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56944b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41808b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56946d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41810d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56947e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41811e : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f56948f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41812f : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f56949g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41813g : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56952j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.booleanValue;
     }
 }

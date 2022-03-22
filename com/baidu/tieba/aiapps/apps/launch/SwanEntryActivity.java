@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.p0.a.p2.v;
-import c.a.p0.g.h.b;
+import c.a.n0.a.p2.v;
+import c.a.n0.g.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -26,9 +26,7 @@ public class SwanEntryActivity extends Activity {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f40485e;
+        public final /* synthetic */ SwanEntryActivity a;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -37,22 +35,22 @@ public class SwanEntryActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanEntryActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40485e = swanEntryActivity;
+            this.a = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f40485e.finish();
+                this.a.finish();
             }
         }
     }
@@ -62,9 +60,9 @@ public class SwanEntryActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -91,7 +89,7 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        c.a.r0.z.b.a.a();
+        c.a.p0.b0.b.a.a();
         b.a(uri);
     }
 
@@ -129,13 +127,13 @@ public class SwanEntryActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (c.a.d.a.a.d(this) && c.a.d.a.a.a(i2)) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (c.a.d.a.a.d(this) && c.a.d.a.a.a(i)) {
                 return;
             }
-            super.setRequestedOrientation(i2);
+            super.setRequestedOrientation(i);
         }
     }
 }

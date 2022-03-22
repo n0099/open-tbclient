@@ -22,32 +22,32 @@ public class h {
             try {
                 jSONObject.put("s", Build.VERSION.SDK_INT);
                 jSONObject.put("sv", Build.VERSION.RELEASE);
-                jSONObject.put("ii", bw.a(2, context));
+                jSONObject.put(Config.CUID_SEC, bw.a(2, context));
                 jSONObject.put("w", bw.c(context));
                 jSONObject.put("h", bw.d(context));
-                jSONObject.put("ly", ab.f35002c);
+                jSONObject.put("ly", ab.f27157c);
                 jSONObject.put("pv", "24");
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                    jSONObject.put("pn", bw.h(2, context));
+                    jSONObject.put(Config.PACKAGE_NAME, bw.h(2, context));
                     jSONObject.put("a", packageInfo.versionCode);
                     jSONObject.put("n", packageInfo.versionName);
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                jSONObject.put("mc", bw.b(2, context));
-                jSONObject.put("bm", bw.f(2, context));
+                jSONObject.put(Config.DEVICE_MAC_ID, bw.b(2, context));
+                jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, bw.f(2, context));
                 jSONObject.put("m", android.os.Build.MODEL);
-                jSONObject.put("dn", bw.a(context, 2));
+                jSONObject.put(Config.DEVICE_NAME, bw.a(context, 2));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("failed_cnt", 0);
+                jSONObject2.put(Config.TRACE_FAILED_CNT, 0);
                 jSONObject2.put("send_index", 0);
                 String b2 = bw.b();
                 if (b2 == null) {
                     b2 = "";
                 }
-                jSONObject2.put("rom", b2);
-                jSONObject.put("trace", jSONObject2);
+                jSONObject2.put(Config.ROM, b2);
+                jSONObject.put(Config.TRACE_PART, jSONObject2);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
@@ -60,8 +60,8 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, jSONObject) == null) {
             try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("trace");
-                jSONObject2.put("failed_cnt", jSONObject2.getLong("failed_cnt") + 1);
+                JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
+                jSONObject2.put(Config.TRACE_FAILED_CNT, jSONObject2.getLong(Config.TRACE_FAILED_CNT) + 1);
             } catch (Exception unused) {
             }
         }
@@ -71,7 +71,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) {
             try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("trace");
+                JSONObject jSONObject2 = jSONObject.getJSONObject(Config.TRACE_PART);
                 jSONObject2.put("send_index", jSONObject2.getLong("send_index") + 1);
             } catch (Exception unused) {
             }
@@ -89,7 +89,7 @@ public class h {
                 JSONArray jSONArray = (JSONArray) jSONObject.get("payload");
                 JSONObject jSONObject2 = (jSONArray == null || jSONArray.length() <= 0) ? null : (JSONObject) jSONArray.get(0);
                 if (jSONObject2 != null) {
-                    return jSONObject2.getJSONObject("he");
+                    return jSONObject2.getJSONObject(Config.HEADER_PART);
                 }
                 return null;
             } catch (Exception unused) {

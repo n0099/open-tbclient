@@ -30,9 +30,9 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -109,31 +109,31 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userIds : (String) invokeV.objValue;
     }
 
-    public void setDecision(int i2) {
+    public void setDecision(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.decision = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.decision = i;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setInviterUserId(long j2) {
+    public void setInviterUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.inviterUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.inviterUserId = j;
         }
     }
 
-    public void setJoinType(int i2) {
+    public void setJoinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.joinType = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.joinType = i;
         }
     }
 
@@ -144,10 +144,10 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         }
     }
 
-    public void setSysGroupId(int i2) {
+    public void setSysGroupId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.sysGroupId = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.sysGroupId = i;
         }
     }
 

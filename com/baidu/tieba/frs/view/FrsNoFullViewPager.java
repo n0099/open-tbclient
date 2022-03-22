@@ -22,9 +22,9 @@ public class FrsNoFullViewPager extends FrsTabViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -35,19 +35,19 @@ public class FrsNoFullViewPager extends FrsTabViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int i4 = 0;
-            for (int i5 = 0; i5 < getChildCount(); i5++) {
-                View childAt = getChildAt(i5);
-                childAt.measure(i2, View.MeasureSpec.makeMeasureSpec(0, 0));
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < getChildCount(); i4++) {
+                View childAt = getChildAt(i4);
+                childAt.measure(i, View.MeasureSpec.makeMeasureSpec(0, 0));
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (measuredHeight > i4) {
-                    i4 = measuredHeight;
+                if (measuredHeight > i3) {
+                    i3 = measuredHeight;
                 }
             }
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(i3, 1073741824));
         }
     }
 
@@ -60,9 +60,9 @@ public class FrsNoFullViewPager extends FrsTabViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

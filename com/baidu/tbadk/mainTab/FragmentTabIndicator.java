@@ -35,39 +35,29 @@ import java.util.Map;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int TIP_POS_TYPE_CENTER = 0;
-    public static final int TIP_POS_TYPE_TOP = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int dayTextColorResId;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f39689e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f39690f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39691g;
+    public int f30572g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39692h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f39693i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f39694j;
-    public String k;
-    public String l;
-    public BdUniqueId m;
-    public ImageView n;
-    public TextView o;
-    public int p;
-    public int q;
-    public boolean r;
-    public HashMap<String, TbFragmentTabIndicator.a> s;
-    public final c<c.a.d.o.d.a> t;
+    public int f30573h;
+    public int i;
+    public int j;
+    public int k;
+    public boolean l;
+    public int m;
+    public String n;
+    public String o;
+    public BdUniqueId p;
+    public ImageView q;
+    public TextView r;
+    public int s;
+    public int t;
+    public boolean u;
+    public HashMap<String, TbFragmentTabIndicator.a> v;
+    public final c<c.a.d.o.d.a> w;
 
     /* loaded from: classes5.dex */
     public class a extends d {
@@ -82,9 +72,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fragmentTabIndicator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,7 +87,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         public void a(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f39693i = true;
+                this.a.l = true;
             }
         }
     }
@@ -115,9 +105,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fragmentTabIndicator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,17 +118,17 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                super.onLoaded((b) aVar, str, i2);
-                if (this.a.n == null || aVar == null || !aVar.w()) {
-                    this.a.f();
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) {
+                super.onLoaded((b) aVar, str, i);
+                if (this.a.q == null || aVar == null || !aVar.w()) {
+                    this.a.l();
                     return;
                 }
-                this.a.n.setBackgroundResource(0);
-                this.a.n.setImageDrawable(null);
-                aVar.h(this.a.n);
+                this.a.q.setBackgroundResource(0);
+                this.a.q.setImageDrawable(null);
+                aVar.h(this.a.q);
             }
         }
     }
@@ -152,167 +142,175 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39689e = 0;
-        this.f39692h = 0;
-        this.f39693i = true;
-        this.r = true;
-        this.s = new HashMap<>();
-        this.t = new b(this);
-        d();
+        this.f30572g = 0;
+        this.k = 0;
+        this.l = true;
+        this.u = true;
+        this.v = new HashMap<>();
+        this.w = new b(this);
+        j();
     }
 
     private BdUniqueId getBdUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            BdUniqueId bdUniqueId = this.m;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            BdUniqueId bdUniqueId = this.p;
             if (bdUniqueId != null) {
                 return bdUniqueId;
             }
             f<?> a2 = j.a(getContext());
             if (a2 != null) {
-                this.m = a2.getUniqueId();
+                this.p = a2.getUniqueId();
             }
-            return this.m;
+            return this.p;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void addTip(String str, TbFragmentTabIndicator.a aVar) {
+    public void a(String str, TbFragmentTabIndicator.a aVar) {
         View view;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || (view = aVar.a) == null) {
             return;
         }
         addView(view);
-        this.s.put(str, aVar);
+        this.v.put(str, aVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void checkAndStartAnimation() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f39692h > 0 && this.f39693i) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.k > 0 && this.l) {
             try {
-                this.f39693i = false;
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.n.getContext(), this.f39692h);
+                this.l = false;
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.q.getContext(), this.k);
                 loadAnimation.setAnimationListener(new a(this));
-                this.n.startAnimation(loadAnimation);
+                this.q.startAnimation(loadAnimation);
             } catch (Exception unused) {
-                this.f39693i = true;
+                this.l = true;
             }
         }
     }
 
-    public final void d() {
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public TbFragmentTabIndicator.a d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.p = getResources().getDimensionPixelSize(R.dimen.ds2);
-            this.q = getResources().getDimensionPixelSize(R.dimen.ds12);
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fragment_bottom_indicator_item, this);
-            this.n = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
-            TextView textView = (TextView) inflate.findViewById(R.id.view_bottom_text);
-            this.o = textView;
-            textView.setDuplicateParentStateEnabled(true);
-            f();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.v.get(str) : (TbFragmentTabIndicator.a) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.u) {
+                SkinManager.setViewTextColor(this.r, this.f30573h, 1);
+            } else {
+                SkinManager.setViewTextColor(this.r, this.f30573h, 1, 0);
+            }
+            if (this.r != null) {
+                this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.i), SkinManager.getSkinDrawable(null, this.j), (Drawable) null);
+            }
+            k();
+            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
+                entry.getValue().b(i);
+            }
         }
     }
 
-    public final void e() {
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f39690f > 0 || this.f39691g > 0) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.f(z);
         }
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.l)) {
-            c.a.d.f.l.d.h().m(this.l, 10, this.t, getBdUniqueId());
-        } else if (!TextUtils.isEmpty(this.k)) {
-            c.a.d.f.l.d.h().m(this.k, 10, this.t, getBdUniqueId());
-        } else {
-            f();
-        }
-    }
-
-    public final void f() {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i2 = this.f39694j) <= 0) {
-            return;
-        }
-        SkinManager.setImageResource(this.n, i2);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public View getContentTv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.o : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.r : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a getTip(String str) {
-        InterceptResult invokeL;
+    public final void j() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.s.get(str) : (TbFragmentTabIndicator.a) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
+            this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d9, this);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b2);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.r = textView;
+            textView.setDuplicateParentStateEnabled(true);
+            l();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.i > 0 || this.j > 0) {
+            return;
+        }
+        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.o)) {
+            c.a.d.f.l.d.h().m(this.o, 10, this.w, getBdUniqueId());
+        } else if (!TextUtils.isEmpty(this.n)) {
+            c.a.d.f.l.d.h().m(this.n, 10, this.w, getBdUniqueId());
+        } else {
+            l();
+        }
+    }
+
+    public final void l() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (i = this.m) <= 0) {
+            return;
+        }
+        SkinManager.setImageResource(this.q, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onAttachedToWindow();
-            onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void onChangeSkin(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            if (this.r) {
-                SkinManager.setViewTextColor(this.o, this.dayTextColorResId, 1);
-            } else {
-                SkinManager.setViewTextColor(this.o, this.dayTextColorResId, 1, 0);
-            }
-            if (this.o != null) {
-                this.o.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getSkinDrawable(null, this.f39690f), SkinManager.getSkinDrawable(null, this.f39691g), (Drawable) null);
-            }
-            e();
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.s.entrySet()) {
-                entry.getValue().b(i2);
-            }
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int measuredWidth;
         int measuredHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.s.entrySet().iterator();
-            while (it.hasNext() && this.o.getText() != null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.v.entrySet().iterator();
+            while (it.hasNext() && this.r.getText() != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 int measuredWidth2 = value.a.getMeasuredWidth();
                 int measuredHeight2 = value.a.getMeasuredHeight();
-                int measureText = (int) this.o.getPaint().measureText(this.o.getText().toString());
-                if (value.f39703b) {
-                    measuredWidth = (getMeasuredWidth() / 2) + value.f39704c + (measureText / 2);
+                int measureText = (int) this.r.getPaint().measureText(this.r.getText().toString());
+                if (value.f30582b) {
+                    measuredWidth = (getMeasuredWidth() / 2) + value.f30583c + (measureText / 2);
                 } else {
-                    measuredWidth = ((getMeasuredWidth() / 2) - value.f39704c) - (measureText / 2);
+                    measuredWidth = ((getMeasuredWidth() / 2) - value.f30583c) - (measureText / 2);
                 }
-                if (this.f39689e == 1) {
-                    measuredWidth -= this.q;
-                    measuredHeight = this.p;
+                if (this.f30572g == 1) {
+                    measuredWidth -= this.t;
+                    measuredHeight = this.s;
                 } else {
                     measuredHeight = (getMeasuredHeight() / 2) - (value.a.getMeasuredHeight() / 2);
                 }
@@ -322,320 +320,288 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
-            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.s.entrySet()) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.v.entrySet()) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 ViewGroup.LayoutParams layoutParams = value.a.getLayoutParams();
-                int i4 = layoutParams.width;
-                if (i4 == -2) {
+                int i3 = layoutParams.width;
+                if (i3 == -2) {
                     value.a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                 } else {
-                    if (i4 > size) {
-                        i4 = size;
+                    if (i3 > size) {
+                        i3 = size;
                     }
-                    int i5 = layoutParams.height;
-                    if (i5 > size2) {
-                        i5 = size2;
+                    int i4 = layoutParams.height;
+                    if (i4 > size2) {
+                        i4 = size2;
                     }
-                    value.a.measure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), View.MeasureSpec.makeMeasureSpec(i5, 1073741824));
+                    value.a.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
                 }
             }
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void onTabSelected(boolean z) {
+    public void setAnimationResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            super.onTabSelected(z);
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void refreshIconUrl(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.k = str;
-            this.l = str2;
-            e();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a removeTip(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (this.s.containsKey(str)) {
-                removeView(this.s.get(str).a);
-                return this.s.remove(str);
-            }
-            return null;
-        }
-        return (TbFragmentTabIndicator.a) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setAnimationResId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f39692h = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.k = i;
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCheckDescriptionText(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            String charSequence = this.o.getText().toString();
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.talk_checked_tip) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f133c) + charSequence;
             }
-            this.o.setContentDescription(charSequence);
+            this.r.setContentDescription(charSequence);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setCompoundDrawablePadding(int i2) {
+    public void setCompoundDrawablePadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.o.setCompoundDrawablePadding(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.r.setCompoundDrawablePadding(i);
         }
     }
 
-    public void setCompoundDrawablesRightResId(int i2) {
+    public void setCompoundDrawablesRightResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f39691g = i2;
-        }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setCompoundDrawablesTopResId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f39690f = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j = i;
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setContentDefaultTextColor(int i2) {
+    public void setCompoundDrawablesTopResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            super.setContentDefaultTextColor(i2);
-            this.o.setTextColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.i = i;
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setContentTvTopMargin(int i2) {
+    public void setContentDefaultTextColor(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048596, this, i2) == null) && (this.o.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-            layoutParams.topMargin = i2;
-            this.o.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            super.setContentDefaultTextColor(i);
+            this.r.setTextColor(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
+    public void setContentTvTopMargin(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && (this.r.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
+            layoutParams.topMargin = i;
+            this.r.setLayoutParams(layoutParams);
         }
     }
 
     public void setContentWidthWrapContent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.o.getLayoutParams();
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            ViewGroup.LayoutParams layoutParams = this.r.getLayoutParams();
             layoutParams.width = -2;
-            this.o.setLayoutParams(layoutParams);
+            this.r.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setIconResourceId(int i2) {
+    public void setIconResourceId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f39694j = i2;
-            f();
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.m = i;
+            l();
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setIconViewWithText(int i2, int i3) {
+    public void setIconViewWithText(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            this.o.setVisibility(0);
-            this.n.setVisibility(0);
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            this.r.setVisibility(0);
+            this.q.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(12, -1);
             layoutParams.addRule(14, -1);
-            this.o.setLayoutParams(layoutParams);
-            if (i2 > 0) {
+            this.r.setLayoutParams(layoutParams);
+            if (i > 0) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
-                layoutParams2.bottomMargin = i3;
-                layoutParams2.addRule(2, this.n.getId());
+                layoutParams2.width = i;
+                layoutParams2.height = i;
+                layoutParams2.bottomMargin = i2;
+                layoutParams2.addRule(2, this.q.getId());
                 layoutParams2.addRule(14, -1);
-                this.n.setLayoutParams(layoutParams2);
+                this.q.setLayoutParams(layoutParams2);
             }
-            e();
+            k();
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setIconViewWithoutText(int i2, int i3) {
+    public void setIconViewWithoutText(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
             setClipToPadding(false);
             setClipChildren(false);
-            this.o.setVisibility(8);
-            this.n.setVisibility(0);
-            if (i2 > 0) {
+            this.r.setVisibility(8);
+            this.q.setVisibility(0);
+            if (i > 0) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.width = i2;
-                layoutParams.height = i2;
-                layoutParams.bottomMargin = i3;
+                layoutParams.width = i;
+                layoutParams.height = i;
+                layoutParams.bottomMargin = i2;
                 layoutParams.addRule(12, -1);
                 layoutParams.addRule(14, -1);
-                this.n.setLayoutParams(layoutParams);
+                this.q.setLayoutParams(layoutParams);
             }
-            e();
+            k();
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIsContentSelectBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.mIsContentSelectBold = z;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.a = z;
         }
     }
 
     public void setIsSupportNight(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             if (!z) {
-                SkinManager.setViewTextColor(this.o, this.dayTextColorResId, 1, 0);
+                SkinManager.setViewTextColor(this.r, this.f30573h, 1, 0);
             }
-            this.r = z;
+            this.u = z;
         }
     }
 
     @Override // android.view.View
     public void setSelected(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             super.setSelected(z);
-            if (this.mIsContentSelectBold) {
-                this.o.getPaint().setFakeBoldText(z);
+            if (this.a) {
+                this.r.getPaint().setFakeBoldText(z);
             }
             if (z) {
-                float f2 = this.mContentSelectTextSize;
+                float f2 = this.f30577b;
                 if (f2 != 0.0f) {
-                    this.o.setTextSize(0, f2);
+                    this.r.setTextSize(0, f2);
                 }
-                ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
+                ThemeColorInfo themeColorInfo = this.f30581f;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.o.setTextColor(c.a.r0.y3.c.e(this.mThemeColorInfo.dark.font_color));
+                        this.r.setTextColor(c.a.p0.a4.c.e(this.f30581f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.o.setTextColor(c.a.r0.y3.c.e(this.mThemeColorInfo.night.font_color));
+                        this.r.setTextColor(c.a.p0.a4.c.e(this.f30581f.night.font_color));
                         return;
                     } else {
-                        this.o.setTextColor(c.a.r0.y3.c.e(this.mThemeColorInfo.day.font_color));
+                        this.r.setTextColor(c.a.p0.a4.c.e(this.f30581f.day.font_color));
                         return;
                     }
                 }
-                int i2 = this.mContentSelectTextColor;
-                if (i2 != 0) {
-                    SkinManager.setViewTextColor(this.o, i2);
+                int i = this.f30579d;
+                if (i != 0) {
+                    SkinManager.setViewTextColor(this.r, i);
                     return;
                 }
                 return;
             }
-            float f3 = this.mContentDefaultTextSize;
+            float f3 = this.f30578c;
             if (f3 != 0.0f) {
-                this.o.setTextSize(0, f3);
+                this.r.setTextSize(0, f3);
             }
-            int i3 = this.mContentDefaultTextColor;
-            if (i3 != 0) {
-                SkinManager.setViewTextColor(this.o, i3);
+            int i2 = this.f30580e;
+            if (i2 != 0) {
+                SkinManager.setViewTextColor(this.r, i2);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setText(int i2) {
+    public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.o.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.r.setText(i);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setTextColorResId(int i2) {
+    public void setTextColorResId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.dayTextColorResId = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.f30573h = i;
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
-            this.o.setTextSize(f2);
+        if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
+            this.r.setTextSize(f2);
         }
     }
 
     public void setTextSpan(SpannableString spannableString) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, spannableString) == null) {
-            this.o.setText(spannableString);
+        if (interceptable == null || interceptable.invokeL(1048607, this, spannableString) == null) {
+            this.r.setText(spannableString);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setTipPosType(int i2) {
+    public void setTipPosType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.f39689e = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.f30572g = i;
         }
     }
 
-    public void setTipTopMargin(int i2) {
+    public void setTipTopMargin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.s = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, -2);
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -2);
             layoutParams.addRule(13, -1);
-            this.o.setLayoutParams(layoutParams);
+            this.r.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.o.setText(str);
-            this.o.setContentDescription(str);
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.r.setText(str);
+            this.r.setContentDescription(str);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void setTextSize(int i2, float f2) {
+    public void setTextSize(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.o.setTextSize(i2, f2);
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.r.setTextSize(i, f2);
         }
     }
 
@@ -648,9 +614,9 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -658,12 +624,12 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 return;
             }
         }
-        this.f39689e = 0;
-        this.f39692h = 0;
-        this.f39693i = true;
-        this.r = true;
-        this.s = new HashMap<>();
-        this.t = new b(this);
-        d();
+        this.f30572g = 0;
+        this.k = 0;
+        this.l = true;
+        this.u = true;
+        this.v = new HashMap<>();
+        this.w = new b(this);
+        j();
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
 import c.a.d.o.e.n;
-import c.a.q0.r.r.e2;
-import c.a.r0.a0.g.b.c;
+import c.a.p0.c0.g.b.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,9 +31,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,10 +45,10 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             if (optJSONObject != null) {
                 this.hasMore = optJSONObject.optInt("has_more") == 1;
@@ -59,13 +59,13 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i3 = 0; i3 < length; i3++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
                         c cVar = new c();
-                        e2 e2Var = new e2();
-                        e2Var.c3(optJSONObject2);
-                        cVar.f14585e = e2Var;
+                        ThreadData threadData = new ThreadData();
+                        threadData.parserJson(optJSONObject2);
+                        cVar.a = threadData;
                         this.liveList.add(cVar);
                     }
                 }
@@ -73,13 +73,13 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
             if (optJSONArray2 != null) {
                 int length2 = optJSONArray2.length();
-                for (int i4 = 0; i4 < length2; i4++) {
-                    JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
+                for (int i3 = 0; i3 < length2; i3++) {
+                    JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
                         c cVar2 = new c();
-                        e2 e2Var2 = new e2();
-                        e2Var2.c3(optJSONObject3);
-                        cVar2.f14585e = e2Var2;
+                        ThreadData threadData2 = new ThreadData();
+                        threadData2.parserJson(optJSONObject3);
+                        cVar2.a = threadData2;
                         this.recommandList.add(cVar2);
                     }
                 }

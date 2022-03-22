@@ -15,13 +15,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<Pair<String, byte[]>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f973a;
+    public static final Map<String, byte[]> f949a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,29 +37,29 @@ public class p {
                 return;
             }
         }
-        f973a = new HashMap();
+        f949a = new HashMap();
         a = new ArrayList<>();
     }
 
-    public static void a(Context context, int i2, String str) {
+    public static void a(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i2, str) == null) {
-            synchronized (f973a) {
-                for (String str2 : f973a.keySet()) {
-                    a(context, str2, f973a.get(str2), i2, str);
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            synchronized (f949a) {
+                for (String str2 : f949a.keySet()) {
+                    a(context, str2, f949a.get(str2), i, str);
                 }
-                f973a.clear();
+                f949a.clear();
             }
         }
     }
 
-    public static void a(Context context, String str, byte[] bArr, int i2, String str2) {
+    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, bArr, Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, bArr, Integer.valueOf(i), str2}) == null) {
             Intent intent = new Intent("com.xiaomi.mipush.ERROR");
             intent.setPackage(str);
             intent.putExtra("mipush_payload", bArr);
-            intent.putExtra("mipush_error_code", i2);
+            intent.putExtra("mipush_error_code", i);
             intent.putExtra("mipush_error_msg", str2);
             context.sendBroadcast(intent, y.a(str));
         }
@@ -69,11 +69,11 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, xMPushService) == null) {
             try {
-                synchronized (f973a) {
-                    for (String str : f973a.keySet()) {
-                        y.a(xMPushService, str, f973a.get(str));
+                synchronized (f949a) {
+                    for (String str : f949a.keySet()) {
+                        y.a(xMPushService, str, f949a.get(str));
                     }
-                    f973a.clear();
+                    f949a.clear();
                 }
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e2);
@@ -85,8 +85,8 @@ public class p {
     public static void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr) == null) {
-            synchronized (f973a) {
-                f973a.put(str, bArr);
+            synchronized (f949a) {
+                f949a.put(str, bArr);
             }
         }
     }

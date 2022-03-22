@@ -31,9 +31,9 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, supportSubMenu};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (SupportMenu) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,22 +60,22 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderIcon(int i2) {
+    public SubMenu setHeaderIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.mSubMenu.setHeaderIcon(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.mSubMenu.setHeaderIcon(i);
             return this;
         }
         return (SubMenu) invokeI.objValue;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(int i2) {
+    public SubMenu setHeaderTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.mSubMenu.setHeaderTitle(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.mSubMenu.setHeaderTitle(i);
             return this;
         }
         return (SubMenu) invokeI.objValue;
@@ -93,11 +93,11 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setIcon(int i2) {
+    public SubMenu setIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.mSubMenu.setIcon(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            this.mSubMenu.setIcon(i);
             return this;
         }
         return (SubMenu) invokeI.objValue;

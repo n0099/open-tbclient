@@ -23,9 +23,9 @@ public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteState
             newInitContext.initArgs = r2;
             Object[] objArr = {roomDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((RoomDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -59,13 +59,13 @@ public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteState
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iterable)) == null) {
             SupportSQLiteStatement acquire = acquire();
-            int i2 = 0;
+            int i = 0;
             try {
                 for (T t : iterable) {
                     bind(acquire, t);
-                    i2 += acquire.executeUpdateDelete();
+                    i += acquire.executeUpdateDelete();
                 }
-                return i2;
+                return i;
             } finally {
                 release(acquire);
             }
@@ -79,12 +79,12 @@ public abstract class EntityDeletionOrUpdateAdapter<T> extends SharedSQLiteState
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
             SupportSQLiteStatement acquire = acquire();
             try {
-                int i2 = 0;
+                int i = 0;
                 for (T t : tArr) {
                     bind(acquire, t);
-                    i2 += acquire.executeUpdateDelete();
+                    i += acquire.executeUpdateDelete();
                 }
-                return i2;
+                return i;
             } finally {
                 release(acquire);
             }

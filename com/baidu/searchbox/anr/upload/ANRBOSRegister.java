@@ -2,6 +2,7 @@ package com.baidu.searchbox.anr.upload;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.pyramid.annotation.Service;
@@ -9,6 +10,7 @@ import com.baidu.searchbox.anr.impl.ANRInfo;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ubc.UbcANRRegister;
 import com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy;
+import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,9 +34,9 @@ public class ANRBOSRegister implements IANRRegister {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +76,9 @@ public class ANRBOSRegister implements IANRRegister {
     public void onANR(Context context, ANRInfo aNRInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
-            AppConfig.isDebug();
+            if (AppConfig.isDebug()) {
+                Log.d(BlockMonitor.TAG, "onANR  at ANRBOSRegister");
+            }
             this.uploadFiles.clear();
             File file = null;
             if (!TextUtils.isEmpty(aNRInfo.getLogcatPath())) {

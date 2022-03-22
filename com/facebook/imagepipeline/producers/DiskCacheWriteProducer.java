@@ -11,7 +11,7 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -23,13 +23,13 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
     /* renamed from: com.facebook.imagepipeline.producers.DiskCacheWriteProducer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DiskCacheWriteConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer, producerContext, bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -68,10 +68,10 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) {
-                if (!BaseConsumer.isNotLast(i2) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i2, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
+                if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                     ImageRequest imageRequest = this.mProducerContext.getImageRequest();
                     CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, this.mProducerContext.getCallerContext());
                     if (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL) {
@@ -79,10 +79,10 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
                     } else {
                         this.mDefaultBufferedDiskCache.put(encodedCacheKey, encodedImage);
                     }
-                    getConsumer().onNewResult(encodedImage, i2);
+                    getConsumer().onNewResult(encodedImage, i);
                     return;
                 }
-                getConsumer().onNewResult(encodedImage, i2);
+                getConsumer().onNewResult(encodedImage, i);
             }
         }
     }
@@ -94,9 +94,9 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

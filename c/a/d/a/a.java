@@ -15,12 +15,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
-            if (i2 != 0 && i2 != 1 && i2 != 11 && i2 != 12) {
-                switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0 && i != 1 && i != 11 && i != 12) {
+                switch (i) {
                     case 6:
                     case 7:
                     case 8:

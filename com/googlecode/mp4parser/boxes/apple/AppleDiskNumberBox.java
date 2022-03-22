@@ -24,7 +24,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f53504b;
+    public short f38715b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +49,9 @@ public class AppleDiskNumberBox extends AppleDataBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -84,7 +84,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.f53504b;
+            return this.f38715b;
         }
         return invokeV.shortValue;
     }
@@ -104,15 +104,15 @@ public class AppleDiskNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
             this.a = byteBuffer.getInt();
-            this.f53504b = byteBuffer.getShort();
+            this.f38715b = byteBuffer.getShort();
         }
     }
 
-    public void setA(int i2) {
+    public void setA(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.a = i;
         }
     }
 
@@ -120,7 +120,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Short.valueOf(s)}) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.shortObject(s)));
-            this.f53504b = s;
+            this.f38715b = s;
         }
     }
 
@@ -131,7 +131,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(6);
             allocate.putInt(this.a);
-            allocate.putShort(this.f53504b);
+            allocate.putShort(this.f38715b);
             return allocate.array();
         }
         return (byte[]) invokeV.objValue;

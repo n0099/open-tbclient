@@ -32,9 +32,9 @@ public class DressItemData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -128,10 +128,10 @@ public class DressItemData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.propsId % 2 == 0 : invokeV.booleanValue;
     }
 
-    public void setActivityFinish(int i2) {
+    public void setActivityFinish(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.activityFinish = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.activityFinish = i;
         }
     }
 
@@ -142,10 +142,10 @@ public class DressItemData extends OrmObject implements Serializable {
         }
     }
 
-    public void setDailyPrevilegeStatus(int i2) {
+    public void setDailyPrevilegeStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.dailyPrevilegeStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.dailyPrevilegeStatus = i;
         }
     }
 
@@ -163,10 +163,10 @@ public class DressItemData extends OrmObject implements Serializable {
         }
     }
 
-    public void setFreeUserLevel(int i2) {
+    public void setFreeUserLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.freeUserLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.freeUserLevel = i;
         }
     }
 
@@ -184,10 +184,10 @@ public class DressItemData extends OrmObject implements Serializable {
         }
     }
 
-    public void setPropsId(int i2) {
+    public void setPropsId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.propsId = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.propsId = i;
         }
     }
 
@@ -212,9 +212,9 @@ public class DressItemData extends OrmObject implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {themeBgProp};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

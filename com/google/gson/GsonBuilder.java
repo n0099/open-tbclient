@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GsonBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class GsonBuilder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,22 +71,22 @@ public final class GsonBuilder {
         this.lenient = false;
     }
 
-    private void addTypeAdaptersForDate(String str, int i2, int i3, List<TypeAdapterFactory> list) {
+    private void addTypeAdaptersForDate(String str, int i, int i2, List<TypeAdapterFactory> list) {
         DefaultDateTypeAdapter defaultDateTypeAdapter;
         DefaultDateTypeAdapter defaultDateTypeAdapter2;
         DefaultDateTypeAdapter defaultDateTypeAdapter3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), list}) == null) {
             if (str != null && !"".equals(str.trim())) {
                 defaultDateTypeAdapter = new DefaultDateTypeAdapter(Date.class, str);
                 defaultDateTypeAdapter2 = new DefaultDateTypeAdapter(Timestamp.class, str);
                 defaultDateTypeAdapter3 = new DefaultDateTypeAdapter(java.sql.Date.class, str);
-            } else if (i2 == 2 || i3 == 2) {
+            } else if (i == 2 || i2 == 2) {
                 return;
             } else {
-                DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i2, i3);
-                DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i2, i3);
-                DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i2, i3);
+                DefaultDateTypeAdapter defaultDateTypeAdapter4 = new DefaultDateTypeAdapter(Date.class, i, i2);
+                DefaultDateTypeAdapter defaultDateTypeAdapter5 = new DefaultDateTypeAdapter(Timestamp.class, i, i2);
+                DefaultDateTypeAdapter defaultDateTypeAdapter6 = new DefaultDateTypeAdapter(java.sql.Date.class, i, i2);
                 defaultDateTypeAdapter = defaultDateTypeAdapter4;
                 defaultDateTypeAdapter2 = defaultDateTypeAdapter5;
                 defaultDateTypeAdapter3 = defaultDateTypeAdapter6;
@@ -342,23 +342,23 @@ public final class GsonBuilder {
         return (GsonBuilder) invokeCommon.objValue;
     }
 
-    public GsonBuilder setDateFormat(int i2) {
+    public GsonBuilder setDateFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.dateStyle = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.dateStyle = i;
             this.datePattern = null;
             return this;
         }
         return (GsonBuilder) invokeI.objValue;
     }
 
-    public GsonBuilder setDateFormat(int i2, int i3) {
+    public GsonBuilder setDateFormat(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i2, i3)) == null) {
-            this.dateStyle = i2;
-            this.timeStyle = i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i, i2)) == null) {
+            this.dateStyle = i;
+            this.timeStyle = i2;
             this.datePattern = null;
             return this;
         }
@@ -372,9 +372,9 @@ public final class GsonBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {gson};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -2,7 +2,6 @@ package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SdkAnalyzeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PACKAGE_NAME = "%PACKAGE_NAME%";
@@ -35,9 +34,9 @@ public class SdkAnalyzeController {
             newInitContext.initArgs = r2;
             Object[] objArr = {iStatisAPI, iConfigAPI};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,9 +55,9 @@ public class SdkAnalyzeController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, context, jSONArray)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    jSONObject = jSONArray.getJSONObject(i2);
+                    jSONObject = jSONArray.getJSONObject(i);
                     string = jSONObject.getString("sdkName");
                     string2 = jSONObject.has("sdkFileName") ? jSONObject.getString("sdkFileName") : null;
                     string3 = jSONObject.has("sdkClassName") ? jSONObject.getString("sdkClassName") : null;
@@ -107,17 +106,17 @@ public class SdkAnalyzeController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void reportSdkList(Context context, long j2, JSONArray jSONArray) {
+    public void reportSdkList(Context context, long j, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Long.valueOf(j2), jSONArray}) == null) {
-            this.statisAPI.reportSdkList(j2, getSdkList(context, jSONArray));
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Long.valueOf(j), jSONArray}) == null) {
+            this.statisAPI.reportSdkList(j, getSdkList(context, jSONArray));
         }
     }
 
-    private void startSdkAnalyzeReport(Context context, long j2) {
+    private void startSdkAnalyzeReport(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, this, context, j2) == null) {
-            ThreadPool.getPool().execute(new Runnable(this, context, j2) { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
+        if (interceptable == null || interceptable.invokeLJ(65542, this, context, j) == null) {
+            ThreadPool.getPool().execute(new Runnable(this, context, j) { // from class: com.yy.hiidostatis.defs.controller.SdkAnalyzeController.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SdkAnalyzeController this$0;
@@ -129,11 +128,11 @@ public class SdkAnalyzeController {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, Long.valueOf(j2)};
+                        Object[] objArr = {this, context, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -141,7 +140,7 @@ public class SdkAnalyzeController {
                     }
                     this.this$0 = this;
                     this.val$context = context;
-                    this.val$uid = j2;
+                    this.val$uid = j;
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:20:0x007d  */
@@ -161,8 +160,8 @@ public class SdkAnalyzeController {
                                 } catch (JSONException e2) {
                                     L.debug("SdkAnalyzeController", "get json.enable exception: %s", e2);
                                 }
-                                if (sdkListConfig.has(c.l)) {
-                                    if ("1".equals(sdkListConfig.get(c.l) + "")) {
+                                if (sdkListConfig.has("enable")) {
+                                    if ("1".equals(sdkListConfig.get("enable") + "")) {
                                         z = true;
                                         L.debug("SdkAnalyzeController", "sdkAnalyze enable is %b", Boolean.valueOf(z));
                                         if (z) {
@@ -197,10 +196,10 @@ public class SdkAnalyzeController {
         }
     }
 
-    public void reportSdkAnalyze(Context context, long j2) {
+    public void reportSdkAnalyze(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
-            startSdkAnalyzeReport(context, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+            startSdkAnalyzeReport(context, j);
         }
     }
 }

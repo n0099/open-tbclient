@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import androidx.annotation.Keep;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.KsAdSdkDynamicImpl;
 import com.kwad.sdk.api.core.ResContext;
@@ -25,7 +26,7 @@ import com.kwad.sdk.utils.v;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public static final String KEY_LANDING_PAGE_TYPE = "key_landing_page_type";
     public static final String KEY_MINI_WINDOW = "key_mini_window";
@@ -40,51 +41,51 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     public boolean mIsVPlusShown = false;
     public boolean mNormalMode;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54468b;
+        public String f39589b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f54469c;
+        public AdTemplate f39590c;
 
         /* renamed from: com.kwad.sdk.core.page.AdWebViewActivityProxy$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2102a {
+        /* loaded from: classes7.dex */
+        public static class C1963a {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f54470b;
+            public String f39591b;
 
             /* renamed from: c  reason: collision with root package name */
-            public AdTemplate f54471c;
+            public AdTemplate f39592c;
 
-            public C2102a a(AdTemplate adTemplate) {
-                this.f54471c = adTemplate;
+            public C1963a a(AdTemplate adTemplate) {
+                this.f39592c = adTemplate;
                 return this;
             }
 
-            public C2102a a(String str) {
+            public C1963a a(String str) {
                 this.a = str;
                 return this;
             }
 
             public a a() {
-                return new a(this.a, this.f54470b, this.f54471c);
+                return new a(this.a, this.f39591b, this.f39592c);
             }
 
-            public C2102a b(String str) {
-                this.f54470b = str;
+            public C1963a b(String str) {
+                this.f39591b = str;
                 return this;
             }
         }
 
         public a(String str, String str2, AdTemplate adTemplate) {
             this.a = str;
-            this.f54468b = str2;
-            this.f54469c = adTemplate;
+            this.f39589b = str2;
+            this.f39590c = adTemplate;
         }
     }
 
@@ -100,14 +101,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
     }
 
     public static void launch(Context context, a aVar) {
-        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f54468b)) {
+        if (context == null || TextUtils.isEmpty(aVar.a) || TextUtils.isEmpty(aVar.f39589b)) {
             return;
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
         intent.putExtra(KEY_PAGE_TITLE, aVar.a);
-        intent.putExtra(KEY_PAGE_URL, aVar.f54468b);
-        intent.putExtra("key_template_json", aVar.f54469c.toJson().toString());
+        intent.putExtra(KEY_PAGE_URL, aVar.f39589b);
+        intent.putExtra("key_template_json", aVar.f39590c.toJson().toString());
         context.startActivity(intent);
     }
 
@@ -119,15 +120,15 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
         }
     }
 
-    public static void launch(Context context, AdTemplate adTemplate, int i2) {
+    public static void launch(Context context, AdTemplate adTemplate, int i) {
         if (context == null || adTemplate == null) {
             return;
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
-        intent.putExtra(KEY_LANDING_PAGE_TYPE, i2);
+        intent.putExtra(KEY_LANDING_PAGE_TYPE, i);
         String str = adTemplate.mMiniWindowId;
         if (str != null) {
             intent.putExtra(KEY_MINI_WINDOW, str);
@@ -151,12 +152,12 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
             public void run() {
                 Rect rect = new Rect();
                 DisplayMetrics displayMetrics = AdWebViewActivityProxy.this.getActivity().getResources().getDisplayMetrics();
-                int i2 = displayMetrics.widthPixels;
-                rect.right = i2;
-                rect.left = i2 - (i2 / 4);
-                int i3 = (int) (displayMetrics.heightPixels * 0.83f);
-                rect.bottom = i3;
-                rect.top = i3 - (((i2 / 4) * 16) / 9);
+                int i = displayMetrics.widthPixels;
+                rect.right = i;
+                rect.left = i - (i / 4);
+                int i2 = (int) (displayMetrics.heightPixels * 0.83f);
+                rect.bottom = i2;
+                rect.top = i2 - (((i / 4) * 16) / 9);
                 new com.kwad.sdk.splashscreen.b(AdWebViewActivityProxy.this.getActivity(), stringExtra, false, null).a(rect);
             }
         });
@@ -254,15 +255,15 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.h.a implements c.a {
                 finish();
                 return;
             }
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate2);
+            AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate2);
             c cVar2 = new c(this.mContext, this.mAdTemplate, intExtra, true);
             this.landingPageViewHelper = cVar2;
             cVar2.a(this);
             cVar = this.landingPageViewHelper;
-            a2 = new c.C2103c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j2)).a();
+            a2 = new c.C1964c().b(com.kwad.sdk.core.response.a.b.j(this.mAdTemplate) ? com.kwad.sdk.core.response.a.b.i(this.mAdTemplate) : com.kwad.sdk.core.response.a.a.G(j)).a();
         } else {
             this.mNormalMode = true;
-            a2 = new c.C2103c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
+            a2 = new c.C1964c().a(true).b(false).a(stringExtra2).b(stringExtra3).a();
             c cVar3 = new c(this.mContext, this.mAdTemplate, 1, false);
             this.landingPageViewHelper = cVar3;
             cVar3.a(this);

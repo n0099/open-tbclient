@@ -20,7 +20,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKCDNUrlInner extends BaseJsonCoreParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CDN = "cdn";
@@ -45,9 +45,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,9 +61,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {tKCDNUrlInner};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -93,9 +93,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -112,9 +112,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -133,9 +133,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, str5};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -155,9 +155,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -177,9 +177,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z), set, str5, str6, map};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65542, newInitContext);
                 return;
@@ -203,9 +203,9 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65543, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65543, newInitContext);
                 return;
@@ -228,8 +228,8 @@ public class TKCDNUrlInner extends BaseJsonCoreParse {
                 JSONArray optJSONArray = jSONObject.optJSONArray("feature");
                 if (optJSONArray != null) {
                     this.mFeature = new HashSet();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        this.mFeature.add(Integer.valueOf(optJSONArray.getInt(i2)));
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.mFeature.add(Integer.valueOf(optJSONArray.getInt(i)));
                     }
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("headers");

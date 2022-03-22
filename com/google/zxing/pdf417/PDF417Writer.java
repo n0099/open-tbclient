@@ -29,30 +29,30 @@ public final class PDF417Writer implements Writer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static BitMatrix bitMatrixFromEncoder(PDF417 pdf417, String str, int i2, int i3, int i4, int i5) throws WriterException {
+    public static BitMatrix bitMatrixFromEncoder(PDF417 pdf417, String str, int i, int i2, int i3, int i4) throws WriterException {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{pdf417, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            pdf417.generateBarcodeLogic(str, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{pdf417, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            pdf417.generateBarcodeLogic(str, i);
             byte[][] scaledMatrix = pdf417.getBarcodeMatrix().getScaledMatrix(1, 4);
-            if ((i4 > i3) ^ (scaledMatrix[0].length < scaledMatrix.length)) {
+            if ((i3 > i2) ^ (scaledMatrix[0].length < scaledMatrix.length)) {
                 scaledMatrix = rotateArray(scaledMatrix);
                 z = true;
             } else {
                 z = false;
             }
-            int length = i3 / scaledMatrix[0].length;
-            int length2 = i4 / scaledMatrix.length;
+            int length = i2 / scaledMatrix[0].length;
+            int length2 = i3 / scaledMatrix.length;
             if (length >= length2) {
                 length = length2;
             }
@@ -61,29 +61,29 @@ public final class PDF417Writer implements Writer {
                 if (z) {
                     scaledMatrix2 = rotateArray(scaledMatrix2);
                 }
-                return bitMatrixFrombitArray(scaledMatrix2, i5);
+                return bitMatrixFrombitArray(scaledMatrix2, i4);
             }
-            return bitMatrixFrombitArray(scaledMatrix, i5);
+            return bitMatrixFrombitArray(scaledMatrix, i4);
         }
         return (BitMatrix) invokeCommon.objValue;
     }
 
-    public static BitMatrix bitMatrixFrombitArray(byte[][] bArr, int i2) {
+    public static BitMatrix bitMatrixFrombitArray(byte[][] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) {
-            int i3 = i2 * 2;
-            BitMatrix bitMatrix = new BitMatrix(bArr[0].length + i3, bArr.length + i3);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
+            int i2 = i * 2;
+            BitMatrix bitMatrix = new BitMatrix(bArr[0].length + i2, bArr.length + i2);
             bitMatrix.clear();
-            int height = (bitMatrix.getHeight() - i2) - 1;
-            int i4 = 0;
-            while (i4 < bArr.length) {
-                for (int i5 = 0; i5 < bArr[0].length; i5++) {
-                    if (bArr[i4][i5] == 1) {
-                        bitMatrix.set(i5 + i2, height);
+            int height = (bitMatrix.getHeight() - i) - 1;
+            int i3 = 0;
+            while (i3 < bArr.length) {
+                for (int i4 = 0; i4 < bArr[0].length; i4++) {
+                    if (bArr[i3][i4] == 1) {
+                        bitMatrix.set(i4 + i, height);
                     }
                 }
-                i4++;
+                i3++;
                 height--;
             }
             return bitMatrix;
@@ -96,10 +96,10 @@ public final class PDF417Writer implements Writer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             byte[][] bArr2 = (byte[][]) Array.newInstance(byte.class, bArr[0].length, bArr.length);
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                int length = (bArr.length - i2) - 1;
-                for (int i3 = 0; i3 < bArr[0].length; i3++) {
-                    bArr2[i3][length] = bArr[i2][i3];
+            for (int i = 0; i < bArr.length; i++) {
+                int length = (bArr.length - i) - 1;
+                for (int i2 = 0; i2 < bArr[0].length; i2++) {
+                    bArr2[i2][length] = bArr[i][i2];
                 }
             }
             return bArr2;
@@ -108,12 +108,12 @@ public final class PDF417Writer implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (barcodeFormat == BarcodeFormat.PDF_417) {
                 PDF417 pdf417 = new PDF417();
                 if (map != null) {
@@ -132,13 +132,13 @@ public final class PDF417Writer implements Writer {
                     if (map.containsKey(EncodeHintType.CHARACTER_SET)) {
                         pdf417.setEncoding(Charset.forName(map.get(EncodeHintType.CHARACTER_SET).toString()));
                     }
-                    i5 = parseInt;
-                    i4 = parseInt2;
+                    i4 = parseInt;
+                    i3 = parseInt2;
                 } else {
-                    i4 = 2;
-                    i5 = 30;
+                    i3 = 2;
+                    i4 = 30;
                 }
-                return bitMatrixFromEncoder(pdf417, str, i4, i2, i3, i5);
+                return bitMatrixFromEncoder(pdf417, str, i3, i, i2, i4);
             }
             throw new IllegalArgumentException("Can only encode PDF_417, but got " + barcodeFormat);
         }
@@ -146,9 +146,9 @@ public final class PDF417Writer implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i2, i3)) == null) ? encode(str, barcodeFormat, i2, i3, null) : (BitMatrix) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
     }
 }

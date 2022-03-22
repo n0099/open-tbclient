@@ -23,9 +23,9 @@ public class PullLeftViewPager extends BdBaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,14 +35,14 @@ public class PullLeftViewPager extends BdBaseViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager
-    public boolean canScroll(View view, boolean z, int i2, int i3, int i4) {
+    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).isEnablePull()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).h()) {
                 return true;
             }
-            return super.canScroll(view, z, i2, i3, i4);
+            return super.canScroll(view, z, i, i2, i3);
         }
         return invokeCommon.booleanValue;
     }
@@ -56,9 +56,9 @@ public class PullLeftViewPager extends BdBaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

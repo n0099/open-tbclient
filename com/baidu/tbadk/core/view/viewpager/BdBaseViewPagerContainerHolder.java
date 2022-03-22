@@ -15,13 +15,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View divilerLine;
-    public IndicatorView mIndicatorView;
-    public TextView mMoreView;
-    public BdBaseViewPager mViewPager;
-    public int skinType;
-    public TextView title;
-    public RelativeLayout topArea;
+    public RelativeLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f30321b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f30322c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public IndicatorView f30323d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f30324e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public BdBaseViewPager f30325f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainerHolder(View view, Context context) {
@@ -32,26 +41,25 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.skinType = 3;
-        this.title = null;
-        this.mMoreView = null;
-        this.mIndicatorView = null;
-        this.divilerLine = null;
-        this.mViewPager = null;
-        this.topArea = (RelativeLayout) view.findViewById(R.id.top_area);
-        this.title = (TextView) view.findViewById(R.id.theme_title);
-        this.mMoreView = (TextView) view.findViewById(R.id.more_textview);
-        this.mIndicatorView = (IndicatorView) view.findViewById(R.id.tab_indicator);
-        this.divilerLine = view.findViewById(R.id.bottom_divider_line);
-        this.mViewPager = (BdBaseViewPager) view.findViewById(R.id.bd_base_view_pager);
+        this.f30321b = null;
+        this.f30322c = null;
+        this.f30323d = null;
+        this.f30324e = null;
+        this.f30325f = null;
+        this.a = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f0920a3);
+        this.f30321b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091f80);
+        this.f30322c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09144e);
+        this.f30323d = (IndicatorView) view.findViewById(R.id.obfuscated_res_0x7f091e45);
+        this.f30324e = view.findViewById(R.id.obfuscated_res_0x7f0903c2);
+        this.f30325f = (BdBaseViewPager) view.findViewById(R.id.obfuscated_res_0x7f09033a);
     }
 }

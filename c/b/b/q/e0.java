@@ -20,34 +20,31 @@ import java.util.HashSet;
 import java.util.zip.CRC32;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-import org.apache.commons.lang3.SystemUtils;
 /* loaded from: classes3.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27534b;
+    public static boolean f22745b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f27535c;
+    public static boolean f22746c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f27536d;
+    public static boolean f22747d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f27537e;
+    public static boolean f22748e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f27538f;
+    public static boolean f22749f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f27539g;
+    public static boolean f22750g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f27540h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final HashSet<String> f27541i;
+    public static boolean f22751h;
+    public static final HashSet<String> i;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -64,30 +61,30 @@ public class e0 {
                 return;
             }
         }
-        f27534b = System.getProperty("os.name").contains(SystemUtils.OS_NAME_WINDOWS_PREFIX);
-        f27535c = System.getProperty("os.name").contains("Linux");
-        f27536d = System.getProperty("os.name").contains("Mac");
-        f27537e = false;
-        f27538f = false;
-        f27539g = System.getProperty("os.arch").startsWith("arm") || System.getProperty("os.arch").startsWith("aarch64");
-        f27540h = System.getProperty("os.arch").contains(WebKitFactory.OS_64) || System.getProperty("os.arch").startsWith("armv8");
+        f22745b = System.getProperty("os.name").contains("Windows");
+        f22746c = System.getProperty("os.name").contains("Linux");
+        f22747d = System.getProperty("os.name").contains("Mac");
+        f22748e = false;
+        f22749f = false;
+        f22750g = System.getProperty("os.arch").startsWith("arm") || System.getProperty("os.arch").startsWith("aarch64");
+        f22751h = System.getProperty("os.arch").contains(WebKitFactory.OS_64) || System.getProperty("os.arch").startsWith("armv8");
         String property = System.getProperty("java.runtime.name");
         if (property != null && property.contains("Android Runtime")) {
-            f27538f = true;
-            f27534b = false;
-            f27535c = false;
-            f27536d = false;
-            f27540h = false;
+            f22749f = true;
+            f22745b = false;
+            f22746c = false;
+            f22747d = false;
+            f22751h = false;
         }
-        if (!f27538f && !f27534b && !f27535c && !f27536d) {
-            f27537e = true;
-            f27538f = false;
-            f27534b = false;
-            f27535c = false;
-            f27536d = false;
-            f27540h = false;
+        if (!f22749f && !f22745b && !f22746c && !f22747d) {
+            f22748e = true;
+            f22749f = false;
+            f22745b = false;
+            f22746c = false;
+            f22747d = false;
+            f22751h = false;
         }
-        f27541i = new HashSet<>();
+        i = new HashSet<>();
     }
 
     public e0() {
@@ -110,7 +107,7 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e0.class) {
-                contains = f27541i.contains(str);
+                contains = i.contains(str);
             }
             return contains;
         }
@@ -121,7 +118,7 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (e0.class) {
-                f27541i.add(str);
+                i.add(str);
             }
         }
     }
@@ -254,7 +251,7 @@ public class e0 {
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || f27537e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || f22748e) {
             return;
         }
         synchronized (e0.class) {
@@ -262,7 +259,7 @@ public class e0 {
                 return;
             }
             String g2 = g(str);
-            if (f27538f) {
+            if (f22749f) {
                 System.loadLibrary(g2);
             } else {
                 f(g2);
@@ -291,7 +288,7 @@ public class e0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             String a = a(h(str));
             String name = new File(str).getName();
-            Throwable e2 = e(str, a, new File(System.getProperty(SystemUtils.JAVA_IO_TMPDIR_KEY) + "/libgdx" + System.getProperty("user.name") + "/" + a, name));
+            Throwable e2 = e(str, a, new File(System.getProperty("java.io.tmpdir") + "/libgdx" + System.getProperty("user.name") + "/" + a, name));
             if (e2 == null) {
                 return;
             }
@@ -304,7 +301,7 @@ public class e0 {
                 }
             } catch (Throwable unused) {
             }
-            if (e(str, a, new File(System.getProperty(SystemUtils.USER_HOME_KEY) + "/.libgdx/" + a, name)) == null) {
+            if (e(str, a, new File(System.getProperty("user.home") + "/.libgdx/" + a, name)) == null) {
                 return;
             }
             if (e(str, a, new File(".temp/" + a, name)) == null) {
@@ -323,23 +320,23 @@ public class e0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (f27534b) {
+            if (f22745b) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
-                sb.append(f27540h ? "64.dll" : ".dll");
+                sb.append(f22751h ? "64.dll" : ".dll");
                 return sb.toString();
-            } else if (f27535c) {
+            } else if (f22746c) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("lib");
                 sb2.append(str);
-                sb2.append(f27539g ? "arm" : "");
-                sb2.append(f27540h ? "64.so" : ".so");
+                sb2.append(f22750g ? "arm" : "");
+                sb2.append(f22751h ? "64.so" : ".so");
                 return sb2.toString();
-            } else if (f27536d) {
+            } else if (f22747d) {
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("lib");
                 sb3.append(str);
-                sb3.append(f27540h ? "64.dylib" : ".dylib");
+                sb3.append(f22751h ? "64.dylib" : ".dylib");
                 return sb3.toString();
             } else {
                 return str;

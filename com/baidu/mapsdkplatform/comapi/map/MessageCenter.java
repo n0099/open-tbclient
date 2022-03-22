@@ -15,26 +15,26 @@ public class MessageCenter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void registMessage(int i2, Handler handler) {
+    public static void registMessage(int i, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i2, handler) == null) {
-            com.baidu.mapsdkplatform.comjni.engine.a.a(i2, handler);
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, handler) == null) {
+            com.baidu.mapsdkplatform.comjni.engine.a.a(i, handler);
         }
     }
 
-    public static void unregistMessage(int i2, Handler handler) {
+    public static void unregistMessage(int i, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i2, handler) == null) {
-            com.baidu.mapsdkplatform.comjni.engine.a.b(i2, handler);
+        if (interceptable == null || interceptable.invokeIL(65538, null, i, handler) == null) {
+            com.baidu.mapsdkplatform.comjni.engine.a.b(i, handler);
         }
     }
 }

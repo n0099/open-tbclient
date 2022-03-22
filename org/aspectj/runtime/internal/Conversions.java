@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Conversions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,9 @@ public final class Conversions {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -145,10 +145,10 @@ public final class Conversions {
         return invokeL.floatValue;
     }
 
-    public static Object intObject(int i2) {
+    public static Object intObject(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? new Integer(i2) : invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? new Integer(i) : invokeI.objValue;
     }
 
     public static int intValue(Object obj) {
@@ -169,10 +169,10 @@ public final class Conversions {
         return invokeL.intValue;
     }
 
-    public static Object longObject(long j2) {
+    public static Object longObject(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j2)) == null) ? new Long(j2) : invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) ? new Long(j) : invokeJ.objValue;
     }
 
     public static long longValue(Object obj) {

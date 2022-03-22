@@ -5,10 +5,10 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.y0.p.a;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
+import c.a.v0.p.a;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -26,7 +26,6 @@ import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -78,7 +77,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
 
     /* loaded from: classes6.dex */
     public interface OnMediaGLRendererStatusListener {
-        void onError(int i2, String str);
+        void onError(int i, String str);
     }
 
     public MediaGLRenderer() {
@@ -86,9 +85,9 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,10 +105,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         this.mProcessorCostTimeList = new CopyOnWriteArrayList();
     }
 
-    private void debugProcessorCostTime(long j2) {
+    private void debugProcessorCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
-            this.mProcessorCostTimeList.add(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
+            this.mProcessorCostTimeList.add(Long.valueOf(j));
         }
     }
 
@@ -162,13 +161,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             if (h.e(this.mProcessorCostTimeList)) {
                 return 0.0d;
             }
-            long j2 = 0;
+            long j = 0;
             int size = this.mProcessorCostTimeList.size();
             for (Long l : this.mProcessorCostTimeList) {
-                j2 += l.longValue();
+                j += l.longValue();
             }
             this.mProcessorCostTimeList.clear();
-            return j2 / size;
+            return j / size;
         }
         return invokeV.doubleValue;
     }
@@ -209,13 +208,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void onDrawFrame(int i2, long j2) {
+    public void onDrawFrame(int i, long j) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (eVar = this.mVlogEdit) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || (eVar = this.mVlogEdit) == null) {
             return;
         }
-        eVar.g(i2, j2);
+        eVar.g(i, j);
         e eVar2 = this.mVlogEdit;
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
         eVar2.b(gLViewPortLocation.width, gLViewPortLocation.height);
@@ -237,13 +236,13 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048590, this, gl10, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048590, this, gl10, i, i2) == null) {
             try {
-                if (this.mSurfaceViewWidth == 0 || this.mSurfaceViewHeight == 0 || this.mSurfaceViewWidth != i2 || this.mSurfaceViewHeight != i3) {
-                    this.mSurfaceViewWidth = i2;
-                    this.mSurfaceViewHeight = i3;
+                if (this.mSurfaceViewWidth == 0 || this.mSurfaceViewHeight == 0 || this.mSurfaceViewWidth != i || this.mSurfaceViewHeight != i2) {
+                    this.mSurfaceViewWidth = i;
+                    this.mSurfaceViewHeight = i2;
                     setVideoRatio(this.mVideoRatio);
                 }
             } catch (Exception e2) {
@@ -369,12 +368,12 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void setUpdateTexture(int i2, float[] fArr, int i3) {
+    public void setUpdateTexture(int i, float[] fArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3)}) == null) {
-            this.mUpdateTextureId = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2)}) == null) {
+            this.mUpdateTextureId = i;
             this.mUpdateMatrix = fArr;
-            this.mUpdateTextureMode = i3;
+            this.mUpdateTextureMode = i2;
         }
     }
 
@@ -388,8 +387,8 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setVideoRatio(float f2) {
+        int i;
         int i2;
-        int i3;
         GLViewPortLocation gLViewPortLocation;
         List<IMediaRenderer> list;
         List<IEffectProcessor> list2;
@@ -399,25 +398,25 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             return;
         }
         this.mVideoRatio = f2;
-        int i4 = this.mSurfaceViewWidth;
-        if (i4 == 0 || (i2 = this.mSurfaceViewHeight) == 0) {
+        int i3 = this.mSurfaceViewWidth;
+        if (i3 == 0 || (i = this.mSurfaceViewHeight) == 0) {
             return;
         }
-        int i5 = 0;
+        int i4 = 0;
         if (f2 != 0.0f) {
-            if ((i2 * 1.0f) / i4 > f2) {
-                int i6 = (int) (i4 * f2);
-                int i7 = (i2 - i6) / 2;
+            if ((i * 1.0f) / i3 > f2) {
+                int i5 = (int) (i3 * f2);
+                int i6 = (i - i5) / 2;
+                i = i5;
                 i2 = i6;
-                i3 = i7;
                 gLViewPortLocation = this.mGLViewPortLocation;
                 if (gLViewPortLocation != null) {
-                    this.mGLViewPortLocation = new GLViewPortLocation(i5, i3, i4, i2);
+                    this.mGLViewPortLocation = new GLViewPortLocation(i4, i2, i3, i);
                 } else {
-                    gLViewPortLocation.x = i5;
-                    gLViewPortLocation.y = i3;
-                    gLViewPortLocation.width = i4;
-                    gLViewPortLocation.height = i2;
+                    gLViewPortLocation.x = i4;
+                    gLViewPortLocation.y = i2;
+                    gLViewPortLocation.width = i3;
+                    gLViewPortLocation.height = i;
                 }
                 list = this.mIMediaRenderers;
                 if (list != null) {
@@ -429,7 +428,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                 list2 = this.mIEffectProcessors;
                 if (list2 != null) {
                     for (IEffectProcessor iEffectProcessor : list2) {
-                        iEffectProcessor.setPreviewSize(i4, i2);
+                        iEffectProcessor.setPreviewSize(i3, i);
                     }
                 }
                 renderer = this.mRendererListener;
@@ -440,11 +439,11 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                 }
                 return;
             }
-            int i8 = (int) (i2 / f2);
-            i5 = (i4 - i8) / 2;
-            i4 = i8;
+            int i7 = (int) (i / f2);
+            i4 = (i3 - i7) / 2;
+            i3 = i7;
         }
-        i3 = 0;
+        i2 = 0;
         gLViewPortLocation = this.mGLViewPortLocation;
         if (gLViewPortLocation != null) {
         }
@@ -495,8 +494,8 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                 this.mRendererListener.onDrawFrame(gl10);
             }
             if (this.mUpdateMatrix != null) {
-                int i2 = this.mUpdateTextureId;
-                int i3 = this.mUpdateTextureMode;
+                int i = this.mUpdateTextureId;
+                int i2 = this.mUpdateTextureMode;
                 float[] fArr = this.mUpdateMatrix;
                 if (this.mOnEditStickerListener != null && !this.mOnEditStickerListener.canDoProcessor()) {
                     if (!h.e(this.mIMediaRenderers)) {
@@ -511,65 +510,65 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                     }
                 } else if (h.e(this.mIEffectProcessors) && h.e(this.mIMediaRenderers)) {
                     GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
-                    if (i3 == 0) {
+                    if (i2 == 0) {
                         this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                        this.mFullScreenEXT.drawFrame(i2, fArr);
+                        this.mFullScreenEXT.drawFrame(i, fArr);
                     } else {
                         this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                        this.mFullScreen2D.drawFrame(i2, fArr);
+                        this.mFullScreen2D.drawFrame(i, fArr);
                     }
                 } else {
                     if (this.mIEffectProcessors != null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         Iterator<IEffectProcessor> it = this.mIEffectProcessors.iterator();
+                        int i3 = i2;
                         int i4 = i3;
-                        int i5 = i4;
                         loop1: while (true) {
-                            int i6 = i2;
+                            int i5 = i;
                             while (it.hasNext()) {
                                 next = it.next();
-                                next.setInputTextureMode(i5);
+                                next.setInputTextureMode(i4);
                                 next.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
-                                onProcessFrame = next.onProcessFrame(this.mVlogEdit, i6, fArr);
-                                if (onProcessFrame <= 0 || onProcessFrame == i6) {
+                                onProcessFrame = next.onProcessFrame(this.mVlogEdit, i5, fArr);
+                                if (onProcessFrame <= 0 || onProcessFrame == i5) {
                                 }
                             }
-                            i4 = next.getOutputTextureMode();
-                            i5 = i4;
-                            i2 = onProcessFrame;
+                            i3 = next.getOutputTextureMode();
+                            i4 = i3;
+                            i = onProcessFrame;
                         }
                         debugProcessorCostTime(System.currentTimeMillis() - currentTimeMillis);
-                        i3 = i4;
+                        i2 = i3;
                     }
-                    this.mUpdateTextureId = i2;
-                    this.mUpdateTextureMode = i3;
+                    this.mUpdateTextureId = i;
+                    this.mUpdateTextureMode = i2;
                     if (!h.e(this.mIMediaRenderers)) {
                         for (IMediaRenderer iMediaRenderer2 : this.mIMediaRenderers) {
                             iMediaRenderer2.onGLLocation(this.mGLViewPortLocation);
-                            iMediaRenderer2.setTextureMode(i3);
+                            iMediaRenderer2.setTextureMode(i2);
                             iMediaRenderer2.setGlClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
                             iMediaRenderer2.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                            iMediaRenderer2.onDrawFrame(this.mVlogEdit, i2, fArr);
+                            iMediaRenderer2.onDrawFrame(this.mVlogEdit, i, fArr);
                             iMediaRenderer2.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
                     } else {
                         GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
                         GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-                        GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
-                        if (i3 == 0) {
+                        GLES20.glBlendFunc(770, 771);
+                        if (i2 == 0) {
                             this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                            this.mFullScreenEXT.drawFrame(i2, fArr);
+                            this.mFullScreenEXT.drawFrame(i, fArr);
                             this.mFullScreenEXT.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         } else {
                             this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                            this.mFullScreen2D.drawFrame(i2, fArr);
+                            this.mFullScreen2D.drawFrame(i, fArr);
                             this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
                         GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                     }
                 }
                 if (this.mTextureReader != null) {
-                    this.mTextureReader.b(i2, this.mSurfaceViewWidth, this.mSurfaceViewHeight);
+                    this.mTextureReader.b(i, this.mSurfaceViewWidth, this.mSurfaceViewHeight);
                 }
                 if (this.mOnDrawFrameFrequencyListener != null) {
                     this.mOnDrawFrameFrequencyListener.onDrawFrameFrequency(this.mGLViewPortLocation);

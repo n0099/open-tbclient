@@ -21,9 +21,9 @@ public abstract class AI01decoder extends AbstractExpandedDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BitArray) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -32,37 +32,37 @@ public abstract class AI01decoder extends AbstractExpandedDecoder {
         }
     }
 
-    public static void appendCheckDigit(StringBuilder sb, int i2) {
+    public static void appendCheckDigit(StringBuilder sb, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, sb, i2) == null) {
-            int i3 = 0;
-            for (int i4 = 0; i4 < 13; i4++) {
-                int charAt = sb.charAt(i4 + i2) - '0';
-                if ((i4 & 1) == 0) {
+        if (interceptable == null || interceptable.invokeLI(65537, null, sb, i) == null) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < 13; i3++) {
+                int charAt = sb.charAt(i3 + i) - '0';
+                if ((i3 & 1) == 0) {
                     charAt *= 3;
                 }
-                i3 += charAt;
+                i2 += charAt;
             }
-            int i5 = 10 - (i3 % 10);
-            sb.append(i5 != 10 ? i5 : 0);
+            int i4 = 10 - (i2 % 10);
+            sb.append(i4 != 10 ? i4 : 0);
         }
     }
 
-    public final void encodeCompressedGtin(StringBuilder sb, int i2) {
+    public final void encodeCompressedGtin(StringBuilder sb, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i) == null) {
             sb.append("(01)");
             int length = sb.length();
             sb.append('9');
-            encodeCompressedGtinWithoutAI(sb, i2, length);
+            encodeCompressedGtinWithoutAI(sb, i, length);
         }
     }
 
-    public final void encodeCompressedGtinWithoutAI(StringBuilder sb, int i2, int i3) {
+    public final void encodeCompressedGtinWithoutAI(StringBuilder sb, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb, i2, i3) == null) {
-            for (int i4 = 0; i4 < 4; i4++) {
-                int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray((i4 * 10) + i2, 10);
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb, i, i2) == null) {
+            for (int i3 = 0; i3 < 4; i3++) {
+                int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray((i3 * 10) + i, 10);
                 if (extractNumericValueFromBitArray / 100 == 0) {
                     sb.append('0');
                 }
@@ -71,7 +71,7 @@ public abstract class AI01decoder extends AbstractExpandedDecoder {
                 }
                 sb.append(extractNumericValueFromBitArray);
             }
-            appendCheckDigit(sb, i3);
+            appendCheckDigit(sb, i2);
         }
     }
 }

@@ -12,32 +12,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC1788a extends Binder implements a {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractBinderC1749a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1789a implements a {
+        /* loaded from: classes3.dex */
+        public static class C1750a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1789a(IBinder iBinder) {
+            public C1750a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -67,16 +67,16 @@ public interface a extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.a
-            public void a(int i2, String str, long j2) throws RemoteException {
+            public void a(int i, String str, long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         obtain.writeString(str);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         this.a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -134,14 +134,14 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC1788a() {
+        public AbstractBinderC1749a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -158,7 +158,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1789a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1750a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
@@ -171,17 +171,17 @@ public interface a extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
                     a(parcel.readInt() != 0 ? e.CREATOR.createFromParcel(parcel) : null);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
                     a(parcel.readInt(), parcel.readString(), parcel.readLong());
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
                     Bundle a = a();
                     parcel2.writeNoException();
@@ -192,9 +192,9 @@ public interface a extends IInterface {
                         parcel2.writeInt(0);
                     }
                     return true;
-                } else if (i2 != 4) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                } else if (i != 4) {
+                    if (i != 1598968902) {
+                        return super.onTransact(i, parcel, parcel2, i2);
                     }
                     parcel2.writeString("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
                     return true;
@@ -211,7 +211,7 @@ public interface a extends IInterface {
 
     Bundle a() throws RemoteException;
 
-    void a(int i2, String str, long j2) throws RemoteException;
+    void a(int i, String str, long j) throws RemoteException;
 
     void a(e eVar) throws RemoteException;
 

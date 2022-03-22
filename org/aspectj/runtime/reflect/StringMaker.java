@@ -1,6 +1,7 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StringMaker {
     public static /* synthetic */ Interceptable $ic;
     public static StringMaker longStringMaker;
@@ -76,9 +77,9 @@ public class StringMaker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -125,11 +126,11 @@ public class StringMaker {
     public void addTypeNames(StringBuffer stringBuffer, Class[] clsArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, stringBuffer, clsArr) == null) {
-            for (int i2 = 0; i2 < clsArr.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < clsArr.length; i++) {
+                if (i > 0) {
                     stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                stringBuffer.append(makeTypeName(clsArr[i2]));
+                stringBuffer.append(makeTypeName(clsArr[i]));
             }
         }
     }
@@ -144,12 +145,12 @@ public class StringMaker {
         return (String) invokeL.objValue;
     }
 
-    public String makeModifiersString(int i2) {
+    public String makeModifiersString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             if (this.includeModifiers) {
-                String modifier = Modifier.toString(i2);
+                String modifier = Modifier.toString(i);
                 if (modifier.length() == 0) {
                     return "";
                 }
@@ -178,9 +179,9 @@ public class StringMaker {
             }
             if (!cls.isArray()) {
                 if (z) {
-                    return stripPackageName(str).replace('$', '.');
+                    return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
                 }
-                return str.replace('$', '.');
+                return str.replace('$', IStringUtil.EXTENSION_SEPARATOR);
             }
             Class<?> componentType = cls.getComponentType();
             StringBuffer stringBuffer = new StringBuffer();

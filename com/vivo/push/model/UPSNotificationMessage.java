@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UPSNotificationMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM = 3;
@@ -42,9 +41,9 @@ public class UPSNotificationMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -176,10 +175,10 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setCompatibleType(int i2) {
+    public void setCompatibleType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mCompatibleType = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mCompatibleType = i;
         }
     }
 
@@ -204,24 +203,24 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setIsMacroReplace(int i2) {
+    public void setIsMacroReplace(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mIsMacroReplace = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mIsMacroReplace = i;
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.mMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.mMsgId = j;
         }
     }
 
-    public void setNotifyType(int i2) {
+    public void setNotifyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mNotifyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mNotifyType = i;
         }
     }
 
@@ -253,17 +252,17 @@ public class UPSNotificationMessage {
         }
     }
 
-    public void setSkipType(int i2) {
+    public void setSkipType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mSkipType = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mSkipType = i;
         }
     }
 
-    public void setTargetType(int i2) {
+    public void setTargetType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mTargetType = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mTargetType = i;
         }
     }
 
@@ -285,7 +284,7 @@ public class UPSNotificationMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return "UPSNotificationMessage{mTargetType=" + this.mTargetType + ", mTragetContent='" + this.mTragetContent + ExtendedMessageFormat.QUOTE + ", mTitle='" + this.mTitle + ExtendedMessageFormat.QUOTE + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mNotifyType=" + this.mNotifyType + ", mPurePicUrl='" + this.mPurePicUrl + ExtendedMessageFormat.QUOTE + ", mIconUrl='" + this.mIconUrl + ExtendedMessageFormat.QUOTE + ", mCoverUrl='" + this.mCoverUrl + ExtendedMessageFormat.QUOTE + ", mSkipContent='" + this.mSkipContent + ExtendedMessageFormat.QUOTE + ", mSkipType=" + this.mSkipType + ", mShowTime=" + this.mShowTime + ", mMsgId=" + this.mMsgId + ", mParams=" + this.mParams + ExtendedMessageFormat.END_FE;
+            return "UPSNotificationMessage{mTargetType=" + this.mTargetType + ", mTragetContent='" + this.mTragetContent + "', mTitle='" + this.mTitle + "', mContent='" + this.mContent + "', mNotifyType=" + this.mNotifyType + ", mPurePicUrl='" + this.mPurePicUrl + "', mIconUrl='" + this.mIconUrl + "', mCoverUrl='" + this.mCoverUrl + "', mSkipContent='" + this.mSkipContent + "', mSkipType=" + this.mSkipType + ", mShowTime=" + this.mShowTime + ", mMsgId=" + this.mMsgId + ", mParams=" + this.mParams + '}';
         }
         return (String) invokeV.objValue;
     }

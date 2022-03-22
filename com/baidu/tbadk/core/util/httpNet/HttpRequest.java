@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.q0.j0.f;
-import c.a.q0.r.j0.b;
-import c.a.q0.r.m.c;
-import c.a.q0.r.m.e;
-import c.a.q0.s.b.a;
+import c.a.o0.j0.f;
+import c.a.o0.r.j0.b;
+import c.a.o0.r.m.c;
+import c.a.o0.r.m.e;
+import c.a.o0.s.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -66,9 +66,9 @@ public class HttpRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -202,9 +202,9 @@ public class HttpRequest {
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.q0.f1.b.c.d() ? "1" : "0");
-            iNetWorkCore.addPostData("start_type", c.a.q0.r.a0.a.f12818f + "");
-            iNetWorkCore.addPostData("start_scheme", c.a.q0.r.a0.a.e());
+            iNetWorkCore.addPostData("is_teenager", "0");
+            iNetWorkCore.addPostData("start_type", c.a.o0.r.a0.a.f10495f + "");
+            iNetWorkCore.addPostData("start_scheme", c.a.o0.r.a0.a.e());
         }
     }
 

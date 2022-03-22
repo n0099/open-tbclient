@@ -18,9 +18,9 @@ public class DefaultUpdateContext implements IUpdateContext {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,9 +28,9 @@ public class DefaultUpdateContext implements IUpdateContext {
     }
 
     @Override // com.baidu.searchbox.net.update.ioc.IUpdateContext
-    public void doStatistics(int i2, JSONObject jSONObject) {
+    public void doStatistics(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
         }
     }
 

@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.e.d;
 import com.kwad.sdk.e.f;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.Tachikoma;
 import com.tachikoma.core.api.IWebImageHandlerInner;
@@ -34,7 +35,7 @@ import com.tachikoma.core.utility.UriUtil;
 import java.io.File;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKImage extends TKBase<RoundImageView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +56,9 @@ public class TKImage extends TKBase<RoundImageView> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -69,21 +70,21 @@ public class TKImage extends TKBase<RoundImageView> {
         this.setId = 0L;
     }
 
-    private int calculateInSampleSize(BitmapFactory.Options options, int i2, int i3) {
+    private int calculateInSampleSize(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, options, i2, i3)) == null) {
-            int i4 = options.outHeight;
-            int i5 = options.outWidth;
-            int i6 = 1;
-            if (i4 > i3 || i5 > i2) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
                 int i7 = i4 / 2;
-                int i8 = i5 / 2;
-                while (i7 / i6 > i3 && i8 / i6 > i2) {
-                    i6 *= 2;
+                while (i6 / i5 > i2 && i7 / i5 > i) {
+                    i5 *= 2;
                 }
             }
-            return i6;
+            return i5;
         }
         return invokeLII.intValue;
     }
@@ -113,33 +114,33 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setUrls(List<TKCDNUrlInner> list, int i2, int i3) {
+    public void setUrls(List<TKCDNUrlInner> list, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65543, this, list, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65543, this, list, i, i2) == null) {
             IWebImageHandlerInner iWebImageHandlerInner = (IWebImageHandlerInner) TKModuleManager.getInstance().getHandler(this.mTKJSContext, IWebImageHandlerInner.class);
             if (list == null || list.isEmpty()) {
                 iWebImageHandlerInner.load("", getView(), 0);
             } else if (TextUtils.isEmpty(this.mPlaceHolder)) {
                 if (iWebImageHandlerInner != null) {
-                    iWebImageHandlerInner.load(getView(), list, i2, i3, this.blurRadius);
+                    iWebImageHandlerInner.load(getView(), list, i, i2, this.blurRadius);
                 }
             } else {
                 String concat = getRootDir().concat(this.mPlaceHolder);
                 BitmapDrawable bitmapDrawable = new File(concat).exists() ? new BitmapDrawable(BitmapFactory.decodeFile(concat, getSampleSizeOptions(concat))) : null;
                 if (iWebImageHandlerInner != null) {
-                    iWebImageHandlerInner.load(getView(), list, i2, i3, bitmapDrawable, this.blurRadius);
+                    iWebImageHandlerInner.load(getView(), list, i, i2, bitmapDrawable, this.blurRadius);
                 }
             }
         }
     }
 
-    private void setUrlsAfterOpt(String str, int i2, int i3) {
+    private void setUrlsAfterOpt(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, this, str, i2, i3) == null) {
-            long j2 = this.setId + 1;
-            this.setId = j2;
-            setUrls((List<TKCDNUrlInner>) null, i2, i3);
-            TKAsync.execute(new Runnable(this, str, j2, i2, i3) { // from class: com.tachikoma.core.component.imageview.TKImage.2
+        if (interceptable == null || interceptable.invokeLII(65544, this, str, i, i2) == null) {
+            long j = this.setId + 1;
+            this.setId = j;
+            setUrls((List<TKCDNUrlInner>) null, i, i2);
+            TKAsync.execute(new Runnable(this, str, j, i, i2) { // from class: com.tachikoma.core.component.imageview.TKImage.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TKImage this$0;
@@ -153,11 +154,11 @@ public class TKImage extends TKBase<RoundImageView> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
+                        Object[] objArr = {this, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -165,9 +166,9 @@ public class TKImage extends TKBase<RoundImageView> {
                     }
                     this.this$0 = this;
                     this.val$cdnUrlsJson = str;
-                    this.val$currentId = j2;
-                    this.val$width = i2;
-                    this.val$height = i3;
+                    this.val$currentId = j;
+                    this.val$width = i;
+                    this.val$height = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -187,9 +188,9 @@ public class TKImage extends TKBase<RoundImageView> {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i4 = newInitContext.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -218,9 +219,9 @@ public class TKImage extends TKBase<RoundImageView> {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, r7};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i4 = newInitContext.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -251,10 +252,10 @@ public class TKImage extends TKBase<RoundImageView> {
         }
     }
 
-    private void setUrlsBeforeOpt(String str, int i2, int i3) {
+    private void setUrlsBeforeOpt(String str, int i, int i2) {
         List<TKCDNUrlInner> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65545, this, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65545, this, str, i, i2) == null) {
             try {
                 list = f.a(str, new d<TKCDNUrlInner>(this) { // from class: com.tachikoma.core.component.imageview.TKImage.1
                     public static /* synthetic */ Interceptable $ic;
@@ -268,9 +269,9 @@ public class TKImage extends TKBase<RoundImageView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -297,7 +298,7 @@ public class TKImage extends TKBase<RoundImageView> {
             IWebImageHandlerInner iWebImageHandlerInner = (IWebImageHandlerInner) TKModuleManager.getInstance().getHandler(this.mTKJSContext, IWebImageHandlerInner.class);
             if (TextUtils.isEmpty(this.mPlaceHolder)) {
                 if (iWebImageHandlerInner != null) {
-                    iWebImageHandlerInner.load(getView(), list, i2, i3, this.blurRadius);
+                    iWebImageHandlerInner.load(getView(), list, i, i2, this.blurRadius);
                     return;
                 }
                 return;
@@ -305,7 +306,7 @@ public class TKImage extends TKBase<RoundImageView> {
             String concat = getRootDir().concat(this.mPlaceHolder);
             BitmapDrawable bitmapDrawable = new File(concat).exists() ? new BitmapDrawable(BitmapFactory.decodeFile(concat, getSampleSizeOptions(concat))) : null;
             if (iWebImageHandlerInner != null) {
-                iWebImageHandlerInner.load(getView(), list, i2, i3, bitmapDrawable, this.blurRadius);
+                iWebImageHandlerInner.load(getView(), list, i, i2, bitmapDrawable, this.blurRadius);
             }
         }
     }
@@ -313,7 +314,7 @@ public class TKImage extends TKBase<RoundImageView> {
     private void showAssetImage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            getView().setImageResource(TKUtility.getResourceId(UriUtil.getResName(this.uri), "drawable", null));
+            getView().setImageResource(TKUtility.getResourceId(UriUtil.getResName(this.uri), ResourceManager.DRAWABLE, null));
         }
     }
 
@@ -386,10 +387,10 @@ public class TKImage extends TKBase<RoundImageView> {
         }
     }
 
-    public void setBlurRadius(int i2) {
+    public void setBlurRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.blurRadius = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.blurRadius = i;
         }
     }
 
@@ -403,11 +404,11 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setBorderRadius(int i2) {
+    public void setBorderRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.setBorderRadius(i2);
-            getView().setBorderRadius(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setBorderRadius(i);
+            getView().setBorderRadius(i);
         }
     }
 
@@ -421,20 +422,20 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setBottomLeftRadius(int i2) {
+    public void setBottomLeftRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            super.setBottomLeftRadius(i2);
-            getView().setBottomLeftRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i2));
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            super.setBottomLeftRadius(i);
+            getView().setBottomLeftRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i));
         }
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setBottomRightRadius(int i2) {
+    public void setBottomRightRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            super.setBottomRightRadius(i2);
-            getView().setBottomRightRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i2));
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            super.setBottomRightRadius(i);
+            getView().setBottomRightRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i));
         }
     }
 
@@ -518,7 +519,7 @@ public class TKImage extends TKBase<RoundImageView> {
                     getView().setImageBitmap(BitmapFactory.decodeFile(concat, getSampleSizeOptions(concat)));
                     return;
                 } else {
-                    getView().setImageResource(TKUtility.getResourceId(this.src, "drawable", null));
+                    getView().setImageResource(TKUtility.getResourceId(this.src, ResourceManager.DRAWABLE, null));
                     return;
                 }
             }
@@ -539,20 +540,20 @@ public class TKImage extends TKBase<RoundImageView> {
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setTopLeftRadius(int i2) {
+    public void setTopLeftRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            super.setTopLeftRadius(i2);
-            getView().setTopLeftRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i2));
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            super.setTopLeftRadius(i);
+            getView().setTopLeftRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i));
         }
     }
 
     @Override // com.tachikoma.core.component.TKBase
-    public void setTopRightRadius(int i2) {
+    public void setTopRightRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            super.setTopRightRadius(i2);
-            getView().setTopRightRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i2));
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            super.setTopRightRadius(i);
+            getView().setTopRightRoundRadius(TKConverter.dp2px(Tachikoma.sApplication, i));
         }
     }
 
@@ -584,13 +585,13 @@ public class TKImage extends TKBase<RoundImageView> {
         }
     }
 
-    public void setUrls(String str, int i2, int i3) {
+    public void setUrls(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048593, this, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048593, this, str, i, i2) == null) {
             if (BlockOptConfig.blockOpt()) {
-                setUrlsAfterOpt(str, i2, i3);
+                setUrlsAfterOpt(str, i, i2);
             } else {
-                setUrlsBeforeOpt(str, i2, i3);
+                setUrlsBeforeOpt(str, i, i2);
             }
         }
     }

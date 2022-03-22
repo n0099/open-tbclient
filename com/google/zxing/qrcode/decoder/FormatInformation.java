@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 /* loaded from: classes7.dex */
 public final class FormatInformation {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,74 +32,74 @@ public final class FormatInformation {
                 return;
             }
         }
-        FORMAT_INFO_DECODE_LOOKUP = new int[][]{new int[]{21522, 0}, new int[]{20773, 1}, new int[]{24188, 2}, new int[]{23371, 3}, new int[]{17913, 4}, new int[]{16590, 5}, new int[]{20375, 6}, new int[]{19104, 7}, new int[]{30660, 8}, new int[]{29427, 9}, new int[]{32170, 10}, new int[]{30877, 11}, new int[]{26159, 12}, new int[]{25368, 13}, new int[]{27713, 14}, new int[]{26998, 15}, new int[]{5769, 16}, new int[]{SpeedStatsStampTable.SECOND_DRAW_DISPATCH_STAMP_KEY, 17}, new int[]{7399, 18}, new int[]{6608, 19}, new int[]{1890, 20}, new int[]{PayBeanFactory.BEAN_ID_CARD_ADD, 21}, new int[]{3340, 22}, new int[]{2107, 23}, new int[]{13663, 24}, new int[]{12392, 25}, new int[]{16177, 26}, new int[]{14854, 27}, new int[]{9396, 28}, new int[]{8579, 29}, new int[]{11994, 30}, new int[]{11245, 31}};
+        FORMAT_INFO_DECODE_LOOKUP = new int[][]{new int[]{21522, 0}, new int[]{20773, 1}, new int[]{24188, 2}, new int[]{23371, 3}, new int[]{17913, 4}, new int[]{16590, 5}, new int[]{20375, 6}, new int[]{19104, 7}, new int[]{30660, 8}, new int[]{29427, 9}, new int[]{32170, 10}, new int[]{30877, 11}, new int[]{26159, 12}, new int[]{25368, 13}, new int[]{27713, 14}, new int[]{26998, 15}, new int[]{5769, 16}, new int[]{SpeedStatsStampTable.SECOND_DRAW_DISPATCH_STAMP_KEY, 17}, new int[]{7399, 18}, new int[]{6608, 19}, new int[]{1890, 20}, new int[]{597, 21}, new int[]{3340, 22}, new int[]{2107, 23}, new int[]{13663, 24}, new int[]{12392, 25}, new int[]{16177, 26}, new int[]{14854, 27}, new int[]{9396, 28}, new int[]{8579, 29}, new int[]{11994, 30}, new int[]{11245, 31}};
     }
 
-    public FormatInformation(int i2) {
+    public FormatInformation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.errorCorrectionLevel = ErrorCorrectionLevel.forBits((i2 >> 3) & 3);
-        this.dataMask = (byte) (i2 & 7);
+        this.errorCorrectionLevel = ErrorCorrectionLevel.forBits((i >> 3) & 3);
+        this.dataMask = (byte) (i & 7);
     }
 
-    public static FormatInformation decodeFormatInformation(int i2, int i3) {
+    public static FormatInformation decodeFormatInformation(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            FormatInformation doDecodeFormatInformation = doDecodeFormatInformation(i2, i3);
-            return doDecodeFormatInformation != null ? doDecodeFormatInformation : doDecodeFormatInformation(i2 ^ 21522, i3 ^ 21522);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            FormatInformation doDecodeFormatInformation = doDecodeFormatInformation(i, i2);
+            return doDecodeFormatInformation != null ? doDecodeFormatInformation : doDecodeFormatInformation(i ^ 21522, i2 ^ 21522);
         }
         return (FormatInformation) invokeII.objValue;
     }
 
-    public static FormatInformation doDecodeFormatInformation(int i2, int i3) {
+    public static FormatInformation doDecodeFormatInformation(int i, int i2) {
         InterceptResult invokeII;
         int[][] iArr;
         int numBitsDiffering;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            int i4 = Integer.MAX_VALUE;
-            int i5 = 0;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            int i3 = Integer.MAX_VALUE;
+            int i4 = 0;
             for (int[] iArr2 : FORMAT_INFO_DECODE_LOOKUP) {
-                int i6 = iArr2[0];
-                if (i6 != i2 && i6 != i3) {
-                    int numBitsDiffering2 = numBitsDiffering(i2, i6);
-                    if (numBitsDiffering2 < i4) {
-                        i5 = iArr2[1];
-                        i4 = numBitsDiffering2;
+                int i5 = iArr2[0];
+                if (i5 != i && i5 != i2) {
+                    int numBitsDiffering2 = numBitsDiffering(i, i5);
+                    if (numBitsDiffering2 < i3) {
+                        i4 = iArr2[1];
+                        i3 = numBitsDiffering2;
                     }
-                    if (i2 != i3 && (numBitsDiffering = numBitsDiffering(i3, i6)) < i4) {
-                        i5 = iArr2[1];
-                        i4 = numBitsDiffering;
+                    if (i != i2 && (numBitsDiffering = numBitsDiffering(i2, i5)) < i3) {
+                        i4 = iArr2[1];
+                        i3 = numBitsDiffering;
                     }
                 } else {
                     return new FormatInformation(iArr2[1]);
                 }
             }
-            if (i4 <= 3) {
-                return new FormatInformation(i5);
+            if (i3 <= 3) {
+                return new FormatInformation(i4);
             }
             return null;
         }
         return (FormatInformation) invokeII.objValue;
     }
 
-    public static int numBitsDiffering(int i2, int i3) {
+    public static int numBitsDiffering(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? Integer.bitCount(i2 ^ i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? Integer.bitCount(i ^ i2) : invokeII.intValue;
     }
 
     public boolean equals(Object obj) {

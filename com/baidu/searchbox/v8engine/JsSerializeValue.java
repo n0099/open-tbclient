@@ -16,17 +16,17 @@ public class JsSerializeValue extends JsReleaser {
     public boolean mAutoRelease;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsSerializeValue(long j2, long j3, long j4) {
-        super(j2, j3, j4);
+    public JsSerializeValue(long j, long j2, long j3) {
+        super(j, j2, j3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;

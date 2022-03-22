@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_REQUEST_INTERVAL = 3600;
     public static final int DEFAULT_SPLASH_TIME_OUT = 5000;
@@ -28,7 +28,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public TemplateConfigMap templateConfigMap = new TemplateConfigMap();
     public CouponActiveConfig couponActiveConfig = new CouponActiveConfig();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class CouponActiveConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 6375241669684789095L;
         public ActivityInfo activityInfo;
@@ -42,7 +42,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         public String bottomTitle = "刷满5个视频抽红包，每个视频观看>5秒";
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TemplateConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6943205584670122269L;
         public String h5Checksum;
@@ -54,7 +54,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig couponInfoConfig;

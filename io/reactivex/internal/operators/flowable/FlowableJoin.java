@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
     public final BiFunction<? super TLeft, ? super TRight, ? extends R> resultSelector;
     public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class JoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, FlowableGroupJoin.JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
@@ -91,9 +91,9 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, function, function2, biFunction};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -141,7 +141,7 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                 SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                 Subscriber<? super R> subscriber = this.actual;
                 boolean z = true;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (this.error.get() != null) {
                         spscLinkedArrayQueue.clear();
@@ -159,19 +159,19 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                         subscriber.onComplete();
                         return;
                     } else if (z3) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
                         Object poll = spscLinkedArrayQueue.poll();
                         if (num == LEFT_VALUE) {
-                            int i3 = this.leftIndex;
-                            this.leftIndex = i3 + 1;
-                            this.lefts.put(Integer.valueOf(i3), poll);
+                            int i2 = this.leftIndex;
+                            this.leftIndex = i2 + 1;
+                            this.lefts.put(Integer.valueOf(i2), poll);
                             try {
                                 Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
-                                FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber = new FlowableGroupJoin.LeftRightEndSubscriber(this, z, i3);
+                                FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber = new FlowableGroupJoin.LeftRightEndSubscriber(this, z, i2);
                                 this.disposables.add(leftRightEndSubscriber);
                                 publisher.subscribe(leftRightEndSubscriber);
                                 if (this.error.get() != null) {
@@ -180,14 +180,14 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                     errorAll(subscriber);
                                     return;
                                 }
-                                long j2 = this.requested.get();
-                                long j3 = 0;
+                                long j = this.requested.get();
+                                long j2 = 0;
                                 for (TRight tright : this.rights.values()) {
                                     try {
                                         Object obj = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value");
-                                        if (j3 != j2) {
+                                        if (j2 != j) {
                                             subscriber.onNext(obj);
-                                            j3++;
+                                            j2++;
                                         } else {
                                             ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
                                             spscLinkedArrayQueue.clear();
@@ -200,20 +200,20 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                         return;
                                     }
                                 }
-                                if (j3 != 0) {
-                                    BackpressureHelper.produced(this.requested, j3);
+                                if (j2 != 0) {
+                                    BackpressureHelper.produced(this.requested, j2);
                                 }
                             } catch (Throwable th2) {
                                 fail(th2, subscriber, spscLinkedArrayQueue);
                                 return;
                             }
                         } else if (num == RIGHT_VALUE) {
-                            int i4 = this.rightIndex;
-                            this.rightIndex = i4 + 1;
-                            this.rights.put(Integer.valueOf(i4), poll);
+                            int i3 = this.rightIndex;
+                            this.rightIndex = i3 + 1;
+                            this.rights.put(Integer.valueOf(i3), poll);
                             try {
                                 Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
-                                FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber2 = new FlowableGroupJoin.LeftRightEndSubscriber(this, false, i4);
+                                FlowableGroupJoin.LeftRightEndSubscriber leftRightEndSubscriber2 = new FlowableGroupJoin.LeftRightEndSubscriber(this, false, i3);
                                 this.disposables.add(leftRightEndSubscriber2);
                                 publisher2.subscribe(leftRightEndSubscriber2);
                                 if (this.error.get() != null) {
@@ -222,14 +222,14 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                     errorAll(subscriber);
                                     return;
                                 }
-                                long j4 = this.requested.get();
-                                long j5 = 0;
+                                long j3 = this.requested.get();
+                                long j4 = 0;
                                 for (TLeft tleft : this.lefts.values()) {
                                     try {
                                         Object obj2 = (Object) ObjectHelper.requireNonNull(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value");
-                                        if (j5 != j4) {
+                                        if (j4 != j3) {
                                             subscriber.onNext(obj2);
-                                            j5++;
+                                            j4++;
                                         } else {
                                             ExceptionHelper.addThrowable(this.error, new MissingBackpressureException("Could not emit value due to lack of requests"));
                                             spscLinkedArrayQueue.clear();
@@ -242,8 +242,8 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
                                         return;
                                     }
                                 }
-                                if (j5 != 0) {
-                                    BackpressureHelper.produced(this.requested, j5);
+                                if (j4 != 0) {
+                                    BackpressureHelper.produced(this.requested, j4);
                                 }
                             } catch (Throwable th4) {
                                 fail(th4, subscriber, spscLinkedArrayQueue);
@@ -344,10 +344,10 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
     }
@@ -361,9 +361,9 @@ public final class FlowableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends A
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, publisher, function, function2, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

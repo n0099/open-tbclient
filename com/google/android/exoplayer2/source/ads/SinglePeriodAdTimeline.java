@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.ForwardingTimeline;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SinglePeriodAdTimeline extends ForwardingTimeline {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,17 +23,17 @@ public final class SinglePeriodAdTimeline extends ForwardingTimeline {
     public final long contentDurationUs;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SinglePeriodAdTimeline(Timeline timeline, long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, long[][] jArr2, long j2, long j3) {
+    public SinglePeriodAdTimeline(Timeline timeline, long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, long[][] jArr2, long j, long j2) {
         super(timeline);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timeline, jArr, iArr, iArr2, iArr3, jArr2, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {timeline, jArr, iArr, iArr2, iArr3, jArr2, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Timeline) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,16 +47,16 @@ public final class SinglePeriodAdTimeline extends ForwardingTimeline {
         this.adsLoadedCounts = iArr2;
         this.adsPlayedCounts = iArr3;
         this.adDurationsUs = jArr2;
-        this.adResumePositionUs = j2;
-        this.contentDurationUs = j3;
+        this.adResumePositionUs = j;
+        this.contentDurationUs = j2;
     }
 
     @Override // com.google.android.exoplayer2.source.ForwardingTimeline, com.google.android.exoplayer2.Timeline
-    public Timeline.Period getPeriod(int i2, Timeline.Period period, boolean z) {
+    public Timeline.Period getPeriod(int i, Timeline.Period period, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), period, Boolean.valueOf(z)})) == null) {
-            this.timeline.getPeriod(i2, period, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), period, Boolean.valueOf(z)})) == null) {
+            this.timeline.getPeriod(i, period, z);
             period.set(period.id, period.uid, period.windowIndex, period.durationUs, period.getPositionInWindowUs(), this.adGroupTimesUs, this.adCounts, this.adsLoadedCounts, this.adsPlayedCounts, this.adDurationsUs, this.adResumePositionUs);
             return period;
         }
@@ -64,11 +64,11 @@ public final class SinglePeriodAdTimeline extends ForwardingTimeline {
     }
 
     @Override // com.google.android.exoplayer2.source.ForwardingTimeline, com.google.android.exoplayer2.Timeline
-    public Timeline.Window getWindow(int i2, Timeline.Window window, boolean z, long j2) {
+    public Timeline.Window getWindow(int i, Timeline.Window window, boolean z, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), window, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
-            Timeline.Window window2 = super.getWindow(i2, window, z, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            Timeline.Window window2 = super.getWindow(i, window, z, j);
             if (window2.durationUs == C.TIME_UNSET) {
                 window2.durationUs = this.contentDurationUs;
             }

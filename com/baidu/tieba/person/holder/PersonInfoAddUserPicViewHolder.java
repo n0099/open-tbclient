@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.o.e.n;
-import c.a.r0.w2.h.c;
+import c.a.p0.y2.i.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,20 +15,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ImageView addView;
+    public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public n f45643b;
+    public ImageView f35348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f45644c;
-    public TextView numberTipView;
-    public View rootView;
+    public TextView f35349c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f35350d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public n f35351e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnClickListener f35352f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonInfoAddUserPicViewHolder(View view) {
@@ -39,55 +45,55 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.rootView = view.findViewById(R.id.add_pic_root);
-        this.addView = (ImageView) view.findViewById(R.id.add_image_view);
-        this.numberTipView = (TextView) view.findViewById(R.id.tip_left_count_view);
+        this.f35350d = 3;
+        this.a = view.findViewById(R.id.obfuscated_res_0x7f090118);
+        this.f35348b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090111);
+        this.f35349c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09201e);
     }
 
-    public void bindDataToView(n nVar) {
+    public void c(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof c)) {
-            this.f45643b = nVar;
+            this.f35351e = nVar;
             c cVar = (c) nVar;
-            SkinManager.setImageResource(this.addView, R.drawable.icon_mine_pic_add);
+            SkinManager.setImageResource(this.f35348b, R.drawable.icon_mine_pic_add);
             if (cVar.a() > 0) {
-                this.numberTipView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.have_left_some_picture_upload), Integer.valueOf(cVar.a())));
+                this.f35349c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0813), Integer.valueOf(cVar.a())));
             }
-            getView().setOnClickListener(this.f45644c);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            b().setOnClickListener(this.f35352f);
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public n getData() {
+    public n d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45643b : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35351e : (n) invokeV.objValue;
     }
 
-    public void onChangeSkinType(int i2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.a == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.f35350d == i) {
             return;
         }
-        SkinManager.setViewTextColor(this.numberTipView, R.color.CAM_X0110, 1);
-        SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
-        this.a = i2;
+        SkinManager.setViewTextColor(this.f35349c, R.color.CAM_X0110, 1);
+        SkinManager.setBackgroundColor(b(), R.color.CAM_X0205);
+        this.f35350d = i;
     }
 
-    public void setOnclickListener(View.OnClickListener onClickListener) {
+    public void f(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f45644c = onClickListener;
+            this.f35352f = onClickListener;
         }
     }
 }

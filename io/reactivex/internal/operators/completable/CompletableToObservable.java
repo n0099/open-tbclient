@@ -14,13 +14,13 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableToObservable<T> extends Observable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ObserverCompletableObserver extends BasicQueueDisposable<Void> implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public final class CompletableToObservable<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -114,10 +114,10 @@ public final class CompletableToObservable<T> extends Observable<T> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? i2 & 2 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i & 2 : invokeI.intValue;
         }
     }
 
@@ -128,9 +128,9 @@ public final class CompletableToObservable<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

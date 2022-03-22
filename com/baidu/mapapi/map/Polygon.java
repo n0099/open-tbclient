@@ -18,25 +18,25 @@ public final class Polygon extends Overlay {
     public Stroke a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34001b;
+    public int f26253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<LatLng> f34002c;
+    public List<LatLng> f26254c;
 
     public Polygon() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f34516j;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.j;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -45,11 +45,11 @@ public final class Polygon extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f34002c.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f26254c.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            Overlay.a(this.f34002c, bundle);
-            Overlay.a(this.f34001b, bundle);
+            Overlay.a(this.f26254c, bundle);
+            Overlay.a(this.f26253b, bundle);
             if (this.a == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
@@ -64,13 +64,13 @@ public final class Polygon extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34001b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26253b : invokeV.intValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34002c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26254c : (List) invokeV.objValue;
     }
 
     public Stroke getStroke() {
@@ -79,10 +79,10 @@ public final class Polygon extends Overlay {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Stroke) invokeV.objValue;
     }
 
-    public void setFillColor(int i2) {
+    public void setFillColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f34001b = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f26253b = i;
             this.listener.b(this);
         }
     }
@@ -99,17 +99,17 @@ public final class Polygon extends Overlay {
             if (list.contains(null)) {
                 throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
             }
-            int i2 = 0;
-            while (i2 < list.size()) {
-                int i3 = i2 + 1;
-                for (int i4 = i3; i4 < list.size(); i4++) {
-                    if (list.get(i2) == list.get(i4)) {
+            int i = 0;
+            while (i < list.size()) {
+                int i2 = i + 1;
+                for (int i3 = i2; i3 < list.size(); i3++) {
+                    if (list.get(i) == list.get(i3)) {
                         throw new IllegalArgumentException("BDMapSDKException: points list can not has same points");
                     }
                 }
-                i2 = i3;
+                i = i2;
             }
-            this.f34002c = list;
+            this.f26254c = list;
             this.listener.b(this);
         }
     }

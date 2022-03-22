@@ -3,6 +3,7 @@ package androidx.webkit.internal;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
+import android.util.Log;
 import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,9 +37,9 @@ public class AssetHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,12 +81,12 @@ public class AssetHelper {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) ? this.mContext.getResources().getIdentifier(str2, str, this.mContext.getPackageName()) : invokeLL.intValue;
     }
 
-    private int getValueType(int i2) {
+    private int getValueType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getResources().getValue(i2, typedValue, true);
+            this.mContext.getResources().getValue(i, typedValue, true);
             return typedValue.type;
         }
         return invokeI.intValue;
@@ -113,7 +114,7 @@ public class AssetHelper {
             try {
                 return new GZIPInputStream(inputStream);
             } catch (IOException e2) {
-                String str2 = "Error decompressing " + str + " - " + e2.getMessage();
+                Log.e(TAG, "Error decompressing " + str + " - " + e2.getMessage());
                 return null;
             }
         }
@@ -131,7 +132,8 @@ public class AssetHelper {
                     canonicalPath = canonicalPath + "/";
                 }
                 return canonicalPath2.startsWith(canonicalPath);
-            } catch (IOException unused) {
+            } catch (IOException e2) {
+                Log.e(TAG, "Error getting the canonical path of file", e2);
                 return false;
             }
         }
@@ -145,8 +147,8 @@ public class AssetHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, file)) == null) {
             try {
                 return handleSvgzStream(file.getPath(), new FileInputStream(file));
-            } catch (IOException unused) {
-                String str = "Error opening the requested file " + file;
+            } catch (IOException e2) {
+                Log.e(TAG, "Error opening the requested file " + file, e2);
                 return null;
             }
         }
@@ -169,7 +171,7 @@ public class AssetHelper {
             try {
                 return handleSvgzStream(removeLeadingSlash, this.mContext.getAssets().open(removeLeadingSlash, 2));
             } catch (IOException unused) {
-                String str2 = "Unable to open asset path: " + removeLeadingSlash;
+                Log.e(TAG, "Unable to open asset path: " + removeLeadingSlash);
                 return null;
             }
         }
@@ -184,7 +186,7 @@ public class AssetHelper {
             String removeLeadingSlash = removeLeadingSlash(str);
             String[] split = removeLeadingSlash.split("/");
             if (split.length != 2) {
-                String str2 = "Incorrect resource path: " + removeLeadingSlash;
+                Log.e(TAG, "Incorrect resource path: " + removeLeadingSlash);
                 return null;
             }
             try {
@@ -193,10 +195,10 @@ public class AssetHelper {
                 if (valueType == 3) {
                     return handleSvgzStream(removeLeadingSlash, this.mContext.getResources().openRawResource(fieldId));
                 }
-                String.format("Expected %s resource to be of TYPE_STRING but was %d", removeLeadingSlash, Integer.valueOf(valueType));
+                Log.e(TAG, String.format("Expected %s resource to be of TYPE_STRING but was %d", removeLeadingSlash, Integer.valueOf(valueType)));
                 return null;
-            } catch (Resources.NotFoundException unused) {
-                String str3 = "Resource not found from the path: " + removeLeadingSlash;
+            } catch (Resources.NotFoundException e2) {
+                Log.e(TAG, "Resource not found from the path: " + removeLeadingSlash, e2);
                 return null;
             }
         }

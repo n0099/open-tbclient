@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Sprite2d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -33,9 +33,9 @@ public class Sprite2d {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable2d};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -164,10 +164,10 @@ public class Sprite2d {
         }
     }
 
-    public void setTexture(int i2) {
+    public void setTexture(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mTextureId = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mTextureId = i;
         }
     }
 

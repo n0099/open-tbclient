@@ -48,9 +48,9 @@ public abstract class LiveData<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {liveData, observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((LiveData) objArr2[0], (Observer) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -89,9 +89,9 @@ public abstract class LiveData<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {liveData, lifecycleOwner, observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((LiveData) objArr2[0], (Observer) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -154,9 +154,9 @@ public abstract class LiveData<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {liveData, observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -228,9 +228,9 @@ public abstract class LiveData<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -252,9 +252,9 @@ public abstract class LiveData<T> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -297,12 +297,12 @@ public abstract class LiveData<T> {
                 observerWrapper.activeStateChanged(false);
                 return;
             }
-            int i2 = observerWrapper.mLastVersion;
-            int i3 = this.mVersion;
-            if (i2 >= i3) {
+            int i = observerWrapper.mLastVersion;
+            int i2 = this.mVersion;
+            if (i >= i2) {
                 return;
             }
-            observerWrapper.mLastVersion = i3;
+            observerWrapper.mLastVersion = i2;
             observerWrapper.mObserver.onChanged((Object) this.mData);
         }
     }
@@ -474,9 +474,9 @@ public abstract class LiveData<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -498,9 +498,9 @@ public abstract class LiveData<T> {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

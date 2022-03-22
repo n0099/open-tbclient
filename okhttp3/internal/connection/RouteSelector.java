@@ -24,7 +24,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RouteSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class RouteSelector {
     public List<Proxy> proxies;
     public final RouteDatabase routeDatabase;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Selection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public final class RouteSelector {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,9 +81,9 @@ public final class RouteSelector {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (hasNext()) {
                     List<Route> list = this.routes;
-                    int i2 = this.nextRouteIndex;
-                    this.nextRouteIndex = i2 + 1;
-                    return list.get(i2);
+                    int i = this.nextRouteIndex;
+                    this.nextRouteIndex = i + 1;
+                    return list.get(i);
                 }
                 throw new NoSuchElementException();
             }
@@ -98,9 +98,9 @@ public final class RouteSelector {
             newInitContext.initArgs = r2;
             Object[] objArr = {address, routeDatabase, call, eventListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,9 +141,9 @@ public final class RouteSelector {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (hasNextProxy()) {
                 List<Proxy> list = this.proxies;
-                int i2 = this.nextProxyIndex;
-                this.nextProxyIndex = i2 + 1;
-                Proxy proxy = list.get(i2);
+                int i = this.nextProxyIndex;
+                this.nextProxyIndex = i + 1;
+                Proxy proxy = list.get(i);
                 resetNextInetSocketAddress(proxy);
                 return proxy;
             }
@@ -181,8 +181,8 @@ public final class RouteSelector {
                 if (!lookup.isEmpty()) {
                     this.eventListener.dnsEnd(this.call, host, lookup);
                     int size = lookup.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i2), port));
+                    for (int i = 0; i < size; i++) {
+                        this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i), port));
                     }
                     return;
                 }
@@ -230,8 +230,8 @@ public final class RouteSelector {
                 while (hasNextProxy()) {
                     Proxy nextProxy = nextProxy();
                     int size = this.inetSocketAddresses.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i2));
+                    for (int i = 0; i < size; i++) {
+                        Route route = new Route(this.address, nextProxy, this.inetSocketAddresses.get(i));
                         if (this.routeDatabase.shouldPostpone(route)) {
                             this.postponedRoutes.add(route);
                         } else {

@@ -7,9 +7,8 @@ import com.kwad.sdk.crash.model.message.JavaExceptionMessage;
 import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.g;
 import java.io.File;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d extends b {
     /* JADX WARN: Removed duplicated region for block: B:18:0x004f  */
     /* JADX WARN: Removed duplicated region for block: B:27:0x00ca  */
@@ -25,7 +24,7 @@ public final class d extends b {
         try {
             str2 = g.d(file);
         } catch (Exception e3) {
-            this.f55112b += e3 + StringUtils.LF;
+            this.f40189b += e3 + "\n";
             str2 = null;
         }
         if (str2 != null) {
@@ -35,7 +34,7 @@ public final class d extends b {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
                 } catch (Exception e4) {
                     e2 = e4;
-                    this.f55112b += e2 + StringUtils.LF;
+                    this.f40189b += e2 + "\n";
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
@@ -46,7 +45,7 @@ public final class d extends b {
                     f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.f55112b)) {
+                    if (!TextUtils.isEmpty(this.f40189b)) {
                     }
                     return javaExceptionMessage2;
                 }
@@ -71,11 +70,11 @@ public final class d extends b {
             f.a(file3, file);
             file.renameTo(file3);
         } catch (Throwable th) {
-            this.f55112b += th + StringUtils.LF;
+            this.f40189b += th + "\n";
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (!TextUtils.isEmpty(this.f55112b)) {
-            javaExceptionMessage2.mErrorMessage += this.f55112b;
+        if (!TextUtils.isEmpty(this.f40189b)) {
+            javaExceptionMessage2.mErrorMessage += this.f40189b;
         }
         return javaExceptionMessage2;
     }

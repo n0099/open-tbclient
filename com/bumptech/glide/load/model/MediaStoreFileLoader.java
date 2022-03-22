@@ -22,13 +22,13 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Factory implements ModelLoaderFactory<Uri, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -68,7 +68,7 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FilePathFetcher implements DataFetcher<File> {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] PROJECTION;
@@ -99,9 +99,9 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, uri};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -169,9 +169,9 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -182,10 +182,10 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<File> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<File> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(uri), new FilePathFetcher(this.context, uri)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(uri), new FilePathFetcher(this.context, uri)) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

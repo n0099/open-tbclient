@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import c.a.r0.x2.d.c;
+import c.a.p0.z2.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,19 +16,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterSmartAppPageView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<c> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public List<c> f45671e;
+    /* renamed from: b  reason: collision with root package name */
+    public List<PersonCenterSmartAppItemView> f35387b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public List<PersonCenterSmartAppItemView> f45672f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f45673g;
+    /* renamed from: c  reason: collision with root package name */
+    public int f35388c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppPageView(Context context) {
@@ -39,9 +37,9 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,29 +49,29 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
         }
     }
 
-    public void addSmartApp(c cVar) {
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f45671e.size() == this.f45673g) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.a.size() == this.f35388c) {
             return;
         }
-        this.f45671e.add(cVar);
-        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f45672f, this.f45671e.size() - 1);
-        personCenterSmartAppItemView.bindData(cVar);
+        this.a.add(cVar);
+        PersonCenterSmartAppItemView personCenterSmartAppItemView = (PersonCenterSmartAppItemView) ListUtils.getItem(this.f35387b, this.a.size() - 1);
+        personCenterSmartAppItemView.a(cVar);
         personCenterSmartAppItemView.setVisibility(0);
     }
 
-    public boolean isCanAddMoreSmartApp() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45671e.size() < this.f45673g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.size() < this.f35388c : invokeV.booleanValue;
     }
 
-    public void onChangeSkinType() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f45672f) {
+            for (PersonCenterSmartAppItemView personCenterSmartAppItemView : this.f35387b) {
                 if (personCenterSmartAppItemView != null) {
-                    personCenterSmartAppItemView.onChangeSkinType();
+                    personCenterSmartAppItemView.c();
                 }
             }
         }
@@ -88,9 +86,9 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -101,17 +99,17 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PersonCenterSmartAppPageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -119,20 +117,20 @@ public class PersonCenterSmartAppPageView extends LinearLayout {
                 return;
             }
         }
-        this.f45673g = 4;
+        this.f35388c = 4;
         ViewGroup.LayoutParams layoutParams = new ViewPager.LayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         setLayoutParams(layoutParams);
         setOrientation(0);
-        this.f45671e = new ArrayList();
-        this.f45672f = new ArrayList();
-        for (int i5 = 0; i5 < this.f45673g; i5++) {
+        this.a = new ArrayList();
+        this.f35387b = new ArrayList();
+        for (int i4 = 0; i4 < this.f35388c; i4++) {
             PersonCenterSmartAppItemView personCenterSmartAppItemView = new PersonCenterSmartAppItemView(getContext());
             addView(personCenterSmartAppItemView, new LinearLayout.LayoutParams(0, -1, 1.0f));
             personCenterSmartAppItemView.setVisibility(4);
-            this.f45672f.add(personCenterSmartAppItemView);
+            this.f35387b.add(personCenterSmartAppItemView);
         }
-        onChangeSkinType();
+        c();
     }
 }

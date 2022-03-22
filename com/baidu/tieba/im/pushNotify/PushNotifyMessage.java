@@ -28,9 +28,9 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,9 +41,9 @@ public class PushNotifyMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
         }
     }
 
@@ -103,38 +103,38 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setGroupType(int i2) {
+    public void setGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.groupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.groupType = i;
         }
     }
 
-    public void setNewestMsgId(long j2) {
+    public void setNewestMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.newestMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.newestMsgId = j;
         }
     }
 
-    public void setPushTime(long j2) {
+    public void setPushTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.pushTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.pushTime = j;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.type = i;
         }
     }
 }

@@ -52,9 +52,9 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentIntersectionFinder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -71,19 +71,19 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, track, movie)) == null) {
             long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
             long[] jArr = new long[sampleNumbers.length];
-            int i2 = 0;
-            int i3 = 1;
-            for (long j2 : track.getSampleDurations()) {
-                int i4 = i3 + 1;
-                while (i3 < i4) {
-                    if (i2 != sampleNumbers.length - 1) {
-                        int i5 = i2 + 1;
-                        if (i3 == sampleNumbers[i5]) {
-                            i2 = i5;
+            int i = 0;
+            int i2 = 1;
+            for (long j : track.getSampleDurations()) {
+                int i3 = i2 + 1;
+                while (i2 < i3) {
+                    if (i != sampleNumbers.length - 1) {
+                        int i4 = i + 1;
+                        if (i2 == sampleNumbers[i4]) {
+                            i = i4;
                         }
                     }
-                    jArr[i2] = jArr[i2] + j2;
-                    i3++;
+                    jArr[i] = jArr[i] + j;
+                    i2++;
                 }
             }
             return jArr;
@@ -104,15 +104,15 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
                     StringBuilder sb = new StringBuilder(String.valueOf("" + jArr.length));
                     sb.append("Reference     :  [");
                     String sb2 = sb.toString();
-                    for (long j2 : jArr) {
-                        sb2 = String.valueOf(sb2) + String.format("%10d,", Long.valueOf(j2));
+                    for (long j : jArr) {
+                        sb2 = String.valueOf(sb2) + String.format("%10d,", Long.valueOf(j));
                     }
                     LOG.warning(String.valueOf(sb2) + PreferencesUtil.RIGHT_MOUNT);
                     StringBuilder sb3 = new StringBuilder(String.valueOf("" + jArr2.length));
                     sb3.append("Current       :  [");
                     String sb4 = sb3.toString();
-                    for (long j3 : jArr2) {
-                        sb4 = String.valueOf(sb4) + String.format("%10d,", Long.valueOf(j3));
+                    for (long j2 : jArr2) {
+                        sb4 = String.valueOf(sb4) + String.format("%10d,", Long.valueOf(j2));
                     }
                     LOG.warning(String.valueOf(sb4) + PreferencesUtil.RIGHT_MOUNT);
                     throw new IOException("Track does not have the same fragment borders as its predecessor.");
@@ -128,11 +128,11 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, track)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Sample sample : track.getSamples()) {
-                j2 += sample.getSize();
+                j += sample.getSize();
             }
-            return ((long) (j2 / (track.getDuration() / track.getTrackMetaData().getTimescale()))) * 8;
+            return ((long) (j / (track.getDuration() / track.getTrackMetaData().getTimescale()))) * 8;
         }
         return invokeL.longValue;
     }

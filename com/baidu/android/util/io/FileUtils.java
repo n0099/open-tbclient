@@ -69,19 +69,19 @@ public final class FileUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean cache(Context context, String str, String str2, int i2) {
+    public static boolean cache(Context context, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, str, str2, i2)) == null) ? cache(context, str, str2.getBytes(), i2) : invokeLLLI.booleanValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65538, null, context, str, str2, i)) == null) ? cache(context, str, str2.getBytes(), i) : invokeLLLI.booleanValue;
     }
 
     public static long copy(File file, File file2) {
@@ -90,7 +90,7 @@ public final class FileUtils {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, file2)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (file == null || file2 == null || !file.exists()) {
                 return 0L;
             }
@@ -114,7 +114,7 @@ public final class FileUtils {
                 fileOutputStream = null;
             }
             try {
-                j2 = copyStream(fileInputStream, fileOutputStream);
+                j = copyStream(fileInputStream, fileOutputStream);
                 Closeables.closeSafely(fileInputStream);
             } catch (Exception e4) {
                 e = e4;
@@ -123,7 +123,7 @@ public final class FileUtils {
                     e.printStackTrace();
                     Closeables.closeSafely(fileInputStream2);
                     Closeables.closeSafely(fileOutputStream);
-                    return j2;
+                    return j;
                 } catch (Throwable th3) {
                     th = th3;
                     Closeables.closeSafely(fileInputStream2);
@@ -138,7 +138,7 @@ public final class FileUtils {
                 throw th;
             }
             Closeables.closeSafely(fileOutputStream);
-            return j2;
+            return j;
         }
         return invokeLL.longValue;
     }
@@ -239,26 +239,26 @@ public final class FileUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? !TextUtils.isEmpty(str) && new File(str).exists() : invokeL.booleanValue;
     }
 
-    public static String generateFileSizeText(long j2) {
+    public static String generateFileSizeText(long j) {
         InterceptResult invokeJ;
         Float valueOf;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
+            if (j <= 0) {
                 return UNKNOW;
             }
-            if (j2 < 1024) {
-                return j2 + "B";
+            if (j < 1024) {
+                return j + "B";
             }
-            if (j2 < 1048576) {
-                valueOf = Float.valueOf(((float) j2) / 1024.0f);
+            if (j < 1048576) {
+                valueOf = Float.valueOf(((float) j) / 1024.0f);
                 str = "KB";
-            } else if (j2 < 1073741824) {
-                valueOf = Float.valueOf(((float) j2) / 1048576.0f);
+            } else if (j < 1073741824) {
+                valueOf = Float.valueOf(((float) j) / 1048576.0f);
                 str = "MB";
             } else {
-                valueOf = Float.valueOf(((float) j2) / 1.0737418E9f);
+                valueOf = Float.valueOf(((float) j) / 1.0737418E9f);
                 str = "GB";
             }
             DecimalFormat decimalFormat = new DecimalFormat("####.##");
@@ -309,16 +309,16 @@ public final class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
-            for (int i2 = 0; i2 < length2; i2++) {
-                if (listFiles[i2].isDirectory()) {
-                    length = getDirectorySize(listFiles[i2]);
+            long j = 0;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = getDirectorySize(listFiles[i]);
                 } else {
-                    length = listFiles[i2].length();
+                    length = listFiles[i].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -826,10 +826,10 @@ public final class FileUtils {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65588, null, str, str2, context)) == null) ? AssetUtils.unzipFileFromAsset(str, str2, context) : invokeLLL.booleanValue;
     }
 
-    public static boolean cache(Context context, String str, byte[] bArr, int i2) {
+    public static boolean cache(Context context, String str, byte[] bArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, context, str, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, context, str, bArr, i)) == null) {
             boolean z = false;
             if (bArr == null) {
                 bArr = new byte[0];
@@ -839,7 +839,7 @@ public final class FileUtils {
                 try {
                     try {
                         try {
-                            fileOutputStream = context.openFileOutput(str, i2);
+                            fileOutputStream = context.openFileOutput(str, i);
                             fileOutputStream.write(bArr);
                             fileOutputStream.flush();
                             z = true;
@@ -975,16 +975,16 @@ public final class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j2 = 0;
-            for (int i2 = 0; i2 < length2; i2++) {
-                if (listFiles[i2].isDirectory()) {
-                    length = getDirectorySize(listFiles[i2]);
+            long j = 0;
+            for (int i = 0; i < length2; i++) {
+                if (listFiles[i].isDirectory()) {
+                    length = getDirectorySize(listFiles[i]);
                 } else {
-                    length = listFiles[i2].length();
+                    length = listFiles[i].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -1035,15 +1035,15 @@ public final class FileUtils {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[3072];
-                    long j2 = 0;
+                    long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j2 += read;
+                            j += read;
                         } else {
                             outputStream.flush();
-                            return j2;
+                            return j;
                         }
                     }
                 } catch (IOException e2) {

@@ -21,19 +21,19 @@ public class SpeedMonitorPlugin extends AbsPlugin {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private void addPlaySpeedRecord(long j2, String str, String str2) {
+    private void addPlaySpeedRecord(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            PlayPerRecord.putRecord(new PlayPerRecord.PerRecord(j2, System.currentTimeMillis(), str, str2));
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            PlayPerRecord.putRecord(new PlayPerRecord.PerRecord(j, System.currentTimeMillis(), str, str2));
         }
     }
 

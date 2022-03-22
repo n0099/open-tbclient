@@ -23,7 +23,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -61,15 +61,16 @@ public class MarkData implements Serializable {
     public OriginalThreadInfo originalThreadInfo;
     public String pic_url;
     public String portrait;
+    public int threadType;
 
     public MarkData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -231,87 +232,93 @@ public class MarkData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mThreadId : (String) invokeV.objValue;
     }
 
+    public int getThreadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.threadType : invokeV.intValue;
+    }
+
     public long getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mTime : invokeV.longValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mTitle : (String) invokeV.objValue;
     }
 
     public String getUesrId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? String.valueOf(this.mUesrId) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? String.valueOf(this.mUesrId) : (String) invokeV.objValue;
     }
 
     public String getmState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mState : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mState : (String) invokeV.objValue;
     }
 
     public boolean isApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.isApp : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.isApp : invokeV.booleanValue;
     }
 
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.is_god == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.is_god == 1 : invokeV.booleanValue;
     }
 
     public boolean isLikeInPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.isLikeInPage : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.isLikeInPage : invokeV.booleanValue;
     }
 
     public boolean isManga() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.isManga : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.isManga : invokeV.booleanValue;
     }
 
     public boolean isPhotoLiveThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mIsPhotoLiveThread : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mIsPhotoLiveThread : invokeV.booleanValue;
     }
 
     public boolean isRedTipShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.isRedTipShow : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.isRedTipShow : invokeV.booleanValue;
     }
 
     public boolean isShareThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.isShareThread : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.isShareThread : invokeV.booleanValue;
     }
 
     public boolean is_deleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.is_deleted == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.is_deleted == 1 : invokeV.booleanValue;
     }
 
     public boolean is_follow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.is_follow == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.is_follow == 1 : invokeV.booleanValue;
     }
 
     public void paserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, jSONObject) == null) {
             try {
                 this.mThreadId = jSONObject.optString("thread_id");
                 this.mPostId = jSONObject.optString("mark_pid");
@@ -331,8 +338,10 @@ public class MarkData implements Serializable {
                     this.originalThreadInfo = originalThreadInfo;
                     originalThreadInfo.p(optJSONObject);
                 }
-                this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
-                int optInt = jSONObject.optInt("mark_status");
+                int optInt = jSONObject.optInt("thread_type");
+                this.threadType = optInt;
+                this.mIsPhotoLiveThread = "33".equals(String.valueOf(optInt));
+                int optInt2 = jSONObject.optInt("mark_status");
                 JSONArray optJSONArray = jSONObject.optJSONArray(VodClient.PATH_MEDIA);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     String optString = optJSONArray.getJSONObject(0).optString("type");
@@ -372,17 +381,17 @@ public class MarkData implements Serializable {
                     this.cartoonId = optJSONObject3.optLong("cartoon_id");
                     this.chapterId = optJSONObject3.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
                 }
-                if (optInt == 0) {
+                if (optInt2 == 0) {
                     this.mSequence = true;
                     this.mHostMode = false;
                     return;
                 }
-                if ((optInt & 1) != 0) {
+                if ((optInt2 & 1) != 0) {
                     this.mSequence = true;
                 } else {
                     this.mSequence = false;
                 }
-                if ((optInt & 2) != 0) {
+                if ((optInt2 & 2) != 0) {
                     this.mHostMode = true;
                 } else {
                     this.mHostMode = false;
@@ -395,182 +404,189 @@ public class MarkData implements Serializable {
 
     public void setAccount(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.mAccount = str;
         }
     }
 
     public void setApp(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
             this.isApp = z;
         }
     }
 
     public void setAuthorName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
             this.mAuthorName = str;
         }
     }
 
-    public void setCartoonId(long j2) {
+    public void setCartoonId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048614, this, j2) == null) {
-            this.cartoonId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.cartoonId = j;
         }
     }
 
-    public void setChapterId(int i2) {
+    public void setChapterId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.chapterId = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.chapterId = i;
         }
     }
 
-    public void setFloor(int i2) {
+    public void setFloor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.mFloor = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mFloor = i;
         }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.mForumId = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.mForumName = str;
         }
     }
 
     public void setHostMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048619, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
             this.mHostMode = z;
         }
     }
 
     public void setId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
             this.mId = str;
         }
     }
 
-    public void setIs_god(int i2) {
+    public void setIs_god(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.is_god = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.is_god = i;
         }
     }
 
     public void setLikeInPage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
             this.isLikeInPage = z;
         }
     }
 
     public void setManga(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
             this.isManga = z;
         }
     }
 
     public void setMetaData(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048625, this, metaData) == null) {
             this.metaData = metaData;
         }
     }
 
-    public void setNewCounts(int i2) {
+    public void setNewCounts(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            this.mNewCounts = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.mNewCounts = i;
         }
     }
 
     public void setPic_url(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
             this.pic_url = str;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
             this.portrait = str;
         }
     }
 
     public void setPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
             this.mPostId = str;
         }
     }
 
     public void setRedTipShow(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
             this.isRedTipShow = z;
         }
     }
 
-    public void setReplyNum(int i2) {
+    public void setReplyNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.mReplyNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.mReplyNum = i;
         }
     }
 
     public void setSequence(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, bool) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, bool) == null) {
             this.mSequence = bool.booleanValue();
         }
     }
 
-    public void setSubPost(int i2) {
+    public void setSubPost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.mSubPost = i2;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            this.mSubPost = i;
         }
     }
 
     public void setThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
             this.mThreadId = str;
         }
     }
 
-    public void setTime(long j2) {
+    public void setThreadType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
-            this.mTime = j2;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            this.threadType = i;
+        }
+    }
+
+    public void setTime(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
+            this.mTime = j;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
             this.mTitle = str;
         }
     }
 
     public void setmState(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
             this.mState = str;
         }
     }
@@ -578,16 +594,16 @@ public class MarkData implements Serializable {
     public JSONObject toJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("tid", this.mThreadId);
                 jSONObject.put("pid", this.mPostId);
-                int i2 = this.mSequence ? 1 : 4;
+                int i = this.mSequence ? 1 : 4;
                 if (this.mHostMode) {
-                    i2 += 2;
+                    i += 2;
                 }
-                jSONObject.put("status", i2);
+                jSONObject.put("status", i);
                 return jSONObject;
             } catch (Exception e2) {
                 BdLog.detailException(e2);

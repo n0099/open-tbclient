@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PsshAtomUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PsshAtomUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PsshAtom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -23,23 +24,23 @@ public final class PsshAtomUtil {
         public final UUID uuid;
         public final int version;
 
-        public PsshAtom(UUID uuid, int i2, byte[] bArr) {
+        public PsshAtom(UUID uuid, int i, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uuid, Integer.valueOf(i2), bArr};
+                Object[] objArr = {uuid, Integer.valueOf(i), bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.uuid = uuid;
-            this.version = i2;
+            this.version = i;
             this.schemeData = bArr;
         }
     }
@@ -49,9 +50,9 @@ public final class PsshAtomUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -76,7 +77,7 @@ public final class PsshAtomUtil {
             if (parsableByteArray.readInt() == parsableByteArray.bytesLeft() + 4 && parsableByteArray.readInt() == Atom.TYPE_pssh) {
                 int parseFullAtomVersion = Atom.parseFullAtomVersion(parsableByteArray.readInt());
                 if (parseFullAtomVersion > 1) {
-                    String str = "Unsupported pssh version: " + parseFullAtomVersion;
+                    Log.w(TAG, "Unsupported pssh version: " + parseFullAtomVersion);
                     return null;
                 }
                 UUID uuid = new UUID(parsableByteArray.readLong(), parsableByteArray.readLong());
@@ -107,7 +108,7 @@ public final class PsshAtomUtil {
             if (uuid == null || uuid.equals(parsePsshAtom.uuid)) {
                 return parsePsshAtom.schemeData;
             }
-            String str = "UUID mismatch. Expected: " + uuid + ", got: " + parsePsshAtom.uuid + ".";
+            Log.w(TAG, "UUID mismatch. Expected: " + uuid + ", got: " + parsePsshAtom.uuid + ".");
             return null;
         }
         return (byte[]) invokeLL.objValue;
@@ -145,12 +146,12 @@ public final class PsshAtomUtil {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, uuid, uuidArr, bArr)) == null) {
             boolean z = uuidArr != null;
             int length = bArr != null ? bArr.length : 0;
-            int i2 = length + 32;
+            int i = length + 32;
             if (z) {
-                i2 += (uuidArr.length * 16) + 4;
+                i += (uuidArr.length * 16) + 4;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(i2);
-            allocate.putInt(i2);
+            ByteBuffer allocate = ByteBuffer.allocate(i);
+            allocate.putInt(i);
             allocate.putInt(Atom.TYPE_pssh);
             allocate.putInt(z ? 16777216 : 0);
             allocate.putLong(uuid.getMostSignificantBits());

@@ -26,29 +26,29 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static BlockingQueue<Runnable> f975a = null;
+    public static BlockingQueue<Runnable> f951a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f976a = null;
+    public static ThreadPoolExecutor f952a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f977a = false;
+    public static boolean f953a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f60027b = 1;
+    public static int f44590b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f60028c = 2;
+    public static int f44591c = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f978b;
+    public boolean f954b;
 
     static {
         InterceptResult invokeClinit;
@@ -63,9 +63,9 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f975a = new LinkedBlockingQueue();
-        f976a = new ThreadPoolExecutor(a, f60027b, f60028c, TimeUnit.SECONDS, f975a);
-        f977a = false;
+        f951a = new LinkedBlockingQueue();
+        f952a = new ThreadPoolExecutor(a, f44590b, f44591c, TimeUnit.SECONDS, f951a);
+        f953a = false;
     }
 
     public NetworkStatusReceiver() {
@@ -73,16 +73,16 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f978b = false;
-        this.f978b = true;
+        this.f954b = false;
+        this.f954b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
@@ -92,23 +92,23 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f978b = false;
-        f977a = true;
+        this.f954b = false;
+        f953a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m167a() && b.m174a(context).m183c() && !b.m174a(context).m186f()) {
+            if (!an.a(context).m146a() && b.m153a(context).m162c() && !b.m153a(context).m165f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -118,27 +118,27 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
             }
-            gq.m422a(context);
-            if (bg.b(context) && an.a(context).m170b()) {
-                an.a(context).m171c();
+            gq.m401a(context);
+            if (bg.b(context) && an.a(context).m149b()) {
+                an.a(context).m150c();
             }
             if (bg.b(context)) {
                 if ("syncing".equals(ae.a(context).a(at.a))) {
                     MiPushClient.disablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f59448b))) {
+                if ("syncing".equals(ae.a(context).a(at.f44067b))) {
                     MiPushClient.enablePush(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f59449c))) {
+                if ("syncing".equals(ae.a(context).a(at.f44068c))) {
                     MiPushClient.syncAssemblePushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f59450d))) {
+                if ("syncing".equals(ae.a(context).a(at.f44069d))) {
                     MiPushClient.syncAssembleFCMPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f59451e))) {
+                if ("syncing".equals(ae.a(context).a(at.f44070e))) {
                     MiPushClient.syncAssembleCOSPushToken(context);
                 }
-                if ("syncing".equals(ae.a(context).a(at.f59452f))) {
+                if ("syncing".equals(ae.a(context).a(at.f44071f))) {
                     MiPushClient.syncAssembleFTOSPushToken(context);
                 }
                 if (HWPushHelper.needConnect() && HWPushHelper.shouldTryConnect(context)) {
@@ -154,15 +154,15 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f977a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f953a : invokeV.booleanValue;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.f978b) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.f954b) {
             return;
         }
-        f976a.execute(new a(this, context));
+        f952a.execute(new a(this, context));
     }
 }

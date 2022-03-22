@@ -19,24 +19,24 @@ public class FAUImage {
     public float timestamp;
     public int width;
 
-    public FAUImage(ByteBuffer byteBuffer, int i2, int i3, int i4) {
+    public FAUImage(ByteBuffer byteBuffer, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
-        this.format = i4;
+        this.width = i;
+        this.height = i2;
+        this.format = i3;
         this.rotation = 0;
         this.flip = 0;
         this.scale = 1.0f;
@@ -51,17 +51,17 @@ public class FAUImage {
         }
     }
 
-    public void setFormat(int i2) {
+    public void setFormat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.format = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.format = i;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -72,10 +72,10 @@ public class FAUImage {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.width = i;
         }
     }
 }

@@ -20,17 +20,17 @@ public abstract class cd {
     public static int a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f35223b = 64;
+    public static int f27356b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f35224c;
+    public static final byte[] f27357c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f35225d;
+    public by.b f27358d;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f35226e;
+    public cq.a f27359e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -39,13 +39,13 @@ public abstract class cd {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f35227b;
+        public static final a f27360b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f35228c;
+        public static final a f27361c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ a[] f35229d;
+        public static final /* synthetic */ a[] f27362d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,22 +62,22 @@ public abstract class cd {
                 }
             }
             a = new a("NONE", 0);
-            f35227b = new a("ONEWAY", 1);
+            f27360b = new a("ONEWAY", 1);
             a aVar = new a("TWOWAY", 2);
-            f35228c = aVar;
-            f35229d = new a[]{a, f35227b, aVar};
+            f27361c = aVar;
+            f27362d = new a[]{a, f27360b, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -96,7 +96,7 @@ public abstract class cd {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f35229d.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f27362d.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -107,10 +107,10 @@ public abstract class cd {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f35230b;
+        public static final b f27363b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f35231c;
+        public static final /* synthetic */ b[] f27364c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -128,20 +128,20 @@ public abstract class cd {
             }
             a = new b("MATCHED", 0);
             b bVar = new b("NOT_MATCHED", 1);
-            f35230b = bVar;
-            f35231c = new b[]{a, bVar};
+            f27363b = bVar;
+            f27364c = new b[]{a, bVar};
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -160,7 +160,7 @@ public abstract class cd {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f35231c.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27364c.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -177,7 +177,7 @@ public abstract class cd {
                 return;
             }
         }
-        f35224c = dc.a("<policy-file-request/>\u0000");
+        f27357c = dc.a("<policy-file-request/>\u0000");
     }
 
     public cd() {
@@ -185,16 +185,16 @@ public abstract class cd {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35225d = null;
-        this.f35226e = null;
+        this.f27358d = null;
+        this.f27359e = null;
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
@@ -251,7 +251,7 @@ public abstract class cd {
     public cx d(ByteBuffer byteBuffer) throws cj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f35225d) : (cx) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, byteBuffer)) == null) ? a(byteBuffer, this.f27358d) : (cx) invokeL.objValue;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -342,12 +342,12 @@ public abstract class cd {
         return (List) invokeLLZ.objValue;
     }
 
-    public int a(int i2) throws ck, ch {
+    public int a(int i) throws ck, ch {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= 0) {
-                return i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0) {
+                return i;
             }
             throw new ch(1002, "Negative count");
         }
@@ -357,7 +357,7 @@ public abstract class cd {
     public void a(by.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f35225d = bVar;
+            this.f27358d = bVar;
         }
     }
 }

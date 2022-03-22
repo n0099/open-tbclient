@@ -1,9 +1,10 @@
 package com.baidu.swan.apps.jsbridge;
 
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.p0.a.o1.c.f.b;
-import c.a.p0.a.x.f.a;
+import c.a.n0.a.o1.c.f.b;
+import c.a.n0.a.x.f.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppPreloadJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,7 +35,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = c.a.p0.a.a.a;
+        DEBUG = c.a.n0.a.a.a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {
@@ -44,9 +45,9 @@ public class SwanAppPreloadJsBridge {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -61,7 +62,9 @@ public class SwanAppPreloadJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.mJSContainer.onJSLoaded();
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "onJsLoaded");
+            }
             return b.f();
         }
         return (String) invokeV.objValue;

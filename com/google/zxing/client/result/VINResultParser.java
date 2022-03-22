@@ -41,23 +41,23 @@ public final class VINResultParser extends ResultParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static char checkChar(int i2) {
+    public static char checkChar(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 < 10) {
-                return (char) (i2 + 48);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 10) {
+                return (char) (i + 48);
             }
-            if (i2 == 10) {
+            if (i == 10) {
                 return 'X';
             }
             throw new IllegalArgumentException();
@@ -69,14 +69,14 @@ public final class VINResultParser extends ResultParser {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, charSequence)) == null) {
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < charSequence.length()) {
-                int i4 = i2 + 1;
-                i3 += vinPositionWeight(i4) * vinCharValue(charSequence.charAt(i2));
-                i2 = i4;
+            while (i < charSequence.length()) {
+                int i3 = i + 1;
+                i2 += vinPositionWeight(i3) * vinCharValue(charSequence.charAt(i));
+                i = i3;
             }
-            return charSequence.charAt(8) == checkChar(i3 % 11);
+            return charSequence.charAt(8) == checkChar(i2 % 11);
         }
         return invokeL.booleanValue;
     }
@@ -221,23 +221,23 @@ public final class VINResultParser extends ResultParser {
         return invokeCommon.intValue;
     }
 
-    public static int vinPositionWeight(int i2) {
+    public static int vinPositionWeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            if (i2 <= 0 || i2 > 7) {
-                if (i2 == 8) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            if (i <= 0 || i > 7) {
+                if (i == 8) {
                     return 10;
                 }
-                if (i2 == 9) {
+                if (i == 9) {
                     return 0;
                 }
-                if (i2 < 10 || i2 > 17) {
+                if (i < 10 || i > 17) {
                     throw new IllegalArgumentException();
                 }
-                return 19 - i2;
+                return 19 - i;
             }
-            return 9 - i2;
+            return 9 - i;
         }
         return invokeI.intValue;
     }

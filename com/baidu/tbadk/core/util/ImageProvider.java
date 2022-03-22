@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ImageProvider {
     ArrayList<String> getForumPhotoUrl();
 

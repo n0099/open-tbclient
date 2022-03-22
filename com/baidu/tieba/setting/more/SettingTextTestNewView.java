@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -38,11 +38,11 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 return;
             }
         }
-        hideArrow();
-        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
+        c();
+        h(0, 0, n.f(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
-    public void refresh() {
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = false;
@@ -52,18 +52,18 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                this.tipView.setText("new");
-                this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_text_prompt);
+                this.f30430e.setText("new");
+                this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ea : R.style.obfuscated_res_0x7f1003e9);
+                SkinManager.setBackgroundResource(this.f30430e, R.drawable.icon_news_text_prompt);
                 return;
             }
             String version = TbConfig.getVersion();
             if (TbConfig.getVersionType() == 1 && !m.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
-            this.tipView.setText(version);
-            this.tipView.setBackgroundDrawable(null);
-            this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.f30430e.setText(version);
+            this.f30430e.setBackgroundDrawable(null);
+            this.f30430e.setTextAppearance(this.a, z2 ? R.style.obfuscated_res_0x7f1003ec : R.style.obfuscated_res_0x7f1003eb);
         }
     }
 }

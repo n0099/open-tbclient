@@ -13,8 +13,8 @@ public class a implements com.kwad.sdk.plugin.a {
         com.kwad.sdk.core.d.a.c("AdPluginImpl", "初次获取Gid: initGId");
         KWEGIDDFP.instance().getEGidByCallback(context, false, new ResponseDfpCallback() { // from class: com.kwad.sdk.a.1
             @Override // com.yxcorp.kuaishou.addfp.ResponseDfpCallback
-            public void onFailed(int i2, String str) {
-                com.kwad.sdk.core.d.a.e("AdPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i2 + "errorMessage :" + str);
+            public void onFailed(int i, String str) {
+                com.kwad.sdk.core.d.a.e("AdPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i + "errorMessage :" + str);
             }
 
             @Override // com.yxcorp.kuaishou.addfp.ResponseDfpCallback

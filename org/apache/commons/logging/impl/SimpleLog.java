@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.util.Properties;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SimpleLog implements Log, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DATE_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss:SSS zzz";
@@ -59,9 +59,9 @@ public class SimpleLog implements Log, Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -151,10 +151,10 @@ public class SimpleLog implements Log, Serializable {
         return invokeV.booleanValue;
     }
 
-    public boolean isLevelEnabled(int i2) {
+    public boolean isLevelEnabled(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;
@@ -180,16 +180,16 @@ public class SimpleLog implements Log, Serializable {
         return invokeV.booleanValue;
     }
 
-    public void log(int i2, Object obj, Throwable th) {
+    public void log(int i, Object obj, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048592, this, i2, obj, th) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048592, this, i, obj, th) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void setLevel(int i2) {
+    public void setLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -34,9 +34,9 @@ public final class ObservableFromArray<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, tArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,11 +82,11 @@ public final class ObservableFromArray<T> extends Observable<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                int i2 = this.index;
+                int i = this.index;
                 T[] tArr = this.array;
-                if (i2 != tArr.length) {
-                    this.index = i2 + 1;
-                    return (T) ObjectHelper.requireNonNull(tArr[i2], "The array element is null");
+                if (i != tArr.length) {
+                    this.index = i + 1;
+                    return (T) ObjectHelper.requireNonNull(tArr[i], "The array element is null");
                 }
                 return null;
             }
@@ -94,11 +94,11 @@ public final class ObservableFromArray<T> extends Observable<T> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                if ((i2 & 1) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                if ((i & 1) != 0) {
                     this.fusionMode = true;
                     return 1;
                 }
@@ -112,11 +112,11 @@ public final class ObservableFromArray<T> extends Observable<T> {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 T[] tArr = this.array;
                 int length = tArr.length;
-                for (int i2 = 0; i2 < length && !isDisposed(); i2++) {
-                    T t = tArr[i2];
+                for (int i = 0; i < length && !isDisposed(); i++) {
+                    T t = tArr[i];
                     if (t == null) {
                         Observer<? super T> observer = this.actual;
-                        observer.onError(new NullPointerException("The " + i2 + "th element is null"));
+                        observer.onError(new NullPointerException("The " + i + "th element is null"));
                         return;
                     }
                     this.actual.onNext(t);
@@ -136,9 +136,9 @@ public final class ObservableFromArray<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -44,9 +44,9 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -70,9 +70,9 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {valueCallback};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -118,9 +118,9 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -189,7 +189,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f51369b;
+                        public final /* synthetic */ String f37827b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -198,23 +198,23 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {str, str2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.a = str;
-                            this.f51369b = str2;
+                            this.f37827b = str2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f51369b);
+                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f37827b);
                             }
                         }
                     });
@@ -230,12 +230,12 @@ public abstract class ApisInteractWithMario implements INoProGuard {
         }
     }
 
-    public static void setMessageChannalFunctoinTable(long j2) {
+    public static void setMessageChannalFunctoinTable(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65543, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
             if (!WebViewFactory.hasProvider()) {
                 synchronized (mPenddingOps) {
-                    mPenddingOps.add(new Runnable(j2) { // from class: com.baidu.webkit.internal.ApisInteractWithMario.1
+                    mPenddingOps.add(new Runnable(j) { // from class: com.baidu.webkit.internal.ApisInteractWithMario.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ long a;
@@ -245,17 +245,17 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {Long.valueOf(j2)};
+                                Object[] objArr = {Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
-                            this.a = j2;
+                            this.a = j;
                         }
 
                         @Override // java.lang.Runnable
@@ -271,7 +271,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
             }
             ApisInteractWithMario impl = getImpl();
             if (impl != null) {
-                impl.setMessageChannalFunctoinTableImpl(j2);
+                impl.setMessageChannalFunctoinTableImpl(j);
             } else {
                 Log.e(TAG, "Not implemented!");
             }
@@ -284,5 +284,5 @@ public abstract class ApisInteractWithMario implements INoProGuard {
 
     public abstract void setCrashKeyValueImpl(String str, String str2);
 
-    public abstract void setMessageChannalFunctoinTableImpl(long j2);
+    public abstract void setMessageChannalFunctoinTableImpl(long j);
 }

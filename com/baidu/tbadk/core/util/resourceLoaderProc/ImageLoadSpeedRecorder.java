@@ -52,9 +52,9 @@ public class ImageLoadSpeedRecorder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -78,25 +78,25 @@ public class ImageLoadSpeedRecorder {
         return (ImageLoadSpeedRecorder) invokeV.objValue;
     }
 
-    public synchronized void addSpeedRecordItem(int i2, long j2) {
+    public synchronized void addSpeedRecordItem(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             synchronized (this) {
                 LoadSpeedRecordItem loadSpeedRecordItem = new LoadSpeedRecordItem(this, null);
-                loadSpeedRecordItem.downloadSize = i2;
-                loadSpeedRecordItem.timeCosts = j2;
+                loadSpeedRecordItem.downloadSize = i;
+                loadSpeedRecordItem.timeCosts = j;
                 this.mSpeedRecordQueue.offer(loadSpeedRecordItem);
                 if (this.mSpeedRecordQueue.size() > 5) {
                     this.mSpeedRecordQueue.poll();
                 }
                 if (speedRedordAvilable()) {
-                    int i3 = 0;
+                    int i2 = 0;
                     for (LoadSpeedRecordItem loadSpeedRecordItem2 : this.mSpeedRecordQueue) {
-                        if (j2 > 0) {
-                            i3 = (int) (i3 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
+                        if (j > 0) {
+                            i2 = (int) (i2 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
                         }
                     }
-                    this.mAverageSpeed = i3 / 5;
+                    this.mAverageSpeed = i2 / 5;
                 }
             }
         }
@@ -144,9 +144,9 @@ public class ImageLoadSpeedRecorder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageLoadSpeedRecorder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

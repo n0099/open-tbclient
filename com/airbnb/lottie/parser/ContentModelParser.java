@@ -5,13 +5,14 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.content.ContentModel;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.kuaishou.weapon.un.x;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class ContentModelParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("ty", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(Config.EXCEPTION_CRASH_CHANNEL, "d");
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
@@ -26,7 +27,7 @@ public class ContentModelParser {
         String str;
         jsonReader.beginObject();
         char c2 = 2;
-        int i2 = 2;
+        int i = 2;
         while (true) {
             contentModel = null;
             if (!jsonReader.hasNext()) {
@@ -41,7 +42,7 @@ public class ContentModelParser {
                 jsonReader.skipName();
                 jsonReader.skipValue();
             } else {
-                i2 = jsonReader.nextInt();
+                i = jsonReader.nextInt();
             }
         }
         if (str == null) {
@@ -161,7 +162,7 @@ public class ContentModelParser {
                 contentModel = ShapePathParser.parse(jsonReader, lottieComposition);
                 break;
             case 7:
-                contentModel = CircleShapeParser.parse(jsonReader, lottieComposition, i2);
+                contentModel = CircleShapeParser.parse(jsonReader, lottieComposition, i);
                 break;
             case '\b':
                 contentModel = RectangleShapeParser.parse(jsonReader, lottieComposition);

@@ -18,19 +18,19 @@ public class BundleInfoGroupManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
+    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -38,7 +38,7 @@ public class BundleInfoGroupManager {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j2);
+                    bundleInfoGroup = new BundleInfoGroup(j);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);

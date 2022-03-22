@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -79,16 +80,16 @@ public final class MenuItemImpl implements SupportMenuItem {
     public CharSequence mTitleCondensed;
     public CharSequence mTooltipText;
 
-    public MenuItemImpl(MenuBuilder menuBuilder, int i2, int i3, int i4, int i5, CharSequence charSequence, int i6) {
+    public MenuItemImpl(MenuBuilder menuBuilder, int i, int i2, int i3, int i4, CharSequence charSequence, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {menuBuilder, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), charSequence, Integer.valueOf(i6)};
+            Object[] objArr = {menuBuilder, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), charSequence, Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,17 +107,17 @@ public final class MenuItemImpl implements SupportMenuItem {
         this.mShowAsAction = 0;
         this.mIsActionViewExpanded = false;
         this.mMenu = menuBuilder;
-        this.mId = i3;
-        this.mGroup = i2;
-        this.mCategoryOrder = i4;
-        this.mOrdering = i5;
+        this.mId = i2;
+        this.mGroup = i;
+        this.mCategoryOrder = i3;
+        this.mOrdering = i4;
         this.mTitle = charSequence;
-        this.mShowAsAction = i6;
+        this.mShowAsAction = i5;
     }
 
-    public static void appendModifier(StringBuilder sb, int i2, int i3, String str) {
+    public static void appendModifier(StringBuilder sb, int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) && (i2 & i3) == i3) {
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (i & i2) == i2) {
             sb.append(str);
         }
     }
@@ -350,13 +351,13 @@ public final class MenuItemImpl implements SupportMenuItem {
             if (ViewConfiguration.get(this.mMenu.getContext()).hasPermanentMenuKey()) {
                 sb.append(resources.getString(R$string.abc_prepend_shortcut_label));
             }
-            int i2 = this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticModifiers : this.mShortcutNumericModifiers;
-            appendModifier(sb, i2, 65536, resources.getString(R$string.abc_menu_meta_shortcut_label));
-            appendModifier(sb, i2, 4096, resources.getString(R$string.abc_menu_ctrl_shortcut_label));
-            appendModifier(sb, i2, 2, resources.getString(R$string.abc_menu_alt_shortcut_label));
-            appendModifier(sb, i2, 1, resources.getString(R$string.abc_menu_shift_shortcut_label));
-            appendModifier(sb, i2, 4, resources.getString(R$string.abc_menu_sym_shortcut_label));
-            appendModifier(sb, i2, 8, resources.getString(R$string.abc_menu_function_shortcut_label));
+            int i = this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticModifiers : this.mShortcutNumericModifiers;
+            appendModifier(sb, i, 65536, resources.getString(R$string.abc_menu_meta_shortcut_label));
+            appendModifier(sb, i, 4096, resources.getString(R$string.abc_menu_ctrl_shortcut_label));
+            appendModifier(sb, i, 2, resources.getString(R$string.abc_menu_alt_shortcut_label));
+            appendModifier(sb, i, 1, resources.getString(R$string.abc_menu_shift_shortcut_label));
+            appendModifier(sb, i, 4, resources.getString(R$string.abc_menu_sym_shortcut_label));
+            appendModifier(sb, i, 8, resources.getString(R$string.abc_menu_function_shortcut_label));
             if (shortcut == '\b') {
                 sb.append(resources.getString(R$string.abc_menu_delete_shortcut_label));
             } else if (shortcut == '\n') {
@@ -468,7 +469,8 @@ public final class MenuItemImpl implements SupportMenuItem {
                     try {
                         this.mMenu.getContext().startActivity(this.mIntent);
                         return true;
-                    } catch (ActivityNotFoundException unused) {
+                    } catch (ActivityNotFoundException e2) {
+                        Log.e(TAG, "Can't find activity to handle intent; ignoring", e2);
                     }
                 }
                 ActionProvider actionProvider = this.mActionProvider;
@@ -598,10 +600,10 @@ public final class MenuItemImpl implements SupportMenuItem {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048626, this, z)) == null) {
-            int i2 = this.mFlags;
-            int i3 = (z ? 1 : 0) | (i2 & (-2));
-            this.mFlags = i3;
-            if (i2 != i3) {
+            int i = this.mFlags;
+            int i2 = (z ? 1 : 0) | (i & (-2));
+            this.mFlags = i2;
+            if (i != i2) {
                 this.mMenu.onItemsChanged(false);
             }
             return this;
@@ -627,10 +629,10 @@ public final class MenuItemImpl implements SupportMenuItem {
     public void setCheckedInt(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
-            int i2 = this.mFlags;
-            int i3 = (z ? 2 : 0) | (i2 & (-3));
-            this.mFlags = i3;
-            if (i2 != i3) {
+            int i = this.mFlags;
+            int i2 = (z ? 2 : 0) | (i & (-3));
+            this.mFlags = i2;
+            if (i != i2) {
                 this.mMenu.onItemsChanged(false);
             }
         }
@@ -781,14 +783,14 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public void setShowAsAction(int i2) {
+    public void setShowAsAction(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
-            int i3 = i2 & 3;
-            if (i3 != 0 && i3 != 1 && i3 != 2) {
+        if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
+            int i2 = i & 3;
+            if (i2 != 0 && i2 != 1 && i2 != 2) {
                 throw new IllegalArgumentException("SHOW_AS_ACTION_ALWAYS, SHOW_AS_ACTION_IF_ROOM, and SHOW_AS_ACTION_NEVER are mutually exclusive.");
             }
-            this.mShowAsAction = i2;
+            this.mShowAsAction = i;
             this.mMenu.onItemActionRequestChanged(this);
         }
     }
@@ -827,9 +829,9 @@ public final class MenuItemImpl implements SupportMenuItem {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -898,10 +900,10 @@ public final class MenuItemImpl implements SupportMenuItem {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048657, this, z)) == null) {
-            int i2 = this.mFlags;
-            int i3 = (z ? 0 : 8) | (i2 & (-9));
-            this.mFlags = i3;
-            return i2 != i3;
+            int i = this.mFlags;
+            int i2 = (z ? 0 : 8) | (i & (-9));
+            this.mFlags = i2;
+            return i != i2;
         }
         return invokeZ.booleanValue;
     }
@@ -952,11 +954,11 @@ public final class MenuItemImpl implements SupportMenuItem {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setShowAsActionFlags(int i2) {
+    public SupportMenuItem setShowAsActionFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048648, this, i2)) == null) {
-            setShowAsAction(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048648, this, i)) == null) {
+            setShowAsAction(i);
             return this;
         }
         return (SupportMenuItem) invokeI.objValue;
@@ -979,13 +981,13 @@ public final class MenuItemImpl implements SupportMenuItem {
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(View view) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, view)) == null) {
             this.mActionView = view;
             this.mActionProvider = null;
-            if (view != null && view.getId() == -1 && (i2 = this.mId) > 0) {
-                view.setId(i2);
+            if (view != null && view.getId() == -1 && (i = this.mId) > 0) {
+                view.setId(i);
             }
             this.mMenu.onItemActionRequestChanged(this);
             return this;
@@ -994,14 +996,45 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i2) {
+    public MenuItem setAlphabeticShortcut(char c2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i2)})) == null) {
-            if (this.mShortcutAlphabeticChar == c2 && this.mShortcutAlphabeticModifiers == i2) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+            if (this.mShortcutAlphabeticChar == c2 && this.mShortcutAlphabeticModifiers == i) {
                 return this;
             }
             this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
+            this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
+            this.mMenu.onItemsChanged(false);
+            return this;
+        }
+        return (MenuItem) invokeCommon.objValue;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setNumericShortcut(char c2, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+            if (this.mShortcutNumericChar == c2 && this.mShortcutNumericModifiers == i) {
+                return this;
+            }
+            this.mShortcutNumericChar = c2;
+            this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+            this.mMenu.onItemsChanged(false);
+            return this;
+        }
+        return (MenuItem) invokeCommon.objValue;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048645, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.mShortcutNumericChar = c2;
+            this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+            this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
             this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
             this.mMenu.onItemsChanged(false);
             return this;
@@ -1009,44 +1042,13 @@ public final class MenuItemImpl implements SupportMenuItem {
         return (MenuItem) invokeCommon.objValue;
     }
 
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i2)})) == null) {
-            if (this.mShortcutNumericChar == c2 && this.mShortcutNumericModifiers == i2) {
-                return this;
-            }
-            this.mShortcutNumericChar = c2;
-            this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
-            this.mMenu.onItemsChanged(false);
-            return this;
-        }
-        return (MenuItem) invokeCommon.objValue;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048645, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            this.mShortcutNumericChar = c2;
-            this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
-            this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
-            this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i3);
-            this.mMenu.onItemsChanged(false);
-            return this;
-        }
-        return (MenuItem) invokeCommon.objValue;
-    }
-
     @Override // android.view.MenuItem
-    public MenuItem setIcon(int i2) {
+    public MenuItem setIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i)) == null) {
             this.mIconDrawable = null;
-            this.mIconResId = i2;
+            this.mIconResId = i;
             this.mNeedToApplyIconTint = true;
             this.mMenu.onItemsChanged(false);
             return this;
@@ -1055,20 +1057,20 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setTitle(int i2) {
+    public MenuItem setTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048651, this, i2)) == null) ? setTitle(this.mMenu.getContext().getString(i2)) : (MenuItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048651, this, i)) == null) ? setTitle(this.mMenu.getContext().getString(i)) : (MenuItem) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(int i2) {
+    public SupportMenuItem setActionView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
             Context context = this.mMenu.getContext();
-            setActionView(LayoutInflater.from(context).inflate(i2, (ViewGroup) new LinearLayout(context), false));
+            setActionView(LayoutInflater.from(context).inflate(i, (ViewGroup) new LinearLayout(context), false));
             return this;
         }
         return (SupportMenuItem) invokeI.objValue;

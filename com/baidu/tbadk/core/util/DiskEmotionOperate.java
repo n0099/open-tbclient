@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public DiskPicHeader mDiskPicHeader;
     public BitmapFactory.Options mOptions;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
@@ -52,9 +52,9 @@ public class DiskEmotionOperate extends DiskFileOperate {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -117,9 +117,9 @@ public class DiskEmotionOperate extends DiskFileOperate {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -160,8 +160,8 @@ public class DiskEmotionOperate extends DiskFileOperate {
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
             }
             boolean paserFromByte = this.mDiskPicHeader.paserFromByte(bArr);
-            long j2 = this.mDiskPicHeader.mValidTime;
-            if (j2 == 0 || j2 >= System.currentTimeMillis()) {
+            long j = this.mDiskPicHeader.mValidTime;
+            if (j == 0 || j >= System.currentTimeMillis()) {
                 int headerSize = DiskPicHeader.getHeaderSize();
                 if (!paserFromByte) {
                     headerSize = 0;
@@ -228,10 +228,10 @@ public class DiskEmotionOperate extends DiskFileOperate {
         }
     }
 
-    public void setValidTime(long j2) {
+    public void setValidTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mDiskPicHeader.mValidTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mDiskPicHeader.mValidTime = j;
         }
     }
 }

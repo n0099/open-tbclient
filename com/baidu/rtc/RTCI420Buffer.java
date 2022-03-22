@@ -47,9 +47,9 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {rTCI420Buffer, runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,52 +126,52 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
         }
     }
 
-    public RTCI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, Runnable runnable) {
+    public RTCI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), byteBuffer2, Integer.valueOf(i4), byteBuffer3, Integer.valueOf(i5), runnable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.dataY = byteBuffer;
         this.dataU = byteBuffer2;
         this.dataV = byteBuffer3;
-        this.strideY = i4;
-        this.strideU = i5;
-        this.strideV = i6;
+        this.strideY = i3;
+        this.strideU = i4;
+        this.strideV = i5;
         this.refCountDelegate = new RefCountDelegate(this, runnable);
     }
 
-    public static RTCI420Buffer allocate(int i2, int i3) {
+    public static RTCI420Buffer allocate(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            int i4 = (i3 + 1) / 2;
-            int i5 = (i2 + 1) / 2;
-            int i6 = i2 * i3;
-            int i7 = i6 + 0;
-            int i8 = i5 * i4;
-            int i9 = i7 + i8;
-            final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i6 + (i5 * 2 * i4));
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            int i3 = (i2 + 1) / 2;
+            int i4 = (i + 1) / 2;
+            int i5 = i * i2;
+            int i6 = i5 + 0;
+            int i7 = i4 * i3;
+            int i8 = i6 + i7;
+            final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i5 + (i4 * 2 * i3));
             nativeAllocateByteBuffer.position(0);
-            nativeAllocateByteBuffer.limit(i7);
+            nativeAllocateByteBuffer.limit(i6);
             ByteBuffer slice = nativeAllocateByteBuffer.slice();
-            nativeAllocateByteBuffer.position(i7);
-            nativeAllocateByteBuffer.limit(i9);
+            nativeAllocateByteBuffer.position(i6);
+            nativeAllocateByteBuffer.limit(i8);
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
-            nativeAllocateByteBuffer.position(i9);
-            nativeAllocateByteBuffer.limit(i9 + i8);
-            return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: c.a.j0.b
+            nativeAllocateByteBuffer.position(i8);
+            nativeAllocateByteBuffer.limit(i8 + i7);
+            return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: c.a.h0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,30 +187,30 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
         return (RTCI420Buffer) invokeII.objValue;
     }
 
-    public static void checkCapacity(ByteBuffer byteBuffer, int i2, int i3, int i4) {
-        int i5;
+    public static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
+        if (!(interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i, i2, i3) == null) || byteBuffer.capacity() >= (i4 = (i3 * (i2 - 1)) + i)) {
             return;
         }
-        throw new IllegalArgumentException("Buffer must be at least " + i5 + " bytes, but was " + byteBuffer.capacity());
+        throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
     }
 
-    public static RTCI420Buffer wrap(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, Runnable runnable) {
+    public static RTCI420Buffer wrap(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, Runnable runnable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), byteBuffer2, Integer.valueOf(i4), byteBuffer3, Integer.valueOf(i5), runnable})) == null) {
             if (byteBuffer != null && byteBuffer2 != null && byteBuffer3 != null) {
                 if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
                     ByteBuffer slice = byteBuffer.slice();
                     ByteBuffer slice2 = byteBuffer2.slice();
                     ByteBuffer slice3 = byteBuffer3.slice();
+                    int i6 = (i + 1) / 2;
                     int i7 = (i2 + 1) / 2;
-                    int i8 = (i3 + 1) / 2;
-                    checkCapacity(slice, i2, i3, i4);
-                    checkCapacity(slice2, i7, i8, i5);
-                    checkCapacity(slice3, i7, i8, i6);
-                    return new RTCI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
+                    checkCapacity(slice, i, i2, i3);
+                    checkCapacity(slice2, i6, i7, i4);
+                    checkCapacity(slice3, i6, i7, i5);
+                    return new RTCI420Buffer(i, i2, slice, i3, slice2, i4, slice3, i5, runnable);
                 }
                 throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
             }
@@ -220,13 +220,13 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             try {
                 if (mCropMethod != null) {
-                    return (VideoFrame.Buffer) mCropMethod.invoke(mCropClass, this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7));
+                    return (VideoFrame.Buffer) mCropMethod.invoke(mCropClass, this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
                 }
                 return null;
             } catch (IllegalAccessException e2) {

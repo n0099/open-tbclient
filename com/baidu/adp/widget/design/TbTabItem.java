@@ -14,15 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class TbTabItem extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CharSequence a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final CharSequence f30045e;
+    /* renamed from: b  reason: collision with root package name */
+    public final Drawable f24017b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final Drawable f30046f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final int f30047g;
+    /* renamed from: c  reason: collision with root package name */
+    public final int f24018c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbTabItem(Context context) {
@@ -33,9 +31,9 @@ public final class TbTabItem extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -55,9 +53,9 @@ public final class TbTabItem extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,9 +64,9 @@ public final class TbTabItem extends View {
             }
         }
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, new int[]{16842754, 16842994, 16843087});
-        this.f30045e = obtainStyledAttributes.getText(2);
-        this.f30046f = obtainStyledAttributes.getDrawable(0);
-        this.f30047g = obtainStyledAttributes.getResourceId(1, 0);
+        this.a = obtainStyledAttributes.getText(2);
+        this.f24017b = obtainStyledAttributes.getDrawable(0);
+        this.f24018c = obtainStyledAttributes.getResourceId(1, 0);
         obtainStyledAttributes.recycle();
     }
 }

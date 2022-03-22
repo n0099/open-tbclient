@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.f0.d.b;
+import c.a.e0.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,26 +23,22 @@ import org.json.JSONObject;
 public class DuVipGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f36440e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f28233b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36441f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f36442g;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f28234c;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f36443e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DuVipGuideView f36444f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ DuVipGuideView f28235b;
 
         public a(DuVipGuideView duVipGuideView, String str) {
             Interceptable interceptable = $ic;
@@ -51,23 +47,23 @@ public class DuVipGuideView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duVipGuideView, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36444f = duVipGuideView;
-            this.f36443e = str;
+            this.f28235b = duVipGuideView;
+            this.a = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f36444f.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(this.f36443e)));
+                this.f28235b.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(this.a)));
             }
         }
     }
@@ -81,9 +77,9 @@ public class DuVipGuideView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -96,26 +92,26 @@ public class DuVipGuideView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_du_vip_guide, (ViewGroup) this, true);
-            this.f36440e = (ImageView) findViewById(R.id.iv_guide_icon);
-            this.f36441f = (TextView) findViewById(R.id.tv_guide_msg);
-            this.f36442g = (TextView) findViewById(R.id.tv_guide_btn);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.f28233b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c0);
+            this.f28234c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921bf);
         }
     }
 
-    public void updateContent(JSONObject jSONObject) {
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        b.b().a(this.f36440e, jSONObject.optString("icon_url"));
-        this.f36441f.setText(jSONObject.optString("display_msg"));
+        b.b().a(this.a, jSONObject.optString("icon_url"));
+        this.f28233b.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {
-            this.f36442g.setVisibility(8);
+            this.f28234c.setVisibility(8);
         } else {
-            this.f36442g.setVisibility(0);
-            this.f36442g.setText(optString);
+            this.f28234c.setVisibility(0);
+            this.f28234c.setText(optString);
         }
         String optString2 = jSONObject.optString("redirect_url");
         if (TextUtils.isEmpty(optString2)) {
@@ -133,9 +129,9 @@ public class DuVipGuideView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -146,17 +142,17 @@ public class DuVipGuideView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DuVipGuideView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public DuVipGuideView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

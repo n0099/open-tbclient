@@ -26,9 +26,9 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,17 +39,17 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @SuppressLint({"InlinedApi"})
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i2, cursorFactory)) == null) ? super.openOrCreateDatabase(str, i2 | 16, cursorFactory) : (SQLiteDatabase) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, cursorFactory)) == null) ? super.openOrCreateDatabase(str, i | 16, cursorFactory) : (SQLiteDatabase) invokeLIL.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @SuppressLint({"InlinedApi"})
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, cursorFactory, databaseErrorHandler)) == null) ? super.openOrCreateDatabase(str, i2 | 16, cursorFactory, databaseErrorHandler) : (SQLiteDatabase) invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, cursorFactory, databaseErrorHandler)) == null) ? super.openOrCreateDatabase(str, i | 16, cursorFactory, databaseErrorHandler) : (SQLiteDatabase) invokeLILL.objValue;
     }
 }

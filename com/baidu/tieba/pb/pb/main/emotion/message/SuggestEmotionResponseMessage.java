@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
-import c.a.r0.u2.k.f.d1.e.a;
+import c.a.p0.w2.m.f.j1.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
@@ -18,24 +18,24 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SuggestEmotionResponseMessage(int i2) {
-        super(i2);
+    public SuggestEmotionResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,9 +50,9 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONArray)) == null) {
             ArrayList arrayList = new ArrayList();
             if (jSONArray != null) {
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        arrayList.add(jSONArray.getJSONObject(i2).optString("keyword"));
+                        arrayList.add(jSONArray.getJSONObject(i).optString("keyword"));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -72,9 +72,9 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             }
             ArrayList arrayList = new ArrayList();
             int min = Math.min(jSONArray.length(), 10);
-            for (int i2 = 0; i2 < min; i2++) {
+            for (int i = 0; i < min; i++) {
                 try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     EmotionImageData emotionImageData = new EmotionImageData();
                     emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
                     emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
@@ -108,9 +108,9 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {

@@ -16,16 +16,16 @@ public class RequestHandle {
     public static final int MAX_REDIRECT_COUNT = 16;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i2), request};
+            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i), request};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,9 +107,9 @@ public class RequestHandle {
         }
     }
 
-    public void setRedirectCount(int i2) {
+    public void setRedirectCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -128,10 +128,10 @@ public class RequestHandle {
         }
     }
 
-    public boolean setupRedirect(String str, int i2, Map<String, String> map) {
+    public boolean setupRedirect(String str, int i, Map<String, String> map) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, str, i2, map)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, str, i, map)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLIL.booleanValue;
@@ -144,16 +144,16 @@ public class RequestHandle {
         }
     }
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request, Connection connection) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request, Connection connection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i2), request, connection};
+            Object[] objArr = {requestQueue, str, webAddress, str2, map, inputStream, Integer.valueOf(i), request, connection};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

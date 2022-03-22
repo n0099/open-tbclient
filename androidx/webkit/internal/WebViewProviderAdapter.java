@@ -31,9 +31,9 @@ public class WebViewProviderAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {webViewProviderBoundaryInterface};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,8 +48,8 @@ public class WebViewProviderAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             InvocationHandler[] createWebMessageChannel = this.mImpl.createWebMessageChannel();
             WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[createWebMessageChannel.length];
-            for (int i2 = 0; i2 < createWebMessageChannel.length; i2++) {
-                webMessagePortCompatArr[i2] = new WebMessagePortImpl(createWebMessageChannel[i2]);
+            for (int i = 0; i < createWebMessageChannel.length; i++) {
+                webMessagePortCompatArr[i] = new WebMessagePortImpl(createWebMessageChannel[i]);
             }
             return webMessagePortCompatArr;
         }
@@ -87,10 +87,10 @@ public class WebViewProviderAdapter {
         return (WebViewRenderProcessClient) invokeV.objValue;
     }
 
-    public void insertVisualStateCallback(long j2, WebViewCompat.VisualStateCallback visualStateCallback) {
+    public void insertVisualStateCallback(long j, WebViewCompat.VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048581, this, j2, visualStateCallback) == null) {
-            this.mImpl.insertVisualStateCallback(j2, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j, visualStateCallback) == null) {
+            this.mImpl.insertVisualStateCallback(j, BoundaryInterfaceReflectionUtil.createInvocationHandlerFor(new VisualStateCallbackAdapter(visualStateCallback)));
         }
     }
 

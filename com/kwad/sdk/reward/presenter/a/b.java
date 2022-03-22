@@ -3,7 +3,7 @@ package com.kwad.sdk.reward.presenter.a;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.presenter.a.a.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends g {
     public b(boolean z) {
         a((Presenter) new c());

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public static final Queue<ExceptionCatchingInputStream> QUEUE;
@@ -43,9 +43,9 @@ public class ExceptionCatchingInputStream extends InputStream {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -102,10 +102,10 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public void mark(int i2) {
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.wrapped.mark(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.wrapped.mark(i);
         }
     }
 
@@ -160,12 +160,12 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j2) {
+    public long skip(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
             try {
-                return this.wrapped.skip(j2);
+                return this.wrapped.skip(j);
             } catch (IOException e2) {
                 this.exception = e2;
                 return 0L;
@@ -175,12 +175,12 @@ public class ExceptionCatchingInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) {
+    public int read(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
             try {
-                return this.wrapped.read(bArr, i2, i3);
+                return this.wrapped.read(bArr, i, i2);
             } catch (IOException e2) {
                 this.exception = e2;
                 return -1;

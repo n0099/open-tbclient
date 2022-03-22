@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.r0.s1.l.c.a;
+import c.a.p0.u1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -19,15 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f43483e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f33746b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f43484f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f43485g;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33747c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context) {
@@ -38,9 +36,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,45 +48,45 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public final void a() {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f33747c.getLayoutParams();
+            layoutParams.topMargin = i;
+            this.f33747c.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.f43483e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-            this.f43484f = (TextView) findViewById(R.id.message_no_image_title);
-            this.f43485g = (TextView) findViewById(R.id.message_info);
-            onSkinTypeChange();
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0640, (ViewGroup) this, true);
+            this.f33746b = (TextView) findViewById(R.id.obfuscated_res_0x7f091406);
+            this.f33747c = (TextView) findViewById(R.id.obfuscated_res_0x7f091402);
+            c();
         }
     }
 
-    public void adjustForSingleForum(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f43485g.getLayoutParams();
-            layoutParams.topMargin = i2;
-            this.f43485g.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void onSkinTypeChange() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f43485g, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f43484f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f33747c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f33746b, (int) R.color.CAM_X0105);
         }
     }
 
-    public void setData(a.C1364a c1364a, boolean z) {
+    public void setData(a.C1417a c1417a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1364a, z) == null) {
-            int i2 = TextUtils.isEmpty(c1364a.f21901b) ? 8 : 0;
-            this.f43484f.setText(c1364a.a);
-            this.f43485g.setText(c1364a.f21901b);
-            this.f43485g.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1417a, z) == null) {
+            int i = TextUtils.isEmpty(c1417a.f18834b) ? 8 : 0;
+            this.f33746b.setText(c1417a.a);
+            this.f33747c.setText(c1417a.f18834b);
+            this.f33747c.setVisibility(i);
             if (z) {
-                this.f43484f.setVisibility(8);
+                this.f33746b.setVisibility(8);
             } else {
-                this.f43484f.setVisibility(0);
+                this.f33746b.setVisibility(0);
             }
         }
     }
@@ -102,9 +100,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -112,7 +110,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
                 return;
             }
         }
-        this.f43483e = context;
-        a();
+        this.a = context;
+        b();
     }
 }

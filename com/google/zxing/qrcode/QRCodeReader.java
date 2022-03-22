@@ -54,9 +54,9 @@ public class QRCodeReader implements Reader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,44 +73,44 @@ public class QRCodeReader implements Reader {
             int[] bottomRightOnBit = bitMatrix.getBottomRightOnBit();
             if (topLeftOnBit != null && bottomRightOnBit != null) {
                 float moduleSize = moduleSize(topLeftOnBit, bitMatrix);
-                int i2 = topLeftOnBit[1];
-                int i3 = bottomRightOnBit[1];
-                int i4 = topLeftOnBit[0];
-                int i5 = bottomRightOnBit[0];
-                if (i4 < i5 && i2 < i3) {
-                    int i6 = i3 - i2;
-                    if (i6 != i5 - i4 && (i5 = i4 + i6) >= bitMatrix.getWidth()) {
+                int i = topLeftOnBit[1];
+                int i2 = bottomRightOnBit[1];
+                int i3 = topLeftOnBit[0];
+                int i4 = bottomRightOnBit[0];
+                if (i3 < i4 && i < i2) {
+                    int i5 = i2 - i;
+                    if (i5 != i4 - i3 && (i4 = i3 + i5) >= bitMatrix.getWidth()) {
                         throw NotFoundException.getNotFoundInstance();
                     }
-                    int round = Math.round(((i5 - i4) + 1) / moduleSize);
-                    int round2 = Math.round((i6 + 1) / moduleSize);
+                    int round = Math.round(((i4 - i3) + 1) / moduleSize);
+                    int round2 = Math.round((i5 + 1) / moduleSize);
                     if (round <= 0 || round2 <= 0) {
                         throw NotFoundException.getNotFoundInstance();
                     }
                     if (round2 == round) {
-                        int i7 = (int) (moduleSize / 2.0f);
-                        int i8 = i2 + i7;
-                        int i9 = i4 + i7;
-                        int i10 = (((int) ((round - 1) * moduleSize)) + i9) - i5;
-                        if (i10 > 0) {
-                            if (i10 > i7) {
+                        int i6 = (int) (moduleSize / 2.0f);
+                        int i7 = i + i6;
+                        int i8 = i3 + i6;
+                        int i9 = (((int) ((round - 1) * moduleSize)) + i8) - i4;
+                        if (i9 > 0) {
+                            if (i9 > i6) {
                                 throw NotFoundException.getNotFoundInstance();
                             }
-                            i9 -= i10;
+                            i8 -= i9;
                         }
-                        int i11 = (((int) ((round2 - 1) * moduleSize)) + i8) - i3;
-                        if (i11 > 0) {
-                            if (i11 > i7) {
+                        int i10 = (((int) ((round2 - 1) * moduleSize)) + i7) - i2;
+                        if (i10 > 0) {
+                            if (i10 > i6) {
                                 throw NotFoundException.getNotFoundInstance();
                             }
-                            i8 -= i11;
+                            i7 -= i10;
                         }
                         BitMatrix bitMatrix2 = new BitMatrix(round, round2);
-                        for (int i12 = 0; i12 < round2; i12++) {
-                            int i13 = ((int) (i12 * moduleSize)) + i8;
-                            for (int i14 = 0; i14 < round; i14++) {
-                                if (bitMatrix.get(((int) (i14 * moduleSize)) + i9, i13)) {
-                                    bitMatrix2.set(i14, i12);
+                        for (int i11 = 0; i11 < round2; i11++) {
+                            int i12 = ((int) (i11 * moduleSize)) + i7;
+                            for (int i13 = 0; i13 < round; i13++) {
+                                if (bitMatrix.get(((int) (i13 * moduleSize)) + i8, i12)) {
+                                    bitMatrix2.set(i13, i11);
                                 }
                             }
                         }
@@ -131,23 +131,23 @@ public class QRCodeReader implements Reader {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, iArr, bitMatrix)) == null) {
             int height = bitMatrix.getHeight();
             int width = bitMatrix.getWidth();
-            int i2 = iArr[0];
+            int i = iArr[0];
             boolean z = true;
-            int i3 = iArr[1];
-            int i4 = 0;
-            while (i2 < width && i3 < height) {
-                if (z != bitMatrix.get(i2, i3)) {
-                    i4++;
-                    if (i4 == 5) {
+            int i2 = iArr[1];
+            int i3 = 0;
+            while (i < width && i2 < height) {
+                if (z != bitMatrix.get(i, i2)) {
+                    i3++;
+                    if (i3 == 5) {
                         break;
                     }
                     z = !z;
                 }
+                i++;
                 i2++;
-                i3++;
             }
-            if (i2 != width && i3 != height) {
-                return (i2 - iArr[0]) / 7.0f;
+            if (i != width && i2 != height) {
+                return (i - iArr[0]) / 7.0f;
             }
             throw NotFoundException.getNotFoundInstance();
         }

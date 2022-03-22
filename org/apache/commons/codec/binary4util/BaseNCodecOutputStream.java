@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BaseNCodecOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class BaseNCodecOutputStream extends FilterOutputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream, baseNCodec, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((OutputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -81,31 +81,31 @@ public class BaseNCodecOutputStream extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             byte[] bArr = this.singleByte;
-            bArr[0] = (byte) i2;
+            bArr[0] = (byte) i;
             write(bArr, 0, 1);
         }
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             if (bArr == null) {
                 throw null;
             }
-            if (i2 >= 0 && i3 >= 0) {
-                if (i2 > bArr.length || i2 + i3 > bArr.length) {
+            if (i >= 0 && i2 >= 0) {
+                if (i > bArr.length || i + i2 > bArr.length) {
                     throw new IndexOutOfBoundsException();
                 }
-                if (i3 > 0) {
+                if (i2 > 0) {
                     if (this.doEncode) {
-                        this.baseNCodec.encode(bArr, i2, i3, this.context);
+                        this.baseNCodec.encode(bArr, i, i2, this.context);
                     } else {
-                        this.baseNCodec.decode(bArr, i2, i3, this.context);
+                        this.baseNCodec.decode(bArr, i, i2, this.context);
                     }
                     flush(false);
                     return;

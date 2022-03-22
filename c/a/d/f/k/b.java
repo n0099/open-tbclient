@@ -16,39 +16,39 @@ public class b<T> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2665b;
+    public int f2201b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<T> f2666c;
+    public LinkedList<T> f2202c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c<T> f2667d;
+    public c<T> f2203d;
 
-    public b(c<T> cVar, int i2, int i3) {
+    public b(c<T> cVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {cVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 10;
-        this.f2665b = 0;
-        this.f2666c = null;
-        this.f2667d = null;
-        if (cVar != null && i2 > 0 && i3 <= i2) {
-            this.f2667d = cVar;
-            this.a = i2;
-            this.f2665b = i3;
-            this.f2666c = new LinkedList<>();
-            a(this.f2665b);
+        this.f2201b = 0;
+        this.f2202c = null;
+        this.f2203d = null;
+        if (cVar != null && i > 0 && i2 <= i) {
+            this.f2203d = cVar;
+            this.a = i;
+            this.f2201b = i2;
+            this.f2202c = new LinkedList<>();
+            a(this.f2201b);
             return;
         }
         throw new InvalidParameterException("invalid params");
@@ -56,19 +56,19 @@ public class b<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v3, resolved type: java.util.LinkedList<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void a(int i2) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             synchronized (this) {
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     Object obj = null;
                     try {
-                        obj = this.f2667d.a(this.f2667d.d());
+                        obj = this.f2203d.a(this.f2203d.d());
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     if (obj != null) {
-                        this.f2666c.offer(obj);
+                        this.f2202c.offer(obj);
                     }
                 }
             }
@@ -83,12 +83,12 @@ public class b<T> {
             synchronized (this) {
                 t = null;
                 try {
-                    if (this.f2666c.size() > 0) {
-                        t = this.f2667d.a(this.f2666c.poll());
+                    if (this.f2202c.size() > 0) {
+                        t = this.f2203d.a(this.f2202c.poll());
                     } else {
-                        t = this.f2667d.a(this.f2667d.d());
+                        t = this.f2203d.a(this.f2203d.d());
                     }
-                    a(this.f2665b - this.f2666c.size());
+                    a(this.f2201b - this.f2202c.size());
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -102,18 +102,18 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f2666c.clear();
+                this.f2202c.clear();
             }
         }
     }
 
-    public final void d(int i2) {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             synchronized (this) {
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     try {
-                        this.f2667d.b(this.f2666c.poll());
+                        this.f2203d.b(this.f2202c.poll());
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
@@ -126,48 +126,48 @@ public class b<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             synchronized (this) {
-                if (this.f2666c.size() < this.a) {
+                if (this.f2202c.size() < this.a) {
                     T t2 = null;
                     try {
-                        t2 = this.f2667d.c(t);
+                        t2 = this.f2203d.c(t);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     if (t2 != null) {
-                        this.f2666c.offer(t2);
+                        this.f2202c.offer(t2);
                     }
                 } else {
-                    this.f2667d.b(t);
+                    this.f2203d.b(t);
                 }
             }
         }
     }
 
-    public void f(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             synchronized (this) {
-                if (i2 < this.f2665b) {
-                    i2 = this.f2665b;
+                if (i < this.f2201b) {
+                    i = this.f2201b;
                 }
-                if (i2 <= 0) {
-                    i2 = 1;
+                if (i <= 0) {
+                    i = 1;
                 }
-                this.a = i2;
-                d(this.f2666c.size() - this.a);
+                this.a = i;
+                d(this.f2202c.size() - this.a);
             }
         }
     }
 
-    public void g(int i2) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             synchronized (this) {
-                if (i2 > this.a) {
-                    i2 = this.a;
+                if (i > this.a) {
+                    i = this.a;
                 }
-                this.f2665b = i2;
-                a(i2 - this.f2666c.size());
+                this.f2201b = i;
+                a(i - this.f2202c.size());
             }
         }
     }

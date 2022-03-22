@@ -39,9 +39,9 @@ public class f {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -153,9 +153,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -169,15 +169,15 @@ public class f {
             ArrayList arrayList = new ArrayList(aVar.kO);
             aVar.recycle();
             synchronized (kN) {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= 4) {
+                    if (i >= 4) {
                         break;
-                    } else if (kN[i2] == null) {
-                        kN[i2] = aVar;
+                    } else if (kN[i] == null) {
+                        kN[i] = aVar;
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
             }
@@ -237,10 +237,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             synchronized (kN) {
-                for (int i2 = 0; i2 < 4; i2++) {
-                    a aVar = kN[i2];
+                for (int i = 0; i < 4; i++) {
+                    a aVar = kN[i];
                     if (aVar != null) {
-                        kN[i2] = null;
+                        kN[i] = null;
                         return aVar;
                     }
                 }

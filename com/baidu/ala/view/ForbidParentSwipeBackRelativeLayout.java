@@ -36,9 +36,9 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -53,9 +53,9 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     private void determinIntercept(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, motionEvent) == null) {
-            int i2 = this.mActivePointerId;
-            int pointerIndex = getPointerIndex(motionEvent, i2);
-            if (i2 == -1) {
+            int i = this.mActivePointerId;
+            int pointerIndex = getPointerIndex(motionEvent, i);
+            if (i == -1) {
                 return;
             }
             try {
@@ -73,11 +73,11 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         }
     }
 
-    private int getPointerIndex(MotionEvent motionEvent, int i2) {
+    private int getPointerIndex(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent, i2)) == null) {
-            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent, i)) == null) {
+            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
             if (findPointerIndex == -1) {
                 this.mActivePointerId = -1;
             }
@@ -198,9 +198,9 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -214,17 +214,17 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

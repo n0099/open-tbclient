@@ -2,6 +2,7 @@ package com.baidu.rtc;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import c.a.a.b.a;
 import c.a.a.b.b;
@@ -34,7 +35,7 @@ public class RTCLoadManager {
 
     /* loaded from: classes4.dex */
     public interface LoadListener {
-        void onLoadError(int i2, String str);
+        void onLoadError(int i, String str);
 
         void onLoadProgress(float f2);
 
@@ -74,16 +75,16 @@ public class RTCLoadManager {
             $VALUES = new LoadStatus[]{IDLE, LIBRARY_LOADING, LOAD_FAILED, loadStatus};
         }
 
-        public LoadStatus(String str, int i2, int i3) {
+        public LoadStatus(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -92,7 +93,7 @@ public class RTCLoadManager {
                     return;
                 }
             }
-            this.mValue = i3;
+            this.mValue = i2;
         }
 
         public static LoadStatus valueOf(String str) {
@@ -115,9 +116,9 @@ public class RTCLoadManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,9 +139,9 @@ public class RTCLoadManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -150,12 +151,13 @@ public class RTCLoadManager {
             }
 
             @Override // c.a.a.b.c
-            public void onDownloadFail(String str, int i4, String str2) {
+            public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i4, str2) == null) {
-                    String str3 = "Failed to download so :" + str2 + " / " + str;
+                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
+                    Log.d(RTCLoadManager.TAG, "Failed to download so :" + str2 + " / " + str);
                     this.this$0.mLoadStatus = LoadStatus.LOAD_FAILED;
-                    this.this$0.callbackFail(i4, str2 + " / " + str);
+                    RTCLoadManager rTCLoadManager = this.this$0;
+                    rTCLoadManager.callbackFail(i3, str2 + " / " + str);
                 }
             }
 
@@ -172,14 +174,15 @@ public class RTCLoadManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
                     String str3 = b.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
-                    String str4 = "RTC so path is: " + str3;
+                    Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
                     a.k(this.this$0.mContext).n(b.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
+                        Log.d(RTCLoadManager.TAG, "So loaded completed.");
                         this.this$0.callbackSuccess();
                     } catch (Throwable th) {
-                        String str5 = "Failed call System.load to load so! Error: " + th;
+                        Log.d(RTCLoadManager.TAG, "Failed call System.load to load so! Error: " + th);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_FAILED;
                         this.this$0.callbackFail(-1001, th.getMessage() + " / " + str);
                     }
@@ -190,13 +193,13 @@ public class RTCLoadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callbackFail(int i2, String str) {
+    public void callbackFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65542, this, i2, str) == null) || this.mCallbackList == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65542, this, i, str) == null) || this.mCallbackList == null) {
             return;
         }
-        for (int i3 = 0; i3 < this.mCallbackList.size(); i3++) {
-            this.mCallbackList.get(i3).onLoadError(i2, str);
+        for (int i2 = 0; i2 < this.mCallbackList.size(); i2++) {
+            this.mCallbackList.get(i2).onLoadError(i, str);
         }
     }
 
@@ -206,8 +209,8 @@ public class RTCLoadManager {
         if (!(interceptable == null || interceptable.invokeF(65543, this, f2) == null) || this.mCallbackList == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.mCallbackList.size(); i2++) {
-            this.mCallbackList.get(i2).onLoadProgress(f2);
+        for (int i = 0; i < this.mCallbackList.size(); i++) {
+            this.mCallbackList.get(i).onLoadProgress(f2);
         }
     }
 
@@ -217,8 +220,8 @@ public class RTCLoadManager {
         if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || this.mCallbackList == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.mCallbackList.size(); i2++) {
-            this.mCallbackList.get(i2).onLoadSuccess();
+        for (int i = 0; i < this.mCallbackList.size(); i++) {
+            this.mCallbackList.get(i).onLoadSuccess();
         }
     }
 
@@ -307,13 +310,13 @@ public class RTCLoadManager {
     public void setupSoLaterLoad(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            String str3 = "setup so later loading feature cpu type: " + str2;
+            Log.d(TAG, "setup so later loading feature cpu type: " + str2);
             a.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
                 a.k(this.mContext).j(b.j(), true, this.mSoCallback);
                 return;
             }
-            String str4 = "setup so later load url: " + str;
+            Log.d(TAG, "setup so later load url: " + str);
             a.k(this.mContext).j(str, true, this.mSoCallback);
         }
     }
@@ -329,57 +332,61 @@ public class RTCLoadManager {
 
     public synchronized void loadLibraries(String str, String str2, LoadListener loadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, loadListener) == null) {
-            synchronized (this) {
-                registerCallback(loadListener);
-                if (this.mLoadStatus == LoadStatus.IDLE || this.mLoadStatus == LoadStatus.LOAD_FAILED) {
-                    this.mLoadStatus = LoadStatus.LIBRARY_LOADING;
-                    try {
-                        System.loadLibrary(JINGLE_LIB_NAME);
-                        this.mLoadStatus = LoadStatus.LOAD_COMPLETED;
-                        callbackSuccess();
-                    } catch (UnsatisfiedLinkError e2) {
-                        String str3 = "Load default so fail " + e2.getMessage();
-                        if (this.mLoadServer == null || this.mLoadServer.isShutdown()) {
-                            this.mLoadServer = Executors.newSingleThreadExecutor();
-                        }
-                        this.mLoadServer.submit(new Runnable(this, str, str2) { // from class: com.baidu.rtc.RTCLoadManager.1
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ RTCLoadManager this$0;
-                            public final /* synthetic */ String val$cpuType;
-                            public final /* synthetic */ String val$soLaterLoadUrl;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, str, str2};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.this$0 = this;
-                                this.val$soLaterLoadUrl = str;
-                                this.val$cpuType = str2;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.this$0.setupSoLaterLoad(this.val$soLaterLoadUrl, this.val$cpuType);
-                                }
-                            }
-                        });
-                    }
+        if (interceptable != null && interceptable.invokeLLL(1048580, this, str, str2, loadListener) != null) {
+            return;
+        }
+        synchronized (this) {
+            registerCallback(loadListener);
+            if (this.mLoadStatus != LoadStatus.IDLE && this.mLoadStatus != LoadStatus.LOAD_FAILED) {
+                Log.d(TAG, "Rtc library has loaded.");
+                return;
+            }
+            this.mLoadStatus = LoadStatus.LIBRARY_LOADING;
+            try {
+                System.loadLibrary(JINGLE_LIB_NAME);
+                this.mLoadStatus = LoadStatus.LOAD_COMPLETED;
+                callbackSuccess();
+                Log.d(TAG, "Loaded default so in aar.");
+            } catch (UnsatisfiedLinkError e2) {
+                Log.d(TAG, "Load default so fail " + e2.getMessage());
+                if (this.mLoadServer == null || this.mLoadServer.isShutdown()) {
+                    this.mLoadServer = Executors.newSingleThreadExecutor();
                 }
+                this.mLoadServer.submit(new Runnable(this, str, str2) { // from class: com.baidu.rtc.RTCLoadManager.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ RTCLoadManager this$0;
+                    public final /* synthetic */ String val$cpuType;
+                    public final /* synthetic */ String val$soLaterLoadUrl;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str, str2};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$soLaterLoadUrl = str;
+                        this.val$cpuType = str2;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.setupSoLaterLoad(this.val$soLaterLoadUrl, this.val$cpuType);
+                        }
+                    }
+                });
             }
         }
     }

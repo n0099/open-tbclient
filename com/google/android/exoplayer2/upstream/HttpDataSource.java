@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface HttpDataSource extends DataSource {
     public static final Predicate<String> REJECT_PAYWALL_TYPES = new Predicate<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         public static /* synthetic */ Interceptable $ic;
@@ -29,9 +29,9 @@ public interface HttpDataSource extends DataSource {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,7 +51,7 @@ public interface HttpDataSource extends DataSource {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class BaseFactory implements Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public interface HttpDataSource extends DataSource {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -118,7 +118,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory extends DataSource.Factory {
         @Deprecated
         void clearAllDefaultRequestProperties();
@@ -135,7 +135,7 @@ public interface HttpDataSource extends DataSource {
         void setDefaultRequestProperty(String str, String str2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,9 +150,9 @@ public interface HttpDataSource extends DataSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, dataSpec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -164,7 +164,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,17 +172,17 @@ public interface HttpDataSource extends DataSource {
         public final int responseCode;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public InvalidResponseCodeException(int i2, Map<String, List<String>> map, DataSpec dataSpec) {
-            super("Response code: " + i2, dataSpec, 1);
+        public InvalidResponseCodeException(int i, Map<String, List<String>> map, DataSpec dataSpec) {
+            super("Response code: " + i, dataSpec, 1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), map, dataSpec};
+                Object[] objArr = {Integer.valueOf(i), map, dataSpec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -190,7 +190,7 @@ public interface HttpDataSource extends DataSource {
                     return;
                 }
             }
-            this.responseCode = i2;
+            this.responseCode = i;
             this.headerFields = map;
         }
     }
@@ -208,11 +208,11 @@ public interface HttpDataSource extends DataSource {
     long open(DataSpec dataSpec) throws HttpDataSourceException;
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    int read(byte[] bArr, int i2, int i3) throws HttpDataSourceException;
+    int read(byte[] bArr, int i, int i2) throws HttpDataSourceException;
 
     void setRequestProperty(String str, String str2);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;
@@ -223,41 +223,41 @@ public interface HttpDataSource extends DataSource {
         public final int type;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public @interface Type {
         }
 
-        public HttpDataSourceException(DataSpec dataSpec, int i2) {
+        public HttpDataSourceException(DataSpec dataSpec, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dataSpec, Integer.valueOf(i2)};
+                Object[] objArr = {dataSpec, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.dataSpec = dataSpec;
-            this.type = i2;
+            this.type = i;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpDataSourceException(String str, DataSpec dataSpec, int i2) {
+        public HttpDataSourceException(String str, DataSpec dataSpec, int i) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, dataSpec, Integer.valueOf(i2)};
+                Object[] objArr = {str, dataSpec, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -265,21 +265,21 @@ public interface HttpDataSource extends DataSource {
                 }
             }
             this.dataSpec = dataSpec;
-            this.type = i2;
+            this.type = i;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpDataSourceException(IOException iOException, DataSpec dataSpec, int i2) {
+        public HttpDataSourceException(IOException iOException, DataSpec dataSpec, int i) {
             super(iOException);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iOException, dataSpec, Integer.valueOf(i2)};
+                Object[] objArr = {iOException, dataSpec, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -287,21 +287,21 @@ public interface HttpDataSource extends DataSource {
                 }
             }
             this.dataSpec = dataSpec;
-            this.type = i2;
+            this.type = i;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HttpDataSourceException(String str, IOException iOException, DataSpec dataSpec, int i2) {
+        public HttpDataSourceException(String str, IOException iOException, DataSpec dataSpec, int i) {
             super(str, iOException);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, iOException, dataSpec, Integer.valueOf(i2)};
+                Object[] objArr = {str, iOException, dataSpec, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -310,11 +310,11 @@ public interface HttpDataSource extends DataSource {
                 }
             }
             this.dataSpec = dataSpec;
-            this.type = i2;
+            this.type = i;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RequestProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -326,9 +326,9 @@ public interface HttpDataSource extends DataSource {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

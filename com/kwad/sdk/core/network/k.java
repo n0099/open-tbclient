@@ -12,7 +12,7 @@ public final class k {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f54464b = "";
+    public static String f39585b = "";
 
     public static String a() {
         if (TextUtils.isEmpty(a)) {
@@ -23,8 +23,8 @@ public final class k {
             }
             StringBuffer stringBuffer = new StringBuffer();
             int length = a.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = a.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = a.charAt(i);
                 if (charAt <= 31 || charAt >= 127) {
                     stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                 } else {
@@ -48,25 +48,25 @@ public final class k {
 
     public static String d() {
         String f2;
-        if (TextUtils.isEmpty(f54464b)) {
+        if (TextUtils.isEmpty(f39585b)) {
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
                 return "";
             }
             try {
                 f2 = as.f(context);
-                f54464b = f2;
+                f39585b = f2;
             } catch (Exception unused) {
             }
             if (TextUtils.isEmpty(f2)) {
-                f54464b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
-                String encode = URLEncoder.encode(f54464b, "UTF-8");
-                f54464b = encode;
+                f39585b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
+                String encode = URLEncoder.encode(f39585b, "UTF-8");
+                f39585b = encode;
                 as.j(context, encode);
-                return f54464b;
+                return f39585b;
             }
-            return f54464b;
+            return f39585b;
         }
-        return f54464b;
+        return f39585b;
     }
 }

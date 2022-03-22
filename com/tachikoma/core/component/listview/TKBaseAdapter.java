@@ -2,6 +2,7 @@ package com.tachikoma.core.component.listview;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -23,7 +24,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBaseAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class TKBaseAdapter extends BaseAdapter {
     public final V8Object mV8Adapter;
     public final List<V8Object> v8Objects;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +47,9 @@ public class TKBaseAdapter extends BaseAdapter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tKBaseAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +66,9 @@ public class TKBaseAdapter extends BaseAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,11 +79,11 @@ public class TKBaseAdapter extends BaseAdapter {
         this.mTKJSContext = V8Proxy.getTKContext(list);
     }
 
-    public View convertView(View view, int i2) {
+    public View convertView(View view, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view, i2)) == null) {
-            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view.getTag(R.id.holder)).jsObj, Integer.valueOf(i2));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view, i)) == null) {
+            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view.getTag(R.id.obfuscated_res_0x7f090d61)).jsObj, Integer.valueOf(i));
             return view;
         }
         return (View) invokeLI.objValue;
@@ -102,35 +103,35 @@ public class TKBaseAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i2) {
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             return null;
         }
         return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? V8Proxy.executeIntegerFunction(this.mV8Adapter, this.mTKJSContext, "getItemId", i2) : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? V8Proxy.executeIntegerFunction(this.mV8Adapter, this.mTKJSContext, "getItemId", i) : invokeI.longValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? V8Proxy.executeIntegerFunction(this.mV8Adapter, this.mTKJSContext, "getItemViewType", i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? V8Proxy.executeIntegerFunction(this.mV8Adapter, this.mTKJSContext, "getItemViewType", i) : invokeI.intValue;
     }
 
-    public View getView(int i2) {
+    public View getView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Pair<V8Object, Object> executeJsFunction = V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "getView", Integer.valueOf(i2));
+            Pair<V8Object, Object> executeJsFunction = V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "getView", Integer.valueOf(i));
             if (executeJsFunction == null) {
                 return null;
             }
@@ -147,18 +148,18 @@ public class TKBaseAdapter extends BaseAdapter {
             viewHolder.base = tKBase;
             viewHolder.jsObj = twin;
             this.v8Objects.add(twin);
-            view.setTag(R.id.holder, viewHolder);
-            String str = "consumer time :: " + (System.currentTimeMillis() - currentTimeMillis);
+            view.setTag(R.id.obfuscated_res_0x7f090d61, viewHolder);
+            Log.e("test1", "consumer time :: " + (System.currentTimeMillis() - currentTimeMillis));
             return view;
         }
         return (View) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) ? view == null ? getView(i2) : convertView(view, i2) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) ? view == null ? getView(i) : convertView(view, i) : (View) invokeILL.objValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

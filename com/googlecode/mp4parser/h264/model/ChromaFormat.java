@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class ChromaFormat {
     public static /* synthetic */ Interceptable $ic;
@@ -40,44 +39,44 @@ public class ChromaFormat {
         YUV_444 = new ChromaFormat(3, 1, 1);
     }
 
-    public ChromaFormat(int i2, int i3, int i4) {
+    public ChromaFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.id = i2;
-        this.subWidth = i3;
-        this.subHeight = i4;
+        this.id = i;
+        this.subWidth = i2;
+        this.subHeight = i3;
     }
 
-    public static ChromaFormat fromId(int i2) {
+    public static ChromaFormat fromId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             ChromaFormat chromaFormat = MONOCHROME;
-            if (i2 == chromaFormat.id) {
+            if (i == chromaFormat.id) {
                 return chromaFormat;
             }
             ChromaFormat chromaFormat2 = YUV_420;
-            if (i2 == chromaFormat2.id) {
+            if (i == chromaFormat2.id) {
                 return chromaFormat2;
             }
             ChromaFormat chromaFormat3 = YUV_422;
-            if (i2 == chromaFormat3.id) {
+            if (i == chromaFormat3.id) {
                 return chromaFormat3;
             }
             ChromaFormat chromaFormat4 = YUV_444;
-            if (i2 == chromaFormat4.id) {
+            if (i == chromaFormat4.id) {
                 return chromaFormat4;
             }
             return null;
@@ -107,7 +106,7 @@ public class ChromaFormat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ChromaFormat{\nid=" + this.id + ",\n subWidth=" + this.subWidth + ",\n subHeight=" + this.subHeight + ExtendedMessageFormat.END_FE;
+            return "ChromaFormat{\nid=" + this.id + ",\n subWidth=" + this.subWidth + ",\n subHeight=" + this.subHeight + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -39,12 +39,12 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_ShapeableImageView = 2131755930;
+    public static final int obfuscated_res_0x7f100378 = 2131755896;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint borderPaint;
     public final Paint clearPaint;
@@ -60,7 +60,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public float strokeWidth;
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shapeableImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -122,9 +122,9 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -148,14 +148,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         canvas.drawPath(this.path, this.borderPaint);
     }
 
-    private void updateShapeMask(int i2, int i3) {
+    private void updateShapeMask(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65544, this, i2, i3) == null) {
-            this.destination.set(getPaddingLeft(), getPaddingTop(), i2 - getPaddingRight(), i3 - getPaddingBottom());
+        if (interceptable == null || interceptable.invokeII(65544, this, i, i2) == null) {
+            this.destination.set(getPaddingLeft(), getPaddingTop(), i - getPaddingRight(), i2 - getPaddingBottom());
             this.pathProvider.calculatePath(this.shapeAppearanceModel, 1.0f, this.destination, this.path);
             this.maskPath.rewind();
             this.maskPath.addPath(this.path);
-            this.maskRect.set(0.0f, 0.0f, i2, i3);
+            this.maskRect.set(0.0f, 0.0f, i, i2);
             this.maskPath.addRect(this.maskRect, Path.Direction.CCW);
         }
     }
@@ -211,11 +211,11 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            updateShapeMask(i2, i3);
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            updateShapeMask(i, i2);
         }
     }
 
@@ -238,10 +238,10 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         }
     }
 
-    public void setStrokeColorResource(@ColorRes int i2) {
+    public void setStrokeColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
@@ -254,10 +254,10 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         invalidate();
     }
 
-    public void setStrokeWidthResource(@DimenRes int i2) {
+    public void setStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            setStrokeWidth(getResources().getDimensionPixelSize(i2));
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            setStrokeWidth(getResources().getDimensionPixelSize(i));
         }
     }
 
@@ -270,9 +270,9 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -283,17 +283,17 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_ShapeableImageView), attributeSet, i2);
+    public ShapeableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100378), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -312,14 +312,14 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
         this.destination = new RectF();
         this.maskRect = new RectF();
         this.maskPath = new Path();
-        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_ShapeableImageView);
+        TypedArray obtainStyledAttributes = context2.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591}, i, obfuscated_res_0x7f100378);
         this.strokeColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 2);
         this.strokeWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         Paint paint2 = new Paint();
         this.borderPaint = paint2;
         paint2.setStyle(Paint.Style.STROKE);
         this.borderPaint.setAntiAlias(true);
-        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_MaterialComponents_ShapeableImageView).build();
+        this.shapeAppearanceModel = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100378).build();
         this.shadowDrawable = new MaterialShapeDrawable(this.shapeAppearanceModel);
         if (Build.VERSION.SDK_INT >= 21) {
             setOutlineProvider(new OutlineProvider(this));

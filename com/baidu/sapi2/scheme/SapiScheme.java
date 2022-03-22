@@ -46,22 +46,22 @@ public class SapiScheme {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private String buildResult(int i2, String str) {
+    private String buildResult(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i, str)) == null) {
             SchemeResult schemeResult = new SchemeResult();
             this.schemeResult = schemeResult;
-            schemeResult.setResultCode(i2);
+            schemeResult.setResultCode(i);
             this.schemeResult.setResultMsg(str);
             return this.schemeResult.toJson();
         }
@@ -152,9 +152,9 @@ public class SapiScheme {
         }
     }
 
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) || this.invokeScAppResult == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) || this.invokeScAppResult == null) {
             return;
         }
         this.invokeScAppResult.setInvokeResult(intent != null ? intent.getExtras().getString(EXTRA_ACHIEVE_SC_APP_DATA) : null);

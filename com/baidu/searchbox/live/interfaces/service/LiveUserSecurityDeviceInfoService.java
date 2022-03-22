@@ -46,9 +46,9 @@ public interface LiveUserSecurityDeviceInfoService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -68,9 +68,9 @@ public interface LiveUserSecurityDeviceInfoService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static /* synthetic */ String getAndroidId$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i2, Object obj) {
+        public static /* synthetic */ String getAndroidId$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getAndroidId(context, str);
@@ -78,9 +78,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getAndroidId");
         }
 
-        public static /* synthetic */ String getHarmonyVersion$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i2, Object obj) {
+        public static /* synthetic */ String getHarmonyVersion$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getHarmonyVersion(context, str);
@@ -88,9 +88,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getHarmonyVersion");
         }
 
-        public static /* synthetic */ String getIMEI$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i2, Object obj) {
+        public static /* synthetic */ String getIMEI$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getIMEI(context, str);
@@ -98,9 +98,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getIMEI");
         }
 
-        public static /* synthetic */ String getMacAddress$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i2, Object obj) {
+        public static /* synthetic */ String getMacAddress$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getMacAddress(context, str);
@@ -108,9 +108,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getMacAddress");
         }
 
-        public static /* synthetic */ String getManufacturer$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i2, Object obj) {
+        public static /* synthetic */ String getManufacturer$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 1) != 0) {
+                if ((i & 1) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getManufacturer(str);
@@ -118,9 +118,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getManufacturer");
         }
 
-        public static /* synthetic */ String getModel$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i2, Object obj) {
+        public static /* synthetic */ String getModel$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 1) != 0) {
+                if ((i & 1) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getModel(str);
@@ -128,9 +128,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getModel");
         }
 
-        public static /* synthetic */ String getOAID$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i2, Object obj) {
+        public static /* synthetic */ String getOAID$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 1) != 0) {
+                if ((i & 1) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getOAID(str);
@@ -138,9 +138,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getOAID");
         }
 
-        public static /* synthetic */ String getOperator$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i2, Object obj) {
+        public static /* synthetic */ String getOperator$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, Context context, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getOperator(context, str);
@@ -148,9 +148,9 @@ public interface LiveUserSecurityDeviceInfoService {
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: getOperator");
         }
 
-        public static /* synthetic */ String getOsVersion$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i2, Object obj) {
+        public static /* synthetic */ String getOsVersion$default(LiveUserSecurityDeviceInfoService liveUserSecurityDeviceInfoService, String str, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 1) != 0) {
+                if ((i & 1) != 0) {
                     str = "";
                 }
                 return liveUserSecurityDeviceInfoService.getOsVersion(str);

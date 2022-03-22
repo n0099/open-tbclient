@@ -9,7 +9,7 @@ public final class c {
     public static final Charset a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f54261b = Charset.forName("UTF-8");
+    public static final Charset f39394b = Charset.forName("UTF-8");
 
     public static void a(Closeable closeable) {
         if (closeable != null) {

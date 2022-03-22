@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
+import android.util.Log;
 import android.util.StateSet;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RippleUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ENABLED_PRESSED_STATE_SET;
@@ -72,9 +73,9 @@ public class RippleUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -104,10 +105,10 @@ public class RippleUtils {
 
     @ColorInt
     @TargetApi(21)
-    public static int doubleAlpha(@ColorInt int i2) {
+    public static int doubleAlpha(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? ColorUtils.setAlphaComponent(i2, Math.min(Color.alpha(i2) * 2, 255)) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? ColorUtils.setAlphaComponent(i, Math.min(Color.alpha(i) * 2, 255)) : invokeI.intValue;
     }
 
     @ColorInt
@@ -127,9 +128,9 @@ public class RippleUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, colorStateList)) == null) {
             if (colorStateList != null) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 22 && i2 <= 27 && Color.alpha(colorStateList.getDefaultColor()) == 0) {
-                    Color.alpha(colorStateList.getColorForState(ENABLED_PRESSED_STATE_SET, 0));
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 22 && i <= 27 && Color.alpha(colorStateList.getDefaultColor()) == 0 && Color.alpha(colorStateList.getColorForState(ENABLED_PRESSED_STATE_SET, 0)) != 0) {
+                    Log.w(LOG_TAG, TRANSPARENT_DEFAULT_COLOR_WARNING);
                 }
                 return colorStateList;
             }
@@ -144,10 +145,10 @@ public class RippleUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iArr)) == null) {
             boolean z = false;
             boolean z2 = false;
-            for (int i2 : iArr) {
-                if (i2 == 16842910) {
+            for (int i : iArr) {
+                if (i == 16842910) {
                     z = true;
-                } else if (i2 == 16842908 || i2 == 16842919 || i2 == 16843623) {
+                } else if (i == 16842908 || i == 16842919 || i == 16843623) {
                     z2 = true;
                 }
             }

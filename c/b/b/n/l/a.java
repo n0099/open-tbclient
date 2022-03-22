@@ -13,15 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final c.b.b.q.a<String> f27318g;
+    /* renamed from: c  reason: collision with root package name */
+    public static final c.b.b.q.a<String> f22548c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final long f27319e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int f27320f;
+    /* renamed from: b  reason: collision with root package name */
+    public final int f22549b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,33 +34,33 @@ public abstract class a implements Comparable<a> {
                 return;
             }
         }
-        f27318g = new c.b.b.q.a<>();
+        f22548c = new c.b.b.q.a<>();
     }
 
-    public a(long j2) {
+    public a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27319e = j2;
-        this.f27320f = Long.numberOfTrailingZeros(j2);
+        this.a = j;
+        this.f22549b = Long.numberOfTrailingZeros(j);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
-        r7 = c.b.b.n.l.a.f27318g;
+        r7 = c.b.b.n.l.a.f22548c;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
-        if (r0 >= r7.f27499f) goto L17;
+        if (r0 >= r7.f22717b) goto L17;
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
         return r7.get(r0);
@@ -70,12 +68,12 @@ public abstract class a implements Comparable<a> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final String b(long j2) {
+    public static final String b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            int i2 = -1;
-            while (j2 != 0 && (i2 = i2 + 1) < 63 && ((j2 >> i2) & 1) == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            int i = -1;
+            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
             }
             return null;
         }
@@ -88,16 +86,16 @@ public abstract class a implements Comparable<a> {
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
             return invokeL.longValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            c.b.b.q.a<String> aVar = f27318g;
-            if (i2 >= aVar.f27499f) {
+            c.b.b.q.a<String> aVar = f22548c;
+            if (i >= aVar.f22717b) {
                 return 0L;
             }
-            if (aVar.get(i2).compareTo(str) == 0) {
-                return 1 << i2;
+            if (aVar.get(i).compareTo(str) == 0) {
+                return 1 << i;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -109,8 +107,8 @@ public abstract class a implements Comparable<a> {
             if (c2 > 0) {
                 return c2;
             }
-            f27318g.a(str);
-            return 1 << (f27318g.f27499f - 1);
+            f22548c.a(str);
+            return 1 << (f22548c.f22717b - 1);
         }
         return invokeL.longValue;
     }
@@ -133,7 +131,7 @@ public abstract class a implements Comparable<a> {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.f27319e != aVar.f27319e) {
+                if (this.a != aVar.a) {
                     return false;
                 }
                 return a(aVar);
@@ -146,12 +144,12 @@ public abstract class a implements Comparable<a> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27320f * 7489 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22549b * 7489 : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.f27319e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b(this.a) : (String) invokeV.objValue;
     }
 }

@@ -31,17 +31,17 @@ public final class AnimatorKt {
         return (Animator.AnimatorListener) invokeLLLLL.objValue;
     }
 
-    public static /* synthetic */ Animator.AnimatorListener addListener$default(Animator animator, Function1 function1, Function1 function12, Function1 function13, Function1 function14, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Animator.AnimatorListener addListener$default(Animator animator, Function1 function1, Function1 function12, Function1 function13, Function1 function14, int i, Object obj) {
+        if ((i & 1) != 0) {
             function1 = AnimatorKt$addListener$1.INSTANCE;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             function12 = AnimatorKt$addListener$2.INSTANCE;
         }
-        if ((i2 & 4) != 0) {
+        if ((i & 4) != 0) {
             function13 = AnimatorKt$addListener$3.INSTANCE;
         }
-        if ((i2 & 8) != 0) {
+        if ((i & 8) != 0) {
             function14 = AnimatorKt$addListener$4.INSTANCE;
         }
         AnimatorKt$addListener$listener$1 animatorKt$addListener$listener$1 = new AnimatorKt$addListener$listener$1(function14, function1, function13, function12);
@@ -61,11 +61,11 @@ public final class AnimatorKt {
         return (Animator.AnimatorPauseListener) invokeLLL.objValue;
     }
 
-    public static /* synthetic */ Animator.AnimatorPauseListener addPauseListener$default(Animator animator, Function1 function1, Function1 function12, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Animator.AnimatorPauseListener addPauseListener$default(Animator animator, Function1 function1, Function1 function12, int i, Object obj) {
+        if ((i & 1) != 0) {
             function1 = AnimatorKt$addPauseListener$1.INSTANCE;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             function12 = AnimatorKt$addPauseListener$2.INSTANCE;
         }
         AnimatorKt$addPauseListener$listener$1 animatorKt$addPauseListener$listener$1 = new AnimatorKt$addPauseListener$listener$1(function12, function1);
@@ -89,9 +89,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -151,9 +151,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -214,9 +214,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -262,9 +262,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -325,9 +325,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -373,9 +373,9 @@ public final class AnimatorKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

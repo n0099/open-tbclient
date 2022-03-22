@@ -17,39 +17,39 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class dq extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f246a;
+    public Context f222a;
 
-    public dq(Context context, int i2) {
+    public dq(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f246a = context;
+        this.a = i;
+        this.f222a = context;
     }
 
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, hnVar) == null) {
-            di m309a = dj.a().m309a();
-            String a = m309a == null ? "" : m309a.a();
+            di m288a = dj.a().m288a();
+            String a = m288a == null ? "" : m288a.a();
             if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hnVar.a())) {
                 return;
             }
@@ -71,7 +71,7 @@ public abstract class dq extends ai.a {
             try {
                 try {
                     File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m706a(file);
+                    y.m685a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         lock = randomAccessFile.getChannel().lock();
@@ -157,7 +157,7 @@ public abstract class dq extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return "dc_job_result_time_" + mo247a();
+            return "dc_job_result_time_" + mo226a();
         }
         return (String) invokeV.objValue;
     }
@@ -166,27 +166,27 @@ public abstract class dq extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return "dc_job_result_" + mo247a();
+            return "dc_job_result_" + mo226a();
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hh mo247a();
+    public abstract hh mo226a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo247a() {
+    public boolean mo226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f246a, String.valueOf(mo247a()), this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f222a, String.valueOf(mo226a()), this.a) : invokeV.booleanValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m311b() {
+    public boolean m290b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -196,7 +196,7 @@ public abstract class dq extends ai.a {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m312c() {
+    public boolean m291c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -213,31 +213,31 @@ public abstract class dq extends ai.a {
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (mo247a()) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("DC run job mutual: " + mo247a());
+            if (mo226a()) {
+                com.xiaomi.channel.commonutils.logger.b.m112a("DC run job mutual: " + mo226a());
                 return;
             }
-            di m309a = dj.a().m309a();
-            String a = m309a == null ? "" : m309a.a();
-            if (!TextUtils.isEmpty(a) && m311b()) {
-                if (m312c()) {
-                    SharedPreferences sharedPreferences = this.f246a.getSharedPreferences("mipush_extra", 0);
+            di m288a = dj.a().m288a();
+            String a = m288a == null ? "" : m288a.a();
+            if (!TextUtils.isEmpty(a) && m290b()) {
+                if (m291c()) {
+                    SharedPreferences sharedPreferences = this.f222a.getSharedPreferences("mipush_extra", 0);
                     if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
-                        long j2 = sharedPreferences.getLong(c(), 0L);
-                        int a2 = com.xiaomi.push.service.aq.a(this.f246a).a(hk.ba.a(), 604800);
-                        if ((System.currentTimeMillis() - j2) / 1000 < this.a) {
+                        long j = sharedPreferences.getLong(c(), 0L);
+                        int a2 = com.xiaomi.push.service.aq.a(this.f222a).a(hk.ba.a(), 604800);
+                        if ((System.currentTimeMillis() - j) / 1000 < this.a) {
                             return;
                         }
-                        if ((System.currentTimeMillis() - j2) / 1000 < a2) {
-                            b2 = "same_" + j2;
+                        if ((System.currentTimeMillis() - j) / 1000 < a2) {
+                            b2 = "same_" + j;
                         }
                     }
                 }
                 hn hnVar = new hn();
                 hnVar.a(b2);
                 hnVar.a(System.currentTimeMillis());
-                hnVar.a(mo247a());
-                a(this.f246a, hnVar, a);
+                hnVar.a(mo226a());
+                a(this.f222a, hnVar, a);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.google.zxing;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,29 +16,29 @@ public abstract class LuminanceSource {
     public final int height;
     public final int width;
 
-    public LuminanceSource(int i2, int i3) {
+    public LuminanceSource(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
     }
 
-    public LuminanceSource crop(int i2, int i3, int i4, int i5) {
+    public LuminanceSource crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
             throw new UnsupportedOperationException("This luminance source does not support cropping.");
         }
         return (LuminanceSource) invokeIIII.objValue;
@@ -51,7 +52,7 @@ public abstract class LuminanceSource {
 
     public abstract byte[] getMatrix();
 
-    public abstract byte[] getRow(int i2, byte[] bArr);
+    public abstract byte[] getRow(int i, byte[] bArr);
 
     public final int getWidth() {
         InterceptResult invokeV;
@@ -105,14 +106,14 @@ public abstract class LuminanceSource {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.width;
-            byte[] bArr = new byte[i2];
-            StringBuilder sb = new StringBuilder(this.height * (i2 + 1));
-            for (int i3 = 0; i3 < this.height; i3++) {
-                bArr = getRow(i3, bArr);
-                for (int i4 = 0; i4 < this.width; i4++) {
-                    int i5 = bArr[i4] & 255;
-                    sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? '.' : WebvttCueParser.CHAR_SPACE);
+            int i = this.width;
+            byte[] bArr = new byte[i];
+            StringBuilder sb = new StringBuilder(this.height * (i + 1));
+            for (int i2 = 0; i2 < this.height; i2++) {
+                bArr = getRow(i2, bArr);
+                for (int i3 = 0; i3 < this.width; i3++) {
+                    int i4 = bArr[i3] & 255;
+                    sb.append(i4 < 64 ? '#' : i4 < 128 ? '+' : i4 < 192 ? IStringUtil.EXTENSION_SEPARATOR : WebvttCueParser.CHAR_SPACE);
                 }
                 sb.append('\n');
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UriQuery {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -43,9 +43,9 @@ public class UriQuery {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -81,12 +81,12 @@ public class UriQuery {
             return;
         }
         String[] split = this.mQuery.split("&");
-        for (int i2 = 0; i2 < split.length; i2++) {
-            int indexOf = split[i2].indexOf("=");
+        for (int i = 0; i < split.length; i++) {
+            int indexOf = split[i].indexOf("=");
             if (indexOf >= 0) {
-                this.mParams.put(UriHelper.getDecodedValue(split[i2].substring(0, indexOf)), UriHelper.getDecodedValue(split[i2].substring(indexOf + 1)));
+                this.mParams.put(UriHelper.getDecodedValue(split[i].substring(0, indexOf)), UriHelper.getDecodedValue(split[i].substring(indexOf + 1)));
             } else {
-                this.mParams.put(UriHelper.getDecodedValue(split[i2]), "");
+                this.mParams.put(UriHelper.getDecodedValue(split[i]), "");
             }
         }
         this.mBackupQueryDirty = true;

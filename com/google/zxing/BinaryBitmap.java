@@ -23,9 +23,9 @@ public final class BinaryBitmap {
             newInitContext.initArgs = r2;
             Object[] objArr = {binarizer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,10 +38,10 @@ public final class BinaryBitmap {
         throw new IllegalArgumentException("Binarizer must be non-null.");
     }
 
-    public BinaryBitmap crop(int i2, int i3, int i4, int i5) {
+    public BinaryBitmap crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i2, i3, i4, i5))) : (BinaryBitmap) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4))) : (BinaryBitmap) invokeIIII.objValue;
     }
 
     public BitMatrix getBlackMatrix() throws NotFoundException {
@@ -56,10 +56,10 @@ public final class BinaryBitmap {
         return (BitMatrix) invokeV.objValue;
     }
 
-    public BitArray getBlackRow(int i2, BitArray bitArray) throws NotFoundException {
+    public BitArray getBlackRow(int i, BitArray bitArray) throws NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bitArray)) == null) ? this.binarizer.getBlackRow(i2, bitArray) : (BitArray) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitArray)) == null) ? this.binarizer.getBlackRow(i, bitArray) : (BitArray) invokeIL.objValue;
     }
 
     public int getHeight() {

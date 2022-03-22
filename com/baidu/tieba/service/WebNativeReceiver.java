@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FROM = "aladdin_wake";
@@ -23,9 +23,9 @@ public class WebNativeReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,7 +63,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 13);
                 intent2.putExtra("groupid", intent.getStringExtra("groupid"));
-            } else if (stringExtra.equals("pay")) {
+            } else if (stringExtra.equals(TiebaStatic.DQPay.TYPE_VALUE)) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));

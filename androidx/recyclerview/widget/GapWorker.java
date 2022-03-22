@@ -44,9 +44,9 @@ public final class GapWorker implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -54,27 +54,27 @@ public final class GapWorker implements Runnable {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager.LayoutPrefetchRegistry
-        public void addPosition(int i2, int i3) {
+        public void addPosition(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (i2 < 0) {
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                if (i < 0) {
                     throw new IllegalArgumentException("Layout positions must be non-negative");
                 }
-                if (i3 >= 0) {
-                    int i4 = this.mCount * 2;
+                if (i2 >= 0) {
+                    int i3 = this.mCount * 2;
                     int[] iArr = this.mPrefetchArray;
                     if (iArr == null) {
                         int[] iArr2 = new int[4];
                         this.mPrefetchArray = iArr2;
                         Arrays.fill(iArr2, -1);
-                    } else if (i4 >= iArr.length) {
-                        int[] iArr3 = new int[i4 * 2];
+                    } else if (i3 >= iArr.length) {
+                        int[] iArr3 = new int[i3 * 2];
                         this.mPrefetchArray = iArr3;
                         System.arraycopy(iArr, 0, iArr3, 0, iArr.length);
                     }
                     int[] iArr4 = this.mPrefetchArray;
-                    iArr4[i4] = i2;
-                    iArr4[i4 + 1] = i3;
+                    iArr4[i3] = i;
+                    iArr4[i3 + 1] = i2;
                     this.mCount++;
                     return;
                 }
@@ -112,23 +112,23 @@ public final class GapWorker implements Runnable {
                 } else if (!recyclerView.hasPendingAdapterUpdates()) {
                     layoutManager.collectAdjacentPrefetchPositions(this.mPrefetchDx, this.mPrefetchDy, recyclerView.mState, this);
                 }
-                int i2 = this.mCount;
-                if (i2 > layoutManager.mPrefetchMaxCountObserved) {
-                    layoutManager.mPrefetchMaxCountObserved = i2;
+                int i = this.mCount;
+                if (i > layoutManager.mPrefetchMaxCountObserved) {
+                    layoutManager.mPrefetchMaxCountObserved = i;
                     layoutManager.mPrefetchMaxObservedInInitialPrefetch = z;
                     recyclerView.mRecycler.updateViewCacheSize();
                 }
             }
         }
 
-        public boolean lastPrefetchIncludedPosition(int i2) {
+        public boolean lastPrefetchIncludedPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 if (this.mPrefetchArray != null) {
-                    int i3 = this.mCount * 2;
-                    for (int i4 = 0; i4 < i3; i4 += 2) {
-                        if (this.mPrefetchArray[i4] == i2) {
+                    int i2 = this.mCount * 2;
+                    for (int i3 = 0; i3 < i2; i3 += 2) {
+                        if (this.mPrefetchArray[i3] == i) {
                             return true;
                         }
                     }
@@ -138,11 +138,11 @@ public final class GapWorker implements Runnable {
             return invokeI.booleanValue;
         }
 
-        public void setPrefetchVector(int i2, int i3) {
+        public void setPrefetchVector(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-                this.mPrefetchDx = i2;
-                this.mPrefetchDy = i3;
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+                this.mPrefetchDx = i;
+                this.mPrefetchDy = i2;
             }
         }
     }
@@ -162,9 +162,9 @@ public final class GapWorker implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -206,9 +206,9 @@ public final class GapWorker implements Runnable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -228,13 +228,13 @@ public final class GapWorker implements Runnable {
                     if (z != task2.immediate) {
                         return z ? -1 : 1;
                     }
-                    int i2 = task2.viewVelocity - task.viewVelocity;
+                    int i = task2.viewVelocity - task.viewVelocity;
+                    if (i != 0) {
+                        return i;
+                    }
+                    int i2 = task.distanceToItem - task2.distanceToItem;
                     if (i2 != 0) {
                         return i2;
-                    }
-                    int i3 = task.distanceToItem - task2.distanceToItem;
-                    if (i3 != 0) {
-                        return i3;
                     }
                     return 0;
                 }
@@ -248,9 +248,9 @@ public final class GapWorker implements Runnable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -265,35 +265,35 @@ public final class GapWorker implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             int size = this.mRecyclerViews.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                RecyclerView recyclerView = this.mRecyclerViews.get(i3);
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                RecyclerView recyclerView = this.mRecyclerViews.get(i2);
                 if (recyclerView.getWindowVisibility() == 0) {
                     recyclerView.mPrefetchRegistry.collectPrefetchPositionsFromView(recyclerView, false);
-                    i2 += recyclerView.mPrefetchRegistry.mCount;
+                    i += recyclerView.mPrefetchRegistry.mCount;
                 }
             }
-            this.mTasks.ensureCapacity(i2);
-            int i4 = 0;
-            for (int i5 = 0; i5 < size; i5++) {
-                RecyclerView recyclerView2 = this.mRecyclerViews.get(i5);
+            this.mTasks.ensureCapacity(i);
+            int i3 = 0;
+            for (int i4 = 0; i4 < size; i4++) {
+                RecyclerView recyclerView2 = this.mRecyclerViews.get(i4);
                 if (recyclerView2.getWindowVisibility() == 0) {
                     LayoutPrefetchRegistryImpl layoutPrefetchRegistryImpl = recyclerView2.mPrefetchRegistry;
                     int abs = Math.abs(layoutPrefetchRegistryImpl.mPrefetchDx) + Math.abs(layoutPrefetchRegistryImpl.mPrefetchDy);
-                    for (int i6 = 0; i6 < layoutPrefetchRegistryImpl.mCount * 2; i6 += 2) {
-                        if (i4 >= this.mTasks.size()) {
+                    for (int i5 = 0; i5 < layoutPrefetchRegistryImpl.mCount * 2; i5 += 2) {
+                        if (i3 >= this.mTasks.size()) {
                             task = new Task();
                             this.mTasks.add(task);
                         } else {
-                            task = this.mTasks.get(i4);
+                            task = this.mTasks.get(i3);
                         }
-                        int i7 = layoutPrefetchRegistryImpl.mPrefetchArray[i6 + 1];
-                        task.immediate = i7 <= abs;
+                        int i6 = layoutPrefetchRegistryImpl.mPrefetchArray[i5 + 1];
+                        task.immediate = i6 <= abs;
                         task.viewVelocity = abs;
-                        task.distanceToItem = i7;
+                        task.distanceToItem = i6;
                         task.view = recyclerView2;
-                        task.position = layoutPrefetchRegistryImpl.mPrefetchArray[i6];
-                        i4++;
+                        task.position = layoutPrefetchRegistryImpl.mPrefetchArray[i5];
+                        i3++;
                     }
                 }
             }
@@ -301,39 +301,39 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    private void flushTaskWithDeadline(Task task, long j2) {
+    private void flushTaskWithDeadline(Task task, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, this, task, j2) == null) {
-            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j2);
+        if (interceptable == null || interceptable.invokeLJ(65539, this, task, j) == null) {
+            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j);
             if (prefetchPositionWithDeadline == null || prefetchPositionWithDeadline.mNestedRecyclerView == null || !prefetchPositionWithDeadline.isBound() || prefetchPositionWithDeadline.isInvalid()) {
                 return;
             }
-            prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j2);
+            prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
         }
     }
 
-    private void flushTasksWithDeadline(long j2) {
+    private void flushTasksWithDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            for (int i2 = 0; i2 < this.mTasks.size(); i2++) {
-                Task task = this.mTasks.get(i2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            for (int i = 0; i < this.mTasks.size(); i++) {
+                Task task = this.mTasks.get(i);
                 if (task.view == null) {
                     return;
                 }
-                flushTaskWithDeadline(task, j2);
+                flushTaskWithDeadline(task, j);
                 task.clear();
             }
         }
     }
 
-    public static boolean isPrefetchPositionAttached(RecyclerView recyclerView, int i2) {
+    public static boolean isPrefetchPositionAttached(RecyclerView recyclerView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, recyclerView, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, recyclerView, i)) == null) {
             int unfilteredChildCount = recyclerView.mChildHelper.getUnfilteredChildCount();
-            for (int i3 = 0; i3 < unfilteredChildCount; i3++) {
-                RecyclerView.ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(recyclerView.mChildHelper.getUnfilteredChildAt(i3));
-                if (childViewHolderInt.mPosition == i2 && !childViewHolderInt.isInvalid()) {
+            for (int i2 = 0; i2 < unfilteredChildCount; i2++) {
+                RecyclerView.ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(recyclerView.mChildHelper.getUnfilteredChildAt(i2));
+                if (childViewHolderInt.mPosition == i && !childViewHolderInt.isInvalid()) {
                     return true;
                 }
             }
@@ -342,9 +342,9 @@ public final class GapWorker implements Runnable {
         return invokeLI.booleanValue;
     }
 
-    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j2) {
+    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65542, this, recyclerView, j2) == null) || recyclerView == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(65542, this, recyclerView, j) == null) || recyclerView == null) {
             return;
         }
         if (recyclerView.mDataSetHasChangedAfterLayout && recyclerView.mChildHelper.getUnfilteredChildCount() != 0) {
@@ -356,8 +356,8 @@ public final class GapWorker implements Runnable {
             try {
                 TraceCompat.beginSection(RecyclerView.TRACE_NESTED_PREFETCH_TAG);
                 recyclerView.mState.prepareForNestedPrefetch(recyclerView.mAdapter);
-                for (int i2 = 0; i2 < layoutPrefetchRegistryImpl.mCount * 2; i2 += 2) {
-                    prefetchPositionWithDeadline(recyclerView, layoutPrefetchRegistryImpl.mPrefetchArray[i2], j2);
+                for (int i = 0; i < layoutPrefetchRegistryImpl.mCount * 2; i += 2) {
+                    prefetchPositionWithDeadline(recyclerView, layoutPrefetchRegistryImpl.mPrefetchArray[i], j);
                 }
             } finally {
                 TraceCompat.endSection();
@@ -365,17 +365,17 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    private RecyclerView.ViewHolder prefetchPositionWithDeadline(RecyclerView recyclerView, int i2, long j2) {
+    private RecyclerView.ViewHolder prefetchPositionWithDeadline(RecyclerView recyclerView, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{recyclerView, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            if (isPrefetchPositionAttached(recyclerView, i2)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{recyclerView, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (isPrefetchPositionAttached(recyclerView, i)) {
                 return null;
             }
             RecyclerView.Recycler recycler = recyclerView.mRecycler;
             try {
                 recyclerView.onEnterLayoutOrScroll();
-                RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline = recycler.tryGetViewHolderForPositionByDeadline(i2, false, j2);
+                RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline = recycler.tryGetViewHolderForPositionByDeadline(i, false, j);
                 if (tryGetViewHolderForPositionByDeadline != null) {
                     if (tryGetViewHolderForPositionByDeadline.isBound() && !tryGetViewHolderForPositionByDeadline.isInvalid()) {
                         recycler.recycleView(tryGetViewHolderForPositionByDeadline.itemView);
@@ -398,22 +398,22 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    public void postFromTraversal(RecyclerView recyclerView, int i2, int i3) {
+    public void postFromTraversal(RecyclerView recyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
             if (recyclerView.isAttachedToWindow() && this.mPostTimeNs == 0) {
                 this.mPostTimeNs = recyclerView.getNanoTime();
                 recyclerView.post(this);
             }
-            recyclerView.mPrefetchRegistry.setPrefetchVector(i2, i3);
+            recyclerView.mPrefetchRegistry.setPrefetchVector(i, i2);
         }
     }
 
-    public void prefetch(long j2) {
+    public void prefetch(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             buildTaskList();
-            flushTasksWithDeadline(j2);
+            flushTasksWithDeadline(j);
         }
     }
 
@@ -432,15 +432,15 @@ public final class GapWorker implements Runnable {
                 TraceCompat.beginSection(RecyclerView.TRACE_PREFETCH_TAG);
                 if (!this.mRecyclerViews.isEmpty()) {
                     int size = this.mRecyclerViews.size();
-                    long j2 = 0;
-                    for (int i2 = 0; i2 < size; i2++) {
-                        RecyclerView recyclerView = this.mRecyclerViews.get(i2);
+                    long j = 0;
+                    for (int i = 0; i < size; i++) {
+                        RecyclerView recyclerView = this.mRecyclerViews.get(i);
                         if (recyclerView.getWindowVisibility() == 0) {
-                            j2 = Math.max(recyclerView.getDrawingTime(), j2);
+                            j = Math.max(recyclerView.getDrawingTime(), j);
                         }
                     }
-                    if (j2 != 0) {
-                        prefetch(TimeUnit.MILLISECONDS.toNanos(j2) + this.mFrameIntervalNs);
+                    if (j != 0) {
+                        prefetch(TimeUnit.MILLISECONDS.toNanos(j) + this.mFrameIntervalNs);
                     }
                 }
             } finally {

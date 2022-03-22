@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.b;
-import i.c;
-import i.k;
-import i.u.d;
+import g.b;
+import g.c;
+import g.k;
+import g.u.d;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
@@ -27,9 +27,9 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, bVarArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,13 +45,13 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
             b[] bVarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
-                int i2 = this.index;
-                this.index = i2 + 1;
-                if (i2 == bVarArr.length) {
+                int i = this.index;
+                this.index = i + 1;
+                if (i == bVarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                bVarArr[i2].j(this);
+                bVarArr[i].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }
@@ -59,7 +59,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // i.c
+    @Override // g.c
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -67,7 +67,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // i.c
+    @Override // g.c
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -75,7 +75,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // i.c
+    @Override // g.c
     public void onSubscribe(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {

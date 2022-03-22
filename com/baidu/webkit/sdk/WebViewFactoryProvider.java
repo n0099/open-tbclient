@@ -148,9 +148,9 @@ public abstract class WebViewFactoryProvider {
 
         String getMLModelUrl();
 
-        String getMainFrameIdInfo(int i2);
+        String getMainFrameIdInfo(int i);
 
-        String getMainFrameIdReferrer(int i2);
+        String getMainFrameIdReferrer(int i);
 
         boolean getMainLinkDirectEnabled();
 
@@ -232,7 +232,7 @@ public abstract class WebViewFactoryProvider {
 
         String getWormholeForbidenHost();
 
-        int getWormholeNum(int i2);
+        int getWormholeNum(int i);
 
         String getZeusManagerPkgName();
 
@@ -254,15 +254,15 @@ public abstract class WebViewFactoryProvider {
 
         ByteBuffer kernelBrotliPull(long[] jArr);
 
-        void kernelBrotliPush(long[] jArr, int i2);
+        void kernelBrotliPush(long[] jArr, int i);
 
-        void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2);
+        void kernelEncrypt(byte[] bArr, int i, byte[] bArr2);
 
-        void notifyBdAppStatusChange(int i2);
+        void notifyBdAppStatusChange(int i);
 
         void removeDnsInfo(String str);
 
-        void removeMainFrameIdInfo(int i2);
+        void removeMainFrameIdInfo(int i);
 
         void setAltServiceToBlink(String str);
 
@@ -270,17 +270,17 @@ public abstract class WebViewFactoryProvider {
 
         void setAppStatus(boolean z);
 
-        void setBackupDnsJobDelayTime(int i2);
+        void setBackupDnsJobDelayTime(int i);
 
-        void setBackupJobDelayTime(int i2);
+        void setBackupJobDelayTime(int i);
 
-        void setBackupLandingJobDelayTime(int i2);
+        void setBackupLandingJobDelayTime(int i);
 
         void setClientIP(String str);
 
         void setCloudSettingsToT5(String str);
 
-        void setConThreshold(int i2);
+        void setConThreshold(int i);
 
         void setCuid(String str);
 
@@ -310,15 +310,15 @@ public abstract class WebViewFactoryProvider {
 
         void setHijackEnv(boolean z);
 
-        void setHisHijackStopAbEnable(int i2);
+        void setHisHijackStopAbEnable(int i);
 
-        void setHttpDnsCache(String str, int i2);
+        void setHttpDnsCache(String str, int i);
 
         void setHttpDnsDnFailed(String str);
 
         void setIPV6CheckList(String str);
 
-        void setIPV6Timeout(int i2);
+        void setIPV6Timeout(int i);
 
         void setImgQuality(WebSettings.ImgQuality imgQuality);
 
@@ -328,13 +328,13 @@ public abstract class WebViewFactoryProvider {
 
         void setIpv6First(boolean z);
 
-        void setKeepAliveTime(int i2);
+        void setKeepAliveTime(int i);
 
         void setMLModel(String str, String str2);
 
         void setMainLinkDirectEnabled(boolean z);
 
-        void setMaxFatalAllocationFailureSize(int i2);
+        void setMaxFatalAllocationFailureSize(int i);
 
         void setMulripleConnectEnabled(boolean z);
 
@@ -360,11 +360,11 @@ public abstract class WebViewFactoryProvider {
 
         void setProxyInfo(String str, String[] strArr);
 
-        void setProxyType(int i2);
+        void setProxyType(int i);
 
         void setQuicDefaultOpen(boolean z);
 
-        void setQuicThreshold(int i2);
+        void setQuicThreshold(int i);
 
         void setRefererPattern(String str, String str2);
 
@@ -378,13 +378,13 @@ public abstract class WebViewFactoryProvider {
 
         void setShowWebProviderBy(boolean z);
 
-        void setSocketGroupNumber(int i2);
+        void setSocketGroupNumber(int i);
 
         void setSpdyCompressEnabled(boolean z);
 
         void setSpdyEncryptionEnabled(boolean z);
 
-        void setSpdyTimeout(int i2);
+        void setSpdyTimeout(int i);
 
         void setStatisticParam(String str);
 
@@ -398,7 +398,7 @@ public abstract class WebViewFactoryProvider {
 
         void setTimgConfUrl(String str);
 
-        void setVideoPlayerMode(int i2);
+        void setVideoPlayerMode(int i);
 
         void setWebessenseEnabled(boolean z);
 
@@ -410,7 +410,7 @@ public abstract class WebViewFactoryProvider {
 
         boolean shouldAccessNetworkOverSpdy(String str);
 
-        void updateFixAdblockLevelInfo(String str, int i2, int i3);
+        void updateFixAdblockLevelInfo(String str, int i, int i2);
 
         boolean useCronet();
     }
@@ -431,7 +431,7 @@ public abstract class WebViewFactoryProvider {
 
         void clearPageCacheCounts();
 
-        void crashIntentionally(int i2);
+        void crashIntentionally(int i);
 
         void enableSlowWholeDocumentDraw();
 
@@ -443,7 +443,7 @@ public abstract class WebViewFactoryProvider {
 
         String getDefaultUserAgent(Context context);
 
-        String getZeusSeriesNum(int i2, int i3, int i4);
+        String getZeusSeriesNum(int i, int i2, int i3);
 
         int historyNavigationCount();
 
@@ -453,13 +453,13 @@ public abstract class WebViewFactoryProvider {
 
         void makeMF30Inited();
 
-        void onMemoryPresure(int i2, Activity activity);
+        void onMemoryPresure(int i, Activity activity);
 
         int pageCacheCount();
 
-        Uri[] parseFileChooserResult(int i2, Intent intent);
+        Uri[] parseFileChooserResult(int i, Intent intent);
 
-        void preconnectUrl(String str, int i2);
+        void preconnectUrl(String str, int i);
 
         void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener);
 
@@ -513,9 +513,9 @@ public abstract class WebViewFactoryProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -800,9 +800,9 @@ public abstract class WebViewFactoryProvider {
         }
     }
 
-    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i2, long j2) {
+    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{webView, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 

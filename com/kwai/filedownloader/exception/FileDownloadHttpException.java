@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadHttpException extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,24 +21,24 @@ public class FileDownloadHttpException extends IOException {
     public final Map<String, List<String>> mResponseHeaderMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FileDownloadHttpException(int i2, Map<String, List<String>> map, Map<String, List<String>> map2) {
-        super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i2), map, map2));
+    public FileDownloadHttpException(int i, Map<String, List<String>> map, Map<String, List<String>> map2) {
+        super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), map, map2};
+            Object[] objArr = {Integer.valueOf(i), map, map2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mCode = i2;
+        this.mCode = i;
         this.mRequestHeaderMap = cloneSerializableMap(map);
         this.mResponseHeaderMap = cloneSerializableMap(map);
     }

@@ -36,9 +36,9 @@ public class LaunchWithPrivacyTask extends LaunchTask {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {launchWithPrivacyTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,15 +48,15 @@ public class LaunchWithPrivacyTask extends LaunchTask {
         }
 
         @Override // android.telephony.PhoneStateListener
-        public void onCallStateChanged(int i2, String str) {
+        public void onCallStateChanged(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                if (i == 0) {
                     TbadkCoreApplication.getInst().isPhoneCalling = false;
-                } else if (i2 == 1 || i2 == 2) {
+                } else if (i == 1 || i == 2) {
                     TbadkCoreApplication.getInst().isPhoneCalling = true;
                 }
-                super.onCallStateChanged(i2, str);
+                super.onCallStateChanged(i, str);
             }
         }
 
@@ -70,9 +70,9 @@ public class LaunchWithPrivacyTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RendererCommon {
     public static /* synthetic */ Interceptable $ic = null;
     public static float BALANCED_VISIBLE_FRACTION = 0.5625f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.RendererCommon$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$RendererCommon$ScalingType;
         public static /* synthetic */ Interceptable $ic;
@@ -55,26 +55,26 @@ public class RendererCommon {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface GlDrawer {
-        void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8);
+        void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7);
 
-        void drawRgb(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8);
+        void drawRgb(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7);
 
-        void drawYuv(int[] iArr, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7);
+        void drawYuv(int[] iArr, float[] fArr, int i, int i2, int i3, int i4, int i5, int i6);
 
         void release();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface RendererEvents {
         void onFirstFrameRendered();
 
-        void onFrameResolutionChanged(int i2, int i3, int i4);
+        void onFrameResolutionChanged(int i, int i2, int i3);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ScalingType {
         public static final /* synthetic */ ScalingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,16 +103,16 @@ public class RendererCommon {
             $VALUES = new ScalingType[]{SCALE_ASPECT_FIT, SCALE_ASPECT_FILL, scalingType};
         }
 
-        public ScalingType(String str, int i2) {
+        public ScalingType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -155,9 +155,9 @@ public class RendererCommon {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -201,10 +201,10 @@ public class RendererCommon {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, scalingType)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$org$webrtc$RendererCommon$ScalingType[scalingType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$RendererCommon$ScalingType[scalingType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
                         return BALANCED_VISIBLE_FRACTION;
                     }
                     throw new IllegalArgumentException();
@@ -216,10 +216,10 @@ public class RendererCommon {
         return invokeL.floatValue;
     }
 
-    public static Point getDisplaySize(ScalingType scalingType, float f2, int i2, int i3) {
+    public static Point getDisplaySize(ScalingType scalingType, float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scalingType, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? getDisplaySize(convertScalingTypeToVisibleFraction(scalingType), f2, i2, i3) : (Point) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{scalingType, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? getDisplaySize(convertScalingTypeToVisibleFraction(scalingType), f2, i, i2) : (Point) invokeCommon.objValue;
     }
 
     public static float[] getLayoutMatrix(boolean z, float f2, float f3) {
@@ -247,7 +247,7 @@ public class RendererCommon {
         return (float[]) invokeCommon.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class VideoLayoutMeasure {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,9 +259,9 @@ public class RendererCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -272,19 +272,19 @@ public class RendererCommon {
             this.scalingTypeMismatchOrientation = scalingType;
         }
 
-        public Point measure(int i2, int i3, int i4, int i5) {
+        public Point measure(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) {
-                int defaultSize = View.getDefaultSize(Integer.MAX_VALUE, i2);
-                int defaultSize2 = View.getDefaultSize(Integer.MAX_VALUE, i3);
-                if (i4 != 0 && i5 != 0 && defaultSize != 0 && defaultSize2 != 0) {
-                    float f2 = i4 / i5;
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+                int defaultSize = View.getDefaultSize(Integer.MAX_VALUE, i);
+                int defaultSize2 = View.getDefaultSize(Integer.MAX_VALUE, i2);
+                if (i3 != 0 && i4 != 0 && defaultSize != 0 && defaultSize2 != 0) {
+                    float f2 = i3 / i4;
                     Point displaySize = RendererCommon.getDisplaySize(((f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1)) > 0) == (((float) defaultSize) / ((float) defaultSize2) > 1.0f) ? this.scalingTypeMatchOrientation : this.scalingTypeMismatchOrientation, f2, defaultSize, defaultSize2);
-                    if (View.MeasureSpec.getMode(i2) == 1073741824) {
+                    if (View.MeasureSpec.getMode(i) == 1073741824) {
                         displaySize.x = defaultSize;
                     }
-                    if (View.MeasureSpec.getMode(i3) == 1073741824) {
+                    if (View.MeasureSpec.getMode(i2) == 1073741824) {
                         displaySize.y = defaultSize2;
                     }
                     return displaySize;
@@ -311,14 +311,14 @@ public class RendererCommon {
         }
     }
 
-    public static Point getDisplaySize(float f2, float f3, int i2, int i3) {
+    public static Point getDisplaySize(float f2, float f3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (f2 != 0.0f && f3 != 0.0f) {
-                return new Point(Math.min(i2, Math.round((i3 / f2) * f3)), Math.min(i3, Math.round((i2 / f2) / f3)));
+                return new Point(Math.min(i, Math.round((i2 / f2) * f3)), Math.min(i2, Math.round((i / f2) / f3)));
             }
-            return new Point(i2, i3);
+            return new Point(i, i2);
         }
         return (Point) invokeCommon.objValue;
     }

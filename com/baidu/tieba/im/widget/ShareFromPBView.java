@@ -17,18 +17,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class ShareFromPBView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f43707e;
+    /* renamed from: b  reason: collision with root package name */
+    public HeadImageView f33921b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f43708f;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33922c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f43709g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ShareFromPBMsgData f43710h;
+    /* renamed from: d  reason: collision with root package name */
+    public ShareFromPBMsgData f33923d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -39,9 +37,9 @@ public final class ShareFromPBView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -55,29 +53,29 @@ public final class ShareFromPBView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0773, this);
             setOrientation(1);
-            this.f43707e = (TextView) findViewById(R.id.chat_title);
-            this.f43708f = (HeadImageView) findViewById(R.id.chat_group_img);
-            this.f43709g = (TextView) findViewById(R.id.chat_group_desc);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090600);
+            this.f33921b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.f33922c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f5);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43707e.setText(this.f43710h.getTitle());
-            this.f43708f.setPlaceHolder(1);
-            this.f43708f.setAutoChangeStyle(false);
-            this.f43708f.startLoad(this.f43710h.getImageUrl(), 10, false);
-            this.f43709g.setText(this.f43710h.getContent());
+            this.a.setText(this.f33923d.getTitle());
+            this.f33921b.setPlaceHolder(1);
+            this.f33921b.setAutoChangeStyle(false);
+            this.f33921b.J(this.f33923d.getImageUrl(), 10, false);
+            this.f33922c.setText(this.f33923d.getContent());
         }
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareFromPBMsgData) == null) {
-            this.f43710h = shareFromPBMsgData;
+            this.f33923d = shareFromPBMsgData;
             b();
         }
     }
@@ -86,12 +84,12 @@ public final class ShareFromPBView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f43707e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f43709g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f33922c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f43707e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f43709g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f33922c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 
@@ -104,9 +102,9 @@ public final class ShareFromPBView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

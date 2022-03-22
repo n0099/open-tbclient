@@ -21,25 +21,23 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TIP_LOADING = "-- LOADING --";
     public static final String TIP_NO_DATA = "NO DATA";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.p0.t.a> mBeans;
+    public List<c.a.n0.t.a> mBeans;
     public int mIndex;
     public Button mSwitchThread;
     public Set<String> mThreads;
     public TextView mTraceInfo;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TraceInfoActivity f38619e;
+        public final /* synthetic */ TraceInfoActivity a;
 
         public a(TraceInfoActivity traceInfoActivity) {
             Interceptable interceptable = $ic;
@@ -48,36 +46,34 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {traceInfoActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38619e = traceInfoActivity;
+            this.a = traceInfoActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38619e.showTextInUIThread(this.f38619e.getContent());
+                this.a.showTextInUIThread(this.a.getContent());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f38620e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TraceInfoActivity f38621f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ TraceInfoActivity f29705b;
 
         public b(TraceInfoActivity traceInfoActivity, String str) {
             Interceptable interceptable = $ic;
@@ -86,25 +82,25 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {traceInfoActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38621f = traceInfoActivity;
-            this.f38620e = str;
+            this.f29705b = traceInfoActivity;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38621f.mTraceInfo == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29705b.mTraceInfo == null) {
                 return;
             }
-            this.f38621f.mTraceInfo.setText(this.f38620e);
+            this.f29705b.mTraceInfo.setText(this.a);
         }
     }
 
@@ -113,9 +109,9 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -133,7 +129,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     private void fillThreads() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            for (c.a.p0.t.a aVar : this.mBeans) {
+            for (c.a.n0.t.a aVar : this.mBeans) {
                 this.mThreads.add(aVar.f());
             }
         }
@@ -145,16 +141,16 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             ArrayList arrayList = new ArrayList(this.mThreads);
-            int i2 = this.mIndex;
-            this.mIndex = i2 + 1;
-            String str = (String) arrayList.get(i2 % arrayList.size());
+            int i = this.mIndex;
+            this.mIndex = i + 1;
+            String str = (String) arrayList.get(i % arrayList.size());
             ArrayList arrayList2 = new ArrayList();
-            for (c.a.p0.t.a aVar : this.mBeans) {
+            for (c.a.n0.t.a aVar : this.mBeans) {
                 if (TextUtils.equals(aVar.f(), str)) {
                     arrayList2.add(aVar);
                 }
             }
-            return c.a.p0.t.d.a.c(arrayList2, null);
+            return c.a.n0.t.d.a.c(arrayList2, null);
         }
         return (String) invokeV.objValue;
     }
@@ -162,8 +158,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTraceInfo = (TextView) findViewById(R.id.trace_info);
-            Button button = (Button) findViewById(R.id.switch_thread);
+            this.mTraceInfo = (TextView) findViewById(R.id.obfuscated_res_0x7f09213b);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e29);
             this.mSwitchThread = button;
             button.setOnClickListener(this);
             this.mThreads = new HashSet();
@@ -181,12 +177,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     private void showTraceInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            c.a.p0.t.c.a<List<c.a.p0.t.a>> c2 = c.a.p0.t.b.b().c();
+            c.a.n0.t.c.a<List<c.a.n0.t.a>> c2 = c.a.n0.t.b.b().c();
             if (c2 == null) {
                 this.mTraceInfo.setText(TIP_NO_DATA);
                 return;
             }
-            List<c.a.p0.t.a> a2 = c2.a();
+            List<c.a.n0.t.a> a2 = c2.a();
             if (a2 != null && a2.size() > 0) {
                 this.mBeans = a2;
                 this.mIndex = 0;
@@ -200,9 +196,9 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        List<c.a.p0.t.a> list;
+        List<c.a.n0.t.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != R.id.switch_thread || (list = this.mBeans) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view.getId() != R.id.obfuscated_res_0x7f091e29 || (list = this.mBeans) == null || list.size() <= 0) {
             return;
         }
         doShowInfo();
@@ -213,7 +209,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activity_trace_info);
+            setContentView(R.layout.obfuscated_res_0x7f0d0059);
             initViews();
             showTraceInfo();
             LogUtil.logActivity(this, "onCreate");

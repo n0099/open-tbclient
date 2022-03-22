@@ -28,16 +28,16 @@ public class ChatStatusManager {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39773b;
+        public String f30633b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -50,9 +50,9 @@ public class ChatStatusManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,21 +77,21 @@ public class ChatStatusManager {
         return (ChatStatusManager) invokeV.objValue;
     }
 
-    public String getCurId(int i2) {
+    public String getCurId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            a aVar = this.mStatus.get(i2);
-            return aVar != null ? aVar.f39773b : "";
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            a aVar = this.mStatus.get(i);
+            return aVar != null ? aVar.f30633b : "";
         }
         return (String) invokeI.objValue;
     }
 
-    public boolean getIsOpen(int i2) {
+    public boolean getIsOpen(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            a aVar = this.mStatus.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            a aVar = this.mStatus.get(i);
             if (aVar != null) {
                 return aVar.a;
             }
@@ -100,38 +100,38 @@ public class ChatStatusManager {
         return invokeI.booleanValue;
     }
 
-    public void remove(int i2) {
+    public void remove(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.mStatus.delete(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mStatus.delete(i);
         }
     }
 
-    public void setCurId(int i2, String str) {
+    public void setCurId(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            a aVar = this.mStatus.get(i2);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            a aVar = this.mStatus.get(i);
             if (aVar != null) {
-                aVar.f39773b = str;
+                aVar.f30633b = str;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f39773b = str;
-            this.mStatus.put(i2, aVar2);
+            aVar2.f30633b = str;
+            this.mStatus.put(i, aVar2);
         }
     }
 
-    public void setIsOpen(int i2, boolean z) {
+    public void setIsOpen(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            a aVar = this.mStatus.get(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            a aVar = this.mStatus.get(i);
             if (aVar != null) {
                 aVar.a = z;
                 return;
             }
             a aVar2 = new a();
             aVar2.a = z;
-            this.mStatus.put(i2, aVar2);
+            this.mStatus.put(i, aVar2);
         }
     }
 }

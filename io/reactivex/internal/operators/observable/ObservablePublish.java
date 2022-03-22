@@ -42,9 +42,9 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -114,9 +114,9 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                 newInitContext.initArgs = r2;
                 Object[] objArr = {atomicReference};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -224,27 +224,27 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (innerDisposableArr[i3].equals(innerDisposable)) {
-                            i2 = i3;
+                        } else if (innerDisposableArr[i2].equals(innerDisposable)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         innerDisposableArr2 = EMPTY;
                     } else {
                         InnerDisposable[] innerDisposableArr3 = new InnerDisposable[length - 1];
-                        System.arraycopy(innerDisposableArr, 0, innerDisposableArr3, 0, i2);
-                        System.arraycopy(innerDisposableArr, i2 + 1, innerDisposableArr3, i2, (length - i2) - 1);
+                        System.arraycopy(innerDisposableArr, 0, innerDisposableArr3, 0, i);
+                        System.arraycopy(innerDisposableArr, i + 1, innerDisposableArr3, i, (length - i) - 1);
                         innerDisposableArr2 = innerDisposableArr3;
                     }
                 } while (!this.observers.compareAndSet(innerDisposableArr, innerDisposableArr2));
@@ -265,9 +265,9 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
                 newInitContext.initArgs = r2;
                 Object[] objArr = {atomicReference};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -309,9 +309,9 @@ public final class ObservablePublish<T> extends ConnectableObservable<T> impleme
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSource2, atomicReference};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

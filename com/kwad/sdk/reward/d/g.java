@@ -18,70 +18,66 @@ import com.kwad.sdk.utils.w;
 import com.kwad.sdk.widget.KSCornerImageView;
 import com.kwad.sdk.widget.KSCouponLabelTextView;
 import com.kwad.sdk.widget.KsPriceView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g extends d implements View.OnClickListener {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f55829b;
+    public ViewGroup f40799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f55830c;
+    public KSCornerImageView f40800c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f55831d;
+    public TextView f40801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f55832e;
+    public LinearLayout f40802e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsPriceView f55833f;
+    public KsPriceView f40803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f55834g;
+    public TextView f40804g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f55835h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public KSCornerImageView f55836i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public b f55837j;
+    public View f40805h;
+    public KSCornerImageView i;
+    public b j;
     public a k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
 
     public g(ViewGroup viewGroup, b bVar) {
         this.a = viewGroup;
-        this.f55837j = bVar;
+        this.j = bVar;
         b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public View a(Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
-        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.ksad_reward_order_card_coupon, viewGroup, false);
+        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d046b, viewGroup, false);
         kSCouponLabelTextView.setText(couponInfo.getDisplayName());
         return kSCouponLabelTextView;
     }
 
     private void a(final AdProductInfo adProductInfo, AdTemplate adTemplate) {
-        KSImageLoader.loadImage(this.f55830c, adProductInfo.getIcon(), adTemplate);
-        this.f55831d.setText(adProductInfo.getName());
+        KSImageLoader.loadImage(this.f40800c, adProductInfo.getIcon(), adTemplate);
+        this.f40801d.setText(adProductInfo.getName());
         if (adProductInfo.isCouponListEmpty()) {
-            this.f55832e.setVisibility(8);
+            this.f40802e.setVisibility(8);
             this.k.a();
         } else {
-            this.f55832e.setVisibility(0);
-            this.f55832e.post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1
+            this.f40802e.setVisibility(0);
+            this.f40802e.post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     for (CouponInfo couponInfo : adProductInfo.getCouponList()) {
                         g gVar = g.this;
-                        View a2 = gVar.a(gVar.f55832e.getContext(), couponInfo, g.this.f55832e);
+                        View a2 = gVar.a(gVar.f40802e.getContext(), couponInfo, g.this.f40802e);
                         ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
                         if (layoutParams == null) {
                             layoutParams = new ViewGroup.LayoutParams(-2, -1);
@@ -89,12 +85,12 @@ public class g extends d implements View.OnClickListener {
                             layoutParams.width = -2;
                             layoutParams.height = -1;
                         }
-                        g.this.f55832e.addView(a2, layoutParams);
-                        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), g.this.f55832e);
+                        g.this.f40802e.addView(a2, layoutParams);
+                        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), g.this.f40802e);
                     }
                     if (g.this.k != null) {
-                        if (g.this.f55832e.getChildCount() > 0) {
-                            g.this.f55832e.getChildAt(0).post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1.1
+                        if (g.this.f40802e.getChildCount() > 0) {
+                            g.this.f40802e.getChildAt(0).post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     g.this.k.a();
@@ -107,27 +103,27 @@ public class g extends d implements View.OnClickListener {
                 }
             });
         }
-        this.f55833f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
+        this.f40803f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
         String aF = com.kwad.sdk.core.config.b.aF();
         if (at.a(aF)) {
             return;
         }
-        KSImageLoader.loadImage(this.f55836i, aF, adTemplate);
+        KSImageLoader.loadImage(this.i, aF, adTemplate);
     }
 
     private void b() {
-        this.f55829b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_root);
-        this.f55830c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_icon);
-        this.f55831d = (TextView) this.a.findViewById(R.id.ksad_reward_order_title);
-        this.f55832e = (LinearLayout) this.a.findViewById(R.id.ksad_reward_order_coupon_list);
-        this.f55833f = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_price);
-        this.f55834g = (TextView) this.a.findViewById(R.id.ksad_reward_order_btn_buy);
-        this.f55835h = this.a.findViewById(R.id.ksad_reward_order_text_area);
-        this.f55836i = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_kwai_logo);
-        this.f55834g.setText(com.kwad.sdk.core.config.b.aE());
-        this.f55834g.setOnClickListener(this);
-        this.f55830c.setOnClickListener(this);
-        this.f55835h.setOnClickListener(this);
+        this.f40799b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091122);
+        this.f40800c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09111f);
+        this.f40801d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091124);
+        this.f40802e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091111);
+        this.f40803f = (KsPriceView) this.a.findViewById(R.id.obfuscated_res_0x7f091121);
+        this.f40804g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09110e);
+        this.f40805h = this.a.findViewById(R.id.obfuscated_res_0x7f091123);
+        this.i = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091120);
+        this.f40804g.setText(com.kwad.sdk.core.config.b.aE());
+        this.f40804g.setOnClickListener(this);
+        this.f40800c.setOnClickListener(this);
+        this.f40805h.setOnClickListener(this);
         Context context = this.a.getContext();
         if (af.e(context)) {
             return;
@@ -135,14 +131,14 @@ public class g extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_follow_card_width_horizontal);
+            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07037d);
             this.a.setLayoutParams(layoutParams2);
         }
     }
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        return this.f55829b;
+        return this.f40799b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
@@ -157,15 +153,15 @@ public class g extends d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f55837j == null) {
+        if (this.j == null) {
             return;
         }
-        if (view.equals(this.f55834g)) {
-            this.f55837j.c();
-        } else if (view.equals(this.f55830c)) {
-            this.f55837j.a();
-        } else if (view.equals(this.f55835h)) {
-            this.f55837j.b();
+        if (view.equals(this.f40804g)) {
+            this.j.c();
+        } else if (view.equals(this.f40800c)) {
+            this.j.a();
+        } else if (view.equals(this.f40805h)) {
+            this.j.b();
         }
     }
 }

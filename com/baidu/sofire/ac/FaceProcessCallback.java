@@ -18,13 +18,13 @@ public interface FaceProcessCallback {
 
     void onBeginCollectFaceInfo();
 
-    void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i2);
+    void onCollectCompletion(FaceStatusNewEnum faceStatusNewEnum, String str, HashMap<String, ImageInfo> hashMap, HashMap<String, ImageInfo> hashMap2, int i);
 
-    void onConfigCamera(Camera camera, Rect rect, Rect rect2);
+    void onConfigCamera(Camera camera, Rect rect, Rect rect2, Degree degree);
 
-    void onDeviceCheckResult(int i2);
+    void onDeviceCheckResult(int i);
 
-    void onEnd(int i2, RequestInfo requestInfo);
+    void onEnd(int i, RequestInfo requestInfo);
 
     void onTestFrame(Bitmap bitmap);
 

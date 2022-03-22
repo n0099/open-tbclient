@@ -18,19 +18,17 @@ public class NadRewardVolumeView extends AdImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f36046h;
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f27836d;
 
-    /* renamed from: i  reason: collision with root package name */
-    public b f36047i;
+    /* renamed from: e  reason: collision with root package name */
+    public b f27837e;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardVolumeView f36048e;
+        public final /* synthetic */ NadRewardVolumeView a;
 
         public a(NadRewardVolumeView nadRewardVolumeView) {
             Interceptable interceptable = $ic;
@@ -39,25 +37,25 @@ public class NadRewardVolumeView extends AdImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {nadRewardVolumeView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36048e = nadRewardVolumeView;
+            this.a = nadRewardVolumeView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                NadRewardVolumeView nadRewardVolumeView = this.f36048e;
-                nadRewardVolumeView.setVolumeState(!nadRewardVolumeView.f36046h);
-                if (this.f36048e.f36047i != null) {
-                    this.f36048e.f36047i.a(this.f36048e.f36046h);
+                NadRewardVolumeView nadRewardVolumeView = this.a;
+                nadRewardVolumeView.setVolumeState(!nadRewardVolumeView.f27836d);
+                if (this.a.f27837e != null) {
+                    this.a.f27837e.a(this.a.f27836d);
                 }
             }
         }
@@ -77,9 +75,9 @@ public class NadRewardVolumeView extends AdImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -89,10 +87,10 @@ public class NadRewardVolumeView extends AdImageView {
         }
     }
 
-    public final void h() {
+    public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setVolumeState(this.f36046h);
+            setVolumeState(this.f27836d);
             setScaleType(ImageView.ScaleType.CENTER_CROP);
             setOnClickListener(new a(this));
         }
@@ -101,15 +99,15 @@ public class NadRewardVolumeView extends AdImageView {
     public void setVolumeListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f36047i = bVar;
+            this.f27837e = bVar;
         }
     }
 
     public void setVolumeState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f36046h = z;
-            setImageDrawable(getContext().getResources().getDrawable(z ? R.drawable.nad_player_mute_open : R.drawable.nad_player_mute_close));
+            this.f27836d = z;
+            setImageDrawable(getContext().getResources().getDrawable(z ? R.drawable.obfuscated_res_0x7f080dc9 : R.drawable.obfuscated_res_0x7f080dc8));
             invalidate();
         }
     }
@@ -123,9 +121,9 @@ public class NadRewardVolumeView extends AdImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -136,17 +134,17 @@ public class NadRewardVolumeView extends AdImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NadRewardVolumeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -154,7 +152,7 @@ public class NadRewardVolumeView extends AdImageView {
                 return;
             }
         }
-        this.f36046h = false;
-        h();
+        this.f27836d = false;
+        p();
     }
 }

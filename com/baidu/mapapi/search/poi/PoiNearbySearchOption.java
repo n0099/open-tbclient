@@ -28,9 +28,9 @@ public class PoiNearbySearchOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,21 +68,21 @@ public class PoiNearbySearchOption {
         return (PoiNearbySearchOption) invokeL.objValue;
     }
 
-    public PoiNearbySearchOption pageCapacity(int i2) {
+    public PoiNearbySearchOption pageCapacity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.mPageCapacity = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.mPageCapacity = i;
             return this;
         }
         return (PoiNearbySearchOption) invokeI.objValue;
     }
 
-    public PoiNearbySearchOption pageNum(int i2) {
+    public PoiNearbySearchOption pageNum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.mPageNum = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.mPageNum = i;
             return this;
         }
         return (PoiNearbySearchOption) invokeI.objValue;
@@ -98,11 +98,11 @@ public class PoiNearbySearchOption {
         return (PoiNearbySearchOption) invokeL.objValue;
     }
 
-    public PoiNearbySearchOption radius(int i2) {
+    public PoiNearbySearchOption radius(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.mRadius = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.mRadius = i;
             return this;
         }
         return (PoiNearbySearchOption) invokeI.objValue;
@@ -118,11 +118,11 @@ public class PoiNearbySearchOption {
         return (PoiNearbySearchOption) invokeZ.objValue;
     }
 
-    public PoiNearbySearchOption scope(int i2) {
+    public PoiNearbySearchOption scope(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.mScope = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            this.mScope = i;
             return this;
         }
         return (PoiNearbySearchOption) invokeI.objValue;

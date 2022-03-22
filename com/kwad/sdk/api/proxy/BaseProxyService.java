@@ -55,12 +55,12 @@ public abstract class BaseProxyService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         ClassLoader externalClassLoader = Loader.get().getExternalClassLoader();
         if (externalClassLoader != null && intent != null) {
             intent.setExtrasClassLoader(externalClassLoader);
         }
-        return this.mDelegate.onStartCommand(this, intent, i2, i3);
+        return this.mDelegate.onStartCommand(this, intent, i, i2);
     }
 
     @Override // android.app.Service
@@ -68,8 +68,8 @@ public abstract class BaseProxyService extends Service {
         return this.mDelegate.onUnbind(this, intent);
     }
 
-    public int superOnStartCommand(Intent intent, int i2, int i3) {
-        return super.onStartCommand(intent, i2, i3);
+    public int superOnStartCommand(Intent intent, int i, int i2) {
+        return super.onStartCommand(intent, i, i2);
     }
 
     public boolean superOnUnbind(Intent intent) {

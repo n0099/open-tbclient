@@ -1,7 +1,6 @@
 package com.badlogic.gdx;
 
 import c.b.b.m.a;
-import com.baidu.apollon.webmanager.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,21 +40,21 @@ public interface Files {
             Internal = new FileType("Internal", 1);
             External = new FileType("External", 2);
             Absolute = new FileType("Absolute", 3);
-            FileType fileType = new FileType(b.f31439i, 4);
+            FileType fileType = new FileType("Local", 4);
             Local = fileType;
             $VALUES = new FileType[]{Classpath, Internal, External, Absolute, fileType};
         }
 
-        public FileType(String str, int i2) {
+        public FileType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();

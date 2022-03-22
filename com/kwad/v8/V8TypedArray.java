@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8TypedArray extends V8Array {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class V8ArrayData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -21,25 +21,25 @@ public class V8TypedArray extends V8Array {
         public int size;
         public int type;
 
-        public V8ArrayData(V8ArrayBuffer v8ArrayBuffer, int i2, int i3, int i4) {
+        public V8ArrayData(V8ArrayBuffer v8ArrayBuffer, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v8ArrayBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {v8ArrayBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.buffer = v8ArrayBuffer;
-            this.offset = i2;
-            this.size = i3;
-            this.type = i4;
+            this.offset = i;
+            this.size = i2;
+            this.type = i3;
         }
     }
 
@@ -52,9 +52,9 @@ public class V8TypedArray extends V8Array {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -64,17 +64,17 @@ public class V8TypedArray extends V8Array {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public V8TypedArray(V8 v8, V8ArrayBuffer v8ArrayBuffer, int i2, int i3, int i4) {
-        super(v8, new V8ArrayData(v8ArrayBuffer, i3, i4, i2));
+    public V8TypedArray(V8 v8, V8ArrayBuffer v8ArrayBuffer, int i, int i2, int i3) {
+        super(v8, new V8ArrayData(v8ArrayBuffer, i2, i3, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v8, v8ArrayBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {v8, v8ArrayBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((V8) objArr2[0], objArr2[1]);
                 newInitContext.thisArg = this;
@@ -112,48 +112,48 @@ public class V8TypedArray extends V8Array {
         }
     }
 
-    private long createTypedArray(long j2, V8ArrayData v8ArrayData) {
+    private long createTypedArray(long j, V8ArrayData v8ArrayData) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65541, this, j2, v8ArrayData)) == null) {
-            int i2 = v8ArrayData.type;
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 9) {
-                        switch (i2) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65541, this, j, v8ArrayData)) == null) {
+            int i = v8ArrayData.type;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 9) {
+                        switch (i) {
                             case 11:
-                                return this.v8.initNewV8UInt8Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8UInt8Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             case 12:
-                                return this.v8.initNewV8UInt8ClampedArray(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8UInt8ClampedArray(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             case 13:
-                                return this.v8.initNewV8Int16Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8Int16Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             case 14:
-                                return this.v8.initNewV8UInt16Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8UInt16Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             case 15:
-                                return this.v8.initNewV8UInt32Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8UInt32Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             case 16:
-                                return this.v8.initNewV8Float32Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                                return this.v8.initNewV8Float32Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                             default:
                                 throw new IllegalArgumentException("Cannot create a typed array of type " + V8Value.getStringRepresentation(v8ArrayData.type));
                         }
                     }
-                    return this.v8.initNewV8Int8Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                    return this.v8.initNewV8Int8Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
                 }
-                return this.v8.initNewV8Float64Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+                return this.v8.initNewV8Float64Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
             }
-            return this.v8.initNewV8Int32Array(j2, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
+            return this.v8.initNewV8Int32Array(j, v8ArrayData.buffer.objectHandle, v8ArrayData.offset, v8ArrayData.size);
         }
         return invokeJL.longValue;
     }
 
-    public static int getStructureSize(int i2) {
+    public static int getStructureSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 9) {
-                        switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 9) {
+                        switch (i) {
                             case 11:
                             case 12:
                                 break;
@@ -164,7 +164,7 @@ public class V8TypedArray extends V8Array {
                             case 16:
                                 return 4;
                             default:
-                                throw new IllegalArgumentException("Cannot create a typed array of type " + V8Value.getStringRepresentation(i2));
+                                throw new IllegalArgumentException("Cannot create a typed array of type " + V8Value.getStringRepresentation(i));
                         }
                     }
                     return 1;
@@ -189,10 +189,10 @@ public class V8TypedArray extends V8Array {
     }
 
     @Override // com.kwad.v8.V8Array
-    public Object get(int i2) {
+    public Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
             int type = getType();
@@ -200,24 +200,24 @@ public class V8TypedArray extends V8Array {
                 if (type != 9) {
                     switch (type) {
                         case 11:
-                            return Short.valueOf((short) (((Number) super.get(i2)).shortValue() & 255));
+                            return Short.valueOf((short) (((Number) super.get(i)).shortValue() & 255));
                         case 12:
-                            return Short.valueOf((short) (((Number) super.get(i2)).byteValue() & 255));
+                            return Short.valueOf((short) (((Number) super.get(i)).byteValue() & 255));
                         case 13:
-                            return Short.valueOf(((Number) super.get(i2)).shortValue());
+                            return Short.valueOf(((Number) super.get(i)).shortValue());
                         case 14:
-                            return Integer.valueOf(((Integer) super.get(i2)).intValue() & 65535);
+                            return Integer.valueOf(((Integer) super.get(i)).intValue() & 65535);
                         case 15:
-                            return Long.valueOf((-1) & ((Number) super.get(i2)).longValue());
+                            return Long.valueOf((-1) & ((Number) super.get(i)).longValue());
                         case 16:
-                            return Float.valueOf(((Number) super.get(i2)).floatValue());
+                            return Float.valueOf(((Number) super.get(i)).floatValue());
                         default:
                             return null;
                     }
                 }
-                return Byte.valueOf(((Number) super.get(i2)).byteValue());
+                return Byte.valueOf(((Number) super.get(i)).byteValue());
             }
-            return super.get(i2);
+            return super.get(i);
         }
         return invokeI.objValue;
     }
@@ -229,17 +229,17 @@ public class V8TypedArray extends V8Array {
     }
 
     @Override // com.kwad.v8.V8Array, com.kwad.v8.V8Value
-    public void initialize(long j2, Object obj) {
+    public void initialize(long j, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, obj) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, obj) == null) {
             this.v8.checkThread();
             if (obj == null) {
-                super.initialize(j2, obj);
+                super.initialize(j, obj);
                 return;
             }
             V8ArrayData v8ArrayData = (V8ArrayData) obj;
             checkArrayProperties(v8ArrayData);
-            long createTypedArray = createTypedArray(j2, v8ArrayData);
+            long createTypedArray = createTypedArray(j, v8ArrayData);
             this.released = false;
             addObjectReference(createTypedArray);
         }

@@ -40,9 +40,9 @@ public class MethodUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -87,12 +87,12 @@ public class MethodUtils {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, str, clsArr)) == null) {
             while (cls != null) {
                 Class<?>[] interfaces = cls.getInterfaces();
-                for (int i2 = 0; i2 < interfaces.length; i2++) {
-                    if (Modifier.isPublic(interfaces[i2].getModifiers())) {
+                for (int i = 0; i < interfaces.length; i++) {
+                    if (Modifier.isPublic(interfaces[i].getModifiers())) {
                         try {
-                            return interfaces[i2].getDeclaredMethod(str, clsArr);
+                            return interfaces[i].getDeclaredMethod(str, clsArr);
                         } catch (NoSuchMethodException unused) {
-                            Method accessibleMethodFromInterfaceNest = getAccessibleMethodFromInterfaceNest(interfaces[i2], str, clsArr);
+                            Method accessibleMethodFromInterfaceNest = getAccessibleMethodFromInterfaceNest(interfaces[i], str, clsArr);
                             if (accessibleMethodFromInterfaceNest != null) {
                                 return accessibleMethodFromInterfaceNest;
                             }

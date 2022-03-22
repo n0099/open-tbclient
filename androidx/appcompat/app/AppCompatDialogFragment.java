@@ -22,9 +22,9 @@ public class AppCompatDialogFragment extends DialogFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,13 +41,13 @@ public class AppCompatDialogFragment extends DialogFragment {
 
     @Override // androidx.fragment.app.DialogFragment
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setupDialog(@NonNull Dialog dialog, int i2) {
+    public void setupDialog(@NonNull Dialog dialog, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialog, i) == null) {
             if (dialog instanceof AppCompatDialog) {
                 AppCompatDialog appCompatDialog = (AppCompatDialog) dialog;
-                if (i2 != 1 && i2 != 2) {
-                    if (i2 != 3) {
+                if (i != 1 && i != 2) {
+                    if (i != 3) {
                         return;
                     }
                     dialog.getWindow().addFlags(24);
@@ -55,7 +55,7 @@ public class AppCompatDialogFragment extends DialogFragment {
                 appCompatDialog.supportRequestWindowFeature(1);
                 return;
             }
-            super.setupDialog(dialog, i2);
+            super.setupDialog(dialog, i);
         }
     }
 }

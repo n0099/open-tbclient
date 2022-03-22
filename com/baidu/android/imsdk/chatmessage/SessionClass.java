@@ -22,9 +22,9 @@ public class SessionClass {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,10 +68,10 @@ public class SessionClass {
         }
     }
 
-    public void setShow(int i2) {
+    public void setShow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.show = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.show = i;
         }
     }
 
@@ -82,17 +82,17 @@ public class SessionClass {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.type = i;
         }
     }
 
-    public void setUnread(int i2) {
+    public void setUnread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.unreadcount = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.unreadcount = i;
         }
     }
 }

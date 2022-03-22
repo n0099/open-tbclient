@@ -80,9 +80,9 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTask, Boolean.valueOf(z), downloadStore};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DownloadTask) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (ArrayList) objArr2[2], (DownloadStore) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -181,10 +181,10 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
     }
 
     @NonNull
-    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j2) {
+    public BreakpointLocalCheck createLocalCheck(@NonNull BreakpointInfo breakpointInfo, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j2)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j2) : (BreakpointLocalCheck) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, breakpointInfo, j)) == null) ? new BreakpointLocalCheck(this.task, breakpointInfo, j) : (BreakpointLocalCheck) invokeLJ.objValue;
     }
 
     @NonNull
@@ -200,7 +200,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadTask)) == null) ? this.task.equals(downloadTask) : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x015f A[EDGE_INSN: B:77:0x015f->B:47:0x015f ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0160 A[EDGE_INSN: B:77:0x0160->B:47:0x0160 ?: BREAK  , SYNTHETIC] */
     @Override // com.baidu.searchbox.bddownload.core.NamedRunnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -214,7 +214,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             BdDownload with = BdDownload.with();
             ProcessFileStrategy processFileStrategy = with.processFileStrategy();
             inspectTaskStart();
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 if (this.task.getUrl().length() <= 0) {
                     this.cache = new DownloadCache.PreError(new IOException("unexpected url: " + this.task.getUrl()));
@@ -260,17 +260,17 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
                                     break;
                                 }
                                 if (createCache.isPreconditionFailed()) {
-                                    int i3 = i2 + 1;
-                                    if (i2 < 1) {
+                                    int i2 = i + 1;
+                                    if (i < 1) {
                                         this.store.remove(this.task.getId());
-                                        i2 = i3;
+                                        i = i2;
                                         z = true;
                                         continue;
                                         if (!z) {
                                             break;
                                         }
                                     } else {
-                                        i2 = i3;
+                                        i = i2;
                                     }
                                 }
                                 z = false;
@@ -366,11 +366,11 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             int blockCount = breakpointInfo.getBlockCount();
             ArrayList arrayList = new ArrayList(breakpointInfo.getBlockCount());
             ArrayList arrayList2 = new ArrayList();
-            for (int i2 = 0; i2 < blockCount; i2++) {
-                BlockInfo block = breakpointInfo.getBlock(i2);
+            for (int i = 0; i < blockCount; i++) {
+                BlockInfo block = breakpointInfo.getBlock(i);
                 if (!Util.isCorrectFull(block.getCurrentOffset(), block.getContentLength())) {
                     Util.resetBlockIfDirty(block);
-                    DownloadChain createChain = DownloadChain.createChain(i2, this.task, breakpointInfo, downloadCache, this.store);
+                    DownloadChain createChain = DownloadChain.createChain(i, this.task, breakpointInfo, downloadCache, this.store);
                     arrayList.add(createChain);
                     arrayList2.add(Integer.valueOf(createChain.getBlockIndex()));
                 }
@@ -424,9 +424,9 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTask, Boolean.valueOf(z), arrayList, downloadStore};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

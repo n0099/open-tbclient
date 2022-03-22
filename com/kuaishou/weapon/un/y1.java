@@ -18,21 +18,21 @@ public class y1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String a(long j2) {
+    public static String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Long.valueOf(j2));
+                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Long.valueOf(j));
             } catch (Exception unused) {
                 return "";
             }
@@ -40,10 +40,10 @@ public class y1 {
         return (String) invokeJ.objValue;
     }
 
-    public static boolean a(long j2, long j3) {
+    public static boolean a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? a(new Date(j2), new Date(j3)) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? a(new Date(j), new Date(j2)) : invokeCommon.booleanValue;
     }
 
     public static boolean a(Date date, Date date2) {

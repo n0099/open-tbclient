@@ -1,45 +1,46 @@
 package com.ss.android.a;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57856b;
+        public int f42623b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f57857c;
+        public int f42624c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f57858d;
+        public long f42625d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f57859e;
+        public String f42626e;
 
         public a() {
         }
     }
 
     public static String a(File file) {
-        return a(file, 9, 8192L);
+        return a(file, 9, (long) PlaybackStateCompat.ACTION_PLAY_FROM_URI);
     }
 
-    public static String b(File file, int i2, long j2) throws Exception {
-        return a(new com.ss.android.a.a(file), i2, j2);
+    public static String b(File file, int i, long j) throws Exception {
+        return a(new com.ss.android.a.a(file), i, j);
     }
 
-    public static String a(File file, int i2, long j2) {
+    public static String a(File file, int i, long j) {
         if (file != null) {
             try {
                 if (file.exists()) {
-                    return b(file, i2, j2);
+                    return b(file, i, j);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -74,31 +75,31 @@ public class c {
             } else if (file == null || !file.exists()) {
                 return 5;
             }
-            int i2 = -1;
-            long j2 = -1;
+            int i = -1;
+            long j = -1;
             try {
                 a a2 = a(str);
                 if (a2 != null) {
                     if (a2.a > 1) {
                         return 3;
                     }
-                    i2 = a2.f57857c;
-                    j2 = a2.f57858d;
+                    i = a2.f42624c;
+                    j = a2.f42625d;
                 }
                 a aVar = null;
                 if (bVar != null) {
-                    b2 = a(bVar, i2, j2);
+                    b2 = a(bVar, i, j);
                 } else {
-                    b2 = b(file, i2, j2);
+                    b2 = b(file, i, j);
                 }
                 if (b2 != null && b2.length() != 0) {
-                    if (a2 != null && (a2.a != 1 || a2.f57856b != 1)) {
-                        if (a2.f57859e != null) {
+                    if (a2 != null && (a2.a != 1 || a2.f42623b != 1)) {
+                        if (a2.f42626e != null) {
                             try {
                                 aVar = a(b2);
                             } catch (Throwable unused2) {
                             }
-                            if (aVar != null && a2.f57857c == aVar.f57857c && a2.f57858d == aVar.f57858d && a2.f57859e.equals(aVar.f57859e)) {
+                            if (aVar != null && a2.f42624c == aVar.f42624c && a2.f42625d == aVar.f42625d && a2.f42626e.equals(aVar.f42626e)) {
                                 return 0;
                             }
                         }
@@ -121,56 +122,56 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(b bVar, int i2, long j2) throws Exception {
-        long j3;
+    public static String a(b bVar, int i, long j) throws Exception {
+        long j2;
         String a2;
-        int i3 = i2;
+        int i2 = i;
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         if (messageDigest == null) {
             return "";
         }
         try {
             long a3 = bVar.a();
-            if (i3 > 0 && j2 > 0 && i3 * j2 <= (8 * a3) / 10) {
-                j3 = j2;
+            if (i2 > 0 && j > 0 && i2 * j <= (8 * a3) / 10) {
+                j2 = j;
                 byte[] bArr = new byte[8192];
-                long j4 = 0;
-                a(bVar, messageDigest, bArr, 0L, j3);
-                if (i3 > 2) {
-                    int i4 = i3 - 1;
-                    long j5 = (a3 - (i3 * j3)) / i4;
-                    int i5 = 1;
-                    while (i5 < i4) {
-                        j4 += j3 + j5;
-                        a(bVar, messageDigest, bArr, j4, j3);
-                        i5++;
-                        i4 = i4;
+                long j3 = 0;
+                a(bVar, messageDigest, bArr, 0L, j2);
+                if (i2 > 2) {
+                    int i3 = i2 - 1;
+                    long j4 = (a3 - (i2 * j2)) / i3;
+                    int i4 = 1;
+                    while (i4 < i3) {
+                        j3 += j2 + j4;
+                        a(bVar, messageDigest, bArr, j3, j2);
+                        i4++;
+                        i3 = i3;
                     }
                 }
-                if (i3 > 1) {
-                    a(bVar, messageDigest, bArr, a3 - j3, j3);
+                if (i2 > 1) {
+                    a(bVar, messageDigest, bArr, a3 - j2, j2);
                 }
                 a2 = a(messageDigest.digest());
-                if (i3 == 1 || j3 != a3) {
-                    String str = a(i3, j3) + ";" + a2;
+                if (i2 == 1 || j2 != a3) {
+                    String str = a(i2, j2) + ";" + a2;
                     bVar.b();
                     return str;
                 }
                 return a2;
             }
-            j3 = a3;
-            i3 = 1;
+            j2 = a3;
+            i2 = 1;
             byte[] bArr2 = new byte[8192];
-            long j42 = 0;
-            a(bVar, messageDigest, bArr2, 0L, j3);
-            if (i3 > 2) {
+            long j32 = 0;
+            a(bVar, messageDigest, bArr2, 0L, j2);
+            if (i2 > 2) {
             }
-            if (i3 > 1) {
+            if (i2 > 1) {
             }
             a2 = a(messageDigest.digest());
-            if (i3 == 1) {
+            if (i2 == 1) {
             }
-            String str2 = a(i3, j3) + ";" + a2;
+            String str2 = a(i2, j2) + ";" + a2;
             bVar.b();
             return str2;
         } finally {
@@ -181,16 +182,16 @@ public class c {
         }
     }
 
-    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j2, long j3) throws IOException {
-        bVar.a(j2, j3);
-        long j4 = 0;
-        while (j4 < j3) {
-            int a2 = bVar.a(bArr, 0, (int) Math.min(j3 - j4, bArr.length));
+    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j, long j2) throws IOException {
+        bVar.a(j, j2);
+        long j3 = 0;
+        while (j3 < j2) {
+            int a2 = bVar.a(bArr, 0, (int) Math.min(j2 - j3, bArr.length));
             if (a2 > 0) {
                 messageDigest.update(bArr, 0, a2);
-                j4 += a2;
+                j3 += a2;
             } else {
-                throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j4 + ", sampleSize = " + j3);
+                throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j3 + ", sampleSize = " + j2);
             }
         }
     }
@@ -198,24 +199,24 @@ public class c {
     public static String a(byte[] bArr) {
         if (bArr != null) {
             int length = bArr.length;
-            int i2 = length * 2;
-            char[] cArr = new char[i2];
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                int i5 = bArr[i4 + 0] & 255;
-                int i6 = i3 + 1;
+            int i = length * 2;
+            char[] cArr = new char[i];
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                int i4 = bArr[i3 + 0] & 255;
+                int i5 = i2 + 1;
                 char[] cArr2 = a;
-                cArr[i3] = cArr2[i5 >> 4];
-                i3 = i6 + 1;
-                cArr[i6] = cArr2[i5 & 15];
+                cArr[i2] = cArr2[i4 >> 4];
+                i2 = i5 + 1;
+                cArr[i5] = cArr2[i4 & 15];
             }
-            return new String(cArr, 0, i2);
+            return new String(cArr, 0, i);
         }
         throw new NullPointerException("bytes is null");
     }
 
-    public static String a(int i2, long j2) {
-        return "ttmd5:1:1:" + a(i2) + "g" + a(j2);
+    public static String a(int i, long j) {
+        return "ttmd5:1:1:" + a(i) + "g" + a(j);
     }
 
     public static a a(String str) throws Exception {
@@ -227,17 +228,17 @@ public class c {
             if (aVar.a > 1) {
                 return aVar;
             }
-            aVar.f57856b = Integer.parseInt(split2[2]);
+            aVar.f42623b = Integer.parseInt(split2[2]);
             String[] split3 = split2[3].split("g");
-            aVar.f57857c = (int) b(split3[0]);
-            aVar.f57858d = b(split3[1]);
-            aVar.f57859e = split[1];
+            aVar.f42624c = (int) b(split3[0]);
+            aVar.f42625d = b(split3[1]);
+            aVar.f42626e = split[1];
             return aVar;
         }
         return null;
     }
 
-    public static String a(long j2) {
-        return Long.toHexString((j2 << 4) + 31);
+    public static String a(long j) {
+        return Long.toHexString((j << 4) + 31);
     }
 }

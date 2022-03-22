@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ABTestSwitchManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFERENCES_NAME = "pref_name_abtest";
@@ -31,9 +31,9 @@ public class ABTestSwitchManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,8 +82,8 @@ public class ABTestSwitchManager {
             HashMap<String, ABTestSwitchData> hashMap = new HashMap<>();
             try {
                 JSONArray jSONArray = new JSONArray(getSharedPreferences().getString(PREF_KEY_SWITCHS, "[]"));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
                         hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
@@ -168,8 +168,8 @@ public class ABTestSwitchManager {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("name");
                         hashMap.put(optString, new ABTestSwitchData(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));

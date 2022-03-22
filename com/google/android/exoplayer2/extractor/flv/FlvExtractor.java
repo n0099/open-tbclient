@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FlvExtractor implements Extractor, SeekMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExtractorsFactory FACTORY;
@@ -69,9 +69,9 @@ public final class FlvExtractor implements Extractor, SeekMap {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -93,9 +93,9 @@ public final class FlvExtractor implements Extractor, SeekMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -220,10 +220,10 @@ public final class FlvExtractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j2) {
+    public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             return 0L;
         }
         return invokeJ.longValue;
@@ -255,12 +255,12 @@ public final class FlvExtractor implements Extractor, SeekMap {
             return invokeLL.intValue;
         }
         while (true) {
-            int i2 = this.parserState;
-            if (i2 != 1) {
-                if (i2 == 2) {
+            int i = this.parserState;
+            if (i != 1) {
+                if (i == 2) {
                     skipToTagHeader(extractorInput);
-                } else if (i2 != 3) {
-                    if (i2 == 4 && readTagData(extractorInput)) {
+                } else if (i != 3) {
+                    if (i == 4 && readTagData(extractorInput)) {
                         return 0;
                     }
                 } else if (!readTagHeader(extractorInput)) {
@@ -280,9 +280,9 @@ public final class FlvExtractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.parserState = 1;
             this.bytesToNextTagHeader = 0;
         }

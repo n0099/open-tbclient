@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MemorySizeCalculator {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -30,7 +30,7 @@ public final class MemorySizeCalculator {
     public final Context context;
     public final int memoryCacheSize;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
@@ -72,9 +72,9 @@ public final class MemorySizeCalculator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -111,11 +111,11 @@ public final class MemorySizeCalculator {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setArrayPoolSize(int i2) {
+        public Builder setArrayPoolSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.arrayPoolSizeBytes = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.arrayPoolSizeBytes = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -177,7 +177,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,9 +190,9 @@ public final class MemorySizeCalculator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {displayMetrics};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -216,7 +216,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ScreenDimensions {
         int getHeightPixels();
 
@@ -224,16 +224,16 @@ public final class MemorySizeCalculator {
     }
 
     public MemorySizeCalculator(Builder builder) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -241,22 +241,22 @@ public final class MemorySizeCalculator {
         }
         this.context = builder.context;
         if (isLowMemoryDevice(builder.activityManager)) {
-            i2 = builder.arrayPoolSizeBytes / 2;
+            i = builder.arrayPoolSizeBytes / 2;
         } else {
-            i2 = builder.arrayPoolSizeBytes;
+            i = builder.arrayPoolSizeBytes;
         }
-        this.arrayPoolSize = i2;
+        this.arrayPoolSize = i;
         int maxSize = getMaxSize(builder.activityManager, builder.maxSizeMultiplier, builder.lowMemoryMaxSizeMultiplier);
         float widthPixels = builder.screenDimensions.getWidthPixels() * builder.screenDimensions.getHeightPixels() * 4;
         int round = Math.round(builder.bitmapPoolScreens * widthPixels);
         int round2 = Math.round(widthPixels * builder.memoryCacheScreens);
-        int i5 = maxSize - this.arrayPoolSize;
-        int i6 = round2 + round;
-        if (i6 <= i5) {
+        int i4 = maxSize - this.arrayPoolSize;
+        int i5 = round2 + round;
+        if (i5 <= i4) {
             this.memoryCacheSize = round2;
             this.bitmapPoolSize = round;
         } else {
-            float f2 = i5;
+            float f2 = i4;
             float f3 = builder.bitmapPoolScreens;
             float f4 = builder.memoryCacheScreens;
             float f5 = f2 / (f3 + f4);
@@ -272,14 +272,14 @@ public final class MemorySizeCalculator {
             sb.append(", byte array size: ");
             sb.append(toMb(this.arrayPoolSize));
             sb.append(", memory class limited? ");
-            sb.append(i6 > maxSize);
+            sb.append(i5 > maxSize);
             sb.append(", max size: ");
             sb.append(toMb(maxSize));
             sb.append(", memoryClass: ");
             sb.append(builder.activityManager.getMemoryClass());
             sb.append(", isLowMemoryDevice: ");
             sb.append(isLowMemoryDevice(builder.activityManager));
-            sb.toString();
+            Log.d(TAG, sb.toString());
         }
     }
 
@@ -310,10 +310,10 @@ public final class MemorySizeCalculator {
         return invokeL.booleanValue;
     }
 
-    private String toMb(int i2) {
+    private String toMb(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) ? Formatter.formatFileSize(this.context, i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) ? Formatter.formatFileSize(this.context, i) : (String) invokeI.objValue;
     }
 
     public int getArrayPoolSizeInBytes() {

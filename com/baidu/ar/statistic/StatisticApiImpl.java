@@ -33,9 +33,9 @@ public final class StatisticApiImpl implements g, l.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, handlerThread};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -136,23 +136,23 @@ public final class StatisticApiImpl implements g, l.a {
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEventDebounce(String str, long j2, String str2) {
+    public void onEventDebounce(String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
             a az = a.az(str);
-            az.b("_db_period", Long.valueOf(j2));
+            az.b("_db_period", Long.valueOf(j));
             az.b("event_param", str2);
             this.wX.a(6, az);
         }
     }
 
     @Override // com.baidu.ar.statistic.g
-    public void onEventDebounce(String str, long j2, Map<String, String> map) {
+    public void onEventDebounce(String str, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), map}) == null) {
             a az = a.az(str);
             az.a(map);
-            az.b("_db_period", Long.valueOf(j2));
+            az.b("_db_period", Long.valueOf(j));
             this.wX.a(6, az);
         }
     }

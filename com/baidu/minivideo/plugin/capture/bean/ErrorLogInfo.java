@@ -26,9 +26,9 @@ public class ErrorLogInfo implements Jsonable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,10 +58,10 @@ public class ErrorLogInfo implements Jsonable {
         return invokeL.booleanValue;
     }
 
-    public void set(int i2, String str, String str2, String str3, String str4) {
+    public void set(int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            this.type = i;
             this.name = str;
             this.code = str2;
             this.msg = str3;
@@ -110,28 +110,28 @@ public class ErrorLogInfo implements Jsonable {
         return (String) invokeV.objValue;
     }
 
-    public ErrorLogInfo(int i2, String str, String str2, String str3, String str4) {
+    public ErrorLogInfo(int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        set(i2, str, str2, str3, str4);
+        set(i, str, str2, str3, str4);
     }
 
-    public void set(int i2, String str, String str2, String str3, String str4, boolean z) {
+    public void set(int i, String str, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, Boolean.valueOf(z)}) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            this.type = i;
             this.name = str;
             this.code = str2;
             this.msg = str3;

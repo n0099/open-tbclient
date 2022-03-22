@@ -12,6 +12,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,8 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.r0.d1.i2.a.c;
-import c.a.r0.u1.b;
+import c.a.p0.f1.i2.a.c;
+import c.a.p0.w1.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -48,6 +50,7 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -83,7 +86,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> implements VoiceManager.j {
+public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> implements VoiceManager.j, c.a.a0.f.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEM_NUM = 400;
     public static final int PAGE_LIMIT = 2;
@@ -97,15 +100,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public Map<String, ImageUrlData> assistUrls;
     public String cacheAlaTag;
     public int currentPosition;
-    public c.a.r0.u1.j.c editorController;
+    public c.a.p0.w1.j.c editorController;
     public boolean firstImagePv;
     public String fromForumId;
     public CustomMessageListener hideNavbarListener;
     public SortSwitchButton hostAllSwitch;
     public final boolean isFunAdABTest;
-    public c.a.r0.u1.l.a mAdBannerDispatcher;
-    public c.a.r0.u1.l.b mAdPicPageDispatcher;
-    public c.a.r0.j0.g mAlaTipController;
+    public c.a.p0.w1.l.a mAdBannerDispatcher;
+    public c.a.p0.w1.l.b mAdPicPageDispatcher;
+    public c.a.p0.l0.g mAlaTipController;
     public String mAlbumTag;
     public View mBackLogo;
     public int mCardType;
@@ -117,10 +120,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public String mFid;
     public String mFname;
     public String mFrom;
-    public c.a.r0.u1.k.b mFunAdPageNewProvider;
-    public c.a.r0.u1.b mGetImageHelper;
+    public c.a.p0.w1.k.b mFunAdPageNewProvider;
+    public c.a.p0.w1.b mGetImageHelper;
     public ArrayList<String> mImageUrls;
-    public c.a.r0.u1.h mImageViewerStatisticController;
+    public c.a.p0.w1.h mImageViewerStatisticController;
     public int mIndex;
     public boolean mIsBJHThread;
     public boolean mIsCanDrag;
@@ -139,17 +142,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public boolean mIsStaticLast;
     public boolean mIsVideoWorksInfo;
     public boolean mIsYoungsterMode;
-    public c.a.r0.u1.i mMoreDialogController;
+    public c.a.p0.w1.i mMoreDialogController;
     public NavigationBar mNavigationBar;
     public String mNid;
     public View.OnClickListener mOnClickListener;
     public UrlDragImageView.p mOriImgSelectedCallback;
     public View.OnTouchListener mOuterOnTouchListener;
     public ViewPager.OnPageChangeListener mPageChangeListener;
-    public c.a.r0.j0.g mPictureTipController;
+    public c.a.p0.l0.g mPictureTipController;
     public CustomMessageListener mPostAgreeChangedListener;
     public String mPostId;
-    public c.a.r0.d1.i2.a.c mProfessionController;
+    public c.a.p0.f1.i2.a.c mProfessionController;
     public String mRecomAbTag;
     public String mRecomExtra;
     public String mRecomSource;
@@ -173,6 +176,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public LinearLayout replyToolRoot;
     public View rightView;
     public int skinTypeRecord;
+    public final c.a.a0.f.c touchInfoCollector;
     public View.OnClickListener userPhotoOnClickListener;
     @NonNull
     public w viewCounter;
@@ -190,9 +194,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -202,22 +206,22 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         @Override // com.baidu.tieba.view.SortSwitchButton.f
-        public boolean a(int i2) {
+        public boolean a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
                 if (c.a.d.f.p.l.A()) {
                     this.a.mIsClick = true;
                     if (this.a.hostAllSwitch != null) {
                         this.a.hostAllSwitch.setEnabled(false);
                     }
-                    String a = c.a.r0.u1.a.a((String) ListUtils.getItem(this.a.mImageUrls, this.a.mIndex));
+                    String a = c.a.p0.w1.a.a((String) ListUtils.getItem(this.a.mImageUrls, this.a.mIndex));
                     ImageViewerActivity imageViewerActivity = this.a;
                     imageViewerActivity.initImageHelper(a, !imageViewerActivity.mIsSeeHost, true);
                     TiebaStatic.log(new StatisticItem("c13857").param("obj_type", this.a.mIsSeeHost ? 7 : 8).param("post_id", this.a.mTid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.mFid));
                     return true;
                 }
-                this.a.showToast(R.string.neterror);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 return false;
             }
             return invokeI.booleanValue;
@@ -228,9 +232,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43907e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public b(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -239,22 +241,22 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43907e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f43907e.dissmissPictureTip();
+                this.a.dissmissPictureTip();
             }
         }
     }
@@ -263,9 +265,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43908e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public c(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -274,25 +274,25 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43908e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13341").param("obj_param1", this.f43908e.mViewpager.getItemNum()).param(TiebaStatic.Params.OBJ_PARAM2, this.f43908e.mViewpager.getCurrentMaxIndex()));
-                TiebaStatic.log(new StatisticItem(UrlDragImageView.KEY_IMAGE_ACTIVITY_FINISH).param("obj_type", "1"));
-                c.a.r0.u1.g.e(this.f43908e.isFirstPost(), this.f43908e.viewCounter.c());
-                this.f43908e.finish();
+                TiebaStatic.log(new StatisticItem("c13341").param("obj_param1", this.a.mViewpager.getItemNum()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.mViewpager.getCurrentMaxIndex()));
+                TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "1"));
+                c.a.p0.w1.g.e(this.a.isFirstPost(), this.a.viewCounter.c());
+                this.a.finish();
             }
         }
     }
@@ -301,9 +301,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class d implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43909e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public d(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -312,15 +310,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43909e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -330,10 +328,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
                 if (action == 0) {
-                    this.f43909e.mDonwX = motionEvent.getX();
+                    this.a.mDonwX = motionEvent.getX();
                     return false;
                 } else if (action == 1 || action == 2 || action == 3) {
-                    this.f43909e.mDonwX = motionEvent.getX();
+                    this.a.mDonwX = motionEvent.getX();
                     return false;
                 } else {
                     return false;
@@ -347,9 +345,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class e implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43910e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public e(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -358,15 +354,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43910e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -375,15 +371,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
                 if (UbsABTestHelper.isImageViewerTestA()) {
-                    if (this.f43910e.mMoreDialogController != null) {
-                        this.f43910e.mMoreDialogController.y();
+                    if (this.a.mMoreDialogController != null) {
+                        this.a.mMoreDialogController.y();
                     }
-                } else if (this.f43910e.mMoreDialogController != null) {
-                    this.f43910e.mMoreDialogController.D();
-                    this.f43910e.mMoreDialogController.E();
-                    this.f43910e.mMoreDialogController.w(view);
+                } else if (this.a.mMoreDialogController != null) {
+                    this.a.mMoreDialogController.D();
+                    this.a.mMoreDialogController.E();
+                    this.a.mMoreDialogController.w(view);
                 }
-                TiebaStatic.log(new StatisticItem("c13269").param("uid", this.f43910e.mUserId).param("fid", this.f43910e.mFid).param("tid", this.f43910e.mTid));
+                TiebaStatic.log(new StatisticItem("c13269").param("uid", this.a.mUserId).param("fid", this.a.mFid).param("tid", this.a.mTid));
                 return true;
             }
             return invokeL.booleanValue;
@@ -403,9 +399,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -415,10 +411,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
                     this.a.mGetImageHelper.V();
                 } else if (this.a.getCurrentOverAllIndex() == 1) {
                 } else {
@@ -432,9 +428,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class g implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43911e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public g(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -443,95 +437,95 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43911e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i2) {
+        public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f43911e.mImageUrls != null && this.f43911e.mIndex < this.f43911e.mImageUrls.size()) {
-                    this.f43911e.mImageViewerStatisticController.e(i2, (String) this.f43911e.mImageUrls.get(this.f43911e.mIndex));
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.mImageUrls != null && this.a.mIndex < this.a.mImageUrls.size()) {
+                    this.a.mImageViewerStatisticController.e(i, (String) this.a.mImageUrls.get(this.a.mIndex));
                 }
-                if (i2 != 1 || this.f43911e.mFunAdPageNewProvider == null) {
+                if (i != 1 || this.a.mFunAdPageNewProvider == null) {
                     return;
                 }
-                if ((this.f43911e.mIndex == 0 || this.f43911e.mFunAdPageNewProvider.w(this.f43911e.mIndex)) && !c.a.r0.e1.a.i().m("6051001643-679358748") && this.f43911e.mFunAdPageNewProvider.A(this.f43911e.mIndex)) {
-                    this.f43911e.mViewpager.setUrlData(this.f43911e.mImageUrls);
+                if ((this.a.mIndex == 0 || this.a.mFunAdPageNewProvider.w(this.a.mIndex)) && !c.a.p0.g1.b.j().o("6051001643-679358748") && this.a.mFunAdPageNewProvider.A(this.a.mIndex)) {
+                    this.a.mViewpager.setUrlData(this.a.mImageUrls);
                 }
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i2, float f2, int i3) {
+        public void onPageScrolled(int i, float f2, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-                if (i2 > this.f43911e.currentPosition) {
-                    this.f43911e.currentPosition = i2;
-                } else if (i2 < this.f43911e.currentPosition) {
-                    this.f43911e.currentPosition = i2;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+                if (i > this.a.currentPosition) {
+                    this.a.currentPosition = i;
+                } else if (i < this.a.currentPosition) {
+                    this.a.currentPosition = i;
                 }
-                DragImageView currentView = this.f43911e.mViewpager != null ? this.f43911e.mViewpager.getCurrentView() : null;
-                boolean onLeftSide = currentView != null ? currentView.onLeftSide() : false;
-                if (this.f43911e.getCurrentOverAllIndex() == 1 && onLeftSide) {
-                    this.f43911e.setSwipeBackEnabled(true);
+                DragImageView currentView = this.a.mViewpager != null ? this.a.mViewpager.getCurrentView() : null;
+                boolean d0 = currentView != null ? currentView.d0() : false;
+                if (this.a.getCurrentOverAllIndex() == 1 && d0) {
+                    this.a.setSwipeBackEnabled(true);
                 } else {
-                    this.f43911e.setSwipeBackEnabled(false);
+                    this.a.setSwipeBackEnabled(false);
                 }
-                this.f43911e.dismissAlaTip();
+                this.a.dismissAlaTip();
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (this.f43911e.mGetImageHelper != null && i2 > this.f43911e.mViewpager.getItemNum() - 5) {
-                    this.f43911e.mGetImageHelper.V();
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                if (this.a.mGetImageHelper != null && i > this.a.mViewpager.getItemNum() - 5) {
+                    this.a.mGetImageHelper.V();
                 }
-                this.f43911e.mImageViewerStatisticController.c(this.f43911e.mImageUrls, this.f43911e.mIndex, i2);
-                this.f43911e.mIndex = i2;
-                if (this.f43911e.mViewpager != null) {
-                    this.f43911e.triggerBannerAd(i2);
+                this.a.mImageViewerStatisticController.c(this.a.mImageUrls, this.a.mIndex, i);
+                this.a.mIndex = i;
+                if (this.a.mViewpager != null) {
+                    this.a.triggerBannerAd(i);
                 }
-                this.f43911e.updateNavigationTitle();
-                this.f43911e.updateNavigationVisibility();
-                this.f43911e.updateClearScreenVisibility(i2);
-                if (this.f43911e.mImageViewerStatisticController.a() < this.f43911e.mIndex) {
-                    this.f43911e.mImageViewerStatisticController.h(this.f43911e.mIndex);
+                this.a.updateNavigationTitle();
+                this.a.updateNavigationVisibility();
+                this.a.updateClearScreenVisibility(i);
+                if (this.a.mImageViewerStatisticController.a() < this.a.mIndex) {
+                    this.a.mImageViewerStatisticController.h(this.a.mIndex);
                 }
-                if (this.f43911e.mImageViewerStatisticController.b() > this.f43911e.mIndex) {
-                    this.f43911e.mImageViewerStatisticController.i(this.f43911e.mIndex);
+                if (this.a.mImageViewerStatisticController.b() > this.a.mIndex) {
+                    this.a.mImageViewerStatisticController.i(this.a.mIndex);
                 }
-                if (this.f43911e.mFunAdPageNewProvider != null) {
+                if (this.a.mFunAdPageNewProvider != null) {
                     boolean z = true;
-                    this.f43911e.mFunAdPageNewProvider.D((this.f43911e.mGetImageHelper == null || this.f43911e.mGetImageHelper.Y() != 1) ? false : false);
-                    this.f43911e.mFunAdPageNewProvider.z(i2);
-                    if (this.f43911e.checkIsAdvertPage() && this.f43911e.isFunAdABTest && this.f43911e.mFunAdPageNewProvider.x(i2)) {
-                        this.f43911e.mFunAdPageNewProvider.B(null);
+                    this.a.mFunAdPageNewProvider.D((this.a.mGetImageHelper == null || this.a.mGetImageHelper.Y() != 1) ? false : false);
+                    this.a.mFunAdPageNewProvider.z(i);
+                    if (this.a.checkIsAdvertPage() && this.a.isFunAdABTest && this.a.mFunAdPageNewProvider.x(i)) {
+                        this.a.mFunAdPageNewProvider.B(null);
                     }
                 }
-                if (this.f43911e.mAdPicPageDispatcher != null) {
-                    this.f43911e.mAdPicPageDispatcher.m(i2);
+                if (this.a.mAdPicPageDispatcher != null) {
+                    this.a.mAdPicPageDispatcher.m(i);
                 }
-                if (this.f43911e.mMoreDialogController != null) {
-                    this.f43911e.mMoreDialogController.B();
+                if (this.a.mMoreDialogController != null) {
+                    this.a.mMoreDialogController.B();
                 }
-                if (this.f43911e.editorController != null && this.f43911e.mViewpager.getCurrentUrlDragImageView() != null) {
-                    this.f43911e.editorController.q(this.f43911e.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData(), this.f43911e.mGetImageHelper);
+                if (this.a.editorController != null && this.a.mViewpager.getCurrentUrlDragImageView() != null) {
+                    this.a.editorController.q(this.a.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.mGetImageHelper);
                 }
-                if (this.f43911e.firstImagePv) {
+                if (this.a.firstImagePv) {
                     return;
                 }
-                this.f43911e.imagePv();
+                this.a.imagePv();
             }
         }
     }
@@ -540,9 +534,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43912e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public h(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -551,15 +543,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43912e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -567,17 +559,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             AlaInfoData alaInfo;
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !(view instanceof HeadImageView) || (alaInfo = ((HeadImageView) view).getAlaInfo()) == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.f43912e.getPageContext(), null)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || !(view instanceof HeadImageView) || (alaInfo = ((HeadImageView) view).getAlaInfo()) == null || FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.getPageContext(), null)) {
                 return;
             }
             String str2 = "";
             if (alaInfo.isLegalYYLiveData()) {
                 YyExtData yyExtData = alaInfo.mYyExtData;
-                this.f43912e.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM + "?" + BdUniDispatchSchemeController.PARAM_YY_URL + "=" + Base64.encodeToString(YYLiveUtil.makeJumpToYYLiveRoomUrl(yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_PB_BIG_IMAGE_HEAD).getBytes(), 2))));
+                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM + "?" + BdUniDispatchSchemeController.PARAM_YY_URL + "=" + Base64.encodeToString(YYLiveUtil.makeJumpToYYLiveRoomUrl(yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_PB_BIG_IMAGE_HEAD).getBytes(), 2))));
             } else if (alaInfo.isChushou) {
-                this.f43912e.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM + "?" + BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE + "=" + alaInfo.thirdLiveType + "&" + BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID + "=" + alaInfo.thirdRoomId)));
+                this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(BdUniDispatchSchemeController.SCHEME + "://" + BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM + "?" + BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE + "=" + alaInfo.thirdLiveType + "&" + BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID + "=" + alaInfo.thirdRoomId)));
             }
-            StatisticItem param = new StatisticItem("c13711").param("fid", this.f43912e.mFid).param("fname", this.f43912e.mFname).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.f43912e.mTid);
+            StatisticItem param = new StatisticItem("c13711").param("fid", this.a.mFid).param("fname", this.a.mFname).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.a.mTid);
             if (alaInfo.user_info != null) {
                 str = "" + alaInfo.user_info.user_id;
             } else {
@@ -599,9 +591,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43913e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public i(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -610,22 +600,22 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43913e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43913e.alaUserPhotoAnimView.playAnimation();
+                this.a.alaUserPhotoAnimView.playAnimation();
             }
         }
     }
@@ -634,20 +624,16 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43914e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43915f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ImageViewerActivity f34078b;
 
         /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ j f43916e;
+            public final /* synthetic */ j a;
 
             public a(j jVar) {
                 Interceptable interceptable = $ic;
@@ -656,22 +642,22 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     newInitContext.initArgs = r2;
                     Object[] objArr = {jVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f43916e = jVar;
+                this.a = jVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f43916e.f43915f.dismissAlaTip();
+                    this.a.f34078b.dismissAlaTip();
                 }
             }
         }
@@ -683,45 +669,45 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43915f = imageViewerActivity;
-            this.f43914e = str;
+            this.f34078b = imageViewerActivity;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f43915f.mAlaTipController != null) {
-                    if (this.f43915f.cacheAlaTag == null || this.f43915f.mAlaTipController == null || this.f43915f.alaUserPhotoLayout == null || this.f43915f.alaUserPhotoLayout.getVisibility() != 0) {
-                        this.f43915f.dismissAlaTip();
+                if (this.f34078b.mAlaTipController != null) {
+                    if (this.f34078b.cacheAlaTag == null || this.f34078b.mAlaTipController == null || this.f34078b.alaUserPhotoLayout == null || this.f34078b.alaUserPhotoLayout.getVisibility() != 0) {
+                        this.f34078b.dismissAlaTip();
                         return;
                     }
-                    this.f43915f.mAlaTipController.l0(this.f43914e);
-                    this.f43915f.cacheAlaTag = null;
+                    this.f34078b.mAlaTipController.l0(this.a);
+                    this.f34078b.cacheAlaTag = null;
                     return;
                 }
-                ImageViewerActivity imageViewerActivity = this.f43915f;
-                imageViewerActivity.mAlaTipController = new c.a.r0.j0.g(imageViewerActivity.getPageContext(), this.f43915f.alaUserPhotoAnimView);
-                this.f43915f.mAlaTipController.g0(R.drawable.bg_tip_blue_up);
-                this.f43915f.mAlaTipController.O(32);
-                this.f43915f.mAlaTipController.h0(true);
-                this.f43915f.mAlaTipController.W(1);
-                this.f43915f.mAlaTipController.j0(0);
-                this.f43915f.mAlaTipController.N(3000);
-                this.f43915f.mAlaTipController.M(new a(this));
-                if (this.f43915f.alaUserPhotoLayout == null || this.f43915f.alaUserPhotoLayout.getVisibility() == 0) {
-                    this.f43915f.mAlaTipController.l0(this.f43914e);
+                ImageViewerActivity imageViewerActivity = this.f34078b;
+                imageViewerActivity.mAlaTipController = new c.a.p0.l0.g(imageViewerActivity.getPageContext(), this.f34078b.alaUserPhotoAnimView);
+                this.f34078b.mAlaTipController.g0(R.drawable.obfuscated_res_0x7f0802f3);
+                this.f34078b.mAlaTipController.O(32);
+                this.f34078b.mAlaTipController.h0(true);
+                this.f34078b.mAlaTipController.W(1);
+                this.f34078b.mAlaTipController.j0(0);
+                this.f34078b.mAlaTipController.N(3000);
+                this.f34078b.mAlaTipController.M(new a(this));
+                if (this.f34078b.alaUserPhotoLayout == null || this.f34078b.alaUserPhotoLayout.getVisibility() == 0) {
+                    this.f34078b.mAlaTipController.l0(this.a);
                     return;
                 }
-                this.f43915f.cacheAlaTag = this.f43914e;
+                this.f34078b.cacheAlaTag = this.a;
             }
         }
     }
@@ -733,17 +719,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public final /* synthetic */ ImageViewerActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(ImageViewerActivity imageViewerActivity, int i2) {
-            super(i2);
+        public k(ImageViewerActivity imageViewerActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageViewerActivity, Integer.valueOf(i2)};
+                Object[] objArr = {imageViewerActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -765,10 +751,12 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* loaded from: classes5.dex */
-    public class l extends c.a.q0.p0.b {
+    public class l extends c.a.o0.p0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageViewerActivity a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ImageViewerActivity f34079b;
 
         public l(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -777,26 +765,26 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = imageViewerActivity;
+            this.f34079b = imageViewerActivity;
         }
 
-        @Override // c.a.q0.p0.b
-        public int getMaxCost() {
+        @Override // c.a.o0.p0.b
+        public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.q0.p0.e.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.o0.p0.e.b().c() : invokeV.intValue;
         }
 
-        @Override // c.a.q0.p0.b
-        public boolean isCurrentPageCanBeAddToSourceTrace() {
+        @Override // c.a.o0.p0.b
+        public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -813,17 +801,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public final /* synthetic */ ImageViewerActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public m(ImageViewerActivity imageViewerActivity, int i2) {
-            super(i2);
+        public m(ImageViewerActivity imageViewerActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageViewerActivity, Integer.valueOf(i2)};
+                Object[] objArr = {imageViewerActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -839,7 +827,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.r0.y3.k0.e) || this.a.assistUrls == null || (agreeData = ((c.a.r0.y3.k0.e) customResponsedMessage.getData()).f25031b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.p0.a4.k0.e) || this.a.assistUrls == null || (agreeData = ((c.a.p0.a4.k0.e) customResponsedMessage.getData()).f12234b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : this.a.assistUrls.values()) {
@@ -865,17 +853,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public final /* synthetic */ ImageViewerActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public n(ImageViewerActivity imageViewerActivity, int i2) {
-            super(i2);
+        public n(ImageViewerActivity imageViewerActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageViewerActivity, Integer.valueOf(i2)};
+                Object[] objArr = {imageViewerActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -891,7 +879,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             AgreeData agreeData;
             AgreeData agreeData2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.r0.y3.k0.e) || this.a.assistUrls == null || (agreeData = ((c.a.r0.y3.k0.e) customResponsedMessage.getData()).f25031b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.p0.a4.k0.e) || this.a.assistUrls == null || (agreeData = ((c.a.p0.a4.k0.e) customResponsedMessage.getData()).f12234b) == null || TextUtils.isEmpty(agreeData.threadId) || TextUtils.isEmpty(agreeData.postId)) {
                 return;
             }
             for (ImageUrlData imageUrlData : this.a.assistUrls.values()) {
@@ -917,17 +905,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public final /* synthetic */ ImageViewerActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public o(ImageViewerActivity imageViewerActivity, int i2) {
-            super(i2);
+        public o(ImageViewerActivity imageViewerActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageViewerActivity, Integer.valueOf(i2)};
+                Object[] objArr = {imageViewerActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -940,16 +928,16 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.q0.t.p pVar;
+            c.a.o0.t.p pVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.q0.t.p) || (pVar = (c.a.q0.t.p) customResponsedMessage.getData()) == null || StringUtils.isNull(pVar.a)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof c.a.o0.t.p) || (pVar = (c.a.o0.t.p) customResponsedMessage.getData()) == null || StringUtils.isNull(pVar.a)) {
                 return;
             }
-            c.a.q0.t0.a.h(pVar);
-            if (StringUtils.isNull(pVar.f13965c)) {
+            c.a.o0.t0.a.h(pVar);
+            if (StringUtils.isNull(pVar.f11478c)) {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a});
             } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a, pVar.f13965c});
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{pVar.a, pVar.f11478c});
             }
         }
     }
@@ -967,9 +955,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -991,7 +979,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 ImageViewerActivity imageViewerActivity4 = this.a;
                 imageViewerActivity4.setViewVisibility(imageViewerActivity4.alaUserPhotoLayout, 8);
                 if (this.a.mViewpager != null) {
-                    this.a.mViewpager.showBottomVisibility(false);
+                    this.a.mViewpager.A(false);
                 }
                 this.a.dissmissPictureTip();
                 this.a.dismissAlaTip();
@@ -1003,7 +991,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 TiebaStatic.log(new StatisticItem("c13341").param("obj_param1", this.a.mViewpager.getItemNum()).param(TiebaStatic.Params.OBJ_PARAM2, this.a.mViewpager.getCurrentMaxIndex()));
-                c.a.r0.u1.g.e(this.a.isFirstPost(), this.a.viewCounter.c());
+                c.a.p0.w1.g.e(this.a.isFirstPost(), this.a.viewCounter.c());
                 this.a.finish();
             }
         }
@@ -1018,8 +1006,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 if (this.a.mViewpager == null || this.a.checkIsAdvertPage()) {
                     return;
                 }
-                boolean isClearScreenMode = this.a.mViewpager.isClearScreenMode();
-                if ("portrait".equals(this.a.mFrom) || isClearScreenMode) {
+                boolean t = this.a.mViewpager.t();
+                if ("portrait".equals(this.a.mFrom) || t) {
                     return;
                 }
                 ImageViewerActivity imageViewerActivity2 = this.a;
@@ -1029,9 +1017,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 ImageViewerActivity imageViewerActivity4 = this.a;
                 imageViewerActivity4.showAlaTip(imageViewerActivity4.cacheAlaTag);
                 if (this.a.mIsShowBottomContainer) {
-                    this.a.mViewpager.showBottomVisibility(true);
+                    this.a.mViewpager.A(true);
                 } else {
-                    this.a.mViewpager.showBottomVisibility(false);
+                    this.a.mViewpager.A(false);
                 }
             }
         }
@@ -1041,9 +1029,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class q implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43917e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         /* loaded from: classes5.dex */
         public class a implements c.d {
@@ -1058,9 +1044,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     newInitContext.initArgs = r2;
                     Object[] objArr = {qVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -1069,23 +1055,23 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 this.a = qVar;
             }
 
-            @Override // c.a.r0.d1.i2.a.c.d
-            public void a(boolean z, int i2) {
+            @Override // c.a.p0.f1.i2.a.c.d
+            public void a(boolean z, int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
                 }
             }
 
-            @Override // c.a.r0.d1.i2.a.c.d
+            @Override // c.a.p0.f1.i2.a.c.d
             public void b(boolean z) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || !z || this.a.f43917e.editorController == null || this.a.f43917e.mViewpager.getCurrentUrlDragImageView() == null) {
+                if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || !z || this.a.a.editorController == null || this.a.a.mViewpager.getCurrentUrlDragImageView() == null) {
                     return;
                 }
-                this.a.f43917e.editorController.u(this.a.f43917e.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.f43917e.mGetImageHelper);
+                this.a.a.editorController.u(this.a.a.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData(), this.a.a.mGetImageHelper);
             }
 
-            @Override // c.a.r0.d1.i2.a.c.d
+            @Override // c.a.p0.f1.i2.a.c.d
             public void c(boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -1100,15 +1086,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43917e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r5v28, resolved type: boolean */
@@ -1117,15 +1103,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "3").param("post_id", this.f43917e.mTid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f43917e.mFid));
-                if (c.a.q0.j0.f.a(this.f43917e)) {
-                    if (this.f43917e.mProfessionController == null) {
-                        ImageViewerActivity imageViewerActivity = this.f43917e;
-                        imageViewerActivity.mProfessionController = new c.a.r0.d1.i2.a.c(imageViewerActivity.getPageContext());
-                        this.f43917e.mProfessionController.i(new a(this));
+                TiebaStatic.log(new StatisticItem("c13857").param("obj_type", "3").param("post_id", this.a.mTid).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.a.mFid));
+                if (c.a.o0.j0.f.a(this.a)) {
+                    if (this.a.mProfessionController == null) {
+                        ImageViewerActivity imageViewerActivity = this.a;
+                        imageViewerActivity.mProfessionController = new c.a.p0.f1.i2.a.c(imageViewerActivity.getPageContext());
+                        this.a.mProfessionController.i(new a(this));
                     }
-                    this.f43917e.mProfessionController.j(((this.f43917e.mViewpager == null || this.f43917e.mViewpager.getCurrentUrlDragImageView() == null || this.f43917e.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData() == null) ? 1 : this.f43917e.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData().isFirstPost) ^ 1);
-                    this.f43917e.mProfessionController.g(this.f43917e.mFid, c.a.d.f.m.b.g(this.f43917e.mTid, 0L));
+                    this.a.mProfessionController.j(((this.a.mViewpager == null || this.a.mViewpager.getCurrentUrlDragImageView() == null || this.a.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData() == null) ? 1 : this.a.mViewpager.getCurrentUrlDragImageView().getmAssistUrlData().isFirstPost) ^ 1);
+                    this.a.mProfessionController.g(this.a.mFid, c.a.d.f.m.b.g(this.a.mTid, 0L));
                 }
             }
         }
@@ -1144,9 +1130,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1165,7 +1151,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* loaded from: classes5.dex */
-    public class s implements b.InterfaceC1429b {
+    public class s implements b.InterfaceC1484b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1177,9 +1163,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1188,10 +1174,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.a = imageViewerActivity;
         }
 
-        @Override // c.a.r0.u1.b.InterfaceC1429b
-        public void a(ArrayList<String> arrayList, int i2, int i3, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3) {
+        @Override // c.a.p0.w1.b.InterfaceC1484b
+        public void a(ArrayList<String> arrayList, int i, int i2, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), str, Boolean.valueOf(z2), advertAppInfo, Boolean.valueOf(z3)}) == null) || this.a.mViewpager == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str, Boolean.valueOf(z2), advertAppInfo, Boolean.valueOf(z3)}) == null) || this.a.mViewpager == null) {
                 return;
             }
             if (this.a.mIsClick) {
@@ -1202,7 +1188,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     ImageViewerActivity imageViewerActivity = this.a;
                     imageViewerActivity.mIsSeeHost = !imageViewerActivity.mIsSeeHost;
                 } else if (!this.a.mIsSeeHost) {
-                    this.a.showToast(R.string.image_view_change_img_error);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f08b2);
                 }
             }
             this.a.mIsClick = false;
@@ -1220,17 +1206,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.a.mViewpager.setAssistUrls(this.a.assistUrls);
             this.a.mViewpager.setHasNext(z);
             this.a.mViewpager.setNextTitle(str);
-            if (i2 < 0 || i2 >= this.a.mViewpager.getItemNum()) {
-                this.a.mViewpager.notifyItemDataChanged(this.a.mViewpager.getCurrentItem());
+            if (i < 0 || i >= this.a.mViewpager.getItemNum()) {
+                this.a.mViewpager.u(this.a.mViewpager.getCurrentItem());
             } else {
-                this.a.mViewpager.setCurrentItem(i2, false);
+                this.a.mViewpager.setCurrentItem(i, false);
             }
-            if (i3 != 0) {
-                this.a.mCount = i3;
+            if (i2 != 0) {
+                this.a.mCount = i2;
                 this.a.viewCounter.d(this.a.getCurrentOverAllIndexInt());
             }
             if (arrayList != null && arrayList.size() >= 400 && this.a.mViewpager.getCurrentItem() > 200) {
-                for (int i4 = 0; i4 < 200; i4++) {
+                for (int i3 = 0; i3 < 200; i3++) {
                     arrayList.remove(0);
                 }
                 this.a.mViewpager.setUrlData(arrayList);
@@ -1265,21 +1251,21 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             }
         }
 
-        @Override // c.a.r0.u1.b.InterfaceC1429b
-        public void b(int i2, String str) {
+        @Override // c.a.p0.w1.b.InterfaceC1484b
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 this.a.mIsClick = false;
                 if (this.a.hostAllSwitch != null) {
                     if (this.a.hostAllSwitch.getState() != this.a.mIsSeeHost && TextUtils.isEmpty(str)) {
-                        this.a.showToast(R.string.image_view_change_img_error);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f08b2);
                     }
-                    this.a.hostAllSwitch.changeState(this.a.mIsSeeHost ? 1 : 0);
+                    this.a.hostAllSwitch.v(this.a.mIsSeeHost ? 1 : 0);
                     this.a.hostAllSwitch.setEnabled(true);
                 }
                 this.a.hideProgressBar();
                 this.a.showToast(str);
-                if (i2 == 40) {
+                if (i == 40) {
                     if (this.a.mImageUrls != null) {
                         ImageViewerActivity imageViewerActivity = this.a;
                         imageViewerActivity.mCount = imageViewerActivity.mImageUrls.size();
@@ -1298,9 +1284,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, arrayList, advertAppInfo) == null) {
                 if (this.a.mAdPicPageDispatcher != null && advertAppInfo != null && arrayList != null) {
-                    int Z4 = advertAppInfo.Z4();
-                    if (Z4 != 0) {
-                        this.a.reportAdDiscardLog(advertAppInfo, Z4);
+                    int q = advertAppInfo.q();
+                    if (q != 0) {
+                        this.a.reportAdDiscardLog(advertAppInfo, q);
                         return;
                     } else {
                         this.a.mAdPicPageDispatcher.g(advertAppInfo);
@@ -1313,7 +1299,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     /* loaded from: classes5.dex */
-    public class t implements c.a.r0.j3.d {
+    public class t implements c.a.p0.l3.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageViewerActivity a;
@@ -1325,9 +1311,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1336,7 +1322,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.a = imageViewerActivity;
         }
 
-        @Override // c.a.r0.j3.d
+        @Override // c.a.p0.l3.d
         public <T> void onCallback(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
@@ -1358,9 +1344,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1370,9 +1356,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         }
 
         @Override // android.view.View.OnSystemUiVisibilityChangeListener
-        public void onSystemUiVisibilityChange(int i2) {
+        public void onSystemUiVisibilityChange(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (i2 & 4) == 0) {
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (i & 4) == 0) {
                 this.a.setFullScreen();
             }
         }
@@ -1382,9 +1368,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public class v implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageViewerActivity f43918e;
+        public final /* synthetic */ ImageViewerActivity a;
 
         public v(ImageViewerActivity imageViewerActivity) {
             Interceptable interceptable = $ic;
@@ -1393,35 +1377,35 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageViewerActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43918e = imageViewerActivity;
+            this.a = imageViewerActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                String str = (String) ListUtils.getItem(this.f43918e.mImageUrls, this.f43918e.mIndex);
-                if (this.f43918e.isFunAdABTest && this.f43918e.checkIsAdvertPage() && c.a.r0.e1.c.b(str)) {
-                    int currentItem = this.f43918e.mViewpager.getCurrentItem();
-                    if (currentItem < this.f43918e.mImageUrls.size() - 1) {
-                        this.f43918e.mImageUrls.remove(str);
-                        this.f43918e.mViewpager.setUrlData(this.f43918e.mImageUrls);
-                        this.f43918e.mViewpager.setCurrentItem(currentItem, true);
+                String str = (String) ListUtils.getItem(this.a.mImageUrls, this.a.mIndex);
+                if (this.a.isFunAdABTest && this.a.checkIsAdvertPage() && c.a.p0.g1.d.d(str)) {
+                    int currentItem = this.a.mViewpager.getCurrentItem();
+                    if (currentItem < this.a.mImageUrls.size() - 1) {
+                        this.a.mImageUrls.remove(str);
+                        this.a.mViewpager.setUrlData(this.a.mImageUrls);
+                        this.a.mViewpager.setCurrentItem(currentItem, true);
                     } else {
-                        this.f43918e.finish();
+                        this.a.finish();
                     }
                     StatisticItem.make(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", "a008").eventStat();
                     return;
                 }
-                this.f43918e.finish();
+                this.a.finish();
             }
         }
     }
@@ -1433,16 +1417,16 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43919b;
+        public int f34080b;
 
         public w() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -1455,25 +1439,25 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new w() : (w) invokeV.objValue;
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a = Math.max(this.a, i2);
-                this.f43919b = Math.min(this.f43919b, i2);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a = Math.max(this.a, i);
+                this.f34080b = Math.min(this.f34080b, i);
             }
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.a - this.f43919b) + 1 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.a - this.f34080b) + 1 : invokeV.intValue;
         }
 
-        public void d(int i2) {
+        public void d(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.a = i2;
-                this.f43919b = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.a = i;
+                this.f34080b = i;
             }
         }
     }
@@ -1515,6 +1499,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.mIsVideoWorksInfo = false;
         this.mIsYoungsterMode = false;
         this.firstImagePv = true;
+        this.touchInfoCollector = new c.a.a0.f.c();
         this.hideNavbarListener = new k(this, 2016496);
         this.mToHotTopicListener = new o(this, 2016493);
         this.mDragToExitListener = new p(this);
@@ -1537,9 +1522,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65596, this)) == null) {
             if (this.mIsShowAd) {
-                c.a.r0.u1.l.b bVar = this.mAdPicPageDispatcher;
+                c.a.p0.w1.l.b bVar = this.mAdPicPageDispatcher;
                 if (bVar == null || !bVar.h(this.mIndex)) {
-                    c.a.r0.u1.k.b bVar2 = this.mFunAdPageNewProvider;
+                    c.a.p0.w1.k.b bVar2 = this.mFunAdPageNewProvider;
                     return bVar2 != null && bVar2.t(this.mIndex);
                 }
                 return true;
@@ -1551,7 +1536,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dismissAlaTip() {
-        c.a.r0.j0.g gVar;
+        c.a.p0.l0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65597, this) == null) || (gVar = this.mAlaTipController) == null) {
             return;
@@ -1561,7 +1546,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dissmissPictureTip() {
-        c.a.r0.j0.g gVar;
+        c.a.p0.l0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65598, this) == null) || (gVar = this.mPictureTipController) == null) {
             return;
@@ -1679,8 +1664,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackLogo = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new v(this));
-            this.mClose = (ImageView) this.mBackLogo.findViewById(R.id.widget_navi_back_button);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.mClose = (ImageView) this.mBackLogo.findViewById(R.id.obfuscated_res_0x7f09246f);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.obfuscated_res_0x7f080624, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.mBackLogo.setVisibility(0);
         }
     }
@@ -1696,11 +1681,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65606, this, bundle) == null) {
-            this.mImageViewerStatisticController = new c.a.r0.u1.h();
-            boolean k2 = c.a.q0.j0.f.k();
-            String b2 = c.a.q0.j0.f.b();
-            String f2 = c.a.q0.j0.f.f();
-            String e2 = c.a.q0.j0.f.e();
+            this.mImageViewerStatisticController = new c.a.p0.w1.h();
+            boolean k2 = c.a.o0.j0.f.k();
+            String b2 = c.a.o0.j0.f.b();
+            String f2 = c.a.o0.j0.f.f();
+            String e2 = c.a.o0.j0.f.e();
             updateWiseSampleId();
             if (bundle != null) {
                 this.mIsBJHThread = bundle.getBoolean(ImageViewerConfig.IS_BJH);
@@ -1723,7 +1708,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 Serializable serializable = bundle.getSerializable(ImageViewerConfig.ASSIST_URLS);
                 this.mSourceImageRectInScreen = bundle.getString(IntentConfig.SOURCE_RECT_IN_SCREEN);
                 this.mIsGodreplyImage = bundle.getBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE);
-                boolean z2 = bundle.getBoolean(ImageViewerConfig.IS_LOGIN);
+                boolean z2 = bundle.getBoolean("is_login");
                 String string = bundle.getString(ImageViewerConfig.ACCOUNT_BDUSS);
                 String string2 = bundle.getString(ImageViewerConfig.ACCOUNT_TBS);
                 String string3 = bundle.getString(ImageViewerConfig.ACCOUNT_STOKEN);
@@ -1779,7 +1764,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     this.mIsDynamicCard = intent.getBooleanExtra(ImageViewerConfig.IS_DYNAMIC_CARD, false);
                     this.mIsIdentifyImage = intent.getBooleanExtra(ImageViewerConfig.IS_IDENTIFY_IMAGE, true);
                     this.mIsFromAiApp = intent.getBooleanExtra(ImageViewerConfig.IS_FROM_AI_APP, false);
-                    z = intent.getBooleanExtra(ImageViewerConfig.IS_LOGIN, false);
+                    z = intent.getBooleanExtra("is_login", false);
                     str = intent.getStringExtra(ImageViewerConfig.ACCOUNT_BDUSS);
                     str3 = intent.getStringExtra(ImageViewerConfig.ACCOUNT_STOKEN);
                     str2 = intent.getStringExtra(ImageViewerConfig.ACCOUNT_TBS);
@@ -1804,10 +1789,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     str3 = e2;
                 }
             }
-            c.a.q0.j0.f.o(z);
-            c.a.q0.j0.f.n(str);
-            c.a.q0.j0.f.p(str3);
-            c.a.q0.j0.f.q(str2);
+            c.a.o0.j0.f.o(z);
+            c.a.o0.j0.f.n(str);
+            c.a.o0.j0.f.p(str3);
+            c.a.o0.j0.f.q(str2);
             this.mImageViewerStatisticController.d(bundle, getIntent());
             this.mCount = ListUtils.getCount(this.mImageUrls);
             this.viewCounter.d(getCurrentOverAllIndexInt());
@@ -1817,7 +1802,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                     imageUrlData.setSourceImageRectInScreen(this.mSourceImageRectInScreen);
                 }
             }
-            this.mDragPicId = this.mIsBJHThread ? null : c.a.r0.u1.a.a((String) ListUtils.getItem(this.mImageUrls, this.mIndex));
+            this.mDragPicId = this.mIsBJHThread ? null : c.a.p0.w1.a.a((String) ListUtils.getItem(this.mImageUrls, this.mIndex));
             if (this.mIsSeeHost) {
                 TiebaStatic.log(new StatisticItem("c13337").param("obj_type", "2"));
             } else {
@@ -1829,8 +1814,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     private void initEditor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65607, this) == null) {
-            this.replyToolRoot = (LinearLayout) findViewById(R.id.image_viewer_reply_root);
-            c.a.r0.u1.j.c cVar = new c.a.r0.u1.j.c(getPageContext(), this.replyToolRoot);
+            this.replyToolRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e8a);
+            c.a.p0.w1.j.c cVar = new c.a.p0.w1.j.c(getPageContext(), this.replyToolRoot);
             this.editorController = cVar;
             cVar.r(this.fromForumId);
             this.editorController.s(this.mSkinType);
@@ -1843,25 +1828,25 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (!(interceptable == null || interceptable.invokeV(65608, this) == null) || this.mIsBJHThread || this.mIsFromAiApp || this.mIsVideoWorksInfo) {
             return;
         }
-        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.cell_image_view_right_layout, (View.OnClickListener) null);
+        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d01d3, (View.OnClickListener) null);
         this.rightView = addCustomView;
         addCustomView.setVisibility(this.mIsYoungsterMode ? 8 : 0);
-        this.alaUserPhotoLayout = this.rightView.findViewById(R.id.view_user_photo);
-        this.alaUserPhotoView = (HeadImageView) this.rightView.findViewById(R.id.normal_user_photo);
-        this.alaUserPhotoAnimView = (TBLottieAnimationView) this.rightView.findViewById(R.id.user_living_lottie);
+        this.alaUserPhotoLayout = this.rightView.findViewById(R.id.obfuscated_res_0x7f0923e1);
+        this.alaUserPhotoView = (HeadImageView) this.rightView.findViewById(R.id.obfuscated_res_0x7f0915b7);
+        this.alaUserPhotoAnimView = (TBLottieAnimationView) this.rightView.findViewById(R.id.obfuscated_res_0x7f0922b9);
         this.alaUserPhotoView.setIsRound(true);
         this.alaUserPhotoView.setPlaceHolder(1);
         if (this.mIsShowHost) {
             ArrayList arrayList = new ArrayList(2);
-            c.a.r0.y3.k0.r rVar = new c.a.r0.y3.k0.r();
+            c.a.p0.a4.k0.r rVar = new c.a.p0.a4.k0.r();
             rVar.c(0);
-            rVar.d(getString(R.string.all));
+            rVar.d(getString(R.string.obfuscated_res_0x7f0f025f));
             arrayList.add(rVar);
-            c.a.r0.y3.k0.r rVar2 = new c.a.r0.y3.k0.r();
+            c.a.p0.a4.k0.r rVar2 = new c.a.p0.a4.k0.r();
             rVar2.c(1);
-            rVar2.d(getString(R.string.host_name));
+            rVar2.d(getString(R.string.obfuscated_res_0x7f0f0855));
             arrayList.add(rVar2);
-            SortSwitchButton sortSwitchButton = (SortSwitchButton) this.rightView.findViewById(R.id.host_all_switch_btn);
+            SortSwitchButton sortSwitchButton = (SortSwitchButton) this.rightView.findViewById(R.id.obfuscated_res_0x7f090dab);
             this.hostAllSwitch = sortSwitchButton;
             sortSwitchButton.setNeedDayNight(false);
             this.hostAllSwitch.setData(arrayList, this.mIsSeeHost ? 1 : 0);
@@ -1878,7 +1863,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public void initImageHelper(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65609, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c.a.r0.u1.b bVar = new c.a.r0.u1.b(this.mImageUrls, this.assistUrls, this.mFid, this.mFname, this.mTid, this.mNid, str, this.mUserId, this.mFrom, this.mThreadType, z2, this.mCardType, this.mRecomSource, this.mRecomAbTag, this.mRecomWeight, this.mRecomExtra);
+            c.a.p0.w1.b bVar = new c.a.p0.w1.b(this.mImageUrls, this.assistUrls, this.mFid, this.mFname, this.mTid, this.mNid, str, this.mUserId, this.mFrom, this.mThreadType, z2, this.mCardType, this.mRecomSource, this.mRecomAbTag, this.mRecomWeight, this.mRecomExtra);
             this.mGetImageHelper = bVar;
             bVar.h0(this.mSourceImageRectInScreen);
             this.mGetImageHelper.f0(this.mIsOrdinal);
@@ -1897,7 +1882,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65610, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
             this.mNavigationBar = navigationBar;
             navigationBar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
             this.mNavigationBar.setClickable(false);
@@ -1909,9 +1894,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.mTitleView.setGravity(17);
             this.mTitleView.setTextColor(ContextCompat.getColor(this, R.color.CAM_X0101));
             this.mTitleView.setTextSize(0, c.a.d.f.p.n.f(this, R.dimen.tbds44));
-            c.a.q0.r.v.c.d(this.mTitleView).y(R.array.S_O_X001);
+            c.a.o0.r.v.c.d(this.mTitleView).y(R.array.S_O_X001);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleView, (View.OnClickListener) null);
-            if (c.a.r0.u1.a.b((String) ListUtils.getItem(this.mImageUrls, this.mIndex))) {
+            if (c.a.p0.w1.a.b((String) ListUtils.getItem(this.mImageUrls, this.mIndex))) {
                 this.mNavigationBar.setVisibility(0);
             }
         }
@@ -1920,7 +1905,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     private void initStatusBarView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65611, this) == null) && DeviceInfoUtil.isfullScreen()) {
-            View findViewById = findViewById(R.id.statusbar_view);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dae);
             this.mStatusBarView = findViewById;
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
@@ -1933,14 +1918,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65612, this) == null) {
             initNavigationBar();
-            this.mMoreDialogController = new c.a.r0.u1.i(this);
+            this.mMoreDialogController = new c.a.p0.w1.i(this);
             initViewPager();
             this.mMoreDialogController.v(this.mViewpager);
             updateNavigationTitle();
             showGuideTip();
             initStatusBarView();
             initEditor();
-            c.a.r0.u1.h hVar = this.mImageViewerStatisticController;
+            c.a.p0.w1.h hVar = this.mImageViewerStatisticController;
             ArrayList<String> arrayList = this.mImageUrls;
             int i2 = this.mIndex;
             hVar.c(arrayList, i2, i2);
@@ -1953,9 +1938,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (interceptable == null || interceptable.invokeV(65613, this) == null) {
             MultiImageView multiImageView = this.mViewpager;
             if (multiImageView == null) {
-                this.mViewpager = (MultiImageView) findViewById(R.id.viewpager);
+                this.mViewpager = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923e5);
             } else {
-                multiImageView.init();
+                multiImageView.q();
             }
             this.mAlbumTag = this.mTid + "_" + System.currentTimeMillis();
             this.mViewpager.setIsFromCDN(this.mIsCdn);
@@ -1972,15 +1957,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.mViewpager.setOnScrollOutListener(this.mScrollOutListener);
             if (this.isFunAdABTest) {
                 if (this.mFunAdPageNewProvider == null) {
-                    this.mFunAdPageNewProvider = new c.a.r0.u1.k.b(this.mImageUrls, this.mFid, this.mTid, this.mIsShowAd, this.mIndex, getPageContext());
+                    this.mFunAdPageNewProvider = new c.a.p0.w1.k.b(this.mImageUrls, this.mFid, this.mTid, this.mIsShowAd, this.mIndex, getPageContext());
                 }
                 this.mFunAdPageNewProvider.B(null);
-                this.mViewpager.addPageProvider(this.mFunAdPageNewProvider);
+                this.mViewpager.k(this.mFunAdPageNewProvider);
             }
             if (this.mAdPicPageDispatcher == null) {
-                this.mAdPicPageDispatcher = new c.a.r0.u1.l.b(this.mImageUrls, this.mFid, this.mFname, this.mIsCdn, this.mIsShowAd, getPageContext(), this.mDragToExitListener, this.assistUrls);
+                this.mAdPicPageDispatcher = new c.a.p0.w1.l.b(this.mImageUrls, this.mFid, this.mFname, this.mIsCdn, this.mIsShowAd, getPageContext(), this.mDragToExitListener, this.assistUrls);
             }
-            this.mViewpager.addPageProvider(this.mAdPicPageDispatcher);
+            this.mViewpager.k(this.mAdPicPageDispatcher);
             this.mViewpager.setOriImgSelectedCallback(this.mOriImgSelectedCallback);
             this.mViewpager.setDragToExitListener(this.mDragToExitListener);
             this.mViewpager.setUserId(this.mUserId);
@@ -1990,7 +1975,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.mViewpager.setOnReplyClickListener(this.onReplyButtonClickListener);
             this.mViewpager.setYoungterCoverSomeView(this.mIsYoungsterMode);
             TiebaStatic.log(new StatisticItem("c13340").param("uid", this.mUserId).param("post_id", this.mTid).param("obj_source", transformValForFrom()));
-            c.a.r0.u1.g.d();
+            c.a.p0.w1.g.d();
         }
     }
 
@@ -2012,9 +1997,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65615, this) == null) {
             if (this.isFunAdABTest && checkIsAdvertPage()) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.icon_pure_topbar_close44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.obfuscated_res_0x7f0809b1, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.obfuscated_res_0x7f080624, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
         }
     }
@@ -2023,9 +2008,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public void reportAdDiscardLog(AdvertAppInfo advertAppInfo, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65616, this, advertAppInfo, i2) == null) {
-            c.a.r0.j3.m0.c b2 = c.a.r0.j3.m0.g.b(advertAppInfo, 5, 0);
+            c.a.p0.l3.m0.c b2 = c.a.p0.l3.m0.g.b(advertAppInfo, 5, 0);
             b2.j(i2);
-            c.a.r0.j3.m0.e.b().d(b2);
+            c.a.p0.l3.m0.e.b().d(b2);
         }
     }
 
@@ -2063,7 +2048,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             return;
         }
         if (this.mPictureTipController == null) {
-            c.a.r0.j0.g gVar = new c.a.r0.j0.g(getPageContext(), this.hostAllSwitch);
+            c.a.p0.l0.g gVar = new c.a.p0.l0.g(getPageContext(), this.hostAllSwitch);
             this.mPictureTipController = gVar;
             gVar.g0(R.drawable.pic_sign_tip);
             this.mPictureTipController.O(48);
@@ -2072,7 +2057,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.mPictureTipController.j0(-c.a.d.f.p.n.f(getPageContext().getPageActivity(), R.dimen.tbds26));
             this.mPictureTipController.M(new b(this));
         }
-        this.mPictureTipController.m0(getPageContext().getString(R.string.click_look_all_picture), "key_large_image_tip_count");
+        this.mPictureTipController.m0(getPageContext().getString(R.string.obfuscated_res_0x7f0f03d9), "key_large_image_tip_count");
     }
 
     private void startLoadPortrait(TbImageView tbImageView, @NonNull String str) {
@@ -2084,9 +2069,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             str = " ";
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.startLoad(str, 10, false);
+            tbImageView.J(str, 10, false);
         } else {
-            tbImageView.startLoad(str, 12, false);
+            tbImageView.J(str, 12, false);
         }
     }
 
@@ -2113,15 +2098,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65623, this, i2) == null) {
             if (this.mAdBannerDispatcher == null) {
-                AdvertAppInfo.A4.set(true);
-                this.mAdBannerDispatcher = new c.a.r0.u1.l.a((ViewStub) findViewById(R.id.ad_banner_view_stub), getPageContext());
+                AdvertAppInfo.v.set(true);
+                this.mAdBannerDispatcher = new c.a.p0.w1.l.a((ViewStub) findViewById(R.id.obfuscated_res_0x7f09008f), getPageContext());
             }
             this.mAdBannerDispatcher.c(this.mViewpager, this.mIsSeeHost, i2, checkIsAdvertPage(), i2 < this.mImageUrls.size() ? this.mImageUrls.get(i2) : "", this.mCount, this.mFid, this.mFname, this.mTid);
         }
     }
 
     private void updateAlaLiveLayout(int i2) {
-        c.a.r0.u1.b bVar;
+        c.a.p0.w1.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(65624, this, i2) == null) || (bVar = this.mGetImageHelper) == null) {
             return;
@@ -2142,8 +2127,8 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (!(interceptable == null || interceptable.invokeI(65625, this, i2) == null) || (multiImageView = this.mViewpager) == null) {
             return;
         }
-        multiImageView.checkBottomViewVisibility(i2);
-        int i3 = (this.mViewpager.isClearScreenMode() || checkIsAdvertPage()) ? 8 : 0;
+        multiImageView.l(i2);
+        int i3 = (this.mViewpager.t() || checkIsAdvertPage()) ? 8 : 0;
         setViewVisibility(this.hostAllSwitch, i3);
         setViewVisibility(this.alaUserPhotoLayout, i3);
     }
@@ -2161,7 +2146,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (this.mCount > 0) {
             str = str2 + this.mCount;
         } else {
-            str = str2 + "...";
+            str = str2 + StringHelper.STRING_MORE;
         }
         if (this.mFrom != null && !this.mIsStaticLast && getCurrentOverAllIndex() == this.mCount && (this.mFrom.equals("frs") || this.mFrom.equals("index"))) {
             TiebaStatic.log(new StatisticItem("c13316").param("obj_source", this.mFrom));
@@ -2183,10 +2168,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     private void updateNavigationTitleAdvert(long j2, int i2) {
-        c.a.r0.u1.k.b bVar;
+        c.a.p0.w1.k.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65627, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            c.a.r0.u1.l.b bVar2 = this.mAdPicPageDispatcher;
+            c.a.p0.w1.l.b bVar2 = this.mAdPicPageDispatcher;
             if ((bVar2 != null && bVar2.j()) || ((bVar = this.mFunAdPageNewProvider) != null && bVar.u())) {
                 this.mTitleView.setText("");
             } else if (j2 > 0) {
@@ -2205,9 +2190,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (interceptable == null || interceptable.invokeL(65628, this, str) == null) {
             this.mTitleView.setText(str);
             if (this.mIsShowHost && !this.mIsFromAiApp && (sortSwitchButton = this.hostAllSwitch) != null) {
-                sortSwitchButton.changeState(this.mIsSeeHost ? 1 : 0);
+                sortSwitchButton.v(this.mIsSeeHost ? 1 : 0);
             }
-            c.a.q0.r.v.c.d(this.mTitleView).y(R.array.S_O_X001);
+            c.a.o0.r.v.c.d(this.mTitleView).y(R.array.S_O_X001);
         }
     }
 
@@ -2232,7 +2217,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (!(interceptable == null || interceptable.invokeV(65630, this) == null) || (intent = getIntent()) == null) {
             return;
         }
-        c.a.q0.c1.i.d(intent.getStringExtra(TiebaStatic.Params.WISE_SAMPLE_ID));
+        c.a.o0.c1.i.d(intent.getStringExtra(TiebaStatic.Params.WISE_SAMPLE_ID));
     }
 
     public int calCurrentIndex() {
@@ -2260,18 +2245,29 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 2);
-            if (c.a.q0.c1.q.a()) {
+            if (c.a.o0.c1.q.a()) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem(UrlDragImageView.KEY_IMAGE_ACTIVITY_FINISH).param("obj_type", "4"));
-            c.a.r0.u1.g.e(isFirstPost(), this.viewCounter.c());
+            TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "4"));
+            c.a.p0.w1.g.e(isFirstPost(), this.viewCounter.c());
         }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+            this.touchInfoCollector.a(motionEvent);
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 2);
         }
     }
@@ -2279,27 +2275,27 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public Map<String, ImageUrlData> getAssistUrls() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.assistUrls : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.assistUrls : (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a008" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "a008" : (String) invokeV.objValue;
     }
 
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFrom : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mFrom : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public long getMissionTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (c.a.d.f.p.m.isEmpty(this.mTid)) {
                 return 0L;
             }
@@ -2309,11 +2305,11 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public c.a.q0.p0.d getPageStayDurationItem() {
+    public c.a.o0.p0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.q0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            c.a.o0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.t(c.a.d.f.m.b.g(this.mFid, 0L));
                 pageStayDurationItem.C(c.a.d.f.m.b.g(this.mTid, 0L));
@@ -2323,37 +2319,45 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             }
             return pageStayDurationItem;
         }
-        return (c.a.q0.p0.d) invokeV.objValue;
+        return (c.a.o0.p0.d) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
-    public c.a.q0.p0.b getPageStayFilter() {
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    public c.a.o0.p0.b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new l(this) : (c.a.q0.p0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new l(this) : (c.a.o0.p0.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager.i getRealView(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.i) invokeL.objValue;
     }
 
+    @Override // c.a.a0.f.b
+    @NonNull
+    public c.a.a0.f.c getTouchInfoCollector() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.touchInfoCollector : (c.a.a0.f.c) invokeV.objValue;
+    }
+
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mUserId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mUserId : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager getVoiceManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (this.mVoiceManager == null) {
                 this.mVoiceManager = VoiceManager.instance();
             }
@@ -2365,13 +2369,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public boolean isIsBJHThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsBJHThread : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsBJHThread : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048589, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             this.editorController.l(i2, i3, intent);
         }
@@ -2380,18 +2384,18 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             this.mViewpager.setBackgroundColor(-16777216);
-            this.mViewpager.onSkinTypeChanged(i2);
+            this.mViewpager.y(i2);
             super.onChangeSkinType(i2);
             this.skinTypeRecord = i2;
             UtilHelper.changeStatusBarIconAndTextColor(true, this);
             handleUserAlaLiveSkinType(i2);
-            c.a.r0.u1.i iVar = this.mMoreDialogController;
+            c.a.p0.w1.i iVar = this.mMoreDialogController;
             if (iVar != null) {
                 iVar.x();
             }
-            c.a.r0.u1.j.c cVar = this.editorController;
+            c.a.p0.w1.j.c cVar = this.editorController;
             if (cVar != null) {
                 cVar.m(this.mSkinType);
             }
@@ -2401,28 +2405,32 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             this.mViewpager.setCurrentItem(this.mIndex, false);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.obfuscated_res_0x7f080624, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 28 && TbSingleton.getInstance().isNotchScreen(this)) {
                 setUseStyleImmersiveSticky(false);
             }
+            Window window = getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.systemUiVisibility = 2050;
+            window.setAttributes(attributes);
             super.onCreate(bundle);
-            c.a.q0.j0.h.f().g(TbadkCoreApplication.getInst());
-            c.a.q0.j0.h.i(new ImageFpsEvent());
+            c.a.o0.j0.h.f().g(TbadkCoreApplication.getInst());
+            c.a.o0.j0.h.i(new ImageFpsEvent());
             this.skinTypeRecord = TbadkCoreApplication.getInst().getSkinType();
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
             initData(bundle);
-            setContentView(R.layout.image_activity_2);
+            setContentView(R.layout.obfuscated_res_0x7f0d03d2);
             initUi();
             initImageHelper(this.mDragPicId, this.mIsSeeHost, false);
             registerListener(this.mToHotTopicListener);
@@ -2434,7 +2442,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             this.mVoiceManager = voiceManager;
             voiceManager.onCreate(getPageContext());
             if (Build.VERSION.SDK_INT >= 28 && (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this))) {
-                c.a.r0.j4.d.b(1, getWindow().getAttributes(), getWindow());
+                c.a.p0.l4.e.b(1, getWindow().getAttributes(), getWindow());
             }
             if (!TbSingleton.getInstance().hasDownloadEmotion() && c.a.d.f.p.l.H() && TbadkCoreApplication.isLogin()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004611));
@@ -2448,16 +2456,16 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.mToHotTopicListener);
             TbadkCoreApplication.getInst().delRemoteActivity(this);
-            c.a.q0.b0.c.k().r();
-            c.a.r0.u1.h hVar = this.mImageViewerStatisticController;
+            c.a.o0.b0.c.k().r();
+            c.a.p0.w1.h hVar = this.mImageViewerStatisticController;
             ArrayList<String> arrayList = this.mImageUrls;
             int i2 = this.mIndex;
             hVar.c(arrayList, i2, i2);
             this.mImageViewerStatisticController.g();
-            c.a.r0.u1.b bVar = this.mGetImageHelper;
+            c.a.p0.w1.b bVar = this.mGetImageHelper;
             if (bVar != null) {
                 String U = bVar.U();
                 str2 = this.mGetImageHelper.X();
@@ -2467,33 +2475,33 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 str2 = null;
             }
             this.mImageViewerStatisticController.j(this.mViewpager.getPageCount(), "", this.mFid, this.mTid, str, str2);
-            c.a.r0.u1.i iVar = this.mMoreDialogController;
+            c.a.p0.w1.i iVar = this.mMoreDialogController;
             if (iVar != null) {
                 iVar.A();
             }
-            this.mViewpager.onDestroy();
+            this.mViewpager.v();
             this.editorController.n();
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            c.a.q0.v.f.k().i(13);
+            c.a.o0.v.f.k().i(13);
             TbadkCoreApplication.getInst().setSkinTypeValue(this.skinTypeRecord);
             dissmissPictureTip();
             dismissAlaTip();
-            c.a.r0.u1.l.b bVar2 = this.mAdPicPageDispatcher;
+            c.a.p0.w1.l.b bVar2 = this.mAdPicPageDispatcher;
             if (bVar2 != null) {
                 bVar2.k();
             }
-            c.a.r0.u1.l.a aVar = this.mAdBannerDispatcher;
+            c.a.p0.w1.l.a aVar = this.mAdBannerDispatcher;
             if (aVar != null) {
                 aVar.b();
             }
-            c.a.r0.u1.k.b bVar3 = this.mFunAdPageNewProvider;
+            c.a.p0.w1.k.b bVar3 = this.mFunAdPageNewProvider;
             if (bVar3 != null) {
                 bVar3.y();
             }
-            c.a.q0.j0.h.i(new PrePageKeyEvent(getCurrentPageKey()));
+            c.a.o0.j0.h.i(new PrePageKeyEvent(getCurrentPageKey()));
             super.onDestroy();
         }
     }
@@ -2502,7 +2510,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
                 Intent intent = new Intent();
                 intent.putExtra("index", this.mIndex);
@@ -2518,13 +2526,13 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
-            this.mViewpager.onPause();
+            this.mViewpager.w();
             BdUniqueId uniqueId = getUniqueId();
             long g2 = c.a.d.f.m.b.g(this.mTid, 0L);
             if (uniqueId != null && g2 > 0) {
-                c.a.q0.a.r.f(uniqueId.getId(), g2);
+                c.a.o0.a.s.f(uniqueId.getId(), g2);
             }
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -2537,14 +2545,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onResume();
-            this.mViewpager.onResume();
-            this.mIsLogin = c.a.q0.j0.f.k();
+            this.mViewpager.x();
+            this.mIsLogin = c.a.o0.j0.f.k();
             BdUniqueId uniqueId = getUniqueId();
             long g2 = c.a.d.f.m.b.g(this.mTid, 0L);
             if (uniqueId != null && g2 > 0) {
-                c.a.q0.a.r.j(c.a.q0.a.c.b0, uniqueId.getId(), g2);
+                c.a.o0.a.s.j(c.a.o0.a.c.b0, uniqueId.getId(), g2);
             }
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -2557,7 +2565,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, bundle) == null) {
             bundle.putBoolean(ImageViewerConfig.IS_BJH, this.mIsBJHThread);
             bundle.putStringArrayList("url", this.mImageUrls);
             bundle.putInt("index", this.mIndex);
@@ -2606,10 +2614,10 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             bundle.putBoolean(ImageViewerConfig.IS_IDENTIFY_IMAGE, this.mIsIdentifyImage);
             bundle.putBoolean(ImageViewerConfig.IS_FROM_AI_APP, this.mIsFromAiApp);
             bundle.putBoolean(ImageViewerConfig.IS_GODREPLY_IMAGE, this.mIsGodreplyImage);
-            bundle.putBoolean(ImageViewerConfig.IS_LOGIN, c.a.q0.j0.f.k());
-            bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, c.a.q0.j0.f.b());
-            bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, c.a.q0.j0.f.e());
-            bundle.putString(ImageViewerConfig.ACCOUNT_TBS, c.a.q0.j0.f.f());
+            bundle.putBoolean("is_login", c.a.o0.j0.f.k());
+            bundle.putString(ImageViewerConfig.ACCOUNT_BDUSS, c.a.o0.j0.f.b());
+            bundle.putString(ImageViewerConfig.ACCOUNT_STOKEN, c.a.o0.j0.f.e());
+            bundle.putString(ImageViewerConfig.ACCOUNT_TBS, c.a.o0.j0.f.f());
             bundle.putString("from_forum_id", this.fromForumId);
             bundle.putInt("skin_type", this.mSkinType);
             bundle.putBoolean(ImageViewerConfig.IS_VIDEO_WORKS_INFO, this.mIsVideoWorksInfo);
@@ -2621,7 +2629,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onStart();
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -2633,7 +2641,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onStop();
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -2645,7 +2653,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             super.onWindowFocusChanged(z);
             setFullScreen();
             getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new u(this));
@@ -2655,15 +2663,15 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.mViewpager.onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            this.mViewpager.v();
         }
     }
 
     public void setAddSize(int i2) {
         MultiImageView multiImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (multiImageView = this.mViewpager) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (multiImageView = this.mViewpager) == null) {
             return;
         }
         multiImageView.setAddSize(i2);
@@ -2672,7 +2680,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void setCurrentActivityTid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.kwad.sdk.c.b;
 
-import com.alibaba.fastjson.support.spring.FastJsonJsonView;
 import com.baidu.sapi2.SapiWebView;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class c {
         a.add(SapiWebView.DATA_MIME_TYPE);
         a.add("image/gif");
         a.add("image/png");
-        a.add(FastJsonJsonView.DEFAULT_JSONP_CONTENT_TYPE);
+        a.add("application/javascript");
     }
 
     public static boolean a(String str) {

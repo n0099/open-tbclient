@@ -11,12 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B+\u0012\u0006\u0010\u000e\u001a\u00020\r\u0012\u0006\u0010\u0011\u001a\u00020\u0010\u0012\b\b\u0002\u0010\t\u001a\u00020\b\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\t\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\t\u0010\nR\u0016\u0010\u000b\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000b\u0010\nR\u0016\u0010\f\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\nR\u0016\u0010\u000e\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012¨\u0006\u0015"}, d2 = {"Lcom/baidu/bdtask/service/ubc/model/UBCTaskStatusInfo;", "Lcom/baidu/bdtask/model/ITaskModelData;", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "errorMsg", "Ljava/lang/String;", "", ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, "I", TaskStatus.keyInterruptErrorNo, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "taskInfoStatus", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "<init>", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;ILjava/lang/String;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0016\u0018\u00002\u00020\u0001B+\u0012\u0006\u0010\u000e\u001a\u00020\r\u0012\u0006\u0010\u0011\u001a\u00020\u0010\u0012\b\b\u0002\u0010\t\u001a\u00020\b\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004R\u0016\u0010\u0006\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0006\u0010\u0007R\u0016\u0010\t\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\t\u0010\nR\u0016\u0010\u000b\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000b\u0010\nR\u0016\u0010\f\u001a\u00020\b8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\f\u0010\nR\u0016\u0010\u000e\u001a\u00020\r8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u000e\u0010\u000fR\u0016\u0010\u0011\u001a\u00020\u00108\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0011\u0010\u0012¨\u0006\u0015"}, d2 = {"Lcom/baidu/bdtask/service/ubc/model/UBCTaskStatusInfo;", "Lcom/baidu/bdtask/model/ITaskModelData;", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "", "errorMsg", "Ljava/lang/String;", "", ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, "I", TaskStatus.keyInterruptErrorNo, "statusCode", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "Lcom/baidu/bdtask/model/info/TaskInfo;", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "taskInfoStatus", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "<init>", "(Lcom/baidu/bdtask/model/info/TaskInfo;Lcom/baidu/bdtask/ctrl/model/TaskStatus;ILjava/lang/String;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public class UBCTaskStatusInfo implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,16 +26,16 @@ public class UBCTaskStatusInfo implements ITaskModelData {
     public final TaskInfo taskInfo;
     public final TaskStatus taskInfoStatus;
 
-    public UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i2, String str) {
+    public UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i2), str};
+            Object[] objArr = {taskInfo, taskStatus, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,7 +43,7 @@ public class UBCTaskStatusInfo implements ITaskModelData {
         }
         this.taskInfo = taskInfo;
         this.taskInfoStatus = taskStatus;
-        this.errorNo = i2;
+        this.errorNo = i;
         this.errorMsg = str;
         this.statusCode = taskStatus.getCurStatus();
         this.interruptErrorNo = this.taskInfoStatus.getInterruptErrorNo();
@@ -74,13 +73,13 @@ public class UBCTaskStatusInfo implements ITaskModelData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.statusCode);
+            jSONObject.put("statusCode", this.statusCode);
             jSONObject.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, this.errorNo);
             jSONObject.put("msg", this.errorMsg);
             jSONObject.put(NextActive.keyTaskInfo, new UBCTaskInfo(this.taskInfo, this.taskInfoStatus).toJson());
-            int i2 = this.interruptErrorNo;
-            if (i2 != 0) {
-                jSONObject.put(TaskStatus.keyInterruptErrorNo, i2);
+            int i = this.interruptErrorNo;
+            if (i != 0) {
+                jSONObject.put(TaskStatus.keyInterruptErrorNo, i);
             }
             if (this.taskInfoStatus.isFinished()) {
                 jSONObject.put("progress", this.taskInfo.getResponse().getProcessData().toJson());
@@ -90,7 +89,7 @@ public class UBCTaskStatusInfo implements ITaskModelData {
         return (JSONObject) invokeV.objValue;
     }
 
-    public /* synthetic */ UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i2, String str, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, taskStatus, (i3 & 4) != 0 ? taskStatus.getCurStatusCode() : i2, (i3 & 8) != 0 ? taskStatus.getCurStatusCodeMsg() : str);
+    public /* synthetic */ UBCTaskStatusInfo(TaskInfo taskInfo, TaskStatus taskStatus, int i, String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, taskStatus, (i2 & 4) != 0 ? taskStatus.getCurStatusCode() : i, (i2 & 8) != 0 ? taskStatus.getCurStatusCodeMsg() : str);
     }
 }

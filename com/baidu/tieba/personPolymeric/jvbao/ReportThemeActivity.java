@@ -10,7 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
-import c.a.r0.z2.k.l;
+import c.a.p0.b3.k.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ReportThemeActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean mCanShowLoadingView = true;
@@ -46,7 +46,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public Handler handler;
     public boolean isRequesting;
-    public c.a.r0.z2.h.a mAdapter;
+    public c.a.p0.b3.h.a mAdapter;
     public View mBack;
     public PersonPostModel.c mCallBack;
     public TextView mConfirm;
@@ -69,23 +69,23 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public int reportNum;
     public ArrayList<String> reportThemeList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -104,7 +104,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,9 +117,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {reportThemeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -134,22 +134,23 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 this.a.refreshConfirmUI(message.arg1);
                 if (message.arg1 > 10) {
-                    this.a.mConfirmNumView.setText(this.a.getString(R.string.choose_report_theme_num, new Object[]{10}));
-                    new BdTopToast(this.a.getActivity()).setIcon(false).setContent(this.a.getResources().getString(R.string.max_choose_report_theme_num)).show(this.a.mNavigationBar);
+                    this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03bb, new Object[]{10}));
+                    BdTopToast bdTopToast = new BdTopToast(this.a.getActivity());
+                    bdTopToast.i(false);
+                    bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a94));
+                    bdTopToast.j(this.a.mNavigationBar);
                     return;
                 }
-                this.a.mConfirmNumView.setText(this.a.getString(R.string.choose_report_theme_num, new Object[]{Integer.valueOf(message.arg1)}));
+                this.a.mConfirmNumView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03bb, new Object[]{Integer.valueOf(message.arg1)}));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReportThemeActivity f45810e;
+        public final /* synthetic */ ReportThemeActivity a;
 
         public c(ReportThemeActivity reportThemeActivity) {
             Interceptable interceptable = $ic;
@@ -158,36 +159,34 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {reportThemeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45810e = reportThemeActivity;
+            this.a = reportThemeActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f45810e.mAdapter != null && this.f45810e.mHasMore) {
-                if (this.f45810e.mLoadMoreView != null && !this.f45810e.mLoadMoreView.m()) {
-                    this.f45810e.sendNetReq(true);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.mAdapter != null && this.a.mHasMore) {
+                if (this.a.mLoadMoreView != null && !this.a.mLoadMoreView.m()) {
+                    this.a.sendNetReq(true);
                 }
-                this.f45810e.sendNetReq(false);
+                this.a.sendNetReq(false);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReportThemeActivity f45811e;
+        public final /* synthetic */ ReportThemeActivity a;
 
         public d(ReportThemeActivity reportThemeActivity) {
             Interceptable interceptable = $ic;
@@ -196,39 +195,37 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {reportThemeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45811e = reportThemeActivity;
+            this.a = reportThemeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ReportThemeActivity reportThemeActivity = this.f45811e;
+                ReportThemeActivity reportThemeActivity = this.a;
                 reportThemeActivity.reportThemeList = reportThemeActivity.getReportThemeList();
                 TiebaStatic.log("c14576");
                 Intent intent = new Intent();
-                intent.putExtra(ReportThemeActivityConfig.REPORT_TID_LIST, this.f45811e.reportThemeList);
-                this.f45811e.setResult(-1, intent);
-                this.f45811e.finish();
+                intent.putExtra(ReportThemeActivityConfig.REPORT_TID_LIST, this.a.reportThemeList);
+                this.a.setResult(-1, intent);
+                this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class e implements PersonPostModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReportThemeActivity f45812e;
+        public final /* synthetic */ ReportThemeActivity a;
 
         public e(ReportThemeActivity reportThemeActivity) {
             Interceptable interceptable = $ic;
@@ -237,33 +234,31 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {reportThemeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45812e = reportThemeActivity;
+            this.a = reportThemeActivity;
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-        public void on(PersonPostModel personPostModel, boolean z) {
+        public void O(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
-                this.f45812e.dealNetData(personPostModel, z);
+                this.a.dealNetData(personPostModel, z);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class f implements PersonPostModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReportThemeActivity f45813e;
+        public final /* synthetic */ ReportThemeActivity a;
 
         public f(ReportThemeActivity reportThemeActivity) {
             Interceptable interceptable = $ic;
@@ -272,22 +267,22 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {reportThemeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45813e = reportThemeActivity;
+            this.a = reportThemeActivity;
         }
 
         @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-        public void onResult(PersonPostModel personPostModel, boolean z) {
+        public void I(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
-                this.f45813e.dealNetData(personPostModel, z);
+                this.a.dealNetData(personPostModel, z);
             }
         }
     }
@@ -313,9 +308,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -371,7 +366,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.mModel.threadList.addAll(c.a.r0.z2.j.c.a.c(personPostModel.threadList));
+                this.mModel.threadList.addAll(c.a.p0.b3.j.c.a.c(personPostModel.threadList));
             }
             this.mHasMore = dealHasMore(personPostModel, z);
             PersonPostModel personPostModel3 = this.mModel;
@@ -388,8 +383,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     setData(this.mModel.threadList);
                 }
             }
-            c.a.r0.z2.b.d().l(System.currentTimeMillis() - currentTimeMillis);
-            c.a.r0.z2.b.d().p(System.currentTimeMillis() - c.a.r0.z2.b.d().g());
+            c.a.p0.b3.b.d().l(System.currentTimeMillis() - currentTimeMillis);
+            c.a.p0.b3.b.d().p(System.currentTimeMillis() - c.a.p0.b3.b.d().g());
         }
     }
 
@@ -406,10 +401,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.report_user));
-            this.mConfirm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.confirm));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fa4));
+            this.mConfirm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f041a));
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mConfirm.setOnClickListener(new d(this));
         }
@@ -419,13 +414,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             initNavigationBar();
-            this.mRootView = findViewById(R.id.rootLayout);
-            this.mListContainerView = findViewById(R.id.list_container);
-            this.mListRootView = findViewById(R.id.list_rootview);
-            this.mThemeView = (TextView) findViewById(R.id.choose_theme);
-            this.mListView = (BdListView) findViewById(R.id.report_theme_list);
-            this.mConfirmNumView = (TextView) findViewById(R.id.confirm_num);
-            c.a.r0.z2.h.a aVar = new c.a.r0.z2.h.a(this, this.mData);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ad8);
+            this.mListContainerView = findViewById(R.id.obfuscated_res_0x7f09127b);
+            this.mListRootView = findViewById(R.id.obfuscated_res_0x7f09127f);
+            this.mThemeView = (TextView) findViewById(R.id.obfuscated_res_0x7f090614);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091a73);
+            this.mConfirmNumView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906bf);
+            c.a.p0.b3.h.a aVar = new c.a.p0.b3.h.a(this, this.mData);
             this.mAdapter = aVar;
             this.mListView.setAdapter((ListAdapter) aVar);
             this.mListView.setOnSrollToBottomListener(new c(this));
@@ -453,21 +448,21 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         ArrayList<String> stringArrayListExtra = getIntent().getStringArrayListExtra(ReportThemeActivityConfig.REPORT_TID_LIST);
         this.reportThemeList = stringArrayListExtra;
         this.reportNum = stringArrayListExtra.size();
-        this.mConfirmNumView.setText(getPageContext().getPageActivity().getString(R.string.choose_report_theme_num, new Object[]{Integer.valueOf(getReportNum())}));
+        this.mConfirmNumView.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f03bb, new Object[]{Integer.valueOf(getReportNum())}));
         this.mConfirmNumView.setVisibility(8);
         this.mThemeView.setVisibility(8);
         this.mConfirm.setEnabled(false);
         this.mModel.fetchPost(getPageContext(), this.mCallBack, z, null, true, 0, false, true, null, this.portrait);
     }
 
-    private void showNoDataView(int i2) {
+    private void showNoDataView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65554, this, i2) == null) {
-            String string = getResources().getString(R.string.no_data_common_txt);
+        if (interceptable == null || interceptable.invokeI(65554, this, i) == null) {
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c2c);
             if (this.mNoDataView == null) {
-                this.mNoDataView = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.e.d(null, string), null);
+                this.mNoDataView = NoDataViewFactory.a(this, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070259)), NoDataViewFactory.e.d(null, string), null);
             }
-            this.mNoDataView.onChangeSkinType(getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNoDataView.f(getPageContext(), TbadkApplication.getInst().getSkinType());
             this.mNoDataView.setVisibility(0);
             this.mListView.removeHeaderView(this.mNoDataView);
             this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -491,6 +486,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             scrollToTop();
             return;
         }
+        this.mConfirm.setEnabled(false);
         this.mListContainerView.setVisibility(8);
         showNetRefreshView(this.mListRootView, null, false);
     }
@@ -521,23 +517,23 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             SkinManager.setViewTextColor(this.mConfirmNumView, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.mListView, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.mThemeView, (int) R.color.CAM_X0109);
-            this.mConfirm.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0304, i2));
+            this.mConfirm.setTextColor(SkinManager.getColorStateListWithClickAndDisableState(R.color.CAM_X0304, i));
             SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(getPageContext(), i2);
+                noDataView.f(getPageContext(), i);
             }
             PbListView pbListView = this.mLoadMoreView;
             if (pbListView != null) {
                 pbListView.F(SkinManager.getColor(R.color.CAM_X0107));
-                this.mLoadMoreView.d(i2);
+                this.mLoadMoreView.d(i);
             }
         }
     }
@@ -547,7 +543,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.report_theme_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d073b);
             initData(bundle);
             initView();
             forceRefresh(true);
@@ -573,10 +569,10 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void refreshConfirmUI(int i2) {
+    public void refreshConfirmUI(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i < 1) {
                 this.mConfirm.setEnabled(false);
             } else {
                 this.mConfirm.setEnabled(true);
@@ -611,8 +607,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if (ListUtils.isEmpty(arrayList)) {
                 hideLoadMoreView();
                 if (this.mListView.getHeaderViewsCount() == 0) {
-                    this.mListContainerView.setVisibility(8);
-                    showNoDataView(R.string.nad_no_network);
+                    this.mThemeView.setVisibility(8);
+                    this.mConfirmNumView.setVisibility(8);
+                    showNoDataView(R.string.obfuscated_res_0x7f0f0ba0);
                 }
             } else {
                 NoDataView noDataView = this.mNoDataView;
@@ -640,9 +637,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             if (this.mRefreshView == null) {
                 l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
                 this.mRefreshView = lVar;
-                lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                lVar.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f65));
                 this.mRefreshView.d(null);
-                this.mRefreshView.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+                this.mRefreshView.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f64));
                 this.mRefreshView.f();
                 this.mRefreshView.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
@@ -657,17 +654,17 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.mListView.setNextPage(this.mLoadMoreView);
             this.mLoadMoreView.M(0);
             this.mLoadMoreView.f();
-            this.mLoadMoreView.D(getPageContext().getString(R.string.list_no_more));
+            this.mLoadMoreView.D(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e8));
         }
     }
 
-    public void showNoMoreViewWithText(int i2) {
+    public void showNoMoreViewWithText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.mListView.setNextPage(this.mLoadMoreView);
             this.mLoadMoreView.M(0);
             this.mLoadMoreView.f();
-            this.mLoadMoreView.D(getPageContext().getString(i2));
+            this.mLoadMoreView.D(getPageContext().getString(i));
         }
     }
 }

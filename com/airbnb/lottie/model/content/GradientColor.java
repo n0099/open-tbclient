@@ -27,9 +27,9 @@ public class GradientColor {
 
     public void lerp(GradientColor gradientColor, GradientColor gradientColor2, float f2) {
         if (gradientColor.colors.length == gradientColor2.colors.length) {
-            for (int i2 = 0; i2 < gradientColor.colors.length; i2++) {
-                this.positions[i2] = MiscUtils.lerp(gradientColor.positions[i2], gradientColor2.positions[i2], f2);
-                this.colors[i2] = GammaEvaluator.evaluate(f2, gradientColor.colors[i2], gradientColor2.colors[i2]);
+            for (int i = 0; i < gradientColor.colors.length; i++) {
+                this.positions[i] = MiscUtils.lerp(gradientColor.positions[i], gradientColor2.positions[i], f2);
+                this.colors[i] = GammaEvaluator.evaluate(f2, gradientColor.colors[i], gradientColor2.colors[i]);
             }
             return;
         }

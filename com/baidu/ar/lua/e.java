@@ -1,6 +1,7 @@
 package com.baidu.ar.lua;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DefinedLuaListener;
@@ -19,7 +20,7 @@ public class e {
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f31474f;
+    public b f24835f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -30,9 +31,9 @@ public class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,7 +42,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f31474f = bVar;
+        this.f24835f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -56,9 +57,9 @@ public class e {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -104,9 +105,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -116,9 +117,9 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+                public void a(int i, int i2, HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, hashMap) == null) && i2 == 1301 && this.sY.sX != null) {
+                    if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) && i == 1301 && this.sY.sX != null) {
                         int intValue = ((Integer) hashMap.get("type")).intValue();
                         this.sY.sX.onOpenUrl((String) hashMap.get("url"), intValue, hashMap);
                     }
@@ -132,7 +133,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f31474f.c(cVar);
+            this.f24835f.c(cVar);
         }
     }
 
@@ -146,10 +147,10 @@ public class e {
                 return false;
             }
             String str2 = (String) hashMap.get("camera_action");
-            String str3 = "swichCameraByEvent cameraFace = " + str2;
+            Log.d("LuaMsgHelper", "swichCameraByEvent cameraFace = " + str2);
             if ("front".equals(str2)) {
                 this.sX.onRequireSwitchCamera(1);
-            } else if (com.alipay.sdk.widget.d.u.equals(str2)) {
+            } else if ("back".equals(str2)) {
                 this.sX.onRequireSwitchCamera(0);
             } else {
                 this.sX.onRequireSwitchCamera(-1);
@@ -165,7 +166,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hashMap)) == null) {
             int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-            String str = "switchCameraById id = " + a;
+            Log.d("LuaMsgHelper", "switchCameraById id = " + a);
             if (a == 10202) {
                 this.sX.onRequireSwitchCamera(-1);
                 return true;
@@ -178,7 +179,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f31474f;
+            b bVar = this.f24835f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -186,10 +187,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f31474f.d(cVar);
+                    this.f24835f.d(cVar);
                     this.rN = null;
                 }
-                this.f31474f = null;
+                this.f24835f = null;
             }
             this.sX = null;
         }

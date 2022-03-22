@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeControllerBuilderSupplier implements Supplier<PipelineDraweeControllerBuilder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (DraweeConfig) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -53,9 +53,9 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
             newInitContext.initArgs = r2;
             Object[] objArr = {context, draweeConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (ImagePipelineFactory) objArr2[1], (DraweeConfig) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -83,9 +83,9 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
             newInitContext.initArgs = r2;
             Object[] objArr = {context, imagePipelineFactory, draweeConfig};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (ImagePipelineFactory) objArr2[1], (Set) objArr2[2], (DraweeConfig) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -102,9 +102,9 @@ public class PipelineDraweeControllerBuilderSupplier implements Supplier<Pipelin
             newInitContext.initArgs = r2;
             Object[] objArr = {context, imagePipelineFactory, set, draweeConfig};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

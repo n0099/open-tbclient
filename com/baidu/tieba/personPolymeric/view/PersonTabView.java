@@ -13,44 +13,42 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonTabView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int TAB_REPLY = 1;
-    public static final int TAB_THREAD = 0;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f35531b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f35532c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f35533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45870e;
+    public View f35534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f45871f;
+    public View f35535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45872g;
+    public View f35536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f45873h;
+    public int f35537h;
+    public int i;
+    public int j;
+    public b k;
+    public View.OnClickListener l;
 
-    /* renamed from: i  reason: collision with root package name */
-    public View f45874i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f45875j;
-    public View k;
-    public int l;
-    public int m;
-    public int n;
-    public b o;
-    public View.OnClickListener p;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonTabView f45876e;
+        public final /* synthetic */ PersonTabView a;
 
         public a(PersonTabView personTabView) {
             Interceptable interceptable = $ic;
@@ -59,36 +57,36 @@ public class PersonTabView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personTabView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45876e = personTabView;
+            this.a = personTabView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() == R.id.main_thread_btn) {
-                    this.f45876e.setCurrentTab(0);
-                } else if (view.getId() == R.id.reply_btn) {
-                    this.f45876e.setCurrentTab(1);
+                if (view.getId() == R.id.obfuscated_res_0x7f09137b) {
+                    this.a.setCurrentTab(0);
+                } else if (view.getId() == R.id.obfuscated_res_0x7f091a55) {
+                    this.a.setCurrentTab(1);
                 }
-                if (this.f45876e.o != null) {
-                    this.f45876e.o.onTabSelect(this.f45876e.l);
+                if (this.a.k != null) {
+                    this.a.k.onTabSelect(this.a.f35537h);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void onTabSelect(int i2);
+        void onTabSelect(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,85 +98,64 @@ public class PersonTabView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 0;
-        this.m = SkinManager.getColor(R.color.CAM_X0105);
-        this.n = SkinManager.getColor(R.color.CAM_X0106);
-        this.p = new a(this);
+        this.f35537h = 0;
+        this.i = SkinManager.getColor(R.color.CAM_X0105);
+        this.j = SkinManager.getColor(R.color.CAM_X0106);
+        this.l = new a(this);
         c(context);
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f45870e = context;
-            LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
-            TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-            this.f45871f = textView;
-            textView.setOnClickListener(this.p);
-            TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-            this.f45872g = textView2;
-            textView2.setOnClickListener(this.p);
-            this.f45873h = findViewById(R.id.main_thread_divider);
-            this.f45874i = findViewById(R.id.reply_btn_divider);
-            this.f45875j = findViewById(R.id.main_thread_bottom_divider);
-            this.k = findViewById(R.id.reply_btn_bottom_divider);
+            this.a = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06ad, this);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09137b);
+            this.f35531b = textView;
+            textView.setOnClickListener(this.l);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091a55);
+            this.f35532c = textView2;
+            textView2.setOnClickListener(this.l);
+            this.f35533d = findViewById(R.id.obfuscated_res_0x7f09137c);
+            this.f35534e = findViewById(R.id.obfuscated_res_0x7f091a57);
+            this.f35535f = findViewById(R.id.obfuscated_res_0x7f09137a);
+            this.f35536g = findViewById(R.id.obfuscated_res_0x7f091a56);
             setCurrentTab(0);
         }
     }
 
-    public void onChangeSkinType() {
+    public void setCurrentTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.m = SkinManager.getColor(R.color.CAM_X0105);
-            this.n = SkinManager.getColor(R.color.CAM_X0107);
-            SkinManager.setBackgroundResource(this, R.drawable.item_person_header_attention_bg_selector);
-            SkinManager.setBackgroundResource(this.f45873h, R.drawable.roundline);
-            SkinManager.setBackgroundResource(this.f45874i, R.drawable.roundline);
-            SkinManager.setBackgroundColor(this.f45875j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            int i2 = this.l;
-            if (i2 == 0) {
-                this.f45871f.setTextColor(this.m);
-                this.f45872g.setTextColor(this.n);
-            } else if (i2 == 1) {
-                this.f45871f.setTextColor(this.n);
-                this.f45872g.setTextColor(this.m);
-            }
-        }
-    }
-
-    public void setCurrentTab(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.l) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.f35537h) {
             return;
         }
-        this.l = i2;
-        if (i2 == 0) {
-            this.f45873h.setVisibility(0);
-            this.f45874i.setVisibility(4);
-            this.f45871f.setTextColor(this.m);
-            this.f45872g.setTextColor(this.n);
-        } else if (i2 == 1) {
-            this.f45873h.setVisibility(4);
-            this.f45874i.setVisibility(0);
-            this.f45871f.setTextColor(this.n);
-            this.f45872g.setTextColor(this.m);
+        this.f35537h = i;
+        if (i == 0) {
+            this.f35533d.setVisibility(0);
+            this.f35534e.setVisibility(4);
+            this.f35531b.setTextColor(this.i);
+            this.f35532c.setTextColor(this.j);
+        } else if (i == 1) {
+            this.f35533d.setVisibility(4);
+            this.f35534e.setVisibility(0);
+            this.f35531b.setTextColor(this.j);
+            this.f35532c.setTextColor(this.i);
         }
     }
 
     public void setOnTabSelectListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.o = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.k = bVar;
         }
     }
 
@@ -191,9 +168,9 @@ public class PersonTabView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -201,25 +178,25 @@ public class PersonTabView extends LinearLayout {
                 return;
             }
         }
-        this.l = 0;
-        this.m = SkinManager.getColor(R.color.CAM_X0105);
-        this.n = SkinManager.getColor(R.color.CAM_X0106);
-        this.p = new a(this);
+        this.f35537h = 0;
+        this.i = SkinManager.getColor(R.color.CAM_X0105);
+        this.j = SkinManager.getColor(R.color.CAM_X0106);
+        this.l = new a(this);
         c(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonTabView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PersonTabView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -227,10 +204,10 @@ public class PersonTabView extends LinearLayout {
                 return;
             }
         }
-        this.l = 0;
-        this.m = SkinManager.getColor(R.color.CAM_X0105);
-        this.n = SkinManager.getColor(R.color.CAM_X0106);
-        this.p = new a(this);
+        this.f35537h = 0;
+        this.i = SkinManager.getColor(R.color.CAM_X0105);
+        this.j = SkinManager.getColor(R.color.CAM_X0106);
+        this.l = new a(this);
         c(context);
     }
 }

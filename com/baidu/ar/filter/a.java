@@ -25,7 +25,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f31472d;
+    public DefaultParams f24833d;
     public String mCasePath;
     public l qh;
     public FilterStateListener qi;
@@ -81,9 +81,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {defaultParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -92,7 +92,7 @@ public class a {
         this.qj = new HashMap<>();
         this.qk = new HashMap<>();
         this.ql = new HashMap<>();
-        this.f31472d = defaultParams;
+        this.f24833d = defaultParams;
         HashMap<FilterNode, Boolean> hashMap = this.qj;
         if (hashMap != null) {
             hashMap.put(FilterNode.lutFilter, Boolean.FALSE);
@@ -103,22 +103,22 @@ public class a {
         HashMap<FilterNode, Boolean> hashMap2 = this.qk;
         if (hashMap2 != null) {
             hashMap2.put(FilterNode.lutFilter, Boolean.TRUE);
-            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.f31472d.isUseBeautyFilter()));
-            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.f31472d.isUseFaceFilter()));
-            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.f31472d.isUseMakeupFilter()));
+            this.qk.put(FilterNode.skinFilter, Boolean.valueOf(this.f24833d.isUseBeautyFilter()));
+            this.qk.put(FilterNode.faceFilter, Boolean.valueOf(this.f24833d.isUseFaceFilter()));
+            this.qk.put(FilterNode.makeupFilter, Boolean.valueOf(this.f24833d.isUseMakeupFilter()));
         }
     }
 
-    private void K(int i2) {
+    private void K(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.qh == null) {
+        if (!(interceptable == null || interceptable.invokeI(65537, this, i) == null) || this.qh == null) {
             return;
         }
         i iVar = new i();
         iVar.r("ability_common_filter");
         iVar.setFilterName(FilterNode.faceFilter.getNodeName());
         iVar.N("clearAllKnead");
-        iVar.r(i2);
+        iVar.r(i);
         this.qh.a(iVar);
     }
 
@@ -131,8 +131,8 @@ public class a {
     private void a(FilterParam.MakeupFilter makeupFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, makeupFilter) == null) {
-            int i2 = AnonymousClass1.qm[makeupFilter.ordinal()];
-            String str = (i2 == 1 || i2 == 2) ? StatisticConstants.EVENT_MAKEUP_LIPSTICK_ENTER : i2 != 3 ? i2 != 4 ? null : StatisticConstants.EVENT_MAKEUP_HIGHLIGHT_ENTER : StatisticConstants.EVENT_MAKEUP_BLUSHER_ENTER;
+            int i = AnonymousClass1.qm[makeupFilter.ordinal()];
+            String str = (i == 1 || i == 2) ? StatisticConstants.EVENT_MAKEUP_LIPSTICK_ENTER : i != 3 ? i != 4 ? null : StatisticConstants.EVENT_MAKEUP_HIGHLIGHT_ENTER : StatisticConstants.EVENT_MAKEUP_BLUSHER_ENTER;
             if (str != null) {
                 StatisticApi.onEvent(str);
             }
@@ -321,7 +321,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             synchronized (this) {
-                this.f31472d = null;
+                this.f24833d = null;
                 this.qh = null;
                 this.qi = null;
                 if (this.qj != null) {

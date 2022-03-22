@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,16 +46,16 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         ATTRS = new int[]{16843284};
     }
 
-    public DividerItemDecoration(Context context, int i2) {
+    public DividerItemDecoration(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,31 +63,35 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
         this.mBounds = new Rect();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ATTRS);
-        this.mDivider = obtainStyledAttributes.getDrawable(0);
+        Drawable drawable = obtainStyledAttributes.getDrawable(0);
+        this.mDivider = drawable;
+        if (drawable == null) {
+            Log.w(TAG, "@android:attr/listDivider was not set in the theme used for this DividerItemDecoration. Please set that attribute all call setDrawable()");
+        }
         obtainStyledAttributes.recycle();
-        setOrientation(i2);
+        setOrientation(i);
     }
 
     private void drawHorizontal(Canvas canvas, RecyclerView recyclerView) {
         int height;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, canvas, recyclerView) == null) {
             canvas.save();
             if (recyclerView.getClipToPadding()) {
-                i2 = recyclerView.getPaddingTop();
+                i = recyclerView.getPaddingTop();
                 height = recyclerView.getHeight() - recyclerView.getPaddingBottom();
-                canvas.clipRect(recyclerView.getPaddingLeft(), i2, recyclerView.getWidth() - recyclerView.getPaddingRight(), height);
+                canvas.clipRect(recyclerView.getPaddingLeft(), i, recyclerView.getWidth() - recyclerView.getPaddingRight(), height);
             } else {
                 height = recyclerView.getHeight();
-                i2 = 0;
+                i = 0;
             }
             int childCount = recyclerView.getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = recyclerView.getChildAt(i3);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = recyclerView.getChildAt(i2);
                 recyclerView.getLayoutManager().getDecoratedBoundsWithMargins(childAt, this.mBounds);
                 int round = this.mBounds.right + Math.round(childAt.getTranslationX());
-                this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i2, round, height);
+                this.mDivider.setBounds(round - this.mDivider.getIntrinsicWidth(), i, round, height);
                 this.mDivider.draw(canvas);
             }
             canvas.restore();
@@ -95,24 +100,24 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         int width;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, canvas, recyclerView) == null) {
             canvas.save();
             if (recyclerView.getClipToPadding()) {
-                i2 = recyclerView.getPaddingLeft();
+                i = recyclerView.getPaddingLeft();
                 width = recyclerView.getWidth() - recyclerView.getPaddingRight();
-                canvas.clipRect(i2, recyclerView.getPaddingTop(), width, recyclerView.getHeight() - recyclerView.getPaddingBottom());
+                canvas.clipRect(i, recyclerView.getPaddingTop(), width, recyclerView.getHeight() - recyclerView.getPaddingBottom());
             } else {
                 width = recyclerView.getWidth();
-                i2 = 0;
+                i = 0;
             }
             int childCount = recyclerView.getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = recyclerView.getChildAt(i3);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = recyclerView.getChildAt(i2);
                 recyclerView.getDecoratedBoundsWithMargins(childAt, this.mBounds);
                 int round = this.mBounds.bottom + Math.round(childAt.getTranslationY());
-                this.mDivider.setBounds(i2, round - this.mDivider.getIntrinsicHeight(), width, round);
+                this.mDivider.setBounds(i, round - this.mDivider.getIntrinsicHeight(), width, round);
                 this.mDivider.draw(canvas);
             }
             canvas.restore();
@@ -165,13 +170,13 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    public void setOrientation(int i2) {
+    public void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 != 0 && i2 != 1) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i != 0 && i != 1) {
                 throw new IllegalArgumentException("Invalid orientation. It should be either HORIZONTAL or VERTICAL");
             }
-            this.mOrientation = i2;
+            this.mOrientation = i;
         }
     }
 }

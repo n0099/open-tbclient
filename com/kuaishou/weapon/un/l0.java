@@ -19,9 +19,9 @@ public class l0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -96,7 +96,7 @@ public class l0 {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.f53725c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(m0.f38909c) : invokeV.booleanValue;
     }
 
     public boolean e() {
@@ -107,7 +107,7 @@ public class l0 {
                 throw new Exception("");
             } catch (Exception e2) {
                 for (StackTraceElement stackTraceElement : e2.getStackTrace()) {
-                    if (stackTraceElement.getClassName().contains(m0.f53724b)) {
+                    if (stackTraceElement.getClassName().contains(m0.f38908b)) {
                         return true;
                     }
                 }
@@ -136,7 +136,7 @@ public class l0 {
             }
             if (systemClassLoader != null) {
                 try {
-                    systemClassLoader.loadClass(m0.f53724b).newInstance();
+                    systemClassLoader.loadClass(m0.f38908b).newInstance();
                 } catch (ClassNotFoundException e3) {
                     x0.a(e3);
                     return false;
@@ -157,7 +157,7 @@ public class l0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.f53724b).getDeclaredField("disableHooks");
+                Field declaredField = ClassLoader.getSystemClassLoader().loadClass(m0.f38908b).getDeclaredField("disableHooks");
                 declaredField.setAccessible(true);
                 declaredField.set(null, Boolean.TRUE);
                 return true;

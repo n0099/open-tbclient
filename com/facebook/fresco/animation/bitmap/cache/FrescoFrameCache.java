@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FrescoFrameCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -60,9 +60,9 @@ public class FrescoFrameCache implements BitmapFrameCache {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedFrameCache, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -113,29 +113,29 @@ public class FrescoFrameCache implements BitmapFrameCache {
 
     private synchronized int getPreparedPendingFramesSizeBytes() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
-                i2 = 0;
-                for (int i3 = 0; i3 < this.mPreparedPendingFrames.size(); i3++) {
-                    i2 += getBitmapSizeBytes(this.mPreparedPendingFrames.valueAt(i3));
+                i = 0;
+                for (int i2 = 0; i2 < this.mPreparedPendingFrames.size(); i2++) {
+                    i += getBitmapSizeBytes(this.mPreparedPendingFrames.valueAt(i2));
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    private synchronized void removePreparedReference(int i2) {
+    private synchronized void removePreparedReference(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
             synchronized (this) {
-                CloseableReference<CloseableImage> closeableReference = this.mPreparedPendingFrames.get(i2);
+                CloseableReference<CloseableImage> closeableReference = this.mPreparedPendingFrames.get(i);
                 if (closeableReference != null) {
-                    this.mPreparedPendingFrames.delete(i2);
+                    this.mPreparedPendingFrames.delete(i);
                     CloseableReference.closeSafely(closeableReference);
-                    FLog.v(TAG, "removePreparedReference(%d) removed. Pending frames: %s", Integer.valueOf(i2), this.mPreparedPendingFrames);
+                    FLog.v(TAG, "removePreparedReference(%d) removed. Pending frames: %s", Integer.valueOf(i), this.mPreparedPendingFrames);
                 }
             }
         }
@@ -148,8 +148,8 @@ public class FrescoFrameCache implements BitmapFrameCache {
             synchronized (this) {
                 CloseableReference.closeSafely(this.mLastRenderedItem);
                 this.mLastRenderedItem = null;
-                for (int i2 = 0; i2 < this.mPreparedPendingFrames.size(); i2++) {
-                    CloseableReference.closeSafely(this.mPreparedPendingFrames.valueAt(i2));
+                for (int i = 0; i < this.mPreparedPendingFrames.size(); i++) {
+                    CloseableReference.closeSafely(this.mPreparedPendingFrames.valueAt(i));
                 }
                 this.mPreparedPendingFrames.clear();
             }
@@ -157,13 +157,13 @@ public class FrescoFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized boolean contains(int i2) {
+    public synchronized boolean contains(int i) {
         InterceptResult invokeI;
         boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             synchronized (this) {
-                contains = this.mAnimatedFrameCache.contains(i2);
+                contains = this.mAnimatedFrameCache.contains(i);
             }
             return contains;
         }
@@ -172,10 +172,10 @@ public class FrescoFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getBitmapToReuseForFrame(int i2, int i3, int i4) {
+    public synchronized CloseableReference<Bitmap> getBitmapToReuseForFrame(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
             synchronized (this) {
                 if (this.mEnableBitmapReusing) {
                     return convertToBitmapReferenceAndClose(this.mAnimatedFrameCache.getForReuse());
@@ -188,13 +188,13 @@ public class FrescoFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getCachedFrame(int i2) {
+    public synchronized CloseableReference<Bitmap> getCachedFrame(int i) {
         InterceptResult invokeI;
         CloseableReference<Bitmap> convertToBitmapReferenceAndClose;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             synchronized (this) {
-                convertToBitmapReferenceAndClose = convertToBitmapReferenceAndClose(this.mAnimatedFrameCache.get(i2));
+                convertToBitmapReferenceAndClose = convertToBitmapReferenceAndClose(this.mAnimatedFrameCache.get(i));
             }
             return convertToBitmapReferenceAndClose;
         }
@@ -203,11 +203,11 @@ public class FrescoFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getFallbackFrame(int i2) {
+    public synchronized CloseableReference<Bitmap> getFallbackFrame(int i) {
         InterceptResult invokeI;
         CloseableReference<Bitmap> convertToBitmapReferenceAndClose;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             synchronized (this) {
                 convertToBitmapReferenceAndClose = convertToBitmapReferenceAndClose(CloseableReference.cloneOrNull(this.mLastRenderedItem));
             }
@@ -231,9 +231,9 @@ public class FrescoFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized void onFramePrepared(int i2, CloseableReference<Bitmap> closeableReference, int i3) {
+    public synchronized void onFramePrepared(int i, CloseableReference<Bitmap> closeableReference, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), closeableReference, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(closeableReference);
                 CloseableReference<CloseableImage> createImageReference = createImageReference(closeableReference);
@@ -241,11 +241,11 @@ public class FrescoFrameCache implements BitmapFrameCache {
                     CloseableReference.closeSafely(createImageReference);
                     return;
                 }
-                CloseableReference<CloseableImage> cache = this.mAnimatedFrameCache.cache(i2, createImageReference);
+                CloseableReference<CloseableImage> cache = this.mAnimatedFrameCache.cache(i, createImageReference);
                 if (CloseableReference.isValid(cache)) {
-                    CloseableReference.closeSafely(this.mPreparedPendingFrames.get(i2));
-                    this.mPreparedPendingFrames.put(i2, cache);
-                    FLog.v(TAG, "cachePreparedFrame(%d) cached. Pending frames: %s", Integer.valueOf(i2), this.mPreparedPendingFrames);
+                    CloseableReference.closeSafely(this.mPreparedPendingFrames.get(i));
+                    this.mPreparedPendingFrames.put(i, cache);
+                    FLog.v(TAG, "cachePreparedFrame(%d) cached. Pending frames: %s", Integer.valueOf(i), this.mPreparedPendingFrames);
                 }
                 CloseableReference.closeSafely(createImageReference);
             }
@@ -253,16 +253,16 @@ public class FrescoFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized void onFrameRendered(int i2, CloseableReference<Bitmap> closeableReference, int i3) {
+    public synchronized void onFrameRendered(int i, CloseableReference<Bitmap> closeableReference, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), closeableReference, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(closeableReference);
-                removePreparedReference(i2);
+                removePreparedReference(i);
                 CloseableReference<CloseableImage> createImageReference = createImageReference(closeableReference);
                 if (createImageReference != null) {
                     CloseableReference.closeSafely(this.mLastRenderedItem);
-                    this.mLastRenderedItem = this.mAnimatedFrameCache.cache(i2, createImageReference);
+                    this.mLastRenderedItem = this.mAnimatedFrameCache.cache(i, createImageReference);
                 }
                 CloseableReference.closeSafely(createImageReference);
             }

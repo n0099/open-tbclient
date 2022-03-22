@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackKey implements Parcelable, Comparable<TrackKey> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrackKey> CREATOR;
@@ -41,9 +41,9 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -62,31 +62,31 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public TrackKey[] newArray(int i2) {
+            public TrackKey[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new TrackKey[i2] : (TrackKey[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TrackKey[i] : (TrackKey[]) invokeI.objValue;
             }
         };
     }
 
-    public TrackKey(int i2, int i3) {
+    public TrackKey(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.streamElementIndex = i2;
-        this.trackIndex = i3;
+        this.streamElementIndex = i;
+        this.trackIndex = i2;
     }
 
     @Override // android.os.Parcelable
@@ -109,9 +109,9 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeInt(this.streamElementIndex);
             parcel.writeInt(this.trackIndex);
         }
@@ -123,8 +123,8 @@ public final class TrackKey implements Parcelable, Comparable<TrackKey> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, trackKey)) == null) {
-            int i2 = this.streamElementIndex - trackKey.streamElementIndex;
-            return i2 == 0 ? this.trackIndex - trackKey.trackIndex : i2;
+            int i = this.streamElementIndex - trackKey.streamElementIndex;
+            return i == 0 ? this.trackIndex - trackKey.trackIndex : i;
         }
         return invokeL.intValue;
     }

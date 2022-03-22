@@ -11,14 +11,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.util.BlockingHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BlockingBaseObserver<T> extends CountDownLatch implements Observer<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f60677d;
+    public Disposable f45287d;
     public Throwable error;
     public T value;
 
@@ -29,9 +29,9 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -67,7 +67,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f60677d;
+            Disposable disposable = this.f45287d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -93,7 +93,7 @@ public abstract class BlockingBaseObserver<T> extends CountDownLatch implements 
     public final void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-            this.f60677d = disposable;
+            this.f45287d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }

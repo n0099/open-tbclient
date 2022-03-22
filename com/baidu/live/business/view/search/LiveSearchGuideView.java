@@ -8,24 +8,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.w.i.f;
+import c.a.v.i.f;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f33460e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f33461f;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f25785b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveSearchGuideView(@NonNull Context context) {
@@ -36,9 +35,9 @@ public class LiveSearchGuideView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,26 +50,26 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.live_feed_page_search_guide_view, this);
-            this.f33460e = (ImageView) findViewById(R.id.live_feed_page_search_guide_iv);
-            this.f33461f = (TextView) findViewById(R.id.live_feed_page_search_guide_tv);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051f, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ad);
+            this.f25785b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ae);
         }
     }
 
-    public void onDarkModeChange(String str) {
+    public void b(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f33461f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f25785b) == null) {
             return;
         }
         textView.setTextColor(f.e().a(getContext(), false, "color_search_guide"));
-        if ("day".equals(str)) {
-            this.f33460e.setImageResource(R.drawable.live_feed_page_search_guide_corner);
-            this.f33461f.setBackgroundResource(R.drawable.live_feed_page_search_guide_bg);
+        if (Config.TRACE_VISIT_RECENT_DAY.equals(str)) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d19);
+            this.f25785b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d17);
         } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.f33460e.setImageResource(R.drawable.live_feed_page_search_guide_corner_night);
-            this.f33461f.setBackgroundResource(R.drawable.live_feed_page_search_guide_bg_night);
-            this.f33461f.setTextColor(-1);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1a);
+            this.f25785b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
+            this.f25785b.setTextColor(-1);
         }
     }
 
@@ -83,9 +82,9 @@ public class LiveSearchGuideView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -96,17 +95,17 @@ public class LiveSearchGuideView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveSearchGuideView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LiveSearchGuideView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

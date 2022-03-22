@@ -56,9 +56,9 @@ public class BlurDrawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -124,14 +124,14 @@ public class BlurDrawable {
     }
 
     @TargetApi(17)
-    public void init(int i2, int i3, Bitmap bitmap) {
+    public void init(int i, int i2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, bitmap) == null) && enabled && i2 > 0 && i3 > 0 && bitmap != null) {
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, bitmap) == null) && enabled && i > 0 && i2 > 0 && bitmap != null) {
             try {
-                this.mBlurScript.setRadius(i2);
+                this.mBlurScript.setRadius(i);
                 Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
                 Matrix matrix = new Matrix();
-                float f2 = 1.0f / i3;
+                float f2 = 1.0f / i2;
                 matrix.postScale(f2, f2);
                 this.mBitmapToBlur = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, true);
             } catch (Exception unused) {

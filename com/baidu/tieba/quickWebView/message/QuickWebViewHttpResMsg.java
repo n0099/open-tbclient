@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.FileUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,8 +42,8 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
             }
             int length = str.length();
             StringBuilder sb = new StringBuilder(length + 4);
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt == '\f') {
                     sb.append("\\f");
                 } else if (charAt != '\r') {
@@ -99,10 +99,10 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            super.decodeInBackGround(i2, bArr);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.decodeInBackGround(i, bArr);
             String parseToString = parseToString(bArr);
             this.result = parseToString;
             this.result = quote(parseToString);

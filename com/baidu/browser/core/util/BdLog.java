@@ -1,6 +1,7 @@
 package com.baidu.browser.core.util;
 
 import android.os.Environment;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,27 +14,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
 import java.io.FileOutputStream;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f31680b;
+    public static FileOutputStream f24978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f31681c;
+    public static boolean f24979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f31682d;
+    public static String f24980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f31683e;
+    public static String f24981e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -66,16 +66,16 @@ public final class BdLog {
             $VALUES = new LogLevel[]{DEBUG, ERROR, INFO, VERBOSE, logLevel};
         }
 
-        public LogLevel(String str, int i2) {
+        public LogLevel(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -98,7 +98,7 @@ public final class BdLog {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -155,13 +155,13 @@ public final class BdLog {
                 return;
             }
         }
-        f31682d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+        f24980d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
         StringBuilder sb = new StringBuilder();
-        sb.append(f31682d);
+        sb.append(f24980d);
         sb.append("baiduliulanqi_log.txt");
-        f31683e = sb.toString();
+        f24981e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f31682d);
+        sb2.append(f24980d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -178,10 +178,39 @@ public final class BdLog {
             if (str2 == null) {
                 str2 = "";
             }
-            int i2 = a.a[logLevel.ordinal()];
-            if (i2 == 1 || i2 == 2 || i2 == 3 || i2 != 4) {
+            int i = a.a[logLevel.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                if (th == null) {
+                                    Log.w(str, str2);
+                                } else {
+                                    Log.w(str, str2, th);
+                                }
+                            }
+                        } else if (th == null) {
+                            Log.v(str, str2);
+                        } else {
+                            Log.v(str, str2, th);
+                        }
+                    } else if (th == null) {
+                        Log.i(str, str2);
+                    } else {
+                        Log.i(str, str2, th);
+                    }
+                } else if (th == null) {
+                    Log.e(str, str2);
+                } else {
+                    Log.e(str, str2, th);
+                }
+            } else if (th == null) {
+                Log.d(str, str2);
+            } else {
+                Log.d(str, str2, th);
             }
-            if (f31681c) {
+            if (f24979c) {
                 d(str, str2);
             }
         }
@@ -198,15 +227,15 @@ public final class BdLog {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f31682d);
+                File file = new File(f24980d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f31680b == null) {
-                    f31680b = new FileOutputStream(f31683e);
+                if (f24978b == null) {
+                    f24978b = new FileOutputStream(f24981e);
                 }
-                f31680b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f31680b.write(StringUtils.LF.getBytes());
+                f24978b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                f24978b.write("\n".getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -223,13 +252,6 @@ public final class BdLog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             a = z;
-        }
-    }
-
-    public static void g(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, th) == null) && a) {
-            b(LogLevel.WARN, str, str2, th);
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import h.c.i0;
+import f.c.i0;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EglRenderer implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LOG_INTERVAL_SEC = 4;
@@ -66,7 +66,7 @@ public class EglRenderer implements VideoSink {
     public long statisticsStartTimeNs;
     public boolean usePresentationTimeStamp;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class EglSurfaceCreation implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public class EglRenderer implements VideoSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eglRenderer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -121,12 +121,12 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class FrameListenerAndParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,9 +142,9 @@ public class EglRenderer implements VideoSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frameListener, Float.valueOf(f2), glDrawer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,7 +157,7 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +172,9 @@ public class EglRenderer implements VideoSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper, runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -206,9 +206,9 @@ public class EglRenderer implements VideoSink {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -235,9 +235,9 @@ public class EglRenderer implements VideoSink {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -264,14 +264,14 @@ public class EglRenderer implements VideoSink {
         this.name = str;
     }
 
-    private String averageTimeAsString(long j2, int i2) {
+    private String averageTimeAsString(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (i <= 0) {
                 return "NA";
             }
-            return TimeUnit.NANOSECONDS.toMicros(j2 / i2) + " us";
+            return TimeUnit.NANOSECONDS.toMicros(j / i) + " us";
         }
         return (String) invokeCommon.objValue;
     }
@@ -312,12 +312,12 @@ public class EglRenderer implements VideoSink {
             DecimalFormat decimalFormat = new DecimalFormat("#.0");
             long nanoTime = System.nanoTime();
             synchronized (this.statisticsLock) {
-                long j2 = nanoTime - this.statisticsStartTimeNs;
-                if (j2 <= 0) {
+                long j = nanoTime - this.statisticsStartTimeNs;
+                if (j <= 0) {
                     return;
                 }
-                float nanos = ((float) (this.framesRendered * TimeUnit.SECONDS.toNanos(1L))) / ((float) j2);
-                logD("Duration: " + TimeUnit.NANOSECONDS.toMillis(j2) + " ms. Frames received: " + this.framesReceived + ". Dropped: " + this.framesDropped + ". Rendered: " + this.framesRendered + ". Render fps: " + decimalFormat.format(nanos) + ". Average render time: " + averageTimeAsString(this.renderTimeNs, this.framesRendered) + ". Average swapBuffer time: " + averageTimeAsString(this.renderSwapBufferTimeNs, this.framesRendered) + ".");
+                float nanos = ((float) (this.framesRendered * TimeUnit.SECONDS.toNanos(1L))) / ((float) j);
+                logD("Duration: " + TimeUnit.NANOSECONDS.toMillis(j) + " ms. Frames received: " + this.framesReceived + ". Dropped: " + this.framesDropped + ". Rendered: " + this.framesRendered + ". Render fps: " + decimalFormat.format(nanos) + ". Average render time: " + averageTimeAsString(this.renderTimeNs, this.framesRendered) + ". Average swapBuffer time: " + averageTimeAsString(this.renderSwapBufferTimeNs, this.framesRendered) + ".");
                 resetStatistics(nanoTime);
             }
         }
@@ -398,9 +398,9 @@ public class EglRenderer implements VideoSink {
                                 if (nanoTime < this.nextFrameTimeNs) {
                                     logD("Skipping frame rendering - fps reduction is active.");
                                 } else {
-                                    long j2 = this.nextFrameTimeNs + this.minRenderPeriodNs;
-                                    this.nextFrameTimeNs = j2;
-                                    this.nextFrameTimeNs = Math.max(j2, nanoTime);
+                                    long j = this.nextFrameTimeNs + this.minRenderPeriodNs;
+                                    this.nextFrameTimeNs = j;
+                                    this.nextFrameTimeNs = Math.max(j, nanoTime);
                                 }
                             }
                             z = true;
@@ -453,11 +453,11 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    private void resetStatistics(long j2) {
+    private void resetStatistics(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65552, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65552, this, j) == null) {
             synchronized (this.statisticsLock) {
-                this.statisticsStartTimeNs = j2;
+                this.statisticsStartTimeNs = j;
                 this.framesReceived = 0;
                 this.framesDropped = 0;
                 this.framesRendered = 0;
@@ -576,9 +576,9 @@ public class EglRenderer implements VideoSink {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -598,7 +598,7 @@ public class EglRenderer implements VideoSink {
                         }
                     });
                     this.renderThreadHandler = handlerWithExceptionCallback;
-                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: h.c.i
+                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: f.c.i
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -640,7 +640,7 @@ public class EglRenderer implements VideoSink {
                     }
                     this.pendingFrame = videoFrame;
                     videoFrame.retain();
-                    this.renderThreadHandler.post(new Runnable() { // from class: h.c.n
+                    this.renderThreadHandler.post(new Runnable() { // from class: f.c.n
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -698,7 +698,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 this.renderThreadHandler.removeCallbacks(this.logStatisticsRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.j
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: f.c.j
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -711,7 +711,7 @@ public class EglRenderer implements VideoSink {
                     }
                 });
                 final Looper looper = this.renderThreadHandler.getLooper();
-                this.renderThreadHandler.post(new Runnable() { // from class: h.c.g
+                this.renderThreadHandler.post(new Runnable() { // from class: f.c.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -743,7 +743,7 @@ public class EglRenderer implements VideoSink {
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler != null) {
                     this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
-                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.l
+                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: f.c.l
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -771,7 +771,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 if (Thread.currentThread() != this.renderThreadHandler.getLooper().getThread()) {
-                    postToRenderThread(new Runnable() { // from class: h.c.h
+                    postToRenderThread(new Runnable() { // from class: f.c.h
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -796,13 +796,13 @@ public class EglRenderer implements VideoSink {
         if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
             logD("setFpsReduction: " + f2);
             synchronized (this.fpsReductionLock) {
-                long j2 = this.minRenderPeriodNs;
+                long j = this.minRenderPeriodNs;
                 if (f2 <= 0.0f) {
                     this.minRenderPeriodNs = Long.MAX_VALUE;
                 } else {
                     this.minRenderPeriodNs = ((float) TimeUnit.SECONDS.toNanos(1L)) / f2;
                 }
-                if (this.minRenderPeriodNs != j2) {
+                if (this.minRenderPeriodNs != j) {
                     this.nextFrameTimeNs = System.nanoTime();
                 }
             }
@@ -843,7 +843,7 @@ public class EglRenderer implements VideoSink {
                 if (this.renderThreadHandler == null) {
                     return;
                 }
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: h.c.m
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: f.c.m
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -869,7 +869,7 @@ public class EglRenderer implements VideoSink {
     public void addFrameListener(final FrameListener frameListener, final float f2, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f2), glDrawer, Boolean.valueOf(z)}) == null) {
-            postToRenderThread(new Runnable() { // from class: h.c.k
+            postToRenderThread(new Runnable() { // from class: f.c.k
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

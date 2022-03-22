@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupImageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupImageActivityConfig(Context context, String str, ArrayList<String> arrayList, long j2) {
+    public GroupImageActivityConfig(Context context, String str, ArrayList<String> arrayList, long j) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, arrayList, Long.valueOf(j2)};
+            Object[] objArr = {context, str, arrayList, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,22 +34,22 @@ public class GroupImageActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("curImgUrl", str);
-        getIntent().putExtra(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(j2));
+        getIntent().putExtra(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(j));
         getIntent().putExtra("url", arrayList);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupImageActivityConfig(Context context, String str, ArrayList<String> arrayList, long j2, HashMap<String, ImageUrlData> hashMap) {
+    public GroupImageActivityConfig(Context context, String str, ArrayList<String> arrayList, long j, HashMap<String, ImageUrlData> hashMap) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, arrayList, Long.valueOf(j2), hashMap};
+            Object[] objArr = {context, str, arrayList, Long.valueOf(j), hashMap};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -57,7 +57,7 @@ public class GroupImageActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("curImgUrl", str);
-        getIntent().putExtra(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(j2));
+        getIntent().putExtra(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(j));
         getIntent().putExtra("url", arrayList);
         getIntent().putExtra("assistUrls", hashMap);
     }

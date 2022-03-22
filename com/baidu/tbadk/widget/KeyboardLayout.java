@@ -10,41 +10,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class KeyboardLayout extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final byte KEYBOARD_STATE_HIDE = -2;
-    public static final byte KEYBOARD_STATE_INIT = -1;
-    public static final byte KEYBOARD_STATE_SHOW = -3;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f39824e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f30681b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f39825f;
+    /* renamed from: c  reason: collision with root package name */
+    public int f30682c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f39826g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public a f39827h;
+    /* renamed from: d  reason: collision with root package name */
+    public a f30683d;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(int i2);
+        void a(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KeyboardLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -52,38 +47,38 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f39824e = false;
+        this.a = false;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            if (!this.f39824e) {
-                this.f39824e = true;
-                this.f39826g = i5;
-                a aVar = this.f39827h;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (!this.a) {
+                this.a = true;
+                this.f30682c = i4;
+                a aVar = this.f30683d;
                 if (aVar != null) {
                     aVar.a(-1);
                 }
             } else {
-                int i6 = this.f39826g;
-                if (i6 < i5) {
-                    i6 = i5;
+                int i5 = this.f30682c;
+                if (i5 < i4) {
+                    i5 = i4;
                 }
-                this.f39826g = i6;
+                this.f30682c = i5;
             }
-            if (this.f39824e && this.f39826g > i5) {
-                this.f39825f = true;
-                a aVar2 = this.f39827h;
+            if (this.a && this.f30682c > i4) {
+                this.f30681b = true;
+                a aVar2 = this.f30683d;
                 if (aVar2 != null) {
                     aVar2.a(-3);
                 }
             }
-            if (this.f39824e && this.f39825f && this.f39826g == i5) {
-                this.f39825f = false;
-                a aVar3 = this.f39827h;
+            if (this.a && this.f30681b && this.f30682c == i4) {
+                this.f30681b = false;
+                a aVar3 = this.f30683d;
                 if (aVar3 != null) {
                     aVar3.a(-2);
                 }
@@ -94,7 +89,7 @@ public class KeyboardLayout extends RelativeLayout {
     public void setOnkbdStateListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f39827h = aVar;
+            this.f30683d = aVar;
         }
     }
 
@@ -107,9 +102,9 @@ public class KeyboardLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -117,7 +112,7 @@ public class KeyboardLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f39824e = false;
+        this.a = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,15 +124,15 @@ public class KeyboardLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39824e = false;
+        this.a = false;
     }
 }

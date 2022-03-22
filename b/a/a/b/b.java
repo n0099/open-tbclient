@@ -14,45 +14,45 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1006b;
+    public String f982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1007c;
+    public String f983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1008d;
+    public String f984d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1009e;
+    public int f985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1010f;
+    public String f986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1011g;
+    public int f987g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1012h;
+    public String f988h;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f1006b = "";
-        this.f1007c = "";
-        this.f1008d = "";
-        this.f1010f = "";
-        this.f1011g = 0;
+        this.f982b = "";
+        this.f983c = "";
+        this.f984d = "";
+        this.f986f = "";
+        this.f987g = 0;
     }
 
     public JSONObject a() {
@@ -62,13 +62,13 @@ public class b {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", this.a);
-                jSONObject.put("id", this.f1006b);
-                jSONObject.put("image", this.f1007c);
-                jSONObject.put("url", this.f1008d);
-                jSONObject.put("progress", this.f1009e);
-                jSONObject.put("downloadPerSize", this.f1010f);
-                jSONObject.put("status", this.f1011g);
-                jSONObject.put("savePath", this.f1012h);
+                jSONObject.put("id", this.f982b);
+                jSONObject.put("image", this.f983c);
+                jSONObject.put("url", this.f984d);
+                jSONObject.put("progress", this.f985e);
+                jSONObject.put("downloadPerSize", this.f986f);
+                jSONObject.put("status", this.f987g);
+                jSONObject.put("savePath", this.f988h);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

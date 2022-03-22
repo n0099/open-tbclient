@@ -13,7 +13,7 @@ public class b implements View.OnClickListener {
     public final /* synthetic */ CommonDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f36344b;
+    public final /* synthetic */ CommonDialog.Builder f28163b;
 
     public b(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -22,15 +22,15 @@ public class b implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder, commonDialog};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36344b = builder;
+        this.f28163b = builder;
         this.a = commonDialog;
     }
 
@@ -39,7 +39,7 @@ public class b implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f36344b.f36339g;
+            onClickListener = this.f28163b.f28160g;
             onClickListener.onClick(view);
             this.a.dismiss();
         }

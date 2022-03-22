@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public final class LatLngBounds implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -27,37 +26,37 @@ public final class LatLngBounds implements Parcelable {
         public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f34115b;
+        public double f26351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f34116c;
+        public double f26352c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f34117d;
+        public double f26353d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f34118e;
+        public boolean f26354e;
 
         public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f34118e = true;
+            this.f26354e = true;
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f34115b, this.f34117d), new LatLng(this.a, this.f34116c)) : (LatLngBounds) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f26351b, this.f26353d), new LatLng(this.a, this.f26352c)) : (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -67,28 +66,28 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.f34118e) {
-                    this.f34118e = false;
+                if (this.f26354e) {
+                    this.f26354e = false;
                     double d2 = latLng.latitude;
                     this.a = d2;
-                    this.f34115b = d2;
+                    this.f26351b = d2;
                     double d3 = latLng.longitude;
-                    this.f34116c = d3;
-                    this.f34117d = d3;
+                    this.f26352c = d3;
+                    this.f26353d = d3;
                 }
                 double d4 = latLng.latitude;
                 double d5 = latLng.longitude;
                 if (d4 < this.a) {
                     this.a = d4;
                 }
-                if (d4 > this.f34115b) {
-                    this.f34115b = d4;
+                if (d4 > this.f26351b) {
+                    this.f26351b = d4;
                 }
-                if (d5 < this.f34116c) {
-                    this.f34116c = d5;
+                if (d5 < this.f26352c) {
+                    this.f26352c = d5;
                 }
-                if (d5 > this.f34117d) {
-                    this.f34117d = d5;
+                if (d5 > this.f26353d) {
+                    this.f26353d = d5;
                 }
                 return this;
             }
@@ -119,9 +118,9 @@ public final class LatLngBounds implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -138,9 +137,9 @@ public final class LatLngBounds implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {latLng, latLng2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -200,17 +199,17 @@ public final class LatLngBounds implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "southwest: " + this.southwest.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.southwest.longitude + StringUtils.LF + "northeast: " + this.northeast.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.northeast.longitude;
+            return "southwest: " + this.southwest.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.southwest.longitude + "\nnortheast: " + this.northeast.latitude + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.northeast.longitude;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            parcel.writeParcelable(this.northeast, i2);
-            parcel.writeParcelable(this.southwest, i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+            parcel.writeParcelable(this.northeast, i);
+            parcel.writeParcelable(this.southwest, i);
         }
     }
 }

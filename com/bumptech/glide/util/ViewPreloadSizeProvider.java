@@ -14,14 +14,14 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProvider<T>, SizeReadyCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] size;
     public SizeViewTarget viewTarget;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SizeViewTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view, sizeReadyCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -60,9 +60,9 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -71,10 +71,10 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
 
     @Override // com.bumptech.glide.ListPreloader.PreloadSizeProvider
     @Nullable
-    public int[] getPreloadSize(@NonNull T t, int i2, int i3) {
+    public int[] getPreloadSize(@NonNull T t, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, t, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, t, i, i2)) == null) {
             int[] iArr = this.size;
             if (iArr == null) {
                 return null;
@@ -85,10 +85,10 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
     }
 
     @Override // com.bumptech.glide.request.target.SizeReadyCallback
-    public void onSizeReady(int i2, int i3) {
+    public void onSizeReady(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.size = new int[]{i2, i3};
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.size = new int[]{i, i2};
             this.viewTarget = null;
         }
     }
@@ -107,9 +107,9 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

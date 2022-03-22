@@ -36,17 +36,17 @@ public final class Engine$start$1 extends SuspendLambda implements Function2<Cor
     public final /* synthetic */ Engine this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Engine$start$1(Engine engine, int i2, String str, String str2, String str3, Continuation<? super Engine$start$1> continuation) {
+    public Engine$start$1(Engine engine, int i, String str, String str2, String str3, Continuation<? super Engine$start$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {engine, Integer.valueOf(i2), str, str2, str3, continuation};
+            Object[] objArr = {engine, Integer.valueOf(i), str, str2, str3, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -55,7 +55,7 @@ public final class Engine$start$1 extends SuspendLambda implements Function2<Cor
             }
         }
         this.this$0 = engine;
-        this.$tunfd = i2;
+        this.$tunfd = i;
         this.$region = str;
         this.$gameID = str2;
         this.$gamePackageName = str3;
@@ -87,8 +87,8 @@ public final class Engine$start$1 extends SuspendLambda implements Function2<Cor
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 Engine.tunfd = this.$tunfd;
                 TornadoLiteRuntime.INSTANCE.setRegion$tun2tornadolite_release(this.$region);
@@ -105,9 +105,9 @@ public final class Engine$start$1 extends SuspendLambda implements Function2<Cor
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            } else if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     }
                     ResultKt.throwOnFailure(obj);

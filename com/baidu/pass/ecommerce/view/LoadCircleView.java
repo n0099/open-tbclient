@@ -68,9 +68,9 @@ public class LoadCircleView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loadCircleView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,17 +90,17 @@ public class LoadCircleView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LoadCircleView(Context context, float f2, int i2) {
+    public LoadCircleView(Context context, float f2, int i) {
         this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i2)};
+            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -109,7 +109,7 @@ public class LoadCircleView extends View {
             }
         }
         this.mEndRadius = f2;
-        this.mMaskColor = i2;
+        this.mMaskColor = i;
         initialize();
     }
 
@@ -168,9 +168,9 @@ public class LoadCircleView extends View {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -184,8 +184,8 @@ public class LoadCircleView extends View {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, valueAnimator) == null) {
                     this.this$0.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_primary_start), this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
-                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_start), this.this$0.getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
+                    this.this$0.mPrimaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609dc), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609db), Shader.TileMode.MIRROR));
+                    this.this$0.mSecondaryPaint.setShader(new LinearGradient((this.this$0.mWidth / 2) - this.this$0.mCurrentRadius, 0.0f, (this.this$0.mWidth / 2) + this.this$0.mCurrentRadius, 0.0f, this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609de), this.this$0.getResources().getColor(R.color.obfuscated_res_0x7f0609dd), Shader.TileMode.MIRROR));
                 }
             }
         };
@@ -215,9 +215,9 @@ public class LoadCircleView extends View {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -261,9 +261,9 @@ public class LoadCircleView extends View {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -290,9 +290,9 @@ public class LoadCircleView extends View {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable3.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable3.invokeInitBody(65536, newInitContext);
                                 return;
@@ -363,10 +363,10 @@ public class LoadCircleView extends View {
         }
     }
 
-    public void setMaskColor(int i2) {
+    public void setMaskColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mMaskColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mMaskColor = i;
         }
     }
 
@@ -379,9 +379,9 @@ public class LoadCircleView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -392,17 +392,17 @@ public class LoadCircleView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadCircleView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LoadCircleView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

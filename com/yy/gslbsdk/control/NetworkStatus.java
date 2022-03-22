@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NetworkStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IP_V4 = 1;
@@ -45,9 +45,9 @@ public class NetworkStatus {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,7 +72,7 @@ public class NetworkStatus {
     public static NetworkStatus getInstanceClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m707clone() : (NetworkStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m686clone() : (NetworkStatus) invokeV.objValue;
     }
 
     public static void updateEnableV6(boolean z) {
@@ -82,10 +82,10 @@ public class NetworkStatus {
         }
     }
 
-    public static void updateStatus(int i2) {
+    public static void updateStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
-            getInstance().mStatus = i2;
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            getInstance().mStatus = i;
         }
     }
 
@@ -138,7 +138,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m707clone() {
+    public NetworkStatus m686clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

@@ -7,20 +7,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$id {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int bottom = 2131297316;
-    public static final int end = 2131298931;
-    public static final int gone = 2131300011;
-    public static final int invisible = 2131300722;
-    public static final int left = 2131301455;
-    public static final int packed = 2131302601;
-    public static final int parent = 2131302607;
-    public static final int percent = 2131302957;
-    public static final int right = 2131303821;
-    public static final int spread = 2131304595;
-    public static final int spread_inside = 2131304597;
-    public static final int start = 2131304651;
-    public static final int top = 2131305487;
-    public static final int wrap = 2131306764;
+    public static final int bottom = 2131297201;
+    public static final int end = 2131298512;
+
+    /* renamed from: gone */
+    public static final int obfuscated = 2131299542;
+
+    /* renamed from: invisible */
+    public static final int obfuscated = 2131300176;
+    public static final int left = 2131300876;
+
+    /* renamed from: packed */
+    public static final int obfuscated = 2131301954;
+
+    /* renamed from: parent */
+    public static final int obfuscated = 2131301959;
+
+    /* renamed from: percent */
+    public static final int obfuscated = 2131302243;
+    public static final int right = 2131303066;
+
+    /* renamed from: spread */
+    public static final int obfuscated = 2131303778;
+    public static final int spread_inside = 2131303780;
+    public static final int start = 2131303834;
+    public static final int top = 2131304603;
+
+    /* renamed from: wrap */
+    public static final int obfuscated = 2131305625;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {
@@ -28,9 +42,9 @@ public final class R$id {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

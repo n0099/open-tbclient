@@ -12,7 +12,7 @@ import org.apache.commons.base.BinaryDecoder;
 import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
@@ -31,7 +31,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     public final byte pad;
     public final int unencodedBlockSize;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -66,17 +66,17 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BaseNCodec(int i2, int i3, int i4, int i5) {
-        this(i2, i3, i4, i5, (byte) 61);
+    public BaseNCodec(int i, int i2, int i3, int i4) {
+        this(i, i2, i3, i4, PAD_DEFAULT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Byte) objArr2[4]).byteValue());
                 newInitContext.thisArg = this;
@@ -156,7 +156,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return invokeL.objValue;
     }
 
-    public abstract void decode(byte[] bArr, int i2, int i3, Context context);
+    public abstract void decode(byte[] bArr, int i, int i2, Context context);
 
     @Override // org.apache.commons.base.Encoder
     public Object encode(Object obj) throws EncoderException {
@@ -171,7 +171,7 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return invokeL.objValue;
     }
 
-    public abstract void encode(byte[] bArr, int i2, int i3, Context context);
+    public abstract void encode(byte[] bArr, int i, int i2, Context context);
 
     public String encodeAsString(byte[] bArr) {
         InterceptResult invokeL;
@@ -185,12 +185,12 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bArr)) == null) ? org.apache.commons.base.binary4util.CodecStringUtils.newStringUtf8(encode(bArr)) : (String) invokeL.objValue;
     }
 
-    public byte[] ensureBufferSize(int i2, Context context) {
+    public byte[] ensureBufferSize(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, context)) == null) {
             byte[] bArr = context.buffer;
-            return (bArr == null || bArr.length < context.pos + i2) ? resizeBuffer(context) : bArr;
+            return (bArr == null || bArr.length < context.pos + i) ? resizeBuffer(context) : bArr;
         }
         return (byte[]) invokeIL.objValue;
     }
@@ -209,10 +209,10 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bArr)) == null) {
             int length = bArr.length;
-            int i2 = this.unencodedBlockSize;
-            long j2 = (((length + i2) - 1) / i2) * this.encodedBlockSize;
-            int i3 = this.lineLength;
-            return i3 > 0 ? j2 + ((((i3 + j2) - 1) / i3) * this.chunkSeparatorLength) : j2;
+            int i = this.unencodedBlockSize;
+            long j = (((length + i) - 1) / i) * this.encodedBlockSize;
+            int i2 = this.lineLength;
+            return i2 > 0 ? j + ((((i2 + j) - 1) / i2) * this.chunkSeparatorLength) : j;
         }
         return invokeL.longValue;
     }
@@ -239,18 +239,18 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return invokeLZ.booleanValue;
     }
 
-    public int readResults(byte[] bArr, int i2, int i3, Context context) {
+    public int readResults(byte[] bArr, int i, int i2, Context context) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), context})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context})) == null) {
             if (context.buffer == null) {
                 return context.eof ? -1 : 0;
             }
-            int min = Math.min(available(context), i3);
-            System.arraycopy(context.buffer, context.readPos, bArr, i2, min);
-            int i4 = context.readPos + min;
-            context.readPos = i4;
-            if (i4 >= context.pos) {
+            int min = Math.min(available(context), i2);
+            System.arraycopy(context.buffer, context.readPos, bArr, i, min);
+            int i3 = context.readPos + min;
+            context.readPos = i3;
+            if (i3 >= context.pos) {
                 context.buffer = null;
             }
             return min;
@@ -258,26 +258,26 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return invokeCommon.intValue;
     }
 
-    public BaseNCodec(int i2, int i3, int i4, int i5, byte b2) {
+    public BaseNCodec(int i, int i2, int i3, int i4, byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Byte.valueOf(b2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Byte.valueOf(b2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.PAD = (byte) 61;
-        this.unencodedBlockSize = i2;
-        this.encodedBlockSize = i3;
-        this.lineLength = i4 > 0 && i5 > 0 ? (i4 / i3) * i3 : 0;
-        this.chunkSeparatorLength = i5;
+        this.PAD = PAD_DEFAULT;
+        this.unencodedBlockSize = i;
+        this.encodedBlockSize = i2;
+        this.lineLength = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.chunkSeparatorLength = i4;
         this.pad = b2;
     }
 
@@ -300,19 +300,19 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? decode(org.apache.commons.base.binary4util.CodecStringUtils.getBytesUtf8(str)) : (byte[]) invokeL.objValue;
     }
 
-    public byte[] encode(byte[] bArr, int i2, int i3) {
+    public byte[] encode(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048585, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048585, this, bArr, i, i2)) == null) {
             if (bArr == null || bArr.length == 0) {
                 return bArr;
             }
             Context context = new Context();
-            encode(bArr, i2, i3, context);
-            encode(bArr, i2, -1, context);
-            int i4 = context.pos - context.readPos;
-            byte[] bArr2 = new byte[i4];
-            readResults(bArr2, 0, i4, context);
+            encode(bArr, i, i2, context);
+            encode(bArr, i, -1, context);
+            int i3 = context.pos - context.readPos;
+            byte[] bArr2 = new byte[i3];
+            readResults(bArr2, 0, i3, context);
             return bArr2;
         }
         return (byte[]) invokeLII.objValue;
@@ -329,9 +329,9 @@ public abstract class BaseNCodec implements BinaryEncoder, BinaryDecoder {
             Context context = new Context();
             decode(bArr, 0, bArr.length, context);
             decode(bArr, 0, -1, context);
-            int i2 = context.pos;
-            byte[] bArr2 = new byte[i2];
-            readResults(bArr2, 0, i2, context);
+            int i = context.pos;
+            byte[] bArr2 = new byte[i];
+            readResults(bArr2, 0, i, context);
             return bArr2;
         }
         return (byte[]) invokeL.objValue;

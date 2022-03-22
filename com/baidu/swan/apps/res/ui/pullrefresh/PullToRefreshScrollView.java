@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -36,20 +36,29 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean isReadyForPullDown() {
-        InterceptResult invokeV;
+    /* renamed from: N */
+    public ScrollView j(Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((ScrollView) this.mRefreshableView).getScrollY() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, attributeSet)) == null) ? new ScrollView(context) : (ScrollView) invokeLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public boolean isReadyForPullUp() {
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((ScrollView) this.p).getScrollY() == 0 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View childAt = ((ScrollView) this.mRefreshableView).getChildAt(0);
-            return childAt != null && ((ScrollView) this.mRefreshableView).getScrollY() >= childAt.getHeight() - getHeight();
+            View childAt = ((ScrollView) this.p).getChildAt(0);
+            return childAt != null && ((ScrollView) this.p).getScrollY() >= childAt.getHeight() - getHeight();
         }
         return invokeV.booleanValue;
     }
@@ -63,9 +72,9 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -73,13 +82,5 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
-    public ScrollView createRefreshableView(Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) ? new ScrollView(context) : (ScrollView) invokeLL.objValue;
     }
 }

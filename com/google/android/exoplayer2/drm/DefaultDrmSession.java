@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LICENSE_DURATION_TO_RENEW = 60;
@@ -55,7 +56,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     public final UUID uuid;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PostRequestHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +71,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDrmSession, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -82,21 +83,21 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             this.this$0 = defaultDrmSession;
         }
 
-        private long getRetryDelayMillis(int i2) {
+        private long getRetryDelayMillis(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) ? Math.min((i2 - 1) * 1000, 5000) : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? Math.min((i - 1) * 1000, 5000) : invokeI.longValue;
         }
 
         private boolean maybeRetryRequest(Message message) {
             InterceptResult invokeL;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, message)) == null) {
-                if ((message.arg1 == 1) && (i2 = message.arg2 + 1) <= this.this$0.initialDrmRequestRetryCount) {
+                if ((message.arg1 == 1) && (i = message.arg2 + 1) <= this.this$0.initialDrmRequestRetryCount) {
                     Message obtain = Message.obtain(message);
-                    obtain.arg2 = i2;
-                    sendMessageDelayed(obtain, getRetryDelayMillis(i2));
+                    obtain.arg2 = i;
+                    sendMessageDelayed(obtain, getRetryDelayMillis(i));
                     return true;
                 }
                 return false;
@@ -109,10 +110,10 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 try {
-                    int i2 = message.what;
-                    if (i2 == 0) {
+                    int i = message.what;
+                    if (i == 0) {
                         e = this.this$0.callback.executeProvisionRequest(this.this$0.uuid, (ExoMediaDrm.ProvisionRequest) message.obj);
-                    } else if (i2 == 1) {
+                    } else if (i == 1) {
                         e = this.this$0.callback.executeKeyRequest(this.this$0.uuid, (ExoMediaDrm.KeyRequest) message.obj);
                     } else {
                         throw new RuntimeException();
@@ -127,18 +128,18 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             }
         }
 
-        public Message obtainMessage(int i2, Object obj, boolean z) {
+        public Message obtainMessage(int i, Object obj, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), obj, Boolean.valueOf(z)})) == null) {
-                return obtainMessage(i2, z ? 1 : 0, 0, obj);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), obj, Boolean.valueOf(z)})) == null) {
+                return obtainMessage(i, z ? 1 : 0, 0, obj);
             }
             return (Message) invokeCommon.objValue;
         }
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PostResponseHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,9 +154,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDrmSession, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -169,10 +170,10 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                if (i2 == 0) {
+                int i = message.what;
+                if (i == 0) {
                     this.this$0.onProvisionResponse(message.obj);
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                 } else {
                     this.this$0.onKeyResponse(message.obj);
                 }
@@ -180,7 +181,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ProvisioningManager<T extends ExoMediaCrypto> {
         void onProvisionCompleted();
 
@@ -189,16 +190,16 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         void provisionRequired(DefaultDrmSession<T> defaultDrmSession);
     }
 
-    public DefaultDrmSession(UUID uuid, ExoMediaDrm<T> exoMediaDrm, ProvisioningManager<T> provisioningManager, byte[] bArr, String str, int i2, byte[] bArr2, HashMap<String, String> hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i3) {
+    public DefaultDrmSession(UUID uuid, ExoMediaDrm<T> exoMediaDrm, ProvisioningManager<T> provisioningManager, byte[] bArr, String str, int i, byte[] bArr2, HashMap<String, String> hashMap, MediaDrmCallback mediaDrmCallback, Looper looper, Handler handler, DefaultDrmSessionManager.EventListener eventListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {uuid, exoMediaDrm, provisioningManager, bArr, str, Integer.valueOf(i2), bArr2, hashMap, mediaDrmCallback, looper, handler, eventListener, Integer.valueOf(i3)};
+            Object[] objArr = {uuid, exoMediaDrm, provisioningManager, bArr, str, Integer.valueOf(i), bArr2, hashMap, mediaDrmCallback, looper, handler, eventListener, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -207,11 +208,11 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         this.uuid = uuid;
         this.provisioningManager = provisioningManager;
         this.mediaDrm = exoMediaDrm;
-        this.mode = i2;
+        this.mode = i;
         this.offlineLicenseKeySetId = bArr2;
         this.optionalKeyRequestParameters = hashMap;
         this.callback = mediaDrmCallback;
-        this.initialDrmRequestRetryCount = i3;
+        this.initialDrmRequestRetryCount = i2;
         this.eventHandler = handler;
         this.eventListener = eventListener;
         this.state = 2;
@@ -232,10 +233,10 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     private void doLicense(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            int i2 = this.mode;
-            if (i2 != 0 && i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3 && restoreKeys()) {
+            int i = this.mode;
+            if (i != 0 && i != 1) {
+                if (i != 2) {
+                    if (i == 3 && restoreKeys()) {
                         postKeyRequest(3, z);
                     }
                 } else if (this.offlineLicenseKeySetId == null) {
@@ -248,7 +249,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             } else if (this.state == 4 || restoreKeys()) {
                 long licenseDurationRemainingSec = getLicenseDurationRemainingSec();
                 if (this.mode == 0 && licenseDurationRemainingSec <= 60) {
-                    String str = "Offline license has expired or will expire soon. Remaining seconds: " + licenseDurationRemainingSec;
+                    Log.d(TAG, "Offline license has expired or will expire soon. Remaining seconds: " + licenseDurationRemainingSec);
                     postKeyRequest(2, z);
                 } else if (licenseDurationRemainingSec <= 0) {
                     onError(new KeysExpiredException());
@@ -270,9 +271,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -311,8 +312,8 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i2 = this.state;
-            return i2 == 3 || i2 == 4;
+            int i = this.state;
+            return i == 3 || i == 4;
         }
         return invokeV.booleanValue;
     }
@@ -336,9 +337,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, exc};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -393,9 +394,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -434,9 +435,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -525,11 +526,11 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         return invokeZ.booleanValue;
     }
 
-    private void postKeyRequest(int i2, boolean z) {
+    private void postKeyRequest(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             try {
-                ExoMediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(i2 == 3 ? this.offlineLicenseKeySetId : this.sessionId, this.initData, this.mimeType, i2, this.optionalKeyRequestParameters);
+                ExoMediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(i == 3 ? this.offlineLicenseKeySetId : this.sessionId, this.initData, this.mimeType, i, this.optionalKeyRequestParameters);
                 if (C.CLEARKEY_UUID.equals(this.uuid)) {
                     keyRequest = new ExoMediaDrm.DefaultKeyRequest(ClearKeyUtil.adjustRequestData(keyRequest.getData()), keyRequest.getDefaultUrl());
                 }
@@ -548,6 +549,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                 this.mediaDrm.restoreKeys(this.sessionId, this.offlineLicenseKeySetId);
                 return true;
             } catch (Exception e2) {
+                Log.e(TAG, "Error trying to restore Widevine keys.", e2);
                 onError(e2);
                 return false;
             }
@@ -558,9 +560,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     public void acquire() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.openCount + 1;
-            this.openCount = i2;
-            if (i2 == 1 && this.state != 1 && openInternal(true)) {
+            int i = this.openCount + 1;
+            this.openCount = i;
+            if (i == 1 && this.state != 1 && openInternal(true)) {
                 doLicense(true);
             }
         }
@@ -612,15 +614,15 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) ? Arrays.equals(this.sessionId, bArr) : invokeL.booleanValue;
     }
 
-    public void onMediaDrmEvent(int i2) {
+    public void onMediaDrmEvent(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && isOpen()) {
-            if (i2 == 1) {
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && isOpen()) {
+            if (i == 1) {
                 this.state = 3;
                 this.provisioningManager.provisionRequired(this);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 doLicense(false);
-            } else if (i2 != 3) {
+            } else if (i != 3) {
             } else {
                 onKeysExpired();
             }
@@ -666,9 +668,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.openCount - 1;
-            this.openCount = i2;
-            if (i2 == 0) {
+            int i = this.openCount - 1;
+            this.openCount = i;
+            if (i == 0) {
                 this.state = 0;
                 this.postResponseHandler.removeCallbacksAndMessages(null);
                 this.postRequestHandler.removeCallbacksAndMessages(null);

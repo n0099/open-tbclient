@@ -14,20 +14,20 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Download implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32000b;
+    public long f25262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32001c;
+    public int f25263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f32002d;
+    public boolean f25264d;
     public long mCurrentLength;
     public String mETag;
     public String mFailReason;
@@ -49,9 +49,9 @@ public class Download implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,9 +72,9 @@ public class Download implements Serializable {
         this.mNeedNotification = false;
         this.mRequestHeaders = new ArrayList();
         this.a = 0L;
-        this.f32000b = 0L;
-        this.f32001c = 0;
-        this.f32002d = true;
+        this.f25262b = 0L;
+        this.f25263c = 0;
+        this.f25264d = true;
     }
 
     public void addRequestHeader(String str, String str2) {
@@ -143,17 +143,17 @@ public class Download implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j2 = this.mCurrentLength;
-            if (j2 != 0) {
-                long j3 = this.mFileLength;
-                if (j3 == 0) {
+            long j = this.mCurrentLength;
+            if (j != 0) {
+                long j2 = this.mFileLength;
+                if (j2 == 0) {
                     return 0;
                 }
-                int i2 = (int) ((j2 * 100) / j3);
-                if (i2 >= 100) {
+                int i = (int) ((j * 100) / j2);
+                if (i >= 100) {
                     return 99;
                 }
-                return i2;
+                return i;
             }
             return 0;
         }

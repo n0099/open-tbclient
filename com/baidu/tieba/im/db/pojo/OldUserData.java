@@ -49,9 +49,9 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -76,17 +76,17 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getIsGroupManager() || getIsGroupOwner() : invokeV.booleanValue;
         }
 
-        public void setIsGroupManager(int i2) {
+        public void setIsGroupManager(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.isGroupManager = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.isGroupManager = i;
             }
         }
 
-        public void setIsGroupOwner(int i2) {
+        public void setIsGroupOwner(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.isGroupOwner = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.isGroupOwner = i;
             }
         }
     }
@@ -96,9 +96,9 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -201,24 +201,24 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.userName : (String) invokeV.objValue;
     }
 
-    public void setId(long j2) {
+    public void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.id = j;
         }
     }
 
-    public void setInTime(long j2) {
+    public void setInTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.inTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.inTime = j;
         }
     }
 
-    public void setLastReplyTime(long j2) {
+    public void setLastReplyTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.lastReplyTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.lastReplyTime = j;
         }
     }
 
@@ -236,10 +236,10 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         }
     }
 
-    public void setLoginTime(long j2) {
+    public void setLoginTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.loginTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.loginTime = j;
         }
     }
 
@@ -271,10 +271,10 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.sex = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.sex = i;
         }
     }
 
@@ -303,10 +303,10 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         userData.setTShowInfo(this.mTShowIconInfo);
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.userId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.userId = j;
         }
     }
 

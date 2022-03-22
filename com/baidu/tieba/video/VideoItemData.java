@@ -10,10 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.e1.n.e;
-import c.a.q0.r.r.c1;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.x0;
+import c.a.o0.e1.n.e;
+import c.a.o0.r.r.a1;
+import c.a.o0.r.r.v0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,6 +23,7 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
@@ -102,7 +102,7 @@ public class VideoItemData implements Serializable, Parcelable {
     public transient List<PbContent> richTitle;
     public String share_num;
     public String tags;
-    public transient e2 threadData;
+    public transient ThreadData threadData;
     public String thread_id;
     public String thumbnail_height;
     public String thumbnail_url;
@@ -127,9 +127,9 @@ public class VideoItemData implements Serializable, Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -148,10 +148,10 @@ public class VideoItemData implements Serializable, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public VideoItemData[] newArray(int i2) {
+        public VideoItemData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new VideoItemData[i2] : (VideoItemData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new VideoItemData[i] : (VideoItemData[]) invokeI.objValue;
         }
     }
 
@@ -176,9 +176,9 @@ public class VideoItemData implements Serializable, Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -204,16 +204,16 @@ public class VideoItemData implements Serializable, Parcelable {
         return invokeLL.booleanValue;
     }
 
-    public static boolean isBarManager(int i2) {
+    public static boolean isBarManager(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    public static boolean isBarOwner(int i2) {
+    public static boolean isBarOwner(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == 2 : invokeI.booleanValue;
     }
 
     public VideoItemData buildWithFlutterMap(Map<String, Object> map) {
@@ -224,12 +224,12 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.thread_id = (String) map.get("tid");
                 Object obj = map.get("rich_title");
                 if (obj != null) {
-                    this.richTitle = DataExt.c(DataExt.f(obj), PbContent.class);
+                    this.richTitle = DataExt.toEntityList(DataExt.toJson(obj), PbContent.class);
                 }
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = c1.a(new JSONArray(DataExt.f(obj2)));
+                        this.mRichAbstractList = a1.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -288,10 +288,10 @@ public class VideoItemData implements Serializable, Parcelable {
                     }
                     this.author_info = userItemData;
                 }
-                e2 e2Var = new e2();
-                this.threadData = e2Var;
+                ThreadData threadData = new ThreadData();
+                this.threadData = threadData;
                 try {
-                    e2Var.c3(new JSONObject(DataExt.f(map)));
+                    threadData.parserJson(new JSONObject(DataExt.toJson(map)));
                 } catch (JSONException e3) {
                     BdLog.e(e3);
                 }
@@ -311,7 +311,7 @@ public class VideoItemData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, originalThreadInfo)) == null) {
             if (originalThreadInfo != null) {
-                this.thread_id = originalThreadInfo.f38793f;
+                this.thread_id = originalThreadInfo.f29826f;
                 this.post_id = originalThreadInfo.n;
                 VideoInfo videoInfo = originalThreadInfo.r;
                 if (videoInfo != null) {
@@ -328,14 +328,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.comment_num = String.valueOf(originalThreadInfo.A);
                 this.agree_num = String.valueOf(originalThreadInfo.z.agree_num);
                 this.share_num = String.valueOf(originalThreadInfo.B);
-                String str = originalThreadInfo.f38794g;
+                String str = originalThreadInfo.f29827g;
                 this.title = str;
                 if (TextUtils.isEmpty(str)) {
-                    this.title = originalThreadInfo.f38789b;
+                    this.title = originalThreadInfo.f29822b;
                 }
-                this.forum_id = String.valueOf(originalThreadInfo.f38792e);
+                this.forum_id = String.valueOf(originalThreadInfo.f29825e);
                 this.baijiahaoData = originalThreadInfo.p;
-                this.forum_name = originalThreadInfo.f38791d;
+                this.forum_name = originalThreadInfo.f29824d;
                 this.is_agreed = String.valueOf(originalThreadInfo.z.has_agree);
                 if (originalThreadInfo.y != null) {
                     UserItemData userItemData = new UserItemData();
@@ -365,66 +365,66 @@ public class VideoItemData implements Serializable, Parcelable {
         return (VideoItemData) invokeL.objValue;
     }
 
-    public VideoItemData buildWithThreadData(e2 e2Var) {
+    public VideoItemData buildWithThreadData(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var)) == null) {
-            if (e2Var != null) {
-                this.threadData = e2Var;
-                this.thread_id = e2Var.w1();
-                this.is_manager = e2Var.m0();
-                this.is_origin_manager = e2Var.r0();
-                this.nid = e2Var.H0();
-                this.post_id = e2Var.Y();
-                if (e2Var.u1() != null) {
-                    this.thumbnail_url = e2Var.u1().thumbnail_url;
-                    this.video_url = e2Var.u1().video_url;
-                    this.video_height = String.valueOf(e2Var.u1().video_height);
-                    this.video_width = String.valueOf(e2Var.u1().video_width);
-                    this.mMd5 = e2Var.u1().video_md5;
-                    this.video_duration = e2Var.u1().video_duration.intValue();
-                    this.play_count = e2Var.u1().play_count.intValue();
-                    this.isVerticalVideo = e2Var.u1().is_vertical.intValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
+            if (threadData != null) {
+                this.threadData = threadData;
+                this.thread_id = threadData.getTid();
+                this.is_manager = threadData.getIsManager();
+                this.is_origin_manager = threadData.getIsOriginManager();
+                this.nid = threadData.getNid();
+                this.post_id = threadData.getFirst_post_id();
+                if (threadData.getThreadVideoInfo() != null) {
+                    this.thumbnail_url = threadData.getThreadVideoInfo().thumbnail_url;
+                    this.video_url = threadData.getThreadVideoInfo().video_url;
+                    this.video_height = String.valueOf(threadData.getThreadVideoInfo().video_height);
+                    this.video_width = String.valueOf(threadData.getThreadVideoInfo().video_width);
+                    this.mMd5 = threadData.getThreadVideoInfo().video_md5;
+                    this.video_duration = threadData.getThreadVideoInfo().video_duration.intValue();
+                    this.play_count = threadData.getThreadVideoInfo().play_count.intValue();
+                    this.isVerticalVideo = threadData.getThreadVideoInfo().is_vertical.intValue();
                 }
-                this.comment_num = String.valueOf(e2Var.W0());
-                this.agree_num = String.valueOf(e2Var.C());
-                this.share_num = String.valueOf(e2Var.e1());
-                this.title = e2Var.getTitle();
-                this.richTitle = e2Var.Z0();
-                this.mRichAbstractList = e2Var.Y0();
-                this.abstext = e2Var.o();
-                this.forum_id = String.valueOf(e2Var.U());
-                this.baijiahaoData = e2Var.L();
-                this.forum_name = e2Var.b0();
-                this.is_agreed = String.valueOf(e2Var.f0());
-                if (e2Var.J() != null) {
+                this.comment_num = String.valueOf(threadData.getReply_num());
+                this.agree_num = String.valueOf(threadData.getAgreeNum());
+                this.share_num = String.valueOf(threadData.getShareNum());
+                this.title = threadData.getTitle();
+                this.richTitle = threadData.getRichTitle();
+                this.mRichAbstractList = threadData.getRichAbstractList();
+                this.abstext = threadData.getAbstract();
+                this.forum_id = String.valueOf(threadData.getFid());
+                this.baijiahaoData = threadData.getBaijiahaoData();
+                this.forum_name = threadData.getForum_name();
+                this.is_agreed = String.valueOf(threadData.getHasAgree());
+                if (threadData.getAuthor() != null) {
                     UserItemData userItemData = new UserItemData();
-                    userItemData.user_name = e2Var.J().getUserName();
-                    userItemData.name_show = e2Var.J().getName_show();
-                    userItemData.portrait = e2Var.J().getPortrait();
-                    userItemData.user_id = e2Var.J().getUserId();
-                    userItemData.is_follow = e2Var.J().hadConcerned() ? "1" : "0";
-                    if (e2Var.J().getBaijiahaoInfo() != null) {
-                        userItemData.bjhAvatar = e2Var.J().getBaijiahaoInfo().avatar;
+                    userItemData.user_name = threadData.getAuthor().getUserName();
+                    userItemData.name_show = threadData.getAuthor().getName_show();
+                    userItemData.portrait = threadData.getAuthor().getPortrait();
+                    userItemData.user_id = threadData.getAuthor().getUserId();
+                    userItemData.is_follow = threadData.getAuthor().hadConcerned() ? "1" : "0";
+                    if (threadData.getAuthor().getBaijiahaoInfo() != null) {
+                        userItemData.bjhAvatar = threadData.getAuthor().getBaijiahaoInfo().avatar;
                     }
-                    if (e2Var.J().getCreatorInfo() != null) {
-                        userItemData.auth = e2Var.J().getCreatorInfo().authDesc;
+                    if (threadData.getAuthor().getCreatorInfo() != null) {
+                        userItemData.auth = threadData.getAuthor().getCreatorInfo().authDesc;
                     }
                     this.author_info = userItemData;
                 }
-                this.act_info = e2Var.y();
-                this.mRecomAbTag = e2Var.b1;
-                this.mRecomSource = e2Var.Z0;
-                this.mRecomWeight = e2Var.a1;
-                this.mRecomExtra = e2Var.c1;
-                this.isBjhVideo = e2Var.H2();
-                this.forbidComment = e2Var.n2;
-                this.noCommetStr = e2Var.o2;
-                this.mWorksInfoData = e2Var.O2;
-                this.feedBackReasonMap = e2Var.T();
-                this.feedBackExtraMap = e2Var.m1;
-                if (e2Var.J() != null && e2Var.J().getAlaInfo() != null && e2Var.J().getAlaInfo().isLegalYYLiveData()) {
-                    this.mAlaInfoData = e2Var.J().getAlaInfo();
+                this.act_info = threadData.getActivityData();
+                this.mRecomAbTag = threadData.mRecomAbTag;
+                this.mRecomSource = threadData.mRecomSource;
+                this.mRecomWeight = threadData.mRecomWeight;
+                this.mRecomExtra = threadData.mRecomExtra;
+                this.isBjhVideo = threadData.isUgcThreadType();
+                this.forbidComment = threadData.forbidComment;
+                this.noCommetStr = threadData.noCommetStr;
+                this.mWorksInfoData = threadData.worksInfoData;
+                this.feedBackReasonMap = threadData.getFeedBackReasonMap();
+                this.feedBackExtraMap = threadData.feedBackExtraMap;
+                if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null && threadData.getAuthor().getAlaInfo().isLegalYYLiveData()) {
+                    this.mAlaInfoData = threadData.getAuthor().getAlaInfo();
                 }
             }
             return this;
@@ -470,7 +470,7 @@ public class VideoItemData implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.channel_mid_request_video_num : invokeV.intValue;
     }
 
-    public x0 getNegFeedBackData() {
+    public v0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -478,19 +478,19 @@ public class VideoItemData implements Serializable, Parcelable {
             if (sparseArray == null || sparseArray.size() <= 0) {
                 return null;
             }
-            x0 x0Var = new x0();
-            x0Var.n(this.nid);
-            x0Var.o(this.thread_id);
-            x0Var.l(this.forum_id);
-            x0Var.j(this.feedBackReasonMap);
-            x0Var.f13412g = this.feedBackExtraMap;
-            x0Var.p = this.mRecomAbTag;
-            x0Var.k = this.mRecomWeight;
-            x0Var.m = this.mRecomExtra;
-            x0Var.l = this.mRecomSource;
-            return x0Var;
+            v0 v0Var = new v0();
+            v0Var.n(this.nid);
+            v0Var.o(this.thread_id);
+            v0Var.l(this.forum_id);
+            v0Var.j(this.feedBackReasonMap);
+            v0Var.f10967g = this.feedBackExtraMap;
+            v0Var.p = this.mRecomAbTag;
+            v0Var.k = this.mRecomWeight;
+            v0Var.m = this.mRecomExtra;
+            v0Var.l = this.mRecomSource;
+            return v0Var;
         }
-        return (x0) invokeV.objValue;
+        return (v0) invokeV.objValue;
     }
 
     public String getThreadId() {
@@ -520,11 +520,11 @@ public class VideoItemData implements Serializable, Parcelable {
             if (baijiahaoData == null) {
                 return 1;
             }
-            int i2 = baijiahaoData.oriUgcType;
-            if (i2 == 2) {
+            int i = baijiahaoData.oriUgcType;
+            if (i == 2) {
                 return 3;
             }
-            return i2 == 4 ? 2 : 1;
+            return i == 4 ? 2 : 1;
         }
         return invokeV.intValue;
     }
@@ -590,19 +590,19 @@ public class VideoItemData implements Serializable, Parcelable {
             this.title = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray != null) {
-                this.mRichAbstractList = c1.a(optJSONArray);
+                this.mRichAbstractList = a1.a(optJSONArray);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
             if (optJSONArray2 != null) {
-                this.richTitle = DataExt.c(optJSONArray2.toString(), PbContent.class);
+                this.richTitle = DataExt.toEntityList(optJSONArray2.toString(), PbContent.class);
             }
             StringBuilder sb = new StringBuilder();
             JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
             if (optJSONArray3 != null) {
-                for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray3.getJSONObject(i2);
+                for (int i = 0; i < optJSONArray3.length(); i++) {
+                    JSONObject jSONObject2 = optJSONArray3.getJSONObject(i);
                     if (jSONObject2 != null && jSONObject2.optInt("type") == 0) {
-                        sb.append(optJSONArray3.getJSONObject(i2).optString("text"));
+                        sb.append(optJSONArray3.getJSONObject(i).optString("text"));
                     }
                 }
             }
@@ -672,8 +672,8 @@ public class VideoItemData implements Serializable, Parcelable {
                 JSONArray optJSONArray4 = jSONObject3.optJSONArray("dislike_resource");
                 if (optJSONArray4 != null) {
                     SparseArray<String> sparseArray = new SparseArray<>();
-                    for (int i3 = 0; i3 < optJSONArray4.length(); i3++) {
-                        JSONObject jSONObject4 = optJSONArray4.getJSONObject(i3);
+                    for (int i2 = 0; i2 < optJSONArray4.length(); i2++) {
+                        JSONObject jSONObject4 = optJSONArray4.getJSONObject(i2);
                         if (jSONObject4 != null) {
                             int optInt = jSONObject4.optInt("dislike_id");
                             String optString = jSONObject4.optString("dislike_reason");
@@ -684,16 +684,16 @@ public class VideoItemData implements Serializable, Parcelable {
                     this.feedBackReasonMap = sparseArray;
                 }
             }
-            e2 e2Var = new e2();
-            this.threadData = e2Var;
-            e2Var.c3(jSONObject);
+            ThreadData threadData = new ThreadData();
+            this.threadData = threadData;
+            threadData.parserJson(jSONObject);
             if (this.feedBackReasonMap == null) {
-                this.feedBackReasonMap = this.threadData.l1;
-                this.feedBackExtraMap = this.threadData.m1;
-                this.mRecomAbTag = this.threadData.b1;
-                this.mRecomSource = this.threadData.Z0;
-                this.mRecomWeight = this.threadData.a1;
-                this.mRecomExtra = this.threadData.c1;
+                this.feedBackReasonMap = this.threadData.feedBackReasonMap;
+                this.feedBackExtraMap = this.threadData.feedBackExtraMap;
+                this.mRecomAbTag = this.threadData.mRecomAbTag;
+                this.mRecomSource = this.threadData.mRecomSource;
+                this.mRecomWeight = this.threadData.mRecomWeight;
+                this.mRecomExtra = this.threadData.mRecomExtra;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -725,19 +725,19 @@ public class VideoItemData implements Serializable, Parcelable {
             this.title = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("rich_title");
             if (optJSONArray != null) {
-                this.richTitle = DataExt.c(optJSONArray.toString(), PbContent.class);
+                this.richTitle = DataExt.toEntityList(optJSONArray.toString(), PbContent.class);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray2 != null) {
-                this.mRichAbstractList = c1.a(optJSONArray2);
+                this.mRichAbstractList = a1.a(optJSONArray2);
             }
             StringBuilder sb = new StringBuilder();
             JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
             if (optJSONArray3 != null) {
-                for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray3.getJSONObject(i2);
+                for (int i = 0; i < optJSONArray3.length(); i++) {
+                    JSONObject jSONObject2 = optJSONArray3.getJSONObject(i);
                     if (jSONObject2 != null && jSONObject2.optInt("type") == 0) {
-                        sb.append(optJSONArray3.getJSONObject(i2).optString("text"));
+                        sb.append(optJSONArray3.getJSONObject(i).optString("text"));
                     }
                 }
             }
@@ -791,87 +791,88 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.mWorksInfoData = worksInfoData;
                 worksInfoData.parseJson(optJSONObject7);
             }
-            e2 e2Var = new e2();
-            this.threadData = e2Var;
-            e2Var.c3(jSONObject);
-            this.threadData.E = this.thread_id;
-            this.threadData.d0 = 40;
-            this.threadData.s4(b.e(this.comment_num, 0));
+            ThreadData threadData = new ThreadData();
+            this.threadData = threadData;
+            threadData.parserJson(jSONObject);
+            this.threadData.tid = this.thread_id;
+            this.threadData.threadType = 40;
+            this.threadData.setReply_num(b.e(this.comment_num, 0));
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_width = Integer.valueOf(this.video_width);
             builder.video_height = Integer.valueOf(this.video_height);
             builder.video_url = this.video_url;
             builder.thumbnail_url = this.thumbnail_url;
             builder.video_md5 = this.mMd5;
-            this.threadData.L4(builder.build(true));
+            this.threadData.setVideoInfo(builder.build(true));
             if (this.feedBackReasonMap == null) {
-                this.feedBackReasonMap = this.threadData.l1;
-                this.feedBackExtraMap = this.threadData.m1;
+                this.feedBackReasonMap = this.threadData.feedBackReasonMap;
+                this.feedBackExtraMap = this.threadData.feedBackExtraMap;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
-    public void parseProto(e2 e2Var) {
+    public void parseProto(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null) {
             return;
         }
-        this.thread_id = e2Var.w1();
-        this.nid = e2Var.H0();
-        this.post_id = e2Var.X();
-        VideoInfo u1 = e2Var.u1();
-        if (u1 != null) {
-            this.thumbnail_url = u1.thumbnail_url;
-            this.video_url = u1.video_url;
-            this.video_height = String.valueOf(u1.video_height);
-            this.video_width = String.valueOf(u1.video_width);
-            this.mMd5 = u1.video_md5;
-            this.isVerticalVideo = u1.is_vertical.intValue();
+        this.thread_id = threadData.getTid();
+        this.nid = threadData.getNid();
+        this.post_id = threadData.getFirstPostId();
+        VideoInfo threadVideoInfo = threadData.getThreadVideoInfo();
+        if (threadVideoInfo != null) {
+            this.thumbnail_url = threadVideoInfo.thumbnail_url;
+            this.video_url = threadVideoInfo.video_url;
+            this.video_height = String.valueOf(threadVideoInfo.video_height);
+            this.video_width = String.valueOf(threadVideoInfo.video_width);
+            this.mMd5 = threadVideoInfo.video_md5;
+            this.isVerticalVideo = threadVideoInfo.is_vertical.intValue();
+            this.video_duration = threadVideoInfo.video_duration.intValue();
         }
-        if (e2Var.M0() == 0) {
-            this.comment_num = String.valueOf(e2Var.W0());
+        if (threadData.getPost_num() == 0) {
+            this.comment_num = String.valueOf(threadData.getReply_num());
         } else {
-            this.comment_num = String.valueOf(e2Var.M0());
+            this.comment_num = String.valueOf(threadData.getPost_num());
         }
-        this.agree_num = String.valueOf(e2Var.C());
-        this.share_num = String.valueOf(e2Var.e1());
-        this.title = e2Var.getTitle();
-        this.richTitle = e2Var.Z0();
-        this.abstext = e2Var.o();
-        this.forum_id = String.valueOf(e2Var.U());
-        this.forum_name = e2Var.b0();
-        this.is_agreed = String.valueOf(e2Var.f0());
-        MetaData J = e2Var.J();
-        if (J != null) {
+        this.agree_num = String.valueOf(threadData.getAgreeNum());
+        this.share_num = String.valueOf(threadData.getShareNum());
+        this.title = threadData.getTitle();
+        this.richTitle = threadData.getRichTitle();
+        this.abstext = threadData.getAbstract();
+        this.forum_id = String.valueOf(threadData.getFid());
+        this.forum_name = threadData.getForum_name();
+        this.is_agreed = String.valueOf(threadData.getHasAgree());
+        MetaData author = threadData.getAuthor();
+        if (author != null) {
             UserItemData userItemData = new UserItemData();
-            userItemData.user_name = J.getUserName();
-            userItemData.name_show = J.getName_show();
-            userItemData.portrait = J.getPortrait();
-            userItemData.user_id = J.getUserId();
-            userItemData.is_follow = J.getIsLike() ? "1" : "0";
-            BaijiahaoInfo baijiahaoInfo = J.getBaijiahaoInfo();
+            userItemData.user_name = author.getUserName();
+            userItemData.name_show = author.getName_show();
+            userItemData.portrait = author.getPortrait();
+            userItemData.user_id = author.getUserId();
+            userItemData.is_follow = author.getIsLike() ? "1" : "0";
+            BaijiahaoInfo baijiahaoInfo = author.getBaijiahaoInfo();
             if (baijiahaoInfo != null) {
                 userItemData.bjhAvatar = baijiahaoInfo.avatar;
             }
-            if (J.getCreatorInfo() != null) {
-                userItemData.auth = J.getCreatorInfo().authDesc;
+            if (author.getCreatorInfo() != null) {
+                userItemData.auth = author.getCreatorInfo().authDesc;
             }
             this.author_info = userItemData;
         }
-        BaijiahaoData L = e2Var.L();
-        this.baijiahaoData = L;
-        this.isBjhVideo = L != null && UtilHelper.isUgcThreadType(L.oriUgcType);
-        this.mRecomAbTag = e2Var.b1;
-        this.mRecomSource = e2Var.Z0;
-        this.mRecomWeight = e2Var.a1;
-        this.mRecomExtra = e2Var.c1;
-        this.forbidComment = e2Var.n2;
-        this.noCommetStr = e2Var.R0().if_comment_info;
-        this.mWorksInfoData = e2Var.O2;
-        this.feedBackReasonMap = e2Var.T();
-        this.feedBackExtraMap = e2Var.m1;
+        BaijiahaoData baijiahaoData = threadData.getBaijiahaoData();
+        this.baijiahaoData = baijiahaoData;
+        this.isBjhVideo = baijiahaoData != null && UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
+        this.mRecomAbTag = threadData.mRecomAbTag;
+        this.mRecomSource = threadData.mRecomSource;
+        this.mRecomWeight = threadData.mRecomWeight;
+        this.mRecomExtra = threadData.mRecomExtra;
+        this.forbidComment = threadData.forbidComment;
+        this.noCommetStr = threadData.getRawThreadInfo().if_comment_info;
+        this.mWorksInfoData = threadData.worksInfoData;
+        this.feedBackReasonMap = threadData.getFeedBackReasonMap();
+        this.feedBackExtraMap = threadData.feedBackExtraMap;
     }
 
     public void reGenerateTitle() {
@@ -883,7 +884,7 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        c.a.q0.i0.d.b f2 = c.a.q0.i0.d.b.f(this.threadData, pbContent);
+                        c.a.o0.i0.d.b f2 = c.a.o0.i0.d.b.f(this.threadData, pbContent);
                         f2.d(R.color.CAM_X0101);
                         f2.e(R.color.CAM_X0113);
                         f2.b(HotTopicStat.Locate.VIDEO_MIDDLE);
@@ -901,31 +902,31 @@ public class VideoItemData implements Serializable, Parcelable {
         }
     }
 
-    public void setChannelMidRequestNum(int i2) {
+    public void setChannelMidRequestNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.channel_mid_request_num = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.channel_mid_request_num = i;
         }
     }
 
-    public void setChannelMidRequestVideoNum(int i2) {
+    public void setChannelMidRequestVideoNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.channel_mid_request_video_num = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.channel_mid_request_video_num = i;
         }
     }
 
-    public void setVideoWatchDuration(long j2) {
+    public void setVideoWatchDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.mVideoWatchDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.mVideoWatchDuration = j;
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i) == null) {
             parcel.writeString(this.forum_id);
             parcel.writeString(this.forum_name);
             parcel.writeString(this.mark_id);
@@ -953,9 +954,9 @@ public class VideoItemData implements Serializable, Parcelable {
             parcel.writeString(this.share_num);
             parcel.writeString(this.comment_num);
             parcel.writeInt(this.play_count);
-            parcel.writeParcelable(this.author_info, i2);
-            parcel.writeParcelable(this.mAlaInfoData, i2);
-            parcel.writeParcelable(this.act_info, i2);
+            parcel.writeParcelable(this.author_info, i);
+            parcel.writeParcelable(this.mAlaInfoData, i);
+            parcel.writeParcelable(this.act_info, i);
             parcel.writeLong(this.mVideoWatchDuration);
             parcel.writeInt(this.isVerticalVideo);
             parcel.writeSerializable(this.baijiahaoData);
@@ -969,7 +970,7 @@ public class VideoItemData implements Serializable, Parcelable {
             parcel.writeString(this.mRecomWeight);
             parcel.writeString(this.mMd5);
             parcel.writeString(this.mRecomExtra);
-            parcel.writeParcelable(this.mWorksInfoData, i2);
+            parcel.writeParcelable(this.mWorksInfoData, i);
             parcel.writeSparseArray(this.feedBackReasonMap);
             parcel.writeSparseArray(this.feedBackExtraMap);
         }
@@ -982,9 +983,9 @@ public class VideoItemData implements Serializable, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

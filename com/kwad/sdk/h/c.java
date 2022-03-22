@@ -6,7 +6,7 @@ import android.os.IBinder;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class c implements IServiceProxy {
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(@NonNull Service service, Intent intent) {
@@ -26,9 +26,9 @@ public abstract class c implements IServiceProxy {
     }
 
     @Override // com.kwad.sdk.api.proxy.IServiceProxy
-    public int onStartCommand(@NonNull Service service, Intent intent, int i2, int i3) {
+    public int onStartCommand(@NonNull Service service, Intent intent, int i, int i2) {
         if (service instanceof BaseProxyService) {
-            return ((BaseProxyService) service).superOnStartCommand(intent, i2, i3);
+            return ((BaseProxyService) service).superOnStartCommand(intent, i, i2);
         }
         throw new RuntimeException(service + " must be AbstractServiceProxy");
     }

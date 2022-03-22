@@ -20,12 +20,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f2804c;
+    public static f f2326c;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile SparseArray<Bitmap> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f2805b;
+    public Context f2327b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,9 +47,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,22 +65,22 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f2804c == null) {
-                    f2804c = new f();
+                if (f2326c == null) {
+                    f2326c = new f();
                 }
-                fVar = f2804c;
+                fVar = f2326c;
             }
             return fVar;
         }
         return (f) invokeV.objValue;
     }
 
-    public byte[] a(Bitmap bitmap, int i2) {
+    public byte[] a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bitmap, i)) == null) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         }
         return (byte[]) invokeLI.objValue;
@@ -101,12 +101,12 @@ public class f {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? BitmapFactory.decodeFile(str) : (Bitmap) invokeL.objValue;
     }
 
-    public Bitmap e(Context context, int i2) {
+    public Bitmap e(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
             try {
-                return BitmapFactory.decodeResource(context.getResources(), i2, new BitmapFactory.Options());
+                return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return null;
@@ -118,22 +118,22 @@ public class f {
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.f2805b = context;
+            this.f2327b = context;
         }
     }
 
-    public Bitmap g(Bitmap bitmap, int i2, int i3) {
+    public Bitmap g(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bitmap, i2, i3)) == null) {
-            if (i2 <= 0 || i3 < 0 || bitmap == null || bitmap.isRecycled()) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bitmap, i, i2)) == null) {
+            if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
                 return null;
             }
-            if (bitmap.getWidth() > i2 || bitmap.getHeight() > i3) {
+            if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
-                float f2 = i3 / height;
-                float f3 = i2 / width;
+                float f2 = i2 / height;
+                float f3 = i / width;
                 if (f2 > f3) {
                     f2 = f3;
                 }

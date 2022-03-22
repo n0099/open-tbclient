@@ -51,9 +51,9 @@ public final class ExecutorScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {executorScheduler, delayedRunnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,9 +90,9 @@ public final class ExecutorScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {runnable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -171,9 +171,9 @@ public final class ExecutorScheduler extends Scheduler {
             newInitContext.initArgs = r2;
             Object[] objArr = {executor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -216,36 +216,36 @@ public final class ExecutorScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(RxJavaPlugins.onSchedule(runnable));
-                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j2, j3, timeUnit));
+                    scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                     return scheduledDirectPeriodicTask;
                 } catch (RejectedExecutionException e2) {
                     RxJavaPlugins.onError(e2);
                     return EmptyDisposable.INSTANCE;
                 }
             }
-            return super.schedulePeriodicallyDirect(runnable, j2, j3, timeUnit);
+            return super.schedulePeriodicallyDirect(runnable, j, j2, timeUnit);
         }
         return (Disposable) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
             if (this.executor instanceof ScheduledExecutorService) {
                 try {
                     ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
-                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j2, timeUnit));
+                    scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
                     return scheduledDirectTask;
                 } catch (RejectedExecutionException e2) {
                     RxJavaPlugins.onError(e2);
@@ -253,7 +253,7 @@ public final class ExecutorScheduler extends Scheduler {
                 }
             }
             DelayedRunnable delayedRunnable = new DelayedRunnable(onSchedule);
-            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j2, timeUnit));
+            delayedRunnable.timed.replace(HELPER.scheduleDirect(new DelayedDispose(this, delayedRunnable), j, timeUnit));
             return delayedRunnable;
         }
         return (Disposable) invokeCommon.objValue;
@@ -283,9 +283,9 @@ public final class ExecutorScheduler extends Scheduler {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {runnable};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -338,9 +338,9 @@ public final class ExecutorScheduler extends Scheduler {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {executorWorker, sequentialDisposable, runnable};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -367,9 +367,9 @@ public final class ExecutorScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {executor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -427,7 +427,7 @@ public final class ExecutorScheduler extends Scheduler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 MpscLinkedQueue<Runnable> mpscLinkedQueue = this.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.disposed) {
                     while (true) {
                         Runnable poll = mpscLinkedQueue.poll();
@@ -473,11 +473,11 @@ public final class ExecutorScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
-                if (j2 <= 0) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+                if (j <= 0) {
                     return schedule(runnable);
                 }
                 if (this.disposed) {
@@ -490,14 +490,14 @@ public final class ExecutorScheduler extends Scheduler {
                 Executor executor = this.executor;
                 if (executor instanceof ScheduledExecutorService) {
                     try {
-                        scheduledRunnable.setFuture(((ScheduledExecutorService) executor).schedule((Callable) scheduledRunnable, j2, timeUnit));
+                        scheduledRunnable.setFuture(((ScheduledExecutorService) executor).schedule((Callable) scheduledRunnable, j, timeUnit));
                     } catch (RejectedExecutionException e2) {
                         this.disposed = true;
                         RxJavaPlugins.onError(e2);
                         return EmptyDisposable.INSTANCE;
                     }
                 } else {
-                    scheduledRunnable.setFuture(new DisposeOnCancel(ExecutorScheduler.HELPER.scheduleDirect(scheduledRunnable, j2, timeUnit)));
+                    scheduledRunnable.setFuture(new DisposeOnCancel(ExecutorScheduler.HELPER.scheduleDirect(scheduledRunnable, j, timeUnit)));
                 }
                 sequentialDisposable.replace(scheduledRunnable);
                 return sequentialDisposable2;

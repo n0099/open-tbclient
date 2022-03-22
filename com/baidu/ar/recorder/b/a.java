@@ -41,9 +41,9 @@ public class a extends b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -97,8 +97,8 @@ public class a extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
-        super.a(z, byteBuffer, i2, j2);
+    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i, long j) {
+        super.a(z, byteBuffer, i, j);
     }
 
     @Override // com.baidu.ar.recorder.b.b
@@ -109,13 +109,13 @@ public class a extends b {
                 this.uU = this.uR.presentationTimeUs;
             }
             MediaCodec.BufferInfo bufferInfo = this.uR;
-            long j2 = bufferInfo.presentationTimeUs - this.uU;
-            bufferInfo.presentationTimeUs = j2;
-            long j3 = this.uM;
-            if (j2 < j3) {
-                long j4 = j3 + 10000;
-                this.uM = j4;
-                bufferInfo.presentationTimeUs = j4;
+            long j = bufferInfo.presentationTimeUs - this.uU;
+            bufferInfo.presentationTimeUs = j;
+            long j2 = this.uM;
+            if (j < j2) {
+                long j3 = j2 + 10000;
+                this.uM = j3;
+                bufferInfo.presentationTimeUs = j3;
             }
             this.uM = this.uR.presentationTimeUs;
             String str = TAG;

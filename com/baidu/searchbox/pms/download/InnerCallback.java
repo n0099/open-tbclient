@@ -5,11 +5,11 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 public interface InnerCallback {
     void onCancel(PackageInfo packageInfo);
 
-    void onError(PackageInfo packageInfo, int i2, String str);
+    void onError(PackageInfo packageInfo, int i, String str);
 
     void onPause(PackageInfo packageInfo);
 
-    void onProgress(PackageInfo packageInfo, long j2, long j3);
+    void onProgress(PackageInfo packageInfo, long j, long j2);
 
     void onResume(PackageInfo packageInfo);
 

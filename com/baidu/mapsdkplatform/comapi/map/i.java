@@ -26,7 +26,7 @@ public class i {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f34517b;
+    public static Context f26717b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class i {
                 return;
             }
         }
-        f34517b = BMapManager.getContext();
+        f26717b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -58,13 +58,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             if (a == 0) {
-                if (f34517b == null) {
+                if (f26717b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f34517b);
+                AppEngine.InitEngine(f26717b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f34517b);
+                NetworkUtil.updateNetworkProxy(f26717b);
             }
             a++;
         }
@@ -117,8 +117,8 @@ public class i {
                     }
                 }
                 if (z) {
-                    for (int i2 = 0; i2 < 14; i2++) {
-                        com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i2], strArr2[i2], context);
+                    for (int i = 0; i < 14; i++) {
+                        com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i], strArr2[i], context);
                     }
                 }
             } catch (Exception e2) {
@@ -139,9 +139,9 @@ public class i {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            int i2 = a - 1;
-            a = i2;
-            if (i2 == 0) {
+            int i = a - 1;
+            a = i;
+            if (i == 0) {
                 AppEngine.UnInitEngine();
                 VMsg.destroy();
             }

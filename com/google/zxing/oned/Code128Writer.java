@@ -1,6 +1,7 @@
 package com.google.zxing.oned;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
+import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes7.dex */
@@ -65,16 +66,16 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             $VALUES = new CType[]{UNCODABLE, ONE_DIGIT, TWO_DIGITS, cType};
         }
 
-        public CType(String str, int i2) {
+        public CType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -102,45 +103,45 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int chooseCode(CharSequence charSequence, int i2, int i3) {
+    public static int chooseCode(CharSequence charSequence, int i, int i2) {
         InterceptResult invokeLII;
         CType findCType;
         CType findCType2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, charSequence, i2, i3)) == null) {
-            CType findCType3 = findCType(charSequence, i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, charSequence, i, i2)) == null) {
+            CType findCType3 = findCType(charSequence, i);
             if (findCType3 != CType.UNCODABLE && findCType3 != CType.ONE_DIGIT) {
-                if (i3 == 99) {
-                    return i3;
+                if (i2 == 99) {
+                    return i2;
                 }
-                if (i3 == 100) {
-                    if (findCType3 == CType.FNC_1 || (findCType = findCType(charSequence, i2 + 2)) == CType.UNCODABLE || findCType == CType.ONE_DIGIT) {
-                        return i3;
+                if (i2 == 100) {
+                    if (findCType3 == CType.FNC_1 || (findCType = findCType(charSequence, i + 2)) == CType.UNCODABLE || findCType == CType.ONE_DIGIT) {
+                        return i2;
                     }
                     if (findCType == CType.FNC_1) {
-                        return findCType(charSequence, i2 + 3) == CType.TWO_DIGITS ? 99 : 100;
+                        return findCType(charSequence, i + 3) == CType.TWO_DIGITS ? 99 : 100;
                     }
-                    int i4 = i2 + 4;
+                    int i3 = i + 4;
                     while (true) {
-                        findCType2 = findCType(charSequence, i4);
+                        findCType2 = findCType(charSequence, i3);
                         if (findCType2 != CType.TWO_DIGITS) {
                             break;
                         }
-                        i4 += 2;
+                        i3 += 2;
                     }
                     return findCType2 == CType.ONE_DIGIT ? 100 : 99;
                 }
                 if (findCType3 == CType.FNC_1) {
-                    findCType3 = findCType(charSequence, i2 + 1);
+                    findCType3 = findCType(charSequence, i + 1);
                 }
                 if (findCType3 == CType.TWO_DIGITS) {
                     return 99;
@@ -151,26 +152,26 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
         return invokeLII.intValue;
     }
 
-    public static CType findCType(CharSequence charSequence, int i2) {
+    public static CType findCType(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) {
             int length = charSequence.length();
-            if (i2 >= length) {
+            if (i >= length) {
                 return CType.UNCODABLE;
             }
-            char charAt = charSequence.charAt(i2);
+            char charAt = charSequence.charAt(i);
             if (charAt == 241) {
                 return CType.FNC_1;
             }
             if (charAt < '0' || charAt > '9') {
                 return CType.UNCODABLE;
             }
-            int i3 = i2 + 1;
-            if (i3 >= length) {
+            int i2 = i + 1;
+            if (i2 >= length) {
                 return CType.ONE_DIGIT;
             }
-            char charAt2 = charSequence.charAt(i3);
+            char charAt2 = charSequence.charAt(i2);
             if (charAt2 >= '0' && charAt2 <= '9') {
                 return CType.TWO_DIGITS;
             }
@@ -180,12 +181,12 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (barcodeFormat == BarcodeFormat.CODE_128) {
-                return super.encode(str, barcodeFormat, i2, i3, map);
+                return super.encode(str, barcodeFormat, i, i2, map);
             }
             throw new IllegalArgumentException("Can only encode CODE_128, but got " + barcodeFormat);
         }
@@ -199,15 +200,15 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int length = str.length();
             if (length > 0 && length <= 80) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < length; i3++) {
-                    char charAt = str.charAt(i3);
+                int i = 0;
+                for (int i2 = 0; i2 < length; i2++) {
+                    char charAt = str.charAt(i2);
                     if (charAt < ' ' || charAt > '~') {
                         switch (charAt) {
                             case 241:
-                            case 242:
-                            case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
-                            case 244:
+                            case w0.i0 /* 242 */:
+                            case 243:
+                            case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                                 break;
                             default:
                                 throw new IllegalArgumentException("Bad character in input: " + charAt);
@@ -215,58 +216,58 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
                     }
                 }
                 ArrayList<int[]> arrayList = new ArrayList();
+                int i3 = 0;
                 int i4 = 0;
                 int i5 = 0;
-                int i6 = 0;
-                int i7 = 1;
-                while (i4 < length) {
-                    int chooseCode = chooseCode(str, i4, i6);
-                    int i8 = 100;
-                    if (chooseCode == i6) {
-                        switch (str.charAt(i4)) {
+                int i6 = 1;
+                while (i3 < length) {
+                    int chooseCode = chooseCode(str, i3, i5);
+                    int i7 = 100;
+                    if (chooseCode == i5) {
+                        switch (str.charAt(i3)) {
                             case 241:
-                                i8 = 102;
+                                i7 = 102;
                                 break;
-                            case 242:
-                                i8 = 97;
+                            case w0.i0 /* 242 */:
+                                i7 = 97;
                                 break;
-                            case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
-                                i8 = 96;
+                            case 243:
+                                i7 = 96;
                                 break;
-                            case 244:
+                            case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                                 break;
                             default:
-                                if (i6 != 100) {
-                                    i8 = Integer.parseInt(str.substring(i4, i4 + 2));
-                                    i4++;
+                                if (i5 != 100) {
+                                    i7 = Integer.parseInt(str.substring(i3, i3 + 2));
+                                    i3++;
                                     break;
                                 } else {
-                                    i8 = str.charAt(i4) - ' ';
+                                    i7 = str.charAt(i3) - ' ';
                                     break;
                                 }
                         }
-                        i4++;
+                        i3++;
                     } else {
-                        i8 = i6 == 0 ? chooseCode == 100 ? 104 : 105 : chooseCode;
-                        i6 = chooseCode;
+                        i7 = i5 == 0 ? chooseCode == 100 ? 104 : 105 : chooseCode;
+                        i5 = chooseCode;
                     }
-                    arrayList.add(Code128Reader.CODE_PATTERNS[i8]);
-                    i5 += i8 * i7;
-                    if (i4 != 0) {
-                        i7++;
+                    arrayList.add(Code128Reader.CODE_PATTERNS[i7]);
+                    i4 += i7 * i6;
+                    if (i3 != 0) {
+                        i6++;
                     }
                 }
-                arrayList.add(Code128Reader.CODE_PATTERNS[i5 % 103]);
+                arrayList.add(Code128Reader.CODE_PATTERNS[i4 % 103]);
                 arrayList.add(Code128Reader.CODE_PATTERNS[106]);
-                int i9 = 0;
+                int i8 = 0;
                 for (int[] iArr : arrayList) {
-                    for (int i10 : iArr) {
-                        i9 += i10;
+                    for (int i9 : iArr) {
+                        i8 += i9;
                     }
                 }
-                boolean[] zArr = new boolean[i9];
+                boolean[] zArr = new boolean[i8];
                 for (int[] iArr2 : arrayList) {
-                    i2 += OneDimensionalCodeWriter.appendPattern(zArr, i2, iArr2, true);
+                    i += OneDimensionalCodeWriter.appendPattern(zArr, i, iArr2, true);
                 }
                 return zArr;
             }

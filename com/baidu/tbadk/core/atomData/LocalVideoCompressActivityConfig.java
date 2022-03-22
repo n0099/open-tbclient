@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LocalVideoCompressActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOCAL_VIDEO_DURATION = "local_video_duration";
@@ -16,17 +16,17 @@ public class LocalVideoCompressActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocalVideoCompressActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, long j2, String str6) {
+    public LocalVideoCompressActivityConfig(Context context, String str, String str2, String str3, String str4, String str5, long j, String str6) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3, str4, str5, Long.valueOf(j2), str6};
+            Object[] objArr = {context, str, str2, str3, str4, str5, Long.valueOf(j), str6};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,7 +38,7 @@ public class LocalVideoCompressActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str4);
         getIntent().putExtra("forum_id", str3);
         getIntent().putExtra("video_title", str5);
-        getIntent().putExtra(KEY_LOCAL_VIDEO_DURATION, j2);
+        getIntent().putExtra(KEY_LOCAL_VIDEO_DURATION, j);
         getIntent().putExtra(KEY_LOCAL_VIEW_BG, str6);
     }
 }

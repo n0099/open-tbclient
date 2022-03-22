@@ -2,13 +2,12 @@ package com.kwad.sdk.core.report;
 
 import android.util.SparseArray;
 import androidx.annotation.Nullable;
-import com.baidu.walletfacesdk.LightInvokerImpl;
 import com.kwad.sdk.utils.t;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m extends ReportAction {
     public static final SparseArray<com.kwad.sdk.core.report.kwai.b> bP;
     public String bN;
@@ -20,8 +19,8 @@ public class m extends ReportAction {
         sparseArray.put(1, new com.kwad.sdk.core.report.kwai.a());
     }
 
-    public m(long j2, Map<String, Object> map) {
-        super(j2);
+    public m(long j, Map<String, Object> map) {
+        super(j);
         this.bN = com.kwad.sdk.core.network.k.c();
         this.bO = new HashMap();
         if (map != null && !map.isEmpty()) {
@@ -34,18 +33,18 @@ public class m extends ReportAction {
         super(jSONObject);
         this.bN = com.kwad.sdk.core.network.k.c();
         this.bO = new HashMap();
-        com.kwad.sdk.core.report.kwai.b a = a(jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE));
+        com.kwad.sdk.core.report.kwai.b a = a(jSONObject.optInt("actionType"));
         if (a != null) {
             a.a(jSONObject, this.bO);
         }
         this.bK = 2;
     }
 
-    private com.kwad.sdk.core.report.kwai.b a(int i2) {
-        return bP.get(b(i2));
+    private com.kwad.sdk.core.report.kwai.b a(int i) {
+        return bP.get(b(i));
     }
 
-    private int b(int i2) {
+    private int b(int i) {
         return 1;
     }
 
@@ -53,7 +52,7 @@ public class m extends ReportAction {
     public void afterToJson(JSONObject jSONObject) {
         com.kwad.sdk.core.report.kwai.b a;
         super.afterToJson(jSONObject);
-        if (this.bO.isEmpty() || (a = a(jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE))) == null) {
+        if (this.bO.isEmpty() || (a = a(jSONObject.optInt("actionType"))) == null) {
             return;
         }
         a.b(jSONObject, this.bO);

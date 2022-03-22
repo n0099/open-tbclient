@@ -3,10 +3,10 @@ package okhttp3;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface Interceptor {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Chain {
         Call call();
 
@@ -21,11 +21,11 @@ public interface Interceptor {
 
         Request request();
 
-        Chain withConnectTimeout(int i2, TimeUnit timeUnit);
+        Chain withConnectTimeout(int i, TimeUnit timeUnit);
 
-        Chain withReadTimeout(int i2, TimeUnit timeUnit);
+        Chain withReadTimeout(int i, TimeUnit timeUnit);
 
-        Chain withWriteTimeout(int i2, TimeUnit timeUnit);
+        Chain withWriteTimeout(int i, TimeUnit timeUnit);
 
         int writeTimeoutMillis();
     }

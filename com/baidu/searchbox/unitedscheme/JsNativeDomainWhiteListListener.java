@@ -3,6 +3,7 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.net.update.CommandPostData;
@@ -64,9 +65,9 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -97,9 +98,9 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
             return;
         }
         domainWhiteList.clear();
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+        for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                str = jSONArray.get(i2).toString();
+                str = jSONArray.get(i).toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 str = "";
@@ -127,7 +128,8 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
             }
             if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
                 if (DEBUG) {
-                    String str3 = "value.data " + actionData.data;
+                    String str3 = TAG;
+                    Log.d(str3, "value.data " + actionData.data);
                 }
                 setDomainWhiteList(actionData.data.optJSONArray(WHITELIST));
                 whiteListEnable = actionData.data.optBoolean(WHITELIST_ENABLE, true);

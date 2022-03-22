@@ -19,17 +19,17 @@ public class EffectData {
     public String name;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EffectData(int i2, int i3, String str, EffectType effectType) {
-        this(i2, i3, str, effectType, -1, null);
+    public EffectData(int i, int i2, String str, EffectType effectType) {
+        this(i, i2, str, effectType, -1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, effectType};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, effectType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (EffectType) objArr2[3], ((Integer) objArr2[4]).intValue(), (MediaAEffectConfig) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -40,17 +40,17 @@ public class EffectData {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EffectData(int i2, int i3, String str, EffectType effectType, int i4) {
-        this(i2, i3, str, effectType, i4, null);
+    public EffectData(int i, int i2, String str, EffectType effectType, int i3) {
+        this(i, i2, str, effectType, i3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, effectType, Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, effectType, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (EffectType) objArr2[3], ((Integer) objArr2[4]).intValue(), (MediaAEffectConfig) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -60,26 +60,26 @@ public class EffectData {
         }
     }
 
-    public EffectData(int i2, int i3, String str, EffectType effectType, int i4, MediaAEffectConfig mediaAEffectConfig) {
+    public EffectData(int i, int i2, String str, EffectType effectType, int i3, MediaAEffectConfig mediaAEffectConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, effectType, Integer.valueOf(i4), mediaAEffectConfig};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, effectType, Integer.valueOf(i3), mediaAEffectConfig};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.imgRes = i2;
-        this.baseType = i3;
+        this.imgRes = i;
+        this.baseType = i2;
         this.name = str;
         this.effectType = effectType;
-        this.imgBgRes = i4;
+        this.imgBgRes = i3;
         this.mSpecialEffectData = mediaAEffectConfig;
     }
 }

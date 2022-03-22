@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ContentLengthInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContentLengthStream";
@@ -24,36 +24,36 @@ public final class ContentLengthInputStream extends FilterInputStream {
     public int readSoFar;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ContentLengthInputStream(@NonNull InputStream inputStream, long j2) {
+    public ContentLengthInputStream(@NonNull InputStream inputStream, long j) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j2)};
+            Object[] objArr = {inputStream, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.contentLength = j2;
+        this.contentLength = j;
     }
 
-    private int checkReadSoFarOrThrow(int i2) throws IOException {
+    private int checkReadSoFarOrThrow(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            if (i2 >= 0) {
-                this.readSoFar += i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            if (i >= 0) {
+                this.readSoFar += i;
             } else if (this.contentLength - this.readSoFar > 0) {
                 throw new IOException("Failed to read all expected data, expected: " + this.contentLength + ", but read: " + this.readSoFar);
             }
-            return i2;
+            return i;
         }
         return invokeI.intValue;
     }
@@ -72,9 +72,9 @@ public final class ContentLengthInputStream extends FilterInputStream {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Integer.parseInt(str);
-                } catch (NumberFormatException unused) {
+                } catch (NumberFormatException e2) {
                     if (Log.isLoggable(TAG, 3)) {
-                        String str2 = "failed to parse content length header: " + str;
+                        Log.d(TAG, "failed to parse content length header: " + str, e2);
                     }
                 }
             }
@@ -113,10 +113,10 @@ public final class ContentLengthInputStream extends FilterInputStream {
     }
 
     @NonNull
-    public static InputStream obtain(@NonNull InputStream inputStream, long j2) {
+    public static InputStream obtain(@NonNull InputStream inputStream, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j2)) == null) ? new ContentLengthInputStream(inputStream, j2) : (InputStream) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, inputStream, j)) == null) ? new ContentLengthInputStream(inputStream, j) : (InputStream) invokeLJ.objValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -127,13 +127,13 @@ public final class ContentLengthInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized int read(byte[] bArr, int i2, int i3) throws IOException {
+    public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         int checkReadSoFarOrThrow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
             synchronized (this) {
-                checkReadSoFarOrThrow = checkReadSoFarOrThrow(super.read(bArr, i2, i3));
+                checkReadSoFarOrThrow = checkReadSoFarOrThrow(super.read(bArr, i, i2));
             }
             return checkReadSoFarOrThrow;
         }

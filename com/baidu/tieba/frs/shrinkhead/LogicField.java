@@ -71,16 +71,16 @@ public final class LogicField {
         $VALUES = new LogicField[]{BACK_BTN, BACK_IV, SEARCH_BTN, MESSAGE_ICON_CONTROLLER, MESSAGE_BTN, MESSAGE_RED_DOT, SHARE_BTN, FOLD_TITLE, BRAND_LABEL, INFO_AREA, LEVEL_AND_LEVEL_NAME, SPEED_ICON, LIKE_BTN, SIGN_BTN, MORE_BTN, SERVICE_AREA, TOP_AREA, ROUND_CORNER_STYLE, TOP_DIVIDER, logicField};
     }
 
-    public LogicField(String str, int i2) {
+    public LogicField(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

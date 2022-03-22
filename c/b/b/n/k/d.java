@@ -24,27 +24,25 @@ import java.io.InputStreamReader;
 public class d implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c.b.b.q.a<ParticleEmitter> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<ParticleEmitter> f27277e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f27278f;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f22517b;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27277e = new c.b.b.q.a<>(8);
+        this.a = new c.b.b.q.a<>(8);
     }
 
     public void a(c.b.b.m.a aVar, c.b.b.m.a aVar2) {
@@ -58,10 +56,10 @@ public class d implements c.b.b.q.h {
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27278f) {
-            int i2 = this.f27277e.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                a.b<g> it = this.f27277e.get(i3).g().iterator();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f22517b) {
+            int i = this.a.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                a.b<g> it = this.a.get(i2).g().iterator();
                 while (it.hasNext()) {
                     it.next().f().dispose();
                 }
@@ -80,12 +78,12 @@ public class d implements c.b.b.q.h {
     public void g(c.b.b.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f27278f = true;
-            w wVar = new w(this.f27277e.f27499f);
-            int i2 = this.f27277e.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                ParticleEmitter particleEmitter = this.f27277e.get(i3);
-                if (particleEmitter.f().f27499f != 0) {
+            this.f22517b = true;
+            w wVar = new w(this.a.f22717b);
+            int i = this.a.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                ParticleEmitter particleEmitter = this.a.get(i2);
+                if (particleEmitter.f().f22717b != 0) {
                     c.b.b.q.a<g> aVar2 = new c.b.b.q.a<>();
                     a.b<String> it = particleEmitter.f().iterator();
                     while (it.hasNext()) {
@@ -106,10 +104,10 @@ public class d implements c.b.b.q.h {
     public void h(h hVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, hVar, str) == null) {
-            int i2 = this.f27277e.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                ParticleEmitter particleEmitter = this.f27277e.get(i3);
-                if (particleEmitter.f().f27499f != 0) {
+            int i = this.a.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                ParticleEmitter particleEmitter = this.a.get(i2);
+                if (particleEmitter.f().f22717b != 0) {
                     c.b.b.q.a<g> aVar = new c.b.b.q.a<>();
                     a.b<String> it = particleEmitter.f().iterator();
                     while (it.hasNext()) {
@@ -140,14 +138,14 @@ public class d implements c.b.b.q.h {
             return;
         }
         InputStream m = aVar.m();
-        this.f27277e.clear();
+        this.a.clear();
         BufferedReader bufferedReader = null;
         try {
             try {
                 BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(m), 512);
                 do {
                     try {
-                        this.f27277e.a(k(bufferedReader2));
+                        this.a.a(k(bufferedReader2));
                     } catch (IOException e2) {
                         e = e2;
                         throw new GdxRuntimeException("Error loading effect: " + aVar, e);
@@ -182,9 +180,9 @@ public class d implements c.b.b.q.h {
     public void update(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            int i2 = this.f27277e.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                this.f27277e.get(i3).update(f2);
+            int i = this.a.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.a.get(i2).update(f2);
             }
         }
     }

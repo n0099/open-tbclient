@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.MediaSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PlaybackInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,17 +20,17 @@ public final class PlaybackInfo {
     public final Timeline timeline;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PlaybackInfo(Timeline timeline, Object obj, int i2, long j2) {
-        this(timeline, obj, new MediaSource.MediaPeriodId(i2), j2, C.TIME_UNSET);
+    public PlaybackInfo(Timeline timeline, Object obj, int i, long j) {
+        this(timeline, obj, new MediaSource.MediaPeriodId(i), j, C.TIME_UNSET);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {timeline, obj, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {timeline, obj, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Timeline) objArr2[0], objArr2[1], (MediaSource.MediaPeriodId) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue());
                 newInitContext.thisArg = this;
@@ -48,11 +48,11 @@ public final class PlaybackInfo {
         }
     }
 
-    public PlaybackInfo copyWithPeriodIndex(int i2) {
+    public PlaybackInfo copyWithPeriodIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            PlaybackInfo playbackInfo = new PlaybackInfo(this.timeline, this.manifest, this.periodId.copyWithPeriodIndex(i2), this.startPositionUs, this.contentPositionUs);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            PlaybackInfo playbackInfo = new PlaybackInfo(this.timeline, this.manifest, this.periodId.copyWithPeriodIndex(i), this.startPositionUs, this.contentPositionUs);
             copyMutablePositions(this, playbackInfo);
             return playbackInfo;
         }
@@ -70,22 +70,22 @@ public final class PlaybackInfo {
         return (PlaybackInfo) invokeLL.objValue;
     }
 
-    public PlaybackInfo fromNewPosition(int i2, long j2, long j3) {
+    public PlaybackInfo fromNewPosition(int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? fromNewPosition(new MediaSource.MediaPeriodId(i2), j2, j3) : (PlaybackInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) ? fromNewPosition(new MediaSource.MediaPeriodId(i), j, j2) : (PlaybackInfo) invokeCommon.objValue;
     }
 
-    public PlaybackInfo(Timeline timeline, Object obj, MediaSource.MediaPeriodId mediaPeriodId, long j2, long j3) {
+    public PlaybackInfo(Timeline timeline, Object obj, MediaSource.MediaPeriodId mediaPeriodId, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {timeline, obj, mediaPeriodId, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {timeline, obj, mediaPeriodId, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -94,15 +94,15 @@ public final class PlaybackInfo {
         this.timeline = timeline;
         this.manifest = obj;
         this.periodId = mediaPeriodId;
-        this.startPositionUs = j2;
-        this.contentPositionUs = j3;
-        this.positionUs = j2;
-        this.bufferedPositionUs = j2;
+        this.startPositionUs = j;
+        this.contentPositionUs = j2;
+        this.positionUs = j;
+        this.bufferedPositionUs = j;
     }
 
-    public PlaybackInfo fromNewPosition(MediaSource.MediaPeriodId mediaPeriodId, long j2, long j3) {
+    public PlaybackInfo fromNewPosition(MediaSource.MediaPeriodId mediaPeriodId, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaPeriodId, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new PlaybackInfo(this.timeline, this.manifest, mediaPeriodId, j2, j3) : (PlaybackInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{mediaPeriodId, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new PlaybackInfo(this.timeline, this.manifest, mediaPeriodId, j, j2) : (PlaybackInfo) invokeCommon.objValue;
     }
 }

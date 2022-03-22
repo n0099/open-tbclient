@@ -52,9 +52,9 @@ public class ErrorConstant {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -96,9 +96,9 @@ public class ErrorConstant {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -146,28 +146,28 @@ public class ErrorConstant {
                     return;
                 }
             }
-            META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.META_ERROR_NETWORK);
-            META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.META_ERROR_CONNECTION);
-            META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.META_ERROR_PARAMS);
-            META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.META_ERROR_RESPONSE);
-            META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.META_ERROR_FATAL);
-            DOWNLOAD_SUCCESS = ErrorConstant.getTipMsg(R.string.DOWNLOAD_SUCCESS);
-            DOWNLOAD_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_NETWORK);
-            DOWNLOAD_ERROR_MD5 = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_MD5);
-            DOWNLOAD_ERROR_PATH = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_PATH);
-            DOWNLOAD_ERROR_CREATEFILE = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_CREATEFILE);
-            DOWNLOAD_ERROR_NOSPACE = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_NOSPACE);
-            DOWNLOAD_ERROR_NETWROK_CHANGE = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_NETWROK_CHANGE);
-            DOWNLOAD_ERROR_WRITE = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_WRITE);
-            DOWNLOAD_PAUSED = ErrorConstant.getTipMsg(R.string.DOWNLOAD_PAUSED);
-            DOWNLOAD_RESUMED = ErrorConstant.getTipMsg(R.string.DOWNLOAD_RESUMED);
-            DOWNLOAD_CANCELED = ErrorConstant.getTipMsg(R.string.DOWNLOAD_CANCELED);
-            DOWNLOAD_ERROR_DUPLICATED = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_DUPLICATED);
-            DOWNLOAD_ERROR_NETWROK_LIMIT = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_NETWROK_LIMIT);
-            DOWNLOAD_ERROR_MISS_PARAM = ErrorConstant.getTipMsg(R.string.DOWNLOAD_ERROR_MISS_PARAM);
-            INSTALL_ERROR = ErrorConstant.getTipMsg(R.string.INSTALL_ERROR);
-            INSTALL_SUCCESS = ErrorConstant.getTipMsg(R.string.INSTALL_SUCCESS);
-            DATA_WRITE_DB = ErrorConstant.getTipMsg(R.string.DATA_WRITE_DB);
+            META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0034);
+            META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0032);
+            META_ERROR_PARAMS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0035);
+            META_ERROR_RESPONSE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0036);
+            META_ERROR_FATAL = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0033);
+            DOWNLOAD_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001c);
+            DOWNLOAD_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0014);
+            DOWNLOAD_ERROR_MD5 = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0012);
+            DOWNLOAD_ERROR_PATH = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0018);
+            DOWNLOAD_ERROR_CREATEFILE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0010);
+            DOWNLOAD_ERROR_NOSPACE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0017);
+            DOWNLOAD_ERROR_NETWROK_CHANGE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0015);
+            DOWNLOAD_ERROR_WRITE = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0019);
+            DOWNLOAD_PAUSED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001a);
+            DOWNLOAD_RESUMED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001b);
+            DOWNLOAD_CANCELED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f000f);
+            DOWNLOAD_ERROR_DUPLICATED = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0011);
+            DOWNLOAD_ERROR_NETWROK_LIMIT = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0016);
+            DOWNLOAD_ERROR_MISS_PARAM = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0013);
+            INSTALL_ERROR = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f001f);
+            INSTALL_SUCCESS = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0020);
+            DATA_WRITE_DB = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f000e);
         }
 
         public TipMsg() {
@@ -175,9 +175,9 @@ public class ErrorConstant {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -190,18 +190,18 @@ public class ErrorConstant {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String getTipMsg(int i2) {
+    public static String getTipMsg(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? AppRuntime.getApplication().getResources().getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? AppRuntime.getApplication().getResources().getString(i) : (String) invokeI.objValue;
     }
 }

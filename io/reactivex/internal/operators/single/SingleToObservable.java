@@ -27,7 +27,7 @@ public final class SingleToObservable<T> extends Observable<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60749d;
+        public Disposable f45358d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SingleToObservableObserver(Observer<? super T> observer) {
@@ -38,9 +38,9 @@ public final class SingleToObservable<T> extends Observable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Observer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -54,7 +54,7 @@ public final class SingleToObservable<T> extends Observable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.dispose();
-                this.f60749d.dispose();
+                this.f45358d.dispose();
             }
         }
 
@@ -69,8 +69,8 @@ public final class SingleToObservable<T> extends Observable<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f60749d, disposable)) {
-                this.f60749d = disposable;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f45358d, disposable)) {
+                this.f45358d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -91,9 +91,9 @@ public final class SingleToObservable<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

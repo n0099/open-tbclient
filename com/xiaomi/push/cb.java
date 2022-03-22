@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cb extends cg.b<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f177a;
+    public String f153a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2, String str6) {
-        super(str, list, str2, strArr, str3, str4, str5, i2);
+    public cb(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
+        super(str, list, str2, strArr, str3, str4, str5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r5;
-            Object[] objArr = {str, list, str2, strArr, str3, str4, str5, Integer.valueOf(i2), str6};
+            Object[] objArr = {str, list, str2, strArr, str3, str4, str5, Integer.valueOf(i), str6};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (List) objArr2[1], (String) objArr2[2], (String[]) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -40,7 +40,7 @@ public class cb extends cg.b<Long> {
             }
         }
         this.a = 0L;
-        this.f177a = str6;
+        this.f153a = str6;
     }
 
     public static cb a(String str) {

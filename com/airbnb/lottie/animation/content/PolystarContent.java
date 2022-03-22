@@ -95,7 +95,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         double d2;
         double d3;
         double d4;
-        int i2;
+        int i;
         int floor = (int) Math.floor(this.pointsAnimation.getValue().floatValue());
         double radians = Math.toRadians((this.rotationAnimation == null ? 0.0d : baseKeyframeAnimation.getValue().floatValue()) - 90.0d);
         double d5 = floor;
@@ -108,14 +108,14 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         double d7 = (float) (6.283185307179586d / d5);
         double d8 = radians + d7;
         double ceil = Math.ceil(d5);
-        int i3 = 0;
-        while (i3 < ceil) {
+        int i2 = 0;
+        while (i2 < ceil) {
             float cos2 = (float) (Math.cos(d8) * d6);
             double d9 = ceil;
             float sin2 = (float) (d6 * Math.sin(d8));
             if (floatValue != 0.0f) {
                 d3 = d6;
-                i2 = i3;
+                i = i2;
                 d2 = d8;
                 double atan2 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
                 float cos3 = (float) Math.cos(atan2);
@@ -127,11 +127,11 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
                 d2 = d8;
                 d3 = d6;
                 d4 = d7;
-                i2 = i3;
+                i = i2;
                 this.path.lineTo(cos2, sin2);
             }
             d8 = d2 + d4;
-            i3 = i2 + 1;
+            i2 = i + 1;
             sin = sin2;
             cos = cos2;
             ceil = d9;
@@ -146,7 +146,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     private void createStarPath() {
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation;
         double d2;
-        int i2;
+        int i;
         double d3;
         float f2;
         float f3;
@@ -164,8 +164,8 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         float f11 = (float) (6.283185307179586d / d5);
         float f12 = f11 / 2.0f;
         float f13 = floatValue - ((int) floatValue);
-        int i3 = (f13 > 0.0f ? 1 : (f13 == 0.0f ? 0 : -1));
-        if (i3 != 0) {
+        int i2 = (f13 > 0.0f ? 1 : (f13 == 0.0f ? 0 : -1));
+        if (i2 != 0) {
             radians += (1.0f - f13) * f12;
         }
         float floatValue2 = this.outerRadiusAnimation.getValue().floatValue();
@@ -174,9 +174,9 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
         float floatValue4 = baseKeyframeAnimation2 != null ? baseKeyframeAnimation2.getValue().floatValue() / 100.0f : 0.0f;
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation3 = this.outerRoundednessAnimation;
         float floatValue5 = baseKeyframeAnimation3 != null ? baseKeyframeAnimation3.getValue().floatValue() / 100.0f : 0.0f;
-        if (i3 != 0) {
+        if (i2 != 0) {
             f4 = ((floatValue2 - floatValue3) * f13) + floatValue3;
-            i2 = i3;
+            i = i2;
             double d6 = f4;
             d2 = d5;
             f2 = (float) (d6 * Math.cos(radians));
@@ -185,7 +185,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
             d3 = radians + ((f11 * f13) / 2.0f);
         } else {
             d2 = d5;
-            i2 = i3;
+            i = i2;
             double d7 = floatValue2;
             float cos = (float) (Math.cos(radians) * d7);
             float sin = (float) (d7 * Math.sin(radians));
@@ -196,21 +196,21 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
             f4 = 0.0f;
         }
         double ceil = Math.ceil(d2) * 2.0d;
-        int i4 = 0;
+        int i3 = 0;
         boolean z = false;
         while (true) {
-            double d8 = i4;
+            double d8 = i3;
             if (d8 < ceil) {
                 float f14 = z ? floatValue2 : floatValue3;
-                int i5 = (f4 > 0.0f ? 1 : (f4 == 0.0f ? 0 : -1));
-                if (i5 == 0 || d8 != ceil - 2.0d) {
+                int i4 = (f4 > 0.0f ? 1 : (f4 == 0.0f ? 0 : -1));
+                if (i4 == 0 || d8 != ceil - 2.0d) {
                     f5 = f11;
                     f6 = f12;
                 } else {
                     f5 = f11;
                     f6 = (f11 * f13) / 2.0f;
                 }
-                if (i5 == 0 || d8 != ceil - 1.0d) {
+                if (i4 == 0 || d8 != ceil - 1.0d) {
                     f7 = f12;
                     d4 = d8;
                     f8 = f14;
@@ -244,8 +244,8 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
                     float f20 = (z ? floatValue2 : floatValue3) * f16 * 0.47829f;
                     float f21 = cos4 * f20;
                     float f22 = f20 * sin4;
-                    if (i2 != 0) {
-                        if (i4 == 0) {
+                    if (i != 0) {
+                        if (i3 == 0) {
                             f18 *= f13;
                             f19 *= f13;
                         } else if (d4 == d10 - 1.0d) {
@@ -257,7 +257,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
                 }
                 d3 += f6;
                 z = !z;
-                i4++;
+                i3++;
                 f2 = cos2;
                 f3 = sin2;
                 floatValue4 = f9;
@@ -315,10 +315,10 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
             this.isPathValid = true;
             return this.path;
         }
-        int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type[this.type.ordinal()];
-        if (i2 == 1) {
+        int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type[this.type.ordinal()];
+        if (i == 1) {
             createStarPath();
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             createPolygonPath();
         }
         this.path.close();
@@ -333,14 +333,14 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2);
+        for (int i = 0; i < list.size(); i++) {
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

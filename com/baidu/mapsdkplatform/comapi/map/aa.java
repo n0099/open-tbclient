@@ -14,14 +14,14 @@ public final class aa {
     public static final aa a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final aa f34451b;
+    public static final aa f26661b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ aa[] f34452d;
+    public static final /* synthetic */ aa[] f26662d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f34453c;
+    public final int f26663c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,20 +38,20 @@ public final class aa {
         }
         a = new aa("GLSurfaceView", 0, 1);
         aa aaVar = new aa("TextureView", 1, 2);
-        f34451b = aaVar;
-        f34452d = new aa[]{a, aaVar};
+        f26661b = aaVar;
+        f26662d = new aa[]{a, aaVar};
     }
 
-    public aa(String str, int i2, int i3) {
+    public aa(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -60,7 +60,7 @@ public final class aa {
                 return;
             }
         }
-        this.f34453c = i3;
+        this.f26663c = i2;
     }
 
     public static aa valueOf(String str) {
@@ -72,6 +72,6 @@ public final class aa {
     public static aa[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f34452d.clone() : (aa[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (aa[]) f26662d.clone() : (aa[]) invokeV.objValue;
     }
 }

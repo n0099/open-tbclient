@@ -23,9 +23,9 @@ public class b implements DownloadCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {iPackageDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,17 +65,17 @@ public class b implements DownloadCallback {
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadProgress(PackageInfo packageInfo, long j2, long j3) {
+    public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.a.onProgress(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.a.onProgress(j, j2);
         }
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadResume(PackageInfo packageInfo, long j2, long j3) {
+    public void onDownloadResume(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 

@@ -39,9 +39,9 @@ public final class TaskState implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -76,9 +76,9 @@ public final class TaskState implements ITaskModelData {
             newInitContext.initArgs = r2;
             Object[] objArr = {taskInfo, taskStatus};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -88,11 +88,11 @@ public final class TaskState implements ITaskModelData {
         this.taskStatus = taskStatus;
     }
 
-    public static /* synthetic */ TaskState copy$default(TaskState taskState, TaskInfo taskInfo, TaskStatus taskStatus, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ TaskState copy$default(TaskState taskState, TaskInfo taskInfo, TaskStatus taskStatus, int i, Object obj) {
+        if ((i & 1) != 0) {
             taskInfo = taskState.taskInfo;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             taskStatus = taskState.taskStatus;
         }
         return taskState.copy(taskInfo, taskStatus);

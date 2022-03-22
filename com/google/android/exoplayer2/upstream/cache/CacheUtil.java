@@ -16,13 +16,13 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.NavigableSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CacheUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE_BYTES = 131072;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CachingCounters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public final class CacheUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,9 +58,9 @@ public final class CacheUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -84,19 +84,19 @@ public final class CacheUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dataSpec, cache, cachingCounters) == null) {
             String key = getKey(dataSpec);
-            long j2 = dataSpec.absoluteStreamPosition;
-            long j3 = dataSpec.length;
-            if (j3 == -1) {
-                j3 = cache.getContentLength(key);
+            long j = dataSpec.absoluteStreamPosition;
+            long j2 = dataSpec.length;
+            if (j2 == -1) {
+                j2 = cache.getContentLength(key);
             }
-            cachingCounters.contentLength = j3;
+            cachingCounters.contentLength = j2;
             cachingCounters.alreadyCachedBytes = 0L;
             cachingCounters.newlyCachedBytes = 0L;
+            long j3 = j;
             long j4 = j2;
-            long j5 = j3;
-            while (j5 != 0) {
-                int i2 = (j5 > (-1L) ? 1 : (j5 == (-1L) ? 0 : -1));
-                long cachedBytes = cache.getCachedBytes(key, j4, i2 != 0 ? j5 : Long.MAX_VALUE);
+            while (j4 != 0) {
+                int i = (j4 > (-1L) ? 1 : (j4 == (-1L) ? 0 : -1));
+                long cachedBytes = cache.getCachedBytes(key, j3, i != 0 ? j4 : Long.MAX_VALUE);
                 if (cachedBytes > 0) {
                     cachingCounters.alreadyCachedBytes += cachedBytes;
                 } else {
@@ -105,11 +105,11 @@ public final class CacheUtil {
                         return;
                     }
                 }
-                j4 += cachedBytes;
-                if (i2 == 0) {
+                j3 += cachedBytes;
+                if (i == 0) {
                     cachedBytes = 0;
                 }
-                j5 -= cachedBytes;
+                j4 -= cachedBytes;
             }
         }
     }
@@ -124,46 +124,46 @@ public final class CacheUtil {
         return (String) invokeL.objValue;
     }
 
-    public static long readAndDiscard(DataSpec dataSpec, long j2, long j3, DataSource dataSource, byte[] bArr, PriorityTaskManager priorityTaskManager, int i2, CachingCounters cachingCounters) throws IOException, InterruptedException {
+    public static long readAndDiscard(DataSpec dataSpec, long j, long j2, DataSource dataSource, byte[] bArr, PriorityTaskManager priorityTaskManager, int i, CachingCounters cachingCounters) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{dataSpec, Long.valueOf(j2), Long.valueOf(j3), dataSource, bArr, priorityTaskManager, Integer.valueOf(i2), cachingCounters})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{dataSpec, Long.valueOf(j), Long.valueOf(j2), dataSource, bArr, priorityTaskManager, Integer.valueOf(i), cachingCounters})) != null) {
             return invokeCommon.longValue;
         }
         DataSpec dataSpec2 = dataSpec;
         while (true) {
             if (priorityTaskManager != null) {
-                priorityTaskManager.proceed(i2);
+                priorityTaskManager.proceed(i);
             }
             try {
                 try {
                     if (!Thread.interrupted()) {
-                        DataSpec dataSpec3 = new DataSpec(dataSpec2.uri, dataSpec2.postBody, j2, (dataSpec2.position + j2) - dataSpec2.absoluteStreamPosition, -1L, dataSpec2.key, dataSpec2.flags | 2);
+                        DataSpec dataSpec3 = new DataSpec(dataSpec2.uri, dataSpec2.postBody, j, (dataSpec2.position + j) - dataSpec2.absoluteStreamPosition, -1L, dataSpec2.key, dataSpec2.flags | 2);
                         try {
                             long open = dataSource.open(dataSpec3);
                             if (cachingCounters.contentLength == -1 && open != -1) {
                                 cachingCounters.contentLength = dataSpec3.absoluteStreamPosition + open;
                             }
-                            long j4 = 0;
+                            long j3 = 0;
                             while (true) {
-                                if (j4 == j3) {
+                                if (j3 == j2) {
                                     break;
                                 } else if (!Thread.interrupted()) {
-                                    int read = dataSource.read(bArr, 0, j3 != -1 ? (int) Math.min(bArr.length, j3 - j4) : bArr.length);
+                                    int read = dataSource.read(bArr, 0, j2 != -1 ? (int) Math.min(bArr.length, j2 - j3) : bArr.length);
                                     if (read == -1) {
                                         if (cachingCounters.contentLength == -1) {
-                                            cachingCounters.contentLength = dataSpec3.absoluteStreamPosition + j4;
+                                            cachingCounters.contentLength = dataSpec3.absoluteStreamPosition + j3;
                                         }
                                     } else {
-                                        long j5 = read;
-                                        j4 += j5;
-                                        cachingCounters.newlyCachedBytes += j5;
+                                        long j4 = read;
+                                        j3 += j4;
+                                        cachingCounters.newlyCachedBytes += j4;
                                     }
                                 } else {
                                     throw new InterruptedException();
                                 }
                             }
-                            return j4;
+                            return j3;
                         } catch (PriorityTaskManager.PriorityTooLowException unused) {
                             dataSpec2 = dataSpec3;
                         }
@@ -193,9 +193,9 @@ public final class CacheUtil {
         }
     }
 
-    public static void cache(DataSpec dataSpec, Cache cache, CacheDataSource cacheDataSource, byte[] bArr, PriorityTaskManager priorityTaskManager, int i2, CachingCounters cachingCounters, boolean z) throws IOException, InterruptedException {
+    public static void cache(DataSpec dataSpec, Cache cache, CacheDataSource cacheDataSource, byte[] bArr, PriorityTaskManager priorityTaskManager, int i, CachingCounters cachingCounters, boolean z) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{dataSpec, cache, cacheDataSource, bArr, priorityTaskManager, Integer.valueOf(i2), cachingCounters, Boolean.valueOf(z)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{dataSpec, cache, cacheDataSource, bArr, priorityTaskManager, Integer.valueOf(i), cachingCounters, Boolean.valueOf(z)}) != null) {
             return;
         }
         CachingCounters cachingCounters2 = cachingCounters;
@@ -208,35 +208,35 @@ public final class CacheUtil {
         }
         CachingCounters cachingCounters3 = cachingCounters2;
         String key = getKey(dataSpec);
-        long j2 = dataSpec.absoluteStreamPosition;
-        long j3 = dataSpec.length;
-        if (j3 == -1) {
-            j3 = cache.getContentLength(key);
+        long j = dataSpec.absoluteStreamPosition;
+        long j2 = dataSpec.length;
+        if (j2 == -1) {
+            j2 = cache.getContentLength(key);
         }
+        long j3 = j;
         long j4 = j2;
-        long j5 = j3;
         while (true) {
-            long j6 = 0;
-            if (j5 == 0) {
+            long j5 = 0;
+            if (j4 == 0) {
                 return;
             }
-            int i3 = (j5 > (-1L) ? 1 : (j5 == (-1L) ? 0 : -1));
-            long cachedBytes = cache.getCachedBytes(key, j4, i3 != 0 ? j5 : Long.MAX_VALUE);
+            int i2 = (j4 > (-1L) ? 1 : (j4 == (-1L) ? 0 : -1));
+            long cachedBytes = cache.getCachedBytes(key, j3, i2 != 0 ? j4 : Long.MAX_VALUE);
             if (cachedBytes <= 0) {
-                long j7 = -cachedBytes;
-                if (readAndDiscard(dataSpec, j4, j7, cacheDataSource, bArr, priorityTaskManager, i2, cachingCounters3) < j7) {
-                    if (z && i3 != 0) {
+                long j6 = -cachedBytes;
+                if (readAndDiscard(dataSpec, j3, j6, cacheDataSource, bArr, priorityTaskManager, i, cachingCounters3) < j6) {
+                    if (z && i2 != 0) {
                         throw new EOFException();
                     }
                     return;
                 }
-                cachedBytes = j7;
+                cachedBytes = j6;
             }
-            j4 += cachedBytes;
-            if (i3 != 0) {
-                j6 = cachedBytes;
+            j3 += cachedBytes;
+            if (i2 != 0) {
+                j5 = cachedBytes;
             }
-            j5 -= j6;
+            j4 -= j5;
         }
     }
 }

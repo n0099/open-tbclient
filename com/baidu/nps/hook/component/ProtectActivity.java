@@ -25,9 +25,9 @@ public final class ProtectActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,17 +43,17 @@ public final class ProtectActivity extends Activity {
         hashMap.clear();
     }
 
-    public View _$_findCachedViewById(int i2) {
+    public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this._$_findViewCache == null) {
                 this._$_findViewCache = new HashMap();
             }
-            View view = (View) this._$_findViewCache.get(Integer.valueOf(i2));
+            View view = (View) this._$_findViewCache.get(Integer.valueOf(i));
             if (view == null) {
-                View findViewById = findViewById(i2);
-                this._$_findViewCache.put(Integer.valueOf(i2), findViewById);
+                View findViewById = findViewById(i);
+                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
                 return findViewById;
             }
             return view;

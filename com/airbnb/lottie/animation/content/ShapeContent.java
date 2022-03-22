@@ -62,8 +62,8 @@ public class ShapeContent implements PathContent, BaseKeyframeAnimation.Animatio
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2);
+        for (int i = 0; i < list.size(); i++) {
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

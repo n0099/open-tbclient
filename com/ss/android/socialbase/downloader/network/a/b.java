@@ -10,24 +10,24 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.network.j;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f58799b;
+    public static long f43492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HandlerThread f58800c = new HandlerThread("Downloader-preconnecter");
+    public static final HandlerThread f43493c = new HandlerThread("Downloader-preconnecter");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Handler f58801d;
+    public static final Handler f43494d;
 
     static {
         b();
-        f58800c.start();
-        Handler handler = new Handler(f58800c.getLooper());
-        f58801d = handler;
+        f43493c.start();
+        Handler handler = new Handler(f43493c.getLooper());
+        f43494d = handler;
         handler.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.1
             @Override // java.lang.Runnable
             public void run() {
@@ -41,16 +41,16 @@ public class b {
 
     public static void b() {
         a = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_connection_outdate_time", 300000L);
-        f58799b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
+        f43492b = com.ss.android.socialbase.downloader.g.a.c().a("preconnect_head_info_outdate_time", 300000L);
         a.a().a(com.ss.android.socialbase.downloader.g.a.c().a("preconnect_max_cache_size", 3));
     }
 
     public static Looper a() {
-        return f58800c.getLooper();
+        return f43493c.getLooper();
     }
 
     public static void a(final String str, final j jVar) {
-        f58801d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
+        f43494d.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.a.b.2
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(str)) {
@@ -81,9 +81,9 @@ public class b {
                                     throw th;
                                 }
                             }
-                            Map<String, String> i2 = r1.i();
+                            Map<String, String> i = r1.i();
                             if (jVar != null) {
-                                jVar.a(i2);
+                                jVar.a(i);
                             }
                         } catch (Throwable th2) {
                             th = th2;
@@ -105,7 +105,7 @@ public class b {
         });
     }
 
-    public static List<com.ss.android.socialbase.downloader.model.c> b(long j2, DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.model.c> list) {
-        return f.a(list, downloadInfo == null ? null : downloadInfo.geteTag(), j2, 0L);
+    public static List<com.ss.android.socialbase.downloader.model.c> b(long j, DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.model.c> list) {
+        return f.a(list, downloadInfo == null ? null : downloadInfo.geteTag(), j, 0L);
     }
 }

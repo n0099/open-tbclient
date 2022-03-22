@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.adapter;
 import android.view.View;
 import android.widget.ImageView;
 import c.a.d.f.p.n;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,14 +27,28 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public BarImageView mBarManagementHeadView;
-    public EMTextView mBarManagementRevise;
-    public EMTextView mBarManagementTitle;
-    public HeadImageView mChargerOfBarHeadView;
-    public EMTextView mChargerOfBarTitle;
-    public View mCrossLine;
-    public ImageView mHeadViewIndex;
-    public EMTextView mTimeRevise;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BarImageView f32492b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f32493c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public EMTextView f32494d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public EMTextView f32495e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public HeadImageView f32496f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public EMTextView f32497g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public EMTextView f32498h;
+    public View i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailBottomVH(View view) {
@@ -45,9 +59,9 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -55,64 +69,64 @@ public class ForumRuleDetailBottomVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_rules_bar_management_head_view);
-        this.mBarManagementHeadView = barImageView;
+        BarImageView barImageView = (BarImageView) view.findViewById(R.id.obfuscated_res_0x7f090a72);
+        this.f32492b = barImageView;
         barImageView.setShowOval(true);
-        this.mBarManagementHeadView.setShowOuterBorder(false);
-        this.mBarManagementHeadView.setShowInnerBorder(true);
-        this.mBarManagementHeadView.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        this.mBarManagementHeadView.setStrokeColorResId(R.color.CAM_X0401);
-        this.mHeadViewIndex = (ImageView) view.findViewById(R.id.forum_rules_bar_management_index);
-        this.mBarManagementTitle = (EMTextView) view.findViewById(R.id.forum_rules_bar_management_title);
-        this.mBarManagementRevise = (EMTextView) view.findViewById(R.id.forum_rules_bar_management_time_revise);
-        HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.forum_rules_charger_of_bar_head_view);
-        this.mChargerOfBarHeadView = headImageView;
+        this.f32492b.setShowOuterBorder(false);
+        this.f32492b.setShowInnerBorder(true);
+        this.f32492b.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        this.f32492b.setStrokeColorResId(R.color.CAM_X0401);
+        this.f32493c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090a73);
+        this.f32494d = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a76);
+        this.f32495e = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a75);
+        HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.obfuscated_res_0x7f090a78);
+        this.f32496f = headImageView;
         headImageView.setBorderWidth(R.dimen.L_X01);
-        this.mChargerOfBarHeadView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.mChargerOfBarHeadView.setRadius(R.dimen.tbds42);
-        this.mChargerOfBarHeadView.setConrers(15);
-        this.mChargerOfBarTitle = (EMTextView) view.findViewById(R.id.forum_rules_charger_of_bar_title);
-        this.mTimeRevise = (EMTextView) view.findViewById(R.id.forum_rules_time_revise);
-        this.mCrossLine = view.findViewById(R.id.cross_line);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.f32496f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f32496f.setRadius(R.dimen.tbds42);
+        this.f32496f.setConrers(15);
+        this.f32497g = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a79);
+        this.f32498h = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a84);
+        this.i = view.findViewById(R.id.obfuscated_res_0x7f090726);
+        d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void onChangeReviseTimeSkinType(String str) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null && !str.isEmpty() && !str.equals(StringUtil.NULL_STRING)) {
-                this.mTimeRevise.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), timeStamp2Date(str)));
-                this.mBarManagementRevise.setText(String.format(TbadkApplication.getInst().getString(R.string.forum_rules_revise_time), timeStamp2Date(str)));
+                this.f32498h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f069a), e(str)));
+                this.f32495e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f069a), e(str)));
                 return;
             }
-            this.mTimeRevise.setVisibility(8);
-            this.mBarManagementRevise.setVisibility(8);
+            this.f32498h.setVisibility(8);
+            this.f32495e.setVisibility(8);
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
-            c d2 = c.d(this.mBarManagementTitle);
+            c d2 = c.d(this.f32494d);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0105);
-            c d3 = c.d(this.mBarManagementRevise);
+            c d3 = c.d(this.f32495e);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0109);
-            c d4 = c.d(this.mChargerOfBarTitle);
+            c d4 = c.d(this.f32497g);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0105);
-            c d5 = c.d(this.mTimeRevise);
+            c d5 = c.d(this.f32498h);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0109);
-            this.mHeadViewIndex.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_pb_barservice14, WebPManager.ResourceStateType.NORMAL));
-            this.mChargerOfBarHeadView.setSkinType(i2);
-            SkinManager.setBackgroundColor(this.mCrossLine, R.color.CAM_X0111);
+            this.f32493c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080804, WebPManager.ResourceStateType.NORMAL));
+            this.f32496f.setSkinType(i);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0111);
         }
     }
 
-    public String timeStamp2Date(String str) {
+    public String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {

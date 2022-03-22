@@ -11,19 +11,19 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short[] f27383b;
+    public short[] f22615b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27384c;
+    public int f22616c;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

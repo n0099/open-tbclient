@@ -17,24 +17,24 @@ public class h {
         return appStatusRules == null ? new ArrayList() : appStatusRules.obtainNamedStrategyList();
     }
 
-    public static void a(Context context, AppStatusRules.Strategy strategy, long j2) {
+    public static void a(Context context, AppStatusRules.Strategy strategy, long j) {
         if (context == null || strategy == null) {
             return;
         }
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(a(strategy), j2).apply();
+        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(a(strategy), j).apply();
     }
 
     public static boolean a(Context context, @NonNull AppStatusRules.Strategy strategy) {
         if (context == null) {
             return false;
         }
-        long j2 = context.getSharedPreferences("ksadsdk_pref", 0).getLong(a(strategy), -1L);
-        if (j2 < 0) {
+        long j = context.getSharedPreferences("ksadsdk_pref", 0).getLong(a(strategy), -1L);
+        if (j < 0) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long minLaunchIntervalWithMS = strategy.getMinLaunchIntervalWithMS();
-        return minLaunchIntervalWithMS <= 0 || j2 + minLaunchIntervalWithMS < currentTimeMillis;
+        return minLaunchIntervalWithMS <= 0 || j + minLaunchIntervalWithMS < currentTimeMillis;
     }
 
     @NonNull

@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "stpp";
@@ -30,9 +30,9 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -83,7 +83,7 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = 8;
+            int i = 8;
             long containerSize = getContainerSize() + this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
             return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 16);
         }
@@ -91,9 +91,9 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(8);
             dataSource.read((ByteBuffer) allocate.rewind());
             allocate.position(6);
@@ -110,7 +110,7 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
             dataSource.read((ByteBuffer) allocate2.rewind());
             this.imageMimeType = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
             dataSource.position(position + this.namespace.length() + this.schemaLocation.length() + this.imageMimeType.length() + 3);
-            parseContainer(dataSource, j2 - ((((byteBuffer.remaining() + this.namespace.length()) + this.schemaLocation.length()) + this.imageMimeType.length()) + 3), boxParser);
+            parseContainer(dataSource, j - ((((byteBuffer.remaining() + this.namespace.length()) + this.schemaLocation.length()) + this.imageMimeType.length()) + 3), boxParser);
         }
     }
 

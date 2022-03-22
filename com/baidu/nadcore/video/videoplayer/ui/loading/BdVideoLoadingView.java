@@ -3,8 +3,8 @@ package com.baidu.nadcore.video.videoplayer.ui.loading;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import c.a.b0.i0.a.e.a.c;
-import c.a.b0.i0.a.e.a.d;
+import c.a.a0.i0.a.e.a.c;
+import c.a.a0.i0.a.e.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,12 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdVideoLoadingView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.a0.i0.a.e.a.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.b0.i0.a.e.a.a f35833e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public a f35834f;
+    /* renamed from: b  reason: collision with root package name */
+    public a f27701b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -38,9 +36,9 @@ public class BdVideoLoadingView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -57,58 +55,51 @@ public class BdVideoLoadingView extends ImageView {
         }
     }
 
-    public boolean isRunning() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35833e.isRunning() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isRunning() : invokeV.booleanValue;
     }
 
-    public void removeLoadingAnimListener() {
+    public void c() {
+        c.a.a0.i0.a.e.a.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35834f = null;
-        }
-    }
-
-    public void setLoadingAnimListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f35834f = aVar;
-        }
-    }
-
-    public void setLoadingRenderer(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            c.a.b0.i0.a.e.a.a aVar = new c.a.b0.i0.a.e.a.a(cVar);
-            this.f35833e = aVar;
-            setImageDrawable(aVar);
-        }
-    }
-
-    public void startAnimation() {
-        c.a.b0.i0.a.e.a.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f35833e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
             return;
         }
         aVar.start();
-        a aVar2 = this.f35834f;
+        a aVar2 = this.f27701b;
         if (aVar2 != null) {
             aVar2.a();
         }
     }
 
-    public void stopAnimation() {
-        c.a.b0.i0.a.e.a.a aVar;
+    public void d() {
+        c.a.a0.i0.a.e.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f35833e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aVar = this.a) == null) {
             return;
         }
         aVar.stop();
-        a aVar2 = this.f35834f;
+        a aVar2 = this.f27701b;
         if (aVar2 != null) {
             aVar2.b();
+        }
+    }
+
+    public void setLoadingAnimListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.f27701b = aVar;
+        }
+    }
+
+    public void setLoadingRenderer(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            c.a.a0.i0.a.e.a.a aVar = new c.a.a0.i0.a.e.a.a(cVar);
+            this.a = aVar;
+            setImageDrawable(aVar);
         }
     }
 
@@ -121,9 +112,9 @@ public class BdVideoLoadingView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

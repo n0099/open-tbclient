@@ -7,9 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PluginDownloadBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +32,9 @@ public class PluginDownloadBean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,7 +45,7 @@ public class PluginDownloadBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PluginDownloadBean{mPackageName='" + this.mPackageName + ExtendedMessageFormat.QUOTE + ", mVersionCode=" + this.mVersionCode + ", mUrl='" + this.mUrl + ExtendedMessageFormat.QUOTE + ", mMd5='" + this.mMd5 + ExtendedMessageFormat.QUOTE + ", mOrder=" + this.mOrder + ", isOffline=" + this.isOffline + ", isRevert=" + this.isRevert + ", isWifiOnly=" + this.isWifiOnly + ", mClientVersionMin=" + this.mClientVersionMin + ", mClientVersionMax=" + this.mClientVersionMax + ", mApiVersionMin=" + this.mApiVersionMin + ", mApiVersionMax=" + this.mApiVersionMax + ", mDownloadType=" + this.mDownloadType + ", mBackupUrlList=" + this.mBackupUrlList + ExtendedMessageFormat.END_FE;
+            return "PluginDownloadBean{mPackageName='" + this.mPackageName + "', mVersionCode=" + this.mVersionCode + ", mUrl='" + this.mUrl + "', mMd5='" + this.mMd5 + "', mOrder=" + this.mOrder + ", isOffline=" + this.isOffline + ", isRevert=" + this.isRevert + ", isWifiOnly=" + this.isWifiOnly + ", mClientVersionMin=" + this.mClientVersionMin + ", mClientVersionMax=" + this.mClientVersionMax + ", mApiVersionMin=" + this.mApiVersionMin + ", mApiVersionMax=" + this.mApiVersionMax + ", mDownloadType=" + this.mDownloadType + ", mBackupUrlList=" + this.mBackupUrlList + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -19,8 +19,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class p0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout l;
-    public ItemCardView m;
+
+    /* renamed from: h  reason: collision with root package name */
+    public FrameLayout f3470h;
+    public ItemCardView i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p0(Context context) {
@@ -31,75 +33,75 @@ public class p0 extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        m(Boolean.TRUE);
+        n(Boolean.TRUE);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.l == null) {
-                FrameLayout frameLayout = new FrameLayout(this.f4007f);
-                this.l = frameLayout;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f3470h == null) {
+                FrameLayout frameLayout = new FrameLayout(this.f3392b);
+                this.f3470h = frameLayout;
                 SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0206);
-                this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                this.f3470h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            this.l.removeAllViews();
-            if (this.m == null) {
-                ItemCardView itemCardView = new ItemCardView(this.f4007f);
-                this.m = itemCardView;
+            this.f3470h.removeAllViews();
+            if (this.i == null) {
+                ItemCardView itemCardView = new ItemCardView(this.f3392b);
+                this.i = itemCardView;
                 itemCardView.setBackGroundColor(R.color.CAM_X0205);
-                this.m.setIsShowRightBtn(true);
+                this.i.setIsShowRightBtn(true);
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003) - UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-            layoutParams.leftMargin = this.f4007f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.rightMargin = this.f4007f.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
-            layoutParams.bottomMargin = this.f4007f.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-            this.l.addView(this.m, layoutParams);
-            return this.l;
+            layoutParams.leftMargin = this.f3392b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.rightMargin = this.f3392b.getResources().getDimensionPixelSize(R.dimen.M_W_X005);
+            layoutParams.bottomMargin = this.f3392b.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+            this.f3470h.addView(this.i, layoutParams);
+            return this.f3470h;
         }
         return (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0206);
-            ItemCardView itemCardView = this.m;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.f3470h, R.color.CAM_X0206);
+            ItemCardView itemCardView = this.i;
             if (itemCardView != null) {
-                itemCardView.onChangeSkinType();
+                itemCardView.G();
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: r */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: s */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().z1 != null && aVar.getThreadData().z1.C != null) {
-                if (!aVar.getThreadData().z1.m && !aVar.getThreadData().Q4()) {
-                    this.l.setVisibility(0);
-                    this.m.setData(aVar.getThreadData().z1.D, 13, aVar.getThreadData().z1.f38793f);
+            if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().originalThreadData != null && aVar.getThreadData().originalThreadData.C != null) {
+                if (!aVar.getThreadData().originalThreadData.m && !aVar.getThreadData().shouldShowBlockedState()) {
+                    this.f3470h.setVisibility(0);
+                    this.i.setData(aVar.getThreadData().originalThreadData.D, 13, aVar.getThreadData().originalThreadData.f29826f);
                     return;
                 }
-                this.l.setVisibility(8);
+                this.f3470h.setVisibility(8);
                 return;
             }
-            this.l.setVisibility(8);
+            this.f3470h.setVisibility(8);
         }
     }
 }

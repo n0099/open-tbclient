@@ -17,7 +17,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object>, DataFetcherGenerator.FetcherReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SourceGenerator";
@@ -37,9 +37,9 @@ public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCa
             newInitContext.initArgs = r2;
             Object[] objArr = {decodeHelper, fetcherReadyCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,7 +59,7 @@ public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCa
                 this.originalKey = new DataCacheKey(this.loadData.sourceKey, this.helper.getSignature());
                 this.helper.getDiskCache().put(this.originalKey, dataCacheWriter);
                 if (Log.isLoggable(TAG, 2)) {
-                    String str = "Finished encoding source to cache, key: " + this.originalKey + ", data: " + obj + ", encoder: " + sourceEncoder + ", duration: " + LogTime.getElapsedMillis(logTime);
+                    Log.v(TAG, "Finished encoding source to cache, key: " + this.originalKey + ", data: " + obj + ", encoder: " + sourceEncoder + ", duration: " + LogTime.getElapsedMillis(logTime));
                 }
                 this.loadData.fetcher.cleanup();
                 this.sourceCacheGenerator = new DataCacheGenerator(Collections.singletonList(this.loadData.sourceKey), this.helper, this);
@@ -149,9 +149,9 @@ public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCa
                 boolean z = false;
                 while (!z && hasNextModelLoader()) {
                     List<ModelLoader.LoadData<?>> loadData = this.helper.getLoadData();
-                    int i2 = this.loadDataListIndex;
-                    this.loadDataListIndex = i2 + 1;
-                    this.loadData = loadData.get(i2);
+                    int i = this.loadDataListIndex;
+                    this.loadDataListIndex = i + 1;
+                    this.loadData = loadData.get(i);
                     if (this.loadData != null && (this.helper.getDiskCacheStrategy().isDataCacheable(this.loadData.fetcher.getDataSource()) || this.helper.hasLoadPath(this.loadData.fetcher.getDataClass()))) {
                         this.loadData.fetcher.loadData(this.helper.getPriority(), this);
                         z = true;

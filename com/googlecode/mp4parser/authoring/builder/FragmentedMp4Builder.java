@@ -49,7 +49,6 @@ import com.coremedia.iso.boxes.fragment.TrackFragmentBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentRandomAccessBox;
 import com.coremedia.iso.boxes.fragment.TrackRunBox;
-import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import com.googlecode.mp4parser.BasicContainer;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.Movie;
@@ -99,9 +98,9 @@ public class FragmentedMp4Builder implements Mp4Builder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -178,24 +177,24 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeLL.objValue;
     }
 
-    public int createFragment(List<Box> list, Track track, long[] jArr, int i2, int i3) {
+    public int createFragment(List<Box> list, Track track, long[] jArr, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{list, track, jArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (i2 < jArr.length) {
-                long j2 = jArr[i2];
-                int i4 = i2 + 1;
-                long size = i4 < jArr.length ? jArr[i4] : track.getSamples().size() + 1;
-                if (j2 != size) {
-                    long j3 = size;
-                    list.add(createMoof(j2, j3, track, i3));
-                    int i5 = i3 + 1;
-                    list.add(createMdat(j2, j3, track, i3));
-                    return i5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{list, track, jArr, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i < jArr.length) {
+                long j = jArr[i];
+                int i3 = i + 1;
+                long size = i3 < jArr.length ? jArr[i3] : track.getSamples().size() + 1;
+                if (j != size) {
+                    long j2 = size;
+                    list.add(createMoof(j, j2, track, i2));
+                    int i4 = i2 + 1;
+                    list.add(createMdat(j, j2, track, i2));
+                    return i4;
                 }
-                return i3;
+                return i2;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -213,10 +212,10 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeL.objValue;
     }
 
-    public Box createMdat(long j2, long j3, Track track, int i2) {
+    public Box createMdat(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) ? new Box(this, j2, j3, track, i2) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1Mdat
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) ? new Box(this, j, j2, track, i) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1Mdat
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public Container parent;
@@ -232,21 +231,21 @@ public class FragmentedMp4Builder implements Mp4Builder {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)};
+                    Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$startSample = j2;
-                this.val$endSample = j3;
+                this.val$startSample = j;
+                this.val$endSample = j2;
                 this.val$track = track;
-                this.val$i = i2;
+                this.val$i = i;
                 this.size_ = -1L;
             }
 
@@ -287,16 +286,16 @@ public class FragmentedMp4Builder implements Mp4Builder {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                    long j4 = this.size_;
-                    if (j4 != -1) {
-                        return j4;
+                    long j3 = this.size_;
+                    if (j3 != -1) {
+                        return j3;
                     }
-                    long j5 = 8;
+                    long j4 = 8;
                     for (Sample sample : this.this$0.getSamples(this.val$startSample, this.val$endSample, this.val$track, this.val$i)) {
-                        j5 += sample.getSize();
+                        j4 += sample.getSize();
                     }
-                    this.size_ = j5;
-                    return j5;
+                    this.size_ = j4;
+                    return j4;
                 }
                 return invokeV.longValue;
             }
@@ -305,13 +304,13 @@ public class FragmentedMp4Builder implements Mp4Builder {
             public String getType() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? MediaDataBox.TYPE : (String) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) ? "mdat" : (String) invokeV.objValue;
             }
 
             @Override // com.coremedia.iso.boxes.Box
-            public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j4, BoxParser boxParser) throws IOException {
+            public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j3, BoxParser boxParser) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j4), boxParser}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j3), boxParser}) == null) {
                 }
             }
 
@@ -364,12 +363,12 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeLL.objValue;
     }
 
-    public Box createMfhd(long j2, long j3, Track track, int i2) {
+    public Box createMfhd(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
             MovieFragmentHeaderBox movieFragmentHeaderBox = new MovieFragmentHeaderBox();
-            movieFragmentHeaderBox.setSequenceNumber(i2);
+            movieFragmentHeaderBox.setSequenceNumber(i);
             return movieFragmentHeaderBox;
         }
         return (Box) invokeCommon.objValue;
@@ -404,13 +403,13 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeLL.objValue;
     }
 
-    public Box createMoof(long j2, long j3, Track track, int i2) {
+    public Box createMoof(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
             MovieFragmentBox movieFragmentBox = new MovieFragmentBox();
-            movieFragmentBox.addBox(createMfhd(j2, j3, track, i2));
-            movieFragmentBox.addBox(createTraf(j2, j3, track, i2));
+            movieFragmentBox.addBox(createMfhd(j, j2, track, i));
+            movieFragmentBox.addBox(createTraf(j, j2, track, i));
             TrackRunBox trackRunBox = movieFragmentBox.getTrackRunBoxes().get(0);
             trackRunBox.setDataOffset(1);
             trackRunBox.setDataOffset((int) (movieFragmentBox.getSize() + 8));
@@ -425,23 +424,23 @@ public class FragmentedMp4Builder implements Mp4Builder {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, movie)) == null) {
             List<Box> linkedList = new LinkedList<>();
             HashMap hashMap = new HashMap();
-            int i2 = 0;
+            int i = 0;
             for (Track track : movie.getTracks()) {
                 long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
                 hashMap.put(track, sampleNumbers);
-                i2 = Math.max(i2, sampleNumbers.length);
+                i = Math.max(i, sampleNumbers.length);
             }
-            int i3 = 1;
-            int i4 = 0;
-            while (i4 < i2) {
-                int i5 = i3;
-                for (Track track2 : sortTracksInSequence(movie.getTracks(), i4, hashMap)) {
+            int i2 = 1;
+            int i3 = 0;
+            while (i3 < i) {
+                int i4 = i2;
+                for (Track track2 : sortTracksInSequence(movie.getTracks(), i3, hashMap)) {
                     if (getAllowedHandlers().isEmpty() || getAllowedHandlers().contains(track2.getHandler())) {
-                        i5 = createFragment(linkedList, track2, (long[]) hashMap.get(track2), i4, i5);
+                        i4 = createFragment(linkedList, track2, (long[]) hashMap.get(track2), i3, i4);
                     }
                 }
-                i4++;
-                i3 = i5;
+                i3++;
+                i2 = i4;
             }
             return linkedList;
         }
@@ -493,15 +492,15 @@ public class FragmentedMp4Builder implements Mp4Builder {
             movieHeaderBox.setVersion(1);
             movieHeaderBox.setCreationTime(getDate());
             movieHeaderBox.setModificationTime(getDate());
-            long j2 = 0;
+            long j = 0;
             movieHeaderBox.setDuration(0L);
             movieHeaderBox.setTimescale(movie.getTimescale());
             for (Track track : movie.getTracks()) {
-                if (j2 < track.getTrackMetaData().getTrackId()) {
-                    j2 = track.getTrackMetaData().getTrackId();
+                if (j < track.getTrackMetaData().getTrackId()) {
+                    j = track.getTrackMetaData().getTrackId();
                 }
             }
-            movieHeaderBox.setNextTrackId(j2 + 1);
+            movieHeaderBox.setNextTrackId(j + 1);
             return movieHeaderBox;
         }
         return (Box) invokeL.objValue;
@@ -509,7 +508,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
     public Box createPdin(Movie movie) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Iterator<Sample> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, movie)) == null) {
@@ -517,16 +516,16 @@ public class FragmentedMp4Builder implements Mp4Builder {
             LinkedList linkedList = new LinkedList();
             Iterator<Track> it2 = movie.getTracks().iterator();
             double d2 = 0.0d;
-            long j3 = 0;
+            long j2 = 0;
             while (true) {
-                j2 = 10000;
+                j = 10000;
                 if (!it2.hasNext()) {
                     break;
                 }
                 Track next = it2.next();
                 long duration = next.getDuration() / next.getTrackMetaData().getTimescale();
-                if (duration > j3) {
-                    j3 = duration;
+                if (duration > j2) {
+                    j2 = duration;
                 }
                 List<Sample> samples = next.getSamples();
                 if (samples.size() < 10000) {
@@ -534,20 +533,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
                         d2 += it.next().getSize();
                     }
                 } else {
-                    long j4 = 0;
-                    for (int i2 = 0; i2 < 10000; i2++) {
-                        j4 += samples.get(i2).getSize();
+                    long j3 = 0;
+                    for (int i = 0; i < 10000; i++) {
+                        j3 += samples.get(i).getSize();
                     }
-                    d2 += (j4 * samples.size()) / 10000;
+                    d2 += (j3 * samples.size()) / 10000;
                 }
             }
-            double d3 = j3;
+            double d3 = j2;
             double d4 = (d2 * 1.2d) / d3;
             do {
-                long round = Math.round(((d4 * d3) / j2) - d3) * 1000;
-                linkedList.add(new ProgressiveDownloadInformationBox.Entry(j2, round > 0 ? round + 3000 : 0L));
-                j2 *= 2;
-            } while (d4 > j2);
+                long round = Math.round(((d4 * d3) / j) - d3) * 1000;
+                linkedList.add(new ProgressiveDownloadInformationBox.Entry(j, round > 0 ? round + 3000 : 0L));
+                j *= 2;
+            } while (d4 > j);
             progressiveDownloadInformationBox.setEntries(linkedList);
             return progressiveDownloadInformationBox;
         }
@@ -576,27 +575,27 @@ public class FragmentedMp4Builder implements Mp4Builder {
         }
     }
 
-    public TrackFragmentBaseMediaDecodeTimeBox createTfdt(long j2, Track track) {
+    public TrackFragmentBaseMediaDecodeTimeBox createTfdt(long j, Track track) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j2, track)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048596, this, j, track)) == null) {
             TrackFragmentBaseMediaDecodeTimeBox trackFragmentBaseMediaDecodeTimeBox = new TrackFragmentBaseMediaDecodeTimeBox();
             trackFragmentBaseMediaDecodeTimeBox.setVersion(1);
             long[] sampleDurations = track.getSampleDurations();
-            long j3 = 0;
-            for (int i2 = 1; i2 < j2; i2++) {
-                j3 += sampleDurations[i2];
+            long j2 = 0;
+            for (int i = 1; i < j; i++) {
+                j2 += sampleDurations[i];
             }
-            trackFragmentBaseMediaDecodeTimeBox.setBaseMediaDecodeTime(j3);
+            trackFragmentBaseMediaDecodeTimeBox.setBaseMediaDecodeTime(j2);
             return trackFragmentBaseMediaDecodeTimeBox;
         }
         return (TrackFragmentBaseMediaDecodeTimeBox) invokeJL.objValue;
     }
 
-    public Box createTfhd(long j2, long j3, Track track, int i2) {
+    public Box createTfhd(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
             TrackFragmentHeaderBox trackFragmentHeaderBox = new TrackFragmentHeaderBox();
             trackFragmentHeaderBox.setDefaultSampleFlags(new SampleFlags());
             trackFragmentHeaderBox.setBaseDataOffset(-1L);
@@ -613,9 +612,9 @@ public class FragmentedMp4Builder implements Mp4Builder {
         LinkedList linkedList;
         TrackExtendsBox trackExtendsBox;
         Iterator<Box> it;
+        int i;
         int i2;
         int i3;
-        int i4;
         List list;
         List list2;
         Box box;
@@ -637,27 +636,27 @@ public class FragmentedMp4Builder implements Mp4Builder {
                 }
             }
             Iterator<Box> it3 = container.getBoxes().iterator();
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
             while (it3.hasNext()) {
                 Box next = it3.next();
                 if (next instanceof MovieFragmentBox) {
                     List boxes = ((MovieFragmentBox) next).getBoxes(TrackFragmentBox.class);
+                    int i4 = 0;
                     int i5 = 0;
-                    int i6 = 0;
-                    while (i6 < boxes.size()) {
-                        TrackFragmentBox trackFragmentBox = (TrackFragmentBox) boxes.get(i6);
+                    while (i5 < boxes.size()) {
+                        TrackFragmentBox trackFragmentBox = (TrackFragmentBox) boxes.get(i5);
                         if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == track.getTrackMetaData().getTrackId()) {
                             List boxes2 = trackFragmentBox.getBoxes(TrackRunBox.class);
-                            int i7 = 0;
-                            while (i7 < boxes2.size()) {
+                            int i6 = 0;
+                            while (i6 < boxes2.size()) {
                                 LinkedList linkedList4 = new LinkedList();
-                                TrackRunBox trackRunBox = (TrackRunBox) boxes2.get(i7);
-                                long j4 = j3;
-                                int i8 = 0;
-                                while (i8 < trackRunBox.getEntries().size()) {
-                                    TrackRunBox.Entry entry = trackRunBox.getEntries().get(i8);
-                                    if (i8 == 0 && trackRunBox.isFirstSampleFlagsPresent()) {
+                                TrackRunBox trackRunBox = (TrackRunBox) boxes2.get(i6);
+                                long j3 = j2;
+                                int i7 = 0;
+                                while (i7 < trackRunBox.getEntries().size()) {
+                                    TrackRunBox.Entry entry = trackRunBox.getEntries().get(i7);
+                                    if (i7 == 0 && trackRunBox.isFirstSampleFlagsPresent()) {
                                         defaultSampleFlags = trackRunBox.getFirstSampleFlags();
                                     } else if (trackRunBox.isSampleFlagsPresent()) {
                                         defaultSampleFlags = entry.getSampleFlags();
@@ -672,29 +671,29 @@ public class FragmentedMp4Builder implements Mp4Builder {
                                         linkedList = linkedList3;
                                         trackExtendsBox = trackExtendsBox2;
                                         it = it3;
-                                        i2 = i8;
-                                        i3 = i7;
-                                        i4 = i6;
+                                        i = i7;
+                                        i2 = i6;
+                                        i3 = i5;
                                         list = boxes2;
                                         list2 = boxes;
                                         box = next;
                                         linkedList2 = linkedList4;
-                                        linkedList2.add(new TrackFragmentRandomAccessBox.Entry(j4, j2, i6 + 1, i7 + 1, i8 + 1));
+                                        linkedList2.add(new TrackFragmentRandomAccessBox.Entry(j3, j, i5 + 1, i6 + 1, i7 + 1));
                                     } else {
                                         trackFragmentRandomAccessBox = trackFragmentRandomAccessBox2;
                                         linkedList = linkedList3;
                                         trackExtendsBox = trackExtendsBox2;
                                         it = it3;
-                                        i2 = i8;
-                                        i3 = i7;
+                                        i = i7;
+                                        i2 = i6;
                                         linkedList2 = linkedList4;
-                                        i4 = i6;
+                                        i3 = i5;
                                         list = boxes2;
                                         list2 = boxes;
                                         box = next;
                                     }
-                                    j4 += entry.getSampleDuration();
-                                    i8 = i2 + 1;
+                                    j3 += entry.getSampleDuration();
+                                    i7 = i + 1;
                                     boxes = list2;
                                     linkedList4 = linkedList2;
                                     trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox;
@@ -702,33 +701,33 @@ public class FragmentedMp4Builder implements Mp4Builder {
                                     trackExtendsBox2 = trackExtendsBox;
                                     it3 = it;
                                     next = box;
-                                    i7 = i3;
-                                    i6 = i4;
+                                    i6 = i2;
+                                    i5 = i3;
                                     boxes2 = list;
-                                    i5 = 0;
+                                    i4 = 0;
                                 }
                                 if (linkedList4.size() == trackRunBox.getEntries().size() && trackRunBox.getEntries().size() > 0) {
-                                    linkedList3.add((TrackFragmentRandomAccessBox.Entry) linkedList4.get(i5));
+                                    linkedList3.add((TrackFragmentRandomAccessBox.Entry) linkedList4.get(i4));
                                 } else {
                                     linkedList3.addAll(linkedList4);
                                 }
-                                i7++;
-                                j3 = j4;
+                                i6++;
+                                j2 = j3;
                             }
                             continue;
                         }
-                        i6++;
+                        i5++;
                         boxes = boxes;
                         trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
                         linkedList3 = linkedList3;
                         trackExtendsBox2 = trackExtendsBox2;
                         it3 = it3;
                         next = next;
-                        i5 = 0;
+                        i4 = 0;
                     }
                     continue;
                 }
-                j2 += next.getSize();
+                j += next.getSize();
                 trackFragmentRandomAccessBox2 = trackFragmentRandomAccessBox2;
                 linkedList3 = linkedList3;
                 trackExtendsBox2 = trackExtendsBox2;
@@ -762,14 +761,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeLL.objValue;
     }
 
-    public Box createTraf(long j2, long j3, Track track, int i2) {
+    public Box createTraf(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
             TrackFragmentBox trackFragmentBox = new TrackFragmentBox();
-            trackFragmentBox.addBox(createTfhd(j2, j3, track, i2));
-            trackFragmentBox.addBox(createTfdt(j2, track));
-            trackFragmentBox.addBox(createTrun(j2, j3, track, i2));
+            trackFragmentBox.addBox(createTfhd(j, j2, track, i));
+            trackFragmentBox.addBox(createTfdt(j, track));
+            trackFragmentBox.addBox(createTrun(j, j2, track, i));
             return trackFragmentBox;
         }
         return (Box) invokeCommon.objValue;
@@ -813,44 +812,44 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (Box) invokeLL.objValue;
     }
 
-    public TrackRunBox createTrun(long j2, long j3, Track track, int i2) {
+    public TrackRunBox createTrun(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
             TrackRunBox trackRunBox = new TrackRunBox();
-            long[] sampleSizes = getSampleSizes(j2, j3, track, i2);
+            long[] sampleSizes = getSampleSizes(j, j2, track, i);
             trackRunBox.setSampleDurationPresent(true);
             trackRunBox.setSampleSizePresent(true);
-            ArrayList arrayList = new ArrayList(CastUtils.l2i(j3 - j2));
+            ArrayList arrayList = new ArrayList(CastUtils.l2i(j2 - j));
             List<CompositionTimeToSample.Entry> compositionTimeEntries = track.getCompositionTimeEntries();
             CompositionTimeToSample.Entry[] entryArr = (compositionTimeEntries == null || compositionTimeEntries.size() <= 0) ? null : (CompositionTimeToSample.Entry[]) compositionTimeEntries.toArray(new CompositionTimeToSample.Entry[compositionTimeEntries.size()]);
             long count = entryArr != null ? entryArr[0].getCount() : -1;
             trackRunBox.setSampleCompositionTimeOffsetPresent(count > 0);
-            int i3 = 0;
-            for (long j4 = 1; j4 < j2; j4++) {
+            int i2 = 0;
+            for (long j3 = 1; j3 < j; j3++) {
                 if (entryArr != null) {
                     count--;
-                    if (count == 0 && entryArr.length - i3 > 1) {
-                        i3++;
-                        count = entryArr[i3].getCount();
+                    if (count == 0 && entryArr.length - i2 > 1) {
+                        i2++;
+                        count = entryArr[i2].getCount();
                     }
                 }
             }
             boolean z = ((track.getSampleDependencies() == null || track.getSampleDependencies().isEmpty()) && (track.getSyncSamples() == null || track.getSyncSamples().length == 0)) ? false : true;
             trackRunBox.setSampleFlagsPresent(z);
-            for (int i4 = 0; i4 < sampleSizes.length; i4++) {
+            for (int i3 = 0; i3 < sampleSizes.length; i3++) {
                 TrackRunBox.Entry entry = new TrackRunBox.Entry();
-                entry.setSampleSize(sampleSizes[i4]);
+                entry.setSampleSize(sampleSizes[i3]);
                 if (z) {
                     SampleFlags sampleFlags = new SampleFlags();
                     if (track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) {
-                        SampleDependencyTypeBox.Entry entry2 = track.getSampleDependencies().get(i4);
+                        SampleDependencyTypeBox.Entry entry2 = track.getSampleDependencies().get(i3);
                         sampleFlags.setSampleDependsOn(entry2.getSampleDependsOn());
                         sampleFlags.setSampleIsDependedOn(entry2.getSampleIsDependentOn());
                         sampleFlags.setSampleHasRedundancy(entry2.getSampleHasRedundancy());
                     }
                     if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
-                        if (Arrays.binarySearch(track.getSyncSamples(), j2 + i4) >= 0) {
+                        if (Arrays.binarySearch(track.getSyncSamples(), j + i3) >= 0) {
                             sampleFlags.setSampleIsDifferenceSample(false);
                             sampleFlags.setSampleDependsOn(2);
                         } else {
@@ -860,13 +859,13 @@ public class FragmentedMp4Builder implements Mp4Builder {
                     }
                     entry.setSampleFlags(sampleFlags);
                 }
-                entry.setSampleDuration(track.getSampleDurations()[CastUtils.l2i((j2 + i4) - 1)]);
+                entry.setSampleDuration(track.getSampleDurations()[CastUtils.l2i((j + i3) - 1)]);
                 if (entryArr != null) {
-                    entry.setSampleCompositionTimeOffset(entryArr[i3].getOffset());
+                    entry.setSampleCompositionTimeOffset(entryArr[i2].getOffset());
                     count--;
-                    if (count == 0 && entryArr.length - i3 > 1) {
-                        i3++;
-                        count = entryArr[i3].getCount();
+                    if (count == 0 && entryArr.length - i2 > 1) {
+                        i2++;
+                        count = entryArr[i2].getCount();
                     }
                 }
                 arrayList.add(entry);
@@ -895,25 +894,25 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.intersectionFinder : (FragmentIntersectionFinder) invokeV.objValue;
     }
 
-    public long[] getSampleSizes(long j2, long j3, Track track, int i2) {
+    public long[] getSampleSizes(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) {
-            List<Sample> samples = getSamples(j2, j3, track, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) {
+            List<Sample> samples = getSamples(j, j2, track, i);
             int size = samples.size();
             long[] jArr = new long[size];
-            for (int i3 = 0; i3 < size; i3++) {
-                jArr[i3] = samples.get(i3).getSize();
+            for (int i2 = 0; i2 < size; i2++) {
+                jArr[i2] = samples.get(i2).getSize();
             }
             return jArr;
         }
         return (long[]) invokeCommon.objValue;
     }
 
-    public List<Sample> getSamples(long j2, long j3, Track track, int i2) {
+    public List<Sample> getSamples(long j, long j2, Track track, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), track, Integer.valueOf(i2)})) == null) ? track.getSamples().subList(CastUtils.l2i(j2) - 1, CastUtils.l2i(j3) - 1) : (List) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), track, Integer.valueOf(i)})) == null) ? track.getSamples().subList(CastUtils.l2i(j) - 1, CastUtils.l2i(j2) - 1) : (List) invokeCommon.objValue;
     }
 
     public void setIntersectionFinder(FragmentIntersectionFinder fragmentIntersectionFinder) {
@@ -923,12 +922,12 @@ public class FragmentedMp4Builder implements Mp4Builder {
         }
     }
 
-    public List<Track> sortTracksInSequence(List<Track> list, int i2, Map<Track, long[]> map) {
+    public List<Track> sortTracksInSequence(List<Track> list, int i, Map<Track, long[]> map) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048610, this, list, i2, map)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048610, this, list, i, map)) == null) {
             LinkedList linkedList = new LinkedList(list);
-            Collections.sort(linkedList, new Comparator<Track>(this, map, i2) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1
+            Collections.sort(linkedList, new Comparator<Track>(this, map, i) { // from class: com.googlecode.mp4parser.authoring.builder.FragmentedMp4Builder.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FragmentedMp4Builder this$0;
@@ -940,11 +939,11 @@ public class FragmentedMp4Builder implements Mp4Builder {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, map, Integer.valueOf(i2)};
+                        Object[] objArr = {this, map, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -952,7 +951,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
                     }
                     this.this$0 = this;
                     this.val$intersectionMap = map;
-                    this.val$cycle = i2;
+                    this.val$cycle = i;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -961,19 +960,19 @@ public class FragmentedMp4Builder implements Mp4Builder {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, track, track2)) == null) {
-                        long j2 = ((long[]) this.val$intersectionMap.get(track))[this.val$cycle];
-                        long j3 = ((long[]) this.val$intersectionMap.get(track2))[this.val$cycle];
+                        long j = ((long[]) this.val$intersectionMap.get(track))[this.val$cycle];
+                        long j2 = ((long[]) this.val$intersectionMap.get(track2))[this.val$cycle];
                         long[] sampleDurations = track.getSampleDurations();
                         long[] sampleDurations2 = track2.getSampleDurations();
+                        long j3 = 0;
+                        for (int i2 = 1; i2 < j; i2++) {
+                            j3 += sampleDurations[i2 - 1];
+                        }
                         long j4 = 0;
                         for (int i3 = 1; i3 < j2; i3++) {
-                            j4 += sampleDurations[i3 - 1];
+                            j4 += sampleDurations2[i3 - 1];
                         }
-                        long j5 = 0;
-                        for (int i4 = 1; i4 < j3; i4++) {
-                            j5 += sampleDurations2[i4 - 1];
-                        }
-                        return (int) (((j4 / track.getTrackMetaData().getTimescale()) - (j5 / track2.getTrackMetaData().getTimescale())) * 100.0d);
+                        return (int) (((j3 / track.getTrackMetaData().getTimescale()) - (j4 / track2.getTrackMetaData().getTimescale())) * 100.0d);
                     }
                     return invokeLL.intValue;
                 }

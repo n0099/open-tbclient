@@ -34,9 +34,9 @@ public class DatagramSocketWrapper extends Socket {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {datagramSocket, fileDescriptor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +65,9 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void bind(InetAddress inetAddress, int i2) throws IOException {
+        public void bind(InetAddress inetAddress, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inetAddress, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
@@ -81,9 +81,9 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void connect(String str, int i2) throws IOException {
+        public void connect(String str, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
@@ -107,10 +107,10 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketOptions
-        public Object getOption(int i2) throws SocketException {
+        public Object getOption(int i) throws SocketException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 throw new UnsupportedOperationException();
             }
             return invokeI.objValue;
@@ -127,41 +127,41 @@ public class DatagramSocketWrapper extends Socket {
         }
 
         @Override // java.net.SocketImpl
-        public void listen(int i2) throws IOException {
+        public void listen(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
 
         @Override // java.net.SocketImpl
-        public void sendUrgentData(int i2) throws IOException {
+        public void sendUrgentData(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
 
         @Override // java.net.SocketOptions
-        public void setOption(int i2, Object obj) throws SocketException {
+        public void setOption(int i, Object obj) throws SocketException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048589, this, i2, obj) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048589, this, i, obj) == null) {
                 throw new UnsupportedOperationException();
             }
         }
 
         @Override // java.net.SocketImpl
-        public void connect(InetAddress inetAddress, int i2) throws IOException {
+        public void connect(InetAddress inetAddress, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, inetAddress, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048581, this, inetAddress, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
 
         @Override // java.net.SocketImpl
-        public void connect(SocketAddress socketAddress, int i2) throws IOException {
+        public void connect(SocketAddress socketAddress, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, socketAddress, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048582, this, socketAddress, i) == null) {
                 throw new UnsupportedOperationException();
             }
         }
@@ -176,9 +176,9 @@ public class DatagramSocketWrapper extends Socket {
             newInitContext.initArgs = r2;
             Object[] objArr = {datagramSocket, fileDescriptor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SocketImpl) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

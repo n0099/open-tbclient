@@ -10,7 +10,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,9 +59,9 @@ public class SubTitleCreater {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((List) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -78,9 +78,9 @@ public class SubTitleCreater {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -100,8 +100,8 @@ public class SubTitleCreater {
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap createSubtitleBitmap(SubTitleUnit subTitleUnit) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, subTitleUnit)) == null) {
             if (this.mVideoWidth <= 0 || this.mSubTitleY <= 0 || TextUtils.isEmpty(subTitleUnit.line)) {
@@ -110,7 +110,7 @@ public class SubTitleCreater {
             }
             Bitmap createBitmap = Bitmap.createBitmap(this.mVideoWidth, this.mSubTitleY, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
-            int i4 = 1;
+            int i3 = 1;
             Paint paint = new Paint(1);
             paint.setShadowLayer(2.0f, 0.0f, 2.0f, this.mShadowColor);
             if (subTitleUnit.textColor == 0) {
@@ -125,15 +125,15 @@ public class SubTitleCreater {
             if (subTitleUnit.engTextSize == 0.0f) {
                 subTitleUnit.engTextSize = this.mDefaultEngTextSize;
             }
-            int i5 = 0;
+            int i4 = 0;
             if (!this.mIsNeedEng || TextUtils.isEmpty(subTitleUnit.engLine)) {
-                i4 = 0;
+                i3 = 0;
             } else {
                 paint.setColor(subTitleUnit.engTextColor);
                 paint.setTextSize(subTitleUnit.engTextSize);
                 float measureText = paint.measureText(subTitleUnit.engLine);
-                int i6 = this.mVideoWidth;
-                if (measureText > (i6 - this.mMinLeftPadding) - this.mMinRightPadding) {
+                int i5 = this.mVideoWidth;
+                if (measureText > (i5 - this.mMinLeftPadding) - this.mMinRightPadding) {
                     canvas.save();
                     canvas.translate(this.mMinLeftPadding, (this.mSubTitleY - this.mBottomPadding) - (subTitleUnit.engTextSize * 2.0f));
                     TextPaint textPaint = new TextPaint();
@@ -148,34 +148,34 @@ public class SubTitleCreater {
                         String substring = subTitleUnit.engLine.substring(0, staticLayout.getLineEnd(1));
                         staticLayout = new StaticLayout(substring, 0, substring.length(), textPaint, (canvas.getWidth() - this.mMinLeftPadding) - this.mMinRightPadding, Layout.Alignment.ALIGN_CENTER, 0.9f, 0.0f, false, TextUtils.TruncateAt.END, (canvas.getWidth() - this.mMinLeftPadding) - this.mMinRightPadding);
                     }
-                    i5 = staticLayout.getHeight();
+                    i4 = staticLayout.getHeight();
                     staticLayout.draw(canvas);
                     canvas.restore();
-                    i4 = lineCount;
+                    i3 = lineCount;
                 } else {
-                    i5 = (int) subTitleUnit.engTextSize;
-                    canvas.drawText(subTitleUnit.engLine, (i6 - measureText) / 2.0f, this.mSubTitleY - this.mBottomPadding, paint);
+                    i4 = (int) subTitleUnit.engTextSize;
+                    canvas.drawText(subTitleUnit.engLine, (i5 - measureText) / 2.0f, this.mSubTitleY - this.mBottomPadding, paint);
                 }
             }
-            if (i4 == 0) {
-                i2 = this.mSubTitleY;
-                i3 = this.mBottomPadding;
+            if (i3 == 0) {
+                i = this.mSubTitleY;
+                i2 = this.mBottomPadding;
             } else {
-                i2 = (this.mSubTitleY - this.mBottomPadding) - i5;
-                i3 = this.mLinePadding;
+                i = (this.mSubTitleY - this.mBottomPadding) - i4;
+                i2 = this.mLinePadding;
             }
-            int i7 = i2 - i3;
+            int i6 = i - i2;
             paint.setColor(subTitleUnit.textColor);
             paint.setTextSize(subTitleUnit.textSize);
             float measureText2 = paint.measureText(subTitleUnit.line);
-            int i8 = this.mVideoWidth;
-            int i9 = this.mMinLeftPadding;
-            int i10 = (measureText2 > ((i8 - i9) - this.mMinRightPadding) ? 1 : (measureText2 == ((i8 - i9) - this.mMinRightPadding) ? 0 : -1));
+            int i7 = this.mVideoWidth;
+            int i8 = this.mMinLeftPadding;
+            int i9 = (measureText2 > ((i7 - i8) - this.mMinRightPadding) ? 1 : (measureText2 == ((i7 - i8) - this.mMinRightPadding) ? 0 : -1));
             String str2 = subTitleUnit.line;
-            if (i10 > 0) {
-                canvas.drawText(str2, i9, i7, paint);
+            if (i9 > 0) {
+                canvas.drawText(str2, i8, i6, paint);
             } else {
-                canvas.drawText(str2, (i8 - measureText2) / 2.0f, i7, paint);
+                canvas.drawText(str2, (i7 - measureText2) / 2.0f, i6, paint);
             }
             return createBitmap;
         }
@@ -240,16 +240,16 @@ public class SubTitleCreater {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMinRightPadding : invokeV.intValue;
     }
 
-    public SubTitleUnit getSubTitle(long j2) {
+    public SubTitleUnit getSubTitle(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit : list) {
-                if (j2 >= subTitleUnit.startTime && j2 <= subTitleUnit.endTime) {
+                if (j >= subTitleUnit.startTime && j <= subTitleUnit.endTime) {
                     synchronized (this.mSubtitleCache) {
                         Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit));
                         if (bitmap != null && !bitmap.isRecycled()) {
@@ -270,7 +270,7 @@ public class SubTitleCreater {
                             arrayList.clear();
                         }
                         if (!this.mIsSync) {
-                            this.mHandler.post(new Runnable(this, subTitleUnit, j2) { // from class: com.baidu.ugc.editvideo.subtitle.SubTitleCreater.1
+                            this.mHandler.post(new Runnable(this, subTitleUnit, j) { // from class: com.baidu.ugc.editvideo.subtitle.SubTitleCreater.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ SubTitleCreater this$0;
@@ -282,11 +282,11 @@ public class SubTitleCreater {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, subTitleUnit, Long.valueOf(j2)};
+                                        Object[] objArr = {this, subTitleUnit, Long.valueOf(j)};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -294,7 +294,7 @@ public class SubTitleCreater {
                                     }
                                     this.this$0 = this;
                                     this.val$subTitleUnit = subTitleUnit;
-                                    this.val$time = j2;
+                                    this.val$time = j;
                                 }
 
                                 @Override // java.lang.Runnable
@@ -315,7 +315,7 @@ public class SubTitleCreater {
                         Bitmap createSubtitleBitmap = createSubtitleBitmap(subTitleUnit);
                         if (createSubtitleBitmap != null && !createSubtitleBitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit), createSubtitleBitmap);
-                            c.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j2);
+                            c.e("subcreater", subTitleUnit.line + "," + subTitleUnit.engLine + "," + j);
                         }
                         SubTitleUnit subTitleUnit3 = new SubTitleUnit();
                         subTitleUnit3.line = subTitleUnit.line;
@@ -357,17 +357,17 @@ public class SubTitleCreater {
         return (SubTitleConfig) invokeV.objValue;
     }
 
-    public SubTitleUnit getSubTitleSync(long j2) {
+    public SubTitleUnit getSubTitleSync(long j) {
         InterceptResult invokeJ;
         SubTitleUnit subTitleUnit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit2 : list) {
-                if (j2 >= subTitleUnit2.startTime && j2 <= subTitleUnit2.endTime) {
+                if (j >= subTitleUnit2.startTime && j <= subTitleUnit2.endTime) {
                     Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
                     if (bitmap == null || bitmap.isRecycled()) {
                         if (!this.mSubtitleCache.isEmpty()) {
@@ -384,7 +384,7 @@ public class SubTitleCreater {
                         bitmap = createSubtitleBitmap(subTitleUnit2);
                         if (bitmap != null && !bitmap.isRecycled()) {
                             this.mSubtitleCache.put(getCacheKey(subTitleUnit2), bitmap);
-                            c.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j2);
+                            c.e("subcreater", subTitleUnit2.line + "," + subTitleUnit2.engLine + "," + j);
                         }
                         subTitleUnit = new SubTitleUnit();
                     } else {
@@ -460,59 +460,59 @@ public class SubTitleCreater {
         }
     }
 
-    public void setBottomPadding(int i2) {
+    public void setBottomPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mBottomPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mBottomPadding = i;
         }
     }
 
-    public void setDefaultChsTextColor(int i2) {
+    public void setDefaultChsTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mDefaultChsTextColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mDefaultChsTextColor = i;
         }
     }
 
-    public void setDefaultChsTextSize(int i2) {
+    public void setDefaultChsTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mDefaultChsTextSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mDefaultChsTextSize = i;
         }
     }
 
-    public void setDefaultEngTextColor(int i2) {
+    public void setDefaultEngTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mDefaultEngTextColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mDefaultEngTextColor = i;
         }
     }
 
-    public void setDefaultEngTextSize(int i2) {
+    public void setDefaultEngTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mDefaultEngTextSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mDefaultEngTextSize = i;
         }
     }
 
-    public void setLinePadding(int i2) {
+    public void setLinePadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mLinePadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mLinePadding = i;
         }
     }
 
-    public void setMinLeftPadding(int i2) {
+    public void setMinLeftPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mMinLeftPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mMinLeftPadding = i;
         }
     }
 
-    public void setMinRightPadding(int i2) {
+    public void setMinRightPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mMinRightPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mMinRightPadding = i;
         }
     }
 
@@ -523,10 +523,10 @@ public class SubTitleCreater {
         }
     }
 
-    public void setShadowColor(int i2) {
+    public void setShadowColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mShadowColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mShadowColor = i;
         }
     }
 
@@ -561,17 +561,17 @@ public class SubTitleCreater {
         }
     }
 
-    public void setSubTitleX(int i2) {
+    public void setSubTitleX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mSubTitleX = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mSubTitleX = i;
         }
     }
 
-    public void setSubTitleY(int i2) {
+    public void setSubTitleY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.mSubTitleY = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mSubTitleY = i;
         }
     }
 
@@ -582,17 +582,17 @@ public class SubTitleCreater {
         }
     }
 
-    public void setVideoHeight(int i2) {
+    public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.mVideoHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.mVideoHeight = i;
         }
     }
 
-    public void setVideoWidth(int i2) {
+    public void setVideoWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.mVideoWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.mVideoWidth = i;
         }
     }
 }

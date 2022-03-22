@@ -42,7 +42,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60718d;
+        public Disposable f45328d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
@@ -66,9 +66,9 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                     newInitContext.initArgs = r2;
                     Object[] objArr = {observer, concatMapDelayErrorObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -102,7 +102,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                     ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver = this.parent;
                     if (concatMapDelayErrorObserver.error.addThrowable(th)) {
                         if (!concatMapDelayErrorObserver.tillTheEnd) {
-                            concatMapDelayErrorObserver.f60718d.dispose();
+                            concatMapDelayErrorObserver.f45328d.dispose();
                         }
                         concatMapDelayErrorObserver.active = false;
                         concatMapDelayErrorObserver.drain();
@@ -129,16 +129,16 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             }
         }
 
-        public ConcatMapDelayErrorObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, boolean z) {
+        public ConcatMapDelayErrorObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, function, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -146,7 +146,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             }
             this.actual = observer;
             this.mapper = function;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.tillTheEnd = z;
             this.error = new AtomicThrowable();
             this.observer = new DelayErrorInnerObserver<>(observer, this);
@@ -157,7 +157,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f60718d.dispose();
+                this.f45328d.dispose();
                 this.observer.dispose();
             }
         }
@@ -215,7 +215,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                                 } catch (Throwable th2) {
                                     Exceptions.throwIfFatal(th2);
                                     this.cancelled = true;
-                                    this.f60718d.dispose();
+                                    this.f45328d.dispose();
                                     simpleQueue.clear();
                                     atomicThrowable.addThrowable(th2);
                                     observer.onError(atomicThrowable.terminate());
@@ -225,7 +225,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                         } catch (Throwable th3) {
                             Exceptions.throwIfFatal(th3);
                             this.cancelled = true;
-                            this.f60718d.dispose();
+                            this.f45328d.dispose();
                             atomicThrowable.addThrowable(th3);
                             observer.onError(atomicThrowable.terminate());
                             return;
@@ -281,8 +281,8 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f60718d, disposable)) {
-                this.f60718d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f45328d, disposable)) {
+                this.f45328d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);
@@ -337,9 +337,9 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                     newInitContext.initArgs = r2;
                     Object[] objArr = {observer, sourceObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -390,16 +390,16 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             }
         }
 
-        public SourceObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, int i2) {
+        public SourceObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2)};
+                Object[] objArr = {observer, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -407,7 +407,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             }
             this.actual = observer;
             this.mapper = function;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.inner = new InnerObserver<>(observer, this);
         }
 
@@ -546,17 +546,17 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableConcatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, int i2, ErrorMode errorMode) {
+    public ObservableConcatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, int i, ErrorMode errorMode) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, function, Integer.valueOf(i2), errorMode};
+            Object[] objArr = {observableSource, function, Integer.valueOf(i), errorMode};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -565,7 +565,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         }
         this.mapper = function;
         this.delayErrors = errorMode;
-        this.bufferSize = Math.max(8, i2);
+        this.bufferSize = Math.max(8, i);
     }
 
     @Override // io.reactivex.Observable

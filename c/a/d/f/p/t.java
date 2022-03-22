@@ -39,9 +39,9 @@ public class t {
                 return null;
             }
             StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                sb.append(a[(bArr[i2] & 240) >>> 4]);
-                sb.append(a[bArr[i2] & 15]);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
             }
             return sb.toString();
         }

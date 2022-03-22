@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ReportInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class ReportInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,17 +121,17 @@ public class ReportInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.view : (String) invokeV.objValue;
     }
 
-    public void setCt(int i2) {
+    public void setCt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.ct = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.ct = i;
         }
     }
 
-    public void setFc(int i2) {
+    public void setFc(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.fc = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.fc = i;
         }
     }
 
@@ -149,10 +149,10 @@ public class ReportInfo {
         }
     }
 
-    public void setLc(int i2) {
+    public void setLc(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.lc = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.lc = i;
         }
     }
 
@@ -184,10 +184,10 @@ public class ReportInfo {
         }
     }
 
-    public void setTt(int i2) {
+    public void setTt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.tt = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.tt = i;
         }
     }
 

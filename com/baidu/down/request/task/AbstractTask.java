@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DF_SEG_SIZE = 524288;
@@ -108,16 +108,16 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
         }
     }
 
-    public AbstractTask(int i2) {
+    public AbstractTask(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -153,7 +153,7 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
         this.mStrRedownload = "";
         this.mPriority = 3;
         this.myContext = null;
-        this.mTaskType = i2;
+        this.mTaskType = i;
     }
 
     public abstract String getDefaultUrl();
@@ -181,15 +181,15 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
 
     public abstract void pend();
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 < 1) {
-                i2 = 1;
-            } else if (i2 > 5) {
-                i2 = 5;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i < 1) {
+                i = 1;
+            } else if (i > 5) {
+                i = 5;
             }
-            this.mPriority = i2;
+            this.mPriority = i;
         }
     }
 
@@ -219,29 +219,29 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abstractTask)) == null) {
-            int i2 = this.mPriority;
-            int i3 = abstractTask.mPriority;
-            if (i2 > i3) {
+            int i = this.mPriority;
+            int i2 = abstractTask.mPriority;
+            if (i > i2) {
                 return -1;
             }
-            if (i2 == i3) {
-                long j2 = this.mLastNotifyBytes;
-                if (j2 > 0) {
-                    long j3 = this.mTotalLength;
-                    if (j3 > 0) {
-                        long j4 = this.mLastNotifySpeed;
-                        if (j4 > 0) {
-                            long j5 = abstractTask.mLastNotifyBytes;
-                            if (j5 > 0) {
-                                long j6 = abstractTask.mTotalLength;
-                                if (j6 > 0) {
-                                    long j7 = abstractTask.mLastNotifySpeed;
-                                    if (j7 > 0) {
-                                        int i4 = (((j3 - j2) / j4) > ((j6 - j5) / j7) ? 1 : (((j3 - j2) / j4) == ((j6 - j5) / j7) ? 0 : -1));
-                                        if (i4 > 0) {
+            if (i == i2) {
+                long j = this.mLastNotifyBytes;
+                if (j > 0) {
+                    long j2 = this.mTotalLength;
+                    if (j2 > 0) {
+                        long j3 = this.mLastNotifySpeed;
+                        if (j3 > 0) {
+                            long j4 = abstractTask.mLastNotifyBytes;
+                            if (j4 > 0) {
+                                long j5 = abstractTask.mTotalLength;
+                                if (j5 > 0) {
+                                    long j6 = abstractTask.mLastNotifySpeed;
+                                    if (j6 > 0) {
+                                        int i3 = (((j2 - j) / j3) > ((j5 - j4) / j6) ? 1 : (((j2 - j) / j3) == ((j5 - j4) / j6) ? 0 : -1));
+                                        if (i3 > 0) {
                                             return 1;
                                         }
-                                        return i4 < 0 ? -1 : 0;
+                                        return i3 < 0 ? -1 : 0;
                                     }
                                 }
                             }
@@ -249,14 +249,14 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                     }
                 }
                 if (this.mTotalLength == 0) {
-                    long j8 = this.mSizeB;
-                    if (j8 > 0 && abstractTask.mTotalLength == 0) {
-                        long j9 = abstractTask.mSizeB;
-                        if (j9 > 0) {
-                            if (j8 > j9) {
+                    long j7 = this.mSizeB;
+                    if (j7 > 0 && abstractTask.mTotalLength == 0) {
+                        long j8 = abstractTask.mSizeB;
+                        if (j8 > 0) {
+                            if (j7 > j8) {
                                 return 1;
                             }
-                            if (j8 < j9) {
+                            if (j7 < j8) {
                                 return -1;
                             }
                         }

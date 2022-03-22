@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.FeedForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FeedForumData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class FeedForumData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -119,31 +119,31 @@ public class FeedForumData implements Serializable {
         }
     }
 
-    public void setIsLike(int i2) {
+    public void setIsLike(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.isLike = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.isLike = i;
         }
     }
 
-    public void setMemberCount(int i2) {
+    public void setMemberCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.memberCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.memberCount = i;
         }
     }
 
-    public void setPos(int i2) {
+    public void setPos(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.pos = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.pos = i;
         }
     }
 
-    public void setPostNum(int i2) {
+    public void setPostNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.postNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.postNum = i;
         }
     }
 

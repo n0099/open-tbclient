@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,18 +32,28 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 public class SelectClassView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f37534b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f37535c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f37536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48597e;
+    public ImageView f37537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoCategoryClassData f48598f;
-    public View mBottomLine;
-    public TextView mCenterContent;
-    public TextView mCenterContentTips;
-    public ImageView mClassTitleSign;
-    public TextView mLeftTitle;
-    public ImageView mRightArrow;
+    public View f37538f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f37539g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public VideoCategoryClassData f37540h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectClassView(Context context) {
@@ -54,19 +64,19 @@ public class SelectClassView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init();
+        b();
     }
 
-    public static final void a(SelectClassView this$0, View view) {
+    public static final void c(SelectClassView this$0, View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -81,10 +91,10 @@ public class SelectClassView extends LinearLayout {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x0046: INVOKE  (r2v6 java.lang.String A[REMOVE]) = (r5v0 com.baidu.tbadk.data.VideoCategoryClassData) type: VIRTUAL call: com.baidu.tbadk.data.VideoCategoryClassData.getFirstClass():java.lang.String)), (wrap: char : ?: SGET   org.aspectj.runtime.reflect.SignatureImpl.SEP char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x0052: INVOKE  (r5v3 java.lang.String A[REMOVE]) = (r5v0 com.baidu.tbadk.data.VideoCategoryClassData) type: VIRTUAL call: com.baidu.tbadk.data.VideoCategoryClassData.getSecondClass():java.lang.String))] */
-    public final void bindData(VideoCategoryClassData videoCategoryClassData) {
+    public final void a(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCategoryClassData) == null) {
-            this.f48598f = videoCategoryClassData;
+            this.f37540h = videoCategoryClassData;
             if (videoCategoryClassData != null) {
                 String firstClass = videoCategoryClassData.getFirstClass();
                 boolean z = true;
@@ -111,11 +121,64 @@ public class SelectClassView extends LinearLayout {
         }
     }
 
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092493);
+            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
+            setMClassTitleSign((ImageView) findViewById);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091229);
+            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
+            setMLeftTitle((TextView) findViewById2);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905d3);
+            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
+            setMCenterContentTips((TextView) findViewById3);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905d1);
+            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
+            setMCenterContent((TextView) findViewById4);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091aa5);
+            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
+            setMRightArrow((ImageView) findViewById5);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ca);
+            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
+            setMBottomLine(findViewById6);
+            d();
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.p0.s4.u.p.z.e
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        SelectClassView.c(SelectClassView.this, view);
+                    }
+                }
+            });
+            a(null);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
+            getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            c d2 = c.d(getMCenterContent());
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X07);
+            d2.v(R.color.CAM_X0105);
+        }
+    }
+
     public final View getMBottomLine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.mBottomLine;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            View view = this.f37538f;
             if (view != null) {
                 return view;
             }
@@ -128,8 +191,8 @@ public class SelectClassView extends LinearLayout {
     public final TextView getMCenterContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TextView textView = this.mCenterContent;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            TextView textView = this.f37536d;
             if (textView != null) {
                 return textView;
             }
@@ -142,8 +205,8 @@ public class SelectClassView extends LinearLayout {
     public final TextView getMCenterContentTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TextView textView = this.mCenterContentTips;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            TextView textView = this.f37535c;
             if (textView != null) {
                 return textView;
             }
@@ -156,8 +219,8 @@ public class SelectClassView extends LinearLayout {
     public final ImageView getMClassTitleSign() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ImageView imageView = this.mClassTitleSign;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ImageView imageView = this.a;
             if (imageView != null) {
                 return imageView;
             }
@@ -170,14 +233,14 @@ public class SelectClassView extends LinearLayout {
     public final boolean getMIsSelectedTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48597e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37539g : invokeV.booleanValue;
     }
 
     public final TextView getMLeftTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TextView textView = this.mLeftTitle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            TextView textView = this.f37534b;
             if (textView != null) {
                 return textView;
             }
@@ -190,8 +253,8 @@ public class SelectClassView extends LinearLayout {
     public final ImageView getMRightArrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ImageView imageView = this.mRightArrow;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ImageView imageView = this.f37537e;
             if (imageView != null) {
                 return imageView;
             }
@@ -204,67 +267,14 @@ public class SelectClassView extends LinearLayout {
     public final VideoCategoryClassData getMVideoCategoryClassData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f48598f : (VideoCategoryClassData) invokeV.objValue;
-    }
-
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_select_class, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.work_publish_class_sign);
-            Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
-            setMClassTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.left_title);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
-            setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.center_content_tips);
-            Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
-            setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.center_content);
-            Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
-            setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.right_arrow);
-            Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
-            setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.bottom_line);
-            Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
-            setMBottomLine(findViewById6);
-            onChangeSkin();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.q4.u.p.z.e
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        SelectClassView.a(SelectClassView.this, view);
-                    }
-                }
-            });
-            bindData(null);
-        }
-    }
-
-    public void onChangeSkin() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
-            SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
-            getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            c d2 = c.d(getMCenterContent());
-            d2.A(R.string.F_X01);
-            d2.z(R.dimen.T_X07);
-            d2.v(R.color.CAM_X0105);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37540h : (VideoCategoryClassData) invokeV.objValue;
     }
 
     public final void setMBottomLine(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
             Intrinsics.checkNotNullParameter(view, "<set-?>");
-            this.mBottomLine = view;
+            this.f37538f = view;
         }
     }
 
@@ -272,7 +282,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContent = textView;
+            this.f37536d = textView;
         }
     }
 
@@ -280,7 +290,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContentTips = textView;
+            this.f37535c = textView;
         }
     }
 
@@ -288,14 +298,14 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.mClassTitleSign = imageView;
+            this.a = imageView;
         }
     }
 
     public final void setMIsSelectedTags(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f48597e = z;
+            this.f37539g = z;
         }
     }
 
@@ -303,7 +313,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mLeftTitle = textView;
+            this.f37534b = textView;
         }
     }
 
@@ -311,14 +321,14 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.mRightArrow = imageView;
+            this.f37537e = imageView;
         }
     }
 
     public final void setMVideoCategoryClassData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, videoCategoryClassData) == null) {
-            this.f48598f = videoCategoryClassData;
+            this.f37540h = videoCategoryClassData;
         }
     }
 
@@ -331,9 +341,9 @@ public class SelectClassView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -341,21 +351,21 @@ public class SelectClassView extends LinearLayout {
                 return;
             }
         }
-        init();
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectClassView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectClassView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -363,6 +373,6 @@ public class SelectClassView extends LinearLayout {
                 return;
             }
         }
-        init();
+        b();
     }
 }

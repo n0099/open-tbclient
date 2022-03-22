@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NetworkFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERMEDIATE_RESULT_PRODUCER_EVENT = "intermediate_result";
@@ -41,9 +41,9 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {pooledByteBufferFactory, byteArrayPool, networkFetcher};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,28 +54,28 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         this.mNetworkFetcher = networkFetcher;
     }
 
-    public static float calculateProgress(int i2, int i3) {
+    public static float calculateProgress(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? i3 > 0 ? i2 / i3 : 1.0f - ((float) Math.exp((-i2) / 50000.0d)) : invokeII.floatValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d)) : invokeII.floatValue;
     }
 
     @Nullable
-    private Map<String, String> getExtraMap(FetchState fetchState, int i2) {
+    private Map<String, String> getExtraMap(FetchState fetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, fetchState, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, fetchState, i)) == null) {
             if (fetchState.getListener().requiresExtraMap(fetchState.getId())) {
-                return this.mNetworkFetcher.getExtraMap(fetchState, i2);
+                return this.mNetworkFetcher.getExtraMap(fetchState, i);
             }
             return null;
         }
         return (Map) invokeLI.objValue;
     }
 
-    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i2, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
+    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLILL(65541, null, pooledByteBufferOutputStream, i2, bytesRange, consumer) != null) {
+        if (interceptable != null && interceptable.invokeLILL(65541, null, pooledByteBufferOutputStream, i, bytesRange, consumer) != null) {
             return;
         }
         CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
@@ -85,7 +85,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
             try {
                 encodedImage2.setBytesRange(bytesRange);
                 encodedImage2.parseMetaData();
-                consumer.onNewResult(encodedImage2, i2);
+                consumer.onNewResult(encodedImage2, i);
                 EncodedImage.closeSafely(encodedImage2);
                 CloseableReference.closeSafely(of);
             } catch (Throwable th) {
@@ -155,14 +155,14 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         }
     }
 
-    public void onResponse(FetchState fetchState, InputStream inputStream, int i2) throws IOException {
+    public void onResponse(FetchState fetchState, InputStream inputStream, int i) throws IOException {
         PooledByteBufferOutputStream newOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, fetchState, inputStream, i2) != null) {
+        if (interceptable != null && interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, fetchState, inputStream, i) != null) {
             return;
         }
-        if (i2 > 0) {
-            newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i2);
+        if (i > 0) {
+            newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i);
         } else {
             newOutputStream = this.mPooledByteBufferFactory.newOutputStream();
         }
@@ -177,7 +177,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                 } else if (read > 0) {
                     newOutputStream.write(bArr, 0, read);
                     maybeHandleIntermediateResult(newOutputStream, fetchState);
-                    fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i2));
+                    fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i));
                 }
             } finally {
                 this.mByteArrayPool.release(bArr);
@@ -205,9 +205,9 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, createFetchState};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -234,13 +234,13 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                 }
 
                 @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
-                public void onResponse(InputStream inputStream, int i2) throws IOException {
+                public void onResponse(InputStream inputStream, int i) throws IOException {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i) == null) {
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.beginSection("NetworkFetcher->onResponse");
                         }
-                        this.this$0.onResponse(this.val$fetchState, inputStream, i2);
+                        this.this$0.onResponse(this.val$fetchState, inputStream, i);
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
                         }

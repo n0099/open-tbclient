@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.w.p.d;
+import c.a.o0.w.p.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,29 +25,25 @@ import java.util.ArrayList;
 public class EmotionTabWidgetView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EmotionTabHorizonScrollView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f31803b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f31804c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f31805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionTabHorizonScrollView f41175e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f41176f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f41177g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f41178h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public EditorTools f41179i;
+    public EditorTools f31806e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionTabWidgetView f41180e;
+        public final /* synthetic */ EmotionTabWidgetView a;
 
         public a(EmotionTabWidgetView emotionTabWidgetView) {
             Interceptable interceptable = $ic;
@@ -56,24 +52,24 @@ public class EmotionTabWidgetView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emotionTabWidgetView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41180e = emotionTabWidgetView;
+            this.a = emotionTabWidgetView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41180e.f41179i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f31806e == null) {
                 return;
             }
-            this.f41180e.f41179i.sendAction(new c.a.q0.w.a(3, -1, null));
+            this.a.f31806e.A(new c.a.o0.w.a(3, -1, null));
         }
     }
 
@@ -81,9 +77,7 @@ public class EmotionTabWidgetView extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionTabWidgetView f41181e;
+        public final /* synthetic */ EmotionTabWidgetView a;
 
         public b(EmotionTabWidgetView emotionTabWidgetView) {
             Interceptable interceptable = $ic;
@@ -92,29 +86,29 @@ public class EmotionTabWidgetView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emotionTabWidgetView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41181e = emotionTabWidgetView;
+            this.a = emotionTabWidgetView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UserCollectManageActivityConfig(this.f41181e.getContext())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UserCollectManageActivityConfig(this.a.getContext())));
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface c {
-        void onTabSelected(int i2);
+        void a(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -126,9 +120,9 @@ public class EmotionTabWidgetView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -136,118 +130,111 @@ public class EmotionTabWidgetView extends LinearLayout {
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 
-    public void addTabWidget(d dVar) {
+    public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f41175e.addTabWidget(dVar);
+            this.a.j(dVar);
         }
     }
 
-    public final void b(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.emotion_tab_widget, (ViewGroup) this, true);
-            this.f41175e = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
-            this.f41176f = (ImageView) findViewById(R.id.face_tab_delete);
-            this.f41177g = (ImageView) findViewById(R.id.face_tab_setting);
-            this.f41178h = findViewById(R.id.vertical_div_line);
-            this.f41176f.setOnClickListener(new a(this));
-            this.f41177g.setOnClickListener(new b(this));
-            this.f41177g.setVisibility(8);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0271, (ViewGroup) this, true);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09095d);
+            this.f31803b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09095b);
+            this.f31804c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09095e);
+            this.f31805d = findViewById(R.id.obfuscated_res_0x7f0922f3);
+            this.f31803b.setOnClickListener(new a(this));
+            this.f31804c.setOnClickListener(new b(this));
+            this.f31804c.setVisibility(8);
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setBackgroundColor(this, R.color.common_color_10255, i2);
-            this.f41175e.onChangeSkin(i2);
-            SkinManager.setImageResource(this.f41176f, R.drawable.emotion_delete, i2);
-            SkinManager.setBackgroundColor(this.f41176f, R.color.common_color_10255, i2);
-            SkinManager.setImageResource(this.f41177g, R.drawable.icon_sett_s, i2);
-            SkinManager.setBackgroundColor(this.f41177g, R.color.common_color_10255, i2);
-            SkinManager.setBackgroundColor(this.f41178h, R.color.common_color_10288, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            SkinManager.setBackgroundColor(this, R.color.common_color_10255, i);
+            this.a.n(i);
+            SkinManager.setImageResource(this.f31803b, R.drawable.emotion_delete, i);
+            SkinManager.setBackgroundColor(this.f31803b, R.color.common_color_10255, i);
+            SkinManager.setImageResource(this.f31804c, R.drawable.icon_sett_s, i);
+            SkinManager.setBackgroundColor(this.f31804c, R.color.common_color_10255, i);
+            SkinManager.setBackgroundColor(this.f31805d, R.color.common_color_10288, i);
         }
     }
 
-    public void removeTabWidget(int i2) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f41175e.removeTabWidget(i2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.o();
         }
     }
 
-    public void reset() {
+    public void setCurrentTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41175e.reset();
-        }
-    }
-
-    public void setCurrentTab(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f41175e.setCurrentTab(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.setCurrentTab(i);
         }
     }
 
     public void setDatas(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.f41175e.setDatas(arrayList);
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            this.a.setDatas(arrayList);
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         EmotionTabHorizonScrollView emotionTabHorizonScrollView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (emotionTabHorizonScrollView = this.f41175e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (emotionTabHorizonScrollView = this.a) == null) {
             return;
         }
-        emotionTabHorizonScrollView.setFrom(i2);
+        emotionTabHorizonScrollView.setFrom(i);
     }
 
     public void setOnDataSelected(EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.f41179i = editorTools;
-            this.f41175e.setEditorTools(editorTools);
+        if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
+            this.f31806e = editorTools;
+            this.a.setEditorTools(editorTools);
         }
     }
 
     public void setOnTabSelectedListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f41175e.setOnTabSelectedListener(cVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.a.setOnTabSelectedListener(cVar);
         }
     }
 
     public void setShowDelete(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.f41176f.setVisibility(0);
+                this.f31803b.setVisibility(0);
             } else {
-                this.f41176f.setVisibility(8);
+                this.f31803b.setVisibility(8);
             }
         }
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f41175e.setTabWidgetBigEmontionVisibility(z);
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.a.setTabWidgetBigEmontionVisibility(z);
         }
     }
 
-    public void setTabWidgetVisibility(int i2, boolean z) {
+    public void setTabWidgetVisibility(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f41175e.setTabWidgetVisibility(i2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.a.setTabWidgetVisibility(i, z);
         }
     }
 
@@ -260,15 +247,15 @@ public class EmotionTabWidgetView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 }

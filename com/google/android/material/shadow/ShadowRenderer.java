@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShadowRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_ALPHA_END = 0;
@@ -71,9 +71,9 @@ public class ShadowRenderer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -82,9 +82,9 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i2, float f2, float f3) {
+    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             boolean z = f3 < 0.0f;
             Path path = this.scratch;
             if (z) {
@@ -98,7 +98,7 @@ public class ShadowRenderer {
                 path.moveTo(rectF.centerX(), rectF.centerY());
                 path.arcTo(rectF, f2, f3);
                 path.close();
-                float f4 = -i2;
+                float f4 = -i;
                 rectF.inset(f4, f4);
                 int[] iArr2 = cornerColors;
                 iArr2[0] = 0;
@@ -110,7 +110,7 @@ public class ShadowRenderer {
             if (width <= 0.0f) {
                 return;
             }
-            float f5 = 1.0f - (i2 / width);
+            float f5 = 1.0f - (i / width);
             float[] fArr = cornerPositions;
             fArr[1] = f5;
             fArr[2] = ((1.0f - f5) / 2.0f) + f5;
@@ -126,11 +126,11 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawEdgeShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i2) {
+    public void drawEdgeShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, rectF, i2) == null) {
-            rectF.bottom += i2;
-            rectF.offset(0.0f, -i2);
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, matrix, rectF, i) == null) {
+            rectF.bottom += i;
+            rectF.offset(0.0f, -i);
             int[] iArr = edgeColors;
             iArr[0] = this.shadowEndColor;
             iArr[1] = this.shadowMiddleColor;
@@ -152,26 +152,26 @@ public class ShadowRenderer {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.shadowPaint : (Paint) invokeV.objValue;
     }
 
-    public void setShadowColor(int i2) {
+    public void setShadowColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.shadowStartColor = ColorUtils.setAlphaComponent(i2, 68);
-            this.shadowMiddleColor = ColorUtils.setAlphaComponent(i2, 20);
-            this.shadowEndColor = ColorUtils.setAlphaComponent(i2, 0);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.shadowStartColor = ColorUtils.setAlphaComponent(i, 68);
+            this.shadowMiddleColor = ColorUtils.setAlphaComponent(i, 20);
+            this.shadowEndColor = ColorUtils.setAlphaComponent(i, 0);
             this.shadowPaint.setColor(this.shadowStartColor);
         }
     }
 
-    public ShadowRenderer(int i2) {
+    public ShadowRenderer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -180,7 +180,7 @@ public class ShadowRenderer {
         this.scratch = new Path();
         this.transparentPaint = new Paint();
         this.shadowPaint = new Paint();
-        setShadowColor(i2);
+        setShadowColor(i);
         this.transparentPaint.setColor(0);
         Paint paint = new Paint(4);
         this.cornerShadowPaint = paint;

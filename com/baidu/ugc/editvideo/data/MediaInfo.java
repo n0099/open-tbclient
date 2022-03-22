@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.data;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.t;
+import c.a.v0.r.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,9 +33,9 @@ public class MediaInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,11 +141,11 @@ public class MediaInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = this.inStepVideoDuration / 1000;
-            long j3 = this.duration / 1000;
+            long j = this.inStepVideoDuration / 1000;
+            long j2 = this.duration / 1000;
             boolean isMore3s = isMore3s();
-            if (j2 > 0) {
-                isMore3s = j3 >= j2 && isMore3s();
+            if (j > 0) {
+                isMore3s = j2 >= j && isMore3s();
             }
             if (t.a) {
                 return isMore3s;
@@ -155,10 +155,10 @@ public class MediaInfo {
         return invokeV.booleanValue;
     }
 
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.duration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.duration = j;
         }
     }
 
@@ -176,17 +176,17 @@ public class MediaInfo {
         }
     }
 
-    public void setInStepVideoDuration(long j2) {
+    public void setInStepVideoDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.inStepVideoDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.inStepVideoDuration = j;
         }
     }
 
-    public void setLastModified(long j2) {
+    public void setLastModified(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.lastModified = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.lastModified = j;
         }
     }
 
@@ -197,10 +197,10 @@ public class MediaInfo {
         }
     }
 
-    public void setRotation(int i2) {
+    public void setRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.rotation = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.rotation = i;
         }
     }
 
@@ -219,10 +219,10 @@ public class MediaInfo {
         }
     }
 
-    public void setVideoHeight(int i2) {
+    public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.videoHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.videoHeight = i;
         }
     }
 
@@ -240,10 +240,10 @@ public class MediaInfo {
         }
     }
 
-    public void setVideoWidth(int i2) {
+    public void setVideoWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.videoWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.videoWidth = i;
         }
     }
 }

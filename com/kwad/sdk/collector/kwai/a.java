@@ -7,7 +7,7 @@ public abstract class a implements b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f54073b;
+    public List<b> f39222b;
 
     public a() {
         this.a = true;
@@ -18,7 +18,7 @@ public abstract class a implements b {
     }
 
     public List<b> a() {
-        return this.f54073b;
+        return this.f39222b;
     }
 
     @Override // com.kwad.sdk.collector.kwai.b

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e extends ContextThemeWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class e extends ContextThemeWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,21 +90,21 @@ public class e extends ContextThemeWrapper {
             String[] databaseList = super.databaseList();
             int length = databaseList.length;
             boolean[] zArr = new boolean[length];
-            int i2 = 0;
-            for (int i3 = 0; i3 < databaseList.length; i3++) {
-                if (databaseList[i3].startsWith(getPluginDirName())) {
-                    zArr[i3] = true;
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < databaseList.length; i2++) {
+                if (databaseList[i2].startsWith(getPluginDirName())) {
+                    zArr[i2] = true;
+                    i++;
                 } else {
-                    zArr[i3] = false;
+                    zArr[i2] = false;
                 }
             }
-            String[] strArr = new String[i2];
-            int i4 = 0;
-            for (int i5 = 0; i5 < length; i5++) {
-                if (zArr[i5]) {
-                    strArr[i4] = databaseList[i5];
-                    i4++;
+            String[] strArr = new String[i];
+            int i3 = 0;
+            for (int i4 = 0; i4 < length; i4++) {
+                if (zArr[i4]) {
+                    strArr[i3] = databaseList[i4];
+                    i3++;
                 }
             }
             return strArr;
@@ -219,14 +219,14 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i2) {
+    public File getDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            if (i2 == 0 && getPluginDirName() != null) {
-                return ensurePrivateDirExists(new File(super.getDir(str, i2), getPluginDirName()));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
+                return ensurePrivateDirExists(new File(super.getDir(str, i), getPluginDirName()));
             }
-            return super.getDir(str, i2);
+            return super.getDir(str, i);
         }
         return (File) invokeLI.objValue;
     }
@@ -261,8 +261,8 @@ public class e extends ContextThemeWrapper {
             }
             File[] externalCacheDirs = super.getExternalCacheDirs();
             File[] fileArr = new File[externalCacheDirs.length];
-            for (int i2 = 0; i2 < externalCacheDirs.length; i2++) {
-                fileArr[i2] = ensurePrivateDirExists(new File(externalCacheDirs[i2], getPluginDirName()));
+            for (int i = 0; i < externalCacheDirs.length; i++) {
+                fileArr[i] = ensurePrivateDirExists(new File(externalCacheDirs[i], getPluginDirName()));
             }
             return fileArr;
         }
@@ -292,8 +292,8 @@ public class e extends ContextThemeWrapper {
             }
             File[] externalFilesDirs = super.getExternalFilesDirs(str);
             File[] fileArr = new File[externalFilesDirs.length];
-            for (int i2 = 0; i2 < externalFilesDirs.length; i2++) {
-                fileArr[i2] = ensurePrivateDirExists(new File(externalFilesDirs[i2], getPluginDirName()));
+            for (int i = 0; i < externalFilesDirs.length; i++) {
+                fileArr[i] = ensurePrivateDirExists(new File(externalFilesDirs[i], getPluginDirName()));
             }
             return fileArr;
         }
@@ -310,8 +310,8 @@ public class e extends ContextThemeWrapper {
             }
             File[] externalMediaDirs = super.getExternalMediaDirs();
             File[] fileArr = new File[externalMediaDirs.length];
-            for (int i2 = 0; i2 < externalMediaDirs.length; i2++) {
-                fileArr[i2] = ensurePrivateDirExists(new File(externalMediaDirs[i2], getPluginDirName()));
+            for (int i = 0; i < externalMediaDirs.length; i++) {
+                fileArr[i] = ensurePrivateDirExists(new File(externalMediaDirs[i], getPluginDirName()));
             }
             return fileArr;
         }
@@ -394,8 +394,8 @@ public class e extends ContextThemeWrapper {
             }
             File[] obbDirs = super.getObbDirs();
             File[] fileArr = new File[obbDirs.length];
-            for (int i2 = 0; i2 < obbDirs.length; i2++) {
-                fileArr[i2] = ensurePrivateDirExists(new File(obbDirs[i2], getPluginDirName()));
+            for (int i = 0; i < obbDirs.length; i++) {
+                fileArr[i] = ensurePrivateDirExists(new File(obbDirs[i], getPluginDirName()));
             }
             return fileArr;
         }
@@ -421,14 +421,14 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i2) {
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i2)) == null) {
-            if (i2 == 0 && getPluginDirName() != null) {
-                return super.getSharedPreferences(makeSubName(str), i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
+                return super.getSharedPreferences(makeSubName(str), i);
             }
-            return super.getSharedPreferences(str, i2);
+            return super.getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }
@@ -460,43 +460,43 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i2) {
+    public FileOutputStream openFileOutput(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i2)) == null) {
-            if (i2 == 0 && getPluginDirName() != null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
                 return new FileOutputStream(makeFilename(getFilesDir(), str), false);
             }
-            return super.openFileOutput(str, i2);
+            return super.openFileOutput(str, i);
         }
         return (FileOutputStream) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i2, cursorFactory)) == null) {
-            if (i2 == 0 && getPluginDirName() != null) {
-                return super.openOrCreateDatabase(makeSubName(str), i2, cursorFactory);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i, cursorFactory)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
+                return super.openOrCreateDatabase(makeSubName(str), i, cursorFactory);
             }
-            return super.openOrCreateDatabase(str, i2, cursorFactory);
+            return super.openOrCreateDatabase(str, i, cursorFactory);
         }
         return (SQLiteDatabase) invokeLIL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context, int i2) {
-        super(context, i2);
+    public e(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -508,14 +508,14 @@ public class e extends ContextThemeWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, str, i2, cursorFactory, databaseErrorHandler)) == null) {
-            if (i2 == 0 && getPluginDirName() != null) {
-                return super.openOrCreateDatabase(makeSubName(str), i2, cursorFactory, databaseErrorHandler);
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, str, i, cursorFactory, databaseErrorHandler)) == null) {
+            if (i == 0 && getPluginDirName() != null) {
+                return super.openOrCreateDatabase(makeSubName(str), i, cursorFactory, databaseErrorHandler);
             }
-            return super.openOrCreateDatabase(str, i2, cursorFactory, databaseErrorHandler);
+            return super.openOrCreateDatabase(str, i, cursorFactory, databaseErrorHandler);
         }
         return (SQLiteDatabase) invokeLILL.objValue;
     }
@@ -530,9 +530,9 @@ public class e extends ContextThemeWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, theme};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (Resources.Theme) objArr2[1]);
                 newInitContext.thisArg = this;

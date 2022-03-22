@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.c0.b.d;
-import c.a.r0.c0.b.f;
+import c.a.p0.e0.b.d;
+import c.a.p0.e0.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,33 +30,29 @@ public class NewAnounceLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: d  reason: collision with root package name */
+    public float f31574d;
+
     /* renamed from: e  reason: collision with root package name */
-    public float f40900e;
+    public Context f31575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f40901f;
+    public View f31576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f40902g;
+    public TextView f31577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40903h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f40904i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f40905j;
-    public TextView k;
-    public View.OnClickListener l;
+    public View f31578h;
+    public TextView i;
+    public TextView j;
+    public View.OnClickListener k;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewAnounceLayout f40906e;
+        public final /* synthetic */ NewAnounceLayout a;
 
         public a(NewAnounceLayout newAnounceLayout) {
             Interceptable interceptable = $ic;
@@ -65,15 +61,15 @@ public class NewAnounceLayout extends CardBasicLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newAnounceLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40906e = newAnounceLayout;
+            this.a = newAnounceLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -81,12 +77,12 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                d dVar = this.f40906e.mElectionData;
-                if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(this.f40906e.mElectionData.b()) || this.f40906e.mElectionData.f() == 2) {
+                d dVar = this.a.f31573c;
+                if (dVar == null || dVar.k() == 0 || TextUtils.isEmpty(this.a.f31573c.b()) || this.a.f31573c.f() == 2) {
                     return;
                 }
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f40906e.f40901f);
-                pbActivityConfig.createNormalCfg(this.f40906e.mElectionData.k() + "", (String) null, (String) null, true);
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.f31575e);
+                pbActivityConfig.createNormalCfg(this.a.f31573c.k() + "", (String) null, (String) null, true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
             }
         }
@@ -101,9 +97,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,102 +112,102 @@ public class NewAnounceLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View findViewById = findViewById(R.id.announce_content);
-            this.f40902g = findViewById;
-            findViewById.setOnClickListener(this.l);
-            this.f40903h = (TextView) findViewById(R.id.first_line_tv);
-            this.f40904i = findViewById(R.id.second_content);
-            this.f40905j = (TextView) findViewById(R.id.second_line_tv);
-            this.k = (TextView) findViewById(R.id.announce_tail);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09026f);
+            this.f31576f = findViewById;
+            findViewById.setOnClickListener(this.k);
+            this.f31577g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909a5);
+            this.f31578h = findViewById(R.id.obfuscated_res_0x7f091c54);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c5c);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090271);
         }
     }
 
-    public final void c(String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                this.f40904i.setVisibility(0);
-                int lineEnd = new StaticLayout(str, this.f40903h.getPaint(), (int) this.f40900e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
-                String substring = str.substring(0, lineEnd);
-                if (lineEnd >= str.length()) {
-                    this.f40904i.setVisibility(8);
-                    this.f40903h.setText(substring);
-                    return;
-                }
-                String substring2 = str.substring(lineEnd, str.length());
-                if (new StaticLayout(substring2, this.f40905j.getPaint(), (int) this.f40900e, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
-                    this.k.setVisibility(8);
-                } else {
-                    this.k.setVisibility(0);
-                }
-                this.f40904i.setVisibility(0);
-                this.f40903h.setText(substring);
-                this.f40905j.setText(substring2);
-                return;
-            }
-            this.f40904i.setVisibility(8);
-            this.f40903h.setText(getResources().getString(R.string.empty_announce));
-        }
-    }
-
-    public void initUI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f40901f = getContext();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f31575e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
             setMinimumHeight(n.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.new_announce_layout, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) this, true);
             b();
         }
     }
 
-    public void onSkinChange(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mElectionData == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.f31573c == null) {
             return;
         }
-        if (this.status != c.a.r0.c0.e.a.f15246c) {
-            SkinManager.setBackgroundColor(this.f40902g, R.color.CAM_X0205, i2);
+        if (this.a != c.a.p0.e0.e.a.f13758c) {
+            SkinManager.setBackgroundColor(this.f31576f, R.color.CAM_X0205, i);
         } else {
-            View view = this.f40902g;
+            View view = this.f31576f;
             if (view != null) {
                 view.setBackgroundColor(0);
             }
         }
-        if (TextUtils.isEmpty(this.mElectionData.b())) {
-            SkinManager.setViewTextColor(this.f40903h, R.color.CAM_X0109, 1, i2);
+        if (TextUtils.isEmpty(this.f31573c.b())) {
+            SkinManager.setViewTextColor(this.f31577g, R.color.CAM_X0109, 1, i);
         } else {
-            SkinManager.setViewTextColor(this.f40903h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f31577g, R.color.CAM_X0105, 1, i);
         }
-        SkinManager.setViewTextColor(this.f40905j, R.color.CAM_X0105, 1, i2);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0304, 1, i2);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1, i);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0304, 1, i);
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                this.f31578h.setVisibility(0);
+                int lineEnd = new StaticLayout(str, this.f31577g.getPaint(), (int) this.f31574d, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+                String substring = str.substring(0, lineEnd);
+                if (lineEnd >= str.length()) {
+                    this.f31578h.setVisibility(8);
+                    this.f31577g.setText(substring);
+                    return;
+                }
+                String substring2 = str.substring(lineEnd, str.length());
+                if (new StaticLayout(substring2, this.i.getPaint(), (int) this.f31574d, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+                    this.j.setVisibility(8);
+                } else {
+                    this.j.setVisibility(0);
+                }
+                this.f31578h.setVisibility(0);
+                this.f31577g.setText(substring);
+                this.i.setText(substring2);
+                return;
+            }
+            this.f31578h.setVisibility(8);
+            this.f31577g.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0555));
+        }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i2, f fVar) {
+    public void setData(int i, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, fVar) == null) {
-            super.setData(i2, fVar);
-            if (this.mData != null && this.mElectionData != null && this.status >= 0) {
-                this.f40900e = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds70) * 2);
-                if (this.status == c.a.r0.c0.e.a.f15245b) {
-                    this.f40900e = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds116) * 2);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, fVar) == null) {
+            super.setData(i, fVar);
+            if (this.f31572b != null && this.f31573c != null && this.a >= 0) {
+                this.f31574d = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds70) * 2);
+                if (this.a == c.a.p0.e0.e.a.f13757b) {
+                    this.f31574d = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.status == c.a.r0.c0.e.a.f15247d) {
-                    this.f40900e = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds96) * 2);
+                if (this.a == c.a.p0.e0.e.a.f13759d) {
+                    this.f31574d = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.status == c.a.r0.c0.e.a.f15246c) {
-                    this.f40900e = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds86) * 2);
-                    this.f40902g.setPadding(0, 0, 0, 0);
-                    this.f40903h.setPadding(0, 0, 0, 0);
-                    this.f40905j.setPadding(0, 0, 0, 0);
-                    this.k.setPadding(0, 0, 0, 0);
+                if (this.a == c.a.p0.e0.e.a.f13758c) {
+                    this.f31574d = n.q((Activity) getContext()).widthPixels - (n.f(getContext(), R.dimen.tbds86) * 2);
+                    this.f31576f.setPadding(0, 0, 0, 0);
+                    this.f31577g.setPadding(0, 0, 0, 0);
+                    this.i.setPadding(0, 0, 0, 0);
+                    this.j.setPadding(0, 0, 0, 0);
                 }
-                c(this.mElectionData.b());
+                e(this.f31573c.b());
                 return;
             }
             setVisibility(8);
@@ -227,9 +223,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -237,7 +233,7 @@ public class NewAnounceLayout extends CardBasicLayout {
                 return;
             }
         }
-        this.l = new a(this);
-        initUI();
+        this.k = new a(this);
+        c();
     }
 }

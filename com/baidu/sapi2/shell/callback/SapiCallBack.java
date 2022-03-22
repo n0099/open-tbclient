@@ -7,5 +7,5 @@ public interface SapiCallBack<R extends SapiResponse> {
 
     void onSuccess(R r);
 
-    void onSystemError(int i2);
+    void onSystemError(int i);
 }

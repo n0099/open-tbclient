@@ -25,7 +25,7 @@ import com.tachikoma.core.utility.TKColorUtil;
 import com.tachikoma.core.utility.TKConverter;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KTProgressBarView extends TKBase<ProgressBar> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PROGRESS = 1000;
@@ -47,9 +47,9 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -162,17 +162,17 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
 
     public void setAnimating(boolean z) {
         ProgressBar view;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
                 view = getView();
-                i2 = 0;
+                i = 0;
             } else {
                 view = getView();
-                i2 = 8;
+                i = 8;
             }
-            view.setVisibility(i2);
+            view.setVisibility(i);
         }
     }
 

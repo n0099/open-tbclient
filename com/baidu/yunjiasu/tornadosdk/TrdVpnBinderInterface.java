@@ -16,57 +16,57 @@ public interface TrdVpnBinderInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static String getRuntimeInfo(TrdVpnBinderInterface trdVpnBinderInterface, long j2) {
+        public static String getRuntimeInfo(TrdVpnBinderInterface trdVpnBinderInterface, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, trdVpnBinderInterface, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, trdVpnBinderInterface, j)) == null) {
                 Intrinsics.checkNotNullParameter(trdVpnBinderInterface, "this");
-                if (j2 == 0) {
+                if (j == 0) {
                     return TornadoLiteRuntime.INSTANCE.getChannel();
                 }
-                if (j2 == 1) {
+                if (j == 1) {
                     return TornadoLiteRuntime.INSTANCE.getDevice();
                 }
-                if (j2 == 2) {
+                if (j == 2) {
                     return TornadoLiteRuntime.INSTANCE.getCuid();
                 }
-                if (j2 == 3) {
+                if (j == 3) {
                     return TornadoLiteRuntime.INSTANCE.getToken();
                 }
-                if (j2 == 4) {
+                if (j == 4) {
                     return TornadoLiteRuntime.INSTANCE.getClientVersion();
                 }
-                if (j2 == 5) {
+                if (j == 5) {
                     return TornadoLiteRuntime.INSTANCE.getSysVersion();
                 }
-                if (j2 == 6) {
+                if (j == 6) {
                     return TornadoLiteRuntime.INSTANCE.getRegion();
                 }
-                if (j2 == 7) {
+                if (j == 7) {
                     return TornadoLiteRuntime.INSTANCE.getGameID();
                 }
-                if (j2 == 8) {
+                if (j == 8) {
                     return String.valueOf(TornadoLiteRuntime.INSTANCE.getLatencyFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
                 }
-                if (j2 == 9) {
+                if (j == 9) {
                     return String.valueOf(Math.max(TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient(), TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote()));
                 }
-                if (j2 == 10) {
+                if (j == 10) {
                     return String.valueOf(TornadoLiteRuntime.INSTANCE.getOptimizationRate());
                 }
-                if (j2 == 11) {
+                if (j == 11) {
                     return TornadoLiteRuntime.INSTANCE.getGamePackageName();
                 }
-                if (j2 == 12) {
+                if (j == 12) {
                     return TornadoLiteRuntime.INSTANCE.getStatus();
                 }
-                return j2 == 13 ? String.valueOf(TornadoLiteRuntime.INSTANCE.getStartTime()) : "-1";
+                return j == 13 ? String.valueOf(TornadoLiteRuntime.INSTANCE.getStartTime()) : "-1";
             }
             return (String) invokeLJ.objValue;
         }
     }
 
-    String getRuntimeInfo(long j2);
+    String getRuntimeInfo(long j);
 
     void stopVPN();
 }

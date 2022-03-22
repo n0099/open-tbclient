@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CacheDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_MAX_CACHE_FILE_SIZE = 2097152;
@@ -49,13 +49,13 @@ public final class CacheDataSource implements DataSource {
     public final DataSource upstreamDataSource;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventListener {
-        void onCachedBytesRead(long j2, long j3);
+        void onCachedBytesRead(long j, long j2);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Flags {
     }
 
@@ -68,9 +68,9 @@ public final class CacheDataSource implements DataSource {
             newInitContext.initArgs = r8;
             Object[] objArr = {cache, dataSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
                 newInitContext.thisArg = this;
@@ -121,7 +121,7 @@ public final class CacheDataSource implements DataSource {
     private boolean openNextSource(boolean z) throws IOException {
         InterceptResult invokeZ;
         CacheSpan startReadWrite;
-        long j2;
+        long j;
         DataSpec dataSpec;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65543, this, z)) == null) {
@@ -142,26 +142,26 @@ public final class CacheDataSource implements DataSource {
                 dataSpec = new DataSpec(this.uri, this.readPosition, this.bytesRemaining, this.key, this.flags);
             } else if (startReadWrite.isCached) {
                 Uri fromFile = Uri.fromFile(startReadWrite.file);
-                long j3 = this.readPosition - startReadWrite.position;
-                long j4 = startReadWrite.length - j3;
-                long j5 = this.bytesRemaining;
-                if (j5 != -1) {
-                    j4 = Math.min(j4, j5);
+                long j2 = this.readPosition - startReadWrite.position;
+                long j3 = startReadWrite.length - j2;
+                long j4 = this.bytesRemaining;
+                if (j4 != -1) {
+                    j3 = Math.min(j3, j4);
                 }
-                DataSpec dataSpec2 = new DataSpec(fromFile, this.readPosition, j3, j4, this.key, this.flags);
+                DataSpec dataSpec2 = new DataSpec(fromFile, this.readPosition, j2, j3, this.key, this.flags);
                 this.currentDataSource = this.cacheReadDataSource;
                 dataSpec = dataSpec2;
             } else {
                 if (startReadWrite.isOpenEnded()) {
-                    j2 = this.bytesRemaining;
+                    j = this.bytesRemaining;
                 } else {
-                    j2 = startReadWrite.length;
-                    long j6 = this.bytesRemaining;
-                    if (j6 != -1) {
-                        j2 = Math.min(j2, j6);
+                    j = startReadWrite.length;
+                    long j5 = this.bytesRemaining;
+                    if (j5 != -1) {
+                        j = Math.min(j, j5);
                     }
                 }
-                dataSpec = new DataSpec(this.uri, this.readPosition, j2, this.key, this.flags);
+                dataSpec = new DataSpec(this.uri, this.readPosition, j, this.key, this.flags);
                 DataSource dataSource = this.cacheWriteDataSource;
                 if (dataSource != null) {
                     this.currentDataSource = dataSource;
@@ -173,9 +173,9 @@ public final class CacheDataSource implements DataSource {
             }
             boolean z2 = true;
             this.currentRequestUnbounded = dataSpec.length == -1;
-            long j7 = 0;
+            long j6 = 0;
             try {
-                j7 = this.currentDataSource.open(dataSpec);
+                j6 = this.currentDataSource.open(dataSpec);
             } catch (IOException e2) {
                 if (!z && this.currentRequestUnbounded) {
                     for (Throwable th = e2; th != null; th = th.getCause()) {
@@ -190,19 +190,19 @@ public final class CacheDataSource implements DataSource {
                 }
                 z2 = false;
             }
-            if (this.currentRequestUnbounded && j7 != -1) {
-                this.bytesRemaining = j7;
-                setContentLength(dataSpec.position + j7);
+            if (this.currentRequestUnbounded && j6 != -1) {
+                this.bytesRemaining = j6;
+                setContentLength(dataSpec.position + j6);
             }
             return z2;
         }
         return invokeZ.booleanValue;
     }
 
-    private void setContentLength(long j2) throws IOException {
+    private void setContentLength(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65544, this, j2) == null) && this.currentDataSource == this.cacheWriteDataSource) {
-            this.cache.setContentLength(this.key, j2);
+        if ((interceptable == null || interceptable.invokeJ(65544, this, j) == null) && this.currentDataSource == this.cacheWriteDataSource) {
+            this.cache.setContentLength(this.key, j);
         }
     }
 
@@ -248,9 +248,9 @@ public final class CacheDataSource implements DataSource {
                     long contentLength = this.cache.getContentLength(this.key);
                     this.bytesRemaining = contentLength;
                     if (contentLength != -1) {
-                        long j2 = contentLength - dataSpec.position;
-                        this.bytesRemaining = j2;
-                        if (j2 <= 0) {
+                        long j = contentLength - dataSpec.position;
+                        this.bytesRemaining = j;
+                        if (j <= 0) {
                             throw new DataSourceException(0);
                         }
                     }
@@ -269,26 +269,26 @@ public final class CacheDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
                 return 0;
             }
             if (this.bytesRemaining == 0) {
                 return -1;
             }
             try {
-                int read = this.currentDataSource.read(bArr, i2, i3);
+                int read = this.currentDataSource.read(bArr, i, i2);
                 if (read >= 0) {
                     if (this.currentDataSource == this.cacheReadDataSource) {
                         this.totalCachedBytesRead += read;
                     }
-                    long j2 = read;
-                    this.readPosition += j2;
+                    long j = read;
+                    this.readPosition += j;
                     if (this.bytesRemaining != -1) {
-                        this.bytesRemaining -= j2;
+                        this.bytesRemaining -= j;
                     }
                 } else {
                     if (this.currentRequestUnbounded) {
@@ -297,7 +297,7 @@ public final class CacheDataSource implements DataSource {
                     }
                     closeCurrentSource();
                     if ((this.bytesRemaining > 0 || this.bytesRemaining == -1) && openNextSource(false)) {
-                        return read(bArr, i2, i3);
+                        return read(bArr, i, i2);
                     }
                 }
                 return read;
@@ -310,17 +310,17 @@ public final class CacheDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSource(Cache cache, DataSource dataSource, int i2) {
-        this(cache, dataSource, i2, 2097152L);
+    public CacheDataSource(Cache cache, DataSource dataSource, int i) {
+        this(cache, dataSource, i, 2097152L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {cache, dataSource, Integer.valueOf(i2)};
+            Object[] objArr = {cache, dataSource, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
                 newInitContext.thisArg = this;
@@ -331,17 +331,17 @@ public final class CacheDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSource(Cache cache, DataSource dataSource, int i2, long j2) {
-        this(cache, dataSource, new FileDataSource(), new CacheDataSink(cache, j2), i2, null);
+    public CacheDataSource(Cache cache, DataSource dataSource, int i, long j) {
+        this(cache, dataSource, new FileDataSource(), new CacheDataSink(cache, j), i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {cache, dataSource, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {cache, dataSource, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource) objArr2[1], (DataSource) objArr2[2], (DataSink) objArr2[3], ((Integer) objArr2[4]).intValue(), (EventListener) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -351,16 +351,16 @@ public final class CacheDataSource implements DataSource {
         }
     }
 
-    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i2, @Nullable EventListener eventListener) {
+    public CacheDataSource(Cache cache, DataSource dataSource, DataSource dataSource2, DataSink dataSink, int i, @Nullable EventListener eventListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cache, dataSource, dataSource2, dataSink, Integer.valueOf(i2), eventListener};
+            Object[] objArr = {cache, dataSource, dataSource2, dataSink, Integer.valueOf(i), eventListener};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -368,9 +368,9 @@ public final class CacheDataSource implements DataSource {
         }
         this.cache = cache;
         this.cacheReadDataSource = dataSource2;
-        this.blockOnCache = (i2 & 1) != 0;
-        this.ignoreCacheOnError = (i2 & 2) != 0;
-        this.ignoreCacheForUnsetLengthRequests = (i2 & 4) != 0;
+        this.blockOnCache = (i & 1) != 0;
+        this.ignoreCacheOnError = (i & 2) != 0;
+        this.ignoreCacheForUnsetLengthRequests = (i & 4) != 0;
         this.upstreamDataSource = dataSource;
         if (dataSink != null) {
             this.cacheWriteDataSource = new TeeDataSource(dataSource, dataSink);

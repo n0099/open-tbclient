@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class UbcSessionUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -19,26 +19,26 @@ public final class UbcSessionUploader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f32227b;
+    public Object f25461b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f32228c;
+    public Method f25462c;
 
     public UbcSessionUploader() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32227b = null;
-        this.f32228c = null;
+        this.f25461b = null;
+        this.f25462c = null;
         a();
     }
 
@@ -51,8 +51,8 @@ public final class UbcSessionUploader {
                 Field declaredField = cls.getDeclaredField("SERVICE_REFERENCE");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f32227b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
-                    this.f32228c = cls.getDeclaredMethod("onEvent", String.class, String.class);
+                    this.f25461b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
+                    this.f25462c = cls.getDeclaredMethod("onEvent", String.class, String.class);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -78,13 +78,13 @@ public final class UbcSessionUploader {
     }
 
     @Keep
-    public void upload(String str, String str2, int i2) {
+    public void upload(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f32228c == null || this.f32227b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f25462c == null || this.f25461b == null) {
             return;
         }
         try {
-            this.f32228c.invoke(this.f32227b, i2 == -1001 ? "2360" : "2368", str);
+            this.f25462c.invoke(this.f25461b, i == -1001 ? "2360" : "2368", str);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

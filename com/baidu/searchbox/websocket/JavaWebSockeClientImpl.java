@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.input.ReturnKeyType;
-import h.b.e.a;
-import h.b.i.h;
-import h.b.j.b;
+import f.b.e.a;
+import f.b.i.h;
+import f.b.j.b;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -37,9 +37,9 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,9 +47,9 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void close(int i2, String reason) {
+    public void close(int i, String reason) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, reason) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, reason) == null) {
             Intrinsics.checkNotNullParameter(reason, "reason");
             a aVar = this.webSocketClient;
             if (aVar == null) {
@@ -77,7 +77,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             } else {
                 listOf = CollectionsKt__CollectionsJVMKt.listOf(new b(""));
             }
-            final h.b.f.a aVar = new h.b.f.a(emptyList, listOf);
+            final f.b.f.a aVar = new f.b.f.a(emptyList, listOf);
             final Map<String, String> headers = request.getHeaders();
             this.webSocketClient = new a(listener, request, create, aVar, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
                 public static /* synthetic */ Interceptable $ic;
@@ -94,9 +94,9 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {listener, request, create, aVar, headers};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((URI) objArr2[0], (Draft) objArr2[1], (Map) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -108,13 +108,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     this.$request = request;
                 }
 
-                @Override // h.b.e.a
-                public void onClose(int i2, String str2, boolean z) {
+                @Override // f.b.e.a
+                public void onClose(int i, String str2, boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
                         IWebSocketListener iWebSocketListener = this.$listener;
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("code", i2);
+                        jSONObject.put("code", i);
                         if (str2 == null) {
                             str2 = "";
                         }
@@ -124,7 +124,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // h.b.e.a
+                @Override // f.b.e.a
                 public void onError(Exception p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -133,7 +133,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // h.b.e.a
+                @Override // f.b.e.a
                 public void onMessage(String p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0) == null) {
@@ -142,7 +142,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // h.b.e.a
+                @Override // f.b.e.a
                 public void onOpen(h hVar) {
                     Iterator<String> g2;
                     Interceptable interceptable2 = $ic;
@@ -158,7 +158,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // h.b.e.a
+                @Override // f.b.e.a
                 public void onMessage(ByteBuffer bytes) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, bytes) == null) {

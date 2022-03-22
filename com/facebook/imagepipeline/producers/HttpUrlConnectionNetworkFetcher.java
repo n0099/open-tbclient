@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.util.UriUtil;
 import com.facebook.imagepipeline.image.EncodedImage;
@@ -19,7 +20,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -38,9 +39,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ExecutorService) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,10 +50,10 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         }
     }
 
-    private HttpURLConnection downloadFrom(Uri uri, int i2) throws IOException {
+    private HttpURLConnection downloadFrom(Uri uri, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, uri, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, uri, i)) == null) {
             HttpURLConnection openConnectionTo = openConnectionTo(uri);
             openConnectionTo.setConnectTimeout(this.mHttpConnectionTimeout);
             int responseCode = openConnectionTo.getResponseCode();
@@ -60,14 +61,14 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
                 return openConnectionTo;
             }
             if (isHttpRedirect(responseCode)) {
-                String headerField = openConnectionTo.getHeaderField("Location");
+                String headerField = openConnectionTo.getHeaderField(Headers.LOCATION);
                 openConnectionTo.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
-                if (i2 > 0 && parse != null && !parse.getScheme().equals(scheme)) {
-                    return downloadFrom(parse, i2 - 1);
+                if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
+                    return downloadFrom(parse, i - 1);
                 }
-                throw new IOException(i2 == 0 ? error("URL %s follows too many redirects", uri.toString()) : error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+                throw new IOException(i == 0 ? error("URL %s follows too many redirects", uri.toString()) : error("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
             openConnectionTo.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
@@ -81,14 +82,14 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, objArr)) == null) ? String.format(Locale.getDefault(), str, objArr) : (String) invokeLL.objValue;
     }
 
-    public static boolean isHttpRedirect(int i2) {
+    public static boolean isHttpRedirect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 == 307 || i2 == 308) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i == 307 || i == 308) {
                 return true;
             }
-            switch (i2) {
+            switch (i) {
                 case 300:
                 case 301:
                 case 302:
@@ -101,10 +102,10 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
         return invokeI.booleanValue;
     }
 
-    public static boolean isHttpSuccess(int i2) {
+    public static boolean isHttpSuccess(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? i2 >= 200 && i2 < 300 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? i >= 200 && i < 300 : invokeI.booleanValue;
     }
 
     @VisibleForTesting
@@ -139,9 +140,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, fetchState, callback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -173,9 +174,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7, callback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -269,24 +270,24 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlConnectionNetworkFetcher(int i2) {
+    public HttpUrlConnectionNetworkFetcher(int i) {
         this(Executors.newFixedThreadPool(3));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((ExecutorService) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mHttpConnectionTimeout = i2;
+        this.mHttpConnectionTimeout = i;
     }
 
     @VisibleForTesting
@@ -297,9 +298,9 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<FetchSta
             newInitContext.initArgs = r2;
             Object[] objArr = {executorService};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

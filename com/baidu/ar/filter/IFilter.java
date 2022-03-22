@@ -12,7 +12,7 @@ public interface IFilter {
 
     void updateFilter(FilterParam filterParam, float f2);
 
-    void updateFilter(FilterParam filterParam, int i2);
+    void updateFilter(FilterParam filterParam, int i);
 
     void updateFilter(FilterParam filterParam, String str);
 

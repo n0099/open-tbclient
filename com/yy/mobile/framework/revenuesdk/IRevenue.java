@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IRevenue {
     IAppPayService getAppPayService();
 

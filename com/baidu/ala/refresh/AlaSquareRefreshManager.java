@@ -23,20 +23,20 @@ public class AlaSquareRefreshManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private boolean checkIndex(int i2) {
+    private boolean checkIndex(int i) {
         InterceptResult invokeI;
         long[] jArr;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? i2 >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? i >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i : invokeI.booleanValue;
     }
 
     private void createPageRefreshRunnables() {
@@ -45,22 +45,22 @@ public class AlaSquareRefreshManager {
             long[] jArr = this.mPageRefreshInterval;
             int length = jArr.length;
             this.mPageRefreshRunnables = new RefreshRunnable[jArr.length];
-            for (int i2 = 0; i2 < length; i2++) {
-                RefreshRunnable refreshRunnable = new RefreshRunnable(this, i2, getTimeByIndex(this.mPageRefreshInterval, i2));
+            for (int i = 0; i < length; i++) {
+                RefreshRunnable refreshRunnable = new RefreshRunnable(this, i, getTimeByIndex(this.mPageRefreshInterval, i));
                 refreshRunnable.postDelay();
-                this.mPageRefreshRunnables[i2] = refreshRunnable;
+                this.mPageRefreshRunnables[i] = refreshRunnable;
             }
         }
     }
 
-    private long getTimeByIndex(long[] jArr, int i2) {
+    private long getTimeByIndex(long[] jArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, jArr, i2)) == null) {
-            if (jArr == null || i2 < 0 || jArr.length <= i2) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, jArr, i)) == null) {
+            if (jArr == null || i < 0 || jArr.length <= i) {
                 return -1L;
             }
-            return jArr[i2];
+            return jArr[i];
         }
         return invokeLI.longValue;
     }
@@ -69,8 +69,8 @@ public class AlaSquareRefreshManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             int length = this.mPageRefreshRunnables.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i2]);
+            for (int i = 0; i < length; i++) {
+                this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
             }
         }
     }
@@ -104,14 +104,14 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    public void onPageForeground(int i2) {
+    public void onPageForeground(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && checkIndex(i2)) {
-            long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i2];
-            if (currentTimeMillis > this.mPageRefreshInterval[i2]) {
-                this.mPageRefreshRunnables[i2].post();
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && checkIndex(i)) {
+            long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i];
+            if (currentTimeMillis > this.mPageRefreshInterval[i]) {
+                this.mPageRefreshRunnables[i].post();
             } else {
-                this.mPageRefreshRunnables[i2].postDelay(currentTimeMillis);
+                this.mPageRefreshRunnables[i].postDelay(currentTimeMillis);
             }
         }
     }
@@ -125,11 +125,11 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    public void reset(int i2) {
+    public void reset(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && checkIndex(i2)) {
-            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i2]);
-            this.mPageRefreshRunnables[i2].postDelay();
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && checkIndex(i)) {
+            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
+            this.mPageRefreshRunnables[i].postDelay();
         }
     }
 
@@ -141,16 +141,16 @@ public class AlaSquareRefreshManager {
         public long mInterval;
         public final /* synthetic */ AlaSquareRefreshManager this$0;
 
-        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i2, long j2) {
+        public RefreshRunnable(AlaSquareRefreshManager alaSquareRefreshManager, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {alaSquareRefreshManager, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -159,8 +159,8 @@ public class AlaSquareRefreshManager {
             this.this$0 = alaSquareRefreshManager;
             this.mIndex = 0;
             this.mInterval = 0L;
-            this.mIndex = i2;
-            this.mInterval = j2;
+            this.mIndex = i;
+            this.mInterval = j;
         }
 
         public void post() {
@@ -191,13 +191,13 @@ public class AlaSquareRefreshManager {
             }
         }
 
-        public void postDelay(long j2) {
+        public void postDelay(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || this.mInterval <= 0) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.mInterval <= 0) {
                 return;
             }
             this.this$0.mHandler.removeCallbacks(this);
-            this.this$0.mHandler.postDelayed(this, j2);
+            this.this$0.mHandler.postDelayed(this, j);
         }
     }
 }

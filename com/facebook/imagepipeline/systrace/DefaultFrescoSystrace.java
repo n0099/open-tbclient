@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.systrace;
 
 import android.os.Build;
 import android.os.Trace;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +21,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,7 +61,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +74,9 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,7 +93,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f29503h);
+                sb.append('=');
                 sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
                 return this;
             }
@@ -115,30 +114,30 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, int i2) {
+        public FrescoSystrace.ArgsBuilder arg(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f29503h);
-                sb.append(Integer.toString(i2));
+                sb.append('=');
+                sb.append(Integer.toString(i));
                 return this;
             }
             return (FrescoSystrace.ArgsBuilder) invokeLI.objValue;
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, long j2) {
+        public FrescoSystrace.ArgsBuilder arg(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f29503h);
-                sb.append(Long.toString(j2));
+                sb.append('=');
+                sb.append(Long.toString(j));
                 return this;
             }
             return (FrescoSystrace.ArgsBuilder) invokeLJ.objValue;
@@ -152,7 +151,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
-                sb.append(a.f29503h);
+                sb.append('=');
                 sb.append(Double.toString(d2));
                 return this;
             }

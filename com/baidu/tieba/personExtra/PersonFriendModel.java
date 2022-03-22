@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.q0.r.r.h1;
+import c.a.o0.r.r.f1;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,22 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f45763g;
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f35433c;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f45764h;
+    /* renamed from: d  reason: collision with root package name */
+    public static TbHttpMessageTask f35434d;
     public transient /* synthetic */ FieldHolder $fh;
+    public f1 a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public h1 f45765e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f45766f;
+    /* renamed from: b  reason: collision with root package name */
+    public String f35435b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +49,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f45763g = str;
+        f35433c = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f45764h = tbHttpMessageTask;
+        f35434d = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f45764h);
+        MessageManager.getInstance().registerTask(f35434d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,43 +65,49 @@ public class PersonFriendModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f45765e = new h1();
+        this.a = new f1();
     }
 
-    public void A(String str) {
+    public void A(boolean z, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f45766f = str;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
+            if (!z) {
+                httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
+                httpMessage.addParam("is_guest", String.valueOf(1));
+                httpMessage.setExtra(str);
+            }
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, i + "");
+            httpMessage.addParam("res_num", i2 + "");
+            super.sendMessage(httpMessage);
+        }
+    }
+
+    public void B(f1 f1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f1Var) == null) {
+            this.a = f1Var;
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f35435b = str;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45766f : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -112,44 +116,38 @@ public class PersonFriendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void setSex(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-        }
-    }
-
-    public h1 w() {
+    public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45765e : (h1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35435b : (String) invokeV.objValue;
     }
 
-    public void x() {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void setSex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    public f1 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (f1) invokeV.objValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.sendMessage(new PersonFriendByUidLocalMessage());
-        }
-    }
-
-    public void y(boolean z, String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
-            if (!z) {
-                httpMessage.addParam(TiebaStatic.Params.FRIEND_UID, str);
-                httpMessage.addParam("is_guest", String.valueOf(1));
-                httpMessage.setExtra(str);
-            }
-            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, i2 + "");
-            httpMessage.addParam("res_num", i3 + "");
-            super.sendMessage(httpMessage);
-        }
-    }
-
-    public void z(h1 h1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h1Var) == null) {
-            this.f45765e = h1Var;
         }
     }
 }

@@ -33,16 +33,16 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
         public long mExpireTime;
         public String mQrCode;
 
-        public QrCode(String str, long j2) {
+        public QrCode(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,7 +51,7 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
             this.mQrCode = "";
             this.mExpireTime = 0L;
             this.mQrCode = str;
-            this.mExpireTime = j2;
+            this.mExpireTime = j;
         }
 
         public long getExpireTime() {
@@ -74,9 +74,9 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,10 +118,10 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -131,34 +131,34 @@ public class IMQueryFansGroupQrCodeRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
             String str2 = "";
             String str3 = new String(bArr);
             LogUtils.d(TAG, "json is " + str3);
-            long j2 = 0;
+            long j = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
-                i3 = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("response_params");
                 if (optJSONObject != null) {
                     str2 = optJSONObject.optString("qrcode_url");
-                    j2 = optJSONObject.optLong("expire");
+                    j = optJSONObject.optLong("expire");
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            QrCode qrCode = new QrCode(str2, j2);
+            QrCode qrCode = new QrCode(str2, j);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
-                ((BIMValueCallBack) removeListener).onResult(i3, str, qrCode);
+                ((BIMValueCallBack) removeListener).onResult(i2, str, qrCode);
             }
         }
     }

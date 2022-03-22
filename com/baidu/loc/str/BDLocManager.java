@@ -77,9 +77,9 @@ public class BDLocManager implements Debug {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDLocManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -112,9 +112,9 @@ public class BDLocManager implements Debug {
                     StringBuffer stringBuffer = new StringBuffer(128);
                     stringBuffer.append(this.mNetworkType);
                     stringBuffer.append("h");
-                    int i2 = this.mMcc;
-                    if (i2 != 460) {
-                        stringBuffer.append(i2);
+                    int i = this.mMcc;
+                    if (i != 460) {
+                        stringBuffer.append(i);
                     }
                     stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.mMnc), Integer.valueOf(this.mLac), Integer.valueOf(this.mCid)));
                     return stringBuffer.toString();
@@ -138,9 +138,9 @@ public class BDLocManager implements Debug {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDLocManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -177,9 +177,9 @@ public class BDLocManager implements Debug {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bDLocManager, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -283,46 +283,46 @@ public class BDLocManager implements Debug {
             return invokeV.intValue;
         }
 
-        public String toString(int i2) {
+        public String toString(int i) {
             InterceptResult invokeI;
-            int i3;
+            int i2;
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
                 if (size() < 1) {
                     return null;
                 }
                 boolean hasConnectWifi = this.this$0.hasConnectWifi();
                 if (hasConnectWifi) {
-                    i3 = i2 - 1;
+                    i2 = i - 1;
                     z = false;
                 } else {
-                    i3 = i2;
+                    i2 = i;
                     z = true;
                 }
                 StringBuffer stringBuffer = new StringBuffer(512);
                 int size = this.wifiList.size();
-                int i4 = 0;
+                int i3 = 0;
                 boolean z2 = true;
-                for (int i5 = 0; i5 < size; i5++) {
-                    if (this.wifiList.get(i5).level != 0) {
-                        String str = this.wifiList.get(i5).BSSID;
-                        int i6 = this.wifiList.get(i5).level;
+                for (int i4 = 0; i4 < size; i4++) {
+                    if (this.wifiList.get(i4).level != 0) {
+                        String str = this.wifiList.get(i4).BSSID;
+                        int i5 = this.wifiList.get(i4).level;
                         String replace = str.replace(":", "");
                         if (this.this$0.connectWifi == null || !replace.equals(this.this$0.connectWifi)) {
-                            if (i4 < i3) {
+                            if (i3 < i2) {
                                 stringBuffer.append("h");
                                 stringBuffer.append(replace);
                                 stringBuffer.append("m");
-                                stringBuffer.append(StrictMath.abs(i6));
-                                i4++;
+                                stringBuffer.append(StrictMath.abs(i5));
+                                i3++;
                                 z2 = false;
                             }
-                            if (i4 > i3 && z) {
+                            if (i3 > i2 && z) {
                                 break;
                             }
                         } else {
-                            this.this$0.connecetWifiLevel = StrictMath.abs(i6);
+                            this.this$0.connecetWifiLevel = StrictMath.abs(i5);
                             z = true;
                         }
                     }
@@ -361,9 +361,9 @@ public class BDLocManager implements Debug {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -400,40 +400,40 @@ public class BDLocManager implements Debug {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
             char[] cArr = new char[((bArr.length + 2) / 3) * 4];
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < bArr.length) {
-                int i4 = (bArr[i2] & 255) << 8;
-                int i5 = i2 + 1;
+            while (i < bArr.length) {
+                int i3 = (bArr[i] & 255) << 8;
+                int i4 = i + 1;
                 boolean z2 = true;
-                if (i5 < bArr.length) {
-                    i4 |= bArr[i5] & 255;
+                if (i4 < bArr.length) {
+                    i3 |= bArr[i4] & 255;
                     z = true;
                 } else {
                     z = false;
                 }
-                int i6 = i4 << 8;
-                int i7 = i2 + 2;
-                if (i7 < bArr.length) {
-                    i6 |= bArr[i7] & 255;
+                int i5 = i3 << 8;
+                int i6 = i + 2;
+                if (i6 < bArr.length) {
+                    i5 |= bArr[i6] & 255;
                 } else {
                     z2 = false;
                 }
-                int i8 = 64;
-                cArr[i3 + 3] = alphabet[z2 ? 63 - (i6 & 63) : 64];
-                int i9 = i6 >> 6;
-                int i10 = i3 + 2;
+                int i7 = 64;
+                cArr[i2 + 3] = alphabet[z2 ? 63 - (i5 & 63) : 64];
+                int i8 = i5 >> 6;
+                int i9 = i2 + 2;
                 char[] cArr2 = alphabet;
                 if (z) {
-                    i8 = 63 - (i9 & 63);
+                    i7 = 63 - (i8 & 63);
                 }
-                cArr[i10] = cArr2[i8];
-                int i11 = i9 >> 6;
+                cArr[i9] = cArr2[i7];
+                int i10 = i8 >> 6;
                 char[] cArr3 = alphabet;
-                cArr[i3 + 1] = cArr3[63 - (i11 & 63)];
-                cArr[i3 + 0] = cArr3[63 - ((i11 >> 6) & 63)];
-                i2 += 3;
-                i3 += 4;
+                cArr[i2 + 1] = cArr3[63 - (i10 & 63)];
+                cArr[i2 + 0] = cArr3[63 - ((i10 >> 6) & 63)];
+                i += 3;
+                i2 += 4;
             }
             return new String(cArr);
         }
@@ -452,15 +452,15 @@ public class BDLocManager implements Debug {
             byte nextInt2 = (byte) new Random().nextInt(255);
             byte[] bArr = new byte[bytes.length + 2];
             int length = bytes.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                bArr[i3] = (byte) (bytes[i2] ^ nextInt);
+            while (i < length) {
+                bArr[i2] = (byte) (bytes[i] ^ nextInt);
+                i++;
                 i2++;
-                i3++;
             }
-            bArr[i3] = nextInt;
-            bArr[i3 + 1] = nextInt2;
+            bArr[i2] = nextInt;
+            bArr[i2 + 1] = nextInt2;
             return data2Base64(bArr);
         }
         return (String) invokeL.objValue;
@@ -560,17 +560,17 @@ public class BDLocManager implements Debug {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String getLocStringData(int i2) {
+    private String getLocStringData(int i) {
         InterceptResult invokeI;
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65547, this, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65547, this, i)) != null) {
             return (String) invokeI.objValue;
         }
         this.time = System.currentTimeMillis();
-        if (i2 < 3) {
-            i2 = 3;
+        if (i < 3) {
+            i = 3;
         }
         if (this.mCellInfo != null) {
             str = this.mCellInfo.toCellString();
@@ -580,7 +580,7 @@ public class BDLocManager implements Debug {
             if (this.mWifiList != null || this.mWifiList.needToFresh()) {
                 this.mWifiList = new WifiList(this, this.mWifiman.getScanResults());
             }
-            str2 = this.mWifiList.toString(i2);
+            str2 = this.mWifiList.toString(i);
             if (str2 != null) {
                 str = str + str2;
             }
@@ -595,7 +595,7 @@ public class BDLocManager implements Debug {
         if (this.mWifiList != null) {
         }
         this.mWifiList = new WifiList(this, this.mWifiman.getScanResults());
-        str2 = this.mWifiList.toString(i2);
+        str2 = this.mWifiList.toString(i);
         if (str2 != null) {
         }
         if (str.equals("Z")) {
@@ -634,14 +634,14 @@ public class BDLocManager implements Debug {
         return (BDCellInfo) invokeV.objValue;
     }
 
-    private int getValidValue(int i2) {
+    private int getValidValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i2)) == null) {
-            if (i2 == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
+            if (i == Integer.MAX_VALUE) {
                 return -1;
             }
-            return i2;
+            return i;
         }
         return invokeI.intValue;
     }
@@ -691,11 +691,11 @@ public class BDLocManager implements Debug {
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
                     char[] charArray = substring.toCharArray();
-                    int i2 = 0;
-                    while (i2 < charArray.length && Character.isDigit(charArray[i2])) {
-                        i2++;
+                    int i = 0;
+                    while (i < charArray.length && Character.isDigit(charArray[i])) {
+                        i++;
                     }
-                    int intValue2 = Integer.valueOf(substring.substring(0, i2)).intValue();
+                    int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                     if (intValue2 < 0) {
                         intValue2 = this.mCellInfo.mMnc;
                     }
@@ -752,12 +752,12 @@ public class BDLocManager implements Debug {
         return (String) invokeV.objValue;
     }
 
-    public String getLocString(int i2) {
+    public String getLocString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             try {
-                return getLocStringData(i2);
+                return getLocStringData(i);
             } catch (Exception unused) {
                 return null;
             }

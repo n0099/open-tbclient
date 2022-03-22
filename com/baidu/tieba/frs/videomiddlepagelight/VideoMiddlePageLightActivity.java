@@ -13,17 +13,16 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import c.a.d.f.p.l;
-import c.a.q0.f0.g;
-import c.a.r0.d1.u2.p;
-import c.a.r0.j4.d;
-import c.a.r0.l4.h;
+import c.a.o0.f0.g;
+import c.a.p0.f1.u2.p;
+import c.a.p0.l4.e;
+import c.a.p0.n4.h;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
@@ -50,7 +49,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b*\u0002\r\u001d\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010'\u001a\u00020(H\u0016J\b\u0010)\u001a\u00020(H\u0016J\n\u0010*\u001a\u0004\u0018\u00010+H\u0016J\u0006\u0010,\u001a\u00020(J\u0010\u0010-\u001a\u00020(2\u0006\u0010.\u001a\u00020 H\u0014J\u0010\u0010/\u001a\u00020(2\u0006\u00100\u001a\u000201H\u0016J\u0012\u00102\u001a\u00020(2\b\u00103\u001a\u0004\u0018\u000104H\u0014J\b\u00105\u001a\u00020(H\u0014J\b\u00106\u001a\u00020(H\u0014J\b\u00107\u001a\u00020(H\u0014J\u000e\u00108\u001a\u00020(2\u0006\u00109\u001a\u00020 J\u0006\u0010:\u001a\u00020(J\b\u0010;\u001a\u00020\bH\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010!\u001a\u00020\"8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b#\u0010$¨\u0006<"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "()V", "adapterManager", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "cardDividerLine", "Landroidx/recyclerview/widget/DividerItemDecoration;", "isForbidOnceListAutoScroll", "", "isNeedTwiceScroll", "listGestureDetector", "Landroid/view/GestureDetector;", "listGestureDetectorListener", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1;", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "mIsFromSchema", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "networkChangeMessageListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "noNetworkView", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "recyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "rootView", "Landroid/view/View;", "scrollListener", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1;", "twiceScrollToPosition", "", "viewModel", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "enterExitAnimation", "", ConstantHelper.LOG_FINISH, "getCurrentPageKey", "", "hideLoadingView", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "scrollCurPlayingVideoToTop", "position", "showLoadingView", "videoNeedPreload", "frsExtra_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b*\u0002\r\u001d\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010'\u001a\u00020(H\u0016J\b\u0010)\u001a\u00020(H\u0016J\n\u0010*\u001a\u0004\u0018\u00010+H\u0016J\u0006\u0010,\u001a\u00020(J\u0010\u0010-\u001a\u00020(2\u0006\u0010.\u001a\u00020 H\u0014J\u0010\u0010/\u001a\u00020(2\u0006\u00100\u001a\u000201H\u0016J\u0012\u00102\u001a\u00020(2\b\u00103\u001a\u0004\u0018\u000104H\u0014J\b\u00105\u001a\u00020(H\u0014J\b\u00106\u001a\u00020(H\u0014J\b\u00107\u001a\u00020(H\u0014J\u000e\u00108\u001a\u00020(2\u0006\u00109\u001a\u00020 J\u0006\u0010:\u001a\u00020(J\b\u0010;\u001a\u00020\bH\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u000eR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u001c\u001a\u00020\u001dX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001eR\u000e\u0010\u001f\u001a\u00020 X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010!\u001a\u00020\"8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b#\u0010$¨\u0006<"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "()V", "adapterManager", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "cardDividerLine", "Landroidx/recyclerview/widget/DividerItemDecoration;", "isForbidOnceListAutoScroll", "", "isNeedTwiceScroll", "listGestureDetector", "Landroid/view/GestureDetector;", "listGestureDetectorListener", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1;", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "mIsFromSchema", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "networkChangeMessageListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "noNetworkView", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "recyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "rootView", "Landroid/view/View;", "scrollListener", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1;", "twiceScrollToPosition", "", "viewModel", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "enterExitAnimation", "", "finish", "getCurrentPageKey", "", "hideLoadingView", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "scrollCurPlayingVideoToTop", "position", "showLoadingView", "videoNeedPreload", "frsExtra_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes5.dex */
 public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -76,9 +75,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public static final class a extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageLightActivity f42447e;
+        public final /* synthetic */ VideoMiddlePageLightActivity a;
 
         public a(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
             Interceptable interceptable = $ic;
@@ -87,15 +84,15 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {videoMiddlePageLightActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42447e = videoMiddlePageLightActivity;
+            this.a = videoMiddlePageLightActivity;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -104,12 +101,12 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 if (Math.abs(f3) > 1000.0f && f3 < 0.0f) {
-                    this.f42447e.getViewModel().playNextVideo();
+                    this.a.getViewModel().n();
                     return true;
                 } else if (Math.abs(f3) <= 1000.0f || f3 <= 0.0f) {
                     return true;
                 } else {
-                    this.f42447e.getViewModel().playLastVideo();
+                    this.a.getViewModel().m();
                     return true;
                 }
             }
@@ -132,9 +129,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {videoMiddlePageLightActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -150,9 +147,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && ((NetWorkChangedMessage) customResponsedMessage).getCmd() == 2000994 && !customResponsedMessage.hasError()) {
                 if (l.z()) {
-                    this.a.getViewModel().resumePlayVideo();
+                    this.a.getViewModel().p();
                 } else {
-                    this.a.showToast(R.string.neterror);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 }
             }
         }
@@ -163,9 +160,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -185,7 +182,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     /* renamed from: onCreate$lambda-0  reason: not valid java name */
-    public static final void m59onCreate$lambda0(VideoMiddlePageLightActivity this$0, List it) {
+    public static final void m53onCreate$lambda0(VideoMiddlePageLightActivity this$0, List it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -203,7 +200,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     /* renamed from: onCreate$lambda-1  reason: not valid java name */
-    public static final boolean m60onCreate$lambda1(VideoMiddlePageLightActivity this$0, View view, MotionEvent motionEvent) {
+    public static final boolean m54onCreate$lambda1(VideoMiddlePageLightActivity this$0, View view, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, this$0, view, motionEvent)) == null) {
@@ -219,7 +216,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     /* renamed from: onCreate$lambda-2  reason: not valid java name */
-    public static final void m61onCreate$lambda2(VideoMiddlePageLightActivity this$0, Integer it) {
+    public static final void m55onCreate$lambda2(VideoMiddlePageLightActivity this$0, Integer it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, this$0, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -233,7 +230,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     /* renamed from: onCreate$lambda-3  reason: not valid java name */
-    public static final void m62onCreate$lambda3(VideoMiddlePageLightActivity this$0, String str) {
+    public static final void m56onCreate$lambda3(VideoMiddlePageLightActivity this$0, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, this$0, str) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -270,7 +267,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,22 +303,22 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             NavigationBar navigationBar = this.navigationBar;
             g gVar = null;
             if (navigationBar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
                 navigationBar = null;
             }
-            navigationBar.onChangeSkinType(getPageContext(), i2);
+            navigationBar.onChangeSkinType(getPageContext(), i);
             NoNetworkView noNetworkView = this.noNetworkView;
             if (noNetworkView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("noNetworkView");
                 noNetworkView = null;
             }
-            noNetworkView.onChangeSkinType(getPageContext(), i2);
+            noNetworkView.c(getPageContext(), i);
             DividerItemDecoration dividerItemDecoration = this.cardDividerLine;
             if (dividerItemDecoration == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("cardDividerLine");
@@ -344,7 +341,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, newConfig) == null) {
             Intrinsics.checkNotNullParameter(newConfig, "newConfig");
             super.onConfigurationChanged(newConfig);
-            getViewModel().getConfiguration().setValue(newConfig);
+            getViewModel().b().setValue(newConfig);
         }
     }
 
@@ -364,32 +361,32 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             if (stringExtra == null) {
                 stringExtra = "";
             }
-            viewModel.setFromTid(stringExtra);
+            viewModel.r(stringExtra);
             VideoMiddlePageViewModel viewModel2 = getViewModel();
             String stringExtra2 = getIntent().getStringExtra("st_type");
             if (stringExtra2 == null) {
                 stringExtra2 = "";
             }
-            viewModel2.setStType(stringExtra2);
+            viewModel2.s(stringExtra2);
             VideoMiddlePageViewModel viewModel3 = getViewModel();
             String stringExtra3 = getIntent().getStringExtra("yuelaou_locate");
             if (stringExtra3 == null) {
                 stringExtra3 = "";
             }
-            viewModel3.setYuelaouLocate(stringExtra3);
+            viewModel3.u(stringExtra3);
             VideoMiddlePageViewModel viewModel4 = getViewModel();
             String stringExtra4 = getIntent().getStringExtra("PARAM_FROM");
-            viewModel4.setFrom(stringExtra4 != null ? stringExtra4 : "");
+            viewModel4.q(stringExtra4 != null ? stringExtra4 : "");
             VideoMiddlePageViewModel viewModel5 = getViewModel();
             Serializable serializableExtra = getIntent().getSerializableExtra("param_video_thread_info");
             if (serializableExtra != null) {
-                viewModel5.setVideoThreadInfo((VideoSerializeVideoThreadInfo) serializableExtra);
-                setContentView(R.layout.video_middle_page_light_layout);
-                View findViewById = findViewById(R.id.video_middle_page_light_root);
+                viewModel5.t((VideoSerializeVideoThreadInfo) serializableExtra);
+                setContentView(R.layout.obfuscated_res_0x7f0d0885);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f09234a);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.video_middle_page_light_root)");
                 this.rootView = findViewById;
-                this.loadingView = new g(this, getResources().getDimensionPixelSize(R.dimen.ds120));
-                View findViewById2 = findViewById(R.id.video_middle_page_light_navigation_bar);
+                this.loadingView = new g(this, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070235));
+                View findViewById2 = findViewById(R.id.obfuscated_res_0x7f092348);
                 Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.video_…age_light_navigation_bar)");
                 NavigationBar navigationBar = (NavigationBar) findViewById2;
                 this.navigationBar = navigationBar;
@@ -404,8 +401,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
                     navigationBar2 = null;
                 }
-                navigationBar2.setCenterTextTitle(getString(R.string.tieba_video));
-                View findViewById3 = findViewById(R.id.video_middle_page_light_no_network_view);
+                navigationBar2.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f13bc));
+                View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092349);
                 Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.video_…ge_light_no_network_view)");
                 this.noNetworkView = (NoNetworkView) findViewById3;
                 if (!l.z()) {
@@ -416,7 +413,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     }
                     noNetworkView.setVisibility(0);
                 }
-                View findViewById4 = findViewById(R.id.video_middle_page_light_list_view);
+                View findViewById4 = findViewById(R.id.obfuscated_res_0x7f092347);
                 Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.video_…dle_page_light_list_view)");
                 BdTypeRecyclerView bdTypeRecyclerView2 = (BdTypeRecyclerView) findViewById4;
                 this.recyclerView = bdTypeRecyclerView2;
@@ -468,9 +465,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 VideoMiddlePageViewModel viewModel6 = getViewModel();
                 Intrinsics.checkNotNullExpressionValue(viewModel6, "viewModel");
                 this.adapterManager = new p(pageContext, bdTypeRecyclerView5, viewModel6);
-                getViewModel().loadData();
+                getViewModel().l();
                 showLoadingView();
-                getViewModel().getVideoDataList().observe(this, new Observer() { // from class: c.a.r0.d1.u2.n
+                getViewModel().j().observe(this, new Observer() { // from class: c.a.p0.f1.u2.n
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -478,7 +475,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     public final void onChanged(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            VideoMiddlePageLightActivity.m59onCreate$lambda0(VideoMiddlePageLightActivity.this, (List) obj);
+                            VideoMiddlePageLightActivity.m53onCreate$lambda0(VideoMiddlePageLightActivity.this, (List) obj);
                         }
                     }
                 });
@@ -488,7 +485,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                     bdTypeRecyclerView6 = null;
                 }
-                bdTypeRecyclerView6.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.r0.d1.u2.h
+                bdTypeRecyclerView6.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.p0.f1.u2.h
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -496,7 +493,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     public final boolean onTouch(View view, MotionEvent motionEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) ? VideoMiddlePageLightActivity.m60onCreate$lambda1(VideoMiddlePageLightActivity.this, view, motionEvent) : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) ? VideoMiddlePageLightActivity.m54onCreate$lambda1(VideoMiddlePageLightActivity.this, view, motionEvent) : invokeLL.booleanValue;
                     }
                 });
                 BdTypeRecyclerView bdTypeRecyclerView7 = this.recyclerView;
@@ -506,7 +503,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     bdTypeRecyclerView = bdTypeRecyclerView7;
                 }
                 bdTypeRecyclerView.addOnScrollListener(this.scrollListener);
-                getViewModel().getCurPlayingVideoPos().observe(this, new Observer() { // from class: c.a.r0.d1.u2.g
+                getViewModel().c().observe(this, new Observer() { // from class: c.a.p0.f1.u2.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -514,11 +511,11 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     public final void onChanged(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            VideoMiddlePageLightActivity.m61onCreate$lambda2(VideoMiddlePageLightActivity.this, (Integer) obj);
+                            VideoMiddlePageLightActivity.m55onCreate$lambda2(VideoMiddlePageLightActivity.this, (Integer) obj);
                         }
                     }
                 });
-                getViewModel().getLoadErrorMsg().observe(this, new Observer() { // from class: c.a.r0.d1.u2.d
+                getViewModel().g().observe(this, new Observer() { // from class: c.a.p0.f1.u2.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -526,13 +523,13 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     public final void onChanged(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            VideoMiddlePageLightActivity.m62onCreate$lambda3(VideoMiddlePageLightActivity.this, (String) obj);
+                            VideoMiddlePageLightActivity.m56onCreate$lambda3(VideoMiddlePageLightActivity.this, (String) obj);
                         }
                     }
                 });
                 if (Build.VERSION.SDK_INT >= 28) {
                     if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
-                        d.b(1, getWindow().getAttributes(), getWindow());
+                        e.b(1, getWindow().getAttributes(), getWindow());
                         return;
                     }
                     return;
@@ -577,13 +574,13 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
             this.isForbidOnceListAutoScroll = true;
-            getViewModel().resumePlayVideo();
+            getViewModel().p();
         }
     }
 
-    public final void scrollCurPlayingVideoToTop(int i2) {
+    public final void scrollCurPlayingVideoToTop(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 == -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i == -1) {
             return;
         }
         BdTypeRecyclerView bdTypeRecyclerView = this.recyclerView;
@@ -600,14 +597,14 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             bdTypeRecyclerView3 = null;
         }
-        if (i2 < bdTypeRecyclerView3.getFirstVisiblePosition()) {
+        if (i < bdTypeRecyclerView3.getFirstVisiblePosition()) {
             BdTypeRecyclerView bdTypeRecyclerView4 = this.recyclerView;
             if (bdTypeRecyclerView4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             } else {
                 bdTypeRecyclerView2 = bdTypeRecyclerView4;
             }
-            bdTypeRecyclerView2.smoothScrollToPosition(i2);
+            bdTypeRecyclerView2.smoothScrollToPosition(i);
             return;
         }
         BdTypeRecyclerView bdTypeRecyclerView5 = this.recyclerView;
@@ -615,13 +612,13 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             bdTypeRecyclerView5 = null;
         }
-        if (i2 <= bdTypeRecyclerView5.getLastCompletelyVisiblePosition()) {
+        if (i <= bdTypeRecyclerView5.getLastCompletelyVisiblePosition()) {
             BdTypeRecyclerView bdTypeRecyclerView6 = this.recyclerView;
             if (bdTypeRecyclerView6 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                 bdTypeRecyclerView6 = null;
             }
-            int firstVisiblePosition = i2 - bdTypeRecyclerView6.getFirstVisiblePosition();
+            int firstVisiblePosition = i - bdTypeRecyclerView6.getFirstVisiblePosition();
             if (firstVisiblePosition >= 0) {
                 BdTypeRecyclerView bdTypeRecyclerView7 = this.recyclerView;
                 if (bdTypeRecyclerView7 == null) {
@@ -654,9 +651,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         } else {
             bdTypeRecyclerView2 = bdTypeRecyclerView10;
         }
-        bdTypeRecyclerView2.smoothScrollToPosition(i2);
+        bdTypeRecyclerView2.smoothScrollToPosition(i);
         this.isNeedTwiceScroll = true;
-        this.twiceScrollToPosition = i2;
+        this.twiceScrollToPosition = i;
     }
 
     public final void showLoadingView() {

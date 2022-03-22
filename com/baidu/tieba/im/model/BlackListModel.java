@@ -35,9 +35,9 @@ public class BlackListModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,14 +47,14 @@ public class BlackListModel extends BdBaseModel {
         this.mMaskType = 2;
     }
 
-    public void addToBlackList(long j2) {
+    public void addToBlackList(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             this.mUpdateMessage = requestUpdateMaskInfoMessage;
             requestUpdateMaskInfoMessage.setIsMask(1);
             this.mUpdateMessage.setMaskType(10);
-            this.mUpdateMessage.setList(String.valueOf(j2));
+            this.mUpdateMessage.setList(String.valueOf(j));
             super.sendMessage(this.mUpdateMessage);
         }
     }
@@ -70,12 +70,12 @@ public class BlackListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void checkUserMask(long j2) {
+    public void checkUserMask(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             RequestCheckUserMaskMessage requestCheckUserMaskMessage = new RequestCheckUserMaskMessage();
             this.mCheckMessage = requestCheckUserMaskMessage;
-            requestCheckUserMaskMessage.setUserId(j2);
+            requestCheckUserMaskMessage.setUserId(j);
             super.sendMessage(this.mCheckMessage);
         }
     }
@@ -106,22 +106,22 @@ public class BlackListModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void removeFromBlackList(long j2) {
+    public void removeFromBlackList(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             this.mUpdateMessage = requestUpdateMaskInfoMessage;
             requestUpdateMaskInfoMessage.setIsMask(0);
             this.mUpdateMessage.setMaskType(10);
-            this.mUpdateMessage.setList(String.valueOf(j2));
+            this.mUpdateMessage.setList(String.valueOf(j));
             super.sendMessage(this.mUpdateMessage);
         }
     }
 
-    public void setMaskType(int i2) {
+    public void setMaskType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mMaskType = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mMaskType = i;
         }
     }
 
@@ -134,9 +134,9 @@ public class BlackListModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

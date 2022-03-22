@@ -6,20 +6,20 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context, int i2) {
+    public static int a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
             int a = gq.a(context);
             if (-1 == a) {
                 return -1;
             }
-            return (i2 * (a == 0 ? 13 : 11)) / 10;
+            return (i * (a == 0 ? 13 : 11)) / 10;
         }
         return invokeLI.intValue;
     }
@@ -52,18 +52,18 @@ public class cy {
                     if (iqVar != null) {
                         try {
                             if (iqVar instanceof hw) {
-                                String str = ((hw) iqVar).f599d;
-                                if (!TextUtils.isEmpty(str) && ek.a(ek.m348a(str)) != -1) {
-                                    a = ek.a(ek.m348a(str));
+                                String str = ((hw) iqVar).f575d;
+                                if (!TextUtils.isEmpty(str) && ek.a(ek.m327a(str)) != -1) {
+                                    a = ek.a(ek.m327a(str));
                                     break;
                                 }
                             } else if (iqVar instanceof ie) {
-                                String str2 = ((ie) iqVar).f660d;
+                                String str2 = ((ie) iqVar).f636d;
                                 if (!TextUtils.isEmpty(str2)) {
-                                    if (ek.a(ek.m348a(str2)) != -1) {
-                                        a = ek.a(ek.m348a(str2));
+                                    if (ek.a(ek.m327a(str2)) != -1) {
+                                        a = ek.a(ek.m327a(str2));
                                     }
-                                    if (hp.B.equals(ek.m348a(str2))) {
+                                    if (hp.B.equals(ek.m327a(str2))) {
                                         return -1;
                                     }
                                 }
@@ -104,35 +104,35 @@ public class cy {
         return invokeLL.intValue;
     }
 
-    public static void a(String str, Context context, int i2, int i3) {
+    public static void a(String str, Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, str, context, i2, i3) == null) || i2 <= 0 || i3 <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, str, context, i, i2) == null) || i <= 0 || i2 <= 0) {
             return;
         }
-        int a = a(context, i3);
-        if (i2 != ek.a(hp.B)) {
-            el.a(context.getApplicationContext()).a(str, i2, 1L, a);
+        int a = a(context, i2);
+        if (i != ek.a(hp.B)) {
+            el.a(context.getApplicationContext()).a(str, i, 1L, a);
         }
     }
 
-    public static void a(String str, Context context, ib ibVar, int i2) {
+    public static void a(String str, Context context, ib ibVar, int i) {
         hf a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, ibVar, i2) == null) || context == null || ibVar == null || (a = ibVar.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, ibVar, i) == null) || context == null || ibVar == null || (a = ibVar.a()) == null) {
             return;
         }
         int a2 = a(a);
-        if (i2 <= 0) {
+        if (i <= 0) {
             byte[] a3 = ip.a(ibVar);
-            i2 = a3 != null ? a3.length : 0;
+            i = a3 != null ? a3.length : 0;
         }
-        a(str, context, a2, i2);
+        a(str, context, a2, i);
     }
 
-    public static void a(String str, Context context, iq iqVar, hf hfVar, int i2) {
+    public static void a(String str, Context context, iq iqVar, hf hfVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, context, iqVar, hfVar, Integer.valueOf(i2)}) == null) {
-            a(str, context, a(iqVar, hfVar), i2);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, context, iqVar, hfVar, Integer.valueOf(i)}) == null) {
+            a(str, context, a(iqVar, hfVar), i);
         }
     }
 
@@ -146,7 +146,7 @@ public class cy {
             ip.a(ibVar, bArr);
             a(str, context, ibVar, bArr.length);
         } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m112a("fail to convert bytes to container");
         }
     }
 }

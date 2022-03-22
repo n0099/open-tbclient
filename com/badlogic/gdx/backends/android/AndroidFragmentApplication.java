@@ -6,34 +6,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
-import android.os.Debug;
 import android.os.Handler;
-import android.view.View;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import c.b.b.d;
-import c.b.b.i;
-import c.b.b.l.a.e;
+import c.b.b.c;
+import c.b.b.e;
+import c.b.b.l.a.d;
 import c.b.b.l.a.f;
 import c.b.b.l.a.h;
 import c.b.b.l.a.k;
 import c.b.b.l.a.m;
 import c.b.b.l.a.q;
-import c.b.b.l.a.r;
-import c.b.b.l.a.u;
-import c.b.b.l.a.x;
-import c.b.b.l.a.y;
-import c.b.b.l.a.z;
 import c.b.b.q.g0;
 import c.b.b.q.j;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,112 +38,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d applicationLogger;
-    public c.b.b.l.a.d audio;
-    public c callbacks;
-    public e clipboard;
+    public k a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public m f23712b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f23713c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public h f23714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<f> f29683e;
-    public final c.b.b.q.a<Runnable> executedRunnables;
-    public h files;
-    public boolean firstResume;
-    public k graphics;
-    public Handler handler;
-    public m input;
-    public final g0<c.b.b.h> lifecycleListeners;
-    public c.b.b.c listener;
-    public int logLevel;
-    public q net;
-    public final c.b.b.q.a<Runnable> runnables;
+    public q f23715e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public c f23716f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Handler f23717g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f23718h;
+    public final c.b.b.q.a<Runnable> i;
+    public final c.b.b.q.a<Runnable> j;
+    public final g0<c.b.b.h> k;
+    public final c.b.b.q.a<f> l;
+    public int m;
 
     /* loaded from: classes3.dex */
-    public class a implements c.b.b.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AndroidFragmentApplication a;
-
-        public a(AndroidFragmentApplication androidFragmentApplication) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {androidFragmentApplication};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = androidFragmentApplication;
-        }
-
-        @Override // c.b.b.h
-        public void dispose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.audio.dispose();
-            }
-        }
-
-        @Override // c.b.b.h
-        public void pause() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.audio.pause();
-            }
-        }
-
-        @Override // c.b.b.h
-        public void resume() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.audio.resume();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidFragmentApplication f29684e;
-
-        public b(AndroidFragmentApplication androidFragmentApplication) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {androidFragmentApplication};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f29684e = androidFragmentApplication;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29684e.callbacks.exit();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        void exit();
+    public interface a {
     }
 
     static {
@@ -175,233 +91,50 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.firstResume = true;
-        this.runnables = new c.b.b.q.a<>();
-        this.executedRunnables = new c.b.b.q.a<>();
-        this.lifecycleListeners = new g0<>(c.b.b.h.class);
-        this.f29683e = new c.b.b.q.a<>();
-        this.logLevel = 2;
+        this.f23718h = true;
+        this.i = new c.b.b.q.a<>();
+        this.j = new c.b.b.q.a<>();
+        this.k = new g0<>(c.b.b.h.class);
+        this.l = new c.b.b.q.a<>();
+        this.m = 2;
     }
 
-    public void addAndroidEventListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            synchronized (this.f29683e) {
-                this.f29683e.a(fVar);
-            }
-        }
-    }
-
-    public void addLifecycleListener(c.b.b.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-            synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.a(hVar);
-            }
-        }
-    }
-
-    public c.b.b.l.a.d createAudio(Context context, c.b.b.l.a.b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar)) == null) ? new x(context, bVar) : (c.b.b.l.a.d) invokeLL.objValue;
-    }
-
-    public h createFiles() {
+    public e C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new y(getResources().getAssets(), getActivity(), true) : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23713c : (e) invokeV.objValue;
     }
 
-    public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, application, context, obj, bVar)) == null) ? new z(this, getActivity(), this.graphics.f27172e, bVar) : (m) invokeLLLL.objValue;
-    }
-
-    public FrameLayout.LayoutParams createLayoutParams() {
+    public Files D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.gravity = 17;
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23714d : (Files) invokeV.objValue;
     }
 
-    public void createWakeLock(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && z) {
-            getActivity().getWindow().addFlags(128);
-        }
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void debug(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            int i2 = this.logLevel;
-        }
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public void error(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            int i2 = this.logLevel;
-        }
-    }
-
-    public void exit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.handler.post(new b(this));
-        }
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public c.b.b.c getApplicationListener() {
+    public Net E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.listener : (c.b.b.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23715e : (Net) invokeV.objValue;
     }
 
-    public d getApplicationLogger() {
+    public int F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.applicationLogger : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
     }
 
-    @Override // c.b.b.l.a.a
-    public Window getApplicationWindow() {
+    public final boolean G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
-    }
-
-    public c.b.b.e getAudio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.audio : (c.b.b.e) invokeV.objValue;
-    }
-
-    public c.b.b.q.e getClipboard() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.clipboard : (c.b.b.q.e) invokeV.objValue;
-    }
-
-    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? getActivity() : (Context) invokeV.objValue;
-    }
-
-    @Override // c.b.b.l.a.a
-    public c.b.b.q.a<Runnable> getExecutedRunnables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.executedRunnables : (c.b.b.q.a) invokeV.objValue;
-    }
-
-    public Files getFiles() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.files : (Files) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public Graphics getGraphics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.graphics : (Graphics) invokeV.objValue;
-    }
-
-    @Override // c.b.b.l.a.a
-    public Handler getHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.handler : (Handler) invokeV.objValue;
-    }
-
-    public long getJavaHeap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory() : invokeV.longValue;
-    }
-
-    @Override // c.b.b.l.a.a
-    public g0<c.b.b.h> getLifecycleListeners() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.lifecycleListeners : (g0) invokeV.objValue;
-    }
-
-    public int getLogLevel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.logLevel : invokeV.intValue;
-    }
-
-    public long getNativeHeap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? Debug.getNativeHeapAllocatedSize() : invokeV.longValue;
-    }
-
-    public Net getNet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.net : (Net) invokeV.objValue;
-    }
-
-    public i getPreferences(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) ? new r(getActivity().getSharedPreferences(str, 0)) : (i) invokeL.objValue;
-    }
-
-    @Override // c.b.b.l.a.a
-    public c.b.b.q.a<Runnable> getRunnables() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.runnables : (c.b.b.q.a) invokeV.objValue;
-    }
-
-    @Override // com.badlogic.gdx.Application
-    public Application.ApplicationType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? Application.ApplicationType.Android : (Application.ApplicationType) invokeV.objValue;
-    }
-
-    public int getVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? Build.VERSION.SDK_INT : invokeV.intValue;
-    }
-
-    @Override // c.b.b.l.a.a
-    public WindowManager getWindowManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? (WindowManager) getContext().getSystemService("window") : (WindowManager) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             for (Fragment parentFragment = getParentFragment(); parentFragment != null; parentFragment = parentFragment.getParentFragment()) {
                 if (parentFragment.isRemoving()) {
                     return true;
@@ -412,28 +145,118 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
         return invokeV.booleanValue;
     }
 
-    public View initializeForView(c.b.b.c cVar) {
-        InterceptResult invokeL;
+    @Override // com.badlogic.gdx.Application
+    public void debug(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, cVar)) == null) ? initializeForView(cVar, new c.b.b.l.a.b()) : (View) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) || this.m < 3) {
+            return;
+        }
+        Log.d(str, str2);
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public void error(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || this.m < 1) {
+            return;
+        }
+        Log.e(str, str2);
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public c getApplicationListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23716f : (c) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public Window getApplicationWindow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
+    }
+
+    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getActivity() : (Context) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public c.b.b.q.a<Runnable> getExecutedRunnables() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : (c.b.b.q.a) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public Graphics getGraphics() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a : (Graphics) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public Handler getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f23717g : (Handler) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public m getInput() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23712b : (m) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public g0<c.b.b.h> getLifecycleListeners() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : (g0) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public c.b.b.q.a<Runnable> getRunnables() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.i : (c.b.b.q.a) invokeV.objValue;
+    }
+
+    @Override // com.badlogic.gdx.Application
+    public Application.ApplicationType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? Application.ApplicationType.Android : (Application.ApplicationType) invokeV.objValue;
+    }
+
+    @Override // c.b.b.l.a.a
+    public WindowManager getWindowManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? (WindowManager) getContext().getSystemService("window") : (WindowManager) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, str, str2) == null) {
-            int i2 = this.logLevel;
+        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) || this.m < 2) {
+            return;
         }
+        Log.i(str, str2);
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048615, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            synchronized (this.f29683e) {
-                for (int i4 = 0; i4 < this.f29683e.f27499f; i4++) {
-                    this.f29683e.get(i4).onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048597, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            synchronized (this.l) {
+                for (int i3 = 0; i3 < this.l.f22717b; i3++) {
+                    this.l.get(i3).onActivityResult(i, i2, intent);
                 }
             }
         }
@@ -442,13 +265,13 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     @Override // androidx.fragment.app.Fragment
     public void onAttach(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, activity) == null) {
-            if (activity instanceof c) {
-                this.callbacks = (c) activity;
-            } else if (getParentFragment() instanceof c) {
-                this.callbacks = (c) getParentFragment();
-            } else if (getTargetFragment() instanceof c) {
-                this.callbacks = (c) getTargetFragment();
+        if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
+            if (activity instanceof a) {
+                a aVar = (a) activity;
+            } else if (getParentFragment() instanceof a) {
+                a aVar2 = (a) getParentFragment();
+            } else if (getTargetFragment() instanceof a) {
+                a aVar3 = (a) getTargetFragment();
             } else {
                 throw new RuntimeException("Missing AndroidFragmentApplication.Callbacks. Please implement AndroidFragmentApplication.Callbacks on the parent activity, fragment or target fragment.");
             }
@@ -459,38 +282,37 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.input.c(configuration.hardKeyboardHidden == 1);
+            this.f23712b.i(configuration.hardKeyboardHidden == 1);
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onDetach();
-            this.callbacks = null;
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            boolean d2 = this.graphics.d();
-            boolean z = k.A;
-            k.A = true;
-            this.graphics.u(true);
-            this.graphics.r();
-            this.input.onPause();
-            if (isRemoving() || i() || getActivity().isFinishing()) {
-                this.graphics.h();
-                this.graphics.j();
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            boolean d2 = this.a.d();
+            boolean z = k.w;
+            k.w = true;
+            this.a.u(true);
+            this.a.r();
+            this.f23712b.onPause();
+            if (isRemoving() || G0() || getActivity().isFinishing()) {
+                this.a.h();
+                this.a.j();
             }
-            k.A = z;
-            this.graphics.u(d2);
-            this.graphics.p();
+            k.w = z;
+            this.a.u(d2);
+            this.a.p();
             super.onPause();
         }
     }
@@ -498,22 +320,22 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             c.b.b.f.a = this;
             getInput();
-            c.b.b.f.f27075c = getAudio();
-            c.b.b.f.f27076d = getFiles();
-            c.b.b.f.f27074b = getGraphics();
-            getNet();
-            this.input.onResume();
-            k kVar = this.graphics;
+            c.b.b.f.f22332c = C0();
+            c.b.b.f.f22333d = D0();
+            c.b.b.f.f22331b = getGraphics();
+            E0();
+            this.f23712b.onResume();
+            k kVar = this.a;
             if (kVar != null) {
                 kVar.q();
             }
-            if (!this.firstResume) {
-                this.graphics.t();
+            if (!this.f23718h) {
+                this.a.t();
             } else {
-                this.firstResume = false;
+                this.f23718h = false;
             }
             super.onResume();
         }
@@ -522,50 +344,11 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     @Override // com.badlogic.gdx.Application
     public void postRunnable(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, runnable) == null) {
-            synchronized (this.runnables) {
-                this.runnables.a(runnable);
-                c.b.b.f.f27074b.c();
+        if (interceptable == null || interceptable.invokeL(1048603, this, runnable) == null) {
+            synchronized (this.i) {
+                this.i.a(runnable);
+                c.b.b.f.f22331b.c();
             }
-        }
-    }
-
-    public void removeAndroidEventListener(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, fVar) == null) {
-            synchronized (this.f29683e) {
-                this.f29683e.i(fVar, true);
-            }
-        }
-    }
-
-    public void removeLifecycleListener(c.b.b.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, hVar) == null) {
-            synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.i(hVar, true);
-            }
-        }
-    }
-
-    public void runOnUiThread(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, runnable) == null) {
-            getActivity().runOnUiThread(runnable);
-        }
-    }
-
-    public void setApplicationLogger(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, dVar) == null) {
-            this.applicationLogger = dVar;
-        }
-    }
-
-    public void setLogLevel(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.logLevel = i2;
         }
     }
 
@@ -573,79 +356,26 @@ public class AndroidFragmentApplication extends Fragment implements c.b.b.l.a.a 
     @TargetApi(19)
     public void useImmersiveMode(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048627, this, z) == null) && z && getVersion() >= 19) {
-            this.graphics.m().setSystemUiVisibility(5894);
-        }
-    }
-
-    public void debug(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
-            int i2 = this.logLevel;
+        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && z && F0() >= 19) {
+            this.a.m().setSystemUiVisibility(5894);
         }
     }
 
     @Override // com.badlogic.gdx.Application
     public void error(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, th) == null) {
-            int i2 = this.logLevel;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, th) == null) || this.m < 1) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.b.b.l.a.a
-    public m getInput() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.input : (m) invokeV.objValue;
+        Log.e(str, str2, th);
     }
 
     @Override // com.badlogic.gdx.Application
     public void log(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048614, this, str, str2, th) == null) {
-            int i2 = this.logLevel;
+        if (!(interceptable == null || interceptable.invokeLLL(1048596, this, str, str2, th) == null) || this.m < 2) {
+            return;
         }
-    }
-
-    public View initializeForView(c.b.b.c cVar, c.b.b.l.a.b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, cVar, bVar)) == null) {
-            if (getVersion() >= 14) {
-                setApplicationLogger(new c.b.b.l.a.c());
-                c.b.b.l.a.b0.c cVar2 = bVar.r;
-                if (cVar2 == null) {
-                    cVar2 = new c.b.b.l.a.b0.a();
-                }
-                this.graphics = new k(this, bVar, cVar2);
-                this.input = createInput(this, getActivity(), this.graphics.f27172e, bVar);
-                this.audio = createAudio(getActivity(), bVar);
-                this.files = createFiles();
-                this.net = new q(this, bVar);
-                this.listener = cVar;
-                this.handler = new Handler();
-                this.clipboard = new e(getActivity());
-                addLifecycleListener(new a(this));
-                c.b.b.f.a = this;
-                getInput();
-                c.b.b.f.f27075c = getAudio();
-                c.b.b.f.f27076d = getFiles();
-                c.b.b.f.f27074b = getGraphics();
-                getNet();
-                createWakeLock(bVar.n);
-                useImmersiveMode(bVar.t);
-                if (bVar.t && getVersion() >= 19) {
-                    new u().a(this);
-                }
-                if (getResources().getConfiguration().keyboard != 1) {
-                    this.input.c(true);
-                }
-                return this.graphics.m();
-            }
-            throw new GdxRuntimeException("LibGDX requires Android API Level 14 or later.");
-        }
-        return (View) invokeLL.objValue;
+        Log.i(str, str2, th);
     }
 }

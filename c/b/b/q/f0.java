@@ -15,10 +15,10 @@ public class f0 {
     public short[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27542b;
+    public int f22752b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27543c;
+    public boolean f22753c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f0() {
@@ -27,9 +27,9 @@ public class f0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Boolean) objArr[0]).booleanValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -43,67 +43,67 @@ public class f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Short.valueOf(s)}) == null) {
             short[] sArr = this.a;
-            int i2 = this.f27542b;
-            if (i2 == sArr.length) {
-                sArr = e(Math.max(8, (int) (i2 * 1.75f)));
+            int i = this.f22752b;
+            if (i == sArr.length) {
+                sArr = e(Math.max(8, (int) (i * 1.75f)));
             }
-            int i3 = this.f27542b;
-            this.f27542b = i3 + 1;
-            sArr[i3] = s;
+            int i2 = this.f22752b;
+            this.f22752b = i2 + 1;
+            sArr[i2] = s;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27542b = 0;
+            this.f22752b = 0;
         }
     }
 
-    public short[] c(int i2) {
+    public short[] c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= 0) {
-                int i3 = this.f27542b + i2;
-                if (i3 > this.a.length) {
-                    e(Math.max(Math.max(8, i3), (int) (this.f27542b * 1.75f)));
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0) {
+                int i2 = this.f22752b + i;
+                if (i2 > this.a.length) {
+                    e(Math.max(Math.max(8, i2), (int) (this.f22752b * 1.75f)));
                 }
                 return this.a;
             }
-            throw new IllegalArgumentException("additionalCapacity must be >= 0: " + i2);
+            throw new IllegalArgumentException("additionalCapacity must be >= 0: " + i);
         }
         return (short[]) invokeI.objValue;
     }
 
-    public short d(int i2) {
+    public short d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int i3 = this.f27542b;
-            if (i2 < i3) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int i2 = this.f22752b;
+            if (i < i2) {
                 short[] sArr = this.a;
-                short s = sArr[i2];
-                int i4 = i3 - 1;
-                this.f27542b = i4;
-                if (this.f27543c) {
-                    System.arraycopy(sArr, i2 + 1, sArr, i2, i4 - i2);
+                short s = sArr[i];
+                int i3 = i2 - 1;
+                this.f22752b = i3;
+                if (this.f22753c) {
+                    System.arraycopy(sArr, i + 1, sArr, i, i3 - i);
                 } else {
-                    sArr[i2] = sArr[i4];
+                    sArr[i] = sArr[i3];
                 }
                 return s;
             }
-            throw new IndexOutOfBoundsException("index can't be >= size: " + i2 + " >= " + this.f27542b);
+            throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.f22752b);
         }
         return invokeI.shortValue;
     }
 
-    public short[] e(int i2) {
+    public short[] e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            short[] sArr = new short[i2];
-            System.arraycopy(this.a, 0, sArr, 0, Math.min(this.f27542b, i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            short[] sArr = new short[i];
+            System.arraycopy(this.a, 0, sArr, 0, Math.min(this.f22752b, i));
             this.a = sArr;
             return sArr;
         }
@@ -112,19 +112,19 @@ public class f0 {
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj == this) {
                 return true;
             }
-            if (this.f27543c && (obj instanceof f0)) {
+            if (this.f22753c && (obj instanceof f0)) {
                 f0 f0Var = (f0) obj;
-                if (f0Var.f27543c && (i2 = this.f27542b) == f0Var.f27542b) {
+                if (f0Var.f22753c && (i = this.f22752b) == f0Var.f22752b) {
                     short[] sArr = this.a;
                     short[] sArr2 = f0Var.a;
-                    for (int i3 = 0; i3 < i2; i3++) {
-                        if (sArr[i3] != sArr2[i3]) {
+                    for (int i2 = 0; i2 < i; i2++) {
+                        if (sArr[i2] != sArr2[i2]) {
                             return false;
                         }
                     }
@@ -141,9 +141,9 @@ public class f0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.f27542b;
-            short[] sArr = new short[i2];
-            System.arraycopy(this.a, 0, sArr, 0, i2);
+            int i = this.f22752b;
+            short[] sArr = new short[i];
+            System.arraycopy(this.a, 0, sArr, 0, i);
             return sArr;
         }
         return (short[]) invokeV.objValue;
@@ -153,39 +153,39 @@ public class f0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f27543c) {
+            if (this.f22753c) {
                 short[] sArr = this.a;
-                int i2 = this.f27542b;
-                int i3 = 1;
-                for (int i4 = 0; i4 < i2; i4++) {
-                    i3 = (i3 * 31) + sArr[i4];
+                int i = this.f22752b;
+                int i2 = 1;
+                for (int i3 = 0; i3 < i; i3++) {
+                    i2 = (i2 * 31) + sArr[i3];
                 }
-                return i3;
+                return i2;
             }
             return super.hashCode();
         }
         return invokeV.intValue;
     }
 
-    public void insert(int i2, short s) {
+    public void insert(int i, short s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s)}) == null) {
-            int i3 = this.f27542b;
-            if (i2 <= i3) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Short.valueOf(s)}) == null) {
+            int i2 = this.f22752b;
+            if (i <= i2) {
                 short[] sArr = this.a;
-                if (i3 == sArr.length) {
-                    sArr = e(Math.max(8, (int) (i3 * 1.75f)));
+                if (i2 == sArr.length) {
+                    sArr = e(Math.max(8, (int) (i2 * 1.75f)));
                 }
-                if (this.f27543c) {
-                    System.arraycopy(sArr, i2, sArr, i2 + 1, this.f27542b - i2);
+                if (this.f22753c) {
+                    System.arraycopy(sArr, i, sArr, i + 1, this.f22752b - i);
                 } else {
-                    sArr[this.f27542b] = sArr[i2];
+                    sArr[this.f22752b] = sArr[i];
                 }
-                this.f27542b++;
-                sArr[i2] = s;
+                this.f22752b++;
+                sArr[i] = s;
                 return;
             }
-            throw new IndexOutOfBoundsException("index can't be > size: " + i2 + " > " + this.f27542b);
+            throw new IndexOutOfBoundsException("index can't be > size: " + i + " > " + this.f22752b);
         }
     }
 
@@ -193,16 +193,16 @@ public class f0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f27542b == 0) {
+            if (this.f22752b == 0) {
                 return "[]";
             }
             short[] sArr = this.a;
             j0 j0Var = new j0(32);
             j0Var.a('[');
             j0Var.d(sArr[0]);
-            for (int i2 = 1; i2 < this.f27542b; i2++) {
+            for (int i = 1; i < this.f22752b; i++) {
                 j0Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                j0Var.d(sArr[i2]);
+                j0Var.d(sArr[i]);
             }
             j0Var.a(']');
             return j0Var.toString();
@@ -210,22 +210,22 @@ public class f0 {
         return (String) invokeV.objValue;
     }
 
-    public f0(boolean z, int i2) {
+    public f0(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27543c = z;
-        this.a = new short[i2];
+        this.f22753c = z;
+        this.a = new short[i];
     }
 }

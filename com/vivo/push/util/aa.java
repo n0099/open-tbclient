@@ -15,7 +15,9 @@ import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,28 +30,28 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class aa {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f59299b;
+    public static String[] f43932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Boolean f59300c;
+    public static Boolean f43933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String[] f59301d;
+    public static String[] f43934d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String[] f59302e;
+    public static String[] f43935e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String[] f59303f;
+    public static String[] f43936f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Map<String, Bundle> f59304g;
+    public static Map<String, Bundle> f43937g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,11 +68,11 @@ public final class aa {
             }
         }
         a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-        f59299b = new String[]{com.kuaishou.weapon.un.s.a, com.kuaishou.weapon.un.s.f53804c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", com.kuaishou.weapon.un.s.f53805d, "android.permission.WAKE_LOCK", com.kuaishou.weapon.un.s.f53807f, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.un.s.f53806e};
-        f59301d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
-        f59302e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
-        f59303f = new String[0];
-        f59304g = new ConcurrentHashMap();
+        f43932b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+        f43934d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
+        f43935e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
+        f43936f = new String[0];
+        f43937g = new ConcurrentHashMap();
     }
 
     public static boolean a(Context context) {
@@ -78,7 +80,7 @@ public final class aa {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            Boolean bool = f59300c;
+            Boolean bool = f43933c;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -88,7 +90,7 @@ public final class aa {
             }
             String b2 = t.b(context);
             if (context != null && context.getPackageName() != null && context.getPackageName().equals(b2)) {
-                f59300c = Boolean.TRUE;
+                f43933c = Boolean.TRUE;
                 return true;
             }
             int myPid = Process.myPid();
@@ -111,7 +113,7 @@ public final class aa {
                 return false;
             }
             Boolean valueOf = Boolean.valueOf(str.contains(":pushservice"));
-            f59300c = valueOf;
+            f43933c = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -139,7 +141,7 @@ public final class aa {
     */
     public static void c(Context context) throws VivoPushException {
         String obj;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
             p.d("Utility", "check PushService AndroidManifest declearation !");
@@ -149,33 +151,33 @@ public final class aa {
             boolean c2 = t.c(context, context.getPackageName());
             if (e2) {
                 a = new String[]{"com.vivo.push.sdk.RegistrationReceiver", "com.vivo.push.sdk.service.PushService", "com.vivo.push.sdk.service.CommonJobService"};
-                f59299b = new String[]{com.kuaishou.weapon.un.s.a, com.kuaishou.weapon.un.s.f53804c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", com.kuaishou.weapon.un.s.f53805d, "android.permission.WAKE_LOCK", com.kuaishou.weapon.un.s.f53807f, "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", com.kuaishou.weapon.un.s.f53806e};
-                f59301d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
-                f59302e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
+                f43932b = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.WRITE_SETTINGS", "android.permission.VIBRATE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.ACCESS_WIFI_STATE", "android.permission.WAKE_LOCK", "android.permission.GET_ACCOUNTS", "com.bbk.account.permission.READ_ACCOUNTINFO", "android.permission.AUTHENTICATE_ACCOUNTS", "android.permission.MOUNT_UNMOUNT_FILESYSTEMS", "android.permission.GET_TASKS"};
+                f43934d = new String[]{"com.vivo.push.sdk.service.CommandService", "com.vivo.push.sdk.service.CommonJobService"};
+                f43935e = new String[]{"com.vivo.push.sdk.RegistrationReceiver"};
             } else if (!c2 && !d2) {
                 throw new VivoPushException("AndroidManifest.xml中receiver配置项错误，详见接入文档");
             } else {
                 if (c2) {
-                    f59301d = new String[]{"com.vivo.push.sdk.service.CommandClientService"};
+                    f43934d = new String[]{"com.vivo.push.sdk.service.CommandClientService"};
                 } else {
-                    f59301d = new String[]{"com.vivo.push.sdk.service.CommandService"};
+                    f43934d = new String[]{"com.vivo.push.sdk.service.CommandService"};
                 }
-                f59302e = new String[0];
+                f43935e = new String[0];
                 a = new String[0];
                 if (d2) {
-                    f59299b = new String[]{com.kuaishou.weapon.un.s.a, "android.permission.WRITE_SETTINGS"};
+                    f43932b = new String[]{"android.permission.INTERNET", "android.permission.WRITE_SETTINGS"};
                 } else {
-                    f59299b = new String[]{com.kuaishou.weapon.un.s.a};
+                    f43932b = new String[]{"android.permission.INTERNET"};
                 }
             }
             if (d2 || e2) {
                 long a2 = a(context, context.getPackageName());
-                long j2 = context.getPackageName().equals(b2) ? DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT : 800L;
+                long j = context.getPackageName().equals(b2) ? DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT : 800L;
                 if (a2 == -1) {
                     throw new VivoPushException("AndroidManifest.xml中未配置sdk_version");
                 }
-                if (a2 != j2) {
-                    throw new VivoPushException("AndroidManifest.xml中sdk_version配置项错误，请配置当前sdk_version版本为:".concat(String.valueOf(j2)));
+                if (a2 != j) {
+                    throw new VivoPushException("AndroidManifest.xml中sdk_version配置项错误，请配置当前sdk_version版本为:".concat(String.valueOf(j)));
                 }
             }
             try {
@@ -183,14 +185,14 @@ public final class aa {
                 if (packageManager != null) {
                     String[] strArr = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                     if (strArr != null) {
-                        String[] strArr2 = f59299b;
+                        String[] strArr2 = f43932b;
                         int length = strArr2.length;
-                        int i3 = 0;
-                        while (i3 < length) {
-                            String str = strArr2[i3];
+                        int i2 = 0;
+                        while (i2 < length) {
+                            String str = strArr2[i2];
                             int length2 = strArr.length;
-                            while (i2 < length2) {
-                                i2 = str.equals(strArr[i2]) ? 0 : i2 + 1;
+                            while (i < length2) {
+                                i = str.equals(strArr[i]) ? 0 : i + 1;
                             }
                             throw new VivoPushException("permission : " + str + "  check fail : " + Arrays.toString(strArr));
                         }
@@ -232,14 +234,14 @@ public final class aa {
 
     public static void d(Context context, String str) throws VivoPushException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) || f59303f.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, context, str) == null) || f43936f.length <= 0) {
             return;
         }
         try {
             if (context.getPackageManager() != null) {
                 ActivityInfo[] activityInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 1).activities;
                 if (activityInfoArr != null) {
-                    for (String str2 : f59303f) {
+                    for (String str2 : f43936f) {
                         a(str2, activityInfoArr, str);
                     }
                     return;
@@ -259,7 +261,7 @@ public final class aa {
                 if (context.getPackageManager() != null) {
                     ActivityInfo[] activityInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 2).receivers;
                     if (activityInfoArr != null) {
-                        for (String str2 : f59302e) {
+                        for (String str2 : f43935e) {
                             a(str2, activityInfoArr, str);
                         }
                         return;
@@ -319,7 +321,7 @@ public final class aa {
                 return false;
             }
             String packageName = context.getPackageName();
-            Cursor query = context.getContentResolver().query(com.vivo.push.p.f59284b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"800", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
+            Cursor query = context.getContentResolver().query(com.vivo.push.p.f43917b, null, "pushVersion = ? and appPkgName = ? and appCode = ? ", new String[]{"800", packageName, String.valueOf(context.getPackageManager().getPackageInfo(packageName, 0).versionCode)}, null);
             if (query == null) {
                 p.a("Utility", "cursor is null");
                 if (query != null) {
@@ -330,7 +332,7 @@ public final class aa {
                     }
                 }
                 return false;
-            } else if (!query.moveToFirst() || (query.getInt(query.getColumnIndex("permission")) & 1) == 0) {
+            } else if (!query.moveToFirst() || (query.getInt(query.getColumnIndex(ShareLoginStat.GetShareListStat.KEY_PERMISSION)) & 1) == 0) {
                 if (query != null) {
                     query.close();
                 }
@@ -361,7 +363,7 @@ public final class aa {
             return null;
         }
         try {
-            Object obj2 = (f59304g == null || f59304g.size() <= 0 || (bundle = f59304g.get(str)) == null) ? null : bundle.get(str2);
+            Object obj2 = (f43937g == null || f43937g.size() <= 0 || (bundle = f43937g.get(str)) == null) ? null : bundle.get(str2);
             if (obj2 != null) {
                 return obj2;
             }
@@ -374,8 +376,8 @@ public final class aa {
                 r0 = obj2;
             }
             try {
-                if (f59304g.size() <= 300) {
-                    f59304g.put(str, r0);
+                if (f43937g.size() <= 300) {
+                    f43937g.put(str, r0);
                     return obj;
                 }
                 return obj;
@@ -460,7 +462,7 @@ public final class aa {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             try {
-                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
+                str3 = (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str3 = str2;
@@ -557,7 +559,7 @@ public final class aa {
                 if (context.getPackageManager() != null) {
                     ServiceInfo[] serviceInfoArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4).services;
                     if (serviceInfoArr != null) {
-                        for (String str2 : f59301d) {
+                        for (String str2 : f43934d) {
                             a(str2, serviceInfoArr, str);
                         }
                         return;
@@ -624,7 +626,7 @@ public final class aa {
                 p.a("Utility", "context is null");
                 return false;
             }
-            Cursor query = context.getContentResolver().query(com.vivo.push.p.f59285c, null, "appPkgName = ? and regId = ? sdkVersion = ? ", new String[]{str, str2, "800"}, null);
+            Cursor query = context.getContentResolver().query(com.vivo.push.p.f43918c, null, "appPkgName = ? and regId = ? sdkVersion = ? ", new String[]{str, str2, "800"}, null);
             if (query == null) {
                 p.a("Utility", "cursor is null");
                 if (query != null) {

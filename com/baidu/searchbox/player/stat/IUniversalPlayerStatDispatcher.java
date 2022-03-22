@@ -20,9 +20,9 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -30,9 +30,9 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void end(int i2) {
+        public void end(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
@@ -51,23 +51,23 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void goBackOrForeground(boolean z, int i2) {
+        public void goBackOrForeground(boolean z, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void onError(int i2, int i3, Object obj) {
+        public void onError(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, obj) == null) {
+            if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, obj) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void onInfo(int i2, int i3, Object obj) {
+        public void onInfo(int i, int i2, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, obj) == null) {
+            if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) {
             }
         }
 
@@ -114,9 +114,9 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void stop(int i2) {
+        public void stop(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             }
         }
     }

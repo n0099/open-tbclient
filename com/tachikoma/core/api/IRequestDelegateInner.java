@@ -2,7 +2,7 @@ package com.tachikoma.core.api;
 
 import com.tachikoma.core.component.network.ResponseCallBackInner;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IRequestDelegateInner {
     void get(ResponseCallBackInner responseCallBackInner);
 
@@ -14,7 +14,7 @@ public interface IRequestDelegateInner {
 
     void setHost(String str);
 
-    void setInterval(int i2);
+    void setInterval(int i);
 
     void setParams(Map<String, String> map);
 

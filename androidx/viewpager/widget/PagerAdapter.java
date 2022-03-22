@@ -28,9 +28,9 @@ public abstract class PagerAdapter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +39,10 @@ public abstract class PagerAdapter {
         this.mObservable = new DataSetObservable();
     }
 
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2, obj) == null) {
-            destroyItem((View) viewGroup, i2, obj);
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
+            destroyItem((View) viewGroup, i, obj);
         }
     }
 
@@ -72,29 +72,29 @@ public abstract class PagerAdapter {
     }
 
     @Nullable
-    public CharSequence getPageTitle(int i2) {
+    public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             return null;
         }
         return (CharSequence) invokeI.objValue;
     }
 
-    public float getPageWidth(int i2) {
+    public float getPageWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             return 1.0f;
         }
         return invokeI.floatValue;
     }
 
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) ? instantiateItem((View) viewGroup, i2) : invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) ? instantiateItem((View) viewGroup, i) : invokeLI.objValue;
     }
 
     public abstract boolean isViewFromObject(@NonNull View view, @NonNull Object obj);
@@ -135,16 +135,16 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void setPrimaryItem(@NonNull View view, int i2, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048591, this, view, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048591, this, view, i, obj) == null) {
         }
     }
 
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048592, this, viewGroup, i2, obj) == null) {
-            setPrimaryItem((View) viewGroup, i2, obj);
+        if (interceptable == null || interceptable.invokeLIL(1048592, this, viewGroup, i, obj) == null) {
+            setPrimaryItem((View) viewGroup, i, obj);
         }
     }
 
@@ -179,19 +179,19 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void destroyItem(@NonNull View view, int i2, @NonNull Object obj) {
+    public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, obj) == null) {
             throw new UnsupportedOperationException("Required method destroyItem was not overridden");
         }
     }
 
     @NonNull
     @Deprecated
-    public Object instantiateItem(@NonNull View view, int i2) {
+    public Object instantiateItem(@NonNull View view, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i)) == null) {
             throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
         }
         return invokeLI.objValue;

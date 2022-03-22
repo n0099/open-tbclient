@@ -19,21 +19,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BawuManagerApplyInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f32183b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32184c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41664e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f41665f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f41666g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f41667h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f41668i;
+    public TextView f32186e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BawuManagerApplyInfoView(Context context) {
@@ -44,48 +42,48 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41664e = context;
-        a();
+        this.a = context;
+        b();
     }
 
-    public final void a() {
+    public void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f41664e).inflate(R.layout.bawu_manager_apply_layout, this);
-            this.f41665f = inflate;
-            this.f41666g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
-            this.f41667h = (TextView) this.f41665f.findViewById(R.id.textview_manager_apply);
-            this.f41668i = (TextView) this.f41665f.findViewById(R.id.textview_manager_left_num);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            this.f32185d.setText(str);
+            this.f32184c.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805fa, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+            if (i > 0) {
+                this.f32186e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0293), StringHelper.numberUniformFormat(i)));
+                this.f32184c.setEnabled(true);
+                this.f32184c.setClickable(true);
+                SkinManager.setViewTextColor(this.f32185d, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.f32186e, R.color.CAM_X0305, 1);
+                return;
+            }
+            this.f32186e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0295));
+            this.f32184c.setEnabled(false);
+            this.f32184c.setClickable(false);
+            SkinManager.setViewTextColor(this.f32185d, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f32186e, R.color.CAM_X0109, 1);
         }
     }
 
-    public void fillView(String str, int i2) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
-            this.f41667h.setText(str);
-            this.f41666g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
-            if (i2 > 0) {
-                this.f41668i.setText(String.format(this.f41664e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i2)));
-                this.f41666g.setEnabled(true);
-                this.f41666g.setClickable(true);
-                SkinManager.setViewTextColor(this.f41667h, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.f41668i, R.color.CAM_X0305, 1);
-                return;
-            }
-            this.f41668i.setText(this.f41664e.getResources().getString(R.string.apply_no_left_tip));
-            this.f41666g.setEnabled(false);
-            this.f41666g.setClickable(false);
-            SkinManager.setViewTextColor(this.f41667h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f41668i, R.color.CAM_X0109, 1);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0148, this);
+            this.f32183b = inflate;
+            this.f32184c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e8c);
+            this.f32185d = (TextView) this.f32183b.findViewById(R.id.obfuscated_res_0x7f091f6d);
+            this.f32186e = (TextView) this.f32183b.findViewById(R.id.obfuscated_res_0x7f091f6e);
         }
     }
 
@@ -93,7 +91,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f41666g.setOnClickListener(onClickListener);
+            this.f32184c.setOnClickListener(onClickListener);
         }
     }
 
@@ -106,9 +104,9 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,22 +114,22 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f41664e = context;
-        a();
+        this.a = context;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BawuManagerApplyInfoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -139,7 +137,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f41664e = context;
-        a();
+        this.a = context;
+        b();
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TimestampAligner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public class TimestampAligner {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,11 +43,11 @@ public class TimestampAligner {
 
     public static native long nativeCreateTimestampAligner();
 
-    public static native void nativeReleaseTimestampAligner(long j2);
+    public static native void nativeReleaseTimestampAligner(long j);
 
     public static native long nativeRtcTimeNanos();
 
-    public static native long nativeTranslateTimestamp(long j2, long j3);
+    public static native long nativeTranslateTimestamp(long j, long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class TimestampAligner {
         }
     }
 
-    public long translateTimestamp(long j2) {
+    public long translateTimestamp(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             checkNativeAlignerExists();
-            return nativeTranslateTimestamp(this.nativeTimestampAligner, j2);
+            return nativeTranslateTimestamp(this.nativeTimestampAligner, j);
         }
         return invokeJ.longValue;
     }

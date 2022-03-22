@@ -19,7 +19,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "RSA/ECB/PKCS1Padding";
@@ -38,7 +38,7 @@ public class b extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        boolean z = f.f57798b;
+        boolean z = f.f42567b;
     }
 
     public b() {
@@ -46,9 +46,9 @@ public class b extends com.sdk.base.framework.f.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

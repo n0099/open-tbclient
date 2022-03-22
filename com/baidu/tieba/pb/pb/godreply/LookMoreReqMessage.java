@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.godreply;
 
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LookMoreReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class LookMoreReqMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -54,13 +54,13 @@ public class LookMoreReqMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 int k = n.k(TbadkCoreApplication.getInst());
-                int i2 = n.i(TbadkCoreApplication.getInst());
+                int i = n.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
                 builder.post_id = this.post_id;
                 builder.scr_w = Integer.valueOf(k);
-                builder.scr_h = Integer.valueOf(i2);
+                builder.scr_h = Integer.valueOf(i);
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
@@ -90,31 +90,31 @@ public class LookMoreReqMessage extends NetMessage {
         }
     }
 
-    public void setScr_h(int i2) {
+    public void setScr_h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.scr_h = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.scr_h = i;
         }
     }
 
-    public void setScr_w(int i2) {
+    public void setScr_w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.scr_w = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.scr_w = i;
         }
     }
 
-    public void setSt_type(int i2) {
+    public void setSt_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.st_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.st_type = i;
         }
     }
 
-    public void setWith_floor(int i2) {
+    public void setWith_floor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.with_floor = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.with_floor = i;
         }
     }
 }

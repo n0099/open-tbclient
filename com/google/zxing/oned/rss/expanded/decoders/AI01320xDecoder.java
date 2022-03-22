@@ -21,9 +21,9 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BitArray) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -33,10 +33,10 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public void addWeightCode(StringBuilder sb, int i2) {
+    public void addWeightCode(StringBuilder sb, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i2) == null) {
-            if (i2 < 10000) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i) == null) {
+            if (i < 10000) {
                 sb.append("(3202)");
             } else {
                 sb.append("(3203)");
@@ -45,9 +45,9 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public int checkWeight(int i2) {
+    public int checkWeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 < 10000 ? i2 : i2 - 10000 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i < 10000 ? i : i - 10000 : invokeI.intValue;
     }
 }

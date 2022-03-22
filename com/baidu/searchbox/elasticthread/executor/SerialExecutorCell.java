@@ -1,5 +1,6 @@
 package com.baidu.searchbox.elasticthread.executor;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.ElasticDataUploader;
@@ -24,17 +25,17 @@ public class SerialExecutorCell extends BaseExecutorCell {
     public int dredgeCountInRecordLifeCycle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SerialExecutorCell(int i2) {
-        super(i2);
+    public SerialExecutorCell(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,9 +43,9 @@ public class SerialExecutorCell extends BaseExecutorCell {
             }
         }
         this.dredgeCountInRecordLifeCycle = 0;
-        if (i2 != 1) {
-            getTag();
-            String str = "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.";
+        if (i != 1) {
+            String tag = getTag();
+            Log.w(tag, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
             this.maxThreadNum = 1;
         }
         this.mExecutor = new ThreadPoolExecutor(1, 1, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());

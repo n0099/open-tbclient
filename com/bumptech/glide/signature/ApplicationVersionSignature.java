@@ -3,6 +3,7 @@ package com.bumptech.glide.signature;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -18,7 +19,7 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ApplicationVersionSignature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY;
@@ -46,9 +47,9 @@ public final class ApplicationVersionSignature {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -62,8 +63,8 @@ public final class ApplicationVersionSignature {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                String str = "Cannot resolve info for" + context.getPackageName();
+            } catch (PackageManager.NameNotFoundException e2) {
+                Log.e(TAG, "Cannot resolve info for" + context.getPackageName(), e2);
                 return null;
             }
         }

@@ -47,9 +47,9 @@ public class Rectangle implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -135,13 +135,13 @@ public class Rectangle implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             int indexOf = str.indexOf(44, 1);
-            int i2 = indexOf + 1;
-            int indexOf2 = str.indexOf(44, i2);
-            int i3 = indexOf2 + 1;
-            int indexOf3 = str.indexOf(44, i3);
+            int i = indexOf + 1;
+            int indexOf2 = str.indexOf(44, i);
+            int i2 = indexOf2 + 1;
+            int indexOf3 = str.indexOf(44, i2);
             if (indexOf != -1 && indexOf2 != -1 && indexOf3 != -1 && str.charAt(0) == '[' && str.charAt(str.length() - 1) == ']') {
                 try {
-                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i2, indexOf2)), Float.parseFloat(str.substring(i3, indexOf3)), Float.parseFloat(str.substring(indexOf3 + 1, str.length() - 1)));
+                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i, indexOf2)), Float.parseFloat(str.substring(i2, indexOf3)), Float.parseFloat(str.substring(indexOf3 + 1, str.length() - 1)));
                 } catch (NumberFormatException unused) {
                 }
             }
@@ -358,9 +358,9 @@ public class Rectangle implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -475,9 +475,9 @@ public class Rectangle implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {rectangle};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

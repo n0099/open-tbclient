@@ -12,12 +12,12 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NonOwnedBitmapResource implements Resource<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,9 +79,9 @@ public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -101,9 +101,9 @@ public final class UnitBitmapDecoder implements ResourceDecoder<Bitmap, Bitmap> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull Bitmap bitmap, int i2, int i3, @NonNull Options options) {
+    public Resource<Bitmap> decode(@NonNull Bitmap bitmap, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new NonOwnedBitmapResource(bitmap) : (Resource) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new NonOwnedBitmapResource(bitmap) : (Resource) invokeCommon.objValue;
     }
 }

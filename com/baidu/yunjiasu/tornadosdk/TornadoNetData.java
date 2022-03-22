@@ -20,16 +20,16 @@ public final class TornadoNetData {
     public int mask;
     public String name;
 
-    public TornadoNetData(String name, String ip, int i2, String gateway) {
+    public TornadoNetData(String name, String ip, int i, String gateway) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {name, ip, Integer.valueOf(i2), gateway};
+            Object[] objArr = {name, ip, Integer.valueOf(i), gateway};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,24 +40,24 @@ public final class TornadoNetData {
         Intrinsics.checkNotNullParameter(gateway, "gateway");
         this.name = name;
         this.ip = ip;
-        this.mask = i2;
+        this.mask = i;
         this.gateway = gateway;
     }
 
-    public static /* synthetic */ TornadoNetData copy$default(TornadoNetData tornadoNetData, String str, String str2, int i2, String str3, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
+    public static /* synthetic */ TornadoNetData copy$default(TornadoNetData tornadoNetData, String str, String str2, int i, String str3, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
             str = tornadoNetData.name;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             str2 = tornadoNetData.ip;
         }
-        if ((i3 & 4) != 0) {
-            i2 = tornadoNetData.mask;
+        if ((i2 & 4) != 0) {
+            i = tornadoNetData.mask;
         }
-        if ((i3 & 8) != 0) {
+        if ((i2 & 8) != 0) {
             str3 = tornadoNetData.gateway;
         }
-        return tornadoNetData.copy(str, str2, i2, str3);
+        return tornadoNetData.copy(str, str2, i, str3);
     }
 
     public final String component1() {
@@ -84,14 +84,14 @@ public final class TornadoNetData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.gateway : (String) invokeV.objValue;
     }
 
-    public final TornadoNetData copy(String name, String ip, int i2, String gateway) {
+    public final TornadoNetData copy(String name, String ip, int i, String gateway) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048580, this, name, ip, i2, gateway)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048580, this, name, ip, i, gateway)) == null) {
             Intrinsics.checkNotNullParameter(name, "name");
             Intrinsics.checkNotNullParameter(ip, "ip");
             Intrinsics.checkNotNullParameter(gateway, "gateway");
-            return new TornadoNetData(name, ip, i2, gateway);
+            return new TornadoNetData(name, ip, i, gateway);
         }
         return (TornadoNetData) invokeLLIL.objValue;
     }
@@ -158,10 +158,10 @@ public final class TornadoNetData {
         }
     }
 
-    public final void setMask(int i2) {
+    public final void setMask(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mask = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mask = i;
         }
     }
 

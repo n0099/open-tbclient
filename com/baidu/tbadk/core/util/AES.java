@@ -12,7 +12,7 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AES {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODING = "UTF-8";
@@ -23,9 +23,9 @@ public class AES {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,8 +41,8 @@ public class AES {
             }
             int length = bArr.length;
             String str = "";
-            for (int i2 = 0; i2 < length; i2++) {
-                str = (bArr[i2] & 255) < 16 ? str + "0" + Integer.toHexString(bArr[i2] & 255) : str + Integer.toHexString(bArr[i2] & 255);
+            for (int i = 0; i < length; i++) {
+                str = (bArr[i] & 255) < 16 ? str + "0" + Integer.toHexString(bArr[i] & 255) : str + Integer.toHexString(bArr[i] & 255);
             }
             return str;
         }
@@ -104,9 +104,9 @@ public class AES {
             if (str != null && str.length() >= 2) {
                 int length = str.length() / 2;
                 byte[] bArr = new byte[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = i2 * 2;
-                    bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
+                for (int i = 0; i < length; i++) {
+                    int i2 = i * 2;
+                    bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
                 }
                 return bArr;
             }
@@ -120,7 +120,7 @@ public class AES {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             int length = 16 - (str.length() % 16);
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 str = str + WebvttCueParser.CHAR_SPACE;
             }
             return str;

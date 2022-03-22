@@ -3,6 +3,7 @@ package com.kuaishou.tachikoma.api;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
@@ -58,9 +59,9 @@ public class TKContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {tKJSContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,6 +113,7 @@ public class TKContext {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, objArr)) == null) {
             JSContext.V8AssociateReference createView = this.mContext.createView(context, str, objArr);
             if (createView == null) {
+                Log.e(TAG, "Can not createView by script");
                 return null;
             }
             return new TKViewContainer(createView);
@@ -163,9 +165,9 @@ public class TKContext {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, iRenderListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -231,9 +233,9 @@ public class TKContext {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, iRenderListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -263,9 +265,12 @@ public class TKContext {
                         iRenderListener2.success();
                     }
                 });
-            } else if (iRenderListener != null) {
+                return;
+            }
+            if (iRenderListener != null) {
                 iRenderListener.failed(new RuntimeException("mContext.context() is null"));
             }
+            Log.e(TAG, "mContext.context() is null and listener is null");
         }
     }
 
@@ -345,9 +350,9 @@ public class TKContext {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iRequestDelegate};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -374,9 +379,9 @@ public class TKContext {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, responseCallBackInner};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -434,9 +439,9 @@ public class TKContext {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, responseCallBackInner};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -502,10 +507,10 @@ public class TKContext {
             }
 
             @Override // com.tachikoma.core.api.IRequestDelegateInner
-            public void setInterval(int i2) {
+            public void setInterval(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                    this.val$client.setInterval(i2);
+                if (interceptable2 == null || interceptable2.invokeI(1048581, this, i) == null) {
+                    this.val$client.setInterval(i);
                 }
             }
 
@@ -559,9 +564,9 @@ public class TKContext {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iRouter};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -601,9 +606,9 @@ public class TKContext {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iBaseBridge};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -658,9 +663,9 @@ public class TKContext {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iNewBaseBridge};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -702,9 +707,9 @@ public class TKContext {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iWebCardBridge};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

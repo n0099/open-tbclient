@@ -10,7 +10,7 @@ public interface j {
 
     List<Integer> checkAuth(Context context, byte[] bArr, ICallbackWith<List<Integer>> iCallbackWith, ICallbackWith<Integer> iCallbackWith2);
 
-    boolean checkFeatureAuth(int i2);
+    boolean checkFeatureAuth(int i);
 
     boolean checkOfflineLicenseAuth(Context context, byte[] bArr);
 
@@ -18,13 +18,13 @@ public interface j {
 
     void doAuth(Context context, IAuthCallback iAuthCallback);
 
-    boolean enableFeature(int i2);
+    boolean enableFeature(int i);
 
     boolean isShowAuthTip();
 
     void loadAuthInfo(Context context);
 
-    void receiveAuthFailMessage(int i2);
+    void receiveAuthFailMessage(int i);
 
     void release();
 

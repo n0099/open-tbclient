@@ -6,28 +6,28 @@ import androidx.annotation.NonNull;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class c extends FrameLayout {
     public static final AtomicInteger a = new AtomicInteger(0);
 
     /* renamed from: b  reason: collision with root package name */
-    public Timer f54821b;
+    public Timer f39916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TimerTask f54822c;
+    public TimerTask f39917c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f54823d;
+    public final d f39918d;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f54823d = dVar;
+        this.f39918d = dVar;
     }
 
-    public abstract void a(int i2);
+    public abstract void a(int i);
 
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
     }
 
     public abstract void e();
@@ -36,11 +36,11 @@ public abstract class c extends FrameLayout {
 
     public void k() {
         l();
-        if (this.f54821b == null) {
-            this.f54821b = new Timer("ksad-IVideoPlayer-timer" + a.getAndIncrement());
+        if (this.f39916b == null) {
+            this.f39916b = new Timer("ksad-IVideoPlayer-timer" + a.getAndIncrement());
         }
-        if (this.f54822c == null) {
-            this.f54822c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
+        if (this.f39917c == null) {
+            this.f39917c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
@@ -52,19 +52,19 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.f54821b.schedule(this.f54822c, 0L, 1000L);
+        this.f39916b.schedule(this.f39917c, 0L, 1000L);
     }
 
     public void l() {
-        Timer timer = this.f54821b;
+        Timer timer = this.f39916b;
         if (timer != null) {
             timer.cancel();
-            this.f54821b = null;
+            this.f39916b = null;
         }
-        TimerTask timerTask = this.f54822c;
+        TimerTask timerTask = this.f39917c;
         if (timerTask != null) {
             timerTask.cancel();
-            this.f54822c = null;
+            this.f39917c = null;
         }
     }
 }

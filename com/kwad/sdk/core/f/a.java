@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.kuaishou.weapon.un.g;
 import com.kwad.sdk.KsAdSDKImpl;
@@ -22,23 +23,22 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.i;
-import org.apache.commons.lang3.CharUtils;
 /* loaded from: classes7.dex */
 public class a {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static InterfaceC2097a f54388b;
+    public static InterfaceC1958a f39512b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f54389c;
+    public static boolean f39513c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f54390d;
+    public static boolean f39514d;
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC2097a {
+    public interface InterfaceC1958a {
         @WorkerThread
         void a(String str);
     }
@@ -75,7 +75,7 @@ public class a {
         }
         try {
             Class<?> cls = Class.forName("android.os.SystemProperties");
-            return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "unknown");
+            return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "unknown");
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
             return null;
@@ -88,7 +88,7 @@ public class a {
         }
         c(context);
         if (com.kwad.sdk.g.a.a()) {
-            com.kwad.sdk.g.a.a(context, new a.InterfaceC2123a() { // from class: com.kwad.sdk.core.f.a.1
+            com.kwad.sdk.g.a.a(context, new a.InterfaceC1984a() { // from class: com.kwad.sdk.core.f.a.1
             });
         } else if (com.kwad.sdk.g.b.a()) {
             com.kwad.sdk.g.b.a(context, new b.a() { // from class: com.kwad.sdk.core.f.a.2
@@ -97,11 +97,11 @@ public class a {
     }
 
     public static void c(Context context) {
-        if (!TextUtils.isEmpty(a) || context == null || f54389c) {
+        if (!TextUtils.isEmpty(a) || context == null || f39513c) {
             return;
         }
-        f54389c = true;
-        if (context == null || f54390d) {
+        f39513c = true;
+        if (context == null || f39514d) {
             return;
         }
         final Context applicationContext = context.getApplicationContext();
@@ -122,7 +122,7 @@ public class a {
                         c2 = 65535;
                         break;
                     case -1712043046:
-                        if (upperCase.equals(g.f53624j)) {
+                        if (upperCase.equals(g.j)) {
                             c2 = '\n';
                             break;
                         }
@@ -207,7 +207,7 @@ public class a {
                         break;
                     case 976565563:
                         if (upperCase.equals("FERRMEOS")) {
-                            c2 = CharUtils.CR;
+                            c2 = '\r';
                             break;
                         }
                         c2 = 65535;
@@ -281,12 +281,12 @@ public class a {
                 }
                 com.kwad.sdk.core.d.a.c("OAIDHelper", "manufacturer:" + upperCase + "--OAID:" + a.a);
                 if (TextUtils.isEmpty(a.a)) {
-                    boolean unused3 = a.f54390d = true;
+                    boolean unused3 = a.f39514d = true;
                 } else {
                     as.i(applicationContext, a.a);
                 }
                 a.h();
-                boolean unused4 = a.f54389c = false;
+                boolean unused4 = a.f39513c = false;
             }
         });
     }
@@ -302,9 +302,9 @@ public class a {
     }
 
     public static void h() {
-        InterfaceC2097a interfaceC2097a = f54388b;
-        if (interfaceC2097a != null) {
-            interfaceC2097a.a(a);
+        InterfaceC1958a interfaceC1958a = f39512b;
+        if (interfaceC1958a != null) {
+            interfaceC1958a.a(a);
         }
     }
 }

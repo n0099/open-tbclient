@@ -51,12 +51,12 @@ public class PassFaceRecogResult extends PassBiometricResult {
                 return;
             }
         }
-        ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.pass_bio_error_msg_liveness_recognize_time_out);
-        ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.pass_bio_error_msg_contrast_fail);
-        ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.pass_bio_error_msg_face_sdk_init_fail);
-        ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.pass_bio_error_msg_open_camera_failure);
-        ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.pass_bio_error_msg_image_file_empty);
-        ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.pass_bio_error_msg_may_be_no_camera_permission);
+        ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d15);
+        ERROR_MSG_CONTRAST_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d10);
+        ERROR_MSG_FACE_SDK_INIT_FAIL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d12);
+        ERROR_MSG_OPEN_CAMERA_FAILURE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d19);
+        ERROR_MSG_IMAGE_FILE_EMPTY = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d13);
+        ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d16);
     }
 
     public PassFaceRecogResult() {
@@ -64,9 +64,9 @@ public class PassFaceRecogResult extends PassBiometricResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -79,8 +79,8 @@ public class PassFaceRecogResult extends PassBiometricResult {
         this.msgMap.put(-305, ERROR_MSG_OPEN_CAMERA_FAILURE);
         this.msgMap.put(-301, ERROR_MSG_LIVENESS_RECOGNIZE_TIME_OUT);
         this.msgMap.put(-302, ERROR_MSG_CONTRAST_FAIL);
-        this.msgMap.put(-303, ERROR_MSG_FACE_SDK_INIT_FAIL);
-        this.msgMap.put(-307, ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION);
+        this.msgMap.put(ERROR_CODE_FACE_SDK_INIT_FAIL, ERROR_MSG_FACE_SDK_INIT_FAIL);
+        this.msgMap.put(ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION, ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION);
         this.msgMap.put(-306, ERROR_MSG_IMAGE_FILE_EMPTY);
         this.msgMap.put(-2, "活体验证数据异常");
         this.msgMap.put(-3, "当前设备存在风险");

@@ -47,9 +47,9 @@ public class StringUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -166,23 +166,23 @@ public class StringUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String translateSecondsToString(int i2) {
+    public static String translateSecondsToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+            if (i <= 0) {
                 return BdPlayerProgressView.DEFAULT_TIME_TEXT;
             }
-            int i3 = i2 / 60;
-            if (i3 < 60) {
-                return unitFormat(i3) + ":" + unitFormat(i2 % 60);
+            int i2 = i / 60;
+            if (i2 < 60) {
+                return unitFormat(i2) + ":" + unitFormat(i % 60);
             }
-            int i4 = i3 / 60;
-            if (i4 > 99) {
+            int i3 = i2 / 60;
+            if (i3 > 99) {
                 return "99:59:59";
             }
-            int i5 = i3 % 60;
-            return unitFormat(i4) + ":" + unitFormat(i5) + ":" + unitFormat((i2 - (i4 * 3600)) - (i5 * 60));
+            int i4 = i2 % 60;
+            return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
         }
         return (String) invokeI.objValue;
     }
@@ -194,14 +194,14 @@ public class StringUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? str == null ? "" : str : (String) invokeL.objValue;
     }
 
-    public static String unitFormat(int i2) {
+    public static String unitFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
-            if (i2 >= 0 && i2 < 10) {
-                return "0" + Integer.toString(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+            if (i >= 0 && i < 10) {
+                return "0" + Integer.toString(i);
             }
-            return "" + i2;
+            return "" + i;
         }
         return (String) invokeI.objValue;
     }

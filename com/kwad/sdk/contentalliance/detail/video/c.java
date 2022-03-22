@@ -8,60 +8,60 @@ public class c {
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54142b;
+    public String f39285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54143c;
+    public String f39286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VideoPlayerStatus f54144d;
+    public VideoPlayerStatus f39287d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54145e;
+    public b f39288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54146f;
+    public boolean f39289f;
 
     /* loaded from: classes7.dex */
     public static class a {
         public AdTemplate a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54147b;
+        public String f39290b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54148c;
+        public String f39291c;
 
         /* renamed from: d  reason: collision with root package name */
-        public VideoPlayerStatus f54149d;
+        public VideoPlayerStatus f39292d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b f54150e;
+        public b f39293e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f54151f = false;
+        public boolean f39294f = false;
 
         public a(AdTemplate adTemplate) {
             this.a = adTemplate;
         }
 
         public a a(@NonNull b bVar) {
-            this.f54150e = bVar;
+            this.f39293e = bVar;
             return this;
         }
 
         public a a(VideoPlayerStatus videoPlayerStatus) {
-            this.f54149d = videoPlayerStatus;
+            this.f39292d = videoPlayerStatus;
             return this;
         }
 
         public a a(String str) {
-            this.f54147b = str;
+            this.f39290b = str;
             return this;
         }
 
         public a a(boolean z) {
-            this.f54151f = z;
+            this.f39294f = z;
             return this;
         }
 
@@ -70,24 +70,24 @@ public class c {
         }
 
         public a b(String str) {
-            this.f54148c = str;
+            this.f39291c = str;
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f54145e = new b();
-        this.f54146f = false;
+        this.f39288e = new b();
+        this.f39289f = false;
         this.a = aVar.a;
-        this.f54142b = aVar.f54147b;
-        this.f54143c = aVar.f54148c;
-        this.f54144d = aVar.f54149d;
-        if (aVar.f54150e != null) {
-            this.f54145e.a = aVar.f54150e.a;
-            this.f54145e.f54139b = aVar.f54150e.f54139b;
-            this.f54145e.f54140c = aVar.f54150e.f54140c;
-            this.f54145e.f54141d = aVar.f54150e.f54141d;
+        this.f39285b = aVar.f39290b;
+        this.f39286c = aVar.f39291c;
+        this.f39287d = aVar.f39292d;
+        if (aVar.f39293e != null) {
+            this.f39288e.a = aVar.f39293e.a;
+            this.f39288e.f39282b = aVar.f39293e.f39282b;
+            this.f39288e.f39283c = aVar.f39293e.f39283c;
+            this.f39288e.f39284d = aVar.f39293e.f39284d;
         }
-        this.f54146f = aVar.f54151f;
+        this.f39289f = aVar.f39294f;
     }
 }

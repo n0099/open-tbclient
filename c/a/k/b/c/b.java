@@ -166,8 +166,8 @@ public final class b {
             if (indexOfChild == childCount - 1) {
                 return true;
             }
-            for (int i2 = indexOfChild + 1; i2 < childCount; i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            for (int i = indexOfChild + 1; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0 && childAt.getHeight() > 0 && childAt.getWidth() > 0 && view.getHeight() > 0 && view.getWidth() > 0 && childAt.getWidth() >= view.getWidth() && childAt.getHeight() >= view.getHeight()) {
                     return false;
                 }

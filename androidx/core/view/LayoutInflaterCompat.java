@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -34,9 +35,9 @@ public final class LayoutInflaterCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutInflaterFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,9 +76,9 @@ public final class LayoutInflaterCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -92,8 +93,8 @@ public final class LayoutInflaterCompat {
                     Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
                     sLayoutInflaterFactory2Field = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
-                    String str = "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.";
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e2);
                 }
                 sCheckedField = true;
             }
@@ -101,8 +102,8 @@ public final class LayoutInflaterCompat {
             if (field != null) {
                 try {
                     field.set(layoutInflater, factory2);
-                } catch (IllegalAccessException unused2) {
-                    String str2 = "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.";
+                } catch (IllegalAccessException e3) {
+                    Log.e(TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e3);
                 }
             }
         }

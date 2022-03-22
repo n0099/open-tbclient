@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
@@ -19,7 +19,7 @@ import com.squareup.wire.Message;
 import tbclient.User;
 import tbclient.UserPost.DataReq;
 import tbclient.UserPost.UserPostReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UserPostPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public class UserPostPageRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -145,10 +145,10 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.from = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.from = i;
         }
     }
 
@@ -173,10 +173,10 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.pn = i;
         }
     }
 
@@ -194,10 +194,10 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setRn(int i2) {
+    public void setRn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.rn = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.rn = i;
         }
     }
 
@@ -243,17 +243,17 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void set_is_view_card(int i2) {
+    public void set_is_view_card(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.is_view_card = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.is_view_card = i;
         }
     }
 
-    public void set_q_type(int i2) {
+    public void set_q_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.q_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.q_type = i;
         }
     }
 
@@ -264,24 +264,24 @@ public class UserPostPageRequestMessage extends NetMessage {
         }
     }
 
-    public void set_scr_h(int i2) {
+    public void set_scr_h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.scr_h = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.scr_h = i;
         }
     }
 
-    public void set_scr_w(int i2) {
+    public void set_scr_w(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.scr_w = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.scr_w = i;
         }
     }
 
-    public void set_sub_type(int i2) {
+    public void set_sub_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.sub_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.sub_type = i;
         }
     }
 

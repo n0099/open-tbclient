@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,15 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DownloadManagerNoDataLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f41125e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f31763b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f41126f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f41127g;
+    /* renamed from: c  reason: collision with root package name */
+    public String f31764c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -40,9 +38,9 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -58,37 +56,37 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             setOrientation(1);
             setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
-            this.f41125e = imageView;
+            this.a = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(context, R.dimen.tbds177), n.f(context, R.dimen.tbds177));
             layoutParams.setMargins(0, n.f(context, R.dimen.tbds133), 0, 0);
             layoutParams.gravity = 1;
-            addView(this.f41125e, layoutParams);
-            this.f41126f = new TextView(context);
+            addView(this.a, layoutParams);
+            this.f31763b = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, n.f(context, R.dimen.tbds34), 0, 0);
-            this.f41126f.setGravity(17);
-            addView(this.f41126f, layoutParams2);
-            this.f41127g = TbadkCoreApplication.getInst().getString(R.string.content_no_data);
-            onChangeSkinType();
+            this.f31763b.setGravity(17);
+            addView(this.f31763b, layoutParams2);
+            this.f31764c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042e);
+            b();
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
-            SkinManager.setImageResource(this.f41125e, R.drawable.im_no_data_icon);
-            c d2 = c.d(this.f41126f);
+            SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
+            c d2 = c.d(this.f31763b);
             d2.v(R.color.CAM_X0110);
             d2.z(R.dimen.T_X08);
         }
     }
 
-    public void setNoDataText(int i2) {
+    public void setNoDataText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41126f.setText(String.format(this.f41127g, TbadkCoreApplication.getInst().getString(i2)));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f31763b.setText(String.format(this.f31764c, TbadkCoreApplication.getInst().getString(i)));
         }
     }
 
@@ -101,9 +99,9 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -114,17 +112,17 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadManagerNoDataLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public DownloadManagerNoDataLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

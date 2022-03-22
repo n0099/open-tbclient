@@ -10,28 +10,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DoubleMetaphone implements StringEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int maxCodeLen;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class DoubleMetaphoneResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DoubleMetaphone this$0;
 
-        public DoubleMetaphoneResult(DoubleMetaphone doubleMetaphone, int i2) {
+        public DoubleMetaphoneResult(DoubleMetaphone doubleMetaphone, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {doubleMetaphone, Integer.valueOf(i2)};
+                Object[] objArr = {doubleMetaphone, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,9 +130,9 @@ public class DoubleMetaphone implements StringEncoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,19 +141,19 @@ public class DoubleMetaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean contains(String str, int i2, int i3, String[] strArr) {
+    public static boolean contains(String str, int i, int i2, String[] strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), strArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), strArr})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;
     }
 
-    public char charAt(String str, int i2) {
+    public char charAt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLI.charValue;
@@ -196,9 +196,9 @@ public class DoubleMetaphone implements StringEncoder {
         return invokeLL.booleanValue;
     }
 
-    public void setMaxCodeLen(int i2) {
+    public void setMaxCodeLen(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

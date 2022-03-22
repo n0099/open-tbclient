@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.engine3d;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPNode;
@@ -22,9 +23,9 @@ public class ARPScene implements IARPScene {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,15 +35,15 @@ public class ARPScene implements IARPScene {
         init();
     }
 
-    private IARPNode e(long j2) {
+    private IARPNode e(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j2)) == null) {
-            String nativeGetNodeName = nativeGetNodeName(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
+            String nativeGetNodeName = nativeGetNodeName(j);
             ARPNode aRPNode = this.fL.get(nativeGetNodeName);
             if (aRPNode == null) {
                 ARPNode aRPNode2 = new ARPNode();
-                aRPNode2.bindInternal(j2);
+                aRPNode2.bindInternal(j);
                 this.fL.put(nativeGetNodeName, aRPNode2);
                 return aRPNode2;
             }
@@ -72,10 +73,10 @@ public class ARPScene implements IARPScene {
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPScene
-    public String getName(long j2) {
+    public String getName(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? nativeGetName(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? nativeGetName(j) : (String) invokeJ.objValue;
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPScene
@@ -83,11 +84,12 @@ public class ARPScene implements IARPScene {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
                 return null;
             }
-            return e(nativeGetNodeByName(j2, str));
+            return e(nativeGetNodeByName(j, str));
         }
         return (IARPNode) invokeL.objValue;
     }
@@ -97,42 +99,44 @@ public class ARPScene implements IARPScene {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
                 return null;
             }
-            return e(nativeGetRootNode(j2));
+            return e(nativeGetRootNode(j));
         }
         return (IARPNode) invokeV.objValue;
     }
 
-    public native long nativeGetActiveCamera(long j2);
+    public native long nativeGetActiveCamera(long j);
 
-    public native String nativeGetName(long j2);
+    public native String nativeGetName(long j);
 
-    public native long nativeGetNodeByName(long j2, String str);
+    public native long nativeGetNodeByName(long j, String str);
 
-    public native String nativeGetNodeName(long j2);
+    public native String nativeGetNodeName(long j);
 
-    public native long nativeGetRootNode(long j2);
+    public native long nativeGetRootNode(long j);
 
-    public native void nativeRelocate(long j2);
+    public native void nativeRelocate(long j);
 
-    public native float[] nativeSceneProject(long j2, float[] fArr);
+    public native float[] nativeSceneProject(long j, float[] fArr);
 
-    public native void nativeSetOffScreenGuideWork(long j2, boolean z);
+    public native void nativeSetOffScreenGuideWork(long j, boolean z);
 
-    public native void nativeSetVisible(long j2, boolean z);
+    public native void nativeSetVisible(long j, boolean z);
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPScene
     public void relocate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
-                return;
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
+            } else {
+                nativeRelocate(j);
             }
-            nativeRelocate(j2);
         }
     }
 
@@ -141,20 +145,21 @@ public class ARPScene implements IARPScene {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, fArr)) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
                 return null;
             }
-            return nativeSceneProject(j2, fArr);
+            return nativeSceneProject(j, fArr);
         }
         return (float[]) invokeL.objValue;
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPScene
-    public void setInternal(long j2) {
+    public void setInternal(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.fN = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.fN = j;
         }
     }
 
@@ -162,11 +167,12 @@ public class ARPScene implements IARPScene {
     public void setOffScreenGuideWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
-                return;
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
+            } else {
+                nativeSetOffScreenGuideWork(j, z);
             }
-            nativeSetOffScreenGuideWork(j2, z);
         }
     }
 
@@ -175,11 +181,12 @@ public class ARPScene implements IARPScene {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            long j2 = this.fN;
-            if (j2 == -1) {
+            long j = this.fN;
+            if (j == -1) {
+                Log.e(ARPScene.class.getSimpleName(), "node addr is error");
                 return false;
             }
-            nativeSetVisible(j2, z);
+            nativeSetVisible(j, z);
             return true;
         }
         return invokeZ.booleanValue;

@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.JsResult;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebStorage;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebChromeClient implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class BdSailorWebChromeClient implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -128,10 +128,10 @@ public class BdSailorWebChromeClient implements INoProGuard {
         return invokeCommon.booleanValue;
     }
 
-    public void onExceededDatabaseQuota(BdSailorWebView bdSailorWebView, String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(BdSailorWebView bdSailorWebView, String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j);
         }
     }
 
@@ -231,15 +231,15 @@ public class BdSailorWebChromeClient implements INoProGuard {
         }
     }
 
-    public void onProgressChanged(BdSailorWebView bdSailorWebView, int i2) {
+    public void onProgressChanged(BdSailorWebView bdSailorWebView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048597, this, bdSailorWebView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048597, this, bdSailorWebView, i) == null) {
         }
     }
 
-    public void onReachedMaxAppCacheSize(BdSailorWebView bdSailorWebView, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onReachedMaxAppCacheSize(BdSailorWebView bdSailorWebView, long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{bdSailorWebView, Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{bdSailorWebView, Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
             quotaUpdater.updateQuota(0L);
         }
     }
@@ -268,10 +268,10 @@ public class BdSailorWebChromeClient implements INoProGuard {
         }
     }
 
-    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
+    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048603, this, bdSailorWebView, view, i2, customViewCallback)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048603, this, bdSailorWebView, view, i, customViewCallback)) == null) {
             return false;
         }
         return invokeLLIL.booleanValue;

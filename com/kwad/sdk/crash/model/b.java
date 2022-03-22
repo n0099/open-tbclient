@@ -1,20 +1,20 @@
 package com.kwad.sdk.crash.model;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55106b;
+    public String f40183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55107c;
+    public int f40184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55108d;
+    public String f40185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55109e;
+    public int f40186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55110f;
+    public int f40187f;
 }

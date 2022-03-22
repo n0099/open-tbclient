@@ -3,6 +3,7 @@ package com.tencent.mm.opensdk.channel;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MMessageActV2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
@@ -22,7 +23,7 @@ public class MMessageActV2 {
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Args {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
@@ -39,9 +40,9 @@ public class MMessageActV2 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +66,9 @@ public class MMessageActV2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -100,15 +101,15 @@ public class MMessageActV2 {
                 intent.putExtra("_mmessage_content", args.content);
                 intent.putExtra("_mmessage_checksum", b.a(args.content, Build.SDK_INT, packageName));
                 intent.putExtra(ConstantsAPI.TOKEN, args.token);
-                int i2 = args.flags;
-                if (i2 == -1) {
-                    intent.addFlags(268435456).addFlags(134217728);
+                int i = args.flags;
+                if (i == -1) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS).addFlags(134217728);
                 } else {
-                    intent.setFlags(i2);
+                    intent.setFlags(i);
                 }
                 try {
                     context.startActivity(intent);
-                    Log.d(TAG, "send mm message, intent=".concat(String.valueOf(intent)));
+                    Log.d(TAG, "send mm message, intent=" + intent);
                     return true;
                 } catch (Exception e2) {
                     str = "send fail, ex = " + e2.getMessage();

@@ -13,31 +13,31 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class fe {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte f382a;
+    public byte f358a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f383a;
+    public int f359a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f384a;
+    public short f360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f59638b;
+    public byte[] f44244b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final d f385a;
+        public static final d f361a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,22 +54,22 @@ public class fe {
                 }
             }
             a = new c();
-            f385a = new d();
+            f361a = new d();
         }
 
         public static byte[] a(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f385a) : (byte[]) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f361a) : (byte[]) invokeL.objValue;
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fe.m376a(bArr)) {
+                if (fe.m355a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f59638b : bVar.a(a2.f59638b, a2.f383a);
+                    return (a2.f358a == 0 || a2.f358a != bVar.a()) ? a2.f44244b : bVar.a(a2.f44244b, a2.f359a);
                 }
                 return bArr;
             }
@@ -77,14 +77,14 @@ public class fe {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         byte a();
 
-        byte[] a(byte[] bArr, int i2);
+        byte[] a(byte[] bArr, int i);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public class fe {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -104,7 +104,7 @@ public class fe {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class d implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,9 +114,9 @@ public class fe {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -134,20 +134,20 @@ public class fe {
         }
 
         @Override // com.xiaomi.push.fe.b
-        public byte[] a(byte[] bArr, int i2) {
+        public byte[] a(byte[] bArr, int i) {
             InterceptResult invokeLI;
             GZIPInputStream gZIPInputStream;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i)) == null) {
                 GZIPInputStream gZIPInputStream2 = null;
                 try {
-                    gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream(bArr), i2);
+                    gZIPInputStream = new GZIPInputStream(new ByteArrayInputStream(bArr), i);
                 } catch (IOException unused) {
                 } catch (Throwable th) {
                     th = th;
                 }
                 try {
-                    byte[] bArr2 = new byte[i2];
+                    byte[] bArr2 = new byte[i];
                     gZIPInputStream.read(bArr2);
                     try {
                         gZIPInputStream.close();
@@ -196,17 +196,17 @@ public class fe {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fe(byte b2, int i2, byte[] bArr) {
-        this((short) 1, b2, i2, bArr);
+    public fe(byte b2, int i, byte[] bArr) {
+        this((short) 1, b2, i, bArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i2), bArr};
+            Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Short) objArr2[0]).shortValue(), ((Byte) objArr2[1]).byteValue(), ((Integer) objArr2[2]).intValue(), (byte[]) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -216,53 +216,53 @@ public class fe {
         }
     }
 
-    public fe(short s, byte b2, int i2, byte[] bArr) {
+    public fe(short s, byte b2, int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i2), bArr};
+            Object[] objArr = {Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f384a = (short) 1;
-        this.f384a = s;
-        this.f382a = b2;
-        this.f383a = i2;
-        this.f59638b = bArr;
+        this.f360a = (short) 1;
+        this.f360a = s;
+        this.f358a = b2;
+        this.f359a = i;
+        this.f44244b = bArr;
     }
 
-    public static fe a(byte b2, int i2, byte[] bArr) {
+    public static fe a(byte b2, int i, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i2), bArr})) == null) ? new fe(b2, i2, bArr) : (fe) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i), bArr})) == null) ? new fe(b2, i, bArr) : (fe) invokeCommon.objValue;
     }
 
-    public static fe a(short s, byte b2, int i2, byte[] bArr) {
+    public static fe a(short s, byte b2, int i, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i2), bArr})) == null) ? new fe(s, b2, i2, bArr) : (fe) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i), bArr})) == null) ? new fe(s, b2, i, bArr) : (fe) invokeCommon.objValue;
     }
 
     public static fe a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m376a(bArr)) {
+            if (m355a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
                 byte b2 = order.get();
-                int i2 = order.getInt();
+                int i = order.getInt();
                 byte[] bArr2 = new byte[order.getInt()];
                 order.get(bArr2);
-                return a(s, b2, i2, bArr2);
+                return a(s, b2, i, bArr2);
             }
             return a((byte) 0, bArr.length, bArr);
         }
@@ -270,7 +270,7 @@ public class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m376a(byte[] bArr) {
+    public static boolean m355a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
@@ -280,15 +280,15 @@ public class fe {
         return invokeL.booleanValue;
     }
 
-    public static boolean a(byte[] bArr, byte[] bArr2, int i2) {
+    public static boolean a(byte[] bArr, byte[] bArr2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, bArr, bArr2, i2)) == null) {
-            if (bArr.length < i2 || bArr2.length < i2) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, bArr, bArr2, i)) == null) {
+            if (bArr.length < i || bArr2.length < i) {
                 return false;
             }
-            for (int i3 = 0; i3 < i2; i3++) {
-                if (bArr[i3] != bArr2[i3]) {
+            for (int i2 = 0; i2 < i; i2++) {
+                if (bArr[i2] != bArr2[i2]) {
                     return false;
                 }
             }

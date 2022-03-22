@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TimeSource {
     public static /* synthetic */ Interceptable $ic;
     public static final TimeSource SYSTEM_TIME_SOURCE;
@@ -45,9 +45,9 @@ public class TimeSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {l, timeZone};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -57,10 +57,10 @@ public class TimeSource {
         this.fixedTimeZone = timeZone;
     }
 
-    public static TimeSource fixed(long j2, @Nullable TimeZone timeZone) {
+    public static TimeSource fixed(long j, @Nullable TimeZone timeZone) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j2, timeZone)) == null) ? new TimeSource(Long.valueOf(j2), timeZone) : (TimeSource) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, timeZone)) == null) ? new TimeSource(Long.valueOf(j), timeZone) : (TimeSource) invokeJL.objValue;
     }
 
     public static TimeSource system() {
@@ -75,10 +75,10 @@ public class TimeSource {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? now(this.fixedTimeZone) : (Calendar) invokeV.objValue;
     }
 
-    public static TimeSource fixed(long j2) {
+    public static TimeSource fixed(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new TimeSource(Long.valueOf(j2), null) : (TimeSource) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new TimeSource(Long.valueOf(j), null) : (TimeSource) invokeJ.objValue;
     }
 
     public Calendar now(@Nullable TimeZone timeZone) {

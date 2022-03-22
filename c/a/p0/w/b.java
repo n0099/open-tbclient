@@ -1,30 +1,23 @@
 package c.a.p0.w;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
-public interface b extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
-
-    long c();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || str == null) {
+            return;
+        }
+        c.a.d.a.k.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from cash_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from mark_data where account=?", new String[]{str});
+        mainDBDatabaseManager.e("delete from draft_box where account=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from account_data where id=?", new Object[]{str});
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{str});
+    }
 }

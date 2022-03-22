@@ -30,9 +30,9 @@ public abstract class AbstractRSSReader extends OneDReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,51 +57,51 @@ public abstract class AbstractRSSReader extends OneDReader {
     public static void decrement(int[] iArr, float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, iArr, fArr) == null) {
-            int i2 = 0;
+            int i = 0;
             float f2 = fArr[0];
-            for (int i3 = 1; i3 < iArr.length; i3++) {
-                if (fArr[i3] < f2) {
-                    f2 = fArr[i3];
-                    i2 = i3;
+            for (int i2 = 1; i2 < iArr.length; i2++) {
+                if (fArr[i2] < f2) {
+                    f2 = fArr[i2];
+                    i = i2;
                 }
             }
-            iArr[i2] = iArr[i2] - 1;
+            iArr[i] = iArr[i] - 1;
         }
     }
 
     public static void increment(int[] iArr, float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, iArr, fArr) == null) {
-            int i2 = 0;
+            int i = 0;
             float f2 = fArr[0];
-            for (int i3 = 1; i3 < iArr.length; i3++) {
-                if (fArr[i3] > f2) {
-                    f2 = fArr[i3];
-                    i2 = i3;
+            for (int i2 = 1; i2 < iArr.length; i2++) {
+                if (fArr[i2] > f2) {
+                    f2 = fArr[i2];
+                    i = i2;
                 }
             }
-            iArr[i2] = iArr[i2] + 1;
+            iArr[i] = iArr[i] + 1;
         }
     }
 
     public static boolean isFinderPattern(int[] iArr) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) {
-            float f2 = (iArr[0] + iArr[1]) / ((iArr[2] + i2) + iArr[3]);
+            float f2 = (iArr[0] + iArr[1]) / ((iArr[2] + i) + iArr[3]);
             if (f2 >= 0.7916667f && f2 <= 0.89285713f) {
-                int i3 = Integer.MAX_VALUE;
-                int i4 = Integer.MIN_VALUE;
-                for (int i5 : iArr) {
-                    if (i5 > i4) {
-                        i4 = i5;
+                int i2 = Integer.MAX_VALUE;
+                int i3 = Integer.MIN_VALUE;
+                for (int i4 : iArr) {
+                    if (i4 > i3) {
+                        i3 = i4;
                     }
-                    if (i5 < i3) {
-                        i3 = i5;
+                    if (i4 < i2) {
+                        i2 = i4;
                     }
                 }
-                if (i4 < i3 * 10) {
+                if (i3 < i2 * 10) {
                     return true;
                 }
             }
@@ -114,9 +114,9 @@ public abstract class AbstractRSSReader extends OneDReader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, iArr2)) == null) {
-            for (int i2 = 0; i2 < iArr2.length; i2++) {
-                if (OneDReader.patternMatchVariance(iArr, iArr2[i2], 0.45f) < 0.2f) {
-                    return i2;
+            for (int i = 0; i < iArr2.length; i++) {
+                if (OneDReader.patternMatchVariance(iArr, iArr2[i], 0.45f) < 0.2f) {
+                    return i;
                 }
             }
             throw NotFoundException.getNotFoundInstance();

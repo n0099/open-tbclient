@@ -35,6 +35,7 @@ import java.util.TimeZone;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+import org.apache.commons.base.CharEncoding;
 /* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
@@ -80,8 +81,8 @@ public final class Util {
         DIGITS = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
         UTF_8 = Charset.forName("UTF-8");
         ISO_8859_1 = Charset.forName("ISO-8859-1");
-        UTF_16_BE = Charset.forName("UTF-16BE");
-        UTF_16_LE = Charset.forName("UTF-16LE");
+        UTF_16_BE = Charset.forName(CharEncoding.UTF_16BE);
+        UTF_16_LE = Charset.forName(CharEncoding.UTF_16LE);
         UTF_32_BE = Charset.forName("UTF-32BE");
         UTF_32_LE = Charset.forName("UTF-32LE");
         UTC = TimeZone.getTimeZone("GMT");
@@ -93,9 +94,9 @@ public final class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -164,18 +165,18 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static int checkDuration(String str, long j2, TimeUnit timeUnit) {
+    public static int checkDuration(String str, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j2), timeUnit})) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), timeUnit})) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
                 throw new IllegalArgumentException(str + " < 0");
             } else if (timeUnit != null) {
-                long millis = timeUnit.toMillis(j2);
+                long millis = timeUnit.toMillis(j);
                 if (millis > 2147483647L) {
                     throw new IllegalArgumentException(str + " too large.");
-                } else if (millis != 0 || i2 <= 0) {
+                } else if (millis != 0 || i <= 0) {
                     return (int) millis;
                 } else {
                     throw new IllegalArgumentException(str + " too small.");
@@ -187,10 +188,10 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static void checkOffsetAndCount(long j2, long j3, long j4) {
+    public static void checkOffsetAndCount(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
                 throw new ArrayIndexOutOfBoundsException("offset out of bounds");
             }
         }
@@ -213,8 +214,8 @@ public final class Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                     return true;
                 }
@@ -243,41 +244,41 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static boolean decodeIpv4Suffix(String str, int i2, int i3, byte[] bArr, int i4) {
+    public static boolean decodeIpv4Suffix(String str, int i, int i2, byte[] bArr, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr, Integer.valueOf(i4)})) == null) {
-            int i5 = i4;
-            while (i2 < i3) {
-                if (i5 == bArr.length) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr, Integer.valueOf(i3)})) == null) {
+            int i4 = i3;
+            while (i < i2) {
+                if (i4 == bArr.length) {
                     return false;
                 }
-                if (i5 != i4) {
-                    if (str.charAt(i2) != '.') {
+                if (i4 != i3) {
+                    if (str.charAt(i) != '.') {
                         return false;
                     }
-                    i2++;
+                    i++;
                 }
-                int i6 = i2;
-                int i7 = 0;
-                while (i6 < i3) {
-                    char charAt = str.charAt(i6);
+                int i5 = i;
+                int i6 = 0;
+                while (i5 < i2) {
+                    char charAt = str.charAt(i5);
                     if (charAt < '0' || charAt > '9') {
                         break;
-                    } else if ((i7 == 0 && i2 != i6) || (i7 = ((i7 * 10) + charAt) - 48) > 255) {
+                    } else if ((i6 == 0 && i != i5) || (i6 = ((i6 * 10) + charAt) - 48) > 255) {
                         return false;
                     } else {
-                        i6++;
+                        i5++;
                     }
                 }
-                if (i6 - i2 == 0) {
+                if (i5 - i == 0) {
                     return false;
                 }
-                bArr[i5] = (byte) i7;
-                i5++;
-                i2 = i6;
+                bArr[i4] = (byte) i6;
+                i4++;
+                i = i5;
             }
-            return i5 == i4 + 4;
+            return i4 == i3 + 4;
         }
         return invokeCommon.booleanValue;
     }
@@ -290,31 +291,31 @@ public final class Util {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InetAddress decodeIpv6(String str, int i2, int i3) {
+    public static InetAddress decodeIpv6(String str, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
             byte[] bArr = new byte[16];
-            int i5 = 0;
+            int i4 = 0;
+            int i5 = -1;
             int i6 = -1;
-            int i7 = -1;
             while (true) {
-                if (i2 < i3) {
-                    if (i5 != 16) {
-                        int i8 = i2 + 2;
-                        if (i8 <= i3 && str.regionMatches(i2, "::", 0, 2)) {
-                            if (i6 == -1) {
-                                i5 += 2;
-                                i6 = i5;
-                                if (i8 != i3) {
-                                    i7 = i8;
-                                    i2 = i7;
-                                    int i9 = 0;
-                                    while (i2 < i3) {
+                if (i < i2) {
+                    if (i4 != 16) {
+                        int i7 = i + 2;
+                        if (i7 <= i2 && str.regionMatches(i, "::", 0, 2)) {
+                            if (i5 == -1) {
+                                i4 += 2;
+                                i5 = i4;
+                                if (i7 != i2) {
+                                    i6 = i7;
+                                    i = i6;
+                                    int i8 = 0;
+                                    while (i < i2) {
                                     }
-                                    i4 = i2 - i7;
-                                    if (i4 == 0) {
+                                    i3 = i - i6;
+                                    if (i3 == 0) {
                                         break;
                                     }
                                     break;
@@ -323,34 +324,34 @@ public final class Util {
                             }
                             return null;
                         }
-                        if (i5 != 0) {
-                            if (str.regionMatches(i2, ":", 0, 1)) {
-                                i2++;
-                            } else if (!str.regionMatches(i2, ".", 0, 1) || !decodeIpv4Suffix(str, i7, i3, bArr, i5 - 2)) {
+                        if (i4 != 0) {
+                            if (str.regionMatches(i, ":", 0, 1)) {
+                                i++;
+                            } else if (!str.regionMatches(i, ".", 0, 1) || !decodeIpv4Suffix(str, i6, i2, bArr, i4 - 2)) {
                                 return null;
                             } else {
-                                i5 += 2;
+                                i4 += 2;
                             }
                         }
-                        i7 = i2;
-                        i2 = i7;
-                        int i92 = 0;
-                        while (i2 < i3) {
-                            int decodeHexDigit = decodeHexDigit(str.charAt(i2));
+                        i6 = i;
+                        i = i6;
+                        int i82 = 0;
+                        while (i < i2) {
+                            int decodeHexDigit = decodeHexDigit(str.charAt(i));
                             if (decodeHexDigit == -1) {
                                 break;
                             }
-                            i92 = (i92 << 4) + decodeHexDigit;
-                            i2++;
+                            i82 = (i82 << 4) + decodeHexDigit;
+                            i++;
                         }
-                        i4 = i2 - i7;
-                        if (i4 == 0 || i4 > 4) {
+                        i3 = i - i6;
+                        if (i3 == 0 || i3 > 4) {
                             break;
                         }
-                        int i10 = i5 + 1;
-                        bArr[i5] = (byte) ((i92 >>> 8) & 255);
-                        i5 = i10 + 1;
-                        bArr[i10] = (byte) (i92 & 255);
+                        int i9 = i4 + 1;
+                        bArr[i4] = (byte) ((i82 >>> 8) & 255);
+                        i4 = i9 + 1;
+                        bArr[i9] = (byte) (i82 & 255);
                     } else {
                         return null;
                     }
@@ -358,13 +359,13 @@ public final class Util {
                     break;
                 }
             }
-            if (i5 != 16) {
-                if (i6 == -1) {
+            if (i4 != 16) {
+                if (i5 == -1) {
                     return null;
                 }
-                int i11 = i5 - i6;
-                System.arraycopy(bArr, i6, bArr, 16 - i11, i11);
-                Arrays.fill(bArr, i6, (16 - i5) + i6, (byte) 0);
+                int i10 = i4 - i5;
+                System.arraycopy(bArr, i5, bArr, 16 - i10, i10);
+                Arrays.fill(bArr, i5, (16 - i4) + i5, (byte) 0);
             }
             try {
                 return InetAddress.getByAddress(bArr);
@@ -375,17 +376,17 @@ public final class Util {
         return (InetAddress) invokeLII.objValue;
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, String str2) {
+    public static int delimiterOffset(String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            while (i2 < i3) {
-                if (str2.indexOf(str.charAt(i2)) != -1) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            while (i < i2) {
+                if (str2.indexOf(str.charAt(i)) != -1) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -443,10 +444,10 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127) {
-                    return i2;
+                    return i;
                 }
             }
             return -1;
@@ -458,36 +459,36 @@ public final class Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) {
-            int i2 = 0;
-            int i3 = -1;
+            int i = 0;
+            int i2 = -1;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < bArr.length) {
-                int i6 = i4;
-                while (i6 < 16 && bArr[i6] == 0 && bArr[i6 + 1] == 0) {
-                    i6 += 2;
+            while (i3 < bArr.length) {
+                int i5 = i3;
+                while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
+                    i5 += 2;
                 }
-                int i7 = i6 - i4;
-                if (i7 > i5 && i7 >= 4) {
-                    i3 = i4;
-                    i5 = i7;
+                int i6 = i5 - i3;
+                if (i6 > i4 && i6 >= 4) {
+                    i2 = i3;
+                    i4 = i6;
                 }
-                i4 = i6 + 2;
+                i3 = i5 + 2;
             }
             StringBuilder sb = new StringBuilder();
-            while (i2 < bArr.length) {
-                if (i2 == i3) {
+            while (i < bArr.length) {
+                if (i == i2) {
                     sb.append(':');
-                    i2 += i5;
-                    if (i2 == 16) {
+                    i += i4;
+                    if (i == 16) {
                         sb.append(':');
                     }
                 } else {
-                    if (i2 > 0) {
+                    if (i > 0) {
                         sb.append(':');
                     }
-                    sb.append(Integer.toHexString(((bArr[i2] & 255) << 8) | (bArr[i2 + 1] & 255)));
-                    i2 += 2;
+                    sb.append(Integer.toHexString(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255)));
+                    i += 2;
                 }
             }
             return sb.toString();
@@ -501,15 +502,15 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) ? str == null || str.length() == 0 : invokeL.booleanValue;
     }
 
-    public static boolean rangeEquals(ByteBuffer byteBuffer, int i2, byte[] bArr) {
+    public static boolean rangeEquals(ByteBuffer byteBuffer, int i, byte[] bArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65558, null, byteBuffer, i2, bArr)) == null) {
-            if (i2 < 0 || byteBuffer.remaining() - i2 < bArr.length) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65558, null, byteBuffer, i, bArr)) == null) {
+            if (i < 0 || byteBuffer.remaining() - i < bArr.length) {
                 return false;
             }
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                if (byteBuffer.get(byteBuffer.position() + i2 + i3) != bArr[i3]) {
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (byteBuffer.get(byteBuffer.position() + i + i2) != bArr[i2]) {
                     return false;
                 }
             }
@@ -518,33 +519,33 @@ public final class Util {
         return invokeLIL.booleanValue;
     }
 
-    public static int skipLeadingAsciiWhitespace(String str, int i2, int i3) {
+    public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65559, null, str, i2, i3)) == null) {
-            while (i2 < i3) {
-                char charAt = str.charAt(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65559, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
                 if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i2;
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLII.intValue;
     }
 
-    public static int skipTrailingAsciiWhitespace(String str, int i2, int i3) {
+    public static int skipTrailingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65560, null, str, i2, i3)) == null) {
-            for (int i4 = i3 - 1; i4 >= i2; i4--) {
-                char charAt = str.charAt(i4);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65560, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
                 if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i4 + 1;
+                    return i3 + 1;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLII.intValue;
     }
@@ -565,9 +566,9 @@ public final class Util {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {str, Boolean.valueOf(z)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -591,12 +592,12 @@ public final class Util {
         } : (ThreadFactory) invokeLZ.objValue;
     }
 
-    public static String trimSubstring(String str, int i2, int i3) {
+    public static String trimSubstring(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i2, i3)) == null) {
-            int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i2, i3);
-            return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i3));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
+            int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i, i2);
+            return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i2));
         }
         return (String) invokeLII.objValue;
     }
@@ -607,44 +608,44 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
     }
 
-    public static void writeDecimalLong(OutputStream outputStream, long j2) throws IOException {
+    public static void writeDecimalLong(OutputStream outputStream, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65564, null, outputStream, j2) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLJ(65564, null, outputStream, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i == 0) {
                 outputStream.write(48);
                 return;
             }
             boolean z = false;
-            int i3 = 1;
-            if (i2 < 0) {
-                j2 = -j2;
-                if (j2 < 0) {
+            int i2 = 1;
+            if (i < 0) {
+                j = -j;
+                if (j < 0) {
                     writeUtf8(outputStream, "-9223372036854775808");
                     return;
                 }
                 z = true;
             }
-            if (j2 >= 100000000) {
-                i3 = j2 < BasicLabelFormatter.TRILLION ? j2 < 10000000000L ? j2 < C.NANOS_PER_SECOND ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
-            } else if (j2 >= 10000) {
-                i3 = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8;
-            } else if (j2 >= 100) {
-                i3 = j2 < 1000 ? 3 : 4;
-            } else if (j2 >= 10) {
-                i3 = 2;
+            if (j >= 100000000) {
+                i2 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < C.NANOS_PER_SECOND ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
+            } else if (j >= 10000) {
+                i2 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;
+            } else if (j >= 100) {
+                i2 = j < 1000 ? 3 : 4;
+            } else if (j >= 10) {
+                i2 = 2;
             }
             if (z) {
-                i3++;
+                i2++;
             }
-            byte[] bArr = new byte[i3];
-            while (j2 != 0) {
-                i3--;
-                bArr[i3] = DIGITS[(int) (j2 % 10)];
-                j2 /= 10;
+            byte[] bArr = new byte[i2];
+            while (j != 0) {
+                i2--;
+                bArr[i2] = DIGITS[(int) (j % 10)];
+                j /= 10;
             }
             if (z) {
-                bArr[i3 - 1] = 45;
+                bArr[i2 - 1] = 45;
             }
             outputStream.write(bArr);
         }
@@ -657,44 +658,44 @@ public final class Util {
         }
     }
 
-    public static void writeUtf8CodePoint(OutputStream outputStream, int i2) throws IOException {
+    public static void writeUtf8CodePoint(OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65567, null, outputStream, i2) == null) {
-            if (i2 < 128) {
-                outputStream.write(i2);
-            } else if (i2 < 2048) {
-                outputStream.write((i2 >> 6) | 192);
-                outputStream.write((i2 & 63) | 128);
-            } else if (i2 < 65536) {
-                if (i2 >= 55296 && i2 <= 57343) {
+        if (interceptable == null || interceptable.invokeLI(65567, null, outputStream, i) == null) {
+            if (i < 128) {
+                outputStream.write(i);
+            } else if (i < 2048) {
+                outputStream.write((i >> 6) | 192);
+                outputStream.write((i & 63) | 128);
+            } else if (i < 65536) {
+                if (i >= 55296 && i <= 57343) {
                     outputStream.write(63);
                     return;
                 }
-                outputStream.write((i2 >> 12) | 224);
-                outputStream.write(((i2 >> 6) & 63) | 128);
-                outputStream.write((i2 & 63) | 128);
-            } else if (i2 <= 1114111) {
-                outputStream.write((i2 >> 18) | 240);
-                outputStream.write(((i2 >> 12) & 63) | 128);
-                outputStream.write(((i2 >> 6) & 63) | 128);
-                outputStream.write((i2 & 63) | 128);
+                outputStream.write((i >> 12) | 224);
+                outputStream.write(((i >> 6) & 63) | 128);
+                outputStream.write((i & 63) | 128);
+            } else if (i <= 1114111) {
+                outputStream.write((i >> 18) | 240);
+                outputStream.write(((i >> 12) & 63) | 128);
+                outputStream.write(((i >> 6) & 63) | 128);
+                outputStream.write((i & 63) | 128);
             } else {
-                throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
+                throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
             }
         }
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Character.valueOf(c2)})) == null) {
-            while (i2 < i3) {
-                if (str.charAt(i2) == c2) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c2) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -705,48 +706,48 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tArr)) == null) ? Collections.unmodifiableList(Arrays.asList((Object[]) tArr.clone())) : (List) invokeL.objValue;
     }
 
-    public static void writeUtf8(OutputStream outputStream, String str, int i2, int i3) throws IOException {
+    public static void writeUtf8(OutputStream outputStream, String str, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65566, null, outputStream, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65566, null, outputStream, str, i, i2) == null) {
             if (str == null) {
                 throw new IllegalArgumentException("string == null");
             }
-            if (i2 < 0) {
-                throw new IllegalArgumentException("beginIndex < 0: " + i2);
-            } else if (i3 >= i2) {
-                if (i3 > str.length()) {
-                    throw new IllegalArgumentException("endIndex > string.length: " + i3 + " > " + str.length());
+            if (i < 0) {
+                throw new IllegalArgumentException("beginIndex < 0: " + i);
+            } else if (i2 >= i) {
+                if (i2 > str.length()) {
+                    throw new IllegalArgumentException("endIndex > string.length: " + i2 + " > " + str.length());
                 }
-                while (i2 < i3) {
-                    char charAt = str.charAt(i2);
+                while (i < i2) {
+                    char charAt = str.charAt(i);
                     if (charAt < 128) {
                         outputStream.write(charAt);
                     } else if (charAt < 2048) {
                         outputStream.write((charAt >> 6) | 192);
                         outputStream.write((charAt & '?') | 128);
                     } else if (charAt >= 55296 && charAt <= 57343) {
-                        int i4 = i2 + 1;
-                        char charAt2 = i4 < i3 ? str.charAt(i4) : (char) 0;
+                        int i3 = i + 1;
+                        char charAt2 = i3 < i2 ? str.charAt(i3) : (char) 0;
                         if (charAt <= 56319 && charAt2 >= 56320 && charAt2 <= 57343) {
-                            int i5 = (((charAt & 10239) << 10) | (9215 & charAt2)) + 65536;
-                            outputStream.write((i5 >> 18) | 240);
-                            outputStream.write(((i5 >> 12) & 63) | 128);
-                            outputStream.write(((i5 >> 6) & 63) | 128);
-                            outputStream.write((i5 & 63) | 128);
-                            i2 += 2;
+                            int i4 = (((charAt & 10239) << 10) | (9215 & charAt2)) + 65536;
+                            outputStream.write((i4 >> 18) | 240);
+                            outputStream.write(((i4 >> 12) & 63) | 128);
+                            outputStream.write(((i4 >> 6) & 63) | 128);
+                            outputStream.write((i4 & 63) | 128);
+                            i += 2;
                         } else {
                             outputStream.write(63);
-                            i2 = i4;
+                            i = i3;
                         }
                     } else {
                         outputStream.write((charAt >> '\f') | 224);
                         outputStream.write(((charAt >> 6) & 63) | 128);
                         outputStream.write((charAt & '?') | 128);
                     }
-                    i2++;
+                    i++;
                 }
             } else {
-                throw new IllegalArgumentException("endIndex < beginIndex: " + i3 + " < " + i2);
+                throw new IllegalArgumentException("endIndex < beginIndex: " + i2 + " < " + i);
             }
         }
     }

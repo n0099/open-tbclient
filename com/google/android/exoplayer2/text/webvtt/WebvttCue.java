@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.text.webvtt;
 
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.Cue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttCue extends Cue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +21,7 @@ public final class WebvttCue extends Cue {
     public final long startTime;
 
     /* renamed from: com.google.android.exoplayer2.text.webvtt.WebvttCue$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$text$Layout$Alignment;
         public static /* synthetic */ Interceptable $ic;
@@ -56,7 +57,7 @@ public final class WebvttCue extends Cue {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "WebvttCueBuilder";
@@ -77,9 +78,9 @@ public final class WebvttCue extends Cue {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,13 +97,13 @@ public final class WebvttCue extends Cue {
                 if (alignment == null) {
                     this.positionAnchor = Integer.MIN_VALUE;
                 } else {
-                    int i2 = AnonymousClass1.$SwitchMap$android$text$Layout$Alignment[alignment.ordinal()];
-                    if (i2 == 1) {
+                    int i = AnonymousClass1.$SwitchMap$android$text$Layout$Alignment[alignment.ordinal()];
+                    if (i == 1) {
                         this.positionAnchor = 0;
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         this.positionAnchor = 1;
-                    } else if (i2 != 3) {
-                        String str = "Unrecognized alignment: " + this.textAlignment;
+                    } else if (i != 3) {
+                        Log.w(TAG, "Unrecognized alignment: " + this.textAlignment);
                         this.positionAnchor = 0;
                     } else {
                         this.positionAnchor = 2;
@@ -141,11 +142,11 @@ public final class WebvttCue extends Cue {
             }
         }
 
-        public Builder setEndTime(long j2) {
+        public Builder setEndTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.endTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.endTime = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -161,21 +162,21 @@ public final class WebvttCue extends Cue {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setLineAnchor(int i2) {
+        public Builder setLineAnchor(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.lineAnchor = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.lineAnchor = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setLineType(int i2) {
+        public Builder setLineType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.lineType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.lineType = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -191,21 +192,21 @@ public final class WebvttCue extends Cue {
             return (Builder) invokeF.objValue;
         }
 
-        public Builder setPositionAnchor(int i2) {
+        public Builder setPositionAnchor(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.positionAnchor = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.positionAnchor = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setStartTime(long j2) {
+        public Builder setStartTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-                this.startTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+                this.startTime = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -251,9 +252,9 @@ public final class WebvttCue extends Cue {
             newInitContext.initArgs = r8;
             Object[] objArr = {charSequence};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), (CharSequence) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -270,17 +271,17 @@ public final class WebvttCue extends Cue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebvttCue(long j2, long j3, CharSequence charSequence) {
-        this(j2, j3, charSequence, null, Float.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE);
+    public WebvttCue(long j, long j2, CharSequence charSequence) {
+        this(j, j2, charSequence, null, Float.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE, Integer.MIN_VALUE, Float.MIN_VALUE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), charSequence};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), charSequence};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), (CharSequence) objArr2[2], (Layout.Alignment) objArr2[3], ((Float) objArr2[4]).floatValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue(), ((Float) objArr2[7]).floatValue(), ((Integer) objArr2[8]).intValue(), ((Float) objArr2[9]).floatValue());
                 newInitContext.thisArg = this;
@@ -291,17 +292,17 @@ public final class WebvttCue extends Cue {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WebvttCue(long j2, long j3, CharSequence charSequence, Layout.Alignment alignment, float f2, int i2, int i3, float f3, int i4, float f4) {
-        super(charSequence, alignment, f2, i2, i3, f3, i4, f4);
+    public WebvttCue(long j, long j2, CharSequence charSequence, Layout.Alignment alignment, float f2, int i, int i2, float f3, int i3, float f4) {
+        super(charSequence, alignment, f2, i, i2, f3, i3, f4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f3), Integer.valueOf(i4), Float.valueOf(f4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((CharSequence) objArr2[0], (Layout.Alignment) objArr2[1], ((Float) objArr2[2]).floatValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Float) objArr2[5]).floatValue(), ((Integer) objArr2[6]).intValue(), ((Float) objArr2[7]).floatValue());
                 newInitContext.thisArg = this;
@@ -309,7 +310,7 @@ public final class WebvttCue extends Cue {
                 return;
             }
         }
-        this.startTime = j2;
-        this.endTime = j3;
+        this.startTime = j;
+        this.endTime = j2;
     }
 }

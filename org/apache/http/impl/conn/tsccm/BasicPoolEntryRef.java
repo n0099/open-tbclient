@@ -9,7 +9,7 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicPoolEntryRef extends WeakReference<BasicPoolEntry> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class BasicPoolEntryRef extends WeakReference<BasicPoolEntry> {
             newInitContext.initArgs = r2;
             Object[] objArr = {basicPoolEntry, referenceQueue};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(objArr2[0], (ReferenceQueue) objArr2[1]);
                 newInitContext.thisArg = this;

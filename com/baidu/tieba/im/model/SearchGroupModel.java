@@ -24,9 +24,9 @@ public class SearchGroupModel extends BdBaseModel<AddGroupActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {addGroupActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -69,20 +69,20 @@ public class SearchGroupModel extends BdBaseModel<AddGroupActivity> {
         }
     }
 
-    public void sendMessage(long j2) {
+    public void sendMessage(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
-            requestSearchGroupsMessage.setGroupId(j2);
+            requestSearchGroupsMessage.setGroupId(j);
             super.sendMessage(requestSearchGroupsMessage);
         }
     }
 
-    public void sendUpdateMessage(long j2) {
+    public void sendUpdateMessage(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             RequestSearchGroupsMessage requestSearchGroupsMessage = new RequestSearchGroupsMessage();
-            requestSearchGroupsMessage.setGroupId(j2);
+            requestSearchGroupsMessage.setGroupId(j);
             super.sendMessage(requestSearchGroupsMessage);
         }
     }

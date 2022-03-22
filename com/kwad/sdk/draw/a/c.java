@@ -15,54 +15,50 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.draw.view.DrawDownloadProgressBar;
 import com.kwad.sdk.utils.az;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f55272b;
+    public ViewGroup f40333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f55273c;
+    public TextView f40334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f55274d;
+    public TextView f40335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f55275e;
+    public TextView f40336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DrawDownloadProgressBar f55276f;
+    public DrawDownloadProgressBar f40337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f55277g;
+    public AdTemplate f40338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdInfo f55278h;
+    public AdInfo f40339h;
     @Nullable
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f55279i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ValueAnimator f55280j;
+    public com.kwad.sdk.core.download.a.b i;
+    public ValueAnimator j;
     public int k;
     public int l;
     public int m;
     public KsLogoView n;
     public com.kwad.sdk.contentalliance.detail.video.d o = new e() { // from class: com.kwad.sdk.draw.a.c.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
-        public void a(long j2, long j3) {
-            int i2 = (j3 > (c.this.m * 1000) ? 1 : (j3 == (c.this.m * 1000) ? 0 : -1));
+        public void a(long j, long j2) {
+            int i = (j2 > (c.this.m * 1000) ? 1 : (j2 == (c.this.m * 1000) ? 0 : -1));
             c cVar = c.this;
-            if (i2 >= 0) {
-                ((com.kwad.sdk.draw.kwai.a) cVar).a.f55304f.a();
+            if (i >= 0) {
+                ((com.kwad.sdk.draw.kwai.a) cVar).a.f40363f.a();
                 return;
             }
-            int i3 = (j3 > (cVar.l * 1000) ? 1 : (j3 == (cVar.l * 1000) ? 0 : -1));
+            int i2 = (j2 > (cVar.l * 1000) ? 1 : (j2 == (cVar.l * 1000) ? 0 : -1));
             c cVar2 = c.this;
-            if (i3 >= 0) {
+            if (i2 >= 0) {
                 cVar2.h();
-            } else if (j3 >= cVar2.k * 1000) {
+            } else if (j2 >= cVar2.k * 1000) {
                 c.this.f();
             }
         }
@@ -73,50 +69,50 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
     };
     public KsAppDownloadListener p = new com.kwad.sdk.core.download.a.c() { // from class: com.kwad.sdk.draw.a.c.2
         @Override // com.kwad.sdk.core.download.a.c
-        public void a(int i2) {
-            super.a(i2);
-            c.this.f55275e.setText(com.kwad.sdk.core.response.a.a.a());
-            c.this.f55276f.a(com.kwad.sdk.core.response.a.a.a(), i2);
+        public void a(int i) {
+            super.a(i);
+            c.this.f40336e.setText(com.kwad.sdk.core.response.a.a.a());
+            c.this.f40337f.a(com.kwad.sdk.core.response.a.a.a(), i);
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFailed() {
-            c.this.f55275e.setText(com.kwad.sdk.core.response.a.a.A(c.this.f55278h));
-            c.this.f55276f.a(com.kwad.sdk.core.response.a.a.A(c.this.f55278h), c.this.f55276f.getMax());
+            c.this.f40336e.setText(com.kwad.sdk.core.response.a.a.A(c.this.f40339h));
+            c.this.f40337f.a(com.kwad.sdk.core.response.a.a.A(c.this.f40339h), c.this.f40337f.getMax());
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onDownloadFinished() {
-            c.this.f55275e.setText(com.kwad.sdk.core.response.a.a.a(c.this.f55277g));
-            c.this.f55276f.a(com.kwad.sdk.core.response.a.a.a(c.this.f55277g), c.this.f55276f.getMax());
+            c.this.f40336e.setText(com.kwad.sdk.core.response.a.a.a(c.this.f40338g));
+            c.this.f40337f.a(com.kwad.sdk.core.response.a.a.a(c.this.f40338g), c.this.f40337f.getMax());
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onIdle() {
-            c.this.f55275e.setText(com.kwad.sdk.core.response.a.a.A(c.this.f55278h));
-            c.this.f55276f.a(com.kwad.sdk.core.response.a.a.A(c.this.f55278h), c.this.f55276f.getMax());
+            c.this.f40336e.setText(com.kwad.sdk.core.response.a.a.A(c.this.f40339h));
+            c.this.f40337f.a(com.kwad.sdk.core.response.a.a.A(c.this.f40339h), c.this.f40337f.getMax());
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
         public void onInstalled() {
-            c.this.f55275e.setText(com.kwad.sdk.core.response.a.a.m(c.this.f55278h));
-            c.this.f55276f.a(com.kwad.sdk.core.response.a.a.m(c.this.f55278h), c.this.f55276f.getMax());
+            c.this.f40336e.setText(com.kwad.sdk.core.response.a.a.m(c.this.f40339h));
+            c.this.f40337f.a(com.kwad.sdk.core.response.a.a.m(c.this.f40339h), c.this.f40337f.getMax());
         }
 
         @Override // com.kwad.sdk.api.KsAppDownloadListener
-        public void onProgressUpdate(int i2) {
-            TextView textView = c.this.f55275e;
-            textView.setText(i2 + "%");
-            DrawDownloadProgressBar drawDownloadProgressBar = c.this.f55276f;
-            drawDownloadProgressBar.a(i2 + "%", i2);
+        public void onProgressUpdate(int i) {
+            TextView textView = c.this.f40336e;
+            textView.setText(i + "%");
+            DrawDownloadProgressBar drawDownloadProgressBar = c.this.f40337f;
+            drawDownloadProgressBar.a(i + "%", i);
         }
     };
 
-    private void a(boolean z, int i2) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2095a(this.f55272b.getContext()).a(this.f55277g).a(this.f55279i).a(i2).a(z).a(new a.b() { // from class: com.kwad.sdk.draw.a.c.3
+    private void a(boolean z, int i) {
+        com.kwad.sdk.core.download.a.a.a(new a.C1956a(this.f40333b.getContext()).a(this.f40338g).a(this.i).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.draw.a.c.3
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
-                com.kwad.sdk.core.report.a.a(c.this.f55277g, 1, ((com.kwad.sdk.draw.kwai.a) c.this).a.f55300b.getTouchCoords());
+                com.kwad.sdk.core.report.a.a(c.this.f40338g, 1, ((com.kwad.sdk.draw.kwai.a) c.this).a.f40359b.getTouchCoords());
                 if (((com.kwad.sdk.draw.kwai.a) c.this).a.a != null) {
                     ((com.kwad.sdk.draw.kwai.a) c.this).a.a.onAdClicked();
                 }
@@ -125,71 +121,71 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
     }
 
     private void e() {
-        this.k = com.kwad.sdk.core.response.a.a.X(this.f55278h);
-        this.l = com.kwad.sdk.core.response.a.a.Y(this.f55278h);
-        this.m = com.kwad.sdk.core.response.a.a.Z(this.f55278h);
+        this.k = com.kwad.sdk.core.response.a.a.X(this.f40339h);
+        this.l = com.kwad.sdk.core.response.a.a.Y(this.f40339h);
+        this.m = com.kwad.sdk.core.response.a.a.Z(this.f40339h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f55275e.getVisibility() == 0 || this.f55276f.getVisibility() == 0) {
+        if (this.f40336e.getVisibility() == 0 || this.f40337f.getVisibility() == 0) {
             return;
         }
-        this.f55275e.setOnClickListener(this);
-        this.f55275e.setVisibility(0);
-        TextView textView = this.f55275e;
+        this.f40336e.setOnClickListener(this);
+        this.f40336e.setVisibility(0);
+        TextView textView = this.f40336e;
         ValueAnimator a = az.a(textView, 0, com.kwad.sdk.a.kwai.a.a(textView.getContext(), 44.0f));
-        this.f55280j = a;
+        this.j = a;
         a.setInterpolator(new DecelerateInterpolator(2.0f));
-        this.f55280j.setDuration(300L);
-        this.f55280j.start();
+        this.j.setDuration(300L);
+        this.j.start();
     }
 
     private void g() {
-        ValueAnimator valueAnimator = this.f55280j;
+        ValueAnimator valueAnimator = this.j;
         if (valueAnimator != null) {
             valueAnimator.removeAllListeners();
-            this.f55280j.cancel();
+            this.j.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f55276f.getVisibility() == 0) {
+        if (this.f40337f.getVisibility() == 0) {
             return;
         }
-        this.f55276f.setOnClickListener(this);
-        this.f55276f.setVisibility(0);
-        this.f55275e.setVisibility(8);
+        this.f40337f.setOnClickListener(this);
+        this.f40337f.setVisibility(0);
+        this.f40336e.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.draw.kwai.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.draw.kwai.a) this).a.f55301c;
-        this.f55277g = adTemplate;
-        this.f55278h = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f55279i = ((com.kwad.sdk.draw.kwai.a) this).a.f55302d;
+        AdTemplate adTemplate = ((com.kwad.sdk.draw.kwai.a) this).a.f40360c;
+        this.f40338g = adTemplate;
+        this.f40339h = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.i = ((com.kwad.sdk.draw.kwai.a) this).a.f40361d;
         e();
-        this.n.a(this.f55277g);
-        this.f55275e.setText(com.kwad.sdk.core.response.a.a.A(this.f55278h));
-        this.f55275e.setVisibility(8);
-        this.f55276f.a(com.kwad.sdk.core.response.a.a.A(this.f55278h), this.f55276f.getMax());
-        this.f55276f.setVisibility(8);
-        this.f55272b.setVisibility(0);
-        this.f55272b.setOnClickListener(this);
-        if (com.kwad.sdk.core.response.a.a.B(this.f55278h)) {
-            this.f55273c.setText(com.kwad.sdk.core.response.a.a.t(this.f55278h));
-            this.f55273c.setVisibility(0);
-            com.kwad.sdk.core.download.a.b bVar = this.f55279i;
+        this.n.a(this.f40338g);
+        this.f40336e.setText(com.kwad.sdk.core.response.a.a.A(this.f40339h));
+        this.f40336e.setVisibility(8);
+        this.f40337f.a(com.kwad.sdk.core.response.a.a.A(this.f40339h), this.f40337f.getMax());
+        this.f40337f.setVisibility(8);
+        this.f40333b.setVisibility(0);
+        this.f40333b.setOnClickListener(this);
+        if (com.kwad.sdk.core.response.a.a.B(this.f40339h)) {
+            this.f40334c.setText(com.kwad.sdk.core.response.a.a.t(this.f40339h));
+            this.f40334c.setVisibility(0);
+            com.kwad.sdk.core.download.a.b bVar = this.i;
             if (bVar != null) {
                 bVar.a(this.p);
             }
         } else {
-            this.f55273c.setVisibility(8);
+            this.f40334c.setVisibility(8);
         }
-        this.f55274d.setText(com.kwad.sdk.core.response.a.a.s(this.f55278h));
-        ((com.kwad.sdk.draw.kwai.a) this).a.f55303e.a(this.o);
+        this.f40335d.setText(com.kwad.sdk.core.response.a.a.s(this.f40339h));
+        ((com.kwad.sdk.draw.kwai.a) this).a.f40362e.a(this.o);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
@@ -197,36 +193,36 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
         KsAppDownloadListener ksAppDownloadListener;
         super.c();
         g();
-        com.kwad.sdk.core.download.a.b bVar = this.f55279i;
+        com.kwad.sdk.core.download.a.b bVar = this.i;
         if (bVar != null && (ksAppDownloadListener = this.p) != null) {
             bVar.b(ksAppDownloadListener);
         }
-        ((com.kwad.sdk.draw.kwai.a) this).a.f55303e.b(this.o);
+        ((com.kwad.sdk.draw.kwai.a) this).a.f40362e.b(this.o);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f55272b = (ViewGroup) a(R.id.ksad_ad_normal_container);
-        this.f55273c = (TextView) a(R.id.ksad_ad_normal_title);
-        this.f55274d = (TextView) a(R.id.ksad_ad_normal_des);
-        this.n = (KsLogoView) a(R.id.ksad_ad_normal_logo);
-        this.f55275e = (TextView) a(R.id.ksad_ad_normal_convert_btn);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.ksad_ad_light_convert_btn);
-        this.f55276f = drawDownloadProgressBar;
+        this.f40333b = (ViewGroup) a(R.id.obfuscated_res_0x7f091023);
+        this.f40334c = (TextView) a(R.id.obfuscated_res_0x7f091027);
+        this.f40335d = (TextView) a(R.id.obfuscated_res_0x7f091025);
+        this.n = (KsLogoView) a(R.id.obfuscated_res_0x7f091026);
+        this.f40336e = (TextView) a(R.id.obfuscated_res_0x7f091024);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.obfuscated_res_0x7f091022);
+        this.f40337f = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f55272b) {
+        if (view == this.f40333b) {
             h();
             a(false, 2);
             return;
         }
-        if (view == this.f55275e) {
+        if (view == this.f40336e) {
             h();
-        } else if (view != this.f55276f) {
+        } else if (view != this.f40337f) {
             return;
         }
         a(true, 1);

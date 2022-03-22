@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor;
 
-import c.a.a0.b.a.e;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +19,9 @@ public class SuperpositionProcessor extends BaseEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,11 +29,11 @@ public class SuperpositionProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i2, float[] fArr) {
+    public int onProcessFrame(e eVar, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int d2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i2, fArr)) == null) ? (eVar == null || (d2 = eVar.d((MediaTrack) h.c(eVar.l(), 0), i2, null)) == 0) ? i2 : d2 : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i, fArr)) == null) ? (eVar == null || (d2 = eVar.d((MediaTrack) h.c(eVar.l(), 0), i, null)) == 0) ? i : d2 : invokeLIL.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor

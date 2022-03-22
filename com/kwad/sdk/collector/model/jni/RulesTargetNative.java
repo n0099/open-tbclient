@@ -18,15 +18,15 @@ public class RulesTargetNative extends NativeObject implements d {
         this.mPtr = AppStatusNative.nativeCreateRulesTarget();
     }
 
-    public RulesTargetNative(long j2) {
-        this.mPtr = j2;
+    public RulesTargetNative(long j) {
+        this.mPtr = j;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
-        long j2 = this.mPtr;
-        if (j2 != 0) {
-            AppStatusNative.nativeDeleteRulesTarget(j2);
+        long j = this.mPtr;
+        if (j != 0) {
+            AppStatusNative.nativeDeleteRulesTarget(j);
             this.mPtr = 0L;
         }
     }
@@ -42,8 +42,8 @@ public class RulesTargetNative extends NativeObject implements d {
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 String[] strArr = new String[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    strArr[i2] = optJSONArray.getString(i2);
+                for (int i = 0; i < length; i++) {
+                    strArr[i] = optJSONArray.getString(i);
                 }
                 AppStatusNative.rulesTargetSetPaths(this, strArr);
             }

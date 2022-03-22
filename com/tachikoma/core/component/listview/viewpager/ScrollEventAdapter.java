@@ -1,5 +1,6 @@
 package com.tachikoma.core.component.listview.viewpager;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -18,7 +19,7 @@ import com.tachikoma.core.component.listview.viewpager.RecyclerViewPager;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_POSITION = -1;
@@ -45,11 +46,11 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public ScrollEventValues mScrollValues;
     public int mTarget;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface Orientation {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ScrollEventValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +63,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -85,7 +86,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface ScrollState {
     }
 
@@ -114,9 +115,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {linearLayoutManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -128,34 +129,34 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         resetState();
     }
 
-    private void dispatchScrolled(int i2, float f2, int i3) {
+    private void dispatchScrolled(int i, float f2, int i2) {
         RecyclerViewPager.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageScrolled(i2, f2, i3);
+        onPageChangeCallback.onPageScrolled(i, f2, i2);
     }
 
-    private void dispatchSelected(int i2) {
+    private void dispatchSelected(int i) {
         RecyclerViewPager.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageSelected(i2);
+        onPageChangeCallback.onPageSelected(i);
     }
 
-    private void dispatchStateChanged(int i2) {
+    private void dispatchStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            if ((this.mAdapterState == 3 && this.mScrollState == 0) || this.mScrollState == i2) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            if ((this.mAdapterState == 3 && this.mScrollState == 0) || this.mScrollState == i) {
                 return;
             }
-            this.mScrollState = i2;
+            this.mScrollState = i;
             RecyclerViewPager.OnPageChangeCallback onPageChangeCallback = this.mCallback;
             if (onPageChangeCallback != null) {
-                onPageChangeCallback.onPageScrollStateChanged(i2);
+                onPageChangeCallback.onPageScrollStateChanged(i);
             }
         }
     }
@@ -195,9 +196,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         View findViewByPosition;
         int height;
         int top;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             ScrollEventValues scrollEventValues = this.mScrollValues;
@@ -208,26 +209,26 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
                 if (this.mLayoutManager.getOrientation() == 0) {
                     height = findViewByPosition.getWidth();
                     if (isLayoutRTL()) {
-                        i3 = (height - findViewByPosition.getRight()) + marginLayoutParams.rightMargin;
-                        i4 = -i3;
-                        scrollEventValues.mOffsetPx = i4;
-                        if (i4 < 0) {
-                            scrollEventValues.mOffset = height == 0 ? 0.0f : i4 / height;
+                        i2 = (height - findViewByPosition.getRight()) + marginLayoutParams.rightMargin;
+                        i3 = -i2;
+                        scrollEventValues.mOffsetPx = i3;
+                        if (i3 < 0) {
+                            scrollEventValues.mOffset = height == 0 ? 0.0f : i3 / height;
                             return scrollEventValues;
                         }
                         throw new IllegalStateException(String.format(Locale.US, "Page can only be offset by a positive amount, not by %d", Integer.valueOf(scrollEventValues.mOffsetPx)));
                     }
                     top = findViewByPosition.getLeft();
-                    i2 = marginLayoutParams.leftMargin;
+                    i = marginLayoutParams.leftMargin;
                 } else {
                     height = findViewByPosition.getHeight();
                     top = findViewByPosition.getTop();
-                    i2 = marginLayoutParams.topMargin;
+                    i = marginLayoutParams.topMargin;
                 }
-                i3 = top - i2;
-                i4 = -i3;
-                scrollEventValues.mOffsetPx = i4;
-                if (i4 < 0) {
+                i2 = top - i;
+                i3 = -i2;
+                scrollEventValues.mOffsetPx = i3;
+                if (i3 < 0) {
                 }
             }
             return scrollEventValues.reset();
@@ -252,42 +253,42 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAdapterState == 0 : invokeV.booleanValue;
     }
 
-    public void notifyProgrammaticScroll(int i2, boolean z) {
+    public void notifyProgrammaticScroll(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.mAdapterState = z ? 2 : 3;
-            boolean z2 = this.mTarget != i2;
-            this.mTarget = i2;
+            boolean z2 = this.mTarget != i;
+            this.mTarget = i;
             dispatchStateChanged(2);
             if (z2) {
-                dispatchSelected(i2);
+                dispatchSelected(i);
             }
         }
     }
 
-    public void notifyRestoreCurrentItem(int i2) {
+    public void notifyRestoreCurrentItem(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == 0) {
             return;
         }
-        dispatchSelected(i2);
+        dispatchSelected(i);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
+    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, recyclerView, i2) == null) {
-            if (this.mAdapterState != 1 && i2 == 1) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, recyclerView, i) == null) {
+            if (this.mAdapterState != 1 && i == 1) {
                 this.mAdapterState = 1;
-                int i3 = this.mTarget;
-                if (i3 != -1) {
-                    this.mDragStartPosition = i3;
+                int i2 = this.mTarget;
+                if (i2 != -1) {
+                    this.mDragStartPosition = i2;
                     this.mTarget = -1;
                 } else {
                     this.mDragStartPosition = getPosition();
                 }
                 dispatchStateChanged(1);
-            } else if (this.mAdapterState == 1 && i2 == 2) {
+            } else if (this.mAdapterState == 1 && i == 2) {
                 if (!this.mScrollHappened) {
                     dispatchScrolled(getPosition(), 0.0f, 0);
                     return;
@@ -295,7 +296,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
                 dispatchStateChanged(2);
                 this.mDispatchSelected = true;
                 this.mScrollHappened = false;
-            } else if (this.mAdapterState == 1 && i2 == 0) {
+            } else if (this.mAdapterState == 1 && i == 0) {
                 if (this.mScrollState == 1 && this.mScrollValues.mOffsetPx == 0) {
                     if (this.mScrollHappened) {
                         this.mDispatchSelected = true;
@@ -303,18 +304,18 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
                     } else {
                         dispatchScrolled(getPosition(), 0.0f, 0);
                     }
-                } else if (this.mScrollState == 2) {
-                    boolean z = this.mScrollHappened;
+                } else if (this.mScrollState == 2 && !this.mScrollHappened) {
+                    Log.e(this.TAG, "RecyclerView sent SCROLL_STATE_SETTLING event without scrolling any further before going to SCROLL_STATE_IDLE");
                 }
                 if (this.mScrollHappened) {
                     return;
                 }
                 if (this.mDispatchSelected) {
                     updateScrollEventValues();
-                    int i4 = this.mDragStartPosition;
-                    int i5 = this.mScrollValues.mPosition;
-                    if (i4 != i5) {
-                        dispatchSelected(i5);
+                    int i3 = this.mDragStartPosition;
+                    int i4 = this.mScrollValues.mPosition;
+                    if (i3 != i4) {
+                        dispatchSelected(i4);
                     }
                 }
                 dispatchStateChanged(0);
@@ -331,36 +332,36 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+    public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
         boolean z;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, recyclerView, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, recyclerView, i, i2) == null) {
             this.mScrollHappened = true;
             ScrollEventValues updateScrollEventValues = updateScrollEventValues();
             if (this.mDispatchSelected) {
                 this.mDispatchSelected = false;
-                if (i3 <= 0) {
-                    if (i3 == 0) {
+                if (i2 <= 0) {
+                    if (i2 == 0) {
                     }
                     z = false;
-                    i4 = (z || updateScrollEventValues.mOffsetPx == 0) ? updateScrollEventValues.mPosition : updateScrollEventValues.mPosition + 1;
-                    this.mTarget = i4;
-                    if (this.mDragStartPosition != i4) {
-                        dispatchSelected(i4);
+                    i3 = (z || updateScrollEventValues.mOffsetPx == 0) ? updateScrollEventValues.mPosition : updateScrollEventValues.mPosition + 1;
+                    this.mTarget = i3;
+                    if (this.mDragStartPosition != i3) {
+                        dispatchSelected(i3);
                     }
                 }
                 z = true;
                 if (z) {
                 }
-                this.mTarget = i4;
-                if (this.mDragStartPosition != i4) {
+                this.mTarget = i3;
+                if (this.mDragStartPosition != i3) {
                 }
             }
             dispatchScrolled(updateScrollEventValues.mPosition, updateScrollEventValues.mOffset, updateScrollEventValues.mOffsetPx);
-            int i5 = updateScrollEventValues.mPosition;
-            int i6 = this.mTarget;
-            if ((i5 == i6 || i6 == -1) && updateScrollEventValues.mOffsetPx == 0 && this.mScrollState != 1) {
+            int i4 = updateScrollEventValues.mPosition;
+            int i5 = this.mTarget;
+            if ((i4 == i5 || i5 == -1) && updateScrollEventValues.mOffsetPx == 0 && this.mScrollState != 1) {
                 dispatchStateChanged(0);
                 resetState();
             }

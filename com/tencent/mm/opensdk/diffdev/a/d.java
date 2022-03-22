@@ -3,6 +3,7 @@ package com.tencent.mm.opensdk.diffdev.a;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.util.Base64;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +15,22 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f59024h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
+    public static String f43676h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f59025i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f59026j;
+    public String i;
+    public String j;
     public OAuthListener k;
     public f l;
     public String scope;
     public String signature;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +47,9 @@ public final class d extends AsyncTask<Void, Void, a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,12 +69,12 @@ public final class d extends AsyncTask<Void, Void, a> {
                 } else {
                     try {
                         try {
-                            JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
-                            int i2 = jSONObject.getInt("errcode");
-                            if (i2 != 0) {
-                                Log.e("MicroMsg.SDK.GetQRCodeResult", String.format("resp errcode = %d", Integer.valueOf(i2)));
+                            JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
+                            int i = jSONObject.getInt("errcode");
+                            if (i != 0) {
+                                Log.e("MicroMsg.SDK.GetQRCodeResult", String.format("resp errcode = %d", Integer.valueOf(i)));
                                 aVar.m = OAuthErrCode.WechatAuth_Err_NormalErr;
-                                aVar.q = i2;
+                                aVar.q = i;
                                 aVar.r = jSONObject.optString("errmsg");
                                 return aVar;
                             }
@@ -140,9 +137,9 @@ public final class d extends AsyncTask<Void, Void, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, str5, oAuthListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -150,8 +147,8 @@ public final class d extends AsyncTask<Void, Void, a> {
         }
         this.appId = str;
         this.scope = str2;
-        this.f59025i = str3;
-        this.f59026j = str4;
+        this.i = str3;
+        this.j = str4;
         this.signature = str5;
         this.k = oAuthListener;
     }
@@ -173,7 +170,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public final /* synthetic */ a doInBackground(Void[] voidArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
-        String format = String.format(f59024h, this.appId, this.f59025i, this.f59026j, this.scope, this.signature);
+        String format = String.format(f43676h, this.appId, this.i, this.j, this.scope, this.signature);
         long currentTimeMillis = System.currentTimeMillis();
         byte[] a2 = e.a(format);
         Log.d("MicroMsg.SDK.GetQRCodeTask", String.format("doInBackground, url = %s, time consumed = %d(ms)", format, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));

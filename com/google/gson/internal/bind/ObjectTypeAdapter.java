@@ -18,7 +18,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapterFactory FACTORY;
@@ -26,7 +26,7 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     public final Gson gson;
 
     /* renamed from: com.google.gson.internal.bind.ObjectTypeAdapter$2  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -96,9 +96,9 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -127,9 +127,9 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
             newInitContext.initArgs = r2;
             Object[] objArr = {gson};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.Toast;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.c f56357b;
+    public com.kwad.sdk.core.download.a.c f41261b;
 
     public static String b(Context context) {
         try {
@@ -61,18 +61,18 @@ public class h extends Presenter {
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onProgressUpdate(int i2) {
+            public void onProgressUpdate(int i) {
             }
         };
-        this.f56357b = cVar;
-        this.a.f56440g.a(cVar);
+        this.f41261b = cVar;
+        this.a.f41333g.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        com.kwad.sdk.core.download.a.c cVar = this.f56357b;
+        com.kwad.sdk.core.download.a.c cVar = this.f41261b;
         if (cVar != null) {
-            this.a.f56440g.b(cVar);
+            this.a.f41333g.b(cVar);
         }
     }
 }

@@ -63,9 +63,9 @@ public class FontResourcesParserCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fontFileResourceEntryArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,27 +94,27 @@ public class FontResourcesParserCompat {
         public String mVariationSettings;
         public int mWeight;
 
-        public FontFileResourceEntry(@NonNull String str, int i2, boolean z, @Nullable String str2, int i3, int i4) {
+        public FontFileResourceEntry(@NonNull String str, int i, boolean z, @Nullable String str2, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z), str2, Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mFileName = str;
-            this.mWeight = i2;
+            this.mWeight = i;
             this.mItalic = z;
             this.mVariationSettings = str2;
-            this.mTtcIndex = i3;
-            this.mResourceId = i4;
+            this.mTtcIndex = i2;
+            this.mResourceId = i3;
         }
 
         @NonNull
@@ -165,24 +165,24 @@ public class FontResourcesParserCompat {
         public final int mStrategy;
         public final int mTimeoutMs;
 
-        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i2, int i3) {
+        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fontRequest, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {fontRequest, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mRequest = fontRequest;
-            this.mStrategy = i2;
-            this.mTimeoutMs = i3;
+            this.mStrategy = i;
+            this.mTimeoutMs = i2;
         }
 
         public int getFetchStrategy() {
@@ -210,24 +210,24 @@ public class FontResourcesParserCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getType(TypedArray typedArray, int i2) {
+    public static int getType(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, typedArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, typedArray, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return typedArray.getType(i2);
+                return typedArray.getType(i);
             }
             TypedValue typedValue = new TypedValue();
-            typedArray.getValue(i2, typedValue);
+            typedArray.getValue(i, typedValue);
             return typedValue.type;
         }
         return invokeLI.intValue;
@@ -253,28 +253,28 @@ public class FontResourcesParserCompat {
         return (FamilyResourceEntry) invokeLL.objValue;
     }
 
-    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i2) {
+    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
+            if (i == 0) {
                 return Collections.emptyList();
             }
-            TypedArray obtainTypedArray = resources.obtainTypedArray(i2);
+            TypedArray obtainTypedArray = resources.obtainTypedArray(i);
             try {
                 if (obtainTypedArray.length() == 0) {
                     return Collections.emptyList();
                 }
                 ArrayList arrayList = new ArrayList();
                 if (getType(obtainTypedArray, 0) == 1) {
-                    for (int i3 = 0; i3 < obtainTypedArray.length(); i3++) {
-                        int resourceId = obtainTypedArray.getResourceId(i3, 0);
+                    for (int i2 = 0; i2 < obtainTypedArray.length(); i2++) {
+                        int resourceId = obtainTypedArray.getResourceId(i2, 0);
                         if (resourceId != 0) {
                             arrayList.add(toByteArrayList(resources.getStringArray(resourceId)));
                         }
                     }
                 } else {
-                    arrayList.add(toByteArrayList(resources.getStringArray(i2)));
+                    arrayList.add(toByteArrayList(resources.getStringArray(i)));
                 }
                 return arrayList;
             } finally {
@@ -338,50 +338,50 @@ public class FontResourcesParserCompat {
 
     public static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         InterceptResult invokeLL;
+        int i;
         int i2;
         int i3;
         int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xmlPullParser, resources)) == null) {
             TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R$styleable.FontFamilyFont);
             if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontWeight)) {
-                i2 = R$styleable.FontFamilyFont_fontWeight;
+                i = R$styleable.FontFamilyFont_fontWeight;
             } else {
-                i2 = R$styleable.FontFamilyFont_android_fontWeight;
+                i = R$styleable.FontFamilyFont_android_fontWeight;
             }
-            int i7 = obtainAttributes.getInt(i2, 400);
+            int i6 = obtainAttributes.getInt(i, 400);
             if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontStyle)) {
-                i3 = R$styleable.FontFamilyFont_fontStyle;
+                i2 = R$styleable.FontFamilyFont_fontStyle;
             } else {
-                i3 = R$styleable.FontFamilyFont_android_fontStyle;
+                i2 = R$styleable.FontFamilyFont_android_fontStyle;
             }
-            boolean z = 1 == obtainAttributes.getInt(i3, 0);
+            boolean z = 1 == obtainAttributes.getInt(i2, 0);
             if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_ttcIndex)) {
-                i4 = R$styleable.FontFamilyFont_ttcIndex;
+                i3 = R$styleable.FontFamilyFont_ttcIndex;
             } else {
-                i4 = R$styleable.FontFamilyFont_android_ttcIndex;
+                i3 = R$styleable.FontFamilyFont_android_ttcIndex;
             }
             if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_fontVariationSettings)) {
-                i5 = R$styleable.FontFamilyFont_fontVariationSettings;
+                i4 = R$styleable.FontFamilyFont_fontVariationSettings;
             } else {
-                i5 = R$styleable.FontFamilyFont_android_fontVariationSettings;
+                i4 = R$styleable.FontFamilyFont_android_fontVariationSettings;
             }
-            String string = obtainAttributes.getString(i5);
-            int i8 = obtainAttributes.getInt(i4, 0);
+            String string = obtainAttributes.getString(i4);
+            int i7 = obtainAttributes.getInt(i3, 0);
             if (obtainAttributes.hasValue(R$styleable.FontFamilyFont_font)) {
-                i6 = R$styleable.FontFamilyFont_font;
+                i5 = R$styleable.FontFamilyFont_font;
             } else {
-                i6 = R$styleable.FontFamilyFont_android_font;
+                i5 = R$styleable.FontFamilyFont_android_font;
             }
-            int resourceId = obtainAttributes.getResourceId(i6, 0);
-            String string2 = obtainAttributes.getString(i6);
+            int resourceId = obtainAttributes.getResourceId(i5, 0);
+            String string2 = obtainAttributes.getString(i5);
             obtainAttributes.recycle();
             while (xmlPullParser.next() != 3) {
                 skip(xmlPullParser);
             }
-            return new FontFileResourceEntry(string2, i7, z, string, i8, resourceId);
+            return new FontFileResourceEntry(string2, i6, z, string, i7, resourceId);
         }
         return (FontFileResourceEntry) invokeLL.objValue;
     }
@@ -389,13 +389,13 @@ public class FontResourcesParserCompat {
     public static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, xmlPullParser) == null) {
-            int i2 = 1;
-            while (i2 > 0) {
+            int i = 1;
+            while (i > 0) {
                 int next = xmlPullParser.next();
                 if (next == 2) {
-                    i2++;
+                    i++;
                 } else if (next == 3) {
-                    i2--;
+                    i--;
                 }
             }
         }

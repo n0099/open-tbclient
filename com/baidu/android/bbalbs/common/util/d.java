@@ -124,11 +124,11 @@ public final class d {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean a(String str, int i2) {
+    public static boolean a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
-            if (TextUtils.isEmpty(str) || i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str) || i == 0) {
                 return false;
             }
             return str.matches("^[a-zA-Z0-9]{1,5}$");

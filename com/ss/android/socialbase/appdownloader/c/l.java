@@ -1,13 +1,13 @@
 package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.DialogInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface l {
     k a();
 
-    l a(int i2);
+    l a(int i);
 
-    l a(int i2, DialogInterface.OnClickListener onClickListener);
+    l a(int i, DialogInterface.OnClickListener onClickListener);
 
     l a(DialogInterface.OnCancelListener onCancelListener);
 
@@ -15,5 +15,5 @@ public interface l {
 
     l a(boolean z);
 
-    l b(int i2, DialogInterface.OnClickListener onClickListener);
+    l b(int i, DialogInterface.OnClickListener onClickListener);
 }

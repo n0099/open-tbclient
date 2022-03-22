@@ -47,9 +47,9 @@ public class WebSettingsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -132,14 +132,14 @@ public class WebSettingsCompat {
     }
 
     @SuppressLint({"NewApi"})
-    public static void setDisabledActionModeMenuItems(@NonNull WebSettings webSettings, int i2) {
+    public static void setDisabledActionModeMenuItems(@NonNull WebSettings webSettings, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, webSettings, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, null, webSettings, i) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("DISABLED_ACTION_MODE_MENU_ITEMS");
             if (feature.isSupportedByFramework()) {
-                webSettings.setDisabledActionModeMenuItems(i2);
+                webSettings.setDisabledActionModeMenuItems(i);
             } else if (feature.isSupportedByWebView()) {
-                getAdapter(webSettings).setDisabledActionModeMenuItems(i2);
+                getAdapter(webSettings).setDisabledActionModeMenuItems(i);
             } else {
                 throw WebViewFeatureInternal.getUnsupportedOperationException();
             }
@@ -148,14 +148,14 @@ public class WebSettingsCompat {
 
     @SuppressLint({"NewApi"})
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public static void setForceDark(@NonNull WebSettings webSettings, int i2) {
+    public static void setForceDark(@NonNull WebSettings webSettings, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, webSettings, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65543, null, webSettings, i) == null) {
             WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("FORCE_DARK");
             if (feature.isSupportedByFramework()) {
-                webSettings.setForceDark(i2);
+                webSettings.setForceDark(i);
             } else if (feature.isSupportedByWebView()) {
-                getAdapter(webSettings).setForceDark(i2);
+                getAdapter(webSettings).setForceDark(i);
             } else {
                 throw WebViewFeatureInternal.getUnsupportedOperationException();
             }

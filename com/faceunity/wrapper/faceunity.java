@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class faceunity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
@@ -38,13 +38,13 @@ public class faceunity {
     public static int[] ret_wh;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f52753h;
+        public int f38500h;
         public byte[] nv21_data;
         public int tex;
         public int w;
@@ -54,9 +54,9 @@ public class faceunity {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,9 +87,9 @@ public class faceunity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -97,20 +97,20 @@ public class faceunity {
     }
 
     @Deprecated
-    public static native int fuAvatarBindItems(int i2, int[] iArr, int[] iArr2);
+    public static native int fuAvatarBindItems(int i, int[] iArr, int[] iArr2);
 
-    public static native int fuAvatarToImage(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int i2, int i3, int i4, int i5, int[] iArr, int i6, int i7, int i8, byte[] bArr);
+    public static native int fuAvatarToImage(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int i, int i2, int i3, int i4, int[] iArr, int i5, int i6, int i7, byte[] bArr);
 
-    public static native int fuAvatarToTexture(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int i2, int i3, int i4, int i5, int[] iArr, int i6);
+    public static native int fuAvatarToTexture(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, int i, int i2, int i3, int i4, int[] iArr, int i5);
 
-    public static native int fuAvatarToTextureWithTrans(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, float[] fArr5, int i2, int i3, int i4, int i5, int[] iArr, int i6);
+    public static native int fuAvatarToTextureWithTrans(float[] fArr, float[] fArr2, float[] fArr3, float[] fArr4, float[] fArr5, int i, int i2, int i3, int i4, int[] iArr, int i5);
 
     @Deprecated
-    public static native int fuAvatarUnbindItems(int i2, int[] iArr);
+    public static native int fuAvatarUnbindItems(int i, int[] iArr);
 
-    public static native int fuBeautifyImage(int i2, int i3, int i4, int i5, int i6, int[] iArr);
+    public static native int fuBeautifyImage(int i, int i2, int i3, int i4, int i5, int[] iArr);
 
-    public static native int fuBindItems(int i2, int[] iArr);
+    public static native int fuBindItems(int i, int[] iArr);
 
     public static native int fuCheckDebugItem(byte[] bArr);
 
@@ -120,33 +120,33 @@ public class faceunity {
 
     public static native int fuCreateItemFromPackage(byte[] bArr);
 
-    public static native int fuCreateTexForItem(int i2, String str, byte[] bArr, int i3, int i4);
+    public static native int fuCreateTexForItem(int i, String str, byte[] bArr, int i2, int i3);
 
-    public static native int fuDeleteTexForItem(int i2, String str);
+    public static native int fuDeleteTexForItem(int i, String str);
 
     public static native void fuDestroyAllItems();
 
-    public static native void fuDestroyItem(int i2);
+    public static native void fuDestroyItem(int i);
 
     public static native void fuDisableBoostWithEGLImage();
 
     public static native void fuDone();
 
-    public static native int fuDualInputToTexture(long j2, int i2, int i3, int i4, int i5, int i6, int[] iArr);
+    public static native int fuDualInputToTexture(long j, int i, int i2, int i3, int i4, int i5, int[] iArr);
 
-    public static native int fuDualInputToTexture(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int[] iArr);
+    public static native int fuDualInputToTexture(byte[] bArr, int i, int i2, int i3, int i4, int i5, int[] iArr);
 
-    public static native int fuDualInputToTexture(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int[] iArr, int i7, int i8, byte[] bArr2);
+    public static native int fuDualInputToTexture(byte[] bArr, int i, int i2, int i3, int i4, int i5, int[] iArr, int i6, int i7, byte[] bArr2);
 
-    public static native int fuDualInputToTextureMasked(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int[] iArr, int[] iArr2);
+    public static native int fuDualInputToTextureMasked(byte[] bArr, int i, int i2, int i3, int i4, int i5, int[] iArr, int[] iArr2);
 
-    public static native int fuGetFaceInfo(int i2, String str, float[] fArr);
+    public static native int fuGetFaceInfo(int i, String str, float[] fArr);
 
-    public static native int fuGetModuleCode(int i2);
+    public static native int fuGetModuleCode(int i);
 
     public static native int fuGetSystemError();
 
-    public static native String fuGetSystemErrorString(int i2);
+    public static native String fuGetSystemErrorString(int i);
 
     public static native String fuGetVersion();
 
@@ -154,19 +154,19 @@ public class faceunity {
 
     public static native int fuIsTracking();
 
-    public static native double fuItemGetParam(int i2, String str);
+    public static native double fuItemGetParam(int i, String str);
 
-    public static native String fuItemGetParamString(int i2, String str);
+    public static native String fuItemGetParamString(int i, String str);
 
-    public static native byte[] fuItemGetParamu8v(int i2, String str);
+    public static native byte[] fuItemGetParamu8v(int i, String str);
 
-    public static native int fuItemSetParam(int i2, String str, double d2);
+    public static native int fuItemSetParam(int i, String str, double d2);
 
-    public static native int fuItemSetParam(int i2, String str, String str2);
+    public static native int fuItemSetParam(int i, String str, String str2);
 
-    public static native int fuItemSetParam(int i2, String str, double[] dArr);
+    public static native int fuItemSetParam(int i, String str, double[] dArr);
 
-    public static native int fuItemSetParamu8v(int i2, String str, byte[] bArr, int i3);
+    public static native int fuItemSetParamu8v(int i, String str, byte[] bArr, int i2);
 
     public static native int fuLoadAnimModel(byte[] bArr);
 
@@ -180,69 +180,69 @@ public class faceunity {
 
     public static native void fuReleaseEGLContext();
 
-    public static native int fuRenderI420ImageToTexture(byte[] bArr, int i2, int i3, int i4, int[] iArr);
+    public static native int fuRenderI420ImageToTexture(byte[] bArr, int i, int i2, int i3, int[] iArr);
 
-    public static native int fuRenderNV21ImageToTexture(byte[] bArr, int i2, int i3, int i4, int[] iArr);
+    public static native int fuRenderNV21ImageToTexture(byte[] bArr, int i, int i2, int i3, int[] iArr);
 
-    public static native int fuRenderToI420Image(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToI420Image(long j, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToI420Image(byte[] bArr, int i2, int i3, int i4, int[] iArr);
+    public static native int fuRenderToI420Image(byte[] bArr, int i, int i2, int i3, int[] iArr);
 
-    public static native int fuRenderToI420Image(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToI420Image(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToI420Image(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5, int i6, int i7, byte[] bArr2);
+    public static native int fuRenderToI420Image(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4, int i5, int i6, byte[] bArr2);
 
-    public static native int fuRenderToI420ImageMasked(byte[] bArr, int i2, int i3, int i4, int[] iArr, int[] iArr2);
+    public static native int fuRenderToI420ImageMasked(byte[] bArr, int i, int i2, int i3, int[] iArr, int[] iArr2);
 
-    public static native int fuRenderToNV21Image(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToNV21Image(long j, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToNV21Image(byte[] bArr, int i2, int i3, int i4, int[] iArr);
+    public static native int fuRenderToNV21Image(byte[] bArr, int i, int i2, int i3, int[] iArr);
 
-    public static native int fuRenderToNV21Image(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToNV21Image(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToNV21Image(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5, int i6, int i7, byte[] bArr2);
+    public static native int fuRenderToNV21Image(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4, int i5, int i6, byte[] bArr2);
 
-    public static native int fuRenderToNV21ImageMasked(byte[] bArr, int i2, int i3, int i4, int[] iArr, int[] iArr2);
+    public static native int fuRenderToNV21ImageMasked(byte[] bArr, int i, int i2, int i3, int[] iArr, int[] iArr2);
 
-    public static native int fuRenderToRgbaImage(long j2, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToRgbaImage(long j, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToRgbaImage(byte[] bArr, int i2, int i3, int i4, int[] iArr);
+    public static native int fuRenderToRgbaImage(byte[] bArr, int i, int i2, int i3, int[] iArr);
 
-    public static native int fuRenderToRgbaImage(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5);
+    public static native int fuRenderToRgbaImage(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4);
 
-    public static native int fuRenderToRgbaImage(byte[] bArr, int i2, int i3, int i4, int[] iArr, int i5, int i6, int i7, byte[] bArr2);
+    public static native int fuRenderToRgbaImage(byte[] bArr, int i, int i2, int i3, int[] iArr, int i4, int i5, int i6, byte[] bArr2);
 
-    public static native int fuRenderToTexture(int i2, int i3, int i4, int i5, int[] iArr, int i6);
+    public static native int fuRenderToTexture(int i, int i2, int i3, int i4, int[] iArr, int i5);
 
-    public static native int fuRenderToTexture(int i2, int i3, int i4, int i5, int[] iArr, int i6, byte[] bArr, int i7, int i8);
+    public static native int fuRenderToTexture(int i, int i2, int i3, int i4, int[] iArr, int i5, byte[] bArr, int i6, int i7);
 
-    public static native int fuRenderToYUVImage(long j2, long j3, long j4, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr);
+    public static native int fuRenderToYUVImage(long j, long j2, long j3, int i, int i2, int i3, int i4, int i5, int i6, int[] iArr);
 
-    public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr);
+    public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2, int i3, int i4, int i5, int i6, int[] iArr);
 
-    public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i2, int i3, int i4, int i5, int i6, int i7, int[] iArr, int i8);
+    public static native int fuRenderToYUVImage(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2, int i3, int i4, int i5, int i6, int[] iArr, int i7);
 
-    public static native int fuSetAsyncTrackFace(int i2);
+    public static native int fuSetAsyncTrackFace(int i);
 
-    public static native int fuSetDefaultOrientation(int i2);
+    public static native int fuSetDefaultOrientation(int i);
 
-    public static native void fuSetDefaultRotationMode(int i2);
+    public static native void fuSetDefaultRotationMode(int i);
 
-    public static native void fuSetExpressionCalibration(int i2);
+    public static native void fuSetExpressionCalibration(int i);
 
     public static native void fuSetFocalLengthScale(float f2);
 
-    public static native int fuSetMaxFaces(int i2);
+    public static native int fuSetMaxFaces(int i);
 
     public static native void fuSetQualityTradeoff(float f2);
 
-    public static native void fuSetStrictTracking(int i2);
+    public static native void fuSetStrictTracking(int i);
 
     public static native int fuSetup(byte[] bArr, byte[] bArr2, byte[] bArr3);
 
-    public static native void fuTrackFace(byte[] bArr, int i2, int i3, int i4);
+    public static native void fuTrackFace(byte[] bArr, int i, int i2, int i3);
 
-    public static native int fuUnBindItems(int i2, int[] iArr);
+    public static native int fuUnBindItems(int i, int[] iArr);
 
-    public static native int fuUnbindAllItems(int i2);
+    public static native int fuUnbindAllItems(int i);
 }

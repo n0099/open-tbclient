@@ -1,6 +1,6 @@
 package com.baidu.nadcore.download.proxy;
 
-import c.a.b0.j.g.c;
+import c.a.a0.j.g.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,16 +45,16 @@ public interface IAdDownloader {
             $VALUES = new STATE[]{NOT_START, DOWNLOADING, DOWNLOAD_PAUSED, DOWNLOADED, state};
         }
 
-        public STATE(String str, int i2) {
+        public STATE(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -79,9 +79,9 @@ public interface IAdDownloader {
 
     int a(String str, c cVar);
 
-    void b(int i2);
+    void b(int i);
 
-    void c(int i2, String str, c cVar);
+    void c(int i, String str, c cVar);
 
-    void d(int i2);
+    void d(int i);
 }

@@ -13,9 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LineCountNotifyTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f39828e;
+    public a a;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -31,9 +29,9 @@ public class LineCountNotifyTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -48,7 +46,7 @@ public class LineCountNotifyTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.onDraw(canvas);
-            a aVar = this.f39828e;
+            a aVar = this.a;
             if (aVar != null) {
                 aVar.a();
             }
@@ -58,7 +56,7 @@ public class LineCountNotifyTextView extends TextView {
     public void setGetLineCountCallback(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f39828e = aVar;
+            this.a = aVar;
         }
     }
 }

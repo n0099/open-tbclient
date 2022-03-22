@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -44,16 +44,16 @@ public class AugmentedFace extends TrackableBase {
             $VALUES = new RegionType[]{NOSE_TIP, FOREHEAD_LEFT, regionType};
         }
 
-        public RegionType(String str, int i2, int i3) {
+        public RegionType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -62,7 +62,7 @@ public class AugmentedFace extends TrackableBase {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
         public static RegionType valueOf(String str) {
@@ -79,17 +79,17 @@ public class AugmentedFace extends TrackableBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AugmentedFace(long j2, Session session) {
-        super(j2, session);
+    public AugmentedFace(long j, Session session) {
+        super(j, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), session};
+            Object[] objArr = {Long.valueOf(j), session};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), (Session) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -100,25 +100,25 @@ public class AugmentedFace extends TrackableBase {
         a();
     }
 
-    private native Pose nativeGetCenterPose(long j2, long j3);
+    private native Pose nativeGetCenterPose(long j, long j2);
 
-    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j2, long j3);
+    private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
 
-    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j2, long j3);
+    private native ByteBuffer nativeGetMeshTextureCoordinatesByteBuffer(long j, long j2);
 
-    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j2, long j3);
+    private native ByteBuffer nativeGetMeshTriangleIndicesByteBuffer(long j, long j2);
 
-    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j2, long j3);
+    private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
 
-    private native Pose nativeGetRegionPose(long j2, long j3, int i2);
+    private native Pose nativeGetRegionPose(long j, long j2, int i);
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f52963b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f52963b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f52963b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f52963b.a, this.a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f38709b.a, this.a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 
@@ -129,9 +129,9 @@ public class AugmentedFace extends TrackableBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
                 newInitContext.thisArg = this;

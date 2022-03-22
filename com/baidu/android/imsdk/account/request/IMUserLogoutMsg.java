@@ -30,9 +30,9 @@ public class IMUserLogoutMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,10 +55,10 @@ public class IMUserLogoutMsg extends Message {
         return (IMUserLogoutMsg) invokeLL.objValue;
     }
 
-    private void setClearAfterLogout(int i2) {
+    private void setClearAfterLogout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-            this.mClearAfterLogout = i2;
+        if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
+            this.mClearAfterLogout = i;
         }
     }
 
@@ -81,9 +81,9 @@ public class IMUserLogoutMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             Utility.logout(context, getListenerKey());
         }
     }

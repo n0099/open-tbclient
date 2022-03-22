@@ -21,6 +21,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
@@ -94,9 +95,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -146,9 +147,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vClipPath};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((VPath) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -168,9 +169,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -225,9 +226,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vectorDrawableCompatState};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -251,10 +252,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public boolean canReuseBitmap(int i2, int i3) {
+        public boolean canReuseBitmap(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? i2 == this.mCachedBitmap.getWidth() && i3 == this.mCachedBitmap.getHeight() : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? i == this.mCachedBitmap.getWidth() && i2 == this.mCachedBitmap.getHeight() : invokeII.booleanValue;
         }
 
         public boolean canReuseCache() {
@@ -263,11 +264,11 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !this.mCacheDirty && this.mCachedTint == this.mTint && this.mCachedTintMode == this.mTintMode && this.mCachedAutoMirrored == this.mAutoMirrored && this.mCachedRootAlpha == this.mVPathRenderer.getRootAlpha() : invokeV.booleanValue;
         }
 
-        public void createCachedBitmapIfNeeded(int i2, int i3) {
+        public void createCachedBitmapIfNeeded(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                if (this.mCachedBitmap == null || !canReuseBitmap(i2, i3)) {
-                    this.mCachedBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                if (this.mCachedBitmap == null || !canReuseBitmap(i, i2)) {
+                    this.mCachedBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                     this.mCacheDirty = true;
                 }
             }
@@ -348,11 +349,11 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void updateCachedBitmap(int i2, int i3) {
+        public void updateCachedBitmap(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
                 this.mCachedBitmap.eraseColor(0);
-                this.mVPathRenderer.draw(new Canvas(this.mCachedBitmap), i2, i3, null);
+                this.mVPathRenderer.draw(new Canvas(this.mCachedBitmap), i, i2, null);
             }
         }
 
@@ -369,9 +370,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -404,9 +405,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -419,26 +420,26 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         this.mVectorState = new VectorDrawableCompatState();
     }
 
-    public static int applyAlpha(int i2, float f2) {
+    public static int applyAlpha(int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? (i2 & 16777215) | (((int) (Color.alpha(i2) * f2)) << 24) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? (i & 16777215) | (((int) (Color.alpha(i) * f2)) << 24) : invokeCommon.intValue;
     }
 
     @Nullable
-    public static VectorDrawableCompat create(@NonNull Resources resources, @DrawableRes int i2, @Nullable Resources.Theme theme) {
+    public static VectorDrawableCompat create(@NonNull Resources resources, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, i, theme)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
-                vectorDrawableCompat.mDelegateDrawable = ResourcesCompat.getDrawable(resources, i2, theme);
+                vectorDrawableCompat.mDelegateDrawable = ResourcesCompat.getDrawable(resources, i, theme);
                 vectorDrawableCompat.mCachedConstantStateDelegate = new VectorDrawableDelegateState(vectorDrawableCompat.mDelegateDrawable.getConstantState());
                 return vectorDrawableCompat;
             }
             try {
-                XmlResourceParser xml = resources.getXml(i2);
+                XmlResourceParser xml = resources.getXml(i);
                 AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
                 while (true) {
                     next = xml.next();
@@ -450,7 +451,11 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     return createFromXmlInner(resources, (XmlPullParser) xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException | XmlPullParserException unused) {
+            } catch (IOException e2) {
+                Log.e(LOGTAG, "parser error", e2);
+                return null;
+            } catch (XmlPullParserException e3) {
+                Log.e(LOGTAG, "parser error", e3);
                 return null;
             }
         }
@@ -526,14 +531,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? Build.VERSION.SDK_INT >= 17 && isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1 : invokeV.booleanValue;
     }
 
-    public static PorterDuff.Mode parseTintModeCompat(int i2, PorterDuff.Mode mode) {
+    public static PorterDuff.Mode parseTintModeCompat(int i, PorterDuff.Mode mode) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, mode)) == null) {
-            if (i2 != 3) {
-                if (i2 != 5) {
-                    if (i2 != 9) {
-                        switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, mode)) == null) {
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 9) {
+                        switch (i) {
                             case 14:
                                 return PorterDuff.Mode.MULTIPLY;
                             case 15:
@@ -553,21 +558,25 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         return (PorterDuff.Mode) invokeIL.objValue;
     }
 
-    private void printGroupTree(VGroup vGroup, int i2) {
+    private void printGroupTree(VGroup vGroup, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, this, vGroup, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, this, vGroup, i) == null) {
             String str = "";
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 str = str + "    ";
             }
-            String str2 = str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate;
-            String str3 = str + "matrix is :" + vGroup.getLocalMatrix().toString();
-            for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
-                VObject vObject = vGroup.mChildren.get(i4);
+            Log.v(LOGTAG, str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate);
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            sb.append("matrix is :");
+            sb.append(vGroup.getLocalMatrix().toString());
+            Log.v(LOGTAG, sb.toString());
+            for (int i3 = 0; i3 < vGroup.mChildren.size(); i3++) {
+                VObject vObject = vGroup.mChildren.get(i3);
                 if (vObject instanceof VGroup) {
-                    printGroupTree((VGroup) vObject, i2 + 1);
+                    printGroupTree((VGroup) vObject, i + 1);
                 } else {
-                    ((VPath) vObject).printVPath(i2 + 1);
+                    ((VPath) vObject).printVPath(i + 1);
                 }
             }
         }
@@ -971,14 +980,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void scheduleSelf(Runnable runnable, long j2) {
+    public void scheduleSelf(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.scheduleSelf(runnable, j2);
+                drawable.scheduleSelf(runnable, j);
             } else {
-                super.scheduleSelf(runnable, j2);
+                super.scheduleSelf(runnable, j);
             }
         }
     }
@@ -991,14 +1000,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.setAlpha(i2);
-            } else if (this.mVectorState.mVPathRenderer.getRootAlpha() != i2) {
-                this.mVectorState.mVPathRenderer.setRootAlpha(i2);
+                drawable.setAlpha(i);
+            } else if (this.mVectorState.mVPathRenderer.getRootAlpha() != i) {
+                this.mVectorState.mVPathRenderer.setRootAlpha(i);
                 invalidateSelf();
             }
         }
@@ -1018,13 +1027,13 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i2) {
-        super.setChangingConfigurations(i2);
+    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i) {
+        super.setChangingConfigurations(i);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setColorFilter(int i2, PorterDuff.Mode mode) {
-        super.setColorFilter(i2, mode);
+    public /* bridge */ /* synthetic */ void setColorFilter(int i, PorterDuff.Mode mode) {
+        super.setColorFilter(i, mode);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -1038,8 +1047,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspotBounds(int i2, int i3, int i4, int i5) {
-        super.setHotspotBounds(i2, i3, i4, i5);
+    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
+        super.setHotspotBounds(i, i2, i3, i4);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -1048,14 +1057,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i2) {
+    public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, i2);
+                DrawableCompat.setTint(drawable, i);
             } else {
-                setTintList(ColorStateList.valueOf(i2));
+                setTintList(ColorStateList.valueOf(i));
             }
         }
     }
@@ -1149,9 +1158,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constantState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1242,9 +1251,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1297,10 +1306,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pathDataNodeArr)) == null) {
                 String str = " ";
-                for (int i2 = 0; i2 < pathDataNodeArr.length; i2++) {
-                    str = str + pathDataNodeArr[i2].mType + ":";
-                    for (int i3 = 0; i3 < pathDataNodeArr[i2].mParams.length; i3++) {
-                        str = str + fArr[i3] + ",";
+                for (int i = 0; i < pathDataNodeArr.length; i++) {
+                    str = str + pathDataNodeArr[i].mType + ":";
+                    for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {
+                        str = str + fArr[i2] + ",";
                     }
                 }
                 return str;
@@ -1308,14 +1317,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (String) invokeL.objValue;
         }
 
-        public void printVPath(int i2) {
+        public void printVPath(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
                 String str = "";
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     str = str + "    ";
                 }
-                String str2 = str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes);
+                Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
             }
         }
 
@@ -1350,9 +1359,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vPath};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -1395,9 +1404,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             newInitContext.initArgs = r2;
             Object[] objArr = {vectorDrawableCompatState};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1433,9 +1442,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1452,13 +1461,13 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             this.mStrokeMiterlimit = 4.0f;
         }
 
-        private Paint.Cap getStrokeLineCap(int i2, Paint.Cap cap) {
+        private Paint.Cap getStrokeLineCap(int i, Paint.Cap cap) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i2, cap)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        return i2 != 2 ? cap : Paint.Cap.SQUARE;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i, cap)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        return i != 2 ? cap : Paint.Cap.SQUARE;
                     }
                     return Paint.Cap.ROUND;
                 }
@@ -1467,13 +1476,13 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (Paint.Cap) invokeIL.objValue;
         }
 
-        private Paint.Join getStrokeLineJoin(int i2, Paint.Join join) {
+        private Paint.Join getStrokeLineJoin(int i, Paint.Join join) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, join)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        return i2 != 2 ? join : Paint.Join.BEVEL;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i, join)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        return i != 2 ? join : Paint.Join.BEVEL;
                     }
                     return Paint.Join.ROUND;
                 }
@@ -1605,10 +1614,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void setFillColor(int i2) {
+        public void setFillColor(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.mFillColor.setColor(i2);
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                this.mFillColor.setColor(i);
             }
         }
 
@@ -1619,10 +1628,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void setStrokeColor(int i2) {
+        public void setStrokeColor(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-                this.mStrokeColor.setColor(i2);
+            if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+                this.mStrokeColor.setColor(i);
             }
         }
 
@@ -1663,9 +1672,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vFullPath};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((VPath) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -1740,9 +1749,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1768,29 +1777,29 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (f2 * f5) - (f3 * f4) : invokeCommon.floatValue;
         }
 
-        private void drawGroupTree(VGroup vGroup, Matrix matrix, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
+        private void drawGroupTree(VGroup vGroup, Matrix matrix, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{vGroup, matrix, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{vGroup, matrix, canvas, Integer.valueOf(i), Integer.valueOf(i2), colorFilter}) == null) {
                 vGroup.mStackedMatrix.set(matrix);
                 vGroup.mStackedMatrix.preConcat(vGroup.mLocalMatrix);
                 canvas.save();
-                for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
-                    VObject vObject = vGroup.mChildren.get(i4);
+                for (int i3 = 0; i3 < vGroup.mChildren.size(); i3++) {
+                    VObject vObject = vGroup.mChildren.get(i3);
                     if (vObject instanceof VGroup) {
-                        drawGroupTree((VGroup) vObject, vGroup.mStackedMatrix, canvas, i2, i3, colorFilter);
+                        drawGroupTree((VGroup) vObject, vGroup.mStackedMatrix, canvas, i, i2, colorFilter);
                     } else if (vObject instanceof VPath) {
-                        drawPath(vGroup, (VPath) vObject, canvas, i2, i3, colorFilter);
+                        drawPath(vGroup, (VPath) vObject, canvas, i, i2, colorFilter);
                     }
                 }
                 canvas.restore();
             }
         }
 
-        private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
+        private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
-                float f2 = i2 / this.mViewportWidth;
-                float f3 = i3 / this.mViewportHeight;
+            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i), Integer.valueOf(i2), colorFilter}) == null) {
+                float f2 = i / this.mViewportWidth;
+                float f3 = i2 / this.mViewportHeight;
                 float min = Math.min(f2, f3);
                 Matrix matrix = vGroup.mStackedMatrix;
                 this.mFinalPathMatrix.set(matrix);
@@ -1903,10 +1912,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return invokeL.floatValue;
         }
 
-        public void draw(Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
+        public void draw(Canvas canvas, int i, int i2, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
-                drawGroupTree(this.mRootGroup, IDENTITY_MATRIX, canvas, i2, i3, colorFilter);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), colorFilter}) == null) {
+                drawGroupTree(this.mRootGroup, IDENTITY_MATRIX, canvas, i, i2, colorFilter);
             }
         }
 
@@ -1947,10 +1956,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void setRootAlpha(int i2) {
+        public void setRootAlpha(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.mRootAlpha = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.mRootAlpha = i;
             }
         }
 
@@ -1961,9 +1970,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vPathRenderer};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -2025,9 +2034,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vGroup, arrayMap};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -2061,8 +2070,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
             this.mLocalMatrix.set(vGroup.mLocalMatrix);
             ArrayList<VObject> arrayList = vGroup.mChildren;
-            for (int i4 = 0; i4 < arrayList.size(); i4++) {
-                VObject vObject = arrayList.get(i4);
+            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                VObject vObject = arrayList.get(i3);
                 if (vObject instanceof VGroup) {
                     this.mChildren.add(new VGroup((VGroup) vObject, arrayMap));
                 } else {
@@ -2180,8 +2189,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
-                    if (this.mChildren.get(i2).isStateful()) {
+                for (int i = 0; i < this.mChildren.size(); i++) {
+                    if (this.mChildren.get(i).isStateful()) {
                         return true;
                     }
                 }
@@ -2196,8 +2205,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, iArr)) == null) {
                 boolean z = false;
-                for (int i2 = 0; i2 < this.mChildren.size(); i2++) {
-                    z |= this.mChildren.get(i2).onStateChanged(iArr);
+                for (int i = 0; i < this.mChildren.size(); i++) {
+                    z |= this.mChildren.get(i).onStateChanged(iArr);
                 }
                 return z;
             }
@@ -2274,9 +2283,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);

@@ -65,7 +65,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
         <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension);
 
-        <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2);
+        <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i);
 
         <Type> int getExtensionCount(GeneratedExtension<MessageType, List<Type>> generatedExtension);
 
@@ -82,8 +82,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         public final int number;
         public final WireFormat.FieldType type;
 
-        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
-            this(enumLiteMap, i2, fieldType, z, z2);
+        public /* synthetic */ ExtensionDescriptor(Internal.EnumLiteMap enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
+            this(enumLiteMap, i, fieldType, z, z2);
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
@@ -135,23 +135,23 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.isRepeated : invokeV.booleanValue;
         }
 
-        public ExtensionDescriptor(Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z, boolean z2) {
+        public ExtensionDescriptor(Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {enumLiteMap, Integer.valueOf(i2), fieldType, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {enumLiteMap, Integer.valueOf(i), fieldType, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.enumTypeMap = enumLiteMap;
-            this.number = i2;
+            this.number = i;
             this.type = fieldType;
             this.isRepeated = z;
             this.isPacked = z2;
@@ -204,9 +204,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {containingtype, type, messageLite, extensionDescriptor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -241,9 +241,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {messageLite};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -282,25 +282,25 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newRepeatedGeneratedExtension(ContainingType containingtype, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType, boolean z) {
+    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newRepeatedGeneratedExtension(ContainingType containingtype, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{containingtype, messageLite, enumLiteMap, Integer.valueOf(i2), fieldType, Boolean.valueOf(z)})) == null) ? new GeneratedExtension<>(containingtype, Collections.emptyList(), messageLite, new ExtensionDescriptor(enumLiteMap, i2, fieldType, true, z, null), null) : (GeneratedExtension) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{containingtype, messageLite, enumLiteMap, Integer.valueOf(i), fieldType, Boolean.valueOf(z)})) == null) ? new GeneratedExtension<>(containingtype, Collections.emptyList(), messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, true, z, null), null) : (GeneratedExtension) invokeCommon.objValue;
     }
 
-    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i2, WireFormat.FieldType fieldType) {
+    public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{containingtype, type, messageLite, enumLiteMap, Integer.valueOf(i2), fieldType})) == null) ? new GeneratedExtension<>(containingtype, type, messageLite, new ExtensionDescriptor(enumLiteMap, i2, fieldType, false, false, null), null) : (GeneratedExtension) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{containingtype, type, messageLite, enumLiteMap, Integer.valueOf(i), fieldType})) == null) ? new GeneratedExtension<>(containingtype, type, messageLite, new ExtensionDescriptor(enumLiteMap, i, fieldType, false, false, null), null) : (GeneratedExtension) invokeCommon.objValue;
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -319,10 +319,10 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+    public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite, i2)) == null) ? codedInputStream.skipField(i2) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, codedInputStream, extensionRegistryLite, i)) == null) ? codedInputStream.skipField(i) : invokeLLI.booleanValue;
     }
 
     public Object writeReplace() throws ObjectStreamException {
@@ -343,9 +343,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -371,7 +371,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.extensionsIsMutable) {
                 return;
             }
-            this.extensions = this.extensions.m118clone();
+            this.extensions = this.extensions.m106clone();
             this.extensionsIsMutable = true;
         }
 
@@ -460,12 +460,12 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         /* JADX WARN: Type inference failed for: r1v1, types: [com.google.protobuf.MessageLite, com.google.protobuf.GeneratedMessageLite] */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, codedInputStream, extensionRegistryLite, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, codedInputStream, extensionRegistryLite, i)) == null) {
                 ensureExtensionsIsMutable();
-                return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i2);
+                return GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i);
             }
             return invokeLLI.booleanValue;
         }
@@ -498,23 +498,23 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2) {
+        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, generatedExtension, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, generatedExtension, i)) == null) {
                 verifyExtensionContainingType(generatedExtension);
-                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i2);
+                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
             }
             return (Type) invokeLI.objValue;
         }
 
-        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2, Type type) {
+        public final <Type> BuilderType setExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i, Type type) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, generatedExtension, i2, type)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048593, this, generatedExtension, i, type)) == null) {
                 verifyExtensionContainingType(generatedExtension);
                 ensureExtensionsIsMutable();
-                this.extensions.setRepeatedField(generatedExtension.descriptor, i2, type);
+                this.extensions.setRepeatedField(generatedExtension.descriptor, i, type);
                 return this;
             }
             return (BuilderType) invokeLIL.objValue;
@@ -551,14 +551,14 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 this(extendableMessage, z);
             }
 
-            public void writeUntil(int i2, CodedOutputStream codedOutputStream) throws IOException {
+            public void writeUntil(int i, CodedOutputStream codedOutputStream) throws IOException {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeIL(1048576, this, i2, codedOutputStream) != null) {
+                if (interceptable != null && interceptable.invokeIL(1048576, this, i, codedOutputStream) != null) {
                     return;
                 }
                 while (true) {
                     Map.Entry<ExtensionDescriptor, Object> entry = this.next;
-                    if (entry == null || entry.getKey().getNumber() >= i2) {
+                    if (entry == null || entry.getKey().getNumber() >= i) {
                         return;
                     }
                     ExtensionDescriptor key = this.next.getKey();
@@ -582,9 +582,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                     newInitContext.initArgs = r2;
                     Object[] objArr = {extendableMessage, Boolean.valueOf(z)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -605,9 +605,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -700,10 +700,10 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, codedInputStream, extensionRegistryLite, i2)) == null) ? GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i2) : invokeLLI.booleanValue;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, codedInputStream, extensionRegistryLite, i)) == null) ? GeneratedMessageLite.parseUnknownField(this.extensions, getDefaultInstanceForType(), codedInputStream, extensionRegistryLite, i) : invokeLLI.booleanValue;
         }
 
         public ExtendableMessage(ExtendableBuilder<MessageType, ?> extendableBuilder) {
@@ -713,9 +713,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extendableBuilder};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -725,12 +725,12 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite.ExtendableMessageOrBuilder
-        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i2) {
+        public final <Type> Type getExtension(GeneratedExtension<MessageType, List<Type>> generatedExtension, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, generatedExtension, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, generatedExtension, i)) == null) {
                 verifyExtensionContainingType(generatedExtension);
-                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i2);
+                return (Type) this.extensions.getRepeatedField(generatedExtension.descriptor, i);
             }
             return (Type) invokeLI.objValue;
         }
@@ -743,9 +743,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -757,17 +757,17 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+    public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
         InterceptResult invokeCommon;
         boolean z;
         Object build;
         MessageLite messageLite;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{fieldSet, messagetype, codedInputStream, extensionRegistryLite, Integer.valueOf(i2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{fieldSet, messagetype, codedInputStream, extensionRegistryLite, Integer.valueOf(i)})) != null) {
             return invokeCommon.booleanValue;
         }
-        int tagWireType = WireFormat.getTagWireType(i2);
-        GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i2));
+        int tagWireType = WireFormat.getTagWireType(i);
+        GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i));
         boolean z2 = false;
         if (findLiteExtensionByNumber != null) {
             if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
@@ -777,8 +777,8 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             }
             if (z2) {
                 if (!z) {
-                    int i3 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
-                    if (i3 == 1) {
+                    int i2 = AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$JavaType[findLiteExtensionByNumber.descriptor.getLiteJavaType().ordinal()];
+                    if (i2 == 1) {
                         MessageLite.Builder builder = null;
                         if (!findLiteExtensionByNumber.descriptor.isRepeated() && (messageLite = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) != null) {
                             builder = messageLite.toBuilder();
@@ -792,7 +792,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                             codedInputStream.readMessage(builder, extensionRegistryLite);
                         }
                         build = builder.build();
-                    } else if (i3 != 2) {
+                    } else if (i2 != 2) {
                         build = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
                     } else {
                         build = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
@@ -824,7 +824,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
                 }
                 return true;
             }
-            return codedInputStream.skipField(i2);
+            return codedInputStream.skipField(i);
         }
         z = false;
         z2 = true;
@@ -842,9 +842,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -865,10 +865,10 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         public abstract BuilderType mergeFrom(MessageType messagetype);
 
-        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i2) throws IOException {
+        public boolean parseUnknownField(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) throws IOException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, codedInputStream, extensionRegistryLite, i2)) == null) ? codedInputStream.skipField(i2) : invokeLLI.booleanValue;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, codedInputStream, extensionRegistryLite, i)) == null) ? codedInputStream.skipField(i) : invokeLLI.booleanValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

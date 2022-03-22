@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import c.a.d.f.p.n;
 import c.a.d.m.d;
-import c.a.d.m.e;
-import c.a.r0.k4.f;
+import c.a.p0.m4.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -51,34 +50,34 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1891a implements f {
+        public class C1834a implements e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C1892a extends DefaultDownloadCallback {
+            public class C1835a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C1891a a;
+                public final /* synthetic */ C1834a a;
 
-                public C1892a(C1891a c1891a) {
+                public C1835a(C1834a c1834a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1891a};
+                        Object[] objArr = {c1834a};
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.a = c1891a;
+                    this.a = c1834a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -86,7 +85,7 @@ public class CaptureStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                        n.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dd);
                     }
                 }
 
@@ -95,7 +94,7 @@ public class CaptureStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                        n.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dd);
                     }
                 }
 
@@ -112,16 +111,16 @@ public class CaptureStatic {
                 }
             }
 
-            public C1891a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1834a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, customResponsedMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -130,7 +129,7 @@ public class CaptureStatic {
                 this.a = customResponsedMessage;
             }
 
-            @Override // c.a.r0.k4.f
+            @Override // c.a.p0.m4.e
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -140,14 +139,14 @@ public class CaptureStatic {
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(e.a);
+                    requestParams.setRunType(c.a.d.m.e.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1892a(this)));
+                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1835a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // c.a.r0.k4.f
+            @Override // c.a.p0.m4.e
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -157,17 +156,17 @@ public class CaptureStatic {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -181,7 +180,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                c.a.r0.k4.a.b(TbadkCoreApplication.getInst(), new C1891a(this, customResponsedMessage));
+                c.a.p0.m4.a.b(TbadkCoreApplication.getInst(), new C1834a(this, customResponsedMessage));
             }
         }
     }
@@ -214,9 +213,9 @@ public class CaptureStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

@@ -12,12 +12,12 @@ public class RestNameValuePair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final long f36152c = 847806714499261896L;
+    public static final long f27916c = 847806714499261896L;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36153b;
+    public String f27917b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RestNameValuePair() {
@@ -26,9 +26,9 @@ public class RestNameValuePair implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
@@ -47,7 +47,7 @@ public class RestNameValuePair implements Serializable {
     public String getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36153b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27917b : (String) invokeV.objValue;
     }
 
     public void setName(String str) {
@@ -60,7 +60,7 @@ public class RestNameValuePair implements Serializable {
     public void setValue(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f36153b = str;
+            this.f27917b = str;
         }
     }
 
@@ -68,7 +68,7 @@ public class RestNameValuePair implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "name = " + this.a + ", value = " + this.f36153b;
+            return "name = " + this.a + ", value = " + this.f27917b;
         }
         return (String) invokeV.objValue;
     }
@@ -80,15 +80,15 @@ public class RestNameValuePair implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f36153b = str2;
+        this.f27917b = str2;
     }
 }

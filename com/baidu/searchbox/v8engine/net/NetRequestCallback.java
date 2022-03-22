@@ -7,7 +7,7 @@ public interface NetRequestCallback {
     public static final int NONE = -1;
     public static final int SUCCEEDED = 0;
 
-    void onFailed(int i2, String str);
+    void onFailed(int i, String str);
 
-    void onSucceeded(String str, int i2, Map<String, String> map);
+    void onSucceeded(String str, int i, Map<String, String> map);
 }

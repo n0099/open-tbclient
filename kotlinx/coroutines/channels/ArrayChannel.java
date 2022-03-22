@@ -17,7 +17,7 @@ import kotlinx.coroutines.internal.Symbol;
 import kotlinx.coroutines.selects.SelectInstance;
 import kotlinx.coroutines.selects.SelectKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0011\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0010\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B\u000f\u0012\u0006\u0010'\u001a\u00020\r¢\u0006\u0004\b8\u0010\u0011J\u001d\u0010\u0006\u001a\u00020\u00052\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003H\u0014¢\u0006\u0004\b\u0006\u0010\u0007J\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u0000H\u0014¢\u0006\u0004\b\u0013\u0010\u0014J#\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00028\u00002\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u0017\u0010\u0018J\u0017\u0010\u001a\u001a\u00020\u000f2\u0006\u0010\u0019\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u001a\u0010\u001bJ\u0011\u0010\u001c\u001a\u0004\u0018\u00010\nH\u0014¢\u0006\u0004\b\u001c\u0010\u001dJ\u001d\u0010\u001e\u001a\u0004\u0018\u00010\n2\n\u0010\u0016\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0014¢\u0006\u0004\b\u001e\u0010\u001fR\u001e\u0010!\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\n0 8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010&\u001a\u00020#8T@\u0014X\u0094\u0004¢\u0006\u0006\u001a\u0004\b$\u0010%R\u0019\u0010'\u001a\u00020\r8\u0006@\u0006¢\u0006\f\n\u0004\b'\u0010(\u001a\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010(R\u0016\u0010,\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b.\u0010-R\u0016\u0010/\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b/\u0010-R\u0016\u00100\u001a\u00020\u00058D@\u0004X\u0084\u0004¢\u0006\u0006\u001a\u0004\b0\u0010-R\u0016\u00101\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b1\u0010-R\u0016\u00102\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b2\u0010-R\u0016\u00103\u001a\u00020\u00058V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b3\u0010-R\u001a\u00106\u001a\u000604j\u0002`58\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b6\u00107¨\u00069"}, d2 = {"Lkotlinx/coroutines/channels/ArrayChannel;", "E", "Lkotlinx/coroutines/channels/AbstractChannel;", "Lkotlinx/coroutines/channels/Receive;", StatConstants.VALUE_TYPE_RECEIVE, "", "enqueueReceiveInternal", "(Lkotlinx/coroutines/channels/Receive;)Z", "Lkotlinx/coroutines/channels/Send;", ReturnKeyType.SEND, "", "enqueueSend", "(Lkotlinx/coroutines/channels/Send;)Ljava/lang/Object;", "", "currentSize", "", "ensureCapacity", "(I)V", "element", "offerInternal", "(Ljava/lang/Object;)Ljava/lang/Object;", "Lkotlinx/coroutines/selects/SelectInstance;", InvoiceBuildActivity.EXTRA_PARAMS_TYPE, "offerSelectInternal", "(Ljava/lang/Object;Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "wasClosed", "onCancelIdempotent", "(Z)V", "pollInternal", "()Ljava/lang/Object;", "pollSelectInternal", "(Lkotlinx/coroutines/selects/SelectInstance;)Ljava/lang/Object;", "", "buffer", "[Ljava/lang/Object;", "", "getBufferDebugString", "()Ljava/lang/String;", "bufferDebugString", "capacity", "I", "getCapacity", "()I", TtmlNode.TAG_HEAD, "isBufferAlwaysEmpty", "()Z", "isBufferAlwaysFull", "isBufferEmpty", "isBufferFull", "isClosedForReceive", "isEmpty", "isFull", "Ljava/util/concurrent/locks/ReentrantLock;", "Lkotlinx/coroutines/internal/ReentrantLock;", "lock", "Ljava/util/concurrent/locks/ReentrantLock;", "<init>", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ArrayChannel<E> extends AbstractChannel<E> {
     public Object[] buffer;
     public final int capacity;
@@ -25,9 +25,9 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
     public final ReentrantLock lock;
     public volatile int size;
 
-    public ArrayChannel(int i2) {
-        this.capacity = i2;
-        if (i2 >= 1) {
+    public ArrayChannel(int i) {
+        this.capacity = i;
+        if (i >= 1) {
             this.lock = new ReentrantLock();
             this.buffer = new Object[Math.min(this.capacity, 8)];
             this.size = 0;
@@ -36,13 +36,13 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         throw new IllegalArgumentException(("ArrayChannel capacity must be at least 1, but " + this.capacity + " was specified").toString());
     }
 
-    private final void ensureCapacity(int i2) {
+    private final void ensureCapacity(int i) {
         Object[] objArr = this.buffer;
-        if (i2 >= objArr.length) {
+        if (i >= objArr.length) {
             Object[] objArr2 = new Object[Math.min(objArr.length * 2, this.capacity)];
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 Object[] objArr3 = this.buffer;
-                objArr2[i3] = objArr3[(this.head + i3) % objArr3.length];
+                objArr2[i2] = objArr3[(this.head + i2) % objArr3.length];
             }
             this.buffer = objArr2;
             this.head = 0;
@@ -140,19 +140,19 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            int i2 = this.size;
+            int i = this.size;
             Closed<?> closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
-            if (i2 < this.capacity) {
-                this.size = i2 + 1;
-                if (i2 == 0) {
+            if (i < this.capacity) {
+                this.size = i + 1;
+                if (i == 0) {
                     do {
                         takeFirstReceiveOrPeekClosed = takeFirstReceiveOrPeekClosed();
                         if (takeFirstReceiveOrPeekClosed != null) {
                             if (takeFirstReceiveOrPeekClosed instanceof Closed) {
-                                this.size = i2;
+                                this.size = i;
                                 if (takeFirstReceiveOrPeekClosed == null) {
                                     Intrinsics.throwNpe();
                                 }
@@ -169,7 +169,7 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                             throw new AssertionError();
                         }
                     }
-                    this.size = i2;
+                    this.size = i;
                     Unit unit = Unit.INSTANCE;
                     if (takeFirstReceiveOrPeekClosed == null) {
                         Intrinsics.throwNpe();
@@ -180,8 +180,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                     }
                     return takeFirstReceiveOrPeekClosed.getOfferResult();
                 }
-                ensureCapacity(i2);
-                this.buffer[(this.head + i2) % this.buffer.length] = e2;
+                ensureCapacity(i);
+                this.buffer[(this.head + i) % this.buffer.length] = e2;
                 return AbstractChannelKt.OFFER_SUCCESS;
             }
             return AbstractChannelKt.OFFER_FAILED;
@@ -195,19 +195,19 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            int i2 = this.size;
+            int i = this.size;
             Closed<?> closedForSend = getClosedForSend();
             if (closedForSend != null) {
                 return closedForSend;
             }
-            if (i2 < this.capacity) {
-                this.size = i2 + 1;
-                if (i2 == 0) {
+            if (i < this.capacity) {
+                this.size = i + 1;
+                if (i == 0) {
                     while (true) {
                         AbstractSendChannel.TryOfferDesc<E> describeTryOffer = describeTryOffer(e2);
                         Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryOffer);
                         if (performAtomicTrySelect == null) {
-                            this.size = i2;
+                            this.size = i;
                             ReceiveOrClosed<? super E> result = describeTryOffer.getResult();
                             Unit unit = Unit.INSTANCE;
                             if (result == null) {
@@ -224,17 +224,17 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                             if (performAtomicTrySelect != SelectKt.getALREADY_SELECTED() && !(performAtomicTrySelect instanceof Closed)) {
                                 throw new IllegalStateException(("performAtomicTrySelect(describeTryOffer) returned " + performAtomicTrySelect).toString());
                             }
-                            this.size = i2;
+                            this.size = i;
                             return performAtomicTrySelect;
                         }
                     }
                 }
                 if (!selectInstance.trySelect()) {
-                    this.size = i2;
+                    this.size = i;
                     return SelectKt.getALREADY_SELECTED();
                 }
-                ensureCapacity(i2);
-                this.buffer[(this.head + i2) % this.buffer.length] = e2;
+                ensureCapacity(i);
+                this.buffer[(this.head + i) % this.buffer.length] = e2;
                 return AbstractChannelKt.OFFER_SUCCESS;
             }
             return AbstractChannelKt.OFFER_FAILED;
@@ -249,8 +249,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lock();
             try {
-                int i2 = this.size;
-                for (int i3 = 0; i3 < i2; i3++) {
+                int i = this.size;
+                for (int i2 = 0; i2 < i; i2++) {
                     this.buffer[this.head] = 0;
                     this.head = (this.head + 1) % this.buffer.length;
                 }
@@ -268,8 +268,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            int i2 = this.size;
-            if (i2 == 0) {
+            int i = this.size;
+            if (i == 0) {
                 Object closedForSend = getClosedForSend();
                 if (closedForSend == null) {
                     closedForSend = AbstractChannelKt.POLL_FAILED;
@@ -279,9 +279,9 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             Object obj = this.buffer[this.head];
             Send send = null;
             this.buffer[this.head] = null;
-            this.size = i2 - 1;
+            this.size = i - 1;
             Object obj2 = AbstractChannelKt.POLL_FAILED;
-            if (i2 == this.capacity) {
+            if (i == this.capacity) {
                 Send send2 = null;
                 while (true) {
                     Send takeFirstSendOrPeekClosed = takeFirstSendOrPeekClosed();
@@ -311,8 +311,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                 }
             }
             if (obj2 != AbstractChannelKt.POLL_FAILED && !(obj2 instanceof Closed)) {
-                this.size = i2;
-                this.buffer[(this.head + i2) % this.buffer.length] = obj2;
+                this.size = i;
+                this.buffer[(this.head + i) % this.buffer.length] = obj2;
             }
             this.head = (this.head + 1) % this.buffer.length;
             Unit unit = Unit.INSTANCE;
@@ -339,8 +339,8 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            int i2 = this.size;
-            if (i2 == 0) {
+            int i = this.size;
+            if (i == 0) {
                 Object closedForSend = getClosedForSend();
                 if (closedForSend == null) {
                     closedForSend = AbstractChannelKt.POLL_FAILED;
@@ -350,9 +350,9 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             Object obj = this.buffer[this.head];
             Send send = null;
             this.buffer[this.head] = null;
-            this.size = i2 - 1;
+            this.size = i - 1;
             Object obj2 = AbstractChannelKt.POLL_FAILED;
-            if (i2 == this.capacity) {
+            if (i == this.capacity) {
                 while (true) {
                     AbstractChannel.TryPollDesc<E> describeTryPoll = describeTryPoll();
                     Object performAtomicTrySelect = selectInstance.performAtomicTrySelect(describeTryPoll);
@@ -366,7 +366,7 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
                         break;
                     } else if (performAtomicTrySelect != AtomicKt.RETRY_ATOMIC) {
                         if (performAtomicTrySelect == SelectKt.getALREADY_SELECTED()) {
-                            this.size = i2;
+                            this.size = i;
                             this.buffer[this.head] = obj;
                             return performAtomicTrySelect;
                         } else if (performAtomicTrySelect instanceof Closed) {
@@ -380,10 +380,10 @@ public class ArrayChannel<E> extends AbstractChannel<E> {
             }
             boolean z = false;
             if (obj2 != AbstractChannelKt.POLL_FAILED && !(obj2 instanceof Closed)) {
-                this.size = i2;
-                this.buffer[(this.head + i2) % this.buffer.length] = obj2;
+                this.size = i;
+                this.buffer[(this.head + i) % this.buffer.length] = obj2;
             } else if (!selectInstance.trySelect()) {
-                this.size = i2;
+                this.size = i;
                 this.buffer[this.head] = obj;
                 return SelectKt.getALREADY_SELECTED();
             }

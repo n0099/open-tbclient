@@ -6,6 +6,7 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidubce.http.Headers;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
@@ -28,16 +29,16 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53953b;
+    public String f39105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f53954c;
+    public int f39106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f53955d = new HashMap();
+    public Map<String, String> f39107d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public IKsAdSDK f53956e;
+    public IKsAdSDK f39108e;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -47,22 +48,22 @@ public class e {
     }
 
     public e(String str, IKsAdSDK iKsAdSDK) {
-        this.f53953b = str;
+        this.f39105b = str;
         this.a = str;
-        this.f53956e = iKsAdSDK;
+        this.f39108e = iKsAdSDK;
     }
 
     private String a() {
-        int i2;
+        int i;
         String valueOf = String.valueOf(Loader.get().a(Loader.get().getContext()));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
         if (ksAdSDKImpl != null) {
             if (TextUtils.isEmpty(valueOf)) {
                 valueOf = ksAdSDKImpl.getSDKVersion();
             }
-            i2 = ksAdSDKImpl.getSDKVersionCode();
+            i = ksAdSDKImpl.getSDKVersionCode();
         } else {
-            i2 = -1;
+            i = -1;
         }
         JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
         JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
@@ -72,7 +73,7 @@ public class e {
             jSONObject.put("sdkApiVersion", "3.3.17.4");
             jSONObject.put("sdkApiVersionCode", 3031704);
             jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
-            jSONObject.put("SDKVersionCode", i2);
+            jSONObject.put("SDKVersionCode", i);
             jSONObject.put("sdkType", 1);
             jSONObject.put(DI.APP_INFO_NAME, appInfo);
             jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
@@ -81,16 +82,16 @@ public class e {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        if (this.f53956e != null) {
+        if (this.f39108e != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("version", "3.3.17.4");
                 jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.f53956e.getRM(jSONObject.toString()));
+                jSONObject2.put("message", this.f39108e.getRM(jSONObject.toString()));
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            this.f53956e.sR(this.f53953b.replace("https://open.e.kuaishou.com", ""), this.f53955d, jSONObject2.toString());
+            this.f39108e.sR(this.f39105b.replace("https://open.e.kuaishou.com", ""), this.f39107d, jSONObject2.toString());
             return jSONObject2.toString();
         }
         return jSONObject.toString();
@@ -156,15 +157,15 @@ public class e {
         return str;
     }
 
-    private URLConnection a(String str, int i2, int i3, boolean z) {
+    private URLConnection a(String str, int i, int i2, boolean z) {
         URLConnection openConnection = new URL(str).openConnection();
         TLSConnectionUtils.wrapHttpURLConnection(openConnection);
         a("Accept-Language", "zh-CN");
-        if (i2 > 0) {
-            openConnection.setConnectTimeout(i2);
+        if (i > 0) {
+            openConnection.setConnectTimeout(i);
         }
-        if (i3 > 0) {
-            openConnection.setReadTimeout(i3);
+        if (i2 > 0) {
+            openConnection.setReadTimeout(i2);
         }
         openConnection.setUseCaches(z);
         openConnection.setDoInput(true);
@@ -174,7 +175,7 @@ public class e {
     }
 
     private void a(String str, String str2) {
-        this.f53955d.put(str, str2);
+        this.f39107d.put(str, str2);
     }
 
     @Nullable
@@ -188,9 +189,9 @@ public class e {
         httpURLConnection.setInstanceFollowRedirects(true);
         a("Content-Type", "application/json; charset=UTF-8");
         a("User-Agent", RequestParamsUtils.getUserAgent());
-        IKsAdSDK iKsAdSDK = this.f53956e;
+        IKsAdSDK iKsAdSDK = this.f39108e;
         if (iKsAdSDK != null) {
-            iKsAdSDK.addHp(this.f53955d);
+            iKsAdSDK.addHp(this.f39107d);
         }
         return httpURLConnection;
     }
@@ -203,8 +204,8 @@ public class e {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
                     String a2 = a();
-                    if (this.f53955d != null) {
-                        for (Map.Entry<String, String> entry : this.f53955d.entrySet()) {
+                    if (this.f39107d != null) {
+                        for (Map.Entry<String, String> entry : this.f39107d.entrySet()) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
@@ -215,16 +216,16 @@ public class e {
                         String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (this.f53956e != null) {
-                            jSONObject.put("data", new JSONObject(this.f53956e.getRD(jSONObject.optString("data"))));
+                        if (this.f39108e != null) {
+                            jSONObject.put("data", new JSONObject(this.f39108e.getRD(jSONObject.optString("data"))));
                         }
                         bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f53954c < 21) {
-                        this.a = httpURLConnection.getHeaderField("Location");
-                        this.f53954c++;
+                    } else if (this.f39106c < 21) {
+                        this.a = httpURLConnection.getHeaderField(Headers.LOCATION);
+                        this.f39106c++;
                         b(aVar);
                     }
                 }

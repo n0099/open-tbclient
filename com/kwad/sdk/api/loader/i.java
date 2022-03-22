@@ -12,7 +12,7 @@ public class i {
     public static final ExecutorService a = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f53964b = new Handler(Looper.getMainLooper());
+    public static final Handler f39116b = new Handler(Looper.getMainLooper());
 
     public static Future<?> a(Runnable runnable) {
         return a.submit(runnable);

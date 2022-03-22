@@ -15,24 +15,24 @@ public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
     public int num;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseUnreadPointNum(int i2, boolean z) {
+    public ResponseUnreadPointNum(int i, boolean z) {
         super(2001176);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.num = i2;
+        this.num = i;
         this.fromNet = z;
     }
 
@@ -55,10 +55,10 @@ public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
         }
     }
 
-    public void setNum(int i2) {
+    public void setNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.num = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.num = i;
         }
     }
 }

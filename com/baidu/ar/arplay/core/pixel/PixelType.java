@@ -59,16 +59,16 @@ public final class PixelType {
         $VALUES = new PixelType[]{RGBA, BGRA, BGR, NV12, NV21, I420, YV12, GRAY, RGB, RED, GREEN, BLUE, pixelType};
     }
 
-    public PixelType(String str, int i2, int i3) {
+    public PixelType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -77,13 +77,13 @@ public final class PixelType {
                 return;
             }
         }
-        this.value = i3;
+        this.value = i2;
     }
 
-    public static PixelType valueOf(int i2) {
+    public static PixelType valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == RGBA.getValue() ? RGBA : i2 == BGRA.getValue() ? BGRA : i2 == BGR.getValue() ? BGR : i2 == NV12.getValue() ? NV12 : i2 == NV21.getValue() ? NV21 : i2 == I420.getValue() ? I420 : i2 == YV12.getValue() ? YV12 : i2 == GRAY.getValue() ? GRAY : i2 == RGB.getValue() ? RGB : i2 == RED.getValue() ? RED : i2 == GREEN.getValue() ? GREEN : i2 == BLUE.getValue() ? BLUE : i2 == ALPHA.getValue() ? ALPHA : RGBA : (PixelType) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == RGBA.getValue() ? RGBA : i == BGRA.getValue() ? BGRA : i == BGR.getValue() ? BGR : i == NV12.getValue() ? NV12 : i == NV21.getValue() ? NV21 : i == I420.getValue() ? I420 : i == YV12.getValue() ? YV12 : i == GRAY.getValue() ? GRAY : i == RGB.getValue() ? RGB : i == RED.getValue() ? RED : i == GREEN.getValue() ? GREEN : i == BLUE.getValue() ? BLUE : i == ALPHA.getValue() ? ALPHA : RGBA : (PixelType) invokeI.objValue;
     }
 
     public static PixelType valueOf(String str) {

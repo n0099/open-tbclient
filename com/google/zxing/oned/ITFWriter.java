@@ -42,9 +42,9 @@ public final class ITFWriter extends OneDimensionalCodeWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,12 +52,12 @@ public final class ITFWriter extends OneDimensionalCodeWriter {
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (barcodeFormat == BarcodeFormat.ITF) {
-                return super.encode(str, barcodeFormat, i2, i3, map);
+                return super.encode(str, barcodeFormat, i, i2, map);
             }
             throw new IllegalArgumentException("Can only encode ITF, but got " + barcodeFormat);
         }
@@ -74,15 +74,15 @@ public final class ITFWriter extends OneDimensionalCodeWriter {
                 if (length <= 80) {
                     boolean[] zArr = new boolean[(length * 9) + 9];
                     int appendPattern = OneDimensionalCodeWriter.appendPattern(zArr, 0, START_PATTERN, true);
-                    for (int i2 = 0; i2 < length; i2 += 2) {
-                        int digit = Character.digit(str.charAt(i2), 10);
-                        int digit2 = Character.digit(str.charAt(i2 + 1), 10);
+                    for (int i = 0; i < length; i += 2) {
+                        int digit = Character.digit(str.charAt(i), 10);
+                        int digit2 = Character.digit(str.charAt(i + 1), 10);
                         int[] iArr = new int[18];
-                        for (int i3 = 0; i3 < 5; i3++) {
-                            int i4 = i3 * 2;
+                        for (int i2 = 0; i2 < 5; i2++) {
+                            int i3 = i2 * 2;
                             int[][] iArr2 = ITFReader.PATTERNS;
-                            iArr[i4] = iArr2[digit][i3];
-                            iArr[i4 + 1] = iArr2[digit2][i3];
+                            iArr[i3] = iArr2[digit][i2];
+                            iArr[i3 + 1] = iArr2[digit2][i2];
                         }
                         appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, iArr, true);
                     }

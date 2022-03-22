@@ -28,14 +28,12 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CustomViewTarget";
     @IdRes
-
-    /* renamed from: VIEW_TAG_ID */
-    public static final int glide_custom_view_target_tag = 2131299986;
+    public static final int VIEW_TAG_ID = 2131299517;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
@@ -47,7 +45,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -61,7 +59,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +72,9 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sizeDeterminer};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -91,7 +89,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (Log.isLoggable(CustomViewTarget.TAG, 2)) {
-                        String str = "OnGlobalLayoutListener called attachStateListener=" + this;
+                        Log.v(CustomViewTarget.TAG, "OnGlobalLayoutListener called attachStateListener=" + this);
                     }
                     SizeDeterminer sizeDeterminer = this.sizeDeterminerRef.get();
                     if (sizeDeterminer != null) {
@@ -111,9 +109,9 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -138,25 +136,27 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             return invokeL.intValue;
         }
 
-        private int getTargetDimen(int i2, int i3, int i4) {
+        private int getTargetDimen(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, this, i2, i3, i4)) == null) {
-                int i5 = i3 - i4;
-                if (i5 > 0) {
-                    return i5;
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, this, i, i2, i3)) == null) {
+                int i4 = i2 - i3;
+                if (i4 > 0) {
+                    return i4;
                 }
                 if (this.waitForLayout && this.view.isLayoutRequested()) {
                     return 0;
                 }
-                int i6 = i2 - i4;
-                if (i6 > 0) {
-                    return i6;
+                int i5 = i - i3;
+                if (i5 > 0) {
+                    return i5;
                 }
-                if (this.view.isLayoutRequested() || i3 != -2) {
+                if (this.view.isLayoutRequested() || i2 != -2) {
                     return 0;
                 }
-                Log.isLoggable(CustomViewTarget.TAG, 4);
+                if (Log.isLoggable(CustomViewTarget.TAG, 4)) {
+                    Log.i(CustomViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
+                }
                 return getMaxDisplayLength(this.view.getContext());
             }
             return invokeIII.intValue;
@@ -184,24 +184,24 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             return invokeV.intValue;
         }
 
-        private boolean isDimensionValid(int i2) {
+        private boolean isDimensionValid(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) ? i2 > 0 || i2 == Integer.MIN_VALUE : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) ? i > 0 || i == Integer.MIN_VALUE : invokeI.booleanValue;
         }
 
-        private boolean isViewStateAndSizeValid(int i2, int i3) {
+        private boolean isViewStateAndSizeValid(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65542, this, i2, i3)) == null) ? isDimensionValid(i2) && isDimensionValid(i3) : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65542, this, i, i2)) == null) ? isDimensionValid(i) && isDimensionValid(i2) : invokeII.booleanValue;
         }
 
-        private void notifyCbs(int i2, int i3) {
+        private void notifyCbs(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(65543, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(65543, this, i, i2) == null) {
                 Iterator it = new ArrayList(this.cbs).iterator();
                 while (it.hasNext()) {
-                    ((SizeReadyCallback) it.next()).onSizeReady(i2, i3);
+                    ((SizeReadyCallback) it.next()).onSizeReady(i, i2);
                 }
             }
         }
@@ -282,9 +282,9 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -300,11 +300,11 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             T t = this.view;
-            int i2 = this.overrideTag;
-            if (i2 == 0) {
-                i2 = glide_custom_view_target_tag;
+            int i = this.overrideTag;
+            if (i == 0) {
+                i = VIEW_TAG_ID;
             }
-            return t.getTag(i2);
+            return t.getTag(i);
         }
         return invokeV.objValue;
     }
@@ -332,11 +332,11 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, obj) == null) {
             T t = this.view;
-            int i2 = this.overrideTag;
-            if (i2 == 0) {
-                i2 = glide_custom_view_target_tag;
+            int i = this.overrideTag;
+            if (i == 0) {
+                i = VIEW_TAG_ID;
             }
-            t.setTag(i2, obj);
+            t.setTag(i, obj);
         }
     }
 
@@ -360,9 +360,9 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -521,12 +521,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         return (String) invokeV.objValue;
     }
 
-    public final CustomViewTarget<T, Z> useTagId(@IdRes int i2) {
+    public final CustomViewTarget<T, Z> useTagId(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.overrideTag == 0) {
-                this.overrideTag = i2;
+                this.overrideTag = i;
                 return this;
             }
             throw new IllegalArgumentException("You cannot change the tag id once it has been set.");

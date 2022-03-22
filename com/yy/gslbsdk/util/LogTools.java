@@ -1,6 +1,7 @@
 package com.yy.gslbsdk.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.GslbEvent;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LogTools {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -38,9 +39,9 @@ public class LogTools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,7 +54,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            String.format(Locale.US, "[%s] %s", str, str2);
+            Log.d(TAG, String.format(Locale.US, "[%s] %s", str, str2));
         }
         printMsgEvent("debug", str, str2);
     }
@@ -64,7 +65,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            String.format(Locale.US, "[%s] %s", str, str2);
+            Log.e(TAG, String.format(Locale.US, "[%s] %s", str, str2));
         }
         printMsgEvent("error", str, str2);
     }
@@ -75,7 +76,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            String.format(Locale.US, "[%s] %s", str, str2);
+            Log.i(TAG, String.format(Locale.US, "[%s] %s", str, str2));
         }
         printMsgEvent("info", str, str2);
     }
@@ -93,7 +94,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            String.format(Locale.US, "[%s] %s", str, exc);
+            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, exc));
         }
         printMsgEvent("warn", str, exc.getLocalizedMessage());
     }
@@ -104,7 +105,7 @@ public class LogTools {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {
-            String.format(Locale.US, "[%s] %s", str, str2);
+            Log.w(TAG, String.format(Locale.US, "[%s] %s", str, str2));
         }
         printMsgEvent("warn", str, str2);
     }

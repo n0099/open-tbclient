@@ -1,13 +1,14 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "1.3.5";
@@ -21,9 +22,9 @@ public class FunOpenIDSdk {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,11 +60,15 @@ public class FunOpenIDSdk {
         if (interceptable == null || interceptable.invokeLL(65541, null, context, onGetOaidListener) == null) {
             synchronized (FunOpenIDSdk.class) {
                 if (context == null) {
-                    isLogEnabled();
-                } else if (onGetOaidListener == null) {
-                    isLogEnabled();
-                } else {
+                    if (isLogEnabled()) {
+                        Log.e(TAG, "getOaid context is null !!!");
+                    }
+                } else if (onGetOaidListener != null) {
                     j.a.execute(new e(context, onGetOaidListener));
+                } else {
+                    if (isLogEnabled()) {
+                        Log.e(TAG, "getOaid onGetOaidListener is null !!!");
+                    }
                 }
             }
         }

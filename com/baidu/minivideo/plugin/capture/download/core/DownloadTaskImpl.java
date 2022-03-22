@@ -39,9 +39,9 @@ public abstract class DownloadTaskImpl implements DownloadTask {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadInfo, threadRecord, onDownloadListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -256,7 +256,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
-    public abstract RandomAccessFile getFile(File file, String str, long j2) throws IOException;
+    public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
 
     public abstract Map<String, String> getHttpHeaders(ThreadRecord threadRecord);
 
@@ -344,10 +344,10 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     return;
                 }
                 randomAccessFile.write(bArr, 0, read);
-                long j2 = read;
-                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j2);
+                long j = read;
+                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j);
                 synchronized (this.mOnDownloadListener) {
-                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j2);
+                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
                     this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
                 }
             } catch (IOException e2) {

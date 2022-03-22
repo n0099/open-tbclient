@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SwallowResultProducer<T> implements Producer<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public class SwallowResultProducer<T> implements Producer<Void> {
             newInitContext.initArgs = r2;
             Object[] objArr = {producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,9 +46,9 @@ public class SwallowResultProducer<T> implements Producer<Void> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, consumer};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super((Consumer) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -59,10 +59,10 @@ public class SwallowResultProducer<T> implements Producer<Void> {
                 }
 
                 @Override // com.facebook.imagepipeline.producers.BaseConsumer
-                public void onNewResultImpl(T t, int i2) {
+                public void onNewResultImpl(T t, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, t, i2) == null) && BaseConsumer.isLast(i2)) {
-                        getConsumer().onNewResult(null, i2);
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, t, i) == null) && BaseConsumer.isLast(i)) {
+                        getConsumer().onNewResult(null, i);
                     }
                 }
             }, producerContext);

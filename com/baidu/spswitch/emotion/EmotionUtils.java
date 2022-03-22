@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -100,9 +101,9 @@ public class EmotionUtils {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -136,9 +137,9 @@ public class EmotionUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -149,8 +150,8 @@ public class EmotionUtils {
         this.mRecommendEmotionPanelList = new CopyOnWriteArrayList();
         this.mEmotionBitmapMap = new HashMap();
         this.mSync = new Semaphore(0);
-        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.often_zone_title_default);
-        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default);
+        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2);
+        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269);
     }
 
     private void freeEmotionSound() {
@@ -197,7 +198,7 @@ public class EmotionUtils {
         this.mEmotionPanelList = new CopyOnWriteArrayList(arrayList);
         this.mSync.release();
         if (DEBUG) {
-            String str2 = "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------";
+            Log.d(TAG, "thread:" + Thread.currentThread() + "-------initEmotionBitmapCache, release signal-------");
         }
     }
 
@@ -225,7 +226,7 @@ public class EmotionUtils {
     public String getAllZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default) : this.mAllZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269) : this.mAllZoneTitle : (String) invokeV.objValue;
     }
 
     public Bitmap getEmotionBitmapByName(EmotionType emotionType, String str) {
@@ -323,7 +324,7 @@ public class EmotionUtils {
     public String getOftenZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.often_zone_title_default) : this.mOftenZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2) : this.mOftenZoneTitle : (String) invokeV.objValue;
     }
 
     public List<String> getPanelEmotionList() {
@@ -340,17 +341,17 @@ public class EmotionUtils {
             if (emotionUsageList == null) {
                 emotionUsageList = new ArrayList<>();
             }
-            int i2 = 0;
+            int i = 0;
             int size = this.mRecommendEmotionPanelList.size();
             while (emotionUsageList.size() < 7 && size > 0) {
-                int i3 = i2 + 1;
-                String str = this.mRecommendEmotionPanelList.get(i2);
+                int i2 = i + 1;
+                String str = this.mRecommendEmotionPanelList.get(i);
                 Map<String, EmotionClassic> map = this.mEmotionClassicList;
                 if (map != null && map.containsKey(str) && !TextUtils.isEmpty(str) && emotionUsageList.indexOf(str) == -1) {
                     emotionUsageList.add(str);
                 }
                 size--;
-                i2 = i3;
+                i = i2;
             }
             return emotionUsageList;
         }
@@ -390,8 +391,8 @@ public class EmotionUtils {
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
             if (optJSONArray2 != null) {
                 int length = optJSONArray2.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject jSONObject = (JSONObject) optJSONArray2.get(i2);
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                     String optString = jSONObject.optString("id");
                     String optString2 = jSONObject.optString("text");
                     String optString3 = jSONObject.optString("icon");
@@ -406,8 +407,8 @@ public class EmotionUtils {
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("recommend");
             if (optJSONArray3 != null) {
                 int length2 = optJSONArray3.length();
-                for (int i3 = 0; i3 < length2; i3++) {
-                    String queryEmotionNameById = queryEmotionNameById(concurrentHashMap, (String) optJSONArray3.get(i3));
+                for (int i2 = 0; i2 < length2; i2++) {
+                    String queryEmotionNameById = queryEmotionNameById(concurrentHashMap, (String) optJSONArray3.get(i2));
                     if (!TextUtils.isEmpty(queryEmotionNameById)) {
                         copyOnWriteArrayList2.add(queryEmotionNameById);
                     }
@@ -417,8 +418,8 @@ public class EmotionUtils {
                 JSONArray optJSONArray4 = optJSONObject.optJSONArray("panel_emoticons");
                 if (optJSONArray4 != null) {
                     int length3 = optJSONArray4.length();
-                    for (int i4 = 0; i4 < length3; i4++) {
-                        String queryEmotionNameById2 = queryEmotionNameById(concurrentHashMap, (String) optJSONArray4.get(i4));
+                    for (int i3 = 0; i3 < length3; i3++) {
+                        String queryEmotionNameById2 = queryEmotionNameById(concurrentHashMap, (String) optJSONArray4.get(i3));
                         if (!TextUtils.isEmpty(queryEmotionNameById2)) {
                             copyOnWriteArrayList.add(queryEmotionNameById2);
                         }
@@ -429,8 +430,8 @@ public class EmotionUtils {
                 }
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("title");
                 if (optJSONObject2 != null) {
-                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.often_zone_title_default));
-                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.all_zone_title_default));
+                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2));
+                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269));
                 }
                 EmotionLoader.getInstance().invalidCache();
                 this.mEmotionBitmapMap.clear();
@@ -461,24 +462,24 @@ public class EmotionUtils {
         this.mMediaPlayer.start();
     }
 
-    public void waitForEmotionLoadedIfNeeded(long j2) {
+    public void waitForEmotionLoadedIfNeeded(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
+        if (!(interceptable == null || interceptable.invokeJ(1048587, this, j) == null) || isEmotionLoaded(EmotionType.EMOTION_CLASSIC_TYPE)) {
             return;
         }
-        if (j2 <= 0) {
-            j2 = 350;
+        if (j <= 0) {
+            j = 350;
         }
         if (DEBUG) {
-            String str = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------";
+            Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded begin-------");
         }
         try {
-            this.mSync.tryAcquire(j2, TimeUnit.MILLISECONDS);
+            this.mSync.tryAcquire(j, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
         if (DEBUG) {
-            String str2 = "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------";
+            Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------");
         }
     }
 

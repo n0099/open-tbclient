@@ -26,9 +26,9 @@ public final class MenuKt$iterator$1 implements Iterator<MenuItem>, KMutableIter
             newInitContext.initArgs = r2;
             Object[] objArr = {menu};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,9 +49,9 @@ public final class MenuKt$iterator$1 implements Iterator<MenuItem>, KMutableIter
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Menu menu = this.$this_iterator;
-            int i2 = this.index - 1;
-            this.index = i2;
-            menu.removeItem(i2);
+            int i = this.index - 1;
+            this.index = i;
+            menu.removeItem(i);
         }
     }
 
@@ -63,9 +63,9 @@ public final class MenuKt$iterator$1 implements Iterator<MenuItem>, KMutableIter
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Menu menu = this.$this_iterator;
-            int i2 = this.index;
-            this.index = i2 + 1;
-            MenuItem item = menu.getItem(i2);
+            int i = this.index;
+            this.index = i + 1;
+            MenuItem item = menu.getItem(i);
             if (item != null) {
                 return item;
             }

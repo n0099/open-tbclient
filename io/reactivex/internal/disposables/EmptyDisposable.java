@@ -16,7 +16,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class EmptyDisposable implements QueueDisposable<Object> {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -43,16 +43,16 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
         $VALUES = new EmptyDisposable[]{INSTANCE, emptyDisposable};
     }
 
-    public EmptyDisposable(String str, int i2) {
+    public EmptyDisposable(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -143,10 +143,10 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public int requestFusion(int i2) {
+    public int requestFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 & 2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i & 2 : invokeI.intValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue

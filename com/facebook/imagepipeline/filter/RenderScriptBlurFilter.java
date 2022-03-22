@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class RenderScriptBlurFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLUR_MAX_RADIUS = 25;
@@ -25,9 +25,9 @@ public abstract class RenderScriptBlurFilter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,20 +35,20 @@ public abstract class RenderScriptBlurFilter {
     }
 
     @RequiresApi(17)
-    public static void blurBitmap(Bitmap bitmap, Bitmap bitmap2, Context context, int i2) {
+    public static void blurBitmap(Bitmap bitmap, Bitmap bitmap2, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, bitmap2, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, bitmap2, context, i) == null) {
             Preconditions.checkNotNull(bitmap);
             Preconditions.checkNotNull(bitmap2);
             Preconditions.checkNotNull(context);
-            Preconditions.checkArgument(i2 > 0 && i2 <= 25);
+            Preconditions.checkArgument(i > 0 && i <= 25);
             RenderScript renderScript = null;
             try {
                 renderScript = RenderScript.create(context);
                 ScriptIntrinsicBlur create = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));
                 Allocation createFromBitmap = Allocation.createFromBitmap(renderScript, bitmap2);
                 Allocation createFromBitmap2 = Allocation.createFromBitmap(renderScript, bitmap);
-                create.setRadius(i2);
+                create.setRadius(i);
                 create.setInput(createFromBitmap);
                 create.forEach(createFromBitmap2);
                 createFromBitmap2.copyTo(bitmap);

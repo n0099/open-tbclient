@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.Cancelable;
 import com.baidu.searchbox.network.outback.ConnectManager;
@@ -32,7 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.json.JSONObject;
@@ -100,9 +98,9 @@ public class Request {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {map};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -188,11 +186,11 @@ public class Request {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new Request(this) : (Request) invokeV.objValue;
         }
 
-        public R connectionTimeout(int i2) {
+        public R connectionTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.connectionTimeout = Util.checkDuration(a.O, i2, TimeUnit.MILLISECONDS);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.connectionTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
                 return this;
             }
             return (R) invokeI.objValue;
@@ -327,11 +325,11 @@ public class Request {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, requestBody)) == null) ? method(HttpPut.METHOD_NAME, requestBody) : (R) invokeL.objValue;
         }
 
-        public R readTimeout(int i2) {
+        public R readTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.readTimeout = Util.checkDuration(a.O, i2, TimeUnit.MILLISECONDS);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+                this.readTimeout = Util.checkDuration("timeout", i, TimeUnit.MILLISECONDS);
                 return this;
             }
             return (R) invokeI.objValue;
@@ -393,21 +391,21 @@ public class Request {
             return (R) invokeL.objValue;
         }
 
-        public R requestFrom(int i2) {
+        public R requestFrom(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-                this.requestFrom = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+                this.requestFrom = i;
                 return this;
             }
             return (R) invokeI.objValue;
         }
 
-        public R requestSubFrom(int i2) {
+        public R requestSubFrom(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-                this.requestSubFrom = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+                this.requestSubFrom = i;
                 return this;
             }
             return (R) invokeI.objValue;
@@ -492,11 +490,11 @@ public class Request {
             return (R) invokeZ.objValue;
         }
 
-        public R writeTimeout(int i2) {
+        public R writeTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) {
-                this.writeTimeout = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
+                this.writeTimeout = i;
                 return this;
             }
             return (R) invokeI.objValue;
@@ -595,9 +593,9 @@ public class Request {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {request};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -659,9 +657,9 @@ public class Request {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -920,21 +918,21 @@ public class Request {
         return (Call) invokeV.objValue;
     }
 
-    public void onConnect4NetworkStatRecord(long j2, String str) {
+    public void onConnect4NetworkStatRecord(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048607, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048607, this, j, str) == null) {
             NetworkStatRecord networkStatRecord = this.record;
-            networkStatRecord.connTs = j2;
+            networkStatRecord.connTs = j;
             networkStatRecord.protocol = str;
         }
     }
 
-    public void onDnsParse4NetworkStatRecord(long j2, long j3, JSONObject jSONObject) {
+    public void onDnsParse4NetworkStatRecord(long j, long j2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), jSONObject}) == null) {
             NetworkStatRecord networkStatRecord = this.record;
-            networkStatRecord.dnsStartTs = j2;
-            networkStatRecord.dnsEndTs = j3;
+            networkStatRecord.dnsStartTs = j;
+            networkStatRecord.dnsEndTs = j2;
             if (jSONObject != null) {
                 networkStatRecord.dnsDetail = jSONObject;
             }
@@ -953,18 +951,18 @@ public class Request {
         }
     }
 
-    public void onFinishReadContent4NetworkStatRecord(long j2) {
+    public void onFinishReadContent4NetworkStatRecord(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048610, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
             this.record.readOverTs = System.currentTimeMillis();
-            this.record.realResponseLength = j2;
+            this.record.realResponseLength = j;
         }
     }
 
-    public void onReceiveHeader4NetworkStatRecord(long j2, Headers headers) {
+    public void onReceiveHeader4NetworkStatRecord(long j, Headers headers) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048611, this, j2, headers) == null) {
-            this.record.receiveHeaderTs = j2;
+        if (interceptable == null || interceptable.invokeJL(1048611, this, j, headers) == null) {
+            this.record.receiveHeaderTs = j;
             String str = headers.get("X-Bfe-Svbbrers");
             if (!Util.isTextEmpty(str)) {
                 this.record.clientIP = str;
@@ -985,7 +983,7 @@ public class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + ExtendedMessageFormat.END_FE;
+            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
         }
         return (String) invokeV.objValue;
     }

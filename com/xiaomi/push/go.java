@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.al;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class go {
     public static /* synthetic */ Interceptable $ic;
     public static al a;
@@ -35,10 +35,10 @@ public class go {
         }
     }
 
-    public static void a(al.b bVar, long j2) {
+    public static void a(al.b bVar, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65538, null, bVar, j2) == null) {
-            a.a(bVar, j2);
+        if (interceptable == null || interceptable.invokeLJ(65538, null, bVar, j) == null) {
+            a.a(bVar, j);
         }
     }
 

@@ -9,26 +9,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
     public static final hm a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hm[] f501a;
+    public static final /* synthetic */ hm[] f477a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hm f59759b;
+    public static final hm f44352b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hm f59760c;
+    public static final hm f44353c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hm f59761d;
+    public static final hm f44354d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f502a;
+    public final int f478a;
 
     static {
         InterceptResult invokeClinit;
@@ -44,23 +44,23 @@ public final class hm {
             }
         }
         a = new hm("INT", 0, 1);
-        f59759b = new hm("LONG", 1, 2);
-        f59760c = new hm("STRING", 2, 3);
+        f44352b = new hm("LONG", 1, 2);
+        f44353c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f59761d = hmVar;
-        f501a = new hm[]{a, f59759b, f59760c, hmVar};
+        f44354d = hmVar;
+        f477a = new hm[]{a, f44352b, f44353c, hmVar};
     }
 
-    public hm(String str, int i2, int i3) {
+    public hm(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -69,24 +69,24 @@ public final class hm {
                 return;
             }
         }
-        this.f502a = i3;
+        this.f478a = i2;
     }
 
-    public static hm a(int i2) {
+    public static hm a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
-                        return f59761d;
+                        return f44354d;
                     }
-                    return f59760c;
+                    return f44353c;
                 }
-                return f59759b;
+                return f44352b;
             }
             return a;
         }
@@ -102,6 +102,6 @@ public final class hm {
     public static hm[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hm[]) f501a.clone() : (hm[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hm[]) f477a.clone() : (hm[]) invokeV.objValue;
     }
 }

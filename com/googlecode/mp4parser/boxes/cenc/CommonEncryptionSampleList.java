@@ -154,9 +154,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {commonEncryptionSampleList, sample, cencSampleAuxiliaryDataFormat, cipher};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -198,9 +198,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
             newInitContext.initArgs = r2;
             Object[] objArr = {secretKey, list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -235,9 +235,9 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i2) {
+    public Sample get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new EncryptedSampleImpl(this, this.parent.get(i2), this.auxiliaryDataFormats.get(i2), cipher, null) : (Sample) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? new EncryptedSampleImpl(this, this.parent.get(i), this.auxiliaryDataFormats.get(i), cipher, null) : (Sample) invokeI.objValue;
     }
 }

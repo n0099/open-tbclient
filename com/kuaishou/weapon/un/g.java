@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,31 +20,27 @@ public class g {
     public static final String a = "MIUI";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53616b = "EMUI";
+    public static final String f38817b = "EMUI";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53617c = "FLYME";
+    public static final String f38818c = "FLYME";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f53618d = "OPPO";
+    public static final String f38819d = "OPPO";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f53619e = "SMARTISAN";
+    public static final String f38820e = "SMARTISAN";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f53620f = "VIVO";
+    public static final String f38821f = "VIVO";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f53621g = "QIKU";
+    public static final String f38822g = "QIKU";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f53622h = "360";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final String f53623i = "OnePlus";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f53624j = "SAMSUNG";
+    public static final String f38823h = "360";
+    public static final String i = "OnePlus";
+    public static final String j = "SAMSUNG";
     public static final String k = "ro.miui.ui.version.name";
     public static final String l = "ro.build.version.emui";
     public static final String m = "ro.build.version.opporom";
@@ -109,8 +106,8 @@ public class g {
                                 s = b7;
                                 if (TextUtils.isEmpty(b7)) {
                                     String upperCase2 = b(q).toUpperCase();
-                                    String str3 = f53624j;
-                                    if (!upperCase2.contains(f53624j)) {
+                                    String str3 = j;
+                                    if (!upperCase2.contains(j)) {
                                         String str4 = Build.DISPLAY;
                                         s = str4;
                                         str3 = "FLYME";
@@ -124,7 +121,7 @@ public class g {
                                 }
                                 upperCase = "SMARTISAN";
                             } else {
-                                upperCase = f53623i;
+                                upperCase = i;
                             }
                         } else {
                             upperCase = "MIUI";
@@ -171,7 +168,7 @@ public class g {
             BufferedReader bufferedReader2 = null;
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+                str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
             } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
                 str2 = null;
@@ -238,7 +235,7 @@ public class g {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f53622h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a("QIKU") || a(f38823h) : invokeV.booleanValue;
     }
 
     public static boolean d() {
@@ -290,7 +287,7 @@ public class g {
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(f53623i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a(i) : invokeV.booleanValue;
     }
 
     public static boolean j() {
@@ -302,7 +299,7 @@ public class g {
     public static boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(f53624j) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? a(j) : invokeV.booleanValue;
     }
 
     public static boolean l() {

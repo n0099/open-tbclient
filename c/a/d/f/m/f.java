@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,12 +30,12 @@ public class f {
         return invokeLL.booleanValue;
     }
 
-    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i2) {
+    public static boolean bindService(Context context, Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, context, intent, serviceConnection, i)) == null) {
             try {
-                context.bindService(intent, serviceConnection, i2);
+                context.bindService(intent, serviceConnection, i);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -50,7 +51,7 @@ public class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, intent)) == null) {
             try {
                 if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(268435456);
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
                 context.startActivity(intent);
                 return true;
@@ -62,12 +63,12 @@ public class f {
         return invokeLL.booleanValue;
     }
 
-    public static boolean startActivityForResult(Activity activity, Intent intent, int i2) {
+    public static boolean startActivityForResult(Activity activity, Intent intent, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, activity, intent, i)) == null) {
             try {
-                activity.startActivityForResult(intent, i2);
+                activity.startActivityForResult(intent, i);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

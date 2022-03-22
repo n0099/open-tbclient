@@ -1,6 +1,7 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import java.io.Closeable;
@@ -9,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     @Nullable
     @WorkerThread
@@ -46,7 +47,8 @@ public class c {
                 }
                 messageDigest.update(bArr, 0, read);
             }
-        } catch (Exception unused) {
+        } catch (Exception e2) {
+            Log.e("FileMD5Utils", "getting file md5 digest error.", e2);
             return null;
         } finally {
             a(fileInputStream);
@@ -61,8 +63,10 @@ public class c {
             if (a != null && a.length != 0) {
                 return aa.a(a, 0, a.length);
             }
-        } catch (IOException | NoSuchAlgorithmException unused) {
+            return null;
+        } catch (IOException | NoSuchAlgorithmException e2) {
+            Log.e("FileMD5Utils", "cannot calculate md5 of file", e2);
+            return null;
         }
-        return null;
     }
 }

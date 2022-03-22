@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmotionUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NEW_EMOTION_SHARPTEXT_PREFIX = "#(meme,";
@@ -26,9 +26,9 @@ public class EmotionUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,19 +39,19 @@ public class EmotionUtil {
     public static void statisticsEmotionGroupNums() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            int i2 = 0;
+            int i = 0;
             Cursor cursor = null;
             try {
                 cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                 while (cursor.moveToNext()) {
-                    i2++;
+                    i++;
                 }
             } finally {
                 try {
                     o.a(cursor);
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.param("obj_param1", i2);
+                    statisticItem.param("obj_param1", i);
                     TiebaStatic.log(statisticItem);
                 } catch (Throwable th) {
                 }
@@ -59,7 +59,7 @@ public class EmotionUtil {
             o.a(cursor);
             StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_TOTAL_NUM);
             statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem2.param("obj_param1", i2);
+            statisticItem2.param("obj_param1", i);
             TiebaStatic.log(statisticItem2);
         }
     }
@@ -69,11 +69,11 @@ public class EmotionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             Matcher matcher = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)").matcher(str);
-            int i2 = 0;
+            int i = 0;
             while (matcher.find()) {
                 String group = matcher.group();
                 if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
-                    i2++;
+                    i++;
                 }
             }
             Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
@@ -82,13 +82,13 @@ public class EmotionUtil {
                 if (split != null && split.length == 5) {
                     String str2 = split[1];
                     if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
-                        i2++;
+                        i++;
                     }
                 }
             }
-            if (i2 > 0) {
+            if (i > 0) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-                statisticItem.param("obj_param1", i2);
+                statisticItem.param("obj_param1", i);
                 TiebaStatic.log(statisticItem);
             }
         }

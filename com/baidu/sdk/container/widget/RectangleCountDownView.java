@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.b0.h0.f;
+import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,18 +17,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView", "DefaultLocale", "NewApi"})
 /* loaded from: classes4.dex */
 public class RectangleCountDownView extends AbsCountDownView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final long COUNTDOWN_CHECK_PERIOD = 250;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: d  reason: collision with root package name */
+    public long f28667d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f28668e;
+
     /* renamed from: f  reason: collision with root package name */
-    public long f36936f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f36937g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f36938h;
+    public long f28669f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RectangleCountDownView(Context context) {
@@ -39,9 +38,9 @@ public class RectangleCountDownView extends AbsCountDownView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,9 +50,46 @@ public class RectangleCountDownView extends AbsCountDownView {
         }
     }
 
-    public void initialize(Context context, AttributeSet attributeSet) {
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setTaskPeriod(250L);
+            this.f28667d = System.currentTimeMillis();
+            setText(String.format("跳过 %02d", Long.valueOf(this.f28668e / 1000)));
+            super.b();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.c();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = this.f28668e - (System.currentTimeMillis() - this.f28667d);
+            this.f28669f = currentTimeMillis;
+            if (currentTimeMillis > 0) {
+                postInvalidate();
+                return;
+            }
+            AbsCountDownView.b bVar = this.f28643b;
+            if (bVar != null) {
+                bVar.a();
+                c();
+            }
+        }
+    }
+
+    public void e(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             setTextColor(Color.parseColor("#ffffff"));
             setWidth(f.c.a(context, 72.0f));
             setHeight(f.c.a(context, 30.0f));
@@ -62,71 +98,25 @@ public class RectangleCountDownView extends AbsCountDownView {
             gradientDrawable.setCornerRadius(f.c.a(context, 15.0f));
             gradientDrawable.setColor(Color.parseColor("#33000000"));
             setBackground(gradientDrawable);
-            setText(String.format("跳过 %02d", Long.valueOf(this.f36937g / 1000)));
+            setText(String.format("跳过 %02d", Long.valueOf(this.f28668e / 1000)));
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f36938h) / 1000.0f))));
+            setText(String.format("跳过 %02d", Integer.valueOf(Math.round(((float) this.f28669f) / 1000.0f))));
         }
     }
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void setTimeMillis(long j2) {
+    public void setTimeMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f36937g = j2;
-            this.f36938h = j2;
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setTaskPeriod(250L);
-            this.f36936f = System.currentTimeMillis();
-            setText(String.format("跳过 %02d", Long.valueOf(this.f36937g / 1000)));
-            super.start();
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.stop();
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void updateProTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            long currentTimeMillis = this.f36937g - (System.currentTimeMillis() - this.f36936f);
-            this.f36938h = currentTimeMillis;
-            if (currentTimeMillis > 0) {
-                postInvalidate();
-                return;
-            }
-            AbsCountDownView.b bVar = this.mCountdownProgressListener;
-            if (bVar != null) {
-                bVar.a();
-                stop();
-            }
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void updateProgres(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f36938h = i3;
-            postInvalidate();
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.f28668e = j;
+            this.f28669f = j;
         }
     }
 
@@ -139,9 +129,9 @@ public class RectangleCountDownView extends AbsCountDownView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -152,17 +142,17 @@ public class RectangleCountDownView extends AbsCountDownView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RectangleCountDownView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RectangleCountDownView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -170,7 +160,7 @@ public class RectangleCountDownView extends AbsCountDownView {
                 return;
             }
         }
-        this.f36936f = 0L;
-        initialize(context, attributeSet);
+        this.f28667d = 0L;
+        e(context, attributeSet);
     }
 }

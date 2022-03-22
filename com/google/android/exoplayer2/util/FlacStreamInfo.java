@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FlacStreamInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,23 +19,23 @@ public final class FlacStreamInfo {
     public final int sampleRate;
     public final long totalSamples;
 
-    public FlacStreamInfo(byte[] bArr, int i2) {
+    public FlacStreamInfo(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2)};
+            Object[] objArr = {bArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
-        parsableBitArray.setPosition(i2 * 8);
+        parsableBitArray.setPosition(i * 8);
         this.minBlockSize = parsableBitArray.readBits(16);
         this.maxBlockSize = parsableBitArray.readBits(16);
         this.minFrameSize = parsableBitArray.readBits(24);
@@ -64,28 +64,28 @@ public final class FlacStreamInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxBlockSize * this.channels * (this.bitsPerSample / 8) : invokeV.intValue;
     }
 
-    public FlacStreamInfo(int i2, int i3, int i4, int i5, int i6, int i7, int i8, long j2) {
+    public FlacStreamInfo(int i, int i2, int i3, int i4, int i5, int i6, int i7, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i9 = newInitContext.flag;
-            if ((i9 & 1) != 0) {
-                int i10 = i9 & 2;
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.minBlockSize = i2;
-        this.maxBlockSize = i3;
-        this.minFrameSize = i4;
-        this.maxFrameSize = i5;
-        this.sampleRate = i6;
-        this.channels = i7;
-        this.bitsPerSample = i8;
-        this.totalSamples = j2;
+        this.minBlockSize = i;
+        this.maxBlockSize = i2;
+        this.minFrameSize = i3;
+        this.maxFrameSize = i4;
+        this.sampleRate = i5;
+        this.channels = i6;
+        this.bitsPerSample = i7;
+        this.totalSamples = j;
     }
 }

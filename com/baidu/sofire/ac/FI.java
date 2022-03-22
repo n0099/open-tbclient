@@ -15,15 +15,19 @@ public interface FI {
 
     void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr);
 
-    Pair<Integer, Object> cmsi(int i2, String str, Class<?>[] clsArr, Object... objArr);
+    Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr);
 
     boolean cp(Context context);
 
     SharedPreferences getCustomMutiProcessSharedPreferences(Context context, String str);
 
+    Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback();
+
     SharedPreferences getPlatformPrivateSharedPreferences(Context context);
 
     SharedPreferences getPlatformSharedSharedPreferences(Context context);
+
+    String gm(String str, String str2);
 
     Map<Integer, String> gpd();
 
@@ -43,7 +47,7 @@ public interface FI {
 
     void rf(Context context);
 
-    void s(int i2, boolean z);
+    void s(int i, boolean z);
 
     void sp(String str, boolean z);
 

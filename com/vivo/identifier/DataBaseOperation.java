@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DataBaseOperation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAID_FLAG = "AAID";
@@ -32,9 +32,9 @@ public class DataBaseOperation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,7 +87,7 @@ public class DataBaseOperation {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String query(int i2, String str) {
+    public String query(int i, String str) {
         InterceptResult invokeIL;
         String str2;
         Uri parse;
@@ -95,21 +95,21 @@ public class DataBaseOperation {
         StringBuilder sb;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) != null) {
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(1048576, this, i, str)) != null) {
             return (String) invokeIL.objValue;
         }
         Cursor cursor2 = null;
         String str4 = null;
         cursor2 = null;
         try {
-            if (i2 != 0) {
-                if (i2 == 1) {
+            if (i != 0) {
+                if (i == 1) {
                     sb = new StringBuilder();
                     str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     sb = new StringBuilder();
                     str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                } else if (i2 != 4) {
+                } else if (i != 4) {
                     parse = null;
                     cursor = this.mContext.getContentResolver().query(parse, null, null, null, null);
                     if (cursor == null) {

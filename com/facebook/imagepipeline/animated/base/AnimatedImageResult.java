@@ -11,7 +11,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class AnimatedImageResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedImageResultBuilder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,13 +68,13 @@ public class AnimatedImageResult {
     }
 
     @Nullable
-    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i2) {
+    public synchronized CloseableReference<Bitmap> getDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             synchronized (this) {
                 if (this.mDecodedFrames != null) {
-                    return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i2));
+                    return CloseableReference.cloneOrNull(this.mDecodedFrames.get(i));
                 }
                 return null;
             }
@@ -107,14 +107,14 @@ public class AnimatedImageResult {
         return (CloseableReference) invokeV.objValue;
     }
 
-    public synchronized boolean hasDecodedFrame(int i2) {
+    public synchronized boolean hasDecodedFrame(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             synchronized (this) {
                 if (this.mDecodedFrames != null) {
-                    z = this.mDecodedFrames.get(i2) != null;
+                    z = this.mDecodedFrames.get(i) != null;
                 }
             }
             return z;
@@ -129,9 +129,9 @@ public class AnimatedImageResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedImage};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

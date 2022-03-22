@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f31970b;
+    public static b f25235b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f31971c;
+    public com.baidu.clientupdate.download.a f25236c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,9 +42,9 @@ public final class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -52,17 +52,17 @@ public final class b {
         }
         this.a = null;
         this.a = context.getApplicationContext();
-        this.f31971c = com.baidu.clientupdate.download.a.a(context);
+        this.f25236c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f31970b == null) {
-                f31970b = new b(context);
+            if (f25235b == null) {
+                f25235b = new b(context);
             }
-            return f31970b;
+            return f25235b;
         }
         return (b) invokeL.objValue;
     }

@@ -1,15 +1,15 @@
 package com.kwai.filedownloader.a;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface a {
 
     /* renamed from: com.kwai.filedownloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC2150a extends Iterable<com.kwai.filedownloader.c.c> {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC2011a extends Iterable<com.kwai.filedownloader.c.c> {
         void a();
 
-        void a(int i2, com.kwai.filedownloader.c.c cVar);
+        void a(int i, com.kwai.filedownloader.c.c cVar);
 
         void a(com.kwai.filedownloader.c.c cVar);
 
@@ -18,39 +18,39 @@ public interface a {
 
     void a();
 
-    void a(int i2);
+    void a(int i);
 
-    void a(int i2, int i3);
+    void a(int i, int i2);
 
-    void a(int i2, int i3, long j2);
+    void a(int i, int i2, long j);
 
-    void a(int i2, long j2);
+    void a(int i, long j);
 
-    void a(int i2, long j2, String str, String str2);
+    void a(int i, long j, String str, String str2);
 
-    void a(int i2, String str, long j2, long j3, int i3);
+    void a(int i, String str, long j, long j2, int i2);
 
-    void a(int i2, Throwable th);
+    void a(int i, Throwable th);
 
-    void a(int i2, Throwable th, long j2);
+    void a(int i, Throwable th, long j);
 
     void a(com.kwai.filedownloader.c.a aVar);
 
     void a(com.kwai.filedownloader.c.c cVar);
 
-    InterfaceC2150a b();
+    InterfaceC2011a b();
 
-    com.kwai.filedownloader.c.c b(int i2);
+    com.kwai.filedownloader.c.c b(int i);
 
-    void b(int i2, long j2);
+    void b(int i, long j);
 
-    List<com.kwai.filedownloader.c.a> c(int i2);
+    List<com.kwai.filedownloader.c.a> c(int i);
 
-    void c(int i2, long j2);
+    void c(int i, long j);
 
-    void d(int i2);
+    void d(int i);
 
-    boolean e(int i2);
+    boolean e(int i);
 
-    void f(int i2);
+    void f(int i);
 }

@@ -16,12 +16,12 @@ public class ax {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f35129c;
+    public static final ax f27272c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f35130b;
+    public volatile boolean f27273b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class ax {
                 return;
             }
         }
-        f35129c = new ax();
+        f27272c = new ax();
     }
 
     public ax() {
@@ -44,9 +44,9 @@ public class ax {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -58,7 +58,7 @@ public class ax {
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35129c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27272c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
@@ -77,6 +77,6 @@ public class ax {
             this.a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f35130b = true;
+        this.f27273b = true;
     }
 }

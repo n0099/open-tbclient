@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Month implements Comparable<Month>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Month> CREATOR;
@@ -52,9 +52,9 @@ public final class Month implements Comparable<Month>, Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -75,10 +75,10 @@ public final class Month implements Comparable<Month>, Parcelable {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public Month[] newArray(int i2) {
+            public Month[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Month[i2] : (Month[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Month[i] : (Month[]) invokeI.objValue;
             }
         };
     }
@@ -90,9 +90,9 @@ public final class Month implements Comparable<Month>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {calendar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,12 +110,12 @@ public final class Month implements Comparable<Month>, Parcelable {
     }
 
     @NonNull
-    public static Month create(long j2) {
+    public static Month create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
             Calendar utcCalendar = UtcDates.getUtcCalendar();
-            utcCalendar.setTimeInMillis(j2);
+            utcCalendar.setTimeInMillis(j);
             return new Month(utcCalendar);
         }
         return (Month) invokeJ.objValue;
@@ -164,12 +164,12 @@ public final class Month implements Comparable<Month>, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public long getDay(int i2) {
+    public long getDay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             Calendar dayCopy = UtcDates.getDayCopy(this.firstOfMonth);
-            dayCopy.set(5, i2);
+            dayCopy.set(5, i);
             return dayCopy.getTimeInMillis();
         }
         return invokeI.longValue;
@@ -195,12 +195,12 @@ public final class Month implements Comparable<Month>, Parcelable {
     }
 
     @NonNull
-    public Month monthsLater(int i2) {
+    public Month monthsLater(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
             Calendar dayCopy = UtcDates.getDayCopy(this.firstOfMonth);
-            dayCopy.add(2, i2);
+            dayCopy.add(2, i);
             return new Month(dayCopy);
         }
         return (Month) invokeI.objValue;
@@ -219,9 +219,9 @@ public final class Month implements Comparable<Month>, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeInt(this.year);
             parcel.writeInt(this.month);
         }
@@ -236,13 +236,13 @@ public final class Month implements Comparable<Month>, Parcelable {
     }
 
     @NonNull
-    public static Month create(int i2, int i3) {
+    public static Month create(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
             Calendar utcCalendar = UtcDates.getUtcCalendar();
-            utcCalendar.set(1, i2);
-            utcCalendar.set(2, i3);
+            utcCalendar.set(1, i);
+            utcCalendar.set(2, i2);
             return new Month(utcCalendar);
         }
         return (Month) invokeII.objValue;

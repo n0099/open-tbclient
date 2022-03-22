@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,6 +27,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -57,13 +59,13 @@ public class CloudSettings implements INoProGuard, INetListener {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51402b;
+        public int f37859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f51403c;
+        public boolean f37860c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CloudSettings f51404d;
+        public final /* synthetic */ CloudSettings f37861d;
 
         public a(CloudSettings cloudSettings) {
             Interceptable interceptable = $ic;
@@ -72,31 +74,31 @@ public class CloudSettings implements INoProGuard, INetListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cloudSettings};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f51404d = cloudSettings;
-            this.f51402b = -1;
+            this.f37861d = cloudSettings;
+            this.f37859b = -1;
         }
 
-        public final void a(int i2) {
+        public final void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-                this.f51402b = i2;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i)));
+                this.f37859b = i;
             }
         }
 
-        public final void a(long j2) {
+        public final void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j2)));
-                this.a = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                Log.w(CloudSettings.LOG_TAG, "setNetTime ".concat(String.valueOf(j)));
+                this.a = j;
             }
         }
 
@@ -104,7 +106,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-                this.f51403c = z;
+                this.f37860c = z;
             }
         }
     }
@@ -130,9 +132,9 @@ public class CloudSettings implements INoProGuard, INetListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -142,15 +144,15 @@ public class CloudSettings implements INoProGuard, INetListener {
         this.mData = null;
     }
 
-    public static void addRawLogItem(StringBuilder sb, String str, long j2) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j2);
+            sb.append(j);
         }
     }
 
@@ -254,13 +256,13 @@ public class CloudSettings implements INoProGuard, INetListener {
                 if (decode == null) {
                     return;
                 }
-                sLastGetTime = reverseString(new String(decode, "utf-8"));
+                sLastGetTime = reverseString(new String(decode, IMAudioTransRequest.CHARSET));
                 b.b();
                 String str2 = ZeusInitConfigUtils.get("engineCloudSettingsData", (String) null);
                 if (str2 == null) {
                     Log.w(LOG_TAG, "restoreLastSentTimeFromCfg null");
                 } else {
-                    WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes("utf-8"), "utf-8"));
+                    WebSettingsGlobalBlink.setCloudSettings(new String(str2.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -277,7 +279,7 @@ public class CloudSettings implements INoProGuard, INetListener {
                 if (str == null) {
                     return;
                 }
-                WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes("utf-8"), "utf-8"));
+                WebSettingsGlobalBlink.setCloudSettings(new String(str.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -303,10 +305,10 @@ public class CloudSettings implements INoProGuard, INetListener {
                 sLastGetTime = refFormatNowDate;
                 byte[] encode = Base64.encode(reverseString(refFormatNowDate).getBytes(), 0);
                 if (encode != null) {
-                    String str = new String(encode, "utf-8");
+                    String str = new String(encode, IMAudioTransRequest.CHARSET);
                     b.b();
                     ZeusInitConfigUtils.set("engineCloudSettingsTime", str);
-                    ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, "utf-8"));
+                    ZeusInitConfigUtils.set("engineCloudSettingsData", new String(bArr, IMAudioTransRequest.CHARSET));
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -374,9 +376,9 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i) == null) {
             a aVar = new a(this);
             aVar.a(System.currentTimeMillis() - this.mStartTime);
             aVar.a(0);
@@ -388,13 +390,13 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i) == null) {
             if (this.mData == null) {
                 this.mData = new ByteArrayOutputStream();
             }
-            this.mData.write(bArr, 0, i2);
+            this.mData.write(bArr, 0, i);
         }
     }
 
@@ -407,26 +409,26 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i)) == null) {
             return false;
         }
         return invokeLLI.booleanValue;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i) == null) {
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i) == null) {
         }
     }
 
@@ -447,7 +449,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             }
             Map<String, String> map = this.mHeader;
             if (map != null) {
-                String str = map.get("Last-Modified");
+                String str = map.get(Headers.LAST_MODIFIED);
                 Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str)));
                 if (str != null) {
                     Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str)));
@@ -460,7 +462,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
             try {
                 byteArray = new RC4(WebSettingsGlobalBlink.getRc4SecrectKey()).decrypt(byteArray);
-                WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, "utf-8"));
+                WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, IMAudioTransRequest.CHARSET));
                 VideoCloudSetting.saveVideoSettingToCfg();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -488,9 +490,9 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i, i2) == null) {
         }
     }
 }

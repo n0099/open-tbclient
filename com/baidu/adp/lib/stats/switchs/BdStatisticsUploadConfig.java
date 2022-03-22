@@ -31,9 +31,9 @@ public class BdStatisticsUploadConfig implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,9 +62,9 @@ public class BdStatisticsUploadConfig implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -83,9 +83,9 @@ public class BdStatisticsUploadConfig implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,26 +94,26 @@ public class BdStatisticsUploadConfig implements Serializable {
         this.item = new HashMap<>();
     }
 
-    public int geUploadCycle(String str, int i2) {
+    public int geUploadCycle(String str, int i) {
         InterceptResult invokeLI;
         HashMap<String, BdStatistisUploadChilidItem> hashMap;
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
-            return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i2 : bdStatistisUploadChilidItem.uploadCycle;
+            return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i : bdStatistisUploadChilidItem.uploadCycle;
         }
         return invokeLI.intValue;
     }
 
-    public int getMaxAlertCount(String str, int i2) {
+    public int getMaxAlertCount(String str, int i) {
         InterceptResult invokeLI;
         HashMap<String, BdStatistisUploadChilidItem> hashMap;
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
             BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
-            return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i2 : bdStatistisUploadChilidItem.maxAlertCount;
+            return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i : bdStatistisUploadChilidItem.maxAlertCount;
         }
         return invokeLI.intValue;
     }

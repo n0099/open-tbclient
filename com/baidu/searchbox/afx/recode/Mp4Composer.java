@@ -3,6 +3,7 @@ package com.baidu.searchbox.afx.recode;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.afx.recode.Mp4ComposerEngine;
@@ -39,9 +40,9 @@ public class Mp4Composer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -141,22 +142,15 @@ public class Mp4Composer {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, mediaMetadataRetriever)) == null) {
             try {
                 mediaMetadataRetriever.extractMetadata(12);
-                Mp4Info mp4Info = new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
+                return new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());
+            } finally {
                 if (mediaMetadataRetriever != null) {
                     try {
                         mediaMetadataRetriever.release();
-                    } catch (RuntimeException unused) {
+                    } catch (RuntimeException e2) {
+                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e2);
                     }
                 }
-                return mp4Info;
-            } catch (Throwable th) {
-                if (mediaMetadataRetriever != null) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (RuntimeException unused2) {
-                    }
-                }
-                throw th;
             }
         }
         return (Mp4Info) invokeL.objValue;
@@ -201,9 +195,9 @@ public class Mp4Composer {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, listener, assetFileDescriptor, fileDescriptor, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -233,9 +227,9 @@ public class Mp4Composer {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;

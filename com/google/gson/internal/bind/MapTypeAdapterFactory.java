@@ -26,14 +26,14 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean complexMapKeySerialization;
     public final ConstructorConstructor constructorConstructor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mapTypeAdapterFactory, gson, type, typeAdapter, type2, typeAdapter2, objectConstructor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,7 +151,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 } else {
                     ArrayList arrayList = new ArrayList(map.size());
                     ArrayList arrayList2 = new ArrayList(map.size());
-                    int i2 = 0;
+                    int i = 0;
                     boolean z = false;
                     for (Map.Entry<K, V> entry2 : map.entrySet()) {
                         JsonElement jsonTree = this.keyTypeAdapter.toJsonTree(entry2.getKey());
@@ -162,22 +162,22 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     if (z) {
                         jsonWriter.beginArray();
                         int size = arrayList.size();
-                        while (i2 < size) {
+                        while (i < size) {
                             jsonWriter.beginArray();
-                            Streams.write((JsonElement) arrayList.get(i2), jsonWriter);
-                            this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i2));
+                            Streams.write((JsonElement) arrayList.get(i), jsonWriter);
+                            this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i));
                             jsonWriter.endArray();
-                            i2++;
+                            i++;
                         }
                         jsonWriter.endArray();
                         return;
                     }
                     jsonWriter.beginObject();
                     int size2 = arrayList.size();
-                    while (i2 < size2) {
-                        jsonWriter.name(keyToString((JsonElement) arrayList.get(i2)));
-                        this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i2));
-                        i2++;
+                    while (i < size2) {
+                        jsonWriter.name(keyToString((JsonElement) arrayList.get(i)));
+                        this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i));
+                        i++;
                     }
                     jsonWriter.endObject();
                 }
@@ -192,9 +192,9 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {constructorConstructor, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -22,9 +22,9 @@ public class ContextCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,38 +55,38 @@ public class ContextCompat {
         return invokeLL.intValue;
     }
 
-    public static final int getColor(Context context, int i2) {
+    public static final int getColor(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return ContextCompatApi23.getColor(context, i2);
+                return ContextCompatApi23.getColor(context, i);
             }
-            return context.getResources().getColor(i2);
+            return context.getResources().getColor(i);
         }
         return invokeLI.intValue;
     }
 
-    public static final ColorStateList getColorStateList(Context context, int i2) {
+    public static final ColorStateList getColorStateList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return ContextCompatApi23.getColorStateList(context, i2);
+                return ContextCompatApi23.getColorStateList(context, i);
             }
-            return context.getResources().getColorStateList(i2);
+            return context.getResources().getColorStateList(i);
         }
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static final Drawable getDrawable(Context context, int i2) {
+    public static final Drawable getDrawable(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return ContextCompatApi21.getDrawable(context, i2);
+                return ContextCompatApi21.getDrawable(context, i);
             }
-            return context.getResources().getDrawable(i2);
+            return context.getResources().getDrawable(i);
         }
         return (Drawable) invokeLI.objValue;
     }
@@ -98,8 +98,8 @@ public class ContextCompat {
             if (iArr == null || iArr.length < 1) {
                 return false;
             }
-            for (int i2 : iArr) {
-                if (i2 != 0) {
+            for (int i : iArr) {
+                if (i != 0) {
                     return false;
                 }
             }

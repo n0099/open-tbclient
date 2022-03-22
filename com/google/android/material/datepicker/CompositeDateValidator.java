@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CompositeDateValidator> CREATOR;
@@ -44,9 +44,9 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -67,10 +67,10 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public CompositeDateValidator[] newArray(int i2) {
+            public CompositeDateValidator[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new CompositeDateValidator[i2] : (CompositeDateValidator[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CompositeDateValidator[i] : (CompositeDateValidator[]) invokeI.objValue;
             }
         };
     }
@@ -114,12 +114,12 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
     }
 
     @Override // com.google.android.material.datepicker.CalendarConstraints.DateValidator
-    public boolean isValid(long j2) {
+    public boolean isValid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
             for (CalendarConstraints.DateValidator dateValidator : this.validators) {
-                if (dateValidator != null && !dateValidator.isValid(j2)) {
+                if (dateValidator != null && !dateValidator.isValid(j)) {
                     return false;
                 }
             }
@@ -129,9 +129,9 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeList(this.validators);
         }
     }
@@ -143,9 +143,9 @@ public final class CompositeDateValidator implements CalendarConstraints.DateVal
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

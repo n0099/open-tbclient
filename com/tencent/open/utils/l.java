@@ -30,6 +30,7 @@ import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.main.facesdk.BuildConfig;
 import com.baidu.sapi2.activity.ImageClipActivity;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,58 +57,58 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59169b = "";
+    public static String f43806b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59170c = "";
+    public static String f43807c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59171d = "";
+    public static String f43808d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f59172e = -1;
+    public static int f43809e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f59173f = "0123456789ABCDEF";
+    public static String f43810f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f59175b;
+        public long f43812b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f59176c;
+        public long f43813c;
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f59175b = i2;
+            this.f43812b = i;
             if (str != null) {
-                this.f59176c = str.length();
+                this.f43813c = str.length();
             }
         }
     }
@@ -127,12 +128,12 @@ public class l {
         }
     }
 
-    public static char a(int i2) {
+    public static char a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            int i3 = i2 & 15;
-            return (char) (i3 < 10 ? i3 + 48 : (i3 - 10) + 97);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i & 15;
+            return (char) (i2 < 10 ? i2 + 48 : (i2 - 10) + 97);
         }
         return invokeI.charValue;
     }
@@ -404,7 +405,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f59170c = d2;
+            f43807c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -464,7 +465,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f59169b;
+            return f43806b;
         }
         return (String) invokeLL.objValue;
     }
@@ -535,10 +536,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f59169b = str2;
+            f43806b = str2;
             a = str2.substring(0, str2.lastIndexOf(46));
-            f59171d = f59169b.substring(f59169b.lastIndexOf(46) + 1, f59169b.length());
-            f59172e = packageInfo.versionCode;
+            f43808d = f43806b.substring(f43806b.lastIndexOf(46) + 1, f43806b.length());
+            f43809e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -870,22 +871,22 @@ public class l {
             intent.setComponent(new ComponentName(str, str2));
             intent.setAction("android.intent.action.VIEW");
             intent.addFlags(1073741824);
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.setData(Uri.parse(str3));
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, String str, long j2, String str2) {
+    public static void a(Context context, String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, str, Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, str, Long.valueOf(j), str2}) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("appid_for_getting_config", str2);
             bundle.putString("strValue", str2);
             bundle.putString("nValue", str);
             bundle.putString("qver", Constants.SDK_VERSION);
-            if (j2 != 0) {
-                bundle.putLong("elt", j2);
+            if (j != 0) {
+                bundle.putLong("elt", j);
             }
             new Thread(context, bundle) { // from class: com.tencent.open.utils.l.1
                 public static /* synthetic */ Interceptable $ic;
@@ -893,7 +894,7 @@ public class l {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f59174b;
+                public final /* synthetic */ Bundle f43811b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -902,16 +903,16 @@ public class l {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context, bundle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.a = context;
-                    this.f59174b = bundle;
+                    this.f43811b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -919,7 +920,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f59174b);
+                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f43811b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }
@@ -971,10 +972,10 @@ public class l {
         return (String) invokeL.objValue;
     }
 
-    public static final String a(String str, int i2, String str2, String str3) {
+    public static final String a(String str, int i, String str2, String str3) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65545, null, str, i2, str2, str3)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65545, null, str, i, str2, str3)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -982,22 +983,22 @@ public class l {
                 str2 = "UTF-8";
             }
             try {
-                if (str.getBytes(str2).length <= i2) {
+                if (str.getBytes(str2).length <= i) {
                     return str;
                 }
+                int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                while (i3 < str.length()) {
-                    int i5 = i3 + 1;
-                    i4 += str.substring(i3, i5).getBytes(str2).length;
-                    if (i4 > i2) {
-                        String substring = str.substring(0, i3);
+                while (i2 < str.length()) {
+                    int i4 = i2 + 1;
+                    i3 += str.substring(i2, i4).getBytes(str2).length;
+                    if (i3 > i) {
+                        String substring = str.substring(0, i2);
                         if (TextUtils.isEmpty(str3)) {
                             return substring;
                         }
                         return substring + str3;
                     }
-                    i3 = i5;
+                    i2 = i4;
                 }
                 return str;
             } catch (Exception e2) {
@@ -1147,8 +1148,8 @@ public class l {
                     char[] charArray = str.toCharArray();
                     int length = bArr.length;
                     byte[] bArr2 = new byte[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        bArr2[i2] = (byte) (bArr[i2] ^ charArray[i2 % charArray.length]);
+                    for (int i = 0; i < length; i++) {
+                        bArr2[i] = (byte) (bArr[i] ^ charArray[i % charArray.length]);
                     }
                     return bArr2;
                 } catch (Throwable th) {

@@ -42,29 +42,29 @@ public class CollectionsKt__CollectionsJVMKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @InlineOnly
-    public static final int checkCountOverflow(int i2) {
-        if (i2 < 0) {
+    public static final int checkCountOverflow(int i) {
+        if (i < 0) {
             if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
             } else {
                 throw new ArithmeticException("Count overflow has happened.");
             }
         }
-        return i2;
+        return i;
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @InlineOnly
-    public static final int checkIndexOverflow(int i2) {
-        if (i2 < 0) {
+    public static final int checkIndexOverflow(int i) {
+        if (i < 0) {
             if (PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             } else {
                 throw new ArithmeticException("Index overflow has happened.");
             }
         }
-        return i2;
+        return i;
     }
 
     @InlineOnly
@@ -114,8 +114,8 @@ public class CollectionsKt__CollectionsJVMKt {
     @ExperimentalStdlibApi
     @InlineOnly
     @PublishedApi
-    public static final <E> List<E> buildListInternal(int i2, Function1<? super List<E>, Unit> function1) {
-        List createListBuilder = createListBuilder(i2);
+    public static final <E> List<E> buildListInternal(int i, Function1<? super List<E>, Unit> function1) {
+        List createListBuilder = createListBuilder(i);
         function1.invoke(createListBuilder);
         return build(createListBuilder);
     }
@@ -135,8 +135,8 @@ public class CollectionsKt__CollectionsJVMKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @ExperimentalStdlibApi
-    public static final <E> List<E> createListBuilder(int i2) {
-        return new ListBuilder(i2);
+    public static final <E> List<E> createListBuilder(int i) {
+        return new ListBuilder(i);
     }
 
     @SinceKotlin(version = "1.2")

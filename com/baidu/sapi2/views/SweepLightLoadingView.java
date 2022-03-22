@@ -27,13 +27,13 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f36829b;
+    public ImageView f28575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f36830c;
+    public ImageView f28576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f36831d;
+    public LinearLayout f28577d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SweepLightLoadingView(Context context) {
@@ -44,9 +44,9 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -59,16 +59,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_sdk_sweep_light_loading_view, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e2, (ViewGroup) this, true);
             this.a = inflate;
-            this.f36829b = (ImageView) inflate.findViewById(R.id.sapi_sdk_loading_logo);
-            this.f36830c = (ImageView) this.a.findViewById(R.id.sapi_sdk_sweep_iv);
-            this.f36831d = (LinearLayout) this.a.findViewById(R.id.sapi_sdk_sweep_light_loading_bg_layout);
+            this.f28575b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba8);
+            this.f28576c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091bcd);
+            this.f28577d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bce);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.f36831d.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_dark_mode_na_activity_color));
-                this.f36829b.setImageResource(R.drawable.sapi_sdk_sweep_light_logo_dark);
-                this.f36830c.setImageResource(R.drawable.sapi_sdk_sweep_light_dark);
-                this.a.findViewById(R.id.sapi_sdk_sweep_bg_view).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_sweep_loading_bg_dark));
+                this.f28577d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a6));
+                this.f28575b.setImageResource(R.drawable.obfuscated_res_0x7f081063);
+                this.f28576c.setImageResource(R.drawable.obfuscated_res_0x7f081061);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091bcc).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f3));
             }
         }
     }
@@ -76,7 +76,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f36830c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.sapi_sdk_sweep_light_trans));
+            this.f28576c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010c));
         }
     }
 
@@ -84,22 +84,22 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (imageView = this.f36830c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (imageView = this.f28576c) == null) {
             return;
         }
         imageView.clearAnimation();
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i == 0) {
                 b();
             } else {
                 c();
             }
-            super.setVisibility(i2);
+            super.setVisibility(i);
         }
     }
 
@@ -112,9 +112,9 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -126,17 +126,17 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SweepLightLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SweepLightLoadingView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

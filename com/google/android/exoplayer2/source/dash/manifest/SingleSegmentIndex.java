@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.dash.DashSegmentIndex;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SingleSegmentIndex implements DashSegmentIndex {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
             newInitContext.initArgs = r2;
             Object[] objArr = {rangedUri};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,10 +32,10 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public long getDurationUs(int i2, long j2) {
+    public long getDurationUs(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? j2 : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? j : invokeCommon.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
@@ -49,37 +49,37 @@ public final class SingleSegmentIndex implements DashSegmentIndex {
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public int getSegmentCount(long j2) {
+    public int getSegmentCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             return 1;
         }
         return invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public int getSegmentNum(long j2, long j3) {
+    public int getSegmentNum(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             return 0;
         }
         return invokeCommon.intValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public RangedUri getSegmentUrl(int i2) {
+    public RangedUri getSegmentUrl(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.uri : (RangedUri) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.uri : (RangedUri) invokeI.objValue;
     }
 
     @Override // com.google.android.exoplayer2.source.dash.DashSegmentIndex
-    public long getTimeUs(int i2) {
+    public long getTimeUs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;

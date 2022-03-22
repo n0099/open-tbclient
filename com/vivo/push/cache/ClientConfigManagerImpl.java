@@ -13,7 +13,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ClientConfigManagerImpl implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ClientConfigManager";
@@ -30,9 +30,9 @@ public class ClientConfigManagerImpl implements d {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -213,16 +213,16 @@ public class ClientConfigManagerImpl implements d {
     }
 
     @Override // com.vivo.push.cache.d
-    public boolean isInBlackList(long j2) {
+    public boolean isInBlackList(long j) {
         InterceptResult invokeJ;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
             String c2 = preparePushConfigSettings().c("BL");
             if (!TextUtils.isEmpty(c2)) {
                 for (String str : c2.split(",")) {
                     try {
-                        if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j2) {
+                        if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
                             return true;
                         }
                     } catch (NumberFormatException e2) {
@@ -235,9 +235,9 @@ public class ClientConfigManagerImpl implements d {
         return invokeJ.booleanValue;
     }
 
-    public boolean isDebug(int i2) {
+    public boolean isDebug(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? a.a(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? a.a(i) : invokeI.booleanValue;
     }
 }

@@ -21,9 +21,9 @@ public final class BarcodeValue {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,10 +32,10 @@ public final class BarcodeValue {
         this.values = new HashMap();
     }
 
-    public Integer getConfidence(int i2) {
+    public Integer getConfidence(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.values.get(Integer.valueOf(i2)) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.values.get(Integer.valueOf(i)) : (Integer) invokeI.objValue;
     }
 
     public int[] getValue() {
@@ -43,13 +43,13 @@ public final class BarcodeValue {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            int i2 = -1;
+            int i = -1;
             for (Map.Entry<Integer, Integer> entry : this.values.entrySet()) {
-                if (entry.getValue().intValue() > i2) {
-                    i2 = entry.getValue().intValue();
+                if (entry.getValue().intValue() > i) {
+                    i = entry.getValue().intValue();
                     arrayList.clear();
                     arrayList.add(entry.getKey());
-                } else if (entry.getValue().intValue() == i2) {
+                } else if (entry.getValue().intValue() == i) {
                     arrayList.add(entry.getKey());
                 }
             }
@@ -58,14 +58,14 @@ public final class BarcodeValue {
         return (int[]) invokeV.objValue;
     }
 
-    public void setValue(int i2) {
+    public void setValue(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Integer num = this.values.get(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Integer num = this.values.get(Integer.valueOf(i));
             if (num == null) {
                 num = 0;
             }
-            this.values.put(Integer.valueOf(i2), Integer.valueOf(num.intValue() + 1));
+            this.values.put(Integer.valueOf(i), Integer.valueOf(num.intValue() + 1));
         }
     }
 }

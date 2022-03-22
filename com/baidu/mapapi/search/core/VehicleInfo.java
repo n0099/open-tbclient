@@ -19,16 +19,16 @@ public class VehicleInfo implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34168b;
+    public int f26402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34169c;
+    public String f26403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34170d;
+    public int f26404d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34171e;
+    public int f26405e;
 
     static {
         InterceptResult invokeClinit;
@@ -51,9 +51,9 @@ public class VehicleInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,19 +67,19 @@ public class VehicleInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = parcel.readString();
-        this.f34168b = parcel.readInt();
-        this.f34169c = parcel.readString();
-        this.f34170d = parcel.readInt();
-        this.f34171e = parcel.readInt();
+        this.f26402b = parcel.readInt();
+        this.f26403c = parcel.readString();
+        this.f26404d = parcel.readInt();
+        this.f26405e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -95,19 +95,19 @@ public class VehicleInfo implements Parcelable {
     public int getPassStationNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34168b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26402b : invokeV.intValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34169c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26403c : (String) invokeV.objValue;
     }
 
     public int getTotalPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34171e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26405e : invokeV.intValue;
     }
 
     public String getUid() {
@@ -119,27 +119,27 @@ public class VehicleInfo implements Parcelable {
     public int getZonePrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34170d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26404d : invokeV.intValue;
     }
 
-    public void setPassStationNum(int i2) {
+    public void setPassStationNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f34168b = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f26402b = i;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f34169c = str;
+            this.f26403c = str;
         }
     }
 
-    public void setTotalPrice(int i2) {
+    public void setTotalPrice(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f34171e = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f26405e = i;
         }
     }
 
@@ -150,22 +150,22 @@ public class VehicleInfo implements Parcelable {
         }
     }
 
-    public void setZonePrice(int i2) {
+    public void setZonePrice(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f34170d = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.f26404d = i;
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeInt(this.f34168b);
-            parcel.writeString(this.f34169c);
-            parcel.writeInt(this.f34170d);
-            parcel.writeInt(this.f34171e);
+            parcel.writeInt(this.f26402b);
+            parcel.writeString(this.f26403c);
+            parcel.writeInt(this.f26404d);
+            parcel.writeInt(this.f26405e);
         }
     }
 }

@@ -34,9 +34,9 @@ public final class PermissionChecker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -64,11 +64,11 @@ public final class PermissionChecker {
         return invokeLLL.intValue;
     }
 
-    public static int checkPermission(@NonNull Context context, @NonNull String str, int i2, int i3, @Nullable String str2) {
+    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            if (context.checkPermission(str, i2, i3) == -1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (context.checkPermission(str, i, i2) == -1) {
                 return -1;
             }
             String permissionToOp = AppOpsManagerCompat.permissionToOp(str);
@@ -76,7 +76,7 @@ public final class PermissionChecker {
                 return 0;
             }
             if (str2 == null) {
-                String[] packagesForUid = context.getPackageManager().getPackagesForUid(i3);
+                String[] packagesForUid = context.getPackageManager().getPackagesForUid(i2);
                 if (packagesForUid == null || packagesForUid.length <= 0) {
                     return -1;
                 }

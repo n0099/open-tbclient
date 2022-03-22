@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import androidx.annotation.ColorRes;
@@ -49,9 +50,9 @@ public final class AppCompatResources {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {colorStateList, configuration};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,42 +86,42 @@ public final class AppCompatResources {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i2, @NonNull ColorStateList colorStateList) {
+    public static void addColorStateListToCache(@NonNull Context context, @ColorRes int i, @NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, context, i2, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65538, null, context, i, colorStateList) == null) {
             synchronized (sColorStateCacheLock) {
                 SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
                 if (sparseArray == null) {
                     sparseArray = new SparseArray<>();
                     sColorStateCaches.put(context, sparseArray);
                 }
-                sparseArray.append(i2, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
+                sparseArray.append(i, new ColorStateListCacheEntry(colorStateList, context.getResources().getConfiguration()));
             }
         }
     }
 
     @Nullable
-    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i2) {
+    public static ColorStateList getCachedColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         ColorStateListCacheEntry colorStateListCacheEntry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             synchronized (sColorStateCacheLock) {
                 SparseArray<ColorStateListCacheEntry> sparseArray = sColorStateCaches.get(context);
-                if (sparseArray != null && sparseArray.size() > 0 && (colorStateListCacheEntry = sparseArray.get(i2)) != null) {
+                if (sparseArray != null && sparseArray.size() > 0 && (colorStateListCacheEntry = sparseArray.get(i)) != null) {
                     if (colorStateListCacheEntry.configuration.equals(context.getResources().getConfiguration())) {
                         return colorStateListCacheEntry.value;
                     }
-                    sparseArray.remove(i2);
+                    sparseArray.remove(i);
                 }
                 return null;
             }
@@ -128,32 +129,32 @@ public final class AppCompatResources {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i2) {
+    public static ColorStateList getColorStateList(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return context.getColorStateList(i2);
+                return context.getColorStateList(i);
             }
-            ColorStateList cachedColorStateList = getCachedColorStateList(context, i2);
+            ColorStateList cachedColorStateList = getCachedColorStateList(context, i);
             if (cachedColorStateList != null) {
                 return cachedColorStateList;
             }
-            ColorStateList inflateColorStateList = inflateColorStateList(context, i2);
+            ColorStateList inflateColorStateList = inflateColorStateList(context, i);
             if (inflateColorStateList != null) {
-                addColorStateListToCache(context, i2, inflateColorStateList);
+                addColorStateListToCache(context, i, inflateColorStateList);
                 return inflateColorStateList;
             }
-            return ContextCompat.getColorStateList(context, i2);
+            return ContextCompat.getColorStateList(context, i);
         }
         return (ColorStateList) invokeLI.objValue;
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
+    public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? ResourceManagerInternal.get().getDrawable(context, i2) : (Drawable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) ? ResourceManagerInternal.get().getDrawable(context, i) : (Drawable) invokeLI.objValue;
     }
 
     @NonNull
@@ -173,32 +174,33 @@ public final class AppCompatResources {
     }
 
     @Nullable
-    public static ColorStateList inflateColorStateList(Context context, int i2) {
+    public static ColorStateList inflateColorStateList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i2)) == null) {
-            if (isColorInt(context, i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
+            if (isColorInt(context, i)) {
                 return null;
             }
             Resources resources = context.getResources();
             try {
-                return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i2), context.getTheme());
-            } catch (Exception unused) {
+                return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i), context.getTheme());
+            } catch (Exception e2) {
+                Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e2);
                 return null;
             }
         }
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public static boolean isColorInt(@NonNull Context context, @ColorRes int i2) {
+    public static boolean isColorInt(@NonNull Context context, @ColorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i)) == null) {
             Resources resources = context.getResources();
             TypedValue typedValue = getTypedValue();
-            resources.getValue(i2, typedValue, true);
-            int i3 = typedValue.type;
-            return i3 >= 28 && i3 <= 31;
+            resources.getValue(i, typedValue, true);
+            int i2 = typedValue.type;
+            return i2 >= 28 && i2 <= 31;
         }
         return invokeLI.booleanValue;
     }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -32,7 +32,7 @@ public class MediaCodecUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.MediaCodecUtils$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
@@ -92,9 +92,9 @@ public class MediaCodecUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -119,11 +119,11 @@ public class MediaCodecUtils {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, videoCodecType, z)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-            if (i2 == 1 || i2 == 2) {
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+            if (i == 1 || i == 2) {
                 return new HashMap();
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 return H264Utils.getDefaultH264Params(z);
             }
             throw new IllegalArgumentException("Unsupported codec: " + videoCodecType);
@@ -143,10 +143,10 @@ public class MediaCodecUtils {
         int[] iArr2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, codecCapabilities)) == null) {
-            for (int i2 : iArr) {
-                for (int i3 : codecCapabilities.colorFormats) {
-                    if (i3 == i2) {
-                        return Integer.valueOf(i3);
+            for (int i : iArr) {
+                for (int i2 : codecCapabilities.colorFormats) {
+                    if (i2 == i) {
+                        return Integer.valueOf(i2);
                     }
                 }
             }

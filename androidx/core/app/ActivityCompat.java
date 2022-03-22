@@ -42,20 +42,20 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr);
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     /* loaded from: classes.dex */
     public interface PermissionCompatDelegate {
-        boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i2, int i3, @Nullable Intent intent);
+        boolean onActivityResult(@NonNull Activity activity, @IntRange(from = 0) int i, int i2, @Nullable Intent intent);
 
-        boolean requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i2);
+        boolean requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface RequestPermissionsRequestCodeValidator {
-        void validateRequestPermissionsRequestCode(int i2);
+        void validateRequestPermissionsRequestCode(int i);
     }
 
     @RequiresApi(21)
@@ -72,9 +72,9 @@ public class ActivityCompat extends ContextCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sharedElementCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -147,9 +147,9 @@ public class ActivityCompat extends ContextCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, onSharedElementsReadyListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -176,9 +176,9 @@ public class ActivityCompat extends ContextCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -258,10 +258,10 @@ public class ActivityCompat extends ContextCompat {
     public static void recreate(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 28) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
                 activity.recreate();
-            } else if (i2 <= 23) {
+            } else if (i <= 23) {
                 new Handler(activity.getMainLooper()).post(new Runnable(activity) { // from class: androidx.core.app.ActivityCompat.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -274,9 +274,9 @@ public class ActivityCompat extends ContextCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {activity};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -308,18 +308,18 @@ public class ActivityCompat extends ContextCompat {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, activity, dragEvent)) == null) ? DragAndDropPermissionsCompat.request(activity, dragEvent) : (DragAndDropPermissionsCompat) invokeLL.objValue;
     }
 
-    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i2) {
+    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, @IntRange(from = 0) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, activity, strArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65545, null, activity, strArr, i) == null) {
             PermissionCompatDelegate permissionCompatDelegate = sDelegate;
-            if (permissionCompatDelegate == null || !permissionCompatDelegate.requestPermissions(activity, strArr, i2)) {
+            if (permissionCompatDelegate == null || !permissionCompatDelegate.requestPermissions(activity, strArr, i)) {
                 if (Build.VERSION.SDK_INT >= 23) {
                     if (activity instanceof RequestPermissionsRequestCodeValidator) {
-                        ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i2);
+                        ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i);
                     }
-                    activity.requestPermissions(strArr, i2);
+                    activity.requestPermissions(strArr, i);
                 } else if (activity instanceof OnRequestPermissionsResultCallback) {
-                    new Handler(Looper.getMainLooper()).post(new Runnable(strArr, activity, i2) { // from class: androidx.core.app.ActivityCompat.1
+                    new Handler(Looper.getMainLooper()).post(new Runnable(strArr, activity, i) { // from class: androidx.core.app.ActivityCompat.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Activity val$activity;
@@ -331,11 +331,11 @@ public class ActivityCompat extends ContextCompat {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {strArr, activity, Integer.valueOf(i2)};
+                                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -343,7 +343,7 @@ public class ActivityCompat extends ContextCompat {
                             }
                             this.val$permissions = strArr;
                             this.val$activity = activity;
-                            this.val$requestCode = i2;
+                            this.val$requestCode = i;
                         }
 
                         @Override // java.lang.Runnable
@@ -354,8 +354,8 @@ public class ActivityCompat extends ContextCompat {
                                 PackageManager packageManager = this.val$activity.getPackageManager();
                                 String packageName = this.val$activity.getPackageName();
                                 int length = this.val$permissions.length;
-                                for (int i3 = 0; i3 < length; i3++) {
-                                    iArr[i3] = packageManager.checkPermission(this.val$permissions[i3], packageName);
+                                for (int i2 = 0; i2 < length; i2++) {
+                                    iArr[i2] = packageManager.checkPermission(this.val$permissions[i2], packageName);
                                 }
                                 ((OnRequestPermissionsResultCallback) this.val$activity).onRequestPermissionsResult(this.val$requestCode, this.val$permissions, iArr);
                             }
@@ -367,14 +367,14 @@ public class ActivityCompat extends ContextCompat {
     }
 
     @NonNull
-    public static <T extends View> T requireViewById(@NonNull Activity activity, @IdRes int i2) {
+    public static <T extends View> T requireViewById(@NonNull Activity activity, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, activity, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, activity, i)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return (T) activity.requireViewById(i2);
+                return (T) activity.requireViewById(i);
             }
-            T t = (T) activity.findViewById(i2);
+            T t = (T) activity.findViewById(i);
             if (t != null) {
                 return t;
             }
@@ -418,24 +418,24 @@ public class ActivityCompat extends ContextCompat {
         return invokeLL.booleanValue;
     }
 
-    public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i2, @Nullable Bundle bundle) {
+    public static void startActivityForResult(@NonNull Activity activity, @NonNull Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65551, null, activity, intent, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65551, null, activity, intent, i, bundle) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                activity.startActivityForResult(intent, i2, bundle);
+                activity.startActivityForResult(intent, i, bundle);
             } else {
-                activity.startActivityForResult(intent, i2);
+                activity.startActivityForResult(intent, i);
             }
         }
     }
 
-    public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
+    public static void startIntentSenderForResult(@NonNull Activity activity, @NonNull IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                activity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
+                activity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
             } else {
-                activity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+                activity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
             }
         }
     }

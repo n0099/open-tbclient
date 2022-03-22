@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ParamableElem implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_PARAM = ";";
@@ -28,9 +28,9 @@ public class ParamableElem implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,8 +118,8 @@ public class ParamableElem implements Serializable {
             } else if (this.mParams.size() != strArr.length) {
                 return false;
             } else {
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    if (!strArr[i2].equals(this.mParams.get(i2))) {
+                for (int i = 0; i < strArr.length; i++) {
+                    if (!strArr[i].equals(this.mParams.get(i))) {
                         return false;
                     }
                 }

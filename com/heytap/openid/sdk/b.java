@@ -9,6 +9,7 @@ import android.content.pm.Signature;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,16 +28,16 @@ public class b {
     public volatile com.heytap.openid.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53516b;
+    public String f38727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53517c;
+    public String f38728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f53518d;
+    public final Object f38729d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f53519e;
+    public ServiceConnection f38730e;
 
     /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
@@ -51,9 +52,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,9 +67,9 @@ public class b {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.a.a = a.AbstractBinderC2074a.a(iBinder);
-                synchronized (this.a.f53518d) {
-                    this.a.f53518d.notify();
+                this.a.a = a.AbstractBinderC1935a.a(iBinder);
+                synchronized (this.a.f38729d) {
+                    this.a.f38729d.notify();
                 }
             }
         }
@@ -84,7 +85,7 @@ public class b {
 
     /* renamed from: com.heytap.openid.sdk.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2076b {
+    public static class C1937b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,19 +112,19 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f53516b = null;
-        this.f53517c = null;
-        this.f53518d = new Object();
-        this.f53519e = new a(this);
+        this.f38727b = null;
+        this.f38728c = null;
+        this.f38729d = new Object();
+        this.f38730e = new a(this);
     }
 
     public synchronized String a(Context context, String str) {
@@ -136,6 +137,7 @@ public class b {
                     try {
                         return b(context, str);
                     } catch (RemoteException unused) {
+                        Log.e("OpenIDHelper", "getOpenId removeException");
                         return "";
                     }
                 }
@@ -143,13 +145,16 @@ public class b {
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 try {
-                    if (context.bindService(intent, this.f53519e, 1) && this.a == null) {
-                        synchronized (this.f53518d) {
+                    if (!context.bindService(intent, this.f38730e, 1)) {
+                        Log.e("OpenIDHelper", "bindService fail.");
+                    } else if (this.a == null) {
+                        synchronized (this.f38729d) {
                             try {
                                 if (this.a == null) {
-                                    this.f53518d.wait(3000L);
+                                    this.f38729d.wait(3000L);
                                 }
                             } catch (InterruptedException unused2) {
+                                Log.e("OpenIDHelper", "ex:InterruptedException");
                             }
                         }
                     }
@@ -157,14 +162,16 @@ public class b {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ex:");
                     sb.append(e2.getMessage() != null ? e2.getMessage() : e2.getLocalizedMessage());
-                    sb.toString();
+                    Log.e("OpenIDHelper", sb.toString());
                 }
                 if (this.a == null) {
+                    Log.e("OpenIDHelper", "openIDService is NULL, return NULL");
                     return "";
                 }
                 try {
                     return b(context, str);
                 } catch (RemoteException unused3) {
+                    Log.e("OpenIDHelper", "getOpenId removeException");
                     return "";
                 }
             }
@@ -177,13 +184,13 @@ public class b {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f53516b)) {
-                this.f53516b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f38727b)) {
+                this.f38727b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f53517c)) {
+            if (TextUtils.isEmpty(this.f38728c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f53516b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f38727b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -204,13 +211,13 @@ public class b {
                         e3.printStackTrace();
                     }
                 }
-                this.f53517c = str2;
+                this.f38728c = str2;
             }
             if (this.a != null) {
-                String a2 = this.a.a(this.f53516b, this.f53517c, str);
+                String a2 = this.a.a(this.f38727b, this.f38728c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
-            String str3 = context.getPackageName() + ":openIDService is NULL, return NULL";
+            Log.e("OpenIDHelper", context.getPackageName() + ":openIDService is NULL, return NULL");
             return "";
         }
         return (String) invokeLL.objValue;

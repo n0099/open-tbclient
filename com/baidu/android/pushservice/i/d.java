@@ -17,7 +17,7 @@ public class d {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataInputStream f30895b;
+    public DataInputStream f24736b;
 
     public d(InputStream inputStream) {
         Interceptable interceptable = $ic;
@@ -26,31 +26,31 @@ public class d {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30895b = new DataInputStream(inputStream);
+        this.f24736b = new DataInputStream(inputStream);
         this.a = new byte[8];
     }
 
-    private int a(int i2) throws IOException {
+    private int a(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int i3 = 0;
-            while (i3 < i2) {
-                int read = this.f30895b.read(this.a, i3, i2 - i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int i2 = 0;
+            while (i2 < i) {
+                int read = this.f24736b.read(this.a, i2, i - i2);
                 if (read == -1) {
                     return read;
                 }
-                i3 += read;
+                i2 += read;
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -58,14 +58,14 @@ public class d {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30895b.close();
+            this.f24736b.close();
         }
     }
 
     public final void a(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            this.f30895b.readFully(bArr, 0, bArr.length);
+            this.f24736b.readFully(bArr, 0, bArr.length);
         }
     }
 

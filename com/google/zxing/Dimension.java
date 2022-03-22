@@ -13,24 +13,24 @@ public final class Dimension {
     public final int height;
     public final int width;
 
-    public Dimension(int i2, int i3) {
+    public Dimension(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i2 >= 0 && i3 >= 0) {
-            this.width = i2;
-            this.height = i3;
+        if (i >= 0 && i2 >= 0) {
+            this.width = i;
+            this.height = i2;
             return;
         }
         throw new IllegalArgumentException();

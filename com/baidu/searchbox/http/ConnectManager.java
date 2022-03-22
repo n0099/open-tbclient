@@ -54,9 +54,9 @@ public class ConnectManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -162,13 +162,13 @@ public class ConnectManager {
             if (length > 6) {
                 length = 6;
             }
-            for (int i2 = 0; i2 < length; i2++) {
-                if (!Character.isDigit(simOperator.charAt(i2))) {
+            for (int i = 0; i < length; i++) {
+                if (!Character.isDigit(simOperator.charAt(i))) {
                     if (sb.length() > 0) {
                         break;
                     }
                 } else {
-                    sb.append(simOperator.charAt(i2));
+                    sb.append(simOperator.charAt(i));
                 }
             }
             this.mSimOperatorCode = Integer.valueOf(sb.toString()).toString();

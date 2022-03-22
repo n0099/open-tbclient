@@ -71,22 +71,22 @@ public class SpeedStatsUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static JSONObject getJsonData(long j2, Map<String, String> map) {
+    public static JSONObject getJsonData(long j, Map<String, String> map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j2, map)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("duration", j2);
+                jSONObject.put("duration", j);
                 if (map != null && map.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
                     for (Map.Entry<String, String> entry : map.entrySet()) {

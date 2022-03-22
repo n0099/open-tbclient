@@ -27,16 +27,16 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
     public int mSuggestHeight;
     public int mSuggestWidth;
 
-    public SimpleLoaderProc(boolean z, boolean z2, boolean z3, int i2) {
+    public SimpleLoaderProc(boolean z, boolean z2, boolean z3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsFromCDN = z;
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
-        this.mProcType = i2;
+        this.mProcType = i;
         int k = n.k(TbadkCoreApplication.getInst());
-        int i5 = n.i(TbadkCoreApplication.getInst());
-        if (i2 == 13) {
+        int i4 = n.i(TbadkCoreApplication.getInst());
+        if (i == 13) {
             k = k <= 0 ? 200 : k;
             this.mSuggestWidth = k;
             if (k > 480) {
@@ -58,22 +58,22 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
                 this.mSuggestWidth = n.d(TbadkCoreApplication.getInst(), 320.0f);
             }
             this.mSuggestHeight = this.mSuggestWidth;
-        } else if (i2 == 17) {
+        } else if (i == 17) {
             int min = Math.min(n.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
-        } else if (i2 == 15) {
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds184);
+        } else if (i == 15) {
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025a);
             this.mSuggestHeight = dimensionPixelSize;
             this.mSuggestWidth = dimensionPixelSize;
-        } else if (i2 == 16) {
-            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.ds176);
+        } else if (i == 16) {
+            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070255);
             this.mSuggestHeight = dimensionPixelSize2;
             this.mSuggestWidth = dimensionPixelSize2;
-        } else if (i2 == 21) {
+        } else if (i == 21) {
             this.mSuggestHeight = 0;
             this.mSuggestWidth = 0;
-        } else if (i2 == 30) {
+        } else if (i == 30) {
             if (k <= 0 || k > 644) {
                 this.mSuggestWidth = 644;
             }
@@ -81,13 +81,13 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
                 this.mSuggestWidth = n.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
-        } else if (i2 == 46) {
-            int i6 = (k * 2) / 3;
-            this.mSuggestWidth = i6;
-            this.mSuggestHeight = (i6 * 4) / 3;
+        } else if (i == 46) {
+            int i5 = (k * 2) / 3;
+            this.mSuggestWidth = i5;
+            this.mSuggestHeight = (i5 * 4) / 3;
         } else {
             this.mSuggestWidth = k;
-            this.mSuggestHeight = i5;
+            this.mSuggestHeight = i4;
         }
     }
 
@@ -133,12 +133,12 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public Bitmap resizeBitmapSize(Bitmap bitmap, int i2, int i3) {
+    public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bitmap, i2, i3)) == null) {
-            int i4 = this.mProcType;
-            return (i4 == 13 || i4 == 17) ? bitmap : super.resizeBitmapSize(bitmap, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bitmap, i, i2)) == null) {
+            int i3 = this.mProcType;
+            return (i3 == 13 || i3 == 17) ? bitmap : super.resizeBitmapSize(bitmap, i, i2);
         }
         return (Bitmap) invokeLII.objValue;
     }

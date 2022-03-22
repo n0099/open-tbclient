@@ -17,12 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MaxHeightScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f36446e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f36447f;
+    /* renamed from: b  reason: collision with root package name */
+    public float f28236b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -33,9 +31,9 @@ public class MaxHeightScrollView extends ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,7 +48,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f2) - resources.getDimensionPixelSize(R.dimen.title_height)) - resources.getDimensionPixelSize(R.dimen.confirm_pay_button_height)) - resources.getDimensionPixelSize(R.dimen.confirm_pay_button_ver_margin);
+            return (((resources.getDisplayMetrics().heightPixels * f2) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07093a)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d9);
         }
         return invokeF.floatValue;
     }
@@ -58,30 +56,30 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.maxHeight, R.attr.maxHeightRatio, R.attr.minHeightRatio});
-            this.f36446e = obtainStyledAttributes.getFloat(1, -1.0f);
-            this.f36447f = obtainStyledAttributes.getFloat(2, -1.0f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f04041c, R.attr.obfuscated_res_0x7f04042c});
+            this.a = obtainStyledAttributes.getFloat(1, -1.0f);
+            this.f28236b = obtainStyledAttributes.getFloat(2, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (this.f36446e > 0.0f || this.f36447f > 0.0f) {
-                int size = View.MeasureSpec.getSize(i3);
-                float f2 = this.f36446e;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (this.a > 0.0f || this.f28236b > 0.0f) {
+                int size = View.MeasureSpec.getSize(i2);
+                float f2 = this.a;
                 if (f2 > 0.0f) {
                     size = (int) Math.min(a(f2), size);
                 }
-                float f3 = this.f36447f;
+                float f3 = this.f28236b;
                 if (f3 > 0.0f) {
                     size = (int) Math.max(a(f3), size);
                 }
-                i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
+                i2 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
@@ -94,9 +92,9 @@ public class MaxHeightScrollView extends ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -107,17 +105,17 @@ public class MaxHeightScrollView extends ScrollView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaxHeightScrollView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MaxHeightScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

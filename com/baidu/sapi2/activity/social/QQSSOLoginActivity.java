@@ -22,9 +22,9 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,21 +35,21 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (((BaseSSOLoginActivity) this).f36709f) {
+            if (((BaseSSOLoginActivity) this).f28474f) {
                 b(3001);
                 finish();
                 return;
             }
-            a(((BaseSSOLoginActivity) this).f36710g);
+            a(((BaseSSOLoginActivity) this).f28475g);
         }
     }
 
     @Override // com.baidu.sapi2.activity.social.QQOauthLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (((BaseSSOLoginActivity) this).f36709f && i2 == 11101 && i3 == 0) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (((BaseSSOLoginActivity) this).f28474f && i == 11101 && i2 == 0) {
                 b(3001);
                 finish();
             }
@@ -73,7 +73,7 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (((BaseSSOLoginActivity) this).f36709f) {
+            if (((BaseSSOLoginActivity) this).f28474f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, str);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);

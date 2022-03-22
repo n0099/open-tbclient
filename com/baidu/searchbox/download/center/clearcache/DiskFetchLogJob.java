@@ -1,5 +1,6 @@
 package com.baidu.searchbox.download.center.clearcache;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.config.AppConfig;
@@ -50,9 +51,9 @@ public class DiskFetchLogJob extends IFetchJob {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,7 +68,7 @@ public class DiskFetchLogJob extends IFetchJob {
             return;
         }
         if (DEBUG) {
-            String str = "data " + jSONObject;
+            Log.i(TAG, "data " + jSONObject);
         }
         if (parseJsonContent.getSpace() != null) {
             if (parseJsonContent.getSpace().contains(DISK_MARK_CMD)) {

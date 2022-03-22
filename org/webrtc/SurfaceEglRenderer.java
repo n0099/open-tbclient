@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceEglRenderer";
@@ -32,9 +32,9 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -136,11 +136,11 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048582, this, surfaceHolder, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048582, this, surfaceHolder, i, i2, i3) == null) {
             ThreadUtils.checkIsOnMainThread();
-            logD("surfaceChanged: format: " + i2 + " size: " + i3 + "x" + i4);
+            logD("surfaceChanged: format: " + i + " size: " + i2 + "x" + i3);
         }
     }
 
@@ -160,7 +160,7 @@ public class SurfaceEglRenderer extends EglRenderer implements SurfaceHolder.Cal
             ThreadUtils.checkIsOnMainThread();
             final CountDownLatch countDownLatch = new CountDownLatch(1);
             countDownLatch.getClass();
-            releaseEglSurface(new Runnable() { // from class: h.c.a
+            releaseEglSurface(new Runnable() { // from class: f.c.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

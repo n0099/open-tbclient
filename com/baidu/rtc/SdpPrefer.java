@@ -1,5 +1,6 @@
 package com.baidu.rtc;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,9 +38,9 @@ public class SdpPrefer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,9 +61,9 @@ public class SdpPrefer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -74,9 +75,9 @@ public class SdpPrefer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65537, null, z, strArr)) == null) {
             String str = z ? "m=audio " : "m=video ";
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                if (strArr[i2].startsWith(str)) {
-                    return i2;
+            for (int i = 0; i < strArr.length; i++) {
+                if (strArr[i].startsWith(str)) {
+                    return i;
                 }
             }
             return -1;
@@ -99,9 +100,9 @@ public class SdpPrefer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             String[] split = str.split("\r\n");
-            for (int i2 = 0; i2 < split.length; i2++) {
-                if (split[i2].contains("a=candidate:")) {
-                    String handleCandidate = handleCandidate(split[i2]);
+            for (int i = 0; i < split.length; i++) {
+                if (split[i].contains("a=candidate:")) {
+                    String handleCandidate = handleCandidate(split[i]);
                     return handleCandidate == null ? "" : handleCandidate;
                 }
             }
@@ -118,56 +119,63 @@ public class SdpPrefer {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, audioSdpAttribute)) == null) {
             String[] split = str2.split("\r\n");
             Pattern compile = Pattern.compile("^a=rtpmap:(\\d+) " + str + "(/\\d+)+[\r]?$");
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= split.length) {
-                    i2 = -1;
+                if (i >= split.length) {
+                    i = -1;
                     str3 = null;
                     break;
                 }
-                Matcher matcher = compile.matcher(split[i2]);
+                Matcher matcher = compile.matcher(split[i]);
                 if (matcher.matches()) {
                     str3 = matcher.group(1);
                     break;
                 }
-                i2++;
+                i++;
             }
             if (str3 == null) {
-                String str4 = "No rtpmap for " + str + " codec";
+                Log.w(TAG, "No rtpmap for " + str + " codec");
                 return str2;
             }
-            String str5 = "Found " + str + " rtpmap " + str3 + " at " + split[i2];
-            Pattern compile2 = Pattern.compile("^a=fmtp:" + str3 + " \\w+=\\d+.*[\r]?$");
-            int i3 = 0;
+            Log.d(TAG, "Found " + str + " rtpmap " + str3 + " at " + split[i]);
+            StringBuilder sb = new StringBuilder();
+            sb.append("^a=fmtp:");
+            sb.append(str3);
+            sb.append(" \\w+=\\d+.*[\r]?$");
+            Pattern compile2 = Pattern.compile(sb.toString());
+            int i2 = 0;
             while (true) {
-                if (i3 >= split.length) {
+                if (i2 >= split.length) {
                     z = false;
                     break;
-                } else if (compile2.matcher(split[i3]).matches()) {
-                    String str6 = "Found " + str + " " + split[i3];
-                    split[i3] = setAudioFmptParam(split[i3], audioSdpAttribute, false);
-                    String str7 = "Update remote SDP line: " + split[i3];
+                } else if (compile2.matcher(split[i2]).matches()) {
+                    Log.d(TAG, "Found " + str + " " + split[i2]);
+                    split[i2] = setAudioFmptParam(split[i2], audioSdpAttribute, false);
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("Update remote SDP line: ");
+                    sb2.append(split[i2]);
+                    Log.d(TAG, sb2.toString());
                     z = true;
                     break;
                 } else {
-                    i3++;
+                    i2++;
                 }
             }
-            StringBuilder sb = new StringBuilder();
-            for (int i4 = 0; i4 < split.length; i4++) {
-                sb.append(split[i4]);
-                sb.append("\r\n");
-                if (!z && i4 == i2) {
+            StringBuilder sb3 = new StringBuilder();
+            for (int i3 = 0; i3 < split.length; i3++) {
+                sb3.append(split[i3]);
+                sb3.append("\r\n");
+                if (!z && i3 == i) {
                     String audioFmptParam = setAudioFmptParam("a=fmtp:" + str3 + " ", audioSdpAttribute, true);
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("Add local SDP line: ");
-                    sb2.append(audioFmptParam);
-                    sb2.toString();
-                    sb.append(audioFmptParam);
-                    sb.append("\r\n");
+                    StringBuilder sb4 = new StringBuilder();
+                    sb4.append("Add local SDP line: ");
+                    sb4.append(audioFmptParam);
+                    Log.d(TAG, sb4.toString());
+                    sb3.append(audioFmptParam);
+                    sb3.append("\r\n");
                 }
             }
-            return sb.toString();
+            return sb3.toString();
         }
         return (String) invokeLLL.objValue;
     }

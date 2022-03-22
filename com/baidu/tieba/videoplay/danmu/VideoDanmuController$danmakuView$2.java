@@ -26,9 +26,9 @@ public final class VideoDanmuController$danmakuView$2 extends Lambda implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {videoDanmuController};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,12 +44,12 @@ public final class VideoDanmuController$danmakuView$2 extends Lambda implements 
     public final DanmakuView invoke() {
         InterceptResult invokeV;
         View view;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            view = this.this$0.f47470c;
-            i2 = this.this$0.f47471d;
-            return (DanmakuView) view.findViewById(i2);
+            view = this.this$0.f36678c;
+            i = this.this$0.f36679d;
+            return (DanmakuView) view.findViewById(i);
         }
         return (DanmakuView) invokeV.objValue;
     }

@@ -19,30 +19,30 @@ public class j {
         return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences("push_client_self_info", 4).getLong("token_save_time", System.currentTimeMillis()) : invokeL.longValue;
     }
 
-    public static synchronized void a(Context context, int i2, String str) {
+    public static synchronized void a(Context context, int i, String str) {
         SharedPreferences.Editor edit;
         SharedPreferences.Editor putString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
             synchronized (j.class) {
                 try {
                     SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
-                    int i3 = 5;
+                    int i2 = 5;
                     do {
                         edit = sharedPreferences.edit();
-                        i3--;
+                        i2--;
                         if (edit != null) {
                             break;
                         }
-                    } while (i3 > 0);
+                    } while (i2 > 0);
                     if (edit != null) {
-                        if (i2 == 5) {
+                        if (i == 5) {
                             putString = edit.putString("bd_use_huawei_token", str);
-                        } else if (i2 == 6) {
+                        } else if (i == 6) {
                             putString = edit.putString("bd_use_xiaomi_regid", str);
-                        } else if (i2 == 7) {
+                        } else if (i == 7) {
                             putString = edit.putString("bd_use_meizu_pushid", str);
-                        } else if (i2 != 9) {
+                        } else if (i != 9) {
                             edit.putLong("token_save_time", System.currentTimeMillis()).commit();
                         } else {
                             putString = edit.putString("bd_use_vivo_regid", str);
@@ -63,14 +63,14 @@ public class j {
         if (interceptable == null || interceptable.invokeLLZ(65538, null, context, str, z) == null) {
             try {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
-                int i2 = 2;
+                int i = 2;
                 do {
                     edit = sharedPreferences.edit();
-                    i2--;
+                    i--;
                     if (edit != null) {
                         break;
                     }
-                } while (i2 > 0);
+                } while (i > 0);
                 if (edit != null) {
                     edit.putBoolean(str, z).commit();
                 }

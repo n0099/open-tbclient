@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$filterIndexed$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1, 2, 2, 2}, l = {774, 775, 775}, m = "invokeSuspend", n = {"$this$produce", "index", "$this$produce", "index", "e", "$this$produce", "index", "e"}, s = {"L$0", "I$0", "L$0", "I$0", "L$1", "L$0", "I$0", "L$1"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function3 $predicate;
     public final /* synthetic */ ReceiveChannel $this_filterIndexed;
@@ -56,34 +56,34 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
         ChannelIterator it;
-        int i2;
+        int i;
         ChannelIterator channelIterator;
         Object obj2;
         ChannelsKt__Channels_commonKt$filterIndexed$1 channelsKt__Channels_commonKt$filterIndexed$1;
         ChannelsKt__Channels_commonKt$filterIndexed$1 channelsKt__Channels_commonKt$filterIndexed$12;
         ProducerScope producerScope2;
-        int i3;
+        int i2;
         Object hasNext;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i4 = this.label;
-        if (i4 == 0) {
+        int i3 = this.label;
+        if (i3 == 0) {
             ResultKt.throwOnFailure(obj);
             producerScope = this.p$;
             it = this.$this_filterIndexed.iterator();
-            i2 = 0;
-        } else if (i4 == 1) {
-            int i5 = this.I$0;
+            i = 0;
+        } else if (i3 == 1) {
+            int i4 = this.I$0;
             ResultKt.throwOnFailure(obj);
             producerScope2 = (ProducerScope) this.L$0;
-            i3 = i5;
+            i2 = i4;
             channelIterator = (ChannelIterator) this.L$1;
             obj2 = coroutine_suspended;
             channelsKt__Channels_commonKt$filterIndexed$1 = this;
             if (!((Boolean) obj).booleanValue()) {
             }
-        } else if (i4 == 2) {
+        } else if (i3 == 2) {
             Object obj3 = this.L$1;
-            int i6 = this.I$0;
+            int i5 = this.I$0;
             ResultKt.throwOnFailure(obj);
             ProducerScope producerScope3 = (ProducerScope) this.L$0;
             Object obj4 = obj3;
@@ -92,7 +92,7 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
             channelsKt__Channels_commonKt$filterIndexed$1 = this;
             if (((Boolean) obj).booleanValue()) {
                 channelsKt__Channels_commonKt$filterIndexed$1.L$0 = producerScope3;
-                channelsKt__Channels_commonKt$filterIndexed$1.I$0 = i6;
+                channelsKt__Channels_commonKt$filterIndexed$1.I$0 = i5;
                 channelsKt__Channels_commonKt$filterIndexed$1.L$1 = obj4;
                 channelsKt__Channels_commonKt$filterIndexed$1.L$2 = channelIterator;
                 channelsKt__Channels_commonKt$filterIndexed$1.label = 3;
@@ -103,10 +103,10 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
             channelsKt__Channels_commonKt$filterIndexed$12 = channelsKt__Channels_commonKt$filterIndexed$1;
             coroutine_suspended = obj2;
             it = channelIterator;
-            i2 = i6;
+            i = i5;
             producerScope = producerScope3;
             channelsKt__Channels_commonKt$filterIndexed$12.L$0 = producerScope;
-            channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i2;
+            channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i;
             channelsKt__Channels_commonKt$filterIndexed$12.L$1 = it;
             channelsKt__Channels_commonKt$filterIndexed$12.label = 1;
             hasNext = it.hasNext(channelsKt__Channels_commonKt$filterIndexed$12);
@@ -117,16 +117,16 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
             channelsKt__Channels_commonKt$filterIndexed$1 = channelsKt__Channels_commonKt$filterIndexed$12;
             obj = hasNext;
             producerScope2 = producerScope;
-            i3 = i2;
+            i2 = i;
             channelIterator = it;
             obj2 = obj5;
             if (!((Boolean) obj).booleanValue()) {
                 Object next = channelIterator.next();
                 Function3 function3 = channelsKt__Channels_commonKt$filterIndexed$1.$predicate;
-                Integer boxInt = Boxing.boxInt(i3);
-                i6 = i3 + 1;
+                Integer boxInt = Boxing.boxInt(i2);
+                i5 = i2 + 1;
                 channelsKt__Channels_commonKt$filterIndexed$1.L$0 = producerScope2;
-                channelsKt__Channels_commonKt$filterIndexed$1.I$0 = i6;
+                channelsKt__Channels_commonKt$filterIndexed$1.I$0 = i5;
                 channelsKt__Channels_commonKt$filterIndexed$1.L$1 = next;
                 channelsKt__Channels_commonKt$filterIndexed$1.L$2 = channelIterator;
                 channelsKt__Channels_commonKt$filterIndexed$1.label = 2;
@@ -143,10 +143,10 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
                 channelsKt__Channels_commonKt$filterIndexed$12 = channelsKt__Channels_commonKt$filterIndexed$1;
                 coroutine_suspended = obj2;
                 it = channelIterator;
-                i2 = i6;
+                i = i5;
                 producerScope = producerScope3;
                 channelsKt__Channels_commonKt$filterIndexed$12.L$0 = producerScope;
-                channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i2;
+                channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i;
                 channelsKt__Channels_commonKt$filterIndexed$12.L$1 = it;
                 channelsKt__Channels_commonKt$filterIndexed$12.label = 1;
                 hasNext = it.hasNext(channelsKt__Channels_commonKt$filterIndexed$12);
@@ -155,17 +155,17 @@ public final class ChannelsKt__Channels_commonKt$filterIndexed$1 extends Suspend
             } else {
                 return Unit.INSTANCE;
             }
-        } else if (i4 != 3) {
+        } else if (i3 != 3) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             it = (ChannelIterator) this.L$2;
-            i2 = this.I$0;
+            i = this.I$0;
             producerScope = (ProducerScope) this.L$0;
             ResultKt.throwOnFailure(obj);
         }
         channelsKt__Channels_commonKt$filterIndexed$12 = this;
         channelsKt__Channels_commonKt$filterIndexed$12.L$0 = producerScope;
-        channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i2;
+        channelsKt__Channels_commonKt$filterIndexed$12.I$0 = i;
         channelsKt__Channels_commonKt$filterIndexed$12.L$1 = it;
         channelsKt__Channels_commonKt$filterIndexed$12.label = 1;
         hasNext = it.hasNext(channelsKt__Channels_commonKt$filterIndexed$12);

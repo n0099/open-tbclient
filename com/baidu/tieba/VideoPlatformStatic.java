@@ -3,9 +3,9 @@ package com.baidu.tieba;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.g4.e;
-import c.a.r0.j2.k;
-import c.a.r0.j2.l;
+import c.a.p0.i4.e;
+import c.a.p0.l2.k;
+import c.a.p0.l2.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -41,17 +41,17 @@ public class VideoPlatformStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -66,7 +66,7 @@ public class VideoPlatformStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 e.h().o();
-                c.a.r0.g4.b.d().k();
+                c.a.p0.i4.b.d().k();
             }
         }
     }
@@ -81,9 +81,9 @@ public class VideoPlatformStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -123,9 +123,9 @@ public class VideoPlatformStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -138,13 +138,13 @@ public class VideoPlatformStatic {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, "12") ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, "10") ? "floor10" : TextUtils.equals(str, "11") ? "floor15" : TextUtils.equals(str, "13") ? "auto_midpage" : str : (String) invokeL.objValue;
     }
 
-    public static int b(int i2) {
+    public static int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != -400) {
-                if (i2 != -200) {
-                    return i2 != -100 ? 3 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != -400) {
+                if (i != -200) {
+                    return i != -100 ? 3 : 2;
                 }
                 return 1;
             }
@@ -211,27 +211,27 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String g(int i2) {
+    public static String g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e97);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_not_do);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e96);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_failed);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e93);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_abort);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e92);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_too_slow);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e98);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_file_not_exists);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e94);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_filename_not_exists);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e95);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.error_not_record) + i2;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0590) + i;
             }
         }
         return (String) invokeI.objValue;

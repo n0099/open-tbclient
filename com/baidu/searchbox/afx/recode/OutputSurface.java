@@ -31,16 +31,16 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public SurfaceTexture mSurfaceTexture;
     public TextureRender mTextureRender;
 
-    public OutputSurface(int i2, int i3) {
+    public OutputSurface(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -50,8 +50,8 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         this.mEGLContext = EGL14.EGL_NO_CONTEXT;
         this.mEGLSurface = EGL14.EGL_NO_SURFACE;
         this.mFrameSyncObject = new Object();
-        if (i2 > 0 && i3 > 0) {
-            eglSetup(i2, i3);
+        if (i > 0 && i2 > 0) {
+            eglSetup(i, i2);
             makeCurrent();
             setup();
             return;
@@ -68,9 +68,9 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
     }
 
-    private void eglSetup(int i2, int i3) {
+    private void eglSetup(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
             EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
             this.mEGLDisplay = eglGetDisplay;
             if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
@@ -84,7 +84,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
                     this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                     checkEglError("eglCreateContext");
                     if (this.mEGLContext != null) {
-                        this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, 12344}, 0);
+                        this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i, 12374, i2, 12344}, 0);
                         checkEglError("eglCreatePbufferSurface");
                         if (this.mEGLSurface == null) {
                             throw new RuntimeException("surface was null");
@@ -140,15 +140,15 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public boolean checkForNewImage(int i2) {
+    public boolean checkForNewImage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             synchronized (this.mFrameSyncObject) {
                 do {
                     if (!this.mFrameAvailable) {
                         try {
-                            this.mFrameSyncObject.wait(i2);
+                            this.mFrameSyncObject.wait(i);
                         } catch (InterruptedException e2) {
                             throw new RuntimeException(e2);
                         }
@@ -229,9 +229,9 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

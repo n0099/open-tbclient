@@ -4,7 +4,7 @@ import android.view.View;
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
     void destroy();
 
@@ -22,13 +22,13 @@ public interface NativeExpressADData2 extends ApkDownloadComplianceInterface {
 
     void render();
 
-    void sendLossNotification(int i2, int i3, String str);
+    void sendLossNotification(int i, int i2, String str);
 
-    void sendWinNotification(int i2);
+    void sendWinNotification(int i);
 
     void setAdEventListener(AdEventListener adEventListener);
 
-    void setBidECPM(int i2);
+    void setBidECPM(int i);
 
     void setMediaListener(MediaEventListener mediaEventListener);
 }

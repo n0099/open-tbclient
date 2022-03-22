@@ -41,18 +41,18 @@ public class ShareCallPacking {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void onFailed(int i2, String str) {
+        public void onFailed(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             }
         }
 
@@ -78,9 +78,9 @@ public class ShareCallPacking {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -93,19 +93,19 @@ public class ShareCallPacking {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void asyncMarkLoginState(int i2) {
+    public void asyncMarkLoginState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new Runnable(this, i2) { // from class: com.baidu.sapi2.share.ShareCallPacking.1
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ThreadPoolService.getInstance().run(new TPRunnable(new Runnable(this, i) { // from class: com.baidu.sapi2.share.ShareCallPacking.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ShareCallPacking this$0;
@@ -116,18 +116,18 @@ public class ShareCallPacking {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$shareEvent = i2;
+                    this.val$shareEvent = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -147,10 +147,10 @@ public class ShareCallPacking {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? ShareUtils.checkCalleeIdentity(context, str) : invokeLL.booleanValue;
     }
 
-    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i2, int i3, Intent intent, List<PassNameValuePair> list, String str) {
+    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, List<PassNameValuePair> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareLoginCallBack, Integer.valueOf(i2), Integer.valueOf(i3), intent, list, str}) == null) {
-            ShareUtils.onLoginActivityActivityResult(shareLoginCallBack, i2, i3, intent, this, list, str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareLoginCallBack, Integer.valueOf(i), Integer.valueOf(i2), intent, list, str}) == null) {
+            ShareUtils.onLoginActivityActivityResult(shareLoginCallBack, i, i2, intent, this, list, str);
         }
     }
 
@@ -161,10 +161,10 @@ public class ShareCallPacking {
         }
     }
 
-    public void syncMarkLoginState(int i2) {
+    public void syncMarkLoginState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            new ShareStorage().syncSet(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            new ShareStorage().syncSet(i);
             ShareUtils.setShareStorageModel();
         }
     }

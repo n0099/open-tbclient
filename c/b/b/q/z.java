@@ -13,10 +13,10 @@ public abstract class z<T> {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27681b;
+    public int f22885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.q.a<T> f27682c;
+    public final c.b.b.q.a<T> f22886c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -30,9 +30,9 @@ public abstract class z<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -48,16 +48,16 @@ public abstract class z<T> {
         }
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                c.b.b.q.a<T> aVar = this.f27682c;
-                if (aVar.f27499f < this.a) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                c.b.b.q.a<T> aVar = this.f22886c;
+                if (aVar.f22717b < this.a) {
                     aVar.a(d());
                 }
             }
-            this.f27681b = Math.max(this.f27681b, this.f27682c.f27499f);
+            this.f22885b = Math.max(this.f22885b, this.f22886c.f22717b);
         }
     }
 
@@ -65,10 +65,10 @@ public abstract class z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
             if (t != null) {
-                c.b.b.q.a<T> aVar = this.f27682c;
-                if (aVar.f27499f < this.a) {
+                c.b.b.q.a<T> aVar = this.f22886c;
+                if (aVar.f22717b < this.a) {
                     aVar.a(t);
-                    this.f27681b = Math.max(this.f27681b, this.f27682c.f27499f);
+                    this.f22885b = Math.max(this.f22885b, this.f22886c.f22717b);
                     f(t);
                     return;
                 }
@@ -85,8 +85,8 @@ public abstract class z<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.b.b.q.a<T> aVar = this.f27682c;
-            return aVar.f27499f == 0 ? d() : aVar.pop();
+            c.b.b.q.a<T> aVar = this.f22886c;
+            return aVar.f22717b == 0 ? d() : aVar.pop();
         }
         return (T) invokeV.objValue;
     }
@@ -98,22 +98,22 @@ public abstract class z<T> {
         }
     }
 
-    public z(int i2, int i3) {
+    public z(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27682c = new c.b.b.q.a<>(false, i2);
-        this.a = i3;
+        this.f22886c = new c.b.b.q.a<>(false, i);
+        this.a = i2;
     }
 }

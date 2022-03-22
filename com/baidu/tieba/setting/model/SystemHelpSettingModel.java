@@ -23,30 +23,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f46390e;
+    /* renamed from: b  reason: collision with root package name */
+    public c f35884b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public c f46391f;
+    /* renamed from: c  reason: collision with root package name */
+    public Context f35885c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Context f46392g;
+    /* renamed from: d  reason: collision with root package name */
+    public BaseActivity.LoadDataCallBack f35886d;
 
-    /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f46393h;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +57,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {systemHelpSettingModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,7 +79,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                c.a.q0.r.m0.b.b.a();
+                c.a.o0.r.m0.b.b.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -102,15 +100,15 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.a.f46390e = null;
-                if (this.a.f46393h != null) {
-                    this.a.f46393h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+                this.a.a = null;
+                if (this.a.f35886d != null) {
+                    this.a.f35886d.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +121,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {systemHelpSettingModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,7 +155,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f2 = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.a.f46392g.getString(R.string.mebibyte);
+                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.a.f35885c.getString(R.string.obfuscated_res_0x7f0f0a98);
                 }
                 return "";
             }
@@ -170,9 +168,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.a.f46391f = null;
-                if (this.a.f46393h != null) {
-                    this.a.f46393h.callback(MoreModel.TaskType.GET_SIZE, str);
+                this.a.f35884b = null;
+                if (this.a.f35886d != null) {
+                    this.a.f35886d.callback(MoreModel.TaskType.GET_SIZE, str);
                 }
             }
         }
@@ -187,32 +185,32 @@ public class SystemHelpSettingModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {systemHelpSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46390e = null;
-        this.f46391f = null;
-        this.f46392g = null;
-        this.f46393h = null;
-        this.f46392g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.a = null;
+        this.f35884b = null;
+        this.f35885c = null;
+        this.f35886d = null;
+        this.f35885c = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void A() {
+    public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f46390e == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
             b bVar = new b(this, null);
-            this.f46390e = bVar;
+            this.a = bVar;
             bVar.execute(new String[0]);
         }
     }
 
-    public void B() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -223,26 +221,26 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void C() {
+    public void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f46391f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f35884b == null) {
             c cVar = new c(this, null);
-            this.f46391f = cVar;
+            this.f35884b = cVar;
             cVar.execute(new String[0]);
         }
     }
 
-    public void D(boolean z) {
+    public void F(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TbadkCoreApplication.getInst().setHeadsetModeOn(z);
         }
     }
 
-    public void E(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void G(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
-            this.f46393h = loadDataCallBack;
+            this.f35886d = loadDataCallBack;
         }
     }
 

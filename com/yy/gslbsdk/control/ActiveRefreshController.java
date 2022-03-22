@@ -21,7 +21,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ActiveRefreshController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ActiveRefreshController";
@@ -48,9 +48,9 @@ public class ActiveRefreshController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -84,9 +84,9 @@ public class ActiveRefreshController {
         if (listRefresh == null || listRefresh.isEmpty()) {
             return;
         }
-        for (int i2 = 0; i2 < listRefresh.size(); i2++) {
+        for (int i = 0; i < listRefresh.size(); i++) {
             try {
-                Map<String, String> map = listRefresh.get(i2);
+                Map<String, String> map = listRefresh.get(i);
                 if (map != null && !map.isEmpty()) {
                     String str = map.get(x.B);
                     if (!TextUtils.isEmpty(str)) {
@@ -123,9 +123,9 @@ public class ActiveRefreshController {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {arrayList, cachedNetStatusInfo};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

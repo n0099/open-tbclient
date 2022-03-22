@@ -19,9 +19,9 @@ public class z implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {wearMapView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,10 +36,10 @@ public class z implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.a.f34087f;
+            jVar = this.a.f26325f;
             ab E = jVar.a().E();
             E.a += 1.0f;
-            jVar2 = this.a.f34087f;
+            jVar2 = this.a.f26325f;
             jVar2.a().a(E, 300);
         }
     }

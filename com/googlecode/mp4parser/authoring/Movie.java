@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class Movie {
     public static /* synthetic */ Interceptable $ic;
@@ -23,9 +22,9 @@ public class Movie {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,10 +34,10 @@ public class Movie {
         this.tracks = new LinkedList();
     }
 
-    public static long gcd(long j2, long j3) {
+    public static long gcd(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j3 == 0 ? j2 : gcd(j3, j2 % j3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j2 == 0 ? j : gcd(j2, j % j2) : invokeCommon.longValue;
     }
 
     public void addTrack(Track track) {
@@ -61,13 +60,13 @@ public class Movie {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Track track : this.tracks) {
-                if (j2 < track.getTrackMetaData().getTrackId()) {
-                    j2 = track.getTrackMetaData().getTrackId();
+                if (j < track.getTrackMetaData().getTrackId()) {
+                    j = track.getTrackMetaData().getTrackId();
                 }
             }
-            return j2 + 1;
+            return j + 1;
         }
         return invokeV.longValue;
     }
@@ -85,12 +84,12 @@ public class Movie {
         return invokeV.longValue;
     }
 
-    public Track getTrackByTrackId(long j2) {
+    public Track getTrackByTrackId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
             for (Track track : this.tracks) {
-                if (track.getTrackMetaData().getTrackId() == j2) {
+                if (track.getTrackMetaData().getTrackId() == j) {
                     return track;
                 }
             }
@@ -127,7 +126,7 @@ public class Movie {
             for (Track track : this.tracks) {
                 str = String.valueOf(str) + "track_" + track.getTrackMetaData().getTrackId() + " (" + track.getHandler() + ") ";
             }
-            return String.valueOf(str) + ExtendedMessageFormat.END_FE;
+            return String.valueOf(str) + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -139,9 +138,9 @@ public class Movie {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

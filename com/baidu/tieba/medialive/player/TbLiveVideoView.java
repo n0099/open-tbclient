@@ -23,19 +23,19 @@ public class TbLiveVideoView extends BVideoView {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void onBufferingUpdate(int i2);
+        void onBufferingUpdate(int i);
 
         void onCompletion();
 
-        void onError(int i2, int i3);
+        void onError(int i, int i2);
 
-        void onInfo(int i2, int i3);
+        void onInfo(int i, int i2);
 
         void onPrepared();
 
         void onSeekComplete();
 
-        void onVideoSizeChanged(int i2, int i3);
+        void onVideoSizeChanged(int i, int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,9 +47,9 @@ public class TbLiveVideoView extends BVideoView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -78,13 +78,13 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i2) {
+    public void onBufferingUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onBufferingUpdate(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onBufferingUpdate(i);
             a aVar = this.J;
             if (aVar != null) {
-                aVar.onBufferingUpdate(i2);
+                aVar.onBufferingUpdate(i);
             }
         }
     }
@@ -102,29 +102,29 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i2, int i3, Object obj) {
+    public boolean onError(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
             a aVar = this.J;
             if (aVar != null) {
-                aVar.onError(i2, i3);
+                aVar.onError(i, i2);
             }
-            return super.onError(i2, i3, obj);
+            return super.onError(i, i2, obj);
         }
         return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i2, int i3, Object obj) {
+    public boolean onInfo(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
             a aVar = this.J;
             if (aVar != null) {
-                aVar.onInfo(i2, i3);
+                aVar.onInfo(i, i2);
             }
-            return super.onInfo(i2, i3, obj);
+            return super.onInfo(i, i2, obj);
         }
         return invokeIIL.booleanValue;
     }
@@ -154,13 +154,13 @@ public class TbLiveVideoView extends BVideoView {
     }
 
     @Override // com.baidu.cyberplayer.sdk.BVideoView, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4, i5) == null) {
-            super.onVideoSizeChanged(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
+            super.onVideoSizeChanged(i, i2, i3, i4);
             a aVar = this.J;
             if (aVar != null) {
-                aVar.onVideoSizeChanged(i2, i3);
+                aVar.onVideoSizeChanged(i, i2);
             }
         }
     }
@@ -206,9 +206,9 @@ public class TbLiveVideoView extends BVideoView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

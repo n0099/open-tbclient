@@ -13,22 +13,22 @@ public class CharCache {
     public char[] cache;
     public int pos;
 
-    public CharCache(int i2) {
+    public CharCache(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.cache = new char[i2];
+        this.cache = new char[i];
     }
 
     public void append(String str) {
@@ -66,11 +66,11 @@ public class CharCache {
     public void append(char c2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
-            int i2 = this.pos;
+            int i = this.pos;
             char[] cArr = this.cache;
-            if (i2 < cArr.length - 1) {
-                cArr[i2] = c2;
-                this.pos = i2 + 1;
+            if (i < cArr.length - 1) {
+                cArr[i] = c2;
+                this.pos = i + 1;
             }
         }
     }

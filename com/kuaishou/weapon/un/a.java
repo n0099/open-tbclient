@@ -10,23 +10,23 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53590b = "com.kuaishou.weapon";
+    public static final String f38795b = "com.kuaishou.weapon";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53591c = "com.kuaishou.weapon";
+    public static final String f38796c = "com.kuaishou.weapon";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f53592d = "release";
+    public static final String f38797d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f53593e = "";
+    public static final String f38798e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f53594f = 1;
+    public static final int f38799f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f53595g = "2.8.3";
+    public static final String f38800g = "2.8.3";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -34,9 +34,9 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

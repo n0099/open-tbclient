@@ -45,9 +45,9 @@ public class SharedPrefsWrapper implements SharedPreferences {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -113,17 +113,17 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) ? this.mSp.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? this.mSp.getInt(str, i) : invokeLI.intValue;
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) ? this.mSp.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) ? this.mSp.getLong(str, j) : invokeLJ.longValue;
     }
 
     @Override // android.content.SharedPreferences
@@ -154,17 +154,17 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    public void putInt(String str, int i2) {
+    public void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i2) == null) {
-            this.mSp.edit().putInt(str, i2).apply();
+        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
+            this.mSp.edit().putInt(str, i).apply();
         }
     }
 
-    public void putLong(String str, long j2) {
+    public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) {
-            this.mSp.edit().putLong(str, j2).apply();
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) {
+            this.mSp.edit().putLong(str, j).apply();
         }
     }
 

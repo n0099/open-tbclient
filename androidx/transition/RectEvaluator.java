@@ -18,9 +18,9 @@ public class RectEvaluator implements TypeEvaluator<Rect> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,9 +34,9 @@ public class RectEvaluator implements TypeEvaluator<Rect> {
             newInitContext.initArgs = r2;
             Object[] objArr = {rect};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -51,19 +51,19 @@ public class RectEvaluator implements TypeEvaluator<Rect> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), rect, rect2})) == null) {
-            int i2 = rect.left;
-            int i3 = i2 + ((int) ((rect2.left - i2) * f2));
-            int i4 = rect.top;
-            int i5 = i4 + ((int) ((rect2.top - i4) * f2));
-            int i6 = rect.right;
-            int i7 = i6 + ((int) ((rect2.right - i6) * f2));
-            int i8 = rect.bottom;
-            int i9 = i8 + ((int) ((rect2.bottom - i8) * f2));
+            int i = rect.left;
+            int i2 = i + ((int) ((rect2.left - i) * f2));
+            int i3 = rect.top;
+            int i4 = i3 + ((int) ((rect2.top - i3) * f2));
+            int i5 = rect.right;
+            int i6 = i5 + ((int) ((rect2.right - i5) * f2));
+            int i7 = rect.bottom;
+            int i8 = i7 + ((int) ((rect2.bottom - i7) * f2));
             Rect rect3 = this.mRect;
             if (rect3 == null) {
-                return new Rect(i3, i5, i7, i9);
+                return new Rect(i2, i4, i6, i8);
             }
-            rect3.set(i3, i5, i7, i9);
+            rect3.set(i2, i4, i6, i8);
             return this.mRect;
         }
         return (Rect) invokeCommon.objValue;

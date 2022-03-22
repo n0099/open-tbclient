@@ -9,7 +9,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface m {
     int a(String str, String str2);
 
@@ -17,29 +17,29 @@ public interface m {
 
     void a();
 
-    void a(int i2);
+    void a(int i);
 
-    void a(int i2, int i3);
+    void a(int i, int i2);
 
-    void a(int i2, int i3, int i4, int i5);
+    void a(int i, int i2, int i3, int i4);
 
-    void a(int i2, int i3, int i4, long j2);
+    void a(int i, int i2, int i3, long j);
 
-    void a(int i2, int i3, long j2);
+    void a(int i, int i2, long j);
 
-    void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
+    void a(int i, int i2, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
-    void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2);
+    void a(int i, int i2, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2);
 
-    void a(int i2, long j2);
+    void a(int i, long j);
 
-    void a(int i2, Notification notification);
+    void a(int i, Notification notification);
 
-    void a(int i2, z zVar);
+    void a(int i, z zVar);
 
-    void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list);
+    void a(int i, List<com.ss.android.socialbase.downloader.model.b> list);
 
-    void a(int i2, boolean z);
+    void a(int i, boolean z);
 
     void a(ak akVar);
 
@@ -57,11 +57,11 @@ public interface m {
 
     List<DownloadInfo> b(String str);
 
-    void b(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
+    void b(int i, int i2, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z);
 
-    void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list);
+    void b(int i, List<com.ss.android.socialbase.downloader.model.b> list);
 
-    void b(int i2, boolean z);
+    void b(int i, boolean z);
 
     void b(DownloadInfo downloadInfo);
 
@@ -71,13 +71,13 @@ public interface m {
 
     boolean b();
 
-    boolean b(int i2);
+    boolean b(int i);
 
     List<DownloadInfo> c(String str);
 
-    void c(int i2);
+    void c(int i);
 
-    void c(int i2, boolean z);
+    void c(int i, boolean z);
 
     boolean c();
 
@@ -87,45 +87,45 @@ public interface m {
 
     List<DownloadInfo> d(String str);
 
-    void d(int i2);
+    void d(int i);
 
-    long e(int i2);
+    long e(int i);
 
     List<DownloadInfo> e(String str);
 
     boolean e();
 
-    int f(int i2);
+    int f(int i);
 
     void f();
 
     boolean g();
 
-    boolean g(int i2);
+    boolean g(int i);
 
-    DownloadInfo h(int i2);
+    DownloadInfo h(int i);
 
-    List<com.ss.android.socialbase.downloader.model.b> i(int i2);
+    List<com.ss.android.socialbase.downloader.model.b> i(int i);
 
-    void j(int i2);
+    void j(int i);
 
-    void k(int i2);
+    void k(int i);
 
-    boolean l(int i2);
+    boolean l(int i);
 
-    int m(int i2);
+    int m(int i);
 
-    boolean n(int i2);
+    boolean n(int i);
 
-    void o(int i2);
+    void o(int i);
 
-    boolean p(int i2);
+    boolean p(int i);
 
-    z q(int i2);
+    z q(int i);
 
-    af r(int i2);
+    af r(int i);
 
-    IDownloadFileUriProvider s(int i2);
+    IDownloadFileUriProvider s(int i);
 
     void startService();
 }

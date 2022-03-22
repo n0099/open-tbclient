@@ -8,11 +8,11 @@ public final class CharCodeKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final char Char(int i2) {
-        if (i2 < getCode((char) 0) || i2 > getCode(CharCompanionObject.MAX_VALUE)) {
-            throw new IllegalArgumentException("Invalid Char code: " + i2);
+    public static final char Char(int i) {
+        if (i < getCode((char) 0) || i > getCode(CharCompanionObject.MAX_VALUE)) {
+            throw new IllegalArgumentException("Invalid Char code: " + i);
         }
-        return (char) i2;
+        return (char) i;
     }
 
     public static final int getCode(char c2) {

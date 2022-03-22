@@ -13,12 +13,12 @@ import com.squareup.wire2.Message.a;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.a<M, B>> extends Message<M, B> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a<M> implements Parcelable.Creator<M> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {protoAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,10 +57,10 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
         }
 
         @Override // android.os.Parcelable.Creator
-        public M[] newArray(int i2) {
+        public M[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (M[]) ((Object[]) Array.newInstance(this.a.javaType, i2)) : (M[]) ((Object[]) invokeI.objValue);
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (M[]) ((Object[]) Array.newInstance(this.a.javaType, i)) : (M[]) ((Object[]) invokeI.objValue);
         }
     }
 
@@ -73,9 +73,9 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
             newInitContext.initArgs = r2;
             Object[] objArr = {protoAdapter, byteString};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -102,9 +102,9 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(Parcel parcel, int i2) {
+    public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             parcel.writeByteArray(encode());
         }
     }

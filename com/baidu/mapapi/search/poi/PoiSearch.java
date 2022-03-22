@@ -15,22 +15,22 @@ public class PoiSearch extends l {
     public com.baidu.platform.core.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34208b;
+    public boolean f26441b;
 
     public PoiSearch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34208b = false;
+        this.f26441b = false;
         this.a = new com.baidu.platform.core.c.f();
     }
 
@@ -46,10 +46,10 @@ public class PoiSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34208b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26441b) {
             return;
         }
-        this.f34208b = true;
+        this.f26441b = true;
         this.a.a();
         BMapManager.destroy();
     }

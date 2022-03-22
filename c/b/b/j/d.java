@@ -17,31 +17,27 @@ public class d implements c.b.b.q.o0.c<Void> {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f27083b;
+    public final a f22340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.b.b.j.f.a f27084c;
+    public final c.b.b.j.f.a f22341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.o0.a f27085d;
+    public final c.b.b.q.o0.a f22342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f27086e;
+    public final long f22343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f27087f;
+    public volatile boolean f22344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f27088g;
+    public volatile boolean f22345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile c.b.b.q.a<a> f27089h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public volatile c.b.b.q.o0.b<Void> f27090i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public volatile c.b.b.q.o0.b<Void> f27091j;
+    public volatile c.b.b.q.a<a> f22346h;
+    public volatile c.b.b.q.o0.b<Void> i;
+    public volatile c.b.b.q.o0.b<Void> j;
     public volatile Object k;
     public volatile boolean l;
 
@@ -52,55 +48,55 @@ public class d implements c.b.b.q.o0.c<Void> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar, aVar, aVar2, aVar3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = eVar;
-        this.f27083b = aVar;
-        this.f27084c = aVar2;
-        this.f27085d = aVar3;
-        this.f27086e = eVar.q.d() == 3 ? m0.b() : 0L;
+        this.f22340b = aVar;
+        this.f22341c = aVar2;
+        this.f22342d = aVar3;
+        this.f22343e = eVar.m.d() == 3 ? m0.b() : 0L;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.b.b.j.f.b bVar = (c.b.b.j.f.b) this.f27084c;
-            if (!this.f27088g) {
-                if (this.f27090i == null) {
-                    this.f27090i = this.f27085d.a(this);
-                } else if (this.f27090i.b()) {
+            c.b.b.j.f.b bVar = (c.b.b.j.f.b) this.f22341c;
+            if (!this.f22345g) {
+                if (this.i == null) {
+                    this.i = this.f22342d.a(this);
+                } else if (this.i.b()) {
                     try {
-                        this.f27090i.a();
-                        this.f27088g = true;
-                        if (this.f27087f) {
+                        this.i.a();
+                        this.f22345g = true;
+                        if (this.f22344f) {
                             e eVar = this.a;
-                            a aVar = this.f27083b;
-                            this.k = bVar.d(eVar, aVar.a, d(this.f27084c, aVar), this.f27083b.f27081c);
+                            a aVar = this.f22340b;
+                            this.k = bVar.d(eVar, aVar.a, d(this.f22341c, aVar), this.f22340b.f22338c);
                         }
                     } catch (Exception e2) {
-                        throw new GdxRuntimeException("Couldn't load dependencies of asset: " + this.f27083b.a, e2);
+                        throw new GdxRuntimeException("Couldn't load dependencies of asset: " + this.f22340b.a, e2);
                     }
                 }
-            } else if (this.f27091j == null && !this.f27087f) {
-                this.f27091j = this.f27085d.a(this);
-            } else if (this.f27087f) {
+            } else if (this.j == null && !this.f22344f) {
+                this.j = this.f22342d.a(this);
+            } else if (this.f22344f) {
                 e eVar2 = this.a;
-                a aVar2 = this.f27083b;
-                this.k = bVar.d(eVar2, aVar2.a, d(this.f27084c, aVar2), this.f27083b.f27081c);
-            } else if (this.f27091j.b()) {
+                a aVar2 = this.f22340b;
+                this.k = bVar.d(eVar2, aVar2.a, d(this.f22341c, aVar2), this.f22340b.f22338c);
+            } else if (this.j.b()) {
                 try {
-                    this.f27091j.a();
+                    this.j.a();
                     e eVar3 = this.a;
-                    a aVar3 = this.f27083b;
-                    this.k = bVar.d(eVar3, aVar3.a, d(this.f27084c, aVar3), this.f27083b.f27081c);
+                    a aVar3 = this.f22340b;
+                    this.k = bVar.d(eVar3, aVar3.a, d(this.f22341c, aVar3), this.f22340b.f22338c);
                 } catch (Exception e3) {
-                    throw new GdxRuntimeException("Couldn't load asset: " + this.f27083b.a, e3);
+                    throw new GdxRuntimeException("Couldn't load asset: " + this.f22340b.a, e3);
                 }
             }
         }
@@ -109,42 +105,42 @@ public class d implements c.b.b.q.o0.c<Void> {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n nVar = (n) this.f27084c;
-            if (!this.f27088g) {
-                this.f27088g = true;
-                a aVar = this.f27083b;
-                this.f27089h = nVar.a(aVar.a, d(this.f27084c, aVar), this.f27083b.f27081c);
-                if (this.f27089h == null) {
+            n nVar = (n) this.f22341c;
+            if (!this.f22345g) {
+                this.f22345g = true;
+                a aVar = this.f22340b;
+                this.f22346h = nVar.a(aVar.a, d(this.f22341c, aVar), this.f22340b.f22338c);
+                if (this.f22346h == null) {
                     e eVar = this.a;
-                    a aVar2 = this.f27083b;
-                    this.k = nVar.c(eVar, aVar2.a, d(this.f27084c, aVar2), this.f27083b.f27081c);
+                    a aVar2 = this.f22340b;
+                    this.k = nVar.c(eVar, aVar2.a, d(this.f22341c, aVar2), this.f22340b.f22338c);
                     return;
                 }
-                c(this.f27089h);
-                this.a.t(this.f27083b.a, this.f27089h);
+                c(this.f22346h);
+                this.a.t(this.f22340b.a, this.f22346h);
                 return;
             }
             e eVar2 = this.a;
-            a aVar3 = this.f27083b;
-            this.k = nVar.c(eVar2, aVar3.a, d(this.f27084c, aVar3), this.f27083b.f27081c);
+            a aVar3 = this.f22340b;
+            this.k = nVar.c(eVar2, aVar3.a, d(this.f22341c, aVar3), this.f22340b.f22338c);
         }
     }
 
     public final void c(c.b.b.q.a<a> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            boolean z = aVar.f27500g;
-            aVar.f27500g = true;
-            for (int i2 = 0; i2 < aVar.f27499f; i2++) {
-                String str = aVar.get(i2).a;
-                GenericDeclaration genericDeclaration = aVar.get(i2).f27080b;
-                for (int i3 = aVar.f27499f - 1; i3 > i2; i3--) {
-                    if (genericDeclaration == aVar.get(i3).f27080b && str.equals(aVar.get(i3).a)) {
-                        aVar.h(i3);
+            boolean z = aVar.f22718c;
+            aVar.f22718c = true;
+            for (int i = 0; i < aVar.f22717b; i++) {
+                String str = aVar.get(i).a;
+                GenericDeclaration genericDeclaration = aVar.get(i).f22337b;
+                for (int i2 = aVar.f22717b - 1; i2 > i; i2--) {
+                    if (genericDeclaration == aVar.get(i2).f22337b && str.equals(aVar.get(i2).a)) {
+                        aVar.i(i2);
                     }
                 }
             }
-            aVar.f27500g = z;
+            aVar.f22718c = z;
         }
     }
 
@@ -152,10 +148,10 @@ public class d implements c.b.b.q.o0.c<Void> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, aVar, aVar2)) == null) {
-            if (aVar2.f27082d == null) {
-                aVar2.f27082d = aVar.b(aVar2.a);
+            if (aVar2.f22339d == null) {
+                aVar2.f22339d = aVar.b(aVar2.a);
             }
-            return aVar2.f27082d;
+            return aVar2.f22339d;
         }
         return (c.b.b.m.a) invokeLL.objValue;
     }
@@ -163,11 +159,11 @@ public class d implements c.b.b.q.o0.c<Void> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.b.b.j.f.a aVar = this.f27084c;
+            c.b.b.j.f.a aVar = this.f22341c;
             if (aVar instanceof c.b.b.j.f.b) {
                 e eVar = this.a;
-                a aVar2 = this.f27083b;
-                ((c.b.b.j.f.b) aVar).e(eVar, aVar2.a, d(aVar, aVar2), this.f27083b.f27081c);
+                a aVar2 = this.f22340b;
+                ((c.b.b.j.f.b) aVar).e(eVar, aVar2.a, d(aVar, aVar2), this.f22340b.f22338c);
             }
         }
     }
@@ -176,7 +172,7 @@ public class d implements c.b.b.q.o0.c<Void> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f27084c instanceof n) {
+            if (this.f22341c instanceof n) {
                 b();
             } else {
                 a();
@@ -195,24 +191,24 @@ public class d implements c.b.b.q.o0.c<Void> {
             if (this.l) {
                 return null;
             }
-            c.b.b.j.f.b bVar = (c.b.b.j.f.b) this.f27084c;
-            if (!this.f27088g) {
-                a aVar = this.f27083b;
-                this.f27089h = bVar.a(aVar.a, d(this.f27084c, aVar), this.f27083b.f27081c);
-                if (this.f27089h != null) {
-                    c(this.f27089h);
-                    this.a.t(this.f27083b.a, this.f27089h);
+            c.b.b.j.f.b bVar = (c.b.b.j.f.b) this.f22341c;
+            if (!this.f22345g) {
+                a aVar = this.f22340b;
+                this.f22346h = bVar.a(aVar.a, d(this.f22341c, aVar), this.f22340b.f22338c);
+                if (this.f22346h != null) {
+                    c(this.f22346h);
+                    this.a.t(this.f22340b.a, this.f22346h);
                 } else {
                     e eVar = this.a;
-                    a aVar2 = this.f27083b;
-                    bVar.c(eVar, aVar2.a, d(this.f27084c, aVar2), this.f27083b.f27081c);
-                    this.f27087f = true;
+                    a aVar2 = this.f22340b;
+                    bVar.c(eVar, aVar2.a, d(this.f22341c, aVar2), this.f22340b.f22338c);
+                    this.f22344f = true;
                 }
             } else {
                 e eVar2 = this.a;
-                a aVar3 = this.f27083b;
-                bVar.c(eVar2, aVar3.a, d(this.f27084c, aVar3), this.f27083b.f27081c);
-                this.f27087f = true;
+                a aVar3 = this.f22340b;
+                bVar.c(eVar2, aVar3.a, d(this.f22341c, aVar3), this.f22340b.f22338c);
+                this.f22344f = true;
             }
             return null;
         }

@@ -22,9 +22,9 @@ public class DetectionResultColumn {
             newInitContext.initArgs = r2;
             Object[] objArr = {boundingBox};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,28 +40,28 @@ public class DetectionResultColumn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.boundingBox : (BoundingBox) invokeV.objValue;
     }
 
-    public final Codeword getCodeword(int i2) {
+    public final Codeword getCodeword(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.codewords[imageRowToCodewordIndex(i2)] : (Codeword) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.codewords[imageRowToCodewordIndex(i)] : (Codeword) invokeI.objValue;
     }
 
-    public final Codeword getCodewordNearby(int i2) {
+    public final Codeword getCodewordNearby(int i) {
         InterceptResult invokeI;
         Codeword codeword;
         Codeword codeword2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Codeword codeword3 = getCodeword(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Codeword codeword3 = getCodeword(i);
             if (codeword3 != null) {
                 return codeword3;
             }
-            for (int i3 = 1; i3 < 5; i3++) {
-                int imageRowToCodewordIndex = imageRowToCodewordIndex(i2) - i3;
+            for (int i2 = 1; i2 < 5; i2++) {
+                int imageRowToCodewordIndex = imageRowToCodewordIndex(i) - i2;
                 if (imageRowToCodewordIndex >= 0 && (codeword2 = this.codewords[imageRowToCodewordIndex]) != null) {
                     return codeword2;
                 }
-                int imageRowToCodewordIndex2 = imageRowToCodewordIndex(i2) + i3;
+                int imageRowToCodewordIndex2 = imageRowToCodewordIndex(i) + i2;
                 Codeword[] codewordArr = this.codewords;
                 if (imageRowToCodewordIndex2 < codewordArr.length && (codeword = codewordArr[imageRowToCodewordIndex2]) != null) {
                     return codeword;
@@ -78,16 +78,16 @@ public class DetectionResultColumn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.codewords : (Codeword[]) invokeV.objValue;
     }
 
-    public final int imageRowToCodewordIndex(int i2) {
+    public final int imageRowToCodewordIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 - this.boundingBox.getMinY() : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i - this.boundingBox.getMinY() : invokeI.intValue;
     }
 
-    public final void setCodeword(int i2, Codeword codeword) {
+    public final void setCodeword(int i, Codeword codeword) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, codeword) == null) {
-            this.codewords[imageRowToCodewordIndex(i2)] = codeword;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, codeword) == null) {
+            this.codewords[imageRowToCodewordIndex(i)] = codeword;
         }
     }
 
@@ -97,14 +97,14 @@ public class DetectionResultColumn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Formatter formatter = new Formatter();
-            int i2 = 0;
+            int i = 0;
             for (Codeword codeword : this.codewords) {
                 if (codeword == null) {
-                    formatter.format("%3d:    |   %n", Integer.valueOf(i2));
-                    i2++;
+                    formatter.format("%3d:    |   %n", Integer.valueOf(i));
+                    i++;
                 } else {
-                    formatter.format("%3d: %3d|%3d%n", Integer.valueOf(i2), Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
-                    i2++;
+                    formatter.format("%3d: %3d|%3d%n", Integer.valueOf(i), Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
+                    i++;
                 }
             }
             String formatter2 = formatter.toString();

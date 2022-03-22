@@ -20,13 +20,13 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CallServerInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean forWebSocket;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class CountingSink extends ForwardingSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public final class CallServerInterceptor implements Interceptor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sink};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Sink) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -53,11 +53,11 @@ public final class CallServerInterceptor implements Interceptor {
         }
 
         @Override // okio.ForwardingSink, okio.Sink
-        public void write(Buffer buffer, long j2) throws IOException {
+        public void write(Buffer buffer, long j) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j2) == null) {
-                super.write(buffer, j2);
-                this.successfulCount += j2;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j) == null) {
+                super.write(buffer, j);
+                this.successfulCount += j;
             }
         }
     }
@@ -69,9 +69,9 @@ public final class CallServerInterceptor implements Interceptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

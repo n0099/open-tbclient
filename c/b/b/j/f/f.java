@@ -12,7 +12,7 @@ public class f extends b<c.b.b.q.k, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.k f27116b;
+    public c.b.b.q.k f22372b;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.q.k> {
@@ -20,10 +20,10 @@ public class f extends b<c.b.b.q.k, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Locale f27117b;
+        public final Locale f22373b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f27118c;
+        public final String f22374c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -32,9 +32,9 @@ public class f extends b<c.b.b.q.k, a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     this((Locale) objArr[0], (String) objArr[1]);
                     newInitContext.thisArg = this;
@@ -51,16 +51,16 @@ public class f extends b<c.b.b.q.k, a> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {locale, str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f27117b = locale;
-            this.f27118c = str;
+            this.f22373b = locale;
+            this.f22374c = str;
         }
     }
 
@@ -73,9 +73,9 @@ public class f extends b<c.b.b.q.k, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -104,21 +104,21 @@ public class f extends b<c.b.b.q.k, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
             String str2 = null;
-            this.f27116b = null;
+            this.f22372b = null;
             if (aVar2 == null) {
                 locale = Locale.getDefault();
             } else {
-                Locale locale2 = aVar2.f27117b;
+                Locale locale2 = aVar2.f22373b;
                 if (locale2 == null) {
                     locale2 = Locale.getDefault();
                 }
                 locale = locale2;
-                str2 = aVar2.f27118c;
+                str2 = aVar2.f22374c;
             }
             if (str2 == null) {
-                this.f27116b = c.b.b.q.k.b(aVar, locale);
+                this.f22372b = c.b.b.q.k.b(aVar, locale);
             } else {
-                this.f27116b = c.b.b.q.k.c(aVar, locale, str2);
+                this.f22372b = c.b.b.q.k.c(aVar, locale, str2);
             }
         }
     }
@@ -130,8 +130,8 @@ public class f extends b<c.b.b.q.k, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            c.b.b.q.k kVar = this.f27116b;
-            this.f27116b = null;
+            c.b.b.q.k kVar = this.f22372b;
+            this.f22372b = null;
             return kVar;
         }
         return (c.b.b.q.k) invokeLLLL.objValue;

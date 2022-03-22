@@ -24,19 +24,19 @@ public interface IBdTextSelectHelper {
 
     void hideSelectView(boolean z);
 
-    void postShowSelectView(int i2);
+    void postShowSelectView(int i);
 
     void removeCustomMenu();
 
     void resetSelectionInfo();
 
-    void selectText(int i2, int i3);
+    void selectText(int i, int i2);
 
     void setSelectableTextLongClickListener(SelectableTextLongClickListener selectableTextLongClickListener);
 
     void showBackgroundWindow();
 
-    void showSelectView(int i2, int i3);
+    void showSelectView(int i, int i2);
 
     void startSelect();
 }

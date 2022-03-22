@@ -40,9 +40,9 @@ public class IMSettings {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -75,9 +75,9 @@ public class IMSettings {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int i2 = mDebugMode;
-            if (i2 != -1) {
-                return i2 == 1;
+            int i = mDebugMode;
+            if (i != -1) {
+                return i == 1;
             }
             Context context = sContext;
             if (context == null) {

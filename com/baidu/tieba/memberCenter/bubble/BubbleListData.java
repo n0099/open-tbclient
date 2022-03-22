@@ -41,9 +41,9 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -128,24 +128,24 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.is_free == 1 : invokeV.booleanValue;
         }
 
-        public void setBcode(int i2) {
+        public void setBcode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-                this.bcode = i2;
+            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+                this.bcode = i;
             }
         }
 
-        public void setCan_use(int i2) {
+        public void setCan_use(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.can_use = i2;
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                this.can_use = i;
             }
         }
 
-        public void setIs_def(int i2) {
+        public void setIs_def(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-                this.is_def = i2;
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+                this.is_def = i;
             }
         }
     }
@@ -155,9 +155,9 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -186,7 +186,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m63clone() {
+    public BubbleListData m57clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

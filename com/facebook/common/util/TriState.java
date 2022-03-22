@@ -13,7 +13,7 @@ import com.facebook.infer.annotation.Functional;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TriState {
     public static final /* synthetic */ TriState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +23,7 @@ public final class TriState {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
@@ -79,16 +79,16 @@ public final class TriState {
         $VALUES = new TriState[]{YES, NO, triState};
     }
 
-    public TriState(String str, int i2) {
+    public TriState(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -99,12 +99,12 @@ public final class TriState {
     }
 
     @Functional
-    public static TriState fromDbValue(int i2) {
+    public static TriState fromDbValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
                     return UNSET;
                 }
                 return NO;
@@ -131,10 +131,10 @@ public final class TriState {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         throw new IllegalStateException("Unrecognized TriState value: " + this);
                     }
                     throw new IllegalStateException("No boolean equivalent for UNSET");
@@ -152,10 +152,10 @@ public final class TriState {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
                         return null;
                     }
                     throw new IllegalStateException("Unrecognized TriState value: " + this);
@@ -172,15 +172,15 @@ public final class TriState {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            int i3 = 1;
-            if (i2 != 1) {
-                i3 = 2;
-                if (i2 != 2) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+            int i2 = 1;
+            if (i != 1) {
+                i2 = 2;
+                if (i != 2) {
                     return 3;
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeV.intValue;
     }
@@ -211,10 +211,10 @@ public final class TriState {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
                         return z;
                     }
                     throw new IllegalStateException("Unrecognized TriState value: " + this);

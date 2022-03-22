@@ -2,6 +2,7 @@ package com.baidu.mapapi.utils;
 
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,38 +15,39 @@ public final class c extends b.a {
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
-    public c(int i2) {
+    public c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
+        this.a = i;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
     public void a(IBinder iBinder) throws RemoteException {
+        String str;
         IComOpenClient iComOpenClient;
-        String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            unused = b.f34341c;
-            iComOpenClient = b.f34343e;
+            str = b.f26556c;
+            Log.d(str, "onClientReady");
+            iComOpenClient = b.f26558e;
             if (iComOpenClient != null) {
-                IComOpenClient unused2 = b.f34343e = null;
+                IComOpenClient unused = b.f26558e = null;
             }
-            IComOpenClient unused3 = b.f34343e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused2 = b.f26558e = IComOpenClient.a.a(iBinder);
             b.a(this.a);
-            boolean unused4 = b.t = true;
+            boolean unused3 = b.t = true;
         }
     }
 }

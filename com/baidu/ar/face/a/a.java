@@ -3,6 +3,7 @@ package com.baidu.ar.face.a;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.a.c;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1756a {
+    public class C1717a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String pN;
@@ -34,16 +35,16 @@ public class a {
         public String pT;
         public final /* synthetic */ a pU;
 
-        public C1756a(a aVar) {
+        public C1717a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,9 +68,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C1756a qd;
-        public C1756a qe;
-        public C1756a qf;
+        public C1717a qd;
+        public C1717a qe;
+        public C1717a qf;
         public int qg;
 
         public b(a aVar) {
@@ -79,9 +80,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -112,9 +113,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -124,7 +125,7 @@ public class a {
     private void a(b bVar, JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONObject optJSONObject2;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, bVar, jSONObject) == null) {
             JSONObject optJSONObject3 = jSONObject.optJSONObject("customize");
@@ -136,13 +137,13 @@ public class a {
             String optString = optJSONObject2.optString("level");
             if (!TextUtils.isEmpty(optString)) {
                 if (optString.equals("high")) {
-                    i2 = 2;
+                    i = 2;
                 } else if (optString.equals("medium")) {
-                    i2 = 1;
-                } else if (optString.equals("mediumlow") || optString.equals("low")) {
+                    i = 1;
+                } else if (optString.equals("mediumlow") || optString.equals(Config.EXCEPTION_MEMORY_LOW)) {
                     bVar.qg = 0;
                 }
-                bVar.qg = i2;
+                bVar.qg = i;
             }
             JSONArray optJSONArray = optJSONObject2.optJSONArray("detect_rate");
             if (optJSONArray == null || optJSONArray.length() < 5) {
@@ -150,8 +151,8 @@ public class a {
             }
             try {
                 int[] iArr = new int[5];
-                for (int i3 = 0; i3 < 5; i3++) {
-                    iArr[i3] = optJSONArray.getInt(i3) < pM[i3] ? pM[i3] : optJSONArray.getInt(i3);
+                for (int i2 = 0; i2 < 5; i2++) {
+                    iArr[i2] = optJSONArray.getInt(i2) < pM[i2] ? pM[i2] : optJSONArray.getInt(i2);
                 }
                 bVar.ot = iArr;
             } catch (JSONException e2) {
@@ -173,7 +174,7 @@ public class a {
                 bVar.pX = this.pL + jSONObject2.getString("track1_heavy");
                 bVar.pY = this.pL + jSONObject2.getString("track1_medium");
                 bVar.pZ = this.pL + jSONObject2.getString("track1_lite");
-                bVar.qb = this.pL + jSONObject2.getString(com.baidu.pass.biometrics.face.liveness.b.a.b0);
+                bVar.qb = this.pL + jSONObject2.getString("mouth");
                 bVar.qc = this.pL + jSONObject2.getString("gender");
                 bVar.qf = f(jSONObject2.getJSONObject("high_device_model"));
                 bVar.qe = f(jSONObject2.getJSONObject("medium_device_model"));
@@ -193,51 +194,51 @@ public class a {
         return (b) invokeLL.objValue;
     }
 
-    private C1756a f(JSONObject jSONObject) {
+    private C1717a f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            C1756a c1756a = new C1756a(this);
+            C1717a c1717a = new C1717a(this);
             try {
                 String string = jSONObject.getString("track_param_0");
-                c1756a.pN = string;
+                c1717a.pN = string;
                 if (TextUtils.isEmpty(string)) {
-                    c1756a.pN = "";
+                    c1717a.pN = "";
                 } else {
-                    c1756a.pN = this.pL + c1756a.pN;
+                    c1717a.pN = this.pL + c1717a.pN;
                 }
                 String string2 = jSONObject.getString("track_param_1");
-                c1756a.pO = string2;
+                c1717a.pO = string2;
                 if (TextUtils.isEmpty(string2)) {
-                    c1756a.pO = "";
+                    c1717a.pO = "";
                 } else {
-                    c1756a.pO = this.pL + c1756a.pO;
+                    c1717a.pO = this.pL + c1717a.pO;
                 }
                 String string3 = jSONObject.getString("track_param_2");
-                c1756a.pP = string3;
+                c1717a.pP = string3;
                 if (TextUtils.isEmpty(string3)) {
-                    c1756a.pP = "";
+                    c1717a.pP = "";
                 } else {
-                    c1756a.pP = this.pL + c1756a.pP;
+                    c1717a.pP = this.pL + c1717a.pP;
                 }
                 String string4 = jSONObject.getString("track_param_3");
-                c1756a.pQ = string4;
+                c1717a.pQ = string4;
                 if (TextUtils.isEmpty(string4)) {
-                    c1756a.pQ = "";
+                    c1717a.pQ = "";
                 } else {
-                    c1756a.pQ = this.pL + c1756a.pQ;
+                    c1717a.pQ = this.pL + c1717a.pQ;
                 }
-                c1756a.pR = jSONObject.getString("trackingSmoothAlpha");
-                c1756a.pS = jSONObject.getString("trackingSmoothThreshold");
-                c1756a.pT = jSONObject.getString("trackingMouthThreshold");
-                return c1756a;
+                c1717a.pR = jSONObject.getString("trackingSmoothAlpha");
+                c1717a.pS = jSONObject.getString("trackingSmoothThreshold");
+                c1717a.pT = jSONObject.getString("trackingMouthThreshold");
+                return c1717a;
             } catch (JSONException e2) {
                 com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1756a) invokeL.objValue;
+        return (C1717a) invokeL.objValue;
     }
 
     public b a(String str, JSONObject jSONObject) {

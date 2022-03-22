@@ -27,6 +27,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.proxy.PackageMangerProxy;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,9 +54,9 @@ public class PluginBaseApplication extends Application {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,10 +68,10 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, intent, serviceConnection, i2)) == null) ? this.mApplicationProxy.bindService(intent, serviceConnection, i2) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, intent, serviceConnection, i)) == null) ? this.mApplicationProxy.bindService(intent, serviceConnection, i) : invokeLLI.booleanValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -181,17 +182,17 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i2) {
+    public File getDir(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
             PluginSetting h2 = c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Application application = this.mApplicationProxy;
-                return application.getDir(pluginPackageName + str, i2);
+                return application.getDir(pluginPackageName + str, i);
             }
-            return this.mApplicationProxy.getDir(str, i2);
+            return this.mApplicationProxy.getDir(str, i);
         }
         return (File) invokeLI.objValue;
     }
@@ -318,17 +319,17 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i2) {
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
             PluginSetting h2 = c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Application application = this.mApplicationProxy;
-                return application.getSharedPreferences(pluginPackageName + str, i2);
+                return application.getSharedPreferences(pluginPackageName + str, i);
             }
-            return this.mApplicationProxy.getSharedPreferences(str, i2);
+            return this.mApplicationProxy.getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }
@@ -357,33 +358,33 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
+    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
             String pluginPackageName = getPluginPackageName();
             PluginSetting h2 = c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Application application = this.mApplicationProxy;
-                return application.openFileOutput(pluginPackageName + str, i2);
+                return application.openFileOutput(pluginPackageName + str, i);
             }
-            return this.mApplicationProxy.openFileOutput(str, i2);
+            return this.mApplicationProxy.openFileOutput(str, i);
         }
         return (FileOutputStream) invokeLI.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i2, cursorFactory)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i, cursorFactory)) == null) {
             String pluginPackageName = getPluginPackageName();
             PluginSetting h2 = c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Application application = this.mApplicationProxy;
-                return application.openOrCreateDatabase(pluginPackageName + str, i2, cursorFactory);
+                return application.openOrCreateDatabase(pluginPackageName + str, i, cursorFactory);
             }
-            return this.mApplicationProxy.openOrCreateDatabase(str, i2, cursorFactory);
+            return this.mApplicationProxy.openOrCreateDatabase(str, i, cursorFactory);
         }
         return (SQLiteDatabase) invokeLIL.objValue;
     }
@@ -428,10 +429,10 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str, Bundle bundle) {
+    public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{intent, broadcastReceiver, handler, Integer.valueOf(i2), str, bundle}) == null) {
-            this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i2, str, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{intent, broadcastReceiver, handler, Integer.valueOf(i), str, bundle}) == null) {
+            this.mApplicationProxy.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
         }
     }
 
@@ -573,10 +574,10 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.mApplicationProxy.setTheme(i2);
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.mApplicationProxy.setTheme(i);
         }
     }
 
@@ -586,17 +587,17 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048614, this, intent) == null) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPacakgeName)) != null && plugin2.remapStartActivityIntent(intent)) {
             if (intent != null) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             this.mApplicationProxy.startActivity(intent);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mApplicationProxy.startIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mApplicationProxy.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
@@ -660,10 +661,10 @@ public class PluginBaseApplication extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i2, String str2, Bundle bundle) {
+    public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{intent, str, broadcastReceiver, handler, Integer.valueOf(i2), str2, bundle}) == null) {
-            this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i2, str2, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{intent, str, broadcastReceiver, handler, Integer.valueOf(i), str2, bundle}) == null) {
+            this.mApplicationProxy.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
         }
     }
 }

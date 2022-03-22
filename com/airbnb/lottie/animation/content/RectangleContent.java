@@ -86,8 +86,8 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
         PointF value2 = this.positionAnimation.getValue();
         this.path.moveTo(value2.x + f2, (value2.y - f3) + floatValue);
         this.path.lineTo(value2.x + f2, (value2.y + f3) - floatValue);
-        int i2 = (floatValue > 0.0f ? 1 : (floatValue == 0.0f ? 0 : -1));
-        if (i2 > 0) {
+        int i = (floatValue > 0.0f ? 1 : (floatValue == 0.0f ? 0 : -1));
+        if (i > 0) {
             RectF rectF = this.rect;
             float f4 = value2.x;
             float f5 = floatValue * 2.0f;
@@ -96,7 +96,7 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
             this.path.arcTo(this.rect, 0.0f, 90.0f, false);
         }
         this.path.lineTo((value2.x - f2) + floatValue, value2.y + f3);
-        if (i2 > 0) {
+        if (i > 0) {
             RectF rectF2 = this.rect;
             float f7 = value2.x;
             float f8 = value2.y;
@@ -105,7 +105,7 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
             this.path.arcTo(this.rect, 90.0f, 90.0f, false);
         }
         this.path.lineTo(value2.x - f2, (value2.y - f3) + floatValue);
-        if (i2 > 0) {
+        if (i > 0) {
             RectF rectF3 = this.rect;
             float f10 = value2.x;
             float f11 = value2.y;
@@ -114,7 +114,7 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
             this.path.arcTo(this.rect, 180.0f, 90.0f, false);
         }
         this.path.lineTo((value2.x + f2) - floatValue, value2.y - f3);
-        if (i2 > 0) {
+        if (i > 0) {
             RectF rectF4 = this.rect;
             float f13 = value2.x;
             float f14 = floatValue * 2.0f;
@@ -134,14 +134,14 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2);
+        for (int i = 0; i < list.size(); i++) {
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

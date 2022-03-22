@@ -10,14 +10,15 @@ public final class SpeedStatsStampTable {
     public static final int AD_CALL_SHOW_END_STAMP_KEY = 3308;
     public static final int AD_CALL_SHOW_START_STAMP_KEY = 3307;
     public static final int AD_LOAD_BEAR_END_STAMP_KEY = 3304;
-    public static final int AD_LOAD_END_STAMP_KEY = 3302;
     public static final int AD_LOAD_HANDLER_END_STAMP_KEY = 3306;
     public static final int AD_LOAD_IDLE_END_STAMP_KEY = 3305;
+    public static final int AD_LOAD_METHOD_END_STAMP_KEY = 3302;
+    public static final int AD_LOAD_METHOD_START_STAMP_KEY = 3301;
     public static final int AD_LOAD_PROLOGUE_END_STAMP_KEY = 3303;
-    public static final int AD_LOAD_START_STAMP_KEY = 3301;
-    public static final int AD_SHOW_END_STAMP_KEY = 3310;
-    public static final int AD_SHOW_START_STAMP_KEY = 3309;
-    public static final int AD_VIEW_END_STAMP_KEY = 3311;
+    public static final int AD_SHOW_END_STAMP_KEY = 3311;
+    public static final int AD_SHOW_POLICY_SO_END = 3309;
+    public static final int AD_SHOW_START_STAMP_KEY = 3310;
+    public static final int AD_VIEW_END_STAMP_KEY = 3312;
     public static final int ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY = 5037;
     public static final int ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY = 5036;
     public static final int ALA_LIVE_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5039;
@@ -127,11 +128,6 @@ public final class SpeedStatsStampTable {
     public static final int MULTI_DEX_TRICK_END_STAMP_KEY = 1005;
     public static final int NESTED_SCROLL_HEADER_INIT_END_STAMP_KEY = 4013;
     public static final int NESTED_SCROLL_HEADER_INIT_START_STAMP_KEY = 4012;
-    public static final int NEW_LOGO_ACTIVITY_END_STAMP_KEY = 3011;
-    public static final int NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY = 3008;
-    public static final int NEW_LOGO_ACTIVITY_ON_DESTROY_END_STAMP_KEY = 3010;
-    public static final int NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY = 3009;
-    public static final int NEW_LOGO_ACTIVITY_START_STAMP_KEY = 3007;
     public static final int NPS_INIT_END_STAMP_KEY = 1011;
     public static final int ON_FIRST_DISPATCH_DRAW_END_STAMP_KEY = 5019;
     public static final int ON_FIRST_DISPATCH_DRAW_START_STAMP_KEY = 5018;
@@ -179,9 +175,9 @@ public final class SpeedStatsStampTable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

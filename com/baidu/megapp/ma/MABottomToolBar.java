@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class MABottomToolBar {
     public static /* synthetic */ Interceptable $ic;
@@ -53,16 +52,16 @@ public class MABottomToolBar {
             $VALUES = new CommonMenuType[]{MENU_STYLE_NO, MENU_STYLE_NS_NA, MENU_STYLE_NS_H5, commonMenuType};
         }
 
-        public CommonMenuType(String str, int i2) {
+        public CommonMenuType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -117,16 +116,16 @@ public class MABottomToolBar {
             $VALUES = new CommonToolBarType[]{TOOL_BAR_STYLE_NO, TOOL_BAR_STYLE_NS, TOOL_BAR_STYLE_NEWS, commonToolBarType};
         }
 
-        public CommonToolBarType(String str, int i2) {
+        public CommonToolBarType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -160,7 +159,7 @@ public class MABottomToolBar {
         public static final int TOOL_ITEM_BACK = 1;
         public static final int TOOL_ITEM_SHARE = 2;
 
-        boolean onItemClick(int i2);
+        boolean onItemClick(int i);
     }
 
     @Deprecated
@@ -176,9 +175,9 @@ public class MABottomToolBar {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -267,9 +266,9 @@ public class MABottomToolBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("mCommonToolBarType = " + this.mCommonToolBarType + StringUtils.LF);
-            sb.append("mCommonMenuType = " + this.mCommonMenuType + StringUtils.LF);
-            sb.append("mOnCommonToolBarClickListener = " + this.mOnCommonToolBarClickListener + StringUtils.LF);
+            sb.append("mCommonToolBarType = " + this.mCommonToolBarType + "\n");
+            sb.append("mCommonMenuType = " + this.mCommonMenuType + "\n");
+            sb.append("mOnCommonToolBarClickListener = " + this.mOnCommonToolBarClickListener + "\n");
             StringBuilder sb2 = new StringBuilder();
             sb2.append("mOnCommonToolMenuClickListener = ");
             sb2.append(this.mOnCommonToolMenuClickListener);

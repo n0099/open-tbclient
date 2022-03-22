@@ -1,8 +1,8 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
 import android.graphics.RectF;
-import c.a.r0.l0.e.a;
-import c.a.r0.l0.j.b;
+import c.a.p0.n0.e.a;
+import c.a.p0.n0.j.b;
 import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +29,9 @@ public final class AkTopRetainer$layout$2 extends Lambda implements Function1<a,
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,12 +46,12 @@ public final class AkTopRetainer$layout$2 extends Lambda implements Function1<a,
     public final Integer invoke(a aVar) {
         InterceptResult invokeL;
         DrawState f2;
-        RectF i2;
+        RectF i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             Number number = null;
-            if (aVar != null && (f2 = aVar.f()) != null && (i2 = f2.i()) != null) {
-                number = Float.valueOf(i2.left);
+            if (aVar != null && (f2 = aVar.f()) != null && (i = f2.i()) != null) {
+                number = Float.valueOf(i.left);
             }
             if (number == null) {
                 number = Integer.valueOf(this.$displayer.getWidth());

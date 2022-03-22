@@ -150,8 +150,8 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use removeAt(index) instead.", replaceWith = @ReplaceWith(expression = "removeAt(index)", imports = {}))
     @InlineOnly
-    public static final <T> T remove(List<T> list, int i2) {
-        return list.remove(i2);
+    public static final <T> T remove(List<T> list, int i) {
+        return list.remove(i);
     }
 
     public static final <T> boolean removeAll(Collection<? super T> removeAll, Iterable<? extends T> elements) {
@@ -221,7 +221,7 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
     }
 
     public static final <T> boolean filterInPlace$CollectionsKt__MutableCollectionsKt(List<T> list, Function1<? super T, Boolean> function1, boolean z) {
-        int i2;
+        int i;
         if (!(list instanceof RandomAccess)) {
             if (list != null) {
                 return filterInPlace$CollectionsKt__MutableCollectionsKt(TypeIntrinsics.asMutableIterable(list), function1, z);
@@ -230,34 +230,34 @@ public class CollectionsKt__MutableCollectionsKt extends CollectionsKt__MutableC
         }
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(list);
         if (lastIndex >= 0) {
-            int i3 = 0;
-            i2 = 0;
+            int i2 = 0;
+            i = 0;
             while (true) {
-                T t = list.get(i3);
+                T t = list.get(i2);
                 if (function1.invoke(t).booleanValue() != z) {
-                    if (i2 != i3) {
-                        list.set(i2, t);
+                    if (i != i2) {
+                        list.set(i, t);
                     }
-                    i2++;
+                    i++;
                 }
-                if (i3 == lastIndex) {
+                if (i2 == lastIndex) {
                     break;
                 }
-                i3++;
+                i2++;
             }
         } else {
-            i2 = 0;
+            i = 0;
         }
-        if (i2 >= list.size()) {
+        if (i >= list.size()) {
             return false;
         }
         int lastIndex2 = CollectionsKt__CollectionsKt.getLastIndex(list);
-        if (lastIndex2 < i2) {
+        if (lastIndex2 < i) {
             return true;
         }
         while (true) {
             list.remove(lastIndex2);
-            if (lastIndex2 == i2) {
+            if (lastIndex2 == i) {
                 return true;
             }
             lastIndex2--;

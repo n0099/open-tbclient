@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -80,21 +79,21 @@ public class VideoCloudSetting {
             FAILED = new MatchedType("FAILED", 0);
             AND_NEED_CHECK_NEXT = new MatchedType("AND_NEED_CHECK_NEXT", 1);
             OR_NEED_CHECK_NEXT = new MatchedType("OR_NEED_CHECK_NEXT", 2);
-            MatchedType matchedType = new MatchedType(c.p, 3);
+            MatchedType matchedType = new MatchedType("SUCCESS", 3);
             SUCCESS = matchedType;
             $VALUES = new MatchedType[]{FAILED, AND_NEED_CHECK_NEXT, OR_NEED_CHECK_NEXT, matchedType};
         }
 
-        public MatchedType(String str, int i2) {
+        public MatchedType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -132,9 +131,9 @@ public class VideoCloudSetting {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,12 +153,12 @@ public class VideoCloudSetting {
                     return false;
                 }
                 int length = split.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (TextUtils.isEmpty(split[i2]) || TextUtils.isEmpty(split2[i2])) {
-                        if (!TextUtils.isEmpty(split2[i2]) || !TextUtils.isEmpty(split[i2])) {
+                for (int i = 0; i < length; i++) {
+                    if (TextUtils.isEmpty(split[i]) || TextUtils.isEmpty(split2[i])) {
+                        if (!TextUtils.isEmpty(split2[i]) || !TextUtils.isEmpty(split[i])) {
                             return false;
                         }
-                    } else if (!split2[i2].equals(str4) && !split2[i2].equals(split[i2])) {
+                    } else if (!split2[i].equals(str4) && !split2[i].equals(split[i])) {
                         return false;
                     }
                 }
@@ -190,7 +189,7 @@ public class VideoCloudSetting {
                 this.mSubItems = parseSubItems(str, str3);
             } else {
                 if (str2.endsWith("|")) {
-                    str2 = "\\|";
+                    str2 = WebChromeClient.PARAM_SEPARATOR;
                 }
                 String[] split = str.split(str2);
                 if (split.length != 2) {
@@ -216,9 +215,9 @@ public class VideoCloudSetting {
                 }
                 String[] split = str.split(str2);
                 int length = split.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (TextUtils.isEmpty(split[i2])) {
-                        split[i2] = null;
+                for (int i = 0; i < length; i++) {
+                    if (TextUtils.isEmpty(split[i])) {
+                        split[i] = null;
                     }
                 }
                 return split;
@@ -236,8 +235,8 @@ public class VideoCloudSetting {
                 }
                 if (!TextUtils.isEmpty(str) && (strArr = this.mSubItems) != null) {
                     int length = strArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (str.equals(this.mSubItems[i2]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                    for (int i = 0; i < length; i++) {
+                        if (str.equals(this.mSubItems[i]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
                             return true;
                         }
                     }
@@ -268,17 +267,17 @@ public class VideoCloudSetting {
                 String[] strArr = this.mSubItems;
                 if (strArr != null) {
                     int length = strArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        Log.d(VideoCloudSetting.TAG, "mSubItems: [" + i2 + "] = " + this.mSubItems[i2]);
+                    for (int i = 0; i < length; i++) {
+                        Log.d(VideoCloudSetting.TAG, "mSubItems: [" + i + "] = " + this.mSubItems[i]);
                     }
                 }
             }
         }
 
-        public void setType(int i2) {
+        public void setType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.mType = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.mType = i;
             }
         }
     }
@@ -294,9 +293,9 @@ public class VideoCloudSetting {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -313,24 +312,24 @@ public class VideoCloudSetting {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 MatchedType matchedType = MatchedType.FAILED;
                 boolean z2 = false;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     z = true;
-                    if (i2 >= this.mItems.size()) {
+                    if (i >= this.mItems.size()) {
                         break;
                     }
-                    VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i2);
-                    int i3 = videoCloudSettingItem.mType;
-                    if (i3 == 0) {
+                    VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i);
+                    int i2 = videoCloudSettingItem.mType;
+                    if (i2 == 0) {
                         str2 = str;
                     } else {
-                        if (i3 == 1 && !videoCloudSettingItem.mIsCloseAll) {
+                        if (i2 == 1 && !videoCloudSettingItem.mIsCloseAll) {
                             videoCloudSettingItem.mIsEnableAll = true;
                         }
                         str2 = "";
                     }
                     MatchedType match = videoCloudSettingItem.match(str2);
-                    Log.d(VideoCloudSetting.TAG, "i:" + i2 + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + match);
+                    Log.d(VideoCloudSetting.TAG, "i:" + i + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + match);
                     if (match == MatchedType.SUCCESS) {
                         matchedType = match;
                         z2 = true;
@@ -339,7 +338,7 @@ public class VideoCloudSetting {
                         matchedType = match;
                         break;
                     } else {
-                        i2++;
+                        i++;
                         matchedType = match;
                     }
                 }
@@ -366,9 +365,9 @@ public class VideoCloudSetting {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

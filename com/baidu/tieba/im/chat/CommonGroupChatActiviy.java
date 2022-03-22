@@ -55,17 +55,17 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public final /* synthetic */ CommonGroupChatActiviy a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
-            super(i2);
+        public a(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i2)};
+                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -116,17 +116,17 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         public final /* synthetic */ CommonGroupChatActiviy a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(CommonGroupChatActiviy commonGroupChatActiviy, int i2) {
-            super(i2);
+        public b(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i2)};
+                Object[] objArr = {commonGroupChatActiviy, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -189,9 +189,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -213,7 +213,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.group_is_dismiss), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07db), false);
                 finish();
             }
         } catch (JSONException e2) {
@@ -233,7 +233,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
             String string = jSONObject.getJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM).getString(TbEnum.SystemMessage.KEY_GROUP_ID);
             if (jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT) && string.equals(String.valueOf(group.getGroupId()))) {
-                showToast(TbadkApplication.getInst().getString(R.string.group_is_kicked), false);
+                showToast(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07dc), false);
                 finish();
             }
         } catch (JSONException e2) {
@@ -314,22 +314,22 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemViewClick(View view, int i2, int i3, long j2) {
+    public void onItemViewClick(View view, int i, int i2, long j) {
         ChatMessage msg;
         MsglistModel msglistModel;
         ChatMessage msg2;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            super.onItemViewClick(view, i2, i3, j2);
-            if (i2 == 2) {
-                ChatMessage msg3 = this.mListModel.getMsg(i3);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.onItemViewClick(view, i, i2, j);
+            if (i == 2) {
+                ChatMessage msg3 = this.mListModel.getMsg(i2);
                 if (msg3 == null || msg3.getUserInfo() == null) {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg3.getUserInfo().getUserId(), msg3.getUserInfo().getUserName(), null, AddFriendActivityConfig.TYPE_IM_GROUP)));
-            } else if (i2 != 4) {
-                if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i3)) != null && c.a.r0.s1.w.c.q(msg2) && content != null) {
+            } else if (i != 4) {
+                if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg2 = msglistModel.getMsg(i2)) != null && c.a.p0.u1.w.c.q(msg2) && content != null) {
                     JSONObject jSONObject = null;
                     try {
                         try {
@@ -347,9 +347,9 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                         sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString("pid"), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), jSONObject.optString("url_d"), jSONObject.optString("face_name"), 3, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                     }
                 }
-            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i3)) != null && c.a.r0.s1.w.c.s(msg)) {
-                String f2 = c.a.r0.s1.w.c.f(msg.getContent(), true);
-                String f3 = c.a.r0.s1.w.c.f(msg.getContent(), false);
+            } else if (isExStorageOk() && (msg = this.mListModel.getMsg(i2)) != null && c.a.p0.u1.w.c.s(msg)) {
+                String f2 = c.a.p0.u1.w.c.f(msg.getContent(), true);
+                String f3 = c.a.p0.u1.w.c.f(msg.getContent(), false);
                 if (f2 == null) {
                     return;
                 }
@@ -363,10 +363,10 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.d.f.h.b
-    public void onItemViewLongClick(View view, int i2, int i3, long j2) {
+    public void onItemViewLongClick(View view, int i, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            super.onItemViewLongClick(view, i2, i3, j2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.onItemViewLongClick(view, i, i2, j);
         }
     }
 
@@ -427,7 +427,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             String stringExtra = intent.getStringExtra(GroupChatActivityConfig.GROUP_OBJ_TP);
             String valueOf = String.valueOf(groupData.getGroupId());
             if (!PvCacheModel.getInstance().isSameDay(valueOf)) {
-                new c.a.r0.s1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
+                new c.a.p0.u1.w.a(TbConfig.ST_TYPE_IM, stringExtra, valueOf).start();
                 TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
                 PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
             }

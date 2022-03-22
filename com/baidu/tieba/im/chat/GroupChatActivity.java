@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.c1.s;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.c1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -44,7 +44,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f43374b;
+        public final /* synthetic */ GroupChatActivity f33666b;
 
         public a(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -53,25 +53,25 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {groupChatActivity, groupData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43374b = groupChatActivity;
+            this.f33666b = groupChatActivity;
             this.a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.c1.k0
+        @Override // c.a.o0.c1.k0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.r0.s1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.p0.u1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -82,7 +82,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f43375b;
+        public final /* synthetic */ GroupChatActivity f33667b;
 
         public b(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -91,20 +91,20 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {groupChatActivity, groupData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43375b = groupChatActivity;
+            this.f33667b = groupChatActivity;
             this.a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             GroupData groupData;
@@ -113,18 +113,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 return;
             }
             if (bool.booleanValue()) {
-                this.f43375b.mListView.closeNotNotify();
+                this.f33667b.mListView.closeNotNotify();
             } else {
-                this.f43375b.mListView.showNotNotfiy();
+                this.f33667b.mListView.showNotNotfiy();
             }
-            if (this.f43375b.mListModel == null || (groupData = this.a) == null) {
+            if (this.f33667b.mListModel == null || (groupData = this.a) == null) {
                 return;
             }
             String name = groupData.getName();
             if (TextUtils.isEmpty(name)) {
                 return;
             }
-            this.f43375b.mListView.refreshHeaderFooter(name, true);
+            this.f33667b.mListView.refreshHeaderFooter(name, true);
         }
     }
 
@@ -141,9 +141,9 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {groupChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -174,9 +174,9 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -220,7 +220,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(c.a.r0.s1.f.c cVar) {
+    public boolean first(c.a.p0.u1.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
@@ -260,12 +260,12 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
             MsglistModel msglistModel = this.mListModel;
             if (msglistModel instanceof GroupMsglistModel) {
-                long j2 = 0;
+                long j = 0;
                 if (((GroupMsglistModel) msglistModel).getGroup() != null) {
-                    j2 = ((GroupMsglistModel) this.mListModel).getGroup().getGroupId();
+                    j = ((GroupMsglistModel) this.mListModel).getGroup().getGroupId();
                     this.mListView.refreshHeaderFooter(((GroupMsglistModel) this.mListModel).getGroup().getName(), true);
                 }
-                this.mListView.bindDataAndRefresh(this.mListModel.getData(), j2);
+                this.mListView.bindDataAndRefresh(this.mListModel.getData(), j);
                 this.mListView.setRecordCallback(new c(this));
             }
         }
@@ -309,19 +309,19 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.TalkableActivity, c.a.d.f.h.b
-    public void onItemViewLongClick(View view, int i2, int i3, long j2) {
+    public void onItemViewLongClick(View view, int i, int i2, long j) {
         ChatMessage msg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            super.onItemViewLongClick(view, i2, i3, j2);
-            if (i2 != 2 || (msg = this.mListModel.getMsg(i3)) == null || msg.getUserInfo() == null || msg.getUserInfo().getName_show() == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.onItemViewLongClick(view, i, i2, j);
+            if (i != 2 || (msg = this.mListModel.getMsg(i2)) == null || msg.getUserInfo() == null || msg.getUserInfo().getName_show() == null) {
                 return;
             }
             this.mListView.addAt2SendMsg(msg.getUserInfo().getName_show());
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.q0.e1.n.i
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.o0.e1.n.i
     public void onLinkButtonClicked(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
@@ -365,7 +365,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(2, true);
             String curId = ChatStatusManager.getInst().getCurId(2);
-            c.a.q0.s.d.b.g0().d(curId);
+            c.a.o0.s.d.b.g0().d(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
         }
     }

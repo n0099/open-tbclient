@@ -2,16 +2,15 @@ package com.baidu.tieba.homepage.activitypage;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a1.b;
-import c.a.q0.m.f;
-import c.a.q0.p0.d;
-import c.a.q0.r.r.v1;
-import c.a.q0.r.r.x;
-import c.a.r0.d1.o0;
-import c.a.r0.o1.k.c;
-import c.a.r0.o1.k.g.l;
-import c.a.r0.o1.k.g.p;
+import c.a.o0.a1.b;
+import c.a.o0.m.f;
+import c.a.o0.p0.d;
+import c.a.o0.r.r.s1;
+import c.a.o0.r.r.x;
+import c.a.p0.f1.o0;
+import c.a.p0.q1.k.c;
+import c.a.p0.q1.k.g.l;
+import c.a.p0.q1.k.g.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,23 +27,23 @@ public class ActivityPageFragment extends BaseTemplateFragment implements o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public int f42750h;
+    /* renamed from: d  reason: collision with root package name */
+    public int f33152d;
 
-    /* renamed from: i  reason: collision with root package name */
-    public String f42751i;
+    /* renamed from: e  reason: collision with root package name */
+    public String f33153e;
 
-    /* renamed from: j  reason: collision with root package name */
-    public String f42752j;
-    public f<c.a.q0.r.r.a> k;
+    /* renamed from: f  reason: collision with root package name */
+    public String f33154f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public f<c.a.o0.r.r.a> f33155g;
 
     /* loaded from: classes5.dex */
-    public class a implements f<c.a.q0.r.r.a> {
+    public class a implements f<c.a.o0.r.r.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ActivityPageFragment f42753e;
+        public final /* synthetic */ ActivityPageFragment a;
 
         public a(ActivityPageFragment activityPageFragment) {
             Interceptable interceptable = $ic;
@@ -53,36 +52,36 @@ public class ActivityPageFragment extends BaseTemplateFragment implements o0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activityPageFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42753e = activityPageFragment;
+            this.a = activityPageFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: b */
-        public void c(View view, c.a.q0.r.r.a aVar, int i2, long j2) {
+        public void c(View view, c.a.o0.r.r.a aVar, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, aVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.p(aVar, this.f42753e.f42751i);
-                c.a.q0.a1.h.a.b("----曝光统计----position = " + i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, aVar, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                c.p(aVar, this.a.f33153e);
+                c.a.o0.a1.h.a.b("----曝光统计----position = " + i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: d */
-        public void a(View view, c.a.q0.r.r.a aVar, int i2, long j2) {
+        public void a(View view, c.a.o0.r.r.a aVar, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, aVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.j(view, aVar, this.f42753e.f42751i);
-                c.a.q0.a1.h.a.b("----点击统计----position = " + i2);
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, aVar, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                c.j(view, aVar, this.a.f33153e);
+                c.a.o0.a1.h.a.b("----点击统计----position = " + i);
             }
         }
     }
@@ -92,34 +91,65 @@ public class ActivityPageFragment extends BaseTemplateFragment implements o0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42750h = 101;
-        this.f42751i = "高考";
-        this.f42752j = "gaokao";
-        this.k = new a(this);
+        this.f33152d = 101;
+        this.f33153e = "高考";
+        this.f33154f = "gaokao";
+        this.f33155g = new a(this);
     }
 
-    @Override // c.a.r0.d1.o0
-    public void changeSkinType() {
+    @Override // c.a.p0.f1.o0
+    public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // c.a.p0.f1.o0
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.template.base.BaseTemplateFragment
+    public b D0(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new c.a.p0.q1.k.g.b(getPageContext(), s1.f10951e));
+            arrayList.add(new c.a.p0.q1.k.g.a(getPageContext(), x.f10985b));
+            arrayList.add(new l(getPageContext()));
+            arrayList.add(new p(getPageContext()));
+            b.c cVar = new b.c();
+            cVar.m(309655);
+            cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
+            cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
+            cVar.k(new c.a.p0.q1.b.a(this.f33153e, this.f33154f));
+            cVar.l(new c.a.p0.q1.b.b());
+            cVar.d(this.f33155g);
+            cVar.c(new ActivityPageHeaderView(getActivity(), this.f33153e, this.f33154f));
+            cVar.b(arrayList);
+            return cVar.e(viewGroup);
+        }
+        return (b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f42750h == 201) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.f33152d == 201) {
                 return "a075";
             }
             return null;
@@ -131,77 +161,28 @@ public class ActivityPageFragment extends BaseTemplateFragment implements o0 {
     public d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.s = this.f42751i;
+                pageStayDurationItem.s = this.f33153e;
             }
             return pageStayDurationItem;
         }
         return (d) invokeV.objValue;
     }
 
-    public String getTabCode() {
-        InterceptResult invokeV;
+    @Override // c.a.p0.f1.o0
+    public void n() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42752j : (String) invokeV.objValue;
-    }
-
-    public String getTabName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42751i : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.template.base.BaseTemplateFragment
-    public b onCreatePageLoader(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new c.a.r0.o1.k.g.b(getPageContext(), v1.f13391i));
-            arrayList.add(new c.a.r0.o1.k.g.a(getPageContext(), x.f13404f));
-            arrayList.add(new l(getPageContext()));
-            arrayList.add(new p(getPageContext()));
-            b.c cVar = new b.c();
-            cVar.m(309655);
-            cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
-            cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new c.a.r0.o1.b.a(this.f42751i, this.f42752j));
-            cVar.l(new c.a.r0.o1.b.b());
-            cVar.d(this.k);
-            cVar.c(new ActivityPageHeaderView(getActivity(), this.f42751i, this.f42752j));
-            cVar.b(arrayList);
-            return cVar.e(viewGroup);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            G0();
         }
-        return (b) invokeL.objValue;
     }
 
-    @Override // c.a.r0.d1.o0
-    public void onPageOutEnd() {
+    @Override // c.a.p0.f1.o0
+    public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // c.a.r0.d1.o0
-    public void onPageStartIn() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // c.a.r0.d1.o0
-    public void refreshPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            sendReq();
-        }
-    }
-
-    public void setVideoThreadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
         }
     }
 }

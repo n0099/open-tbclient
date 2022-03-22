@@ -23,55 +23,67 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import j.a.a.e.e.d;
-import j.a.a.e.f.c;
-import j.a.a.e.h.m;
-import j.a.a.e.h.n;
-import j.a.a.e.h.o;
+import h.a.a.e.e.d;
+import h.a.a.e.f.c;
+import h.a.a.e.h.m;
+import h.a.a.e.h.n;
+import h.a.a.e.h.o;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int TYPE_AMOUNT = 1;
-    public static final int TYPE_CAMPAIGN = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61557b;
+    public int f45890b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61558c;
+    public int f45891c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f61559d;
+    public int f45892d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f61560e;
+    public d f45893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c> f61561f;
+    public List<c> f45894f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61562g;
+    public String f45895g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayUIKitConfig f61563h;
-    public b mOnItemClickListener;
+    public PayUIKitConfig f45896h;
+    public b i;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AmountViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView amountText;
-        public View amoutNewLayout;
-        public TextView destAmount;
-        public View destAmountContainer;
-        public TextView destUnit;
-        public TextView tvOtherAmount;
-        public TextView tvTags;
-        public TextView tvTips;
+        public TextView a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f45897b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public View f45898c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TextView f45899d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public View f45900e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public TextView f45901f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public TextView f45902g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public TextView f45903h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AmountViewHolder(PayAmountAdapter payAmountAdapter, View view) {
@@ -82,36 +94,46 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payAmountAdapter, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.destAmount = (TextView) view.findViewById(R.id.tv_dest_amount);
-            this.destUnit = (TextView) view.findViewById(R.id.tv_amount_unit);
-            this.amoutNewLayout = view.findViewById(R.id.amount_new_rl);
-            this.amountText = (TextView) view.findViewById(R.id.amount_new);
-            this.destAmountContainer = view.findViewById(R.id.ll_dest_amount_container);
-            this.tvOtherAmount = (TextView) view.findViewById(R.id.tv_other_amount);
-            this.tvTips = (TextView) view.findViewById(R.id.tvTips);
-            this.tvTags = (TextView) view.findViewById(R.id.tv_tag);
+            this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921a0);
+            this.f45897b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09217f);
+            this.f45898c = view.findViewById(R.id.obfuscated_res_0x7f090267);
+            this.f45899d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090266);
+            this.f45900e = view.findViewById(R.id.obfuscated_res_0x7f0912ef);
+            this.f45901f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921e5);
+            this.f45902g = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092175);
+            this.f45903h = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092215);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class CampaignViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView imgBottomIndex;
-        public ImageView imgCenterLeftLog;
-        public ImageView imgCenterRightLog;
-        public ImageView imgTopIndex;
-        public ViewGroup ll_container;
-        public TextView tvCenterTopTitle;
+        public ViewGroup a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public ImageView f45904b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ImageView f45905c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public ImageView f45906d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TextView f45907e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public ImageView f45908f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CampaignViewHolder(PayAmountAdapter payAmountAdapter, View view) {
@@ -122,34 +144,32 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payAmountAdapter, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.ll_container = (ViewGroup) view.findViewById(R.id.ll_container);
-            this.imgTopIndex = (ImageView) view.findViewById(R.id.img_top_index);
-            this.imgBottomIndex = (ImageView) view.findViewById(R.id.img_bottom_index);
-            this.imgCenterLeftLog = (ImageView) view.findViewById(R.id.img_center_left_log);
-            this.tvCenterTopTitle = (TextView) view.findViewById(R.id.tv_center_top_title);
-            this.imgCenterRightLog = (ImageView) view.findViewById(R.id.img_center_right_log);
+            this.a = (ViewGroup) view.findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.f45904b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090edd);
+            this.f45905c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090ea1);
+            this.f45906d = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090ea4);
+            this.f45907e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09218f);
+            this.f45908f = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090ea5);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AmountViewHolder a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AmountViewHolder f61564e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayAmountAdapter f61565f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ PayAmountAdapter f45909b;
 
         public a(PayAmountAdapter payAmountAdapter, AmountViewHolder amountViewHolder) {
             Interceptable interceptable = $ic;
@@ -158,33 +178,33 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payAmountAdapter, amountViewHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61565f = payAmountAdapter;
-            this.f61564e = amountViewHolder;
+            this.f45909b = payAmountAdapter;
+            this.a = amountViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f61565f.mOnItemClickListener) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f45909b.i) == null) {
                 return;
             }
-            AmountViewHolder amountViewHolder = this.f61564e;
+            AmountViewHolder amountViewHolder = this.a;
             bVar.a(amountViewHolder.itemView, amountViewHolder.getAdapterPosition());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void a(View view, int i2);
+        void a(View view, int i);
     }
 
     public PayAmountAdapter(Activity activity, d dVar, List<c> list, PayUIKitConfig payUIKitConfig) {
@@ -194,351 +214,351 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, dVar, list, payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f61558c = -1;
-        this.f61562g = "Y币";
-        this.mOnItemClickListener = null;
+        this.f45891c = -1;
+        this.f45895g = "Y币";
+        this.i = null;
         this.a = activity;
-        this.f61561f = list;
-        this.f61563h = payUIKitConfig;
-        this.f61560e = dVar;
+        this.f45894f = list;
+        this.f45896h = payUIKitConfig;
+        this.f45893e = dVar;
     }
 
-    public final void a(CampaignViewHolder campaignViewHolder) {
+    public List<c> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, campaignViewHolder) == null) {
-            campaignViewHolder.imgBottomIndex.setVisibility(8);
-            campaignViewHolder.imgTopIndex.setVisibility(8);
-            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
-            campaignViewHolder.itemView.setVisibility(8);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45894f : (List) invokeV.objValue;
     }
 
-    public final void b(CampaignViewHolder campaignViewHolder, c cVar, int i2) {
+    public c e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, campaignViewHolder, cVar, i2) == null) {
-            d(campaignViewHolder, cVar, i2);
-            e(campaignViewHolder, cVar, i2);
-        }
-    }
-
-    public final void c(AmountViewHolder amountViewHolder, int i2) {
-        c item;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, amountViewHolder, i2) == null) || (item = getItem(i2)) == null) {
-            return;
-        }
-        g(amountViewHolder, item, i2);
-        h(amountViewHolder, item);
-        i(amountViewHolder, item);
-        amountViewHolder.itemView.setOnClickListener(new a(this, amountViewHolder));
-    }
-
-    public final void d(CampaignViewHolder campaignViewHolder, c cVar, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, campaignViewHolder, cVar, i2) == null) {
-            int i4 = -1;
-            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            campaignViewHolder.itemView.setVisibility(0);
-            int b2 = (m.b(this.a) - j.a.a.e.h.c.a(((this.f61559d - 1) * 10) + 30)) / this.f61559d;
-            int a2 = j.a.a.e.h.c.a(11.0f);
-            int i5 = this.f61559d == 2 ? 4 : 6;
-            int i6 = cVar.f60906e;
-            if (i6 <= this.f61558c) {
-                campaignViewHolder.imgBottomIndex.setVisibility(8);
-                campaignViewHolder.imgTopIndex.setVisibility(0);
-                i4 = cVar.f60906e;
-                int a3 = ((b2 / 2) - a2) + ((j.a.a.e.h.c.a(10.0f) + b2) * i4);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) campaignViewHolder.imgTopIndex.getLayoutParams();
-                layoutParams.leftMargin = a3;
-                campaignViewHolder.imgTopIndex.setLayoutParams(layoutParams);
-                this.f61560e.c(campaignViewHolder.ll_container, this.a);
-            } else if (i6 <= i5) {
-                campaignViewHolder.imgBottomIndex.setVisibility(0);
-                campaignViewHolder.imgTopIndex.setVisibility(8);
-                int i7 = this.f61558c;
-                if (i7 == 2) {
-                    i3 = cVar.f60906e - 3;
-                } else {
-                    if (i7 == 3) {
-                        i3 = cVar.f60906e - 4;
-                    }
-                    int a4 = ((b2 / 2) - a2) + ((j.a.a.e.h.c.a(10.0f) + b2) * i4);
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) campaignViewHolder.imgBottomIndex.getLayoutParams();
-                    layoutParams2.leftMargin = a4;
-                    campaignViewHolder.imgBottomIndex.setLayoutParams(layoutParams2);
-                    this.f61560e.c(campaignViewHolder.ll_container, this.a);
-                }
-                i4 = i3;
-                int a42 = ((b2 / 2) - a2) + ((j.a.a.e.h.c.a(10.0f) + b2) * i4);
-                LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) campaignViewHolder.imgBottomIndex.getLayoutParams();
-                layoutParams22.leftMargin = a42;
-                campaignViewHolder.imgBottomIndex.setLayoutParams(layoutParams22);
-                this.f61560e.c(campaignViewHolder.ll_container, this.a);
-            } else {
-                RLog.error("PayAmountAdapter", "updateCampaignItemIndexView error config", new Object[0]);
-                a(campaignViewHolder);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<c> list = this.f45894f;
+            if (list == null || list.isEmpty() || i < 0 || i >= this.f45894f.size()) {
+                return null;
             }
-            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i2 + " selectCampaignIndex:" + cVar.f60906e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.f61558c + " startIndexOfLine:" + i4 + " maxValidSelectCampaignIndex:" + i5);
+            return this.f45894f.get(i);
         }
+        return (c) invokeI.objValue;
     }
 
-    public final void e(CampaignViewHolder campaignViewHolder, c cVar, int i2) {
+    public c f() {
+        InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, campaignViewHolder, cVar, i2) == null) {
-            int i3 = o.a.b(this.f61563h) ? R.drawable.pay_ui_item_pay_amount_campaign_item_center_top_red_icon : R.drawable.pay_ui_item_pay_amount_campaign_item_center_top_yellow_icon;
-            int i4 = o.a.b(this.f61563h) ? R.drawable.pay_ui_item_pay_amount_campaign_item_center_right_red_icon : R.drawable.pay_ui_item_pay_amount_campaign_item_center_right_yellow_icon;
-            int i5 = o.a.b(this.f61563h) ? R.drawable.pay_ui_item_pay_amount_campaign_item_top_index_red_icon : R.drawable.pay_ui_item_pay_amount_campaign_item_top_index_yellow_icon;
-            int i6 = o.a.b(this.f61563h) ? R.drawable.pay_ui_item_pay_amount_campaign_item_bottom_index_red_icon : R.drawable.pay_ui_item_pay_amount_campaign_item_bottom_index_yellow_icon;
-            campaignViewHolder.imgTopIndex.setBackgroundResource(i5);
-            campaignViewHolder.imgBottomIndex.setBackgroundResource(i6);
-            campaignViewHolder.imgCenterLeftLog.setImageResource(i3);
-            campaignViewHolder.imgCenterRightLog.setImageResource(i4);
-            GiftBagsInfo a2 = this.f61560e.a();
-            if (a2 == null) {
-                campaignViewHolder.tvCenterTopTitle.setVisibility(4);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f45890b >= getCount() || (i = this.f45890b) < 0) {
+                return null;
             }
-            String str = a2.giftbagTitle;
-            if (TextUtils.isEmpty(str)) {
-                campaignViewHolder.tvCenterTopTitle.setVisibility(4);
-                return;
-            }
-            campaignViewHolder.tvCenterTopTitle.setVisibility(0);
-            campaignViewHolder.tvCenterTopTitle.setText(str);
+            return e(i);
         }
+        return (c) invokeV.objValue;
     }
 
-    public final void f(CampaignViewHolder campaignViewHolder, int i2) {
-        c item;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, campaignViewHolder, i2) == null) || (item = getItem(i2)) == null) {
-            return;
-        }
-        if (this.f61558c >= 0 && item.f60906e >= 0) {
-            b(campaignViewHolder, item, i2);
-        } else {
-            a(campaignViewHolder);
-        }
-    }
-
-    public final void g(AmountViewHolder amountViewHolder, c cVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, amountViewHolder, cVar, i2) == null) {
-            if (cVar.f60904c) {
-                amountViewHolder.tvOtherAmount.setVisibility(0);
-                amountViewHolder.destAmountContainer.setVisibility(8);
-                amountViewHolder.amountText.setVisibility(8);
-                return;
-            }
-            amountViewHolder.tvOtherAmount.setVisibility(8);
-            amountViewHolder.destAmountContainer.setVisibility(0);
-            amountViewHolder.amountText.setVisibility(0);
-            amountViewHolder.destAmount.setText(n.b(cVar.a()));
-            amountViewHolder.destUnit.setText(this.f61562g);
-            amountViewHolder.amountText.setVisibility(0);
-            Double valueOf = Double.valueOf(cVar.b());
-            if (valueOf == null) {
-                amountViewHolder.amountText.setText("");
-            } else {
-                amountViewHolder.amountText.setText(String.format(this.a.getResources().getString(R.string.pay_ui_str_pay_amount_text_yuan), n.a(valueOf.doubleValue())));
-            }
-            if (this.f61557b == i2) {
-                amountViewHolder.amoutNewLayout.setSelected(true);
-                amountViewHolder.destAmount.setSelected(true);
-                amountViewHolder.destUnit.setSelected(true);
-                return;
-            }
-            amountViewHolder.amoutNewLayout.setSelected(false);
-            amountViewHolder.destAmount.setSelected(false);
-            amountViewHolder.destUnit.setSelected(false);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45890b : invokeV.intValue;
     }
 
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f61561f.size() : invokeV.intValue;
-    }
-
-    public List<c> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f61561f : (List) invokeV.objValue;
-    }
-
-    public c getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            List<c> list = this.f61561f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f61561f.size()) {
-                return null;
-            }
-            return this.f61561f.get(i2);
-        }
-        return (c) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f45894f.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f61561f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f45894f.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            c item = getItem(i2);
-            return (item == null || !item.f60905d) ? 1 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            c e2 = e(i);
+            return (e2 == null || !e2.f45205d) ? 1 : 2;
         }
         return invokeI.intValue;
     }
 
-    public c getSelectedItem() {
-        InterceptResult invokeV;
+    public final void h(CampaignViewHolder campaignViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, campaignViewHolder) == null) {
+            campaignViewHolder.f45905c.setVisibility(8);
+            campaignViewHolder.f45904b.setVisibility(8);
+            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
+            campaignViewHolder.itemView.setVisibility(8);
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f45891c = i;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f45895g = str;
+        }
+    }
+
+    public void k(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f45890b = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.f45892d = i;
+        }
+    }
+
+    public final void n(CampaignViewHolder campaignViewHolder, c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048590, this, campaignViewHolder, cVar, i) == null) {
+            q(campaignViewHolder, cVar, i);
+            r(campaignViewHolder, cVar, i);
+        }
+    }
+
+    public void o(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f61557b >= getCount() || (i2 = this.f61557b) < 0) {
-                return null;
-            }
-            return getItem(i2);
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || d() == null || d().isEmpty() || (i2 = this.f45891c) < 0 || i2 >= d().size() || !d().get(this.f45891c).f45205d) {
+            return;
         }
-        return (c) invokeV.objValue;
-    }
-
-    public int getSelectedPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f61557b : invokeV.intValue;
-    }
-
-    public final void h(AmountViewHolder amountViewHolder, c cVar) {
-        List<GiftBagsInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, amountViewHolder, cVar) == null) {
-            ProductInfo productInfo = cVar.a;
-            if (productInfo != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                String str = cVar.a.giftbags.get(0).offersTips;
-                if (TextUtils.isEmpty(str)) {
-                    amountViewHolder.tvTips.setVisibility(8);
-                    return;
-                }
-                amountViewHolder.tvTips.setVisibility(0);
-                amountViewHolder.tvTips.setText(str);
-                return;
-            }
-            amountViewHolder.tvTips.setVisibility(8);
-        }
-    }
-
-    public final void i(AmountViewHolder amountViewHolder, c cVar) {
-        List<GiftBagTagInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, amountViewHolder, cVar) == null) {
-            ProductInfo productInfo = cVar.a;
-            if (productInfo != null && (list = productInfo.giftBagTagInfos) != null && !list.isEmpty()) {
-                String str = cVar.a.giftBagTagInfos.get(0).tag;
-                if (TextUtils.isEmpty(str)) {
-                    amountViewHolder.tvTags.setVisibility(8);
-                    return;
-                }
-                amountViewHolder.tvTags.setVisibility(0);
-                amountViewHolder.tvTags.setText(str);
-                return;
-            }
-            amountViewHolder.tvTags.setVisibility(8);
-        }
+        d().get(this.f45891c).f45206e = i;
+        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048593, this, viewHolder, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048592, this, viewHolder, i) == null) {
             if (viewHolder instanceof AmountViewHolder) {
-                c((AmountViewHolder) viewHolder, i2);
+                p((AmountViewHolder) viewHolder, i);
             } else if (viewHolder instanceof CampaignViewHolder) {
-                f((CampaignViewHolder) viewHolder, i2);
+                s((CampaignViewHolder) viewHolder, i);
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, viewGroup, i2)) == null) {
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, o.a.a(this.f61563h));
-            if (i2 == 2) {
-                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.pay_ui_item_pay_amount_campaign_item_layout, viewGroup, false));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, viewGroup, i)) == null) {
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, o.a.a(this.f45896h));
+            if (i == 2) {
+                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d0661, viewGroup, false));
             }
-            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.pay_ui_item_pay_amount_choose_item_layout, viewGroup, false));
+            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d0663, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void setCampaignItemPosition(int i2) {
+    public final void p(AmountViewHolder amountViewHolder, int i) {
+        c e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f61558c = i2;
-        }
-    }
-
-    public void setCurrencyName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f61562g = str;
-        }
-    }
-
-    public void setOnItemClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bVar) == null) {
-            this.mOnItemClickListener = bVar;
-        }
-    }
-
-    public void setSelectedPosition(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f61557b = i2;
-        }
-    }
-
-    public void setSpanCount(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f61559d = i2;
-        }
-    }
-
-    public void uopdateCampaignSelectIndex(int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || getData() == null || getData().isEmpty() || (i3 = this.f61558c) < 0 || i3 >= getData().size() || !getData().get(this.f61558c).f60905d) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, amountViewHolder, i) == null) || (e2 = e(i)) == null) {
             return;
         }
-        getData().get(this.f61558c).f60906e = i2;
-        notifyDataSetChanged();
+        t(amountViewHolder, e2, i);
+        u(amountViewHolder, e2);
+        v(amountViewHolder, e2);
+        amountViewHolder.itemView.setOnClickListener(new a(this, amountViewHolder));
+    }
+
+    public final void q(CampaignViewHolder campaignViewHolder, c cVar, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, campaignViewHolder, cVar, i) == null) {
+            int i3 = -1;
+            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            campaignViewHolder.itemView.setVisibility(0);
+            int b2 = (m.b(this.a) - h.a.a.e.h.c.a(((this.f45892d - 1) * 10) + 30)) / this.f45892d;
+            int a2 = h.a.a.e.h.c.a(11.0f);
+            int i4 = this.f45892d == 2 ? 4 : 6;
+            int i5 = cVar.f45206e;
+            if (i5 <= this.f45891c) {
+                campaignViewHolder.f45905c.setVisibility(8);
+                campaignViewHolder.f45904b.setVisibility(0);
+                i3 = cVar.f45206e;
+                int a3 = ((b2 / 2) - a2) + ((h.a.a.e.h.c.a(10.0f) + b2) * i3);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) campaignViewHolder.f45904b.getLayoutParams();
+                layoutParams.leftMargin = a3;
+                campaignViewHolder.f45904b.setLayoutParams(layoutParams);
+                this.f45893e.c(campaignViewHolder.a, this.a);
+            } else if (i5 <= i4) {
+                campaignViewHolder.f45905c.setVisibility(0);
+                campaignViewHolder.f45904b.setVisibility(8);
+                int i6 = this.f45891c;
+                if (i6 == 2) {
+                    i2 = cVar.f45206e - 3;
+                } else {
+                    if (i6 == 3) {
+                        i2 = cVar.f45206e - 4;
+                    }
+                    int a4 = ((b2 / 2) - a2) + ((h.a.a.e.h.c.a(10.0f) + b2) * i3);
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) campaignViewHolder.f45905c.getLayoutParams();
+                    layoutParams2.leftMargin = a4;
+                    campaignViewHolder.f45905c.setLayoutParams(layoutParams2);
+                    this.f45893e.c(campaignViewHolder.a, this.a);
+                }
+                i3 = i2;
+                int a42 = ((b2 / 2) - a2) + ((h.a.a.e.h.c.a(10.0f) + b2) * i3);
+                LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) campaignViewHolder.f45905c.getLayoutParams();
+                layoutParams22.leftMargin = a42;
+                campaignViewHolder.f45905c.setLayoutParams(layoutParams22);
+                this.f45893e.c(campaignViewHolder.a, this.a);
+            } else {
+                RLog.error("PayAmountAdapter", "updateCampaignItemIndexView error config", new Object[0]);
+                h(campaignViewHolder);
+            }
+            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i + " selectCampaignIndex:" + cVar.f45206e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.f45891c + " startIndexOfLine:" + i3 + " maxValidSelectCampaignIndex:" + i4);
+        }
+    }
+
+    public final void r(CampaignViewHolder campaignViewHolder, c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048596, this, campaignViewHolder, cVar, i) == null) {
+            int i2 = o.a.b(this.f45896h) ? R.drawable.obfuscated_res_0x7f080e83 : R.drawable.obfuscated_res_0x7f080e84;
+            int i3 = o.a.b(this.f45896h) ? R.drawable.obfuscated_res_0x7f080e81 : R.drawable.obfuscated_res_0x7f080e82;
+            int i4 = o.a.b(this.f45896h) ? R.drawable.obfuscated_res_0x7f080e85 : R.drawable.obfuscated_res_0x7f080e86;
+            int i5 = o.a.b(this.f45896h) ? R.drawable.obfuscated_res_0x7f080e7f : R.drawable.obfuscated_res_0x7f080e80;
+            campaignViewHolder.f45904b.setBackgroundResource(i4);
+            campaignViewHolder.f45905c.setBackgroundResource(i5);
+            campaignViewHolder.f45906d.setImageResource(i2);
+            campaignViewHolder.f45908f.setImageResource(i3);
+            GiftBagsInfo a2 = this.f45893e.a();
+            if (a2 == null) {
+                campaignViewHolder.f45907e.setVisibility(4);
+                return;
+            }
+            String str = a2.giftbagTitle;
+            if (TextUtils.isEmpty(str)) {
+                campaignViewHolder.f45907e.setVisibility(4);
+                return;
+            }
+            campaignViewHolder.f45907e.setVisibility(0);
+            campaignViewHolder.f45907e.setText(str);
+        }
+    }
+
+    public final void s(CampaignViewHolder campaignViewHolder, int i) {
+        c e2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048597, this, campaignViewHolder, i) == null) || (e2 = e(i)) == null) {
+            return;
+        }
+        if (this.f45891c >= 0 && e2.f45206e >= 0) {
+            n(campaignViewHolder, e2, i);
+        } else {
+            h(campaignViewHolder);
+        }
+    }
+
+    public final void t(AmountViewHolder amountViewHolder, c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048598, this, amountViewHolder, cVar, i) == null) {
+            if (cVar.f45204c) {
+                amountViewHolder.f45901f.setVisibility(0);
+                amountViewHolder.f45900e.setVisibility(8);
+                amountViewHolder.f45899d.setVisibility(8);
+                return;
+            }
+            amountViewHolder.f45901f.setVisibility(8);
+            amountViewHolder.f45900e.setVisibility(0);
+            amountViewHolder.f45899d.setVisibility(0);
+            amountViewHolder.a.setText(n.b(cVar.a()));
+            amountViewHolder.f45897b.setText(this.f45895g);
+            amountViewHolder.f45899d.setVisibility(0);
+            Double valueOf = Double.valueOf(cVar.b());
+            if (valueOf == null) {
+                amountViewHolder.f45899d.setText("");
+            } else {
+                amountViewHolder.f45899d.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d4e), n.a(valueOf.doubleValue())));
+            }
+            if (this.f45890b == i) {
+                amountViewHolder.f45898c.setSelected(true);
+                amountViewHolder.a.setSelected(true);
+                amountViewHolder.f45897b.setSelected(true);
+                return;
+            }
+            amountViewHolder.f45898c.setSelected(false);
+            amountViewHolder.a.setSelected(false);
+            amountViewHolder.f45897b.setSelected(false);
+        }
+    }
+
+    public final void u(AmountViewHolder amountViewHolder, c cVar) {
+        List<GiftBagsInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, amountViewHolder, cVar) == null) {
+            ProductInfo productInfo = cVar.a;
+            if (productInfo != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
+                String str = cVar.a.giftbags.get(0).offersTips;
+                if (TextUtils.isEmpty(str)) {
+                    amountViewHolder.f45902g.setVisibility(8);
+                    return;
+                }
+                amountViewHolder.f45902g.setVisibility(0);
+                amountViewHolder.f45902g.setText(str);
+                return;
+            }
+            amountViewHolder.f45902g.setVisibility(8);
+        }
+    }
+
+    public final void v(AmountViewHolder amountViewHolder, c cVar) {
+        List<GiftBagTagInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048600, this, amountViewHolder, cVar) == null) {
+            ProductInfo productInfo = cVar.a;
+            if (productInfo != null && (list = productInfo.giftBagTagInfos) != null && !list.isEmpty()) {
+                String str = cVar.a.giftBagTagInfos.get(0).tag;
+                if (TextUtils.isEmpty(str)) {
+                    amountViewHolder.f45903h.setVisibility(8);
+                    return;
+                }
+                amountViewHolder.f45903h.setVisibility(0);
+                amountViewHolder.f45903h.setText(str);
+                return;
+            }
+            amountViewHolder.f45903h.setVisibility(8);
+        }
     }
 }

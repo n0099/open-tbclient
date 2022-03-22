@@ -25,9 +25,9 @@ public final class Projection {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,7 +70,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab abVar = mapStatus.a;
-            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f34456d), (float) (ll2mc.getLatitudeE6() - abVar.f34457e));
+            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f26666d), (float) (ll2mc.getLatitudeE6() - abVar.f26667e));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -84,7 +84,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab.a aVar = mapStatus.a.k;
-            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f34463b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f34465d) * 2.0d) / Math.abs(aVar.f34464c - aVar.f34465d)) - 1.0d));
+            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f26671b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f26673d) * 2.0d) / Math.abs(aVar.f26672c - aVar.f26673d)) - 1.0d));
         }
         return (PointF) invokeLL.objValue;
     }

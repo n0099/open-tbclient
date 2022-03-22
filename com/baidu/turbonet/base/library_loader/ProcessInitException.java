@@ -11,23 +11,23 @@ public class ProcessInitException extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorCode;
 
-    public ProcessInitException(int i2) {
+    public ProcessInitException(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mErrorCode = 0;
-        this.mErrorCode = i2;
+        this.mErrorCode = i;
     }
 
     public int getErrorCode() {
@@ -37,17 +37,17 @@ public class ProcessInitException extends Exception {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProcessInitException(int i2, Throwable th) {
+    public ProcessInitException(int i, Throwable th) {
         super(null, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), th};
+            Object[] objArr = {Integer.valueOf(i), th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -56,6 +56,6 @@ public class ProcessInitException extends Exception {
             }
         }
         this.mErrorCode = 0;
-        this.mErrorCode = i2;
+        this.mErrorCode = i;
     }
 }

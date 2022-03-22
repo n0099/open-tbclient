@@ -18,9 +18,9 @@ public class SecurityUtil implements com.baidu.pass.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,13 +30,13 @@ public class SecurityUtil implements com.baidu.pass.a {
     public static byte[] aesDecrypt(byte[] bArr, String str, String str2) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) ? new a.C1825a().a(bArr, str, str2) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) ? new a.C1777a().a(bArr, str, str2) : (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] aesEncrypt(String str, String str2, String str3) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) ? new a.C1825a().a(str, str2, str3) : (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) ? new a.C1777a().a(str, str2, str3) : (byte[]) invokeLLL.objValue;
     }
 
     public static byte[] base64Decode(byte[] bArr) {

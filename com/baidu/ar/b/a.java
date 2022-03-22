@@ -45,9 +45,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -93,11 +93,11 @@ public class a {
         }
     }
 
-    public void a(int i2, boolean z) {
+    public void a(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             synchronized (this.cF) {
-                this.cF.put(i2, Boolean.valueOf(z));
+                this.cF.put(i, Boolean.valueOf(z));
             }
         }
     }
@@ -125,44 +125,44 @@ public class a {
         }
     }
 
-    public synchronized boolean c(int i2) {
+    public synchronized boolean c(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             synchronized (this) {
-                z = this.cE.get(i2) != null;
+                z = this.cE.get(i) != null;
             }
             return z;
         }
         return invokeI.booleanValue;
     }
 
-    public synchronized void d(int i2) {
+    public synchronized void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             synchronized (this) {
-                this.cE.put(i2, Integer.valueOf(i2));
+                this.cE.put(i, Integer.valueOf(i));
             }
         }
     }
 
-    public synchronized void e(int i2) {
+    public synchronized void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             synchronized (this) {
-                this.cE.remove(i2);
+                this.cE.remove(i);
             }
         }
     }
 
-    public boolean f(int i2) {
+    public boolean f(int i) {
         InterceptResult invokeI;
         Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             synchronized (this.cF) {
-                bool = this.cF.get(i2);
+                bool = this.cF.get(i);
             }
             if (bool == null) {
                 return false;
@@ -172,9 +172,9 @@ public class a {
         return invokeI.booleanValue;
     }
 
-    public com.baidu.ar.mdl.a g(int i2) {
+    public com.baidu.ar.mdl.a g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.cD.get(i2) : (com.baidu.ar.mdl.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.cD.get(i) : (com.baidu.ar.mdl.a) invokeI.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.abtest;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
@@ -52,7 +52,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UbsABTestDataManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_KEY_SWITCHS = "ubs_abtest_config";
@@ -67,9 +67,9 @@ public class UbsABTestDataManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,8 +97,8 @@ public class UbsABTestDataManager {
             try {
                 getSharedPrefKeyForUbsABTest();
                 JSONArray jSONArray = new JSONArray(b.k().q(getSharedPrefKeyForUbsABTest(), "[]"));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("sid");
                         hashMap.put(optString, new UsbAbTestSwitch(optString));
@@ -249,10 +249,10 @@ public class UbsABTestDataManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap<String, Integer> hashMap = new HashMap<>();
-            int i2 = 0;
+            int i = 0;
             for (String str : this.mSwitchs.keySet()) {
-                hashMap.put(str, Integer.valueOf(i2));
-                i2++;
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
             }
             return hashMap;
         }
@@ -289,8 +289,8 @@ public class UbsABTestDataManager {
                     return;
                 }
                 HashMap<String, UsbAbTestSwitch> hashMap = new HashMap<>();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("sid");
                         hashMap.put(optString, new UsbAbTestSwitch(optString));

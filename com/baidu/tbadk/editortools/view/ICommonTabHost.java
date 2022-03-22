@@ -3,8 +3,7 @@ package com.baidu.tbadk.editortools.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.q0.w.a;
-import c.a.q0.w.n;
+import c.a.o0.w.n;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +23,9 @@ public abstract class ICommonTabHost extends LinearLayout implements n {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,23 +34,11 @@ public abstract class ICommonTabHost extends LinearLayout implements n {
         }
     }
 
-    public abstract /* synthetic */ void display();
-
     public abstract /* synthetic */ int getToolId();
-
-    public abstract /* synthetic */ void hide();
-
-    public abstract /* synthetic */ void init();
-
-    public abstract /* synthetic */ void onAction(a aVar);
-
-    public abstract void onChangeSkinType(int i2);
-
-    public abstract /* synthetic */ void sendAction(a aVar);
 
     public abstract /* synthetic */ void setEditorTools(EditorTools editorTools);
 
-    public abstract /* synthetic */ void setToolId(int i2);
+    public abstract /* synthetic */ void setToolId(int i);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ICommonTabHost(Context context, AttributeSet attributeSet) {
@@ -62,9 +49,9 @@ public abstract class ICommonTabHost extends LinearLayout implements n {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

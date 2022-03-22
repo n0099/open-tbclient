@@ -10,7 +10,7 @@ import com.baidubce.http.BceHttpResponse;
 import com.baidubce.http.Headers;
 import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.JoinerUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BceMetadataResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class BceMetadataResponseHandler implements HttpResponseHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,8 +45,8 @@ public class BceMetadataResponseHandler implements HttpResponseHandler {
             metadata.setContentType(bceHttpResponse.getHeader("Content-Type"));
             metadata.setDate(bceHttpResponse.getHeaderAsRfc822Date("Date"));
             metadata.setTransferEncoding(bceHttpResponse.getHeader("Transfer-Encoding"));
-            metadata.setLocation(bceHttpResponse.getHeader("Location"));
-            String header = bceHttpResponse.getHeader("ETag");
+            metadata.setLocation(bceHttpResponse.getHeader(Headers.LOCATION));
+            String header = bceHttpResponse.getHeader(Headers.ETAG);
             if (header != null) {
                 metadata.setETag(JoinerUtils.cut("\"", header));
             }
@@ -57,8 +57,8 @@ public class BceMetadataResponseHandler implements HttpResponseHandler {
                 } catch (NumberFormatException unused) {
                 }
             }
-            metadata.setExpires(bceHttpResponse.getHeaderAsRfc822Date("Expires"));
-            metadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date("Last-Modified"));
+            metadata.setExpires(bceHttpResponse.getHeaderAsRfc822Date(Headers.EXPIRES));
+            metadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date(Headers.LAST_MODIFIED));
             metadata.setServer(bceHttpResponse.getHeader("Server"));
             return false;
         }

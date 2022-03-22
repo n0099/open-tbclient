@@ -23,9 +23,9 @@ public class BitstreamWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,41 +46,41 @@ public class BitstreamWriter {
     public void flush() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = this.curBit; i2 < 8; i2++) {
-                this.curByte[i2] = 0;
+            for (int i = this.curBit; i < 8; i++) {
+                this.curByte[i] = 0;
             }
             this.curBit = 0;
             writeCurByte();
         }
     }
 
-    public void write1Bit(int i2) throws IOException {
+    public void write1Bit(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            Debug.print(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            Debug.print(i);
             if (this.curBit == 8) {
                 this.curBit = 0;
                 writeCurByte();
             }
             int[] iArr = this.curByte;
-            int i3 = this.curBit;
-            this.curBit = i3 + 1;
-            iArr[i3] = i2;
+            int i2 = this.curBit;
+            this.curBit = i2 + 1;
+            iArr[i2] = i;
         }
     }
 
-    public void writeByte(int i2) throws IOException {
+    public void writeByte(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.os.write(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.os.write(i);
         }
     }
 
-    public void writeNBit(long j2, int i2) throws IOException {
+    public void writeNBit(long j, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                write1Bit(((int) (j2 >> ((i2 - i3) - 1))) & 1);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
             }
         }
     }

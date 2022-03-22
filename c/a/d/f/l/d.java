@@ -27,18 +27,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2672c;
+    public static d f2208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdAsyncTaskParallel f2673d;
+    public static BdAsyncTaskParallel f2209d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdAsyncTaskParallel f2674e;
+    public static BdAsyncTaskParallel f2210e;
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<e<?>> f2675b;
+    public SparseArray<e<?>> f2211b;
 
     /* loaded from: classes.dex */
     public class a<T> extends BdAsyncTask<String, Object, T> {
@@ -47,63 +47,59 @@ public class d {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f2676b;
+        public final int f2212b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2677c;
+        public int f2213c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2678d;
+        public int f2214d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2679e;
+        public boolean f2215e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object[] f2680f;
+        public Object[] f2216f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f2681g;
+        public int f2217g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f2682h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final Map<c<T>, BdUniqueId> f2683i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final b f2684j;
+        public long f2218h;
+        public final Map<c<T>, BdUniqueId> i;
+        public final b j;
         public final /* synthetic */ d k;
 
-        public a(d dVar, String str, int i2, int i3, int i4, BdUniqueId bdUniqueId, c<T> cVar, boolean z, Object... objArr) {
+        public a(d dVar, String str, int i, int i2, int i3, BdUniqueId bdUniqueId, c<T> cVar, boolean z, Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr2 = {dVar, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bdUniqueId, cVar, Boolean.valueOf(z), objArr};
+                Object[] objArr2 = {dVar, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId, cVar, Boolean.valueOf(z), objArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.k = dVar;
-            this.f2677c = 0;
-            this.f2678d = 0;
-            this.f2679e = false;
-            this.f2680f = null;
-            this.f2681g = 2;
-            this.f2683i = new HashMap();
-            this.f2684j = new b();
-            this.f2682h = System.currentTimeMillis();
+            this.f2213c = 0;
+            this.f2214d = 0;
+            this.f2215e = false;
+            this.f2216f = null;
+            this.f2217g = 2;
+            this.i = new HashMap();
+            this.j = new b();
+            this.f2218h = System.currentTimeMillis();
             this.a = str;
-            this.f2676b = i2;
-            this.f2677c = i3;
-            this.f2678d = i4;
-            this.f2679e = z;
-            this.f2680f = objArr;
+            this.f2212b = i;
+            this.f2213c = i2;
+            this.f2214d = i3;
+            this.f2215e = z;
+            this.f2216f = objArr;
             b(cVar, bdUniqueId);
         }
 
@@ -111,10 +107,10 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, bdUniqueId) == null) {
                 n.c();
-                if (this.f2683i.containsKey(cVar)) {
+                if (this.i.containsKey(cVar)) {
                     return;
                 }
-                this.f2683i.put(cVar, bdUniqueId);
+                this.i.put(cVar, bdUniqueId);
             }
         }
 
@@ -122,18 +118,18 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
                 n.c();
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     cancel();
                     return;
                 }
-                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2683i.entrySet().iterator();
+                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.i.entrySet().iterator();
                 while (it.hasNext()) {
                     BdUniqueId value = it.next().getValue();
                     if (value != null && value == bdUniqueId) {
                         it.remove();
                     }
                 }
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     cancel();
                 }
             }
@@ -145,20 +141,20 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                b bVar = this.f2684j;
+                b bVar = this.j;
                 if (bVar != null && (aVar = bVar.a) != null) {
                     aVar.cancel();
                 }
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     return;
                 }
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2683i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
                         key.onCancelled(this.a);
                     }
                 }
-                this.f2683i.clear();
+                this.i.clear();
             }
         }
 
@@ -166,11 +162,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, bdUniqueId, cVar) == null) {
                 n.c();
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     cancel();
                     return;
                 }
-                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2683i.entrySet().iterator();
+                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.i.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<c<T>, BdUniqueId> next = it.next();
                     c<T> key = next.getKey();
@@ -179,7 +175,7 @@ public class d {
                         it.remove();
                     }
                 }
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     cancel();
                 }
             }
@@ -189,11 +185,11 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
                 n.c();
-                this.f2683i.remove(cVar);
+                this.i.remove(cVar);
                 if (cVar != null) {
                     cVar.onCancelled(this.a);
                 }
-                if (this.f2683i.size() == 0) {
+                if (this.i.size() == 0) {
                     cancel();
                 }
             }
@@ -207,8 +203,8 @@ public class d {
             T t;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
-                c.a.d.f.l.a.m(true, System.currentTimeMillis() - this.f2682h);
-                e eVar = (e) this.k.f2675b.get(this.f2676b);
+                c.a.d.f.l.a.m(true, System.currentTimeMillis() - this.f2218h);
+                e eVar = (e) this.k.f2211b.get(this.f2212b);
                 if (eVar == null) {
                     return null;
                 }
@@ -221,17 +217,17 @@ public class d {
                 if (isCancelled()) {
                     return null;
                 }
-                T t2 = (T) eVar.getFromLocal(this.a, key, this.f2677c, this.f2678d, this.f2684j, this.f2680f);
+                T t2 = (T) eVar.getFromLocal(this.a, key, this.f2213c, this.f2214d, this.j, this.f2216f);
                 if (t2 != null) {
                     return t2;
                 }
                 t = t2;
-                if (isCancelled() || this.f2679e) {
+                if (isCancelled() || this.f2215e) {
                     return null;
                 }
-                this.f2681g = 3;
+                this.f2217g = 3;
                 try {
-                    return (T) eVar.getFromRemote(this.a, key, this.f2677c, this.f2678d, this.f2684j, this.f2680f);
+                    return (T) eVar.getFromRemote(this.a, key, this.f2213c, this.f2214d, this.j, this.f2216f);
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
                     return t;
@@ -245,13 +241,13 @@ public class d {
             e eVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                if (t != null && (eVar = (e) this.k.f2675b.get(this.f2676b)) != null) {
-                    eVar.updateMemory(this.k.g(this.a, this.f2676b), t, this.f2677c, this.f2678d, this.f2680f);
+                if (t != null && (eVar = (e) this.k.f2211b.get(this.f2212b)) != null) {
+                    eVar.updateMemory(this.k.g(this.a, this.f2212b), t, this.f2213c, this.f2214d, this.f2216f);
                 }
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2683i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
-                        key.onLoaded(t, this.a, this.f2681g);
+                        key.onLoaded(t, this.a, this.f2217g);
                     }
                 }
             }
@@ -261,7 +257,7 @@ public class d {
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr) == null) {
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2683i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
                         key.onProgressUpdate(objArr);
@@ -291,34 +287,34 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = BdUniqueId.gen();
-        this.f2675b = null;
+        this.f2211b = null;
         BdUniqueId gen = BdUniqueId.gen();
-        f2673d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        f2674e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.f2675b = new SparseArray<>();
+        f2209d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        f2210e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.f2211b = new SparseArray<>();
     }
 
     public static d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f2672c == null) {
+            if (f2208c == null) {
                 synchronized (d.class) {
-                    if (f2672c == null) {
-                        f2672c = new d();
+                    if (f2208c == null) {
+                        f2208c = new d();
                     }
                 }
             }
-            return f2672c;
+            return f2208c;
         }
         return (d) invokeV.objValue;
     }
@@ -338,19 +334,19 @@ public class d {
         }
     }
 
-    public void c(String str, int i2) {
+    public void c(String str, int i) {
         a p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) || (p = p(g(str, i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) || (p = p(g(str, i))) == null) {
             return;
         }
         p.cancel();
     }
 
-    public <T> void d(String str, int i2, c<T> cVar) {
+    public <T> void d(String str, int i, c<T> cVar) {
         a<T> p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, cVar) == null) || (p = p(g(str, i2))) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, cVar) == null) || (p = p(g(str, i))) == null) {
             return;
         }
         p.e(cVar);
@@ -386,38 +382,38 @@ public class d {
         }
     }
 
-    public String g(String str, int i2) {
+    public String g(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
             if (str == null) {
                 str = "";
             }
-            return str + i2;
+            return str + i;
         }
         return (String) invokeLI.objValue;
     }
 
-    public e i(int i2) {
+    public e i(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            SparseArray<e<?>> sparseArray = this.f2675b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            SparseArray<e<?>> sparseArray = this.f2211b;
             if (sparseArray == null) {
                 return null;
             }
-            return sparseArray.get(i2);
+            return sparseArray.get(i);
         }
         return (e) invokeI.objValue;
     }
 
-    public boolean j(int i2) {
+    public boolean j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            e<?> eVar = this.f2675b.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            e<?> eVar = this.f2211b.get(i);
             if (eVar == null) {
-                BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
+                BdLog.e("Can't find the ResourceLoaderProc with type " + i);
                 return false;
             }
             return eVar.isNeedLoad();
@@ -425,10 +421,10 @@ public class d {
         return invokeI.booleanValue;
     }
 
-    public <T> Object k(String str, int i2, c<T> cVar, int i3, int i4, BdUniqueId bdUniqueId, Object... objArr) {
+    public <T> Object k(String str, int i, c<T> cVar, int i2, int i3, BdUniqueId bdUniqueId, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i2), cVar, Integer.valueOf(i3), Integer.valueOf(i4), bdUniqueId, objArr})) == null) ? l(str, i2, cVar, i3, i4, false, bdUniqueId, objArr) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), cVar, Integer.valueOf(i2), Integer.valueOf(i3), bdUniqueId, objArr})) == null) ? l(str, i, cVar, i2, i3, false, bdUniqueId, objArr) : invokeCommon.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:37:0x00a1  */
@@ -437,30 +433,30 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <T> Object l(String str, int i2, c<T> cVar, int i3, int i4, boolean z, BdUniqueId bdUniqueId, Object... objArr) {
+    public <T> Object l(String str, int i, c<T> cVar, int i2, int i3, boolean z, BdUniqueId bdUniqueId, Object... objArr) {
         InterceptResult invokeCommon;
         e<?> eVar;
+        int i4;
         int i5;
-        int i6;
         a<T> p;
         boolean H;
         int asyncTaskPriority;
         Object fromMemory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), cVar, Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), bdUniqueId, objArr})) == null) {
-            if (TextUtils.isEmpty(str) || (eVar = this.f2675b.get(i2)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i), cVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), bdUniqueId, objArr})) == null) {
+            if (TextUtils.isEmpty(str) || (eVar = this.f2211b.get(i)) == null) {
                 return null;
             }
-            if (i3 < 0 || i4 < 0) {
+            if (i2 < 0 || i3 < 0) {
+                i4 = 0;
                 i5 = 0;
-                i6 = 0;
             } else {
+                i4 = i2;
                 i5 = i3;
-                i6 = i4;
             }
-            String g2 = g(str, i2);
+            String g2 = g(str, i);
             try {
-                fromMemory = eVar.getFromMemory(g2, str, i5, i6, true, objArr);
+                fromMemory = eVar.getFromMemory(g2, str, i4, i5, true, objArr);
             } catch (Exception e2) {
                 e = e2;
             }
@@ -476,7 +472,7 @@ public class d {
                         }
                         H = l.H();
                         boolean v = l.v();
-                        a aVar = new a(this, str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
+                        a aVar = new a(this, str, i, i4, i5, bdUniqueId, cVar, z, objArr);
                         aVar.setKey(g2);
                         aVar.setTag(this.a);
                         asyncTaskPriority = eVar.getAsyncTaskPriority();
@@ -500,7 +496,7 @@ public class d {
             }
             H = l.H();
             boolean v2 = l.v();
-            a aVar2 = new a(this, str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
+            a aVar2 = new a(this, str, i, i4, i5, bdUniqueId, cVar, z, objArr);
             aVar2.setKey(g2);
             aVar2.setTag(this.a);
             asyncTaskPriority = eVar.getAsyncTaskPriority();
@@ -509,9 +505,9 @@ public class d {
             }
             aVar2.setPriority(asyncTaskPriority);
             if (H && !v2) {
-                aVar2.setParallel(f2673d);
+                aVar2.setParallel(f2209d);
             } else if (eVar.getAsyncTaskParallel() != null) {
-                aVar2.setParallel(f2674e);
+                aVar2.setParallel(f2210e);
             } else {
                 aVar2.setParallel(eVar.getAsyncTaskParallel());
             }
@@ -521,38 +517,38 @@ public class d {
         return invokeCommon.objValue;
     }
 
-    public <T> Object m(String str, int i2, c<T> cVar, BdUniqueId bdUniqueId) {
+    public <T> Object m(String str, int i, c<T> cVar, BdUniqueId bdUniqueId) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048586, this, str, i2, cVar, bdUniqueId)) == null) ? k(str, i2, cVar, 0, 0, bdUniqueId, new Object[0]) : invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048586, this, str, i, cVar, bdUniqueId)) == null) ? k(str, i, cVar, 0, 0, bdUniqueId, new Object[0]) : invokeLILL.objValue;
     }
 
-    public Object n(String str, int i2, Object... objArr) {
+    public Object n(String str, int i, Object... objArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048587, this, str, i2, objArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048587, this, str, i, objArr)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            e<?> eVar = this.f2675b.get(i2);
+            e<?> eVar = this.f2211b.get(i);
             if (eVar == null) {
-                BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
+                BdLog.e("Can't find the ResourceLoaderProc with type " + i);
                 return null;
             }
-            return eVar.getFromMemory(g(str, i2), str, 0, 0, false, objArr);
+            return eVar.getFromMemory(g(str, i), str, 0, 0, false, objArr);
         }
         return invokeLIL.objValue;
     }
 
-    public synchronized <T> void o(int i2, e<T> eVar) {
+    public synchronized <T> void o(int i, e<T> eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, eVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i, eVar) == null) {
             synchronized (this) {
                 if (eVar != null) {
-                    if (this.f2675b.get(i2) == null) {
-                        this.f2675b.put(i2, eVar);
+                    if (this.f2211b.get(i) == null) {
+                        this.f2211b.put(i, eVar);
                     } else {
-                        throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i2);
+                        throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
                     }
                 }
             }

@@ -4,7 +4,7 @@ import com.baidu.nps.pm.IBundleInfo;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface IPackageGetCallback {
-    void onBundleInfoGetFail(int i2, String str);
+    void onBundleInfoGetFail(int i, String str);
 
     void onBundleInfoGetSuccess(List<IBundleInfo> list);
 }

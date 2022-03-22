@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,9 +35,9 @@ public class LegoPageRequest extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -71,9 +71,9 @@ public class LegoPageRequest extends NetMessage {
             if (!TextUtils.isEmpty(this.itemId)) {
                 builder.item_id = this.itemId;
             }
-            long j2 = this.tagCode;
-            if (j2 != 0) {
-                builder.page_id = Long.valueOf(j2);
+            long j = this.tagCode;
+            if (j != 0) {
+                builder.page_id = Long.valueOf(j);
             }
             LegoReqIdl.Builder builder2 = new LegoReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -126,10 +126,10 @@ public class LegoPageRequest extends NetMessage {
         }
     }
 
-    public void setPageType(int i2) {
+    public void setPageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.pageType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.pageType = i;
         }
     }
 
@@ -140,24 +140,24 @@ public class LegoPageRequest extends NetMessage {
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setRn(int i2) {
+    public void setRn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.rn = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.rn = i;
         }
     }
 
-    public void setTagCode(long j2) {
+    public void setTagCode(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.tagCode = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.tagCode = j;
         }
     }
 }

@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS;
@@ -70,7 +70,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public final DiskStorage mStorage;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CacheStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +83,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,37 +98,37 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
 
         public synchronized long getCount() {
             InterceptResult invokeV;
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    j2 = this.mCount;
+                    j = this.mCount;
                 }
-                return j2;
+                return j;
             }
             return invokeV.longValue;
         }
 
         public synchronized long getSize() {
             InterceptResult invokeV;
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this) {
-                    j2 = this.mSize;
+                    j = this.mSize;
                 }
-                return j2;
+                return j;
             }
             return invokeV.longValue;
         }
 
-        public synchronized void increment(long j2, long j3) {
+        public synchronized void increment(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 synchronized (this) {
                     if (this.mInitialized) {
-                        this.mSize += j2;
-                        this.mCount += j3;
+                        this.mSize += j;
+                        this.mCount += j2;
                     }
                 }
             }
@@ -158,19 +158,19 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             }
         }
 
-        public synchronized void set(long j2, long j3) {
+        public synchronized void set(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 synchronized (this) {
-                    this.mCount = j3;
-                    this.mSize = j2;
+                    this.mCount = j2;
+                    this.mSize = j;
                     this.mInitialized = true;
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Params {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,24 +178,24 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         public final long mDefaultCacheSizeLimit;
         public final long mLowDiskSpaceCacheSizeLimit;
 
-        public Params(long j2, long j3, long j4) {
+        public Params(long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mCacheSizeLimitMinimum = j2;
-            this.mLowDiskSpaceCacheSizeLimit = j3;
-            this.mDefaultCacheSizeLimit = j4;
+            this.mCacheSizeLimitMinimum = j;
+            this.mLowDiskSpaceCacheSizeLimit = j2;
+            this.mDefaultCacheSizeLimit = j3;
         }
     }
 
@@ -224,9 +224,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             newInitContext.initArgs = r2;
             Object[] objArr = {diskStorage, entryEvictionComparatorSupplier, params, cacheEventListener, cacheErrorLogger, diskTrimmableRegistry, context, executor, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -234,9 +234,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
         this.mLock = new Object();
         this.mLowDiskSpaceCacheSizeLimit = params.mLowDiskSpaceCacheSizeLimit;
-        long j2 = params.mDefaultCacheSizeLimit;
-        this.mDefaultCacheSizeLimit = j2;
-        this.mCacheSizeLimit = j2;
+        long j = params.mDefaultCacheSizeLimit;
+        this.mDefaultCacheSizeLimit = j;
+        this.mCacheSizeLimit = j;
         this.mStatFsHelper = StatFsHelper.getInstance();
         this.mStorage = diskStorage;
         this.mEntryEvictionComparatorSupplier = entryEvictionComparatorSupplier;
@@ -265,9 +265,9 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -309,30 +309,30 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     @GuardedBy("mLock")
-    private void evictAboveSize(long j2, CacheEventListener.EvictionReason evictionReason) throws IOException {
+    private void evictAboveSize(long j, CacheEventListener.EvictionReason evictionReason) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65543, this, j2, evictionReason) == null) {
+        if (interceptable == null || interceptable.invokeJL(65543, this, j, evictionReason) == null) {
             try {
                 Collection<DiskStorage.Entry> sortedEntries = getSortedEntries(this.mStorage.getEntries());
                 long size = this.mCacheStats.getSize();
-                long j3 = size - j2;
-                int i2 = 0;
-                long j4 = 0;
+                long j2 = size - j;
+                int i = 0;
+                long j3 = 0;
                 for (DiskStorage.Entry entry : sortedEntries) {
-                    if (j4 > j3) {
+                    if (j3 > j2) {
                         break;
                     }
                     long remove = this.mStorage.remove(entry);
                     this.mResourceIndex.remove(entry.getId());
                     if (remove > 0) {
-                        i2++;
-                        j4 += remove;
-                        SettableCacheEvent cacheLimit = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(evictionReason).setItemSize(remove).setCacheSize(size - j4).setCacheLimit(j2);
+                        i++;
+                        j3 += remove;
+                        SettableCacheEvent cacheLimit = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(evictionReason).setItemSize(remove).setCacheSize(size - j3).setCacheLimit(j);
                         this.mCacheEventListener.onEviction(cacheLimit);
                         cacheLimit.recycle();
                     }
                 }
-                this.mCacheStats.increment(-j4, -i2);
+                this.mCacheStats.increment(-j3, -i);
                 this.mStorage.purgeUnexpectedResources();
             } catch (IOException e2) {
                 CacheErrorLogger cacheErrorLogger = this.mCacheErrorLogger;
@@ -391,8 +391,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             long now = this.mClock.now();
             if (this.mCacheStats.isInitialized()) {
-                long j2 = this.mCacheSizeLastUpdateTime;
-                if (j2 != -1 && now - j2 <= FILECACHE_SIZE_UPDATE_PERIOD_MS) {
+                long j = this.mCacheSizeLastUpdateTime;
+                if (j != -1 && now - j <= FILECACHE_SIZE_UPDATE_PERIOD_MS) {
                     return false;
                 }
             }
@@ -405,50 +405,50 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     private boolean maybeUpdateFileCacheSizeAndIndex() {
         InterceptResult invokeV;
         Set<String> hashSet;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             long now = this.mClock.now();
-            long j3 = FUTURE_TIMESTAMP_THRESHOLD_MS + now;
+            long j2 = FUTURE_TIMESTAMP_THRESHOLD_MS + now;
             if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex.isEmpty()) {
                 hashSet = this.mResourceIndex;
             } else {
                 hashSet = this.mIndexPopulateAtStartupEnabled ? new HashSet<>() : null;
             }
             try {
-                long j4 = 0;
-                long j5 = -1;
-                int i2 = 0;
+                long j3 = 0;
+                long j4 = -1;
+                int i = 0;
                 boolean z = false;
+                int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
                 for (DiskStorage.Entry entry : this.mStorage.getEntries()) {
-                    i3++;
-                    j4 += entry.getSize();
-                    if (entry.getTimestamp() > j3) {
-                        i4++;
-                        i2 = (int) (i2 + entry.getSize());
-                        j2 = j3;
-                        j5 = Math.max(entry.getTimestamp() - now, j5);
+                    i2++;
+                    j3 += entry.getSize();
+                    if (entry.getTimestamp() > j2) {
+                        i3++;
+                        i = (int) (i + entry.getSize());
+                        j = j2;
+                        j4 = Math.max(entry.getTimestamp() - now, j4);
                         z = true;
                     } else {
-                        j2 = j3;
+                        j = j2;
                         if (this.mIndexPopulateAtStartupEnabled) {
                             hashSet.add(entry.getId());
                         }
                     }
-                    j3 = j2;
+                    j2 = j;
                 }
                 if (z) {
-                    this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i4 + " files , with a total size of " + i2 + " bytes, and a maximum time delta of " + j5 + "ms", null);
+                    this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, TAG, "Future timestamp found in " + i3 + " files , with a total size of " + i + " bytes, and a maximum time delta of " + j4 + "ms", null);
                 }
-                long j6 = i3;
-                if (this.mCacheStats.getCount() != j6 || this.mCacheStats.getSize() != j4) {
+                long j5 = i2;
+                if (this.mCacheStats.getCount() != j5 || this.mCacheStats.getSize() != j3) {
                     if (this.mIndexPopulateAtStartupEnabled && this.mResourceIndex != hashSet) {
                         this.mResourceIndex.clear();
                         this.mResourceIndex.addAll(hashSet);
                     }
-                    this.mCacheStats.set(j4, j6);
+                    this.mCacheStats.set(j3, j5);
                 }
                 this.mCacheSizeLastUpdateTime = now;
                 return true;
@@ -534,57 +534,57 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     }
 
     @Override // com.facebook.cache.disk.FileCache
-    public long clearOldEntries(long j2) {
+    public long clearOldEntries(long j) {
         InterceptResult invokeJ;
+        long j2;
         long j3;
-        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             synchronized (this.mLock) {
                 try {
                     long now = this.mClock.now();
                     Collection<DiskStorage.Entry> entries = this.mStorage.getEntries();
                     long size = this.mCacheStats.getSize();
-                    int i2 = 0;
-                    long j5 = 0;
-                    j4 = 0;
+                    int i = 0;
+                    long j4 = 0;
+                    j3 = 0;
                     for (DiskStorage.Entry entry : entries) {
                         try {
-                            long j6 = now;
+                            long j5 = now;
                             long max = Math.max(1L, Math.abs(now - entry.getTimestamp()));
-                            if (max >= j2) {
+                            if (max >= j) {
                                 long remove = this.mStorage.remove(entry);
                                 this.mResourceIndex.remove(entry.getId());
                                 if (remove > 0) {
-                                    i2++;
-                                    j5 += remove;
-                                    SettableCacheEvent cacheSize = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(CacheEventListener.EvictionReason.CONTENT_STALE).setItemSize(remove).setCacheSize(size - j5);
+                                    i++;
+                                    j4 += remove;
+                                    SettableCacheEvent cacheSize = SettableCacheEvent.obtain().setResourceId(entry.getId()).setEvictionReason(CacheEventListener.EvictionReason.CONTENT_STALE).setItemSize(remove).setCacheSize(size - j4);
                                     this.mCacheEventListener.onEviction(cacheSize);
                                     cacheSize.recycle();
                                 }
                             } else {
-                                j4 = Math.max(j4, max);
+                                j3 = Math.max(j3, max);
                             }
-                            now = j6;
+                            now = j5;
                         } catch (IOException e2) {
                             e = e2;
-                            j3 = j4;
+                            j2 = j3;
                             this.mCacheErrorLogger.logError(CacheErrorLogger.CacheErrorCategory.EVICTION, TAG, "clearOldEntries: " + e.getMessage(), e);
-                            j4 = j3;
-                            return j4;
+                            j3 = j2;
+                            return j3;
                         }
                     }
                     this.mStorage.purgeUnexpectedResources();
-                    if (i2 > 0) {
+                    if (i > 0) {
                         maybeUpdateFileCacheSize();
-                        this.mCacheStats.increment(-j5, -i2);
+                        this.mCacheStats.increment(-j4, -i);
                     }
                 } catch (IOException e3) {
                     e = e3;
-                    j3 = 0;
+                    j2 = 0;
                 }
             }
-            return j4;
+            return j3;
         }
         return invokeJ.longValue;
     }
@@ -616,8 +616,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                     List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
                     String str = null;
                     binaryResource = null;
-                    for (int i2 = 0; i2 < resourceIds.size(); i2++) {
-                        str = resourceIds.get(i2);
+                    for (int i = 0; i < resourceIds.size(); i++) {
+                        str = resourceIds.get(i);
                         cacheKey2.setResourceId(str);
                         binaryResource = this.mStorage.getResource(str, cacheKey);
                         if (binaryResource != null) {
@@ -663,8 +663,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
                 }
                 try {
                     List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    for (int i2 = 0; i2 < resourceIds.size(); i2++) {
-                        String str = resourceIds.get(i2);
+                    for (int i = 0; i < resourceIds.size(); i++) {
+                        String str = resourceIds.get(i);
                         if (this.mStorage.contains(str, cacheKey)) {
                             this.mResourceIndex.add(str);
                             return true;
@@ -686,8 +686,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey)) == null) {
             synchronized (this.mLock) {
                 List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                for (int i2 = 0; i2 < resourceIds.size(); i2++) {
-                    if (this.mResourceIndex.contains(resourceIds.get(i2))) {
+                for (int i = 0; i < resourceIds.size(); i++) {
+                    if (this.mResourceIndex.contains(resourceIds.get(i))) {
                         return true;
                     }
                 }
@@ -764,15 +764,15 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             synchronized (this.mLock) {
                 try {
                     List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    int i2 = 0;
-                    while (i2 < resourceIds.size()) {
-                        str = resourceIds.get(i2);
+                    int i = 0;
+                    while (i < resourceIds.size()) {
+                        str = resourceIds.get(i);
                         try {
                             if (this.mStorage.touch(str, cacheKey)) {
                                 this.mResourceIndex.add(str);
                                 return true;
                             }
-                            i2++;
+                            i++;
                             str2 = str;
                         } catch (Throwable th2) {
                             th = th2;
@@ -806,8 +806,8 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
             synchronized (this.mLock) {
                 try {
                     List<String> resourceIds = CacheKeyUtil.getResourceIds(cacheKey);
-                    for (int i2 = 0; i2 < resourceIds.size(); i2++) {
-                        String str = resourceIds.get(i2);
+                    for (int i = 0; i < resourceIds.size(); i++) {
+                        String str = resourceIds.get(i);
                         this.mStorage.remove(str);
                         this.mResourceIndex.remove(str);
                     }

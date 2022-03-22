@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -138,9 +139,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -150,10 +151,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    private void animateOffsetToCorrectPosition(int i2, Animation.AnimationListener animationListener) {
+    private void animateOffsetToCorrectPosition(int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, this, i2, animationListener) == null) {
-            this.mFrom = i2;
+        if (interceptable == null || interceptable.invokeIL(65539, this, i, animationListener) == null) {
+            this.mFrom = i;
             this.mAnimateToCorrectPosition.reset();
             this.mAnimateToCorrectPosition.setDuration(200L);
             this.mAnimateToCorrectPosition.setInterpolator(this.mDecelerateInterpolator);
@@ -165,14 +166,14 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    private void animateOffsetToStartPosition(int i2, Animation.AnimationListener animationListener) {
+    private void animateOffsetToStartPosition(int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, animationListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, animationListener) == null) {
             if (this.mScale) {
-                startScaleDownReturnToStartAnimation(i2, animationListener);
+                startScaleDownReturnToStartAnimation(i, animationListener);
                 return;
             }
-            this.mFrom = i2;
+            this.mFrom = i;
             this.mAnimateToStartPosition.reset();
             this.mAnimateToStartPosition.setDuration(200L);
             this.mAnimateToStartPosition.setInterpolator(this.mDecelerateInterpolator);
@@ -200,8 +201,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     private void ensureTarget() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mTarget == null) {
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
                 if (!childAt.equals(this.mCircleView)) {
                     this.mTarget = childAt;
                     return;
@@ -231,9 +232,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -285,14 +286,14 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             float min = Math.min(1.0f, Math.abs(f2 / this.mTotalDragDistance));
             float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
             float abs = Math.abs(f2) - this.mTotalDragDistance;
-            int i2 = this.mCustomSlingshotDistance;
-            if (i2 <= 0) {
-                i2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
+            int i = this.mCustomSlingshotDistance;
+            if (i <= 0) {
+                i = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
             }
-            float f3 = i2;
+            float f3 = i;
             double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
             float pow = ((float) (max2 - Math.pow(max2, 2.0d))) * 2.0f;
-            int i3 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
+            int i2 = this.mOriginalOffsetTop + ((int) ((f3 * min) + (f3 * pow * 2.0f)));
             if (this.mCircleView.getVisibility() != 0) {
                 this.mCircleView.setVisibility(0);
             }
@@ -313,7 +314,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
             this.mProgress.setArrowScale(Math.min(1.0f, max));
             this.mProgress.setProgressRotation((((max * 0.4f) - 0.25f) + (pow * 2.0f)) * 0.5f);
-            setTargetOffsetTopAndBottom(i3 - this.mCurrentTargetOffsetTop);
+            setTargetOffsetTopAndBottom(i2 - this.mCurrentTargetOffsetTop);
         }
     }
 
@@ -327,19 +328,19 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    private void setColorViewAlpha(int i2) {
+    private void setColorViewAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
-            this.mCircleView.getBackground().setAlpha(i2);
-            this.mProgress.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+            this.mCircleView.getBackground().setAlpha(i);
+            this.mProgress.setAlpha(i);
         }
     }
 
-    private Animation startAlphaAnimation(int i2, int i3) {
+    private Animation startAlphaAnimation(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65549, this, i2, i3)) == null) {
-            Animation animation = new Animation(this, i2, i3) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.4
+        if (interceptable == null || (invokeII = interceptable.invokeII(65549, this, i, i2)) == null) {
+            Animation animation = new Animation(this, i, i2) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwipeRefreshLayout this$0;
@@ -351,19 +352,19 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3)};
+                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$startingAlpha = i2;
-                    this.val$endingAlpha = i3;
+                    this.val$startingAlpha = i;
+                    this.val$endingAlpha = i2;
                 }
 
                 @Override // android.view.animation.Animation
@@ -371,8 +372,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
                         CircularProgressDrawable circularProgressDrawable = this.this$0.mProgress;
-                        int i4 = this.val$startingAlpha;
-                        circularProgressDrawable.setAlpha((int) (i4 + ((this.val$endingAlpha - i4) * f2)));
+                        int i3 = this.val$startingAlpha;
+                        circularProgressDrawable.setAlpha((int) (i3 + ((this.val$endingAlpha - i3) * f2)));
                     }
                 }
             };
@@ -389,11 +390,11 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65550, this, f2) == null) {
             float f3 = this.mInitialDownY;
-            int i2 = this.mTouchSlop;
-            if (f2 - f3 <= i2 || this.mIsBeingDragged) {
+            int i = this.mTouchSlop;
+            if (f2 - f3 <= i || this.mIsBeingDragged) {
                 return;
             }
-            this.mInitialMotionY = f3 + i2;
+            this.mInitialMotionY = f3 + i;
             this.mIsBeingDragged = true;
             this.mProgress.setAlpha(76);
         }
@@ -413,10 +414,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    private void startScaleDownReturnToStartAnimation(int i2, Animation.AnimationListener animationListener) {
+    private void startScaleDownReturnToStartAnimation(int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65553, this, i2, animationListener) == null) {
-            this.mFrom = i2;
+        if (interceptable == null || interceptable.invokeIL(65553, this, i, animationListener) == null) {
+            this.mFrom = i;
             this.mStartingScale = this.mCircleView.getScaleX();
             Animation animation = new Animation(this) { // from class: androidx.swiperefreshlayout.widget.SwipeRefreshLayout.8
                 public static /* synthetic */ Interceptable $ic;
@@ -430,9 +431,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -479,9 +480,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -540,26 +541,26 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
+    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedPreScroll(i, i2, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) ? this.mNestedScrollingChildHelper.dispatchNestedScroll(i, i2, i3, i4, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup
-    public int getChildDrawingOrder(int i2, int i3) {
+    public int getChildDrawingOrder(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            int i4 = this.mCircleViewIndex;
-            return i4 < 0 ? i3 : i3 == i2 + (-1) ? i4 : i3 >= i4 ? i3 + 1 : i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+            int i3 = this.mCircleViewIndex;
+            return i3 < 0 ? i2 : i2 == i + (-1) ? i3 : i2 >= i3 ? i2 + 1 : i2;
         }
         return invokeII.intValue;
     }
@@ -612,8 +613,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     public void moveToStart(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            int i2 = this.mFrom;
-            setTargetOffsetTopAndBottom((i2 + ((int) ((this.mOriginalOffsetTop - i2) * f2))) - this.mCircleView.getTop());
+            int i = this.mFrom;
+            setTargetOffsetTopAndBottom((i + ((int) ((this.mOriginalOffsetTop - i) * f2))) - this.mCircleView.getTop());
         }
     }
 
@@ -629,7 +630,6 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        int findPointerIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
             ensureTarget();
@@ -643,8 +643,13 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
-                        int i2 = this.mActivePointerId;
-                        if (i2 == -1 || (findPointerIndex = motionEvent.findPointerIndex(i2)) < 0) {
+                        int i = this.mActivePointerId;
+                        if (i == -1) {
+                            Log.e(LOG_TAG, "Got ACTION_MOVE event but don't have an active pointer id.");
+                            return false;
+                        }
+                        int findPointerIndex = motionEvent.findPointerIndex(i);
+                        if (findPointerIndex < 0) {
                             return false;
                         }
                         startDragging(motionEvent.getY(findPointerIndex));
@@ -673,9 +678,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
             if (getChildCount() == 0) {
@@ -693,18 +698,18 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
             int measuredWidth2 = this.mCircleView.getMeasuredWidth();
             int measuredHeight2 = this.mCircleView.getMeasuredHeight();
-            int i6 = measuredWidth / 2;
-            int i7 = measuredWidth2 / 2;
-            int i8 = this.mCurrentTargetOffsetTop;
-            this.mCircleView.layout(i6 - i7, i8, i6 + i7, measuredHeight2 + i8);
+            int i5 = measuredWidth / 2;
+            int i6 = measuredWidth2 / 2;
+            int i7 = this.mCurrentTargetOffsetTop;
+            this.mCircleView.layout(i5 - i6, i7, i5 + i6, measuredHeight2 + i7);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             if (this.mTarget == null) {
                 ensureTarget();
             }
@@ -715,9 +720,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
             this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
             this.mCircleViewIndex = -1;
-            for (int i4 = 0; i4 < getChildCount(); i4++) {
-                if (getChildAt(i4) == this.mCircleView) {
-                    this.mCircleViewIndex = i4;
+            for (int i3 = 0; i3 < getChildCount(); i3++) {
+                if (getChildAt(i3) == this.mCircleView) {
+                    this.mCircleViewIndex = i3;
                     return;
                 }
             }
@@ -739,28 +744,28 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
+    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
-            if (i3 > 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
+            if (i2 > 0) {
                 float f2 = this.mTotalUnconsumed;
                 if (f2 > 0.0f) {
-                    float f3 = i3;
+                    float f3 = i2;
                     if (f3 > f2) {
-                        iArr[1] = i3 - ((int) f2);
+                        iArr[1] = i2 - ((int) f2);
                         this.mTotalUnconsumed = 0.0f;
                     } else {
                         this.mTotalUnconsumed = f2 - f3;
-                        iArr[1] = i3;
+                        iArr[1] = i2;
                     }
                     moveSpinner(this.mTotalUnconsumed);
                 }
             }
-            if (this.mUsingCustomStart && i3 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
+            if (this.mUsingCustomStart && i2 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i2 - iArr[1]) > 0) {
                 this.mCircleView.setVisibility(8);
             }
             int[] iArr2 = this.mParentScrollConsumed;
-            if (dispatchNestedPreScroll(i2 - iArr[0], i3 - iArr[1], iArr2, null)) {
+            if (dispatchNestedPreScroll(i - iArr[0], i2 - iArr[1], iArr2, null)) {
                 iArr[0] = iArr[0] + iArr2[0];
                 iArr[1] = iArr[1] + iArr2[1];
             }
@@ -768,36 +773,36 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
+    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            dispatchNestedScroll(i2, i3, i4, i5, this.mParentOffsetInWindow);
-            int i6 = i5 + this.mParentOffsetInWindow[1];
-            if (i6 >= 0 || canChildScrollUp()) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            dispatchNestedScroll(i, i2, i3, i4, this.mParentOffsetInWindow);
+            int i5 = i4 + this.mParentOffsetInWindow[1];
+            if (i5 >= 0 || canChildScrollUp()) {
                 return;
             }
-            float abs = this.mTotalUnconsumed + Math.abs(i6);
+            float abs = this.mTotalUnconsumed + Math.abs(i5);
             this.mTotalUnconsumed = abs;
             moveSpinner(abs);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i2) {
+    public void onNestedScrollAccepted(View view, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048598, this, view, view2, i2) == null) {
-            this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i2);
-            startNestedScroll(i2 & 2);
+        if (interceptable == null || interceptable.invokeLLI(1048598, this, view, view2, i) == null) {
+            this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i);
+            startNestedScroll(i & 2);
             this.mTotalUnconsumed = 0.0f;
             this.mNestedScrollInProgress = true;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i2) {
+    public boolean onStartNestedScroll(View view, View view2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, view, view2, i2)) == null) ? (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i2 & 2) == 0) ? false : true : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048599, this, view, view2, i)) == null) ? (!isEnabled() || this.mReturningToStart || this.mRefreshing || (i & 2) == 0) ? false : true : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
@@ -833,6 +838,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             } else if (actionMasked == 1) {
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex < 0) {
+                    Log.e(LOG_TAG, "Got ACTION_UP event but don't have an active pointer id.");
                     return false;
                 }
                 if (this.mIsBeingDragged) {
@@ -844,6 +850,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             } else if (actionMasked == 2) {
                 int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
                 if (findPointerIndex2 < 0) {
+                    Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
                 float y = motionEvent.getY(findPointerIndex2);
@@ -861,6 +868,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                 if (actionMasked == 5) {
                     int actionIndex = motionEvent.getActionIndex();
                     if (actionIndex < 0) {
+                        Log.e(LOG_TAG, "Got ACTION_POINTER_DOWN event but have an invalid action index.");
                         return false;
                     }
                     this.mActivePointerId = motionEvent.getPointerId(actionIndex);
@@ -931,17 +939,17 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         if (interceptable == null || interceptable.invokeL(1048607, this, iArr) == null) {
             Context context = getContext();
             int[] iArr2 = new int[iArr.length];
-            for (int i2 = 0; i2 < iArr.length; i2++) {
-                iArr2[i2] = ContextCompat.getColor(context, iArr[i2]);
+            for (int i = 0; i < iArr.length; i++) {
+                iArr2[i] = ContextCompat.getColor(context, iArr[i]);
             }
             setColorSchemeColors(iArr2);
         }
     }
 
-    public void setDistanceToTriggerSync(int i2) {
+    public void setDistanceToTriggerSync(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mTotalDragDistance = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mTotalDragDistance = i;
         }
     }
 
@@ -980,42 +988,42 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     @Deprecated
-    public void setProgressBackgroundColor(int i2) {
+    public void setProgressBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            setProgressBackgroundColorSchemeResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            setProgressBackgroundColorSchemeResource(i);
         }
     }
 
-    public void setProgressBackgroundColorSchemeColor(@ColorInt int i2) {
+    public void setProgressBackgroundColorSchemeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mCircleView.setBackgroundColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mCircleView.setBackgroundColor(i);
         }
     }
 
-    public void setProgressBackgroundColorSchemeResource(@ColorRes int i2) {
+    public void setProgressBackgroundColorSchemeResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            setProgressBackgroundColorSchemeColor(ContextCompat.getColor(getContext(), i));
         }
     }
 
-    public void setProgressViewEndTarget(boolean z, int i2) {
+    public void setProgressViewEndTarget(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.mSpinnerOffsetEnd = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            this.mSpinnerOffsetEnd = i;
             this.mScale = z;
             this.mCircleView.invalidate();
         }
     }
 
-    public void setProgressViewOffset(boolean z, int i2, int i3) {
+    public void setProgressViewOffset(boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             this.mScale = z;
-            this.mOriginalOffsetTop = i2;
-            this.mSpinnerOffsetEnd = i3;
+            this.mOriginalOffsetTop = i;
+            this.mSpinnerOffsetEnd = i2;
             this.mUsingCustomStart = true;
             reset();
             this.mRefreshing = false;
@@ -1023,17 +1031,17 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
     }
 
     public void setRefreshing(boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
             if (z && this.mRefreshing != z) {
                 this.mRefreshing = z;
                 if (!this.mUsingCustomStart) {
-                    i2 = this.mSpinnerOffsetEnd + this.mOriginalOffsetTop;
+                    i = this.mSpinnerOffsetEnd + this.mOriginalOffsetTop;
                 } else {
-                    i2 = this.mSpinnerOffsetEnd;
+                    i = this.mSpinnerOffsetEnd;
                 }
-                setTargetOffsetTopAndBottom(i2 - this.mCurrentTargetOffsetTop);
+                setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop);
                 this.mNotify = false;
                 startScaleUpAnimation(this.mRefreshListener);
                 return;
@@ -1042,44 +1050,44 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         }
     }
 
-    public void setSize(int i2) {
+    public void setSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            if (i2 == 0 || i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            if (i == 0 || i == 1) {
                 DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-                if (i2 == 0) {
+                if (i == 0) {
                     this.mCircleDiameter = (int) (displayMetrics.density * 56.0f);
                 } else {
                     this.mCircleDiameter = (int) (displayMetrics.density * 40.0f);
                 }
                 this.mCircleView.setImageDrawable(null);
-                this.mProgress.setStyle(i2);
+                this.mProgress.setStyle(i);
                 this.mCircleView.setImageDrawable(this.mProgress);
             }
         }
     }
 
-    public void setSlingshotDistance(@Px int i2) {
+    public void setSlingshotDistance(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.mCustomSlingshotDistance = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.mCustomSlingshotDistance = i;
         }
     }
 
-    public void setTargetOffsetTopAndBottom(int i2) {
+    public void setTargetOffsetTopAndBottom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             this.mCircleView.bringToFront();
-            ViewCompat.offsetTopAndBottom(this.mCircleView, i2);
+            ViewCompat.offsetTopAndBottom(this.mCircleView, i);
             this.mCurrentTargetOffsetTop = this.mCircleView.getTop();
         }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean startNestedScroll(int i2) {
+    public boolean startNestedScroll(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) ? this.mNestedScrollingChildHelper.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) ? this.mNestedScrollingChildHelper.startNestedScroll(i) : invokeI.booleanValue;
     }
 
     public void startScaleDownAnimation(Animation.AnimationListener animationListener) {
@@ -1097,9 +1105,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1141,9 +1149,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -1169,9 +1177,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1227,9 +1235,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1240,18 +1248,18 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
             @Override // android.view.animation.Animation
             public void applyTransformation(float f2, Transformation transformation) {
-                int i4;
+                int i3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) {
                     SwipeRefreshLayout swipeRefreshLayout = this.this$0;
                     if (!swipeRefreshLayout.mUsingCustomStart) {
-                        i4 = swipeRefreshLayout.mSpinnerOffsetEnd - Math.abs(swipeRefreshLayout.mOriginalOffsetTop);
+                        i3 = swipeRefreshLayout.mSpinnerOffsetEnd - Math.abs(swipeRefreshLayout.mOriginalOffsetTop);
                     } else {
-                        i4 = swipeRefreshLayout.mSpinnerOffsetEnd;
+                        i3 = swipeRefreshLayout.mSpinnerOffsetEnd;
                     }
                     SwipeRefreshLayout swipeRefreshLayout2 = this.this$0;
-                    int i5 = swipeRefreshLayout2.mFrom;
-                    this.this$0.setTargetOffsetTopAndBottom((i5 + ((int) ((i4 - i5) * f2))) - swipeRefreshLayout2.mCircleView.getTop());
+                    int i4 = swipeRefreshLayout2.mFrom;
+                    this.this$0.setTargetOffsetTopAndBottom((i4 + ((int) ((i3 - i4) * f2))) - swipeRefreshLayout2.mCircleView.getTop());
                     this.this$0.mProgress.setArrowScale(1.0f - f2);
                 }
             }
@@ -1268,9 +1276,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1295,15 +1303,15 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
         this.mCircleDiameter = (int) (displayMetrics.density * 40.0f);
         createProgressView();
         setChildrenDrawingOrderEnabled(true);
-        int i4 = (int) (displayMetrics.density * 64.0f);
-        this.mSpinnerOffsetEnd = i4;
-        this.mTotalDragDistance = i4;
+        int i3 = (int) (displayMetrics.density * 64.0f);
+        this.mSpinnerOffsetEnd = i3;
+        this.mTotalDragDistance = i3;
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         this.mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
-        int i5 = -this.mCircleDiameter;
-        this.mCurrentTargetOffsetTop = i5;
-        this.mOriginalOffsetTop = i5;
+        int i4 = -this.mCircleDiameter;
+        this.mCurrentTargetOffsetTop = i4;
+        this.mOriginalOffsetTop = i4;
         moveToStart(1.0f);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, LAYOUT_ATTRS);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));

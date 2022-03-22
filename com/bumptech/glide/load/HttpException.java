@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HttpException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNKNOWN = -1;
@@ -16,17 +16,17 @@ public final class HttpException extends IOException {
     public final int statusCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpException(int i2) {
-        this("Http request failed with status code: " + i2, i2);
+    public HttpException(int i) {
+        this("Http request failed with status code: " + i, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -51,9 +51,9 @@ public final class HttpException extends IOException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -64,17 +64,17 @@ public final class HttpException extends IOException {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpException(String str, int i2) {
-        this(str, i2, null);
+    public HttpException(String str, int i) {
+        this(str, i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (Throwable) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -85,17 +85,17 @@ public final class HttpException extends IOException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpException(String str, int i2, @Nullable Throwable th) {
+    public HttpException(String str, int i, @Nullable Throwable th) {
         super(str, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), th};
+            Object[] objArr = {str, Integer.valueOf(i), th};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -103,6 +103,6 @@ public final class HttpException extends IOException {
                 return;
             }
         }
-        this.statusCode = i2;
+        this.statusCode = i;
     }
 }

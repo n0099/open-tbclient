@@ -24,9 +24,9 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,14 +85,14 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.mFlags;
+            int i = this.mFlags;
             int legacyStreamType = getLegacyStreamType();
             if (legacyStreamType == 6) {
-                i2 |= 4;
+                i |= 4;
             } else if (legacyStreamType == 7) {
-                i2 |= 1;
+                i |= 1;
             }
-            return i2 & 273;
+            return i & 273;
         }
         return invokeV.intValue;
     }
@@ -102,8 +102,8 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.mLegacyStream;
-            return i2 != -1 ? i2 : AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
+            int i = this.mLegacyStream;
+            return i != -1 ? i : AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
         }
         return invokeV.intValue;
     }
@@ -145,9 +145,9 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
             bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_USAGE, this.mUsage);
             bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_CONTENT_TYPE, this.mContentType);
             bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_FLAGS, this.mFlags);
-            int i2 = this.mLegacyStream;
-            if (i2 != -1) {
-                bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i2);
+            int i = this.mLegacyStream;
+            if (i != -1) {
+                bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i);
             }
             return bundle;
         }
@@ -175,16 +175,16 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         return (String) invokeV.objValue;
     }
 
-    public AudioAttributesImplBase(int i2, int i3, int i4, int i5) {
+    public AudioAttributesImplBase(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -194,9 +194,9 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         this.mContentType = 0;
         this.mFlags = 0;
         this.mLegacyStream = -1;
-        this.mContentType = i2;
-        this.mFlags = i3;
-        this.mUsage = i4;
-        this.mLegacyStream = i5;
+        this.mContentType = i;
+        this.mFlags = i2;
+        this.mUsage = i3;
+        this.mLegacyStream = i4;
     }
 }

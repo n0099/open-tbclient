@@ -89,8 +89,8 @@ public class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         adBaseInfo.appImageUrl = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("appImageUrl");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                adBaseInfo.appImageUrl.add((String) optJSONArray.opt(i2));
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                adBaseInfo.appImageUrl.add((String) optJSONArray.opt(i));
             }
         }
         AdInfo.MaterialSize materialSize = new AdInfo.MaterialSize();

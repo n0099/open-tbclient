@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.message;
 
-import c.a.q0.r.s.a;
-import c.a.r0.s1.g.b;
-import c.a.r0.s1.g.c;
+import c.a.o0.r.s.a;
+import c.a.p0.u1.g.b;
+import c.a.p0.u1.g.c;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -31,9 +31,9 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,11 +50,11 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage;
         c officialBarMenuDatas;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (orginalMessage = getOrginalMessage()) == null || !(orginalMessage instanceof RequestOfficialBarMenuMessage) || getError() != 0 || (officialBarMenuDatas = getOfficialBarMenuDatas()) == null || !officialBarMenuDatas.c() || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (orginalMessage = getOrginalMessage()) == null || !(orginalMessage instanceof RequestOfficialBarMenuMessage) || getError() != 0 || (officialBarMenuDatas = getOfficialBarMenuDatas()) == null || !officialBarMenuDatas.c() || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() <= 0) {
             return;
         }
         a.f();
@@ -63,9 +63,9 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             ForumMenuResIdl forumMenuResIdl = (ForumMenuResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumMenuResIdl.class);
             setError(forumMenuResIdl.error.errorno.intValue());
             setErrorString(forumMenuResIdl.error.usermsg);
@@ -78,9 +78,9 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                 getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
                 getOfficialBarMenuDatas().e(new ArrayList());
                 int size = forumMenuResIdl.data.parent_menu.size();
-                for (int i3 = 0; i3 < size; i3++) {
+                for (int i2 = 0; i2 < size; i2++) {
                     b bVar = new b();
-                    Menu menu = forumMenuResIdl.data.parent_menu.get(i3);
+                    Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
                     bVar.f(menu.action_type.intValue());
                     bVar.g(menu.content);
                     bVar.h(menu.create_time.intValue());
@@ -92,8 +92,8 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
                     List<SubMenu> list = menu.sub_menu;
                     if (list != null) {
                         int size2 = list.size();
-                        for (int i4 = 0; i4 < size2; i4++) {
-                            SubMenu subMenu = menu.sub_menu.get(i4);
+                        for (int i3 = 0; i3 < size2; i3++) {
+                            SubMenu subMenu = menu.sub_menu.get(i3);
                             b bVar2 = new b();
                             bVar2.f(subMenu.action_type.intValue());
                             bVar2.g(subMenu.content);

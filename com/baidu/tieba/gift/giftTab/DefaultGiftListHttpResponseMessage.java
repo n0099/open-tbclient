@@ -1,10 +1,10 @@
 package com.baidu.tieba.gift.giftTab;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.j0;
-import c.a.q0.r.r.k0;
-import c.a.r0.h1.b.a;
-import c.a.r0.h1.b.e;
+import c.a.o0.r.r.j0;
+import c.a.o0.r.r.k0;
+import c.a.p0.j1.b.a;
+import c.a.p0.j1.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,17 +36,17 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public k0 urlTitleData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DefaultGiftListHttpResponseMessage(int i2) {
-        super(i2);
+    public DefaultGiftListHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -91,19 +91,19 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.sceneId : invokeV.longValue;
     }
 
-    public void setSceneId(long j2) {
+    public void setSceneId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.sceneId = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.sceneId = j;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetGiftListResIdl getGiftListResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (getGiftListResIdl = (GetGiftListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getGiftListResIdl = (GetGiftListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListResIdl.class)) == null) {
             return;
         }
         Error error = getGiftListResIdl.error;
@@ -122,7 +122,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
             k0Var.a = urlTitle.name;
-            k0Var.f13327b = urlTitle.url;
+            k0Var.f10900b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
@@ -130,16 +130,16 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                     if (presentGiftList1 != null) {
                         j0 j0Var = new j0();
                         j0Var.a = presentGiftList1.gift_id.intValue();
-                        j0Var.f13306b = presentGiftList1.gift_name;
-                        j0Var.f13307c = presentGiftList1.price.intValue();
-                        j0Var.f13308d = presentGiftList1.thumbnail_url;
+                        j0Var.f10890b = presentGiftList1.gift_name;
+                        j0Var.f10891c = presentGiftList1.price.intValue();
+                        j0Var.f10892d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        j0Var.f13309e = presentGiftList1.gift_desc;
-                        j0Var.f13310f = presentGiftList1.activity_type.intValue();
-                        j0Var.f13311g = presentGiftList1.mark_url;
-                        j0Var.f13312h = presentGiftList1.begin_time.intValue();
-                        j0Var.f13313i = presentGiftList1.end_time.intValue();
-                        j0Var.f13314j = presentGiftList1.discount.intValue();
+                        j0Var.f10893e = presentGiftList1.gift_desc;
+                        j0Var.f10894f = presentGiftList1.activity_type.intValue();
+                        j0Var.f10895g = presentGiftList1.mark_url;
+                        j0Var.f10896h = presentGiftList1.begin_time.intValue();
+                        j0Var.i = presentGiftList1.end_time.intValue();
+                        j0Var.j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();
                         presentGiftList1.pitch_on.intValue();

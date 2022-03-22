@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CustomToast2 {
     public static /* synthetic */ Interceptable $ic;
     public static Handler mHandler;
@@ -46,9 +46,9 @@ public class CustomToast2 {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -70,18 +70,18 @@ public class CustomToast2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void showToast(Context context, String str, int i2) {
+    public static void showToast(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65542, null, context, str, i2) == null) || str == null || str.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLI(65542, null, context, str, i) == null) || str == null || str.length() <= 0) {
             return;
         }
         mHandler.removeCallbacks(r);
@@ -95,7 +95,7 @@ public class CustomToast2 {
             mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
             mToast.setGravity(17, 0, n.d(context, 100.0f));
         }
-        mHandler.postDelayed(r, i2);
+        mHandler.postDelayed(r, i);
         mToast.show();
     }
 
@@ -106,17 +106,17 @@ public class CustomToast2 {
         }
     }
 
-    public static void showToast(Context context, int i2) {
+    public static void showToast(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
-            showToast(context, context.getResources().getString(i2));
+        if (interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) {
+            showToast(context, context.getResources().getString(i));
         }
     }
 
-    public static void showToast(Context context, int i2, int i3) {
+    public static void showToast(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, i3) == null) {
-            showToast(context, context.getResources().getString(i2), i3);
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, i2) == null) {
+            showToast(context, context.getResources().getString(i), i2);
         }
     }
 }

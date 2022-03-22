@@ -1,5 +1,6 @@
 package okhttp3.internal.ws;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import okio.BufferedSink;
 import okio.ByteString;
 import okio.Sink;
 import okio.Timeout;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class WebSocketWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +29,7 @@ public final class WebSocketWriter {
     public final Buffer sinkBuffer;
     public boolean writerClosed;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class FrameSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +46,9 @@ public final class WebSocketWriter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webSocketWriter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -93,12 +94,12 @@ public final class WebSocketWriter {
         }
 
         @Override // okio.Sink
-        public void write(Buffer buffer, long j2) throws IOException {
+        public void write(Buffer buffer, long j) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
                 if (!this.closed) {
-                    this.this$0.buffer.write(buffer, j2);
-                    boolean z = this.isFirstFrame && this.contentLength != -1 && this.this$0.buffer.size() > this.contentLength - 8192;
+                    this.this$0.buffer.write(buffer, j);
+                    boolean z = this.isFirstFrame && this.contentLength != -1 && this.this$0.buffer.size() > this.contentLength - PlaybackStateCompat.ACTION_PLAY_FROM_URI;
                     long completeSegmentByteCount = this.this$0.buffer.completeSegmentByteCount();
                     if (completeSegmentByteCount <= 0 || z) {
                         return;
@@ -119,9 +120,9 @@ public final class WebSocketWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), bufferedSink, random};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,13 +145,13 @@ public final class WebSocketWriter {
         throw new NullPointerException("random == null");
     }
 
-    private void writeControlFrame(int i2, ByteString byteString) throws IOException {
+    private void writeControlFrame(int i, ByteString byteString) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, this, i2, byteString) == null) {
+        if (interceptable == null || interceptable.invokeIL(65537, this, i, byteString) == null) {
             if (!this.writerClosed) {
                 int size = byteString.size();
                 if (size <= 125) {
-                    this.sinkBuffer.writeByte(i2 | 128);
+                    this.sinkBuffer.writeByte(i | 128);
                     if (this.isClient) {
                         this.sinkBuffer.writeByte(size | 128);
                         this.random.nextBytes(this.maskKey);
@@ -176,15 +177,15 @@ public final class WebSocketWriter {
         }
     }
 
-    public Sink newMessageSink(int i2, long j2) {
+    public Sink newMessageSink(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (!this.activeWriter) {
                 this.activeWriter = true;
                 FrameSink frameSink = this.frameSink;
-                frameSink.formatOpcode = i2;
-                frameSink.contentLength = j2;
+                frameSink.formatOpcode = i;
+                frameSink.contentLength = j;
                 frameSink.isFirstFrame = true;
                 frameSink.closed = false;
                 return frameSink;
@@ -194,16 +195,16 @@ public final class WebSocketWriter {
         return (Sink) invokeCommon.objValue;
     }
 
-    public void writeClose(int i2, ByteString byteString) throws IOException {
+    public void writeClose(int i, ByteString byteString) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, byteString) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteString) == null) {
             ByteString byteString2 = ByteString.EMPTY;
-            if (i2 != 0 || byteString != null) {
-                if (i2 != 0) {
-                    WebSocketProtocol.validateCloseCode(i2);
+            if (i != 0 || byteString != null) {
+                if (i != 0) {
+                    WebSocketProtocol.validateCloseCode(i);
                 }
                 Buffer buffer = new Buffer();
-                buffer.writeShort(i2);
+                buffer.writeShort(i);
                 if (byteString != null) {
                     buffer.write(byteString);
                 }
@@ -217,40 +218,40 @@ public final class WebSocketWriter {
         }
     }
 
-    public void writeMessageFrame(int i2, long j2, boolean z, boolean z2) throws IOException {
+    public void writeMessageFrame(int i, long j, boolean z, boolean z2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (!this.writerClosed) {
                 if (!z) {
-                    i2 = 0;
+                    i = 0;
                 }
                 if (z2) {
-                    i2 |= 128;
+                    i |= 128;
                 }
-                this.sinkBuffer.writeByte(i2);
-                int i3 = this.isClient ? 128 : 0;
-                if (j2 <= 125) {
-                    this.sinkBuffer.writeByte(((int) j2) | i3);
-                } else if (j2 <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
-                    this.sinkBuffer.writeByte(i3 | 126);
-                    this.sinkBuffer.writeShort((int) j2);
+                this.sinkBuffer.writeByte(i);
+                int i2 = this.isClient ? 128 : 0;
+                if (j <= 125) {
+                    this.sinkBuffer.writeByte(((int) j) | i2);
+                } else if (j <= WebSocketProtocol.PAYLOAD_SHORT_MAX) {
+                    this.sinkBuffer.writeByte(i2 | 126);
+                    this.sinkBuffer.writeShort((int) j);
                 } else {
-                    this.sinkBuffer.writeByte(i3 | 127);
-                    this.sinkBuffer.writeLong(j2);
+                    this.sinkBuffer.writeByte(i2 | 127);
+                    this.sinkBuffer.writeLong(j);
                 }
                 if (this.isClient) {
                     this.random.nextBytes(this.maskKey);
                     this.sinkBuffer.write(this.maskKey);
-                    if (j2 > 0) {
+                    if (j > 0) {
                         long size = this.sinkBuffer.size();
-                        this.sinkBuffer.write(this.buffer, j2);
+                        this.sinkBuffer.write(this.buffer, j);
                         this.sinkBuffer.readAndWriteUnsafe(this.maskCursor);
                         this.maskCursor.seek(size);
                         WebSocketProtocol.toggleMask(this.maskCursor, this.maskKey);
                         this.maskCursor.close();
                     }
                 } else {
-                    this.sinkBuffer.write(this.buffer, j2);
+                    this.sinkBuffer.write(this.buffer, j);
                 }
                 this.sink.emit();
                 return;

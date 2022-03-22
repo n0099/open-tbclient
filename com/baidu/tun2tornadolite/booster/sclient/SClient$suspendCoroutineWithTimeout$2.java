@@ -39,9 +39,9 @@ public final class SClient$suspendCoroutineWithTimeout$2 extends SuspendLambda i
             newInitContext.initArgs = r2;
             Object[] objArr = {function1, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -73,8 +73,8 @@ public final class SClient$suspendCoroutineWithTimeout$2 extends SuspendLambda i
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 Function1<Continuation<? super T>, Unit> function1 = this.$block;
                 this.L$0 = function1;
@@ -89,7 +89,7 @@ public final class SClient$suspendCoroutineWithTimeout$2 extends SuspendLambda i
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 Function1 function12 = (Function1) this.L$0;

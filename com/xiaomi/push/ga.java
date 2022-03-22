@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,35 +12,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ga extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, String> f428a;
+    public final Map<String, String> f404a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f59663b;
+        public static final a f44269b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f59664c;
+        public static final a f44270c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f59665d;
+        public static final a f44271d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f59666e;
+        public static final a f44272e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f429a;
+        public String f405a;
 
         static {
             InterceptResult invokeClinit;
@@ -54,11 +55,11 @@ public class ga extends gc {
                     return;
                 }
             }
-            a = new a("get");
-            f59663b = new a("set");
-            f59664c = new a("result");
-            f59665d = new a("error");
-            f59666e = new a("command");
+            a = new a(SharedPreferenceManager.OPERATION_GET_PERFIX);
+            f44269b = new a("set");
+            f44270c = new a("result");
+            f44271d = new a("error");
+            f44272e = new a("command");
         }
 
         public a(String str) {
@@ -68,15 +69,15 @@ public class ga extends gc {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f429a = str;
+            this.f405a = str;
         }
 
         public static a a(String str) {
@@ -90,17 +91,17 @@ public class ga extends gc {
                 if (a.toString().equals(lowerCase)) {
                     return a;
                 }
-                if (f59663b.toString().equals(lowerCase)) {
-                    return f59663b;
+                if (f44269b.toString().equals(lowerCase)) {
+                    return f44269b;
                 }
-                if (f59665d.toString().equals(lowerCase)) {
-                    return f59665d;
+                if (f44271d.toString().equals(lowerCase)) {
+                    return f44271d;
                 }
-                if (f59664c.toString().equals(lowerCase)) {
-                    return f59664c;
+                if (f44270c.toString().equals(lowerCase)) {
+                    return f44270c;
                 }
-                if (f59666e.toString().equals(lowerCase)) {
-                    return f59666e;
+                if (f44272e.toString().equals(lowerCase)) {
+                    return f44272e;
                 }
                 return null;
             }
@@ -110,7 +111,7 @@ public class ga extends gc {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f429a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f405a : (String) invokeV.objValue;
         }
     }
 
@@ -119,16 +120,16 @@ public class ga extends gc {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = a.a;
-        this.f428a = new HashMap();
+        this.f404a = new HashMap();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,9 +141,9 @@ public class ga extends gc {
             newInitContext.initArgs = r2;
             Object[] objArr = {bundle};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Bundle) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -150,7 +151,7 @@ public class ga extends gc {
             }
         }
         this.a = a.a;
-        this.f428a = new HashMap();
+        this.f404a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -204,7 +205,7 @@ public class ga extends gc {
                 sb.append(gn.a(k()));
                 sb.append("\" ");
             }
-            for (Map.Entry<String, String> entry : this.f428a.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f404a.entrySet()) {
                 sb.append(gn.a(entry.getKey()));
                 sb.append("=\"");
                 sb.append(gn.a(entry.getValue()));
@@ -223,9 +224,9 @@ public class ga extends gc {
                 sb.append(b2);
             }
             sb.append(o());
-            gg m406a = m406a();
-            if (m406a != null) {
-                sb.append(m406a.m410a());
+            gg m385a = m385a();
+            if (m385a != null) {
+                sb.append(m385a.m389a());
             }
             sb.append("</iq>");
             return sb.toString();
@@ -247,7 +248,7 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {
-                this.f428a.putAll(map);
+                this.f404a.putAll(map);
             }
         }
     }

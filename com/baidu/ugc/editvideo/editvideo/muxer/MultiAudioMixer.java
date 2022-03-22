@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,9 +40,9 @@ public abstract class MultiAudioMixer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -62,9 +62,9 @@ public abstract class MultiAudioMixer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -83,37 +83,37 @@ public abstract class MultiAudioMixer {
                 if (bArr.length == 1) {
                     return bArr2;
                 }
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (bArr[i2].length != bArr2.length) {
-                        c.d("column of the road of audio + " + i2 + " is diffrent.");
+                for (int i = 0; i < bArr.length; i++) {
+                    if (bArr[i].length != bArr2.length) {
+                        c.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }
                 int length = bArr.length;
                 int length2 = bArr2.length / 2;
                 short[][] sArr = (short[][]) Array.newInstance(short.class, length, length2);
-                for (int i3 = 0; i3 < length; i3++) {
-                    for (int i4 = 0; i4 < length2; i4++) {
-                        int i5 = i4 * 2;
-                        short s = (short) ((bArr[i3][i5] & 255) | ((bArr[i3][i5 + 1] & 255) << 8));
+                for (int i2 = 0; i2 < length; i2++) {
+                    for (int i3 = 0; i3 < length2; i3++) {
+                        int i4 = i3 * 2;
+                        short s = (short) ((bArr[i2][i4] & 255) | ((bArr[i2][i4 + 1] & 255) << 8));
                         if (fArr.length == length) {
-                            s = (short) (s * fArr[i3]);
+                            s = (short) (s * fArr[i2]);
                         }
-                        sArr[i3][i4] = s;
+                        sArr[i2][i3] = s;
                     }
                 }
                 short[] sArr2 = new short[length2];
-                for (int i6 = 0; i6 < length2; i6++) {
-                    int i7 = 0;
-                    for (int i8 = 0; i8 < length; i8++) {
-                        i7 += sArr[i8][i6];
+                for (int i5 = 0; i5 < length2; i5++) {
+                    int i6 = 0;
+                    for (int i7 = 0; i7 < length; i7++) {
+                        i6 += sArr[i7][i5];
                     }
-                    sArr2[i6] = (short) (i7 / length);
+                    sArr2[i5] = (short) (i6 / length);
                 }
-                for (int i9 = 0; i9 < length2; i9++) {
-                    int i10 = i9 * 2;
-                    bArr2[i10] = (byte) (sArr2[i9] & 255);
-                    bArr2[i10 + 1] = (byte) ((sArr2[i9] & 65280) >> 8);
+                for (int i8 = 0; i8 < length2; i8++) {
+                    int i9 = i8 * 2;
+                    bArr2[i9] = (byte) (sArr2[i8] & 255);
+                    bArr2[i9 + 1] = (byte) ((sArr2[i8] & 65280) >> 8);
                 }
                 return bArr2;
             }
@@ -129,7 +129,7 @@ public abstract class MultiAudioMixer {
     public interface OnAudioMixListener {
         void onMixComplete();
 
-        void onMixError(int i2);
+        void onMixError(int i);
 
         void onMixing(byte[] bArr) throws IOException;
     }
@@ -139,9 +139,9 @@ public abstract class MultiAudioMixer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -163,20 +163,20 @@ public abstract class MultiAudioMixer {
             byte[][] bArr = new byte[length];
             boolean[] zArr = new boolean[length];
             byte[] bArr2 = new byte[4096];
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
                 try {
                     try {
                         try {
-                            fileInputStreamArr[i3] = new FileInputStream(fileArr[i3]);
+                            fileInputStreamArr[i2] = new FileInputStream(fileArr[i2]);
                         } catch (Throwable th) {
-                            while (i2 < length) {
+                            while (i < length) {
                                 try {
-                                    FileInputStream fileInputStream = fileInputStreamArr[i2];
+                                    FileInputStream fileInputStream = fileInputStreamArr[i];
                                     if (fileInputStream != null) {
                                         fileInputStream.close();
                                     }
-                                    i2++;
+                                    i++;
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                     throw th;
@@ -189,12 +189,12 @@ public abstract class MultiAudioMixer {
                         if (this.mOnAudioMixListener != null) {
                             this.mOnAudioMixListener.onMixError(1);
                         }
-                        while (i2 < length) {
-                            FileInputStream fileInputStream2 = fileInputStreamArr[i2];
+                        while (i < length) {
+                            FileInputStream fileInputStream2 = fileInputStreamArr[i];
                             if (fileInputStream2 != null) {
                                 fileInputStream2.close();
                             }
-                            i2++;
+                            i++;
                         }
                         return;
                     }
@@ -204,13 +204,13 @@ public abstract class MultiAudioMixer {
                 }
             }
             do {
-                for (int i4 = 0; i4 < length; i4++) {
-                    FileInputStream fileInputStream3 = fileInputStreamArr[i4];
-                    if (!zArr[i4] && fileInputStream3.read(bArr2) != -1) {
-                        bArr[i4] = Arrays.copyOf(bArr2, 4096);
+                for (int i3 = 0; i3 < length; i3++) {
+                    FileInputStream fileInputStream3 = fileInputStreamArr[i3];
+                    if (!zArr[i3] && fileInputStream3.read(bArr2) != -1) {
+                        bArr[i3] = Arrays.copyOf(bArr2, 4096);
                     } else {
-                        zArr[i4] = true;
-                        bArr[i4] = new byte[4096];
+                        zArr[i3] = true;
+                        bArr[i3] = new byte[4096];
                     }
                 }
                 byte[] mixRawAudioBytes = mixRawAudioBytes(bArr, fArr);
@@ -218,8 +218,8 @@ public abstract class MultiAudioMixer {
                     this.mOnAudioMixListener.onMixing(mixRawAudioBytes);
                 }
                 z = true;
-                for (int i5 = 0; i5 < length; i5++) {
-                    if (!zArr[i5]) {
+                for (int i4 = 0; i4 < length; i4++) {
+                    if (!zArr[i4]) {
                         z = false;
                     }
                 }
@@ -227,12 +227,12 @@ public abstract class MultiAudioMixer {
             if (this.mOnAudioMixListener != null) {
                 this.mOnAudioMixListener.onMixComplete();
             }
-            while (i2 < length) {
-                FileInputStream fileInputStream4 = fileInputStreamArr[i2];
+            while (i < length) {
+                FileInputStream fileInputStream4 = fileInputStreamArr[i];
                 if (fileInputStream4 != null) {
                     fileInputStream4.close();
                 }
-                i2++;
+                i++;
             }
         }
     }

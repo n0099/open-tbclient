@@ -3,7 +3,6 @@ package com.baidu.tieba.recapp.lego.view.form;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -19,37 +18,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.d {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String defaultContent = "NEGLIGIBLE";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity mActivity;
-    public int mButtonBgColor;
-    public int mButtonFontColor;
-    public int mButtonGreyBgColor;
-    public Context mContext;
-    public Drawable mErrorFrameDrawale;
-    public int mFontColor;
-    public float mFontSize;
-    public float mFontSize26;
-    public float mFontSize36;
-    public int mFrameColor;
-    public Drawable mFrameDrawale;
-    public View mFrameView;
-    public int mHintFontColor;
-    public Resources mResources;
-    public float mScaleRatio;
-    public int mSize20;
-    public int mSize240;
-    public int mSize40;
-    public int mSize50;
-    public int mSize80;
-    public int mSize90;
-    public String mTag;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Resources f35739b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f35740c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f35741d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f35742e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f35743f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f35744g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f35745h;
+    public int i;
+    public float j;
+    public float k;
+    public float l;
+    public int m;
+    public int n;
+    public int o;
+    public View p;
+    public String q;
+    public Activity r;
+    public float s;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class DrawableType {
         public static final /* synthetic */ DrawableType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -76,16 +84,16 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
             $VALUES = new DrawableType[]{ERROR_FRAME, drawableType};
         }
 
-        public DrawableType(String str, int i2) {
+        public DrawableType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -108,7 +116,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -149,134 +157,111 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = null;
-        this.mResources = null;
-        this.mFrameDrawale = null;
-        this.mErrorFrameDrawale = null;
-        this.mSize20 = 0;
-        this.mSize40 = 0;
-        this.mSize50 = 0;
-        this.mSize80 = 0;
-        this.mSize90 = 0;
-        this.mSize240 = 0;
-        this.mFontColor = 0;
-        this.mHintFontColor = 0;
-        this.mFontSize = 0.0f;
-        this.mFontSize26 = 0.0f;
-        this.mFontSize36 = 0.0f;
-        this.mButtonFontColor = 0;
-        this.mButtonBgColor = 0;
-        this.mButtonGreyBgColor = 0;
-        this.mFrameColor = 0;
-        this.mFrameView = null;
-        this.mTag = "";
-        this.mActivity = null;
-        this.mScaleRatio = 1.0f;
-        a(context);
+        this.a = null;
+        this.f35739b = null;
+        this.f35740c = 0;
+        this.f35741d = 0;
+        this.f35742e = 0;
+        this.f35743f = 0;
+        this.f35744g = 0;
+        this.f35745h = 0;
+        this.i = 0;
+        this.j = 0.0f;
+        this.k = 0.0f;
+        this.l = 0.0f;
+        this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.p = null;
+        this.q = "";
+        this.s = 1.0f;
+        d(context);
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mContext = context;
-            this.mActivity = (Activity) context;
-            Resources resources = context.getApplicationContext().getResources();
-            this.mResources = resources;
-            this.mHintFontColor = resources.getColor(R.color.form_font_color);
-            this.mButtonFontColor = this.mResources.getColor(R.color.form_button_font_color);
-            this.mButtonGreyBgColor = this.mResources.getColor(R.color.form_button_grey_bg_color);
-            this.mButtonBgColor = -1;
-            this.mFrameColor = -1;
-            this.mFontColor = -1;
-            this.mFrameDrawale = this.mResources.getDrawable(R.drawable.form_frame_white);
-            this.mErrorFrameDrawale = this.mResources.getDrawable(R.drawable.form_frame_red);
-        }
-    }
-
-    public int compoundHeight() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return -2;
         }
         return invokeV.intValue;
     }
 
-    public void drawBackgroundFrame(View view, DrawableType drawableType) {
+    public void c(View view, DrawableType drawableType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, drawableType) == null) {
-            this.mFrameView = view;
-            int i2 = a.a[drawableType.ordinal()];
-            if (i2 == 1) {
-                this.mFrameView.setBackgroundResource(R.drawable.form_frame_red);
-            } else if (i2 != 2) {
-                this.mFrameView.setBackgroundDrawable(null);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, drawableType) == null) {
+            this.p = view;
+            int i = a.a[drawableType.ordinal()];
+            if (i == 1) {
+                this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f08057f);
+            } else if (i != 2) {
+                this.p.setBackgroundDrawable(null);
             } else {
-                this.mFrameView.setBackgroundResource(R.drawable.form_frame_white);
+                this.p.setBackgroundResource(R.drawable.obfuscated_res_0x7f080580);
             }
         }
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
-    public FormItemBaseView getFormView() {
-        InterceptResult invokeV;
+    public final void d(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (FormItemBaseView) invokeV.objValue;
-    }
-
-    public View getFrameView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFrameView : (View) invokeV.objValue;
-    }
-
-    public abstract /* synthetic */ String getResult();
-
-    public abstract /* synthetic */ boolean isPrepareToCommit();
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
+            this.r = (Activity) context;
+            Resources resources = context.getApplicationContext().getResources();
+            this.f35739b = resources;
+            this.i = resources.getColor(R.color.obfuscated_res_0x7f060715);
+            this.m = this.f35739b.getColor(R.color.obfuscated_res_0x7f060712);
+            this.n = this.f35739b.getColor(R.color.obfuscated_res_0x7f060713);
+            this.o = -1;
+            this.f35745h = -1;
+            this.f35739b.getDrawable(R.drawable.obfuscated_res_0x7f080580);
+            this.f35739b.getDrawable(R.drawable.obfuscated_res_0x7f08057f);
         }
     }
 
-    public void scaleMargin(float f2) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.mScaleRatio = f2;
-            float dimension = this.mResources.getDimension(R.dimen.form_font_size28);
-            float dimension2 = this.mResources.getDimension(R.dimen.form_font_size20);
-            float dimension3 = this.mResources.getDimension(R.dimen.form_font_size36);
-            float f3 = this.mScaleRatio;
-            this.mSize20 = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * f3);
-            this.mSize40 = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * f3);
-            this.mSize50 = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * f3);
-            this.mSize80 = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * f3);
-            this.mSize90 = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * f3);
-            this.mSize240 = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * f3);
-            this.mFontSize = (int) (dimension * f3);
-            this.mFontSize26 = (int) (dimension2 * f3);
-            this.mFontSize36 = (int) (dimension3 * f3);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    public boolean updateView(FormCard.b bVar) {
+    public void f(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
+            this.s = f2;
+            this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070336);
+            float dimension = this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f07032f);
+            float dimension2 = this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f07032e);
+            float dimension3 = this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070330);
+            float f3 = this.s;
+            this.f35740c = (int) (((int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070331)) * f3);
+            this.f35741d = (int) (((int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070333)) * f3);
+            this.f35742e = (int) (((int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070334)) * f3);
+            this.f35743f = (int) (((int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070335)) * f3);
+            this.f35744g = (int) (((int) this.f35739b.getDimension(R.dimen.obfuscated_res_0x7f070332)) * f3);
+            this.j = (int) (dimension * f3);
+            this.k = (int) (dimension2 * f3);
+            this.l = (int) (dimension3 * f3);
+        }
+    }
+
+    public boolean g(FormCard.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bVar)) == null) {
-            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f46099b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
+            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f35706b)) {
                 setVisibility(0);
-                reset();
-                this.mTag = bVar.f46100c;
+                e();
+                this.q = bVar.f35707c;
                 return true;
             }
             setVisibility(8);
@@ -285,12 +270,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
+    public FormItemBaseView getFormView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (FormItemBaseView) invokeV.objValue;
+    }
+
+    public View getFrameView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.p : (View) invokeV.objValue;
+    }
+
+    public abstract /* synthetic */ String getResult();
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.View
     public String getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mTag : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.q : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -302,9 +302,9 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -312,44 +312,39 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 return;
             }
         }
-        this.mContext = null;
-        this.mResources = null;
-        this.mFrameDrawale = null;
-        this.mErrorFrameDrawale = null;
-        this.mSize20 = 0;
-        this.mSize40 = 0;
-        this.mSize50 = 0;
-        this.mSize80 = 0;
-        this.mSize90 = 0;
-        this.mSize240 = 0;
-        this.mFontColor = 0;
-        this.mHintFontColor = 0;
-        this.mFontSize = 0.0f;
-        this.mFontSize26 = 0.0f;
-        this.mFontSize36 = 0.0f;
-        this.mButtonFontColor = 0;
-        this.mButtonBgColor = 0;
-        this.mButtonGreyBgColor = 0;
-        this.mFrameColor = 0;
-        this.mFrameView = null;
-        this.mTag = "";
-        this.mActivity = null;
-        this.mScaleRatio = 1.0f;
-        a(context);
+        this.a = null;
+        this.f35739b = null;
+        this.f35740c = 0;
+        this.f35741d = 0;
+        this.f35742e = 0;
+        this.f35743f = 0;
+        this.f35744g = 0;
+        this.f35745h = 0;
+        this.i = 0;
+        this.j = 0.0f;
+        this.k = 0.0f;
+        this.l = 0.0f;
+        this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.p = null;
+        this.q = "";
+        this.s = 1.0f;
+        d(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FormItemBaseView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FormItemBaseView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -357,29 +352,24 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 return;
             }
         }
-        this.mContext = null;
-        this.mResources = null;
-        this.mFrameDrawale = null;
-        this.mErrorFrameDrawale = null;
-        this.mSize20 = 0;
-        this.mSize40 = 0;
-        this.mSize50 = 0;
-        this.mSize80 = 0;
-        this.mSize90 = 0;
-        this.mSize240 = 0;
-        this.mFontColor = 0;
-        this.mHintFontColor = 0;
-        this.mFontSize = 0.0f;
-        this.mFontSize26 = 0.0f;
-        this.mFontSize36 = 0.0f;
-        this.mButtonFontColor = 0;
-        this.mButtonBgColor = 0;
-        this.mButtonGreyBgColor = 0;
-        this.mFrameColor = 0;
-        this.mFrameView = null;
-        this.mTag = "";
-        this.mActivity = null;
-        this.mScaleRatio = 1.0f;
-        a(context);
+        this.a = null;
+        this.f35739b = null;
+        this.f35740c = 0;
+        this.f35741d = 0;
+        this.f35742e = 0;
+        this.f35743f = 0;
+        this.f35744g = 0;
+        this.f35745h = 0;
+        this.i = 0;
+        this.j = 0.0f;
+        this.k = 0.0f;
+        this.l = 0.0f;
+        this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.p = null;
+        this.q = "";
+        this.s = 1.0f;
+        d(context);
     }
 }

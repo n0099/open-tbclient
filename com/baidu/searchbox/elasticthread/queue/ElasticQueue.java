@@ -29,9 +29,9 @@ public class ElasticQueue implements Recordable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,11 +47,11 @@ public class ElasticQueue implements Recordable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (ElasticTask elasticTask : this.mElasticTasks) {
-                j2 += elasticTask.getWaitingTime();
+                j += elasticTask.getWaitingTime();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -86,11 +86,11 @@ public class ElasticQueue implements Recordable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.waitingTimeInRecordLifeCycle : invokeV.longValue;
     }
 
-    public void insertTask(Runnable runnable, String str, int i2) {
+    public void insertTask(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, runnable, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, runnable, str, i) == null) {
             if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i2);
+                ElasticTask build = ElasticTaskBuilder.getInstance().build(runnable, str, i);
                 this.mElasticTasks.add(build);
                 build.recordEnqueueTime();
                 return;

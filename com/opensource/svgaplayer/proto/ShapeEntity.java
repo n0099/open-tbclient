@@ -1,10 +1,10 @@
 package com.opensource.svgaplayer.proto;
 
 import androidx.core.view.InputDeviceCompat;
-import c.n.a.c;
-import c.n.a.d;
-import c.n.a.g;
-import c.n.a.h.a;
+import c.k.a.c;
+import c.k.a.d;
+import c.k.a.g;
+import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,8 +19,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<ShapeEntity> ADAPTER;
@@ -40,7 +39,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     @WireField(adapter = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeType#ADAPTER", tag = 1)
     public final ShapeType type;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<ShapeEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +55,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -141,7 +140,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class EllipseArgs extends Message<EllipseArgs, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public static final ProtoAdapter<EllipseArgs> ADAPTER;
@@ -160,7 +159,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
         public final Float y;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class Builder extends Message.a<EllipseArgs, Builder> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -174,9 +173,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -233,7 +232,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class ProtoAdapter_EllipseArgs extends ProtoAdapter<EllipseArgs> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -245,9 +244,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr = newInitContext.callArgs;
                         super((FieldEncoding) objArr[0], (Class) objArr[1]);
                         newInitContext.thisArg = this;
@@ -375,9 +374,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {f2, f3, f4, f5};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Float) objArr2[0], (Float) objArr2[1], (Float) objArr2[2], (Float) objArr2[3], (ByteString) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -407,8 +406,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.hashCode;
-                if (i2 == 0) {
+                int i = this.hashCode;
+                if (i == 0) {
                     int hashCode = unknownFields().hashCode() * 37;
                     Float f2 = this.x;
                     int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -421,7 +420,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     this.hashCode = hashCode5;
                     return hashCode5;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -449,7 +448,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     sb.append(this.radiusY);
                 }
                 StringBuilder replace = sb.replace(0, 2, "EllipseArgs{");
-                replace.append(ExtendedMessageFormat.END_FE);
+                replace.append('}');
                 return replace.toString();
             }
             return (String) invokeV.objValue;
@@ -464,9 +463,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {f2, f3, f4, f5, byteString};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -500,7 +499,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_ShapeEntity extends ProtoAdapter<ShapeEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -512,9 +511,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     super((FieldEncoding) objArr[0], (Class) objArr[1]);
                     newInitContext.thisArg = this;
@@ -653,7 +652,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class RectArgs extends Message<RectArgs, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public static final ProtoAdapter<RectArgs> ADAPTER;
@@ -675,7 +674,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
         public final Float y;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class Builder extends Message.a<RectArgs, Builder> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -690,9 +689,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -759,7 +758,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class ProtoAdapter_RectArgs extends ProtoAdapter<RectArgs> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -771,9 +770,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr = newInitContext.callArgs;
                         super((FieldEncoding) objArr[0], (Class) objArr[1]);
                         newInitContext.thisArg = this;
@@ -910,9 +909,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {f2, f3, f4, f5, f6};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Float) objArr2[0], (Float) objArr2[1], (Float) objArr2[2], (Float) objArr2[3], (Float) objArr2[4], (ByteString) objArr2[5]);
                     newInitContext.thisArg = this;
@@ -942,8 +941,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.hashCode;
-                if (i2 == 0) {
+                int i = this.hashCode;
+                if (i == 0) {
                     int hashCode = unknownFields().hashCode() * 37;
                     Float f2 = this.x;
                     int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -958,7 +957,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     this.hashCode = hashCode6;
                     return hashCode6;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -990,7 +989,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     sb.append(this.cornerRadius);
                 }
                 StringBuilder replace = sb.replace(0, 2, "RectArgs{");
-                replace.append(ExtendedMessageFormat.END_FE);
+                replace.append('}');
                 return replace.toString();
             }
             return (String) invokeV.objValue;
@@ -1005,9 +1004,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {f2, f3, f4, f5, f6, byteString};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1043,7 +1042,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ShapeArgs extends Message<ShapeArgs, Builder> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final ProtoAdapter<ShapeArgs> ADAPTER;
@@ -1053,24 +1052,24 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f57480d;
+        public final String f42287d;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class Builder extends Message.a<ShapeArgs, Builder> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: d  reason: collision with root package name */
-            public String f57481d;
+            public String f42288d;
 
             public Builder() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -1081,7 +1080,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    this.f57481d = str;
+                    this.f42288d = str;
                     return this;
                 }
                 return (Builder) invokeL.objValue;
@@ -1093,11 +1092,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public ShapeArgs build() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ShapeArgs(this.f57481d, super.buildUnknownFields()) : (ShapeArgs) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ShapeArgs(this.f42288d, super.buildUnknownFields()) : (ShapeArgs) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class ProtoAdapter_ShapeArgs extends ProtoAdapter<ShapeArgs> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1109,9 +1108,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr = newInitContext.callArgs;
                         super((FieldEncoding) objArr[0], (Class) objArr[1]);
                         newInitContext.thisArg = this;
@@ -1151,7 +1150,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public void encode(d dVar, ShapeArgs shapeArgs) throws IOException {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, shapeArgs) == null) {
-                    String str = shapeArgs.f57480d;
+                    String str = shapeArgs.f42287d;
                     if (str != null) {
                         ProtoAdapter.STRING.encodeWithTag(dVar, 1, str);
                     }
@@ -1165,7 +1164,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, shapeArgs)) == null) {
-                    String str = shapeArgs.f57480d;
+                    String str = shapeArgs.f42287d;
                     return (str != null ? ProtoAdapter.STRING.encodedSizeWithTag(1, str) : 0) + shapeArgs.unknownFields().size();
                 }
                 return invokeL.intValue;
@@ -1210,9 +1209,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (ByteString) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1231,7 +1230,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 }
                 if (obj instanceof ShapeArgs) {
                     ShapeArgs shapeArgs = (ShapeArgs) obj;
-                    return unknownFields().equals(shapeArgs.unknownFields()) && a.f(this.f57480d, shapeArgs.f57480d);
+                    return unknownFields().equals(shapeArgs.unknownFields()) && a.f(this.f42287d, shapeArgs.f42287d);
                 }
                 return false;
             }
@@ -1242,15 +1241,15 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.hashCode;
-                if (i2 == 0) {
+                int i = this.hashCode;
+                if (i == 0) {
                     int hashCode = unknownFields().hashCode() * 37;
-                    String str = this.f57480d;
+                    String str = this.f42287d;
                     int hashCode2 = hashCode + (str != null ? str.hashCode() : 0);
                     this.hashCode = hashCode2;
                     return hashCode2;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -1261,12 +1260,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 StringBuilder sb = new StringBuilder();
-                if (this.f57480d != null) {
+                if (this.f42287d != null) {
                     sb.append(", d=");
-                    sb.append(this.f57480d);
+                    sb.append(this.f42287d);
                 }
                 StringBuilder replace = sb.replace(0, 2, "ShapeArgs{");
-                replace.append(ExtendedMessageFormat.END_FE);
+                replace.append('}');
                 return replace.toString();
             }
             return (String) invokeV.objValue;
@@ -1281,9 +1280,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, byteString};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1291,7 +1290,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return;
                 }
             }
-            this.f57480d = str;
+            this.f42287d = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1303,7 +1302,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 Builder builder = new Builder();
-                builder.f57481d = this.f57480d;
+                builder.f42288d = this.f42287d;
                 builder.addUnknownFields(unknownFields());
                 return builder;
             }
@@ -1311,7 +1310,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ShapeStyle extends Message<ShapeStyle, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public static final ProtoAdapter<ShapeStyle> ADAPTER;
@@ -1343,7 +1342,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
         public final Float strokeWidth;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class Builder extends Message.a<ShapeStyle, Builder> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1362,9 +1361,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -1472,7 +1471,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class LineCap implements g {
             public static final /* synthetic */ LineCap[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -1504,16 +1503,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 ADAPTER = ProtoAdapter.newEnumAdapter(LineCap.class);
             }
 
-            public LineCap(String str, int i2, int i3) {
+            public LineCap(String str, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -1522,16 +1521,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         return;
                     }
                 }
-                this.value = i3;
+                this.value = i2;
             }
 
-            public static LineCap fromValue(int i2) {
+            public static LineCap fromValue(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                    if (i2 != 0) {
-                        if (i2 != 1) {
-                            if (i2 != 2) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                    if (i != 0) {
+                        if (i != 1) {
+                            if (i != 2) {
                                 return null;
                             }
                             return LineCap_SQUARE;
@@ -1555,7 +1554,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LineCap[]) $VALUES.clone() : (LineCap[]) invokeV.objValue;
             }
 
-            @Override // c.n.a.g
+            @Override // c.k.a.g
             public int getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -1564,7 +1563,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class LineJoin implements g {
             public static final /* synthetic */ LineJoin[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -1596,16 +1595,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 ADAPTER = ProtoAdapter.newEnumAdapter(LineJoin.class);
             }
 
-            public LineJoin(String str, int i2, int i3) {
+            public LineJoin(String str, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -1614,16 +1613,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         return;
                     }
                 }
-                this.value = i3;
+                this.value = i2;
             }
 
-            public static LineJoin fromValue(int i2) {
+            public static LineJoin fromValue(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                    if (i2 != 0) {
-                        if (i2 != 1) {
-                            if (i2 != 2) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                    if (i != 0) {
+                        if (i != 1) {
+                            if (i != 2) {
                                 return null;
                             }
                             return LineJoin_BEVEL;
@@ -1647,7 +1646,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (LineJoin[]) $VALUES.clone() : (LineJoin[]) invokeV.objValue;
             }
 
-            @Override // c.n.a.g
+            @Override // c.k.a.g
             public int getValue() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -1655,7 +1654,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class ProtoAdapter_ShapeStyle extends ProtoAdapter<ShapeStyle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1667,9 +1666,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr = newInitContext.callArgs;
                         super((FieldEncoding) objArr[0], (Class) objArr[1]);
                         newInitContext.thisArg = this;
@@ -1840,7 +1839,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class RGBAColor extends Message<RGBAColor, Builder> {
             public static /* synthetic */ Interceptable $ic;
             public static final ProtoAdapter<RGBAColor> ADAPTER;
@@ -1855,25 +1854,25 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
 
             /* renamed from: b  reason: collision with root package name */
-            public final Float f57482b;
+            public final Float f42289b;
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
 
             /* renamed from: g  reason: collision with root package name */
-            public final Float f57483g;
+            public final Float f42290g;
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
             public final Float r;
 
-            /* loaded from: classes8.dex */
+            /* loaded from: classes7.dex */
             public static final class Builder extends Message.a<RGBAColor, Builder> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public Float a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public Float f57484b;
+                public Float f42291b;
 
                 /* renamed from: g  reason: collision with root package name */
-                public Float f57485g;
+                public Float f42292g;
                 public Float r;
 
                 public Builder() {
@@ -1881,9 +1880,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                         }
@@ -1904,7 +1903,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                        this.f57484b = f2;
+                        this.f42291b = f2;
                         return this;
                     }
                     return (Builder) invokeL.objValue;
@@ -1914,7 +1913,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f2)) == null) {
-                        this.f57485g = f2;
+                        this.f42292g = f2;
                         return this;
                     }
                     return (Builder) invokeL.objValue;
@@ -1936,11 +1935,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 public RGBAColor build() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new RGBAColor(this.r, this.f57485g, this.f57484b, this.a, super.buildUnknownFields()) : (RGBAColor) invokeV.objValue;
+                    return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new RGBAColor(this.r, this.f42292g, this.f42291b, this.a, super.buildUnknownFields()) : (RGBAColor) invokeV.objValue;
                 }
             }
 
-            /* loaded from: classes8.dex */
+            /* loaded from: classes7.dex */
             public static final class ProtoAdapter_RGBAColor extends ProtoAdapter<RGBAColor> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1952,9 +1951,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr = newInitContext.callArgs;
                             super((FieldEncoding) objArr[0], (Class) objArr[1]);
                             newInitContext.thisArg = this;
@@ -2004,11 +2003,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         if (f2 != null) {
                             ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
                         }
-                        Float f3 = rGBAColor.f57483g;
+                        Float f3 = rGBAColor.f42290g;
                         if (f3 != null) {
                             ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
                         }
-                        Float f4 = rGBAColor.f57482b;
+                        Float f4 = rGBAColor.f42289b;
                         if (f4 != null) {
                             ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, f4);
                         }
@@ -2028,9 +2027,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rGBAColor)) == null) {
                         Float f2 = rGBAColor.r;
                         int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
-                        Float f3 = rGBAColor.f57483g;
+                        Float f3 = rGBAColor.f42290g;
                         int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
-                        Float f4 = rGBAColor.f57482b;
+                        Float f4 = rGBAColor.f42289b;
                         int encodedSizeWithTag3 = encodedSizeWithTag2 + (f4 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, f4) : 0);
                         Float f5 = rGBAColor.a;
                         return encodedSizeWithTag3 + (f5 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, f5) : 0) + rGBAColor.unknownFields().size();
@@ -2082,9 +2081,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {f2, f3, f4, f5};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this((Float) objArr2[0], (Float) objArr2[1], (Float) objArr2[2], (Float) objArr2[3], (ByteString) objArr2[4]);
                         newInitContext.thisArg = this;
@@ -2103,7 +2102,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     }
                     if (obj instanceof RGBAColor) {
                         RGBAColor rGBAColor = (RGBAColor) obj;
-                        return unknownFields().equals(rGBAColor.unknownFields()) && a.f(this.r, rGBAColor.r) && a.f(this.f57483g, rGBAColor.f57483g) && a.f(this.f57482b, rGBAColor.f57482b) && a.f(this.a, rGBAColor.a);
+                        return unknownFields().equals(rGBAColor.unknownFields()) && a.f(this.r, rGBAColor.r) && a.f(this.f42290g, rGBAColor.f42290g) && a.f(this.f42289b, rGBAColor.f42289b) && a.f(this.a, rGBAColor.a);
                     }
                     return false;
                 }
@@ -2114,21 +2113,21 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    int i2 = this.hashCode;
-                    if (i2 == 0) {
+                    int i = this.hashCode;
+                    if (i == 0) {
                         int hashCode = unknownFields().hashCode() * 37;
                         Float f2 = this.r;
                         int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
-                        Float f3 = this.f57483g;
+                        Float f3 = this.f42290g;
                         int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
-                        Float f4 = this.f57482b;
+                        Float f4 = this.f42289b;
                         int hashCode4 = (hashCode3 + (f4 != null ? f4.hashCode() : 0)) * 37;
                         Float f5 = this.a;
                         int hashCode5 = hashCode4 + (f5 != null ? f5.hashCode() : 0);
                         this.hashCode = hashCode5;
                         return hashCode5;
                     }
-                    return i2;
+                    return i;
                 }
                 return invokeV.intValue;
             }
@@ -2143,20 +2142,20 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         sb.append(", r=");
                         sb.append(this.r);
                     }
-                    if (this.f57483g != null) {
+                    if (this.f42290g != null) {
                         sb.append(", g=");
-                        sb.append(this.f57483g);
+                        sb.append(this.f42290g);
                     }
-                    if (this.f57482b != null) {
+                    if (this.f42289b != null) {
                         sb.append(", b=");
-                        sb.append(this.f57482b);
+                        sb.append(this.f42289b);
                     }
                     if (this.a != null) {
                         sb.append(", a=");
                         sb.append(this.a);
                     }
                     StringBuilder replace = sb.replace(0, 2, "RGBAColor{");
-                    replace.append(ExtendedMessageFormat.END_FE);
+                    replace.append('}');
                     return replace.toString();
                 }
                 return (String) invokeV.objValue;
@@ -2171,9 +2170,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {f2, f3, f4, f5, byteString};
                     interceptable.invokeUnInit(65538, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -2182,8 +2181,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     }
                 }
                 this.r = f2;
-                this.f57483g = f3;
-                this.f57482b = f4;
+                this.f42290g = f3;
+                this.f42289b = f4;
                 this.a = f5;
             }
 
@@ -2197,8 +2196,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Builder builder = new Builder();
                     builder.r = this.r;
-                    builder.f57485g = this.f57483g;
-                    builder.f57484b = this.f57482b;
+                    builder.f42292g = this.f42290g;
+                    builder.f42291b = this.f42289b;
                     builder.a = this.a;
                     builder.addUnknownFields(unknownFields());
                     return builder;
@@ -2240,9 +2239,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {rGBAColor, rGBAColor2, f2, lineCap, lineJoin, f3, f4, f5, f6};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((RGBAColor) objArr2[0], (RGBAColor) objArr2[1], (Float) objArr2[2], (LineCap) objArr2[3], (LineJoin) objArr2[4], (Float) objArr2[5], (Float) objArr2[6], (Float) objArr2[7], (Float) objArr2[8], (ByteString) objArr2[9]);
                     newInitContext.thisArg = this;
@@ -2272,8 +2271,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.hashCode;
-                if (i2 == 0) {
+                int i = this.hashCode;
+                if (i == 0) {
                     int hashCode = unknownFields().hashCode() * 37;
                     RGBAColor rGBAColor = this.fill;
                     int hashCode2 = (hashCode + (rGBAColor != null ? rGBAColor.hashCode() : 0)) * 37;
@@ -2296,7 +2295,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     this.hashCode = hashCode10;
                     return hashCode10;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -2344,7 +2343,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     sb.append(this.lineDashIII);
                 }
                 StringBuilder replace = sb.replace(0, 2, "ShapeStyle{");
-                replace.append(ExtendedMessageFormat.END_FE);
+                replace.append('}');
                 return replace.toString();
             }
             return (String) invokeV.objValue;
@@ -2359,9 +2358,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {rGBAColor, rGBAColor2, f2, lineCap, lineJoin, f3, f4, f5, f6, byteString};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -2406,7 +2405,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ShapeType implements g {
         public static final /* synthetic */ ShapeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -2440,16 +2439,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             ADAPTER = ProtoAdapter.newEnumAdapter(ShapeType.class);
         }
 
-        public ShapeType(String str, int i2, int i3) {
+        public ShapeType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -2458,17 +2457,17 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
-        public static ShapeType fromValue(int i2) {
+        public static ShapeType fromValue(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
                                 return null;
                             }
                             return KEEP;
@@ -2494,7 +2493,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (ShapeType[]) $VALUES.clone() : (ShapeType[]) invokeV.objValue;
         }
 
-        @Override // c.n.a.g
+        @Override // c.k.a.g
         public int getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -2528,9 +2527,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {shapeType, shapeStyle, transform, shapeArgs, rectArgs, ellipseArgs};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ShapeType) objArr2[0], (ShapeStyle) objArr2[1], (Transform) objArr2[2], (ShapeArgs) objArr2[3], (RectArgs) objArr2[4], (EllipseArgs) objArr2[5], (ByteString) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -2560,8 +2559,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 == 0) {
+            int i = this.hashCode;
+            if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 ShapeType shapeType = this.type;
                 int hashCode2 = (hashCode + (shapeType != null ? shapeType.hashCode() : 0)) * 37;
@@ -2578,7 +2577,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 this.hashCode = hashCode7;
                 return hashCode7;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -2614,7 +2613,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 sb.append(this.ellipse);
             }
             StringBuilder replace = sb.replace(0, 2, "ShapeEntity{");
-            replace.append(ExtendedMessageFormat.END_FE);
+            replace.append('}');
             return replace.toString();
         }
         return (String) invokeV.objValue;
@@ -2629,9 +2628,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {shapeType, shapeStyle, transform, shapeArgs, rectArgs, ellipseArgs, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;

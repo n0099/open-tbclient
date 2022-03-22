@@ -54,9 +54,9 @@ public class BundleInfo implements IBundleInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,6 +106,7 @@ public class BundleInfo implements IBundleInfo {
 
     public static List<BundleInfo> toBundleInfoList(Cursor cursor) {
         InterceptResult invokeL;
+        int i;
         int i2;
         int i3;
         int i4;
@@ -116,7 +117,6 @@ public class BundleInfo implements IBundleInfo {
         int i9;
         int i10;
         int i11;
-        int i12;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
@@ -153,30 +153,30 @@ public class BundleInfo implements IBundleInfo {
             int columnIndex25 = cursor.getColumnIndex("wifionly");
             try {
                 if (cursor.moveToFirst()) {
-                    int i13 = columnIndex25;
+                    int i12 = columnIndex25;
                     while (true) {
                         String string = cursor.getString(columnIndex);
                         if (TextUtils.isEmpty(string)) {
-                            i2 = columnIndex;
-                            i3 = columnIndex3;
-                            i6 = columnIndex17;
-                            i10 = columnIndex22;
-                            i12 = i13;
-                            i5 = columnIndex15;
-                            i11 = columnIndex20;
-                            i9 = columnIndex19;
-                            i8 = columnIndex18;
-                            i7 = columnIndex16;
-                            i4 = columnIndex2;
+                            i = columnIndex;
+                            i2 = columnIndex3;
+                            i5 = columnIndex17;
+                            i9 = columnIndex22;
+                            i11 = i12;
+                            i4 = columnIndex15;
+                            i10 = columnIndex20;
+                            i8 = columnIndex19;
+                            i7 = columnIndex18;
+                            i6 = columnIndex16;
+                            i3 = columnIndex2;
                             arrayList = arrayList3;
                         } else {
-                            i2 = columnIndex;
+                            i = columnIndex;
                             BundleInfo bundleInfo = new BundleInfo();
                             bundleInfo.setPackageName(string);
                             bundleInfo.setVersionCode(cursor.getInt(columnIndex2));
                             bundleInfo.setApkPath(cursor.getString(columnIndex3));
-                            int i14 = columnIndex2;
-                            i3 = columnIndex3;
+                            int i13 = columnIndex2;
+                            i2 = columnIndex3;
                             bundleInfo.setUpdateV(cursor.getLong(columnIndex4));
                             bundleInfo.setMinVersion(cursor.getInt(columnIndex5));
                             bundleInfo.setType(cursor.getInt(columnIndex6));
@@ -188,38 +188,38 @@ public class BundleInfo implements IBundleInfo {
                             bundleInfo.setName(cursor.getString(columnIndex12));
                             bundleInfo.setDescription(cursor.getString(columnIndex13));
                             bundleInfo.setDownloadUrl(cursor.getString(columnIndex14));
-                            int i15 = columnIndex15;
-                            bundleInfo.setIconUrl(cursor.getString(i15));
-                            int i16 = columnIndex16;
+                            int i14 = columnIndex15;
+                            bundleInfo.setIconUrl(cursor.getString(i14));
+                            int i15 = columnIndex16;
+                            i3 = i13;
+                            bundleInfo.setDependence(cursor.getString(i15));
+                            int i16 = columnIndex17;
                             i4 = i14;
-                            bundleInfo.setDependence(cursor.getString(i16));
-                            int i17 = columnIndex17;
-                            i5 = i15;
-                            i6 = i17;
-                            bundleInfo.setVisible(cursor.getInt(i17) == 1);
-                            int i18 = columnIndex18;
-                            i7 = i16;
-                            bundleInfo.setRemovable(cursor.getInt(i18) == 1);
-                            int i19 = columnIndex19;
+                            i5 = i16;
+                            bundleInfo.setVisible(cursor.getInt(i16) == 1);
+                            int i17 = columnIndex18;
+                            i6 = i15;
+                            bundleInfo.setRemovable(cursor.getInt(i17) == 1);
+                            int i18 = columnIndex19;
+                            i7 = i17;
+                            bundleInfo.setSize(cursor.getLong(i18));
+                            int i19 = columnIndex20;
                             i8 = i18;
-                            bundleInfo.setSize(cursor.getLong(i19));
-                            int i20 = columnIndex20;
-                            i9 = i19;
-                            bundleInfo.setNeedRemove(cursor.getInt(i20) == 1);
-                            int i21 = columnIndex21;
-                            bundleInfo.setAbi(cursor.getInt(i21));
-                            columnIndex21 = i21;
-                            i10 = columnIndex22;
-                            bundleInfo.setExt(cursor.getString(i10));
-                            i11 = i20;
-                            int i22 = columnIndex23;
-                            bundleInfo.setSilence(cursor.getInt(i22));
-                            columnIndex23 = i22;
-                            int i23 = columnIndex24;
-                            bundleInfo.setSilenceUpdate(cursor.getInt(i23));
-                            columnIndex24 = i23;
-                            i12 = i13;
-                            bundleInfo.setWifiOnly(cursor.getInt(i12));
+                            bundleInfo.setNeedRemove(cursor.getInt(i19) == 1);
+                            int i20 = columnIndex21;
+                            bundleInfo.setAbi(cursor.getInt(i20));
+                            columnIndex21 = i20;
+                            i9 = columnIndex22;
+                            bundleInfo.setExt(cursor.getString(i9));
+                            i10 = i19;
+                            int i21 = columnIndex23;
+                            bundleInfo.setSilence(cursor.getInt(i21));
+                            columnIndex23 = i21;
+                            int i22 = columnIndex24;
+                            bundleInfo.setSilenceUpdate(cursor.getInt(i22));
+                            columnIndex24 = i22;
+                            i11 = i12;
+                            bundleInfo.setWifiOnly(cursor.getInt(i11));
                             arrayList = arrayList3;
                             try {
                                 arrayList.add(bundleInfo);
@@ -230,18 +230,18 @@ public class BundleInfo implements IBundleInfo {
                         if (!cursor.moveToNext()) {
                             return arrayList;
                         }
-                        i13 = i12;
+                        i12 = i11;
                         arrayList3 = arrayList;
-                        columnIndex22 = i10;
-                        columnIndex2 = i4;
-                        columnIndex16 = i7;
-                        columnIndex18 = i8;
-                        columnIndex19 = i9;
-                        columnIndex = i2;
-                        columnIndex3 = i3;
-                        columnIndex20 = i11;
-                        columnIndex15 = i5;
-                        columnIndex17 = i6;
+                        columnIndex22 = i9;
+                        columnIndex2 = i3;
+                        columnIndex16 = i6;
+                        columnIndex18 = i7;
+                        columnIndex19 = i8;
+                        columnIndex = i;
+                        columnIndex3 = i2;
+                        columnIndex20 = i10;
+                        columnIndex15 = i4;
+                        columnIndex17 = i5;
                     }
                 }
             } catch (SQLiteDatabaseCorruptException unused2) {
@@ -488,10 +488,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setAbi(int i2) {
+    public void setAbi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.abi = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.abi = i;
         }
     }
 
@@ -576,10 +576,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setMinVersion(int i2) {
+    public void setMinVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.minVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.minVersion = i;
         }
     }
 
@@ -624,50 +624,50 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSilence(int i2) {
+    public void setSilence(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.silence = i2;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.silence = i;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSilenceUpdate(int i2) {
+    public void setSilenceUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.silenceUpdate = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.silenceUpdate = i;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.size = j;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.type = i;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setUpdateV(long j2) {
+    public void setUpdateV(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.updateV = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.updateV = j;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setVersionCode(int i2) {
+    public void setVersionCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.versionCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            this.versionCode = i;
         }
     }
 
@@ -680,17 +680,17 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setWifiOnly(int i2) {
+    public void setWifiOnly(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            this.wifiOnly = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            this.wifiOnly = i;
         }
     }
 
-    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
+    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -698,7 +698,7 @@ public class BundleInfo implements IBundleInfo {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j2);
+                    bundleInfoGroup = new BundleInfoGroup(j);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
@@ -715,9 +715,9 @@ public class BundleInfo implements IBundleInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {iBundleInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

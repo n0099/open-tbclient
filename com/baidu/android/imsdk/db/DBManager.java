@@ -37,9 +37,9 @@ public class DBManager extends DBBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,10 +57,10 @@ public class DBManager extends DBBase {
                 String string = cursor.getString(cursor.getColumnIndex("uuid"));
                 String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
                 String string3 = !cursor.isNull(cursor.getColumnIndex("extra")) ? cursor.getString(cursor.getColumnIndex("extra")) : "";
-                int i2 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+                int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
                 this.msg.setUuid(string);
                 this.msg.setBody(string2);
-                this.msg.setMethodId(i2);
+                this.msg.setMethodId(i);
                 this.msg.setExtra(string3);
             }
         }
@@ -96,9 +96,9 @@ public class DBManager extends DBBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -132,8 +132,8 @@ public class DBManager extends DBBase {
             }
             int length = iArr.length;
             String[] strArr = new String[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                strArr[i2] = String.valueOf(iArr[i2]);
+            for (int i = 0; i < length; i++) {
+                strArr[i] = String.valueOf(iArr[i]);
             }
             return strArr;
         }
@@ -173,14 +173,14 @@ public class DBManager extends DBBase {
         return invokeL.booleanValue;
     }
 
-    public CmdQueueMsg getCmdQueueMsg(int i2) {
+    public CmdQueueMsg getCmdQueueMsg(int i) {
         InterceptResult invokeI;
         CmdQueueMsg result;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             synchronized (DBBase.mSyncLock) {
                 CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse(this);
-                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "send_status=? AND type=?", new String[]{String.valueOf(1), String.valueOf(i2)}, null, null, "priority desc", cmdQueueMsgParse);
+                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "send_status=? AND type=?", new String[]{String.valueOf(1), String.valueOf(i)}, null, null, "priority desc", cmdQueueMsgParse);
                 result = cmdQueueMsgParse.getResult();
             }
             return result;
@@ -188,23 +188,23 @@ public class DBManager extends DBBase {
         return (CmdQueueMsg) invokeI.objValue;
     }
 
-    public boolean saveCmdMsg(String str, int i2, String str2, String str3, int i3, int i4) {
+    public boolean saveCmdMsg(String str, int i, String str2, String str3, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (DBBase.mSyncLock) {
-                LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i2 + " , cmdMsgBody:" + str2 + " , extra" + str3 + SmallTailInfo.EMOTION_SUFFIX);
+                LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i + " , cmdMsgBody:" + str2 + " , extra" + str3 + SmallTailInfo.EMOTION_SUFFIX);
                 boolean z = true;
-                if (getCmdQueueMsg(str, i4) != null) {
+                if (getCmdQueueMsg(str, i3) != null) {
                     return true;
                 }
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("uuid", str);
-                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID, Integer.valueOf(i2));
+                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID, Integer.valueOf(i));
                 contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_PARAM, str2);
                 contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, (Integer) 1);
-                contentValues.put("priority", Integer.valueOf(i3));
-                contentValues.put("type", Integer.valueOf(i4));
+                contentValues.put("priority", Integer.valueOf(i2));
+                contentValues.put("type", Integer.valueOf(i3));
                 if (str3 != null) {
                     contentValues.put("extra", str3);
                 }
@@ -238,15 +238,15 @@ public class DBManager extends DBBase {
         return invokeL.intValue;
     }
 
-    public boolean updateCmdMsgSendStatus(String str, int i2) {
+    public boolean updateCmdMsgSendStatus(String str, int i) {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
             synchronized (DBBase.mSyncLock) {
-                LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i2));
+                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i));
                 z = true;
                 if (update(TableDefine.DB_TABLE_PA_CMD_QUEUE, "uuid = ?", new String[]{str}, contentValues) <= 0) {
                     z = false;
@@ -257,14 +257,14 @@ public class DBManager extends DBBase {
         return invokeLI.booleanValue;
     }
 
-    public CmdQueueMsg getCmdQueueMsg(String str, int i2) {
+    public CmdQueueMsg getCmdQueueMsg(String str, int i) {
         InterceptResult invokeLI;
         CmdQueueMsg result;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
             synchronized (DBBase.mSyncLock) {
                 CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse(this);
-                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i2)}, null, null, null, cmdQueueMsgParse);
+                query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i)}, null, null, null, cmdQueueMsgParse);
                 result = cmdQueueMsgParse.getResult();
             }
             return result;
@@ -272,15 +272,15 @@ public class DBManager extends DBBase {
         return (CmdQueueMsg) invokeLI.objValue;
     }
 
-    public boolean updateCmdMsgSendStatus(String str, String str2, String str3, int i2) {
+    public boolean updateCmdMsgSendStatus(String str, String str2, String str3, int i) {
         InterceptResult invokeLLLI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048583, this, str, str2, str3, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048583, this, str, str2, str3, i)) == null) {
             synchronized (DBBase.mSyncLock) {
-                LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i2));
+                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i));
                 contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_PARAM, str2);
                 contentValues.put("extra", str3);
                 z = true;

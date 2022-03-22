@@ -14,20 +14,20 @@ public class d0<T> extends z<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.p0.c f27533d;
+    public final c.b.b.q.p0.c f22744d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d0(Class<T> cls, int i2, int i3) {
-        super(i2, i3);
+    public d0(Class<T> cls, int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {cls, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -36,7 +36,7 @@ public class d0<T> extends z<T> {
             }
         }
         c.b.b.q.p0.c g2 = g(cls);
-        this.f27533d = g2;
+        this.f22744d = g2;
         if (g2 != null) {
             return;
         }
@@ -49,9 +49,9 @@ public class d0<T> extends z<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return (T) this.f27533d.b(null);
+                return (T) this.f22744d.b(null);
             } catch (Exception e2) {
-                throw new GdxRuntimeException("Unable to create new instance: " + this.f27533d.a().getName(), e2);
+                throw new GdxRuntimeException("Unable to create new instance: " + this.f22744d.a().getName(), e2);
             }
         }
         return (T) invokeV.objValue;

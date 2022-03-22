@@ -27,9 +27,9 @@ public class RichContentHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,9 +45,9 @@ public class RichContentHelper {
             if (jSONArray == null) {
                 return arrayList;
             }
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject.getInt(RICH_CONTENT_TYPE_KEY) == 0) {
                         arrayList.add(optJSONObject.getString(TEXT_RICH_CONTENT_KEY));
                     } else if (optJSONObject.getInt(RICH_CONTENT_TYPE_KEY) == 1) {

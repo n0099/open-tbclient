@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.r0.h2.g.a;
+import c.a.p0.j2.g.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -32,34 +32,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String SCENE_ID;
     public final CustomMessageListener mBuyTdouListener;
     public final CustomMessageListener mMemListener;
-    public c.a.r0.h2.g.c mMemberPrivilegeView;
+    public c.a.p0.j2.g.c mMemberPrivilegeView;
     public HttpMessageListener mRequestMemberPrivilegelistener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPrivilegeActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
-            super(i2);
+        public a(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -75,43 +75,43 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 MemberPrivilegeActivity memberPrivilegeActivity = this.a;
-                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.e());
+                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.g());
                 if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
                     int error = httpResponsedMessage.getError();
                     ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                     if (error != 0) {
-                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
-                    c.a.r0.h2.g.a aVar = responseMemberPrivilegeMessage.mData;
+                    c.a.p0.j2.g.a aVar = responseMemberPrivilegeMessage.mData;
                     if (aVar != null) {
                         this.a.mMemberPrivilegeView.d().h(aVar);
                     } else {
-                        this.a.showToast(R.string.neterror);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPrivilegeActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
-            super(i2);
+        public b(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -132,24 +132,24 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberPrivilegeActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
-            super(i2);
+        public c(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i2)};
+                Object[] objArr = {memberPrivilegeActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -175,9 +175,9 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -192,7 +192,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mMemberPrivilegeView = new c.a.r0.h2.g.c(getPageContext().getOrignalPage());
+            this.mMemberPrivilegeView = new c.a.p0.j2.g.c(getPageContext().getOrignalPage());
         }
     }
 
@@ -214,11 +214,11 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mMemberPrivilegeView.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mMemberPrivilegeView.onChangeSkinType(i);
         }
     }
 
@@ -226,10 +226,10 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            if (R.id.left_button == view.getId()) {
+            if (R.id.obfuscated_res_0x7f09121b == view.getId()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", "click", 1, new Object[0]);
-                sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, "pay", 3, 1, this.SCENE_ID)));
-            } else if (R.id.right_button == view.getId()) {
+                sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, TiebaStatic.DQPay.TYPE_VALUE, 3, 1, this.SCENE_ID)));
+            } else if (R.id.obfuscated_res_0x7f091aa7 == view.getId()) {
                 CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
             }
         }
@@ -250,27 +250,27 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || i == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i)) {
             return;
         }
-        String str = ((a.C1129a) this.mMemberPrivilegeView.d().getItem(i2)).f17991d;
-        String str2 = ((a.C1129a) this.mMemberPrivilegeView.d().getItem(i2)).f17989b;
+        String str = ((a.C1183a) this.mMemberPrivilegeView.d().getItem(i)).f15766d;
+        String str2 = ((a.C1183a) this.mMemberPrivilegeView.d().getItem(i)).f15764b;
         if (m.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            c.a.q0.l.a.q(getPageContext().getPageActivity(), str2, str, true, true, true);
+            c.a.o0.l.a.q(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 
     public void requestMemberPrivilegeData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            showLoadingView(this.mMemberPrivilegeView.e(), true);
+            showLoadingView(this.mMemberPrivilegeView.g(), true);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
             httpMessage.addParam("st_type", "shop");
             sendMessage(httpMessage);

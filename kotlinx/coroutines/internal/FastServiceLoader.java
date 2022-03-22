@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\bÀ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b'\u0010(J(\u0010\u0006\u001a\u0004\u0018\u00010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0082\b¢\u0006\u0004\b\u0006\u0010\u0007J3\u0010\r\u001a\u00028\u0000\"\u0004\b\u0000\u0010\b2\u0006\u0010\t\u001a\u00020\u00042\u0006\u0010\u000b\u001a\u00020\n2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001H\u0002¢\u0006\u0004\b\r\u0010\u000eJ1\u0010\u0010\u001a\b\u0012\u0004\u0012\u00028\u00000\u000f\"\u0004\b\u0000\u0010\b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00020\u000fH\u0000¢\u0006\u0004\b\u0012\u0010\u0013J1\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u000f\"\u0004\b\u0000\u0010\b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u00012\u0006\u0010\u000b\u001a\u00020\nH\u0000¢\u0006\u0004\b\u0015\u0010\u0011J\u001d\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u000f2\u0006\u0010\u0018\u001a\u00020\u0017H\u0002¢\u0006\u0004\b\u0019\u0010\u001aJ\u001d\u0010\u001d\u001a\b\u0012\u0004\u0012\u00020\u00040\u000f2\u0006\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ.\u0010#\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u001f*\u00020 2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020 \u0012\u0004\u0012\u00028\u00000!H\u0082\b¢\u0006\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u00048\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b%\u0010&¨\u0006)"}, d2 = {"Lkotlinx/coroutines/internal/FastServiceLoader;", "Ljava/lang/Class;", "Lkotlinx/coroutines/internal/MainDispatcherFactory;", "baseClass", "", "serviceClass", "createInstanceOf", "(Ljava/lang/Class;Ljava/lang/String;)Lkotlinx/coroutines/internal/MainDispatcherFactory;", "S", "name", "Ljava/lang/ClassLoader;", "loader", "service", "getProviderInstance", "(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Object;", "", "load", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;", "loadMainDispatcherFactory$kotlinx_coroutines_core", "()Ljava/util/List;", "loadMainDispatcherFactory", "loadProviders$kotlinx_coroutines_core", "loadProviders", "Ljava/net/URL;", "url", "parse", "(Ljava/net/URL;)Ljava/util/List;", "Ljava/io/BufferedReader;", "r", "parseFile", "(Ljava/io/BufferedReader;)Ljava/util/List;", "R", "Ljava/util/jar/JarFile;", "Lkotlin/Function1;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, TbConfig.ST_TYPE_USE, "(Ljava/util/jar/JarFile;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "PREFIX", "Ljava/lang/String;", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class FastServiceLoader {
     public static final FastServiceLoader INSTANCE = new FastServiceLoader();
     public static final String PREFIX = "META-INF/services/";
@@ -110,18 +110,18 @@ public final class FastServiceLoader {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
                 }
                 String obj = StringsKt__StringsKt.trim((CharSequence) substringBefore$default).toString();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= obj.length()) {
+                    if (i >= obj.length()) {
                         z = true;
                         break;
                     }
-                    char charAt = obj.charAt(i2);
+                    char charAt = obj.charAt(i);
                     if (!(charAt == '.' || Character.isJavaIdentifierPart(charAt))) {
                         z = false;
                         break;
                     }
-                    i2++;
+                    i++;
                 }
                 if (z) {
                     if (obj.length() > 0) {
@@ -193,7 +193,7 @@ public final class FastServiceLoader {
     }
 
     public final <S> List<S> loadProviders$kotlinx_coroutines_core(Class<S> cls, ClassLoader classLoader) {
-        ArrayList<URL> list = Collections.list(classLoader.getResources("META-INF/services/" + cls.getName()));
+        ArrayList<URL> list = Collections.list(classLoader.getResources(PREFIX + cls.getName()));
         Intrinsics.checkExpressionValueIsNotNull(list, "java.util.Collections.list(this)");
         ArrayList arrayList = new ArrayList();
         for (URL url : list) {

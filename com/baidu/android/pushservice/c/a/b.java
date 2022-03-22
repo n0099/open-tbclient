@@ -11,31 +11,31 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30327b;
+    public long f24226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30328c;
+    public String f24227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30329d;
+    public long f24228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30330e;
+    public long f24229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30331f;
+    public String f24230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30332g;
+    public long f24231g;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

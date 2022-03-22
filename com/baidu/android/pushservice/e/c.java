@@ -35,7 +35,7 @@ public class c {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f30534b;
+    public static volatile c f24410b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -43,9 +43,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,14 +72,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f30534b == null) {
+            if (f24410b == null) {
                 synchronized (c.class) {
-                    if (f30534b == null) {
-                        f30534b = new c();
+                    if (f24410b == null) {
+                        f24410b = new c();
                     }
                 }
             }
-            return f30534b;
+            return f24410b;
         }
         return (c) invokeV.objValue;
     }
@@ -131,10 +131,10 @@ public class c {
         return (HashMap) invokeLLL.objValue;
     }
 
-    private void a(Context context, int i2) {
+    private void a(Context context, int i) {
         Intent launchIntentForPackage;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65543, this, context, i2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65543, this, context, i) == null) || context == null) {
             return;
         }
         if (a == null) {
@@ -143,7 +143,7 @@ public class c {
         if (a == null || (launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName())) == null) {
             return;
         }
-        a.a(context, launchIntentForPackage.getComponent(), i2);
+        a.a(context, launchIntentForPackage.getComponent(), i);
     }
 
     private void b(Context context) {
@@ -163,10 +163,10 @@ public class c {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f30535b;
+                public final /* synthetic */ String f24411b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f30536c;
+                public final /* synthetic */ c f24412c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -175,36 +175,36 @@ public class c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, r8};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f30536c = this;
+                    this.f24412c = this;
                     this.a = context;
-                    this.f30535b = r8;
+                    this.f24411b = r8;
                 }
 
                 @Override // com.baidu.android.pushservice.g.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HashMap a3 = this.f30536c.a(this.a, "POST", this.f30535b);
-                        int i2 = 2;
+                        HashMap a3 = this.f24412c.a(this.a, "POST", this.f24411b);
+                        int i = 2;
                         do {
-                            com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f30535b, "POST", a3, "BCCS_SDK/3.0", g.c());
+                            com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f24411b, "POST", a3, "BCCS_SDK/3.0", g.c());
                             if (b2 != null) {
                                 int b3 = b2.b();
                                 String a4 = m.a(this.a, b2.a());
-                                if (b3 == 200 && this.f30536c.a(a4) == 0) {
+                                if (b3 == 200 && this.f24412c.a(a4) == 0) {
                                     return;
                                 }
                             }
-                            i2--;
-                        } while (i2 > 0);
+                            i--;
+                        } while (i > 0);
                     }
                 }
             });

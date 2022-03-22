@@ -12,33 +12,33 @@ public class UKCache {
     public transient /* synthetic */ FieldHolder $fh;
     public LruCache<Long, Long> mCache;
 
-    public UKCache(int i2) {
+    public UKCache(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mCache = null;
-        this.mCache = new LruCache<>(i2);
+        this.mCache = new LruCache<>(i);
     }
 
-    public Long get(long j2) {
+    public Long get(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j < 0) {
                 return null;
             }
-            return this.mCache.get(Long.valueOf(j2));
+            return this.mCache.get(Long.valueOf(j));
         }
         return (Long) invokeJ.objValue;
     }

@@ -16,7 +16,7 @@ import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestOKHttpDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class RequestOKHttpDelegate {
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,10 +40,10 @@ public class RequestOKHttpDelegate {
         this.mOkHttpClient = okHttpClient;
     }
 
-    private void sendHttpPostRequest(String str, String str2, int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, IRequestCallbackInner iRequestCallbackInner) {
+    private void sendHttpPostRequest(String str, String str2, int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, IRequestCallbackInner iRequestCallbackInner) {
         HashMap hashMap3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{str, str2, Integer.valueOf(i2), hashMap, hashMap2, iRequestCallbackInner}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{str, str2, Integer.valueOf(i), hashMap, hashMap2, iRequestCallbackInner}) == null) {
             if (hashMap != null) {
                 hashMap3 = new HashMap();
                 for (String str3 : hashMap.keySet()) {
@@ -69,9 +69,9 @@ public class RequestOKHttpDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iRequestCallbackInner};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -99,9 +99,9 @@ public class RequestOKHttpDelegate {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -138,9 +138,9 @@ public class RequestOKHttpDelegate {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -169,9 +169,9 @@ public class RequestOKHttpDelegate {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, response};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -194,10 +194,10 @@ public class RequestOKHttpDelegate {
         }
     }
 
-    public void send(String str, String str2, int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, IRequestCallbackInner iRequestCallbackInner) {
+    public void send(String str, String str2, int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, IRequestCallbackInner iRequestCallbackInner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), hashMap, hashMap2, iRequestCallbackInner}) == null) {
-            sendHttpPostRequest(str, str2, i2, hashMap, hashMap2, iRequestCallbackInner);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), hashMap, hashMap2, iRequestCallbackInner}) == null) {
+            sendHttpPostRequest(str, str2, i, hashMap, hashMap2, iRequestCallbackInner);
         }
     }
 }

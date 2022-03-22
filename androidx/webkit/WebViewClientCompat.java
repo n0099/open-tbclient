@@ -60,9 +60,9 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -105,10 +105,10 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull InvocationHandler invocationHandler) {
+    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull InvocationHandler invocationHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, webResourceRequest, i2, invocationHandler) == null) {
-            onSafeBrowsingHit(webView, webResourceRequest, i2, new SafeBrowsingResponseImpl(invocationHandler));
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, webResourceRequest, i, invocationHandler) == null) {
+            onSafeBrowsingHit(webView, webResourceRequest, i, new SafeBrowsingResponseImpl(invocationHandler));
         }
     }
 
@@ -139,17 +139,17 @@ public class WebViewClientCompat extends WebViewClient implements WebViewClientB
 
     @Override // android.webkit.WebViewClient
     @RequiresApi(27)
-    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponse safeBrowsingResponse) {
+    public final void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull SafeBrowsingResponse safeBrowsingResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048582, this, webView, webResourceRequest, i2, safeBrowsingResponse) == null) {
-            onSafeBrowsingHit(webView, webResourceRequest, i2, new SafeBrowsingResponseImpl(safeBrowsingResponse));
+        if (interceptable == null || interceptable.invokeLLIL(1048582, this, webView, webResourceRequest, i, safeBrowsingResponse) == null) {
+            onSafeBrowsingHit(webView, webResourceRequest, i, new SafeBrowsingResponseImpl(safeBrowsingResponse));
         }
     }
 
     @UiThread
-    public void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i2, @NonNull SafeBrowsingResponseCompat safeBrowsingResponseCompat) {
+    public void onSafeBrowsingHit(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest, int i, @NonNull SafeBrowsingResponseCompat safeBrowsingResponseCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048583, this, webView, webResourceRequest, i2, safeBrowsingResponseCompat) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048583, this, webView, webResourceRequest, i, safeBrowsingResponseCompat) == null) {
             if (WebViewFeature.isFeatureSupported("SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL")) {
                 safeBrowsingResponseCompat.showInterstitial(true);
                 return;

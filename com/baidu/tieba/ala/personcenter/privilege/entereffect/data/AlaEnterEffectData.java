@@ -74,9 +74,9 @@ public class AlaEnterEffectData implements Serializable, n {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -130,9 +130,9 @@ public class AlaEnterEffectData implements Serializable, n {
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }
-        int i2 = this.type;
-        if (i2 != 1) {
-            if (i2 == 0) {
+        int i = this.type;
+        if (i != 1) {
+            if (i == 0) {
                 this.thumbnail_url = this.icon_url;
                 return;
             }

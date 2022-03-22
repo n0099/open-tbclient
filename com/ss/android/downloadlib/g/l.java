@@ -17,6 +17,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.download.api.config.n;
 import com.ss.android.download.api.download.DownloadModel;
@@ -28,18 +29,18 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object[] f58247b = new Object[0];
+    public static Object[] f42987b = new Object[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object[] f58248c = new Object[73];
+    public static Object[] f42988c = new Object[73];
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f58249d = null;
+    public static String f42989d = null;
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -89,7 +90,7 @@ public class l {
                 return false;
             }
             String str2 = packageArchiveInfo.packageName;
-            int i2 = packageArchiveInfo.versionCode;
+            int i = packageArchiveInfo.versionCode;
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
             } catch (PackageManager.NameNotFoundException unused) {
@@ -98,7 +99,7 @@ public class l {
             if (packageInfo == null) {
                 return false;
             }
-            return i2 <= packageInfo.versionCode;
+            return i <= packageInfo.versionCode;
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;
@@ -115,7 +116,7 @@ public class l {
         }
         launchIntentForPackage.setPackage(null);
         launchIntentForPackage.addFlags(2097152);
-        launchIntentForPackage.addFlags(268435456);
+        launchIntentForPackage.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         return launchIntentForPackage;
     }
 
@@ -184,8 +185,8 @@ public class l {
         File file;
         Context context = com.ss.android.downloadlib.addownload.j.getContext();
         if (!TextUtils.isEmpty(str) && d(context, str)) {
-            int i2 = context.getApplicationInfo().targetSdkVersion;
-            if (com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") != 0 || Build.VERSION.SDK_INT < 29 || ((i2 != 29 || Environment.isExternalStorageLegacy()) && i2 <= 29)) {
+            int i = context.getApplicationInfo().targetSdkVersion;
+            if (com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") != 0 || Build.VERSION.SDK_INT < 29 || ((i != 29 || Environment.isExternalStorageLegacy()) && i <= 29)) {
                 try {
                     if (Build.VERSION.SDK_INT >= 29 && context.getApplicationInfo().targetSdkVersion >= 29 && com.ss.android.downloadlib.addownload.j.i().optInt("get_ext_dir_mode") == 1) {
                         file = i(context, str);
@@ -317,7 +318,7 @@ public class l {
         return hashMap;
     }
 
-    public static com.ss.android.downloadlib.addownload.b.c a(String str, int i2, String str2) {
+    public static com.ss.android.downloadlib.addownload.b.c a(String str, int i, String str2) {
         com.ss.android.downloadlib.addownload.b.c cVar = new com.ss.android.downloadlib.addownload.b.c();
         if (TextUtils.isEmpty(str)) {
             return cVar;
@@ -326,10 +327,10 @@ public class l {
             PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 cVar.b(packageInfo.versionCode);
-                cVar.a(com.ss.android.downloadlib.addownload.b.c.f58011b);
+                cVar.a(com.ss.android.downloadlib.addownload.b.c.f42760b);
                 n g2 = com.ss.android.downloadlib.addownload.j.g();
-                if (g2 != null && g2.a() && !a(packageInfo.versionCode, i2, packageInfo.versionName, str2)) {
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f58012c);
+                if (g2 != null && g2.a() && !a(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f42761c);
                 }
             }
         } catch (Exception e2) {
@@ -338,11 +339,11 @@ public class l {
         return cVar;
     }
 
-    public static boolean a(int i2, int i3, String str, String str2) {
-        if (i3 == 0 && TextUtils.isEmpty(str2)) {
+    public static boolean a(int i, int i2, String str, String str2) {
+        if (i2 == 0 && TextUtils.isEmpty(str2)) {
             return true;
         }
-        return (i3 > 0 && i2 >= i3) || a(str, str2) >= 0;
+        return (i2 > 0 && i >= i2) || a(str, str2) >= 0;
     }
 
     public static boolean a(DownloadModel downloadModel) {
@@ -361,7 +362,7 @@ public class l {
         try {
             File file = new File(str);
             if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 0)) != null && packageArchiveInfo.packageName.equals(str2)) {
-                int i2 = packageArchiveInfo.versionCode;
+                int i = packageArchiveInfo.versionCode;
                 try {
                     packageInfo = context.getPackageManager().getPackageInfo(str2, 0);
                 } catch (PackageManager.NameNotFoundException unused) {
@@ -370,7 +371,7 @@ public class l {
                 if (packageInfo == null) {
                     return false;
                 }
-                return i2 == packageInfo.versionCode;
+                return i == packageInfo.versionCode;
             }
             return false;
         } catch (Exception e2) {
@@ -386,8 +387,8 @@ public class l {
         if (signatureArr == null || signatureArr2 == null || signatureArr.length != signatureArr2.length) {
             return false;
         }
-        for (int i2 = 0; i2 < signatureArr.length; i2++) {
-            if ((signatureArr[i2] == null && signatureArr2[i2] != null) || (signatureArr[i2] != null && !signatureArr[i2].equals(signatureArr2[i2]))) {
+        for (int i = 0; i < signatureArr.length; i++) {
+            if ((signatureArr[i] == null && signatureArr2[i] != null) || (signatureArr[i] != null && !signatureArr[i].equals(signatureArr2[i]))) {
                 return false;
             }
         }
@@ -398,8 +399,8 @@ public class l {
         return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    public static String a(String str, int i2) {
-        return i2 == 0 ? "" : (TextUtils.isEmpty(str) || str.length() <= i2) ? str : str.substring(0, i2);
+    public static String a(String str, int i) {
+        return i == 0 ? "" : (TextUtils.isEmpty(str) || str.length() <= i) ? str : str.substring(0, i);
     }
 
     public static int a(String str, String str2) {
@@ -411,28 +412,28 @@ public class l {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 int min = Math.min(split.length, split2.length);
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
-                while (i2 < min) {
-                    i3 = Integer.parseInt(split[i2]) - Integer.parseInt(split2[i2]);
-                    if (i3 != 0) {
+                while (i < min) {
+                    i2 = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
+                    if (i2 != 0) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
-                if (i3 != 0) {
-                    return i3 > 0 ? 1 : -1;
+                if (i2 != 0) {
+                    return i2 > 0 ? 1 : -1;
                 }
-                for (int i4 = i2; i4 < split.length; i4++) {
-                    if (Integer.parseInt(split[i4]) > 0) {
+                for (int i3 = i; i3 < split.length; i3++) {
+                    if (Integer.parseInt(split[i3]) > 0) {
                         return 1;
                     }
                 }
-                while (i2 < split2.length) {
-                    if (Integer.parseInt(split2[i2]) > 0) {
+                while (i < split2.length) {
+                    if (Integer.parseInt(split2[i]) > 0) {
                         return -1;
                     }
-                    i2++;
+                    i++;
                 }
                 return 0;
             }
@@ -458,24 +459,24 @@ public class l {
         throw new IllegalArgumentException("args is null");
     }
 
-    public static long a(long j2) {
+    public static long a(long j) {
         try {
-            return a(Environment.getExternalStorageDirectory(), j2);
+            return a(Environment.getExternalStorageDirectory(), j);
         } catch (Exception e2) {
             e2.printStackTrace();
-            return j2;
+            return j;
         }
     }
 
-    public static long a(File file, long j2) {
+    public static long a(File file, long j) {
         if (file == null) {
-            return j2;
+            return j;
         }
         try {
             return com.ss.android.socialbase.downloader.i.f.d(file.getAbsolutePath());
         } catch (Exception e2) {
             e2.printStackTrace();
-            return j2;
+            return j;
         }
     }
 

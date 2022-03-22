@@ -14,28 +14,28 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f61010e;
+        public Exception f45368e;
 
         public C1CaughtException() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -44,7 +44,7 @@ public class ThreadUtils {
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class C1Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class ThreadUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -65,12 +65,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ThreadChecker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,9 +82,9 @@ public class ThreadUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -118,9 +118,9 @@ public class ThreadUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -142,9 +142,9 @@ public class ThreadUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {countDownLatch};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -230,9 +230,9 @@ public class ThreadUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {c1Result, callable, c1CaughtException, countDownLatch};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -252,36 +252,36 @@ public class ThreadUtils {
                         try {
                             this.val$result.value = this.val$callable.call();
                         } catch (Exception e3) {
-                            this.val$caughtException.f61010e = e3;
+                            this.val$caughtException.f45368e = e3;
                         }
                         this.val$barrier.countDown();
                     }
                 }
             });
             awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.f61010e == null) {
+            if (c1CaughtException.f45368e == null) {
                 return c1Result.value;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f61010e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f61010e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f45368e);
+            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f45368e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         return (V) invokeLL.objValue;
     }
 
-    public static boolean joinUninterruptibly(Thread thread, long j2) {
+    public static boolean joinUninterruptibly(Thread thread, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, thread, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, thread, j)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = false;
-            long j3 = j2;
-            while (j3 > 0) {
+            long j2 = j;
+            while (j2 > 0) {
                 try {
-                    thread.join(j3);
+                    thread.join(j2);
                     break;
                 } catch (InterruptedException unused) {
-                    j3 = j2 - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
                     z = true;
                 }
             }
@@ -293,25 +293,25 @@ public class ThreadUtils {
         return invokeLJ.booleanValue;
     }
 
-    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j2) {
+    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, countDownLatch, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, countDownLatch, j)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = false;
-            long j3 = j2;
+            long j2 = j;
             boolean z2 = false;
             do {
                 try {
-                    z = countDownLatch.await(j3, TimeUnit.MILLISECONDS);
+                    z = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
                     break;
                 } catch (InterruptedException unused) {
                     z2 = true;
-                    j3 = j2 - (SystemClock.elapsedRealtime() - elapsedRealtime);
-                    if (j3 <= 0) {
+                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                    if (j2 <= 0) {
                     }
                 }
-            } while (j3 <= 0);
+            } while (j2 <= 0);
             if (z2) {
                 Thread.currentThread().interrupt();
             }
@@ -335,9 +335,9 @@ public class ThreadUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {thread};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -372,9 +372,9 @@ public class ThreadUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {runnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

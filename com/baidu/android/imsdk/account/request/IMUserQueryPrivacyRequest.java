@@ -23,23 +23,23 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public long mAppid;
 
-    public IMUserQueryPrivacyRequest(Context context, long j2) {
+    public IMUserQueryPrivacyRequest(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -60,40 +60,40 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, 0);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str2 = new String(bArr);
-            int i4 = 0;
+            int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i3 = jSONObject2.getInt("error_code");
-                    i4 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
+                    i2 = jSONObject2.getInt("error_code");
+                    i3 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
                     str = Constants.ERROR_MSG_SUCCESS;
                 } else {
-                    i3 = jSONObject.getInt("error_code");
+                    i2 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i3, str, i4);
+            AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i2, str, i3);
         }
     }
 

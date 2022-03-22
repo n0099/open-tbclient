@@ -3,6 +3,7 @@ package com.baidu.searchbox.launch;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.MessageQueue;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -66,9 +67,9 @@ public class SmartLaunchScheduler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -125,30 +126,30 @@ public class SmartLaunchScheduler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void schedule(SmartLaunchTask smartLaunchTask, int i2) {
+    public void schedule(SmartLaunchTask smartLaunchTask, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65553, this, smartLaunchTask, i2) == null) || smartLaunchTask == null || smartLaunchTask.isExecuted()) {
+        if (!(interceptable == null || interceptable.invokeLI(65553, this, smartLaunchTask, i) == null) || smartLaunchTask == null || smartLaunchTask.isExecuted()) {
             return;
         }
-        if (i2 == 1) {
+        if (i == 1) {
             this.mIdleQueue.add(0, smartLaunchTask);
         }
         List<SmartLaunchTask> dependency = smartLaunchTask.getDependency();
         if (dependency != null && dependency.size() > 0) {
-            for (int i3 = 0; i3 < dependency.size(); i3++) {
-                SmartLaunchTask smartLaunchTask2 = dependency.get(i3);
+            for (int i2 = 0; i2 < dependency.size(); i2++) {
+                SmartLaunchTask smartLaunchTask2 = dependency.get(i2);
                 smartLaunchTask2.setScore(smartLaunchTask.getScore());
-                schedule(smartLaunchTask2, i2);
+                schedule(smartLaunchTask2, i);
             }
         }
-        if (i2 == 0) {
+        if (i == 0) {
             if (!smartLaunchTask.isExecuted()) {
                 smartLaunchTask.run();
             }
             if (DEBUG) {
-                String str = "task execute : " + smartLaunchTask.getId();
+                Log.d("SmartLaunchManager", "task execute : " + smartLaunchTask.getId());
             }
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             smartLaunchTask.removeAllDependency();
         }
         if (this.mRegisterTaskList.contains(smartLaunchTask)) {
@@ -194,9 +195,9 @@ public class SmartLaunchScheduler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, smartLaunchTask};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -216,7 +217,7 @@ public class SmartLaunchScheduler {
             });
         } else if (smartLaunchTask.isMainThreadIdleTask()) {
             if (DEBUG) {
-                String str = "add " + smartLaunchTask.getId() + " task to idle task queue";
+                Log.d("SmartLaunchManager", "add " + smartLaunchTask.getId() + " task to idle task queue");
             }
             this.mIdleQueue.add(smartLaunchTask);
             this.idleTaskCount++;
@@ -228,12 +229,12 @@ public class SmartLaunchScheduler {
             int scheduleStrategy = strategy.getScheduleStrategy(smartLaunchTask);
             if (scheduleStrategy == 0) {
                 if (DEBUG) {
-                    String str2 = "add " + smartLaunchTask.getId() + " task to fast task queue";
+                    Log.d("SmartLaunchManager", "add " + smartLaunchTask.getId() + " task to fast task queue");
                 }
                 schedule(smartLaunchTask, 0);
             } else if (scheduleStrategy == 1) {
                 if (DEBUG) {
-                    String str3 = "add " + smartLaunchTask.getId() + " task to idle task queue";
+                    Log.d("SmartLaunchManager", "add " + smartLaunchTask.getId() + " task to idle task queue");
                 }
                 this.mIdleQueue.add(smartLaunchTask);
                 this.idleTaskCount++;
@@ -241,7 +242,7 @@ public class SmartLaunchScheduler {
                     scheduleIdleTask();
                 }
             } else if (DEBUG) {
-                String str4 = "do not support strategy: " + scheduleStrategy;
+                Log.d("SmartLaunchManager", "do not support strategy: " + scheduleStrategy);
                 return;
             } else {
                 return;
@@ -259,7 +260,9 @@ public class SmartLaunchScheduler {
             sIsAllowSchedule = true;
             if (this.mIdleQueue.size() > 0) {
                 Collections.sort(this.mIdleQueue);
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d("SmartLaunchManager", "idle task begin to execute");
+                }
                 sIsIdleScheduling = true;
                 Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(this) { // from class: com.baidu.searchbox.launch.SmartLaunchScheduler.2
                     public static /* synthetic */ Interceptable $ic;
@@ -273,9 +276,9 @@ public class SmartLaunchScheduler {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -289,7 +292,9 @@ public class SmartLaunchScheduler {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            boolean unused = SmartLaunchScheduler.DEBUG;
+                            if (SmartLaunchScheduler.DEBUG) {
+                                Log.d("SmartLaunchManager", "queueIdle");
+                            }
                             SmartLaunchTask smartLaunchTask = (SmartLaunchTask) this.this$0.mIdleQueue.poll();
                             if (SmartLaunchStats.getIdleTaskStartTime() == -1) {
                                 SmartLaunchStats.setIdleTaskStartTime(System.currentTimeMillis());
@@ -313,10 +318,12 @@ public class SmartLaunchScheduler {
                                 }
                             }
                             SmartLaunchStats.setIdleTaskEndTime(System.currentTimeMillis());
-                            boolean unused2 = SmartLaunchScheduler.mIsScheduleEnd = true;
-                            boolean unused3 = SmartLaunchScheduler.sIsIdleScheduling = false;
+                            boolean unused = SmartLaunchScheduler.mIsScheduleEnd = true;
+                            boolean unused2 = SmartLaunchScheduler.sIsIdleScheduling = false;
                             this.this$0.mRegisterTaskList.clear();
-                            boolean unused4 = SmartLaunchScheduler.DEBUG;
+                            if (SmartLaunchScheduler.DEBUG) {
+                                Log.d("SmartLaunchManager", "all idle tasks end");
+                            }
                             this.this$0.release();
                             return false;
                         }
@@ -337,9 +344,9 @@ public class SmartLaunchScheduler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -1,4 +1,4 @@
 package com.ss.android.socialbase.downloader.network;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class e extends a {
 }

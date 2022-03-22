@@ -58,9 +58,9 @@ public class AsyncPublishStatData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {writeData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,9 +69,9 @@ public class AsyncPublishStatData implements Serializable {
         if (writeData != null && writeData.startPublishTime() > 0) {
             AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
             if (asyncPublishStatData != null) {
-                long j2 = asyncPublishStatData.parentId;
-                if (j2 > 0) {
-                    this.parentId = j2;
+                long j = asyncPublishStatData.parentId;
+                if (j > 0) {
+                    this.parentId = j;
                 } else {
                     this.parentId = asyncPublishStatData.id;
                 }

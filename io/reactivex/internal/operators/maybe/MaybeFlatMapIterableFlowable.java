@@ -38,7 +38,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60697d;
+        public Disposable f45307d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -51,9 +51,9 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,8 +69,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f60697d.dispose();
-                this.f60697d = DisposableHelper.DISPOSED;
+                this.f45307d.dispose();
+                this.f45307d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -94,16 +94,16 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                 subscriber.onComplete();
                 return;
             }
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 if (it != null) {
-                    long j2 = this.requested.get();
-                    if (j2 == Long.MAX_VALUE) {
+                    long j = this.requested.get();
+                    if (j == Long.MAX_VALUE) {
                         fastPath(subscriber, it);
                         return;
                     }
-                    long j3 = 0;
-                    while (j3 != j2) {
+                    long j2 = 0;
+                    while (j2 != j) {
                         if (this.cancelled) {
                             return;
                         }
@@ -112,7 +112,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                             if (this.cancelled) {
                                 return;
                             }
-                            j3++;
+                            j2++;
                             try {
                                 if (!it.hasNext()) {
                                     subscriber.onComplete();
@@ -129,12 +129,12 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                             return;
                         }
                     }
-                    if (j3 != 0) {
-                        BackpressureHelper.produced(this.requested, j3);
+                    if (j2 != 0) {
+                        BackpressureHelper.produced(this.requested, j2);
                     }
                 }
-                i2 = addAndGet(-i2);
-                if (i2 == 0) {
+                i = addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
                 if (it == null) {
@@ -191,7 +191,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-                this.f60697d = DisposableHelper.DISPOSED;
+                this.f45307d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -199,8 +199,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f60697d, disposable)) {
-                this.f60697d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f45307d, disposable)) {
+                this.f45307d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -244,20 +244,20 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -274,9 +274,9 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

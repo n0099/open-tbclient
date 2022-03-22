@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.cache.Cache;
 import java.util.Comparator;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Comparator<CacheSpan> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,29 +17,29 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
     public final TreeSet<CacheSpan> leastRecentlyUsed;
     public final long maxBytes;
 
-    public LeastRecentlyUsedCacheEvictor(long j2) {
+    public LeastRecentlyUsedCacheEvictor(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.maxBytes = j2;
+        this.maxBytes = j;
         this.leastRecentlyUsed = new TreeSet<>(this);
     }
 
-    private void evictCache(Cache cache, long j2) {
+    private void evictCache(Cache cache, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, this, cache, j2) == null) {
-            while (this.currentSize + j2 > this.maxBytes && !this.leastRecentlyUsed.isEmpty()) {
+        if (interceptable == null || interceptable.invokeLJ(65537, this, cache, j) == null) {
+            while (this.currentSize + j > this.maxBytes && !this.leastRecentlyUsed.isEmpty()) {
                 try {
                     cache.removeSpan(this.leastRecentlyUsed.first());
                 } catch (Cache.CacheException unused) {
@@ -84,10 +84,10 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
-    public void onStartFile(Cache cache, String str, long j2, long j3) {
+    public void onStartFile(Cache cache, String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cache, str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            evictCache(cache, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cache, str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            evictCache(cache, j2);
         }
     }
 
@@ -97,12 +97,12 @@ public final class LeastRecentlyUsedCacheEvictor implements CacheEvictor, Compar
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cacheSpan, cacheSpan2)) == null) {
-            long j2 = cacheSpan.lastAccessTimestamp;
-            long j3 = cacheSpan2.lastAccessTimestamp;
-            if (j2 - j3 == 0) {
+            long j = cacheSpan.lastAccessTimestamp;
+            long j2 = cacheSpan2.lastAccessTimestamp;
+            if (j - j2 == 0) {
                 return cacheSpan.compareTo(cacheSpan2);
             }
-            return j2 < j3 ? -1 : 1;
+            return j < j2 ? -1 : 1;
         }
         return invokeLL.intValue;
     }

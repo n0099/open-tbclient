@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SmsInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,25 +24,25 @@ public class SmsInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public SmsInfo(String str, String str2, int i2, Long l, Long l2, String str3) {
+    public SmsInfo(String str, String str2, int i, Long l, Long l2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2), l, l2, str3};
+            Object[] objArr = {str, str2, Integer.valueOf(i), l, l2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public class SmsInfo {
         }
         this.content = str;
         this.mobile = str2;
-        this.opt = i2;
+        this.opt = i;
         this.ctime = l;
         this.ftime = l2;
         this.result = str3;
@@ -120,10 +120,10 @@ public class SmsInfo {
         }
     }
 
-    public void setOpt(int i2) {
+    public void setOpt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.opt = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.opt = i;
         }
     }
 

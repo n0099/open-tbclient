@@ -7,11 +7,10 @@ import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MemoryInfo implements b, Serializable {
     public static final long serialVersionUID = -4944913077323984734L;
     public int mAvailableMB;
@@ -59,8 +58,8 @@ public class MemoryInfo implements b, Serializable {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("mFds");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    String optString = optJSONArray.optString(i2);
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
                     if (optString != null && !optString.isEmpty()) {
                         this.mFds.add(optString);
                     }
@@ -68,8 +67,8 @@ public class MemoryInfo implements b, Serializable {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("mJavaThreads");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
                     if (optJSONObject != null) {
                         ThreadInfo threadInfo = new ThreadInfo();
                         threadInfo.parseJson(optJSONObject);
@@ -79,8 +78,8 @@ public class MemoryInfo implements b, Serializable {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("mNativeThreads");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);
+                for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         ThreadInfo threadInfo2 = new ThreadInfo();
                         threadInfo2.parseJson(optJSONObject2);
@@ -92,8 +91,8 @@ public class MemoryInfo implements b, Serializable {
             if (optJSONArray4 == null || optJSONArray4.length() <= 0) {
                 return;
             }
-            for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
-                JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i5);
+            for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i4);
                 if (optJSONObject3 != null) {
                     ThreadInfo threadInfo3 = new ThreadInfo();
                     threadInfo3.parseJson(optJSONObject3);
@@ -149,13 +148,13 @@ public class MemoryInfo implements b, Serializable {
         sb.append(" (MB)\n");
         sb.append("\t打开文件描述符数: ");
         sb.append(this.mFdCount);
-        sb.append(StringUtils.LF);
+        sb.append("\n");
         if (this.mFds.size() > 0) {
             sb.append("\t文件描述符详情: \n");
             for (String str : this.mFds) {
                 sb.append("\t");
                 sb.append(str);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
         }
         sb.append("\t正在运行线程数: ");
@@ -170,16 +169,16 @@ public class MemoryInfo implements b, Serializable {
             for (ThreadInfo threadInfo : this.mAllThreads) {
                 sb.append("\t");
                 sb.append(threadInfo.mName);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
         }
         if (this.mJavaThreads.size() > 0) {
             sb.append("Java线程堆栈: \n");
             for (ThreadInfo threadInfo2 : this.mJavaThreads) {
                 sb.append(threadInfo2.mName);
-                sb.append(StringUtils.LF);
-                sb.append(threadInfo2.mTrace.replace("#", StringUtils.LF));
-                sb.append(StringUtils.LF);
+                sb.append("\n");
+                sb.append(threadInfo2.mTrace.replace("#", "\n"));
+                sb.append("\n");
             }
         }
         if (this.mNativeThreads.size() > 0) {

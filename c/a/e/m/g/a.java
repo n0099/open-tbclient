@@ -11,31 +11,27 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3239b;
+    public String f2705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3240c;
+    public int f2706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3241d;
+    public String f2707d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3242e;
+    public int f2708e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3243f;
+    public int f2709f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3244g;
+    public int f2710g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3245h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f3246i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f3247j;
+    public int f2711h;
+    public int i;
+    public String j;
     public int k;
     public int l;
 
@@ -44,14 +40,14 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3246i = 3;
+        this.i = 3;
     }
 }

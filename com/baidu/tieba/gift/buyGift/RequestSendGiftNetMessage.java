@@ -32,9 +32,9 @@ public class RequestSendGiftNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -63,14 +63,14 @@ public class RequestSendGiftNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setParams(long j2, int i2, int i3, int i4, long j3, String str) {
+    public void setParams(long j, int i, int i2, int i3, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j3), str}) == null) {
-            this.mReceiverId = j2;
-            this.mGiftId = i2;
-            this.mPrice = i3;
-            this.mNum = i4;
-            this.mFrom = j3;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) {
+            this.mReceiverId = j;
+            this.mGiftId = i;
+            this.mPrice = i2;
+            this.mNum = i3;
+            this.mFrom = j2;
             this.mPassword = str;
         }
     }

@@ -17,7 +17,7 @@ public class v {
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f33687b;
+    public ExecutorService f25980b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -54,9 +54,9 @@ public class v {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -96,11 +96,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f33687b == null || this.f33687b.isShutdown()) {
-                    this.f33687b = null;
-                    this.f33687b = Executors.newFixedThreadPool(2);
+                if (this.f25980b == null || this.f25980b.isShutdown()) {
+                    this.f25980b = null;
+                    this.f25980b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f33687b;
+                executorService = this.f25980b;
             }
             return executorService;
         }
@@ -114,7 +114,7 @@ public class v {
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f33687b;
+            ExecutorService executorService2 = this.f25980b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

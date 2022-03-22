@@ -16,7 +16,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpsLevelMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpsLevelMgr";
@@ -43,9 +43,9 @@ public class HttpsLevelMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -111,10 +111,10 @@ public class HttpsLevelMgr {
                     SwitchController.getInstance().deal(1);
                     return 3;
                 }
-                int i2 = jSONObject.getInt("level");
-                SwitchController.getInstance().deal(i2);
-                if (i2 >= 0 && 2 >= i2) {
-                    setHttpsLevel(i2);
+                int i = jSONObject.getInt("level");
+                SwitchController.getInstance().deal(i);
+                if (i >= 0 && 2 >= i) {
+                    setHttpsLevel(i);
                     return 0;
                 }
                 return 3;
@@ -126,12 +126,12 @@ public class HttpsLevelMgr {
         return invokeL.intValue;
     }
 
-    public void setHttpsLevel(int i2) {
+    public void setHttpsLevel(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 2 || i2 <= GlobalTools.HTTPS_LEVEL) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 0 || i > 2 || i <= GlobalTools.HTTPS_LEVEL) {
             return;
         }
-        GlobalTools.HTTPS_LEVEL = i2;
+        GlobalTools.HTTPS_LEVEL = i;
     }
 
     public int update() {
@@ -151,9 +151,9 @@ public class HttpsLevelMgr {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

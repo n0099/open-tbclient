@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StreamEncoder implements Encoder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamEncoder";
@@ -28,9 +28,9 @@ public class StreamEncoder implements Encoder<InputStream> {
             newInitContext.initArgs = r2;
             Object[] objArr = {arrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,52 +44,59 @@ public class StreamEncoder implements Encoder<InputStream> {
     public boolean encode(@NonNull InputStream inputStream, @NonNull File file, @NonNull Options options) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(1048576, this, inputStream, file, options)) != null) {
-            return invokeLLL.booleanValue;
-        }
-        byte[] bArr = (byte[]) this.byteArrayPool.get(65536, byte[].class);
-        boolean z = false;
-        FileOutputStream fileOutputStream = null;
-        try {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inputStream, file, options)) == null) {
+            byte[] bArr = (byte[]) this.byteArrayPool.get(65536, byte[].class);
+            boolean z = false;
+            FileOutputStream fileOutputStream = null;
             try {
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                while (true) {
+                try {
                     try {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        fileOutputStream2.write(bArr, 0, read);
-                    } catch (IOException unused) {
-                        fileOutputStream = fileOutputStream2;
-                        Log.isLoggable(TAG, 3);
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        this.byteArrayPool.put(bArr);
-                        return z;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        if (fileOutputStream != null) {
+                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                        while (true) {
                             try {
-                                fileOutputStream.close();
-                            } catch (IOException unused2) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                fileOutputStream2.write(bArr, 0, read);
+                            } catch (IOException e2) {
+                                e = e2;
+                                fileOutputStream = fileOutputStream2;
+                                if (Log.isLoggable(TAG, 3)) {
+                                    Log.d(TAG, "Failed to encode data onto the OutputStream", e);
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                this.byteArrayPool.put(bArr);
+                                return z;
+                            } catch (Throwable th) {
+                                th = th;
+                                fileOutputStream = fileOutputStream2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (IOException unused) {
+                                    }
+                                }
+                                this.byteArrayPool.put(bArr);
+                                throw th;
                             }
                         }
-                        this.byteArrayPool.put(bArr);
-                        throw th;
+                        fileOutputStream2.close();
+                        z = true;
+                        fileOutputStream2.close();
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
+                } catch (IOException e3) {
+                    e = e3;
                 }
-                fileOutputStream2.close();
-                z = true;
-                fileOutputStream2.close();
-            } catch (IOException unused3) {
+            } catch (IOException unused2) {
             }
             this.byteArrayPool.put(bArr);
             return z;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return invokeLLL.booleanValue;
     }
 }

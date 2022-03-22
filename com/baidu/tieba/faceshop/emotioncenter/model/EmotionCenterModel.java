@@ -1,13 +1,14 @@
 package com.baidu.tieba.faceshop.emotioncenter.model;
 
 import c.a.d.a.f;
-import c.a.r0.y0.x.d.b;
+import c.a.p0.a1.y.d.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -23,12 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EmotionCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f41559e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f41560f;
+    /* renamed from: b  reason: collision with root package name */
+    public final HttpMessageListener f32100b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -37,17 +36,17 @@ public class EmotionCenterModel extends BdBaseModel {
         public final /* synthetic */ EmotionCenterModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(EmotionCenterModel emotionCenterModel, int i2) {
-            super(i2);
+        public a(EmotionCenterModel emotionCenterModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {emotionCenterModel, Integer.valueOf(i2)};
+                Object[] objArr = {emotionCenterModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -71,10 +70,10 @@ public class EmotionCenterModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                if (this.a.f41559e == 1) {
-                    bVar.refreshSuccess(emotionCenterResponseMessage.data);
+                if (this.a.a == 1) {
+                    bVar.h0(emotionCenterResponseMessage.data);
                 } else {
-                    bVar.loadMore(emotionCenterResponseMessage.data);
+                    bVar.Q(emotionCenterResponseMessage.data);
                 }
             }
         }
@@ -89,28 +88,40 @@ public class EmotionCenterModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41559e = 1;
-        this.f41560f = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+        this.a = 1;
+        this.f32100b = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
         registerTask();
-        this.f41560f.setTag(getUniqueId());
-        this.f41560f.setSelfListener(true);
-        registerListener(this.f41560f);
+        this.f32100b.setTag(getUniqueId());
+        this.f32100b.setSelfListener(true);
+        registerListener(this.f32100b);
+    }
+
+    public void A(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = 1;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
+            httpMessage.addParam(Config.PACKAGE_NAME, 1);
+            httpMessage.addParam("rn", 10);
+            httpMessage.setExtra(bVar);
+            sendMessage(httpMessage);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
             return true;
         }
@@ -121,7 +132,7 @@ public class EmotionCenterModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -129,32 +140,20 @@ public class EmotionCenterModel extends BdBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP, TbConfig.SERVER_ADDRESS + "c/e/meme/shop");
             tbHttpMessageTask.setResponsedClass(EmotionCenterResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public void x(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
-            int i2 = this.f41559e + 1;
-            this.f41559e = i2;
-            httpMessage.addParam("pn", i2);
-            httpMessage.addParam("rn", 10);
-            httpMessage.setExtra(bVar);
-            sendMessage(httpMessage);
-        }
-    }
-
-    public void y(b bVar) {
+    public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f41559e = 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_SHOP);
-            httpMessage.addParam("pn", 1);
+            int i = this.a + 1;
+            this.a = i;
+            httpMessage.addParam(Config.PACKAGE_NAME, i);
             httpMessage.addParam("rn", 10);
             httpMessage.setExtra(bVar);
             sendMessage(httpMessage);

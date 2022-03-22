@@ -1,5 +1,5 @@
 package com.google.gson;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ExclusionStrategy {
     boolean shouldSkipClass(Class<?> cls);
 

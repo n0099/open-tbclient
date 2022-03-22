@@ -1,8 +1,8 @@
 package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
-import c.a.q0.c0.c;
-import c.a.q0.l.e;
+import c.a.o0.c0.c;
+import c.a.o0.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -22,12 +22,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GetEmotionPidModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f39686e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f39687f;
+    /* renamed from: b  reason: collision with root package name */
+    public final HttpMessageListener f30570b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -36,17 +34,17 @@ public class GetEmotionPidModel extends BdBaseModel {
         public final /* synthetic */ GetEmotionPidModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(GetEmotionPidModel getEmotionPidModel, int i2) {
-            super(i2);
+        public a(GetEmotionPidModel getEmotionPidModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {getEmotionPidModel, Integer.valueOf(i2)};
+                Object[] objArr = {getEmotionPidModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -60,12 +58,12 @@ public class GetEmotionPidModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.a.f39686e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.a.a != null) {
                 GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
                 if (getEmotionPidResponseMessage.getImageInfo() != null) {
-                    this.a.f39686e.a(getEmotionPidResponseMessage.getImageInfo());
+                    this.a.a.a(getEmotionPidResponseMessage.getImageInfo());
                 } else {
-                    this.a.f39686e.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
+                    this.a.a.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
                 }
             }
         }
@@ -75,7 +73,7 @@ public class GetEmotionPidModel extends BdBaseModel {
     public interface b {
         void a(c cVar);
 
-        void onFail(int i2, String str);
+        void onFail(int i, String str);
     }
 
     public GetEmotionPidModel() {
@@ -83,20 +81,20 @@ public class GetEmotionPidModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39687f = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
+        this.f30570b = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f39687f.setTag(getUniqueId());
-        this.f39687f.setSelfListener(true);
-        registerListener(this.f39687f);
+        this.f30570b.setTag(getUniqueId());
+        this.f30570b.setSelfListener(true);
+        registerListener(this.f30570b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -104,7 +102,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f39687f);
+            MessageManager.getInstance().unRegisterListener(this.f30570b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
             return true;
         }
@@ -130,10 +128,10 @@ public class GetEmotionPidModel extends BdBaseModel {
         }
     }
 
-    public void x(String str, b bVar) {
+    public void z(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            this.f39686e = bVar;
+            this.a = bVar;
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
                     bVar.onFail(0, "picUrl is empty");

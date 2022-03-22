@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.q0.e1.n.f;
+import c.a.o0.e1.n.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -93,9 +93,9 @@ public class UrlManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -209,7 +209,7 @@ public class UrlManager {
 
     public static String getParamStrBehindScheme(String str) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             if (StringUtils.isNull(str)) {
@@ -218,14 +218,14 @@ public class UrlManager {
             int lastIndexOf = str.lastIndexOf("://");
             if (lastIndexOf < 0) {
                 int lastIndexOf2 = str.lastIndexOf(":");
-                if (lastIndexOf2 >= 0 && (i2 = lastIndexOf2 + 1) <= str.length()) {
-                    return str.substring(i2);
+                if (lastIndexOf2 >= 0 && (i = lastIndexOf2 + 1) <= str.length()) {
+                    return str.substring(i);
                 }
                 return null;
             }
-            int i3 = lastIndexOf + 3;
-            if (i3 <= str.length()) {
-                return str.substring(i3);
+            int i2 = lastIndexOf + 3;
+            if (i2 <= str.length()) {
+                return str.substring(i2);
             }
             return null;
         }
@@ -279,9 +279,9 @@ public class UrlManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, urlDealListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -434,9 +434,9 @@ public class UrlManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

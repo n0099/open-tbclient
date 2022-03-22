@@ -3,9 +3,9 @@ package com.baidu.tieba.write.write;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import c.a.r0.q4.u.j;
-import c.a.r0.q4.u.k;
-import c.a.r0.q4.u.n.b.c;
+import c.a.p0.s4.u.j;
+import c.a.p0.s4.u.k;
+import c.a.p0.s4.u.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,6 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 /* loaded from: classes6.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
@@ -44,9 +45,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {writeMultiImgsActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,7 +56,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             this.a = writeMultiImgsActivity;
         }
 
-        @Override // c.a.r0.q4.u.n.b.c
+        @Override // c.a.p0.s4.u.n.b.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -64,7 +65,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.r0.q4.u.n.b.c
+        @Override // c.a.p0.s4.u.n.b.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -72,14 +73,14 @@ public class WriteMultiImgsActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.r0.q4.u.n.b.c
+        @Override // c.a.p0.s4.u.n.b.c
         public boolean c(Bitmap bitmap) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) ? this.a.mControler.q(bitmap) : invokeL.booleanValue;
         }
 
-        @Override // c.a.r0.q4.u.n.b.c
+        @Override // c.a.p0.s4.u.n.b.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -94,9 +95,9 @@ public class WriteMultiImgsActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -136,7 +137,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     }
                 } else if (2 == this.mControler.u()) {
                     WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this);
-                    newInstance.getIntent().setFlags(536870912);
+                    newInstance.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
                     newInstance.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                     newInstance.getIntent().putExtras(getIntent());
                     newInstance.setType(9).setWriteImagesInfo(writeImagesInfo).setNeedClosePrePage(true);
@@ -173,15 +174,15 @@ public class WriteMultiImgsActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
             j jVar = this.mMainView;
             if (jVar != null) {
-                jVar.h(i2);
+                jVar.h(i);
             }
-            this.mControler.f21461c.notifyDataSetChanged();
+            this.mControler.f18521c.notifyDataSetChanged();
         }
     }
 
@@ -196,8 +197,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
             setContentView(jVar.k);
             k kVar = new k(getPageContext(), this.mMainView, bundle);
             this.mControler = kVar;
-            if (kVar.f21468j != TbadkCoreApplication.getInst().getSkinType()) {
-                TbadkCoreApplication.getInst().setSkinType(this.mControler.f21468j);
+            if (kVar.j != TbadkCoreApplication.getInst().getSkinType()) {
+                TbadkCoreApplication.getInst().setSkinType(this.mControler.j);
             }
         }
     }
@@ -225,11 +226,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             k kVar = this.mControler;
-            if (kVar != null && (multiImagePagerAdapter = kVar.f21461c) != null) {
-                bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.j());
+            if (kVar != null && (multiImagePagerAdapter = kVar.f18521c) != null) {
+                bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.k());
                 bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
                 bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.f21461c.g(true);
+                this.mControler.f18521c.h(true);
                 if (this.mControler.w() != null) {
                     bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
                 }

@@ -41,9 +41,9 @@ public abstract class Uri implements Comparable<Uri> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -108,9 +108,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,9 +154,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -217,9 +217,9 @@ public abstract class Uri implements Comparable<Uri> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -454,9 +454,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, pathPart, part, part2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -590,9 +590,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, part, part2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -627,9 +627,9 @@ public abstract class Uri implements Comparable<Uri> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {str};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], (String) objArr2[1], (AnonymousClass1) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -742,9 +742,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -788,9 +788,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -934,23 +934,23 @@ public abstract class Uri implements Comparable<Uri> {
             return (AuthorityPart) invokeV.objValue;
         }
 
-        public static String parseAuthority(String str, int i2) {
+        public static String parseAuthority(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
                 int length = str.length();
-                int i3 = i2 + 2;
-                if (length > i3 && str.charAt(i2 + 1) == '/' && str.charAt(i3) == '/') {
-                    int i4 = i2 + 3;
-                    int i5 = i4;
-                    while (i5 < length) {
-                        char charAt = str.charAt(i5);
+                int i2 = i + 2;
+                if (length > i2 && str.charAt(i + 1) == '/' && str.charAt(i2) == '/') {
+                    int i3 = i + 3;
+                    int i4 = i3;
+                    while (i4 < length) {
+                        char charAt = str.charAt(i4);
                         if (charAt == '#' || charAt == '/' || charAt == '?' || charAt == '\\') {
                             break;
                         }
-                        i5++;
+                        i4++;
                     }
-                    return str.substring(i4, i5);
+                    return str.substring(i3, i4);
                 }
                 return null;
             }
@@ -1001,8 +1001,8 @@ public abstract class Uri implements Comparable<Uri> {
                 if (findSchemeSeparator == -1) {
                     return true;
                 }
-                int i2 = findSchemeSeparator + 1;
-                return this.uriString.length() != i2 && this.uriString.charAt(i2) == '/';
+                int i = findSchemeSeparator + 1;
+                return this.uriString.length() != i && this.uriString.charAt(i) == '/';
             }
             return invokeV.booleanValue;
         }
@@ -1030,9 +1030,9 @@ public abstract class Uri implements Comparable<Uri> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1135,9 +1135,9 @@ public abstract class Uri implements Comparable<Uri> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -1153,18 +1153,18 @@ public abstract class Uri implements Comparable<Uri> {
                 return null;
             }
             int length = str.length();
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = i2;
-                while (i3 < length && isAllowed(str.charAt(i3), str2)) {
-                    i3++;
+            int i = 0;
+            while (i < length) {
+                int i2 = i;
+                while (i2 < length && isAllowed(str.charAt(i2), str2)) {
+                    i2++;
                 }
-                if (i3 == length) {
-                    if (i2 == 0) {
+                if (i2 == length) {
+                    if (i == 0) {
                         return str;
                     }
                     if (sb != null) {
-                        sb.append((CharSequence) str, i2, length);
+                        sb.append((CharSequence) str, i, length);
                         return sb.toString();
                     }
                     return "";
@@ -1172,20 +1172,20 @@ public abstract class Uri implements Comparable<Uri> {
                 if (sb == null) {
                     sb = new StringBuilder();
                 }
-                if (i3 > i2) {
-                    sb.append((CharSequence) str, i2, i3);
+                if (i2 > i) {
+                    sb.append((CharSequence) str, i, i2);
                 }
-                i2 = i3 + 1;
-                while (i2 < length && !isAllowed(str.charAt(i2), str2)) {
-                    i2++;
+                i = i2 + 1;
+                while (i < length && !isAllowed(str.charAt(i), str2)) {
+                    i++;
                 }
                 try {
-                    byte[] bytes = str.substring(i3, i2).getBytes("UTF-8");
+                    byte[] bytes = str.substring(i2, i).getBytes("UTF-8");
                     int length2 = bytes.length;
-                    for (int i4 = 0; i4 < length2; i4++) {
+                    for (int i3 = 0; i3 < length2; i3++) {
                         sb.append('%');
-                        sb.append(HEX_DIGITS[(bytes[i4] & 240) >> 4]);
-                        sb.append(HEX_DIGITS[bytes[i4] & 15]);
+                        sb.append(HEX_DIGITS[(bytes[i3] & 240) >> 4]);
+                        sb.append(HEX_DIGITS[bytes[i3] & 15]);
                     }
                 } catch (UnsupportedEncodingException e2) {
                     throw new AssertionError(e2);

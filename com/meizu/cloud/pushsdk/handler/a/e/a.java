@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.a.c;
 import com.meizu.cloud.pushsdk.util.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends c {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -29,7 +29,7 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.k.a.a.a.d("AbstractMessageHandler", "start ScheduleNotificationHandler match");
+        c.h.a.a.a.d("AbstractMessageHandler", "start ScheduleNotificationHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION.equals(i(intent));
     }
 
@@ -37,7 +37,7 @@ public class a extends c {
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: d  reason: avoid collision after fix types in other method */
     public void b(MessageV3 messageV3) {
-        c.k.a.a.a.b("AbstractMessageHandler", "ScheduleNotificationHandler dont repeat upload receiver push event");
+        c.h.a.a.a.b("AbstractMessageHandler", "ScheduleNotificationHandler dont repeat upload receiver push event");
     }
 
     /* JADX DEBUG: Method merged with bridge method */

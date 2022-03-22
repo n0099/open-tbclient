@@ -34,24 +34,24 @@ public final class ObservableIntervalRange extends Observable<Long> {
         public long count;
         public final long end;
 
-        public IntervalRangeObserver(Observer<? super Long> observer, long j2, long j3) {
+        public IntervalRangeObserver(Observer<? super Long> observer, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.count = j2;
-            this.end = j3;
+            this.count = j;
+            this.end = j2;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -75,14 +75,14 @@ public final class ObservableIntervalRange extends Observable<Long> {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || isDisposed()) {
                 return;
             }
-            long j2 = this.count;
-            this.actual.onNext(Long.valueOf(j2));
-            if (j2 == this.end) {
+            long j = this.count;
+            this.actual.onNext(Long.valueOf(j));
+            if (j == this.end) {
                 DisposableHelper.dispose(this);
                 this.actual.onComplete();
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         public void setResource(Disposable disposable) {
@@ -93,27 +93,27 @@ public final class ObservableIntervalRange extends Observable<Long> {
         }
     }
 
-    public ObservableIntervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableIntervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.initialDelay = j4;
-        this.period = j5;
+        this.initialDelay = j3;
+        this.period = j4;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.start = j2;
-        this.end = j3;
+        this.start = j;
+        this.end = j2;
     }
 
     @Override // io.reactivex.Observable

@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.r0.z1.m.b;
-import c.a.r0.z1.o.j.a;
+import c.a.p0.b2.m.b;
+import c.a.p0.b2.o.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,18 +22,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CommonImageButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f44250e;
+    /* renamed from: b  reason: collision with root package name */
+    public View f34300b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public View f44251f;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34301c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f44252g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TbImageView f44253h;
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f34302d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CommonImageButton(Context context) {
@@ -44,9 +42,9 @@ public class CommonImageButton extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -59,48 +57,48 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f44250e).inflate(R.layout.lego_common_button, (ViewGroup) this, true);
-            this.f44251f = inflate;
-            this.f44252g = (TextView) inflate.findViewById(R.id.image_local);
-            this.f44253h = (TbImageView) this.f44251f.findViewById(R.id.image_net);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04f3, (ViewGroup) this, true);
+            this.f34300b = inflate;
+            this.f34301c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e76);
+            this.f34302d = (TbImageView) this.f34300b.findViewById(R.id.obfuscated_res_0x7f090e79);
         }
     }
 
-    public final void b(a aVar) {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44253h.setVisibility(8);
-            int f2 = aVar.f();
-            if (f2 != 0) {
-                this.f44252g.setVisibility(0);
-                SkinManager.setBackgroundResource(this.f44252g, f2);
-                return;
-            }
-            this.f44252g.setVisibility(8);
-        }
-    }
-
-    public final void c(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f44252g.setVisibility(8);
-            this.f44253h.setVisibility(0);
-            this.f44253h.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
-        }
-    }
-
-    public void updateView(a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
         if (!aVar.j()) {
             b.a().d(aVar, aVar.h());
         }
         if (aVar.a()) {
-            b(aVar);
-        } else {
             c(aVar);
+        } else {
+            d(aVar);
+        }
+    }
+
+    public final void c(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f34302d.setVisibility(8);
+            int f2 = aVar.f();
+            if (f2 != 0) {
+                this.f34301c.setVisibility(0);
+                SkinManager.setBackgroundResource(this.f34301c, f2);
+                return;
+            }
+            this.f34301c.setVisibility(8);
+        }
+    }
+
+    public final void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f34301c.setVisibility(8);
+            this.f34302d.setVisibility(0);
+            this.f34302d.J(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.e() : aVar.d(), 10, false);
         }
     }
 
@@ -113,9 +111,9 @@ public class CommonImageButton extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -126,17 +124,17 @@ public class CommonImageButton extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonImageButton(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CommonImageButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -144,7 +142,7 @@ public class CommonImageButton extends FrameLayout {
                 return;
             }
         }
-        this.f44250e = context;
+        this.a = context;
         a();
     }
 }

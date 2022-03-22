@@ -3,6 +3,7 @@ package com.baidu.ar.face;
 import android.os.Bundle;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,7 +59,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public int nw;
     public b nx;
     public a.b ny;
-    public a.C1756a nz;
+    public a.C1717a nz;
 
     static {
         InterceptResult invokeClinit;
@@ -80,9 +81,9 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -169,24 +170,24 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 e2.printStackTrace();
                 iArr2 = null;
             }
-            int i2 = 0;
+            int i = 0;
             if (iArr2 != null && iArr != null && iArr.length > this.nu) {
                 int length = iArr2.length;
-                while (i2 < length) {
-                    int i3 = iArr2[i2];
+                while (i < length) {
+                    int i2 = iArr2[i];
                     HashMap hashMap = new HashMap();
-                    hashMap.put("param_algo_faceid", String.valueOf(i3));
+                    hashMap.put("param_algo_faceid", String.valueOf(i2));
                     StatisticApi.onEvent(StatisticConstants.EVENT_FACE_MASKS_ON, hashMap);
-                    i2++;
+                    i++;
                 }
             } else if (iArr2 != null && (iArr == null || iArr.length < this.nu)) {
                 int length2 = iArr2.length;
-                while (i2 < length2) {
-                    int i4 = iArr2[i2];
+                while (i < length2) {
+                    int i3 = iArr2[i];
                     HashMap hashMap2 = new HashMap();
-                    hashMap2.put("param_algo_faceid", String.valueOf(i4));
+                    hashMap2.put("param_algo_faceid", String.valueOf(i3));
                     StatisticApi.onEvent(StatisticConstants.EVENT_FACE_MASKS_OFF, hashMap2);
-                    i2++;
+                    i++;
                 }
             }
             this.nv = iArr;
@@ -238,8 +239,8 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
-            int i2 = this.nw;
-            return i2 == 2 || i2 == 1;
+            int i = this.nw;
+            return i == 2 || i == 1;
         }
         return invokeV.booleanValue;
     }
@@ -251,33 +252,33 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                 this.nx.dr();
                 return;
             }
-            int i2 = 180;
-            int i3 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
-            int i4 = this.mInputWidth;
-            int i5 = this.mInputHeight;
-            int i6 = this.S;
-            if (i6 == 90 || i6 == 270) {
-                i4 = this.mInputHeight;
-                i5 = this.mInputWidth;
+            int i = 180;
+            int i2 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            int i3 = this.mInputWidth;
+            int i4 = this.mInputHeight;
+            int i5 = this.S;
+            if (i5 == 90 || i5 == 270) {
+                i3 = this.mInputHeight;
+                i4 = this.mInputWidth;
             }
-            float f2 = i4;
-            float f3 = i5;
+            float f2 = i3;
+            float f3 = i4;
             float f4 = 180;
             if (Float.compare((f2 * 1.0f) / f3, (1.0f * f4) / ((float) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP)) != 0) {
-                if (i4 > i5) {
-                    i2 = Math.round(f2 * (f4 / f3));
-                    i3 = 180;
+                if (i3 > i4) {
+                    i = Math.round(f2 * (f4 / f3));
+                    i2 = 180;
                 } else {
-                    i3 = Math.round(f3 * (f4 / f2));
+                    i2 = Math.round(f3 * (f4 / f2));
                 }
             }
-            this.nx.setAlgoImageWidth(i2);
-            this.nx.setAlgoImageHeight(i3);
+            this.nx.setAlgoImageWidth(i);
+            this.nx.setAlgoImageHeight(i2);
         }
     }
 
     /* renamed from: do  reason: not valid java name */
-    private j m34do() {
+    private j m32do() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
@@ -299,7 +300,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
             String str3 = bVar2.pZ;
             String str4 = TAG;
             com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-            a.C1756a a = this.nx.a(this.ny);
+            a.C1717a a = this.nx.a(this.ny);
             if (a != null) {
                 this.nz = a;
                 this.nw = c.a(a.pO, str, str2, str3);
@@ -331,47 +332,47 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
 
     private float dq() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            if (this.mInputWidth == 0 || (i2 = this.mInputHeight) == 0) {
+            if (this.mInputWidth == 0 || (i = this.mInputHeight) == 0) {
                 return 56.144978f;
             }
-            int i3 = this.S;
-            if (i3 == 90 || i3 == 270) {
-                i2 = this.mInputWidth;
+            int i2 = this.S;
+            if (i2 == 90 || i2 == 270) {
+                i = this.mInputWidth;
             }
-            return (float) (((Math.atan2(i2 * 0.5f, Math.max(this.mInputWidth, this.mInputHeight) * 0.94375f) * 2.0d) * 180.0d) / 3.141592653589793d);
+            return (float) (((Math.atan2(i * 0.5f, Math.max(this.mInputWidth, this.mInputHeight) * 0.94375f) * 2.0d) * 180.0d) / 3.141592653589793d);
         }
         return invokeV.floatValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(long j2) {
+    public void o(long j) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65560, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65560, this, j) == null) {
             l r = r();
-            if (j2 <= 0 || r == null || q() == null) {
+            if (j <= 0 || r == null || q() == null) {
                 return;
             }
             try {
                 if (q().size() > 0) {
-                    r.a(j2, q().get(0));
+                    r.a(j, q().get(0));
                 }
             } catch (IndexOutOfBoundsException unused) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle IndexOutOfBoundsException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j2);
+                a(j);
             } catch (NullPointerException unused2) {
                 str = TAG;
                 str2 = "updateRenderFaceHandle NullPointerException!!!!";
                 com.baidu.ar.h.b.b(str, str2);
-                a(j2);
+                a(j);
             }
-            a(j2);
+            a(j);
         }
     }
 
@@ -391,28 +392,28 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null) {
                 return;
             }
             try {
-                if (algoHandleController.getHandleType(j2) != 10 || this.np == null) {
+                if (algoHandleController.getHandleType(j) != 10 || this.np == null) {
                     return;
                 }
-                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j2);
+                long handleFaceHandle = AlgoHandleAdapter.getHandleFaceHandle(j);
                 if (handleFaceHandle > 0) {
-                    AlgoHandleAdapter.setHandleFaceHandle(j2, 0L);
+                    AlgoHandleAdapter.setHandleFaceHandle(j, 0L);
                     if (this.np != null) {
                         this.np.b(handleFaceHandle);
                     }
                 }
-                this.np.q(j2);
+                this.np.q(j);
             } catch (Exception e2) {
-                String str = "Destory algoHandle failed.  " + e2.getMessage();
+                Log.e(TAG, "Destory algoHandle failed.  " + e2.getMessage());
             }
         }
     }
@@ -505,10 +506,10 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     @Override // com.baidu.ar.c, com.baidu.ar.arrender.c.a
-    public void onInputSizeChange(int i2, int i3) {
+    public void onInputSizeChange(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            super.onInputSizeChange(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            super.onInputSizeChange(i, i2);
         }
     }
 
@@ -626,9 +627,9 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -687,11 +688,11 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                     }
                 };
                 this.np.p(getContext());
-                j m34do = m34do();
+                j m32do = m32do();
                 this.nx.z(this.nw);
                 configSyncStatus(dm());
                 this.np.E(u());
-                this.np.b(m34do);
+                this.np.b(m32do);
                 a(this.np, this.mv);
                 com.baidu.ar.face.attributes.a aVar2 = new com.baidu.ar.face.attributes.a(r());
                 this.nA = aVar2;
@@ -710,9 +711,9 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;

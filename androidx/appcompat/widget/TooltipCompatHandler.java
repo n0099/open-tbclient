@@ -1,6 +1,7 @@
 package androidx.appcompat.widget;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -43,9 +44,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
             newInitContext.initArgs = r2;
             Object[] objArr = {view, charSequence};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,9 +64,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -94,9 +95,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -205,6 +206,8 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
                     this.mPopup = null;
                     clearAnchorPos();
                     this.mAnchor.removeOnAttachStateChangeListener(this);
+                } else {
+                    Log.e(TAG, "sActiveHandler.mPopup == null");
                 }
             }
             if (sPendingHandler == this) {
@@ -269,9 +272,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     public void show(boolean z) {
-        long j2;
+        long j;
         int longPressTimeout;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && ViewCompat.isAttachedToWindow(this.mAnchor)) {
             setPendingHandler(null);
@@ -286,19 +289,19 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
             tooltipPopup.show(this.mAnchor, this.mAnchorX, this.mAnchorY, this.mFromTouch, this.mTooltipText);
             this.mAnchor.addOnAttachStateChangeListener(this);
             if (this.mFromTouch) {
-                j3 = LONG_CLICK_HIDE_TIMEOUT_MS;
+                j2 = LONG_CLICK_HIDE_TIMEOUT_MS;
             } else {
                 if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
-                    j2 = 3000;
+                    j = 3000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 } else {
-                    j2 = 15000;
+                    j = 15000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 }
-                j3 = j2 - longPressTimeout;
+                j2 = j - longPressTimeout;
             }
             this.mAnchor.removeCallbacks(this.mHideRunnable);
-            this.mAnchor.postDelayed(this.mHideRunnable, j3);
+            this.mAnchor.postDelayed(this.mHideRunnable, j2);
         }
     }
 }

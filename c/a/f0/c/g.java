@@ -1,593 +1,192 @@
 package c.a.f0.c;
 
-import android.os.Handler;
-import android.os.Looper;
-import c.a.f0.i.h;
-import c.a.f0.i.l;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g implements f {
+public class g implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3250b;
+    public Uri f2937b;
 
-    /* loaded from: classes.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: c  reason: collision with root package name */
+    public int f2938c;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3251e;
+    /* renamed from: d  reason: collision with root package name */
+    public String[] f2939d;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.c.c f3252f;
+    /* renamed from: e  reason: collision with root package name */
+    public HashMap<String, String> f2940e;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.c.a f3253g;
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f2941f;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g f3254h;
+    /* renamed from: g  reason: collision with root package name */
+    public g f2942g;
 
-        /* renamed from: c.a.f0.c.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        public class RunnableC0128a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f2943h;
+    public JSONObject i;
+    public String j;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3255e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f3256f;
-
-            public RunnableC0128a(a aVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3256f = aVar;
-                this.f3255e = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3256f.f3253g.c(this.f3255e);
-                }
-            }
-        }
-
-        /* loaded from: classes.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f3257e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3258f;
-
-            /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f3259g;
-
-            public b(a aVar, int i2, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i2), str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3259g = aVar;
-                this.f3257e = i2;
-                this.f3258f = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.f0.c.a aVar = this.f3259g.f3253g;
-                    aVar.a(new IOException("status code " + this.f3257e + ", response " + this.f3258f), 119501, this.f3258f);
-                }
-            }
-        }
-
-        /* loaded from: classes.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f3260e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f3261f;
-
-            public c(a aVar, Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, th};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3261f = aVar;
-                this.f3260e = th;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.f0.c.a aVar = this.f3261f.f3253g;
-                    Throwable th = this.f3260e;
-                    aVar.a(th, 119501, th.getMessage());
-                }
-            }
-        }
-
-        public a(g gVar, String str, c.a.f0.c.c cVar, c.a.f0.c.a aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1599574559, "Lc/a/f0/c/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar, str, cVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f3254h = gVar;
-            this.f3251e = str;
-            this.f3252f = cVar;
-            this.f3253g = aVar;
-        }
-
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ce */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0051 */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v10 */
-        /* JADX WARN: Type inference failed for: r0v2 */
-        /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-        /* JADX WARN: Type inference failed for: r0v5, types: [java.io.Closeable[]] */
-        /* JADX WARN: Type inference failed for: r0v8 */
-        /* JADX WARN: Type inference failed for: r0v9, types: [java.io.Closeable[]] */
-        /* JADX WARN: Type inference failed for: r2v1, types: [java.io.Closeable[]] */
-        /* JADX WARN: Type inference failed for: r5v4, types: [c.a.f0.c.a] */
-        @Override // java.lang.Runnable
-        public void run() {
-            Throwable th;
-            HttpURLConnection httpURLConnection;
-            int responseCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ?? r0 = 119501;
-                r0 = 119501;
-                try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f3251e).openConnection();
-                    for (Map.Entry<String, String> entry : this.f3252f.c().entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                    }
-                    httpURLConnection.setConnectTimeout(15000);
-                    httpURLConnection.setReadTimeout(15000);
-                    httpURLConnection.connect();
-                    responseCode = httpURLConnection.getResponseCode();
-                } catch (Throwable th2) {
-                    th = th2;
-                    httpURLConnection = null;
-                }
-                try {
-                    if (responseCode >= 200 && responseCode <= 299) {
-                        InputStream inputStream = httpURLConnection.getInputStream();
-                        String c2 = c.a.f0.i.f.c(inputStream);
-                        httpURLConnection = inputStream;
-                        if (this.f3253g != null) {
-                            if (this.f3254h.f3250b) {
-                                this.f3254h.a.post(new RunnableC0128a(this, c2));
-                                httpURLConnection = inputStream;
-                            } else {
-                                this.f3253g.c(c2);
-                                httpURLConnection = inputStream;
-                            }
-                        }
-                    } else {
-                        InputStream errorStream = httpURLConnection.getErrorStream();
-                        String c3 = c.a.f0.i.f.c(errorStream);
-                        httpURLConnection = errorStream;
-                        if (this.f3253g != null) {
-                            if (this.f3254h.f3250b) {
-                                this.f3254h.a.post(new b(this, responseCode, c3));
-                                httpURLConnection = errorStream;
-                            } else {
-                                c.a.f0.c.a aVar = this.f3253g;
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("status code ");
-                                sb.append(responseCode);
-                                sb.append(", response ");
-                                sb.append(c3);
-                                aVar.a(new IOException(sb.toString()), 119501, c3);
-                                httpURLConnection = errorStream;
-                            }
-                        }
-                    }
-                    r0 = new Closeable[]{httpURLConnection};
-                    c.a.f0.i.f.a(r0);
-                } catch (Throwable th3) {
-                    th = th3;
-                    try {
-                        if (this.f3253g != null) {
-                            h.c("GET FAILED", th);
-                            if (this.f3254h.f3250b) {
-                                this.f3254h.a.post(new c(this, th));
-                            } else {
-                                this.f3253g.a(th, r0, th.getMessage());
-                            }
-                        }
-                        c.a.f0.i.f.a(new Closeable[]{httpURLConnection});
-                    } catch (Throwable th4) {
-                        c.a.f0.i.f.a(new Closeable[]{httpURLConnection});
-                        throw th4;
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f3262e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.c.c f3263f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.c.b f3264g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.f0.c.a f3265h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f3266i;
-
-        /* loaded from: classes.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3267e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3268f;
-
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3268f = bVar;
-                this.f3267e = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3268f.f3265h.c(this.f3267e);
-                }
-            }
-        }
-
-        /* renamed from: c.a.f0.c.g$b$b  reason: collision with other inner class name */
-        /* loaded from: classes.dex */
-        public class RunnableC0129b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f3269e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3270f;
-
-            /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f3271g;
-
-            public RunnableC0129b(b bVar, int i2, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, Integer.valueOf(i2), str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3271g = bVar;
-                this.f3269e = i2;
-                this.f3270f = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.f0.c.a aVar = this.f3271g.f3265h;
-                    aVar.a(new IOException("status code " + this.f3269e + ", response " + this.f3270f), this.f3269e, l.a().getResources().getString(R.string.poly_error_tips));
-                }
-            }
-        }
-
-        /* loaded from: classes.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Throwable f3272e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3273f;
-
-            public c(b bVar, Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, th};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f3273f = bVar;
-                this.f3272e = th;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3273f.f3265h.a(this.f3272e, -1000, l.a().getResources().getString(R.string.poly_error_tips));
-                }
-            }
-        }
-
-        public b(g gVar, String str, c.a.f0.c.c cVar, c.a.f0.c.b bVar, c.a.f0.c.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar, str, cVar, bVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f3266i = gVar;
-            this.f3262e = str;
-            this.f3263f = cVar;
-            this.f3264g = bVar;
-            this.f3265h = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            DataOutputStream dataOutputStream;
-            HttpURLConnection httpURLConnection;
-            byte[] bytes;
-            InputStream errorStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.f0.g.b.a("1.03", System.currentTimeMillis());
-                try {
-                    httpURLConnection = (HttpURLConnection) new URL(this.f3262e).openConnection();
-                    for (Map.Entry<String, String> entry : this.f3263f.c().entrySet()) {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                    }
-                    httpURLConnection.setDoInput(true);
-                    httpURLConnection.setDoOutput(true);
-                    httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setUseCaches(false);
-                    httpURLConnection.setConnectTimeout(15000);
-                    httpURLConnection.setReadTimeout(15000);
-                    StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry2 : this.f3264g.c().entrySet()) {
-                        String encode = URLEncoder.encode(entry2.getValue());
-                        sb.append(entry2.getKey());
-                        sb.append("=");
-                        sb.append(encode);
-                        sb.append("&");
-                    }
-                    bytes = sb.toString().getBytes();
-                    httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                    httpURLConnection.connect();
-                    dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                } catch (Throwable th) {
-                    th = th;
-                    dataOutputStream = null;
-                }
-                try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (responseCode >= 200 && responseCode <= 299) {
-                        errorStream = httpURLConnection.getInputStream();
-                        String c2 = c.a.f0.i.f.c(errorStream);
-                        if (this.f3265h != null) {
-                            if (this.f3266i.f3250b) {
-                                this.f3266i.a.post(new a(this, c2));
-                            } else {
-                                this.f3265h.c(c2);
-                            }
-                        }
-                    } else {
-                        errorStream = httpURLConnection.getErrorStream();
-                        String c3 = c.a.f0.i.f.c(errorStream);
-                        if (this.f3265h != null) {
-                            if (this.f3266i.f3250b) {
-                                this.f3266i.a.post(new RunnableC0129b(this, responseCode, c3));
-                            } else {
-                                c.a.f0.c.a aVar = this.f3265h;
-                                StringBuilder sb2 = new StringBuilder();
-                                sb2.append("status code ");
-                                sb2.append(responseCode);
-                                sb2.append(", response ");
-                                sb2.append(c3);
-                                aVar.a(new IOException(sb2.toString()), responseCode, l.a().getResources().getString(R.string.poly_error_tips));
-                            }
-                        }
-                    }
-                    c.a.f0.i.f.a(errorStream, dataOutputStream);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        h.c("POST FAILED", th);
-                        if (this.f3265h != null) {
-                            if (this.f3266i.f3250b) {
-                                this.f3266i.a.post(new c(this, th));
-                            } else {
-                                this.f3265h.a(th, -1000, l.a().getResources().getString(R.string.poly_error_tips));
-                            }
-                        }
-                        c.a.f0.i.f.a(null, dataOutputStream);
-                    } catch (Throwable th3) {
-                        c.a.f0.i.f.a(null, dataOutputStream);
-                        throw th3;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public g() {
-        this(true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1599574559, "Lc/a/f0/c/g;");
                 return;
             }
         }
+        String str = c.b() + "://";
     }
 
-    @Override // c.a.f0.c.f
-    public void a(String str, c cVar, c.a.f0.c.b bVar, c.a.f0.c.a<String> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, cVar, bVar, aVar) == null) {
-            if (!e.b(l.a())) {
-                aVar.a(new Exception(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR), 119501, l.a().getResources().getString(R.string.common_error_tips));
-            } else {
-                c.a.f0.h.a.a(new b(this, str, cVar, bVar, aVar));
-            }
-        }
-    }
-
-    public void d(String str, c cVar, c.a.f0.c.a<String> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar, aVar) == null) {
-            c.a.f0.h.a.a(new a(this, str, cVar, aVar));
-        }
-    }
-
-    public g(boolean z) {
+    public g(Uri uri, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {uri, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.f3250b = z;
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f2938c = -1;
+        this.f2941f = false;
+        this.f2943h = false;
+        this.a = str;
+        this.f2937b = uri;
+        this.f2939d = j.c(uri);
+        this.f2940e = j.b(uri.toString());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public g clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Uri uri = this.f2937b;
+            g gVar = new g(uri, this.a, j.c(uri), (HashMap) this.f2940e.clone());
+            gVar.f2942g = this;
+            gVar.f2943h = this.f2943h;
+            gVar.j = this.j;
+            return gVar;
+        }
+        return (g) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri uri = this.f2937b;
+            if (uri != null) {
+                if (j.d(uri) && (path = this.f2937b.getPath()) != null && path.length() > 1) {
+                    return this.f2937b.getPath().substring(1);
+                }
+                return this.f2937b.getHost() + this.f2937b.getPath();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2940e : (HashMap) invokeV.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (this.f2939d != null) {
+                if (z) {
+                    this.f2938c++;
+                }
+                int i = this.f2938c;
+                String[] strArr = this.f2939d;
+                if (i < strArr.length) {
+                    return strArr[i];
+                }
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2941f : invokeV.booleanValue;
+    }
+
+    public void f(String str, String str2) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || (uri = this.f2937b) == null || str == null || str2 == null) {
+            return;
+        }
+        Uri parse = Uri.parse(uri.toString().replace(str, str2));
+        this.f2937b = parse;
+        this.f2939d = j.c(parse);
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f2941f = z;
+        }
+    }
+
+    public g(Uri uri, String str, String[] strArr, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uri, str, strArr, hashMap};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f2938c = -1;
+        this.f2941f = false;
+        this.f2943h = false;
+        this.f2937b = uri;
+        this.a = str;
+        this.f2939d = strArr;
+        this.f2940e = hashMap;
     }
 }

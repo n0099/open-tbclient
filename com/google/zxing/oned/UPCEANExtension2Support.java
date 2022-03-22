@@ -25,9 +25,9 @@ public final class UPCEANExtension2Support {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,24 +47,24 @@ public final class UPCEANExtension2Support {
             iArr2[2] = 0;
             iArr2[3] = 0;
             int size = bitArray.getSize();
-            int i2 = iArr[1];
-            int i3 = 0;
-            for (int i4 = 0; i4 < 2 && i2 < size; i4++) {
-                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
+            int i = iArr[1];
+            int i2 = 0;
+            for (int i3 = 0; i3 < 2 && i < size; i3++) {
+                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
                 sb.append((char) ((decodeDigit % 10) + 48));
-                for (int i5 : iArr2) {
-                    i2 += i5;
+                for (int i4 : iArr2) {
+                    i += i4;
                 }
                 if (decodeDigit >= 10) {
-                    i3 |= 1 << (1 - i4);
+                    i2 |= 1 << (1 - i3);
                 }
-                if (i4 != 1) {
-                    i2 = bitArray.getNextUnset(bitArray.getNextSet(i2));
+                if (i3 != 1) {
+                    i = bitArray.getNextUnset(bitArray.getNextSet(i));
                 }
             }
             if (sb.length() == 2) {
-                if (Integer.parseInt(sb.toString()) % 4 == i3) {
-                    return i2;
+                if (Integer.parseInt(sb.toString()) % 4 == i2) {
+                    return i;
                 }
                 throw NotFoundException.getNotFoundInstance();
             }
@@ -87,16 +87,16 @@ public final class UPCEANExtension2Support {
         return (Map) invokeL.objValue;
     }
 
-    public Result decodeRow(int i2, BitArray bitArray, int[] iArr) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, int[] iArr) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, bitArray, iArr)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, iArr)) == null) {
             StringBuilder sb = this.decodeRowStringBuffer;
             sb.setLength(0);
             int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
             String sb2 = sb.toString();
             Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
-            float f2 = i2;
+            float f2 = i;
             Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f2), new ResultPoint(decodeMiddle, f2)}, BarcodeFormat.UPC_EAN_EXTENSION);
             if (parseExtensionString != null) {
                 result.putAllMetadata(parseExtensionString);

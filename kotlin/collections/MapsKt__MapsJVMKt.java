@@ -61,15 +61,15 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
     }
 
     @PublishedApi
-    public static final int mapCapacity(int i2) {
-        if (i2 < 0) {
-            return i2;
+    public static final int mapCapacity(int i) {
+        if (i < 0) {
+            return i;
         }
-        if (i2 < 3) {
-            return i2 + 1;
+        if (i < 3) {
+            return i + 1;
         }
-        if (i2 < 1073741824) {
-            return (int) ((i2 / 0.75f) + 1.0f);
+        if (i < 1073741824) {
+            return (int) ((i / 0.75f) + 1.0f);
         }
         return Integer.MAX_VALUE;
     }
@@ -117,8 +117,8 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
     @ExperimentalStdlibApi
     @InlineOnly
     @PublishedApi
-    public static final <K, V> Map<K, V> buildMapInternal(int i2, Function1<? super Map<K, V>, Unit> function1) {
-        Map createMapBuilder = createMapBuilder(i2);
+    public static final <K, V> Map<K, V> buildMapInternal(int i, Function1<? super Map<K, V>, Unit> function1) {
+        Map createMapBuilder = createMapBuilder(i);
         function1.invoke(createMapBuilder);
         return build(createMapBuilder);
     }
@@ -126,8 +126,8 @@ public class MapsKt__MapsJVMKt extends MapsKt__MapWithDefaultKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
     @ExperimentalStdlibApi
-    public static final <K, V> Map<K, V> createMapBuilder(int i2) {
-        return new MapBuilder(i2);
+    public static final <K, V> Map<K, V> createMapBuilder(int i) {
+        return new MapBuilder(i);
     }
 
     @SinceKotlin(version = "1.4")

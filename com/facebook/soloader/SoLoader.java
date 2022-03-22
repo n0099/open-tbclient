@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.os.StrictMode;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,7 +38,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -75,7 +76,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Api14Utils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +86,9 @@ public class SoLoader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -112,7 +113,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +127,9 @@ public class SoLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -174,9 +175,9 @@ public class SoLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -191,15 +192,15 @@ public class SoLoader {
             try {
                 if (sSoSources != null) {
                     String[] supportedAbis = SysUtil.getSupportedAbis();
-                    for (int i2 = 0; i2 < sSoSources.length; i2++) {
-                        String[] soSourceAbis = sSoSources[i2].getSoSourceAbis();
-                        for (int i3 = 0; i3 < soSourceAbis.length; i3++) {
+                    for (int i = 0; i < sSoSources.length; i++) {
+                        String[] soSourceAbis = sSoSources[i].getSoSourceAbis();
+                        for (int i2 = 0; i2 < soSourceAbis.length; i2++) {
                             boolean z = false;
-                            for (int i4 = 0; i4 < supportedAbis.length && !z; i4++) {
-                                z = soSourceAbis[i3].equals(supportedAbis[i4]);
+                            for (int i3 = 0; i3 < supportedAbis.length && !z; i3++) {
+                                z = soSourceAbis[i2].equals(supportedAbis[i3]);
                             }
                             if (!z) {
-                                String str = "abi not supported: " + soSourceAbis[i3];
+                                Log.e("SoLoader", "abi not supported: " + soSourceAbis[i2]);
                             }
                         }
                     }
@@ -236,13 +237,13 @@ public class SoLoader {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[SGET]}, finally: {[SGET, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, IF] complete} */
-    public static void doLoadLibraryBySoName(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[SGET]}, finally: {[SGET, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, INVOKE, RETURN, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, INVOKE, CONSTRUCTOR, INVOKE, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, CONSTRUCTOR, IF, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, IF, IF, IF] complete} */
+    public static void doLoadLibraryBySoName(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         boolean z;
         UnsatisfiedLinkError unsatisfiedLinkError;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, str, i2, threadPolicy) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65541, null, str, i, threadPolicy) == null) {
             sSoSourcesLock.readLock().lock();
             try {
                 if (sSoSources != null) {
@@ -256,46 +257,46 @@ public class SoLoader {
                     if (SYSTRACE_LIBRARY_LOADING) {
                         Api18TraceUtils.beginTraceSection("SoLoader.loadLibrary[" + str + PreferencesUtil.RIGHT_MOUNT);
                     }
-                    int i3 = 0;
+                    int i2 = 0;
                     do {
                         try {
                             sSoSourcesLock.readLock().lock();
-                            int i4 = sSoSourcesVersion;
-                            int i5 = 0;
+                            int i3 = sSoSourcesVersion;
+                            int i4 = 0;
                             while (true) {
-                                if (i3 != 0 || i5 >= sSoSources.length) {
+                                if (i2 != 0 || i4 >= sSoSources.length) {
                                     break;
                                 }
-                                i3 = sSoSources[i5].loadLibrary(str, i2, threadPolicy);
-                                if (i3 == 3 && sBackupSoSources != null) {
-                                    String str2 = "Trying backup SoSource for " + str;
+                                i2 = sSoSources[i4].loadLibrary(str, i, threadPolicy);
+                                if (i2 == 3 && sBackupSoSources != null) {
+                                    Log.d("SoLoader", "Trying backup SoSource for " + str);
                                     UnpackingSoSource[] unpackingSoSourceArr = sBackupSoSources;
                                     int length = unpackingSoSourceArr.length;
-                                    int i6 = 0;
+                                    int i5 = 0;
                                     while (true) {
-                                        if (i6 >= length) {
+                                        if (i5 >= length) {
                                             break;
                                         }
-                                        UnpackingSoSource unpackingSoSource = unpackingSoSourceArr[i6];
+                                        UnpackingSoSource unpackingSoSource = unpackingSoSourceArr[i5];
                                         unpackingSoSource.prepare(str);
-                                        int loadLibrary = unpackingSoSource.loadLibrary(str, i2, threadPolicy);
+                                        int loadLibrary = unpackingSoSource.loadLibrary(str, i, threadPolicy);
                                         if (loadLibrary == 1) {
-                                            i3 = loadLibrary;
+                                            i2 = loadLibrary;
                                             break;
                                         }
-                                        i6++;
+                                        i5++;
                                     }
                                 } else {
-                                    i5++;
+                                    i4++;
                                 }
                             }
                             sSoSourcesLock.readLock().unlock();
-                            if ((i2 & 2) == 2 && i3 == 0) {
+                            if ((i & 2) == 2 && i2 == 0) {
                                 sSoSourcesLock.writeLock().lock();
                                 if (sApplicationSoSource != null && sApplicationSoSource.checkAndMaybeUpdate()) {
                                     sSoSourcesVersion++;
                                 }
-                                z2 = sSoSourcesVersion != i4;
+                                z2 = sSoSourcesVersion != i3;
                                 sSoSourcesLock.writeLock().unlock();
                                 continue;
                             } else {
@@ -303,7 +304,7 @@ public class SoLoader {
                                 continue;
                             }
                         } finally {
-                            if (i3 == 0 || i3 == r5) {
+                            if (i2 == 0 || i2 == r6) {
                             }
                         }
                     } while (z2);
@@ -313,12 +314,14 @@ public class SoLoader {
                     if (z) {
                         StrictMode.setThreadPolicy(threadPolicy);
                     }
-                    if (i3 == 0 || i3 == 3) {
-                        throw new UnsatisfiedLinkError("couldn't find DSO to load: " + str);
+                    if (i2 == 0 || i2 == 3) {
+                        String str2 = "couldn't find DSO to load: " + str;
+                        Log.e("SoLoader", str2);
+                        throw new UnsatisfiedLinkError(str2);
                     }
                     return;
                 }
-                String str3 = "Could not load: " + str + " because no SO source exists";
+                Log.e("SoLoader", "Could not load: " + str + " because no SO source exists");
                 throw new UnsatisfiedLinkError("couldn't find DSO to load: " + str);
             } catch (Throwable th) {
                 sSoSourcesLock.readLock().unlock();
@@ -332,13 +335,14 @@ public class SoLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23 && i2 <= 27) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23 && i <= 27) {
                 try {
                     Method declaredMethod = Runtime.class.getDeclaredMethod("nativeLoad", String.class, ClassLoader.class, String.class);
                     declaredMethod.setAccessible(true);
                     return declaredMethod;
-                } catch (NoSuchMethodException | SecurityException unused) {
+                } catch (NoSuchMethodException | SecurityException e2) {
+                    Log.w("SoLoader", "Cannot get nativeLoad method", e2);
                 }
             }
             return null;
@@ -346,10 +350,10 @@ public class SoLoader {
         return (Method) invokeV.objValue;
     }
 
-    public static void init(Context context, int i2) throws IOException {
+    public static void init(Context context, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
-            init(context, i2, null);
+        if (interceptable == null || interceptable.invokeLI(65543, null, context, i) == null) {
+            init(context, i, null);
         }
     }
 
@@ -381,9 +385,9 @@ public class SoLoader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {Boolean.valueOf(z), classLoaderLdLoadLibrary, r8, runtime, nativeLoadRuntimeMethod};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -441,13 +445,13 @@ public class SoLoader {
                         }
                     }
 
-                    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0099 */
+                    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x009f */
                     /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.lang.String */
                     /* JADX WARN: Code restructure failed: missing block: B:19:0x0039, code lost:
                         if (r1 == null) goto L23;
                      */
                     /* JADX WARN: Code restructure failed: missing block: B:20:0x003b, code lost:
-                        r0 = "Error when loading lib: " + r1 + " lib hash: " + getLibHash(r9) + " search path is " + r10;
+                        android.util.Log.e("SoLoader", "Error when loading lib: " + r1 + " lib hash: " + getLibHash(r9) + " search path is " + r10);
                      */
                     /* JADX WARN: Code restructure failed: missing block: B:61:?, code lost:
                         return;
@@ -456,21 +460,21 @@ public class SoLoader {
                         return;
                      */
                     /* JADX WARN: Multi-variable type inference failed */
-                    /* JADX WARN: Removed duplicated region for block: B:47:0x009c  */
+                    /* JADX WARN: Removed duplicated region for block: B:47:0x00a2  */
                     /* JADX WARN: Type inference failed for: r1v0 */
                     /* JADX WARN: Type inference failed for: r1v2 */
                     @Override // com.facebook.soloader.SoFileLoader
                     /*
                         Code decompiled incorrectly, please refer to instructions dump.
                     */
-                    public void load(String str, int i2) {
+                    public void load(String str, int i) {
                         Throwable th;
                         Throwable e2;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
                             if (this.val$hasNativeLoadMethod) {
                                 String str2 = 1;
-                                String str3 = (i2 & 4) == 4 ? this.val$localLdLibraryPath : this.val$localLdLibraryPathNoZips;
+                                String str3 = (i & 4) == 4 ? this.val$localLdLibraryPath : this.val$localLdLibraryPathNoZips;
                                 try {
                                     try {
                                         try {
@@ -502,7 +506,7 @@ public class SoLoader {
                                     } catch (Throwable th4) {
                                         th = th4;
                                         if (str2 != 0) {
-                                            String str5 = "Error when loading lib: " + str2 + " lib hash: " + getLibHash(str) + " search path is " + str3;
+                                            Log.e("SoLoader", "Error when loading lib: " + str2 + " lib hash: " + getLibHash(str) + " search path is " + str3);
                                         }
                                         throw th;
                                     }
@@ -534,61 +538,64 @@ public class SoLoader {
         }
     }
 
-    public static void initSoSources(Context context, int i2, @Nullable SoFileLoader soFileLoader) throws IOException {
-        int i3;
+    public static void initSoSources(Context context, int i, @Nullable SoFileLoader soFileLoader) throws IOException {
+        int i2;
         ApkSoSource apkSoSource;
-        ApkSoSource apkSoSource2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65547, null, context, i2, soFileLoader) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65547, null, context, i, soFileLoader) == null) {
             sSoSourcesLock.writeLock().lock();
             try {
                 if (sSoSources == null) {
-                    sFlags = i2;
+                    Log.d("SoLoader", "init start");
+                    sFlags = i;
                     ArrayList arrayList = new ArrayList();
                     String str = System.getenv("LD_LIBRARY_PATH");
                     if (str == null) {
                         str = "/vendor/lib:/system/lib";
                     }
                     String[] split = str.split(":");
-                    for (int i4 = 0; i4 < split.length; i4++) {
-                        String str2 = "adding system library source: " + split[i4];
-                        arrayList.add(new DirectorySoSource(new File(split[i4]), 2));
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        Log.d("SoLoader", "adding system library source: " + split[i3]);
+                        arrayList.add(new DirectorySoSource(new File(split[i3]), 2));
                     }
                     if (context != null) {
-                        if ((i2 & 1) != 0) {
+                        if ((i & 1) != 0) {
                             sBackupSoSources = null;
+                            Log.d("SoLoader", "adding exo package source: lib-main");
                             arrayList.add(0, new ExoSoSource(context, SO_STORE_NAME_MAIN));
                         } else {
                             ApplicationInfo applicationInfo = context.getApplicationInfo();
                             if ((applicationInfo.flags & 1) != 0 && (applicationInfo.flags & 128) == 0) {
-                                i3 = 0;
+                                i2 = 0;
                             } else {
                                 sApplicationSoSource = new ApplicationSoSource(context, Build.VERSION.SDK_INT <= 17 ? 1 : 0);
-                                String str3 = "adding application source: " + sApplicationSoSource.toString();
+                                Log.d("SoLoader", "adding application source: " + sApplicationSoSource.toString());
                                 arrayList.add(0, sApplicationSoSource);
-                                i3 = 1;
+                                i2 = 1;
                             }
                             if ((sFlags & 8) != 0) {
                                 sBackupSoSources = null;
                             } else {
                                 File file = new File(context.getApplicationInfo().sourceDir);
                                 ArrayList arrayList2 = new ArrayList();
-                                arrayList2.add(new ApkSoSource(context, file, SO_STORE_NAME_MAIN, i3));
-                                String str4 = "adding backup source from : " + apkSoSource.toString();
+                                arrayList2.add(new ApkSoSource(context, file, SO_STORE_NAME_MAIN, i2));
+                                Log.d("SoLoader", "adding backup source from : " + apkSoSource.toString());
                                 if (Build.VERSION.SDK_INT >= 21 && context.getApplicationInfo().splitSourceDirs != null) {
+                                    Log.d("SoLoader", "adding backup sources from split apks");
                                     String[] strArr = context.getApplicationInfo().splitSourceDirs;
                                     int length = strArr.length;
+                                    int i4 = 0;
                                     int i5 = 0;
-                                    int i6 = 0;
-                                    while (i5 < length) {
-                                        File file2 = new File(strArr[i5]);
+                                    while (i4 < length) {
+                                        File file2 = new File(strArr[i4]);
                                         StringBuilder sb = new StringBuilder();
                                         sb.append(SO_STORE_NAME_SPLIT);
-                                        sb.append(i6);
-                                        String str5 = "adding backup source: " + apkSoSource2.toString();
-                                        arrayList2.add(new ApkSoSource(context, file2, sb.toString(), i3));
+                                        sb.append(i5);
+                                        ApkSoSource apkSoSource2 = new ApkSoSource(context, file2, sb.toString(), i2);
+                                        Log.d("SoLoader", "adding backup source: " + apkSoSource2.toString());
+                                        arrayList2.add(apkSoSource2);
+                                        i4++;
                                         i5++;
-                                        i6++;
                                     }
                                 }
                                 sBackupSoSources = (UnpackingSoSource[]) arrayList2.toArray(new UnpackingSoSource[arrayList2.size()]);
@@ -600,19 +607,20 @@ public class SoLoader {
                     int makePrepareFlags = makePrepareFlags();
                     int length2 = soSourceArr.length;
                     while (true) {
-                        int i7 = length2 - 1;
+                        int i6 = length2 - 1;
                         if (length2 <= 0) {
                             break;
                         }
-                        String str6 = "Preparing SO source: " + soSourceArr[i7];
-                        soSourceArr[i7].prepare(makePrepareFlags);
-                        length2 = i7;
+                        Log.d("SoLoader", "Preparing SO source: " + soSourceArr[i6]);
+                        soSourceArr[i6].prepare(makePrepareFlags);
+                        length2 = i6;
                     }
                     sSoSources = soSourceArr;
                     sSoSourcesVersion++;
-                    String str7 = "init finish: " + sSoSources.length + " SO sources prepared";
+                    Log.d("SoLoader", "init finish: " + sSoSources.length + " SO sources prepared");
                 }
             } finally {
+                Log.d("SoLoader", "init exiting");
                 sSoSourcesLock.writeLock().unlock();
             }
         }
@@ -624,10 +632,10 @@ public class SoLoader {
         return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? loadLibrary(str, 0) : invokeL.booleanValue;
     }
 
-    public static void loadLibraryBySoName(String str, int i2, StrictMode.ThreadPolicy threadPolicy) {
+    public static void loadLibraryBySoName(String str, int i, StrictMode.ThreadPolicy threadPolicy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65550, null, str, i2, threadPolicy) == null) {
-            loadLibraryBySoName(str, null, null, i2, threadPolicy);
+        if (interceptable == null || interceptable.invokeLIL(65550, null, str, i, threadPolicy) == null) {
+            loadLibraryBySoName(str, null, null, i, threadPolicy);
         }
     }
 
@@ -638,12 +646,13 @@ public class SoLoader {
             sSoSourcesLock.readLock().lock();
             try {
                 assertInitialized();
+                Log.d("SoLoader", "makeLdLibraryPath");
                 ArrayList arrayList = new ArrayList();
                 for (SoSource soSource : sSoSources) {
                     soSource.addToLdLibraryPath(arrayList);
                 }
                 String join = TextUtils.join(":", arrayList);
-                String str = "makeLdLibraryPath final path: " + join;
+                Log.d("SoLoader", "makeLdLibraryPath final path: " + join);
                 return join;
             } finally {
                 sSoSourcesLock.readLock().unlock();
@@ -691,7 +700,7 @@ public class SoLoader {
         if (interceptable == null || interceptable.invokeL(65555, null, soSource) == null) {
             sSoSourcesLock.writeLock().lock();
             try {
-                String str = "Prepending to SO sources: " + soSource;
+                Log.d("SoLoader", "Prepending to SO sources: " + soSource);
                 assertInitialized();
                 soSource.prepare(makePrepareFlags());
                 SoSource[] soSourceArr = new SoSource[sSoSources.length + 1];
@@ -699,7 +708,7 @@ public class SoLoader {
                 System.arraycopy(sSoSources, 0, soSourceArr, 1, sSoSources.length);
                 sSoSources = soSourceArr;
                 sSoSourcesVersion++;
-                String str2 = "Prepended to SO sources: " + soSource;
+                Log.d("SoLoader", "Prepended to SO sources: " + soSource);
             } finally {
                 sSoSourcesLock.writeLock().unlock();
             }
@@ -771,9 +780,9 @@ public class SoLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
             sSoSourcesLock.readLock().lock();
-            for (int i2 = 0; i2 < sSoSources.length; i2++) {
+            for (int i = 0; i < sSoSources.length; i++) {
                 try {
-                    File unpackLibrary = sSoSources[i2].unpackLibrary(str);
+                    File unpackLibrary = sSoSources[i].unpackLibrary(str);
                     if (unpackLibrary != null) {
                         return unpackLibrary;
                     }
@@ -787,24 +796,24 @@ public class SoLoader {
         return (File) invokeL.objValue;
     }
 
-    public static void init(Context context, int i2, @Nullable SoFileLoader soFileLoader) throws IOException {
+    public static void init(Context context, int i, @Nullable SoFileLoader soFileLoader) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, context, i2, soFileLoader) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65544, null, context, i, soFileLoader) == null) {
             StrictMode.ThreadPolicy allowThreadDiskWrites = StrictMode.allowThreadDiskWrites();
             try {
                 initSoLoader(soFileLoader);
-                initSoSources(context, i2, soFileLoader);
+                initSoSources(context, i, soFileLoader);
             } finally {
                 StrictMode.setThreadPolicy(allowThreadDiskWrites);
             }
         }
     }
 
-    public static boolean loadLibrary(String str, int i2) throws UnsatisfiedLinkError {
+    public static boolean loadLibrary(String str, int i) throws UnsatisfiedLinkError {
         InterceptResult invokeLI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
             sSoSourcesLock.readLock().lock();
             try {
                 if (sSoSources == null) {
@@ -826,7 +835,7 @@ public class SoLoader {
                 }
                 sSoSourcesLock.readLock().unlock();
                 String mapLibName = MergedSoMapping.mapLibName(str);
-                return loadLibraryBySoName(System.mapLibraryName(mapLibName != null ? mapLibName : str), str, mapLibName, i2 | 2, null);
+                return loadLibraryBySoName(System.mapLibraryName(mapLibName != null ? mapLibName : str), str, mapLibName, i | 2, null);
             } finally {
                 sSoSourcesLock.readLock().unlock();
             }
@@ -834,12 +843,12 @@ public class SoLoader {
         return invokeLI.booleanValue;
     }
 
-    public static boolean loadLibraryBySoName(String str, @Nullable String str2, @Nullable String str3, int i2, @Nullable StrictMode.ThreadPolicy threadPolicy) {
+    public static boolean loadLibraryBySoName(String str, @Nullable String str2, @Nullable String str3, int i, @Nullable StrictMode.ThreadPolicy threadPolicy) {
         InterceptResult invokeCommon;
         boolean z;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{str, str2, str3, Integer.valueOf(i2), threadPolicy})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{str, str2, str3, Integer.valueOf(i), threadPolicy})) == null) {
             boolean z2 = false;
             if (TextUtils.isEmpty(str2) || !sLoadedAndMergedLibraries.contains(str2)) {
                 synchronized (SoLoader.class) {
@@ -867,10 +876,10 @@ public class SoLoader {
                                 }
                                 if (!z) {
                                     try {
-                                        String str4 = "About to load: " + str;
-                                        doLoadLibraryBySoName(str, i2, threadPolicy);
+                                        Log.d("SoLoader", "About to load: " + str);
+                                        doLoadLibraryBySoName(str, i, threadPolicy);
                                         synchronized (SoLoader.class) {
-                                            String str5 = "Loaded: " + str;
+                                            Log.d("SoLoader", "Loaded: " + str);
                                             sLoadedLibraries.add(str);
                                         }
                                     } catch (IOException e2) {
@@ -892,7 +901,7 @@ public class SoLoader {
                             if (SYSTRACE_LIBRARY_LOADING) {
                                 Api18TraceUtils.beginTraceSection("MergedSoMapping.invokeJniOnload[" + str2 + PreferencesUtil.RIGHT_MOUNT);
                             }
-                            String str6 = "About to merge: " + str2 + " / " + str;
+                            Log.d("SoLoader", "About to merge: " + str2 + " / " + str);
                             MergedSoMapping.invokeJniOnload(str2);
                             sLoadedAndMergedLibraries.add(str2);
                             if (SYSTRACE_LIBRARY_LOADING) {

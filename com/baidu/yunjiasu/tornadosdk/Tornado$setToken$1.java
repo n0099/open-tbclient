@@ -1,13 +1,11 @@
 package com.baidu.yunjiasu.tornadosdk;
 
-import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidu.yunjiasu.tornadosdk.backend.Backend;
 import com.baidu.yunjiasu.tornadosdk.backend.SClientConfig;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
@@ -42,9 +40,9 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
             newInitContext.initArgs = r2;
             Object[] objArr = {tornadoTokenCallback, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,39 +75,39 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
         TornadoSetting tornadoSetting2;
         TornadoSetting tornadoSetting3;
         TornadoSetting tornadoSetting4;
-        long j2;
+        long j;
         TornadoSetting tornadoSetting5;
         TornadoSetting tornadoSetting6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
+            int i = this.label;
             TornadoSetting tornadoSetting7 = null;
             try {
-                if (i2 == 0) {
+                if (i == 0) {
                     ResultKt.throwOnFailure(obj);
                     Backend backend = Backend.INSTANCE;
                     tornadoSetting = Tornado.setting;
                     if (tornadoSetting == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                        Intrinsics.throwUninitializedPropertyAccessException("setting");
                         tornadoSetting = null;
                     }
                     String authChannel = tornadoSetting.getAuthChannel();
                     tornadoSetting2 = Tornado.setting;
                     if (tornadoSetting2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                        Intrinsics.throwUninitializedPropertyAccessException("setting");
                         tornadoSetting2 = null;
                     }
                     String authCUID = tornadoSetting2.getAuthCUID();
                     tornadoSetting3 = Tornado.setting;
                     if (tornadoSetting3 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                        Intrinsics.throwUninitializedPropertyAccessException("setting");
                         tornadoSetting3 = null;
                     }
                     String authToken = tornadoSetting3.getAuthToken();
                     tornadoSetting4 = Tornado.setting;
                     if (tornadoSetting4 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                        Intrinsics.throwUninitializedPropertyAccessException("setting");
                         tornadoSetting4 = null;
                     }
                     backend.create(authChannel, "android", authCUID, authToken, tornadoSetting4.getClientVersion(), TornadoRuntime.INSTANCE.getSdkVersion());
@@ -121,11 +119,11 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                     if (obj == coroutine_suspended) {
                         return coroutine_suspended;
                     }
-                    j2 = currentTimeMillis;
-                } else if (i2 != 1) {
+                    j = currentTimeMillis;
+                } else if (i != 1) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 } else {
-                    j2 = this.J$0;
+                    j = this.J$0;
                     ResultKt.throwOnFailure(obj);
                 }
                 SClientConfig sClientConfig = (SClientConfig) obj;
@@ -134,7 +132,7 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                     if (sClientConfig.getErrors().getCode() == 0) {
                         tornadoSetting5 = Tornado.setting;
                         if (tornadoSetting5 == null) {
-                            Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                            Intrinsics.throwUninitializedPropertyAccessException("setting");
                             tornadoSetting5 = null;
                         }
                         Object[] array = sClientConfig.getResult().getNew_sclients().toArray(new String[0]);
@@ -143,12 +141,12 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                             LogTo logTo = LogTo.INSTANCE;
                             tornadoSetting6 = Tornado.setting;
                             if (tornadoSetting6 == null) {
-                                Intrinsics.throwUninitializedPropertyAccessException(a.s);
+                                Intrinsics.throwUninitializedPropertyAccessException("setting");
                             } else {
                                 tornadoSetting7 = tornadoSetting6;
                             }
                             logTo.d("*****", Intrinsics.stringPlus("nodes:", ArraysKt___ArraysKt.toList(tornadoSetting7.getSClientList())));
-                            tornadoTokenCallback.onResult(true, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                            tornadoTokenCallback.onResult(true, "ok");
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
                         }
@@ -156,7 +154,7 @@ public final class Tornado$setToken$1 extends SuspendLambda implements Function2
                         tornadoTokenCallback.onResult(false, String.valueOf(sClientConfig.getErrors()));
                     }
                 }
-                LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("fetch sclient node: ", Boxing.boxLong(System.currentTimeMillis() - j2)));
+                LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("fetch sclient node: ", Boxing.boxLong(System.currentTimeMillis() - j)));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 this.$cb.onResult(false, String.valueOf(e2.getMessage()));

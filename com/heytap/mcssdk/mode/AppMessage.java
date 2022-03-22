@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class AppMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
@@ -28,9 +27,9 @@ public class AppMessage extends Message {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,10 +104,10 @@ public class AppMessage extends Message {
         return invokeV.intValue;
     }
 
-    public void setBalanceTime(int i2) {
+    public void setBalanceTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mBalanceTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mBalanceTime = i;
         }
     }
 
@@ -119,24 +118,24 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setDistinctBycontent(int i2) {
+    public void setDistinctBycontent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mDistinctBycontent = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mDistinctBycontent = i;
         }
     }
 
-    public void setEndDate(long j2) {
+    public void setEndDate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.mEndDate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.mEndDate = j;
         }
     }
 
-    public void setForcedDelivery(int i2) {
+    public void setForcedDelivery(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mForcedDelivery = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mForcedDelivery = i;
         }
     }
 
@@ -147,10 +146,10 @@ public class AppMessage extends Message {
         }
     }
 
-    public void setStartDate(long j2) {
+    public void setStartDate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.mStartDate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.mStartDate = j;
         }
     }
 
@@ -173,7 +172,7 @@ public class AppMessage extends Message {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "AppMessage{mTitle='" + this.mTitle + ExtendedMessageFormat.QUOTE + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mStartDate=" + this.mStartDate + ", mEndDate=" + this.mEndDate + ", mBalanceTime=" + this.mBalanceTime + ", mTimeRanges='" + this.mTimeRanges + ExtendedMessageFormat.QUOTE + ", mRule='" + this.mRule + ExtendedMessageFormat.QUOTE + ", mForcedDelivery=" + this.mForcedDelivery + ", mDistinctBycontent=" + this.mDistinctBycontent + ExtendedMessageFormat.END_FE;
+            return "AppMessage{mTitle='" + this.mTitle + "', mContent='" + this.mContent + "', mStartDate=" + this.mStartDate + ", mEndDate=" + this.mEndDate + ", mBalanceTime=" + this.mBalanceTime + ", mTimeRanges='" + this.mTimeRanges + "', mRule='" + this.mRule + "', mForcedDelivery=" + this.mForcedDelivery + ", mDistinctBycontent=" + this.mDistinctBycontent + '}';
         }
         return (String) invokeV.objValue;
     }

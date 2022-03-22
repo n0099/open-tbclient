@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.d.m.i;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,26 +28,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NewUserRewardDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlphaVideo a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RoundRelativeLayout f36912b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f36913c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f36914d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlphaVideo f47742e;
+    public ImageView f36915e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundRelativeLayout f47743f;
+    public TextView f36916f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47744g;
+    public TextView f36917g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47745h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f47746i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f47747j;
-    public TextView k;
-    public final CustomMessageListener l;
+    public final CustomMessageListener f36918h;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -56,17 +58,17 @@ public class NewUserRewardDialogView extends LinearLayout {
         public final /* synthetic */ NewUserRewardDialogView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(NewUserRewardDialogView newUserRewardDialogView, int i2) {
-            super(i2);
+        public a(NewUserRewardDialogView newUserRewardDialogView, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newUserRewardDialogView, Integer.valueOf(i2)};
+                Object[] objArr = {newUserRewardDialogView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -80,10 +82,10 @@ public class NewUserRewardDialogView extends LinearLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || this.a.f47742e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || this.a.a == null) {
                 return;
             }
-            this.a.f47742e.requestRender();
+            this.a.a.requestRender();
         }
     }
 
@@ -96,9 +98,9 @@ public class NewUserRewardDialogView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -111,45 +113,33 @@ public class NewUserRewardDialogView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
-            this.f47742e = (AlphaVideo) findViewById(R.id.new_user_anim);
-            this.f47743f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
-            this.f47744g = (TextView) findViewById(R.id.new_user_dialog_title);
-            this.f47745h = (TextView) findViewById(R.id.new_user_dialog_desc);
-            this.f47746i = (ImageView) findViewById(R.id.new_user_dialog_close);
-            this.f47747j = (TextView) findViewById(R.id.new_user_dialog_look);
-            this.k = (TextView) findViewById(R.id.new_user_dialog_share);
-            this.f47742e.setKeepLastFrame(true);
-            MessageManager.getInstance().registerListener(this.l);
-            this.f47743f.setRoundLayoutRadius(c.a.q0.r.v.a.y(R.string.J_X06));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0611, this);
+            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f091560);
+            this.f36912b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091565);
+            this.f36913c = (TextView) findViewById(R.id.obfuscated_res_0x7f091566);
+            this.f36914d = (TextView) findViewById(R.id.obfuscated_res_0x7f091562);
+            this.f36915e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091561);
+            this.f36916f = (TextView) findViewById(R.id.obfuscated_res_0x7f091563);
+            this.f36917g = (TextView) findViewById(R.id.obfuscated_res_0x7f091564);
+            this.a.setKeepLastFrame(true);
+            MessageManager.getInstance().registerListener(this.f36918h);
+            this.f36912b.setRoundLayoutRadius(c.a.o0.r.v.a.y(R.string.J_X06));
         }
     }
 
-    public View getNewUserDialogShareView() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
-    }
-
-    public View getNewsUserDialogLookView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47747j : (View) invokeV.objValue;
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this.f47743f, R.color.CAM_X0211);
-            SkinManager.setViewTextColor(this.f47744g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f47745h, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.f47746i, R.drawable.icon_use_close_n);
-            c d2 = c.d(this.f47747j);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.f36912b, R.color.CAM_X0211);
+            SkinManager.setViewTextColor(this.f36913c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f36914d, (int) R.color.CAM_X0107);
+            SkinManager.setImageResource(this.f36915e, R.drawable.icon_use_close_n);
+            c d2 = c.d(this.f36916f);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0902);
             d2.n(R.string.J_X01);
             d2.v(R.color.CAM_X0105);
-            c d3 = c.d(this.k);
+            c d3 = c.d(this.f36917g);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0304);
             d3.n(R.string.J_X01);
@@ -157,18 +147,30 @@ public class NewUserRewardDialogView extends LinearLayout {
         }
     }
 
-    public void onDestroy() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f47742e.destroy();
-            MessageManager.getInstance().unRegisterListener(this.l);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.destroy();
+            MessageManager.getInstance().unRegisterListener(this.f36918h);
         }
+    }
+
+    public View getNewUserDialogShareView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36917g : (View) invokeV.objValue;
+    }
+
+    public View getNewsUserDialogLookView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36916f : (View) invokeV.objValue;
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f47746i.setOnClickListener(onClickListener);
+            this.f36915e.setOnClickListener(onClickListener);
         }
     }
 
@@ -177,19 +179,19 @@ public class NewUserRewardDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, iconStampData) == null) || iconStampData == null) {
             return;
         }
-        this.f47744g.setText(iconStampData.stampTitle);
-        this.f47745h.setText(iconStampData.stampText);
-        int i2 = iconStampData.stampType;
-        if (i2 == 1) {
-            this.f47742e.setSourcePath(i.b("post_1_times.mp4"));
-        } else if (i2 == 2) {
-            this.f47742e.setSourcePath(i.b("reply_1_times.mp4"));
-        } else if (i2 == 3) {
-            this.f47742e.setSourcePath(i.b("post_7_times.mp4"));
+        this.f36913c.setText(iconStampData.stampTitle);
+        this.f36914d.setText(iconStampData.stampText);
+        int i = iconStampData.stampType;
+        if (i == 1) {
+            this.a.setSourcePath(i.b("post_1_times.mp4"));
+        } else if (i == 2) {
+            this.a.setSourcePath(i.b("reply_1_times.mp4"));
+        } else if (i == 3) {
+            this.a.setSourcePath(i.b("post_7_times.mp4"));
         } else {
-            this.f47742e.setSourcePath(i.b("reply_7_times.mp4"));
+            this.a.setSourcePath(i.b("reply_7_times.mp4"));
         }
-        this.f47742e.play();
+        this.a.play();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -201,9 +203,9 @@ public class NewUserRewardDialogView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -214,17 +216,17 @@ public class NewUserRewardDialogView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -232,8 +234,8 @@ public class NewUserRewardDialogView extends LinearLayout {
                 return;
             }
         }
-        this.l = new a(this, 2001011);
+        this.f36918h = new a(this, 2001011);
         b(context);
-        onChangeSkinType();
+        c();
     }
 }

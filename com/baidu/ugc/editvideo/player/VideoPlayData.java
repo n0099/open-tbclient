@@ -54,9 +54,9 @@ public class VideoPlayData implements Parcelable, Serializable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -75,10 +75,10 @@ public class VideoPlayData implements Parcelable, Serializable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public VideoPlayData[] newArray(int i2) {
+            public VideoPlayData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new VideoPlayData[i2] : (VideoPlayData[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new VideoPlayData[i] : (VideoPlayData[]) invokeI.objValue;
             }
         };
     }
@@ -88,9 +88,9 @@ public class VideoPlayData implements Parcelable, Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -160,10 +160,10 @@ public class VideoPlayData implements Parcelable, Serializable {
         return invokeL.booleanValue;
     }
 
-    public void setInsertIndex(int i2) {
+    public void setInsertIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.insertIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.insertIndex = i;
         }
     }
 
@@ -200,14 +200,14 @@ public class VideoPlayData implements Parcelable, Serializable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeString(this.videoPath);
             parcel.writeInt(this.offset);
             parcel.writeInt(this.start);
             parcel.writeInt(this.end);
-            parcel.writeParcelable(this.next, i2);
+            parcel.writeParcelable(this.next, i);
             parcel.writeByte(this.isOriginal ? (byte) 1 : (byte) 0);
             parcel.writeInt(this.insertIndex);
             parcel.writeInt(this.rotation);
@@ -217,24 +217,24 @@ public class VideoPlayData implements Parcelable, Serializable {
         }
     }
 
-    public VideoPlayData(String str, int i2, int i3, boolean z) {
+    public VideoPlayData(String str, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.videoPath = str;
-        this.start = i2;
-        this.end = i3;
+        this.start = i;
+        this.end = i2;
         this.isOriginal = z;
     }
 
@@ -245,9 +245,9 @@ public class VideoPlayData implements Parcelable, Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

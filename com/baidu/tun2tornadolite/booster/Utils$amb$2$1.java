@@ -36,9 +36,9 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, C
             newInitContext.initArgs = r2;
             Object[] objArr = {list, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -81,7 +81,7 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, C
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
                 Object obj2 = this.L$0;
-                Utils.m89amb$lambda1$cancelAll(this.$jobs);
+                Utils.m83amb$lambda1$cancelAll(this.$jobs);
                 return obj2;
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");

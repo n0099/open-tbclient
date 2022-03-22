@@ -22,24 +22,22 @@ import tbclient.RecommendForumInfo;
 public class ItemHeaderView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BarImageView f33818b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33819c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33820d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43575e;
+    public TextView f33821e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BarImageView f43576f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f43577g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f43578h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f43579i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f43580j;
+    public TextView f33822f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemHeaderView(Context context) {
@@ -50,37 +48,37 @@ public class ItemHeaderView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 
-    public void init(Context context) {
+    public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f43575e = context;
-            LayoutInflater.from(context).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
+            this.a = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ae, (ViewGroup) this, true);
             setVisibility(8);
-            this.f43576f = (BarImageView) findViewById(R.id.h_forum_portrait);
-            this.f43577g = (TextView) findViewById(R.id.h_forum_name);
-            this.f43578h = (TextView) findViewById(R.id.forum_authen);
-            this.f43579i = (TextView) findViewById(R.id.h_fans_num);
-            this.f43580j = (TextView) findViewById(R.id.h_thread_num);
-            this.f43576f.setPlaceHolder(1);
+            this.f33818b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d10);
+            this.f33819c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0f);
+            this.f33820d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1d);
+            this.f33821e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0e);
+            this.f33822f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d11);
+            this.f33818b.setPlaceHolder(1);
         }
     }
 
-    public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
+    public void b(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i2) == null) {
-            forumDetailActivity.getLayoutMode().k(i2 == 1);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
+            forumDetailActivity.getLayoutMode().k(i == 1);
             forumDetailActivity.getLayoutMode().j(this);
         }
     }
@@ -91,24 +89,24 @@ public class ItemHeaderView extends RelativeLayout {
             return;
         }
         boolean z = recommendForumInfo.forum_type.intValue() == 1;
-        this.f43577g.setText(recommendForumInfo.forum_name);
+        this.f33819c.setText(recommendForumInfo.forum_name);
         if (z) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            this.f43577g.setCompoundDrawables(null, null, bitmapDrawable, null);
-            TextView textView = this.f43577g;
-            Context context = this.f43575e;
-            textView.setCompoundDrawablePadding(n.d(context, context.getResources().getDimension(R.dimen.ds4)));
-            this.f43578h.setText(recommendForumInfo.authen);
-            this.f43578h.setVisibility(0);
+            this.f33819c.setCompoundDrawables(null, null, bitmapDrawable, null);
+            TextView textView = this.f33819c;
+            Context context = this.a;
+            textView.setCompoundDrawablePadding(n.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            this.f33820d.setText(recommendForumInfo.authen);
+            this.f33820d.setVisibility(0);
         } else {
-            this.f43577g.setCompoundDrawables(null, null, null, null);
-            this.f43578h.setVisibility(8);
+            this.f33819c.setCompoundDrawables(null, null, null, null);
+            this.f33820d.setVisibility(8);
         }
-        this.f43579i.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
-        this.f43580j.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d2 = n.d(this.f43575e, 80.0f);
-        this.f43576f.startLoad(recommendForumInfo.avatar, 10, d2, d2, false);
+        this.f33821e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
+        this.f33822f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
+        int d2 = n.d(this.a, 80.0f);
+        this.f33818b.G(recommendForumInfo.avatar, 10, d2, d2, false);
         setVisibility(0);
     }
 
@@ -121,9 +119,9 @@ public class ItemHeaderView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -131,21 +129,21 @@ public class ItemHeaderView extends RelativeLayout {
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemHeaderView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ItemHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -153,6 +151,6 @@ public class ItemHeaderView extends RelativeLayout {
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 }

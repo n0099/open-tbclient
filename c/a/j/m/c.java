@@ -34,22 +34,20 @@ public class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3856b;
+    public static String f3304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3857c;
+    public static String f3305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3858d;
+    public static boolean f3306d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f3859e;
+        public final /* synthetic */ Object a;
 
         public a(Object obj) {
             Interceptable interceptable = $ic;
@@ -58,15 +56,15 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3859e = obj;
+            this.a = obj;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -77,7 +75,7 @@ public class c {
                 if (TextUtils.equals("enqueueToast", method.getName())) {
                     c.l(objArr[1]);
                 }
-                return method.invoke(this.f3859e, objArr);
+                return method.invoke(this.a, objArr);
             }
             return invokeLLL.objValue;
         }
@@ -90,7 +88,7 @@ public class c {
         public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f3860b;
+        public Handler f3307b;
 
         public b(Runnable runnable, Handler handler) {
             Interceptable interceptable = $ic;
@@ -99,16 +97,16 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {runnable, handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = runnable;
-            this.f3860b = handler;
+            this.f3307b = handler;
         }
 
         @Override // android.os.Handler
@@ -136,7 +134,7 @@ public class c {
                     }
                 }
                 try {
-                    this.f3860b.handleMessage(message);
+                    this.f3307b.handleMessage(message);
                 } catch (WindowManager.BadTokenException e6) {
                     e6.printStackTrace();
                 }
@@ -181,10 +179,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f3857c == null) {
-                f3857c = j("ro.build.version.opporom");
+            if (f3305c == null) {
+                f3305c = j("ro.build.version.opporom");
             }
-            return !TextUtils.isEmpty(f3857c);
+            return !TextUtils.isEmpty(f3305c);
         }
         return invokeV.booleanValue;
     }
@@ -194,10 +192,10 @@ public class c {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f3856b == null) {
-                f3856b = j(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            if (f3304b == null) {
+                f3304b = j(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
             }
-            if (!TextUtils.isEmpty(f3856b) && (split = f3856b.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length >= 1 && split[0].length() >= 2) {
+            if (!TextUtils.isEmpty(f3304b) && (split = f3304b.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length >= 1 && split[0].length() >= 2) {
                 String substring = split[0].substring(1);
                 if (!TextUtils.isEmpty(substring)) {
                     try {
@@ -227,9 +225,9 @@ public class c {
 
     public static void h(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65544, null, z) == null) && z && f() && !f3858d) {
+        if ((interceptable == null || interceptable.invokeZ(65544, null, z) == null) && z && f() && !f3306d) {
             try {
-                f3858d = true;
+                f3306d = true;
                 Method declaredMethod = Toast.class.getDeclaredMethod("getService", null);
                 declaredMethod.setAccessible(true);
                 Object invoke = declaredMethod.invoke(null, null);
@@ -343,16 +341,16 @@ public class c {
         }
     }
 
-    public static void m(Toast toast, int i2) {
-        Object i3;
+    public static void m(Toast toast, int i) {
+        Object i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, toast, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65549, null, toast, i) == null) {
             try {
-                Object i4 = i(toast, "mTN");
-                if (i4 == null || (i3 = i(i4, "mParams")) == null || !(i3 instanceof WindowManager.LayoutParams)) {
+                Object i3 = i(toast, "mTN");
+                if (i3 == null || (i2 = i(i3, "mParams")) == null || !(i2 instanceof WindowManager.LayoutParams)) {
                     return;
                 }
-                ((WindowManager.LayoutParams) i3).windowAnimations = i2;
+                ((WindowManager.LayoutParams) i2).windowAnimations = i;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -12,86 +12,86 @@ public final class CursorKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final byte[] getBlobOrNull(Cursor cursor, int i2) {
+    public static final byte[] getBlobOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return cursor.getBlob(i2);
+            return cursor.getBlob(i);
         }
         return (byte[]) invokeLI.objValue;
     }
 
-    public static final Double getDoubleOrNull(Cursor cursor, int i2) {
+    public static final Double getDoubleOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return Double.valueOf(cursor.getDouble(i2));
+            return Double.valueOf(cursor.getDouble(i));
         }
         return (Double) invokeLI.objValue;
     }
 
-    public static final Float getFloatOrNull(Cursor cursor, int i2) {
+    public static final Float getFloatOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return Float.valueOf(cursor.getFloat(i2));
+            return Float.valueOf(cursor.getFloat(i));
         }
         return (Float) invokeLI.objValue;
     }
 
-    public static final Integer getIntOrNull(Cursor cursor, int i2) {
+    public static final Integer getIntOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return Integer.valueOf(cursor.getInt(i2));
+            return Integer.valueOf(cursor.getInt(i));
         }
         return (Integer) invokeLI.objValue;
     }
 
-    public static final Long getLongOrNull(Cursor cursor, int i2) {
+    public static final Long getLongOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return Long.valueOf(cursor.getLong(i2));
+            return Long.valueOf(cursor.getLong(i));
         }
         return (Long) invokeLI.objValue;
     }
 
-    public static final Short getShortOrNull(Cursor cursor, int i2) {
+    public static final Short getShortOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return Short.valueOf(cursor.getShort(i2));
+            return Short.valueOf(cursor.getShort(i));
         }
         return (Short) invokeLI.objValue;
     }
 
-    public static final String getStringOrNull(Cursor cursor, int i2) {
+    public static final String getStringOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cursor, i2)) == null) {
-            if (cursor.isNull(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cursor, i)) == null) {
+            if (cursor.isNull(i)) {
                 return null;
             }
-            return cursor.getString(i2);
+            return cursor.getString(i);
         }
         return (String) invokeLI.objValue;
     }

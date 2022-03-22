@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class StatsReport {
     public final String type;
     public final Value[] values;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Value {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class StatsReport {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,9 +61,9 @@ public class StatsReport {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, Double.valueOf(d2), valueArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,13 +89,13 @@ public class StatsReport {
         sb.append(", timestamp: ");
         sb.append(this.timestamp);
         sb.append(", values: ");
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Value[] valueArr = this.values;
-            if (i2 < valueArr.length) {
-                sb.append(valueArr[i2].toString());
+            if (i < valueArr.length) {
+                sb.append(valueArr[i].toString());
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                i2++;
+                i++;
             } else {
                 return sb.toString();
             }

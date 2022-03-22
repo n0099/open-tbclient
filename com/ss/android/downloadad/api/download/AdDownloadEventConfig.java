@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdDownloadEventConfig implements DownloadEventConfig {
     public String mClickButtonTag;
     public String mClickContinueLabel;
@@ -22,7 +22,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     public String mRefer;
     public String mStorageDenyLabel;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public AdDownloadEventConfig eventConfig = new AdDownloadEventConfig();
 
@@ -110,8 +110,8 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             return this;
         }
 
-        public Builder setDownloadScene(int i2) {
-            this.eventConfig.mDownloadScene = i2;
+        public Builder setDownloadScene(int i) {
+            this.eventConfig.mDownloadScene = i;
             return this;
         }
 
@@ -296,8 +296,8 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
-    public void setDownloadScene(int i2) {
-        this.mDownloadScene = i2;
+    public void setDownloadScene(int i) {
+        this.mDownloadScene = i;
     }
 
     public void setExtraEventObject(Object obj) {
@@ -334,12 +334,12 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             jSONObject.putOpt("storage_deny_label", this.mStorageDenyLabel);
             jSONObject.putOpt(TiebaStatic.Params.REFER, this.mRefer);
             jSONObject.putOpt("download_scene", Integer.valueOf(this.mDownloadScene));
-            int i2 = 1;
+            int i = 1;
             jSONObject.putOpt("enable_click_event", Integer.valueOf(this.mIsEnableClickEvent ? 1 : 0));
             if (!this.mIsEnableV3Event) {
-                i2 = 0;
+                i = 0;
             }
-            jSONObject.putOpt("enable_v3_event", Integer.valueOf(i2));
+            jSONObject.putOpt("enable_v3_event", Integer.valueOf(i));
             jSONObject.putOpt("extra", this.mExtraJson);
             jSONObject.putOpt("params_json", this.mParamsJson);
         } catch (Exception e2) {

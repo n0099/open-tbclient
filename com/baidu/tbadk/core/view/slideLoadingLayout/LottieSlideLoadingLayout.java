@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public static /* synthetic */ Interceptable $ic;
+    public static final int u;
     public static final int v;
     public static final int w;
-    public static final int x;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContinuousAnimationView mLoadingLottieView;
+    public ContinuousAnimationView t;
 
     static {
         InterceptResult invokeClinit;
@@ -41,9 +41,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
                 return;
             }
         }
-        v = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
-        w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        x = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds144);
+        u = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds230);
+        v = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds144);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -55,9 +55,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -68,108 +68,108 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void A(int i, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void B(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.t.cancelAnimation();
+            this.t.setFrame(0);
+            this.t.setMinAndMaxProgress(0.0f, 1.0f);
+            this.t.setAlpha(1.0f);
+            this.t.loop(false);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void C(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void D(int i, float f2, float f3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.t.setAlpha((float) ((1.0f - f3) * 0.3d));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void E(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.t.setAlpha(f2);
+            this.t.setFrame((int) (f2 * 10.0f));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
+    public void F(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            if (f2 < getLoadingPointRatio()) {
+                x();
+            } else {
+                H();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
     public int getLoadingPointDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? v : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? u : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
     public int getLoadingPointToBottomDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? w : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? v : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
     public int getLoadingVewMaxHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? x : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? w : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void initLoadingView(FrameLayout frameLayout) {
+    public void t(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, frameLayout) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.uni_slide_loading_view, (ViewGroup) frameLayout, true);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.loading_lottie_view);
-            this.mLoadingLottieView = continuousAnimationView;
+        if (interceptable == null || interceptable.invokeL(1048585, this, frameLayout) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d085c, (ViewGroup) frameLayout, true);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091313);
+            this.t = continuousAnimationView;
             continuousAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
-            this.mLoadingLottieView.setSpeed(1.3f);
-            this.mLoadingLottieView.setAnimation(R.raw.lottie_frs_refresh);
+            this.t.setSpeed(1.3f);
+            this.t.setAnimation(R.raw.lottie_frs_refresh);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToLoadingPointEnd(int i2, float f2) {
+    public void y(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mLoadingLottieView.setMinAndMaxFrame(19, 42);
-            this.mLoadingLottieView.loop(true);
-            this.mLoadingLottieView.playAnimation();
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.t.setMinAndMaxFrame(19, 42);
+            this.t.loop(true);
+            this.t.playAnimation();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToLoadingPointStart(int i2, float f2) {
+    public void z(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToLoadingPointUpdate(int i2, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToTopEnd(int i2, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mLoadingLottieView.cancelAnimation();
-            this.mLoadingLottieView.setFrame(0);
-            this.mLoadingLottieView.setMinAndMaxProgress(0.0f, 1.0f);
-            this.mLoadingLottieView.setAlpha(1.0f);
-            this.mLoadingLottieView.loop(false);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToTopStart(int i2, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onAnimToTopUpdate(int i2, float f2, float f3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mLoadingLottieView.setAlpha((float) ((1.0f - f3) * 0.3d));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onFingerDrag(int i2, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mLoadingLottieView.setAlpha(f2);
-            this.mLoadingLottieView.setFrame((int) (f2 * 10.0f));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void onFingerDragEnd(int i2, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (f2 < getLoadingPointRatio()) {
-                loadingViewScrollToTop();
-            } else {
-                startLoading();
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
         }
     }
 
@@ -182,9 +182,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -195,17 +195,17 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LottieSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LottieSlideLoadingLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

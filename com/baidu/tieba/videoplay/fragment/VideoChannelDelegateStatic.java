@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import c.a.o0.h0.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -20,6 +21,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,16 +33,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes6.dex */
-public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
+public class VideoChannelDelegateStatic extends c.a.o0.h0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageRedDotView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f47515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f47516c;
+    public MessageRedDotView f36715c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public CustomMessageListener f36716d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c.a.d.c.g.a f36717e;
 
     /* loaded from: classes6.dex */
     public static class a extends CustomMessageListener {
@@ -48,17 +52,17 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -72,7 +76,7 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                ((c.a.q0.h0.d) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
+                ((c.a.o0.h0.d) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
             }
         }
     }
@@ -83,17 +87,17 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -108,7 +112,7 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921610 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof VideoClickTabData)) {
                 VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
-                videoMiddleFragment.setActivityPageUniqueId(BdUniqueId.gen());
+                videoMiddleFragment.Y0(BdUniqueId.gen());
                 VideoClickTabData videoClickTabData = (VideoClickTabData) customResponsedMessage.getData();
                 if (videoClickTabData != null) {
                     videoMiddleFragment.setArguments(videoClickTabData.getVideoMiddleBundle());
@@ -124,17 +128,17 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -148,7 +152,7 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                VideoChannelDelegateStatic.a(((Integer) customResponsedMessage.getData()).intValue());
+                VideoChannelDelegateStatic.g(((Integer) customResponsedMessage.getData()).intValue());
             }
         }
     }
@@ -160,17 +164,17 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public final /* synthetic */ VideoChannelDelegateStatic a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(VideoChannelDelegateStatic videoChannelDelegateStatic, int i2) {
-            super(i2);
+        public d(VideoChannelDelegateStatic videoChannelDelegateStatic, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {videoChannelDelegateStatic, Integer.valueOf(i2)};
+                Object[] objArr = {videoChannelDelegateStatic, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -185,7 +189,7 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.a.e((String) customResponsedMessage.getData());
+                this.a.k((String) customResponsedMessage.getData());
             }
         }
     }
@@ -197,17 +201,17 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public final /* synthetic */ VideoChannelDelegateStatic a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(VideoChannelDelegateStatic videoChannelDelegateStatic, int i2, int i3) {
-            super(i2, i3);
+        public e(VideoChannelDelegateStatic videoChannelDelegateStatic, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {videoChannelDelegateStatic, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {videoChannelDelegateStatic, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -222,8 +226,8 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RedIcon redIcon;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof c.a.q0.h0.g.a)) {
-                c.a.q0.h0.g.a aVar = (c.a.q0.h0.g.a) responsedMessage;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof c.a.o0.h0.h.a)) {
+                c.a.o0.h0.h.a aVar = (c.a.o0.h0.h.a) responsedMessage;
                 if (aVar.getResData() == null) {
                     return;
                 }
@@ -233,7 +237,7 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
                 }
                 TbSingleton.getInstance().setVideoChannelRecommendRedIcon(null);
                 TbSingleton.getInstance().setVideoChannelAttentionRedIcon(redIcon);
-                this.a.d(redIcon);
+                this.a.j(redIcon);
             }
         }
     }
@@ -265,111 +269,114 @@ public class VideoChannelDelegateStatic extends c.a.q0.h0.b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static /* synthetic */ int a(int i2) {
-        return i2;
+    public static /* synthetic */ int g(int i) {
+        return i;
     }
 
-    @Override // c.a.q0.h0.b
-    public c.a.q0.h0.c createFragmentTabStructure() {
+    @Override // c.a.o0.h0.b
+    public c.a.o0.h0.c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.q0.h0.c cVar = new c.a.q0.h0.c();
+            c.a.o0.h0.c cVar = new c.a.o0.h0.c();
             Bundle bundle = new Bundle();
             VideoChannelFragment videoChannelFragment = new VideoChannelFragment();
-            videoChannelFragment.setActivityPageUniqueId(BdUniqueId.gen());
+            videoChannelFragment.Y0(BdUniqueId.gen());
             cVar.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
-            cVar.f12602e = 22;
-            cVar.f12599b = R.string.video_channel;
-            cVar.f12606i = c.a.q0.h0.c.l;
-            cVar.f12603f = R.raw.lottie_tab_video_channel;
-            cVar.f12605h = c.a.q0.h0.f.c.d().c("channel");
+            cVar.f10299e = 22;
+            cVar.f10296b = R.string.obfuscated_res_0x7f0f14c8;
+            cVar.i = c.a.o0.h0.c.m;
+            cVar.f10300f = R.raw.lottie_tab_video_channel;
+            cVar.f10302h = c.a.o0.h0.g.c.d().c("channel");
             return cVar;
         }
-        return (c.a.q0.h0.c) invokeV.objValue;
+        return (c.a.o0.h0.c) invokeV.objValue;
     }
 
-    public final void d(@NonNull RedIcon redIcon) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, redIcon) == null) {
-            c.a.q0.h0.c cVar = new c.a.q0.h0.c();
-            cVar.f12604g = redIcon.image;
-            cVar.f12602e = 22;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
-        }
-    }
-
-    public final void e(String str) {
-        MessageRedDotView messageRedDotView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (messageRedDotView = this.a) == null) {
-            return;
-        }
-        messageRedDotView.refresh(str, false);
-        this.a.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
-    }
-
-    @Override // c.a.q0.h0.b
-    public TbFragmentTabIndicator getTabIndicator(Context context) {
+    @Override // c.a.o0.h0.b
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) c.a.q0.h0.e.e().d(22);
-            this.mIndicator = maintabBottomIndicator;
-            if (maintabBottomIndicator == null) {
-                this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (c.a.o0.h0.e.e().a()) {
+                this.f10295b = (MaintabBottomIndicator) c.a.o0.h0.e.e().d(22);
+            } else if (PreInitMainTabViewSwitch.getIsOn()) {
+                this.f10295b = f.b().a();
             }
-            this.a = new MessageRedDotView(context);
+            if (this.f10295b == null) {
+                this.f10295b = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+            }
+            this.f36715c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
-            aVar.f39707f = tbFragmentTabIndicator;
-            aVar.a = this.a;
-            tbFragmentTabIndicator.addTipWrapContent("video_msg", aVar);
-            this.a.setVisibility(4);
-            return this.mIndicator;
+            TbFragmentTabIndicator tbFragmentTabIndicator = this.f10295b;
+            aVar.f30586f = tbFragmentTabIndicator;
+            aVar.a = this.f36715c;
+            tbFragmentTabIndicator.b("video_msg", aVar);
+            this.f36715c.setVisibility(4);
+            return this.f10295b;
         }
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.q0.h0.b
-    public boolean isAvailable() {
+    @Override // c.a.o0.h0.b
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? MainTabActivityConfig.VIDEO_CHANNEL_TAB_AVAILABLE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.VIDEO_CHANNEL_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.h0.b
-    public void onAdd() {
+    @Override // c.a.o0.h0.b
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f47515b = new d(this, 2921577);
-            this.f47516c = new e(this, CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708);
-            MessageManager.getInstance().registerListener(this.f47516c);
-            MessageManager.getInstance().registerListener(this.f47515b);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f36716d = new d(this, 2921577);
+            this.f36717e = new e(this, CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708);
+            MessageManager.getInstance().registerListener(this.f36717e);
+            MessageManager.getInstance().registerListener(this.f36716d);
         }
     }
 
-    @Override // c.a.q0.h0.b
-    public void onRemove() {
+    @Override // c.a.o0.h0.b
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onRemove();
-            MessageManager.getInstance().unRegisterListener(this.f47516c);
-            MessageManager.getInstance().unRegisterListener(this.f47515b);
-            if (getFragmentTabStructure() == null || getFragmentTabStructure().a == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.f();
+            MessageManager.getInstance().unRegisterListener(this.f36717e);
+            MessageManager.getInstance().unRegisterListener(this.f36716d);
+            if (b() == null || b().a == null) {
                 return;
             }
-            getFragmentTabStructure().a.onDestroy();
+            b().a.onDestroy();
         }
+    }
+
+    public final void j(@NonNull RedIcon redIcon) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, redIcon) == null) {
+            c.a.o0.h0.c cVar = new c.a.o0.h0.c();
+            cVar.f10301g = redIcon.image;
+            cVar.f10299e = 22;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
+        }
+    }
+
+    public final void k(String str) {
+        MessageRedDotView messageRedDotView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (messageRedDotView = this.f36715c) == null) {
+            return;
+        }
+        messageRedDotView.g(str, false);
+        this.f36715c.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
     }
 }

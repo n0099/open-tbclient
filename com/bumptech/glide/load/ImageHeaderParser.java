@@ -13,12 +13,12 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ImageHeaderParser {
     public static final int UNKNOWN_ORIENTATION = -1;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ImageType {
         public static final /* synthetic */ ImageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -58,16 +58,16 @@ public interface ImageHeaderParser {
             $VALUES = new ImageType[]{GIF, JPEG, RAW, PNG_A, PNG, WEBP_A, WEBP, imageType};
         }
 
-        public ImageType(String str, int i2, boolean z) {
+        public ImageType(String str, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();

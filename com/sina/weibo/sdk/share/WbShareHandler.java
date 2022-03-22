@@ -27,7 +27,7 @@ import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WbShareHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WB_SHARE_REQUEST = 1;
@@ -44,9 +44,9 @@ public class WbShareHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,12 +133,12 @@ public class WbShareHandler {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, intent, wbShareCallback) == null) || wbShareCallback == null || intent == null || (extras = intent.getExtras()) == null) {
             return;
         }
-        int i2 = extras.getInt(WBConstants.Response.ERRCODE, -1);
-        if (i2 == 0) {
+        int i = extras.getInt(WBConstants.Response.ERRCODE, -1);
+        if (i == 0) {
             wbShareCallback.onWbShareSuccess();
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             wbShareCallback.onWbShareCancel();
-        } else if (i2 != 2) {
+        } else if (i != 2) {
         } else {
             wbShareCallback.onWbShareFail();
         }
@@ -162,17 +162,17 @@ public class WbShareHandler {
         return invokeV.booleanValue;
     }
 
-    public void setProgressColor(int i2) {
+    public void setProgressColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.progressColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.progressColor = i;
         }
     }
 
-    public void setProgressId(int i2) {
+    public void setProgressId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.progressId = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.progressId = i;
         }
     }
 

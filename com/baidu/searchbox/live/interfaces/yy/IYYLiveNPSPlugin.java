@@ -35,7 +35,7 @@ public interface IYYLiveNPSPlugin {
 
     void loadPlugin(@NonNull Context context, LiveLoadStatusCallback liveLoadStatusCallback);
 
-    void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
+    void onDiskClearCacheChange(long j, int i, int i2, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void prepareYYEnv(String str, YYEnvResultCallback yYEnvResultCallback);
 

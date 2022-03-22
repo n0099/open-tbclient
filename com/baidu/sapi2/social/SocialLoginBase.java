@@ -22,9 +22,9 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,10 +50,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(R.id.root_view);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aee);
         }
     }
 }

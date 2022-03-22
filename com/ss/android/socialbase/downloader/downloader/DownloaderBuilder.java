@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloaderBuilder {
     public g chunkAdjustCalculator;
     public h chunkCntCalculator;
@@ -93,8 +93,8 @@ public class DownloaderBuilder {
         return this;
     }
 
-    public DownloaderBuilder downloadExpSwitch(int i2) {
-        this.downloadExpSwitch = i2;
+    public DownloaderBuilder downloadExpSwitch(int i) {
+        this.downloadExpSwitch = i;
         return this;
     }
 
@@ -246,8 +246,8 @@ public class DownloaderBuilder {
         return this.downloadInMultiProcess;
     }
 
-    public DownloaderBuilder maxDownloadPoolSize(int i2) {
-        this.maxDownloadPoolSize = i2;
+    public DownloaderBuilder maxDownloadPoolSize(int i) {
+        this.maxDownloadPoolSize = i;
         return this;
     }
 
@@ -291,8 +291,8 @@ public class DownloaderBuilder {
         return this;
     }
 
-    public DownloaderBuilder writeBufferSize(int i2) {
-        this.writeBufferSize = i2;
+    public DownloaderBuilder writeBufferSize(int i) {
+        this.writeBufferSize = i;
         return this;
     }
 

@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class EventElementInfo extends ParamableElem implements Elem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final transient int CTYPE_CLICK_TIMES_REPORT = 1;
@@ -25,16 +25,16 @@ public class EventElementInfo extends ParamableElem implements Elem {
     public String cvalue;
     public Property property;
 
-    public EventElementInfo(String str, int i2) {
+    public EventElementInfo(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public class EventElementInfo extends ParamableElem implements Elem {
         this.property = new Property();
         this.cid = str;
         this.ctype = 1;
-        this.cvalue = Integer.toString(i2);
+        this.cvalue = Integer.toString(i);
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -122,10 +122,10 @@ public class EventElementInfo extends ParamableElem implements Elem {
         }
     }
 
-    public void setCtype(int i2) {
+    public void setCtype(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.ctype = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.ctype = i;
         }
     }
 
@@ -173,9 +173,9 @@ public class EventElementInfo extends ParamableElem implements Elem {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

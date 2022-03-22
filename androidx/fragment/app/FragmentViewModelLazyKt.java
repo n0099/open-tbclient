@@ -31,8 +31,8 @@ public final class FragmentViewModelLazyKt {
         return createViewModelLazy(fragment, orCreateKotlinClass, fragmentViewModelLazyKt$activityViewModels$1, function0);
     }
 
-    public static /* synthetic */ Lazy activityViewModels$default(Fragment fragment, Function0 function0, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Lazy activityViewModels$default(Fragment fragment, Function0 function0, int i, Object obj) {
+        if ((i & 1) != 0) {
             function0 = null;
         }
         Intrinsics.reifiedOperationMarker(4, "VM");
@@ -57,18 +57,18 @@ public final class FragmentViewModelLazyKt {
         return (Lazy) invokeLLLL.objValue;
     }
 
-    public static /* synthetic */ Lazy createViewModelLazy$default(Fragment fragment, KClass kClass, Function0 function0, Function0 function02, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
+    public static /* synthetic */ Lazy createViewModelLazy$default(Fragment fragment, KClass kClass, Function0 function0, Function0 function02, int i, Object obj) {
+        if ((i & 4) != 0) {
             function02 = null;
         }
         return createViewModelLazy(fragment, kClass, function0, function02);
     }
 
-    public static /* synthetic */ Lazy viewModels$default(Fragment fragment, Function0 function0, Function0 function02, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Lazy viewModels$default(Fragment fragment, Function0 function0, Function0 function02, int i, Object obj) {
+        if ((i & 1) != 0) {
             function0 = new FragmentViewModelLazyKt$viewModels$1(fragment);
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             function02 = null;
         }
         Intrinsics.reifiedOperationMarker(4, "VM");

@@ -7,9 +7,9 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.LineHeightSpan;
 import android.util.AttributeSet;
-import android.view.View;
+import android.util.Log;
 import android.widget.TextView;
-import c.a.b0.h0.f;
+import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -27,106 +26,105 @@ import kotlin.text.StringsKt__StringsKt;
 public class UnifyTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f27799b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f27800c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f27801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f35992e;
+    public int f27802e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f35993f;
+    public int f27803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35994g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f35995h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f35996i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f35997j;
-    public int k;
-    public HashMap l;
+    public int f27804g;
 
     /* loaded from: classes4.dex */
     public static final class a implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final TextView f27805b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final int f27806c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final int f27807d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f35998e;
+        public final int f27808e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TextView f35999f;
+        public final int f27809f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f36000g;
+        public final int f27810g;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final int f36001h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final int f36002i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final int f36003j;
-        public final int k;
-
-        public a(TextView textView, int i2, int i3, int i4, int i5, int i6) {
+        public a(TextView textView, int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+                Object[] objArr = {textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             Intrinsics.checkNotNullParameter(textView, "textView");
-            this.f35999f = textView;
-            this.f36000g = i2;
-            this.f36001h = i3;
-            this.f36002i = i4;
-            this.f36003j = i5;
-            this.k = i6;
-            this.f35998e = "meizu_15_CN";
+            this.f27805b = textView;
+            this.f27806c = i;
+            this.f27807d = i2;
+            this.f27808e = i3;
+            this.f27809f = i4;
+            this.f27810g = i5;
+            this.a = "meizu_15_CN";
         }
 
         @Override // android.text.style.LineHeightSpan
-        public void chooseHeight(CharSequence text, int i2, int i3, int i4, int i5, Paint.FontMetricsInt fm) {
+        public void chooseHeight(CharSequence text, int i, int i2, int i3, int i4, Paint.FontMetricsInt fm) {
             CharSequence subSequence;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{text, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fm}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{text, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fm}) == null) {
                 Intrinsics.checkNotNullParameter(text, "text");
                 Intrinsics.checkNotNullParameter(fm, "fm");
-                int i6 = fm.descent - fm.ascent;
-                if (i6 <= 0) {
+                int i5 = fm.descent - fm.ascent;
+                if (i5 <= 0) {
                     return;
                 }
-                int textSize = (int) this.f35999f.getTextSize();
-                int round = Math.round(fm.descent * ((textSize * 1.0f) / i6));
+                int textSize = (int) this.f27805b.getTextSize();
+                int round = Math.round(fm.descent * ((textSize * 1.0f) / i5));
                 fm.descent = round;
-                int i7 = round - textSize;
-                fm.ascent = i7;
-                fm.top = (i7 - this.f36000g) - this.f36003j;
+                int i6 = round - textSize;
+                fm.ascent = i6;
+                fm.top = (i6 - this.f27806c) - this.f27809f;
                 String a = f.a.a();
                 int a2 = f.b.a();
-                int i8 = 0;
+                int i7 = 0;
                 try {
-                    if (text.length() == i3 && (subSequence = text.subSequence(i2, i3)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
-                        i8 = this.f36001h;
+                    if (text.length() == i2 && (subSequence = text.subSequence(i, i2)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
+                        i7 = this.f27807d;
                     }
                 } catch (Exception unused) {
                 }
-                if (TextUtils.equals(a, this.f35998e) && a2 == 25 && i2 > 0) {
-                    fm.bottom = ((fm.descent + i8) + this.k) - this.f36002i;
+                if (TextUtils.equals(a, this.a) && a2 == 25 && i > 0) {
+                    fm.bottom = ((fm.descent + i7) + this.f27810g) - this.f27808e;
                 } else {
-                    fm.bottom = fm.descent + i8 + this.k;
+                    fm.bottom = fm.descent + i7 + this.f27810g;
                 }
             }
         }
@@ -141,9 +139,9 @@ public class UnifyTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -154,102 +152,77 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public void _$_clearFindViewByIdCache() {
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.l) == null) {
-            return;
-        }
-        hashMap.clear();
-    }
-
-    public View _$_findCachedViewById(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.l == null) {
-                this.l = new HashMap();
-            }
-            View view = (View) this.l.get(Integer.valueOf(i2));
-            if (view == null) {
-                View findViewById = findViewById(i2);
-                this.l.put(Integer.valueOf(i2), findViewById);
-                return findViewById;
-            }
-            return view;
-        }
-        return (View) invokeI.objValue;
-    }
-
-    public final void a(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            if (hasEmoji(charSequence)) {
-                Context context = getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "context");
-                this.f35995h = Math.round(getDimensionPixelSize(context, R.dimen.nad_spannable_exclude_padding_text_top_buffer) * 1.5f);
-                if (this.f35993f) {
-                    String str = "has emoji, mTopBuffer: " + this.f35995h;
-                }
-            } else {
-                Context context2 = getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "context");
-                this.f35995h = getDimensionPixelSize(context2, R.dimen.nad_spannable_exclude_padding_text_top_buffer);
-                if (this.f35993f) {
-                    String str2 = "has no emoji, mTopBuffer: " + this.f35995h;
-                }
-            }
-            Context context3 = getContext();
-            Intrinsics.checkNotNullExpressionValue(context3, "context");
-            this.f35996i = getDimensionPixelSize(context3, R.dimen.nad_spannable_exclude_padding_text_bottom_buffer);
-        }
-    }
-
-    public final int getDimensionPixelSize(Context context, int i2) {
+    public final int a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            return context.getResources().getDimensionPixelSize(i2);
+            return context.getResources().getDimensionPixelSize(i);
         }
         return invokeLI.intValue;
     }
 
-    public final boolean hasEmoji(CharSequence charSequence) {
+    public final boolean b(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, charSequence)) == null) ? Pattern.compile("[🀀-🏿]|[🐀-\u1f7ff]|[☀-⟿]").matcher(charSequence).find() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence)) == null) ? Pattern.compile("[🀀-🏿]|[🐀-\u1f7ff]|[☀-⟿]").matcher(charSequence).find() : invokeL.booleanValue;
     }
 
-    public final void setBottomPadding(int i2) {
+    public final void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.k = i2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
+            if (b(charSequence)) {
+                Context context = getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                this.f27801d = Math.round(a(context, R.dimen.obfuscated_res_0x7f070514) * 1.5f);
+                if (this.f27799b) {
+                    String str = this.a;
+                    Log.d(str, "has emoji, mTopBuffer: " + this.f27801d);
+                }
+            } else {
+                Context context2 = getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "context");
+                this.f27801d = a(context2, R.dimen.obfuscated_res_0x7f070514);
+                if (this.f27799b) {
+                    String str2 = this.a;
+                    Log.d(str2, "has no emoji, mTopBuffer: " + this.f27801d);
+                }
+            }
+            Context context3 = getContext();
+            Intrinsics.checkNotNullExpressionValue(context3, "context");
+            this.f27802e = a(context3, R.dimen.obfuscated_res_0x7f070512);
+        }
+    }
+
+    public final void setBottomPadding(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f27804g = i;
         }
     }
 
     public final void setTextWithUnifiedPadding(CharSequence charSequence, TextView.BufferType bufferType) {
         SpannableStringBuilder spannableStringBuilder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, charSequence, bufferType) == null) || charSequence == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, charSequence, bufferType) == null) || charSequence == null) {
             return;
         }
-        a(charSequence);
+        c(charSequence);
         float lineSpacingExtra = getLineSpacingExtra();
         if (charSequence instanceof SpannableStringBuilder) {
             spannableStringBuilder = (SpannableStringBuilder) charSequence;
-            spannableStringBuilder.setSpan(new a(this, this.f35995h, this.f35996i, (int) lineSpacingExtra, this.f35997j, this.k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f27801d, this.f27802e, (int) lineSpacingExtra, this.f27803f, this.f27804g), 0, charSequence.length(), 33);
         } else {
             spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            spannableStringBuilder.setSpan(new a(this, this.f35995h, this.f35996i, (int) lineSpacingExtra, this.f35997j, this.k), 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(new a(this, this.f27801d, this.f27802e, (int) lineSpacingExtra, this.f27803f, this.f27804g), 0, charSequence.length(), 33);
         }
         setText(spannableStringBuilder, bufferType);
     }
 
-    public final void setTopPadding(int i2) {
+    public final void setTopPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f35997j = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f27803f = i;
         }
     }
 
@@ -262,9 +235,9 @@ public class UnifyTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -276,17 +249,17 @@ public class UnifyTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UnifyTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public UnifyTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -295,11 +268,11 @@ public class UnifyTextView extends TextView {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f35992e = "UnifyTextView";
-        this.f35994g = getDimensionPixelSize(context, R.dimen.nad_spannable_exclude_padding_text_top_bottom_extra);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.spannable_bottom_padding, R.attr.spannable_top_padding});
-        this.f35997j = obtainStyledAttributes.getDimensionPixelSize(1, this.f35994g);
-        this.k = obtainStyledAttributes.getDimensionPixelSize(0, this.f35994g);
+        this.a = "UnifyTextView";
+        this.f27800c = a(context, R.dimen.obfuscated_res_0x7f070513);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040576, R.attr.obfuscated_res_0x7f040577});
+        this.f27803f = obtainStyledAttributes.getDimensionPixelSize(1, this.f27800c);
+        this.f27804g = obtainStyledAttributes.getDimensionPixelSize(0, this.f27800c);
         obtainStyledAttributes.recycle();
     }
 }

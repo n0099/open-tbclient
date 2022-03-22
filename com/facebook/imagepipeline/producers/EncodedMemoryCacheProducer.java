@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
@@ -24,7 +24,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final MemoryCache<CacheKey, PooledByteBuffer> mMemoryCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EncodedMemoryCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer, memoryCache, cacheKey, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -58,15 +58,15 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i) {
             boolean isTracing;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) {
                 try {
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.beginSection("EncodedMemoryCacheProducer#onNewResultImpl");
                     }
-                    if (!BaseConsumer.isNotLast(i2) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i2, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+                    if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                         CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
                         if (byteBufferRef != null) {
                             CloseableReference<PooledByteBuffer> cache = this.mIsMemoryCacheEnabled ? this.mMemoryCache.cache(this.mRequestedCacheKey, byteBufferRef) : null;
@@ -76,7 +76,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                                 encodedImage2.copyMetaDataFrom(encodedImage);
                                 CloseableReference.closeSafely(cache);
                                 getConsumer().onProgressUpdate(1.0f);
-                                getConsumer().onNewResult(encodedImage2, i2);
+                                getConsumer().onNewResult(encodedImage2, i);
                                 EncodedImage.closeSafely(encodedImage2);
                                 if (isTracing) {
                                     return;
@@ -84,14 +84,14 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                                 return;
                             }
                         }
-                        getConsumer().onNewResult(encodedImage, i2);
+                        getConsumer().onNewResult(encodedImage, i);
                         if (FrescoSystrace.isTracing()) {
                             FrescoSystrace.endSection();
                             return;
                         }
                         return;
                     }
-                    getConsumer().onNewResult(encodedImage, i2);
+                    getConsumer().onNewResult(encodedImage, i);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
@@ -111,9 +111,9 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryCache, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

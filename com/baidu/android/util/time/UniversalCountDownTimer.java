@@ -24,9 +24,9 @@ public class UniversalCountDownTimer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -63,29 +63,29 @@ public class UniversalCountDownTimer {
             }
         }
 
-        public void onTick(long j2) {
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             }
         }
     }
 
-    public UniversalCountDownTimer(long j2, long j3) {
+    public UniversalCountDownTimer(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mCountDownTimer = new CountDownTimer(j2, j3);
+        this.mCountDownTimer = new CountDownTimer(j, j2);
     }
 
     public final synchronized void cancel() {
@@ -115,10 +115,10 @@ public class UniversalCountDownTimer {
         }
     }
 
-    public void setCountDownMillis(long j2) {
+    public void setCountDownMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mCountDownTimer.setCountDownMillis(j2);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mCountDownTimer.setCountDownMillis(j);
         }
     }
 
@@ -142,9 +142,9 @@ public class UniversalCountDownTimer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, statusListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -200,11 +200,11 @@ public class UniversalCountDownTimer {
                 }
 
                 @Override // com.baidu.android.util.time.CountDownTimer.StatusListener
-                public void onTick(long j2) {
+                public void onTick(long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(1048581, this, j2) == null) {
-                        super.onTick(j2);
-                        this.val$listener.onTick(j2);
+                    if (interceptable2 == null || interceptable2.invokeJ(1048581, this, j) == null) {
+                        super.onTick(j);
+                        this.val$listener.onTick(j);
                     }
                 }
             });

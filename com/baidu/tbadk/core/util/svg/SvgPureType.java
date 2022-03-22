@@ -14,24 +14,24 @@ public class SvgPureType extends AbsSvgType {
     public int tintColorId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SvgPureType(int i2, int i3) {
-        super(i2);
+    public SvgPureType(int i, int i2) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.tintColorId = i3;
+        this.tintColorId = i2;
     }
 
     @Override // com.baidu.tbadk.core.util.svg.AbsSvgType
@@ -42,17 +42,17 @@ public class SvgPureType extends AbsSvgType {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SvgPureType(int i2, SvgManager.SvgResourceStateType svgResourceStateType, int i3) {
-        super(i2, svgResourceStateType);
+    public SvgPureType(int i, SvgManager.SvgResourceStateType svgResourceStateType, int i2) {
+        super(i, svgResourceStateType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), svgResourceStateType, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), svgResourceStateType, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (SvgManager.SvgResourceStateType) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,6 +60,6 @@ public class SvgPureType extends AbsSvgType {
                 return;
             }
         }
-        this.tintColorId = i3;
+        this.tintColorId = i2;
     }
 }

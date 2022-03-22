@@ -48,9 +48,9 @@ public class EncoderParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -170,17 +170,17 @@ public class EncoderParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.mVideoIncluded : invokeV.booleanValue;
     }
 
-    public void setAudioBitrate(int i2) {
+    public void setAudioBitrate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mAudioBitrate = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mAudioBitrate = i;
         }
     }
 
-    public void setAudioChannel(int i2) {
+    public void setAudioChannel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mAudioChannel = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mAudioChannel = i;
         }
     }
 
@@ -191,10 +191,10 @@ public class EncoderParams {
         }
     }
 
-    public void setAudioFrameSize(int i2) {
+    public void setAudioFrameSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mAudioFrameSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mAudioFrameSize = i;
         }
     }
 
@@ -205,10 +205,10 @@ public class EncoderParams {
         }
     }
 
-    public void setAudioSampleRate(int i2) {
+    public void setAudioSampleRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mAudioSampleRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mAudioSampleRate = i;
         }
     }
 
@@ -219,24 +219,24 @@ public class EncoderParams {
         }
     }
 
-    public void setOutputFormat(int i2) {
+    public void setOutputFormat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mOutputFormat = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mOutputFormat = i;
         }
     }
 
-    public void setOutputTotalMs(long j2) {
+    public void setOutputTotalMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.mOutputTotalMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.mOutputTotalMs = j;
         }
     }
 
-    public void setVideoBitrate(int i2) {
+    public void setVideoBitrate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mVideoBitrate = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mVideoBitrate = i;
         }
     }
 
@@ -247,24 +247,24 @@ public class EncoderParams {
         }
     }
 
-    public void setVideoFrameRate(int i2) {
+    public void setVideoFrameRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.mVideoFrameRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mVideoFrameRate = i;
         }
     }
 
-    public void setVideoHeight(int i2) {
+    public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.mVideoHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.mVideoHeight = i;
         }
     }
 
-    public void setVideoIFrameInterval(int i2) {
+    public void setVideoIFrameInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.mVideoIFrameInterval = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.mVideoIFrameInterval = i;
         }
     }
 
@@ -275,10 +275,10 @@ public class EncoderParams {
         }
     }
 
-    public void setVideoWidth(int i2) {
+    public void setVideoWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mVideoWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mVideoWidth = i;
         }
     }
 }

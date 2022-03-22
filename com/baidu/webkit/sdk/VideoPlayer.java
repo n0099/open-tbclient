@@ -58,11 +58,11 @@ public abstract class VideoPlayer {
 
     /* loaded from: classes6.dex */
     public interface VideoPlayerListener {
-        void onEnded(int i2);
+        void onEnded(int i);
 
-        void onError(int i2, int i3, Object obj);
+        void onError(int i, int i2, Object obj);
 
-        void onInfo(int i2, int i3, Object obj);
+        void onInfo(int i, int i2, Object obj);
 
         void onPaused();
 
@@ -78,9 +78,9 @@ public abstract class VideoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,7 +118,7 @@ public abstract class VideoPlayer {
         return invokeV.booleanValue;
     }
 
-    public abstract void notify(int i2, Object obj);
+    public abstract void notify(int i, Object obj);
 
     public abstract void pause();
 
@@ -135,7 +135,7 @@ public abstract class VideoPlayer {
 
     public abstract void resume();
 
-    public abstract void seekTo(int i2);
+    public abstract void seekTo(int i);
 
     public abstract void setDataSource(HashMap<Integer, String> hashMap);
 

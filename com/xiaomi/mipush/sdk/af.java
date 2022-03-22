@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class af {
     public static /* synthetic */ Interceptable $ic;
     public static final af a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ af[] f66a;
+    public static final /* synthetic */ af[] f42a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final af f59441b;
+    public static final af f44060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final af f59442c;
+    public static final af f44061c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final af f59443d;
+    public static final af f44062d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final af f59444e;
+    public static final af f44063e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final af f59445f;
+    public static final af f44064f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,25 +46,25 @@ public final class af {
             }
         }
         a = new af("HUAWEI", 0);
-        f59441b = new af("MEIZU", 1);
-        f59442c = new af("FCM", 2);
-        f59443d = new af("OPPO", 3);
-        f59444e = new af("VIVO", 4);
+        f44060b = new af("MEIZU", 1);
+        f44061c = new af("FCM", 2);
+        f44062d = new af("OPPO", 3);
+        f44063e = new af("VIVO", 4);
         af afVar = new af("OTHER", 5);
-        f59445f = afVar;
-        f66a = new af[]{a, f59441b, f59442c, f59443d, f59444e, afVar};
+        f44064f = afVar;
+        f42a = new af[]{a, f44060b, f44061c, f44062d, f44063e, afVar};
     }
 
-    public af(String str, int i2) {
+    public af(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -83,6 +83,6 @@ public final class af {
     public static af[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (af[]) f66a.clone() : (af[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (af[]) f42a.clone() : (af[]) invokeV.objValue;
     }
 }

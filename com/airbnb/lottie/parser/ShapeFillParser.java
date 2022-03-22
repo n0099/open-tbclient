@@ -18,7 +18,7 @@ public class ShapeFillParser {
         AnimatableIntegerValue animatableIntegerValue = null;
         String str = null;
         AnimatableColorValue animatableColorValue = null;
-        int i2 = 1;
+        int i = 1;
         boolean z = false;
         boolean z2 = false;
         while (jsonReader.hasNext()) {
@@ -32,7 +32,7 @@ public class ShapeFillParser {
             } else if (selectName == 3) {
                 z = jsonReader.nextBoolean();
             } else if (selectName == 4) {
-                i2 = jsonReader.nextInt();
+                i = jsonReader.nextInt();
             } else if (selectName != 5) {
                 jsonReader.skipName();
                 jsonReader.skipValue();
@@ -40,6 +40,6 @@ public class ShapeFillParser {
                 z2 = jsonReader.nextBoolean();
             }
         }
-        return new ShapeFill(str, z, i2 == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, animatableColorValue, animatableIntegerValue == null ? new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100))) : animatableIntegerValue, z2);
+        return new ShapeFill(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, animatableColorValue, animatableIntegerValue == null ? new AnimatableIntegerValue(Collections.singletonList(new Keyframe(100))) : animatableIntegerValue, z2);
     }
 }

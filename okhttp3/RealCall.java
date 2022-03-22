@@ -19,7 +19,7 @@ import okhttp3.internal.http.CallServerInterceptor;
 import okhttp3.internal.http.RealInterceptorChain;
 import okhttp3.internal.http.RetryAndFollowUpInterceptor;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RealCall implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class RealCall implements Call {
     public final Request originalRequest;
     public final RetryAndFollowUpInterceptor retryAndFollowUpInterceptor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class AsyncCall extends NamedRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class RealCall implements Call {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {realCall, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Object[]) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -121,9 +121,9 @@ public final class RealCall implements Call {
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient, request, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,5 +1,6 @@
 package com.tachikoma.core.bridge;
 
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MemoryManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OBJ_ID_KEY = "_objId";
@@ -40,7 +41,7 @@ public class MemoryManager {
     public List<V8ValueReference<Throwable>> v8ValueCreateStackTrace;
     public Set<V8ValueReference> weakReferenceSet;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class V8ValueReference<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +56,9 @@ public class MemoryManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8Value};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,9 +75,9 @@ public class MemoryManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8Value, t};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -127,9 +128,9 @@ public class MemoryManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -153,9 +154,9 @@ public class MemoryManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -235,9 +236,9 @@ public class MemoryManager {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("");
-            long j2 = objId;
-            objId = 1 + j2;
-            sb.append(j2);
+            long j = objId;
+            objId = 1 + j;
+            sb.append(j);
             String sb2 = sb.toString();
             v8Object.add(OBJ_ID_KEY, sb2);
             return sb2;
@@ -249,21 +250,21 @@ public class MemoryManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && this.enableV8ObjectLeakCheck && !this.v8ValueCreateStackTrace.isEmpty()) {
             HashMap hashMap = new HashMap();
-            int i2 = 0;
+            int i = 0;
             for (V8ValueReference<Throwable> v8ValueReference : this.v8ValueCreateStackTrace) {
                 StringWriter stringWriter = new StringWriter();
                 if (v8ValueReference.ext != null && !v8ValueReference.v8Value.isReleased() && !v8ValueReference.v8Value.isWeak()) {
-                    i2++;
+                    i++;
                     v8ValueReference.ext.printStackTrace(new PrintWriter(stringWriter));
                     String stringWriter2 = stringWriter.toString();
                     Integer num = (Integer) hashMap.get(stringWriter2);
                     hashMap.put(stringWriter2, Integer.valueOf(Integer.valueOf(num == null ? 0 : num.intValue()).intValue() + 1));
                 }
             }
-            String str = "总计未关闭的引用个数: " + i2;
-            Iterator it = hashMap.keySet().iterator();
-            while (it.hasNext()) {
-                String str2 = "未关闭的引用个数：" + hashMap.get((String) it.next());
+            Log.e("MemoryManager", "总计未关闭的引用个数: " + i);
+            for (String str : hashMap.keySet()) {
+                Log.e("MemoryManager", "未关闭的引用个数：" + hashMap.get(str));
+                Log.e("MemoryManager", str);
             }
             this.v8ValueCreateStackTrace.clear();
         }

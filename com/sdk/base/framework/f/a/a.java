@@ -26,13 +26,13 @@ import java.net.SocketException;
 import java.security.MessageDigest;
 import java.util.Enumeration;
 import java.util.Stack;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57814b;
+    public static boolean f42581b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f57814b = f.f57798b;
+        f42581b = f.f42567b;
         new Stack();
     }
 
@@ -57,9 +57,9 @@ public class a extends com.sdk.base.framework.f.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -103,7 +103,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return null;
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return null;
             }
         }
@@ -128,7 +128,7 @@ public class a extends com.sdk.base.framework.f.a {
             try {
                 return Build.VERSION.SDK_INT;
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return -1;
             }
         }
@@ -149,7 +149,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return -1;
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return -1;
             }
         }
@@ -171,7 +171,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return (T) bundle.get(str);
             } catch (Exception e2) {
-                c.a(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.a(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return null;
             }
         }
@@ -183,13 +183,13 @@ public class a extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (context == null) {
-                c.c(a, "mContext 为空", Boolean.valueOf(f57814b));
+                c.c(a, "mContext 为空", Boolean.valueOf(f42581b));
                 return null;
             }
             try {
                 return context.getPackageName();
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return null;
             }
         }
@@ -210,14 +210,14 @@ public class a extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                com.sdk.base.framework.f.a.a(a, "getAppLable", "mContext 为空", f57814b);
+                com.sdk.base.framework.f.a.a(a, "getAppLable", "mContext 为空", f42581b);
                 return null;
             }
             try {
                 PackageManager packageManager = context.getPackageManager();
                 return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 return null;
             }
         }
@@ -232,25 +232,25 @@ public class a extends com.sdk.base.framework.f.a {
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
             } catch (PackageManager.NameNotFoundException e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57814b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
                 packageInfo = null;
             }
             if (packageInfo != null) {
-                int i2 = packageInfo.applicationInfo.flags;
+                int i = packageInfo.applicationInfo.flags;
                 try {
                     byte[] byteArray = packageInfo.signatures[0].toByteArray();
                     MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                     messageDigest.update(byteArray);
                     byte[] digest = messageDigest.digest();
                     String str = "";
-                    for (int i3 = 0; i3 < digest.length; i3++) {
-                        if (i3 != 0) {
+                    for (int i2 = 0; i2 < digest.length; i2++) {
+                        if (i2 != 0) {
                             StringBuilder sb = new StringBuilder();
                             sb.append(str);
                             sb.append(":");
                             str = sb.toString();
                         }
-                        String hexString = Integer.toHexString(digest[i3] & 255);
+                        String hexString = Integer.toHexString(digest[i2] & 255);
                         if (hexString.length() == 1) {
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append(str);
@@ -261,7 +261,7 @@ public class a extends com.sdk.base.framework.f.a {
                     }
                     return str;
                 } catch (Exception e3) {
-                    c.b(a, e3.getMessage(), Boolean.valueOf(f57814b));
+                    c.b(a, e3.getMessage(), Boolean.valueOf(f42581b));
                     return null;
                 }
             }

@@ -18,7 +18,7 @@ import java.util.Random;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MultipartEntity implements HttpEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;
@@ -51,9 +51,9 @@ public class MultipartEntity implements HttpEntity {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpMultipartMode, str, charset};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -88,7 +88,7 @@ public class MultipartEntity implements HttpEntity {
             StringBuilder sb = new StringBuilder();
             Random random = new Random();
             int nextInt = random.nextInt(11) + 30;
-            for (int i2 = 0; i2 < nextInt; i2++) {
+            for (int i = 0; i < nextInt; i++) {
                 char[] cArr = MULTIPART_CHARS;
                 sb.append(cArr[random.nextInt(cArr.length)]);
             }
@@ -208,9 +208,9 @@ public class MultipartEntity implements HttpEntity {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpMultipartMode};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((HttpMultipartMode) objArr2[0], (String) objArr2[1], (Charset) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -227,9 +227,9 @@ public class MultipartEntity implements HttpEntity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((HttpMultipartMode) objArr[0], (String) objArr[1], (Charset) objArr[2]);
                 newInitContext.thisArg = this;

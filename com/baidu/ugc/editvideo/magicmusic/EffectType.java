@@ -120,16 +120,16 @@ public final class EffectType {
         $VALUES = new EffectType[]{NO_MATCH, NO, TRANSITION_TRAN_LEFT, TRANSITION_TRAN_RIGHT, TRANSITION_TRAN_REPEAT, TRANSITION_ALPHA_ONE, TRANSITION_ALPHA_TWO, TRANSITION_ALPHA_REPEAT, TRANSITION_BOTH_SCREEN, TRANSITION_ONE, TRANSITION_TWO, TRANSITION_SHADOW, TRANSITION_BIG_SMALL_SCREEN, HORIZONTAL_TRANSLATION, VERTICAL_TRANSLATION, ROTATE, SOUL_OUT, SCALE_BIG, WHITE_BLACK, NINE_FRAME, THREE_FRAME, FOUR_FRAME, SIX_FRAME, D_FAKE, D_SKIN_NEEDLING, LR_MIRROR, TB_MIRROR, LR_TB_MIRROR, WAGGLE, DIZZINESS, HALLUCINATION, TIME_REPEAT, TIME_REVERSE, PARTICLE_SNOWFLAKE, PARTICLE_HEART, PARTICLE_BOMB, PARTICLE_SAKULA, PARTICLE_SNOW, PARTICLE_BANANA, PARTICLE_FLAME, PARTICLE_PINKSTAR, PARTICLE_MAGICSTICK, effectType};
     }
 
-    public EffectType(String str, int i2, int i3) {
+    public EffectType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -138,16 +138,16 @@ public final class EffectType {
                 return;
             }
         }
-        this.type = i3;
+        this.type = i2;
     }
 
-    public static EffectType findType(int i2) {
+    public static EffectType findType(int i) {
         InterceptResult invokeI;
         EffectType[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             for (EffectType effectType : values()) {
-                if (effectType.getType() == i2) {
+                if (effectType.getType() == i) {
                     return effectType;
                 }
             }

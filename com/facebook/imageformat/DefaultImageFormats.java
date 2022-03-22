@@ -1,7 +1,6 @@
 package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultImageFormats {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageFormat BMP;
@@ -47,11 +46,11 @@ public final class DefaultImageFormats {
         GIF = new ImageFormat("GIF", "gif");
         BMP = new ImageFormat("BMP", "bmp");
         ICO = new ImageFormat("ICO", "ico");
-        WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", OvalActionButton.WEBP);
-        WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", OvalActionButton.WEBP);
-        WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", OvalActionButton.WEBP);
-        WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", OvalActionButton.WEBP);
-        WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", OvalActionButton.WEBP);
+        WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", "webp");
+        WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", "webp");
+        WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", "webp");
+        WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", "webp");
+        WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", "webp");
         HEIF = new ImageFormat("HEIF", "heif");
     }
 
@@ -60,9 +59,9 @@ public final class DefaultImageFormats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

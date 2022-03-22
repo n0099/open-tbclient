@@ -1,6 +1,5 @@
 package com.baidu.sapi2.stat;
 
-import android.content.Context;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
@@ -21,7 +20,7 @@ import org.json.JSONObject;
 public class ShareLoginStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ShareLoginStat";
-    public static final String UBC_ID_SHARE_LOGIN = "4833";
+    public static final String UBC_ID = "4833";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -43,6 +42,7 @@ public class ShareLoginStat {
         public static final String KEY_IS_TIMEOUT_FROM_NET = "is_timeout_from_net";
         public static final String KEY_IS_V3_DEMOTION = "is_v3_demotion";
         public static final String KEY_PAGE = "page";
+        public static final String KEY_PERMISSION = "permission";
         public static final String KEY_SENCE = "sence";
         public static final String KEY_SOURCE = "source";
         public static final String KEY_V2_INITIAL_SIZE = "v2_initial_size";
@@ -83,9 +83,9 @@ public class ShareLoginStat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -104,6 +104,9 @@ public class ShareLoginStat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65539, null) == null) {
                 statExtMap.put("sence", sValueSence);
+                if (!statExtMap.containsKey(KEY_PERMISSION)) {
+                    statExtMap.put(KEY_PERMISSION, "1");
+                }
                 JSONObject jSONObject = new JSONObject(statExtMap);
                 ServiceManager serviceManager = ServiceManager.getInstance();
                 if (serviceManager == null) {
@@ -131,7 +134,7 @@ public class ShareLoginStat {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID_SHARE_LOGIN, jSONObject2);
+                ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID, jSONObject2);
                 resetData();
             }
         }
@@ -184,9 +187,9 @@ public class ShareLoginStat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -233,7 +236,7 @@ public class ShareLoginStat {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID_SHARE_LOGIN, jSONObject2);
+                ubcUploadImplCallback.onEvent(ShareLoginStat.UBC_ID, jSONObject2);
                 resetData();
             }
         }
@@ -259,18 +262,12 @@ public class ShareLoginStat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-    }
-
-    public void onStat(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
     }
 }

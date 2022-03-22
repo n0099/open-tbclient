@@ -47,9 +47,9 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainSubscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,23 +126,23 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
             NEXT_WINDOW = new Object();
         }
 
-        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, int i2) {
+        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.downstream = subscriber;
-            this.capacityHint = i2;
+            this.capacityHint = i;
             this.boundarySubscriber = new WindowBoundaryInnerSubscriber<>(this);
             this.upstream = new AtomicReference<>();
             this.windows = new AtomicInteger(1);
@@ -171,8 +171,8 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                 Subscriber<? super Flowable<T>> subscriber = this.downstream;
                 MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
-                long j2 = this.emitted;
-                int i2 = 1;
+                long j = this.emitted;
+                int i = 1;
                 while (this.windows.get() != 0) {
                     UnicastProcessor<T> unicastProcessor = this.window;
                     boolean z = this.done;
@@ -205,9 +205,9 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                         subscriber.onError(terminate2);
                         return;
                     } else if (z2) {
-                        this.emitted = j2;
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        this.emitted = j;
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else if (poll != NEXT_WINDOW) {
@@ -221,8 +221,8 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                             UnicastProcessor<T> create = UnicastProcessor.create(this.capacityHint, this);
                             this.window = create;
                             this.windows.getAndIncrement();
-                            if (j2 != this.requested.get()) {
-                                j2++;
+                            if (j != this.requested.get()) {
+                                j++;
                                 subscriber.onNext(create);
                             } else {
                                 SubscriptionHelper.cancel(this.upstream);
@@ -310,10 +310,10 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                BackpressureHelper.add(this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
 
@@ -327,17 +327,17 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowBoundary(Flowable<T> flowable, Publisher<B> publisher, int i2) {
+    public FlowableWindowBoundary(Flowable<T> flowable, Publisher<B> publisher, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, publisher, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, publisher, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -345,7 +345,7 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
             }
         }
         this.other = publisher;
-        this.capacityHint = i2;
+        this.capacityHint = i;
     }
 
     @Override // io.reactivex.Flowable

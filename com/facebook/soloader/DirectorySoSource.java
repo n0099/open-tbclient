@@ -1,6 +1,7 @@
 package com.facebook.soloader;
 
 import android.os.StrictMode;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DirectorySoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ON_LD_LIBRARY_PATH = 2;
@@ -22,23 +23,23 @@ public class DirectorySoSource extends SoSource {
     public final int flags;
     public final File soDirectory;
 
-    public DirectorySoSource(File file, int i2) {
+    public DirectorySoSource(File file, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Integer.valueOf(i2)};
+            Object[] objArr = {file, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.soDirectory = file;
-        this.flags = i2;
+        this.flags = i;
     }
 
     public static String[] getDependencies(File file) throws IOException {
@@ -59,14 +60,14 @@ public class DirectorySoSource extends SoSource {
         return (String[]) invokeL.objValue;
     }
 
-    private void loadDependencies(File file, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
-        String[] dependencies;
+    private void loadDependencies(File file, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, this, file, i2, threadPolicy) == null) {
-            String str = "Loading lib dependencies: " + Arrays.toString(dependencies);
-            for (String str2 : getDependencies(file)) {
-                if (!str2.startsWith("/")) {
-                    SoLoader.loadLibraryBySoName(str2, i2 | 1, threadPolicy);
+        if (interceptable == null || interceptable.invokeLIL(65538, this, file, i, threadPolicy) == null) {
+            String[] dependencies = getDependencies(file);
+            Log.d("SoLoader", "Loading lib dependencies: " + Arrays.toString(dependencies));
+            for (String str : dependencies) {
+                if (!str.startsWith("/")) {
+                    SoLoader.loadLibraryBySoName(str, i | 1, threadPolicy);
                 }
             }
         }
@@ -81,36 +82,37 @@ public class DirectorySoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, threadPolicy)) == null) ? loadLibraryFrom(str, i2, this.soDirectory, threadPolicy) : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, threadPolicy)) == null) ? loadLibraryFrom(str, i, this.soDirectory, threadPolicy) : invokeLIL.intValue;
     }
 
-    public int loadLibraryFrom(String str, int i2, File file, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    public int loadLibraryFrom(String str, int i, File file, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i2, file, threadPolicy)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, file, threadPolicy)) == null) {
             File file2 = new File(file, str);
             if (!file2.exists()) {
-                String str2 = str + " not found on " + file.getCanonicalPath();
+                Log.d("SoLoader", str + " not found on " + file.getCanonicalPath());
                 return 0;
             }
-            String str3 = str + " found on " + file.getCanonicalPath();
-            if ((i2 & 1) != 0 && (this.flags & 2) != 0) {
-                String str4 = str + " loaded implicitly";
+            Log.d("SoLoader", str + " found on " + file.getCanonicalPath());
+            if ((i & 1) != 0 && (this.flags & 2) != 0) {
+                Log.d("SoLoader", str + " loaded implicitly");
                 return 2;
             }
             if ((this.flags & 1) != 0) {
-                loadDependencies(file2, i2, threadPolicy);
+                loadDependencies(file2, i, threadPolicy);
             } else {
-                String str5 = "Not resolving dependencies for " + str;
+                Log.d("SoLoader", "Not resolving dependencies for " + str);
             }
             try {
-                SoLoader.sSoFileLoader.load(file2.getAbsolutePath(), i2);
+                SoLoader.sSoFileLoader.load(file2.getAbsolutePath(), i);
                 return 1;
             } catch (UnsatisfiedLinkError e2) {
                 if (e2.getMessage().contains("bad ELF magic")) {
+                    Log.d("SoLoader", "Corrupted lib file detected");
                     return 3;
                 }
                 throw e2;

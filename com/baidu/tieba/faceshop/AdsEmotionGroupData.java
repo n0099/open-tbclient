@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import android.text.TextUtils;
-import c.a.r0.x0.c.b;
+import c.a.p0.z0.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,16 +23,16 @@ public class AdsEmotionGroupData implements Serializable, b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // c.a.r0.x0.c.b
+    @Override // c.a.p0.z0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AdsEmotionGroupData implements Serializable, b {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.colorCoverUrl : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.x0.c.b
+    @Override // c.a.p0.z0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

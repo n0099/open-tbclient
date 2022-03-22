@@ -24,9 +24,9 @@ public class GridPoint3 implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,10 +55,10 @@ public class GridPoint3 implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gridPoint3)) == null) {
-            int i2 = gridPoint3.x - this.x;
-            int i3 = gridPoint3.y - this.y;
-            int i4 = gridPoint3.z - this.z;
-            return (float) Math.sqrt((i2 * i2) + (i3 * i3) + (i4 * i4));
+            int i = gridPoint3.x - this.x;
+            int i2 = gridPoint3.y - this.y;
+            int i3 = gridPoint3.z - this.z;
+            return (float) Math.sqrt((i * i) + (i2 * i2) + (i3 * i3));
         }
         return invokeL.floatValue;
     }
@@ -67,10 +67,10 @@ public class GridPoint3 implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, gridPoint3)) == null) {
-            int i2 = gridPoint3.x - this.x;
-            int i3 = gridPoint3.y - this.y;
-            int i4 = gridPoint3.z - this.z;
-            return (i2 * i2) + (i3 * i3) + (i4 * i4);
+            int i = gridPoint3.x - this.x;
+            int i2 = gridPoint3.y - this.y;
+            int i3 = gridPoint3.z - this.z;
+            return (i * i) + (i2 * i2) + (i3 * i3);
         }
         return invokeL.floatValue;
     }
@@ -130,82 +130,82 @@ public class GridPoint3 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public GridPoint3(int i2, int i3, int i4) {
+    public GridPoint3(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.x = i2;
-        this.y = i3;
-        this.z = i4;
+        this.x = i;
+        this.y = i2;
+        this.z = i3;
     }
 
-    public GridPoint3 add(int i2, int i3, int i4) {
+    public GridPoint3 add(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            this.x += i2;
-            this.y += i3;
-            this.z += i4;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            this.x += i;
+            this.y += i2;
+            this.z += i3;
             return this;
         }
         return (GridPoint3) invokeIII.objValue;
     }
 
-    public float dst2(int i2, int i3, int i4) {
+    public float dst2(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048581, this, i2, i3, i4)) == null) {
-            int i5 = i2 - this.x;
-            int i6 = i3 - this.y;
-            int i7 = i4 - this.z;
-            return (i5 * i5) + (i6 * i6) + (i7 * i7);
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048581, this, i, i2, i3)) == null) {
+            int i4 = i - this.x;
+            int i5 = i2 - this.y;
+            int i6 = i3 - this.z;
+            return (i4 * i4) + (i5 * i5) + (i6 * i6);
         }
         return invokeIII.floatValue;
     }
 
-    public GridPoint3 set(int i2, int i3, int i4) {
+    public GridPoint3 set(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i2, i3, i4)) == null) {
-            this.x = i2;
-            this.y = i3;
-            this.z = i4;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i, i2, i3)) == null) {
+            this.x = i;
+            this.y = i2;
+            this.z = i3;
             return this;
         }
         return (GridPoint3) invokeIII.objValue;
     }
 
-    public GridPoint3 sub(int i2, int i3, int i4) {
+    public GridPoint3 sub(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048587, this, i2, i3, i4)) == null) {
-            this.x -= i2;
-            this.y -= i3;
-            this.z -= i4;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048587, this, i, i2, i3)) == null) {
+            this.x -= i;
+            this.y -= i2;
+            this.z -= i3;
             return this;
         }
         return (GridPoint3) invokeIII.objValue;
     }
 
-    public float dst(int i2, int i3, int i4) {
+    public float dst(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i2, i3, i4)) == null) {
-            int i5 = i2 - this.x;
-            int i6 = i3 - this.y;
-            int i7 = i4 - this.z;
-            return (float) Math.sqrt((i5 * i5) + (i6 * i6) + (i7 * i7));
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048579, this, i, i2, i3)) == null) {
+            int i4 = i - this.x;
+            int i5 = i2 - this.y;
+            int i6 = i3 - this.z;
+            return (float) Math.sqrt((i4 * i4) + (i5 * i5) + (i6 * i6));
         }
         return invokeIII.floatValue;
     }
@@ -217,9 +217,9 @@ public class GridPoint3 implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {gridPoint3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

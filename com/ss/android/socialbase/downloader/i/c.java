@@ -6,9 +6,9 @@ import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.s;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    public static void a(int i2, SparseArray<IDownloadListener> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
+    public static void a(int i, SparseArray<IDownloadListener> sparseArray, boolean z, DownloadInfo downloadInfo, BaseException baseException) {
         SparseArray<IDownloadListener> clone;
         if (!z || sparseArray == null) {
             return;
@@ -20,23 +20,23 @@ public class c {
             synchronized (sparseArray) {
                 clone = sparseArray.clone();
             }
-            for (int i3 = 0; i3 < clone.size(); i3++) {
-                IDownloadListener iDownloadListener = clone.get(clone.keyAt(i3));
+            for (int i2 = 0; i2 < clone.size(); i2++) {
+                IDownloadListener iDownloadListener = clone.get(clone.keyAt(i2));
                 if (iDownloadListener != null) {
-                    if (i2 == 1) {
+                    if (i == 1) {
                         iDownloadListener.onPrepare(downloadInfo);
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         iDownloadListener.onStart(downloadInfo);
-                    } else if (i2 == 4) {
+                    } else if (i == 4) {
                         iDownloadListener.onProgress(downloadInfo);
-                    } else if (i2 == 5) {
+                    } else if (i == 5) {
                         iDownloadListener.onRetry(downloadInfo, baseException);
-                    } else if (i2 == 6) {
+                    } else if (i == 6) {
                         iDownloadListener.onFirstStart(downloadInfo);
-                    } else if (i2 == 7) {
+                    } else if (i == 7) {
                         iDownloadListener.onRetryDelay(downloadInfo, baseException);
-                    } else if (i2 != 11) {
-                        switch (i2) {
+                    } else if (i != 11) {
+                        switch (i) {
                             case -7:
                                 if (iDownloadListener instanceof AbsDownloadListener) {
                                     ((AbsDownloadListener) iDownloadListener).onIntercept(downloadInfo);

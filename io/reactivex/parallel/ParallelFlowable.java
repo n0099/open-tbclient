@@ -67,9 +67,9 @@ public abstract class ParallelFlowable<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -385,34 +385,34 @@ public abstract class ParallelFlowable<T> {
     }
 
     @CheckReturnValue
-    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i2) {
+    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, publisher, i2)) == null) ? from(publisher, i2, Flowable.bufferSize()) : (ParallelFlowable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, publisher, i)) == null) ? from(publisher, i, Flowable.bufferSize()) : (ParallelFlowable) invokeLI.objValue;
     }
 
     @CheckReturnValue
     @NonNull
-    public final <R> ParallelFlowable<R> concatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i2) {
+    public final <R> ParallelFlowable<R> concatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, function, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, function, i)) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i2, ErrorMode.IMMEDIATE));
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i, ErrorMode.IMMEDIATE));
         }
         return (ParallelFlowable) invokeLI.objValue;
     }
 
     @CheckReturnValue
     @NonNull
-    public final <R> ParallelFlowable<R> concatMapDelayError(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i2, boolean z) {
+    public final <R> ParallelFlowable<R> concatMapDelayError(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{function, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{function, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i2, z ? ErrorMode.END : ErrorMode.BOUNDARY));
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelConcatMap(this, function, i, z ? ErrorMode.END : ErrorMode.BOUNDARY));
         }
         return (ParallelFlowable) invokeCommon.objValue;
     }
@@ -427,13 +427,13 @@ public abstract class ParallelFlowable<T> {
 
     @CheckReturnValue
     @NonNull
-    public final ParallelFlowable<T> runOn(@NonNull Scheduler scheduler, int i2) {
+    public final ParallelFlowable<T> runOn(@NonNull Scheduler scheduler, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048607, this, scheduler, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048607, this, scheduler, i)) == null) {
             ObjectHelper.requireNonNull(scheduler, "scheduler");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelRunOn(this, scheduler, i2));
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelRunOn(this, scheduler, i));
         }
         return (ParallelFlowable) invokeLI.objValue;
     }
@@ -442,12 +442,12 @@ public abstract class ParallelFlowable<T> {
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     @NonNull
-    public final Flowable<T> sequential(int i2) {
+    public final Flowable<T> sequential(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelJoin(this, i2, false));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelJoin(this, i, false));
         }
         return (Flowable) invokeI.objValue;
     }
@@ -456,52 +456,52 @@ public abstract class ParallelFlowable<T> {
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     @NonNull
-    public final Flowable<T> sequentialDelayError(int i2) {
+    public final Flowable<T> sequentialDelayError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelJoin(this, i2, true));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelJoin(this, i, true));
         }
         return (Flowable) invokeI.objValue;
     }
 
     @CheckReturnValue
     @NonNull
-    public final Flowable<T> sorted(@NonNull Comparator<? super T> comparator, int i2) {
+    public final Flowable<T> sorted(@NonNull Comparator<? super T> comparator, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048613, this, comparator, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048613, this, comparator, i)) == null) {
             ObjectHelper.requireNonNull(comparator, "comparator is null");
-            ObjectHelper.verifyPositive(i2, "capacityHint");
-            return RxJavaPlugins.onAssembly(new ParallelSortedJoin(reduce(Functions.createArrayList((i2 / parallelism()) + 1), ListAddBiConsumer.instance()).map(new SorterFunction(comparator)), comparator));
+            ObjectHelper.verifyPositive(i, "capacityHint");
+            return RxJavaPlugins.onAssembly(new ParallelSortedJoin(reduce(Functions.createArrayList((i / parallelism()) + 1), ListAddBiConsumer.instance()).map(new SorterFunction(comparator)), comparator));
         }
         return (Flowable) invokeLI.objValue;
     }
 
     @CheckReturnValue
     @NonNull
-    public final Flowable<List<T>> toSortedList(@NonNull Comparator<? super T> comparator, int i2) {
+    public final Flowable<List<T>> toSortedList(@NonNull Comparator<? super T> comparator, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, comparator, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, comparator, i)) == null) {
             ObjectHelper.requireNonNull(comparator, "comparator is null");
-            ObjectHelper.verifyPositive(i2, "capacityHint");
-            return RxJavaPlugins.onAssembly(reduce(Functions.createArrayList((i2 / parallelism()) + 1), ListAddBiConsumer.instance()).map(new SorterFunction(comparator)).reduce(new MergerBiFunction(comparator)));
+            ObjectHelper.verifyPositive(i, "capacityHint");
+            return RxJavaPlugins.onAssembly(reduce(Functions.createArrayList((i / parallelism()) + 1), ListAddBiConsumer.instance()).map(new SorterFunction(comparator)).reduce(new MergerBiFunction(comparator)));
         }
         return (Flowable) invokeLI.objValue;
     }
 
     @CheckReturnValue
     @NonNull
-    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i2, int i3) {
+    public static <T> ParallelFlowable<T> from(@NonNull Publisher<? extends T> publisher, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, publisher, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, publisher, i, i2)) == null) {
             ObjectHelper.requireNonNull(publisher, "source");
-            ObjectHelper.verifyPositive(i2, "parallelism");
-            ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelFromPublisher(publisher, i2, i3));
+            ObjectHelper.verifyPositive(i, "parallelism");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelFromPublisher(publisher, i, i2));
         }
         return (ParallelFlowable) invokeLII.objValue;
     }
@@ -521,10 +521,10 @@ public abstract class ParallelFlowable<T> {
 
     @CheckReturnValue
     @NonNull
-    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i2) {
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) ? flatMap(function, z, i2, Flowable.bufferSize()) : (ParallelFlowable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? flatMap(function, z, i, Flowable.bufferSize()) : (ParallelFlowable) invokeCommon.objValue;
     }
 
     @CheckReturnValue
@@ -556,14 +556,14 @@ public abstract class ParallelFlowable<T> {
 
     @CheckReturnValue
     @NonNull
-    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i2, int i3) {
+    public final <R> ParallelFlowable<R> flatMap(@NonNull Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             ObjectHelper.requireNonNull(function, "mapper is null");
-            ObjectHelper.verifyPositive(i2, "maxConcurrency");
-            ObjectHelper.verifyPositive(i3, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new ParallelFlatMap(this, function, z, i2, i3));
+            ObjectHelper.verifyPositive(i, "maxConcurrency");
+            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new ParallelFlatMap(this, function, z, i, i2));
         }
         return (ParallelFlowable) invokeCommon.objValue;
     }

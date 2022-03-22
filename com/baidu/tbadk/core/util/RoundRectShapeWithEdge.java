@@ -26,9 +26,9 @@ public class RoundRectShapeWithEdge extends RectShape {
             newInitContext.initArgs = r2;
             Object[] objArr = {fArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,8 +55,8 @@ public class RoundRectShapeWithEdge extends RectShape {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             RectF rect = rect();
-            int i2 = this.edge;
-            rect.set(i2, i2, f2 - i2, f3 - i2);
+            int i = this.edge;
+            rect.set(i, i, f2 - i, f3 - i);
             this.mPath.reset();
             float[] fArr = this.mOuterRadii;
             if (fArr != null) {
@@ -67,10 +67,10 @@ public class RoundRectShapeWithEdge extends RectShape {
         }
     }
 
-    public void setEdge(int i2) {
+    public void setEdge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.edge = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.edge = i;
         }
     }
 }

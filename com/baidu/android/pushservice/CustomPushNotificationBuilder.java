@@ -27,25 +27,25 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     public int mLayoutTextId;
     public int mLayoutTitleId;
 
-    public CustomPushNotificationBuilder(int i2, int i3, int i4, int i5) {
+    public CustomPushNotificationBuilder(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mLayoutId = i2;
-        this.mLayoutIconId = i3;
-        this.mLayoutTitleId = i4;
-        this.mLayoutTextId = i5;
+        this.mLayoutId = i;
+        this.mLayoutIconId = i2;
+        this.mLayoutTitleId = i3;
+        this.mLayoutTextId = i4;
     }
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
@@ -59,8 +59,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             }
             int readInt = objectInputStream.readInt();
             this.mVibratePattern = new long[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                this.mVibratePattern[i2] = objectInputStream.readLong();
+            for (int i = 0; i < readInt; i++) {
+                this.mVibratePattern[i] = objectInputStream.readLong();
             }
             this.mNotificationTitle = (String) objectInputStream.readObject();
             this.mNotificationText = (String) objectInputStream.readObject();
@@ -81,7 +81,7 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             objectOutputStream.writeInt(this.mStatusbarIcon);
             objectOutputStream.writeInt(this.mNotificationFlags);
             objectOutputStream.writeInt(this.mNotificationDefaults);
-            int i2 = 0;
+            int i = 0;
             if (this.mNotificationsound != null) {
                 objectOutputStream.writeBoolean(true);
                 objectOutputStream.writeObject(this.mNotificationsound);
@@ -93,11 +93,11 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
                 objectOutputStream.writeInt(jArr.length);
                 while (true) {
                     long[] jArr2 = this.mVibratePattern;
-                    if (i2 >= jArr2.length) {
+                    if (i >= jArr2.length) {
                         break;
                     }
-                    objectOutputStream.writeLong(jArr2[i2]);
-                    i2++;
+                    objectOutputStream.writeLong(jArr2[i]);
+                    i++;
                 }
             } else {
                 objectOutputStream.writeInt(0);
@@ -119,13 +119,13 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
     @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             Notification.Builder builder = new Notification.Builder(context);
-            int i3 = this.mNotificationDefaults;
-            if (i3 != 0) {
-                builder.setDefaults(i3);
+            int i2 = this.mNotificationDefaults;
+            if (i2 != 0) {
+                builder.setDefaults(i2);
             }
             String str = this.mNotificationsound;
             if (str != null) {
@@ -135,15 +135,15 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
             if (jArr != null) {
                 builder.setVibrate(jArr);
             }
-            int i4 = this.mStatusbarIcon;
-            if (i4 != 0) {
-                builder.setSmallIcon(i4);
+            int i3 = this.mStatusbarIcon;
+            if (i3 != 0) {
+                builder.setSmallIcon(i3);
             }
             if (this.mLayoutId != 0) {
                 RemoteViews remoteViews = new RemoteViews(context.getPackageName(), this.mLayoutId);
-                int i5 = this.mLayoutIconDrawable;
-                if (i5 != 0) {
-                    remoteViews.setImageViewResource(this.mLayoutIconId, i5);
+                int i4 = this.mLayoutIconDrawable;
+                if (i4 != 0) {
+                    remoteViews.setImageViewResource(this.mLayoutIconId, i4);
                 }
                 String str2 = this.mNotificationTitle;
                 if (str2 != null) {
@@ -158,8 +158,8 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
                 builder.setContentTitle(this.mNotificationTitle);
                 builder.setContentText(this.mNotificationText);
             }
-            if (Build.VERSION.SDK_INT >= 21 && (i2 = this.mColor) != 0) {
-                builder.setColor(i2);
+            if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
+                builder.setColor(i);
             }
             if (m.p(context)) {
                 if (TextUtils.isEmpty(this.mChannelId)) {
@@ -172,19 +172,19 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
                 builder.setChannelId(this.mChannelId);
             }
             Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
-            int i6 = this.mNotificationFlags;
-            if (i6 != 0 && build != null) {
-                build.flags = i6;
+            int i5 = this.mNotificationFlags;
+            if (i5 != 0 && build != null) {
+                build.flags = i5;
             }
             return build;
         }
         return (Notification) invokeL.objValue;
     }
 
-    public void setLayoutDrawable(int i2) {
+    public void setLayoutDrawable(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mLayoutIconDrawable = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mLayoutIconDrawable = i;
         }
     }
 }

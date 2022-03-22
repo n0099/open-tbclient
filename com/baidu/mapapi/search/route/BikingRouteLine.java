@@ -33,25 +33,21 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f34209d;
+        public int f26442d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f34210e;
+        public RouteNode f26443e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f34211f;
+        public RouteNode f26444f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f34212g;
+        public String f26445g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f34213h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f34214i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f34215j;
+        public String f26446h;
+        public String i;
+        public String j;
         public String k;
 
         static {
@@ -75,9 +71,9 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -93,22 +89,22 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcel) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
-            this.f34209d = parcel.readInt();
-            this.f34210e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f34211f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f34212g = parcel.readString();
-            this.f34213h = parcel.readString();
-            this.f34214i = parcel.readString();
-            this.f34215j = parcel.readString();
+            this.f26442d = parcel.readInt();
+            this.f26443e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f26444f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f26445g = parcel.readString();
+            this.f26446h = parcel.readString();
+            this.i = parcel.readString();
+            this.j = parcel.readString();
             this.k = parcel.readString();
         }
 
@@ -151,37 +147,37 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         public int getDirection() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34209d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26442d : invokeV.intValue;
         }
 
         public RouteNode getEntrance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34210e : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26443e : (RouteNode) invokeV.objValue;
         }
 
         public String getEntranceInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34213h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26446h : (String) invokeV.objValue;
         }
 
         public RouteNode getExit() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34211f : (RouteNode) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26444f : (RouteNode) invokeV.objValue;
         }
 
         public String getExitInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34214i : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
         }
 
         public String getInstructions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34215j : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (String) invokeV.objValue;
         }
 
         public String getTurnType() {
@@ -196,59 +192,59 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 if (this.mWayPoints == null) {
-                    this.mWayPoints = a(this.f34212g);
+                    this.mWayPoints = a(this.f26445g);
                 }
                 return this.mWayPoints;
             }
             return (List) invokeV.objValue;
         }
 
-        public void setDirection(int i2) {
+        public void setDirection(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.f34209d = i2;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.f26442d = i;
             }
         }
 
         public void setEntrance(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, routeNode) == null) {
-                this.f34210e = routeNode;
+                this.f26443e = routeNode;
             }
         }
 
         public void setEntranceInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                this.f34213h = str;
+                this.f26446h = str;
             }
         }
 
         public void setExit(RouteNode routeNode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, routeNode) == null) {
-                this.f34211f = routeNode;
+                this.f26444f = routeNode;
             }
         }
 
         public void setExitInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-                this.f34214i = str;
+                this.i = str;
             }
         }
 
         public void setInstructions(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-                this.f34215j = str;
+                this.j = str;
             }
         }
 
         public void setPathString(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-                this.f34212g = str;
+                this.f26445g = str;
             }
         }
 
@@ -260,17 +256,17 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i) == null) {
                 super.writeToParcel(parcel, 1);
-                parcel.writeInt(this.f34209d);
-                parcel.writeParcelable(this.f34210e, 1);
-                parcel.writeParcelable(this.f34211f, 1);
-                parcel.writeString(this.f34212g);
-                parcel.writeString(this.f34213h);
-                parcel.writeString(this.f34214i);
-                parcel.writeString(this.f34215j);
+                parcel.writeInt(this.f26442d);
+                parcel.writeParcelable(this.f26443e, 1);
+                parcel.writeParcelable(this.f26444f, 1);
+                parcel.writeString(this.f26445g);
+                parcel.writeString(this.f26446h);
+                parcel.writeString(this.i);
+                parcel.writeString(this.j);
                 parcel.writeString(this.k);
             }
         }
@@ -297,9 +293,9 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -315,9 +311,9 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -344,9 +340,9 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             super.setType(RouteLine.TYPE.BIKINGSTEP);
             super.writeToParcel(parcel, 1);
         }

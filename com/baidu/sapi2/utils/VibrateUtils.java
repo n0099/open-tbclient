@@ -19,9 +19,9 @@ public class VibrateUtils implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,13 +39,13 @@ public class VibrateUtils implements NoProguard {
         }
     }
 
-    public static void vibrate(Context context, long[] jArr, int i2) {
+    public static void vibrate(Context context, long[] jArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, context, jArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, jArr, i) == null) {
             if (context == null) {
                 Log.e(TAG, "context must can not be null");
             } else {
-                ((Vibrator) context.getSystemService("vibrator")).vibrate(jArr, i2);
+                ((Vibrator) context.getSystemService("vibrator")).vibrate(jArr, i);
             }
         }
     }

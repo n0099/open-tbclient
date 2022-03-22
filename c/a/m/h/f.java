@@ -14,7 +14,7 @@ public final class f extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f4157d;
+    public b f3743d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -29,19 +29,19 @@ public final class f extends e {
         public Class<?> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f4158b;
+        public Method f3744b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f4159c;
+        public Method f3745c;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,7 +59,7 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    return ((Long) this.f4159c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f3745c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -72,19 +72,19 @@ public final class f extends e {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
                     this.a = Class.forName(i.a(c.b()), true, Object.class.getClassLoader());
-                    this.f4158b = i.b(this.a, i.a(c.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f4159c = i.b(this.a, i.a(c.c()), null);
+                    this.f3744b = i.b(this.a, i.a(c.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f3745c = i.b(this.a, i.a(c.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
         }
 
-        public final void f(Object obj, byte[] bArr, int i2, int i3) throws i.a {
+        public final void f(Object obj, byte[] bArr, int i, int i2) throws i.a {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
                 try {
-                    this.f4158b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f3744b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -98,41 +98,41 @@ public final class f extends e {
         }
     }
 
-    public f(int i2, int i3) {
+    public f(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 32;
-        this.f4155b = i2;
-        this.f4156c = i3;
-        this.f4157d = new b(null);
+        this.f3741b = i;
+        this.f3742c = i2;
+        this.f3743d = new b(null);
     }
 
     @Override // c.a.m.h.e
-    public com.baidu.cesium.i.b b(byte[] bArr, int i2, int i3) {
-        long j2;
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
+        long j;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
             try {
-                Object g2 = this.f4157d.g();
-                this.f4157d.f(g2, bArr, i2, i3);
-                j2 = this.f4157d.b(g2);
+                Object g2 = this.f3743d.g();
+                this.f3743d.f(g2, bArr, i, i2);
+                j = this.f3743d.b(g2);
             } catch (Exception unused) {
-                j2 = 4294967295L;
+                j = 4294967295L;
             }
-            return com.baidu.cesium.i.b.a(new long[]{j2});
+            return com.baidu.cesium.i.b.a(new long[]{j});
         }
         return (com.baidu.cesium.i.b) invokeLII.objValue;
     }

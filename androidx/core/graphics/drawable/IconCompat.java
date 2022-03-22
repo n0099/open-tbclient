@@ -24,6 +24,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
@@ -129,9 +130,9 @@ public class IconCompat extends CustomVersionedParcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,8 +153,8 @@ public class IconCompat extends CustomVersionedParcelable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            int i2 = bundle.getInt("type");
-            IconCompat iconCompat = new IconCompat(i2);
+            int i = bundle.getInt("type");
+            IconCompat iconCompat = new IconCompat(i);
             iconCompat.mInt1 = bundle.getInt(EXTRA_INT1);
             iconCompat.mInt2 = bundle.getInt(EXTRA_INT2);
             if (bundle.containsKey(EXTRA_TINT_LIST)) {
@@ -162,7 +163,7 @@ public class IconCompat extends CustomVersionedParcelable {
             if (bundle.containsKey(EXTRA_TINT_MODE)) {
                 iconCompat.mTintMode = PorterDuff.Mode.valueOf(bundle.getString(EXTRA_TINT_MODE));
             }
-            switch (i2) {
+            switch (i) {
                 case -1:
                 case 1:
                 case 5:
@@ -170,7 +171,7 @@ public class IconCompat extends CustomVersionedParcelable {
                     break;
                 case 0:
                 default:
-                    String str = "Unknown type " + i2;
+                    Log.w(TAG, "Unknown type " + i);
                     return null;
                 case 2:
                 case 4:
@@ -322,15 +323,15 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeL.objValue;
     }
 
-    public static IconCompat createWithData(byte[] bArr, int i2, int i3) {
+    public static IconCompat createWithData(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65550, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65550, null, bArr, i, i2)) == null) {
             if (bArr != null) {
                 IconCompat iconCompat = new IconCompat(3);
                 iconCompat.mObj1 = bArr;
-                iconCompat.mInt1 = i2;
-                iconCompat.mInt2 = i3;
+                iconCompat.mInt1 = i;
+                iconCompat.mInt2 = i2;
                 return iconCompat;
             }
             throw new IllegalArgumentException("Data must not be null.");
@@ -338,12 +339,12 @@ public class IconCompat extends CustomVersionedParcelable {
         return (IconCompat) invokeLII.objValue;
     }
 
-    public static IconCompat createWithResource(Context context, @DrawableRes int i2) {
+    public static IconCompat createWithResource(Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i)) == null) {
             if (context != null) {
-                return createWithResource(context.getResources(), context.getPackageName(), i2);
+                return createWithResource(context.getResources(), context.getPackageName(), i);
             }
             throw new IllegalArgumentException("Context must not be null.");
         }
@@ -364,8 +365,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     return packageManager.getResourcesForApplication(applicationInfo);
                 }
                 return null;
-            } catch (PackageManager.NameNotFoundException unused) {
-                String.format("Unable to find pkg=%s for icon", str);
+            } catch (PackageManager.NameNotFoundException e2) {
+                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e2);
                 return null;
             }
         }
@@ -381,15 +382,15 @@ public class IconCompat extends CustomVersionedParcelable {
             if (!"content".equals(scheme) && !"file".equals(scheme)) {
                 try {
                     return new FileInputStream(new File((String) this.mObj1));
-                } catch (FileNotFoundException unused) {
-                    String str = "Unable to load image from path: " + uri;
+                } catch (FileNotFoundException e2) {
+                    Log.w(TAG, "Unable to load image from path: " + uri, e2);
                     return null;
                 }
             }
             try {
                 return context.getContentResolver().openInputStream(uri);
-            } catch (Exception unused2) {
-                String str2 = "Unable to load image from URI: " + uri;
+            } catch (Exception e3) {
+                Log.w(TAG, "Unable to load image from URI: " + uri, e3);
                 return null;
             }
         }
@@ -410,8 +411,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     }
                     try {
                         return ResourcesCompat.getDrawable(getResources(context, resPackage), this.mInt1, context.getTheme());
-                    } catch (RuntimeException unused) {
-                        String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1);
+                    } catch (RuntimeException e2) {
+                        Log.e(TAG, String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1), e2);
                         break;
                     }
                 case 3:
@@ -439,11 +440,11 @@ public class IconCompat extends CustomVersionedParcelable {
         return (Drawable) invokeL.objValue;
     }
 
-    public static String typeToString(int i2) {
+    public static String typeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
+            switch (i) {
                 case 1:
                     return "BITMAP";
                 case 2:
@@ -469,13 +470,13 @@ public class IconCompat extends CustomVersionedParcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, intent, drawable, context) == null) {
             checkResource(context);
-            int i2 = this.mType;
-            if (i2 == 1) {
+            int i = this.mType;
+            if (i == 1) {
                 bitmap = (Bitmap) this.mObj1;
                 if (drawable != null) {
                     bitmap = bitmap.copy(bitmap.getConfig(), true);
                 }
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 try {
                     Context createPackageContext = context.createPackageContext(getResPackage(), 0);
                     if (drawable == null) {
@@ -495,7 +496,7 @@ public class IconCompat extends CustomVersionedParcelable {
                 } catch (PackageManager.NameNotFoundException e2) {
                     throw new IllegalArgumentException("Can't find package " + this.mObj1, e2);
                 }
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 bitmap = createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
             } else {
                 throw new IllegalArgumentException("Icon type not supported for intent shortcuts");
@@ -522,7 +523,7 @@ public class IconCompat extends CustomVersionedParcelable {
                 String str5 = str.split(":", -1)[0];
                 int identifier = getResources(context, str5).getIdentifier(str4, str3, str5);
                 if (this.mInt1 != identifier) {
-                    String str6 = "Id has changed for " + str5 + "/" + str4;
+                    Log.i(TAG, "Id has changed for " + str5 + "/" + str4);
                     this.mInt1 = identifier;
                 }
             }
@@ -542,11 +543,11 @@ public class IconCompat extends CustomVersionedParcelable {
                 }
                 return null;
             }
-            int i2 = this.mType;
-            if (i2 == 1) {
+            int i = this.mType;
+            if (i == 1) {
                 return (Bitmap) this.mObj1;
             }
-            if (i2 == 5) {
+            if (i == 5) {
                 return createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
             }
             throw new IllegalStateException("called getBitmap() on " + this);
@@ -606,8 +607,8 @@ public class IconCompat extends CustomVersionedParcelable {
             if (this.mType == -1 && Build.VERSION.SDK_INT >= 23) {
                 return getUri((Icon) this.mObj1);
             }
-            int i2 = this.mType;
-            if (i2 != 4 && i2 != 6) {
+            int i = this.mType;
+            if (i != 4 && i != 6) {
                 throw new IllegalStateException("called getUri() on " + this);
             }
             return Uri.parse((String) this.mObj1);
@@ -715,10 +716,10 @@ public class IconCompat extends CustomVersionedParcelable {
         }
     }
 
-    public IconCompat setTint(@ColorInt int i2) {
+    public IconCompat setTint(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? setTintList(ColorStateList.valueOf(i2)) : (IconCompat) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? setTintList(ColorStateList.valueOf(i)) : (IconCompat) invokeI.objValue;
     }
 
     public IconCompat setTintList(ColorStateList colorStateList) {
@@ -909,17 +910,17 @@ public class IconCompat extends CustomVersionedParcelable {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static IconCompat createWithResource(Resources resources, String str, @DrawableRes int i2) {
+    public static IconCompat createWithResource(Resources resources, String str, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, resources, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, resources, str, i)) == null) {
             if (str != null) {
-                if (i2 != 0) {
+                if (i != 0) {
                     IconCompat iconCompat = new IconCompat(2);
-                    iconCompat.mInt1 = i2;
+                    iconCompat.mInt1 = i;
                     if (resources != null) {
                         try {
-                            iconCompat.mObj1 = resources.getResourceName(i2);
+                            iconCompat.mObj1 = resources.getResourceName(i);
                         } catch (Resources.NotFoundException unused) {
                             throw new IllegalArgumentException("Icon resource cannot be found");
                         }
@@ -970,14 +971,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getType", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException unused) {
-                String str = "Unable to get icon type " + icon;
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Unable to get icon type " + icon, e2);
                 return -1;
-            } catch (NoSuchMethodException unused2) {
-                String str2 = "Unable to get icon type " + icon;
+            } catch (NoSuchMethodException e3) {
+                Log.e(TAG, "Unable to get icon type " + icon, e3);
                 return -1;
-            } catch (InvocationTargetException unused3) {
-                String str3 = "Unable to get icon type " + icon;
+            } catch (InvocationTargetException e4) {
+                Log.e(TAG, "Unable to get icon type " + icon, e4);
                 return -1;
             }
         }
@@ -996,7 +997,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getResId", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Unable to get icon resource", e2);
+                return 0;
+            } catch (NoSuchMethodException e3) {
+                Log.e(TAG, "Unable to get icon resource", e3);
+                return 0;
+            } catch (InvocationTargetException e4) {
+                Log.e(TAG, "Unable to get icon resource", e4);
                 return 0;
             }
         }
@@ -1014,7 +1022,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (String) icon.getClass().getMethod("getResPackage", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Unable to get icon package", e2);
+                return null;
+            } catch (NoSuchMethodException e3) {
+                Log.e(TAG, "Unable to get icon package", e3);
+                return null;
+            } catch (InvocationTargetException e4) {
+                Log.e(TAG, "Unable to get icon package", e4);
                 return null;
             }
         }
@@ -1032,23 +1047,30 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (Uri) icon.getClass().getMethod("getUri", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Unable to get icon uri", e2);
+                return null;
+            } catch (NoSuchMethodException e3) {
+                Log.e(TAG, "Unable to get icon uri", e3);
+                return null;
+            } catch (InvocationTargetException e4) {
+                Log.e(TAG, "Unable to get icon uri", e4);
                 return null;
             }
         }
         return (Uri) invokeL.objValue;
     }
 
-    public IconCompat(int i2) {
+    public IconCompat(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1062,7 +1084,7 @@ public class IconCompat extends CustomVersionedParcelable {
         this.mTintList = null;
         this.mTintMode = DEFAULT_TINT_MODE;
         this.mTintModeStr = null;
-        this.mType = i2;
+        this.mType = i;
     }
 
     @Nullable

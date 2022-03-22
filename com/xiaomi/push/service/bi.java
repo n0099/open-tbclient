@@ -18,25 +18,25 @@ import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public static bi a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f934a;
+    public static String f910a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public al.b f935a;
+    public al.b f911a;
 
     /* renamed from: a  reason: collision with other field name */
-    public dt.a f936a;
+    public dt.a f912a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<a> f937a;
+    public List<a> f913a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public class bi {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -89,15 +89,15 @@ public class bi {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f937a = new ArrayList();
+        this.f913a = new ArrayList();
     }
 
     public static bi a() {
@@ -107,25 +107,25 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m675a() {
+    public static synchronized String m654a() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             synchronized (bi.class) {
-                if (f934a == null) {
-                    SharedPreferences sharedPreferences = com.xiaomi.push.t.m699a().getSharedPreferences("XMPushServiceConfig", 0);
+                if (f910a == null) {
+                    SharedPreferences sharedPreferences = com.xiaomi.push.t.m678a().getSharedPreferences("XMPushServiceConfig", 0);
                     String string = sharedPreferences.getString("DeviceUUID", null);
-                    f934a = string;
+                    f910a = string;
                     if (string == null) {
-                        String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m699a(), false);
-                        f934a = a2;
+                        String a2 = com.xiaomi.push.i.a(com.xiaomi.push.t.m678a(), false);
+                        f910a = a2;
                         if (a2 != null) {
-                            sharedPreferences.edit().putString("DeviceUUID", f934a).commit();
+                            sharedPreferences.edit().putString("DeviceUUID", f910a).commit();
                         }
                     }
                 }
-                str = f934a;
+                str = f910a;
             }
             return str;
         }
@@ -134,16 +134,16 @@ public class bi {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f936a == null) {
+        if ((interceptable == null || interceptable.invokeV(65545, this) == null) && this.f912a == null) {
             d();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f935a == null) {
+        if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.f911a == null) {
             bj bjVar = new bj(this);
-            this.f935a = bjVar;
+            this.f911a = bjVar;
             go.a(bjVar);
         }
     }
@@ -178,17 +178,17 @@ public class bi {
         }
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m699a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.t.m678a().openFileInput("XMCloudCfg"));
                 try {
-                    this.f936a = dt.a.b(com.xiaomi.push.b.a(bufferedInputStream));
+                    this.f912a = dt.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                     r2 = bufferedInputStream;
                 } catch (Exception e3) {
                     e2 = e3;
-                    com.xiaomi.channel.commonutils.logger.b.m133a("load config failure: " + e2.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m112a("load config failure: " + e2.getMessage());
                     r2 = bufferedInputStream;
                     com.xiaomi.push.y.a((Closeable) r2);
-                    if (this.f936a != null) {
+                    if (this.f912a != null) {
                     }
                 }
             } catch (Throwable th2) {
@@ -206,8 +206,8 @@ public class bi {
             throw th;
         }
         com.xiaomi.push.y.a((Closeable) r2);
-        if (this.f936a != null) {
-            this.f936a = new dt.a();
+        if (this.f912a != null) {
+            this.f912a = new dt.a();
         }
     }
 
@@ -216,26 +216,26 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
-                if (this.f936a != null) {
-                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m699a().openFileOutput("XMCloudCfg", 0));
+                if (this.f912a != null) {
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.t.m678a().openFileOutput("XMCloudCfg", 0));
                     com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
-                    this.f936a.a(a2);
-                    a2.m256a();
+                    this.f912a.a(a2);
+                    a2.m235a();
                     bufferedOutputStream.close();
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("save config failure: " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m112a("save config failure: " + e2.getMessage());
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m678a() {
+    public int m657a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
-            dt.a aVar = this.f936a;
+            dt.a aVar = this.f912a;
             if (aVar != null) {
                 return aVar.c();
             }
@@ -245,22 +245,22 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dt.a m679a() {
+    public dt.a m658a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b();
-            return this.f936a;
+            return this.f912a;
         }
         return (dt.a) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m680a() {
+    public synchronized void m659a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f937a.clear();
+                this.f913a.clear();
             }
         }
     }
@@ -269,11 +269,11 @@ public class bi {
         a[] aVarArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (bVar.m326d() && bVar.d() > m678a()) {
+            if (bVar.m305d() && bVar.d() > m657a()) {
                 c();
             }
             synchronized (this) {
-                aVarArr = (a[]) this.f937a.toArray(new a[this.f937a.size()]);
+                aVarArr = (a[]) this.f913a.toArray(new a[this.f913a.size()]);
             }
             for (a aVar : aVarArr) {
                 aVar.a(bVar);
@@ -285,7 +285,7 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             synchronized (this) {
-                this.f937a.add(aVar);
+                this.f913a.add(aVar);
             }
         }
     }

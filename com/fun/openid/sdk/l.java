@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.Parcel;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.samsung.android.deviceidservice.IDeviceIdService;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedBlockingQueue<IBinder> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f52907b;
+    public ServiceConnection f38668b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +37,9 @@ public class l implements f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,20 +73,23 @@ public class l implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new LinkedBlockingQueue<>(1);
-        this.f52907b = new a(this);
+        this.f38668b = new a(this);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0020  */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0081, code lost:
+        if (com.fun.openid.sdk.FunOpenIDSdk.isLogEnabled() != false) goto L20;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001a  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0029  */
     @Override // com.fun.openid.sdk.f
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -99,13 +103,15 @@ public class l implements f {
         if (context.getPackageManager().getPackageInfo("com.samsung.android.deviceidservice", 0) != null) {
             z = true;
             if (z) {
-                FunOpenIDSdk.isLogEnabled();
+                if (FunOpenIDSdk.isLogEnabled()) {
+                    Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
+                }
                 aVar.a(false, null);
                 return;
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f52907b, 1)) {
+            if (context.bindService(intent, this.f38668b, 1)) {
                 try {
                     IBinder take = this.a.take();
                     Parcel obtain = Parcel.obtain();
@@ -121,13 +127,12 @@ public class l implements f {
                 } catch (Exception e2) {
                     if (FunOpenIDSdk.isLogEnabled()) {
                         e2.printStackTrace();
+                        Log.e(FunOpenIDSdk.TAG, "===========获取OAID出错，需重试");
                     }
+                    aVar.a(true, null);
+                    return;
                 }
-            } else {
-                FunOpenIDSdk.isLogEnabled();
             }
-            aVar.a(true, null);
-            return;
         }
         z = false;
         if (z) {

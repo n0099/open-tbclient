@@ -51,7 +51,7 @@ public class c {
         public HostnameVerifier a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f30519b;
+        public HttpsURLConnection f24397b;
 
         public a(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
@@ -60,16 +60,16 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpsURLConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = HttpsURLConnection.getDefaultHostnameVerifier();
-            this.f30519b = httpsURLConnection;
+            this.f24397b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -83,51 +83,51 @@ public class c {
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(String str, int i2) throws IOException, UnknownHostException {
+        public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
                 return null;
             }
             return (Socket) invokeLI.objValue;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
+        public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
                 return null;
             }
             return (Socket) invokeCommon.objValue;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
+        public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i)) == null) {
                 return null;
             }
             return (Socket) invokeLI.objValue;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
+        public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
                 return null;
             }
             return (Socket) invokeCommon.objValue;
         }
 
         @Override // javax.net.ssl.SSLSocketFactory
-        public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+        public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                String requestProperty = this.f30519b.getRequestProperty("Host");
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+                String requestProperty = this.f24397b.getRequestProperty("Host");
                 if (!TextUtils.isEmpty(requestProperty)) {
                     str = requestProperty;
                 }
@@ -136,7 +136,7 @@ public class c {
                     socket.close();
                 }
                 SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
-                SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i2);
+                SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i);
                 sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
                 if (Build.VERSION.SDK_INT >= 17) {
                     sSLCertificateSocketFactory.setHostname(sSLSocket, str);
@@ -272,7 +272,7 @@ public class c {
 
     public static b a(Context context, HttpURLConnection httpURLConnection) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         InputStream inputStream;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
@@ -280,13 +280,13 @@ public class c {
             b bVar = new b();
             GZIPInputStream gZIPInputStream = null;
             try {
-                i2 = httpURLConnection.getResponseCode();
+                i = httpURLConnection.getResponseCode();
                 try {
-                    bufferedInputStream = new BufferedInputStream(a(i2) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream());
+                    bufferedInputStream = new BufferedInputStream(a(i) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream());
                 } catch (Exception unused) {
                 }
             } catch (Exception unused2) {
-                i2 = 0;
+                i = 0;
             }
             try {
                 gZIPInputStream = a(httpURLConnection) ? new GZIPInputStream(bufferedInputStream) : bufferedInputStream;
@@ -294,11 +294,11 @@ public class c {
             } catch (Exception unused3) {
                 gZIPInputStream = bufferedInputStream;
                 inputStream = gZIPInputStream;
-                bVar.a(i2);
+                bVar.a(i);
                 bVar.a(inputStream);
                 return bVar;
             }
-            bVar.a(i2);
+            bVar.a(i);
             bVar.a(inputStream);
             return bVar;
         }
@@ -313,9 +313,9 @@ public class c {
                 return "";
             }
             StringBuffer stringBuffer = new StringBuffer();
-            int i2 = 0;
+            int i = 0;
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                if (i2 != 0) {
+                if (i != 0) {
                     stringBuffer.append("&");
                 }
                 String key = entry.getKey();
@@ -325,7 +325,7 @@ public class c {
                     String value = entry.getValue();
                     stringBuffer.append(!TextUtils.isEmpty(value) ? URLEncoder.encode(value, "UTF-8") : URLEncoder.encode("", "UTF-8"));
                 }
-                i2++;
+                i++;
             }
             return stringBuffer.toString();
         }
@@ -376,9 +376,9 @@ public class c {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {httpURLConnection};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -466,9 +466,9 @@ public class c {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {httpURLConnection};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -540,12 +540,12 @@ public class c {
         }
     }
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            int i3 = i2 / 100;
-            return i3 == 4 || i3 == 5 || i3 == 6;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            int i2 = i / 100;
+            return i2 == 4 || i2 == 5 || i2 == 6;
         }
         return invokeI.booleanValue;
     }

@@ -17,7 +17,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean lastNightModeEnabled;
@@ -25,7 +25,7 @@ public class BdSailorWebSettings implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public WebSettings mWebSettings;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENABLE_LOG_RECORD = "enable_log_record";
@@ -39,9 +39,9 @@ public class BdSailorWebSettings implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSailorWebSettings};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -378,10 +378,10 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public void setImageMaxWidthExt(int i2) {
+        public void setImageMaxWidthExt(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-                this.this$0.mWebSettings.setImageMaxWidth(i2);
+            if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+                this.this$0.mWebSettings.setImageMaxWidth(i);
             }
         }
 
@@ -547,10 +547,10 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public void setWiseSearchFirstScreenOptTypeEX(int i2) {
+        public void setWiseSearchFirstScreenOptTypeEX(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-                this.this$0.mWebSettings.setWiseSearchFirstScreenOptType(i2);
+            if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+                this.this$0.mWebSettings.setWiseSearchFirstScreenOptType(i);
             }
         }
     }
@@ -577,9 +577,9 @@ public class BdSailorWebSettings implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {webSettings};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1370,11 +1370,11 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setAppCacheMaxSize(long j2) {
+    public synchronized void setAppCacheMaxSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
             synchronized (this) {
-                this.mWebSettings.setAppCacheMaxSize(j2);
+                this.mWebSettings.setAppCacheMaxSize(j);
             }
         }
     }
@@ -1437,10 +1437,10 @@ public class BdSailorWebSettings implements INoProGuard {
         webSettings.setBuiltInZoomControls(z);
     }
 
-    public void setCacheMode(int i2) {
+    public void setCacheMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.mWebSettings.setCacheMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.mWebSettings.setCacheMode(i);
         }
     }
 
@@ -1481,22 +1481,22 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setDefaultFixedFontSize(int i2) {
+    public synchronized void setDefaultFixedFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             synchronized (this) {
                 if (this.mWebSettings != null) {
-                    this.mWebSettings.setDefaultFontSize(i2);
+                    this.mWebSettings.setDefaultFontSize(i);
                 }
             }
         }
     }
 
-    public synchronized void setDefaultFontSize(int i2) {
+    public synchronized void setDefaultFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
             synchronized (this) {
-                this.mWebSettings.setDefaultFontSize(i2);
+                this.mWebSettings.setDefaultFontSize(i);
             }
         }
     }
@@ -1517,13 +1517,13 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public void setDisabledActionModeMenuItems(int i2) {
+    public void setDisabledActionModeMenuItems(int i) {
         WebSettings webSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (webSettings = this.mWebSettings) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048640, this, i) == null) || (webSettings = this.mWebSettings) == null) {
             return;
         }
-        webSettings.setDisabledActionModeMenuItems(i2);
+        webSettings.setDisabledActionModeMenuItems(i);
     }
 
     public void setDisplayZoomControls(boolean z) {
@@ -1664,31 +1664,31 @@ public class BdSailorWebSettings implements INoProGuard {
         webSettings.setMediaPlaybackRequiresUserGesture(z);
     }
 
-    public synchronized void setMinimumFontSize(int i2) {
+    public synchronized void setMinimumFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048657, this, i) == null) {
             synchronized (this) {
-                this.mWebSettings.setMinimumFontSize(i2);
+                this.mWebSettings.setMinimumFontSize(i);
             }
         }
     }
 
-    public synchronized void setMinimumLogicalFontSize(int i2) {
+    public synchronized void setMinimumLogicalFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048658, this, i) == null) {
             synchronized (this) {
-                this.mWebSettings.setMinimumLogicalFontSize(i2);
+                this.mWebSettings.setMinimumLogicalFontSize(i);
             }
         }
     }
 
-    public void setMixedContentMode(int i2) {
+    public void setMixedContentMode(int i) {
         WebSettings webSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048659, this, i2) == null) || (webSettings = this.mWebSettings) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048659, this, i) == null) || (webSettings = this.mWebSettings) == null) {
             return;
         }
-        webSettings.setMixedContentMode(i2);
+        webSettings.setMixedContentMode(i);
     }
 
     public void setNeedInitialFocus(boolean z) {
@@ -1698,11 +1698,11 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setPageCacheCapacity(int i2) {
+    public synchronized void setPageCacheCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
             synchronized (this) {
-                this.mWebSettings.setPageCacheCapacity(i2);
+                this.mWebSettings.setPageCacheCapacity(i);
             }
         }
     }
@@ -1793,11 +1793,11 @@ public class BdSailorWebSettings implements INoProGuard {
         webSettings.setSupportZoom(z);
     }
 
-    public synchronized void setTextZoom(int i2) {
+    public synchronized void setTextZoom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048672, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048672, this, i) == null) {
             synchronized (this) {
-                this.mWebSettings.setTextZoom(i2);
+                this.mWebSettings.setTextZoom(i);
             }
         }
     }

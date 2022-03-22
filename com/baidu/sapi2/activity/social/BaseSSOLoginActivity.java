@@ -61,31 +61,27 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36705b;
+    public boolean f28470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f36706c;
+    public Handler f28471c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Dialog f36707d;
+    public Dialog f28472d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36708e;
+    public String f28473e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36709f;
+    public boolean f28474f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36710g;
+    public int f28475g;
 
     /* renamed from: h  reason: collision with root package name */
-    public WebAuthResult f36711h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.baidu.sapi2.a.a.b f36712i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public AuthorizationListener f36713j;
+    public WebAuthResult f28476h;
+    public com.baidu.sapi2.a.a.b i;
+    public AuthorizationListener j;
 
     /* loaded from: classes4.dex */
     public class c extends AuthorizationListener {
@@ -100,9 +96,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -123,18 +119,18 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
 
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-        public void onFailed(int i2, String str) {
+        public void onFailed(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (this.a.f36710g == 2001) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if (this.a.f28475g == 2001) {
                     Intent intent = new Intent();
-                    intent.putExtra("result_code", i2);
+                    intent.putExtra("result_code", i);
                     intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                     this.a.a(1002, intent);
                 } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                    this.a.f36711h.setResultCode(i2);
-                    this.a.f36711h.setResultMsg(str);
-                    CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.a.f36711h);
+                    this.a.f28476h.setResultCode(i);
+                    this.a.f28476h.setResultMsg(str);
+                    CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.a.f28476h);
                     CoreViewRouter.getInstance().release();
                 }
                 this.a.finish();
@@ -146,19 +142,19 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountType) == null) {
                 super.onSuccess(accountType);
-                if (this.a.f36705b) {
+                if (this.a.f28470b) {
                     return;
                 }
                 WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
                 if (webAuthListener != null) {
-                    WebAuthResult webAuthResult = this.a.f36711h;
+                    WebAuthResult webAuthResult = this.a.f28476h;
                     webAuthResult.accountType = accountType;
                     webAuthResult.setResultCode(0);
-                    webAuthListener.onSuccess(this.a.f36711h);
+                    webAuthListener.onSuccess(this.a.f28476h);
                 }
-                int i2 = this.a.f36710g;
-                if (i2 != 2001) {
-                    if (i2 != 2003 && i2 != 2004) {
+                int i = this.a.f28475g;
+                if (i != 2001) {
+                    if (i != 2003 && i != 2004) {
                         WebSocialLoginDTO socialLoginDTO = CoreViewRouter.getInstance().getSocialLoginDTO();
                         if (socialLoginDTO == null || !socialLoginDTO.finishActivityAfterSuc) {
                             return;
@@ -205,9 +201,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -225,7 +221,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                     return;
                 }
                 BaseSSOLoginActivity baseSSOLoginActivity = this.a;
-                baseSSOLoginActivity.a(baseSSOLoginActivity.f36710g);
+                baseSSOLoginActivity.a(baseSSOLoginActivity.f28475g);
             }
         }
     }
@@ -243,9 +239,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -259,7 +255,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 BaseSSOLoginActivity baseSSOLoginActivity = this.a;
-                baseSSOLoginActivity.a(baseSSOLoginActivity.f36710g);
+                baseSSOLoginActivity.a(baseSSOLoginActivity.f28475g);
             }
         }
     }
@@ -271,7 +267,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public final /* synthetic */ SapiAccount a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseSSOLoginActivity f36714b;
+        public final /* synthetic */ BaseSSOLoginActivity f28477b;
 
         public f(BaseSSOLoginActivity baseSSOLoginActivity, SapiAccount sapiAccount) {
             Interceptable interceptable = $ic;
@@ -280,15 +276,15 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity, sapiAccount};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36714b = baseSSOLoginActivity;
+            this.f28477b = baseSSOLoginActivity;
             this.a = sapiAccount;
         }
 
@@ -297,14 +293,14 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f36714b.f36713j != null) {
-                        this.f36714b.f36713j.beforeSuccess(this.a);
+                    if (this.f28477b.j != null) {
+                        this.f28477b.j.beforeSuccess(this.a);
                     }
                 } catch (Throwable th) {
                     Log.e(th);
                 }
                 SapiAccountManager.getInstance().validate(this.a);
-                this.f36714b.a(AccountType.UNKNOWN);
+                this.f28477b.a(AccountType.UNKNOWN);
             }
         }
     }
@@ -316,7 +312,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public final /* synthetic */ SocialResponse a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseSSOLoginActivity f36715b;
+        public final /* synthetic */ BaseSSOLoginActivity f28478b;
 
         public g(BaseSSOLoginActivity baseSSOLoginActivity, SocialResponse socialResponse) {
             Interceptable interceptable = $ic;
@@ -325,15 +321,15 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity, socialResponse};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36715b = baseSSOLoginActivity;
+            this.f28478b = baseSSOLoginActivity;
             this.a = socialResponse;
         }
 
@@ -341,7 +337,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public void run() {
             AuthorizationListener authorizationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (authorizationListener = this.f36715b.f36713j) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (authorizationListener = this.f28478b.j) == null) {
                 return;
             }
             SocialResponse socialResponse = this.a;
@@ -356,7 +352,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseSSOLoginActivity f36716b;
+        public final /* synthetic */ BaseSSOLoginActivity f28479b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(BaseSSOLoginActivity baseSSOLoginActivity, Looper looper, String str) {
@@ -367,25 +363,25 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity, looper, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36716b = baseSSOLoginActivity;
+            this.f28479b = baseSSOLoginActivity;
             this.a = str;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i2, String str) {
+        public void onFailure(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
                 ThirdPartyUtil.wxAuthCodeMap.clear();
-                AuthorizationListener authorizationListener = this.f36716b.f36713j;
+                AuthorizationListener authorizationListener = this.f28479b.j;
                 if (authorizationListener != null) {
                     authorizationListener.onFailed(-100, "登录失败");
                 }
@@ -398,8 +394,8 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 ThirdPartyUtil.wxAuthCodeMap.clear();
                 super.onFinish();
-                BaseSSOLoginActivity baseSSOLoginActivity = this.f36716b;
-                ViewUtility.dismissDialog(baseSSOLoginActivity, baseSSOLoginActivity.f36707d);
+                BaseSSOLoginActivity baseSSOLoginActivity = this.f28479b;
+                ViewUtility.dismissDialog(baseSSOLoginActivity, baseSSOLoginActivity.f28472d);
             }
         }
 
@@ -408,17 +404,17 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.onStart();
-                this.f36716b.a(this.a);
+                this.f28479b.a(this.a);
             }
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
+        public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, hashMap) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, hashMap) == null) {
                 ThirdPartyUtil.wxAuthCodeMap.clear();
                 if (str == null) {
-                    AuthorizationListener authorizationListener = this.f36716b.f36713j;
+                    AuthorizationListener authorizationListener = this.f28479b.j;
                     if (authorizationListener != null) {
                         authorizationListener.onFailed(-100, "登录失败");
                         return;
@@ -426,10 +422,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                     return;
                 }
                 try {
-                    this.f36716b.a(SocialResponse.fromJSONObject(new JSONObject(str)), hashMap);
+                    this.f28479b.a(SocialResponse.fromJSONObject(new JSONObject(str)), hashMap);
                 } catch (Throwable th) {
                     Log.e(th);
-                    AuthorizationListener authorizationListener2 = this.f36716b.f36713j;
+                    AuthorizationListener authorizationListener2 = this.f28479b.j;
                     if (authorizationListener2 != null) {
                         authorizationListener2.onFailed(-100, "登录失败");
                     }
@@ -443,25 +439,25 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = "BaseSSOLoginActivity";
-        this.f36711h = new a(this);
-        this.f36712i = new b(this);
-        this.f36713j = new c(this);
+        this.f28476h = new a(this);
+        this.i = new b(this);
+        this.j = new c(this);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ViewUtility.dismissDialog(this, this.f36707d);
+            ViewUtility.dismissDialog(this, this.f28472d);
             super.finish();
         }
     }
@@ -488,7 +484,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onClose();
-            a(this.f36710g);
+            a(this.f28475g);
         }
     }
 
@@ -541,7 +537,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (sapiWebView != null) {
                 sapiWebView.setOnBackCallback(new d(this));
                 this.sapiWebView.setOnFinishCallback(new e(this));
-                this.sapiWebView.setAuthorizationListener(this.f36713j);
+                this.sapiWebView.setAuthorizationListener(this.j);
             }
         }
     }
@@ -550,11 +546,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             super.init();
-            this.f36710g = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-            this.f36708e = getIntent().getStringExtra("extraJson");
-            this.f36709f = getIntent().getBooleanExtra(m, false);
-            this.f36711h.activity = this;
-            this.f36706c = new Handler();
+            this.f28475g = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
+            this.f28473e = getIntent().getStringExtra("extraJson");
+            this.f28474f = getIntent().getBooleanExtra(m, false);
+            this.f28476h.activity = this;
+            this.f28471c = new Handler();
         }
     }
 
@@ -572,10 +568,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            setResult(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            setResult(i);
         }
     }
 
@@ -596,10 +592,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         return (List) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            a(i2, -301, "您已取消操作");
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            a(i, -301, "您已取消操作");
         }
     }
 
@@ -607,11 +603,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.isEmpty(this.f36708e)) {
+            if (TextUtils.isEmpty(this.f28473e)) {
                 return "";
             }
             try {
-                return new JSONObject(this.f36708e).optString(l);
+                return new JSONObject(this.f28473e).optString(l);
             } catch (Exception e2) {
                 Log.e(e2);
                 return "";
@@ -633,9 +629,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -649,7 +645,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 BaseSSOLoginActivity baseSSOLoginActivity = this.a;
-                if (baseSSOLoginActivity.f36710g == 2001) {
+                if (baseSSOLoginActivity.f28475g == 2001) {
                     baseSSOLoginActivity.b(1001);
                 } else {
                     CoreViewRouter.getInstance().release();
@@ -664,7 +660,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 super.finishActivity(z);
                 BaseSSOLoginActivity baseSSOLoginActivity = this.a;
-                if (baseSSOLoginActivity.f36710g == 2001) {
+                if (baseSSOLoginActivity.f28475g == 2001) {
                     baseSSOLoginActivity.b(1001);
                 } else if (z) {
                     CoreViewRouter.getInstance().release();
@@ -687,9 +683,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -719,19 +715,19 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    public void a(int i2, int i3, String str) {
+    public void a(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            if (i2 == 2001) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
+            if (i == 2001) {
                 Intent intent = new Intent();
-                intent.putExtra("result_code", i3);
+                intent.putExtra("result_code", i2);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 a(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                this.f36705b = true;
-                this.f36711h.setResultCode(i3);
-                this.f36711h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f36711h);
+                this.f28470b = true;
+                this.f28476h.setResultCode(i2);
+                this.f28476h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f28476h);
                 CoreViewRouter.getInstance().release();
             }
             SapiUtils.hideSoftInput(this);
@@ -739,10 +735,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    public void a(int i2, Intent intent) {
+    public void a(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, intent) == null) {
-            setResult(i2, intent);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, intent) == null) {
+            setResult(i, intent);
         }
     }
 
@@ -775,12 +771,12 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             if (SapiContext.getInstance().mLastLoginType != null) {
                 SapiContext.getInstance().setPreLoginType(SapiContext.getInstance().mLastLoginType.getName());
             }
-            if (this.f36713j != null) {
-                int i2 = socialResponse.errorCode;
-                if (i2 != 0 && i2 != 110000) {
-                    this.f36706c.post(new g(this, socialResponse));
+            if (this.j != null) {
+                int i = socialResponse.errorCode;
+                if (i != 0 && i != 110000) {
+                    this.f28471c.post(new g(this, socialResponse));
                 } else {
-                    this.f36706c.post(new f(this, sapiAccountResponseToAccount));
+                    this.f28471c.post(new f(this, sapiAccountResponseToAccount));
                 }
             }
         }
@@ -798,17 +794,17 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 currentAccount.email = strArr[1];
                 SapiContext.getInstance().addTouchidAccounts(currentAccount);
             }
-            AuthorizationListener authorizationListener = this.f36713j;
+            AuthorizationListener authorizationListener = this.j;
             if (authorizationListener != null) {
                 try {
                     if (!AuthorizationListener.class.equals(authorizationListener.getClass().getMethod("onSuccess", AccountType.class).getDeclaringClass())) {
-                        this.f36713j.onSuccess(accountType);
+                        this.j.onSuccess(accountType);
                         return;
                     }
                 } catch (NoSuchMethodException e2) {
                     Log.e(e2);
                 }
-                this.f36713j.onSuccess();
+                this.j.onSuccess();
             }
         }
     }
@@ -818,9 +814,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             if (this.sapiWebView == null) {
                 if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                    this.f36711h.setResultCode(-202);
-                    this.f36711h.setResultMsg("网络连接失败，请检查网络设置");
-                    CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f36711h);
+                    this.f28476h.setResultCode(-202);
+                    this.f28476h.setResultMsg("网络连接失败，请检查网络设置");
+                    CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f28476h);
                 }
                 CoreViewRouter.getInstance().release();
                 finish();
@@ -845,11 +841,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             LoadingDialog createDialog = new LoadingDialog.Builder(this).setMessage(str).setCancelable(false).setCancelOutside(false).createDialog();
-            this.f36707d = createDialog;
+            this.f28472d = createDialog;
             if (createDialog.isShowing() || isFinishing()) {
                 return;
             }
-            this.f36707d.show();
+            this.f28472d.show();
         }
     }
 }

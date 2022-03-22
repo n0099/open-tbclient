@@ -22,53 +22,53 @@ public abstract class OneDimensionalCodeWriter implements Writer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int appendPattern(boolean[] zArr, int i2, int[] iArr, boolean z) {
+    public static int appendPattern(boolean[] zArr, int i, int[] iArr, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{zArr, Integer.valueOf(i2), iArr, Boolean.valueOf(z)})) == null) {
-            int i3 = 0;
-            for (int i4 : iArr) {
-                int i5 = 0;
-                while (i5 < i4) {
-                    zArr[i2] = z;
-                    i5++;
-                    i2++;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{zArr, Integer.valueOf(i), iArr, Boolean.valueOf(z)})) == null) {
+            int i2 = 0;
+            for (int i3 : iArr) {
+                int i4 = 0;
+                while (i4 < i3) {
+                    zArr[i] = z;
+                    i4++;
+                    i++;
                 }
-                i3 += i4;
+                i2 += i3;
                 z = !z;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static BitMatrix renderResult(boolean[] zArr, int i2, int i3, int i4) {
+    public static BitMatrix renderResult(boolean[] zArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65538, null, zArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65538, null, zArr, i, i2, i3)) == null) {
             int length = zArr.length;
-            int i5 = i4 + length;
-            int max = Math.max(i2, i5);
-            int max2 = Math.max(1, i3);
-            int i6 = max / i5;
-            int i7 = (max - (length * i6)) / 2;
+            int i4 = i3 + length;
+            int max = Math.max(i, i4);
+            int max2 = Math.max(1, i2);
+            int i5 = max / i4;
+            int i6 = (max - (length * i5)) / 2;
             BitMatrix bitMatrix = new BitMatrix(max, max2);
-            int i8 = 0;
-            while (i8 < length) {
-                if (zArr[i8]) {
-                    bitMatrix.setRegion(i7, 0, i6, max2);
+            int i7 = 0;
+            while (i7 < length) {
+                if (zArr[i7]) {
+                    bitMatrix.setRegion(i6, 0, i5, max2);
                 }
-                i8++;
-                i7 += i6;
+                i7++;
+                i6 += i5;
             }
             return bitMatrix;
         }
@@ -76,10 +76,10 @@ public abstract class OneDimensionalCodeWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
+    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i2, i3)) == null) ? encode(str, barcodeFormat, i2, i3, null) : (BitMatrix) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, str, barcodeFormat, i, i2)) == null) ? encode(str, barcodeFormat, i, i2, null) : (BitMatrix) invokeLLII.objValue;
     }
 
     public abstract boolean[] encode(String str);
@@ -94,21 +94,21 @@ public abstract class OneDimensionalCodeWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (str.isEmpty()) {
                 throw new IllegalArgumentException("Found empty contents");
             }
-            if (i2 >= 0 && i3 >= 0) {
+            if (i >= 0 && i2 >= 0) {
                 int defaultMargin = getDefaultMargin();
                 if (map != null && map.containsKey(EncodeHintType.MARGIN)) {
                     defaultMargin = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
                 }
-                return renderResult(encode(str), i2, i3, defaultMargin);
+                return renderResult(encode(str), i, i2, defaultMargin);
             }
-            throw new IllegalArgumentException("Negative size is not allowed. Input: " + i2 + 'x' + i3);
+            throw new IllegalArgumentException("Negative size is not allowed. Input: " + i + 'x' + i2);
         }
         return (BitMatrix) invokeCommon.objValue;
     }

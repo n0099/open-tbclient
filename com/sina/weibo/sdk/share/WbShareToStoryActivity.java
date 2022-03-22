@@ -21,7 +21,7 @@ import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WbShareToStoryActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class WbShareToStoryActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,9 +74,9 @@ public class WbShareToStoryActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -135,9 +135,9 @@ public class WbShareToStoryActivity extends BaseActivity {
             } else {
                 WbSdkProgressBar wbSdkProgressBar = new WbSdkProgressBar(this);
                 this.progressBar = wbSdkProgressBar;
-                int i2 = this.progressColor;
-                if (i2 != -1) {
-                    wbSdkProgressBar.setProgressColor(i2);
+                int i = this.progressColor;
+                if (i != -1) {
+                    wbSdkProgressBar.setProgressColor(i);
                 }
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -149,16 +149,16 @@ public class WbShareToStoryActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCallbackActivity(int i2) {
+    public void setCallbackActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
             FrameLayout frameLayout = this.rootLayout;
             if (frameLayout != null) {
                 frameLayout.setVisibility(8);
             }
             try {
                 Intent intent = new Intent();
-                intent.putExtra(WBConstants.Response.ERRCODE, i2);
+                intent.putExtra(WBConstants.Response.ERRCODE, i);
                 setResult(-1, intent);
             } catch (Exception e2) {
                 LogUtil.v("weibo sdk", e2.toString());
@@ -168,10 +168,10 @@ public class WbShareToStoryActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 
@@ -224,16 +224,16 @@ public class WbShareToStoryActivity extends BaseActivity {
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             super.onNewIntent(intent);
             try {
-                i2 = intent.getIntExtra("backType", 0);
+                i = intent.getIntExtra("backType", 0);
             } catch (Exception unused) {
-                i2 = 0;
+                i = 0;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 setCallbackActivity(1);
             } else {
                 setCallbackActivity(0);

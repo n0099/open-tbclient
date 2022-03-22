@@ -33,9 +33,9 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,7 +51,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
                 int statusCode = e2.getStatusCode();
                 String message = e2.getMessage();
                 Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-                a(((BaseSSOLoginActivity) this).f36710g, statusCode, message);
+                a(((BaseSSOLoginActivity) this).f28475g, statusCode, message);
             }
         }
     }
@@ -64,7 +64,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             HashMap hashMap = new HashMap();
             hashMap.put("supportGuestAccount", "1");
             hashMap.put("id_token", str);
-            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.sapi_sdk_google_loging));
+            a(ParamsUtil.addExtras(urlBind, hashMap), getString(R.string.obfuscated_res_0x7f0f101f));
         }
     }
 
@@ -88,11 +88,11 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 1000) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 1000) {
                 a(GoogleSignIn.getSignedInAccountFromIntent(intent));
             }
         }
@@ -112,7 +112,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_login_google);
+            setTitleText(R.string.obfuscated_res_0x7f0f104d);
             try {
                 d();
             } catch (Exception e2) {

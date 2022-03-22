@@ -25,7 +25,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f44469b;
+        public String f34484b;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
             Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {setPrivilegeHttpResponseMessage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44469b = null;
+            this.f34484b = null;
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -52,11 +52,11 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             }
             this.a = jSONObject.optInt("error_code");
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            this.f44469b = jSONObject.optString("field_text");
+            this.f34484b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
             if (this.a == 0) {
-                StringUtils.isNull(this.f44469b);
+                StringUtils.isNull(this.f34484b);
             }
         }
     }
@@ -68,9 +68,9 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -80,9 +80,9 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
             return;
         }
         a aVar = new a(this);

@@ -15,22 +15,22 @@ public class SuggestionSearch extends l {
     public com.baidu.platform.core.f.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34294b;
+    public boolean f26516b;
 
     public SuggestionSearch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34294b = false;
+        this.f26516b = false;
         this.a = new com.baidu.platform.core.f.b();
     }
 
@@ -46,10 +46,10 @@ public class SuggestionSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34294b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26516b) {
             return;
         }
-        this.f34294b = true;
+        this.f26516b = true;
         this.a.a();
         BMapManager.destroy();
     }

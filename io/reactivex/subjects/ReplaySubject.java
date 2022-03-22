@@ -49,9 +49,9 @@ public final class ReplaySubject<T> extends Subject<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,9 +100,9 @@ public final class ReplaySubject<T> extends Subject<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, replaySubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -144,23 +144,23 @@ public final class ReplaySubject<T> extends Subject<T> {
         public TimedNode<Object> tail;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
-            this.maxAge = ObjectHelper.verifyPositive(j2, "maxAge");
+            this.maxSize = ObjectHelper.verifyPositive(i, "maxSize");
+            this.maxAge = ObjectHelper.verifyPositive(j, "maxAge");
             this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
             this.scheduler = (Scheduler) ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             TimedNode<Object> timedNode = new TimedNode<>(null, 0L);
@@ -259,9 +259,9 @@ public final class ReplaySubject<T> extends Subject<T> {
                     if (tArr.length < size) {
                         tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
                     }
-                    for (int i2 = 0; i2 != size; i2++) {
+                    for (int i = 0; i != size; i++) {
                         head = head.get();
-                        tArr[i2] = head.value;
+                        tArr[i] = head.value;
                     }
                     if (tArr.length > size) {
                         tArr[size] = null;
@@ -281,7 +281,7 @@ public final class ReplaySubject<T> extends Subject<T> {
                 if (timedNode == null) {
                     timedNode = getHead();
                 }
-                int i2 = 1;
+                int i = 1;
                 while (true) {
                     timedNode = timedNode;
                     if (replayDisposable.cancelled) {
@@ -293,8 +293,8 @@ public final class ReplaySubject<T> extends Subject<T> {
                         if (timedNode2 == null) {
                             if (timedNode.get() == null) {
                                 replayDisposable.index = timedNode;
-                                i2 = replayDisposable.addAndGet(-i2);
-                                if (i2 == 0) {
+                                i = replayDisposable.addAndGet(-i);
+                                if (i == 0) {
                                     return;
                                 }
                             }
@@ -332,9 +332,9 @@ public final class ReplaySubject<T> extends Subject<T> {
             if (interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) {
                 return;
             }
-            int i2 = this.size;
-            if (i2 > this.maxSize) {
-                this.size = i2 - 1;
+            int i = this.size;
+            if (i > this.maxSize) {
+                this.size = i - 1;
                 this.head = this.head.get();
             }
             long now = this.scheduler.now(this.unit) - this.maxAge;
@@ -403,17 +403,17 @@ public final class ReplaySubject<T> extends Subject<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, timedNode)) == null) {
-                int i2 = 0;
-                while (i2 != Integer.MAX_VALUE) {
+                int i = 0;
+                while (i != Integer.MAX_VALUE) {
                     TimedNode<T> timedNode2 = timedNode.get();
                     if (timedNode2 == null) {
                         Object obj = timedNode.value;
-                        return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i2 - 1 : i2;
+                        return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i - 1 : i;
                     }
-                    i2++;
+                    i++;
                     timedNode = timedNode2;
                 }
-                return i2;
+                return i;
             }
             return invokeL.intValue;
         }
@@ -430,22 +430,22 @@ public final class ReplaySubject<T> extends Subject<T> {
         public int size;
         public Node<Object> tail;
 
-        public SizeBoundReplayBuffer(int i2) {
+        public SizeBoundReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
+            this.maxSize = ObjectHelper.verifyPositive(i, "maxSize");
             Node<Object> node = new Node<>(null);
             this.tail = node;
             this.head = node;
@@ -520,9 +520,9 @@ public final class ReplaySubject<T> extends Subject<T> {
                     if (tArr.length < size) {
                         tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
                     }
-                    for (int i2 = 0; i2 != size; i2++) {
+                    for (int i = 0; i != size; i++) {
                         node = node.get();
-                        tArr[i2] = node.value;
+                        tArr[i] = node.value;
                     }
                     if (tArr.length > size) {
                         tArr[size] = null;
@@ -543,7 +543,7 @@ public final class ReplaySubject<T> extends Subject<T> {
                 if (node == null) {
                     node = this.head;
                 }
-                int i2 = 1;
+                int i = 1;
                 while (!replayDisposable.cancelled) {
                     Node<T> node2 = node.get();
                     if (node2 == null) {
@@ -551,8 +551,8 @@ public final class ReplaySubject<T> extends Subject<T> {
                             continue;
                         } else {
                             replayDisposable.index = node;
-                            i2 = replayDisposable.addAndGet(-i2);
-                            if (i2 == 0) {
+                            i = replayDisposable.addAndGet(-i);
+                            if (i == 0) {
                                 return;
                             }
                         }
@@ -582,28 +582,28 @@ public final class ReplaySubject<T> extends Subject<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 Node<Object> node = this.head;
-                int i2 = 0;
-                while (i2 != Integer.MAX_VALUE) {
+                int i = 0;
+                while (i != Integer.MAX_VALUE) {
                     Node<T> node2 = node.get();
                     if (node2 == null) {
                         Object obj = node.value;
-                        return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i2 - 1 : i2;
+                        return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i - 1 : i;
                     }
-                    i2++;
+                    i++;
                     node = node2;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
 
         public void trim() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i2 = this.size) <= this.maxSize) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i = this.size) <= this.maxSize) {
                 return;
             }
-            this.size = i2 - 1;
+            this.size = i - 1;
             this.head = this.head.get();
         }
 
@@ -629,23 +629,23 @@ public final class ReplaySubject<T> extends Subject<T> {
         public final long time;
         public final T value;
 
-        public TimedNode(T t, long j2) {
+        public TimedNode(T t, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, Long.valueOf(j2)};
+                Object[] objArr = {t, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.value = t;
-            this.time = j2;
+            this.time = j;
         }
     }
 
@@ -658,22 +658,22 @@ public final class ReplaySubject<T> extends Subject<T> {
         public volatile boolean done;
         public volatile int size;
 
-        public UnboundedReplayBuffer(int i2) {
+        public UnboundedReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.buffer = new ArrayList(ObjectHelper.verifyPositive(i2, "capacityHint"));
+            this.buffer = new ArrayList(ObjectHelper.verifyPositive(i, "capacityHint"));
         }
 
         @Override // io.reactivex.subjects.ReplaySubject.ReplayBuffer
@@ -702,15 +702,15 @@ public final class ReplaySubject<T> extends Subject<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.size;
-                if (i2 != 0) {
+                int i = this.size;
+                if (i != 0) {
                     List<Object> list = this.buffer;
-                    T t = (T) list.get(i2 - 1);
+                    T t = (T) list.get(i - 1);
                     if (NotificationLite.isComplete(t) || NotificationLite.isError(t)) {
-                        if (i2 == 1) {
+                        if (i == 1) {
                             return null;
                         }
-                        return (T) list.get(i2 - 2);
+                        return (T) list.get(i - 2);
                     }
                     return t;
                 }
@@ -726,29 +726,29 @@ public final class ReplaySubject<T> extends Subject<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tArr)) == null) {
-                int i2 = this.size;
-                if (i2 == 0) {
+                int i = this.size;
+                if (i == 0) {
                     if (tArr.length != 0) {
                         tArr[0] = null;
                     }
                     return tArr;
                 }
                 List<Object> list = this.buffer;
-                Object obj = list.get(i2 - 1);
-                if ((NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) && i2 - 1 == 0) {
+                Object obj = list.get(i - 1);
+                if ((NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) && i - 1 == 0) {
                     if (tArr.length != 0) {
                         tArr[0] = null;
                     }
                     return tArr;
                 }
-                if (tArr.length < i2) {
-                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
+                if (tArr.length < i) {
+                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i));
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
-                    tArr[i3] = list.get(i3);
+                for (int i2 = 0; i2 < i; i2++) {
+                    tArr[i2] = list.get(i2);
                 }
-                if (tArr.length > i2) {
-                    tArr[i2] = null;
+                if (tArr.length > i) {
+                    tArr[i] = null;
                 }
                 return tArr;
             }
@@ -757,28 +757,28 @@ public final class ReplaySubject<T> extends Subject<T> {
 
         @Override // io.reactivex.subjects.ReplaySubject.ReplayBuffer
         public void replay(ReplayDisposable<T> replayDisposable) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, replayDisposable) == null) && replayDisposable.getAndIncrement() == 0) {
                 List<Object> list = this.buffer;
                 Observer<? super T> observer = replayDisposable.actual;
                 Integer num = (Integer) replayDisposable.index;
-                int i3 = 0;
+                int i2 = 0;
                 if (num != null) {
-                    i3 = num.intValue();
+                    i2 = num.intValue();
                 } else {
                     replayDisposable.index = 0;
                 }
-                int i4 = 1;
+                int i3 = 1;
                 while (!replayDisposable.cancelled) {
-                    int i5 = this.size;
-                    while (i5 != i3) {
+                    int i4 = this.size;
+                    while (i4 != i2) {
                         if (replayDisposable.cancelled) {
                             replayDisposable.index = null;
                             return;
                         }
-                        Object obj = list.get(i3);
-                        if (this.done && (i2 = i3 + 1) == i5 && i2 == (i5 = this.size)) {
+                        Object obj = list.get(i2);
+                        if (this.done && (i = i2 + 1) == i4 && i == (i4 = this.size)) {
                             if (NotificationLite.isComplete(obj)) {
                                 observer.onComplete();
                             } else {
@@ -789,12 +789,12 @@ public final class ReplaySubject<T> extends Subject<T> {
                             return;
                         }
                         observer.onNext(obj);
-                        i3++;
+                        i2++;
                     }
-                    if (i3 == this.size) {
-                        replayDisposable.index = Integer.valueOf(i3);
-                        i4 = replayDisposable.addAndGet(-i4);
-                        if (i4 == 0) {
+                    if (i2 == this.size) {
+                        replayDisposable.index = Integer.valueOf(i2);
+                        i3 = replayDisposable.addAndGet(-i3);
+                        if (i3 == 0) {
                             return;
                         }
                     }
@@ -808,11 +808,11 @@ public final class ReplaySubject<T> extends Subject<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i2 = this.size;
-                if (i2 != 0) {
-                    int i3 = i2 - 1;
-                    Object obj = this.buffer.get(i3);
-                    return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i3 : i2;
+                int i = this.size;
+                if (i != 0) {
+                    int i2 = i - 1;
+                    Object obj = this.buffer.get(i2);
+                    return (NotificationLite.isComplete(obj) || NotificationLite.isError(obj)) ? i2 : i;
                 }
                 return 0;
             }
@@ -852,9 +852,9 @@ public final class ReplaySubject<T> extends Subject<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {replayBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -878,24 +878,24 @@ public final class ReplaySubject<T> extends Subject<T> {
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> createWithSize(int i2) {
+    public static <T> ReplaySubject<T> createWithSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(i2)) : (ReplaySubject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(i)) : (ReplaySubject) invokeI.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> createWithTime(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ReplaySubject<T> createWithTime(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j2, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> createWithTimeAndSize(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ReplaySubject<T> createWithTimeAndSize(long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(i2, j2, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(i, j, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
     }
 
     public boolean add(ReplayDisposable<T> replayDisposable) {
@@ -1065,27 +1065,27 @@ public final class ReplaySubject<T> extends Subject<T> {
                     return;
                 }
                 int length = replayDisposableArr.length;
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (replayDisposableArr[i3] == replayDisposable) {
-                        i2 = i3;
+                    } else if (replayDisposableArr[i2] == replayDisposable) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     replayDisposableArr2 = EMPTY;
                 } else {
                     ReplayDisposable[] replayDisposableArr3 = new ReplayDisposable[length - 1];
-                    System.arraycopy(replayDisposableArr, 0, replayDisposableArr3, 0, i2);
-                    System.arraycopy(replayDisposableArr, i2 + 1, replayDisposableArr3, i2, (length - i2) - 1);
+                    System.arraycopy(replayDisposableArr, 0, replayDisposableArr3, 0, i);
+                    System.arraycopy(replayDisposableArr, i + 1, replayDisposableArr3, i, (length - i) - 1);
                     replayDisposableArr2 = replayDisposableArr3;
                 }
             } while (!this.observers.compareAndSet(replayDisposableArr, replayDisposableArr2));
@@ -1128,10 +1128,10 @@ public final class ReplaySubject<T> extends Subject<T> {
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> create(int i2) {
+    public static <T> ReplaySubject<T> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new ReplaySubject<>(new UnboundedReplayBuffer(i2)) : (ReplaySubject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new ReplaySubject<>(new UnboundedReplayBuffer(i)) : (ReplaySubject) invokeI.objValue;
     }
 
     public T[] getValues(T[] tArr) {

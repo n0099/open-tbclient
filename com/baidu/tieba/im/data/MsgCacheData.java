@@ -28,9 +28,9 @@ public class MsgCacheData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -73,24 +73,24 @@ public class MsgCacheData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.voice_status : invokeV.intValue;
     }
 
-    public void setIs_left(int i2) {
+    public void setIs_left(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.is_left = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.is_left = i;
         }
     }
 
-    public void setIs_show_time(int i2) {
+    public void setIs_show_time(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.is_show_time = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.is_show_time = i;
         }
     }
 
-    public void setLastMsgTime(long j2) {
+    public void setLastMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.lastMsgTime = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.lastMsgTime = j;
         }
     }
 
@@ -108,10 +108,10 @@ public class MsgCacheData extends OrmObject implements Serializable {
         }
     }
 
-    public void setVoice_status(int i2) {
+    public void setVoice_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.voice_status = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.voice_status = i;
         }
     }
 }

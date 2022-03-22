@@ -22,25 +22,25 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u001d:\u0001\u001dB\t\b\u0002¢\u0006\u0004\b\u001c\u0010\u0014J)\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\b\u0010\tJ\u001f\u0010\r\u001a\u00020\u00052\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\nH\u0007¢\u0006\u0004\b\r\u0010\u000eJ\r\u0010\u000f\u001a\u00020\n¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\u0007¢\u0006\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0015\u001a\u00020\n8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0017\u0010\u0016R\"\u0010\u001a\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070\u00190\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001a\u0010\u001b¨\u0006\u001e"}, d2 = {"Lcom/baidu/bdtask/service/cache/TaskCacheManager;", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "state", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "", TTDownloadField.TT_FORCE, "", "cacheTasks", "(Lcom/baidu/bdtask/ctrl/BDPTaskState;Lcom/baidu/bdtask/model/info/TaskInfo;Z)V", "", "actionId", "id", "duplicateIdIsValid", "(Ljava/lang/String;Ljava/lang/String;)Z", "getTaskStateCacheSync", "()Ljava/lang/String;", "isCacheAble", "(Lcom/baidu/bdtask/model/info/TaskInfo;)Z", "removeCache", "()V", "cacheKey", "Ljava/lang/String;", TaskInfo.keyFingerprint, "Lcom/baidu/bdtask/utils/stack/ISafeStack;", "Lkotlin/Function0;", "storageRequestStack", "Lcom/baidu/bdtask/utils/stack/ISafeStack;", "<init>", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f31606d;
+    public static final b f24943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f31607e;
+    public static final a f24944e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.m.d.a<Function0<Unit>> f31608b;
+    public final c.a.j.m.d.a<Function0<Unit>> f24945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31609c;
+    public String f24946c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public final class b {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,7 +62,7 @@ public final class b {
         public final b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f31606d : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f24943d : (b) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -71,37 +71,35 @@ public final class b {
     }
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class RunnableC1773b implements Runnable {
+    /* loaded from: classes3.dex */
+    public static final class RunnableC1734b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f31610e;
-
-        public RunnableC1773b(b bVar) {
+        public RunnableC1734b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31610e = bVar;
+            this.a = bVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Function0 function0;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31610e.f31608b.c() || (function0 = (Function0) this.f31610e.f31608b.a()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f24945b.c() || (function0 = (Function0) this.a.f24945b.a()) == null) {
                 return;
             }
             function0.invoke();
@@ -121,8 +119,8 @@ public final class b {
                 return;
             }
         }
-        f31607e = new a(null);
-        f31606d = new b();
+        f24944e = new a(null);
+        f24943d = new b();
     }
 
     public b() {
@@ -130,24 +128,24 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = TaskState.key;
-        this.f31608b = new c.a.j.m.d.b();
-        this.f31609c = "";
+        this.f24945b = new c.a.j.m.d.b();
+        this.f24946c = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = c.a.j.h.b.b.f3674c.c().a(this.a);
+            String a2 = c.a.j.h.b.b.f3162c.c().a(this.a);
             return a2 != null ? a2 : "";
         }
         return (String) invokeV.objValue;
@@ -170,9 +168,9 @@ public final class b {
                     return;
                 }
             }
-            this.f31608b.b();
-            this.f31608b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
-            ExecutorUtilsExt.postOnSerial(new RunnableC1773b(this), "storageSync");
+            this.f24945b.b();
+            this.f24945b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
+            ExecutorUtilsExt.postOnSerial(new RunnableC1734b(this), "storageSync");
         }
     }
 

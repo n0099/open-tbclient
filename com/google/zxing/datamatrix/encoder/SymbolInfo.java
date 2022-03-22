@@ -2,7 +2,6 @@ package com.google.zxing.datamatrix.encoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.idl.authority.AuthorityState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,23 +41,23 @@ public class SymbolInfo {
                 return;
             }
         }
-        SymbolInfo[] symbolInfoArr = {new SymbolInfo(false, 3, 5, 8, 8, 1), new SymbolInfo(false, 5, 7, 10, 10, 1), new SymbolInfo(true, 5, 7, 16, 6, 1), new SymbolInfo(false, 8, 10, 12, 12, 1), new SymbolInfo(true, 10, 11, 14, 6, 2), new SymbolInfo(false, 12, 12, 14, 14, 1), new SymbolInfo(true, 16, 14, 24, 10, 1), new SymbolInfo(false, 18, 14, 16, 16, 1), new SymbolInfo(false, 22, 18, 18, 18, 1), new SymbolInfo(true, 22, 18, 16, 10, 2), new SymbolInfo(false, 30, 20, 20, 20, 1), new SymbolInfo(true, 32, 24, 16, 14, 2), new SymbolInfo(false, 36, 24, 22, 22, 1), new SymbolInfo(false, 44, 28, 24, 24, 1), new SymbolInfo(true, 49, 28, 22, 14, 2), new SymbolInfo(false, 62, 36, 14, 14, 4), new SymbolInfo(false, 86, 42, 16, 16, 4), new SymbolInfo(false, 114, 48, 18, 18, 4), new SymbolInfo(false, Cea708Decoder.COMMAND_SPA, 56, 20, 20, 4), new SymbolInfo(false, MatroskaExtractor.ID_TRACK_ENTRY, 68, 22, 22, 4), new SymbolInfo(false, 204, 84, 24, 24, 4, 102, 42), new SymbolInfo(false, InstallActivity.BOX_SIZE_DP, 112, 14, 14, 16, 140, 56), new SymbolInfo(false, 368, Cea708Decoder.COMMAND_SPA, 16, 16, 16, 92, 36), new SymbolInfo(false, 456, 192, 18, 18, 16, 114, 48), new SymbolInfo(false, 576, 224, 20, 20, 16, Cea708Decoder.COMMAND_SPA, 56), new SymbolInfo(false, 696, AuthorityState.STATE_INIT_ING, 22, 22, 16, MatroskaExtractor.ID_TRACK_ENTRY, 68), new SymbolInfo(false, 816, 336, 24, 24, 16, 136, 56), new SymbolInfo(false, 1050, 408, 18, 18, 36, 175, 68), new SymbolInfo(false, 1304, 496, 20, 20, 36, 163, 62), new DataMatrixSymbolInfo144()};
+        SymbolInfo[] symbolInfoArr = {new SymbolInfo(false, 3, 5, 8, 8, 1), new SymbolInfo(false, 5, 7, 10, 10, 1), new SymbolInfo(true, 5, 7, 16, 6, 1), new SymbolInfo(false, 8, 10, 12, 12, 1), new SymbolInfo(true, 10, 11, 14, 6, 2), new SymbolInfo(false, 12, 12, 14, 14, 1), new SymbolInfo(true, 16, 14, 24, 10, 1), new SymbolInfo(false, 18, 14, 16, 16, 1), new SymbolInfo(false, 22, 18, 18, 18, 1), new SymbolInfo(true, 22, 18, 16, 10, 2), new SymbolInfo(false, 30, 20, 20, 20, 1), new SymbolInfo(true, 32, 24, 16, 14, 2), new SymbolInfo(false, 36, 24, 22, 22, 1), new SymbolInfo(false, 44, 28, 24, 24, 1), new SymbolInfo(true, 49, 28, 22, 14, 2), new SymbolInfo(false, 62, 36, 14, 14, 4), new SymbolInfo(false, 86, 42, 16, 16, 4), new SymbolInfo(false, 114, 48, 18, 18, 4), new SymbolInfo(false, Cea708Decoder.COMMAND_SPA, 56, 20, 20, 4), new SymbolInfo(false, MatroskaExtractor.ID_TRACK_ENTRY, 68, 22, 22, 4), new SymbolInfo(false, 204, 84, 24, 24, 4, 102, 42), new SymbolInfo(false, InstallActivity.BOX_SIZE_DP, 112, 14, 14, 16, 140, 56), new SymbolInfo(false, 368, Cea708Decoder.COMMAND_SPA, 16, 16, 16, 92, 36), new SymbolInfo(false, 456, 192, 18, 18, 16, 114, 48), new SymbolInfo(false, 576, 224, 20, 20, 16, Cea708Decoder.COMMAND_SPA, 56), new SymbolInfo(false, 696, 272, 22, 22, 16, MatroskaExtractor.ID_TRACK_ENTRY, 68), new SymbolInfo(false, 816, 336, 24, 24, 16, 136, 56), new SymbolInfo(false, 1050, 408, 18, 18, 36, 175, 68), new SymbolInfo(false, 1304, 496, 20, 20, 36, MatroskaExtractor.ID_SIMPLE_BLOCK, 62), new DataMatrixSymbolInfo144()};
         PROD_SYMBOLS = symbolInfoArr;
         symbols = symbolInfoArr;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SymbolInfo(boolean z, int i2, int i3, int i4, int i5, int i6) {
-        this(z, i2, i3, i4, i5, i6, i2, i3);
+    public SymbolInfo(boolean z, int i, int i2, int i3, int i4, int i5) {
+        this(z, i, i2, i3, i4, i5, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -72,13 +71,13 @@ public class SymbolInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            int i2 = this.dataRegions;
-            int i3 = 1;
-            if (i2 != 1) {
-                i3 = 2;
-                if (i2 != 2 && i2 != 4) {
-                    if (i2 != 16) {
-                        if (i2 == 36) {
+            int i = this.dataRegions;
+            int i2 = 1;
+            if (i != 1) {
+                i2 = 2;
+                if (i != 2 && i != 4) {
+                    if (i != 16) {
+                        if (i == 36) {
                             return 6;
                         }
                         throw new IllegalStateException("Cannot handle this number of data regions");
@@ -86,7 +85,7 @@ public class SymbolInfo {
                     return 4;
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeV.intValue;
     }
@@ -95,13 +94,13 @@ public class SymbolInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i2 = this.dataRegions;
-            if (i2 == 1 || i2 == 2) {
+            int i = this.dataRegions;
+            if (i == 1 || i == 2) {
                 return 1;
             }
-            if (i2 != 4) {
-                if (i2 != 16) {
-                    if (i2 == 36) {
+            if (i != 4) {
+                if (i != 16) {
+                    if (i == 36) {
                         return 6;
                     }
                     throw new IllegalStateException("Cannot handle this number of data regions");
@@ -113,10 +112,10 @@ public class SymbolInfo {
         return invokeV.intValue;
     }
 
-    public static SymbolInfo lookup(int i2) {
+    public static SymbolInfo lookup(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? lookup(i2, SymbolShapeHint.FORCE_NONE, true) : (SymbolInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? lookup(i, SymbolShapeHint.FORCE_NONE, true) : (SymbolInfo) invokeI.objValue;
     }
 
     public static void overrideSymbolSet(SymbolInfo[] symbolInfoArr) {
@@ -138,10 +137,10 @@ public class SymbolInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.dataCapacity : invokeV.intValue;
     }
 
-    public int getDataLengthForInterleavedBlock(int i2) {
+    public int getDataLengthForInterleavedBlock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.rsBlockData : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.rsBlockData : invokeI.intValue;
     }
 
     public final int getErrorCodewords() {
@@ -150,10 +149,10 @@ public class SymbolInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.errorCodewords : invokeV.intValue;
     }
 
-    public final int getErrorLengthForInterleavedBlock(int i2) {
+    public final int getErrorLengthForInterleavedBlock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.rsBlockError : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.rsBlockError : invokeI.intValue;
     }
 
     public int getInterleavedBlockCount() {
@@ -213,64 +212,64 @@ public class SymbolInfo {
         return (String) invokeV.objValue;
     }
 
-    public SymbolInfo(boolean z, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+    public SymbolInfo(boolean z, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i9 = newInitContext.flag;
-            if ((i9 & 1) != 0) {
-                int i10 = i9 & 2;
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.rectangular = z;
-        this.dataCapacity = i2;
-        this.errorCodewords = i3;
-        this.matrixWidth = i4;
-        this.matrixHeight = i5;
-        this.dataRegions = i6;
-        this.rsBlockData = i7;
-        this.rsBlockError = i8;
+        this.dataCapacity = i;
+        this.errorCodewords = i2;
+        this.matrixWidth = i3;
+        this.matrixHeight = i4;
+        this.dataRegions = i5;
+        this.rsBlockData = i6;
+        this.rsBlockError = i7;
     }
 
-    public static SymbolInfo lookup(int i2, SymbolShapeHint symbolShapeHint) {
+    public static SymbolInfo lookup(int i, SymbolShapeHint symbolShapeHint) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, symbolShapeHint)) == null) ? lookup(i2, symbolShapeHint, true) : (SymbolInfo) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, symbolShapeHint)) == null) ? lookup(i, symbolShapeHint, true) : (SymbolInfo) invokeIL.objValue;
     }
 
-    public static SymbolInfo lookup(int i2, boolean z, boolean z2) {
+    public static SymbolInfo lookup(int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return lookup(i2, z ? SymbolShapeHint.FORCE_NONE : SymbolShapeHint.FORCE_SQUARE, z2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return lookup(i, z ? SymbolShapeHint.FORCE_NONE : SymbolShapeHint.FORCE_SQUARE, z2);
         }
         return (SymbolInfo) invokeCommon.objValue;
     }
 
-    public static SymbolInfo lookup(int i2, SymbolShapeHint symbolShapeHint, boolean z) {
+    public static SymbolInfo lookup(int i, SymbolShapeHint symbolShapeHint, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), symbolShapeHint, Boolean.valueOf(z)})) == null) ? lookup(i2, symbolShapeHint, null, null, z) : (SymbolInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), symbolShapeHint, Boolean.valueOf(z)})) == null) ? lookup(i, symbolShapeHint, null, null, z) : (SymbolInfo) invokeCommon.objValue;
     }
 
-    public static SymbolInfo lookup(int i2, SymbolShapeHint symbolShapeHint, Dimension dimension, Dimension dimension2, boolean z) {
+    public static SymbolInfo lookup(int i, SymbolShapeHint symbolShapeHint, Dimension dimension, Dimension dimension2, boolean z) {
         InterceptResult invokeCommon;
         SymbolInfo[] symbolInfoArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), symbolShapeHint, dimension, dimension2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), symbolShapeHint, dimension, dimension2, Boolean.valueOf(z)})) == null) {
             for (SymbolInfo symbolInfo : symbols) {
-                if (!(symbolShapeHint == SymbolShapeHint.FORCE_SQUARE && symbolInfo.rectangular) && ((symbolShapeHint != SymbolShapeHint.FORCE_RECTANGLE || symbolInfo.rectangular) && ((dimension == null || (symbolInfo.getSymbolWidth() >= dimension.getWidth() && symbolInfo.getSymbolHeight() >= dimension.getHeight())) && ((dimension2 == null || (symbolInfo.getSymbolWidth() <= dimension2.getWidth() && symbolInfo.getSymbolHeight() <= dimension2.getHeight())) && i2 <= symbolInfo.dataCapacity)))) {
+                if (!(symbolShapeHint == SymbolShapeHint.FORCE_SQUARE && symbolInfo.rectangular) && ((symbolShapeHint != SymbolShapeHint.FORCE_RECTANGLE || symbolInfo.rectangular) && ((dimension == null || (symbolInfo.getSymbolWidth() >= dimension.getWidth() && symbolInfo.getSymbolHeight() >= dimension.getHeight())) && ((dimension2 == null || (symbolInfo.getSymbolWidth() <= dimension2.getWidth() && symbolInfo.getSymbolHeight() <= dimension2.getHeight())) && i <= symbolInfo.dataCapacity)))) {
                     return symbolInfo;
                 }
             }
             if (z) {
-                throw new IllegalArgumentException("Can't find a symbol arrangement that matches the message. Data codewords: " + i2);
+                throw new IllegalArgumentException("Can't find a symbol arrangement that matches the message. Data codewords: " + i);
             }
             return null;
         }

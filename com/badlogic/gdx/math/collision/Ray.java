@@ -43,9 +43,9 @@ public class Ray implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -80,7 +80,7 @@ public class Ray implements Serializable {
     public Vector3 getEndPoint(Vector3 vector3, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f2)) == null) ? vector3.set(this.direction).m23scl(f2).add(this.origin) : (Vector3) invokeLF.objValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f2)) == null) ? vector3.set(this.direction).m21scl(f2).add(this.origin) : (Vector3) invokeLF.objValue;
     }
 
     public int hashCode() {
@@ -96,7 +96,7 @@ public class Ray implements Serializable {
             tmp.set(this.origin).add(this.direction);
             tmp.mul(matrix4);
             this.origin.mul(matrix4);
-            this.direction.set(tmp.sub(this.origin)).m22nor();
+            this.direction.set(tmp.sub(this.origin)).m20nor();
             return this;
         }
         return (Ray) invokeL.objValue;
@@ -107,7 +107,7 @@ public class Ray implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, vector3, vector32)) == null) {
             this.origin.set(vector3);
-            this.direction.set(vector32).m22nor();
+            this.direction.set(vector32).m20nor();
             return this;
         }
         return (Ray) invokeLL.objValue;
@@ -127,7 +127,7 @@ public class Ray implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
             this.origin.set(f2, f3, f4);
-            this.direction.set(f5, f6, f7).m22nor();
+            this.direction.set(f5, f6, f7).m20nor();
             return this;
         }
         return (Ray) invokeCommon.objValue;
@@ -140,9 +140,9 @@ public class Ray implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector3, vector32};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -151,7 +151,7 @@ public class Ray implements Serializable {
         this.origin = new Vector3();
         this.direction = new Vector3();
         this.origin.set(vector3);
-        this.direction.set(vector32).m22nor();
+        this.direction.set(vector32).m20nor();
     }
 
     public Ray set(Ray ray) {
@@ -159,7 +159,7 @@ public class Ray implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ray)) == null) {
             this.origin.set(ray.origin);
-            this.direction.set(ray.direction).m22nor();
+            this.direction.set(ray.direction).m20nor();
             return this;
         }
         return (Ray) invokeL.objValue;

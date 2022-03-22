@@ -8,6 +8,7 @@ import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.face.algo.FaceAlgoConfig;
 import com.baidu.ar.face.algo.FaceJniClient;
+import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,9 +46,9 @@ public class i {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,22 +134,22 @@ public class i {
         this.oJ.setNeedExpression(z);
     }
 
-    public void G(int i2) {
+    public void G(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.oJ == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.oJ == null) {
             return;
         }
-        com.baidu.ar.h.b.c("bdar-face", "trackMode:" + i2);
-        this.oJ.setRunningMode(i2);
+        com.baidu.ar.h.b.c("bdar-face", "trackMode:" + i);
+        this.oJ.setRunningMode(i);
     }
 
-    public void H(int i2) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.oB.F(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.oB.F(i);
             if (this.oJ != null) {
-                com.baidu.ar.h.b.c("bdar-face", "setMaxTrackingFace:" + i2);
-                this.oJ.setMaxTrackingFace(i2);
+                com.baidu.ar.h.b.c("bdar-face", "setMaxTrackingFace:" + i);
+                this.oJ.setMaxTrackingFace(i);
             }
         }
     }
@@ -196,10 +197,10 @@ public class i {
         this.oJ.setAnimateRunningMode(z, z2, z3);
     }
 
-    public boolean a(boolean z, int i2) {
+    public boolean a(boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (!this.oL) {
                 com.baidu.ar.h.b.k("bdar-face", "detect_frame track task executing modelLoad failed");
                 return true;
@@ -211,17 +212,17 @@ public class i {
                 this.oJ.setForceLost(false);
             }
             this.oJ.setMirror(false);
-            this.oJ.setTrackingRT(com.baidu.ar.face.c.D(i2));
+            this.oJ.setTrackingRT(com.baidu.ar.face.c.D(i));
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public void b(long j2) {
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            com.baidu.ar.h.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j2);
-            FaceJniClient.destoryFrame(j2);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            com.baidu.ar.h.b.j("bdar-face", "[FaceHandlerThread] destroy handle:" + j);
+            FaceJniClient.destoryFrame(j);
         }
     }
 
@@ -257,8 +258,8 @@ public class i {
             com.baidu.ar.h.b.c("bdar-face", "detect_frame load facemodel");
             setAutoCalibrate(true);
             com.baidu.ar.h.b.c("bdar-face", "imbin:" + this.oM + "\nDetect:" + this.oN + "\nTrack0:" + this.oO + "\nTrack1:" + Arrays.toString(this.oP) + "\nTrack2:" + this.oQ + "\nTrack3:" + this.oR + "\nexpression:" + this.oS + "\nmouth:" + this.oT);
-            String[] strArr = {"detect", ab(this.oN)};
-            String[] strArr2 = {"angle", ab(this.oO), "heavy", ab(this.oP[0]), "medium", ab(this.oP[1]), "lite", ab(this.oP[2]), com.baidu.pass.biometrics.face.liveness.b.a.b0, ab(this.oT), "eyes", ab(this.oQ), "iris", ab(this.oR)};
+            String[] strArr = {ConstPath.KEY_DETECT, ab(this.oN)};
+            String[] strArr2 = {"angle", ab(this.oO), "heavy", ab(this.oP[0]), "medium", ab(this.oP[1]), "lite", ab(this.oP[2]), "mouth", ab(this.oT), ConstPath.KEY_EYES, ab(this.oQ), "iris", ab(this.oR)};
             String[] strArr3 = {"animate", ab(this.oM), "expression", ab(this.oS)};
             this.oC = this.oN.startsWith("file:///android_asset/") ? FaceJniClient.createDetectCoreFromAssetDir(strArr) : FaceJniClient.createDetectCore(strArr);
             this.oD = this.oO.startsWith("file:///android_asset/") ? FaceJniClient.createTrackCoreFromAssetDir(strArr2) : FaceJniClient.createTrackCore(strArr2);
@@ -358,13 +359,13 @@ public class i {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? dW() : invokeV.booleanValue;
     }
 
-    public void q(long j2) {
+    public void q(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) || (algoHandleController = this.cb) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048602, this, j) == null) || (algoHandleController = this.cb) == null) {
             return;
         }
-        algoHandleController.destroyHandle(j2);
+        algoHandleController.destroyHandle(j);
     }
 
     public boolean release() {

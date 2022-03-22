@@ -34,7 +34,7 @@ import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultTimeBar extends View implements TimeBar {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AD_MARKER_COLOR = -1291845888;
@@ -96,9 +96,9 @@ public class DefaultTimeBar extends View implements TimeBar {
             newInitContext.initArgs = r3;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -128,7 +128,7 @@ public class DefaultTimeBar extends View implements TimeBar {
         int dpToPx5 = dpToPx(displayMetrics, 0);
         int dpToPx6 = dpToPx(displayMetrics, 16);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.ad_marker_color, R.attr.ad_marker_width, R.attr.bar_height, R.attr.buffered_color, R.attr.played_ad_marker_color, R.attr.played_color, R.attr.scrubber_color, R.attr.scrubber_disabled_size, R.attr.scrubber_dragged_size, R.attr.scrubber_drawable, R.attr.scrubber_enabled_size, R.attr.touch_target_height, R.attr.unplayed_color}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040078, R.attr.obfuscated_res_0x7f040079, R.attr.obfuscated_res_0x7f0400bf, R.attr.obfuscated_res_0x7f040109, R.attr.obfuscated_res_0x7f040498, R.attr.obfuscated_res_0x7f040499, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040534, R.attr.obfuscated_res_0x7f040535, R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f04065b, R.attr.obfuscated_res_0x7f04066e}, 0, 0);
             try {
                 Drawable drawable = obtainStyledAttributes.getDrawable(9);
                 this.scrubberDrawable = drawable;
@@ -142,18 +142,18 @@ public class DefaultTimeBar extends View implements TimeBar {
                 this.scrubberEnabledSize = obtainStyledAttributes.getDimensionPixelSize(10, dpToPx4);
                 this.scrubberDisabledSize = obtainStyledAttributes.getDimensionPixelSize(7, dpToPx5);
                 this.scrubberDraggedSize = obtainStyledAttributes.getDimensionPixelSize(8, dpToPx6);
-                int i4 = obtainStyledAttributes.getInt(5, -1);
-                int i5 = obtainStyledAttributes.getInt(6, getDefaultScrubberColor(i4));
-                int i6 = obtainStyledAttributes.getInt(3, getDefaultBufferedColor(i4));
-                int i7 = obtainStyledAttributes.getInt(12, getDefaultUnplayedColor(i4));
-                int i8 = obtainStyledAttributes.getInt(0, DEFAULT_AD_MARKER_COLOR);
-                int i9 = obtainStyledAttributes.getInt(4, getDefaultPlayedAdMarkerColor(i8));
-                this.playedPaint.setColor(i4);
-                this.scrubberPaint.setColor(i5);
-                this.bufferedPaint.setColor(i6);
-                this.unplayedPaint.setColor(i7);
-                this.adMarkerPaint.setColor(i8);
-                this.playedAdMarkerPaint.setColor(i9);
+                int i3 = obtainStyledAttributes.getInt(5, -1);
+                int i4 = obtainStyledAttributes.getInt(6, getDefaultScrubberColor(i3));
+                int i5 = obtainStyledAttributes.getInt(3, getDefaultBufferedColor(i3));
+                int i6 = obtainStyledAttributes.getInt(12, getDefaultUnplayedColor(i3));
+                int i7 = obtainStyledAttributes.getInt(0, DEFAULT_AD_MARKER_COLOR);
+                int i8 = obtainStyledAttributes.getInt(4, getDefaultPlayedAdMarkerColor(i7));
+                this.playedPaint.setColor(i3);
+                this.scrubberPaint.setColor(i4);
+                this.bufferedPaint.setColor(i5);
+                this.unplayedPaint.setColor(i6);
+                this.adMarkerPaint.setColor(i7);
+                this.playedAdMarkerPaint.setColor(i8);
             } finally {
                 obtainStyledAttributes.recycle();
             }
@@ -185,9 +185,9 @@ public class DefaultTimeBar extends View implements TimeBar {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i10 = newInitContext2.flag;
-                    if ((i10 & 1) != 0) {
-                        int i11 = i10 & 2;
+                    int i9 = newInitContext2.flag;
+                    if ((i9 & 1) != 0) {
+                        int i10 = i9 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -219,14 +219,14 @@ public class DefaultTimeBar extends View implements TimeBar {
         }
     }
 
-    public static int dpToPx(DisplayMetrics displayMetrics, int i2) {
+    public static int dpToPx(DisplayMetrics displayMetrics, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, displayMetrics, i2)) == null) ? (int) ((i2 * displayMetrics.density) + 0.5f) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, displayMetrics, i)) == null) ? (int) ((i * displayMetrics.density) + 0.5f) : invokeLI.intValue;
     }
 
     private void drawPlayhead(Canvas canvas) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, canvas) == null) || this.duration <= 0) {
             return;
@@ -237,11 +237,11 @@ public class DefaultTimeBar extends View implements TimeBar {
         Drawable drawable = this.scrubberDrawable;
         if (drawable == null) {
             if (!this.scrubbing && !isFocused()) {
-                i2 = isEnabled() ? this.scrubberEnabledSize : this.scrubberDisabledSize;
+                i = isEnabled() ? this.scrubberEnabledSize : this.scrubberDisabledSize;
             } else {
-                i2 = this.scrubberDraggedSize;
+                i = this.scrubberDraggedSize;
             }
-            canvas.drawCircle(constrainValue, centerY, i2 / 2, this.scrubberPaint);
+            canvas.drawCircle(constrainValue, centerY, i / 2, this.scrubberPaint);
             return;
         }
         int intrinsicWidth = drawable.getIntrinsicWidth() / 2;
@@ -255,75 +255,75 @@ public class DefaultTimeBar extends View implements TimeBar {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             int height = this.progressBar.height();
             int centerY = this.progressBar.centerY() - (height / 2);
-            int i2 = height + centerY;
+            int i = height + centerY;
             if (this.duration <= 0) {
                 Rect rect = this.progressBar;
-                canvas.drawRect(rect.left, centerY, rect.right, i2, this.unplayedPaint);
+                canvas.drawRect(rect.left, centerY, rect.right, i, this.unplayedPaint);
                 return;
             }
             Rect rect2 = this.bufferedBar;
-            int i3 = rect2.left;
-            int i4 = rect2.right;
-            int max = Math.max(Math.max(this.progressBar.left, i4), this.scrubberBar.right);
-            int i5 = this.progressBar.right;
-            if (max < i5) {
-                canvas.drawRect(max, centerY, i5, i2, this.unplayedPaint);
+            int i2 = rect2.left;
+            int i3 = rect2.right;
+            int max = Math.max(Math.max(this.progressBar.left, i3), this.scrubberBar.right);
+            int i4 = this.progressBar.right;
+            if (max < i4) {
+                canvas.drawRect(max, centerY, i4, i, this.unplayedPaint);
             }
-            int max2 = Math.max(i3, this.scrubberBar.right);
-            if (i4 > max2) {
-                canvas.drawRect(max2, centerY, i4, i2, this.bufferedPaint);
+            int max2 = Math.max(i2, this.scrubberBar.right);
+            if (i3 > max2) {
+                canvas.drawRect(max2, centerY, i3, i, this.bufferedPaint);
             }
             if (this.scrubberBar.width() > 0) {
                 Rect rect3 = this.scrubberBar;
-                canvas.drawRect(rect3.left, centerY, rect3.right, i2, this.playedPaint);
+                canvas.drawRect(rect3.left, centerY, rect3.right, i, this.playedPaint);
             }
-            int i6 = this.adMarkerWidth / 2;
-            for (int i7 = 0; i7 < this.adGroupCount; i7++) {
-                long constrainValue = Util.constrainValue(this.adGroupTimesMs[i7], 0L, this.duration);
+            int i5 = this.adMarkerWidth / 2;
+            for (int i6 = 0; i6 < this.adGroupCount; i6++) {
+                long constrainValue = Util.constrainValue(this.adGroupTimesMs[i6], 0L, this.duration);
                 Rect rect4 = this.progressBar;
-                int min = rect4.left + Math.min(rect4.width() - this.adMarkerWidth, Math.max(0, ((int) ((this.progressBar.width() * constrainValue) / this.duration)) - i6));
-                canvas.drawRect(min, centerY, min + this.adMarkerWidth, i2, this.playedAdGroups[i7] ? this.playedAdMarkerPaint : this.adMarkerPaint);
+                int min = rect4.left + Math.min(rect4.width() - this.adMarkerWidth, Math.max(0, ((int) ((this.progressBar.width() * constrainValue) / this.duration)) - i5));
+                canvas.drawRect(min, centerY, min + this.adMarkerWidth, i, this.playedAdGroups[i6] ? this.playedAdMarkerPaint : this.adMarkerPaint);
             }
         }
     }
 
-    public static int getDefaultBufferedColor(int i2) {
+    public static int getDefaultBufferedColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 & 16777215) | (-872415232) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? (i & 16777215) | (-872415232) : invokeI.intValue;
     }
 
-    public static int getDefaultPlayedAdMarkerColor(int i2) {
+    public static int getDefaultPlayedAdMarkerColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? (i2 & 16777215) | 855638016 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
     }
 
-    public static int getDefaultScrubberColor(int i2) {
+    public static int getDefaultScrubberColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 | (-16777216) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i | (-16777216) : invokeI.intValue;
     }
 
-    public static int getDefaultUnplayedColor(int i2) {
+    public static int getDefaultUnplayedColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? (i2 & 16777215) | 855638016 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? (i & 16777215) | 855638016 : invokeI.intValue;
     }
 
     private long getPositionIncrement() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            long j2 = this.keyTimeIncrement;
-            if (j2 == C.TIME_UNSET) {
-                long j3 = this.duration;
-                if (j3 == C.TIME_UNSET) {
+            long j = this.keyTimeIncrement;
+            if (j == C.TIME_UNSET) {
+                long j2 = this.duration;
+                if (j2 == C.TIME_UNSET) {
                     return 0L;
                 }
-                return j3 / this.keyCountIncrement;
+                return j2 / this.keyCountIncrement;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -384,15 +384,15 @@ public class DefaultTimeBar extends View implements TimeBar {
         return (Point) invokeL.objValue;
     }
 
-    private boolean scrubIncrementally(long j2) {
+    private boolean scrubIncrementally(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, this, j)) == null) {
             if (this.duration <= 0) {
                 return false;
             }
             long scrubberPosition = getScrubberPosition();
-            long constrainValue = Util.constrainValue(scrubberPosition + j2, 0L, this.duration);
+            long constrainValue = Util.constrainValue(scrubberPosition + j, 0L, this.duration);
             this.scrubPosition = constrainValue;
             if (constrainValue == scrubberPosition) {
                 return false;
@@ -410,10 +410,10 @@ public class DefaultTimeBar extends View implements TimeBar {
         return invokeJ.booleanValue;
     }
 
-    public static boolean setDrawableLayoutDirection(Drawable drawable, int i2) {
+    public static boolean setDrawableLayoutDirection(Drawable drawable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, drawable, i2)) == null) ? Util.SDK_INT >= 23 && drawable.setLayoutDirection(i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, drawable, i)) == null) ? Util.SDK_INT >= 23 && drawable.setLayoutDirection(i) : invokeLI.booleanValue;
     }
 
     private void startScrubbing() {
@@ -455,21 +455,21 @@ public class DefaultTimeBar extends View implements TimeBar {
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             this.bufferedBar.set(this.progressBar);
             this.scrubberBar.set(this.progressBar);
-            long j2 = this.scrubbing ? this.scrubPosition : this.position;
+            long j = this.scrubbing ? this.scrubPosition : this.position;
             if (this.duration > 0) {
                 int width = (int) ((this.progressBar.width() * this.bufferedPosition) / this.duration);
                 Rect rect = this.bufferedBar;
                 Rect rect2 = this.progressBar;
                 rect.right = Math.min(rect2.left + width, rect2.right);
-                int width2 = (int) ((this.progressBar.width() * j2) / this.duration);
+                int width2 = (int) ((this.progressBar.width() * j) / this.duration);
                 Rect rect3 = this.scrubberBar;
                 Rect rect4 = this.progressBar;
                 rect3.right = Math.min(rect4.left + width2, rect4.right);
             } else {
                 Rect rect5 = this.bufferedBar;
-                int i2 = this.progressBar.left;
-                rect5.right = i2;
-                this.scrubberBar.right = i2;
+                int i = this.progressBar.left;
+                rect5.right = i;
+                this.scrubberBar.right = i;
             }
             invalidate(this.seekBounds);
         }
@@ -546,11 +546,11 @@ public class DefaultTimeBar extends View implements TimeBar {
             if (this.duration <= 0) {
                 return;
             }
-            int i2 = Util.SDK_INT;
-            if (i2 >= 21) {
+            int i = Util.SDK_INT;
+            if (i >= 21) {
                 accessibilityNodeInfo.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD);
                 accessibilityNodeInfo.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_BACKWARD);
-            } else if (i2 >= 16) {
+            } else if (i >= 16) {
                 accessibilityNodeInfo.addAction(4096);
                 accessibilityNodeInfo.addAction(8192);
             }
@@ -562,14 +562,14 @@ public class DefaultTimeBar extends View implements TimeBar {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
             if (isEnabled()) {
                 long positionIncrement = getPositionIncrement();
-                if (i2 != 66) {
-                    switch (i2) {
+                if (i != 66) {
+                    switch (i) {
                         case 21:
                             positionIncrement = -positionIncrement;
                             if (scrubIncrementally(positionIncrement)) {
@@ -590,51 +590,51 @@ public class DefaultTimeBar extends View implements TimeBar {
                     return true;
                 }
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            int i6 = ((i5 - i3) - this.touchTargetHeight) / 2;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = ((i4 - i2) - this.touchTargetHeight) / 2;
             int paddingLeft = getPaddingLeft();
-            int paddingRight = (i4 - i2) - getPaddingRight();
-            int i7 = this.touchTargetHeight;
-            int i8 = ((i7 - this.barHeight) / 2) + i6;
-            this.seekBounds.set(paddingLeft, i6, paddingRight, i7 + i6);
+            int paddingRight = (i3 - i) - getPaddingRight();
+            int i6 = this.touchTargetHeight;
+            int i7 = ((i6 - this.barHeight) / 2) + i5;
+            this.seekBounds.set(paddingLeft, i5, paddingRight, i6 + i5);
             Rect rect = this.progressBar;
             Rect rect2 = this.seekBounds;
-            int i9 = rect2.left;
-            int i10 = this.scrubberPadding;
-            rect.set(i9 + i10, i8, rect2.right - i10, this.barHeight + i8);
+            int i8 = rect2.left;
+            int i9 = this.scrubberPadding;
+            rect.set(i8 + i9, i7, rect2.right - i9, this.barHeight + i7);
             update();
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            int mode = View.MeasureSpec.getMode(i3);
-            int size = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
             if (mode == 0) {
                 size = this.touchTargetHeight;
             } else if (mode != 1073741824) {
                 size = Math.min(this.touchTargetHeight, size);
             }
-            setMeasuredDimension(View.MeasureSpec.getSize(i2), size);
+            setMeasuredDimension(View.MeasureSpec.getSize(i), size);
             updateDrawableState();
         }
     }
 
     @Override // android.view.View
-    public void onRtlPropertiesChanged(int i2) {
+    public void onRtlPropertiesChanged(int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i2) == null) && (drawable = this.scrubberDrawable) != null && setDrawableLayoutDirection(drawable, i2)) {
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (drawable = this.scrubberDrawable) != null && setDrawableLayoutDirection(drawable, i)) {
             invalidate();
         }
     }
@@ -652,19 +652,19 @@ public class DefaultTimeBar extends View implements TimeBar {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
             if (isEnabled() && this.duration > 0) {
                 Point resolveRelativeTouchPosition = resolveRelativeTouchPosition(motionEvent);
-                int i2 = resolveRelativeTouchPosition.x;
-                int i3 = resolveRelativeTouchPosition.y;
+                int i = resolveRelativeTouchPosition.x;
+                int i2 = resolveRelativeTouchPosition.y;
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
                             if (this.scrubbing) {
-                                if (i3 < this.fineScrubYThreshold) {
-                                    int i4 = this.lastCoarseScrubXPosition;
-                                    positionScrubber(i4 + ((i2 - i4) / 3));
+                                if (i2 < this.fineScrubYThreshold) {
+                                    int i3 = this.lastCoarseScrubXPosition;
+                                    positionScrubber(i3 + ((i - i3) / 3));
                                 } else {
-                                    this.lastCoarseScrubXPosition = i2;
-                                    positionScrubber(i2);
+                                    this.lastCoarseScrubXPosition = i;
+                                    positionScrubber(i);
                                 }
                                 this.scrubPosition = getScrubberPosition();
                                 Iterator<TimeBar.OnScrubListener> it = this.listeners.iterator();
@@ -682,8 +682,8 @@ public class DefaultTimeBar extends View implements TimeBar {
                         return true;
                     }
                 } else {
-                    float f2 = i2;
-                    if (isInSeekBar(f2, i3)) {
+                    float f2 = i;
+                    if (isInSeekBar(f2, i2)) {
                         startScrubbing();
                         positionScrubber(f2);
                         this.scrubPosition = getScrubberPosition();
@@ -700,21 +700,21 @@ public class DefaultTimeBar extends View implements TimeBar {
 
     @Override // android.view.View
     @TargetApi(16)
-    public boolean performAccessibilityAction(int i2, Bundle bundle) {
+    public boolean performAccessibilityAction(int i, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, bundle)) == null) {
-            if (super.performAccessibilityAction(i2, bundle)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, bundle)) == null) {
+            if (super.performAccessibilityAction(i, bundle)) {
                 return true;
             }
             if (this.duration <= 0) {
                 return false;
             }
-            if (i2 == 8192) {
+            if (i == 8192) {
                 if (scrubIncrementally(-getPositionIncrement())) {
                     stopScrubbing(false);
                 }
-            } else if (i2 != 4096) {
+            } else if (i != 4096) {
                 return false;
             } else {
                 if (scrubIncrementally(getPositionIncrement())) {
@@ -736,11 +736,11 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i2) {
+    public void setAdGroupTimesMs(@Nullable long[] jArr, @Nullable boolean[] zArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048589, this, jArr, zArr, i2) == null) {
-            Assertions.checkArgument(i2 == 0 || !(jArr == null || zArr == null));
-            this.adGroupCount = i2;
+        if (interceptable == null || interceptable.invokeLLI(1048589, this, jArr, zArr, i) == null) {
+            Assertions.checkArgument(i == 0 || !(jArr == null || zArr == null));
+            this.adGroupCount = i;
             this.adGroupTimesMs = jArr;
             this.playedAdGroups = zArr;
             update();
@@ -748,20 +748,20 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setBufferedPosition(long j2) {
+    public void setBufferedPosition(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.bufferedPosition = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.bufferedPosition = j;
             update();
         }
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.duration = j2;
-            if (this.scrubbing && j2 == C.TIME_UNSET) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.duration = j;
+            if (this.scrubbing && j == C.TIME_UNSET) {
                 stopScrubbing(true);
             }
             update();
@@ -781,30 +781,30 @@ public class DefaultTimeBar extends View implements TimeBar {
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setKeyCountIncrement(int i2) {
+    public void setKeyCountIncrement(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            Assertions.checkArgument(i2 > 0);
-            this.keyCountIncrement = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            Assertions.checkArgument(i > 0);
+            this.keyCountIncrement = i;
             this.keyTimeIncrement = C.TIME_UNSET;
         }
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setKeyTimeIncrement(long j2) {
+    public void setKeyTimeIncrement(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            Assertions.checkArgument(j2 > 0);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            Assertions.checkArgument(j > 0);
             this.keyCountIncrement = -1;
-            this.keyTimeIncrement = j2;
+            this.keyTimeIncrement = j;
         }
     }
 
     @Override // com.google.android.exoplayer2.ui.TimeBar
-    public void setPosition(long j2) {
+    public void setPosition(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.position = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.position = j;
             setContentDescription(getProgressText());
             update();
         }

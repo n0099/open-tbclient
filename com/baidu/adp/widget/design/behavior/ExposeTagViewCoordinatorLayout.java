@@ -16,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public View f30092e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public NestedScrollAcceptedListener f30093f;
+    /* renamed from: b  reason: collision with root package name */
+    public NestedScrollAcceptedListener f24058b;
 
     /* loaded from: classes3.dex */
     public interface NestedScrollAcceptedListener {
@@ -37,9 +35,9 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,7 +50,7 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f30092e;
+            View view = this.a;
             if (view == null) {
                 return true;
             }
@@ -64,33 +62,33 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     public void clearTargetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30092e = null;
+            this.a = null;
         }
     }
 
     public boolean hasTargetView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30092e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout, androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view, View view2, int i2, int i3) {
+    public void onNestedScrollAccepted(View view, View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, view, view2, i2, i3) == null) {
-            this.f30092e = view2;
-            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f30093f;
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, view, view2, i, i2) == null) {
+            this.a = view2;
+            NestedScrollAcceptedListener nestedScrollAcceptedListener = this.f24058b;
             if (nestedScrollAcceptedListener != null) {
                 nestedScrollAcceptedListener.onNestedScrollAccepted(canDrag());
             }
-            super.onNestedScrollAccepted(view, view2, i2, i3);
+            super.onNestedScrollAccepted(view, view2, i, i2);
         }
     }
 
     public void setListener(NestedScrollAcceptedListener nestedScrollAcceptedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, nestedScrollAcceptedListener) == null) {
-            this.f30093f = nestedScrollAcceptedListener;
+            this.f24058b = nestedScrollAcceptedListener;
         }
     }
 
@@ -103,9 +101,9 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,17 +114,17 @@ public class ExposeTagViewCoordinatorLayout extends CoordinatorLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExposeTagViewCoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ExposeTagViewCoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

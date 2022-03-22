@@ -7,19 +7,19 @@ public class MeanCalculator {
     public void add(float f2) {
         float f3 = this.sum + f2;
         this.sum = f3;
-        int i2 = this.n + 1;
-        this.n = i2;
-        if (i2 == Integer.MAX_VALUE) {
+        int i = this.n + 1;
+        this.n = i;
+        if (i == Integer.MAX_VALUE) {
             this.sum = f3 / 2.0f;
-            this.n = i2 / 2;
+            this.n = i / 2;
         }
     }
 
     public float getMean() {
-        int i2 = this.n;
-        if (i2 == 0) {
+        int i = this.n;
+        if (i == 0) {
             return 0.0f;
         }
-        return this.sum / i2;
+        return this.sum / i;
     }
 }

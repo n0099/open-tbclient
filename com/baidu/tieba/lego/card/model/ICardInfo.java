@@ -7,7 +7,7 @@ import java.io.Serializable;
 public interface ICardInfo extends Serializable, n {
     int getAdapterCount();
 
-    ICardInfo getAdapterItem(int i2);
+    ICardInfo getAdapterItem(int i);
 
     int getAdapterType();
 
@@ -23,7 +23,7 @@ public interface ICardInfo extends Serializable, n {
 
     int getViewCount();
 
-    ICardInfo getViewItem(int i2, int i3);
+    ICardInfo getViewItem(int i, int i2);
 
     boolean isReusable(ICardInfo iCardInfo);
 

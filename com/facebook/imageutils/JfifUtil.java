@@ -1,7 +1,6 @@
 package com.facebook.imageutils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
+import com.kuaishou.weapon.un.w0;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JfifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP1_EXIF_MAGIC = 1165519206;
@@ -33,19 +33,19 @@ public class JfifUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getAutoRotateAngleFromOrientation(int i2) {
+    public static int getAutoRotateAngleFromOrientation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? TiffUtil.getAutoRotateAngleFromOrientation(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? TiffUtil.getAutoRotateAngleFromOrientation(i) : invokeI.intValue;
     }
 
     public static int getOrientation(byte[] bArr) {
@@ -54,18 +54,18 @@ public class JfifUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? getOrientation(new ByteArrayInputStream(bArr)) : invokeL.intValue;
     }
 
-    public static boolean isSOFn(int i2) {
+    public static boolean isSOFn(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            switch (i) {
                 case 192:
                 case 193:
                 case 194:
                 case 195:
                 case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
-                case Opcodes.IFNULL /* 198 */:
-                case 199:
+                case 198:
+                case w0.b1 /* 199 */:
                 case 201:
                 case 202:
                 case 203:
@@ -91,9 +91,9 @@ public class JfifUtil {
             if (moveToMarker(inputStream, 225) && (readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, false) - 2) > 6) {
                 int readPackedInt2 = StreamProcessor.readPackedInt(inputStream, 4, false);
                 int readPackedInt3 = StreamProcessor.readPackedInt(inputStream, 2, false);
-                int i2 = (readPackedInt - 4) - 2;
+                int i = (readPackedInt - 4) - 2;
                 if (readPackedInt2 == 1165519206 && readPackedInt3 == 0) {
-                    return i2;
+                    return i;
                 }
             }
             return 0;
@@ -101,19 +101,19 @@ public class JfifUtil {
         return invokeL.intValue;
     }
 
-    public static boolean moveToMarker(InputStream inputStream, int i2) throws IOException {
+    public static boolean moveToMarker(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, inputStream, i)) == null) {
             Preconditions.checkNotNull(inputStream);
             while (StreamProcessor.readPackedInt(inputStream, 1, false) == 255) {
-                int i3 = 255;
-                while (i3 == 255) {
-                    i3 = StreamProcessor.readPackedInt(inputStream, 1, false);
+                int i2 = 255;
+                while (i2 == 255) {
+                    i2 = StreamProcessor.readPackedInt(inputStream, 1, false);
                 }
-                if ((i2 != 192 || !isSOFn(i3)) && i3 != i2) {
-                    if (i3 != 216 && i3 != 1) {
-                        if (i3 == 217 || i3 == 218) {
+                if ((i != 192 || !isSOFn(i2)) && i2 != i) {
+                    if (i2 != 216 && i2 != 1) {
+                        if (i2 == 217 || i2 == 218) {
                             break;
                         }
                         inputStream.skip(StreamProcessor.readPackedInt(inputStream, 2, false) - 2);

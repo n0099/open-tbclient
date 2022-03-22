@@ -22,31 +22,27 @@ public class e {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WindowManager f3824b;
+    public WindowManager f3281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile int f3825c;
+    public volatile int f3282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f3826d;
+    public View f3283d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f3827e;
+    public View f3284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WindowManager.LayoutParams f3828f;
+    public WindowManager.LayoutParams f3285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f3829g;
+    public Handler f3286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f3830h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Runnable f3831i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f3832j;
+    public Runnable f3287h;
+    public Runnable i;
+    public boolean j;
     public View k;
     public View l;
 
@@ -54,9 +50,7 @@ public class e {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3833e;
+        public final /* synthetic */ e a;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -65,32 +59,32 @@ public class e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3833e = eVar;
+            this.a = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f3833e.f3826d != null) {
-                    if (this.f3833e.f3826d.getParent() != null) {
-                        this.f3833e.f3824b.removeView(this.f3833e.f3826d);
+                if (this.a.f3283d != null) {
+                    if (this.a.f3283d.getParent() != null) {
+                        this.a.f3281b.removeView(this.a.f3283d);
                     }
-                    this.f3833e.f3826d = null;
+                    this.a.f3283d = null;
                 }
-                if (this.f3833e.k != null) {
-                    if (this.f3833e.k.getParent() != null) {
-                        this.f3833e.f3824b.removeView(this.f3833e.k);
+                if (this.a.k != null) {
+                    if (this.a.k.getParent() != null) {
+                        this.a.f3281b.removeView(this.a.k);
                     }
-                    this.f3833e.k = null;
+                    this.a.k = null;
                 }
             }
         }
@@ -100,9 +94,7 @@ public class e {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3834e;
+        public final /* synthetic */ e a;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -111,15 +103,15 @@ public class e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3834e = eVar;
+            this.a = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -127,22 +119,22 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f3834e.f3832j) {
-                        if (this.f3834e.k != null && (this.f3834e.k.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) this.f3834e.k.getParent()).removeView(this.f3834e.k);
+                    if (this.a.j) {
+                        if (this.a.k != null && (this.a.k.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) this.a.k.getParent()).removeView(this.a.k);
                         }
-                        WindowManager.LayoutParams m = this.f3834e.m();
-                        this.f3834e.l = new FrameLayout(this.f3834e.a);
-                        this.f3834e.l.setClickable(true);
-                        this.f3834e.f3824b.addView(this.f3834e.l, m);
-                        this.f3834e.k = this.f3834e.l;
+                        WindowManager.LayoutParams m = this.a.m();
+                        this.a.l = new FrameLayout(this.a.a);
+                        this.a.l.setClickable(true);
+                        this.a.f3281b.addView(this.a.l, m);
+                        this.a.k = this.a.l;
                     }
-                    if (this.f3834e.f3827e != null && (this.f3834e.f3827e.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.f3834e.f3827e.getParent()).removeView(this.f3834e.f3827e);
+                    if (this.a.f3284e != null && (this.a.f3284e.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.a.f3284e.getParent()).removeView(this.a.f3284e);
                     }
-                    this.f3834e.f3824b.addView(this.f3834e.f3827e, this.f3834e.f3828f);
-                    this.f3834e.f3826d = this.f3834e.f3827e;
-                    this.f3834e.f3829g.postDelayed(this.f3834e.f3831i, this.f3834e.f3825c * 1000);
+                    this.a.f3281b.addView(this.a.f3284e, this.a.f3285f);
+                    this.a.f3283d = this.a.f3284e;
+                    this.a.f3286g.postDelayed(this.a.i, this.a.f3282c * 1000);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -154,9 +146,7 @@ public class e {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f3835e;
+        public final /* synthetic */ e a;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -165,15 +155,15 @@ public class e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3835e = eVar;
+            this.a = eVar;
         }
 
         @Override // java.lang.Runnable
@@ -181,17 +171,17 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f3835e.f3826d != null) {
-                        if (this.f3835e.f3826d.getParent() != null) {
-                            this.f3835e.f3824b.removeViewImmediate(this.f3835e.f3826d);
+                    if (this.a.f3283d != null) {
+                        if (this.a.f3283d.getParent() != null) {
+                            this.a.f3281b.removeViewImmediate(this.a.f3283d);
                         }
-                        this.f3835e.f3826d = null;
+                        this.a.f3283d = null;
                     }
-                    if (this.f3835e.k != null) {
-                        if (this.f3835e.k.getParent() != null) {
-                            this.f3835e.f3824b.removeViewImmediate(this.f3835e.k);
+                    if (this.a.k != null) {
+                        if (this.a.k.getParent() != null) {
+                            this.a.f3281b.removeViewImmediate(this.a.k);
                         }
-                        this.f3835e.k = null;
+                        this.a.k = null;
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -207,71 +197,71 @@ public class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f3824b = (WindowManager) context.getSystemService("window");
-        this.f3829g = new Handler(Looper.getMainLooper());
-        this.f3831i = new a(this);
+        this.f3281b = (WindowManager) context.getSystemService("window");
+        this.f3286g = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.f3828f = layoutParams;
+        this.f3285f = layoutParams;
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.toast_animation;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f10040f;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
-        WindowManager.LayoutParams layoutParams2 = this.f3828f;
+        WindowManager.LayoutParams layoutParams2 = this.f3285f;
         layoutParams2.flags = w0.d0;
         layoutParams2.gravity = 81;
         layoutParams2.y = -30;
-        this.f3825c = 2;
+        this.f3282c = 2;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.f3830h;
+            Runnable runnable = this.f3287h;
             if (runnable != null) {
-                this.f3829g.removeCallbacks(runnable);
+                this.f3286g.removeCallbacks(runnable);
             }
             b bVar = new b(this);
-            this.f3830h = bVar;
-            this.f3829g.post(bVar);
+            this.f3287h = bVar;
+            this.f3286g.post(bVar);
         }
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 <= 0) {
-                i2 = 2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i <= 0) {
+                i = 2;
             }
-            this.f3825c = i2;
+            this.f3282c = i;
         }
     }
 
-    public void e(int i2, int i3, int i4) {
+    public void e(int i, int i2, int i3) {
         WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4) == null) || (layoutParams = this.f3828f) == null) {
+        if (!(interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) || (layoutParams = this.f3285f) == null) {
             return;
         }
-        layoutParams.gravity = i2;
-        layoutParams.x = i3;
-        layoutParams.y = i4;
+        layoutParams.gravity = i;
+        layoutParams.x = i2;
+        layoutParams.y = i3;
     }
 
     public void f(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f3827e = view;
+            this.f3284e = view;
             view.setClickable(true);
         }
     }
@@ -279,20 +269,20 @@ public class e {
     public void i() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (handler = this.f3829g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (handler = this.f3286g) == null) {
             return;
         }
         handler.post(new c(this));
-        this.f3829g.removeCallbacks(this.f3831i);
+        this.f3286g.removeCallbacks(this.i);
     }
 
-    public void j(int i2) {
+    public void j(int i) {
         WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (layoutParams = this.f3828f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (layoutParams = this.f3285f) == null) {
             return;
         }
-        layoutParams.windowAnimations = i2;
+        layoutParams.windowAnimations = i;
     }
 
     public final WindowManager.LayoutParams m() {
@@ -310,12 +300,12 @@ public class e {
         return (WindowManager.LayoutParams) invokeV.objValue;
     }
 
-    public void n(int i2) {
+    public void n(int i) {
         WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (layoutParams = this.f3828f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (layoutParams = this.f3285f) == null) {
             return;
         }
-        layoutParams.type = i2;
+        layoutParams.type = i;
     }
 }

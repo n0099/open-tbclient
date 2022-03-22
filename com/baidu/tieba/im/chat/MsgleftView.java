@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.s1.f.e;
+import c.a.p0.u1.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -41,12 +41,10 @@ public class MsgleftView extends e {
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public long a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public long f43385e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f43386f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ MsgleftView f33673b;
 
         public a(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -55,16 +53,16 @@ public class MsgleftView extends e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgleftView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43386f = msgleftView;
-            this.f43385e = 0L;
+            this.f33673b = msgleftView;
+            this.a = 0L;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -73,17 +71,17 @@ public class MsgleftView extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f43385e = System.currentTimeMillis();
+                    this.a = System.currentTimeMillis();
                 } else if (motionEvent.getAction() == 1) {
-                    if (System.currentTimeMillis() - this.f43385e > 200) {
-                        if (this.f43386f.D.get()) {
-                            MsgleftView msgleftView = this.f43386f;
-                            msgleftView.f21675c.onItemViewLongClick(view, 2, msgleftView.f21678f, 0L);
-                            this.f43386f.D.set(false);
+                    if (System.currentTimeMillis() - this.a > 200) {
+                        if (this.f33673b.D.get()) {
+                            MsgleftView msgleftView = this.f33673b;
+                            msgleftView.f18677c.onItemViewLongClick(view, 2, msgleftView.f18680f, 0L);
+                            this.f33673b.D.set(false);
                         }
                     } else {
-                        MsgleftView msgleftView2 = this.f43386f;
-                        msgleftView2.f21674b.onItemViewClick(view, 2, msgleftView2.f21678f, 0L);
+                        MsgleftView msgleftView2 = this.f33673b;
+                        msgleftView2.f18676b.onItemViewClick(view, 2, msgleftView2.f18680f, 0L);
                     }
                 }
                 return false;
@@ -96,9 +94,7 @@ public class MsgleftView extends e {
     public class b implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f43387e;
+        public final /* synthetic */ MsgleftView a;
 
         public b(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -107,15 +103,15 @@ public class MsgleftView extends e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgleftView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43387e = msgleftView;
+            this.a = msgleftView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -123,7 +119,7 @@ public class MsgleftView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f43387e.D.set(true);
+                this.a.D.set(true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -147,16 +143,16 @@ public class MsgleftView extends e {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.msg_msgleft_view);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0560);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -168,16 +164,16 @@ public class MsgleftView extends e {
         this.F = new b(this);
         this.E = tbPageContext;
         k();
-        this.C = (ImageView) c(R.id.iv_live_group_host);
-        this.z = (TextView) c(R.id.tex_msgitem_name);
-        this.A = (ViewGroup) c(R.id.box_msgitem_bubble);
-        HeadImageView headImageView = (HeadImageView) c(R.id.img_msgitem_photo);
+        this.C = (ImageView) c(R.id.obfuscated_res_0x7f090fdf);
+        this.z = (TextView) c(R.id.obfuscated_res_0x7f091f16);
+        this.A = (ViewGroup) c(R.id.obfuscated_res_0x7f0903e6);
+        HeadImageView headImageView = (HeadImageView) c(R.id.obfuscated_res_0x7f090ec3);
         this.y = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.y.setDrawerType(1);
         this.y.setRadius(n.d(this.E.getContext(), 4.0f));
         this.y.setPlaceHolder(1);
-        this.B = (UserIconBox) c(R.id.user_tshow_icon_box);
+        this.B = (UserIconBox) c(R.id.obfuscated_res_0x7f0922dd);
         this.y.setLongClickable(true);
         this.y.setOnLongClickListener(this.F);
         this.y.setOnTouchListener(new a(this));
@@ -188,7 +184,7 @@ public class MsgleftView extends e {
     public final void I(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = c.a.q0.r.j0.b.k().q("live_room_chat_page_author_id", "");
+            String q = c.a.o0.r.j0.b.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.C.setVisibility(0);
             } else {
@@ -197,7 +193,7 @@ public class MsgleftView extends e {
         }
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.q) {
@@ -217,32 +213,32 @@ public class MsgleftView extends e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void K(ChatMessage chatMessage) {
-        int i2;
+    public final void L(ChatMessage chatMessage) {
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && this.q) {
             if (chatMessage != null && chatMessage.getUserInfo() != null) {
                 int sex = chatMessage.getUserInfo().getSex();
                 if (sex == 1) {
-                    i2 = R.drawable.icon_pop_qz_boy;
+                    i = R.drawable.icon_pop_qz_boy;
                 } else if (sex == 2) {
-                    i2 = R.drawable.icon_pop_qz_girl;
+                    i = R.drawable.icon_pop_qz_girl;
                 }
                 if (!this.q) {
-                    i2 = 0;
+                    i = 0;
                 }
-                this.z.setCompoundDrawablesWithIntrinsicBounds(0, 0, i2, 0);
+                this.z.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
             }
-            i2 = 0;
+            i = 0;
             if (!this.q) {
             }
-            this.z.setCompoundDrawablesWithIntrinsicBounds(0, 0, i2, 0);
+            this.z.setCompoundDrawablesWithIntrinsicBounds(0, 0, i, 0);
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x012e  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x015a A[Catch: Exception -> 0x0160, TRY_LEAVE, TryCatch #0 {Exception -> 0x0160, blocks: (B:17:0x00a7, B:19:0x00ad, B:20:0x00cf, B:22:0x00db, B:25:0x00e6, B:27:0x00f5, B:39:0x013e, B:40:0x0144, B:41:0x014a, B:42:0x014e, B:43:0x0154, B:44:0x015a, B:26:0x00ee), top: B:52:0x00a7 }] */
-    @Override // c.a.r0.s1.f.e
+    @Override // c.a.p0.u1.f.e
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -255,22 +251,22 @@ public class MsgleftView extends e {
         super.n(view, chatMessage);
         String str = null;
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        J();
+        K();
         UserIconBox userIconBox = this.B;
         if (userIconBox != null && this.q) {
             userIconBox.setVisibility(0);
             this.B.setAutoChangedStyle(false);
             Resources resources = this.E.getResources();
-            this.B.loadIcon(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds32), resources.getDimensionPixelSize(R.dimen.ds8), true);
+            this.B.h(tShowInfoNew, 2, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fb), true);
         }
         if (chatMessage == null) {
             this.z.setText((CharSequence) null);
-            this.f21681i.setVisibility(0);
-            this.f21681i.setText(null);
+            this.i.setVisibility(0);
+            this.i.setText(null);
             p(8);
             this.p.getImage().setTag(null);
-            this.f21682j.setVisibility(8);
-            this.f21682j.setTag(null);
+            this.j.setVisibility(8);
+            this.j.setTag(null);
             this.l.setVisibility(8);
             this.l.setTag(null);
             this.m.setVisibility(8);
@@ -280,7 +276,7 @@ public class MsgleftView extends e {
             return;
         }
         B(chatMessage);
-        K(chatMessage);
+        L(chatMessage);
         this.z.setText("");
         I(chatMessage);
         G(chatMessage);
@@ -291,11 +287,11 @@ public class MsgleftView extends e {
                 str = chatMessage.getUserInfo().getAvater();
             }
             if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
-                this.y.startLoad(str, 12, false);
+                this.y.J(str, 12, false);
                 this.y.setContentDescription(chatMessage.getUserInfo().getName_show());
-                this.f21681i.setVisibility(8);
+                this.i.setVisibility(8);
                 p(8);
-                this.f21682j.setVisibility(8);
+                this.j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
                 this.n.setVisibility(8);
@@ -324,11 +320,11 @@ public class MsgleftView extends e {
                     return;
                 }
             }
-            this.y.startLoad(str, 10, false);
+            this.y.J(str, 10, false);
             this.y.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.f21681i.setVisibility(8);
+            this.i.setVisibility(8);
             p(8);
-            this.f21682j.setVisibility(8);
+            this.j.setVisibility(8);
             this.k.setVisibility(8);
             this.l.setVisibility(8);
             this.n.setVisibility(8);

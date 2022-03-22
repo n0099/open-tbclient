@@ -22,9 +22,9 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,52 +35,52 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    public void a(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, hashMap, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, hashMap, bArr) == null) {
             if (hashMap != null && hashMap.get("Content-Type") != null) {
                 String str = hashMap.get("Content-Type");
                 String[] strArr = this.a;
                 int length = strArr.length;
                 boolean z = false;
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (strArr[i3].equalsIgnoreCase(str)) {
+                    } else if (strArr[i2].equalsIgnoreCase(str)) {
                         z = true;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
                 if (!z) {
-                    b(new HttpErrorException(i2, "Content-Type not allowed!"), null);
+                    b(new HttpErrorException(i, "Content-Type not allowed!"), null);
                     return;
                 } else {
-                    onSuccess(i2, bArr);
+                    onSuccess(i, bArr);
                     return;
                 }
             }
-            b(new HttpErrorException(i2, "None or more than one Content-Type Header found!"), null);
+            b(new HttpErrorException(i, "None or more than one Content-Type Header found!"), null);
         }
     }
 
     @Override // com.baidu.pass.http.HttpResponseHandler
-    public void c(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, hashMap, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
             if (this.executCallbackInChildThread) {
-                a(i2, hashMap, bArr);
+                a(i, hashMap, bArr);
             } else {
-                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), hashMap, bArr}));
+                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), hashMap, bArr}));
             }
         }
     }
 
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr) == null) {
         }
     }
 
@@ -93,9 +93,9 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, strArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Looper) objArr2[0], (String[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -114,9 +114,9 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler implements co
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, strArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

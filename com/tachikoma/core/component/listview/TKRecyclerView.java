@@ -37,7 +37,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKRecyclerView extends TKBase<b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_GRID = "grid";
@@ -70,9 +70,9 @@ public class TKRecyclerView extends TKBase<b> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -168,14 +168,14 @@ public class TKRecyclerView extends TKBase<b> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!TYPE_STAGGER.equals(this.mLayoutType)) {
                 Context context = getContext();
-                int i2 = this.mSpanCount;
-                return new GridLayoutManager(context, i2 > 0 ? i2 : 1, this.mDirection, false);
+                int i = this.mSpanCount;
+                return new GridLayoutManager(context, i > 0 ? i : 1, this.mDirection, false);
             }
             this.mAdapter.setNeedFixHeight(true);
             this.mAdapter.setSupportForFullSpan(true);
             this.mHeaderFooterAdapter.setIsStaggeredGrid(true);
-            int i3 = this.mSpanCount;
-            return new StaggeredGridLayoutManager(i3 > 0 ? i3 : 1, this.mDirection);
+            int i2 = this.mSpanCount;
+            return new StaggeredGridLayoutManager(i2 > 0 ? i2 : 1, this.mDirection);
         }
         return (RecyclerView.LayoutManager) invokeV.objValue;
     }
@@ -248,9 +248,9 @@ public class TKRecyclerView extends TKBase<b> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r8};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super((V8Object) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -318,31 +318,31 @@ public class TKRecyclerView extends TKBase<b> {
         }
     }
 
-    public void notifyItemRangeChanged(int i2, int i3) {
+    public void notifyItemRangeChanged(int i, int i2) {
         TKRecyclerAdapter tKRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
             return;
         }
-        tKRecyclerAdapter.notifyItemRangeChanged(i2, i3);
+        tKRecyclerAdapter.notifyItemRangeChanged(i, i2);
     }
 
-    public void notifyItemRangeInserted(int i2, int i3) {
+    public void notifyItemRangeInserted(int i, int i2) {
         TKRecyclerAdapter tKRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
             return;
         }
-        tKRecyclerAdapter.notifyItemRangeInserted(i2, i3);
+        tKRecyclerAdapter.notifyItemRangeInserted(i, i2);
     }
 
-    public void notifyItemRangeRemoved(int i2, int i3) {
+    public void notifyItemRangeRemoved(int i, int i2) {
         TKRecyclerAdapter tKRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) || (tKRecyclerAdapter = this.mAdapter) == null) {
             return;
         }
-        tKRecyclerAdapter.notifyItemRangeRemoved(i2, i3);
+        tKRecyclerAdapter.notifyItemRangeRemoved(i, i2);
     }
 
     @Override // com.tachikoma.core.component.TKBase
@@ -363,9 +363,9 @@ public class TKRecyclerView extends TKBase<b> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -375,11 +375,11 @@ public class TKRecyclerView extends TKBase<b> {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
+                public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(1048576, this, recyclerView, i2, i3) == null) {
-                        super.onScrolled(recyclerView, i2, i3);
-                        this.this$0.dispatchEvent("scroll", new TKEventProcess.EventInterface(this, recyclerView, i2, i3) { // from class: com.tachikoma.core.component.listview.TKRecyclerView.1.1
+                    if (interceptable2 == null || interceptable2.invokeLII(1048576, this, recyclerView, i, i2) == null) {
+                        super.onScrolled(recyclerView, i, i2);
+                        this.this$0.dispatchEvent("scroll", new TKEventProcess.EventInterface(this, recyclerView, i, i2) { // from class: com.tachikoma.core.component.listview.TKRecyclerView.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass1 this$1;
@@ -392,11 +392,11 @@ public class TKRecyclerView extends TKBase<b> {
                                 if (interceptable3 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, recyclerView, Integer.valueOf(i2), Integer.valueOf(i3)};
+                                    Object[] objArr = {this, recyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -404,8 +404,8 @@ public class TKRecyclerView extends TKBase<b> {
                                 }
                                 this.this$1 = this;
                                 this.val$recyclerView = recyclerView;
-                                this.val$dx = i2;
-                                this.val$dy = i3;
+                                this.val$dx = i;
+                                this.val$dy = i2;
                             }
 
                             @Override // com.tachikoma.core.event.TKEventProcess.EventInterface
@@ -478,9 +478,9 @@ public class TKRecyclerView extends TKBase<b> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -494,49 +494,49 @@ public class TKRecyclerView extends TKBase<b> {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(65537, this, iArr)) == null) {
-                    int i2 = -1;
-                    for (int i3 = 0; i3 < iArr.length; i3++) {
-                        if (i3 == 0) {
-                            i2 = iArr[i3];
-                        } else if (iArr[i3] > i2) {
-                            i2 = iArr[i3];
+                    int i = -1;
+                    for (int i2 = 0; i2 < iArr.length; i2++) {
+                        if (i2 == 0) {
+                            i = iArr[i2];
+                        } else if (iArr[i2] > i) {
+                            i = iArr[i2];
                         }
                     }
-                    return i2;
+                    return i;
                 }
                 return invokeL.intValue;
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
-                int i3;
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
+                int i2;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i2) == null) {
-                    super.onScrollStateChanged(recyclerView, i2);
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i) == null) {
+                    super.onScrollStateChanged(recyclerView, i);
                     int itemCount = this.this$0.mAdapter.getItemCount();
-                    if (i2 == 0 && this.isScrollDown) {
+                    if (i == 0 && this.isScrollDown) {
                         TKRecyclerView tKRecyclerView = this.this$0;
                         if (tKRecyclerView.mOnEndReachedThreshold > 0) {
                             if (tKRecyclerView.mRecyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-                                i3 = ((LinearLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
-                                if (i3 == -1) {
-                                    i3 = ((LinearLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastVisibleItemPosition();
+                                i2 = ((LinearLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+                                if (i2 == -1) {
+                                    i2 = ((LinearLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastVisibleItemPosition();
                                 }
                             } else {
-                                i3 = -1;
+                                i2 = -1;
                             }
                             if (this.this$0.mRecyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
                                 int[] findLastCompletelyVisibleItemPositions = ((StaggeredGridLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastCompletelyVisibleItemPositions(null);
                                 int lastVisibleItem = getLastVisibleItem(findLastCompletelyVisibleItemPositions);
                                 if (lastVisibleItem == -1) {
                                     ((StaggeredGridLayoutManager) this.this$0.mRecyclerView.getLayoutManager()).findLastVisibleItemPositions(findLastCompletelyVisibleItemPositions);
-                                    i3 = getLastVisibleItem(findLastCompletelyVisibleItemPositions);
+                                    i2 = getLastVisibleItem(findLastCompletelyVisibleItemPositions);
                                 } else {
-                                    i3 = lastVisibleItem;
+                                    i2 = lastVisibleItem;
                                 }
                             }
-                            if (i3 != -1) {
-                                int headerCount = (itemCount - i3) - this.this$0.mHeaderFooterAdapter.getHeaderCount();
+                            if (i2 != -1) {
+                                int headerCount = (itemCount - i2) - this.this$0.mHeaderFooterAdapter.getHeaderCount();
                                 TKRecyclerView tKRecyclerView2 = this.this$0;
                                 if (headerCount <= tKRecyclerView2.mOnEndReachedThreshold) {
                                     tKRecyclerView2.onEndReached();
@@ -548,11 +548,11 @@ public class TKRecyclerView extends TKBase<b> {
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+            public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
-                    super.onScrolled(recyclerView, i2, i3);
-                    this.isScrollDown = i3 >= 0 && Math.abs(i3) >= Math.abs(i2);
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
+                    super.onScrolled(recyclerView, i, i2);
+                    this.isScrollDown = i2 >= 0 && Math.abs(i2) >= Math.abs(i);
                 }
             }
         });
@@ -567,17 +567,17 @@ public class TKRecyclerView extends TKBase<b> {
         recyclerHeaderFooterAdapter.notifyDataSetChanged();
     }
 
-    public void scrollToPosition(int i2) {
+    public void scrollToPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            getRecyclerView().scrollToPosition(i2);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            getRecyclerView().scrollToPosition(i);
         }
     }
 
-    public void scrollToPositionWithOffset(int i2, int i3) {
+    public void scrollToPositionWithOffset(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) && (getRecyclerView().getLayoutManager() instanceof LinearLayoutManager)) {
-            ((LinearLayoutManager) getRecyclerView().getLayoutManager()).scrollToPositionWithOffset(i2, i3);
+        if ((interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) && (getRecyclerView().getLayoutManager() instanceof LinearLayoutManager)) {
+            ((LinearLayoutManager) getRecyclerView().getLayoutManager()).scrollToPositionWithOffset(i, i2);
         }
     }
 
@@ -607,10 +607,10 @@ public class TKRecyclerView extends TKBase<b> {
         }
     }
 
-    public void setDirection(int i2) {
+    public void setDirection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mDirection = i2 == 0 ? 0 : 1;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mDirection = i == 0 ? 0 : 1;
         }
     }
 
@@ -621,10 +621,10 @@ public class TKRecyclerView extends TKBase<b> {
         }
     }
 
-    public void setFixScrollConflictDirection(int i2) {
+    public void setFixScrollConflictDirection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mRecyclerView.setFixScrollConflictDirection(i2);
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mRecyclerView.setFixScrollConflictDirection(i);
         }
     }
 
@@ -635,10 +635,10 @@ public class TKRecyclerView extends TKBase<b> {
         }
     }
 
-    public void setSpanCount(int i2) {
+    public void setSpanCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.mSpanCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mSpanCount = i;
         }
     }
 
@@ -662,10 +662,10 @@ public class TKRecyclerView extends TKBase<b> {
         loadMorePresenter.show();
     }
 
-    public void smoothScrollToPosition(int i2) {
+    public void smoothScrollToPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            getRecyclerView().smoothScrollToPosition(i2);
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            getRecyclerView().smoothScrollToPosition(i);
         }
     }
 }

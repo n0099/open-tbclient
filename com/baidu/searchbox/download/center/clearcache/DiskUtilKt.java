@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -71,16 +72,16 @@ public final class DiskUtilKt {
                 arrayList.add(file.getAbsolutePath());
             }
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             File file2 = (File) linkedList.poll();
             if (file2 == null) {
-                return j2;
+                return j;
             }
             if (file2.exists()) {
                 if (arrayList.contains(file2.getAbsolutePath())) {
                     if (AppConfig.isDebug()) {
-                        file2.getAbsolutePath();
+                        Log.d("ExcludeList", file2.getAbsolutePath());
                     }
                 } else {
                     File[] listFiles = file2.listFiles();
@@ -94,7 +95,7 @@ public final class DiskUtilKt {
                         if (function1 != null) {
                             function1.invoke(file2);
                         }
-                        j2 += file2.length();
+                        j += file2.length();
                     }
                 }
             }
@@ -117,9 +118,9 @@ public final class DiskUtilKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -163,7 +164,10 @@ public final class DiskUtilKt {
                                 }
                                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                                 if (AppConfig.isDebug()) {
-                                    jSONObject2.toString();
+                                    Log.d("cleanCacheMonitorUBC", jSONObject2.toString());
+                                    if (uBCManager == null) {
+                                        Log.d("cleanCacheMonitorUBC", "ubc is null!");
+                                    }
                                 }
                                 if (uBCManager != null) {
                                     uBCManager.onEvent(DiskUtilKt.UBC_CLEAN_CACHE_MONITOR, jSONObject2);

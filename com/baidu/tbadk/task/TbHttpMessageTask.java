@@ -22,17 +22,17 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean mIsUseCurrentBDUSS;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbHttpMessageTask(int i2, String str) {
-        super(i2, str);
+    public TbHttpMessageTask(int i, String str) {
+        super(i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;

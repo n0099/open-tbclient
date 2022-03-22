@@ -20,23 +20,23 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f59163b;
+    public static Object f43800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f59164c;
+    public static Handler f43801c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f59165d;
+    public static HandlerThread f43802d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public final class j {
                 return;
             }
         }
-        f59163b = new Object();
+        f43800b = new Object();
         a = c();
     }
 
@@ -64,9 +64,9 @@ public final class j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,15 +77,15 @@ public final class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f59164c == null) {
+            if (f43801c == null) {
                 synchronized (j.class) {
                     HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    f59165d = handlerThread;
+                    f43802d = handlerThread;
                     handlerThread.start();
-                    f59164c = new Handler(f59165d.getLooper());
+                    f43801c = new Handler(f43802d.getLooper());
                 }
             }
-            return f59164c;
+            return f43801c;
         }
         return (Handler) invokeV.objValue;
     }
@@ -120,23 +120,23 @@ public final class j {
         return (Executor) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Queue<Runnable> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Runnable f59166b;
+        public Runnable f43803b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,7 +150,7 @@ public final class j {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     Runnable poll = this.a.poll();
-                    this.f59166b = poll;
+                    this.f43803b = poll;
                     if (poll != null) {
                         j.a.execute(poll);
                     }
@@ -169,7 +169,7 @@ public final class j {
                         public final /* synthetic */ Runnable a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f59167b;
+                        public final /* synthetic */ a f43804b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -178,15 +178,15 @@ public final class j {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, runnable};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
-                            this.f59167b = this;
+                            this.f43804b = this;
                             this.a = runnable;
                         }
 
@@ -197,12 +197,12 @@ public final class j {
                                 try {
                                     this.a.run();
                                 } finally {
-                                    this.f59167b.a();
+                                    this.f43804b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f59166b == null) {
+                    if (this.f43803b == null) {
                         a();
                     }
                 }

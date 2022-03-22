@@ -19,14 +19,14 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.Collection;
 @SuppressLint({"BanTargetApiAnnotation"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BoundaryInterfaceReflectionUtil {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @TargetApi(19)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class BoundaryInterfaceReflectionUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -93,9 +93,9 @@ public class BoundaryInterfaceReflectionUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -141,8 +141,8 @@ public class BoundaryInterfaceReflectionUtil {
             }
             int length = objArr.length;
             InvocationHandler[] invocationHandlerArr = new InvocationHandler[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                invocationHandlerArr[i2] = createInvocationHandlerFor(objArr[i2]);
+            for (int i = 0; i < length; i++) {
+                invocationHandlerArr[i] = createInvocationHandlerFor(objArr[i]);
             }
             return invocationHandlerArr;
         }

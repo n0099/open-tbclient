@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -26,18 +25,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbSettingTextTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout container;
-    public View dividerline;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f30427b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f30428c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f30429d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39507e;
+    public TextView f30430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39508f;
-    public ImageView imageView;
-    public Context mContext;
-    public TextView textView;
-    public TextView tipView;
+    public int f30431f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f30432g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
@@ -48,9 +54,9 @@ public class TbSettingTextTipView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -58,166 +64,157 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f39507e = true;
-        this.mContext = context;
-        initialieView();
-        initializeStyle(attributeSet);
+        this.f30427b = true;
+        this.a = context;
+        d();
+        e(attributeSet);
     }
 
     private void setMainTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65538, this, f2) == null) {
-            this.textView.setTextSize(0, f2);
+            this.f30429d.setTextSize(0, f2);
         }
     }
 
     private void setTipTextSize(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f2) == null) {
-            this.tipView.setTextSize(0, f2);
+            this.f30430e.setTextSize(0, f2);
         }
     }
 
-    public void changeStyleTo1080() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int f2 = n.f(this.mContext, R.dimen.tbds42);
-            int f3 = n.f(this.mContext, R.dimen.tbds33);
+            int f2 = n.f(this.a, R.dimen.tbds42);
+            int f3 = n.f(this.a, R.dimen.tbds33);
             setMainTextSize(f2);
             setTipTextSize(f3);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30429d.getLayoutParams();
             layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-            ((LinearLayout.LayoutParams) this.tipView.getLayoutParams()).setMargins(0, 0, n.f(this.mContext, R.dimen.tbds18), 0);
-            this.container.getLayoutParams().height = -1;
+            ((LinearLayout.LayoutParams) this.f30430e.getLayoutParams()).setMargins(0, 0, n.f(this.a, R.dimen.tbds18), 0);
+            this.f30428c.getLayoutParams().height = -1;
             requestLayout();
         }
     }
 
-    public void displayTip() {
+    public void b() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.tipView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f30430e) == null) {
             return;
         }
         textView.setVisibility(0);
     }
 
-    public CharSequence getTip() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.tipView.getText() : (CharSequence) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f30432g.setVisibility(8);
+        }
     }
 
-    public void hideArrow() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.imageView.setVisibility(8);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) this, true);
+            this.f30428c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
+            this.f30429d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
+            this.f30430e = (TextView) findViewById(R.id.obfuscated_res_0x7f092002);
+            this.f30432g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a4);
         }
     }
 
-    public void hideTip() {
-        TextView textView;
+    public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (textView = this.tipView) == null) {
-            return;
-        }
-        textView.setVisibility(8);
-    }
-
-    public void initialieView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-            this.container = (LinearLayout) findViewById(R.id.container);
-            this.textView = (TextView) findViewById(R.id.text);
-            this.tipView = (TextView) findViewById(R.id.tip);
-            this.imageView = (ImageView) findViewById(R.id.arrow2);
-        }
-    }
-
-    public void initializeStyle(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, new int[]{R.attr.settingShowArraw, R.attr.settingText, R.attr.settingTextColor, R.attr.settingTextSize, R.attr.settingTip, R.attr.settingTipColor});
+        if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040547, R.attr.obfuscated_res_0x7f040548});
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);
                 if (string != null) {
-                    this.textView.setText(string);
+                    this.f30429d.setText(string);
                 }
                 if (string2 != null) {
-                    this.tipView.setText(string2);
+                    this.f30430e.setText(string2);
                 }
-                this.f39507e = obtainStyledAttributes.getBoolean(0, true);
+                this.f30427b = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             }
-            this.container.setClickable(false);
-            this.container.setFocusable(false);
-            if (this.f39507e) {
+            this.f30428c.setClickable(false);
+            this.f30428c.setFocusable(false);
+            if (this.f30427b) {
                 return;
             }
-            this.imageView.setVisibility(4);
+            this.f30432g.setVisibility(4);
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            SkinManager.setViewTextColor(this.textView, (int) R.color.CAM_X0105);
-            TextView textView = this.tipView;
-            int i3 = this.f39508f;
-            if (i3 == 0) {
-                i3 = R.color.CAM_X0109;
+            SkinManager.setViewTextColor(this.f30429d, (int) R.color.CAM_X0105);
+            TextView textView = this.f30430e;
+            int i2 = this.f30431f;
+            if (i2 == 0) {
+                i2 = R.color.CAM_X0109;
             }
-            SkinManager.setViewTextColor(textView, i3);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.imageView, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(textView, i2);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f30432g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             c.d(this).f(R.color.CAM_X0205);
         }
     }
 
-    public void recycle() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void resetTipViewMargains(int i2, int i3, int i4, int i5) {
+    public CharSequence getTip() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048585, this, i2, i3, i4, i5) == null) || this.tipView == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30430e.getText() : (CharSequence) invokeV.objValue;
+    }
+
+    public void h(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) || this.f30430e == null) {
             return;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(i2, i3, i4, i5);
-        this.tipView.setLayoutParams(layoutParams);
+        layoutParams.setMargins(i, i2, i3, i4);
+        this.f30430e.setLayoutParams(layoutParams);
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.textView.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f30429d.setText(str);
         }
     }
 
     public void setTip(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.tipView.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f30430e.setText(str);
         }
     }
 
-    public void setTipViewColor(int i2) {
+    public void setTipViewColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f39508f = i2;
-            SkinManager.setViewTextColor(this.tipView, i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f30431f = i;
+            SkinManager.setViewTextColor(this.f30430e, i);
         }
     }
 
-    public void setText(int i2) {
+    public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.textView.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f30429d.setText(i);
         }
     }
 
@@ -230,18 +227,18 @@ public class TbSettingTextTipView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39507e = true;
-        this.mContext = context;
-        initialieView();
-        initializeStyle(null);
+        this.f30427b = true;
+        this.a = context;
+        d();
+        e(null);
     }
 }

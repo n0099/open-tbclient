@@ -23,9 +23,9 @@ public class d implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,17 +35,17 @@ public class d implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public synchronized void a(int i2, int i3, HashMap<String, Object> hashMap) {
+    public synchronized void a(int i, int i2, HashMap<String, Object> hashMap) {
         List<String> msgKeyListened;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
             synchronized (this) {
                 if (this.sW != null && hashMap != null) {
-                    for (int i4 = 0; i4 < this.sW.size(); i4++) {
-                        LuaMsgListener luaMsgListener = this.sW.get(i4);
+                    for (int i3 = 0; i3 < this.sW.size(); i3++) {
+                        LuaMsgListener luaMsgListener = this.sW.get(i3);
                         if (luaMsgListener != null && (msgKeyListened = luaMsgListener.getMsgKeyListened()) != null) {
-                            for (int i5 = 0; i5 < msgKeyListened.size(); i5++) {
-                                String str = msgKeyListened.get(i5);
+                            for (int i4 = 0; i4 < msgKeyListened.size(); i4++) {
+                                String str = msgKeyListened.get(i4);
                                 if (!TextUtils.isEmpty(str) && hashMap.get(str) != null) {
                                     luaMsgListener.onLuaMessage(hashMap);
                                 }

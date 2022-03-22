@@ -12,6 +12,7 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.Utils;
+import com.baidu.mobstat.Config;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class LottieCompositionMoshiParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", "op", "fr", "v", "layers", "assets", "fonts", "chars", "markers");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", Config.OPERATOR, "fr", "v", "layers", "assets", "fonts", "chars", "markers");
     public static JsonReader.Options ASSETS_NAMES = JsonReader.Options.of("id", "layers", "w", "h", "p", "u");
     public static final JsonReader.Options FONT_NAMES = JsonReader.Options.of("list");
     public static final JsonReader.Options MARKER_NAMES = JsonReader.Options.of("cm", "tm", "dr");
@@ -39,19 +40,19 @@ public class LottieCompositionMoshiParser {
         SparseArrayCompat<FontCharacter> sparseArrayCompat = new SparseArrayCompat<>();
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
-        int i2 = 0;
+        int i = 0;
         float f2 = 0.0f;
         float f3 = 0.0f;
         float f4 = 0.0f;
-        int i3 = 0;
+        int i2 = 0;
         while (jsonReader.hasNext()) {
             switch (jsonReader2.selectName(NAMES)) {
                 case 0:
-                    i2 = jsonReader.nextInt();
+                    i = jsonReader.nextInt();
                     continue;
                     jsonReader2 = jsonReader;
                 case 1:
-                    i3 = jsonReader.nextInt();
+                    i2 = jsonReader.nextInt();
                     continue;
                     jsonReader2 = jsonReader;
                 case 2:
@@ -112,7 +113,7 @@ public class LottieCompositionMoshiParser {
             arrayList3 = arrayList;
             jsonReader2 = jsonReader;
         }
-        lottieComposition.init(new Rect(0, 0, (int) (i2 * dpScale), (int) (i3 * dpScale)), f2, f3, f4, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
+        lottieComposition.init(new Rect(0, 0, (int) (i * dpScale), (int) (i2 * dpScale)), f2, f3, f4, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
         return lottieComposition;
     }
 
@@ -125,8 +126,8 @@ public class LottieCompositionMoshiParser {
             String str = null;
             String str2 = null;
             String str3 = null;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             while (jsonReader.hasNext()) {
                 int selectName = jsonReader.selectName(ASSETS_NAMES);
                 if (selectName == 0) {
@@ -140,9 +141,9 @@ public class LottieCompositionMoshiParser {
                     }
                     jsonReader.endArray();
                 } else if (selectName == 2) {
-                    i2 = jsonReader.nextInt();
+                    i = jsonReader.nextInt();
                 } else if (selectName == 3) {
-                    i3 = jsonReader.nextInt();
+                    i2 = jsonReader.nextInt();
                 } else if (selectName == 4) {
                     str2 = jsonReader.nextString();
                 } else if (selectName != 5) {
@@ -154,7 +155,7 @@ public class LottieCompositionMoshiParser {
             }
             jsonReader.endObject();
             if (str2 != null) {
-                LottieImageAsset lottieImageAsset = new LottieImageAsset(i2, i3, str, str2, str3);
+                LottieImageAsset lottieImageAsset = new LottieImageAsset(i, i2, str, str2, str3);
                 map2.put(lottieImageAsset.getId(), lottieImageAsset);
             } else {
                 map.put(str, arrayList);
@@ -192,16 +193,16 @@ public class LottieCompositionMoshiParser {
 
     public static void parseLayers(JsonReader jsonReader, LottieComposition lottieComposition, List<Layer> list, LongSparseArray<Layer> longSparseArray) throws IOException {
         jsonReader.beginArray();
-        int i2 = 0;
+        int i = 0;
         while (jsonReader.hasNext()) {
             Layer parse = LayerParser.parse(jsonReader, lottieComposition);
             if (parse.getLayerType() == Layer.LayerType.IMAGE) {
-                i2++;
+                i++;
             }
             list.add(parse);
             longSparseArray.put(parse.getId(), parse);
-            if (i2 > 4) {
-                Logger.warning("You have " + i2 + " images. Lottie should primarily be used with shapes. If you are using Adobe Illustrator, convert the Illustrator layers to shape layers.");
+            if (i > 4) {
+                Logger.warning("You have " + i + " images. Lottie should primarily be used with shapes. If you are using Adobe Illustrator, convert the Illustrator layers to shape layers.");
             }
         }
         jsonReader.endArray();

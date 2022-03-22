@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.b;
-import i.c;
-import i.k;
-import i.u.d;
-import i.u.e;
+import g.b;
+import g.c;
+import g.k;
+import g.u.d;
+import g.u.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Iterable<? extends b> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends b> f61022e;
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
@@ -36,9 +34,9 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar, it};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,7 +79,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -89,7 +87,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -97,7 +95,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             }
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
@@ -113,24 +111,24 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f61022e = iterable;
+        this.a = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // i.b.f, i.n.b
+    @Override // g.b.f, g.n.b
     public void call(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             try {
-                Iterator<? extends b> it = this.f61022e.iterator();
+                Iterator<? extends b> it = this.a.iterator();
                 if (it == null) {
                     cVar.onSubscribe(e.c());
                     cVar.onError(new NullPointerException("The iterator returned is null"));

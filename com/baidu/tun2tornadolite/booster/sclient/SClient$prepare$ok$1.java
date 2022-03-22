@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.LogTo;
 import com.baidu.tun2tornadolite.booster.data.SClientConfig;
 import com.baidu.tun2tornadolite.booster.sclient.SClient;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.net.DatagramSocket;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -22,7 +21,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-@DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$prepare$ok$1", f = "SClient.kt", i = {1}, l = {63, 66}, m = "invokeSuspend", n = {NewBindCardEntry.BING_CARD_SUCCESS_MSG}, s = {"I$0"})
+@DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$prepare$ok$1", f = "SClient.kt", i = {1}, l = {63, 66}, m = "invokeSuspend", n = {"ok"}, s = {"I$0"})
 /* loaded from: classes6.dex */
 public final class SClient$prepare$ok$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Boolean>, Object> {
     public static /* synthetic */ Interceptable $ic;
@@ -41,9 +40,9 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
             newInitContext.initArgs = r2;
             Object[] objArr = {sClientConfig, sClient, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,18 +76,18 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
     */
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         boolean z;
         SClient.ConnectResult connectResult;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i3 = this.label;
+            int i2 = this.label;
             try {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 ResultKt.throwOnFailure(obj);
                 z = SClient.inited;
                 if (z) {
@@ -101,11 +100,11 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i3 != 1) {
-                if (i3 != 2) {
+            } else if (i2 != 1) {
+                if (i2 != 2) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 }
-                i2 = this.I$0;
+                i = this.I$0;
                 ResultKt.throwOnFailure(obj);
                 connectResult = (SClient.ConnectResult) obj;
                 LogTo logTo = LogTo.INSTANCE;
@@ -121,9 +120,9 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
                     SClient.INSTANCE.openWriteChannel();
                     SClient sClient2 = SClient.INSTANCE;
                     SClient.looping = true;
-                    i2 = 1;
+                    i = 1;
                 }
-                return Boxing.boxBoolean(i2 != 0);
+                return Boxing.boxBoolean(i != 0);
             } else {
                 ResultKt.throwOnFailure(obj);
             }
@@ -137,7 +136,7 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-                i2 = 0;
+                i = 0;
                 connectResult = (SClient.ConnectResult) obj;
                 LogTo logTo2 = LogTo.INSTANCE;
                 logTo2.d("*****", "[Connect SClient] address: " + connectResult.getAddress() + " cost: " + connectResult.getConnectTime());
@@ -152,12 +151,12 @@ public final class SClient$prepare$ok$1 extends SuspendLambda implements Functio
                     SClient.INSTANCE.openWriteChannel();
                     SClient sClient22 = SClient.INSTANCE;
                     SClient.looping = true;
-                    i2 = 1;
+                    i = 1;
                 }
-                return Boxing.boxBoolean(i2 != 0);
+                return Boxing.boxBoolean(i != 0);
             }
-            i2 = 0;
-            return Boxing.boxBoolean(i2 != 0);
+            i = 0;
+            return Boxing.boxBoolean(i != 0);
         }
         return invokeL.objValue;
     }

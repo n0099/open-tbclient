@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
         char[] cArr = {'A', 'B', 'C', 'D'};
         START_END_CHARS = cArr;
         ALT_START_END_CHARS = new char[]{'T', 'N', '*', 'E'};
-        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{WebvttCueParser.CHAR_SLASH, ':', '+', '.'};
+        CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = new char[]{WebvttCueParser.CHAR_SLASH, ':', '+', IStringUtil.EXTENSION_SEPARATOR};
         DEFAULT_GUARD = cArr[0];
     }
 
@@ -43,9 +43,9 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,7 +55,7 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter
     public boolean[] encode(String str) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str.length() < 2) {
@@ -81,21 +81,21 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
                     str = DEFAULT_GUARD + str + DEFAULT_GUARD;
                 }
             }
-            int i3 = 20;
-            for (int i4 = 1; i4 < str.length() - 1; i4++) {
-                if (Character.isDigit(str.charAt(i4)) || str.charAt(i4) == '-' || str.charAt(i4) == '$') {
-                    i3 += 9;
-                } else if (!CodaBarReader.arrayContains(CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED, str.charAt(i4))) {
-                    throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i4) + ExtendedMessageFormat.QUOTE);
+            int i2 = 20;
+            for (int i3 = 1; i3 < str.length() - 1; i3++) {
+                if (Character.isDigit(str.charAt(i3)) || str.charAt(i3) == '-' || str.charAt(i3) == '$') {
+                    i2 += 9;
+                } else if (!CodaBarReader.arrayContains(CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED, str.charAt(i3))) {
+                    throw new IllegalArgumentException("Cannot encode : '" + str.charAt(i3) + '\'');
                 } else {
-                    i3 += 10;
+                    i2 += 10;
                 }
             }
-            boolean[] zArr = new boolean[i3 + (str.length() - 1)];
-            int i5 = 0;
-            for (int i6 = 0; i6 < str.length(); i6++) {
-                char upperCase3 = Character.toUpperCase(str.charAt(i6));
-                if (i6 == 0 || i6 == str.length() - 1) {
+            boolean[] zArr = new boolean[i2 + (str.length() - 1)];
+            int i4 = 0;
+            for (int i5 = 0; i5 < str.length(); i5++) {
+                char upperCase3 = Character.toUpperCase(str.charAt(i5));
+                if (i5 == 0 || i5 == str.length() - 1) {
                     if (upperCase3 == '*') {
                         upperCase3 = 'C';
                     } else if (upperCase3 == 'E') {
@@ -106,38 +106,38 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
                         upperCase3 = 'A';
                     }
                 }
-                int i7 = 0;
+                int i6 = 0;
                 while (true) {
                     char[] cArr = CodaBarReader.ALPHABET;
-                    if (i7 >= cArr.length) {
-                        i2 = 0;
+                    if (i6 >= cArr.length) {
+                        i = 0;
                         break;
-                    } else if (upperCase3 == cArr[i7]) {
-                        i2 = CodaBarReader.CHARACTER_ENCODINGS[i7];
+                    } else if (upperCase3 == cArr[i6]) {
+                        i = CodaBarReader.CHARACTER_ENCODINGS[i6];
                         break;
                     } else {
-                        i7++;
+                        i6++;
                     }
                 }
-                int i8 = 0;
+                int i7 = 0;
                 boolean z = true;
                 while (true) {
-                    int i9 = 0;
-                    while (i8 < 7) {
-                        zArr[i5] = z;
-                        i5++;
-                        if (((i2 >> (6 - i8)) & 1) == 0 || i9 == 1) {
+                    int i8 = 0;
+                    while (i7 < 7) {
+                        zArr[i4] = z;
+                        i4++;
+                        if (((i >> (6 - i7)) & 1) == 0 || i8 == 1) {
                             z = !z;
-                            i8++;
+                            i7++;
                         } else {
-                            i9++;
+                            i8++;
                         }
                     }
                     break;
                 }
-                if (i6 < str.length() - 1) {
-                    zArr[i5] = false;
-                    i5++;
+                if (i5 < str.length() - 1) {
+                    zArr[i4] = false;
+                    i4++;
                 }
             }
             return zArr;

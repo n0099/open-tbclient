@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class o extends com.kwad.sdk.core.network.a<p> {
     public ReportResultData a;
 
@@ -23,7 +23,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
         }
         if (cVar != null) {
             try {
-                this.a.parseJson(new JSONObject(cVar.f54453b));
+                this.a.parseJson(new JSONObject(cVar.f39576b));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -33,11 +33,11 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
 
     private void a(p pVar) {
         try {
-            List<String> j2 = pVar.j();
-            for (String str : j2) {
+            List<String> j = pVar.j();
+            for (String str : j) {
                 KsAdSDKImpl.get().getProxyForHttp().doGetWithoutResponse(str, null);
             }
-            d.a(pVar.i(), j2);
+            d.a(pVar.i(), j);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
@@ -76,7 +76,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
                 if (cVar == null || cVar.a != 200) {
                     str2 = "report fail result is null";
                 } else {
-                    str2 = "report success actionType:" + b2.f54619b;
+                    str2 = "report success actionType:" + b2.f39728b;
                 }
                 com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
             } catch (Exception e2) {
@@ -87,7 +87,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
                 }
                 if (!b2.i().mCheatingFlow) {
                 }
-                if (com.kwad.sdk.b.f54002c.booleanValue()) {
+                if (com.kwad.sdk.b.f39154c.booleanValue()) {
                     return;
                 }
                 return;
@@ -103,7 +103,7 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
         if (!b2.i().mCheatingFlow) {
             a(b2);
         }
-        if (com.kwad.sdk.b.f54002c.booleanValue() || a.isResultOk()) {
+        if (com.kwad.sdk.b.f39154c.booleanValue() || a.isResultOk()) {
             return;
         }
         throw new RuntimeException("请求返回失败 code:" + a.result + ", errorMsg:" + a.errorMsg + "\n url=" + str);

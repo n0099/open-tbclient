@@ -16,31 +16,31 @@ public class aa implements com.kwad.sdk.core.d<q.b> {
         if (jSONObject.opt("appName") == JSONObject.NULL) {
             bVar.a = "";
         }
-        bVar.f54995b = jSONObject.optString("pkgName");
+        bVar.f40081b = jSONObject.optString("pkgName");
         if (jSONObject.opt("pkgName") == JSONObject.NULL) {
-            bVar.f54995b = "";
+            bVar.f40081b = "";
         }
-        bVar.f54996c = jSONObject.optString("version");
+        bVar.f40082c = jSONObject.optString("version");
         if (jSONObject.opt("version") == JSONObject.NULL) {
-            bVar.f54996c = "";
+            bVar.f40082c = "";
         }
-        bVar.f54997d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        bVar.f54998e = jSONObject.optLong("appSize");
-        bVar.f54999f = jSONObject.optString(PackageTable.MD5);
+        bVar.f40083d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f40084e = jSONObject.optLong("appSize");
+        bVar.f40085f = jSONObject.optString(PackageTable.MD5);
         if (jSONObject.opt(PackageTable.MD5) == JSONObject.NULL) {
-            bVar.f54999f = "";
+            bVar.f40085f = "";
         }
-        bVar.f55000g = jSONObject.optString("url");
+        bVar.f40086g = jSONObject.optString("url");
         if (jSONObject.opt("url") == JSONObject.NULL) {
-            bVar.f55000g = "";
+            bVar.f40086g = "";
         }
-        bVar.f55001h = jSONObject.optString("icon");
+        bVar.f40087h = jSONObject.optString("icon");
         if (jSONObject.opt("icon") == JSONObject.NULL) {
-            bVar.f55001h = "";
+            bVar.f40087h = "";
         }
-        bVar.f55002i = jSONObject.optString("desc");
+        bVar.i = jSONObject.optString("desc");
         if (jSONObject.opt("desc") == JSONObject.NULL) {
-            bVar.f55002i = "";
+            bVar.i = "";
         }
     }
 
@@ -51,14 +51,14 @@ public class aa implements com.kwad.sdk.core.d<q.b> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "appName", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "pkgName", bVar.f54995b);
-        com.kwad.sdk.utils.t.a(jSONObject, "version", bVar.f54996c);
-        com.kwad.sdk.utils.t.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f54997d);
-        com.kwad.sdk.utils.t.a(jSONObject, "appSize", bVar.f54998e);
-        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, bVar.f54999f);
-        com.kwad.sdk.utils.t.a(jSONObject, "url", bVar.f55000g);
-        com.kwad.sdk.utils.t.a(jSONObject, "icon", bVar.f55001h);
-        com.kwad.sdk.utils.t.a(jSONObject, "desc", bVar.f55002i);
+        com.kwad.sdk.utils.t.a(jSONObject, "pkgName", bVar.f40081b);
+        com.kwad.sdk.utils.t.a(jSONObject, "version", bVar.f40082c);
+        com.kwad.sdk.utils.t.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f40083d);
+        com.kwad.sdk.utils.t.a(jSONObject, "appSize", bVar.f40084e);
+        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, bVar.f40085f);
+        com.kwad.sdk.utils.t.a(jSONObject, "url", bVar.f40086g);
+        com.kwad.sdk.utils.t.a(jSONObject, "icon", bVar.f40087h);
+        com.kwad.sdk.utils.t.a(jSONObject, "desc", bVar.i);
         return jSONObject;
     }
 }

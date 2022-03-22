@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,9 +68,9 @@ public class VideoInfo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,7 +119,7 @@ public class VideoInfo implements Serializable {
     public String buildMusic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? buildStaticsInfo("music_id", this.mMusicListInfo) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? buildStaticsInfo(CloudMusicActivityConfig.MUSIC_ID, this.mMusicListInfo) : (String) invokeV.objValue;
     }
 
     public String buildParticleEffect() {
@@ -442,10 +443,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setInStepVideoDuration(long j2) {
+    public void setInStepVideoDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
-            this.mInStepVideoDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            this.mInStepVideoDuration = j;
         }
     }
 
@@ -477,10 +478,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setMaxRecordDuration(int i2) {
+    public void setMaxRecordDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.mMaxRecordDuration = i2;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            this.mMaxRecordDuration = i;
         }
     }
 
@@ -512,10 +513,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setThumbId(long j2) {
+    public void setThumbId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
-            this.thumbId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+            this.thumbId = j;
         }
     }
 
@@ -540,24 +541,24 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setVideoDuration(int i2) {
+    public void setVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.videoDuration = i2;
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.videoDuration = i;
         }
     }
 
-    public void setVideoHeight(int i2) {
+    public void setVideoHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
-            this.videoHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
+            this.videoHeight = i;
         }
     }
 
-    public void setVideoLength(long j2) {
+    public void setVideoLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j2) == null) {
-            this.videoLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
+            this.videoLength = j;
         }
     }
 
@@ -575,10 +576,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setVideoRecordType(int i2) {
+    public void setVideoRecordType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
-            this.videoRecordType = i2;
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+            this.videoRecordType = i;
         }
     }
 
@@ -596,10 +597,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setVideoType(int i2) {
+    public void setVideoType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
-            this.videoType = i2;
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+            this.videoType = i;
         }
     }
 
@@ -610,10 +611,10 @@ public class VideoInfo implements Serializable {
         }
     }
 
-    public void setVideoWidth(int i2) {
+    public void setVideoWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
-            this.videoWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
+            this.videoWidth = i;
         }
     }
 }

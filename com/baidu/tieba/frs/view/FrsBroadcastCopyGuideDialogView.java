@@ -19,24 +19,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f32929b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32930c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32931d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f42463e;
+    public ImageView f32932e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f42464f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f42465g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f42466h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f42467i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f42468j;
+    public TextView f32933f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsBroadcastCopyGuideDialogView(Context context) {
@@ -47,37 +45,37 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42464f = context;
+        this.f32929b = context;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.frs_broadcast_major_copy_guide_dialog, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-            this.f42463e = linearLayout;
-            this.f42465g = (TextView) linearLayout.findViewById(R.id.frs_broadcast_guide_title);
-            this.f42466h = (TextView) this.f42463e.findViewById(R.id.frs_broadcast_guide_content);
-            this.f42467i = (ImageView) this.f42463e.findViewById(R.id.guide_iv);
-            this.f42468j = (TextView) this.f42463e.findViewById(R.id.to_next_tv);
-            this.f42465g.setText(R.string.forum_broadcast_copy_guide_title);
-            this.f42466h.setText(R.string.forum_broadcast_copy_guide_hint);
-            this.f42468j.setText(R.string.comment_tab_dialog_botton_text);
-            SkinManager.setViewTextColor(this.f42465g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f42466h, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f42468j, (int) R.color.CAM_X0302);
-            SkinManager.setImageResource(this.f42467i, R.drawable.pic_frs_guide_copylink);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f42464f, R.dimen.tbds30)).brRadius(n.f(this.f42464f, R.dimen.tbds30)).tlRadius(n.f(this.f42464f, R.dimen.tbds32)).trRadius(n.f(this.f42464f, R.dimen.tbds32)).into(this.f42463e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0309, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ad2);
+            this.a = linearLayout;
+            this.f32930c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ad3);
+            this.f32931d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ad1);
+            this.f32932e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d01);
+            this.f32933f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092082);
+            this.f32930c.setText(R.string.obfuscated_res_0x7f0f063f);
+            this.f32931d.setText(R.string.obfuscated_res_0x7f0f063e);
+            this.f32933f.setText(R.string.obfuscated_res_0x7f0f03fa);
+            SkinManager.setViewTextColor(this.f32930c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f32931d, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f32933f, (int) R.color.CAM_X0302);
+            SkinManager.setImageResource(this.f32932e, R.drawable.pic_frs_guide_copylink);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f32929b, R.dimen.tbds30)).brRadius(n.f(this.f32929b, R.dimen.tbds30)).tlRadius(n.f(this.f32929b, R.dimen.tbds32)).trRadius(n.f(this.f32929b, R.dimen.tbds32)).into(this.a);
         }
     }
 
@@ -86,6 +84,6 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f42468j.setOnClickListener(onClickListener);
+        this.f32933f.setOnClickListener(onClickListener);
     }
 }

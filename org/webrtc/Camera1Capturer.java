@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Camera1Capturer extends CameraCapturer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class Camera1Capturer extends CameraCapturer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, cameraEventsHandler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (CameraVideoCapturer.CameraEventsHandler) objArr2[1], (CameraEnumerator) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -38,15 +38,15 @@ public class Camera1Capturer extends CameraCapturer {
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
-    public /* bridge */ /* synthetic */ void changeCaptureFormat(int i2, int i3, int i4) {
-        super.changeCaptureFormat(i2, i3, i4);
+    public /* bridge */ /* synthetic */ void changeCaptureFormat(int i, int i2, int i3) {
+        super.changeCaptureFormat(i, i2, i3);
     }
 
     @Override // org.webrtc.CameraCapturer
-    public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
+    public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{createSessionCallback, events, context, surfaceTextureHelper, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            Camera1Session.create(createSessionCallback, events, this.captureToTexture, context, surfaceTextureHelper, Camera1Enumerator.getCameraIndex(str), i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{createSessionCallback, events, context, surfaceTextureHelper, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            Camera1Session.create(createSessionCallback, events, this.captureToTexture, context, surfaceTextureHelper, Camera1Enumerator.getCameraIndex(str), i, i2, i3);
         }
     }
 
@@ -71,8 +71,8 @@ public class Camera1Capturer extends CameraCapturer {
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
-    public /* bridge */ /* synthetic */ void startCapture(int i2, int i3, int i4) {
-        super.startCapture(i2, i3, i4);
+    public /* bridge */ /* synthetic */ void startCapture(int i, int i2, int i3) {
+        super.startCapture(i, i2, i3);
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer

@@ -40,13 +40,13 @@ public interface a {
 
     void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams);
 
-    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2);
+    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 
     void proxyCloseContextMenu();
 
     void proxyCloseOptionsMenu();
 
-    PendingIntent proxyCreatePendingResult(int i2, Intent intent, int i3);
+    PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2);
 
     boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent);
 
@@ -60,13 +60,13 @@ public interface a {
 
     boolean proxyDispatchTrackballEvent(MotionEvent motionEvent);
 
-    View proxyFindViewById(int i2);
+    View proxyFindViewById(int i);
 
     void proxyFinish();
 
-    void proxyFinishActivity(int i2);
+    void proxyFinishActivity(int i);
 
-    void proxyFinishActivityFromChild(Activity activity, int i2);
+    void proxyFinishActivityFromChild(Activity activity, int i);
 
     void proxyFinishFromChild(Activity activity);
 
@@ -90,11 +90,11 @@ public interface a {
 
     PackageManager proxyGetPackageManager();
 
-    SharedPreferences proxyGetPreferences(int i2);
+    SharedPreferences proxyGetPreferences(int i);
 
     int proxyGetRequestedOrientation();
 
-    SharedPreferences proxyGetSharedPreferences(String str, int i2);
+    SharedPreferences proxyGetSharedPreferences(String str, int i);
 
     Object proxyGetSystemService(String str);
 
@@ -116,9 +116,9 @@ public interface a {
 
     boolean proxyMoveTaskToBack(boolean z);
 
-    void proxyOnActivityResult(int i2, int i3, Intent intent);
+    void proxyOnActivityResult(int i, int i2, Intent intent);
 
-    void proxyOnApplyThemeResource(Resources.Theme theme, int i2, boolean z);
+    void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z);
 
     void proxyOnAttachedToWindow();
 
@@ -138,7 +138,7 @@ public interface a {
 
     void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
 
-    boolean proxyOnCreatePanelMenu(int i2, Menu menu);
+    boolean proxyOnCreatePanelMenu(int i, Menu menu);
 
     boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas);
 
@@ -150,25 +150,25 @@ public interface a {
 
     void proxyOnDetachedFromWindow();
 
-    boolean proxyOnKeyDown(int i2, KeyEvent keyEvent);
+    boolean proxyOnKeyDown(int i, KeyEvent keyEvent);
 
-    boolean proxyOnKeyLongPress(int i2, KeyEvent keyEvent);
+    boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent);
 
-    boolean proxyOnKeyMultiple(int i2, int i3, KeyEvent keyEvent);
+    boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent);
 
-    boolean proxyOnKeyUp(int i2, KeyEvent keyEvent);
+    boolean proxyOnKeyUp(int i, KeyEvent keyEvent);
 
     void proxyOnLowMemory();
 
-    boolean proxyOnMenuItemSelected(int i2, MenuItem menuItem);
+    boolean proxyOnMenuItemSelected(int i, MenuItem menuItem);
 
-    boolean proxyOnMenuOpened(int i2, Menu menu);
+    boolean proxyOnMenuOpened(int i, Menu menu);
 
     boolean proxyOnOptionsItemSelected(MenuItem menuItem);
 
     void proxyOnOptionsMenuClosed(Menu menu);
 
-    void proxyOnPanelClosed(int i2, Menu menu);
+    void proxyOnPanelClosed(int i, Menu menu);
 
     void proxyOnPause();
 
@@ -176,11 +176,11 @@ public interface a {
 
     void proxyOnPostResume();
 
-    void proxyOnPrepareDialog(int i2, Dialog dialog);
+    void proxyOnPrepareDialog(int i, Dialog dialog);
 
     boolean proxyOnPrepareOptionsMenu(Menu menu);
 
-    boolean proxyOnPreparePanel(int i2, View view, Menu menu);
+    boolean proxyOnPreparePanel(int i, View view, Menu menu);
 
     void proxyOnRestart();
 
@@ -198,7 +198,7 @@ public interface a {
 
     void proxyOnStop();
 
-    void proxyOnTitleChanged(CharSequence charSequence, int i2);
+    void proxyOnTitleChanged(CharSequence charSequence, int i);
 
     boolean proxyOnTouchEvent(MotionEvent motionEvent);
 
@@ -214,11 +214,11 @@ public interface a {
 
     void proxyOpenOptionsMenu();
 
-    void proxyOverridePendingTransition(int i2, int i3);
+    void proxyOverridePendingTransition(int i, int i2);
 
     void proxyRegisterForContextMenu(View view);
 
-    void proxySetContentView(int i2);
+    void proxySetContentView(int i);
 
     void proxySetContentView(View view);
 
@@ -226,27 +226,27 @@ public interface a {
 
     void proxySetIntent(Intent intent);
 
-    void proxySetRequestedOrientation(int i2);
+    void proxySetRequestedOrientation(int i);
 
-    void proxySetTitle(int i2);
+    void proxySetTitle(int i);
 
     void proxySetTitle(CharSequence charSequence);
 
-    void proxySetTitleColor(int i2);
+    void proxySetTitleColor(int i);
 
     void proxySetVisible(boolean z);
 
     void proxyStartActivity(Intent intent);
 
-    void proxyStartActivityForResult(Intent intent, int i2);
+    void proxyStartActivityForResult(Intent intent, int i);
 
-    void proxyStartActivityFromChild(Activity activity, Intent intent, int i2);
+    void proxyStartActivityFromChild(Activity activity, Intent intent, int i);
 
-    boolean proxyStartActivityIfNeeded(Intent intent, int i2);
+    boolean proxyStartActivityIfNeeded(Intent intent, int i);
 
-    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException;
+    void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException;
 
-    void proxyStartIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException;
+    void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException;
 
     void proxyStartManagingCursor(Cursor cursor);
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIMES = 10000;
@@ -21,7 +21,7 @@ public class ImagesInvalidService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate mDiskFileOperate;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends DiskFileOperate implements c.a.d.f.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ImagesInvalidService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -52,7 +52,7 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                c.a.q0.r.u.a.stopService();
+                c.a.o0.r.u.a.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
@@ -70,9 +70,9 @@ public class ImagesInvalidService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,7 +84,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            c.a.q0.r.u.a.e(z);
+            c.a.o0.r.u.a.e(z);
         }
     }
 

@@ -3,41 +3,39 @@ package com.baidu.swan.apps.res.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.p0.a.d2.n;
-import c.a.p0.a.d2.s.d;
-import c.a.p0.a.g2.b;
-import c.a.p0.a.p2.n0;
-import c.a.p0.a.p2.o0;
-import c.a.p0.a.p2.q0;
-import c.a.p0.a.t1.e;
-import c.a.p0.a.w0.f;
+import c.a.n0.a.d2.n;
+import c.a.n0.a.d2.s.d;
+import c.a.n0.a.g2.b;
+import c.a.n0.a.p2.n0;
+import c.a.n0.a.p2.o0;
+import c.a.n0.a.p2.q0;
+import c.a.n0.a.t1.e;
+import c.a.n0.a.w0.f;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DomainErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f37735e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f29093b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f37736f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ e f29094c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f37737g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f37738h;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ DomainErrorView f29095d;
 
         public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -46,25 +44,25 @@ public class DomainErrorView extends CommonEmptyView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {domainErrorView, str, str2, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f37738h = domainErrorView;
-            this.f37735e = str;
-            this.f37736f = str2;
-            this.f37737g = eVar;
+            this.f29095d = domainErrorView;
+            this.a = str;
+            this.f29093b = str2;
+            this.f29094c = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.p0.a.s0.a.u().b(this.f37737g.x(), this.f37737g.N(), this.f37737g.Y(), o0.u(this.f37735e, this.f37736f));
+                c.a.n0.a.s0.a.u().b(this.f29094c.x(), this.f29094c.N(), this.f29094c.Y(), o0.u(this.a, this.f29093b));
             }
         }
     }
@@ -78,9 +76,9 @@ public class DomainErrorView extends CommonEmptyView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -89,39 +87,39 @@ public class DomainErrorView extends CommonEmptyView {
         }
     }
 
-    public void showError(String str) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             boolean d2 = o0.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(R.drawable.swanapp_error_page_general_tips);
-            setTitle(R.string.aiapps_emptyview_domain_error_title);
-            c.a.p0.a.k2.a aVar = new c.a.p0.a.k2.a();
+            setIcon(R.drawable.obfuscated_res_0x7f081162);
+            setTitle(R.string.obfuscated_res_0x7f0f014e);
+            c.a.n0.a.k2.a aVar = new c.a.n0.a.k2.a();
             aVar.k(5L);
             aVar.i(41L);
             aVar.f("domain not in white list--" + stringBuffer2);
             e a0 = e.a0();
             if (a0 != null) {
-                String format = String.format(getContext().getResources().getString(R.string.aiapps_open_failed_detail_format), q0.D(), b.i(f.U().M(), a0.X().G()), String.valueOf(aVar.a()));
+                String format = String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f019a), q0.D(), b.i(f.U().M(), a0.X().G()), String.valueOf(aVar.a()));
                 StringBuilder sb = new StringBuilder();
                 sb.append("(");
                 sb.append(d2 ? stringBuffer2 : format);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 setSubTitle(sb.toString());
-                this.mFeedbackBtn.setVisibility(0);
-                this.mFeedbackBtn.setOnClickListener(new a(this, format, stringBuffer2, a0));
+                this.f29085g.setVisibility(0);
+                this.f29085g.setOnClickListener(new a(this, format, stringBuffer2, a0));
             }
-            this.mTitle.setText(getResources().getText(R.string.swanapp_domain_error));
-            this.mSubTitle.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
-            String f2 = q0.n().f();
+            this.f29080b.setText(getResources().getText(R.string.obfuscated_res_0x7f0f127b));
+            this.f29081c.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
+            String e2 = q0.n().e();
             String a2 = q0.v().a();
             d dVar = new d();
             dVar.p(aVar);
             dVar.q(n.n(0));
             dVar.m(e.f0());
             dVar.l("errorDomain", stringBuffer2);
-            dVar.l("path", f2);
+            dVar.l("path", e2);
             dVar.l("prePath", a2);
             dVar.l("curPath", q0.n().a());
             n.R(dVar);
@@ -137,9 +135,9 @@ public class DomainErrorView extends CommonEmptyView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -150,17 +148,17 @@ public class DomainErrorView extends CommonEmptyView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DomainErrorView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public DomainErrorView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -43,9 +43,9 @@ public class DBBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBBase, str, strArr, contentValues};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,9 +79,9 @@ public class DBBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -186,16 +186,16 @@ public class DBBase {
         return invokeLL.longValue;
     }
 
-    public String makePlaceholders(int i2) {
+    public String makePlaceholders(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i < 1) {
                 return null;
             }
-            StringBuilder sb = new StringBuilder((i2 * 2) - 1);
+            StringBuilder sb = new StringBuilder((i * 2) - 1);
             sb.append("?");
-            for (int i3 = 1; i3 < i2; i3++) {
+            for (int i2 = 1; i2 < i; i2++) {
                 sb.append(",?");
             }
             return sb.toString();
@@ -275,7 +275,7 @@ public class DBBase {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, INVOKE, SGET, INVOKE] complete} */
     public Long querymax(String str) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             Cursor cursor = null;
@@ -283,7 +283,7 @@ public class DBBase {
                 try {
                     cursor = openDatabase().rawQuery(str, null);
                     cursor.moveToFirst();
-                    j2 = cursor.getLong(0);
+                    j = cursor.getLong(0);
                     if (cursor != null) {
                         try {
                             cursor.close();
@@ -312,9 +312,9 @@ public class DBBase {
                         LogUtils.e(TAG, "close curse exception");
                     }
                 }
-                j2 = 0;
+                j = 0;
             }
-            return Long.valueOf(j2);
+            return Long.valueOf(j);
         }
         return (Long) invokeL.objValue;
     }
@@ -346,7 +346,7 @@ public class DBBase {
         IMTrack.CrashBuilder crashBuilder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, list)) == null) {
-            int i2 = -1;
+            int i = -1;
             if (TextUtils.isEmpty(str) || list == null || list.size() == 0) {
                 return -1;
             }
@@ -359,12 +359,12 @@ public class DBBase {
                 try {
                     openDatabase.beginTransaction();
                     for (UpdateArgs updateArgs : list) {
-                        i2 = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
-                        if (i2 < 0) {
+                        i = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
+                        if (i < 0) {
                             break;
                         }
                     }
-                    if (i2 >= 0) {
+                    if (i >= 0) {
                         openDatabase.setTransactionSuccessful();
                     }
                     if (openDatabase != null) {
@@ -375,7 +375,7 @@ public class DBBase {
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "updateBatch", e);
-                            return i2;
+                            return i;
                         }
                     }
                 } catch (Exception e3) {
@@ -389,11 +389,11 @@ public class DBBase {
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "updateBatch", e);
-                            return i2;
+                            return i;
                         }
                     }
                 }
-                return i2;
+                return i;
             } catch (Throwable th) {
                 if (openDatabase != null) {
                     try {

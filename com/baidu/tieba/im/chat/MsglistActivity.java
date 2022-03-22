@@ -3,9 +3,9 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.t;
-import c.a.r0.s1.f.c;
-import c.a.r0.s1.f.h;
+import c.a.o0.c1.t;
+import c.a.p0.u1.f.c;
+import c.a.p0.u1.f.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
@@ -24,9 +24,9 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,13 +46,13 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
             AbsMsglistView absMsglistView = this.mListView;
             if (absMsglistView != null) {
-                absMsglistView.onChangeSkinType(i2);
+                absMsglistView.onChangeSkinType(i);
             }
         }
     }
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // c.a.r0.s1.f.c
+    @Override // c.a.p0.u1.f.c
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import android.util.Log;
 import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +24,9 @@ public class LogWriter extends Writer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,7 +41,7 @@ public class LogWriter extends Writer {
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mBuilder.length() <= 0) {
             return;
         }
-        this.mBuilder.toString();
+        Log.d(this.mTag, this.mBuilder.toString());
         StringBuilder sb = this.mBuilder;
         sb.delete(0, sb.length());
     }
@@ -62,11 +63,11 @@ public class LogWriter extends Writer {
     }
 
     @Override // java.io.Writer
-    public void write(char[] cArr, int i2, int i3) {
+    public void write(char[] cArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3) == null) {
-            for (int i4 = 0; i4 < i3; i4++) {
-                char c2 = cArr[i2 + i4];
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2) == null) {
+            for (int i3 = 0; i3 < i2; i3++) {
+                char c2 = cArr[i + i3];
                 if (c2 == '\n') {
                     flushBuilder();
                 } else {

@@ -62,22 +62,22 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             public final long index;
             public final WindowExactBoundedObserver<?> parent;
 
-            public ConsumerIndexHolder(long j2, WindowExactBoundedObserver<?> windowExactBoundedObserver) {
+            public ConsumerIndexHolder(long j, WindowExactBoundedObserver<?> windowExactBoundedObserver) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j2), windowExactBoundedObserver};
+                    Object[] objArr = {Long.valueOf(j), windowExactBoundedObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.index = j2;
+                this.index = j;
                 this.parent = windowExactBoundedObserver;
             }
 
@@ -100,17 +100,17 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactBoundedObserver(Observer<? super Observable<T>> observer, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, long j3, boolean z) {
+        public WindowExactBoundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, long j2, boolean z) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Long.valueOf(j3), Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), Long.valueOf(j2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -119,11 +119,11 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 }
             }
             this.timer = new AtomicReference<>();
-            this.timespan = j2;
+            this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.bufferSize = i2;
-            this.maxSize = j3;
+            this.bufferSize = i;
+            this.maxSize = j2;
             this.restartTimerOnMaxSize = z;
             if (z) {
                 this.worker = scheduler.createWorker();
@@ -159,7 +159,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
                 Observer<? super V> observer = this.actual;
                 UnicastSubject<T> unicastSubject = this.window;
-                int i2 = 1;
+                int i = 1;
                 while (!this.terminated) {
                     boolean z = this.done;
                     Object poll = mpscLinkedQueue.poll();
@@ -178,8 +178,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                             return;
                         }
                     } else if (z2) {
-                        i2 = leave(-i2);
-                        if (i2 == 0) {
+                        i = leave(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else if (z3) {
@@ -193,8 +193,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                         }
                     } else {
                         unicastSubject.onNext(NotificationLite.getValue(poll));
-                        long j2 = this.count + 1;
-                        if (j2 >= this.maxSize) {
+                        long j = this.count + 1;
+                        if (j >= this.maxSize) {
                             this.producerIndex++;
                             this.count = 0L;
                             unicastSubject.onComplete();
@@ -206,14 +206,14 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                                 disposable.dispose();
                                 Scheduler.Worker worker = this.worker;
                                 ConsumerIndexHolder consumerIndexHolder2 = new ConsumerIndexHolder(this.producerIndex, this);
-                                long j3 = this.timespan;
-                                Disposable schedulePeriodically = worker.schedulePeriodically(consumerIndexHolder2, j3, j3, this.unit);
+                                long j2 = this.timespan;
+                                Disposable schedulePeriodically = worker.schedulePeriodically(consumerIndexHolder2, j2, j2, this.unit);
                                 if (!this.timer.compareAndSet(disposable, schedulePeriodically)) {
                                     schedulePeriodically.dispose();
                                 }
                             }
                         } else {
-                            this.count = j2;
+                            this.count = j;
                         }
                     }
                 }
@@ -266,8 +266,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             if (fastEnter()) {
                 UnicastSubject<T> unicastSubject = this.window;
                 unicastSubject.onNext(t);
-                long j2 = this.count + 1;
-                if (j2 >= this.maxSize) {
+                long j = this.count + 1;
+                if (j >= this.maxSize) {
                     this.producerIndex++;
                     this.count = 0L;
                     unicastSubject.onComplete();
@@ -278,11 +278,11 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                         this.timer.get().dispose();
                         Scheduler.Worker worker = this.worker;
                         ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
-                        long j3 = this.timespan;
-                        DisposableHelper.replace(this.timer, worker.schedulePeriodically(consumerIndexHolder, j3, j3, this.unit));
+                        long j2 = this.timespan;
+                        DisposableHelper.replace(this.timer, worker.schedulePeriodically(consumerIndexHolder, j2, j2, this.unit));
                     }
                 } else {
-                    this.count = j2;
+                    this.count = j;
                 }
                 if (leave(-1) == 0) {
                     return;
@@ -313,12 +313,12 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
                 if (this.restartTimerOnMaxSize) {
                     Scheduler.Worker worker = this.worker;
-                    long j2 = this.timespan;
-                    schedulePeriodicallyDirect = worker.schedulePeriodically(consumerIndexHolder, j2, j2, this.unit);
+                    long j = this.timespan;
+                    schedulePeriodicallyDirect = worker.schedulePeriodically(consumerIndexHolder, j, j, this.unit);
                 } else {
                     Scheduler scheduler = this.scheduler;
-                    long j3 = this.timespan;
-                    schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(consumerIndexHolder, j3, j3, this.unit);
+                    long j2 = this.timespan;
+                    schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(consumerIndexHolder, j2, j2, this.unit);
                 }
                 DisposableHelper.replace(this.timer, schedulePeriodicallyDirect);
             }
@@ -356,17 +356,17 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactUnboundedObserver(Observer<? super Observable<T>> observer, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+        public WindowExactUnboundedObserver(Observer<? super Observable<T>> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -375,10 +375,10 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 }
             }
             this.timer = new AtomicReference<>();
-            this.timespan = j2;
+            this.timespan = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -430,15 +430,15 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
             MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
             Observer<? super V> observer = this.actual;
             UnicastSubject<T> unicastSubject = this.window;
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 boolean z = this.terminated;
                 boolean z2 = this.done;
                 Object poll = mpscLinkedQueue.poll();
                 if (!z2 || (poll != null && poll != NEXT)) {
                     if (poll == null) {
-                        i2 = leave(-i2);
-                        if (i2 == 0) {
+                        i = leave(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else if (poll == NEXT) {
@@ -524,8 +524,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     return;
                 }
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.timespan;
-                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit));
+                long j = this.timespan;
+                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
             }
         }
 
@@ -572,9 +572,9 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     newInitContext.initArgs = r2;
                     Object[] objArr = {windowSkipObserver, unicastSubject};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -607,9 +607,9 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     newInitContext.initArgs = r2;
                     Object[] objArr = {unicastSubject, Boolean.valueOf(z)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -621,17 +621,17 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j2, long j3, TimeUnit timeUnit, Scheduler.Worker worker, int i2) {
+        public WindowSkipObserver(Observer<? super Observable<T>> observer, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3), timeUnit, worker, Integer.valueOf(i2)};
+                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2), timeUnit, worker, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -639,11 +639,11 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                     return;
                 }
             }
-            this.timespan = j2;
-            this.timeskip = j3;
+            this.timespan = j;
+            this.timeskip = j2;
             this.unit = timeUnit;
             this.worker = worker;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.windows = new LinkedList();
         }
 
@@ -678,7 +678,7 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
                 Observer<? super V> observer = this.actual;
                 List<UnicastSubject<T>> list = this.windows;
-                int i2 = 1;
+                int i = 1;
                 while (!this.terminated) {
                     boolean z = this.done;
                     T t = (T) mpscLinkedQueue.poll();
@@ -700,8 +700,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                         list.clear();
                         return;
                     } else if (z2) {
-                        i2 = leave(-i2);
-                        if (i2 == 0) {
+                        i = leave(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else if (z3) {
@@ -802,8 +802,8 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
                 this.actual.onNext(create);
                 this.worker.schedule(new CompletionTask(this, create), this.timespan, this.unit);
                 Scheduler.Worker worker = this.worker;
-                long j2 = this.timeskip;
-                worker.schedulePeriodically(this, j2, j2, this.unit);
+                long j = this.timeskip;
+                worker.schedulePeriodically(this, j, j, this.unit);
             }
         }
 
@@ -823,29 +823,29 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowTimed(ObservableSource<T> observableSource, long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, long j4, int i2, boolean z) {
+    public ObservableWindowTimed(ObservableSource<T> observableSource, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {observableSource, Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Long.valueOf(j4), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Long.valueOf(j3), Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.timespan = j2;
-        this.timeskip = j3;
+        this.timespan = j;
+        this.timeskip = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.maxSize = j4;
-        this.bufferSize = i2;
+        this.maxSize = j3;
+        this.bufferSize = i;
         this.restartTimerOnMaxSize = z;
     }
 
@@ -854,19 +854,19 @@ public final class ObservableWindowTimed<T> extends AbstractObservableWithUpstre
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SerializedObserver serializedObserver = new SerializedObserver(observer);
-            long j2 = this.timespan;
-            long j3 = this.timeskip;
-            if (j2 == j3) {
-                long j4 = this.maxSize;
-                if (j4 == Long.MAX_VALUE) {
+            long j = this.timespan;
+            long j2 = this.timeskip;
+            if (j == j2) {
+                long j3 = this.maxSize;
+                if (j3 == Long.MAX_VALUE) {
                     this.source.subscribe(new WindowExactUnboundedObserver(serializedObserver, this.timespan, this.unit, this.scheduler, this.bufferSize));
                     return;
                 } else {
-                    this.source.subscribe(new WindowExactBoundedObserver(serializedObserver, j2, this.unit, this.scheduler, this.bufferSize, j4, this.restartTimerOnMaxSize));
+                    this.source.subscribe(new WindowExactBoundedObserver(serializedObserver, j, this.unit, this.scheduler, this.bufferSize, j3, this.restartTimerOnMaxSize));
                     return;
                 }
             }
-            this.source.subscribe(new WindowSkipObserver(serializedObserver, j2, j3, this.unit, this.scheduler.createWorker(), this.bufferSize));
+            this.source.subscribe(new WindowSkipObserver(serializedObserver, j, j2, this.unit, this.scheduler.createWorker(), this.bufferSize));
         }
     }
 }

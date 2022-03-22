@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DuplayerHandlerThread extends HandlerThread {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_IDLE = 0;
@@ -19,7 +19,7 @@ public class DuplayerHandlerThread extends HandlerThread {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f32241b;
+    public volatile int f25475b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DuplayerHandlerThread(String str) {
@@ -30,31 +30,31 @@ public class DuplayerHandlerThread extends HandlerThread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32241b = 0;
+        this.f25475b = 0;
         this.a = -1L;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DuplayerHandlerThread(String str, int i2) {
-        super(str, i2);
+    public DuplayerHandlerThread(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -62,7 +62,7 @@ public class DuplayerHandlerThread extends HandlerThread {
                 return;
             }
         }
-        this.f32241b = 0;
+        this.f25475b = 0;
         this.a = -1L;
     }
 
@@ -75,20 +75,20 @@ public class DuplayerHandlerThread extends HandlerThread {
     public int getRunState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32241b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25475b : invokeV.intValue;
     }
 
-    public void setIdleBeginTime(long j2) {
+    public void setIdleBeginTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.a = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void setRunState(int i2) {
+    public void setRunState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f32241b = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f25475b = i;
         }
     }
 }

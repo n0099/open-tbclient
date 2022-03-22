@@ -7,6 +7,7 @@ import android.security.KeyPairGeneratorSpec;
 import android.security.keystore.KeyGenParameterSpec;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,14 +27,14 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public KeyStore a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f59145b;
+    public SharedPreferences f43782b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -42,16 +43,16 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         try {
-            this.f59145b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
+            this.f43782b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
             this.a = keyStore;
             keyStore.load(null);
@@ -70,13 +71,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             SLog.d("KEYSTORE", "Build.VERSION.SDK_INT=" + Build.VERSION.SDK_INT);
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
-                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
                 keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("KEYSTORE_AES", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").build());
                 keyPairGenerator.generateKeyPair();
-            } else if (i2 >= 18) {
-                KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+            } else if (i >= 18) {
+                KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
                 Calendar calendar = Calendar.getInstance();
                 Calendar calendar2 = Calendar.getInstance();
                 calendar2.add(1, 30);
@@ -89,14 +90,14 @@ public class a {
     private void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            this.f59145b.edit().putString("PREF_KEY_IV", str).apply();
+            this.f43782b.edit().putString("PREF_KEY_IV", str).apply();
         }
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            this.f59145b.edit().putString("PREF_KEY_AES", str).apply();
+            this.f43782b.edit().putString("PREF_KEY_AES", str).apply();
         }
     }
 
@@ -121,7 +122,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            String string = this.f59145b.getString("PREF_KEY_AES", "");
+            String string = this.f43782b.getString("PREF_KEY_AES", "");
             if (Build.VERSION.SDK_INT >= 18) {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(2, (PrivateKey) this.a.getKey("KEYSTORE_AES", null));
@@ -135,7 +136,7 @@ public class a {
     private byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.f59145b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.f43782b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
     }
 
     public String a(String str) {

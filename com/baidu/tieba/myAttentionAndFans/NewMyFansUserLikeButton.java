@@ -6,10 +6,11 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import c.a.d.a.f;
 import c.a.d.f.m.g;
-import c.a.q0.r.t.j;
+import c.a.o0.r.t.h;
+import c.a.o0.r.t.j;
+import c.a.o0.r.t.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.PopupDialog;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.FollowUserButton;
@@ -19,82 +20,78 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NewMyFansUserLikeButton extends FollowUserButton {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int MY_ATTENTION_PERSON = 1;
-    public static final int MY_FANS = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mStrAlreadyFollowed;
-    public String mStrFollow;
-    public f u;
-    public PopupDialog v;
-    public String w;
-    public int x;
-    public boolean y;
-    public b z;
+    public String r;
+    public String s;
+    public f t;
+    public j u;
+    public String v;
+    public int w;
+    public boolean x;
+    public b y;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View.OnClickListener a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f44598e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewMyFansUserLikeButton f44599f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NewMyFansUserLikeButton f34560b;
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.NewMyFansUserLikeButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C1923a implements j.d {
+        /* loaded from: classes5.dex */
+        public class C1867a implements l.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f44600b;
+            public final /* synthetic */ a f34561b;
 
-            public C1923a(a aVar, View view) {
+            public C1867a(a aVar, View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, view};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f44600b = aVar;
+                this.f34561b = aVar;
                 this.a = view;
             }
 
-            @Override // c.a.q0.r.t.j.d
+            @Override // c.a.o0.r.t.l.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f44600b.f44598e) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (onClickListener = this.f34561b.a) == null) {
                     return;
                 }
                 onClickListener.onClick(this.a);
-                if (this.f44600b.f44599f.x != 1) {
-                    if (this.f44600b.f44599f.x == 2) {
-                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f44600b.f44599f.w));
+                if (this.f34561b.f34560b.w != 1) {
+                    if (this.f34561b.f34560b.w == 2) {
+                        TiebaStatic.log(new StatisticItem("C12603").param("obj_param1", this.f34561b.f34560b.v));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f44600b.f44599f.w));
+                    TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.f34561b.f34560b.v));
                 }
-                g.b(this.f44600b.f44599f.v, this.f44600b.f44599f.u);
+                g.b(this.f34561b.f34560b.u, this.f34561b.f34560b.t);
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b implements j.c {
+        /* loaded from: classes5.dex */
+        public class b implements l.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -106,9 +103,9 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -117,13 +114,13 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 this.a = aVar;
             }
 
-            @Override // c.a.q0.r.t.j.c
+            @Override // c.a.o0.r.t.l.c
             public void onClick() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f44599f.v == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f34560b.u == null) {
                     return;
                 }
-                g.b(this.a.f44599f.v, this.a.f44599f.u);
+                g.b(this.a.f34560b.u, this.a.f34560b.t);
             }
         }
 
@@ -134,58 +131,58 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newMyFansUserLikeButton, onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44599f = newMyFansUserLikeButton;
-            this.f44598e = onClickListener;
+            this.f34560b = newMyFansUserLikeButton;
+            this.a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f44599f.x != 1) {
-                    if (this.f44599f.x == 2) {
-                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f44599f.y ? 3 : 2).param("obj_param1", this.f44599f.w));
+                if (this.f34560b.w != 1) {
+                    if (this.f34560b.w == 2) {
+                        TiebaStatic.log(new StatisticItem("c12605").param("obj_locate", this.f34560b.x ? 3 : 2).param("obj_param1", this.f34560b.v));
                     }
                 } else {
-                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f44599f.y ? "3" : "2").param("obj_param1", this.f44599f.w));
+                    TiebaStatic.log(new StatisticItem("c12772").param("obj_locate", this.f34560b.x ? "3" : "2").param("obj_param1", this.f34560b.v));
                 }
-                if (this.f44599f.y) {
-                    if (this.f44599f.u != null) {
-                        if (this.f44599f.v == null) {
-                            j jVar = new j(this.f44599f.u.getContext());
-                            jVar.q(this.f44599f.u.getString(R.string.confirm_unlike));
+                if (this.f34560b.x) {
+                    if (this.f34560b.t != null) {
+                        if (this.f34560b.u == null) {
+                            l lVar = new l(this.f34560b.t.getContext());
+                            lVar.q(this.f34560b.t.getString(R.string.obfuscated_res_0x7f0f0424));
                             ArrayList arrayList = new ArrayList();
-                            c.a.q0.r.t.g gVar = new c.a.q0.r.t.g(this.f44599f.u.getString(R.string.confirm), jVar);
-                            gVar.l(new C1923a(this, view));
-                            arrayList.add(gVar);
-                            jVar.m(new b(this));
-                            jVar.j(arrayList);
-                            this.f44599f.v = new PopupDialog(this.f44599f.u, jVar);
-                            this.f44599f.v.setWindowDimAmount(0.7f);
+                            h hVar = new h(this.f34560b.t.getString(R.string.obfuscated_res_0x7f0f041a), lVar);
+                            hVar.m(new C1867a(this, view));
+                            arrayList.add(hVar);
+                            lVar.m(new b(this));
+                            lVar.j(arrayList);
+                            this.f34560b.u = new j(this.f34560b.t, lVar);
+                            this.f34560b.u.l(0.7f);
                         }
-                        g.j(this.f44599f.v, this.f44599f.u);
+                        g.j(this.f34560b.u, this.f34560b.t);
                     }
                 } else {
-                    this.f44598e.onClick(view);
+                    this.a.onClick(view);
                 }
-                if (this.f44599f.z != null) {
-                    this.f44599f.z.callback();
+                if (this.f34560b.y != null) {
+                    this.f34560b.y.a();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void callback();
+        void a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,67 +194,67 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.x = 1;
-        this.y = false;
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68);
+        this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b);
+        this.w = 1;
+        this.x = false;
     }
 
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, c.a.q0.r.l0.t.b
-    public void bindOnClickListener(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, c.a.o0.r.l0.t.b
+    public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
             setOnClickListener(new a(this, onClickListener));
         }
     }
 
+    @Override // com.baidu.tbadk.core.view.FollowUserButton, c.a.o0.r.l0.t.b
+    public void e(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            super.e(z, i);
+            this.x = z;
+            if (!z) {
+                setText(this.s);
+            } else if (i == 1) {
+                setText(this.r);
+            } else if (i != 2) {
+                setText(this.r);
+            } else {
+                setText(this.t.getString(R.string.obfuscated_res_0x7f0f0507));
+            }
+            r(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
     public void setCallback(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.z = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.y = bVar;
         }
     }
 
     public void setContext(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            this.u = fVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
+            this.t = fVar;
         }
     }
 
-    public void setStatsParams(int i2, String str) {
+    public void setStatsParams(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            this.x = i2;
-            this.w = str;
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.FollowUserButton, c.a.q0.r.l0.t.b
-    public void updateLikeStatus(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            super.updateLikeStatus(z, i2);
-            this.y = z;
-            if (!z) {
-                setText(this.mStrFollow);
-            } else if (i2 == 1) {
-                setText(this.mStrAlreadyFollowed);
-            } else if (i2 != 2) {
-                setText(this.mStrAlreadyFollowed);
-            } else {
-                setText(this.u.getString(R.string.each_concerned));
-            }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            this.w = i;
+            this.v = str;
         }
     }
 
@@ -270,9 +267,9 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -280,24 +277,24 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.x = 1;
-        this.y = false;
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68);
+        this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b);
+        this.w = 1;
+        this.x = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewMyFansUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NewMyFansUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -305,9 +302,9 @@ public class NewMyFansUserLikeButton extends FollowUserButton {
                 return;
             }
         }
-        this.mStrAlreadyFollowed = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.mStrFollow = TbadkCoreApplication.getInst().getString(R.string.attention);
-        this.x = 1;
-        this.y = false;
+        this.r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68);
+        this.s = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b);
+        this.w = 1;
+        this.x = false;
     }
 }

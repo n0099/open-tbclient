@@ -51,9 +51,9 @@ public final class WebMessagePortImpl extends WebMessagePort {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webMessagePortImpl, webMessageCallback};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -79,9 +79,9 @@ public final class WebMessagePortImpl extends WebMessagePort {
             newInitContext.initArgs = r2;
             Object[] objArr = {webMessagePort};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,8 +110,8 @@ public final class WebMessagePortImpl extends WebMessagePort {
                 return null;
             }
             android.webkit.WebMessagePort[] webMessagePortArr2 = new android.webkit.WebMessagePort[webMessagePortArr.length];
-            for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
-                webMessagePortArr2[i2] = ((WebMessagePortImpl) webMessagePortArr[i2]).getImpl();
+            for (int i = 0; i < webMessagePortArr.length; i++) {
+                webMessagePortArr2[i] = ((WebMessagePortImpl) webMessagePortArr[i]).getImpl();
             }
             return webMessagePortArr2;
         }
@@ -126,8 +126,8 @@ public final class WebMessagePortImpl extends WebMessagePort {
                 return null;
             }
             com.baidu.webkit.sdk.WebMessagePort[] webMessagePortArr2 = new com.baidu.webkit.sdk.WebMessagePort[webMessagePortArr.length];
-            for (int i2 = 0; i2 < webMessagePortArr.length; i2++) {
-                webMessagePortArr2[i2] = from(webMessagePortArr[i2]);
+            for (int i = 0; i < webMessagePortArr.length; i++) {
+                webMessagePortArr2[i] = from(webMessagePortArr[i]);
             }
             return webMessagePortArr2;
         }

@@ -5,7 +5,7 @@ public interface d {
 
     void a(b bVar);
 
-    void a(String str, int i2, int i3, float[] fArr, float f2);
+    void a(String str, int i, int i2, float[] fArr, float f2);
 
     int[] b(float f2, float f3);
 

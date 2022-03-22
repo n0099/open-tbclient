@@ -1,6 +1,6 @@
 package com.baidu.ugc.audioedit;
 
-import c.a.y0.g.a;
+import c.a.v0.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,16 +19,16 @@ public class AudioSpeedOperator implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // c.a.y0.g.a
+    @Override // c.a.v0.g.a
     public int availableBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class AudioSpeedOperator implements a {
         return invokeV.intValue;
     }
 
-    @Override // c.a.y0.g.a
+    @Override // c.a.v0.g.a
     public void close() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class AudioSpeedOperator implements a {
         sonic.b();
     }
 
-    @Override // c.a.y0.g.a
+    @Override // c.a.v0.g.a
     public void flush() {
         Sonic sonic;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class AudioSpeedOperator implements a {
         sonic.c();
     }
 
-    @Override // c.a.y0.g.a
+    @Override // c.a.v0.g.a
     public byte[] getOutPutBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,22 +75,22 @@ public class AudioSpeedOperator implements a {
         return (byte[]) invokeV.objValue;
     }
 
-    @Override // c.a.y0.g.a
-    public void init(int i2, int i3) {
+    @Override // c.a.v0.g.a
+    public void init(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.mSonic = new Sonic(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.mSonic = new Sonic(i, i2);
         }
     }
 
-    @Override // c.a.y0.g.a
-    public boolean putBytes(byte[] bArr, int i2) {
+    @Override // c.a.v0.g.a
+    public boolean putBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, bArr, i)) == null) {
             Sonic sonic = this.mSonic;
             if (sonic != null) {
-                sonic.d(bArr, i2);
+                sonic.d(bArr, i);
                 return true;
             }
             return false;
@@ -98,21 +98,21 @@ public class AudioSpeedOperator implements a {
         return invokeLI.booleanValue;
     }
 
-    @Override // c.a.y0.g.a
-    public int receiveBytes(byte[] bArr, int i2) {
+    @Override // c.a.v0.g.a
+    public int receiveBytes(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bArr, i)) == null) {
             Sonic sonic = this.mSonic;
             if (sonic != null) {
-                return sonic.e(bArr, i2);
+                return sonic.e(bArr, i);
             }
             return 0;
         }
         return invokeLI.intValue;
     }
 
-    @Override // c.a.y0.g.a
+    @Override // c.a.v0.g.a
     public void setSpeed(float f2) {
         Sonic sonic;
         Interceptable interceptable = $ic;

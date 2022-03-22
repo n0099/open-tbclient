@@ -39,9 +39,9 @@ public class ForumWriteData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, postPrefixData, antiData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,38 +63,38 @@ public class ForumWriteData implements Serializable {
         }
     }
 
-    public void setCategoryId(int i2) {
+    public void setCategoryId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.categoryId = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.categoryId = i;
         }
     }
 
-    public void setDefaultZone(int i2) {
+    public void setDefaultZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.defaultZone = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.defaultZone = i;
         }
     }
 
-    public void setForumLevel(int i2) {
+    public void setForumLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.forumLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.forumLevel = i;
         }
     }
 
-    public void setMem_type(int i2) {
+    public void setMem_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mem_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mem_type = i;
         }
     }
 
-    public void setPrivateThread(int i2) {
+    public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.privateThread = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.privateThread = i;
         }
     }
 

@@ -25,7 +25,7 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.tachikoma.core.component.text.FontManager;
 import java.lang.reflect.Field;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InputProperty {
     public static /* synthetic */ Interceptable $ic;
     public static final InputFilter[] EMPTY_FILTERS;
@@ -36,30 +36,30 @@ public class InputProperty {
     public final EditText mView;
     public MaxLinesTextWatcher maxLinesTextWatcher;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MaxLinesTextWatcher implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int maxLines;
         public final /* synthetic */ InputProperty this$0;
 
-        public MaxLinesTextWatcher(InputProperty inputProperty, int i2) {
+        public MaxLinesTextWatcher(InputProperty inputProperty, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {inputProperty, Integer.valueOf(i2)};
+                Object[] objArr = {inputProperty, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = inputProperty;
-            this.maxLines = i2;
+            this.maxLines = i;
         }
 
         @Override // android.text.TextWatcher
@@ -81,23 +81,23 @@ public class InputProperty {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
 
-        public void setMaxLines(int i2) {
+        public void setMaxLines(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.maxLines = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.maxLines = i;
             }
         }
     }
@@ -125,9 +125,9 @@ public class InputProperty {
             newInitContext.initArgs = r2;
             Object[] objArr = {editText, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -146,9 +146,9 @@ public class InputProperty {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -292,12 +292,12 @@ public class InputProperty {
         return invokeL.intValue;
     }
 
-    private void setStagedInputTypeFlags(int i2, int i3) {
+    private void setStagedInputTypeFlags(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65542, this, i2, i3) == null) {
-            int i4 = ((~i2) & this.mStagedInputTypeFlags) | i3;
-            this.mStagedInputTypeFlags = i4;
-            this.mView.setInputType(i4);
+        if (interceptable == null || interceptable.invokeII(65542, this, i, i2) == null) {
+            int i3 = ((~i) & this.mStagedInputTypeFlags) | i2;
+            this.mStagedInputTypeFlags = i3;
+            this.mView.setInputType(i3);
         }
     }
 
@@ -307,19 +307,19 @@ public class InputProperty {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mView.getText().toString() : (String) invokeV.objValue;
     }
 
-    public void setCursorColor(int i2) {
+    public void setCursorColor(int i) {
         Class<?> type;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             try {
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField.setAccessible(true);
-                int i3 = declaredField.getInt(this.mView);
-                if (i3 == 0) {
+                int i2 = declaredField.getInt(this.mView);
+                if (i2 == 0) {
                     return;
                 }
-                Drawable drawable = ContextCompat.getDrawable(this.mView.getContext(), i3);
-                drawable.setColorFilter(i2, PorterDuff.Mode.SRC_IN);
+                Drawable drawable = ContextCompat.getDrawable(this.mView.getContext(), i2);
+                drawable.setColorFilter(i, PorterDuff.Mode.SRC_IN);
                 Drawable[] drawableArr = {drawable, drawable};
                 Field declaredField2 = TextView.class.getDeclaredField("mEditor");
                 declaredField2.setAccessible(true);
@@ -371,17 +371,17 @@ public class InputProperty {
         }
     }
 
-    public void setMaxLength(int i2) {
+    public void setMaxLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             InputFilter[] filters = this.mView.getFilters();
             InputFilter[] inputFilterArr = EMPTY_FILTERS;
-            if (i2 == 0) {
+            if (i == 0) {
                 if (filters.length > 0) {
                     LinkedList linkedList = new LinkedList();
-                    for (int i3 = 0; i3 < filters.length; i3++) {
-                        if (!(filters[i3] instanceof InputFilter.LengthFilter)) {
-                            linkedList.add(filters[i3]);
+                    for (int i2 = 0; i2 < filters.length; i2++) {
+                        if (!(filters[i2] instanceof InputFilter.LengthFilter)) {
+                            linkedList.add(filters[i2]);
                         }
                     }
                     if (!linkedList.isEmpty()) {
@@ -390,30 +390,30 @@ public class InputProperty {
                 }
             } else if (filters.length > 0) {
                 boolean z = false;
-                for (int i4 = 0; i4 < filters.length; i4++) {
-                    if (filters[i4] instanceof InputFilter.LengthFilter) {
-                        filters[i4] = new InputFilter.LengthFilter(i2);
+                for (int i3 = 0; i3 < filters.length; i3++) {
+                    if (filters[i3] instanceof InputFilter.LengthFilter) {
+                        filters[i3] = new InputFilter.LengthFilter(i);
                         z = true;
                     }
                 }
                 if (!z) {
                     InputFilter[] inputFilterArr2 = new InputFilter[filters.length + 1];
                     System.arraycopy(filters, 0, inputFilterArr2, 0, filters.length);
-                    filters[filters.length] = new InputFilter.LengthFilter(i2);
+                    filters[filters.length] = new InputFilter.LengthFilter(i);
                     filters = inputFilterArr2;
                 }
                 inputFilterArr = filters;
             } else {
-                inputFilterArr = new InputFilter[]{new InputFilter.LengthFilter(i2)};
+                inputFilterArr = new InputFilter[]{new InputFilter.LengthFilter(i)};
             }
             this.mView.setFilters(inputFilterArr);
         }
     }
 
-    public void setMaxLines(int i2) {
+    public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.maxLinesTextWatcher.setMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.maxLinesTextWatcher.setMaxLines(i);
         }
     }
 
@@ -424,10 +424,10 @@ public class InputProperty {
         }
     }
 
-    public void setPlaceholderColor(int i2) {
+    public void setPlaceholderColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mView.setHintTextColor(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mView.setHintTextColor(i);
         }
     }
 
@@ -474,10 +474,10 @@ public class InputProperty {
         }
     }
 
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mView.setTextColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mView.setTextColor(i);
         }
     }
 

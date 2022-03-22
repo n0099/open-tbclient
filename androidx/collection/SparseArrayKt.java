@@ -20,33 +20,33 @@ public final class SparseArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T> boolean contains(SparseArrayCompat<T> sparseArrayCompat, int i2) {
+    public static final <T> boolean contains(SparseArrayCompat<T> sparseArrayCompat, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseArrayCompat, i2)) == null) ? sparseArrayCompat.containsKey(i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseArrayCompat, i)) == null) ? sparseArrayCompat.containsKey(i) : invokeLI.booleanValue;
     }
 
     public static final <T> void forEach(SparseArrayCompat<T> sparseArrayCompat, Function2<? super Integer, ? super T, Unit> function2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, sparseArrayCompat, function2) == null) {
             int size = sparseArrayCompat.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                function2.invoke(Integer.valueOf(sparseArrayCompat.keyAt(i2)), sparseArrayCompat.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                function2.invoke(Integer.valueOf(sparseArrayCompat.keyAt(i)), sparseArrayCompat.valueAt(i));
             }
         }
     }
 
-    public static final <T> T getOrDefault(SparseArrayCompat<T> sparseArrayCompat, int i2, T t) {
+    public static final <T> T getOrDefault(SparseArrayCompat<T> sparseArrayCompat, int i, T t) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, sparseArrayCompat, i2, t)) == null) ? sparseArrayCompat.get(i2, t) : (T) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, sparseArrayCompat, i, t)) == null) ? sparseArrayCompat.get(i, t) : (T) invokeLIL.objValue;
     }
 
-    public static final <T> T getOrElse(SparseArrayCompat<T> sparseArrayCompat, int i2, Function0<? extends T> function0) {
+    public static final <T> T getOrElse(SparseArrayCompat<T> sparseArrayCompat, int i, Function0<? extends T> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, sparseArrayCompat, i2, function0)) == null) {
-            T t = sparseArrayCompat.get(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, sparseArrayCompat, i, function0)) == null) {
+            T t = sparseArrayCompat.get(i);
             return t != null ? t : function0.invoke();
         }
         return (T) invokeLIL.objValue;
@@ -80,9 +80,9 @@ public final class SparseArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseArrayCompat};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -110,17 +110,17 @@ public final class SparseArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseArrayCompat sparseArrayCompat2 = this.$this_keyIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseArrayCompat2.keyAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseArrayCompat2.keyAt(i);
                 }
                 return invokeV.intValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (IntIterator) invokeL.objValue;
@@ -139,16 +139,16 @@ public final class SparseArrayKt {
     }
 
     @Deprecated(message = "Replaced with member function. Remove extension import!")
-    public static final <T> boolean remove(SparseArrayCompat<T> sparseArrayCompat, int i2, T t) {
+    public static final <T> boolean remove(SparseArrayCompat<T> sparseArrayCompat, int i, T t) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, sparseArrayCompat, i2, t)) == null) ? sparseArrayCompat.remove(i2, t) : invokeLIL.booleanValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, sparseArrayCompat, i, t)) == null) ? sparseArrayCompat.remove(i, t) : invokeLIL.booleanValue;
     }
 
-    public static final <T> void set(SparseArrayCompat<T> sparseArrayCompat, int i2, T t) {
+    public static final <T> void set(SparseArrayCompat<T> sparseArrayCompat, int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, sparseArrayCompat, i2, t) == null) {
-            sparseArrayCompat.put(i2, t);
+        if (interceptable == null || interceptable.invokeLIL(65545, null, sparseArrayCompat, i, t) == null) {
+            sparseArrayCompat.put(i, t);
         }
     }
 

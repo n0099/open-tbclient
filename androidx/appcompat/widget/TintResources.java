@@ -25,9 +25,9 @@ public class TintResources extends ResourcesWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, resources};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Resources) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,14 +38,14 @@ public class TintResources extends ResourcesWrapper {
     }
 
     @Override // androidx.appcompat.widget.ResourcesWrapper, android.content.res.Resources
-    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Drawable drawable = super.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Drawable drawable = super.getDrawable(i);
             Context context = this.mContextRef.get();
             if (drawable != null && context != null) {
-                ResourceManagerInternal.get().tintDrawableUsingColorFilter(context, i2, drawable);
+                ResourceManagerInternal.get().tintDrawableUsingColorFilter(context, i, drawable);
             }
             return drawable;
         }

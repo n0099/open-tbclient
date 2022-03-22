@@ -26,16 +26,16 @@ public class BreakpointLocalCheck {
     public final long responseInstanceLength;
     public final DownloadTask task;
 
-    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2) {
+    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, breakpointInfo, Long.valueOf(j2)};
+            Object[] objArr = {downloadTask, breakpointInfo, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public class BreakpointLocalCheck {
         }
         this.task = downloadTask;
         this.info = breakpointInfo;
-        this.responseInstanceLength = j2;
+        this.responseInstanceLength = j;
     }
 
     public void check() {
@@ -106,8 +106,8 @@ public class BreakpointLocalCheck {
             }
             if (this.info.getFile().equals(this.task.getFile()) && this.info.getFile().length() <= this.info.getTotalLength()) {
                 if (this.responseInstanceLength <= 0 || this.info.getTotalLength() == this.responseInstanceLength) {
-                    for (int i2 = 0; i2 < blockCount; i2++) {
-                        if (this.info.getBlock(i2).getContentLength() <= 0) {
+                    for (int i = 0; i < blockCount; i++) {
+                        if (this.info.getBlock(i).getContentLength() <= 0) {
                             return false;
                         }
                     }

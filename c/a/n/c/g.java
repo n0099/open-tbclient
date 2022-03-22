@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.connect.ConnectManager;
@@ -26,13 +27,13 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f4266b;
+    public static boolean f3843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4267c;
+    public static String f3844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, Integer> f4268d;
+    public static HashMap<String, Integer> f3845d;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -49,19 +50,19 @@ public class g {
                 return;
             }
         }
-        f4266b = AppConfig.isDebug();
-        f4267c = "networkparam";
+        f3843b = AppConfig.isDebug();
+        f3844c = "networkparam";
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f4268d = hashMap;
+        f3845d = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        f4268d.put("3GNET", 21);
-        f4268d.put("3GWAP", 22);
-        f4268d.put("CMNET", 31);
-        f4268d.put("UNINET", 32);
-        f4268d.put("CTNET", 33);
-        f4268d.put("CMWAP", 41);
-        f4268d.put("UNIWAP", 42);
-        f4268d.put("CTWAP", 43);
+        f3845d.put("3GNET", 21);
+        f3845d.put("3GWAP", 22);
+        f3845d.put("CMNET", 31);
+        f3845d.put("UNINET", 32);
+        f3845d.put("CTNET", 33);
+        f3845d.put("CMWAP", 41);
+        f3845d.put("UNIWAP", 42);
+        f3845d.put("CTWAP", 43);
     }
 
     public g() {
@@ -69,9 +70,9 @@ public class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,13 +110,13 @@ public class g {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long uptimeMillis = f4266b ? SystemClock.uptimeMillis() : 0L;
+            long uptimeMillis = f3843b ? SystemClock.uptimeMillis() : 0L;
             ConnectManager connectManager = new ConnectManager(this.a);
             String netType = connectManager.getNetType();
             int subType = connectManager.getSubType();
             if (!TextUtils.isEmpty(netType)) {
                 netType = netType.toUpperCase(Locale.getDefault());
-                Integer num = f4268d.get(netType);
+                Integer num = f3845d.get(netType);
                 if (num == null) {
                     num = 5;
                 }
@@ -123,9 +124,9 @@ public class g {
             } else {
                 str = ((Object) 5) + "_" + subType;
             }
-            if (f4266b) {
+            if (f3843b) {
                 long uptimeMillis2 = SystemClock.uptimeMillis();
-                String str2 = "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName();
+                Log.i(f3844c, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
             }
             return str;
         }

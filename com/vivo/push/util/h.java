@@ -14,27 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class h implements BaseNotifyDataAdapter {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f59311e;
+    public static int f43944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f59312f;
+    public static int f43945f;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59313b;
+    public String f43946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59314c;
+    public String f43947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59315d;
+    public String f43948d;
 
     static {
         InterceptResult invokeClinit;
@@ -56,19 +57,19 @@ public final class h implements BaseNotifyDataAdapter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? (i2 == -1 || i2 == 0) ? false : true : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i == -1 || i == 0) ? false : true : invokeI.booleanValue;
     }
 
     public static boolean a(String str) {
@@ -92,23 +93,23 @@ public final class h implements BaseNotifyDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (a(f59311e)) {
-                return f59311e;
+            if (a(f43944e)) {
+                return f43944e;
             }
-            String str = this.f59315d;
+            String str = this.f43948d;
             int a = !a(str) ? -1 : a(str, "_notifyicon");
-            f59311e = a;
+            f43944e = a;
             if (a(a)) {
-                return f59311e;
+                return f43944e;
             }
-            for (String str2 = this.f59314c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
+            for (String str2 = this.f43947c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
                 Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_notifyicon", "drawable", this.f59313b);
+                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_notifyicon", ResourceManager.DRAWABLE, this.f43946b);
                 if (identifier > 0) {
                     return identifier;
                 }
             }
-            return this.a.getIdentifier("vivo_push_notifyicon", "drawable", this.f59313b);
+            return this.a.getIdentifier("vivo_push_notifyicon", ResourceManager.DRAWABLE, this.f43946b);
         }
         return invokeV.intValue;
     }
@@ -118,23 +119,23 @@ public final class h implements BaseNotifyDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a(f59312f)) {
-                return f59312f;
+            if (a(f43945f)) {
+                return f43945f;
             }
-            String str = this.f59315d;
+            String str = this.f43948d;
             int a = !a(str) ? -1 : a(str, "_icon");
-            f59312f = a;
+            f43945f = a;
             if (a(a)) {
-                return f59312f;
+                return f43945f;
             }
-            for (String str2 = this.f59314c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
+            for (String str2 = this.f43947c; !TextUtils.isEmpty(str2); str2 = str2.substring(0, str2.length() - 1)) {
                 Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_icon", "drawable", this.f59313b);
+                int identifier = resources.getIdentifier("vivo_push_rom" + str2 + "_icon", ResourceManager.DRAWABLE, this.f43946b);
                 if (identifier > 0) {
                     return identifier;
                 }
             }
-            return this.a.getIdentifier("vivo_push_icon", "drawable", this.f59313b);
+            return this.a.getIdentifier("vivo_push_icon", ResourceManager.DRAWABLE, this.f43946b);
         }
         return invokeV.intValue;
     }
@@ -150,10 +151,10 @@ public final class h implements BaseNotifyDataAdapter {
     public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f59313b = context.getPackageName();
+            this.f43946b = context.getPackageName();
             this.a = context.getResources();
-            this.f59314c = j.a();
-            this.f59315d = Build.VERSION.RELEASE;
+            this.f43947c = j.a();
+            this.f43948d = Build.VERSION.RELEASE;
         }
     }
 
@@ -170,7 +171,7 @@ public final class h implements BaseNotifyDataAdapter {
                     for (int parseInt = Integer.parseInt(str); parseInt > 0; parseInt--) {
                         String str3 = "vivo_push_ard" + parseInt + str2;
                         p.c("DefaultNotifyDataAdapter", "get notify icon : ".concat(String.valueOf(str3)));
-                        int identifier = this.a.getIdentifier(str3, "drawable", this.f59313b);
+                        int identifier = this.a.getIdentifier(str3, ResourceManager.DRAWABLE, this.f43946b);
                         if (identifier > 0) {
                             p.c("DefaultNotifyDataAdapter", "find notify icon : ".concat(String.valueOf(str3)));
                             return identifier;

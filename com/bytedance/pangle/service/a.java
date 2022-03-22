@@ -3,7 +3,7 @@ package com.bytedance.pangle.service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.bytedance.pangle.plugin.Plugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface a {
     void attach(Plugin plugin2);
 
@@ -13,7 +13,7 @@ public interface a {
 
     void onDestroy();
 
-    int onStartCommand(Intent intent, int i2, int i3);
+    int onStartCommand(Intent intent, int i, int i2);
 
     boolean onUnbind(Intent intent);
 }

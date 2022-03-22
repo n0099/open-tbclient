@@ -38,9 +38,9 @@ public class BreakpointRemoteCheck {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTask, breakpointInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,10 +134,10 @@ public class BreakpointRemoteCheck {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.resumable : invokeV.booleanValue;
     }
 
-    public boolean isTrialSpecialPass(int i2, long j2, boolean z) {
+    public boolean isTrialSpecialPass(int i, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? i2 == 416 && j2 >= 0 && z : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) ? i == 416 && j >= 0 && z : invokeCommon.booleanValue;
     }
 
     public String toString() {

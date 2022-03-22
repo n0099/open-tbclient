@@ -49,9 +49,9 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -115,19 +115,19 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (getFlags() & 1) > 0 : invokeV.booleanValue;
     }
 
-    public void setAlgorithmId(int i2) {
+    public void setAlgorithmId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.algorithmId = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.algorithmId = i;
         }
     }
 
-    public void setIvSize(int i2) {
+    public void setIvSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.ivSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.ivSize = i;
         }
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.feedManager;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FeedRecRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class FeedRecRequest extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -92,42 +92,42 @@ public class FeedRecRequest extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.needForumlist : invokeV.intValue;
     }
 
-    public void setLoadType(int i2) {
+    public void setLoadType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.loadType = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.loadType = i;
         }
     }
 
-    public void setNeedForumlist(int i2) {
+    public void setNeedForumlist(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 != 1) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i != 1) {
                 this.needForumlist = 0;
             } else {
-                this.needForumlist = i2;
+                this.needForumlist = i;
             }
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setPreAdThreadCount(int i2) {
+    public void setPreAdThreadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.preAdThreadCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.preAdThreadCount = i;
         }
     }
 
-    public void setRequestTime(int i2) {
+    public void setRequestTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.requestTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.requestTime = i;
         }
     }
 
@@ -138,18 +138,18 @@ public class FeedRecRequest extends NetMessage {
         }
     }
 
-    public void setSuggestCount(int i2) {
+    public void setSuggestCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.suggestCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.suggestCount = i;
         }
     }
 
-    public void setThreadCount(int i2) {
+    public void setThreadCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            if (i2 > 0) {
-                this.threadCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i > 0) {
+                this.threadCount = i;
             } else {
                 this.threadCount = 0;
             }

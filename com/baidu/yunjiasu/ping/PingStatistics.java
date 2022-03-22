@@ -25,16 +25,16 @@ public final class PingStatistics {
     public final long PacketsSent;
     public final float StdDevRtt;
 
-    public PingStatistics(InetAddress Address, long j2, long j3, float f2, float f3, float f4, float f5, float f6) {
+    public PingStatistics(InetAddress Address, long j, long j2, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Address, Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
+            Object[] objArr = {Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,8 +42,8 @@ public final class PingStatistics {
         }
         Intrinsics.checkNotNullParameter(Address, "Address");
         this.Address = Address;
-        this.PacketsRecv = j2;
-        this.PacketsSent = j3;
+        this.PacketsRecv = j;
+        this.PacketsSent = j2;
         this.PacketLoss = f2;
         this.MinRtt = f3;
         this.MaxRtt = f4;
@@ -99,12 +99,12 @@ public final class PingStatistics {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.StdDevRtt : invokeV.floatValue;
     }
 
-    public final PingStatistics copy(InetAddress Address, long j2, long j3, float f2, float f3, float f4, float f5, float f6) {
+    public final PingStatistics copy(InetAddress Address, long j, long j2, float f2, float f3, float f4, float f5, float f6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Address, Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Address, Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
             Intrinsics.checkNotNullParameter(Address, "Address");
-            return new PingStatistics(Address, j2, j3, f2, f3, f4, f5, f6);
+            return new PingStatistics(Address, j, j2, f2, f3, f4, f5, f6);
         }
         return (PingStatistics) invokeCommon.objValue;
     }

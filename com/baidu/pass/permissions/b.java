@@ -19,9 +19,9 @@ public class b implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {permissionsHelperActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,10 +36,10 @@ public class b implements View.OnClickListener {
         PermissionsDTO permissionsDTO;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            sb = this.a.f36332e;
+            sb = this.a.f28153e;
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
             PermissionsHelperActivity permissionsHelperActivity = this.a;
-            permissionsDTO = permissionsHelperActivity.f36330c;
+            permissionsDTO = permissionsHelperActivity.f28151c;
             permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
         }
     }

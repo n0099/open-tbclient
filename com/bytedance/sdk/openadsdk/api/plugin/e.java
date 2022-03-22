@@ -18,18 +18,18 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f51860b;
+    public static SharedPreferences f38273b;
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f51861c = false;
+    public static volatile boolean f38274c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f51862d = new HashMap();
+    public static Map<String, String> f38275d = new HashMap();
 
     public static void c(final String str, final JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -42,7 +42,7 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f51861c) {
+        } else if (f38274c) {
         } else {
             a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 @Override // java.lang.Runnable
@@ -66,12 +66,12 @@ public final class e {
             jSONObject3.put("is_plugin", true);
             jSONObject3.put("event_extra", jSONObject.toString());
             jSONObject3.put("type", str);
-            jSONObject3.put("appid", f51862d.get("appid"));
+            jSONObject3.put("appid", f38275d.get("appid"));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("model", Build.MODEL);
             jSONObject4.put("vendor", Build.MANUFACTURER);
-            jSONObject4.put("imei", f51862d.get("imei"));
-            jSONObject4.put("oaid", f51862d.get("oaid"));
+            jSONObject4.put("imei", f38275d.get("imei"));
+            jSONObject4.put("oaid", f38275d.get("oaid"));
             jSONObject3.put("device_info", jSONObject4);
             jSONArray.put(jSONObject3);
             jSONObject2.put("stats_list", jSONArray);
@@ -81,19 +81,19 @@ public final class e {
     }
 
     public static void a(Context context) {
-        f51860b = context.getSharedPreferences("tt_sdk_settings", 0);
+        f38273b = context.getSharedPreferences("tt_sdk_settings", 0);
     }
 
     public static String b(JSONObject jSONObject) {
-        SharedPreferences sharedPreferences = f51860b;
+        SharedPreferences sharedPreferences = f38273b;
         return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
     }
 
-    public static final void a(int i2, String str, long j2) {
+    public static final void a(int i, String str, long j) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("duration", Long.valueOf(j2));
-            jSONObject.putOpt("code", Integer.valueOf(i2));
+            jSONObject.putOpt("duration", Long.valueOf(j));
+            jSONObject.putOpt("code", Integer.valueOf(i));
             jSONObject.putOpt("message", str);
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -118,18 +118,18 @@ public final class e {
     }
 
     public static void a() {
-        if (f51861c) {
+        if (f38274c) {
             return;
         }
         try {
-            f51861c = true;
+            f38274c = true;
             a.shutdown();
         } catch (Throwable unused) {
         }
     }
 
     public static void a(final Bundle bundle) {
-        if (f51861c) {
+        if (f38274c) {
             return;
         }
         a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
@@ -144,12 +144,12 @@ public final class e {
         if (adConfig == null) {
             return;
         }
-        f51862d.put("appid", adConfig.getAppId());
+        f38275d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f51862d.put("oaid", customController.getDevOaid());
-                f51862d.put("imei", customController.getDevImei());
+                f38275d.put("oaid", customController.getDevOaid());
+                f38275d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

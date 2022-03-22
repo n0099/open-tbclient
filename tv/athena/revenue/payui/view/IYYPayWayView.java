@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import j.a.a.e.f.c;
-import j.a.a.e.f.f;
+import h.a.a.e.f.c;
+import h.a.a.e.f.f;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes9.dex */
-public interface IYYPayWayView extends j.a.a.e.i.a {
+/* loaded from: classes8.dex */
+public interface IYYPayWayView extends h.a.a.e.i.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -44,16 +44,16 @@ public interface IYYPayWayView extends j.a.a.e.i.a {
             $VALUES = new PayViewState[]{SELECTING_VIEW_STATE, payViewState};
         }
 
-        public PayViewState(String str, int i2) {
+        public PayViewState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -76,50 +76,48 @@ public interface IYYPayWayView extends j.a.a.e.i.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(f fVar, c cVar, AppCustomExpand appCustomExpand);
 
-        void b();
-
-        void onRefreshViewFail(int i2, String str);
+        void onRefreshViewFail(int i, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f61500b;
+        public c f45837b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AppCustomExpand f61501c;
+        public AppCustomExpand f45838c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f61502d;
+        public boolean f45839d;
 
         /* renamed from: e  reason: collision with root package name */
-        public AbsViewEventHandler f61503e;
+        public AbsViewEventHandler f45840e;
 
         /* renamed from: f  reason: collision with root package name */
-        public PayFlowType f61504f;
+        public PayFlowType f45841f;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61502d = false;
+            this.f45839d = false;
         }
     }
 

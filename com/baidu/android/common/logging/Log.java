@@ -50,9 +50,9 @@ public final class Log {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -62,18 +62,26 @@ public final class Log {
     public static void d(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
-            Level level = Level.INFO;
-            logger.log(level, str + ": " + str2);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.INFO;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.d(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
-            Level level = Level.SEVERE;
-            logger.log(level, str + ": " + str2);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.SEVERE;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.e(str, str2);
         }
     }
 
@@ -90,12 +98,12 @@ public final class Log {
         return (String) invokeV.objValue;
     }
 
-    public static String getProcessNameForPid(int i2) {
+    public static String getProcessNameForPid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
-            String str = "/proc/" + i2 + "/cmdline";
-            String str2 = "/proc/" + i2 + "/status";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            String str = "/proc/" + i + "/cmdline";
+            String str2 = "/proc/" + i + "/status";
             String str3 = "";
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(str)));
@@ -145,9 +153,13 @@ public final class Log {
     public static void i(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
-            Level level = Level.INFO;
-            logger.log(level, str + ": " + str2);
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.INFO;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.i(str, str2);
         }
     }
 
@@ -184,18 +196,26 @@ public final class Log {
     public static void v(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
-            Level level = Level.INFO;
-            logger.log(level, str + ": " + str2);
+        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.INFO;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.v(str, str2);
         }
     }
 
     public static void w(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
-            Level level = Level.WARNING;
-            logger.log(level, str + ": " + str2);
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled) {
+            if (sLog2File && (logger = sFilelogger) != null) {
+                Level level = Level.WARNING;
+                logger.log(level, str + ": " + str2);
+                return;
+            }
+            android.util.Log.w(str, str2);
         }
     }
 

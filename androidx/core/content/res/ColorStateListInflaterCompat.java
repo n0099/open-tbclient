@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
@@ -35,9 +36,9 @@ public final class ColorStateListInflaterCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,13 +81,14 @@ public final class ColorStateListInflaterCompat {
     }
 
     @Nullable
-    public static ColorStateList inflate(@NonNull Resources resources, @XmlRes int i2, @Nullable Resources.Theme theme) {
+    public static ColorStateList inflate(@NonNull Resources resources, @XmlRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
             try {
-                return createFromXml(resources, resources.getXml(i2), theme);
-            } catch (Exception unused) {
+                return createFromXml(resources, resources.getXml(i), theme);
+            } catch (Exception e2) {
+                Log.e("CSLCompat", "Failed to inflate ColorStateList.", e2);
                 return null;
             }
         }
@@ -94,10 +96,10 @@ public final class ColorStateListInflaterCompat {
     }
 
     @ColorInt
-    public static int modulateColorAlpha(@ColorInt int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? (i2 & 16777215) | (Math.round(Color.alpha(i2) * f2) << 24) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? (i & 16777215) | (Math.round(Color.alpha(i) * f2) << 24) : invokeCommon.intValue;
     }
 
     public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
@@ -117,14 +119,14 @@ public final class ColorStateListInflaterCompat {
         int depth;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources, xmlPullParser, attributeSet, theme)) == null) {
-            int i2 = 1;
+            int i = 1;
             int depth2 = xmlPullParser.getDepth() + 1;
             int[][] iArr = new int[20];
             int[] iArr2 = new int[20];
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
                 int next = xmlPullParser.next();
-                if (next == i2 || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
+                if (next == i || ((depth = xmlPullParser.getDepth()) < depth2 && next == 3)) {
                     break;
                 }
                 if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
@@ -139,29 +141,29 @@ public final class ColorStateListInflaterCompat {
                     obtainAttributes.recycle();
                     int attributeCount = attributeSet.getAttributeCount();
                     int[] iArr3 = new int[attributeCount];
-                    int i4 = 0;
-                    for (int i5 = 0; i5 < attributeCount; i5++) {
-                        int attributeNameResource = attributeSet.getAttributeNameResource(i5);
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < attributeCount; i4++) {
+                        int attributeNameResource = attributeSet.getAttributeNameResource(i4);
                         if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R$attr.alpha) {
-                            int i6 = i4 + 1;
-                            if (!attributeSet.getAttributeBooleanValue(i5, false)) {
+                            int i5 = i3 + 1;
+                            if (!attributeSet.getAttributeBooleanValue(i4, false)) {
                                 attributeNameResource = -attributeNameResource;
                             }
-                            iArr3[i4] = attributeNameResource;
-                            i4 = i6;
+                            iArr3[i3] = attributeNameResource;
+                            i3 = i5;
                         }
                     }
-                    int[] trimStateSet = StateSet.trimStateSet(iArr3, i4);
-                    iArr2 = GrowingArrayUtils.append(iArr2, i3, modulateColorAlpha(color, f2));
-                    iArr = (int[][]) GrowingArrayUtils.append(iArr, i3, trimStateSet);
-                    i3++;
+                    int[] trimStateSet = StateSet.trimStateSet(iArr3, i3);
+                    iArr2 = GrowingArrayUtils.append(iArr2, i2, modulateColorAlpha(color, f2));
+                    iArr = (int[][]) GrowingArrayUtils.append(iArr, i2, trimStateSet);
+                    i2++;
                 }
-                i2 = 1;
+                i = 1;
             }
-            int[] iArr4 = new int[i3];
-            int[][] iArr5 = new int[i3];
-            System.arraycopy(iArr2, 0, iArr4, 0, i3);
-            System.arraycopy(iArr, 0, iArr5, 0, i3);
+            int[] iArr4 = new int[i2];
+            int[][] iArr5 = new int[i2];
+            System.arraycopy(iArr2, 0, iArr4, 0, i2);
+            System.arraycopy(iArr, 0, iArr5, 0, i2);
             return new ColorStateList(iArr5, iArr4);
         }
         return (ColorStateList) invokeLLLL.objValue;

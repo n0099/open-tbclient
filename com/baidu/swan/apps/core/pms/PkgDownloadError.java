@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.pms;
 
-import c.a.p0.a.k2.a;
-import c.a.p0.q.h.f;
+import c.a.n0.a.k2.a;
+import c.a.n0.q.h.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +24,9 @@ public class PkgDownloadError extends Throwable {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

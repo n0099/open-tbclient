@@ -51,9 +51,9 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainObserver, unicastSubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -109,9 +109,9 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -159,17 +159,17 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
         public final List<UnicastSubject<T>> ws;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowBoundaryMainObserver(Observer<? super Observable<T>> observer, ObservableSource<B> observableSource, Function<? super B, ? extends ObservableSource<V>> function, int i2) {
+        public WindowBoundaryMainObserver(Observer<? super Observable<T>> observer, ObservableSource<B> observableSource, Function<? super B, ? extends ObservableSource<V>> function, int i) {
             super(observer, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, observableSource, function, Integer.valueOf(i2)};
+                Object[] objArr = {observer, observableSource, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -181,7 +181,7 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
             this.windows = new AtomicLong();
             this.open = observableSource;
             this.close = function;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.resources = new CompositeDisposable();
             this.ws = new ArrayList();
             this.windows.lazySet(1L);
@@ -230,7 +230,7 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
             MpscLinkedQueue mpscLinkedQueue = (MpscLinkedQueue) this.queue;
             Observer<? super V> observer = this.actual;
             List<UnicastSubject<T>> list = this.ws;
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 boolean z = this.done;
                 Object poll = mpscLinkedQueue.poll();
@@ -250,8 +250,8 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
                     list.clear();
                     return;
                 } else if (z2) {
-                    i2 = leave(-i2);
-                    if (i2 == 0) {
+                    i = leave(-i);
+                    if (i == 0) {
                         return;
                     }
                 } else if (poll instanceof WindowOperation) {
@@ -407,9 +407,9 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
                 newInitContext.initArgs = r2;
                 Object[] objArr = {unicastSubject, b2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -421,17 +421,17 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowBoundarySelector(ObservableSource<T> observableSource, ObservableSource<B> observableSource2, Function<? super B, ? extends ObservableSource<V>> function, int i2) {
+    public ObservableWindowBoundarySelector(ObservableSource<T> observableSource, ObservableSource<B> observableSource2, Function<? super B, ? extends ObservableSource<V>> function, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, observableSource2, function, Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, observableSource2, function, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -440,7 +440,7 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
         }
         this.open = observableSource2;
         this.close = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
     }
 
     @Override // io.reactivex.Observable

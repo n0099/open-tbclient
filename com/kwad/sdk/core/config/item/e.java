@@ -11,28 +11,28 @@ public class e extends b<a> {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54205b;
+    public String f39340b;
 
     /* loaded from: classes7.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54206b;
+        public String f39341b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54207c;
+        public String f39342c;
 
         public a() {
             this.a = "";
-            this.f54206b = "";
-            this.f54207c = "";
+            this.f39341b = "";
+            this.f39342c = "";
         }
 
         public a(String str, String str2, String str3) {
             this.a = str;
-            this.f54206b = str2;
-            this.f54207c = str3;
+            this.f39341b = str2;
+            this.f39342c = str3;
         }
 
         @Override // com.kwad.sdk.core.b
@@ -41,16 +41,16 @@ public class e extends b<a> {
                 return;
             }
             this.a = jSONObject.optString("iconUrl", this.a);
-            this.f54206b = jSONObject.optString("nightIconUrl", this.f54206b);
-            this.f54207c = jSONObject.optString("desc", this.f54207c);
+            this.f39341b = jSONObject.optString("nightIconUrl", this.f39341b);
+            this.f39342c = jSONObject.optString("desc", this.f39342c);
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "icon", this.a);
-            t.a(jSONObject, "nightIconUrl", this.f54206b);
-            t.a(jSONObject, "desc", this.f54207c);
+            t.a(jSONObject, "nightIconUrl", this.f39341b);
+            t.a(jSONObject, "desc", this.f39342c);
             return jSONObject;
         }
     }
@@ -62,18 +62,18 @@ public class e extends b<a> {
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences.Editor editor) {
-        editor.putString(b(), this.f54205b);
+        editor.putString(b(), this.f39340b);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences sharedPreferences) {
         String string = sharedPreferences.getString(b(), null);
-        this.f54205b = string;
+        this.f39340b = string;
         if (TextUtils.isEmpty(string)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.f54205b);
+            JSONObject jSONObject = new JSONObject(this.f39340b);
             a aVar = new a();
             aVar.parseJson(jSONObject);
             a((e) aVar);
@@ -88,7 +88,7 @@ public class e extends b<a> {
         if (optJSONObject == null) {
             return;
         }
-        this.f54205b = optJSONObject.toString();
+        this.f39340b = optJSONObject.toString();
         a aVar = new a();
         aVar.parseJson(optJSONObject);
         a((e) aVar);

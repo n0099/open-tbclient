@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.text.TextPaint;
+import android.util.Log;
 import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TextAppearance {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextAppearance";
@@ -52,23 +53,23 @@ public class TextAppearance {
     public final int textStyle;
     public final int typeface;
 
-    public TextAppearance(@NonNull Context context, @StyleRes int i2) {
+    public TextAppearance(@NonNull Context context, @StyleRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.fontResolved = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.fontFamily, R.attr.fontVariationSettings, R.attr.textAllCaps, R.attr.textLocale});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f04021b, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f04061c});
         this.textSize = obtainStyledAttributes.getDimension(0, 0.0f);
         this.textColor = MaterialResources.getColorStateList(context, obtainStyledAttributes, 3);
         this.textColorHint = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);
@@ -94,12 +95,12 @@ public class TextAppearance {
                 this.font = Typeface.create(str, this.textStyle);
             }
             if (this.font == null) {
-                int i2 = this.typeface;
-                if (i2 == 1) {
+                int i = this.typeface;
+                if (i == 1) {
                     this.font = Typeface.SANS_SERIF;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     this.font = Typeface.SERIF;
-                } else if (i2 != 3) {
+                } else if (i != 3) {
                     this.font = Typeface.DEFAULT;
                 } else {
                     this.font = Typeface.MONOSPACE;
@@ -136,8 +137,8 @@ public class TextAppearance {
                         this.font = Typeface.create(font, this.textStyle);
                     }
                 } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
-                } catch (Exception unused2) {
-                    String str = "Error loading font " + this.fontFamily;
+                } catch (Exception e2) {
+                    Log.d(TAG, "Error loading font " + this.fontFamily, e2);
                 }
             }
             createFallbackFont();
@@ -176,9 +177,9 @@ public class TextAppearance {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, textAppearanceFontCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -189,11 +190,11 @@ public class TextAppearance {
                     }
 
                     @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                    public void onFontRetrievalFailed(int i2) {
+                    public void onFontRetrievalFailed(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.fontResolved = true;
-                            this.val$callback.onFontRetrievalFailed(i2);
+                            this.val$callback.onFontRetrievalFailed(i);
                         }
                     }
 
@@ -211,8 +212,8 @@ public class TextAppearance {
             } catch (Resources.NotFoundException unused) {
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(1);
-            } catch (Exception unused2) {
-                String str = "Error loading font " + this.fontFamily;
+            } catch (Exception e2) {
+                Log.d(TAG, "Error loading font " + this.fontFamily, e2);
                 this.fontResolved = true;
                 textAppearanceFontCallback.onFontRetrievalFailed(-3);
             }
@@ -248,9 +249,9 @@ public class TextAppearance {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, textPaint, typeface) == null) {
             textPaint.setTypeface(typeface);
-            int i2 = (~typeface.getStyle()) & this.textStyle;
-            textPaint.setFakeBoldText((i2 & 1) != 0);
-            textPaint.setTextSkewX((i2 & 2) != 0 ? -0.25f : 0.0f);
+            int i = (~typeface.getStyle()) & this.textStyle;
+            textPaint.setFakeBoldText((i & 1) != 0);
+            textPaint.setTextSkewX((i & 2) != 0 ? -0.25f : 0.0f);
             textPaint.setTextSize(this.textSize);
         }
     }
@@ -273,9 +274,9 @@ public class TextAppearance {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, textPaint, textAppearanceFontCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -287,10 +288,10 @@ public class TextAppearance {
                 }
 
                 @Override // com.google.android.material.resources.TextAppearanceFontCallback
-                public void onFontRetrievalFailed(int i2) {
+                public void onFontRetrievalFailed(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.val$callback.onFontRetrievalFailed(i2);
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        this.val$callback.onFontRetrievalFailed(i);
                     }
                 }
 

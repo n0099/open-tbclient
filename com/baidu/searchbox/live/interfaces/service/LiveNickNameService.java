@@ -4,6 +4,7 @@ import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\bf\u0018\u0000 \u00182\u00020\u0001:\u0003\u0018\u0019\u001aJ\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0005\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0004J'\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u0002H&¢\u0006\u0004\b\f\u0010\rJ/\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u000fH&¢\u0006\u0004\b\u0011\u0010\u0012J/\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u0002H&¢\u0006\u0004\b\u0011\u0010\u0013J'\u0010\u0016\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u001b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService;", "Lkotlin/Any;", "", "getNickNamePortraitType", "()I", "nickNameDialogStatus", "Landroid/app/Activity;", "activity", "", "source", "requestCode", "", "showNickNameDialog", "(Landroid/app/Activity;Ljava/lang/String;I)V", "type", "Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;", "listener", "showNickNameGuideDialog", "(Landroid/app/Activity;ILjava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;)V", "(Landroid/app/Activity;ILjava/lang/String;I)V", "Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;", "callBack", "showNicknamePortraitDialog", "(Landroid/app/Activity;ILcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;)V", "Companion", "INickNameGuideDialogListener", "INickNamePortraitDialogCallback", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\bf\u0018\u0000 \u00182\u00020\u0001:\u0003\u0018\u0019\u001aJ\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0005\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0004J'\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u0002H&¢\u0006\u0004\b\f\u0010\rJ/\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u000fH&¢\u0006\u0004\b\u0011\u0010\u0012J/\u0010\u0011\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u0002H&¢\u0006\u0004\b\u0011\u0010\u0013J'\u0010\u0016\u001a\u00020\u000b2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\u00022\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u001b"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService;", "Lkotlin/Any;", "", "getNickNamePortraitType", "()I", "nickNameDialogStatus", "Landroid/app/Activity;", "activity", "", "source", GroupInfoActivityConfig.REQUEST_CODE, "", "showNickNameDialog", "(Landroid/app/Activity;Ljava/lang/String;I)V", "type", "Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;", "listener", "showNickNameGuideDialog", "(Landroid/app/Activity;ILjava/lang/String;Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNameGuideDialogListener;)V", "(Landroid/app/Activity;ILjava/lang/String;I)V", "Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;", "callBack", "showNicknamePortraitDialog", "(Landroid/app/Activity;ILcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;)V", "Companion", "INickNameGuideDialogListener", "INickNamePortraitDialogCallback", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public interface LiveNickNameService {
     public static final Companion Companion = Companion.$$INSTANCE;
@@ -50,9 +51,9 @@ public interface LiveNickNameService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -77,17 +78,17 @@ public interface LiveNickNameService {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? SERVICE_REFERENCE : (ServiceReference) invokeV.objValue;
         }
 
-        public final void setNICKNAME_DIALOG_TYPE_DISTRIBUTE(int i2) {
+        public final void setNICKNAME_DIALOG_TYPE_DISTRIBUTE(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                NICKNAME_DIALOG_TYPE_DISTRIBUTE = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                NICKNAME_DIALOG_TYPE_DISTRIBUTE = i;
             }
         }
 
-        public final void setNICKNAME_DIALOG_TYPE_RECOMMEND(int i2) {
+        public final void setNICKNAME_DIALOG_TYPE_RECOMMEND(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                NICKNAME_DIALOG_TYPE_RECOMMEND = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                NICKNAME_DIALOG_TYPE_RECOMMEND = i;
             }
         }
     }
@@ -97,7 +98,7 @@ public interface LiveNickNameService {
     public interface INickNameGuideDialogListener {
         void dismissByModifySuccess(boolean z);
 
-        void isShowSuccess(boolean z, int i2);
+        void isShowSuccess(boolean z, int i);
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\bf\u0018\u00002\u00020\u0001J\u000f\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0003\u0010\u0004J\u001f\u0010\t\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u0007H&¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\r\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H&¢\u0006\u0004\b\r\u0010\f¨\u0006\u000e"}, d2 = {"Lcom/baidu/searchbox/live/interfaces/service/LiveNickNameService$INickNamePortraitDialogCallback;", "Lkotlin/Any;", "", "onDialogDismiss", "()V", "", "var1", "", "var2", "onDialogShow", "(ZI)V", "onNicknameModifyResult", "(Z)V", "onPortraitModifyResult", "lib-live-interfaces_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -105,7 +106,7 @@ public interface LiveNickNameService {
     public interface INickNamePortraitDialogCallback {
         void onDialogDismiss();
 
-        void onDialogShow(boolean z, int i2);
+        void onDialogShow(boolean z, int i);
 
         void onNicknameModifyResult(boolean z);
 
@@ -116,11 +117,11 @@ public interface LiveNickNameService {
 
     int nickNameDialogStatus();
 
-    void showNickNameDialog(Activity activity, String str, int i2);
+    void showNickNameDialog(Activity activity, String str, int i);
 
-    void showNickNameGuideDialog(Activity activity, int i2, String str, int i3);
+    void showNickNameGuideDialog(Activity activity, int i, String str, int i2);
 
-    void showNickNameGuideDialog(Activity activity, int i2, String str, INickNameGuideDialogListener iNickNameGuideDialogListener);
+    void showNickNameGuideDialog(Activity activity, int i, String str, INickNameGuideDialogListener iNickNameGuideDialogListener);
 
-    void showNicknamePortraitDialog(Activity activity, int i2, INickNamePortraitDialogCallback iNickNamePortraitDialogCallback);
+    void showNicknamePortraitDialog(Activity activity, int i, INickNamePortraitDialogCallback iNickNamePortraitDialogCallback);
 }

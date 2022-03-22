@@ -52,9 +52,9 @@ public class ReadParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {pixelType};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -116,10 +116,10 @@ public class ReadParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUsePBO : invokeV.booleanValue;
     }
 
-    public void setCacheSize(int i2) {
+    public void setCacheSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mCacheSize = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mCacheSize = i;
         }
     }
 
@@ -144,10 +144,10 @@ public class ReadParams {
         }
     }
 
-    public void setRotateDegree(int i2) {
+    public void setRotateDegree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mRotateDegree = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mRotateDegree = i;
         }
     }
 

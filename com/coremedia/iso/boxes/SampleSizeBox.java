@@ -19,7 +19,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "stsz";
@@ -58,9 +58,9 @@ public class SampleSizeBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -91,8 +91,8 @@ public class SampleSizeBox extends AbstractFullBox {
             this.sampleCount = l2i;
             if (this.sampleSize == 0) {
                 this.sampleSizes = new long[l2i];
-                for (int i2 = 0; i2 < this.sampleCount; i2++) {
-                    this.sampleSizes[i2] = IsoTypeReader.readUInt32(byteBuffer);
+                for (int i = 0; i < this.sampleCount; i++) {
+                    this.sampleSizes[i] = IsoTypeReader.readUInt32(byteBuffer);
                 }
             }
         }
@@ -106,8 +106,8 @@ public class SampleSizeBox extends AbstractFullBox {
             IsoTypeWriter.writeUInt32(byteBuffer, this.sampleSize);
             if (this.sampleSize == 0) {
                 IsoTypeWriter.writeUInt32(byteBuffer, this.sampleSizes.length);
-                for (long j2 : this.sampleSizes) {
-                    IsoTypeWriter.writeUInt32(byteBuffer, j2);
+                for (long j : this.sampleSizes) {
+                    IsoTypeWriter.writeUInt32(byteBuffer, j);
                 }
                 return;
             }
@@ -151,13 +151,13 @@ public class SampleSizeBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public long getSampleSizeAtIndex(int i2) {
+    public long getSampleSizeAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i2)));
-            long j2 = this.sampleSize;
-            return j2 > 0 ? j2 : this.sampleSizes[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(i)));
+            long j = this.sampleSize;
+            return j > 0 ? j : this.sampleSizes[i];
         }
         return invokeI.longValue;
     }
@@ -172,11 +172,11 @@ public class SampleSizeBox extends AbstractFullBox {
         return (long[]) invokeV.objValue;
     }
 
-    public void setSampleSize(long j2) {
+    public void setSampleSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
-            this.sampleSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+            this.sampleSize = j;
         }
     }
 

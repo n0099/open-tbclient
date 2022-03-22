@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Keep;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.KsRewardVideoAd;
@@ -28,7 +29,7 @@ import com.kwad.sdk.reward.j;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_URL = "key_langingpage_url";
@@ -47,9 +48,9 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     public boolean counterPaused = false;
 
     public static /* synthetic */ int access$410(AdRewardPreviewActivityProxy adRewardPreviewActivityProxy) {
-        int i2 = adRewardPreviewActivityProxy.mCount;
-        adRewardPreviewActivityProxy.mCount = i2 - 1;
-        return i2;
+        int i = adRewardPreviewActivityProxy.mCount;
+        adRewardPreviewActivityProxy.mCount = i - 1;
+        return i;
     }
 
     private void handlerLandingPageAtEndCard(KsAdWebView ksAdWebView) {
@@ -62,14 +63,14 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     private void initView() {
         KsAdWebView ksAdWebView;
         String G;
-        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.ksad_video_webview);
+        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091188);
         this.mAdWebView = ksAdWebView2;
         handlerLandingPageAtEndCard(ksAdWebView2);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
         this.mAdWebView.setDeepLinkEnabled(false);
         this.mAdWebView.b();
-        this.mWebCloseBtn = (ImageView) findViewById(R.id.ksad_web_close_btn);
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.ksad_landing_page_root);
+        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118c);
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b3);
         this.mWebCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdRewardPreviewActivityProxy.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -77,7 +78,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
                 AdRewardPreviewActivityProxy.this.finish();
             }
         });
-        TextView textView = (TextView) findViewById(R.id.ksad_reward_preview_skip_time);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091125);
         this.mCountDownTips = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdRewardPreviewActivityProxy.2
             @Override // android.view.View.OnClickListener
@@ -106,10 +107,10 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
                 AdRewardPreviewActivityProxy.access$410(AdRewardPreviewActivityProxy.this);
             }
         }, 1000L);
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
+        AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
         if (this.mUrl != null) {
             com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.mAdTemplate);
-            if (com.kwad.sdk.core.response.a.a.B(j2) && com.kwad.sdk.core.config.b.Z() && com.ksad.download.c.b.b(getActivity())) {
+            if (com.kwad.sdk.core.response.a.a.B(j) && com.kwad.sdk.core.config.b.Z() && com.ksad.download.c.b.b(getActivity())) {
                 bVar.a((Context) getActivity(), false);
             }
             ksAdWebView = this.mAdWebView;
@@ -126,7 +127,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
             }
 
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
-            public void a(int i2, String str, String str2) {
+            public void a(int i, String str, String str2) {
             }
 
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
@@ -166,7 +167,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
         mInteractionListener = rewardAdInteractionListener;
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdRewardPreviewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
         intent.putExtra(KEY_URL, str);
         context.startActivity(intent);
@@ -230,7 +231,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
 
     @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.ksad_activity_reward_preview);
+        setContentView(R.layout.obfuscated_res_0x7f0d041e);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mUrl = getIntent().getStringExtra(KEY_URL);
         try {

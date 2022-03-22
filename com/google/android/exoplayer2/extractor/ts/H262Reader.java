@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class H262Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double[] FRAME_RATE_VALUES;
@@ -42,7 +42,7 @@ public final class H262Reader implements ElementaryStreamReader {
     public boolean startedFirstSample;
     public long totalBytesWritten;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CsdBuffer {
         public static /* synthetic */ Interceptable $ic;
         public static final byte[] START_CODE;
@@ -68,53 +68,53 @@ public final class H262Reader implements ElementaryStreamReader {
             START_CODE = new byte[]{0, 0, 1};
         }
 
-        public CsdBuffer(int i2) {
+        public CsdBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.data = new byte[i2];
+            this.data = new byte[i];
         }
 
-        public void onData(byte[] bArr, int i2, int i3) {
+        public void onData(byte[] bArr, int i, int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.isFilling) {
-                int i4 = i3 - i2;
+            if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i, i2) == null) && this.isFilling) {
+                int i3 = i2 - i;
                 byte[] bArr2 = this.data;
                 int length = bArr2.length;
-                int i5 = this.length;
-                if (length < i5 + i4) {
-                    this.data = Arrays.copyOf(bArr2, (i5 + i4) * 2);
+                int i4 = this.length;
+                if (length < i4 + i3) {
+                    this.data = Arrays.copyOf(bArr2, (i4 + i3) * 2);
                 }
-                System.arraycopy(bArr, i2, this.data, this.length, i4);
-                this.length += i4;
+                System.arraycopy(bArr, i, this.data, this.length, i3);
+                this.length += i3;
             }
         }
 
-        public boolean onStartCode(int i2, int i3) {
+        public boolean onStartCode(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
                 if (this.isFilling) {
-                    int i4 = this.length - i3;
-                    this.length = i4;
-                    if (this.sequenceExtensionPosition == 0 && i2 == 181) {
-                        this.sequenceExtensionPosition = i4;
+                    int i3 = this.length - i2;
+                    this.length = i3;
+                    if (this.sequenceExtensionPosition == 0 && i == 181) {
+                        this.sequenceExtensionPosition = i3;
                     } else {
                         this.isFilling = false;
                         return true;
                     }
-                } else if (i2 == 179) {
+                } else if (i == 179) {
                     this.isFilling = true;
                 }
                 byte[] bArr = START_CODE;
@@ -155,9 +155,9 @@ public final class H262Reader implements ElementaryStreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -174,52 +174,52 @@ public final class H262Reader implements ElementaryStreamReader {
     public static Pair<Format, Long> parseCsdBuffer(CsdBuffer csdBuffer, String str) {
         InterceptResult invokeLL;
         float f2;
-        int i2;
+        int i;
         float f3;
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, csdBuffer, str)) == null) {
             byte[] copyOf = Arrays.copyOf(csdBuffer.data, csdBuffer.length);
-            int i5 = copyOf[5] & 255;
-            int i6 = ((copyOf[4] & 255) << 4) | (i5 >> 4);
-            int i7 = ((i5 & 15) << 8) | (copyOf[6] & 255);
-            int i8 = (copyOf[7] & 240) >> 4;
-            if (i8 == 2) {
-                f2 = i7 * 4;
-                i2 = i6 * 3;
-            } else if (i8 == 3) {
-                f2 = i7 * 16;
-                i2 = i6 * 9;
-            } else if (i8 != 4) {
+            int i4 = copyOf[5] & 255;
+            int i5 = ((copyOf[4] & 255) << 4) | (i4 >> 4);
+            int i6 = ((i4 & 15) << 8) | (copyOf[6] & 255);
+            int i7 = (copyOf[7] & 240) >> 4;
+            if (i7 == 2) {
+                f2 = i6 * 4;
+                i = i5 * 3;
+            } else if (i7 == 3) {
+                f2 = i6 * 16;
+                i = i5 * 9;
+            } else if (i7 != 4) {
                 f3 = 1.0f;
-                Format createVideoSampleFormat = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i6, i7, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
-                long j2 = 0;
-                i3 = (copyOf[7] & 15) - 1;
-                if (i3 >= 0) {
+                Format createVideoSampleFormat = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
+                long j = 0;
+                i2 = (copyOf[7] & 15) - 1;
+                if (i2 >= 0) {
                     double[] dArr = FRAME_RATE_VALUES;
-                    if (i3 < dArr.length) {
-                        double d2 = dArr[i3];
-                        int i9 = csdBuffer.sequenceExtensionPosition + 9;
-                        int i10 = (copyOf[i9] & 96) >> 5;
-                        if (i10 != (copyOf[i9] & 31)) {
-                            d2 *= (i10 + 1.0d) / (i4 + 1);
+                    if (i2 < dArr.length) {
+                        double d2 = dArr[i2];
+                        int i8 = csdBuffer.sequenceExtensionPosition + 9;
+                        int i9 = (copyOf[i8] & 96) >> 5;
+                        if (i9 != (copyOf[i8] & 31)) {
+                            d2 *= (i9 + 1.0d) / (i3 + 1);
                         }
-                        j2 = (long) (1000000.0d / d2);
+                        j = (long) (1000000.0d / d2);
                     }
                 }
-                return Pair.create(createVideoSampleFormat, Long.valueOf(j2));
+                return Pair.create(createVideoSampleFormat, Long.valueOf(j));
             } else {
-                f2 = i7 * 121;
-                i2 = i6 * 100;
+                f2 = i6 * 121;
+                i = i5 * 100;
             }
-            f3 = f2 / i2;
-            Format createVideoSampleFormat2 = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i6, i7, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
-            long j22 = 0;
-            i3 = (copyOf[7] & 15) - 1;
-            if (i3 >= 0) {
+            f3 = f2 / i;
+            Format createVideoSampleFormat2 = Format.createVideoSampleFormat(str, MimeTypes.VIDEO_MPEG2, null, -1, -1, i5, i6, -1.0f, Collections.singletonList(copyOf), -1, f3, null);
+            long j2 = 0;
+            i2 = (copyOf[7] & 15) - 1;
+            if (i2 >= 0) {
             }
-            return Pair.create(createVideoSampleFormat2, Long.valueOf(j22));
+            return Pair.create(createVideoSampleFormat2, Long.valueOf(j2));
         }
         return (Pair) invokeLL.objValue;
     }
@@ -238,41 +238,41 @@ public final class H262Reader implements ElementaryStreamReader {
                 if (findNalUnit == limit) {
                     break;
                 }
-                int i2 = findNalUnit + 3;
-                int i3 = parsableByteArray.data[i2] & 255;
+                int i = findNalUnit + 3;
+                int i2 = parsableByteArray.data[i] & 255;
                 if (!this.hasOutputFormat) {
-                    int i4 = findNalUnit - position;
-                    if (i4 > 0) {
+                    int i3 = findNalUnit - position;
+                    if (i3 > 0) {
                         this.csdBuffer.onData(bArr, position, findNalUnit);
                     }
-                    if (this.csdBuffer.onStartCode(i3, i4 < 0 ? -i4 : 0)) {
+                    if (this.csdBuffer.onStartCode(i2, i3 < 0 ? -i3 : 0)) {
                         Pair<Format, Long> parseCsdBuffer = parseCsdBuffer(this.csdBuffer, this.formatId);
                         this.output.format((Format) parseCsdBuffer.first);
                         this.frameDurationUs = ((Long) parseCsdBuffer.second).longValue();
                         this.hasOutputFormat = true;
                     }
                 }
-                if (i3 == 0 || i3 == 179) {
-                    int i5 = limit - findNalUnit;
+                if (i2 == 0 || i2 == 179) {
+                    int i4 = limit - findNalUnit;
                     if (this.startedFirstSample && this.sampleHasPicture && this.hasOutputFormat) {
-                        this.output.sampleMetadata(this.sampleTimeUs, this.sampleIsKeyframe ? 1 : 0, ((int) (this.totalBytesWritten - this.samplePosition)) - i5, i5, null);
+                        this.output.sampleMetadata(this.sampleTimeUs, this.sampleIsKeyframe ? 1 : 0, ((int) (this.totalBytesWritten - this.samplePosition)) - i4, i4, null);
                     }
                     if (!this.startedFirstSample || this.sampleHasPicture) {
-                        this.samplePosition = this.totalBytesWritten - i5;
-                        long j2 = this.pesTimeUs;
-                        if (j2 == C.TIME_UNSET) {
-                            j2 = this.startedFirstSample ? this.sampleTimeUs + this.frameDurationUs : 0L;
+                        this.samplePosition = this.totalBytesWritten - i4;
+                        long j = this.pesTimeUs;
+                        if (j == C.TIME_UNSET) {
+                            j = this.startedFirstSample ? this.sampleTimeUs + this.frameDurationUs : 0L;
                         }
-                        this.sampleTimeUs = j2;
+                        this.sampleTimeUs = j;
                         this.sampleIsKeyframe = false;
                         this.pesTimeUs = C.TIME_UNSET;
                         this.startedFirstSample = true;
                     }
-                    this.sampleHasPicture = i3 == 0;
-                } else if (i3 == 184) {
+                    this.sampleHasPicture = i2 == 0;
+                } else if (i2 == 184) {
                     this.sampleIsKeyframe = true;
                 }
-                position = i2;
+                position = i;
             }
             if (this.hasOutputFormat) {
                 return;
@@ -299,10 +299,10 @@ public final class H262Reader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.pesTimeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.pesTimeUs = j;
         }
     }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlbumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_SELECT_IMAGE_RESULT = "com.baidu.tieba.AlbumActivity.SelectImageResult";
@@ -62,9 +62,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -90,12 +90,12 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setAlbumThread(int i2) {
+    public void setAlbumThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i2);
+        getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
     }
 
     public void setCallFrom(String str) {
@@ -137,12 +137,12 @@ public class AlbumActivityConfig extends IntentConfig {
         getIntent().putExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, z);
     }
 
-    public void setFromWrite(int i2) {
+    public void setFromWrite(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(IntentConfig.KEY_FROM_WRITE_TYPE, i2);
+        getIntent().putExtra(IntentConfig.KEY_FROM_WRITE_TYPE, i);
     }
 
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
@@ -152,12 +152,12 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
-    public void setImageClipType(int i2) {
+    public void setImageClipType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(IntentConfig.KEY_IMAGE_CLIP_TYPE, i2);
+        getIntent().putExtra(IntentConfig.KEY_IMAGE_CLIP_TYPE, i);
     }
 
     public void setNeedClipImage(boolean z) {
@@ -168,41 +168,41 @@ public class AlbumActivityConfig extends IntentConfig {
         getIntent().putExtra(IntentConfig.KEY_NEED_CLIP_IMAGE, z);
     }
 
-    public void setProfessionZone(int i2) {
+    public void setProfessionZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            getIntent().putExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, i);
         }
     }
 
-    public void setRedirectToWorkPublishPage(int i2) {
+    public void setRedirectToWorkPublishPage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             getIntent().putExtra(KEY_DIRECT_TO_WORK_PUBLISH_PAGE, true);
-            getIntent().putExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, i2);
+            getIntent().putExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, i);
         }
     }
 
-    public void setRequestFrom(int i2) {
+    public void setRequestFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
     }
 
-    public void setResourceType(int i2) {
+    public void setResourceType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("from_type", i2);
+        getIntent().putExtra("from_type", i);
     }
 
-    public void setStatisticFrom(int i2) {
+    public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
         }
     }
 
@@ -215,9 +215,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), str};
             interceptable.invokeUnInit(65543, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65543, newInitContext);
@@ -239,9 +239,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -261,9 +261,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -284,9 +284,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -306,9 +306,9 @@ public class AlbumActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -321,17 +321,17 @@ public class AlbumActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AlbumActivityConfig(Context context, String str, int i2) {
+    public AlbumActivityConfig(Context context, String str, int i) {
         this(context, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -339,21 +339,21 @@ public class AlbumActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AlbumActivityConfig(Context context, String str, String str2, int i2) {
+    public AlbumActivityConfig(Context context, String str, String str2, int i) {
         this(context, str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -361,6 +361,6 @@ public class AlbumActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(CAMERA_REQUEST_FROM, i2);
+        getIntent().putExtra(CAMERA_REQUEST_FROM, i);
     }
 }

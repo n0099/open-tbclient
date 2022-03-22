@@ -13,6 +13,7 @@ import android.text.TextPaint;
 import android.text.method.TransformationMethod;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -73,9 +74,9 @@ public class AppCompatTextViewAutoSizeHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -106,9 +107,9 @@ public class AppCompatTextViewAutoSizeHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -135,9 +136,9 @@ public class AppCompatTextViewAutoSizeHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -185,9 +186,9 @@ public class AppCompatTextViewAutoSizeHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {textView};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -202,10 +203,10 @@ public class AppCompatTextViewAutoSizeHelper {
         this.mHasPresetAutoSizeValues = false;
         this.mTextView = textView;
         this.mContext = textView.getContext();
-        int i4 = Build.VERSION.SDK_INT;
-        if (i4 >= 29) {
+        int i3 = Build.VERSION.SDK_INT;
+        if (i3 >= 29) {
             this.mImpl = new Impl29();
-        } else if (i4 >= 23) {
+        } else if (i3 >= 23) {
             this.mImpl = new Impl23();
         } else {
             this.mImpl = new Impl();
@@ -219,8 +220,8 @@ public class AppCompatTextViewAutoSizeHelper {
             try {
                 Field textViewField = getTextViewField(str);
                 return textViewField == null ? t : (T) textViewField.get(obj);
-            } catch (IllegalAccessException unused) {
-                String str2 = "Failed to access TextView#" + str + " member";
+            } catch (IllegalAccessException e2) {
+                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
                 return t;
             }
         }
@@ -237,9 +238,9 @@ public class AppCompatTextViewAutoSizeHelper {
             }
             Arrays.sort(iArr);
             ArrayList arrayList = new ArrayList();
-            for (int i2 : iArr) {
-                if (i2 > 0 && Collections.binarySearch(arrayList, Integer.valueOf(i2)) < 0) {
-                    arrayList.add(Integer.valueOf(i2));
+            for (int i : iArr) {
+                if (i > 0 && Collections.binarySearch(arrayList, Integer.valueOf(i)) < 0) {
+                    arrayList.add(Integer.valueOf(i));
                 }
             }
             if (length == arrayList.size()) {
@@ -247,8 +248,8 @@ public class AppCompatTextViewAutoSizeHelper {
             }
             int size = arrayList.size();
             int[] iArr2 = new int[size];
-            for (int i3 = 0; i3 < size; i3++) {
-                iArr2[i3] = ((Integer) arrayList.get(i3)).intValue();
+            for (int i2 = 0; i2 < size; i2++) {
+                iArr2[i2] = ((Integer) arrayList.get(i2)).intValue();
             }
             return iArr2;
         }
@@ -268,36 +269,37 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @RequiresApi(23)
-    private StaticLayout createStaticLayoutForMeasuring(CharSequence charSequence, Layout.Alignment alignment, int i2, int i3) {
+    private StaticLayout createStaticLayoutForMeasuring(CharSequence charSequence, Layout.Alignment alignment, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, this, charSequence, alignment, i2, i3)) == null) {
-            StaticLayout.Builder obtain = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), this.mTempTextPaint, i2);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, this, charSequence, alignment, i, i2)) == null) {
+            StaticLayout.Builder obtain = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), this.mTempTextPaint, i);
             StaticLayout.Builder hyphenationFrequency = obtain.setAlignment(alignment).setLineSpacing(this.mTextView.getLineSpacingExtra(), this.mTextView.getLineSpacingMultiplier()).setIncludePad(this.mTextView.getIncludeFontPadding()).setBreakStrategy(this.mTextView.getBreakStrategy()).setHyphenationFrequency(this.mTextView.getHyphenationFrequency());
-            if (i3 == -1) {
-                i3 = Integer.MAX_VALUE;
+            if (i2 == -1) {
+                i2 = Integer.MAX_VALUE;
             }
-            hyphenationFrequency.setMaxLines(i3);
+            hyphenationFrequency.setMaxLines(i2);
             try {
                 this.mImpl.computeAndSetTextDirection(obtain, this.mTextView);
             } catch (ClassCastException unused) {
+                Log.w(TAG, "Failed to obtain TextDirectionHeuristic, auto size may be incorrect");
             }
             return obtain.build();
         }
         return (StaticLayout) invokeLLII.objValue;
     }
 
-    private StaticLayout createStaticLayoutForMeasuringPre16(CharSequence charSequence, Layout.Alignment alignment, int i2) {
+    private StaticLayout createStaticLayoutForMeasuringPre16(CharSequence charSequence, Layout.Alignment alignment, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, this, charSequence, alignment, i2)) == null) ? new StaticLayout(charSequence, this.mTempTextPaint, i2, alignment, ((Float) accessAndReturnWithDefault(this.mTextView, "mSpacingMult", Float.valueOf(1.0f))).floatValue(), ((Float) accessAndReturnWithDefault(this.mTextView, "mSpacingAdd", Float.valueOf(0.0f))).floatValue(), ((Boolean) accessAndReturnWithDefault(this.mTextView, "mIncludePad", Boolean.TRUE)).booleanValue()) : (StaticLayout) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, this, charSequence, alignment, i)) == null) ? new StaticLayout(charSequence, this.mTempTextPaint, i, alignment, ((Float) accessAndReturnWithDefault(this.mTextView, "mSpacingMult", Float.valueOf(1.0f))).floatValue(), ((Float) accessAndReturnWithDefault(this.mTextView, "mSpacingAdd", Float.valueOf(0.0f))).floatValue(), ((Boolean) accessAndReturnWithDefault(this.mTextView, "mIncludePad", Boolean.TRUE)).booleanValue()) : (StaticLayout) invokeLLI.objValue;
     }
 
     @RequiresApi(16)
-    private StaticLayout createStaticLayoutForMeasuringPre23(CharSequence charSequence, Layout.Alignment alignment, int i2) {
+    private StaticLayout createStaticLayoutForMeasuringPre23(CharSequence charSequence, Layout.Alignment alignment, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, this, charSequence, alignment, i2)) == null) ? new StaticLayout(charSequence, this.mTempTextPaint, i2, alignment, this.mTextView.getLineSpacingMultiplier(), this.mTextView.getLineSpacingExtra(), this.mTextView.getIncludeFontPadding()) : (StaticLayout) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, this, charSequence, alignment, i)) == null) ? new StaticLayout(charSequence, this.mTempTextPaint, i, alignment, this.mTextView.getLineSpacingMultiplier(), this.mTextView.getLineSpacingExtra(), this.mTextView.getIncludeFontPadding()) : (StaticLayout) invokeLLI.objValue;
     }
 
     private int findLargestTextSizeWhichFits(RectF rectF) {
@@ -306,21 +308,21 @@ public class AppCompatTextViewAutoSizeHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, rectF)) == null) {
             int length = this.mAutoSizeTextSizesInPx.length;
             if (length != 0) {
-                int i2 = length - 1;
-                int i3 = 1;
-                int i4 = 0;
-                while (i3 <= i2) {
-                    int i5 = (i3 + i2) / 2;
-                    if (suggestedSizeFitsInSpace(this.mAutoSizeTextSizesInPx[i5], rectF)) {
-                        int i6 = i5 + 1;
-                        i4 = i3;
-                        i3 = i6;
+                int i = length - 1;
+                int i2 = 1;
+                int i3 = 0;
+                while (i2 <= i) {
+                    int i4 = (i2 + i) / 2;
+                    if (suggestedSizeFitsInSpace(this.mAutoSizeTextSizesInPx[i4], rectF)) {
+                        int i5 = i4 + 1;
+                        i3 = i2;
+                        i2 = i5;
                     } else {
-                        i4 = i5 - 1;
-                        i2 = i4;
+                        i3 = i4 - 1;
+                        i = i3;
                     }
                 }
-                return this.mAutoSizeTextSizesInPx[i4];
+                return this.mAutoSizeTextSizesInPx[i3];
             }
             throw new IllegalStateException("No available text sizes to choose from.");
         }
@@ -339,8 +341,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewFieldByNameCache.put(str, field);
                 }
                 return field;
-            } catch (NoSuchFieldException unused) {
-                String str2 = "Failed to access TextView#" + str + " member";
+            } catch (NoSuchFieldException e2) {
+                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
                 return null;
             }
         }
@@ -359,8 +361,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewMethodByNameCache.put(str, method);
                 }
                 return method;
-            } catch (Exception unused) {
-                String str2 = "Failed to retrieve TextView#" + str + "() method";
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve TextView#" + str + "() method", e2);
                 return null;
             }
         }
@@ -373,8 +375,8 @@ public class AppCompatTextViewAutoSizeHelper {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, t)) == null) {
             try {
                 return (T) getTextViewMethod(str).invoke(obj, new Object[0]);
-            } catch (Exception unused) {
-                String str2 = "Failed to invoke TextView#" + str + "() method";
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to invoke TextView#" + str + "() method", e2);
                 return t;
             }
         }
@@ -395,7 +397,8 @@ public class AppCompatTextViewAutoSizeHelper {
                 if (textViewMethod != null) {
                     textViewMethod.invoke(this.mTextView, new Object[0]);
                 }
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to invoke TextView#nullLayouts() method", e2);
             }
             if (!isInLayout) {
                 this.mTextView.requestLayout();
@@ -414,8 +417,8 @@ public class AppCompatTextViewAutoSizeHelper {
                 if (!this.mHasPresetAutoSizeValues || this.mAutoSizeTextSizesInPx.length == 0) {
                     int floor = ((int) Math.floor((this.mAutoSizeMaxTextSizeInPx - this.mAutoSizeMinTextSizeInPx) / this.mAutoSizeStepGranularityInPx)) + 1;
                     int[] iArr = new int[floor];
-                    for (int i2 = 0; i2 < floor; i2++) {
-                        iArr[i2] = Math.round(this.mAutoSizeMinTextSizeInPx + (i2 * this.mAutoSizeStepGranularityInPx));
+                    for (int i = 0; i < floor; i++) {
+                        iArr[i] = Math.round(this.mAutoSizeMinTextSizeInPx + (i * this.mAutoSizeStepGranularityInPx));
                     }
                     this.mAutoSizeTextSizesInPx = cleanupAutoSizePresetSizes(iArr);
                 }
@@ -434,8 +437,8 @@ public class AppCompatTextViewAutoSizeHelper {
             int length = typedArray.length();
             int[] iArr = new int[length];
             if (length > 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    iArr[i2] = typedArray.getDimensionPixelSize(i2, -1);
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = typedArray.getDimensionPixelSize(i, -1);
                 }
                 this.mAutoSizeTextSizesInPx = cleanupAutoSizePresetSizes(iArr);
                 setupAutoSizeUniformPresetSizesConfiguration();
@@ -462,18 +465,18 @@ public class AppCompatTextViewAutoSizeHelper {
         return invokeV.booleanValue;
     }
 
-    private boolean suggestedSizeFitsInSpace(int i2, RectF rectF) {
+    private boolean suggestedSizeFitsInSpace(int i, RectF rectF) {
         InterceptResult invokeIL;
         CharSequence transformation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65552, this, i2, rectF)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65552, this, i, rectF)) == null) {
             CharSequence text = this.mTextView.getText();
             TransformationMethod transformationMethod = this.mTextView.getTransformationMethod();
             if (transformationMethod != null && (transformation = transformationMethod.getTransformation(text, this.mTextView)) != null) {
                 text = transformation;
             }
             int maxLines = Build.VERSION.SDK_INT >= 16 ? this.mTextView.getMaxLines() : -1;
-            initTempTextPaint(i2);
+            initTempTextPaint(i);
             StaticLayout createLayout = createLayout(text, (Layout.Alignment) invokeAndReturnWithDefault(this.mTextView, "getLayoutAlignment", Layout.Alignment.ALIGN_NORMAL), Math.round(rectF.right), maxLines);
             return (maxLines == -1 || (createLayout.getLineCount() <= maxLines && createLayout.getLineEnd(createLayout.getLineCount() - 1) == text.length())) && ((float) createLayout.getHeight()) <= rectF.bottom;
         }
@@ -533,18 +536,18 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @VisibleForTesting
-    public StaticLayout createLayout(CharSequence charSequence, Layout.Alignment alignment, int i2, int i3) {
+    public StaticLayout createLayout(CharSequence charSequence, Layout.Alignment alignment, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, alignment, i2, i3)) == null) {
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 23) {
-                return createStaticLayoutForMeasuring(charSequence, alignment, i2, i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, alignment, i, i2)) == null) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 23) {
+                return createStaticLayoutForMeasuring(charSequence, alignment, i, i2);
             }
-            if (i4 >= 16) {
-                return createStaticLayoutForMeasuringPre23(charSequence, alignment, i2);
+            if (i3 >= 16) {
+                return createStaticLayoutForMeasuringPre23(charSequence, alignment, i);
             }
-            return createStaticLayoutForMeasuringPre16(charSequence, alignment, i2);
+            return createStaticLayoutForMeasuringPre16(charSequence, alignment, i);
         }
         return (StaticLayout) invokeLLII.objValue;
     }
@@ -585,9 +588,9 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @VisibleForTesting
-    public void initTempTextPaint(int i2) {
+    public void initTempTextPaint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             TextPaint textPaint = this.mTempTextPaint;
             if (textPaint == null) {
                 this.mTempTextPaint = new TextPaint();
@@ -595,7 +598,7 @@ public class AppCompatTextViewAutoSizeHelper {
                 textPaint.reset();
             }
             this.mTempTextPaint.set(this.mTextView.getPaint());
-            this.mTempTextPaint.setTextSize(i2);
+            this.mTempTextPaint.setTextSize(i);
         }
     }
 
@@ -606,13 +609,13 @@ public class AppCompatTextViewAutoSizeHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? supportsAutoSizeText() && this.mAutoSizeTextType != 0 : invokeV.booleanValue;
     }
 
-    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R$styleable.AppCompatTextView, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(1048585, this, attributeSet, i) == null) {
+            TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R$styleable.AppCompatTextView, i, 0);
             TextView textView = this.mTextView;
-            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R$styleable.AppCompatTextView, attributeSet, obtainStyledAttributes, i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R$styleable.AppCompatTextView, attributeSet, obtainStyledAttributes, i, 0);
             if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextView_autoSizeTextType)) {
                 this.mAutoSizeTextType = obtainStyledAttributes.getInt(R$styleable.AppCompatTextView_autoSizeTextType, 0);
             }
@@ -650,11 +653,11 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i2, int i3, int i4, int i5) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048586, this, i2, i3, i4, i5) == null) && supportsAutoSizeText()) {
+        if ((interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) && supportsAutoSizeText()) {
             DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-            validateAndSetAutoSizeTextTypeUniformConfiguration(TypedValue.applyDimension(i5, i2, displayMetrics), TypedValue.applyDimension(i5, i3, displayMetrics), TypedValue.applyDimension(i5, i4, displayMetrics));
+            validateAndSetAutoSizeTextTypeUniformConfiguration(TypedValue.applyDimension(i4, i, displayMetrics), TypedValue.applyDimension(i4, i2, displayMetrics), TypedValue.applyDimension(i4, i3, displayMetrics));
             if (setupAutoSizeText()) {
                 autoSizeText();
             }
@@ -662,18 +665,18 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i2) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048587, this, iArr, i2) == null) && supportsAutoSizeText()) {
+        if ((interceptable == null || interceptable.invokeLI(1048587, this, iArr, i) == null) && supportsAutoSizeText()) {
             int length = iArr.length;
             if (length > 0) {
                 int[] iArr2 = new int[length];
-                if (i2 == 0) {
+                if (i == 0) {
                     iArr2 = Arrays.copyOf(iArr, length);
                 } else {
                     DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-                    for (int i3 = 0; i3 < length; i3++) {
-                        iArr2[i3] = Math.round(TypedValue.applyDimension(i2, iArr[i3], displayMetrics));
+                    for (int i2 = 0; i2 < length; i2++) {
+                        iArr2[i2] = Math.round(TypedValue.applyDimension(i, iArr[i2], displayMetrics));
                     }
                 }
                 this.mAutoSizeTextSizesInPx = cleanupAutoSizePresetSizes(iArr2);
@@ -690,35 +693,35 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeWithDefaults(int i2) {
+    public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i2) == null) && supportsAutoSizeText()) {
-            if (i2 == 0) {
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && supportsAutoSizeText()) {
+            if (i == 0) {
                 clearAutoSizeConfiguration();
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
                 validateAndSetAutoSizeTextTypeUniformConfiguration(TypedValue.applyDimension(2, 12.0f, displayMetrics), TypedValue.applyDimension(2, 112.0f, displayMetrics), 1.0f);
                 if (setupAutoSizeText()) {
                     autoSizeText();
                 }
             } else {
-                throw new IllegalArgumentException("Unknown auto-size text type: " + i2);
+                throw new IllegalArgumentException("Unknown auto-size text type: " + i);
             }
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setTextSizeInternal(int i2, float f2) {
+    public void setTextSizeInternal(int i, float f2) {
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             Context context = this.mContext;
             if (context == null) {
                 resources = Resources.getSystem();
             } else {
                 resources = context.getResources();
             }
-            setRawTextSize(TypedValue.applyDimension(i2, f2, resources.getDisplayMetrics()));
+            setRawTextSize(TypedValue.applyDimension(i, f2, resources.getDisplayMetrics()));
         }
     }
 }

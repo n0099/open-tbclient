@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class fg extends fa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public final class fg extends fa {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,10 +32,10 @@ public final class fg extends fa {
 
     @Override // com.xiaomi.push.fa
     /* renamed from: a */
-    public ByteBuffer mo366a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo345a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m369a().length == 0 ? byteBuffer : super.mo366a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m348a().length == 0 ? byteBuffer : super.mo345a(byteBuffer) : (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.fa
@@ -43,7 +43,7 @@ public final class fg extends fa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m369a().length == 0) {
+            if (m348a().length == 0) {
                 return 0;
             }
             return super.c();

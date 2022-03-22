@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewOffsetHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class ViewOffsetHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,28 +102,28 @@ public class ViewOffsetHelper {
         }
     }
 
-    public boolean setLeftAndRightOffset(int i2) {
+    public boolean setLeftAndRightOffset(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (!this.horizontalOffsetEnabled || this.offsetLeft == i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (!this.horizontalOffsetEnabled || this.offsetLeft == i) {
                 return false;
             }
-            this.offsetLeft = i2;
+            this.offsetLeft = i;
             applyOffsets();
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    public boolean setTopAndBottomOffset(int i2) {
+    public boolean setTopAndBottomOffset(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (!this.verticalOffsetEnabled || this.offsetTop == i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (!this.verticalOffsetEnabled || this.offsetTop == i) {
                 return false;
             }
-            this.offsetTop = i2;
+            this.offsetTop = i;
             applyOffsets();
             return true;
         }

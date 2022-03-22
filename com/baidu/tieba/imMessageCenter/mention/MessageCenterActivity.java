@@ -25,9 +25,9 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,7 +36,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         this.mSkinType = 3;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,25 +61,25 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             MessageCenterFragment messageCenterFragment = this.mFragment;
             if (messageCenterFragment != null) {
-                messageCenterFragment.onActivityResult(i2, i3, intent);
+                messageCenterFragment.onActivityResult(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == this.mSkinType) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == this.mSkinType) {
             return;
         }
-        this.mSkinType = i2;
-        this.mFragment.onChangeSkinType(i2);
+        this.mSkinType = i;
+        this.mFragment.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -105,7 +105,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             super.onNewIntent(intent);
             MessageCenterFragment messageCenterFragment = this.mFragment;
             if (messageCenterFragment != null) {
-                messageCenterFragment.onNewIntent(intent);
+                messageCenterFragment.H0(intent);
             }
         }
     }

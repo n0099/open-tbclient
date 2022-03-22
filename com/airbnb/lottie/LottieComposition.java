@@ -120,9 +120,9 @@ public class LottieComposition {
         }
 
         @Deprecated
-        public static Cancellable fromRawFile(Context context, @RawRes int i2, OnCompositionLoadedListener onCompositionLoadedListener) {
+        public static Cancellable fromRawFile(Context context, @RawRes int i, OnCompositionLoadedListener onCompositionLoadedListener) {
             ListenerAdapter listenerAdapter = new ListenerAdapter(onCompositionLoadedListener);
-            LottieCompositionFactory.fromRawRes(context, i2).addListener(listenerAdapter);
+            LottieCompositionFactory.fromRawRes(context, i).addListener(listenerAdapter);
             return listenerAdapter;
         }
 
@@ -197,8 +197,8 @@ public class LottieComposition {
     @Nullable
     public Marker getMarker(String str) {
         this.markers.size();
-        for (int i2 = 0; i2 < this.markers.size(); i2++) {
-            Marker marker = this.markers.get(i2);
+        for (int i = 0; i < this.markers.size(); i++) {
+            Marker marker = this.markers.get(i);
             if (marker.matchesName(str)) {
                 return marker;
             }
@@ -245,8 +245,8 @@ public class LottieComposition {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void incrementMatteOrMaskCount(int i2) {
-        this.maskAndMatteCount += i2;
+    public void incrementMatteOrMaskCount(int i) {
+        this.maskAndMatteCount += i;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -265,8 +265,8 @@ public class LottieComposition {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer layerModelForId(long j2) {
-        return this.layerMap.get(j2);
+    public Layer layerModelForId(long j) {
+        return this.layerMap.get(j);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

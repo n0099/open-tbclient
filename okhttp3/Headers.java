@@ -20,8 +20,7 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +33,9 @@ public final class Headers {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,16 +52,16 @@ public final class Headers {
             if (strArr != null) {
                 if (strArr.length % 2 == 0) {
                     String[] strArr2 = (String[]) strArr.clone();
-                    for (int i2 = 0; i2 < strArr2.length; i2++) {
-                        if (strArr2[i2] != null) {
-                            strArr2[i2] = strArr2[i2].trim();
+                    for (int i = 0; i < strArr2.length; i++) {
+                        if (strArr2[i] != null) {
+                            strArr2[i] = strArr2[i].trim();
                         } else {
                             throw new IllegalArgumentException("Headers cannot be null");
                         }
                     }
-                    for (int i3 = 0; i3 < strArr2.length; i3 += 2) {
-                        String str = strArr2[i3];
-                        String str2 = strArr2[i3 + 1];
+                    for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
+                        String str = strArr2[i2];
+                        String str2 = strArr2[i2 + 1];
                         if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
                             throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
                         }
@@ -82,8 +81,8 @@ public final class Headers {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String[] strArr = this.namesAndValues;
             long length = strArr.length * 2;
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                length += this.namesAndValues[i2].length();
+            for (int i = 0; i < strArr.length; i++) {
+                length += this.namesAndValues[i].length();
             }
             return length;
         }
@@ -123,10 +122,10 @@ public final class Headers {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Arrays.hashCode(this.namesAndValues) : invokeV.intValue;
     }
 
-    public String name(int i2) {
+    public String name(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.namesAndValues[i2 * 2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.namesAndValues[i * 2] : (String) invokeI.objValue;
     }
 
     public Set<String> names() {
@@ -135,8 +134,8 @@ public final class Headers {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             TreeSet treeSet = new TreeSet(String.CASE_INSENSITIVE_ORDER);
             int size = size();
-            for (int i2 = 0; i2 < size; i2++) {
-                treeSet.add(name(i2));
+            for (int i = 0; i < size; i++) {
+                treeSet.add(name(i));
             }
             return Collections.unmodifiableSet(treeSet);
         }
@@ -166,14 +165,14 @@ public final class Headers {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
             int size = size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String lowerCase = name(i2).toLowerCase(Locale.US);
+            for (int i = 0; i < size; i++) {
+                String lowerCase = name(i).toLowerCase(Locale.US);
                 List list = (List) treeMap.get(lowerCase);
                 if (list == null) {
                     list = new ArrayList(2);
                     treeMap.put(lowerCase, list);
                 }
-                list.add(value(i2));
+                list.add(value(i));
             }
             return treeMap;
         }
@@ -186,21 +185,21 @@ public final class Headers {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             StringBuilder sb = new StringBuilder();
             int size = size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sb.append(name(i2));
+            for (int i = 0; i < size; i++) {
+                sb.append(name(i));
                 sb.append(": ");
-                sb.append(value(i2));
-                sb.append(StringUtils.LF);
+                sb.append(value(i));
+                sb.append("\n");
             }
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public String value(int i2) {
+    public String value(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.namesAndValues[(i2 * 2) + 1] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.namesAndValues[(i * 2) + 1] : (String) invokeI.objValue;
     }
 
     public List<String> values(String str) {
@@ -209,12 +208,12 @@ public final class Headers {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             int size = size();
             ArrayList arrayList = null;
-            for (int i2 = 0; i2 < size; i2++) {
-                if (str.equalsIgnoreCase(name(i2))) {
+            for (int i = 0; i < size; i++) {
+                if (str.equalsIgnoreCase(name(i))) {
                     if (arrayList == null) {
                         arrayList = new ArrayList(2);
                     }
-                    arrayList.add(value(i2));
+                    arrayList.add(value(i));
                 }
             }
             if (arrayList != null) {
@@ -239,7 +238,7 @@ public final class Headers {
         return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,9 +249,9 @@ public final class Headers {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -267,18 +266,18 @@ public final class Headers {
                 if (str != null) {
                     if (!str.isEmpty()) {
                         int length = str.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            char charAt = str.charAt(i2);
+                        for (int i = 0; i < length; i++) {
+                            char charAt = str.charAt(i);
                             if (charAt <= ' ' || charAt >= 127) {
-                                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
+                                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
                             }
                         }
                         if (str2 != null) {
                             int length2 = str2.length();
-                            for (int i3 = 0; i3 < length2; i3++) {
-                                char charAt2 = str2.charAt(i3);
+                            for (int i2 = 0; i2 < length2; i2++) {
+                                char charAt2 = str2.charAt(i2);
                                 if ((charAt2 <= 31 && charAt2 != '\t') || charAt2 >= 127) {
-                                    throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i3), str, str2));
+                                    throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
                                 }
                             }
                             return;
@@ -309,8 +308,8 @@ public final class Headers {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, headers)) == null) {
                 int size = headers.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    addLenient(headers.name(i2), headers.value(i2));
+                for (int i = 0; i < size; i++) {
+                    addLenient(headers.name(i), headers.value(i));
                 }
                 return this;
             }
@@ -357,14 +356,14 @@ public final class Headers {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                int i2 = 0;
-                while (i2 < this.namesAndValues.size()) {
-                    if (str.equalsIgnoreCase(this.namesAndValues.get(i2))) {
-                        this.namesAndValues.remove(i2);
-                        this.namesAndValues.remove(i2);
-                        i2 -= 2;
+                int i = 0;
+                while (i < this.namesAndValues.size()) {
+                    if (str.equalsIgnoreCase(this.namesAndValues.get(i))) {
+                        this.namesAndValues.remove(i);
+                        this.namesAndValues.remove(i);
+                        i -= 2;
                     }
-                    i2 += 2;
+                    i += 2;
                 }
                 return this;
             }
@@ -412,9 +411,9 @@ public final class Headers {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -429,15 +428,15 @@ public final class Headers {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
             if (map != null) {
                 String[] strArr = new String[map.size() * 2];
-                int i2 = 0;
+                int i = 0;
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     if (entry.getKey() != null && entry.getValue() != null) {
                         String trim = entry.getKey().trim();
                         String trim2 = entry.getValue().trim();
                         if (trim.length() != 0 && trim.indexOf(0) == -1 && trim2.indexOf(0) == -1) {
-                            strArr[i2] = trim;
-                            strArr[i2 + 1] = trim2;
-                            i2 += 2;
+                            strArr[i] = trim;
+                            strArr[i + 1] = trim2;
+                            i += 2;
                         } else {
                             throw new IllegalArgumentException("Unexpected header: " + trim + ": " + trim2);
                         }

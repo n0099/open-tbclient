@@ -20,9 +20,9 @@ public abstract class AI01weightDecoder extends AI01decoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BitArray) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -31,22 +31,22 @@ public abstract class AI01weightDecoder extends AI01decoder {
         }
     }
 
-    public abstract void addWeightCode(StringBuilder sb, int i2);
+    public abstract void addWeightCode(StringBuilder sb, int i);
 
-    public abstract int checkWeight(int i2);
+    public abstract int checkWeight(int i);
 
-    public final void encodeCompressedWeight(StringBuilder sb, int i2, int i3) {
+    public final void encodeCompressedWeight(StringBuilder sb, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sb, i2, i3) == null) {
-            int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i2, i3);
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sb, i, i2) == null) {
+            int extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i, i2);
             addWeightCode(sb, extractNumericValueFromBitArray);
             int checkWeight = checkWeight(extractNumericValueFromBitArray);
-            int i4 = 100000;
-            for (int i5 = 0; i5 < 5; i5++) {
-                if (checkWeight / i4 == 0) {
+            int i3 = 100000;
+            for (int i4 = 0; i4 < 5; i4++) {
+                if (checkWeight / i3 == 0) {
                     sb.append('0');
                 }
-                i4 /= 10;
+                i3 /= 10;
             }
             sb.append(checkWeight);
         }

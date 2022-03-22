@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,7 +41,7 @@ public class b {
                 return false;
             }
             try {
-                return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                return ContextCompat.checkPermissionGranted(context, "android.permission.CAMERA");
             } catch (Throwable th) {
                 BdLog.c(a, th);
                 return !ApiUtil.shouldCheckPermission();
@@ -52,7 +51,7 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
-        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, com.kuaishou.weapon.un.s.f53810i) != false) goto L17;
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, "android.permission.READ_EXTERNAL_STORAGE") != false) goto L17;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -82,10 +81,10 @@ public class b {
         return invokeL.booleanValue;
     }
 
-    public static boolean c(Context context, int i2) {
+    public static boolean c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             if (context == null) {
                 return false;
             }
@@ -93,7 +92,7 @@ public class b {
             if (sharedPreferences == null) {
                 return true;
             }
-            String str = "permission_request_code=" + String.valueOf(i2);
+            String str = "permission_request_code=" + String.valueOf(i);
             boolean z = sharedPreferences.getBoolean(str, true);
             d(context, str);
             return z;

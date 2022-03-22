@@ -18,7 +18,7 @@ public interface ISAccountManager {
 
     String getVersionName();
 
-    String getZidAndCheckSafe(Context context, String str, int i2);
+    String getZidAndCheckSafe(Context context, String str, int i);
 
     boolean validate(SapiAccount sapiAccount);
 }

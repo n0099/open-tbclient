@@ -45,9 +45,9 @@ public abstract class PackageParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,29 +68,29 @@ public abstract class PackageParser {
         return (PackageParser) invokeL.objValue;
     }
 
-    public abstract void collectCertificates(int i2);
+    public abstract void collectCertificates(int i);
 
-    public abstract ActivityInfo generateActivityInfo(Object obj, int i2);
+    public abstract ActivityInfo generateActivityInfo(Object obj, int i);
 
-    public abstract ApplicationInfo generateApplicationInfo(int i2);
+    public abstract ApplicationInfo generateApplicationInfo(int i);
 
-    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i2);
+    public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i);
 
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j2, long j3, HashSet<String> hashSet);
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet);
 
-    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2);
+    public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i);
 
-    public abstract PermissionInfo generatePermissionInfo(Object obj, int i2);
+    public abstract PermissionInfo generatePermissionInfo(Object obj, int i);
 
-    public abstract ProviderInfo generateProviderInfo(Object obj, int i2);
+    public abstract ProviderInfo generateProviderInfo(Object obj, int i);
 
-    public ActivityInfo generateReceiverInfo(Object obj, int i2) {
+    public ActivityInfo generateReceiverInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i2)) == null) ? generateActivityInfo(obj, i2) : (ActivityInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) ? generateActivityInfo(obj, i) : (ActivityInfo) invokeLI.objValue;
     }
 
-    public abstract ServiceInfo generateServiceInfo(Object obj, int i2);
+    public abstract ServiceInfo generateServiceInfo(Object obj, int i);
 
     public abstract List getActivities();
 
@@ -110,7 +110,7 @@ public abstract class PackageParser {
 
     public abstract List getServices();
 
-    public abstract void parsePackage(File file, int i2);
+    public abstract void parsePackage(File file, int i);
 
     public abstract List<IntentFilter> readIntentFilterFromComponent(Object obj);
 

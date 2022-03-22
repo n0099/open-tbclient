@@ -14,41 +14,41 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public static volatile aq a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f903a;
+    public SharedPreferences f879a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashSet<a> f904a;
+    public HashSet<a> f880a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String mDescription;
         public int mId;
 
-        public a(int i2, String str) {
+        public a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str};
+                Object[] objArr = {Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mId = i2;
+            this.mId = i;
             this.mDescription = str;
         }
 
@@ -82,16 +82,16 @@ public class aq {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f904a = new HashSet<>();
-        this.f903a = context.getSharedPreferences("mipush_oc", 0);
+        this.f880a = new HashSet<>();
+        this.f879a = context.getSharedPreferences("mipush_oc", 0);
     }
 
     public static aq a(Context context) {
@@ -110,11 +110,11 @@ public class aq {
         return (aq) invokeL.objValue;
     }
 
-    private String a(int i2) {
+    private String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            return "normal_oc_" + i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            return "normal_oc_" + i;
         }
         return (String) invokeI.objValue;
     }
@@ -141,47 +141,47 @@ public class aq {
         }
     }
 
-    private String b(int i2) {
+    private String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-            return "custom_oc_" + i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
+            return "custom_oc_" + i;
         }
         return (String) invokeI.objValue;
     }
 
-    public int a(int i2, int i3) {
+    public int a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             try {
-                String b2 = b(i2);
-                if (this.f903a.contains(b2)) {
-                    return this.f903a.getInt(b2, 0);
+                String b2 = b(i);
+                if (this.f879a.contains(b2)) {
+                    return this.f879a.getInt(b2, 0);
                 }
-                String a2 = a(i2);
-                return this.f903a.contains(a2) ? this.f903a.getInt(a2, 0) : i3;
+                String a2 = a(i);
+                return this.f879a.contains(a2) ? this.f879a.getInt(a2, 0) : i2;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc int error " + e2);
-                return i3;
+                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc int error " + e2);
+                return i2;
             }
         }
         return invokeII.intValue;
     }
 
-    public String a(int i2, String str) {
+    public String a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             try {
-                String b2 = b(i2);
-                if (this.f903a.contains(b2)) {
-                    return this.f903a.getString(b2, null);
+                String b2 = b(i);
+                if (this.f879a.contains(b2)) {
+                    return this.f879a.getString(b2, null);
                 }
-                String a2 = a(i2);
-                return this.f903a.contains(a2) ? this.f903a.getString(a2, null) : str;
+                String a2 = a(i);
+                return this.f879a.contains(a2) ? this.f879a.getString(a2, null) : str;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc string error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc string error " + e2);
                 return str;
             }
         }
@@ -192,7 +192,7 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f904a.clear();
+                this.f880a.clear();
             }
         }
     }
@@ -201,8 +201,8 @@ public class aq {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             synchronized (this) {
-                if (!this.f904a.contains(aVar)) {
-                    this.f904a.add(aVar);
+                if (!this.f880a.contains(aVar)) {
+                    this.f880a.add(aVar);
                 }
             }
         }
@@ -213,7 +213,7 @@ public class aq {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f903a.edit();
+        SharedPreferences.Editor edit = this.f879a.edit();
         for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null && pair.second != null) {
@@ -223,19 +223,19 @@ public class aq {
         edit.commit();
     }
 
-    public boolean a(int i2, boolean z) {
+    public boolean a(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             try {
-                String b2 = b(i2);
-                if (this.f903a.contains(b2)) {
-                    return this.f903a.getBoolean(b2, false);
+                String b2 = b(i);
+                if (this.f879a.contains(b2)) {
+                    return this.f879a.getBoolean(b2, false);
                 }
-                String a2 = a(i2);
-                return this.f903a.contains(a2) ? this.f903a.getBoolean(a2, false) : z;
+                String a2 = a(i);
+                return this.f879a.contains(a2) ? this.f879a.getBoolean(a2, false) : z;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a(i2 + " oc boolean error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m112a(i + " oc boolean error " + e2);
                 return z;
             }
         }
@@ -248,7 +248,7 @@ public class aq {
             com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
             HashSet hashSet = new HashSet();
             synchronized (this) {
-                hashSet.addAll(this.f904a);
+                hashSet.addAll(this.f880a);
             }
             Iterator it = hashSet.iterator();
             while (it.hasNext()) {
@@ -266,7 +266,7 @@ public class aq {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || com.xiaomi.push.ad.a(list)) {
             return;
         }
-        SharedPreferences.Editor edit = this.f903a.edit();
+        SharedPreferences.Editor edit = this.f879a.edit();
         for (Pair<Integer, Object> pair : list) {
             Object obj = pair.first;
             if (obj != null) {

@@ -11,7 +11,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.ss.android.socialbase.appdownloader.e.d;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends Fragment {
     public static Intent d() {
         return new Intent("android.settings.APPLICATION_SETTINGS");
@@ -32,9 +32,9 @@ public class a extends Fragment {
         intent.putExtra("package", packageName);
         intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
         intent.putExtra("app_package", packageName);
-        int i2 = e2.getApplicationInfo().uid;
-        intent.putExtra("uid", i2);
-        intent.putExtra("app_uid", i2);
+        int i = e2.getApplicationInfo().uid;
+        intent.putExtra("uid", i);
+        intent.putExtra("app_uid", i);
         return intent;
     }
 
@@ -62,7 +62,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(e.f58466c)) {
+            if (lowerCase.contains(e.f43197c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -95,8 +95,8 @@ public class a extends Fragment {
     }
 
     @Override // android.app.Fragment
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
         if (d.a()) {
             d.a(true);
         } else {

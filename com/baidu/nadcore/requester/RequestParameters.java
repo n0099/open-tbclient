@@ -2,7 +2,7 @@ package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.b0.s.s;
+import c.a.a0.s.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,33 +20,29 @@ public class RequestParameters {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f35753b;
+    public final int f27628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f35754c;
+    public final String f27629c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f35755d;
+    public final String f27630d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final s f35756e;
+    public final s f27631e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public final RefreshType f35757f;
+    public final RefreshType f27632f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f35758g;
+    public final String f27633g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f35759h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final String f35760i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final SlotType f35761j;
+    public final String f27634h;
+    public final String i;
+    public final SlotType j;
     public final Map<String, String> k;
     public final boolean l;
 
@@ -81,16 +77,16 @@ public class RequestParameters {
             $VALUES = new RefreshType[]{NONE, PULL_UP, refreshType};
         }
 
-        public RefreshType(String str, int i2, String str2) {
+        public RefreshType(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -151,16 +147,16 @@ public class RequestParameters {
             $VALUES = new SlotType[]{DEFAULT, SPLASH, FEED, BANNER, DRAW, slotType};
         }
 
-        public SlotType(String str, int i2) {
+        public SlotType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -196,31 +192,27 @@ public class RequestParameters {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35762b;
+        public int f27635b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35763c;
+        public String f27636c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f35764d;
+        public String f27637d;
 
         /* renamed from: e  reason: collision with root package name */
-        public s f35765e;
+        public s f27638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RefreshType f35766f;
+        public RefreshType f27639f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f35767g;
+        public String f27640g;
 
         /* renamed from: h  reason: collision with root package name */
-        public SlotType f35768h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f35769i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f35770j;
+        public SlotType f27641h;
+        public String i;
+        public String j;
         public Map<String, String> k;
         public boolean l;
 
@@ -229,17 +221,17 @@ public class RequestParameters {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f35762b = 1;
-            this.f35766f = RefreshType.NONE;
-            this.f35768h = SlotType.DEFAULT;
+            this.f27635b = 1;
+            this.f27639f = RefreshType.NONE;
+            this.f27641h = SlotType.DEFAULT;
             this.l = false;
         }
 
@@ -249,11 +241,11 @@ public class RequestParameters {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new RequestParameters(this, null) : (RequestParameters) invokeV.objValue;
         }
 
-        public b n(int i2) {
+        public b n(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f35762b = (i2 <= 0 || i2 >= 10) ? 2 : 2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.f27635b = (i <= 0 || i >= 10) ? 2 : 2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -281,24 +273,24 @@ public class RequestParameters {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = bVar.a;
-        this.f35753b = bVar.f35762b;
-        this.f35754c = bVar.f35764d;
-        this.f35755d = bVar.f35763c;
-        this.f35756e = bVar.f35765e;
-        this.f35757f = bVar.f35766f;
-        this.f35758g = bVar.f35767g;
-        this.f35759h = bVar.f35769i;
-        this.f35760i = bVar.f35770j;
-        this.f35761j = bVar.f35768h;
+        this.f27628b = bVar.f27635b;
+        this.f27629c = bVar.f27637d;
+        this.f27630d = bVar.f27636c;
+        this.f27631e = bVar.f27638e;
+        this.f27632f = bVar.f27639f;
+        this.f27633g = bVar.f27640g;
+        this.f27634h = bVar.i;
+        this.i = bVar.j;
+        this.j = bVar.f27641h;
         this.k = bVar.k;
         this.l = bVar.l;
     }

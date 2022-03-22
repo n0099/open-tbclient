@@ -3,6 +3,7 @@ package com.baidu.ar.a;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.h.q;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,20 +105,20 @@ public class c {
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 JSONArray jSONArray = jSONObject.getJSONArray("high");
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    bQ.put(jSONArray.get(i2).toString(), 2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    bQ.put(jSONArray.get(i).toString(), 2);
                 }
                 JSONArray jSONArray2 = jSONObject.getJSONArray("medium");
-                for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                    bQ.put(jSONArray2.get(i3).toString(), 1);
+                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                    bQ.put(jSONArray2.get(i2).toString(), 1);
                 }
-                JSONArray jSONArray3 = jSONObject.getJSONArray("low");
-                for (int i4 = 0; i4 < jSONArray3.length(); i4++) {
-                    bQ.put(jSONArray3.get(i4).toString(), 0);
+                JSONArray jSONArray3 = jSONObject.getJSONArray(Config.EXCEPTION_MEMORY_LOW);
+                for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
+                    bQ.put(jSONArray3.get(i3).toString(), 0);
                 }
                 JSONArray jSONArray4 = jSONObject.getJSONArray("blackList");
-                for (int i5 = 0; i5 < jSONArray4.length(); i5++) {
-                    bQ.put(jSONArray4.get(i5).toString(), -1);
+                for (int i4 = 0; i4 < jSONArray4.length(); i4++) {
+                    bQ.put(jSONArray4.get(i4).toString(), -1);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

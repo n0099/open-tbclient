@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NightPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_IMPL_CLASS = "com.baidu.tieba.plugin.night.NightPluginImpl";
@@ -24,43 +24,43 @@ public class NightPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public INightPlugin mINightPlugin;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements IInvokeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NightPluginManager f45947b;
+        public final /* synthetic */ NightPluginManager f35594b;
 
-        public a(NightPluginManager nightPluginManager, int i2) {
+        public a(NightPluginManager nightPluginManager, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nightPluginManager, Integer.valueOf(i2)};
+                Object[] objArr = {nightPluginManager, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45947b = nightPluginManager;
-            this.a = i2;
+            this.f35594b = nightPluginManager;
+            this.a = i;
         }
 
         @Override // com.baidu.nps.main.invoke.IInvokeCallback
-        public void onResult(int i2, String str, Object obj) {
+        public void onResult(int i, String str, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
                 try {
-                    if (this.f45947b.mINightPlugin == null) {
-                        this.f45947b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
+                    if (this.f35594b.mINightPlugin == null) {
+                        this.f35594b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                     }
-                    SkinManager.setPackageName(this.f45947b.mINightPlugin.getNightPluginPackageName());
+                    SkinManager.setPackageName(this.f35594b.mINightPlugin.getNightPluginPackageName());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.a)));
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
@@ -71,7 +71,7 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class NightPluginManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {nightPluginManager, iInvokeCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,22 +96,22 @@ public class NightPluginManager {
         }
 
         @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onProgress(long j2, long j3) {
+        public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
         @Override // com.baidu.nps.main.install.IInstallCallback
-        public void onResult(int i2, String str) {
+        public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i == 13) {
                 NPSManager.getInstance().loadClazz(NightPluginManager.PLUGIN_PKG_NAME, NightPluginManager.PLUGIN_IMPL_CLASS, INightPlugin.class, this.a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final NightPluginManager a;
@@ -155,13 +155,13 @@ public class NightPluginManager {
         }
     }
 
-    public String getNightPluginPackageName(int i2) {
+    public String getNightPluginPackageName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             INightPlugin iNightPlugin = this.mINightPlugin;
             if (iNightPlugin == null) {
-                invokePlugin(new a(this, i2));
+                invokePlugin(new a(this, i));
                 return null;
             }
             return iNightPlugin.getNightPluginPackageName();
@@ -180,9 +180,9 @@ public class NightPluginManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

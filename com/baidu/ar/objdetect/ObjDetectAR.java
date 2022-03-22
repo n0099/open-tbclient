@@ -27,9 +27,9 @@ public class ObjDetectAR extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,23 +43,23 @@ public class ObjDetectAR extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, fArr)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("event_name", "object_detect");
-            int i2 = (int) fArr[0];
+            int i = (int) fArr[0];
             ArrayList arrayList = new ArrayList();
             l r = r();
             if (r == null) {
                 hashMap.put("event_data", arrayList);
                 return hashMap;
             }
-            for (int i3 = 0; i3 < i2; i3++) {
-                int i4 = (i3 * 7) + 1;
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = (i2 * 7) + 1;
                 HashMap hashMap2 = new HashMap();
-                PointF pointF = new PointF(fArr[i4 + 3], fArr[i4 + 4]);
+                PointF pointF = new PointF(fArr[i3 + 3], fArr[i3 + 4]);
                 r.a(pointF, true);
-                PointF pointF2 = new PointF(fArr[i4 + 5], fArr[i4 + 6]);
+                PointF pointF2 = new PointF(fArr[i3 + 5], fArr[i3 + 6]);
                 r.a(pointF2, true);
-                hashMap2.put("object_id", Float.valueOf(fArr[i4]));
+                hashMap2.put("object_id", Float.valueOf(fArr[i3]));
                 hashMap2.put("category", 3);
-                hashMap2.put("score", Float.valueOf(fArr[i4 + 2]));
+                hashMap2.put("score", Float.valueOf(fArr[i3 + 2]));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1, Float.valueOf(pointF.x));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1, Float.valueOf(pointF.y));
                 hashMap2.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2, Float.valueOf(pointF2.x));
@@ -103,9 +103,9 @@ public class ObjDetectAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

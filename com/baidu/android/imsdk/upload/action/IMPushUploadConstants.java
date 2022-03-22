@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.upload.action;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,9 +32,9 @@ public class IMPushUploadConstants {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -46,9 +47,9 @@ public class IMPushUploadConstants {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,15 +64,16 @@ public class IMPushUploadConstants {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
                 StringBuilder sb = new StringBuilder();
                 for (byte b2 : digest) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append(0);
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
-                String str2 = "sign origin :" + str + ", md5: " + sb.toString();
+                Log.d(TAG, "sign origin :" + str + ", md5: " + sb.toString());
                 return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
+            } catch (NoSuchAlgorithmException e2) {
+                Log.e(TAG, "md5 exception ", e2);
                 return "";
             }
         }
@@ -79,9 +81,9 @@ public class IMPushUploadConstants {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static String sign(Context context, String str, long j2) {
+    public static String sign(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? md5(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j2))) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? md5(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j))) : (String) invokeCommon.objValue;
     }
 }

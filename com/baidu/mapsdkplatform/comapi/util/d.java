@@ -18,7 +18,7 @@ public class d {
     public ArrayList<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f34726b;
+    public Context f26904b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -48,9 +48,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,7 +67,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            Context context = this.f34726b;
+            Context context = this.f26904b;
             if (context == null) {
                 return -101;
             }
@@ -82,32 +82,32 @@ public class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (d) invokeV.objValue;
     }
 
-    private void a(String str, int i2) {
+    private void a(String str, int i) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2) == null) || (context = this.f34726b) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i) == null) || (context = this.f26904b) == null) {
             return;
         }
-        context.getSharedPreferences("ad_auth", 0).edit().putInt(str, i2).apply();
+        context.getSharedPreferences("ad_auth", 0).edit().putInt(str, i).apply();
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (i2 == -1 && (i2 = a("ad_key")) == -101) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i == -1 && (i = a("ad_key")) == -101) {
                 return;
             }
-            for (int i3 = i2; i3 != 0; i3 /= 2) {
-                this.a.add(Integer.valueOf(i3 % 2));
+            for (int i2 = i; i2 != 0; i2 /= 2) {
+                this.a.add(Integer.valueOf(i2 % 2));
             }
-            a("ad_key", i2);
+            a("ad_key", i);
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f34726b = context;
+            this.f26904b = context;
         }
     }
 

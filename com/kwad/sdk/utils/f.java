@@ -9,12 +9,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static final Map<String, String> a;
 
@@ -25,7 +26,7 @@ public class f {
         a.put("OPPO", "com.oppo.market");
         a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
         a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        a.put(com.kuaishou.weapon.un.g.f53623i, "com.oppo.market");
+        a.put(com.kuaishou.weapon.un.g.i, "com.oppo.market");
         a.put("Meizu", "com.meizu.mstore");
         a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
         a.put("SMARTISAN", "com.smartisanos.appstore");
@@ -38,7 +39,7 @@ public class f {
             return false;
         }
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         try {
             context.startActivity(intent);
             return true;
@@ -67,7 +68,7 @@ public class f {
         try {
             String str3 = a.get(Build.BRAND);
             Intent parseUri = Intent.parseUri(str, 1);
-            parseUri.addFlags(268435456);
+            parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
                 if (!a(resolveInfo)) {
                     String str4 = resolveInfo.activityInfo.packageName;

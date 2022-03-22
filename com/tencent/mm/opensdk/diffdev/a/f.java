@@ -1,6 +1,7 @@
 package com.tencent.mm.opensdk.diffdev.a;
 
 import android.os.AsyncTask;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +20,7 @@ public final class f extends AsyncTask<Void, Void, a> {
     public int t;
     public String url;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +33,9 @@ public final class f extends AsyncTask<Void, Void, a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -56,15 +57,15 @@ public final class f extends AsyncTask<Void, Void, a> {
                 } else {
                     try {
                         try {
-                            JSONObject jSONObject = new JSONObject(new String(bArr, "utf-8"));
-                            int i2 = jSONObject.getInt("wx_errcode");
-                            aVar.v = i2;
-                            Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i2)));
-                            int i3 = aVar.v;
-                            if (i3 == 408) {
+                            JSONObject jSONObject = new JSONObject(new String(bArr, IMAudioTransRequest.CHARSET));
+                            int i = jSONObject.getInt("wx_errcode");
+                            aVar.v = i;
+                            Log.d("MicroMsg.SDK.NoopingResult", String.format("nooping uuidStatusCode = %d", Integer.valueOf(i)));
+                            int i2 = aVar.v;
+                            if (i2 == 408) {
                                 oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_OK;
-                            } else if (i3 != 500) {
-                                switch (i3) {
+                            } else if (i2 != 500) {
+                                switch (i2) {
                                     case 402:
                                         oAuthErrCode2 = OAuthErrCode.WechatAuth_Err_Timeout;
                                         break;
@@ -113,9 +114,9 @@ public final class f extends AsyncTask<Void, Void, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, oAuthListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,9 +162,9 @@ public final class f extends AsyncTask<Void, Void, a> {
                     Log.e("MicroMsg.SDK.NoopingTask", String.format("nooping fail, errCode = %s, uuidStatusCode = %d", oAuthErrCode2.toString(), Integer.valueOf(b2.v)));
                     return b2;
                 }
-                int i2 = b2.v;
-                this.t = i2;
-                if (i2 == g.y.getCode()) {
+                int i = b2.v;
+                this.t = i;
+                if (i == g.y.getCode()) {
                     this.k.onQrcodeScanned();
                 } else if (b2.v != g.A.getCode() && b2.v == g.z.getCode()) {
                     String str3 = b2.u;

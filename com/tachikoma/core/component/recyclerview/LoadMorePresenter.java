@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.library.widget.refresh.RefreshLayout;
 import com.kwai.library.widget.refresh.e;
 import com.tachikoma.core.component.recyclerview.export.ITKPageList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LoadMorePresenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class LoadMorePresenter {
             newInitContext.initArgs = r2;
             Object[] objArr = {recyclerView, iTKPageList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,9 +73,9 @@ public class LoadMorePresenter {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -91,22 +91,22 @@ public class LoadMorePresenter {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
+                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2) == null) {
-                        super.onScrollStateChanged(recyclerView, i2);
-                        if (i2 == 1) {
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i) == null) {
+                        super.onScrollStateChanged(recyclerView, i);
+                        if (i == 1) {
                             tryToLoadMore(recyclerView);
                         }
                     }
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_SEND_USER_MSG, this, recyclerView, i2, i3) == null) {
-                        super.onScrolled(recyclerView, i2, i3);
-                        if (i3 != 0) {
+                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_SEND_USER_MSG, this, recyclerView, i, i2) == null) {
+                        super.onScrolled(recyclerView, i, i2);
+                        if (i2 != 0) {
                             tryToLoadMore(recyclerView);
                         }
                     }

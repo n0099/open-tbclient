@@ -8,81 +8,81 @@ import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.b.b;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface c extends IInterface {
-    DownloadInfo a(int i2, int i3) throws RemoteException;
+    DownloadInfo a(int i, int i2) throws RemoteException;
 
-    DownloadInfo a(int i2, long j2) throws RemoteException;
+    DownloadInfo a(int i, long j) throws RemoteException;
 
-    DownloadInfo a(int i2, long j2, String str, String str2) throws RemoteException;
+    DownloadInfo a(int i, long j, String str, String str2) throws RemoteException;
 
     List<DownloadInfo> a(String str) throws RemoteException;
 
     void a() throws RemoteException;
 
-    void a(int i2, int i3, int i4, int i5) throws RemoteException;
+    void a(int i, int i2, int i3, int i4) throws RemoteException;
 
-    void a(int i2, int i3, int i4, long j2) throws RemoteException;
+    void a(int i, int i2, int i3, long j) throws RemoteException;
 
-    void a(int i2, int i3, long j2) throws RemoteException;
+    void a(int i, int i2, long j) throws RemoteException;
 
-    void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
+    void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
 
     void a(b bVar) throws RemoteException;
 
     void a(com.ss.android.socialbase.downloader.model.b bVar) throws RemoteException;
 
-    boolean a(int i2) throws RemoteException;
+    boolean a(int i) throws RemoteException;
 
     boolean a(DownloadInfo downloadInfo) throws RemoteException;
 
-    DownloadInfo b(int i2) throws RemoteException;
+    DownloadInfo b(int i) throws RemoteException;
 
-    DownloadInfo b(int i2, long j2) throws RemoteException;
+    DownloadInfo b(int i, long j) throws RemoteException;
 
     List<DownloadInfo> b() throws RemoteException;
 
     List<DownloadInfo> b(String str) throws RemoteException;
 
-    void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
+    void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException;
 
     void b(DownloadInfo downloadInfo) throws RemoteException;
 
     void b(com.ss.android.socialbase.downloader.model.b bVar) throws RemoteException;
 
-    DownloadInfo c(int i2, long j2) throws RemoteException;
+    DownloadInfo c(int i, long j) throws RemoteException;
 
-    List<com.ss.android.socialbase.downloader.model.b> c(int i2) throws RemoteException;
+    List<com.ss.android.socialbase.downloader.model.b> c(int i) throws RemoteException;
 
     List<DownloadInfo> c(String str) throws RemoteException;
 
     void c() throws RemoteException;
 
-    DownloadInfo d(int i2, long j2) throws RemoteException;
+    DownloadInfo d(int i, long j) throws RemoteException;
 
     List<DownloadInfo> d(String str) throws RemoteException;
 
-    void d(int i2) throws RemoteException;
+    void d(int i) throws RemoteException;
 
     boolean d() throws RemoteException;
 
-    DownloadInfo e(int i2, long j2) throws RemoteException;
+    DownloadInfo e(int i, long j) throws RemoteException;
 
     boolean e() throws RemoteException;
 
-    boolean e(int i2) throws RemoteException;
+    boolean e(int i) throws RemoteException;
 
-    boolean f(int i2) throws RemoteException;
+    boolean f(int i) throws RemoteException;
 
-    DownloadInfo g(int i2) throws RemoteException;
+    DownloadInfo g(int i) throws RemoteException;
 
-    DownloadInfo h(int i2) throws RemoteException;
+    DownloadInfo h(int i) throws RemoteException;
 
-    DownloadInfo i(int i2) throws RemoteException;
+    DownloadInfo i(int i) throws RemoteException;
 
-    DownloadInfo j(int i2) throws RemoteException;
+    DownloadInfo j(int i) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements c {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -96,11 +96,11 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C2194a(iBinder);
+            return new C2055a(iBinder);
         }
 
         public static c f() {
-            return C2194a.a;
+            return C2055a.a;
         }
 
         @Override // android.os.IInterface
@@ -109,9 +109,9 @@ public interface c extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1598968902) {
-                switch (i2) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1598968902) {
+                switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                         a();
@@ -324,22 +324,22 @@ public interface c extends IInterface {
                         return true;
                     case 29:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo i4 = i(parcel.readInt());
+                        DownloadInfo i3 = i(parcel.readInt());
                         parcel2.writeNoException();
-                        if (i4 != null) {
+                        if (i3 != null) {
                             parcel2.writeInt(1);
-                            i4.writeToParcel(parcel2, 1);
+                            i3.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
                         return true;
                     case 30:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                        DownloadInfo j2 = j(parcel.readInt());
+                        DownloadInfo j = j(parcel.readInt());
                         parcel2.writeNoException();
-                        if (j2 != null) {
+                        if (j != null) {
                             parcel2.writeInt(1);
-                            j2.writeToParcel(parcel2, 1);
+                            j.writeToParcel(parcel2, 1);
                         } else {
                             parcel2.writeInt(0);
                         }
@@ -377,7 +377,7 @@ public interface c extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                        return super.onTransact(i, parcel, parcel2, i2);
                 }
             }
             parcel2.writeString("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -385,15 +385,15 @@ public interface c extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2194a implements c {
+        /* loaded from: classes7.dex */
+        public static class C2055a implements c {
             public static c a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58400b;
+            public IBinder f43133b;
 
-            public C2194a(IBinder iBinder) {
-                this.f58400b = iBinder;
+            public C2055a(IBinder iBinder) {
+                this.f43133b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
@@ -402,7 +402,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f58400b.transact(1, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(1, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a();
                     } else {
                         obtain2.readException();
@@ -415,18 +415,18 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58400b;
+                return this.f43133b;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo b(int i2) throws RemoteException {
+            public DownloadInfo b(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(3, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().b(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(3, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().b(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -443,7 +443,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f58400b.transact(6, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(6, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().c(str);
                     }
                     obtain2.readException();
@@ -461,7 +461,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f58400b.transact(7, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(7, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().d(str);
                     }
                     obtain2.readException();
@@ -473,14 +473,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public boolean e(int i2) throws RemoteException {
+            public boolean e(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(18, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().e(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(18, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().e(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0;
@@ -491,14 +491,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public boolean f(int i2) throws RemoteException {
+            public boolean f(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(19, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().f(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(19, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().f(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0;
@@ -509,14 +509,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo g(int i2) throws RemoteException {
+            public DownloadInfo g(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(21, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().g(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(21, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().g(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -527,14 +527,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo h(int i2) throws RemoteException {
+            public DownloadInfo h(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(25, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().h(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(25, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().h(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -545,14 +545,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo i(int i2) throws RemoteException {
+            public DownloadInfo i(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(29, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().i(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(29, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().i(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -563,14 +563,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo j(int i2) throws RemoteException {
+            public DownloadInfo j(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(30, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().j(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(30, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().j(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -581,14 +581,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public boolean a(int i2) throws RemoteException {
+            public boolean a(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(2, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().a(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(2, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().a(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0;
@@ -599,14 +599,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public List<com.ss.android.socialbase.downloader.model.b> c(int i2) throws RemoteException {
+            public List<com.ss.android.socialbase.downloader.model.b> c(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(9, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().c(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(9, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().c(i);
                     }
                     obtain2.readException();
                     return obtain2.createTypedArrayList(com.ss.android.socialbase.downloader.model.b.CREATOR);
@@ -617,14 +617,14 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void d(int i2) throws RemoteException {
+            public void d(int i) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    if (!this.f58400b.transact(10, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().d(i2);
+                    obtain.writeInt(i);
+                    if (!this.f43133b.transact(10, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().d(i);
                     } else {
                         obtain2.readException();
                     }
@@ -635,15 +635,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo e(int i2, long j2) throws RemoteException {
+            public DownloadInfo e(int i, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(28, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().e(i2, j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(28, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().e(i, j);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -660,7 +660,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f58400b.transact(5, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(5, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b(str);
                     }
                     obtain2.readException();
@@ -678,7 +678,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeString(str);
-                    if (!this.f58400b.transact(4, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(4, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(str);
                     }
                     obtain2.readException();
@@ -690,15 +690,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo d(int i2, long j2) throws RemoteException {
+            public DownloadInfo d(int i, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(27, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().d(i2, j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(27, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().d(i, j);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -714,7 +714,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f58400b.transact(20, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(20, obtain, obtain2, 0) && a.f() != null) {
                         a.f().c();
                     } else {
                         obtain2.readException();
@@ -731,7 +731,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f58400b.transact(8, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(8, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().b();
                     }
                     obtain2.readException();
@@ -748,7 +748,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f58400b.transact(32, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(32, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().e();
                     }
                     obtain2.readException();
@@ -771,7 +771,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58400b.transact(11, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(11, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(bVar);
                     } else {
                         obtain2.readException();
@@ -783,15 +783,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo c(int i2, long j2) throws RemoteException {
+            public DownloadInfo c(int i, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(26, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().c(i2, j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(26, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().c(i, j);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -813,7 +813,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58400b.transact(12, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(12, obtain, obtain2, 0) && a.f() != null) {
                         a.f().b(bVar);
                     } else {
                         obtain2.readException();
@@ -830,7 +830,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    if (!this.f58400b.transact(31, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(31, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().d();
                     }
                     obtain2.readException();
@@ -842,16 +842,16 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void a(int i2, int i3, long j2) throws RemoteException {
+            public void a(int i, int i2, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    obtain.writeInt(i3);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(13, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().a(i2, i3, j2);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(13, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().a(i, i2, j);
                     } else {
                         obtain2.readException();
                     }
@@ -862,15 +862,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo b(int i2, long j2) throws RemoteException {
+            public DownloadInfo b(int i, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(24, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().b(i2, j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(24, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().b(i, j);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -881,17 +881,17 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void a(int i2, int i3, int i4, long j2) throws RemoteException {
+            public void a(int i, int i2, int i3, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    obtain.writeInt(i4);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(14, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().a(i2, i3, i4, j2);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(14, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().a(i, i2, i3, j);
                     } else {
                         obtain2.readException();
                     }
@@ -913,7 +913,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58400b.transact(33, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(33, obtain, obtain2, 0) && a.f() != null) {
                         a.f().b(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -925,17 +925,17 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void a(int i2, int i3, int i4, int i5) throws RemoteException {
+            public void a(int i, int i2, int i3, int i4) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
                     obtain.writeInt(i4);
-                    obtain.writeInt(i5);
-                    if (!this.f58400b.transact(15, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().a(i2, i3, i4, i5);
+                    if (!this.f43133b.transact(15, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().a(i, i2, i3, i4);
                     } else {
                         obtain2.readException();
                     }
@@ -946,15 +946,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
+            public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
+                    obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f58400b.transact(35, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().b(i2, list);
+                    if (!this.f43133b.transact(35, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().b(i, list);
                     } else {
                         obtain2.readException();
                     }
@@ -965,15 +965,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo a(int i2, int i3) throws RemoteException {
+            public DownloadInfo a(int i, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    obtain.writeInt(i3);
-                    if (!this.f58400b.transact(16, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().a(i2, i3);
+                    if (!this.f43133b.transact(16, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().a(i, i2);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -995,7 +995,7 @@ public interface c extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f58400b.transact(17, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(17, obtain, obtain2, 0) && a.f() != null) {
                         return a.f().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -1007,17 +1007,17 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo a(int i2, long j2, String str, String str2) throws RemoteException {
+            public DownloadInfo a(int i, long j, String str, String str2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f58400b.transact(22, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().a(i2, j2, str, str2);
+                    if (!this.f43133b.transact(22, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().a(i, j, str, str2);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -1028,15 +1028,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public DownloadInfo a(int i2, long j2) throws RemoteException {
+            public DownloadInfo a(int i, long j) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
-                    obtain.writeLong(j2);
-                    if (!this.f58400b.transact(23, obtain, obtain2, 0) && a.f() != null) {
-                        return a.f().a(i2, j2);
+                    obtain.writeInt(i);
+                    obtain.writeLong(j);
+                    if (!this.f43133b.transact(23, obtain, obtain2, 0) && a.f() != null) {
+                        return a.f().a(i, j);
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -1047,15 +1047,15 @@ public interface c extends IInterface {
             }
 
             @Override // com.ss.android.socialbase.downloader.b.c
-            public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
+            public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
-                    obtain.writeInt(i2);
+                    obtain.writeInt(i);
                     obtain.writeTypedList(list);
-                    if (!this.f58400b.transact(34, obtain, obtain2, 0) && a.f() != null) {
-                        a.f().a(i2, list);
+                    if (!this.f43133b.transact(34, obtain, obtain2, 0) && a.f() != null) {
+                        a.f().a(i, list);
                     } else {
                         obtain2.readException();
                     }
@@ -1072,7 +1072,7 @@ public interface c extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
                     obtain.writeStrongBinder(bVar != null ? bVar.asBinder() : null);
-                    if (!this.f58400b.transact(36, obtain, obtain2, 0) && a.f() != null) {
+                    if (!this.f43133b.transact(36, obtain, obtain2, 0) && a.f() != null) {
                         a.f().a(bVar);
                     } else {
                         obtain2.readException();

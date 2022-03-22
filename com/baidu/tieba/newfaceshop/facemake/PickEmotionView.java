@@ -15,16 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PickEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EmotionView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public EmotionView f44773e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f44774f;
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f34687b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PickEmotionView(Context context) {
@@ -35,9 +33,9 @@ public class PickEmotionView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,28 +48,28 @@ public class PickEmotionView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44773e = new EmotionView(getContext());
-            addView(this.f44773e, new FrameLayout.LayoutParams(-1, -1));
-            this.f44774f = new ImageView(getContext());
+            this.a = new EmotionView(getContext());
+            addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+            this.f34687b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = n.f(getContext(), R.dimen.ds8);
-            layoutParams.rightMargin = n.f(getContext(), R.dimen.ds8);
-            addView(this.f44774f, layoutParams);
+            layoutParams.topMargin = n.f(getContext(), R.dimen.obfuscated_res_0x7f0702fb);
+            layoutParams.rightMargin = n.f(getContext(), R.dimen.obfuscated_res_0x7f0702fb);
+            addView(this.f34687b, layoutParams);
         }
     }
 
     public EmotionView getEmotionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44773e : (EmotionView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (EmotionView) invokeV.objValue;
     }
 
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EmotionView emotionView = this.f44773e;
+            EmotionView emotionView = this.a;
             if (emotionView != null) {
                 return emotionView.getLoadProcType();
             }
@@ -84,19 +82,19 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.f44774f, R.drawable.ic_post_image_selected_s);
+                SkinManager.setBackgroundResource(this.f34687b, R.drawable.obfuscated_res_0x7f080655);
             } else {
-                SkinManager.setBackgroundResource(this.f44774f, R.drawable.ic_post_image_selected_n);
+                SkinManager.setBackgroundResource(this.f34687b, R.drawable.obfuscated_res_0x7f080654);
             }
         }
     }
 
-    public void setData(EmotionImageData emotionImageData, int i2) {
+    public void setData(EmotionImageData emotionImageData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i2) == null) {
-            this.f44773e.setLoadProcType(i2);
-            this.f44773e.enablePreview();
-            this.f44773e.loadData(emotionImageData);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i) == null) {
+            this.a.setLoadProcType(i);
+            this.a.j0();
+            this.a.l0(emotionImageData);
         }
     }
 
@@ -109,9 +107,9 @@ public class PickEmotionView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -123,17 +121,17 @@ public class PickEmotionView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PickEmotionView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PickEmotionView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

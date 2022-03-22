@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.source.SampleStream;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MediaClock;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,22 +28,22 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     public long streamOffsetUs;
     public final int trackType;
 
-    public BaseRenderer(int i2) {
+    public BaseRenderer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.trackType = i2;
+        this.trackType = i;
         this.readEndOfStream = true;
     }
 
@@ -75,15 +75,15 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public final void enable(RendererConfiguration rendererConfiguration, Format[] formatArr, SampleStream sampleStream, long j2, boolean z, long j3) throws ExoPlaybackException {
+    public final void enable(RendererConfiguration rendererConfiguration, Format[] formatArr, SampleStream sampleStream, long j, boolean z, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rendererConfiguration, formatArr, sampleStream, Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rendererConfiguration, formatArr, sampleStream, Long.valueOf(j), Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             Assertions.checkState(this.state == 0);
             this.configuration = rendererConfiguration;
             this.state = 1;
             onEnabled(z);
-            replaceStream(formatArr, sampleStream, j3);
-            onPositionReset(j2, z);
+            replaceStream(formatArr, sampleStream, j2);
+            onPositionReset(j, z);
         }
     }
 
@@ -138,9 +138,9 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     }
 
     @Override // com.google.android.exoplayer2.ExoPlayer.ExoPlayerComponent
-    public void handleMessage(int i2, Object obj) throws ExoPlaybackException {
+    public void handleMessage(int i, Object obj) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
         }
     }
 
@@ -184,9 +184,9 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
         }
     }
 
-    public void onPositionReset(long j2, boolean z) throws ExoPlaybackException {
+    public void onPositionReset(long j, boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
         }
     }
 
@@ -202,9 +202,9 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
         }
     }
 
-    public void onStreamChanged(Format[] formatArr, long j2) throws ExoPlaybackException {
+    public void onStreamChanged(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048595, this, formatArr, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, formatArr, j) == null) {
         }
     }
 
@@ -221,9 +221,9 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
                 decoderInputBuffer.timeUs += this.streamOffsetUs;
             } else if (readData == -5) {
                 Format format = formatHolder.format;
-                long j2 = format.subsampleOffsetUs;
-                if (j2 != Long.MAX_VALUE) {
-                    formatHolder.format = format.copyWithSubsampleOffsetUs(j2 + this.streamOffsetUs);
+                long j = format.subsampleOffsetUs;
+                if (j != Long.MAX_VALUE) {
+                    formatHolder.format = format.copyWithSubsampleOffsetUs(j + this.streamOffsetUs);
                 }
             }
             return readData;
@@ -232,24 +232,24 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public final void replaceStream(Format[] formatArr, SampleStream sampleStream, long j2) throws ExoPlaybackException {
+    public final void replaceStream(Format[] formatArr, SampleStream sampleStream, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{formatArr, sampleStream, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{formatArr, sampleStream, Long.valueOf(j)}) == null) {
             Assertions.checkState(!this.streamIsFinal);
             this.stream = sampleStream;
             this.readEndOfStream = false;
-            this.streamOffsetUs = j2;
-            onStreamChanged(formatArr, j2);
+            this.streamOffsetUs = j;
+            onStreamChanged(formatArr, j);
         }
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public final void resetPosition(long j2) throws ExoPlaybackException {
+    public final void resetPosition(long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
             this.streamIsFinal = false;
             this.readEndOfStream = false;
-            onPositionReset(j2, false);
+            onPositionReset(j, false);
         }
     }
 
@@ -262,17 +262,17 @@ public abstract class BaseRenderer implements Renderer, RendererCapabilities {
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public final void setIndex(int i2) {
+    public final void setIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.index = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.index = i;
         }
     }
 
-    public int skipSource(long j2) {
+    public int skipSource(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j2)) == null) ? this.stream.skipData(j2 - this.streamOffsetUs) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) ? this.stream.skipData(j - this.streamOffsetUs) : invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.Renderer

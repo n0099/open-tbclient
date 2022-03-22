@@ -24,34 +24,34 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 == 10103) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 10103) {
                 return "shareToQQ";
             }
-            if (i2 == 10104) {
+            if (i == 10104) {
                 return "shareToQzone";
             }
-            if (i2 == 10105) {
+            if (i == 10105) {
                 return "addToQQFavorites";
             }
-            if (i2 == 10106) {
+            if (i == 10106) {
                 return "sendToMyComputer";
             }
-            if (i2 == 10107) {
+            if (i == 10107) {
                 return "shareToTroopBar";
             }
-            if (i2 == 11101) {
+            if (i == 11101) {
                 return "action_login";
             }
-            if (i2 == 10100) {
+            if (i == 10100) {
                 return "action_request";
             }
             return null;
@@ -138,26 +138,26 @@ public class i {
                 if (str != null || str2 == null) {
                     String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    int i2 = 0;
-                    while (i2 < split.length && i2 < split2.length) {
+                    int i = 0;
+                    while (i < split.length && i < split2.length) {
                         try {
-                            int parseInt = Integer.parseInt(split[i2]);
-                            int parseInt2 = Integer.parseInt(split2[i2]);
+                            int parseInt = Integer.parseInt(split[i]);
+                            int parseInt2 = Integer.parseInt(split2[i]);
                             if (parseInt < parseInt2) {
                                 return -1;
                             }
                             if (parseInt > parseInt2) {
                                 return 1;
                             }
-                            i2++;
+                            i++;
                         } catch (NumberFormatException unused) {
                             return str.compareTo(str2);
                         }
                     }
-                    if (split.length > i2) {
+                    if (split.length > i) {
                         return 1;
                     }
-                    return split2.length > i2 ? -1 : 0;
+                    return split2.length > i ? -1 : 0;
                 }
                 return -1;
             }
@@ -248,12 +248,12 @@ public class i {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(String str, String str2, int i2) {
+    public static boolean a(String str, String str2, int i) {
         InterceptResult invokeLLI;
         FileOutputStream fileOutputStream;
         InputStream open;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, str, str2, i)) == null) {
             SLog.i("openSDK_LOG.SystemUtils", "-->extractSecureLib, libName: " + str);
             Context a = f.a();
             if (a == null) {
@@ -272,9 +272,9 @@ public class i {
                     }
                 }
             } else {
-                int i3 = sharedPreferences.getInt("version", 0);
-                SLog.i("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i2 + " | oldVersion: " + i3);
-                if (i2 == i3) {
+                int i2 = sharedPreferences.getInt("version", 0);
+                SLog.i("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i + " | oldVersion: " + i2);
+                if (i == i2) {
                     return true;
                 }
             }
@@ -295,7 +295,7 @@ public class i {
                 fileOutputStream2 = a.openFileOutput(str2, 0);
                 a(open, fileOutputStream2);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putInt("version", i2);
+                edit.putInt("version", i);
                 edit.commit();
                 if (open != null) {
                     try {
@@ -368,15 +368,15 @@ public class i {
             return invokeLL.longValue;
         }
         byte[] bArr = new byte[8192];
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr, 0, 8192);
             if (read != -1) {
                 outputStream.write(bArr, 0, read);
-                j2 += read;
+                j += read;
             } else {
-                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j2);
-                return j2;
+                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
+                return j;
             }
         }
     }

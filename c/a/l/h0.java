@@ -18,7 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class h0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SingleLinkCardView l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public SingleLinkCardView f3424h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h0(Context context) {
@@ -29,66 +31,66 @@ public class h0 extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().n instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().n.getParent() == null) {
-            this.l = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().n;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
+            this.f3424h = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
         } else {
-            this.l = new SingleLinkCardView(context);
+            this.f3424h = new SingleLinkCardView(context);
         }
-        q(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        r(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3424h : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.l.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f3424h.b();
         }
     }
 
-    public final boolean r(c.a.q0.r.r.a aVar) {
+    public final boolean s(c.a.o0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().I2() || aVar.getThreadData().u1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().isVideoThreadType() || aVar.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean s(c.a.q0.r.r.a aVar) {
+    public final boolean t(c.a.o0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().K0() == null || aVar.getThreadData().K0().getOptions() == null || aVar.getThreadData().K0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().getPollData() == null || aVar.getThreadData().getPollData().getOptions() == null || aVar.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: t */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: u */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (!s(aVar) && aVar != null && aVar.getThreadData() != null && !r(aVar) && ((!ListUtils.isEmpty(aVar.getThreadData().C0()) || ListUtils.getCount(aVar.getThreadData().e0()) == 1) && ((!ListUtils.isEmpty(aVar.getThreadData().e0()) || ListUtils.getCount(aVar.getThreadData().C0()) == 1) && ListUtils.getCount(aVar.getThreadData().C0()) + ListUtils.getCount(aVar.getThreadData().e0()) == 1))) {
-                if (aVar.getThreadData().C0().size() >= 1) {
-                    this.l.bindData((c.a.r0.f0.d0.c) ListUtils.getItem(aVar.getThreadData().C0(), 0));
-                } else if (aVar.getThreadData().e0().size() >= 1) {
-                    this.l.bindData((c.a.r0.f0.d0.c) ListUtils.getItem(aVar.getThreadData().e0(), 0));
+            if (!t(aVar) && aVar != null && aVar.getThreadData() != null && !s(aVar) && ((!ListUtils.isEmpty(aVar.getThreadData().getLinkDataList()) || ListUtils.getCount(aVar.getThreadData().getGoodsDataList()) == 1) && ((!ListUtils.isEmpty(aVar.getThreadData().getGoodsDataList()) || ListUtils.getCount(aVar.getThreadData().getLinkDataList()) == 1) && ListUtils.getCount(aVar.getThreadData().getLinkDataList()) + ListUtils.getCount(aVar.getThreadData().getGoodsDataList()) == 1))) {
+                if (aVar.getThreadData().getLinkDataList().size() >= 1) {
+                    this.f3424h.a((c.a.p0.h0.e0.c) ListUtils.getItem(aVar.getThreadData().getLinkDataList(), 0));
+                } else if (aVar.getThreadData().getGoodsDataList().size() >= 1) {
+                    this.f3424h.a((c.a.p0.h0.e0.c) ListUtils.getItem(aVar.getThreadData().getGoodsDataList(), 0));
                 }
-                this.l.setVisibility(0);
+                this.f3424h.setVisibility(0);
                 return;
             }
-            this.l.setVisibility(8);
+            this.f3424h.setVisibility(8);
         }
     }
 }

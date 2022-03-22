@@ -1,8 +1,8 @@
 package com.baidu.searchbox.elasticthread.statistic;
 
 import android.os.SystemClock;
-import com.alipay.sdk.app.statistic.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.ElasticDataUploader;
 import com.baidu.searchbox.elasticthread.executor.BaseDredgeExecutorCell;
@@ -37,9 +37,9 @@ public class StatisticRecorder implements Recordable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,10 +65,10 @@ public class StatisticRecorder implements Recordable {
         return (JSONObject) invokeL.objValue;
     }
 
-    private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell, int i2) throws JSONException {
+    private JSONObject loadDredgeExecutorData(BaseDredgeExecutorCell baseDredgeExecutorCell, int i) throws JSONException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, baseDredgeExecutorCell, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, baseDredgeExecutorCell, i)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (baseDredgeExecutorCell != null) {
                 jSONObject.put("maxThreadNum", baseDredgeExecutorCell.getMaxThreadNum());
@@ -141,13 +141,13 @@ public class StatisticRecorder implements Recordable {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 ArteryManager arteryManager = elasticTaskScheduler.getArteryManager();
-                jSONObject3.put("first", loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
+                jSONObject3.put(Config.TRACE_VISIT_FIRST, loadArteryExecutorData(arteryManager.getUserRelatedArteryExecutor()));
                 jSONObject3.put(TypeAdapters.AnonymousClass27.SECOND, loadArteryExecutorData(arteryManager.getInTimeArteryExecutor()));
-                jSONObject3.put(b.o, loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
+                jSONObject3.put("third", loadArteryExecutorData(arteryManager.getBackgroundArteryExecutor()));
                 jSONObject2.put("artery", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
                 DredgeManager dredgeManager = elasticTaskScheduler.getDredgeManager();
-                jSONObject4.put("first", loadDredgeExecutorData(dredgeManager.getFirstDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_FIRST_CORE_POOL_SIZE));
+                jSONObject4.put(Config.TRACE_VISIT_FIRST, loadDredgeExecutorData(dredgeManager.getFirstDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_FIRST_CORE_POOL_SIZE));
                 jSONObject4.put(TypeAdapters.AnonymousClass27.SECOND, loadDredgeExecutorData(dredgeManager.getSecondDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_SECOND_CORE_POOL_SIZE));
                 jSONObject4.put("disaster", loadDredgeExecutorData(dredgeManager.getDisasterDredgeExecutor(), ElasticConfig.DREDGE_CONFIG_DISASTER_MAX_POOL_SIZE));
                 jSONObject2.put("dredge", jSONObject4);
@@ -155,9 +155,9 @@ public class StatisticRecorder implements Recordable {
                 JSONObject jSONObject5 = new JSONObject();
                 QueueManager queueManager = elasticTaskScheduler.getQueueManager();
                 jSONObject5.put("immediate", loadSingleQueueData(queueManager.getQueue(0)));
-                jSONObject5.put("first", loadSingleQueueData(queueManager.getQueue(1)));
+                jSONObject5.put(Config.TRACE_VISIT_FIRST, loadSingleQueueData(queueManager.getQueue(1)));
                 jSONObject5.put(TypeAdapters.AnonymousClass27.SECOND, loadSingleQueueData(queueManager.getQueue(2)));
-                jSONObject5.put(b.o, loadSingleQueueData(queueManager.getQueue(3)));
+                jSONObject5.put("third", loadSingleQueueData(queueManager.getQueue(3)));
                 jSONObject.put("queue", jSONObject5);
                 ElasticDataUploader.getInstance().uploadStatisticData(jSONObject);
             } catch (Exception unused) {

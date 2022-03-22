@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes6.dex */
 public class MediaBaseRenderer implements IMediaRenderer {
@@ -43,9 +42,9 @@ public class MediaBaseRenderer implements IMediaRenderer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,23 +75,23 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(e eVar, int i2, float[] fArr) {
+    public void onDrawFrame(e eVar, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eVar, i2, fArr) == null) {
-            this.mTextureId = i2;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eVar, i, fArr) == null) {
+            this.mTextureId = i;
             this.mMtx = fArr;
             GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
             GLES20.glViewport(gLViewPortLocation.x, gLViewPortLocation.y, gLViewPortLocation.width, gLViewPortLocation.height);
             GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-            GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
+            GLES20.glBlendFunc(770, 771);
             if (this.mTextureMode == 1) {
                 this.mFullScreen2D.setVertexPoint(GlUtil.IDENTITY_MATRIX);
                 this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                this.mFullScreen2D.drawFrame(i2, fArr);
+                this.mFullScreen2D.drawFrame(i, fArr);
                 this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
             } else {
                 this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                this.mFullScreenEXT.drawFrame(i2, fArr);
+                this.mFullScreenEXT.drawFrame(i, fArr);
                 this.mFullScreenEXT.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
             }
             GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
@@ -136,11 +135,11 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, gl10, i2, i3) == null) {
-            this.mSurfaceViewWidth = i2;
-            this.mSurfaceViewHeight = i3;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, gl10, i, i2) == null) {
+            this.mSurfaceViewWidth = i;
+            this.mSurfaceViewHeight = i2;
         }
     }
 
@@ -172,11 +171,11 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 
@@ -200,10 +199,10 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void setTextureMode(int i2) {
+    public void setTextureMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mTextureMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mTextureMode = i;
         }
     }
 }

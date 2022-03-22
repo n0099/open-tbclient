@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.r0.d4.c;
+import c.a.p0.f4.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -18,24 +18,22 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SET_USE = 1;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36305b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36306c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f36307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f47000e;
+    public b f36308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47001f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f47002g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f47003h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public b f47004i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f47005j;
+    public c.a.d.c.g.a f36309f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -44,17 +42,17 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         public final /* synthetic */ SetAvatarPendantModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SetAvatarPendantModel setAvatarPendantModel, int i2, int i3) {
-            super(i2, i3);
+        public a(SetAvatarPendantModel setAvatarPendantModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {setAvatarPendantModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {setAvatarPendantModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -74,25 +72,25 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
             boolean z = responsedMessage instanceof SetPendantHttpResponse;
             if (z || (responsedMessage instanceof SetPendantSocketResponse)) {
                 if (responsedMessage.getError() == 0) {
-                    this.a.E(true);
+                    this.a.G(true);
                 } else {
-                    this.a.E(false);
+                    this.a.G(false);
                 }
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
-                    this.a.C(setPendantHttpResponse.getPendantId());
-                    this.a.f47002g = setPendantHttpResponse.getFreeUseLevel();
+                    this.a.E(setPendantHttpResponse.getPendantId());
+                    this.a.f36306c = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                    this.a.C(setPendantSocketResponse.getPendantId());
-                    this.a.f47002g = setPendantSocketResponse.getFreeUseLevel();
+                    this.a.E(setPendantSocketResponse.getPendantId());
+                    this.a.f36306c = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (this.a.f47004i != null) {
-                    int i2 = c.f16899b;
-                    if (responsedMessage.getError() == c.f16900c) {
-                        i2 = c.a;
+                if (this.a.f36308e != null) {
+                    int i = c.f14994b;
+                    if (responsedMessage.getError() == c.f14995c) {
+                        i = c.a;
                     }
-                    this.a.f47004i.onSetPendantCallback(this.a.f47003h, this.a.f47000e, this.a.f47002g, responsedMessage.getErrorString(), i2);
+                    this.a.f36308e.onSetPendantCallback(this.a.f36307d, this.a.a, this.a.f36306c, responsedMessage.getErrorString(), i);
                 }
             }
         }
@@ -100,7 +98,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void onSetPendantCallback(boolean z, long j2, int i2, String str, int i3);
+        void onSetPendantCallback(boolean z, long j, int i, String str, int i2);
     }
 
     public SetAvatarPendantModel() {
@@ -108,50 +106,50 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47003h = false;
-        this.f47005j = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        c.a.r0.y3.g0.a.h(309412, SetPendantSocketResponse.class, false, false);
-        c.a.r0.y3.g0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.f47005j);
+        this.f36307d = false;
+        this.f36309f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
+        c.a.p0.a4.g0.a.h(309412, SetPendantSocketResponse.class, false, false);
+        c.a.p0.a4.g0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        registerListener(this.f36309f);
     }
 
-    public void B(long j2, int i2, int i3) {
+    public void D(long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             SetPendantRequest setPendantRequest = new SetPendantRequest();
-            setPendantRequest.setPendantId(j2);
-            setPendantRequest.setType(i2);
-            setPendantRequest.setFreeUseLevel(i3);
+            setPendantRequest.setPendantId(j);
+            setPendantRequest.setType(i);
+            setPendantRequest.setFreeUseLevel(i2);
             MessageManager.getInstance().sendMessage(setPendantRequest);
         }
     }
 
-    public void C(long j2) {
+    public void E(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f47000e = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void D(b bVar) {
+    public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f47004i = bVar;
+            this.f36308e = bVar;
         }
     }
 
-    public void E(boolean z) {
+    public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f47003h = z;
+            this.f36307d = z;
         }
     }
 
@@ -168,7 +166,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47001f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36305b : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -184,7 +182,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47005j);
+            MessageManager.getInstance().unRegisterListener(this.f36309f);
         }
     }
 }

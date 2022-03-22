@@ -7,15 +7,15 @@ import java.io.IOException;
 /* loaded from: classes4.dex */
 public interface DownloadStore extends BreakpointStore {
     @Nullable
-    BreakpointInfo getAfterCompleted(int i2);
+    BreakpointInfo getAfterCompleted(int i);
 
-    boolean markFileClear(int i2);
+    boolean markFileClear(int i);
 
-    boolean markFileDirty(int i2);
+    boolean markFileDirty(int i);
 
-    void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) throws IOException;
+    void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException;
 
-    void onTaskEnd(int i2, @NonNull EndCause endCause, @Nullable Exception exc);
+    void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc);
 
-    void onTaskStart(int i2);
+    void onTaskStart(int i);
 }

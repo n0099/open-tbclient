@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import java.io.IOException;
@@ -38,12 +37,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f30809b;
+    public static b f24655b;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f30810c;
+    public Context f24656c;
 
     /* loaded from: classes3.dex */
     public class a implements Interceptor {
@@ -58,9 +57,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,7 +77,7 @@ public class b {
                 public final /* synthetic */ RequestBody a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f30812b;
+                public final /* synthetic */ a f24658b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -87,15 +86,15 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, requestBody};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f30812b = this;
+                    this.f24658b = this;
                     this.a = requestBody;
                 }
 
@@ -157,26 +156,26 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = a();
-        this.f30810c = context;
+        this.f24656c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f30809b == null) {
-                f30809b = new b(context);
+            if (f24655b == null) {
+                f24655b = new b(context);
             }
-            return f30809b;
+            return f24655b;
         }
         return (b) invokeL.objValue;
     }
@@ -222,13 +221,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C1730a.C1731a.C1732a e2 = a.C1730a.C1731a.e();
+            a.C1698a.C1699a.C1700a e2 = a.C1698a.C1699a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C1730a.C1731a build = e2.a(str).build();
+            a.C1698a.C1699a build = e2.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C1730a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.f30810c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C1698a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.f24656c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -246,7 +245,7 @@ public class b {
                 public final /* synthetic */ c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f30811b;
+                public final /* synthetic */ b f24657b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -255,15 +254,15 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, cVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f30811b = this;
+                    this.f24657b = this;
                     this.a = cVar;
                 }
 
@@ -283,20 +282,20 @@ public class b {
                 public void onResponse(Call call, Response response) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                        String str2 = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
-                        int i2 = 0;
+                        String str2 = "ok";
+                        int i = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f30811b.a(response.body().bytes());
-                                i2 = Integer.valueOf(a3[0]).intValue();
+                                String[] a3 = this.f24657b.a(response.body().bytes());
+                                i = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }
                         } catch (IOException unused) {
                         } catch (Throwable th) {
-                            this.a.a(i2, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                            this.a.a(i, "ok");
                             throw th;
                         }
-                        this.a.a(i2, str2);
+                        this.a.a(i, str2);
                     }
                 }
             });

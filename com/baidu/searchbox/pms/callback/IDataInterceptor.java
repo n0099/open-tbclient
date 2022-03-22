@@ -6,5 +6,5 @@ import org.json.JSONObject;
 public interface IDataInterceptor {
     JSONObject getUploadData();
 
-    CheckData onReceiveData(JSONObject jSONObject, int i2, int i3, String str);
+    CheckData onReceiveData(JSONObject jSONObject, int i, int i2, String str);
 }

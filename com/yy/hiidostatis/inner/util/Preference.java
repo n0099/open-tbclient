@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Preference {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class Preference {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,16 +107,16 @@ public class Preference {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{context, str, Float.valueOf(f2)})) == null) ? getSharedPreferences(context).getFloat(str, f2) : invokeCommon.floatValue;
     }
 
-    public int getPrefInt(Context context, String str, int i2) {
+    public int getPrefInt(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, str, i2)) == null) ? getSharedPreferences(context).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, str, i)) == null) ? getSharedPreferences(context).getInt(str, i) : invokeLLI.intValue;
     }
 
-    public long getPrefLong(Context context, String str, long j2) {
+    public long getPrefLong(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j2)})) == null) ? getSharedPreferences(context).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j)})) == null) ? getSharedPreferences(context).getLong(str, j) : invokeCommon.longValue;
     }
 
     public String getPrefString(Context context, String str, String str2) {
@@ -155,26 +155,26 @@ public class Preference {
         }
     }
 
-    public void setPrefInt(Context context, String str, int i2) {
+    public void setPrefInt(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048587, this, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048587, this, context, str, i) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences(context);
             if (Build.VERSION.SDK_INT >= 9) {
-                sharedPreferences.edit().putInt(str, i2).apply();
+                sharedPreferences.edit().putInt(str, i).apply();
             } else {
-                sharedPreferences.edit().putInt(str, i2).commit();
+                sharedPreferences.edit().putInt(str, i).commit();
             }
         }
     }
 
-    public void setPrefLong(Context context, String str, long j2) {
+    public void setPrefLong(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{context, str, Long.valueOf(j)}) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences(context);
             if (Build.VERSION.SDK_INT >= 9) {
-                sharedPreferences.edit().putLong(str, j2).apply();
+                sharedPreferences.edit().putLong(str, j).apply();
             } else {
-                sharedPreferences.edit().putLong(str, j2).commit();
+                sharedPreferences.edit().putLong(str, j).commit();
             }
         }
     }
@@ -198,9 +198,9 @@ public class Preference {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

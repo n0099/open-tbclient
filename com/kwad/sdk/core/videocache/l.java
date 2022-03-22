@@ -2,6 +2,7 @@ package com.kwad.sdk.core.videocache;
 
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -9,7 +10,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static String a(String str) {
         MimeTypeMap singleton = MimeTypeMap.getSingleton();
@@ -23,8 +24,8 @@ public class l {
     public static String a(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
         int length = bArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            stringBuffer.append(String.format("%02x", Byte.valueOf(bArr[i2])));
+        for (int i = 0; i < length; i++) {
+            stringBuffer.append(String.format("%02x", Byte.valueOf(bArr[i])));
         }
         return stringBuffer.toString();
     }
@@ -39,16 +40,16 @@ public class l {
         }
     }
 
-    public static void a(byte[] bArr, long j2, int i2) {
+    public static void a(byte[] bArr, long j, int i) {
         j.a(bArr, "Buffer must be not null!");
         boolean z = true;
-        j.a(j2 >= 0, "Data offset must be positive!");
-        j.a((i2 < 0 || i2 > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
+        j.a(j >= 0, "Data offset must be positive!");
+        j.a((i < 0 || i > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
     }
 
     public static String b(String str) {
         try {
-            return URLEncoder.encode(str, "utf-8");
+            return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException e2) {
             throw new RuntimeException("Error encoding url", e2);
         }
@@ -56,7 +57,7 @@ public class l {
 
     public static String c(String str) {
         try {
-            return URLDecoder.decode(str, "utf-8");
+            return URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException e2) {
             throw new RuntimeException("Error decoding url", e2);
         }

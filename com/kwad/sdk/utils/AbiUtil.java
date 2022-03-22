@@ -2,13 +2,14 @@ package com.kwad.sdk.utils;
 
 import android.os.Build;
 import android.os.Process;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Reflect;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class AbiUtil {
     public static Abi a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,
@@ -16,7 +17,7 @@ public final class AbiUtil {
     }
 
     public static String a() {
-        return b() ? "arm64-v8a" : "armeabi-v7a";
+        return b() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
     }
 
     public static boolean b() {
@@ -29,10 +30,10 @@ public final class AbiUtil {
         if (abi2 != null) {
             return abi2;
         }
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 21) {
-            if (i2 < 23) {
-                if (i2 >= 21) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            if (i < 23) {
+                if (i >= 21) {
                     try {
                         a = ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue() ? Abi.ARM64_V8A : Abi.ARMEABI_V7A;
                     } catch (Throwable th) {

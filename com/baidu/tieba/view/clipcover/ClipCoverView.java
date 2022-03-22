@@ -11,7 +11,7 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.q0.r.v.a;
+import c.a.o0.r.v.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,26 +23,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ClipCoverView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Paint f37034b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Path f37035c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f37036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f47882e;
+    public Xfermode f37037e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f47883f;
+    public Context f37038f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f47884g;
+    public int f37039g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f47885h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Xfermode f47886i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Context f47887j;
-    public int k;
-    public int l;
+    public int f37040h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ClipCoverView(Context context) {
@@ -53,9 +55,9 @@ public class ClipCoverView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -68,7 +70,7 @@ public class ClipCoverView extends View {
     public final void a(@NonNull Canvas canvas, Path path) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, path) == null) {
-            canvas.drawPath(path, this.f47883f);
+            canvas.drawPath(path, this.f37034b);
         }
     }
 
@@ -76,11 +78,11 @@ public class ClipCoverView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Paint paint = new Paint();
-            this.f47883f = paint;
+            this.f37034b = paint;
             paint.setAntiAlias(true);
-            this.f47883f.setStyle(Paint.Style.STROKE);
-            this.f47883f.setStrokeWidth(this.f47885h);
-            this.f47883f.setColor(getResources().getColor(R.color.CAM_X0402));
+            this.f37034b.setStyle(Paint.Style.STROKE);
+            this.f37034b.setStrokeWidth(this.f37036d);
+            this.f37034b.setColor(getResources().getColor(R.color.CAM_X0402));
         }
     }
 
@@ -89,10 +91,10 @@ public class ClipCoverView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             RectF rectF = new RectF();
-            rectF.left = (getWidth() - this.k) * 0.5f;
-            rectF.right = (getWidth() + this.k) * 0.5f;
-            rectF.top = (getHeight() - this.l) * 0.5f;
-            rectF.bottom = (getHeight() + this.l) * 0.5f;
+            rectF.left = (getWidth() - this.f37039g) * 0.5f;
+            rectF.right = (getWidth() + this.f37039g) * 0.5f;
+            rectF.top = (getHeight() - this.f37040h) * 0.5f;
+            rectF.bottom = (getHeight() + this.f37040h) * 0.5f;
             return rectF;
         }
         return (RectF) invokeV.objValue;
@@ -105,15 +107,15 @@ public class ClipCoverView extends View {
             super.onDraw(canvas);
             canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             canvas.drawColor(getResources().getColor(R.color.CAM_X0608));
-            this.f47882e.setXfermode(this.f47886i);
+            this.a.setXfermode(this.f37037e);
             RectF clipCoverRect = getClipCoverRect();
-            if (this.f47884g == null) {
-                this.f47884g = new Path();
+            if (this.f37035c == null) {
+                this.f37035c = new Path();
             }
-            this.f47884g.reset();
-            this.f47884g.addRoundRect(clipCoverRect, a.y(R.string.J_X05), Path.Direction.CW);
-            canvas.drawPath(this.f47884g, this.f47882e);
-            a(canvas, this.f47884g);
+            this.f37035c.reset();
+            this.f37035c.addRoundRect(clipCoverRect, a.y(R.string.J_X05), Path.Direction.CW);
+            canvas.drawPath(this.f37035c, this.a);
+            a(canvas, this.f37035c);
             canvas.restore();
         }
     }
@@ -121,8 +123,8 @@ public class ClipCoverView extends View {
     public void setClipBorderWidth(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.f47885h = f2;
-            this.f47883f.setStrokeWidth(f2);
+            this.f37036d = f2;
+            this.f37034b.setStrokeWidth(f2);
             invalidate();
         }
     }
@@ -130,14 +132,14 @@ public class ClipCoverView extends View {
     public void setmHorizontal(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.k = (int) f2;
+            this.f37039g = (int) f2;
         }
     }
 
     public void setmVerticalPadding(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.l = (int) f2;
+            this.f37040h = (int) f2;
         }
     }
 
@@ -150,9 +152,9 @@ public class ClipCoverView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -163,17 +165,17 @@ public class ClipCoverView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClipCoverView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ClipCoverView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -182,11 +184,11 @@ public class ClipCoverView extends View {
             }
         }
         Paint paint = new Paint();
-        this.f47882e = paint;
+        this.a = paint;
         paint.setAntiAlias(true);
-        this.f47882e.setStyle(Paint.Style.FILL);
-        this.f47886i = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
-        this.f47887j = context;
+        this.a.setStyle(Paint.Style.FILL);
+        this.f37037e = new PorterDuffXfermode(PorterDuff.Mode.DST_OUT);
+        this.f37038f = context;
         b();
     }
 }

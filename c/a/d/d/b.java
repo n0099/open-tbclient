@@ -6,9 +6,9 @@ import android.graphics.Canvas;
 public interface b {
     boolean a(Bitmap bitmap, Canvas canvas);
 
-    int b(int i2);
+    int b(int i);
 
-    boolean c(int i2);
+    boolean c(int i);
 
     void close();
 

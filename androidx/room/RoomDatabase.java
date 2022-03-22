@@ -6,6 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Looper;
+import android.util.Log;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -81,9 +82,9 @@ public abstract class RoomDatabase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, cls, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -193,8 +194,8 @@ public abstract class RoomDatabase {
                 if (this.mMigrationsNotRequiredFrom == null) {
                     this.mMigrationsNotRequiredFrom = new HashSet(iArr.length);
                 }
-                for (int i2 : iArr) {
-                    this.mMigrationsNotRequiredFrom.add(Integer.valueOf(i2));
+                for (int i : iArr) {
+                    this.mMigrationsNotRequiredFrom.add(Integer.valueOf(i));
                 }
                 return this;
             }
@@ -245,9 +246,9 @@ public abstract class RoomDatabase {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -298,16 +299,16 @@ public abstract class RoomDatabase {
             $VALUES = new JournalMode[]{AUTOMATIC, TRUNCATE, journalMode};
         }
 
-        public JournalMode(String str, int i2) {
+        public JournalMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -358,9 +359,9 @@ public abstract class RoomDatabase {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -372,18 +373,18 @@ public abstract class RoomDatabase {
         private void addMigration(Migration migration) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, migration) == null) {
-                int i2 = migration.startVersion;
-                int i3 = migration.endVersion;
-                SparseArrayCompat<Migration> sparseArrayCompat = this.mMigrations.get(i2);
+                int i = migration.startVersion;
+                int i2 = migration.endVersion;
+                SparseArrayCompat<Migration> sparseArrayCompat = this.mMigrations.get(i);
                 if (sparseArrayCompat == null) {
                     sparseArrayCompat = new SparseArrayCompat<>();
-                    this.mMigrations.put(i2, sparseArrayCompat);
+                    this.mMigrations.put(i, sparseArrayCompat);
                 }
-                Migration migration2 = sparseArrayCompat.get(i3);
+                Migration migration2 = sparseArrayCompat.get(i2);
                 if (migration2 != null) {
-                    String str = "Overriding migration " + migration2 + " with " + migration;
+                    Log.w(Room.LOG_TAG, "Overriding migration " + migration2 + " with " + migration);
                 }
-                sparseArrayCompat.append(i3, migration);
+                sparseArrayCompat.append(i2, migration);
             }
         }
 
@@ -392,51 +393,51 @@ public abstract class RoomDatabase {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private List<Migration> findUpMigrationPath(List<Migration> list, boolean z, int i2, int i3) {
+        private List<Migration> findUpMigrationPath(List<Migration> list, boolean z, int i, int i2) {
             InterceptResult invokeCommon;
             SparseArrayCompat<Migration> sparseArrayCompat;
             boolean z2;
+            int i3;
             int i4;
-            int i5;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-                int i6 = z ? -1 : 1;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+                int i5 = z ? -1 : 1;
                 do {
                     if (z) {
-                        if (i2 >= i3) {
+                        if (i >= i2) {
                             return list;
                         }
-                        sparseArrayCompat = this.mMigrations.get(i2);
+                        sparseArrayCompat = this.mMigrations.get(i);
                         if (sparseArrayCompat != null) {
                             return null;
                         }
                         int size = sparseArrayCompat.size();
                         z2 = false;
                         if (z) {
-                            i5 = size - 1;
-                            i4 = -1;
+                            i4 = size - 1;
+                            i3 = -1;
                         } else {
-                            i4 = size;
-                            i5 = 0;
+                            i3 = size;
+                            i4 = 0;
                         }
                         while (true) {
-                            if (i5 != i4) {
-                                int keyAt = sparseArrayCompat.keyAt(i5);
-                                if (!z ? keyAt < i3 || keyAt >= i2 : keyAt > i3 || keyAt <= i2) {
-                                    list.add(sparseArrayCompat.valueAt(i5));
-                                    i2 = keyAt;
+                            if (i4 != i3) {
+                                int keyAt = sparseArrayCompat.keyAt(i4);
+                                if (!z ? keyAt < i2 || keyAt >= i : keyAt > i2 || keyAt <= i) {
+                                    list.add(sparseArrayCompat.valueAt(i4));
+                                    i = keyAt;
                                     z2 = true;
                                     continue;
                                     break;
                                 }
-                                i5 += i6;
+                                i4 += i5;
                             }
                         }
                     } else {
-                        if (i2 <= i3) {
+                        if (i <= i2) {
                             return list;
                         }
-                        sparseArrayCompat = this.mMigrations.get(i2);
+                        sparseArrayCompat = this.mMigrations.get(i);
                         if (sparseArrayCompat != null) {
                         }
                     }
@@ -456,14 +457,14 @@ public abstract class RoomDatabase {
         }
 
         @Nullable
-        public List<Migration> findMigrationPath(int i2, int i3) {
+        public List<Migration> findMigrationPath(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                if (i2 == i3) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                if (i == i2) {
                     return Collections.emptyList();
                 }
-                return findUpMigrationPath(new ArrayList(), i3 > i2, i2, i3);
+                return findUpMigrationPath(new ArrayList(), i2 > i, i, i2);
             }
             return (List) invokeII.objValue;
         }
@@ -474,9 +475,9 @@ public abstract class RoomDatabase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

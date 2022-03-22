@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mEmpertyView;
+    public View a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsEmpertyItemViewHolder(View view) {
@@ -23,33 +23,33 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mEmpertyView = view;
+        this.a = view;
     }
 
-    public void setBackground(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == 0) {
             return;
         }
-        SkinManager.setBackgroundResource(this.mEmpertyView, i2);
+        SkinManager.setBackgroundResource(this.a, i);
     }
 
-    public void setViewHeight(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 < 0) {
-                this.mEmpertyView.setMinimumHeight(0);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i < 0) {
+                this.a.setMinimumHeight(0);
             } else {
-                this.mEmpertyView.setMinimumHeight(i2);
+                this.a.setMinimumHeight(i);
             }
         }
     }

@@ -59,9 +59,9 @@ public class PluginSettingIOService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginSettingIOService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -156,10 +156,10 @@ public class PluginSettingIOService extends Service {
                         if (b.b().d() == null || (data6 = message.getData()) == null) {
                             return;
                         }
-                        int i2 = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
+                        int i = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
                         PluginSetting findPluginSetting3 = b.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                         if (findPluginSetting3 != null) {
-                            findPluginSetting3.installStatus = i2;
+                            findPluginSetting3.installStatus = i;
                             this.a.save(b.b().d(), null);
                             this.a.sendUpdateMsg(11, data6);
                             return;
@@ -183,9 +183,9 @@ public class PluginSettingIOService extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -204,13 +204,13 @@ public class PluginSettingIOService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendUpdateMsg(int i2, Bundle bundle) {
+    public void sendUpdateMsg(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, this, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i, bundle) == null) {
             Iterator<Messenger> it = this.mClients.iterator();
             while (it.hasNext()) {
                 Messenger next = it.next();
-                Message obtain = Message.obtain(null, i2, null);
+                Message obtain = Message.obtain(null, i, null);
                 if (obtain != null) {
                     obtain.setData(bundle);
                     try {

@@ -41,9 +41,9 @@ public class DuzhanUpMsgCreator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -127,17 +127,17 @@ public class DuzhanUpMsgCreator {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static int getReqType(int i2) {
+    public static int getReqType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 == 7) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i == 7) {
                 return REQ_TYPE_PA;
             }
-            if (i2 == 16) {
+            if (i == 16) {
                 return REQ_TYPE_CLUE;
             }
-            if (i2 == 25) {
+            if (i == 25) {
                 return REQ_TYPE_LEMON;
             }
             return REQ_TYPE_BOX;
@@ -145,11 +145,11 @@ public class DuzhanUpMsgCreator {
         return invokeI.intValue;
     }
 
-    public static ChatMsg reCreateChatMsg(int i2, ChatMsg chatMsg) {
+    public static ChatMsg reCreateChatMsg(int i, ChatMsg chatMsg) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, chatMsg)) == null) {
-            chatMsg.setChatType(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, chatMsg)) == null) {
+            chatMsg.setChatType(i);
             chatMsg.setExtraContent(generateExtJson(chatMsg));
             return chatMsg;
         }

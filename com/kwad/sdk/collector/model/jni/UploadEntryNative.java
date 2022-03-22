@@ -6,7 +6,6 @@ import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.t;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class UploadEntryNative extends NativeObject implements e {
@@ -14,8 +13,8 @@ public class UploadEntryNative extends NativeObject implements e {
         this.mPtr = AppStatusNative.nativeCreateUploadEntry();
     }
 
-    public UploadEntryNative(long j2) {
-        this.mPtr = j2;
+    public UploadEntryNative(long j) {
+        this.mPtr = j;
     }
 
     public static String a(UploadEntryNative uploadEntryNative) {
@@ -49,9 +48,9 @@ public class UploadEntryNative extends NativeObject implements e {
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
-        long j2 = this.mPtr;
-        if (j2 != 0) {
-            AppStatusNative.nativeDeleteUploadEntry(j2);
+        long j = this.mPtr;
+        if (j != 0) {
+            AppStatusNative.nativeDeleteUploadEntry(j);
             this.mPtr = 0L;
         }
     }
@@ -99,6 +98,6 @@ public class UploadEntryNative extends NativeObject implements e {
     }
 
     public String toString() {
-        return "UploadEntry{packageName='" + AppStatusNative.uploadEntryGetPackageName(this) + ExtendedMessageFormat.QUOTE + ", originFile=" + AppStatusNative.uploadEntryGetOriginFilePath(this) + ExtendedMessageFormat.END_FE;
+        return "UploadEntry{packageName='" + AppStatusNative.uploadEntryGetPackageName(this) + "', originFile=" + AppStatusNative.uploadEntryGetOriginFilePath(this) + '}';
     }
 }

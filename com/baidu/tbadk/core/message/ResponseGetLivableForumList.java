@@ -15,7 +15,7 @@ import java.util.List;
 import protobuf.ForumRalatedInfo;
 import protobuf.GetLivableForumList.DataRes;
 import protobuf.GetLivableForumList.GetLivableForumListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ResponseGetLivableForumList extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -75,10 +75,10 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.hasMore : invokeV.booleanValue;
     }
 
-    public void setAvailabel(int i2) {
+    public void setAvailabel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            if (i == 1) {
                 this.available = true;
             } else {
                 this.available = false;
@@ -91,24 +91,24 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) || list == null) {
             return;
         }
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            if (list.get(i2) != null) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) != null) {
                 ForumData forumData = new ForumData();
-                forumData.setCurScore(list.get(i2).curScore.intValue());
-                forumData.setImage_url(list.get(i2).avatar);
-                forumData.setLevelupScore(list.get(i2).leftScore.intValue());
-                forumData.setUser_level(list.get(i2).level.intValue());
-                forumData.setName(list.get(i2).name);
-                forumData.setId(list.get(i2).forumId.toString());
+                forumData.setCurScore(list.get(i).curScore.intValue());
+                forumData.setImage_url(list.get(i).avatar);
+                forumData.setLevelupScore(list.get(i).leftScore.intValue());
+                forumData.setUser_level(list.get(i).level.intValue());
+                forumData.setName(list.get(i).name);
+                forumData.setId(list.get(i).forumId.toString());
                 this.data.add(forumData);
             }
         }
     }
 
-    public void setHasMore(int i2) {
+    public void setHasMore(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i == 1) {
                 this.hasMore = true;
             } else {
                 this.hasMore = false;
@@ -116,18 +116,18 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         }
     }
 
-    public void setMiniLevel(int i2) {
+    public void setMiniLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.minLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.minLevel = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetLivableForumListResIdl getLivableForumListResIdl = (GetLivableForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLivableForumListResIdl.class);
             setError(getLivableForumListResIdl.error.errorno.intValue());
             setErrorString(getLivableForumListResIdl.error.usermsg);

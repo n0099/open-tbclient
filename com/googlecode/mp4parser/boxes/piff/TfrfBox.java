@@ -16,7 +16,6 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes7.dex */
@@ -43,9 +42,9 @@ public class TfrfBox extends AbstractFullBox {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tfrfBox};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,7 +69,7 @@ public class TfrfBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "Entry{fragmentAbsoluteTime=" + this.fragmentAbsoluteTime + ", fragmentAbsoluteDuration=" + this.fragmentAbsoluteDuration + ExtendedMessageFormat.END_FE;
+                return "Entry{fragmentAbsoluteTime=" + this.fragmentAbsoluteTime + ", fragmentAbsoluteDuration=" + this.fragmentAbsoluteDuration + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -99,9 +98,9 @@ public class TfrfBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -124,7 +123,7 @@ public class TfrfBox extends AbstractFullBox {
         if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
             parseVersionAndFlags(byteBuffer);
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            for (int i2 = 0; i2 < readUInt8; i2++) {
+            for (int i = 0; i < readUInt8; i++) {
                 Entry entry = new Entry(this);
                 if (getVersion() == 1) {
                     entry.fragmentAbsoluteTime = IsoTypeReader.readUInt64(byteBuffer);
@@ -198,7 +197,7 @@ public class TfrfBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TfrfBox{entries=" + this.entries + ExtendedMessageFormat.END_FE;
+            return "TfrfBox{entries=" + this.entries + '}';
         }
         return (String) invokeV.objValue;
     }

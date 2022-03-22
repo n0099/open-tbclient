@@ -7,10 +7,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$style {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int Base_CardView = 2131755030;
-    public static final int CardView = 2131755260;
-    public static final int CardView_Dark = 2131755262;
-    public static final int CardView_Light = 2131755263;
+
+    /* renamed from: Base_CardView */
+    public static final int obfuscated_res_0x7f100016 = 2131755030;
+
+    /* renamed from: CardView */
+    public static final int obfuscated_res_0x7f1000fa = 2131755258;
+
+    /* renamed from: CardView_Dark */
+    public static final int obfuscated_res_0x7f1000fb = 2131755259;
+
+    /* renamed from: CardView_Light */
+    public static final int obfuscated_res_0x7f1000fc = 2131755260;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$style() {
@@ -18,9 +26,9 @@ public final class R$style {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

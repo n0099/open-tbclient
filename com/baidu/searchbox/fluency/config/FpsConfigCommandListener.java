@@ -2,6 +2,7 @@ package com.baidu.searchbox.fluency.config;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
@@ -35,9 +36,9 @@ public class FpsConfigCommandListener extends JSONObjectCommandListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,20 +61,20 @@ public class FpsConfigCommandListener extends JSONObjectCommandListener {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             if (actionData != null && actionData.data != null && TextUtils.equals(str2, CLOUD_FLUENCY_FPS_ACTION)) {
                 if (AppConfig.isDebug()) {
-                    String str3 = "executeCommand: " + actionData.data.toString();
+                    Log.d(TAG, "executeCommand: " + actionData.data.toString());
                 }
-                String str4 = actionData.version;
+                String str3 = actionData.version;
                 JSONObject jSONObject = actionData.data;
-                if (TextUtils.isEmpty(str4) || jSONObject == null || jSONObject.length() == 0 || getLocalVersion(context, str, str2).equals(str4)) {
+                if (TextUtils.isEmpty(str3) || jSONObject == null || jSONObject.length() == 0 || getLocalVersion(context, str, str2).equals(str3)) {
                     return false;
                 }
                 String optString = jSONObject.optString("auth");
                 if ("1".equals(optString)) {
-                    QuickPersistConfig.getInstance().putString(SP_FLUENCY_FPS_VERSION, str4);
+                    QuickPersistConfig.getInstance().putString(SP_FLUENCY_FPS_VERSION, str3);
                     QuickPersistConfig.getInstance().putBoolean(SP_FLUENCY_FPS_SWITCHER, true);
                     return true;
                 } else if ("0".equals(optString)) {
-                    QuickPersistConfig.getInstance().putString(SP_FLUENCY_FPS_VERSION, str4);
+                    QuickPersistConfig.getInstance().putString(SP_FLUENCY_FPS_VERSION, str3);
                     QuickPersistConfig.getInstance().putBoolean(SP_FLUENCY_FPS_SWITCHER, false);
                     return true;
                 }

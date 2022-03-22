@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumRuleBaseData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class ForumRuleBaseData implements Serializable {
     public String preface;
     public String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ForumRuleItemData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ForumRuleBaseData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -100,7 +100,7 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ForumRuleItemPbContentData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,9 +114,9 @@ public class ForumRuleBaseData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -124,7 +124,7 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ForumRuleItemPbData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,9 +137,9 @@ public class ForumRuleBaseData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -152,9 +152,9 @@ public class ForumRuleBaseData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -195,8 +195,8 @@ public class ForumRuleBaseData implements Serializable {
         JSONArray optJSONArray = jSONObject.optJSONArray("rules");
         ArrayList arrayList = new ArrayList();
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     ForumRuleItemPbData forumRuleItemPbData = new ForumRuleItemPbData();
                     forumRuleItemPbData.title = optJSONObject.optString("title");
@@ -204,8 +204,8 @@ public class ForumRuleBaseData implements Serializable {
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("content");
                     ArrayList arrayList2 = new ArrayList();
                     if (optJSONArray2 != null) {
-                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                             if (optJSONObject2 != null) {
                                 ForumRuleItemPbContentData forumRuleItemPbContentData = new ForumRuleItemPbContentData();
                                 forumRuleItemPbContentData.tag = optJSONObject2.optString("tag");

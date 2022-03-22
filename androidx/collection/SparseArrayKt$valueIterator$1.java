@@ -24,9 +24,9 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
             newInitContext.initArgs = r2;
             Object[] objArr = {sparseArrayCompat};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,9 +56,9 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             SparseArrayCompat sparseArrayCompat = this.$this_valueIterator;
-            int i2 = this.index;
-            this.index = i2 + 1;
-            return sparseArrayCompat.valueAt(i2);
+            int i = this.index;
+            this.index = i + 1;
+            return sparseArrayCompat.valueAt(i);
         }
         return invokeV.objValue;
     }
@@ -71,10 +71,10 @@ public final class SparseArrayKt$valueIterator$1 implements Iterator<T>, KMapped
         }
     }
 
-    public final void setIndex(int i2) {
+    public final void setIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.index = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.index = i;
         }
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.nadcore.player.helper;
 import android.content.Context;
 import android.view.MotionEvent;
 import androidx.annotation.NonNull;
-import c.a.b0.h.a;
-import c.a.b0.h0.o;
-import c.a.b0.i0.a.d.b;
-import c.a.b0.v.d;
-import c.a.b0.v.f0.f;
-import c.a.b0.v.v0.k;
+import c.a.a0.h.a;
+import c.a.a0.h0.o;
+import c.a.a0.i0.a.d.b;
+import c.a.a0.v.d;
+import c.a.a0.v.f0.f;
+import c.a.a0.v.v0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,31 +25,27 @@ public class BdVideoGesture {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f35684b;
+    public float f27563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35685c;
+    public int f27564c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f35686d;
+    public boolean f27565d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoPluginGesture f35687e;
+    public VideoPluginGesture f27566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35688f;
+    public boolean f27567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f35689g;
+    public boolean f27568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35690h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f35691i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f35692j;
+    public int f27569h;
+    public int i;
+    public int j;
     public int k;
     public f l;
     public int m;
@@ -89,16 +85,16 @@ public class BdVideoGesture {
             $VALUES = new VideoPluginGesture[]{InitChange, VolumeChange, PlayTimeChange, BrightChange, videoPluginGesture};
         }
 
-        public VideoPluginGesture(String str, int i2) {
+        public VideoPluginGesture(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -144,30 +140,30 @@ public class BdVideoGesture {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, fVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35686d = true;
-        this.f35687e = VideoPluginGesture.InitChange;
-        this.f35688f = false;
-        this.f35689g = false;
-        this.f35690h = 0;
-        this.f35691i = 0;
-        this.f35692j = 0;
+        this.f27565d = true;
+        this.f27566e = VideoPluginGesture.InitChange;
+        this.f27567f = false;
+        this.f27568g = false;
+        this.f27569h = 0;
+        this.i = 0;
+        this.j = 0;
         this.m = d.a;
-        this.n = d.f2088b;
+        this.n = d.f1701b;
         f(context);
         this.l = fVar;
     }
 
-    public void a(float f2, int i2) {
+    public void a(float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
         }
     }
 
@@ -180,26 +176,26 @@ public class BdVideoGesture {
                 return false;
             }
             if (fVar.p()) {
-                this.l.m(this.f35687e);
+                this.l.m(this.f27566e);
                 return false;
             } else if (motionEvent.getAction() == 0) {
-                this.f35688f = false;
-                this.f35689g = false;
-                this.f35687e = VideoPluginGesture.InitChange;
+                this.f27567f = false;
+                this.f27568g = false;
+                this.f27566e = VideoPluginGesture.InitChange;
                 this.a = motionEvent.getX();
-                this.f35684b = motionEvent.getY();
-                this.f35685c = motionEvent.getPointerId(0);
-                this.f35691i = k.c(a.b());
-                this.f35692j = this.l.getCurrentPosition();
+                this.f27563b = motionEvent.getY();
+                this.f27564c = motionEvent.getPointerId(0);
+                this.i = k.c(a.b());
+                this.j = this.l.getCurrentPosition();
                 this.k = o.a(this.l.o());
-                this.l.m(this.f35687e);
+                this.l.m(this.f27566e);
                 return false;
             } else if (motionEvent.getAction() == 2) {
                 if (c(motionEvent)) {
-                    this.f35687e = VideoPluginGesture.InitChange;
+                    this.f27566e = VideoPluginGesture.InitChange;
                     return false;
-                } else if (motionEvent.getPointerId(0) == this.f35685c) {
-                    d(this.a - motionEvent.getX(), this.f35684b - motionEvent.getY(), this.a, this.f35684b, this.m, this.n);
+                } else if (motionEvent.getPointerId(0) == this.f27564c) {
+                    d(this.a - motionEvent.getX(), this.f27563b - motionEvent.getY(), this.a, this.f27563b, this.m, this.n);
                     return false;
                 } else {
                     return false;
@@ -207,23 +203,23 @@ public class BdVideoGesture {
             } else {
                 boolean z = true;
                 if (motionEvent.getAction() == 1) {
-                    this.l.m(this.f35687e);
-                    z = (this.f35688f && this.f35689g) ? false : false;
-                    VideoPluginGesture videoPluginGesture = this.f35687e;
+                    this.l.m(this.f27566e);
+                    z = (this.f27567f && this.f27568g) ? false : false;
+                    VideoPluginGesture videoPluginGesture = this.f27566e;
                     if (videoPluginGesture == VideoPluginGesture.PlayTimeChange) {
-                        this.l.l(this.f35692j, this.f35690h);
+                        this.l.l(this.j, this.f27569h);
                     } else if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
                         this.l.b();
                     }
-                    this.f35688f = false;
-                    this.f35689g = false;
-                    this.f35687e = VideoPluginGesture.InitChange;
+                    this.f27567f = false;
+                    this.f27568g = false;
+                    this.f27566e = VideoPluginGesture.InitChange;
                     return z;
                 } else if (motionEvent.getAction() == 3) {
-                    this.l.m(this.f35687e);
-                    this.f35688f = false;
-                    this.f35689g = false;
-                    this.f35687e = VideoPluginGesture.InitChange;
+                    this.l.m(this.f27566e);
+                    this.f27567f = false;
+                    this.f27568g = false;
+                    this.f27566e = VideoPluginGesture.InitChange;
                     return false;
                 } else {
                     return false;
@@ -235,48 +231,48 @@ public class BdVideoGesture {
 
     public abstract boolean c(MotionEvent motionEvent);
 
-    public void d(float f2, float f3, float f4, float f5, int i2, int i3) {
+    public void d(float f2, float f3, float f4, float f5, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || this.l == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2)}) == null) || this.l == null) {
             return;
         }
         float abs = Math.abs(f3);
         float abs2 = Math.abs(f2);
-        this.f35689g = true;
-        if (!this.f35688f) {
-            if (e(f4, i2)) {
-                this.f35687e = VideoPluginGesture.VirtualKeyBoard;
-                this.f35688f = true;
+        this.f27568g = true;
+        if (!this.f27567f) {
+            if (e(f4, i)) {
+                this.f27566e = VideoPluginGesture.VirtualKeyBoard;
+                this.f27567f = true;
                 return;
             }
             double d2 = abs;
             double d3 = abs2;
-            if (d2 > d3 * 1.0d && abs > b.a(30.0f) && this.f35686d) {
-                this.f35688f = true;
-                if (f4 <= i2 / 2) {
-                    this.f35687e = VideoPluginGesture.BrightChange;
+            if (d2 > d3 * 1.0d && abs > b.a(30.0f) && this.f27565d) {
+                this.f27567f = true;
+                if (f4 <= i / 2) {
+                    this.f27566e = VideoPluginGesture.BrightChange;
                     return;
                 } else {
-                    this.f35687e = VideoPluginGesture.VolumeChange;
+                    this.f27566e = VideoPluginGesture.VolumeChange;
                     return;
                 }
             } else if (d2 * 1.0d >= d3 || abs2 <= b.a(30.0f)) {
                 return;
             } else {
-                this.f35687e = VideoPluginGesture.PlayTimeChange;
-                this.f35688f = true;
+                this.f27566e = VideoPluginGesture.PlayTimeChange;
+                this.f27567f = true;
                 return;
             }
         }
-        VideoPluginGesture videoPluginGesture = this.f35687e;
+        VideoPluginGesture videoPluginGesture = this.f27566e;
         if (videoPluginGesture == VideoPluginGesture.PlayTimeChange) {
-            this.f35690h = (int) (((-f2) / 100.0f) * 15.0f);
-            a(f2, i2);
-            this.l.c(this.f35692j, this.f35690h);
+            this.f27569h = (int) (((-f2) / 100.0f) * 15.0f);
+            a(f2, i);
+            this.l.c(this.j, this.f27569h);
             return;
         }
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
-            float f6 = this.f35691i + ((f3 / 100.0f) * o);
+            float f6 = this.i + ((f3 / 100.0f) * o);
             if (f6 > 0.0f) {
                 r13 = f6 > ((float) k.b(a.b())) ? k.b(a.b()) : f6;
             }
@@ -298,7 +294,7 @@ public class BdVideoGesture {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f35687e = VideoPluginGesture.InitChange;
+            this.f27566e = VideoPluginGesture.InitChange;
         }
     }
 

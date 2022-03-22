@@ -32,9 +32,9 @@ public class c extends k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,11 +47,11 @@ public class c extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, jSONArray, list)) == null) {
             if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         RouteNode a = a(optJSONObject);
-                        if (i2 == length - 1) {
+                        if (i == length - 1) {
                             return a;
                         }
                         list.add(a);
@@ -96,11 +96,11 @@ public class c extends k {
             ArrayList arrayList = new ArrayList();
             double d2 = 0.0d;
             double d3 = 0.0d;
-            for (int i2 = 5; i2 < length; i2++) {
-                if (i2 % 2 != 0) {
-                    d3 += jSONArray.optInt(i2);
+            for (int i = 5; i < length; i++) {
+                if (i % 2 != 0) {
+                    d3 += jSONArray.optInt(i);
                 } else {
-                    d2 += jSONArray.optInt(i2);
+                    d2 += jSONArray.optInt(i);
                     arrayList.add(CoordUtil.mc2ll(new GeoPoint(d2, d3)));
                 }
             }
@@ -116,23 +116,23 @@ public class c extends k {
     private List<DrivingRouteLine.DrivingStep> a(JSONArray jSONArray, JSONArray jSONArray2) {
         InterceptResult invokeLL;
         int length;
-        int i2;
+        int i;
         boolean z;
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONArray, jSONArray2)) == null) {
             if (jSONArray == null || (length = jSONArray.length()) <= 0) {
                 return null;
             }
             if (jSONArray2 != null) {
-                i2 = jSONArray2.length();
-                if (i2 > 0) {
+                i = jSONArray2.length();
+                if (i > 0) {
                     z = true;
                     ArrayList arrayList = new ArrayList();
-                    int i5 = 0;
-                    for (i3 = 0; i3 < length; i3++) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                    int i4 = 0;
+                    for (i2 = 0; i2 < length; i2++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
                             DrivingRouteLine.DrivingStep drivingStep = new DrivingRouteLine.DrivingStep();
                             drivingStep.setDistance(optJSONObject.optInt("distance"));
@@ -147,20 +147,20 @@ public class c extends k {
                                 int distance = drivingStep.getDistance();
                                 if (distance < 1000) {
                                     optString2 = " - " + distance + "米";
-                                    i4 = i2;
+                                    i3 = i;
                                 } else {
                                     StringBuilder sb = new StringBuilder();
                                     sb.append(" - ");
-                                    i4 = i2;
+                                    i3 = i;
                                     sb.append(distance / 1000.0d);
                                     sb.append("公里");
                                     optString2 = sb.toString();
                                 }
-                                if (i5 <= arrayList.size()) {
-                                    optString2 = ((DrivingRouteLine.DrivingStep) arrayList.get(i5 - 1)).getExitInstructions() + optString2;
+                                if (i4 <= arrayList.size()) {
+                                    optString2 = ((DrivingRouteLine.DrivingStep) arrayList.get(i4 - 1)).getExitInstructions() + optString2;
                                 }
                             } else {
-                                i4 = i2;
+                                i3 = i;
                             }
                             drivingStep.setEntranceInstructions(optString2);
                             drivingStep.setExitInstructions(optJSONObject.optString("end_instructions"));
@@ -175,23 +175,23 @@ public class c extends k {
                                 routeNode2.setLocation(a.get(a.size() - 1));
                                 drivingStep.setExit(routeNode2);
                             }
-                            i2 = i4;
-                            if (z && i3 < i2) {
-                                drivingStep.setTrafficList(b(jSONArray2.optJSONObject(i3)));
+                            i = i3;
+                            if (z && i2 < i) {
+                                drivingStep.setTrafficList(b(jSONArray2.optJSONObject(i2)));
                             }
-                            i5++;
+                            i4++;
                             arrayList.add(drivingStep);
                         }
                     }
                     return arrayList;
                 }
             } else {
-                i2 = 0;
+                i = 0;
             }
             z = false;
             ArrayList arrayList2 = new ArrayList();
-            int i52 = 0;
-            while (i3 < length) {
+            int i42 = 0;
+            while (i2 < length) {
             }
             return arrayList2;
         }
@@ -206,8 +206,8 @@ public class c extends k {
                 ArrayList arrayList = new ArrayList();
                 try {
                     JSONArray jSONArray = new JSONArray(str);
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
                         if (jSONObject != null) {
                             TaxiInfo taxiInfo = new TaxiInfo();
                             String optString = jSONObject.optString("total_price");
@@ -240,15 +240,15 @@ public class c extends k {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     int optInt = optJSONObject.optInt("n");
                     int optInt2 = optJSONObject.optInt("s");
-                    for (int i3 = 0; i3 < optInt; i3++) {
-                        int i4 = optInt2 + i3;
-                        if (i4 < list.size()) {
-                            arrayList.add(list.get(i4));
+                    for (int i2 = 0; i2 < optInt; i2++) {
+                        int i3 = optInt2 + i2;
+                        if (i3 < list.size()) {
+                            arrayList.add(list.get(i3));
                         }
                     }
                 }
@@ -300,10 +300,10 @@ public class c extends k {
                 if (optJSONArray == null) {
                     return false;
                 }
-                int i2 = 0;
-                while (i2 < optJSONArray.length()) {
+                int i = 0;
+                while (i < optJSONArray.length()) {
                     DrivingRouteLine drivingRouteLine = new DrivingRouteLine();
-                    JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
+                    JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
                     if (optJSONObject5 == null) {
                         jSONObject = optJSONObject4;
                         jSONArray = optJSONArray;
@@ -316,23 +316,23 @@ public class c extends k {
                         ArrayList arrayList3 = new ArrayList();
                         jSONObject = optJSONObject4;
                         jSONArray = optJSONArray;
+                        int i2 = 0;
                         int i3 = 0;
                         int i4 = 0;
-                        int i5 = 0;
-                        while (i4 < length) {
-                            int i6 = length;
-                            JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i4);
+                        while (i3 < length) {
+                            int i5 = length;
+                            JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i3);
                             JSONArray jSONArray2 = optJSONArray2;
                             if (optJSONObject6 != null) {
-                                i5 += optJSONObject6.optInt("distance");
-                                i3 += optJSONObject6.optInt("duration");
+                                i4 += optJSONObject6.optInt("distance");
+                                i2 += optJSONObject6.optInt("duration");
                                 List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a3);
                                 if (b2 != null) {
                                     arrayList3.addAll(b2);
                                 }
                             }
-                            i4++;
-                            length = i6;
+                            i3++;
+                            length = i5;
                             optJSONArray2 = jSONArray2;
                         }
                         drivingRouteLine.setStarting(a);
@@ -342,8 +342,8 @@ public class c extends k {
                         } else {
                             drivingRouteLine.setWayPoints(arrayList);
                         }
-                        drivingRouteLine.setDistance(i5);
-                        drivingRouteLine.setDuration(i3);
+                        drivingRouteLine.setDistance(i4);
+                        drivingRouteLine.setDuration(i2);
                         drivingRouteLine.setCongestionDistance(optJSONObject5.optInt("congestion_length"));
                         drivingRouteLine.setLightNum(optJSONObject5.optInt("light_num"));
                         if (arrayList3.size() == 0) {
@@ -353,7 +353,7 @@ public class c extends k {
                         }
                         arrayList2.add(drivingRouteLine);
                     }
-                    i2++;
+                    i++;
                     optJSONArray = jSONArray;
                     optJSONObject4 = jSONObject;
                     z = false;
@@ -384,18 +384,18 @@ public class c extends k {
             ArrayList arrayList = new ArrayList();
             int length = optJSONArray.length();
             int length2 = optJSONArray2.length();
-            int i2 = 0;
-            while (i2 < length) {
-                int optInt = optJSONArray.optInt(i2);
-                int optInt2 = i2 < length2 ? optJSONArray2.optInt(i2) : 0;
-                for (int i3 = 0; i3 < optInt; i3++) {
+            int i = 0;
+            while (i < length) {
+                int optInt = optJSONArray.optInt(i);
+                int optInt2 = i < length2 ? optJSONArray2.optInt(i) : 0;
+                for (int i2 = 0; i2 < optInt; i2++) {
                     arrayList.add(Integer.valueOf(optInt2));
                 }
-                i2++;
+                i++;
             }
             int[] iArr = new int[arrayList.size()];
-            for (int i4 = 0; i4 < arrayList.size(); i4++) {
-                iArr[i4] = ((Integer) arrayList.get(i4)).intValue();
+            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                iArr[i3] = ((Integer) arrayList.get(i3)).intValue();
             }
             return iArr;
         }

@@ -3,6 +3,7 @@ package com.baidu.tieba.ala.frsgamelive.message;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +26,9 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -53,38 +54,38 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             addParam("forum_id", this.forumId);
-            addParam("pn", this.pn);
+            addParam(Config.PACKAGE_NAME, this.pn);
             addParam("ps", this.ps);
             addParam("sort_type", this.sortType);
             addParam("need_recommend", this.needRecommend);
         }
     }
 
-    public void setNeedRecommend(int i2) {
+    public void setNeedRecommend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.needRecommend = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.needRecommend = i;
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setPs(int i2) {
+    public void setPs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.ps = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.ps = i;
         }
     }
 
-    public void setSortType(int i2) {
+    public void setSortType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.sortType = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.sortType = i;
         }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.Counter;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FlushManager {
     public static /* synthetic */ Interceptable $ic;
     public static final Object OBJ_KEY;
@@ -28,13 +28,13 @@ public class FlushManager {
     public ReportTimer mReportTimer;
 
     /* renamed from: com.yy.hiidostatis.inner.FlushManager$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ConnectionChangeReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class FlushManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flushManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,7 +96,7 @@ public class FlushManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface FlushListener {
         void fluch(Context context);
     }
@@ -123,9 +123,9 @@ public class FlushManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -190,7 +190,7 @@ public class FlushManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ReportTimer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_INTERVAL = 1800000;
@@ -209,9 +209,9 @@ public class FlushManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flushManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -245,9 +245,9 @@ public class FlushManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -258,12 +258,12 @@ public class FlushManager {
                         }
 
                         @Override // com.yy.hiidostatis.inner.util.Counter.Callback
-                        public void onCount(int i2) {
+                        public void onCount(int i) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.this$1.this$0.l == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) || this.this$1.this$0.l == null) {
                                 return;
                             }
-                            L.debug(this, "ReportTimer. flush cache. %d times", Integer.valueOf(i2 + 1));
+                            L.debug(this, "ReportTimer. flush cache. %d times", Integer.valueOf(i + 1));
                             this.this$1.this$0.l.fluch(this.val$c);
                         }
                     };

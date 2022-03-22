@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AboutActivityConfig;
@@ -61,44 +62,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.MaskInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SettingStatic {
     public static /* synthetic */ Interceptable $ic;
     public static MaskInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f46419b;
+    public static boolean f35897b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f46420c;
+    public static boolean f35898c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c.a.d.c.g.c f46421d;
+    public static final c.a.d.c.g.c f35899d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CustomMessageListener f46422e;
+    public static final CustomMessageListener f35900e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final CustomMessageListener f46423f;
+    public static final CustomMessageListener f35901f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -120,23 +121,23 @@ public class SettingStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -150,30 +151,30 @@ public class SettingStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.f46420c = false;
+                boolean unused = SettingStatic.f35898c = false;
                 MaskInfo unused2 = SettingStatic.a = null;
-                boolean unused3 = SettingStatic.f46419b = false;
+                boolean unused3 = SettingStatic.f35897b = false;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -187,13 +188,13 @@ public class SettingStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                boolean unused = SettingStatic.f46419b = true;
+                boolean unused = SettingStatic.f35897b = true;
                 SettingStatic.k();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,9 +204,9 @@ public class SettingStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -216,12 +217,12 @@ public class SettingStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.q0.s.d.d.d().D();
+                c.a.o0.s.d.d.d().D();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,9 +232,9 @@ public class SettingStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -250,8 +251,8 @@ public class SettingStatic {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
                     TbadkCoreApplication.getInst().deleteAccountAllInfo(currentAccount);
-                    c.a.q0.s.a.a.b().a();
-                    c.a.q0.r.d0.a.a("account", -1L, 0, "logout_delete_account", 0, "", new Object[0]);
+                    c.a.o0.s.a.a.b().a();
+                    c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "logout_delete_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, data);
                     TbadkCoreApplication.getInst().onUserChanged();
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(data, true);
@@ -264,7 +265,7 @@ public class SettingStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class f implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -274,9 +275,9 @@ public class SettingStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -297,7 +298,7 @@ public class SettingStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class g implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,9 +308,9 @@ public class SettingStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -330,7 +331,7 @@ public class SettingStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class h implements CustomMessageTask.CustomRunnable<UserMuteListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,9 +341,9 @@ public class SettingStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -376,9 +377,9 @@ public class SettingStatic {
                 return;
             }
         }
-        f46421d = new a(1001);
-        f46422e = new b(2005016);
-        f46423f = new c(2001311);
+        f35899d = new a(1001);
+        f35900e = new b(2005016);
+        f35901f = new c(2001311);
         TbadkCoreApplication.getInst().RegisterIntent(AppsActivityConfig.class, AppsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(BrowseSettingActivityConfig.class, BrowseSettingActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(YoungsterIntroduceActivityConfig.class, YoungsterIntroduceActivity.class);
@@ -400,21 +401,21 @@ public class SettingStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2015007, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        c.a.r0.y3.g0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, c.a.r0.y3.g0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
+        c.a.p0.a4.g0.a.f(303016, ResponsedPrivacySocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, c.a.p0.a4.g0.a.a(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(f46422e);
-        MessageManager.getInstance().registerListener(f46421d);
-        MessageManager.getInstance().registerListener(f46423f);
-        c.a.r0.y3.g0.a.f(104101, ResponseUpdateMaskMessage.class, false);
-        c.a.r0.y3.g0.a.f(104106, ResponseUpdateForumMask.class, false);
+        MessageManager.getInstance().registerListener(f35900e);
+        MessageManager.getInstance().registerListener(f35899d);
+        MessageManager.getInstance().registerListener(f35901f);
+        c.a.p0.a4.g0.a.f(104101, ResponseUpdateMaskMessage.class, false);
+        c.a.p0.a4.g0.a.f(104106, ResponseUpdateForumMask.class, false);
         e();
         f();
         i();
         g();
         h();
-        SwitchManager.getInstance().registerSwitch(c.a.r0.n3.b.a.b.class);
+        SwitchManager.getInstance().registerSwitch(c.a.p0.p3.b.a.b.class);
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2016302, new h());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
@@ -426,9 +427,9 @@ public class SettingStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -507,7 +508,7 @@ public class SettingStatic {
         String[] split2;
         String[] split3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || !f46419b || a == null || f46420c) {
+        if (!(interceptable == null || interceptable.invokeV(65548, null) == null) || !f35897b || a == null || f35898c) {
             return;
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -517,29 +518,29 @@ public class SettingStatic {
         MaskInfo maskInfo = a;
         Integer num2 = maskInfo.remindMask;
         if (num2 != null && maskInfo.shieldStatus != null && num2.intValue() == 0 && a.shieldStatus.intValue() == 0) {
-            if (!c.a.q0.r.j0.b.k().h("had_sync_setting_switch" + currentAccount, false)) {
+            if (!c.a.o0.r.j0.b.k().h("had_sync_setting_switch" + currentAccount, false)) {
                 z = true;
                 if (!z) {
-                    c.a.q0.r.j0.b.k().u("had_sync_setting_switch" + currentAccount, true);
-                    if (!c.a.q0.s.d.d.d().u()) {
+                    c.a.o0.r.j0.b.k().u("had_sync_setting_switch" + currentAccount, true);
+                    if (!c.a.o0.s.d.d.d().u()) {
                         l(14, false);
                     } else {
-                        if (!c.a.q0.s.d.d.d().q()) {
+                        if (!c.a.o0.s.d.d.d().q()) {
                             l(2, false);
                         }
-                        if (!c.a.q0.s.d.d.d().t()) {
+                        if (!c.a.o0.s.d.d.d().t()) {
                             l(3, false);
                         }
-                        if (!c.a.q0.s.d.d.d().p()) {
+                        if (!c.a.o0.s.d.d.d().p()) {
                             l(4, false);
                         }
-                        if (!c.a.q0.s.d.d.d().r()) {
+                        if (!c.a.o0.s.d.d.d().r()) {
                             l(5, false);
                         }
-                        if (!c.a.q0.s.d.d.d().v()) {
+                        if (!c.a.o0.s.d.d.d().v()) {
                             l(1, false);
                         }
-                        if (!c.a.q0.s.d.d.d().y()) {
+                        if (!c.a.o0.s.d.d.d().y()) {
                             l(20, false);
                         }
                     }
@@ -547,28 +548,28 @@ public class SettingStatic {
                     Integer num3 = a.remindMask;
                     if (num3 != null) {
                         if (num3.intValue() == 0) {
-                            c.a.q0.s.d.d.d().E(true);
+                            c.a.o0.s.d.d.d().E(true);
                         } else if (a.remindMask.intValue() == 1) {
-                            c.a.q0.s.d.d.d().E(false);
+                            c.a.o0.s.d.d.d().E(false);
                             z2 = false;
                             num = a.shieldStatus;
                             if (num != null) {
                                 int intValue = num.intValue();
                                 boolean z3 = (intValue & 16) == 0;
-                                c.a.q0.s.d.d.d().G(z3);
+                                c.a.o0.s.d.d.d().G(z3);
                                 boolean z4 = (intValue & 1) == 0;
-                                c.a.q0.s.d.d.d().K(z4);
+                                c.a.o0.s.d.d.d().K(z4);
                                 boolean z5 = (intValue & 2) == 0;
-                                c.a.q0.s.d.d.d().F(z5);
+                                c.a.o0.s.d.d.d().F(z5);
                                 boolean z6 = (intValue & 4) == 0;
-                                c.a.q0.s.d.d.d().J(z6);
-                                c.a.q0.s.d.d.d().S((intValue & 2048) == 0);
+                                c.a.o0.s.d.d.d().J(z6);
+                                c.a.o0.s.d.d.d().S((intValue & 2048) == 0);
                                 boolean z7 = (intValue & 4096) == 0;
-                                c.a.q0.s.d.d.d().N(z7);
+                                c.a.o0.s.d.d.d().N(z7);
                                 if (z4 || z5 || z6 || z3 || z2 || z7) {
-                                    c.a.q0.s.d.d.d().H(300);
+                                    c.a.o0.s.d.d.d().H(300);
                                 } else {
-                                    c.a.q0.s.d.d.d().H(0);
+                                    c.a.o0.s.d.d.d().H(0);
                                 }
                             }
                             c.a.d.f.m.h.a().b(new d());
@@ -582,20 +583,20 @@ public class SettingStatic {
                 }
                 if (!TextUtils.isEmpty(a.maskFids) && (split3 = a.maskFids.split(",")) != null && split3.length > 0) {
                     for (String str : split3) {
-                        c.a.r0.s1.t.d.j().g(currentAccount, str, false, null);
+                        c.a.p0.u1.t.d.j().g(currentAccount, str, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskGids) && (split2 = a.maskGids.split(",")) != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        c.a.r0.s1.t.b.k().g(currentAccount, str2, false, null);
+                        c.a.p0.u1.t.b.k().g(currentAccount, str2, false, null);
                     }
                 }
                 if (!TextUtils.isEmpty(a.maskUids) && (split = a.maskUids.split(",")) != null && split.length > 0) {
                     for (String str3 : split) {
-                        c.a.r0.s1.t.e.j().g(currentAccount, str3, false, null);
+                        c.a.p0.u1.t.e.j().g(currentAccount, str3, false, null);
                     }
                 }
-                f46420c = true;
+                f35898c = true;
             }
         }
         z = false;
@@ -613,20 +614,20 @@ public class SettingStatic {
             while (r6 < r3) {
             }
         }
-        f46420c = true;
+        f35898c = true;
     }
 
-    public static final void l(int i2, boolean z) {
+    public static final void l(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
                 MessageManager.getInstance().sendMessage(requestUpdateMaskMessage);
                 return;
             }
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
-            requestUpdateMaskInfoMessage.setMaskType(i2);
+            requestUpdateMaskInfoMessage.setMaskType(i);
             requestUpdateMaskInfoMessage.setSettingMask(z);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
         }

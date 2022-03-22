@@ -32,12 +32,12 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shapeAppearanceModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ShapeAppearanceModel) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -82,9 +82,9 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {floatingActionButton, shadowViewDelegate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((FloatingActionButton) objArr2[0], (ShadowViewDelegate) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -108,14 +108,14 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     }
 
     @NonNull
-    public BorderDrawable createBorderDrawable(int i2, ColorStateList colorStateList) {
+    public BorderDrawable createBorderDrawable(int i, ColorStateList colorStateList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, colorStateList)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, colorStateList)) == null) {
             Context context = this.view.getContext();
             BorderDrawable borderDrawable = new BorderDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
-            borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.design_fab_stroke_top_outer_color), ContextCompat.getColor(context, R.color.design_fab_stroke_top_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_inner_color), ContextCompat.getColor(context, R.color.design_fab_stroke_end_outer_color));
-            borderDrawable.setBorderWidth(i2);
+            borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f3), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f2), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f0), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f1));
+            borderDrawable.setBorderWidth(i);
             borderDrawable.setBorderTint(colorStateList);
             return borderDrawable;
         }
@@ -153,10 +153,10 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i2) {
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048580, this, colorStateList, mode, colorStateList2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048580, this, colorStateList, mode, colorStateList2, i) == null) {
             MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
             this.shapeDrawable = createShapeDrawable;
             createShapeDrawable.setTintList(colorStateList);
@@ -164,8 +164,8 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                 this.shapeDrawable.setTintMode(mode);
             }
             this.shapeDrawable.initializeElevationOverlay(this.view.getContext());
-            if (i2 > 0) {
-                this.borderDrawable = createBorderDrawable(i2, colorStateList);
+            if (i > 0) {
+                this.borderDrawable = createBorderDrawable(i, colorStateList);
                 drawable = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.borderDrawable), (Drawable) Preconditions.checkNotNull(this.shapeDrawable)});
             } else {
                 this.borderDrawable = null;
@@ -229,8 +229,8 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
                 AnimatorSet animatorSet = new AnimatorSet();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(ObjectAnimator.ofFloat(this.view, "elevation", f2).setDuration(0L));
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 22 && i2 <= 24) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 22 && i <= 24) {
                     FloatingActionButton floatingActionButton = this.view;
                     arrayList.add(ObjectAnimator.ofFloat(floatingActionButton, View.TRANSLATION_Z, floatingActionButton.getTranslationZ()).setDuration(100L));
                 }

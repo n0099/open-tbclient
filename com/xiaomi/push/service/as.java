@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.hl;
 import com.xiaomi.push.hm;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public /* synthetic */ class as {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f59979b;
+    public static final /* synthetic */ int[] f44545b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,21 +30,21 @@ public /* synthetic */ class as {
             }
         }
         int[] iArr = new int[hm.values().length];
-        f59979b = iArr;
+        f44545b = iArr;
         try {
             iArr[hm.a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f59979b[hm.f59759b.ordinal()] = 2;
+            f44545b[hm.f44352b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f59979b[hm.f59760c.ordinal()] = 3;
+            f44545b[hm.f44353c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f59979b[hm.f59761d.ordinal()] = 4;
+            f44545b[hm.f44354d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         int[] iArr2 = new int[hl.values().length];
@@ -54,7 +54,7 @@ public /* synthetic */ class as {
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hl.f59758b.ordinal()] = 2;
+            a[hl.f44351b.ordinal()] = 2;
         } catch (NoSuchFieldError unused6) {
         }
     }

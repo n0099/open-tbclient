@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.du;
 import com.xiaomi.push.service.av;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ez {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,58 +16,58 @@ public class ez {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, bVar, str, flVar) == null) {
             du.c cVar = new du.c();
-            if (!TextUtils.isEmpty(bVar.f59981c)) {
-                cVar.a(bVar.f59981c);
+            if (!TextUtils.isEmpty(bVar.f44547c)) {
+                cVar.a(bVar.f44547c);
             }
-            if (!TextUtils.isEmpty(bVar.f59983e)) {
-                cVar.d(bVar.f59983e);
+            if (!TextUtils.isEmpty(bVar.f44549e)) {
+                cVar.d(bVar.f44549e);
             }
-            if (!TextUtils.isEmpty(bVar.f59984f)) {
-                cVar.e(bVar.f59984f);
+            if (!TextUtils.isEmpty(bVar.f44550f)) {
+                cVar.e(bVar.f44550f);
             }
-            cVar.b(bVar.f918a ? "1" : "0");
-            if (TextUtils.isEmpty(bVar.f59982d)) {
+            cVar.b(bVar.f894a ? "1" : "0");
+            if (TextUtils.isEmpty(bVar.f44548d)) {
                 cVar.c("XIAOMI-SASL");
             } else {
-                cVar.c(bVar.f59982d);
+                cVar.c(bVar.f44548d);
             }
             fa faVar = new fa();
-            faVar.c(bVar.f919b);
-            faVar.a(Integer.parseInt(bVar.f59985g));
-            faVar.b(bVar.f916a);
+            faVar.c(bVar.f895b);
+            faVar.a(Integer.parseInt(bVar.f44551g));
+            faVar.b(bVar.f892a);
             faVar.a("BIND", (String) null);
             faVar.a(faVar.e());
-            com.xiaomi.channel.commonutils.logger.b.m133a("[Slim]: bind id=" + faVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m112a("[Slim]: bind id=" + faVar.e());
             HashMap hashMap = new HashMap();
             hashMap.put("challenge", str);
-            hashMap.put("token", bVar.f59981c);
-            hashMap.put("chid", bVar.f59985g);
-            hashMap.put("from", bVar.f919b);
+            hashMap.put("token", bVar.f44547c);
+            hashMap.put("chid", bVar.f44551g);
+            hashMap.put("from", bVar.f895b);
             hashMap.put("id", faVar.e());
             hashMap.put("to", "xiaomi.com");
-            if (bVar.f918a) {
+            if (bVar.f894a) {
                 hashMap.put("kick", "1");
             } else {
                 hashMap.put("kick", "0");
             }
-            if (TextUtils.isEmpty(bVar.f59983e)) {
+            if (TextUtils.isEmpty(bVar.f44549e)) {
                 hashMap.put("client_attrs", "");
             } else {
-                hashMap.put("client_attrs", bVar.f59983e);
+                hashMap.put("client_attrs", bVar.f44549e);
             }
-            if (TextUtils.isEmpty(bVar.f59984f)) {
+            if (TextUtils.isEmpty(bVar.f44550f)) {
                 hashMap.put("cloud_attrs", "");
             } else {
-                hashMap.put("cloud_attrs", bVar.f59984f);
+                hashMap.put("cloud_attrs", bVar.f44550f);
             }
-            if (bVar.f59982d.equals("XIAOMI-PASS") || bVar.f59982d.equals("XMPUSH-PASS")) {
-                a = bk.a(bVar.f59982d, null, hashMap, bVar.f59986h);
+            if (bVar.f44548d.equals("XIAOMI-PASS") || bVar.f44548d.equals("XMPUSH-PASS")) {
+                a = bk.a(bVar.f44548d, null, hashMap, bVar.f44552h);
             } else {
-                bVar.f59982d.equals("XIAOMI-SASL");
+                bVar.f44548d.equals("XIAOMI-SASL");
                 a = null;
             }
             cVar.f(a);
-            faVar.a(cVar.m344a(), (String) null);
+            faVar.a(cVar.m323a(), (String) null);
             flVar.b(faVar);
         }
     }

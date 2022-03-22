@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,26 +14,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.b;
-import com.cmic.sso.sdk.b.c.d;
-import com.cmic.sso.sdk.d.h;
-import com.cmic.sso.sdk.d.k;
-import com.cmic.sso.sdk.d.l;
+import com.cmic.sso.sdk.c.c.d;
+import com.cmic.sso.sdk.e.h;
+import com.cmic.sso.sdk.e.k;
+import com.cmic.sso.sdk.e.l;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f52009c;
+    public static a f38411c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.cmic.sso.sdk.b.c.a a;
+    public final com.cmic.sso.sdk.c.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f52010b;
+    public final Context f38412b;
 
     static {
         InterceptResult invokeClinit;
@@ -56,22 +57,22 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f52010b = context.getApplicationContext();
-        this.a = com.cmic.sso.sdk.b.c.a.a();
+        this.f38412b = context.getApplicationContext();
+        this.a = com.cmic.sso.sdk.c.c.a.a();
     }
 
     private void b(com.cmic.sso.sdk.a aVar, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, aVar, bVar) == null) {
-            com.cmic.sso.sdk.d.c.b("AuthnBusiness", "getScripAndToken start");
+            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "getScripAndToken start");
             a(aVar);
             if (!aVar.b("isCacheScrip", false)) {
                 b(aVar);
@@ -87,10 +88,10 @@ public class a {
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f52011b;
+                public final /* synthetic */ b f38413b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f52012c;
+                public final /* synthetic */ a f38414c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -99,24 +100,24 @@ public class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, aVar, bVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f52012c = this;
+                    this.f38414c = this;
                     this.a = aVar;
-                    this.f52011b = bVar;
+                    this.f38413b = bVar;
                 }
 
-                @Override // com.cmic.sso.sdk.b.c.d
+                @Override // com.cmic.sso.sdk.c.c.d
                 public void a(String str, String str2, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.f52012c.a(this.a, this.f52011b, str, str2, jSONObject);
+                        this.f38414c.a(this.a, this.f38413b, str, str2, jSONObject);
                     }
                 }
             });
@@ -127,14 +128,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f52009c == null) {
+            if (f38411c == null) {
                 synchronized (a.class) {
-                    if (f52009c == null) {
-                        f52009c = new a(context);
+                    if (f38411c == null) {
+                        f38411c = new a(context);
                     }
                 }
             }
-            return f52009c;
+            return f38411c;
         }
         return (a) invokeL.objValue;
     }
@@ -142,7 +143,7 @@ public class a {
     public void a(com.cmic.sso.sdk.a aVar, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) {
-            com.cmic.sso.sdk.d.c.b("AuthnBusiness", "LoginCheck method start");
+            com.cmic.sso.sdk.e.c.b("AuthnBusiness", "LoginCheck method start");
             int c2 = aVar.c("logintype");
             if (aVar.b("isCacheScrip", false)) {
                 String b2 = aVar.b("securityphone", "");
@@ -163,17 +164,19 @@ public class a {
         if (interceptable == null || interceptable.invokeL(65542, this, aVar) == null) {
             byte[] bArr = new byte[0];
             if (aVar.b("use2048PublicKey", false)) {
-                com.cmic.sso.sdk.d.c.a("AuthnBusiness", "使用2048公钥对应的对称秘钥生成方式");
-                bArr = com.cmic.sso.sdk.d.a.a();
+                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用2048公钥对应的对称秘钥生成方式");
+                bArr = com.cmic.sso.sdk.e.a.a();
             } else {
-                com.cmic.sso.sdk.d.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
+                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "使用1024公钥对应的对称秘钥生成方式");
                 try {
-                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes("utf-8");
+                    bArr = UUID.randomUUID().toString().substring(0, 16).getBytes(IMAudioTransRequest.CHARSET);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
+            byte[] a = com.cmic.sso.sdk.e.a.a();
             aVar.a(b.a.a, bArr);
+            aVar.a(b.a.f38415b, a);
             aVar.a("authType", "3");
         }
     }
@@ -181,8 +184,8 @@ public class a {
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            String packageName = this.f52010b.getPackageName();
-            String a = com.cmic.sso.sdk.d.d.a(l.a(this.f52010b, packageName));
+            String packageName = this.f38412b.getPackageName();
+            String a = com.cmic.sso.sdk.e.d.a(l.a(this.f38412b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a);
         }
@@ -210,7 +213,7 @@ public class a {
                 if (TextUtils.isEmpty(optString2)) {
                     b2 = jSONObject.toString();
                 } else {
-                    b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.a), optString2);
+                    b2 = com.cmic.sso.sdk.e.a.b(aVar.a(b.a.a), optString2, aVar.a(b.a.f38415b));
                 }
                 String str7 = null;
                 try {
@@ -228,15 +231,13 @@ public class a {
                     str4 = null;
                 }
                 try {
-                    k.a a = k.a();
                     str4 = jSONObject3.optString("securityphone");
                     try {
-                        a.a("securityphone", str4);
                         str7 = jSONObject3.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
                         if (TextUtils.isEmpty(str7)) {
                             str7 = jSONObject3.optString("pcid");
                         }
-                        a.b();
+                        k.a("securityphone", str4);
                         str5 = str4;
                         str6 = optString;
                     } catch (JSONException e4) {
@@ -249,7 +250,7 @@ public class a {
                         str6 = str7;
                         str7 = str3;
                         jSONObject3 = jSONObject2;
-                        com.cmic.sso.sdk.d.c.b("AuthnBusiness", "securityPhone  = " + str5);
+                        com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
                         aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
                         aVar.a("phonescrip", str6);
                         aVar.a("securityphone", str5);
@@ -267,19 +268,19 @@ public class a {
                     str6 = str7;
                     str7 = str3;
                     jSONObject3 = jSONObject2;
-                    com.cmic.sso.sdk.d.c.b("AuthnBusiness", "securityPhone  = " + str5);
+                    com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
                     aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
                     aVar.a("phonescrip", str6);
                     aVar.a("securityphone", str5);
                     if (jSONObject3 != null) {
                     }
                 }
-                com.cmic.sso.sdk.d.c.b("AuthnBusiness", "securityPhone  = " + str5);
+                com.cmic.sso.sdk.e.c.b("AuthnBusiness", "securityPhone  = " + str5);
                 aVar.a(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str7);
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
                 if (jSONObject3 != null) {
-                    h.a(this.f52010b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    h.a(this.f38412b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;
@@ -288,7 +289,7 @@ public class a {
                         return;
                     }
                 }
-                com.cmic.sso.sdk.d.c.a("AuthnBusiness", "返回103000，但是数据解析出错");
+                com.cmic.sso.sdk.e.c.a("AuthnBusiness", "返回103000，但是数据解析出错");
                 bVar.a(String.valueOf(102223), "数据解析异常", aVar, c.a(String.valueOf(102223), "数据解析异常"));
             } else if (aVar.c("logintype") == 3) {
                 bVar.a(str, "true", aVar, c.b(str, str2));

@@ -18,7 +18,7 @@ public class o {
     public static Map<String, Resources> a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f53993b = new Object();
+    public static final Object f39145b = new Object();
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -178,7 +178,7 @@ public class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f53993b) {
+        synchronized (f39145b) {
             resources2 = a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);

@@ -14,19 +14,19 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.e;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GDTAD {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static InitListener f57511b;
+    public static InitListener f42316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f57512c;
+    public static e f42317c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface InitListener {
         void onSuccess();
     }
@@ -44,7 +44,7 @@ public class GDTAD {
                 return;
             }
         }
-        f57512c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
+        f42317c = new e() { // from class: com.qq.e.ads.cfg.GDTAD.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,9 +53,9 @@ public class GDTAD {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -75,8 +75,8 @@ public class GDTAD {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     boolean unused = GDTAD.a = true;
-                    if (GDTAD.f57511b != null) {
-                        GDTAD.f57511b.onSuccess();
+                    if (GDTAD.f42316b != null) {
+                        GDTAD.f42316b.onSuccess();
                     }
                 }
             }
@@ -88,9 +88,9 @@ public class GDTAD {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -107,9 +107,9 @@ public class GDTAD {
             } else if (StringUtil.isEmpty(str)) {
                 GDTLogger.e("AppId参数不能为空");
             } else {
-                f57511b = initListener;
+                f42316b = initListener;
                 GDTADManager gDTADManager = GDTADManager.getInstance();
-                gDTADManager.setPluginLoadListener(f57512c);
+                gDTADManager.setPluginLoadListener(f42317c);
                 gDTADManager.initWith(context.getApplicationContext(), str);
             }
         }

@@ -13,8 +13,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import c.a.d.f.p.n;
-import c.a.q0.p0.e;
-import c.a.r0.d1.k0;
+import c.a.o0.p0.e;
+import c.a.p0.f1.k0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -60,9 +60,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f40734e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity a;
 
         public a(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -71,78 +69,9 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaGameFrsLiveListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f40734e = alaGameFrsLiveListActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40734e.getPageContext().getPageActivity().finish();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f40735e;
-
-        public b(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaGameFrsLiveListActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f40735e = alaGameFrsLiveListActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f40735e.forumId)) {
-                return;
-            }
-            this.f40735e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f40735e.getPageContext().getPageActivity(), this.f40735e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends c.a.q0.p0.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlaGameFrsLiveListActivity a;
-
-        public c(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaGameFrsLiveListActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,8 +80,77 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             this.a = alaGameFrsLiveListActivity;
         }
 
-        @Override // c.a.q0.p0.b
-        public boolean canStat(c.a.q0.p0.d dVar) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.a.getPageContext().getPageActivity().finish();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlaGameFrsLiveListActivity a;
+
+        public b(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaGameFrsLiveListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = alaGameFrsLiveListActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.a.forumId)) {
+                return;
+            }
+            this.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.getPageContext().getPageActivity(), this.a.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends c.a.o0.p0.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ AlaGameFrsLiveListActivity f31446b;
+
+        public c(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaGameFrsLiveListActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f31446b = alaGameFrsLiveListActivity;
+        }
+
+        @Override // c.a.o0.p0.b
+        public boolean a(c.a.o0.p0.d dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
@@ -161,15 +159,15 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             return invokeL.booleanValue;
         }
 
-        @Override // c.a.q0.p0.b
-        public int getMaxCost() {
+        @Override // c.a.o0.p0.b
+        public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e.b().c() : invokeV.intValue;
         }
 
-        @Override // c.a.q0.p0.b
-        public boolean isCurrentPageCanBeAddToSourceTrace() {
+        @Override // c.a.o0.p0.b
+        public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -186,17 +184,17 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public final /* synthetic */ AlaGameFrsLiveListActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity, int i2) {
-            super(i2);
+        public d(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaGameFrsLiveListActivity, Integer.valueOf(i2)};
+                Object[] objArr = {alaGameFrsLiveListActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -214,20 +212,20 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 k0 k0Var = (k0) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
                 if (k0Var.e() != null) {
-                    for (c.a.q0.h0.b bVar : k0Var.e()) {
-                        if (bVar.getFragmentTabStructure().a != null) {
-                            arrayList.add(bVar.getFragmentTabStructure().a);
+                    for (c.a.o0.h0.b bVar : k0Var.e()) {
+                        if (bVar.b().a != null) {
+                            arrayList.add(bVar.b().a);
                         }
                     }
                 }
-                this.a.mFragmentAdapter.setFragments(arrayList);
+                this.a.mFragmentAdapter.b(arrayList);
                 int count = this.a.mFragmentAdapter.getCount();
-                for (int i2 = 0; i2 < count; i2++) {
+                for (int i = 0; i < count; i++) {
                     AlaGameFrsLiveListActivity alaGameFrsLiveListActivity = this.a;
-                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i2), i2, this.a.getTabTextByIndex(i2));
+                    alaGameFrsLiveListActivity.createAndAddTabSpec(alaGameFrsLiveListActivity.mFragmentAdapter.getItem(i), i, this.a.getTabTextByIndex(i));
                 }
-                this.a.mTabHost.initViewPagerWithNoType();
-                this.a.mTabHost.changeStyle(0);
+                this.a.mTabHost.o();
+                this.a.mTabHost.f(0);
             }
         }
     }
@@ -237,9 +235,9 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -250,40 +248,40 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void createAndAddTabSpec(Fragment fragment, int i2, String str) {
+    public void createAndAddTabSpec(Fragment fragment, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65542, this, fragment, i2, str) == null) || fragment == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65542, this, fragment, i, str) == null) || fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f38929c = fragment;
-        bVar.a = i2;
+        bVar.f29925c = fragment;
+        bVar.a = i;
         fragmentTabIndicator.setText(str);
-        fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
-        fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
+        fragmentTabIndicator.f30573h = R.color.fragment_tab_host_indicator_text_color;
+        fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f38928b = fragmentTabIndicator;
-        this.mTabHost.addTabSpec(bVar);
+        bVar.f29924b = fragmentTabIndicator;
+        this.mTabHost.c(bVar);
     }
 
-    private String getTabNameByIndex(int i2) {
+    private String getTabNameByIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
-            if (i2 != 0) {
-                return getResources().getString(R.string.frs_game_live_bagame2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+            if (i != 0) {
+                return getResources().getString(R.string.obfuscated_res_0x7f0f06cd);
             }
-            return getResources().getString(R.string.frs_game_live_bagame2);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f06cd);
         }
         return (String) invokeI.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String getTabTextByIndex(int i2) {
+    public String getTabTextByIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) ? getTabNameByIndex(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) ? getTabNameByIndex(i) : (String) invokeI.objValue;
     }
 
     private void initTabSpec() {
@@ -307,11 +305,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));
+        sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.obfuscated_res_0x7f0f063c));
         this.mNavigationBar.setCenterTextTitle(sb.toString());
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -330,32 +328,32 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
-    public c.a.q0.p0.b getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
+    public c.a.o0.p0.b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this) : (c.a.q0.p0.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new c(this) : (c.a.o0.p0.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Resources resources;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             FragmentTabHost fragmentTabHost = this.mTabHost;
             if (fragmentTabHost != null) {
                 fragmentTabHost.setNeedShowThemeStyle(false);
                 FragmentTabWidget fragmentTabWidget = this.mTabHost.getFragmentTabWidget();
-                if (i2 == 1) {
+                if (i == 1) {
                     resources = getResources();
-                    i3 = R.color.CAM_X0105_1;
+                    i2 = R.color.CAM_X0105_1;
                 } else {
                     resources = getResources();
-                    i3 = R.color.CAM_X0105;
+                    i2 = R.color.CAM_X0105;
                 }
-                fragmentTabWidget.setDiverColor(resources.getColor(i3));
-                this.mTabHost.onChangeSkinType(i2);
+                fragmentTabWidget.setDiverColor(resources.getColor(i2));
+                this.mTabHost.s(i);
                 SkinManager.setBackgroundColor(this.mTabHost.getTabWrapper(), R.color.common_color_10274);
             }
             View view = this.mStatusBarView;
@@ -369,15 +367,15 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             }
             ImageView imageView = this.mForumInfoView;
             if (imageView != null) {
-                SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+                SkinManager.setNavbarIconSrc(imageView, R.drawable.obfuscated_res_0x7f0803ba, R.drawable.btn_more_selector);
             }
             AlaGameFrsLiveListAdapter alaGameFrsLiveListAdapter = this.mFragmentAdapter;
             if (alaGameFrsLiveListAdapter != null) {
                 int count = alaGameFrsLiveListAdapter.getCount();
-                for (int i4 = 0; i4 < count; i4++) {
-                    Fragment item = this.mFragmentAdapter.getItem(i4);
+                for (int i3 = 0; i3 < count; i3++) {
+                    Fragment item = this.mFragmentAdapter.getItem(i3);
                     if (item instanceof BaseFragment) {
-                        ((BaseFragment) item).changeSkinType(i2);
+                        ((BaseFragment) item).changeSkinType(i);
                     }
                 }
             }
@@ -425,8 +423,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             navigationBar.setStatusBarVisibility(8);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.setMargins(0, 0, n.f(getPageContext().getPageActivity(), R.dimen.ds24), 0);
-            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.ala_frs_game_tab_forum_detail, (View.OnClickListener) null);
+            layoutParams2.setMargins(0, 0, n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d00fa, (View.OnClickListener) null);
             this.mForumInfoView = imageView;
             imageView.setLayoutParams(layoutParams2);
             this.mForumInfoView.setOnClickListener(new b(this));
@@ -439,10 +437,10 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setOnPageChangeListener(this);
             this.mTabHost.setTabWidgetViewHeight(0);
-            this.mTabHost.reset();
-            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.ds12));
+            this.mTabHost.u();
+            this.mTabHost.getFragmentTabWidget().setPadding(0, 0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234));
             this.mTabHost.getFragmentTabWidget().setDviderRectWidth(-2);
-            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(n.f(getActivity(), R.dimen.ds4));
+            this.mTabHost.getFragmentTabWidget().setDviderRectHeight(n.f(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             linearLayout.addView(this.mTabHost);
             return linearLayout;
         }
@@ -459,24 +457,24 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i2) {
+    public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i2, float f2, int i3) {
+    public void onPageScrolled(int i, float f2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
         }
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i2) {
+    public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mCurrTabIndex = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mCurrTabIndex = i;
         }
     }
 

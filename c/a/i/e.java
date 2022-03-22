@@ -24,7 +24,7 @@ public final class e {
     public static Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3547b;
+    public static String f2993b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class e {
                 return;
             }
         }
-        f3547b = a();
+        f2993b = a();
         a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
     }
 
@@ -150,11 +150,11 @@ public final class e {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
                 StringBuilder sb = new StringBuilder(digest.length * 2);
                 for (byte b2 : digest) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append("0");
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
             } catch (UnsupportedEncodingException e2) {
@@ -171,13 +171,13 @@ public final class e {
     public static String k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f3547b, str.getBytes()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? b(f2993b, str.getBytes()) : (String) invokeL.objValue;
     }
 
     public static String l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f3547b, Base64.decode(str, 0)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? f(f2993b, Base64.decode(str, 0)) : (String) invokeL.objValue;
     }
 
     public static Key m(String str) {

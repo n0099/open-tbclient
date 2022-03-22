@@ -38,9 +38,9 @@ public class AppCompatImageHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,8 +81,8 @@ public class AppCompatImageHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 > 21 ? this.mInternalImageTint != null : i2 == 21;
+            int i = Build.VERSION.SDK_INT;
+            return i > 21 ? this.mInternalImageTint != null : i == 21;
         }
         return invokeV.booleanValue;
     }
@@ -146,13 +146,13 @@ public class AppCompatImageHelper {
         return invokeV.booleanValue;
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.AppCompatImageView, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.AppCompatImageView, i, 0);
             ImageView imageView = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R$styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R$styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             try {
                 Drawable drawable = this.mView.getDrawable();
                 if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
@@ -173,11 +173,11 @@ public class AppCompatImageHelper {
         }
     }
 
-    public void setImageResource(int i2) {
+    public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (i2 != 0) {
-                Drawable drawable = AppCompatResources.getDrawable(this.mView.getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i != 0) {
+                Drawable drawable = AppCompatResources.getDrawable(this.mView.getContext(), i);
                 if (drawable != null) {
                     DrawableUtils.fixDrawable(drawable);
                 }

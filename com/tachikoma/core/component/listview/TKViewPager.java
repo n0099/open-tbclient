@@ -19,7 +19,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKViewPager extends TKBase<RecyclerViewPager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -102,9 +102,9 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -114,30 +114,30 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeListener
-                public void onPageScrollStateChanged(int i2) {
+                public void onPageScrollStateChanged(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) || this.this$0.mPageChangeCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) || this.this$0.mPageChangeCallback == null) {
                         return;
                     }
-                    this.this$0.mPageChangeCallback.onPageScrollStateChanged(i2);
+                    this.this$0.mPageChangeCallback.onPageScrollStateChanged(i);
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeListener
-                public void onPageScrolled(int i2, float f2, int i3) {
+                public void onPageScrolled(int i, float f2, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.this$0.mPageChangeCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || this.this$0.mPageChangeCallback == null) {
                         return;
                     }
-                    this.this$0.mPageChangeCallback.onPageScrolled(i2, f2, i3);
+                    this.this$0.mPageChangeCallback.onPageScrolled(i, f2, i2);
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeListener
-                public void onPageSelected(int i2, int i3) {
+                public void onPageSelected(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || this.this$0.mPageChangeCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.this$0.mPageChangeCallback == null) {
                         return;
                     }
-                    this.this$0.mPageChangeCallback.onPageSelected(i2);
+                    this.this$0.mPageChangeCallback.onPageSelected(i);
                 }
             });
         }
@@ -152,10 +152,10 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
         tKRecyclerAdapter.notifyDataSetChanged();
     }
 
-    public void scrollTo(int i2, int i3) {
+    public void scrollTo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            getView().setCurrentItem(i3, true);
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            getView().setCurrentItem(i2, true);
         }
     }
 
@@ -176,10 +176,10 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
         }
     }
 
-    public void setDirection(int i2) {
+    public void setDirection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mDirection = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mDirection = i;
         }
     }
 
@@ -209,10 +209,10 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
         }
     }
 
-    public void smoothScrollTo(int i2, int i3) {
+    public void smoothScrollTo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            getView().setCurrentItem(i3, true);
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            getView().setCurrentItem(i2, true);
         }
     }
 }

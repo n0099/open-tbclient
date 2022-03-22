@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import c.a.d.a.e;
-import c.a.r0.n3.c.d;
-import c.a.r0.n3.c.i;
+import c.a.p0.p3.c.d;
+import c.a.p0.p3.c.j;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON;
-    public c.a.r0.n3.c.j.a collectorManager;
+    public c.a.p0.p3.c.k.a collectorManager;
     public String functionIntroUrl;
     public AboutModel mModel;
-    public c.a.r0.n3.c.a mView;
-    public i mVisitPreviewServerDialog;
+    public c.a.p0.p3.c.a mView;
+    public j mVisitPreviewServerDialog;
     public c receiver;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aboutActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,30 +60,30 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // c.a.r0.n3.c.d
-        public void a(int i2) {
+        @Override // c.a.p0.p3.c.d
+        public void a(int i) {
             String str;
             String fileDireciory;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
                     this.a.finish();
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     this.a.checkUpdata();
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
-                } else if (i2 == 3) {
-                    c.a.q0.r.j0.b.k().u(SettingTextFunctionIntroView.HAS_SHOWN_FUNCTION_INTRO, true);
-                    c.a.q0.l.a.q(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.functionIntroUrl, true, false, false);
-                } else if (i2 != 4) {
-                    if (i2 == 5) {
+                } else if (i == 3) {
+                    c.a.o0.r.j0.b.k().u(SettingTextFunctionIntroView.f35902h, true);
+                    c.a.o0.l.a.q(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0770), this.a.functionIntroUrl, true, false, false);
+                } else if (i != 4) {
+                    if (i == 5) {
                         if (this.a.mVisitPreviewServerDialog == null) {
                             AboutActivity aboutActivity = this.a;
-                            aboutActivity.mVisitPreviewServerDialog = new i(aboutActivity.getActivity());
+                            aboutActivity.mVisitPreviewServerDialog = new j(aboutActivity.getActivity());
                             this.a.mVisitPreviewServerDialog.create(this.a.getPageContext());
                         }
                         this.a.mVisitPreviewServerDialog.show();
-                    } else if (i2 == 6) {
+                    } else if (i == 6) {
                         if (PermissionUtil.checkWriteExternalStorage(this.a)) {
                             this.a.startCollectLog();
                             return;
@@ -109,7 +109,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aboutActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,7 +142,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,9 +155,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aboutActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -172,7 +172,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || this.this$0.mView == null) {
                 return;
             }
-            this.this$0.mView.s();
+            this.this$0.mView.u();
         }
 
         public /* synthetic */ c(AboutActivity aboutActivity, a aVar) {
@@ -185,9 +185,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -202,17 +202,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void checkUpdata() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            c.a.r0.y1.c.b().a(true);
+            c.a.p0.a2.c.b().a(true);
             AboutModel aboutModel = this.mModel;
             if (aboutModel == null) {
                 this.mModel = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.mModel.A();
-            c.a.r0.n3.c.a aVar = this.mView;
+            this.mModel.C();
+            c.a.p0.p3.c.a aVar = this.mView;
             if (aVar != null) {
-                aVar.n();
+                aVar.p();
             }
         }
     }
@@ -221,11 +221,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void handlCallBack(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, obj) == null) {
-            c.a.r0.n3.c.a aVar = this.mView;
+            c.a.p0.p3.c.a aVar = this.mView;
             if (aVar != null) {
-                aVar.o();
+                aVar.q();
             }
-            c.a.q0.s.e.e eVar = obj != null ? (c.a.q0.s.e.e) obj : null;
+            c.a.o0.s.e.e eVar = obj != null ? (c.a.o0.s.e.e) obj : null;
             if (eVar != null) {
                 TbadkCoreApplication.getInst().setVersionData(eVar.s());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
@@ -239,14 +239,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                c.a.r0.n3.c.a aVar2 = this.mView;
+                c.a.p0.p3.c.a aVar2 = this.mView;
                 if (aVar2 != null) {
-                    aVar2.s();
+                    aVar2.u();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.neterror));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
         }
     }
 
@@ -279,13 +279,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            c.a.r0.n3.c.a aVar = this.mView;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            c.a.p0.p3.c.a aVar = this.mView;
             if (aVar != null) {
-                aVar.u(i2);
+                aVar.w(i);
             }
         }
     }
@@ -295,10 +295,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.collectorManager = new c.a.r0.n3.c.j.a(this);
-            c.a.r0.n3.c.a aVar = new c.a.r0.n3.c.a(this, new a(this));
+            this.collectorManager = new c.a.p0.p3.c.k.a(this);
+            c.a.p0.p3.c.a aVar = new c.a.p0.p3.c.a(this, new a(this));
             this.mView = aVar;
-            aVar.s();
+            aVar.u();
             regReceiver();
         }
     }
@@ -313,15 +313,15 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            c.a.r0.n3.c.a aVar = this.mView;
+            c.a.p0.p3.c.a aVar = this.mView;
             if (aVar != null) {
-                aVar.o();
+                aVar.q();
             }
-            i iVar = this.mVisitPreviewServerDialog;
-            if (iVar != null) {
-                iVar.dismiss();
+            j jVar = this.mVisitPreviewServerDialog;
+            if (jVar != null) {
+                jVar.dismiss();
             }
-            c.a.r0.n3.c.j.a aVar2 = this.collectorManager;
+            c.a.p0.p3.c.k.a aVar2 = this.collectorManager;
             if (aVar2 != null) {
                 aVar2.i();
                 this.collectorManager = null;
@@ -330,13 +330,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(1048579, this, i2, strArr, iArr) == null) && i2 == this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON) {
+        if ((interceptable == null || interceptable.invokeILL(1048579, this, i, strArr, iArr) == null) && i == this.REQUEST_WRITE_EXTERNAL_STORGE_PERMISSON) {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
                 startCollectLog();
             } else {
-                showToast(R.string.write_external_storage_permission_denied_fun_disable);
+                showToast(R.string.obfuscated_res_0x7f0f157e);
             }
         }
     }
@@ -346,9 +346,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            c.a.r0.n3.c.a aVar = this.mView;
+            c.a.p0.p3.c.a aVar = this.mView;
             if (aVar != null) {
-                aVar.s();
+                aVar.u();
             }
         }
     }

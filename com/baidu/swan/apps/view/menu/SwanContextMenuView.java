@@ -15,8 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import c.a.p0.a.s1.b.e.a;
-import c.a.p0.a.s1.b.e.b;
+import c.a.n0.a.s1.b.e.a;
+import c.a.n0.a.s1.b.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,31 +25,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanContextMenuView extends FrameLayout implements a.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f29362b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ListView f29363c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f29364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38144e;
+    public boolean f29365e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f38145f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ListView f38146g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public b f38147h;
-    public boolean mLayoutInCenter;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanContextMenuView f38148e;
+        public final /* synthetic */ SwanContextMenuView a;
 
         public a(SwanContextMenuView swanContextMenuView) {
             Interceptable interceptable = $ic;
@@ -58,48 +56,46 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanContextMenuView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38148e = swanContextMenuView;
+            this.a = swanContextMenuView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f38148e.f38147h.a(i2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                this.a.f29364d.a(i);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final Context f38149e;
+        /* renamed from: b  reason: collision with root package name */
+        public List<c.a.n0.a.s1.b.e.b> f29366b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public List<c.a.p0.a.s1.b.e.b> f38150f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ SwanContextMenuView f29367c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanContextMenuView f38151g;
-
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ImageView a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TextView f38152b;
+            public TextView f29368b;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -108,9 +104,9 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -118,55 +114,55 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
             }
         }
 
-        public b(SwanContextMenuView swanContextMenuView, Context context, List<c.a.p0.a.s1.b.e.b> list) {
+        public b(SwanContextMenuView swanContextMenuView, Context context, List<c.a.n0.a.s1.b.e.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanContextMenuView, context, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38151g = swanContextMenuView;
-            this.f38150f = list;
-            this.f38149e = context;
+            this.f29367c = swanContextMenuView;
+            this.f29366b = list;
+            this.a = context;
         }
 
-        public void a(int i2) {
-            c.a.p0.a.s1.b.e.b bVar;
+        public void a(int i) {
+            c.a.n0.a.s1.b.e.b bVar;
             b.a d2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (d2 = (bVar = this.f38150f.get(i2)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (d2 = (bVar = this.f29366b.get(i)).d()) == null) {
                 return;
             }
             d2.a(bVar);
         }
 
-        public final void b(View view, int i2) {
+        public final void b(View view, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
                 if (getCount() == 1) {
-                    view.setBackground(this.f38149e.getResources().getDrawable(R.drawable.swan_app_context_menu_round_corner_selector));
-                } else if (i2 == 0) {
-                    view.setBackground(this.f38149e.getResources().getDrawable(R.drawable.swan_app_context_menu_top_corner_selector));
-                } else if (i2 == getCount() - 1) {
-                    view.setBackground(this.f38149e.getResources().getDrawable(R.drawable.swan_app_context_menu_bottom_corner_selector));
+                    view.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110c));
+                } else if (i == 0) {
+                    view.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110d));
+                } else if (i == getCount() - 1) {
+                    view.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110a));
                 } else {
-                    view.setBackground(this.f38149e.getResources().getDrawable(R.drawable.swan_app_context_menu_no_corner_selector));
+                    view.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08110b));
                 }
             }
         }
 
-        public void c(List<c.a.p0.a.s1.b.e.b> list) {
+        public void c(List<c.a.n0.a.s1.b.e.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                this.f38150f = list;
+                this.f29366b = list;
                 notifyDataSetChanged();
             }
         }
@@ -175,54 +171,54 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38150f.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29366b.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i2) {
+        public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f38150f.get(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.f29366b.get(i) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
         @SuppressLint({"InflateParams"})
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f38149e).inflate(R.layout.swan_app_menu_item_view, (ViewGroup) null);
+                    view = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c5, (ViewGroup) null);
                     aVar = new a(this);
-                    aVar.a = (ImageView) view.findViewById(R.id.item_icon);
-                    aVar.f38152b = (TextView) view.findViewById(R.id.item_title);
-                    b(view, i2);
+                    aVar.a = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090f7b);
+                    aVar.f29368b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090fab);
+                    b(view, i);
                     view.setTag(aVar);
                 } else {
                     aVar = (a) view.getTag();
                 }
-                c.a.p0.a.s1.b.e.b bVar = this.f38150f.get(i2);
-                aVar.f38152b.setText(bVar.e());
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f38152b.getLayoutParams();
+                c.a.n0.a.s1.b.e.b bVar = this.f29366b.get(i);
+                aVar.f29368b.setText(bVar.e());
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.f29368b.getLayoutParams();
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
                 if (bVar.b() != null) {
                     aVar.a.setVisibility(0);
                     aVar.a.setImageDrawable(bVar.b());
-                    layoutParams.setMarginStart(this.f38149e.getResources().getDimensionPixelSize(R.dimen.swan_context_menu_item_title_left_margin));
+                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d));
                 } else {
                     aVar.a.setVisibility(8);
-                    layoutParams.setMarginStart(this.f38149e.getResources().getDimensionPixelSize(R.dimen.swan_context_menu_item_icon_left_margin));
+                    layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060c));
                 }
-                aVar.f38152b.setLayoutParams(layoutParams);
-                if (this.f38151g.mLayoutInCenter) {
+                aVar.f29368b.setLayoutParams(layoutParams);
+                if (this.f29367c.f29365e) {
                     ((LinearLayout) view).setGravity(17);
                     layoutParams.width = -2;
                     if (bVar.b() != null) {
@@ -230,7 +226,7 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
                         aVar.a.setLayoutParams(layoutParams2);
                     } else {
                         layoutParams.setMarginStart(0);
-                        aVar.f38152b.setLayoutParams(layoutParams);
+                        aVar.f29368b.setLayoutParams(layoutParams);
                     }
                 }
                 return view;
@@ -240,17 +236,17 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanContextMenuView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwanContextMenuView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -258,8 +254,8 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f38145f = false;
-        this.f38144e = context;
+        this.f29362b = false;
+        this.a = context;
         b();
     }
 
@@ -267,51 +263,38 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.f38144e.getResources().getDrawable(R.drawable.swan_app_context_menu_bg));
-            ListView listView = new ListView(this.f38144e);
-            this.f38146g = listView;
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081109));
+            ListView listView = new ListView(this.a);
+            this.f29363c = listView;
             listView.setCacheColorHint(0);
-            this.f38146g.setDivider(getResources().getDrawable(R.color.swan_context_menu_divider_color));
-            this.f38146g.setDividerHeight(1);
-            this.f38146g.setSelector(new ColorDrawable(0));
-            addView(this.f38146g, new FrameLayout.LayoutParams(-1, -1));
-            this.f38146g.setOnItemClickListener(new a(this));
+            this.f29363c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060a46));
+            this.f29363c.setDividerHeight(1);
+            this.f29363c.setSelector(new ColorDrawable(0));
+            addView(this.f29363c, new FrameLayout.LayoutParams(-1, -1));
+            this.f29363c.setOnItemClickListener(new a(this));
         }
     }
 
-    public void layoutMenu(List<c.a.p0.a.s1.b.e.b> list) {
+    public void c(List<c.a.n0.a.s1.b.e.b> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f38145f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f29362b) {
             return;
         }
-        b bVar = this.f38147h;
+        b bVar = this.f29364d;
         if (bVar == null) {
-            b bVar2 = new b(this, this.f38144e, list);
-            this.f38147h = bVar2;
-            this.f38146g.setAdapter((ListAdapter) bVar2);
+            b bVar2 = new b(this, this.a, list);
+            this.f29364d = bVar2;
+            this.f29363c.setAdapter((ListAdapter) bVar2);
         } else {
             bVar.c(list);
         }
-        this.f38145f = true;
-    }
-
-    public void onMenuItemUpdated(c.a.p0.a.s1.b.e.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-        }
-    }
-
-    public void onMenuSetChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f38145f = false;
-        }
+        this.f29362b = true;
     }
 
     public void setLayoutInCenter(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.mLayoutInCenter = z;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f29365e = z;
         }
     }
 
@@ -324,9 +307,9 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -334,8 +317,8 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f38145f = false;
-        this.f38144e = context;
+        this.f29362b = false;
+        this.a = context;
         b();
     }
 
@@ -348,17 +331,17 @@ public class SwanContextMenuView extends FrameLayout implements a.g {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38145f = false;
-        this.f38144e = context;
+        this.f29362b = false;
+        this.a = context;
         b();
     }
 }

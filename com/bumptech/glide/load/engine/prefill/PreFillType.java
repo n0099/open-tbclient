@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PreFillType {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -24,7 +23,7 @@ public final class PreFillType {
     public final int weight;
     public final int width;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,17 +33,17 @@ public final class PreFillType {
         public final int width;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Builder(int i2) {
-            this(i2, i2);
+        public Builder(int i) {
+            this(i, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -76,12 +75,12 @@ public final class PreFillType {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setWeight(int i2) {
+        public Builder setWeight(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                if (i2 > 0) {
-                    this.weight = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                if (i > 0) {
+                    this.weight = i;
                     return this;
                 }
                 throw new IllegalArgumentException("Weight must be > 0");
@@ -89,28 +88,28 @@ public final class PreFillType {
             return (Builder) invokeI.objValue;
         }
 
-        public Builder(int i2, int i3) {
+        public Builder(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.weight = 1;
-            if (i2 <= 0) {
+            if (i <= 0) {
                 throw new IllegalArgumentException("Width must be > 0");
             }
-            if (i3 > 0) {
-                this.width = i2;
-                this.height = i3;
+            if (i2 > 0) {
+                this.width = i;
+                this.height = i2;
                 return;
             }
             throw new IllegalArgumentException("Height must be > 0");
@@ -133,25 +132,25 @@ public final class PreFillType {
         DEFAULT_CONFIG = Bitmap.Config.RGB_565;
     }
 
-    public PreFillType(int i2, int i3, Bitmap.Config config, int i4) {
+    public PreFillType(int i, int i2, Bitmap.Config config, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), config, Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), config, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.config = (Bitmap.Config) Preconditions.checkNotNull(config, "Config must not be null");
-        this.width = i2;
-        this.height = i3;
-        this.weight = i4;
+        this.width = i;
+        this.height = i2;
+        this.weight = i3;
     }
 
     public boolean equals(Object obj) {
@@ -201,7 +200,7 @@ public final class PreFillType {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "PreFillSize{width=" + this.width + ", height=" + this.height + ", config=" + this.config + ", weight=" + this.weight + ExtendedMessageFormat.END_FE;
+            return "PreFillSize{width=" + this.width + ", height=" + this.height + ", config=" + this.config + ", weight=" + this.weight + '}';
         }
         return (String) invokeV.objValue;
     }

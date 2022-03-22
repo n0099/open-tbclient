@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GeneratedTexture {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK = 0;
@@ -34,7 +34,7 @@ public class GeneratedTexture {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class GeneratedTexture {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -94,16 +94,16 @@ public class GeneratedTexture {
             $VALUES = new Image[]{COARSE, image};
         }
 
-        public Image(String str, int i2) {
+        public Image(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -149,30 +149,30 @@ public class GeneratedTexture {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void checkerPattern(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+    public static void checkerPattern(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            for (int i9 = i3; i9 < i5; i9++) {
-                int i10 = i9 * 64 * 4;
-                for (int i11 = i2; i11 < i4; i11++) {
-                    int i12 = (i11 * 4) + i10;
-                    int i13 = ((i9 & i8) ^ (i11 & i8)) == 0 ? i6 : i7;
-                    int i14 = i13 & 255;
-                    int i15 = (i13 >> 24) & 255;
-                    float f2 = i15 / 255.0f;
-                    bArr[i12] = (byte) (i14 * f2);
-                    bArr[i12 + 1] = (byte) (((i13 >> 8) & 255) * f2);
-                    bArr[i12 + 2] = (byte) (((i13 >> 16) & 255) * f2);
-                    bArr[i12 + 3] = (byte) i15;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            for (int i8 = i2; i8 < i4; i8++) {
+                int i9 = i8 * 64 * 4;
+                for (int i10 = i; i10 < i3; i10++) {
+                    int i11 = (i10 * 4) + i9;
+                    int i12 = ((i8 & i7) ^ (i10 & i7)) == 0 ? i5 : i6;
+                    int i13 = i12 & 255;
+                    int i14 = (i12 >> 24) & 255;
+                    float f2 = i14 / 255.0f;
+                    bArr[i11] = (byte) (i13 * f2);
+                    bArr[i11 + 1] = (byte) (((i12 >> 8) & 255) * f2);
+                    bArr[i11 + 2] = (byte) (((i12 >> 16) & 255) * f2);
+                    bArr[i11 + 3] = (byte) i14;
                 }
             }
         }
@@ -183,10 +183,10 @@ public class GeneratedTexture {
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, image)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$faceunity$gles$GeneratedTexture$Image[image.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$faceunity$gles$GeneratedTexture$Image[image.ordinal()];
+            if (i == 1) {
                 byteBuffer = sCoarseImageData;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 byteBuffer = sFineImageData;
             } else {
                 throw new RuntimeException("unknown image");
@@ -201,19 +201,19 @@ public class GeneratedTexture {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             byte[] bArr = new byte[16384];
-            for (int i2 = 0; i2 < 16384; i2 += 4) {
-                int i3 = i2 / 4;
-                int i4 = GRID[(((i3 / 64) / 16) * 4) + ((i3 % 64) / 16)];
-                if (i2 == 0 || i2 == 16380) {
-                    i4 = -1;
+            for (int i = 0; i < 16384; i += 4) {
+                int i2 = i / 4;
+                int i3 = GRID[(((i2 / 64) / 16) * 4) + ((i2 % 64) / 16)];
+                if (i == 0 || i == 16380) {
+                    i3 = -1;
                 }
-                int i5 = i4 & 255;
-                int i6 = (i4 >> 24) & 255;
-                float f2 = i6 / 255.0f;
-                bArr[i2] = (byte) (i5 * f2);
-                bArr[i2 + 1] = (byte) (((i4 >> 8) & 255) * f2);
-                bArr[i2 + 2] = (byte) (((i4 >> 16) & 255) * f2);
-                bArr[i2 + 3] = (byte) i6;
+                int i4 = i3 & 255;
+                int i5 = (i3 >> 24) & 255;
+                float f2 = i5 / 255.0f;
+                bArr[i] = (byte) (i4 * f2);
+                bArr[i + 1] = (byte) (((i3 >> 8) & 255) * f2);
+                bArr[i + 2] = (byte) (((i3 >> 16) & 255) * f2);
+                bArr[i + 3] = (byte) i5;
             }
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);
             allocateDirect.put(bArr);

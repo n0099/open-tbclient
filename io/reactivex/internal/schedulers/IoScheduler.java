@@ -50,31 +50,31 @@ public final class IoScheduler extends Scheduler {
         public final long keepAliveTime;
         public final ThreadFactory threadFactory;
 
-        public CachedWorkerPool(long j2, TimeUnit timeUnit, ThreadFactory threadFactory) {
+        public CachedWorkerPool(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), timeUnit, threadFactory};
+                Object[] objArr = {Long.valueOf(j), timeUnit, threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.keepAliveTime = timeUnit != null ? timeUnit.toNanos(j2) : 0L;
+            this.keepAliveTime = timeUnit != null ? timeUnit.toNanos(j) : 0L;
             this.expiringWorkerQueue = new ConcurrentLinkedQueue<>();
             this.allWorkers = new CompositeDisposable();
             this.threadFactory = threadFactory;
             ScheduledExecutorService scheduledExecutorService = null;
             if (timeUnit != null) {
                 scheduledExecutorService = Executors.newScheduledThreadPool(1, IoScheduler.EVICTOR_THREAD_FACTORY);
-                long j3 = this.keepAliveTime;
-                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, j3, j3, TimeUnit.NANOSECONDS);
+                long j2 = this.keepAliveTime;
+                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, j2, j2, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
             }
@@ -174,9 +174,9 @@ public final class IoScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cachedWorkerPool};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -206,14 +206,14 @@ public final class IoScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (this.tasks.isDisposed()) {
                     return EmptyDisposable.INSTANCE;
                 }
-                return this.threadWorker.scheduleActual(runnable, j2, timeUnit, this.tasks);
+                return this.threadWorker.scheduleActual(runnable, j, timeUnit, this.tasks);
             }
             return (Disposable) invokeCommon.objValue;
         }
@@ -234,9 +234,9 @@ public final class IoScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ThreadFactory) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -252,10 +252,10 @@ public final class IoScheduler extends Scheduler {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expirationTime : invokeV.longValue;
         }
 
-        public void setExpirationTime(long j2) {
+        public void setExpirationTime(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.expirationTime = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.expirationTime = j;
             }
         }
     }
@@ -292,9 +292,9 @@ public final class IoScheduler extends Scheduler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ThreadFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -353,9 +353,9 @@ public final class IoScheduler extends Scheduler {
             newInitContext.initArgs = r2;
             Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

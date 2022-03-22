@@ -31,9 +31,9 @@ public abstract class BasicFuseableSubscriber<T, R> implements FlowableSubscribe
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -137,22 +137,22 @@ public abstract class BasicFuseableSubscriber<T, R> implements FlowableSubscribe
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.s.request(j2);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.s.request(j);
         }
     }
 
-    public final int transitiveBoundaryFusion(int i2) {
+    public final int transitiveBoundaryFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             QueueSubscription<T> queueSubscription = this.qs;
-            if (queueSubscription == null || (i2 & 4) != 0) {
+            if (queueSubscription == null || (i & 4) != 0) {
                 return 0;
             }
-            int requestFusion = queueSubscription.requestFusion(i2);
+            int requestFusion = queueSubscription.requestFusion(i);
             if (requestFusion != 0) {
                 this.sourceMode = requestFusion;
             }

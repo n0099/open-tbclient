@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.httpNet;
 
-import c.a.q0.n.a;
+import c.a.o0.n.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,9 +38,9 @@ public abstract class ICDNIPDirectConnect {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,11 +73,11 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract a getCDNImageTimeData();
 
-    public abstract String getCachedCdnIp(int i2);
+    public abstract String getCachedCdnIp(int i);
 
     public abstract boolean hasImageProblem();
 
-    public abstract HttpGet httpGetFactory(String str, int i2, boolean z);
+    public abstract HttpGet httpGetFactory(String str, int i, boolean z);
 
     public abstract HttpGet httpGetFactory(String str, String str2, String str3);
 
@@ -89,5 +89,5 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract void setCDNImageTimeData(a aVar);
 
-    public abstract void setIpDisableTime(int i2);
+    public abstract void setIpDisableTime(int i);
 }

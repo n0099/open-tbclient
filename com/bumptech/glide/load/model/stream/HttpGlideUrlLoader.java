@@ -19,7 +19,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public static final Option<Integer> TIMEOUT;
@@ -27,7 +27,7 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
     @Nullable
     public final ModelCache<GlideUrl, GlideUrl> modelCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -88,9 +88,9 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ModelCache) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -117,9 +117,9 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
             newInitContext.initArgs = r2;
             Object[] objArr = {modelCache};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -130,10 +130,10 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull GlideUrl glideUrl, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull GlideUrl glideUrl, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{glideUrl, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{glideUrl, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             ModelCache<GlideUrl, GlideUrl> modelCache = this.modelCache;
             if (modelCache != null) {
                 GlideUrl glideUrl2 = modelCache.get(glideUrl, 0, 0);

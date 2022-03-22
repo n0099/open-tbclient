@@ -28,25 +28,25 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<RecommendDetailActivity> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d f33882b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f33883c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f33884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<RecommendDetailActivity> f43669e;
+    public long f33885e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f43670f;
+    public c.a.d.c.g.a f33886f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43671g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f43672h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f43673i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f43674j;
-    public CustomMessageListener k;
+    public CustomMessageListener f33887g;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -55,17 +55,17 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public final /* synthetic */ RecommendDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(RecommendDetailModel recommendDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public a(RecommendDetailModel recommendDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {recommendDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -80,31 +80,31 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f43672h = true;
-                if (this.a.f43669e == null || this.a.f43670f == null) {
+                this.a.f33884d = true;
+                if (this.a.a == null || this.a.f33882b == null) {
                     return;
                 }
                 if (responsedMessage == null) {
-                    this.a.f43670f.onFailed(this.a.f43669e.getString(R.string.neterror));
+                    this.a.f33882b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c15));
                 } else if (responsedMessage.getError() != 0) {
                     if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        this.a.f43670f.onFailed(this.a.f43669e.getString(R.string.neterror));
+                        this.a.f33882b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c15));
                     } else {
-                        this.a.f43670f.onFailed(responsedMessage.getErrorString());
+                        this.a.f33882b.onFailed(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                         RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                         if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                            this.a.f43671g = true;
-                            this.a.f43670f.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                            this.a.f33883c = true;
+                            this.a.f33882b.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                         }
                     }
                     if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                         RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                         if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                            this.a.f43671g = true;
-                            this.a.f43670f.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                            this.a.f33883c = true;
+                            this.a.f33882b.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                         }
                     }
                 }
@@ -119,17 +119,17 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public final /* synthetic */ RecommendDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(RecommendDetailModel recommendDetailModel, int i2) {
-            super(i2);
+        public b(RecommendDetailModel recommendDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {recommendDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -148,24 +148,24 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                 if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || this.a.f43669e == null || this.a.f43670f == null) {
+                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || this.a.a == null || this.a.f33882b == null) {
                         return;
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            this.a.f43669e.showToast(R.string.neterror);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                         } else {
-                            this.a.f43669e.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                            this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                         }
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.a.f43670f.onAcceptMsg(false);
+                            this.a.f33882b.onAcceptMsg(false);
                         } else {
-                            this.a.f43670f.onUnAcceptMsg(false);
+                            this.a.f33882b.onUnAcceptMsg(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.f43670f.onAcceptMsg(true);
+                        this.a.f33882b.onAcceptMsg(true);
                     } else {
-                        this.a.f43670f.onUnAcceptMsg(true);
+                        this.a.f33882b.onUnAcceptMsg(true);
                     }
                 }
             }
@@ -179,17 +179,17 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public final /* synthetic */ RecommendDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(RecommendDetailModel recommendDetailModel, int i2) {
-            super(i2);
+        public c(RecommendDetailModel recommendDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {recommendDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -205,15 +205,15 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof UserInfoBigVip)) {
-                    this.a.F();
+                    this.a.H();
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-                if (this.a.f43670f != null && userInfoBigVip != null) {
-                    this.a.f43671g = true;
-                    this.a.f43670f.onSuccess(userInfoBigVip, false);
+                if (this.a.f33882b != null && userInfoBigVip != null) {
+                    this.a.f33883c = true;
+                    this.a.f33882b.onSuccess(userInfoBigVip, false);
                 }
-                this.a.F();
+                this.a.H();
             }
         }
     }
@@ -238,63 +238,63 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43671g = false;
-        this.f43672h = false;
-        this.f43674j = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
-        this.k = new c(this, 2001306);
-        this.f43669e = tbPageContext;
-        this.f43670f = dVar;
-        MessageManager.getInstance().registerListener(this.f43674j);
-        MessageManager.getInstance().registerListener(this.k);
-        D();
+        this.f33883c = false;
+        this.f33884d = false;
+        this.f33886f = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
+        this.f33887g = new c(this, 2001306);
+        this.a = tbPageContext;
+        this.f33882b = dVar;
+        MessageManager.getInstance().registerListener(this.f33886f);
+        MessageManager.getInstance().registerListener(this.f33887g);
+        F();
     }
 
-    public boolean B() {
+    public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43671g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33883c : invokeV.booleanValue;
     }
 
-    public boolean C() {
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43672h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33884d : invokeV.booleanValue;
     }
 
-    public final void D() {
+    public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(new b(this, 104102));
         }
     }
 
-    public void E(long j2) {
+    public void G(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f43673i = j2;
-            sendMessage(new CustomMessage(2001306, Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.f33885e = j;
+            sendMessage(new CustomMessage(2001306, Long.valueOf(j)));
         }
     }
 
-    public final void F() {
+    public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
-            recommendDetailRequestMessage.setUserId(this.f43673i);
+            recommendDetailRequestMessage.setUserId(this.f33885e);
             sendMessage(recommendDetailRequestMessage);
         }
     }
 
-    public void G(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
@@ -304,7 +304,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 requestUpdateMaskInfoMessage.setIsMask(1);
             }
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(this.f43673i);
+            requestUpdateMaskInfoMessage.setG_id(this.f33885e);
             requestUpdateMaskInfoMessage.setCallFrom(2);
             sendMessage(requestUpdateMaskInfoMessage);
         }
@@ -333,8 +333,8 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.k);
-            MessageManager.getInstance().unRegisterListener(this.f43674j);
+            MessageManager.getInstance().unRegisterListener(this.f33887g);
+            MessageManager.getInstance().unRegisterListener(this.f33886f);
         }
     }
 }

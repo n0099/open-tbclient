@@ -32,19 +32,19 @@ public /* synthetic */ class c {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[c.a.f34616c.ordinal()] = 2;
+            a[c.a.f26806c.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[c.a.f34618e.ordinal()] = 3;
+            a[c.a.f26808e.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[c.a.f34615b.ordinal()] = 4;
+            a[c.a.f26805b.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[c.a.f34617d.ordinal()] = 5;
+            a[c.a.f26807d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

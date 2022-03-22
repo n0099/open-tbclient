@@ -22,9 +22,9 @@ public class a1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -75,11 +75,11 @@ public class a1 {
                     bufferedReader = new BufferedReader(inputStreamReader);
                     try {
                         z0 z0Var = new z0();
-                        int i2 = 0;
+                        int i = 0;
                         while (true) {
                             String readLine = bufferedReader.readLine();
                             if (readLine == null) {
-                                z0Var.a(i2);
+                                z0Var.a(i);
                                 bufferedReader.close();
                                 inputStreamReader.close();
                                 fileInputStream.close();
@@ -99,7 +99,7 @@ public class a1 {
                                     if (split3 != null) {
                                         String trim2 = split3[1].trim();
                                         if (!TextUtils.isEmpty(trim2)) {
-                                            i2 = Integer.parseInt(trim2) + 1;
+                                            i = Integer.parseInt(trim2) + 1;
                                         }
                                     }
                                 }

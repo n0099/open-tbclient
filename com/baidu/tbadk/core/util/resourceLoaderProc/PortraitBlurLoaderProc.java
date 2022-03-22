@@ -14,17 +14,17 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PortraitBlurLoaderProc(boolean z, boolean z2, int i2) {
-        super(z, z2, i2);
+    public PortraitBlurLoaderProc(boolean z, boolean z2, int i) {
+        super(z, z2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -35,11 +35,11 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public a decodeToResourceWithWH(byte[] bArr, int i2, int i3) {
+    public a decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            Bitmap p = super.decodeToResourceWithWH(bArr, i2, i3).p();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            Bitmap p = super.decodeToResourceWithWH(bArr, i, i2).p();
             if (p == null) {
                 return null;
             }

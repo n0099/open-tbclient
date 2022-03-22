@@ -3,7 +3,6 @@ package com.baidu.ar.http;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,9 +32,9 @@ public class m implements k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,13 +119,13 @@ public class m implements k {
             }
             if (!this.ro.isEmpty()) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
-                int i2 = 1;
+                int i = 1;
                 String str3 = str;
                 for (Map.Entry<String, byte[]> entry2 : this.ro.entrySet()) {
-                    arrayList.add(a(str3, entry2.getKey(), valueOf + i2 + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "application/octet-stream", true));
+                    arrayList.add(a(str3, entry2.getKey(), valueOf + i + ".jpg", "application/octet-stream", true));
                     arrayList.add(new ByteArrayInputStream(entry2.getValue()));
                     str3 = "\r\n";
-                    i2++;
+                    i++;
                 }
                 str = str3;
             }

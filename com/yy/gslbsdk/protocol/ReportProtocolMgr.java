@@ -1,6 +1,6 @@
 package com.yy.gslbsdk.protocol;
 
-import com.baidu.fsg.base.statistics.k;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ReportProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ReportProtocolMgr";
@@ -24,9 +24,9 @@ public class ReportProtocolMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,7 +50,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());
-                    jSONObject.put(k.f32451h, reportInfo.getLc());
+                    jSONObject.put("lc", reportInfo.getLc());
                     JSONArray jSONArray = new JSONArray();
                     StatsInfo stats0 = reportInfo.getStats0();
                     JSONObject jSONObject2 = new JSONObject();
@@ -107,7 +107,7 @@ public class ReportProtocolMgr {
                     jSONObject.put("stats15", jSONArray5);
                 }
                 if (reportInfo.getCt() != -1) {
-                    jSONObject.put("ct", reportInfo.getCt());
+                    jSONObject.put(Config.EXCEPTION_CRASH_TYPE, reportInfo.getCt());
                 }
                 if (reportInfo.getTt() != -1) {
                     jSONObject.put("tt", reportInfo.getTt());

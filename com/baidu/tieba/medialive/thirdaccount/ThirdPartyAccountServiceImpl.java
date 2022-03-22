@@ -2,7 +2,6 @@ package com.baidu.tieba.medialive.thirdaccount;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.q0.r.r.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,6 +12,7 @@ import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,16 +27,14 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public static ThirdPartAccountService.LoginResultCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ILoginListener f44400b;
+    public static final ILoginListener f34422b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
     public class a implements SapiCallback<OAuthResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback f44401e;
+        public final /* synthetic */ ThirdPartAccountService.OpenAccessTokenCallback a;
 
         public a(ThirdPartyAccountServiceImpl thirdPartyAccountServiceImpl, ThirdPartAccountService.OpenAccessTokenCallback openAccessTokenCallback) {
             Interceptable interceptable = $ic;
@@ -45,15 +43,15 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {thirdPartyAccountServiceImpl, openAccessTokenCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44401e = openAccessTokenCallback;
+            this.a = openAccessTokenCallback;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +60,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         public void onFailure(OAuthResult oAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, oAuthResult) == null) {
-                this.f44401e.onFailed("accessToken is null");
+                this.a.onFailed("accessToken is null");
             }
         }
 
@@ -75,7 +73,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 return;
             }
             try {
-                this.f44401e.onResult(oAuthResult.accessToken);
+                this.a.onResult(oAuthResult.accessToken);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -109,7 +107,7 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 return;
             }
         }
-        f44400b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
+        f34422b = new ILoginListener() { // from class: com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,9 +116,9 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -158,9 +156,9 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -194,9 +192,9 @@ public class ThirdPartyAccountServiceImpl implements ThirdPartAccountService {
     public void showLoginDialog(Context context, ThirdPartAccountService.LoginResultCallback loginResultCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, loginResultCallback) == null) {
-            t0 t0Var = new t0(context, "");
-            t0Var.f(f44400b);
-            DialogLoginHelper.checkUpIsLogin(t0Var);
+            LoginDialogData loginDialogData = new LoginDialogData(context, "");
+            loginDialogData.setLoginListener(f34422b);
+            DialogLoginHelper.checkUpIsLogin(loginDialogData);
             a = loginResultCallback;
         }
     }

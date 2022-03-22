@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.listener.ForwardingRequestListener;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfMonitor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class ImagePerfMonitor {
             newInitContext.initArgs = r2;
             Object[] objArr = {monotonicClock, pipelineDraweeController};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,32 +112,32 @@ public class ImagePerfMonitor {
         list.clear();
     }
 
-    public void notifyListenersOfVisibilityStateUpdate(ImagePerfState imagePerfState, int i2) {
+    public void notifyListenersOfVisibilityStateUpdate(ImagePerfState imagePerfState, int i) {
         List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, imagePerfState, i2) == null) || !this.mEnabled || (list = this.mImagePerfDataListeners) == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, imagePerfState, i) == null) || !this.mEnabled || (list = this.mImagePerfDataListeners) == null || list.isEmpty()) {
             return;
         }
         ImagePerfData snapshot = imagePerfState.snapshot();
         for (ImagePerfDataListener imagePerfDataListener : this.mImagePerfDataListeners) {
-            imagePerfDataListener.onImageVisibilityUpdated(snapshot, i2);
+            imagePerfDataListener.onImageVisibilityUpdated(snapshot, i);
         }
     }
 
-    public void notifyStatusUpdated(ImagePerfState imagePerfState, int i2) {
+    public void notifyStatusUpdated(ImagePerfState imagePerfState, int i) {
         List<ImagePerfDataListener> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, imagePerfState, i2) == null) {
-            imagePerfState.setImageLoadStatus(i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, imagePerfState, i) == null) {
+            imagePerfState.setImageLoadStatus(i);
             if (!this.mEnabled || (list = this.mImagePerfDataListeners) == null || list.isEmpty()) {
                 return;
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 addViewportData();
             }
             ImagePerfData snapshot = imagePerfState.snapshot();
             for (ImagePerfDataListener imagePerfDataListener : this.mImagePerfDataListeners) {
-                imagePerfDataListener.onImageLoadStatusUpdated(snapshot, i2);
+                imagePerfDataListener.onImageLoadStatusUpdated(snapshot, i);
             }
         }
     }

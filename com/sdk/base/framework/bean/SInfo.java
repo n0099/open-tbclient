@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57788c;
+    public int f42557c;
     public String cm;
     public String n;
     public String v;
@@ -24,9 +24,9 @@ public class SInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,7 +36,7 @@ public class SInfo {
     public int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57788c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42557c : invokeV.intValue;
     }
 
     public String getCm() {
@@ -57,10 +57,10 @@ public class SInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.v : (String) invokeV.objValue;
     }
 
-    public void setC(int i2) {
+    public void setC(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f57788c = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f42557c = i;
         }
     }
 

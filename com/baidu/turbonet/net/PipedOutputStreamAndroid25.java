@@ -11,18 +11,16 @@ import java.io.OutputStream;
 public class PipedOutputStreamAndroid25 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public PipedInputStreamAndroid25 f48836e;
+    public PipedInputStreamAndroid25 a;
 
     public PipedOutputStreamAndroid25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,11 +33,11 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             synchronized (this) {
                 try {
                     if (pipedInputStreamAndroid25 != null) {
-                        if (this.f48836e == null && !pipedInputStreamAndroid25.f48832g) {
-                            this.f48836e = pipedInputStreamAndroid25;
-                            pipedInputStreamAndroid25.k = -1;
-                            pipedInputStreamAndroid25.l = 0;
-                            pipedInputStreamAndroid25.f48832g = true;
+                        if (this.a == null && !pipedInputStreamAndroid25.f37731c) {
+                            this.a = pipedInputStreamAndroid25;
+                            pipedInputStreamAndroid25.f37735g = -1;
+                            pipedInputStreamAndroid25.f37736h = 0;
+                            pipedInputStreamAndroid25.f37731c = true;
                         } else {
                             throw new IOException("Already connected");
                         }
@@ -57,7 +55,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     public void close() throws IOException {
         PipedInputStreamAndroid25 pipedInputStreamAndroid25;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pipedInputStreamAndroid25 = this.f48836e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pipedInputStreamAndroid25 = this.a) == null) {
             return;
         }
         pipedInputStreamAndroid25.j();
@@ -68,9 +66,9 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f48836e != null) {
-                    synchronized (this.f48836e) {
-                        this.f48836e.notifyAll();
+                if (this.a != null) {
+                    synchronized (this.a) {
+                        this.a.notifyAll();
                     }
                 }
             }
@@ -78,12 +76,12 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f48836e;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.a;
             if (pipedInputStreamAndroid25 != null) {
-                pipedInputStreamAndroid25.f(i2);
+                pipedInputStreamAndroid25.f(i);
                 return;
             }
             throw new IOException("Pipe not connected");
@@ -91,22 +89,22 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
-        int i4;
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
-            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f48836e;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.a;
             if (pipedInputStreamAndroid25 == null) {
                 throw new IOException("Pipe not connected");
             }
             if (bArr != null) {
-                if (i2 < 0 || i2 > bArr.length || i3 < 0 || (i4 = i2 + i3) > bArr.length || i4 < 0) {
+                if (i < 0 || i > bArr.length || i2 < 0 || (i3 = i + i2) > bArr.length || i3 < 0) {
                     throw new IndexOutOfBoundsException();
                 }
-                if (i3 == 0) {
+                if (i2 == 0) {
                     return;
                 }
-                pipedInputStreamAndroid25.g(bArr, i2, i3);
+                pipedInputStreamAndroid25.g(bArr, i, i2);
                 return;
             }
             throw null;

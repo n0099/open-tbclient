@@ -18,17 +18,17 @@ public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenter
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemoryChangedMessage(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i2) {
+    public MemoryChangedMessage(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i) {
         super(2016004, imMessageCenterPojo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imMessageCenterPojo, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {imMessageCenterPojo, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;
@@ -37,7 +37,7 @@ public class MemoryChangedMessage extends CustomResponsedMessage<ImMessageCenter
             }
         }
         this.isFromServer = z;
-        this.type = i2;
+        this.type = i;
     }
 
     public int getType() {

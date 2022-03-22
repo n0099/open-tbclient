@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BYTES_PER_FORMAT;
@@ -48,7 +48,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static final int WEBP_LOSSLESS_ALPHA_FLAG = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ByteBufferReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {byteBuffer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -101,11 +101,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int read(byte[] bArr, int i2) {
+        public int read(byte[] bArr, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) {
-                int min = Math.min(i2, this.byteBuffer.remaining());
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) {
+                int min = Math.min(i, this.byteBuffer.remaining());
                 if (min == 0) {
                     return -1;
                 }
@@ -116,11 +116,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j2) {
+        public long skip(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                int min = (int) Math.min(this.byteBuffer.remaining(), j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                int min = (int) Math.min(this.byteBuffer.remaining(), j);
                 ByteBuffer byteBuffer = this.byteBuffer;
                 byteBuffer.position(byteBuffer.position() + min);
                 return min;
@@ -129,54 +129,54 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RandomAccessReader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer data;
 
-        public RandomAccessReader(byte[] bArr, int i2) {
+        public RandomAccessReader(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bArr, Integer.valueOf(i2)};
+                Object[] objArr = {bArr, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.data = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i2);
+            this.data = (ByteBuffer) ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN).limit(i);
         }
 
-        private boolean isAvailable(int i2, int i3) {
+        private boolean isAvailable(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i2, i3)) == null) ? this.data.remaining() - i2 >= i3 : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) ? this.data.remaining() - i >= i2 : invokeII.booleanValue;
         }
 
-        public short getInt16(int i2) {
+        public short getInt16(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (isAvailable(i2, 2)) {
-                    return this.data.getShort(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (isAvailable(i, 2)) {
+                    return this.data.getShort(i);
                 }
                 return (short) -1;
             }
             return invokeI.shortValue;
         }
 
-        public int getInt32(int i2) {
+        public int getInt32(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (isAvailable(i2, 4)) {
-                    return this.data.getInt(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (isAvailable(i, 4)) {
+                    return this.data.getInt(i);
                 }
                 return -1;
             }
@@ -197,7 +197,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Reader {
         int getByte() throws IOException;
 
@@ -205,12 +205,12 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
 
         short getUInt8() throws IOException;
 
-        int read(byte[] bArr, int i2) throws IOException;
+        int read(byte[] bArr, int i) throws IOException;
 
-        long skip(long j2) throws IOException;
+        long skip(long j) throws IOException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StreamReader implements Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,9 +223,9 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {inputStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -256,43 +256,43 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int read(byte[] bArr, int i2) throws IOException {
+        public int read(byte[] bArr, int i) throws IOException {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) {
-                int i3 = i2;
-                while (i3 > 0) {
-                    int read = this.is.read(bArr, i2 - i3, i3);
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i)) == null) {
+                int i2 = i;
+                while (i2 > 0) {
+                    int read = this.is.read(bArr, i - i2, i2);
                     if (read == -1) {
                         break;
                     }
-                    i3 -= read;
+                    i2 -= read;
                 }
-                return i2 - i3;
+                return i - i2;
             }
             return invokeLI.intValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j2) throws IOException {
+        public long skip(long j) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-                if (j2 < 0) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                if (j < 0) {
                     return 0L;
                 }
-                long j3 = j2;
-                while (j3 > 0) {
-                    long skip = this.is.skip(j3);
+                long j2 = j;
+                while (j2 > 0) {
+                    long skip = this.is.skip(j2);
                     if (skip <= 0) {
                         if (this.is.read() == -1) {
                             break;
                         }
                         skip = 1;
                     }
-                    j3 -= skip;
+                    j2 -= skip;
                 }
-                return j2 - j3;
+                return j - j2;
             }
             return invokeJ.longValue;
         }
@@ -320,42 +320,42 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int calcTagOffset(int i2, int i3) {
+    public static int calcTagOffset(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? i2 + 2 + (i3 * 12) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i + 2 + (i2 * 12) : invokeII.intValue;
     }
 
-    public static boolean handles(int i2) {
+    public static boolean handles(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 & EXIF_MAGIC_NUMBER) == 65496 || i2 == 19789 || i2 == 18761 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? (i & EXIF_MAGIC_NUMBER) == 65496 || i == 19789 || i == 18761 : invokeI.booleanValue;
     }
 
-    private boolean hasJpegExifPreamble(byte[] bArr, int i2) {
+    private boolean hasJpegExifPreamble(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, bArr, i2)) == null) {
-            boolean z = bArr != null && i2 > JPEG_EXIF_SEGMENT_PREAMBLE_BYTES.length;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, bArr, i)) == null) {
+            boolean z = bArr != null && i > JPEG_EXIF_SEGMENT_PREAMBLE_BYTES.length;
             if (z) {
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
                     byte[] bArr2 = JPEG_EXIF_SEGMENT_PREAMBLE_BYTES;
-                    if (i3 >= bArr2.length) {
+                    if (i2 >= bArr2.length) {
                         break;
-                    } else if (bArr[i3] != bArr2[i3]) {
+                    } else if (bArr[i2] != bArr2[i2]) {
                         return false;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
             }
@@ -368,7 +368,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         short uInt8;
         short uInt82;
         int uInt16;
-        long j2;
+        long j;
         long skip;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -376,7 +376,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             do {
                 if (reader.getUInt8() != 255) {
                     if (Log.isLoggable(TAG, 3)) {
-                        String str = "Unknown segmentId=" + ((int) uInt8);
+                        Log.d(TAG, "Unknown segmentId=" + ((int) uInt8));
                     }
                     return -1;
                 }
@@ -385,38 +385,42 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                     return -1;
                 }
                 if (uInt82 == 217) {
-                    Log.isLoggable(TAG, 3);
+                    if (Log.isLoggable(TAG, 3)) {
+                        Log.d(TAG, "Found MARKER_EOI in exif segment");
+                    }
                     return -1;
                 }
                 uInt16 = reader.getUInt16() - 2;
                 if (uInt82 == 225) {
                     return uInt16;
                 }
-                j2 = uInt16;
-                skip = reader.skip(j2);
-            } while (skip == j2);
+                j = uInt16;
+                skip = reader.skip(j);
+            } while (skip == j);
             if (Log.isLoggable(TAG, 3)) {
-                String str2 = "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip;
+                Log.d(TAG, "Unable to skip enough data, type: " + ((int) uInt82) + ", wanted to skip: " + uInt16 + ", but actually skipped: " + skip);
             }
             return -1;
         }
         return invokeL.intValue;
     }
 
-    private int parseExifSegment(Reader reader, byte[] bArr, int i2) throws IOException {
+    private int parseExifSegment(Reader reader, byte[] bArr, int i) throws IOException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, this, reader, bArr, i2)) == null) {
-            int read = reader.read(bArr, i2);
-            if (read != i2) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, this, reader, bArr, i)) == null) {
+            int read = reader.read(bArr, i);
+            if (read != i) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Unable to read exif segment data, length: " + i2 + ", actually read: " + read;
+                    Log.d(TAG, "Unable to read exif segment data, length: " + i + ", actually read: " + read);
                 }
                 return -1;
-            } else if (hasJpegExifPreamble(bArr, i2)) {
-                return parseExifSegment(new RandomAccessReader(bArr, i2));
+            } else if (hasJpegExifPreamble(bArr, i)) {
+                return parseExifSegment(new RandomAccessReader(bArr, i));
             } else {
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Missing jpeg exif preamble");
+                }
                 return -1;
             }
         }
@@ -473,11 +477,11 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 if ((uInt163 & (-256)) != 1448097792) {
                     return ImageHeaderParser.ImageType.UNKNOWN;
                 }
-                int i2 = uInt163 & 255;
-                if (i2 == 88) {
+                int i = uInt163 & 255;
+                if (i == 88) {
                     reader.skip(4L);
                     return (reader.getByte() & 16) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
-                } else if (i2 == 76) {
+                } else if (i == 76) {
                     reader.skip(4L);
                     return (reader.getByte() & 8) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
                 } else {
@@ -502,13 +506,15 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             int uInt16 = reader.getUInt16();
             if (!handles(uInt16)) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Parser doesn't handle magic number: " + uInt16;
+                    Log.d(TAG, "Parser doesn't handle magic number: " + uInt16);
                 }
                 return -1;
             }
             int moveToExifSegmentAndGetLength = moveToExifSegmentAndGetLength(reader);
             if (moveToExifSegmentAndGetLength == -1) {
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to parse exif segment length, or exif segment not found");
+                }
                 return -1;
             }
             byte[] bArr = (byte[]) arrayPool.get(moveToExifSegmentAndGetLength, byte[].class);
@@ -524,15 +530,14 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     public static int parseExifSegment(RandomAccessReader randomAccessReader) {
         InterceptResult invokeL;
         ByteOrder byteOrder;
-        short int16;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, randomAccessReader)) == null) {
-            short int162 = randomAccessReader.getInt16(6);
-            if (int162 == 18761) {
+            short int16 = randomAccessReader.getInt16(6);
+            if (int16 == 18761) {
                 byteOrder = ByteOrder.LITTLE_ENDIAN;
-            } else if (int162 != 19789) {
+            } else if (int16 != 19789) {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Unknown endianness = " + ((int) int162);
+                    Log.d(TAG, "Unknown endianness = " + ((int) int16));
                 }
                 byteOrder = ByteOrder.BIG_ENDIAN;
             } else {
@@ -540,40 +545,43 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
             }
             randomAccessReader.order(byteOrder);
             int int32 = randomAccessReader.getInt32(10) + 6;
-            short int163 = randomAccessReader.getInt16(int32);
-            for (int i2 = 0; i2 < int163; i2++) {
-                int calcTagOffset = calcTagOffset(int32, i2);
-                if (randomAccessReader.getInt16(calcTagOffset) == 274) {
+            short int162 = randomAccessReader.getInt16(int32);
+            for (int i = 0; i < int162; i++) {
+                int calcTagOffset = calcTagOffset(int32, i);
+                short int163 = randomAccessReader.getInt16(calcTagOffset);
+                if (int163 == 274) {
                     short int164 = randomAccessReader.getInt16(calcTagOffset + 2);
                     if (int164 >= 1 && int164 <= 12) {
                         int int322 = randomAccessReader.getInt32(calcTagOffset + 4);
                         if (int322 < 0) {
-                            Log.isLoggable(TAG, 3);
+                            if (Log.isLoggable(TAG, 3)) {
+                                Log.d(TAG, "Negative tiff component count");
+                            }
                         } else {
                             if (Log.isLoggable(TAG, 3)) {
-                                String str2 = "Got tagIndex=" + i2 + " tagType=" + ((int) int16) + " formatCode=" + ((int) int164) + " componentCount=" + int322;
+                                Log.d(TAG, "Got tagIndex=" + i + " tagType=" + ((int) int163) + " formatCode=" + ((int) int164) + " componentCount=" + int322);
                             }
-                            int i3 = int322 + BYTES_PER_FORMAT[int164];
-                            if (i3 > 4) {
+                            int i2 = int322 + BYTES_PER_FORMAT[int164];
+                            if (i2 > 4) {
                                 if (Log.isLoggable(TAG, 3)) {
-                                    String str3 = "Got byte count > 4, not orientation, continuing, formatCode=" + ((int) int164);
+                                    Log.d(TAG, "Got byte count > 4, not orientation, continuing, formatCode=" + ((int) int164));
                                 }
                             } else {
-                                int i4 = calcTagOffset + 8;
-                                if (i4 >= 0 && i4 <= randomAccessReader.length()) {
-                                    if (i3 >= 0 && i3 + i4 <= randomAccessReader.length()) {
-                                        return randomAccessReader.getInt16(i4);
+                                int i3 = calcTagOffset + 8;
+                                if (i3 >= 0 && i3 <= randomAccessReader.length()) {
+                                    if (i2 >= 0 && i2 + i3 <= randomAccessReader.length()) {
+                                        return randomAccessReader.getInt16(i3);
                                     }
                                     if (Log.isLoggable(TAG, 3)) {
-                                        String str4 = "Illegal number of bytes for TI tag data tagType=" + ((int) int16);
+                                        Log.d(TAG, "Illegal number of bytes for TI tag data tagType=" + ((int) int163));
                                     }
                                 } else if (Log.isLoggable(TAG, 3)) {
-                                    String str5 = "Illegal tagValueOffset=" + i4 + " tagType=" + ((int) int16);
+                                    Log.d(TAG, "Illegal tagValueOffset=" + i3 + " tagType=" + ((int) int163));
                                 }
                             }
                         }
                     } else if (Log.isLoggable(TAG, 3)) {
-                        String str6 = "Got invalid format code = " + ((int) int164);
+                        Log.d(TAG, "Got invalid format code = " + ((int) int164));
                     }
                 }
             }

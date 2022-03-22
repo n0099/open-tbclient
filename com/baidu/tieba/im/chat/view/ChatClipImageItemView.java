@@ -28,12 +28,11 @@ import java.lang.reflect.Method;
 public class ChatClipImageItemView extends TbImageView implements j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean P;
-    public final Path Q;
-    public boolean R;
-    public a S;
-    public j pathClipDrawer;
-    public int position;
+    public boolean v0;
+    public j w0;
+    public final Path x0;
+    public boolean y0;
+    public a z0;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -49,9 +48,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -61,122 +60,15 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
     }
 
-    @Override // c.a.d.h.a.j.a
-    public void drawWhenPathAvailable(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.o.d.a getBdImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.d.o.d.a bdImage = super.getBdImage();
-            boolean z = true;
-            boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-            boolean z3 = bdImage != null && bdImage.w();
-            j jVar = this.pathClipDrawer;
-            if (!z3 && !z2) {
-                z = false;
-            }
-            jVar.u(z);
-            return bdImage;
-        }
-        return (c.a.d.o.d.a) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.o.d.a getDefaultBdImage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.pathClipDrawer.u(false);
-            return super.getDefaultBdImage();
-        }
-        return (c.a.d.o.d.a) invokeV.objValue;
-    }
-
-    public boolean isLeft() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.P : invokeV.booleanValue;
-    }
-
-    @Override // c.a.d.h.a.j.a
-    public Path makePath(RectF rectF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rectF)) == null) {
-            if (rectF == null) {
-                return null;
-            }
-            float width = rectF.width();
-            float height = rectF.height();
-            this.Q.reset();
-            this.Q.set(t(width, height, 1.0f));
-            return this.Q;
-        }
-        return (Path) invokeL.objValue;
-    }
-
-    public void makePathByCode() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.pathClipDrawer.r();
-            this.pathClipDrawer.u(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            a aVar = this.S;
-            if (aVar == null) {
-                SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
-            } else {
-                aVar.a(canvas);
-            }
-            super.onDraw(canvas);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
-    public void onStartTemporaryDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onStartTemporaryDetach();
-            this.pathClipDrawer.s();
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
-    public void onWindowVisibilityChanged(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            super.onWindowVisibilityChanged(i2);
-            if (i2 != 0) {
-                this.pathClipDrawer.s();
-            } else if (!this.R) {
-                this.pathClipDrawer.r();
-                invalidate();
-            } else {
-                this.R = false;
-            }
-        }
-    }
-
-    public final void s(Context context, AttributeSet attributeSet, int i2) {
+    public final void P(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, attributeSet, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             String trim = Build.MODEL.trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
-                for (int i3 = 0; i3 < 2; i3++) {
-                    if (strArr[i3].equalsIgnoreCase(trim)) {
+                for (int i2 = 0; i2 < 2; i2++) {
+                    if (strArr[i2].equalsIgnoreCase(trim)) {
                         z = true;
                         break;
                     }
@@ -194,43 +86,22 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
                 }
             }
             if (!z) {
-                this.pathClipDrawer = new m();
+                this.w0 = new m();
             } else {
-                this.pathClipDrawer = new g();
+                this.w0 = new g();
             }
-            this.mArgs.n = true;
-            this.pathClipDrawer.t(this);
-            j jVar = this.pathClipDrawer;
-            this.mDrawer = jVar;
-            jVar.p(this.mArgs);
+            this.f23845d.n = true;
+            this.w0.t(this);
+            j jVar = this.w0;
+            this.f23846e = jVar;
+            jVar.p(this.f23845d);
         }
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public void setDrawerType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-        }
-    }
-
-    public void setLeft(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.P = z;
-        }
-    }
-
-    public void setOnDrawCallback(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.S = aVar;
-        }
-    }
-
-    public final Path t(float f2, float f3, float f4) {
+    public final Path Q(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             int d2 = n.d(getContext(), 4.0f);
             int d3 = n.d(getContext(), 12.0f);
             int d4 = n.d(getContext(), 6.0f);
@@ -241,7 +112,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             float f8 = f3 - f6;
             Path path = new Path();
             path.offset(0.0f, 0.0f);
-            if (this.P) {
+            if (this.v0) {
                 float f9 = f5 + f4;
                 float f10 = d2;
                 float f11 = f4 + f10;
@@ -261,9 +132,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
                 float f17 = d5;
                 path.lineTo(f9, d3 + f4 + f17);
                 float f18 = 1 + f4;
-                int i2 = d5 + (d3 / 2);
-                path.lineTo(f18, i2 + 1);
-                path.lineTo(f18, i2 - 1);
+                int i = d5 + (d3 / 2);
+                path.lineTo(f18, i + 1);
+                path.lineTo(f18, i - 1);
                 path.lineTo(f9, f4 + f17);
                 path.lineTo(f9, f11);
             } else {
@@ -297,6 +168,128 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         return (Path) invokeCommon.objValue;
     }
 
+    public void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.w0.r();
+            this.w0.u(true);
+        }
+    }
+
+    @Override // c.a.d.h.a.j.a
+    public Path a(RectF rectF) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rectF)) == null) {
+            if (rectF == null) {
+                return null;
+            }
+            float width = rectF.width();
+            float height = rectF.height();
+            this.x0.reset();
+            this.x0.set(Q(width, height, 1.0f));
+            return this.x0;
+        }
+        return (Path) invokeL.objValue;
+    }
+
+    @Override // c.a.d.h.a.j.a
+    public void b(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
+    public c.a.d.o.d.a getBdImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            c.a.d.o.d.a bdImage = super.getBdImage();
+            boolean z = true;
+            boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
+            boolean z3 = bdImage != null && bdImage.w();
+            j jVar = this.w0;
+            if (!z3 && !z2) {
+                z = false;
+            }
+            jVar.u(z);
+            return bdImage;
+        }
+        return (c.a.d.o.d.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
+    public c.a.d.o.d.a getDefaultBdImage() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            this.w0.u(false);
+            return super.getDefaultBdImage();
+        }
+        return (c.a.d.o.d.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+            a aVar = this.z0;
+            if (aVar == null) {
+                SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
+            } else {
+                aVar.a(canvas);
+            }
+            super.onDraw(canvas);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
+    public void onStartTemporaryDetach() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onStartTemporaryDetach();
+            this.w0.s();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            super.onWindowVisibilityChanged(i);
+            if (i != 0) {
+                this.w0.s();
+            } else if (!this.y0) {
+                this.w0.r();
+                invalidate();
+            } else {
+                this.y0 = false;
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
+    public void setDrawerType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        }
+    }
+
+    public void setLeft(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.v0 = z;
+        }
+    }
+
+    public void setOnDrawCallback(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.z0 = aVar;
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChatClipImageItemView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -306,9 +299,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -319,17 +312,17 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChatClipImageItemView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ChatClipImageItemView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -337,11 +330,10 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
                 return;
             }
         }
-        this.P = true;
-        this.position = 0;
-        this.Q = new Path();
-        this.R = true;
-        this.S = null;
-        s(context, attributeSet, i2);
+        this.v0 = true;
+        this.x0 = new Path();
+        this.y0 = true;
+        this.z0 = null;
+        P(context, attributeSet, i);
     }
 }

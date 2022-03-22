@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.TwZhiBoAnti;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TwzhiboAnti implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR = 0;
@@ -25,9 +25,9 @@ public class TwzhiboAnti implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

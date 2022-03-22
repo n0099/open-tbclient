@@ -2,6 +2,7 @@ package com.baidu.searchbox.network.outback.core;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +41,7 @@ public final class Protocol {
         HTTP_1_0 = new Protocol("HTTP_1_0", 0, "http/1.0");
         HTTP_1_1 = new Protocol("HTTP_1_1", 1, "http/1.1");
         SPDY_3 = new Protocol("SPDY_3", 2, "spdy/3.1");
-        HTTP_2 = new Protocol("HTTP_2", 3, "h2");
+        HTTP_2 = new Protocol("HTTP_2", 3, Config.EVENT_NATIVE_VIEW_HIERARCHY);
         H2_PRIOR_KNOWLEDGE = new Protocol("H2_PRIOR_KNOWLEDGE", 4, "h2_prior_knowledge");
         QUIC = new Protocol("QUIC", 5, "quic");
         Protocol protocol = new Protocol(RomUtils.UNKNOWN, 6, "unknown");
@@ -48,16 +49,16 @@ public final class Protocol {
         $VALUES = new Protocol[]{HTTP_1_0, HTTP_1_1, SPDY_3, HTTP_2, H2_PRIOR_KNOWLEDGE, QUIC, protocol};
     }
 
-    public Protocol(String str, int i2, String str2) {
+    public Protocol(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

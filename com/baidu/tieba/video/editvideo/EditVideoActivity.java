@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
-import c.a.r0.j2.g;
-import c.a.r0.j2.k;
+import c.a.p0.l2.g;
+import c.a.p0.l2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -18,6 +18,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
@@ -44,13 +45,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.a.r0.l4.i.b, MaskVideoView.f {
+public class EditVideoActivity extends BaseActivity implements c.a.p0.n4.i.a, c.a.p0.n4.i.b, MaskVideoView.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCancel;
@@ -59,9 +61,9 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     public String mCallFrom;
     public SelectCoverModel mCoverModel;
     public String mCoverPath;
-    public c.a.r0.l4.i.h.a mEditVideoView;
+    public c.a.p0.n4.i.h.a mEditVideoView;
     public String mFid;
-    public c.a.r0.l4.i.d.a mFilterEffectManager;
+    public c.a.p0.n4.i.d.a mFilterEffectManager;
     public int mForumLevel;
     public String mForumName;
     public String mFrom;
@@ -72,14 +74,14 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     public g mPostMonitorManager;
     public CustomMessageListener mPostSuccessListener;
     public int mProZone;
-    public c.a.q0.r.l0.a mProgressDialog;
+    public c.a.o0.r.l0.a mProgressDialog;
     public VideoInfo mVideoInfo;
     public String mVideoPath;
     public String mVideoTitle;
     public VideoTitleData mVideoTitleData;
-    public c.a.r0.l4.i.h.b saveEditVideoController;
+    public c.a.p0.n4.i.h.b saveEditVideoController;
     public int statisticFrom;
-    public c.a.r0.l4.b thisPageCallback;
+    public c.a.p0.n4.b thisPageCallback;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -88,17 +90,17 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         public final /* synthetic */ EditVideoActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(EditVideoActivity editVideoActivity, int i2) {
-            super(i2);
+        public a(EditVideoActivity editVideoActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editVideoActivity, Integer.valueOf(i2)};
+                Object[] objArr = {editVideoActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -123,12 +125,10 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     }
 
     /* loaded from: classes6.dex */
-    public class b extends c.a.r0.l4.b {
+    public class b extends c.a.p0.n4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ EditVideoActivity f47130i;
+        public final /* synthetic */ EditVideoActivity i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EditVideoActivity editVideoActivity, BaseActivity baseActivity, String str, String str2) {
@@ -139,9 +139,9 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {editVideoActivity, baseActivity, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((BaseActivity) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -149,68 +149,68 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
                     return;
                 }
             }
-            this.f47130i = editVideoActivity;
+            this.i = editVideoActivity;
         }
 
-        @Override // c.a.r0.l4.b
+        @Override // c.a.p0.n4.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.c();
-                this.f47130i.hideProgress();
+                this.i.hideProgress();
             }
         }
 
-        @Override // c.a.r0.l4.b
-        public void d(int i2, String str) {
+        @Override // c.a.p0.n4.b
+        public void d(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                super.d(i2, str);
-                this.f47130i.hideProgress();
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                super.d(i, str);
+                this.i.hideProgress();
             }
         }
 
-        @Override // c.a.r0.l4.b
+        @Override // c.a.p0.n4.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // c.a.r0.l4.b
+        @Override // c.a.p0.n4.b
         public void f(VideoInfo videoInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
                 super.f(videoInfo);
-                if (this.f47130i.isSend) {
+                if (this.i.isSend) {
                     return;
                 }
                 File file = new File(videoInfo.getVideoPath());
-                String str = c.a.r0.l4.c.f18987g + file.getName();
+                String str = c.a.p0.n4.c.f16598g + file.getName();
                 if (!str.equals(file.getAbsolutePath())) {
                     FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str);
                 }
-                this.f47130i.syncMediaData(str);
-                this.f47130i.finishPage();
+                this.i.syncMediaData(str);
+                this.i.finishPage();
             }
         }
 
-        @Override // c.a.r0.l4.b
-        public void g(int i2, String str) {
+        @Override // c.a.p0.n4.b
+        public void g(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-                super.g(i2, str);
-                this.f47130i.hideProgress();
+            if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+                super.g(i, str);
+                this.i.hideProgress();
             }
         }
 
-        @Override // c.a.r0.l4.b
+        @Override // c.a.p0.n4.b
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f47130i.mEditVideoView.H();
-                this.f47130i.mEditVideoView.I();
-                this.f47130i.mEditVideoView.v().releaseSource();
+                this.i.mEditVideoView.K();
+                this.i.mEditVideoView.L();
+                this.i.mEditVideoView.x().z();
             }
         }
     }
@@ -222,17 +222,17 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         public final /* synthetic */ EditVideoActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(EditVideoActivity editVideoActivity, int i2) {
-            super(i2);
+        public c(EditVideoActivity editVideoActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editVideoActivity, Integer.valueOf(i2)};
+                Object[] objArr = {editVideoActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -257,9 +257,9 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -277,7 +277,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     private void cancelProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            c.a.r0.l4.i.h.b bVar = this.saveEditVideoController;
+            c.a.p0.n4.i.h.b bVar = this.saveEditVideoController;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -290,17 +290,17 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     private void handleGenMaskCoverFinish(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, bitmap) == null) {
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null && this.mCoverModel != null) {
                 if (this.isCancel) {
                     this.isCancel = false;
                     return;
                 }
-                if (!TextUtils.isEmpty(aVar.u())) {
-                    bitmap = this.mEditVideoView.o(bitmap);
+                if (!TextUtils.isEmpty(aVar.w())) {
+                    bitmap = this.mEditVideoView.q(bitmap);
                 }
                 if (bitmap != null) {
-                    this.mCoverModel.A(bitmap, c.a.r0.l4.c.f18982b);
+                    this.mCoverModel.C(bitmap, c.a.p0.n4.c.f16593b);
                     return;
                 }
                 return;
@@ -312,7 +312,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideProgress() {
-        c.a.q0.r.l0.a aVar;
+        c.a.o0.r.l0.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (aVar = this.mProgressDialog) == null) {
             return;
@@ -336,32 +336,32 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
                 this.isCancel = false;
                 return;
             }
-            String u = this.mEditVideoView.u();
-            if (TextUtils.isEmpty(u)) {
-                this.mCoverModel.C(this.mVideoPath, this.mEditVideoView.getCurrentPosition());
+            String w = this.mEditVideoView.w();
+            if (TextUtils.isEmpty(w)) {
+                this.mCoverModel.E(this.mVideoPath, this.mEditVideoView.getCurrentPosition());
             } else {
-                this.mCoverModel.y(u);
+                this.mCoverModel.A(w);
             }
         }
     }
 
     private void setSelectedMusicAndFilter() {
         VideoInfo videoInfo;
-        c.a.r0.l4.i.h.a aVar;
+        c.a.p0.n4.i.h.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (videoInfo = this.mVideoInfo) == null || videoInfo.getEditVideoData() == null || (aVar = this.mEditVideoView) == null) {
             return;
         }
-        c.a.r0.l4.i.e.a r = aVar.r(this.mVideoInfo.getEditVideoData().filterName);
-        if (r != null) {
-            c.a.r0.l4.i.d.a aVar2 = this.mFilterEffectManager;
+        c.a.p0.n4.i.e.a t = aVar.t(this.mVideoInfo.getEditVideoData().filterName);
+        if (t != null) {
+            c.a.p0.n4.i.d.a aVar2 = this.mFilterEffectManager;
             if (aVar2 != null) {
-                aVar2.h(r);
+                aVar2.h(t);
             }
-            this.mEditVideoView.U(r);
+            this.mEditVideoView.Y(t);
         }
-        this.mEditVideoView.T(this.mVideoInfo.getEditVideoData().musicPath, this.mVideoInfo.getEditVideoData().musicId);
-        this.mEditVideoView.V(!this.mVideoInfo.getEditVideoData().isMute);
+        this.mEditVideoView.X(this.mVideoInfo.getEditVideoData().musicPath, this.mVideoInfo.getEditVideoData().musicId);
+        this.mEditVideoView.Z(!this.mVideoInfo.getEditVideoData().isMute);
     }
 
     private void syncCoverData(String str) {
@@ -369,7 +369,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveImage(str);
-                c.a.r0.l4.i.d.c.c(this, str);
+                c.a.p0.n4.i.d.c.c(this, str);
             } catch (Exception unused) {
                 hideProgress();
                 this.isSend = false;
@@ -383,7 +383,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveVideo(str);
-                c.a.r0.l4.i.d.c.c(this, str);
+                c.a.p0.n4.i.d.c.c(this, str);
             } catch (Exception unused) {
                 hideProgress();
                 this.isSend = false;
@@ -391,27 +391,27 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void clearFinalVideoPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void finishPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             hideProgress();
             this.isSend = false;
-            c.a.r0.l4.i.h.b bVar = this.saveEditVideoController;
+            c.a.p0.n4.i.h.b bVar = this.saveEditVideoController;
             if (bVar != null) {
                 bVar.cancel();
             }
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
-            if (aVar != null && aVar.v() != null) {
-                this.mEditVideoView.v().pause();
-                this.mEditVideoView.v().releaseSource();
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
+            if (aVar != null && aVar.x() != null) {
+                this.mEditVideoView.x().pause();
+                this.mEditVideoView.x().z();
             }
             setResult(-1);
             finish();
@@ -436,53 +436,53 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
-            if (i3 != -1) {
-                if (i3 == 100) {
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+            if (i2 != -1) {
+                if (i2 == 100) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001373));
                     finish();
                 }
-            } else if (i2 == 25032) {
-                String stringExtra = intent.getStringExtra("music_resource");
-                String stringExtra2 = intent.getStringExtra("music_id");
+            } else if (i == 25032) {
+                String stringExtra = intent.getStringExtra(CloudMusicActivityConfig.MUSIC_RESOURCE);
+                String stringExtra2 = intent.getStringExtra(CloudMusicActivityConfig.MUSIC_ID);
                 if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
                     return;
                 }
-                String f2 = c.a.r0.l4.i.f.a.g().f(stringExtra);
+                String f2 = c.a.p0.n4.i.f.a.g().f(stringExtra);
                 if (this.mEditVideoView == null || TextUtils.isEmpty(f2)) {
                     return;
                 }
-                this.mEditVideoView.E(f2, stringExtra2);
+                this.mEditVideoView.G(f2, stringExtra2);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        c.a.r0.l4.i.h.a aVar;
+        c.a.p0.n4.i.h.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.mEditVideoView) == null) {
             return;
         }
-        aVar.W();
+        aVar.a0();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            getLayoutMode().k(i2 == 1);
-            getLayoutMode().j(this.mEditVideoView.t());
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            getLayoutMode().k(i == 1);
+            getLayoutMode().j(this.mEditVideoView.v());
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null) {
-                aVar.D(getPageContext(), i2);
+                aVar.F(getPageContext(), i);
             }
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onCheckUegFail(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -496,18 +496,18 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onCheckUegSuccess() {
         SelectCoverModel selectCoverModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null && (selectCoverModel = this.mCoverModel) != null) {
                 if (this.isCancel) {
                     this.isCancel = false;
                     return;
                 } else {
-                    selectCoverModel.C(this.mVideoPath, aVar.getCurrentPosition());
+                    selectCoverModel.E(this.mVideoPath, aVar.getCurrentPosition());
                     return;
                 }
             }
@@ -522,7 +522,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.activity_edit_video);
+            setContentView(R.layout.obfuscated_res_0x7f0d0031);
             this.mFid = getIntent().getStringExtra("forum_id");
             this.mForumLevel = getIntent().getIntExtra("key_write_level", -1);
             this.mProZone = getIntent().getIntExtra(EditVideoActivityConfig.KEY_PRO_ZONE, -1);
@@ -544,21 +544,21 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
             if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
                 finishPage();
             }
-            new File(c.a.r0.l4.c.f18987g).mkdirs();
+            new File(c.a.p0.n4.c.f16598g).mkdirs();
             this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
             this.mMusicModel = new SelectMusicModel(getPageContext(), this);
-            this.mFilterEffectManager = new c.a.r0.l4.i.d.a(this);
-            c.a.r0.l4.i.h.a aVar = new c.a.r0.l4.i.h.a(getPageContext(), this, findViewById(R.id.root_layout), this.mPostMonitorManager);
+            this.mFilterEffectManager = new c.a.p0.n4.i.d.a(this);
+            c.a.p0.n4.i.h.a aVar = new c.a.p0.n4.i.h.a(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091ae5), this.mPostMonitorManager);
             this.mEditVideoView = aVar;
-            aVar.M(this.mVideoPath);
-            this.mEditVideoView.S(getIntent());
-            this.mEditVideoView.N(this.mFilterEffectManager);
-            this.mEditVideoView.O(this);
-            this.mCoverModel.z();
-            this.mMusicModel.x();
-            c.a.q0.r.l0.a aVar2 = new c.a.q0.r.l0.a(getPageContext());
+            aVar.P(this.mVideoPath);
+            this.mEditVideoView.W(getIntent());
+            this.mEditVideoView.Q(this.mFilterEffectManager);
+            this.mEditVideoView.S(this);
+            this.mCoverModel.B();
+            this.mMusicModel.z();
+            c.a.o0.r.l0.a aVar2 = new c.a.o0.r.l0.a(getPageContext());
             this.mProgressDialog = aVar2;
-            aVar2.i(R.string.mixing);
+            aVar2.i(R.string.obfuscated_res_0x7f0f0ac4);
             registerListener(this.mPostSuccessListener);
             registerLoadVideoActivitysTask();
             registerListener(this.mGetVideoActivityListener);
@@ -566,7 +566,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
             TiebaStatic.log("c12303");
             b bVar = new b(this, this, this.mVideoPath, this.mCoverPath);
             this.thisPageCallback = bVar;
-            this.saveEditVideoController = new c.a.r0.l4.i.h.b(bVar);
+            this.saveEditVideoController = new c.a.p0.n4.i.h.b(bVar);
             setSelectedMusicAndFilter();
         }
     }
@@ -576,9 +576,9 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null) {
-                aVar.J();
+                aVar.M();
             }
             SelectCoverModel selectCoverModel = this.mCoverModel;
             if (selectCoverModel != null) {
@@ -600,11 +600,11 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onGetCoverBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bitmap) == null) {
-            this.mEditVideoView.v().makeMaskBitmap(bitmap);
+            this.mEditVideoView.x().x(bitmap);
         }
     }
 
@@ -619,33 +619,33 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
                 this.mVideoInfo = videoInfo;
                 String videoPath = videoInfo.getVideoPath();
                 this.mVideoPath = videoPath;
-                this.thisPageCallback.f18975b = videoPath;
+                this.thisPageCallback.f16586b = videoPath;
             }
-            this.mEditVideoView.M(this.mVideoPath);
+            this.mEditVideoView.P(this.mVideoPath);
             setSelectedMusicAndFilter();
             this.mFromType = getIntent().getStringExtra("from_type");
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onNext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.mEditVideoView != null && this.mCoverModel != null && this.mMusicModel != null) {
                 if (!l.z()) {
-                    getPageContext().showToast(R.string.no_network);
+                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c4b);
                     return;
                 } else if (this.isSend) {
                     return;
                 } else {
                     this.isSend = true;
                     this.isCancel = false;
-                    c.a.r0.l4.i.h.b bVar = this.saveEditVideoController;
+                    c.a.p0.n4.i.h.b bVar = this.saveEditVideoController;
                     if (bVar != null) {
                         bVar.cancel();
                     }
                     this.mCoverPath = null;
-                    this.mEditVideoView.F();
+                    this.mEditVideoView.H();
                     this.mProgressDialog.h(true);
                     saveCover();
                     return;
@@ -661,19 +661,19 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null) {
-                aVar.F();
-                this.mEditVideoView.H();
-                this.mEditVideoView.I();
-                this.mEditVideoView.v().releaseSource();
+                aVar.H();
+                this.mEditVideoView.K();
+                this.mEditVideoView.L();
+                this.mEditVideoView.x().z();
             }
             if (this.mFilterEffectManager.f()) {
                 this.mFilterEffectManager.e();
             }
             this.isSend = false;
             this.isCancel = true;
-            c.a.r0.l4.i.h.b bVar = this.saveEditVideoController;
+            c.a.p0.n4.i.h.b bVar = this.saveEditVideoController;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -686,8 +686,8 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onRestart();
-            c.a.r0.l4.i.f.a.g().d();
-            c.a.r0.l4.i.f.b.g().d();
+            c.a.p0.n4.i.f.a.g().d();
+            c.a.p0.n4.i.f.b.g().d();
         }
     }
 
@@ -696,26 +696,26 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
-            c.a.r0.l4.i.h.a aVar = this.mEditVideoView;
+            c.a.p0.n4.i.h.a aVar = this.mEditVideoView;
             if (aVar != null) {
-                aVar.G();
+                aVar.I();
             }
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onSave() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.isCancel = false;
             this.isSend = false;
             this.thisPageCallback.i(false);
-            c.a.r0.l4.b bVar = this.thisPageCallback;
-            bVar.f18976c = this.mCoverPath;
-            bVar.f18975b = this.mVideoPath;
-            bVar.f18977d = this.mEditVideoView.s();
-            this.thisPageCallback.f18978e = this.mEditVideoView.A();
-            this.thisPageCallback.f18979f = this.mFilterEffectManager.b();
+            c.a.p0.n4.b bVar = this.thisPageCallback;
+            bVar.f16587c = this.mCoverPath;
+            bVar.f16586b = this.mVideoPath;
+            bVar.f16588d = this.mEditVideoView.u();
+            this.thisPageCallback.f16589e = this.mEditVideoView.C();
+            this.thisPageCallback.f16590f = this.mFilterEffectManager.b();
             this.saveEditVideoController.b();
         }
     }
@@ -723,7 +723,7 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r7v12 */
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void onSaveCover(String str) {
         String str2;
         PostPrefixData postPrefixData;
@@ -757,43 +757,43 @@ public class EditVideoActivity extends BaseActivity implements c.a.r0.l4.i.a, c.
             EditVideoData editVideoData = new EditVideoData();
             editVideoData.coverPath = this.mCoverPath;
             editVideoData.originPath = this.mVideoPath;
-            editVideoData.musicPath = this.mEditVideoView.s();
-            editVideoData.musicId = this.mEditVideoView.q();
-            editVideoData.isMute = this.mEditVideoView.A();
+            editVideoData.musicPath = this.mEditVideoView.u();
+            editVideoData.musicId = this.mEditVideoView.s();
+            editVideoData.isMute = this.mEditVideoView.C();
             editVideoData.filterName = this.mFilterEffectManager.b();
             this.mVideoInfo.setEditVideoData(editVideoData);
             WriteActivityConfig videoInfo = WriteActivityConfig.newInstance(this).setType(9).setFrom(this.mFrom).setCallFrom(this.mCallFrom).setStatisticFrom(this.statisticFrom).setForumId(this.mFid).setForumName(this.mForumName).setAntiData(r1).setPrefixData(postPrefixData).setForumDir(str3, str2).setFrsTabInfo(this.mFrsTabInfo).setVideoInfo(this.mVideoInfo);
-            videoInfo.getIntent().setFlags(536870912);
+            videoInfo.getIntent().setFlags(NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
             videoInfo.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             videoInfo.send();
         }
     }
 
-    @Override // c.a.r0.l4.i.b
-    public void onSaveMusicVideo(String str, int i2, String str2) {
+    @Override // c.a.p0.n4.i.b
+    public void onSaveMusicVideo(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
         }
     }
 
-    @Override // c.a.r0.l4.i.b
+    @Override // c.a.p0.n4.i.b
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.music_normal)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.music_cloud)));
-            this.mEditVideoView.P(list);
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b0e)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b0c)));
+            this.mEditVideoView.T(list);
         }
     }
 
-    @Override // c.a.r0.l4.i.a
+    @Override // c.a.p0.n4.i.a
     public void setPendantData(List<PendantData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
-            this.mEditVideoView.R(list);
+            this.mEditVideoView.V(list);
         }
     }
 }

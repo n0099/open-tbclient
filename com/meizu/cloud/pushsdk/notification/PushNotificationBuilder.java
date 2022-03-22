@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.notification;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PushNotificationBuilder {
     public String appLabel;
     public Bitmap appLargeIcon;
@@ -78,24 +78,24 @@ public class PushNotificationBuilder {
         this.context = context;
     }
 
-    public void setmLargIcon(int i2) {
-        this.mLargIcon = i2;
+    public void setmLargIcon(int i) {
+        this.mLargIcon = i;
     }
 
-    public void setmNotificationDefaults(int i2) {
-        this.mNotificationDefaults = i2;
+    public void setmNotificationDefaults(int i) {
+        this.mNotificationDefaults = i;
     }
 
-    public void setmNotificationFlags(int i2) {
-        this.mNotificationFlags = i2;
+    public void setmNotificationFlags(int i) {
+        this.mNotificationFlags = i;
     }
 
     public void setmNotificationsound(String str) {
         this.mNotificationsound = str;
     }
 
-    public void setmStatusbarIcon(int i2) {
-        this.mStatusbarIcon = i2;
+    public void setmStatusbarIcon(int i) {
+        this.mStatusbarIcon = i;
     }
 
     public void setmVibratePattern(long[] jArr) {

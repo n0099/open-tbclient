@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
 import c.a.d.f.p.l;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,31 +18,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.n3.e.a privacyMarkView;
+    public c.a.p0.p3.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PrivacyMarkActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PrivacyMarkActivity privacyMarkActivity, int i2, boolean z) {
-            super(i2, z);
+        public a(PrivacyMarkActivity privacyMarkActivity, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {privacyMarkActivity, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {privacyMarkActivity, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -69,14 +69,14 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.a.privacyMarkView.k();
+                    this.a.privacyMarkView.m();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.a.privacyMarkView.l();
+                    this.a.privacyMarkView.n();
                 }
                 if (httpResponsedMessage.getError() != -1 && l.z()) {
-                    this.a.showToast(R.string.privacy_setting_failed);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ec3);
                 } else {
-                    this.a.showToast(R.string.neterror);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 }
             }
         }
@@ -87,9 +87,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,11 +99,11 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.privacyMarkView.j();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.privacyMarkView.l();
         }
     }
 
@@ -120,9 +120,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            c.a.r0.n3.e.a aVar = new c.a.r0.n3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.p0.p3.e.a aVar = new c.a.p0.p3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
-            setContentView(aVar.h());
+            setContentView(aVar.j());
             registerListener(this.setPrivateHttpListener);
         }
     }

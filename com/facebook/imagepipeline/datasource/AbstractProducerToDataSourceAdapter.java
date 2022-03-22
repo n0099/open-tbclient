@@ -20,7 +20,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDataSource<T> implements HasImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
             newInitContext.initArgs = r2;
             Object[] objArr = {producer, settableProducerContext, requestListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,9 +81,9 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -109,10 +109,10 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onNewResultImpl(@Nullable T t, int i2) {
+            public void onNewResultImpl(@Nullable T t, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i2) == null) {
-                    this.this$0.onNewResultImpl(t, i2);
+                if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i) == null) {
+                    this.this$0.onNewResultImpl(t, i);
                 }
             }
 
@@ -169,10 +169,10 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSettableProducerContext.getImageRequest() : (ImageRequest) invokeV.objValue;
     }
 
-    public void onNewResultImpl(@Nullable T t, int i2) {
+    public void onNewResultImpl(@Nullable T t, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i2) == null) {
-            boolean isLast = BaseConsumer.isLast(i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, t, i) == null) {
+            boolean isLast = BaseConsumer.isLast(i);
             if (super.setResult(t, isLast) && isLast) {
                 this.mRequestListener.onRequestSuccess(this.mSettableProducerContext.getImageRequest(), this.mSettableProducerContext.getId(), this.mSettableProducerContext.isPrefetch());
             }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.r1.f;
+import c.a.p0.t1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -22,30 +22,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ICON_PADDING;
-    public static final int TYPE_NORMAL = 1;
-    public static final int TYPE_VIDEO = 2;
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final int f37579h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f48636b;
+    public String f37580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<f> f48637c;
+    public List<f> f37581c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LayoutInflater f48638d;
+    public LayoutInflater f37582d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48639e;
+    public TbPageContext f37583e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f48640f;
+    public a f37584f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f48641g;
+    public long f37585g;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -65,7 +65,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
                 return;
             }
         }
-        ICON_PADDING = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
+        f37579h = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
     }
 
     public VideoHotTopicSearchAdapter(TbPageContext tbPageContext) {
@@ -75,26 +75,51 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = 1;
-        this.f48637c = new ArrayList();
-        this.f48641g = -1L;
-        this.f48639e = tbPageContext;
-        this.f48638d = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f37581c = new ArrayList();
+        this.f37585g = -1L;
+        this.f37583e = tbPageContext;
+        this.f37582d = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
-    public void clearList() {
+    public void d(String str, List<f> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48637c.clear();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
+            this.f37580b = str;
+            this.f37581c.clear();
+            if (list != null) {
+                this.f37581c.addAll(list);
+            }
             notifyDataSetChanged();
+        }
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f37584f = aVar;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f37585g = j;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -102,88 +127,49 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48637c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37581c.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.a : invokeI.intValue;
-    }
-
-    public List<f> getList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48637c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.a : invokeI.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || (fVar = (f) ListUtils.getItem(this.f48637c, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) || (fVar = (f) ListUtils.getItem(this.f37581c, i)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.bindViewHolder(hotNormalViewHolder, i2, fVar, this.f48639e, this.f48636b, this.f48640f);
+            hotNormalViewHolder.b(hotNormalViewHolder, i, fVar, this.f37583e, this.f37580b, this.f37584f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.bindDataToViewHolder(hotVideoViewHolder, i2, fVar, this.f48639e, this.f48641g, this.f48640f, this);
+            hotVideoViewHolder.a(hotVideoViewHolder, i, fVar, this.f37583e, this.f37585g, this.f37584f, this);
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
-            if (i2 == 2) {
-                return new HotVideoViewHolder(this.f48638d.inflate(R.layout.hot_video_topic_item, viewGroup, false));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
+            if (i == 2) {
+                return new HotVideoViewHolder(this.f37582d.inflate(R.layout.obfuscated_res_0x7f0d03c6, viewGroup, false));
             }
-            return new HotNormalViewHolder(this.f48638d.inflate(R.layout.hot_video_normal_topic_item, viewGroup, false));
+            return new HotNormalViewHolder(this.f37582d.inflate(R.layout.obfuscated_res_0x7f0d03c5, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
-    }
-
-    public void setList(String str, List<f> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, list) == null) {
-            this.f48636b = str;
-            this.f48637c.clear();
-            if (list != null) {
-                this.f48637c.addAll(list);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    public void setOnClickItemListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f48640f = aVar;
-        }
-    }
-
-    public void setSelectTopicId(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f48641g = j2;
-        }
-    }
-
-    public void setmAdapterType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.a = i2;
-        }
     }
 }

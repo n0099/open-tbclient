@@ -8,7 +8,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import c.a.b0.x.a;
+import c.a.a0.x.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,54 +19,55 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes4.dex */
 public class AlignTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.FontMetrics A;
+    public float A;
     public float B;
     public float C;
-    public String D;
-    public float E;
-    public float F;
-    public float G;
-    public float H;
+    public float D;
+    public float a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f27790b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f27791c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<String> f27792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f35982e;
+    public List<Integer> f27793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f35983f;
+    public Align f27794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35984g;
+    public boolean f27795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f35985h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f35986i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Align f35987j;
-    public boolean k;
-    public float l;
-    public float m;
-    public int n;
-    public int o;
-    public int p;
-    public boolean q;
-    public TextPaint r;
-    public String s;
-    public String[] t;
+    public float f27796h;
+    public float i;
+    public int j;
+    public int k;
+    public int l;
+    public boolean m;
+    public TextPaint n;
+    public String o;
+    public String[] p;
+    public int q;
+    public StringBuilder r;
+    public int s;
+    public float t;
     public int u;
-    public StringBuilder v;
-    public int w;
+    public TextView v;
+    public Paint.FontMetrics w;
     public float x;
-    public int y;
-    public TextView z;
+    public float y;
+    public String z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -98,16 +99,16 @@ public class AlignTextView extends TextView {
             $VALUES = new Align[]{ALIGN_LEFT, ALIGN_CENTER, align};
         }
 
-        public Align(String str, int i2) {
+        public Align(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -139,26 +140,26 @@ public class AlignTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35983f = 0.0f;
-        this.f35985h = new ArrayList();
-        this.f35986i = new ArrayList();
-        this.f35987j = Align.ALIGN_LEFT;
-        this.k = true;
-        this.l = 1.0f;
-        this.m = 0.0f;
-        this.n = 0;
-        this.o = 0;
-        this.p = 0;
-        this.q = false;
+        this.f27790b = 0.0f;
+        this.f27792d = new ArrayList();
+        this.f27793e = new ArrayList();
+        this.f27794f = Align.ALIGN_LEFT;
+        this.f27795g = true;
+        this.f27796h = 1.0f;
+        this.i = 0.0f;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = false;
         setTextIsSelectable(false);
     }
 
@@ -166,56 +167,56 @@ public class AlignTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, paint, str) == null) {
             if (str.length() == 0) {
-                a.b(this.f35985h, StringUtils.LF);
+                a.b(this.f27792d, "\n");
                 return;
             }
-            this.w = 0;
+            this.s = 0;
             float measureText = paint.measureText("中");
-            this.x = measureText;
-            int i2 = (int) (this.f35984g / measureText);
-            this.y = i2;
-            this.v = new StringBuilder(str.substring(0, Math.min(i2 + 1, str.length())));
-            int i3 = this.y;
+            this.t = measureText;
+            int i = (int) (this.f27791c / measureText);
+            this.u = i;
+            this.r = new StringBuilder(str.substring(0, Math.min(i + 1, str.length())));
+            int i2 = this.u;
             while (true) {
-                i3++;
-                if (i3 >= str.length()) {
+                i2++;
+                if (i2 >= str.length()) {
                     break;
-                } else if (paint.measureText(str.substring(this.w, i3 + 1)) > this.f35984g) {
-                    this.w = i3;
-                    a.b(this.f35985h, this.v.toString());
-                    this.v = new StringBuilder();
+                } else if (paint.measureText(str.substring(this.s, i2 + 1)) > this.f27791c) {
+                    this.s = i2;
+                    a.b(this.f27792d, this.r.toString());
+                    this.r = new StringBuilder();
                     int length = str.length();
-                    int i4 = this.w;
-                    int i5 = length - i4;
-                    int i6 = this.y;
-                    if (i5 > i6) {
-                        this.v.append(str.substring(i4, i6 + i4));
-                        i3 = (i3 + this.y) - 1;
+                    int i3 = this.s;
+                    int i4 = length - i3;
+                    int i5 = this.u;
+                    if (i4 > i5) {
+                        this.r.append(str.substring(i3, i5 + i3));
+                        i2 = (i2 + this.u) - 1;
                     } else {
-                        a.b(this.f35985h, str.substring(i4));
+                        a.b(this.f27792d, str.substring(i3));
                         break;
                     }
                 } else {
-                    this.v.append(str.charAt(i3));
+                    this.r.append(str.charAt(i2));
                 }
             }
-            if (this.v.length() > 0) {
-                a.b(this.f35985h, this.v.toString());
+            if (this.r.length() > 0) {
+                a.b(this.f27792d, this.r.toString());
             }
-            a.b(this.f35986i, Integer.valueOf(this.f35985h.size() - 1));
+            a.b(this.f27793e, Integer.valueOf(this.f27792d.size() - 1));
         }
     }
 
-    public final void b(String str, float f2, int i2) {
+    public final void b(String str, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             TextView textView = new TextView(getContext());
-            this.z = textView;
+            this.v = textView;
             textView.setText(str);
-            this.z.setTextSize(0, f2);
-            this.z.measure(View.MeasureSpec.makeMeasureSpec(i2, 1073741824), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.o = this.z.getLineCount();
-            this.n = this.z.getMeasuredHeight();
+            this.v.setTextSize(0, f2);
+            this.v.measure(View.MeasureSpec.makeMeasureSpec(i, 1073741824), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.k = this.v.getLineCount();
+            this.j = this.v.getMeasuredHeight();
         }
     }
 
@@ -224,72 +225,72 @@ public class AlignTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             TextPaint paint = getPaint();
-            this.r = paint;
+            this.n = paint;
             paint.setColor(getCurrentTextColor());
-            this.r.drawableState = getDrawableState();
-            this.f35984g = getMeasuredWidth();
-            this.A = this.r.getFontMetrics();
+            this.n.drawableState = getDrawableState();
+            this.f27791c = getMeasuredWidth();
+            this.w = this.n.getFontMetrics();
             float textSize = getTextSize();
-            Paint.FontMetrics fontMetrics = this.A;
-            this.B = textSize - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
+            Paint.FontMetrics fontMetrics = this.w;
+            this.x = textSize - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
             if ((getGravity() & 16) == 16) {
-                float f2 = this.B;
-                this.B = f2 + ((this.f35982e - f2) / 2.0f);
+                float f2 = this.x;
+                this.x = f2 + ((this.a - f2) / 2.0f);
             }
-            this.f35984g = (this.f35984g - getPaddingLeft()) - getPaddingRight();
-            for (int i2 = 0; i2 < this.f35985h.size(); i2++) {
-                float f3 = i2;
-                this.C = (this.f35982e * f3) + this.B;
-                this.D = (String) a.d(this.f35985h, i2);
-                this.E = getPaddingLeft();
-                float measureText = this.f35984g - this.r.measureText(this.D);
-                this.F = measureText;
-                this.G = measureText / (this.D.length() - 1);
-                if (this.f35986i.contains(Integer.valueOf(i2))) {
-                    this.G = 0.0f;
-                    Align align = this.f35987j;
+            this.f27791c = (this.f27791c - getPaddingLeft()) - getPaddingRight();
+            for (int i = 0; i < this.f27792d.size(); i++) {
+                float f3 = i;
+                this.y = (this.a * f3) + this.x;
+                this.z = (String) a.d(this.f27792d, i);
+                this.A = getPaddingLeft();
+                float measureText = this.f27791c - this.n.measureText(this.z);
+                this.B = measureText;
+                this.C = measureText / (this.z.length() - 1);
+                if (this.f27793e.contains(Integer.valueOf(i))) {
+                    this.C = 0.0f;
+                    Align align = this.f27794f;
                     if (align == Align.ALIGN_CENTER) {
-                        this.E += this.F / 2.0f;
+                        this.A += this.B / 2.0f;
                     } else if (align == Align.ALIGN_RIGHT) {
-                        this.E += this.F;
+                        this.A += this.B;
                     }
                 }
-                int i3 = 0;
-                while (i3 < this.D.length()) {
-                    this.H = this.r.measureText(this.D.substring(0, i3)) + (this.G * i3);
-                    int i4 = i3 + 1;
-                    canvas.drawText(this.D.substring(i3, i4), this.H + this.E, this.C + getPaddingTop() + (this.f35983f * f3), this.r);
-                    i3 = i4;
+                int i2 = 0;
+                while (i2 < this.z.length()) {
+                    this.D = this.n.measureText(this.z.substring(0, i2)) + (this.C * i2);
+                    int i3 = i2 + 1;
+                    canvas.drawText(this.z.substring(i2, i3), this.D + this.A, this.y + getPaddingTop() + (this.f27790b * f3), this.n);
+                    i2 = i3;
                 }
             }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            if (this.k) {
-                this.f35984g = getMeasuredWidth();
-                this.s = getText().toString();
-                this.r = getPaint();
-                this.f35985h.clear();
-                this.f35986i.clear();
-                String[] split = this.s.split("\\n");
-                this.t = split;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            if (this.f27795g) {
+                this.f27791c = getMeasuredWidth();
+                this.o = getText().toString();
+                this.n = getPaint();
+                this.f27792d.clear();
+                this.f27793e.clear();
+                String[] split = this.o.split("\\n");
+                this.p = split;
                 for (String str : split) {
-                    a(this.r, str);
+                    a(this.n, str);
                 }
-                b(this.s, this.r.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
-                float f2 = (this.n * 1.0f) / this.o;
-                this.f35982e = f2;
-                float f3 = ((this.l - 1.0f) * f2) + this.m;
-                this.f35983f = f3;
-                this.u = (int) ((f3 + f2) * (this.f35985h.size() - this.o));
-                this.q = true;
-                setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), this.p + this.u);
-                this.k = false;
+                b(this.o, this.n.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
+                float f2 = (this.j * 1.0f) / this.k;
+                this.a = f2;
+                float f3 = ((this.f27796h - 1.0f) * f2) + this.i;
+                this.f27790b = f3;
+                this.q = (int) ((f3 + f2) * (this.f27792d.size() - this.k));
+                this.m = true;
+                setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), this.l + this.q);
+                this.f27795g = false;
             }
         }
     }
@@ -297,20 +298,20 @@ public class AlignTextView extends TextView {
     public void setAlign(Align align) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, align) == null) {
-            this.f35987j = align;
+            this.f27794f = align;
             invalidate();
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void setPadding(int i2, int i3, int i4, int i5) {
+    public void setPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            if (!this.q) {
-                this.p = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            if (!this.m) {
+                this.l = i4;
             }
-            this.q = false;
-            super.setPadding(i2, i3, i4, i5);
+            this.m = false;
+            super.setPadding(i, i2, i3, i4);
         }
     }
 
@@ -318,7 +319,7 @@ public class AlignTextView extends TextView {
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, charSequence, bufferType) == null) {
-            this.k = true;
+            this.f27795g = true;
             super.setText(charSequence, bufferType);
         }
     }
@@ -332,9 +333,9 @@ public class AlignTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -342,20 +343,20 @@ public class AlignTextView extends TextView {
                 return;
             }
         }
-        this.f35983f = 0.0f;
-        this.f35985h = new ArrayList();
-        this.f35986i = new ArrayList();
-        this.f35987j = Align.ALIGN_LEFT;
-        this.k = true;
-        this.l = 1.0f;
-        this.m = 0.0f;
-        this.n = 0;
-        this.o = 0;
-        this.p = 0;
-        this.q = false;
+        this.f27790b = 0.0f;
+        this.f27792d = new ArrayList();
+        this.f27793e = new ArrayList();
+        this.f27794f = Align.ALIGN_LEFT;
+        this.f27795g = true;
+        this.f27796h = 1.0f;
+        this.i = 0.0f;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = false;
         setTextIsSelectable(false);
-        this.l = attributeSet.getAttributeFloatValue("http://schemas.android.com/apk/res/android", "mLineSpacingMultiplier", 1.0f);
-        this.m = context.obtainStyledAttributes(attributeSet, new int[]{16843287}).getDimensionPixelSize(0, 0);
-        this.p = getPaddingBottom();
+        this.f27796h = attributeSet.getAttributeFloatValue("http://schemas.android.com/apk/res/android", "mLineSpacingMultiplier", 1.0f);
+        this.i = context.obtainStyledAttributes(attributeSet, new int[]{16843287}).getDimensionPixelSize(0, 0);
+        this.l = getPaddingBottom();
     }
 }

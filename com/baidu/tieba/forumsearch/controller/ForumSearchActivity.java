@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.c1.b.b;
+import c.a.p0.e1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
@@ -23,9 +23,9 @@ public class ForumSearchActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,7 +39,7 @@ public class ForumSearchActivity extends BaseActivity {
             super.onCreate(bundle);
             b bVar = new b(getPageContext());
             this.mController = bVar;
-            setContentView(bVar.o().f15260b);
+            setContentView(bVar.o().f13771b);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mController.w(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

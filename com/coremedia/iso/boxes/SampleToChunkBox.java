@@ -21,11 +21,10 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleToChunkBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "stsc";
@@ -36,7 +35,7 @@ public class SampleToChunkBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,24 +43,24 @@ public class SampleToChunkBox extends AbstractFullBox {
         public long sampleDescriptionIndex;
         public long samplesPerChunk;
 
-        public Entry(long j2, long j3, long j4) {
+        public Entry(long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.firstChunk = j2;
-            this.samplesPerChunk = j3;
-            this.sampleDescriptionIndex = j4;
+            this.firstChunk = j;
+            this.samplesPerChunk = j2;
+            this.sampleDescriptionIndex = j3;
         }
 
         public boolean equals(Object obj) {
@@ -102,32 +101,32 @@ public class SampleToChunkBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                long j2 = this.firstChunk;
-                long j3 = this.samplesPerChunk;
-                long j4 = this.sampleDescriptionIndex;
-                return (((((int) (j2 ^ (j2 >>> 32))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + ((int) (j4 ^ (j4 >>> 32)));
+                long j = this.firstChunk;
+                long j2 = this.samplesPerChunk;
+                long j3 = this.sampleDescriptionIndex;
+                return (((((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
             }
             return invokeV.intValue;
         }
 
-        public void setFirstChunk(long j2) {
+        public void setFirstChunk(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.firstChunk = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.firstChunk = j;
             }
         }
 
-        public void setSampleDescriptionIndex(long j2) {
+        public void setSampleDescriptionIndex(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                this.sampleDescriptionIndex = j2;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                this.sampleDescriptionIndex = j;
             }
         }
 
-        public void setSamplesPerChunk(long j2) {
+        public void setSamplesPerChunk(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.samplesPerChunk = j2;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.samplesPerChunk = j;
             }
         }
 
@@ -135,7 +134,7 @@ public class SampleToChunkBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return "Entry{firstChunk=" + this.firstChunk + ", samplesPerChunk=" + this.samplesPerChunk + ", sampleDescriptionIndex=" + this.sampleDescriptionIndex + ExtendedMessageFormat.END_FE;
+                return "Entry{firstChunk=" + this.firstChunk + ", samplesPerChunk=" + this.samplesPerChunk + ", sampleDescriptionIndex=" + this.sampleDescriptionIndex + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -164,9 +163,9 @@ public class SampleToChunkBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -191,28 +190,28 @@ public class SampleToChunkBox extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.entries = new ArrayList(l2i);
-            for (int i2 = 0; i2 < l2i; i2++) {
+            for (int i = 0; i < l2i; i++) {
                 this.entries.add(new Entry(IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
             }
         }
     }
 
-    public long[] blowup(int i2) {
+    public long[] blowup(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            long[] jArr = new long[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            long[] jArr = new long[i];
             LinkedList linkedList = new LinkedList(this.entries);
             Collections.reverse(linkedList);
             Iterator it = linkedList.iterator();
             Entry entry = (Entry) it.next();
-            while (i2 > 1) {
-                jArr[i2 - 1] = entry.getSamplesPerChunk();
-                if (i2 == entry.getFirstChunk()) {
+            while (i > 1) {
+                jArr[i - 1] = entry.getSamplesPerChunk();
+                if (i == entry.getFirstChunk()) {
                     entry = (Entry) it.next();
                 }
-                i2--;
+                i--;
             }
             jArr[0] = entry.getSamplesPerChunk();
             return jArr;

@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.core.engine3d;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPNode;
@@ -27,9 +28,9 @@ public class ARPNode implements IARPNode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,6 +59,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             HashMap<String, ARPNode> hashMap = this.fL;
@@ -85,11 +87,12 @@ public class ARPNode implements IARPNode {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.fK;
-            if (j2 == -1) {
+            long j = this.fK;
+            if (j == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
-            long nativeGetParentNodePtr = nativeGetParentNodePtr(j2);
+            long nativeGetParentNodePtr = nativeGetParentNodePtr(j);
             String nativeGetName = nativeGetName(nativeGetParentNodePtr);
             HashMap<String, ARPNode> hashMap = this.fL;
             ARPNode aRPNode = hashMap != null ? hashMap.get(nativeGetName) : null;
@@ -107,10 +110,10 @@ public class ARPNode implements IARPNode {
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
-    public void bindInternal(long j2) {
+    public void bindInternal(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.fK = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.fK = j;
         }
     }
 
@@ -120,6 +123,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -141,6 +145,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -169,6 +174,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -190,6 +196,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -211,6 +218,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -232,6 +240,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -253,6 +262,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -273,6 +283,7 @@ public class ARPNode implements IARPNode {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
                 return null;
             }
             this.fM.lock();
@@ -288,120 +299,139 @@ public class ARPNode implements IARPNode {
         return (Vector3f) invokeV.objValue;
     }
 
-    public native long nativeGetChildNodeByName(long j2, String str);
+    public native long nativeGetChildNodeByName(long j, String str);
 
-    public native float[] nativeGetEulerAngles(long j2);
+    public native float[] nativeGetEulerAngles(long j);
 
-    public native String nativeGetName(long j2);
+    public native String nativeGetName(long j);
 
-    public native long nativeGetParentNodePtr(long j2);
+    public native long nativeGetParentNodePtr(long j);
 
-    public native float[] nativeGetPosition(long j2);
+    public native float[] nativeGetPosition(long j);
 
-    public native float[] nativeGetRotateWorldAxis(long j2);
+    public native float[] nativeGetRotateWorldAxis(long j);
 
-    public native float[] nativeGetRotation(long j2);
+    public native float[] nativeGetRotation(long j);
 
-    public native float[] nativeGetScale(long j2);
+    public native float[] nativeGetScale(long j);
 
-    public native float[] nativeGetTransform(long j2);
+    public native float[] nativeGetTransform(long j);
 
-    public native float[] nativeGetWorldPosition(long j2);
+    public native float[] nativeGetWorldPosition(long j);
 
-    public native float[] nativeInitialTransform(long j2);
+    public native float[] nativeInitialTransform(long j);
 
-    public native void nativeSetEulerAngles(long j2, float[] fArr);
+    public native void nativeSetEulerAngles(long j, float[] fArr);
 
-    public native void nativeSetName(long j2, String str);
+    public native void nativeSetName(long j, String str);
 
-    public native void nativeSetPosition(long j2, float[] fArr);
+    public native void nativeSetPosition(long j, float[] fArr);
 
-    public native void nativeSetRotateWorldAxis(long j2, float[] fArr);
+    public native void nativeSetRotateWorldAxis(long j, float[] fArr);
 
-    public native void nativeSetRotation(long j2, float[] fArr);
+    public native void nativeSetRotation(long j, float[] fArr);
 
-    public native void nativeSetTransform(long j2, float[] fArr);
+    public native void nativeSetTransform(long j, float[] fArr);
 
-    public native void nativeSetWorldPosition(long j2, float[] fArr);
+    public native void nativeSetWorldPosition(long j, float[] fArr);
 
-    public native void nativeUpdateUniform(long j2, String str, Object obj);
+    public native void nativeUpdateUniform(long j, String str, Object obj);
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setEulerAnges(Vector3f vector3f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, vector3f) == null) || this.fK == -1 || vector3f == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048609, this, vector3f) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (vector3f != null) {
+                this.fM.lock();
+                nativeSetEulerAngles(this.fK, vector3f.toArray());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetEulerAngles(this.fK, vector3f.toArray());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            long j2 = this.fK;
-            if (j2 == -1) {
-                return;
+            long j = this.fK;
+            if (j == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else {
+                nativeSetName(j, str);
             }
-            nativeSetName(j2, str);
         }
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setPosition(Vector3f vector3f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048611, this, vector3f) == null) || this.fK == -1 || vector3f == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048611, this, vector3f) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (vector3f != null) {
+                this.fM.lock();
+                nativeSetPosition(this.fK, vector3f.toArray());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetPosition(this.fK, vector3f.toArray());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setRotateWorldAxis(Vector3f vector3f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, vector3f) == null) || this.fK == -1 || vector3f == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048612, this, vector3f) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (vector3f != null) {
+                this.fM.lock();
+                nativeSetRotateWorldAxis(this.fK, vector3f.toArray());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetRotateWorldAxis(this.fK, vector3f.toArray());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setRotation(Vector4f vector4f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048613, this, vector4f) == null) || this.fK == -1 || vector4f == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048613, this, vector4f) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (vector4f != null) {
+                this.fM.lock();
+                nativeSetRotation(this.fK, vector4f.toArray());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetRotation(this.fK, vector4f.toArray());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setTransform(Matrixf4x4 matrixf4x4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048614, this, matrixf4x4) == null) || this.fK == -1 || matrixf4x4 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048614, this, matrixf4x4) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (matrixf4x4 != null) {
+                this.fM.lock();
+                nativeSetTransform(this.fK, matrixf4x4.getMatrix());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetTransform(this.fK, matrixf4x4.getMatrix());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode
     public void setWorldPosition(Vector3f vector3f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048615, this, vector3f) == null) || this.fK == -1 || vector3f == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048615, this, vector3f) == null) {
+            if (this.fK == -1) {
+                Log.e(ARPNode.class.getSimpleName(), "node addr is error");
+            } else if (vector3f != null) {
+                this.fM.lock();
+                nativeSetWorldPosition(this.fK, vector3f.toArray());
+                this.fM.unlock();
+            }
         }
-        this.fM.lock();
-        nativeSetWorldPosition(this.fK, vector3f.toArray());
-        this.fM.unlock();
     }
 
     @Override // com.baidu.ar.arplay.core.engine.engine3d.IARPNode

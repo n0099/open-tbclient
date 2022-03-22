@@ -16,27 +16,27 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BoundingBox f27357h;
+    public static final BoundingBox f22591h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27358b;
+    public int f22592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27359c;
+    public int f22593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27360d;
+    public int f22594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Mesh f27361e;
+    public Mesh f22595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Vector3 f27362f;
+    public final Vector3 f22596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Vector3 f27363g;
+    public final Vector3 f22597g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        f27357h = new BoundingBox();
+        f22591h = new BoundingBox();
     }
 
     public b() {
@@ -59,22 +59,22 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27362f = new Vector3();
-        this.f27363g = new Vector3();
+        this.f22596f = new Vector3();
+        this.f22597g = new Vector3();
     }
 
     public boolean a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f27361e == this.f27361e && bVar.f27358b == this.f27358b && bVar.f27359c == this.f27359c && bVar.f27360d == this.f27360d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? bVar == this || (bVar != null && bVar.f22595e == this.f22595e && bVar.f22592b == this.f22592b && bVar.f22593c == this.f22593c && bVar.f22594d == this.f22594d) : invokeL.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -98,10 +98,10 @@ public class b {
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f27361e.f(f27357h, this.f27359c, this.f27360d);
-            f27357h.getCenter(this.f27362f);
-            f27357h.getDimensions(this.f27363g).m23scl(0.5f);
-            this.f27363g.len();
+            this.f22595e.f(f22591h, this.f22593c, this.f22594d);
+            f22591h.getCenter(this.f22596f);
+            f22591h.getDimensions(this.f22597g).m21scl(0.5f);
+            this.f22597g.len();
         }
     }
 }

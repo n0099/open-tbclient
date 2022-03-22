@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
@@ -24,28 +25,28 @@ public class bl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<WebView> f35188b;
+    public WeakReference<WebView> f27325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f35189c;
+    public WeakReference<Activity> f27326c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f35190d;
+    public JSONObject f27327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35191e;
+    public boolean f27328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35192f;
+    public boolean f27329f;
 
     public bl() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,29 +54,29 @@ public class bl {
     }
 
     public static void b(Activity activity, WebView webView, Rect rect) {
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, activity, webView, rect) == null) {
-            int i5 = 0;
+            int i4 = 0;
             if (rect != null) {
-                i5 = ah.a(activity, rect.left);
-                i3 = ah.a(activity, rect.top);
-                i4 = ah.a(activity, rect.width());
-                i2 = ah.a(activity, rect.height());
+                i4 = ah.a(activity, rect.left);
+                i2 = ah.a(activity, rect.top);
+                i3 = ah.a(activity, rect.width());
+                i = ah.a(activity, rect.height());
             } else {
+                i = 0;
                 i2 = 0;
                 i3 = 0;
-                i4 = 0;
             }
-            activity.runOnUiThread(new Runnable(webView, "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i5 + ", \"y\": " + i3 + ", \"w\": " + i4 + ", \"h\": " + i2 + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')") { // from class: com.baidu.mobstat.bl.1
+            activity.runOnUiThread(new Runnable(webView, "javascript:window._automtj.getViewportTree('android', '" + ("{\"x\": " + i4 + ", \"y\": " + i2 + ", \"w\": " + i3 + ", \"h\": " + i + ", \"sw\": " + ah.a(activity, bj.c(activity)) + ", \"sh\": " + ah.a(activity, bj.d(activity)) + "}") + "', 'window.WebViewInterface.setViewportTreeToNative')") { // from class: com.baidu.mobstat.bl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebView a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f35193b;
+                public final /* synthetic */ String f27330b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,23 +85,23 @@ public class bl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {webView, r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i6 = newInitContext.flag;
-                        if ((i6 & 1) != 0) {
-                            int i7 = i6 & 2;
+                        int i5 = newInitContext.flag;
+                        if ((i5 & 1) != 0) {
+                            int i6 = i5 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.a = webView;
-                    this.f35193b = r7;
+                    this.f27330b = r7;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.loadUrl(this.f35193b);
+                        this.a.loadUrl(this.f27330b);
                     }
                 }
             });
@@ -122,7 +123,7 @@ public class bl {
         WebView webView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (bd.c().b() && this.f35192f) {
+            if (bd.c().b() && this.f27329f) {
                 bd c2 = bd.c();
                 c2.a("setEventToNative: " + str);
             }
@@ -130,8 +131,8 @@ public class bl {
                 bh c3 = bh.c();
                 c3.a("setEventToNative: " + str);
             }
-            WeakReference<Activity> weakReference2 = this.f35189c;
-            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f35188b) == null || (webView = weakReference.get()) == null) {
+            WeakReference<Activity> weakReference2 = this.f27326c;
+            if (weakReference2 == null || (activity = weakReference2.get()) == null || (weakReference = this.f27325b) == null || (webView = weakReference.get()) == null) {
                 return;
             }
             a(str, activity, webView);
@@ -158,10 +159,10 @@ public class bl {
         }
         a = "";
         b(activity, webView, rect);
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = i2 + 1;
-            if (i2 >= 15) {
+            int i2 = i + 1;
+            if (i >= 15) {
                 return "";
             }
             try {
@@ -171,7 +172,7 @@ public class bl {
             if (!TextUtils.isEmpty(a)) {
                 return a;
             }
-            i2 = i3;
+            i = i2;
         }
     }
 
@@ -181,8 +182,8 @@ public class bl {
             return;
         }
         if (z) {
-            this.f35192f = z;
-            this.f35190d = jSONObject;
+            this.f27329f = z;
+            this.f27327d = jSONObject;
         }
         if (z) {
             bd.c().a("injectTrackJs circleConfig: " + jSONObject);
@@ -197,17 +198,17 @@ public class bl {
             }
         }
         if (activity != null) {
-            this.f35189c = new WeakReference<>(activity);
+            this.f27326c = new WeakReference<>(activity);
         }
         if (webView != null) {
-            this.f35188b = new WeakReference<>(webView);
+            this.f27325b = new WeakReference<>(webView);
         }
-        this.f35191e = z;
+        this.f27328e = z;
         String a2 = a();
         if (TextUtils.isEmpty(a2)) {
             a2 = new JSONObject().toString();
         }
-        if (bd.c().b() && this.f35192f) {
+        if (bd.c().b() && this.f27329f) {
             bd.c().a("injectTrackJs h5Config: " + a2);
         }
         if (bh.c().b()) {
@@ -223,8 +224,8 @@ public class bl {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, webView, z)) == null) {
-            WeakReference<WebView> weakReference = this.f35188b;
-            return (weakReference == null || weakReference.get() != webView || this.f35191e == z) ? false : true;
+            WeakReference<WebView> weakReference = this.f27325b;
+            return (weakReference == null || weakReference.get() != webView || this.f27328e == z) ? false : true;
         }
         return invokeLZ.booleanValue;
     }
@@ -262,7 +263,7 @@ public class bl {
             JSONObject jSONObject2 = null;
             try {
                 jSONObject = new JSONObject(str);
-                jSONArray = jSONObject.optJSONArray("h3");
+                jSONArray = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
             } catch (Exception unused) {
                 jSONArray = null;
                 str2 = null;
@@ -272,7 +273,7 @@ public class bl {
                 try {
                     str3 = jSONObject.optString("l");
                     try {
-                        jSONObject2 = jSONObject.optJSONObject("point");
+                        jSONObject2 = jSONObject.optJSONObject(Config.EVENT_HEAT_POINT);
                         z = true;
                     } catch (Exception unused2) {
                         z = false;
@@ -308,9 +309,9 @@ public class bl {
                 Map<String, String> g2 = bj.g(webView);
                 Context applicationContext = activity.getApplicationContext();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (a(this.f35190d, activity.getClass().getName(), str5, a3, b2)) {
+                if (a(this.f27327d, activity.getClass().getName(), str5, a3, b2)) {
                     BDStatCore.instance().onEvent(applicationContext, "", str422, 1, System.currentTimeMillis(), a2, jSONArray222, name, str5, f2, g2, true);
-                } else if (bd.c().b() && this.f35192f) {
+                } else if (bd.c().b() && this.f27329f) {
                     bd.c().a("setEventToNative: not circle event, will not take effect");
                 }
                 aw.a().a(applicationContext, "", str422, 1, currentTimeMillis, name, a2, str5, jSONArray222, f2, g2, true, jSONObject322, "");
@@ -326,7 +327,7 @@ public class bl {
         if (interceptable != null && (invokeLLLLL = interceptable.invokeLLLLL(65541, this, jSONObject, str, str2, str3, str4)) != null) {
             return invokeLLLLL.booleanValue;
         }
-        int i2 = 0;
+        int i = 0;
         if (jSONObject == null || jSONObject.toString().equals(new JSONObject().toString()) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             return false;
         }
@@ -339,20 +340,20 @@ public class bl {
         try {
             JSONArray jSONArray = (JSONArray) jSONObject.get("data");
             boolean z = false;
-            while (i2 < jSONArray.length()) {
+            while (i < jSONArray.length()) {
                 try {
-                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i2);
+                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
                     String optString = jSONObject2.optString("page");
-                    String optString2 = jSONObject2.optString("layout");
+                    String optString2 = jSONObject2.optString(TtmlNode.TAG_LAYOUT);
                     String str5 = (String) jSONObject2.opt("url");
                     String str6 = (String) jSONObject2.opt("webLayout");
                     if (str.equals(optString) && str2.equals(str5) && str3.equals(optString2) && str4.equals(str6)) {
                         z = true;
                     }
-                    i2++;
+                    i++;
                 } catch (Exception unused2) {
-                    i2 = z ? 1 : 0;
-                    return i2;
+                    i = z ? 1 : 0;
+                    return i;
                 }
             }
             return z;

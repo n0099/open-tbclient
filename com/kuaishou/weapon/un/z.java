@@ -20,10 +20,10 @@ public class z {
     public static final String a = "/proc/cpuinfo";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53880b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
+    public static final String f39039b = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53881c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
+    public static final String f39040c = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
     public transient /* synthetic */ FieldHolder $fh;
 
     public z() {
@@ -31,9 +31,9 @@ public class z {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -84,11 +84,11 @@ public class z {
                     bufferedReader = new BufferedReader(inputStreamReader);
                     try {
                         z0 z0Var = new z0();
-                        int i2 = 0;
+                        int i = 0;
                         while (true) {
                             String readLine = bufferedReader.readLine();
                             if (readLine == null) {
-                                z0Var.a(i2);
+                                z0Var.a(i);
                                 bufferedReader.close();
                                 inputStreamReader.close();
                                 fileInputStream.close();
@@ -108,7 +108,7 @@ public class z {
                                     if (split3 != null) {
                                         String trim2 = split3[1].trim();
                                         if (!TextUtils.isEmpty(trim2)) {
-                                            i2 = Integer.parseInt(trim2) + 1;
+                                            i = Integer.parseInt(trim2) + 1;
                                         }
                                     }
                                 }
@@ -164,7 +164,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f53880b);
+            fileReader = new FileReader(f39039b);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {
@@ -227,7 +227,7 @@ public class z {
             return invokeV.intValue;
         }
         try {
-            fileReader = new FileReader(f53881c);
+            fileReader = new FileReader(f39040c);
             try {
                 bufferedReader = new BufferedReader(fileReader);
                 try {

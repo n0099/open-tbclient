@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.b0.v.v0.h;
+import c.a.a0.v.v0.h;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +22,9 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,16 +34,16 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
     }
 
     @Override // com.baidu.nadcore.video.videoplayer.ui.full.BdVideoCacheView, android.view.View
-    public void onWindowVisibilityChanged(int i2) {
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            h.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
-            if (i2 != 0) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            h.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            if (i != 0) {
                 setVisibility(4);
-            } else if (this.mLoadingView.isRunning()) {
+            } else if (this.f27683b.b()) {
                 setVisibility(0);
             }
-            super.onWindowVisibilityChanged(i2);
+            super.onWindowVisibilityChanged(i);
         }
     }
 }

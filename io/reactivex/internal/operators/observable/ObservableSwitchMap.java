@@ -42,24 +42,24 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         public final SwitchMapObserver<T, R> parent;
         public volatile SimpleQueue<R> queue;
 
-        public SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j2, int i2) {
+        public SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {switchMapObserver, Long.valueOf(j2), Integer.valueOf(i2)};
+                Object[] objArr = {switchMapObserver, Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = switchMapObserver;
-            this.index = j2;
-            this.bufferSize = i2;
+            this.index = j;
+            this.bufferSize = i;
         }
 
         public void cancel() {
@@ -154,16 +154,16 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             switchMapInnerObserver.cancel();
         }
 
-        public SwitchMapObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, boolean z) {
+        public SwitchMapObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, function, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -172,7 +172,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             this.active = new AtomicReference<>();
             this.actual = observer;
             this.mapper = function;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.delayErrors = z;
             this.errors = new AtomicThrowable();
         }
@@ -216,7 +216,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                 Observer<? super R> observer = this.actual;
                 AtomicReference<SwitchMapInnerObserver<T, R>> atomicReference = this.active;
                 boolean z = this.delayErrors;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (this.done) {
                         boolean z2 = atomicReference.get() == null;
@@ -293,8 +293,8 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                         }
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -354,15 +354,15 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             SwitchMapInnerObserver<T, R> switchMapInnerObserver;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                long j2 = this.unique + 1;
-                this.unique = j2;
+                long j = this.unique + 1;
+                this.unique = j;
                 SwitchMapInnerObserver<T, R> switchMapInnerObserver2 = this.active.get();
                 if (switchMapInnerObserver2 != null) {
                     switchMapInnerObserver2.cancel();
                 }
                 try {
                     ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The ObservableSource returned is null");
-                    SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j2, this.bufferSize);
+                    SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j, this.bufferSize);
                     do {
                         switchMapInnerObserver = this.active.get();
                         if (switchMapInnerObserver == CANCELLED) {
@@ -389,17 +389,17 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSwitchMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, boolean z) {
+    public ObservableSwitchMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, function, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -407,7 +407,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             }
         }
         this.mapper = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayErrors = z;
     }
 

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TransmitForumData implements n, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TransmitForumData> CREATOR;
@@ -30,7 +30,7 @@ public class TransmitForumData implements n, Parcelable {
     public ArrayList<FrsTabItemData> tabItemDatas;
     public int type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<TransmitForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public class TransmitForumData implements n, Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,10 +61,10 @@ public class TransmitForumData implements n, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public TransmitForumData[] newArray(int i2) {
+        public TransmitForumData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new TransmitForumData[i2] : (TransmitForumData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new TransmitForumData[i] : (TransmitForumData[]) invokeI.objValue;
         }
     }
 
@@ -86,17 +86,17 @@ public class TransmitForumData implements n, Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TransmitForumData(long j2, String str, boolean z, int i2) {
-        this(j2, str, z, i2, "");
+    public TransmitForumData(long j, String str, boolean z, int i) {
+        this(j, str, z, i, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Integer) objArr2[3]).intValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -124,9 +124,9 @@ public class TransmitForumData implements n, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeString(this.forumName);
             parcel.writeLong(this.forumId);
             parcel.writeByte(this.checked ? (byte) 1 : (byte) 0);
@@ -137,16 +137,16 @@ public class TransmitForumData implements n, Parcelable {
         }
     }
 
-    public TransmitForumData(long j2, String str, boolean z, int i2, String str2) {
+    public TransmitForumData(long j, String str, boolean z, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, Boolean.valueOf(z), Integer.valueOf(i2), str2};
+            Object[] objArr = {Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -155,8 +155,8 @@ public class TransmitForumData implements n, Parcelable {
         this.isCurForum = false;
         this.forumName = str;
         this.checked = z;
-        this.forumId = j2;
-        this.type = i2;
+        this.forumId = j;
+        this.type = i;
         this.avatar = str2;
     }
 
@@ -167,9 +167,9 @@ public class TransmitForumData implements n, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

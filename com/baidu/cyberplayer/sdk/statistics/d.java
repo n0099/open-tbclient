@@ -9,6 +9,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.o;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,35 +22,35 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32233b;
+    public String f25467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32234c;
+    public String f25468c;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f32233b = null;
-        this.f32234c = null;
-        this.f32234c = "video_session";
+        this.f25467b = null;
+        this.f25468c = null;
+        this.f25468c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -60,18 +61,18 @@ public class d {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f32233b = null;
-        this.f32234c = null;
-        this.f32234c = str;
+        this.f25467b = null;
+        this.f25468c = null;
+        this.f25468c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -173,7 +174,7 @@ public class d {
             }
             throw th;
         }
-        if (randomAccessFile.length() > 10485760) {
+        if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
             try {
                 randomAccessFile.close();
                 return;
@@ -225,7 +226,7 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f32233b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f25467b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
@@ -233,7 +234,7 @@ public class d {
         try {
             String str = this.a;
             if (b(str)) {
-                String str2 = this.f32233b;
+                String str2 = this.f25467b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -256,8 +257,8 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersionInternal = CyberVersion.getCoreVersionInternal();
-        this.a = b2 + File.separator + this.f32234c + "_" + coreVersionInternal + ".bak";
-        this.f32233b = b2 + File.separator + this.f32234c + "_log_" + coreVersionInternal + ".tmp";
+        this.a = b2 + File.separator + this.f25468c + "_" + coreVersionInternal + ".bak";
+        this.f25467b = b2 + File.separator + this.f25468c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
@@ -288,7 +289,7 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f32234c.equals("live_show_session") ? 24 : 1);
+                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f25468c.equals("live_show_session") ? 24 : 1);
                 if (TextUtils.isEmpty(a)) {
                     z = true;
                 } else {

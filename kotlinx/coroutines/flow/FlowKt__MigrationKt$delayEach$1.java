@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.DelayKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", AdvanceSetting.NETWORK_TYPE, "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MigrationKt$delayEach$1", f = "Migration.kt", i = {0}, l = {425}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class FlowKt__MigrationKt$delayEach$1 extends SuspendLambda implements Function2<T, Continuation<? super Unit>, Object> {
     public final /* synthetic */ long $timeMillis;
     public Object L$0;
@@ -20,9 +20,9 @@ public final class FlowKt__MigrationKt$delayEach$1 extends SuspendLambda impleme
     public Object p$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__MigrationKt$delayEach$1(long j2, Continuation continuation) {
+    public FlowKt__MigrationKt$delayEach$1(long j, Continuation continuation) {
         super(2, continuation);
-        this.$timeMillis = j2;
+        this.$timeMillis = j;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -41,17 +41,17 @@ public final class FlowKt__MigrationKt$delayEach$1 extends SuspendLambda impleme
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             Object obj2 = this.p$0;
-            long j2 = this.$timeMillis;
+            long j = this.$timeMillis;
             this.L$0 = obj2;
             this.label = 1;
-            if (DelayKt.delay(j2, this) == coroutine_suspended) {
+            if (DelayKt.delay(j, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i2 != 1) {
+        } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             ResultKt.throwOnFailure(obj);

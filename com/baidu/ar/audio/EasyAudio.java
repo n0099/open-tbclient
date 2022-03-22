@@ -46,9 +46,9 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -114,15 +114,15 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
     }
 
     @Override // com.baidu.ar.audio.a
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             this.iT.lock();
             try {
                 if (this.iR != null) {
                     Iterator<EasyAudioCallback> it = this.iR.iterator();
                     while (it.hasNext()) {
-                        it.next().onAudioFrameAvailable(byteBuffer, i2, j2);
+                        it.next().onAudioFrameAvailable(byteBuffer, i, j);
                     }
                 }
             } finally {
@@ -186,15 +186,15 @@ public class EasyAudio implements IEasyAudio, VolumeListener, a {
     }
 
     @Override // com.baidu.ar.audio.VolumeListener
-    public void onRealtimeVolume(int i2) {
+    public void onRealtimeVolume(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.iU.lock();
             try {
                 if (this.iS != null) {
                     Iterator<VolumeListener> it = this.iS.iterator();
                     while (it.hasNext()) {
-                        it.next().onRealtimeVolume(i2);
+                        it.next().onRealtimeVolume(i);
                     }
                 }
             } finally {

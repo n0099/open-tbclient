@@ -16,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlbumCompressProgressView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f48290e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f48291f;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f37354b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -32,9 +30,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,26 +45,26 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-            this.f48290e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-            this.f48291f = (TextView) findViewById(R.id.txt_compress_progress);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0216, this);
+            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.f37354b = (TextView) findViewById(R.id.obfuscated_res_0x7f09223b);
         }
     }
 
-    public boolean isShowing() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getParent() != null : invokeV.booleanValue;
     }
 
-    public void setPercent(int i2) {
+    public void setPercent(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i < 0 || i > 100) {
             return;
         }
-        this.f48290e.setProgress(i2);
-        TextView textView = this.f48291f;
-        textView.setText(i2 + "%");
+        this.a.setProgress(i);
+        TextView textView = this.f37354b;
+        textView.setText(i + "%");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,9 +76,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -92,17 +90,17 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -114,8 +114,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder setBlurRadius(int i2) {
-            this.blurRadius = i2;
+        public Builder setBlurRadius(int i) {
+            this.blurRadius = i;
             return this;
         }
 
@@ -124,8 +124,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder setCornerRound(int i2) {
-            this.cornerRound = i2;
+        public Builder setCornerRound(int i) {
+            this.cornerRound = i;
             return this;
         }
 
@@ -134,8 +134,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder setStrokeColor(int i2) {
-            this.strokeColor = i2;
+        public Builder setStrokeColor(int i) {
+            this.strokeColor = i;
             return this;
         }
 
@@ -147,8 +147,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder showImageForEmptyUri(int i2) {
-            this.imageResForEmptyUri = i2;
+        public Builder showImageForEmptyUri(int i) {
+            this.imageResForEmptyUri = i;
             return this;
         }
 
@@ -157,8 +157,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder showImageOnFail(int i2) {
-            this.imageResOnFail = i2;
+        public Builder showImageOnFail(int i) {
+            this.imageResOnFail = i;
             return this;
         }
 
@@ -167,8 +167,8 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder showImageOnLoading(int i2) {
-            this.imageResOnLoading = i2;
+        public Builder showImageOnLoading(int i) {
+            this.imageResOnLoading = i;
             return this;
         }
 
@@ -178,8 +178,8 @@ public final class DisplayImageOptionsCompat {
         }
 
         @Deprecated
-        public Builder showStubImage(int i2) {
-            this.imageResOnLoading = i2;
+        public Builder showStubImage(int i) {
+            this.imageResOnLoading = i;
             return this;
         }
     }
@@ -227,18 +227,18 @@ public final class DisplayImageOptionsCompat {
     }
 
     public Drawable getImageForEmptyUri(Resources resources) {
-        int i2 = this.imageResForEmptyUri;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageForEmptyUri;
+        int i = this.imageResForEmptyUri;
+        return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
     }
 
     public Drawable getImageOnFail(Resources resources) {
-        int i2 = this.imageResOnFail;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnFail;
+        int i = this.imageResOnFail;
+        return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
     }
 
     public Drawable getImageOnLoading(Resources resources) {
-        int i2 = this.imageResOnLoading;
-        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnLoading;
+        int i = this.imageResOnLoading;
+        return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
     }
 
     public int getStrokeColor() {

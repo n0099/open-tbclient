@@ -36,9 +36,9 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,9 +63,9 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -129,13 +129,13 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     }
 
     @Override // android.widget.Adapter, c.a.d.o.e.o
-    public Object getItem(int i2) {
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             ListAdapter listAdapter = this.mAdapter;
             if (listAdapter != null) {
-                return listAdapter.getItem(i2);
+                return listAdapter.getItem(i);
             }
             return null;
         }
@@ -143,13 +143,13 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             ListAdapter listAdapter = this.mAdapter;
             if (listAdapter != null) {
-                return listAdapter.getItemId(i2);
+                return listAdapter.getItemId(i);
             }
             return 0L;
         }
@@ -157,13 +157,13 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
             ListAdapter listAdapter = this.mAdapter;
             if (listAdapter != null) {
-                return listAdapter.getView(i2, view, viewGroup);
+                return listAdapter.getView(i, view, viewGroup);
             }
             return null;
         }

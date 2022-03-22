@@ -1,9 +1,9 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.data;
 
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IRevenueDataSender {
-    void cancelAllRequest(int i2, int i3);
+    void cancelAllRequest(int i, int i2);
 
-    void sendData(int i2, int i3, String str, ArrayList<Integer> arrayList, byte[] bArr);
+    void sendData(int i, int i2, String str, ArrayList<Integer> arrayList, byte[] bArr);
 }

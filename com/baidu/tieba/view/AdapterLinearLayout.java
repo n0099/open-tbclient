@@ -15,12 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AdapterLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Adapter a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Adapter f47605e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final DataSetObserver f47606f;
+    /* renamed from: b  reason: collision with root package name */
+    public final DataSetObserver f36796b;
 
     /* loaded from: classes6.dex */
     public class a extends DataSetObserver {
@@ -35,9 +33,9 @@ public class AdapterLinearLayout extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adapterLinearLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,14 +47,14 @@ public class AdapterLinearLayout extends LinearLayout {
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f47605e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            int count = this.a.f47605e.getCount();
+            int count = this.a.a.getCount();
             int childCount = this.a.getChildCount() - count;
-            for (int i2 = 0; i2 < count; i2++) {
-                View childAt = this.a.getChildAt(i2);
-                View view = this.a.f47605e.getView(i2, childAt, this.a);
+            for (int i = 0; i < count; i++) {
+                View childAt = this.a.getChildAt(i);
+                View view = this.a.a.getView(i, childAt, this.a);
                 if (childAt == null && view != null) {
                     this.a.addView(view);
                 }
@@ -84,28 +82,28 @@ public class AdapterLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47606f = new a(this);
+        this.f36796b = new a(this);
     }
 
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
-            Adapter adapter2 = this.f47605e;
+            Adapter adapter2 = this.a;
             if (adapter2 != null) {
-                adapter2.unregisterDataSetObserver(this.f47606f);
+                adapter2.unregisterDataSetObserver(this.f36796b);
             }
-            this.f47605e = adapter;
+            this.a = adapter;
             if (adapter != null) {
-                adapter.registerDataSetObserver(this.f47606f);
+                adapter.registerDataSetObserver(this.f36796b);
             }
         }
     }
@@ -119,9 +117,9 @@ public class AdapterLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -129,21 +127,21 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f47606f = new a(this);
+        this.f36796b = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdapterLinearLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdapterLinearLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -151,6 +149,6 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f47606f = new a(this);
+        this.f36796b = new a(this);
     }
 }

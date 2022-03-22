@@ -24,7 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AsyncHttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -72,9 +72,9 @@ public class AsyncHttpClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, jArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -269,10 +269,10 @@ public class AsyncHttpClient {
         }
     }
 
-    public void setConnectTimeout(int i2) {
+    public void setConnectTimeout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mProxyURLConnection.setConnectTimeout(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mProxyURLConnection.setConnectTimeout(i);
         }
     }
 
@@ -283,10 +283,10 @@ public class AsyncHttpClient {
         }
     }
 
-    public void setTimeout(int i2) {
+    public void setTimeout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mProxyURLConnection.setSocketTimeout(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mProxyURLConnection.setSocketTimeout(i);
         }
     }
 

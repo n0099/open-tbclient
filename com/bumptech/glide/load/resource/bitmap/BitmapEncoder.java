@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.GlideTrace;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Bitmap.CompressFormat> COMPRESSION_FORMAT;
@@ -59,9 +59,9 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
             newInitContext.initArgs = r2;
             Object[] objArr = {arrayPool};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -95,8 +95,8 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0061, code lost:
-        if (r6 == null) goto L20;
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x006a, code lost:
+        if (r6 != null) goto L16;
      */
     @Override // com.bumptech.glide.load.Encoder
     /*
@@ -123,32 +123,36 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException unused) {
+            } catch (IOException e2) {
+                e = e2;
             }
             try {
                 bufferedOutputStream = this.arrayPool != null ? new BufferedOutputStream(fileOutputStream, this.arrayPool) : fileOutputStream;
                 bitmap.compress(format, intValue, bufferedOutputStream);
                 bufferedOutputStream.close();
                 z = true;
-            } catch (IOException unused2) {
+            } catch (IOException e3) {
+                e = e3;
                 bufferedOutputStream = fileOutputStream;
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to encode Bitmap", e);
+                }
             } catch (Throwable th2) {
                 th = th2;
                 bufferedOutputStream = fileOutputStream;
                 if (bufferedOutputStream != null) {
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException unused3) {
+                    } catch (IOException unused) {
                     }
                 }
                 throw th;
             }
             try {
                 bufferedOutputStream.close();
-            } catch (IOException unused4) {
+            } catch (IOException unused2) {
                 if (Log.isLoggable(TAG, 2)) {
-                    String str = "Compressed with type: " + format + " of size " + Util.getBitmapByteSize(bitmap) + " in " + LogTime.getElapsedMillis(logTime) + ", options format: " + options.get(COMPRESSION_FORMAT) + ", hasAlpha: " + bitmap.hasAlpha();
+                    Log.v(TAG, "Compressed with type: " + format + " of size " + Util.getBitmapByteSize(bitmap) + " in " + LogTime.getElapsedMillis(logTime) + ", options format: " + options.get(COMPRESSION_FORMAT) + ", hasAlpha: " + bitmap.hasAlpha());
                 }
                 return z;
             }
@@ -163,9 +167,9 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

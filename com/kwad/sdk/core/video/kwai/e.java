@@ -10,12 +10,12 @@ import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static final AtomicBoolean a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f54795b;
+    public static AtomicBoolean f39894b;
 
     public static void a(Context context) {
         com.kwad.sdk.core.d.a.a("kp init");
@@ -27,17 +27,17 @@ public class e {
     }
 
     public static boolean a() {
-        AtomicBoolean atomicBoolean = f54795b;
+        AtomicBoolean atomicBoolean = f39894b;
         if (atomicBoolean != null) {
             return atomicBoolean.get();
         }
         AtomicBoolean atomicBoolean2 = new AtomicBoolean(true);
-        f54795b = atomicBoolean2;
+        f39894b = atomicBoolean2;
         return atomicBoolean2.get();
     }
 
     public static boolean b() {
-        return a.get() || KsAdSDKImpl.get().getIsExternal() || com.kwad.sdk.b.f54004e.booleanValue();
+        return a.get() || KsAdSDKImpl.get().getIsExternal() || com.kwad.sdk.b.f39156e.booleanValue();
     }
 
     public static void c(Context context) {
@@ -66,11 +66,11 @@ public class e {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f56931c = v;
-        bVar.f56933e = true;
+        bVar.f41795c = v;
+        bVar.f41797e = true;
         bVar.a = str;
-        bVar.f56930b = "3.4";
-        bVar.f56935g = true;
+        bVar.f41794b = "3.4";
+        bVar.f41799g = true;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.core.video.kwai.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */

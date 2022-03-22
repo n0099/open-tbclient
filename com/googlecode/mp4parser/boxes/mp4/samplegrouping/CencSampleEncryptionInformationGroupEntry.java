@@ -14,7 +14,6 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
@@ -45,9 +44,9 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,9 +108,9 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = ((this.isEncrypted * 31) + this.ivSize) * 31;
+            int i = ((this.isEncrypted * 31) + this.ivSize) * 31;
             byte[] bArr = this.kid;
-            return i2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -128,10 +127,10 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         }
     }
 
-    public void setEncrypted(int i2) {
+    public void setEncrypted(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.isEncrypted = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.isEncrypted = i;
         }
     }
 
@@ -153,7 +152,7 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "CencSampleEncryptionInformationGroupEntry{isEncrypted=" + this.isEncrypted + ", ivSize=" + ((int) this.ivSize) + ", kid=" + Hex.encodeHex(this.kid) + ExtendedMessageFormat.END_FE;
+            return "CencSampleEncryptionInformationGroupEntry{isEncrypted=" + this.isEncrypted + ", ivSize=" + ((int) this.ivSize) + ", kid=" + Hex.encodeHex(this.kid) + '}';
         }
         return (String) invokeV.objValue;
     }

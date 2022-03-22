@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
@@ -22,7 +23,7 @@ import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0017\u001a9\u0010\u0007\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\u0007\u0010\b\u001a9\u0010\t\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\t\u0010\b\u001a9\u0010\n\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\n\u0010\b\u001a9\u0010\u000b\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\u000b\u0010\b\u001a9\u0010\r\u001a\u00020\f*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\r\u0010\u000e\u001a\u001b\u0010\u0012\u001a\u00020\u0011*\u00020\u00002\b\b\u0002\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0012\u0010\u0013\u001a,\u0010\u0018\u001a\u00020\u0017*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u00142\u000e\b\u0004\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\u00050\u0016H\u0086\b¢\u0006\u0004\b\u0018\u0010\u0019\u001a,\u0010\u001a\u001a\u00020\u0017*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u00142\u000e\b\u0004\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\u00050\u0016H\u0087\b¢\u0006\u0004\b\u001a\u0010\u0019\u001a\u001e\u0010\u001d\u001a\u00020\u0005*\u00020\u00002\b\b\u0001\u0010\u001c\u001a\u00020\u001bH\u0086\b¢\u0006\u0004\b\u001d\u0010\u001e\u001a9\u0010$\u001a\u00020\u0005\"\n\b\u0000\u0010 \u0018\u0001*\u00020\u001f*\u00020\u00002\u0017\u0010\"\u001a\u0013\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00050\u0001¢\u0006\u0002\b!H\u0087\b¢\u0006\u0004\b#\u0010\b\u001a-\u0010$\u001a\u00020\u0005*\u00020\u00002\u0017\u0010\"\u001a\u0013\u0012\u0004\u0012\u00020\u001f\u0012\u0004\u0012\u00020\u00050\u0001¢\u0006\u0002\b!H\u0086\b¢\u0006\u0004\b$\u0010\b\u001a<\u0010)\u001a\u00020\u0005*\u00020\u00002\b\b\u0003\u0010%\u001a\u00020\u001b2\b\b\u0003\u0010&\u001a\u00020\u001b2\b\b\u0003\u0010'\u001a\u00020\u001b2\b\b\u0003\u0010(\u001a\u00020\u001bH\u0086\b¢\u0006\u0004\b)\u0010*\u001a<\u0010-\u001a\u00020\u0005*\u00020\u00002\b\b\u0003\u0010+\u001a\u00020\u001b2\b\b\u0003\u0010&\u001a\u00020\u001b2\b\b\u0003\u0010,\u001a\u00020\u001b2\b\b\u0003\u0010(\u001a\u00020\u001bH\u0087\b¢\u0006\u0004\b-\u0010*\"*\u00100\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b0\u00101\"\u0004\b2\u00103\"*\u00104\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b4\u00101\"\u0004\b5\u00103\"*\u00106\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b6\u00101\"\u0004\b7\u00103\"\u0018\u0010:\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b8\u00109\"\u0018\u0010<\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b;\u00109\"\u0018\u0010>\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b=\u00109\"\u0018\u0010@\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b?\u00109\"\u0018\u0010B\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\bA\u00109\"\u0018\u0010D\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\bC\u00109¨\u0006E"}, d2 = {"Landroid/view/View;", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "view", "", "action", "doOnAttach", "(Landroid/view/View;Lkotlin/Function1;)V", "doOnDetach", "doOnLayout", "doOnNextLayout", "Landroidx/core/view/OneShotPreDrawListener;", "doOnPreDraw", "(Landroid/view/View;Lkotlin/Function1;)Landroidx/core/view/OneShotPreDrawListener;", "Landroid/graphics/Bitmap$Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Landroid/graphics/Bitmap;", "drawToBitmap", "(Landroid/view/View;Landroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;", "", "delayInMillis", "Lkotlin/Function0;", "Ljava/lang/Runnable;", "postDelayed", "(Landroid/view/View;JLkotlin/Function0;)Ljava/lang/Runnable;", "postOnAnimationDelayed", "", "size", "setPadding", "(Landroid/view/View;I)V", "Landroid/view/ViewGroup$LayoutParams;", "T", "Lkotlin/ExtensionFunctionType;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "updateLayoutParamsTyped", "updateLayoutParams", "left", "top", "right", "bottom", "updatePadding", "(Landroid/view/View;IIII)V", "start", "end", "updatePaddingRelative", "", "value", "isGone", "(Landroid/view/View;)Z", "setGone", "(Landroid/view/View;Z)V", "isInvisible", "setInvisible", "isVisible", "setVisible", "getMarginBottom", "(Landroid/view/View;)I", AnimationProperty.MARGIN_BOTTOM, "getMarginEnd", "marginEnd", "getMarginLeft", AnimationProperty.MARGIN_LEFT, "getMarginRight", AnimationProperty.MARGIN_RIGHT, "getMarginStart", "marginStart", "getMarginTop", AnimationProperty.MARGIN_TOP, "core-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0017\u001a9\u0010\u0007\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\u0007\u0010\b\u001a9\u0010\t\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\t\u0010\b\u001a9\u0010\n\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\n\u0010\b\u001a9\u0010\u000b\u001a\u00020\u0005*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\u000b\u0010\b\u001a9\u0010\r\u001a\u00020\f*\u00020\u00002#\b\u0004\u0010\u0006\u001a\u001d\u0012\u0013\u0012\u00110\u0000¢\u0006\f\b\u0002\u0012\b\b\u0003\u0012\u0004\b\b(\u0004\u0012\u0004\u0012\u00020\u00050\u0001H\u0086\b¢\u0006\u0004\b\r\u0010\u000e\u001a\u001b\u0010\u0012\u001a\u00020\u0011*\u00020\u00002\b\b\u0002\u0010\u0010\u001a\u00020\u000f¢\u0006\u0004\b\u0012\u0010\u0013\u001a,\u0010\u0018\u001a\u00020\u0017*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u00142\u000e\b\u0004\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\u00050\u0016H\u0086\b¢\u0006\u0004\b\u0018\u0010\u0019\u001a,\u0010\u001a\u001a\u00020\u0017*\u00020\u00002\u0006\u0010\u0015\u001a\u00020\u00142\u000e\b\u0004\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\u00050\u0016H\u0087\b¢\u0006\u0004\b\u001a\u0010\u0019\u001a\u001e\u0010\u001d\u001a\u00020\u0005*\u00020\u00002\b\b\u0001\u0010\u001c\u001a\u00020\u001bH\u0086\b¢\u0006\u0004\b\u001d\u0010\u001e\u001a9\u0010$\u001a\u00020\u0005\"\n\b\u0000\u0010 \u0018\u0001*\u00020\u001f*\u00020\u00002\u0017\u0010\"\u001a\u0013\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00050\u0001¢\u0006\u0002\b!H\u0087\b¢\u0006\u0004\b#\u0010\b\u001a-\u0010$\u001a\u00020\u0005*\u00020\u00002\u0017\u0010\"\u001a\u0013\u0012\u0004\u0012\u00020\u001f\u0012\u0004\u0012\u00020\u00050\u0001¢\u0006\u0002\b!H\u0086\b¢\u0006\u0004\b$\u0010\b\u001a<\u0010)\u001a\u00020\u0005*\u00020\u00002\b\b\u0003\u0010%\u001a\u00020\u001b2\b\b\u0003\u0010&\u001a\u00020\u001b2\b\b\u0003\u0010'\u001a\u00020\u001b2\b\b\u0003\u0010(\u001a\u00020\u001bH\u0086\b¢\u0006\u0004\b)\u0010*\u001a<\u0010-\u001a\u00020\u0005*\u00020\u00002\b\b\u0003\u0010+\u001a\u00020\u001b2\b\b\u0003\u0010&\u001a\u00020\u001b2\b\b\u0003\u0010,\u001a\u00020\u001b2\b\b\u0003\u0010(\u001a\u00020\u001bH\u0087\b¢\u0006\u0004\b-\u0010*\"*\u00100\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b0\u00101\"\u0004\b2\u00103\"*\u00104\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b4\u00101\"\u0004\b5\u00103\"*\u00106\u001a\u00020.*\u00020\u00002\u0006\u0010/\u001a\u00020.8Æ\u0002@Æ\u0002X\u0086\u000e¢\u0006\f\u001a\u0004\b6\u00101\"\u0004\b7\u00103\"\u0018\u0010:\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b8\u00109\"\u0018\u0010<\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b;\u00109\"\u0018\u0010>\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b=\u00109\"\u0018\u0010@\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b?\u00109\"\u0018\u0010B\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\bA\u00109\"\u0018\u0010D\u001a\u00020\u001b*\u00020\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\bC\u00109¨\u0006E"}, d2 = {"Landroid/view/View;", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "view", "", "action", "doOnAttach", "(Landroid/view/View;Lkotlin/Function1;)V", "doOnDetach", "doOnLayout", "doOnNextLayout", "Landroidx/core/view/OneShotPreDrawListener;", "doOnPreDraw", "(Landroid/view/View;Lkotlin/Function1;)Landroidx/core/view/OneShotPreDrawListener;", "Landroid/graphics/Bitmap$Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Landroid/graphics/Bitmap;", "drawToBitmap", "(Landroid/view/View;Landroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;", "", "delayInMillis", "Lkotlin/Function0;", "Ljava/lang/Runnable;", "postDelayed", "(Landroid/view/View;JLkotlin/Function0;)Ljava/lang/Runnable;", "postOnAnimationDelayed", "", "size", "setPadding", "(Landroid/view/View;I)V", "Landroid/view/ViewGroup$LayoutParams;", "T", "Lkotlin/ExtensionFunctionType;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "updateLayoutParamsTyped", "updateLayoutParams", "left", AnimationProperty.TOP, "right", TipsConfigItem.TipConfigData.BOTTOM, "updatePadding", "(Landroid/view/View;IIII)V", "start", "end", "updatePaddingRelative", "", "value", "isGone", "(Landroid/view/View;)Z", "setGone", "(Landroid/view/View;Z)V", "isInvisible", "setInvisible", "isVisible", "setVisible", "getMarginBottom", "(Landroid/view/View;)I", AnimationProperty.MARGIN_BOTTOM, "getMarginEnd", "marginEnd", "getMarginLeft", AnimationProperty.MARGIN_LEFT, "getMarginRight", AnimationProperty.MARGIN_RIGHT, "getMarginStart", "marginStart", "getMarginTop", AnimationProperty.MARGIN_TOP, "core-ktx_release"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
 public final class ViewKt {
     public static /* synthetic */ Interceptable $ic;
@@ -47,9 +48,9 @@ public final class ViewKt {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {view, function1};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -98,9 +99,9 @@ public final class ViewKt {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {view, function1};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -148,9 +149,9 @@ public final class ViewKt {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {function1};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -160,9 +161,9 @@ public final class ViewKt {
                     }
 
                     @Override // android.view.View.OnLayoutChangeListener
-                    public void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+                    public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
                             view2.removeOnLayoutChangeListener(this);
                             this.$action$inlined.invoke(view2);
                         }
@@ -187,9 +188,9 @@ public final class ViewKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -199,9 +200,9 @@ public final class ViewKt {
                 }
 
                 @Override // android.view.View.OnLayoutChangeListener
-                public void onLayoutChange(View view2, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+                public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
                         view2.removeOnLayoutChangeListener(this);
                         this.$action.invoke(view2);
                     }
@@ -227,9 +228,9 @@ public final class ViewKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {view, function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -270,8 +271,8 @@ public final class ViewKt {
         return (Bitmap) invokeLL.objValue;
     }
 
-    public static /* synthetic */ Bitmap drawToBitmap$default(View view, Bitmap.Config config, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Bitmap drawToBitmap$default(View view, Bitmap.Config config, int i, Object obj) {
+        if ((i & 1) != 0) {
             config = Bitmap.Config.ARGB_8888;
         }
         return drawToBitmap(view, config);
@@ -389,10 +390,10 @@ public final class ViewKt {
         return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, view)) == null) ? view.getVisibility() == 0 : invokeL.booleanValue;
     }
 
-    public static final Runnable postDelayed(View view, long j2, final Function0<Unit> function0) {
+    public static final Runnable postDelayed(View view, long j, final Function0<Unit> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{view, Long.valueOf(j2), function0})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{view, Long.valueOf(j), function0})) == null) {
             Runnable runnable = new Runnable(function0) { // from class: androidx.core.view.ViewKt$postDelayed$runnable$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ Function0 $action;
@@ -405,9 +406,9 @@ public final class ViewKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function0};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -424,17 +425,17 @@ public final class ViewKt {
                     }
                 }
             };
-            view.postDelayed(runnable, j2);
+            view.postDelayed(runnable, j);
             return runnable;
         }
         return (Runnable) invokeCommon.objValue;
     }
 
     @RequiresApi(16)
-    public static final Runnable postOnAnimationDelayed(View view, long j2, final Function0<Unit> function0) {
+    public static final Runnable postOnAnimationDelayed(View view, long j, final Function0<Unit> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{view, Long.valueOf(j2), function0})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{view, Long.valueOf(j), function0})) == null) {
             Runnable runnable = new Runnable(function0) { // from class: androidx.core.view.ViewKt$postOnAnimationDelayed$runnable$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ Function0 $action;
@@ -447,9 +448,9 @@ public final class ViewKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function0};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -466,7 +467,7 @@ public final class ViewKt {
                     }
                 }
             };
-            view.postOnAnimationDelayed(runnable, j2);
+            view.postOnAnimationDelayed(runnable, j);
             return runnable;
         }
         return (Runnable) invokeCommon.objValue;
@@ -486,10 +487,10 @@ public final class ViewKt {
         }
     }
 
-    public static final void setPadding(View view, @Px int i2) {
+    public static final void setPadding(View view, @Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65556, null, view, i2) == null) {
-            view.setPadding(i2, i2, i2, i2);
+        if (interceptable == null || interceptable.invokeLI(65556, null, view, i) == null) {
+            view.setPadding(i, i, i, i);
         }
     }
 
@@ -521,50 +522,50 @@ public final class ViewKt {
         view.setLayoutParams(layoutParams);
     }
 
-    public static final void updatePadding(View view, @Px int i2, @Px int i3, @Px int i4, @Px int i5) {
+    public static final void updatePadding(View view, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            view.setPadding(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            view.setPadding(i, i2, i3, i4);
         }
     }
 
-    public static /* synthetic */ void updatePadding$default(View view, int i2, int i3, int i4, int i5, int i6, Object obj) {
-        if ((i6 & 1) != 0) {
-            i2 = view.getPaddingLeft();
+    public static /* synthetic */ void updatePadding$default(View view, int i, int i2, int i3, int i4, int i5, Object obj) {
+        if ((i5 & 1) != 0) {
+            i = view.getPaddingLeft();
         }
-        if ((i6 & 2) != 0) {
-            i3 = view.getPaddingTop();
+        if ((i5 & 2) != 0) {
+            i2 = view.getPaddingTop();
         }
-        if ((i6 & 4) != 0) {
-            i4 = view.getPaddingRight();
+        if ((i5 & 4) != 0) {
+            i3 = view.getPaddingRight();
         }
-        if ((i6 & 8) != 0) {
-            i5 = view.getPaddingBottom();
+        if ((i5 & 8) != 0) {
+            i4 = view.getPaddingBottom();
         }
-        view.setPadding(i2, i3, i4, i5);
+        view.setPadding(i, i2, i3, i4);
     }
 
     @RequiresApi(17)
-    public static final void updatePaddingRelative(View view, @Px int i2, @Px int i3, @Px int i4, @Px int i5) {
+    public static final void updatePaddingRelative(View view, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            view.setPaddingRelative(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            view.setPaddingRelative(i, i2, i3, i4);
         }
     }
 
-    public static /* synthetic */ void updatePaddingRelative$default(View view, int i2, int i3, int i4, int i5, int i6, Object obj) {
-        if ((i6 & 1) != 0) {
-            i2 = view.getPaddingStart();
+    public static /* synthetic */ void updatePaddingRelative$default(View view, int i, int i2, int i3, int i4, int i5, Object obj) {
+        if ((i5 & 1) != 0) {
+            i = view.getPaddingStart();
         }
-        if ((i6 & 2) != 0) {
-            i3 = view.getPaddingTop();
+        if ((i5 & 2) != 0) {
+            i2 = view.getPaddingTop();
         }
-        if ((i6 & 4) != 0) {
-            i4 = view.getPaddingEnd();
+        if ((i5 & 4) != 0) {
+            i3 = view.getPaddingEnd();
         }
-        if ((i6 & 8) != 0) {
-            i5 = view.getPaddingBottom();
+        if ((i5 & 8) != 0) {
+            i4 = view.getPaddingBottom();
         }
-        view.setPaddingRelative(i2, i3, i4, i5);
+        view.setPaddingRelative(i, i2, i3, i4);
     }
 }

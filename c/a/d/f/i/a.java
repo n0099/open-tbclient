@@ -31,31 +31,27 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2575b;
+    public long f2124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2576c;
+    public long f2125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2577d;
+    public boolean f2126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f2578e;
+    public boolean f2127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2579f;
+    public boolean f2128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2580g;
+    public int f2129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f2581h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ArrayList<SoftReference<c>> f2582i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ArrayList<c.a.d.f.i.b> f2583j;
+    public Address f2130h;
+    public ArrayList<SoftReference<c>> i;
+    public ArrayList<c.a.d.f.i.b> j;
     public Handler k;
     @NonNull
     public e l;
@@ -63,21 +59,21 @@ public class a {
 
     /* renamed from: c.a.d.f.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0105a implements d {
+    public class C0094a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0105a(a aVar) {
+        public C0094a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,31 +83,31 @@ public class a {
         }
 
         @Override // c.a.d.f.i.a.d
-        public void a(int i2, String str, Address address, long j2, boolean z) {
+        public void a(int i, String str, Address address, long j, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, address, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, address, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 a aVar = this.a;
-                aVar.f2575b = j2;
-                aVar.f2581h = address;
-                this.a.f2577d = z;
-                this.a.f2580g = i2;
+                aVar.f2124b = j;
+                aVar.f2130h = address;
+                this.a.f2126d = z;
+                this.a.f2129g = i;
                 this.a.u();
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i == 4 && StringUtils.isNull(str)) {
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
                             }
                         } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a3d);
                         }
                     } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a43);
                     }
                 } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a41);
                 }
-                this.a.i(i2, str, address);
+                this.a.i(i, str, address);
             }
         }
     }
@@ -120,9 +116,7 @@ public class a {
     public class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f2584e;
+        public final /* synthetic */ a a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -131,15 +125,15 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2584e = aVar;
+            this.a = aVar;
         }
 
         @Override // android.os.Handler.Callback
@@ -150,22 +144,22 @@ public class a {
                 if (message.what != 0) {
                     return false;
                 }
-                this.f2584e.u();
-                int i2 = this.f2584e.f2580g;
+                this.a.u();
+                int i = this.a.f2129g;
                 String str = "";
-                if (i2 == 1) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
-                } else if (i2 == 2) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
-                } else if (i2 == 3) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
-                } else if (i2 == 4) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
-                } else if (i2 == 6) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                if (i == 1) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a41);
+                } else if (i == 2) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a43);
+                } else if (i == 3) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a3d);
+                } else if (i == 4) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
+                } else if (i == 6) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
                 }
-                a aVar = this.f2584e;
-                aVar.i(aVar.f2580g, str, null);
+                a aVar = this.a;
+                aVar.i(aVar.f2129g, str, null);
                 return false;
             }
             return invokeL.booleanValue;
@@ -174,12 +168,12 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        void onLocationGeted(int i2, String str, Address address);
+        void a(int i, String str, Address address);
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        void a(int i2, String str, Address address, long j2, boolean z);
+        void a(int i, String str, Address address, long j, boolean z);
     }
 
     static {
@@ -202,27 +196,27 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = 10000L;
-        this.f2575b = 0L;
-        this.f2576c = 300000L;
-        this.f2577d = false;
-        this.f2578e = false;
-        this.f2579f = false;
-        this.f2580g = 4;
-        this.f2581h = null;
-        this.f2582i = new ArrayList<>();
-        this.f2583j = new ArrayList<>();
+        this.f2124b = 0L;
+        this.f2125c = 300000L;
+        this.f2126d = false;
+        this.f2127e = false;
+        this.f2128f = false;
+        this.f2129g = 4;
+        this.f2130h = null;
+        this.i = new ArrayList<>();
+        this.j = new ArrayList<>();
         this.k = null;
         this.l = new e(null);
-        this.m = new C0105a(this);
+        this.m = new C0094a(this);
     }
 
     public static a n() {
@@ -254,24 +248,24 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l.b() : invokeV.booleanValue;
     }
 
-    public final void i(int i2, String str, Address address) {
+    public final void i(int i, String str, Address address) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, address) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, address) == null) {
             Handler handler = this.k;
             if (handler != null && handler.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            ArrayList<SoftReference<c>> arrayList = this.f2582i;
+            ArrayList<SoftReference<c>> arrayList = this.i;
             if (arrayList != null) {
                 synchronized (arrayList) {
-                    for (int i3 = 0; i3 < this.f2582i.size(); i3++) {
-                        SoftReference<c> softReference = this.f2582i.get(i3);
+                    for (int i2 = 0; i2 < this.i.size(); i2++) {
+                        SoftReference<c> softReference = this.i.get(i2);
                         if (softReference != null && (cVar = softReference.get()) != null) {
-                            cVar.onLocationGeted(i2, str, address);
+                            cVar.a(i, str, address);
                         }
                     }
-                    this.f2582i.clear();
+                    this.i.clear();
                 }
             }
         }
@@ -293,19 +287,19 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (System.currentTimeMillis() - this.f2575b > this.f2576c) {
-                this.f2581h = null;
+            if (System.currentTimeMillis() - this.f2124b > this.f2125c) {
+                this.f2130h = null;
             }
-            if (this.f2581h != null && !z && ((z2 && this.f2577d) || !z2)) {
-                return this.f2581h;
+            if (this.f2130h != null && !z && ((z2 && this.f2126d) || !z2)) {
+                return this.f2130h;
             }
-            this.f2581h = null;
-            boolean z3 = this.f2579f;
+            this.f2130h = null;
+            boolean z3 = this.f2128f;
             if (!z3) {
                 t(z2);
                 return null;
             }
-            if (z3 && z2 && !this.f2578e) {
+            if (z3 && z2 && !this.f2127e) {
                 u();
                 t(z2);
             }
@@ -320,42 +314,42 @@ public class a {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), cVar})) == null) {
-            if (System.currentTimeMillis() - this.f2575b > this.f2576c) {
-                this.f2581h = null;
+            if (System.currentTimeMillis() - this.f2124b > this.f2125c) {
+                this.f2130h = null;
             }
-            if (this.f2581h != null && !z && ((z2 && this.f2577d) || !z2)) {
+            if (this.f2130h != null && !z && ((z2 && this.f2126d) || !z2)) {
                 if (cVar != null) {
-                    cVar.onLocationGeted(0, "", this.f2581h);
+                    cVar.a(0, "", this.f2130h);
                 }
-                return this.f2581h;
+                return this.f2130h;
             }
             if (cVar != null) {
-                synchronized (this.f2582i) {
-                    int i2 = 0;
+                synchronized (this.i) {
+                    int i = 0;
                     while (true) {
-                        if (i2 >= this.f2582i.size()) {
+                        if (i >= this.i.size()) {
                             z3 = false;
                             break;
                         }
-                        SoftReference<c> softReference = this.f2582i.get(i2);
+                        SoftReference<c> softReference = this.i.get(i);
                         if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
                             z3 = true;
                             break;
                         }
-                        i2++;
+                        i++;
                     }
                     if (!z3) {
-                        if (this.f2582i.size() >= 100) {
-                            this.f2582i.remove(0);
+                        if (this.i.size() >= 100) {
+                            this.i.remove(0);
                         }
-                        this.f2582i.add(new SoftReference<>(cVar));
+                        this.i.add(new SoftReference<>(cVar));
                     }
                 }
-                boolean z4 = this.f2579f;
+                boolean z4 = this.f2128f;
                 if (!z4) {
                     t(z2);
                     return null;
-                } else if (z4 && z2 && !this.f2578e) {
+                } else if (z4 && z2 && !this.f2127e) {
                     u();
                     t(z2);
                     return null;
@@ -391,10 +385,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) || bVar == null) {
             return;
         }
-        synchronized (this.f2583j) {
-            if (!this.f2583j.contains(bVar)) {
+        synchronized (this.j) {
+            if (!this.j.contains(bVar)) {
                 bVar.b(this.m);
-                this.f2583j.add(bVar);
+                this.j.add(bVar);
             }
         }
     }
@@ -403,16 +397,16 @@ public class a {
         c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            synchronized (this.f2582i) {
-                int i2 = 0;
+            synchronized (this.i) {
+                int i = 0;
                 while (true) {
-                    if (i2 < this.f2582i.size()) {
-                        SoftReference<c> softReference = this.f2582i.get(i2);
+                    if (i < this.i.size()) {
+                        SoftReference<c> softReference = this.i.get(i);
                         if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
-                            this.f2582i.remove(softReference);
+                            this.i.remove(softReference);
                             break;
                         }
-                        i2++;
+                        i++;
                     } else {
                         break;
                     }
@@ -428,13 +422,13 @@ public class a {
             if (handler != null && handler.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            this.f2580g = 4;
-            this.f2578e = z;
-            this.f2579f = true;
-            ArrayList<c.a.d.f.i.b> arrayList = this.f2583j;
+            this.f2129g = 4;
+            this.f2127e = z;
+            this.f2128f = true;
+            ArrayList<c.a.d.f.i.b> arrayList = this.j;
             if (arrayList != null && !arrayList.isEmpty()) {
                 if (!this.l.b()) {
-                    this.f2580g = 7;
+                    this.f2129g = 7;
                     Handler handler2 = this.k;
                     if (handler2 != null) {
                         handler2.sendMessage(handler2.obtainMessage(0));
@@ -442,7 +436,7 @@ public class a {
                     }
                     return;
                 }
-                Iterator<c.a.d.f.i.b> it = this.f2583j.iterator();
+                Iterator<c.a.d.f.i.b> it = this.j.iterator();
                 while (it.hasNext()) {
                     c.a.d.f.i.b next = it.next();
                     if (next != null) {
@@ -460,7 +454,7 @@ public class a {
                 }
                 return;
             }
-            this.f2580g = 6;
+            this.f2129g = 6;
             Handler handler4 = this.k;
             if (handler4 != null) {
                 handler4.sendMessage(handler4.obtainMessage(0));
@@ -475,8 +469,8 @@ public class a {
             if (handler != null && handler.hasMessages(0)) {
                 this.k.removeMessages(0);
             }
-            this.f2579f = false;
-            Iterator<c.a.d.f.i.b> it = this.f2583j.iterator();
+            this.f2128f = false;
+            Iterator<c.a.d.f.i.b> it = this.j.iterator();
             while (it.hasNext()) {
                 c.a.d.f.i.b next = it.next();
                 if (next != null) {
@@ -495,9 +489,9 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) || bVar == null) {
             return;
         }
-        synchronized (this.f2583j) {
+        synchronized (this.j) {
             bVar.destroy();
-            this.f2583j.remove(bVar);
+            this.j.remove(bVar);
         }
     }
 
@@ -513,9 +507,9 @@ public class a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -537,8 +531,8 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 int min = Math.min(stackTrace.length, 20);
-                for (int i2 = 0; i2 < min; i2++) {
-                    if (this.a.contains(stackTrace[i2].getClassName())) {
+                for (int i = 0; i < min; i++) {
+                    if (this.a.contains(stackTrace[i].getClassName())) {
                         return true;
                     }
                 }
@@ -547,7 +541,7 @@ public class a {
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ e(C0105a c0105a) {
+        public /* synthetic */ e(C0094a c0094a) {
             this();
         }
     }

@@ -9,20 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import j.a.a.e.f.c;
-import j.a.a.e.i.a;
+import h.a.a.e.f.c;
+import h.a.a.e.i.a;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface IYYPayAmountView extends a {
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
-        void onRefreshViewFail(int i2, String str);
+        void onRefreshViewFail(int i, String str);
 
         void showInputNumberDialog(Activity activity, List<PayWayInfo> list);
 
@@ -30,7 +29,7 @@ public interface IYYPayAmountView extends a {
     }
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +45,9 @@ public interface IYYPayAmountView extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,16 +60,16 @@ public interface IYYPayAmountView extends a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + "'}";
             }
             return (String) invokeV.objValue;
         }
     }
 
-    @Override // j.a.a.e.i.a
+    @Override // h.a.a.e.i.a
     /* synthetic */ View getContentView();
 
-    @Override // j.a.a.e.i.a
+    @Override // h.a.a.e.i.a
     /* synthetic */ void refreshView();
 
     void setCallback(Callback callback);

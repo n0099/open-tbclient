@@ -28,9 +28,9 @@ public class ImageAudioMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -85,24 +85,24 @@ public class ImageAudioMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.width : invokeV.intValue;
     }
 
-    public void setAudioDuration(int i2) {
+    public void setAudioDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.audioDuration = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.audioDuration = i;
         }
     }
 
-    public void setHeigth(int i2) {
+    public void setHeigth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.heigth = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.heigth = i;
         }
     }
 
-    public void setThumbHeigth(int i2) {
+    public void setThumbHeigth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.thumbHeigth = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.thumbHeigth = i;
         }
     }
 
@@ -113,17 +113,17 @@ public class ImageAudioMsg {
         }
     }
 
-    public void setThurbWidth(int i2) {
+    public void setThurbWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.thurbWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.thurbWidth = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -134,10 +134,10 @@ public class ImageAudioMsg {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.width = i;
         }
     }
 }

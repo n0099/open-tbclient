@@ -76,12 +76,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
     /* loaded from: classes3.dex */
     public interface OnItemWillVisibleListener {
-        void onItemWillVisible(int i2, boolean z);
+        void onItemWillVisible(int i, boolean z);
     }
 
     /* loaded from: classes3.dex */
     public interface OnScrollStopDelayedListener {
-        void onScrollStop(int i2, int i3);
+        void onScrollStop(int i, int i2);
     }
 
     /* loaded from: classes3.dex */
@@ -140,9 +140,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdMultiColumnListView, cVar};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -163,7 +163,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.mBdIListPullView = cVar;
                 this.mListView = bdMultiColumnListView;
                 View view = cVar.getView();
-                view.setPadding(0, -this.mBdIListPullView.k(), 0, 0);
+                view.setPadding(0, -this.mBdIListPullView.p(), 0, 0);
                 view.invalidate();
                 this.mListView.addPullRefreshView(view);
                 return;
@@ -179,7 +179,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
             if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (bdIListPullView = getBdIListPullView()) == null || (view = bdIListPullView.getView()) == null) {
                 return;
             }
-            f fVar = new f(view.getContext(), 0, -bdIListPullView.k(), this.mAnimDurationTime);
+            f fVar = new f(view.getContext(), 0, -bdIListPullView.p(), this.mAnimDurationTime);
             fVar.d(new a(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.PullRefresh.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -192,9 +192,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -232,8 +232,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.mState = 3;
                 c cVar = this.mBdIListPullView;
-                cVar.x(0, -cVar.k(), 0, 0);
-                this.mBdIListPullView.j(true);
+                cVar.C(0, -cVar.p(), 0, 0);
+                this.mBdIListPullView.o(true);
                 OnScrollToPullListener onScrollToPullListener = this.mOnScrollToPullListener;
                 if (onScrollToPullListener != null) {
                     onScrollToPullListener.onScrollToPull(false);
@@ -247,12 +247,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBdIListPullView : (c) invokeV.objValue;
         }
 
-        public void onInterceptTouchEvent(MotionEvent motionEvent, int i2) {
+        public void onInterceptTouchEvent(MotionEvent motionEvent, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, motionEvent, i2) == null) && motionEvent.getAction() == 0 && getBdIListPullView().l()) {
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, motionEvent, i) == null) && motionEvent.getAction() == 0 && getBdIListPullView().q()) {
                 this.mIsRecored = false;
                 this.mIsBack = Boolean.FALSE;
-                if (i2 != 0 || 0 != 0 || this.mListView.getChildAt(0) == null || this.mListView.getChildAt(0).getTop() < 0) {
+                if (i != 0 || 0 != 0 || this.mListView.getChildAt(0) == null || this.mListView.getChildAt(0).getTop() < 0) {
                     return;
                 }
                 this.mIsRecored = true;
@@ -260,27 +260,27 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         }
 
-        public void onTouchEvent(MotionEvent motionEvent, int i2) {
+        public void onTouchEvent(MotionEvent motionEvent, int i) {
             OnScrollToPullListener onScrollToPullListener;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048579, this, motionEvent, i2) == null) && getBdIListPullView().l()) {
+            if ((interceptable == null || interceptable.invokeLI(1048579, this, motionEvent, i) == null) && getBdIListPullView().q()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
                         int y = (int) motionEvent.getY();
-                        if (!this.mIsRecored && i2 == 0 && this.mListView.getChildAt(0) != null && this.mListView.getChildAt(0).getTop() >= 0) {
+                        if (!this.mIsRecored && i == 0 && this.mListView.getChildAt(0) != null && this.mListView.getChildAt(0).getTop() >= 0) {
                             this.mIsRecored = true;
                             this.mStartY = y;
                         }
-                        int i3 = this.mState;
-                        if (i3 == 2 || !this.mIsRecored) {
+                        int i2 = this.mState;
+                        if (i2 == 2 || !this.mIsRecored) {
                             return;
                         }
-                        if (i3 == 0) {
+                        if (i2 == 0) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / sRatio)) < this.mBdIListPullView.k() && y - this.mStartY > 0) {
+                            if (((int) ((y - this.mStartY) / sRatio)) < this.mBdIListPullView.p() && y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.mBdIListPullView.r(this.mIsBack.booleanValue());
+                                this.mBdIListPullView.w(this.mIsBack.booleanValue());
                                 this.mIsBack = Boolean.FALSE;
                                 OnScrollToPullListener onScrollToPullListener2 = this.mOnScrollToPullListener;
                                 if (onScrollToPullListener2 != null) {
@@ -289,19 +289,19 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
                                 c cVar = this.mBdIListPullView;
-                                cVar.x(0, -cVar.k(), 0, 0);
-                                this.mBdIListPullView.j(false);
+                                cVar.C(0, -cVar.p(), 0, 0);
+                                this.mBdIListPullView.o(false);
                                 OnScrollToPullListener onScrollToPullListener3 = this.mOnScrollToPullListener;
                                 if (onScrollToPullListener3 != null) {
                                     onScrollToPullListener3.onScrollToPull(true);
                                 }
                             }
-                        } else if (i3 == 1) {
+                        } else if (i2 == 1) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / sRatio)) >= this.mBdIListPullView.k()) {
+                            if (((int) ((y - this.mStartY) / sRatio)) >= this.mBdIListPullView.p()) {
                                 this.mState = 0;
                                 this.mIsBack = Boolean.TRUE;
-                                this.mBdIListPullView.t();
+                                this.mBdIListPullView.y();
                                 OnScrollToPullListener onScrollToPullListener4 = this.mOnScrollToPullListener;
                                 if (onScrollToPullListener4 != null) {
                                     onScrollToPullListener4.onScrollToPull(true);
@@ -309,17 +309,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
                                 c cVar2 = this.mBdIListPullView;
-                                cVar2.x(0, -cVar2.k(), 0, 0);
-                                this.mBdIListPullView.j(false);
+                                cVar2.C(0, -cVar2.p(), 0, 0);
+                                this.mBdIListPullView.o(false);
                                 OnScrollToPullListener onScrollToPullListener5 = this.mOnScrollToPullListener;
                                 if (onScrollToPullListener5 != null) {
                                     onScrollToPullListener5.onScrollToPull(true);
                                 }
                             }
-                        } else if (i3 == 3) {
+                        } else if (i2 == 3) {
                             if (y - this.mStartY > 0) {
                                 this.mState = 1;
-                                this.mBdIListPullView.r(this.mIsBack.booleanValue());
+                                this.mBdIListPullView.w(this.mIsBack.booleanValue());
                                 this.mIsBack = Boolean.FALSE;
                                 OnScrollToPullListener onScrollToPullListener6 = this.mOnScrollToPullListener;
                                 if (onScrollToPullListener6 != null) {
@@ -332,10 +332,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                                 }
                             }
                         }
-                        int i4 = this.mState;
-                        if (i4 == 1 || i4 == 0) {
+                        int i3 = this.mState;
+                        if (i3 == 1 || i3 == 0) {
                             c cVar3 = this.mBdIListPullView;
-                            cVar3.x(0, ((int) ((y - this.mStartY) / sRatio)) - cVar3.k(), 0, 0);
+                            cVar3.C(0, ((int) ((y - this.mStartY) / sRatio)) - cVar3.p(), 0, 0);
                             return;
                         }
                         return;
@@ -343,19 +343,19 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         return;
                     }
                 }
-                int i5 = this.mState;
-                if (i5 != 2) {
-                    if (i5 == 1) {
+                int i4 = this.mState;
+                if (i4 != 2) {
+                    if (i4 == 1) {
                         this.mState = 3;
                         c cVar4 = this.mBdIListPullView;
-                        cVar4.x(0, -cVar4.k(), 0, 0);
-                        this.mBdIListPullView.j(false);
+                        cVar4.C(0, -cVar4.p(), 0, 0);
+                        this.mBdIListPullView.o(false);
                         OnScrollToPullListener onScrollToPullListener8 = this.mOnScrollToPullListener;
                         if (onScrollToPullListener8 != null) {
                             onScrollToPullListener8.onScrollToPull(true);
                         }
-                    } else if (i5 != 0) {
-                        if (i5 != 3 || (onScrollToPullListener = this.mOnScrollToPullListener) == null) {
+                    } else if (i4 != 0) {
+                        if (i4 != 3 || (onScrollToPullListener = this.mOnScrollToPullListener) == null) {
                             return;
                         }
                         onScrollToPullListener.onScrollToPull(false);
@@ -381,9 +381,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
                 this.mState = 2;
-                this.mBdIListPullView.x(0, 0, 0, 0);
-                this.mBdIListPullView.s();
-                this.mBdIListPullView.p(z);
+                this.mBdIListPullView.C(0, 0, 0, 0);
+                this.mBdIListPullView.x();
+                this.mBdIListPullView.u(z);
             }
         }
     }
@@ -397,9 +397,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -435,9 +435,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -454,22 +454,22 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
                 int firstVisiblePosition = this.this$0.getFirstVisiblePosition();
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
-                int i4 = 0;
-                int i5 = -1;
-                if (this.this$0.mAdapter instanceof c.j.a.a.b.a) {
-                    int c2 = firstVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
-                    i5 = c2 < 0 ? 0 : c2;
-                    int c3 = lastVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
+                int i3 = 0;
+                int i4 = -1;
+                if (this.this$0.mAdapter instanceof c.g.a.a.b.a) {
+                    int c2 = firstVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
+                    i4 = c2 < 0 ? 0 : c2;
+                    int c3 = lastVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
                     if (c3 >= this.this$0.mAdapter.getCount()) {
                         c3 = this.this$0.mAdapter.getCount() - 1;
                     }
                     if (c3 >= 0) {
-                        i4 = c3;
+                        i3 = c3;
                     }
                 } else {
-                    i4 = -1;
+                    i3 = -1;
                 }
-                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i5, i4);
+                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i4, i3);
             }
         };
         this.mPreLoadListView = new q(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
@@ -484,9 +484,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -537,9 +537,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -559,8 +559,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
                     int childCount = viewGroup.getChildCount();
-                    for (int i4 = 0; i4 < childCount; i4++) {
-                        refreshImage(viewGroup.getChildAt(i4));
+                    for (int i3 = 0; i3 < childCount; i3++) {
+                        refreshImage(viewGroup.getChildAt(i3));
                     }
                 }
             }
@@ -570,8 +570,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     int childCount = this.this$0.getChildCount();
-                    for (int i4 = 0; i4 < childCount; i4++) {
-                        refreshImage(this.this$0.getChildAt(i4));
+                    for (int i3 = 0; i3 < childCount; i3++) {
+                        refreshImage(this.this$0.getChildAt(i3));
                     }
                     i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
@@ -592,9 +592,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -623,8 +623,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
             if (this.mPrePage != null) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter instanceof c.j.a.a.b.a) {
-                    return ((c.j.a.a.b.a) listAdapter).c() - 1;
+                if (listAdapter instanceof c.g.a.a.b.a) {
+                    return ((c.g.a.a.b.a) listAdapter).c() - 1;
                 }
                 return -1;
             }
@@ -651,9 +651,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -685,9 +685,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -697,11 +697,11 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AdapterView.d
-                public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2) {
+                public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                        int c2 = this.this$0.mAdapter instanceof c.j.a.a.b.a ? ((c.j.a.a.b.a) this.this$0.mAdapter).c() : 0;
-                        if (i2 < c2) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                        int c2 = this.this$0.mAdapter instanceof c.g.a.a.b.a ? ((c.g.a.a.b.a) this.this$0.mAdapter).c() : 0;
+                        if (i < c2) {
                             if (this.this$0.mPrePage == null || view != this.this$0.mPrePage.b()) {
                                 if (this.this$0.mOnHeaderClickListener != null) {
                                     this.this$0.mOnHeaderClickListener.onClick(view);
@@ -712,9 +712,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             this.this$0.mPrePage.c();
                             return;
                         }
-                        int i3 = i2 - c2;
-                        ListAdapter wrappedAdapter = this.this$0.mAdapter instanceof c.j.a.a.b.a ? ((c.j.a.a.b.a) this.this$0.mAdapter).getWrappedAdapter() : this.this$0.mAdapter;
-                        if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount()) {
+                        int i2 = i - c2;
+                        ListAdapter wrappedAdapter = this.this$0.mAdapter instanceof c.g.a.a.b.a ? ((c.g.a.a.b.a) this.this$0.mAdapter).getWrappedAdapter() : this.this$0.mAdapter;
+                        if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
                             if (this.this$0.mNextPage == null || view != this.this$0.mNextPage.b()) {
                                 if (this.this$0.mOnFooterClickListener != null) {
                                     this.this$0.mOnFooterClickListener.onClick(view);
@@ -724,7 +724,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                             this.this$0.mNextPage.c();
                         } else if (this.this$0.mOnItemClickListener != null) {
-                            this.this$0.mOnItemClickListener.onItemClick(pLA_AdapterView, view, i3, j2);
+                            this.this$0.mOnItemClickListener.onItemClick(pLA_AdapterView, view, i2, j);
                         }
                     }
                 }
@@ -741,9 +741,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -753,12 +753,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
-                public void onScroll(PLA_AbsListView pLA_AbsListView, int i2, int i3, int i4) {
+                public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, pLA_AbsListView, i2, i3, i4) == null) {
-                        this.this$0.mFirstVisibleItemIndex = i2;
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, pLA_AbsListView, i, i2, i3) == null) {
+                        this.this$0.mFirstVisibleItemIndex = i;
                         if (this.this$0.mOnScrollListener != null) {
-                            this.this$0.mOnScrollListener.onScroll(pLA_AbsListView, i2, i3, i4);
+                            this.this$0.mOnScrollListener.onScroll(pLA_AbsListView, i, i2, i3);
                         }
                         if (this.this$0.mOnScrollStopDelayedListener == null || this.this$0.mOnScrollStopDelayedMillis <= 0 || this.this$0.getHandler() == null) {
                             return;
@@ -769,12 +769,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
-                public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i2) {
+                public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i) == null) {
                         i c2 = j.c(this.this$0.getContext());
                         if (c2 != null) {
-                            if (i2 == 2) {
+                            if (i == 2) {
                                 BdMultiColumnListView bdMultiColumnListView = this.this$0;
                                 bdMultiColumnListView.removeCallbacks(bdMultiColumnListView.refreshRunnable);
                                 c2.setIsScroll(true);
@@ -784,7 +784,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                                 bdMultiColumnListView2.removeCallbacks(bdMultiColumnListView2.refreshRunnable);
                                 BdMultiColumnListView bdMultiColumnListView3 = this.this$0;
                                 bdMultiColumnListView3.postDelayed(bdMultiColumnListView3.refreshRunnable, 100L);
-                            } else if (i2 == 0) {
+                            } else if (i == 0) {
                                 BdMultiColumnListView bdMultiColumnListView4 = this.this$0;
                                 bdMultiColumnListView4.removeCallbacks(bdMultiColumnListView4.preLoadRunnable);
                                 BdMultiColumnListView bdMultiColumnListView5 = this.this$0;
@@ -792,9 +792,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                         }
                         if (this.this$0.mOnScrollListener != null) {
-                            this.this$0.mOnScrollListener.onScrollStateChanged(pLA_AbsListView, i2);
+                            this.this$0.mOnScrollListener.onScrollStateChanged(pLA_AbsListView, i);
                         }
-                        if (i2 == 0) {
+                        if (i == 0) {
                             if (this.this$0.mOnScrollToBottomListener != null && pLA_AbsListView.getLastVisiblePosition() == pLA_AbsListView.getCount() - 1 && pLA_AbsListView.getFirstVisiblePosition() != 0) {
                                 this.this$0.mOnScrollToBottomListener.onScrollToBottom();
                             }
@@ -829,17 +829,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
             return;
         }
         if (pullRefresh.getBdIListPullView() != null) {
-            this.mPullRefresh.mBdIListPullView.o();
+            this.mPullRefresh.mBdIListPullView.t();
         }
         this.mPullRefresh.animatePullView();
     }
 
-    public void completePullRefreshPostDelayed(long j2) {
+    public void completePullRefreshPostDelayed(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             PullRefresh pullRefresh = this.mPullRefresh;
             if (pullRefresh != null && pullRefresh.getBdIListPullView() != null) {
-                this.mPullRefresh.mBdIListPullView.o();
+                this.mPullRefresh.mBdIListPullView.t();
             }
             c.a.d.f.m.e.a().postDelayed(new Runnable(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.10
                 public static /* synthetic */ Interceptable $ic;
@@ -853,9 +853,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -872,7 +872,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     }
                     this.this$0.mPullRefresh.animatePullView();
                 }
-            }, j2);
+            }, j);
         }
     }
 
@@ -913,19 +913,19 @@ public class BdMultiColumnListView extends MultiColumnListView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemAddedToList(int i2, boolean z) {
+    public void onItemAddedToList(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            super.onItemAddedToList(i2, z);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.onItemAddedToList(i, z);
             if (this.mOnItemWillVisibleListener != null) {
                 boolean z2 = z ? false : false;
                 if (z2) {
-                    this.mOnItemWillVisibleListener.onItemWillVisible(i2 - getHeaderViewsCount(), z);
-                    this.mLastAddPosition = i2;
+                    this.mOnItemWillVisibleListener.onItemWillVisible(i - getHeaderViewsCount(), z);
+                    this.mLastAddPosition = i;
                 }
             }
             if (this.mIsPreLoad && z) {
-                boolean z3 = getCount() - i2 < this.mPreLoadNum;
+                boolean z3 = getCount() - i < this.mPreLoadNum;
                 if (this.mOnScrollToBottomListener == null || getFirstVisiblePosition() == 0 || this.mLastLoadCount == getCount() || !z3) {
                     return;
                 }
@@ -1024,9 +1024,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1036,21 +1036,21 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AdapterView.e
-                public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2) {
+                public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-                        int c2 = this.this$0.mAdapter instanceof c.j.a.a.b.a ? ((c.j.a.a.b.a) this.this$0.mAdapter).c() : 0;
-                        if (i2 < c2) {
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+                        int c2 = this.this$0.mAdapter instanceof c.g.a.a.b.a ? ((c.g.a.a.b.a) this.this$0.mAdapter).c() : 0;
+                        if (i < c2) {
                             return true;
                         }
-                        int i3 = i2 - c2;
+                        int i2 = i - c2;
                         ListAdapter listAdapter = this.this$0.mAdapter;
-                        if (listAdapter == null || i3 >= listAdapter.getCount()) {
+                        if (listAdapter == null || i2 >= listAdapter.getCount()) {
                             return true;
                         }
                         if (this.this$0.mOnItemLongClickListener != null) {
-                            return this.this$0.mOnItemLongClickListener.onItemLongClick(pLA_AdapterView, view, i3, j2);
+                            return this.this$0.mOnItemLongClickListener.onItemLongClick(pLA_AdapterView, view, i2, j);
                         }
                         return false;
                     }
@@ -1081,9 +1081,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1093,19 +1093,19 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
 
                 @Override // com.huewu.pla.lib.internal.PLA_AdapterView.f
-                public void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2) {
+                public void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                        int c2 = this.this$0.mAdapter instanceof c.j.a.a.b.a ? ((c.j.a.a.b.a) this.this$0.mAdapter).c() : 0;
-                        if (i2 < c2) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                        int c2 = this.this$0.mAdapter instanceof c.g.a.a.b.a ? ((c.g.a.a.b.a) this.this$0.mAdapter).c() : 0;
+                        if (i < c2) {
                             return;
                         }
-                        int i3 = i2 - c2;
+                        int i2 = i - c2;
                         ListAdapter wrappedAdapter = this.this$0.mBdListAdpter.getWrappedAdapter();
-                        if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount() || this.this$0.mOnItemSelectedListener == null) {
+                        if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount() || this.this$0.mOnItemSelectedListener == null) {
                             return;
                         }
-                        this.this$0.mOnItemSelectedListener.onItemSelected(pLA_AdapterView, view, i3, j2);
+                        this.this$0.mOnItemSelectedListener.onItemSelected(pLA_AdapterView, view, i2, j);
                     }
                 }
 
@@ -1136,11 +1136,11 @@ public class BdMultiColumnListView extends MultiColumnListView {
         }
     }
 
-    public void setOnScrollStopDelayedListener(OnScrollStopDelayedListener onScrollStopDelayedListener, long j2) {
+    public void setOnScrollStopDelayedListener(OnScrollStopDelayedListener onScrollStopDelayedListener, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048598, this, onScrollStopDelayedListener, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048598, this, onScrollStopDelayedListener, j) == null) {
             this.mOnScrollStopDelayedListener = onScrollStopDelayedListener;
-            this.mOnScrollStopDelayedMillis = j2;
+            this.mOnScrollStopDelayedMillis = j;
         }
     }
 
@@ -1165,11 +1165,11 @@ public class BdMultiColumnListView extends MultiColumnListView {
         }
     }
 
-    public void setPreLoad(boolean z, int i2) {
+    public void setPreLoad(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.mIsPreLoad = z;
-            this.mPreLoadNum = i2;
+            this.mPreLoadNum = i;
         }
     }
 
@@ -1205,10 +1205,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public void setSelectionFromTop(int i2, int i3) {
+    public void setSelectionFromTop(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048606, this, i2, i3) == null) {
-            super.setSelectionFromTop(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048606, this, i, i2) == null) {
+            super.setSelectionFromTop(i, i2);
         }
     }
 
@@ -1239,15 +1239,15 @@ public class BdMultiColumnListView extends MultiColumnListView {
         }
     }
 
-    public void setOnSrollToTopListener(OnScrollToTopListener onScrollToTopListener, int i2) {
+    public void setOnSrollToTopListener(OnScrollToTopListener onScrollToTopListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048602, this, onScrollToTopListener, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048602, this, onScrollToTopListener, i) == null) {
             this.mOnScrollToTopListener = onScrollToTopListener;
-            int i3 = i2 - 1;
-            if (i3 < 0) {
-                i3 = 0;
+            int i2 = i - 1;
+            if (i2 < 0) {
+                i2 = 0;
             }
-            this.mScrollToTopNum = i3;
+            this.mScrollToTopNum = i2;
         }
     }
 
@@ -1275,9 +1275,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -1314,9 +1314,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1333,22 +1333,22 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
                 int firstVisiblePosition = this.this$0.getFirstVisiblePosition();
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
-                int i4 = 0;
-                int i5 = -1;
-                if (this.this$0.mAdapter instanceof c.j.a.a.b.a) {
-                    int c2 = firstVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
-                    i5 = c2 < 0 ? 0 : c2;
-                    int c3 = lastVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
+                int i3 = 0;
+                int i4 = -1;
+                if (this.this$0.mAdapter instanceof c.g.a.a.b.a) {
+                    int c2 = firstVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
+                    i4 = c2 < 0 ? 0 : c2;
+                    int c3 = lastVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
                     if (c3 >= this.this$0.mAdapter.getCount()) {
                         c3 = this.this$0.mAdapter.getCount() - 1;
                     }
                     if (c3 >= 0) {
-                        i4 = c3;
+                        i3 = c3;
                     }
                 } else {
-                    i4 = -1;
+                    i3 = -1;
                 }
-                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i5, i4);
+                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i4, i3);
             }
         };
         this.mPreLoadListView = new q(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
@@ -1363,9 +1363,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1416,9 +1416,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1438,8 +1438,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
                     int childCount = viewGroup.getChildCount();
-                    for (int i4 = 0; i4 < childCount; i4++) {
-                        refreshImage(viewGroup.getChildAt(i4));
+                    for (int i3 = 0; i3 < childCount; i3++) {
+                        refreshImage(viewGroup.getChildAt(i3));
                     }
                 }
             }
@@ -1449,8 +1449,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     int childCount = this.this$0.getChildCount();
-                    for (int i4 = 0; i4 < childCount; i4++) {
-                        refreshImage(this.this$0.getChildAt(i4));
+                    for (int i3 = 0; i3 < childCount; i3++) {
+                        refreshImage(this.this$0.getChildAt(i3));
                     }
                     i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
@@ -1471,9 +1471,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1497,17 +1497,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdMultiColumnListView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BdMultiColumnListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1544,9 +1544,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1563,22 +1563,22 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
                 int firstVisiblePosition = this.this$0.getFirstVisiblePosition();
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
-                int i42 = 0;
-                int i5 = -1;
-                if (this.this$0.mAdapter instanceof c.j.a.a.b.a) {
-                    int c2 = firstVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
-                    i5 = c2 < 0 ? 0 : c2;
-                    int c3 = lastVisiblePosition - ((c.j.a.a.b.a) this.this$0.mAdapter).c();
+                int i32 = 0;
+                int i4 = -1;
+                if (this.this$0.mAdapter instanceof c.g.a.a.b.a) {
+                    int c2 = firstVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
+                    i4 = c2 < 0 ? 0 : c2;
+                    int c3 = lastVisiblePosition - ((c.g.a.a.b.a) this.this$0.mAdapter).c();
                     if (c3 >= this.this$0.mAdapter.getCount()) {
                         c3 = this.this$0.mAdapter.getCount() - 1;
                     }
                     if (c3 >= 0) {
-                        i42 = c3;
+                        i32 = c3;
                     }
                 } else {
-                    i42 = -1;
+                    i32 = -1;
                 }
-                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i5, i42);
+                this.this$0.mOnScrollStopDelayedListener.onScrollStop(i4, i32);
             }
         };
         this.mPreLoadListView = new q(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
@@ -1593,9 +1593,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1646,9 +1646,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1668,8 +1668,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (view instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view;
                     int childCount = viewGroup.getChildCount();
-                    for (int i42 = 0; i42 < childCount; i42++) {
-                        refreshImage(viewGroup.getChildAt(i42));
+                    for (int i32 = 0; i32 < childCount; i32++) {
+                        refreshImage(viewGroup.getChildAt(i32));
                     }
                 }
             }
@@ -1679,8 +1679,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     int childCount = this.this$0.getChildCount();
-                    for (int i42 = 0; i42 < childCount; i42++) {
-                        refreshImage(this.this$0.getChildAt(i42));
+                    for (int i32 = 0; i32 < childCount; i32++) {
+                        refreshImage(this.this$0.getChildAt(i32));
                     }
                     i c2 = j.c(this.this$0.getContext());
                     if (c2 != null) {
@@ -1701,9 +1701,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

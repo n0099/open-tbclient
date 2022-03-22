@@ -13,29 +13,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32240b;
+    public boolean f25474b;
 
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32240b = false;
+        this.f25474b = false;
         this.a = new g();
     }
 
@@ -67,34 +67,34 @@ public class h {
         return (String) invokeV.objValue;
     }
 
-    public synchronized void a(int i2, String str, int i3) {
+    public synchronized void a(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 if (this.a != null) {
-                    this.a.a(i2, str, String.valueOf(i3));
+                    this.a.a(i, str, String.valueOf(i2));
                 }
             }
         }
     }
 
-    public synchronized void a(int i2, String str, long j2) {
+    public synchronized void a(int i, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
             synchronized (this) {
                 if (this.a != null) {
-                    this.a.a(i2, str, String.valueOf(j2));
+                    this.a.a(i, str, String.valueOf(j));
                 }
             }
         }
     }
 
-    public synchronized void a(int i2, String str, String str2) {
+    public synchronized void a(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
             synchronized (this) {
                 if (this.a != null) {
-                    this.a.a(i2, str, str2);
+                    this.a.a(i, str, str2);
                 }
             }
         }
@@ -139,7 +139,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f32240b;
+                z = this.f25474b;
             }
             return z;
         }
@@ -153,7 +153,7 @@ public class h {
                 if (this.a != null) {
                     this.a.b();
                 }
-                this.f32240b = false;
+                this.f25474b = false;
             }
         }
     }
@@ -165,7 +165,7 @@ public class h {
             synchronized (this) {
                 if (kVar != null) {
                     if (this.a != null && (a = a()) != null) {
-                        this.f32240b = true;
+                        this.f25474b = true;
                         DpSessionDatasUploader.getInstance().upload(a, "sailor_monitor");
                     }
                 }

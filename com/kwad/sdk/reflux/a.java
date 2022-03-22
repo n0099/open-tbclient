@@ -14,18 +14,18 @@ import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.ax;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static int a = 12;
 
     /* renamed from: com.kwad.sdk.reflux.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC2126a {
-        void a(int i2, String str);
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1987a {
+        void a(int i, String str);
 
         void a(@Nullable List<AdTemplate> list);
 
-        void a_(int i2);
+        void a_(int i);
     }
 
     public static void a(final f fVar, final List<String> list, final boolean z, final boolean z2, @Nullable final j jVar, @NonNull final d.a aVar, final boolean z3) {
@@ -53,8 +53,8 @@ public class a {
         }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.request.a, AdResultData>() { // from class: com.kwad.sdk.reflux.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.core.request.a aVar2, int i2, String str) {
-                aVar.a(i2, str);
+            public void a(@NonNull com.kwad.sdk.core.request.a aVar2, int i, String str) {
+                aVar.a(i, str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -65,25 +65,25 @@ public class a {
                     return;
                 }
                 d.a aVar3 = aVar;
-                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f54457e;
+                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f39580e;
                 aVar3.a(fVar2.n, fVar2.o);
             }
         });
     }
 
-    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC2126a interfaceC2126a) {
+    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC1987a interfaceC1987a) {
         boolean a2 = ap.a().a(sceneImpl, "loadInterstitialAd");
         final long elapsedRealtime = SystemClock.elapsedRealtime();
         sceneImpl.setAdStyle(11);
         sceneImpl.setAdNum(a);
         a(new f(sceneImpl), null, false, a2, null, new d.a() { // from class: com.kwad.sdk.reflux.a.1
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 ax.a(new Runnable() { // from class: com.kwad.sdk.reflux.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("RefluxAdLoadManager", "loadRefluxAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        InterfaceC2126a.this.a(i2, str);
+                        com.kwad.sdk.core.d.a.e("RefluxAdLoadManager", "loadRefluxAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        InterfaceC1987a.this.a(i, str);
                     }
                 });
             }
@@ -94,7 +94,7 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            InterfaceC2126a.this.a_(adResultData.adTemplateList.size());
+                            InterfaceC1987a.this.a_(adResultData.adTemplateList.size());
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -103,7 +103,7 @@ public class a {
                 ax.a(new Runnable() { // from class: com.kwad.sdk.reflux.a.1.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC2126a.this.a(adResultData.adTemplateList);
+                        InterfaceC1987a.this.a(adResultData.adTemplateList);
                         a.b(adResultData, elapsedRealtime);
                     }
                 });
@@ -111,12 +111,12 @@ public class a {
         }, false);
     }
 
-    public static void b(AdResultData adResultData, long j2) {
+    public static void b(AdResultData adResultData, long j) {
         AdTemplate adTemplate;
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (adResultData.adTemplateList.size() <= 0 || (adTemplate = adResultData.adTemplateList.get(0)) == null) {
             return;
         }
-        com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j2);
+        com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j);
     }
 }

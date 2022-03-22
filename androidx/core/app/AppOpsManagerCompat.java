@@ -25,33 +25,33 @@ public final class AppOpsManagerCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int noteOp(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
+    public static int noteOp(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, context, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, context, str, i, str2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i2, str2);
+                return ((AppOpsManager) context.getSystemService("appops")).noteOp(str, i, str2);
             }
             return 1;
         }
         return invokeLLIL.intValue;
     }
 
-    public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
+    public static int noteOpNoThrow(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i, str2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i2, str2);
+                return ((AppOpsManager) context.getSystemService("appops")).noteOpNoThrow(str, i, str2);
             }
             return 1;
         }

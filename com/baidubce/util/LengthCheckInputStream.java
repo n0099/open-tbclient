@@ -11,7 +11,7 @@ import com.baidubce.BceClientException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LengthCheckInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EXCLUDE_SKIPPED_BYTES = false;
@@ -23,25 +23,25 @@ public class LengthCheckInputStream extends FilterInputStream {
     public long marked;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LengthCheckInputStream(InputStream inputStream, long j2, boolean z) {
+    public LengthCheckInputStream(InputStream inputStream, long j, boolean z) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {inputStream, Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (j2 >= 0) {
-            this.expectedLength = j2;
+        if (j >= 0) {
+            this.expectedLength = j;
             this.includeSkipped = z;
             return;
         }
@@ -64,10 +64,10 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i2) {
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.mark(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.mark(i);
             this.marked = this.dataLength;
         }
     }
@@ -99,11 +99,11 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-            long skip = super.skip(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            long skip = super.skip(j);
             if (this.includeSkipped && skip > 0) {
                 this.dataLength += skip;
                 checkLength(false);
@@ -114,11 +114,11 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
-            int read = super.read(bArr, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
             this.dataLength += read >= 0 ? read : 0L;
             checkLength(read == -1);
             return read;

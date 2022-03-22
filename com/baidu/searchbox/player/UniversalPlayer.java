@@ -69,9 +69,9 @@ public class UniversalPlayer extends BDVideoPlayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {universalPlayer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,9 +82,9 @@ public class UniversalPlayer extends BDVideoPlayer {
         }
 
         @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
-        public void onOrientationChanged(int i2) {
+        public void onOrientationChanged(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || UniversalPlayer.isOrientationLock()) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || UniversalPlayer.isOrientationLock()) {
                 return;
             }
             UniversalPlayer universalPlayer = this.this$0;
@@ -93,10 +93,10 @@ public class UniversalPlayer extends BDVideoPlayer {
             }
             if (!this.this$0.isFullMode()) {
                 this.mIsLandscape = false;
-                if (OrientationHelper.isPortrait(i2)) {
+                if (OrientationHelper.isPortrait(i)) {
                     this.mIsPortrait = true;
                 }
-                if (this.mIsPortrait && OrientationHelper.isLandscape(i2) && this.this$0.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
+                if (this.mIsPortrait && OrientationHelper.isLandscape(i) && this.this$0.mPlayerContainer.getVisibility() == 0 && System.currentTimeMillis() - this.mChangedTime > 1000) {
                     this.mChangedTime = System.currentTimeMillis();
                     this.this$0.switchToFull(0);
                     this.mIsPortrait = false;
@@ -105,13 +105,13 @@ public class UniversalPlayer extends BDVideoPlayer {
                 return;
             }
             this.mIsPortrait = false;
-            if (OrientationHelper.isReverseLandscape(i2)) {
+            if (OrientationHelper.isReverseLandscape(i)) {
                 this.mIsLandscape = true;
                 BdActivityUtils.requestLandscape(this.this$0.getActivity(), true);
-            } else if (OrientationHelper.isLandscape(i2)) {
+            } else if (OrientationHelper.isLandscape(i)) {
                 this.mIsLandscape = true;
                 BdActivityUtils.requestLandscape(this.this$0.getActivity(), false);
-            } else if (OrientationHelper.isPortrait(i2) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
+            } else if (OrientationHelper.isPortrait(i) && this.mIsLandscape && System.currentTimeMillis() - this.mChangedTime > 1000) {
                 this.mChangedTime = System.currentTimeMillis();
                 this.this$0.switchToHalf(0);
                 this.mIsLandscape = false;
@@ -143,9 +143,9 @@ public class UniversalPlayer extends BDVideoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -462,17 +462,17 @@ public class UniversalPlayer extends BDVideoPlayer {
     }
 
     @PublicMethod
-    public void switchToFull(int i2) {
+    public void switchToFull(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             switchToFull();
         }
     }
 
     @PublicMethod
-    public void switchToHalf(int i2) {
+    public void switchToHalf(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             if (isEnablePlayerConfigNotch(false)) {
                 BdViewOpUtils.fixFullScreen4Notch(getActivity(), false);
             }
@@ -490,9 +490,9 @@ public class UniversalPlayer extends BDVideoPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
             int childCount = this.mLayerContainer.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.mLayerContainer.getChildAt(i2).getClass() == cls) {
-                    return i2;
+            for (int i = 0; i < childCount; i++) {
+                if (this.mLayerContainer.getChildAt(i).getClass() == cls) {
+                    return i;
                 }
             }
             return -1;
@@ -544,9 +544,9 @@ public class UniversalPlayer extends BDVideoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, baseKernelLayer};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BaseKernelLayer) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -568,9 +568,9 @@ public class UniversalPlayer extends BDVideoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, baseKernelLayer, str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BaseKernelLayer) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -600,9 +600,9 @@ public class UniversalPlayer extends BDVideoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BaseKernelLayer) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;

@@ -80,16 +80,16 @@ public final class Rotation {
         $VALUES = new Rotation[]{NORMAL, ROTATION_90, ROTATION_180, rotation};
     }
 
-    public Rotation(String str, int i2) {
+    public Rotation(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -99,18 +99,18 @@ public final class Rotation {
         }
     }
 
-    public static Rotation fromInt(int i2) {
+    public static Rotation fromInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 90) {
-                    if (i2 != 180) {
-                        if (i2 != 270) {
-                            if (i2 == 360) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 90) {
+                    if (i != 180) {
+                        if (i != 270) {
+                            if (i == 360) {
                                 return NORMAL;
                             }
-                            throw new IllegalStateException(i2 + " is an unknown rotation. Needs to be either 0, 90, 180 or 270!");
+                            throw new IllegalStateException(i + " is an unknown rotation. Needs to be either 0, 90, 180 or 270!");
                         }
                         return ROTATION_270;
                     }
@@ -139,11 +139,11 @@ public final class Rotation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.a[ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
+            int i = a.a[ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
                             return 270;
                         }
                         throw new IllegalStateException("Unknown Rotation!");

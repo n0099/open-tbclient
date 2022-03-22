@@ -26,9 +26,9 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
 
     /* loaded from: classes4.dex */
     public interface AssistExtend {
-        boolean dispatchBlockEnd(DownloadTask downloadTask, int i2, Listener4Model listener4Model);
+        boolean dispatchBlockEnd(DownloadTask downloadTask, int i, Listener4Model listener4Model);
 
-        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull Listener4Model listener4Model);
+        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i, long j, @NonNull Listener4Model listener4Model);
 
         boolean dispatchInfoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
@@ -37,13 +37,13 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
 
     /* loaded from: classes4.dex */
     public interface Listener4Callback {
-        void blockEnd(DownloadTask downloadTask, int i2, BlockInfo blockInfo);
+        void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo);
 
         void infoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
-        void progress(DownloadTask downloadTask, long j2);
+        void progress(DownloadTask downloadTask, long j);
 
-        void progressBlock(DownloadTask downloadTask, int i2, long j2);
+        void progressBlock(DownloadTask downloadTask, int i, long j);
 
         void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
@@ -57,22 +57,22 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         public final int id;
         public BreakpointInfo info;
 
-        public Listener4Model(int i2) {
+        public Listener4Model(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.id = i2;
+            this.id = i;
         }
 
         public SparseArray<Long> cloneBlockCurrentOffsetMap() {
@@ -81,10 +81,10 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.blockCurrentOffsetMap.clone() : (SparseArray) invokeV.objValue;
         }
 
-        public long getBlockCurrentOffset(int i2) {
+        public long getBlockCurrentOffset(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.blockCurrentOffsetMap.get(i2).longValue() : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.blockCurrentOffsetMap.get(i).longValue() : invokeI.longValue;
         }
 
         public SparseArray<Long> getBlockCurrentOffsetMap() {
@@ -120,8 +120,8 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
                 this.currentOffset = breakpointInfo.getTotalOffset();
                 SparseArray<Long> sparseArray = new SparseArray<>();
                 int blockCount = breakpointInfo.getBlockCount();
-                for (int i2 = 0; i2 < blockCount; i2++) {
-                    sparseArray.put(i2, Long.valueOf(breakpointInfo.getBlock(i2).getCurrentOffset()));
+                for (int i = 0; i < blockCount; i++) {
+                    sparseArray.put(i, Long.valueOf(breakpointInfo.getBlock(i).getCurrentOffset()));
                 }
                 this.blockCurrentOffsetMap = sparseArray;
             }
@@ -135,9 +135,9 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
             newInitContext.initArgs = r2;
             Object[] objArr = {listenerModelHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -146,32 +146,32 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         this.modelHandler = listenerModelHandler;
     }
 
-    public void fetchEnd(DownloadTask downloadTask, int i2) {
+    public void fetchEnd(DownloadTask downloadTask, int i) {
         T orRecoverModel;
         Listener4Callback listener4Callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i2) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, downloadTask, i) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
         AssistExtend assistExtend = this.assistExtend;
-        if ((assistExtend == null || !assistExtend.dispatchBlockEnd(downloadTask, i2, orRecoverModel)) && (listener4Callback = this.callback) != null) {
-            listener4Callback.blockEnd(downloadTask, i2, orRecoverModel.info.getBlock(i2));
+        if ((assistExtend == null || !assistExtend.dispatchBlockEnd(downloadTask, i, orRecoverModel)) && (listener4Callback = this.callback) != null) {
+            listener4Callback.blockEnd(downloadTask, i, orRecoverModel.info.getBlock(i));
         }
     }
 
-    public void fetchProgress(DownloadTask downloadTask, int i2, long j2) {
+    public void fetchProgress(DownloadTask downloadTask, int i, long j) {
         T orRecoverModel;
         Listener4Callback listener4Callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
-        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i2).longValue() + j2;
-        orRecoverModel.blockCurrentOffsetMap.put(i2, Long.valueOf(longValue));
-        orRecoverModel.currentOffset += j2;
+        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i).longValue() + j;
+        orRecoverModel.blockCurrentOffsetMap.put(i, Long.valueOf(longValue));
+        orRecoverModel.currentOffset += j;
         AssistExtend assistExtend = this.assistExtend;
-        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i2, j2, orRecoverModel)) && (listener4Callback = this.callback) != null) {
-            listener4Callback.progressBlock(downloadTask, i2, longValue);
+        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i, j, orRecoverModel)) && (listener4Callback = this.callback) != null) {
+            listener4Callback.progressBlock(downloadTask, i, longValue);
             this.callback.progress(downloadTask, orRecoverModel.currentOffset);
         }
     }
@@ -252,9 +252,9 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
             newInitContext.initArgs = r2;
             Object[] objArr = {modelCreator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

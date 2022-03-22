@@ -24,7 +24,7 @@ import com.tachikoma.core.event.view.TKInputEvent;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKInput extends TKBase<EditText> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class TKInput extends TKBase<EditText> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,9 +66,9 @@ public class TKInput extends TKBase<EditText> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -94,9 +94,9 @@ public class TKInput extends TKBase<EditText> {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr3 = {this, editable};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i4 = newInitContext2.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext2.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -121,9 +121,9 @@ public class TKInput extends TKBase<EditText> {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i3, i4, i5) == null) {
                     this.this$0.dispatchEvent("input", new TKEventProcess.EventInterface(this, charSequence) { // from class: com.tachikoma.core.component.input.TKInput.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -137,9 +137,9 @@ public class TKInput extends TKBase<EditText> {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr3 = {this, charSequence};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i7 = newInitContext2.flag;
-                                if ((i7 & 1) != 0) {
-                                    int i8 = i7 & 2;
+                                int i6 = newInitContext2.flag;
+                                if ((i6 & 1) != 0) {
+                                    int i7 = i6 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -164,9 +164,9 @@ public class TKInput extends TKBase<EditText> {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
                     this.this$0.dispatchEvent("input", new TKEventProcess.EventInterface(this, charSequence) { // from class: com.tachikoma.core.component.input.TKInput.1.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -180,9 +180,9 @@ public class TKInput extends TKBase<EditText> {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr3 = {this, charSequence};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i7 = newInitContext2.flag;
-                                if ((i7 & 1) != 0) {
-                                    int i8 = i7 & 2;
+                                int i6 = newInitContext2.flag;
+                                if ((i6 & 1) != 0) {
+                                    int i7 = i6 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -218,9 +218,9 @@ public class TKInput extends TKBase<EditText> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -230,11 +230,11 @@ public class TKInput extends TKBase<EditText> {
             }
 
             @Override // android.view.View.OnKeyListener
-            public boolean onKey(View view, int i4, KeyEvent keyEvent) {
+            public boolean onKey(View view, int i3, KeyEvent keyEvent) {
                 InterceptResult invokeLIL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i4, keyEvent)) == null) {
-                    if (i4 == 67 && keyEvent.getAction() == 0 && this.this$0.getView() != null && TextUtils.isEmpty(this.this$0.getView().getText())) {
+                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i3, keyEvent)) == null) {
+                    if (i3 == 67 && keyEvent.getAction() == 0 && this.this$0.getView() != null && TextUtils.isEmpty(this.this$0.getView().getText())) {
                         this.this$0.dispatchEvent("input", new TKEventProcess.EventInterface(this) { // from class: com.tachikoma.core.component.input.TKInput.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -247,9 +247,9 @@ public class TKInput extends TKBase<EditText> {
                                     newInitContext2.initArgs = r2;
                                     Object[] objArr3 = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext2);
-                                    int i5 = newInitContext2.flag;
-                                    if ((i5 & 1) != 0) {
-                                        int i6 = i5 & 2;
+                                    int i4 = newInitContext2.flag;
+                                    if ((i4 & 1) != 0) {
+                                        int i5 = i4 & 2;
                                         newInitContext2.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext2);
                                         return;
@@ -372,17 +372,17 @@ public class TKInput extends TKBase<EditText> {
         }
     }
 
-    public void setFontSize(int i2) {
+    public void setFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mProperty.setFontSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mProperty.setFontSize(i);
         }
     }
 
-    public void setMaxLength(int i2) {
+    public void setMaxLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mProperty.setMaxLength(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mProperty.setMaxLength(i);
         }
     }
 

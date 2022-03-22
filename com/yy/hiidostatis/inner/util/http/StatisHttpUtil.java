@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StatisHttpUtil extends AbstractStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] ADDRESSES;
@@ -43,9 +43,9 @@ public class StatisHttpUtil extends AbstractStatisHttpUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -81,15 +81,15 @@ public class StatisHttpUtil extends AbstractStatisHttpUtil {
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.AbstractStatisHttpUtil
-    public boolean sendContent(String str, String str2, int i2) {
+    public boolean sendContent(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(1048580, this, str, str2, i2)) != null) {
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(1048580, this, str, str2, i)) != null) {
             return invokeLLI.booleanValue;
         }
         L.brief("hiido service address is %s", str);
         this.mThrowable = null;
-        int i3 = i2;
+        int i2 = i;
         while (true) {
             try {
             } catch (Throwable th) {
@@ -100,17 +100,17 @@ public class StatisHttpUtil extends AbstractStatisHttpUtil {
                 L.debug(this, "isNetworkReach false.", new Object[0]);
                 return false;
             }
-            if (i2 != i3) {
-                L.brief("Try again to send %s with url %s, tried times %d.", str2, str, Integer.valueOf(i2 - i3));
+            if (i != i2) {
+                L.brief("Try again to send %s with url %s, tried times %d.", str2, str, Integer.valueOf(i - i2));
             }
             this.lastTryTimes++;
             if (!get(str, str2)) {
                 L.debug(this, "Failed to send %s to %s.", str2, str);
-                int i4 = i3 - 1;
-                if (i3 <= 0) {
+                int i3 = i2 - 1;
+                if (i2 <= 0) {
                     return false;
                 }
-                i3 = i4;
+                i2 = i3;
             } else {
                 this.mThrowable = null;
                 L.debug(this, "Successfully sent %s to %s", str2, str);

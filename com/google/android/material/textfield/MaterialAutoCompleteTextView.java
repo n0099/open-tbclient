@@ -15,7 +15,6 @@ import android.widget.Filterable;
 import android.widget.ListAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.R$style;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.ListPopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;
@@ -49,9 +48,9 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -82,7 +81,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             ListAdapter adapter = getAdapter();
             TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
-            int i2 = 0;
+            int i = 0;
             if (adapter == null || findTextInputLayoutAncestor == null) {
                 return 0;
             }
@@ -90,27 +89,27 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 0);
             int min = Math.min(adapter.getCount(), Math.max(0, this.modalListPopup.getSelectedItemPosition()) + 15);
             View view = null;
-            int i3 = 0;
+            int i2 = 0;
             for (int max = Math.max(0, min - 15); max < min; max++) {
                 int itemViewType = adapter.getItemViewType(max);
-                if (itemViewType != i2) {
+                if (itemViewType != i) {
                     view = null;
-                    i2 = itemViewType;
+                    i = itemViewType;
                 }
                 view = adapter.getView(max, view, findTextInputLayoutAncestor);
                 if (view.getLayoutParams() == null) {
                     view.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
                 }
                 view.measure(makeMeasureSpec, makeMeasureSpec2);
-                i3 = Math.max(i3, view.getMeasuredWidth());
+                i2 = Math.max(i2, view.getMeasuredWidth());
             }
             Drawable background = this.modalListPopup.getBackground();
             if (background != null) {
                 background.getPadding(this.tempRect);
                 Rect rect = this.tempRect;
-                i3 += rect.left + rect.right;
+                i2 += rect.left + rect.right;
             }
-            return i3 + findTextInputLayoutAncestor.getEndIconView().getMeasuredWidth();
+            return i2 + findTextInputLayoutAncestor.getEndIconView().getMeasuredWidth();
         }
         return invokeV.intValue;
     }
@@ -160,12 +159,12 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            if (View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE) {
-                setMeasuredDimension(Math.min(Math.max(getMeasuredWidth(), measureContentWidth()), View.MeasureSpec.getSize(i2)), getMeasuredHeight());
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (View.MeasureSpec.getMode(i) == Integer.MIN_VALUE) {
+                setMeasuredDimension(Math.min(Math.max(getMeasuredWidth(), measureContentWidth()), View.MeasureSpec.getSize(i)), getMeasuredHeight());
             }
         }
     }
@@ -201,9 +200,9 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -214,17 +213,17 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, 0), attributeSet, i2);
+    public MaterialAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -234,7 +233,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         }
         this.tempRect = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16843296}, i2, R$style.Widget_AppCompat_AutoCompleteTextView, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16843296}, i, R.style.obfuscated_res_0x7f1002ae, new int[0]);
         if (obtainStyledAttributes.hasValue(0) && obtainStyledAttributes.getInt(0, 0) == 0) {
             setKeyListener(null);
         }
@@ -257,9 +256,9 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -269,18 +268,18 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
-                    this.this$0.updateText(i5 < 0 ? this.this$0.modalListPopup.getSelectedItem() : this.this$0.getAdapter().getItem(i5));
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                    this.this$0.updateText(i4 < 0 ? this.this$0.modalListPopup.getSelectedItem() : this.this$0.getAdapter().getItem(i4));
                     AdapterView.OnItemClickListener onItemClickListener = this.this$0.getOnItemClickListener();
                     if (onItemClickListener != null) {
-                        if (view == null || i5 < 0) {
+                        if (view == null || i4 < 0) {
                             view = this.this$0.modalListPopup.getSelectedView();
-                            i5 = this.this$0.modalListPopup.getSelectedItemPosition();
-                            j2 = this.this$0.modalListPopup.getSelectedItemId();
+                            i4 = this.this$0.modalListPopup.getSelectedItemPosition();
+                            j = this.this$0.modalListPopup.getSelectedItemId();
                         }
-                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view, i5, j2);
+                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view, i4, j);
                     }
                     this.this$0.modalListPopup.dismiss();
                 }

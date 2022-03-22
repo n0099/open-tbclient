@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackEncryptionBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TrackEncryptionBox";
@@ -21,27 +22,27 @@ public final class TrackEncryptionBox {
     @Nullable
     public final String schemeType;
 
-    public TrackEncryptionBox(boolean z, @Nullable String str, int i2, byte[] bArr, int i3, int i4, @Nullable byte[] bArr2) {
+    public TrackEncryptionBox(boolean z, @Nullable String str, int i, byte[] bArr, int i2, int i3, @Nullable byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4), bArr2};
+            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Assertions.checkArgument((bArr2 == null) ^ (i2 == 0));
+        Assertions.checkArgument((bArr2 == null) ^ (i == 0));
         this.isEncrypted = z;
         this.schemeType = str;
-        this.initializationVectorSize = i2;
+        this.initializationVectorSize = i;
         this.defaultInitializationVector = bArr2;
-        this.cryptoData = new TrackOutput.CryptoData(schemeToCryptoMode(str), bArr, i3, i4);
+        this.cryptoData = new TrackOutput.CryptoData(schemeToCryptoMode(str), bArr, i2, i3);
     }
 
     public static int schemeToCryptoMode(@Nullable String str) {
@@ -84,7 +85,7 @@ public final class TrackEncryptionBox {
             if (c2 == 2 || c2 == 3) {
                 return 2;
             }
-            String str2 = "Unsupported protection scheme type '" + str + "'. Assuming AES-CTR crypto mode.";
+            Log.w(TAG, "Unsupported protection scheme type '" + str + "'. Assuming AES-CTR crypto mode.");
             return 1;
         }
         return invokeL.intValue;

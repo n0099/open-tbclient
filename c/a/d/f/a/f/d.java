@@ -15,7 +15,7 @@ public class d extends DiskFileOperate {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2493b;
+    public String f2051b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(String str, String str2, DiskFileOperate.Action action) {
@@ -26,9 +26,9 @@ public class d extends DiskFileOperate {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -37,7 +37,7 @@ public class d extends DiskFileOperate {
             }
         }
         this.a = null;
-        this.f2493b = "UTF-8";
+        this.f2051b = "UTF-8";
     }
 
     public String a() {
@@ -61,7 +61,7 @@ public class d extends DiskFileOperate {
             String str = this.a;
             if (str != null) {
                 try {
-                    return str.getBytes(this.f2493b);
+                    return str.getBytes(this.f2051b);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -80,7 +80,7 @@ public class d extends DiskFileOperate {
                 return false;
             }
             try {
-                this.a = new String(bArr, this.f2493b);
+                this.a = new String(bArr, this.f2051b);
                 return true;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

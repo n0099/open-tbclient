@@ -12,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -53,7 +52,7 @@ public class WebRtcAudioRecord {
     public volatile boolean microphoneMute;
     public long nativeAudioRecord;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AudioRecordThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +68,9 @@ public class WebRtcAudioRecord {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webRtcAudioRecord, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -142,9 +141,9 @@ public class WebRtcAudioRecord {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, audioManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AudioManager) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue(), (JavaAudioDeviceModule.AudioRecordErrorCallback) objArr2[4], (JavaAudioDeviceModule.SamplesReadyCallback) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Boolean) objArr2[7]).booleanValue());
                 newInitContext.thisArg = this;
@@ -161,10 +160,10 @@ public class WebRtcAudioRecord {
         }
     }
 
-    private int channelCountToConfiguration(int i2) {
+    private int channelCountToConfiguration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i2)) == null) ? i2 == 1 ? 16 : 12 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) ? i == 1 ? 16 : 12 : invokeI.intValue;
     }
 
     @CalledByNative
@@ -200,26 +199,26 @@ public class WebRtcAudioRecord {
     /* JADX INFO: Access modifiers changed from: private */
     public int getExtRecordState() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
             synchronized (this.mExtRecordStateLock) {
-                i2 = this.mExtRecordState;
+                i = this.mExtRecordState;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     @CalledByNative
-    private int initRecording(int i2, int i3) {
+    private int initRecording(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65553, this, i2, i3)) == null) {
-            Logging.d(TAG, "initRecording(sampleRate=" + i2 + ", channels=" + i3 + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65553, this, i, i2)) == null) {
+            Logging.d(TAG, "initRecording(sampleRate=" + i + ", channels=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
             if (this.audioRecord == null && (!this.externalAudioRecord || this.mExtRecordState == 0)) {
-                int i4 = i2 / 100;
-                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i3 * 2 * i4);
+                int i3 = i / 100;
+                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2 * 2 * i3);
                 this.byteBuffer = allocateDirect;
                 if (!allocateDirect.hasArray()) {
                     reportWebRtcAudioRecordInitError("ByteBuffer does not have backing array.");
@@ -228,24 +227,24 @@ public class WebRtcAudioRecord {
                 Logging.d(TAG, "byteBuffer.capacity: " + this.byteBuffer.capacity());
                 this.emptyBytes = new byte[this.byteBuffer.capacity()];
                 nativeCacheDirectBufferAddress(this.nativeAudioRecord, this.byteBuffer);
-                int channelCountToConfiguration = channelCountToConfiguration(i3);
-                int minBufferSize = AudioRecord.getMinBufferSize(i2, channelCountToConfiguration, 2);
+                int channelCountToConfiguration = channelCountToConfiguration(i2);
+                int minBufferSize = AudioRecord.getMinBufferSize(i, channelCountToConfiguration, 2);
                 if (minBufferSize != -1 && minBufferSize != -2) {
                     Logging.d(TAG, "AudioRecord.getMinBufferSize: " + minBufferSize);
                     int max = Math.max(minBufferSize * 2, this.byteBuffer.capacity());
                     Logging.d(TAG, "bufferSizeInBytes: " + max);
                     if (this.externalAudioRecord) {
                         this.mExtRecordState = 1;
-                        return i4;
+                        return i3;
                     }
                     try {
-                        AudioRecord audioRecord = new AudioRecord(this.audioSource, i2, channelCountToConfiguration, 2, max);
+                        AudioRecord audioRecord = new AudioRecord(this.audioSource, i, channelCountToConfiguration, 2, max);
                         this.audioRecord = audioRecord;
                         if (audioRecord != null && audioRecord.getState() == 1) {
                             this.effects.enable(this.audioRecord.getAudioSessionId());
                             logMainParameters();
                             logMainParametersExtended();
-                            return i4;
+                            return i3;
                         }
                         reportWebRtcAudioRecordInitError("Failed to create a new AudioRecord instance");
                         releaseAudioResources();
@@ -280,10 +279,10 @@ public class WebRtcAudioRecord {
         }
     }
 
-    private native void nativeCacheDirectBufferAddress(long j2, ByteBuffer byteBuffer);
+    private native void nativeCacheDirectBufferAddress(long j, ByteBuffer byteBuffer);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDataIsRecorded(long j2, int i2);
+    public native void nativeDataIsRecorded(long j, int i);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;
@@ -339,7 +338,7 @@ public class WebRtcAudioRecord {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, this)) == null) {
-            Logging.d(TAG, LightappBusinessClient.MTD_START_AUDIO_RECORD);
+            Logging.d(TAG, "startRecording");
             if (this.externalAudioRecord) {
                 this.mExtRecordState = 3;
                 return true;
@@ -419,23 +418,23 @@ public class WebRtcAudioRecord {
     }
 
     @CalledByNative
-    public void setNativeAudioRecord(long j2) {
+    public void setNativeAudioRecord(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.nativeAudioRecord = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.nativeAudioRecord = j;
         }
     }
 
-    public WebRtcAudioRecord(Context context, AudioManager audioManager, int i2, boolean z, JavaAudioDeviceModule.AudioRecordErrorCallback audioRecordErrorCallback, JavaAudioDeviceModule.SamplesReadyCallback samplesReadyCallback, boolean z2, boolean z3) {
+    public WebRtcAudioRecord(Context context, AudioManager audioManager, int i, boolean z, JavaAudioDeviceModule.AudioRecordErrorCallback audioRecordErrorCallback, JavaAudioDeviceModule.SamplesReadyCallback samplesReadyCallback, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, audioManager, Integer.valueOf(i2), Boolean.valueOf(z), audioRecordErrorCallback, samplesReadyCallback, Boolean.valueOf(z2), Boolean.valueOf(z3)};
+            Object[] objArr = {context, audioManager, Integer.valueOf(i), Boolean.valueOf(z), audioRecordErrorCallback, samplesReadyCallback, Boolean.valueOf(z2), Boolean.valueOf(z3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -455,9 +454,9 @@ public class WebRtcAudioRecord {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -497,7 +496,7 @@ public class WebRtcAudioRecord {
         }
         this.context = context;
         this.audioManager = audioManager;
-        this.audioSource = i2;
+        this.audioSource = i;
         this.errorCallback = audioRecordErrorCallback;
         this.audioSamplesReadyCallback = samplesReadyCallback;
         this.isAcousticEchoCancelerSupported = z2;

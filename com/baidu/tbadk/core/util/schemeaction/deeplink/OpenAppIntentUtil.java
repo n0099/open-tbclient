@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +30,9 @@ public class OpenAppIntentUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,18 +53,18 @@ public class OpenAppIntentUtil {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), openAppCallback})) == null) {
             try {
                 launchIntent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                launchIntent.setFlags(268435456);
-                int i2 = 0;
+                launchIntent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                int i = 0;
                 List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(launchIntent, 0);
                 while (true) {
-                    if (i2 >= queryIntentActivities.size()) {
+                    if (i >= queryIntentActivities.size()) {
                         break;
                     }
-                    String str3 = queryIntentActivities.get(i2).activityInfo.packageName;
+                    String str3 = queryIntentActivities.get(i).activityInfo.packageName;
                     if (TextUtils.equals(str3, str2)) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             } catch (Exception unused) {
                 launchIntent = getLaunchIntent(context, str2);
@@ -109,7 +110,7 @@ public class OpenAppIntentUtil {
                 }
                 String str3 = parseUri.getPackage();
                 if (str3 != null && !TextUtils.isEmpty(str3)) {
-                    parseUri.setFlags(268435456);
+                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     Set<String> categories = parseUri.getCategories();
                     if (categories == null || categories.isEmpty()) {
                         parseUri.addCategory("android.intent.category.LAUNCHER");
@@ -150,7 +151,7 @@ public class OpenAppIntentUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(uri);
-            intent.setFlags(268435456);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
                 return context.getPackageManager().resolveActivity(intent, 65536);
             } catch (Exception unused) {

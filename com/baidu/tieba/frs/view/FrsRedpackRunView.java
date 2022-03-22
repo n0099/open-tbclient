@@ -21,26 +21,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsRedpackRunView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AutoScrollTextView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public AutoScrollTextView f42508e;
+    /* renamed from: b  reason: collision with root package name */
+    public TBLottieAnimationView f32973b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f42509f;
+    /* renamed from: c  reason: collision with root package name */
+    public View f32974c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public View f42510g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Context f42511h;
+    /* renamed from: d  reason: collision with root package name */
+    public Context f32975d;
 
     /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsRedpackRunView f42512e;
+        public final /* synthetic */ FrsRedpackRunView a;
 
         public a(FrsRedpackRunView frsRedpackRunView) {
             Interceptable interceptable = $ic;
@@ -49,22 +45,22 @@ public class FrsRedpackRunView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsRedpackRunView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42512e = frsRedpackRunView;
+            this.a = frsRedpackRunView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                this.f42512e.f42508e.translatDraw(valueAnimator.getAnimatedFraction());
+                this.a.a.d(valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -73,9 +69,7 @@ public class FrsRedpackRunView extends RelativeLayout {
     public class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsRedpackRunView f42513e;
+        public final /* synthetic */ FrsRedpackRunView a;
 
         public b(FrsRedpackRunView frsRedpackRunView) {
             Interceptable interceptable = $ic;
@@ -84,15 +78,15 @@ public class FrsRedpackRunView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsRedpackRunView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42513e = frsRedpackRunView;
+            this.a = frsRedpackRunView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -106,8 +100,8 @@ public class FrsRedpackRunView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f42513e.f42508e.init(((Activity) this.f42513e.f42511h).getWindowManager());
-                this.f42513e.f42508e.startScroll();
+                this.a.a.a(((Activity) this.a.f32975d).getWindowManager());
+                this.a.a.c();
             }
         }
 
@@ -135,42 +129,53 @@ public class FrsRedpackRunView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42511h = context;
-        c(context);
+        this.f32975d = context;
+        d(context);
     }
 
-    public final void c(Context context) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f42510g = LayoutInflater.from(context).inflate(R.layout.frs_main_redpack_run_view, this);
-            this.f42508e = (AutoScrollTextView) findViewById(R.id.tv_redpack_live_title);
-            this.f42509f = (TBLottieAnimationView) findViewById(R.id.frs_tblottie_anim);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public void hide() {
+    public final void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.f32974c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033c, this);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f092201);
+            this.f32973b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090be5);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setLottieAnimation(this.f32973b, R.raw.obfuscated_res_0x7f110031);
+            this.f32973b.setImageAssetsFolder("lottie_redpack_runscoll");
+            this.f32973b.addAnimatorUpdateListener(new a(this));
+            this.f32973b.addAnimatorListener(new b(this));
+            this.f32973b.playAnimation();
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            View view = this.f42510g;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            View view = this.f32974c;
             if (view != null) {
                 view.setOnClickListener(onClickListener);
             }
-            AutoScrollTextView autoScrollTextView = this.f42508e;
+            AutoScrollTextView autoScrollTextView = this.a;
             if (autoScrollTextView != null) {
                 autoScrollTextView.setClickliner(onClickListener);
             }
@@ -180,23 +185,12 @@ public class FrsRedpackRunView extends RelativeLayout {
     public void settextTitle(String str) {
         AutoScrollTextView autoScrollTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (autoScrollTextView = this.f42508e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (autoScrollTextView = this.a) == null) {
             return;
         }
         autoScrollTextView.setText(str);
-        this.f42508e.init(((Activity) this.f42511h).getWindowManager());
-        show();
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setLottieAnimation(this.f42509f, R.raw.lottie_redpack_run);
-            this.f42509f.setImageAssetsFolder("lottie_redpack_runscoll");
-            this.f42509f.addAnimatorUpdateListener(new a(this));
-            this.f42509f.addAnimatorListener(new b(this));
-            this.f42509f.playAnimation();
-        }
+        this.a.a(((Activity) this.f32975d).getWindowManager());
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -208,9 +202,9 @@ public class FrsRedpackRunView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -218,7 +212,7 @@ public class FrsRedpackRunView extends RelativeLayout {
                 return;
             }
         }
-        this.f42511h = context;
-        c(context);
+        this.f32975d = context;
+        d(context);
     }
 }

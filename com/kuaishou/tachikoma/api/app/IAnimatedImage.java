@@ -12,19 +12,19 @@ public interface IAnimatedImage {
 
     void setBorderColor(ImageView imageView, String str);
 
-    void setBorderRadius(ImageView imageView, int i2);
+    void setBorderRadius(ImageView imageView, int i);
 
     void setBorderWidth(ImageView imageView, double d2);
 
-    void setCDNUrls(ImageView imageView, List<TKCDNUrl> list, int i2, int i3, String str);
+    void setCDNUrls(ImageView imageView, List<TKCDNUrl> list, int i, int i2, String str);
 
     void setSrc(ImageView imageView, String str, String str2);
 
-    void setUri(ImageView imageView, String str, String str2, int i2, int i3);
+    void setUri(ImageView imageView, String str, String str2, int i, int i2);
 
-    void setUrlAndPlaceHolder(ImageView imageView, String str, String str2, String str3, int i2, int i3);
+    void setUrlAndPlaceHolder(ImageView imageView, String str, String str2, String str3, int i, int i2);
 
-    void setUrls(ImageView imageView, List<TKCDNUrl> list, int i2, int i3);
+    void setUrls(ImageView imageView, List<TKCDNUrl> list, int i, int i2);
 
     void startGifAnimation(ImageView imageView);
 

@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaResource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +29,9 @@ public class MediaResource {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -179,41 +178,41 @@ public class MediaResource {
             StringBuilder sb = new StringBuilder("  MediaResource { \n");
             sb.append("    mediaId = ");
             sb.append(this.mediaId);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("    status = ");
             sb.append(this.status);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("    attributes = ");
             sb.append(this.attributes);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("    meta = ");
             sb.append(this.meta);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("    createTime = ");
             sb.append(this.createTime);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("    publishTime = ");
             sb.append(this.publishTime);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  transcodingPresetGroupName = ");
             sb.append(this.transcodingPresetGroupName);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  source = ");
             sb.append(this.source);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  playableUrlList = [");
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             for (PlayableUrl playableUrl : this.playableUrlList) {
                 sb.append(playableUrl.toString());
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("] \n");
             sb.append("  thumbnailList = [");
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             for (String str : this.thumbnailList) {
                 sb.append("    thumbnail =");
                 sb.append(str);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("  }\n");
             return sb.toString();

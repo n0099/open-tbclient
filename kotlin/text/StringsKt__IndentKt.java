@@ -1,6 +1,7 @@
 package kotlin.text;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tbadk.core.util.StringHelper;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -11,9 +12,8 @@ import kotlin.internal.PlatformImplementationsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.SequencesKt___SequencesKt;
-import org.apache.commons.lang3.StringUtils;
 @Metadata(d1 = {"\u0000\u001e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u000b\u001a!\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0002\b\u0004\u001a\u0011\u0010\u0005\u001a\u00020\u0006*\u00020\u0002H\u0002¢\u0006\u0002\b\u0007\u001a\u0014\u0010\b\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0003\u001a\u00020\u0002\u001aJ\u0010\t\u001a\u00020\u0002*\b\u0012\u0004\u0012\u00020\u00020\n2\u0006\u0010\u000b\u001a\u00020\u00062\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00020\u00012\u0014\u0010\r\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0006\u0012\u0004\u0018\u00010\u00020\u0001H\u0082\b¢\u0006\u0002\b\u000e\u001a\u0014\u0010\u000f\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0010\u001a\u00020\u0002\u001a\u001e\u0010\u0011\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0010\u001a\u00020\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u0002\u001a\n\u0010\u0013\u001a\u00020\u0002*\u00020\u0002\u001a\u0014\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u0002¨\u0006\u0015"}, d2 = {"getIndentFunction", "Lkotlin/Function1;", "", "indent", "getIndentFunction$StringsKt__IndentKt", "indentWidth", "", "indentWidth$StringsKt__IndentKt", "prependIndent", "reindent", "", "resultSizeEstimate", "indentAddFunction", "indentCutFunction", "reindent$StringsKt__IndentKt", "replaceIndent", "newIndent", "replaceIndentByMargin", "marginPrefix", "trimIndent", "trimMargin", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/text/StringsKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StringsKt__IndentKt extends StringsKt__AppendableKt {
     public static final Function1<String, String> getIndentFunction$StringsKt__IndentKt(String str) {
         return str.length() == 0 ? StringsKt__IndentKt$getIndentFunction$1.INSTANCE : new StringsKt__IndentKt$getIndentFunction$2(str);
@@ -21,50 +21,50 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final int indentWidth$StringsKt__IndentKt(String str) {
         int length = str.length();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= length) {
-                i2 = -1;
+            if (i >= length) {
+                i = -1;
                 break;
-            } else if (!CharsKt__CharJVMKt.isWhitespace(str.charAt(i2))) {
+            } else if (!CharsKt__CharJVMKt.isWhitespace(str.charAt(i))) {
                 break;
             } else {
-                i2++;
+                i++;
             }
         }
-        return i2 == -1 ? str.length() : i2;
+        return i == -1 ? str.length() : i;
     }
 
     public static final String prependIndent(String prependIndent, String indent) {
         Intrinsics.checkNotNullParameter(prependIndent, "$this$prependIndent");
         Intrinsics.checkNotNullParameter(indent, "indent");
-        return SequencesKt___SequencesKt.joinToString$default(SequencesKt___SequencesKt.map(StringsKt__StringsKt.lineSequence(prependIndent), new StringsKt__IndentKt$prependIndent$1(indent)), StringUtils.LF, null, null, 0, null, null, 62, null);
+        return SequencesKt___SequencesKt.joinToString$default(SequencesKt___SequencesKt.map(StringsKt__StringsKt.lineSequence(prependIndent), new StringsKt__IndentKt$prependIndent$1(indent)), "\n", null, null, 0, null, null, 62, null);
     }
 
-    public static /* synthetic */ String prependIndent$default(String str, String str2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ String prependIndent$default(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
             str2 = "    ";
         }
         return prependIndent(str, str2);
     }
 
-    public static final String reindent$StringsKt__IndentKt(List<String> list, int i2, Function1<? super String, String> function1, Function1<? super String, String> function12) {
+    public static final String reindent$StringsKt__IndentKt(List<String> list, int i, Function1<? super String, String> function1, Function1<? super String, String> function12) {
         Appendable joinTo;
         String str;
         String invoke;
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(list);
         ArrayList arrayList = new ArrayList();
-        int i3 = 0;
+        int i2 = 0;
         for (Object obj : list) {
-            int i4 = i3 + 1;
-            if (i3 < 0) {
+            int i3 = i2 + 1;
+            if (i2 < 0) {
                 if (!PlatformImplementationsKt.apiVersionIsAtLeast(1, 3, 0)) {
                     throw new ArithmeticException("Index overflow has happened.");
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
             String str2 = (String) obj;
-            if ((i3 == 0 || i3 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str2)) {
+            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str2)) {
                 str = null;
             } else {
                 String invoke2 = function12.invoke(str2);
@@ -76,9 +76,9 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             if (str != null) {
                 arrayList.add(str);
             }
-            i3 = i4;
+            i2 = i3;
         }
-        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(i2), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
+        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(i), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
         String sb = ((StringBuilder) joinTo).toString();
         Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
         return sb;
@@ -102,19 +102,19 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             arrayList2.add(Integer.valueOf(indentWidth$StringsKt__IndentKt(str2)));
         }
         Integer num = (Integer) CollectionsKt___CollectionsKt.minOrNull((Iterable<? extends Comparable>) arrayList2);
-        int i2 = 0;
+        int i = 0;
         int intValue = num != null ? num.intValue() : 0;
         int length = replaceIndent.length() + (newIndent.length() * lines.size());
         Function1<String, String> indentFunction$StringsKt__IndentKt = getIndentFunction$StringsKt__IndentKt(newIndent);
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(lines);
         ArrayList arrayList3 = new ArrayList();
         for (Object obj2 : lines) {
-            int i3 = i2 + 1;
-            if (i2 < 0) {
+            int i2 = i + 1;
+            if (i < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
             String str3 = (String) obj2;
-            if ((i2 == 0 || i2 == lastIndex) && StringsKt__StringsJVMKt.isBlank(str3)) {
+            if ((i == 0 || i == lastIndex) && StringsKt__StringsJVMKt.isBlank(str3)) {
                 str = null;
             } else {
                 String drop = StringsKt___StringsKt.drop(str3, intValue);
@@ -126,16 +126,16 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             if (str != null) {
                 arrayList3.add(str);
             }
-            i2 = i3;
+            i = i2;
         }
-        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList3, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
+        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList3, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
         String sb = ((StringBuilder) joinTo).toString();
         Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
         return sb;
     }
 
-    public static /* synthetic */ String replaceIndent$default(String str, String str2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ String replaceIndent$default(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
             str2 = "";
         }
         return replaceIndent(str, str2);
@@ -143,7 +143,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
 
     public static final String replaceIndentByMargin(String replaceIndentByMargin, String newIndent, String marginPrefix) {
         Appendable joinTo;
-        int i2;
+        int i;
         String invoke;
         Intrinsics.checkNotNullParameter(replaceIndentByMargin, "$this$replaceIndentByMargin");
         Intrinsics.checkNotNullParameter(newIndent, "newIndent");
@@ -154,32 +154,32 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             Function1<String, String> indentFunction$StringsKt__IndentKt = getIndentFunction$StringsKt__IndentKt(newIndent);
             int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(lines);
             ArrayList arrayList = new ArrayList();
-            int i3 = 0;
+            int i2 = 0;
             for (Object obj : lines) {
-                int i4 = i3 + 1;
-                if (i3 < 0) {
+                int i3 = i2 + 1;
+                if (i2 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
                 String str = (String) obj;
                 String str2 = null;
-                if ((i3 != 0 && i3 != lastIndex) || !StringsKt__StringsJVMKt.isBlank(str)) {
+                if ((i2 != 0 && i2 != lastIndex) || !StringsKt__StringsJVMKt.isBlank(str)) {
                     int length2 = str.length();
-                    int i5 = 0;
+                    int i4 = 0;
                     while (true) {
-                        if (i5 >= length2) {
-                            i2 = -1;
+                        if (i4 >= length2) {
+                            i = -1;
                             break;
-                        } else if (!CharsKt__CharJVMKt.isWhitespace(str.charAt(i5))) {
-                            i2 = i5;
+                        } else if (!CharsKt__CharJVMKt.isWhitespace(str.charAt(i4))) {
+                            i = i4;
                             break;
                         } else {
-                            i5++;
+                            i4++;
                         }
                     }
-                    if (i2 != -1) {
-                        int i6 = i2;
-                        if (StringsKt__StringsJVMKt.startsWith$default(str, marginPrefix, i2, false, 4, null)) {
-                            int length3 = i6 + marginPrefix.length();
+                    if (i != -1) {
+                        int i5 = i;
+                        if (StringsKt__StringsJVMKt.startsWith$default(str, marginPrefix, i, false, 4, null)) {
+                            int length3 = i5 + marginPrefix.length();
                             if (str == null) {
                                 throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                             }
@@ -195,9 +195,9 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                 if (str2 != null) {
                     arrayList.add(str2);
                 }
-                i3 = i4;
+                i2 = i3;
             }
-            joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
+            joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
             String sb = ((StringBuilder) joinTo).toString();
             Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
             return sb;
@@ -205,11 +205,11 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
         throw new IllegalArgumentException("marginPrefix must be non-blank string.".toString());
     }
 
-    public static /* synthetic */ String replaceIndentByMargin$default(String str, String str2, String str3, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ String replaceIndentByMargin$default(String str, String str2, String str3, int i, Object obj) {
+        if ((i & 1) != 0) {
             str2 = "";
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             str3 = "|";
         }
         return replaceIndentByMargin(str, str2, str3);
@@ -226,8 +226,8 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
         return replaceIndentByMargin(trimMargin, "", marginPrefix);
     }
 
-    public static /* synthetic */ String trimMargin$default(String str, String str2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ String trimMargin$default(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
             str2 = "|";
         }
         return trimMargin(str, str2);

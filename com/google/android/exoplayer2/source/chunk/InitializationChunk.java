@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class InitializationChunk extends Chunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,17 +24,17 @@ public final class InitializationChunk extends Chunk {
     public volatile boolean loadCanceled;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InitializationChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i2, Object obj, ChunkExtractorWrapper chunkExtractorWrapper) {
-        super(dataSource, dataSpec, 2, format, i2, obj, C.TIME_UNSET, C.TIME_UNSET);
+    public InitializationChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i, Object obj, ChunkExtractorWrapper chunkExtractorWrapper) {
+        super(dataSource, dataSpec, 2, format, i, obj, C.TIME_UNSET, C.TIME_UNSET);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i2), obj, chunkExtractorWrapper};
+            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i), obj, chunkExtractorWrapper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DataSource) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue(), (Format) objArr2[3], ((Integer) objArr2[4]).intValue(), objArr2[5], ((Long) objArr2[6]).longValue(), ((Long) objArr2[7]).longValue());
                 newInitContext.thisArg = this;
@@ -78,11 +78,11 @@ public final class InitializationChunk extends Chunk {
                     this.extractorWrapper.init(null);
                 }
                 Extractor extractor = this.extractorWrapper.extractor;
-                int i2 = 0;
-                while (i2 == 0 && !this.loadCanceled) {
-                    i2 = extractor.read(defaultExtractorInput, null);
+                int i = 0;
+                while (i == 0 && !this.loadCanceled) {
+                    i = extractor.read(defaultExtractorInput, null);
                 }
-                Assertions.checkState(i2 != 1);
+                Assertions.checkState(i != 1);
                 this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
             } finally {
                 Util.closeQuietly(this.dataSource);

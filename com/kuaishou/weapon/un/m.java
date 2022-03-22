@@ -13,31 +13,27 @@ public class m implements Serializable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53715b;
+    public int f38901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53716c;
+    public String f38902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53717d;
+    public String f38903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53718e;
+    public String f38904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53719f;
+    public int f38905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53720g;
+    public int f38906g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53721h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f53722i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f53723j;
+    public int f38907h;
+    public int i;
+    public String j;
     public String k;
     public String l;
     public int m;
@@ -48,9 +44,9 @@ public class m implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

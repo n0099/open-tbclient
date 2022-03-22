@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -64,16 +63,16 @@ public class LoginManager {
             $VALUES = new LoginState[]{NOT_LOGIN, LOGINING, loginState};
         }
 
-        public LoginState(String str, int i2) {
+        public LoginState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -118,9 +117,9 @@ public class LoginManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -142,9 +141,9 @@ public class LoginManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -182,7 +181,7 @@ public class LoginManager {
     private String getStateString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : PayStatServiceEvent.NOT_LOGIN : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.mLoginState.equals(LoginState.LOGINING) ? "logining" : this.mLoginState.equals(LoginState.LOGINED) ? "logged" : "not_login" : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -193,10 +192,10 @@ public class LoginManager {
             String str = this.TAG;
             LogUtils.d(str, "lcp，im login ：" + IMUserLoginByTokenMsg.sRetrytimes + ", loginType :" + loginType);
             if (z) {
-                Handler handler = a.f25912c;
+                Handler handler = a.f21226c;
                 if (handler != null) {
                     handler.removeCallbacks(this.imLoginRunable);
-                    a.f25912c.postDelayed(this.imLoginRunable, 3000L);
+                    a.f21226c.postDelayed(this.imLoginRunable, 3000L);
                 }
             } else if (loginType == 1) {
                 BIMManager.login(Utility.readUid(mContext), AccountManagerImpl.getInstance(mContext).getToken(), loginType, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
@@ -213,16 +212,16 @@ public class LoginManager {
         }
     }
 
-    private void triggleLoginListenerCallBack(int i2, String str) {
+    private void triggleLoginListenerCallBack(int i, String str) {
         ArrayList<ILoginListener> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65543, this, i2, str) == null) || (arrayList = this.mLoginListeners) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeIL(65543, this, i, str) == null) || (arrayList = this.mLoginListeners) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<ILoginListener> it = this.mLoginListeners.iterator();
         while (it.hasNext()) {
             try {
-                it.next().onLoginResult(i2, str);
+                it.next().onLoginResult(i, str);
             } catch (Error e2) {
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
             }
@@ -259,10 +258,10 @@ public class LoginManager {
         return (ArrayList) invokeV.objValue;
     }
 
-    public void imRetryLogin(int i2) {
+    public void imRetryLogin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            switch (i) {
                 case 4001:
                     imLogin(false);
                     return;
@@ -320,25 +319,25 @@ public class LoginManager {
         }
     }
 
-    public synchronized void onLoginResultInternal(int i2, String str) {
+    public synchronized void onLoginResultInternal(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
             synchronized (this) {
-                LogUtils.d(this.TAG, "HB> onLoginResultInternal, responseCode = " + i2 + ", errMsg = " + str);
-                if (i2 == 0) {
+                LogUtils.d(this.TAG, "HB> onLoginResultInternal, responseCode = " + i + ", errMsg = " + str);
+                if (i == 0) {
                     this.mLoginState = LoginState.LOGINED;
                     this.cidTryLoginedTimes = 1;
-                } else if (i2 == 23 && AccountManagerImpl.getInstance(mContext).getLoginType() == 6 && this.cidTryLoginedTimes > 0) {
+                } else if (i == 23 && AccountManagerImpl.getInstance(mContext).getLoginType() == 6 && this.cidTryLoginedTimes > 0) {
                     BIMManager.login(null, AccountManagerImpl.getInstance(mContext).getCuid(), 6, AccountManagerImpl.getInstance(mContext).getFrom(), AccountManagerImpl.getInstance(mContext).getcFrom(), removeLoginListener());
                     this.cidTryLoginedTimes--;
                     this.mLoginState = LoginState.NOT_LOGIN;
                     return;
-                } else if (110 != i2 && 7 != i2 && 23 != i2 && 1004 != i2 && 1001 != i2 && 8010 != i2) {
-                    LogUtils.d(this.TAG, "error :" + i2 + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f25914e);
+                } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
+                    LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.f21228e);
                     this.mLoginState = LoginState.NOT_LOGIN;
-                    if (a.f25914e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
-                        imRetryLogin(i2);
-                    } else if (!a.f25914e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+                    if (a.f21228e && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+                        imRetryLogin(i);
+                    } else if (!a.f21228e && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                         LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                         IMConnection.getInstance(mContext).disconnectedByPeer();
                     }
@@ -347,16 +346,16 @@ public class LoginManager {
                     this.mLoginState = LoginState.NOT_LOGIN;
                 }
                 printCurrentState();
-                triggleLoginListenerCallBack(i2, str);
+                triggleLoginListenerCallBack(i, str);
             }
         }
     }
 
-    public synchronized void onLogoutResultInternal(int i2, String str) {
+    public synchronized void onLogoutResultInternal(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
             synchronized (this) {
-                if (i2 == 0) {
+                if (i == 0) {
                     this.mLoginState = LoginState.NOT_LOGIN;
                 }
                 printCurrentState();
@@ -389,22 +388,22 @@ public class LoginManager {
         }
     }
 
-    public synchronized void triggleLogoutListener(int i2, String str) {
+    public synchronized void triggleLogoutListener(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
             synchronized (this) {
                 this.mLoginState = LoginState.NOT_LOGIN;
                 printCurrentState();
                 String str2 = this.TAG;
                 LogUtils.d(str2, "triggleLogoutListener logout :" + this.mLoginListeners.size());
-                if (4001 == i2) {
+                if (4001 == i) {
                     imLogin(false);
-                } else if (4005 != i2 && 4003 != i2 && 4004 != i2) {
+                } else if (4005 != i && 4003 != i && 4004 != i) {
                     if (this.mLoginListeners != null && this.mLoginListeners.size() != 0) {
                         Iterator<ILoginListener> it = this.mLoginListeners.iterator();
                         while (it.hasNext()) {
                             try {
-                                it.next().onLogoutResult(i2, str, AccountManagerImpl.getInstance(mContext).getLoginType());
+                                it.next().onLogoutResult(i, str, AccountManagerImpl.getInstance(mContext).getLoginType());
                             } catch (Error e2) {
                                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
                             }

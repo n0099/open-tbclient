@@ -15,42 +15,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f51646b;
+        public static final a f38072b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f51647c;
+        public static final a f38073c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f51648d;
+        public static final a f38074d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f51649e;
+        public static final a f38075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f51650f;
+        public static final a f38076f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f51651g;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f51652i;
+        public static final a f38077g;
+        public static final /* synthetic */ a[] i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f51653h;
+        public final int f38078h;
 
         static {
             InterceptResult invokeClinit;
@@ -66,14 +64,14 @@ public final class d {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, -1);
-            f51646b = new a("NONE", 1, 0);
-            f51647c = new a("MOBILE", 2, 1);
-            f51648d = new a("MOBILE_2G", 3, 2);
-            f51649e = new a("MOBILE_3G", 4, 3);
-            f51650f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            f38072b = new a("NONE", 1, 0);
+            f38073c = new a("MOBILE", 2, 1);
+            f38074d = new a("MOBILE_2G", 3, 2);
+            f38075e = new a("MOBILE_3G", 4, 3);
+            f38076f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
-            f51651g = aVar;
-            f51652i = new a[]{a, f51646b, f51647c, f51648d, f51649e, f51650f, aVar};
+            f38077g = aVar;
+            i = new a[]{a, f38072b, f38073c, f38074d, f38075e, f38076f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -94,7 +92,7 @@ public final class d {
                     return;
                 }
             }
-            this.f51653h = i3;
+            this.f38078h = i3;
         }
 
         public static a valueOf(String str) {
@@ -106,7 +104,7 @@ public final class d {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f51652i.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) i.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -153,7 +151,7 @@ public final class d {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return a.f51650f;
+                        return a.f38076f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -166,21 +164,21 @@ public final class d {
                             case 12:
                             case 14:
                             case 15:
-                                return a.f51649e;
+                                return a.f38075e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return a.f51647c;
+                                return a.f38073c;
                             case 13:
-                                return a.f51651g;
+                                return a.f38077g;
                         }
                     }
-                    return a.f51647c;
+                    return a.f38073c;
                 }
-                return a.f51646b;
+                return a.f38072b;
             } catch (Throwable unused) {
-                return a.f51647c;
+                return a.f38073c;
             }
         }
         return (a) invokeL.objValue;

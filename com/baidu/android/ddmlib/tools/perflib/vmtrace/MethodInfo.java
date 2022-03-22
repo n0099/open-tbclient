@@ -22,27 +22,27 @@ public class MethodInfo {
     public final int srcLineNumber;
     public final String srcPath;
 
-    public MethodInfo(long j2, String str, String str2, String str3, String str4, int i2) {
+    public MethodInfo(long j, String str, String str2, String str3, String str4, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = j2;
+        this.id = j;
         this.className = str;
         this.methodName = str2;
         this.signature = str3;
         this.srcPath = str4;
-        this.srcLineNumber = i2;
+        this.srcLineNumber = i;
     }
 
     private String getUnqualifiedClassName() {

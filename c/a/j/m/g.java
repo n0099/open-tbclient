@@ -42,9 +42,9 @@ public final class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -122,20 +122,20 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(c.a.j.h.b.b.f3674c.h().getAppVersion(), "")) {
+            if (Intrinsics.areEqual(c.a.j.h.b.b.f3162c.h().getAppVersion(), "")) {
                 String b2 = c.a.j.h.d.b.b();
                 Intrinsics.checkExpressionValueIsNotNull(b2, "AppUtils.getVersionName()");
                 return b2;
             }
-            return c.a.j.h.b.b.f3674c.h().getAppVersion();
+            return c.a.j.h.b.b.f3162c.h().getAppVersion();
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean c(long j2) {
+    public final boolean c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? f.a.a() <= j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? f.a.a() <= j : invokeJ.booleanValue;
     }
 
     public final boolean d(String str) {

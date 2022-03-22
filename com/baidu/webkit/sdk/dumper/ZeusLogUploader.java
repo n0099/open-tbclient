@@ -1,7 +1,6 @@
 package com.baidu.webkit.sdk.dumper;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebViewFactory;
@@ -82,9 +80,9 @@ public final class ZeusLogUploader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -135,9 +133,9 @@ public final class ZeusLogUploader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zeusLogUploader, str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2), onFinishedListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -161,9 +159,9 @@ public final class ZeusLogUploader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zeusLogUploader, fileArr, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), onFinishedListener};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -173,8 +171,8 @@ public final class ZeusLogUploader {
             this.status = 0;
             this.msg = new StringBuffer("");
             this.files = new String[fileArr.length];
-            for (int i4 = 0; i4 < fileArr.length; i4++) {
-                this.files[i4] = fileArr[i4].getPath();
+            for (int i3 = 0; i3 < fileArr.length; i3++) {
+                this.files[i3] = fileArr[i3].getPath();
             }
             this.deletAfterUpload = z2;
             this.listener = onFinishedListener;
@@ -200,7 +198,7 @@ public final class ZeusLogUploader {
             boolean z2;
             OnFinishedListener onFinishedListener;
             byte[] bArr;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 for (String str : this.files) {
@@ -210,14 +208,14 @@ public final class ZeusLogUploader {
                             int available = fileInputStream.available();
                             if (this.cuid == null || this.logType.equals("crashlog")) {
                                 bArr = new byte[available];
-                                i2 = 0;
+                                i = 0;
                             } else {
-                                i2 = this.cuid.getBytes().length;
-                                bArr = new byte[available + i2];
+                                i = this.cuid.getBytes().length;
+                                bArr = new byte[available + i];
                                 System.arraycopy(this.cuid.getBytes(), 0, bArr, 0, this.cuid.getBytes().length);
                             }
                             do {
-                                i2 += fileInputStream.read(bArr, i2, available);
+                                i += fileInputStream.read(bArr, i, available);
                                 available = fileInputStream.available();
                             } while (available > 0);
                             z2 = ZeusLogUploader.uploadFileEncryptJudge(bArr);
@@ -288,7 +286,7 @@ public final class ZeusLogUploader {
 
     /* loaded from: classes6.dex */
     public interface OnFinishedListener {
-        void onFinished(String str, int i2, String str2);
+        void onFinished(String str, int i, String str2);
     }
 
     static {
@@ -316,9 +314,9 @@ public final class ZeusLogUploader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -349,25 +347,25 @@ public final class ZeusLogUploader {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Boolean.valueOf(z), onFinishedListener})) == null) ? new ZeusLogUploader(str2, null, true).uploadLogFile(str, z, onFinishedListener) : invokeCommon.booleanValue;
     }
 
-    public static byte[] doCompress(byte[] bArr, int i2, StringBuffer stringBuffer) {
+    public static byte[] doCompress(byte[] bArr, int i, StringBuffer stringBuffer) {
         InterceptResult invokeLIL;
         GZIPOutputStream gZIPOutputStream;
         ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, null, bArr, i2, stringBuffer)) != null) {
+        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(65543, null, bArr, i, stringBuffer)) != null) {
             return (byte[]) invokeLIL.objValue;
         }
-        if (bArr == null || i2 <= 0) {
+        if (bArr == null || i <= 0) {
             stringBuffer.append("doCompress Failed, source is null; ");
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr2 = new byte[4096];
         try {
-            if (i2 > bArr.length) {
-                i2 = bArr.length;
+            if (i > bArr.length) {
+                i = bArr.length;
             }
-            byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i2);
+            byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i);
             try {
                 GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(byteArrayOutputStream);
                 while (true) {
@@ -432,24 +430,24 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public byte[] doEncryptUploadFailedFile(byte[] bArr, int i2, boolean z) {
+    public byte[] doEncryptUploadFailedFile(byte[] bArr, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bArr == null || bArr.length <= 0 || i2 <= 0 || mEncryptKey == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (bArr == null || bArr.length <= 0 || i <= 0 || mEncryptKey == null) {
                 return null;
             }
-            if (i2 > bArr.length) {
-                i2 = bArr.length;
+            if (i > bArr.length) {
+                i = bArr.length;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            byte[] bArr2 = new byte[i2];
-            System.arraycopy(bArr, 0, bArr2, 0, i2);
+            byte[] bArr2 = new byte[i];
+            System.arraycopy(bArr, 0, bArr2, 0, i);
             RC4 rc4 = new RC4(mEncryptKey);
             byte[] encrypt = z ? rc4.encrypt(bArr2) : rc4.decrypt(bArr2);
             long currentTimeMillis2 = System.currentTimeMillis();
             Object[] objArr = new Object[2];
-            objArr[0] = z ? LightappBusinessClient.MTD_ENCRYPT : LightappBusinessClient.MTD_DECRYPT;
+            objArr[0] = z ? "encrypt" : "decrypt";
             objArr[1] = Long.valueOf(currentTimeMillis2 - currentTimeMillis);
             Log.d(TAG, "%s upload file run time: %d (ms)", objArr);
             return encrypt;
@@ -517,7 +515,7 @@ public final class ZeusLogUploader {
                 Certificate generateCertificate = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
                 KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null, null);
-                keyStore.setCertificateEntry(ConstantHelper.LOG_CATE, generateCertificate);
+                keyStore.setCertificateEntry("ca", generateCertificate);
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
                 trustManagerFactory.init(keyStore);
                 SSLContext.getInstance("TLS").init(null, trustManagerFactory.getTrustManagers(), null);
@@ -663,7 +661,7 @@ public final class ZeusLogUploader {
         if (str == null) {
             return 5;
         }
-        int i2 = z ? 6 : 7;
+        int i = z ? 6 : 7;
         File file = new File(str);
         ?? exists = file.exists();
         FileOutputStream fileOutputStream = null;
@@ -690,7 +688,7 @@ public final class ZeusLogUploader {
                                 try {
                                     break;
                                 } catch (Exception unused2) {
-                                    i2 = 5;
+                                    i = 5;
                                 }
                             }
                         }
@@ -708,7 +706,7 @@ public final class ZeusLogUploader {
                         if (dataInputStream != null) {
                             dataInputStream.close();
                         }
-                        i2 = 5;
+                        i = 5;
                         byteArrayOutputStream = exists;
                         doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
                         if (doEncryptUploadFailedFile != null) {
@@ -755,7 +753,7 @@ public final class ZeusLogUploader {
                 }
                 fileOutputStream2.flush();
                 fileOutputStream2.close();
-                return i2;
+                return i;
             } catch (Exception unused9) {
                 fileOutputStream = fileOutputStream2;
                 if (fileOutputStream != null) {

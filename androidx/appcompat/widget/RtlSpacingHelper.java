@@ -25,9 +25,9 @@ public class RtlSpacingHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,17 +67,17 @@ public class RtlSpacingHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsRtl ? this.mRight : this.mLeft : invokeV.intValue;
     }
 
-    public void setAbsolute(int i2, int i3) {
+    public void setAbsolute(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             this.mIsRelative = false;
-            if (i2 != Integer.MIN_VALUE) {
-                this.mExplicitLeft = i2;
-                this.mLeft = i2;
+            if (i != Integer.MIN_VALUE) {
+                this.mExplicitLeft = i;
+                this.mLeft = i;
             }
-            if (i3 != Integer.MIN_VALUE) {
-                this.mExplicitRight = i3;
-                this.mRight = i3;
+            if (i2 != Integer.MIN_VALUE) {
+                this.mExplicitRight = i2;
+                this.mRight = i2;
             }
         }
     }
@@ -92,51 +92,51 @@ public class RtlSpacingHelper {
             this.mLeft = this.mExplicitLeft;
             this.mRight = this.mExplicitRight;
         } else if (z) {
-            int i2 = this.mEnd;
-            if (i2 == Integer.MIN_VALUE) {
-                i2 = this.mExplicitLeft;
+            int i = this.mEnd;
+            if (i == Integer.MIN_VALUE) {
+                i = this.mExplicitLeft;
             }
-            this.mLeft = i2;
+            this.mLeft = i;
+            int i2 = this.mStart;
+            if (i2 == Integer.MIN_VALUE) {
+                i2 = this.mExplicitRight;
+            }
+            this.mRight = i2;
+        } else {
             int i3 = this.mStart;
             if (i3 == Integer.MIN_VALUE) {
-                i3 = this.mExplicitRight;
+                i3 = this.mExplicitLeft;
             }
-            this.mRight = i3;
-        } else {
-            int i4 = this.mStart;
+            this.mLeft = i3;
+            int i4 = this.mEnd;
             if (i4 == Integer.MIN_VALUE) {
-                i4 = this.mExplicitLeft;
+                i4 = this.mExplicitRight;
             }
-            this.mLeft = i4;
-            int i5 = this.mEnd;
-            if (i5 == Integer.MIN_VALUE) {
-                i5 = this.mExplicitRight;
-            }
-            this.mRight = i5;
+            this.mRight = i4;
         }
     }
 
-    public void setRelative(int i2, int i3) {
+    public void setRelative(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.mStart = i2;
-            this.mEnd = i3;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            this.mStart = i;
+            this.mEnd = i2;
             this.mIsRelative = true;
             if (this.mIsRtl) {
-                if (i3 != Integer.MIN_VALUE) {
-                    this.mLeft = i3;
-                }
                 if (i2 != Integer.MIN_VALUE) {
-                    this.mRight = i2;
+                    this.mLeft = i2;
+                }
+                if (i != Integer.MIN_VALUE) {
+                    this.mRight = i;
                     return;
                 }
                 return;
             }
-            if (i2 != Integer.MIN_VALUE) {
-                this.mLeft = i2;
+            if (i != Integer.MIN_VALUE) {
+                this.mLeft = i;
             }
-            if (i3 != Integer.MIN_VALUE) {
-                this.mRight = i3;
+            if (i2 != Integer.MIN_VALUE) {
+                this.mRight = i2;
             }
         }
     }

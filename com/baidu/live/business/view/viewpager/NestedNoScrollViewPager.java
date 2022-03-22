@@ -15,9 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NestedNoScrollViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f33479e;
+    public boolean a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NestedNoScrollViewPager(@NonNull Context context) {
@@ -28,9 +26,9 @@ public class NestedNoScrollViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -41,12 +39,12 @@ public class NestedNoScrollViewPager extends ViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public boolean canScrollHorizontally(int i2) {
+    public boolean canScrollHorizontally(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f33479e) {
-                return super.canScrollHorizontally(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.a) {
+                return super.canScrollHorizontally(i);
             }
             return false;
         }
@@ -58,7 +56,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f33479e) {
+            if (this.a) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -71,7 +69,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (this.f33479e) {
+            if (this.a) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -93,7 +91,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public void setCanScrollHorizontally(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f33479e = z;
+            this.a = z;
         }
     }
 
@@ -106,9 +104,9 @@ public class NestedNoScrollViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

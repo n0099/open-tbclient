@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,14 +28,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f51738b;
+    public LinkedHashMap<String, Integer> f38159b;
 
     static {
         InterceptResult invokeClinit;
@@ -64,16 +65,16 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f51738b = linkedHashMap;
+        this.f38159b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -92,10 +93,10 @@ public final class a {
                 str2 = str3;
             }
             if (accessibleMethod != null) {
-                int i2 = 3;
+                int i = 3;
                 while (true) {
-                    int i3 = i2 - 1;
-                    if (i2 < 0) {
+                    int i2 = i - 1;
+                    if (i < 0) {
                         break;
                     }
                     try {
@@ -108,7 +109,7 @@ public final class a {
                         break;
                     }
                     ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor invoke AssetManager.addAssetPath() failed, cookie = ".concat(String.valueOf(intValue)));
-                    i2 = i3;
+                    i = i2;
                 }
             } else {
                 ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor reflect AssetManager.addAssetPath() failed. addAssetPathMethod == null. asSharedLibrary = ".concat(String.valueOf(z)));
@@ -122,37 +123,37 @@ public final class a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, assetManager, str, z)) == null) {
-            int i2 = 3;
+            int i = 3;
             Throwable th = null;
-            int i3 = 3;
+            int i2 = 3;
             while (true) {
-                int i4 = i3 - 1;
-                if (i3 < 0) {
+                int i3 = i2 - 1;
+                if (i2 < 0) {
                     break;
                 }
                 try {
                     synchronized (assetManager) {
-                        int i5 = 0;
-                        for (int i6 = 0; i6 < i2; i6++) {
+                        int i4 = 0;
+                        for (int i5 = 0; i5 < i; i5++) {
                             if (g.b()) {
-                                i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
+                                i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
                             } else if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
-                                i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
+                                i4 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
                             }
-                            if (i5 != 0) {
+                            if (i4 != 0) {
                                 break;
                             }
                         }
-                        if (i5 != 0) {
+                        if (i4 != 0) {
                             Object readField = FieldUtils.readField(assetManager, "mStringBlocks");
                             int length = readField != null ? Array.getLength(readField) : 0;
                             int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
                             Object newInstance = Array.newInstance(readField.getClass().getComponentType(), intValue);
-                            for (int i7 = 0; i7 < intValue; i7++) {
-                                if (i7 < length) {
-                                    Array.set(newInstance, i7, Array.get(readField, i7));
+                            for (int i6 = 0; i6 < intValue; i6++) {
+                                if (i6 < length) {
+                                    Array.set(newInstance, i6, Array.get(readField, i6));
                                 } else {
-                                    Array.set(newInstance, i7, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i7)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
+                                    Array.set(newInstance, i6, MethodUtils.invokeConstructor(readField.getClass().getComponentType(), new Object[]{Long.valueOf(((Long) MethodUtils.invokeMethod(assetManager, "getNativeStringBlock", new Object[]{Integer.valueOf(i6)}, new Class[]{Integer.TYPE})).longValue()), Boolean.TRUE}, new Class[]{Long.TYPE, Boolean.TYPE}));
                                 }
                             }
                             FieldUtils.writeField(assetManager, "mStringBlocks", newInstance);
@@ -161,8 +162,8 @@ public final class a {
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    i3 = i4;
-                    i2 = 3;
+                    i2 = i3;
+                    i = 3;
                 }
             }
             if (th != null) {
@@ -179,8 +180,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
             if (g.a()) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 21 && i2 <= 25) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 21 && i <= 25) {
                     a2 = c(assetManager, str, z);
                     if (!h.a(a2, str)) {
                         a2 = b(assetManager, str, z);
@@ -191,8 +192,8 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f51738b) {
-                this.f51738b.put(str, 0);
+            synchronized (this.f38159b) {
+                this.f38159b.put(str, 0);
             }
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
             return a2;
@@ -209,7 +210,7 @@ public final class a {
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.f51738b.containsKey(str2) && !str2.equals(str)) {
+                if (!a.containsKey(str2) && !this.f38159b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -221,8 +222,8 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f51738b) {
-                    for (Map.Entry<String, Integer> entry : this.f51738b.entrySet()) {
+                synchronized (this.f38159b) {
+                    for (Map.Entry<String, Integer> entry : this.f38159b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);
@@ -244,7 +245,7 @@ public final class a {
                 if ((Build.VERSION.SDK_INT >= 21 && Build.VERSION.SDK_INT < 23) && !sb.toString().toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
                     try {
                         Resources resources = Zeus.getAppApplication().getResources();
-                        String str4 = Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", "string", "android")), 0).getApplicationInfo().sourceDir;
+                        String str4 = Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir;
                         if (!TextUtils.isEmpty(str4)) {
                             b(assetManager2, str4, false);
                         }

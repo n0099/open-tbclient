@@ -17,12 +17,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
             Matrix matrix = new Matrix();
-            matrix.setRotate(i2, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
+            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
             matrix.postScale(-1.0f, 1.0f);
             try {
                 return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
@@ -34,15 +34,15 @@ public class e {
         return (Bitmap) invokeLI.objValue;
     }
 
-    public static Bitmap b(Bitmap bitmap, int i2) {
+    public static Bitmap b(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, height / 4, width, height / 2, (Matrix) null, false);
             Matrix matrix = new Matrix();
-            matrix.postRotate(i2, createBitmap.getWidth() / 2.0f, createBitmap.getHeight() / 2.0f);
+            matrix.postRotate(i, createBitmap.getWidth() / 2.0f, createBitmap.getHeight() / 2.0f);
             return Bitmap.createBitmap(createBitmap, 0, 0, createBitmap.getWidth(), createBitmap.getHeight(), matrix, false);
         }
         return (Bitmap) invokeLI.objValue;
@@ -69,19 +69,19 @@ public class e {
         return (Bitmap) invokeLL.objValue;
     }
 
-    public static Bitmap rotateBitmap(Bitmap bitmap, int i2) {
+    public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             Matrix matrix = new Matrix();
             float f3 = width / 2.0f;
             float f4 = height / 2.0f;
-            matrix.setRotate(i2, f3, f4);
+            matrix.setRotate(i, f3, f4);
             float f5 = 0.0f;
-            if (i2 != 90 && i2 != 270) {
+            if (i != 90 && i != 270) {
                 f2 = 0.0f;
             } else if (width > height) {
                 float f6 = f4 - f3;

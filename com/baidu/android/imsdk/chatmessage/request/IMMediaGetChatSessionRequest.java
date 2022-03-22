@@ -31,16 +31,16 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public String mKey;
     public int mNeedTop;
 
-    public IMMediaGetChatSessionRequest(Context context, long j2, int i2, long j3, String str) {
+    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,9 +50,9 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorPauid = -1L;
         this.mNeedTop = -1;
         this.mContext = context;
-        this.mContacter = j2;
-        this.mCount = i2;
-        this.mEndTime = j3;
+        this.mContacter = j;
+        this.mCount = i;
+        this.mEndTime = j2;
         this.mKey = str;
     }
 
@@ -114,11 +114,11 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
                 jSONObject.put("need_top", this.mNeedTop);
-                int i2 = 20;
+                int i = 20;
                 if (this.mCount <= 20) {
-                    i2 = this.mCount;
+                    i = this.mCount;
                 }
-                jSONObject.put("count", i2);
+                jSONObject.put("count", i);
                 jSONObject.put("sign", generateSign(jSONObject));
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "Exception ", e2);
@@ -129,10 +129,10 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
             ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(((Integer) transErrorCode.first).intValue(), false, 0, 0, null, null, null, this.mKey);
         }
@@ -511,16 +511,16 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaGetChatSessionRequest(Context context, long j2, int i2, long j3, String str, int i3, long j4, int i4, String str2) {
+    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Integer.valueOf(i3), Long.valueOf(j4), Integer.valueOf(i4), str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -530,13 +530,13 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorPauid = -1L;
         this.mNeedTop = -1;
         this.mContext = context;
-        this.mContacter = j2;
-        this.mCount = i3;
-        this.mEndTime = j4;
+        this.mContacter = j;
+        this.mCount = i2;
+        this.mEndTime = j3;
         this.mKey = str2;
-        this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
-        this.mNeedTop = i4;
+        this.mNeedTop = i3;
     }
 }

@@ -11,7 +11,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
             return;
         }
         aVar.a = jSONObject.optInt("timerName");
-        aVar.f55017b = jSONObject.optInt("time");
+        aVar.f40102b = jSONObject.optInt("time");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ei implements com.kwad.sdk.core.d<u.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "timerName", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f55017b);
+        com.kwad.sdk.utils.t.a(jSONObject, "time", aVar.f40102b);
         return jSONObject;
     }
 }

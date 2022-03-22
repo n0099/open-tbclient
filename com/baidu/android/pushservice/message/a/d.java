@@ -58,9 +58,9 @@ public class d extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -94,18 +94,18 @@ public class d extends c {
     */
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             String e2 = kVar.e();
             String h2 = kVar.h();
-            int i3 = kVar.i();
+            int i2 = kVar.i();
             int b2 = kVar.b();
             byte[] k = kVar.k();
             String f2 = kVar.f();
             PublicMsg a = i.a(this.a, h2, e2, bArr);
             if (a == null || TextUtils.isEmpty(a.mDescription)) {
-                i2 = 2;
+                i = 2;
             } else {
                 com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.a, e2);
                 if (TextUtils.isEmpty(f2) || !m.b(this.a, f2)) {
@@ -113,9 +113,9 @@ public class d extends c {
                         f2 = a2.a.b();
                     }
                     m.a(this.a, a);
-                    i2 = 1;
+                    i = 1;
                     if (AnonymousClass1.a[a2.a().ordinal()] == 1) {
-                        i2 = 7;
+                        i = 7;
                     } else {
                         PackageManager packageManager = this.a.getPackageManager();
                         try {
@@ -123,22 +123,22 @@ public class d extends c {
                             if (TextUtils.isEmpty(a.mTitle)) {
                                 a.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                             }
-                            e.a(this.a, a, h2, e2, i3, k, bArr, b2, kVar.c());
+                            e.a(this.a, a, h2, e2, i2, k, bArr, b2, kVar.c());
                             String str = h2 + " is showing Notification!";
                         } catch (PackageManager.NameNotFoundException e3) {
                             new b.c(this.a).a(Log.getStackTraceString(e3)).a();
-                            i2 = 8;
+                            i = 8;
                         }
                     }
                 }
                 a.mPkgName = f2;
                 m.a(this.a, a);
-                i2 = 1;
+                i = 1;
                 if (AnonymousClass1.a[a2.a().ordinal()] == 1) {
                 }
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            gVar.a(i2);
+            gVar.a(i);
             return gVar;
         }
         return (com.baidu.android.pushservice.message.g) invokeLL.objValue;

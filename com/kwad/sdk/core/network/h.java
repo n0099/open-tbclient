@@ -10,7 +10,7 @@ public interface h<R extends g, T extends BaseResultData> {
     void a(@NonNull R r);
 
     @WorkerThread
-    void a(@NonNull R r, int i2, String str);
+    void a(@NonNull R r, int i, String str);
 
     @WorkerThread
     void a(@NonNull R r, @NonNull T t);

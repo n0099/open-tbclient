@@ -17,7 +17,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, callable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -101,10 +101,10 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
     }
 
     @Override // java.util.concurrent.Future
-    public V get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) ? this.mListenableFuture.get(j2, timeUnit) : (V) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) ? this.mListenableFuture.get(j, timeUnit) : (V) invokeJL.objValue;
     }
 
     public ScheduledFutureImpl(Handler handler, Runnable runnable, @Nullable V v) {
@@ -114,9 +114,9 @@ public class ScheduledFutureImpl<V> implements RunnableFuture<V>, ScheduledFutur
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, runnable, v};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

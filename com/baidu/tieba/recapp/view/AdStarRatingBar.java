@@ -17,19 +17,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AdStarRatingBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AppCompatRatingBar a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public AppCompatRatingBar f46233e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f35766b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f46234f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f46235g;
+    /* renamed from: c  reason: collision with root package name */
+    public int f35767c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdStarRatingBar(@NonNull Context context) {
@@ -40,9 +38,9 @@ public class AdStarRatingBar extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -52,25 +50,25 @@ public class AdStarRatingBar extends FrameLayout {
         }
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.ad_star_rating_bar, this);
-            this.f46233e = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
-            this.f46234f = (TextView) findViewById(R.id.ad_rating_text);
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.icon_rating_bar_star_selected).getIntrinsicHeight();
-            ViewGroup.LayoutParams layoutParams = this.f46233e.getLayoutParams();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0073, this);
+            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900df);
+            this.f35766b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e0);
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f0809eb).getIntrinsicHeight();
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;
-            this.f46233e.setLayoutParams(layoutParams);
-            SkinManager.setViewTextColor(this.f46234f, this.f46235g);
+            this.a.setLayoutParams(layoutParams);
+            SkinManager.setViewTextColor(this.f35766b, this.f35767c);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.f46234f, this.f46235g);
+            SkinManager.setViewTextColor(this.f35766b, this.f35767c);
         }
     }
 
@@ -79,23 +77,23 @@ public class AdStarRatingBar extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 < 0.0f) {
             return;
         }
-        this.f46234f.setText(String.valueOf(f2));
-        this.f46233e.setRating(f2);
+        this.f35766b.setText(String.valueOf(f2));
+        this.a.setRating(f2);
     }
 
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f46235g = i2;
-            SkinManager.setViewTextColor(this.f46234f, i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f35767c = i;
+            SkinManager.setViewTextColor(this.f35766b, i);
             postInvalidate();
         }
     }
 
-    public void setTextSize(int i2) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f46234f.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f35766b.setText(i);
         }
     }
 
@@ -108,9 +106,9 @@ public class AdStarRatingBar extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -121,17 +119,17 @@ public class AdStarRatingBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdStarRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdStarRatingBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -139,7 +137,7 @@ public class AdStarRatingBar extends FrameLayout {
                 return;
             }
         }
-        this.f46235g = R.color.CAM_X0109;
-        init();
+        this.f35767c = R.color.CAM_X0109;
+        a();
     }
 }

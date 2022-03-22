@@ -74,19 +74,19 @@ public class WebChromeClient {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static Uri[] parseResult(int i2, Intent intent) {
+        public static Uri[] parseResult(int i, Intent intent) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, intent)) == null) ? WebViewFactory.getProvider().getStatics().parseFileChooserResult(i2, intent) : (Uri[]) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, intent)) == null) ? WebViewFactory.getProvider().getStatics().parseFileChooserResult(i, intent) : (Uri[]) invokeIL.objValue;
         }
 
         public abstract Intent createIntent();
@@ -125,9 +125,9 @@ public class WebChromeClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -201,17 +201,17 @@ public class WebChromeClient {
         return (Class) invokeL.objValue;
     }
 
-    private String getReturnValueInJSON(int i2, String str, String str2) {
+    private String getReturnValueInJSON(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i2, str, str2)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("error", i2);
+                jSONObject.put("error", i);
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("msg", str);
                 }
-                if (i2 == 0 && str2 != null) {
+                if (i == 0 && str2 != null) {
                     jSONObject.put("result", str2);
                 }
             } catch (JSONException e2) {
@@ -292,10 +292,10 @@ public class WebChromeClient {
                 int length = objArr != null ? objArr.length : 0;
                 if (length > 0) {
                     clsArr = new Class[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        clsArr[i2] = getClassFromJsonObject(objArr[i2]);
+                    for (int i = 0; i < length; i++) {
+                        clsArr[i] = getClassFromJsonObject(objArr[i]);
                         if (DEBUG) {
-                            Log.d(LOG_TAG, "type:" + clsArr[i2].getName());
+                            Log.d(LOG_TAG, "type:" + clsArr[i].getName());
                         }
                     }
                 } else {
@@ -385,9 +385,9 @@ public class WebChromeClient {
                             sb.append("'");
                             sb.append(objArr[0]);
                             sb.append("'");
-                            for (int i3 = 1; i3 < length; i3++) {
+                            for (int i2 = 1; i2 < length; i2++) {
                                 sb.append(",'");
-                                sb.append(objArr[i3]);
+                                sb.append(objArr[i2]);
                                 sb.append("'");
                             }
                         }
@@ -489,8 +489,8 @@ public class WebChromeClient {
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     objArr = new Object[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        objArr[i2] = optJSONArray.get(i2);
+                    for (int i = 0; i < length; i++) {
+                        objArr[i] = optJSONArray.get(i);
                     }
                     if (DEBUG) {
                         StringBuilder sb = new StringBuilder();
@@ -502,9 +502,9 @@ public class WebChromeClient {
                             sb.append("\"");
                             sb.append(objArr[0]);
                             sb.append("\"");
-                            for (int i3 = 1; i3 < length; i3++) {
+                            for (int i2 = 1; i2 < length; i2++) {
                                 sb.append(",\"");
-                                sb.append(objArr[i3]);
+                                sb.append(objArr[i2]);
                                 sb.append("\"");
                             }
                         }
@@ -526,9 +526,9 @@ public class WebChromeClient {
         return invokeLLLLL.booleanValue;
     }
 
-    public void hideMagnifier(WebView webView, int i2, int i3) {
+    public void hideMagnifier(WebView webView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, webView, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048583, this, webView, i, i2) == null) {
         }
     }
 
@@ -555,9 +555,9 @@ public class WebChromeClient {
         return invokeLLLL.objValue;
     }
 
-    public void moveMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
+    public void moveMagnifier(WebView webView, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
@@ -576,9 +576,9 @@ public class WebChromeClient {
         }
     }
 
-    public void notifyClientStatus(WebView webView, int i2) {
+    public void notifyClientStatus(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, webView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, webView, i) == null) {
         }
     }
 
@@ -589,9 +589,9 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onConsoleMessage(String str, int i2, String str2) {
+    public void onConsoleMessage(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048591, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048591, this, str, i, str2) == null) {
             handleGetVersionMessage(str);
         }
     }
@@ -621,10 +621,10 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j);
         }
     }
 
@@ -726,23 +726,23 @@ public class WebChromeClient {
         }
     }
 
-    public void onPrerenderChanged(int i2, WebView.PrerenderStatus prerenderStatus) {
+    public void onPrerenderChanged(int i, WebView.PrerenderStatus prerenderStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048608, this, i2, prerenderStatus) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048608, this, i, prerenderStatus) == null) {
         }
     }
 
-    public void onProgressChanged(WebView webView, int i2) {
+    public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048609, this, webView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048609, this, webView, i) == null) {
         }
     }
 
     @Deprecated
-    public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j3);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j2);
         }
     }
 
@@ -777,9 +777,9 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onShowCustomView(View view, int i2, CustomViewCallback customViewCallback) {
+    public void onShowCustomView(View view, int i, CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048616, this, view, i2, customViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048616, this, view, i, customViewCallback) == null) {
         }
     }
 
@@ -822,16 +822,16 @@ public class WebChromeClient {
         }
     }
 
-    public void performLongClick(WebView webView, int i2, String str, String str2, int i3, int i4) {
+    public void performLongClick(WebView webView, int i, String str, String str2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{webView, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{webView, Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             webView.mHasPerformedLongPress = true;
         }
     }
 
-    public void performLongClick(WebView webView, WebView.HitTestResult hitTestResult, int i2, int i3) {
+    public void performLongClick(WebView webView, WebView.HitTestResult hitTestResult, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048623, this, webView, hitTestResult, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048623, this, webView, hitTestResult, i, i2) == null) {
             webView.mHasPerformedLongPress = true;
         }
     }
@@ -855,15 +855,15 @@ public class WebChromeClient {
         }
     }
 
-    public void showMagnifier(WebView webView, int i2, int i3, int i4, int i5) {
+    public void showMagnifier(WebView webView, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
-    public void showSelectionActionDialog(WebView webView, int i2, int i3, int i4, int i5, String str) {
+    public void showSelectionActionDialog(WebView webView, int i, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{webView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
         }
     }
 }

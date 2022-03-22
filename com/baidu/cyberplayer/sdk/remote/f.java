@@ -19,47 +19,47 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CyberPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32193b;
+    public int f25430b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RemotePlayerService f32194c;
+    public RemotePlayerService f25431c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RemoteCallbackList<d> f32195d;
+    public RemoteCallbackList<d> f25432d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Surface f32196e;
+    public Surface f25433e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f32197f;
+    public final Object f25434f;
 
-    public f(int i2, RemotePlayerService remotePlayerService) {
+    public f(int i, RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), remotePlayerService};
+            Object[] objArr = {Integer.valueOf(i), remotePlayerService};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32195d = new RemoteCallbackList<>();
-        this.f32197f = new Object();
-        this.f32193b = i2;
-        this.f32194c = remotePlayerService;
-        CyberPlayer cyberPlayer = new CyberPlayer(i2, this, false);
+        this.f25432d = new RemoteCallbackList<>();
+        this.f25434f = new Object();
+        this.f25430b = i;
+        this.f25431c = remotePlayerService;
+        CyberPlayer cyberPlayer = new CyberPlayer(i, this, false);
         this.a = cyberPlayer;
         cyberPlayer.setIsInMainProcess(false);
         this.a.setOnPreparedListener(this);
@@ -104,34 +104,34 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            q().setWakeMode(CyberPlayerManager.getApplicationContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            q().setWakeMode(CyberPlayerManager.getApplicationContext(), i);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            q().updateDisplaySize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            q().updateDisplaySize(i, i2);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
-    public void a(int i2, int i3, long j2, String str) {
+    public void a(int i, int i2, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) {
-            q().sendCommand(i2, i3, j2, str);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
+            q().sendCommand(i, i2, j, str);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
-    public void a(long j2, int i2) {
+    public void a(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            q().seekTo(j2, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            q().seekTo(j, i);
         }
     }
 
@@ -140,11 +140,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, surface) == null) {
             q().setSurface(surface);
-            synchronized (this.f32197f) {
-                if (this.f32196e != null && this.f32196e != surface) {
-                    this.f32196e.release();
+            synchronized (this.f25434f) {
+                if (this.f25433e != null && this.f25433e != surface) {
+                    this.f25433e.release();
                 }
-                this.f32196e = surface;
+                this.f25433e = surface;
             }
         }
     }
@@ -153,7 +153,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            this.f32195d.register(dVar);
+            this.f25432d.register(dVar);
         }
     }
 
@@ -195,17 +195,17 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             if (!str.equals(CyberPlayerManager.OPT_KERNEL_NET_NETHANDLE)) {
                 q().setOption(str, str2);
                 return;
-            } else if (TextUtils.isEmpty(str2) || this.f32194c == null) {
+            } else if (TextUtils.isEmpty(str2) || this.f25431c == null) {
                 return;
             } else {
                 q = q();
-                kernelNetHandle = this.f32194c.getKernelNetHandle();
+                kernelNetHandle = this.f25431c.getKernelNetHandle();
             }
-        } else if (TextUtils.isEmpty(str2) || this.f32194c == null) {
+        } else if (TextUtils.isEmpty(str2) || this.f25431c == null) {
             return;
         } else {
             q = q();
-            kernelNetHandle = this.f32194c.getPCDNNetHandle();
+            kernelNetHandle = this.f25431c.getPCDNNetHandle();
         }
         q.setOption(str3, String.valueOf(kernelNetHandle));
     }
@@ -235,10 +235,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            q().switchMediaSource(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            q().switchMediaSource(i);
         }
     }
 
@@ -246,7 +246,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, dVar) == null) {
-            this.f32195d.unregister(dVar);
+            this.f25432d.unregister(dVar);
         }
     }
 
@@ -326,11 +326,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
                 arrayList = null;
-                for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i2);
+                for (int i = 0; i < beginBroadcast; i++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i);
                     if (broadcastItem != null) {
                         try {
                             ArrayList arrayList2 = new ArrayList();
@@ -344,7 +344,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
             return arrayList;
         }
@@ -388,15 +388,15 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     this.a.release();
                 }
             }
-            synchronized (this.f32195d) {
-                this.f32195d.kill();
+            synchronized (this.f25432d) {
+                this.f25432d.kill();
             }
-            if (this.f32196e != null) {
-                synchronized (this.f32197f) {
-                    if (this.f32196e != null && this.f32196e.isValid()) {
+            if (this.f25433e != null) {
+                synchronized (this.f25434f) {
+                    if (this.f25433e != null && this.f25433e.isValid()) {
                         CyberLog.i("remotePlayer", "release mSurface");
-                        this.f32196e.release();
-                        this.f32196e = null;
+                        this.f25433e.release();
+                        this.f25433e = null;
                     }
                 }
             }
@@ -426,22 +426,22 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i2) {
+    public void onBufferingUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
-                for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i3);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
+                for (int i2 = 0; i2 < beginBroadcast; i2++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i2);
                     if (broadcastItem != null) {
                         try {
-                            broadcastItem.a(i2);
+                            broadcastItem.a(i);
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
         }
     }
@@ -450,10 +450,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
-                for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i2);
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
+                for (int i = 0; i < beginBroadcast; i++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.b();
@@ -462,31 +462,31 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i2, int i3, Object obj) {
+    public boolean onError(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048613, this, i2, i3, obj)) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048613, this, i, i2, obj)) == null) {
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
                 z = false;
-                for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i4);
+                for (int i3 = 0; i3 < beginBroadcast; i3++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i3);
                     if (broadcastItem != null) {
                         try {
-                            z = broadcastItem.a(i2, i3, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.a(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
             return z;
         }
@@ -494,25 +494,25 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i2, int i3, Object obj) {
+    public boolean onInfo(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048614, this, i2, i3, obj)) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048614, this, i, i2, obj)) == null) {
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
                 z = false;
-                for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i4);
+                for (int i3 = 0; i3 < beginBroadcast; i3++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i3);
                     if (broadcastItem != null) {
                         try {
-                            z = broadcastItem.b(i2, i3, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
             return z;
         }
@@ -520,25 +520,25 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
-    public boolean onMediaSourceChanged(int i2, int i3, Object obj) {
+    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048615, this, i2, i3, obj)) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048615, this, i, i2, obj)) == null) {
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
                 z = false;
-                for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i4);
+                for (int i3 = 0; i3 < beginBroadcast; i3++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i3);
                     if (broadcastItem != null) {
                         try {
-                            z = broadcastItem.c(i2, i3, obj instanceof String ? (String) obj : null);
+                            z = broadcastItem.c(i, i2, obj instanceof String ? (String) obj : null);
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
             return z;
         }
@@ -549,10 +549,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onPrepared() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
-                for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i2);
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
+                for (int i = 0; i < beginBroadcast; i++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.a();
@@ -561,7 +561,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
         }
     }
@@ -570,10 +570,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     public void onSeekComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
-                for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i2);
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
+                for (int i = 0; i < beginBroadcast; i++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i);
                     if (broadcastItem != null) {
                         try {
                             broadcastItem.c();
@@ -582,28 +582,28 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048618, this, i2, i3, i4, i5) == null) {
-            synchronized (this.f32195d) {
-                int beginBroadcast = this.f32195d.beginBroadcast();
-                for (int i6 = 0; i6 < beginBroadcast; i6++) {
-                    d broadcastItem = this.f32195d.getBroadcastItem(i6);
+        if (interceptable == null || interceptable.invokeIIII(1048618, this, i, i2, i3, i4) == null) {
+            synchronized (this.f25432d) {
+                int beginBroadcast = this.f25432d.beginBroadcast();
+                for (int i5 = 0; i5 < beginBroadcast; i5++) {
+                    d broadcastItem = this.f25432d.getBroadcastItem(i5);
                     if (broadcastItem != null) {
                         try {
-                            broadcastItem.a(i2, i3, i4, i5);
+                            broadcastItem.a(i, i2, i3, i4);
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                this.f32195d.finishBroadcast();
+                this.f25432d.finishBroadcast();
             }
         }
     }

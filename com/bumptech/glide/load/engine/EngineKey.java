@@ -13,8 +13,7 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EngineKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,16 +27,16 @@ public class EngineKey implements Key {
     public final Map<Class<?>, Transformation<?>> transformations;
     public final int width;
 
-    public EngineKey(Object obj, Key key, int i2, int i3, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
+    public EngineKey(Object obj, Key key, int i, int i2, Map<Class<?>, Transformation<?>> map, Class<?> cls, Class<?> cls2, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, key, Integer.valueOf(i2), Integer.valueOf(i3), map, cls, cls2, options};
+            Object[] objArr = {obj, key, Integer.valueOf(i), Integer.valueOf(i2), map, cls, cls2, options};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,8 +44,8 @@ public class EngineKey implements Key {
         }
         this.model = Preconditions.checkNotNull(obj);
         this.signature = (Key) Preconditions.checkNotNull(key, "Signature must not be null");
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.transformations = (Map) Preconditions.checkNotNull(map);
         this.resourceClass = (Class) Preconditions.checkNotNull(cls, "Resource class must not be null");
         this.transcodeClass = (Class) Preconditions.checkNotNull(cls2, "Transcode class must not be null");
@@ -77,11 +76,11 @@ public class EngineKey implements Key {
                 this.hashCode = hashCode;
                 int hashCode2 = (hashCode * 31) + this.signature.hashCode();
                 this.hashCode = hashCode2;
-                int i2 = (hashCode2 * 31) + this.width;
+                int i = (hashCode2 * 31) + this.width;
+                this.hashCode = i;
+                int i2 = (i * 31) + this.height;
                 this.hashCode = i2;
-                int i3 = (i2 * 31) + this.height;
-                this.hashCode = i3;
-                int hashCode3 = (i3 * 31) + this.transformations.hashCode();
+                int hashCode3 = (i2 * 31) + this.transformations.hashCode();
                 this.hashCode = hashCode3;
                 int hashCode4 = (hashCode3 * 31) + this.resourceClass.hashCode();
                 this.hashCode = hashCode4;
@@ -98,7 +97,7 @@ public class EngineKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "EngineKey{model=" + this.model + ", width=" + this.width + ", height=" + this.height + ", resourceClass=" + this.resourceClass + ", transcodeClass=" + this.transcodeClass + ", signature=" + this.signature + ", hashCode=" + this.hashCode + ", transformations=" + this.transformations + ", options=" + this.options + ExtendedMessageFormat.END_FE;
+            return "EngineKey{model=" + this.model + ", width=" + this.width + ", height=" + this.height + ", resourceClass=" + this.resourceClass + ", transcodeClass=" + this.transcodeClass + ", signature=" + this.signature + ", hashCode=" + this.hashCode + ", transformations=" + this.transformations + ", options=" + this.options + '}';
         }
         return (String) invokeV.objValue;
     }

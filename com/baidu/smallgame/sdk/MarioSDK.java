@@ -35,34 +35,34 @@ public class MarioSDK {
         public SurfaceHolder a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GLSurfaceView.Renderer f36972b;
+        public GLSurfaceView.Renderer f28700b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArBridge.FirstFrameListener f36973c;
+        public ArBridge.FirstFrameListener f28701c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f36974d;
+        public int f28702d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<DebugConsole> f36975e;
+        public List<DebugConsole> f28703e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f36976f;
+        public Context f28704f;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36975e = new ArrayList();
+            this.f28703e = new ArrayList();
         }
 
         public void f(DebugConsole debugConsole) {
@@ -70,39 +70,39 @@ public class MarioSDK {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, debugConsole) == null) || debugConsole == null) {
                 return;
             }
-            this.f36975e.add(debugConsole);
+            this.f28703e.add(debugConsole);
         }
 
         public List<DebugConsole> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36975e : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28703e : (List) invokeV.objValue;
         }
 
         public Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36976f : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28704f : (Context) invokeV.objValue;
         }
 
         public void h(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-                this.f36976f = context;
+                this.f28704f = context;
             }
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, firstFrameListener) == null) {
-                this.f36973c = firstFrameListener;
+                this.f28701c = firstFrameListener;
             }
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, renderer) == null) {
-                this.f36972b = renderer;
+                this.f28700b = renderer;
             }
         }
 
@@ -126,9 +126,9 @@ public class MarioSDK {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Engine, aREngineDelegate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -145,19 +145,19 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            c.a.l0.a.a aVar2 = new c.a.l0.a.a();
+            c.a.j0.a.a aVar2 = new c.a.j0.a.a();
             if (aVar.a != null) {
                 aVar2.p(aVar.a);
             }
-            if (aVar.f36973c != null) {
-                aVar2.setFirstFrameListener(aVar.f36973c);
+            if (aVar.f28701c != null) {
+                aVar2.setFirstFrameListener(aVar.f28701c);
             }
-            aVar2.setRenderMode(aVar.f36974d);
-            if (aVar.f36976f != null) {
-                aVar2.o(aVar.f36976f);
+            aVar2.setRenderMode(aVar.f28702d);
+            if (aVar.f28704f != null) {
+                aVar2.o(aVar.f28704f);
             }
-            if (aVar.f36972b != null) {
-                aVar2.setRenderer(aVar.f36972b);
+            if (aVar.f28700b != null) {
+                aVar2.setRenderer(aVar.f28700b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {

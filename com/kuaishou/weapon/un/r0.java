@@ -15,13 +15,13 @@ public class r0 {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53791b = "L3Jlc3QvaW5mcmEvZ2RmcC9xL3M=";
+    public static String f38966b = "L3Jlc3QvaW5mcmEvZ2RmcC9xL3M=";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f53792c = "L3Jlc3QvaW5mcmEvZ2RmcC9hL3E=";
+    public static String f38967c = "L3Jlc3QvaW5mcmEvZ2RmcC9hL3E=";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f53793d = "L2YvYS9w";
+    public static String f38968d = "L2YvYS9w";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +38,9 @@ public class r0 {
             }
         }
         a = a();
-        f53791b = k1.b(f53791b, 2);
-        f53792c = k1.b(f53792c, 2);
-        f53793d = k1.b(f53793d, 2);
+        f38966b = k1.b(f38966b, 2);
+        f38967c = k1.b(f38967c, 2);
+        f38968d = k1.b(f38968d, 2);
     }
 
     public r0() {
@@ -48,9 +48,9 @@ public class r0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

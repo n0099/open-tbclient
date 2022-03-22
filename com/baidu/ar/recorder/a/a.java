@@ -30,7 +30,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1757a {
+    public class C1718a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer uE;
@@ -38,16 +38,16 @@ public class a {
         public long uG;
         public final /* synthetic */ a uH;
 
-        public C1757a(a aVar, ByteBuffer byteBuffer, int i2, long j2) {
+        public C1718a(a aVar, ByteBuffer byteBuffer, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {aVar, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,8 +55,8 @@ public class a {
             }
             this.uH = aVar;
             this.uE = byteBuffer;
-            this.uF = i2;
-            this.uG = j2;
+            this.uF = i;
+            this.uG = j;
         }
     }
 
@@ -75,9 +75,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -99,8 +99,8 @@ public class a {
                         this.uH.fK();
                         return;
                     case 1003:
-                        C1757a c1757a = (C1757a) message.obj;
-                        this.uH.b(c1757a.uE, c1757a.uF, c1757a.uG);
+                        C1718a c1718a = (C1718a) message.obj;
+                        this.uH.b(c1718a.uE, c1718a.uF, c1718a.uG);
                         return;
                     case 1004:
                         this.uH.fL();
@@ -138,9 +138,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -175,12 +175,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(ByteBuffer byteBuffer, int i2, long j2) {
+    public void b(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        this.uD.a(false, byteBuffer, i2, j2);
+        this.uD.a(false, byteBuffer, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -230,17 +230,17 @@ public class a {
         }
     }
 
-    public void a(ByteBuffer byteBuffer, int i2, long j2) {
+    public void a(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || byteBuffer == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || byteBuffer == null || i <= 0) {
             return;
         }
-        C1757a c1757a = new C1757a(this, byteBuffer, i2, j2);
+        C1718a c1718a = new C1718a(this, byteBuffer, i, j);
         if (this.uC == null || !this.ua) {
             return;
         }
         Handler handler = this.uC;
-        handler.sendMessage(handler.obtainMessage(1003, c1757a));
+        handler.sendMessage(handler.obtainMessage(1003, c1718a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

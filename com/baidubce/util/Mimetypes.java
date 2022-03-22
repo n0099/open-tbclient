@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Mimetypes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";
@@ -43,9 +43,9 @@ public class Mimetypes {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -100,12 +100,12 @@ public class Mimetypes {
 
     public String getMimetype(String str) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int lastIndexOf = str.lastIndexOf(".");
-            if (lastIndexOf > 0 && (i2 = lastIndexOf + 1) < str.length()) {
-                String lowerCase = str.substring(i2).toLowerCase();
+            if (lastIndexOf > 0 && (i = lastIndexOf + 1) < str.length()) {
+                String lowerCase = str.substring(i).toLowerCase();
                 if (this.extensionToMimetypeMap.keySet().contains(lowerCase)) {
                     String str2 = this.extensionToMimetypeMap.get(lowerCase);
                     BLog.debug("Recognised extension '" + lowerCase + "', mimetype is: '" + str2 + "'");

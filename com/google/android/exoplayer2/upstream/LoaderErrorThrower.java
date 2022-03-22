@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface LoaderErrorThrower {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Dummy implements LoaderErrorThrower {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public interface LoaderErrorThrower {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -36,14 +36,14 @@ public interface LoaderErrorThrower {
         }
 
         @Override // com.google.android.exoplayer2.upstream.LoaderErrorThrower
-        public void maybeThrowError(int i2) throws IOException {
+        public void maybeThrowError(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
     }
 
     void maybeThrowError() throws IOException;
 
-    void maybeThrowError(int i2) throws IOException;
+    void maybeThrowError(int i) throws IOException;
 }

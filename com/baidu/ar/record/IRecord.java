@@ -9,7 +9,7 @@ public interface IRecord {
 
     void setRecordWatermark(Watermark watermark);
 
-    void startRecord(String str, long j2, RecordCallback recordCallback);
+    void startRecord(String str, long j, RecordCallback recordCallback);
 
     void stopRecord();
 }

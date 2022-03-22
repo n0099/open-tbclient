@@ -27,9 +27,9 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -87,17 +87,17 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
         }
     }
 
-    public void setFriendId(long j2) {
+    public void setFriendId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.friendId = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.friendId = j;
         }
     }
 
-    public void setId(long j2) {
+    public void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.id = j;
         }
     }
 
@@ -122,10 +122,10 @@ public class RequestApplyLocalMessage extends CustomResponsedMessage<Object> {
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.uid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.uid = j;
         }
     }
 }

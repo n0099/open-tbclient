@@ -39,16 +39,16 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long mShieldTime;
 
     @Deprecated
-    public IMGetOneShieldAndTopRequest(Context context, long j2, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,19 +63,19 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
-        int i4 = (j2 & Constants.PAFLAG) != 0 ? 1 : 0;
-        this.mChatType = i4;
-        this.mContacterType = getContacterType(i4);
+        int i3 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
+        this.mChatType = i3;
+        this.mContacterType = getContacterType(i3);
     }
 
-    private int getContacterType(int i2) {
+    private int getContacterType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            if (i2 != 0) {
-                return (i2 == 3 || i2 == 57) ? 2 : 1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            if (i != 0) {
+                return (i == 3 || i == 57) ? 2 : 1;
             }
             return 0;
         }
@@ -129,10 +129,10 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
             getShieldAndTopResult.setErrorCode(((Integer) transErrorCode.first).intValue());
             getShieldAndTopResult.setErrorMsg((String) transErrorCode.second);
@@ -141,21 +141,21 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "IMGetOneShieldAndTopRequest onSuccess :" + str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.optInt("error_code");
+                i2 = jSONObject.optInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
                 if (optJSONArray != null) {
-                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i4);
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
                         int optInt = jSONObject2.optInt("sub_business");
                         if (optInt == 2) {
                             this.mMarkTop = jSONObject2.optInt("ability");
@@ -175,11 +175,11 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 }
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
-            getShieldAndTopResult.setErrorCode(i3);
+            getShieldAndTopResult.setErrorCode(i2);
             getShieldAndTopResult.setErrorMsg(str);
             getShieldAndTopResult.setContacter(this.mContacter);
             getShieldAndTopResult.setMarkTop(this.mMarkTop);
@@ -195,16 +195,16 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         }
     }
 
-    public IMGetOneShieldAndTopRequest(Context context, long j2, int i2, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -219,9 +219,9 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
-        this.mChatType = i2;
-        this.mContacterType = getContacterType(i2);
+        this.mChatType = i;
+        this.mContacterType = getContacterType(i);
     }
 }

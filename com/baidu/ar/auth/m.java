@@ -8,36 +8,36 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long[] a(int i2, long j2) {
+    public static long[] a(int i, long j) {
         InterceptResult invokeCommon;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            if (j2 < 50) {
-                j2 = 50;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (j < 50) {
+                j = 50;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            int i4 = 0;
+            int i3 = 0;
             while (true) {
-                i3 = (currentTimeMillis > 946656000000L ? 1 : (currentTimeMillis == 946656000000L ? 0 : -1));
-                if (i3 >= 0) {
+                i2 = (currentTimeMillis > 946656000000L ? 1 : (currentTimeMillis == 946656000000L ? 0 : -1));
+                if (i2 >= 0) {
                     break;
                 }
-                int i5 = i4 + 1;
-                if (i4 >= i2) {
+                int i4 = i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
                 try {
                     Thread.currentThread();
-                    Thread.sleep(j2);
+                    Thread.sleep(j);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
                 currentTimeMillis = System.currentTimeMillis();
-                i4 = i5;
+                i3 = i4;
             }
             long[] jArr = new long[2];
-            jArr[0] = i3 < 0 ? 0 : 1;
+            jArr[0] = i2 < 0 ? 0 : 1;
             jArr[1] = currentTimeMillis;
             return jArr;
         }

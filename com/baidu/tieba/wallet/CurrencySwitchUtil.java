@@ -21,19 +21,19 @@ public class CurrencySwitchUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getGiftMoneyIconResId(int i2) {
+    public static int getGiftMoneyIconResId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? isYyIsConvert(i2) ? R.drawable.icon_gift_my_ydou : R.drawable.icon_gift_my_tdou : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? isYyIsConvert(i) ? R.drawable.icon_gift_my_ydou : R.drawable.icon_gift_my_tdou : invokeI.intValue;
     }
 
     public static Drawable getMoneyIcon() {
@@ -48,11 +48,11 @@ public class CurrencySwitchUtil {
         return (Drawable) invokeV.objValue;
     }
 
-    public static Bitmap getMoneyIconBitmap(int i2) {
+    public static Bitmap getMoneyIconBitmap(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (isYyIsConvert(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (isYyIsConvert(i)) {
                 return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
             }
             return SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
@@ -96,17 +96,17 @@ public class CurrencySwitchUtil {
         return invokeV.booleanValue;
     }
 
-    public static boolean isYyIsConvert(int i2) {
+    public static boolean isYyIsConvert(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? i2 == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    public static Drawable getMoneyIcon(int i2) {
+    public static Drawable getMoneyIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (isYyIsConvert(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (isYyIsConvert(i)) {
                 return SkinManager.getDrawable(R.drawable.icon_huobi_ydou);
             }
             return SkinManager.getDrawable(R.drawable.icon_huobi_tdou);

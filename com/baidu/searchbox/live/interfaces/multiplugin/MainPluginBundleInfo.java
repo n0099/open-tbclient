@@ -34,9 +34,9 @@ public final class MainPluginBundleInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((String) objArr[0], (Integer) objArr[1], (Boolean) objArr[2], (Boolean) objArr[3], (Boolean) objArr[4], (String) objArr[5], (String) objArr[6], (String) objArr[7], ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
                 newInitContext.thisArg = this;
@@ -53,9 +53,9 @@ public final class MainPluginBundleInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, num, bool, bool2, bool3, str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -222,7 +222,7 @@ public final class MainPluginBundleInfo {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ MainPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? "" : str, (i2 & 2) != 0 ? 0 : num, (i2 & 4) != 0 ? Boolean.FALSE : bool, (i2 & 8) != 0 ? Boolean.FALSE : bool2, (i2 & 16) != 0 ? Boolean.FALSE : bool3, (i2 & 32) != 0 ? "" : str2, (i2 & 64) != 0 ? "" : str3, (i2 & 128) == 0 ? str4 : "");
+    public /* synthetic */ MainPluginBundleInfo(String str, Integer num, Boolean bool, Boolean bool2, Boolean bool3, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? 0 : num, (i & 4) != 0 ? Boolean.FALSE : bool, (i & 8) != 0 ? Boolean.FALSE : bool2, (i & 16) != 0 ? Boolean.FALSE : bool3, (i & 32) != 0 ? "" : str2, (i & 64) != 0 ? "" : str3, (i & 128) == 0 ? str4 : "");
     }
 }

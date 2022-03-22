@@ -11,22 +11,22 @@ public abstract class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34492b;
+    public String f26696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34493c;
+    public int f26697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34494d;
+    public int f26698d;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

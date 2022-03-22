@@ -17,23 +17,23 @@ public class DistrictSearch extends l {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34172b;
+    public boolean f26406b;
 
     public DistrictSearch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f34172b = false;
+        this.f26406b = false;
         this.a = new d();
     }
 
@@ -49,10 +49,10 @@ public class DistrictSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34172b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26406b) {
             return;
         }
-        this.f34172b = true;
+        this.f26406b = true;
         this.a.a();
         BMapManager.destroy();
     }

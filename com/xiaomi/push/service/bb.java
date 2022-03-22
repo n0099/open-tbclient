@@ -15,7 +15,7 @@ import com.xiaomi.push.hp;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bb implements ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class bb implements ee {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,17 +39,17 @@ public class bb implements ee {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ie ieVar = new ie();
-            ieVar.b(ea.a(context).m347a());
+            ieVar.b(ea.a(context).m326a());
             ieVar.d(ea.a(context).b());
-            ieVar.c(hp.I.f514a);
+            ieVar.c(hp.I.f490a);
             ieVar.a(at.a());
-            ieVar.f655a = hashMap;
-            byte[] a = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.f59728i));
+            ieVar.f631a = hashMap;
+            byte[] a = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.i));
             if (!(context instanceof XMPushService)) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("MoleInfo : context is not correct in pushLayer " + ieVar.m528a());
+                com.xiaomi.channel.commonutils.logger.b.m112a("MoleInfo : context is not correct in pushLayer " + ieVar.m507a());
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m133a("MoleInfo : send data directly in pushLayer " + ieVar.m528a());
+            com.xiaomi.channel.commonutils.logger.b.m112a("MoleInfo : send data directly in pushLayer " + ieVar.m507a());
             ((XMPushService) context).a(context.getPackageName(), a, true);
         }
     }
@@ -68,7 +68,7 @@ public class bb implements ee {
     public void c(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("MoleInfo：\u3000" + dv.b(hashMap));
+            com.xiaomi.channel.commonutils.logger.b.m112a("MoleInfo：\u3000" + dv.b(hashMap));
         }
     }
 }

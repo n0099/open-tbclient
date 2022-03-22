@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupSettingActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_DATA_GROUP_FLAG = "intent_data_group_flag";
@@ -17,17 +17,17 @@ public class GroupSettingActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupSettingActivityConfig(Context context, int i2, String str, String str2, boolean z, int i3) {
+    public GroupSettingActivityConfig(Context context, int i, String str, String str2, boolean z, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2, Boolean.valueOf(z), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,8 +37,8 @@ public class GroupSettingActivityConfig extends IntentConfig {
         getIntent().putExtra(INTENT_DATA_GROUP_NAME, str);
         getIntent().putExtra(INTENT_DATA_GROUP_ID, str2);
         getIntent().putExtra(INTENT_DATA_IS_GROUP_MASTER, z);
-        getIntent().putExtra(INTENT_DATA_GROUP_FLAG, i3);
-        setRequestCode(i2);
+        getIntent().putExtra(INTENT_DATA_GROUP_FLAG, i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

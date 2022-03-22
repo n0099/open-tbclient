@@ -1,6 +1,8 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CloudLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LOOP_TIME_INTERVAL = 0;
@@ -64,9 +65,9 @@ public class CloudLogUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,7 +78,7 @@ public class CloudLogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             synchronized (CloudLogUtil.class) {
-                String str3 = "addLogContent startLogLoop:" + startLogLoop;
+                Log.d(TAG, "addLogContent startLogLoop:" + startLogLoop);
                 ThreadPool.getDefault().scheduledIO().execute(new Runnable(str, str2) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +92,9 @@ public class CloudLogUtil {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str, str2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -112,8 +113,8 @@ public class CloudLogUtil {
                                 jSONObject.put("tag", this.val$tag);
                                 jSONObject.put("uid", CloudLogUtil.mUid);
                                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, CloudLogUtil.mAppId);
-                                jSONObject.put("device", CloudLogUtil.mDevice);
-                                jSONObject.put(UrlOcrConfig.IdCardKey.OS, CloudLogUtil.mOS);
+                                jSONObject.put(Config.DEVICE_PART, CloudLogUtil.mDevice);
+                                jSONObject.put("os", CloudLogUtil.mOS);
                                 jSONObject.put("appName", CloudLogUtil.mAppName);
                                 jSONObject.put("clientVer", CloudLogUtil.mClientVer);
                                 jSONObject.put(CommandMessage.SDK_VERSION, CloudLogUtil.mSdkVersion);
@@ -138,7 +139,8 @@ public class CloudLogUtil {
             synchronized (CloudLogUtil.class) {
                 if (logContent != null) {
                     if (logContent.copyWaitingJsonList != null && logContent.content != null) {
-                        String str = "doRetrySendLog retryTime:" + logContent.retryCount.getAndIncrement();
+                        int andIncrement = logContent.retryCount.getAndIncrement();
+                        Log.d(TAG, "doRetrySendLog retryTime:" + andIncrement);
                         sendLog(logContent);
                     }
                 }
@@ -150,40 +152,39 @@ public class CloudLogUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, logContent) == null) {
             synchronized (CloudLogUtil.class) {
-                if (logContent != null) {
-                    if (logContent.copyWaitingJsonList != null && logContent.content != null) {
-                        ThreadPool.getDefault().scheduledIO().schedule(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.4
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-                            public final /* synthetic */ LogContent val$logContent;
+                Log.d(TAG, "delayToRetrySendLog");
+                if (logContent != null && logContent.copyWaitingJsonList != null && logContent.content != null) {
+                    ThreadPool.getDefault().scheduledIO().schedule(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ LogContent val$logContent;
 
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {logContent};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.val$logContent = logContent;
-                            }
-
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    CloudLogUtil.doRetrySendLog(this.val$logContent);
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {logContent};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
                                 }
                             }
-                        }, 5L, TimeUnit.SECONDS);
-                    }
+                            this.val$logContent = logContent;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                CloudLogUtil.doRetrySendLog(this.val$logContent);
+                            }
+                        }
+                    }, 5L, TimeUnit.SECONDS);
                 }
             }
         }
@@ -205,9 +206,9 @@ public class CloudLogUtil {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {logContent};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -230,17 +231,17 @@ public class CloudLogUtil {
                                 e2.printStackTrace();
                             }
                             String postJson = HttpLoader.postJson("https://cloud-log.yy.com/api/log/put", jSONObject.toString());
-                            String str = "sendLog res=" + postJson;
+                            Log.d(CloudLogUtil.TAG, "sendLog res=" + postJson);
                             if (postJson != null && !postJson.isEmpty()) {
                                 try {
-                                    int i2 = new JSONObject(postJson).getInt("code");
-                                    String str2 = "sendLog code=" + i2;
-                                    if (i2 != 1000) {
+                                    int i = new JSONObject(postJson).getInt("code");
+                                    Log.d(CloudLogUtil.TAG, "sendLog code=" + i);
+                                    if (i != 1000) {
                                         if (this.val$logContent.retryCount.get() > 3) {
-                                            r2 = false;
+                                            r3 = false;
                                         }
-                                        String str3 = "sendLog->2 isRetry=" + r2 + " retryCount=" + this.val$logContent.retryCount;
-                                        if (r2) {
+                                        Log.d(CloudLogUtil.TAG, "sendLog->2 isRetry=" + r3 + " retryCount=" + this.val$logContent.retryCount);
+                                        if (r3) {
                                             CloudLogUtil.retrySendLog(this.val$logContent);
                                             return;
                                         }
@@ -251,9 +252,9 @@ public class CloudLogUtil {
                                     return;
                                 }
                             }
-                            r2 = this.val$logContent.retryCount.get() <= 3;
-                            String str4 = "sendLog->1 isRetry=" + r2 + " retryCount=" + this.val$logContent.retryCount;
-                            if (r2) {
+                            r3 = this.val$logContent.retryCount.get() <= 3;
+                            Log.d(CloudLogUtil.TAG, "sendLog->1 isRetry=" + r3 + " retryCount=" + this.val$logContent.retryCount);
+                            if (r3) {
                                 CloudLogUtil.retrySendLog(this.val$logContent);
                             }
                         }
@@ -271,6 +272,7 @@ public class CloudLogUtil {
                     return;
                 }
                 startLogLoop = true;
+                Log.d(TAG, "addLogContent startLogLoop()");
                 ThreadPool.getDefault().scheduledIO().scheduleAtFixedRate(new Runnable() { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -280,9 +282,9 @@ public class CloudLogUtil {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -293,6 +295,7 @@ public class CloudLogUtil {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            Log.d(CloudLogUtil.TAG, "do logLoop force send log");
                             CloudLogUtil.addLogContent((JSONObject) null, true);
                         }
                     }
@@ -301,7 +304,7 @@ public class CloudLogUtil {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x004e A[Catch: all -> 0x0084, TryCatch #0 {, blocks: (B:7:0x0009, B:8:0x000e, B:11:0x001a, B:16:0x0026, B:18:0x004e, B:19:0x005e, B:21:0x0064, B:22:0x0071), top: B:31:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0054 A[Catch: all -> 0x008a, TryCatch #0 {, blocks: (B:7:0x0009, B:8:0x000e, B:11:0x001a, B:16:0x0026, B:18:0x0054, B:19:0x0064, B:21:0x006a, B:22:0x0077), top: B:31:0x0009 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -315,7 +318,7 @@ public class CloudLogUtil {
                 }
                 if (waitingJsonList.size() < QUEUE_MAX_WAITING_NUM && (!z || waitingJsonList.size() <= 0)) {
                     z2 = false;
-                    String str = "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z;
+                    Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
                     if (z2) {
                         JSONArray jSONArray = new JSONArray();
                         ArrayList arrayList = new ArrayList();
@@ -331,7 +334,7 @@ public class CloudLogUtil {
                     }
                 }
                 z2 = true;
-                String str2 = "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z;
+                Log.d(TAG, "addLogContent waiting size:" + waitingJsonList.size() + " upload:" + z2 + " force:" + z);
                 if (z2) {
                 }
             }

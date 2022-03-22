@@ -44,9 +44,9 @@ public final class ObservableCollectSingle<T, U> extends Single<U> implements Fu
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, u, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,9 +128,9 @@ public final class ObservableCollectSingle<T, U> extends Single<U> implements Fu
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, callable, biConsumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

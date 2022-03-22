@@ -24,9 +24,9 @@ public final class IMManager extends BaseManager implements NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -57,15 +57,15 @@ public final class IMManager extends BaseManager implements NoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? IMManagerImpl.getVersion() : (String) invokeV.objValue;
     }
 
-    public static boolean init(Context context, int i2) {
+    public static boolean init(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
             Context applicationContext = context.getApplicationContext();
-            boolean productLine = IMConfigInternal.getInstance().setProductLine(applicationContext, i2);
+            boolean productLine = IMConfigInternal.getInstance().setProductLine(applicationContext, i);
             IMManagerImpl.getInstance(applicationContext);
             BindStateManager.activeUnBind(context);
             return productLine;

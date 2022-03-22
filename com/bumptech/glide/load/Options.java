@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import java.security.MessageDigest;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Options implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +23,9 @@ public final class Options implements Key {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,7 +83,7 @@ public final class Options implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "Options{values=" + this.values + ExtendedMessageFormat.END_FE;
+            return "Options{values=" + this.values + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -93,8 +92,8 @@ public final class Options implements Key {
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, messageDigest) == null) {
-            for (int i2 = 0; i2 < this.values.size(); i2++) {
-                updateDiskCacheKey(this.values.keyAt(i2), this.values.valueAt(i2), messageDigest);
+            for (int i = 0; i < this.values.size(); i++) {
+                updateDiskCacheKey(this.values.keyAt(i), this.values.valueAt(i), messageDigest);
             }
         }
     }

@@ -22,22 +22,22 @@ public class AutoTrack {
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
-        public MyActivityLifeCallback(int i2) {
+        public MyActivityLifeCallback(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i2;
+            this.a = i;
         }
 
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
@@ -59,10 +59,10 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.a;
-                if (i2 == 1) {
+                int i = this.a;
+                if (i == 1) {
                     BDStatCore.instance().autoTrackSessionEndTime(applicationContext);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     BDStatCore.instance().doSendLogCheck(applicationContext);
                 }
             }
@@ -73,10 +73,10 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.a;
-                if (i2 == 1) {
+                int i = this.a;
+                if (i == 1) {
                     BDStatCore.instance().autoTrackSessionStartTime(applicationContext);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     BDStatCore.instance().cancelSendLogCheck();
                 }
             }
@@ -109,9 +109,9 @@ public class AutoTrack {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

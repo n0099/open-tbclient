@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,33 +25,29 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public final Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final UploadDataProvider f48743b;
+    public final UploadDataProvider f37671b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CronetUrlRequest f48744c;
+    public final CronetUrlRequest f37672c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f48745d;
+    public long f37673d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f48746e;
+    public long f37674e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f48747f;
+    public final Runnable f37675f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f48748g;
+    public ByteBuffer f37676g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Object f48749h;
+    public final Object f37677h;
     @GuardedBy("mLock")
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f48750i;
+    public long i;
     @GuardedBy("mLock")
-
-    /* renamed from: j  reason: collision with root package name */
-    public UserCallback f48751j;
+    public UserCallback j;
     @GuardedBy("mLock")
     public boolean k;
     public Runnable l;
@@ -87,16 +84,16 @@ public final class CronetUploadDataStream implements UploadDataSink {
             $VALUES = new UserCallback[]{READ, REWIND, GET_LENGTH, userCallback};
         }
 
-        public UserCallback(String str, int i2) {
+        public UserCallback(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -123,9 +120,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUploadDataStream f48752e;
+        public final /* synthetic */ CronetUploadDataStream a;
 
         public a(CronetUploadDataStream cronetUploadDataStream) {
             Interceptable interceptable = $ic;
@@ -134,33 +129,33 @@ public final class CronetUploadDataStream implements UploadDataSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cronetUploadDataStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48752e = cronetUploadDataStream;
+            this.a = cronetUploadDataStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f48752e.f48749h) {
-                    if (this.f48752e.f48750i == 0) {
+                synchronized (this.a.f37677h) {
+                    if (this.a.i == 0) {
                         return;
                     }
-                    this.f48752e.l(UserCallback.NOT_IN_CALLBACK);
-                    if (this.f48752e.f48748g != null) {
-                        this.f48752e.f48751j = UserCallback.READ;
+                    this.a.l(UserCallback.NOT_IN_CALLBACK);
+                    if (this.a.f37676g != null) {
+                        this.a.j = UserCallback.READ;
                         try {
-                            this.f48752e.f48743b.b(this.f48752e, this.f48752e.f48748g);
+                            this.a.f37671b.b(this.a, this.a.f37676g);
                             return;
                         } catch (Exception e2) {
-                            this.f48752e.p(e2);
+                            this.a.p(e2);
                             return;
                         }
                     }
@@ -174,9 +169,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUploadDataStream f48753e;
+        public final /* synthetic */ CronetUploadDataStream a;
 
         public b(CronetUploadDataStream cronetUploadDataStream) {
             Interceptable interceptable = $ic;
@@ -185,31 +178,31 @@ public final class CronetUploadDataStream implements UploadDataSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cronetUploadDataStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48753e = cronetUploadDataStream;
+            this.a = cronetUploadDataStream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f48753e.f48749h) {
-                    if (this.f48753e.f48750i == 0) {
+                synchronized (this.a.f37677h) {
+                    if (this.a.i == 0) {
                         return;
                     }
-                    this.f48753e.l(UserCallback.NOT_IN_CALLBACK);
-                    this.f48753e.f48751j = UserCallback.REWIND;
+                    this.a.l(UserCallback.NOT_IN_CALLBACK);
+                    this.a.j = UserCallback.REWIND;
                     try {
-                        this.f48753e.f48743b.c(this.f48753e);
+                        this.a.f37671b.c(this.a);
                     } catch (Exception e2) {
-                        this.f48753e.p(e2);
+                        this.a.p(e2);
                     }
                 }
             }
@@ -220,9 +213,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CronetUploadDataStream f48754e;
+        public final /* synthetic */ CronetUploadDataStream a;
 
         public c(CronetUploadDataStream cronetUploadDataStream) {
             Interceptable interceptable = $ic;
@@ -231,15 +222,15 @@ public final class CronetUploadDataStream implements UploadDataSink {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cronetUploadDataStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48754e = cronetUploadDataStream;
+            this.a = cronetUploadDataStream;
         }
 
         @Override // java.lang.Runnable
@@ -247,8 +238,9 @@ public final class CronetUploadDataStream implements UploadDataSink {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f48754e.f48743b.close();
-                } catch (IOException unused) {
+                    this.a.f37671b.close();
+                } catch (IOException e2) {
+                    Log.e("CronetUploadDataStream", "Exception thrown when closing", e2);
                 }
             }
         }
@@ -261,52 +253,52 @@ public final class CronetUploadDataStream implements UploadDataSink {
             newInitContext.initArgs = r2;
             Object[] objArr = {uploadDataProvider, executor, cronetUrlRequest};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48747f = new a(this);
-        this.f48748g = null;
-        this.f48749h = new Object();
-        this.f48750i = 0L;
-        this.f48751j = UserCallback.NOT_IN_CALLBACK;
+        this.f37675f = new a(this);
+        this.f37676g = null;
+        this.f37677h = new Object();
+        this.i = 0L;
+        this.j = UserCallback.NOT_IN_CALLBACK;
         this.k = false;
         this.a = executor;
-        this.f48743b = uploadDataProvider;
-        this.f48744c = cronetUrlRequest;
+        this.f37671b = uploadDataProvider;
+        this.f37672c = cronetUrlRequest;
     }
 
-    private native long nativeAttachUploadDataToRequest(long j2, long j3);
+    private native long nativeAttachUploadDataToRequest(long j, long j2);
 
     private native long nativeCreateAdapterForTesting();
 
-    private native long nativeCreateUploadDataStreamForTesting(long j2, long j3);
+    private native long nativeCreateUploadDataStreamForTesting(long j, long j2);
 
     @NativeClassQualifiedName
-    public static native void nativeDestroy(long j2);
+    public static native void nativeDestroy(long j);
 
     @NativeClassQualifiedName
-    private native void nativeOnReadSucceeded(long j2, int i2, boolean z);
+    private native void nativeOnReadSucceeded(long j, int i, boolean z);
 
     @NativeClassQualifiedName
-    private native void nativeOnRewindSucceeded(long j2);
+    private native void nativeOnRewindSucceeded(long j);
 
     @Override // com.baidu.turbonet.net.UploadDataSink
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.f48749h) {
+            synchronized (this.f37677h) {
                 l(UserCallback.REWIND);
-                this.f48751j = UserCallback.NOT_IN_CALLBACK;
-                this.f48746e = this.f48745d;
-                if (this.f48750i == 0) {
+                this.j = UserCallback.NOT_IN_CALLBACK;
+                this.f37674e = this.f37673d;
+                if (this.i == 0) {
                     return;
                 }
-                nativeOnRewindSucceeded(this.f48750i);
+                nativeOnRewindSucceeded(this.i);
             }
         }
     }
@@ -315,7 +307,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.f48749h) {
+            synchronized (this.f37677h) {
                 l(UserCallback.REWIND);
                 p(exc);
             }
@@ -326,33 +318,33 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            synchronized (this.f48749h) {
+            synchronized (this.f37677h) {
                 l(UserCallback.READ);
-                if (z && this.f48745d >= 0) {
+                if (z && this.f37673d >= 0) {
                     throw new IllegalArgumentException("Non-chunked upload can't have last chunk");
                 }
-                int position = this.f48748g.position();
-                long j2 = this.f48746e - position;
-                this.f48746e = j2;
-                if (j2 < 0 && this.f48745d >= 0) {
-                    throw new IllegalArgumentException(String.format("Read upload data length %d exceeds expected length %d", Long.valueOf(this.f48745d - this.f48746e), Long.valueOf(this.f48745d)));
+                int position = this.f37676g.position();
+                long j = this.f37674e - position;
+                this.f37674e = j;
+                if (j < 0 && this.f37673d >= 0) {
+                    throw new IllegalArgumentException(String.format("Read upload data length %d exceeds expected length %d", Long.valueOf(this.f37673d - this.f37674e), Long.valueOf(this.f37673d)));
                 }
-                this.f48748g = null;
-                this.f48751j = UserCallback.NOT_IN_CALLBACK;
+                this.f37676g = null;
+                this.j = UserCallback.NOT_IN_CALLBACK;
                 n();
-                if (this.f48750i == 0) {
+                if (this.i == 0) {
                     return;
                 }
-                nativeOnReadSucceeded(this.f48750i, position, z);
+                nativeOnReadSucceeded(this.i, position, z);
             }
         }
     }
 
-    public void k(long j2) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            synchronized (this.f48749h) {
-                this.f48750i = nativeAttachUploadDataToRequest(j2, this.f48745d);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            synchronized (this.f37677h) {
+                this.i = nativeAttachUploadDataToRequest(j, this.f37673d);
             }
         }
     }
@@ -360,22 +352,22 @@ public final class CronetUploadDataStream implements UploadDataSink {
     @GuardedBy("mLock")
     public final void l(UserCallback userCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, userCallback) == null) || this.f48751j == userCallback) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, userCallback) == null) || this.j == userCallback) {
             return;
         }
-        throw new IllegalStateException("Expected " + userCallback + ", but was " + this.f48751j);
+        throw new IllegalStateException("Expected " + userCallback + ", but was " + this.j);
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this.f48749h) {
-                if (this.f48751j == UserCallback.READ) {
+            synchronized (this.f37677h) {
+                if (this.j == UserCallback.READ) {
                     this.k = true;
-                } else if (this.f48750i == 0) {
+                } else if (this.i == 0) {
                 } else {
-                    nativeDestroy(this.f48750i);
-                    this.f48750i = 0L;
+                    nativeDestroy(this.i);
+                    this.i = 0L;
                     if (this.l != null) {
                         this.l.run();
                     }
@@ -388,8 +380,8 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f48749h) {
-                if (this.f48751j != UserCallback.READ) {
+            synchronized (this.f37677h) {
+                if (this.j != UserCallback.READ) {
                     if (this.k) {
                         m();
                     }
@@ -403,18 +395,18 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.f48749h) {
-                this.f48751j = UserCallback.GET_LENGTH;
+            synchronized (this.f37677h) {
+                this.j = UserCallback.GET_LENGTH;
             }
             try {
-                long a2 = this.f48743b.a();
-                this.f48745d = a2;
-                this.f48746e = a2;
+                long a2 = this.f37671b.a();
+                this.f37673d = a2;
+                this.f37674e = a2;
             } catch (Throwable th) {
                 p(th);
             }
-            synchronized (this.f48749h) {
-                this.f48751j = UserCallback.NOT_IN_CALLBACK;
+            synchronized (this.f37677h) {
+                this.j = UserCallback.NOT_IN_CALLBACK;
             }
         }
     }
@@ -430,16 +422,16 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public final void p(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, th) == null) {
-            synchronized (this.f48749h) {
-                if (this.f48751j != UserCallback.NOT_IN_CALLBACK) {
-                    this.f48751j = UserCallback.NOT_IN_CALLBACK;
-                    this.f48748g = null;
+            synchronized (this.f37677h) {
+                if (this.j != UserCallback.NOT_IN_CALLBACK) {
+                    this.j = UserCallback.NOT_IN_CALLBACK;
+                    this.f37676g = null;
                     n();
                 } else {
                     throw new IllegalStateException("There is no read or rewind or length check in progress.");
                 }
             }
-            this.f48744c.E(th);
+            this.f37672c.E(th);
         }
     }
 
@@ -449,7 +441,7 @@ public final class CronetUploadDataStream implements UploadDataSink {
             try {
                 this.a.execute(runnable);
             } catch (Throwable th) {
-                this.f48744c.E(th);
+                this.f37672c.E(th);
             }
         }
     }
@@ -458,8 +450,8 @@ public final class CronetUploadDataStream implements UploadDataSink {
     public void readData(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, byteBuffer) == null) {
-            this.f48748g = byteBuffer;
-            q(this.f48747f);
+            this.f37676g = byteBuffer;
+            q(this.f37675f);
         }
     }
 

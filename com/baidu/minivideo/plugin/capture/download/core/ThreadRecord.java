@@ -23,9 +23,9 @@ public class ThreadRecord {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,31 +68,31 @@ public class ThreadRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.uri : (String) invokeV.objValue;
     }
 
-    public void setEnd(long j2) {
+    public void setEnd(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.end = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.end = j;
         }
     }
 
-    public void setFinished(long j2) {
+    public void setFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.finished = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.finished = j;
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.id = i;
         }
     }
 
-    public void setStart(long j2) {
+    public void setStart(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.start = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.start = j;
         }
     }
 
@@ -111,17 +111,17 @@ public class ThreadRecord {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThreadRecord(int i2, String str, String str2, long j2) {
-        this(i2, str, str2, 0L, 0L, j2);
+    public ThreadRecord(int i, String str, String str2, long j) {
+        this(i, str, str2, 0L, 0L, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue());
                 newInitContext.thisArg = this;
@@ -131,26 +131,26 @@ public class ThreadRecord {
         }
     }
 
-    public ThreadRecord(int i2, String str, String str2, long j2, long j3, long j4) {
+    public ThreadRecord(int i, String str, String str2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.id = i2;
+        this.id = i;
         this.tag = str;
         this.uri = str2;
-        this.start = j2;
-        this.end = j3;
-        this.finished = j4;
+        this.start = j;
+        this.end = j2;
+        this.finished = j3;
     }
 }

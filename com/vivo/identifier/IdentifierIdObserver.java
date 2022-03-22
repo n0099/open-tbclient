@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IdentifierIdObserver extends ContentObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VMS_SDK_Observer";
@@ -16,17 +16,17 @@ public class IdentifierIdObserver extends ContentObserver {
     public int mType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IdentifierIdObserver(IdentifierIdClient identifierIdClient, int i2, String str) {
+    public IdentifierIdObserver(IdentifierIdClient identifierIdClient, int i, String str) {
         super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {identifierIdClient, Integer.valueOf(i2), str};
+            Object[] objArr = {identifierIdClient, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,7 +34,7 @@ public class IdentifierIdObserver extends ContentObserver {
             }
         }
         this.mIdentifierIdClient = identifierIdClient;
-        this.mType = i2;
+        this.mType = i;
         this.mAppId = str;
     }
 

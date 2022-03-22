@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadModel;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     @Nullable
     public static JSONObject a() {
@@ -20,20 +20,20 @@ public class e {
         return a(b(downloadModel));
     }
 
-    public static boolean d(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_fetch_apk_switch", 0L) == 1;
+    public static boolean d(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_fetch_apk_switch", 0L) == 1;
     }
 
-    public static boolean e(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_space_before_download_switch", 0L) == 1;
+    public static boolean e(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_space_before_download_switch", 0L) == 1;
     }
 
-    public static boolean f(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_space_switch", 0) == 1;
+    public static boolean f(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_space_switch", 0) == 1;
     }
 
-    public static boolean g(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_app_cache_dir", 0) == 1;
+    public static boolean g(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_app_cache_dir", 0) == 1;
     }
 
     public static JSONObject a(DownloadModel downloadModel) {
@@ -66,12 +66,12 @@ public class e {
         return optLong;
     }
 
-    public static long c(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_fetch_apk_head_time_out", 800L);
+    public static long c(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_fetch_apk_head_time_out", 800L);
     }
 
-    public static long b(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("storage_min_size", 0L);
+    public static long b(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("storage_min_size", 0L);
     }
 
     public static boolean c() {
@@ -107,7 +107,7 @@ public class e {
         return aVar.a("external_storage_permission_path_type", 0);
     }
 
-    public static double a(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("clean_min_install_size", 0.0d);
+    public static double a(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_min_install_size", 0.0d);
     }
 }

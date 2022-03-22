@@ -50,9 +50,9 @@ public final class SingleTimeout<T> extends Single<T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {singleObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -93,9 +93,9 @@ public final class SingleTimeout<T> extends Single<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, singleSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -185,23 +185,23 @@ public final class SingleTimeout<T> extends Single<T> {
         }
     }
 
-    public SingleTimeout(SingleSource<T> singleSource, long j2, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource2) {
+    public SingleTimeout(SingleSource<T> singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {singleSource, Long.valueOf(j2), timeUnit, scheduler, singleSource2};
+            Object[] objArr = {singleSource, Long.valueOf(j), timeUnit, scheduler, singleSource2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = singleSource;
-        this.timeout = j2;
+        this.timeout = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.other = singleSource2;

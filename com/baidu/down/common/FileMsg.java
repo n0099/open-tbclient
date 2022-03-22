@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FileMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,16 +39,16 @@ public class FileMsg {
     public long mTotalSize;
     public String mUrl;
 
-    public FileMsg(String str, long j2, String str2, String str3, String str4, Boolean bool, String str5) {
+    public FileMsg(String str, long j, String str2, String str3, String str4, Boolean bool, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2, str3, str4, bool, str5};
+            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4, bool, str5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,7 +64,7 @@ public class FileMsg {
         this.mIntercepters = new HashMap();
         this.mPriority = 3;
         this.mNeedWriteDb = true;
-        this.mId = j2;
+        this.mId = j;
         this.mUrl = str;
         this.mSavePath = str2;
         this.mFileName = str3;
@@ -81,16 +81,16 @@ public class FileMsg {
         this.mIntercepters.put(str, iIntercepter);
     }
 
-    public FileMsg(String str, long j2, String str2, String str3, String str4, Boolean bool, HashMap<String, String> hashMap, long j3, long j4, String str5) {
+    public FileMsg(String str, long j, String str2, String str3, String str4, Boolean bool, HashMap<String, String> hashMap, long j2, long j3, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2, str3, str4, bool, hashMap, Long.valueOf(j3), Long.valueOf(j4), str5};
+            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4, bool, hashMap, Long.valueOf(j2), Long.valueOf(j3), str5};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -106,15 +106,15 @@ public class FileMsg {
         this.mIntercepters = new HashMap();
         this.mPriority = 3;
         this.mNeedWriteDb = false;
-        this.mId = j2;
+        this.mId = j;
         this.mUrl = str;
         this.mSavePath = str2;
         this.mFileName = str3;
         this.mMimetype = str4;
         this.mNeedMuti = bool;
         this.mHeaders = hashMap;
-        this.mCurFilePos = j3;
-        this.mTotalSize = j4;
+        this.mCurFilePos = j2;
+        this.mTotalSize = j3;
         this.mETag = str5;
     }
 }

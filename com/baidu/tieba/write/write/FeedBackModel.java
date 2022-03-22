@@ -1,13 +1,13 @@
 package com.baidu.tieba.write.write;
 
 import c.a.d.a.f;
-import c.a.q0.r.r.e2;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,18 +22,16 @@ import org.json.JSONObject;
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f48392e;
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<ThreadData> f37420b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ArrayList<e2> f48393f;
+    /* renamed from: c  reason: collision with root package name */
+    public int f37421c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f48394g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TbPageContext f48395h;
+    /* renamed from: d  reason: collision with root package name */
+    public TbPageContext f37422d;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -48,7 +46,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FeedBackModel f48396b;
+        public final /* synthetic */ FeedBackModel f37423b;
 
         public b(FeedBackModel feedBackModel) {
             Interceptable interceptable = $ic;
@@ -57,15 +55,15 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {feedBackModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48396b = feedBackModel;
+            this.f37423b = feedBackModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +79,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                 netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, obj);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    FeedBackModel feedBackModel = new FeedBackModel(this.f48396b.f48395h);
+                    FeedBackModel feedBackModel = new FeedBackModel(this.f37423b.f37422d);
                     feedBackModel.parserJson(postNetData);
                     return feedBackModel;
                 }
@@ -97,8 +95,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedBackModel) == null) {
                 super.onPostExecute(feedBackModel);
-                this.f48396b.f48392e = null;
-                this.f48396b.mLoadDataCallBack.c(feedBackModel);
+                this.f37423b.a = null;
+                this.f37423b.mLoadDataCallBack.c(feedBackModel);
             }
         }
 
@@ -107,7 +105,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                this.f48396b.f48392e = null;
+                this.f37423b.a = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
@@ -129,40 +127,50 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48392e = null;
-        this.f48393f = null;
-        this.f48394g = 0;
-        this.f48395h = tbPageContext;
-        this.f48393f = new ArrayList<>();
+        this.a = null;
+        this.f37420b = null;
+        this.f37421c = 0;
+        this.f37422d = tbPageContext;
+        this.f37420b = new ArrayList<>();
     }
 
-    public int A() {
-        InterceptResult invokeV;
+    public void B(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48394g : invokeV.intValue;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
+            b bVar = new b(this, null);
+            this.a = bVar;
+            bVar.setPriority(3);
+            this.a.execute(str);
+        }
     }
 
-    public ArrayList<e2> B() {
+    public int C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48393f : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37421c : invokeV.intValue;
+    }
+
+    public ArrayList<ThreadData> D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37420b : (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f48392e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            b bVar = this.a;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -176,7 +184,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -184,7 +192,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e2) {
@@ -193,31 +201,21 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         }
     }
 
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.f48392e == null) {
-            b bVar = new b(this, null);
-            this.f48392e = bVar;
-            bVar.setPriority(3);
-            this.f48392e.execute(str);
-        }
-    }
-
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.f48394g = jSONObject.optInt("error_code", 0);
+            this.f37421c = jSONObject.optInt("error_code", 0);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     if (jSONObject2 != null) {
-                        e2 e2Var = new e2();
-                        e2Var.c3(jSONObject2);
-                        this.f48393f.add(e2Var);
+                        ThreadData threadData = new ThreadData();
+                        threadData.parserJson(jSONObject2);
+                        this.f37420b.add(threadData);
                     }
                 }
             }

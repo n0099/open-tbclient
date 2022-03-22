@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
-import c.a.c0.e.a;
-import c.a.c0.e.b;
+import c.a.b0.e.a;
+import c.a.b0.e.b;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,19 +39,19 @@ public final class YYPluginManageServiceImpl$downloadBundle$2 implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // c.a.c0.e.a
-    public final void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar) {
+    @Override // c.a.b0.e.a
+    public final void checkAuthorization(IBundleInfo iBundleInfo, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, iBundleInfo, i2, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, iBundleInfo, i, bVar) == null) {
             bVar.onResult(1);
         }
     }

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TtmlSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class TtmlSubtitle implements Subtitle {
             newInitContext.initArgs = r2;
             Object[] objArr = {ttmlNode, map, map2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,17 +43,17 @@ public final class TtmlSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j2) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.root.getCues(j2, this.globalStyles, this.regionMap) : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.root.getCues(j, this.globalStyles, this.regionMap) : (List) invokeJ.objValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public long getEventTime(int i2) {
+    public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.eventTimesUs[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.eventTimesUs[i] : invokeI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
@@ -70,11 +70,11 @@ public final class TtmlSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getNextEventTimeIndex(long j2) {
+    public int getNextEventTimeIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-            int binarySearchCeil = Util.binarySearchCeil(this.eventTimesUs, j2, false, false);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            int binarySearchCeil = Util.binarySearchCeil(this.eventTimesUs, j, false, false);
             if (binarySearchCeil < this.eventTimesUs.length) {
                 return binarySearchCeil;
             }

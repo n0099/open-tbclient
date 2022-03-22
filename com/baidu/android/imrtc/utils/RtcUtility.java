@@ -52,9 +52,9 @@ public class RtcUtility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -172,26 +172,26 @@ public class RtcUtility {
         return invokeLLZ.booleanValue;
     }
 
-    public static int readIntData(Context context, String str, int i2) {
+    public static int readIntData(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, context, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, context, str, i)) == null) {
             if (context == null) {
                 return -1;
             }
-            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getInt(str, i2);
+            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getInt(str, i);
         }
         return invokeLLI.intValue;
     }
 
-    public static long readLongData(Context context, String str, long j2) {
+    public static long readLongData(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             if (context == null) {
                 return -1L;
             }
-            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j2);
+            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j);
         }
         return invokeCommon.longValue;
     }
@@ -202,10 +202,10 @@ public class RtcUtility {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) ? context == null ? "" : context.getSharedPreferences(PREF_COMMON_DATA, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    public static void setAppId(Context context, long j2) {
+    public static void setAppId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65556, null, context, j2) == null) {
-            writeLongData(context, "appid", j2);
+        if (interceptable == null || interceptable.invokeLJ(65556, null, context, j) == null) {
+            writeLongData(context, "appid", j);
         }
     }
 
@@ -235,10 +235,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setIMUK(Context context, long j2) {
+    public static void setIMUK(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65560, null, context, j2) == null) {
-            writeLongData(context, "uk", j2);
+        if (interceptable == null || interceptable.invokeLJ(65560, null, context, j) == null) {
+            writeLongData(context, "uk", j);
         }
     }
 
@@ -284,10 +284,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setRtcUserId(Context context, long j2) {
+    public static void setRtcUserId(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65567, null, context, j2) == null) {
-            writeLongData(context, KEY_RTC_USER_ID, j2);
+        if (interceptable == null || interceptable.invokeLJ(65567, null, context, j) == null) {
+            writeLongData(context, KEY_RTC_USER_ID, j);
         }
     }
 
@@ -298,17 +298,17 @@ public class RtcUtility {
         }
     }
 
-    public static void writeIntData(Context context, String str, int i2) {
+    public static void writeIntData(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65569, null, context, str, i2) == null) {
-            writeSPData(context, str, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLLI(65569, null, context, str, i) == null) {
+            writeSPData(context, str, Integer.valueOf(i));
         }
     }
 
-    public static void writeLongData(Context context, String str, long j2) {
+    public static void writeLongData(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            writeSPData(context, str, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            writeSPData(context, str, Long.valueOf(j));
         }
     }
 
@@ -351,9 +351,9 @@ public class RtcUtility {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {sharedPreferences, str, obj};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

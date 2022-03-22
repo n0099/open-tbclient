@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageViewState implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7824752745943015695L;
@@ -18,16 +18,16 @@ public class ImageViewState implements Serializable {
     public int orientation;
     public float scale;
 
-    public ImageViewState(float f2, PointF pointF, int i2) {
+    public ImageViewState(float f2, PointF pointF, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), pointF, Integer.valueOf(i2)};
+            Object[] objArr = {Float.valueOf(f2), pointF, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,7 +36,7 @@ public class ImageViewState implements Serializable {
         this.scale = f2;
         this.centerX = pointF.x;
         this.centerY = pointF.y;
-        this.orientation = i2;
+        this.orientation = i;
     }
 
     public PointF getCenter() {

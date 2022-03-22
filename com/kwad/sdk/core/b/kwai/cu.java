@@ -11,9 +11,9 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
             return;
         }
         aVar.a = jSONObject.optInt("status");
-        aVar.f54988b = jSONObject.optString("errorMsg");
+        aVar.f40074b = jSONObject.optString("errorMsg");
         if (jSONObject.opt("errorMsg") == JSONObject.NULL) {
-            aVar.f54988b = "";
+            aVar.f40074b = "";
         }
     }
 
@@ -24,7 +24,7 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.f54988b);
+        com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.f40074b);
         return jSONObject;
     }
 }

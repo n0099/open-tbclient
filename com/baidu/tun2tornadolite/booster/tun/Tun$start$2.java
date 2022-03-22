@@ -44,9 +44,9 @@ public final class Tun$start$2 extends SuspendLambda implements Function2<Corout
                 newInitContext.initArgs = r2;
                 Object[] objArr = {continuation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -78,8 +78,8 @@ public final class Tun$start$2 extends SuspendLambda implements Function2<Corout
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
                 Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                int i2 = this.label;
-                if (i2 == 0) {
+                int i = this.label;
+                if (i == 0) {
                     ResultKt.throwOnFailure(obj);
                     Tun tun = Tun.INSTANCE;
                     this.label = 1;
@@ -87,7 +87,7 @@ public final class Tun$start$2 extends SuspendLambda implements Function2<Corout
                     if (loop == coroutine_suspended) {
                         return coroutine_suspended;
                     }
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 } else {
                     ResultKt.throwOnFailure(obj);
@@ -107,9 +107,9 @@ public final class Tun$start$2 extends SuspendLambda implements Function2<Corout
             newInitContext.initArgs = r2;
             Object[] objArr = {continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;

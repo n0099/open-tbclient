@@ -18,7 +18,6 @@ import com.airbnb.lottie.model.content.GradientStroke;
 import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 /* loaded from: classes3.dex */
 public class GradientStrokeContent extends BaseStrokeContent {
     public static final int CACHE_STEPS_MS = 32;
@@ -62,17 +61,17 @@ public class GradientStrokeContent extends BaseStrokeContent {
         ValueCallbackKeyframeAnimation valueCallbackKeyframeAnimation = this.colorCallbackAnimation;
         if (valueCallbackKeyframeAnimation != null) {
             Integer[] numArr = (Integer[]) valueCallbackKeyframeAnimation.getValue();
-            int i2 = 0;
+            int i = 0;
             if (iArr.length == numArr.length) {
-                while (i2 < iArr.length) {
-                    iArr[i2] = numArr[i2].intValue();
-                    i2++;
+                while (i < iArr.length) {
+                    iArr[i] = numArr[i].intValue();
+                    i++;
                 }
             } else {
                 iArr = new int[numArr.length];
-                while (i2 < numArr.length) {
-                    iArr[i2] = numArr[i2].intValue();
-                    i2++;
+                while (i < numArr.length) {
+                    iArr[i] = numArr[i].intValue();
+                    i++;
                 }
             }
         }
@@ -83,11 +82,11 @@ public class GradientStrokeContent extends BaseStrokeContent {
         int round = Math.round(this.startPointAnimation.getProgress() * this.cacheSteps);
         int round2 = Math.round(this.endPointAnimation.getProgress() * this.cacheSteps);
         int round3 = Math.round(this.colorAnimation.getProgress() * this.cacheSteps);
-        int i2 = round != 0 ? PayBeanFactory.BEAN_ID_WIDTHDRAW * round : 17;
+        int i = round != 0 ? 527 * round : 17;
         if (round2 != 0) {
-            i2 = i2 * 31 * round2;
+            i = i * 31 * round2;
         }
-        return round3 != 0 ? i2 * 31 * round3 : i2;
+        return round3 != 0 ? i * 31 * round3 : i;
     }
 
     private LinearGradient getLinearGradient() {
@@ -144,7 +143,7 @@ public class GradientStrokeContent extends BaseStrokeContent {
     }
 
     @Override // com.airbnb.lottie.animation.content.BaseStrokeContent, com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         Shader radialGradient;
         if (this.hidden) {
             return;
@@ -157,7 +156,7 @@ public class GradientStrokeContent extends BaseStrokeContent {
         }
         radialGradient.setLocalMatrix(matrix);
         this.paint.setShader(radialGradient);
-        super.draw(canvas, matrix, i2);
+        super.draw(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content

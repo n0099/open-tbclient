@@ -86,9 +86,9 @@ public class FontsContractCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -107,22 +107,22 @@ public class FontsContractCompat {
         public final int mStatusCode;
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public FontFamilyResult(int i2, @Nullable FontInfo[] fontInfoArr) {
+        public FontFamilyResult(int i, @Nullable FontInfo[] fontInfoArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), fontInfoArr};
+                Object[] objArr = {Integer.valueOf(i), fontInfoArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mStatusCode = i2;
+            this.mStatusCode = i;
             this.mFonts = fontInfoArr;
         }
 
@@ -150,26 +150,26 @@ public class FontsContractCompat {
         public final int mWeight;
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public FontInfo(@NonNull Uri uri, @IntRange(from = 0) int i2, @IntRange(from = 1, to = 1000) int i3, boolean z, int i4) {
+        public FontInfo(@NonNull Uri uri, @IntRange(from = 0) int i, @IntRange(from = 1, to = 1000) int i2, boolean z, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uri, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)};
+                Object[] objArr = {uri, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mUri = (Uri) Preconditions.checkNotNull(uri);
-            this.mTtcIndex = i2;
-            this.mWeight = i3;
+            this.mTtcIndex = i;
+            this.mWeight = i2;
             this.mItalic = z;
-            this.mResultCode = i4;
+            this.mResultCode = i3;
         }
 
         public int getResultCode() {
@@ -231,18 +231,18 @@ public class FontsContractCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void onTypefaceRequestFailed(int i2) {
+        public void onTypefaceRequestFailed(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
@@ -260,23 +260,23 @@ public class FontsContractCompat {
         public final int mResult;
         public final Typeface mTypeface;
 
-        public TypefaceResult(@Nullable Typeface typeface, int i2) {
+        public TypefaceResult(@Nullable Typeface typeface, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {typeface, Integer.valueOf(i2)};
+                Object[] objArr = {typeface, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mTypeface = typeface;
-            this.mResult = i2;
+            this.mResult = i;
         }
     }
 
@@ -306,9 +306,9 @@ public class FontsContractCompat {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -322,23 +322,23 @@ public class FontsContractCompat {
             @Override // java.util.Comparator
             public int compare(byte[] bArr, byte[] bArr2) {
                 InterceptResult invokeLL;
+                int i;
                 int i2;
-                int i3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2)) == null) {
                     if (bArr.length != bArr2.length) {
-                        i2 = bArr.length;
-                        i3 = bArr2.length;
+                        i = bArr.length;
+                        i2 = bArr2.length;
                     } else {
-                        for (int i4 = 0; i4 < bArr.length; i4++) {
-                            if (bArr[i4] != bArr2[i4]) {
-                                i2 = bArr[i4];
-                                i3 = bArr2[i4];
+                        for (int i3 = 0; i3 < bArr.length; i3++) {
+                            if (bArr[i3] != bArr2[i3]) {
+                                i = bArr[i3];
+                                i2 = bArr2[i3];
                             }
                         }
                         return 0;
                     }
-                    return i2 - i3;
+                    return i - i2;
                 }
                 return invokeLL.intValue;
             }
@@ -350,9 +350,9 @@ public class FontsContractCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -386,8 +386,8 @@ public class FontsContractCompat {
             if (list.size() != list2.size()) {
                 return false;
             }
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (!Arrays.equals(list.get(i2), list2.get(i2))) {
+            for (int i = 0; i < list.size(); i++) {
+                if (!Arrays.equals(list.get(i), list2.get(i))) {
                     return false;
                 }
             }
@@ -448,14 +448,14 @@ public class FontsContractCompat {
                     int columnIndex5 = cursor.getColumnIndex(Columns.WEIGHT);
                     int columnIndex6 = cursor.getColumnIndex(Columns.ITALIC);
                     while (cursor.moveToNext()) {
-                        int i2 = columnIndex != -1 ? cursor.getInt(columnIndex) : 0;
-                        int i3 = columnIndex4 != -1 ? cursor.getInt(columnIndex4) : 0;
+                        int i = columnIndex != -1 ? cursor.getInt(columnIndex) : 0;
+                        int i2 = columnIndex4 != -1 ? cursor.getInt(columnIndex4) : 0;
                         if (columnIndex3 == -1) {
                             withAppendedId = ContentUris.withAppendedId(build, cursor.getLong(columnIndex2));
                         } else {
                             withAppendedId = ContentUris.withAppendedId(build2, cursor.getLong(columnIndex3));
                         }
-                        arrayList2.add(new FontInfo(withAppendedId, i3, columnIndex5 != -1 ? cursor.getInt(columnIndex5) : 400, columnIndex6 != -1 && cursor.getInt(columnIndex6) == 1, i2));
+                        arrayList2.add(new FontInfo(withAppendedId, i2, columnIndex5 != -1 ? cursor.getInt(columnIndex5) : 400, columnIndex6 != -1 && cursor.getInt(columnIndex6) == 1, i));
                     }
                     arrayList = arrayList2;
                 }
@@ -470,14 +470,14 @@ public class FontsContractCompat {
     }
 
     @NonNull
-    public static TypefaceResult getFontInternal(Context context, FontRequest fontRequest, int i2) {
+    public static TypefaceResult getFontInternal(Context context, FontRequest fontRequest, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, fontRequest, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, fontRequest, i)) == null) {
             try {
                 FontFamilyResult fetchFonts = fetchFonts(context, null, fontRequest);
                 if (fetchFonts.getStatusCode() == 0) {
-                    Typeface createFromFontInfo = TypefaceCompat.createFromFontInfo(context, null, fetchFonts.getFonts(), i2);
+                    Typeface createFromFontInfo = TypefaceCompat.createFromFontInfo(context, null, fetchFonts.getFonts(), i);
                     return new TypefaceResult(createFromFontInfo, createFromFontInfo != null ? 0 : -3);
                 }
                 return new TypefaceResult(null, fetchFonts.getStatusCode() == 1 ? -2 : -3);
@@ -489,30 +489,30 @@ public class FontsContractCompat {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface getFontSync(Context context, FontRequest fontRequest, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z, int i2, int i3) {
+    public static Typeface getFontSync(Context context, FontRequest fontRequest, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, fontRequest, fontCallback, handler, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            String str = fontRequest.getIdentifier() + "-" + i3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, fontRequest, fontCallback, handler, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            String str = fontRequest.getIdentifier() + "-" + i2;
             Typeface typeface = sTypefaceCache.get(str);
             if (typeface != null) {
                 if (fontCallback != null) {
                     fontCallback.onFontRetrieved(typeface);
                 }
                 return typeface;
-            } else if (z && i2 == -1) {
-                TypefaceResult fontInternal = getFontInternal(context, fontRequest, i3);
+            } else if (z && i == -1) {
+                TypefaceResult fontInternal = getFontInternal(context, fontRequest, i2);
                 if (fontCallback != null) {
-                    int i4 = fontInternal.mResult;
-                    if (i4 == 0) {
+                    int i3 = fontInternal.mResult;
+                    if (i3 == 0) {
                         fontCallback.callbackSuccessAsync(fontInternal.mTypeface, handler);
                     } else {
-                        fontCallback.callbackFailAsync(i4, handler);
+                        fontCallback.callbackFailAsync(i3, handler);
                     }
                 }
                 return fontInternal.mTypeface;
             } else {
-                Callable<TypefaceResult> callable = new Callable<TypefaceResult>(context, fontRequest, i3, str) { // from class: androidx.core.provider.FontsContractCompat.1
+                Callable<TypefaceResult> callable = new Callable<TypefaceResult>(context, fontRequest, i2, str) { // from class: androidx.core.provider.FontsContractCompat.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context val$context;
@@ -525,11 +525,11 @@ public class FontsContractCompat {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {context, fontRequest, Integer.valueOf(i3), str};
+                            Object[] objArr = {context, fontRequest, Integer.valueOf(i2), str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -537,7 +537,7 @@ public class FontsContractCompat {
                         }
                         this.val$context = context;
                         this.val$request = fontRequest;
-                        this.val$style = i3;
+                        this.val$style = i2;
                         this.val$id = str;
                     }
 
@@ -560,7 +560,7 @@ public class FontsContractCompat {
                 };
                 if (z) {
                     try {
-                        return ((TypefaceResult) sBackgroundThread.postAndWait(callable, i2)).mTypeface;
+                        return ((TypefaceResult) sBackgroundThread.postAndWait(callable, i)).mTypeface;
                     } catch (InterruptedException unused) {
                         return null;
                     }
@@ -578,9 +578,9 @@ public class FontsContractCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {fontCallback, handler};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -599,11 +599,11 @@ public class FontsContractCompat {
                                 this.val$fontCallback.callbackFailAsync(1, this.val$handler);
                                 return;
                             }
-                            int i5 = typefaceResult.mResult;
-                            if (i5 == 0) {
+                            int i4 = typefaceResult.mResult;
+                            if (i4 == 0) {
                                 this.val$fontCallback.callbackSuccessAsync(typefaceResult.mTypeface, this.val$handler);
                             } else {
-                                this.val$fontCallback.callbackFailAsync(i5, this.val$handler);
+                                this.val$fontCallback.callbackFailAsync(i4, this.val$handler);
                             }
                         }
                     }
@@ -633,9 +633,9 @@ public class FontsContractCompat {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i5 = newInitContext.flag;
-                                if ((i5 & 1) != 0) {
-                                    int i6 = i5 & 2;
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -655,8 +655,8 @@ public class FontsContractCompat {
                                         return;
                                     }
                                     FontsContractCompat.sPendingReplies.remove(this.val$id);
-                                    for (int i5 = 0; i5 < arrayList3.size(); i5++) {
-                                        arrayList3.get(i5).onReply(typefaceResult);
+                                    for (int i4 = 0; i4 < arrayList3.size(); i4++) {
+                                        arrayList3.get(i4).onReply(typefaceResult);
                                     }
                                 }
                             }
@@ -683,8 +683,8 @@ public class FontsContractCompat {
                     List<byte[]> convertToByteArrayList = convertToByteArrayList(packageManager.getPackageInfo(resolveContentProvider.packageName, 64).signatures);
                     Collections.sort(convertToByteArrayList, sByteArrayComparator);
                     List<List<byte[]>> certificates = getCertificates(fontRequest, resources);
-                    for (int i2 = 0; i2 < certificates.size(); i2++) {
-                        ArrayList arrayList = new ArrayList(certificates.get(i2));
+                    for (int i = 0; i < certificates.size(); i++) {
+                        ArrayList arrayList = new ArrayList(certificates.get(i));
                         Collections.sort(arrayList, sByteArrayComparator);
                         if (equalsByteArrayList(convertToByteArrayList, arrayList)) {
                             return resolveContentProvider;
@@ -744,9 +744,9 @@ public class FontsContractCompat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context, fontRequest, r8, fontRequestCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -779,9 +779,9 @@ public class FontsContractCompat {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -812,9 +812,9 @@ public class FontsContractCompat {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -845,9 +845,9 @@ public class FontsContractCompat {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -885,9 +885,9 @@ public class FontsContractCompat {
                                                         newInitContext.initArgs = r2;
                                                         Object[] objArr = {this};
                                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i2 = newInitContext.flag;
-                                                        if ((i2 & 1) != 0) {
-                                                            int i3 = i2 & 2;
+                                                        int i = newInitContext.flag;
+                                                        if ((i & 1) != 0) {
+                                                            int i2 = i & 2;
                                                             newInitContext.thisArg = this;
                                                             interceptable3.invokeInitBody(65536, newInitContext);
                                                             return;
@@ -919,9 +919,9 @@ public class FontsContractCompat {
                                                         newInitContext.initArgs = r2;
                                                         Object[] objArr = {this, Integer.valueOf(resultCode)};
                                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i2 = newInitContext.flag;
-                                                        if ((i2 & 1) != 0) {
-                                                            int i3 = i2 & 2;
+                                                        int i = newInitContext.flag;
+                                                        if ((i & 1) != 0) {
+                                                            int i2 = i & 2;
                                                             newInitContext.thisArg = this;
                                                             interceptable3.invokeInitBody(65536, newInitContext);
                                                             return;
@@ -957,9 +957,9 @@ public class FontsContractCompat {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -991,9 +991,9 @@ public class FontsContractCompat {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, buildTypeface};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -1026,9 +1026,9 @@ public class FontsContractCompat {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1058,9 +1058,9 @@ public class FontsContractCompat {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;

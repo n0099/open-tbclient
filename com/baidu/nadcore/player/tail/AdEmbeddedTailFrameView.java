@@ -23,9 +23,9 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -36,23 +36,23 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public int layoutId() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.nad_video_ad_tail_frame : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d2 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public void onNightModeChanged() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onNightModeChanged();
-            this.mNameView.setTextColor(getResources().getColor(R.color.NAD_FC6));
-            this.mCheckBtn.setTextColor(getResources().getColor(R.color.NAD_FC38));
-            this.mDownloadBtn.setTextColor(getResources().getColor(R.color.NAD_FC38));
-            this.mCheckBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_video_ad_tail_btn_selector));
-            this.mDownloadBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.nad_video_ad_tail_btn_selector));
-            this.mTimerCloseTxt.setTextColor(getResources().getColor(R.color.nad_tail_time_close));
+            super.g();
+            this.f27582c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
+            this.f27583d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
+            this.f27584e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
+            this.f27583d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd9));
+            this.f27584e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd9));
+            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060834));
         }
     }
 
@@ -65,9 +65,9 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -78,17 +78,17 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdEmbeddedTailFrameView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdEmbeddedTailFrameView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

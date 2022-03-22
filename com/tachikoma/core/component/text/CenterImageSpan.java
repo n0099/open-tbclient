@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CenterImageSpan extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class CenterImageSpan extends ImageSpan {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Drawable) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -76,10 +76,10 @@ public class CenterImageSpan extends ImageSpan {
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, @NonNull Paint paint) {
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable cachedDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) || (cachedDrawable = getCachedDrawable(paint)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (cachedDrawable = getCachedDrawable(paint)) == null) {
             return;
         }
         if (paint instanceof TextPaint) {
@@ -87,16 +87,16 @@ public class CenterImageSpan extends ImageSpan {
         }
         int fontMetricsInt = paint.getFontMetricsInt(this.mFm);
         canvas.save();
-        canvas.translate(f2 + this.mMarginLeft, i5 + this.mFm.ascent + ((fontMetricsInt - (cachedDrawable.getBounds().bottom - cachedDrawable.getBounds().top)) / 2) + this.mOffsetY);
+        canvas.translate(f2 + this.mMarginLeft, i4 + this.mFm.ascent + ((fontMetricsInt - (cachedDrawable.getBounds().bottom - cachedDrawable.getBounds().top)) / 2) + this.mOffsetY);
         cachedDrawable.draw(canvas);
         canvas.restore();
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
             Drawable cachedDrawable = getCachedDrawable(paint);
             if (cachedDrawable == null) {
                 return 0;
@@ -130,12 +130,12 @@ public class CenterImageSpan extends ImageSpan {
         return (CenterImageSpan) invokeZ.objValue;
     }
 
-    public CenterImageSpan setImageRect(int i2, int i3) {
+    public CenterImageSpan setImageRect(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
             this.mFitTextLine = false;
-            this.mImageRect = new Rect(0, 0, i2, i3);
+            this.mImageRect = new Rect(0, 0, i, i2);
             return this;
         }
         return (CenterImageSpan) invokeII.objValue;

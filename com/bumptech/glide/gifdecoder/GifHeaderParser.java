@@ -14,7 +14,7 @@ import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifHeaderParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAME_DELAY = 10;
@@ -48,9 +48,9 @@ public class GifHeaderParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,16 +113,16 @@ public class GifHeaderParser {
             int read = read();
             this.blockSize = read;
             if (read > 0) {
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
-                while (i2 < this.blockSize) {
+                while (i < this.blockSize) {
                     try {
-                        i3 = this.blockSize - i2;
-                        this.rawData.get(this.block, i2, i3);
-                        i2 += i3;
-                    } catch (Exception unused) {
+                        i2 = this.blockSize - i;
+                        this.rawData.get(this.block, i, i2);
+                        i += i2;
+                    } catch (Exception e2) {
                         if (Log.isLoggable(TAG, 3)) {
-                            String str = "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.blockSize;
+                            Log.d(TAG, "Error Reading Block n: " + i + " count: " + i2 + " blockSize: " + this.blockSize, e2);
                         }
                         this.header.status = 1;
                         return;
@@ -133,28 +133,30 @@ public class GifHeaderParser {
     }
 
     @Nullable
-    private int[] readColorTable(int i2) {
+    private int[] readColorTable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            byte[] bArr = new byte[i2 * 3];
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            byte[] bArr = new byte[i * 3];
             int[] iArr = null;
             try {
                 this.rawData.get(bArr);
                 iArr = new int[256];
+                int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                while (i3 < i2) {
+                while (i2 < i) {
+                    int i4 = i3 + 1;
                     int i5 = i4 + 1;
                     int i6 = i5 + 1;
-                    int i7 = i6 + 1;
-                    int i8 = i3 + 1;
-                    iArr[i3] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i5] & 255) << 8) | (bArr[i6] & 255);
-                    i4 = i7;
-                    i3 = i8;
+                    int i7 = i2 + 1;
+                    iArr[i2] = ((bArr[i3] & 255) << 16) | (-16777216) | ((bArr[i4] & 255) << 8) | (bArr[i5] & 255);
+                    i3 = i6;
+                    i2 = i7;
                 }
-            } catch (BufferUnderflowException unused) {
-                Log.isLoggable(TAG, 3);
+            } catch (BufferUnderflowException e2) {
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Format Error Reading Color Table", e2);
+                }
                 this.header.status = 1;
             }
             return iArr;
@@ -175,9 +177,9 @@ public class GifHeaderParser {
             read();
             int read = read();
             GifFrame gifFrame = this.header.currentFrame;
-            int i2 = (read & 28) >> 2;
-            gifFrame.dispose = i2;
-            if (i2 == 0) {
+            int i = (read & 28) >> 2;
+            gifFrame.dispose = i;
+            if (i == 0) {
                 gifFrame.dispose = 1;
             }
             this.header.currentFrame.transparency = (read & 1) != 0;
@@ -196,7 +198,7 @@ public class GifHeaderParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < 6; i2++) {
+            for (int i = 0; i < 6; i++) {
                 sb.append((char) read());
             }
             if (!sb.toString().startsWith("GIF")) {
@@ -337,11 +339,11 @@ public class GifHeaderParser {
         return (GifHeaderParser) invokeL.objValue;
     }
 
-    private void readContents(int i2) {
+    private void readContents(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
             boolean z = false;
-            while (!z && !err() && this.header.frameCount <= i2) {
+            while (!z && !err() && this.header.frameCount <= i) {
                 int read = read();
                 if (read == 33) {
                     int read2 = read();
@@ -357,8 +359,8 @@ public class GifHeaderParser {
                     } else {
                         readBlock();
                         StringBuilder sb = new StringBuilder();
-                        for (int i3 = 0; i3 < 11; i3++) {
-                            sb.append((char) this.block[i3]);
+                        for (int i2 = 0; i2 < 11; i2++) {
+                            sb.append((char) this.block[i2]);
                         }
                         if (sb.toString().equals("NETSCAPE2.0")) {
                             readNetscapeExt();

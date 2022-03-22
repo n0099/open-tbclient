@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MediaData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXT_TYPE_XIAOYING = 12;
@@ -42,9 +42,9 @@ public class MediaData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -262,10 +262,10 @@ public class MediaData extends OrmObject implements Serializable {
         }
     }
 
-    public void setDuration(int i2) {
+    public void setDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.during_time = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.during_time = i;
         }
     }
 
@@ -276,10 +276,10 @@ public class MediaData extends OrmObject implements Serializable {
         }
     }
 
-    public void setOriginalSize(long j2) {
+    public void setOriginalSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.original_size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.original_size = j;
         }
     }
 
@@ -311,10 +311,10 @@ public class MediaData extends OrmObject implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.type = i;
         }
     }
 

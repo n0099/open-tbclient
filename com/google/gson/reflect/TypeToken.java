@@ -1,6 +1,7 @@
 package com.google.gson.reflect;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,9 +30,9 @@ public class TypeToken<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,7 +57,7 @@ public class TypeToken<T> {
             sb.append(type.getClass().getName());
             sb.append(", for type token: ");
             sb.append(type.toString());
-            sb.append('.');
+            sb.append(IStringUtil.EXTENSION_SEPARATOR);
             return new AssertionError(sb.toString());
         }
         return (AssertionError) invokeLL.objValue;
@@ -106,8 +107,8 @@ public class TypeToken<T> {
             if (parameterizedType.getRawType().equals(parameterizedType2.getRawType())) {
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
-                for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-                    if (!matches(actualTypeArguments[i2], actualTypeArguments2[i2], map)) {
+                for (int i = 0; i < actualTypeArguments.length; i++) {
+                    if (!matches(actualTypeArguments[i], actualTypeArguments2[i], map)) {
                         return false;
                     }
                 }
@@ -194,9 +195,9 @@ public class TypeToken<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {type};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -259,9 +260,9 @@ public class TypeToken<T> {
             if (parameterizedType2 != null) {
                 Type[] actualTypeArguments = parameterizedType2.getActualTypeArguments();
                 TypeVariable<Class<?>>[] typeParameters = rawType.getTypeParameters();
-                for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
-                    Type type2 = actualTypeArguments[i2];
-                    TypeVariable<Class<?>> typeVariable = typeParameters[i2];
+                for (int i = 0; i < actualTypeArguments.length; i++) {
+                    Type type2 = actualTypeArguments[i];
+                    TypeVariable<Class<?>> typeVariable = typeParameters[i];
                     while (type2 instanceof TypeVariable) {
                         type2 = map.get(((TypeVariable) type2).getName());
                     }

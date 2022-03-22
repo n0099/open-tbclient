@@ -23,9 +23,9 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {webMessageCompat};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,8 +39,8 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, invocationHandlerArr)) == null) {
             WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[invocationHandlerArr.length];
-            for (int i2 = 0; i2 < invocationHandlerArr.length; i2++) {
-                webMessagePortCompatArr[i2] = new WebMessagePortImpl(invocationHandlerArr[i2]);
+            for (int i = 0; i < invocationHandlerArr.length; i++) {
+                webMessagePortCompatArr[i] = new WebMessagePortImpl(invocationHandlerArr[i]);
             }
             return webMessagePortCompatArr;
         }
@@ -70,8 +70,8 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
                 return null;
             }
             InvocationHandler[] invocationHandlerArr = new InvocationHandler[ports.length];
-            for (int i2 = 0; i2 < ports.length; i2++) {
-                invocationHandlerArr[i2] = ports[i2].getInvocationHandler();
+            for (int i = 0; i < ports.length; i++) {
+                invocationHandlerArr[i] = ports[i].getInvocationHandler();
             }
             return invocationHandlerArr;
         }

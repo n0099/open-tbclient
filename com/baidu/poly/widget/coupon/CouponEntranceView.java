@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.f0.k.c.a;
+import c.a.e0.k.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,21 +22,19 @@ import java.util.List;
 public class CouponEntranceView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f28274b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f28275c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f28276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36497e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36498f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f36499g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public a f36500h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a.C0143a f36501i;
+    public a.C0134a f28277e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -47,9 +45,9 @@ public class CouponEntranceView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -59,79 +57,79 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public final String a(long j2) {
+    public final String a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? new DecimalFormat("0.00").format((j2 * 1.0d) / 100.0d) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new DecimalFormat("0.00").format((j * 1.0d) / 100.0d) : (String) invokeJ.objValue;
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.coupon_entrance, (ViewGroup) this, true);
-            this.f36497e = (TextView) findViewById(R.id.coupon_title);
-            this.f36498f = (TextView) findViewById(R.id.coupon_subtitle);
-            this.f36499g = findViewById(R.id.icon_more);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0205, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090703);
+            this.f28274b = (TextView) findViewById(R.id.obfuscated_res_0x7f090702);
+            this.f28275c = findViewById(R.id.obfuscated_res_0x7f090e1d);
         }
     }
 
-    public a.C0143a getSelectedItem() {
-        InterceptResult invokeV;
+    public void c() {
+        List<a.C0134a> list;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36501i : (a.C0143a) invokeV.objValue;
-    }
-
-    public void refreshUI() {
-        List<a.C0143a> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f36501i = null;
-            a aVar = this.f36500h;
-            if (!((aVar == null || (list = aVar.f3416b) == null || list.size() <= 0) ? false : true)) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f28277e = null;
+            a aVar = this.f28276d;
+            if (!((aVar == null || (list = aVar.f2871b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0143a> it = this.f36500h.f3416b.iterator();
+            Iterator<a.C0134a> it = this.f28276d.f2871b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                a.C0143a next = it.next();
-                if (next.f3423h == 1) {
-                    this.f36501i = next;
+                a.C0134a next = it.next();
+                if (next.f2878h == 1) {
+                    this.f28277e = next;
                     break;
                 }
             }
-            if (this.f36501i == null) {
+            if (this.f28277e == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f36497e.setText(this.f36501i.f3418c);
-            a.C0143a c0143a = this.f36501i;
-            if (c0143a.f3417b == -1) {
-                String str = c0143a.f3419d;
-                this.f36498f.setVisibility(8);
+            this.a.setText(this.f28277e.f2873c);
+            a.C0134a c0134a = this.f28277e;
+            if (c0134a.f2872b == -1) {
+                String str = c0134a.f2874d;
+                this.f28274b.setVisibility(8);
             } else {
-                String str2 = "-" + a(this.f36501i.f3422g.longValue()) + "元";
-                this.f36498f.setVisibility(0);
-                this.f36498f.setText(this.f36501i.f3419d);
+                String str2 = "-" + a(this.f28277e.f2877g.longValue()) + "元";
+                this.f28274b.setVisibility(0);
+                this.f28274b.setText(this.f28277e.f2874d);
             }
-            if (this.f36500h.a) {
-                this.f36499g.setVisibility(0);
+            if (this.f28276d.a) {
+                this.f28275c.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f36499g.setVisibility(8);
+            this.f28275c.setVisibility(8);
             setEnabled(false);
         }
+    }
+
+    public a.C0134a getSelectedItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28277e : (a.C0134a) invokeV.objValue;
     }
 
     public void update(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f36500h = aVar;
-            refreshUI();
+            this.f28276d = aVar;
+            c();
         }
     }
 
@@ -144,9 +142,9 @@ public class CouponEntranceView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -157,17 +155,17 @@ public class CouponEntranceView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CouponEntranceView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CouponEntranceView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

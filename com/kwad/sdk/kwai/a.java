@@ -1,12 +1,13 @@
 package com.kwad.sdk.kwai;
 
 import android.location.Location;
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.kuaishou.weapon.IWeaponInitParams;
 import com.kwad.sdk.core.config.b;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.av;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements IWeaponInitParams {
     @Override // com.kuaishou.weapon.IWeaponInitParams
     public String getAndroidID() {
@@ -65,26 +66,26 @@ public class a implements IWeaponInitParams {
 
     @Override // com.kuaishou.weapon.IWeaponInitParams
     public int getPS() {
-        long j2 = ao.c() ? 4227L : 0L;
+        long j = ao.c() ? 4227L : 0L;
         if (ao.g()) {
-            j2 |= 4;
+            j |= 4;
         }
         if (ao.i()) {
-            j2 |= 2048;
+            j |= 2048;
         }
         if (ao.l()) {
-            j2 |= 8192;
+            j |= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
         }
         if (ao.a()) {
-            j2 |= 64;
+            j |= 64;
         }
         if (ao.k()) {
-            j2 |= 40;
+            j |= 40;
         }
         if (ao.m()) {
-            j2 |= 16;
+            j |= 16;
         }
-        return (int) (j2 | b.Y());
+        return (int) (j | b.Y());
     }
 
     @Override // com.kuaishou.weapon.IWeaponInitParams

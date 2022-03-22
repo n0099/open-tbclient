@@ -17,7 +17,7 @@ public interface Pay {
 
     /* loaded from: classes4.dex */
     public interface PayCallback {
-        void onResult(int i2, String str);
+        void onResult(int i, String str);
     }
 
     void doPolymerPay(Activity activity, JSONObject jSONObject, String[] strArr, PayCallback payCallback);

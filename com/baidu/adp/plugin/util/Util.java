@@ -24,7 +24,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.android.FlutterActivityAndFragmentDelegate;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -67,16 +66,16 @@ public final class Util {
             $VALUES = new VersionCompare[]{EQUAL, LESS, versionCompare};
         }
 
-        public VersionCompare(String str, int i2) {
+        public VersionCompare(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -106,27 +105,27 @@ public final class Util {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29884b;
+        public String f23885b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f29885c;
+        public int f23886c;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = false;
-            this.f29884b = null;
-            this.f29885c = 0;
+            this.f23885b = null;
+            this.f23886c = 0;
         }
     }
 
@@ -189,7 +188,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f29884b = e.toString();
+                    aVar.f23885b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -201,7 +200,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f29884b = "illegal_param";
+            aVar.f23885b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -230,13 +229,13 @@ public final class Util {
                 return null;
             }
             StringBuilder sb = null;
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 Bundle bundle = applicationInfo.metaData;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("cmd_range_");
-                int i3 = i2 + 1;
-                sb2.append(i2);
+                int i2 = i + 1;
+                sb2.append(i);
                 String string = bundle.getString(sb2.toString());
                 if (TextUtils.isEmpty(string)) {
                     break;
@@ -246,7 +245,7 @@ public final class Util {
                 }
                 sb.append(string);
                 sb.append(",");
-                i2 = i3;
+                i = i2;
             }
             if (sb == null || sb.length() <= 0) {
                 return null;
@@ -312,7 +311,7 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
-                File dir = BdBaseApplication.getInst().getDir(FlutterActivityAndFragmentDelegate.PLUGINS_RESTORATION_BUNDLE_KEY, 0);
+                File dir = BdBaseApplication.getInst().getDir("plugins", 0);
                 if (!dir.exists()) {
                     if (!dir.mkdir()) {
                         return null;
@@ -422,16 +421,16 @@ public final class Util {
         return invokeV.booleanValue;
     }
 
-    public static final boolean q(long j2) {
+    public static final boolean q(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j)) == null) {
             long c2 = c();
-            if (j2 <= 0) {
+            if (j <= 0) {
                 return c2 <= 0 || c2 >= 31457280;
             }
-            long j3 = j2 * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
-            return (j3 <= 31457280 ? j3 : 31457280L) < c2;
+            long j2 = j * (Build.VERSION.SDK_INT < 19 ? 6 : 10);
+            return (j2 <= 31457280 ? j2 : 31457280L) < c2;
         }
         return invokeJ.booleanValue;
     }
@@ -449,14 +448,14 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static int s(byte[] bArr, int i2) {
+    public static int s(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, bArr, i)) == null) {
             if (bArr == null) {
                 return 0;
             }
-            return ((short) ((bArr[i2] & 255) | (bArr[i2 + 1] << 8))) & UShort.MAX_VALUE;
+            return ((short) ((bArr[i] & 255) | (bArr[i + 1] << 8))) & UShort.MAX_VALUE;
         }
         return invokeLI.intValue;
     }

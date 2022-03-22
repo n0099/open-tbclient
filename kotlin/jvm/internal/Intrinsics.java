@@ -1,15 +1,16 @@
 package kotlin.jvm.internal;
 
+import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import kotlin.KotlinNullPointerException;
 import kotlin.SinceKotlin;
 import kotlin.UninitializedPropertyAccessException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Intrinsics {
 
     @SinceKotlin(version = "1.4")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Kotlin {
     }
 
@@ -35,7 +36,7 @@ public class Intrinsics {
     }
 
     public static void checkHasClass(String str) throws ClassNotFoundException {
-        String replace = str.replace(WebvttCueParser.CHAR_SLASH, '.');
+        String replace = str.replace(WebvttCueParser.CHAR_SLASH, IStringUtil.EXTENSION_SEPARATOR);
         try {
             Class.forName(replace);
         } catch (ClassNotFoundException e2) {
@@ -75,19 +76,19 @@ public class Intrinsics {
         throw ((IllegalStateException) sanitizeStackTrace(new IllegalStateException("Method specified as non-null returned null: " + str + "." + str2)));
     }
 
-    public static int compare(int i2, int i3) {
-        if (i2 < i3) {
+    public static int compare(int i, int i2) {
+        if (i < i2) {
             return -1;
         }
-        return i2 == i3 ? 0 : 1;
+        return i == i2 ? 0 : 1;
     }
 
-    public static int compare(long j2, long j3) {
-        int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-        if (i2 < 0) {
+    public static int compare(long j, long j2) {
+        int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        if (i < 0) {
             return -1;
         }
-        return i2 == 0 ? 0 : 1;
+        return i == 0 ? 0 : 1;
     }
 
     public static String createParameterIsNullExceptionMessage(String str) {
@@ -101,7 +102,7 @@ public class Intrinsics {
         throwUndefinedForReified();
     }
 
-    public static void reifiedOperationMarker(int i2, String str) {
+    public static void reifiedOperationMarker(int i, String str) {
         throwUndefinedForReified();
     }
 
@@ -188,20 +189,20 @@ public class Intrinsics {
         throwUndefinedForReified(str);
     }
 
-    public static void reifiedOperationMarker(int i2, String str, String str2) {
+    public static void reifiedOperationMarker(int i, String str, String str2) {
         throwUndefinedForReified(str2);
     }
 
     public static <T extends Throwable> T sanitizeStackTrace(T t, String str) {
         StackTraceElement[] stackTrace = t.getStackTrace();
         int length = stackTrace.length;
-        int i2 = -1;
-        for (int i3 = 0; i3 < length; i3++) {
-            if (str.equals(stackTrace[i3].getClassName())) {
-                i2 = i3;
+        int i = -1;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (str.equals(stackTrace[i2].getClassName())) {
+                i = i2;
             }
         }
-        t.setStackTrace((StackTraceElement[]) Arrays.copyOfRange(stackTrace, i2 + 1, length));
+        t.setStackTrace((StackTraceElement[]) Arrays.copyOfRange(stackTrace, i + 1, length));
         return t;
     }
 
@@ -241,7 +242,7 @@ public class Intrinsics {
     }
 
     public static void checkHasClass(String str, String str2) throws ClassNotFoundException {
-        String replace = str.replace(WebvttCueParser.CHAR_SLASH, '.');
+        String replace = str.replace(WebvttCueParser.CHAR_SLASH, IStringUtil.EXTENSION_SEPARATOR);
         try {
             Class.forName(replace);
         } catch (ClassNotFoundException e2) {

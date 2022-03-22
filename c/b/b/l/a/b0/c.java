@@ -14,27 +14,27 @@ public interface c {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f27167b;
+        public final int f22419b;
 
-        public a(int i2, int i3) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i2;
-            this.f27167b = i3;
+            this.a = i;
+            this.f22419b = i2;
         }
     }
 
-    a a(int i2, int i3);
+    a a(int i, int i2);
 }

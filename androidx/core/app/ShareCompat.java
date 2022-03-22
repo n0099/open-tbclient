@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,9 +66,9 @@ public final class ShareCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, componentName};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -354,10 +355,10 @@ public final class ShareCompat {
         }
 
         @NonNull
-        public IntentBuilder setChooserTitle(@StringRes int i2) {
+        public IntentBuilder setChooserTitle(@StringRes int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? setChooserTitle(this.mContext.getText(i2)) : (IntentBuilder) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? setChooserTitle(this.mContext.getText(i)) : (IntentBuilder) invokeI.objValue;
         }
 
         @NonNull
@@ -432,9 +433,9 @@ public final class ShareCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -453,11 +454,11 @@ public final class ShareCompat {
             return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) ? from((Context) Preconditions.checkNotNull(activity), activity.getIntent()) : (IntentReader) invokeL.objValue;
         }
 
-        public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i2, int i3) {
+        public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(65539, null, sb, charSequence, i2, i3) == null) {
-                while (i2 < i3) {
-                    char charAt = charSequence.charAt(i2);
+            if (interceptable == null || interceptable.invokeLLII(65539, null, sb, charSequence, i, i2) == null) {
+                while (i < i2) {
+                    char charAt = charSequence.charAt(i);
                     if (charAt == '<') {
                         sb.append("&lt;");
                     } else if (charAt == '>') {
@@ -470,18 +471,18 @@ public final class ShareCompat {
                         sb.append(";");
                     } else if (charAt == ' ') {
                         while (true) {
-                            int i4 = i2 + 1;
-                            if (i4 >= i3 || charSequence.charAt(i4) != ' ') {
+                            int i3 = i + 1;
+                            if (i3 >= i2 || charSequence.charAt(i3) != ' ') {
                                 break;
                             }
                             sb.append("&nbsp;");
-                            i2 = i4;
+                            i = i3;
                         }
                         sb.append(WebvttCueParser.CHAR_SPACE);
                     } else {
                         sb.append(charAt);
                     }
-                    i2++;
+                    i++;
                 }
             }
         }
@@ -503,7 +504,8 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
-                } catch (PackageManager.NameNotFoundException unused) {
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve icon for calling activity", e2);
                     return null;
                 }
             }
@@ -520,7 +522,8 @@ public final class ShareCompat {
                 }
                 try {
                     return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
-                } catch (PackageManager.NameNotFoundException unused) {
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve icon for calling application", e2);
                     return null;
                 }
             }
@@ -538,7 +541,8 @@ public final class ShareCompat {
                 PackageManager packageManager = this.mContext.getPackageManager();
                 try {
                     return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
-                } catch (PackageManager.NameNotFoundException unused) {
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.e(TAG, "Could not retrieve label for calling application", e2);
                     return null;
                 }
             }
@@ -673,21 +677,21 @@ public final class ShareCompat {
         }
 
         @Nullable
-        public Uri getStream(int i2) {
+        public Uri getStream(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
                 if (this.mStreams == null && isMultipleShare()) {
                     this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
                 }
                 ArrayList<Uri> arrayList = this.mStreams;
                 if (arrayList != null) {
-                    return arrayList.get(i2);
+                    return arrayList.get(i);
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
                 }
-                throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i2);
+                throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i);
             }
             return (Uri) invokeI.objValue;
         }
@@ -698,9 +702,9 @@ public final class ShareCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -773,15 +777,15 @@ public final class ShareCompat {
         return (String) invokeL.objValue;
     }
 
-    public static void configureMenuItem(@NonNull Menu menu, @IdRes int i2, @NonNull IntentBuilder intentBuilder) {
+    public static void configureMenuItem(@NonNull Menu menu, @IdRes int i, @NonNull IntentBuilder intentBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, menu, i2, intentBuilder) == null) {
-            MenuItem findItem = menu.findItem(i2);
+        if (interceptable == null || interceptable.invokeLIL(65537, null, menu, i, intentBuilder) == null) {
+            MenuItem findItem = menu.findItem(i);
             if (findItem != null) {
                 configureMenuItem(findItem, intentBuilder);
                 return;
             }
-            throw new IllegalArgumentException("Could not find menu item with id " + i2 + " in the supplied menu");
+            throw new IllegalArgumentException("Could not find menu item with id " + i + " in the supplied menu");
         }
     }
 }

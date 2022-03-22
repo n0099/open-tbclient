@@ -16,7 +16,7 @@ import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.TDialog;
 import com.tencent.open.utils.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IM extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHAT_TYPE_AIO = "thirdparty2c";
@@ -39,9 +39,9 @@ public class IM extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar, qQToken};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c) objArr2[0], (QQToken) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,20 +66,20 @@ public class IM extends BaseApi {
                     if (str2.length() < 5) {
                         return -3;
                     }
-                    for (int i2 = 0; i2 < str2.length(); i2++) {
-                        if (!Character.isDigit(str2.charAt(i2))) {
+                    for (int i = 0; i < str2.length(); i++) {
+                        if (!Character.isDigit(str2.charAt(i))) {
                             return -4;
                         }
                     }
                     if (l.d(activity)) {
                         Intent intent = new Intent("android.intent.action.VIEW");
-                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.f58993c.getOpenId()), l.l(this.f58993c.getAppId()), l.l(str3))));
+                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.f43645c.getOpenId()), l.l(this.f43645c.getAppId()), l.l(str3))));
                         intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, str3);
                         activity.startActivity(intent);
                         return 0;
                     }
                     try {
-                        new TDialog(activity, "", a(""), null, this.f58993c).show();
+                        new TDialog(activity, "", a(""), null, this.f43645c).show();
                         return -2;
                     } catch (RuntimeException e2) {
                         e2.printStackTrace();
@@ -102,9 +102,9 @@ public class IM extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, qQToken};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -122,9 +122,9 @@ public class IM extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {qQToken};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

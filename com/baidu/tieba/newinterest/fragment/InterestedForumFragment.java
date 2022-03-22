@@ -8,64 +8,74 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q2.b.a;
-import c.a.r0.q2.g.b;
+import c.a.p0.s2.b.a;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
+import com.baidu.tieba.newinterest.model.InterestedForumModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InterestedForumFragment extends BaseInterestedForumFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public View f44881e;
-
     /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f44882f;
+    public View f34770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TBSpecificationBtn f44883g;
+    public BdRecyclerView f34771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44884h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f44885i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public a f44886j;
-    public FrameLayout k;
-    public TBSpecificationBtn l;
+    public TBSpecificationBtn f34772h;
+    public TextView i;
+    public TextView j;
+    public a k;
+    public FrameLayout l;
+    public TBSpecificationBtn m;
 
     public InterestedForumFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static InterestedForumFragment getInstance(int i2, String[] strArr) {
+    public static InterestedForumFragment G0(int i, boolean z, String[] strArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), strArr})) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("scene", i);
+            bundle.putBoolean(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, z);
+            bundle.putStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE, strArr);
+            InterestedForumFragment interestedForumFragment = new InterestedForumFragment();
+            interestedForumFragment.setArguments(bundle);
+            return interestedForumFragment;
+        }
+        return (InterestedForumFragment) invokeCommon.objValue;
+    }
+
+    public static InterestedForumFragment H0(int i, String[] strArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, strArr)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, strArr)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("scene", i2);
-            bundle.putStringArray("key_custom_title", strArr);
+            bundle.putInt("scene", i);
+            bundle.putStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE, strArr);
             InterestedForumFragment interestedForumFragment = new InterestedForumFragment();
             interestedForumFragment.setArguments(bundle);
             return interestedForumFragment;
@@ -73,71 +83,88 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         return (InterestedForumFragment) invokeIL.objValue;
     }
 
-    public final void initData() {
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44886j.f(this.mSelectedInterest);
-            showLoadingView(this.f44881e);
+            hideLoadingView(this.f34770f);
         }
     }
 
-    public final void initUI() {
+    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
+    public void E0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44885i = (TextView) this.f44881e.findViewById(R.id.interested_desc);
-            TextView textView = (TextView) this.f44881e.findViewById(R.id.interested_title);
-            this.f44884h = textView;
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-            SkinManager.setViewTextColor(this.f44884h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f44885i, (int) R.color.CAM_X0107);
-            this.f44882f = (BdRecyclerView) this.f44881e.findViewById(R.id.interested_forum_list_view);
-            this.k = (FrameLayout) this.f44881e.findViewById(R.id.bottom_select_layout);
-            c.a.q0.r.l0.n.a aVar = new c.a.q0.r.l0.n.a();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f44881e.findViewById(R.id.interest_forum_selected_btn);
-            this.l = tBSpecificationBtn;
-            tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            this.l.setConfig(aVar);
-            this.l.setText(getResources().getString(R.string.try_to_select));
-            this.l.setEnabled(false);
-            this.l.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f44881e.findViewById(R.id.select_all_btn);
-            this.f44883g = tBSpecificationBtn2;
-            tBSpecificationBtn2.setText(getString(R.string.select_all));
-            this.f44886j = new a(this, this.f44882f, this.l, this.f44883g, getPageContext(), new b(getUniqueId()), this.mScene, this.mOnlyShowInterestedForum);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            hideLoadingView(this.f34770f);
+            showNetRefreshView(this.f34770f, str, false);
         }
     }
 
-    public final void initUIListener() {
+    public final void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f44883g.setOnClickListener(this);
+            this.j = (TextView) this.f34770f.findViewById(R.id.obfuscated_res_0x7f090f28);
+            TextView textView = (TextView) this.f34770f.findViewById(R.id.obfuscated_res_0x7f090f37);
+            this.i = textView;
+            textView.setTypeface(Typeface.DEFAULT_BOLD);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0107);
+            this.f34771g = (BdRecyclerView) this.f34770f.findViewById(R.id.obfuscated_res_0x7f090f2d);
+            this.l = (FrameLayout) this.f34770f.findViewById(R.id.obfuscated_res_0x7f0903d9);
+            c.a.o0.r.l0.n.a aVar = new c.a.o0.r.l0.n.a();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f34770f.findViewById(R.id.obfuscated_res_0x7f090f13);
+            this.m = tBSpecificationBtn;
+            tBSpecificationBtn.setTextSize(R.dimen.tbds42);
+            this.m.setConfig(aVar);
+            this.m.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1425));
+            this.m.setEnabled(false);
+            this.m.setOnClickListener(this);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f34770f.findViewById(R.id.obfuscated_res_0x7f091c6b);
+            this.f34772h = tBSpecificationBtn2;
+            tBSpecificationBtn2.setText(getString(R.string.obfuscated_res_0x7f0f10ba));
+            this.k = new a(this, this.f34771g, this.m, this.f34772h, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.f34760b);
+        }
+    }
+
+    public final void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f34772h.setOnClickListener(this);
+        }
+    }
+
+    public final void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.k.f(this.f34762d);
+            showLoadingView(this.f34770f);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.f44881e, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f44884h, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f44885i, (int) R.color.CAM_X0107);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.onChangeSkinType(i);
+            SkinManager.setBackgroundColor(this.f34770f, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.f44883g) {
-            this.f44886j.j();
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view == this.f34772h) {
+            this.k.j();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
         }
     }
@@ -146,60 +173,28 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             if (getArguments() != null) {
-                this.mScene = getArguments().getInt("scene");
-                this.mOnlyShowInterestedForum = getArguments().getBoolean("key_only_show_interested_forum");
-                this.mCustomTitle = getArguments().getStringArray("key_custom_title");
+                this.a = getArguments().getInt("scene");
+                this.f34760b = getArguments().getBoolean(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM);
+                this.f34761c = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            this.f44881e = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
-            initUI();
-            initUIListener();
+            this.f34770f = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02e4, viewGroup, false);
+            I0();
+            J0();
             initData();
-            return this.f44881e;
+            return this.f34770f;
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
-    public void onDataRes() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            hideLoadingView(this.f44881e);
-        }
-    }
-
-    @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
-    public void onError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            hideLoadingView(this.f44881e);
-            showNetRefreshView(this.f44881e, str, false);
-        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            hideNetRefreshView(this.f44881e);
-            this.f44886j.f(this.mSelectedInterest);
-            showLoadingView(this.f44881e);
+            hideNetRefreshView(this.f34770f);
+            this.k.f(this.f34762d);
+            showLoadingView(this.f34770f);
         }
-    }
-
-    public static InterestedForumFragment getInstance(int i2, boolean z, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), strArr})) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("scene", i2);
-            bundle.putBoolean("key_only_show_interested_forum", z);
-            bundle.putStringArray("key_custom_title", strArr);
-            InterestedForumFragment interestedForumFragment = new InterestedForumFragment();
-            interestedForumFragment.setArguments(bundle);
-            return interestedForumFragment;
-        }
-        return (InterestedForumFragment) invokeCommon.objValue;
     }
 }

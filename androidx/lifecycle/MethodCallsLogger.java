@@ -20,9 +20,9 @@ public class MethodCallsLogger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,14 +32,14 @@ public class MethodCallsLogger {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean approveCall(String str, int i2) {
+    public boolean approveCall(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             Integer num = this.mCalledMethods.get(str);
             int intValue = num != null ? num.intValue() : 0;
-            boolean z = (intValue & i2) != 0;
-            this.mCalledMethods.put(str, Integer.valueOf(i2 | intValue));
+            boolean z = (intValue & i) != 0;
+            this.mCalledMethods.put(str, Integer.valueOf(i | intValue));
             return !z;
         }
         return invokeLI.booleanValue;

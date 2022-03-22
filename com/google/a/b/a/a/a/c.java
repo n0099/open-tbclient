@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c extends com.google.a.a.a implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class c extends com.google.a.a.a implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {iBinder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((IBinder) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -42,8 +42,8 @@ public final class c extends com.google.a.a.a implements a {
             Parcel a = a();
             a.writeString(str);
             a.writeTypedList(list);
-            c.i.a.a.a.c(a, bundle);
-            c.i.a.a.a.b(a, dVar);
+            c.f.a.a.a.c(a, bundle);
+            c.f.a.a.a.b(a, dVar);
             b(1, a);
         }
     }
@@ -54,8 +54,8 @@ public final class c extends com.google.a.a.a implements a {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a = a();
             a.writeString(str);
-            c.i.a.a.a.c(a, bundle);
-            c.i.a.a.a.b(a, dVar);
+            c.f.a.a.a.c(a, bundle);
+            c.f.a.a.a.b(a, dVar);
             b(2, a);
         }
     }

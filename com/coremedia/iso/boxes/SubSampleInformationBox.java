@@ -17,10 +17,9 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SubSampleInformationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "subs";
@@ -31,7 +30,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
     public List<SampleEntry> entries;
     public long entryCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SampleEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         public int subsampleCount;
         public List<SubsampleEntry> subsampleEntries;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class SubsampleEntry {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +52,9 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -86,31 +85,31 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subsampleSize : invokeV.longValue;
             }
 
-            public void setDiscardable(int i2) {
+            public void setDiscardable(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                    this.discardable = i2;
+                if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                    this.discardable = i;
                 }
             }
 
-            public void setReserved(long j2) {
+            public void setReserved(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                    this.reserved = j2;
+                if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                    this.reserved = j;
                 }
             }
 
-            public void setSubsamplePriority(int i2) {
+            public void setSubsamplePriority(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                    this.subsamplePriority = i2;
+                if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                    this.subsamplePriority = i;
                 }
             }
 
-            public void setSubsampleSize(long j2) {
+            public void setSubsampleSize(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                    this.subsampleSize = j2;
+                if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                    this.subsampleSize = j;
                 }
             }
 
@@ -118,7 +117,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                    return "SubsampleEntry{subsampleSize=" + this.subsampleSize + ", subsamplePriority=" + this.subsamplePriority + ", discardable=" + this.discardable + ", reserved=" + this.reserved + ExtendedMessageFormat.END_FE;
+                    return "SubsampleEntry{subsampleSize=" + this.subsampleSize + ", subsamplePriority=" + this.subsamplePriority + ", discardable=" + this.discardable + ", reserved=" + this.reserved + '}';
                 }
                 return (String) invokeV.objValue;
             }
@@ -129,9 +128,9 @@ public class SubSampleInformationBox extends AbstractFullBox {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -166,17 +165,17 @@ public class SubSampleInformationBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.subsampleEntries : (List) invokeV.objValue;
         }
 
-        public void setSampleDelta(long j2) {
+        public void setSampleDelta(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.sampleDelta = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.sampleDelta = j;
             }
         }
 
-        public void setSubsampleCount(int i2) {
+        public void setSubsampleCount(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.subsampleCount = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.subsampleCount = i;
             }
         }
 
@@ -184,7 +183,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "SampleEntry{sampleDelta=" + this.sampleDelta + ", subsampleCount=" + this.subsampleCount + ", subsampleEntries=" + this.subsampleEntries + ExtendedMessageFormat.END_FE;
+                return "SampleEntry{sampleDelta=" + this.sampleDelta + ", subsampleCount=" + this.subsampleCount + ", subsampleEntries=" + this.subsampleEntries + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -213,9 +212,9 @@ public class SubSampleInformationBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -238,11 +237,11 @@ public class SubSampleInformationBox extends AbstractFullBox {
         if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
             parseVersionAndFlags(byteBuffer);
             this.entryCount = IsoTypeReader.readUInt32(byteBuffer);
-            for (int i2 = 0; i2 < this.entryCount; i2++) {
+            for (int i = 0; i < this.entryCount; i++) {
                 SampleEntry sampleEntry = new SampleEntry();
                 sampleEntry.setSampleDelta(IsoTypeReader.readUInt32(byteBuffer));
                 int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-                for (int i3 = 0; i3 < readUInt16; i3++) {
+                for (int i2 = 0; i2 < readUInt16; i2++) {
                     SampleEntry.SubsampleEntry subsampleEntry = new SampleEntry.SubsampleEntry();
                     subsampleEntry.setSubsampleSize(getVersion() == 1 ? IsoTypeReader.readUInt32(byteBuffer) : IsoTypeReader.readUInt16(byteBuffer));
                     subsampleEntry.setSubsamplePriority(IsoTypeReader.readUInt8(byteBuffer));
@@ -283,12 +282,12 @@ public class SubSampleInformationBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = (this.entryCount * 6) + 8;
-            int i2 = 0;
+            long j = (this.entryCount * 6) + 8;
+            int i = 0;
             for (SampleEntry sampleEntry : this.entries) {
-                i2 += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
+                i += sampleEntry.getSubsampleCount() * ((getVersion() == 1 ? 4 : 2) + 1 + 1 + 4);
             }
-            return j2 + i2;
+            return j + i;
         }
         return invokeV.longValue;
     }
@@ -317,7 +316,7 @@ public class SubSampleInformationBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + ExtendedMessageFormat.END_FE;
+            return "SubSampleInformationBox{entryCount=" + this.entryCount + ", entries=" + this.entries + '}';
         }
         return (String) invokeV.objValue;
     }

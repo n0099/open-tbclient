@@ -15,16 +15,16 @@ public class e {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f30576b;
+    public static e f24448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f30577c;
+    public static final int f24449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f30578d;
+    public static final int f24450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f30579e;
+    public static final int f24451e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +41,9 @@ public class e {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f30577c = availableProcessors;
-        f30578d = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f30579e = f30577c << 3;
+        f24449c = availableProcessors;
+        f24450d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f24451e = f24449c << 3;
     }
 
     public e() {
@@ -51,9 +51,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -71,9 +71,9 @@ public class e {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -90,7 +90,7 @@ public class e {
                 }
             }
         });
-        a aVar = new a(f30578d, f30579e, 2L, TimeUnit.MINUTES, new b());
+        a aVar = new a(f24450d, f24451e, 2L, TimeUnit.MINUTES, new b());
         a = aVar;
         aVar.allowCoreThreadTimeOut(true);
     }
@@ -100,10 +100,10 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f30576b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
-                f30576b = new e();
+            if (f24448b == null || (aVar = a) == null || aVar.isShutdown() || a.isTerminated()) {
+                f24448b = new e();
             }
-            return f30576b;
+            return f24448b;
         }
         return (e) invokeV.objValue;
     }
@@ -118,7 +118,7 @@ public class e {
             } catch (Exception unused) {
                 a aVar = a;
                 if (aVar == null || aVar.getCorePoolSize() == 0 || a.getPoolSize() == 0) {
-                    a = new a(f30578d, f30579e, 2L, TimeUnit.MINUTES, new b());
+                    a = new a(f24450d, f24451e, 2L, TimeUnit.MINUTES, new b());
                     return false;
                 }
                 return false;

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RegexValidator implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8832409930574867162L;
@@ -25,9 +25,9 @@ public class RegexValidator implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -46,16 +46,16 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return false;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i2 >= patternArr.length) {
+            if (i >= patternArr.length) {
                 return false;
             }
-            if (patternArr[i2].matcher(str).matches()) {
+            if (patternArr[i].matcher(str).matches()) {
                 return true;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -68,25 +68,25 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return null;
         }
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i3 >= patternArr.length) {
+            if (i2 >= patternArr.length) {
                 return null;
             }
-            Matcher matcher = patternArr[i3].matcher(str);
+            Matcher matcher = patternArr[i2].matcher(str);
             if (matcher.matches()) {
                 int groupCount = matcher.groupCount();
                 String[] strArr = new String[groupCount];
-                while (i2 < groupCount) {
-                    int i4 = i2 + 1;
-                    strArr[i2] = matcher.group(i4);
-                    i2 = i4;
+                while (i < groupCount) {
+                    int i3 = i + 1;
+                    strArr[i] = matcher.group(i3);
+                    i = i3;
                 }
                 return strArr;
             }
-            i3++;
+            i2++;
         }
     }
 
@@ -96,11 +96,11 @@ public class RegexValidator implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("RegexValidator{");
-            for (int i2 = 0; i2 < this.patterns.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < this.patterns.length; i++) {
+                if (i > 0) {
                     sb.append(",");
                 }
-                sb.append(this.patterns[i2].pattern());
+                sb.append(this.patterns[i].pattern());
             }
             sb.append("}");
             return sb.toString();
@@ -117,30 +117,30 @@ public class RegexValidator implements Serializable {
         if (str == null) {
             return null;
         }
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         while (true) {
             Pattern[] patternArr = this.patterns;
-            if (i3 >= patternArr.length) {
+            if (i2 >= patternArr.length) {
                 return null;
             }
-            Matcher matcher = patternArr[i3].matcher(str);
+            Matcher matcher = patternArr[i2].matcher(str);
             if (matcher.matches()) {
                 int groupCount = matcher.groupCount();
                 if (groupCount == 1) {
                     return matcher.group(1);
                 }
                 StringBuilder sb = new StringBuilder();
-                while (i2 < groupCount) {
-                    i2++;
-                    String group = matcher.group(i2);
+                while (i < groupCount) {
+                    i++;
+                    String group = matcher.group(i);
                     if (group != null) {
                         sb.append(group);
                     }
                 }
                 return sb.toString();
             }
-            i3++;
+            i2++;
         }
     }
 
@@ -153,9 +153,9 @@ public class RegexValidator implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String[]) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -174,9 +174,9 @@ public class RegexValidator implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String[]) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -193,9 +193,9 @@ public class RegexValidator implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -203,12 +203,12 @@ public class RegexValidator implements Serializable {
         }
         if (strArr != null && strArr.length != 0) {
             this.patterns = new Pattern[strArr.length];
-            int i4 = z ? 0 : 2;
-            for (int i5 = 0; i5 < strArr.length; i5++) {
-                if (strArr[i5] != null && strArr[i5].length() != 0) {
-                    this.patterns[i5] = Pattern.compile(strArr[i5], i4);
+            int i3 = z ? 0 : 2;
+            for (int i4 = 0; i4 < strArr.length; i4++) {
+                if (strArr[i4] != null && strArr[i4].length() != 0) {
+                    this.patterns[i4] = Pattern.compile(strArr[i4], i3);
                 } else {
-                    throw new IllegalArgumentException("Regular expression[" + i5 + "] is missing");
+                    throw new IllegalArgumentException("Regular expression[" + i4 + "] is missing");
                 }
             }
             return;

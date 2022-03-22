@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DefaultWebViewClient extends BaseWebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class DefaultWebViewClient extends BaseWebViewClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {webViewRequestCallback, baseWebViewRequestParam};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((WebViewRequestCallback) objArr2[0], (BaseWebViewRequestParam) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -74,13 +74,13 @@ public class DefaultWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i2, String str, String str2) {
+    public void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-            super.onReceivedError(webView, i2, str, str2);
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+            super.onReceivedError(webView, i, str, str2);
             WebViewRequestCallback webViewRequestCallback = this.requestCallback;
             if (webViewRequestCallback != null) {
-                webViewRequestCallback.onReceivedErrorCallBack(webView, i2, str, str2);
+                webViewRequestCallback.onReceivedErrorCallBack(webView, i, str, str2);
             }
         }
     }

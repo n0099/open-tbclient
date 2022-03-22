@@ -21,16 +21,16 @@ public final class SparseArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T> boolean contains(SparseArray<T> sparseArray, int i2) {
+    public static final <T> boolean contains(SparseArray<T> sparseArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseArray, i2)) == null) ? sparseArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseArray, i)) == null) ? sparseArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
-    public static final <T> boolean containsKey(SparseArray<T> sparseArray, int i2) {
+    public static final <T> boolean containsKey(SparseArray<T> sparseArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseArray, i2)) == null) ? sparseArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseArray, i)) == null) ? sparseArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
     public static final <T> boolean containsValue(SparseArray<T> sparseArray, T t) {
@@ -43,27 +43,27 @@ public final class SparseArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, sparseArray, function2) == null) {
             int size = sparseArray.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                function2.invoke(Integer.valueOf(sparseArray.keyAt(i2)), sparseArray.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                function2.invoke(Integer.valueOf(sparseArray.keyAt(i)), sparseArray.valueAt(i));
             }
         }
     }
 
-    public static final <T> T getOrDefault(SparseArray<T> sparseArray, int i2, T t) {
+    public static final <T> T getOrDefault(SparseArray<T> sparseArray, int i, T t) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray, i2, t)) == null) {
-            T t2 = sparseArray.get(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray, i, t)) == null) {
+            T t2 = sparseArray.get(i);
             return t2 != null ? t2 : t;
         }
         return (T) invokeLIL.objValue;
     }
 
-    public static final <T> T getOrElse(SparseArray<T> sparseArray, int i2, Function0<? extends T> function0) {
+    public static final <T> T getOrElse(SparseArray<T> sparseArray, int i, Function0<? extends T> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseArray, i2, function0)) == null) {
-            T t = sparseArray.get(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseArray, i, function0)) == null) {
+            T t = sparseArray.get(i);
             return t != null ? t : function0.invoke();
         }
         return (T) invokeLIL.objValue;
@@ -103,9 +103,9 @@ public final class SparseArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseArray};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -133,17 +133,17 @@ public final class SparseArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseArray sparseArray2 = this.$this_keyIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseArray2.keyAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseArray2.keyAt(i);
                 }
                 return invokeV.intValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (IntIterator) invokeL.objValue;
@@ -165,17 +165,17 @@ public final class SparseArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, sparseArray, sparseArray2) == null) {
             int size = sparseArray2.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sparseArray.put(sparseArray2.keyAt(i2), sparseArray2.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                sparseArray.put(sparseArray2.keyAt(i), sparseArray2.valueAt(i));
             }
         }
     }
 
-    public static final <T> boolean remove(SparseArray<T> sparseArray, int i2, T t) {
+    public static final <T> boolean remove(SparseArray<T> sparseArray, int i, T t) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, sparseArray, i2, t)) == null) {
-            int indexOfKey = sparseArray.indexOfKey(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, sparseArray, i, t)) == null) {
+            int indexOfKey = sparseArray.indexOfKey(i);
             if (indexOfKey < 0 || !Intrinsics.areEqual(t, sparseArray.valueAt(indexOfKey))) {
                 return false;
             }
@@ -185,10 +185,10 @@ public final class SparseArrayKt {
         return invokeLIL.booleanValue;
     }
 
-    public static final <T> void set(SparseArray<T> sparseArray, int i2, T t) {
+    public static final <T> void set(SparseArray<T> sparseArray, int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65549, null, sparseArray, i2, t) == null) {
-            sparseArray.put(i2, t);
+        if (interceptable == null || interceptable.invokeLIL(65549, null, sparseArray, i, t) == null) {
+            sparseArray.put(i, t);
         }
     }
 

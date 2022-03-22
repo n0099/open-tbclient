@@ -9,20 +9,20 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.d.g;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.reward.g {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f55996b;
+    public AdInfo f40952b;
 
     public c(AdInfo adInfo, ViewGroup viewGroup) {
         View inflate;
-        this.f55996b = adInfo;
+        this.f40952b = adInfo;
         if (!com.kwad.sdk.core.response.a.a.aH(adInfo)) {
-            if (com.kwad.sdk.core.response.a.a.aI(this.f55996b)) {
+            if (com.kwad.sdk.core.response.a.a.aI(this.f40952b)) {
                 final com.kwad.sdk.reward.kwai.c cVar = new com.kwad.sdk.reward.kwai.c();
                 a((Presenter) cVar);
-                a(new com.kwad.sdk.reward.presenter.platdetail.actionbar.d((ViewGroup) ((ViewStub) viewGroup.findViewById(R.id.ksad_reward_order_card)).inflate(), new g.a() { // from class: com.kwad.sdk.reward.presenter.c.1
+                a(new com.kwad.sdk.reward.presenter.platdetail.actionbar.d((ViewGroup) ((ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110f)).inflate(), new g.a() { // from class: com.kwad.sdk.reward.presenter.c.1
                     @Override // com.kwad.sdk.reward.d.g.a
                     public void a() {
                         cVar.e();
@@ -32,10 +32,10 @@ public class c extends com.kwad.sdk.reward.g {
             }
             return;
         }
-        boolean aA = com.kwad.sdk.core.response.a.a.aA(this.f55996b);
-        ViewStub viewStub = (ViewStub) viewGroup.findViewById(aA ? R.id.ksad_reward_followed_card : R.id.ksad_reward_follow_card);
+        boolean aA = com.kwad.sdk.core.response.a.a.aA(this.f40952b);
+        ViewStub viewStub = (ViewStub) viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f091104 : R.id.obfuscated_res_0x7f0910f1);
         if (viewStub == null) {
-            inflate = viewGroup.findViewById(aA ? R.id.ksad_reward_follow_root : R.id.ksad_reward_followed_root);
+            inflate = viewGroup.findViewById(aA ? R.id.obfuscated_res_0x7f091102 : R.id.obfuscated_res_0x7f091107);
         } else {
             inflate = viewStub.inflate();
         }
@@ -45,18 +45,18 @@ public class c extends com.kwad.sdk.reward.g {
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        int i2 = 0;
-        if (!(com.kwad.sdk.core.response.a.a.az(this.f55996b) || com.kwad.sdk.core.response.a.a.aF(this.f55996b)) || ((com.kwad.sdk.reward.g) this).a.f55769g.mAdScene == null) {
+        int i = 0;
+        if (!(com.kwad.sdk.core.response.a.a.az(this.f40952b) || com.kwad.sdk.core.response.a.a.aF(this.f40952b)) || ((com.kwad.sdk.reward.g) this).a.f40747g.mAdScene == null) {
             return;
         }
         if (!ag.a(q(), "com.smile.gifmaker") && ag.a(q(), "com.kuaishou.nebula")) {
-            i2 = 3;
+            i = 3;
         }
-        String backUrl = ((com.kwad.sdk.reward.g) this).a.f55769g.mAdScene.getBackUrl();
-        String aJ = com.kwad.sdk.core.response.a.a.aJ(this.f55996b);
+        String backUrl = ((com.kwad.sdk.reward.g) this).a.f40747g.mAdScene.getBackUrl();
+        String aJ = com.kwad.sdk.core.response.a.a.aJ(this.f40952b);
         if (TextUtils.isEmpty(backUrl)) {
             backUrl = "";
         }
-        this.f55996b.adConversionInfo.deeplinkUrl = com.kwad.sdk.ec.a.a.a(aJ, i2, backUrl);
+        this.f40952b.adConversionInfo.deeplinkUrl = com.kwad.sdk.ec.a.a.a(aJ, i, backUrl);
     }
 }

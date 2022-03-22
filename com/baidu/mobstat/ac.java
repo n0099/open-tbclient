@@ -14,27 +14,27 @@ public class ac {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35005b;
+    public String f27160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35006c;
+    public boolean f27161c;
 
     public ac() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f35005b = "";
-        this.f35006c = false;
+        this.f27160b = "";
+        this.f27161c = false;
     }
 
     public JSONObject a() {
@@ -48,12 +48,12 @@ public class ac {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f35005b);
+                jSONObject.put("SDK_PRODUCT_LY", this.f27160b);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f35006c);
+                jSONObject.put("SDK_LOCAL_SERVER", this.f27161c);
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -69,29 +69,29 @@ public class ac {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f35005b = "";
-        this.f35006c = false;
+        this.f27160b = "";
+        this.f27161c = false;
         try {
             this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f35005b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f27160b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f35006c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f27161c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

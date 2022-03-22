@@ -54,9 +54,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsProfessionIntroActivity f42338e;
+        public final /* synthetic */ FrsProfessionIntroActivity a;
 
         public a(FrsProfessionIntroActivity frsProfessionIntroActivity) {
             Interceptable interceptable = $ic;
@@ -65,43 +63,43 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsProfessionIntroActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42338e = frsProfessionIntroActivity;
+            this.a = frsProfessionIntroActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view != this.f42338e.mBack) {
-                    if (view != this.f42338e.mGoPublishButton) {
-                        if (view == this.f42338e.mGotItButton) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f42338e.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
+                if (view != this.a.mBack) {
+                    if (view != this.a.mGoPublishButton) {
+                        if (view == this.a.mGotItButton) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getActivity()).createNormalCfg(FrsProfessionIntroActivity.PROFESSION_THREAD_ID, null, "frs")));
                             Intent intent = new Intent();
                             intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                            this.f42338e.setResult(-1, intent);
-                            this.f42338e.finish();
+                            this.a.setResult(-1, intent);
+                            this.a.finish();
                             return;
                         }
                         return;
                     }
                     Intent intent2 = new Intent();
                     intent2.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, 1);
-                    this.f42338e.setResult(-1, intent2);
-                    this.f42338e.finish();
+                    this.a.setResult(-1, intent2);
+                    this.a.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
                 intent3.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, -1);
-                this.f42338e.setResult(-1, intent3);
-                this.f42338e.finish();
+                this.a.setResult(-1, intent3);
+                this.a.finish();
             }
         }
     }
@@ -111,9 +109,9 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,10 +142,10 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             SkinManager.setViewTextColor(this.mNavigationBar.mCenterText, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.mProfessionDesc, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.mFirstIndex, (int) R.color.CAM_X0111);
@@ -163,7 +161,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
             SkinManager.setBackgroundResource(this.mGotItButton, R.drawable.frs_profession_button_bg);
             SkinManager.setViewTextColor(this.mGoPublishButton, (int) R.color.CAM_X0302);
             SkinManager.setBackgroundColor(this.mBottomView, R.color.CAM_X0201);
-            this.mGradientView.changeSkinType(i2);
+            this.mGradientView.a(i);
         }
     }
 
@@ -172,35 +170,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.layout_frs_profession);
-            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.profession_header_container);
-            this.mNavigationBar = (NavigationBar) findViewById(R.id.profession_intro_navigation_bar);
-            this.mGradientView = (LinearGradientView) findViewById(R.id.profession_intro_background);
-            this.mGoPublishButton = (TextView) findViewById(R.id.profession_intro_go_publish);
-            this.mGotItButton = findViewById(R.id.profession_intro_got_it);
-            this.mBottomView = findViewById(R.id.bottom_view);
-            this.mProfessionDesc = findViewById(R.id.profession_intro_desc);
+            setContentView(R.layout.obfuscated_res_0x7f0d0499);
+            this.mHeaderContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091916);
+            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091921);
+            this.mGradientView = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091917);
+            this.mGoPublishButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09191e);
+            this.mGotItButton = findViewById(R.id.obfuscated_res_0x7f09191f);
+            this.mBottomView = findViewById(R.id.obfuscated_res_0x7f0903e3);
+            this.mProfessionDesc = findViewById(R.id.obfuscated_res_0x7f09191a);
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onClickListener);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.profession_intro_title));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.profession_intro_content);
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0edb));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091919);
             this.mBackgroundContent = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.mBackgroundContent.setDefaultResource(R.drawable.pic_frs_head_default);
-            this.mContainer = findViewById(R.id.profession_intro_container);
-            this.mTopCorner = findViewById(R.id.profession_intro_top_corner);
-            this.mFirstIndex = findViewById(R.id.profession_intro_first_index);
-            this.mFirstIntro = findViewById(R.id.profession_intro_first_intro);
-            this.mFirstTitle = findViewById(R.id.profession_intro_first_title);
-            this.mSecondIndex = findViewById(R.id.profession_intro_second_index);
-            this.mSecondIntro = findViewById(R.id.profession_intro_second_intro);
-            this.mSecondTitle = findViewById(R.id.profession_intro_second_title);
+            this.mBackgroundContent.setDefaultResource(R.drawable.obfuscated_res_0x7f080efd);
+            this.mContainer = findViewById(R.id.obfuscated_res_0x7f091918);
+            this.mTopCorner = findViewById(R.id.obfuscated_res_0x7f091925);
+            this.mFirstIndex = findViewById(R.id.obfuscated_res_0x7f09191b);
+            this.mFirstIntro = findViewById(R.id.obfuscated_res_0x7f09191c);
+            this.mFirstTitle = findViewById(R.id.obfuscated_res_0x7f09191d);
+            this.mSecondIndex = findViewById(R.id.obfuscated_res_0x7f091922);
+            this.mSecondIntro = findViewById(R.id.obfuscated_res_0x7f091923);
+            this.mSecondTitle = findViewById(R.id.obfuscated_res_0x7f091924);
             this.mGoPublishButton.setEnabled(true);
             this.mGoPublishButton.setOnClickListener(this.onClickListener);
             this.mGotItButton.setOnClickListener(this.onClickListener);
             handleNotchScreen();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.mGradientView.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-            this.mBackgroundContent.startLoad(stringExtra, 10, false);
+            this.mBackgroundContent.J(stringExtra, 10, false);
         }
     }
 }

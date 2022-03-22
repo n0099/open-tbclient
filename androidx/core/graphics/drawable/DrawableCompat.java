@@ -9,6 +9,7 @@ import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,9 +38,9 @@ public final class DrawableCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,10 +71,10 @@ public final class DrawableCompat {
         DrawableContainer.DrawableContainerState drawableContainerState;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, drawable) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 drawable.clearColorFilter();
-            } else if (i2 >= 21) {
+            } else if (i >= 21) {
                 drawable.clearColorFilter();
                 if (drawable instanceof InsetDrawable) {
                     clearColorFilter(((InsetDrawable) drawable).getDrawable());
@@ -81,8 +82,8 @@ public final class DrawableCompat {
                     clearColorFilter(((WrappedDrawable) drawable).getWrappedDrawable());
                 } else if ((drawable instanceof DrawableContainer) && (drawableContainerState = (DrawableContainer.DrawableContainerState) ((DrawableContainer) drawable).getConstantState()) != null) {
                     int childCount = drawableContainerState.getChildCount();
-                    for (int i3 = 0; i3 < childCount; i3++) {
-                        Drawable child = drawableContainerState.getChild(i3);
+                    for (int i2 = 0; i2 < childCount; i2++) {
+                        Drawable child = drawableContainerState.getChild(i2);
                         if (child != null) {
                             clearColorFilter(child);
                         }
@@ -122,17 +123,18 @@ public final class DrawableCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, drawable)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return drawable.getLayoutDirection();
             }
-            if (i2 >= 17) {
+            if (i >= 17) {
                 if (!sGetLayoutDirectionMethodFetched) {
                     try {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
                         sGetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException unused) {
+                    } catch (NoSuchMethodException e2) {
+                        Log.i(TAG, "Failed to retrieve getLayoutDirection() method", e2);
                     }
                     sGetLayoutDirectionMethodFetched = true;
                 }
@@ -140,7 +142,8 @@ public final class DrawableCompat {
                 if (method != null) {
                     try {
                         return ((Integer) method.invoke(drawable, new Object[0])).intValue();
-                    } catch (Exception unused2) {
+                    } catch (Exception e3) {
+                        Log.i(TAG, "Failed to invoke getLayoutDirection() via reflection", e3);
                         sGetLayoutDirectionMethod = null;
                     }
                 }
@@ -197,38 +200,40 @@ public final class DrawableCompat {
         drawable.setHotspot(f2, f3);
     }
 
-    public static void setHotspotBounds(@NonNull Drawable drawable, int i2, int i3, int i4, int i5) {
+    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{drawable, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{drawable, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        drawable.setHotspotBounds(i2, i3, i4, i5);
+        drawable.setHotspotBounds(i, i2, i3, i4);
     }
 
-    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i2) {
+    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, drawable, i2)) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 23) {
-                return drawable.setLayoutDirection(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, drawable, i)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 23) {
+                return drawable.setLayoutDirection(i);
             }
-            if (i3 >= 17) {
+            if (i2 >= 17) {
                 if (!sSetLayoutDirectionMethodFetched) {
                     try {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
                         sSetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException unused) {
+                    } catch (NoSuchMethodException e2) {
+                        Log.i(TAG, "Failed to retrieve setLayoutDirection(int) method", e2);
                     }
                     sSetLayoutDirectionMethodFetched = true;
                 }
                 Method method = sSetLayoutDirectionMethod;
                 if (method != null) {
                     try {
-                        method.invoke(drawable, Integer.valueOf(i2));
+                        method.invoke(drawable, Integer.valueOf(i));
                         return true;
-                    } catch (Exception unused2) {
+                    } catch (Exception e3) {
+                        Log.i(TAG, "Failed to invoke setLayoutDirection(int) via reflection", e3);
                         sSetLayoutDirectionMethod = null;
                     }
                 }
@@ -238,13 +243,13 @@ public final class DrawableCompat {
         return invokeLI.booleanValue;
     }
 
-    public static void setTint(@NonNull Drawable drawable, @ColorInt int i2) {
+    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, drawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65550, null, drawable, i) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                drawable.setTint(i2);
+                drawable.setTint(i);
             } else if (drawable instanceof TintAwareDrawable) {
-                ((TintAwareDrawable) drawable).setTint(i2);
+                ((TintAwareDrawable) drawable).setTint(i);
             }
         }
     }
@@ -283,8 +288,8 @@ public final class DrawableCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, drawable)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 >= 23 ? drawable : i2 >= 21 ? !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi21(drawable) : drawable : !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi14(drawable) : drawable;
+            int i = Build.VERSION.SDK_INT;
+            return i >= 23 ? drawable : i >= 21 ? !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi21(drawable) : drawable : !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi14(drawable) : drawable;
         }
         return (Drawable) invokeL.objValue;
     }

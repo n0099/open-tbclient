@@ -22,9 +22,9 @@ public class b<T> extends com.baidu.ar.e.a<T, T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iCallback, iError};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,13 +35,13 @@ public class b<T> extends com.baidu.ar.e.a<T, T> {
     }
 
     @Override // com.baidu.ar.e.a
-    public void a(int i2, String str, IError iError) {
+    public void a(int i, String str, IError iError) {
         IError iError2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048576, this, i2, str, iError) == null) || (iError2 = this.xw) == null) {
+        if (!(interceptable == null || interceptable.invokeILL(1048576, this, i, str, iError) == null) || (iError2 = this.xw) == null) {
             return;
         }
-        iError2.onError(i2, str, null);
+        iError2.onError(i, str, null);
     }
 
     @Override // com.baidu.ar.e.a

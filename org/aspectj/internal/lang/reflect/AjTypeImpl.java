@@ -52,7 +52,7 @@ import org.aspectj.lang.reflect.NoSuchPointcutException;
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.Pointcut;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AjTypeImpl<T> implements AjType<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ajcMagic = "ajc$";
@@ -76,9 +76,9 @@ public class AjTypeImpl<T> implements AjType<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -245,8 +245,8 @@ public class AjTypeImpl<T> implements AjType<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, clsArr)) == null) {
             int length = clsArr.length;
             AjType<?>[] ajTypeArr = new AjType[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                ajTypeArr[i2] = AjTypeSystem.getAjType(clsArr[i2]);
+            for (int i = 0; i < length; i++) {
+                ajTypeArr[i] = AjTypeSystem.getAjType(clsArr[i]);
             }
             return ajTypeArr;
         }
@@ -259,8 +259,8 @@ public class AjTypeImpl<T> implements AjType<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, ajTypeArr)) == null) {
             int length = ajTypeArr.length;
             Class<?>[] clsArr = new Class[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                clsArr[i2] = ajTypeArr[i2].getJavaClass();
+            for (int i = 0; i < length; i++) {
+                clsArr[i] = ajTypeArr[i].getJavaClass();
             }
             return clsArr;
         }
@@ -345,18 +345,18 @@ public class AjTypeImpl<T> implements AjType<T> {
                     ajcDeclareAnnotation ajcdeclareannotation = (ajcDeclareAnnotation) method.getAnnotation(ajcDeclareAnnotation.class);
                     Annotation[] annotations = method.getAnnotations();
                     int length = annotations.length;
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i >= length) {
                             annotation = null;
                             break;
                         }
-                        Annotation annotation2 = annotations[i2];
+                        Annotation annotation2 = annotations[i];
                         if (annotation2.annotationType() != ajcDeclareAnnotation.class) {
                             annotation = annotation2;
                             break;
                         }
-                        i2++;
+                        i++;
                     }
                     arrayList.add(new DeclareAnnotationImpl(this, ajcdeclareannotation.kind(), ajcdeclareannotation.pattern(), annotation, ajcdeclareannotation.annotation()));
                 }
@@ -570,8 +570,8 @@ public class AjTypeImpl<T> implements AjType<T> {
                     if (interTypeConstructorDeclaration.getTargetType().equals(ajType)) {
                         AjType<?>[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
-                            for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                                if (!parameterTypes[i2].equals(ajTypeArr[i2])) {
+                            for (int i = 0; i < parameterTypes.length; i++) {
+                                if (!parameterTypes[i].equals(ajTypeArr[i])) {
                                     break;
                                 }
                             }
@@ -674,8 +674,8 @@ public class AjTypeImpl<T> implements AjType<T> {
                     if (interTypeMethodDeclaration.getName().equals(str) && interTypeMethodDeclaration.getTargetType().equals(ajType)) {
                         AjType<?>[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
-                            for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                                if (!parameterTypes[i2].equals(ajTypeArr[i2])) {
+                            for (int i = 0; i < parameterTypes.length; i++) {
+                                if (!parameterTypes[i].equals(ajTypeArr[i])) {
                                     break;
                                 }
                             }
@@ -888,8 +888,8 @@ public class AjTypeImpl<T> implements AjType<T> {
                     if (interTypeConstructorDeclaration.getTargetType().equals(ajType)) {
                         AjType<?>[] parameterTypes = interTypeConstructorDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
-                            for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                                if (!parameterTypes[i2].equals(ajTypeArr[i2])) {
+                            for (int i = 0; i < parameterTypes.length; i++) {
+                                if (!parameterTypes[i].equals(ajTypeArr[i])) {
                                     break;
                                 }
                             }
@@ -996,8 +996,8 @@ public class AjTypeImpl<T> implements AjType<T> {
                     if (interTypeMethodDeclaration.getName().equals(str) && interTypeMethodDeclaration.getTargetType().equals(ajType)) {
                         AjType<?>[] parameterTypes = interTypeMethodDeclaration.getParameterTypes();
                         if (parameterTypes.length == ajTypeArr.length) {
-                            for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                                if (!parameterTypes[i2].equals(ajTypeArr[i2])) {
+                            for (int i = 0; i < parameterTypes.length; i++) {
+                                if (!parameterTypes[i].equals(ajTypeArr[i])) {
                                     break;
                                 }
                             }

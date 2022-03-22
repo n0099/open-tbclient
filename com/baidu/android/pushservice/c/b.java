@@ -11,54 +11,50 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f30399b;
+    public long f24290b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30400c;
+    public String f24291c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30401d;
+    public String f24292d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30402e;
+    public String f24293e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30403f;
+    public String f24294f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30404g;
+    public String f24295g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30405h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f30406i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f30407j;
+    public String f24296h;
+    public String i;
+    public String j;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 0L;
-        this.f30399b = 0L;
-        this.f30400c = "";
-        this.f30401d = "";
-        this.f30402e = "";
-        this.f30403f = "";
-        this.f30404g = "";
-        this.f30405h = "";
-        this.f30406i = "";
-        this.f30407j = "";
+        this.f24290b = 0L;
+        this.f24291c = "";
+        this.f24292d = "";
+        this.f24293e = "";
+        this.f24294f = "";
+        this.f24295g = "";
+        this.f24296h = "";
+        this.i = "";
+        this.j = "";
     }
 }

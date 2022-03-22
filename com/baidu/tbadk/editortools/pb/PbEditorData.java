@@ -45,9 +45,9 @@ public class PbEditorData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -108,10 +108,10 @@ public class PbEditorData implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mThreadId : (String) invokeV.objValue;
         }
 
-        public void setAuthorId(long j2) {
+        public void setAuthorId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.authorId = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.authorId = j;
             }
         }
 
@@ -177,9 +177,9 @@ public class PbEditorData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -250,10 +250,10 @@ public class PbEditorData implements Serializable {
         }
     }
 
-    public void setEditorType(int i2) {
+    public void setEditorType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mEditorType = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mEditorType = i;
         }
     }
 

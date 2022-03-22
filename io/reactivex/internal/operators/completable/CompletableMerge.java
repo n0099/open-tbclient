@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableMerge extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class CompletableMerge extends Completable {
     public final int maxConcurrency;
     public final Publisher<? extends CompletableSource> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CompletableMergeSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2108443387387077490L;
@@ -41,7 +41,7 @@ public final class CompletableMerge extends Completable {
         public Subscription s;
         public final CompositeDisposable set;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class MergeInnerObserver extends AtomicReference<Disposable> implements CompletableObserver, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 251330541679988317L;
@@ -55,9 +55,9 @@ public final class CompletableMerge extends Completable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {completableMergeSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -106,23 +106,23 @@ public final class CompletableMerge extends Completable {
             }
         }
 
-        public CompletableMergeSubscriber(CompletableObserver completableObserver, int i2, boolean z) {
+        public CompletableMergeSubscriber(CompletableObserver completableObserver, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {completableObserver, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {completableObserver, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = completableObserver;
-            this.maxConcurrency = i2;
+            this.maxConcurrency = i;
             this.delayErrors = z;
             this.set = new CompositeDisposable();
             this.error = new AtomicThrowable();
@@ -231,11 +231,11 @@ public final class CompletableMerge extends Completable {
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
-                int i2 = this.maxConcurrency;
-                if (i2 == Integer.MAX_VALUE) {
+                int i = this.maxConcurrency;
+                if (i == Integer.MAX_VALUE) {
                     subscription.request(Long.MAX_VALUE);
                 } else {
-                    subscription.request(i2);
+                    subscription.request(i);
                 }
             }
         }
@@ -253,23 +253,23 @@ public final class CompletableMerge extends Completable {
         }
     }
 
-    public CompletableMerge(Publisher<? extends CompletableSource> publisher, int i2, boolean z) {
+    public CompletableMerge(Publisher<? extends CompletableSource> publisher, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {publisher, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = publisher;
-        this.maxConcurrency = i2;
+        this.maxConcurrency = i;
         this.delayErrors = z;
     }
 

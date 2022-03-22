@@ -19,9 +19,9 @@ public class CommonUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,7 +34,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, num)) == null) {
             Random random = new Random();
             StringBuilder sb = new StringBuilder(num.intValue());
-            for (int i2 = 0; i2 < num.intValue(); i2++) {
+            for (int i = 0; i < num.intValue(); i++) {
                 sb.append("0123456789".charAt(random.nextInt(10)));
             }
             return sb.toString();
@@ -48,7 +48,7 @@ public class CommonUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, num)) == null) {
             Random random = new Random();
             StringBuilder sb = new StringBuilder(num.intValue());
-            for (int i2 = 0; i2 < num.intValue(); i2++) {
+            for (int i = 0; i < num.intValue(); i++) {
                 sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt(62)));
             }
             return sb.toString();

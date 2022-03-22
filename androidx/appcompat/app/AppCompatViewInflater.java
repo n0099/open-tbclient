@@ -5,6 +5,7 @@ import android.content.ContextWrapper;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -41,7 +42,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import org.apache.commons.lang3.CharUtils;
 /* loaded from: classes.dex */
 public class AppCompatViewInflater {
     public static /* synthetic */ Interceptable $ic = null;
@@ -69,9 +69,9 @@ public class AppCompatViewInflater {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,9 +149,9 @@ public class AppCompatViewInflater {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -213,8 +213,8 @@ public class AppCompatViewInflater {
                 this.mConstructorArgs[0] = context;
                 this.mConstructorArgs[1] = attributeSet;
                 if (-1 == str.indexOf(46)) {
-                    for (int i2 = 0; i2 < sClassPrefixList.length; i2++) {
-                        View createViewByPrefix = createViewByPrefix(context, str, sClassPrefixList[i2]);
+                    for (int i = 0; i < sClassPrefixList.length; i++) {
+                        View createViewByPrefix = createViewByPrefix(context, str, sClassPrefixList[i]);
                         if (createViewByPrefix != null) {
                             return createViewByPrefix;
                         }
@@ -239,8 +239,8 @@ public class AppCompatViewInflater {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.View, 0, 0);
             int resourceId = z ? obtainStyledAttributes.getResourceId(R$styleable.View_android_theme, 0) : 0;
-            if (z2 && resourceId == 0) {
-                resourceId = obtainStyledAttributes.getResourceId(R$styleable.View_theme, 0);
+            if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(R$styleable.View_theme, 0)) != 0) {
+                Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
             }
             obtainStyledAttributes.recycle();
             return resourceId != 0 ? ((context instanceof ContextThemeWrapper) && ((ContextThemeWrapper) context).getThemeResId() == resourceId) ? context : new ContextThemeWrapper(context, resourceId) : context;
@@ -427,7 +427,7 @@ public class AppCompatViewInflater {
                     break;
                 case 799298502:
                     if (str.equals("ToggleButton")) {
-                        c2 = CharUtils.CR;
+                        c2 = '\r';
                         break;
                     }
                     break;

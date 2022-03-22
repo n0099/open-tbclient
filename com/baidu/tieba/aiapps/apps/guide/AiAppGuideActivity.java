@@ -29,9 +29,7 @@ public class AiAppGuideActivity extends BaseActivity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AiAppGuideActivity f40484e;
+        public final /* synthetic */ AiAppGuideActivity a;
 
         public a(AiAppGuideActivity aiAppGuideActivity) {
             Interceptable interceptable = $ic;
@@ -40,22 +38,22 @@ public class AiAppGuideActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aiAppGuideActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40484e = aiAppGuideActivity;
+            this.a = aiAppGuideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40484e.closeActivity();
+                this.a.closeActivity();
             }
         }
     }
@@ -65,9 +63,9 @@ public class AiAppGuideActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,10 +75,10 @@ public class AiAppGuideActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             SkinManager.setImageResource(this.mImgClose, R.drawable.icon_use_close_n);
         }
     }
@@ -93,11 +91,11 @@ public class AiAppGuideActivity extends BaseActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.activity_aiapp_guide);
-            GifView gifView = (GifView) findViewById(R.id.view_gif);
+            setContentView(R.layout.obfuscated_res_0x7f0d0029);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0923c5);
             this.mGifView = gifView;
             gifView.setGifFile(i.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.img_close);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eab);
             this.mImgClose = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
             int k = n.k(getActivity()) - (n.f(getActivity(), R.dimen.tbds44) * 2);
@@ -109,9 +107,9 @@ public class AiAppGuideActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             super.overridePendingTransition(0, 0);
         }
     }

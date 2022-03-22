@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ f f60112b;
+    public /* synthetic */ f f44675b;
 
     public h(f fVar) {
         Interceptable interceptable = $ic;
@@ -26,15 +26,15 @@ public final class h {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f60112b = fVar;
+        this.f44675b = fVar;
         this.a = "iphonesubinfo";
     }
 
@@ -51,16 +51,16 @@ public final class h {
             }
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
-            a = this.f60112b.a(str2);
+            a = this.f44675b.a(str2);
             if (TextUtils.isEmpty(a)) {
                 return "";
             }
             obtain.writeInterfaceToken(a);
             if (Build.VERSION.SDK_INT >= 23) {
-                context = f.f60107b;
+                context = f.f44670b;
                 obtain.writeString(context.getPackageName());
             }
-            a2 = this.f60112b.a(str2, str, obtain, obtain2);
+            a2 = this.f44675b.a(str2, str, obtain, obtain2);
             if (a2 != null) {
                 try {
                     obtain2.readException();

@@ -61,9 +61,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -107,9 +107,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -130,9 +130,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -163,9 +163,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 newInitContext.initArgs = r2;
                 Object[] objArr = {smallSortedMap, entry};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((SmallSortedMap) objArr2[0], (Comparable) objArr2[1], objArr2[2]);
                     newInitContext.thisArg = this;
@@ -246,9 +246,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 newInitContext.initArgs = r2;
                 Object[] objArr = {smallSortedMap, k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -302,9 +302,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 newInitContext.initArgs = r2;
                 Object[] objArr = {smallSortedMap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -342,9 +342,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                     this.this$0.checkMutable();
                     if (this.pos < this.this$0.entryList.size()) {
                         SmallSortedMap smallSortedMap = this.this$0;
-                        int i2 = this.pos;
-                        this.pos = i2 - 1;
-                        smallSortedMap.removeArrayEntryAt(i2);
+                        int i = this.pos;
+                        this.pos = i - 1;
+                        smallSortedMap.removeArrayEntryAt(i);
                         return;
                     }
                     getOverflowIterator().remove();
@@ -361,9 +361,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 this.nextCalledBeforeRemove = true;
-                int i2 = this.pos + 1;
-                this.pos = i2;
-                if (i2 < this.this$0.entryList.size()) {
+                int i = this.pos + 1;
+                this.pos = i;
+                if (i < this.this$0.entryList.size()) {
                     return (Map.Entry) this.this$0.entryList.get(this.pos);
                 }
                 return getOverflowIterator().next();
@@ -385,9 +385,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 newInitContext.initArgs = r2;
                 Object[] objArr = {smallSortedMap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -479,19 +479,19 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                     return size;
                 }
             }
-            int i2 = 0;
-            while (i2 <= size) {
-                int i3 = (i2 + size) / 2;
-                int compareTo2 = k.compareTo(this.entryList.get(i3).getKey());
+            int i = 0;
+            while (i <= size) {
+                int i2 = (i + size) / 2;
+                int compareTo2 = k.compareTo(this.entryList.get(i2).getKey());
                 if (compareTo2 < 0) {
-                    size = i3 - 1;
+                    size = i2 - 1;
                 } else if (compareTo2 <= 0) {
-                    return i3;
+                    return i2;
                 } else {
-                    i2 = i3 + 1;
+                    i = i2 + 1;
                 }
             }
-            return -(i2 + 1);
+            return -(i + 1);
         }
         return invokeL.intValue;
     }
@@ -528,25 +528,25 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return (SortedMap) invokeV.objValue;
     }
 
-    public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i2) {
+    public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i2) { // from class: com.google.protobuf.SmallSortedMap.1
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i) { // from class: com.google.protobuf.SmallSortedMap.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(i2);
+                super(i);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2)};
+                    Object[] objArr = {Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue());
                         newInitContext.thisArg = this;
@@ -561,8 +561,8 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (!isImmutable()) {
-                        for (int i3 = 0; i3 < getNumArrayEntries(); i3++) {
-                            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = getArrayEntryAt(i3);
+                        for (int i2 = 0; i2 < getNumArrayEntries(); i2++) {
+                            Map.Entry<FieldDescriptorType, Object> arrayEntryAt = getArrayEntryAt(i2);
                             if (((FieldSet.FieldDescriptorLite) arrayEntryAt.getKey()).isRepeated()) {
                                 arrayEntryAt.setValue(Collections.unmodifiableList((List) arrayEntryAt.getValue()));
                             }
@@ -586,19 +586,19 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         } : (SmallSortedMap) invokeI.objValue;
     }
 
-    public static <K extends Comparable<K>, V> SmallSortedMap<K, V> newInstanceForTest(int i2) {
+    public static <K extends Comparable<K>, V> SmallSortedMap<K, V> newInstanceForTest(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? new SmallSortedMap<>(i2) : (SmallSortedMap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? new SmallSortedMap<>(i) : (SmallSortedMap) invokeI.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public V removeArrayEntryAt(int i2) {
+    public V removeArrayEntryAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
             checkMutable();
-            V value = this.entryList.remove(i2).getValue();
+            V value = this.entryList.remove(i).getValue();
             if (!this.overflowEntries.isEmpty()) {
                 Iterator<Map.Entry<K, V>> it = getOverflowEntriesMutable().entrySet().iterator();
                 this.entryList.add(new Entry(this, it.next()));
@@ -667,10 +667,10 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return (V) invokeL.objValue;
     }
 
-    public Map.Entry<K, V> getArrayEntryAt(int i2) {
+    public Map.Entry<K, V> getArrayEntryAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.entryList.get(i2) : (Map.Entry) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.entryList.get(i) : (Map.Entry) invokeI.objValue;
     }
 
     public int getNumArrayEntries() {
@@ -741,22 +741,22 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.entryList.size() + this.overflowEntries.size() : invokeV.intValue;
     }
 
-    public SmallSortedMap(int i2) {
+    public SmallSortedMap(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.maxArraySize = i2;
+        this.maxArraySize = i;
         this.entryList = Collections.emptyList();
         this.overflowEntries = Collections.emptyMap();
     }
@@ -771,17 +771,17 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 return this.entryList.get(binarySearchInArray).setValue(v);
             }
             ensureEntryArrayMutable();
-            int i2 = -(binarySearchInArray + 1);
-            if (i2 >= this.maxArraySize) {
+            int i = -(binarySearchInArray + 1);
+            if (i >= this.maxArraySize) {
                 return getOverflowEntriesMutable().put(k, v);
             }
             int size = this.entryList.size();
-            int i3 = this.maxArraySize;
-            if (size == i3) {
-                SmallSortedMap<K, V>.Entry remove = this.entryList.remove(i3 - 1);
+            int i2 = this.maxArraySize;
+            if (size == i2) {
+                SmallSortedMap<K, V>.Entry remove = this.entryList.remove(i2 - 1);
                 getOverflowEntriesMutable().put((K) remove.getKey(), remove.getValue());
             }
-            this.entryList.add(i2, new Entry(this, k, v));
+            this.entryList.add(i, new Entry(this, k, v));
             return null;
         }
         return (V) invokeLL.objValue;

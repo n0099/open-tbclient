@@ -13,9 +13,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -53,9 +55,9 @@ public final class ActivityUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -116,22 +118,22 @@ public final class ActivityUtils {
         return invokeLLL.booleanValue;
     }
 
-    public static void setTaskDescription(Activity activity, String str, Bitmap bitmap, int i2) {
+    public static void setTaskDescription(Activity activity, String str, Bitmap bitmap, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65541, null, activity, str, bitmap, i2) == null) {
-            if (Color.alpha(i2) != 255) {
-                i2 = Color.argb(255, Color.red(i2), Color.green(i2), Color.blue(i2));
+        if (interceptable == null || interceptable.invokeLLLI(65541, null, activity, str, bitmap, i) == null) {
+            if (Color.alpha(i) != 255) {
+                i = Color.argb(255, Color.red(i), Color.green(i), Color.blue(i));
             }
             if (Build.VERSION.SDK_INT >= 21) {
-                activity.setTaskDescription(new ActivityManager.TaskDescription(str, bitmap, i2));
+                activity.setTaskDescription(new ActivityManager.TaskDescription(str, bitmap, i));
             }
         }
     }
 
-    public static boolean startActivityForResultSafely(Context context, Intent intent, int i2) {
+    public static boolean startActivityForResultSafely(Context context, Intent intent, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, intent, i2)) == null) ? startActivityForResultSafely((Activity) context, intent, i2, false, false) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, intent, i)) == null) ? startActivityForResultSafely((Activity) context, intent, i, false, false) : invokeLLI.booleanValue;
     }
 
     public static void startActivitySafely(Activity activity, Intent intent) {
@@ -141,28 +143,28 @@ public final class ActivityUtils {
         }
     }
 
-    public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i2, boolean z, boolean z2) {
+    public static boolean startActivityForResultSafely(Activity activity, Intent intent, int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, intent, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, intent, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             try {
-                activity.startActivityForResult(intent, i2);
+                activity.startActivityForResult(intent, i);
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(activity, (int) R.string.activity_not_found, 0).show();
+                    Toast.makeText(activity, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                     return false;
                 }
                 return false;
-            } catch (SecurityException unused2) {
+            } catch (SecurityException e2) {
                 if (z2) {
-                    Toast.makeText(activity, (int) R.string.activity_not_found, 0).show();
+                    Toast.makeText(activity, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                 }
                 if (DEBUG) {
-                    String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
+                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
                     return false;
                 }
                 return false;
@@ -182,29 +184,29 @@ public final class ActivityUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (z || !(context instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             try {
                 context.startActivity(intent);
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.activity_not_found, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                     return false;
                 }
                 return false;
-            } catch (SecurityException unused2) {
+            } catch (SecurityException e2) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.activity_not_found, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                 }
                 if (DEBUG) {
-                    String str = "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.";
+                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
                     return false;
                 }
                 return false;
-            } catch (Exception e2) {
+            } catch (Exception e3) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e3.getMessage());
                     return false;
                 }
                 return false;

@@ -20,9 +20,9 @@ public abstract class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,17 +70,17 @@ public abstract class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mTimestamp : invokeV.longValue;
     }
 
-    public void n(long j2) {
+    public void n(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mA = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mA = j;
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.mTimestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.mTimestamp = j;
         }
     }
 }

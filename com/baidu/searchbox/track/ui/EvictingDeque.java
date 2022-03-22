@@ -15,31 +15,31 @@ public final class EvictingDeque<E> {
     public int mCapacity;
     public final LinkedList<E> mDelegate;
 
-    public EvictingDeque(int i2) {
+    public EvictingDeque(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mDelegate = new LinkedList<>();
-        this.mCapacity = i2;
+        this.mCapacity = i;
     }
 
-    public static <E> EvictingDeque<E> create(int i2) {
+    public static <E> EvictingDeque<E> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (i2 >= 0) {
-                return new EvictingDeque<>(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i >= 0) {
+                return new EvictingDeque<>(i);
             }
             throw new IllegalArgumentException("capacity should not < 0");
         }
@@ -83,11 +83,11 @@ public final class EvictingDeque<E> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mDelegate.peekLast() : (E) invokeV.objValue;
     }
 
-    public void setCapacity(int i2) {
+    public void setCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 >= 0) {
-                this.mCapacity = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i >= 0) {
+                this.mCapacity = i;
                 return;
             }
             throw new IllegalArgumentException("capacity should not < 0");

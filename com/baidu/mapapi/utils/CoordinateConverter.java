@@ -20,7 +20,7 @@ public class CoordinateConverter {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f34339b;
+    public CoordType f26554b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -54,16 +54,16 @@ public class CoordinateConverter {
             $VALUES = new CoordType[]{GPS, COMMON, BD09LL, coordType};
         }
 
-        public CoordType(String str, int i2) {
+        public CoordType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -91,9 +91,9 @@ public class CoordinateConverter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -149,14 +149,14 @@ public class CoordinateConverter {
             if (this.a == null) {
                 return null;
             }
-            if (this.f34339b == null) {
-                this.f34339b = CoordType.GPS;
+            if (this.f26554b == null) {
+                this.f26554b = CoordType.GPS;
             }
-            int i2 = a.a[this.f34339b.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = a.a[this.f26554b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
                         return c(this.a);
@@ -184,7 +184,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f34339b = coordType;
+            this.f26554b = coordType;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;

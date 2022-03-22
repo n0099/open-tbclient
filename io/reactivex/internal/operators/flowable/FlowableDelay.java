@@ -13,7 +13,7 @@ import io.reactivex.subscribers.SerializedSubscriber;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DelaySubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
         public final TimeUnit unit;
         public final Scheduler.Worker w;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class OnComplete implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delaySubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -70,7 +70,7 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class OnError implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delaySubscriber, th};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -109,7 +109,7 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class OnNext implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +123,9 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delaySubscriber, t};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -145,23 +145,23 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
             }
         }
 
-        public DelaySubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
+        public DelaySubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler.Worker worker, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, worker, Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, worker, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.delay = j2;
+            this.delay = j;
             this.unit = timeUnit;
             this.w = worker;
             this.delayError = z;
@@ -210,33 +210,33 @@ public final class FlowableDelay<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableDelay(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public FlowableDelay(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.delay = j2;
+        this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.delayError = z;

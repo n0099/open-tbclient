@@ -18,18 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DragContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Scroller a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Scroller f46743e;
+    /* renamed from: b  reason: collision with root package name */
+    public Rect f36125b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Rect f46744f;
+    /* renamed from: c  reason: collision with root package name */
+    public View f36126c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public View f46745g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Bitmap f46746h;
+    /* renamed from: d  reason: collision with root package name */
+    public Bitmap f36127d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragContainer(Context context) {
@@ -40,44 +38,44 @@ public class DragContainer extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46744f = new Rect();
-        a(context);
+        this.f36125b = new Rect();
+        c(context);
     }
 
-    public final void a(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f46743e = new Scroller(context);
+            this.a = new Scroller(context);
         }
     }
 
     public void delete(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f46745g = view;
+            this.f36126c = view;
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache != null) {
-                this.f46746h = Bitmap.createBitmap(drawingCache);
+                this.f36127d = Bitmap.createBitmap(drawingCache);
             }
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            view.getDrawingRect(this.f46744f);
-            offsetDescendantRectToMyCoords(view, this.f46744f);
+            view.getDrawingRect(this.f36125b);
+            offsetDescendantRectToMyCoords(view, this.f36125b);
             int height = getHeight();
-            Scroller scroller = this.f46743e;
-            int i2 = this.f46744f.top;
-            scroller.startScroll(i2, 0, height - i2, 0, 800);
+            Scroller scroller = this.a;
+            int i = this.f36125b.top;
+            scroller.startScroll(i, 0, height - i, 0, 800);
             invalidate();
         }
     }
@@ -87,20 +85,20 @@ public class DragContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f46745g != null) {
-                if (this.f46743e.computeScrollOffset() && this.f46746h != null) {
+            if (this.f36126c != null) {
+                if (this.a.computeScrollOffset() && this.f36127d != null) {
                     canvas.save();
-                    canvas.drawBitmap(this.f46746h, this.f46744f.left, this.f46743e.getCurrX(), (Paint) null);
+                    canvas.drawBitmap(this.f36127d, this.f36125b.left, this.a.getCurrX(), (Paint) null);
                     canvas.restore();
                     postInvalidateDelayed(16L);
                     return;
                 }
-                Bitmap bitmap = this.f46746h;
+                Bitmap bitmap = this.f36127d;
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
-                this.f46746h = null;
-                this.f46745g = null;
+                this.f36127d = null;
+                this.f36126c = null;
             }
         }
     }
@@ -110,13 +108,13 @@ public class DragContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f46743e.forceFinished(true);
-            Bitmap bitmap = this.f46746h;
+            this.a.forceFinished(true);
+            Bitmap bitmap = this.f36127d;
             if (bitmap != null) {
                 bitmap.recycle();
             }
-            this.f46746h = null;
-            this.f46745g = null;
+            this.f36127d = null;
+            this.f36126c = null;
         }
     }
 
@@ -129,9 +127,9 @@ public class DragContainer extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -139,7 +137,7 @@ public class DragContainer extends LinearLayout {
                 return;
             }
         }
-        this.f46744f = new Rect();
-        a(context);
+        this.f36125b = new Rect();
+        c(context);
     }
 }

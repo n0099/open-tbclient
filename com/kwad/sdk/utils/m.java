@@ -1,7 +1,7 @@
 package com.kwad.sdk.utils;
 
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m {
     public static long a = -1;
 
@@ -28,7 +28,7 @@ public class m {
         if (adTemplate == null) {
             return System.currentTimeMillis();
         }
-        long j2 = adTemplate.mOutClickTimeParam;
-        return j2 > 0 ? j2 : adTemplate.mVisibleTimeParam;
+        long j = adTemplate.mOutClickTimeParam;
+        return j > 0 ? j : adTemplate.mVisibleTimeParam;
     }
 }

@@ -5,19 +5,19 @@ import com.kwad.sdk.core.webview.request.WebCardGetDataResponse;
 import com.kwad.sdk.core.webview.request.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class w implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55021b;
+        public String f40106b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f55022c;
+        public String f40107c;
     }
 
     private void a(a aVar) {
@@ -27,9 +27,9 @@ public class w implements com.kwad.sdk.core.webview.kwai.a {
             }
 
             @Override // com.kwad.sdk.core.webview.request.b.a
-            public void a(int i2, String str) {
+            public void a(int i, String str) {
                 if (w.this.a != null) {
-                    w.this.a.a(i2, str);
+                    w.this.a.a(i, str);
                 }
             }
 

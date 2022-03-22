@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 2;
@@ -35,9 +35,9 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -238,18 +238,18 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public TaskDataSet getFirstList(int i2) {
+    public TaskDataSet getFirstList(int i) {
         InterceptResult invokeI;
         TaskDataSet taskDataSet;
         Throwable th;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(1048579, this, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(1048579, this, i)) != null) {
             return (TaskDataSet) invokeI.objValue;
         }
         TaskDataSet taskDataSet2 = null;
         try {
-            cursor = this.db.rawQuery(String.format(Locale.ENGLISH, "SELECT %s FROM TASK_DATA ORDER BY _ORDER LIMIT 0,%d", allColumn(), Integer.valueOf(i2)), null);
+            cursor = this.db.rawQuery(String.format(Locale.ENGLISH, "SELECT %s FROM TASK_DATA ORDER BY _ORDER LIMIT 0,%d", allColumn(), Integer.valueOf(i)), null);
             if (cursor != null) {
                 try {
                     taskDataSet = new TaskDataSet();
@@ -337,9 +337,9 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i2, i3) == null) && i2 == 1) {
+        if ((interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) && i == 1) {
             List<TaskData> version1 = getVersion1(sQLiteDatabase);
             sQLiteDatabase.execSQL("drop table TASK_DATA");
             onCreate(sQLiteDatabase);
@@ -423,12 +423,12 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             Cursor rawQuery = this.db.rawQuery("SELECT COUNT(*) FROM TASK_DATA", null);
             if (rawQuery != null) {
-                int i2 = 0;
+                int i = 0;
                 while (rawQuery.moveToNext()) {
-                    i2 = rawQuery.getInt(0);
+                    i = rawQuery.getInt(0);
                 }
                 rawQuery.close();
-                return i2;
+                return i;
             }
             return 0;
         }
@@ -482,13 +482,13 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public TaskDataSet getFirstList(int i2, Collection<String> collection) {
+    public TaskDataSet getFirstList(int i, Collection<String> collection) {
         InterceptResult invokeIL;
         TaskDataSet taskDataSet;
         Throwable th;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIL = interceptable.invokeIL(1048580, this, i2, collection)) != null) {
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(1048580, this, i, collection)) != null) {
             return (TaskDataSet) invokeIL.objValue;
         }
         if (collection != null && !collection.isEmpty()) {
@@ -504,7 +504,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             TaskDataSet taskDataSet2 = null;
             try {
-                cursor = this.db.rawQuery(String.format(Locale.ENGLISH, "SELECT %s FROM TASK_DATA where _DATAID not in %s ORDER BY _ORDER LIMIT 0,%d", allColumn(), sb.toString(), Integer.valueOf(i2)), null);
+                cursor = this.db.rawQuery(String.format(Locale.ENGLISH, "SELECT %s FROM TASK_DATA where _DATAID not in %s ORDER BY _ORDER LIMIT 0,%d", allColumn(), sb.toString(), Integer.valueOf(i)), null);
                 if (cursor != null) {
                     try {
                         taskDataSet = new TaskDataSet();
@@ -540,7 +540,7 @@ public class TaskDataSqLiteDBManager extends SQLiteOpenHelper {
                 cursor = null;
             }
         } else {
-            return getFirstList(i2);
+            return getFirstList(i);
         }
     }
 }

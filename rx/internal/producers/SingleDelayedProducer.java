@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
-import i.j;
-import i.m.a;
+import g.f;
+import g.j;
+import g.m.a;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
@@ -28,9 +28,9 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
             newInitContext.initArgs = r2;
             Object[] objArr = {jVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,21 +57,21 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
         }
     }
 
-    @Override // i.f
-    public void request(long j2) {
+    @Override // g.f
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
                 throw new IllegalArgumentException("n >= 0 required");
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return;
             }
             do {
-                int i3 = get();
-                if (i3 != 0) {
-                    if (i3 == 1 && compareAndSet(1, 3)) {
+                int i2 = get();
+                if (i2 != 0) {
+                    if (i2 == 1 && compareAndSet(1, 3)) {
                         emit(this.child, this.value);
                         return;
                     }
@@ -85,10 +85,10 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             do {
-                int i2 = get();
-                if (i2 == 0) {
+                int i = get();
+                if (i == 0) {
                     this.value = t;
-                } else if (i2 == 2 && compareAndSet(2, 3)) {
+                } else if (i == 2 && compareAndSet(2, 3)) {
                     emit(this.child, t);
                     return;
                 } else {

@@ -15,31 +15,31 @@ public class i {
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27312b;
+    public float f22542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27313c;
+    public float f22543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27314d;
+    public float f22544d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27315e;
+    public float f22545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27316f;
+    public int f22546f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27317g;
+    public int f22547g;
 
     public i() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,14 +50,14 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                float f2 = this.f27312b;
-                this.f27312b = this.f27314d;
-                this.f27314d = f2;
+                float f2 = this.f22542b;
+                this.f22542b = this.f22544d;
+                this.f22544d = f2;
             }
             if (z2) {
-                float f3 = this.f27313c;
-                this.f27313c = this.f27315e;
-                this.f27315e = f3;
+                float f3 = this.f22543c;
+                this.f22543c = this.f22545e;
+                this.f22545e = f3;
             }
         }
     }
@@ -65,25 +65,25 @@ public class i {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27317g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22547g : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27316f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22546f : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f27312b * this.a.x()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f22542b * this.a.x()) : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f27313c * this.a.u()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f22543c * this.a.u()) : invokeV.intValue;
     }
 
     public Texture f() {
@@ -98,11 +98,11 @@ public class i {
             int x = this.a.x();
             int u = this.a.u();
             float f6 = x;
-            this.f27316f = Math.round(Math.abs(f4 - f2) * f6);
+            this.f22546f = Math.round(Math.abs(f4 - f2) * f6);
             float f7 = u;
             int round = Math.round(Math.abs(f5 - f3) * f7);
-            this.f27317g = round;
-            if (this.f27316f == 1 && round == 1) {
+            this.f22547g = round;
+            if (this.f22546f == 1 && round == 1) {
                 float f8 = 0.25f / f6;
                 f2 += f8;
                 f4 -= f8;
@@ -110,21 +110,21 @@ public class i {
                 f3 += f9;
                 f5 -= f9;
             }
-            this.f27312b = f2;
-            this.f27313c = f3;
-            this.f27314d = f4;
-            this.f27315e = f5;
+            this.f22542b = f2;
+            this.f22543c = f3;
+            this.f22544d = f4;
+            this.f22545e = f5;
         }
     }
 
-    public void h(int i2, int i3, int i4, int i5) {
+    public void h(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
             float x = 1.0f / this.a.x();
             float u = 1.0f / this.a.u();
-            g(i2 * x, i3 * u, (i2 + i4) * x, (i3 + i5) * u);
-            this.f27316f = Math.abs(i4);
-            this.f27317g = Math.abs(i5);
+            g(i * x, i2 * u, (i + i3) * x, (i2 + i4) * u);
+            this.f22546f = Math.abs(i3);
+            this.f22547g = Math.abs(i4);
         }
     }
 
@@ -132,15 +132,15 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
             this.a = iVar.a;
-            g(iVar.f27312b, iVar.f27313c, iVar.f27314d, iVar.f27315e);
+            g(iVar.f22542b, iVar.f22543c, iVar.f22544d, iVar.f22545e);
         }
     }
 
-    public void j(i iVar, int i2, int i3, int i4, int i5) {
+    public void j(i iVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{iVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{iVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.a = iVar.a;
-            h(iVar.d() + i2, iVar.e() + i3, i4, i5);
+            h(iVar.d() + i, iVar.e() + i2, i3, i4);
         }
     }
 
@@ -151,9 +151,9 @@ public class i {
             newInitContext.initArgs = r2;
             Object[] objArr = {texture};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -167,40 +167,40 @@ public class i {
         throw new IllegalArgumentException("texture cannot be null.");
     }
 
-    public i(Texture texture, int i2, int i3, int i4, int i5) {
+    public i(Texture texture, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {texture, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.a = texture;
-        h(i2, i3, i4, i5);
+        h(i, i2, i3, i4);
     }
 
-    public i(i iVar, int i2, int i3, int i4, int i5) {
+    public i(i iVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {iVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        j(iVar, i2, i3, i4, i5);
+        j(iVar, i, i2, i3, i4);
     }
 }

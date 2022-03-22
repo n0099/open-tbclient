@@ -1,8 +1,8 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
-import c.a.q0.s.c.c;
-import c.a.r0.y3.m0.a;
+import c.a.o0.s.c.c;
+import c.a.p0.a4.m0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -26,29 +26,29 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class ResponseMessage extends HttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ResponseMessage(int i2) {
-            super(i2);
+        public ResponseMessage(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -59,9 +59,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-        public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        public void decodeInBackGround(int i, byte[] bArr) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             }
         }
     }
@@ -95,16 +95,16 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        addParam("productId", "2");
+        addParam(AdUploadHttpRequest.KEY_PRODUCT_ID, "2");
         addParam("da_type", z ? "2" : "3");
         addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
         String netType = NetWorkUtil.getNetType();
@@ -127,7 +127,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("tid", cVar.a);
-                            jSONObject.put("locate", cVar.f25093c);
+                            jSONObject.put("locate", cVar.f12289c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -151,9 +151,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f25092b);
+                            jSONObject.put("pid", cVar.f12288b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f25093c);
+                            jSONObject.put("locate", cVar.f12289c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -166,11 +166,11 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         }
     }
 
-    public ShowStatisticUploadRequest init(int i2, String str, String str2, String str3) {
+    public ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
-            addParam(BdVideoAd.AD_VIDEO_DAPAGE, i2 == 1 ? "FRS" : "PB");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            addParam(BdVideoAd.AD_VIDEO_DAPAGE, i == 1 ? "FRS" : "PB");
             addParam("da_menu1", str);
             addParam("da_menu2", str2);
             addParam("ext_info", str3);

@@ -66,9 +66,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -127,9 +127,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -140,9 +140,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) && TextUtils.equals(this.val$uniqueTag, this.this$0.currentUniqueTag)) {
+                    if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) && TextUtils.equals(this.val$uniqueTag, this.this$0.currentUniqueTag)) {
                         if (1 == this.this$0.queryAddrListType) {
                             this.this$0.hasNextPageByUserInput = false;
                         } else {
@@ -201,9 +201,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -213,10 +213,10 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str) {
+                public void onFailure(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.this$0.doFailure(1005, i2, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                        this.this$0.doFailure(1005, i, str);
                     }
                 }
 
@@ -258,9 +258,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, mapObject};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -271,9 +271,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             MapLocationPoiPresenter mapLocationPoiPresenter = this.this$0;
                             mapLocationPoiPresenter.executeLocationQueryAddrList(this.val$paramsMap, mapLocationPoiPresenter.currentUniqueTag);
                         }
@@ -298,12 +298,12 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         if (optJSONArray != null && optJSONArray.length() != 0) {
             int length = optJSONArray.length();
             this.hasNextPageByUserInput = length >= 20;
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     this.addrListByUserInput.add(optJSONObject);
                 } else {
-                    Log.d(TAG, "updateAddrListByUserInput item of address list is error, index=" + i2);
+                    Log.d(TAG, "updateAddrListByUserInput item of address list is error, index=" + i);
                 }
             }
         } else {
@@ -323,12 +323,12 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
             if (optJSONArray != null && optJSONArray.length() != 0) {
                 int length = optJSONArray.length();
                 this.hasNextPageByUserMapChoiceLoc = length >= 20;
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         this.addrListByUserMapChoice.add(optJSONObject);
                     } else {
-                        Log.d(TAG, "item of address list is error, index=" + i2);
+                        Log.d(TAG, "item of address list is error, index=" + i);
                     }
                 }
             } else {
@@ -370,10 +370,10 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.addrListByUserMapChoice : (List) invokeV.objValue;
     }
 
-    public void getBdStokenFromServer(int i2, SyncActionCallBack syncActionCallBack) {
+    public void getBdStokenFromServer(int i, SyncActionCallBack syncActionCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, syncActionCallBack) == null) {
-            AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback(this, syncActionCallBack, i2) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.1
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, syncActionCallBack) == null) {
+            AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback(this, syncActionCallBack, i) { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MapLocationPoiPresenter this$0;
@@ -385,11 +385,11 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, syncActionCallBack, Integer.valueOf(i2)};
+                        Object[] objArr = {this, syncActionCallBack, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -397,14 +397,14 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                     }
                     this.this$0 = this;
                     this.val$syncActionCallBack = syncActionCallBack;
-                    this.val$fromActionCode = i2;
+                    this.val$fromActionCode = i;
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i3, String str) {
+                public void onFailure(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
-                        this.this$0.doFailure(this.val$fromActionCode, i3, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        this.this$0.doFailure(this.val$fromActionCode, i2, str);
                     }
                 }
 
@@ -471,9 +471,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, jSONObject};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -484,9 +484,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeMapLocation2Region(this.val$jsonObj);
                         }
                     }
@@ -555,9 +555,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
             } else {
                 this.paramsMap.putValue("query", this.mapGeoAddrText);
             }
-            int i2 = z ? 0 : this.queryListPageNum + 1;
-            this.queryListPageNum = i2;
-            this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i2));
+            int i = z ? 0 : this.queryListPageNum + 1;
+            this.queryListPageNum = i;
+            this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i));
             locationQueryAddrList(this.paramsMap);
         }
     }
@@ -587,9 +587,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -624,10 +624,10 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         }
     }
 
-    public void setQueryAddrListType(int i2) {
+    public void setQueryAddrListType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.queryAddrListType = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.queryAddrListType = i;
         }
     }
 

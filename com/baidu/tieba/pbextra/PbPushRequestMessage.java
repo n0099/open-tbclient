@@ -1,6 +1,6 @@
 package com.baidu.tieba.pbextra;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PushThread.DataReq;
 import tbclient.PushThread.PushThreadReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbPushRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,17 +22,17 @@ public class PbPushRequestMessage extends NetMessage {
     public long mUserId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPushRequestMessage(long j2, long j3, int i2, long j4) {
+    public PbPushRequestMessage(long j, long j2, int i, long j3) {
         super(CmdConfigHttp.PB_PUSH_THREAD_HTTP_CMD, 309325);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -40,10 +40,10 @@ public class PbPushRequestMessage extends NetMessage {
                 return;
             }
         }
-        this.mForumId = j2;
-        this.mThreadId = j3;
-        this.mPushType = i2;
-        this.mUserId = j4;
+        this.mForumId = j;
+        this.mThreadId = j2;
+        this.mPushType = i;
+        this.mUserId = j3;
         setNetType(NetMessage.NetType.HTTP);
     }
 

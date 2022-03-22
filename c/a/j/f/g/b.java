@@ -5,7 +5,7 @@ import com.baidu.bdtask.model.response.TaskResponseData;
 public interface b {
     void a(TaskResponseData taskResponseData);
 
-    void a(String str, int i2);
+    void a(String str, int i);
 
     void b(c cVar);
 }

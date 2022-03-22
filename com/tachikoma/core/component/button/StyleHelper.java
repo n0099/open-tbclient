@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StyleHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BACKGROUND_COLOR = "backgroundColor";
@@ -28,9 +28,9 @@ public class StyleHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,7 +79,7 @@ public class StyleHelper {
 
     public static ColorStateList getTextColor(HashMap hashMap) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         int fetchTextColor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
@@ -108,8 +108,8 @@ public class StyleHelper {
             if (arrayList.size() > 0) {
                 int[][] iArr = new int[arrayList.size()];
                 int[] iArr2 = new int[arrayList2.size()];
-                for (i2 = 0; i2 < arrayList2.size(); i2++) {
-                    iArr2[i2] = ((Integer) arrayList2.get(i2)).intValue();
+                for (i = 0; i < arrayList2.size(); i++) {
+                    iArr2[i] = ((Integer) arrayList2.get(i)).intValue();
                 }
                 return new ColorStateList((int[][]) arrayList.toArray(iArr), iArr2);
             }

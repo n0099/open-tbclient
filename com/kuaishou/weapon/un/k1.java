@@ -12,28 +12,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes7.dex */
 public class k1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f53688b = 1;
+    public static final int f38877b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f53689c = 2;
+    public static final int f38878c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f53690d = 4;
+    public static final int f38879d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f53691e = 8;
+    public static final int f38880e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f53692f = 16;
+    public static final int f38881f = 16;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ boolean f53693g;
+    public static final /* synthetic */ boolean f38882g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -43,25 +44,25 @@ public class k1 {
         public byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53694b;
+        public int f38883b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract int a(int i2);
+        public abstract int a(int i);
 
-        public abstract boolean a(byte[] bArr, int i2, int i3, boolean z);
+        public abstract boolean a(byte[] bArr, int i, int i2, boolean z);
     }
 
     /* loaded from: classes7.dex */
@@ -69,26 +70,24 @@ public class k1 {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int[] f53695f;
+        public static final int[] f38884f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int[] f53696g;
+        public static final int[] f38885g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final int f53697h = -1;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final int f53698i = -2;
+        public static final int f38886h = -1;
+        public static final int i = -2;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53699c;
+        public int f38887c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53700d;
+        public int f38888d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f53701e;
+        public final int[] f38889e;
 
         static {
             InterceptResult invokeClinit;
@@ -103,8 +102,8 @@ public class k1 {
                     return;
                 }
             }
-            f53695f = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-            f53696g = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f38884f = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f38885g = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         }
 
         public b(int i2, byte[] bArr) {
@@ -123,9 +122,9 @@ public class k1 {
                 }
             }
             this.a = bArr;
-            this.f53701e = (i2 & 8) == 0 ? f53695f : f53696g;
-            this.f53699c = 0;
-            this.f53700d = 0;
+            this.f38889e = (i2 & 8) == 0 ? f38884f : f38885g;
+            this.f38887c = 0;
+            this.f38888d = 0;
         }
 
         @Override // com.kuaishou.weapon.un.k1.a
@@ -146,14 +145,14 @@ public class k1 {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                int i4 = this.f53699c;
+                int i4 = this.f38887c;
                 if (i4 == 6) {
                     return false;
                 }
                 int i5 = i3 + i2;
-                int i6 = this.f53700d;
+                int i6 = this.f38888d;
                 byte[] bArr2 = this.a;
-                int[] iArr = this.f53701e;
+                int[] iArr = this.f38889e;
                 int i7 = i6;
                 int i8 = 0;
                 int i9 = i4;
@@ -181,7 +180,7 @@ public class k1 {
                         if (i9 == 1) {
                             if (i13 < 0) {
                                 if (i13 != -1) {
-                                    this.f53699c = 6;
+                                    this.f38887c = 6;
                                     return false;
                                 }
                             }
@@ -200,13 +199,13 @@ public class k1 {
                         } else if (i9 != 3) {
                             if (i9 != 4) {
                                 if (i9 == 5 && i13 != -1) {
-                                    this.f53699c = 6;
+                                    this.f38887c = 6;
                                     return false;
                                 }
                             } else if (i13 == -2) {
                                 i9++;
                             } else if (i13 != -1) {
-                                this.f53699c = 6;
+                                this.f38887c = 6;
                                 return false;
                             }
                         } else if (i13 >= 0) {
@@ -230,7 +229,7 @@ public class k1 {
                     } else {
                         if (i13 < 0) {
                             if (i13 != -1) {
-                                this.f53699c = 6;
+                                this.f38887c = 6;
                                 return false;
                             }
                         }
@@ -250,14 +249,14 @@ public class k1 {
                             i8 = i15 + 1;
                             bArr2[i15] = (byte) (i7 >> 2);
                         }
-                        this.f53699c = i9;
+                        this.f38887c = i9;
                     }
-                    this.f53699c = 6;
+                    this.f38887c = 6;
                     return false;
                 }
-                this.f53699c = i9;
-                this.f53700d = i7;
-                this.f53694b = i8;
+                this.f38887c = i9;
+                this.f38888d = i7;
+                this.f38883b = i8;
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -267,34 +266,30 @@ public class k1 {
     /* loaded from: classes7.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static final int f53702j = 19;
+        public static final int j = 19;
         public static final byte[] k;
         public static final byte[] l;
         public static final /* synthetic */ boolean m;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f53703c;
+        public final byte[] f38890c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53704d;
+        public int f38891d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53705e;
+        public int f38892e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f53706f;
+        public final boolean f38893f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f53707g;
+        public final boolean f38894g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f53708h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final byte[] f53709i;
+        public final boolean f38895h;
+        public final byte[] i;
 
         static {
             InterceptResult invokeClinit;
@@ -314,40 +309,40 @@ public class k1 {
             l = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
         }
 
-        public c(int i2, byte[] bArr) {
+        public c(int i, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), bArr};
+                Object[] objArr = {Integer.valueOf(i), bArr};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.a = bArr;
-            this.f53706f = (i2 & 1) == 0;
-            this.f53707g = (i2 & 2) == 0;
-            this.f53708h = (i2 & 4) != 0;
-            this.f53709i = (i2 & 8) == 0 ? k : l;
-            this.f53703c = new byte[2];
-            this.f53704d = 0;
-            this.f53705e = this.f53707g ? 19 : -1;
+            this.f38893f = (i & 1) == 0;
+            this.f38894g = (i & 2) == 0;
+            this.f38895h = (i & 4) != 0;
+            this.i = (i & 8) == 0 ? k : l;
+            this.f38890c = new byte[2];
+            this.f38891d = 0;
+            this.f38892e = this.f38894g ? 19 : -1;
         }
 
         @Override // com.kuaishou.weapon.un.k1.a
-        public int a(int i2) {
+        public int a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? ((i2 * 8) / 5) + 10 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? ((i * 8) / 5) + 10 : invokeI.intValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:32:0x00da, code lost:
-            if (r17.f53708h == false) goto L28;
+            if (r17.f38895h == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
             r2[r6] = 13;
@@ -365,205 +360,205 @@ public class k1 {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public boolean a(byte[] bArr, int i2, int i3, boolean z) {
+        public boolean a(byte[] bArr, int i, int i2, boolean z) {
             InterceptResult invokeCommon;
+            int i3;
             int i4;
             int i5;
             int i6;
-            int i7;
             byte b2;
-            int i8;
+            int i7;
             byte b3;
             byte b4;
+            int i8;
             int i9;
-            int i10;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
+            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
                 return invokeCommon.booleanValue;
             }
-            byte[] bArr2 = this.f53709i;
+            byte[] bArr2 = this.i;
             byte[] bArr3 = this.a;
-            int i11 = this.f53705e;
-            int i12 = i3 + i2;
-            int i13 = this.f53704d;
-            int i14 = 0;
-            if (i13 != 1) {
-                if (i13 == 2 && (i10 = i2 + 1) <= i12) {
-                    byte[] bArr4 = this.f53703c;
-                    i5 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i2] & 255);
-                    this.f53704d = 0;
-                    i4 = i10;
+            int i10 = this.f38892e;
+            int i11 = i2 + i;
+            int i12 = this.f38891d;
+            int i13 = 0;
+            if (i12 != 1) {
+                if (i12 == 2 && (i9 = i + 1) <= i11) {
+                    byte[] bArr4 = this.f38890c;
+                    i4 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i] & 255);
+                    this.f38891d = 0;
+                    i3 = i9;
                 }
-                i4 = i2;
-                i5 = -1;
+                i3 = i;
+                i4 = -1;
             } else {
-                if (i2 + 2 <= i12) {
-                    int i15 = i2 + 1;
-                    i4 = i15 + 1;
-                    i5 = (bArr[i15] & 255) | ((this.f53703c[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
-                    this.f53704d = 0;
+                if (i + 2 <= i11) {
+                    int i14 = i + 1;
+                    i3 = i14 + 1;
+                    i4 = (bArr[i14] & 255) | ((this.f38890c[0] & 255) << 16) | ((bArr[i] & 255) << 8);
+                    this.f38891d = 0;
                 }
-                i4 = i2;
-                i5 = -1;
+                i3 = i;
+                i4 = -1;
             }
-            if (i5 != -1) {
-                bArr3[0] = bArr2[(i5 >> 18) & 63];
-                bArr3[1] = bArr2[(i5 >> 12) & 63];
-                bArr3[2] = bArr2[(i5 >> 6) & 63];
-                bArr3[3] = bArr2[i5 & 63];
-                i11--;
-                if (i11 == 0) {
-                    if (this.f53708h) {
-                        i9 = 5;
+            if (i4 != -1) {
+                bArr3[0] = bArr2[(i4 >> 18) & 63];
+                bArr3[1] = bArr2[(i4 >> 12) & 63];
+                bArr3[2] = bArr2[(i4 >> 6) & 63];
+                bArr3[3] = bArr2[i4 & 63];
+                i10--;
+                if (i10 == 0) {
+                    if (this.f38895h) {
+                        i8 = 5;
                         bArr3[4] = 13;
                     } else {
-                        i9 = 4;
+                        i8 = 4;
                     }
-                    i6 = i9 + 1;
-                    bArr3[i9] = 10;
-                    i11 = 19;
+                    i5 = i8 + 1;
+                    bArr3[i8] = 10;
+                    i10 = 19;
                 } else {
-                    i6 = 4;
+                    i5 = 4;
                 }
             } else {
-                i6 = 0;
+                i5 = 0;
             }
             while (true) {
-                int i16 = i4 + 3;
-                if (i16 > i12) {
+                int i15 = i3 + 3;
+                if (i15 > i11) {
                     if (z) {
-                        int i17 = this.f53704d;
-                        int i18 = i4 - i17;
-                        if (i18 == i12 - 1) {
-                            if (i17 > 0) {
-                                b4 = this.f53703c[0];
-                                i14 = 1;
+                        int i16 = this.f38891d;
+                        int i17 = i3 - i16;
+                        if (i17 == i11 - 1) {
+                            if (i16 > 0) {
+                                b4 = this.f38890c[0];
+                                i13 = 1;
                             } else {
-                                byte b5 = bArr[i4];
-                                i4++;
+                                byte b5 = bArr[i3];
+                                i3++;
                                 b4 = b5;
                             }
-                            int i19 = (b4 & 255) << 4;
-                            this.f53704d -= i14;
-                            int i20 = i6 + 1;
-                            bArr3[i6] = bArr2[(i19 >> 6) & 63];
-                            i6 = i20 + 1;
-                            bArr3[i20] = bArr2[i19 & 63];
-                            if (this.f53706f) {
-                                int i21 = i6 + 1;
-                                bArr3[i6] = 61;
-                                i6 = i21 + 1;
-                                bArr3[i21] = 61;
+                            int i18 = (b4 & 255) << 4;
+                            this.f38891d -= i13;
+                            int i19 = i5 + 1;
+                            bArr3[i5] = bArr2[(i18 >> 6) & 63];
+                            i5 = i19 + 1;
+                            bArr3[i19] = bArr2[i18 & 63];
+                            if (this.f38893f) {
+                                int i20 = i5 + 1;
+                                bArr3[i5] = BaseNCodec.PAD_DEFAULT;
+                                i5 = i20 + 1;
+                                bArr3[i20] = BaseNCodec.PAD_DEFAULT;
                             }
-                            if (this.f53707g) {
-                                if (this.f53708h) {
-                                    bArr3[i6] = 13;
-                                    i6++;
+                            if (this.f38894g) {
+                                if (this.f38895h) {
+                                    bArr3[i5] = 13;
+                                    i5++;
                                 }
-                                i7 = i6 + 1;
-                                bArr3[i6] = 10;
-                                i6 = i7;
+                                i6 = i5 + 1;
+                                bArr3[i5] = 10;
+                                i5 = i6;
                             }
-                            if (m && this.f53704d != 0) {
+                            if (m && this.f38891d != 0) {
                                 throw new AssertionError();
                             }
-                            if (!m && i4 != i12) {
+                            if (!m && i3 != i11) {
                                 throw new AssertionError();
                             }
-                        } else if (i18 == i12 - 2) {
-                            if (i17 > 1) {
-                                b2 = this.f53703c[0];
-                                i14 = 1;
+                        } else if (i17 == i11 - 2) {
+                            if (i16 > 1) {
+                                b2 = this.f38890c[0];
+                                i13 = 1;
                             } else {
-                                byte b6 = bArr[i4];
-                                i4++;
+                                byte b6 = bArr[i3];
+                                i3++;
                                 b2 = b6;
                             }
-                            int i22 = (b2 & 255) << 10;
-                            if (this.f53704d > 0) {
-                                i8 = i14 + 1;
-                                b3 = this.f53703c[i14];
+                            int i21 = (b2 & 255) << 10;
+                            if (this.f38891d > 0) {
+                                i7 = i13 + 1;
+                                b3 = this.f38890c[i13];
                             } else {
-                                i8 = i14;
-                                b3 = bArr[i4];
-                                i4++;
+                                i7 = i13;
+                                b3 = bArr[i3];
+                                i3++;
                             }
-                            int i23 = i22 | ((b3 & 255) << 2);
-                            this.f53704d -= i8;
-                            int i24 = i6 + 1;
-                            bArr3[i6] = bArr2[(i23 >> 12) & 63];
+                            int i22 = i21 | ((b3 & 255) << 2);
+                            this.f38891d -= i7;
+                            int i23 = i5 + 1;
+                            bArr3[i5] = bArr2[(i22 >> 12) & 63];
+                            int i24 = i23 + 1;
+                            bArr3[i23] = bArr2[(i22 >> 6) & 63];
                             int i25 = i24 + 1;
-                            bArr3[i24] = bArr2[(i23 >> 6) & 63];
-                            int i26 = i25 + 1;
-                            bArr3[i25] = bArr2[i23 & 63];
-                            if (this.f53706f) {
-                                bArr3[i26] = 61;
-                                i26++;
+                            bArr3[i24] = bArr2[i22 & 63];
+                            if (this.f38893f) {
+                                bArr3[i25] = BaseNCodec.PAD_DEFAULT;
+                                i25++;
                             }
-                            if (this.f53707g) {
-                                if (this.f53708h) {
-                                    bArr3[i26] = 13;
-                                    i26++;
+                            if (this.f38894g) {
+                                if (this.f38895h) {
+                                    bArr3[i25] = 13;
+                                    i25++;
                                 }
-                                i7 = i26 + 1;
-                                bArr3[i26] = 10;
-                                i6 = i7;
+                                i6 = i25 + 1;
+                                bArr3[i25] = 10;
+                                i5 = i6;
                                 if (m) {
                                 }
                                 if (!m) {
                                     throw new AssertionError();
                                 }
                             } else {
-                                i6 = i26;
+                                i5 = i25;
                                 if (m) {
                                 }
                                 if (!m) {
                                 }
                             }
                         } else {
-                            if (this.f53707g && i6 > 0 && i11 != 19) {
-                                if (this.f53708h) {
-                                    bArr3[i6] = 13;
-                                    i6++;
+                            if (this.f38894g && i5 > 0 && i10 != 19) {
+                                if (this.f38895h) {
+                                    bArr3[i5] = 13;
+                                    i5++;
                                 }
-                                i7 = i6 + 1;
-                                bArr3[i6] = 10;
-                                i6 = i7;
+                                i6 = i5 + 1;
+                                bArr3[i5] = 10;
+                                i5 = i6;
                             }
                             if (m) {
                             }
                             if (!m) {
                             }
                         }
-                    } else if (i4 == i12 - 1) {
-                        byte[] bArr5 = this.f53703c;
-                        int i27 = this.f53704d;
-                        this.f53704d = i27 + 1;
-                        bArr5[i27] = bArr[i4];
-                    } else if (i4 == i12 - 2) {
-                        byte[] bArr6 = this.f53703c;
-                        int i28 = this.f53704d;
-                        int i29 = i28 + 1;
-                        this.f53704d = i29;
-                        bArr6[i28] = bArr[i4];
-                        this.f53704d = i29 + 1;
-                        bArr6[i29] = bArr[i4 + 1];
+                    } else if (i3 == i11 - 1) {
+                        byte[] bArr5 = this.f38890c;
+                        int i26 = this.f38891d;
+                        this.f38891d = i26 + 1;
+                        bArr5[i26] = bArr[i3];
+                    } else if (i3 == i11 - 2) {
+                        byte[] bArr6 = this.f38890c;
+                        int i27 = this.f38891d;
+                        int i28 = i27 + 1;
+                        this.f38891d = i28;
+                        bArr6[i27] = bArr[i3];
+                        this.f38891d = i28 + 1;
+                        bArr6[i28] = bArr[i3 + 1];
                     }
-                    this.f53694b = i6;
-                    this.f53705e = i11;
+                    this.f38883b = i5;
+                    this.f38892e = i10;
                     return true;
                 }
-                int i30 = ((bArr[i4 + 1] & 255) << 8) | ((bArr[i4] & 255) << 16) | (bArr[i4 + 2] & 255);
-                bArr3[i6] = bArr2[(i30 >> 18) & 63];
-                bArr3[i6 + 1] = bArr2[(i30 >> 12) & 63];
-                bArr3[i6 + 2] = bArr2[(i30 >> 6) & 63];
-                bArr3[i6 + 3] = bArr2[i30 & 63];
-                i6 += 4;
-                i11--;
-                if (i11 == 0) {
+                int i29 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16) | (bArr[i3 + 2] & 255);
+                bArr3[i5] = bArr2[(i29 >> 18) & 63];
+                bArr3[i5 + 1] = bArr2[(i29 >> 12) & 63];
+                bArr3[i5 + 2] = bArr2[(i29 >> 6) & 63];
+                bArr3[i5 + 3] = bArr2[i29 & 63];
+                i5 += 4;
+                i10--;
+                if (i10 == 0) {
                     break;
                 }
-                i4 = i16;
+                i3 = i15;
             }
         }
     }
@@ -581,7 +576,7 @@ public class k1 {
                 return;
             }
         }
-        f53693g = !k1.class.desiredAssertionStatus();
+        f38882g = !k1.class.desiredAssertionStatus();
     }
 
     public k1() {
@@ -589,9 +584,9 @@ public class k1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -611,10 +606,10 @@ public class k1 {
         return (String) invokeLL.objValue;
     }
 
-    public static byte[] a(String str, int i2) {
+    public static byte[] a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) ? a(str.getBytes(), i2) : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) ? a(str.getBytes(), i) : (byte[]) invokeLI.objValue;
     }
 
     public static byte[] a(byte[] bArr) {
@@ -623,25 +618,25 @@ public class k1 {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? a(bArr, 0, bArr.length, 0) : (byte[]) invokeL.objValue;
     }
 
-    public static byte[] a(byte[] bArr, int i2) {
+    public static byte[] a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i2)) == null) ? a(bArr, 0, bArr.length, i2) : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i)) == null) ? a(bArr, 0, bArr.length, i) : (byte[]) invokeLI.objValue;
     }
 
-    public static byte[] a(byte[] bArr, int i2, int i3, int i4) {
+    public static byte[] a(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, bArr, i2, i3, i4)) == null) {
-            b bVar = new b(i4, new byte[(i3 * 3) / 4]);
-            if (bVar.a(bArr, i2, i3, true)) {
-                int i5 = bVar.f53694b;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, bArr, i, i2, i3)) == null) {
+            b bVar = new b(i3, new byte[(i2 * 3) / 4]);
+            if (bVar.a(bArr, i, i2, true)) {
+                int i4 = bVar.f38883b;
                 byte[] bArr2 = bVar.a;
-                if (i5 == bArr2.length) {
+                if (i4 == bArr2.length) {
                     return bArr2;
                 }
-                byte[] bArr3 = new byte[i5];
-                System.arraycopy(bArr2, 0, bArr3, 0, i5);
+                byte[] bArr3 = new byte[i4];
+                System.arraycopy(bArr2, 0, bArr3, 0, i4);
                 return bArr3;
             }
             throw new IllegalArgumentException("bad base-64");
@@ -649,40 +644,40 @@ public class k1 {
         return (byte[]) invokeLIII.objValue;
     }
 
-    public static String b(String str, int i2) {
+    public static String b(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i2)) == null) ? new String(a(str.getBytes(), i2)) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) ? new String(a(str.getBytes(), i)) : (String) invokeLI.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i2) {
+    public static byte[] b(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i2)) == null) ? b(bArr, 0, bArr.length, i2) : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) ? b(bArr, 0, bArr.length, i) : (byte[]) invokeLI.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i2, int i3, int i4) {
+    public static byte[] b(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65545, null, bArr, i2, i3, i4)) == null) {
-            c cVar = new c(i4, null);
-            int i5 = (i3 / 3) * 4;
-            if (!cVar.f53706f) {
-                int i6 = i3 % 3;
-                if (i6 == 1) {
-                    i5 += 2;
-                } else if (i6 == 2) {
-                    i5 += 3;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65545, null, bArr, i, i2, i3)) == null) {
+            c cVar = new c(i3, null);
+            int i4 = (i2 / 3) * 4;
+            if (!cVar.f38893f) {
+                int i5 = i2 % 3;
+                if (i5 == 1) {
+                    i4 += 2;
+                } else if (i5 == 2) {
+                    i4 += 3;
                 }
-            } else if (i3 % 3 > 0) {
-                i5 += 4;
+            } else if (i2 % 3 > 0) {
+                i4 += 4;
             }
-            if (cVar.f53707g && i3 > 0) {
-                i5 += (((i3 - 1) / 57) + 1) * (cVar.f53708h ? 2 : 1);
+            if (cVar.f38894g && i2 > 0) {
+                i4 += (((i2 - 1) / 57) + 1) * (cVar.f38895h ? 2 : 1);
             }
-            cVar.a = new byte[i5];
-            cVar.a(bArr, i2, i3, true);
-            if (f53693g || cVar.f53694b == i5) {
+            cVar.a = new byte[i4];
+            cVar.a(bArr, i, i2, true);
+            if (f38882g || cVar.f38883b == i4) {
                 return cVar.a;
             }
             throw new AssertionError();
@@ -690,12 +685,12 @@ public class k1 {
         return (byte[]) invokeLIII.objValue;
     }
 
-    public static String c(byte[] bArr, int i2) {
+    public static String c(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, bArr, i)) == null) {
             try {
-                return new String(b(bArr, i2), "US-ASCII");
+                return new String(b(bArr, i), "US-ASCII");
             } catch (UnsupportedEncodingException e2) {
                 throw new AssertionError(e2);
             }
@@ -703,12 +698,12 @@ public class k1 {
         return (String) invokeLI.objValue;
     }
 
-    public static String c(byte[] bArr, int i2, int i3, int i4) {
+    public static String c(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65547, null, bArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65547, null, bArr, i, i2, i3)) == null) {
             try {
-                return new String(b(bArr, i2, i3, i4), "US-ASCII");
+                return new String(b(bArr, i, i2, i3), "US-ASCII");
             } catch (UnsupportedEncodingException e2) {
                 throw new AssertionError(e2);
             }

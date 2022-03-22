@@ -7,28 +7,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f51806b;
+    public TTDislikeController f38219b;
 
     public TTDislikeDialogAbstract(Context context) {
         super(context);
     }
 
     public void a() {
-        if (this.f51806b == null || this.a == null) {
+        if (this.f38219b == null || this.a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
-            for (int i2 : tTDislikeListViewIds) {
-                View findViewById = this.a.findViewById(i2);
+            for (int i : tTDislikeListViewIds) {
+                View findViewById = this.a.findViewById(i);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f51806b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f38219b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -42,7 +42,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void b() {
-        TTDislikeController tTDislikeController = this.f51806b;
+        TTDislikeController tTDislikeController = this.f38219b;
         if (tTDislikeController != null) {
             tTDislikeController.onDislikeEvent(getContext(), true);
         }
@@ -73,7 +73,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void setDislikeModel(TTDislikeController tTDislikeController) {
-        this.f51806b = tTDislikeController;
+        this.f38219b = tTDislikeController;
         a();
     }
 
@@ -84,14 +84,14 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void startPersonalizePromptActivity() {
-        TTDislikeController tTDislikeController = this.f51806b;
+        TTDislikeController tTDislikeController = this.f38219b;
         if (tTDislikeController != null) {
             tTDislikeController.openWebPage(getContext(), true);
-            this.f51806b.onDislikeEvent(getContext(), false);
+            this.f38219b.onDislikeEvent(getContext(), false);
         }
     }
 
-    public TTDislikeDialogAbstract(Context context, int i2) {
-        super(context, i2);
+    public TTDislikeDialogAbstract(Context context, int i) {
+        super(context, i);
     }
 }

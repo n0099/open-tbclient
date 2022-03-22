@@ -7,7 +7,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import c.a.q0.s.f.c;
+import c.a.o0.s.f.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -20,21 +20,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AssortView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f40463e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f31209b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f40464f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public a f40465g;
+    /* renamed from: c  reason: collision with root package name */
+    public a f31210c;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void onTouchDown(String str);
+        void o0(String str);
 
-        void onTouchUP();
+        void z0();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,23 +44,23 @@ public class AssortView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40464f = -1;
+        this.f31209b = -1;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40463e = new Paint();
+            this.a = new Paint();
         }
     }
 
@@ -84,13 +82,13 @@ public class AssortView extends View {
             String[] strArr = c.a;
             int length = height / strArr.length;
             int length2 = strArr.length;
-            for (int i2 = 0; i2 < length2; i2++) {
-                this.f40463e.setAntiAlias(true);
-                this.f40463e.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f40463e.setColor(SkinManager.getColor(R.color.CAM_X0108));
-                this.f40463e.setTextSize(26.0f * f2);
-                canvas.drawText(c.a[i2], (width / 2.0f) - (this.f40463e.measureText(c.a[i2]) / 2.0f), (length * i2) + length, this.f40463e);
-                this.f40463e.reset();
+            for (int i = 0; i < length2; i++) {
+                this.a.setAntiAlias(true);
+                this.a.setTypeface(Typeface.DEFAULT_BOLD);
+                this.a.setColor(SkinManager.getColor(R.color.CAM_X0108));
+                this.a.setTextSize(26.0f * f2);
+                canvas.drawText(c.a[i], (width / 2.0f) - (this.a.measureText(c.a[i]) / 2.0f), (length * i) + length, this.a);
+                this.a.reset();
             }
         }
     }
@@ -107,31 +105,31 @@ public class AssortView extends View {
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f40464f = length;
-                    a aVar = this.f40465g;
+                    this.f31209b = length;
+                    a aVar = this.f31210c;
                     if (aVar != null) {
-                        aVar.onTouchDown(c.a[length]);
+                        aVar.o0(c.a[length]);
                     }
                 } else if (action != 1) {
-                    if (action == 2 && this.f40464f != length) {
-                        this.f40464f = length;
-                        a aVar2 = this.f40465g;
+                    if (action == 2 && this.f31209b != length) {
+                        this.f31209b = length;
+                        a aVar2 = this.f31210c;
                         if (aVar2 != null) {
-                            aVar2.onTouchDown(c.a[length]);
+                            aVar2.o0(c.a[length]);
                         }
                     }
                 } else {
-                    a aVar3 = this.f40465g;
+                    a aVar3 = this.f31210c;
                     if (aVar3 != null) {
-                        aVar3.onTouchUP();
+                        aVar3.z0();
                     }
-                    this.f40464f = -1;
+                    this.f31209b = -1;
                 }
             } else {
-                this.f40464f = -1;
-                a aVar4 = this.f40465g;
+                this.f31209b = -1;
+                a aVar4 = this.f31210c;
                 if (aVar4 != null) {
-                    aVar4.onTouchUP();
+                    aVar4.z0();
                 }
             }
             return true;
@@ -142,7 +140,7 @@ public class AssortView extends View {
     public void setOnTouchListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f40465g = aVar;
+            this.f31210c = aVar;
         }
     }
 
@@ -155,9 +153,9 @@ public class AssortView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -165,22 +163,22 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f40464f = -1;
+        this.f31209b = -1;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AssortView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AssortView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -188,7 +186,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f40464f = -1;
+        this.f31209b = -1;
         a();
     }
 }

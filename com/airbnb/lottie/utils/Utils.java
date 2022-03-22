@@ -17,7 +17,6 @@ import com.airbnb.lottie.L;
 import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.content.TrimPathContent;
 import com.airbnb.lottie.animation.keyframe.FloatKeyframeAnimation;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.Closeable;
 import java.io.InterruptedIOException;
 import java.net.ProtocolException;
@@ -131,27 +130,27 @@ public final class Utils {
     }
 
     public static int hashFor(float f2, float f3, float f4, float f5) {
-        int i2 = f2 != 0.0f ? (int) (((float) PayBeanFactory.BEAN_ID_WIDTHDRAW) * f2) : 17;
+        int i = f2 != 0.0f ? (int) (527 * f2) : 17;
         if (f3 != 0.0f) {
-            i2 = (int) (i2 * 31 * f3);
+            i = (int) (i * 31 * f3);
         }
         if (f4 != 0.0f) {
-            i2 = (int) (i2 * 31 * f4);
+            i = (int) (i * 31 * f4);
         }
-        return f5 != 0.0f ? (int) (i2 * 31 * f5) : i2;
+        return f5 != 0.0f ? (int) (i * 31 * f5) : i;
     }
 
-    public static boolean isAtLeastVersion(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public static boolean isAtLeastVersion(int i, int i2, int i3, int i4, int i5, int i6) {
+        if (i < i4) {
+            return false;
+        }
+        if (i > i4) {
+            return true;
+        }
         if (i2 < i5) {
             return false;
         }
-        if (i2 > i5) {
-            return true;
-        }
-        if (i3 < i6) {
-            return false;
-        }
-        return i3 > i6 || i4 >= i7;
+        return i2 > i5 || i3 >= i6;
     }
 
     public static boolean isNetworkException(Throwable th) {
@@ -170,11 +169,11 @@ public final class Utils {
         return createBitmap;
     }
 
-    public static Bitmap resizeBitmapIfNeeded(Bitmap bitmap, int i2, int i3) {
-        if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
+    public static Bitmap resizeBitmapIfNeeded(Bitmap bitmap, int i, int i2) {
+        if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
             return bitmap;
         }
-        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i2, i3, true);
+        Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, i, i2, true);
         bitmap.recycle();
         return createScaledBitmap;
     }
@@ -183,10 +182,10 @@ public final class Utils {
         saveLayerCompat(canvas, rectF, paint, 31);
     }
 
-    public static void saveLayerCompat(Canvas canvas, RectF rectF, Paint paint, int i2) {
+    public static void saveLayerCompat(Canvas canvas, RectF rectF, Paint paint, int i) {
         L.beginSection("Utils#saveLayer");
         if (Build.VERSION.SDK_INT < 23) {
-            canvas.saveLayer(rectF, paint, i2);
+            canvas.saveLayer(rectF, paint, i);
         } else {
             canvas.saveLayer(rectF, paint);
         }
@@ -218,13 +217,13 @@ public final class Utils {
             if (max < 0.0f) {
                 max = MiscUtils.floorMod(max, length);
             }
-            int i2 = (min > max ? 1 : (min == max ? 0 : -1));
-            if (i2 == 0) {
+            int i = (min > max ? 1 : (min == max ? 0 : -1));
+            if (i == 0) {
                 path.reset();
                 L.endSection("applyTrimPathIfNeeded");
                 return;
             }
-            if (i2 >= 0) {
+            if (i >= 0) {
                 min -= length;
             }
             path2.reset();

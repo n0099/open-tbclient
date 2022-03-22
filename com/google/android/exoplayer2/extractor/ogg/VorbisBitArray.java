@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VorbisBitArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class VorbisBitArray {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,11 +36,11 @@ public final class VorbisBitArray {
     }
 
     private void assertValidOffset() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            int i3 = this.byteOffset;
-            Assertions.checkState(i3 >= 0 && (i3 < (i2 = this.byteLimit) || (i3 == i2 && this.bitOffset == 0)));
+            int i2 = this.byteOffset;
+            Assertions.checkState(i2 >= 0 && (i2 < (i = this.byteLimit) || (i2 == i && this.bitOffset == 0)));
         }
     }
 
@@ -67,22 +67,22 @@ public final class VorbisBitArray {
         return invokeV.booleanValue;
     }
 
-    public int readBits(int i2) {
+    public int readBits(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int i3 = this.byteOffset;
-            int min = Math.min(i2, 8 - this.bitOffset);
-            int i4 = i3 + 1;
-            int i5 = ((this.data[i3] & 255) >> this.bitOffset) & (255 >> (8 - min));
-            while (min < i2) {
-                i5 |= (this.data[i4] & 255) << min;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int i2 = this.byteOffset;
+            int min = Math.min(i, 8 - this.bitOffset);
+            int i3 = i2 + 1;
+            int i4 = ((this.data[i2] & 255) >> this.bitOffset) & (255 >> (8 - min));
+            while (min < i) {
+                i4 |= (this.data[i3] & 255) << min;
                 min += 8;
-                i4++;
+                i3++;
             }
-            int i6 = i5 & ((-1) >>> (32 - i2));
-            skipBits(i2);
-            return i6;
+            int i5 = i4 & ((-1) >>> (32 - i));
+            skipBits(i);
+            return i5;
         }
         return invokeI.intValue;
     }
@@ -95,27 +95,27 @@ public final class VorbisBitArray {
         }
     }
 
-    public void setPosition(int i2) {
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            int i3 = i2 / 8;
-            this.byteOffset = i3;
-            this.bitOffset = i2 - (i3 * 8);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            int i2 = i / 8;
+            this.byteOffset = i2;
+            this.bitOffset = i - (i2 * 8);
             assertValidOffset();
         }
     }
 
-    public void skipBits(int i2) {
+    public void skipBits(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            int i3 = i2 / 8;
-            int i4 = this.byteOffset + i3;
-            this.byteOffset = i4;
-            int i5 = this.bitOffset + (i2 - (i3 * 8));
-            this.bitOffset = i5;
-            if (i5 > 7) {
-                this.byteOffset = i4 + 1;
-                this.bitOffset = i5 - 8;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            int i2 = i / 8;
+            int i3 = this.byteOffset + i2;
+            this.byteOffset = i3;
+            int i4 = this.bitOffset + (i - (i2 * 8));
+            this.bitOffset = i4;
+            if (i4 > 7) {
+                this.byteOffset = i3 + 1;
+                this.bitOffset = i4 - 8;
             }
             assertValidOffset();
         }

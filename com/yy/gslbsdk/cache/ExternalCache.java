@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ExternalCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
@@ -49,7 +49,7 @@ public class ExternalCache {
     public int mScene;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -84,16 +84,16 @@ public class ExternalCache {
             $VALUES = new NetType[]{WIFI, MOBILE_CTL, MOBILE_CNC, MOBILE_CMC, netType};
         }
 
-        public NetType(String str, int i2, String str2, int i3) {
+        public NetType(String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -105,7 +105,7 @@ public class ExternalCache {
             this.name = "gslb";
             this.value = 0;
             this.name = str2;
-            this.value = i3;
+            this.value = i2;
         }
 
         public static NetType valueOf(String str) {
@@ -153,9 +153,9 @@ public class ExternalCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -290,14 +290,14 @@ public class ExternalCache {
         return invokeV.booleanValue;
     }
 
-    private boolean matchScene(int i2) {
+    private boolean matchScene(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
             if (this.mFirstStart) {
-                i2 |= 1;
+                i |= 1;
             }
-            return (i2 & this.mScene) > 0;
+            return (i & this.mScene) > 0;
         }
         return invokeI.booleanValue;
     }
@@ -320,8 +320,8 @@ public class ExternalCache {
                             String next2 = keys2.next();
                             if (!TextUtils.isEmpty(next2) && (optJSONArray = optJSONObject.optJSONArray(next2)) != null) {
                                 ArrayList arrayList = new ArrayList(optJSONArray.length());
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    arrayList.add(optJSONArray.getString(i2));
+                                for (int i = 0; i < optJSONArray.length(); i++) {
+                                    arrayList.add(optJSONArray.getString(i));
                                 }
                                 Map map = (Map) hashMap.get(next);
                                 if (map == null) {
@@ -395,20 +395,20 @@ public class ExternalCache {
         }
     }
 
-    private NetType transNum2NetType(int i2) {
+    private NetType transNum2NetType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) {
-            if (NetType.MOBILE_CTL.getValue() == i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) {
+            if (NetType.MOBILE_CTL.getValue() == i) {
                 return NetType.MOBILE_CTL;
             }
-            if (NetType.MOBILE_CNC.getValue() == i2) {
+            if (NetType.MOBILE_CNC.getValue() == i) {
                 return NetType.MOBILE_CNC;
             }
-            if (NetType.MOBILE_CMC.getValue() == i2) {
+            if (NetType.MOBILE_CMC.getValue() == i) {
                 return NetType.MOBILE_CMC;
             }
-            if (NetType.WIFI.getValue() == i2) {
+            if (NetType.WIFI.getValue() == i) {
                 return NetType.WIFI;
             }
             return NetType.GSLB_INNER;
@@ -416,11 +416,11 @@ public class ExternalCache {
         return (NetType) invokeI.objValue;
     }
 
-    public void getResult(String str, int i2, DnsResultInfo dnsResultInfo) {
+    public void getResult(String str, int i, DnsResultInfo dnsResultInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, dnsResultInfo) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, dnsResultInfo) == null) {
             try {
-                Map<String, List<String>> result = getResult(str, i2);
+                Map<String, List<String>> result = getResult(str, i);
                 if (result == null) {
                     return;
                 }
@@ -472,10 +472,10 @@ public class ExternalCache {
         }
     }
 
-    public void setScene(int i2) {
+    public void setScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mScene = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mScene = i;
         }
     }
 
@@ -491,12 +491,12 @@ public class ExternalCache {
         return (Map) invokeLZ.objValue;
     }
 
-    public Map<String, List<String>> getResult(String str, int i2) {
+    public Map<String, List<String>> getResult(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             if (this.mEnable) {
-                if (!(this.mDataExternal == null && this.mDataAsset == null) && matchScene(i2)) {
+                if (!(this.mDataExternal == null && this.mDataAsset == null) && matchScene(i)) {
                     LinkedList linkedList = new LinkedList();
                     Map<String, Map<String, List<String>>> map = this.mDataExternal;
                     if (map != null && map.containsKey(str) && !isWifi()) {
@@ -511,8 +511,8 @@ public class ExternalCache {
                     }
                     LinkedList linkedList2 = new LinkedList();
                     LinkedList linkedList3 = new LinkedList();
-                    for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                        String str2 = (String) linkedList.get(i3);
+                    for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                        String str2 = (String) linkedList.get(i2);
                         int tellIpVer = IpVersionController.tellIpVer(str2);
                         if (tellIpVer == 4) {
                             linkedList2.add(str2);

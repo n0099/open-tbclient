@@ -47,9 +47,9 @@ public class CacheManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -134,10 +134,10 @@ public class CacheManager {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.outStream : (OutputStream) invokeV.objValue;
         }
 
-        public void setContentLength(long j2) {
+        public void setContentLength(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                this.contentLength = j2;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                this.contentLength = j;
             }
         }
 
@@ -176,9 +176,9 @@ public class CacheManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -225,9 +225,9 @@ public class CacheManager {
         return (File) invokeV.objValue;
     }
 
-    public static void saveCacheFile(String str, long j2, CacheResult cacheResult) {
+    public static void saveCacheFile(String str, long j, CacheResult cacheResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j2), cacheResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j), cacheResult}) == null) {
             try {
                 cacheResult.outStream.close();
             } catch (IOException unused) {

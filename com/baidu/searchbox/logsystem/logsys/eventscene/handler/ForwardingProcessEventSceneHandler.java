@@ -33,9 +33,9 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -74,8 +74,8 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, file, eventObject)) == null) {
-            if (context == null) {
-                boolean z = LLog.sDebug;
+            if (context == null && LLog.sDebug) {
+                Log.d("ForwardingCrash", "Context is null in ForwardingEventSceneHandler.getCustomizedSnapshots.");
             }
             HashSet hashSet = null;
             for (ProcessEventSceneHandler processEventSceneHandler : this.mEventSceneHandlers) {
@@ -90,7 +90,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.getStackTraceString(e2);
+                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
                         }
                     }
                 }
@@ -118,7 +118,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.getStackTraceString(e2);
+                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
                         }
                     }
                 }
@@ -144,7 +144,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                             }
                         } catch (Exception e2) {
                             if (LLog.sDebug) {
-                                Log.getStackTraceString(e2);
+                                Log.d("ForwardingCrash", Log.getStackTraceString(e2));
                             }
                         }
                     }
@@ -161,8 +161,8 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, processEventSceneHandler)) == null) {
             if (processEventSceneHandler != null) {
                 this.mEventSceneHandlers.add(processEventSceneHandler);
-            } else {
-                boolean z = LLog.sDebug;
+            } else if (LLog.sDebug) {
+                Log.d("ForwardingCrash", "callback instance should not be null in addEventHandleCallback()");
             }
             return this;
         }
@@ -176,9 +176,9 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
             newInitContext.initArgs = r2;
             Object[] objArr = {processEventSceneHandlerArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -200,9 +200,9 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

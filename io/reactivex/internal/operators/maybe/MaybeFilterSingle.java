@@ -28,7 +28,7 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60696d;
+        public Disposable f45306d;
         public final Predicate<? super T> predicate;
 
         public FilterMaybeObserver(MaybeObserver<? super T> maybeObserver, Predicate<? super T> predicate) {
@@ -38,9 +38,9 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, predicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -54,8 +54,8 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Disposable disposable = this.f60696d;
-                this.f60696d = DisposableHelper.DISPOSED;
+                Disposable disposable = this.f45306d;
+                this.f45306d = DisposableHelper.DISPOSED;
                 disposable.dispose();
             }
         }
@@ -64,7 +64,7 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60696d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45306d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -78,8 +78,8 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f60696d, disposable)) {
-                this.f60696d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f45306d, disposable)) {
+                this.f45306d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -109,9 +109,9 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource, predicate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

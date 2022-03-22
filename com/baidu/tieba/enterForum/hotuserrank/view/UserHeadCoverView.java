@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.r0.u0.i.c.b;
+import c.a.p0.w0.j.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,15 +22,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UserHeadCoverView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f41268e;
+    /* renamed from: b  reason: collision with root package name */
+    public View f31894b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public View f41269f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f41270g;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f31895c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserHeadCoverView(@NonNull Context context) {
@@ -41,9 +39,9 @@ public class UserHeadCoverView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,21 +54,21 @@ public class UserHeadCoverView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f41268e = new ImageView(context);
+            this.a = new ImageView(context);
             int f2 = n.f(context, R.dimen.tbds78);
-            addView(this.f41268e, new FrameLayout.LayoutParams(f2, f2));
-            this.f41269f = new View(context);
+            addView(this.a, new FrameLayout.LayoutParams(f2, f2));
+            this.f31894b = new View(context);
             int f3 = n.f(context, R.dimen.tbds158);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f3, f3);
             int f4 = n.f(context, R.dimen.tbds26);
             layoutParams.leftMargin = f4;
             layoutParams.topMargin = f4;
-            addView(this.f41269f, layoutParams);
-            this.f41270g = new ImageView(context);
+            addView(this.f31894b, layoutParams);
+            this.f31895c = new ImageView(context);
             int f5 = n.f(context, R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f5, f5);
             layoutParams2.gravity = 85;
-            addView(this.f41270g, layoutParams2);
+            addView(this.f31895c, layoutParams2);
         }
     }
 
@@ -82,42 +80,42 @@ public class UserHeadCoverView extends FrameLayout {
         String str = bVar.a;
         if (str != null) {
             if (!str.equals("1") && !bVar.a.equals("2") && !bVar.a.equals("3")) {
-                this.f41268e.setVisibility(8);
-                this.f41269f.setVisibility(8);
+                this.a.setVisibility(8);
+                this.f31894b.setVisibility(8);
             } else {
-                this.f41268e.setVisibility(0);
-                this.f41269f.setVisibility(0);
+                this.a.setVisibility(0);
+                this.f31894b.setVisibility(0);
                 if (bVar.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f41268e, R.drawable.svg_icon_mask_first30, null);
-                    this.f41269f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810e1, null);
+                    this.f31894b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810bb));
                 } else if (bVar.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f41268e, R.drawable.svg_icon_mask_second30, null);
-                    this.f41269f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810e2, null);
+                    this.f31894b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810ba));
                 } else if (bVar.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f41268e, R.drawable.svg_icon_mask_third30, null);
-                    this.f41269f.setBackground(SkinManager.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810e3, null);
+                    this.f31894b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810b9));
                 }
             }
         } else {
-            this.f41268e.setVisibility(8);
-            this.f41269f.setVisibility(8);
+            this.a.setVisibility(8);
+            this.f31894b.setVisibility(8);
         }
-        if (bVar.f22644g) {
+        if (bVar.f19451g) {
             int f2 = n.f(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f2, f2);
             layoutParams.gravity = 85;
-            this.f41270g.setLayoutParams(layoutParams);
-            this.f41270g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f41270g, R.drawable.ic_icon_mask_v14_n_svg, null);
-        } else if (bVar.f22645h) {
+            this.f31895c.setLayoutParams(layoutParams);
+            this.f31895c.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f31895c, R.drawable.obfuscated_res_0x7f0805f3, null);
+        } else if (bVar.f19452h) {
             int f3 = n.f(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f3, f3);
             layoutParams2.gravity = 85;
-            this.f41270g.setLayoutParams(layoutParams2);
-            this.f41270g.setVisibility(0);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f41270g, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            this.f31895c.setLayoutParams(layoutParams2);
+            this.f31895c.setVisibility(0);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f31895c, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            this.f41270g.setVisibility(8);
+            this.f31895c.setVisibility(8);
         }
     }
 
@@ -130,9 +128,9 @@ public class UserHeadCoverView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -144,17 +142,17 @@ public class UserHeadCoverView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public UserHeadCoverView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -22,24 +22,22 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f34028b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34029c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f43848e;
+    public boolean f34031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f43849f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f43850g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f43851h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f43852i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ArrayList<c> f43853j;
+    public ArrayList<c> f34032f;
 
     /* loaded from: classes5.dex */
     public class a implements Animation.AnimationListener {
@@ -54,9 +52,9 @@ public class ShutDownValidateTipView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shutDownValidateTipView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,9 +98,9 @@ public class ShutDownValidateTipView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shutDownValidateTipView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -136,21 +134,21 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void onNetworkChange(boolean z);
+        void f(boolean z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -158,26 +156,35 @@ public class ShutDownValidateTipView extends FrameLayout {
                 return;
             }
         }
-        this.f43853j = new ArrayList<>();
-        init(context);
+        this.f34032f = new ArrayList<>();
+        a(context);
     }
 
-    public void addNetworkChangeListener(c cVar) {
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null || this.f43853j.contains(cVar)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null));
+            this.f34028b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091599);
+            this.f34029c = (TextView) findViewById(R.id.obfuscated_res_0x7f091597);
+            this.f34030d = (TextView) findViewById(R.id.obfuscated_res_0x7f091598);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09159b);
         }
-        this.f43853j.add(cVar);
     }
 
-    public void init(Context context) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-            this.f43849f = (ImageView) findViewById(R.id.no_network_icon);
-            this.f43850g = (TextView) findViewById(R.id.no_network_guide1);
-            this.f43851h = (TextView) findViewById(R.id.no_network_guide2);
-            this.f43848e = (TextView) findViewById(R.id.no_network_showmore);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setImageResource(this.f34028b, R.drawable.icon_error);
+            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f09159a), R.drawable.bg_no_network);
+            if (i != 1 && i != 4) {
+                this.f34029c.setTextColor(-14277082);
+                this.f34030d.setTextColor(-5065030);
+                this.a.setTextColor(-14277082);
+                return;
+            }
+            this.f34029c.setTextColor(-10523526);
+            this.f34030d.setTextColor(-8682095);
+            this.a.setTextColor(-10523526);
         }
     }
 
@@ -189,43 +196,19 @@ public class ShutDownValidateTipView extends FrameLayout {
         }
     }
 
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setImageResource(this.f43849f, R.drawable.icon_error);
-            SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
-            if (i2 != 1 && i2 != 4) {
-                this.f43850g.setTextColor(-14277082);
-                this.f43851h.setTextColor(-5065030);
-                this.f43848e.setTextColor(-14277082);
-                return;
-            }
-            this.f43850g.setTextColor(-10523526);
-            this.f43851h.setTextColor(-8682095);
-            this.f43848e.setTextColor(-10523526);
-        }
-    }
-
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            this.f43853j.clear();
-        }
-    }
-
-    public void removeNetworkChangeListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) && cVar != null && this.f43853j.contains(cVar)) {
-            this.f43853j.remove(cVar);
+            this.f34032f.clear();
         }
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) || (textView = this.f43848e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (textView = this.a) == null) {
             return;
         }
         textView.setOnClickListener(onClickListener);
@@ -233,10 +216,10 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void setVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || z == this.f43852i) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || z == this.f34031e) {
             return;
         }
-        this.f43852i = z;
+        this.f34031e = z;
         if (z) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setFillAfter(true);
@@ -244,8 +227,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation.setAnimationListener(new a(this));
             setVisibility(0);
             startAnimation(alphaAnimation);
-            for (int i2 = 0; i2 < this.f43853j.size(); i2++) {
-                this.f43853j.get(i2).onNetworkChange(false);
+            for (int i = 0; i < this.f34032f.size(); i++) {
+                this.f34032f.get(i).f(false);
             }
         } else if (getVisibility() != 8) {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -253,8 +236,8 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation2.setDuration(500L);
             alphaAnimation2.setAnimationListener(new b(this));
             startAnimation(alphaAnimation2);
-            for (int i3 = 0; i3 < this.f43853j.size(); i3++) {
-                this.f43853j.get(i3).onNetworkChange(true);
+            for (int i2 = 0; i2 < this.f34032f.size(); i2++) {
+                this.f34032f.get(i2).f(true);
             }
         }
     }
@@ -268,9 +251,9 @@ public class ShutDownValidateTipView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -278,8 +261,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 return;
             }
         }
-        this.f43853j = new ArrayList<>();
-        init(context);
+        this.f34032f = new ArrayList<>();
+        a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -291,16 +274,16 @@ public class ShutDownValidateTipView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43853j = new ArrayList<>();
-        init(context);
+        this.f34032f = new ArrayList<>();
+        a(context);
     }
 }

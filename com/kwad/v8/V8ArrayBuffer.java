@@ -9,32 +9,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8ArrayBuffer extends V8Value {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteBuffer byteBuffer;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public V8ArrayBuffer(V8 v8, int i2) {
+    public V8ArrayBuffer(V8 v8, int i) {
         super(v8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v8, Integer.valueOf(i2)};
+            Object[] objArr = {v8, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        initialize(v8.getV8RuntimePtr(), Integer.valueOf(i2));
-        ByteBuffer createV8ArrayBufferBackingStore = v8.createV8ArrayBufferBackingStore(v8.getV8RuntimePtr(), this.objectHandle, i2);
+        initialize(v8.getV8RuntimePtr(), Integer.valueOf(i));
+        ByteBuffer createV8ArrayBufferBackingStore = v8.createV8ArrayBufferBackingStore(v8.getV8RuntimePtr(), this.objectHandle, i);
         this.byteBuffer = createV8ArrayBufferBackingStore;
         createV8ArrayBufferBackingStore.order(ByteOrder.nativeOrder());
     }
@@ -48,9 +48,9 @@ public class V8ArrayBuffer extends V8Value {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8, byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -175,13 +175,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.byteValue;
     }
 
-    public byte get(int i2) {
+    public byte get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.get(i2);
+            return this.byteBuffer.get(i);
         }
         return invokeI.byteValue;
     }
@@ -198,13 +198,13 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeL.objValue;
     }
 
-    public V8ArrayBuffer get(byte[] bArr, int i2, int i3) {
+    public V8ArrayBuffer get(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, bArr, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.get(bArr, i2, i3);
+            this.byteBuffer.get(bArr, i, i2);
             return this;
         }
         return (V8ArrayBuffer) invokeLII.objValue;
@@ -221,13 +221,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.charValue;
     }
 
-    public char getChar(int i2) {
+    public char getChar(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getChar(i2);
+            return this.byteBuffer.getChar(i);
         }
         return invokeI.charValue;
     }
@@ -243,13 +243,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.doubleValue;
     }
 
-    public double getDouble(int i2) {
+    public double getDouble(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getDouble(i2);
+            return this.byteBuffer.getDouble(i);
         }
         return invokeI.doubleValue;
     }
@@ -265,13 +265,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.floatValue;
     }
 
-    public float getFloat(int i2) {
+    public float getFloat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getFloat(i2);
+            return this.byteBuffer.getFloat(i);
         }
         return invokeI.floatValue;
     }
@@ -287,13 +287,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.intValue;
     }
 
-    public int getInt(int i2) {
+    public int getInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getInt(i2);
+            return this.byteBuffer.getInt(i);
         }
         return invokeI.intValue;
     }
@@ -309,13 +309,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.longValue;
     }
 
-    public long getLong(int i2) {
+    public long getLong(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getLong(i2);
+            return this.byteBuffer.getLong(i);
         }
         return invokeI.longValue;
     }
@@ -331,13 +331,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.shortValue;
     }
 
-    public short getShort(int i2) {
+    public short getShort(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            return this.byteBuffer.getShort(i2);
+            return this.byteBuffer.getShort(i);
         }
         return invokeI.shortValue;
     }
@@ -365,10 +365,10 @@ public class V8ArrayBuffer extends V8Value {
     }
 
     @Override // com.kwad.v8.V8Value
-    public void initialize(long j2, Object obj) {
+    public void initialize(long j, Object obj) {
         long initNewV8ArrayBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048603, this, j2, obj) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048603, this, j, obj) == null) {
             this.v8.checkThread();
             if (obj instanceof ByteBuffer) {
                 ByteBuffer byteBuffer = (ByteBuffer) obj;
@@ -430,13 +430,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.intValue;
     }
 
-    public final V8ArrayBuffer limit(int i2) {
+    public final V8ArrayBuffer limit(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.limit(i2);
+            this.byteBuffer.limit(i);
             return this;
         }
         return (V8ArrayBuffer) invokeI.objValue;
@@ -488,13 +488,13 @@ public class V8ArrayBuffer extends V8Value {
         return invokeV.intValue;
     }
 
-    public final V8ArrayBuffer position(int i2) {
+    public final V8ArrayBuffer position(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.position(i2);
+            this.byteBuffer.position(i);
             return this;
         }
         return (V8ArrayBuffer) invokeI.objValue;
@@ -512,13 +512,13 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeB.objValue;
     }
 
-    public V8ArrayBuffer put(int i2, byte b2) {
+    public V8ArrayBuffer put(int i, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i2), Byte.valueOf(b2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b2)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.put(i2, b2);
+            this.byteBuffer.put(i, b2);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;
@@ -548,13 +548,13 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeL.objValue;
     }
 
-    public V8ArrayBuffer put(byte[] bArr, int i2, int i3) {
+    public V8ArrayBuffer put(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048618, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048618, this, bArr, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.put(bArr, i2, i3);
+            this.byteBuffer.put(bArr, i, i2);
             return this;
         }
         return (V8ArrayBuffer) invokeLII.objValue;
@@ -572,13 +572,13 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeCommon.objValue;
     }
 
-    public V8ArrayBuffer putChar(int i2, char c2) {
+    public V8ArrayBuffer putChar(int i, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putChar(i2, c2);
+            this.byteBuffer.putChar(i, c2);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;
@@ -596,13 +596,13 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeCommon.objValue;
     }
 
-    public V8ArrayBuffer putDouble(int i2, double d2) {
+    public V8ArrayBuffer putDouble(int i, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putDouble(i2, d2);
+            this.byteBuffer.putDouble(i, d2);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;
@@ -620,73 +620,73 @@ public class V8ArrayBuffer extends V8Value {
         return (V8ArrayBuffer) invokeF.objValue;
     }
 
-    public V8ArrayBuffer putFloat(int i2, float f2) {
+    public V8ArrayBuffer putFloat(int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putFloat(i2, f2);
+            this.byteBuffer.putFloat(i, f2);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;
     }
 
-    public V8ArrayBuffer putInt(int i2) {
+    public V8ArrayBuffer putInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putInt(i2);
+            this.byteBuffer.putInt(i);
             return this;
         }
         return (V8ArrayBuffer) invokeI.objValue;
     }
 
-    public V8ArrayBuffer putInt(int i2, int i3) {
+    public V8ArrayBuffer putInt(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048626, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048626, this, i, i2)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.asIntBuffer().put(i2, i3);
+            this.byteBuffer.asIntBuffer().put(i, i2);
             return this;
         }
         return (V8ArrayBuffer) invokeII.objValue;
     }
 
-    public V8ArrayBuffer putLong(int i2, long j2) {
+    public V8ArrayBuffer putLong(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048627, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putLong(i2, j2);
+            this.byteBuffer.putLong(i, j);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;
     }
 
-    public V8ArrayBuffer putLong(long j2) {
+    public V8ArrayBuffer putLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putLong(j2);
+            this.byteBuffer.putLong(j);
             return this;
         }
         return (V8ArrayBuffer) invokeJ.objValue;
     }
 
-    public V8ArrayBuffer putShort(int i2, short s) {
+    public V8ArrayBuffer putShort(int i, short s) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Integer.valueOf(i), Short.valueOf(s)})) == null) {
             this.v8.checkThread();
             checkReleased();
-            this.byteBuffer.putShort(i2, s);
+            this.byteBuffer.putShort(i, s);
             return this;
         }
         return (V8ArrayBuffer) invokeCommon.objValue;

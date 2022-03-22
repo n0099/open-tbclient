@@ -2,7 +2,6 @@ package com.baidu.searchbox.network.outback.core;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.internal.Util;
@@ -29,6 +28,7 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import kotlin.text.Typography;
 /* loaded from: classes4.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
@@ -80,9 +80,9 @@ public final class HttpUrl {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -101,28 +101,28 @@ public final class HttpUrl {
         this.url = builder.toString();
     }
 
-    public static String canonicalize(String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
+    public static String canonicalize(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset})) == null) {
-            int i4 = i2;
-            while (i4 < i3) {
-                int codePointAt = str.codePointAt(i4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset})) == null) {
+            int i3 = i;
+            while (i3 < i2) {
+                int codePointAt = str.codePointAt(i3);
                 if (codePointAt >= 32 && codePointAt != 127 && (codePointAt < 128 || !z4)) {
-                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || percentEncoded(str, i4, i3)))) && (codePointAt != 43 || !z3))) {
-                        i4 += Character.charCount(codePointAt);
+                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || percentEncoded(str, i3, i2)))) && (codePointAt != 43 || !z3))) {
+                        i3 += Character.charCount(codePointAt);
                     }
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    Util.writeUtf8(byteArrayOutputStream, str, i2, i4);
-                    canonicalize(byteArrayOutputStream, str, i4, i3, str2, z, z2, z3, z4, charset);
+                    Util.writeUtf8(byteArrayOutputStream, str, i, i3);
+                    canonicalize(byteArrayOutputStream, str, i3, i2, str2, z, z2, z3, z4, charset);
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
                 return new String(byteArrayOutputStream.toByteArray(), Util.UTF_8);
             }
-            return str.substring(i2, i3);
+            return str.substring(i, i2);
         }
         return (String) invokeCommon.objValue;
     }
@@ -149,15 +149,15 @@ public final class HttpUrl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, sb, list) == null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2 += 2) {
-                String str = list.get(i2);
-                String str2 = list.get(i2 + 1);
-                if (i2 > 0) {
+            for (int i = 0; i < size; i += 2) {
+                String str = list.get(i);
+                String str2 = list.get(i + 1);
+                if (i > 0) {
                     sb.append('&');
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f29503h);
+                    sb.append('=');
                     sb.append(str2);
                 }
             }
@@ -182,9 +182,9 @@ public final class HttpUrl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65548, null, sb, list) == null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 sb.append(WebvttCueParser.CHAR_SLASH);
-                sb.append(list.get(i2));
+                sb.append(list.get(i));
             }
         }
     }
@@ -195,12 +195,12 @@ public final class HttpUrl {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, str, z)) == null) ? percentDecode(str, 0, str.length(), z) : (String) invokeLZ.objValue;
     }
 
-    public static boolean percentEncoded(String str, int i2, int i3) {
+    public static boolean percentEncoded(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, str, i2, i3)) == null) {
-            int i4 = i2 + 2;
-            return i4 < i3 && str.charAt(i2) == '%' && Util.decodeHexDigit(str.charAt(i2 + 1)) != -1 && Util.decodeHexDigit(str.charAt(i4)) != -1;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, str, i, i2)) == null) {
+            int i3 = i + 2;
+            return i3 < i2 && str.charAt(i) == '%' && Util.decodeHexDigit(str.charAt(i + 1)) != -1 && Util.decodeHexDigit(str.charAt(i3)) != -1;
         }
         return invokeLII.booleanValue;
     }
@@ -210,21 +210,21 @@ public final class HttpUrl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            while (i2 <= str.length()) {
-                int indexOf = str.indexOf(38, i2);
+            int i = 0;
+            while (i <= str.length()) {
+                int indexOf = str.indexOf(38, i);
                 if (indexOf == -1) {
                     indexOf = str.length();
                 }
-                int indexOf2 = str.indexOf(61, i2);
+                int indexOf2 = str.indexOf(61, i);
                 if (indexOf2 != -1 && indexOf2 <= indexOf) {
-                    arrayList.add(str.substring(i2, indexOf2));
+                    arrayList.add(str.substring(i, indexOf2));
                     arrayList.add(str.substring(indexOf2 + 1, indexOf));
                 } else {
-                    arrayList.add(str.substring(i2, indexOf));
+                    arrayList.add(str.substring(i, indexOf));
                     arrayList.add(null);
                 }
-                i2 = indexOf + 1;
+                i = indexOf + 1;
             }
             return arrayList;
         }
@@ -276,9 +276,9 @@ public final class HttpUrl {
             int delimiterOffset = Util.delimiterOffset(str, indexOf, str.length(), "?#");
             ArrayList arrayList = new ArrayList();
             while (indexOf < delimiterOffset) {
-                int i2 = indexOf + 1;
-                int delimiterOffset2 = Util.delimiterOffset(this.url, i2, delimiterOffset, (char) WebvttCueParser.CHAR_SLASH);
-                arrayList.add(this.url.substring(i2, delimiterOffset2));
+                int i = indexOf + 1;
+                int delimiterOffset2 = Util.delimiterOffset(this.url, i, delimiterOffset, (char) WebvttCueParser.CHAR_SLASH);
+                arrayList.add(this.url.substring(i, delimiterOffset2));
                 indexOf = delimiterOffset2;
             }
             return arrayList;
@@ -414,9 +414,9 @@ public final class HttpUrl {
                 return null;
             }
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2 += 2) {
-                if (str.equals(this.queryNamesAndValues.get(i2))) {
-                    return this.queryNamesAndValues.get(i2 + 1);
+            for (int i = 0; i < size; i += 2) {
+                if (str.equals(this.queryNamesAndValues.get(i))) {
+                    return this.queryNamesAndValues.get(i + 1);
                 }
             }
             return null;
@@ -424,13 +424,13 @@ public final class HttpUrl {
         return (String) invokeL.objValue;
     }
 
-    public String queryParameterName(int i2) {
+    public String queryParameterName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
             List<String> list = this.queryNamesAndValues;
             if (list != null) {
-                return list.get(i2 * 2);
+                return list.get(i * 2);
             }
             throw new IndexOutOfBoundsException("no query exists");
         }
@@ -446,21 +446,21 @@ public final class HttpUrl {
             }
             LinkedHashSet linkedHashSet = new LinkedHashSet();
             int size = this.queryNamesAndValues.size();
-            for (int i2 = 0; i2 < size; i2 += 2) {
-                linkedHashSet.add(this.queryNamesAndValues.get(i2));
+            for (int i = 0; i < size; i += 2) {
+                linkedHashSet.add(this.queryNamesAndValues.get(i));
             }
             return Collections.unmodifiableSet(linkedHashSet);
         }
         return (Set) invokeV.objValue;
     }
 
-    public String queryParameterValue(int i2) {
+    public String queryParameterValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
             List<String> list = this.queryNamesAndValues;
             if (list != null) {
-                return list.get((i2 * 2) + 1);
+                return list.get((i * 2) + 1);
             }
             throw new IndexOutOfBoundsException("no query exists");
         }
@@ -476,9 +476,9 @@ public final class HttpUrl {
             }
             ArrayList arrayList = new ArrayList();
             int size = this.queryNamesAndValues.size();
-            for (int i2 = 0; i2 < size; i2 += 2) {
-                if (str.equals(this.queryNamesAndValues.get(i2))) {
-                    arrayList.add(this.queryNamesAndValues.get(i2 + 1));
+            for (int i = 0; i < size; i += 2) {
+                if (str.equals(this.queryNamesAndValues.get(i))) {
+                    arrayList.add(this.queryNamesAndValues.get(i + 1));
                 }
             }
             return Collections.unmodifiableList(arrayList);
@@ -591,9 +591,9 @@ public final class HttpUrl {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -607,10 +607,10 @@ public final class HttpUrl {
             arrayList.add("");
         }
 
-        public static String canonicalizeHost(String str, int i2, int i3) {
+        public static String canonicalizeHost(String str, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i2, i3)) == null) ? Util.canonicalizeHost(HttpUrl.percentDecode(str, i2, i3, false)) : (String) invokeLII.objValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) ? Util.canonicalizeHost(HttpUrl.percentDecode(str, i, i2, false)) : (String) invokeLII.objValue;
         }
 
         private boolean isDot(String str) {
@@ -625,13 +625,13 @@ public final class HttpUrl {
             return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) ? str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e") : invokeL.booleanValue;
         }
 
-        public static int parsePort(String str, int i2, int i3) {
+        public static int parsePort(String str, int i, int i2) {
             InterceptResult invokeLII;
             int parseInt;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
                 try {
-                    parseInt = Integer.parseInt(HttpUrl.canonicalize(str, i2, i3, "", false, false, false, true, null));
+                    parseInt = Integer.parseInt(HttpUrl.canonicalize(str, i, i2, "", false, false, false, true, null));
                 } catch (NumberFormatException unused) {
                 }
                 if (parseInt <= 0 || parseInt > 65535) {
@@ -655,33 +655,33 @@ public final class HttpUrl {
             }
         }
 
-        public static int portColonOffset(String str, int i2, int i3) {
+        public static int portColonOffset(String str, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i2, i3)) == null) {
-                while (i2 < i3) {
-                    char charAt = str.charAt(i2);
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
+                while (i < i2) {
+                    char charAt = str.charAt(i);
                     if (charAt == ':') {
-                        return i2;
+                        return i;
                     }
                     if (charAt == '[') {
                         do {
-                            i2++;
-                            if (i2 < i3) {
+                            i++;
+                            if (i < i2) {
                             }
-                        } while (str.charAt(i2) != ']');
+                        } while (str.charAt(i) != ']');
                     }
-                    i2++;
+                    i++;
                 }
-                return i3;
+                return i2;
             }
             return invokeLII.intValue;
         }
 
-        private void push(String str, int i2, int i3, boolean z, boolean z2) {
+        private void push(String str, int i, int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                String canonicalize = HttpUrl.canonicalize(str, i2, i3, " \"<>^`{}|/\\?#", z2, false, false, true, null);
+            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                String canonicalize = HttpUrl.canonicalize(str, i, i2, " \"<>^`{}|/\\?#", z2, false, false, true, null);
                 if (isDot(canonicalize)) {
                     return;
                 }
@@ -792,27 +792,27 @@ public final class HttpUrl {
             throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.network.outback.core.HttpUrl.Builder.resolvePath(java.lang.String, int, int):void");
         }
 
-        public static int schemeDelimiterOffset(String str, int i2, int i3) {
+        public static int schemeDelimiterOffset(String str, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, str, i2, i3)) == null) {
-                if (i3 - i2 < 2) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, str, i, i2)) == null) {
+                if (i2 - i < 2) {
                     return -1;
                 }
-                char charAt = str.charAt(i2);
+                char charAt = str.charAt(i);
                 if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
                     while (true) {
-                        i2++;
-                        if (i2 >= i3) {
+                        i++;
+                        if (i >= i2) {
                             break;
                         }
-                        char charAt2 = str.charAt(i2);
+                        char charAt2 = str.charAt(i);
                         if (charAt2 < 'a' || charAt2 > 'z') {
                             if (charAt2 < 'A' || charAt2 > 'Z') {
                                 if (charAt2 < '0' || charAt2 > '9') {
                                     if (charAt2 != '+' && charAt2 != '-' && charAt2 != '.') {
                                         if (charAt2 == ':') {
-                                            return i2;
+                                            return i;
                                         }
                                     }
                                 }
@@ -825,20 +825,20 @@ public final class HttpUrl {
             return invokeLII.intValue;
         }
 
-        public static int slashCount(String str, int i2, int i3) {
+        public static int slashCount(String str, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65548, null, str, i2, i3)) == null) {
-                int i4 = 0;
-                while (i2 < i3) {
-                    char charAt = str.charAt(i2);
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65548, null, str, i, i2)) == null) {
+                int i3 = 0;
+                while (i < i2) {
+                    char charAt = str.charAt(i);
                     if (charAt != '\\' && charAt != '/') {
                         break;
                     }
-                    i4++;
-                    i2++;
+                    i3++;
+                    i++;
                 }
-                return i4;
+                return i3;
             }
             return invokeLII.intValue;
         }
@@ -946,8 +946,8 @@ public final class HttpUrl {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = this.port;
-                return i2 != -1 ? i2 : HttpUrl.defaultPort(this.scheme);
+                int i = this.port;
+                return i != -1 ? i : HttpUrl.defaultPort(this.scheme);
             }
             return invokeV.intValue;
         }
@@ -1045,7 +1045,7 @@ public final class HttpUrl {
             InterceptResult invokeLL;
             int schemeDelimiterOffset;
             int delimiterOffset;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, httpUrl, str)) == null) {
                 int skipLeadingAsciiWhitespace = Util.skipLeadingAsciiWhitespace(str, 0, str.length());
@@ -1079,53 +1079,53 @@ public final class HttpUrl {
                         encodedQuery(httpUrl.encodedQuery());
                     }
                 } else {
-                    int i3 = skipLeadingAsciiWhitespace + slashCount;
+                    int i2 = skipLeadingAsciiWhitespace + slashCount;
                     boolean z = false;
                     boolean z2 = false;
                     while (true) {
-                        delimiterOffset = Util.delimiterOffset(str, i3, skipTrailingAsciiWhitespace, "@/\\?#");
+                        delimiterOffset = Util.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
                         char charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
                         if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
                             break;
                         }
                         if (charAt == '@') {
                             if (!z) {
-                                int delimiterOffset2 = Util.delimiterOffset(str, i3, delimiterOffset, ':');
-                                i2 = delimiterOffset;
-                                String canonicalize = HttpUrl.canonicalize(str, i3, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, ':');
+                                i = delimiterOffset;
+                                String canonicalize = HttpUrl.canonicalize(str, i2, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                                 if (z2) {
                                     canonicalize = this.encodedUsername + "%40" + canonicalize;
                                 }
                                 this.encodedUsername = canonicalize;
-                                if (delimiterOffset2 != i2) {
-                                    this.encodedPassword = HttpUrl.canonicalize(str, delimiterOffset2 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                if (delimiterOffset2 != i) {
+                                    this.encodedPassword = HttpUrl.canonicalize(str, delimiterOffset2 + 1, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                                     z = true;
                                 }
                                 z2 = true;
                             } else {
-                                i2 = delimiterOffset;
-                                this.encodedPassword += "%40" + HttpUrl.canonicalize(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
+                                i = delimiterOffset;
+                                this.encodedPassword += "%40" + HttpUrl.canonicalize(str, i2, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true, null);
                             }
-                            i3 = i2 + 1;
+                            i2 = i + 1;
                         }
                         c2 = '?';
                         c3 = '#';
                     }
-                    int portColonOffset = portColonOffset(str, i3, delimiterOffset);
-                    int i4 = portColonOffset + 1;
-                    if (i4 < delimiterOffset) {
-                        this.host = canonicalizeHost(str, i3, portColonOffset);
-                        int parsePort = parsePort(str, i4, delimiterOffset);
+                    int portColonOffset = portColonOffset(str, i2, delimiterOffset);
+                    int i3 = portColonOffset + 1;
+                    if (i3 < delimiterOffset) {
+                        this.host = canonicalizeHost(str, i2, portColonOffset);
+                        int parsePort = parsePort(str, i3, delimiterOffset);
                         this.port = parsePort;
                         if (parsePort == -1) {
-                            throw new IllegalArgumentException("Invalid URL port: \"" + str.substring(i4, delimiterOffset) + '\"');
+                            throw new IllegalArgumentException("Invalid URL port: \"" + str.substring(i3, delimiterOffset) + Typography.quote);
                         }
                     } else {
-                        this.host = canonicalizeHost(str, i3, portColonOffset);
+                        this.host = canonicalizeHost(str, i2, portColonOffset);
                         this.port = HttpUrl.defaultPort(this.scheme);
                     }
                     if (this.host == null) {
-                        throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i3, portColonOffset) + '\"');
+                        throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i2, portColonOffset) + Typography.quote);
                     }
                     skipLeadingAsciiWhitespace = delimiterOffset;
                 }
@@ -1157,15 +1157,15 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder port(int i2) {
+        public Builder port(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                if (i2 > 0 && i2 <= 65535) {
-                    this.port = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+                if (i > 0 && i <= 65535) {
+                    this.port = i;
                     return this;
                 }
-                throw new IllegalArgumentException("unexpected port: " + i2);
+                throw new IllegalArgumentException("unexpected port: " + i);
             }
             return (Builder) invokeI.objValue;
         }
@@ -1185,16 +1185,16 @@ public final class HttpUrl {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 int size = this.encodedPathSegments.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.encodedPathSegments.set(i2, HttpUrl.canonicalize(this.encodedPathSegments.get(i2), "[]", true, true, false, true));
+                for (int i = 0; i < size; i++) {
+                    this.encodedPathSegments.set(i, HttpUrl.canonicalize(this.encodedPathSegments.get(i), "[]", true, true, false, true));
                 }
                 List<String> list = this.encodedQueryNamesAndValues;
                 if (list != null) {
                     int size2 = list.size();
-                    for (int i3 = 0; i3 < size2; i3++) {
-                        String str = this.encodedQueryNamesAndValues.get(i3);
+                    for (int i2 = 0; i2 < size2; i2++) {
+                        String str = this.encodedQueryNamesAndValues.get(i2);
                         if (str != null) {
-                            this.encodedQueryNamesAndValues.set(i3, HttpUrl.canonicalize(str, "\\^`{|}", true, true, true, true));
+                            this.encodedQueryNamesAndValues.set(i2, HttpUrl.canonicalize(str, "\\^`{|}", true, true, true, true));
                         }
                     }
                 }
@@ -1239,11 +1239,11 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder removePathSegment(int i2) {
+        public Builder removePathSegment(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.encodedPathSegments.remove(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+                this.encodedPathSegments.remove(i);
                 if (this.encodedPathSegments.isEmpty()) {
                     this.encodedPathSegments.add("");
                 }
@@ -1271,13 +1271,13 @@ public final class HttpUrl {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setEncodedPathSegment(int i2, String str) {
+        public Builder setEncodedPathSegment(int i, String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i2, str)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, str)) == null) {
                 if (str != null) {
                     String canonicalize = HttpUrl.canonicalize(str, 0, str.length(), " \"<>^`{}|/\\?#", true, false, false, true, null);
-                    this.encodedPathSegments.set(i2, canonicalize);
+                    this.encodedPathSegments.set(i, canonicalize);
                     if (isDot(canonicalize) || isDotDot(canonicalize)) {
                         throw new IllegalArgumentException("unexpected path segment: " + str);
                     }
@@ -1299,14 +1299,14 @@ public final class HttpUrl {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setPathSegment(int i2, String str) {
+        public Builder setPathSegment(int i, String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i2, str)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048602, this, i, str)) == null) {
                 if (str != null) {
                     String canonicalize = HttpUrl.canonicalize(str, 0, str.length(), " \"<>^`{}|/\\?#", false, false, false, true, null);
                     if (!isDot(canonicalize) && !isDotDot(canonicalize)) {
-                        this.encodedPathSegments.set(i2, canonicalize);
+                        this.encodedPathSegments.set(i, canonicalize);
                         return this;
                     }
                     throw new IllegalArgumentException("unexpected path segment: " + str);
@@ -1385,12 +1385,12 @@ public final class HttpUrl {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, this, str, z)) == null) {
-                int i2 = 0;
+                int i = 0;
                 do {
-                    int delimiterOffset = Util.delimiterOffset(str, i2, str.length(), "/\\");
-                    push(str, i2, delimiterOffset, delimiterOffset < str.length(), z);
-                    i2 = delimiterOffset + 1;
-                } while (i2 <= str.length());
+                    int delimiterOffset = Util.delimiterOffset(str, i, str.length(), "/\\");
+                    push(str, i, delimiterOffset, delimiterOffset < str.length(), z);
+                    i = delimiterOffset + 1;
+                } while (i <= str.length());
                 return this;
             }
             return (Builder) invokeLZ.objValue;
@@ -1410,8 +1410,8 @@ public final class HttpUrl {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65551, this, list, z)) == null) {
             int size = list.size();
             ArrayList arrayList = new ArrayList(size);
-            for (int i2 = 0; i2 < size; i2++) {
-                String str = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                String str = list.get(i);
                 arrayList.add(str != null ? percentDecode(str, z) : null);
             }
             return Collections.unmodifiableList(arrayList);
@@ -1426,17 +1426,17 @@ public final class HttpUrl {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? parse(uri.toString()) : (HttpUrl) invokeL.objValue;
     }
 
-    public static String percentDecode(String str, int i2, int i3, boolean z) {
+    public static String percentDecode(String str, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            for (int i4 = i2; i4 < i3; i4++) {
-                char charAt = str.charAt(i4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            for (int i3 = i; i3 < i2; i3++) {
+                char charAt = str.charAt(i3);
                 if (charAt == '%' || (charAt == '+' && z)) {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     try {
-                        Util.writeUtf8(byteArrayOutputStream, str, i2, i4);
-                        percentDecode(byteArrayOutputStream, str, i4, i3, z);
+                        Util.writeUtf8(byteArrayOutputStream, str, i, i3);
+                        percentDecode(byteArrayOutputStream, str, i3, i2, z);
                         return new String(byteArrayOutputStream.toByteArray(), Util.UTF_8);
                     } catch (IOException e2) {
                         e2.printStackTrace();
@@ -1445,44 +1445,44 @@ public final class HttpUrl {
                     }
                 }
             }
-            return str.substring(i2, i3);
+            return str.substring(i, i2);
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static void canonicalize(OutputStream outputStream, String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) throws IOException {
+    public static void canonicalize(OutputStream outputStream, String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4, Charset charset) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{outputStream, str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
-            int i4 = i2;
-            while (i4 < i3) {
-                int codePointAt = str.codePointAt(i4);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{outputStream, str, Integer.valueOf(i), Integer.valueOf(i2), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), charset}) == null) {
+            int i3 = i;
+            while (i3 < i2) {
+                int codePointAt = str.codePointAt(i3);
                 if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
                     if (codePointAt == 43 && z3) {
                         String str3 = z ? BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX : "%2B";
                         Util.writeUtf8(outputStream, str3, 0, str3.length());
                     } else {
                         if (codePointAt >= 32 && codePointAt != 127 && (codePointAt < 128 || !z4)) {
-                            if (str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || percentEncoded(str, i4, i3))))) {
+                            if (str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || percentEncoded(str, i3, i2))))) {
                                 Util.writeUtf8CodePoint(outputStream, codePointAt);
-                                i4 += Character.charCount(codePointAt);
+                                i3 += Character.charCount(codePointAt);
                             }
                         }
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         if (charset != null && !charset.equals(Util.UTF_8)) {
-                            byteArrayOutputStream.write(str.substring(i4, Character.charCount(codePointAt) + i4).getBytes(charset));
+                            byteArrayOutputStream.write(str.substring(i3, Character.charCount(codePointAt) + i3).getBytes(charset));
                         } else {
                             Util.writeUtf8CodePoint(byteArrayOutputStream, codePointAt);
                         }
                         for (byte b2 : byteArrayOutputStream.toByteArray()) {
-                            int i5 = b2 & 255;
+                            int i4 = b2 & 255;
                             outputStream.write(37);
-                            outputStream.write(HEX_DIGITS[(i5 >> 4) & 15]);
-                            outputStream.write(HEX_DIGITS[i5 & 15]);
+                            outputStream.write(HEX_DIGITS[(i4 >> 4) & 15]);
+                            outputStream.write(HEX_DIGITS[i4 & 15]);
                         }
-                        i4 += Character.charCount(codePointAt);
+                        i3 += Character.charCount(codePointAt);
                     }
                 }
-                i4 += Character.charCount(codePointAt);
+                i3 += Character.charCount(codePointAt);
             }
         }
     }
@@ -1501,18 +1501,18 @@ public final class HttpUrl {
         return (Builder) invokeL.objValue;
     }
 
-    public static void percentDecode(ByteArrayOutputStream byteArrayOutputStream, String str, int i2, int i3, boolean z) throws IOException {
-        int i4;
+    public static void percentDecode(ByteArrayOutputStream byteArrayOutputStream, String str, int i, int i2, boolean z) throws IOException {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{byteArrayOutputStream, str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            while (i2 < i3) {
-                int codePointAt = str.codePointAt(i2);
-                if (codePointAt == 37 && (i4 = i2 + 2) < i3) {
-                    int decodeHexDigit = Util.decodeHexDigit(str.charAt(i2 + 1));
-                    int decodeHexDigit2 = Util.decodeHexDigit(str.charAt(i4));
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{byteArrayOutputStream, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            while (i < i2) {
+                int codePointAt = str.codePointAt(i);
+                if (codePointAt == 37 && (i3 = i + 2) < i2) {
+                    int decodeHexDigit = Util.decodeHexDigit(str.charAt(i + 1));
+                    int decodeHexDigit2 = Util.decodeHexDigit(str.charAt(i3));
                     if (decodeHexDigit != -1 && decodeHexDigit2 != -1) {
                         byteArrayOutputStream.write((decodeHexDigit << 4) + decodeHexDigit2);
-                        i2 = i4;
+                        i = i3;
                     }
                     Util.writeUtf8CodePoint(byteArrayOutputStream, codePointAt);
                 } else {
@@ -1521,7 +1521,7 @@ public final class HttpUrl {
                     }
                     Util.writeUtf8CodePoint(byteArrayOutputStream, codePointAt);
                 }
-                i2 += Character.charCount(codePointAt);
+                i += Character.charCount(codePointAt);
             }
         }
     }

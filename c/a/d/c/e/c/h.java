@@ -3,8 +3,8 @@ package c.a.d.c.e.c;
 import android.app.Application;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
+import com.baidu.pass.biometrics.base.result.PassBiometricResult;
+import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,31 +25,27 @@ public class h {
     public static int a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2413b;
+    public static final int f1980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2414c;
+    public static final int f1981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2415d;
+    public static final int f1982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2416e;
+    public static final int f1983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f2417f;
+    public static final int f1984f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f2418g;
+    public static final int f1985g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f2419h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f2420i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f2421j;
+    public static final int f1986h;
+    public static final int i;
+    public static final int j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -81,24 +77,24 @@ public class h {
                 return;
             }
         }
-        f2413b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
-        f2414c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f2415d = (-100000000) - 213;
-        f2416e = (-100000000) - 214;
-        f2417f = (-100000000) - 221;
-        f2418g = (-100000000) - 230;
-        f2419h = (-100000000) - 232;
-        f2420i = (-100000000) - 233;
-        f2421j = (-100000000) - 234;
+        f1980b = (-100000000) - 200;
+        f1981c = (-100000000) + PassBiometricResult.ERROR_CODE_LACK_SO_ERROR;
+        f1982d = (-100000000) - 213;
+        f1983e = (-100000000) - 214;
+        f1984f = (-100000000) - 221;
+        f1985g = (-100000000) - 230;
+        f1986h = (-100000000) - 232;
+        i = (-100000000) - 233;
+        j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;
         n = (-100000000) - 302;
-        o = (-100000000) - 303;
+        o = (-100000000) + PassFaceRecogResult.ERROR_CODE_FACE_SDK_INIT_FAIL;
         p = (-100000000) - 306;
-        q = (-100000000) - 307;
-        r = (-100000000) + LivenessRecogResult.ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION;
-        s = (-100000000) + LivenessRecogResult.ERROR_CODE_VIDEO_IS_REVIEWING;
+        q = (-100000000) + PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION;
+        r = (-100000000) - 308;
+        s = (-100000000) - 309;
         t = (-100000000) - 310;
         u = (-100000000) - 311;
         v = (-100000000) - 312;
@@ -171,9 +167,9 @@ public class h {
             int i3 = a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.im_error_codec);
+                return app.getString(R.string.obfuscated_res_0x7f0f089d);
             }
-            return app.getString(R.string.im_error_default);
+            return app.getString(R.string.obfuscated_res_0x7f0f089e);
         }
         return (String) invokeI.objValue;
     }

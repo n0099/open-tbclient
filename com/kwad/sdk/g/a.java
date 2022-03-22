@@ -1,37 +1,39 @@
 package com.kwad.sdk.g;
 
 import android.content.Context;
+import android.util.Log;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f55516b;
+    public static boolean f40547b;
 
     /* renamed from: com.kwad.sdk.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC2123a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1984a {
     }
 
-    public static void a(Context context, final InterfaceC2123a interfaceC2123a) {
-        if (context == null || f55516b) {
+    public static void a(Context context, final InterfaceC1984a interfaceC1984a) {
+        if (context == null || f40547b) {
             return;
         }
         if (!a()) {
-            f55516b = true;
+            f40547b = true;
         } else if (a) {
         } else {
             a = true;
             try {
                 final long currentTimeMillis = System.currentTimeMillis();
-                String str = "[OADIDSDKHelper25]:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener() { // from class: com.kwad.sdk.g.a.1
+                int InitSdk = MdidSdkHelper.InitSdk(context.getApplicationContext(), true, new IIdentifierListener() { // from class: com.kwad.sdk.g.a.1
                 });
+                Log.d("KSAdSDK", "[OADIDSDKHelper25]:sdk init time=" + (System.currentTimeMillis() - currentTimeMillis) + "--result=" + InitSdk);
             } catch (Throwable th) {
-                String str2 = "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage();
+                Log.d("KSAdSDK", "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage());
                 a = false;
-                f55516b = true;
+                f40547b = true;
             }
         }
     }
@@ -42,7 +44,7 @@ public class a {
             }.OnSupport(true, null);
             return true;
         } catch (Throwable th) {
-            String str = "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage();
+            Log.d("KSAdSDK", "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage());
             return false;
         }
     }

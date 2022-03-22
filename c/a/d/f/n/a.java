@@ -3,6 +3,7 @@ package c.a.d.f.n;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
@@ -27,16 +28,16 @@ public class a {
     public ArrayList<BasicNameValuePair> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2703b;
+    public String f2232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f2704c;
+    public StringBuilder f2233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2705d;
+    public long f2234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f2706e;
+    public h f2235e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -45,17 +46,17 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f2703b = null;
-        this.f2704c = new StringBuilder(100);
-        this.f2703b = str;
+        this.f2232b = null;
+        this.f2233c = new StringBuilder(100);
+        this.f2232b = str;
     }
 
     public static String i(String str) {
@@ -83,16 +84,16 @@ public class a {
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        if (this.f2704c.length() > 0) {
-            this.f2704c.append('&');
+        if (this.f2233c.length() > 0) {
+            this.f2233c.append('&');
         }
-        this.f2704c.append(str);
-        this.f2704c.append("=");
+        this.f2233c.append(str);
+        this.f2233c.append("=");
         try {
-            this.f2704c.append(URLEncoder.encode(i(str2), "utf-8"));
+            this.f2233c.append(URLEncoder.encode(i(str2), IMAudioTransRequest.CHARSET));
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f2704c.append(i(str2));
+            this.f2233c.append(i(str2));
         }
     }
 
@@ -101,11 +102,11 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) || objArr == null) {
             return;
         }
-        for (int i2 = 0; i2 < objArr.length / 2; i2++) {
-            int i3 = i2 * 2;
-            int i4 = i3 + 1;
-            if (i4 < objArr.length) {
-                a(objArr[i3], objArr[i4]);
+        for (int i = 0; i < objArr.length / 2; i++) {
+            int i2 = i * 2;
+            int i3 = i2 + 1;
+            if (i3 < objArr.length) {
+                a(objArr[i2], objArr[i3]);
             }
         }
     }
@@ -113,31 +114,31 @@ public class a {
     public void d(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            if (this.f2706e == null) {
-                this.f2706e = new h();
+            if (this.f2235e == null) {
+                this.f2235e = new h();
             }
-            this.f2706e.f(dVar);
+            this.f2235e.f(dVar);
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<BasicNameValuePair> it = this.a.iterator();
                 while (it.hasNext()) {
                     BasicNameValuePair next = it.next();
                     if ("module".equals(next.getName())) {
-                        this.f2706e.i(next.getValue());
+                        this.f2235e.i(next.getValue());
                     } else if ("st".equals(next.getName())) {
-                        this.f2706e.e(next.getValue());
+                        this.f2235e.e(next.getValue());
                     } else if ("errNo".equals(next.getName())) {
-                        this.f2706e.g(next.getValue());
+                        this.f2235e.g(next.getValue());
                     } else if (StatConstants.KEY_EXT_ERR_MSG.equals(next.getName())) {
-                        this.f2706e.h(next.getValue());
+                        this.f2235e.h(next.getValue());
                     } else {
-                        this.f2706e.b(next.getName(), next.getValue());
+                        this.f2235e.b(next.getName(), next.getValue());
                     }
                 }
             }
-            StringBuilder sb = this.f2704c;
+            StringBuilder sb = this.f2233c;
             if (sb != null) {
-                this.f2706e.a(sb.toString());
+                this.f2235e.a(sb.toString());
             }
         }
     }
@@ -145,26 +146,26 @@ public class a {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2705d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? System.currentTimeMillis() - this.f2234d : invokeV.longValue;
     }
 
     public h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2706e : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2235e : (h) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f2705d = System.currentTimeMillis();
+            this.f2234d = System.currentTimeMillis();
         }
     }
 
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2703b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2232b : (String) invokeV.objValue;
     }
 
     public JSONObject h() {
@@ -174,11 +175,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f2704c.length() > 0 && (split = this.f2704c.toString().split("&")) != null && split.length > 0) {
+            if (this.f2233c.length() > 0 && (split = this.f2233c.toString().split("&")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str) && (split2 = str.split("=")) != null && split2.length == 2) {
                         try {
-                            jSONObject.put(split2[0], URLDecoder.decode(split2[1], "utf-8"));
+                            jSONObject.put(split2[0], URLDecoder.decode(split2[1], IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException | JSONException e2) {
                             BdLog.e(e2);
                         }
@@ -192,7 +193,7 @@ public class a {
                     BasicNameValuePair next = it.next();
                     if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
                         try {
-                            jSONObject.put(next.getName(), URLEncoder.encode(i(next.getValue()), "utf-8"));
+                            jSONObject.put(next.getName(), URLEncoder.encode(i(next.getValue()), IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException | JSONException e3) {
                             BdLog.e(e3);
                         }
@@ -209,8 +210,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder(200);
-            if (this.f2704c.length() > 0) {
-                sb.append((CharSequence) this.f2704c);
+            if (this.f2233c.length() > 0) {
+                sb.append((CharSequence) this.f2233c);
             }
             ArrayList<BasicNameValuePair> arrayList = this.a;
             if (arrayList != null) {
@@ -222,9 +223,9 @@ public class a {
                             sb.append('&');
                         }
                         sb.append(next.getName());
-                        sb.append(com.alipay.sdk.encrypt.a.f29503h);
+                        sb.append('=');
                         try {
-                            sb.append(URLEncoder.encode(i(next.getValue()), "utf-8"));
+                            sb.append(URLEncoder.encode(i(next.getValue()), IMAudioTransRequest.CHARSET));
                         } catch (UnsupportedEncodingException e2) {
                             BdLog.e(e2);
                             sb.append(i(next.getValue()));
@@ -242,15 +243,15 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2703b = null;
-        this.f2704c = new StringBuilder(100);
+        this.f2232b = null;
+        this.f2233c = new StringBuilder(100);
     }
 }

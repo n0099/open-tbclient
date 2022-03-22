@@ -26,7 +26,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class ImageRequest {
     public String mTag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CacheChoice {
         public static final /* synthetic */ CacheChoice[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,16 +86,16 @@ public class ImageRequest {
             $VALUES = new CacheChoice[]{SMALL, cacheChoice};
         }
 
-        public CacheChoice(String str, int i2) {
+        public CacheChoice(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -119,7 +119,7 @@ public class ImageRequest {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RequestLevel {
         public static final /* synthetic */ RequestLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -151,16 +151,16 @@ public class ImageRequest {
             $VALUES = new RequestLevel[]{FULL_FETCH, DISK_CACHE, ENCODED_MEMORY_CACHE, requestLevel};
         }
 
-        public RequestLevel(String str, int i2, int i3) {
+        public RequestLevel(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -169,7 +169,7 @@ public class ImageRequest {
                     return;
                 }
             }
-            this.mValue = i3;
+            this.mValue = i2;
         }
 
         public static RequestLevel getMax(RequestLevel requestLevel, RequestLevel requestLevel2) {
@@ -204,9 +204,9 @@ public class ImageRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageRequestBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

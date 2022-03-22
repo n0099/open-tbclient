@@ -23,7 +23,7 @@ public final class LivePlayerProvider {
     public static final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final LivePlayerProvider f33480b;
+    public static final LivePlayerProvider f25803b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public final class LivePlayerProvider {
                 return;
             }
         }
-        f33480b = new LivePlayerProvider();
+        f25803b = new LivePlayerProvider();
         a = LazyKt__LazyJVMKt.lazy(LivePlayerProvider$playerService$2.INSTANCE);
     }
 
@@ -48,9 +48,9 @@ public final class LivePlayerProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

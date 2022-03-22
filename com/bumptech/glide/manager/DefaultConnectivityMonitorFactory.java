@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";
@@ -22,9 +22,9 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,7 +38,9 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, connectivityListener)) == null) {
             boolean z = ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0;
-            Log.isLoggable("ConnectivityMonitor", 3);
+            if (Log.isLoggable("ConnectivityMonitor", 3)) {
+                Log.d("ConnectivityMonitor", z ? "ACCESS_NETWORK_STATE permission granted, registering connectivity monitor" : "ACCESS_NETWORK_STATE permission missing, cannot register connectivity monitor");
+            }
             return z ? new DefaultConnectivityMonitor(context, connectivityListener) : new NullConnectivityMonitor();
         }
         return (ConnectivityMonitor) invokeLL.objValue;

@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.j;
-import i.o.a.a;
-import i.o.d.i.f;
-import i.o.d.j.f0;
-import i.o.d.j.z;
+import g.j;
+import g.o.a.a;
+import g.o.d.i.f;
+import g.o.d.j.f0;
+import g.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2427151001689639875L;
@@ -23,40 +23,40 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
     public final AtomicInteger wip;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$BufferEmitter(j<? super T> jVar, int i2) {
+    public OnSubscribeFromEmitter$BufferEmitter(j<? super T> jVar, int i) {
         super(jVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, Integer.valueOf(i2)};
+            Object[] objArr = {jVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((j) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.queue = f0.b() ? new z<>(i2) : new f<>(i2);
+        this.queue = f0.b() ? new z<>(i) : new f<>(i);
         this.wip = new AtomicInteger();
     }
 
     public void drain() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
             j<? super T> jVar = this.actual;
             Queue<Object> queue = this.queue;
-            int i3 = 1;
+            int i2 = 1;
             do {
-                long j2 = get();
-                long j3 = 0;
+                long j = get();
+                long j2 = 0;
                 while (true) {
-                    i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                    if (i2 == 0) {
+                    i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i == 0) {
                         break;
                     } else if (jVar.isUnsubscribed()) {
                         queue.clear();
@@ -78,11 +78,11 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                             break;
                         } else {
                             jVar.onNext((Object) NotificationLite.e(poll));
-                            j3++;
+                            j2++;
                         }
                     }
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     if (jVar.isUnsubscribed()) {
                         queue.clear();
                         return;
@@ -100,11 +100,11 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                         }
                     }
                 }
-                if (j3 != 0) {
-                    a.g(this, j3);
+                if (j2 != 0) {
+                    a.g(this, j2);
                 }
-                i3 = this.wip.addAndGet(-i3);
-            } while (i3 != 0);
+                i2 = this.wip.addAndGet(-i2);
+            } while (i2 != 0);
         }
     }
 

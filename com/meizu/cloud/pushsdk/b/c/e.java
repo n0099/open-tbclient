@@ -9,7 +9,7 @@ import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements a {
     public com.meizu.cloud.pushsdk.b.h.a a = new com.meizu.cloud.pushsdk.b.h.a(null);
 
@@ -52,8 +52,8 @@ public class e implements a {
         httpURLConnection.setRequestMethod(str);
     }
 
-    public static boolean a(int i2) {
-        return i2 >= 200 && i2 < 300;
+    public static boolean a(int i) {
+        return i >= 200 && i < 300;
     }
 
     private HttpURLConnection b(i iVar) throws IOException {

@@ -34,9 +34,9 @@ public class FragmentAnim {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,9 +62,9 @@ public class FragmentAnim {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {fragment};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -105,9 +105,9 @@ public class FragmentAnim {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {viewGroup, fragment, callback, cancellationSignal};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -135,9 +135,9 @@ public class FragmentAnim {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -195,9 +195,9 @@ public class FragmentAnim {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {viewGroup, view, fragment, callback, cancellationSignal};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -295,15 +295,15 @@ public class FragmentAnim {
     }
 
     @AnimRes
-    public static int transitToAnimResourceId(int i2, boolean z) {
+    public static int transitToAnimResourceId(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 4097) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i == 4097) {
                 return z ? R$anim.fragment_open_enter : R$anim.fragment_open_exit;
-            } else if (i2 == 4099) {
+            } else if (i == 4099) {
                 return z ? R$anim.fragment_fade_enter : R$anim.fragment_fade_exit;
-            } else if (i2 != 8194) {
+            } else if (i != 8194) {
                 return -1;
             } else {
                 return z ? R$anim.fragment_close_enter : R$anim.fragment_close_exit;
@@ -326,9 +326,9 @@ public class FragmentAnim {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animation};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -348,9 +348,9 @@ public class FragmentAnim {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -383,9 +383,9 @@ public class FragmentAnim {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animation, viewGroup, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -400,15 +400,15 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.AnimationSet, android.view.animation.Animation
-        public boolean getTransformation(long j2, @NonNull Transformation transformation) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, transformation)) == null) {
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, transformation)) == null) {
                 this.mAnimating = true;
                 if (this.mEnded) {
                     return !this.mTransitionEnded;
                 }
-                if (!super.getTransformation(j2, transformation)) {
+                if (!super.getTransformation(j, transformation)) {
                     this.mEnded = true;
                     OneShotPreDrawListener.add(this.mParent, this);
                 }
@@ -432,15 +432,15 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.Animation
-        public boolean getTransformation(long j2, @NonNull Transformation transformation, float f2) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), transformation, Float.valueOf(f2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), transformation, Float.valueOf(f2)})) == null) {
                 this.mAnimating = true;
                 if (this.mEnded) {
                     return !this.mTransitionEnded;
                 }
-                if (!super.getTransformation(j2, transformation, f2)) {
+                if (!super.getTransformation(j, transformation, f2)) {
                     this.mEnded = true;
                     OneShotPreDrawListener.add(this.mParent, this);
                 }

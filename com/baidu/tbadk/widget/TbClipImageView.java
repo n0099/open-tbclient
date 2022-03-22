@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean P;
+    public boolean v0;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
@@ -23,9 +23,9 @@ public class TbClipImageView extends TbImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -35,37 +35,37 @@ public class TbClipImageView extends TbImageView {
         }
     }
 
-    public final void s(Context context, AttributeSet attributeSet, int i2) {
+    public final void P(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
             String trim = Build.MODEL.trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= 2) {
+                    if (i2 >= 2) {
                         z2 = false;
                         break;
-                    } else if (strArr[i3].equalsIgnoreCase(trim)) {
+                    } else if (strArr[i2].equalsIgnoreCase(trim)) {
                         z2 = true;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
                 String[] strArr2 = {"HTC T329D"};
-                int i4 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i4 >= 1) {
+                    if (i3 >= 1) {
                         z = false;
                         break;
-                    } else if (strArr2[i4].equalsIgnoreCase(trim)) {
+                    } else if (strArr2[i3].equalsIgnoreCase(trim)) {
                         z = true;
                         break;
                     } else {
-                        i4++;
+                        i3++;
                     }
                 }
             } else {
@@ -73,39 +73,39 @@ public class TbClipImageView extends TbImageView {
                 z2 = false;
             }
             if (!z2 && !z) {
-                this.P = true;
+                this.v0 = true;
             } else {
-                this.P = false;
+                this.v0 = false;
             }
         }
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public void setDrawerType(int i2) {
+    public void setDrawerType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 0) {
-                super.setDrawerType(i2);
-            } else if (i2 == 1) {
-                super.setDrawerType(this.P ? 4 : 5);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 0) {
+                super.setDrawerType(i);
+            } else if (i == 1) {
+                super.setDrawerType(this.v0 ? 4 : 5);
             } else {
-                super.setDrawerType(i2);
+                super.setDrawerType(i);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbClipImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -113,8 +113,8 @@ public class TbClipImageView extends TbImageView {
                 return;
             }
         }
-        this.P = false;
-        s(context, attributeSet, i2);
+        this.v0 = false;
+        P(context, attributeSet, i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,9 +126,9 @@ public class TbClipImageView extends TbImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

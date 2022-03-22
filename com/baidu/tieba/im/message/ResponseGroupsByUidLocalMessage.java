@@ -33,9 +33,9 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,9 +44,9 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
             QueryGroupsByUidResIdl queryGroupsByUidResIdl = (QueryGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryGroupsByUidResIdl.class);
             setError(queryGroupsByUidResIdl.error.errorno.intValue());
             setErrorString(queryGroupsByUidResIdl.error.usermsg);
@@ -138,10 +138,10 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.groups : (List) invokeV.objValue;
     }
 
-    public void setCommonGroupNum(int i2) {
+    public void setCommonGroupNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.commonGroupNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.commonGroupNum = i;
         }
     }
 
@@ -152,10 +152,10 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void setGroupNum(int i2) {
+    public void setGroupNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.groupNum = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.groupNum = i;
         }
     }
 
@@ -174,17 +174,17 @@ public class ResponseGroupsByUidLocalMessage extends CustomResponsedMessage<Obje
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseGroupsByUidLocalMessage(int i2) {
-        super(i2);
+    public ResponseGroupsByUidLocalMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

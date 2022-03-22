@@ -40,7 +40,6 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes6.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
@@ -189,16 +188,16 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             $VALUES = new ExtraInfo[]{CUID, EMULATOR, START_TIME, CRASH_TIME, VISITED_URLS, JAVA_EXCEPTION, ANDROID_FINGERPRINT, SDK_LEVEL, GPU, CHANNEL_NAME, ANDROID_BASEBAND, ANDROID_DISPLAY, extraInfo};
         }
 
-        public ExtraInfo(String str, int i2, String str2) {
+        public ExtraInfo(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -246,9 +245,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zeusCrashHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -500,9 +499,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {uncaughtExceptionHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -539,11 +538,11 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, writer) == null) {
             writer.write("Crash reason: ");
             writer.write(this.mCrash.toString());
-            writer.write(StringUtils.LF);
+            writer.write("\n");
             StackTraceElement[] stackTrace = this.mCrash.getStackTrace();
             writer.write("Crash address: ");
             writer.write(stackTrace != null ? stackTrace[0].toString() : "Unkown");
-            writer.write(StringUtils.LF);
+            writer.write("\n");
             writer.write(String.format("Process uptime: %s H\n\n", String.valueOf((this.mCrashTime - APPROXIMATE_START_TIME) / 3600000.0d)));
             writer.write(String.format("Thread %d:%s (crashed)\n", Long.valueOf(this.mCrashThread.getId()), this.mCrashThread.getName()));
             this.mCrash.printStackTrace(new PrintWriter(writer));
@@ -610,9 +609,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, writer, exec};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -645,9 +644,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, writer, exec};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -803,10 +802,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         return (File) invokeV.objValue;
     }
 
-    public static String getTimestmapString(long j2) {
+    public static String getTimestmapString(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j2)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j2)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) ? DateFormat.getDateTimeInstance().format(Long.valueOf(j)) : (String) invokeJ.objValue;
     }
 
     public static void init() {
@@ -829,9 +828,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -861,13 +860,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                     return;
                 }
                 writer.write(readLine);
-                writer.write(StringUtils.LF);
+                writer.write("\n");
             }
         } catch (Throwable th) {
             try {
                 writer.write("Throwable:");
                 writer.write(th.getMessage());
-                writer.write(StringUtils.LF);
+                writer.write("\n");
             } catch (Throwable unused) {
             }
             Log.e(TAG, "", th);
@@ -894,7 +893,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                         }
                     }
                     writer.write(readLine);
-                    writer.write(StringUtils.LF);
+                    writer.write("\n");
                 } catch (Throwable th) {
                     th = th;
                     bufferedReader = bufferedReader2;
@@ -943,9 +942,9 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7, th};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -995,10 +994,10 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public void setCrashTime(long j2) {
+    public void setCrashTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mCrashTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mCrashTime = j;
         }
     }
 

@@ -47,9 +47,9 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -206,10 +206,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
@@ -237,24 +237,24 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setBackgroundB(int i2) {
+    public void setBackgroundB(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.backgroundB = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.backgroundB = i;
         }
     }
 
-    public void setBackgroundG(int i2) {
+    public void setBackgroundG(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.backgroundG = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.backgroundG = i;
         }
     }
 
-    public void setBackgroundR(int i2) {
+    public void setBackgroundR(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.backgroundR = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.backgroundR = i;
         }
     }
 
@@ -266,17 +266,17 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setDefaultTextBox(long j2) {
+    public void setDefaultTextBox(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.defaultTextBox = j2;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.defaultTextBox = j;
         }
     }
 
-    public void setDisplayFlags(int i2) {
+    public void setDisplayFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.displayFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.displayFlags = i;
         }
     }
 
@@ -301,31 +301,31 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setForegroundB(int i2) {
+    public void setForegroundB(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.foregroundB = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.foregroundB = i;
         }
     }
 
-    public void setForegroundG(int i2) {
+    public void setForegroundG(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.foregroundG = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.foregroundG = i;
         }
     }
 
-    public void setForegroundR(int i2) {
+    public void setForegroundR(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.foregroundR = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.foregroundR = i;
         }
     }
 
-    public void setReserved1(long j2) {
+    public void setReserved1(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.reserved1 = j2;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.reserved1 = j;
         }
     }
 
@@ -343,10 +343,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setTextJustification(int i2) {
+    public void setTextJustification(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.textJustification = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.textJustification = i;
         }
     }
 }

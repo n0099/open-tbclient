@@ -1,6 +1,7 @@
 package com.baidu.ar.plugin;
 
 import android.content.pm.PackageInfo;
+import android.util.Log;
 import com.baidu.ar.session.XRSessionAnchor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +25,9 @@ public class PackageManagerHookHandler implements InvocationHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj, pluginPackageParser};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,10 +48,10 @@ public class PackageManagerHookHandler implements InvocationHandler {
                 packageInfo.versionCode = 190128146;
                 packageInfo.versionName = "1.7.190120000";
                 if (this.mPPP != null) {
-                    String str = "get Package info flag:" + objArr[1];
+                    Log.i("andrew", "get Package info flag:" + objArr[1]);
                     packageInfo = this.mPPP.getPackageInfo(((Integer) objArr[1]).intValue());
                 }
-                String str2 = "method:" + method.getName() + " called with args:" + Arrays.toString(objArr) + ";package info:" + packageInfo;
+                Log.d("andrew", "method:" + method.getName() + " called with args:" + Arrays.toString(objArr) + ";package info:" + packageInfo);
                 return packageInfo;
             }
             return method.invoke(this.mBase, objArr);

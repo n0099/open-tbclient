@@ -14,11 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EditorInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f46726e;
-    public int paddingHor;
-    public int paddingVer;
+    /* renamed from: b  reason: collision with root package name */
+    public int f36108b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36109c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EditorInfoView(Context context) {
@@ -29,9 +31,9 @@ public class EditorInfoView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -41,21 +43,21 @@ public class EditorInfoView extends TextView {
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f46726e) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == this.a) {
             return;
         }
         SkinManager.setViewTextColor(this, (int) R.color.CAM_X0106);
-        this.f46726e = i2;
+        this.a = i;
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.ds48));
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702c4));
         }
     }
 
@@ -68,9 +70,9 @@ public class EditorInfoView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -81,17 +83,17 @@ public class EditorInfoView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EditorInfoView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -99,14 +101,14 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.f46726e = 3;
-        this.paddingHor = (int) context.getResources().getDimension(R.dimen.ds18);
-        int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
-        this.paddingVer = dimension;
-        int i5 = this.paddingHor;
-        setPadding(i5, dimension, i5, dimension);
+        this.a = 3;
+        this.f36108b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070257);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df);
+        this.f36109c = dimension;
+        int i4 = this.f36108b;
+        setPadding(i4, dimension, i4, dimension);
         setGravity(16);
         setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
+        setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701e8));
     }
 }

@@ -21,77 +21,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ImageOverlayView extends ViewGroup {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int STROCK_STYLE_CIRCLE = 1;
-    public static final int STROCK_STYLE_SEMICIRCLE = 0;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36895b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36896c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f36897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47722e;
+    public int f36898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47723f;
+    public int f36899f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47724g;
+    public int f36900g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47725h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f47726i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f47727j;
-    public int k;
-    public b l;
-    public int m;
-    public final View.OnClickListener mPhotoOnClickListener;
-    public boolean n;
-    public Paint o;
-    public int p;
-    public RectF q;
-    public int r;
+    public a f36901h;
+    public int i;
+    public boolean j;
+    public Paint k;
+    public int l;
+    public RectF m;
+    public int n;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageOverlayView f47728e;
-
-        public a(ImageOverlayView imageOverlayView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageOverlayView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f47728e = imageOverlayView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47728e.l == null) {
-                return;
-            }
-            this.f47728e.l.a();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
+    public interface a {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -103,9 +65,9 @@ public class ImageOverlayView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -115,12 +77,26 @@ public class ImageOverlayView extends ViewGroup {
         }
     }
 
+    public void a(int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            this.a = i;
+            this.f36895b = i;
+            this.f36896c = i2;
+            this.f36897d = i3;
+            this.f36898e = i4;
+            this.f36899f = i5;
+            this.f36900g = i6;
+            b();
+        }
+    }
+
     public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (int i2 = 0; i2 < this.f47722e; i2++) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.a; i++) {
                 HeadImageView headImageView = new HeadImageView(getContext());
-                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f47724g, this.f47725h));
+                headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.f36896c, this.f36897d));
                 headImageView.setIsRound(true);
                 headImageView.setBorderSurroundContent(true);
                 headImageView.setDrawBorder(true);
@@ -135,80 +111,20 @@ public class ImageOverlayView extends ViewGroup {
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Paint paint = new Paint();
-            this.o = paint;
+            this.k = paint;
             paint.setAntiAlias(true);
-            this.o.setStyle(Paint.Style.STROKE);
+            this.k.setStyle(Paint.Style.STROKE);
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        View childAt;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            super.dispatchDraw(canvas);
-            this.o.setColor(SkinManager.getColor(this.f47727j));
-            this.o.setStrokeWidth(this.f47726i);
-            int i2 = this.r;
-            if (i2 == 0) {
-                for (int i3 = 1; i3 < this.f47723f && i3 < getChildCount() && (childAt = getChildAt(i3)) != null; i3++) {
-                    float f2 = this.f47726i * 0.5f;
-                    if (childAt instanceof HeadImageView) {
-                        this.q.set(childAt.getLeft() - f2, childAt.getTop() - f2, childAt.getRight() + f2, childAt.getBottom() + f2);
-                        canvas.drawArc(this.q, -90.0f, 180.0f, false, this.o);
-                    }
-                }
-            } else if (i2 == 1) {
-                int i4 = this.p;
-                if (i4 <= 0) {
-                    i4 = this.f47727j;
-                }
-                this.p = i4;
-                float f3 = this.f47726i * 0.5f;
-                float f4 = this.f47724g / 2.0f;
-                float acos = ((float) ((Math.acos((((f4 * 2.0f) - this.k) / 2.0f) / f4) / 3.141592653589793d) * 180.0d)) - 180.0f;
-                float abs = Math.abs(2.0f * acos);
-                int i5 = 0;
-                int i6 = this.n ? 0 : this.f47723f - 1;
-                while (i5 < this.f47723f) {
-                    View childAt2 = getChildAt(i5);
-                    if (childAt2 instanceof HeadImageView) {
-                        this.q.set(childAt2.getLeft() - f3, childAt2.getTop() - f3, childAt2.getRight() + f3, childAt2.getBottom() + f3);
-                        if (i5 == i6) {
-                            this.o.setColor(SkinManager.getColor(this.p));
-                        } else {
-                            this.o.setColor(SkinManager.getColor(this.f47727j));
-                        }
-                        canvas.drawArc(this.q, i5 == i6 ? 0.0f : acos, i5 == i6 ? 360.0f : abs, false, this.o);
-                    }
-                    i5++;
-                }
-            }
-        }
-    }
-
-    public void init(int i2, int i3, int i4, int i5, int i6, int i7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f47722e = i2;
-            this.f47723f = i2;
-            this.f47724g = i3;
-            this.f47725h = i4;
-            this.f47726i = i5;
-            this.f47727j = i6;
-            this.k = i7;
-            b();
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.o.setColor(SkinManager.getColor(this.f47727j));
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.k.setColor(SkinManager.getColor(this.f36899f));
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
                 if (childAt instanceof HeadImageView) {
                     ((HeadImageView) childAt).setPlaceHolder(1);
                 }
@@ -217,46 +133,92 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void dispatchDraw(Canvas canvas) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            super.dispatchDraw(canvas);
+            this.k.setColor(SkinManager.getColor(this.f36899f));
+            this.k.setStrokeWidth(this.f36898e);
+            int i = this.n;
+            if (i == 0) {
+                for (int i2 = 1; i2 < this.f36895b && i2 < getChildCount() && (childAt = getChildAt(i2)) != null; i2++) {
+                    float f2 = this.f36898e * 0.5f;
+                    if (childAt instanceof HeadImageView) {
+                        this.m.set(childAt.getLeft() - f2, childAt.getTop() - f2, childAt.getRight() + f2, childAt.getBottom() + f2);
+                        canvas.drawArc(this.m, -90.0f, 180.0f, false, this.k);
+                    }
+                }
+            } else if (i == 1) {
+                int i3 = this.l;
+                if (i3 <= 0) {
+                    i3 = this.f36899f;
+                }
+                this.l = i3;
+                float f3 = this.f36898e * 0.5f;
+                float f4 = this.f36896c / 2.0f;
+                float acos = ((float) ((Math.acos((((f4 * 2.0f) - this.f36900g) / 2.0f) / f4) / 3.141592653589793d) * 180.0d)) - 180.0f;
+                float abs = Math.abs(2.0f * acos);
+                int i4 = 0;
+                int i5 = this.j ? 0 : this.f36895b - 1;
+                while (i4 < this.f36895b) {
+                    View childAt2 = getChildAt(i4);
+                    if (childAt2 instanceof HeadImageView) {
+                        this.m.set(childAt2.getLeft() - f3, childAt2.getTop() - f3, childAt2.getRight() + f3, childAt2.getBottom() + f3);
+                        if (i4 == i5) {
+                            this.k.setColor(SkinManager.getColor(this.l));
+                        } else {
+                            this.k.setColor(SkinManager.getColor(this.f36899f));
+                        }
+                        canvas.drawArc(this.m, i4 == i5 ? 0.0f : acos, i4 == i5 ? 360.0f : abs, false, this.k);
+                    }
+                    i4++;
+                }
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int paddingLeft;
         int paddingTop;
-        int i6;
+        int i5;
         View childAt;
         View childAt2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) {
             return;
         }
-        if (this.n) {
-            paddingLeft = getPaddingLeft() + this.f47726i;
+        if (this.j) {
+            paddingLeft = getPaddingLeft() + this.f36898e;
             paddingTop = getPaddingTop();
-            i6 = this.f47726i;
+            i5 = this.f36898e;
         } else {
-            paddingLeft = getPaddingLeft() + ((this.f47723f - 1) * (this.f47724g - this.k)) + this.f47726i;
+            paddingLeft = getPaddingLeft() + ((this.f36895b - 1) * (this.f36896c - this.f36900g)) + this.f36898e;
             paddingTop = getPaddingTop();
-            i6 = this.f47726i;
+            i5 = this.f36898e;
         }
-        int i7 = paddingTop + i6;
-        int i8 = 0;
+        int i6 = paddingTop + i5;
+        int i7 = 0;
         while (true) {
-            int i9 = this.f47723f;
-            if (i8 < i9) {
-                if (i8 >= getChildCount() || (childAt2 = getChildAt(i8)) == null) {
+            int i8 = this.f36895b;
+            if (i7 < i8) {
+                if (i7 >= getChildCount() || (childAt2 = getChildAt(i7)) == null) {
                     return;
                 }
                 childAt2.setVisibility(0);
-                if (this.n) {
-                    childAt2.layout(paddingLeft, i7, this.f47724g + paddingLeft, this.f47725h + i7);
-                    paddingLeft += this.f47724g - this.k;
+                if (this.j) {
+                    childAt2.layout(paddingLeft, i6, this.f36896c + paddingLeft, this.f36897d + i6);
+                    paddingLeft += this.f36896c - this.f36900g;
                 } else {
-                    childAt2.layout(paddingLeft, i7, this.f47724g + paddingLeft, this.f47725h + i7);
-                    paddingLeft -= this.f47724g - this.k;
+                    childAt2.layout(paddingLeft, i6, this.f36896c + paddingLeft, this.f36897d + i6);
+                    paddingLeft -= this.f36896c - this.f36900g;
                 }
-                i8++;
+                i7++;
             } else {
-                while (i9 < this.f47722e && i9 < getChildCount() && (childAt = getChildAt(i9)) != null) {
+                while (i8 < this.a && i8 < getChildCount() && (childAt = getChildAt(i8)) != null) {
                     childAt.setVisibility(8);
-                    i9++;
+                    i8++;
                 }
                 return;
             }
@@ -264,16 +226,16 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int i4 = this.f47726i;
-            if (this.r == 1) {
-                i4 *= 2;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            int i3 = this.f36898e;
+            if (this.n == 1) {
+                i3 *= 2;
             }
-            int paddingLeft = getPaddingLeft() + getPaddingRight() + i4;
-            int i5 = this.f47723f;
-            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f47724g * i5)) - ((i5 - 1) * this.k), i2), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f47725h + (this.f47726i * 2), i3));
+            int paddingLeft = getPaddingLeft() + getPaddingRight() + i3;
+            int i4 = this.f36895b;
+            setMeasuredDimension(ViewGroup.resolveSize((paddingLeft + (this.f36896c * i4)) - ((i4 - 1) * this.f36900g), i), ViewGroup.resolveSize(getPaddingTop() + getPaddingBottom() + this.f36897d + (this.f36898e * 2), i2));
         }
     }
 
@@ -281,14 +243,14 @@ public class ImageOverlayView extends ViewGroup {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f47723f = Math.min(this.f47722e, ListUtils.getCount(list));
-            for (int i2 = 0; i2 < this.f47723f; i2++) {
-                HeadImageView headImageView = (HeadImageView) getChildAt(i2);
-                if (headImageView != null && (str = (String) ListUtils.getItem(list, (list.size() - i2) - 1)) != null) {
-                    if (this.m == 12) {
-                        headImageView.startLoad(str, 12, this.f47724g, this.f47725h, false);
+            this.f36895b = Math.min(this.a, ListUtils.getCount(list));
+            for (int i = 0; i < this.f36895b; i++) {
+                HeadImageView headImageView = (HeadImageView) getChildAt(i);
+                if (headImageView != null && (str = (String) ListUtils.getItem(list, (list.size() - i) - 1)) != null) {
+                    if (this.i == 12) {
+                        headImageView.G(str, 12, this.f36896c, this.f36897d, false);
                     } else {
-                        headImageView.startLoad(str, 10, this.f47724g, this.f47725h, false);
+                        headImageView.G(str, 10, this.f36896c, this.f36897d, false);
                     }
                 }
             }
@@ -296,38 +258,38 @@ public class ImageOverlayView extends ViewGroup {
         }
     }
 
-    public void setFirstImageStrokeColor(@ColorRes int i2) {
+    public void setFirstImageStrokeColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.l = i;
         }
     }
 
-    public void setImageClickListener(b bVar) {
+    public void setImageClickListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.l = bVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            this.f36901h = aVar;
         }
     }
 
-    public void setLoadImageType(int i2) {
+    public void setLoadImageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.m = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.i = i;
         }
     }
 
     public void setOrientation(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.n = z;
+            this.j = z;
         }
     }
 
-    public void setStrokeStyle(int i2) {
+    public void setStrokeStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.r = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.n = i;
         }
     }
 
@@ -340,9 +302,9 @@ public class ImageOverlayView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -353,17 +315,17 @@ public class ImageOverlayView extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageOverlayView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ImageOverlayView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -371,11 +333,10 @@ public class ImageOverlayView extends ViewGroup {
                 return;
             }
         }
-        this.m = 10;
-        this.n = false;
-        this.r = 0;
-        this.mPhotoOnClickListener = new a(this);
+        this.i = 10;
+        this.j = false;
+        this.n = 0;
         c();
-        this.q = new RectF();
+        this.m = new RectF();
     }
 }

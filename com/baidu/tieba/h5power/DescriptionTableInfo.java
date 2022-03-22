@@ -2,7 +2,7 @@ package com.baidu.tieba.h5power;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.pass.face.platform.common.ConstantHelper;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,12 +37,12 @@ public class DescriptionTableInfo {
         mModuleSet = linkedHashSet;
         linkedHashSet.add("hybrid");
         mModuleSet.add("host");
-        mModuleSet.add("device");
-        mModuleSet.add("account");
+        mModuleSet.add(Config.DEVICE_PART);
+        mModuleSet.add(DI.ACCOUNT);
         mModuleSet.add(DI.ROUTER_NAME);
         mModuleSet.add("toast");
         mModuleSet.add(IMConstants.SERVICE_TYPE_SUBSCRIPTION);
-        mModuleSet.add(ConstantHelper.LOG_OS);
+        mModuleSet.add("system");
         mModuleSet.add("share");
         mModuleSet.add("clipper");
         mModuleSet.add("activity");
@@ -56,9 +56,9 @@ public class DescriptionTableInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

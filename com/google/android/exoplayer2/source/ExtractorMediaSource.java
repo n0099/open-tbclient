@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPeriod.Listener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LOADING_CHECK_INTERVAL_BYTES = 1048576;
@@ -37,7 +37,7 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
     public boolean timelineIsSeekable;
     public final Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventListener {
         void onLoadError(IOException iOException);
     }
@@ -51,9 +51,9 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, factory, extractorsFactory, handler, eventListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (ExtractorsFactory) objArr2[2], (Handler) objArr2[3], (EventListener) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -63,10 +63,10 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         }
     }
 
-    private void notifySourceInfoRefreshed(long j2, boolean z) {
+    private void notifySourceInfoRefreshed(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.timelineDurationUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.timelineDurationUs = j;
             this.timelineIsSeekable = z;
             this.sourceListener.onSourceInfoRefreshed(this, new SinglePeriodTimeline(this.timelineDurationUs, this.timelineIsSeekable), null);
         }
@@ -91,16 +91,16 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
     }
 
     @Override // com.google.android.exoplayer2.source.ExtractorMediaPeriod.Listener
-    public void onSourceInfoRefreshed(long j2, boolean z) {
+    public void onSourceInfoRefreshed(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            if (j2 == C.TIME_UNSET) {
-                j2 = this.timelineDurationUs;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j == C.TIME_UNSET) {
+                j = this.timelineDurationUs;
             }
-            if (this.timelineDurationUs == j2 && this.timelineIsSeekable == z) {
+            if (this.timelineDurationUs == j && this.timelineIsSeekable == z) {
                 return;
             }
-            notifySourceInfoRefreshed(j2, z);
+            notifySourceInfoRefreshed(j, z);
         }
     }
 
@@ -138,9 +138,9 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, factory, extractorsFactory, handler, eventListener, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (ExtractorsFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (Handler) objArr2[4], (EventListener) objArr2[5], (String) objArr2[6], ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -150,16 +150,16 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         }
     }
 
-    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, int i2, Handler handler, EventListener eventListener, String str, int i3) {
+    public ExtractorMediaSource(Uri uri, DataSource.Factory factory, ExtractorsFactory extractorsFactory, int i, Handler handler, EventListener eventListener, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, extractorsFactory, Integer.valueOf(i2), handler, eventListener, str, Integer.valueOf(i3)};
+            Object[] objArr = {uri, factory, extractorsFactory, Integer.valueOf(i), handler, eventListener, str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,10 +168,10 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
         this.uri = uri;
         this.dataSourceFactory = factory;
         this.extractorsFactory = extractorsFactory;
-        this.minLoadableRetryCount = i2;
+        this.minLoadableRetryCount = i;
         this.eventHandler = handler;
         this.eventListener = eventListener;
         this.customCacheKey = str;
-        this.continueLoadingCheckIntervalBytes = i3;
+        this.continueLoadingCheckIntervalBytes = i2;
     }
 }

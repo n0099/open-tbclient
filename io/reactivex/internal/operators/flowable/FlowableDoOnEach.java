@@ -19,7 +19,7 @@ import io.reactivex.internal.subscribers.BasicFuseableSubscriber;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
     public final Consumer<? super Throwable> onError;
     public final Consumer<? super T> onNext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DoOnEachConditionalSubscriber<T> extends BasicFuseableConditionalSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {conditionalSubscriber, consumer, consumer2, action, action2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ConditionalSubscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -168,10 +168,10 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? transitiveBoundaryFusion(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
@@ -194,7 +194,7 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DoOnEachSubscriber<T> extends BasicFuseableSubscriber<T, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,9 +212,9 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, consumer, consumer2, action, action2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -334,10 +334,10 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? transitiveBoundaryFusion(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
         }
     }
 
@@ -350,9 +350,9 @@ public final class FlowableDoOnEach<T> extends AbstractFlowableWithUpstream<T, T
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, consumer, consumer2, action, action2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

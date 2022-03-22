@@ -50,9 +50,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -104,9 +104,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, replayProcessor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,10 +128,10 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 this.state.buffer.replay(this);
             }
         }
@@ -151,23 +151,23 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public TimedNode<T> tail;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
-            this.maxAge = ObjectHelper.verifyPositive(j2, "maxAge");
+            this.maxSize = ObjectHelper.verifyPositive(i, "maxSize");
+            this.maxAge = ObjectHelper.verifyPositive(j, "maxAge");
             this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
             this.scheduler = (Scheduler) ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             TimedNode<T> timedNode = new TimedNode<>(null, 0L);
@@ -259,9 +259,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                     if (tArr.length < size) {
                         tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), size));
                     }
-                    for (int i2 = 0; i2 != size; i2++) {
+                    for (int i = 0; i != size; i++) {
                         head = head.get();
-                        tArr[i2] = head.value;
+                        tArr[i] = head.value;
                     }
                     if (tArr.length > size) {
                         tArr[size] = null;
@@ -295,7 +295,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void replay(ReplaySubscription<T> replaySubscription) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = replaySubscription.actual;
@@ -303,13 +303,13 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 if (timedNode == null) {
                     timedNode = getHead();
                 }
-                long j2 = replaySubscription.emitted;
-                int i3 = 1;
+                long j = replaySubscription.emitted;
+                int i2 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
@@ -333,12 +333,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                                 break;
                             } else {
                                 subscriber.onNext((T) timedNode2.value);
-                                j2++;
+                                j++;
                                 timedNode = timedNode2;
                             }
                         }
                     }
-                    if (i2 == 0) {
+                    if (i == 0) {
                         if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
                             return;
@@ -356,9 +356,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                         }
                     }
                     replaySubscription.index = timedNode;
-                    replaySubscription.emitted = j2;
-                    i3 = replaySubscription.addAndGet(-i3);
-                } while (i3 != 0);
+                    replaySubscription.emitted = j;
+                    i2 = replaySubscription.addAndGet(-i2);
+                } while (i2 != 0);
             }
         }
 
@@ -374,9 +374,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             if (interceptable != null && interceptable.invokeV(1048587, this) != null) {
                 return;
             }
-            int i2 = this.size;
-            if (i2 > this.maxSize) {
-                this.size = i2 - 1;
+            int i = this.size;
+            if (i > this.maxSize) {
+                this.size = i - 1;
                 this.head = this.head.get();
             }
             long now = this.scheduler.now(this.unit) - this.maxAge;
@@ -442,11 +442,11 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, timedNode)) == null) {
-                int i2 = 0;
-                while (i2 != Integer.MAX_VALUE && (timedNode = timedNode.get()) != null) {
-                    i2++;
+                int i = 0;
+                while (i != Integer.MAX_VALUE && (timedNode = timedNode.get()) != null) {
+                    i++;
                 }
-                return i2;
+                return i;
             }
             return invokeL.intValue;
         }
@@ -463,22 +463,22 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public int size;
         public Node<T> tail;
 
-        public SizeBoundReplayBuffer(int i2) {
+        public SizeBoundReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
+            this.maxSize = ObjectHelper.verifyPositive(i, "maxSize");
             Node<T> node = new Node<>(null);
             this.tail = node;
             this.head = node;
@@ -534,23 +534,23 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
                 Node<T> node = this.head;
                 Node<T> node2 = node;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     node2 = node2.get();
                     if (node2 == null) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
-                if (tArr.length < i2) {
-                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
+                if (tArr.length < i) {
+                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i));
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     node = node.get();
-                    tArr[i3] = node.value;
+                    tArr[i2] = node.value;
                 }
-                if (tArr.length > i2) {
-                    tArr[i2] = null;
+                if (tArr.length > i) {
+                    tArr[i] = null;
                 }
                 return tArr;
             }
@@ -580,7 +580,7 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: T, ? super T */
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void replay(ReplaySubscription<T> replaySubscription) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = replaySubscription.actual;
@@ -588,13 +588,13 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                 if (node == null) {
                     node = this.head;
                 }
-                long j2 = replaySubscription.emitted;
-                int i3 = 1;
+                long j = replaySubscription.emitted;
+                int i2 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
@@ -618,12 +618,12 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                                 break;
                             } else {
                                 subscriber.onNext((T) node2.value);
-                                j2++;
+                                j++;
                                 node = node2;
                             }
                         }
                     }
-                    if (i2 == 0) {
+                    if (i == 0) {
                         if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
                             return;
@@ -641,9 +641,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                         }
                     }
                     replaySubscription.index = node;
-                    replaySubscription.emitted = j2;
-                    i3 = replaySubscription.addAndGet(-i3);
-                } while (i3 != 0);
+                    replaySubscription.emitted = j;
+                    i2 = replaySubscription.addAndGet(-i2);
+                } while (i2 != 0);
             }
         }
 
@@ -653,22 +653,22 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 Node<T> node = this.head;
-                int i2 = 0;
-                while (i2 != Integer.MAX_VALUE && (node = node.get()) != null) {
-                    i2++;
+                int i = 0;
+                while (i != Integer.MAX_VALUE && (node = node.get()) != null) {
+                    i++;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
 
         public void trim() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (i2 = this.size) <= this.maxSize) {
+            if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (i = this.size) <= this.maxSize) {
                 return;
             }
-            this.size = i2 - 1;
+            this.size = i - 1;
             this.head = this.head.get();
         }
 
@@ -692,23 +692,23 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public final long time;
         public final T value;
 
-        public TimedNode(T t, long j2) {
+        public TimedNode(T t, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, Long.valueOf(j2)};
+                Object[] objArr = {t, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.value = t;
-            this.time = j2;
+            this.time = j;
         }
     }
 
@@ -721,22 +721,22 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
         public Throwable error;
         public volatile int size;
 
-        public UnboundedReplayBuffer(int i2) {
+        public UnboundedReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.buffer = new ArrayList(ObjectHelper.verifyPositive(i2, "capacityHint"));
+            this.buffer = new ArrayList(ObjectHelper.verifyPositive(i, "capacityHint"));
         }
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
@@ -768,11 +768,11 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = this.size;
-                if (i2 == 0) {
+                int i = this.size;
+                if (i == 0) {
                     return null;
                 }
-                return this.buffer.get(i2 - 1);
+                return this.buffer.get(i - 1);
             }
             return (T) invokeV.objValue;
         }
@@ -782,22 +782,22 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tArr)) == null) {
-                int i2 = this.size;
-                if (i2 == 0) {
+                int i = this.size;
+                if (i == 0) {
                     if (tArr.length != 0) {
                         tArr[0] = null;
                     }
                     return tArr;
                 }
                 List<T> list = this.buffer;
-                if (tArr.length < i2) {
-                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
+                if (tArr.length < i) {
+                    tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i));
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
-                    tArr[i3] = list.get(i3);
+                for (int i2 = 0; i2 < i; i2++) {
+                    tArr[i2] = list.get(i2);
                 }
-                if (tArr.length > i2) {
-                    tArr[i2] = null;
+                if (tArr.length > i) {
+                    tArr[i] = null;
                 }
                 return tArr;
             }
@@ -822,33 +822,33 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
 
         @Override // io.reactivex.processors.ReplayProcessor.ReplayBuffer
         public void replay(ReplaySubscription<T> replaySubscription) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, replaySubscription) == null) && replaySubscription.getAndIncrement() == 0) {
                 List<T> list = this.buffer;
                 Subscriber<? super T> subscriber = replaySubscription.actual;
                 Integer num = (Integer) replaySubscription.index;
-                int i3 = 0;
+                int i2 = 0;
                 if (num != null) {
-                    i3 = num.intValue();
+                    i2 = num.intValue();
                 } else {
                     replaySubscription.index = 0;
                 }
-                long j2 = replaySubscription.emitted;
-                int i4 = 1;
+                long j = replaySubscription.emitted;
+                int i3 = 1;
                 do {
-                    long j3 = replaySubscription.requested.get();
+                    long j2 = replaySubscription.requested.get();
                     while (true) {
-                        i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i == 0) {
                             break;
                         } else if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
                             return;
                         } else {
                             boolean z = this.done;
-                            int i5 = this.size;
-                            if (z && i3 == i5) {
+                            int i4 = this.size;
+                            if (z && i2 == i4) {
                                 replaySubscription.index = null;
                                 replaySubscription.cancelled = true;
                                 Throwable th = this.error;
@@ -859,23 +859,23 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                                     subscriber.onError(th);
                                     return;
                                 }
-                            } else if (i3 == i5) {
+                            } else if (i2 == i4) {
                                 break;
                             } else {
-                                subscriber.onNext(list.get(i3));
-                                i3++;
-                                j2++;
+                                subscriber.onNext(list.get(i2));
+                                i2++;
+                                j++;
                             }
                         }
                     }
-                    if (i2 == 0) {
+                    if (i == 0) {
                         if (replaySubscription.cancelled) {
                             replaySubscription.index = null;
                             return;
                         }
                         boolean z2 = this.done;
-                        int i6 = this.size;
-                        if (z2 && i3 == i6) {
+                        int i5 = this.size;
+                        if (z2 && i2 == i5) {
                             replaySubscription.index = null;
                             replaySubscription.cancelled = true;
                             Throwable th2 = this.error;
@@ -888,10 +888,10 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                             }
                         }
                     }
-                    replaySubscription.index = Integer.valueOf(i3);
-                    replaySubscription.emitted = j2;
-                    i4 = replaySubscription.addAndGet(-i4);
-                } while (i4 != 0);
+                    replaySubscription.index = Integer.valueOf(i2);
+                    replaySubscription.emitted = j;
+                    i3 = replaySubscription.addAndGet(-i3);
+                } while (i3 != 0);
             }
         }
 
@@ -935,9 +935,9 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {replayBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -961,24 +961,24 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> createWithSize(int i2) {
+    public static <T> ReplayProcessor<T> createWithSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new ReplayProcessor<>(new SizeBoundReplayBuffer(i2)) : (ReplayProcessor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new ReplayProcessor<>(new SizeBoundReplayBuffer(i)) : (ReplayProcessor) invokeI.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> createWithTime(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ReplayProcessor<T> createWithTime(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j2, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> createWithTimeAndSize(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ReplayProcessor<T> createWithTimeAndSize(long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i2, j2, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) ? new ReplayProcessor<>(new SizeAndTimeBoundReplayBuffer(i, j, timeUnit, scheduler)) : (ReplayProcessor) invokeCommon.objValue;
     }
 
     public boolean add(ReplaySubscription<T> replaySubscription) {
@@ -1150,27 +1150,27 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
                     return;
                 }
                 int length = replaySubscriptionArr.length;
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (replaySubscriptionArr[i3] == replaySubscription) {
-                        i2 = i3;
+                    } else if (replaySubscriptionArr[i2] == replaySubscription) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     replaySubscriptionArr2 = EMPTY;
                 } else {
                     ReplaySubscription[] replaySubscriptionArr3 = new ReplaySubscription[length - 1];
-                    System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i2);
-                    System.arraycopy(replaySubscriptionArr, i2 + 1, replaySubscriptionArr3, i2, (length - i2) - 1);
+                    System.arraycopy(replaySubscriptionArr, 0, replaySubscriptionArr3, 0, i);
+                    System.arraycopy(replaySubscriptionArr, i + 1, replaySubscriptionArr3, i, (length - i) - 1);
                     replaySubscriptionArr2 = replaySubscriptionArr3;
                 }
             } while (!this.subscribers.compareAndSet(replaySubscriptionArr, replaySubscriptionArr2));
@@ -1204,10 +1204,10 @@ public final class ReplayProcessor<T> extends FlowableProcessor<T> {
     }
 
     @CheckReturnValue
-    public static <T> ReplayProcessor<T> create(int i2) {
+    public static <T> ReplayProcessor<T> create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new ReplayProcessor<>(new UnboundedReplayBuffer(i2)) : (ReplayProcessor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new ReplayProcessor<>(new UnboundedReplayBuffer(i)) : (ReplayProcessor) invokeI.objValue;
     }
 
     public T[] getValues(T[] tArr) {

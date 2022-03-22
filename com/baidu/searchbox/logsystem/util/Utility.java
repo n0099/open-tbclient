@@ -18,8 +18,8 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.Closeables;
@@ -49,8 +49,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,9 +60,9 @@ public class Utility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -88,32 +86,32 @@ public class Utility {
                 z = false;
             }
             if (LLog.sDebug) {
-                String str = "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath();
+                Log.d("Utility", "createNewEmptyFile() = " + z + ", file = " + file.getAbsolutePath());
             }
             return z;
         }
         return invokeL.booleanValue;
     }
 
-    public static String formatTimeDuration(long j2) {
+    public static String formatTimeDuration(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            if (j2 <= 0) {
-                return String.valueOf(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            if (j <= 0) {
+                return String.valueOf(j);
             }
-            long j3 = 86400000;
-            long j4 = j2 / j3;
-            long j5 = j2 - (j3 * j4);
-            long j6 = 3600000;
-            long j7 = j5 / j6;
-            long j8 = j5 - (j6 * j7);
-            long j9 = 60000;
-            long j10 = j8 / j9;
-            long j11 = j8 - (j9 * j10);
-            long j12 = 1000;
-            long j13 = j11 / j12;
-            return j4 + " " + j7 + ":" + j10 + ":" + j13 + ":" + (j11 - (j12 * j13));
+            long j2 = 86400000;
+            long j3 = j / j2;
+            long j4 = j - (j2 * j3);
+            long j5 = 3600000;
+            long j6 = j4 / j5;
+            long j7 = j4 - (j5 * j6);
+            long j8 = 60000;
+            long j9 = j7 / j8;
+            long j10 = j7 - (j8 * j9);
+            long j11 = 1000;
+            long j12 = j10 / j11;
+            return j3 + " " + j6 + ":" + j9 + ":" + j12 + ":" + (j10 - (j11 * j12));
         }
         return (String) invokeJ.objValue;
     }
@@ -130,14 +128,14 @@ public class Utility {
             return StringUtil.EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(ExtendedMessageFormat.START_FE);
+        sb.append('{');
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f29503h);
+            sb.append('=');
             sb.append(next.getValue());
             if (!it.hasNext()) {
-                sb.append(ExtendedMessageFormat.END_FE);
+                sb.append('}');
                 return sb.toString();
             }
             sb.append(',');
@@ -237,14 +235,14 @@ public class Utility {
                 str2 = str4.replace("_", "-");
             }
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            int i2 = displayMetrics.widthPixels;
-            int i3 = displayMetrics.heightPixels;
+            int i = displayMetrics.widthPixels;
+            int i2 = displayMetrics.heightPixels;
             float f2 = displayMetrics.density;
             FileWriter fileWriter2 = new FileWriter(file, true);
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Devices info = ");
-                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i2 + "*" + i3 + "*" + f2);
+                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i + "*" + i2 + "*" + f2);
                 fileWriter2.write(sb.toString());
                 fileWriter2.write("\nRuntime.getRuntime().availableProcessors() = " + Runtime.getRuntime().availableProcessors());
                 fileWriter2.write("\nRomName = " + RomUtils.getName() + ", RomVersion = " + RomUtils.getVersion());
@@ -290,7 +288,7 @@ public class Utility {
                 if (file2.exists() && (parentFile2 = file2.getParentFile()) != null && parentFile2.exists()) {
                     fileWriter.write(parentFile2.getAbsolutePath());
                     if (LLog.sDebug) {
-                        String str = parentFile2.getAbsolutePath() + StringUtils.LF;
+                        Log.d("Utility", parentFile2.getAbsolutePath() + "\n");
                     }
                     printFilePathInfo(fileWriter, parentFile2, "");
                 }
@@ -302,7 +300,7 @@ public class Utility {
                     if (file3.exists()) {
                         fileWriter.write(file3.getAbsolutePath());
                         if (LLog.sDebug) {
-                            String str2 = file3.getAbsolutePath() + StringUtils.LF;
+                            Log.d("Utility", file3.getAbsolutePath() + "\n");
                         }
                         printFilePathInfo(fileWriter, file3, "");
                     }
@@ -313,7 +311,7 @@ public class Utility {
                 if (releaseSoFilePath != null && releaseSoFilePath.exists()) {
                     fileWriter.write(releaseSoFilePath.getAbsolutePath());
                     if (LLog.sDebug) {
-                        String str3 = releaseSoFilePath.getAbsolutePath() + StringUtils.LF;
+                        Log.d("Utility", releaseSoFilePath.getAbsolutePath() + "\n");
                     }
                     printFilePathInfo(fileWriter, releaseSoFilePath, "");
                 }
@@ -380,7 +378,7 @@ public class Utility {
                                     break;
                                 }
                                 r1.write(readLine.getBytes());
-                                r1.write(StringUtils.LF.getBytes());
+                                r1.write("\n".getBytes());
                             } catch (Exception e2) {
                                 e = e2;
                                 bufferedReader = bufferedReader2;
@@ -473,7 +471,7 @@ public class Utility {
                 th = th;
                 fileWriter = fileWriter2;
                 try {
-                    Log.getStackTraceString(th);
+                    Log.d("Utility", Log.getStackTraceString(th));
                 } finally {
                     Closeables.closeSafely(fileWriter);
                 }
@@ -570,7 +568,7 @@ public class Utility {
                 th = th;
                 fileWriter = fileWriter2;
                 try {
-                    Log.getStackTraceString(th);
+                    Log.d("Utility", Log.getStackTraceString(th));
                 } finally {
                     Closeables.closeSafely(fileWriter);
                 }
@@ -619,27 +617,27 @@ public class Utility {
                 th = th;
             }
             try {
-                fileWriter.write("threads count:" + keySet.size() + StringUtils.LF);
-                int i2 = 0;
+                fileWriter.write("threads count:" + keySet.size() + "\n");
+                int i = 0;
                 for (Thread thread : keySet) {
                     if (thread != null) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append(i2);
+                        sb.append(i);
                         sb.append(":");
                         sb.append(thread.getName());
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                         StackTraceElement[] stackTrace = thread.getStackTrace();
                         if (stackTrace != null) {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 if (stackTraceElement != null) {
                                     sb.append(stackTraceElement.toString());
-                                    sb.append(StringUtils.LF);
+                                    sb.append("\n");
                                 }
                             }
                         }
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                         fileWriter.write(sb.toString());
-                        i2++;
+                        i++;
                     }
                 }
                 fileWriter.flush();
@@ -666,43 +664,43 @@ public class Utility {
                 if (file.isFile()) {
                     fileWriter.write("\tlength=" + file.length() + ",lastModified=" + file.lastModified());
                 }
-                fileWriter.write(StringUtils.LF);
+                fileWriter.write("\n");
                 if (LLog.sDebug) {
-                    String str2 = str + file.getAbsolutePath() + StringUtils.LF;
+                    Log.d("Utility", str + file.getAbsolutePath() + "\n");
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
-                String str3 = str + " ";
+                String str2 = str + " ";
                 if (listFiles == null || listFiles.length <= 0) {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    printFilePathInfo(fileWriter, file2, str3);
+                    printFilePathInfo(fileWriter, file2, str2);
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006d */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
     /* JADX WARN: Type inference failed for: r8v4, types: [java.io.Closeable] */
-    public static final Pair<String, Boolean> readFile(@NonNull File file, int i2) {
+    public static final Pair<String, Boolean> readFile(@NonNull File file, int i) {
         InterceptResult invokeLI;
         ?? r8;
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65556, null, file, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65556, null, file, i)) != null) {
             return (Pair) invokeLI.objValue;
         }
         FileInputStream fileInputStream2 = null;
-        if (i2 <= 0) {
+        if (i <= 0) {
             return null;
         }
         try {
@@ -731,13 +729,13 @@ public class Utility {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 Boolean bool = new Boolean(false);
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
                     int read = fileInputStream.read(bArr);
                     if (read != -1) {
-                        if (i2 - i3 >= read) {
+                        if (i - i2 >= read) {
                             byteArrayOutputStream.write(bArr, 0, read);
-                            i3 += read;
+                            i2 += read;
                         } else {
                             byteArrayOutputStream.write(bArr, 0, read);
                             bool = new Boolean(true);
@@ -747,7 +745,7 @@ public class Utility {
                         break;
                     }
                 }
-                Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString("utf-8"), bool);
+                Pair<String, Boolean> pair = new Pair<>(byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET), bool);
                 Closeables.closeSafely(fileInputStream);
                 Closeables.closeSafely(byteArrayOutputStream);
                 return pair;
@@ -799,7 +797,7 @@ public class Utility {
             String absolutePath = file.getAbsolutePath();
             if (absolutePath.endsWith(".db")) {
                 try {
-                    fileWriter.write(StringUtils.LF + absolutePath + "=" + file.length());
+                    fileWriter.write("\n" + absolutePath + "=" + file.length());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

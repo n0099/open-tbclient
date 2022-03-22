@@ -15,8 +15,8 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
 import c.a.d.f.p.m;
-import c.a.q0.s.c.b0;
-import c.a.r0.y3.o0.c;
+import c.a.o0.s.c.b0;
+import c.a.p0.a4.o0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public class TbWebChromeClient extends WebChromeClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbWebViewActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,11 +76,11 @@ public class TbWebChromeClient extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater);
-            quotaUpdater.updateQuota(j3 * 2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
         }
     }
 
@@ -133,8 +133,8 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!b0.a(str) && str2.startsWith("tiebaapp")) {
-                c.a.r0.y3.o0.d.c cVar2 = new c.a.r0.y3.o0.d.c();
-                cVar2.v(c.a.r0.y3.o0.d.g.b(str2));
+                c.a.p0.a4.o0.d.c cVar2 = new c.a.p0.a4.o0.d.c();
+                cVar2.v(c.a.p0.a4.o0.d.g.b(str2));
                 cVar2.x(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }
@@ -148,12 +148,12 @@ public class TbWebChromeClient extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i2) {
+    public void onProgressChanged(WebView webView, int i) {
         TbWebViewActivity tbWebViewActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, webView, i2) == null) {
-            super.onProgressChanged(webView, i2);
-            if (i2 < 80 || (tbWebViewActivity = this.mActivity) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, webView, i) == null) {
+            super.onProgressChanged(webView, i);
+            if (i < 80 || (tbWebViewActivity = this.mActivity) == null) {
                 return;
             }
             tbWebViewActivity.hideProgressBar();

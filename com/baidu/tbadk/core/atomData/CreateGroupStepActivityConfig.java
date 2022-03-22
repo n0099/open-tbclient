@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CreateGroupStepActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUMID = "forumid";
@@ -28,17 +28,17 @@ public class CreateGroupStepActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CreateGroupStepActivityConfig(Context context, int i2, int i3, int i4, int i5, int i6, int i7) {
+    public CreateGroupStepActivityConfig(Context context, int i, int i2, int i3, int i4, int i5, int i6) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,11 +46,11 @@ public class CreateGroupStepActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("group_type", i2);
-        intent.putExtra("forumid", i3);
-        intent.putExtra(INTENT_SOURCE_FROM, i4);
-        intent.putExtra("num_create_group_normal", i5);
-        intent.putExtra("num_create_group_private", i7);
-        intent.putExtra("num_create_group_offical", i6);
+        intent.putExtra("group_type", i);
+        intent.putExtra("forumid", i2);
+        intent.putExtra(INTENT_SOURCE_FROM, i3);
+        intent.putExtra("num_create_group_normal", i4);
+        intent.putExtra("num_create_group_private", i6);
+        intent.putExtra("num_create_group_offical", i5);
     }
 }

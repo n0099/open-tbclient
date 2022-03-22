@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TraceLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INIT_FAILED = -1;
@@ -65,9 +65,9 @@ public class TraceLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,9 +87,9 @@ public class TraceLog {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -151,16 +151,16 @@ public class TraceLog {
         try {
             Locale locale = Locale.CHINA;
             Object[] objArr = new Object[6];
-            int i2 = 0;
+            int i = 0;
             objArr[0] = ts();
             objArr[1] = str.substring(0, 8);
             objArr[2] = statisContent.getAct();
             objArr[3] = statisContent.getGuid();
             objArr[4] = Long.valueOf(statisContent.getAutoId());
             if (!statisContent.isNotSave()) {
-                i2 = 1;
+                i = 1;
             }
-            objArr[5] = Integer.valueOf(i2);
+            objArr[5] = Integer.valueOf(i);
             addLog(String.format(locale, "A,%s,%s,%s,%s,%d,%d\n", objArr));
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -266,9 +266,9 @@ public class TraceLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -295,9 +295,9 @@ public class TraceLog {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -327,9 +327,9 @@ public class TraceLog {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -347,12 +347,12 @@ public class TraceLog {
                             }
                         });
                         if (arrayList.size() > 2) {
-                            long j2 = 0;
+                            long j = 0;
                             for (int size = arrayList.size() - 2; size > 0; size--) {
                                 File file = (File) arrayList.get(size);
-                                j2 += file.length();
-                                if (j2 > 104857600 && file.delete()) {
-                                    j2 -= file.length();
+                                j += file.length();
+                                if (j > 104857600 && file.delete()) {
+                                    j -= file.length();
                                 }
                             }
                         }

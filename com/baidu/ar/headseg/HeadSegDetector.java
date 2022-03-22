@@ -52,9 +52,9 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -89,9 +89,9 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -107,7 +107,7 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
                     String str = aVar.tw[0];
-                    return aVar.f31475tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
+                    return aVar.f24836tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
                 }
                 return invokeL2.intValue;
             }
@@ -161,9 +161,9 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -214,9 +214,9 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), framePixels};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -243,9 +243,9 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
             */
             public a e(FramePixels framePixels2) {
                 InterceptResult invokeL2;
+                long j;
                 long j2;
                 long j3;
-                long j4;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, framePixels2)) == null) {
                     a aVar = new a();
@@ -253,43 +253,43 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                     aVar.W(this.qE.getName());
                     long elapsedRealtime = SystemClock.elapsedRealtime();
                     try {
-                        j3 = this.qE.cb.createHandle();
+                        j2 = this.qE.cb.createHandle();
                         try {
-                            this.qE.cb.setUsingHandle(j3);
-                            j4 = j3;
+                            this.qE.cb.setUsingHandle(j2);
+                            j3 = j2;
                             try {
-                                this.qE.cb.setHandleInput(j3, 22, framePixels2.getTimestamp(), 0, framePixels2.getWidth(), framePixels2.getHeight(), framePixels2.isFrontCamera(), framePixels2.isFrontCamera() ? 4 : 7, true, framePixels2.getPixelsAddress());
-                                this.qE.cb.setHandleMaskThreshold(j4, this.qE.qD);
-                                ARMdlInterfaceJNI.predictHeadSeg(j4, true);
+                                this.qE.cb.setHandleInput(j2, 22, framePixels2.getTimestamp(), 0, framePixels2.getWidth(), framePixels2.getHeight(), framePixels2.isFrontCamera(), framePixels2.isFrontCamera() ? 4 : 7, true, framePixels2.getPixelsAddress());
+                                this.qE.cb.setHandleMaskThreshold(j3, this.qE.qD);
+                                ARMdlInterfaceJNI.predictHeadSeg(j3, true);
                                 StatisticApi.getPerformanceApi().recordAlgoTimeCost("head_seg", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                             } catch (Exception unused) {
-                                j3 = j4;
-                                j2 = 0;
-                                if (j3 > j2) {
-                                    AlgoHandleAdapter.destroyHandle(j3);
+                                j2 = j3;
+                                j = 0;
+                                if (j2 > j) {
+                                    AlgoHandleAdapter.destroyHandle(j2);
                                 }
-                                j4 = j2;
-                                aVar.n(j4);
+                                j3 = j;
+                                aVar.n(j3);
                                 return aVar;
                             }
                             try {
                                 this.qE.cb.setUsingHandle(0L);
                             } catch (Exception unused2) {
-                                j3 = j4;
-                                j2 = 0;
-                                if (j3 > j2) {
+                                j2 = j3;
+                                j = 0;
+                                if (j2 > j) {
                                 }
-                                j4 = j2;
-                                aVar.n(j4);
+                                j3 = j;
+                                aVar.n(j3);
                                 return aVar;
                             }
                         } catch (Exception unused3) {
                         }
                     } catch (Exception unused4) {
+                        j = 0;
                         j2 = 0;
-                        j3 = 0;
                     }
-                    aVar.n(j4);
+                    aVar.n(j3);
                     return aVar;
                 }
                 return (a) invokeL2.objValue;

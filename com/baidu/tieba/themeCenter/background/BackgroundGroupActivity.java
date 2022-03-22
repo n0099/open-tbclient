@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import c.a.r0.d4.e.b;
-import c.a.r0.d4.e.c;
-import c.a.r0.d4.e.d;
-import c.a.r0.d4.h.e;
+import c.a.p0.f4.e.b;
+import c.a.p0.f4.e.c;
+import c.a.p0.f4.e.d;
+import c.a.p0.f4.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -39,9 +39,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                 newInitContext.initArgs = r2;
                 Object[] objArr = {backgroundGroupActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,14 +51,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i2, String str, e eVar, List<b> list) {
+        public void a(int i, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, eVar, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
                 this.a.mView.i();
-                if (i2 == 0) {
-                    this.a.mView.k(eVar, list, this.a.mModel.F());
+                if (i == 0) {
+                    this.a.mView.k(eVar, list, this.a.mModel.H());
                     return;
                 }
                 this.a.showToast(str);
@@ -72,9 +72,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,7 +83,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,17 +91,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public c.a.q0.p0.d getPageStayDurationItem() {
+    public c.a.o0.p0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.q0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.o0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (c.a.q0.p0.d) invokeV.objValue;
+        return (c.a.o0.p0.d) invokeV.objValue;
     }
 
     public int getPropId() {
@@ -111,10 +111,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.onChangeSkinType(i);
             c cVar = this.mView;
             if (cVar != null) {
                 cVar.f();
@@ -131,7 +131,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.mPageContext = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.mModel = backgroundGroupModel;
-            backgroundGroupModel.I(this.mCallback);
+            backgroundGroupModel.K(this.mCallback);
             d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
             this.mItemController = dVar;
             dVar.c(1);

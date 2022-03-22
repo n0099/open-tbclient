@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.service.media.MediaBrowserService;
 import android.support.v4.media.session.MediaSessionCompat;
+import android.util.Log;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import androidx.media.MediaBrowserServiceCompatApi23;
@@ -42,9 +43,9 @@ public class MediaBrowserServiceCompatApi26 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, serviceCompatProxy};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (MediaBrowserServiceCompatApi23.ServiceCompatProxy) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -77,9 +78,9 @@ public class MediaBrowserServiceCompatApi26 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {result};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,12 +114,13 @@ public class MediaBrowserServiceCompatApi26 {
             return (List) invokeL.objValue;
         }
 
-        public void sendResult(List<Parcel> list, int i2) {
+        public void sendResult(List<Parcel> list, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, list, i) == null) {
                 try {
-                    MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i2);
-                } catch (IllegalAccessException unused) {
+                    MediaBrowserServiceCompatApi26.sResultFlags.setInt(this.mResultObj, i);
+                } catch (IllegalAccessException e2) {
+                    Log.w(MediaBrowserServiceCompatApi26.TAG, e2);
                 }
                 this.mResultObj.sendResult(parcelListToItemList(list));
             }
@@ -147,7 +149,8 @@ public class MediaBrowserServiceCompatApi26 {
             Field declaredField = MediaBrowserService.Result.class.getDeclaredField("mFlags");
             sResultFlags = declaredField;
             declaredField.setAccessible(true);
-        } catch (NoSuchFieldException unused) {
+        } catch (NoSuchFieldException e2) {
+            Log.w(TAG, e2);
         }
     }
 
@@ -156,9 +159,9 @@ public class MediaBrowserServiceCompatApi26 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

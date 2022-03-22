@@ -15,10 +15,10 @@ public class w implements a {
     public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f35546b;
+    public Object f27428b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f35547c;
+    public Class<?> f27429c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -27,9 +27,9 @@ public class w implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,8 +38,8 @@ public class w implements a {
         this.a = z.a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f35546b = obj;
-                this.f35547c = obj.getClass();
+                this.f27428b = obj;
+                this.f27429c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -102,14 +102,14 @@ public class w implements a {
     }
 
     @Override // com.baidu.mobstat.a
-    public void a(Context context, long j2) {
+    public void a(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
             try {
-                a(new Object[]{context, Long.valueOf(j2)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
+                a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.a.a(context, j2);
+                this.a.a(context, j);
             }
         }
     }
@@ -132,6 +132,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f35547c.getMethod(str, clsArr).invoke(this.f35546b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f27429c.getMethod(str, clsArr).invoke(this.f27428b, objArr) : (T) invokeLLL.objValue;
     }
 }

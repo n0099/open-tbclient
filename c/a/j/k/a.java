@@ -18,27 +18,27 @@ public final class a implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final C0174a f3776c;
+    public static final C0180a f3249c;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f3777b;
+    public final e f3250b;
 
     /* renamed from: c.a.j.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0174a {
+    public static final class C0180a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0174a() {
+        public C0180a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,7 +51,7 @@ public final class a implements b {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(null) : (a) invokeV.objValue;
         }
 
-        public /* synthetic */ C0174a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0180a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -69,7 +69,7 @@ public final class a implements b {
                 return;
             }
         }
-        f3776c = new C0174a(null);
+        f3249c = new C0180a(null);
     }
 
     public a() {
@@ -77,16 +77,16 @@ public final class a implements b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = new c();
-        this.f3777b = new e();
+        this.f3250b = new e();
     }
 
     @Override // c.a.j.k.b
@@ -97,21 +97,21 @@ public final class a implements b {
             if (subTaskState.getTaskInfo().isInitiActiveTask()) {
                 this.a.a(subTaskState);
             } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.f3777b.a(subTaskState);
+                this.f3250b.a(subTaskState);
             }
         }
     }
 
     @Override // c.a.j.k.b
-    public boolean b(TaskInfo taskInfo, int i2) {
+    public boolean b(TaskInfo taskInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
             if (taskInfo.isInitiActiveTask()) {
-                return this.a.b(taskInfo, i2);
+                return this.a.b(taskInfo, i);
             }
             if (taskInfo.isPassiveTask()) {
-                return this.f3777b.b(taskInfo, i2);
+                return this.f3250b.b(taskInfo, i);
             }
             return false;
         }
@@ -124,7 +124,7 @@ public final class a implements b {
             if (subTaskState.getTaskInfo().isInitiActiveTask()) {
                 this.a.c(subTaskState);
             } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.f3777b.c(subTaskState);
+                this.f3250b.c(subTaskState);
             }
         }
     }

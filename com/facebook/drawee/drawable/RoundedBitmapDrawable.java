@@ -19,7 +19,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundedBitmapDrawable extends RoundedDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, bitmap, paint};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -124,13 +124,13 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     }
 
     @Override // com.facebook.drawee.drawable.RoundedDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.setAlpha(i2);
-            if (i2 != this.mPaint.getAlpha()) {
-                this.mPaint.setAlpha(i2);
-                super.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.setAlpha(i);
+            if (i != this.mPaint.getAlpha()) {
+                this.mPaint.setAlpha(i);
+                super.setAlpha(i);
                 invalidateSelf();
             }
         }
@@ -171,9 +171,9 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Resources) objArr2[0], (Bitmap) objArr2[1], (Paint) objArr2[2]);
                 newInitContext.thisArg = this;

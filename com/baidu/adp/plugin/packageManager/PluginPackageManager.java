@@ -46,31 +46,27 @@ public class PluginPackageManager {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, h> f29859b;
+    public Hashtable<String, h> f23866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29860c;
+    public boolean f23867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29861d;
+    public boolean f23868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29862e;
+    public boolean f23869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29863f;
+    public long f23870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29864g;
+    public boolean f23871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29865h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f29866i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.d.j.j.c f29867j;
+    public boolean f23872h;
+    public int i;
+    public c.a.d.j.j.c j;
     public boolean k;
     public BroadcastReceiver l;
     public a.c m;
@@ -112,16 +108,16 @@ public class PluginPackageManager {
             $VALUES = new PluginStatus[]{DISABLE, FORBIDDEN, UNINSTALLED, NROMAL, pluginStatus};
         }
 
-        public PluginStatus(String str, int i2) {
+        public PluginStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -151,46 +147,46 @@ public class PluginPackageManager {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29868b;
+        public int f23873b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f29869c;
+        public final /* synthetic */ PluginPackageManager f23874c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PluginPackageManager pluginPackageManager, int i2) {
-            super(i2);
+        public a(PluginPackageManager pluginPackageManager, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pluginPackageManager, Integer.valueOf(i2)};
+                Object[] objArr = {pluginPackageManager, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29869c = pluginPackageManager;
+            this.f23874c = pluginPackageManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f29869c.f29864g && l.z()) {
-                if (this.f29868b < 3) {
-                    PluginPackageManager pluginPackageManager = this.f29869c;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f23874c.f23871g && l.z()) {
+                if (this.f23873b < 3) {
+                    PluginPackageManager pluginPackageManager = this.f23874c;
                     pluginPackageManager.L(pluginPackageManager.k);
-                    this.f29868b++;
+                    this.f23873b++;
                     this.a = System.currentTimeMillis();
                 } else if (System.currentTimeMillis() - this.a > 60000) {
-                    PluginPackageManager pluginPackageManager2 = this.f29869c;
+                    PluginPackageManager pluginPackageManager2 = this.f23874c;
                     pluginPackageManager2.L(pluginPackageManager2.k);
-                    this.f29868b = 0;
+                    this.f23873b = 0;
                     this.a = System.currentTimeMillis();
                 }
             }
@@ -211,9 +207,9 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -254,7 +250,7 @@ public class PluginPackageManager {
                     h2 = new PluginSetting();
                     h2.forbidden = false;
                 }
-                if (this.this$0.f29860c) {
+                if (this.this$0.f23867c) {
                     str2 = "load_lowversion";
                     if (this.installFailRetryMap.containsKey(h2.packageName)) {
                         c.a.d.j.h.a b2 = c.a.d.j.h.a.b();
@@ -276,7 +272,7 @@ public class PluginPackageManager {
                         h2.versionCode = intExtra;
                         h2.installStatus = 0;
                         h2.tempVersionCode = 0;
-                        if (this.this$0.f29860c) {
+                        if (this.this$0.f23867c) {
                             c.a.d.j.h.a.b().d("plugin_install_suc", stringExtra, h2, "");
                             c.a.d.j.h.a b3 = c.a.d.j.h.a.b();
                             b3.m("plugin_install", "plugin_install_suc", stringExtra, "flag=" + stringExtra6 + "_fail=" + h2.install_fail_count);
@@ -307,7 +303,7 @@ public class PluginPackageManager {
                         h2.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                         h2.setInjectClassloader(booleanExtra);
                         this.this$0.n(h2);
-                        c.a.d.j.j.f.c.j().w(stringExtra, h2, this.this$0.f29860c);
+                        c.a.d.j.j.f.c.j().w(stringExtra, h2, this.this$0.f23867c);
                         boolean z = !h2.isPatch && TextUtils.isEmpty(h2.replaceMethodClasses);
                         if (!TextUtils.isEmpty(h2.requireLoad) && h2.requireLoad.equals("0") && !z) {
                             PluginCenter.getInstance().launch(h2.packageName);
@@ -330,7 +326,7 @@ public class PluginPackageManager {
                 h2.versionCode = intExtra;
                 h2.installStatus = 0;
                 h2.tempVersionCode = 0;
-                if (this.this$0.f29860c) {
+                if (this.this$0.f23867c) {
                 }
                 h2.tempMd5 = "";
                 h2.url = "";
@@ -341,7 +337,7 @@ public class PluginPackageManager {
                 h2.replaceMethodClasses = intent.getStringExtra("replace_method_classes");
                 h2.setInjectClassloader(booleanExtra);
                 this.this$0.n(h2);
-                c.a.d.j.j.f.c.j().w(stringExtra, h2, this.this$0.f29860c);
+                c.a.d.j.j.f.c.j().w(stringExtra, h2, this.this$0.f23867c);
                 if (h2.isPatch) {
                 }
                 if (!TextUtils.isEmpty(h2.requireLoad)) {
@@ -379,10 +375,10 @@ public class PluginPackageManager {
                             pluginSetting = h3;
                         }
                         pluginSetting.enable = false;
-                        if (this.this$0.f29860c) {
-                            int i2 = pluginSetting.install_fail_count + 1;
-                            pluginSetting.install_fail_count = i2;
-                            if (i2 >= 5) {
+                        if (this.this$0.f23867c) {
+                            int i = pluginSetting.install_fail_count + 1;
+                            pluginSetting.install_fail_count = i;
+                            if (i >= 5) {
                                 this.this$0.n(pluginSetting);
                                 pluginSetting.tempVersionCode = 0;
                                 pluginSetting.url = "";
@@ -395,11 +391,11 @@ public class PluginPackageManager {
                                 bdStatisticsManager.alert("alert_plugin", "package name = " + stringExtra10 + "; fail count = " + pluginSetting.install_fail_count);
                             }
                         }
-                        c.a.d.j.j.f.c.j().w(stringExtra10, pluginSetting, this.this$0.f29860c);
+                        c.a.d.j.j.f.c.j().w(stringExtra10, pluginSetting, this.this$0.f23867c);
                     }
                 }
                 this.this$0.r(substring, false, stringExtra8);
-                if (this.this$0.f29860c) {
+                if (this.this$0.f23867c) {
                     if (stringExtra9 != null) {
                         String lowerCase = stringExtra9.toLowerCase(Locale.getDefault());
                         if (lowerCase.contains("no_space_left_on_device") || lowerCase.contains("no space left on device")) {
@@ -454,7 +450,7 @@ public class PluginPackageManager {
                     h5.packageName = stringExtra14;
                 }
                 h5.enable = false;
-                if (this.this$0.f29860c && "low_version_code".equals(stringExtra13)) {
+                if (this.this$0.f23867c && "low_version_code".equals(stringExtra13)) {
                     this.this$0.n(h5);
                     h5.tempVersionCode = 0;
                     h5.url = "";
@@ -462,7 +458,7 @@ public class PluginPackageManager {
                     h5.install_fail_count = 0;
                     h5.installStatus = 0;
                 }
-                c.a.d.j.j.f.c.j().w(stringExtra14, h5, this.this$0.f29860c);
+                c.a.d.j.j.f.c.j().w(stringExtra14, h5, this.this$0.f23867c);
                 if ("low_version_code".equals(stringExtra13)) {
                     c.a.d.j.h.a.b().i("plugin_low_version_code", stringExtra14);
                 }
@@ -483,9 +479,9 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -517,15 +513,15 @@ public class PluginPackageManager {
                     } else {
                         String[] split = str.split(",");
                         int length = split.length;
-                        int i2 = 0;
+                        int i = 0;
                         while (true) {
-                            if (i2 >= length) {
+                            if (i >= length) {
                                 z = false;
                                 break;
-                            } else if (split[i2].equals(pluginApkFilePath)) {
+                            } else if (split[i].equals(pluginApkFilePath)) {
                                 break;
                             } else {
-                                i2++;
+                                i++;
                             }
                         }
                         if (!z) {
@@ -537,7 +533,7 @@ public class PluginPackageManager {
                 bundle.putString("package_name", string);
                 bundle.putString("current_path", str);
                 setResultExtras(bundle);
-                if (this.this$0.f29860c) {
+                if (this.this$0.f23867c) {
                     this.this$0.o(string, str);
                 }
             }
@@ -557,9 +553,9 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -589,7 +585,7 @@ public class PluginPackageManager {
                         str3 = str3 + str4;
                     }
                 }
-                c.a.d.j.j.f.c.j().s(str, str3, this.a.f29860c);
+                c.a.d.j.j.f.c.j().s(str, str3, this.a.f23867c);
             }
         }
     }
@@ -598,12 +594,10 @@ public class PluginPackageManager {
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f29870e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f29871f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ PluginPackageManager f23875b;
 
         public e(PluginPackageManager pluginPackageManager, boolean z) {
             Interceptable interceptable = $ic;
@@ -612,23 +606,23 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29871f = pluginPackageManager;
-            this.f29870e = z;
+            this.f23875b = pluginPackageManager;
+            this.a = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.d.j.j.e.d.a().c(c.a.d.j.j.f.c.j().k(), this.f29870e, this.f29871f.n);
+                c.a.d.j.j.e.d.a().c(c.a.d.j.j.f.c.j().k(), this.a, this.f23875b.n);
             }
         }
     }
@@ -645,9 +639,9 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -662,7 +656,7 @@ public class PluginPackageManager {
         public Map<String, Long> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PluginPackageManager f29872b;
+        public final /* synthetic */ PluginPackageManager f23876b;
 
         public g(PluginPackageManager pluginPackageManager) {
             Interceptable interceptable = $ic;
@@ -671,36 +665,36 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29872b = pluginPackageManager;
+            this.f23876b = pluginPackageManager;
             this.a = new HashMap();
         }
 
         @Override // c.a.d.j.j.d.a
-        public void a(BdFileDownloadData bdFileDownloadData, int i2, String str, String str2) {
+        public void a(BdFileDownloadData bdFileDownloadData, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048576, this, bdFileDownloadData, i2, str, str2) == null) {
-                if (this.f29872b.f29867j != null) {
+            if (interceptable == null || interceptable.invokeLILL(1048576, this, bdFileDownloadData, i, str, str2) == null) {
+                if (this.f23876b.j != null) {
                     bdFileDownloadData.setStatusMsg(str);
                     bdFileDownloadData.setStatus(2);
-                    bdFileDownloadData.setErrorCode(i2);
-                    this.f29872b.f29867j.a(bdFileDownloadData);
+                    bdFileDownloadData.setErrorCode(i);
+                    this.f23876b.j.a(bdFileDownloadData);
                 }
-                this.f29872b.F();
+                this.f23876b.F();
                 if (bdFileDownloadData == null) {
                     return;
                 }
                 if (!this.a.containsKey(bdFileDownloadData.getId())) {
                     this.a.put(bdFileDownloadData.getId(), Long.valueOf(System.currentTimeMillis()));
                 }
-                c.a.d.j.h.a.b().n("plugin_download_fail", bdFileDownloadData.getId(), String.valueOf(i2), str2);
+                c.a.d.j.h.a.b().n("plugin_download_fail", bdFileDownloadData.getId(), String.valueOf(i), str2);
             }
         }
     }
@@ -712,10 +706,10 @@ public class PluginPackageManager {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.d.j.g.b f29873b;
+        public c.a.d.j.g.b f23877b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f29874c;
+        public String f23878c;
 
         public /* synthetic */ h(PluginPackageManager pluginPackageManager, b bVar) {
             this(pluginPackageManager);
@@ -728,9 +722,9 @@ public class PluginPackageManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginPackageManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -758,22 +752,22 @@ public class PluginPackageManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f29859b = null;
-        this.f29860c = false;
-        this.f29861d = false;
-        this.f29862e = false;
-        this.f29863f = 0L;
-        this.f29864g = false;
-        this.f29865h = false;
-        this.f29866i = 0;
+        this.f23866b = null;
+        this.f23867c = false;
+        this.f23868d = false;
+        this.f23869e = false;
+        this.f23870f = 0L;
+        this.f23871g = false;
+        this.f23872h = false;
+        this.i = 0;
         this.l = new b(this);
         new c(this);
         this.m = new d(this);
@@ -781,7 +775,7 @@ public class PluginPackageManager {
         this.o = new g(this);
         this.p = new a(this, 2000994);
         this.a = BdBaseApplication.getInst();
-        this.f29859b = new Hashtable<>();
+        this.f23866b = new Hashtable<>();
         H();
     }
 
@@ -823,7 +817,7 @@ public class PluginPackageManager {
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29860c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23867c : invokeV.booleanValue;
     }
 
     public boolean C(String str) {
@@ -835,18 +829,18 @@ public class PluginPackageManager {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29865h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23872h : invokeV.booleanValue;
     }
 
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29861d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23868d : invokeV.booleanValue;
     }
 
     public final void F() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f29860c) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f23867c) {
             MessageManager.getInstance().unRegisterListener(this.p);
             MessageManager.getInstance().registerListener(this.p);
         }
@@ -861,12 +855,12 @@ public class PluginPackageManager {
                 bVar.a(str);
             } else {
                 h hVar = new h(this, null);
-                hVar.f29874c = str;
+                hVar.f23878c = str;
                 hVar.a = System.currentTimeMillis();
-                hVar.f29873b = bVar;
+                hVar.f23877b = bVar;
                 synchronized (this) {
-                    if (this.f29859b.size() < 1000) {
-                        this.f29859b.put(str, hVar);
+                    if (this.f23866b.size() < 1000) {
+                        this.f23866b.put(str, hVar);
                     } else {
                         BdLog.e("packageaction count is morethan 1000");
                     }
@@ -895,7 +889,7 @@ public class PluginPackageManager {
     public void I(c.a.d.j.j.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f29867j = cVar;
+            this.j = cVar;
         }
     }
 
@@ -930,13 +924,13 @@ public class PluginPackageManager {
         h2.url = newest2.url;
         h2.size = newest2.size;
         c.a.d.j.j.f.c.j().l(h2.packageName, h2);
-        this.f29867j = cVar;
+        this.j = cVar;
         q(h2, this.o, true);
     }
 
     public void L(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.f29860c) {
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.f23867c) {
             c.a.d.f.m.e.a().postDelayed(new e(this, z), 1500L);
         }
     }
@@ -971,12 +965,12 @@ public class PluginPackageManager {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             synchronized (this) {
-                Iterator<Map.Entry<String, h>> it = this.f29859b.entrySet().iterator();
+                Iterator<Map.Entry<String, h>> it = this.f23866b.entrySet().iterator();
                 while (it.hasNext()) {
                     h value = it.next().getValue();
                     if (value != null && currentTimeMillis - value.a >= 600000) {
-                        if (value.f29873b != null) {
-                            value.f29873b.b(value.f29874c, "plugin install time out");
+                        if (value.f23877b != null) {
+                            value.f23877b.b(value.f23878c, "plugin install time out");
                         }
                         it.remove();
                     }
@@ -987,7 +981,7 @@ public class PluginPackageManager {
 
     public final void n(PluginSetting pluginSetting) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, pluginSetting) == null) && this.f29860c) {
+        if ((interceptable == null || interceptable.invokeL(1048592, this, pluginSetting) == null) && this.f23867c) {
             c.a.d.j.j.b.e().d(pluginSetting);
         }
     }
@@ -1036,7 +1030,7 @@ public class PluginPackageManager {
 
     public final void q(PluginSetting pluginSetting, c.a.d.j.j.d.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048595, this, pluginSetting, aVar, z) == null) && this.f29860c && pluginSetting != null) {
+        if ((interceptable == null || interceptable.invokeLLZ(1048595, this, pluginSetting, aVar, z) == null) && this.f23867c && pluginSetting != null) {
             BdFileDownloadData bdFileDownloadData = new BdFileDownloadData(pluginSetting.packageName, pluginSetting.url);
             bdFileDownloadData.setName(Util.f(pluginSetting));
             bdFileDownloadData.setPath(Util.h(pluginSetting));
@@ -1053,10 +1047,10 @@ public class PluginPackageManager {
                 }
             }
             if (aVar != null) {
-                bdFileDownloadData.setStatusMsg(BdBaseApplication.getInst().getString(R.string.rom_too_small));
+                bdFileDownloadData.setStatusMsg(BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc1));
                 bdFileDownloadData.setStatus(2);
                 bdFileDownloadData.setErrorCode(-1);
-                aVar.a(bdFileDownloadData, -1, BdBaseApplication.getInst().getString(R.string.rom_too_small), "rom is too small");
+                aVar.a(bdFileDownloadData, -1, BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc1), "rom is too small");
             }
             c.a.d.j.h.a.b().o("plugin_download", "rom too small", pluginSetting.packageName);
         }
@@ -1066,13 +1060,13 @@ public class PluginPackageManager {
         h remove;
         c.a.d.j.g.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.f29859b.remove(str)) == null || (bVar = remove.f29873b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{str, Boolean.valueOf(z), str2}) == null) || StringUtils.isNull(str) || (remove = this.f23866b.remove(str)) == null || (bVar = remove.f23877b) == null) {
             return;
         }
         if (z) {
             bVar.a(str);
         } else {
-            bVar.b(remove.f29874c, str2);
+            bVar.b(remove.f23878c, str2);
         }
     }
 
@@ -1098,7 +1092,7 @@ public class PluginPackageManager {
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f29866i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.i : invokeV.intValue;
     }
 
     public boolean x(String str) {
@@ -1109,7 +1103,7 @@ public class PluginPackageManager {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int i2 = -1;
+            int i = -1;
             PluginNetConfigInfos b2 = c.a.d.j.j.e.d.a().b();
             if (b2 != null) {
                 PluginNetConfigInfos.PluginConfig pluginConfig = b2.getPluginConfig(str);
@@ -1117,16 +1111,16 @@ public class PluginPackageManager {
                     return false;
                 }
                 if (pluginConfig != null && (newest = pluginConfig.newest) != null) {
-                    i2 = newest.version_code;
+                    i = newest.version_code;
                 }
             }
             PluginSetting h2 = c.a.d.j.j.f.c.j().h(str);
             if (h2 != null) {
-                int i3 = h2.versionCode;
-                if (i3 < i2 || i3 < h2.tempVersionCode) {
+                int i2 = h2.versionCode;
+                if (i2 < i || i2 < h2.tempVersionCode) {
                     return true;
                 }
-            } else if (i2 > 0) {
+            } else if (i > 0) {
                 return true;
             }
             return false;

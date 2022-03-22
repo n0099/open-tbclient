@@ -51,9 +51,9 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flowableWithLatestFromMany};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,16 +85,16 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         public final WithLatestInnerSubscriber[] subscribers;
         public final AtomicReferenceArray<Object> values;
 
-        public WithLatestFromSubscriber(Subscriber<? super R> subscriber, Function<? super Object[], R> function, int i2) {
+        public WithLatestFromSubscriber(Subscriber<? super R> subscriber, Function<? super Object[], R> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,12 +102,12 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             }
             this.actual = subscriber;
             this.combiner = function;
-            WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = new WithLatestInnerSubscriber[i2];
-            for (int i5 = 0; i5 < i2; i5++) {
-                withLatestInnerSubscriberArr[i5] = new WithLatestInnerSubscriber(this, i5);
+            WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = new WithLatestInnerSubscriber[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                withLatestInnerSubscriberArr[i4] = new WithLatestInnerSubscriber(this, i4);
             }
             this.subscribers = withLatestInnerSubscriberArr;
-            this.values = new AtomicReferenceArray<>(i2);
+            this.values = new AtomicReferenceArray<>(i);
             this.s = new AtomicReference<>();
             this.requested = new AtomicLong();
             this.error = new AtomicThrowable();
@@ -124,43 +124,43 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             }
         }
 
-        public void cancelAllBut(int i2) {
+        public void cancelAllBut(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = this.subscribers;
-                for (int i3 = 0; i3 < withLatestInnerSubscriberArr.length; i3++) {
-                    if (i3 != i2) {
-                        withLatestInnerSubscriberArr[i3].dispose();
+                for (int i2 = 0; i2 < withLatestInnerSubscriberArr.length; i2++) {
+                    if (i2 != i) {
+                        withLatestInnerSubscriberArr[i2].dispose();
                     }
                 }
             }
         }
 
-        public void innerComplete(int i2, boolean z) {
+        public void innerComplete(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || z) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || z) {
                 return;
             }
             this.done = true;
             SubscriptionHelper.cancel(this.s);
-            cancelAllBut(i2);
+            cancelAllBut(i);
             HalfSerializer.onComplete(this.actual, this, this.error);
         }
 
-        public void innerError(int i2, Throwable th) {
+        public void innerError(int i, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, th) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, th) == null) {
                 this.done = true;
                 SubscriptionHelper.cancel(this.s);
-                cancelAllBut(i2);
+                cancelAllBut(i);
                 HalfSerializer.onError(this.actual, th, this, this.error);
             }
         }
 
-        public void innerNext(int i2, Object obj) {
+        public void innerNext(int i, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048580, this, i2, obj) == null) {
-                this.values.set(i2, obj);
+            if (interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) {
+                this.values.set(i, obj);
             }
         }
 
@@ -207,20 +207,20 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                SubscriptionHelper.deferredRequest(this.s, this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                SubscriptionHelper.deferredRequest(this.s, this.requested, j);
             }
         }
 
-        public void subscribe(Publisher<?>[] publisherArr, int i2) {
+        public void subscribe(Publisher<?>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048586, this, publisherArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048586, this, publisherArr, i) == null) {
                 WithLatestInnerSubscriber[] withLatestInnerSubscriberArr = this.subscribers;
                 AtomicReference<Subscription> atomicReference = this.s;
-                for (int i3 = 0; i3 < i2 && !SubscriptionHelper.isCancelled(atomicReference.get()); i3++) {
-                    publisherArr[i3].subscribe(withLatestInnerSubscriberArr[i3]);
+                for (int i2 = 0; i2 < i && !SubscriptionHelper.isCancelled(atomicReference.get()); i2++) {
+                    publisherArr[i2].subscribe(withLatestInnerSubscriberArr[i2]);
                 }
             }
         }
@@ -237,14 +237,14 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
                 int length = atomicReferenceArray.length();
                 Object[] objArr = new Object[length + 1];
                 objArr[0] = t;
-                int i2 = 0;
-                while (i2 < length) {
-                    Object obj = atomicReferenceArray.get(i2);
+                int i = 0;
+                while (i < length) {
+                    Object obj = atomicReferenceArray.get(i);
                     if (obj == null) {
                         return false;
                     }
-                    i2++;
-                    objArr[i2] = obj;
+                    i++;
+                    objArr[i] = obj;
                 }
                 try {
                     HalfSerializer.onNext(this.actual, ObjectHelper.requireNonNull(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
@@ -269,23 +269,23 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
         public final int index;
         public final WithLatestFromSubscriber<?, ?> parent;
 
-        public WithLatestInnerSubscriber(WithLatestFromSubscriber<?, ?> withLatestFromSubscriber, int i2) {
+        public WithLatestInnerSubscriber(WithLatestFromSubscriber<?, ?> withLatestFromSubscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {withLatestFromSubscriber, Integer.valueOf(i2)};
+                Object[] objArr = {withLatestFromSubscriber, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = withLatestFromSubscriber;
-            this.index = i2;
+            this.index = i;
         }
 
         public void dispose() {
@@ -340,9 +340,9 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, publisherArr, function};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -368,9 +368,9 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
                         if (length == publisherArr.length) {
                             publisherArr = (Publisher[]) Arrays.copyOf(publisherArr, (length >> 1) + length);
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         publisherArr[length] = publisher;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -400,9 +400,9 @@ public final class FlowableWithLatestFromMany<T, R> extends AbstractFlowableWith
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, iterable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

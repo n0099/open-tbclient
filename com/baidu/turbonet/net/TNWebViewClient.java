@@ -3,12 +3,13 @@ package com.baidu.turbonet.net;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import c.a.s0.b.e.d;
+import c.a.q0.b.e.d;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ public class TNWebViewClient extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            String str2 = "TNWebViewClient loading page finish " + str;
+            Log.d("tn_TNWebViewClient", "TNWebViewClient loading page finish " + str);
         }
     }
 
@@ -42,7 +43,7 @@ public class TNWebViewClient extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            String str2 = "TNWebViewClient loading page start " + str;
+            Log.d("tn_TNWebViewClient", "TNWebViewClient loading page start " + str);
         }
     }
 
@@ -58,14 +59,14 @@ public class TNWebViewClient extends WebViewClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest)) == null) {
             try {
             } catch (MalformedURLException e2) {
-                String str3 = "MalformedURLException when intercept webview request: " + e2.toString();
+                Log.e("tn_TNWebViewClient", "MalformedURLException when intercept webview request: " + e2.toString());
             } catch (IOException e3) {
-                String str4 = "IOException when intercept webview request: " + e3.toString();
+                Log.e("tn_TNWebViewClient", "IOException when intercept webview request: " + e3.toString());
             } catch (Exception e4) {
-                String str5 = "Exception when intercept webview request: " + e4.toString();
+                Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e4.toString());
             }
             if (webResourceRequest.getMethod().equals("GET") && !this.a.f()) {
-                String str6 = "Intercept request and send " + webResourceRequest.getUrl().toString();
+                Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
                 d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.a);
                 dVar.setRequestMethod(webResourceRequest.getMethod());
                 Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
@@ -86,20 +87,20 @@ public class TNWebViewClient extends WebViewClient {
                         cookieManager.setCookie(dVar.getURL().toString(), headerField);
                     }
                     String headerField2 = dVar.getHeaderField("Content-Type");
-                    String str7 = "UTF-8";
+                    String str3 = "UTF-8";
                     if (headerField2 == null || (length = (split = headerField2.split(";")).length) <= 0) {
                         str = "UTF-8";
                         str2 = headerField2;
                     } else {
-                        String str8 = split[0];
-                        for (int i2 = 0; i2 < length; i2++) {
-                            String trim = split[i2].trim();
+                        String str4 = split[0];
+                        for (int i = 0; i < length; i++) {
+                            String trim = split[i].trim();
                             if (trim.toLowerCase(Locale.ENGLISH).startsWith("charset=")) {
-                                str7 = trim.substring(8);
+                                str3 = trim.substring(8);
                             }
                         }
-                        str = str7;
-                        str2 = str8;
+                        str = str3;
+                        str2 = str4;
                     }
                     Map<String, List<String>> headerFields = dVar.getHeaderFields();
                     if (headerFields != null) {
@@ -122,6 +123,7 @@ public class TNWebViewClient extends WebViewClient {
                     }
                     return null;
                 }
+                Log.d("tn_TNWebViewClient", "The status code passed to WebResourceResponse needs to be in the ranges [100, 299], [400, 599].");
                 return null;
             }
             return null;

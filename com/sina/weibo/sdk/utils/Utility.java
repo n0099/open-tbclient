@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -31,9 +30,9 @@ public class Utility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -76,7 +75,7 @@ public class Utility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             String packageName = context.getPackageName();
-            String str = (TextUtils.isEmpty(packageName) || !packageName.contains("com.sina.weibo")) ? "weibosdk" : PassProviderPlugin.LOGIN_TYPE_WEIBO;
+            String str = (TextUtils.isEmpty(packageName) || !packageName.contains("com.sina.weibo")) ? "weibosdk" : "weibo";
             sb.append(Build.MANUFACTURER);
             sb.append("-");
             sb.append(Build.MODEL);
@@ -109,8 +108,8 @@ public class Utility {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-                for (int i2 = 0; i2 < packageInfo.signatures.length; i2++) {
-                    byte[] byteArray = packageInfo.signatures[i2].toByteArray();
+                for (int i = 0; i < packageInfo.signatures.length; i++) {
+                    byte[] byteArray = packageInfo.signatures[i].toByteArray();
                     if (byteArray != null) {
                         return MD5.hexdigest(byteArray);
                     }

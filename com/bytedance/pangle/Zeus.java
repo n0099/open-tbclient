@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
     public static Application sApplication;
@@ -55,9 +55,9 @@ public class Zeus {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,7 +77,7 @@ public class Zeus {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
             com.bytedance.pangle.download.g a = com.bytedance.pangle.download.g.a();
             synchronized (a) {
-                Iterator<PluginDownloadBean> it = a.f51666c.iterator();
+                Iterator<PluginDownloadBean> it = a.f38091c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -89,7 +89,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a.f51665b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a.f38090b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -233,9 +233,9 @@ public class Zeus {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -261,10 +261,10 @@ public class Zeus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, zeusPluginStateListener) == null) {
             g a = g.a();
-            if (a.f51713c.isEmpty()) {
-                a.f51713c = new CopyOnWriteArrayList();
+            if (a.f38134c.isEmpty()) {
+                a.f38134c = new CopyOnWriteArrayList();
             }
-            a.f51713c.add(zeusPluginStateListener);
+            a.f38134c.add(zeusPluginStateListener);
         }
     }
 
@@ -307,8 +307,8 @@ public class Zeus {
         g a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).f51713c) != null && list.contains(zeusPluginStateListener)) {
-            a.f51713c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).f38134c) != null && list.contains(zeusPluginStateListener)) {
+            a.f38134c.remove(zeusPluginStateListener);
         }
     }
 

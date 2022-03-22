@@ -17,7 +17,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletablePeek extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,14 +29,14 @@ public final class CompletablePeek extends Completable {
     public final Action onTerminate;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class CompletableObserverImplementation implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60685d;
+        public Disposable f45295d;
         public final /* synthetic */ CompletablePeek this$0;
 
         public CompletableObserverImplementation(CompletablePeek completablePeek, CompletableObserver completableObserver) {
@@ -46,9 +46,9 @@ public final class CompletablePeek extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completablePeek, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -68,7 +68,7 @@ public final class CompletablePeek extends Completable {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
                 }
-                this.f60685d.dispose();
+                this.f45295d.dispose();
             }
         }
 
@@ -88,13 +88,13 @@ public final class CompletablePeek extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60685d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45295d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f60685d == DisposableHelper.DISPOSED) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f45295d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -112,7 +112,7 @@ public final class CompletablePeek extends Completable {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                if (this.f60685d == DisposableHelper.DISPOSED) {
+                if (this.f45295d == DisposableHelper.DISPOSED) {
                     RxJavaPlugins.onError(th);
                     return;
                 }
@@ -134,14 +134,14 @@ public final class CompletablePeek extends Completable {
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
                 try {
                     this.this$0.onSubscribe.accept(disposable);
-                    if (DisposableHelper.validate(this.f60685d, disposable)) {
-                        this.f60685d = disposable;
+                    if (DisposableHelper.validate(this.f45295d, disposable)) {
+                        this.f45295d = disposable;
                         this.actual.onSubscribe(this);
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     disposable.dispose();
-                    this.f60685d = DisposableHelper.DISPOSED;
+                    this.f45295d = DisposableHelper.DISPOSED;
                     EmptyDisposable.error(th, this.actual);
                 }
             }
@@ -155,9 +155,9 @@ public final class CompletablePeek extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSource, consumer, consumer2, action, action2, action3, action4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

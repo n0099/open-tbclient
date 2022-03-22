@@ -3,36 +3,32 @@ package com.bytedance.sdk.openadsdk;
 import com.bytedance.sdk.openadsdk.AdConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TTAdConfig implements AdConfig {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51787b;
+    public String f38204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51788c;
+    public boolean f38205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51789d;
+    public String f38206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51790e;
+    public String f38207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f51791f;
+    public int f38208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f51792g;
+    public boolean f38209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51793h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f51794i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int[] f51795j;
+    public boolean f38210h;
+    public boolean i;
+    public int[] j;
     public boolean k;
     public boolean l;
     public String[] m;
@@ -41,52 +37,48 @@ public final class TTAdConfig implements AdConfig {
     public TTCustomController p;
     public int q;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f51796b;
+        public String f38211b;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f51798d;
+        public String f38213d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f51799e;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int[] f51804j;
+        public String f38214e;
+        public int[] j;
         public String[] m;
         public TTCustomController o;
         public int p;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f51797c = false;
+        public boolean f38212c = false;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f51800f = 0;
+        public int f38215f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f51801g = true;
+        public boolean f38216g = true;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f51802h = false;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f51803i = false;
+        public boolean f38217h = false;
+        public boolean i = false;
         public boolean k = false;
         public boolean l = false;
         public boolean n = false;
         public int q = 2;
 
         public Builder allowShowNotify(boolean z) {
-            this.f51801g = z;
+            this.f38216g = z;
             return this;
         }
 
         @Deprecated
         public Builder allowShowPageWhenScreenLock(boolean z) {
-            this.f51803i = z;
+            this.i = z;
             return this;
         }
 
@@ -96,7 +88,7 @@ public final class TTAdConfig implements AdConfig {
         }
 
         public Builder appName(String str) {
-            this.f51796b = str;
+            this.f38211b = str;
             return this;
         }
 
@@ -108,15 +100,15 @@ public final class TTAdConfig implements AdConfig {
         public TTAdConfig build() {
             TTAdConfig tTAdConfig = new TTAdConfig();
             tTAdConfig.setAppId(this.a);
-            tTAdConfig.setAppName(this.f51796b);
-            tTAdConfig.setPaid(this.f51797c);
-            tTAdConfig.setKeywords(this.f51798d);
-            tTAdConfig.setData(this.f51799e);
-            tTAdConfig.setTitleBarTheme(this.f51800f);
-            tTAdConfig.setAllowShowNotify(this.f51801g);
-            tTAdConfig.setDebug(this.f51802h);
-            tTAdConfig.setAllowShowPageWhenScreenLock(this.f51803i);
-            tTAdConfig.setDirectDownloadNetworkType(this.f51804j);
+            tTAdConfig.setAppName(this.f38211b);
+            tTAdConfig.setPaid(this.f38212c);
+            tTAdConfig.setKeywords(this.f38213d);
+            tTAdConfig.setData(this.f38214e);
+            tTAdConfig.setTitleBarTheme(this.f38215f);
+            tTAdConfig.setAllowShowNotify(this.f38216g);
+            tTAdConfig.setDebug(this.f38217h);
+            tTAdConfig.setAllowShowPageWhenScreenLock(this.i);
+            tTAdConfig.setDirectDownloadNetworkType(this.j);
             tTAdConfig.setUseTextureView(this.k);
             tTAdConfig.setSupportMultiProcess(this.l);
             tTAdConfig.setNeedClearTaskReset(this.m);
@@ -133,22 +125,22 @@ public final class TTAdConfig implements AdConfig {
         }
 
         public Builder data(String str) {
-            this.f51799e = str;
+            this.f38214e = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.f51802h = z;
+            this.f38217h = z;
             return this;
         }
 
         public Builder directDownloadNetworkType(int... iArr) {
-            this.f51804j = iArr;
+            this.j = iArr;
             return this;
         }
 
         public Builder keywords(String str) {
-            this.f51798d = str;
+            this.f38213d = str;
             return this;
         }
 
@@ -158,12 +150,12 @@ public final class TTAdConfig implements AdConfig {
         }
 
         public Builder paid(boolean z) {
-            this.f51797c = z;
+            this.f38212c = z;
             return this;
         }
 
-        public Builder setPluginUpdateConfig(int i2) {
-            this.q = i2;
+        public Builder setPluginUpdateConfig(int i) {
+            this.q = i;
             return this;
         }
 
@@ -172,13 +164,13 @@ public final class TTAdConfig implements AdConfig {
             return this;
         }
 
-        public Builder themeStatus(int i2) {
-            this.p = i2;
+        public Builder themeStatus(int i) {
+            this.p = i;
             return this;
         }
 
-        public Builder titleBarTheme(int i2) {
-            this.f51800f = i2;
+        public Builder titleBarTheme(int i) {
+            this.f38215f = i;
             return this;
         }
 
@@ -195,7 +187,7 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public String getAppName() {
-        return this.f51787b;
+        return this.f38204b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -205,12 +197,12 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public String getData() {
-        return this.f51790e;
+        return this.f38207e;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public int[] getDirectDownloadNetworkType() {
-        return this.f51795j;
+        return this.j;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -221,7 +213,7 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public String getKeywords() {
-        return this.f51789d;
+        return this.f38206d;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -260,17 +252,17 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public int getTitleBarTheme() {
-        return this.f51791f;
+        return this.f38208f;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isAllowShowNotify() {
-        return this.f51792g;
+        return this.f38209g;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isAllowShowPageWhenScreenLock() {
-        return this.f51794i;
+        return this.i;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -280,12 +272,12 @@ public final class TTAdConfig implements AdConfig {
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isDebug() {
-        return this.f51793h;
+        return this.f38210h;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
     public boolean isPaid() {
-        return this.f51788c;
+        return this.f38205c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -304,11 +296,11 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setAllowShowNotify(boolean z) {
-        this.f51792g = z;
+        this.f38209g = z;
     }
 
     public void setAllowShowPageWhenScreenLock(boolean z) {
-        this.f51794i = z;
+        this.i = z;
     }
 
     public void setAppId(String str) {
@@ -316,7 +308,7 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setAppName(String str) {
-        this.f51787b = str;
+        this.f38204b = str;
     }
 
     public void setAsyncInit(boolean z) {
@@ -328,15 +320,15 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setData(String str) {
-        this.f51790e = str;
+        this.f38207e = str;
     }
 
     public void setDebug(boolean z) {
-        this.f51793h = z;
+        this.f38210h = z;
     }
 
     public void setDirectDownloadNetworkType(int... iArr) {
-        this.f51795j = iArr;
+        this.j = iArr;
     }
 
     @Override // com.bytedance.sdk.openadsdk.AdConfig
@@ -346,7 +338,7 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setKeywords(String str) {
-        this.f51789d = str;
+        this.f38206d = str;
     }
 
     public void setNeedClearTaskReset(String... strArr) {
@@ -354,19 +346,19 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public void setPaid(boolean z) {
-        this.f51788c = z;
+        this.f38205c = z;
     }
 
     public void setSupportMultiProcess(boolean z) {
         this.l = z;
     }
 
-    public void setThemeStatus(int i2) {
-        this.q = i2;
+    public void setThemeStatus(int i) {
+        this.q = i;
     }
 
-    public void setTitleBarTheme(int i2) {
-        this.f51791f = i2;
+    public void setTitleBarTheme(int i) {
+        this.f38208f = i;
     }
 
     public void setUseTextureView(boolean z) {
@@ -374,11 +366,11 @@ public final class TTAdConfig implements AdConfig {
     }
 
     public TTAdConfig() {
-        this.f51788c = false;
-        this.f51791f = 0;
-        this.f51792g = true;
-        this.f51793h = false;
-        this.f51794i = false;
+        this.f38205c = false;
+        this.f38208f = 0;
+        this.f38209g = true;
+        this.f38210h = false;
+        this.i = false;
         this.k = false;
         this.l = false;
         this.n = false;

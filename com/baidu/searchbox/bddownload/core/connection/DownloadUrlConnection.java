@@ -45,20 +45,20 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public Configuration connectTimeout(int i2) {
+        public Configuration connectTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.connectTimeout = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.connectTimeout = Integer.valueOf(i);
                 return this;
             }
             return (Configuration) invokeI.objValue;
@@ -74,11 +74,11 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             return (Configuration) invokeL.objValue;
         }
 
-        public Configuration readTimeout(int i2) {
+        public Configuration readTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.readTimeout = Integer.valueOf(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.readTimeout = Integer.valueOf(i);
                 return this;
             }
             return (Configuration) invokeI.objValue;
@@ -98,9 +98,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((Configuration) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -122,9 +122,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
                 newInitContext.initArgs = r2;
                 Object[] objArr = {configuration};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -153,9 +153,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -175,18 +175,18 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadConnection, connected, map) == null) {
                 DownloadUrlConnection downloadUrlConnection = (DownloadUrlConnection) downloadConnection;
-                int i2 = 0;
+                int i = 0;
                 for (int responseCode = connected.getResponseCode(); RedirectUtil.isRedirect(responseCode); responseCode = downloadUrlConnection.getResponseCode()) {
                     downloadUrlConnection.release();
-                    i2++;
-                    if (i2 <= 10) {
+                    i++;
+                    if (i <= 10) {
                         this.redirectLocation = RedirectUtil.getRedirectedUrl(connected, responseCode);
                         downloadUrlConnection.url = new URL(this.redirectLocation);
                         downloadUrlConnection.configUrlConnection();
                         Util.addRequestHeaderFields(map, downloadUrlConnection);
                         downloadUrlConnection.connection.connect();
                     } else {
-                        throw new ProtocolException("Too many redirect requests: " + i2);
+                        throw new ProtocolException("Too many redirect requests: " + i);
                     }
                 }
             }
@@ -202,9 +202,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {uRLConnection};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URLConnection) objArr2[0], (IRedirectHandler) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -350,9 +350,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {uRLConnection, iRedirectHandler};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -372,9 +372,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {str, configuration};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URL) objArr2[0], (Configuration) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -393,9 +393,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {url, configuration};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URL) objArr2[0], (Configuration) objArr2[1], (IRedirectHandler) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -412,9 +412,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {url, configuration, iRedirectHandler};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -435,9 +435,9 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Configuration) objArr2[1]);
                 newInitContext.thisArg = this;

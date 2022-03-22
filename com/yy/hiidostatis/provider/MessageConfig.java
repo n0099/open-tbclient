@@ -15,7 +15,7 @@ import com.yy.hiidostatis.defs.listener.ActListener;
 import com.yy.hiidostatis.defs.listener.HiidoSdkAdditionDelegate;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_INTERVAL = 5;
@@ -57,9 +57,9 @@ public class MessageConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -304,10 +304,10 @@ public class MessageConfig {
         }
     }
 
-    public void setBatchThreshold(int i2) {
+    public void setBatchThreshold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.batchThreshold = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.batchThreshold = i;
         }
     }
 
@@ -318,17 +318,17 @@ public class MessageConfig {
         }
     }
 
-    public void setDefaultMetricsExpire(int i2) {
+    public void setDefaultMetricsExpire(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.defaultMetricsExpire = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.defaultMetricsExpire = i;
         }
     }
 
-    public void setDefaultMetricsInterval(int i2) {
+    public void setDefaultMetricsInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.defaultMetricsInterval = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.defaultMetricsInterval = i;
         }
     }
 
@@ -360,10 +360,10 @@ public class MessageConfig {
         }
     }
 
-    public void setInterval(int i2) {
+    public void setInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.interval = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.interval = i;
         }
     }
 

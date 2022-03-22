@@ -27,9 +27,9 @@ public final class ParcelableCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelableCompatCreatorCallbacks};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -46,10 +46,10 @@ public final class ParcelableCompat {
         }
 
         @Override // android.os.Parcelable.Creator
-        public T[] newArray(int i2) {
+        public T[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mCallbacks.newArray(i2) : (T[]) ((Object[]) invokeI.objValue);
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mCallbacks.newArray(i) : (T[]) ((Object[]) invokeI.objValue);
         }
 
         @Override // android.os.Parcelable.ClassLoaderCreator
@@ -65,9 +65,9 @@ public final class ParcelableCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

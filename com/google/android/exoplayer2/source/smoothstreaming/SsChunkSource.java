@@ -5,12 +5,12 @@ import com.google.android.exoplayer2.source.chunk.ChunkSource;
 import com.google.android.exoplayer2.source.smoothstreaming.manifest.SsManifest;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface SsChunkSource extends ChunkSource {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory {
-        SsChunkSource createChunkSource(LoaderErrorThrower loaderErrorThrower, SsManifest ssManifest, int i2, TrackSelection trackSelection, TrackEncryptionBox[] trackEncryptionBoxArr);
+        SsChunkSource createChunkSource(LoaderErrorThrower loaderErrorThrower, SsManifest ssManifest, int i, TrackSelection trackSelection, TrackEncryptionBox[] trackEncryptionBoxArr);
     }
 
     void updateManifest(SsManifest ssManifest);

@@ -11,6 +11,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IdentifierIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAID_FLAG = "AAID";
@@ -74,9 +75,9 @@ public class IdentifierIdClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -130,7 +131,7 @@ public class IdentifierIdClient {
             try {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, "0");
+                    return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, "0");
                 } catch (Exception unused) {
                     IdentifierIdLog.e(TAG, "getProperty: invoke is error");
                     return str2;
@@ -142,24 +143,24 @@ public class IdentifierIdClient {
         return (String) invokeLL.objValue;
     }
 
-    public static synchronized void initObserver(Context context, int i2, String str) {
+    public static synchronized void initObserver(Context context, int i, String str) {
         ContentResolver contentResolver;
         Uri parse;
         IdentifierIdObserver identifierIdObserver;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65547, null, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65547, null, context, i, str) == null) {
             synchronized (IdentifierIdClient.class) {
                 String packageName = context.getPackageName();
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 == 2 && mAAIDObserver == null) {
-                            int i3 = Build.VERSION.SDK_INT;
-                            if (i3 >= 29) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2 && mAAIDObserver == null) {
+                            int i2 = Build.VERSION.SDK_INT;
+                            if (i2 >= 29) {
                                 mAAIDObserver = new IdentifierIdObserver(mInstance, 2, packageName);
                                 contentResolver = context.getContentResolver();
                                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/" + packageName);
                                 identifierIdObserver = mAAIDObserver;
-                            } else if (i3 == 28) {
+                            } else if (i2 == 28) {
                                 mAAIDObserver = new IdentifierIdObserver(mInstance, 2, str);
                                 contentResolver = context.getContentResolver();
                                 parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str);
@@ -168,13 +169,13 @@ public class IdentifierIdClient {
                             contentResolver.registerContentObserver(parse, false, identifierIdObserver);
                         }
                     } else if (mVAIDObserver == null) {
-                        int i4 = Build.VERSION.SDK_INT;
-                        if (i4 >= 29) {
+                        int i3 = Build.VERSION.SDK_INT;
+                        if (i3 >= 29) {
                             mVAIDObserver = new IdentifierIdObserver(mInstance, 1, packageName);
                             contentResolver = context.getContentResolver();
                             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + packageName);
                             identifierIdObserver = mVAIDObserver;
-                        } else if (i4 == 28) {
+                        } else if (i3 == 28) {
                             mVAIDObserver = new IdentifierIdObserver(mInstance, 1, str);
                             contentResolver = context.getContentResolver();
                             parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str);
@@ -209,9 +210,9 @@ public class IdentifierIdClient {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super((Looper) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -228,14 +229,14 @@ public class IdentifierIdClient {
                             IdentifierIdLog.e(IdentifierIdClient.TAG, "message type valid");
                             return;
                         }
-                        int i2 = message.getData().getInt("type");
+                        int i = message.getData().getInt("type");
                         try {
-                            String query = IdentifierIdClient.mDatabase.query(i2, message.getData().getString("appid"));
-                            if (i2 == 0) {
+                            String query = IdentifierIdClient.mDatabase.query(i, message.getData().getString("appid"));
+                            if (i == 0) {
                                 String unused = IdentifierIdClient.mOAID = query;
-                            } else if (i2 != 1) {
-                                if (i2 != 2) {
-                                    if (i2 != 4) {
+                            } else if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 4) {
                                     }
                                 } else if (query != null) {
                                     String unused2 = IdentifierIdClient.mAAID = query;
@@ -272,11 +273,11 @@ public class IdentifierIdClient {
         return invokeV.booleanValue;
     }
 
-    private void queryId(int i2, String str) {
+    private void queryId(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65550, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65550, this, i, str) == null) {
             synchronized (mLock) {
-                sendMessageToDataBase(i2, str);
+                sendMessageToDataBase(i, str);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
                     mLock.wait(2000L);
@@ -393,14 +394,14 @@ public class IdentifierIdClient {
         return (String) invokeL.objValue;
     }
 
-    public void sendMessageToDataBase(int i2, String str) {
+    public void sendMessageToDataBase(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
             Message obtainMessage = mSqlHandler.obtainMessage();
             obtainMessage.what = 11;
             Bundle bundle = new Bundle();
-            bundle.putInt("type", i2);
-            if (i2 == 1 || i2 == 2) {
+            bundle.putInt("type", i);
+            if (i == 1 || i == 2) {
                 bundle.putString("appid", str);
             }
             obtainMessage.setData(bundle);

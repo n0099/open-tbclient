@@ -44,9 +44,9 @@ public class CoreStatPlugin extends AbsPlugin {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,7 +72,7 @@ public class CoreStatPlugin extends AbsPlugin {
     private long getMsgChannelCost(@Nullable String str) {
         InterceptResult invokeL;
         long parseLong;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -87,14 +87,14 @@ public class CoreStatPlugin extends AbsPlugin {
                 sb.append("; firstDisplayNotifyTime = ");
                 sb.append(parseLong);
                 sb.append("; diff = ");
-                j2 = currentTimeMillis - parseLong;
-                sb.append(j2);
+                j = currentTimeMillis - parseLong;
+                sb.append(j);
                 BdVideoLog.d(TAG, sb.toString());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             if (parseLong > 0) {
-                return j2;
+                return j;
             }
             return 0L;
         }
@@ -149,14 +149,14 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i2, String str) {
+    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65543, this, bDVideoPlayerUbcContent, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65543, this, bDVideoPlayerUbcContent, i, str) == null) {
             BdVideoLog.d("【Statistics】 onError upload begin");
             try {
                 JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
-                extStatisticsLogClone.putOpt(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, Integer.valueOf(i2));
-                extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i2));
+                extStatisticsLogClone.putOpt(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, Integer.valueOf(i));
+                extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i));
                 extStatisticsLogClone.putOpt("errorInfo", str);
                 this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));
             } catch (JSONException e2) {

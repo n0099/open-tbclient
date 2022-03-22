@@ -28,7 +28,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60690d;
+        public Disposable f45300d;
         public final OtherSubscriber<T> other;
         public final Publisher<U> otherSource;
 
@@ -39,9 +39,9 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,8 +55,8 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60690d.dispose();
-                this.f60690d = DisposableHelper.DISPOSED;
+                this.f45300d.dispose();
+                this.f45300d = DisposableHelper.DISPOSED;
                 SubscriptionHelper.cancel(this.other);
             }
         }
@@ -72,7 +72,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f60690d = DisposableHelper.DISPOSED;
+                this.f45300d = DisposableHelper.DISPOSED;
                 subscribeNext();
             }
         }
@@ -81,7 +81,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f60690d = DisposableHelper.DISPOSED;
+                this.f45300d = DisposableHelper.DISPOSED;
                 this.other.error = th;
                 subscribeNext();
             }
@@ -90,8 +90,8 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f60690d, disposable)) {
-                this.f60690d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45300d, disposable)) {
+                this.f45300d = disposable;
                 this.other.actual.onSubscribe(this);
             }
         }
@@ -100,7 +100,7 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f60690d = DisposableHelper.DISPOSED;
+                this.f45300d = DisposableHelper.DISPOSED;
                 this.other.value = t;
                 subscribeNext();
             }
@@ -130,9 +130,9 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -203,9 +203,9 @@ public final class MaybeDelayOtherPublisher<T, U> extends AbstractMaybeWithUpstr
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource, publisher};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MaybeSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.bytedance.sdk.openadsdk.ITTProvider;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TTMultiProvider extends ContentProvider {
     private ITTProvider a() {
         if (TTAdSdk.getAdManager() != null) {

@@ -7,45 +7,45 @@ import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str, int i2, String str2) {
+    public static void a(Context context, String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, context, str, i2, str2) == null) {
-            ai.a(context).a(new dx(context, str, i2, str2));
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, context, str, i, str2) == null) {
+            ai.a(context).a(new dx(context, str, i, str2));
         }
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m346a;
+        ee m325a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m346a = ea.a(context).m346a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
             return;
         }
-        m346a.a(context, hashMap);
+        m325a.a(context, hashMap);
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m346a;
+        ee m325a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m346a = ea.a(context).m346a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
             return;
         }
-        m346a.c(context, hashMap);
+        m325a.c(context, hashMap);
     }
 
-    public static void c(Context context, String str, int i2, String str2) {
+    public static void c(Context context, String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, str2) == null) || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i, str2) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
             HashMap hashMap = new HashMap();
             hashMap.put("awake_info", str);
-            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i2));
+            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
             hashMap.put("description", str2);
             int a = ea.a(context).a();
             if (a != 1) {
@@ -65,11 +65,11 @@ public class dw {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m346a;
+        ee m325a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m346a = ea.a(context).m346a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
             return;
         }
-        m346a.b(context, hashMap);
+        m325a.b(context, hashMap);
     }
 }

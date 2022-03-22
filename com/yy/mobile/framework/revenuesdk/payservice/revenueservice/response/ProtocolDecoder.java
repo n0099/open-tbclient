@@ -45,7 +45,7 @@ import kotlin.jvm.internal.StringCompanionObject;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000B\u0007¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010\u0006\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\u0006\u0010\u0007J-\u0010\n\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\b\u001a\u00020\u00032\u0006\u0010\t\u001a\u00020\u00012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\b\u001a\u0004\u0018\u00010\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\r\u0010\u000eJ=\u0010\r\u001a\u00020\u00052\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\b\u001a\u0004\u0018\u00010\u00032\b\u0010\u0004\u001a\u0004\u0018\u00010\f2\u0006\u0010\t\u001a\u00020\u00012\b\u0010\u000f\u001a\u0004\u0018\u00010\u0003H\u0002¢\u0006\u0004\b\r\u0010\u0010J\u0019\u0010\u0012\u001a\u0004\u0018\u00010\u00112\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u001b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u0012\u0010\u0015J\u0019\u0010\u0017\u001a\u0004\u0018\u00010\u00162\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0019\u0010\u0017\u001a\u0004\u0018\u00010\u00162\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014¢\u0006\u0004\b\u0017\u0010\u0019J\u0019\u0010\u001b\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u0004\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u001b\u0010\u001b\u001a\u0004\u0018\u00010\u001a2\b\u0010\u0004\u001a\u0004\u0018\u00010\u0014H\u0002¢\u0006\u0004\b\u001b\u0010\u001d¨\u0006 "}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ProtocolDecoder;", "", "command", "", "data", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "decode", "(ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "seq", "result", "decodeError", "(ILjava/lang/String;ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "", "newResponse", "(ILjava/lang/String;Ljava/lang/Object;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "message", "(ILjava/lang/String;Ljava/lang/Object;ILjava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/response/ServiceResponse;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "parseAccountDelayMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "Lorg/json/JSONObject;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/AccountDelayMessage;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "parseConsumeConfirmMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ConsumeConfirmMessage;", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "parseCurrencyChargeMessage", "(Ljava/lang/String;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "(Lorg/json/JSONObject;)Lcom/yy/mobile/framework/revenuesdk/payapi/bean/CurrencyChargeMessage;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ProtocolDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,19 +55,19 @@ public final class ProtocolDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private final ServiceResponse newResponse(int i2, String str, Object obj) {
+    private final ServiceResponse newResponse(int i, String str, Object obj) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65537, this, i2, str, obj)) == null) ? newResponse(i2, str, obj, 1, "") : (ServiceResponse) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(65537, this, i, str, obj)) == null) ? newResponse(i, str, obj, 1, "") : (ServiceResponse) invokeILL.objValue;
     }
 
     private final AccountDelayMessage parseAccountDelayMessage(String str) {
@@ -110,11 +110,11 @@ public final class ProtocolDecoder {
         return (CurrencyChargeMessage) invokeL.objValue;
     }
 
-    public final ServiceResponse decode(int i2, String str) {
+    public final ServiceResponse decode(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            switch (i) {
                 case 2005:
                     GetUserAccountResponse getUserAccountResponse = new GetUserAccountResponse(str);
                     return newResponse(1005, getUserAccountResponse.seq, new MyBalanceResult(new MyBalanceInfo(getUserAccountResponse.accountList, getUserAccountResponse.accountPeriodList, getUserAccountResponse.minAmountLimit, getUserAccountResponse.imid)), getUserAccountResponse.result, getUserAccountResponse.message);
@@ -184,23 +184,23 @@ public final class ProtocolDecoder {
                     String format4 = String.format("decode  null", Arrays.copyOf(new Object[0], 0));
                     Intrinsics.checkExpressionValueIsNotNull(format4, "java.lang.String.format(format, *args)");
                     RLog.info("ProtocolDecoder", format4);
-                    return decodeError(i2, "", -1, str);
+                    return decodeError(i, "", -1, str);
             }
         }
         return (ServiceResponse) invokeIL.objValue;
     }
 
-    public final ServiceResponse decodeError(int i2, String str, int i3, String str2) {
+    public final ServiceResponse decodeError(int i, String str, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2})) == null) ? newResponse(new ErrorResponse(str2).cmd, str, null, i3, "revenue sdk respone parse error") : (ServiceResponse) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2})) == null) ? newResponse(new ErrorResponse(str2).cmd, str, null, i2, "revenue sdk respone parse error") : (ServiceResponse) invokeCommon.objValue;
     }
 
-    private final ServiceResponse newResponse(int i2, String str, Object obj, int i3, String str2) {
+    private final ServiceResponse newResponse(int i, String str, Object obj, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), str, obj, Integer.valueOf(i3), str2})) == null) {
-            ServiceResponse serviceResponse = new ServiceResponse(i2, str, i3, str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), str, obj, Integer.valueOf(i2), str2})) == null) {
+            ServiceResponse serviceResponse = new ServiceResponse(i, str, i2, str2);
             serviceResponse.setData(obj);
             return serviceResponse;
         }

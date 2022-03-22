@@ -26,9 +26,9 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,8 +43,8 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, view, layoutParams, windowManager)) == null) {
             Rect rect = new Rect();
             windowManager.getDefaultDisplay().getRectSize(rect);
-            int i2 = layoutParams.x;
-            return i2 < rect.right - (view.getRight() + i2) ? -view.getRight() : rect.right;
+            int i = layoutParams.x;
+            return i < rect.right - (view.getRight() + i) ? -view.getRight() : rect.right;
         }
         return invokeLLL.intValue;
     }
@@ -75,9 +75,9 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {params, viewRef, windowManager};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -141,9 +141,9 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {params, viewRef, windowManager};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

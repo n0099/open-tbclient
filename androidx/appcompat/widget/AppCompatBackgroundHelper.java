@@ -36,9 +36,9 @@ public class AppCompatBackgroundHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,8 +81,8 @@ public class AppCompatBackgroundHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 > 21 ? this.mInternalBackgroundTint != null : i2 == 21;
+            int i = Build.VERSION.SDK_INT;
+            return i > 21 ? this.mInternalBackgroundTint != null : i == 21;
         }
         return invokeV.booleanValue;
     }
@@ -133,12 +133,12 @@ public class AppCompatBackgroundHelper {
         return (PorterDuff.Mode) invokeV.objValue;
     }
 
-    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, attributeSet, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.ViewBackgroundHelper, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, attributeSet, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.ViewBackgroundHelper, i, 0);
             View view = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(view, view.getContext(), R$styleable.ViewBackgroundHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(view, view.getContext(), R$styleable.ViewBackgroundHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             try {
                 if (obtainStyledAttributes.hasValue(R$styleable.ViewBackgroundHelper_android_background)) {
                     this.mBackgroundResId = obtainStyledAttributes.getResourceId(R$styleable.ViewBackgroundHelper_android_background, -1);
@@ -168,12 +168,12 @@ public class AppCompatBackgroundHelper {
         }
     }
 
-    public void onSetBackgroundResource(int i2) {
+    public void onSetBackgroundResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mBackgroundResId = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mBackgroundResId = i;
             AppCompatDrawableManager appCompatDrawableManager = this.mDrawableManager;
-            setInternalBackgroundTint(appCompatDrawableManager != null ? appCompatDrawableManager.getTintList(this.mView.getContext(), i2) : null);
+            setInternalBackgroundTint(appCompatDrawableManager != null ? appCompatDrawableManager.getTintList(this.mView.getContext(), i) : null);
             applySupportBackgroundTint();
         }
     }

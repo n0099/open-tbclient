@@ -1,6 +1,7 @@
 package com.baidu.ar.h;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,9 +48,9 @@ public class l {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -73,7 +74,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             synchronized (l.class) {
-                h2 = h(str.getBytes(Charset.forName("utf-8")));
+                h2 = h(str.getBytes(Charset.forName(IMAudioTransRequest.CHARSET)));
             }
             return h2;
         }
@@ -88,17 +89,17 @@ public class l {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 char[] charArray = str.toCharArray();
                 byte[] bArr = new byte[charArray.length];
-                for (int i2 = 0; i2 < charArray.length; i2++) {
-                    bArr[i2] = (byte) charArray[i2];
+                for (int i = 0; i < charArray.length; i++) {
+                    bArr[i] = (byte) charArray[i];
                 }
                 byte[] digest = messageDigest.digest(bArr);
                 StringBuffer stringBuffer = new StringBuffer();
                 for (byte b2 : digest) {
-                    int i3 = b2 & 255;
-                    if (i3 < 16) {
+                    int i2 = b2 & 255;
+                    if (i2 < 16) {
                         stringBuffer.append("0");
                     }
-                    stringBuffer.append(Integer.toHexString(i3));
+                    stringBuffer.append(Integer.toHexString(i2));
                 }
                 return stringBuffer.toString();
             } catch (Exception e2) {
@@ -109,15 +110,15 @@ public class l {
         return (String) invokeL.objValue;
     }
 
-    public static String e(byte[] bArr, int i2, int i3) {
+    public static String e(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i2, i3)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(i3 * 2);
-            int i4 = i3 + i2;
-            while (i2 < i4) {
-                a(bArr[i2], stringBuffer);
-                i2++;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i, i2)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(i2 * 2);
+            int i3 = i2 + i;
+            while (i < i3) {
+                a(bArr[i], stringBuffer);
+                i++;
             }
             return stringBuffer.toString();
         }

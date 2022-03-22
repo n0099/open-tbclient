@@ -21,7 +21,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WriteThread implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -38,9 +38,9 @@ public class WriteThread implements Runnable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -230,9 +230,9 @@ public class WriteThread implements Runnable {
                                 this.mTaskmsg.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
                                 this.mTaskmsg.progressMap = taskByKey.mProgressInfo.toString();
                                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                                long j2 = elapsedRealtime - taskByKey.mLastNotifyTime;
+                                long j = elapsedRealtime - taskByKey.mLastNotifyTime;
                                 try {
-                                    if (j2 < 500) {
+                                    if (j < 500) {
                                         binaryTaskMng3 = binaryTaskMng;
                                         try {
                                             if (taskByKey.mLastNotifySpeed <= 0) {
@@ -286,8 +286,8 @@ public class WriteThread implements Runnable {
                                     } else {
                                         binaryTaskMng3 = binaryTaskMng;
                                     }
-                                    if (j2 > 0) {
-                                        this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j2;
+                                    if (j > 0) {
+                                        this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j;
                                         if (this.mTaskmsg.transferedSpeed < 0) {
                                             this.mTaskmsg.transferedSpeed = 0L;
                                         }

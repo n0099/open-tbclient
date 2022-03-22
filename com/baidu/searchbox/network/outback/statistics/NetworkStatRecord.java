@@ -10,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.yy.gslbsdk.db.ProbeTB;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -90,9 +89,9 @@ public class NetworkStatRecord {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -189,8 +188,8 @@ public class NetworkStatRecord {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j2 = this.dnsTs;
-            return j2 == -1 ? this.dnsEndTs - this.dnsStartTs : j2;
+            long j = this.dnsTs;
+            return j == -1 ? this.dnsEndTs - this.dnsStartTs : j;
         }
         return invokeV.longValue;
     }
@@ -249,11 +248,11 @@ public class NetworkStatRecord {
             sb.append(", localIP=");
             sb.append(this.localIP);
             sb.append(", connectConsume=");
-            long j2 = this.connTs;
-            sb.append(j2 <= 0 ? 0L : j2 - this.startTs);
+            long j = this.connTs;
+            sb.append(j <= 0 ? 0L : j - this.startTs);
             sb.append(", responseConsume=");
-            long j3 = this.connTs;
-            sb.append(j3 <= 0 ? this.responseTs - this.startTs : this.responseTs - j3);
+            long j2 = this.connTs;
+            sb.append(j2 <= 0 ? this.responseTs - this.startTs : this.responseTs - j2);
             sb.append(", totalConsume=");
             sb.append(this.responseTs - this.startTs);
             sb.append(", errheaders=");
@@ -317,7 +316,7 @@ public class NetworkStatRecord {
             sb.append(this.freeCardProduct);
             sb.append(", freeCardIsp=");
             sb.append(this.freeCardIsp);
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -335,7 +334,7 @@ public class NetworkStatRecord {
                     jSONObject.put("url", this.url);
                 }
                 if (!TextUtils.isEmpty(this.protocol)) {
-                    jSONObject.put("protocol", this.protocol);
+                    jSONObject.put(ProbeTB.PROTOCOL, this.protocol);
                 }
                 if (!TextUtils.isEmpty(this.netType)) {
                     jSONObject.put("netType", this.netType);
@@ -397,7 +396,7 @@ public class NetworkStatRecord {
                     jSONObject.put("exceptionMsg", getExceptionMsg(this.exception));
                 }
                 if (this.statusCode != -1) {
-                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.statusCode);
+                    jSONObject.put("statusCode", this.statusCode);
                 }
                 if (!TextUtils.isEmpty(this.localIP)) {
                     jSONObject.put("localIP", this.localIP);

@@ -31,16 +31,16 @@ public final class ObservableAmb<T> extends Observable<T> {
         public final AmbInnerObserver<T>[] observers;
         public final AtomicInteger winner;
 
-        public AmbCoordinator(Observer<? super T> observer, int i2) {
+        public AmbCoordinator(Observer<? super T> observer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Integer.valueOf(i2)};
+                Object[] objArr = {observer, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,7 +48,7 @@ public final class ObservableAmb<T> extends Observable<T> {
             }
             this.winner = new AtomicInteger();
             this.actual = observer;
-            this.observers = new AmbInnerObserver[i2];
+            this.observers = new AmbInnerObserver[i];
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -75,37 +75,37 @@ public final class ObservableAmb<T> extends Observable<T> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, observableSourceArr) == null) {
                 AmbInnerObserver<T>[] ambInnerObserverArr = this.observers;
                 int length = ambInnerObserverArr.length;
-                int i2 = 0;
-                while (i2 < length) {
-                    int i3 = i2 + 1;
-                    ambInnerObserverArr[i2] = new AmbInnerObserver<>(this, i3, this.actual);
-                    i2 = i3;
+                int i = 0;
+                while (i < length) {
+                    int i2 = i + 1;
+                    ambInnerObserverArr[i] = new AmbInnerObserver<>(this, i2, this.actual);
+                    i = i2;
                 }
                 this.winner.lazySet(0);
                 this.actual.onSubscribe(this);
-                for (int i4 = 0; i4 < length && this.winner.get() == 0; i4++) {
-                    observableSourceArr[i4].subscribe(ambInnerObserverArr[i4]);
+                for (int i3 = 0; i3 < length && this.winner.get() == 0; i3++) {
+                    observableSourceArr[i3].subscribe(ambInnerObserverArr[i3]);
                 }
             }
         }
 
-        public boolean win(int i2) {
+        public boolean win(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                int i3 = this.winner.get();
-                int i4 = 0;
-                if (i3 != 0) {
-                    return i3 == i2;
-                } else if (this.winner.compareAndSet(0, i2)) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                int i2 = this.winner.get();
+                int i3 = 0;
+                if (i2 != 0) {
+                    return i2 == i;
+                } else if (this.winner.compareAndSet(0, i)) {
                     AmbInnerObserver<T>[] ambInnerObserverArr = this.observers;
                     int length = ambInnerObserverArr.length;
-                    while (i4 < length) {
-                        int i5 = i4 + 1;
-                        if (i5 != i2) {
-                            ambInnerObserverArr[i4].dispose();
+                    while (i3 < length) {
+                        int i4 = i3 + 1;
+                        if (i4 != i) {
+                            ambInnerObserverArr[i3].dispose();
                         }
-                        i4 = i5;
+                        i3 = i4;
                     }
                     return true;
                 } else {
@@ -126,23 +126,23 @@ public final class ObservableAmb<T> extends Observable<T> {
         public final AmbCoordinator<T> parent;
         public boolean won;
 
-        public AmbInnerObserver(AmbCoordinator<T> ambCoordinator, int i2, Observer<? super T> observer) {
+        public AmbInnerObserver(AmbCoordinator<T> ambCoordinator, int i, Observer<? super T> observer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ambCoordinator, Integer.valueOf(i2), observer};
+                Object[] objArr = {ambCoordinator, Integer.valueOf(i), observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = ambCoordinator;
-            this.index = i2;
+            this.index = i;
             this.actual = observer;
         }
 
@@ -212,9 +212,9 @@ public final class ObservableAmb<T> extends Observable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSourceArr, iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -244,9 +244,9 @@ public final class ObservableAmb<T> extends Observable<T> {
                             System.arraycopy(observableSourceArr, 0, observableSourceArr2, 0, length);
                             observableSourceArr = observableSourceArr2;
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         observableSourceArr[length] = observableSource;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);

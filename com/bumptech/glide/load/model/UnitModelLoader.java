@@ -15,13 +15,13 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
     public static /* synthetic */ Interceptable $ic;
     public static final UnitModelLoader<?> INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Factory<Model> implements ModelLoaderFactory<Model, Model> {
         public static /* synthetic */ Interceptable $ic;
         public static final Factory<?> FACTORY;
@@ -49,9 +49,9 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -80,7 +80,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class UnitFetcher<Model> implements DataFetcher<Model> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,9 +93,9 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {model};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -166,9 +166,9 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -182,10 +182,10 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Model> buildLoadData(@NonNull Model model, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Model> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new UnitFetcher(model)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new UnitFetcher(model)) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader

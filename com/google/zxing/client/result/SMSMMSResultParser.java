@@ -22,9 +22,9 @@ public final class SMSMMSResultParser extends ResultParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -76,17 +76,17 @@ public final class SMSMMSResultParser extends ResultParser {
         } else {
             substring = massagedText.substring(4);
         }
-        int i2 = -1;
+        int i = -1;
         ArrayList arrayList = new ArrayList(1);
         ArrayList arrayList2 = new ArrayList(1);
         while (true) {
-            int i3 = i2 + 1;
-            int indexOf2 = substring.indexOf(44, i3);
-            if (indexOf2 > i2) {
-                addNumberVia(arrayList, arrayList2, substring.substring(i3, indexOf2));
-                i2 = indexOf2;
+            int i2 = i + 1;
+            int indexOf2 = substring.indexOf(44, i2);
+            if (indexOf2 > i) {
+                addNumberVia(arrayList, arrayList2, substring.substring(i2, indexOf2));
+                i = indexOf2;
             } else {
-                addNumberVia(arrayList, arrayList2, substring.substring(i3));
+                addNumberVia(arrayList, arrayList2, substring.substring(i2));
                 return new SMSParsedResult((String[]) arrayList.toArray(new String[arrayList.size()]), (String[]) arrayList2.toArray(new String[arrayList2.size()]), str2, str);
             }
         }

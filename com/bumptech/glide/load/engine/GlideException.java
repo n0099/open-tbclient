@@ -1,5 +1,6 @@
 package com.bumptech.glide.load.engine;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -21,7 +22,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GlideException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final StackTraceElement[] EMPTY_ELEMENTS;
@@ -58,9 +59,9 @@ public final class GlideException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -98,17 +99,17 @@ public final class GlideException extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, list, appendable) == null) {
             int size = list.size();
-            int i2 = 0;
-            while (i2 < size) {
-                int i3 = i2 + 1;
-                appendable.append("Cause (").append(String.valueOf(i3)).append(" of ").append(String.valueOf(size)).append("): ");
-                Throwable th = list.get(i2);
+            int i = 0;
+            while (i < size) {
+                int i2 = i + 1;
+                appendable.append("Cause (").append(String.valueOf(i2)).append(" of ").append(String.valueOf(size)).append("): ");
+                Throwable th = list.get(i);
                 if (th instanceof GlideException) {
                     ((GlideException) th).printStackTrace(appendable);
                 } else {
                     appendExceptionMessage(th, appendable);
                 }
-                i2 = i3;
+                i = i2;
             }
         }
     }
@@ -187,18 +188,17 @@ public final class GlideException extends Exception {
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             List<Throwable> rootCauses = getRootCauses();
             int size = rootCauses.size();
-            int i2 = 0;
-            while (i2 < size) {
+            int i = 0;
+            while (i < size) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Root cause (");
-                int i3 = i2 + 1;
-                sb.append(i3);
+                int i2 = i + 1;
+                sb.append(i2);
                 sb.append(" of ");
                 sb.append(size);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                sb.toString();
-                rootCauses.get(i2);
-                i2 = i3;
+                Log.i(str, sb.toString(), rootCauses.get(i));
+                i = i2;
             }
         }
     }
@@ -227,9 +227,9 @@ public final class GlideException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, th};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -263,9 +263,9 @@ public final class GlideException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, list};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -292,7 +292,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";
@@ -308,9 +308,9 @@ public final class GlideException extends Exception {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appendable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -355,21 +355,21 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(@Nullable CharSequence charSequence, int i2, int i3) throws IOException {
+        public Appendable append(@Nullable CharSequence charSequence, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2)) == null) {
                 CharSequence safeSequence = safeSequence(charSequence);
                 boolean z = false;
                 if (this.printedNewLine) {
                     this.printedNewLine = false;
                     this.appendable.append(INDENT);
                 }
-                if (safeSequence.length() > 0 && safeSequence.charAt(i3 - 1) == '\n') {
+                if (safeSequence.length() > 0 && safeSequence.charAt(i2 - 1) == '\n') {
                     z = true;
                 }
                 this.printedNewLine = z;
-                this.appendable.append(safeSequence, i2, i3);
+                this.appendable.append(safeSequence, i, i2);
                 return this;
             }
             return (Appendable) invokeLII.objValue;

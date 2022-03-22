@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ManifestParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_MODULE_VALUE = "GlideModule";
@@ -28,9 +28,9 @@ public final class ManifestParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,26 +79,32 @@ public final class ManifestParser {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.isLoggable(TAG, 3);
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "Loading Glide modules");
+            }
             ArrayList arrayList = new ArrayList();
             try {
                 ApplicationInfo applicationInfo = this.context.getPackageManager().getApplicationInfo(this.context.getPackageName(), 128);
                 if (applicationInfo.metaData == null) {
-                    Log.isLoggable(TAG, 3);
+                    if (Log.isLoggable(TAG, 3)) {
+                        Log.d(TAG, "Got null app info metadata");
+                    }
                     return arrayList;
                 }
                 if (Log.isLoggable(TAG, 2)) {
-                    String str = "Got app info metadata: " + applicationInfo.metaData;
+                    Log.v(TAG, "Got app info metadata: " + applicationInfo.metaData);
                 }
-                for (String str2 : applicationInfo.metaData.keySet()) {
-                    if (GLIDE_MODULE_VALUE.equals(applicationInfo.metaData.get(str2))) {
-                        arrayList.add(parseModule(str2));
+                for (String str : applicationInfo.metaData.keySet()) {
+                    if (GLIDE_MODULE_VALUE.equals(applicationInfo.metaData.get(str))) {
+                        arrayList.add(parseModule(str));
                         if (Log.isLoggable(TAG, 3)) {
-                            String str3 = "Loaded Glide module: " + str2;
+                            Log.d(TAG, "Loaded Glide module: " + str);
                         }
                     }
                 }
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Finished loading Glide modules");
+                }
                 return arrayList;
             } catch (PackageManager.NameNotFoundException e2) {
                 throw new RuntimeException("Unable to find metadata to parse GlideModules", e2);

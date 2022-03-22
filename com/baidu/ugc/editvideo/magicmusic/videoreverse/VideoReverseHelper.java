@@ -11,9 +11,9 @@ import android.media.MediaMuxer;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
-import c.a.y0.r.n;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
+import c.a.v0.r.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -62,9 +62,9 @@ public class VideoReverseHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,9 +77,9 @@ public class VideoReverseHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,8 +96,8 @@ public class VideoReverseHelper {
     */
     private List<BuffeInfoWrapper> extractVideoToPath(String str, String str2) {
         InterceptResult invokeLL;
-        int i2;
-        long j2;
+        int i;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, str2)) == null) {
             if (this.mMediaExtractor == null) {
@@ -146,7 +146,7 @@ public class VideoReverseHelper {
                     MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                     boolean z = false;
                     boolean z2 = false;
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
                         if (z) {
                             break;
@@ -154,8 +154,8 @@ public class VideoReverseHelper {
                             break;
                         } else {
                             while (true) {
-                                i2 = -1;
-                                j2 = 10000;
+                                i = -1;
+                                j = 10000;
                                 if (z2) {
                                     break;
                                 } else if (this.mIsCancel) {
@@ -183,8 +183,8 @@ public class VideoReverseHelper {
                                     FileUtils.deleteFile(str2);
                                     break;
                                 } else {
-                                    int dequeueOutputBuffer = this.mVideoDecoder.dequeueOutputBuffer(bufferInfo, j2);
-                                    if (dequeueOutputBuffer != i2) {
+                                    int dequeueOutputBuffer = this.mVideoDecoder.dequeueOutputBuffer(bufferInfo, j);
+                                    if (dequeueOutputBuffer != i) {
                                         if (dequeueOutputBuffer == -3) {
                                             outputBuffers = this.mVideoDecoder.getOutputBuffers();
                                             break;
@@ -208,16 +208,16 @@ public class VideoReverseHelper {
                                                 bufferInfo2.presentationTimeUs = bufferInfo.presentationTimeUs;
                                                 BuffeInfoWrapper buffeInfoWrapper = new BuffeInfoWrapper();
                                                 buffeInfoWrapper.bufferInfo = bufferInfo2;
-                                                buffeInfoWrapper.fileOffset = i3;
+                                                buffeInfoWrapper.fileOffset = i2;
                                                 arrayList.add(buffeInfoWrapper);
-                                                i3 += bufferInfo.size;
+                                                i2 += bufferInfo.size;
                                             }
                                             this.mVideoDecoder.releaseOutputBuffer(dequeueOutputBuffer, bufferInfo.size != 0);
                                             if ((bufferInfo.flags & 4) != 0) {
                                                 z = true;
                                             }
-                                            i2 = -1;
-                                            j2 = 10000;
+                                            i = -1;
+                                            j = 10000;
                                         }
                                     }
                                 }
@@ -253,33 +253,33 @@ public class VideoReverseHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int codecCount = MediaCodecList.getCodecCount();
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= codecCount) {
+                if (i >= codecCount) {
                     mediaCodecInfo = null;
                     break;
                 }
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
                 if (mediaCodecInfo.isEncoder()) {
                     String[] supportedTypes = mediaCodecInfo.getSupportedTypes();
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= supportedTypes.length) {
+                        if (i2 >= supportedTypes.length) {
                             z = false;
                             break;
-                        } else if (supportedTypes[i3].equals("video/avc")) {
+                        } else if (supportedTypes[i2].equals("video/avc")) {
                             System.out.println("found");
                             z = true;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
                     if (z) {
                         break;
                     }
                 }
-                i2++;
+                i++;
             }
             if (mediaCodecInfo == null || (capabilitiesForType = mediaCodecInfo.getCapabilitiesForType("video/avc")) == null) {
                 return null;
@@ -293,10 +293,10 @@ public class VideoReverseHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, mediaExtractor)) == null) {
-            for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
-                if (isVideoFormat(mediaExtractor.getTrackFormat(i2))) {
-                    mediaExtractor.selectTrack(i2);
-                    return i2;
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (isVideoFormat(mediaExtractor.getTrackFormat(i))) {
+                    mediaExtractor.selectTrack(i);
+                    return i;
                 }
             }
             return -1;
@@ -318,8 +318,8 @@ public class VideoReverseHelper {
             if (allSupportColorFormat == null || allSupportColorFormat.length <= 0) {
                 return 2135033992;
             }
-            for (int i2 = 0; i2 < allSupportColorFormat.length; i2++) {
-                switch (allSupportColorFormat[i2]) {
+            for (int i = 0; i < allSupportColorFormat.length; i++) {
+                switch (allSupportColorFormat[i]) {
                     case 19:
                     case 20:
                     case 21:
@@ -327,7 +327,7 @@ public class VideoReverseHelper {
                     case 2130706688:
                     case 2135033992:
                     case 2141391872:
-                        return allSupportColorFormat[i2];
+                        return allSupportColorFormat[i];
                     default:
                 }
             }
@@ -336,20 +336,20 @@ public class VideoReverseHelper {
         return invokeV.intValue;
     }
 
-    private int[] getUVPos(int i2, int i3, int i4, int i5) {
+    private int[] getUVPos(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i, i2, i3, i4)) == null) {
+            if (i % 2 != 0) {
+                i = (i / 2) * 2;
+            }
             if (i2 % 2 != 0) {
                 i2 = (i2 / 2) * 2;
             }
-            if (i3 % 2 != 0) {
-                i3 = (i3 / 2) * 2;
-            }
-            int i6 = (i2 * i4) / 4;
-            int i7 = (i6 % i4) + (i3 / 2);
-            int i8 = ((i6 / i4) * 2) + i5;
-            return new int[]{(i8 * i4) + i7, ((i8 + 1) * i4) + i7};
+            int i5 = (i * i3) / 4;
+            int i6 = (i5 % i3) + (i2 / 2);
+            int i7 = ((i5 / i3) * 2) + i4;
+            return new int[]{(i7 * i3) + i6, ((i7 + 1) * i3) + i6};
         }
         return (int[]) invokeIIII.objValue;
     }
@@ -393,8 +393,8 @@ public class VideoReverseHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             int codecCount = MediaCodecList.getCodecCount();
-            for (int i2 = 0; i2 < codecCount; i2++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i2);
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
                 if (codecInfoAt.isEncoder()) {
                     for (String str2 : codecInfoAt.getSupportedTypes()) {
                         if (str2.equalsIgnoreCase(str)) {
@@ -409,14 +409,14 @@ public class VideoReverseHelper {
         return (MediaCodecInfo) invokeL.objValue;
     }
 
-    public static void setMediaFormatProperty(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i2) {
+    public static void setMediaFormatProperty(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65548, null, mediaFormat, mediaFormat2, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65548, null, mediaFormat, mediaFormat2, str, i) == null) {
             if (mediaFormat != null && mediaFormat.containsKey(str) && mediaFormat.getInteger(str) > 0) {
-                i2 = mediaFormat.getInteger(str);
+                i = mediaFormat.getInteger(str);
             }
             if (mediaFormat2 != null) {
-                mediaFormat2.setInteger(str, i2);
+                mediaFormat2.setInteger(str, i);
             }
         }
     }
@@ -455,29 +455,29 @@ public class VideoReverseHelper {
         OnTimeReverseListener onTimeReverseListener2;
         WeakReference<OnTimeReverseListener> weakReference3;
         OnTimeReverseListener onTimeReverseListener3;
-        long j2;
+        long j;
         String str8;
-        long j3;
+        long j2;
+        int i;
         int i2;
         int i3;
         int i4;
-        int i5;
         ByteBuffer[] byteBufferArr;
-        int i6;
+        int i5;
         FileChannel fileChannel;
         boolean z2;
         MediaCodec.BufferInfo bufferInfo;
         ByteBuffer[] byteBufferArr2;
-        int i7;
+        int i6;
         FileChannel fileChannel2;
         List<BuffeInfoWrapper> list;
-        int i8;
+        int i7;
         OnTimeReverseListener onTimeReverseListener4;
         int[] uVPos;
         byte b2;
+        int i8;
         int i9;
         int i10;
-        int i11;
         int[] allSupportColorFormat;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -503,32 +503,32 @@ public class VideoReverseHelper {
             MediaFormat trackFormat = this.mMediaExtractor.getTrackFormat(getAndSelectVideoTrackIndex(this.mMediaExtractor));
             if (this.mVideoEncoder == null) {
                 this.mVideoEncoder = MediaCodec.createByCodecName(selectCodec("video/avc").getName());
-                i4 = trackFormat.getInteger("width");
-                i5 = trackFormat.getInteger("height");
+                i3 = trackFormat.getInteger("width");
+                i4 = trackFormat.getInteger("height");
                 try {
                     try {
-                        if (i4 % 16 == 0) {
-                            if (i5 % 16 == 0) {
+                        if (i3 % 16 == 0) {
+                            if (i4 % 16 == 0) {
                                 str3 = "MediaCodec点击倒放失败";
                                 str4 = "MediaCodec预倒放失败";
+                                i = i3;
                                 i2 = i4;
-                                i3 = i5;
-                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
-                                j2 = currentTimeMillis;
+                                MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
+                                j = currentTimeMillis;
                                 if (this.mDeocderOutputFormat == null && this.mDeocderOutputFormat.containsKey("color-format")) {
-                                    i11 = this.mDeocderOutputFormat.getInteger("color-format");
-                                    j3 = duration;
+                                    i10 = this.mDeocderOutputFormat.getInteger("color-format");
+                                    j2 = duration;
                                 } else {
-                                    j3 = duration;
-                                    i11 = -1;
+                                    j2 = duration;
+                                    i10 = -1;
                                 }
                                 allSupportColorFormat = getAllSupportColorFormat();
                                 if (allSupportColorFormat != null) {
                                     if (allSupportColorFormat.length > 0) {
                                         str8 = str10;
-                                        for (int i12 : allSupportColorFormat) {
+                                        for (int i11 : allSupportColorFormat) {
                                             try {
-                                                if (i12 == i11) {
+                                                if (i11 == i10) {
                                                     z3 = true;
                                                     break;
                                                 }
@@ -563,16 +563,16 @@ public class VideoReverseHelper {
                                         }
                                         z3 = false;
                                         if (!z3) {
-                                            i11 = getSupportColorFormat();
+                                            i10 = getSupportColorFormat();
                                         }
-                                        createVideoFormat.setInteger("color-format", i11);
-                                        if (i2 == i4 || i3 != i5) {
-                                            createVideoFormat.setInteger("stride", i2);
-                                            createVideoFormat.setInteger("slice-height", i3);
+                                        createVideoFormat.setInteger("color-format", i10);
+                                        if (i == i3 || i2 != i4) {
+                                            createVideoFormat.setInteger("stride", i);
+                                            createVideoFormat.setInteger("slice-height", i2);
                                             createVideoFormat.setInteger("crop-left", 0);
-                                            createVideoFormat.setInteger("crop-right", i4 - 1);
+                                            createVideoFormat.setInteger("crop-right", i3 - 1);
                                             createVideoFormat.setInteger("crop-top", 0);
-                                            createVideoFormat.setInteger("crop-bottom", i5 - 1);
+                                            createVideoFormat.setInteger("crop-bottom", i4 - 1);
                                         }
                                         setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                                         setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
@@ -584,27 +584,27 @@ public class VideoReverseHelper {
                                 z3 = false;
                                 if (!z3) {
                                 }
-                                createVideoFormat.setInteger("color-format", i11);
-                                if (i2 == i4) {
+                                createVideoFormat.setInteger("color-format", i10);
+                                if (i == i3) {
                                 }
-                                createVideoFormat.setInteger("stride", i2);
-                                createVideoFormat.setInteger("slice-height", i3);
+                                createVideoFormat.setInteger("stride", i);
+                                createVideoFormat.setInteger("slice-height", i2);
                                 createVideoFormat.setInteger("crop-left", 0);
-                                createVideoFormat.setInteger("crop-right", i4 - 1);
+                                createVideoFormat.setInteger("crop-right", i3 - 1);
                                 createVideoFormat.setInteger("crop-top", 0);
-                                createVideoFormat.setInteger("crop-bottom", i5 - 1);
+                                createVideoFormat.setInteger("crop-bottom", i4 - 1);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
                                 this.mVideoEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                             }
                         }
-                        MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", i2, i3);
-                        j2 = currentTimeMillis;
+                        MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", i, i2);
+                        j = currentTimeMillis;
                         if (this.mDeocderOutputFormat == null) {
                         }
-                        j3 = duration;
-                        i11 = -1;
+                        j2 = duration;
+                        i10 = -1;
                         allSupportColorFormat = getAllSupportColorFormat();
                         if (allSupportColorFormat != null) {
                         }
@@ -612,15 +612,15 @@ public class VideoReverseHelper {
                         z3 = false;
                         if (!z3) {
                         }
-                        createVideoFormat2.setInteger("color-format", i11);
-                        if (i2 == i4) {
+                        createVideoFormat2.setInteger("color-format", i10);
+                        if (i == i3) {
                         }
-                        createVideoFormat2.setInteger("stride", i2);
-                        createVideoFormat2.setInteger("slice-height", i3);
+                        createVideoFormat2.setInteger("stride", i);
+                        createVideoFormat2.setInteger("slice-height", i2);
                         createVideoFormat2.setInteger("crop-left", 0);
-                        createVideoFormat2.setInteger("crop-right", i4 - 1);
+                        createVideoFormat2.setInteger("crop-right", i3 - 1);
                         createVideoFormat2.setInteger("crop-top", 0);
-                        createVideoFormat2.setInteger("crop-bottom", i5 - 1);
+                        createVideoFormat2.setInteger("crop-bottom", i4 - 1);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "frame-rate", 30);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "i-frame-interval", 5);
@@ -664,20 +664,20 @@ public class VideoReverseHelper {
                     }
                     if (this.mDeocderOutputFormat != null) {
                         int integer = this.mDeocderOutputFormat.getInteger("stride");
-                        i10 = this.mDeocderOutputFormat.getInteger("slice-height");
-                        i2 = integer;
+                        i9 = this.mDeocderOutputFormat.getInteger("slice-height");
+                        i = integer;
                     } else {
-                        i2 = i4;
-                        i10 = i5;
+                        i = i3;
+                        i9 = i4;
                     }
-                    if (i2 == 0 || i2 % 16 != 0) {
-                        i2 = (16 - (i4 % 16)) + i4;
+                    if (i == 0 || i % 16 != 0) {
+                        i = (16 - (i3 % 16)) + i3;
                     }
-                    if (i10 == 0 || i10 % 16 != 0) {
-                        i10 = i5 + (16 - (i5 % 16));
+                    if (i9 == 0 || i9 % 16 != 0) {
+                        i9 = i4 + (16 - (i4 % 16));
                     }
                     str4 = "MediaCodec预倒放失败";
-                    i3 = i10;
+                    i2 = i9;
                 } catch (FileNotFoundException e8) {
                     e = e8;
                     str4 = "MediaCodec预倒放失败";
@@ -716,13 +716,13 @@ public class VideoReverseHelper {
             } else {
                 str3 = "MediaCodec点击倒放失败";
                 str4 = "MediaCodec预倒放失败";
-                j2 = currentTimeMillis;
+                j = currentTimeMillis;
                 str8 = str10;
-                j3 = duration;
+                j2 = duration;
+                i = 0;
                 i2 = 0;
                 i3 = 0;
                 i4 = 0;
-                i5 = 0;
             }
             this.mVideoEncoder.start();
             int size = extractVideoToPath.size() - 1;
@@ -732,7 +732,7 @@ public class VideoReverseHelper {
             FileChannel channel = new FileInputStream(str9).getChannel();
             boolean z4 = false;
             boolean z5 = false;
-            int i13 = 0;
+            int i12 = 0;
             while (true) {
                 if (z4) {
                     break;
@@ -742,7 +742,7 @@ public class VideoReverseHelper {
                     ByteBuffer[] byteBufferArr3 = outputBuffers;
                     MediaCodec.BufferInfo bufferInfo3 = bufferInfo2;
                     boolean z6 = z5;
-                    int i14 = size;
+                    int i13 = size;
                     while (true) {
                         if (z6) {
                             break;
@@ -755,40 +755,40 @@ public class VideoReverseHelper {
                             int dequeueInputBuffer = this.mVideoEncoder.dequeueInputBuffer(10000L);
                             if (dequeueInputBuffer == -1) {
                                 byteBufferArr = inputBuffers;
-                                i6 = i2;
+                                i5 = i;
                                 fileChannel = channel;
                                 break;
                             }
-                            if (i14 >= 0) {
-                                BuffeInfoWrapper buffeInfoWrapper = extractVideoToPath.get(i14);
-                                int i15 = buffeInfoWrapper.fileOffset;
+                            if (i13 >= 0) {
+                                BuffeInfoWrapper buffeInfoWrapper = extractVideoToPath.get(i13);
+                                int i14 = buffeInfoWrapper.fileOffset;
                                 MediaCodec.BufferInfo bufferInfo4 = buffeInfoWrapper.bufferInfo;
-                                int i16 = i5;
+                                int i15 = i4;
                                 boolean z7 = z6;
-                                if (i14 == extractVideoToPath.size() - 1) {
+                                if (i13 == extractVideoToPath.size() - 1) {
                                     bufferInfo4.presentationTimeUs = 0L;
                                     list = extractVideoToPath;
-                                    i8 = i14;
+                                    i7 = i13;
                                 } else {
-                                    long j4 = j3 - bufferInfo4.presentationTimeUs;
-                                    bufferInfo4.presentationTimeUs = j4;
+                                    long j3 = j2 - bufferInfo4.presentationTimeUs;
+                                    bufferInfo4.presentationTimeUs = j3;
                                     list = extractVideoToPath;
-                                    i8 = i14;
-                                    if (j4 < 0) {
+                                    i7 = i13;
+                                    if (j3 < 0) {
                                         bufferInfo4.presentationTimeUs = 0L;
                                     }
                                 }
                                 ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                channel.position(i15);
+                                channel.position(i14);
                                 channel.read(byteBuffer);
-                                if (i2 != i4) {
-                                    int i17 = 0;
-                                    while (i17 < i3) {
-                                        int i18 = i17 * i2;
-                                        int i19 = i4 - 1;
+                                if (i != i3) {
+                                    int i16 = 0;
+                                    while (i16 < i2) {
+                                        int i17 = i16 * i;
+                                        int i18 = i3 - 1;
                                         try {
-                                            uVPos = getUVPos(i17, i19, i2, i3);
-                                            b2 = byteBuffer.get(i19 + i18);
+                                            uVPos = getUVPos(i16, i18, i, i2);
+                                            b2 = byteBuffer.get(i18 + i17);
                                             byteBufferArr2 = inputBuffers;
                                         } catch (Exception e11) {
                                             e = e11;
@@ -797,26 +797,26 @@ public class VideoReverseHelper {
                                         try {
                                             byte b3 = byteBuffer.get(uVPos[0]);
                                             byte b4 = byteBuffer.get(uVPos[1]);
-                                            int i20 = i4;
-                                            while (i20 < i2) {
+                                            int i19 = i3;
+                                            while (i19 < i) {
                                                 fileChannel2 = channel;
                                                 try {
-                                                    byteBuffer.put(i18 + i20, b2);
-                                                    if (i17 % 2 == 0 && i20 % 2 == 0) {
-                                                        int[] uVPos2 = getUVPos(i17, i20, i2, i3);
-                                                        i9 = i18;
+                                                    byteBuffer.put(i17 + i19, b2);
+                                                    if (i16 % 2 == 0 && i19 % 2 == 0) {
+                                                        int[] uVPos2 = getUVPos(i16, i19, i, i2);
+                                                        i8 = i17;
                                                         byteBuffer.put(uVPos2[0], b3);
                                                         byteBuffer.put(uVPos2[1], b4);
                                                     } else {
-                                                        i9 = i18;
+                                                        i8 = i17;
                                                     }
-                                                    i20++;
-                                                    i18 = i9;
+                                                    i19++;
+                                                    i17 = i8;
                                                     channel = fileChannel2;
                                                 } catch (Exception e12) {
                                                     e = e12;
-                                                    i5 = i16;
-                                                    i7 = i2;
+                                                    i4 = i15;
+                                                    i6 = i;
                                                     c.d(e.toString());
                                                     if (this.mOnTimeReverseListenerWeakReference != null && (onTimeReverseListener4 = this.mOnTimeReverseListenerWeakReference.get()) != null) {
                                                         onTimeReverseListener4.onTimeReverseError(e);
@@ -824,22 +824,22 @@ public class VideoReverseHelper {
                                                     if (bufferInfo4.size > byteBuffer.position()) {
                                                     }
                                                     this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                                    i14 = i8 - 1;
+                                                    i13 = i7 - 1;
                                                     z6 = z7;
                                                     z4 = z2;
-                                                    i2 = i7;
+                                                    i = i6;
                                                     extractVideoToPath = list;
                                                     inputBuffers = byteBufferArr2;
                                                     channel = fileChannel2;
                                                 }
                                             }
-                                            i17++;
+                                            i16++;
                                             inputBuffers = byteBufferArr2;
                                         } catch (Exception e13) {
                                             e = e13;
                                             fileChannel2 = channel;
-                                            i5 = i16;
-                                            i7 = i2;
+                                            i4 = i15;
+                                            i6 = i;
                                             c.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
                                                 onTimeReverseListener4.onTimeReverseError(e);
@@ -847,10 +847,10 @@ public class VideoReverseHelper {
                                             if (bufferInfo4.size > byteBuffer.position()) {
                                             }
                                             this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                            i14 = i8 - 1;
+                                            i13 = i7 - 1;
                                             z6 = z7;
                                             z4 = z2;
-                                            i2 = i7;
+                                            i = i6;
                                             extractVideoToPath = list;
                                             inputBuffers = byteBufferArr2;
                                             channel = fileChannel2;
@@ -859,24 +859,24 @@ public class VideoReverseHelper {
                                 }
                                 byteBufferArr2 = inputBuffers;
                                 fileChannel2 = channel;
-                                i5 = i16;
-                                if (i3 != i5) {
-                                    int i21 = 0;
-                                    while (i21 < i3) {
-                                        int i22 = i5 - 1;
-                                        int i23 = i22 * i2;
+                                i4 = i15;
+                                if (i2 != i4) {
+                                    int i20 = 0;
+                                    while (i20 < i2) {
+                                        int i21 = i4 - 1;
+                                        int i22 = i21 * i;
                                         try {
-                                            int[] uVPos3 = getUVPos(i22, i21, i2, i3);
-                                            byte b5 = byteBuffer.get(i23 + i21);
+                                            int[] uVPos3 = getUVPos(i21, i20, i, i2);
+                                            byte b5 = byteBuffer.get(i22 + i20);
                                             byte b6 = byteBuffer.get(uVPos3[0]);
                                             byte b7 = byteBuffer.get(uVPos3[1]);
-                                            int i24 = i5;
-                                            while (i24 < i3) {
-                                                int i25 = i23;
-                                                byteBuffer.put(i23 + i2 + i21, b5);
-                                                if (i24 % 2 == 0 && i21 % 2 == 0) {
-                                                    int[] uVPos4 = getUVPos(i24, i21, i2, i3);
-                                                    i7 = i2;
+                                            int i23 = i4;
+                                            while (i23 < i2) {
+                                                int i24 = i22;
+                                                byteBuffer.put(i22 + i + i20, b5);
+                                                if (i23 % 2 == 0 && i20 % 2 == 0) {
+                                                    int[] uVPos4 = getUVPos(i23, i20, i, i2);
+                                                    i6 = i;
                                                     try {
                                                         byteBuffer.put(uVPos4[0], b6);
                                                     } catch (Exception e14) {
@@ -887,10 +887,10 @@ public class VideoReverseHelper {
                                                         if (bufferInfo4.size > byteBuffer.position()) {
                                                         }
                                                         this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                                        i14 = i8 - 1;
+                                                        i13 = i7 - 1;
                                                         z6 = z7;
                                                         z4 = z2;
-                                                        i2 = i7;
+                                                        i = i6;
                                                         extractVideoToPath = list;
                                                         inputBuffers = byteBufferArr2;
                                                         channel = fileChannel2;
@@ -905,71 +905,71 @@ public class VideoReverseHelper {
                                                         if (bufferInfo4.size > byteBuffer.position()) {
                                                         }
                                                         this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                                        i14 = i8 - 1;
+                                                        i13 = i7 - 1;
                                                         z6 = z7;
                                                         z4 = z2;
-                                                        i2 = i7;
+                                                        i = i6;
                                                         extractVideoToPath = list;
                                                         inputBuffers = byteBufferArr2;
                                                         channel = fileChannel2;
                                                     }
                                                 } else {
-                                                    i7 = i2;
+                                                    i6 = i;
                                                 }
-                                                i24++;
-                                                i23 = i25;
-                                                i2 = i7;
+                                                i23++;
+                                                i22 = i24;
+                                                i = i6;
                                             }
-                                            i21++;
-                                            i2 = i2;
+                                            i20++;
+                                            i = i;
                                         } catch (Exception e16) {
                                             e = e16;
-                                            i7 = i2;
+                                            i6 = i;
                                             c.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
                                             }
                                             if (bufferInfo4.size > byteBuffer.position()) {
                                             }
                                             this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                            i14 = i8 - 1;
+                                            i13 = i7 - 1;
                                             z6 = z7;
                                             z4 = z2;
-                                            i2 = i7;
+                                            i = i6;
                                             extractVideoToPath = list;
                                             inputBuffers = byteBufferArr2;
                                             channel = fileChannel2;
                                         }
                                     }
                                 }
-                                i7 = i2;
+                                i6 = i;
                                 if (bufferInfo4.size > byteBuffer.position()) {
                                     bufferInfo4.size = byteBuffer.position();
                                 }
                                 this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, bufferInfo4.size, bufferInfo4.presentationTimeUs, bufferInfo4.flags);
-                                i14 = i8 - 1;
+                                i13 = i7 - 1;
                                 z6 = z7;
                             } else {
                                 byteBufferArr2 = inputBuffers;
-                                i7 = i2;
+                                i6 = i;
                                 fileChannel2 = channel;
                                 list = extractVideoToPath;
-                                this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j3, 4);
-                                i14 = i14;
+                                this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j2, 4);
+                                i13 = i13;
                                 z6 = true;
                             }
                             z4 = z2;
-                            i2 = i7;
+                            i = i6;
                             extractVideoToPath = list;
                             inputBuffers = byteBufferArr2;
                             channel = fileChannel2;
                         }
                     }
                     byteBufferArr = inputBuffers;
-                    i6 = i2;
+                    i5 = i;
                     fileChannel = channel;
                     z2 = z4;
                     List<BuffeInfoWrapper> list2 = extractVideoToPath;
-                    int i26 = i14;
+                    int i25 = i13;
                     boolean z8 = z6;
                     z4 = z2;
                     while (true) {
@@ -990,7 +990,7 @@ public class VideoReverseHelper {
                                 z5 = z8;
                                 break;
                             } else if (dequeueOutputBuffer == -2) {
-                                i13 = this.mMediaMuxer.addTrack(this.mVideoEncoder.getOutputFormat());
+                                i12 = this.mMediaMuxer.addTrack(this.mVideoEncoder.getOutputFormat());
                                 this.mMediaMuxer.start();
                                 break;
                             } else {
@@ -1002,7 +1002,7 @@ public class VideoReverseHelper {
                                 if (bufferInfo.size != 0) {
                                     byteBuffer2.position(0);
                                     byteBuffer2.limit(bufferInfo.size);
-                                    this.mMediaMuxer.writeSampleData(i13, byteBuffer2, bufferInfo);
+                                    this.mMediaMuxer.writeSampleData(i12, byteBuffer2, bufferInfo);
                                 }
                                 if ((bufferInfo.flags & 4) != 0) {
                                     z4 = true;
@@ -1015,9 +1015,9 @@ public class VideoReverseHelper {
                     bufferInfo2 = bufferInfo;
                     z5 = z8;
                     outputBuffers = byteBufferArr3;
-                    i2 = i6;
+                    i = i5;
                     extractVideoToPath = list2;
-                    size = i26;
+                    size = i25;
                     inputBuffers = byteBufferArr;
                     channel = fileChannel;
                 }
@@ -1039,7 +1039,7 @@ public class VideoReverseHelper {
             } catch (Exception e19) {
                 c.g(e19);
             }
-            c.d("finish:" + (System.currentTimeMillis() - j2));
+            c.d("finish:" + (System.currentTimeMillis() - j));
             FileUtils.deleteFile(str9);
             new File(str8).renameTo(new File(str2));
             return true;

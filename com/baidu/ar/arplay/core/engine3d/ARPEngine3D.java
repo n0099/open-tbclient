@@ -1,6 +1,7 @@
 package com.baidu.ar.arplay.core.engine3d;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.engine3d.AbstractARPEngine3D;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
@@ -28,9 +29,9 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -116,6 +117,7 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         Matrix.invertM(matrixf4x42.getMatrix(), 0, matrixf4x4.getMatrix(), 0);
         IARPNode rootNode = currentScene.getRootNode();
         if (rootNode == null) {
+            Log.e("sceneRotateToCamera", "current scene root node is null!");
             return;
         }
         Vector3f vector3f = new Vector3f(0.0f, -1.0f, 0.0f);

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CameraConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -44,16 +44,16 @@ public class CameraConfig {
             $VALUES = new FacingDirection[]{BACK, facingDirection};
         }
 
-        public FacingDirection(String str, int i2, int i3) {
+        public FacingDirection(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -62,22 +62,22 @@ public class CameraConfig {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static FacingDirection forNumber(int i2) {
+        public static FacingDirection forNumber(int i) {
             InterceptResult invokeI;
             FacingDirection[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (FacingDirection facingDirection : values()) {
-                    if (facingDirection.nativeCode == i2) {
+                    if (facingDirection.nativeCode == i) {
                         return facingDirection;
                     }
                 }
                 StringBuilder sb = new StringBuilder(62);
                 sb.append("Unexpected value for native FacingDirection, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (FacingDirection) invokeI.objValue;
@@ -101,9 +101,9 @@ public class CameraConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,22 +112,22 @@ public class CameraConfig {
         this.a = 0L;
     }
 
-    public static native void nativeDestroyCameraConfig(long j2);
+    public static native void nativeDestroyCameraConfig(long j);
 
-    private native String nativeGetCameraId(long j2, long j3);
+    private native String nativeGetCameraId(long j, long j2);
 
-    private native int nativeGetFacingDirection(long j2, long j3);
+    private native int nativeGetFacingDirection(long j, long j2);
 
-    private native void nativeGetImageDimensions(long j2, long j3, int[] iArr);
+    private native void nativeGetImageDimensions(long j, long j2, int[] iArr);
 
-    private native void nativeGetTextureDimensions(long j2, long j3, int[] iArr);
+    private native void nativeGetTextureDimensions(long j, long j2, int[] iArr);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                nativeDestroyCameraConfig(j2);
+            long j = this.a;
+            if (j != 0) {
+                nativeDestroyCameraConfig(j);
                 this.a = 0L;
             }
             super.finalize();

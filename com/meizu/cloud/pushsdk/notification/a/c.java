@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -20,24 +20,24 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
-                PushNotificationBuilder pushNotificationBuilder = this.f57359b;
+                PushNotificationBuilder pushNotificationBuilder = this.f42184b;
                 if (pushNotificationBuilder != null && pushNotificationBuilder.getmLargIcon() != 0) {
-                    a = BitmapFactory.decodeResource(this.a.getResources(), this.f57359b.getmLargIcon());
+                    a = BitmapFactory.decodeResource(this.a.getResources(), this.f42184b.getmLargIcon());
                     str = "set largeIcon by resource id";
-                } else if (this.f57359b.getAppLargeIcon() != null) {
-                    a = this.f57359b.getAppLargeIcon();
+                } else if (this.f42184b.getAppLargeIcon() != null) {
+                    a = this.f42184b.getAppLargeIcon();
                     str = "set largeIcon by bitmap provided by user setting";
                 } else {
                     a = a(this.a, messageV3.getUploadDataPackageName());
                     str = "set largeIcon by package default large icon";
                 }
-                c.k.a.a.a.d("AbstractPushNotification", str);
+                c.h.a.a.a.d("AbstractPushNotification", str);
             } else if (Thread.currentThread() == this.a.getMainLooper().getThread()) {
                 return;
             } else {
                 Bitmap a2 = a(appIconSetting.getLargeIconUrl());
                 if (a2 != null) {
-                    c.k.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
+                    c.h.a.a.a.d("AbstractPushNotification", "On other Thread down load largeIcon image success");
                     builder.setLargeIcon(a2);
                     return;
                 }

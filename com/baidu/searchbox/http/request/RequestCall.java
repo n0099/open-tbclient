@@ -67,9 +67,9 @@ public class RequestCall implements Cancelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpRequest};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,17 +123,17 @@ public class RequestCall implements Cancelable {
                         newBuilder.dns((Dns) newCloneHttpDns);
                     }
                 }
-                int i2 = this.httpRequest.connectionTimeout;
+                int i = this.httpRequest.connectionTimeout;
+                if (i > 0) {
+                    newBuilder.connectTimeout(i, TimeUnit.MILLISECONDS);
+                }
+                int i2 = this.httpRequest.readTimeout;
                 if (i2 > 0) {
-                    newBuilder.connectTimeout(i2, TimeUnit.MILLISECONDS);
+                    newBuilder.readTimeout(i2, TimeUnit.MILLISECONDS);
                 }
-                int i3 = this.httpRequest.readTimeout;
+                int i3 = this.httpRequest.writeTimeout;
                 if (i3 > 0) {
-                    newBuilder.readTimeout(i3, TimeUnit.MILLISECONDS);
-                }
-                int i4 = this.httpRequest.writeTimeout;
-                if (i4 > 0) {
-                    newBuilder.writeTimeout(i4, TimeUnit.MILLISECONDS);
+                    newBuilder.writeTimeout(i3, TimeUnit.MILLISECONDS);
                 }
                 IAsyncRequestParamsHandler iAsyncRequestParamsHandler = this.httpRequest.paramsHandler;
                 if (iAsyncRequestParamsHandler != null) {
@@ -185,10 +185,10 @@ public class RequestCall implements Cancelable {
         }
     }
 
-    private void recordStatusCode(Request request, int i2, String str) {
+    private void recordStatusCode(Request request, int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65546, this, request, i2, str) == null) && request != null && StatusCodeException.isStatusCodeMatched(i2)) {
-            StatusCodeException statusCodeException = new StatusCodeException(String.format("Server statusCode Error; statusCode=%s; response.message=%s", Integer.valueOf(i2), str));
+        if ((interceptable == null || interceptable.invokeLIL(65546, this, request, i, str) == null) && request != null && StatusCodeException.isStatusCodeMatched(i)) {
+            StatusCodeException statusCodeException = new StatusCodeException(String.format("Server statusCode Error; statusCode=%s; response.message=%s", Integer.valueOf(i), str));
             try {
                 if (this.httpRequest.networkStat != null) {
                     this.httpRequest.networkStat.onException(request, statusCodeException);
@@ -230,9 +230,9 @@ public class RequestCall implements Cancelable {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, responseCallback, wrapNoNetworkExceptionWithDetail};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -292,9 +292,9 @@ public class RequestCall implements Cancelable {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, parseResponse, statResponseCallback, response};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -390,9 +390,9 @@ public class RequestCall implements Cancelable {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, handler, responseCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -461,9 +461,9 @@ public class RequestCall implements Cancelable {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, handler, statResponseCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -601,9 +601,9 @@ public class RequestCall implements Cancelable {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, statResponseCallback, wrapNoNetworkExceptionWithDetail};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -658,9 +658,9 @@ public class RequestCall implements Cancelable {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, parseResponse, responseCallback, response};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;

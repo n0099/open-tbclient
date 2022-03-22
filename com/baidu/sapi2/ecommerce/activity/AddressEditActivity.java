@@ -49,11 +49,13 @@ import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseOptionActivity;
 import com.baidu.sapi2.ecommerce.callback.MapStatusAndLocateCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
+import com.baidu.sapi2.stat.AddressManagerStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SoftKeyBoardListener;
@@ -65,11 +67,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.kuaishou.weapon.un.s;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
@@ -170,9 +170,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -194,9 +194,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -206,9 +206,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         if (!this.this$0.isAutoSetNameText) {
                             this.this$0.nameInput.updateCleanBtnStatus();
                         }
@@ -231,9 +231,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -262,9 +262,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -293,9 +293,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -324,9 +324,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -336,11 +336,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // android.view.View.OnKeyListener
-                public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+                public boolean onKey(View view, int i, KeyEvent keyEvent) {
                     InterceptResult invokeLIL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
-                        if (i2 == 67 && this.this$0.autoCleanMobileStr) {
+                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i, keyEvent)) == null) {
+                        if (i == 67 && this.this$0.autoCleanMobileStr) {
                             this.this$0.autoCleanMobileStr = false;
                             this.this$0.mobileInput.setText("");
                         }
@@ -361,9 +361,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -373,9 +373,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         String trim = charSequence.toString().trim();
                         if (this.this$0.autoSetMobile) {
                             this.this$0.autoSetMobile = false;
@@ -400,9 +400,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -412,9 +412,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         this.this$0.inputDetailAddr = charSequence.toString().trim();
                         this.this$0.newMapObject.putValue(AddressField.KEY_DETAIL_ADDR, this.this$0.inputDetailAddr);
                         this.this$0.updateTopRightBtnStatus(!TextUtils.isEmpty(this.this$0.inputDetailAddr) && this.this$0.inputDetailAddr.length() >= 4, 8);
@@ -443,9 +443,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -487,9 +487,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -530,6 +530,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         hashMap.put("addrRegion", this.selectedRegion.provinceName + this.selectedRegion.cityName + this.selectedRegion.districtName + this.selectedRegion.townName);
         addressManageResult.setResultCode(0);
         this.addressManageCallback.onFinish(addressManageResult);
+        AddressManagerStat.upload();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -540,7 +541,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 openAddrMapLocationActivity();
                 return;
             }
-            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("开启定位服务").setMessage("为了正常使用定位功能，请开启定位服务").setNegativeButton("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.28
+            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("开启定位服务").setMessage("为了正常使用定位功能，请开启定位服务").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.28
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressEditActivity this$0;
@@ -552,9 +553,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -582,9 +583,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -637,7 +638,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     str = this.editTagEt.getText().toString().trim();
                 } else {
                     int checkedRadioButtonId = this.addrTagGroup.getCheckedRadioButtonId();
-                    str = checkedRadioButtonId == R.id.sapi_sdk_addr_tag_home_rb ? AddressField.VALUE_HOME_TAG : checkedRadioButtonId == R.id.sapi_sdk_addr_tag_company_rb ? AddressField.VALUE_COMPANY_TAG : checkedRadioButtonId == R.id.sapi_sdk_addr_tag_school_rb ? AddressField.VALUE_SCHOOL_TAG : "";
+                    str = checkedRadioButtonId == R.id.obfuscated_res_0x7f091b6f ? AddressField.VALUE_HOME_TAG : checkedRadioButtonId == R.id.obfuscated_res_0x7f091b6d ? AddressField.VALUE_COMPANY_TAG : checkedRadioButtonId == R.id.obfuscated_res_0x7f091b73 ? AddressField.VALUE_SCHOOL_TAG : "";
                 }
                 this.newMapObject.putValue("tag", str);
                 if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, this.oldAddressTagValue)) {
@@ -665,11 +666,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.addrTagGroup.clearCheck();
             this.checkedCustomTagTv.setText(this.editTagEt.getText().toString().trim());
             if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_dark_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090a));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd3);
             } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_checked_text_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060909));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd2);
             }
             this.customTagLine.setVisibility(0);
             setTopRightBtnEnableStatus();
@@ -679,11 +680,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void closeAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65602, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.sapi_sdk_black_down_arrow);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f080ff1);
             if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd6);
             } else {
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_bg);
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd5);
             }
             this.addrCopyLayout.setVisibility(8);
         }
@@ -694,9 +695,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65603, this) == null) {
             this.isSetDefaultAddr = false;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fed);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f080feb);
             }
             this.defaultTagClose.setVisibility(0);
             this.defaultTagOpen.setVisibility(8);
@@ -737,15 +738,15 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65605, this, z) == null) {
             if (z) {
-                viewStub = (ViewStub) findViewById(R.id.sapi_sdk_addr_default_tag_dark_view_stub);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091b44);
             } else {
-                viewStub = (ViewStub) findViewById(R.id.sapi_sdk_addr_default_tag_view_stub);
+                viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091b46);
             }
             View inflate = viewStub.inflate();
-            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.sapi_sdk_addr_tag_group);
-            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_home_rb);
-            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_company_rb);
-            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.sapi_sdk_addr_tag_school_rb);
+            this.addrTagGroup = (RadioGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091b6e);
+            this.homeTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091b6f);
+            this.companyTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091b6d);
+            this.schoolTagRb = (CheckedRadioButton) inflate.findViewById(R.id.obfuscated_res_0x7f091b73);
         }
     }
 
@@ -764,54 +765,54 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65607, this) == null) {
-            this.rootView = findViewById(R.id.sapi_sdk_addr_edit_layout);
-            this.titleBarView = (TitleBarView) findViewById(R.id.sapi_sdk_edit_addres_title);
-            this.addrContentSv = (ScrollView) findViewById(R.id.sapi_sdk_addr_content_sv);
-            InputFormView inputFormView = (InputFormView) findViewById(R.id.sapi_sdk_addr_name_input);
+            this.rootView = findViewById(R.id.obfuscated_res_0x7f091b4e);
+            this.titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091b8b);
+            this.addrContentSv = (ScrollView) findViewById(R.id.obfuscated_res_0x7f091b3c);
+            InputFormView inputFormView = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091b5e);
             this.nameInput = inputFormView;
             this.nameInputEt = inputFormView.getEditText();
             this.nameInput.setDarkMode(this.isDarkMode);
-            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.sapi_sdk_addr_mobile_input);
+            InputFormView inputFormView2 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091b5d);
             this.mobileInput = inputFormView2;
             this.mobileInputEt = inputFormView2.getEditText();
             this.mobileInput.setDarkMode(this.isDarkMode);
-            this.regionLayout = findViewById(R.id.sapi_sdk_addr_region_layout);
-            this.selectRegionIv = (ImageView) findViewById(R.id.sapi_sdk_select_region_iv);
-            this.tvRegion = (TextView) findViewById(R.id.sapi_sdk_add_addr_region);
-            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.sapi_sdk_addr_detail_input);
+            this.regionLayout = findViewById(R.id.obfuscated_res_0x7f091b65);
+            this.selectRegionIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bc5);
+            this.tvRegion = (TextView) findViewById(R.id.obfuscated_res_0x7f091b39);
+            InputFormView inputFormView3 = (InputFormView) findViewById(R.id.obfuscated_res_0x7f091b4c);
             this.detailInput = inputFormView3;
             this.detailAddrEt = inputFormView3.getEditText();
             this.detailInput.setDarkMode(this.isDarkMode);
-            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.sapi_sdk_addr_copy_toggle);
-            this.copyFormView = (TextFormView) findViewById(R.id.sapi_sdk_addr_copy_text_form);
-            this.addrCopyLayout = findViewById(R.id.sapi_sdk_copy_addr_layout);
-            this.textOcrEt = (EditText) findViewById(R.id.sapi_sdk_addr_ocr_text);
-            this.cleanLongTextBtn = (TextView) findViewById(R.id.sapi_sdk_clean_copy_text);
-            this.useLongTextBtn = (TextView) findViewById(R.id.sapi_sdk_use_copy_text);
-            this.voiceOcrBtn = findViewById(R.id.sapi_sdk_voice_ocr_btn);
-            this.imgOcrBtn = findViewById(R.id.sapi_sdk_img_ocr_view);
-            this.imgOcrIcon = (ImageView) findViewById(R.id.sapi_sdk_img_ocr_icon);
-            ImageView imageView = (ImageView) findViewById(R.id.sapi_sdk_add_tag_btn);
+            this.ivAddrCopyToggle = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b41);
+            this.copyFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091b40);
+            this.addrCopyLayout = findViewById(R.id.obfuscated_res_0x7f091b85);
+            this.textOcrEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091b61);
+            this.cleanLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b7d);
+            this.useLongTextBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091be1);
+            this.voiceOcrBtn = findViewById(R.id.obfuscated_res_0x7f091be2);
+            this.imgOcrBtn = findViewById(R.id.obfuscated_res_0x7f091b98);
+            this.imgOcrIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b96);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b3a);
             this.addTagBtn = imageView;
-            imageView.setImageResource(this.isDarkMode ? R.drawable.sapi_sdk_addr_add_tag_dark_ic : R.drawable.sapi_sdk_addr_add_tag);
-            this.editTagLayout = findViewById(R.id.sapi_sdk_edit_tag_layout);
-            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.sapi_sdk_tag_edit_et);
+            imageView.setImageResource(this.isDarkMode ? R.drawable.obfuscated_res_0x7f080fca : R.drawable.obfuscated_res_0x7f080fc9);
+            this.editTagLayout = findViewById(R.id.obfuscated_res_0x7f091b8c);
+            LengthLimitEditText lengthLimitEditText = (LengthLimitEditText) findViewById(R.id.obfuscated_res_0x7f091bd0);
             this.editTagEt = lengthLimitEditText;
             lengthLimitEditText.setLengthLimit(5);
-            this.editTagConfirmBtn = (TextView) findViewById(R.id.sapi_sdk_tag_edit_confirm_btn);
-            this.customTagLayout = findViewById(R.id.sapi_sdk_custom_tag_layout);
-            this.checkedCustomTagTv = (TextView) findViewById(R.id.sapi_sdk_custom_tag_tv);
-            this.customTagLine = findViewById(R.id.sapi_sdk_custom_tag_line);
-            this.updateCustomTagBtn = (ImageView) findViewById(R.id.sapi_sdk_custom_tag_update_btn);
-            this.isDefaultToggle = findViewById(R.id.sapi_sdk_addr_default_toggle);
-            this.defaultTagClose = findViewById(R.id.sapi_sdk_addr_default_tag_close);
-            this.defaultTagOpen = findViewById(R.id.sapi_sdk_addr_default_tag_open);
-            this.suggestAddrLayout = findViewById(R.id.sapi_sdk_suggest_addr_layout);
-            this.suggestAddrListView = (ListView) findViewById(R.id.sapi_sdk_suggest_addr_list);
-            this.delAddrBtn = (TextView) findViewById(R.id.sapi_sdk_addr_del_addr_btn);
-            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.sapi_sdk_addr_check_valid_tips);
+            this.editTagConfirmBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091bcf);
+            this.customTagLayout = findViewById(R.id.obfuscated_res_0x7f091b86);
+            this.checkedCustomTagTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b88);
+            this.customTagLine = findViewById(R.id.obfuscated_res_0x7f091b87);
+            this.updateCustomTagBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b89);
+            this.isDefaultToggle = findViewById(R.id.obfuscated_res_0x7f091b47);
+            this.defaultTagClose = findViewById(R.id.obfuscated_res_0x7f091b43);
+            this.defaultTagOpen = findViewById(R.id.obfuscated_res_0x7f091b45);
+            this.suggestAddrLayout = findViewById(R.id.obfuscated_res_0x7f091bc8);
+            this.suggestAddrListView = (ListView) findViewById(R.id.obfuscated_res_0x7f091bc9);
+            this.delAddrBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b49);
+            this.mapAddrCheckValidTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b3b);
             initDefaultTagLayout(this.isDarkMode);
-            this.titleBarView.setLeft("取消", this);
+            this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
             this.titleBarView.setRight("保存", this);
             this.isDefaultToggle.setOnClickListener(this);
             this.tvRegion.setOnClickListener(this);
@@ -825,56 +826,56 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.editTagConfirmBtn.setOnClickListener(this);
             this.updateCustomTagBtn.setOnClickListener(this);
             if (this.isDarkMode) {
-                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.sapi_sdk_add_addr_list_header_dark_bg);
-                this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_list_user_hint_text_dark_color));
-                this.rootView.setBackgroundColor(getResources().getColor(R.color.sapi_sek_title_bar_bg_end_dark_color));
+                this.mapAddrCheckValidTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fbc);
+                this.mapAddrCheckValidTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060967));
+                this.rootView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f9));
                 this.titleBarView.setDarkMode();
-                this.nameInput.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
-                this.mobileInput.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.regionLayout.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.tvRegion.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.tvRegion.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                findViewById(R.id.sapi_sdk_common_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
-                this.detailInput.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
-                TextFormView textFormView = (TextFormView) findViewById(R.id.sapi_sdk_addr_ocr_edit_layout);
+                this.nameInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd8);
+                this.mobileInput.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06091c));
+                this.regionLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06091c));
+                this.tvRegion.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
+                this.tvRegion.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091a));
+                findViewById(R.id.obfuscated_res_0x7f091b7f).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
+                this.detailInput.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd6);
+                TextFormView textFormView = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091b60);
                 textFormView.setDarkMode();
-                textFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
-                this.imgOcrBtn.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                ((TextView) findViewById(R.id.sapi_sdk_img_ocr_tv)).setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_ocr_btn_text_dark_color));
-                this.addrCopyLayout.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
-                findViewById(R.id.sapi_sdk_addr_copy_layout).setBackgroundResource(R.drawable.sapi_sdk_addr_copy_dark_bg);
-                this.textOcrEt.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                this.textOcrEt.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.cleanLongTextBtn.setBackgroundResource(R.drawable.sapi_sdk_clean_addr_txt_btn_dark_bg);
-                this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_clean_copy_text_btn_text_dark_color));
-                this.useLongTextBtn.setBackgroundResource(R.drawable.sapi_sdk_add_address_btn_dark_bg);
-                this.useLongTextBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_use_copy_text_btn_text_dark_color));
-                TextFormView textFormView2 = (TextFormView) findViewById(R.id.sapi_sdk_addr_edit_tag_layout);
-                textFormView2.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_top_round_dark_bg);
+                textFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd8);
+                this.imgOcrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081003);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091b97)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060920));
+                this.addrCopyLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd6);
+                findViewById(R.id.obfuscated_res_0x7f091b3f).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fce);
+                this.textOcrEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091a));
+                this.textOcrEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
+                this.cleanLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ffc);
+                this.cleanLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060908));
+                this.useLongTextBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fc2);
+                this.useLongTextBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06092e));
+                TextFormView textFormView2 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091b4f);
+                textFormView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd8);
                 textFormView2.setDarkMode();
-                findViewById(R.id.sapi_sdk_custom_tag_wrap_layout).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color));
-                this.addTagBtn.setBackgroundResource(R.drawable.sapi_sdk_addr_tag_dark_bg);
-                this.editTagEt.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                this.editTagEt.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.editTagEt.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                this.editTagConfirmBtn.setBackgroundResource(R.drawable.sapi_sdk_addr_confirm_tag_dark_bg);
-                this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_tag_checked_text_dark_color));
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
-                this.customTagLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_tag_vertical_line_bg_dark_color));
-                this.updateCustomTagBtn.setBackgroundResource(R.drawable.sapi_sdk_edit_custom_tag_btn_dark_bg);
-                findViewById(R.id.sapi_sdk_addr_edit_bottom_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
-                TextFormView textFormView3 = (TextFormView) findViewById(R.id.sapi_sdk_set_default_layout);
-                textFormView3.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                findViewById(R.id.obfuscated_res_0x7f091b8a).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06091c));
+                this.addTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fed);
+                this.editTagEt.setBackgroundResource(R.drawable.obfuscated_res_0x7f081003);
+                this.editTagEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
+                this.editTagEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091a));
+                this.editTagConfirmBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fcc);
+                this.editTagConfirmBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060926));
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081003);
+                this.customTagLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06092c));
+                this.updateCustomTagBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f081026);
+                findViewById(R.id.obfuscated_res_0x7f091b4d).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
+                TextFormView textFormView3 = (TextFormView) findViewById(R.id.obfuscated_res_0x7f091bc6);
+                textFormView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd6);
                 textFormView3.setDarkMode();
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_default_btn_dark_bg);
-                this.defaultTagClose.setBackgroundResource(R.drawable.sapi_sdk_common_white_circle_dark);
-                this.defaultTagOpen.setBackgroundResource(R.drawable.sapi_sdk_common_white_circle_dark);
-                this.delAddrBtn.setBackgroundResource(R.drawable.sapi_sdk_common_white_dark_bg);
-                this.delAddrBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_del_addr_text_dark_color));
-                this.copyFormView.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_layout_bottom_round_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd0);
+                this.defaultTagClose.setBackgroundResource(R.drawable.obfuscated_res_0x7f08100e);
+                this.defaultTagOpen.setBackgroundResource(R.drawable.obfuscated_res_0x7f08100e);
+                this.delAddrBtn.setBackgroundResource(R.drawable.obfuscated_res_0x7f08100f);
+                this.delAddrBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060916));
+                this.copyFormView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd6);
                 this.copyFormView.setDarkMode();
-                this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_suggest_list_layout_bg_dark_color));
+                this.suggestAddrLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060922));
             }
             this.checkedCustomTagTv.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.2
                 public static /* synthetic */ Interceptable $ic;
@@ -888,9 +889,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -924,9 +925,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -952,9 +953,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -973,7 +974,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                                 this.this$1.this$0.nameInput.setText(TextUtils.isEmpty(getContactResult.name) ? "" : getContactResult.name);
                                 if (!TextUtils.isEmpty(getContactResult.phone)) {
                                     String replaceAll = getContactResult.phone.replaceAll(" ", "").replaceAll("\\+", "").replaceAll("-", "");
-                                    str = replaceAll.startsWith("86") ? replaceAll.replaceFirst("86", "") : replaceAll;
+                                    str = replaceAll.startsWith(AddressEditActivity.CHINA_REGION_CODE) ? replaceAll.replaceFirst(AddressEditActivity.CHINA_REGION_CODE, "") : replaceAll;
                                 }
                                 this.this$1.this$0.mobileInput.setText(str);
                                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_CONTACT_FINISH);
@@ -1047,11 +1048,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void openAddrCopyLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65609, this) == null) {
-            this.ivAddrCopyToggle.setImageResource(R.drawable.sapi_sdk_black_up_arrow);
+            this.ivAddrCopyToggle.setImageResource(R.drawable.obfuscated_res_0x7f080ff2);
             if (this.isDarkMode) {
-                this.copyFormView.setBackgroundResource(R.color.sapi_sdk_addr_edit_input_layout_bg_dark_color);
+                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f06091c);
             } else {
-                this.copyFormView.setBackgroundResource(R.color.sapi_sdk_addr_edit_input_layout_bg_color);
+                this.copyFormView.setBackgroundResource(R.color.obfuscated_res_0x7f06091b);
             }
             this.addrCopyLayout.setVisibility(0);
         }
@@ -1064,7 +1065,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             intent.putExtra("key_from_type", this.isCreateAddress);
             intent.putExtra(MapLocationAddrActivity.KEY_BDSTOKEN_FROM_ADDR_EDIT, ((AddressEditPresenter) this.presenter).getBdSTokenFromAddrList());
             startActivityForResult(intent, 10001);
-            overridePendingTransition(R.anim.sapi_sdk_anim_activity_push_bottom_in, R.anim.sapi_sdk_anim_activity_stay);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f0100fc, R.anim.obfuscated_res_0x7f0100fe);
         }
     }
 
@@ -1073,9 +1074,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65611, this) == null) {
             this.isSetDefaultAddr = true;
             if (this.isDarkMode) {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_dark_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd3);
             } else {
-                this.isDefaultToggle.setBackgroundResource(R.drawable.sapi_sdk_addr_edit_checked_default_bg);
+                this.isDefaultToggle.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fd2);
             }
             this.defaultTagClose.setVisibility(8);
             this.defaultTagOpen.setVisibility(0);
@@ -1131,19 +1132,19 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             if (!TextUtils.isEmpty(optString)) {
                 sb.append("姓名：");
                 sb.append(optString);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             String optString2 = jSONObject.optString("phone");
             if (!TextUtils.isEmpty(optString2)) {
                 sb.append("电话：");
                 sb.append(optString2);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             String replaceAll = getRegionDetailStr(AddressConverter.convertRegionJsonObj2Region(jSONObject)).replaceAll(" ", "");
             if (!TextUtils.isEmpty(replaceAll)) {
                 sb.append("所在地区：");
                 sb.append(replaceAll);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             String optString3 = jSONObject.optString(AddressField.KEY_DETAIL_ADDR);
             if (!TextUtils.isEmpty(optString3)) {
@@ -1166,9 +1167,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1198,9 +1199,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, obj};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1288,9 +1289,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1321,7 +1322,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.context = this;
             permissionsDTO.isDarkMode = this.isDarkMode;
-            permissionsDTO.permissions = new String[]{s.f53808g};
+            permissionsDTO.permissions = new String[]{"android.permission.ACCESS_FINE_LOCATION"};
             permissionsDTO.dialogTitle = "定位权限";
             permissionsDTO.dialogMsg = "如你选择通过地图选择收货地址，则请允许" + SapiUtils.getAppName(this) + "使用定位权限。你可以通过系统\"设置\"进行权限的管理";
             permissionsDTO.okBtnTxt = "去设置";
@@ -1337,9 +1338,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1349,9 +1350,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onFailure(int i2) {
+                public void onFailure(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                     }
                 }
 
@@ -1411,11 +1412,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void setDarkModelIcon() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65623, this) == null) && this.isDarkMode) {
-            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
-            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.sapi_sdk_addr_icon_dark_mode_color));
+            this.nameInput.getImg().setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06092f));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06092f));
+            this.imgOcrIcon.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06092f));
+            this.ivAddrCopyToggle.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06092f));
+            this.selectRegionIv.setColorFilter(getResources().getColor(R.color.obfuscated_res_0x7f06092f));
         }
     }
 
@@ -1434,9 +1435,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1465,9 +1466,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1496,9 +1497,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1527,9 +1528,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1564,9 +1565,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1576,9 +1577,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardHide(int i2) {
+                public void keyBoardHide(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         this.this$0.isKeyBoardShowing = false;
                         this.this$0.scrollToAddrDetail(false);
                         if (this.this$0.isShowImgOcrDialog) {
@@ -1593,9 +1594,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardShow(int i2) {
+                public void keyBoardShow(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                         this.this$0.isKeyBoardShowing = true;
                         if (this.this$0.isFocusAddrDetailEt && this.this$0.selectedRegion != null) {
                             this.this$0.addrContentSv.smoothScrollTo(0, this.this$0.regionLayout.getTop() + SapiUtils.dip2px(this.this$0.getApplication(), 10.0f));
@@ -1624,9 +1625,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1636,9 +1637,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         if (TextUtils.isEmpty(charSequence.toString().trim())) {
                             this.this$0.cleanLongTextBtn.setVisibility(8);
                             this.this$0.useLongTextBtn.setVisibility(8);
@@ -1661,9 +1662,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1705,9 +1706,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1742,9 +1743,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1754,15 +1755,15 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                         InputMethodManager inputMethodManager = (InputMethodManager) this.this$0.getSystemService("input_method");
                         if (inputMethodManager != null) {
                             inputMethodManager.hideSoftInputFromWindow(this.this$0.detailAddrEt.getWindowToken(), 0);
                         }
                         this.this$0.scrollToAddrDetail(false);
-                        ((AddressEditPresenter) this.this$0.presenter).getSuggestAddrDetail(this.this$0.listAdapter.getItem(i2), this.this$0.selectedRegion);
+                        ((AddressEditPresenter) this.this$0.presenter).getSuggestAddrDetail(this.this$0.listAdapter.getItem(i), this.this$0.selectedRegion);
                     }
                 }
             });
@@ -1778,9 +1779,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1790,16 +1791,16 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // android.widget.RadioGroup.OnCheckedChangeListener
-                public void onCheckedChanged(RadioGroup radioGroup, int i2) {
+                public void onCheckedChanged(RadioGroup radioGroup, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, radioGroup, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, radioGroup, i) == null) {
                         if (this.this$0.isClickConfirmCustomTag) {
                             this.this$0.isClickConfirmCustomTag = false;
-                        } else if (R.id.sapi_sdk_addr_tag_home_rb == i2) {
+                        } else if (R.id.obfuscated_res_0x7f091b6f == i) {
                             this.this$0.unCheckedCustomTag();
-                        } else if (R.id.sapi_sdk_addr_tag_company_rb == i2) {
+                        } else if (R.id.obfuscated_res_0x7f091b6d == i) {
                             this.this$0.unCheckedCustomTag();
-                        } else if (R.id.sapi_sdk_addr_tag_school_rb == i2) {
+                        } else if (R.id.obfuscated_res_0x7f091b73 == i) {
                             this.this$0.unCheckedCustomTag();
                         }
                     }
@@ -1817,9 +1818,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1829,9 +1830,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         this.this$0.editTagConfirmBtn.setEnabled(!TextUtils.isEmpty(charSequence.toString().trim()));
                     }
                 }
@@ -1849,7 +1850,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void showDelNoticeDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65627, this) == null) {
-            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("删除提示").setMessage("确定要删除该地址吗？").setNegativeButton("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.30
+            CommonDialog build = new CommonDialog.Builder(this).setDarkMode(this.isDarkMode).setTitle("删除提示").setMessage("确定要删除该地址吗？").setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.30
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressEditActivity this$0;
@@ -1861,9 +1862,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1891,9 +1892,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1959,11 +1960,11 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeV(65630, this) == null) {
             this.isCheckedCustomTag = false;
             if (this.isDarkMode) {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_dark_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_dark_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081003);
             } else {
-                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_color));
-                this.customTagLayout.setBackgroundResource(R.drawable.sapi_sdk_common_grey_bg);
+                this.checkedCustomTagTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090d));
+                this.customTagLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081002);
             }
             this.customTagLine.setVisibility(8);
             setTopRightBtnEnableStatus();
@@ -1975,7 +1976,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         if (interceptable == null || interceptable.invokeL(65631, this, addressSelectedBean) == null) {
             String regionDetailStr = getRegionDetailStr(this.selectedRegion);
             if (!TextUtils.isEmpty(regionDetailStr) && !TextUtils.equals(regionDetailStr, getRegionDetailStr(addressSelectedBean))) {
-                ToastUtil.show(R.drawable.sapi_sdk_region_location_icon, "已切换所在地区");
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f081057, "已切换所在地区");
             }
             this.selectedRegion = addressSelectedBean;
             this.tvRegion.setText(getRegionDetailStr(addressSelectedBean));
@@ -1984,52 +1985,52 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateTopRightBtnStatus(boolean z, int i2) {
+    public void updateTopRightBtnStatus(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65632, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65632, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                this.addressElementStatus |= i2;
+                this.addressElementStatus |= i;
             } else {
-                this.addressElementStatus &= ~i2;
+                this.addressElementStatus &= ~i;
             }
             setTopRightBtnEnableStatus();
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i2, int i3, String str, String str2) {
+    public void doFailure(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
             LoadingUtil.cancel();
-            if (i2 == 2001 || i2 == 2002) {
+            if (i == 2001 || i == 2002) {
                 return;
             }
-            if (i2 != 3001) {
-                if (i2 == 3003 || TextUtils.isEmpty(str)) {
+            if (i != 3001) {
+                if (i == 3003 || TextUtils.isEmpty(str)) {
                     return;
                 }
-                ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, str);
+                ToastUtil.show(R.drawable.obfuscated_res_0x7f080fff, str);
                 return;
             }
-            ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, "图片识别失败");
+            ToastUtil.show(R.drawable.obfuscated_res_0x7f080fff, "图片识别失败");
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i2, Object obj, String str) {
+    public void doResult(int i, Object obj, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, obj, str) == null) {
             LoadingUtil.cancel();
-            if (i2 == 1001) {
+            if (i == 1001) {
                 processUpdateAddrResult();
-            } else if (i2 == 1002) {
+            } else if (i == 1002) {
                 processDelAddrResult(str);
-            } else if (i2 == 1004) {
+            } else if (i == 1004) {
                 processCreateAddrResult(obj);
-            } else if (i2 == 2001) {
+            } else if (i == 2001) {
                 processSuggestAddrList(str, obj);
-            } else if (i2 != 2002) {
-                switch (i2) {
+            } else if (i != 2002) {
+                switch (i) {
                     case 3001:
                         processImgOcrResult(obj);
                         return;
@@ -2061,27 +2062,16 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             if (this.isOpenEdit) {
                 return;
             }
-            overridePendingTransition(0, R.anim.sapi_sdk_anim_activity_push_bottom_out);
-        }
-    }
-
-    @Override // com.baidu.sapi2.activity.NaSlideActiviy
-    public void finishActivityAfterSlideOver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.isOpenEdit) {
-                endProcess();
-            }
-            finish();
+            overridePendingTransition(0, R.anim.obfuscated_res_0x7f0100fd);
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 10001 && intent != null) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 10001 && intent != null) {
                 Serializable serializableExtra = intent.getSerializableExtra(MAP_LOC_REGION_DETAIL);
                 if (serializableExtra == null) {
                     return;
@@ -2091,7 +2081,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 this.detailAddrEt.setText(intent.getStringExtra(MAP_LOC_ADDR_DETAIL));
                 this.mapAddrCheckValidTv.setVisibility(0);
                 AddressStatUtil.onEventAutoStatistic(StatKey.ADDR_EDIT_INFO_FROM_MAP, this.isCreateAddress ? "0" : "1");
-            } else if (i2 == 10010 && checkGpsSwitcherStatus()) {
+            } else if (i == 10010 && checkGpsSwitcherStatus()) {
                 openAddrMapLocationActivity();
             }
         }
@@ -2102,7 +2092,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         AddressManageDTO addressManageDTO;
         MapStatusAndLocateCallback mapStatusAndLocateCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Log.d("ONCLICK", "currentTime=" + currentTimeMillis + " lastClickTime=" + BaseOptionActivity.lastClickTime);
             if (currentTimeMillis - BaseOptionActivity.lastClickTime < 500) {
@@ -2110,7 +2100,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             }
             BaseOptionActivity.lastClickTime = currentTimeMillis;
             int id = view.getId();
-            if (R.id.sapi_sdk_addr_default_toggle == id) {
+            if (R.id.obfuscated_res_0x7f091b47 == id) {
                 if (this.isSetDefaultAddr) {
                     AddressStatUtil.statAddressOption(StatKey.EDITADDR_CANCEL_DEFAULT);
                     closeDefaultAddr();
@@ -2118,28 +2108,28 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SET_DEFAULT);
                 openDefaultAddr();
-            } else if (R.id.sapi_sdk_add_tag_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091b3a == id) {
                 this.addTagBtn.setVisibility(8);
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_tag_edit_confirm_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bcf == id) {
                 this.isClickConfirmCustomTag = true;
                 checkedCustomTag();
                 this.editTagLayout.setVisibility(8);
                 this.customTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_custom_tag_update_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091b89 == id) {
                 this.customTagLayout.setVisibility(8);
                 this.editTagLayout.setVisibility(0);
-            } else if (R.id.sapi_sdk_clean_copy_text == id) {
+            } else if (R.id.obfuscated_res_0x7f091b7d == id) {
                 this.textOcrEt.setText("");
-            } else if (R.id.sapi_sdk_use_copy_text == id) {
+            } else if (R.id.obfuscated_res_0x7f091be1 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SPLIT_CLICK);
                 String trim = this.textOcrEt.getText().toString().trim();
                 if (TextUtils.isEmpty(trim)) {
                     return;
                 }
                 ((AddressEditPresenter) this.presenter).recogniseTextOcrAddressResult(trim, 3002);
-            } else if (R.id.sapi_sdk_add_addr_region == id) {
+            } else if (R.id.obfuscated_res_0x7f091b39 == id) {
                 if (this.isKeyBoardShowing) {
                     this.isShowRegionSelectDialog = true;
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
@@ -2150,7 +2140,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showRegionSelectorDialog();
-            } else if (R.id.sapi_sdk_img_ocr_view == id) {
+            } else if (R.id.obfuscated_res_0x7f091b98 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_OCR_CLICK);
                 if (this.isKeyBoardShowing) {
                     this.isShowImgOcrDialog = true;
@@ -2162,23 +2152,23 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                     return;
                 }
                 showImgOcrOptionDialog();
-            } else if (R.id.sapi_sdk_titlebar_left_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bd4 == id) {
                 if (this.isOpenEdit) {
                     endProcess();
                 }
                 finish();
-            } else if (R.id.sapi_sdk_titlebar_right_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bd5 == id) {
                 AddressStatUtil.statAddressOption(StatKey.EDITADDR_SAVEBTN_CLICK);
                 checkUserInputAndSubmit();
-            } else if (R.id.sapi_sdk_addr_copy_text_form == id) {
+            } else if (R.id.obfuscated_res_0x7f091b40 == id) {
                 if (this.addrCopyLayout.getVisibility() == 0) {
                     closeAddrCopyLayout();
                 } else {
                     openAddrCopyLayout();
                 }
-            } else if (R.id.sapi_sdk_addr_del_addr_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091b49 == id) {
                 showDelNoticeDialog();
-            } else if (R.id.sapi_sdk_select_region_iv == id) {
+            } else if (R.id.obfuscated_res_0x7f091bc5 == id) {
                 AddressStatUtil.onEventAutoStatistic(StatKey.ADDR_LOCATE_BTN_CLICK, this.isCreateAddress ? "0" : "1");
                 boolean isMeetGray = SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_ADDRESS_NA_MAP).isMeetGray();
                 Log.d(TAG, "isMeetAddrMapGray is " + isMeetGray);
@@ -2195,15 +2185,14 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         }
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.layout_sapi_sdk_address_edit_activity);
-            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sek_title_bar_bg_start_color));
+            setContentView(R.layout.obfuscated_res_0x7f0d04c0);
+            ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f0609fa));
             initView();
-            setEnableSliding(this.isOpenEdit);
             addAddress4ElementUpdateListener();
             setInputBeyondLengthLimitListener();
             setDarkModelIcon();
@@ -2235,7 +2224,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             AddressSelectorDialog addressSelectorDialog = this.regionSelectorDialog;
             if (addressSelectorDialog != null) {
                 addressSelectorDialog.destory();
@@ -2247,7 +2236,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     @Override // com.baidu.pass.ecommerce.view.addressdialog.OnDialogSelectedListenter
     public void onItemSelected(AddressSelectedBean addressSelectedBean) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, addressSelectedBean) == null) || addressSelectedBean == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, addressSelectedBean) == null) || addressSelectedBean == null) {
             return;
         }
         if (TextUtils.isEmpty(addressSelectedBean.countryId)) {
@@ -2258,12 +2247,12 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.pass.ecommerce.dialog.ImgOcrOptionDialog.OptionOnClickListener
-    public void onOptionClick(int i2) {
+    public void onOptionClick(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            if (i2 == 1001) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i == 1001) {
                 takePhoto();
-            } else if (i2 != 1002) {
+            } else if (i != 1002) {
             } else {
                 pickPhoto();
             }
@@ -2273,7 +2262,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             this.isActivityStopped = false;
             readClipBoardAddrText();
@@ -2283,17 +2272,17 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
             this.isActivityStopped = true;
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity
-    public void processImgBase64Data(int i2, String str, String str2) {
+    public void processImgBase64Data(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048590, this, i2, str, str2) == null) {
-            if (10000 == i2 && !TextUtils.isEmpty(str2)) {
+        if (interceptable == null || interceptable.invokeILL(1048589, this, i, str, str2) == null) {
+            if (10000 == i && !TextUtils.isEmpty(str2)) {
                 ((AddressEditPresenter) this.presenter).getImgOcrAddressResult(str2);
             } else if (TextUtils.isEmpty(str)) {
             } else {
@@ -2303,16 +2292,16 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i2) {
+    public void showLoading(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || isFinishing() || isDestroyed()) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || isFinishing() || isDestroyed()) {
             return;
         }
-        if (i2 == 1001 || i2 == 1004) {
+        if (i == 1001 || i == 1004) {
             LoadingUtil.show("地址保存中");
-        } else if (i2 == 3001) {
+        } else if (i == 3001) {
             LoadingUtil.show("图片识别中");
-        } else if (i2 != 3002) {
+        } else if (i != 3002) {
         } else {
             LoadingUtil.show("地址识别中");
         }

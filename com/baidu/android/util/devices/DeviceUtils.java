@@ -14,7 +14,11 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,9 +79,9 @@ public class DeviceUtils implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -121,14 +125,14 @@ public class DeviceUtils implements IDevices {
                         try {
                             randomAccessFile.readFully(bArr);
                             randomAccessFile2 = 8;
-                            int i2 = bArr[18] | (bArr[19] << 8);
-                            if (i2 == 3) {
+                            int i = bArr[18] | (bArr[19] << 8);
+                            if (i == 3) {
                                 sArch = IDevices.ARCH.X86;
-                            } else if (i2 == 8) {
+                            } else if (i == 8) {
                                 sArch = IDevices.ARCH.MIPS;
-                            } else if (i2 == 40) {
+                            } else if (i == 40) {
                                 sArch = IDevices.ARCH.ARM;
-                            } else if (i2 == 183) {
+                            } else if (i == 183) {
                                 sArch = IDevices.ARCH.ARM64;
                             }
                             try {
@@ -290,7 +294,7 @@ public class DeviceUtils implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-                return (supportABI("armeabi-v7a") || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getCpuArch());
+                return (supportABI(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getCpuArch());
             }
             return invokeV.booleanValue;
         }
@@ -321,7 +325,7 @@ public class DeviceUtils implements IDevices {
         public static boolean supportMips() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? supportABI(IDevices.ABI_MIPS) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? supportABI("mips") : invokeV.booleanValue;
         }
 
         public static boolean supportX86() {
@@ -341,9 +345,9 @@ public class DeviceUtils implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -547,9 +551,9 @@ public class DeviceUtils implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -650,7 +654,7 @@ public class DeviceUtils implements IDevices {
                     return 0;
                 }
                 Resources resources = AppRuntime.getAppContext().getResources();
-                return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android"));
             }
             return invokeV.intValue;
         }
@@ -697,9 +701,9 @@ public class DeviceUtils implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-                int i2 = originDensityDip;
-                if (i2 > 0) {
-                    return i2;
+                int i = originDensityDip;
+                if (i > 0) {
+                    return i;
                 }
                 try {
                     originDensityDip = ((Integer) Class.forName("android.view.IWindowManager").getMethod("getInitialDisplayDensity", Integer.TYPE).invoke(Class.forName("android.view.WindowManagerGlobal").getMethod("getWindowManagerService", new Class[0]).invoke(new Object(), new Object[0]), 0)).intValue();
@@ -715,15 +719,15 @@ public class DeviceUtils implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-                int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-                int i2 = 0;
+                int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+                int i = 0;
                 if (identifier > 0) {
                     try {
-                        i2 = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
+                        i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
                     } catch (Exception unused) {
                     }
                 }
-                return i2 == 0 ? (int) (getDensity(null) * 25.0f) : i2;
+                return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
             }
             return invokeV.intValue;
         }
@@ -786,9 +790,9 @@ public class DeviceUtils implements IDevices {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -802,7 +806,7 @@ public class DeviceUtils implements IDevices {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "hw_sc.build.os.version");
+                return (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "hw_sc.build.os.version");
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";
@@ -816,7 +820,7 @@ public class DeviceUtils implements IDevices {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                int identifier = Resources.getSystem().getIdentifier("config_os_brand", "string", "android");
+                int identifier = Resources.getSystem().getIdentifier("config_os_brand", EMABTest.TYPE_STRING, "android");
                 if (identifier != 0) {
                     return context.getString(identifier).equals("harmony");
                 }

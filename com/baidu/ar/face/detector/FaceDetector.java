@@ -46,9 +46,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {faceDetector};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,9 +70,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -153,9 +153,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             boolean f2 = com.baidu.ar.b.a.as().f(11);
-            int i2 = this.oY + 1;
-            this.oY = i2;
-            if (f2 && i2 > 1) {
+            int i = this.oY + 1;
+            this.oY = i;
+            if (f2 && i > 1) {
                 this.oY = 0;
                 return f2;
             }
@@ -198,9 +198,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Integer.valueOf(r8)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -248,14 +248,14 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void a(a.C1756a c1756a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C1717a c1717a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1756a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
-            this.oA.G(i2);
-            if (c1756a != null) {
-                this.oA.a(Float.parseFloat(c1756a.pR), Float.parseFloat(c1756a.pS));
-                this.oA.d(Float.parseFloat(c1756a.pT));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1717a, Integer.valueOf(i), bVar, bVar2, str}) == null) {
+            this.oA.G(i);
+            if (c1717a != null) {
+                this.oA.a(Float.parseFloat(c1717a.pR), Float.parseFloat(c1717a.pS));
+                this.oA.d(Float.parseFloat(c1717a.pT));
             }
             this.oA.z(bVar.dy());
             this.oA.B(bVar.dz());
@@ -324,9 +324,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -367,10 +367,10 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     }
 
     @Override // com.baidu.ar.b.a.a
-    public void b(long j2) {
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.oA.b(j2);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.oA.b(j);
         }
     }
 
@@ -494,11 +494,11 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
                 }
                 return;
             }
-            int i2 = this.oX;
-            if (i2 == 0) {
+            int i = this.oX;
+            if (i == 0) {
                 this.oy.f(com.baidu.ar.face.c.a(nVar.ob, nVar.og, nVar.mf, nVar.oh, nVar.oe, nVar.timestamp, nVar.oi));
-            } else if (i2 > 0) {
-                this.oX = i2 - 1;
+            } else if (i > 0) {
+                this.oX = i - 1;
                 o oVar = new o(nVar);
                 oVar.b(this.oy);
                 com.baidu.ar.c.c.cd().c((com.baidu.ar.c.a) oVar);
@@ -513,10 +513,10 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void q(long j2) {
+    public void q(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.oA.q(j2);
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.oA.q(j);
         }
     }
 

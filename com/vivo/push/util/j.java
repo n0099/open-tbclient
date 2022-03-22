@@ -4,6 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,37 +13,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f59317b;
+    public static final String f43950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f59318c;
+    public static final boolean f43951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f59319d;
+    public static final boolean f43952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f59320e;
+    public static final boolean f43953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f59321f;
+    public static final boolean f43954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f59322g;
+    public static final boolean f43955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f59323h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static Method f59324i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f59325j;
+    public static final boolean f43956h;
+    public static Method i;
+    public static String j;
     public static String k;
     public static String l;
     public static String m;
@@ -68,14 +65,14 @@ public final class j {
         } else {
             b2 = aa.b("ro.product.customize.bbk", "N");
         }
-        f59317b = b2;
-        f59318c = "RU".equals(b2);
-        f59319d = "IN".equals(f59317b);
-        f59320e = b("rom_1.0");
-        f59321f = b("rom_2.0");
-        f59322g = b("rom_2.5");
-        f59323h = b("rom_3.0");
-        f59325j = null;
+        f43950b = b2;
+        f43951c = "RU".equals(b2);
+        f43952d = "IN".equals(f43950b);
+        f43953e = b("rom_1.0");
+        f43954f = b("rom_2.0");
+        f43955g = b("rom_2.5");
+        f43956h = b("rom_3.0");
+        j = null;
         k = null;
         l = "";
         m = "";
@@ -87,7 +84,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                str3 = (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, str);
+                str3 = (String) Class.forName("android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(null, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str3 = str2;
@@ -117,19 +114,19 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f59325j == null && k == null) {
+                if (j == null && k == null) {
                     try {
-                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f59324i = declaredMethod;
+                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class);
+                        i = declaredMethod;
                         declaredMethod.setAccessible(true);
-                        f59325j = (String) f59324i.invoke(null, "ro.vivo.rom", "@><@");
-                        k = (String) f59324i.invoke(null, "ro.vivo.rom.version", "@><@");
+                        j = (String) i.invoke(null, "ro.vivo.rom", "@><@");
+                        k = (String) i.invoke(null, "ro.vivo.rom.version", "@><@");
                     } catch (Exception unused) {
                         p.b("Device", "getRomCode error");
                     }
                 }
-                p.d("Device", "sRomProperty1 : " + f59325j + " ; sRomProperty2 : " + k);
-                String a2 = a(f59325j);
+                p.d("Device", "sRomProperty1 : " + j + " ; sRomProperty2 : " + k);
+                String a2 = a(j);
                 if (TextUtils.isEmpty(a2)) {
                     String a3 = a(k);
                     if (TextUtils.isEmpty(a3)) {

@@ -4,18 +4,19 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f990a;
+    public static String f966a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,7 +52,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m699a() {
+    public static Context m678a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -74,7 +75,7 @@ public class t {
             try {
                 return Class.forName(str);
             } catch (ClassNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m112a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e2.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", e2);
             }
         }
@@ -82,13 +83,13 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m700a() {
+    public static synchronized String m679a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (t.class) {
-                if (f990a != null) {
-                    return f990a;
+                if (f966a != null) {
+                    return f966a;
                 }
                 String str = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -104,7 +105,7 @@ public class t {
                     }
                     str = b2;
                 }
-                f990a = str;
+                f966a = str;
                 return str;
             }
         }
@@ -115,7 +116,7 @@ public class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (l.m601b()) {
+            if (l.m580b()) {
                 return "";
             }
             String str = (String) bh.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -125,7 +126,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m701a(Context context) {
+    public static void m680a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             a = context.getApplicationContext();
@@ -133,14 +134,14 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m702a() {
+    public static boolean m681a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals((String) bh.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals((String) bh.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m703a(Context context) {
+    public static boolean m682a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -159,14 +160,14 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String a2 = s.a("ro.build.version.emui", "");
-            f990a = a2;
+            f966a = a2;
             return a2;
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m704b() {
+    public static boolean m683b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
@@ -189,9 +190,9 @@ public class t {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String a2 = s.a("ro.build.version.opporom", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-                f990a = "ColorOS_" + a2;
+                f966a = "ColorOS_" + a2;
             }
-            return f990a;
+            return f966a;
         }
         return (String) invokeV.objValue;
     }
@@ -202,9 +203,9 @@ public class t {
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             String a2 = s.a("ro.vivo.os.version", "");
             if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-                f990a = "FuntouchOS_" + a2;
+                f966a = "FuntouchOS_" + a2;
             }
-            return f990a;
+            return f966a;
         }
         return (String) invokeV.objValue;
     }

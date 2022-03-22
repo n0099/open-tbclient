@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BitmapPool) objArr2[0], (ArrayPool) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -43,38 +43,38 @@ public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public Bitmap obtain(int i2, int i3, @NonNull Bitmap.Config config) {
+    public Bitmap obtain(int i, int i2, @NonNull Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) ? this.bitmapPool.getDirty(i2, i3, config) : (Bitmap) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) ? this.bitmapPool.getDirty(i, i2, config) : (Bitmap) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public byte[] obtainByteArray(int i2) {
+    public byte[] obtainByteArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             ArrayPool arrayPool = this.arrayPool;
             if (arrayPool == null) {
-                return new byte[i2];
+                return new byte[i];
             }
-            return (byte[]) arrayPool.get(i2, byte[].class);
+            return (byte[]) arrayPool.get(i, byte[].class);
         }
         return (byte[]) invokeI.objValue;
     }
 
     @Override // com.bumptech.glide.gifdecoder.GifDecoder.BitmapProvider
     @NonNull
-    public int[] obtainIntArray(int i2) {
+    public int[] obtainIntArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             ArrayPool arrayPool = this.arrayPool;
             if (arrayPool == null) {
-                return new int[i2];
+                return new int[i];
             }
-            return (int[]) arrayPool.get(i2, int[].class);
+            return (int[]) arrayPool.get(i, int[].class);
         }
         return (int[]) invokeI.objValue;
     }
@@ -94,9 +94,9 @@ public final class GifBitmapProvider implements GifDecoder.BitmapProvider {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool, arrayPool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

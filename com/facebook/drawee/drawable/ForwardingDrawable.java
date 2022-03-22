@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ForwardingDrawable extends Drawable implements Drawable.Callback, TransformCallback, TransformAwareDrawable, DrawableParent {
     public static /* synthetic */ Interceptable $ic;
     public static final Matrix sTempTransform;
@@ -50,9 +50,9 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -249,15 +249,15 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             Drawable drawable = this.mCurrentDelegate;
             if (drawable == null) {
-                return super.onLevelChange(i2);
+                return super.onLevelChange(i);
             }
-            return drawable.setLevel(i2);
+            return drawable.setLevel(i);
         }
         return invokeI.booleanValue;
     }
@@ -277,21 +277,21 @@ public class ForwardingDrawable extends Drawable implements Drawable.Callback, T
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-            scheduleSelf(runnable, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+            scheduleSelf(runnable, j);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mDrawableProperties.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mDrawableProperties.setAlpha(i);
             Drawable drawable = this.mCurrentDelegate;
             if (drawable != null) {
-                drawable.setAlpha(i2);
+                drawable.setAlpha(i);
             }
         }
     }

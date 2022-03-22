@@ -23,7 +23,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class LcmPb$LcmNotify extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_FIELD_NUMBER = 2;
@@ -38,7 +38,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<LcmPb$LcmNotify> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -67,28 +67,26 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmNotify, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public int f33268e;
+        /* renamed from: b  reason: collision with root package name */
+        public long f25622b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public long f33269f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f33270g;
+        /* renamed from: c  reason: collision with root package name */
+        public int f25623c;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,15 +149,15 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (c.a.u.a.e.a) null);
-                int i2 = this.f33268e;
-                int i3 = (i2 & 1) != 1 ? 0 : 1;
-                lcmPb$LcmNotify.logId_ = this.f33269f;
-                if ((i2 & 2) == 2) {
-                    i3 |= 2;
+                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (c.a.t.a.e.a) null);
+                int i = this.a;
+                int i2 = (i & 1) != 1 ? 0 : 1;
+                lcmPb$LcmNotify.logId_ = this.f25622b;
+                if ((i & 2) == 2) {
+                    i2 |= 2;
                 }
-                lcmPb$LcmNotify.action_ = this.f33270g;
-                lcmPb$LcmNotify.bitField0_ = i3;
+                lcmPb$LcmNotify.action_ = this.f25623c;
+                lcmPb$LcmNotify.bitField0_ = i2;
                 return lcmPb$LcmNotify;
             }
             return (LcmPb$LcmNotify) invokeV.objValue;
@@ -170,11 +168,11 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f33269f = 0L;
-                int i2 = this.f33268e & (-2);
-                this.f33268e = i2;
-                this.f33270g = 0;
-                this.f33268e = i2 & (-3);
+                this.f25622b = 0L;
+                int i = this.a & (-2);
+                this.a = i;
+                this.f25623c = 0;
+                this.a = i & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -206,7 +204,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f33268e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.a & 1) == 1 : invokeV.booleanValue;
         }
 
         public b t(LcmPb$LcmNotify lcmPb$LcmNotify) {
@@ -266,23 +264,23 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             return (b) invokeLL.objValue;
         }
 
-        public b v(int i2) {
+        public b v(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-                this.f33268e |= 2;
-                this.f33270g = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+                this.a |= 2;
+                this.f25623c = i;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b w(long j2) {
+        public b w(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j2)) == null) {
-                this.f33268e |= 1;
-                this.f33269f = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
+                this.a |= 1;
+                this.f25622b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -328,7 +326,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         lcmPb$LcmNotify.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.u.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -388,9 +386,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.memoizedSerializedSize;
-            if (i2 != -1) {
-                return i2;
+            int i = this.memoizedSerializedSize;
+            if (i != -1) {
+                return i;
             }
             int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.logId_) : 0;
             if ((this.bitField0_ & 2) == 2) {
@@ -454,7 +452,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, c.a.u.a.e.a aVar) {
+    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
         this(builder);
     }
 
@@ -514,9 +512,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -552,9 +550,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -589,9 +587,9 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             newInitContext.initArgs = r2;
             Object[] objArr = {codedInputStream, extensionRegistryLite};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

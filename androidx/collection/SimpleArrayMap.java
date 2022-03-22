@@ -3,7 +3,6 @@ package androidx.collection;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ConcurrentModificationException;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class SimpleArrayMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,9 +36,9 @@ public class SimpleArrayMap<K, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,10 +49,10 @@ public class SimpleArrayMap<K, V> {
         this.mSize = 0;
     }
 
-    private void allocArrays(int i2) {
+    private void allocArrays(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            if (i2 == 8) {
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
+            if (i == 8) {
                 synchronized (SimpleArrayMap.class) {
                     if (mTwiceBaseCache != null) {
                         Object[] objArr = mTwiceBaseCache;
@@ -67,7 +65,7 @@ public class SimpleArrayMap<K, V> {
                         return;
                     }
                 }
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 synchronized (SimpleArrayMap.class) {
                     if (mBaseCache != null) {
                         Object[] objArr2 = mBaseCache;
@@ -81,17 +79,17 @@ public class SimpleArrayMap<K, V> {
                     }
                 }
             }
-            this.mHashes = new int[i2];
-            this.mArray = new Object[i2 << 1];
+            this.mHashes = new int[i];
+            this.mArray = new Object[i << 1];
         }
     }
 
-    public static int binarySearchHashes(int[] iArr, int i2, int i3) {
+    public static int binarySearchHashes(int[] iArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr, i, i2)) == null) {
             try {
-                return ContainerHelpers.binarySearch(iArr, i2, i3);
+                return ContainerHelpers.binarySearch(iArr, i, i2);
             } catch (ArrayIndexOutOfBoundsException unused) {
                 throw new ConcurrentModificationException();
             }
@@ -99,16 +97,16 @@ public class SimpleArrayMap<K, V> {
         return invokeLII.intValue;
     }
 
-    public static void freeArrays(int[] iArr, Object[] objArr, int i2) {
+    public static void freeArrays(int[] iArr, Object[] objArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, iArr, objArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65541, null, iArr, objArr, i) == null) {
             if (iArr.length == 8) {
                 synchronized (SimpleArrayMap.class) {
                     if (mTwiceBaseCacheSize < 10) {
                         objArr[0] = mTwiceBaseCache;
                         objArr[1] = iArr;
-                        for (int i3 = (i2 << 1) - 1; i3 >= 2; i3--) {
-                            objArr[i3] = null;
+                        for (int i2 = (i << 1) - 1; i2 >= 2; i2--) {
+                            objArr[i2] = null;
                         }
                         mTwiceBaseCache = objArr;
                         mTwiceBaseCacheSize++;
@@ -119,8 +117,8 @@ public class SimpleArrayMap<K, V> {
                     if (mBaseCacheSize < 10) {
                         objArr[0] = mBaseCache;
                         objArr[1] = iArr;
-                        for (int i4 = (i2 << 1) - 1; i4 >= 2; i4--) {
-                            objArr[i4] = null;
+                        for (int i3 = (i << 1) - 1; i3 >= 2; i3--) {
+                            objArr[i3] = null;
                         }
                         mBaseCache = objArr;
                         mBaseCacheSize++;
@@ -133,14 +131,14 @@ public class SimpleArrayMap<K, V> {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.mSize;
-            if (i2 > 0) {
+            int i = this.mSize;
+            if (i > 0) {
                 int[] iArr = this.mHashes;
                 Object[] objArr = this.mArray;
                 this.mHashes = ContainerHelpers.EMPTY_INTS;
                 this.mArray = ContainerHelpers.EMPTY_OBJECTS;
                 this.mSize = 0;
-                freeArrays(iArr, objArr, i2);
+                freeArrays(iArr, objArr, i);
             }
             if (this.mSize > 0) {
                 throw new ConcurrentModificationException();
@@ -160,21 +158,21 @@ public class SimpleArrayMap<K, V> {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? indexOfValue(obj) >= 0 : invokeL.booleanValue;
     }
 
-    public void ensureCapacity(int i2) {
+    public void ensureCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            int i3 = this.mSize;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int i2 = this.mSize;
             int[] iArr = this.mHashes;
-            if (iArr.length < i2) {
+            if (iArr.length < i) {
                 Object[] objArr = this.mArray;
-                allocArrays(i2);
+                allocArrays(i);
                 if (this.mSize > 0) {
-                    System.arraycopy(iArr, 0, this.mHashes, 0, i3);
-                    System.arraycopy(objArr, 0, this.mArray, 0, i3 << 1);
+                    System.arraycopy(iArr, 0, this.mHashes, 0, i2);
+                    System.arraycopy(objArr, 0, this.mArray, 0, i2 << 1);
                 }
-                freeArrays(iArr, objArr, i3);
+                freeArrays(iArr, objArr, i2);
             }
-            if (this.mSize != i3) {
+            if (this.mSize != i2) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -192,10 +190,10 @@ public class SimpleArrayMap<K, V> {
                 if (size() != simpleArrayMap.size()) {
                     return false;
                 }
-                for (int i2 = 0; i2 < this.mSize; i2++) {
+                for (int i = 0; i < this.mSize; i++) {
                     try {
-                        K keyAt = keyAt(i2);
-                        V valueAt = valueAt(i2);
+                        K keyAt = keyAt(i);
+                        V valueAt = valueAt(i);
                         Object obj2 = simpleArrayMap.get(keyAt);
                         if (valueAt == null) {
                             if (obj2 != null || !simpleArrayMap.containsKey(keyAt)) {
@@ -215,10 +213,10 @@ public class SimpleArrayMap<K, V> {
                 if (size() != map.size()) {
                     return false;
                 }
-                for (int i3 = 0; i3 < this.mSize; i3++) {
+                for (int i2 = 0; i2 < this.mSize; i2++) {
                     try {
-                        K keyAt2 = keyAt(i3);
-                        V valueAt2 = valueAt(i3);
+                        K keyAt2 = keyAt(i2);
+                        V valueAt2 = valueAt(i2);
                         Object obj3 = map.get(keyAt2);
                         if (valueAt2 == null) {
                             if (obj3 != null || !map.containsKey(keyAt2)) {
@@ -260,44 +258,44 @@ public class SimpleArrayMap<K, V> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int[] iArr = this.mHashes;
             Object[] objArr = this.mArray;
-            int i2 = this.mSize;
-            int i3 = 1;
+            int i = this.mSize;
+            int i2 = 1;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < i2) {
-                Object obj = objArr[i3];
-                i5 += (obj == null ? 0 : obj.hashCode()) ^ iArr[i4];
-                i4++;
-                i3 += 2;
+            while (i3 < i) {
+                Object obj = objArr[i2];
+                i4 += (obj == null ? 0 : obj.hashCode()) ^ iArr[i3];
+                i3++;
+                i2 += 2;
             }
-            return i5;
+            return i4;
         }
         return invokeV.intValue;
     }
 
-    public int indexOf(Object obj, int i2) {
+    public int indexOf(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i2)) == null) {
-            int i3 = this.mSize;
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, i)) == null) {
+            int i2 = this.mSize;
+            if (i2 == 0) {
                 return -1;
             }
-            int binarySearchHashes = binarySearchHashes(this.mHashes, i3, i2);
+            int binarySearchHashes = binarySearchHashes(this.mHashes, i2, i);
             if (binarySearchHashes >= 0 && !obj.equals(this.mArray[binarySearchHashes << 1])) {
-                int i4 = binarySearchHashes + 1;
-                while (i4 < i3 && this.mHashes[i4] == i2) {
+                int i3 = binarySearchHashes + 1;
+                while (i3 < i2 && this.mHashes[i3] == i) {
+                    if (obj.equals(this.mArray[i3 << 1])) {
+                        return i3;
+                    }
+                    i3++;
+                }
+                for (int i4 = binarySearchHashes - 1; i4 >= 0 && this.mHashes[i4] == i; i4--) {
                     if (obj.equals(this.mArray[i4 << 1])) {
                         return i4;
                     }
-                    i4++;
                 }
-                for (int i5 = binarySearchHashes - 1; i5 >= 0 && this.mHashes[i5] == i2; i5--) {
-                    if (obj.equals(this.mArray[i5 << 1])) {
-                        return i5;
-                    }
-                }
-                return ~i4;
+                return ~i3;
             }
             return binarySearchHashes;
         }
@@ -314,25 +312,25 @@ public class SimpleArrayMap<K, V> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.mSize;
-            if (i2 == 0) {
+            int i = this.mSize;
+            if (i == 0) {
                 return -1;
             }
-            int binarySearchHashes = binarySearchHashes(this.mHashes, i2, 0);
+            int binarySearchHashes = binarySearchHashes(this.mHashes, i, 0);
             if (binarySearchHashes >= 0 && this.mArray[binarySearchHashes << 1] != null) {
-                int i3 = binarySearchHashes + 1;
-                while (i3 < i2 && this.mHashes[i3] == 0) {
+                int i2 = binarySearchHashes + 1;
+                while (i2 < i && this.mHashes[i2] == 0) {
+                    if (this.mArray[i2 << 1] == null) {
+                        return i2;
+                    }
+                    i2++;
+                }
+                for (int i3 = binarySearchHashes - 1; i3 >= 0 && this.mHashes[i3] == 0; i3--) {
                     if (this.mArray[i3 << 1] == null) {
                         return i3;
                     }
-                    i3++;
                 }
-                for (int i4 = binarySearchHashes - 1; i4 >= 0 && this.mHashes[i4] == 0; i4--) {
-                    if (this.mArray[i4 << 1] == null) {
-                        return i4;
-                    }
-                }
-                return ~i3;
+                return ~i2;
             }
             return binarySearchHashes;
         }
@@ -343,19 +341,19 @@ public class SimpleArrayMap<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
-            int i2 = this.mSize * 2;
+            int i = this.mSize * 2;
             Object[] objArr = this.mArray;
             if (obj == null) {
-                for (int i3 = 1; i3 < i2; i3 += 2) {
-                    if (objArr[i3] == null) {
-                        return i3 >> 1;
+                for (int i2 = 1; i2 < i; i2 += 2) {
+                    if (objArr[i2] == null) {
+                        return i2 >> 1;
                     }
                 }
                 return -1;
             }
-            for (int i4 = 1; i4 < i2; i4 += 2) {
-                if (obj.equals(objArr[i4])) {
-                    return i4 >> 1;
+            for (int i3 = 1; i3 < i; i3 += 2) {
+                if (obj.equals(objArr[i3])) {
+                    return i3 >> 1;
                 }
             }
             return -1;
@@ -369,74 +367,74 @@ public class SimpleArrayMap<K, V> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mSize <= 0 : invokeV.booleanValue;
     }
 
-    public K keyAt(int i2) {
+    public K keyAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? (K) this.mArray[i2 << 1] : (K) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (K) this.mArray[i << 1] : (K) invokeI.objValue;
     }
 
     @Nullable
     public V put(K k, V v) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, k, v)) == null) {
-            int i3 = this.mSize;
+            int i2 = this.mSize;
             if (k == null) {
                 indexOf = indexOfNull();
-                i2 = 0;
+                i = 0;
             } else {
                 int hashCode = k.hashCode();
-                i2 = hashCode;
+                i = hashCode;
                 indexOf = indexOf(k, hashCode);
             }
             if (indexOf >= 0) {
-                int i4 = (indexOf << 1) + 1;
+                int i3 = (indexOf << 1) + 1;
                 Object[] objArr = this.mArray;
-                V v2 = (V) objArr[i4];
-                objArr[i4] = v;
+                V v2 = (V) objArr[i3];
+                objArr[i3] = v;
                 return v2;
             }
-            int i5 = ~indexOf;
-            if (i3 >= this.mHashes.length) {
-                int i6 = 4;
-                if (i3 >= 8) {
-                    i6 = (i3 >> 1) + i3;
-                } else if (i3 >= 4) {
-                    i6 = 8;
+            int i4 = ~indexOf;
+            if (i2 >= this.mHashes.length) {
+                int i5 = 4;
+                if (i2 >= 8) {
+                    i5 = (i2 >> 1) + i2;
+                } else if (i2 >= 4) {
+                    i5 = 8;
                 }
                 int[] iArr = this.mHashes;
                 Object[] objArr2 = this.mArray;
-                allocArrays(i6);
-                if (i3 == this.mSize) {
+                allocArrays(i5);
+                if (i2 == this.mSize) {
                     int[] iArr2 = this.mHashes;
                     if (iArr2.length > 0) {
                         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
                         System.arraycopy(objArr2, 0, this.mArray, 0, objArr2.length);
                     }
-                    freeArrays(iArr, objArr2, i3);
+                    freeArrays(iArr, objArr2, i2);
                 } else {
                     throw new ConcurrentModificationException();
                 }
             }
-            if (i5 < i3) {
+            if (i4 < i2) {
                 int[] iArr3 = this.mHashes;
-                int i7 = i5 + 1;
-                System.arraycopy(iArr3, i5, iArr3, i7, i3 - i5);
+                int i6 = i4 + 1;
+                System.arraycopy(iArr3, i4, iArr3, i6, i2 - i4);
                 Object[] objArr3 = this.mArray;
-                System.arraycopy(objArr3, i5 << 1, objArr3, i7 << 1, (this.mSize - i5) << 1);
+                System.arraycopy(objArr3, i4 << 1, objArr3, i6 << 1, (this.mSize - i4) << 1);
             }
-            int i8 = this.mSize;
-            if (i3 == i8) {
+            int i7 = this.mSize;
+            if (i2 == i7) {
                 int[] iArr4 = this.mHashes;
-                if (i5 < iArr4.length) {
-                    iArr4[i5] = i2;
+                if (i4 < iArr4.length) {
+                    iArr4[i4] = i;
                     Object[] objArr4 = this.mArray;
-                    int i9 = i5 << 1;
-                    objArr4[i9] = k;
-                    objArr4[i9 + 1] = v;
-                    this.mSize = i8 + 1;
+                    int i8 = i4 << 1;
+                    objArr4[i8] = k;
+                    objArr4[i8 + 1] = v;
+                    this.mSize = i7 + 1;
                     return null;
                 }
             }
@@ -448,16 +446,16 @@ public class SimpleArrayMap<K, V> {
     public void putAll(@NonNull SimpleArrayMap<? extends K, ? extends V> simpleArrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, simpleArrayMap) == null) {
-            int i2 = simpleArrayMap.mSize;
-            ensureCapacity(this.mSize + i2);
+            int i = simpleArrayMap.mSize;
+            ensureCapacity(this.mSize + i);
             if (this.mSize != 0) {
-                for (int i3 = 0; i3 < i2; i3++) {
-                    put(simpleArrayMap.keyAt(i3), simpleArrayMap.valueAt(i3));
+                for (int i2 = 0; i2 < i; i2++) {
+                    put(simpleArrayMap.keyAt(i2), simpleArrayMap.valueAt(i2));
                 }
-            } else if (i2 > 0) {
-                System.arraycopy(simpleArrayMap.mHashes, 0, this.mHashes, 0, i2);
-                System.arraycopy(simpleArrayMap.mArray, 0, this.mArray, 0, i2 << 1);
-                this.mSize = i2;
+            } else if (i > 0) {
+                System.arraycopy(simpleArrayMap.mHashes, 0, this.mHashes, 0, i);
+                System.arraycopy(simpleArrayMap.mArray, 0, this.mArray, 0, i << 1);
+                this.mSize = i;
             }
         }
     }
@@ -487,58 +485,58 @@ public class SimpleArrayMap<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public V removeAt(int i2) {
+    public V removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
             Object[] objArr = this.mArray;
-            int i3 = i2 << 1;
-            V v = (V) objArr[i3 + 1];
-            int i4 = this.mSize;
-            int i5 = 0;
-            if (i4 <= 1) {
-                freeArrays(this.mHashes, objArr, i4);
+            int i2 = i << 1;
+            V v = (V) objArr[i2 + 1];
+            int i3 = this.mSize;
+            int i4 = 0;
+            if (i3 <= 1) {
+                freeArrays(this.mHashes, objArr, i3);
                 this.mHashes = ContainerHelpers.EMPTY_INTS;
                 this.mArray = ContainerHelpers.EMPTY_OBJECTS;
             } else {
-                int i6 = i4 - 1;
+                int i5 = i3 - 1;
                 int[] iArr = this.mHashes;
-                if (iArr.length > 8 && i4 < iArr.length / 3) {
-                    int i7 = i4 > 8 ? i4 + (i4 >> 1) : 8;
+                if (iArr.length > 8 && i3 < iArr.length / 3) {
+                    int i6 = i3 > 8 ? i3 + (i3 >> 1) : 8;
                     int[] iArr2 = this.mHashes;
                     Object[] objArr2 = this.mArray;
-                    allocArrays(i7);
-                    if (i4 != this.mSize) {
+                    allocArrays(i6);
+                    if (i3 != this.mSize) {
                         throw new ConcurrentModificationException();
                     }
-                    if (i2 > 0) {
-                        System.arraycopy(iArr2, 0, this.mHashes, 0, i2);
-                        System.arraycopy(objArr2, 0, this.mArray, 0, i3);
+                    if (i > 0) {
+                        System.arraycopy(iArr2, 0, this.mHashes, 0, i);
+                        System.arraycopy(objArr2, 0, this.mArray, 0, i2);
                     }
-                    if (i2 < i6) {
-                        int i8 = i2 + 1;
-                        int i9 = i6 - i2;
-                        System.arraycopy(iArr2, i8, this.mHashes, i2, i9);
-                        System.arraycopy(objArr2, i8 << 1, this.mArray, i3, i9 << 1);
+                    if (i < i5) {
+                        int i7 = i + 1;
+                        int i8 = i5 - i;
+                        System.arraycopy(iArr2, i7, this.mHashes, i, i8);
+                        System.arraycopy(objArr2, i7 << 1, this.mArray, i2, i8 << 1);
                     }
                 } else {
-                    if (i2 < i6) {
+                    if (i < i5) {
                         int[] iArr3 = this.mHashes;
-                        int i10 = i2 + 1;
-                        int i11 = i6 - i2;
-                        System.arraycopy(iArr3, i10, iArr3, i2, i11);
+                        int i9 = i + 1;
+                        int i10 = i5 - i;
+                        System.arraycopy(iArr3, i9, iArr3, i, i10);
                         Object[] objArr3 = this.mArray;
-                        System.arraycopy(objArr3, i10 << 1, objArr3, i3, i11 << 1);
+                        System.arraycopy(objArr3, i9 << 1, objArr3, i2, i10 << 1);
                     }
                     Object[] objArr4 = this.mArray;
-                    int i12 = i6 << 1;
-                    objArr4[i12] = null;
-                    objArr4[i12 + 1] = null;
+                    int i11 = i5 << 1;
+                    objArr4[i11] = null;
+                    objArr4[i11 + 1] = null;
                 }
-                i5 = i6;
+                i4 = i5;
             }
-            if (i4 == this.mSize) {
-                this.mSize = i5;
+            if (i3 == this.mSize) {
+                this.mSize = i4;
                 return v;
             }
             throw new ConcurrentModificationException();
@@ -560,14 +558,14 @@ public class SimpleArrayMap<K, V> {
         return (V) invokeLL.objValue;
     }
 
-    public V setValueAt(int i2, V v) {
+    public V setValueAt(int i, V v) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i2, v)) == null) {
-            int i3 = (i2 << 1) + 1;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, v)) == null) {
+            int i2 = (i << 1) + 1;
             Object[] objArr = this.mArray;
-            V v2 = (V) objArr[i3];
-            objArr[i3] = v;
+            V v2 = (V) objArr[i2];
+            objArr[i2] = v;
             return v2;
         }
         return (V) invokeIL.objValue;
@@ -587,35 +585,35 @@ public class SimpleArrayMap<K, V> {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 28);
-            sb.append(ExtendedMessageFormat.START_FE);
-            for (int i2 = 0; i2 < this.mSize; i2++) {
-                if (i2 > 0) {
+            sb.append('{');
+            for (int i = 0; i < this.mSize; i++) {
+                if (i > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                K keyAt = keyAt(i2);
+                K keyAt = keyAt(i);
                 if (keyAt != this) {
                     sb.append(keyAt);
                 } else {
                     sb.append("(this Map)");
                 }
-                sb.append(a.f29503h);
-                V valueAt = valueAt(i2);
+                sb.append('=');
+                V valueAt = valueAt(i);
                 if (valueAt != this) {
                     sb.append(valueAt);
                 } else {
                     sb.append("(this Map)");
                 }
             }
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public V valueAt(int i2) {
+    public V valueAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? (V) this.mArray[(i2 << 1) + 1] : (V) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? (V) this.mArray[(i << 1) + 1] : (V) invokeI.objValue;
     }
 
     public boolean remove(Object obj, Object obj2) {
@@ -654,26 +652,26 @@ public class SimpleArrayMap<K, V> {
         return invokeLLL.booleanValue;
     }
 
-    public SimpleArrayMap(int i2) {
+    public SimpleArrayMap(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i2 == 0) {
+        if (i == 0) {
             this.mHashes = ContainerHelpers.EMPTY_INTS;
             this.mArray = ContainerHelpers.EMPTY_OBJECTS;
         } else {
-            allocArrays(i2);
+            allocArrays(i);
         }
         this.mSize = 0;
     }
@@ -687,9 +685,9 @@ public class SimpleArrayMap<K, V> {
             newInitContext.initArgs = r2;
             Object[] objArr = {simpleArrayMap};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.b;
-import i.c;
-import i.j;
-import i.k;
+import g.b;
+import g.c;
+import g.j;
+import g.k;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends j<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: i  reason: collision with root package name */
-    public final SequentialSubscription f61021i;
+    /* renamed from: e  reason: collision with root package name */
+    public final SequentialSubscription f45377e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7233503139645205620L;
@@ -33,9 +33,9 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableOnSubscribeConcat$CompletableConcatSubscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,7 +44,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             this.this$0 = completableOnSubscribeConcat$CompletableConcatSubscriber;
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -52,7 +52,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -60,11 +60,11 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // i.c
+        @Override // g.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f61021i.set(kVar);
+                this.this$0.f45377e.set(kVar);
             }
         }
     }

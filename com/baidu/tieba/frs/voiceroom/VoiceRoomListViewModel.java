@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.voiceroom;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.r0.d1.w2.g.d;
+import c.a.p0.f1.w2.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
@@ -23,10 +23,10 @@ public final class VoiceRoomListViewModel extends ViewModel {
     public final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MutableLiveData<c.a.q0.g.b.b.a<List<VoiceRoomWrapper>>> f42593b;
+    public final MutableLiveData<c.a.o0.g.b.b.a<List<VoiceRoomWrapper>>> f33047b;
 
     /* loaded from: classes5.dex */
-    public static final class a implements c.a.q0.g.b.a.a<List<? extends VoiceRoomWrapper>> {
+    public static final class a implements c.a.o0.g.b.a.a<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRoomListViewModel a;
@@ -38,9 +38,9 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {voiceRoomListViewModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,13 +49,13 @@ public final class VoiceRoomListViewModel extends ViewModel {
             this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [c.a.q0.g.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // c.a.q0.g.b.a.a
-        public void a(c.a.q0.g.b.b.a<? extends List<? extends VoiceRoomWrapper>> result) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [c.a.o0.g.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // c.a.o0.g.b.a.a
+        public void a(c.a.o0.g.b.b.a<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                this.a.f42593b.setValue(result);
+                this.a.f33047b.setValue(result);
             }
         }
     }
@@ -65,29 +65,29 @@ public final class VoiceRoomListViewModel extends ViewModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new d();
-        this.f42593b = new MutableLiveData<>();
+        this.f33047b = new MutableLiveData<>();
     }
 
-    public final LiveData<c.a.q0.g.b.b.a<List<VoiceRoomWrapper>>> getRoomList() {
+    public final LiveData<c.a.o0.g.b.b.a<List<VoiceRoomWrapper>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42593b : (LiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33047b : (LiveData) invokeV.objValue;
     }
 
-    public final void requestRoomList(TbPageContext<?> tbPageContext, long j2, long j3) {
+    public final void c(TbPageContext<?> tbPageContext, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            this.a.a(tbPageContext, j2, j3, new a(this));
+            this.a.a(tbPageContext, j, j2, new a(this));
         }
     }
 }

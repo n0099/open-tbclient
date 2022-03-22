@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.o.e.a;
-import c.a.r0.o1.d.f.b;
+import c.a.p0.q1.d.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,10 +28,16 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     public static class ConcernEmotionTipViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public ViewGroup concernEmotionTipLayout;
-        public ImageView emotionPic;
-        public TextView tipText;
+        public ViewGroup a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public ImageView f33189b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f33190c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f33191d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ConcernEmotionTipViewHolder(View view) {
@@ -42,45 +48,45 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = 3;
-            this.concernEmotionTipLayout = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.emotionPic = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
-            this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
+            this.f33191d = 3;
+            this.a = (ViewGroup) view.findViewById(R.id.obfuscated_res_0x7f0912eb);
+            this.f33189b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090fc6);
+            this.f33190c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092195);
         }
 
-        public void onChangeSkinType(int i2, int i3) {
+        public void c(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.a != i2) {
-                    SkinManager.setViewTextColor(this.tipText, (int) R.color.CAM_X0107);
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                if (this.f33191d != i) {
+                    SkinManager.setViewTextColor(this.f33190c, (int) R.color.CAM_X0107);
                 }
-                SkinManager.setImageResource(this.emotionPic, i3);
-                this.a = i2;
+                SkinManager.setImageResource(this.f33189b, i2);
+                this.f33191d = i;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(Context context) {
-        super(context, b.k);
+        super(context, b.f17197g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -96,34 +102,34 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     public ConcernEmotionTipViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.concern_emotion_tip_layout, viewGroup, false)) : (ConcernEmotionTipViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f6, viewGroup, false)) : (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: a0 */
-    public View S(int i2, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    public View S(int i, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
-            String str = bVar.f19760f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
+            String str = bVar.f17198b;
             if (str != null) {
-                concernEmotionTipViewHolder.tipText.setText(str);
+                concernEmotionTipViewHolder.f33190c.setText(str);
             }
-            if (bVar.getType() == b.f19758j) {
-                if (bVar.f19759e == 2) {
-                    concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
+            if (bVar.getType() == b.f17196f) {
+                if (bVar.a == 2) {
+                    concernEmotionTipViewHolder.f33190c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0413));
                 } else {
-                    concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
+                    concernEmotionTipViewHolder.f33190c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0412));
                 }
             }
-            int i3 = bVar.f19759e;
-            if (i3 == 2) {
-                concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
-            } else if (i3 == 3) {
-                concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+            int i2 = bVar.a;
+            if (i2 == 2) {
+                concernEmotionTipViewHolder.c(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+            } else if (i2 == 3) {
+                concernEmotionTipViewHolder.c(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
             }
-            return concernEmotionTipViewHolder.getView();
+            return concernEmotionTipViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }
@@ -137,9 +143,9 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;

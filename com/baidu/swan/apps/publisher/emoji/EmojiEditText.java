@@ -14,7 +14,7 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.p2.r0;
+import c.a.n0.a.p2.r0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,37 +23,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EmojiEditText extends AppCompatEditText {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT_WORD_LIMIT = 200;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public f f29025b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f29026c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public r0 f29027d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f37662e;
+    public Runnable f29028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f37663f;
+    public int f29029f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f37664g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public r0 f37665h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Runnable f37666i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f37667j;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmojiEditText f37668e;
+        public final /* synthetic */ EmojiEditText a;
 
         public a(EmojiEditText emojiEditText) {
             Interceptable interceptable = $ic;
@@ -62,15 +57,15 @@ public class EmojiEditText extends AppCompatEditText {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emojiEditText};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f37668e = emojiEditText;
+            this.a = emojiEditText;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -78,7 +73,7 @@ public class EmojiEditText extends AppCompatEditText {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f37668e.b()) {
+                if (this.a.b()) {
                     view.getParent().requestDisallowInterceptTouchEvent(true);
                     if (motionEvent.getAction() == 1) {
                         view.getParent().requestDisallowInterceptTouchEvent(false);
@@ -90,16 +85,14 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Editable a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Editable f37669e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmojiEditText f37670f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ EmojiEditText f29030b;
 
         public b(EmojiEditText emojiEditText, Editable editable) {
             Interceptable interceptable = $ic;
@@ -108,32 +101,32 @@ public class EmojiEditText extends AppCompatEditText {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emojiEditText, editable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f37670f = emojiEditText;
-            this.f37669e = editable;
+            this.f29030b = emojiEditText;
+            this.a = editable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int selectionStart = this.f37670f.getSelectionStart();
+                int selectionStart = this.f29030b.getSelectionStart();
                 if (selectionStart > 0) {
-                    this.f37669e.delete(selectionStart - 1, selectionStart);
+                    this.a.delete(selectionStart - 1, selectionStart);
                 }
-                this.f37670f.restoreClipboard();
+                this.f29030b.f();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class c extends InputConnectionWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,9 +141,9 @@ public class EmojiEditText extends AppCompatEditText {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emojiEditText, inputConnection, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((InputConnection) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -162,14 +155,14 @@ public class EmojiEditText extends AppCompatEditText {
         }
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-        public boolean deleteSurroundingText(int i2, int i3) {
+        public boolean deleteSurroundingText(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                if (i2 == 1 && i3 == 0) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+                if (i == 1 && i2 == 0) {
                     return sendKeyEvent(new KeyEvent(0, 67)) && sendKeyEvent(new KeyEvent(1, 67));
                 }
-                return super.deleteSurroundingText(i2, i3);
+                return super.deleteSurroundingText(i, i2);
             }
             return invokeII.booleanValue;
         }
@@ -188,13 +181,11 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmojiEditText f37671e;
+        public final /* synthetic */ EmojiEditText a;
 
         public d(EmojiEditText emojiEditText) {
             Interceptable interceptable = $ic;
@@ -203,15 +194,15 @@ public class EmojiEditText extends AppCompatEditText {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emojiEditText};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f37671e = emojiEditText;
+            this.a = emojiEditText;
         }
 
         @Override // android.text.TextWatcher
@@ -222,16 +213,16 @@ public class EmojiEditText extends AppCompatEditText {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
 
@@ -240,18 +231,18 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface e {
-        void a(int i2);
+        void a(int i);
 
-        void b(int i2);
+        void b(int i);
 
         void onBack();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface f {
-        void a(int i2, int i3);
+        void a(int i, int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -263,16 +254,16 @@ public class EmojiEditText extends AppCompatEditText {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f37667j = 200;
+        this.f29029f = 200;
     }
 
     public final boolean b() {
@@ -289,23 +280,37 @@ public class EmojiEditText extends AppCompatEditText {
         return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37665h = r0.b(getContext());
+            Editable editableText = getEditableText();
+            if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
+                getEditableText().replace(0, editableText.length(), c.a.n0.a.p1.h.b.c().g(getContext(), editableText, this));
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f29027d = r0.b(getContext());
             setText(getText());
             setOnTouchListener(new a(this));
             addTextChangedListener(new d(this, null));
         }
     }
 
-    public void handleDraftEmojiDisplay() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Editable editableText = getEditableText();
-            if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
-                getEditableText().replace(0, editableText.length(), c.a.p0.a.p1.h.b.c().g(getContext(), editableText, this));
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f29027d.c(this.f29026c);
         }
     }
 
@@ -313,7 +318,7 @@ public class EmojiEditText extends AppCompatEditText {
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, editorInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editorInfo)) == null) {
             InputConnection onCreateInputConnection = super.onCreateInputConnection(editorInfo);
             if (onCreateInputConnection == null) {
                 return null;
@@ -324,12 +329,12 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     @Override // android.widget.TextView, android.view.View
-    public boolean onKeyPreIme(int i2, KeyEvent keyEvent) {
+    public boolean onKeyPreIme(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         e eVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
-            if (i2 != 4 || (eVar = this.f37662e) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+            if (i != 4 || (eVar = this.a) == null) {
                 return false;
             }
             eVar.onBack();
@@ -339,38 +344,38 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     @Override // android.widget.TextView
-    public void onSelectionChanged(int i2, int i3) {
+    public void onSelectionChanged(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            super.onSelectionChanged(i2, i3);
-            f fVar = this.f37663f;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            super.onSelectionChanged(i, i2);
+            f fVar = this.f29025b;
             if (fVar != null) {
-                fVar.a(i2, i3);
+                fVar.a(i, i2);
             }
         }
     }
 
     @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048582, this, charSequence, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, i, i2, i3) == null) {
             String charSequence2 = charSequence.toString();
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+]").matcher(charSequence2);
-            int i5 = 0;
+            int i4 = 0;
             while (matcher.find()) {
-                i5++;
+                i4++;
                 charSequence2 = charSequence2.replace(matcher.group(), "");
             }
-            int length = charSequence2.length() + i5;
-            if (length <= this.f37667j) {
-                e eVar = this.f37662e;
+            int length = charSequence2.length() + i4;
+            if (length <= this.f29029f) {
+                e eVar = this.a;
                 if (eVar != null) {
                     eVar.b(length);
                     return;
                 }
                 return;
             }
-            e eVar2 = this.f37662e;
+            e eVar2 = this.a;
             if (eVar2 != null) {
                 eVar2.a(length);
             }
@@ -378,62 +383,48 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     @Override // android.widget.TextView
-    public boolean onTextContextMenuItem(int i2) {
+    public boolean onTextContextMenuItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 == 16908322) {
-                CharSequence a2 = this.f37665h.a();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (i == 16908322) {
+                CharSequence a2 = this.f29027d.a();
                 if (a2 == null) {
-                    return super.onTextContextMenuItem(i2);
+                    return super.onTextContextMenuItem(i);
                 }
-                this.f37664g = a2.toString();
-                this.f37665h.c(" ");
-                SpannableString g2 = c.a.p0.a.p1.h.b.c().g(getContext(), this.f37664g, this);
+                this.f29026c = a2.toString();
+                this.f29027d.c(" ");
+                SpannableString g2 = c.a.n0.a.p1.h.b.c().g(getContext(), this.f29026c, this);
                 int selectionStart = getSelectionStart();
                 Editable editableText = getEditableText();
                 editableText.insert(selectionStart, g2);
                 b bVar = new b(this, editableText);
-                this.f37666i = bVar;
+                this.f29028e = bVar;
                 post(bVar);
             }
-            return super.onTextContextMenuItem(i2);
+            return super.onTextContextMenuItem(i);
         }
         return invokeI.booleanValue;
-    }
-
-    public void removeListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f37662e = null;
-        }
-    }
-
-    public void restoreClipboard() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f37665h.c(this.f37664g);
-        }
     }
 
     public void setListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
-            this.f37662e = eVar;
+            this.a = eVar;
         }
     }
 
-    public void setMaxSize(int i2) {
+    public void setMaxSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f37667j = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f29029f = i;
         }
     }
 
     public void setSelectListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, fVar) == null) {
-            this.f37663f = fVar;
+            this.f29025b = fVar;
         }
     }
 
@@ -446,9 +437,9 @@ public class EmojiEditText extends AppCompatEditText {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -456,22 +447,22 @@ public class EmojiEditText extends AppCompatEditText {
                 return;
             }
         }
-        this.f37667j = 200;
-        c();
+        this.f29029f = 200;
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiEditText(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EmojiEditText(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -479,7 +470,7 @@ public class EmojiEditText extends AppCompatEditText {
                 return;
             }
         }
-        this.f37667j = 200;
-        c();
+        this.f29029f = 200;
+        d();
     }
 }

@@ -52,9 +52,9 @@ public class VectorEnabledTintResources extends Resources {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, resources};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -85,22 +85,22 @@ public class VectorEnabledTintResources extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             Context context = this.mContextRef.get();
             if (context != null) {
-                return ResourceManagerInternal.get().onDrawableLoadedFromResources(context, this, i2);
+                return ResourceManagerInternal.get().onDrawableLoadedFromResources(context, this, i);
             }
-            return super.getDrawable(i2);
+            return super.getDrawable(i);
         }
         return (Drawable) invokeI.objValue;
     }
 
-    public final Drawable superGetDrawable(int i2) {
+    public final Drawable superGetDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? super.getDrawable(i2) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? super.getDrawable(i) : (Drawable) invokeI.objValue;
     }
 }

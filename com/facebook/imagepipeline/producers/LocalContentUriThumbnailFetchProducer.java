@@ -27,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
@@ -69,9 +69,9 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, pooledByteBufferFactory, contentResolver};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Executor) objArr2[0], (PooledByteBufferFactory) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -139,10 +139,10 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     }
 
     @Nullable
-    private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i2) throws IOException {
+    private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, this, resizeOptions, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, this, resizeOptions, i)) != null) {
             return (EncodedImage) invokeLI.objValue;
         }
         int thumbnailKind = getThumbnailKind(resizeOptions);
@@ -151,7 +151,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
             return null;
         }
         try {
-            Cursor queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i2, thumbnailKind, THUMBNAIL_PROJECTION);
+            Cursor queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, thumbnailKind, THUMBNAIL_PROJECTION);
             if (queryMiniThumbnail == null) {
                 if (queryMiniThumbnail != null) {
                     queryMiniThumbnail.close();

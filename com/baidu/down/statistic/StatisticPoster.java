@@ -36,7 +36,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class StatisticPoster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -73,9 +73,9 @@ public final class StatisticPoster {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -129,13 +129,13 @@ public final class StatisticPoster {
         return (List) invokeL.objValue;
     }
 
-    public void sendStatisticData(String str, int i2) {
+    public void sendStatisticData(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         String processCommonParams = IdentityManager.getInstance(this.mContext).processCommonParams(DownPrefUtils.getString(this.mContext, DownPrefUtils.PREF_LOG_HOST, Constants.PREF_LOG_HOST_DEFAULT));
-        this.mUrl = processCommonParams + "&type=" + i2 + "&packagename=" + this.mContext.getPackageName();
+        this.mUrl = processCommonParams + "&type=" + i + "&packagename=" + this.mContext.getPackageName();
         this.mPostContent = str;
         this.mNetThreadPool.schedule(new Runnable(this) { // from class: com.baidu.down.statistic.StatisticPoster.1
             public static /* synthetic */ Interceptable $ic;
@@ -149,9 +149,9 @@ public final class StatisticPoster {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -178,20 +178,20 @@ public final class StatisticPoster {
         }, 1000L, TimeUnit.MILLISECONDS);
     }
 
-    public void statisticDownload(AbstractTask abstractTask, int i2) {
-        long j2;
+    public void statisticDownload(AbstractTask abstractTask, int i) {
+        long j;
         String str;
-        long j3;
+        long j2;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractTask, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractTask, i) == null) {
             MultiSrcBinaryTaskHandler multiSrcBinaryTaskHandler = (MultiSrcBinaryTaskHandler) abstractTask.mTaskHandler;
             long elapsedRealtime = SystemClock.elapsedRealtime() - abstractTask.mStartTime;
             long currentLength = abstractTask.mProgressInfo.getCurrentLength() - abstractTask.mCurLength;
-            long j4 = abstractTask.mTotalLength;
+            long j3 = abstractTask.mTotalLength;
             TreeSet<HttpDNSInfo> priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
             if (priorityDownloadIpInfoSet == null || priorityDownloadIpInfoSet.isEmpty()) {
-                j2 = j4;
+                j = j3;
                 str = "";
             } else {
                 Iterator<HttpDNSInfo> it = priorityDownloadIpInfoSet.iterator();
@@ -204,29 +204,29 @@ public final class StatisticPoster {
                     } catch (URISyntaxException e2) {
                         e2.printStackTrace();
                     }
-                    int i3 = next.mStatus;
-                    if (i3 != 2) {
-                        str2 = i3 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
-                        j3 = j4;
+                    int i2 = next.mStatus;
+                    if (i2 != 2) {
+                        str2 = i2 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
+                        j2 = j3;
                     } else {
                         String str4 = str3 + "0@";
-                        j3 = j4;
-                        long j5 = 0;
+                        j2 = j3;
+                        long j4 = 0;
                         String str5 = next.mDownloadTimes == 0 ? str4 + "0@" : str4 + next.getTestAverageSpeed() + "@";
                         List<Long> list = next.mHttpConnectTime;
                         if (list != null && list.size() > 0) {
-                            for (int i4 = 0; i4 < next.mHttpConnectTime.size(); i4++) {
-                                j5 += next.mHttpConnectTime.get(i4).longValue();
+                            for (int i3 = 0; i3 < next.mHttpConnectTime.size(); i3++) {
+                                j4 += next.mHttpConnectTime.get(i3).longValue();
                             }
-                            str2 = str5 + (j5 / next.mHttpConnectTime.size());
+                            str2 = str5 + (j4 / next.mHttpConnectTime.size());
                         } else {
                             str2 = str5 + "-1";
                         }
                     }
                     str = str + str2 + ",";
-                    j4 = j3;
+                    j3 = j2;
                 }
-                j2 = j4;
+                j = j3;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -241,7 +241,7 @@ public final class StatisticPoster {
                 jSONObject.put("tnum", multiSrcBinaryTaskHandler.mMultiSrcStatData.tnum + "");
                 jSONObject.put("dcost", elapsedRealtime + "");
                 jSONObject.put("dnowsize", currentLength + "");
-                jSONObject.put("dallsize", j2 + "");
+                jSONObject.put("dallsize", j + "");
                 jSONObject.put("network", multiSrcBinaryTaskHandler.mMultiSrcStatData.network);
                 jSONObject.put("dtest", multiSrcBinaryTaskHandler.mMultiSrcStatData.dtest + "");
                 jSONObject.put("dbtype", multiSrcBinaryTaskHandler.mMultiSrcStatData.dbtype + "");
@@ -254,7 +254,7 @@ public final class StatisticPoster {
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            sendStatisticData(jSONObject.toString(), i2);
+            sendStatisticData(jSONObject.toString(), i);
         }
     }
 }

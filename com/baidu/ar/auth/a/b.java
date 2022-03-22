@@ -23,9 +23,9 @@ public class b implements IAuthenticator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,9 +72,9 @@ public class b implements IAuthenticator {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, listArr, iAuthenticateCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -99,13 +99,13 @@ public class b implements IAuthenticator {
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback
-                public void onFeatureRejected(int i2) {
+                public void onFeatureRejected(int i) {
                     IAuthenticateCallback iAuthenticateCallback2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (iAuthenticateCallback2 = this.kk) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (iAuthenticateCallback2 = this.kk) == null) {
                         return;
                     }
-                    iAuthenticateCallback2.onFeatureRejected(i2);
+                    iAuthenticateCallback2.onFeatureRejected(i);
                 }
 
                 @Override // com.baidu.ar.auth.IDuMixAuthCallback

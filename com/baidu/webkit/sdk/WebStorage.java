@@ -24,24 +24,24 @@ public class WebStorage {
         public long mQuota;
         public long mUsage;
 
-        public Origin(String str, long j2, long j3) {
+        public Origin(String str, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mOrigin = str;
-            this.mQuota = j2;
-            this.mUsage = j3;
+            this.mQuota = j;
+            this.mUsage = j2;
         }
 
         public String getOrigin() {
@@ -66,7 +66,7 @@ public class WebStorage {
     @Deprecated
     /* loaded from: classes6.dex */
     public interface QuotaUpdater {
-        void updateQuota(long j2);
+        void updateQuota(long j);
     }
 
     static {
@@ -90,9 +90,9 @@ public class WebStorage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -148,10 +148,10 @@ public class WebStorage {
     }
 
     @Deprecated
-    public void setQuotaForOrigin(String str, long j2) {
+    public void setQuotaForOrigin(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j2) == null) {
-            WebViewFactory.getProvider().getWebStorage().setQuotaForOrigin(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
+            WebViewFactory.getProvider().getWebStorage().setQuotaForOrigin(str, j);
         }
     }
 }

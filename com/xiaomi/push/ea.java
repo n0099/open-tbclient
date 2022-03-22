@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ea {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ea a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f316a;
+    public int f292a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f317a;
+    public Context f293a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ee f318a;
+    public ee f294a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f319a;
+    public String f295a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<ec, ed> f320a;
+    public HashMap<ec, ed> f296a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59592b;
+    public String f44204b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public final class ea {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         HashMap<ec, ed> hashMap = new HashMap<>();
-        this.f320a = hashMap;
-        this.f317a = context;
-        hashMap.put(ec.f59595b, new eg());
-        this.f320a.put(ec.f59596c, new eh());
-        this.f320a.put(ec.a, new dy());
-        this.f320a.put(ec.f59597d, new ef());
+        this.f296a = hashMap;
+        this.f293a = context;
+        hashMap.put(ec.f44207b, new eg());
+        this.f296a.put(ec.f44208c, new eh());
+        this.f296a.put(ec.a, new dy());
+        this.f296a.put(ec.f44209d, new ef());
     }
 
     public static ea a(Context context) {
@@ -80,50 +80,50 @@ public final class ea {
     public void a(ec ecVar, Context context, dz dzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, ecVar, context, dzVar) == null) {
-            this.f320a.get(ecVar).a(context, dzVar);
+            this.f296a.get(ecVar).a(context, dzVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m345a(Context context) {
+    public static boolean m324a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m637a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m616a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f316a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f292a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m346a() {
+    public ee m325a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f318a : (ee) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f294a : (ee) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m347a() {
+    public String m326a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f319a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f295a : (String) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f316a = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f292a = i;
         }
     }
 
-    public void a(Context context, String str, int i2, String str2, String str3) {
+    public void a(Context context, String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i2), str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, Integer.valueOf(i), str2, str3}) == null) {
             if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                a(i2);
-                ai.a(this.f317a).a(new eb(this, str, context, str2, str3));
+                a(i);
+                ai.a(this.f293a).a(new eb(this, str, context, str2, str3));
                 return;
             }
             dw.a(context, "" + str, 1008, "A receive a incorrect message");
@@ -134,7 +134,7 @@ public final class ea {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, ecVar, context, intent, str) == null) {
             if (ecVar != null) {
-                this.f320a.get(ecVar).a(context, intent, str);
+                this.f296a.get(ecVar).a(context, intent, str);
             } else {
                 dw.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
             }
@@ -144,23 +144,23 @@ public final class ea {
     public void a(ee eeVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, eeVar) == null) {
-            this.f318a = eeVar;
+            this.f294a = eeVar;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f319a = str;
+            this.f295a = str;
         }
     }
 
-    public void a(String str, String str2, int i2, ee eeVar) {
+    public void a(String str, String str2, int i, ee eeVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i2, eeVar) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i, eeVar) == null) {
             a(str);
             b(str2);
-            a(i2);
+            a(i);
             a(eeVar);
         }
     }
@@ -168,13 +168,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59592b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f44204b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f59592b = str;
+            this.f44204b = str;
         }
     }
 }

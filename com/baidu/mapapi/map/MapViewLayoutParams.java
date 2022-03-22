@@ -24,19 +24,19 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f33966b;
+    public Point f26222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ELayoutMode f33967c;
+    public ELayoutMode f26223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f33968d;
+    public float f26224d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f33969e;
+    public float f26225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33970f;
+    public int f26226f;
 
     /* loaded from: classes4.dex */
     public static final class Builder {
@@ -45,53 +45,53 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33971b;
+        public int f26227b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LatLng f33972c;
+        public LatLng f26228c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Point f33973d;
+        public Point f26229d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ELayoutMode f33974e;
+        public ELayoutMode f26230e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33975f;
+        public int f26231f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33976g;
+        public int f26232g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f33977h;
+        public int f26233h;
 
         public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33974e = ELayoutMode.absoluteMode;
-            this.f33975f = 4;
-            this.f33976g = 16;
+            this.f26230e = ELayoutMode.absoluteMode;
+            this.f26231f = 4;
+            this.f26232g = 16;
         }
 
-        public Builder align(int i2, int i3) {
+        public Builder align(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                if (i2 == 1 || i2 == 2 || i2 == 4) {
-                    this.f33975f = i2;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+                if (i == 1 || i == 2 || i == 4) {
+                    this.f26231f = i;
                 }
-                if (i3 == 8 || i3 == 16 || i3 == 32) {
-                    this.f33976g = i3;
+                if (i2 == 8 || i2 == 16 || i2 == 32) {
+                    this.f26232g = i2;
                 }
                 return this;
             }
@@ -102,24 +102,24 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ELayoutMode eLayoutMode = this.f33974e;
+                ELayoutMode eLayoutMode = this.f26230e;
                 boolean z = true;
-                if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f33973d != null : this.f33972c != null) {
+                if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f26229d != null : this.f26228c != null) {
                     z = false;
                 }
                 if (z) {
                     throw new IllegalStateException("BDMapSDKException: if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
                 }
-                return new MapViewLayoutParams(this.a, this.f33971b, this.f33972c, this.f33973d, this.f33974e, this.f33975f, this.f33976g, this.f33977h);
+                return new MapViewLayoutParams(this.a, this.f26227b, this.f26228c, this.f26229d, this.f26230e, this.f26231f, this.f26232g, this.f26233h);
             }
             return (MapViewLayoutParams) invokeV.objValue;
         }
 
-        public Builder height(int i2) {
+        public Builder height(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f33971b = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.f26227b = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -129,7 +129,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eLayoutMode)) == null) {
-                this.f33974e = eLayoutMode;
+                this.f26230e = eLayoutMode;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -139,7 +139,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, point)) == null) {
-                this.f33973d = point;
+                this.f26229d = point;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -149,27 +149,27 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, latLng)) == null) {
-                this.f33972c = latLng;
+                this.f26228c = latLng;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder width(int i2) {
+        public Builder width(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.a = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.a = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder yOffset(int i2) {
+        public Builder yOffset(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f33977h = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.f26233h = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -204,16 +204,16 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             $VALUES = new ELayoutMode[]{mapMode, eLayoutMode};
         }
 
-        public ELayoutMode(String str, int i2) {
+        public ELayoutMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -237,17 +237,17 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MapViewLayoutParams(int i2, int i3, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i4, int i5, int i6) {
-        super(i2, i3);
+    public MapViewLayoutParams(int i, int i2, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i3, int i4, int i5) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), latLng, point, eLayoutMode, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), latLng, point, eLayoutMode, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -256,22 +256,22 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             }
         }
         this.a = latLng;
-        this.f33966b = point;
-        this.f33967c = eLayoutMode;
-        if (i4 == 1) {
-            this.f33968d = 0.0f;
-        } else if (i4 != 2) {
-            this.f33968d = 0.5f;
+        this.f26222b = point;
+        this.f26223c = eLayoutMode;
+        if (i3 == 1) {
+            this.f26224d = 0.0f;
+        } else if (i3 != 2) {
+            this.f26224d = 0.5f;
         } else {
-            this.f33968d = 1.0f;
+            this.f26224d = 1.0f;
         }
-        if (i5 == 8) {
-            this.f33969e = 0.0f;
-        } else if (i5 == 16 || i5 != 32) {
-            this.f33969e = 1.0f;
+        if (i4 == 8) {
+            this.f26225e = 0.0f;
+        } else if (i4 == 16 || i4 != 32) {
+            this.f26225e = 1.0f;
         } else {
-            this.f33969e = 0.5f;
+            this.f26225e = 0.5f;
         }
-        this.f33970f = i6;
+        this.f26226f = i5;
     }
 }

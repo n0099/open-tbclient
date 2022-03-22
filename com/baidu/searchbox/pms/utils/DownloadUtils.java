@@ -26,9 +26,9 @@ public class DownloadUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -165,14 +165,14 @@ public class DownloadUtils {
         InterceptResult invokeL;
         String str;
         ErrorInfo errorInfo;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, packageInfo)) == null) {
             File file = new File(packageInfo.filePath);
             if (file.exists()) {
                 errorInfo = null;
                 str = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_EXIST, packageInfo.toString());
-                i2 = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
+                i = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
             } else {
                 String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, packageInfo.toString());
                 String createFileLayer = createFileLayer(file);
@@ -182,9 +182,9 @@ public class DownloadUtils {
                 errorInfo2.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_WRITE;
                 str = format;
                 errorInfo = errorInfo2;
-                i2 = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
+                i = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
             }
-            PackageFileStatisticManager.getInstance().addDownloadStatistic2(i2, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
+            PackageFileStatisticManager.getInstance().addDownloadStatistic2(i, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
             return errorInfo;
         }
         return (ErrorInfo) invokeL.objValue;

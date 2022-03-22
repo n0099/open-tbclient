@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdditionData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6760087984237848132L;
@@ -30,9 +30,9 @@ public class AdditionData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -124,17 +124,17 @@ public class AdditionData extends OrmObject implements Serializable {
         }
     }
 
-    public void setAlreadyCount(int i2) {
+    public void setAlreadyCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.alreadyCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.alreadyCount = i;
         }
     }
 
-    public void setCreateTime(long j2) {
+    public void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.createTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.createTime = j;
         }
     }
 
@@ -145,10 +145,10 @@ public class AdditionData extends OrmObject implements Serializable {
         }
     }
 
-    public void setLastAdditionTime(long j2) {
+    public void setLastAdditionTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.lastAdditionTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.lastAdditionTime = j;
         }
     }
 
@@ -159,10 +159,10 @@ public class AdditionData extends OrmObject implements Serializable {
         }
     }
 
-    public void setTotalCount(int i2) {
+    public void setTotalCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.totalCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.totalCount = i;
         }
     }
 

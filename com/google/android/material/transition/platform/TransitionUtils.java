@@ -29,18 +29,18 @@ import com.google.android.material.shape.CornerSize;
 import com.google.android.material.shape.RelativeCornerSize;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TransitionUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final RectF transformAlphaRectF;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface CanvasOperation {
         void run(Canvas canvas);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface CornerSizeBinaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize, @NonNull CornerSize cornerSize2);
@@ -67,9 +67,9 @@ public class TransitionUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -97,9 +97,9 @@ public class TransitionUtils {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {rectF};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -118,10 +118,10 @@ public class TransitionUtils {
         }) : (ShapeAppearanceModel) invokeLL.objValue;
     }
 
-    public static Shader createColorShader(@ColorInt int i2) {
+    public static Shader createColorShader(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new LinearGradient(0.0f, 0.0f, 0.0f, 0.0f, i2, i2, Shader.TileMode.CLAMP) : (Shader) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new LinearGradient(0.0f, 0.0f, 0.0f, 0.0f, i, i, Shader.TileMode.CLAMP) : (Shader) invokeI.objValue;
     }
 
     @NonNull
@@ -131,13 +131,13 @@ public class TransitionUtils {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, t, t2)) == null) ? t != null ? t : t2 : (T) invokeLL.objValue;
     }
 
-    public static View findAncestorById(View view, @IdRes int i2) {
+    public static View findAncestorById(View view, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, view, i2)) == null) {
-            String resourceName = view.getResources().getResourceName(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, view, i)) == null) {
+            String resourceName = view.getResources().getResourceName(i);
             while (view != null) {
-                if (view.getId() != i2) {
+                if (view.getId() != i) {
                     ViewParent parent = view.getParent();
                     if (!(parent instanceof View)) {
                         break;
@@ -152,12 +152,12 @@ public class TransitionUtils {
         return (View) invokeLI.objValue;
     }
 
-    public static View findDescendantOrAncestorById(View view, @IdRes int i2) {
+    public static View findDescendantOrAncestorById(View view, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i2)) == null) {
-            View findViewById = view.findViewById(i2);
-            return findViewById != null ? findViewById : findAncestorById(view, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i)) == null) {
+            View findViewById = view.findViewById(i);
+            return findViewById != null ? findViewById : findAncestorById(view, i);
         }
         return (View) invokeLI.objValue;
     }
@@ -168,9 +168,9 @@ public class TransitionUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view)) == null) {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
-            int i2 = iArr[0];
-            int i3 = iArr[1];
-            return new RectF(i2, i3, view.getWidth() + i2, view.getHeight() + i3);
+            int i = iArr[0];
+            int i2 = iArr[1];
+            return new RectF(i, i2, view.getWidth() + i, view.getHeight() + i2);
         }
         return (RectF) invokeL.objValue;
     }
@@ -221,30 +221,30 @@ public class TransitionUtils {
         transitionSet.removeTransition(transition);
     }
 
-    public static int saveLayerAlphaCompat(Canvas canvas, Rect rect, int i2) {
+    public static int saveLayerAlphaCompat(Canvas canvas, Rect rect, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65554, null, canvas, rect, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65554, null, canvas, rect, i)) == null) {
             transformAlphaRectF.set(rect);
             if (Build.VERSION.SDK_INT >= 21) {
-                return canvas.saveLayerAlpha(transformAlphaRectF, i2);
+                return canvas.saveLayerAlpha(transformAlphaRectF, i);
             }
             RectF rectF = transformAlphaRectF;
-            return canvas.saveLayerAlpha(rectF.left, rectF.top, rectF.right, rectF.bottom, i2, 31);
+            return canvas.saveLayerAlpha(rectF.left, rectF.top, rectF.right, rectF.bottom, i, 31);
         }
         return invokeLLI.intValue;
     }
 
-    public static void transform(Canvas canvas, Rect rect, float f2, float f3, float f4, int i2, CanvasOperation canvasOperation) {
+    public static void transform(Canvas canvas, Rect rect, float f2, float f3, float f4, int i, CanvasOperation canvasOperation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{canvas, rect, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2), canvasOperation}) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{canvas, rect, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i), canvasOperation}) == null) || i <= 0) {
             return;
         }
         int save = canvas.save();
         canvas.translate(f2, f3);
         canvas.scale(f4, f4);
-        if (i2 < 255) {
-            saveLayerAlphaCompat(canvas, rect, i2);
+        if (i < 255) {
+            saveLayerAlphaCompat(canvas, rect, i);
         }
         canvasOperation.run(canvas);
         canvas.restoreToCount(save);
@@ -259,10 +259,10 @@ public class TransitionUtils {
         return (ShapeAppearanceModel) invokeLLLL.objValue;
     }
 
-    public static int lerp(int i2, int i3, @FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3, @FloatRange(from = 0.0d, to = 1.0d) float f4) {
+    public static int lerp(int i, int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3, @FloatRange(from = 0.0d, to = 1.0d) float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f4 < f2 ? i2 : f4 > f3 ? i3 : (int) lerp(i2, i3, (f4 - f2) / (f3 - f2)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f4 < f2 ? i : f4 > f3 ? i2 : (int) lerp(i, i2, (f4 - f2) / (f3 - f2)) : invokeCommon.intValue;
     }
 
     public static ShapeAppearanceModel lerp(ShapeAppearanceModel shapeAppearanceModel, ShapeAppearanceModel shapeAppearanceModel2, RectF rectF, RectF rectF2, @FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3, @FloatRange(from = 0.0d, to = 1.0d) float f4) {
@@ -284,9 +284,9 @@ public class TransitionUtils {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {rectF, rectF2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

@@ -18,17 +18,17 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ds extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f247a;
+    public SharedPreferences f223a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.aq f248a;
+    public com.xiaomi.push.service.aq f224a;
 
     public ds(Context context) {
         Interceptable interceptable = $ic;
@@ -37,17 +37,17 @@ public class ds extends ai.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f247a = context.getSharedPreferences("mipush_extra", 0);
-        this.f248a = com.xiaomi.push.service.aq.a(context);
+        this.f223a = context.getSharedPreferences("mipush_extra", 0);
+        this.f224a = com.xiaomi.push.service.aq.a(context);
     }
 
     private List<hn> a(File file) {
@@ -56,8 +56,8 @@ public class ds extends ai.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            di m309a = dj.a().m309a();
-            String a = m309a == null ? "" : m309a.a();
+            di m288a = dj.a().m288a();
+            String a = m288a == null ? "" : m288a.a();
             FileLock fileLock = null;
             if (TextUtils.isEmpty(a)) {
                 return null;
@@ -67,7 +67,7 @@ public class ds extends ai.a {
             synchronized (dm.a) {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m706a(file2);
+                    y.m685a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -149,7 +149,7 @@ public class ds extends ai.a {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            SharedPreferences.Editor edit = this.f247a.edit();
+            SharedPreferences.Editor edit = this.f223a.edit();
             edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
             edit.commit();
         }
@@ -157,16 +157,16 @@ public class ds extends ai.a {
 
     private void a(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f505a == hh.f59731b && !hnVar.f506a.startsWith("same_")) {
-            SharedPreferences.Editor edit = this.f247a.edit();
-            edit.putLong("dc_job_result_time_4", hnVar.f504a);
-            edit.putString("dc_job_result_4", bm.a(hnVar.f506a));
+        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f481a == hh.f44330b && !hnVar.f482a.startsWith("same_")) {
+            SharedPreferences.Editor edit = this.f223a.edit();
+            edit.putLong("dc_job_result_time_4", hnVar.f480a);
+            edit.putString("dc_job_result_4", bm.a(hnVar.f482a));
             edit.commit();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m313a() {
+    private boolean m292a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -185,8 +185,8 @@ public class ds extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.f248a.a(hk.L.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f247a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f248a.a(hk.M.a(), 432000)));
+            if (this.f224a.a(hk.L.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f223a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f224a.a(hk.M.a(), 432000)));
             }
             return false;
         }
@@ -197,8 +197,8 @@ public class ds extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (this.f248a.a(hk.J.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f247a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f248a.a(hk.K.a(), 259200)));
+            if (this.f224a.a(hk.J.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f223a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f224a.a(hk.K.a(), 259200)));
             }
             return false;
         }
@@ -207,7 +207,7 @@ public class ds extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo247a() {
+    public String mo226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
@@ -222,7 +222,7 @@ public class ds extends ai.a {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
-            } else if (!m313a() && file.exists()) {
+            } else if (!m292a() && file.exists()) {
                 List<hn> a = a(file);
                 if (!ad.a(a)) {
                     int size = a.size();
@@ -233,11 +233,11 @@ public class ds extends ai.a {
                     hyVar.a(a);
                     byte[] a2 = y.a(ip.a(hyVar));
                     ie ieVar = new ie("-1", false);
-                    ieVar.c(hp.q.f514a);
+                    ieVar.c(hp.q.f490a);
                     ieVar.a(a2);
-                    di m309a = dj.a().m309a();
-                    if (m309a != null) {
-                        m309a.a(ieVar, hf.f59728i, null);
+                    di m288a = dj.a().m288a();
+                    if (m288a != null) {
+                        m288a.a(ieVar, hf.i, null);
                     }
                     a();
                 }

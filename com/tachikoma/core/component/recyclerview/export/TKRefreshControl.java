@@ -2,7 +2,6 @@ package com.tachikoma.core.component.recyclerview.export;
 
 import android.content.Context;
 import android.view.View;
-import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +17,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKRefreshControl extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +35,9 @@ public class TKRefreshControl extends TKBase<View> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -106,7 +105,7 @@ public class TKRefreshControl extends TKBase<View> {
             if (z) {
                 V8Object v8Object = this.mAssociateObject;
                 if (v8Object != null) {
-                    v8Object.executeVoidFunction(d.p, null);
+                    v8Object.executeVoidFunction("onRefresh", null);
                     return;
                 }
                 return;

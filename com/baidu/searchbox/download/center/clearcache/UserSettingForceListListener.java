@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import com.baidu.searchbox.config.AppConfig;
@@ -55,9 +56,9 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -94,7 +95,7 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
             }
             commandPostData.getVersion().put(FORCE_LIST_ACTION, localVersion);
             if (DEBUG) {
-                String str3 = "post data version: " + localVersion;
+                Log.d(TAG, "post data version: " + localVersion);
             }
         }
     }
@@ -105,7 +106,7 @@ public class UserSettingForceListListener extends JSONObjectCommandListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, actionData)) == null) {
             if (DEBUG) {
-                String str3 = "execute command action: " + str2;
+                Log.d(TAG, "execute command action: " + str2);
             }
             if (actionData == null || !TextUtils.equals(str2, FORCE_LIST_ACTION)) {
                 return false;

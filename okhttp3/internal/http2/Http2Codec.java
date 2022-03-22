@@ -36,7 +36,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Http2Codec implements HttpCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString CONNECTION;
@@ -56,7 +56,7 @@ public final class Http2Codec implements HttpCodec {
     public Http2Stream stream;
     public final StreamAllocation streamAllocation;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,9 +73,9 @@ public final class Http2Codec implements HttpCodec {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {http2Codec, source};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Source) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -107,12 +107,12 @@ public final class Http2Codec implements HttpCodec {
         }
 
         @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j2) throws IOException {
+        public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
                 try {
-                    long read = delegate().read(buffer, j2);
+                    long read = delegate().read(buffer, j);
                     if (read > 0) {
                         this.bytesRead += read;
                     }
@@ -160,9 +160,9 @@ public final class Http2Codec implements HttpCodec {
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient, chain, streamAllocation, http2Connection};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -193,10 +193,10 @@ public final class Http2Codec implements HttpCodec {
             }
             arrayList.add(new Header(Header.TARGET_SCHEME, request.url().scheme()));
             int size = headers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i2).toLowerCase(Locale.US));
+            for (int i = 0; i < size; i++) {
+                ByteString encodeUtf8 = ByteString.encodeUtf8(headers.name(i).toLowerCase(Locale.US));
                 if (!HTTP_2_SKIPPED_REQUEST_HEADERS.contains(encodeUtf8)) {
-                    arrayList.add(new Header(encodeUtf8, headers.value(i2)));
+                    arrayList.add(new Header(encodeUtf8, headers.value(i)));
                 }
             }
             return arrayList;
@@ -211,8 +211,8 @@ public final class Http2Codec implements HttpCodec {
             Headers.Builder builder = new Headers.Builder();
             int size = list.size();
             StatusLine statusLine = null;
-            for (int i2 = 0; i2 < size; i2++) {
-                Header header = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                Header header = list.get(i);
                 if (header == null) {
                     if (statusLine != null && statusLine.code == 100) {
                         builder = new Headers.Builder();
@@ -247,10 +247,10 @@ public final class Http2Codec implements HttpCodec {
     }
 
     @Override // okhttp3.internal.http.HttpCodec
-    public Sink createRequestBody(Request request, long j2) {
+    public Sink createRequestBody(Request request, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j2)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec

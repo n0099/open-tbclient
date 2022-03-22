@@ -38,9 +38,9 @@ public final class FlowableRepeatUntil<T> extends AbstractFlowableWithUpstream<T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, booleanSupplier, subscriptionArbiter, publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,16 +97,16 @@ public final class FlowableRepeatUntil<T> extends AbstractFlowableWithUpstream<T
         public void subscribeNext() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 while (!this.sa.isCancelled()) {
-                    long j2 = this.produced;
-                    if (j2 != 0) {
+                    long j = this.produced;
+                    if (j != 0) {
                         this.produced = 0L;
-                        this.sa.produced(j2);
+                        this.sa.produced(j);
                     }
                     this.source.subscribe(this);
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -123,9 +123,9 @@ public final class FlowableRepeatUntil<T> extends AbstractFlowableWithUpstream<T
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, booleanSupplier};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

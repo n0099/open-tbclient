@@ -43,9 +43,9 @@ public class TracingConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,8 +70,8 @@ public class TracingConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
-                for (int i2 : iArr) {
-                    this.mPredefinedCategories = i2 | this.mPredefinedCategories;
+                for (int i : iArr) {
+                    this.mPredefinedCategories = i | this.mPredefinedCategories;
                 }
                 return this;
             }
@@ -96,11 +96,11 @@ public class TracingConfig {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new TracingConfig(this.mPredefinedCategories, this.mCustomIncludedCategories, this.mTracingMode) : (TracingConfig) invokeV.objValue;
         }
 
-        public Builder setTracingMode(int i2) {
+        public Builder setTracingMode(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.mTracingMode = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.mTracingMode = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -117,16 +117,16 @@ public class TracingConfig {
     public @interface TracingMode {
     }
 
-    public TracingConfig(int i2, @NonNull List<String> list, int i3) {
+    public TracingConfig(int i, @NonNull List<String> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), list, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), list, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,9 +134,9 @@ public class TracingConfig {
         }
         ArrayList arrayList = new ArrayList();
         this.mCustomIncludedCategories = arrayList;
-        this.mPredefinedCategories = i2;
+        this.mPredefinedCategories = i;
         arrayList.addAll(list);
-        this.mTracingMode = i3;
+        this.mTracingMode = i2;
     }
 
     @NonNull

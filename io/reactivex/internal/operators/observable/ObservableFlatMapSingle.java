@@ -40,7 +40,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60725d;
+        public Disposable f45335d;
         public final boolean delayErrors;
         public final AtomicThrowable errors;
         public final Function<? super T, ? extends SingleSource<? extends R>> mapper;
@@ -61,9 +61,9 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                     newInitContext.initArgs = r2;
                     Object[] objArr = {flatMapSingleObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -119,9 +119,9 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, function, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,7 +150,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f60725d.dispose();
+                this.f45335d.dispose();
                 this.set.dispose();
             }
         }
@@ -168,7 +168,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 Observer<? super R> observer = this.actual;
                 AtomicInteger atomicInteger = this.active;
                 AtomicReference<SpscLinkedArrayQueue<R>> atomicReference = this.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (!this.delayErrors && this.errors.get() != null) {
                         Throwable terminate = this.errors.terminate();
@@ -190,8 +190,8 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                             return;
                         }
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -225,7 +225,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                 this.set.delete(innerObserver);
                 if (this.errors.addThrowable(th)) {
                     if (!this.delayErrors) {
-                        this.f60725d.dispose();
+                        this.f45335d.dispose();
                         this.set.dispose();
                     }
                     this.active.decrementAndGet();
@@ -319,7 +319,7 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
                     singleSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f60725d.dispose();
+                    this.f45335d.dispose();
                     onError(th);
                 }
             }
@@ -328,8 +328,8 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f60725d, disposable)) {
-                this.f60725d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048587, this, disposable) == null) && DisposableHelper.validate(this.f45335d, disposable)) {
+                this.f45335d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -344,9 +344,9 @@ public final class ObservableFlatMapSingle<T, R> extends AbstractObservableWithU
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, function, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

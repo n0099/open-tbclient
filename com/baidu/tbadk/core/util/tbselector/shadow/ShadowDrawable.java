@@ -63,9 +63,9 @@ public class ShadowDrawable extends Drawable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,11 +112,11 @@ public class ShadowDrawable extends Drawable {
             }
             if (this.mShape == 1) {
                 RectF rectF = this.mRect;
-                int i2 = this.mShapeRadius;
-                canvas.drawRoundRect(rectF, i2, i2, this.mShadowPaint);
+                int i = this.mShapeRadius;
+                canvas.drawRoundRect(rectF, i, i, this.mShadowPaint);
                 RectF rectF2 = this.mRect;
-                int i3 = this.mShapeRadius;
-                canvas.drawRoundRect(rectF2, i3, i3, this.mBgPaint);
+                int i2 = this.mShapeRadius;
+                canvas.drawRoundRect(rectF2, i2, i2, this.mBgPaint);
                 return;
             }
             canvas.drawCircle(this.mRect.centerX(), this.mRect.centerY(), Math.min(this.mRect.width(), this.mRect.height()) / 2.0f, this.mShadowPaint);
@@ -151,8 +151,8 @@ public class ShadowDrawable extends Drawable {
             if (this.mShape == 1) {
                 this.mRect = new RectF(rect.left + ((this.mShadowSide & 1) == 1 ? this.mShadowRadius - this.mOffsetX : -this.mShapeRadius), rect.top + ((this.mShadowSide & 16) == 16 ? this.mShadowRadius - this.mOffsetY : -this.mShapeRadius), rect.right - ((this.mShadowSide & 256) == 256 ? this.mShadowRadius + this.mOffsetX : -this.mShapeRadius), rect.bottom - ((this.mShadowSide & 4096) == 4096 ? this.mShadowRadius + this.mOffsetY : -this.mShapeRadius));
             } else {
-                int i2 = this.mShadowRadius;
-                this.mRect = new RectF(rect.left + i2, rect.top + i2, rect.right - i2, rect.bottom - i2);
+                int i = this.mShadowRadius;
+                this.mRect = new RectF(rect.left + i, rect.top + i, rect.right - i, rect.bottom - i);
             }
             int[] iArr = this.mBgColor;
             if (iArr == null || iArr.length <= 1) {
@@ -167,18 +167,18 @@ public class ShadowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mShadowPaint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mShadowPaint.setAlpha(i);
         }
     }
 
-    public ShadowDrawable setBgColor(@ColorRes int i2) {
+    public ShadowDrawable setBgColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.mBgColor[0] = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.mBgColor[0] = SelectorHelper.getColor(i);
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
@@ -192,43 +192,43 @@ public class ShadowDrawable extends Drawable {
         }
     }
 
-    public ShadowDrawable setOffsetX(int i2) {
+    public ShadowDrawable setOffsetX(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.mOffsetX = i2;
-            this.mShadowPaint.setShadowLayer(this.mShadowRadius, i2, this.mOffsetY, this.mShadowColor);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.mOffsetX = i;
+            this.mShadowPaint.setShadowLayer(this.mShadowRadius, i, this.mOffsetY, this.mShadowColor);
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setOffsetY(int i2) {
+    public ShadowDrawable setOffsetY(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            this.mOffsetY = i2;
-            this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, i2, this.mShadowColor);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            this.mOffsetY = i;
+            this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, i, this.mShadowColor);
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public ShadowDrawable setShadowAlpha(@IntRange(from = 0, to = 255) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            setAlpha(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            setAlpha(i);
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowColor(@ColorRes int i2) {
+    public ShadowDrawable setShadowColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            int color = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            int color = SelectorHelper.getColor(i);
             this.mShadowColor = color;
             this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
             return this;
@@ -236,26 +236,26 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowLayer(int i2, int i3, int i4, int i5) {
+    public ShadowDrawable setShadowLayer(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048592, this, i2, i3, i4, i5)) == null) {
-            int color = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048592, this, i, i2, i3, i4)) == null) {
+            int color = SelectorHelper.getColor(i);
             this.mShadowColor = color;
-            this.mShadowRadius = i5;
-            this.mOffsetX = i3;
-            this.mOffsetY = i4;
-            this.mShadowPaint.setShadowLayer(i5, i3, i4, color);
+            this.mShadowRadius = i4;
+            this.mOffsetX = i2;
+            this.mOffsetY = i3;
+            this.mShadowPaint.setShadowLayer(i4, i2, i3, color);
             return this;
         }
         return (ShadowDrawable) invokeIIII.objValue;
     }
 
-    public ShadowDrawable setShadowOpacity(int i2, float f2) {
+    public ShadowDrawable setShadowOpacity(int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            int color = SelectorHelper.getColor(i2, f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+            int color = SelectorHelper.getColor(i, f2);
             this.mShadowColor = color;
             this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.mOffsetX, this.mOffsetY, color);
             return this;
@@ -263,42 +263,42 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeCommon.objValue;
     }
 
-    public ShadowDrawable setShadowRadius(int i2) {
+    public ShadowDrawable setShadowRadius(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            this.mShadowRadius = i2;
-            this.mShadowPaint.setShadowLayer(i2, this.mOffsetX, this.mOffsetY, this.mShadowColor);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            this.mShadowRadius = i;
+            this.mShadowPaint.setShadowLayer(i, this.mOffsetX, this.mOffsetY, this.mShadowColor);
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShadowSide(@ShadowSide int i2) {
+    public ShadowDrawable setShadowSide(@ShadowSide int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.mShadowSide = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.mShadowSide = i;
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShape(@Shape int i2) {
+    public ShadowDrawable setShape(@Shape int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            this.mShape = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.mShape = i;
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
     }
 
-    public ShadowDrawable setShapeRadius(int i2) {
+    public ShadowDrawable setShapeRadius(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            this.mShapeRadius = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.mShapeRadius = i;
             return this;
         }
         return (ShadowDrawable) invokeI.objValue;
@@ -320,8 +320,8 @@ public class ShadowDrawable extends Drawable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, iArr)) == null) {
             int length = iArr.length;
             int[] iArr2 = new int[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                iArr2[i2] = SelectorHelper.getColor(iArr[i2]);
+            for (int i = 0; i < length; i++) {
+                iArr2[i] = SelectorHelper.getColor(iArr[i]);
             }
             this.mBgColor = iArr2;
             return this;
@@ -341,14 +341,14 @@ public class ShadowDrawable extends Drawable {
         return (ShadowDrawable) invokeL.objValue;
     }
 
-    public ShadowDrawable setShadowLayer(int i2, float f2, int i3, int i4, int i5) {
+    public ShadowDrawable setShadowLayer(int i, float f2, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            this.mShadowRadius = i5;
-            this.mOffsetX = i3;
-            this.mOffsetY = i4;
-            setShadowOpacity(i2, f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            this.mShadowRadius = i4;
+            this.mOffsetX = i2;
+            this.mOffsetY = i3;
+            setShadowOpacity(i, f2);
             return this;
         }
         return (ShadowDrawable) invokeCommon.objValue;
@@ -360,8 +360,8 @@ public class ShadowDrawable extends Drawable {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr)) == null) {
             int length = strArr.length;
             int[] iArr = new int[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                iArr[i2] = SelectorHelper.parseColor(strArr[i2]);
+            for (int i = 0; i < length; i++) {
+                iArr[i] = SelectorHelper.parseColor(strArr[i]);
             }
             this.mBgColor = iArr;
             return this;

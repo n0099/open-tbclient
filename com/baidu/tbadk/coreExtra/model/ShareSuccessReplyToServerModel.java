@@ -24,9 +24,7 @@ import org.json.JSONObject;
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f39423e;
+    public HttpMessageListener a;
 
     /* loaded from: classes5.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -35,17 +33,17 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         public CustomDialogData mActDialogData;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ShareSuccessReplySeverResponseMessage(int i2) {
-            super(i2);
+        public ShareSuccessReplySeverResponseMessage(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -55,17 +53,17 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
             JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-                super.decodeLogicInBackGround(i2, jSONObject);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+                super.decodeLogicInBackGround(i, jSONObject);
                 int statusCode = getStatusCode();
                 int error = getError();
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = c.a.r0.u2.b.a(optJSONObject);
+                this.mActDialogData = c.a.p0.w2.b.a(optJSONObject);
             }
         }
 
@@ -82,17 +80,17 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ShareSuccessReplyToServerModel shareSuccessReplyToServerModel, int i2) {
-            super(i2);
+        public a(ShareSuccessReplyToServerModel shareSuccessReplyToServerModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {shareSuccessReplyToServerModel, Integer.valueOf(i2)};
+                Object[] objArr = {shareSuccessReplyToServerModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -130,20 +128,20 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39423e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.a = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f39423e.setTag(getUniqueId());
-        this.f39423e.setSelfListener(true);
-        registerListener(this.f39423e);
+        this.a.setTag(getUniqueId());
+        this.a.setSelfListener(true);
+        registerListener(this.a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -151,7 +149,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f39423e);
+            MessageManager.getInstance().unRegisterListener(this.a);
             return false;
         }
         return invokeV.booleanValue;
@@ -176,26 +174,26 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
     }
 
-    public void w(String str, int i2, b bVar) {
+    public void y(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, bVar) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bVar) == null) || str == null) {
             return;
         }
-        int i3 = 0;
-        if (i2 == 2) {
-            i3 = 2;
-        } else if (i2 == 3) {
-            i3 = 1;
-        } else if (i2 == 4) {
-            i3 = 3;
-        } else if (i2 == 6) {
-            i3 = 5;
-        } else if (i2 == 8) {
-            i3 = 4;
+        int i2 = 0;
+        if (i == 2) {
+            i2 = 2;
+        } else if (i == 3) {
+            i2 = 1;
+        } else if (i == 4) {
+            i2 = 3;
+        } else if (i == 6) {
+            i2 = 5;
+        } else if (i == 8) {
+            i2 = 4;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         httpMessage.addParam(PbChosenActivityConfig.KEY_SHARE_URL, str);
-        httpMessage.addParam(DI.TB.SHARE_CHANNEL, i3);
+        httpMessage.addParam(DI.TB.SHARE_CHANNEL, i2);
         httpMessage.setExtra(bVar);
         sendMessage(httpMessage);
     }

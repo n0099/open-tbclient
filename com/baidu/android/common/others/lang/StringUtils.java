@@ -18,9 +18,9 @@ public final class StringUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,8 +35,8 @@ public final class StringUtils {
                 return false;
             }
             int length = charSequence.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (Character.isWhitespace(charSequence.charAt(i2))) {
+            for (int i = 0; i < length; i++) {
+                if (Character.isWhitespace(charSequence.charAt(i))) {
                     return true;
                 }
             }
@@ -68,18 +68,18 @@ public final class StringUtils {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, str, str2)) != null) {
             return invokeLL.intValue;
         }
-        int i2 = 0;
+        int i = 0;
         if (str == null || str2 == null || str.length() == 0 || str2.length() == 0) {
             return 0;
         }
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
-            int indexOf = str.indexOf(str2, i2);
+            int indexOf = str.indexOf(str2, i);
             if (indexOf == -1) {
-                return i3;
+                return i2;
             }
-            i3++;
-            i2 = indexOf + str2.length();
+            i2++;
+            i = indexOf + str2.length();
         }
     }
 
@@ -89,8 +89,8 @@ public final class StringUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             if (charSequence != null && (length = charSequence.length()) != 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (!Character.isWhitespace(charSequence.charAt(i2))) {
+                for (int i = 0; i < length; i++) {
+                    if (!Character.isWhitespace(charSequence.charAt(i))) {
                         return false;
                     }
                 }
@@ -108,15 +108,15 @@ public final class StringUtils {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            int i2 = 0;
+            int i = 0;
             for (char c2 : str.toCharArray()) {
                 float f2 = 2.0f;
                 if (c2 > 0 && c2 < 127 && z) {
                     f2 = 1.0f;
                 }
-                i2 = (int) (i2 + f2);
+                i = (int) (i + f2);
             }
-            return i2;
+            return i;
         }
         return invokeLZ.intValue;
     }

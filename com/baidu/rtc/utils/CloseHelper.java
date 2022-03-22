@@ -2,6 +2,7 @@ package com.baidu.rtc.utils;
 
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,9 +19,9 @@ public class CloseHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,7 +36,7 @@ public class CloseHelper {
         try {
             closeable.close();
         } catch (Throwable th) {
-            th.getMessage();
+            Log.e(TAG, th.getMessage());
         }
     }
 
@@ -47,7 +48,7 @@ public class CloseHelper {
         try {
             cursor.close();
         } catch (Exception e2) {
-            e2.getMessage();
+            Log.e(TAG, e2.getMessage());
         }
     }
 
@@ -59,7 +60,7 @@ public class CloseHelper {
         try {
             mediaMetadataRetriever.release();
         } catch (Exception e2) {
-            e2.getMessage();
+            Log.e(TAG, e2.getMessage());
         }
     }
 }

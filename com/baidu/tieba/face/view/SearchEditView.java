@@ -27,29 +27,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchEditView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EditText a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f32016b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f32017c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public LinearLayout f32018d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f41374e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f41375f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f41376g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f41377h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public d f41378i;
+    public d f32019e;
 
     /* loaded from: classes5.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchEditView f41379e;
+        public final /* synthetic */ SearchEditView a;
 
         public a(SearchEditView searchEditView) {
             Interceptable interceptable = $ic;
@@ -58,43 +54,43 @@ public class SearchEditView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchEditView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41379e = searchEditView;
+            this.a = searchEditView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.f41379e.f41378i != null) {
-                    this.f41379e.f41378i.onTextChanged(editable.toString().trim());
+                if (this.a.f32019e != null) {
+                    this.a.f32019e.onTextChanged(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    this.f41379e.f41377h.setVisibility(4);
+                    this.a.f32018d.setVisibility(4);
                 } else {
-                    this.f41379e.f41377h.setVisibility(0);
+                    this.a.f32018d.setVisibility(0);
                 }
             }
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -112,9 +108,9 @@ public class SearchEditView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchEditView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -124,16 +120,16 @@ public class SearchEditView extends RelativeLayout {
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
-                if (i2 == 3) {
-                    String trim = this.a.f41374e.getText().toString().trim();
-                    if (TextUtils.isEmpty(trim) || this.a.f41378i == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (i == 3) {
+                    String trim = this.a.a.getText().toString().trim();
+                    if (TextUtils.isEmpty(trim) || this.a.f32019e == null) {
                         return true;
                     }
-                    this.a.f41378i.onClickSearch(trim);
+                    this.a.f32019e.onClickSearch(trim);
                     return true;
                 }
                 return false;
@@ -146,9 +142,7 @@ public class SearchEditView extends RelativeLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchEditView f41380e;
+        public final /* synthetic */ SearchEditView a;
 
         public c(SearchEditView searchEditView) {
             Interceptable interceptable = $ic;
@@ -157,22 +151,22 @@ public class SearchEditView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchEditView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41380e = searchEditView;
+            this.a = searchEditView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f41380e.f41374e.setText("");
+                this.a.a.setText("");
             }
         }
     }
@@ -193,9 +187,9 @@ public class SearchEditView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -208,51 +202,51 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
-            this.f41374e = (EditText) findViewById(R.id.edit_search);
-            this.f41375f = (ImageView) findViewById(R.id.iv_search);
-            this.f41376g = (ImageView) findViewById(R.id.iv_del_all);
-            this.f41377h = (LinearLayout) findViewById(R.id.iv_del_all_layout);
-            SkinManager.setImageResource(this.f41375f, R.drawable.icon_emotion_search);
-            SkinManager.setImageResource(this.f41376g, R.drawable.del_search_btn);
-            SkinManager.setViewTextColor(this.f41374e, (int) R.color.CAM_X0105);
-            this.f41374e.addTextChangedListener(new a(this));
-            this.f41374e.setOnEditorActionListener(new b(this));
-            this.f41377h.setOnClickListener(new c(this));
-            onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
+            this.f32016b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff7);
+            this.f32017c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fcb);
+            this.f32018d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fcc);
+            SkinManager.setImageResource(this.f32016b, R.drawable.icon_emotion_search);
+            SkinManager.setImageResource(this.f32017c, R.drawable.del_search_btn);
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            this.a.addTextChangedListener(new a(this));
+            this.a.setOnEditorActionListener(new b(this));
+            this.f32018d.setOnClickListener(new c(this));
+            e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void onChangeSkin(int i2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 0) {
-                this.f41374e.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 0) {
+                this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
             } else {
-                this.f41374e.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
+                this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
             }
         }
     }
 
-    public boolean requestEditFocus() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41374e.requestFocus() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.requestFocus() : invokeV.booleanValue;
     }
 
     public void setCallback(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.f41378i = dVar;
+            this.f32019e = dVar;
         }
     }
 
-    public void setSelection(int i2) {
+    public void setSelection(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 > this.f41374e.getText().length()) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i > this.a.getText().length()) {
             return;
         }
-        this.f41374e.setSelection(i2);
+        this.a.setSelection(i);
     }
 
     public void setText(String str) {
@@ -260,8 +254,8 @@ public class SearchEditView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || str == null) {
             return;
         }
-        this.f41374e.setText(str);
-        this.f41374e.setSelection(str.length());
+        this.a.setText(str);
+        this.a.setSelection(str.length());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -273,9 +267,9 @@ public class SearchEditView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -287,17 +281,17 @@ public class SearchEditView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchEditView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SearchEditView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

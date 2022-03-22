@@ -11,13 +11,13 @@ import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.pi.AdData;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class NativeExpressADView extends FrameLayout implements DownloadConfirmListener, ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, String> ext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface ViewBindStatusListener {
         void onAttachedToWindow();
 
@@ -37,9 +37,9 @@ public abstract class NativeExpressADView extends FrameLayout implements Downloa
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -63,14 +63,14 @@ public abstract class NativeExpressADView extends FrameLayout implements Downloa
 
     public abstract void render();
 
-    public abstract void sendLossNotification(int i2, int i3, String str);
+    public abstract void sendLossNotification(int i, int i2, String str);
 
-    public abstract void sendWinNotification(int i2);
+    public abstract void sendWinNotification(int i);
 
     @Deprecated
     public abstract void setAdSize(ADSize aDSize);
 
-    public abstract void setBidECPM(int i2);
+    public abstract void setBidECPM(int i);
 
     public abstract void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener);
 

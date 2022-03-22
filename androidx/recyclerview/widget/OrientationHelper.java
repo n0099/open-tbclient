@@ -38,9 +38,9 @@ public abstract class OrientationHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {layoutManager};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((RecyclerView.LayoutManager) objArr2[0]);
                         newInitContext.thisArg = this;
@@ -158,29 +158,29 @@ public abstract class OrientationHelper {
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view, int i2) {
+            public void offsetChild(View view, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view, i2) == null) {
-                    view.offsetLeftAndRight(i2);
+                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view, i) == null) {
+                    view.offsetLeftAndRight(i);
                 }
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i2) {
+            public void offsetChildren(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i2) == null) {
-                    this.mLayoutManager.offsetChildrenHorizontal(i2);
+                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
+                    this.mLayoutManager.offsetChildrenHorizontal(i);
                 }
             }
         } : (OrientationHelper) invokeL.objValue;
     }
 
-    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i2) {
+    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, layoutManager, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, layoutManager, i)) == null) {
+            if (i != 0) {
+                if (i == 1) {
                     return createVerticalHelper(layoutManager);
                 }
                 throw new IllegalArgumentException("invalid orientation");
@@ -206,9 +206,9 @@ public abstract class OrientationHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {layoutManager};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((RecyclerView.LayoutManager) objArr2[0]);
                         newInitContext.thisArg = this;
@@ -326,18 +326,18 @@ public abstract class OrientationHelper {
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view, int i2) {
+            public void offsetChild(View view, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view, i2) == null) {
-                    view.offsetTopAndBottom(i2);
+                if (interceptable2 == null || interceptable2.invokeLI(1048589, this, view, i) == null) {
+                    view.offsetTopAndBottom(i);
                 }
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i2) {
+            public void offsetChildren(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i2) == null) {
-                    this.mLayoutManager.offsetChildrenVertical(i2);
+                if (interceptable2 == null || interceptable2.invokeI(1048590, this, i) == null) {
+                    this.mLayoutManager.offsetChildrenVertical(i);
                 }
             }
         } : (OrientationHelper) invokeL.objValue;
@@ -387,9 +387,9 @@ public abstract class OrientationHelper {
 
     public abstract int getTransformedStartWithDecoration(View view);
 
-    public abstract void offsetChild(View view, int i2);
+    public abstract void offsetChild(View view, int i);
 
-    public abstract void offsetChildren(int i2);
+    public abstract void offsetChildren(int i);
 
     public void onLayoutComplete() {
         Interceptable interceptable = $ic;
@@ -405,9 +405,9 @@ public abstract class OrientationHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {layoutManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -31,7 +31,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public final SingleObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60732d;
+        public Disposable f45342d;
         public final BiFunction<R, ? super T, R> reducer;
         public R value;
 
@@ -42,9 +42,9 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, biFunction, r};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,7 +59,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60732d.dispose();
+                this.f45342d.dispose();
             }
         }
 
@@ -67,7 +67,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60732d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45342d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -105,7 +105,7 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
                 this.value = (R) ObjectHelper.requireNonNull(this.reducer.apply(r, t), "The reducer returned a null value");
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
-                this.f60732d.dispose();
+                this.f45342d.dispose();
                 onError(th);
             }
         }
@@ -113,8 +113,8 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f60732d, disposable)) {
-                this.f60732d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45342d, disposable)) {
+                this.f45342d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -127,9 +127,9 @@ public final class ObservableReduceSeedSingle<T, R> extends Single<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, r, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

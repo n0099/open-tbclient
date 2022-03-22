@@ -21,9 +21,9 @@ public class Texture {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,16 +34,16 @@ public class Texture {
         this.ir = 3553;
     }
 
-    public Texture(int i2, int i3) {
+    public Texture(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -52,8 +52,8 @@ public class Texture {
         this.iq = -1L;
         this.mId = -1;
         this.ir = 3553;
-        this.mId = i2;
-        this.ir = i3;
+        this.mId = i;
+        this.ir = i2;
     }
 
     public long getHandle() {
@@ -74,24 +74,24 @@ public class Texture {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.ir : invokeV.intValue;
     }
 
-    public void setHandle(long j2) {
+    public void setHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.iq = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.iq = j;
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mId = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mId = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.ir = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.ir = i;
         }
     }
 }

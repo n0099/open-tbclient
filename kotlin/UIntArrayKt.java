@@ -8,19 +8,19 @@ public final class UIntArrayKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
-    public static final int[] UIntArray(int i2, Function1<? super Integer, UInt> function1) {
-        int[] iArr = new int[i2];
-        for (int i3 = 0; i3 < i2; i3++) {
-            iArr[i3] = function1.invoke(Integer.valueOf(i3)).m858unboximpl();
+    public static final int[] UIntArray(int i, Function1<? super Integer, UInt> function1) {
+        int[] iArr = new int[i];
+        for (int i2 = 0; i2 < i; i2++) {
+            iArr[i2] = function1.invoke(Integer.valueOf(i2)).m837unboximpl();
         }
-        return UIntArray.m861constructorimpl(iArr);
+        return UIntArray.m840constructorimpl(iArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: uintArrayOf--ajY-9A  reason: not valid java name */
-    public static final int[] m877uintArrayOfajY9A(int... iArr) {
+    public static final int[] m856uintArrayOfajY9A(int... iArr) {
         return iArr;
     }
 }

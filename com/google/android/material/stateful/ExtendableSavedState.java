@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExtendableSavedState extends AbsSavedState {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ExtendableSavedState> CREATOR;
@@ -45,9 +45,9 @@ public class ExtendableSavedState extends AbsSavedState {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -57,10 +57,10 @@ public class ExtendableSavedState extends AbsSavedState {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public ExtendableSavedState[] newArray(int i2) {
+            public ExtendableSavedState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new ExtendableSavedState[i2] : (ExtendableSavedState[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new ExtendableSavedState[i] : (ExtendableSavedState[]) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -95,17 +95,17 @@ public class ExtendableSavedState extends AbsSavedState {
     }
 
     @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             int size = this.extendableStates.size();
             parcel.writeInt(size);
             String[] strArr = new String[size];
             Bundle[] bundleArr = new Bundle[size];
-            for (int i3 = 0; i3 < size; i3++) {
-                strArr[i3] = this.extendableStates.keyAt(i3);
-                bundleArr[i3] = this.extendableStates.valueAt(i3);
+            for (int i2 = 0; i2 < size; i2++) {
+                strArr[i2] = this.extendableStates.keyAt(i2);
+                bundleArr[i2] = this.extendableStates.valueAt(i2);
             }
             parcel.writeStringArray(strArr);
             parcel.writeTypedArray(bundleArr, 0);
@@ -121,9 +121,9 @@ public class ExtendableSavedState extends AbsSavedState {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcelable};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcelable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -142,9 +142,9 @@ public class ExtendableSavedState extends AbsSavedState {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel, classLoader};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -158,8 +158,8 @@ public class ExtendableSavedState extends AbsSavedState {
         Bundle[] bundleArr = new Bundle[readInt];
         parcel.readTypedArray(bundleArr, Bundle.CREATOR);
         this.extendableStates = new SimpleArrayMap<>(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
-            this.extendableStates.put(strArr[i4], bundleArr[i4]);
+        for (int i3 = 0; i3 < readInt; i3++) {
+            this.extendableStates.put(strArr[i3], bundleArr[i3]);
         }
     }
 }

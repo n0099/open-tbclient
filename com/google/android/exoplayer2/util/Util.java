@@ -8,12 +8,14 @@ import android.graphics.Point;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +27,6 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.upstream.DataSource;
-import com.kuaishou.weapon.un.s;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -45,7 +46,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CRC32_BYTES_MSBF;
@@ -89,9 +90,9 @@ public final class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -110,54 +111,54 @@ public final class Util {
         return invokeLL.booleanValue;
     }
 
-    public static int binarySearchCeil(long[] jArr, long j2, boolean z, boolean z2) {
+    public static int binarySearchCeil(long[] jArr, long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jArr, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Arrays.binarySearch(jArr, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Arrays.binarySearch(jArr, j);
             if (binarySearch < 0) {
-                i2 = ~binarySearch;
+                i = ~binarySearch;
             } else {
                 do {
                     binarySearch++;
                     if (binarySearch >= jArr.length) {
                         break;
                     }
-                } while (jArr[binarySearch] == j2);
-                i2 = z ? binarySearch - 1 : binarySearch;
+                } while (jArr[binarySearch] == j);
+                i = z ? binarySearch - 1 : binarySearch;
             }
-            return z2 ? Math.min(jArr.length - 1, i2) : i2;
+            return z2 ? Math.min(jArr.length - 1, i) : i;
         }
         return invokeCommon.intValue;
     }
 
-    public static int binarySearchFloor(int[] iArr, int i2, boolean z, boolean z2) {
+    public static int binarySearchFloor(int[] iArr, int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{iArr, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Arrays.binarySearch(iArr, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{iArr, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Arrays.binarySearch(iArr, i);
             if (binarySearch < 0) {
-                i3 = -(binarySearch + 2);
+                i2 = -(binarySearch + 2);
             } else {
                 do {
                     binarySearch--;
                     if (binarySearch < 0) {
                         break;
                     }
-                } while (iArr[binarySearch] == i2);
-                i3 = z ? binarySearch + 1 : binarySearch;
+                } while (iArr[binarySearch] == i);
+                i2 = z ? binarySearch + 1 : binarySearch;
             }
-            return z2 ? Math.max(0, i3) : i3;
+            return z2 ? Math.max(0, i2) : i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static int ceilDivide(int i2, int i3) {
+    public static int ceilDivide(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i2, i3)) == null) ? ((i2 + i3) - 1) / i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) ? ((i + i2) - 1) / i2 : invokeII.intValue;
     }
 
     public static void closeQuietly(DataSource dataSource) {
@@ -171,10 +172,10 @@ public final class Util {
         }
     }
 
-    public static int constrainValue(int i2, int i3, int i4) {
+    public static int constrainValue(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i2, i3, i4)) == null) ? Math.max(i3, Math.min(i2, i4)) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i, i2, i3)) == null) ? Math.max(i2, Math.min(i, i3)) : invokeIII.intValue;
     }
 
     public static boolean contains(Object[] objArr, Object obj) {
@@ -191,15 +192,15 @@ public final class Util {
         return invokeLL.booleanValue;
     }
 
-    public static int crc(byte[] bArr, int i2, int i3, int i4) {
+    public static int crc(byte[] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65552, null, bArr, i2, i3, i4)) == null) {
-            while (i2 < i3) {
-                i4 = CRC32_BYTES_MSBF[((i4 >>> 24) ^ (bArr[i2] & 255)) & 255] ^ (i4 << 8);
-                i2++;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65552, null, bArr, i, i2, i3)) == null) {
+            while (i < i2) {
+                i3 = CRC32_BYTES_MSBF[((i3 >>> 24) ^ (bArr[i] & 255)) & 255] ^ (i3 << 8);
+                i++;
             }
-            return i4;
+            return i3;
         }
         return invokeLIII.intValue;
     }
@@ -227,31 +228,31 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
             int length = str.length();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                if (shouldEscapeCharacter(str.charAt(i4))) {
-                    i3++;
+            for (int i3 = 0; i3 < length; i3++) {
+                if (shouldEscapeCharacter(str.charAt(i3))) {
+                    i2++;
                 }
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return str;
             }
-            StringBuilder sb = new StringBuilder((i3 * 2) + length);
-            while (i3 > 0) {
-                int i5 = i2 + 1;
-                char charAt = str.charAt(i2);
+            StringBuilder sb = new StringBuilder((i2 * 2) + length);
+            while (i2 > 0) {
+                int i4 = i + 1;
+                char charAt = str.charAt(i);
                 if (shouldEscapeCharacter(charAt)) {
                     sb.append('%');
                     sb.append(Integer.toHexString(charAt));
-                    i3--;
+                    i2--;
                 } else {
                     sb.append(charAt);
                 }
-                i2 = i5;
+                i = i4;
             }
-            if (i2 < length) {
-                sb.append((CharSequence) str, i2, length);
+            if (i < length) {
+                sb.append((CharSequence) str, i, length);
             }
             return sb.toString();
         }
@@ -264,33 +265,33 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65556, null, bArr)) == null) ? new String(bArr, Charset.forName("UTF-8")) : (String) invokeL.objValue;
     }
 
-    public static int getAudioContentTypeForStreamType(int i2) {
+    public static int getAudioContentTypeForStreamType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) {
-            if (i2 != 0) {
-                return (i2 == 1 || i2 == 2 || i2 == 4 || i2 == 5 || i2 == 8) ? 4 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
+            if (i != 0) {
+                return (i == 1 || i == 2 || i == 4 || i == 5 || i == 8) ? 4 : 2;
             }
             return 1;
         }
         return invokeI.intValue;
     }
 
-    public static int getAudioUsageForStreamType(int i2) {
+    public static int getAudioUsageForStreamType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        int i3 = 4;
-                        if (i2 != 4) {
-                            i3 = 5;
-                            if (i2 != 5) {
-                                return i2 != 8 ? 1 : 3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        int i2 = 4;
+                        if (i != 4) {
+                            i2 = 5;
+                            if (i != 5) {
+                                return i != 8 ? 1 : 3;
                             }
                         }
-                        return i3;
+                        return i2;
                     }
                     return 6;
                 }
@@ -307,9 +308,9 @@ public final class Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i2 * 2;
-                bArr[i2] = (byte) ((Character.digit(str.charAt(i3), 16) << 4) + Character.digit(str.charAt(i3 + 1), 16));
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                bArr[i] = (byte) ((Character.digit(str.charAt(i2), 16) << 4) + Character.digit(str.charAt(i2 + 1), 16));
             }
             return bArr;
         }
@@ -321,9 +322,9 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, objArr)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                sb.append(objArr[i2].getClass().getSimpleName());
-                if (i2 < objArr.length - 1) {
+            for (int i = 0; i < objArr.length; i++) {
+                sb.append(objArr[i].getClass().getSimpleName());
+                if (i < objArr.length - 1) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
             }
@@ -332,14 +333,14 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static int getDefaultBufferSize(int i2) {
+    public static int getDefaultBufferSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65561, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 == 3 || i2 == 4) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65561, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3 || i == 4) {
                             return 131072;
                         }
                         throw new IllegalStateException();
@@ -393,23 +394,23 @@ public final class Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             int length = str.length();
             Assertions.checkArgument(length <= 4);
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 = (i2 << 8) | str.charAt(i3);
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = (i << 8) | str.charAt(i2);
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static int getPcmEncoding(int i2) {
+    public static int getPcmEncoding(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i2)) == null) {
-            if (i2 != 8) {
-                if (i2 != 16) {
-                    if (i2 != 24) {
-                        return i2 != 32 ? 0 : 1073741824;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65567, null, i)) == null) {
+            if (i != 8) {
+                if (i != 16) {
+                    if (i != 24) {
+                        return i != 32 ? 0 : 1073741824;
                     }
                     return Integer.MIN_VALUE;
                 }
@@ -420,23 +421,23 @@ public final class Util {
         return invokeI.intValue;
     }
 
-    public static int getPcmFrameSize(int i2, int i3) {
+    public static int getPcmFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65568, null, i2, i3)) == null) {
-            if (i2 != Integer.MIN_VALUE) {
-                if (i2 != 1073741824) {
-                    if (i2 != 2) {
-                        if (i2 == 3) {
-                            return i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65568, null, i, i2)) == null) {
+            if (i != Integer.MIN_VALUE) {
+                if (i != 1073741824) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return i2;
                         }
                         throw new IllegalArgumentException();
                     }
-                    return i3 * 2;
+                    return i2 * 2;
                 }
-                return i3 * 4;
+                return i2 * 4;
             }
-            return i3 * 3;
+            return i2 * 3;
         }
         return invokeII.intValue;
     }
@@ -447,12 +448,12 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? getPhysicalDisplaySize(context, ((WindowManager) context.getSystemService("window")).getDefaultDisplay()) : (Point) invokeL.objValue;
     }
 
-    public static int getStreamTypeForAudioUsage(int i2) {
+    public static int getStreamTypeForAudioUsage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i2)) == null) {
-            if (i2 != 13) {
-                switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
+            if (i != 13) {
+                switch (i) {
                     case 2:
                         return 0;
                     case 3:
@@ -476,19 +477,19 @@ public final class Util {
         return invokeI.intValue;
     }
 
-    public static String getStringForTime(StringBuilder sb, Formatter formatter, long j2) {
+    public static String getStringForTime(StringBuilder sb, Formatter formatter, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{sb, formatter, Long.valueOf(j2)})) == null) {
-            if (j2 == C.TIME_UNSET) {
-                j2 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{sb, formatter, Long.valueOf(j)})) == null) {
+            if (j == C.TIME_UNSET) {
+                j = 0;
             }
-            long j3 = (j2 + 500) / 1000;
-            long j4 = j3 % 60;
-            long j5 = (j3 / 60) % 60;
-            long j6 = j3 / 3600;
+            long j2 = (j + 500) / 1000;
+            long j3 = j2 % 60;
+            long j4 = (j2 / 60) % 60;
+            long j5 = j2 / 3600;
             sb.setLength(0);
-            return j6 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j6), Long.valueOf(j5), Long.valueOf(j4)).toString() : formatter.format("%02d:%02d", Long.valueOf(j5), Long.valueOf(j4)).toString();
+            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
         }
         return (String) invokeCommon.objValue;
     }
@@ -527,10 +528,10 @@ public final class Util {
         return invokeL.intValue;
     }
 
-    public static boolean isLinebreak(int i2) {
+    public static boolean isLinebreak(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65577, null, i2)) == null) ? i2 == 10 || i2 == 13 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65577, null, i)) == null) ? i == 10 || i == 13 : invokeI.booleanValue;
     }
 
     public static boolean isLocalFileUri(Uri uri) {
@@ -552,14 +553,14 @@ public final class Util {
                 return false;
             }
             int length = uriArr.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
-                } else if (!isLocalFileUri(uriArr[i2])) {
-                    i2++;
-                } else if (activity.checkSelfPermission(s.f53810i) != 0) {
-                    activity.requestPermissions(new String[]{s.f53810i}, 0);
+                } else if (!isLocalFileUri(uriArr[i])) {
+                    i++;
+                } else if (activity.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") != 0) {
+                    activity.requestPermissions(new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, 0);
                     return true;
                 }
             }
@@ -583,9 +584,9 @@ public final class Util {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {str};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -621,11 +622,11 @@ public final class Util {
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
             Matcher matcher = XS_DATE_TIME_PATTERN.matcher(str);
             if (matcher.matches()) {
-                int i2 = 0;
+                int i = 0;
                 if (matcher.group(9) != null && !matcher.group(9).equalsIgnoreCase("Z")) {
-                    i2 = (Integer.parseInt(matcher.group(12)) * 60) + Integer.parseInt(matcher.group(13));
+                    i = (Integer.parseInt(matcher.group(12)) * 60) + Integer.parseInt(matcher.group(13));
                     if (matcher.group(11).equals("-")) {
-                        i2 *= -1;
+                        i *= -1;
                     }
                 }
                 GregorianCalendar gregorianCalendar = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
@@ -635,7 +636,7 @@ public final class Util {
                     gregorianCalendar.set(14, new BigDecimal("0." + matcher.group(8)).movePointRight(3).intValue());
                 }
                 long timeInMillis = gregorianCalendar.getTimeInMillis();
-                return i2 != 0 ? timeInMillis - (i2 * 60000) : timeInMillis;
+                return i != 0 ? timeInMillis - (i * 60000) : timeInMillis;
             }
             throw new ParserException("Invalid date/time format: " + str);
         }
@@ -680,44 +681,44 @@ public final class Util {
         }
     }
 
-    public static long scaleLargeTimestamp(long j2, long j3, long j4) {
+    public static long scaleLargeTimestamp(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            int i2 = (j4 > j3 ? 1 : (j4 == j3 ? 0 : -1));
-            if (i2 < 0 || j4 % j3 != 0) {
-                return (i2 >= 0 || j3 % j4 != 0) ? (long) (j2 * (j3 / j4)) : j2 * (j3 / j4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            int i = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+            if (i < 0 || j3 % j2 != 0) {
+                return (i >= 0 || j2 % j3 != 0) ? (long) (j * (j2 / j3)) : j * (j2 / j3);
             }
-            return j2 / (j4 / j3);
+            return j / (j3 / j2);
         }
         return invokeCommon.longValue;
     }
 
-    public static long[] scaleLargeTimestamps(List<Long> list, long j2, long j3) {
+    public static long[] scaleLargeTimestamps(List<Long> list, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{list, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{list, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             int size = list.size();
             long[] jArr = new long[size];
-            int i2 = 0;
-            int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-            if (i3 >= 0 && j3 % j2 == 0) {
-                long j4 = j3 / j2;
-                while (i2 < size) {
-                    jArr[i2] = list.get(i2).longValue() / j4;
-                    i2++;
+            int i = 0;
+            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i2 >= 0 && j2 % j == 0) {
+                long j3 = j2 / j;
+                while (i < size) {
+                    jArr[i] = list.get(i).longValue() / j3;
+                    i++;
                 }
-            } else if (i3 >= 0 || j2 % j3 != 0) {
-                double d2 = j2 / j3;
-                while (i2 < size) {
-                    jArr[i2] = (long) (list.get(i2).longValue() * d2);
-                    i2++;
+            } else if (i2 >= 0 || j % j2 != 0) {
+                double d2 = j / j2;
+                while (i < size) {
+                    jArr[i] = (long) (list.get(i).longValue() * d2);
+                    i++;
                 }
             } else {
-                long j5 = j2 / j3;
-                while (i2 < size) {
-                    jArr[i2] = list.get(i2).longValue() * j5;
-                    i2++;
+                long j4 = j / j2;
+                while (i < size) {
+                    jArr[i] = list.get(i).longValue() * j4;
+                    i++;
                 }
             }
             return jArr;
@@ -725,28 +726,28 @@ public final class Util {
         return (long[]) invokeCommon.objValue;
     }
 
-    public static void scaleLargeTimestampsInPlace(long[] jArr, long j2, long j3) {
+    public static void scaleLargeTimestampsInPlace(long[] jArr, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{jArr, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            int i2 = 0;
-            int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-            if (i3 >= 0 && j3 % j2 == 0) {
-                long j4 = j3 / j2;
-                while (i2 < jArr.length) {
-                    jArr[i2] = jArr[i2] / j4;
-                    i2++;
+        if (interceptable == null || interceptable.invokeCommon(65587, null, new Object[]{jArr, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            int i = 0;
+            int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i2 >= 0 && j2 % j == 0) {
+                long j3 = j2 / j;
+                while (i < jArr.length) {
+                    jArr[i] = jArr[i] / j3;
+                    i++;
                 }
-            } else if (i3 < 0 && j2 % j3 == 0) {
-                long j5 = j2 / j3;
-                while (i2 < jArr.length) {
-                    jArr[i2] = jArr[i2] * j5;
-                    i2++;
+            } else if (i2 < 0 && j % j2 == 0) {
+                long j4 = j / j2;
+                while (i < jArr.length) {
+                    jArr[i] = jArr[i] * j4;
+                    i++;
                 }
             } else {
-                double d2 = j2 / j3;
-                while (i2 < jArr.length) {
-                    jArr[i2] = (long) (jArr[i2] * d2);
-                    i2++;
+                double d2 = j / j2;
+                while (i < jArr.length) {
+                    jArr[i] = (long) (jArr[i] * d2);
+                    i++;
                 }
             }
         }
@@ -781,8 +782,8 @@ public final class Util {
             }
             int size = list.size();
             int[] iArr = new int[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                iArr[i2] = list.get(i2).intValue();
+            for (int i = 0; i < size; i++) {
+                iArr[i] = list.get(i).intValue();
             }
             return iArr;
         }
@@ -824,29 +825,29 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
             int length = str.length();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                if (str.charAt(i4) == '%') {
-                    i3++;
+            for (int i3 = 0; i3 < length; i3++) {
+                if (str.charAt(i3) == '%') {
+                    i2++;
                 }
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return str;
             }
-            int i5 = length - (i3 * 2);
-            StringBuilder sb = new StringBuilder(i5);
+            int i4 = length - (i2 * 2);
+            StringBuilder sb = new StringBuilder(i4);
             Matcher matcher = ESCAPED_CHARACTER_PATTERN.matcher(str);
-            while (i3 > 0 && matcher.find()) {
-                sb.append((CharSequence) str, i2, matcher.start());
+            while (i2 > 0 && matcher.find()) {
+                sb.append((CharSequence) str, i, matcher.start());
                 sb.append((char) Integer.parseInt(matcher.group(1), 16));
-                i2 = matcher.end();
-                i3--;
+                i = matcher.end();
+                i2--;
             }
-            if (i2 < length) {
-                sb.append((CharSequence) str, i2, length);
+            if (i < length) {
+                sb.append((CharSequence) str, i, length);
             }
-            if (sb.length() != i5) {
+            if (sb.length() != i4) {
                 return null;
             }
             return sb.toString();
@@ -854,10 +855,10 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static long ceilDivide(long j2, long j3) {
+    public static long ceilDivide(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? ((j2 + j3) - 1) / j3 : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? ((j + j2) - 1) / j2 : invokeCommon.longValue;
     }
 
     public static void closeQuietly(Closeable closeable) {
@@ -871,10 +872,10 @@ public final class Util {
         }
     }
 
-    public static long constrainValue(long j2, long j3, long j4) {
+    public static long constrainValue(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? Math.max(j3, Math.min(j2, j4)) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.max(j2, Math.min(j, j3)) : invokeCommon.longValue;
     }
 
     public static float constrainValue(float f2, float f3, float f4) {
@@ -895,8 +896,9 @@ public final class Util {
                     String str = null;
                     try {
                         Class<?> cls = Class.forName("android.os.SystemProperties");
-                        str = (String) cls.getMethod("get", String.class).invoke(cls, "sys.display-size");
-                    } catch (Exception unused) {
+                        str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "sys.display-size");
+                    } catch (Exception e2) {
+                        Log.e("Util", "Failed to read sys.display-size", e2);
                     }
                     if (!TextUtils.isEmpty(str)) {
                         try {
@@ -908,19 +910,19 @@ public final class Util {
                                     return new Point(parseInt, parseInt2);
                                 }
                             }
-                        } catch (NumberFormatException unused2) {
+                        } catch (NumberFormatException unused) {
                         }
-                        String str2 = "Invalid sys.display-size: " + str;
+                        Log.e("Util", "Invalid sys.display-size: " + str);
                     }
                 }
             }
             Point point = new Point();
-            int i2 = SDK_INT;
-            if (i2 >= 23) {
+            int i = SDK_INT;
+            if (i >= 23) {
                 getDisplaySizeV23(display, point);
-            } else if (i2 >= 17) {
+            } else if (i >= 17) {
                 getDisplaySizeV17(display, point);
-            } else if (i2 >= 16) {
+            } else if (i >= 16) {
                 getDisplaySizeV16(display, point);
             } else {
                 getDisplaySizeV9(display, point);
@@ -948,12 +950,12 @@ public final class Util {
 
     public static <T> int binarySearchCeil(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int binarySearch = Collections.binarySearch(list, t);
             if (binarySearch < 0) {
-                i2 = ~binarySearch;
+                i = ~binarySearch;
             } else {
                 int size = list.size();
                 do {
@@ -962,43 +964,43 @@ public final class Util {
                         break;
                     }
                 } while (list.get(binarySearch).compareTo(t) == 0);
-                i2 = z ? binarySearch - 1 : binarySearch;
+                i = z ? binarySearch - 1 : binarySearch;
             }
-            return z2 ? Math.min(list.size() - 1, i2) : i2;
+            return z2 ? Math.min(list.size() - 1, i) : i;
         }
         return invokeCommon.intValue;
     }
 
-    public static int binarySearchFloor(long[] jArr, long j2, boolean z, boolean z2) {
+    public static int binarySearchFloor(long[] jArr, long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int binarySearch = Arrays.binarySearch(jArr, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            int binarySearch = Arrays.binarySearch(jArr, j);
             if (binarySearch < 0) {
-                i2 = -(binarySearch + 2);
+                i = -(binarySearch + 2);
             } else {
                 do {
                     binarySearch--;
                     if (binarySearch < 0) {
                         break;
                     }
-                } while (jArr[binarySearch] == j2);
-                i2 = z ? binarySearch + 1 : binarySearch;
+                } while (jArr[binarySearch] == j);
+                i = z ? binarySearch + 1 : binarySearch;
             }
-            return z2 ? Math.max(0, i2) : i2;
+            return z2 ? Math.max(0, i) : i;
         }
         return invokeCommon.intValue;
     }
 
     public static <T> int binarySearchFloor(List<? extends Comparable<? super T>> list, T t, boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, t, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int binarySearch = Collections.binarySearch(list, t);
             if (binarySearch < 0) {
-                i2 = -(binarySearch + 2);
+                i = -(binarySearch + 2);
             } else {
                 do {
                     binarySearch--;
@@ -1006,9 +1008,9 @@ public final class Util {
                         break;
                     }
                 } while (list.get(binarySearch).compareTo(t) == 0);
-                i2 = z ? binarySearch + 1 : binarySearch;
+                i = z ? binarySearch + 1 : binarySearch;
             }
-            return z2 ? Math.max(0, i2) : i2;
+            return z2 ? Math.max(0, i) : i;
         }
         return invokeCommon.intValue;
     }

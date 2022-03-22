@@ -15,20 +15,20 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ModelLoaderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoaderCache cache;
     public final MultiModelLoaderFactory multiModelLoaderFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ModelLoaderCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<Class<?>, Entry<?>> cachedModelLoaders;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class Entry<Model> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class ModelLoaderRegistry {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {list};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -58,9 +58,9 @@ public class ModelLoaderRegistry {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,9 +108,9 @@ public class ModelLoaderRegistry {
             newInitContext.initArgs = r2;
             Object[] objArr = {pool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((MultiModelLoaderFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -199,11 +199,11 @@ public class ModelLoaderRegistry {
             int size = modelLoadersForClass.size();
             List<ModelLoader<A, ?>> emptyList = Collections.emptyList();
             boolean z = true;
-            for (int i2 = 0; i2 < size; i2++) {
-                ModelLoader<A, ?> modelLoader = modelLoadersForClass.get(i2);
+            for (int i = 0; i < size; i++) {
+                ModelLoader<A, ?> modelLoader = modelLoadersForClass.get(i);
                 if (modelLoader.handles(a)) {
                     if (z) {
-                        emptyList = new ArrayList<>(size - i2);
+                        emptyList = new ArrayList<>(size - i);
                         z = false;
                     }
                     emptyList.add(modelLoader);
@@ -251,9 +251,9 @@ public class ModelLoaderRegistry {
             newInitContext.initArgs = r2;
             Object[] objArr = {multiModelLoaderFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

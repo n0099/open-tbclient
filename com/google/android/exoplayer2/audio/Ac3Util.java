@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
@@ -20,7 +19,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Ac3Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AC3_SYNCFRAME_AUDIO_SAMPLE_COUNT = 1536;
@@ -34,13 +33,13 @@ public final class Ac3Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.audio.Ac3Util$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Ac3SyncFrameInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STREAM_TYPE_TYPE0 = 0;
@@ -55,31 +54,31 @@ public final class Ac3Util {
         public final int sampleRate;
         public final int streamType;
 
-        public /* synthetic */ Ac3SyncFrameInfo(String str, int i2, int i3, int i4, int i5, int i6, AnonymousClass1 anonymousClass1) {
-            this(str, i2, i3, i4, i5, i6);
+        public /* synthetic */ Ac3SyncFrameInfo(String str, int i, int i2, int i3, int i4, int i5, AnonymousClass1 anonymousClass1) {
+            this(str, i, i2, i3, i4, i5);
         }
 
-        public Ac3SyncFrameInfo(String str, int i2, int i3, int i4, int i5, int i6) {
+        public Ac3SyncFrameInfo(String str, int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mimeType = str;
-            this.streamType = i2;
-            this.channelCount = i3;
-            this.sampleRate = i4;
-            this.frameSize = i5;
-            this.sampleCount = i6;
+            this.streamType = i;
+            this.channelCount = i2;
+            this.sampleRate = i3;
+            this.frameSize = i4;
+            this.sampleCount = i5;
         }
     }
 
@@ -101,7 +100,7 @@ public final class Ac3Util {
         SAMPLE_RATE_BY_FSCOD2 = new int[]{24000, 22050, 16000};
         CHANNEL_COUNT_BY_ACMOD = new int[]{2, 1, 2, 3, 3, 4, 4, 5};
         BITRATE_BY_HALF_FRMSIZECOD = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, 576, 640};
-        SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = new int[]{69, 87, 104, 121, 139, MatroskaExtractor.ID_TRACK_ENTRY, 208, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, w0.w0, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
+        SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1 = new int[]{69, 87, 104, 121, 139, MatroskaExtractor.ID_TRACK_ENTRY, 208, 243, w0.w0, 348, HttpStatus.SC_EXPECTATION_FAILED, 487, 557, 696, 835, 975, 1114, 1253, 1393};
     }
 
     public Ac3Util() {
@@ -109,9 +108,9 @@ public final class Ac3Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -127,26 +126,26 @@ public final class Ac3Util {
         return invokeV.intValue;
     }
 
-    public static int getAc3SyncframeSize(int i2, int i3) {
+    public static int getAc3SyncframeSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            int i4 = i3 / 2;
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            int i3 = i2 / 2;
+            if (i >= 0) {
                 int[] iArr = SAMPLE_RATE_BY_FSCOD;
-                if (i2 >= iArr.length || i3 < 0) {
+                if (i >= iArr.length || i2 < 0) {
                     return -1;
                 }
                 int[] iArr2 = SYNCFRAME_SIZE_WORDS_BY_HALF_FRMSIZECOD_44_1;
-                if (i4 >= iArr2.length) {
+                if (i3 >= iArr2.length) {
                     return -1;
                 }
-                int i5 = iArr[i2];
-                if (i5 == 44100) {
-                    return (iArr2[i4] + (i3 % 2)) * 2;
+                int i4 = iArr[i];
+                if (i4 == 44100) {
+                    return (iArr2[i3] + (i2 % 2)) * 2;
                 }
-                int i6 = BITRATE_BY_HALF_FRMSIZECOD[i4];
-                return i5 == 32000 ? i6 * 6 : i6 * 4;
+                int i5 = BITRATE_BY_HALF_FRMSIZECOD[i3];
+                return i4 == 32000 ? i5 * 6 : i5 * 4;
             }
             return -1;
         }
@@ -157,33 +156,33 @@ public final class Ac3Util {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray, str, str2, drmInitData)) == null) {
-            int i2 = SAMPLE_RATE_BY_FSCOD[(parsableByteArray.readUnsignedByte() & 192) >> 6];
+            int i = SAMPLE_RATE_BY_FSCOD[(parsableByteArray.readUnsignedByte() & 192) >> 6];
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
-            int i3 = CHANNEL_COUNT_BY_ACMOD[(readUnsignedByte & 56) >> 3];
+            int i2 = CHANNEL_COUNT_BY_ACMOD[(readUnsignedByte & 56) >> 3];
             if ((readUnsignedByte & 4) != 0) {
-                i3++;
+                i2++;
             }
-            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_AC3, null, -1, -1, i3, i2, null, drmInitData, 0, str2);
+            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_AC3, null, -1, -1, i2, i, null, drmInitData, 0, str2);
         }
         return (Format) invokeLLLL.objValue;
     }
 
     public static Ac3SyncFrameInfo parseAc3SyncframeInfo(ParsableBitArray parsableBitArray) {
         InterceptResult invokeL;
+        int i;
         int i2;
         int i3;
-        int i4;
         String str;
+        int i4;
         int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableBitArray)) == null) {
             int position = parsableBitArray.getPosition();
             parsableBitArray.skipBits(40);
             boolean z = parsableBitArray.readBits(5) == 16;
             parsableBitArray.setPosition(position);
-            int i8 = 6;
+            int i7 = 6;
             if (z) {
                 parsableBitArray.skipBits(16);
                 int readBits = parsableBitArray.readBits(2);
@@ -191,16 +190,16 @@ public final class Ac3Util {
                 int readBits2 = (parsableBitArray.readBits(11) + 1) * 2;
                 int readBits3 = parsableBitArray.readBits(2);
                 if (readBits3 == 3) {
-                    i7 = SAMPLE_RATE_BY_FSCOD2[parsableBitArray.readBits(2)];
+                    i6 = SAMPLE_RATE_BY_FSCOD2[parsableBitArray.readBits(2)];
                 } else {
-                    i8 = BLOCKS_PER_SYNCFRAME_BY_NUMBLKSCOD[parsableBitArray.readBits(2)];
-                    i7 = SAMPLE_RATE_BY_FSCOD[readBits3];
+                    i7 = BLOCKS_PER_SYNCFRAME_BY_NUMBLKSCOD[parsableBitArray.readBits(2)];
+                    i6 = SAMPLE_RATE_BY_FSCOD[readBits3];
                 }
-                i4 = parsableBitArray.readBits(3);
-                i5 = readBits;
-                i3 = readBits2;
-                i2 = i7;
-                i6 = i8 * 256;
+                i3 = parsableBitArray.readBits(3);
+                i4 = readBits;
+                i2 = readBits2;
+                i = i6;
+                i5 = i7 * 256;
                 str = MimeTypes.AUDIO_E_AC3;
             } else {
                 parsableBitArray.skipBits(32);
@@ -217,14 +216,14 @@ public final class Ac3Util {
                 if (readBits5 == 2) {
                     parsableBitArray.skipBits(2);
                 }
-                i2 = SAMPLE_RATE_BY_FSCOD[readBits4];
-                i3 = ac3SyncframeSize;
-                i4 = readBits5;
+                i = SAMPLE_RATE_BY_FSCOD[readBits4];
+                i2 = ac3SyncframeSize;
+                i3 = readBits5;
                 str = MimeTypes.AUDIO_AC3;
-                i5 = -1;
-                i6 = 1536;
+                i4 = -1;
+                i5 = 1536;
             }
-            return new Ac3SyncFrameInfo(str, i5, CHANNEL_COUNT_BY_ACMOD[i4] + (parsableBitArray.readBit() ? 1 : 0), i2, i3, i6, null);
+            return new Ac3SyncFrameInfo(str, i4, CHANNEL_COUNT_BY_ACMOD[i3] + (parsableBitArray.readBit() ? 1 : 0), i, i2, i5, null);
         }
         return (Ac3SyncFrameInfo) invokeL.objValue;
     }
@@ -246,16 +245,16 @@ public final class Ac3Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, parsableByteArray, str, str2, drmInitData)) == null) {
             parsableByteArray.skipBytes(2);
-            int i2 = SAMPLE_RATE_BY_FSCOD[(parsableByteArray.readUnsignedByte() & 192) >> 6];
+            int i = SAMPLE_RATE_BY_FSCOD[(parsableByteArray.readUnsignedByte() & 192) >> 6];
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
-            int i3 = CHANNEL_COUNT_BY_ACMOD[(readUnsignedByte & 14) >> 1];
+            int i2 = CHANNEL_COUNT_BY_ACMOD[(readUnsignedByte & 14) >> 1];
             if ((readUnsignedByte & 1) != 0) {
-                i3++;
+                i2++;
             }
             if (((parsableByteArray.readUnsignedByte() & 30) >> 1) > 0 && (2 & parsableByteArray.readUnsignedByte()) != 0) {
-                i3 += 2;
+                i2 += 2;
             }
-            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_E_AC3, null, -1, -1, i3, i2, null, drmInitData, 0, str2);
+            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_E_AC3, null, -1, -1, i2, i, null, drmInitData, 0, str2);
         }
         return (Format) invokeLLLL.objValue;
     }

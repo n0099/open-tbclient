@@ -18,11 +18,10 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -68,9 +67,9 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -108,7 +107,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
             this.sampleCount = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.sampleInfoSizes.clear();
             if (this.defaultSampleInfoSize == 0) {
-                for (int i2 = 0; i2 < this.sampleCount; i2++) {
+                for (int i = 0; i < this.sampleCount; i++) {
                     this.sampleInfoSizes.add(Short.valueOf((short) IsoTypeReader.readUInt8(byteBuffer)));
                 }
             }
@@ -212,19 +211,19 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         }
     }
 
-    public void setDefaultSampleInfoSize(int i2) {
+    public void setDefaultSampleInfoSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
-            this.defaultSampleInfoSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.defaultSampleInfoSize = i;
         }
     }
 
-    public void setSampleCount(int i2) {
+    public void setSampleCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i2)));
-            this.sampleCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
+            this.sampleCount = i;
         }
     }
 
@@ -241,7 +240,7 @@ public class SampleAuxiliaryInformationSizesBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this));
-            return "SampleAuxiliaryInformationSizesBox{defaultSampleInfoSize=" + this.defaultSampleInfoSize + ", sampleCount=" + this.sampleCount + ", auxInfoType='" + this.auxInfoType + ExtendedMessageFormat.QUOTE + ", auxInfoTypeParameter='" + this.auxInfoTypeParameter + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SampleAuxiliaryInformationSizesBox{defaultSampleInfoSize=" + this.defaultSampleInfoSize + ", sampleCount=" + this.sampleCount + ", auxInfoType='" + this.auxInfoType + "', auxInfoTypeParameter='" + this.auxInfoTypeParameter + "'}";
         }
         return (String) invokeV.objValue;
     }

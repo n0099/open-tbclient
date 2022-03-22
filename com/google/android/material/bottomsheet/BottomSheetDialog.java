@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public class BottomSheetDialog extends AppCompatDialog {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -69,9 +69,9 @@ public class BottomSheetDialog extends AppCompatDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.container == null) {
-                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.design_bottom_sheet_dialog, null);
+                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021e, null);
                 this.container = frameLayout;
-                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.design_bottom_sheet));
+                BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090786));
                 this.behavior = from;
                 from.addBottomSheetCallback(this.bottomSheetCallback);
                 this.behavior.setHideable(this.cancelable);
@@ -81,39 +81,36 @@ public class BottomSheetDialog extends AppCompatDialog {
         return (FrameLayout) invokeV.objValue;
     }
 
-    public static int getThemeResId(@NonNull Context context, int i2) {
+    public static int getThemeResId(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
+            if (i == 0) {
                 TypedValue typedValue = new TypedValue();
-                if (context.getTheme().resolveAttribute(R.attr.bottomSheetDialogTheme, typedValue, true)) {
-                    return typedValue.resourceId;
-                }
-                return 2131755591;
+                return context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400e8, typedValue, true) ? typedValue.resourceId : R.style.obfuscated_res_0x7f10022a;
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
 
-    private View wrapInBottomSheet(int i2, @Nullable View view, @Nullable ViewGroup.LayoutParams layoutParams) {
+    private View wrapInBottomSheet(int i, @Nullable View view, @Nullable ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i2, view, layoutParams)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, this, i, view, layoutParams)) == null) {
             ensureContainerAndBehavior();
-            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.coordinator);
-            if (i2 != 0 && view == null) {
-                view = getLayoutInflater().inflate(i2, (ViewGroup) coordinatorLayout, false);
+            CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0906f2);
+            if (i != 0 && view == null) {
+                view = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
             }
-            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.design_bottom_sheet);
+            FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f090786);
             frameLayout.removeAllViews();
             if (layoutParams == null) {
                 frameLayout.addView(view);
             } else {
                 frameLayout.addView(view, layoutParams);
             }
-            coordinatorLayout.findViewById(R.id.touch_outside).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09213a).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BottomSheetDialog this$0;
@@ -125,9 +122,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -159,9 +156,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -185,18 +182,18 @@ public class BottomSheetDialog extends AppCompatDialog {
                 }
 
                 @Override // androidx.core.view.AccessibilityDelegateCompat
-                public boolean performAccessibilityAction(View view2, int i3, Bundle bundle) {
+                public boolean performAccessibilityAction(View view2, int i2, Bundle bundle) {
                     InterceptResult invokeLIL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i3, bundle)) == null) {
-                        if (i3 == 1048576) {
+                    if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i2, bundle)) == null) {
+                        if (i2 == 1048576) {
                             BottomSheetDialog bottomSheetDialog = this.this$0;
                             if (bottomSheetDialog.cancelable) {
                                 bottomSheetDialog.cancel();
                                 return true;
                             }
                         }
-                        return super.performAccessibilityAction(view2, i3, bundle);
+                        return super.performAccessibilityAction(view2, i2, bundle);
                     }
                     return invokeLIL.booleanValue;
                 }
@@ -213,9 +210,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -336,10 +333,10 @@ public class BottomSheetDialog extends AppCompatDialog {
     }
 
     @Override // androidx.appcompat.app.AppCompatDialog, android.app.Dialog
-    public void setContentView(@LayoutRes int i2) {
+    public void setContentView(@LayoutRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            super.setContentView(wrapInBottomSheet(i2, null, null));
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.setContentView(wrapInBottomSheet(i, null, null));
         }
     }
 
@@ -366,17 +363,17 @@ public class BottomSheetDialog extends AppCompatDialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomSheetDialog(@NonNull Context context, @StyleRes int i2) {
-        super(context, getThemeResId(context, i2));
+    public BottomSheetDialog(@NonNull Context context, @StyleRes int i) {
+        super(context, getThemeResId(context, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -398,9 +395,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -417,9 +414,9 @@ public class BottomSheetDialog extends AppCompatDialog {
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(@NonNull View view, int i5) {
+            public void onStateChanged(@NonNull View view, int i4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i5) == null) && i5 == 5) {
+                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i4) == null) && i4 == 5) {
                     this.this$0.cancel();
                 }
             }
@@ -452,9 +449,9 @@ public class BottomSheetDialog extends AppCompatDialog {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), onCancelListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -476,9 +473,9 @@ public class BottomSheetDialog extends AppCompatDialog {
                     newInitContext2.initArgs = objArr3;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -495,9 +492,9 @@ public class BottomSheetDialog extends AppCompatDialog {
             }
 
             @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-            public void onStateChanged(@NonNull View view, int i5) {
+            public void onStateChanged(@NonNull View view, int i4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i5) == null) && i5 == 5) {
+                if ((interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i4) == null) && i4 == 5) {
                     this.this$0.cancel();
                 }
             }

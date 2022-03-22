@@ -43,17 +43,17 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpscArrayQueue(int i2) {
-        super(Pow2.roundToPowerOfTwo(i2));
+    public SpscArrayQueue(int i) {
+        super(Pow2.roundToPowerOfTwo(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -63,19 +63,19 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         this.mask = length() - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
-        this.lookAheadStep = Math.min(i2 / 4, MAX_LOOK_AHEAD_STEP.intValue());
+        this.lookAheadStep = Math.min(i / 4, MAX_LOOK_AHEAD_STEP.intValue());
     }
 
-    public int calcElementOffset(long j2) {
+    public int calcElementOffset(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.mask & ((int) j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.mask & ((int) j) : invokeJ.intValue;
     }
 
-    public int calcElementOffset(long j2, int i2) {
+    public int calcElementOffset(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? ((int) j2) & i2 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -98,10 +98,10 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.producerIndex.get() == this.consumerIndex.get() : invokeV.booleanValue;
     }
 
-    public E lvElement(int i2) {
+    public E lvElement(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? get(i2) : (E) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? get(i) : (E) invokeI.objValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -110,19 +110,19 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                int i2 = this.mask;
-                long j2 = this.producerIndex.get();
-                int calcElementOffset = calcElementOffset(j2, i2);
-                if (j2 >= this.producerLookAhead) {
-                    long j3 = this.lookAheadStep + j2;
-                    if (lvElement(calcElementOffset(j3, i2)) == null) {
-                        this.producerLookAhead = j3;
+                int i = this.mask;
+                long j = this.producerIndex.get();
+                int calcElementOffset = calcElementOffset(j, i);
+                if (j >= this.producerLookAhead) {
+                    long j2 = this.lookAheadStep + j;
+                    if (lvElement(calcElementOffset(j2, i)) == null) {
+                        this.producerLookAhead = j2;
                     } else if (lvElement(calcElementOffset) != null) {
                         return false;
                     }
                 }
                 soElement(calcElementOffset, e2);
-                soProducerIndex(j2 + 1);
+                soProducerIndex(j + 1);
                 return true;
             }
             throw new NullPointerException("Null is not a valid element");
@@ -136,37 +136,37 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = this.consumerIndex.get();
-            int calcElementOffset = calcElementOffset(j2);
+            long j = this.consumerIndex.get();
+            int calcElementOffset = calcElementOffset(j);
             E lvElement = lvElement(calcElementOffset);
             if (lvElement == null) {
                 return null;
             }
-            soConsumerIndex(j2 + 1);
+            soConsumerIndex(j + 1);
             soElement(calcElementOffset, null);
             return lvElement;
         }
         return (E) invokeV.objValue;
     }
 
-    public void soConsumerIndex(long j2) {
+    public void soConsumerIndex(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.consumerIndex.lazySet(j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.consumerIndex.lazySet(j);
         }
     }
 
-    public void soElement(int i2, E e2) {
+    public void soElement(int i, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, e2) == null) {
-            lazySet(i2, e2);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, e2) == null) {
+            lazySet(i, e2);
         }
     }
 
-    public void soProducerIndex(long j2) {
+    public void soProducerIndex(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.producerIndex.lazySet(j2);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.producerIndex.lazySet(j);
         }
     }
 

@@ -2,7 +2,7 @@ package com.kwad.sdk.internal.api;
 
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
     public static final long serialVersionUID = -154151744722615768L;
     public boolean dataFlowAutoStart = com.kwad.sdk.core.config.b.o();

@@ -10,33 +10,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59283b;
+    public String f43916b;
 
-    public o(int i2) {
+    public o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = -1;
-        if (i2 >= 0) {
-            this.a = i2;
+        if (i >= 0) {
+            this.a = i;
             return;
         }
         throw new IllegalArgumentException("PushCommand: the value of command must > 0.");
@@ -46,7 +46,7 @@ public abstract class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
             aVar.a("command", this.a);
-            aVar.a("client_pkgname", this.f59283b);
+            aVar.a("client_pkgname", this.f43916b);
             c(aVar);
         }
     }
@@ -54,7 +54,7 @@ public abstract class o {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59283b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43916b : (String) invokeV.objValue;
     }
 
     public final int b() {
@@ -85,7 +85,7 @@ public abstract class o {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f59283b = str;
+            this.f43916b = str;
         }
     }
 
@@ -139,9 +139,9 @@ public abstract class o {
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             String a = aVar.a();
             if (!TextUtils.isEmpty(a)) {
-                this.f59283b = a;
+                this.f43916b = a;
             } else {
-                this.f59283b = aVar.a("client_pkgname");
+                this.f43916b = aVar.a("client_pkgname");
             }
             d(aVar);
         }

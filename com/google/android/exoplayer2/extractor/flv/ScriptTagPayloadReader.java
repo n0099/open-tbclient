@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ScriptTagPayloadReader extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AMF_TYPE_BOOLEAN = 1;
@@ -39,9 +39,9 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackOutput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TrackOutput) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,17 +60,17 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         return (Boolean) invokeL.objValue;
     }
 
-    public static Object readAmfData(ParsableByteArray parsableByteArray, int i2) {
+    public static Object readAmfData(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, parsableByteArray, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 8) {
-                                if (i2 != 10) {
-                                    if (i2 != 11) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, parsableByteArray, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 8) {
+                                if (i != 10) {
+                                    if (i != 11) {
                                         return null;
                                     }
                                     return readAmfDate(parsableByteArray);
@@ -113,7 +113,7 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, parsableByteArray)) == null) {
             int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
             HashMap<String, Object> hashMap = new HashMap<>(readUnsignedIntToInt);
-            for (int i2 = 0; i2 < readUnsignedIntToInt; i2++) {
+            for (int i = 0; i < readUnsignedIntToInt; i++) {
                 hashMap.put(readAmfString(parsableByteArray), readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
             }
             return hashMap;
@@ -144,7 +144,7 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parsableByteArray)) == null) {
             int readUnsignedIntToInt = parsableByteArray.readUnsignedIntToInt();
             ArrayList<Object> arrayList = new ArrayList<>(readUnsignedIntToInt);
-            for (int i2 = 0; i2 < readUnsignedIntToInt; i2++) {
+            for (int i = 0; i < readUnsignedIntToInt; i++) {
                 arrayList.add(readAmfData(parsableByteArray, readAmfType(parsableByteArray)));
             }
             return arrayList;
@@ -187,9 +187,9 @@ public final class ScriptTagPayloadReader extends TagPayloadReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
-    public void parsePayload(ParsableByteArray parsableByteArray, long j2) throws ParserException {
+    public void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, parsableByteArray, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, parsableByteArray, j) == null) {
             if (readAmfType(parsableByteArray) == 2) {
                 if (NAME_METADATA.equals(readAmfString(parsableByteArray)) && readAmfType(parsableByteArray) == 8) {
                     HashMap<String, Object> readAmfEcmaArray = readAmfEcmaArray(parsableByteArray);

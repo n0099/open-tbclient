@@ -9,7 +9,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.internal.util.ErrorMode;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,16 @@ public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
     public final int prefetch;
     public final Publisher<T> source;
 
-    public FlowableConcatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends R>> function, int i2, ErrorMode errorMode) {
+    public FlowableConcatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends R>> function, int i, ErrorMode errorMode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, function, Integer.valueOf(i2), errorMode};
+            Object[] objArr = {publisher, function, Integer.valueOf(i), errorMode};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
         }
         this.source = publisher;
         this.mapper = function;
-        this.prefetch = i2;
+        this.prefetch = i;
         this.errorMode = errorMode;
     }
 

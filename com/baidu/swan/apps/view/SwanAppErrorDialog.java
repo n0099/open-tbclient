@@ -2,8 +2,8 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.p0.a.a;
-import c.a.p0.a.p2.q0;
+import c.a.n0.a.a;
+import c.a.n0.a.p2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -42,9 +42,9 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -64,7 +64,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
             int c0 = q0.c0(this);
             super.onCreate(bundle);
             q0.g(this, c0);
-            TextView textView = (TextView) findViewById(R.id.dialog_message);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0907ac);
             this.mMessage = textView;
             textView.setGravity(17);
         }

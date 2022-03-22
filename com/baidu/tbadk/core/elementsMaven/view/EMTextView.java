@@ -16,37 +16,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EMTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public a f38871e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements LineHeightSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public WeakReference<TextView> f29874b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ViewGroup.MarginLayoutParams f29875c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f29876d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f38872e;
+        public int f29877e;
 
         /* renamed from: f  reason: collision with root package name */
-        public WeakReference<TextView> f38873f;
+        public int f29878f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ViewGroup.MarginLayoutParams f38874g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f38875h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f38876i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f38877j;
-        public int k;
+        public int f29879g;
 
         public a(TextView textView) {
             Interceptable interceptable = $ic;
@@ -55,19 +53,19 @@ public class EMTextView extends TextView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {textView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38875h = 0;
-            this.f38876i = 0;
-            this.f38877j = 0;
-            this.k = 0;
-            this.f38873f = new WeakReference<>(textView);
+            this.f29876d = 0;
+            this.f29877e = 0;
+            this.f29878f = 0;
+            this.f29879g = 0;
+            this.f29874b = new WeakReference<>(textView);
             d();
         }
 
@@ -77,12 +75,12 @@ public class EMTextView extends TextView {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, fontMetricsInt) == null) || (b2 = b()) == null) {
                 return;
             }
-            this.f38875h = b2.topMargin;
-            this.f38876i = b2.bottomMargin;
-            this.f38877j = fontMetricsInt.top - fontMetricsInt.ascent;
+            this.f29876d = b2.topMargin;
+            this.f29877e = b2.bottomMargin;
+            this.f29878f = fontMetricsInt.top - fontMetricsInt.ascent;
             int dimenPixelSize = (fontMetricsInt.descent - fontMetricsInt.bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            this.k = dimenPixelSize;
-            b2.topMargin += this.f38877j;
+            this.f29879g = dimenPixelSize;
+            b2.topMargin += this.f29878f;
             b2.bottomMargin += dimenPixelSize;
         }
 
@@ -107,21 +105,21 @@ public class EMTextView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                WeakReference<TextView> weakReference = this.f38873f;
+                WeakReference<TextView> weakReference = this.f29874b;
                 if (weakReference == null || weakReference.get() == null) {
                     return null;
                 }
-                return this.f38873f.get();
+                return this.f29874b.get();
             }
             return (TextView) invokeV.objValue;
         }
 
         @Override // android.text.style.LineHeightSpan
-        public void chooseHeight(CharSequence charSequence, int i2, int i3, int i4, int i5, Paint.FontMetricsInt fontMetricsInt) {
+        public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fontMetricsInt}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
                 f();
-                c.a.q0.r.v.e.a.a(fontMetricsInt, this.f38872e);
+                c.a.o0.r.v.e.a.a(fontMetricsInt, this.a);
                 TextView c2 = c();
                 if (c2 == null || (c2.getGravity() & 112) != 16) {
                     a(fontMetricsInt);
@@ -134,16 +132,16 @@ public class EMTextView extends TextView {
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 TextView c2 = c();
                 if (c2 != null) {
-                    this.f38872e = (int) c2.getTextSize();
+                    this.a = (int) c2.getTextSize();
                 }
                 ViewGroup.MarginLayoutParams b2 = b();
-                this.f38874g = b2;
+                this.f29875c = b2;
                 if (b2 != null) {
-                    this.f38875h = b2.topMargin;
-                    this.f38876i = b2.bottomMargin;
+                    this.f29876d = b2.topMargin;
+                    this.f29877e = b2.bottomMargin;
                 }
-                this.f38877j = 0;
-                this.k = 0;
+                this.f29878f = 0;
+                this.f29879g = 0;
             }
         }
 
@@ -152,9 +150,9 @@ public class EMTextView extends TextView {
             ViewGroup.MarginLayoutParams b2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.f38874g != null && (b2 = b()) != null && this.f38874g == b2) {
-                    boolean z = this.f38875h + this.f38877j == b2.topMargin;
-                    boolean z2 = this.f38876i + this.k == b2.bottomMargin;
+                if (this.f29875c != null && (b2 = b()) != null && this.f29875c == b2) {
+                    boolean z = this.f29876d + this.f29878f == b2.topMargin;
+                    boolean z2 = this.f29877e + this.f29879g == b2.bottomMargin;
                     if (z && z2) {
                         return false;
                     }
@@ -175,14 +173,14 @@ public class EMTextView extends TextView {
                 if (b2 == null) {
                     return;
                 }
-                b2.topMargin -= this.f38877j;
-                b2.bottomMargin -= this.k;
+                b2.topMargin -= this.f29878f;
+                b2.bottomMargin -= this.f29879g;
                 TextView c2 = c();
                 if (c2 != null) {
-                    this.f38872e = (int) c2.getTextSize();
+                    this.a = (int) c2.getTextSize();
                 }
-                this.f38877j = 0;
-                this.k = 0;
+                this.f29878f = 0;
+                this.f29879g = 0;
             }
         }
     }
@@ -196,9 +194,9 @@ public class EMTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -231,10 +229,10 @@ public class EMTextView extends TextView {
             } else {
                 spannableStringBuilder = new SpannableStringBuilder(charSequence);
             }
-            if (this.f38871e == null) {
-                this.f38871e = new a(this);
+            if (this.a == null) {
+                this.a = new a(this);
             }
-            spannableStringBuilder.setSpan(this.f38871e, 0, charSequence.length(), 33);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 33);
             super.setText(spannableStringBuilder, bufferType);
         }
     }
@@ -248,9 +246,9 @@ public class EMTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -261,17 +259,17 @@ public class EMTextView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EMTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EMTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -19,26 +18,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Objects;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BjhMasterActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TiebaExtra tiebaExtra;
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class TiebaExtra implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("app_type")
+        public String appType;
         @SerializedName(HttpRequest.CLIENT_TYPE)
         public String clientType;
+        public String cover;
         public String fid;
         @SerializedName(TiebaStatic.Params.H5_FORUM_NAME)
         public String forumName;
         @SerializedName("name_show")
         public String nameShow;
+        public String uid;
         @SerializedName("user_name")
         public String userName;
 
@@ -47,9 +48,9 @@ public class BjhMasterActivityConfig extends IntentConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,7 +62,7 @@ public class BjhMasterActivityConfig extends IntentConfig {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,9 +77,9 @@ public class BjhMasterActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {application, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -91,23 +92,20 @@ public class BjhMasterActivityConfig extends IntentConfig {
         this.tiebaExtra.forumName = str2 == null ? "" : str2;
         this.tiebaExtra.nameShow = TbadkCoreApplication.getCurrentAccountNameShow();
         this.tiebaExtra.userName = TbadkCoreApplication.getCurrentAccountName();
-        this.tiebaExtra.clientType = "2";
+        TiebaExtra tiebaExtra2 = this.tiebaExtra;
+        tiebaExtra2.clientType = "2";
+        tiebaExtra2.appType = "tieba";
+        tiebaExtra2.cover = "https://mpics.bdstatic.com/yyf/202108/pic_Jl7Pam_1628134578.png";
+        tiebaExtra2.uid = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
     }
 
     @NonNull
-    public String getStartJsonParams() {
+    public String getTiebaExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Objects.requireNonNull(this.tiebaExtra);
-            try {
-                JSONObject jSONObject = new JSONObject("{\n  \"create_room_params\": {\n    \"is_test_live\": 0\n  }\n}");
-                jSONObject.put("tieba_extra", new JSONObject(DataExt.f(this.tiebaExtra)));
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                return "";
-            }
+            return DataExt.toJson(this.tiebaExtra);
         }
         return (String) invokeV.objValue;
     }

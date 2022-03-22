@@ -40,9 +40,9 @@ public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, maybeCache};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -94,9 +94,9 @@ public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -188,27 +188,27 @@ public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (cacheDisposableArr[i3] == cacheDisposable) {
-                        i2 = i3;
+                    } else if (cacheDisposableArr[i2] == cacheDisposable) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     cacheDisposableArr2 = EMPTY;
                 } else {
                     CacheDisposable[] cacheDisposableArr3 = new CacheDisposable[length - 1];
-                    System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr3, 0, i2);
-                    System.arraycopy(cacheDisposableArr, i2 + 1, cacheDisposableArr3, i2, (length - i2) - 1);
+                    System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr3, 0, i);
+                    System.arraycopy(cacheDisposableArr, i + 1, cacheDisposableArr3, i, (length - i) - 1);
                     cacheDisposableArr2 = cacheDisposableArr3;
                 }
             } while (!this.observers.compareAndSet(cacheDisposableArr, cacheDisposableArr2));

@@ -21,12 +21,12 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialCheckBox extends AppCompatCheckBox {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_CompoundButton_CheckBox = 2131755899;
+    public static final int obfuscated_res_0x7f100359 = 2131755865;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -58,9 +58,9 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,8 +77,8 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             if (this.materialThemeColorsTintList == null) {
                 int[] iArr = new int[ENABLED_CHECKED_STATES.length];
                 int color = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                int color2 = MaterialColors.getColor(this, R.attr.colorSurface);
-                int color3 = MaterialColors.getColor(this, R.attr.colorOnSurface);
+                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016b);
+                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040164);
                 iArr[0] = MaterialColors.layer(color2, color, 1.0f);
                 iArr[1] = MaterialColors.layer(color2, color3, 0.54f);
                 iArr[2] = MaterialColors.layer(color2, color3, 0.38f);
@@ -128,9 +128,9 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -141,17 +141,17 @@ public class MaterialCheckBox extends AppCompatCheckBox {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_CompoundButton_CheckBox), attributeSet, i2);
+    public MaterialCheckBox(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100359), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -160,7 +160,7 @@ public class MaterialCheckBox extends AppCompatCheckBox {
             }
         }
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.buttonTint, R.attr.useMaterialThemeColors}, i2, Widget_MaterialComponents_CompoundButton_CheckBox, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040115, R.attr.obfuscated_res_0x7f040671}, i, obfuscated_res_0x7f100359, new int[0]);
         if (obtainStyledAttributes.hasValue(0)) {
             CompoundButtonCompat.setButtonTintList(this, MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0));
         }

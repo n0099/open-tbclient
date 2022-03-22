@@ -32,17 +32,17 @@ public class GradientFillParser {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    int i2 = -1;
+                    int i = -1;
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         int selectName = jsonReader.selectName(GRADIENT_NAMES);
                         if (selectName == 0) {
-                            i2 = jsonReader.nextInt();
+                            i = jsonReader.nextInt();
                         } else if (selectName != 1) {
                             jsonReader.skipName();
                             jsonReader.skipValue();
                         } else {
-                            animatableGradientColorValue = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i2);
+                            animatableGradientColorValue = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i);
                         }
                     }
                     jsonReader.endObject();

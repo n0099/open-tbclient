@@ -14,10 +14,10 @@ public class h {
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2849b = 3;
+    public static int f2366b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f2850c;
+    public static final String[] f2367c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,15 +33,15 @@ public class h {
                 return;
             }
         }
-        f2850c = new String[]{"meizu"};
+        f2367c = new String[]{"meizu"};
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             Application app = BdBaseApplication.getInst().getApp();
-            return app == null ? "" : app.getString(i2);
+            return app == null ? "" : app.getString(i);
         }
         return (String) invokeI.objValue;
     }
@@ -57,16 +57,16 @@ public class h {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            String[] strArr = f2850c;
-            if (i2 >= strArr.length) {
+            String[] strArr = f2367c;
+            if (i >= strArr.length) {
                 return false;
             }
-            if (strArr[i2].equals(lowerCase)) {
+            if (strArr[i].equals(lowerCase)) {
                 return true;
             }
-            i2++;
+            i++;
         }
     }
 }

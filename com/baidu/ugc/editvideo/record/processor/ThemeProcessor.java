@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import androidx.core.app.NotificationCompat;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.k.c;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +21,9 @@ public class ThemeProcessor extends BaseEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,22 +31,22 @@ public class ThemeProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i2, float[] fArr) {
+    public int onProcessFrame(e eVar, int i, float[] fArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i2, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i, fArr)) == null) {
             if (eVar == null) {
-                return i2;
+                return i;
             }
             int b2 = h.b(eVar.l());
-            int i3 = i2;
-            for (int i4 = 1; i4 < b2; i4++) {
-                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), i4);
+            int i2 = i;
+            for (int i3 = 1; i3 < b2; i3++) {
+                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), i3);
                 if (!c.m(mediaTrack, "effect") && !c.m(mediaTrack, "template_effect") && !c.m(mediaTrack, "edit_sticker") && !c.m(mediaTrack, "multi_input") && !c.m(mediaTrack, "only_background") && !c.m(mediaTrack, "watermark") && !c.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !c.m(mediaTrack, "user_background")) {
-                    i3 = eVar.i(mediaTrack, i3, null);
+                    i2 = eVar.i(mediaTrack, i2, null);
                 }
             }
-            return i3 == 0 ? i2 : i3;
+            return i2 == 0 ? i : i2;
         }
         return invokeLIL.intValue;
     }

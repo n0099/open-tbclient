@@ -43,9 +43,9 @@ public class PushJobService extends JobService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jobService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -79,9 +79,9 @@ public class PushJobService extends JobService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -109,14 +109,14 @@ public class PushJobService extends JobService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jobParameters)) == null) {
-            int i2 = jobParameters.getExtras().getInt("push_start_source");
-            if (m.p(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i2)) {
+            int i = jobParameters.getExtras().getInt("push_start_source");
+            if (m.p(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i)) {
                 try {
                     Intent a2 = e.a(getApplicationContext());
                     if (Build.VERSION.SDK_INT >= 28 && m.k()) {
                         a2.putExtra("disable_alarm", true);
                     }
-                    a2.putExtra("push_start_source", i2);
+                    a2.putExtra("push_start_source", i);
                     f.a(getApplicationContext()).a(a2);
                 } catch (Exception unused) {
                 }

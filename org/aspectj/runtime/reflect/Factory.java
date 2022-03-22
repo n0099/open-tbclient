@@ -27,7 +27,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.aspectj.lang.reflect.SourceLocation;
 import org.aspectj.lang.reflect.UnlockSignature;
 import org.aspectj.runtime.reflect.JoinPointImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Factory {
     public static /* synthetic */ Interceptable $ic;
     public static Object[] NO_ARGS;
@@ -73,9 +73,9 @@ public final class Factory {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, cls};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -189,9 +189,9 @@ public final class Factory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, signature, sourceLocation)) == null) {
-            int i2 = this.count;
-            this.count = i2 + 1;
-            return new JoinPointImpl.EnclosingStaticPartImpl(i2, str, signature, sourceLocation);
+            int i = this.count;
+            this.count = i + 1;
+            return new JoinPointImpl.EnclosingStaticPartImpl(i, str, signature, sourceLocation);
         }
         return (JoinPoint.EnclosingStaticPart) invokeLLL.objValue;
     }
@@ -240,22 +240,22 @@ public final class Factory {
         return (MethodSignature) invokeL.objValue;
     }
 
-    public JoinPoint.StaticPart makeSJP(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i2) {
+    public JoinPoint.StaticPart makeSJP(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i)})) == null) {
             MethodSignature makeMethodSig = makeMethodSig(str2, str3, str4, str5, str6, str7, str8);
-            int i3 = this.count;
-            this.count = i3 + 1;
-            return new JoinPointImpl.StaticPartImpl(i3, str, makeMethodSig, makeSourceLoc(i2, -1));
+            int i2 = this.count;
+            this.count = i2 + 1;
+            return new JoinPointImpl.StaticPartImpl(i2, str, makeMethodSig, makeSourceLoc(i, -1));
         }
         return (JoinPoint.StaticPart) invokeCommon.objValue;
     }
 
-    public SourceLocation makeSourceLoc(int i2, int i3) {
+    public SourceLocation makeSourceLoc(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i2, i3)) == null) ? new SourceLocationImpl(this.lexicalClass, this.filename, i2) : (SourceLocation) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i, i2)) == null) ? new SourceLocationImpl(this.lexicalClass, this.filename, i) : (SourceLocation) invokeII.objValue;
     }
 
     public UnlockSignature makeUnlockSig(String str) {
@@ -275,13 +275,13 @@ public final class Factory {
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, staticPart, obj, obj2, obj3)) == null) ? new JoinPointImpl(staticPart, obj, obj2, new Object[]{obj3}) : (JoinPoint) invokeLLLL.objValue;
     }
 
-    public JoinPoint.EnclosingStaticPart makeESJP(String str, Signature signature, int i2, int i3) {
+    public JoinPoint.EnclosingStaticPart makeESJP(String str, Signature signature, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048586, this, str, signature, i2, i3)) == null) {
-            int i4 = this.count;
-            this.count = i4 + 1;
-            return new JoinPointImpl.EnclosingStaticPartImpl(i4, str, signature, makeSourceLoc(i2, i3));
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048586, this, str, signature, i, i2)) == null) {
+            int i3 = this.count;
+            this.count = i3 + 1;
+            return new JoinPointImpl.EnclosingStaticPartImpl(i3, str, signature, makeSourceLoc(i, i2));
         }
         return (JoinPoint.EnclosingStaticPart) invokeLLII.objValue;
     }
@@ -301,20 +301,20 @@ public final class Factory {
             StringTokenizer stringTokenizer = new StringTokenizer(str4, ":");
             int countTokens = stringTokenizer.countTokens();
             Class[] clsArr = new Class[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                clsArr[i2] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
+            for (int i = 0; i < countTokens; i++) {
+                clsArr[i] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
             }
             StringTokenizer stringTokenizer2 = new StringTokenizer(str5, ":");
             int countTokens2 = stringTokenizer2.countTokens();
             String[] strArr = new String[countTokens2];
-            for (int i3 = 0; i3 < countTokens2; i3++) {
-                strArr[i3] = stringTokenizer2.nextToken();
+            for (int i2 = 0; i2 < countTokens2; i2++) {
+                strArr[i2] = stringTokenizer2.nextToken();
             }
             StringTokenizer stringTokenizer3 = new StringTokenizer(str6, ":");
             int countTokens3 = stringTokenizer3.countTokens();
             Class[] clsArr2 = new Class[countTokens3];
-            for (int i4 = 0; i4 < countTokens3; i4++) {
-                clsArr2[i4] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
+            for (int i3 = 0; i3 < countTokens3; i3++) {
+                clsArr2[i3] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
             }
             AdviceSignatureImpl adviceSignatureImpl = new AdviceSignatureImpl(parseInt, str2, makeClass, clsArr, strArr, clsArr2, makeClass(str7, this.lookupClassLoader));
             adviceSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
@@ -343,20 +343,20 @@ public final class Factory {
             StringTokenizer stringTokenizer = new StringTokenizer(str3, ":");
             int countTokens = stringTokenizer.countTokens();
             Class[] clsArr = new Class[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                clsArr[i2] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
+            for (int i = 0; i < countTokens; i++) {
+                clsArr[i] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
             }
             StringTokenizer stringTokenizer2 = new StringTokenizer(str4, ":");
             int countTokens2 = stringTokenizer2.countTokens();
             String[] strArr = new String[countTokens2];
-            for (int i3 = 0; i3 < countTokens2; i3++) {
-                strArr[i3] = stringTokenizer2.nextToken();
+            for (int i2 = 0; i2 < countTokens2; i2++) {
+                strArr[i2] = stringTokenizer2.nextToken();
             }
             StringTokenizer stringTokenizer3 = new StringTokenizer(str5, ":");
             int countTokens3 = stringTokenizer3.countTokens();
             Class[] clsArr2 = new Class[countTokens3];
-            for (int i4 = 0; i4 < countTokens3; i4++) {
-                clsArr2[i4] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
+            for (int i3 = 0; i3 < countTokens3; i3++) {
+                clsArr2[i3] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
             }
             ConstructorSignatureImpl constructorSignatureImpl = new ConstructorSignatureImpl(parseInt, makeClass, clsArr, strArr, clsArr2);
             constructorSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
@@ -365,13 +365,13 @@ public final class Factory {
         return (ConstructorSignature) invokeLLLLL.objValue;
     }
 
-    public JoinPoint.EnclosingStaticPart makeESJP(String str, Signature signature, int i2) {
+    public JoinPoint.EnclosingStaticPart makeESJP(String str, Signature signature, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, signature, i2)) == null) {
-            int i3 = this.count;
-            this.count = i3 + 1;
-            return new JoinPointImpl.EnclosingStaticPartImpl(i3, str, signature, makeSourceLoc(i2, -1));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, signature, i)) == null) {
+            int i2 = this.count;
+            this.count = i2 + 1;
+            return new JoinPointImpl.EnclosingStaticPartImpl(i2, str, signature, makeSourceLoc(i, -1));
         }
         return (JoinPoint.EnclosingStaticPart) invokeLLI.objValue;
     }
@@ -418,34 +418,34 @@ public final class Factory {
             StringTokenizer stringTokenizer = new StringTokenizer(str4, ":");
             int countTokens = stringTokenizer.countTokens();
             Class[] clsArr = new Class[countTokens];
-            for (int i2 = 0; i2 < countTokens; i2++) {
-                clsArr[i2] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
+            for (int i = 0; i < countTokens; i++) {
+                clsArr[i] = makeClass(stringTokenizer.nextToken(), this.lookupClassLoader);
             }
             StringTokenizer stringTokenizer2 = new StringTokenizer(str5, ":");
             int countTokens2 = stringTokenizer2.countTokens();
             String[] strArr = new String[countTokens2];
-            for (int i3 = 0; i3 < countTokens2; i3++) {
-                strArr[i3] = stringTokenizer2.nextToken();
+            for (int i2 = 0; i2 < countTokens2; i2++) {
+                strArr[i2] = stringTokenizer2.nextToken();
             }
             StringTokenizer stringTokenizer3 = new StringTokenizer(str6, ":");
             int countTokens3 = stringTokenizer3.countTokens();
             Class[] clsArr2 = new Class[countTokens3];
-            for (int i4 = 0; i4 < countTokens3; i4++) {
-                clsArr2[i4] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
+            for (int i3 = 0; i3 < countTokens3; i3++) {
+                clsArr2[i3] = makeClass(stringTokenizer3.nextToken(), this.lookupClassLoader);
             }
             return new MethodSignatureImpl(parseInt, str2, makeClass, clsArr, strArr, clsArr2, makeClass(str7, this.lookupClassLoader));
         }
         return (MethodSignature) invokeCommon.objValue;
     }
 
-    public JoinPoint.StaticPart makeSJP(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i2) {
+    public JoinPoint.StaticPart makeSJP(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i)})) == null) {
             MethodSignature makeMethodSig = makeMethodSig(str2, str3, str4, str5, str6, "", str7);
-            int i3 = this.count;
-            this.count = i3 + 1;
-            return new JoinPointImpl.StaticPartImpl(i3, str, makeMethodSig, makeSourceLoc(i2, -1));
+            int i2 = this.count;
+            this.count = i2 + 1;
+            return new JoinPointImpl.StaticPartImpl(i2, str, makeMethodSig, makeSourceLoc(i, -1));
         }
         return (JoinPoint.StaticPart) invokeCommon.objValue;
     }
@@ -471,9 +471,9 @@ public final class Factory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048604, this, str, signature, sourceLocation)) == null) {
-            int i2 = this.count;
-            this.count = i2 + 1;
-            return new JoinPointImpl.StaticPartImpl(i2, str, signature, sourceLocation);
+            int i = this.count;
+            this.count = i + 1;
+            return new JoinPointImpl.StaticPartImpl(i, str, signature, sourceLocation);
         }
         return (JoinPoint.StaticPart) invokeLLL.objValue;
     }
@@ -489,13 +489,13 @@ public final class Factory {
         return (LockSignature) invokeL.objValue;
     }
 
-    public JoinPoint.StaticPart makeSJP(String str, Signature signature, int i2, int i3) {
+    public JoinPoint.StaticPart makeSJP(String str, Signature signature, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048603, this, str, signature, i2, i3)) == null) {
-            int i4 = this.count;
-            this.count = i4 + 1;
-            return new JoinPointImpl.StaticPartImpl(i4, str, signature, makeSourceLoc(i2, i3));
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048603, this, str, signature, i, i2)) == null) {
+            int i3 = this.count;
+            this.count = i3 + 1;
+            return new JoinPointImpl.StaticPartImpl(i3, str, signature, makeSourceLoc(i, i2));
         }
         return (JoinPoint.StaticPart) invokeLLII.objValue;
     }
@@ -511,33 +511,33 @@ public final class Factory {
         return (UnlockSignature) invokeL.objValue;
     }
 
-    public InitializerSignature makeInitializerSig(int i2, Class cls) {
+    public InitializerSignature makeInitializerSig(int i, Class cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, cls)) == null) {
-            InitializerSignatureImpl initializerSignatureImpl = new InitializerSignatureImpl(i2, cls);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, cls)) == null) {
+            InitializerSignatureImpl initializerSignatureImpl = new InitializerSignatureImpl(i, cls);
             initializerSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
             return initializerSignatureImpl;
         }
         return (InitializerSignature) invokeIL.objValue;
     }
 
-    public JoinPoint.StaticPart makeSJP(String str, Signature signature, int i2) {
+    public JoinPoint.StaticPart makeSJP(String str, Signature signature, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048602, this, str, signature, i2)) == null) {
-            int i3 = this.count;
-            this.count = i3 + 1;
-            return new JoinPointImpl.StaticPartImpl(i3, str, signature, makeSourceLoc(i2, -1));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048602, this, str, signature, i)) == null) {
+            int i2 = this.count;
+            this.count = i2 + 1;
+            return new JoinPointImpl.StaticPartImpl(i2, str, signature, makeSourceLoc(i, -1));
         }
         return (JoinPoint.StaticPart) invokeLLI.objValue;
     }
 
-    public FieldSignature makeFieldSig(int i2, String str, Class cls, Class cls2) {
+    public FieldSignature makeFieldSig(int i, String str, Class cls, Class cls2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), str, cls, cls2})) == null) {
-            FieldSignatureImpl fieldSignatureImpl = new FieldSignatureImpl(i2, str, cls, cls2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), str, cls, cls2})) == null) {
+            FieldSignatureImpl fieldSignatureImpl = new FieldSignatureImpl(i, str, cls, cls2);
             fieldSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
             return fieldSignatureImpl;
         }
@@ -555,33 +555,33 @@ public final class Factory {
         return (CatchClauseSignature) invokeLLL.objValue;
     }
 
-    public ConstructorSignature makeConstructorSig(int i2, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
+    public ConstructorSignature makeConstructorSig(int i, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), cls, clsArr, strArr, clsArr2})) == null) {
-            ConstructorSignatureImpl constructorSignatureImpl = new ConstructorSignatureImpl(i2, cls, clsArr, strArr, clsArr2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), cls, clsArr, strArr, clsArr2})) == null) {
+            ConstructorSignatureImpl constructorSignatureImpl = new ConstructorSignatureImpl(i, cls, clsArr, strArr, clsArr2);
             constructorSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
             return constructorSignatureImpl;
         }
         return (ConstructorSignature) invokeCommon.objValue;
     }
 
-    public MethodSignature makeMethodSig(int i2, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
+    public MethodSignature makeMethodSig(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), str, cls, clsArr, strArr, clsArr2, cls2})) == null) {
-            MethodSignatureImpl methodSignatureImpl = new MethodSignatureImpl(i2, str, cls, clsArr, strArr, clsArr2, cls2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), str, cls, clsArr, strArr, clsArr2, cls2})) == null) {
+            MethodSignatureImpl methodSignatureImpl = new MethodSignatureImpl(i, str, cls, clsArr, strArr, clsArr2, cls2);
             methodSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
             return methodSignatureImpl;
         }
         return (MethodSignature) invokeCommon.objValue;
     }
 
-    public AdviceSignature makeAdviceSig(int i2, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
+    public AdviceSignature makeAdviceSig(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, cls, clsArr, strArr, clsArr2, cls2})) == null) {
-            AdviceSignatureImpl adviceSignatureImpl = new AdviceSignatureImpl(i2, str, cls, clsArr, strArr, clsArr2, cls2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, cls, clsArr, strArr, clsArr2, cls2})) == null) {
+            AdviceSignatureImpl adviceSignatureImpl = new AdviceSignatureImpl(i, str, cls, clsArr, strArr, clsArr2, cls2);
             adviceSignatureImpl.setLookupClassLoader(this.lookupClassLoader);
             return adviceSignatureImpl;
         }

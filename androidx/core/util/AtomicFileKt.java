@@ -44,8 +44,8 @@ public final class AtomicFileKt {
         return (String) invokeLL.objValue;
     }
 
-    public static /* synthetic */ String readText$default(android.util.AtomicFile atomicFile, Charset charset, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ String readText$default(android.util.AtomicFile atomicFile, Charset charset, int i, Object obj) {
+        if ((i & 1) != 0) {
             charset = Charsets.UTF_8;
         }
         return readText(atomicFile, charset);
@@ -97,8 +97,8 @@ public final class AtomicFileKt {
         }
     }
 
-    public static /* synthetic */ void writeText$default(android.util.AtomicFile atomicFile, String str, Charset charset, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
+    public static /* synthetic */ void writeText$default(android.util.AtomicFile atomicFile, String str, Charset charset, int i, Object obj) {
+        if ((i & 2) != 0) {
             charset = Charsets.UTF_8;
         }
         writeText(atomicFile, str, charset);

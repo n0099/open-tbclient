@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_PREFIX = "#(";
@@ -29,7 +29,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2017172862365526905L;
@@ -45,9 +45,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {smallTailInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,16 +56,16 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             this.this$0 = smallTailInfo;
         }
 
-        public SmallTailInfoContent(SmallTailInfo smallTailInfo, String str, int i2) {
+        public SmallTailInfoContent(SmallTailInfo smallTailInfo, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {smallTailInfo, str, Integer.valueOf(i2)};
+                Object[] objArr = {smallTailInfo, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -73,7 +73,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             }
             this.this$0 = smallTailInfo;
             this.text = str;
-            this.type = i2;
+            this.type = i;
         }
     }
 
@@ -82,9 +82,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -99,9 +99,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + TbadkCoreApplication.getInst().getString(R.string.tail_color_night) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ee) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1330) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ee) + str;
         }
         return (String) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             try {
                 this.showColorId = Color.parseColor(getShowColorText(this.color));
             } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f132f)));
             }
         }
     }
@@ -124,13 +124,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         }
         StringBuilder sb = new StringBuilder();
         for (SmallTailInfoContent smallTailInfoContent : this.content) {
-            int i2 = smallTailInfoContent.type;
-            if (i2 == 0) {
+            int i = smallTailInfoContent.type;
+            if (i == 0) {
                 String str = smallTailInfoContent.text;
                 if (str != null) {
                     sb.append(str);
                 }
-            } else if (i2 == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
+            } else if (i == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
                 String f2 = TbFaceManager.e().f(smallTailInfoContent.text);
                 if (!StringUtils.isNull(f2)) {
                     sb.append(EMOTION_PREFIX + f2 + EMOTION_SUFFIX);

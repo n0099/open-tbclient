@@ -247,16 +247,16 @@ public class ConstraintWidget {
             $VALUES = new ContentAlignment[]{BEGIN, MIDDLE, END, TOP, VERTICAL_MIDDLE, BOTTOM, LEFT, contentAlignment};
         }
 
-        public ContentAlignment(String str, int i2) {
+        public ContentAlignment(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -311,16 +311,16 @@ public class ConstraintWidget {
             $VALUES = new DimensionBehaviour[]{FIXED, WRAP_CONTENT, MATCH_CONSTRAINT, dimensionBehaviour};
         }
 
-        public DimensionBehaviour(String str, int i2) {
+        public DimensionBehaviour(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -363,9 +363,9 @@ public class ConstraintWidget {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -464,19 +464,19 @@ public class ConstraintWidget {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void applyConstraints(LinearSystem linearSystem, boolean z, SolverVariable solverVariable, SolverVariable solverVariable2, DimensionBehaviour dimensionBehaviour, boolean z2, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i2, int i3, int i4, int i5, float f2, boolean z3, boolean z4, int i6, int i7, int i8, float f3, boolean z5) {
+    private void applyConstraints(LinearSystem linearSystem, boolean z, SolverVariable solverVariable, SolverVariable solverVariable2, DimensionBehaviour dimensionBehaviour, boolean z2, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i, int i2, int i3, int i4, float f2, boolean z3, boolean z4, int i5, int i6, int i7, float f3, boolean z5) {
         boolean z6;
+        int i8;
         int i9;
         int i10;
-        int i11;
         boolean z7;
         SolverVariable createObjectVariable;
         SolverVariable createObjectVariable2;
         SolverVariable solverVariable3;
+        int i11;
         int i12;
         int i13;
         int i14;
-        int i15;
         SolverVariable solverVariable4;
         boolean z8;
         boolean z9;
@@ -484,19 +484,19 @@ public class ConstraintWidget {
         SolverVariable solverVariable6;
         boolean z10;
         boolean z11;
-        int i16;
+        int i15;
         SolverVariable solverVariable7;
         SolverVariable solverVariable8;
         SolverVariable solverVariable9;
         boolean z12;
         boolean z13;
+        int i16;
         int i17;
         int i18;
         int i19;
-        int i20;
         boolean z14;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f3), Boolean.valueOf(z5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f3), Boolean.valueOf(z5)}) == null) {
             SolverVariable createObjectVariable3 = linearSystem.createObjectVariable(constraintAnchor);
             SolverVariable createObjectVariable4 = linearSystem.createObjectVariable(constraintAnchor2);
             SolverVariable createObjectVariable5 = linearSystem.createObjectVariable(constraintAnchor.getTarget());
@@ -519,69 +519,69 @@ public class ConstraintWidget {
             boolean isConnected = constraintAnchor.isConnected();
             boolean isConnected2 = constraintAnchor2.isConnected();
             boolean isConnected3 = this.mCenter.isConnected();
-            int i21 = isConnected ? 1 : 0;
+            int i20 = isConnected ? 1 : 0;
             if (isConnected2) {
-                i21++;
+                i20++;
             }
             if (isConnected3) {
-                i21++;
+                i20++;
             }
-            int i22 = i21;
-            int i23 = z3 ? 3 : i6;
-            int i24 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintWidget$DimensionBehaviour[dimensionBehaviour.ordinal()];
-            boolean z15 = (i24 == 1 || i24 == 2 || i24 == 3 || i24 != 4 || i23 == 4) ? false : true;
+            int i21 = i20;
+            int i22 = z3 ? 3 : i5;
+            int i23 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintWidget$DimensionBehaviour[dimensionBehaviour.ordinal()];
+            boolean z15 = (i23 == 1 || i23 == 2 || i23 == 3 || i23 != 4 || i22 == 4) ? false : true;
             if (this.mVisibility == 8) {
-                i9 = 0;
+                i8 = 0;
                 z6 = false;
             } else {
                 z6 = z15;
-                i9 = i3;
+                i8 = i2;
             }
             if (z5) {
                 if (!isConnected && !isConnected2 && !isConnected3) {
-                    linearSystem.addEquality(createObjectVariable3, i2);
+                    linearSystem.addEquality(createObjectVariable3, i);
                 } else if (isConnected && !isConnected2) {
-                    i10 = 6;
+                    i9 = 6;
                     linearSystem.addEquality(createObjectVariable3, createObjectVariable5, constraintAnchor.getMargin(), 6);
                     if (z6) {
                         if (z2) {
                             linearSystem.addEquality(createObjectVariable4, createObjectVariable3, 0, 3);
-                            if (i4 > 0) {
-                                linearSystem.addGreaterThan(createObjectVariable4, createObjectVariable3, i4, 6);
+                            if (i3 > 0) {
+                                linearSystem.addGreaterThan(createObjectVariable4, createObjectVariable3, i3, 6);
                             }
-                            if (i5 < Integer.MAX_VALUE) {
-                                linearSystem.addLowerThan(createObjectVariable4, createObjectVariable3, i5, 6);
+                            if (i4 < Integer.MAX_VALUE) {
+                                linearSystem.addLowerThan(createObjectVariable4, createObjectVariable3, i4, 6);
                             }
                         } else {
-                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i9, i10);
+                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i8, i9);
                         }
-                        i11 = i7;
-                        i13 = i23;
-                        i14 = i22;
+                        i10 = i6;
+                        i12 = i22;
+                        i13 = i21;
                         solverVariable4 = createObjectVariable6;
                         solverVariable3 = createObjectVariable5;
                         z9 = z6;
-                        i15 = i8;
+                        i14 = i7;
                     } else {
-                        i11 = i7;
-                        int i25 = i8;
-                        if (i11 == -2) {
-                            i11 = i9;
+                        i10 = i6;
+                        int i24 = i7;
+                        if (i10 == -2) {
+                            i10 = i8;
                         }
-                        if (i25 == -2) {
-                            i25 = i9;
+                        if (i24 == -2) {
+                            i24 = i8;
                         }
-                        if (i11 > 0) {
-                            linearSystem.addGreaterThan(createObjectVariable4, createObjectVariable3, i11, 6);
-                            i9 = Math.max(i9, i11);
+                        if (i10 > 0) {
+                            linearSystem.addGreaterThan(createObjectVariable4, createObjectVariable3, i10, 6);
+                            i8 = Math.max(i8, i10);
                         }
-                        if (i25 > 0) {
-                            linearSystem.addLowerThan(createObjectVariable4, createObjectVariable3, i25, 6);
-                            i9 = Math.min(i9, i25);
+                        if (i24 > 0) {
+                            linearSystem.addLowerThan(createObjectVariable4, createObjectVariable3, i24, 6);
+                            i8 = Math.min(i8, i24);
                         }
-                        if (i23 != 1) {
+                        if (i22 != 1) {
                             z7 = z6;
-                            if (i23 == 2) {
+                            if (i22 == 2) {
                                 if (constraintAnchor.getType() != ConstraintAnchor.Type.TOP && constraintAnchor.getType() != ConstraintAnchor.Type.BOTTOM) {
                                     createObjectVariable = linearSystem.createObjectVariable(this.mParent.getAnchor(ConstraintAnchor.Type.LEFT));
                                     createObjectVariable2 = linearSystem.createObjectVariable(this.mParent.getAnchor(ConstraintAnchor.Type.RIGHT));
@@ -591,10 +591,10 @@ public class ConstraintWidget {
                                 }
                                 SolverVariable solverVariable10 = createObjectVariable;
                                 solverVariable3 = createObjectVariable5;
-                                i12 = i9;
-                                i13 = i23;
-                                i14 = i22;
-                                i15 = i25;
+                                i11 = i8;
+                                i12 = i22;
+                                i13 = i21;
+                                i14 = i24;
                                 solverVariable4 = createObjectVariable6;
                                 linearSystem.addConstraint(linearSystem.createRow().createRowDimensionRatio(createObjectVariable4, createObjectVariable3, createObjectVariable2, solverVariable10, f3));
                                 z8 = false;
@@ -603,45 +603,45 @@ public class ConstraintWidget {
                                 z9 = z8;
                             }
                         } else if (z) {
-                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i9, 6);
-                            i13 = i23;
-                            i14 = i22;
+                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i8, 6);
+                            i12 = i22;
+                            i13 = i21;
                             solverVariable4 = createObjectVariable6;
                             solverVariable3 = createObjectVariable5;
                             z7 = z6;
-                            i12 = i9;
-                            i15 = i25;
+                            i11 = i8;
+                            i14 = i24;
                             z8 = z7;
-                            if (z8 || i14 == 2 || z3) {
+                            if (z8 || i13 == 2 || z3) {
                                 z9 = z8;
                             } else {
-                                int max = Math.max(i11, i12);
-                                if (i15 > 0) {
-                                    max = Math.min(i15, max);
+                                int max = Math.max(i10, i11);
+                                if (i14 > 0) {
+                                    max = Math.min(i14, max);
                                 }
                                 linearSystem.addEquality(createObjectVariable4, createObjectVariable3, max, 6);
                                 z9 = false;
                             }
                         } else if (z4) {
                             z7 = z6;
-                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i9, 4);
+                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i8, 4);
                         } else {
                             z7 = z6;
-                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i9, 1);
+                            linearSystem.addEquality(createObjectVariable4, createObjectVariable3, i8, 1);
                         }
-                        i13 = i23;
-                        i14 = i22;
-                        i15 = i25;
+                        i12 = i22;
+                        i13 = i21;
+                        i14 = i24;
                         solverVariable4 = createObjectVariable6;
                         solverVariable3 = createObjectVariable5;
-                        i12 = i9;
+                        i11 = i8;
                         z8 = z7;
                         if (z8) {
                         }
                         z9 = z8;
                     }
                     if (z5 || z4) {
-                        if (i14 < 2 || !z) {
+                        if (i13 < 2 || !z) {
                         }
                         linearSystem.addGreaterThan(createObjectVariable3, solverVariable, 0, 6);
                         linearSystem.addGreaterThan(solverVariable2, createObjectVariable4, 0, 6);
@@ -657,71 +657,71 @@ public class ConstraintWidget {
                             } else if (isConnected && isConnected2) {
                                 if (z9) {
                                     solverVariable5 = solverVariable4;
-                                    if (z && i4 == 0) {
+                                    if (z && i3 == 0) {
                                         linearSystem.addGreaterThan(createObjectVariable4, createObjectVariable3, 0, 6);
                                     }
-                                    if (i13 == 0) {
-                                        if (i15 > 0 || i11 > 0) {
-                                            i20 = 4;
+                                    if (i12 == 0) {
+                                        if (i14 > 0 || i10 > 0) {
+                                            i19 = 4;
                                             z14 = true;
                                         } else {
-                                            i20 = 6;
+                                            i19 = 6;
                                             z14 = false;
                                         }
                                         solverVariable6 = solverVariable3;
-                                        linearSystem.addEquality(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), i20);
-                                        linearSystem.addEquality(createObjectVariable4, solverVariable5, -constraintAnchor2.getMargin(), i20);
-                                        z10 = i15 > 0 || i11 > 0;
+                                        linearSystem.addEquality(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), i19);
+                                        linearSystem.addEquality(createObjectVariable4, solverVariable5, -constraintAnchor2.getMargin(), i19);
+                                        z10 = i14 > 0 || i10 > 0;
                                         z11 = z14;
-                                        i16 = 5;
+                                        i15 = 5;
                                     } else {
-                                        int i26 = i13;
+                                        int i25 = i12;
                                         solverVariable6 = solverVariable3;
-                                        if (i26 == 1) {
+                                        if (i25 == 1) {
                                             z10 = true;
                                             z11 = true;
-                                            i16 = 6;
-                                        } else if (i26 == 3) {
-                                            int i27 = (z3 || this.mResolvedDimensionRatioSide == -1 || i15 > 0) ? 4 : 6;
-                                            linearSystem.addEquality(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), i27);
-                                            linearSystem.addEquality(createObjectVariable4, solverVariable5, -constraintAnchor2.getMargin(), i27);
+                                            i15 = 6;
+                                        } else if (i25 == 3) {
+                                            int i26 = (z3 || this.mResolvedDimensionRatioSide == -1 || i14 > 0) ? 4 : 6;
+                                            linearSystem.addEquality(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), i26);
+                                            linearSystem.addEquality(createObjectVariable4, solverVariable5, -constraintAnchor2.getMargin(), i26);
                                             z10 = true;
                                             z11 = true;
-                                            i16 = 5;
+                                            i15 = 5;
                                             if (z10) {
                                                 solverVariable8 = solverVariable5;
                                                 solverVariable7 = solverVariable6;
                                                 solverVariable9 = createObjectVariable4;
-                                                linearSystem.addCentering(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), f2, solverVariable5, createObjectVariable4, constraintAnchor2.getMargin(), i16);
+                                                linearSystem.addCentering(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), f2, solverVariable5, createObjectVariable4, constraintAnchor2.getMargin(), i15);
                                                 boolean z16 = constraintAnchor.mTarget.mOwner instanceof Barrier;
                                                 boolean z17 = constraintAnchor2.mTarget.mOwner instanceof Barrier;
                                                 if (z16 && !z17) {
                                                     z12 = z;
-                                                    i17 = 6;
-                                                    i18 = 5;
+                                                    i16 = 6;
+                                                    i17 = 5;
                                                     z13 = true;
                                                 } else if (!z16 && z17) {
                                                     z13 = z;
-                                                    i17 = 5;
-                                                    i18 = 6;
+                                                    i16 = 5;
+                                                    i17 = 6;
                                                     z12 = true;
                                                 }
                                                 if (z11) {
+                                                    i16 = 6;
                                                     i17 = 6;
-                                                    i18 = 6;
                                                 }
                                                 if ((!z9 && z12) || z11) {
-                                                    linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i18);
+                                                    linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i17);
                                                 }
                                                 if ((!z9 && z13) || z11) {
-                                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
+                                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
                                                 }
-                                                i19 = 0;
+                                                i18 = 0;
                                                 if (z) {
                                                     linearSystem.addGreaterThan(createObjectVariable3, solverVariable, 0, 6);
                                                 }
                                                 if (z) {
-                                                    linearSystem.addGreaterThan(solverVariable2, solverVariable9, i19, 6);
+                                                    linearSystem.addGreaterThan(solverVariable2, solverVariable9, i18, 6);
                                                     return;
                                                 }
                                                 return;
@@ -731,32 +731,32 @@ public class ConstraintWidget {
                                             solverVariable9 = createObjectVariable4;
                                             z12 = z;
                                             z13 = z12;
+                                            i16 = 5;
                                             i17 = 5;
-                                            i18 = 5;
                                             if (z11) {
                                             }
                                             if (!z9) {
-                                                linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i18);
+                                                linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i17);
                                                 if (!z9) {
-                                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
-                                                    i19 = 0;
+                                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
+                                                    i18 = 0;
                                                     if (z) {
                                                     }
                                                     if (z) {
                                                     }
                                                 }
-                                                linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
-                                                i19 = 0;
+                                                linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
+                                                i18 = 0;
                                                 if (z) {
                                                 }
                                                 if (z) {
                                                 }
                                             }
-                                            linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i18);
+                                            linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i17);
                                             if (!z9) {
                                             }
-                                            linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
-                                            i19 = 0;
+                                            linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
+                                            i18 = 0;
                                             if (z) {
                                             }
                                             if (z) {
@@ -769,17 +769,17 @@ public class ConstraintWidget {
                                     }
                                     z12 = z;
                                     z13 = z12;
+                                    i16 = 5;
                                     i17 = 5;
-                                    i18 = 5;
                                     if (z11) {
                                     }
                                     if (!z9) {
                                     }
-                                    linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i18);
+                                    linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i17);
                                     if (!z9) {
                                     }
-                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
-                                    i19 = 0;
+                                    linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
+                                    i18 = 0;
                                     if (z) {
                                     }
                                     if (z) {
@@ -790,22 +790,22 @@ public class ConstraintWidget {
                                     z10 = true;
                                 }
                                 z11 = false;
-                                i16 = 5;
+                                i15 = 5;
                                 if (z10) {
                                 }
                                 z12 = z;
                                 z13 = z12;
+                                i16 = 5;
                                 i17 = 5;
-                                i18 = 5;
                                 if (z11) {
                                 }
                                 if (!z9) {
                                 }
-                                linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i18);
+                                linearSystem.addGreaterThan(createObjectVariable3, solverVariable7, constraintAnchor.getMargin(), i17);
                                 if (!z9) {
                                 }
-                                linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i17);
-                                i19 = 0;
+                                linearSystem.addLowerThan(solverVariable9, solverVariable8, -constraintAnchor2.getMargin(), i16);
+                                i18 = 0;
                                 if (z) {
                                 }
                                 if (z) {
@@ -818,30 +818,30 @@ public class ConstraintWidget {
                         linearSystem.addGreaterThan(solverVariable2, createObjectVariable4, 0, 5);
                     }
                     solverVariable9 = createObjectVariable4;
-                    i19 = 0;
+                    i18 = 0;
                     if (z) {
                     }
                 }
             }
-            i10 = 6;
+            i9 = 6;
             if (z6) {
             }
             if (z5) {
             }
-            if (i14 < 2) {
+            if (i13 < 2) {
             }
         }
     }
 
-    private boolean isChainHead(int i2) {
+    private boolean isChainHead(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-            int i3 = i2 * 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int i2 = i * 2;
             ConstraintAnchor[] constraintAnchorArr = this.mListAnchors;
-            if (constraintAnchorArr[i3].mTarget != null && constraintAnchorArr[i3].mTarget.mTarget != constraintAnchorArr[i3]) {
-                int i4 = i3 + 1;
-                if (constraintAnchorArr[i4].mTarget != null && constraintAnchorArr[i4].mTarget.mTarget == constraintAnchorArr[i4]) {
+            if (constraintAnchorArr[i2].mTarget != null && constraintAnchorArr[i2].mTarget.mTarget != constraintAnchorArr[i2]) {
+                int i3 = i2 + 1;
+                if (constraintAnchorArr[i3].mTarget != null && constraintAnchorArr[i3].mTarget.mTarget == constraintAnchorArr[i3]) {
                     return true;
                 }
             }
@@ -871,10 +871,10 @@ public class ConstraintWidget {
         boolean z3;
         boolean z4;
         SolverVariable solverVariable;
+        int i;
         int i2;
         int i3;
         int i4;
-        int i5;
         boolean z5;
         boolean z6;
         SolverVariable solverVariable2;
@@ -886,9 +886,9 @@ public class ConstraintWidget {
         boolean z8;
         SolverVariable solverVariable6;
         ConstraintWidget constraintWidget;
+        int i5;
         int i6;
         int i7;
-        int i8;
         boolean isInHorizontalChain;
         boolean isInVerticalChain;
         Interceptable interceptable = $ic;
@@ -932,101 +932,101 @@ public class ConstraintWidget {
             z3 = false;
             z4 = false;
         }
-        int i9 = this.mWidth;
-        int i10 = this.mMinWidth;
-        if (i9 < i10) {
-            i9 = i10;
+        int i8 = this.mWidth;
+        int i9 = this.mMinWidth;
+        if (i8 < i9) {
+            i8 = i9;
         }
-        int i11 = this.mHeight;
-        int i12 = this.mMinHeight;
-        if (i11 < i12) {
-            i11 = i12;
+        int i10 = this.mHeight;
+        int i11 = this.mMinHeight;
+        if (i10 < i11) {
+            i10 = i11;
         }
         boolean z10 = this.mListDimensionBehaviors[0] != DimensionBehaviour.MATCH_CONSTRAINT;
         boolean z11 = this.mListDimensionBehaviors[1] != DimensionBehaviour.MATCH_CONSTRAINT;
         this.mResolvedDimensionRatioSide = this.mDimensionRatioSide;
         float f2 = this.mDimensionRatio;
         this.mResolvedDimensionRatio = f2;
-        int i13 = this.mMatchConstraintDefaultWidth;
-        int i14 = this.mMatchConstraintDefaultHeight;
+        int i12 = this.mMatchConstraintDefaultWidth;
+        int i13 = this.mMatchConstraintDefaultHeight;
         if (f2 <= 0.0f || this.mVisibility == 8) {
             solverVariable = createObjectVariable5;
-            i2 = i13;
-            i3 = i9;
-            i4 = i11;
-            i5 = i14;
+            i = i12;
+            i2 = i8;
+            i3 = i10;
+            i4 = i13;
             z5 = false;
         } else {
             solverVariable = createObjectVariable5;
-            if (this.mListDimensionBehaviors[0] == DimensionBehaviour.MATCH_CONSTRAINT && i13 == 0) {
-                i13 = 3;
+            if (this.mListDimensionBehaviors[0] == DimensionBehaviour.MATCH_CONSTRAINT && i12 == 0) {
+                i12 = 3;
             }
-            if (this.mListDimensionBehaviors[1] == DimensionBehaviour.MATCH_CONSTRAINT && i14 == 0) {
-                i14 = 3;
+            if (this.mListDimensionBehaviors[1] == DimensionBehaviour.MATCH_CONSTRAINT && i13 == 0) {
+                i13 = 3;
             }
             DimensionBehaviour[] dimensionBehaviourArr = this.mListDimensionBehaviors;
             DimensionBehaviour dimensionBehaviour = dimensionBehaviourArr[0];
             DimensionBehaviour dimensionBehaviour2 = DimensionBehaviour.MATCH_CONSTRAINT;
             if (dimensionBehaviour == dimensionBehaviour2 && dimensionBehaviourArr[1] == dimensionBehaviour2) {
-                i8 = 3;
-                if (i13 == 3 && i14 == 3) {
+                i7 = 3;
+                if (i12 == 3 && i13 == 3) {
                     setupDimensionRatio(z, z2, z10, z11);
-                    i2 = i13;
-                    i3 = i9;
-                    i4 = i11;
-                    i5 = i14;
+                    i = i12;
+                    i2 = i8;
+                    i3 = i10;
+                    i4 = i13;
                     z5 = true;
                 }
             } else {
-                i8 = 3;
+                i7 = 3;
             }
             DimensionBehaviour[] dimensionBehaviourArr2 = this.mListDimensionBehaviors;
             DimensionBehaviour dimensionBehaviour3 = dimensionBehaviourArr2[0];
             DimensionBehaviour dimensionBehaviour4 = DimensionBehaviour.MATCH_CONSTRAINT;
-            if (dimensionBehaviour3 == dimensionBehaviour4 && i13 == i8) {
+            if (dimensionBehaviour3 == dimensionBehaviour4 && i12 == i7) {
                 this.mResolvedDimensionRatioSide = 0;
                 DimensionBehaviour dimensionBehaviour5 = dimensionBehaviourArr2[1];
-                i3 = (int) (this.mResolvedDimensionRatio * this.mHeight);
+                i2 = (int) (this.mResolvedDimensionRatio * this.mHeight);
                 if (dimensionBehaviour5 != dimensionBehaviour4) {
-                    i4 = i11;
-                    i5 = i14;
+                    i3 = i10;
+                    i4 = i13;
                     z5 = false;
-                    i2 = 4;
+                    i = 4;
                 } else {
-                    i2 = i13;
-                    i4 = i11;
-                    i5 = i14;
+                    i = i12;
+                    i3 = i10;
+                    i4 = i13;
                     z5 = true;
                 }
             } else {
-                if (this.mListDimensionBehaviors[1] == DimensionBehaviour.MATCH_CONSTRAINT && i14 == 3) {
+                if (this.mListDimensionBehaviors[1] == DimensionBehaviour.MATCH_CONSTRAINT && i13 == 3) {
                     this.mResolvedDimensionRatioSide = 1;
                     if (this.mDimensionRatioSide == -1) {
                         this.mResolvedDimensionRatio = 1.0f / this.mResolvedDimensionRatio;
                     }
                     DimensionBehaviour dimensionBehaviour6 = this.mListDimensionBehaviors[0];
                     DimensionBehaviour dimensionBehaviour7 = DimensionBehaviour.MATCH_CONSTRAINT;
-                    i4 = (int) (this.mResolvedDimensionRatio * this.mWidth);
-                    i2 = i13;
-                    i3 = i9;
+                    i3 = (int) (this.mResolvedDimensionRatio * this.mWidth);
+                    i = i12;
+                    i2 = i8;
                     if (dimensionBehaviour6 != dimensionBehaviour7) {
                         z5 = false;
-                        i5 = 4;
+                        i4 = 4;
                     }
-                    i5 = i14;
+                    i4 = i13;
                     z5 = true;
                 }
-                i2 = i13;
-                i3 = i9;
-                i4 = i11;
-                i5 = i14;
+                i = i12;
+                i2 = i8;
+                i3 = i10;
+                i4 = i13;
                 z5 = true;
             }
         }
         int[] iArr = this.mResolvedMatchConstraintDefault;
-        iArr[0] = i2;
-        iArr[1] = i5;
-        if (z5 && ((i7 = this.mResolvedDimensionRatioSide) == 0 || i7 == -1)) {
+        iArr[0] = i;
+        iArr[1] = i4;
+        if (z5 && ((i6 = this.mResolvedDimensionRatioSide) == 0 || i6 == -1)) {
             z6 = true;
             boolean z12 = this.mListDimensionBehaviors[0] != DimensionBehaviour.WRAP_CONTENT && (this instanceof ConstraintWidgetContainer);
             boolean z13 = !this.mCenter.isConnected();
@@ -1040,7 +1040,7 @@ public class ConstraintWidget {
                 solverVariable2 = createObjectVariable3;
                 boolean z14 = z12;
                 solverVariable3 = createObjectVariable2;
-                applyConstraints(linearSystem, z, constraintWidget5 != null ? linearSystem.createObjectVariable(constraintWidget5.mLeft) : null, createObjectVariable6, this.mListDimensionBehaviors[0], z14, this.mLeft, this.mRight, this.mX, i3, this.mMinWidth, this.mMaxDimension[0], this.mHorizontalBiasPercent, z6, z3, i2, this.mMatchConstraintMinWidth, this.mMatchConstraintMaxWidth, this.mMatchConstraintPercentWidth, z13);
+                applyConstraints(linearSystem, z, constraintWidget5 != null ? linearSystem.createObjectVariable(constraintWidget5.mLeft) : null, createObjectVariable6, this.mListDimensionBehaviors[0], z14, this.mLeft, this.mRight, this.mX, i2, this.mMinWidth, this.mMaxDimension[0], this.mHorizontalBiasPercent, z6, z3, i, this.mMatchConstraintMinWidth, this.mMatchConstraintMaxWidth, this.mMatchConstraintPercentWidth, z13);
             } else {
                 solverVariable2 = createObjectVariable3;
                 solverVariable3 = createObjectVariable2;
@@ -1052,7 +1052,7 @@ public class ConstraintWidget {
                 return;
             }
             boolean z15 = this.mListDimensionBehaviors[1] == DimensionBehaviour.WRAP_CONTENT && (this instanceof ConstraintWidgetContainer);
-            boolean z16 = z5 && ((i6 = this.mResolvedDimensionRatioSide) == 1 || i6 == -1);
+            boolean z16 = z5 && ((i5 = this.mResolvedDimensionRatioSide) == 1 || i5 == -1);
             if (this.mBaselineDistance <= 0) {
                 linearSystem2 = linearSystem;
             } else if (this.mBaseline.getResolutionNode().state == 1) {
@@ -1071,7 +1071,7 @@ public class ConstraintWidget {
                     SolverVariable createObjectVariable7 = constraintWidget6 != null ? linearSystem2.createObjectVariable(constraintWidget6.mBottom) : null;
                     ConstraintWidget constraintWidget7 = this.mParent;
                     SolverVariable solverVariable8 = solverVariable6;
-                    applyConstraints(linearSystem, z7, constraintWidget7 != null ? linearSystem2.createObjectVariable(constraintWidget7.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i4, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i5, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
+                    applyConstraints(linearSystem, z7, constraintWidget7 != null ? linearSystem2.createObjectVariable(constraintWidget7.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i3, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i4, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
                     if (z5) {
                         constraintWidget = this;
                         if (constraintWidget.mResolvedDimensionRatioSide == 1) {
@@ -1094,7 +1094,7 @@ public class ConstraintWidget {
                 }
                 ConstraintWidget constraintWidget72 = this.mParent;
                 SolverVariable solverVariable82 = solverVariable6;
-                applyConstraints(linearSystem, z7, constraintWidget72 != null ? linearSystem2.createObjectVariable(constraintWidget72.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i4, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i5, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
+                applyConstraints(linearSystem, z7, constraintWidget72 != null ? linearSystem2.createObjectVariable(constraintWidget72.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i3, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i4, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
                 if (z5) {
                 }
                 if (constraintWidget.mCenter.isConnected()) {
@@ -1107,7 +1107,7 @@ public class ConstraintWidget {
             }
             ConstraintWidget constraintWidget722 = this.mParent;
             SolverVariable solverVariable822 = solverVariable6;
-            applyConstraints(linearSystem, z7, constraintWidget722 != null ? linearSystem2.createObjectVariable(constraintWidget722.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i4, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i5, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
+            applyConstraints(linearSystem, z7, constraintWidget722 != null ? linearSystem2.createObjectVariable(constraintWidget722.mTop) : null, createObjectVariable7, this.mListDimensionBehaviors[1], z15, this.mTop, this.mBottom, this.mY, i3, this.mMinHeight, this.mMaxDimension[1], this.mVerticalBiasPercent, z16, z4, i4, this.mMatchConstraintMinHeight, this.mMatchConstraintMaxHeight, this.mMatchConstraintPercentHeight, z8);
             if (z5) {
             }
             if (constraintWidget.mCenter.isConnected()) {
@@ -1129,25 +1129,25 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVisibility != 8 : invokeV.booleanValue;
     }
 
-    public void analyze(int i2) {
+    public void analyze(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Optimizer.analyze(i2, this);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Optimizer.analyze(i, this);
         }
     }
 
-    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i2, int i3) {
+    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, constraintAnchor, constraintAnchor2, i2, i3) == null) {
-            connect(constraintAnchor, constraintAnchor2, i2, ConstraintAnchor.Strength.STRONG, i3);
+        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, constraintAnchor, constraintAnchor2, i, i2) == null) {
+            connect(constraintAnchor, constraintAnchor2, i, ConstraintAnchor.Strength.STRONG, i2);
         }
     }
 
-    public void connectCircularConstraint(ConstraintWidget constraintWidget, float f2, int i2) {
+    public void connectCircularConstraint(ConstraintWidget constraintWidget, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{constraintWidget, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{constraintWidget, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             ConstraintAnchor.Type type = ConstraintAnchor.Type.CENTER;
-            immediateConnect(type, constraintWidget, type, i2, 0);
+            immediateConnect(type, constraintWidget, type, i, 0);
             this.mCircleConstraintAngle = f2;
         }
     }
@@ -1176,8 +1176,8 @@ public class ConstraintWidget {
         if (interceptable == null || interceptable.invokeL(1048589, this, constraintWidget) == null) {
             ArrayList<ConstraintAnchor> anchors = getAnchors();
             int size = anchors.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintAnchor constraintAnchor = anchors.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintAnchor constraintAnchor = anchors.get(i);
                 if (constraintAnchor.isConnected() && constraintAnchor.getTarget().getOwner() == constraintWidget && constraintAnchor.getConnectionCreator() == 2) {
                     constraintAnchor.reset();
                 }
@@ -1190,8 +1190,8 @@ public class ConstraintWidget {
         if (interceptable == null || interceptable.invokeL(1048590, this, constraintWidget) == null) {
             ArrayList<ConstraintAnchor> anchors = getAnchors();
             int size = anchors.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintAnchor constraintAnchor = anchors.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintAnchor constraintAnchor = anchors.get(i);
                 if (constraintAnchor.isConnected() && constraintAnchor.getTarget().getOwner() == constraintWidget) {
                     constraintAnchor.reset();
                 }
@@ -1202,12 +1202,12 @@ public class ConstraintWidget {
     public void forceUpdateDrawPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            int i2 = this.mX;
-            int i3 = this.mY;
-            this.mDrawX = i2;
-            this.mDrawY = i3;
-            this.mDrawWidth = (this.mWidth + i2) - i2;
-            this.mDrawHeight = (this.mHeight + i3) - i3;
+            int i = this.mX;
+            int i2 = this.mY;
+            this.mDrawX = i;
+            this.mDrawY = i2;
+            this.mDrawWidth = (this.mWidth + i) - i;
+            this.mDrawHeight = (this.mHeight + i2) - i2;
         }
     }
 
@@ -1253,14 +1253,14 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mBaselineDistance : invokeV.intValue;
     }
 
-    public float getBiasPercent(int i2) {
+    public float getBiasPercent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            if (i == 0) {
                 return this.mHorizontalBiasPercent;
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return this.mVerticalBiasPercent;
             }
             return -1.0f;
@@ -1292,14 +1292,14 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mDebugName : (String) invokeV.objValue;
     }
 
-    public DimensionBehaviour getDimensionBehaviour(int i2) {
+    public DimensionBehaviour getDimensionBehaviour(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            if (i == 0) {
                 return getHorizontalDimensionBehaviour();
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return getVerticalDimensionBehaviour();
             }
             return null;
@@ -1443,14 +1443,14 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? getX() : invokeV.intValue;
     }
 
-    public int getLength(int i2) {
+    public int getLength(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i)) == null) {
+            if (i == 0) {
                 return getWidth();
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return getHeight();
             }
             return 0;
@@ -1484,50 +1484,50 @@ public class ConstraintWidget {
 
     public int getOptimizerWrapHeight() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            int i3 = this.mHeight;
+            int i2 = this.mHeight;
             if (this.mListDimensionBehaviors[1] == DimensionBehaviour.MATCH_CONSTRAINT) {
                 if (this.mMatchConstraintDefaultHeight == 1) {
-                    i2 = Math.max(this.mMatchConstraintMinHeight, i3);
+                    i = Math.max(this.mMatchConstraintMinHeight, i2);
                 } else {
-                    i2 = this.mMatchConstraintMinHeight;
-                    if (i2 > 0) {
-                        this.mHeight = i2;
+                    i = this.mMatchConstraintMinHeight;
+                    if (i > 0) {
+                        this.mHeight = i;
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
                 }
-                int i4 = this.mMatchConstraintMaxHeight;
-                return (i4 <= 0 || i4 >= i2) ? i2 : i4;
+                int i3 = this.mMatchConstraintMaxHeight;
+                return (i3 <= 0 || i3 >= i) ? i : i3;
             }
-            return i3;
+            return i2;
         }
         return invokeV.intValue;
     }
 
     public int getOptimizerWrapWidth() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            int i3 = this.mWidth;
+            int i2 = this.mWidth;
             if (this.mListDimensionBehaviors[0] == DimensionBehaviour.MATCH_CONSTRAINT) {
                 if (this.mMatchConstraintDefaultWidth == 1) {
-                    i2 = Math.max(this.mMatchConstraintMinWidth, i3);
+                    i = Math.max(this.mMatchConstraintMinWidth, i2);
                 } else {
-                    i2 = this.mMatchConstraintMinWidth;
-                    if (i2 > 0) {
-                        this.mWidth = i2;
+                    i = this.mMatchConstraintMinWidth;
+                    if (i > 0) {
+                        this.mWidth = i;
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
                 }
-                int i4 = this.mMatchConstraintMaxWidth;
-                return (i4 <= 0 || i4 >= i2) ? i2 : i4;
+                int i3 = this.mMatchConstraintMaxWidth;
+                return (i3 <= 0 || i3 >= i) ? i : i3;
             }
-            return i3;
+            return i2;
         }
         return invokeV.intValue;
     }
@@ -1538,14 +1538,14 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mParent : (ConstraintWidget) invokeV.objValue;
     }
 
-    public int getRelativePositioning(int i2) {
+    public int getRelativePositioning(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i)) == null) {
+            if (i == 0) {
                 return this.mRelX;
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return this.mRelY;
             }
             return 0;
@@ -1739,10 +1739,10 @@ public class ConstraintWidget {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.mBaselineDistance > 0 : invokeV.booleanValue;
     }
 
-    public void immediateConnect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i2, int i3) {
+    public void immediateConnect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            getAnchor(type).connect(constraintWidget.getAnchor(type2), i2, i3, ConstraintAnchor.Strength.STRONG, 0, true);
+        if (interceptable == null || interceptable.invokeCommon(1048648, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            getAnchor(type).connect(constraintWidget.getAnchor(type2), i, i2, ConstraintAnchor.Strength.STRONG, 0, true);
         }
     }
 
@@ -2001,8 +2001,8 @@ public class ConstraintWidget {
                 return;
             }
             int size = this.mAnchors.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mAnchors.get(i2).reset();
+            for (int i = 0; i < size; i++) {
+                this.mAnchors.get(i).reset();
             }
         }
     }
@@ -2010,8 +2010,8 @@ public class ConstraintWidget {
     public void resetResolutionNodes() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048664, this) == null) {
-            for (int i2 = 0; i2 < 6; i2++) {
-                this.mListAnchors[i2].getResolutionNode().reset();
+            for (int i = 0; i < 6; i++) {
+                this.mListAnchors[i].getResolutionNode().reset();
             }
         }
     }
@@ -2036,10 +2036,10 @@ public class ConstraintWidget {
         }
     }
 
-    public void setBaselineDistance(int i2) {
+    public void setBaselineDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048667, this, i2) == null) {
-            this.mBaselineDistance = i2;
+        if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
+            this.mBaselineDistance = i;
         }
     }
 
@@ -2050,11 +2050,11 @@ public class ConstraintWidget {
         }
     }
 
-    public void setContainerItemSkip(int i2) {
+    public void setContainerItemSkip(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048669, this, i2) == null) {
-            if (i2 >= 0) {
-                this.mContainerItemSkip = i2;
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
+            if (i >= 0) {
+                this.mContainerItemSkip = i;
             } else {
                 this.mContainerItemSkip = 0;
             }
@@ -2087,18 +2087,18 @@ public class ConstraintWidget {
         }
     }
 
-    public void setDimension(int i2, int i3) {
+    public void setDimension(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048672, this, i2, i3) == null) {
-            this.mWidth = i2;
-            int i4 = this.mMinWidth;
-            if (i2 < i4) {
-                this.mWidth = i4;
+        if (interceptable == null || interceptable.invokeII(1048672, this, i, i2) == null) {
+            this.mWidth = i;
+            int i3 = this.mMinWidth;
+            if (i < i3) {
+                this.mWidth = i3;
             }
-            this.mHeight = i3;
-            int i5 = this.mMinHeight;
-            if (i3 < i5) {
-                this.mHeight = i5;
+            this.mHeight = i2;
+            int i4 = this.mMinHeight;
+            if (i2 < i4) {
+                this.mHeight = i4;
             }
         }
     }
@@ -2108,30 +2108,30 @@ public class ConstraintWidget {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048674, this, str) == null) {
-            int i2 = 0;
+            int i = 0;
             if (str != null && str.length() != 0) {
-                int i3 = -1;
+                int i2 = -1;
                 int length = str.length();
                 int indexOf = str.indexOf(44);
-                int i4 = 0;
+                int i3 = 0;
                 if (indexOf > 0 && indexOf < length - 1) {
                     String substring = str.substring(0, indexOf);
                     if (substring.equalsIgnoreCase("W")) {
-                        i3 = 0;
+                        i2 = 0;
                     } else if (substring.equalsIgnoreCase("H")) {
-                        i3 = 1;
+                        i2 = 1;
                     }
-                    i4 = indexOf + 1;
+                    i3 = indexOf + 1;
                 }
                 int indexOf2 = str.indexOf(58);
                 if (indexOf2 >= 0 && indexOf2 < length - 1) {
-                    String substring2 = str.substring(i4, indexOf2);
+                    String substring2 = str.substring(i3, indexOf2);
                     String substring3 = str.substring(indexOf2 + 1);
                     if (substring2.length() > 0 && substring3.length() > 0) {
                         float parseFloat = Float.parseFloat(substring2);
                         float parseFloat2 = Float.parseFloat(substring3);
                         if (parseFloat > 0.0f && parseFloat2 > 0.0f) {
-                            if (i3 == 1) {
+                            if (i2 == 1) {
                                 f2 = Math.abs(parseFloat2 / parseFloat);
                             } else {
                                 f2 = Math.abs(parseFloat / parseFloat2);
@@ -2140,16 +2140,16 @@ public class ConstraintWidget {
                     }
                     f2 = 0.0f;
                 } else {
-                    String substring4 = str.substring(i4);
+                    String substring4 = str.substring(i3);
                     if (substring4.length() > 0) {
                         f2 = Float.parseFloat(substring4);
                     }
                     f2 = 0.0f;
                 }
-                i2 = (f2 > i2 ? 1 : (f2 == i2 ? 0 : -1));
-                if (i2 > 0) {
+                i = (f2 > i ? 1 : (f2 == i ? 0 : -1));
+                if (i > 0) {
                     this.mDimensionRatio = f2;
-                    this.mDimensionRatioSide = i3;
+                    this.mDimensionRatioSide = i2;
                     return;
                 }
                 return;
@@ -2158,109 +2158,109 @@ public class ConstraintWidget {
         }
     }
 
-    public void setDrawHeight(int i2) {
+    public void setDrawHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048675, this, i2) == null) {
-            this.mDrawHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048675, this, i) == null) {
+            this.mDrawHeight = i;
         }
     }
 
-    public void setDrawOrigin(int i2, int i3) {
+    public void setDrawOrigin(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048676, this, i2, i3) == null) {
-            int i4 = i2 - this.mOffsetX;
-            this.mDrawX = i4;
-            int i5 = i3 - this.mOffsetY;
-            this.mDrawY = i5;
-            this.mX = i4;
-            this.mY = i5;
-        }
-    }
-
-    public void setDrawWidth(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048677, this, i2) == null) {
-            this.mDrawWidth = i2;
-        }
-    }
-
-    public void setDrawX(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048678, this, i2) == null) {
-            int i3 = i2 - this.mOffsetX;
+        if (interceptable == null || interceptable.invokeII(1048676, this, i, i2) == null) {
+            int i3 = i - this.mOffsetX;
             this.mDrawX = i3;
+            int i4 = i2 - this.mOffsetY;
+            this.mDrawY = i4;
             this.mX = i3;
+            this.mY = i4;
         }
     }
 
-    public void setDrawY(int i2) {
+    public void setDrawWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048679, this, i2) == null) {
-            int i3 = i2 - this.mOffsetY;
-            this.mDrawY = i3;
-            this.mY = i3;
+        if (interceptable == null || interceptable.invokeI(1048677, this, i) == null) {
+            this.mDrawWidth = i;
         }
     }
 
-    public void setFrame(int i2, int i3, int i4, int i5) {
-        int i6;
-        int i7;
+    public void setDrawX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048681, this, i2, i3, i4, i5) == null) {
-            int i8 = i4 - i2;
-            int i9 = i5 - i3;
+        if (interceptable == null || interceptable.invokeI(1048678, this, i) == null) {
+            int i2 = i - this.mOffsetX;
+            this.mDrawX = i2;
             this.mX = i2;
-            this.mY = i3;
+        }
+    }
+
+    public void setDrawY(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048679, this, i) == null) {
+            int i2 = i - this.mOffsetY;
+            this.mDrawY = i2;
+            this.mY = i2;
+        }
+    }
+
+    public void setFrame(int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048681, this, i, i2, i3, i4) == null) {
+            int i7 = i3 - i;
+            int i8 = i4 - i2;
+            this.mX = i;
+            this.mY = i2;
             if (this.mVisibility == 8) {
                 this.mWidth = 0;
                 this.mHeight = 0;
                 return;
             }
-            if (this.mListDimensionBehaviors[0] == DimensionBehaviour.FIXED && i8 < (i7 = this.mWidth)) {
-                i8 = i7;
+            if (this.mListDimensionBehaviors[0] == DimensionBehaviour.FIXED && i7 < (i6 = this.mWidth)) {
+                i7 = i6;
             }
-            if (this.mListDimensionBehaviors[1] == DimensionBehaviour.FIXED && i9 < (i6 = this.mHeight)) {
-                i9 = i6;
+            if (this.mListDimensionBehaviors[1] == DimensionBehaviour.FIXED && i8 < (i5 = this.mHeight)) {
+                i8 = i5;
             }
-            this.mWidth = i8;
-            this.mHeight = i9;
-            int i10 = this.mMinHeight;
-            if (i9 < i10) {
-                this.mHeight = i10;
+            this.mWidth = i7;
+            this.mHeight = i8;
+            int i9 = this.mMinHeight;
+            if (i8 < i9) {
+                this.mHeight = i9;
             }
-            int i11 = this.mWidth;
-            int i12 = this.mMinWidth;
-            if (i11 < i12) {
-                this.mWidth = i12;
+            int i10 = this.mWidth;
+            int i11 = this.mMinWidth;
+            if (i10 < i11) {
+                this.mWidth = i11;
             }
             this.mOptimizerMeasured = true;
         }
     }
 
-    public void setGoneMargin(ConstraintAnchor.Type type, int i2) {
+    public void setGoneMargin(ConstraintAnchor.Type type, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048682, this, type, i2) == null) {
-            int i3 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type.ordinal()];
-            if (i3 == 1) {
-                this.mLeft.mGoneMargin = i2;
-            } else if (i3 == 2) {
-                this.mTop.mGoneMargin = i2;
-            } else if (i3 == 3) {
-                this.mRight.mGoneMargin = i2;
-            } else if (i3 != 4) {
+        if (interceptable == null || interceptable.invokeLI(1048682, this, type, i) == null) {
+            int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[type.ordinal()];
+            if (i2 == 1) {
+                this.mLeft.mGoneMargin = i;
+            } else if (i2 == 2) {
+                this.mTop.mGoneMargin = i;
+            } else if (i2 == 3) {
+                this.mRight.mGoneMargin = i;
+            } else if (i2 != 4) {
             } else {
-                this.mBottom.mGoneMargin = i2;
+                this.mBottom.mGoneMargin = i;
             }
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048683, this, i2) == null) {
-            this.mHeight = i2;
-            int i3 = this.mMinHeight;
-            if (i2 < i3) {
-                this.mHeight = i3;
+        if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
+            this.mHeight = i;
+            int i2 = this.mMinHeight;
+            if (i < i2) {
+                this.mHeight = i2;
             }
         }
     }
@@ -2279,22 +2279,22 @@ public class ConstraintWidget {
         }
     }
 
-    public void setHorizontalChainStyle(int i2) {
+    public void setHorizontalChainStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048686, this, i2) == null) {
-            this.mHorizontalChainStyle = i2;
+        if (interceptable == null || interceptable.invokeI(1048686, this, i) == null) {
+            this.mHorizontalChainStyle = i;
         }
     }
 
-    public void setHorizontalDimension(int i2, int i3) {
+    public void setHorizontalDimension(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048687, this, i2, i3) == null) {
-            this.mX = i2;
-            int i4 = i3 - i2;
-            this.mWidth = i4;
-            int i5 = this.mMinWidth;
-            if (i4 < i5) {
-                this.mWidth = i5;
+        if (interceptable == null || interceptable.invokeII(1048687, this, i, i2) == null) {
+            this.mX = i;
+            int i3 = i2 - i;
+            this.mWidth = i3;
+            int i4 = this.mMinWidth;
+            if (i3 < i4) {
+                this.mWidth = i4;
             }
         }
     }
@@ -2309,14 +2309,14 @@ public class ConstraintWidget {
         }
     }
 
-    public void setHorizontalMatchStyle(int i2, int i3, int i4, float f2) {
+    public void setHorizontalMatchStyle(int i, int i2, int i3, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048689, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
-            this.mMatchConstraintDefaultWidth = i2;
-            this.mMatchConstraintMinWidth = i3;
-            this.mMatchConstraintMaxWidth = i4;
+        if (interceptable == null || interceptable.invokeCommon(1048689, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+            this.mMatchConstraintDefaultWidth = i;
+            this.mMatchConstraintMinWidth = i2;
+            this.mMatchConstraintMaxWidth = i3;
             this.mMatchConstraintPercentWidth = f2;
-            if (f2 >= 1.0f || i2 != 0) {
+            if (f2 >= 1.0f || i != 0) {
                 return;
             }
             this.mMatchConstraintDefaultWidth = 2;
@@ -2330,66 +2330,66 @@ public class ConstraintWidget {
         }
     }
 
-    public void setLength(int i2, int i3) {
+    public void setLength(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048691, this, i2, i3) == null) {
-            if (i3 == 0) {
-                setWidth(i2);
-            } else if (i3 == 1) {
-                setHeight(i2);
+        if (interceptable == null || interceptable.invokeII(1048691, this, i, i2) == null) {
+            if (i2 == 0) {
+                setWidth(i);
+            } else if (i2 == 1) {
+                setHeight(i);
             }
         }
     }
 
-    public void setMaxHeight(int i2) {
+    public void setMaxHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048692, this, i2) == null) {
-            this.mMaxDimension[1] = i2;
+        if (interceptable == null || interceptable.invokeI(1048692, this, i) == null) {
+            this.mMaxDimension[1] = i;
         }
     }
 
-    public void setMaxWidth(int i2) {
+    public void setMaxWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048693, this, i2) == null) {
-            this.mMaxDimension[0] = i2;
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
+            this.mMaxDimension[0] = i;
         }
     }
 
-    public void setMinHeight(int i2) {
+    public void setMinHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048694, this, i2) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || interceptable.invokeI(1048694, this, i) == null) {
+            if (i < 0) {
                 this.mMinHeight = 0;
             } else {
-                this.mMinHeight = i2;
+                this.mMinHeight = i;
             }
         }
     }
 
-    public void setMinWidth(int i2) {
+    public void setMinWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i2) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
+            if (i < 0) {
                 this.mMinWidth = 0;
             } else {
-                this.mMinWidth = i2;
+                this.mMinWidth = i;
             }
         }
     }
 
-    public void setOffset(int i2, int i3) {
+    public void setOffset(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048696, this, i2, i3) == null) {
-            this.mOffsetX = i2;
-            this.mOffsetY = i3;
+        if (interceptable == null || interceptable.invokeII(1048696, this, i, i2) == null) {
+            this.mOffsetX = i;
+            this.mOffsetY = i2;
         }
     }
 
-    public void setOrigin(int i2, int i3) {
+    public void setOrigin(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048697, this, i2, i3) == null) {
-            this.mX = i2;
-            this.mY = i3;
+        if (interceptable == null || interceptable.invokeII(1048697, this, i, i2) == null) {
+            this.mX = i;
+            this.mY = i2;
         }
     }
 
@@ -2400,13 +2400,13 @@ public class ConstraintWidget {
         }
     }
 
-    public void setRelativePositioning(int i2, int i3) {
+    public void setRelativePositioning(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048699, this, i2, i3) == null) {
-            if (i3 == 0) {
-                this.mRelX = i2;
-            } else if (i3 == 1) {
-                this.mRelY = i2;
+        if (interceptable == null || interceptable.invokeII(1048699, this, i, i2) == null) {
+            if (i2 == 0) {
+                this.mRelX = i;
+            } else if (i2 == 1) {
+                this.mRelY = i;
             }
         }
     }
@@ -2425,22 +2425,22 @@ public class ConstraintWidget {
         }
     }
 
-    public void setVerticalChainStyle(int i2) {
+    public void setVerticalChainStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048702, this, i2) == null) {
-            this.mVerticalChainStyle = i2;
+        if (interceptable == null || interceptable.invokeI(1048702, this, i) == null) {
+            this.mVerticalChainStyle = i;
         }
     }
 
-    public void setVerticalDimension(int i2, int i3) {
+    public void setVerticalDimension(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048703, this, i2, i3) == null) {
-            this.mY = i2;
-            int i4 = i3 - i2;
-            this.mHeight = i4;
-            int i5 = this.mMinHeight;
-            if (i4 < i5) {
-                this.mHeight = i5;
+        if (interceptable == null || interceptable.invokeII(1048703, this, i, i2) == null) {
+            this.mY = i;
+            int i3 = i2 - i;
+            this.mHeight = i3;
+            int i4 = this.mMinHeight;
+            if (i3 < i4) {
+                this.mHeight = i4;
             }
         }
     }
@@ -2455,14 +2455,14 @@ public class ConstraintWidget {
         }
     }
 
-    public void setVerticalMatchStyle(int i2, int i3, int i4, float f2) {
+    public void setVerticalMatchStyle(int i, int i2, int i3, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048705, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
-            this.mMatchConstraintDefaultHeight = i2;
-            this.mMatchConstraintMinHeight = i3;
-            this.mMatchConstraintMaxHeight = i4;
+        if (interceptable == null || interceptable.invokeCommon(1048705, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+            this.mMatchConstraintDefaultHeight = i;
+            this.mMatchConstraintMinHeight = i2;
+            this.mMatchConstraintMaxHeight = i3;
             this.mMatchConstraintPercentHeight = f2;
-            if (f2 >= 1.0f || i2 != 0) {
+            if (f2 >= 1.0f || i != 0) {
                 return;
             }
             this.mMatchConstraintDefaultHeight = 2;
@@ -2476,20 +2476,20 @@ public class ConstraintWidget {
         }
     }
 
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
-            this.mVisibility = i2;
+        if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
+            this.mVisibility = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048708, this, i2) == null) {
-            this.mWidth = i2;
-            int i3 = this.mMinWidth;
-            if (i2 < i3) {
-                this.mWidth = i3;
+        if (interceptable == null || interceptable.invokeI(1048708, this, i) == null) {
+            this.mWidth = i;
+            int i2 = this.mMinWidth;
+            if (i < i2) {
+                this.mWidth = i2;
             }
         }
     }
@@ -2501,31 +2501,31 @@ public class ConstraintWidget {
         }
     }
 
-    public void setWrapHeight(int i2) {
+    public void setWrapHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048710, this, i2) == null) {
-            this.mWrapHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048710, this, i) == null) {
+            this.mWrapHeight = i;
         }
     }
 
-    public void setWrapWidth(int i2) {
+    public void setWrapWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048711, this, i2) == null) {
-            this.mWrapWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048711, this, i) == null) {
+            this.mWrapWidth = i;
         }
     }
 
-    public void setX(int i2) {
+    public void setX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048712, this, i2) == null) {
-            this.mX = i2;
+        if (interceptable == null || interceptable.invokeI(1048712, this, i) == null) {
+            this.mX = i;
         }
     }
 
-    public void setY(int i2) {
+    public void setY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048713, this, i2) == null) {
-            this.mY = i2;
+        if (interceptable == null || interceptable.invokeI(1048713, this, i) == null) {
+            this.mY = i;
         }
     }
 
@@ -2616,12 +2616,12 @@ public class ConstraintWidget {
     public void updateDrawPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048716, this) == null) {
-            int i2 = this.mX;
-            int i3 = this.mY;
-            this.mDrawX = i2;
-            this.mDrawY = i3;
-            this.mDrawWidth = (this.mWidth + i2) - i2;
-            this.mDrawHeight = (this.mHeight + i3) - i3;
+            int i = this.mX;
+            int i2 = this.mY;
+            this.mDrawX = i;
+            this.mDrawY = i2;
+            this.mDrawWidth = (this.mWidth + i) - i;
+            this.mDrawHeight = (this.mHeight + i2) - i2;
         }
     }
 
@@ -2632,8 +2632,8 @@ public class ConstraintWidget {
             int objectVariableValue2 = linearSystem.getObjectVariableValue(this.mTop);
             int objectVariableValue3 = linearSystem.getObjectVariableValue(this.mRight);
             int objectVariableValue4 = linearSystem.getObjectVariableValue(this.mBottom);
-            int i2 = objectVariableValue4 - objectVariableValue2;
-            if (objectVariableValue3 - objectVariableValue < 0 || i2 < 0 || objectVariableValue == Integer.MIN_VALUE || objectVariableValue == Integer.MAX_VALUE || objectVariableValue2 == Integer.MIN_VALUE || objectVariableValue2 == Integer.MAX_VALUE || objectVariableValue3 == Integer.MIN_VALUE || objectVariableValue3 == Integer.MAX_VALUE || objectVariableValue4 == Integer.MIN_VALUE || objectVariableValue4 == Integer.MAX_VALUE) {
+            int i = objectVariableValue4 - objectVariableValue2;
+            if (objectVariableValue3 - objectVariableValue < 0 || i < 0 || objectVariableValue == Integer.MIN_VALUE || objectVariableValue == Integer.MAX_VALUE || objectVariableValue2 == Integer.MIN_VALUE || objectVariableValue2 == Integer.MAX_VALUE || objectVariableValue3 == Integer.MIN_VALUE || objectVariableValue3 == Integer.MAX_VALUE || objectVariableValue4 == Integer.MIN_VALUE || objectVariableValue4 == Integer.MAX_VALUE) {
                 objectVariableValue4 = 0;
                 objectVariableValue = 0;
                 objectVariableValue2 = 0;
@@ -2646,30 +2646,30 @@ public class ConstraintWidget {
     public void updateResolutionNodes() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048718, this) == null) {
-            for (int i2 = 0; i2 < 6; i2++) {
-                this.mListAnchors[i2].getResolutionNode().update();
+            for (int i = 0; i < 6; i++) {
+                this.mListAnchors[i].getResolutionNode().update();
             }
         }
     }
 
-    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i2) {
+    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048583, this, constraintAnchor, constraintAnchor2, i2) == null) {
-            connect(constraintAnchor, constraintAnchor2, i2, ConstraintAnchor.Strength.STRONG, 0);
+        if (interceptable == null || interceptable.invokeLLI(1048583, this, constraintAnchor, constraintAnchor2, i) == null) {
+            connect(constraintAnchor, constraintAnchor2, i, ConstraintAnchor.Strength.STRONG, 0);
         }
     }
 
-    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i2, ConstraintAnchor.Strength strength, int i3) {
+    public void connect(ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i, ConstraintAnchor.Strength strength, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{constraintAnchor, constraintAnchor2, Integer.valueOf(i2), strength, Integer.valueOf(i3)}) == null) && constraintAnchor.getOwner() == this) {
-            connect(constraintAnchor.getType(), constraintAnchor2.getOwner(), constraintAnchor2.getType(), i2, strength, i3);
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{constraintAnchor, constraintAnchor2, Integer.valueOf(i), strength, Integer.valueOf(i2)}) == null) && constraintAnchor.getOwner() == this) {
+            connect(constraintAnchor.getType(), constraintAnchor2.getOwner(), constraintAnchor2.getType(), i, strength, i2);
         }
     }
 
-    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i2) {
+    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048580, this, type, constraintWidget, type2, i2) == null) {
-            connect(type, constraintWidget, type2, i2, ConstraintAnchor.Strength.STRONG);
+        if (interceptable == null || interceptable.invokeLLLI(1048580, this, type, constraintWidget, type2, i) == null) {
+            connect(type, constraintWidget, type2, i, ConstraintAnchor.Strength.STRONG);
         }
     }
 
@@ -2680,19 +2680,19 @@ public class ConstraintWidget {
         }
     }
 
-    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i2, ConstraintAnchor.Strength strength) {
+    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i, ConstraintAnchor.Strength strength) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i2), strength}) == null) {
-            connect(type, constraintWidget, type2, i2, strength, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i), strength}) == null) {
+            connect(type, constraintWidget, type2, i, strength, 0);
         }
     }
 
-    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i2, ConstraintAnchor.Strength strength, int i3) {
+    public void connect(ConstraintAnchor.Type type, ConstraintWidget constraintWidget, ConstraintAnchor.Type type2, int i, ConstraintAnchor.Strength strength, int i2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i2), strength, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{type, constraintWidget, type2, Integer.valueOf(i), strength, Integer.valueOf(i2)}) == null) {
             ConstraintAnchor.Type type3 = ConstraintAnchor.Type.CENTER;
-            int i4 = 0;
+            int i3 = 0;
             if (type == type3) {
                 if (type2 == type3) {
                     ConstraintAnchor anchor = getAnchor(ConstraintAnchor.Type.LEFT);
@@ -2702,64 +2702,64 @@ public class ConstraintWidget {
                     boolean z2 = true;
                     if ((anchor == null || !anchor.isConnected()) && (anchor2 == null || !anchor2.isConnected())) {
                         ConstraintAnchor.Type type4 = ConstraintAnchor.Type.LEFT;
-                        connect(type4, constraintWidget, type4, 0, strength, i3);
+                        connect(type4, constraintWidget, type4, 0, strength, i2);
                         ConstraintAnchor.Type type5 = ConstraintAnchor.Type.RIGHT;
-                        connect(type5, constraintWidget, type5, 0, strength, i3);
+                        connect(type5, constraintWidget, type5, 0, strength, i2);
                         z = true;
                     } else {
                         z = false;
                     }
                     if ((anchor3 == null || !anchor3.isConnected()) && (anchor4 == null || !anchor4.isConnected())) {
                         ConstraintAnchor.Type type6 = ConstraintAnchor.Type.TOP;
-                        connect(type6, constraintWidget, type6, 0, strength, i3);
+                        connect(type6, constraintWidget, type6, 0, strength, i2);
                         ConstraintAnchor.Type type7 = ConstraintAnchor.Type.BOTTOM;
-                        connect(type7, constraintWidget, type7, 0, strength, i3);
+                        connect(type7, constraintWidget, type7, 0, strength, i2);
                     } else {
                         z2 = false;
                     }
                     if (z && z2) {
-                        getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER), 0, i3);
+                        getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER), 0, i2);
                     } else if (z) {
-                        getAnchor(ConstraintAnchor.Type.CENTER_X).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER_X), 0, i3);
+                        getAnchor(ConstraintAnchor.Type.CENTER_X).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER_X), 0, i2);
                     } else if (z2) {
-                        getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER_Y), 0, i3);
+                        getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.CENTER_Y), 0, i2);
                     }
                 } else if (type2 != ConstraintAnchor.Type.LEFT && type2 != ConstraintAnchor.Type.RIGHT) {
                     if (type2 == ConstraintAnchor.Type.TOP || type2 == ConstraintAnchor.Type.BOTTOM) {
-                        connect(ConstraintAnchor.Type.TOP, constraintWidget, type2, 0, strength, i3);
-                        connect(ConstraintAnchor.Type.BOTTOM, constraintWidget, type2, 0, strength, i3);
-                        getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(type2), 0, i3);
+                        connect(ConstraintAnchor.Type.TOP, constraintWidget, type2, 0, strength, i2);
+                        connect(ConstraintAnchor.Type.BOTTOM, constraintWidget, type2, 0, strength, i2);
+                        getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(type2), 0, i2);
                     }
                 } else {
-                    connect(ConstraintAnchor.Type.LEFT, constraintWidget, type2, 0, strength, i3);
-                    connect(ConstraintAnchor.Type.RIGHT, constraintWidget, type2, 0, strength, i3);
-                    getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(type2), 0, i3);
+                    connect(ConstraintAnchor.Type.LEFT, constraintWidget, type2, 0, strength, i2);
+                    connect(ConstraintAnchor.Type.RIGHT, constraintWidget, type2, 0, strength, i2);
+                    getAnchor(ConstraintAnchor.Type.CENTER).connect(constraintWidget.getAnchor(type2), 0, i2);
                 }
             } else if (type == ConstraintAnchor.Type.CENTER_X && (type2 == ConstraintAnchor.Type.LEFT || type2 == ConstraintAnchor.Type.RIGHT)) {
                 ConstraintAnchor anchor5 = getAnchor(ConstraintAnchor.Type.LEFT);
                 ConstraintAnchor anchor6 = constraintWidget.getAnchor(type2);
                 ConstraintAnchor anchor7 = getAnchor(ConstraintAnchor.Type.RIGHT);
-                anchor5.connect(anchor6, 0, i3);
-                anchor7.connect(anchor6, 0, i3);
-                getAnchor(ConstraintAnchor.Type.CENTER_X).connect(anchor6, 0, i3);
+                anchor5.connect(anchor6, 0, i2);
+                anchor7.connect(anchor6, 0, i2);
+                getAnchor(ConstraintAnchor.Type.CENTER_X).connect(anchor6, 0, i2);
             } else if (type == ConstraintAnchor.Type.CENTER_Y && (type2 == ConstraintAnchor.Type.TOP || type2 == ConstraintAnchor.Type.BOTTOM)) {
                 ConstraintAnchor anchor8 = constraintWidget.getAnchor(type2);
-                getAnchor(ConstraintAnchor.Type.TOP).connect(anchor8, 0, i3);
-                getAnchor(ConstraintAnchor.Type.BOTTOM).connect(anchor8, 0, i3);
-                getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(anchor8, 0, i3);
+                getAnchor(ConstraintAnchor.Type.TOP).connect(anchor8, 0, i2);
+                getAnchor(ConstraintAnchor.Type.BOTTOM).connect(anchor8, 0, i2);
+                getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(anchor8, 0, i2);
             } else {
                 ConstraintAnchor.Type type8 = ConstraintAnchor.Type.CENTER_X;
                 if (type == type8 && type2 == type8) {
-                    getAnchor(ConstraintAnchor.Type.LEFT).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT), 0, i3);
-                    getAnchor(ConstraintAnchor.Type.RIGHT).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT), 0, i3);
-                    getAnchor(ConstraintAnchor.Type.CENTER_X).connect(constraintWidget.getAnchor(type2), 0, i3);
+                    getAnchor(ConstraintAnchor.Type.LEFT).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT), 0, i2);
+                    getAnchor(ConstraintAnchor.Type.RIGHT).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT), 0, i2);
+                    getAnchor(ConstraintAnchor.Type.CENTER_X).connect(constraintWidget.getAnchor(type2), 0, i2);
                     return;
                 }
                 ConstraintAnchor.Type type9 = ConstraintAnchor.Type.CENTER_Y;
                 if (type == type9 && type2 == type9) {
-                    getAnchor(ConstraintAnchor.Type.TOP).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.TOP), 0, i3);
-                    getAnchor(ConstraintAnchor.Type.BOTTOM).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.BOTTOM), 0, i3);
-                    getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(constraintWidget.getAnchor(type2), 0, i3);
+                    getAnchor(ConstraintAnchor.Type.TOP).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.TOP), 0, i2);
+                    getAnchor(ConstraintAnchor.Type.BOTTOM).connect(constraintWidget.getAnchor(ConstraintAnchor.Type.BOTTOM), 0, i2);
+                    getAnchor(ConstraintAnchor.Type.CENTER_Y).connect(constraintWidget.getAnchor(type2), 0, i2);
                     return;
                 }
                 ConstraintAnchor anchor9 = getAnchor(type);
@@ -2804,26 +2804,26 @@ public class ConstraintWidget {
                                 anchor17.reset();
                             }
                         }
-                        i4 = i2;
+                        i3 = i;
                     }
-                    anchor9.connect(anchor10, i4, strength, i3);
+                    anchor9.connect(anchor10, i3, strength, i2);
                     anchor10.getOwner().connectedTo(anchor9.getOwner());
                 }
             }
         }
     }
 
-    public void resetAnchors(int i2) {
+    public void resetAnchors(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048663, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048663, this, i) == null) {
             ConstraintWidget parent = getParent();
             if (parent != null && (parent instanceof ConstraintWidgetContainer) && ((ConstraintWidgetContainer) getParent()).handlesInternalConstraints()) {
                 return;
             }
             int size = this.mAnchors.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                ConstraintAnchor constraintAnchor = this.mAnchors.get(i3);
-                if (i2 == constraintAnchor.getConnectionCreator()) {
+            for (int i2 = 0; i2 < size; i2++) {
+                ConstraintAnchor constraintAnchor = this.mAnchors.get(i2);
+                if (i == constraintAnchor.getConnectionCreator()) {
                     if (constraintAnchor.isVerticalAnchor()) {
                         setVerticalBiasPercent(DEFAULT_BIAS);
                     } else {
@@ -2835,36 +2835,36 @@ public class ConstraintWidget {
         }
     }
 
-    public void setFrame(int i2, int i3, int i4) {
+    public void setFrame(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048680, this, i2, i3, i4) == null) {
-            if (i4 == 0) {
-                setHorizontalDimension(i2, i3);
-            } else if (i4 == 1) {
-                setVerticalDimension(i2, i3);
+        if (interceptable == null || interceptable.invokeIII(1048680, this, i, i2, i3) == null) {
+            if (i3 == 0) {
+                setHorizontalDimension(i, i2);
+            } else if (i3 == 1) {
+                setVerticalDimension(i, i2);
             }
             this.mOptimizerMeasured = true;
         }
     }
 
-    public void setDimensionRatio(float f2, int i2) {
+    public void setDimensionRatio(float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             this.mDimensionRatio = f2;
-            this.mDimensionRatioSide = i2;
+            this.mDimensionRatioSide = i;
         }
     }
 
-    public ConstraintWidget(int i2, int i3, int i4, int i5) {
+    public ConstraintWidget(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -2932,26 +2932,26 @@ public class ConstraintWidget {
         this.mNextChainWidget = new ConstraintWidget[]{null, null};
         this.mHorizontalNextWidget = null;
         this.mVerticalNextWidget = null;
-        this.mX = i2;
-        this.mY = i3;
-        this.mWidth = i4;
-        this.mHeight = i5;
+        this.mX = i;
+        this.mY = i2;
+        this.mWidth = i3;
+        this.mHeight = i4;
         addAnchors();
         forceUpdateDrawPosition();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ConstraintWidget(int i2, int i3) {
-        this(0, 0, i2, i3);
+    public ConstraintWidget(int i, int i2) {
+        this(0, 0, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;

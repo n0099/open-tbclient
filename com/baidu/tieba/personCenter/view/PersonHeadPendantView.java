@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonHeadPendantView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int r;
-    public View s;
+    public int m;
+    public View n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -39,57 +39,57 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.r = 0;
+        this.m = 0;
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
-    public void init() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.init();
-            this.r = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.s = new View(getContext());
+            super.d();
+            this.m = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.n = new View(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(14, -1);
             layoutParams.addRule(15, -1);
-            addView(this.s, 0, layoutParams);
+            addView(this.n, 0, layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.s.getLayoutParams();
-            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.r;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.n.getLayoutParams();
+            int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.m;
             layoutParams.leftMargin = measuredWidth;
             layoutParams.topMargin = measuredWidth;
             layoutParams.rightMargin = measuredWidth;
             layoutParams.bottomMargin = measuredWidth;
-            this.s.setLayoutParams(layoutParams);
+            this.n.setLayoutParams(layoutParams);
         }
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) {
-            this.s.setBackgroundDrawable(drawable);
+            this.n.setBackgroundDrawable(drawable);
         }
     }
 
-    public void setBorderColor(int i2) {
+    public void setBorderColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i2).into(this.s);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(i).into(this.n);
         }
     }
 
-    public void setBorderWidth(int i2) {
+    public void setBorderWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             getHeadView().setBorderWidth(0);
-            this.r = i2;
+            this.m = i;
         }
     }
 
@@ -102,9 +102,9 @@ public class PersonHeadPendantView extends HeadPendantView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -112,7 +112,7 @@ public class PersonHeadPendantView extends HeadPendantView {
                 return;
             }
         }
-        this.r = 0;
+        this.m = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,15 +124,15 @@ public class PersonHeadPendantView extends HeadPendantView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = 0;
+        this.m = 0;
     }
 }

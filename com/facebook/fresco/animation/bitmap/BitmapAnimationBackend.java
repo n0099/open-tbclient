@@ -27,7 +27,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapAnimationBackend implements AnimationBackend, AnimationBackendDelegateWithInactivityCheck.InactivityListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_TYPE_CACHED = 0;
@@ -54,17 +54,17 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public final Paint mPaint;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FrameListener {
-        void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i2);
+        void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i);
 
-        void onFrameDrawn(BitmapAnimationBackend bitmapAnimationBackend, int i2, int i3);
+        void onFrameDrawn(BitmapAnimationBackend bitmapAnimationBackend, int i, int i2);
 
-        void onFrameDropped(BitmapAnimationBackend bitmapAnimationBackend, int i2);
+        void onFrameDropped(BitmapAnimationBackend bitmapAnimationBackend, int i);
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FrameType {
     }
 
@@ -91,9 +91,9 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
             newInitContext.initArgs = r2;
             Object[] objArr = {platformBitmapFactory, bitmapFrameCache, animationInformation, bitmapFrameRenderer, bitmapFramePreparationStrategy, bitmapFramePreparer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,22 +110,22 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
         updateBitmapDimensions();
     }
 
-    private boolean drawBitmapAndCache(int i2, @Nullable CloseableReference<Bitmap> closeableReference, Canvas canvas, int i3) {
+    private boolean drawBitmapAndCache(int i, @Nullable CloseableReference<Bitmap> closeableReference, Canvas canvas, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), closeableReference, canvas, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), closeableReference, canvas, Integer.valueOf(i2)})) == null) {
             if (CloseableReference.isValid(closeableReference)) {
                 if (this.mBounds == null) {
                     canvas.drawBitmap(closeableReference.get(), 0.0f, 0.0f, this.mPaint);
                 } else {
                     canvas.drawBitmap(closeableReference.get(), (Rect) null, this.mBounds, this.mPaint);
                 }
-                if (i3 != 3) {
-                    this.mBitmapFrameCache.onFrameRendered(i2, closeableReference, i3);
+                if (i2 != 3) {
+                    this.mBitmapFrameCache.onFrameRendered(i, closeableReference, i2);
                 }
                 FrameListener frameListener = this.mFrameListener;
                 if (frameListener != null) {
-                    frameListener.onFrameDrawn(this, i2, i3);
+                    frameListener.onFrameDrawn(this, i, i2);
                     return true;
                 }
                 return true;
@@ -135,41 +135,41 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
         return invokeCommon.booleanValue;
     }
 
-    private boolean drawFrameOrFallback(Canvas canvas, int i2, int i3) {
+    private boolean drawFrameOrFallback(Canvas canvas, int i, int i2) {
         InterceptResult invokeLII;
         CloseableReference<Bitmap> cachedFrame;
         boolean drawBitmapAndCache;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, canvas, i2, i3)) == null) {
-            int i4 = 3;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, canvas, i, i2)) == null) {
+            int i3 = 3;
             boolean z = false;
             try {
-                if (i3 == 0) {
-                    cachedFrame = this.mBitmapFrameCache.getCachedFrame(i2);
-                    drawBitmapAndCache = drawBitmapAndCache(i2, cachedFrame, canvas, 0);
-                    i4 = 1;
-                } else if (i3 == 1) {
-                    cachedFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i2, this.mBitmapWidth, this.mBitmapHeight);
-                    if (renderFrameInBitmap(i2, cachedFrame) && drawBitmapAndCache(i2, cachedFrame, canvas, 1)) {
+                if (i2 == 0) {
+                    cachedFrame = this.mBitmapFrameCache.getCachedFrame(i);
+                    drawBitmapAndCache = drawBitmapAndCache(i, cachedFrame, canvas, 0);
+                    i3 = 1;
+                } else if (i2 == 1) {
+                    cachedFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i, this.mBitmapWidth, this.mBitmapHeight);
+                    if (renderFrameInBitmap(i, cachedFrame) && drawBitmapAndCache(i, cachedFrame, canvas, 1)) {
                         z = true;
                     }
                     drawBitmapAndCache = z;
-                    i4 = 2;
-                } else if (i3 == 2) {
+                    i3 = 2;
+                } else if (i2 == 2) {
                     cachedFrame = this.mPlatformBitmapFactory.createBitmap(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
-                    if (renderFrameInBitmap(i2, cachedFrame) && drawBitmapAndCache(i2, cachedFrame, canvas, 2)) {
+                    if (renderFrameInBitmap(i, cachedFrame) && drawBitmapAndCache(i, cachedFrame, canvas, 2)) {
                         z = true;
                     }
                     drawBitmapAndCache = z;
-                } else if (i3 != 3) {
+                } else if (i2 != 3) {
                     return false;
                 } else {
-                    cachedFrame = this.mBitmapFrameCache.getFallbackFrame(i2);
-                    drawBitmapAndCache = drawBitmapAndCache(i2, cachedFrame, canvas, 3);
-                    i4 = -1;
+                    cachedFrame = this.mBitmapFrameCache.getFallbackFrame(i);
+                    drawBitmapAndCache = drawBitmapAndCache(i, cachedFrame, canvas, 3);
+                    i3 = -1;
                 }
                 CloseableReference.closeSafely(cachedFrame);
-                return (drawBitmapAndCache || i4 == -1) ? drawBitmapAndCache : drawFrameOrFallback(canvas, i2, i4);
+                return (drawBitmapAndCache || i3 == -1) ? drawBitmapAndCache : drawFrameOrFallback(canvas, i, i3);
             } catch (RuntimeException e2) {
                 FLog.w(TAG, "Failed to create frame bitmap", e2);
                 return false;
@@ -180,12 +180,12 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
         return invokeLII.booleanValue;
     }
 
-    private boolean renderFrameInBitmap(int i2, @Nullable CloseableReference<Bitmap> closeableReference) {
+    private boolean renderFrameInBitmap(int i, @Nullable CloseableReference<Bitmap> closeableReference) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, closeableReference)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, closeableReference)) == null) {
             if (CloseableReference.isValid(closeableReference)) {
-                boolean renderFrame = this.mBitmapFrameRenderer.renderFrame(i2, closeableReference.get());
+                boolean renderFrame = this.mBitmapFrameRenderer.renderFrame(i, closeableReference.get());
                 if (!renderFrame) {
                     CloseableReference.closeSafely(closeableReference);
                 }
@@ -223,23 +223,23 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i2) {
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
         InterceptResult invokeLLI;
         BitmapFramePreparer bitmapFramePreparer;
         FrameListener frameListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i)) == null) {
             FrameListener frameListener2 = this.mFrameListener;
             if (frameListener2 != null) {
-                frameListener2.onDrawFrameStart(this, i2);
+                frameListener2.onDrawFrameStart(this, i);
             }
-            boolean drawFrameOrFallback = drawFrameOrFallback(canvas, i2, 0);
+            boolean drawFrameOrFallback = drawFrameOrFallback(canvas, i, 0);
             if (!drawFrameOrFallback && (frameListener = this.mFrameListener) != null) {
-                frameListener.onFrameDropped(this, i2);
+                frameListener.onFrameDropped(this, i);
             }
             BitmapFramePreparationStrategy bitmapFramePreparationStrategy = this.mBitmapFramePreparationStrategy;
             if (bitmapFramePreparationStrategy != null && (bitmapFramePreparer = this.mBitmapFramePreparer) != null) {
-                bitmapFramePreparationStrategy.prepareFrames(bitmapFramePreparer, this.mBitmapFrameCache, this, i2);
+                bitmapFramePreparationStrategy.prepareFrames(bitmapFramePreparer, this.mBitmapFrameCache, this, i);
             }
             return drawFrameOrFallback;
         }
@@ -254,10 +254,10 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameDurationMs(int i2) {
+    public int getFrameDurationMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.mAnimationInformation.getFrameDurationMs(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mAnimationInformation.getFrameDurationMs(i) : invokeI.intValue;
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
@@ -297,10 +297,10 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mPaint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mPaint.setAlpha(i);
         }
     }
 

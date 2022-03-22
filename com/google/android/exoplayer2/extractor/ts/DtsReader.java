@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DtsReader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 15;
@@ -42,9 +42,9 @@ public final class DtsReader implements ElementaryStreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,15 +61,15 @@ public final class DtsReader implements ElementaryStreamReader {
         this.language = str;
     }
 
-    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i2) {
+    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, parsableByteArray, bArr, i2)) == null) {
-            int min = Math.min(parsableByteArray.bytesLeft(), i2 - this.bytesRead);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, parsableByteArray, bArr, i)) == null) {
+            int min = Math.min(parsableByteArray.bytesLeft(), i - this.bytesRead);
             parsableByteArray.readBytes(bArr, this.bytesRead, min);
-            int i3 = this.bytesRead + min;
-            this.bytesRead = i3;
-            return i3 == i2;
+            int i2 = this.bytesRead + min;
+            this.bytesRead = i2;
+            return i2 == i;
         }
         return invokeLLI.booleanValue;
     }
@@ -93,9 +93,9 @@ public final class DtsReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, parsableByteArray)) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.syncBytes << 8;
-                this.syncBytes = i2;
-                int readUnsignedByte = i2 | parsableByteArray.readUnsignedByte();
+                int i = this.syncBytes << 8;
+                this.syncBytes = i;
+                int readUnsignedByte = i | parsableByteArray.readUnsignedByte();
                 this.syncBytes = readUnsignedByte;
                 if (readUnsignedByte == 2147385345) {
                     this.syncBytes = 0;
@@ -112,17 +112,17 @@ public final class DtsReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.state;
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 == 2) {
+                int i = this.state;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
                             int min = Math.min(parsableByteArray.bytesLeft(), this.sampleSize - this.bytesRead);
                             this.output.sampleData(parsableByteArray, min);
-                            int i3 = this.bytesRead + min;
-                            this.bytesRead = i3;
-                            int i4 = this.sampleSize;
-                            if (i3 == i4) {
-                                this.output.sampleMetadata(this.timeUs, 1, i4, 0, null);
+                            int i2 = this.bytesRead + min;
+                            this.bytesRead = i2;
+                            int i3 = this.sampleSize;
+                            if (i2 == i3) {
+                                this.output.sampleMetadata(this.timeUs, 1, i3, 0, null);
                                 this.timeUs += this.sampleDurationUs;
                                 this.state = 0;
                             }
@@ -159,10 +159,10 @@ public final class DtsReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.timeUs = j;
         }
     }
 

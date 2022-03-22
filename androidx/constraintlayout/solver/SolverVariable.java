@@ -122,16 +122,16 @@ public class SolverVariable {
             $VALUES = new Type[]{UNRESTRICTED, CONSTANT, SLACK, ERROR, type};
         }
 
-        public Type(String str, int i2) {
+        public Type(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -176,9 +176,9 @@ public class SolverVariable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, type};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -202,41 +202,41 @@ public class SolverVariable {
             if (str != null) {
                 return str + uniqueErrorId;
             }
-            int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type[type.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$SolverVariable$Type[type.ordinal()];
+            if (i == 1) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("U");
-                int i3 = uniqueUnrestrictedId + 1;
-                uniqueUnrestrictedId = i3;
-                sb.append(i3);
+                int i2 = uniqueUnrestrictedId + 1;
+                uniqueUnrestrictedId = i2;
+                sb.append(i2);
                 return sb.toString();
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("C");
-                int i4 = uniqueConstantId + 1;
-                uniqueConstantId = i4;
-                sb2.append(i4);
+                int i3 = uniqueConstantId + 1;
+                uniqueConstantId = i3;
+                sb2.append(i3);
                 return sb2.toString();
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("S");
-                int i5 = uniqueSlackId + 1;
-                uniqueSlackId = i5;
-                sb3.append(i5);
+                int i4 = uniqueSlackId + 1;
+                uniqueSlackId = i4;
+                sb3.append(i4);
                 return sb3.toString();
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append("e");
-                int i6 = uniqueErrorId + 1;
-                uniqueErrorId = i6;
-                sb4.append(i6);
+                int i5 = uniqueErrorId + 1;
+                uniqueErrorId = i5;
+                sb4.append(i5);
                 return sb4.toString();
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append("V");
-                int i7 = uniqueId + 1;
-                uniqueId = i7;
-                sb5.append(i7);
+                int i6 = uniqueId + 1;
+                uniqueId = i6;
+                sb5.append(i6);
                 return sb5.toString();
             } else {
                 throw new AssertionError(type.name());
@@ -257,23 +257,23 @@ public class SolverVariable {
         if (interceptable != null && interceptable.invokeL(1048576, this, arrayRow) != null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = this.mClientEquationsCount;
-            if (i2 < i3) {
-                if (this.mClientEquations[i2] == arrayRow) {
+            int i2 = this.mClientEquationsCount;
+            if (i < i2) {
+                if (this.mClientEquations[i] == arrayRow) {
                     return;
                 }
-                i2++;
+                i++;
             } else {
                 ArrayRow[] arrayRowArr = this.mClientEquations;
-                if (i3 >= arrayRowArr.length) {
+                if (i2 >= arrayRowArr.length) {
                     this.mClientEquations = (ArrayRow[]) Arrays.copyOf(arrayRowArr, arrayRowArr.length * 2);
                 }
                 ArrayRow[] arrayRowArr2 = this.mClientEquations;
-                int i4 = this.mClientEquationsCount;
-                arrayRowArr2[i4] = arrayRow;
-                this.mClientEquationsCount = i4 + 1;
+                int i3 = this.mClientEquationsCount;
+                arrayRowArr2[i3] = arrayRow;
+                this.mClientEquationsCount = i3 + 1;
                 return;
             }
         }
@@ -282,8 +282,8 @@ public class SolverVariable {
     public void clearStrengths() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i2 = 0; i2 < 7; i2++) {
-                this.strengthVector[i2] = 0.0f;
+            for (int i = 0; i < 7; i++) {
+                this.strengthVector[i] = 0.0f;
             }
         }
     }
@@ -297,13 +297,13 @@ public class SolverVariable {
     public final void removeFromRow(ArrayRow arrayRow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayRow) == null) {
-            int i2 = this.mClientEquationsCount;
-            for (int i3 = 0; i3 < i2; i3++) {
-                if (this.mClientEquations[i3] == arrayRow) {
-                    for (int i4 = 0; i4 < (i2 - i3) - 1; i4++) {
+            int i = this.mClientEquationsCount;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (this.mClientEquations[i2] == arrayRow) {
+                    for (int i3 = 0; i3 < (i - i2) - 1; i3++) {
                         ArrayRow[] arrayRowArr = this.mClientEquations;
-                        int i5 = i3 + i4;
-                        arrayRowArr[i5] = arrayRowArr[i5 + 1];
+                        int i4 = i2 + i3;
+                        arrayRowArr[i4] = arrayRowArr[i4 + 1];
                     }
                     this.mClientEquationsCount--;
                     return;
@@ -347,18 +347,18 @@ public class SolverVariable {
             String str = this + PreferencesUtil.LEFT_MOUNT;
             boolean z = false;
             boolean z2 = true;
-            for (int i2 = 0; i2 < this.strengthVector.length; i2++) {
-                String str2 = str + this.strengthVector[i2];
+            for (int i = 0; i < this.strengthVector.length; i++) {
+                String str2 = str + this.strengthVector[i];
                 float[] fArr = this.strengthVector;
-                if (fArr[i2] > 0.0f) {
+                if (fArr[i] > 0.0f) {
                     z = false;
-                } else if (fArr[i2] < 0.0f) {
+                } else if (fArr[i] < 0.0f) {
                     z = true;
                 }
-                if (this.strengthVector[i2] != 0.0f) {
+                if (this.strengthVector[i] != 0.0f) {
                     z2 = false;
                 }
-                str = i2 < this.strengthVector.length - 1 ? str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR : str2 + "] ";
+                str = i < this.strengthVector.length - 1 ? str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR : str2 + "] ";
             }
             if (z) {
                 str = str + " (-)";
@@ -383,10 +383,10 @@ public class SolverVariable {
     public final void updateReferencesWithNewDefinition(ArrayRow arrayRow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, arrayRow) == null) {
-            int i2 = this.mClientEquationsCount;
-            for (int i3 = 0; i3 < i2; i3++) {
+            int i = this.mClientEquationsCount;
+            for (int i2 = 0; i2 < i; i2++) {
                 ArrayRow[] arrayRowArr = this.mClientEquations;
-                arrayRowArr[i3].variables.updateFromRow(arrayRowArr[i3], arrayRow, false);
+                arrayRowArr[i2].variables.updateFromRow(arrayRowArr[i2], arrayRow, false);
             }
             this.mClientEquationsCount = 0;
         }
@@ -399,9 +399,9 @@ public class SolverVariable {
             newInitContext.initArgs = r2;
             Object[] objArr = {type, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -5,5 +5,5 @@ import com.baidu.android.imsdk.chatmessage.ChatSession;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface IGetUserShieldListener extends IMListener {
-    void onResult(int i2, String str, List<ChatSession> list);
+    void onResult(int i, String str, List<ChatSession> list);
 }

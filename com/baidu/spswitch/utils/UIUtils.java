@@ -2,9 +2,12 @@ package com.baidu.spswitch.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,9 +47,9 @@ public class UIUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -87,23 +90,23 @@ public class UIUtils {
 
     public static synchronized int getStatusBarHeight(Context context) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (UIUtils.class) {
                 if (!get) {
-                    int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+                    int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
                     if (identifier > 0) {
                         statusBarHeight = context.getResources().getDimensionPixelSize(identifier);
                         get = true;
                     }
                     if (DEBUG) {
-                        String str = "status bar util: " + statusBarHeight;
+                        Log.d(TAG, "status bar util: " + statusBarHeight);
                     }
                 }
-                i2 = statusBarHeight;
+                i = statusBarHeight;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -112,15 +115,15 @@ public class UIUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-            int i2 = 0;
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
             if (identifier > 0) {
                 try {
-                    i2 = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
+                    i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
                 } catch (Exception unused) {
                 }
             }
-            return i2 == 0 ? (int) (getDensity(null) * 25.0f) : i2;
+            return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
         }
         return invokeV.intValue;
     }

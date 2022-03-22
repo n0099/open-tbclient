@@ -43,9 +43,9 @@ public class IMTrackManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,9 +53,9 @@ public class IMTrackManager {
     }
 
     public static /* synthetic */ int access$208() {
-        int i2 = retryCount;
-        retryCount = i2 + 1;
-        return i2;
+        int i = retryCount;
+        retryCount = i + 1;
+        return i;
     }
 
     public static void clearIMTrack(Context context, IMPbGenerator iMPbGenerator) {
@@ -86,9 +86,9 @@ public class IMTrackManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context, generateIMRealClient};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -99,11 +99,11 @@ public class IMTrackManager {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-            public void uploadResponse(int i2, String str) {
+            public void uploadResponse(int i, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    LogUtils.d(IMTrackManager.TAG, "uploadIMRealAction response :" + i2 + ", msg :" + str);
-                    if (i2 != 0) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    LogUtils.d(IMTrackManager.TAG, "uploadIMRealAction response :" + i + ", msg :" + str);
+                    if (i != 0) {
                         IMPushUploadManager.getInstance(this.val$context).requestUpload(null, this.val$payload, "", null);
                     }
                 }
@@ -130,9 +130,9 @@ public class IMTrackManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {context, iMPbGenerator};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -143,17 +143,17 @@ public class IMTrackManager {
                     }
 
                     @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-                    public void uploadResponse(int i2, String str) {
+                    public void uploadResponse(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                            LogUtils.d(IMTrackManager.TAG, "uploadIMData response :" + i2 + ", msg :" + str);
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                            LogUtils.d(IMTrackManager.TAG, "uploadIMData response :" + i + ", msg :" + str);
                             Utility.setIMTrackTime(this.val$context);
-                            if (i2 == 0) {
+                            if (i == 0) {
                                 IMTrackManager.clearIMTrack(this.val$context, this.val$action);
                                 int unused = IMTrackManager.retryCount = 0;
                                 return;
                             }
-                            int i3 = 1;
+                            int i2 = 1;
                             if (IMTrackManager.retryCount < 1) {
                                 IMTrackManager.requestUpload(this.val$context);
                                 IMTrackManager.access$208();
@@ -164,9 +164,9 @@ public class IMTrackManager {
                             if (iMTrackFailCount >= 3) {
                                 IMTrackManager.clearIMTrack(this.val$context, this.val$action);
                             } else {
-                                i3 = 1 + iMTrackFailCount;
+                                i2 = 1 + iMTrackFailCount;
                             }
-                            Utility.setIMTrackFailCount(this.val$context, i3);
+                            Utility.setIMTrackFailCount(this.val$context, i2);
                         }
                     }
                 });
@@ -196,9 +196,9 @@ public class IMTrackManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -234,9 +234,9 @@ public class IMTrackManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context, action};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

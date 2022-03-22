@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapDrawableTransformation implements Transformation<BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class BitmapDrawableTransformation implements Transformation<BitmapDrawab
             newInitContext.initArgs = r2;
             Object[] objArr = {transformation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,10 +82,10 @@ public class BitmapDrawableTransformation implements Transformation<BitmapDrawab
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<BitmapDrawable> transform(@NonNull Context context, @NonNull Resource<BitmapDrawable> resource, int i2, int i3) {
+    public Resource<BitmapDrawable> transform(@NonNull Context context, @NonNull Resource<BitmapDrawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i2, i3)) == null) ? convertToBitmapDrawableResource(this.wrapped.transform(context, convertToDrawableResource(resource), i2, i3)) : (Resource) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) ? convertToBitmapDrawableResource(this.wrapped.transform(context, convertToDrawableResource(resource), i, i2)) : (Resource) invokeLLII.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.taskmanager;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.SmartLaunchController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,9 +39,9 @@ public class SmartLaunchTaskManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -51,7 +52,9 @@ public class SmartLaunchTaskManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             SmartLaunchController.scheduleIdleTask();
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d("SmartLaunchManager", "SmartLaunch: schedule idle task");
+            }
         }
     }
 
@@ -59,11 +62,15 @@ public class SmartLaunchTaskManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             if (SmartLaunchController.isSmartLaunchEnabled()) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d("SmartLaunchManager", "enable smart launch");
+                }
                 smartLaunchSchedule(context);
                 return;
             }
-            boolean z2 = DEBUG;
+            if (DEBUG) {
+                Log.d("SmartLaunchManager", "disable smart launch");
+            }
             SmartLaunchController.scheduleIdleTask();
         }
     }

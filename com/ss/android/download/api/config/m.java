@@ -1,11 +1,11 @@
 package com.ss.android.download.api.config;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface m {
     long a();
 
-    void a(long j2);
+    void a(long j);
 
-    boolean a(int i2, String str, boolean z, long j2);
+    boolean a(int i, String str, boolean z, long j);
 
     boolean b();
 

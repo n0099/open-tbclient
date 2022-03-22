@@ -50,39 +50,39 @@ public final class b {
         return (BigInteger) invokeLL.objValue;
     }
 
-    public static byte[] c(BigInteger bigInteger, int i2) {
+    public static byte[] c(BigInteger bigInteger, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bigInteger, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bigInteger, i)) == null) {
             byte[] byteArray = bigInteger.toByteArray();
             int length = byteArray.length;
-            if (length == i2) {
+            if (length == i) {
                 return byteArray;
             }
-            if (length == i2 + 1 && byteArray[0] == 0) {
-                byte[] bArr = new byte[i2];
-                System.arraycopy(byteArray, 1, bArr, 0, i2);
+            if (length == i + 1 && byteArray[0] == 0) {
+                byte[] bArr = new byte[i];
+                System.arraycopy(byteArray, 1, bArr, 0, i);
                 return bArr;
-            } else if (length >= i2) {
+            } else if (length >= i) {
                 return null;
             } else {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(byteArray, 0, bArr2, i2 - length, length);
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(byteArray, 0, bArr2, i - length, length);
                 return bArr2;
             }
         }
         return (byte[]) invokeLI.objValue;
     }
 
-    public static byte[] d(byte[] bArr, int i2, int i3) {
+    public static byte[] d(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            if (i2 == 0 && i3 == bArr.length) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            if (i == 0 && i2 == bArr.length) {
                 return bArr;
             }
-            byte[] bArr2 = new byte[i3];
-            System.arraycopy(bArr, i2, bArr2, 0, i3);
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
             return bArr2;
         }
         return (byte[]) invokeLII.objValue;

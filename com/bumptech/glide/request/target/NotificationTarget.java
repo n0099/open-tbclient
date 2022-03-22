@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NotificationTarget extends SimpleTarget<Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,17 +26,17 @@ public class NotificationTarget extends SimpleTarget<Bitmap> {
     public final int viewId;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NotificationTarget(Context context, int i2, RemoteViews remoteViews, Notification notification, int i3) {
-        this(context, i2, remoteViews, notification, i3, null);
+    public NotificationTarget(Context context, int i, RemoteViews remoteViews, Notification notification, int i2) {
+        this(context, i, remoteViews, notification, i2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), remoteViews, notification, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), remoteViews, notification, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (RemoteViews) objArr2[2], (Notification) objArr2[3], ((Integer) objArr2[4]).intValue(), (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -59,17 +59,17 @@ public class NotificationTarget extends SimpleTarget<Bitmap> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NotificationTarget(Context context, int i2, RemoteViews remoteViews, Notification notification, int i3, String str) {
-        this(context, Integer.MIN_VALUE, Integer.MIN_VALUE, i2, remoteViews, notification, i3, str);
+    public NotificationTarget(Context context, int i, RemoteViews remoteViews, Notification notification, int i2, String str) {
+        this(context, Integer.MIN_VALUE, Integer.MIN_VALUE, i, remoteViews, notification, i2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), remoteViews, notification, Integer.valueOf(i3), str};
+            Object[] objArr = {context, Integer.valueOf(i), remoteViews, notification, Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), (RemoteViews) objArr2[4], (Notification) objArr2[5], ((Integer) objArr2[6]).intValue(), (String) objArr2[7]);
                 newInitContext.thisArg = this;
@@ -88,17 +88,17 @@ public class NotificationTarget extends SimpleTarget<Bitmap> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NotificationTarget(Context context, int i2, int i3, int i4, RemoteViews remoteViews, Notification notification, int i5, String str) {
-        super(i2, i3);
+    public NotificationTarget(Context context, int i, int i2, int i3, RemoteViews remoteViews, Notification notification, int i4, String str) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), remoteViews, notification, Integer.valueOf(i5), str};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), remoteViews, notification, Integer.valueOf(i4), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -109,8 +109,8 @@ public class NotificationTarget extends SimpleTarget<Bitmap> {
         this.context = (Context) Preconditions.checkNotNull(context, "Context must not be null!");
         this.notification = (Notification) Preconditions.checkNotNull(notification, "Notification object can not be null!");
         this.remoteViews = (RemoteViews) Preconditions.checkNotNull(remoteViews, "RemoteViews object can not be null!");
-        this.viewId = i4;
-        this.notificationId = i5;
+        this.viewId = i3;
+        this.notificationId = i4;
         this.notificationTag = str;
     }
 }

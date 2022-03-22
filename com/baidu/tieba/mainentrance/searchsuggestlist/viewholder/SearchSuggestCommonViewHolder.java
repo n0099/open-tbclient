@@ -13,10 +13,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mRootView;
-    public View mSearchSuggetLine;
-    public TextView mSuggest;
-    public ImageView searchBarIcon;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f34353b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f34354c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f34355d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchSuggestCommonViewHolder(View view) {
@@ -27,18 +33,18 @@ public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mRootView = view.findViewById(R.id.rootview);
-        this.mSuggest = (TextView) view.findViewById(R.id.search_suggest_title);
-        this.searchBarIcon = (ImageView) view.findViewById(R.id.search_bar_icon);
-        this.mSearchSuggetLine = view.findViewById(R.id.search_sugget_line);
+        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.f34353b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c48);
+        this.f34354c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f091c1c);
+        this.f34355d = view.findViewById(R.id.obfuscated_res_0x7f091c49);
     }
 }

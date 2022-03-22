@@ -51,7 +51,7 @@ public final class SynchronizedLazyImpl<T> implements Lazy<T>, Serializable {
         return isInitialized() ? String.valueOf(getValue()) : "Lazy value not initialized yet.";
     }
 
-    public /* synthetic */ SynchronizedLazyImpl(Function0 function0, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(function0, (i2 & 2) != 0 ? null : obj);
+    public /* synthetic */ SynchronizedLazyImpl(Function0 function0, Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(function0, (i & 2) != 0 ? null : obj);
     }
 }

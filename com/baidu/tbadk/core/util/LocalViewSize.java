@@ -31,9 +31,9 @@ public class LocalViewSize {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,9 +61,9 @@ public class LocalViewSize {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,24 +72,24 @@ public class LocalViewSize {
         this.mContext = null;
     }
 
-    private ImageSize countPicSize(ImageSize imageSize, int i2, int i3) {
+    private ImageSize countPicSize(ImageSize imageSize, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, this, imageSize, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, this, imageSize, i, i2)) == null) {
             ImageSize imageSize2 = new ImageSize();
-            int i4 = imageSize.height;
-            int i5 = imageSize.width;
-            if (i2 / i3 > i4 / i5) {
-                imageSize2.height = i4;
-                int i6 = (i4 * i3) / i2;
-                imageSize2.width = i6;
-                if (i6 == 0) {
+            int i3 = imageSize.height;
+            int i4 = imageSize.width;
+            if (i / i2 > i3 / i4) {
+                imageSize2.height = i3;
+                int i5 = (i3 * i2) / i;
+                imageSize2.width = i5;
+                if (i5 == 0) {
                     imageSize2.height = 324;
                     imageSize2.width = 162;
                 }
             } else {
-                imageSize2.width = i5;
-                imageSize2.height = (i5 * i2) / i3;
+                imageSize2.width = i4;
+                imageSize2.height = (i4 * i) / i2;
             }
             return imageSize2;
         }
@@ -147,24 +147,24 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ImageSize msgBPicMaxSize = getMsgBPicMaxSize();
-            int i2 = msgBPicMaxSize.height;
-            int i3 = msgBPicMaxSize.width;
-            return i2 >= i3 ? i2 : i3;
+            int i = msgBPicMaxSize.height;
+            int i2 = msgBPicMaxSize.width;
+            return i >= i2 ? i : i2;
         }
         return invokeV.intValue;
     }
 
-    public ImageSize getMsgBPicShowSize(ImageSize imageSize, int i2, int i3) {
+    public ImageSize getMsgBPicShowSize(ImageSize imageSize, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, imageSize, i2, i3)) == null) {
-            if (i2 <= imageSize.height / 2 && i3 <= imageSize.width / 2) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, imageSize, i, i2)) == null) {
+            if (i <= imageSize.height / 2 && i2 <= imageSize.width / 2) {
                 ImageSize imageSize2 = new ImageSize();
-                imageSize2.height = i2;
-                imageSize2.width = i3;
+                imageSize2.height = i;
+                imageSize2.width = i2;
                 return imageSize2;
             }
-            return countPicSize(imageSize, i2, i3);
+            return countPicSize(imageSize, i, i2);
         }
         return (ImageSize) invokeLII.objValue;
     }
@@ -174,19 +174,19 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int k = n.k(this.mContext);
-            int i2 = 240;
+            int i = 240;
             if (k < 240) {
-                i2 = k / 3;
+                i = k / 3;
             } else if (k <= 320) {
-                i2 = 80;
+                i = 80;
             } else if (k <= 480) {
-                i2 = 160;
+                i = 160;
             } else if (k > 720) {
-                i2 = k / 3;
+                i = k / 3;
             }
             ImageSize imageSize = new ImageSize();
-            imageSize.height = i2;
-            imageSize.width = i2;
+            imageSize.height = i;
+            imageSize.width = i;
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -197,31 +197,31 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ImageSize msgSPicMaxSize = getMsgSPicMaxSize();
-            int i2 = msgSPicMaxSize.height;
-            int i3 = msgSPicMaxSize.width;
-            return i2 >= i3 ? i2 : i3;
+            int i = msgSPicMaxSize.height;
+            int i2 = msgSPicMaxSize.width;
+            return i >= i2 ? i : i2;
         }
         return invokeV.intValue;
     }
 
-    public ImageSize getMsgSPicShowSize(ImageSize imageSize, int i2, int i3) {
+    public ImageSize getMsgSPicShowSize(ImageSize imageSize, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, imageSize, i2, i3)) == null) {
-            if (i2 <= imageSize.height && i3 <= imageSize.width) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, imageSize, i, i2)) == null) {
+            if (i <= imageSize.height && i2 <= imageSize.width) {
                 ImageSize imageSize2 = new ImageSize();
-                int i4 = imageSize.height;
-                int i5 = imageSize.width;
-                if (i2 / i3 > i4 / i5) {
-                    imageSize2.height = i4;
-                    imageSize2.width = (i4 * i3) / i2;
+                int i3 = imageSize.height;
+                int i4 = imageSize.width;
+                if (i / i2 > i3 / i4) {
+                    imageSize2.height = i3;
+                    imageSize2.width = (i3 * i2) / i;
                 } else {
-                    imageSize2.width = i5;
-                    imageSize2.height = (i5 * i2) / i3;
+                    imageSize2.width = i4;
+                    imageSize2.height = (i4 * i) / i2;
                 }
                 return imageSize2;
             }
-            return countPicSize(imageSize, i2, i3);
+            return countPicSize(imageSize, i, i2);
         }
         return (ImageSize) invokeLII.objValue;
     }
@@ -243,9 +243,9 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ImageSize msgUpPicMaxSize = getMsgUpPicMaxSize();
-            int i2 = msgUpPicMaxSize.height;
-            int i3 = msgUpPicMaxSize.width;
-            return i2 >= i3 ? i2 : i3;
+            int i = msgUpPicMaxSize.height;
+            int i2 = msgUpPicMaxSize.width;
+            return i >= i2 ? i : i2;
         }
         return invokeV.intValue;
     }

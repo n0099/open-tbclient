@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.Checksum;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PureJavaCrc32 implements Checksum {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] T;
@@ -39,9 +39,9 @@ public class PureJavaCrc32 implements Checksum {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,51 +73,51 @@ public class PureJavaCrc32 implements Checksum {
     }
 
     @Override // java.util.zip.Checksum
-    public void update(byte[] bArr, int i2, int i3) {
+    public void update(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-            int i4 = this.crc;
-            int i5 = i3 & 7;
-            int i6 = (i3 + i2) - i5;
-            while (i2 < i6) {
-                int i7 = i4 ^ ((((bArr[i2] << 24) >>> 24) + ((bArr[i2 + 1] << 24) >>> 16)) + (((bArr[i2 + 2] << 24) >>> 8) + (bArr[i2 + 3] << 24)));
+        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) {
+            int i3 = this.crc;
+            int i4 = i2 & 7;
+            int i5 = (i2 + i) - i4;
+            while (i < i5) {
+                int i6 = i3 ^ ((((bArr[i] << 24) >>> 24) + ((bArr[i + 1] << 24) >>> 16)) + (((bArr[i + 2] << 24) >>> 8) + (bArr[i + 3] << 24)));
                 int[] iArr = T;
-                i4 = ((iArr[(i7 >>> 24) + 1024] ^ iArr[((i7 << 8) >>> 24) + 1280]) ^ (iArr[((i7 << 24) >>> 24) + 1792] ^ iArr[((i7 << 16) >>> 24) + 1536])) ^ ((iArr[(bArr[i2 + 7] << 24) >>> 24] ^ iArr[((bArr[i2 + 6] << 24) >>> 24) + 256]) ^ (iArr[((bArr[i2 + 4] << 24) >>> 24) + 768] ^ iArr[((bArr[i2 + 5] << 24) >>> 24) + 512]));
-                i2 += 8;
+                i3 = ((iArr[(i6 >>> 24) + 1024] ^ iArr[((i6 << 8) >>> 24) + 1280]) ^ (iArr[((i6 << 24) >>> 24) + 1792] ^ iArr[((i6 << 16) >>> 24) + 1536])) ^ ((iArr[(bArr[i + 7] << 24) >>> 24] ^ iArr[((bArr[i + 6] << 24) >>> 24) + 256]) ^ (iArr[((bArr[i + 4] << 24) >>> 24) + 768] ^ iArr[((bArr[i + 5] << 24) >>> 24) + 512]));
+                i += 8;
             }
-            switch (i5) {
+            switch (i4) {
                 case 7:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 6:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 5:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 4:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 3:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 2:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
-                    i2++;
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
+                    i++;
                 case 1:
-                    i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) << 24) >>> 24];
+                    i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) << 24) >>> 24];
                     break;
             }
-            this.crc = i4;
+            this.crc = i3;
         }
     }
 
     @Override // java.util.zip.Checksum
-    public final void update(int i2) {
+    public final void update(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int i3 = this.crc;
-            this.crc = T[((i2 ^ i3) << 24) >>> 24] ^ (i3 >>> 8);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.crc;
+            this.crc = T[((i ^ i2) << 24) >>> 24] ^ (i2 >>> 8);
         }
     }
 }

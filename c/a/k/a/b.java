@@ -14,7 +14,7 @@ public class b extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3877b;
+    public static b f3342b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
@@ -25,9 +25,9 @@ public class b extends ContextWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,10 +42,10 @@ public class b extends ContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f3877b == null) {
-                    f3877b = new b();
+                if (f3342b == null) {
+                    f3342b = new b();
                 }
-                bVar = f3877b;
+                bVar = f3342b;
             }
             return bVar;
         }
@@ -61,14 +61,14 @@ public class b extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i2) {
+    public SharedPreferences getSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
-            if (c.a.k.a.k.d.c(this)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
+            if (c.a.k.a.k.c.c(this)) {
                 return d.a(str, this);
             }
-            return super.getSharedPreferences(str, i2);
+            return super.getSharedPreferences(str, i);
         }
         return (SharedPreferences) invokeLI.objValue;
     }

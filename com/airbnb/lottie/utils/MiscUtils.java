@@ -16,17 +16,17 @@ public class MiscUtils {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
     }
 
-    public static int clamp(int i2, int i3, int i4) {
-        return Math.max(i3, Math.min(i4, i2));
+    public static int clamp(int i, int i2, int i3) {
+        return Math.max(i2, Math.min(i3, i));
     }
 
     public static boolean contains(float f2, float f3, float f4) {
         return f2 >= f3 && f2 <= f4;
     }
 
-    public static int floorDiv(int i2, int i3) {
-        int i4 = i2 / i3;
-        return (((i2 ^ i3) >= 0) || i2 % i3 == 0) ? i4 : i4 - 1;
+    public static int floorDiv(int i, int i2) {
+        int i3 = i / i2;
+        return (((i ^ i2) >= 0) || i % i2 == 0) ? i3 : i3 - 1;
     }
 
     public static int floorMod(float f2, float f3) {
@@ -38,8 +38,8 @@ public class MiscUtils {
         PointF initialPoint = shapeData.getInitialPoint();
         path.moveTo(initialPoint.x, initialPoint.y);
         pathFromDataCurrentPoint.set(initialPoint.x, initialPoint.y);
-        for (int i2 = 0; i2 < shapeData.getCurves().size(); i2++) {
-            CubicCurveData cubicCurveData = shapeData.getCurves().get(i2);
+        for (int i = 0; i < shapeData.getCurves().size(); i++) {
+            CubicCurveData cubicCurveData = shapeData.getCurves().get(i);
             PointF controlPoint1 = cubicCurveData.getControlPoint1();
             PointF controlPoint2 = cubicCurveData.getControlPoint2();
             PointF vertex = cubicCurveData.getVertex();
@@ -63,12 +63,12 @@ public class MiscUtils {
         return f2 + (f4 * (f3 - f2));
     }
 
-    public static int lerp(int i2, int i3, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        return (int) (i2 + (f2 * (i3 - i2)));
+    public static int lerp(int i, int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        return (int) (i + (f2 * (i2 - i)));
     }
 
-    public static void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
-        if (keyPath.fullyResolvesTo(keyPathElementContent.getName(), i2)) {
+    public static void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2, KeyPathElementContent keyPathElementContent) {
+        if (keyPath.fullyResolvesTo(keyPathElementContent.getName(), i)) {
             list.add(keyPath2.addKey(keyPathElementContent.getName()).resolve(keyPathElementContent));
         }
     }
@@ -77,8 +77,8 @@ public class MiscUtils {
         return Math.max(f3, Math.min(f4, f2));
     }
 
-    public static int floorMod(int i2, int i3) {
-        return i2 - (i3 * floorDiv(i2, i3));
+    public static int floorMod(int i, int i2) {
+        return i - (i2 * floorDiv(i, i2));
     }
 
     public static double clamp(double d2, double d3, double d4) {

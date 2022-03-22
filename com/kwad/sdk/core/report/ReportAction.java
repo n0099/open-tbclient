@@ -17,7 +17,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ReportAction extends c {
     public long A;
     public long C;
@@ -83,7 +83,7 @@ public class ReportAction extends c {
     public JSONArray az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f54579b;
+    public transient SceneImpl f39690b;
     public String bA;
     public int bB;
     public int bC;
@@ -124,25 +124,21 @@ public class ReportAction extends c {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f54580c;
+    public transient AdTemplate f39691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f54581d;
+    public long f39692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54582e;
+    public String f39693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f54583f;
+    public long f39694f;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f54585h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f54586i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f54587j;
+    public long f39696h;
+    public long i;
+    public long j;
     public JSONObject k;
     public JSONObject l;
     public long m;
@@ -159,7 +155,7 @@ public class ReportAction extends c {
     public long z;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54584g = -1;
+    public int f39695g = -1;
     public int n = 0;
     public int o = 0;
     public long B = -1;
@@ -181,42 +177,42 @@ public class ReportAction extends c {
     public int ba = 0;
     public int bK = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class LiveLogInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 4898843925487388950L;
         public String liveStreamId;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54588b;
+        public int f39697b;
 
         public static a a() {
             a aVar = new a();
             aVar.a = b.a;
-            aVar.f54588b = b.f54589b;
+            aVar.f39697b = b.f39698b;
             return aVar;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f54589b;
+        public static int f39698b;
     }
 
-    public ReportAction(long j2) {
-        this.f54586i = j2;
+    public ReportAction(long j) {
+        this.i = j;
     }
 
-    public ReportAction(long j2, @NonNull AdTemplate adTemplate) {
-        this.f54586i = j2;
-        this.f54580c = adTemplate;
+    public ReportAction(long j, @NonNull AdTemplate adTemplate) {
+        this.i = j;
+        this.f39691c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -258,23 +254,23 @@ public class ReportAction extends c {
             this.aY = bVar.d();
         }
         this.a = UUID.randomUUID().toString();
-        this.f54581d = System.currentTimeMillis();
-        this.f54582e = n.b();
+        this.f39692d = System.currentTimeMillis();
+        this.f39693e = n.b();
         try {
-            this.f54583f = n.c();
+            this.f39694f = n.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f54585h = n.e();
-        SceneImpl sceneImpl2 = this.f54579b;
+        this.f39696h = n.e();
+        SceneImpl sceneImpl2 = this.f39690b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f54579b = sceneImpl2;
+                this.f39690b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
-                this.f54587j = com.kwad.sdk.core.response.a.d.g(adTemplate);
+                this.j = com.kwad.sdk.core.response.a.d.g(adTemplate);
                 String h2 = com.kwad.sdk.core.response.a.d.h(adTemplate);
                 if (!TextUtils.isEmpty(h2)) {
                     try {
@@ -283,10 +279,10 @@ public class ReportAction extends c {
                         com.kwad.sdk.core.d.a.b(e3);
                     }
                 }
-                String i2 = com.kwad.sdk.core.response.a.d.i(adTemplate);
-                if (!TextUtils.isEmpty(i2)) {
+                String i = com.kwad.sdk.core.response.a.d.i(adTemplate);
+                if (!TextUtils.isEmpty(i)) {
                     try {
-                        this.l = new JSONObject(i2);
+                        this.l = new JSONObject(i);
                     } catch (Exception e4) {
                         com.kwad.sdk.core.d.a.b(e4);
                     }
@@ -295,8 +291,8 @@ public class ReportAction extends c {
                 this.n = com.kwad.sdk.core.response.a.d.f(adTemplate);
                 this.o = adTemplate.realShowType;
                 this.p = com.kwad.sdk.core.response.a.d.p(adTemplate);
-                int i3 = this.o;
-                if (i3 == 1) {
+                int i2 = this.o;
+                if (i2 == 1) {
                     this.s = com.kwad.sdk.core.response.a.f.c(adTemplate.photoInfo).longValue();
                     this.N = com.kwad.sdk.core.response.a.f.h(adTemplate.photoInfo);
                     this.ah = com.kwad.sdk.core.response.a.f.g(adTemplate.photoInfo);
@@ -308,20 +304,20 @@ public class ReportAction extends c {
                     PreloadData preloadData = adTemplate.mPreloadData;
                     this.ay = preloadData != null ? preloadData.isPreload : 0;
                     this.bK = com.kwad.sdk.core.response.a.f.a(adTemplate) ? 1 : 0;
-                } else if (i3 == 2) {
-                    AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-                    this.aF = j2.adBaseInfo.creativeId;
-                    this.s = com.kwad.sdk.core.response.a.a.b(j2) * 1000;
-                    this.N = j2.advertiserInfo.userId;
-                } else if (i3 == 4) {
+                } else if (i2 == 2) {
+                    AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
+                    this.aF = j.adBaseInfo.creativeId;
+                    this.s = com.kwad.sdk.core.response.a.a.b(j) * 1000;
+                    this.N = j.advertiserInfo.userId;
+                } else if (i2 == 4) {
                     LiveInfo r = com.kwad.sdk.core.response.a.d.r(adTemplate);
                     this.aG.liveStreamId = com.kwad.sdk.live.mode.a.a(r);
                     this.N = com.kwad.sdk.live.mode.a.b(r);
-                    if (com.kwad.sdk.b.f54003d.booleanValue()) {
+                    if (com.kwad.sdk.b.f39155d.booleanValue()) {
                         this.bK = 1;
                     }
-                } else if (i3 == 5) {
-                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f54580c));
+                } else if (i2 == 5) {
+                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f39691c));
                 }
                 this.aj = adTemplate.mMediaPlayerType;
                 this.ax = adTemplate.mIsLeftSlipStatus;
@@ -333,13 +329,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.a.d.q(adTemplate);
             }
             this.ai = a.a();
-            if (this.f54579b == null && adTemplate != null) {
-                this.f54579b = adTemplate.mAdScene;
+            if (this.f39690b == null && adTemplate != null) {
+                this.f39690b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f54579b;
+            sceneImpl = this.f39690b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f54579b.getUrlPackage();
+                this.L = this.f39690b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b2 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -351,15 +347,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f54579b.getUrlPackage();
-        this.f54584g = this.f54579b.getAdStyle();
+        this.L = this.f39690b.getUrlPackage();
+        this.f39695g = this.f39690b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f54579b == null) {
-            this.f54579b = adTemplate.mAdScene;
+        if (this.f39690b == null) {
+            this.f39690b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f54579b;
+        sceneImpl = this.f39690b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -373,7 +369,7 @@ public class ReportAction extends c {
             return;
         }
         this.ak = 3;
-        this.f54584g = jSONObject.optInt("adStyle", -1);
+        this.f39695g = jSONObject.optInt("adStyle", -1);
         this.as = jSONObject.optInt("adHorizontalFeedType");
         this.at = jSONObject.optInt("videoPlayMode");
         this.au = jSONObject.optInt("autoReplayTimes");
@@ -398,62 +394,62 @@ public class ReportAction extends c {
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
         t.a(jSONObject, "actionId", this.a);
-        int i2 = this.f54584g;
-        if (i2 > 0) {
-            t.a(jSONObject, "adStyle", i2);
+        int i = this.f39695g;
+        if (i > 0) {
+            t.a(jSONObject, "adStyle", i);
         }
-        int i3 = this.V;
+        int i2 = this.V;
+        if (i2 != -1) {
+            t.a(jSONObject, "reportType", i2);
+        }
+        int i3 = this.I;
         if (i3 != -1) {
-            t.a(jSONObject, "reportType", i3);
+            t.a(jSONObject, "playerControlledType", i3);
         }
-        int i4 = this.I;
-        if (i4 != -1) {
-            t.a(jSONObject, "playerControlledType", i4);
+        int i4 = this.aJ;
+        if (i4 > 0) {
+            t.a(jSONObject, "num", i4);
         }
-        int i5 = this.aJ;
-        if (i5 > 0) {
-            t.a(jSONObject, "num", i5);
+        int i5 = this.aI;
+        if (i5 != 0) {
+            t.a(jSONObject, "state", i5);
         }
-        int i6 = this.aI;
-        if (i6 != 0) {
-            t.a(jSONObject, "state", i6);
+        long j = this.aq;
+        if (j != -1) {
+            t.a(jSONObject, "relatedFromPhotoId", j);
         }
-        long j2 = this.aq;
+        long j2 = this.ar;
         if (j2 != -1) {
-            t.a(jSONObject, "relatedFromPhotoId", j2);
+            t.a(jSONObject, "relatedContentSourceType", j2);
         }
-        long j3 = this.ar;
-        if (j3 != -1) {
-            t.a(jSONObject, "relatedContentSourceType", j3);
+        int i6 = this.av;
+        if (i6 != -1) {
+            t.a(jSONObject, "hotCompType", i6);
         }
-        int i7 = this.av;
-        if (i7 != -1) {
-            t.a(jSONObject, "hotCompType", i7);
+        long j3 = this.aU;
+        if (j3 > 0) {
+            t.a(jSONObject, "timeSpend", j3);
         }
-        long j4 = this.aU;
+        long j4 = this.bq;
         if (j4 > 0) {
-            t.a(jSONObject, "timeSpend", j4);
+            t.a(jSONObject, "loadingDuration", j4);
         }
-        long j5 = this.bq;
+        long j5 = this.br;
         if (j5 > 0) {
-            t.a(jSONObject, "loadingDuration", j5);
-        }
-        long j6 = this.br;
-        if (j6 > 0) {
-            t.a(jSONObject, "loadingDurationLimt", j6);
+            t.a(jSONObject, "loadingDurationLimt", j5);
         }
         t.a(jSONObject, "adHorizontalFeedType", this.as);
         t.a(jSONObject, "videoPlayMode", this.at);
         t.a(jSONObject, "autoReplayTimes", this.au);
         t.a(jSONObject, "playerTypeInfo", this.aZ);
-        int i8 = this.bK;
-        if (i8 > 0) {
-            t.a(jSONObject, "adBizType", i8);
+        int i7 = this.bK;
+        if (i7 > 0) {
+            t.a(jSONObject, "adBizType", i7);
         }
     }
 
     public ReportAction b() {
-        a(this.f54580c);
+        a(this.f39691c);
         return this;
     }
 

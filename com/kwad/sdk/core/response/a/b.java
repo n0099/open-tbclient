@@ -10,17 +10,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.at;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static Random a = new Random();
 
     public static int a(@NonNull AdInfo adInfo) {
         try {
-            int i2 = adInfo.adMatrixInfo.adDataV2.splashInfo.interactionInfo.shakeInfo.componentIndex;
-            if (i2 == 0) {
+            int i = adInfo.adMatrixInfo.adDataV2.splashInfo.interactionInfo.shakeInfo.componentIndex;
+            if (i == 0) {
                 return a.nextBoolean() ? 1 : 2;
             }
-            return i2;
+            return i;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
             return 1;
@@ -43,9 +43,9 @@ public class b {
     }
 
     public static boolean a(@NonNull Context context, @NonNull AdTemplate adTemplate) {
-        AdInfo j2 = d.j(adTemplate);
-        if (a.U(j2)) {
-            return af.e(context) ? !a.g(j2) : a.g(j2);
+        AdInfo j = d.j(adTemplate);
+        if (a.U(j)) {
+            return af.e(context) ? !a.g(j) : a.g(j);
         }
         return false;
     }
@@ -112,8 +112,8 @@ public class b {
         }
         int adStyle = adTemplate.mAdScene.getAdStyle();
         if (adStyle == 1 || adStyle == 3 || adStyle == 2) {
-            AdInfo j2 = d.j(adTemplate);
-            return a.C(j2) && a.B(j2);
+            AdInfo j = d.j(adTemplate);
+            return a.C(j) && a.B(j);
         }
         return false;
     }
@@ -139,14 +139,14 @@ public class b {
     }
 
     public static float o(@NonNull AdTemplate adTemplate) {
-        int i2;
+        int i;
         try {
-            i2 = d.j(adTemplate).adMatrixInfo.adDataV2.splashInfo.interactionInfo.shakeInfo.acceleration;
+            i = d.j(adTemplate).adMatrixInfo.adDataV2.splashInfo.interactionInfo.shakeInfo.acceleration;
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
-            i2 = 7;
+            i = 7;
         }
-        return i2;
+        return i;
     }
 
     @NonNull

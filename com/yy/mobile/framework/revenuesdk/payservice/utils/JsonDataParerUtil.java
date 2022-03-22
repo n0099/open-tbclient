@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JsonDataParerUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -23,9 +24,9 @@ public class JsonDataParerUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -154,7 +155,7 @@ public class JsonDataParerUtil {
             String str2 = "";
             if (str != null) {
                 try {
-                    String string = new JSONObject(str).getString("productId");
+                    String string = new JSONObject(str).getString(AdUploadHttpRequest.KEY_PRODUCT_ID);
                     if (string != null) {
                         str2 = string;
                     }
@@ -178,7 +179,7 @@ public class JsonDataParerUtil {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                if (str == new JSONObject(purchaseInfo.data).optString("productId")) {
+                if (str == new JSONObject(purchaseInfo.data).optString(AdUploadHttpRequest.KEY_PRODUCT_ID)) {
                     return purchaseInfo;
                 }
             }
@@ -189,22 +190,22 @@ public class JsonDataParerUtil {
 
     public static long getPurchaseTime(String str) {
         InterceptResult invokeL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (str != null) {
                 try {
-                    j2 = new JSONObject(str).getLong("purchaseTime");
+                    j = new JSONObject(str).getLong("purchaseTime");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     RLog.error("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser fail --getPurchaseTime--PayCallbackProxy data =%s , Exception =%s", str, e2.getMessage()), new Object[0]);
                 }
-                RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j2)));
-                return j2;
+                RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
+                return j;
             }
-            j2 = 0;
-            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j2)));
-            return j2;
+            j = 0;
+            RLog.info("AppPayServiceImpl", String.format(Locale.ENGLISH, "data parser success ---PayCallbackProxy data =%s , purchaseTime =%s", str, Long.valueOf(j)));
+            return j;
         }
         return invokeL.longValue;
     }

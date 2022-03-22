@@ -52,14 +52,14 @@ public class KsFragmentActivity extends FragmentActivity {
 
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
-    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2) {
-        super.startActivityFromFragment(fragment, intent, i2);
+    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i) {
+        super.startActivityFromFragment(fragment, intent, i);
     }
 
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
-    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2, @Nullable Bundle bundle) {
-        super.startActivityFromFragment(fragment, intent, i2, bundle);
+    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
+        super.startActivityFromFragment(fragment, intent, i, bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity

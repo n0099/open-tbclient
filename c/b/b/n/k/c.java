@@ -17,31 +17,27 @@ public class c {
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27268b;
+    public int f22510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27269c;
+    public int f22511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27270d;
+    public int f22512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27271e;
+    public int f22513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27272f;
+    public int f22514f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27273g;
+    public int f22515g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27274h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f27275i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f27276j;
+    public int f22516h;
+    public int i;
+    public int j;
     public float k;
     public float l;
     public float m;
@@ -70,65 +66,65 @@ public class c {
         }
     }
 
-    public c(i iVar, int i2, int i3, int i4, int i5) {
+    public c(i iVar, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {iVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {iVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27219e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f22468e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
         this.w = -1.0f;
         if (iVar != null) {
-            int c2 = (iVar.c() - i2) - i3;
-            int b2 = (iVar.b() - i4) - i5;
+            int c2 = (iVar.c() - i) - i2;
+            int b2 = (iVar.b() - i3) - i4;
             i[] iVarArr = new i[9];
-            if (i4 > 0) {
-                if (i2 > 0) {
-                    iVarArr[0] = new i(iVar, 0, 0, i2, i4);
+            if (i3 > 0) {
+                if (i > 0) {
+                    iVarArr[0] = new i(iVar, 0, 0, i, i3);
                 }
                 if (c2 > 0) {
-                    iVarArr[1] = new i(iVar, i2, 0, c2, i4);
+                    iVarArr[1] = new i(iVar, i, 0, c2, i3);
                 }
-                if (i3 > 0) {
-                    iVarArr[2] = new i(iVar, i2 + c2, 0, i3, i4);
+                if (i2 > 0) {
+                    iVarArr[2] = new i(iVar, i + c2, 0, i2, i3);
                 }
             }
             if (b2 > 0) {
-                if (i2 > 0) {
-                    iVarArr[3] = new i(iVar, 0, i4, i2, b2);
+                if (i > 0) {
+                    iVarArr[3] = new i(iVar, 0, i3, i, b2);
                 }
                 if (c2 > 0) {
-                    iVarArr[4] = new i(iVar, i2, i4, c2, b2);
+                    iVarArr[4] = new i(iVar, i, i3, c2, b2);
                 }
-                if (i3 > 0) {
-                    iVarArr[5] = new i(iVar, i2 + c2, i4, i3, b2);
+                if (i2 > 0) {
+                    iVarArr[5] = new i(iVar, i + c2, i3, i2, b2);
                 }
             }
-            if (i5 > 0) {
-                if (i2 > 0) {
-                    iVarArr[6] = new i(iVar, 0, i4 + b2, i2, i5);
+            if (i4 > 0) {
+                if (i > 0) {
+                    iVarArr[6] = new i(iVar, 0, i3 + b2, i, i4);
                 }
                 if (c2 > 0) {
-                    iVarArr[7] = new i(iVar, i2, i4 + b2, c2, i5);
+                    iVarArr[7] = new i(iVar, i, i3 + b2, c2, i4);
                 }
-                if (i3 > 0) {
-                    iVarArr[8] = new i(iVar, i2 + c2, i4 + b2, i3, i5);
+                if (i2 > 0) {
+                    iVarArr[8] = new i(iVar, i + c2, i3 + b2, i2, i4);
                 }
             }
-            if (i2 == 0 && c2 == 0) {
+            if (i == 0 && c2 == 0) {
                 iVarArr[1] = iVarArr[2];
                 iVarArr[4] = iVarArr[5];
                 iVarArr[7] = iVarArr[8];
@@ -136,7 +132,7 @@ public class c {
                 iVarArr[5] = null;
                 iVarArr[8] = null;
             }
-            if (i4 == 0 && b2 == 0) {
+            if (i3 == 0 && b2 == 0) {
                 iVarArr[3] = iVarArr[6];
                 iVarArr[4] = iVarArr[7];
                 iVarArr[5] = iVarArr[8];
@@ -160,10 +156,10 @@ public class c {
             } else if (texture != iVar.f()) {
                 throw new IllegalArgumentException("All regions must be from the same texture.");
             }
-            float f2 = iVar.f27312b;
-            float f3 = iVar.f27315e;
-            float f4 = iVar.f27314d;
-            float f5 = iVar.f27313c;
+            float f2 = iVar.f22542b;
+            float f3 = iVar.f22545e;
+            float f4 = iVar.f22544d;
+            float f5 = iVar.f22543c;
             if (this.a.f() == Texture.TextureFilter.Linear || this.a.h() == Texture.TextureFilter.Linear) {
                 if (z) {
                     float x = 0.5f / this.a.x();
@@ -177,17 +173,17 @@ public class c {
                 }
             }
             float[] fArr = this.q;
-            int i2 = this.r;
-            fArr[i2 + 3] = f2;
-            fArr[i2 + 4] = f3;
-            fArr[i2 + 8] = f2;
-            fArr[i2 + 9] = f5;
-            fArr[i2 + 13] = f4;
-            fArr[i2 + 14] = f5;
-            fArr[i2 + 18] = f4;
-            fArr[i2 + 19] = f3;
-            this.r = i2 + 20;
-            return i2;
+            int i = this.r;
+            fArr[i + 3] = f2;
+            fArr[i + 4] = f3;
+            fArr[i + 8] = f2;
+            fArr[i + 9] = f5;
+            fArr[i + 13] = f4;
+            fArr[i + 14] = f5;
+            fArr[i + 18] = f4;
+            fArr[i + 19] = f3;
+            this.r = i + 20;
+            return i;
         }
         return invokeCommon.intValue;
     }
@@ -272,73 +268,73 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, iVarArr) == null) {
             if (iVarArr[6] != null) {
-                this.f27268b = a(iVarArr[6], false, false);
+                this.f22510b = a(iVarArr[6], false, false);
                 this.k = iVarArr[6].c();
                 this.p = iVarArr[6].b();
             } else {
-                this.f27268b = -1;
+                this.f22510b = -1;
             }
             if (iVarArr[7] != null) {
-                this.f27269c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
+                this.f22511c = a(iVarArr[7], (iVarArr[6] == null && iVarArr[8] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[7].c());
                 this.p = Math.max(this.p, iVarArr[7].b());
             } else {
-                this.f27269c = -1;
+                this.f22511c = -1;
             }
             if (iVarArr[8] != null) {
-                this.f27270d = a(iVarArr[8], false, false);
+                this.f22512d = a(iVarArr[8], false, false);
                 this.l = Math.max(this.l, iVarArr[8].c());
                 this.p = Math.max(this.p, iVarArr[8].b());
             } else {
-                this.f27270d = -1;
+                this.f22512d = -1;
             }
             if (iVarArr[3] != null) {
-                this.f27271e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
+                this.f22513e = a(iVarArr[3], false, (iVarArr[0] == null && iVarArr[6] == null) ? false : true);
                 this.k = Math.max(this.k, iVarArr[3].c());
                 this.n = Math.max(this.n, iVarArr[3].b());
             } else {
-                this.f27271e = -1;
+                this.f22513e = -1;
             }
             if (iVarArr[4] != null) {
-                this.f27272f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
+                this.f22514f = a(iVarArr[4], (iVarArr[3] == null && iVarArr[5] == null) ? false : true, (iVarArr[1] == null && iVarArr[7] == null) ? false : true);
                 this.m = Math.max(this.m, iVarArr[4].c());
                 this.n = Math.max(this.n, iVarArr[4].b());
             } else {
-                this.f27272f = -1;
+                this.f22514f = -1;
             }
             if (iVarArr[5] != null) {
-                this.f27273g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
+                this.f22515g = a(iVarArr[5], false, (iVarArr[2] == null && iVarArr[8] == null) ? false : true);
                 this.l = Math.max(this.l, iVarArr[5].c());
                 this.n = Math.max(this.n, iVarArr[5].b());
             } else {
-                this.f27273g = -1;
+                this.f22515g = -1;
             }
             if (iVarArr[0] != null) {
-                this.f27274h = a(iVarArr[0], false, false);
+                this.f22516h = a(iVarArr[0], false, false);
                 this.k = Math.max(this.k, iVarArr[0].c());
                 this.o = Math.max(this.o, iVarArr[0].b());
             } else {
-                this.f27274h = -1;
+                this.f22516h = -1;
             }
             if (iVarArr[1] != null) {
-                this.f27275i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
+                this.i = a(iVarArr[1], (iVarArr[0] == null && iVarArr[2] == null) ? false : true, false);
                 this.m = Math.max(this.m, iVarArr[1].c());
                 this.o = Math.max(this.o, iVarArr[1].b());
             } else {
-                this.f27275i = -1;
+                this.i = -1;
             }
             if (iVarArr[2] != null) {
-                this.f27276j = a(iVarArr[2], false, false);
+                this.j = a(iVarArr[2], false, false);
                 this.l = Math.max(this.l, iVarArr[2].c());
                 this.o = Math.max(this.o, iVarArr[2].b());
             } else {
-                this.f27276j = -1;
+                this.j = -1;
             }
-            int i2 = this.r;
+            int i = this.r;
             float[] fArr = this.q;
-            if (i2 < fArr.length) {
-                float[] fArr2 = new float[i2];
-                System.arraycopy(fArr, 0, fArr2, 0, i2);
+            if (i < fArr.length) {
+                float[] fArr2 = new float[i];
+                System.arraycopy(fArr, 0, fArr2, 0, i);
                 this.q = fArr2;
             }
         }
@@ -389,16 +385,16 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {iVar};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27219e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f22468e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
@@ -413,30 +409,30 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.q = new float[180];
-        this.s = new c.b.b.n.a(c.b.b.n.a.f27219e);
+        this.s = new c.b.b.n.a(c.b.b.n.a.f22468e);
         this.t = -1.0f;
         this.u = -1.0f;
         this.v = -1.0f;
         this.w = -1.0f;
         this.a = cVar.a;
-        this.f27268b = cVar.f27268b;
-        this.f27269c = cVar.f27269c;
-        this.f27270d = cVar.f27270d;
-        this.f27271e = cVar.f27271e;
-        this.f27272f = cVar.f27272f;
-        this.f27273g = cVar.f27273g;
-        this.f27274h = cVar.f27274h;
-        this.f27275i = cVar.f27275i;
-        this.f27276j = cVar.f27276j;
+        this.f22510b = cVar.f22510b;
+        this.f22511c = cVar.f22511c;
+        this.f22512d = cVar.f22512d;
+        this.f22513e = cVar.f22513e;
+        this.f22514f = cVar.f22514f;
+        this.f22515g = cVar.f22515g;
+        this.f22516h = cVar.f22516h;
+        this.i = cVar.i;
+        this.j = cVar.j;
         this.k = cVar.k;
         this.l = cVar.l;
         this.m = cVar.m;

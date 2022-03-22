@@ -1,5 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.util;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,9 +20,9 @@ public class c extends HttpClient.ProtoResultCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {customMapStyleLoader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,8 +35,8 @@ public class c extends HttpClient.ProtoResultCallback {
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            String unused = CustomMapStyleLoader.a;
-            String str = "sendRequest onFailed error = " + httpStateError;
+            String str = CustomMapStyleLoader.a;
+            Log.e(str, "sendRequest onFailed error = " + httpStateError);
         }
     }
 

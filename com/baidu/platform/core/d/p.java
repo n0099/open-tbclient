@@ -1,7 +1,9 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,9 +22,9 @@ public class p extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {walkingRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,16 +38,16 @@ public class p extends com.baidu.platform.base.e {
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
             this.a.a("qt", "walk2");
             this.a.a("sn", a(walkingRoutePlanOption.mFrom));
-            this.a.a(com.baidu.fsg.base.statistics.h.a, a(walkingRoutePlanOption.mTo));
+            this.a.a("en", a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {
-                this.a.a("sc", planNode.getCity());
+                this.a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
             }
             PlanNode planNode2 = walkingRoutePlanOption.mTo;
             if (planNode2 != null) {
                 this.a.a("ec", planNode2.getCity());
             }
-            this.a.a("ie", "utf-8");
+            this.a.a("ie", IMAudioTransRequest.CHARSET);
             this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "3");
             this.a.a("rp_format", "json");

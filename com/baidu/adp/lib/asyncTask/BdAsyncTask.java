@@ -74,16 +74,16 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             $VALUES = new BdAsyncTaskStatus[]{PENDING, RUNNING, bdAsyncTaskStatus};
         }
 
-        public BdAsyncTaskStatus(String str, int i2) {
+        public BdAsyncTaskStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -111,8 +111,8 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdAsyncTask f29802f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdAsyncTask f23814b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdAsyncTask bdAsyncTask) {
@@ -123,16 +123,16 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdAsyncTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29802f = bdAsyncTask;
+            this.f23814b = bdAsyncTask;
         }
 
         @Override // java.util.concurrent.Callable
@@ -140,11 +140,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f29802f.mFuture.isCancelled()) {
-                    return (Result) this.f29802f.postResult(null);
+                if (this.f23814b.mFuture.isCancelled()) {
+                    return (Result) this.f23814b.postResult(null);
                 }
-                BdAsyncTask bdAsyncTask = this.f29802f;
-                return (Result) bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.f29805e));
+                BdAsyncTask bdAsyncTask = this.f23814b;
+                return (Result) bdAsyncTask.postResult(bdAsyncTask.doInBackground(this.a));
             }
             return (Result) invokeV.objValue;
         }
@@ -155,8 +155,8 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdAsyncTask f29803f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdAsyncTask f23815b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(BdAsyncTask bdAsyncTask, Callable callable, BdAsyncTask bdAsyncTask2) {
@@ -167,9 +167,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdAsyncTask, callable, bdAsyncTask2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Callable) objArr2[0], (BdAsyncTask) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -177,14 +177,14 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                     return;
                 }
             }
-            this.f29803f = bdAsyncTask;
+            this.f23815b = bdAsyncTask;
         }
 
         @Override // c.a.d.f.c.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29803f.cancel();
+                this.f23815b.cancel();
             }
         }
 
@@ -193,12 +193,12 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f29803f.postResult(get());
+                    this.f23815b.postResult(get());
                 } catch (InterruptedException unused) {
                 } catch (CancellationException unused2) {
-                    this.f29803f.postResult(null);
+                    this.f23815b.postResult(null);
                 } catch (ExecutionException e2) {
-                    this.f29803f.postResult(null);
+                    this.f23815b.postResult(null);
                     if (BdBaseApplication.getInst().isDebugMode()) {
                         throw new RuntimeException("An error occured while executing doInBackground()", e2);
                     }
@@ -248,7 +248,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         public final BdAsyncTask a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Data[] f29804b;
+        public final Data[] f23816b;
 
         public d(BdAsyncTask bdAsyncTask, Data... dataArr) {
             Interceptable interceptable = $ic;
@@ -257,16 +257,16 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdAsyncTask, dataArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = bdAsyncTask;
-            this.f29804b = dataArr;
+            this.f23816b = dataArr;
         }
     }
 
@@ -284,9 +284,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -300,12 +300,12 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 d dVar = (d) message.obj;
-                int i2 = message.what;
-                if (i2 == 1) {
-                    dVar.a.finish(dVar.f29804b[0]);
-                } else if (i2 != 2) {
+                int i = message.what;
+                if (i == 1) {
+                    dVar.a.finish(dVar.f23816b[0]);
+                } else if (i != 2) {
                 } else {
-                    dVar.a.onProgressUpdate(dVar.f29804b);
+                    dVar.a.onProgressUpdate(dVar.f23816b);
                 }
             }
         }
@@ -315,18 +315,16 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public static abstract class f<Params, Result> implements Callable<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Params[] f29805e;
+        public Params[] a;
 
         public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -360,9 +358,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -473,17 +471,17 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, executor, paramsArr)) == null) {
             synchronized (this) {
                 if (this.mStatus != BdAsyncTaskStatus.PENDING) {
-                    int i2 = c.a[this.mStatus.ordinal()];
-                    if (i2 == 1) {
+                    int i = c.a[this.mStatus.ordinal()];
+                    if (i == 1) {
                         throw new IllegalStateException("Cannot execute task: the task is already running.");
                     }
-                    if (i2 == 2) {
+                    if (i == 2) {
                         throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
                     }
                 }
                 this.mStatus = BdAsyncTaskStatus.RUNNING;
                 onPreExecute();
-                this.mWorker.f29805e = paramsArr;
+                this.mWorker.a = paramsArr;
                 executor.execute(this.mFuture);
             }
             return this;
@@ -621,20 +619,20 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         }
     }
 
-    public synchronized int setPriority(int i2) {
+    public synchronized int setPriority(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
             synchronized (this) {
                 if (this.mStatus == BdAsyncTaskStatus.PENDING) {
-                    i3 = this.mPriority;
-                    this.mPriority = i2;
+                    i2 = this.mPriority;
+                    this.mPriority = i;
                 } else {
                     throw new IllegalStateException("the task is already running");
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -654,12 +652,12 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public synchronized int setTag(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, bdUniqueId)) == null) {
             synchronized (this) {
                 if (this.mStatus == BdAsyncTaskStatus.PENDING) {
-                    i2 = this.mTag;
+                    i = this.mTag;
                     if (bdUniqueId != null) {
                         this.mTag = bdUniqueId.getId();
                     }
@@ -667,7 +665,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
                     throw new IllegalStateException("the task is already running");
                 }
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -732,9 +730,9 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         return invokeZ.booleanValue;
     }
 
-    public final Result get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public final Result get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) ? this.mFuture.get(j2, timeUnit) : (Result) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) ? this.mFuture.get(j, timeUnit) : (Result) invokeJL.objValue;
     }
 }

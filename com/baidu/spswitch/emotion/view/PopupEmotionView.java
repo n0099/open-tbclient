@@ -38,9 +38,9 @@ public class PopupEmotionView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,11 +70,11 @@ public class PopupEmotionView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mCtx = context;
             setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
-            setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));
+            setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804cb));
             setPadding(0, 0, 0, 0);
-            LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.icon);
-            this.mText = (TextView) findViewById(R.id.text);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) this, true);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
         }
     }
 
@@ -85,7 +85,7 @@ public class PopupEmotionView extends FrameLayout {
             return;
         }
         textView.setText(filter(str));
-        this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.GC4));
+        this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f06022a));
         this.mIcon.setImageBitmap(bitmap);
     }
 
@@ -98,9 +98,9 @@ public class PopupEmotionView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -112,17 +112,17 @@ public class PopupEmotionView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

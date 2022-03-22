@@ -1,7 +1,8 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
-import c.a.r0.a0.f.g.c.d;
+import c.a.p0.c0.f.g.c.d;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,9 +29,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,18 +44,18 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 this.hasMore = jSONObject.optInt("has_more") == 1;
-                this.pn = jSONObject.optInt("pn");
+                this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
                 this.totalFollowCount = jSONObject.optInt("total_follow_num");
                 JSONArray optJSONArray = jSONObject.optJSONArray("follow_list");
                 if (optJSONArray != null) {
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i3);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i2);
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
@@ -66,8 +67,8 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("recommend_list");
                 if (optJSONArray2 != null) {
-                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                        JSONObject jSONObject3 = (JSONObject) optJSONArray2.get(i4);
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        JSONObject jSONObject3 = (JSONObject) optJSONArray2.get(i3);
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {

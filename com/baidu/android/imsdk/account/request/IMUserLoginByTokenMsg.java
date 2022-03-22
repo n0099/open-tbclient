@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.alipay.sdk.data.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -65,9 +65,9 @@ public class IMUserLoginByTokenMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, Boolean.valueOf(z), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -128,7 +128,7 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject.put("app_open_type", AccountManagerImpl.getInstance(this.mContext).getAppOpenType());
                 jSONObject.put("client_identifier", AccountManagerImpl.getInstance(this.mContext).getExtraSafeParams());
                 jSONObject.put("tail", this.mTail);
-                jSONObject.put(a.O, this.mTimeout);
+                jSONObject.put("timeout", this.mTimeout);
                 if (!TextUtils.isEmpty(Utility.getLoginCookie(this.mContext))) {
                     jSONObject.put("cookie", Utility.getLoginCookie(this.mContext));
                 }
@@ -152,16 +152,16 @@ public class IMUserLoginByTokenMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i2 + " msg:" + str);
-            if (i2 == 410) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            LogUtils.d(this.TAG, "handleLoginMsg errCode: " + i + " msg:" + str);
+            if (i == 410) {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
             String str2 = "-1";
-            if (i2 == 0) {
+            if (i == 0) {
                 try {
                     Utility.writeLoginFlag(this.mContext, "17Y", "Read LoginMsg response");
                     sRetrytimes = 0;
@@ -185,49 +185,49 @@ public class IMUserLoginByTokenMsg extends Message {
                     Utility.setUploadIMTrack(this.mContext, jSONObject.optInt("client_upload_log_switch", 1));
                     JSONArray optJSONArray = jSONObject.optJSONArray("log_switch");
                     if (optJSONArray != null) {
-                        int i3 = 0;
+                        int i2 = 0;
                         while (true) {
-                            if (i3 < optJSONArray.length()) {
-                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                            if (i2 < optJSONArray.length()) {
+                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                                 if (jSONObject2 != null && jSONObject2.optInt("id", -1) == 501100) {
                                     Utility.setUploadIMInitTrack(this.mContext, jSONObject2.optInt("switch", 0));
                                     break;
                                 }
-                                i3++;
+                                i2++;
                             } else {
                                 break;
                             }
                         }
                     }
-                    if (!c.a.t.a.f25914e) {
+                    if (!a.f21228e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e2) {
                     LogUtils.e(this.TAG, "handle login msg exception :", e2);
                 }
-            } else if (110 != i2 && 7 != i2 && 23 != i2) {
+            } else if (110 != i && 7 != i && 23 != i) {
                 sRetrytimes++;
             } else {
                 Utility.logout(this.mContext, null);
                 sRetrytimes = 0;
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i2, str, this.mIsInternalLogin);
-            new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i2).aliasId(501101L).build();
+            super.handleMessageResult(context, jSONObject, i, str);
+            AccountManagerImpl.getInstance(this.mContext).onLoginResult(getListenerKey(), i, str, this.mIsInternalLogin);
+            new IMTrack.RequestBuilder(this.mContext).method(String.valueOf(AccountManagerImpl.getInstance(context).getAppOpenType())).requestId(str2).requestTime(Utility.getLoginCallTime(this.mContext)).responseTime(currentTimeMillis).errorCode(i).aliasId(501101L).build();
         }
     }
 
-    public void setTail(long j2) {
+    public void setTail(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.mTail = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.mTail = j;
         }
     }
 
-    public void setTimeout(long j2) {
+    public void setTimeout(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mTimeout = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mTimeout = j;
         }
     }
 }

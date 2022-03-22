@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class FetchLogBean {
     public static /* synthetic */ Interceptable $ic;
@@ -23,16 +22,16 @@ public class FetchLogBean {
     public String mType;
     public String mVersion;
 
-    public FetchLogBean(String str, String str2, String str3, long j2, long j3, long j4, long j5, ArrayList<String> arrayList, String str4) {
+    public FetchLogBean(String str, String str2, String str3, long j, long j2, long j3, long j4, ArrayList<String> arrayList, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), arrayList, str4};
+            Object[] objArr = {str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), arrayList, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,10 +40,10 @@ public class FetchLogBean {
         this.mJobId = str;
         this.mType = str2;
         this.mVersion = str3;
-        this.mExpiredTime = j2;
-        this.mStartTime = j3;
-        this.mEndTime = j4;
-        this.mMaxSizeLimit = j5;
+        this.mExpiredTime = j;
+        this.mStartTime = j2;
+        this.mEndTime = j3;
+        this.mMaxSizeLimit = j4;
         this.mSpace = arrayList;
         this.mNetwork = str4;
     }
@@ -103,17 +102,17 @@ public class FetchLogBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mVersion : (String) invokeV.objValue;
     }
 
-    public void setEndTime(long j2) {
+    public void setEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.mEndTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.mEndTime = j;
         }
     }
 
-    public void setExpiredTime(long j2) {
+    public void setExpiredTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.mExpiredTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.mExpiredTime = j;
         }
     }
 
@@ -124,10 +123,10 @@ public class FetchLogBean {
         }
     }
 
-    public void setMaxSizeLimit(long j2) {
+    public void setMaxSizeLimit(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.mMaxSizeLimit = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.mMaxSizeLimit = j;
         }
     }
 
@@ -145,10 +144,10 @@ public class FetchLogBean {
         }
     }
 
-    public void setStartTime(long j2) {
+    public void setStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mStartTime = j;
         }
     }
 
@@ -170,7 +169,7 @@ public class FetchLogBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "FetchLogBean{mJobId='" + this.mJobId + ExtendedMessageFormat.QUOTE + ", mType='" + this.mType + ExtendedMessageFormat.QUOTE + ", mVersion='" + this.mVersion + ExtendedMessageFormat.QUOTE + ", mExpiredTime=" + this.mExpiredTime + ", mStartTime=" + this.mStartTime + ", mEndTime=" + this.mEndTime + ", maxSizeLimit=" + this.mMaxSizeLimit + ", mSpace=" + this.mSpace + ", network='" + this.mNetwork + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "FetchLogBean{mJobId='" + this.mJobId + "', mType='" + this.mType + "', mVersion='" + this.mVersion + "', mExpiredTime=" + this.mExpiredTime + ", mStartTime=" + this.mStartTime + ", mEndTime=" + this.mEndTime + ", maxSizeLimit=" + this.mMaxSizeLimit + ", mSpace=" + this.mSpace + ", network='" + this.mNetwork + "'}";
         }
         return (String) invokeV.objValue;
     }

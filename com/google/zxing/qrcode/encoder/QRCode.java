@@ -26,9 +26,9 @@ public final class QRCode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,10 +37,10 @@ public final class QRCode {
         this.maskPattern = -1;
     }
 
-    public static boolean isValidMaskPattern(int i2) {
+    public static boolean isValidMaskPattern(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 >= 0 && i2 < 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 0 && i < 8 : invokeI.booleanValue;
     }
 
     public ErrorCorrectionLevel getECLevel() {
@@ -80,10 +80,10 @@ public final class QRCode {
         }
     }
 
-    public void setMaskPattern(int i2) {
+    public void setMaskPattern(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.maskPattern = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.maskPattern = i;
         }
     }
 

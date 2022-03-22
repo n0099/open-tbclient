@@ -1,17 +1,18 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
+import com.baidu.searchbox.aperf.bosuploader.FileUtil;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static void a(String str, String str2) {
         try {
             new File(str2).mkdirs();
             String[] list = new File(str).list();
-            for (int i2 = 0; i2 < list.length; i2++) {
-                File file = str.endsWith(File.separator) ? new File(str + list[i2]) : new File(str + File.separator + list[i2]);
+            for (int i = 0; i < list.length; i++) {
+                File file = str.endsWith(File.separator) ? new File(str + list[i]) : new File(str + File.separator + list[i]);
                 if (file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     FileOutputStream fileOutputStream = new FileOutputStream(str2 + "/" + file.getName().toString());
@@ -27,7 +28,7 @@ public class a {
                     fileOutputStream.close();
                     fileInputStream.close();
                 } else if (file.isDirectory()) {
-                    a(str + "/" + list[i2], str2 + "/" + list[i2]);
+                    a(str + "/" + list[i], str2 + "/" + list[i]);
                 }
             }
         } catch (Exception e2) {
@@ -51,14 +52,14 @@ public class a {
         if (file.exists() && file.isDirectory()) {
             File[] listFiles = file.listFiles();
             boolean z = true;
-            for (int i2 = 0; i2 < listFiles.length; i2++) {
-                if (listFiles[i2].isFile()) {
-                    z = a(listFiles[i2].getAbsolutePath());
+            for (int i = 0; i < listFiles.length; i++) {
+                if (listFiles[i].isFile()) {
+                    z = a(listFiles[i].getAbsolutePath());
                     if (!z) {
                         break;
                     }
                 } else {
-                    z = b(listFiles[i2].getAbsolutePath());
+                    z = b(listFiles[i].getAbsolutePath());
                     if (!z) {
                         break;
                     }
@@ -80,7 +81,7 @@ public class a {
                 try {
                     return Long.valueOf(str2).longValue() > Long.valueOf(file2.getName().split("-")[1]).longValue();
                 } catch (Exception e2) {
-                    c.k.a.a.a.b("FileUtil", "filters file error " + e2.getMessage());
+                    c.h.a.a.a.b(FileUtil.TAG, "filters file error " + e2.getMessage());
                     return true;
                 }
             }

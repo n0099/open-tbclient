@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,9 +44,9 @@ public class NinePatchChunk implements Externalizable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,10 +71,10 @@ public class NinePatchChunk implements Externalizable {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, bitmap, str)) == null) ? BitmapType.getNinePatchDrawable(context.getResources(), bitmap, str) : (NinePatchDrawable) invokeLLL.objValue;
     }
 
-    public static NinePatchDrawable create9PatchDrawable(Context context, InputStream inputStream, int i2, String str) {
+    public static NinePatchDrawable create9PatchDrawable(Context context, InputStream inputStream, int i, String str) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65539, null, context, inputStream, i2, str)) == null) ? createChunkFromRawBitmap(context, inputStream, i2).getNinePatchDrawable(context.getResources(), str) : (NinePatchDrawable) invokeLLIL.objValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65539, null, context, inputStream, i, str)) == null) ? createChunkFromRawBitmap(context, inputStream, i).getNinePatchDrawable(context.getResources(), str) : (NinePatchDrawable) invokeLLIL.objValue;
     }
 
     public static NinePatchDrawable create9PatchDrawable(Context context, InputStream inputStream, String str) {
@@ -100,13 +100,13 @@ public class NinePatchChunk implements Externalizable {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, inputStream)) == null) ? createChunkFromRawBitmap(context, inputStream, 160) : (ImageLoadingResult) invokeLL.objValue;
     }
 
-    public static ImageLoadingResult createChunkFromRawBitmap(Context context, InputStream inputStream, int i2) {
+    public static ImageLoadingResult createChunkFromRawBitmap(Context context, InputStream inputStream, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65543, null, context, inputStream, i)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inDensity = i2;
-            options.inTargetDensity = i2;
+            options.inDensity = i;
+            options.inTargetDensity = i;
             return createChunkFromRawBitmap(context, BitmapFactory.decodeStream(inputStream, new Rect(), options));
         }
         return (ImageLoadingResult) invokeLLI.objValue;
@@ -148,47 +148,47 @@ public class NinePatchChunk implements Externalizable {
             ArrayList<Div> regions2 = getRegions(ninePatchChunk.yDivs, bitmap.getHeight() - 2);
             ninePatchChunk.colors = new int[regions.size() * regions2.size()];
             Iterator<Div> it = regions2.iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
                 Div next = it.next();
                 Iterator<Div> it2 = regions.iterator();
                 while (it2.hasNext()) {
                     Div next2 = it2.next();
-                    int i3 = next2.start + 1;
-                    int i4 = next.start + 1;
-                    if (hasSameColor(bitmap, i3, next2.stop + 1, i4, next.stop + 1)) {
-                        int pixel = bitmap.getPixel(i3, i4);
+                    int i2 = next2.start + 1;
+                    int i3 = next.start + 1;
+                    if (hasSameColor(bitmap, i2, next2.stop + 1, i3, next.stop + 1)) {
+                        int pixel = bitmap.getPixel(i2, i3);
                         if (isTransparent(pixel)) {
                             pixel = 0;
                         }
-                        ninePatchChunk.colors[i2] = pixel;
+                        ninePatchChunk.colors[i] = pixel;
                     } else {
-                        ninePatchChunk.colors[i2] = 1;
+                        ninePatchChunk.colors[i] = 1;
                     }
-                    i2++;
+                    i++;
                 }
             }
         }
     }
 
-    public static int[] createColorsArray(NinePatchChunk ninePatchChunk, int i2, int i3) {
+    public static int[] createColorsArray(NinePatchChunk ninePatchChunk, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, ninePatchChunk, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, ninePatchChunk, i, i2)) == null) {
             if (ninePatchChunk == null) {
                 return new int[0];
             }
-            int[] iArr = new int[getRegions(ninePatchChunk.xDivs, i2).size() * getRegions(ninePatchChunk.yDivs, i3).size()];
+            int[] iArr = new int[getRegions(ninePatchChunk.xDivs, i).size() * getRegions(ninePatchChunk.yDivs, i2).size()];
             Arrays.fill(iArr, 1);
             return iArr;
         }
         return (int[]) invokeLII.objValue;
     }
 
-    public static void createColorsArrayAndSet(NinePatchChunk ninePatchChunk, int i2, int i3) {
+    public static void createColorsArrayAndSet(NinePatchChunk ninePatchChunk, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65548, null, ninePatchChunk, i2, i3) == null) {
-            int[] createColorsArray = createColorsArray(ninePatchChunk, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(65548, null, ninePatchChunk, i, i2) == null) {
+            int[] createColorsArray = createColorsArray(ninePatchChunk, i, i2);
             if (ninePatchChunk != null) {
                 ninePatchChunk.colors = createColorsArray;
             }
@@ -209,25 +209,25 @@ public class NinePatchChunk implements Externalizable {
         return (NinePatchChunk) invokeV.objValue;
     }
 
-    public static ArrayList<Div> getRegions(ArrayList<Div> arrayList, int i2) {
+    public static ArrayList<Div> getRegions(ArrayList<Div> arrayList, int i) {
         InterceptResult invokeLI;
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, arrayList, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, arrayList, i)) == null) {
             ArrayList<Div> arrayList2 = new ArrayList<>();
             if (arrayList != null && arrayList.size() != 0) {
-                for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                    Div div = arrayList.get(i5);
-                    if (i5 == 0 && (i4 = div.start) != 0) {
-                        arrayList2.add(new Div(0, i4 - 1));
+                for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                    Div div = arrayList.get(i4);
+                    if (i4 == 0 && (i3 = div.start) != 0) {
+                        arrayList2.add(new Div(0, i3 - 1));
                     }
-                    if (i5 > 0) {
-                        arrayList2.add(new Div(arrayList.get(i5 - 1).stop, div.start - 1));
+                    if (i4 > 0) {
+                        arrayList2.add(new Div(arrayList.get(i4 - 1).stop, div.start - 1));
                     }
                     arrayList2.add(new Div(div.start, div.stop - 1));
-                    if (i5 == arrayList.size() - 1 && (i3 = div.stop) < i2) {
-                        arrayList2.add(new Div(i3, i2 - 1));
+                    if (i4 == arrayList.size() - 1 && (i2 = div.stop) < i) {
+                        arrayList2.add(new Div(i2, i - 1));
                     }
                 }
             }
@@ -236,28 +236,28 @@ public class NinePatchChunk implements Externalizable {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static ArrayList<Div> getXDivs(Bitmap bitmap, int i2) {
+    public static ArrayList<Div> getXDivs(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, bitmap, i)) == null) {
             ArrayList<Div> arrayList = new ArrayList<>();
             Div div = null;
-            for (int i3 = 1; i3 < bitmap.getWidth(); i3++) {
-                div = processChunk(bitmap.getPixel(i3, i2), div, i3 - 1, arrayList);
+            for (int i2 = 1; i2 < bitmap.getWidth(); i2++) {
+                div = processChunk(bitmap.getPixel(i2, i), div, i2 - 1, arrayList);
             }
             return arrayList;
         }
         return (ArrayList) invokeLI.objValue;
     }
 
-    public static ArrayList<Div> getYDivs(Bitmap bitmap, int i2) {
+    public static ArrayList<Div> getYDivs(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, bitmap, i)) == null) {
             ArrayList<Div> arrayList = new ArrayList<>();
             Div div = null;
-            for (int i3 = 1; i3 < bitmap.getHeight(); i3++) {
-                div = processChunk(bitmap.getPixel(i2, i3), div, i3 - 1, arrayList);
+            for (int i2 = 1; i2 < bitmap.getHeight(); i2++) {
+                div = processChunk(bitmap.getPixel(i, i2), div, i2 - 1, arrayList);
             }
             return arrayList;
         }
@@ -270,13 +270,13 @@ public class NinePatchChunk implements Externalizable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, bitmap)) == null) {
             int width = bitmap.getWidth() - 1;
             int height = bitmap.getHeight() - 1;
-            for (int i2 = 1; i2 < width; i2++) {
-                if (!isBorderPixel(bitmap.getPixel(i2, 0)) || !isBorderPixel(bitmap.getPixel(i2, height))) {
+            for (int i = 1; i < width; i++) {
+                if (!isBorderPixel(bitmap.getPixel(i, 0)) || !isBorderPixel(bitmap.getPixel(i, height))) {
                     return false;
                 }
             }
-            for (int i3 = 1; i3 < height; i3++) {
-                if (!isBorderPixel(bitmap.getPixel(0, i3)) || !isBorderPixel(bitmap.getPixel(width, i3))) {
+            for (int i2 = 1; i2 < height; i2++) {
+                if (!isBorderPixel(bitmap.getPixel(0, i2)) || !isBorderPixel(bitmap.getPixel(width, i2))) {
                     return false;
                 }
             }
@@ -285,19 +285,19 @@ public class NinePatchChunk implements Externalizable {
         return invokeL.booleanValue;
     }
 
-    public static boolean hasSameColor(Bitmap bitmap, int i2, int i3, int i4, int i5) {
+    public static boolean hasSameColor(Bitmap bitmap, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             try {
-                int pixel = bitmap.getPixel(i2, i4);
-                while (i2 <= i3) {
-                    for (int i6 = i4; i6 <= i5; i6++) {
-                        if (pixel != bitmap.getPixel(i2, i6)) {
+                int pixel = bitmap.getPixel(i, i3);
+                while (i <= i2) {
+                    for (int i5 = i3; i5 <= i4; i5++) {
+                        if (pixel != bitmap.getPixel(i, i5)) {
                             return false;
                         }
                     }
-                    i2++;
+                    i++;
                 }
                 return true;
             } catch (Exception e2) {
@@ -308,16 +308,16 @@ public class NinePatchChunk implements Externalizable {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isBlack(int i2) {
+    public static boolean isBlack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) ? i2 == -16777216 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) ? i == -16777216 : invokeI.booleanValue;
     }
 
-    public static boolean isBorderPixel(int i2) {
+    public static boolean isBorderPixel(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i2)) == null) ? isTransparent(i2) || isBlack(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) ? isTransparent(i) || isBlack(i) : invokeI.booleanValue;
     }
 
     public static boolean isCornerPixelsAreTrasperent(Bitmap bitmap) {
@@ -337,10 +337,10 @@ public class NinePatchChunk implements Externalizable {
         return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bitmap)) == null) ? bitmap != null && bitmap.getWidth() >= 3 && bitmap.getHeight() >= 3 && isCornerPixelsAreTrasperent(bitmap) && hasNinePatchBorder(bitmap) : invokeL.booleanValue;
     }
 
-    public static boolean isTransparent(int i2) {
+    public static boolean isTransparent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i2)) == null) ? Color.alpha(i2) == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65559, null, i)) == null) ? Color.alpha(i) == 0 : invokeI.booleanValue;
     }
 
     public static NinePatchChunk parse(byte[] bArr) throws DivLengthException, ChunkNotSerializedException, BufferUnderflowException {
@@ -351,7 +351,7 @@ public class NinePatchChunk implements Externalizable {
         }
         ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.nativeOrder());
         NinePatchChunk ninePatchChunk = new NinePatchChunk();
-        int i2 = 0;
+        int i = 0;
         boolean z = order.get() != 0;
         ninePatchChunk.wasSerialized = z;
         if (!z) {
@@ -369,46 +369,46 @@ public class NinePatchChunk implements Externalizable {
         ninePatchChunk.padding.top = order.getInt();
         ninePatchChunk.padding.bottom = order.getInt();
         order.getInt();
-        int i3 = b2 >> 1;
-        ArrayList<Div> arrayList = new ArrayList<>(i3);
+        int i2 = b2 >> 1;
+        ArrayList<Div> arrayList = new ArrayList<>(i2);
         ninePatchChunk.xDivs = arrayList;
-        readDivs(i3, order, arrayList);
-        int i4 = b3 >> 1;
-        ArrayList<Div> arrayList2 = new ArrayList<>(i4);
+        readDivs(i2, order, arrayList);
+        int i3 = b3 >> 1;
+        ArrayList<Div> arrayList2 = new ArrayList<>(i3);
         ninePatchChunk.yDivs = arrayList2;
-        readDivs(i4, order, arrayList2);
+        readDivs(i3, order, arrayList2);
         while (true) {
             int[] iArr = ninePatchChunk.colors;
-            if (i2 >= iArr.length) {
+            if (i >= iArr.length) {
                 return ninePatchChunk;
             }
-            iArr[i2] = order.getInt();
-            i2++;
+            iArr[i] = order.getInt();
+            i++;
         }
     }
 
-    public static Div processChunk(int i2, Div div, int i3, ArrayList<Div> arrayList) {
+    public static Div processChunk(int i, Div div, int i2, ArrayList<Div> arrayList) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{Integer.valueOf(i2), div, Integer.valueOf(i3), arrayList})) == null) {
-            if (isBlack(i2) && div == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, null, new Object[]{Integer.valueOf(i), div, Integer.valueOf(i2), arrayList})) == null) {
+            if (isBlack(i) && div == null) {
                 div = new Div();
-                div.start = i3;
+                div.start = i2;
             }
-            if (!isTransparent(i2) || div == null) {
+            if (!isTransparent(i) || div == null) {
                 return div;
             }
-            div.stop = i3;
+            div.stop = i2;
             arrayList.add(div);
             return null;
         }
         return (Div) invokeCommon.objValue;
     }
 
-    public static void readDivs(int i2, ByteBuffer byteBuffer, ArrayList<Div> arrayList) {
+    public static void readDivs(int i, ByteBuffer byteBuffer, ArrayList<Div> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65562, null, i2, byteBuffer, arrayList) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
+        if (interceptable == null || interceptable.invokeILL(65562, null, i, byteBuffer, arrayList) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
                 Div div = new Div();
                 div.start = byteBuffer.getInt();
                 div.stop = byteBuffer.getInt();
@@ -424,24 +424,24 @@ public class NinePatchChunk implements Externalizable {
             ArrayList<Div> regions2 = getRegions(ninePatchChunk.yDivs, bitmap.getHeight() - 2);
             ninePatchChunk.colors = new int[regions.size() * regions2.size()];
             Iterator<Div> it = regions2.iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
                 Div next = it.next();
                 Iterator<Div> it2 = regions.iterator();
                 while (it2.hasNext()) {
                     Div next2 = it2.next();
-                    int i3 = next2.start + 1;
-                    int i4 = next.start + 1;
-                    if (hasSameColor(bitmap, i3, next2.stop + 1, i4, next.stop + 1)) {
-                        int pixel = bitmap.getPixel(i3, i4);
+                    int i2 = next2.start + 1;
+                    int i3 = next.start + 1;
+                    if (hasSameColor(bitmap, i2, next2.stop + 1, i3, next.stop + 1)) {
+                        int pixel = bitmap.getPixel(i2, i3);
                         if (isTransparent(pixel)) {
                             pixel = 0;
                         }
-                        ninePatchChunk.colors[i2] = pixel;
+                        ninePatchChunk.colors[i] = pixel;
                     } else {
-                        ninePatchChunk.colors[i2] = 1;
+                        ninePatchChunk.colors[i] = 1;
                     }
-                    i2++;
+                    i++;
                 }
             }
         }
@@ -542,8 +542,8 @@ public class NinePatchChunk implements Externalizable {
                 order.putInt(next2.start);
                 order.putInt(next2.stop);
             }
-            for (int i2 : this.colors) {
-                order.putInt(i2);
+            for (int i : this.colors) {
+                order.putInt(i);
             }
             return order.array();
         }

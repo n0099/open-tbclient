@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractHttpParams implements HttpParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public abstract class AbstractHttpParams implements HttpParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,20 +50,20 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public int getIntParameter(String str, int i2) {
+    public int getIntParameter(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLI.intValue;
     }
 
     @Override // org.apache.http.params.HttpParams
-    public long getLongParameter(String str, long j2) {
+    public long getLongParameter(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLJ.longValue;
@@ -110,20 +110,20 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams setIntParameter(String str, int i2) {
+    public HttpParams setIntParameter(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeLI.objValue;
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams setLongParameter(String str, long j2) {
+    public HttpParams setLongParameter(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeLJ.objValue;

@@ -6,12 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.a.j;
-import c.a.q0.w0.a;
-import c.a.r0.h2.c.k.o;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,27 +17,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BasicTaskItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f34441b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f34442c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34443d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44420e;
+    public TextView f34444e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f44421f;
+    public TextView f34445f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f44422g;
+    public View f34446g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44423h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f44424i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f44425j;
-    public View k;
-    public View l;
-    public View.OnClickListener m;
+    public View f34447h;
+    public View.OnClickListener i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicTaskItemView(Context context) {
@@ -53,99 +50,41 @@ public class BasicTaskItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44420e = context;
+        this.a = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f44420e).inflate(R.layout.index_task_item, this);
-            this.f44421f = inflate;
-            this.l = inflate.findViewById(R.id.ly_desc);
-            this.f44422g = (TbImageView) this.f44421f.findViewById(R.id.task_icon);
-            this.f44423h = (TextView) this.f44421f.findViewById(R.id.txt_title);
-            this.f44424i = (TextView) this.f44421f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f44421f.findViewById(R.id.txt_status);
-            this.f44425j = textView;
-            textView.setOnClickListener(this.m);
-            this.l.setOnClickListener(this.m);
-            this.k = this.f44421f.findViewById(R.id.divider_line);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03f2, this);
+            this.f34441b = inflate;
+            this.f34447h = inflate.findViewById(R.id.obfuscated_res_0x7f091362);
+            this.f34442c = (TbImageView) this.f34441b.findViewById(R.id.obfuscated_res_0x7f091ef4);
+            this.f34443d = (TextView) this.f34441b.findViewById(R.id.obfuscated_res_0x7f092244);
+            this.f34444e = (TextView) this.f34441b.findViewById(R.id.obfuscated_res_0x7f09223d);
+            TextView textView = (TextView) this.f34441b.findViewById(R.id.obfuscated_res_0x7f092243);
+            this.f34445f = textView;
+            textView.setOnClickListener(this.i);
+            this.f34447h.setOnClickListener(this.i);
+            this.f34446g = this.f34441b.findViewById(R.id.obfuscated_res_0x7f0907f4);
         }
-    }
-
-    public void hideDivideLine() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k.setVisibility(8);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f44420e), this.f44421f);
-        }
-    }
-
-    public void renderView(o oVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null) {
-            return;
-        }
-        this.l.setTag(oVar);
-        this.f44425j.setTag(oVar);
-        this.f44422g.startLoad(oVar.b(), 10, false);
-        this.f44423h.setText(oVar.f());
-        this.f44424i.setText(oVar.a());
-        if (oVar.c()) {
-            this.f44425j.setText(this.f44420e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-            this.f44425j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f44425j.setBackgroundDrawable(null);
-            return;
-        }
-        this.f44425j.setText(this.f44420e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-        this.f44425j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
-        this.f44425j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.m = onClickListener;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.i = onClickListener;
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BasicTaskItemView(Context context, View.OnClickListener onClickListener) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.f44420e = context;
-        this.m = onClickListener;
-        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -157,9 +96,9 @@ public class BasicTaskItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -167,22 +106,22 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f44420e = context;
+        this.a = context;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BasicTaskItemView(Context context, AttributeSet attributeSet, int i2) {
+    public BasicTaskItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -190,7 +129,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f44420e = context;
+        this.a = context;
         a();
     }
 }

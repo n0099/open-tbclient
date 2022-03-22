@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import c.a.q0.s.f.b;
+import c.a.o0.s.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,9 +25,9 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -51,30 +51,30 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         SetLocationResIdl setLocationResIdl;
         DataRes dataRes;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (setLocationResIdl = (SetLocationResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLocationResIdl.class)) == null || (dataRes = setLocationResIdl.data) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (setLocationResIdl = (SetLocationResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLocationResIdl.class)) == null || (dataRes = setLocationResIdl.data) == null) {
             return;
         }
         LbsInfo lbsInfo = dataRes.location;
-        long j2 = 0;
-        int i3 = -1;
+        long j = 0;
+        int i2 = -1;
         if (lbsInfo != null) {
             str = lbsInfo.distance;
             Long l = lbsInfo.time;
             if (l != null && l.longValue() > 0) {
-                j2 = setLocationResIdl.data.location.time.longValue();
+                j = setLocationResIdl.data.location.time.longValue();
             }
             Integer num = setLocationResIdl.data.location.isHide;
             if (num != null && num.intValue() >= 0) {
-                i3 = setLocationResIdl.data.location.isHide.intValue();
+                i2 = setLocationResIdl.data.location.isHide.intValue();
             }
         } else {
             str = "";
         }
-        this.lbsInfo = new b(str, j2, i3);
+        this.lbsInfo = new b(str, j, i2);
     }
 }

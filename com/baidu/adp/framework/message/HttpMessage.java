@@ -63,16 +63,16 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             $VALUES = new SORT[]{ASCEND, DESCEND, sort};
         }
 
-        public SORT(String str, int i2) {
+        public SORT(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -99,9 +99,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static class a implements Comparator<Map.Entry<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public SORT f29790e;
+        public SORT a;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -110,16 +108,16 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sort};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29790e = null;
-            this.f29790e = sort;
+            this.a = null;
+            this.a = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +127,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f29790e == SORT.ASCEND) {
+                if (this.a == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -139,17 +137,17 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpMessage(int i2) {
-        super(i2);
+    public HttpMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -201,7 +199,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f29503h);
+                    sb.append('=');
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -249,7 +247,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f29503h + str2 + WebvttCueParser.CHAR_SEMI_COLON);
+                addHeader("Cookie", str + '=' + str2 + WebvttCueParser.CHAR_SEMI_COLON);
             }
             return null;
         }
@@ -276,10 +274,10 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i2) {
+    public boolean checkCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? FrameHelper.b(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? FrameHelper.b(i) : invokeI.booleanValue;
     }
 
     public HashMap<String, String> getHeaders() {
@@ -335,10 +333,10 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public void setClientLogID(long j2) {
+    public void setClientLogID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            super.setClientLogID(j2);
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            super.setClientLogID(j);
         }
     }
 
@@ -421,42 +419,42 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return invokeLL.objValue;
     }
 
-    public Object addParam(String str, int i2) {
+    public Object addParam(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
             if (str == null) {
                 return null;
             }
-            return this.mParams.put(str, String.valueOf(i2));
+            return this.mParams.put(str, String.valueOf(i));
         }
         return invokeLI.objValue;
     }
 
-    public Object addParam(String str, long j2) {
+    public Object addParam(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
             if (str == null) {
                 return null;
             }
-            return this.mParams.put(str, String.valueOf(j2));
+            return this.mParams.put(str, String.valueOf(j));
         }
         return invokeLJ.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpMessage(int i2, BdUniqueId bdUniqueId) {
-        super(i2, bdUniqueId);
+    public HttpMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;

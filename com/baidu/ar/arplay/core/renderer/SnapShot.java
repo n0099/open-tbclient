@@ -36,9 +36,9 @@ public class SnapShot {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,30 +55,30 @@ public class SnapShot {
         mCaptureScreenBmp = null;
     }
 
-    public static Bitmap getCacheBitmap(int i2, int i3) {
+    public static Bitmap getCacheBitmap(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
             Bitmap bitmap = mCaptureScreenBmp;
-            if (bitmap != null && (i2 != bitmap.getWidth() || i3 != mCaptureScreenBmp.getHeight())) {
+            if (bitmap != null && (i != bitmap.getWidth() || i2 != mCaptureScreenBmp.getHeight())) {
                 mCaptureScreenBmp.recycle();
                 mCaptureScreenBmp = null;
             }
             if (mCaptureScreenBmp == null) {
-                mCaptureScreenBmp = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                mCaptureScreenBmp = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             }
             return mCaptureScreenBmp;
         }
         return (Bitmap) invokeII.objValue;
     }
 
-    public static Bitmap rotateBitmap(Bitmap bitmap, int i2) {
+    public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
             Matrix matrix = new Matrix();
             matrix.postScale(1.0f, -1.0f, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
-            matrix.postRotate(i2, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
+            matrix.postRotate(i, bitmap.getWidth() / 2, bitmap.getHeight() / 2);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
         return (Bitmap) invokeLI.objValue;

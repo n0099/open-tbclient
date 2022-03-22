@@ -18,7 +18,7 @@ public class a {
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SimpleDateFormat f54179b = new SimpleDateFormat("yyyy-MM-dd");
+    public static SimpleDateFormat f39318b = new SimpleDateFormat("yyyy-MM-dd");
 
     public static a a() {
         if (a == null) {
@@ -57,8 +57,8 @@ public class a {
         try {
             JSONArray jSONArray = new JSONArray(a2);
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
                 TaskStat taskStat = new TaskStat();
                 taskStat.parseJson(jSONObject);
                 arrayList.add(taskStat);
@@ -111,8 +111,8 @@ public class a {
         if (context == null) {
             return;
         }
-        long j2 = context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("ksadsdk_local_ad_task_info_date", -1L);
-        if (j2 > 0 && !f54179b.format(new Date(j2)).equals(f54179b.format(new Date()))) {
+        long j = context.getSharedPreferences("ksadsdk_local_ad_task_info", 0).getLong("ksadsdk_local_ad_task_info_date", -1L);
+        if (j > 0 && !f39318b.format(new Date(j)).equals(f39318b.format(new Date()))) {
             c();
         }
     }

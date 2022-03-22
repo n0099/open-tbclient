@@ -4,8 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.w.g;
-import c.a.q0.w.h;
+import c.a.o0.w.g;
+import c.a.o0.w.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,38 +24,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PrivilegeDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<h> q;
-    public int r;
-    public DLauncher s;
-    public DLauncher t;
-    public Context u;
-    public CustomMessageListener v;
-    public CustomMessageListener w;
-    public View.OnClickListener x;
-    public View.OnClickListener y;
+    public LinkedList<h> m;
+    public int n;
+    public DLauncher o;
+    public DLauncher p;
+    public Context q;
+    public CustomMessageListener r;
+    public CustomMessageListener s;
+    public View.OnClickListener t;
+    public View.OnClickListener u;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PrivilegeDeskView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PrivilegeDeskView privilegeDeskView, int i2) {
-            super(i2);
+        public a(PrivilegeDeskView privilegeDeskView, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {privilegeDeskView, Integer.valueOf(i2)};
+                Object[] objArr = {privilegeDeskView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -73,32 +73,32 @@ public class PrivilegeDeskView extends CommonTabHost {
                 return;
             }
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.a.s.displayNotice(" ");
+                this.a.o.c(" ");
             } else {
-                this.a.s.hideNotice();
+                this.a.o.e();
             }
-            this.a.t();
+            this.a.y();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PrivilegeDeskView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(PrivilegeDeskView privilegeDeskView, int i2) {
-            super(i2);
+        public b(PrivilegeDeskView privilegeDeskView, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {privilegeDeskView, Integer.valueOf(i2)};
+                Object[] objArr = {privilegeDeskView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -114,22 +114,20 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.a.t.displayNotice(" ");
+                    this.a.p.c(" ");
                 } else {
-                    this.a.t.hideNotice();
+                    this.a.p.e();
                 }
-                this.a.t();
+                this.a.y();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f44548e;
+        public final /* synthetic */ PrivilegeDeskView a;
 
         public c(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -138,34 +136,32 @@ public class PrivilegeDeskView extends CommonTabHost {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {privilegeDeskView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44548e = privilegeDeskView;
+            this.a = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44548e.hide();
-                this.f44548e.sendAction(new c.a.q0.w.a(1, 16, null));
+                this.a.hide();
+                this.a.d(new c.a.o0.w.a(1, 16, null));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f44549e;
+        public final /* synthetic */ PrivilegeDeskView a;
 
         public d(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -174,23 +170,23 @@ public class PrivilegeDeskView extends CommonTabHost {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {privilegeDeskView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44549e = privilegeDeskView;
+            this.a = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44549e.hide();
-                this.f44549e.sendAction(new c.a.q0.w.a(1, 12, null));
+                this.a.hide();
+                this.a.d(new c.a.o0.w.a(1, 12, null));
             }
         }
     }
@@ -204,86 +200,66 @@ public class PrivilegeDeskView extends CommonTabHost {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = 0;
-        this.v = new a(this, 2001344);
-        this.w = new b(this, 2001353);
-        this.x = new c(this);
-        this.y = new d(this);
-        p(context);
-        c.a.r0.h2.h.e.a aVar = new c.a.r0.h2.h.e.a(context, 1);
-        n(new c.a.r0.h2.b.b(context));
-        o(aVar);
-        this.u = context;
+        this.n = 0;
+        this.r = new a(this, 2001344);
+        this.s = new b(this, 2001353);
+        this.t = new c(this);
+        this.u = new d(this);
+        u(context);
+        c.a.p0.j2.h.e.a aVar = new c.a.p0.j2.h.e.a(context, 1);
+        s(new c.a.p0.j2.b.b(context));
+        t(aVar);
+        this.q = context;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.n
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.n
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setShowDelete(false);
-            c.a.r0.h2.h.d.a aVar = new c.a.r0.h2.h.d.a();
-            aVar.z(this.q);
-            addTab(aVar);
-            r();
-            q();
+            c.a.p0.j2.h.d.a aVar = new c.a.p0.j2.h.d.a();
+            aVar.C(this.m);
+            k(aVar);
+            w();
+            v();
         }
     }
 
-    public final void n(c.a.r0.h2.b.b bVar) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.b
+    public void onAction(c.a.o0.w.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            DLauncher dLauncher = (DLauncher) g.a(getContext(), bVar, 6);
-            this.t = dLauncher;
-            dLauncher.setOnClickListener(this.y);
-            this.q.add(this.t);
-        }
-    }
-
-    public final void o(c.a.r0.h2.h.e.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            DLauncher dLauncher = (DLauncher) g.a(getContext(), aVar, 6);
-            this.s = dLauncher;
-            dLauncher.setOnClickListener(this.x);
-            this.q.add(this.s);
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.b
-    public void onAction(c.a.q0.w.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.onAction(aVar);
             if (aVar == null) {
                 return;
             }
             if (aVar.a == 2) {
-                Object obj = aVar.f13989c;
+                Object obj = aVar.f11499c;
                 if (obj == null) {
-                    this.r--;
+                    this.n--;
                 } else if (obj instanceof String) {
                     String str = (String) obj;
                     if (TextUtils.isEmpty(str)) {
-                        this.r--;
+                        this.n--;
                     } else if (TextUtils.isEmpty(str.trim())) {
-                        this.r++;
+                        this.n++;
                     } else {
-                        this.r += c.a.d.f.m.b.e(str, 1);
+                        this.n += c.a.d.f.m.b.e(str, 1);
                     }
                 }
-                if (this.r > 0) {
-                    sendAction(new c.a.q0.w.a(2, 18, " "));
+                if (this.n > 0) {
+                    d(new c.a.o0.w.a(2, 18, " "));
                 } else {
-                    sendAction(new c.a.q0.w.a(2, 18, null));
+                    d(new c.a.o0.w.a(2, 18, null));
                 }
             }
             if (aVar.a == 1) {
@@ -295,70 +271,90 @@ public class PrivilegeDeskView extends CommonTabHost {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.v);
-            MessageManager.getInstance().registerListener(this.w);
-            t();
+            MessageManager.getInstance().registerListener(this.r);
+            MessageManager.getInstance().registerListener(this.s);
+            y();
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.view.ICommonTabHost, c.a.q0.w.n
-    public void onChangeSkinType(int i2) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, c.a.o0.w.n
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.s.onChangeSkinType(i2);
-            this.t.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.o.onChangeSkinType(i);
+            this.p.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.v);
-            MessageManager.getInstance().unRegisterListener(this.w);
+            MessageManager.getInstance().unRegisterListener(this.r);
+            MessageManager.getInstance().unRegisterListener(this.s);
         }
     }
 
-    public final void p(Context context) {
+    public final void s(c.a.p0.j2.b.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            DLauncher dLauncher = (DLauncher) g.a(getContext(), bVar, 6);
+            this.p = dLauncher;
+            dLauncher.setOnClickListener(this.u);
+            this.m.add(this.p);
+        }
+    }
+
+    public final void t(c.a.p0.j2.h.e.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            DLauncher dLauncher = (DLauncher) g.a(getContext(), aVar, 6);
+            this.o = dLauncher;
+            dLauncher.setOnClickListener(this.t);
+            this.m.add(this.o);
+        }
+    }
+
+    public final void u(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             setBackgroundColorId(R.color.CAM_X0206);
             setToolId(18);
-            this.q = new LinkedList<>();
+            this.m = new LinkedList<>();
         }
     }
 
-    public final void q() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
-                this.t.displayNotice(" ");
+                this.p.c(" ");
             } else {
-                this.t.hideNotice();
+                this.p.e();
             }
-            t();
+            y();
         }
     }
 
-    public final void r() {
+    public final void w() {
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null) {
             return;
         }
         if (currentAccountObj.getIsSelectTail()) {
-            this.s.displayNotice(" ");
+            this.o.c(" ");
         } else {
-            this.s.hideNotice();
+            this.o.e();
         }
-        t();
+        y();
     }
 
-    public final void s(boolean z) {
+    public final void x(boolean z) {
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null) {
@@ -367,25 +363,25 @@ public class PrivilegeDeskView extends CommonTabHost {
         currentAccountObj.setIsSelectTail(z);
     }
 
-    public final void t() {
+    public final void y() {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            String text = this.s.getText();
-            String text2 = this.t.getText();
+            String text = this.o.getText();
+            String text2 = this.p.getText();
             if (text != null && !text.equals("")) {
                 z = true;
-                sendAction(new c.a.q0.w.a(2, 18, " "));
-                sendAction(new c.a.q0.w.a(2, 16, " "));
+                d(new c.a.o0.w.a(2, 18, " "));
+                d(new c.a.o0.w.a(2, 16, " "));
             } else {
                 if (text2 != null && !text2.equals("")) {
-                    sendAction(new c.a.q0.w.a(2, 18, " "));
+                    d(new c.a.o0.w.a(2, 18, " "));
                 } else {
-                    sendAction(new c.a.q0.w.a(2, 18, null));
+                    d(new c.a.o0.w.a(2, 18, null));
                 }
                 z = false;
             }
-            s(z);
+            x(z);
         }
     }
 }

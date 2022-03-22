@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DtmfSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeDtmfSender;
 
-    public DtmfSender(long j2) {
+    public DtmfSender(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.nativeDtmfSender = j2;
+        this.nativeDtmfSender = j;
     }
 
     private void checkDtmfSenderExists() {
@@ -37,15 +37,15 @@ public class DtmfSender {
         }
     }
 
-    public static native boolean nativeCanInsertDtmf(long j2);
+    public static native boolean nativeCanInsertDtmf(long j);
 
-    public static native int nativeDuration(long j2);
+    public static native int nativeDuration(long j);
 
-    public static native boolean nativeInsertDtmf(long j2, String str, int i2, int i3);
+    public static native boolean nativeInsertDtmf(long j, String str, int i, int i2);
 
-    public static native int nativeInterToneGap(long j2);
+    public static native int nativeInterToneGap(long j);
 
-    public static native String nativeTones(long j2);
+    public static native String nativeTones(long j);
 
     public boolean canInsertDtmf() {
         InterceptResult invokeV;
@@ -76,12 +76,12 @@ public class DtmfSender {
         return invokeV.intValue;
     }
 
-    public boolean insertDtmf(String str, int i2, int i3) {
+    public boolean insertDtmf(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, str, i, i2)) == null) {
             checkDtmfSenderExists();
-            return nativeInsertDtmf(this.nativeDtmfSender, str, i2, i3);
+            return nativeInsertDtmf(this.nativeDtmfSender, str, i, i2);
         }
         return invokeLII.booleanValue;
     }

@@ -35,9 +35,9 @@ public class SwitchAccountActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,9 +55,9 @@ public class SwitchAccountActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -134,7 +134,7 @@ public class SwitchAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 init();
             } catch (Throwable th) {
                 reportWebviewError(th);
@@ -160,7 +160,7 @@ public class SwitchAccountActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_switch);
+            setTitleText(R.string.obfuscated_res_0x7f0f105b);
             SapiWebView sapiWebView = this.sapiWebView;
             sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
             sapiWebView.showLinkAccount = this.v.supportQueryAssociatedAccount;
@@ -176,9 +176,9 @@ public class SwitchAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -207,9 +207,9 @@ public class SwitchAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -241,9 +241,9 @@ public class SwitchAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -253,10 +253,10 @@ public class SwitchAccountActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void onFailed(int i2, String str) {
+                public void onFailed(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.a.a(i2, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                        this.a.a(i, str);
                     }
                 }
 
@@ -281,9 +281,9 @@ public class SwitchAccountActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -298,10 +298,10 @@ public class SwitchAccountActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, result) == null) {
                         WebLoginDTO webLoginDTO = new WebLoginDTO();
                         webLoginDTO.finishActivityAfterSuc = false;
-                        int i2 = result.switchAccountType;
-                        if (i2 == 1) {
+                        int i = result.switchAccountType;
+                        if (i == 1) {
                             webLoginDTO.preSetUname = result.userName;
-                        } else if (i2 == 2) {
+                        } else if (i == 2) {
                             if (result.loginType == 0) {
                                 webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
                             } else {
@@ -327,9 +327,9 @@ public class SwitchAccountActivity extends BaseActivity {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -401,10 +401,10 @@ public class SwitchAccountActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str) {
+    public void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
-            this.t.setResultCode(i2);
+        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
+            this.t.setResultCode(i);
             this.t.setResultMsg(str);
             this.u.onFailure(this.t);
         }

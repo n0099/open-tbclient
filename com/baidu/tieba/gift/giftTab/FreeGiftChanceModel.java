@@ -15,15 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f42674e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f33111b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f42675f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f42676g;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f33112c;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -32,17 +30,17 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         public final /* synthetic */ FreeGiftChanceModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
-            super(i2, i3);
+        public a(FreeGiftChanceModel freeGiftChanceModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {freeGiftChanceModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {freeGiftChanceModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -62,12 +60,12 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.a.f42674e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.a.a = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.a.f42674e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.a.a = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.a.f42675f != null) {
-                    this.a.f42675f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f42674e);
+                if (this.a.f33111b != null) {
+                    this.a.f33111b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
                 }
             }
         }
@@ -75,7 +73,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i2, String str, int i3);
+        void a(int i, String str, int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -87,24 +85,33 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42676g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f33112c = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
 
-    public void A(b bVar) {
+    public void B(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f42675f = bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
+            freeGiftChanceRequest.setFrom(str);
+            sendMessage(freeGiftChanceRequest);
+        }
+    }
+
+    public void C(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.f33111b = bVar;
         }
     }
 
@@ -112,7 +119,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -122,7 +129,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -130,25 +137,16 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     public final void registerListener() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f42676g);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerListener(this.f33112c);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.r0.y3.g0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
-            freeGiftChanceRequest.setFrom(str);
-            sendMessage(freeGiftChanceRequest);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c.a.p0.a4.g0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

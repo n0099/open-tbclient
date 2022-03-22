@@ -1,6 +1,7 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,9 +53,9 @@ public class FetchUploadManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,9 +124,9 @@ public class FetchUploadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, fetchTaskObj, iUploadListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -155,9 +156,9 @@ public class FetchUploadManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -171,7 +172,7 @@ public class FetchUploadManager {
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(1048576, this, exc) == null) {
                                 if (FetchUploadManager.DEBUG) {
-                                    String str = "onFail: " + exc.getMessage();
+                                    Log.d(FetchUploadManager.TAG, "onFail: " + exc.getMessage());
                                 }
                                 AnonymousClass1 anonymousClass1 = this.this$1;
                                 anonymousClass1.this$0.statFetchReportData(false, anonymousClass1.val$taskObj);
@@ -184,10 +185,10 @@ public class FetchUploadManager {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                        public void onSuccess(JSONObject jSONObject, int i2) {
+                        public void onSuccess(JSONObject jSONObject, int i) {
                             IUploadListener iUploadListener2;
                             Interceptable interceptable3 = $ic;
-                            if (!(interceptable3 == null || interceptable3.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) || jSONObject == null) {
+                            if (!(interceptable3 == null || interceptable3.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) || jSONObject == null) {
                                 return;
                             }
                             if (TextUtils.equals("0", jSONObject.optString("errno"))) {
@@ -210,16 +211,16 @@ public class FetchUploadManager {
 
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                        public JSONObject parseResponse(Response response, int i2) throws Exception {
+                        public JSONObject parseResponse(Response response, int i) throws Exception {
                             InterceptResult invokeLI;
                             Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || (invokeLI = interceptable3.invokeLI(1048580, this, response, i2)) == null) {
+                            if (interceptable3 == null || (invokeLI = interceptable3.invokeLI(1048580, this, response, i)) == null) {
                                 if (response == null || response.body() == null) {
                                     return null;
                                 }
                                 String string = response.body().string();
                                 if (FetchUploadManager.DEBUG) {
-                                    String str = "statusCode:" + i2 + ", response=" + string;
+                                    Log.d(FetchUploadManager.TAG, "statusCode:" + i + ", response=" + string);
                                 }
                                 if (TextUtils.isEmpty(string)) {
                                     return null;

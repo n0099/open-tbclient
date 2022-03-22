@@ -85,16 +85,16 @@ public class SearchResult implements Parcelable {
             $VALUES = new ERRORNO[]{NO_ERROR, RESULT_NOT_FOUND, AMBIGUOUS_KEYWORD, AMBIGUOUS_ROURE_ADDR, NOT_SUPPORT_BUS, NOT_SUPPORT_BUS_2CITY, ST_EN_TOO_NEAR, KEY_ERROR, PERMISSION_UNFINISHED, NETWORK_TIME_OUT, NETWORK_ERROR, POIINDOOR_BID_ERROR, POIINDOOR_FLOOR_ERROR, POIINDOOR_SERVER_ERROR, INDOOR_ROUTE_NO_IN_BUILDING, INDOOR_ROUTE_NO_IN_SAME_BUILDING, MASS_TRANSIT_SERVER_ERROR, MASS_TRANSIT_OPTION_ERROR, MASS_TRANSIT_NO_POI_ERROR, SEARCH_SERVER_INTERNAL_ERROR, SEARCH_OPTION_ERROR, errorno};
         }
 
-        public ERRORNO(String str, int i2) {
+        public ERRORNO(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -122,9 +122,9 @@ public class SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,9 +141,9 @@ public class SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -161,9 +161,9 @@ public class SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {errorno};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -184,9 +184,9 @@ public class SearchResult implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             ERRORNO errorno = this.error;
             parcel.writeInt(errorno == null ? -1 : errorno.ordinal());
         }

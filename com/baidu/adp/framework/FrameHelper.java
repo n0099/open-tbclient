@@ -48,16 +48,16 @@ public class FrameHelper {
             $VALUES = new TYPE[]{HTTP, SOCKET, type};
         }
 
-        public TYPE(String str, int i2) {
+        public TYPE(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -80,48 +80,48 @@ public class FrameHelper {
         }
     }
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? i2 >= 2000000 && i2 < 3000000 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i >= 2000000 && i < 3000000 : invokeI.booleanValue;
     }
 
-    public static boolean b(int i2) {
+    public static boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 >= 1000000 && i2 < 2000000 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i >= 1000000 && i < 2000000 : invokeI.booleanValue;
     }
 
-    public static boolean c(int i2) {
+    public static boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 >= 0 && i2 < 1000000 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i < 1000000 : invokeI.booleanValue;
     }
 
-    public static <T extends d> int d(LinkedList<T> linkedList, int i2) {
+    public static <T extends d> int d(LinkedList<T> linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
             int size = linkedList.size();
-            int i3 = 0;
-            while (i3 < size && linkedList.get(i3).getPriority() <= i2) {
-                i3++;
+            int i2 = 0;
+            while (i2 < size && linkedList.get(i2).getPriority() <= i) {
+                i2++;
             }
-            return i3;
+            return i2;
         }
         return invokeLI.intValue;
     }
 
-    public static TYPE e(int i2) {
+    public static TYPE e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 < 0 || i2 >= 1000000) {
-                if (i2 < 1000000 || i2 >= 2000000) {
-                    if (i2 >= 2000000 && i2 < 3000000) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i < 0 || i >= 1000000) {
+                if (i < 1000000 || i >= 2000000) {
+                    if (i >= 2000000 && i < 3000000) {
                         return TYPE.CUSTOM;
                     }
-                    BdLog.e("cmd invalid:cmd=" + i2);
+                    BdLog.e("cmd invalid:cmd=" + i);
                     return null;
                 }
                 return TYPE.HTTP;
@@ -131,9 +131,9 @@ public class FrameHelper {
         return (TYPE) invokeI.objValue;
     }
 
-    public static void f(int i2) {
+    public static void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
         }
     }
 

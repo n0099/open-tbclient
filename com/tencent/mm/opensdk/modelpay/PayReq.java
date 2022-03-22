@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayReq extends BaseReq {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTDATA_MAX_LENGTH = 1024;
@@ -27,7 +27,7 @@ public class PayReq extends BaseReq {
     public String signType;
     public String timeStamp;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
@@ -40,9 +40,9 @@ public class PayReq extends BaseReq {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,9 +73,9 @@ public class PayReq extends BaseReq {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

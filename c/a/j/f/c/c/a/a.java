@@ -14,13 +14,13 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3631d;
+    public final String f3121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3632e;
+    public final String f3122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f3633f;
+    public final String f3123f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str, String str2, String str3, Integer num, String str4) {
@@ -31,9 +31,9 @@ public final class a extends d {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, num, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -41,9 +41,9 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3631d = str;
-        this.f3632e = str2;
-        this.f3633f = str3;
+        this.f3121d = str;
+        this.f3122e = str2;
+        this.f3123f = str3;
     }
 
     @Override // c.a.j.h.a.a
@@ -57,7 +57,7 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3631d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3121d : (String) invokeV.objValue;
     }
 
     public int g() {
@@ -72,16 +72,16 @@ public final class a extends d {
     public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3632e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3122e : (String) invokeV.objValue;
     }
 
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3633f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3123f : (String) invokeV.objValue;
     }
 
-    public /* synthetic */ a(String str, String str2, String str3, Integer num, String str4, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i2 & 2) != 0 ? "" : str2, (i2 & 4) != 0 ? "" : str3, (i2 & 8) != 0 ? null : num, (i2 & 16) != 0 ? null : str4);
+    public /* synthetic */ a(String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3, (i & 8) != 0 ? null : num, (i & 16) != 0 ? null : str4);
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.yunjiasu.tornadosdk;
 
 import android.content.Intent;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -37,9 +38,9 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -74,9 +75,9 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {svc};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,13 +88,13 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public long bindNetwork(long j2, long j3) {
+    public long bindNetwork(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (j2 == 2) {
-                long bindSocket = TrdVpnNetwork.INSTANCE.bindSocket((int) j3);
-                Intrinsics.stringPlus("bindSocket() fd: ", Long.valueOf(j3));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j == 2) {
+                long bindSocket = TrdVpnNetwork.INSTANCE.bindSocket((int) j2);
+                Log.d(TAG, Intrinsics.stringPlus("bindSocket() fd: ", Long.valueOf(j2)));
                 return bindSocket;
             }
             return 0L;
@@ -102,10 +103,10 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public String getNetwork(long j2) {
+    public String getNetwork(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? TrdVpnNetwork.INSTANCE.getNetworkForT2T(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? TrdVpnNetwork.INSTANCE.getNetworkForT2T(j) : (String) invokeJ.objValue;
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
@@ -120,11 +121,11 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public void onEvent(long j2, String msgText) {
+    public void onEvent(long j, String msgText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, msgText) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, msgText) == null) {
             Intrinsics.checkNotNullParameter(msgText, "msgText");
-            String str = IAction.T2T.INSTANCE.getActionMap().get(Long.valueOf(j2));
+            String str = IAction.T2T.INSTANCE.getActionMap().get(Long.valueOf(j));
             if (str == null) {
                 return;
             }
@@ -135,10 +136,10 @@ public final class T2TOperationInterface implements AndroidOperationInterface {
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface
-    public boolean protect(int i2) {
+    public boolean protect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.vpn.protect(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.vpn.protect(i) : invokeI.booleanValue;
     }
 
     @Override // com.baidu.tun2tornadolite.AndroidOperationInterface

@@ -38,9 +38,9 @@ public class BDIMConversation implements IMConversation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bIMConversation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,17 +51,17 @@ public class BDIMConversation implements IMConversation {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleSendMessageResponse(int i2, ChatMsg chatMsg, SendMessageListener sendMessageListener) {
+    public void handleSendMessageResponse(int i, ChatMsg chatMsg, SendMessageListener sendMessageListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65538, this, i2, chatMsg, sendMessageListener) == null) || sendMessageListener == null) {
+        if (!(interceptable == null || interceptable.invokeILL(65538, this, i, chatMsg, sendMessageListener) == null) || sendMessageListener == null) {
             return;
         }
         ArrayList arrayList = null;
-        if (i2 != 22 && i2 != 1024 && i2 != 1001) {
+        if (i != 22 && i != 1024 && i != 1001) {
             arrayList = new ArrayList();
             arrayList.add(LiveMessageParser.parseChatMsg(chatMsg));
         }
-        sendMessageListener.onSendMessageResult(i2, arrayList);
+        sendMessageListener.onSendMessageResult(i, arrayList);
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation
@@ -81,9 +81,9 @@ public class BDIMConversation implements IMConversation {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iMCastSetListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -94,13 +94,13 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                public void onResult(int i2, long j2, long j3) {
+                public void onResult(int i, long j, long j2) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
                         return;
                     }
-                    iMCastSetListener2.onResult(i2, j2, j3);
+                    iMCastSetListener2.onResult(i, j, j2);
                 }
             });
         }
@@ -123,9 +123,9 @@ public class BDIMConversation implements IMConversation {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iMCastSetListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -136,13 +136,13 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                public void onResult(int i2, long j2, long j3) {
+                public void onResult(int i, long j, long j2) {
                     IMCastSetListener iMCastSetListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || (iMCastSetListener2 = this.val$listener) == null) {
                         return;
                     }
-                    iMCastSetListener2.onResult(i2, j2, j3);
+                    iMCastSetListener2.onResult(i, j, j2);
                 }
             });
         }
@@ -163,15 +163,15 @@ public class BDIMConversation implements IMConversation {
 
     @Override // com.baidu.livesdk.api.im.IMConversation
     public void registerMsgReceiveListener(String str, MsgReceiveListener msgReceiveListener) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, msgReceiveListener) == null) {
             try {
-                j2 = Long.parseLong(str);
+                j = Long.parseLong(str);
             } catch (Exception unused) {
-                j2 = 0;
+                j = 0;
             }
-            this.mConversation.registerLiveMsgReceiveListener(j2, new ILiveMsgReceiveListener(this, msgReceiveListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.1
+            this.mConversation.registerLiveMsgReceiveListener(j, new ILiveMsgReceiveListener(this, msgReceiveListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BDIMConversation this$0;
@@ -184,9 +184,9 @@ public class BDIMConversation implements IMConversation {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, msgReceiveListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -197,13 +197,13 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
-                public void onReceiveMessage(int i2, JSONArray jSONArray) {
+                public void onReceiveMessage(int i, JSONArray jSONArray) {
                     MsgReceiveListener msgReceiveListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, jSONArray) == null) || (msgReceiveListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, jSONArray) == null) || (msgReceiveListener2 = this.val$listener) == null) {
                         return;
                     }
-                    msgReceiveListener2.onReceiveMessage(i2, LiveMessageParser.getMessageList(jSONArray));
+                    msgReceiveListener2.onReceiveMessage(i, LiveMessageParser.getMessageList(jSONArray));
                 }
             });
         }
@@ -226,9 +226,9 @@ public class BDIMConversation implements IMConversation {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sendMessageStatusListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -239,23 +239,23 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-                public void onSendProgress(int i2, ChatMsg chatMsg) {
+                public void onSendProgress(int i, ChatMsg chatMsg) {
                     SendMessageStatusListener sendMessageStatusListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
                         return;
                     }
-                    sendMessageStatusListener2.onSendProgress(i2, chatMsg);
+                    sendMessageStatusListener2.onSendProgress(i, chatMsg);
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener
-                public void onSendStatus(int i2, ChatMsg chatMsg) {
+                public void onSendStatus(int i, ChatMsg chatMsg) {
                     SendMessageStatusListener sendMessageStatusListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, chatMsg) == null) || (sendMessageStatusListener2 = this.val$statusListener) == null) {
                         return;
                     }
-                    sendMessageStatusListener2.onSendStatus(i2, chatMsg);
+                    sendMessageStatusListener2.onSendStatus(i, chatMsg);
                 }
             }, new ISendMessageListener(this, sendMessageListener) { // from class: com.baidu.livesdk.sdk.im.BDIMConversation.5
                 public static /* synthetic */ Interceptable $ic;
@@ -270,9 +270,9 @@ public class BDIMConversation implements IMConversation {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sendMessageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -283,10 +283,10 @@ public class BDIMConversation implements IMConversation {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-                public void onSendMessageResult(int i2, ChatMsg chatMsg) {
+                public void onSendMessageResult(int i, ChatMsg chatMsg) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, chatMsg) == null) {
-                        this.this$0.handleSendMessageResponse(i2, chatMsg, this.val$sendListener);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, chatMsg) == null) {
+                        this.this$0.handleSendMessageResponse(i, chatMsg, this.val$sendListener);
                     }
                 }
             });
@@ -294,10 +294,10 @@ public class BDIMConversation implements IMConversation {
     }
 
     @Override // com.baidu.livesdk.api.im.IMConversation
-    public void setPullInterval(int i2) {
+    public void setPullInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mConversation.setPullInterval(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mConversation.setPullInterval(i);
         }
     }
 

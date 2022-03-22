@@ -21,9 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EmotionDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f41594e;
+    public HttpMessageListener a;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -32,17 +30,17 @@ public class EmotionDetailModel extends BdBaseModel {
         public final /* synthetic */ EmotionDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(EmotionDetailModel emotionDetailModel, int i2) {
-            super(i2);
+        public a(EmotionDetailModel emotionDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {emotionDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {emotionDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -67,31 +65,43 @@ public class EmotionDetailModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41594e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
+        this.a = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f41594e.setTag(getUniqueId());
-        this.f41594e.setSelfListener(true);
-        registerListener(this.f41594e);
+        this.a.setTag(getUniqueId());
+        this.a.setSelfListener(true);
+        registerListener(this.a);
+    }
+
+    public void A(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            if (j >= 0 || i >= 0) {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
+                httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
+                httpMessage.addParam("pck_id", i);
+                sendMessage(httpMessage);
+            }
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f41594e);
+            MessageManager.getInstance().unRegisterListener(this.a);
             return true;
         }
         return invokeV.booleanValue;
@@ -101,21 +111,9 @@ public class EmotionDetailModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void y(long j2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            if (j2 >= 0 || i2 >= 0) {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
-                httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j2);
-                httpMessage.addParam("pck_id", i2);
-                sendMessage(httpMessage);
-            }
-        }
     }
 }

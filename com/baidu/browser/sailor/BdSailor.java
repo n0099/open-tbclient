@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
@@ -40,7 +41,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailor implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BdSailor";
@@ -72,9 +73,9 @@ public class BdSailor implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -92,14 +93,14 @@ public class BdSailor implements INoProGuard {
         }
     }
 
-    public static void crashIntentionally(int i2) {
+    public static void crashIntentionally(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            Log.d("CRASHPAD", "bdsailor.crashIntentionally type:".concat(String.valueOf(i2)));
-            if (i2 == 4) {
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            Log.d("CRASHPAD", "bdsailor.crashIntentionally type:".concat(String.valueOf(i)));
+            if (i == 4) {
                 ZwDebug.crashIntentionally(2);
-            } else if (i2 != 5) {
-                Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:".concat(String.valueOf(i2)));
+            } else if (i != 5) {
+                Log.d("CRASHPAD", "bdsailor.crashIntentionally default type:".concat(String.valueOf(i)));
             } else {
                 ZwDebug.crashIntentionally(3);
             }
@@ -412,21 +413,21 @@ public class BdSailor implements INoProGuard {
         }
     }
 
-    public void initWebkit(String str, boolean z, int i2) {
+    public void initWebkit(String str, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if ((1 == i2 || 2 == i2) && z) {
-                WebKitFactory.forceInitT7(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if ((1 == i || 2 == i) && z) {
+                WebKitFactory.forceInitT7(i);
             }
             initWebkit(str, z);
         }
     }
 
-    public void initWebkit(String str, boolean z, int i2, int i3) {
+    public void initWebkit(String str, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            WebKitFactory.setHttpCacheMbSize(i3);
-            initWebkit(str, z, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            WebKitFactory.setHttpCacheMbSize(i2);
+            initWebkit(str, z, i);
         }
     }
 
@@ -444,22 +445,21 @@ public class BdSailor implements INoProGuard {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
             }
             BdSailorPlatform.getInstance().initWebkit(str, z, cls);
-            ZeusPerformanceTiming.Stage stage2 = ZeusPerformanceTiming.Stage.End;
             if (z2) {
-                ZeusPerformanceTiming.record(stage2, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
                 sb = new StringBuilder("initWebkit = ");
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 sb.append(" ");
                 zeusInitTiming = ZeusPerformanceTiming.getSysInitTiming();
             } else {
-                ZeusPerformanceTiming.record(stage2, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
                 sb = new StringBuilder("initWebkit = ");
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 sb.append(" ");
                 zeusInitTiming = ZeusPerformanceTiming.getZeusInitTiming();
             }
             sb.append(zeusInitTiming);
-            sb.toString();
+            android.util.Log.i(GlobalConstants.LOG_PER_TAG, sb.toString());
         }
     }
 
@@ -526,19 +526,19 @@ public class BdSailor implements INoProGuard {
         }
     }
 
-    public void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
+    public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), intent}) == null) {
-            BdSailorPlatform.getInstance().onActivityResult(activity, i2, i3, intent);
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+            BdSailorPlatform.getInstance().onActivityResult(activity, i, i2, intent);
         }
     }
 
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048614, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048614, this, i, keyEvent)) == null) {
             if (getCurSailorWebView() != null) {
-                getCurSailorWebView().onKeyDown(i2, keyEvent);
+                getCurSailorWebView().onKeyDown(i, keyEvent);
                 return false;
             }
             return false;
@@ -546,12 +546,12 @@ public class BdSailor implements INoProGuard {
         return invokeIL.booleanValue;
     }
 
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, keyEvent)) == null) {
             if (getCurSailorWebView() != null) {
-                getCurSailorWebView().onKeyUp(i2, keyEvent);
+                getCurSailorWebView().onKeyUp(i, keyEvent);
                 return false;
             }
             return false;
@@ -616,9 +616,9 @@ public class BdSailor implements INoProGuard {
         }
     }
 
-    public void requestFocusNodeHref(int i2) {
+    public void requestFocusNodeHref(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
         }
     }
 

@@ -15,10 +15,8 @@ public class i extends c.b.a.a.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f27057h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public b f27058i;
+    public c f22318h;
+    public b i;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -33,29 +31,29 @@ public class i extends c.b.a.a.c {
         public w<Class<?>, d0> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27059b;
+        public int f22319b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27060c;
+        public int f22320c;
 
-        public b(i iVar, int i2, int i3) {
+        public b(i iVar, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {iVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = new w<>();
-            this.f27059b = i2;
-            this.f27060c = i3;
+            this.f22319b = i;
+            this.f22320c = i2;
         }
 
         public void a(Object obj) {
@@ -79,7 +77,7 @@ public class i extends c.b.a.a.c {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
                 d0 c2 = this.a.c(cls);
                 if (c2 == null) {
-                    c2 = new d0(cls, this.f27059b, this.f27060c);
+                    c2 = new d0(cls, this.f22319b, this.f22320c);
                     this.a.i(cls, c2);
                 }
                 return c2.e();
@@ -94,20 +92,20 @@ public class i extends c.b.a.a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ i f27061d;
+        public final /* synthetic */ i f22321d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(i iVar, int i2, int i3) {
-            super(i2, i3);
+        public c(i iVar, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {iVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -115,7 +113,7 @@ public class i extends c.b.a.a.c {
                     return;
                 }
             }
-            this.f27061d = iVar;
+            this.f22321d = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,7 +122,7 @@ public class i extends c.b.a.a.c {
         public d d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d(this.f27061d, null) : (d) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new d(this.f22321d, null) : (d) invokeV.objValue;
         }
     }
 
@@ -132,9 +130,7 @@ public class i extends c.b.a.a.c {
     public class d extends c.b.a.a.d implements z.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ i f27062j;
+        public final /* synthetic */ i j;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -143,15 +139,15 @@ public class i extends c.b.a.a.c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27062j = iVar;
+            this.j = iVar;
         }
 
         @Override // c.b.a.a.d
@@ -159,11 +155,11 @@ public class i extends c.b.a.a.c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-                c.b.a.a.a i2 = super.i(cls);
-                if (i2 != null) {
-                    this.f27062j.f27058i.a(i2);
+                c.b.a.a.a i = super.i(cls);
+                if (i != null) {
+                    this.j.i.a(i);
                 }
-                return i2;
+                return i;
             }
             return (c.b.a.a.a) invokeL.objValue;
         }
@@ -174,9 +170,9 @@ public class i extends c.b.a.a.c {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 j();
                 this.a.d();
-                this.f27030b.d();
-                this.f27031c = false;
-                this.f27032d = false;
+                this.f22293b.d();
+                this.f22294c = false;
+                this.f22295d = false;
             }
         }
 
@@ -192,9 +188,9 @@ public class i extends c.b.a.a.c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue());
                 newInitContext.thisArg = this;
@@ -208,14 +204,14 @@ public class i extends c.b.a.a.c {
     public <T extends c.b.a.a.a> T h(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (T) this.f27058i.b(cls) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) ? (T) this.i.b(cls) : (T) invokeL.objValue;
     }
 
     @Override // c.b.a.a.c
     public c.b.a.a.d i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27057h.e() : (c.b.a.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22318h.e() : (c.b.a.a.d) invokeV.objValue;
     }
 
     @Override // c.b.a.a.c
@@ -224,27 +220,27 @@ public class i extends c.b.a.a.c {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             super.n(dVar);
             if (dVar instanceof d) {
-                this.f27057h.c((d) dVar);
+                this.f22318h.c((d) dVar);
             }
         }
     }
 
-    public i(int i2, int i3, int i4, int i5) {
+    public i(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27057h = new c(this, i2, i3);
-        this.f27058i = new b(this, i4, i5);
+        this.f22318h = new c(this, i, i2);
+        this.i = new b(this, i3, i4);
     }
 }

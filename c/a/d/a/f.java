@@ -16,7 +16,7 @@ public interface f<T> {
 
     Resources getResources();
 
-    String getString(int i2);
+    String getString(int i);
 
     BdUniqueId getUniqueId();
 

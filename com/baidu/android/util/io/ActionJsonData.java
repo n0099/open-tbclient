@@ -1,6 +1,7 @@
 package com.baidu.android.util.io;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,9 +48,9 @@ public class ActionJsonData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -69,9 +70,9 @@ public class ActionJsonData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -90,9 +91,9 @@ public class ActionJsonData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -105,9 +106,9 @@ public class ActionJsonData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -152,8 +153,8 @@ public class ActionJsonData {
             if (optJSONArray != null) {
                 arrayList = new ArrayList();
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     if (optJSONObject2 != null) {
                         arrayList.add(optJSONObject2);
                     }
@@ -212,24 +213,24 @@ public class ActionJsonData {
         }
     }
 
-    public void setSignIn(int i2) {
+    public void setSignIn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mSignInStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mSignInStatus = i;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mStatus = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mStatus = i;
         }
     }
 
-    public void setVersion(int i2) {
+    public void setVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mVersion = i;
         }
     }
 
@@ -243,7 +244,7 @@ public class ActionJsonData {
             try {
                 return fromJson(new JSONObject(str));
             } catch (JSONException e2) {
-                e2.toString();
+                Log.i(TAG, e2.toString());
                 return null;
             }
         }

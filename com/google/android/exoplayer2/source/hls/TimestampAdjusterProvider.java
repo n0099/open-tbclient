@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TimestampAdjusterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class TimestampAdjusterProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -30,14 +30,14 @@ public final class TimestampAdjusterProvider {
         this.timestampAdjusters = new SparseArray<>();
     }
 
-    public TimestampAdjuster getAdjuster(int i2) {
+    public TimestampAdjuster getAdjuster(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            TimestampAdjuster timestampAdjuster = this.timestampAdjusters.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            TimestampAdjuster timestampAdjuster = this.timestampAdjusters.get(i);
             if (timestampAdjuster == null) {
                 TimestampAdjuster timestampAdjuster2 = new TimestampAdjuster(Long.MAX_VALUE);
-                this.timestampAdjusters.put(i2, timestampAdjuster2);
+                this.timestampAdjusters.put(i, timestampAdjuster2);
                 return timestampAdjuster2;
             }
             return timestampAdjuster;

@@ -26,9 +26,9 @@ public class SlidingTabStrip extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -38,31 +38,31 @@ public class SlidingTabStrip extends LinearLayout {
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    public void updateTextViewColor(int i2, int i3) {
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || i == i2) {
             return;
         }
         int childCount = getChildCount();
-        if (i2 >= 0 && i2 < childCount) {
-            float dimension = getResources().getDimension(R.dimen.ds32);
-            View childAt = getChildAt(i2);
+        if (i >= 0 && i < childCount) {
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070207);
+            View childAt = getChildAt(i);
             if (childAt instanceof TextView) {
                 ((TextView) childAt).setTextSize(0, dimension);
             }
             SkinManager.setViewTextColor(childAt, R.color.CAM_X0308, 1);
         }
-        if (i3 < 0 || i3 >= childCount) {
+        if (i2 < 0 || i2 >= childCount) {
             return;
         }
-        float dimension2 = getResources().getDimension(R.dimen.ds28);
-        View childAt2 = getChildAt(i3);
+        float dimension2 = getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9);
+        View childAt2 = getChildAt(i2);
         if (childAt2 instanceof TextView) {
             ((TextView) childAt2).setTextSize(0, dimension2);
         }
@@ -78,9 +78,9 @@ public class SlidingTabStrip extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

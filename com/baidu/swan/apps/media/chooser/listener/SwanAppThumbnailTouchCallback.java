@@ -2,7 +2,7 @@ package com.baidu.swan.apps.media.chooser.listener;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.a.z0.d.d.f;
+import c.a.n0.a.z0.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f37572b;
+    public SwanAppThumbnailAdapter f28943b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
@@ -27,16 +27,16 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = fVar;
-        this.f37572b = swanAppThumbnailAdapter;
+        this.f28943b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -84,15 +84,15 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            if (this.f37572b.getMediaModels() == null) {
+            if (this.f28943b.e() == null) {
                 return false;
             }
             int adapterPosition = viewHolder.getAdapterPosition();
             int adapterPosition2 = viewHolder2.getAdapterPosition();
-            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f37572b;
+            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f28943b;
             if (swanAppThumbnailAdapter != null) {
-                Collections.swap(swanAppThumbnailAdapter.getMediaModels(), adapterPosition, adapterPosition2);
-                this.f37572b.notifyItemMoved(adapterPosition, adapterPosition2);
+                Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
+                this.f28943b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
             f fVar = this.a;
             if (fVar != null) {
@@ -105,11 +105,11 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int i2) {
+    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) {
-            super.onSelectedChanged(viewHolder, i2);
-            if (i2 != 0) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i) == null) {
+            super.onSelectedChanged(viewHolder, i);
+            if (i != 0) {
                 viewHolder.itemView.setScaleX(1.2f);
                 viewHolder.itemView.setScaleY(1.2f);
             }
@@ -117,9 +117,9 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i2) {
+    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
         }
     }
 }

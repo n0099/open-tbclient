@@ -17,7 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GlideUrl implements Key {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
@@ -44,9 +44,9 @@ public class GlideUrl implements Key {
             newInitContext.initArgs = r2;
             Object[] objArr = {url};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URL) objArr2[0], (Headers) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -176,9 +176,9 @@ public class GlideUrl implements Key {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Headers) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -195,9 +195,9 @@ public class GlideUrl implements Key {
             newInitContext.initArgs = r2;
             Object[] objArr = {url, headers};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -215,9 +215,9 @@ public class GlideUrl implements Key {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, headers};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

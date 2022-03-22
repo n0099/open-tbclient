@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51684b;
+    public boolean f38105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51685c;
+    public int f38106c;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,8 +38,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
             this.a = inputStream;
-            this.f51684b = false;
-            this.f51685c = 0;
+            this.f38105b = false;
+            this.f38106c = 0;
         }
     }
 
@@ -47,29 +47,29 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = 0;
-            if (this.f51684b) {
-                for (int i3 = 24; i3 >= 0; i3 -= 8) {
+            int i = 0;
+            if (this.f38105b) {
+                for (int i2 = 24; i2 >= 0; i2 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f51685c++;
-                    i2 |= read << i3;
+                    this.f38106c++;
+                    i |= read << i2;
                 }
-                return i2;
+                return i;
             }
-            int i4 = 0;
-            while (i2 != 32) {
+            int i3 = 0;
+            while (i != 32) {
                 int read2 = this.a.read();
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f51685c++;
-                i4 |= read2 << i2;
-                i2 += 8;
+                this.f38106c++;
+                i3 |= read2 << i;
+                i += 8;
             }
-            return i4;
+            return i3;
         }
         return invokeV.intValue;
     }
@@ -78,7 +78,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long skip = this.a.skip(4L);
-            this.f51685c = (int) (this.f51685c + skip);
+            this.f38106c = (int) (this.f38106c + skip);
             if (skip != 4) {
                 throw new EOFException();
             }
@@ -92,9 +92,9 @@ public final class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -109,24 +109,24 @@ public final class c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.intValue;
     }
 
-    public final int[] a(int i2) {
+    public final int[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            int[] iArr = new int[i2];
-            a(iArr, 0, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int[] iArr = new int[i];
+            a(iArr, 0, i);
             return iArr;
         }
         return (int[]) invokeI.objValue;
     }
 
-    private void a(int[] iArr, int i2, int i3) {
+    private void a(int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, this, iArr, i2, i3) == null) {
-            while (i3 > 0) {
-                iArr[i2] = b();
-                i3--;
-                i2++;
+        if (interceptable == null || interceptable.invokeLII(65538, this, iArr, i, i2) == null) {
+            while (i2 > 0) {
+                iArr[i] = b();
+                i2--;
+                i++;
             }
         }
     }

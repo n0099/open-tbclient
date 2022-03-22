@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
 import android.net.Uri;
-import c.a.p0.a.u.d;
+import c.a.n0.a.u.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0004"}, d2 = {"urlTransform", "", "prefix", "compatPath", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Function2<String, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
             newInitContext.initArgs = r2;
             Object[] objArr = {webCompatImpl, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,16 +60,16 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
                 String substring = str.substring(length);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 d.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
-                int i2 = 0;
+                int i = 0;
                 if (substring.length() > 0 && '/' == substring.charAt(0)) {
-                    i2 = 1;
+                    i = 1;
                 }
-                d.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i2);
-                if (i2 > 0) {
+                d.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
+                if (i > 0) {
                     if (substring == null) {
                         throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                     }
-                    substring = substring.substring(i2);
+                    substring = substring.substring(i);
                     Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
                 }
                 d.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);

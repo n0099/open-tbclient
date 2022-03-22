@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import c.a.d.i.g.b;
-import c.a.i0.a.a;
+import c.a.g0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,16 +17,16 @@ public class ISignatureVerifier_SignatureVerifier_Provider implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // c.a.i0.a.a
+    @Override // c.a.g0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

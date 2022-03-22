@@ -23,9 +23,9 @@ public class YouthStyleLoginActivity extends LoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,16 +36,16 @@ public class YouthStyleLoginActivity extends LoginActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            setContentView(R.layout.layout_sapi_sdk_youth_style_login_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e5);
             this.mNeedSetContentView = false;
             super.onCreate(bundle);
-            this.I = (SwipeBackLayout) findViewById(R.id.sbl_root_view);
-            this.J = (ImageView) findViewById(R.id.iv_pick_up_arrow);
+            this.I = (SwipeBackLayout) findViewById(R.id.obfuscated_res_0x7f091bf3);
+            this.J = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fee);
             this.I.setDirectionMode(4);
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);
             SapiWebView sapiWebView = ((LoginActivity) this).sapiWebView;
             if (sapiWebView instanceof RoundWebview) {
-                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.sapi_sdk_youth_style_webview_radius), getResources().getDimension(R.dimen.sapi_sdk_youth_style_webview_radius), 0.0f, 0.0f);
+                ((RoundWebview) sapiWebView).a(getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cf), getResources().getDimension(R.dimen.obfuscated_res_0x7f0705cf), 0.0f, 0.0f);
             }
             this.J.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.YouthStyleLoginActivity.1
                 public static /* synthetic */ Interceptable $ic;
@@ -59,9 +59,9 @@ public class YouthStyleLoginActivity extends LoginActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -44,9 +44,9 @@ public final class DirectTcpHeader extends DirectHeader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -84,9 +84,9 @@ public final class DirectTcpHeader extends DirectHeader {
             newInitContext.initArgs = r2;
             Object[] objArr = {ipHeader};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((byte[]) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -132,31 +132,31 @@ public final class DirectTcpHeader extends DirectHeader {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ((Number) this.sourcePort$delegate.getValue(this, $$delegatedProperties[0])).intValue() : invokeV.intValue;
     }
 
-    public final void setChecksum(int i2) {
+    public final void setChecksum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.checksum$delegate.setValue(this, $$delegatedProperties[2], Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.checksum$delegate.setValue(this, $$delegatedProperties[2], Integer.valueOf(i));
         }
     }
 
-    public final void setDestinationPort(int i2) {
+    public final void setDestinationPort(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.destinationPort$delegate.setValue(this, $$delegatedProperties[1], Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.destinationPort$delegate.setValue(this, $$delegatedProperties[1], Integer.valueOf(i));
         }
     }
 
-    public final void setHeaderLength(int i2) {
+    public final void setHeaderLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.headerLength$delegate.setValue(this, $$delegatedProperties[3], Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.headerLength$delegate.setValue(this, $$delegatedProperties[3], Integer.valueOf(i));
         }
     }
 
-    public final void setSourcePort(int i2) {
+    public final void setSourcePort(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.sourcePort$delegate.setValue(this, $$delegatedProperties[0], Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.sourcePort$delegate.setValue(this, $$delegatedProperties[0], Integer.valueOf(i));
         }
     }
 }

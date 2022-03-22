@@ -9,31 +9,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C2246a {
+    /* loaded from: classes7.dex */
+    public static class C2104a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f59036j;
+        public String j;
         public Bundle k;
         public String l;
         public String m;
 
-        public C2246a() {
+        public C2104a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -41,28 +39,28 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C2246a c2246a) {
+    public static boolean a(Context context, C2104a c2104a) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2246a)) == null) {
-            if (context == null || c2246a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2104a)) == null) {
+            if (context == null || c2104a == null) {
                 str = "send fail, invalid argument";
-            } else if (!c.a(c2246a.m)) {
+            } else if (!c.a(c2104a.m)) {
                 String str2 = null;
-                if (!c.a(c2246a.l)) {
-                    str2 = c2246a.l + ".permission.MM_MESSAGE";
+                if (!c.a(c2104a.l)) {
+                    str2 = c2104a.l + ".permission.MM_MESSAGE";
                 }
-                Intent intent = new Intent(c2246a.m);
-                Bundle bundle = c2246a.k;
+                Intent intent = new Intent(c2104a.m);
+                Bundle bundle = c2104a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c2246a.f59036j);
-                intent.putExtra("_mmessage_checksum", b.a(c2246a.f59036j, 570490883, packageName));
+                intent.putExtra("_mmessage_content", c2104a.j);
+                intent.putExtra("_mmessage_checksum", b.a(c2104a.j, 570490883, packageName));
                 context.sendBroadcast(intent, str2);
                 com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
                 return true;

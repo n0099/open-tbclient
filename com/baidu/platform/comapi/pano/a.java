@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC1826a<T> {
+    public interface InterfaceC1779a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -33,9 +33,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,22 +50,22 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f36374c);
+                return new c(PanoStateError.f28191c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f36374c);
+                    return new c(PanoStateError.f28191c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f36374c);
+                        return new c(PanoStateError.f28191c);
                     }
                     c cVar = null;
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("poiinfo");
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
                         if (optJSONObject2 != null) {
                             cVar = new c(PanoStateError.a);
                             cVar.a(optJSONObject2.optString("PID"));
@@ -74,10 +74,10 @@ public class a {
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f36373b);
+                return new c(PanoStateError.f28190b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f36374c);
+                return new c(PanoStateError.f28191c);
             }
         }
         return (c) invokeL.objValue;
@@ -103,9 +103,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC1826a<c> interfaceC1826a) {
+    public void a(String str, InterfaceC1779a<c> interfaceC1779a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1826a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1779a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -115,11 +115,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC1826a.a((InterfaceC1826a<c>) new c(PanoStateError.f36375d));
+                interfaceC1779a.a((InterfaceC1779a<c>) new c(PanoStateError.f28192d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC1826a));
+            this.a.get(a(builder), new b(this, interfaceC1779a));
         }
     }
 }

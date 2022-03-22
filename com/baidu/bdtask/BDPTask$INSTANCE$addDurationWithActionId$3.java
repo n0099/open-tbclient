@@ -21,17 +21,17 @@ public final class BDPTask$INSTANCE$addDurationWithActionId$3 extends Lambda imp
     public final /* synthetic */ String $tag;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$addDurationWithActionId$3(String str, long j2, String str2, String str3) {
+    public BDPTask$INSTANCE$addDurationWithActionId$3(String str, long j, String str2, String str3) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2, str3};
+            Object[] objArr = {str, Long.valueOf(j), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,7 +39,7 @@ public final class BDPTask$INSTANCE$addDurationWithActionId$3 extends Lambda imp
             }
         }
         this.$actionId = str;
-        this.$sliceTimeMs = j2;
+        this.$sliceTimeMs = j;
         this.$duplicateId = str2;
         this.$tag = str3;
     }

@@ -1,6 +1,7 @@
 package c.a.d.i.f;
 
 import android.app.Application;
+import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.nps.interfa.IHostAppRuntime;
 import com.baidu.pyramid.annotation.Service;
@@ -22,9 +23,9 @@ public class b implements IHostAppRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,7 +37,7 @@ public class b implements IHostAppRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "" + BdBaseApplication.getInst();
+            Log.e("TAG", "" + BdBaseApplication.getInst());
             return BdBaseApplication.getInst();
         }
         return (Application) invokeV.objValue;

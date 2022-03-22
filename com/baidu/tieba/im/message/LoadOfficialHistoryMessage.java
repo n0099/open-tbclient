@@ -19,9 +19,9 @@ public class LoadOfficialHistoryMessage extends LoadHistoryMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (LoadHistoryMessage.a) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -32,17 +32,17 @@ public class LoadOfficialHistoryMessage extends LoadHistoryMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LoadOfficialHistoryMessage(int i2, LoadHistoryMessage.a aVar) {
-        super(i2, aVar);
+    public LoadOfficialHistoryMessage(int i, LoadHistoryMessage.a aVar) {
+        super(i, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), aVar};
+            Object[] objArr = {Integer.valueOf(i), aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (LoadHistoryMessage.a) objArr2[1]);
                 newInitContext.thisArg = this;

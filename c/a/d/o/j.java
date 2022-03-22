@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 public interface j {
     boolean a(MotionEvent motionEvent);
 
-    void b(int i2, int i3);
+    void b(int i, int i2);
 
-    void c(int i2);
+    void c(int i);
 
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 

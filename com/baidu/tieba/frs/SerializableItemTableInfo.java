@@ -22,9 +22,9 @@ public class SerializableItemTableInfo implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {itemTable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,17 +49,17 @@ public class SerializableItemTableInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isCommented : invokeV.intValue;
     }
 
-    public void setCommentStar(int i2) {
+    public void setCommentStar(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.commentStar = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.commentStar = i;
         }
     }
 
-    public void setIsCommented(int i2) {
+    public void setIsCommented(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.isCommented = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.isCommented = i;
         }
     }
 }

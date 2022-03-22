@@ -22,45 +22,41 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements ServiceConnection, t {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f58427b;
+    public static boolean f43160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f58428c;
+    public static int f43161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f58429d;
+    public static long f43162d;
     @Nullable
     public c a;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.InterfaceC2211a f58432g;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Future<?> f58434i;
+    public c.a.InterfaceC2072a f43165g;
+    public Future<?> i;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f58430e = new Handler(Looper.getMainLooper());
+    public Handler f43163e = new Handler(Looper.getMainLooper());
 
     /* renamed from: f  reason: collision with root package name */
-    public b f58431f = null;
+    public b f43164f = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f58433h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
+    public Runnable f43166h = new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.f58427b || f.this.f58432g == null) {
+            if (f.f43160b || f.this.f43165g == null) {
                 return;
             }
-            f.this.f58432g.a();
+            f.this.f43165g.a();
         }
     };
-
-    /* renamed from: j  reason: collision with root package name */
-    public CountDownLatch f58435j = new CountDownLatch(1);
+    public CountDownLatch j = new CountDownLatch(1);
 
     public f() {
         SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), this);
@@ -68,27 +64,27 @@ public class f implements ServiceConnection, t {
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.ss.android.socialbase.downloader.b.f.2.run():void] */
-    public static /* synthetic */ c.a.InterfaceC2211a a(f fVar) {
-        return fVar.f58432g;
+    public static /* synthetic */ c.a.InterfaceC2072a a(f fVar) {
+        return fVar.f43165g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ss.android.socialbase.downloader.downloader.j
     /* renamed from: a */
-    public ArrayList<i> n(int i2) {
+    public ArrayList<i> n(int i) {
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public boolean a(int i2, Map<Long, i> map) {
+    public boolean a(int i, Map<Long, i> map) {
         return false;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo i(int i2) {
+    public DownloadInfo i(int i) {
         try {
             if (this.a != null) {
-                return this.a.i(i2);
+                return this.a.i(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -98,10 +94,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo j(int i2) {
+    public DownloadInfo j(int i) {
         try {
             if (this.a != null) {
-                return this.a.j(i2);
+                return this.a.j(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -111,40 +107,40 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public Map<Long, i> l(int i2) {
+    public Map<Long, i> l(int i) {
         return null;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void m(int i2) {
+    public void m(int i) {
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
-        f58427b = true;
-        this.f58430e.removeCallbacks(this.f58433h);
+        f43160b = true;
+        this.f43163e.removeCallbacks(this.f43166h);
         try {
             this.a = c.a.a(iBinder);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.f58434i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.2
+        this.i = com.ss.android.socialbase.downloader.downloader.c.l().submit(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.2
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (this) {
                     try {
-                        if (f.this.f58431f != null && f.this.a != null) {
-                            f.this.a.a(f.this.f58431f);
+                        if (f.this.f43164f != null && f.this.a != null) {
+                            f.this.a.a(f.this.f43164f);
                         }
-                        f.this.f58435j.countDown();
+                        f.this.j.countDown();
                         iBinder.linkToDeath(new IBinder.DeathRecipient() { // from class: com.ss.android.socialbase.downloader.b.f.2.1
                             @Override // android.os.IBinder.DeathRecipient
                             public void binderDied() {
-                                boolean unused = f.f58427b = false;
-                                if (f.this.g() || f.this.f58432g == null) {
+                                boolean unused = f.f43160b = false;
+                                if (f.this.g() || f.this.f43165g == null) {
                                     return;
                                 }
-                                f.this.f58430e.postDelayed(f.this.f58433h, 2000L);
+                                f.this.f43163e.postDelayed(f.this.f43166h, 2000L);
                             }
                         }, 0);
                     } catch (Throwable unused) {
@@ -157,24 +153,24 @@ public class f implements ServiceConnection, t {
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         this.a = null;
-        f58427b = false;
+        f43160b = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        if (Build.VERSION.SDK_INT < 26 && !f58427b) {
-            if (f58428c > 5) {
+        if (Build.VERSION.SDK_INT < 26 && !f43160b) {
+            if (f43161c > 5) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: bind too many times!!! ");
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - f58429d < 15000) {
+            if (currentTimeMillis - f43162d < 15000) {
                 com.ss.android.socialbase.downloader.c.a.d("SqlDownloadCacheAidlWra", "bindMainProcess: time too short since last bind!!! ");
                 return false;
             }
-            f58428c++;
-            f58429d = currentTimeMillis;
-            this.f58430e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
+            f43161c++;
+            f43162d = currentTimeMillis;
+            this.f43163e.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.b.f.3
                 @Override // java.lang.Runnable
                 public void run() {
                     SqlDownloadCacheService.a(com.ss.android.socialbase.downloader.downloader.c.N(), f.this);
@@ -186,10 +182,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo b(int i2) {
+    public DownloadInfo b(int i) {
         try {
             if (this.a != null) {
-                return this.a.b(i2);
+                return this.a.b(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -225,10 +221,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public boolean e(int i2) {
+    public boolean e(int i) {
         try {
             if (this.a != null) {
-                return this.a.e(i2);
+                return this.a.e(i);
             }
             return false;
         } catch (RemoteException e2) {
@@ -238,10 +234,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo h(int i2) {
+    public DownloadInfo h(int i) {
         try {
             if (this.a != null) {
-                return this.a.h(i2);
+                return this.a.h(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -250,15 +246,15 @@ public class f implements ServiceConnection, t {
         }
     }
 
-    public void a(c.a.InterfaceC2211a interfaceC2211a) {
-        this.f58432g = interfaceC2211a;
+    public void a(c.a.InterfaceC2072a interfaceC2072a) {
+        this.f43165g = interfaceC2072a;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public boolean f(int i2) {
+    public boolean f(int i) {
         try {
             if (this.a != null) {
-                return this.a.f(i2);
+                return this.a.f(i);
             }
             return false;
         } catch (RemoteException e2) {
@@ -285,12 +281,12 @@ public class f implements ServiceConnection, t {
                     }
                 });
                 try {
-                    z = !f.this.f58435j.await(5000L, TimeUnit.MILLISECONDS);
+                    z = !f.this.j.await(5000L, TimeUnit.MILLISECONDS);
                 } catch (Throwable th) {
                     th.printStackTrace();
                     z = false;
                 }
-                if (z && (future = f.this.f58434i) != null) {
+                if (z && (future = f.this.i) != null) {
                     future.cancel(true);
                 }
                 f.this.a();
@@ -311,7 +307,7 @@ public class f implements ServiceConnection, t {
                     e2.printStackTrace();
                 }
             } else {
-                this.f58431f = bVar;
+                this.f43164f = bVar;
             }
         }
     }
@@ -330,10 +326,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
+    public List<com.ss.android.socialbase.downloader.model.b> c(int i) {
         try {
             if (this.a != null) {
-                return this.a.c(i2);
+                return this.a.c(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -343,10 +339,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void d(int i2) {
+    public void d(int i) {
         try {
             if (this.a != null) {
-                this.a.d(i2);
+                this.a.d(i);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -391,10 +387,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo d(int i2, long j2) {
+    public DownloadInfo d(int i, long j) {
         try {
             if (this.a != null) {
-                return this.a.d(i2, j2);
+                return this.a.d(i, j);
             }
             return null;
         } catch (RemoteException e2) {
@@ -425,10 +421,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo c(int i2, long j2) {
+    public DownloadInfo c(int i, long j) {
         try {
             if (this.a != null) {
-                return this.a.c(i2, j2);
+                return this.a.c(i, j);
             }
             return null;
         } catch (RemoteException e2) {
@@ -451,10 +447,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo g(int i2) {
+    public DownloadInfo g(int i) {
         try {
             if (this.a != null) {
-                return this.a.g(i2);
+                return this.a.g(i);
             }
             return null;
         } catch (RemoteException e2) {
@@ -477,10 +473,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo b(int i2, long j2) {
+    public DownloadInfo b(int i, long j) {
         try {
             if (this.a != null) {
-                return this.a.b(i2, j2);
+                return this.a.b(i, j);
             }
             return null;
         } catch (RemoteException e2) {
@@ -512,10 +508,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void a(int i2, int i3, long j2) {
+    public void a(int i, int i2, long j) {
         try {
             if (this.a != null) {
-                this.a.a(i2, i3, j2);
+                this.a.a(i, i2, j);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -523,10 +519,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
+    public void b(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
             if (this.a != null) {
-                this.a.b(i2, list);
+                this.a.b(i, list);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -534,10 +530,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void a(int i2, int i3, int i4, long j2) {
+    public void a(int i, int i2, int i3, long j) {
         try {
             if (this.a != null) {
-                this.a.a(i2, i3, i4, j2);
+                this.a.a(i, i2, i3, j);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -545,10 +541,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void a(int i2, int i3, int i4, int i5) {
+    public void a(int i, int i2, int i3, int i4) {
         try {
             if (this.a != null) {
-                this.a.a(i2, i3, i4, i5);
+                this.a.a(i, i2, i3, i4);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();
@@ -556,10 +552,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo a(int i2, int i3) {
+    public DownloadInfo a(int i, int i2) {
         try {
             if (this.a != null) {
-                return this.a.a(i2, i3);
+                return this.a.a(i, i2);
             }
             return null;
         } catch (RemoteException e2) {
@@ -582,10 +578,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo a(int i2, long j2, String str, String str2) {
+    public DownloadInfo a(int i, long j, String str, String str2) {
         try {
             if (this.a != null) {
-                return this.a.a(i2, j2, str, str2);
+                return this.a.a(i, j, str, str2);
             }
             return null;
         } catch (RemoteException e2) {
@@ -595,10 +591,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo a(int i2, long j2) {
+    public DownloadInfo a(int i, long j) {
         try {
             if (this.a != null) {
-                return this.a.a(i2, j2);
+                return this.a.a(i, j);
             }
             return null;
         } catch (RemoteException e2) {
@@ -608,10 +604,10 @@ public class f implements ServiceConnection, t {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) {
+    public void a(int i, List<com.ss.android.socialbase.downloader.model.b> list) {
         try {
             if (this.a != null) {
-                this.a.a(i2, list);
+                this.a.a(i, list);
             }
         } catch (RemoteException e2) {
             e2.printStackTrace();

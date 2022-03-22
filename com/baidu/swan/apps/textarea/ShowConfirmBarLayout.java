@@ -10,24 +10,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ShowConfirmBarLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Button a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Button f38062e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f29294b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f38063f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowConfirmBarLayout f38064e;
+        public final /* synthetic */ ShowConfirmBarLayout a;
 
         public a(ShowConfirmBarLayout showConfirmBarLayout) {
             Interceptable interceptable = $ic;
@@ -36,28 +32,28 @@ public class ShowConfirmBarLayout extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {showConfirmBarLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38064e = showConfirmBarLayout;
+            this.a = showConfirmBarLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38064e.f38063f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f29294b == null) {
                 return;
             }
-            this.f38064e.f38063f.onClick(view);
+            this.a.f29294b.onClick(view);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onClick(View view);
     }
@@ -71,24 +67,24 @@ public class ShowConfirmBarLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.aiapps_textarea_confirm_bar, this).findViewById(R.id.confirm_button);
-        this.f38062e = button;
+        Button button = (Button) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d9, this).findViewById(R.id.obfuscated_res_0x7f0906bc);
+        this.a = button;
         button.setOnClickListener(new a(this));
     }
 
     public void setOnConfirmButtonClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f38063f = bVar;
+            this.f29294b = bVar;
         }
     }
 }

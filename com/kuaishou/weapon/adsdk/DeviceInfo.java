@@ -35,9 +35,9 @@ public class DeviceInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,10 +56,10 @@ public class DeviceInfo {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? h.c(context) : (String) invokeL.objValue;
     }
 
-    public static int[] getAudioVolumes(Context context, int i2) {
+    public static int[] getAudioVolumes(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) ? h.a(context, i2) : (int[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? h.a(context, i) : (int[]) invokeLI.objValue;
     }
 
     public static String getBaseBandVersion() {
@@ -261,8 +261,8 @@ public class DeviceInfo {
             try {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                 ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-                long j2 = memoryInfo.totalMem;
-                return j2 <= 0 ? h.b() : j2;
+                long j = memoryInfo.totalMem;
+                return j <= 0 ? h.b() : j;
             } catch (Exception unused) {
                 return 0L;
             }
@@ -342,16 +342,16 @@ public class DeviceInfo {
     }
 
     public static float getScreenBrightness(Context context) {
-        int i2;
+        int i;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             try {
-                i2 = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
             } catch (Exception unused) {
-                i2 = -1;
+                i = -1;
             }
-            return i2;
+            return i;
         }
         return invokeL.floatValue;
     }

@@ -5,31 +5,31 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements GestureDetector.OnGestureListener, View.OnTouchListener {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GestureDetector f56641b;
+    public GestureDetector f41518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MotionEvent f56642c;
+    public MotionEvent f41519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f56643d;
+    public d f41520d;
 
     public f(Context context, @NonNull View view, d dVar) {
         this.a = view;
         view.setOnTouchListener(this);
-        this.f56641b = new GestureDetector(context, this);
-        this.f56643d = dVar;
+        this.f41518b = new GestureDetector(context, this);
+        this.f41520d = dVar;
     }
 
     public f(@NonNull View view, d dVar) {
         this.a = view;
         view.setOnTouchListener(this);
-        this.f56641b = new GestureDetector(view.getContext(), this);
-        this.f56643d = dVar;
+        this.f41518b = new GestureDetector(view.getContext(), this);
+        this.f41520d = dVar;
     }
 
     public static boolean a(MotionEvent motionEvent, MotionEvent motionEvent2) {
@@ -42,9 +42,9 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
         boolean z = false;
         if (action != 0) {
             if (action == 1) {
-                MotionEvent motionEvent3 = this.f56642c;
+                MotionEvent motionEvent3 = this.f41519c;
                 if (motionEvent3 != null && a(motionEvent3, motionEvent)) {
-                    d dVar = this.f56643d;
+                    d dVar = this.f41520d;
                     if (dVar != null) {
                         dVar.b(view);
                     }
@@ -55,7 +55,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
             return z;
         }
         motionEvent2 = MotionEvent.obtain(motionEvent);
-        this.f56642c = motionEvent2;
+        this.f41519c = motionEvent2;
         return z;
     }
 
@@ -86,7 +86,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onSingleTapUp");
-        d dVar = this.f56643d;
+        d dVar = this.f41520d;
         if (dVar != null) {
             dVar.a_(this.a);
             return true;
@@ -96,7 +96,7 @@ public class f implements GestureDetector.OnGestureListener, View.OnTouchListene
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f56641b.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f41518b.onTouchEvent(motionEvent);
         com.kwad.sdk.core.d.a.a("ViewGestureHelper", "onTouch, " + motionEvent.getAction() + "， handled： " + onTouchEvent);
         if (onTouchEvent) {
             return true;

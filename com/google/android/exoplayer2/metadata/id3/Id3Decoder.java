@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.metadata.id3;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +21,8 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+import org.apache.commons.base.CharEncoding;
+/* loaded from: classes6.dex */
 public final class Id3Decoder implements MetadataDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_FLAG_V3_HAS_GROUP_IDENTIFIER = 32;
@@ -41,12 +43,12 @@ public final class Id3Decoder implements MetadataDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final FramePredicate framePredicate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FramePredicate {
-        boolean evaluate(int i2, int i3, int i4, int i5, int i6);
+        boolean evaluate(int i, int i2, int i3, int i4, int i5);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Id3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,24 +56,24 @@ public final class Id3Decoder implements MetadataDecoder {
         public final boolean isUnsynchronized;
         public final int majorVersion;
 
-        public Id3Header(int i2, boolean z, int i3) {
+        public Id3Header(int i, boolean z, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.majorVersion = i2;
+            this.majorVersion = i;
             this.isUnsynchronized = z;
-            this.framesSize = i3;
+            this.framesSize = i2;
         }
     }
 
@@ -98,9 +100,9 @@ public final class Id3Decoder implements MetadataDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((FramePredicate) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -109,24 +111,24 @@ public final class Id3Decoder implements MetadataDecoder {
         }
     }
 
-    public static byte[] copyOfRangeIfValid(byte[] bArr, int i2, int i3) {
+    public static byte[] copyOfRangeIfValid(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) ? i3 <= i2 ? new byte[0] : Arrays.copyOfRange(bArr, i2, i3) : (byte[]) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) ? i2 <= i ? new byte[0] : Arrays.copyOfRange(bArr, i, i2) : (byte[]) invokeLII.objValue;
     }
 
-    public static ApicFrame decodeApicFrame(ParsableByteArray parsableByteArray, int i2, int i3) throws UnsupportedEncodingException {
+    public static ApicFrame decodeApicFrame(ParsableByteArray parsableByteArray, int i, int i2) throws UnsupportedEncodingException {
         InterceptResult invokeLII;
         int indexOfZeroByte;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, parsableByteArray, i, i2)) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             String charsetName = getCharsetName(readUnsignedByte);
-            int i4 = i2 - 1;
-            byte[] bArr = new byte[i4];
-            parsableByteArray.readBytes(bArr, 0, i4);
-            if (i3 == 2) {
+            int i3 = i - 1;
+            byte[] bArr = new byte[i3];
+            parsableByteArray.readBytes(bArr, 0, i3);
+            if (i2 == 2) {
                 str = FileUtils.IMAGE_FILE_START + Util.toLowerInvariant(new String(bArr, 0, 3, "ISO-8859-1"));
                 if (str.equals("image/jpg")) {
                     str = "image/jpeg";
@@ -141,28 +143,28 @@ public final class Id3Decoder implements MetadataDecoder {
                     str = lowerInvariant;
                 }
             }
-            int i5 = indexOfZeroByte + 2;
-            int indexOfEos = indexOfEos(bArr, i5, readUnsignedByte);
-            return new ApicFrame(str, new String(bArr, i5, indexOfEos - i5, charsetName), bArr[indexOfZeroByte + 1] & 255, copyOfRangeIfValid(bArr, indexOfEos + delimiterLength(readUnsignedByte), i4));
+            int i4 = indexOfZeroByte + 2;
+            int indexOfEos = indexOfEos(bArr, i4, readUnsignedByte);
+            return new ApicFrame(str, new String(bArr, i4, indexOfEos - i4, charsetName), bArr[indexOfZeroByte + 1] & 255, copyOfRangeIfValid(bArr, indexOfEos + delimiterLength(readUnsignedByte), i3));
         }
         return (ApicFrame) invokeLII.objValue;
     }
 
-    public static BinaryFrame decodeBinaryFrame(ParsableByteArray parsableByteArray, int i2, String str) {
+    public static BinaryFrame decodeBinaryFrame(ParsableByteArray parsableByteArray, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, parsableByteArray, i2, str)) == null) {
-            byte[] bArr = new byte[i2];
-            parsableByteArray.readBytes(bArr, 0, i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, parsableByteArray, i, str)) == null) {
+            byte[] bArr = new byte[i];
+            parsableByteArray.readBytes(bArr, 0, i);
             return new BinaryFrame(str, bArr);
         }
         return (BinaryFrame) invokeLIL.objValue;
     }
 
-    public static ChapterFrame decodeChapterFrame(ParsableByteArray parsableByteArray, int i2, int i3, boolean z, int i4, FramePredicate framePredicate) throws UnsupportedEncodingException {
+    public static ChapterFrame decodeChapterFrame(ParsableByteArray parsableByteArray, int i, int i2, boolean z, int i3, FramePredicate framePredicate) throws UnsupportedEncodingException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{parsableByteArray, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), framePredicate})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{parsableByteArray, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), framePredicate})) == null) {
             int position = parsableByteArray.getPosition();
             int indexOfZeroByte = indexOfZeroByte(parsableByteArray.data, position);
             String str = new String(parsableByteArray.data, position, indexOfZeroByte - position, "ISO-8859-1");
@@ -170,28 +172,28 @@ public final class Id3Decoder implements MetadataDecoder {
             int readInt = parsableByteArray.readInt();
             int readInt2 = parsableByteArray.readInt();
             long readUnsignedInt = parsableByteArray.readUnsignedInt();
-            long j2 = readUnsignedInt == 4294967295L ? -1L : readUnsignedInt;
+            long j = readUnsignedInt == 4294967295L ? -1L : readUnsignedInt;
             long readUnsignedInt2 = parsableByteArray.readUnsignedInt();
-            long j3 = readUnsignedInt2 == 4294967295L ? -1L : readUnsignedInt2;
+            long j2 = readUnsignedInt2 == 4294967295L ? -1L : readUnsignedInt2;
             ArrayList arrayList = new ArrayList();
-            int i5 = position + i2;
-            while (parsableByteArray.getPosition() < i5) {
-                Id3Frame decodeFrame = decodeFrame(i3, parsableByteArray, z, i4, framePredicate);
+            int i4 = position + i;
+            while (parsableByteArray.getPosition() < i4) {
+                Id3Frame decodeFrame = decodeFrame(i2, parsableByteArray, z, i3, framePredicate);
                 if (decodeFrame != null) {
                     arrayList.add(decodeFrame);
                 }
             }
             Id3Frame[] id3FrameArr = new Id3Frame[arrayList.size()];
             arrayList.toArray(id3FrameArr);
-            return new ChapterFrame(str, readInt, readInt2, j2, j3, id3FrameArr);
+            return new ChapterFrame(str, readInt, readInt2, j, j2, id3FrameArr);
         }
         return (ChapterFrame) invokeCommon.objValue;
     }
 
-    public static ChapterTocFrame decodeChapterTOCFrame(ParsableByteArray parsableByteArray, int i2, int i3, boolean z, int i4, FramePredicate framePredicate) throws UnsupportedEncodingException {
+    public static ChapterTocFrame decodeChapterTOCFrame(ParsableByteArray parsableByteArray, int i, int i2, boolean z, int i3, FramePredicate framePredicate) throws UnsupportedEncodingException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{parsableByteArray, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), framePredicate})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{parsableByteArray, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), framePredicate})) == null) {
             int position = parsableByteArray.getPosition();
             int indexOfZeroByte = indexOfZeroByte(parsableByteArray.data, position);
             String str = new String(parsableByteArray.data, position, indexOfZeroByte - position, "ISO-8859-1");
@@ -201,16 +203,16 @@ public final class Id3Decoder implements MetadataDecoder {
             boolean z3 = (readUnsignedByte & 1) != 0;
             int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
             String[] strArr = new String[readUnsignedByte2];
-            for (int i5 = 0; i5 < readUnsignedByte2; i5++) {
+            for (int i4 = 0; i4 < readUnsignedByte2; i4++) {
                 int position2 = parsableByteArray.getPosition();
                 int indexOfZeroByte2 = indexOfZeroByte(parsableByteArray.data, position2);
-                strArr[i5] = new String(parsableByteArray.data, position2, indexOfZeroByte2 - position2, "ISO-8859-1");
+                strArr[i4] = new String(parsableByteArray.data, position2, indexOfZeroByte2 - position2, "ISO-8859-1");
                 parsableByteArray.setPosition(indexOfZeroByte2 + 1);
             }
             ArrayList arrayList = new ArrayList();
-            int i6 = position + i2;
-            while (parsableByteArray.getPosition() < i6) {
-                Id3Frame decodeFrame = decodeFrame(i3, parsableByteArray, z, i4, framePredicate);
+            int i5 = position + i;
+            while (parsableByteArray.getPosition() < i5) {
+                Id3Frame decodeFrame = decodeFrame(i2, parsableByteArray, z, i3, framePredicate);
                 if (decodeFrame != null) {
                     arrayList.add(decodeFrame);
                 }
@@ -222,11 +224,11 @@ public final class Id3Decoder implements MetadataDecoder {
         return (ChapterTocFrame) invokeCommon.objValue;
     }
 
-    public static CommentFrame decodeCommentFrame(ParsableByteArray parsableByteArray, int i2) throws UnsupportedEncodingException {
+    public static CommentFrame decodeCommentFrame(ParsableByteArray parsableByteArray, int i) throws UnsupportedEncodingException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, parsableByteArray, i2)) == null) {
-            if (i2 < 4) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, parsableByteArray, i)) == null) {
+            if (i < 4) {
                 return null;
             }
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
@@ -234,28 +236,29 @@ public final class Id3Decoder implements MetadataDecoder {
             byte[] bArr = new byte[3];
             parsableByteArray.readBytes(bArr, 0, 3);
             String str = new String(bArr, 0, 3);
-            int i3 = i2 - 4;
-            byte[] bArr2 = new byte[i3];
-            parsableByteArray.readBytes(bArr2, 0, i3);
+            int i2 = i - 4;
+            byte[] bArr2 = new byte[i2];
+            parsableByteArray.readBytes(bArr2, 0, i2);
             int indexOfEos = indexOfEos(bArr2, 0, readUnsignedByte);
             String str2 = new String(bArr2, 0, indexOfEos, charsetName);
             int delimiterLength = indexOfEos + delimiterLength(readUnsignedByte);
-            return new CommentFrame(str, str2, delimiterLength < i3 ? new String(bArr2, delimiterLength, indexOfEos(bArr2, delimiterLength, readUnsignedByte) - delimiterLength, charsetName) : "");
+            return new CommentFrame(str, str2, delimiterLength < i2 ? new String(bArr2, delimiterLength, indexOfEos(bArr2, delimiterLength, readUnsignedByte) - delimiterLength, charsetName) : "");
         }
         return (CommentFrame) invokeLI.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:133:0x018a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x0194, code lost:
         if (r13 == 67) goto L100;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Id3Frame decodeFrame(int i2, ParsableByteArray parsableByteArray, boolean z, int i3, FramePredicate framePredicate) {
+    public static Id3Frame decodeFrame(int i, ParsableByteArray parsableByteArray, boolean z, int i2, FramePredicate framePredicate) {
         InterceptResult invokeCommon;
         int readUnsignedInt24;
+        String str;
+        int i3;
         int i4;
-        int i5;
         boolean z2;
         boolean z3;
         boolean z4;
@@ -263,154 +266,166 @@ public final class Id3Decoder implements MetadataDecoder {
         boolean z6;
         Id3Frame decodeBinaryFrame;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i2), parsableByteArray, Boolean.valueOf(z), Integer.valueOf(i3), framePredicate})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), parsableByteArray, Boolean.valueOf(z), Integer.valueOf(i2), framePredicate})) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             int readUnsignedByte2 = parsableByteArray.readUnsignedByte();
             int readUnsignedByte3 = parsableByteArray.readUnsignedByte();
-            int readUnsignedByte4 = i2 >= 3 ? parsableByteArray.readUnsignedByte() : 0;
-            if (i2 == 4) {
+            int readUnsignedByte4 = i >= 3 ? parsableByteArray.readUnsignedByte() : 0;
+            if (i == 4) {
                 readUnsignedInt24 = parsableByteArray.readUnsignedIntToInt();
                 if (!z) {
                     readUnsignedInt24 = (((readUnsignedInt24 >> 24) & 255) << 21) | (readUnsignedInt24 & 255) | (((readUnsignedInt24 >> 8) & 255) << 7) | (((readUnsignedInt24 >> 16) & 255) << 14);
                 }
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 readUnsignedInt24 = parsableByteArray.readUnsignedIntToInt();
             } else {
                 readUnsignedInt24 = parsableByteArray.readUnsignedInt24();
             }
-            int i6 = readUnsignedInt24;
-            int readUnsignedShort = i2 >= 3 ? parsableByteArray.readUnsignedShort() : 0;
-            if (readUnsignedByte == 0 && readUnsignedByte2 == 0 && readUnsignedByte3 == 0 && readUnsignedByte4 == 0 && i6 == 0 && readUnsignedShort == 0) {
+            int i5 = readUnsignedInt24;
+            int readUnsignedShort = i >= 3 ? parsableByteArray.readUnsignedShort() : 0;
+            if (readUnsignedByte == 0 && readUnsignedByte2 == 0 && readUnsignedByte3 == 0 && readUnsignedByte4 == 0 && i5 == 0 && readUnsignedShort == 0) {
                 parsableByteArray.setPosition(parsableByteArray.limit());
                 return null;
             }
-            int position = parsableByteArray.getPosition() + i6;
+            int position = parsableByteArray.getPosition() + i5;
             if (position > parsableByteArray.limit()) {
+                Log.w(TAG, "Frame size exceeds remaining tag data");
                 parsableByteArray.setPosition(parsableByteArray.limit());
                 return null;
             }
             if (framePredicate != null) {
-                i4 = position;
-                i5 = readUnsignedShort;
-                if (!framePredicate.evaluate(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4)) {
-                    parsableByteArray.setPosition(i4);
+                str = TAG;
+                i3 = position;
+                i4 = readUnsignedShort;
+                if (!framePredicate.evaluate(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4)) {
+                    parsableByteArray.setPosition(i3);
                     return null;
                 }
             } else {
-                i4 = position;
-                i5 = readUnsignedShort;
+                str = TAG;
+                i3 = position;
+                i4 = readUnsignedShort;
             }
-            if (i2 == 3) {
-                boolean z7 = (i5 & 128) != 0;
-                z3 = (i5 & 64) != 0;
-                z6 = z7;
+            if (i == 3) {
+                int i6 = i4;
+                z3 = (i6 & 128) != 0;
+                z4 = (i6 & 64) != 0;
+                z2 = (i6 & 32) != 0;
+                z6 = z3;
                 z5 = false;
-                z2 = (i5 & 32) != 0;
-                z4 = z6;
-            } else if (i2 == 4) {
-                z2 = (i5 & 64) != 0;
-                boolean z8 = (i5 & 8) != 0;
-                boolean z9 = (i5 & 4) != 0;
-                z5 = (i5 & 2) != 0;
-                z6 = z8;
-                z3 = z9;
-                z4 = (i5 & 1) != 0;
             } else {
-                z2 = false;
-                z3 = false;
-                z4 = false;
-                z5 = false;
-                z6 = false;
+                int i7 = i4;
+                if (i == 4) {
+                    boolean z7 = (i7 & 64) != 0;
+                    boolean z8 = (i7 & 8) != 0;
+                    boolean z9 = (i7 & 4) != 0;
+                    z5 = (i7 & 2) != 0;
+                    boolean z10 = (i7 & 1) != 0;
+                    z2 = z7;
+                    z3 = z10;
+                    z6 = z8;
+                    z4 = z9;
+                } else {
+                    z2 = false;
+                    z3 = false;
+                    z4 = false;
+                    z5 = false;
+                    z6 = false;
+                }
             }
-            if (!z6 && !z3) {
+            if (!z6 && !z4) {
                 if (z2) {
-                    i6--;
+                    i5--;
                     parsableByteArray.skipBytes(1);
                 }
-                if (z4) {
-                    i6 -= 4;
+                if (z3) {
+                    i5 -= 4;
                     parsableByteArray.skipBytes(4);
                 }
                 if (z5) {
-                    i6 = removeUnsynchronization(parsableByteArray, i6);
+                    i5 = removeUnsynchronization(parsableByteArray, i5);
                 }
                 try {
-                    if (readUnsignedByte == 84 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i2 == 2 || readUnsignedByte4 == 88)) {
-                        decodeBinaryFrame = decodeTxxxFrame(parsableByteArray, i6);
-                    } else if (readUnsignedByte == 84) {
-                        decodeBinaryFrame = decodeTextInformationFrame(parsableByteArray, i6, getFrameId(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
-                    } else if (readUnsignedByte == 87 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i2 == 2 || readUnsignedByte4 == 88)) {
-                        decodeBinaryFrame = decodeWxxxFrame(parsableByteArray, i6);
-                    } else if (readUnsignedByte == 87) {
-                        decodeBinaryFrame = decodeUrlLinkFrame(parsableByteArray, i6, getFrameId(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
-                    } else if (readUnsignedByte == 80 && readUnsignedByte2 == 82 && readUnsignedByte3 == 73 && readUnsignedByte4 == 86) {
-                        decodeBinaryFrame = decodePrivFrame(parsableByteArray, i6);
-                    } else if (readUnsignedByte == 71 && readUnsignedByte2 == 69 && readUnsignedByte3 == 79 && (readUnsignedByte4 == 66 || i2 == 2)) {
-                        decodeBinaryFrame = decodeGeobFrame(parsableByteArray, i6);
-                    } else if (i2 == 2) {
-                        if (readUnsignedByte == 80 && readUnsignedByte2 == 73 && readUnsignedByte3 == 67) {
-                            decodeBinaryFrame = decodeApicFrame(parsableByteArray, i6, i2);
-                        }
-                        if (readUnsignedByte != 67 && readUnsignedByte2 == 79 && readUnsignedByte3 == 77 && (readUnsignedByte4 == 77 || i2 == 2)) {
-                            decodeBinaryFrame = decodeCommentFrame(parsableByteArray, i6);
-                        } else if (readUnsignedByte != 67 && readUnsignedByte2 == 72 && readUnsignedByte3 == 65 && readUnsignedByte4 == 80) {
-                            decodeBinaryFrame = decodeChapterFrame(parsableByteArray, i6, i2, z, i3, framePredicate);
-                        } else if (readUnsignedByte != 67 && readUnsignedByte2 == 84 && readUnsignedByte3 == 79 && readUnsignedByte4 == 67) {
-                            decodeBinaryFrame = decodeChapterTOCFrame(parsableByteArray, i6, i2, z, i3, framePredicate);
+                    try {
+                        if (readUnsignedByte == 84 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i == 2 || readUnsignedByte4 == 88)) {
+                            decodeBinaryFrame = decodeTxxxFrame(parsableByteArray, i5);
+                        } else if (readUnsignedByte == 84) {
+                            decodeBinaryFrame = decodeTextInformationFrame(parsableByteArray, i5, getFrameId(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                        } else if (readUnsignedByte == 87 && readUnsignedByte2 == 88 && readUnsignedByte3 == 88 && (i == 2 || readUnsignedByte4 == 88)) {
+                            decodeBinaryFrame = decodeWxxxFrame(parsableByteArray, i5);
+                        } else if (readUnsignedByte == 87) {
+                            decodeBinaryFrame = decodeUrlLinkFrame(parsableByteArray, i5, getFrameId(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                        } else if (readUnsignedByte == 80 && readUnsignedByte2 == 82 && readUnsignedByte3 == 73 && readUnsignedByte4 == 86) {
+                            decodeBinaryFrame = decodePrivFrame(parsableByteArray, i5);
+                        } else if (readUnsignedByte == 71 && readUnsignedByte2 == 69 && readUnsignedByte3 == 79 && (readUnsignedByte4 == 66 || i == 2)) {
+                            decodeBinaryFrame = decodeGeobFrame(parsableByteArray, i5);
+                        } else if (i == 2) {
+                            if (readUnsignedByte == 80 && readUnsignedByte2 == 73 && readUnsignedByte3 == 67) {
+                                decodeBinaryFrame = decodeApicFrame(parsableByteArray, i5, i);
+                            }
+                            if (readUnsignedByte != 67 && readUnsignedByte2 == 79 && readUnsignedByte3 == 77 && (readUnsignedByte4 == 77 || i == 2)) {
+                                decodeBinaryFrame = decodeCommentFrame(parsableByteArray, i5);
+                            } else if (readUnsignedByte != 67 && readUnsignedByte2 == 72 && readUnsignedByte3 == 65 && readUnsignedByte4 == 80) {
+                                decodeBinaryFrame = decodeChapterFrame(parsableByteArray, i5, i, z, i2, framePredicate);
+                            } else if (readUnsignedByte != 67 && readUnsignedByte2 == 84 && readUnsignedByte3 == 79 && readUnsignedByte4 == 67) {
+                                decodeBinaryFrame = decodeChapterTOCFrame(parsableByteArray, i5, i, z, i2, framePredicate);
+                            } else {
+                                decodeBinaryFrame = decodeBinaryFrame(parsableByteArray, i5, getFrameId(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                            }
                         } else {
-                            decodeBinaryFrame = decodeBinaryFrame(parsableByteArray, i6, getFrameId(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
-                        }
-                    } else {
-                        if (readUnsignedByte == 65) {
-                            if (readUnsignedByte2 == 80) {
-                                if (readUnsignedByte3 == 73) {
+                            if (readUnsignedByte == 65) {
+                                if (readUnsignedByte2 == 80) {
+                                    if (readUnsignedByte3 == 73) {
+                                    }
                                 }
                             }
+                            if (readUnsignedByte != 67) {
+                            }
+                            if (readUnsignedByte != 67) {
+                            }
+                            if (readUnsignedByte != 67) {
+                            }
+                            decodeBinaryFrame = decodeBinaryFrame(parsableByteArray, i5, getFrameId(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
                         }
-                        if (readUnsignedByte != 67) {
+                        if (decodeBinaryFrame == null) {
+                            Log.w(str, "Failed to decode frame: id=" + getFrameId(i, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4) + ", frameSize=" + i5);
                         }
-                        if (readUnsignedByte != 67) {
-                        }
-                        if (readUnsignedByte != 67) {
-                        }
-                        decodeBinaryFrame = decodeBinaryFrame(parsableByteArray, i6, getFrameId(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4));
+                        parsableByteArray.setPosition(i3);
+                        return decodeBinaryFrame;
+                    } catch (UnsupportedEncodingException unused) {
+                        Log.w(str, "Unsupported character encoding");
+                        parsableByteArray.setPosition(i3);
+                        return null;
                     }
-                    if (decodeBinaryFrame == null) {
-                        String str = "Failed to decode frame: id=" + getFrameId(i2, readUnsignedByte, readUnsignedByte2, readUnsignedByte3, readUnsignedByte4) + ", frameSize=" + i6;
-                    }
-                    parsableByteArray.setPosition(i4);
-                    return decodeBinaryFrame;
-                } catch (UnsupportedEncodingException unused) {
-                    parsableByteArray.setPosition(i4);
-                    return null;
                 } catch (Throwable th) {
-                    parsableByteArray.setPosition(i4);
+                    parsableByteArray.setPosition(i3);
                     throw th;
                 }
             }
-            parsableByteArray.setPosition(i4);
+            Log.w(str, "Skipping unsupported compressed or encrypted frame");
+            parsableByteArray.setPosition(i3);
             return null;
         }
         return (Id3Frame) invokeCommon.objValue;
     }
 
-    public static GeobFrame decodeGeobFrame(ParsableByteArray parsableByteArray, int i2) throws UnsupportedEncodingException {
+    public static GeobFrame decodeGeobFrame(ParsableByteArray parsableByteArray, int i) throws UnsupportedEncodingException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) {
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             String charsetName = getCharsetName(readUnsignedByte);
-            int i3 = i2 - 1;
-            byte[] bArr = new byte[i3];
-            parsableByteArray.readBytes(bArr, 0, i3);
+            int i2 = i - 1;
+            byte[] bArr = new byte[i2];
+            parsableByteArray.readBytes(bArr, 0, i2);
             int indexOfZeroByte = indexOfZeroByte(bArr, 0);
             String str = new String(bArr, 0, indexOfZeroByte, "ISO-8859-1");
-            int i4 = indexOfZeroByte + 1;
-            int indexOfEos = indexOfEos(bArr, i4, readUnsignedByte);
-            String str2 = new String(bArr, i4, indexOfEos - i4, charsetName);
+            int i3 = indexOfZeroByte + 1;
+            int indexOfEos = indexOfEos(bArr, i3, readUnsignedByte);
+            String str2 = new String(bArr, i3, indexOfEos - i3, charsetName);
             int delimiterLength = indexOfEos + delimiterLength(readUnsignedByte);
             int indexOfEos2 = indexOfEos(bArr, delimiterLength, readUnsignedByte);
-            return new GeobFrame(str, str2, new String(bArr, delimiterLength, indexOfEos2 - delimiterLength, charsetName), copyOfRangeIfValid(bArr, indexOfEos2 + delimiterLength(readUnsignedByte), i3));
+            return new GeobFrame(str, str2, new String(bArr, delimiterLength, indexOfEos2 - delimiterLength, charsetName), copyOfRangeIfValid(bArr, indexOfEos2 + delimiterLength(readUnsignedByte), i2));
         }
         return (GeobFrame) invokeLI.objValue;
     }
@@ -420,11 +435,12 @@ public final class Id3Decoder implements MetadataDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, parsableByteArray)) == null) {
             if (parsableByteArray.bytesLeft() < 10) {
+                Log.w(TAG, "Data too short to be an ID3 tag");
                 return null;
             }
             int readUnsignedInt24 = parsableByteArray.readUnsignedInt24();
             if (readUnsignedInt24 != ID3_TAG) {
-                String str = "Unexpected first three bytes of ID3 tag header: " + readUnsignedInt24;
+                Log.w(TAG, "Unexpected first three bytes of ID3 tag header: " + readUnsignedInt24);
                 return null;
             }
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
@@ -434,6 +450,7 @@ public final class Id3Decoder implements MetadataDecoder {
             int readSynchSafeInt = parsableByteArray.readSynchSafeInt();
             if (readUnsignedByte == 2) {
                 if ((readUnsignedByte2 & 64) != 0) {
+                    Log.w(TAG, "Skipped ID3 tag with majorVersion=2 and undefined compression scheme");
                     return null;
                 }
             } else if (readUnsignedByte == 3) {
@@ -443,7 +460,7 @@ public final class Id3Decoder implements MetadataDecoder {
                     readSynchSafeInt -= readInt + 4;
                 }
             } else if (readUnsignedByte != 4) {
-                String str2 = "Skipped ID3 tag with unsupported majorVersion=" + readUnsignedByte;
+                Log.w(TAG, "Skipped ID3 tag with unsupported majorVersion=" + readUnsignedByte);
                 return null;
             } else {
                 if ((readUnsignedByte2 & 64) != 0) {
@@ -460,110 +477,110 @@ public final class Id3Decoder implements MetadataDecoder {
         return (Id3Header) invokeL.objValue;
     }
 
-    public static PrivFrame decodePrivFrame(ParsableByteArray parsableByteArray, int i2) throws UnsupportedEncodingException {
+    public static PrivFrame decodePrivFrame(ParsableByteArray parsableByteArray, int i) throws UnsupportedEncodingException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, parsableByteArray, i2)) == null) {
-            byte[] bArr = new byte[i2];
-            parsableByteArray.readBytes(bArr, 0, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, parsableByteArray, i)) == null) {
+            byte[] bArr = new byte[i];
+            parsableByteArray.readBytes(bArr, 0, i);
             int indexOfZeroByte = indexOfZeroByte(bArr, 0);
-            return new PrivFrame(new String(bArr, 0, indexOfZeroByte, "ISO-8859-1"), copyOfRangeIfValid(bArr, indexOfZeroByte + 1, i2));
+            return new PrivFrame(new String(bArr, 0, indexOfZeroByte, "ISO-8859-1"), copyOfRangeIfValid(bArr, indexOfZeroByte + 1, i));
         }
         return (PrivFrame) invokeLI.objValue;
     }
 
-    public static TextInformationFrame decodeTextInformationFrame(ParsableByteArray parsableByteArray, int i2, String str) throws UnsupportedEncodingException {
+    public static TextInformationFrame decodeTextInformationFrame(ParsableByteArray parsableByteArray, int i, String str) throws UnsupportedEncodingException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, parsableByteArray, i2, str)) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, parsableByteArray, i, str)) == null) {
+            if (i < 1) {
                 return null;
             }
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             String charsetName = getCharsetName(readUnsignedByte);
-            int i3 = i2 - 1;
-            byte[] bArr = new byte[i3];
-            parsableByteArray.readBytes(bArr, 0, i3);
+            int i2 = i - 1;
+            byte[] bArr = new byte[i2];
+            parsableByteArray.readBytes(bArr, 0, i2);
             return new TextInformationFrame(str, null, new String(bArr, 0, indexOfEos(bArr, 0, readUnsignedByte), charsetName));
         }
         return (TextInformationFrame) invokeLIL.objValue;
     }
 
-    public static TextInformationFrame decodeTxxxFrame(ParsableByteArray parsableByteArray, int i2) throws UnsupportedEncodingException {
+    public static TextInformationFrame decodeTxxxFrame(ParsableByteArray parsableByteArray, int i) throws UnsupportedEncodingException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, parsableByteArray, i2)) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, parsableByteArray, i)) == null) {
+            if (i < 1) {
                 return null;
             }
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             String charsetName = getCharsetName(readUnsignedByte);
-            int i3 = i2 - 1;
-            byte[] bArr = new byte[i3];
-            parsableByteArray.readBytes(bArr, 0, i3);
+            int i2 = i - 1;
+            byte[] bArr = new byte[i2];
+            parsableByteArray.readBytes(bArr, 0, i2);
             int indexOfEos = indexOfEos(bArr, 0, readUnsignedByte);
             String str = new String(bArr, 0, indexOfEos, charsetName);
             int delimiterLength = indexOfEos + delimiterLength(readUnsignedByte);
-            return new TextInformationFrame("TXXX", str, delimiterLength < i3 ? new String(bArr, delimiterLength, indexOfEos(bArr, delimiterLength, readUnsignedByte) - delimiterLength, charsetName) : "");
+            return new TextInformationFrame("TXXX", str, delimiterLength < i2 ? new String(bArr, delimiterLength, indexOfEos(bArr, delimiterLength, readUnsignedByte) - delimiterLength, charsetName) : "");
         }
         return (TextInformationFrame) invokeLI.objValue;
     }
 
-    public static UrlLinkFrame decodeUrlLinkFrame(ParsableByteArray parsableByteArray, int i2, String str) throws UnsupportedEncodingException {
+    public static UrlLinkFrame decodeUrlLinkFrame(ParsableByteArray parsableByteArray, int i, String str) throws UnsupportedEncodingException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65551, null, parsableByteArray, i2, str)) == null) {
-            byte[] bArr = new byte[i2];
-            parsableByteArray.readBytes(bArr, 0, i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65551, null, parsableByteArray, i, str)) == null) {
+            byte[] bArr = new byte[i];
+            parsableByteArray.readBytes(bArr, 0, i);
             return new UrlLinkFrame(str, null, new String(bArr, 0, indexOfZeroByte(bArr, 0), "ISO-8859-1"));
         }
         return (UrlLinkFrame) invokeLIL.objValue;
     }
 
-    public static UrlLinkFrame decodeWxxxFrame(ParsableByteArray parsableByteArray, int i2) throws UnsupportedEncodingException {
+    public static UrlLinkFrame decodeWxxxFrame(ParsableByteArray parsableByteArray, int i) throws UnsupportedEncodingException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, parsableByteArray, i2)) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, parsableByteArray, i)) == null) {
+            if (i < 1) {
                 return null;
             }
             int readUnsignedByte = parsableByteArray.readUnsignedByte();
             String charsetName = getCharsetName(readUnsignedByte);
-            int i3 = i2 - 1;
-            byte[] bArr = new byte[i3];
-            parsableByteArray.readBytes(bArr, 0, i3);
+            int i2 = i - 1;
+            byte[] bArr = new byte[i2];
+            parsableByteArray.readBytes(bArr, 0, i2);
             int indexOfEos = indexOfEos(bArr, 0, readUnsignedByte);
             String str = new String(bArr, 0, indexOfEos, charsetName);
             int delimiterLength = indexOfEos + delimiterLength(readUnsignedByte);
-            return new UrlLinkFrame("WXXX", str, delimiterLength < i3 ? new String(bArr, delimiterLength, indexOfZeroByte(bArr, delimiterLength) - delimiterLength, "ISO-8859-1") : "");
+            return new UrlLinkFrame("WXXX", str, delimiterLength < i2 ? new String(bArr, delimiterLength, indexOfZeroByte(bArr, delimiterLength) - delimiterLength, "ISO-8859-1") : "");
         }
         return (UrlLinkFrame) invokeLI.objValue;
     }
 
-    public static int delimiterLength(int i2) {
+    public static int delimiterLength(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) ? (i2 == 0 || i2 == 3) ? 1 : 2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) ? (i == 0 || i == 3) ? 1 : 2 : invokeI.intValue;
     }
 
-    public static String getCharsetName(int i2) {
+    public static String getCharsetName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 3 ? "ISO-8859-1" : "UTF-8" : "UTF-16BE" : "UTF-16" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? "ISO-8859-1" : "UTF-8" : CharEncoding.UTF_16BE : "UTF-16" : (String) invokeI.objValue;
     }
 
-    public static String getFrameId(int i2, int i3, int i4, int i5, int i6) {
+    public static String getFrameId(int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? i2 == 2 ? String.format(Locale.US, "%c%c%c", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)) : String.format(Locale.US, "%c%c%c%c", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? i == 2 ? String.format(Locale.US, "%c%c%c", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)) : String.format(Locale.US, "%c%c%c%c", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)) : (String) invokeCommon.objValue;
     }
 
-    public static int indexOfEos(byte[] bArr, int i2, int i3) {
+    public static int indexOfEos(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, bArr, i2, i3)) == null) {
-            int indexOfZeroByte = indexOfZeroByte(bArr, i2);
-            if (i3 == 0 || i3 == 3) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, bArr, i, i2)) == null) {
+            int indexOfZeroByte = indexOfZeroByte(bArr, i);
+            if (i2 == 0 || i2 == 3) {
                 return indexOfZeroByte;
             }
             while (indexOfZeroByte < bArr.length - 1) {
@@ -577,39 +594,39 @@ public final class Id3Decoder implements MetadataDecoder {
         return invokeLII.intValue;
     }
 
-    public static int indexOfZeroByte(byte[] bArr, int i2) {
+    public static int indexOfZeroByte(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, bArr, i2)) == null) {
-            while (i2 < bArr.length) {
-                if (bArr[i2] == 0) {
-                    return i2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, bArr, i)) == null) {
+            while (i < bArr.length) {
+                if (bArr[i] == 0) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
             return bArr.length;
         }
         return invokeLI.intValue;
     }
 
-    public static int removeUnsynchronization(ParsableByteArray parsableByteArray, int i2) {
+    public static int removeUnsynchronization(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65558, null, parsableByteArray, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65558, null, parsableByteArray, i)) != null) {
             return invokeLI.intValue;
         }
         byte[] bArr = parsableByteArray.data;
         int position = parsableByteArray.getPosition();
         while (true) {
-            int i3 = position + 1;
-            if (i3 >= i2) {
-                return i2;
+            int i2 = position + 1;
+            if (i2 >= i) {
+                return i;
             }
-            if ((bArr[position] & 255) == 255 && bArr[i3] == 0) {
-                System.arraycopy(bArr, position + 2, bArr, i3, (i2 - position) - 2);
-                i2--;
+            if ((bArr[position] & 255) == 255 && bArr[i2] == 0) {
+                System.arraycopy(bArr, position + 2, bArr, i2, (i - position) - 2);
+                i--;
             }
-            position = i3;
+            position = i2;
         }
     }
 
@@ -625,56 +642,56 @@ public final class Id3Decoder implements MetadataDecoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean validateFrames(ParsableByteArray parsableByteArray, int i2, int i3, boolean z) {
+    public static boolean validateFrames(ParsableByteArray parsableByteArray, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         int readUnsignedInt24;
         long readUnsignedInt242;
-        int i4;
+        int i3;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{parsableByteArray, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{parsableByteArray, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
             return invokeCommon.booleanValue;
         }
         int position = parsableByteArray.getPosition();
         while (true) {
             try {
-                if (parsableByteArray.bytesLeft() < i3) {
+                if (parsableByteArray.bytesLeft() < i2) {
                     return true;
                 }
-                if (i2 >= 3) {
+                if (i >= 3) {
                     readUnsignedInt24 = parsableByteArray.readInt();
                     readUnsignedInt242 = parsableByteArray.readUnsignedInt();
-                    i4 = parsableByteArray.readUnsignedShort();
+                    i3 = parsableByteArray.readUnsignedShort();
                 } else {
                     readUnsignedInt24 = parsableByteArray.readUnsignedInt24();
                     readUnsignedInt242 = parsableByteArray.readUnsignedInt24();
-                    i4 = 0;
+                    i3 = 0;
                 }
-                if (readUnsignedInt24 == 0 && readUnsignedInt242 == 0 && i4 == 0) {
+                if (readUnsignedInt24 == 0 && readUnsignedInt242 == 0 && i3 == 0) {
                     return true;
                 }
-                if (i2 == 4 && !z) {
+                if (i == 4 && !z) {
                     if ((8421504 & readUnsignedInt242) != 0) {
                         return false;
                     }
                     readUnsignedInt242 = (((readUnsignedInt242 >> 24) & 255) << 21) | (readUnsignedInt242 & 255) | (((readUnsignedInt242 >> 8) & 255) << 7) | (((readUnsignedInt242 >> 16) & 255) << 14);
                 }
-                if (i2 == 4) {
-                    z2 = (i4 & 64) != 0;
+                if (i == 4) {
+                    z2 = (i3 & 64) != 0;
                 } else {
-                    if (i2 == 3) {
-                        z2 = (i4 & 32) != 0;
+                    if (i == 3) {
+                        z2 = (i3 & 32) != 0;
                     } else {
                         z2 = false;
                     }
                     z3 = false;
                 }
-                int i5 = z2 ? 1 : 0;
+                int i4 = z2 ? 1 : 0;
                 if (z3) {
-                    i5 += 4;
+                    i4 += 4;
                 }
-                if (readUnsignedInt242 < i5) {
+                if (readUnsignedInt242 < i4) {
                     return false;
                 }
                 if (parsableByteArray.bytesLeft() < readUnsignedInt242) {
@@ -705,9 +722,9 @@ public final class Id3Decoder implements MetadataDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {framePredicate};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -716,33 +733,33 @@ public final class Id3Decoder implements MetadataDecoder {
         this.framePredicate = framePredicate;
     }
 
-    public Metadata decode(byte[] bArr, int i2) {
+    public Metadata decode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i2);
+            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i);
             Id3Header decodeHeader = decodeHeader(parsableByteArray);
             if (decodeHeader == null) {
                 return null;
             }
             int position = parsableByteArray.getPosition();
-            int i3 = decodeHeader.majorVersion == 2 ? 6 : 10;
-            int i4 = decodeHeader.framesSize;
+            int i2 = decodeHeader.majorVersion == 2 ? 6 : 10;
+            int i3 = decodeHeader.framesSize;
             if (decodeHeader.isUnsynchronized) {
-                i4 = removeUnsynchronization(parsableByteArray, decodeHeader.framesSize);
+                i3 = removeUnsynchronization(parsableByteArray, decodeHeader.framesSize);
             }
-            parsableByteArray.setLimit(position + i4);
+            parsableByteArray.setLimit(position + i3);
             boolean z = false;
-            if (!validateFrames(parsableByteArray, decodeHeader.majorVersion, i3, false)) {
-                if (decodeHeader.majorVersion != 4 || !validateFrames(parsableByteArray, 4, i3, true)) {
-                    String str = "Failed to validate ID3 tag with majorVersion=" + decodeHeader.majorVersion;
+            if (!validateFrames(parsableByteArray, decodeHeader.majorVersion, i2, false)) {
+                if (decodeHeader.majorVersion != 4 || !validateFrames(parsableByteArray, 4, i2, true)) {
+                    Log.w(TAG, "Failed to validate ID3 tag with majorVersion=" + decodeHeader.majorVersion);
                     return null;
                 }
                 z = true;
             }
-            while (parsableByteArray.bytesLeft() >= i3) {
-                Id3Frame decodeFrame = decodeFrame(decodeHeader.majorVersion, parsableByteArray, z, i3, this.framePredicate);
+            while (parsableByteArray.bytesLeft() >= i2) {
+                Id3Frame decodeFrame = decodeFrame(decodeHeader.majorVersion, parsableByteArray, z, i2, this.framePredicate);
                 if (decodeFrame != null) {
                     arrayList.add(decodeFrame);
                 }

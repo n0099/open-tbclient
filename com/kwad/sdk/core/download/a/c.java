@@ -16,7 +16,7 @@ public abstract class c implements KsAppDownloadListener {
         return this.a;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener

@@ -14,10 +14,10 @@ public final class b<VD extends TaskDialogData, VM extends c.a.j.h.c.b.a<VD>, Vi
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final VM f3613b;
+    public final VM f3105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VD f3614c;
+    public final VD f3106c;
 
     public b(View view, VM vm, VD vd) {
         Interceptable interceptable = $ic;
@@ -26,24 +26,24 @@ public final class b<VD extends TaskDialogData, VM extends c.a.j.h.c.b.a<VD>, Vi
             newInitContext.initArgs = r2;
             Object[] objArr = {view, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = view;
-        this.f3613b = vm;
-        this.f3614c = vd;
+        this.f3105b = vm;
+        this.f3106c = vd;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.f3613b);
-            this.f3613b.b(this.f3614c);
+            this.a.a(this.f3105b);
+            this.f3105b.b(this.f3106c);
         }
     }
 }

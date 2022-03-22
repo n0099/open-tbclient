@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements Observer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -266195175408988651L;
@@ -24,9 +24,9 @@ public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposa
             newInitContext.initArgs = r2;
             Object[] objArr = {observer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Observer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

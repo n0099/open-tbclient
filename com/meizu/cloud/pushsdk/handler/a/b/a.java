@@ -2,10 +2,9 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -18,25 +17,25 @@ public class a implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public a[] newArray(int i2) {
-            return new a[i2];
+        public a[] newArray(int i) {
+            return new a[i];
         }
     };
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57329b;
+    public int f42154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57330c;
+    public int f42155c;
 
     public a() {
     }
 
     public a(Parcel parcel) {
         this.a = parcel.readInt();
-        this.f57329b = parcel.readInt();
-        this.f57330c = parcel.readInt();
+        this.f42154b = parcel.readInt();
+        this.f42155c = parcel.readInt();
     }
 
     public static a a(JSONObject jSONObject) {
@@ -59,7 +58,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        c.k.a.a.a.b("ctl", str);
+        c.h.a.a.a.b("ctl", str);
         return aVar;
     }
 
@@ -67,16 +66,16 @@ public class a implements Parcelable {
         return this.a;
     }
 
-    public void a(int i2) {
-        this.a = i2;
+    public void a(int i) {
+        this.a = i;
     }
 
-    public void b(int i2) {
-        this.f57329b = i2;
+    public void b(int i) {
+        this.f42154b = i;
     }
 
-    public void c(int i2) {
-        this.f57330c = i2;
+    public void c(int i) {
+        this.f42155c = i;
     }
 
     @Override // android.os.Parcelable
@@ -85,13 +84,13 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "Control{pushType=" + this.a + ", cached=" + this.f57329b + ", cacheNum=" + this.f57330c + ExtendedMessageFormat.END_FE;
+        return "Control{pushType=" + this.a + ", cached=" + this.f42154b + ", cacheNum=" + this.f42155c + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.a);
-        parcel.writeInt(this.f57329b);
-        parcel.writeInt(this.f57330c);
+        parcel.writeInt(this.f42154b);
+        parcel.writeInt(this.f42155c);
     }
 }

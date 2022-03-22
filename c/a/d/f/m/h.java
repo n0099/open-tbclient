@@ -15,7 +15,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f2702b;
+    public static h f2231b;
     public transient /* synthetic */ FieldHolder $fh;
     public final ThreadPoolExecutor a;
 
@@ -32,7 +32,7 @@ public class h {
                 return;
             }
         }
-        f2702b = new h();
+        f2231b = new h();
     }
 
     public h() {
@@ -40,9 +40,9 @@ public class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -54,7 +54,7 @@ public class h {
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2702b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2231b : (h) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {

@@ -11,11 +11,11 @@ public interface LiveShowPlayerStatusCallback {
 
     void onEnded();
 
-    void onError(int i2, int i3);
+    void onError(int i, int i2);
 
-    void onInfo(int i2, int i3);
+    void onInfo(int i, int i2);
 
-    void onInfoExtent(int i2, Object obj);
+    void onInfoExtent(int i, Object obj);
 
     void onPause();
 

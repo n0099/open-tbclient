@@ -1,5 +1,6 @@
 package com.baidu.searchbox.launch;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -53,9 +54,9 @@ public class LaunchStatsUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -98,48 +99,51 @@ public class LaunchStatsUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sHomePageFirstRenderEndTimeStamp != -1 : invokeV.booleanValue;
     }
 
-    public static void setAppCreateTime(long j2) {
+    public static void setAppCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
-            sAppCreateTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            sAppCreateTimeStamp = j;
         }
     }
 
-    public static void setHomePageFirstRenderEndTime(long j2) {
+    public static void setHomePageFirstRenderEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, null, j2) == null) {
-            sHomePageFirstRenderEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
+            sHomePageFirstRenderEndTimeStamp = j;
         }
     }
 
-    public static void setLaunchType(int i2) {
+    public static void setLaunchType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i2) == null) {
-            sLaunchType = i2;
+        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
+            sLaunchType = i;
         }
     }
 
-    public static void setLaunchTypeDetail(int i2, boolean z, boolean z2, boolean z3) {
+    public static void setLaunchTypeDetail(int i, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (!z) {
                 sLaunchTypeDetail = EXTERNAL_LAUNCH;
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 sLaunchTypeDetail = "normal";
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 sLaunchTypeDetail = "upgrade";
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 sLaunchTypeDetail = NEW_INSTALL_LAUNCH;
             }
             if (z2) {
                 sLaunchTypeDetail += "_skin";
             }
-            if (z3 && i2 != 2) {
+            if (z3 && i != 2) {
                 sLaunchTypeDetail += "_ad";
             }
             if (DEBUG) {
-                String str = "isLaunchFromLauncher: " + z + " hasSkin " + z2 + " hasAd " + z3;
-                String str2 = "sLaunchType: " + sLaunchType;
+                Log.d(TAG, "isLaunchFromLauncher: " + z + " hasSkin " + z2 + " hasAd " + z3);
+                StringBuilder sb = new StringBuilder();
+                sb.append("sLaunchType: ");
+                sb.append(sLaunchType);
+                Log.d(TAG, sb.toString());
             }
         }
     }

@@ -11,9 +11,9 @@ public interface RecordCallback {
 
     void onConfigCamera(Camera camera);
 
-    void onDeviceCheckResult(int i2);
+    void onDeviceCheckResult(int i);
 
-    void onEnd(int i2, RequestInfo requestInfo);
+    void onEnd(int i, RequestInfo requestInfo);
 
     void onPreviewFrame(byte[] bArr, Camera camera);
 }

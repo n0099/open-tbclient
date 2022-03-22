@@ -12,7 +12,7 @@ import com.baidubce.ErrorCode;
 import com.baidubce.util.BLog;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCALE_FACTOR = 300;
@@ -27,9 +27,9 @@ public class DefaultRetryPolicy implements RetryPolicy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue());
                 newInitContext.thisArg = this;
@@ -40,15 +40,15 @@ public class DefaultRetryPolicy implements RetryPolicy {
     }
 
     @Override // com.baidubce.http.RetryPolicy
-    public long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i2) {
+    public long getDelayBeforeNextRetryInMillis(BceClientException bceClientException, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bceClientException, i2)) == null) {
-            if (shouldRetry(bceClientException, i2)) {
-                if (i2 < 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bceClientException, i)) == null) {
+            if (shouldRetry(bceClientException, i)) {
+                if (i < 0) {
                     return 0L;
                 }
-                return (1 << (i2 + 1)) * 300;
+                return (1 << (i + 1)) * 300;
             }
             return -1L;
         }
@@ -69,10 +69,10 @@ public class DefaultRetryPolicy implements RetryPolicy {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxErrorRetry : invokeV.intValue;
     }
 
-    public boolean shouldRetry(BceClientException bceClientException, int i2) {
+    public boolean shouldRetry(BceClientException bceClientException, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bceClientException, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bceClientException, i)) == null) {
             if (bceClientException.getCause() instanceof IOException) {
                 BLog.error("Retry for IOException.");
                 return true;
@@ -106,24 +106,24 @@ public class DefaultRetryPolicy implements RetryPolicy {
         return invokeLI.booleanValue;
     }
 
-    public DefaultRetryPolicy(int i2, long j2) {
+    public DefaultRetryPolicy(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        CheckUtils.checkArgument(i2 >= 0, "maxErrorRetry should be a non-negative.");
-        CheckUtils.checkArgument(j2 >= 0, "maxDelayInMillis should be a non-negative.");
-        this.maxErrorRetry = i2;
-        this.maxDelayInMillis = j2;
+        CheckUtils.checkArgument(i >= 0, "maxErrorRetry should be a non-negative.");
+        CheckUtils.checkArgument(j >= 0, "maxDelayInMillis should be a non-negative.");
+        this.maxErrorRetry = i;
+        this.maxDelayInMillis = j;
     }
 }

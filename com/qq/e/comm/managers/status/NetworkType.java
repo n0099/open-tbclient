@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class NetworkType {
     public static /* synthetic */ Interceptable $ic;
     public static final NetworkType NET_2G;
@@ -21,15 +21,15 @@ public final class NetworkType {
     public static final NetworkType WIFI;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ NetworkType[] f57680d;
+    public static final /* synthetic */ NetworkType[] f42456d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57681b;
+    public int f42457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57682c;
+    public String f42458c;
 
     static {
         InterceptResult invokeClinit;
@@ -50,19 +50,19 @@ public final class NetworkType {
         NET_3G = new NetworkType("NET_3G", 3, 3, 8, "3g");
         NetworkType networkType = new NetworkType("NET_4G", 4, 4, 16, "4g");
         NET_4G = networkType;
-        f57680d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
+        f42456d = new NetworkType[]{UNKNOWN, WIFI, NET_2G, NET_3G, networkType};
     }
 
-    public NetworkType(String str, int i2, int i3, int i4, String str2) {
+    public NetworkType(String str, int i, int i2, int i3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -71,9 +71,9 @@ public final class NetworkType {
                 return;
             }
         }
-        this.a = i3;
-        this.f57681b = i4;
-        this.f57682c = str2;
+        this.a = i2;
+        this.f42457b = i3;
+        this.f42458c = str2;
     }
 
     public static NetworkType valueOf(String str) {
@@ -85,7 +85,7 @@ public final class NetworkType {
     public static NetworkType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) f57680d.clone() : (NetworkType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (NetworkType[]) f42456d.clone() : (NetworkType[]) invokeV.objValue;
     }
 
     public int getConnValue() {
@@ -97,12 +97,12 @@ public final class NetworkType {
     public String getNameValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57682c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42458c : (String) invokeV.objValue;
     }
 
     public int getPermValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57681b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42457b : invokeV.intValue;
     }
 }

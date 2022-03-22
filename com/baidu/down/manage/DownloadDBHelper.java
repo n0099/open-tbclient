@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DATA_VERSION = 0;
@@ -40,17 +41,17 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
-        super(context, str, cursorFactory, i2);
+    public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
+        super(context, str, cursorFactory, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -66,7 +67,7 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
             } catch (SQLException e2) {
-                String str3 = "couldn't add column: " + e2.toString();
+                Log.e(TAG, "couldn't add column: " + e2.toString());
             }
         }
     }
@@ -106,9 +107,9 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
             sQLiteDatabase.beginTransaction();
             try {
                 try {
@@ -125,16 +126,16 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) || i3 <= i2) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) || i2 <= i) {
             return;
         }
-        int i4 = i2 + 1;
-        if (i4 == 2) {
+        int i3 = i + 1;
+        if (i3 == 2) {
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_DOWN_DIR, "TEXT");
             addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_FROM_PARAM, "TEXT");
-        } else if (i4 != 3) {
+        } else if (i3 != 3) {
             return;
         }
         addColumn(sQLiteDatabase, DownloadConstants.DownloadColumns.COLUMN_REAL_URI, "TEXT");

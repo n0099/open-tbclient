@@ -1,5 +1,5 @@
 package androidx.arch.core.util;
 /* loaded from: classes.dex */
 public interface Function<I, O> {
-    O apply(I i2);
+    O apply(I i);
 }

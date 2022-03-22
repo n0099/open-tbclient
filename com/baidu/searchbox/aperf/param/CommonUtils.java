@@ -72,9 +72,9 @@ public class CommonUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -105,9 +105,9 @@ public class CommonUtils {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -136,9 +136,9 @@ public class CommonUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -230,9 +230,9 @@ public class CommonUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            long j2 = Runtime.getRuntime().totalMemory() / 1024;
-            long freeMemory = j2 - (Runtime.getRuntime().freeMemory() / 1024);
-            return (Debug.getNativeHeapAllocatedSize() / 1024) + ";" + freeMemory + ";" + (Debug.getNativeHeapSize() / 1024) + ";" + j2 + ";" + (Runtime.getRuntime().maxMemory() / 1024);
+            long j = Runtime.getRuntime().totalMemory() / 1024;
+            long freeMemory = j - (Runtime.getRuntime().freeMemory() / 1024);
+            return (Debug.getNativeHeapAllocatedSize() / 1024) + ";" + freeMemory + ";" + (Debug.getNativeHeapSize() / 1024) + ";" + j + ";" + (Runtime.getRuntime().maxMemory() / 1024);
         }
         return (String) invokeV.objValue;
     }
@@ -274,9 +274,9 @@ public class CommonUtils {
                 String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                 ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-                long j2 = memoryInfo.totalMem;
-                if (j2 > 0) {
-                    j2 = (j2 / 1024) / 1024;
+                long j = memoryInfo.totalMem;
+                if (j > 0) {
+                    j = (j / 1024) / 1024;
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(prop);
@@ -285,7 +285,7 @@ public class CommonUtils {
                 sb.append(";");
                 sb.append(prop3);
                 sb.append(";");
-                sb.append(j2 >= 0 ? Long.valueOf(j2) : "-1");
+                sb.append(j >= 0 ? Long.valueOf(j) : "-1");
                 sMemory = sb.toString().replace("m", "");
             }
             return sMemory;
@@ -333,11 +333,11 @@ public class CommonUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             Debug.MemoryInfo memoryInfo = new Debug.MemoryInfo();
             Debug.getMemoryInfo(memoryInfo);
-            long j2 = memoryInfo.dalvikPss;
+            long j = memoryInfo.dalvikPss;
             StringBuilder sb = new StringBuilder();
             sb.append(memoryInfo.nativePss);
             sb.append(";");
-            sb.append(j2);
+            sb.append(j);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -518,8 +518,8 @@ public class CommonUtils {
                                 str = null;
                                 str2 = null;
                                 str3 = null;
-                                int i2 = 0;
-                                while (i2 < size) {
+                                int i = 0;
+                                while (i < size) {
                                     try {
                                         String readLine = bufferedReader3.readLine();
                                         if (readLine != null) {
@@ -531,7 +531,7 @@ public class CommonUtils {
                                                     String trim = str4.trim();
                                                     String upperCase = str5.trim().toUpperCase();
                                                     if (mVSSKey.contains(trim)) {
-                                                        i2++;
+                                                        i++;
                                                         if (upperCase.endsWith(" KB")) {
                                                             upperCase = upperCase.substring(0, upperCase.lastIndexOf(" KB"));
                                                         }
@@ -681,11 +681,11 @@ public class CommonUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return Process.is64Bit();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
                 if (strArr.length > 0) {
                     return Build.CPU_ABI.equals(strArr[0]);
@@ -713,8 +713,8 @@ public class CommonUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             String[] strArr = {"/sbin/su", "/system/bin/su", "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su", "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su"};
-            for (int i2 = 0; i2 < 8; i2++) {
-                if (new File(strArr[i2]).exists()) {
+            for (int i = 0; i < 8; i++) {
+                if (new File(strArr[i]).exists()) {
                     return true;
                 }
             }

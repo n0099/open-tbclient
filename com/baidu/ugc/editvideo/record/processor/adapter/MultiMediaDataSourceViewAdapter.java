@@ -6,11 +6,11 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.j;
-import c.a.y0.b;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
+import c.a.v0.b;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
@@ -94,9 +94,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -114,9 +114,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -133,9 +133,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -241,9 +241,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, multiMediaData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -288,9 +288,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, list};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -355,36 +355,36 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnMultiMediaCaptureCallback
-    public void capture(int i2, long j2, int i3, int i4) {
+    public void capture(int i, long j, int i2, int i3) {
         MultiMediaPreGlRenderer multiMediaPreGlRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
             return;
         }
         try {
-            onDrawFrame(i2, j2);
-            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i2, j2);
-            int i5 = this.mUpdateTextureId;
-            int i6 = this.mUpdateTextureMode;
+            onDrawFrame(i, j);
+            int onPreProcess = multiMediaPreGlRenderer.onPreProcess(i, j);
+            int i4 = this.mUpdateTextureId;
+            int i5 = this.mUpdateTextureMode;
             float[] fArr = this.mUpdateMatrix;
             if (this.mIEffectProcessorList != null) {
                 for (IEffectProcessor iEffectProcessor : this.mIEffectProcessorList) {
                     if (!(iEffectProcessor instanceof MiniVideoEffectProcessor)) {
-                        iEffectProcessor.setInputTextureMode(i6);
-                        int onProcessFrame = iEffectProcessor.onProcessFrame(this.mVlogEditCore, i5, fArr);
-                        if (onProcessFrame > 0 && onProcessFrame != i5) {
-                            i6 = iEffectProcessor.getOutputTextureMode();
-                            i5 = onProcessFrame;
+                        iEffectProcessor.setInputTextureMode(i5);
+                        int onProcessFrame = iEffectProcessor.onProcessFrame(this.mVlogEditCore, i4, fArr);
+                        if (onProcessFrame > 0 && onProcessFrame != i4) {
+                            i5 = iEffectProcessor.getOutputTextureMode();
+                            i4 = onProcessFrame;
                         }
                     }
                 }
-                onPreProcess = i5;
+                onPreProcess = i4;
             }
-            GLES20.glViewport(0, 0, i3, i4);
+            GLES20.glViewport(0, 0, i2, i3);
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glClear(16640);
             if (this.mMediaRenderers != null) {
-                GLViewPortLocation gLViewPortLocation = new GLViewPortLocation(0, 0, i3, i4);
+                GLViewPortLocation gLViewPortLocation = new GLViewPortLocation(0, 0, i2, i3);
                 for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
                     if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
                         ((MultiMediaCoverStickerRenderer) iMediaRenderer).setUpEditLayer("cover_sticker");
@@ -392,7 +392,7 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     iMediaRenderer.onGLLocation(gLViewPortLocation);
                     iMediaRenderer.setPreviewSize(this.mSurfaceWidth, this.mSurfaceHeight);
                     iMediaRenderer.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                    iMediaRenderer.setTextureMode(i6);
+                    iMediaRenderer.setTextureMode(i5);
                     iMediaRenderer.onDrawFrame(this.mVlogEditCore, onPreProcess, fArr);
                     if (iMediaRenderer instanceof MultiMediaCoverStickerRenderer) {
                         ((MultiMediaCoverStickerRenderer) iMediaRenderer).setUpEditLayer("");
@@ -424,9 +424,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, multiMediaData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -591,8 +591,8 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || h.e(this.mIEffectProcessorList)) {
             return;
         }
-        for (int i2 = 0; i2 < this.mIEffectProcessorList.size(); i2++) {
-            IEffectProcessor iEffectProcessor = this.mIEffectProcessorList.get(i2);
+        for (int i = 0; i < this.mIEffectProcessorList.size(); i++) {
+            IEffectProcessor iEffectProcessor = this.mIEffectProcessorList.get(i);
             if (iEffectProcessor instanceof MiniVideoEffectProcessor) {
                 ((MiniVideoEffectProcessor) iEffectProcessor).needDrawEffect(z);
                 return;
@@ -640,9 +640,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, list};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -692,9 +692,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, map, list};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -735,13 +735,13 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void onDrawFrame(int i2, long j2) {
+    public void onDrawFrame(int i, long j) {
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null) {
             return;
         }
-        onDrawUpdateTextureListener.onDrawFrame(i2, j2);
+        onDrawUpdateTextureListener.onDrawFrame(i, j);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -795,26 +795,26 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void onSizeChange(int i2, int i3) {
+    public void onSizeChange(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) {
-            this.mSurfaceWidth = i2;
-            this.mSurfaceHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            this.mSurfaceWidth = i;
+            this.mSurfaceHeight = i2;
             OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
             if (onDrawUpdateTextureListener != null) {
-                onDrawUpdateTextureListener.onSizeChange(i2, i3);
+                onDrawUpdateTextureListener.onSizeChange(i, i2);
             }
         }
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         MultiMediaPreGlRenderer multiMediaPreGlRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048604, this, gl10, i2, i3) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048604, this, gl10, i, i2) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
             return;
         }
-        multiMediaPreGlRenderer.onSizeChange(i2, i3);
+        multiMediaPreGlRenderer.onSizeChange(i, i2);
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -915,13 +915,13 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
         }
     }
 
-    public void onVideoSizeChanged(int i2, int i3) {
+    public void onVideoSizeChanged(int i, int i2) {
         MultiMediaPreGlRenderer multiMediaPreGlRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048609, this, i2, i3) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048609, this, i, i2) == null) || (multiMediaPreGlRenderer = this.mInnerRenderer) == null) {
             return;
         }
-        multiMediaPreGlRenderer.onSizeChange(i2, i3);
+        multiMediaPreGlRenderer.onSizeChange(i, i2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
@@ -943,9 +943,9 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, multiMediaData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -972,22 +972,22 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public void seek(long j2) {
+    public void seek(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
             this.mSeeking = true;
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSourceView
-    public void setCurrentStickerData(int i2, String str) {
+    public void setCurrentStickerData(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048612, this, i2, str) == null) || TextUtils.isEmpty(str) || h.e(this.mMediaRenderers)) {
+        if (!(interceptable == null || interceptable.invokeIL(1048612, this, i, str) == null) || TextUtils.isEmpty(str) || h.e(this.mMediaRenderers)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : this.mMediaRenderers) {
             if (iMediaRenderer instanceof MultiMediaStickerRenderer) {
-                ((MultiMediaStickerRenderer) iMediaRenderer).setCurrentStickerData(i2, str);
+                ((MultiMediaStickerRenderer) iMediaRenderer).setCurrentStickerData(i, str);
                 onFrameAvailable(null);
                 return;
             }
@@ -1142,15 +1142,15 @@ public class MultiMediaDataSourceViewAdapter implements OnMediaPreviewTouchEvent
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public void setUpdateTexture(int i2, float[] fArr, int i3) {
+    public void setUpdateTexture(int i, float[] fArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3)}) == null) {
-            this.mUpdateTextureId = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2)}) == null) {
+            this.mUpdateTextureId = i;
             this.mUpdateMatrix = fArr;
-            this.mUpdateTextureMode = i3;
+            this.mUpdateTextureMode = i2;
             OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
             if (onDrawUpdateTextureListener != null) {
-                onDrawUpdateTextureListener.setUpdateTexture(i2, fArr, i3);
+                onDrawUpdateTextureListener.setUpdateTexture(i, fArr, i2);
             }
         }
     }

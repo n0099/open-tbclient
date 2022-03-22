@@ -19,7 +19,7 @@ public class x {
     public static Field a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f2836b;
+    public static Field f2354b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,9 +35,9 @@ public class x {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,7 +90,7 @@ public class x {
                 a = declaredField;
                 declaredField.setAccessible(true);
                 Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                f2836b = declaredField2;
+                f2354b = declaredField2;
                 declaredField2.setAccessible(true);
             }
         } catch (Exception unused) {
@@ -103,10 +103,10 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
             try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || f2836b == null || (obj = a.get(toast)) == null || (handler = (Handler) f2836b.get(obj)) == null) {
+                if (Build.VERSION.SDK_INT >= 28 || a == null || f2354b == null || (obj = a.get(toast)) == null || (handler = (Handler) f2354b.get(obj)) == null) {
                     return;
                 }
-                f2836b.set(obj, new a(handler));
+                f2354b.set(obj, new a(handler));
             } catch (Exception unused) {
             }
         }

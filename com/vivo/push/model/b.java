@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59278b;
+    public long f43911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59279c;
+    public int f43912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59280d;
+    public String f43913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f59281e;
+    public boolean f43914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f59282f;
+    public boolean f43915f;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -36,18 +36,18 @@ public final class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59278b = -1L;
-        this.f59279c = -1;
-        this.f59281e = false;
-        this.f59282f = false;
+        this.f43911b = -1L;
+        this.f43912c = -1;
+        this.f43914e = false;
+        this.f43915f = false;
         if (!TextUtils.isEmpty(str)) {
             this.a = str;
             return;
@@ -64,62 +64,62 @@ public final class b {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59278b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43911b : invokeV.longValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59281e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43914e : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59282f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f43915f : invokeV.booleanValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.f59278b + ", mPackageVersion=" + this.f59279c + ", mInBlackList=" + this.f59281e + ", mPushEnable=" + this.f59282f + "}";
+            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.f43911b + ", mPackageVersion=" + this.f43912c + ", mInBlackList=" + this.f43914e + ", mPushEnable=" + this.f43915f + "}";
         }
         return (String) invokeV.objValue;
     }
 
-    public final void a(long j2) {
+    public final void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f59278b = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.f43911b = j;
         }
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f59282f = z;
+            this.f43915f = z;
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f59281e = z;
+            this.f43914e = z;
         }
     }
 
-    public final void a(int i2) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59279c = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f43912c = i;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f59280d = str;
+            this.f43913d = str;
         }
     }
 }

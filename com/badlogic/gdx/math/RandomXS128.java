@@ -22,9 +22,9 @@ public class RandomXS128 extends Random {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,28 +33,28 @@ public class RandomXS128 extends Random {
         setSeed(new Random().nextLong());
     }
 
-    public static final long murmurHash3(long j2) {
+    public static final long murmurHash3(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
-            long j3 = (j2 ^ (j2 >>> 33)) * (-49064778989728563L);
-            long j4 = (j3 ^ (j3 >>> 33)) * (-4265267296055464877L);
-            return j4 ^ (j4 >>> 33);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            long j2 = (j ^ (j >>> 33)) * (-49064778989728563L);
+            long j3 = (j2 ^ (j2 >>> 33)) * (-4265267296055464877L);
+            return j3 ^ (j3 >>> 33);
         }
         return invokeJ.longValue;
     }
 
-    public long getState(int i2) {
+    public long getState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == 0 ? this.seed0 : this.seed1 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 ? this.seed0 : this.seed1 : invokeI.longValue;
     }
 
     @Override // java.util.Random
-    public final int next(int i2) {
+    public final int next(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (int) (nextLong() & ((1 << i2) - 1)) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (int) (nextLong() & ((1 << i) - 1)) : invokeI.intValue;
     }
 
     @Override // java.util.Random
@@ -70,15 +70,15 @@ public class RandomXS128 extends Random {
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
             int length = bArr.length;
             while (length != 0) {
-                int i2 = length < 8 ? length : 8;
+                int i = length < 8 ? length : 8;
                 long nextLong = nextLong();
                 while (true) {
-                    int i3 = i2 - 1;
-                    if (i2 != 0) {
+                    int i2 = i - 1;
+                    if (i != 0) {
                         length--;
                         bArr[length] = (byte) nextLong;
                         nextLong >>= 8;
-                        i2 = i3;
+                        i = i2;
                     }
                 }
             }
@@ -111,92 +111,92 @@ public class RandomXS128 extends Random {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j2 = this.seed0;
-            long j3 = this.seed1;
-            this.seed0 = j3;
-            long j4 = j2 ^ (j2 << 23);
-            long j5 = ((j4 >>> 17) ^ (j4 ^ j3)) ^ (j3 >>> 26);
-            this.seed1 = j5;
-            return j5 + j3;
+            long j = this.seed0;
+            long j2 = this.seed1;
+            this.seed0 = j2;
+            long j3 = j ^ (j << 23);
+            long j4 = ((j3 >>> 17) ^ (j3 ^ j2)) ^ (j2 >>> 26);
+            this.seed1 = j4;
+            return j4 + j2;
         }
         return invokeV.longValue;
     }
 
     @Override // java.util.Random
-    public void setSeed(long j2) {
+    public void setSeed(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            if (j2 == 0) {
-                j2 = Long.MIN_VALUE;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            if (j == 0) {
+                j = Long.MIN_VALUE;
             }
-            long murmurHash3 = murmurHash3(j2);
+            long murmurHash3 = murmurHash3(j);
             setState(murmurHash3, murmurHash3(murmurHash3));
         }
     }
 
-    public void setState(long j2, long j3) {
+    public void setState(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.seed0 = j2;
-            this.seed1 = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.seed0 = j;
+            this.seed1 = j2;
         }
     }
 
     @Override // java.util.Random
-    public int nextInt(int i2) {
+    public int nextInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (int) nextLong(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (int) nextLong(i) : invokeI.intValue;
     }
 
-    public RandomXS128(long j2) {
+    public RandomXS128(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        setSeed(j2);
+        setSeed(j);
     }
 
-    public RandomXS128(long j2, long j3) {
+    public RandomXS128(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        setState(j2, j3);
+        setState(j, j2);
     }
 
-    public long nextLong(long j2) {
+    public long nextLong(long j) {
         InterceptResult invokeJ;
         long nextLong;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-            if (j2 > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            if (j > 0) {
                 do {
                     nextLong = nextLong() >>> 1;
-                    j3 = nextLong % j2;
-                } while ((nextLong - j3) + (j2 - 1) < 0);
-                return j3;
+                    j2 = nextLong % j;
+                } while ((nextLong - j2) + (j - 1) < 0);
+                return j2;
             }
             throw new IllegalArgumentException("n must be positive");
         }

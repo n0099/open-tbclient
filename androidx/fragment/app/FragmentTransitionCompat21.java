@@ -29,9 +29,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,20 +60,20 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, arrayList) == null) || (transition = (Transition) obj) == null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         if (transition instanceof TransitionSet) {
             TransitionSet transitionSet = (TransitionSet) transition;
             int transitionCount = transitionSet.getTransitionCount();
-            while (i2 < transitionCount) {
-                addTargets(transitionSet.getTransitionAt(i2), arrayList);
-                i2++;
+            while (i < transitionCount) {
+                addTargets(transitionSet.getTransitionAt(i), arrayList);
+                i++;
             }
         } else if (hasSimpleTarget(transition) || !FragmentTransitionImpl.isNullOrEmpty(transition.getTargets())) {
         } else {
             int size = arrayList.size();
-            while (i2 < size) {
-                transition.addTarget(arrayList.get(i2));
-                i2++;
+            while (i < size) {
+                transition.addTarget(arrayList.get(i));
+                i++;
             }
         }
     }
@@ -167,19 +167,19 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, arrayList, arrayList2) == null) {
             Transition transition = (Transition) obj;
-            int i2 = 0;
+            int i = 0;
             if (transition instanceof TransitionSet) {
                 TransitionSet transitionSet = (TransitionSet) transition;
                 int transitionCount = transitionSet.getTransitionCount();
-                while (i2 < transitionCount) {
-                    replaceTargets(transitionSet.getTransitionAt(i2), arrayList, arrayList2);
-                    i2++;
+                while (i < transitionCount) {
+                    replaceTargets(transitionSet.getTransitionAt(i), arrayList, arrayList2);
+                    i++;
                 }
             } else if (!hasSimpleTarget(transition) && (targets = transition.getTargets()) != null && targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
                 int size = arrayList2 == null ? 0 : arrayList2.size();
-                while (i2 < size) {
-                    transition.addTarget(arrayList2.get(i2));
-                    i2++;
+                while (i < size) {
+                    transition.addTarget(arrayList2.get(i));
+                    i++;
                 }
                 for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {
                     transition.removeTarget(arrayList.get(size2));
@@ -206,9 +206,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, view, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -233,8 +233,8 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                         transition.removeListener(this);
                         this.val$fragmentView.setVisibility(8);
                         int size = this.val$exitingViews.size();
-                        for (int i2 = 0; i2 < size; i2++) {
-                            ((View) this.val$exitingViews.get(i2)).setVisibility(0);
+                        for (int i = 0; i < size; i++) {
+                            ((View) this.val$exitingViews.get(i)).setVisibility(0);
                         }
                     }
                 }
@@ -287,9 +287,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, obj2, arrayList, obj3, arrayList2, obj4, arrayList3};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -376,9 +376,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, rect};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -414,9 +414,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, runnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -473,8 +473,8 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
             List<View> targets = transitionSet.getTargets();
             targets.clear();
             int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                FragmentTransitionImpl.bfsAddViewChildren(targets, arrayList.get(i2));
+            for (int i = 0; i < size; i++) {
+                FragmentTransitionImpl.bfsAddViewChildren(targets, arrayList.get(i));
             }
             targets.add(view);
             arrayList.add(view);
@@ -528,9 +528,9 @@ public class FragmentTransitionCompat21 extends FragmentTransitionImpl {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, rect};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

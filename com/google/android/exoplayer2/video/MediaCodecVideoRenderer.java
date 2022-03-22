@@ -9,6 +9,7 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Surface;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
@@ -45,7 +46,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CROP_BOTTOM = "crop-bottom";
@@ -93,13 +94,13 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public OnFrameRenderedListenerV23 tunnelingOnFrameRenderedListener;
 
     /* renamed from: com.google.android.exoplayer2.video.MediaCodecVideoRenderer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CodecMaxValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,29 +108,29 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         public final int inputSize;
         public final int width;
 
-        public CodecMaxValues(int i2, int i3, int i4) {
+        public CodecMaxValues(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.width = i2;
-            this.height = i3;
-            this.inputSize = i4;
+            this.width = i;
+            this.height = i2;
+            this.inputSize = i3;
         }
     }
 
     @TargetApi(23)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class OnFrameRenderedListenerV23 implements MediaCodec.OnFrameRenderedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,9 +141,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
 
         @Override // android.media.MediaCodec.OnFrameRenderedListener
-        public void onFrameRendered(@NonNull MediaCodec mediaCodec, long j2, long j3) {
+        public void onFrameRendered(@NonNull MediaCodec mediaCodec, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 MediaCodecVideoRenderer mediaCodecVideoRenderer = this.this$0;
                 if (this != mediaCodecVideoRenderer.tunnelingOnFrameRenderedListener) {
                     return;
@@ -158,9 +159,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaCodecVideoRenderer, mediaCodec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -196,9 +197,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, mediaCodecSelector};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MediaCodecSelector) objArr2[1], ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;
@@ -243,11 +244,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @TargetApi(21)
-    public static void configureTunnelingV21(MediaFormat mediaFormat, int i2) {
+    public static void configureTunnelingV21(MediaFormat mediaFormat, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, mediaFormat, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, null, mediaFormat, i) == null) {
             mediaFormat.setFeatureEnabled("tunneled-playback", true);
-            mediaFormat.setInteger("audio-session-id", i2);
+            mediaFormat.setInteger("audio-session-id", i);
         }
     }
 
@@ -263,32 +264,32 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, mediaCodecInfo, format)) == null) {
             boolean z = format.height > format.width;
-            int i2 = z ? format.height : format.width;
-            int i3 = z ? format.width : format.height;
-            float f2 = i3 / i2;
-            for (int i4 : STANDARD_LONG_EDGE_VIDEO_PX) {
-                int i5 = (int) (i4 * f2);
-                if (i4 <= i2 || i5 <= i3) {
+            int i = z ? format.height : format.width;
+            int i2 = z ? format.width : format.height;
+            float f2 = i2 / i;
+            for (int i3 : STANDARD_LONG_EDGE_VIDEO_PX) {
+                int i4 = (int) (i3 * f2);
+                if (i3 <= i || i4 <= i2) {
                     break;
                 }
                 if (Util.SDK_INT >= 21) {
-                    int i6 = z ? i5 : i4;
+                    int i5 = z ? i4 : i3;
                     if (!z) {
-                        i4 = i5;
+                        i3 = i4;
                     }
-                    Point alignVideoSizeV21 = mediaCodecInfo.alignVideoSizeV21(i6, i4);
+                    Point alignVideoSizeV21 = mediaCodecInfo.alignVideoSizeV21(i5, i3);
                     if (mediaCodecInfo.isVideoSizeAndRateSupportedV21(alignVideoSizeV21.x, alignVideoSizeV21.y, format.frameRate)) {
                         return alignVideoSizeV21;
                     }
                 } else {
-                    int ceilDivide = Util.ceilDivide(i4, 16) * 16;
-                    int ceilDivide2 = Util.ceilDivide(i5, 16) * 16;
+                    int ceilDivide = Util.ceilDivide(i3, 16) * 16;
+                    int ceilDivide2 = Util.ceilDivide(i4, 16) * 16;
                     if (ceilDivide * ceilDivide2 <= MediaCodecUtil.maxH264DecodableFrameSize()) {
-                        int i7 = z ? ceilDivide2 : ceilDivide;
+                        int i6 = z ? ceilDivide2 : ceilDivide;
                         if (!z) {
                             ceilDivide = ceilDivide2;
                         }
-                        return new Point(i7, ceilDivide);
+                        return new Point(i6, ceilDivide);
                     }
                 }
             }
@@ -303,11 +304,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, format)) == null) {
             if (format.maxInputSize != -1) {
                 int size = format.initializationData.size();
-                int i2 = 0;
-                for (int i3 = 0; i3 < size; i3++) {
-                    i2 += format.initializationData.get(i3).length;
+                int i = 0;
+                for (int i2 = 0; i2 < size; i2++) {
+                    i += format.initializationData.get(i2).length;
                 }
-                return format.maxInputSize + i2;
+                return format.maxInputSize + i;
             }
             return getMaxInputSize(format.sampleMimeType, format.width, format.height);
         }
@@ -331,25 +332,25 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, format)) == null) {
-            int i2 = format.rotationDegrees;
-            if (i2 == -1) {
+            int i = format.rotationDegrees;
+            if (i == -1) {
                 return 0;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static boolean isBufferLate(long j2) {
+    public static boolean isBufferLate(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j2)) == null) ? j2 < -30000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65552, null, j)) == null) ? j < -30000 : invokeJ.booleanValue;
     }
 
-    public static boolean isBufferVeryLate(long j2) {
+    public static boolean isBufferVeryLate(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) ? j2 < -500000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) ? j < -500000 : invokeJ.booleanValue;
     }
 
     private void maybeNotifyDroppedFrames() {
@@ -458,10 +459,10 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
-    public static void setVideoScalingMode(MediaCodec mediaCodec, int i2) {
+    public static void setVideoScalingMode(MediaCodec mediaCodec, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65561, null, mediaCodec, i2) == null) {
-            mediaCodec.setVideoScalingMode(i2);
+        if (interceptable == null || interceptable.invokeLI(65561, null, mediaCodec, i) == null) {
+            mediaCodec.setVideoScalingMode(i);
         }
     }
 
@@ -477,9 +478,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mediaCodec, Boolean.valueOf(z), format, format2})) == null) {
             if (areAdaptationCompatible(z, format, format2)) {
-                int i2 = format2.width;
+                int i = format2.width;
                 CodecMaxValues codecMaxValues = this.codecMaxValues;
-                if (i2 <= codecMaxValues.width && format2.height <= codecMaxValues.height && getMaxInputSize(format2) <= this.codecMaxValues.inputSize) {
+                if (i <= codecMaxValues.width && format2.height <= codecMaxValues.height && getMaxInputSize(format2) <= this.codecMaxValues.inputSize) {
                     return true;
                 }
             }
@@ -510,11 +511,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
-    public void dropOutputBuffer(MediaCodec mediaCodec, int i2, long j2) {
+    public void dropOutputBuffer(MediaCodec mediaCodec, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaCodec, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             TraceUtil.beginSection("dropVideoBuffer");
-            mediaCodec.releaseOutputBuffer(i2, false);
+            mediaCodec.releaseOutputBuffer(i, false);
             TraceUtil.endSection();
             updateDroppedBufferCounters(1);
         }
@@ -535,53 +536,53 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, mediaCodecInfo, format, formatArr)) == null) {
-            int i2 = format.width;
-            int i3 = format.height;
+            int i = format.width;
+            int i2 = format.height;
             int maxInputSize = getMaxInputSize(format);
             if (formatArr.length == 1) {
-                return new CodecMaxValues(i2, i3, maxInputSize);
+                return new CodecMaxValues(i, i2, maxInputSize);
             }
             boolean z = false;
             for (Format format2 : formatArr) {
                 if (areAdaptationCompatible(mediaCodecInfo.adaptive, format, format2)) {
                     z |= format2.width == -1 || format2.height == -1;
-                    i2 = Math.max(i2, format2.width);
-                    i3 = Math.max(i3, format2.height);
+                    i = Math.max(i, format2.width);
+                    i2 = Math.max(i2, format2.height);
                     maxInputSize = Math.max(maxInputSize, getMaxInputSize(format2));
                 }
             }
             if (z) {
-                String str = "Resolutions unknown. Codec max resolution: " + i2 + "x" + i3;
+                Log.w(TAG, "Resolutions unknown. Codec max resolution: " + i + "x" + i2);
                 Point codecMaxSize = getCodecMaxSize(mediaCodecInfo, format);
                 if (codecMaxSize != null) {
-                    i2 = Math.max(i2, codecMaxSize.x);
-                    i3 = Math.max(i3, codecMaxSize.y);
-                    maxInputSize = Math.max(maxInputSize, getMaxInputSize(format.sampleMimeType, i2, i3));
-                    String str2 = "Codec max resolution adjusted to: " + i2 + "x" + i3;
+                    i = Math.max(i, codecMaxSize.x);
+                    i2 = Math.max(i2, codecMaxSize.y);
+                    maxInputSize = Math.max(maxInputSize, getMaxInputSize(format.sampleMimeType, i, i2));
+                    Log.w(TAG, "Codec max resolution adjusted to: " + i + "x" + i2);
                 }
             }
-            return new CodecMaxValues(i2, i3, maxInputSize);
+            return new CodecMaxValues(i, i2, maxInputSize);
         }
         return (CodecMaxValues) invokeLLL.objValue;
     }
 
     @SuppressLint({"InlinedApi"})
-    public MediaFormat getMediaFormat(Format format, CodecMaxValues codecMaxValues, boolean z, int i2) {
+    public MediaFormat getMediaFormat(Format format, CodecMaxValues codecMaxValues, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{format, codecMaxValues, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{format, codecMaxValues, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             MediaFormat frameworkMediaFormatV16 = format.getFrameworkMediaFormatV16();
             frameworkMediaFormatV16.setInteger("max-width", codecMaxValues.width);
             frameworkMediaFormatV16.setInteger("max-height", codecMaxValues.height);
-            int i3 = codecMaxValues.inputSize;
-            if (i3 != -1) {
-                frameworkMediaFormatV16.setInteger("max-input-size", i3);
+            int i2 = codecMaxValues.inputSize;
+            if (i2 != -1) {
+                frameworkMediaFormatV16.setInteger("max-input-size", i2);
             }
             if (z) {
                 frameworkMediaFormatV16.setInteger("auto-frc", 0);
             }
-            if (i2 != 0) {
-                configureTunnelingV21(frameworkMediaFormatV16, i2);
+            if (i != 0) {
+                configureTunnelingV21(frameworkMediaFormatV16, i);
             }
             return frameworkMediaFormatV16;
         }
@@ -589,19 +590,19 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer, com.google.android.exoplayer2.ExoPlayer.ExoPlayerComponent
-    public void handleMessage(int i2, Object obj) throws ExoPlaybackException {
+    public void handleMessage(int i, Object obj) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, obj) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, obj) == null) {
+            if (i == 1) {
                 setSurface((Surface) obj);
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 this.scalingMode = ((Integer) obj).intValue();
                 MediaCodec codec = getCodec();
                 if (codec != null) {
                     setVideoScalingMode(codec, this.scalingMode);
                 }
             } else {
-                super.handleMessage(i2, obj);
+                super.handleMessage(i, obj);
             }
         }
     }
@@ -628,11 +629,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return invokeV.booleanValue;
     }
 
-    public boolean maybeDropBuffersToKeyframe(MediaCodec mediaCodec, int i2, long j2, long j3) throws ExoPlaybackException {
+    public boolean maybeDropBuffersToKeyframe(MediaCodec mediaCodec, int i, long j, long j2) throws ExoPlaybackException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{mediaCodec, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            int skipSource = skipSource(j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int skipSource = skipSource(j2);
             if (skipSource == 0) {
                 return false;
             }
@@ -654,10 +655,10 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public void onCodecInitialized(String str, long j2, long j3) {
+    public void onCodecInitialized(String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.eventDispatcher.decoderInitialized(str, j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.eventDispatcher.decoderInitialized(str, j, j2);
             this.codecNeedsSetOutputSurfaceWorkaround = codecNeedsSetOutputSurfaceWorkaround(str);
         }
     }
@@ -691,9 +692,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             super.onEnabled(z);
-            int i2 = getConfiguration().tunnelingAudioSessionId;
-            this.tunnelingAudioSessionId = i2;
-            this.tunneling = i2 != 0;
+            int i = getConfiguration().tunnelingAudioSessionId;
+            this.tunnelingAudioSessionId = i;
+            this.tunneling = i != 0;
             this.eventDispatcher.enabled(this.decoderCounters);
             this.frameReleaseTimeHelper.enable();
         }
@@ -731,11 +732,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
             this.currentHeight = integer2;
             this.currentPixelWidthHeightRatio = this.pendingPixelWidthHeightRatio;
             if (Util.SDK_INT >= 21) {
-                int i2 = this.pendingRotationDegrees;
-                if (i2 == 90 || i2 == 270) {
-                    int i3 = this.currentWidth;
+                int i = this.pendingRotationDegrees;
+                if (i == 90 || i == 270) {
+                    int i2 = this.currentWidth;
                     this.currentWidth = this.currentHeight;
-                    this.currentHeight = i3;
+                    this.currentHeight = i2;
                     this.currentPixelWidthHeightRatio = 1.0f / this.currentPixelWidthHeightRatio;
                 }
             } else {
@@ -746,15 +747,15 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer, com.google.android.exoplayer2.BaseRenderer
-    public void onPositionReset(long j2, boolean z) throws ExoPlaybackException {
+    public void onPositionReset(long j, boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            super.onPositionReset(j2, z);
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            super.onPositionReset(j, z);
             clearRenderedFirstFrame();
             this.consecutiveDroppedFrameCount = 0;
-            int i2 = this.pendingOutputStreamOffsetCount;
-            if (i2 != 0) {
-                this.outputStreamOffsetUs = this.pendingOutputStreamOffsetsUs[i2 - 1];
+            int i = this.pendingOutputStreamOffsetCount;
+            if (i != 0) {
+                this.outputStreamOffsetUs = this.pendingOutputStreamOffsetsUs[i - 1];
                 this.pendingOutputStreamOffsetCount = 0;
             }
             if (z) {
@@ -767,9 +768,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     @CallSuper
-    public void onProcessedOutputBuffer(long j2) {
+    public void onProcessedOutputBuffer(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.buffersInCodecCount--;
         }
     }
@@ -808,55 +809,55 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onStreamChanged(Format[] formatArr, long j2) throws ExoPlaybackException {
+    public void onStreamChanged(Format[] formatArr, long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048596, this, formatArr, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048596, this, formatArr, j) == null) {
             this.streamFormats = formatArr;
             if (this.outputStreamOffsetUs == C.TIME_UNSET) {
-                this.outputStreamOffsetUs = j2;
+                this.outputStreamOffsetUs = j;
             } else {
-                int i2 = this.pendingOutputStreamOffsetCount;
-                if (i2 == this.pendingOutputStreamOffsetsUs.length) {
-                    String str = "Too many stream changes, so dropping offset: " + this.pendingOutputStreamOffsetsUs[this.pendingOutputStreamOffsetCount - 1];
+                int i = this.pendingOutputStreamOffsetCount;
+                if (i == this.pendingOutputStreamOffsetsUs.length) {
+                    Log.w(TAG, "Too many stream changes, so dropping offset: " + this.pendingOutputStreamOffsetsUs[this.pendingOutputStreamOffsetCount - 1]);
                 } else {
-                    this.pendingOutputStreamOffsetCount = i2 + 1;
+                    this.pendingOutputStreamOffsetCount = i + 1;
                 }
-                this.pendingOutputStreamOffsetsUs[this.pendingOutputStreamOffsetCount - 1] = j2;
+                this.pendingOutputStreamOffsetsUs[this.pendingOutputStreamOffsetCount - 1] = j;
             }
-            super.onStreamChanged(formatArr, j2);
+            super.onStreamChanged(formatArr, j);
         }
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
-    public boolean processOutputBuffer(long j2, long j3, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i2, int i3, long j4, boolean z) throws ExoPlaybackException {
+    public boolean processOutputBuffer(long j, long j2, MediaCodec mediaCodec, ByteBuffer byteBuffer, int i, int i2, long j3, boolean z) throws ExoPlaybackException {
         InterceptResult invokeCommon;
-        long j5;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), mediaCodec, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), mediaCodec, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
             while (true) {
-                int i4 = this.pendingOutputStreamOffsetCount;
-                if (i4 == 0) {
+                int i3 = this.pendingOutputStreamOffsetCount;
+                if (i3 == 0) {
                     break;
                 }
                 long[] jArr = this.pendingOutputStreamOffsetsUs;
-                if (j4 < jArr[0]) {
+                if (j3 < jArr[0]) {
                     break;
                 }
                 this.outputStreamOffsetUs = jArr[0];
-                int i5 = i4 - 1;
-                this.pendingOutputStreamOffsetCount = i5;
-                System.arraycopy(jArr, 1, jArr, 0, i5);
+                int i4 = i3 - 1;
+                this.pendingOutputStreamOffsetCount = i4;
+                System.arraycopy(jArr, 1, jArr, 0, i4);
             }
-            long j6 = j4 - this.outputStreamOffsetUs;
+            long j5 = j3 - this.outputStreamOffsetUs;
             if (z) {
-                skipOutputBuffer(mediaCodec, i2, j6);
+                skipOutputBuffer(mediaCodec, i, j5);
                 return true;
             }
-            long j7 = j4 - j2;
+            long j6 = j3 - j;
             if (this.surface == this.dummySurface) {
-                if (isBufferLate(j7)) {
+                if (isBufferLate(j6)) {
                     this.forceRenderFrame = false;
-                    skipOutputBuffer(mediaCodec, i2, j6);
+                    skipOutputBuffer(mediaCodec, i, j5);
                     return true;
                 }
                 return false;
@@ -864,45 +865,45 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 if (getState() != 2) {
                     return false;
                 }
-                long elapsedRealtime = j7 - ((SystemClock.elapsedRealtime() * 1000) - j3);
+                long elapsedRealtime = j6 - ((SystemClock.elapsedRealtime() * 1000) - j2);
                 long nanoTime = System.nanoTime();
-                long adjustReleaseTime = this.frameReleaseTimeHelper.adjustReleaseTime(j4, nanoTime + (elapsedRealtime * 1000));
-                long j8 = (adjustReleaseTime - nanoTime) / 1000;
-                if (!shouldDropBuffersToKeyframe(j8, j3)) {
-                    j5 = j8;
-                } else if (maybeDropBuffersToKeyframe(mediaCodec, i2, j6, j2)) {
+                long adjustReleaseTime = this.frameReleaseTimeHelper.adjustReleaseTime(j3, nanoTime + (elapsedRealtime * 1000));
+                long j7 = (adjustReleaseTime - nanoTime) / 1000;
+                if (!shouldDropBuffersToKeyframe(j7, j2)) {
+                    j4 = j7;
+                } else if (maybeDropBuffersToKeyframe(mediaCodec, i, j5, j)) {
                     this.forceRenderFrame = true;
                     return false;
                 } else {
-                    j5 = j8;
+                    j4 = j7;
                 }
-                if (shouldDropOutputBuffer(j5, j3)) {
-                    dropOutputBuffer(mediaCodec, i2, j6);
+                if (shouldDropOutputBuffer(j4, j2)) {
+                    dropOutputBuffer(mediaCodec, i, j5);
                     return true;
                 }
                 if (Util.SDK_INT >= 21) {
-                    if (j5 < 50000) {
-                        renderOutputBufferV21(mediaCodec, i2, j6, adjustReleaseTime);
+                    if (j4 < 50000) {
+                        renderOutputBufferV21(mediaCodec, i, j5, adjustReleaseTime);
                         return true;
                     }
-                } else if (j5 < 30000) {
-                    if (j5 > 11000) {
+                } else if (j4 < 30000) {
+                    if (j4 > 11000) {
                         try {
-                            Thread.sleep((j5 - 10000) / 1000);
+                            Thread.sleep((j4 - 10000) / 1000);
                         } catch (InterruptedException unused) {
                             Thread.currentThread().interrupt();
                         }
                     }
-                    renderOutputBuffer(mediaCodec, i2, j6);
+                    renderOutputBuffer(mediaCodec, i, j5);
                     return true;
                 }
                 return false;
             } else {
                 this.forceRenderFrame = false;
                 if (Util.SDK_INT >= 21) {
-                    renderOutputBufferV21(mediaCodec, i2, j6, System.nanoTime());
+                    renderOutputBufferV21(mediaCodec, i, j5, System.nanoTime());
                 } else {
-                    renderOutputBuffer(mediaCodec, i2, j6);
+                    renderOutputBuffer(mediaCodec, i, j5);
                 }
                 return true;
             }
@@ -932,12 +933,12 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
-    public void renderOutputBuffer(MediaCodec mediaCodec, int i2, long j2) {
+    public void renderOutputBuffer(MediaCodec mediaCodec, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{mediaCodec, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             maybeNotifyVideoSizeChanged();
             TraceUtil.beginSection("releaseOutputBuffer");
-            mediaCodec.releaseOutputBuffer(i2, true);
+            mediaCodec.releaseOutputBuffer(i, true);
             TraceUtil.endSection();
             this.decoderCounters.renderedOutputBufferCount++;
             this.consecutiveDroppedFrameCount = 0;
@@ -946,12 +947,12 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @TargetApi(21)
-    public void renderOutputBufferV21(MediaCodec mediaCodec, int i2, long j2, long j3) {
+    public void renderOutputBufferV21(MediaCodec mediaCodec, int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{mediaCodec, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             maybeNotifyVideoSizeChanged();
             TraceUtil.beginSection("releaseOutputBuffer");
-            mediaCodec.releaseOutputBuffer(i2, j3);
+            mediaCodec.releaseOutputBuffer(i, j2);
             TraceUtil.endSection();
             this.decoderCounters.renderedOutputBufferCount++;
             this.consecutiveDroppedFrameCount = 0;
@@ -959,16 +960,16 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         }
     }
 
-    public boolean shouldDropBuffersToKeyframe(long j2, long j3) {
+    public boolean shouldDropBuffersToKeyframe(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? isBufferVeryLate(j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? isBufferVeryLate(j) : invokeCommon.booleanValue;
     }
 
-    public boolean shouldDropOutputBuffer(long j2, long j3) {
+    public boolean shouldDropOutputBuffer(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? isBufferLate(j2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? isBufferLate(j) : invokeCommon.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
@@ -978,11 +979,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, mediaCodecInfo)) == null) ? this.surface != null || shouldUseDummySurface(mediaCodecInfo.secure) : invokeL.booleanValue;
     }
 
-    public void skipOutputBuffer(MediaCodec mediaCodec, int i2, long j2) {
+    public void skipOutputBuffer(MediaCodec mediaCodec, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{mediaCodec, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{mediaCodec, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             TraceUtil.beginSection("skipVideoBuffer");
-            mediaCodec.releaseOutputBuffer(i2, false);
+            mediaCodec.releaseOutputBuffer(i, false);
             TraceUtil.endSection();
             this.decoderCounters.skippedOutputBufferCount++;
         }
@@ -992,8 +993,8 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public int supportsFormat(MediaCodecSelector mediaCodecSelector, DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, Format format) throws MediaCodecUtil.DecoderQueryException {
         InterceptResult invokeLLL;
         boolean z;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, mediaCodecSelector, drmSessionManager, format)) == null) {
             String str = format.sampleMimeType;
@@ -1001,8 +1002,8 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 DrmInitData drmInitData = format.drmInitData;
                 if (drmInitData != null) {
                     z = false;
-                    for (int i4 = 0; i4 < drmInitData.schemeDataCount; i4++) {
-                        z |= drmInitData.get(i4).requiresSecureDecryption;
+                    for (int i3 = 0; i3 < drmInitData.schemeDataCount; i3++) {
+                        z |= drmInitData.get(i3).requiresSecureDecryption;
                     }
                 } else {
                     z = false;
@@ -1012,13 +1013,13 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                     return (!z || mediaCodecSelector.getDecoderInfo(str, false) == null) ? 1 : 2;
                 } else if (BaseRenderer.supportsFormatDrm(drmSessionManager, drmInitData)) {
                     boolean isCodecSupported = decoderInfo.isCodecSupported(format.codecs);
-                    if (isCodecSupported && (i2 = format.width) > 0 && (i3 = format.height) > 0) {
+                    if (isCodecSupported && (i = format.width) > 0 && (i2 = format.height) > 0) {
                         if (Util.SDK_INT >= 21) {
-                            isCodecSupported = decoderInfo.isVideoSizeAndRateSupportedV21(i2, i3, format.frameRate);
+                            isCodecSupported = decoderInfo.isVideoSizeAndRateSupportedV21(i, i2, format.frameRate);
                         } else {
-                            boolean z2 = i2 * i3 <= MediaCodecUtil.maxH264DecodableFrameSize();
+                            boolean z2 = i * i2 <= MediaCodecUtil.maxH264DecodableFrameSize();
                             if (!z2) {
-                                String str2 = "FalseCheck [legacyFrameSize, " + format.width + "x" + format.height + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT;
+                                Log.d(TAG, "FalseCheck [legacyFrameSize, " + format.width + "x" + format.height + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT);
                             }
                             isCodecSupported = z2;
                         }
@@ -1033,15 +1034,15 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return invokeLLL.intValue;
     }
 
-    public void updateDroppedBufferCounters(int i2) {
+    public void updateDroppedBufferCounters(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             DecoderCounters decoderCounters = this.decoderCounters;
-            decoderCounters.droppedBufferCount += i2;
-            this.droppedFrames += i2;
-            int i3 = this.consecutiveDroppedFrameCount + i2;
-            this.consecutiveDroppedFrameCount = i3;
-            decoderCounters.maxConsecutiveDroppedBufferCount = Math.max(i3, decoderCounters.maxConsecutiveDroppedBufferCount);
+            decoderCounters.droppedBufferCount += i;
+            this.droppedFrames += i;
+            int i2 = this.consecutiveDroppedFrameCount + i;
+            this.consecutiveDroppedFrameCount = i2;
+            decoderCounters.maxConsecutiveDroppedBufferCount = Math.max(i2, decoderCounters.maxConsecutiveDroppedBufferCount);
             if (this.droppedFrames >= this.maxDroppedFramesToNotify) {
                 maybeNotifyDroppedFrames();
             }
@@ -1049,17 +1050,17 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j2) {
-        this(context, mediaCodecSelector, j2, null, null, -1);
+    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j) {
+        this(context, mediaCodecSelector, j, null, null, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j2)};
+            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MediaCodecSelector) objArr2[1], ((Long) objArr2[2]).longValue(), (Handler) objArr2[3], (VideoRendererEventListener) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -1070,17 +1071,17 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j2, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i2) {
-        this(context, mediaCodecSelector, j2, null, false, handler, videoRendererEventListener, i2);
+    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i) {
+        this(context, mediaCodecSelector, j, null, false, handler, videoRendererEventListener, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j2), handler, videoRendererEventListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j), handler, videoRendererEventListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MediaCodecSelector) objArr2[1], ((Long) objArr2[2]).longValue(), (DrmSessionManager) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (Handler) objArr2[5], (VideoRendererEventListener) objArr2[6], ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -1091,17 +1092,17 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j2, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i2) {
+    public MediaCodecVideoRenderer(Context context, MediaCodecSelector mediaCodecSelector, long j, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, boolean z, @Nullable Handler handler, @Nullable VideoRendererEventListener videoRendererEventListener, int i) {
         super(2, mediaCodecSelector, drmSessionManager, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j2), drmSessionManager, Boolean.valueOf(z), handler, videoRendererEventListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, mediaCodecSelector, Long.valueOf(j), drmSessionManager, Boolean.valueOf(z), handler, videoRendererEventListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (MediaCodecSelector) objArr2[1], (DrmSessionManager) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -1109,8 +1110,8 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 return;
             }
         }
-        this.allowedJoiningTimeMs = j2;
-        this.maxDroppedFramesToNotify = i2;
+        this.allowedJoiningTimeMs = j;
+        this.maxDroppedFramesToNotify = i;
         this.context = context.getApplicationContext();
         this.frameReleaseTimeHelper = new VideoFrameReleaseTimeHelper(context);
         this.eventDispatcher = new VideoRendererEventListener.EventDispatcher(handler, videoRendererEventListener);
@@ -1127,16 +1128,16 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int getMaxInputSize(String str, int i2, int i3) {
+    public static int getMaxInputSize(String str, int i, int i2) {
         InterceptResult invokeLII;
         char c2;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, str, i2, i3)) == null) {
-            if (i2 == -1 || i3 == -1) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, str, i, i2)) == null) {
+            if (i == -1 || i2 == -1) {
                 return -1;
             }
-            int i5 = 4;
+            int i4 = 4;
             switch (str.hashCode()) {
                 case -1664118616:
                     if (str.equals(MimeTypes.VIDEO_H263)) {
@@ -1189,20 +1190,20 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                     if ("BRAVIA 4K 2015".equals(Util.MODEL)) {
                         return -1;
                     }
-                    i4 = Util.ceilDivide(i2, 16) * Util.ceilDivide(i3, 16) * 16 * 16;
-                    i5 = 2;
-                    return (i4 * 3) / (i5 * 2);
+                    i3 = Util.ceilDivide(i, 16) * Util.ceilDivide(i2, 16) * 16 * 16;
+                    i4 = 2;
+                    return (i3 * 3) / (i4 * 2);
                 } else if (c2 != 3) {
                     if (c2 == 4 || c2 == 5) {
-                        i4 = i2 * i3;
-                        return (i4 * 3) / (i5 * 2);
+                        i3 = i * i2;
+                        return (i3 * 3) / (i4 * 2);
                     }
                     return -1;
                 }
             }
-            i4 = i2 * i3;
-            i5 = 2;
-            return (i4 * 3) / (i5 * 2);
+            i3 = i * i2;
+            i4 = 2;
+            return (i3 * 3) / (i4 * 2);
         }
         return invokeLII.intValue;
     }

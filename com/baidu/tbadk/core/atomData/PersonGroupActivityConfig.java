@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonGroupActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ADDRESSLIST = 1;
@@ -24,17 +24,17 @@ public class PersonGroupActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonGroupActivityConfig(Context context, String str, int i2) {
+    public PersonGroupActivityConfig(Context context, String str, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -43,21 +43,21 @@ public class PersonGroupActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i2);
+        intent.putExtra("key_sex", i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonGroupActivityConfig(Context context, String str, int i2, int i3) {
+    public PersonGroupActivityConfig(Context context, String str, int i, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
@@ -66,22 +66,22 @@ public class PersonGroupActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i2);
-        intent.putExtra("key_current_tab", i3);
+        intent.putExtra("key_sex", i);
+        intent.putExtra("key_current_tab", i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonGroupActivityConfig(Context context, int i2, int i3) {
+    public PersonGroupActivityConfig(Context context, int i, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -91,24 +91,24 @@ public class PersonGroupActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
         intent.putExtra("key_sex", 0);
-        intent.putExtra("key_from_where", i3);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra("key_from_where", i2);
+        intent.putExtra("tb_request_code", i);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonGroupActivityConfig(Context context, int i2, int i3, int i4) {
+    public PersonGroupActivityConfig(Context context, int i, int i2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -117,25 +117,25 @@ public class PersonGroupActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
-        intent.putExtra("key_sex", i2);
-        intent.putExtra("key_from_where", i4);
-        intent.putExtra("tb_request_code", i3);
+        intent.putExtra("key_sex", i);
+        intent.putExtra("key_from_where", i3);
+        intent.putExtra("tb_request_code", i2);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i3);
+        setRequestCode(i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonGroupActivityConfig(Context context, int i2) {
+    public PersonGroupActivityConfig(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -145,8 +145,8 @@ public class PersonGroupActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
         intent.putExtra("key_sex", 0);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra("tb_request_code", i);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i);
     }
 }

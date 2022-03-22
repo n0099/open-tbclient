@@ -22,9 +22,9 @@ public final class SapiSafeFacade {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,15 +58,15 @@ public final class SapiSafeFacade {
         return (String) invokeL.objValue;
     }
 
-    public String getDeviceAuthToken(Context context, String str, int i2) {
+    public String getDeviceAuthToken(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i2)) == null) ? SafeService.getInstance().getDeviceAuthToken(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i2) : (String) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i)) == null) ? SafeService.getInstance().getDeviceAuthToken(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i) : (String) invokeLLI.objValue;
     }
 
-    public String getZidAndCheckSafe(Context context, String str, int i2) {
+    public String getZidAndCheckSafe(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i2)) == null) ? SafeService.getInstance().getZidAndCheckSafe(context, str, i2) : (String) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i)) == null) ? SafeService.getInstance().getZidAndCheckSafe(context, str, i) : (String) invokeLLI.objValue;
     }
 }

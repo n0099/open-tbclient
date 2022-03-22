@@ -1,12 +1,12 @@
 package c.a.l;
 
 import android.widget.RelativeLayout;
-import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.Align;
 import com.baidu.card.view.UnfollowedDecorView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,16 +17,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class r0 extends c implements p<e2>, q {
+public class r0 extends c implements p<ThreadData>, q {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final int f3474g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: i  reason: collision with root package name */
-    public UnfollowedDecorView f4073i;
+    /* renamed from: e  reason: collision with root package name */
+    public UnfollowedDecorView f3475e;
 
-    /* renamed from: j  reason: collision with root package name */
-    public Align f4074j;
+    /* renamed from: f  reason: collision with root package name */
+    public Align f3476f;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +43,7 @@ public class r0 extends c implements p<e2>, q {
                 return;
             }
         }
-        k = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+        f3474g = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     }
 
     public r0(TbPageContext tbPageContext, Align align) {
@@ -51,25 +53,25 @@ public class r0 extends c implements p<e2>, q {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, align};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(-1);
+        h(-1);
         UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.f4073i = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.decor_item_right_id);
-        f(this.f4073i);
-        j(align);
+        this.f3475e = unfollowedDecorView;
+        unfollowedDecorView.setId(R.id.obfuscated_res_0x7f090764);
+        g(this.f3475e);
+        k(align);
     }
 
-    public void j(Align align) {
+    public void k(Align align) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, align) == null) || align == this.f4074j) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, align) == null) || align == this.f3476f) {
             return;
         }
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
@@ -80,69 +82,69 @@ public class r0 extends c implements p<e2>, q {
             layoutParams.addRule(10);
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
-            h(layoutParams);
-            this.f4073i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f4073i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f4073i.setLayoutParams(layoutParams);
+            i(layoutParams);
+            this.f3475e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f3475e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f3475e.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
             layoutParams2.addRule(15);
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.bottomMargin = 0;
-            h(layoutParams2);
-            this.f4073i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f4073i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f4073i.setLayoutParams(layoutParams2);
+            i(layoutParams2);
+            this.f3475e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f3475e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f3475e.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i2 = k;
+            int i = f3474g;
             int f2 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
             int f3 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
             int f4 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i2, i2);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
             layoutParams3.rightMargin = f3;
             layoutParams3.bottomMargin = f4;
-            h(layoutParams3);
-            this.f4073i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f4073i.setPadding(f2, f2, f2, f2);
-            this.f4073i.setLayoutParams(layoutParams3);
+            i(layoutParams3);
+            this.f3475e.setWebPResId(R.drawable.obfuscated_res_0x7f0808ea, R.color.CAM_X0111);
+            this.f3475e.setPadding(f2, f2, f2, f2);
+            this.f3475e.setLayoutParams(layoutParams3);
         }
-        this.f4074j = align;
+        this.f3476f = align;
     }
 
-    public void k(c.a.q0.r.r.a aVar) {
+    public void l(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             if (aVar.isSupportTop()) {
-                j(Align.ALIGN_RIGHT_TOP);
+                k(Align.ALIGN_RIGHT_TOP);
             } else if (aVar.isSupportBottom()) {
-                l0 l0Var = this.f4018h;
+                l0 l0Var = this.f3406d;
                 if (l0Var != null) {
                     l0Var.n(this);
                 }
             } else {
-                j(Align.ALIGN_RIGHT_TOP);
+                k(Align.ALIGN_RIGHT_TOP);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: l */
-    public void onBindDataToView(e2 e2Var) {
+    /* renamed from: m */
+    public void a(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
-            this.f4073i.bindData(e2Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
+            this.f3475e.f(threadData);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.f4073i.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.f3475e.k();
         }
     }
 }

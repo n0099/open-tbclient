@@ -1,8 +1,8 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import c.a.d.f.d.l;
-import c.a.q0.r.r.i1;
-import c.a.q0.r.s.a;
+import c.a.o0.r.r.g1;
+import c.a.o0.r.s.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,27 +16,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i1 data;
+    public g1 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseNetPersonFollowMessage(int i2) {
+    public ResponseNetPersonFollowMessage(int i) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -48,25 +48,25 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                i1 i1Var = new i1();
-                this.data = i1Var;
-                i1Var.c(jSONObject);
+                g1 g1Var = new g1();
+                this.data = g1Var;
+                g1Var.c(jSONObject);
             }
         }
     }
 
-    public i1 getData() {
+    public g1 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (i1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (g1) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -90,14 +90,14 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         PersonListModel personListModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            super.afterDispatchInBackGround(i2, (int) bArr);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (personListModel = this.mModel) != null) {
                 boolean z = true;
-                if (personListModel.E() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+                if (personListModel.G() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
                     BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);

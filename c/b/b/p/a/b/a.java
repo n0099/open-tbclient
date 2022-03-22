@@ -14,31 +14,31 @@ public class a implements b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27488b;
+    public float f22708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27489c;
+    public float f22709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27490d;
+    public float f22710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27491e;
+    public float f22711e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f27492f;
+    public float f22712f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f27493g;
+    public float f22713g;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,14 +49,14 @@ public class a implements b {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27492f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22712f : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f27488b = f2;
+            this.f22708b = f2;
         }
     }
 
@@ -64,7 +64,7 @@ public class a implements b {
     public void c(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f27489c = f2;
+            this.f22709c = f2;
         }
     }
 
@@ -72,7 +72,7 @@ public class a implements b {
     public void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f27491e = f2;
+            this.f22711e = f2;
         }
     }
 
@@ -80,14 +80,14 @@ public class a implements b {
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27491e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22711e : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f27490d = f2;
+            this.f22710d = f2;
         }
     }
 
@@ -95,14 +95,14 @@ public class a implements b {
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27489c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22709c : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f27493g = f2;
+            this.f22713g = f2;
         }
     }
 
@@ -110,14 +110,14 @@ public class a implements b {
     public float i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27490d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22710d : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public void j(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f27492f = f2;
+            this.f22712f = f2;
         }
     }
 
@@ -125,14 +125,14 @@ public class a implements b {
     public float k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27493g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f22713g : invokeV.floatValue;
     }
 
     @Override // c.b.b.p.a.b.b
     public float l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27488b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f22708b : invokeV.floatValue;
     }
 
     public String m() {
@@ -165,9 +165,9 @@ public class a implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -176,11 +176,11 @@ public class a implements b {
         if (bVar instanceof a) {
             this.a = ((a) bVar).m();
         }
-        this.f27488b = bVar.l();
-        this.f27489c = bVar.g();
-        this.f27490d = bVar.i();
-        this.f27491e = bVar.e();
-        this.f27492f = bVar.a();
-        this.f27493g = bVar.k();
+        this.f22708b = bVar.l();
+        this.f22709c = bVar.g();
+        this.f22710d = bVar.i();
+        this.f22711e = bVar.e();
+        this.f22712f = bVar.a();
+        this.f22713g = bVar.k();
     }
 }

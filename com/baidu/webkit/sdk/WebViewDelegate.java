@@ -22,9 +22,9 @@ public class WebViewDelegate {
             newInitContext.initArgs = r2;
             Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +39,10 @@ public class WebViewDelegate {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mWebView.canGoBack() : invokeV.booleanValue;
     }
 
-    public boolean canGoBackOrForward(int i2) {
+    public boolean canGoBackOrForward(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mWebView.canGoBackOrForward(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mWebView.canGoBackOrForward(i) : invokeI.booleanValue;
     }
 
     public boolean canGoForward() {
@@ -103,10 +103,10 @@ public class WebViewDelegate {
         }
     }
 
-    public void goBackOrForward(int i2) {
+    public void goBackOrForward(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mWebView.goBackOrForward(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mWebView.goBackOrForward(i);
         }
     }
 
@@ -135,17 +135,17 @@ public class WebViewDelegate {
         return invokeV.booleanValue;
     }
 
-    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.mWebView.onOverScrolledSuper(i2, i3, z, z2);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.mWebView.onOverScrolledSuper(i, i2, z, z2);
         }
     }
 
-    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
-            this.mWebView.onScrollChangedSuper(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            this.mWebView.onScrollChangedSuper(i, i2, i3, i4);
         }
     }
 

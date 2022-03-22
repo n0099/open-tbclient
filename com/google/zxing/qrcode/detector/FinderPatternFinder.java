@@ -55,9 +55,9 @@ public class FinderPatternFinder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,9 +103,9 @@ public class FinderPatternFinder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -140,9 +140,9 @@ public class FinderPatternFinder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BitMatrix) objArr2[0], (ResultPointCallback) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -152,10 +152,10 @@ public class FinderPatternFinder {
         }
     }
 
-    public static float centerFromEnd(int[] iArr, int i2) {
+    public static float centerFromEnd(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, iArr, i2)) == null) ? ((i2 - iArr[4]) - iArr[3]) - (iArr[2] / 2.0f) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, iArr, i)) == null) ? ((i - iArr[4]) - iArr[3]) - (iArr[2] / 2.0f) : invokeLI.floatValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x002e, code lost:
@@ -309,15 +309,15 @@ public class FinderPatternFinder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean crossCheckDiagonal(int i2, int i3, int i4, int i5) {
+    private boolean crossCheckDiagonal(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, this, i, i2, i3, i4)) == null) {
             int[] crossCheckStateCount = getCrossCheckStateCount();
-            int i6 = 0;
-            while (i2 >= i6 && i3 >= i6 && this.image.get(i3 - i6, i2 - i6)) {
+            int i5 = 0;
+            while (i >= i5 && i2 >= i5 && this.image.get(i2 - i5, i - i5)) {
                 crossCheckStateCount[2] = crossCheckStateCount[2] + 1;
-                i6++;
+                i5++;
             }
             return false;
         }
@@ -418,24 +418,24 @@ public class FinderPatternFinder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private float crossCheckHorizontal(int i2, int i3, int i4, int i5) {
+    private float crossCheckHorizontal(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2, i3, i4)) == null) {
             BitMatrix bitMatrix = this.image;
             int width = bitMatrix.getWidth();
             int[] crossCheckStateCount = getCrossCheckStateCount();
-            int i6 = i2;
-            while (i6 >= 0 && bitMatrix.get(i6, i3)) {
+            int i5 = i;
+            while (i5 >= 0 && bitMatrix.get(i5, i2)) {
                 crossCheckStateCount[2] = crossCheckStateCount[2] + 1;
-                i6--;
+                i5--;
             }
-            if (i6 < 0) {
+            if (i5 < 0) {
                 return Float.NaN;
             }
-            while (i6 >= 0 && !bitMatrix.get(i6, i3) && crossCheckStateCount[1] <= i4) {
+            while (i5 >= 0 && !bitMatrix.get(i5, i2) && crossCheckStateCount[1] <= i3) {
                 crossCheckStateCount[1] = crossCheckStateCount[1] + 1;
-                i6--;
+                i5--;
             }
             return Float.NaN;
         }
@@ -536,24 +536,24 @@ public class FinderPatternFinder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private float crossCheckVertical(int i2, int i3, int i4, int i5) {
+    private float crossCheckVertical(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i, i2, i3, i4)) == null) {
             BitMatrix bitMatrix = this.image;
             int height = bitMatrix.getHeight();
             int[] crossCheckStateCount = getCrossCheckStateCount();
-            int i6 = i2;
-            while (i6 >= 0 && bitMatrix.get(i3, i6)) {
+            int i5 = i;
+            while (i5 >= 0 && bitMatrix.get(i2, i5)) {
                 crossCheckStateCount[2] = crossCheckStateCount[2] + 1;
-                i6--;
+                i5--;
             }
-            if (i6 < 0) {
+            if (i5 < 0) {
                 return Float.NaN;
             }
-            while (i6 >= 0 && !bitMatrix.get(i3, i6) && crossCheckStateCount[1] <= i4) {
+            while (i5 >= 0 && !bitMatrix.get(i2, i5) && crossCheckStateCount[1] <= i3) {
                 crossCheckStateCount[1] = crossCheckStateCount[1] + 1;
-                i6--;
+                i5--;
             }
             return Float.NaN;
         }
@@ -586,18 +586,18 @@ public class FinderPatternFinder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, iArr)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < 5; i3++) {
-                int i4 = iArr[i3];
-                if (i4 == 0) {
+            int i = 0;
+            for (int i2 = 0; i2 < 5; i2++) {
+                int i3 = iArr[i2];
+                if (i3 == 0) {
                     return false;
                 }
-                i2 += i4;
+                i += i3;
             }
-            if (i2 < 7) {
+            if (i < 7) {
                 return false;
             }
-            float f2 = i2 / 7.0f;
+            float f2 = i / 7.0f;
             float f3 = f2 / 2.0f;
             return Math.abs(f2 - ((float) iArr[0])) < f3 && Math.abs(f2 - ((float) iArr[1])) < f3 && Math.abs((f2 * 3.0f) - ((float) iArr[2])) < 3.0f * f3 && Math.abs(f2 - ((float) iArr[3])) < f3 && Math.abs(f2 - ((float) iArr[4])) < f3;
         }
@@ -625,15 +625,15 @@ public class FinderPatternFinder {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             int size = this.possibleCenters.size();
             float f2 = 0.0f;
-            int i2 = 0;
+            int i = 0;
             float f3 = 0.0f;
             for (FinderPattern finderPattern : this.possibleCenters) {
                 if (finderPattern.getCount() >= 2) {
-                    i2++;
+                    i++;
                     f3 += finderPattern.getEstimatedModuleSize();
                 }
             }
-            if (i2 < 3) {
+            if (i < 3) {
                 return false;
             }
             float f4 = f3 / size;
@@ -665,13 +665,13 @@ public class FinderPatternFinder {
                     float sqrt = (float) Math.sqrt((f5 / f2) - (f6 * f6));
                     Collections.sort(this.possibleCenters, new FurthestFromAverageComparator(f6, null));
                     float max = Math.max(0.2f * f6, sqrt);
-                    int i2 = 0;
-                    while (i2 < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
-                        if (Math.abs(this.possibleCenters.get(i2).getEstimatedModuleSize() - f6) > max) {
-                            this.possibleCenters.remove(i2);
-                            i2--;
+                    int i = 0;
+                    while (i < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
+                        if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f6) > max) {
+                            this.possibleCenters.remove(i);
+                            i--;
                         }
-                        i2++;
+                        i++;
                     }
                 }
                 if (this.possibleCenters.size() > 3) {
@@ -697,36 +697,36 @@ public class FinderPatternFinder {
             boolean z2 = map != null && map.containsKey(DecodeHintType.PURE_BARCODE);
             int height = this.image.getHeight();
             int width = this.image.getWidth();
-            int i2 = ((height * 3) / 228 < 3 || z) ? 3 : 3;
+            int i = ((height * 3) / 228 < 3 || z) ? 3 : 3;
             int[] iArr = new int[5];
-            int i3 = i2 - 1;
+            int i2 = i - 1;
             boolean z3 = false;
-            while (i3 < height && !z3) {
+            while (i2 < height && !z3) {
                 iArr[0] = 0;
                 iArr[1] = 0;
                 iArr[2] = 0;
                 iArr[3] = 0;
                 iArr[4] = 0;
+                int i3 = 0;
                 int i4 = 0;
-                int i5 = 0;
-                while (i4 < width) {
-                    if (this.image.get(i4, i3)) {
-                        if ((i5 & 1) == 1) {
-                            i5++;
+                while (i3 < width) {
+                    if (this.image.get(i3, i2)) {
+                        if ((i4 & 1) == 1) {
+                            i4++;
                         }
-                        iArr[i5] = iArr[i5] + 1;
-                    } else if ((i5 & 1) != 0) {
-                        iArr[i5] = iArr[i5] + 1;
-                    } else if (i5 == 4) {
+                        iArr[i4] = iArr[i4] + 1;
+                    } else if ((i4 & 1) != 0) {
+                        iArr[i4] = iArr[i4] + 1;
+                    } else if (i4 == 4) {
                         if (foundPatternCross(iArr)) {
-                            if (handlePossibleCenter(iArr, i3, i4, z2)) {
+                            if (handlePossibleCenter(iArr, i2, i3, z2)) {
                                 if (this.hasSkipped) {
                                     z3 = haveMultiplyConfirmedCenters();
                                 } else {
                                     int findRowSkip = findRowSkip();
                                     if (findRowSkip > iArr[2]) {
-                                        i3 += (findRowSkip - iArr[2]) - 2;
-                                        i4 = width - 1;
+                                        i2 += (findRowSkip - iArr[2]) - 2;
+                                        i3 = width - 1;
                                     }
                                 }
                                 iArr[0] = 0;
@@ -734,8 +734,8 @@ public class FinderPatternFinder {
                                 iArr[2] = 0;
                                 iArr[3] = 0;
                                 iArr[4] = 0;
-                                i2 = 2;
-                                i5 = 0;
+                                i = 2;
+                                i4 = 0;
                             } else {
                                 iArr[0] = iArr[2];
                                 iArr[1] = iArr[3];
@@ -750,20 +750,20 @@ public class FinderPatternFinder {
                             iArr[3] = 1;
                             iArr[4] = 0;
                         }
-                        i5 = 3;
+                        i4 = 3;
                     } else {
-                        i5++;
-                        iArr[i5] = iArr[i5] + 1;
+                        i4++;
+                        iArr[i4] = iArr[i4] + 1;
                     }
-                    i4++;
+                    i3++;
                 }
-                if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i3, width, z2)) {
-                    i2 = iArr[0];
+                if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i2, width, z2)) {
+                    i = iArr[0];
                     if (this.hasSkipped) {
                         z3 = haveMultiplyConfirmedCenters();
                     }
                 }
-                i3 += i2;
+                i2 += i;
             }
             FinderPattern[] selectBestPatterns = selectBestPatterns();
             ResultPoint.orderBestPatterns(selectBestPatterns);
@@ -784,31 +784,31 @@ public class FinderPatternFinder {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.possibleCenters : (List) invokeV.objValue;
     }
 
-    public final boolean handlePossibleCenter(int[] iArr, int i2, int i3, boolean z) {
+    public final boolean handlePossibleCenter(int[] iArr, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{iArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             boolean z2 = false;
-            int i4 = iArr[0] + iArr[1] + iArr[2] + iArr[3] + iArr[4];
-            int centerFromEnd = (int) centerFromEnd(iArr, i3);
-            float crossCheckVertical = crossCheckVertical(i2, centerFromEnd, iArr[2], i4);
+            int i3 = iArr[0] + iArr[1] + iArr[2] + iArr[3] + iArr[4];
+            int centerFromEnd = (int) centerFromEnd(iArr, i2);
+            float crossCheckVertical = crossCheckVertical(i, centerFromEnd, iArr[2], i3);
             if (!Float.isNaN(crossCheckVertical)) {
-                int i5 = (int) crossCheckVertical;
-                float crossCheckHorizontal = crossCheckHorizontal(centerFromEnd, i5, iArr[2], i4);
-                if (!Float.isNaN(crossCheckHorizontal) && (!z || crossCheckDiagonal(i5, (int) crossCheckHorizontal, iArr[2], i4))) {
-                    float f2 = i4 / 7.0f;
-                    int i6 = 0;
+                int i4 = (int) crossCheckVertical;
+                float crossCheckHorizontal = crossCheckHorizontal(centerFromEnd, i4, iArr[2], i3);
+                if (!Float.isNaN(crossCheckHorizontal) && (!z || crossCheckDiagonal(i4, (int) crossCheckHorizontal, iArr[2], i3))) {
+                    float f2 = i3 / 7.0f;
+                    int i5 = 0;
                     while (true) {
-                        if (i6 >= this.possibleCenters.size()) {
+                        if (i5 >= this.possibleCenters.size()) {
                             break;
                         }
-                        FinderPattern finderPattern = this.possibleCenters.get(i6);
+                        FinderPattern finderPattern = this.possibleCenters.get(i5);
                         if (finderPattern.aboutEquals(f2, crossCheckVertical, crossCheckHorizontal)) {
-                            this.possibleCenters.set(i6, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f2));
+                            this.possibleCenters.set(i5, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f2));
                             z2 = true;
                             break;
                         }
-                        i6++;
+                        i5++;
                     }
                     if (!z2) {
                         FinderPattern finderPattern2 = new FinderPattern(crossCheckHorizontal, crossCheckVertical, f2);
@@ -833,9 +833,9 @@ public class FinderPatternFinder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix, resultPointCallback};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

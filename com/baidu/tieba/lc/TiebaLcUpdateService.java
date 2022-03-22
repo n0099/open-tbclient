@@ -3,7 +3,7 @@ package com.baidu.tieba.lc;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
-import c.a.r0.y1.b;
+import c.a.p0.a2.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
@@ -25,9 +25,9 @@ public class TiebaLcUpdateService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -82,16 +82,16 @@ public class TiebaLcUpdateService extends BdBaseService {
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) == null) {
             if (intent == null) {
-                return super.onStartCommand(intent, i2, i3);
+                return super.onStartCommand(intent, i, i2);
             }
             Serializable serializableExtra = intent.getSerializableExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
             if (!(serializableExtra instanceof ClientUpdateInfo)) {
-                return super.onStartCommand(intent, i2, i3);
+                return super.onStartCommand(intent, i, i2);
             }
             startUpdate((ClientUpdateInfo) serializableExtra);
             return 3;

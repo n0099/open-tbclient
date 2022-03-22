@@ -10,33 +10,33 @@ public final class g extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public g(int i2, int i3) {
+    public g(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 32;
-        this.f4155b = i2;
-        this.f4156c = i3;
+        this.f3741b = i;
+        this.f3742c = i2;
     }
 
     @Override // c.a.m.h.e
-    public com.baidu.cesium.i.b b(byte[] bArr, int i2, int i3) {
+    public com.baidu.cesium.i.b b(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
             h hVar = new h();
-            hVar.c(bArr, i2, i3);
+            hVar.c(bArr, i, i2);
             return com.baidu.cesium.i.b.a(new long[]{hVar.b()});
         }
         return (com.baidu.cesium.i.b) invokeLII.objValue;

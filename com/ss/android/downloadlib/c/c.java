@@ -7,19 +7,19 @@ import com.ss.android.socialbase.downloader.depend.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements m {
     @Override // com.ss.android.socialbase.downloader.depend.m
     public void a(DownloadInfo downloadInfo) throws BaseException {
-        l j2 = j.j();
-        if (downloadInfo == null || j2 == null) {
+        l j = j.j();
+        if (downloadInfo == null || j == null) {
             return;
         }
         String packageName = downloadInfo.getPackageName();
         String targetFilePath = downloadInfo.getTargetFilePath();
         File a = a(packageName, targetFilePath);
         com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-        j2.a(packageName, targetFilePath, a, a2 != null ? com.ss.android.downloadlib.g.l.a(a2.g()) : null);
+        j.a(packageName, targetFilePath, a, a2 != null ? com.ss.android.downloadlib.g.l.a(a2.g()) : null);
         downloadInfo.setMimeType("application/vnd.android.package-archive");
         downloadInfo.setName(a.getName());
         downloadInfo.setMd5(null);

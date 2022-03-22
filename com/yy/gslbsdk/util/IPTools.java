@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IPTools {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,9 +15,9 @@ public class IPTools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,9 +30,9 @@ public class IPTools {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
             StringBuilder sb = new StringBuilder();
             int length = strArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                sb.append(strArr[i2]);
-                if (i2 < length - 1) {
+            for (int i = 0; i < length; i++) {
+                sb.append(strArr[i]);
+                if (i < length - 1) {
                     sb.append('|');
                 }
             }
@@ -50,16 +50,16 @@ public class IPTools {
                 return false;
             }
             if (7 <= str.length() && str.length() <= 15) {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= str.length()) {
+                    if (i >= str.length()) {
                         z = true;
                         break;
-                    } else if (str.charAt(i2) != '.' && !Character.isDigit(str.charAt(i2))) {
+                    } else if (str.charAt(i) != '.' && !Character.isDigit(str.charAt(i))) {
                         z = false;
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
                 if (z) {

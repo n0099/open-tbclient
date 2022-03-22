@@ -20,9 +20,9 @@ public class m extends j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public class m extends j {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2923e;
+            Matrix matrix = this.f2436e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
@@ -49,10 +49,10 @@ public class m extends j {
             if (dVar.e()) {
                 Bitmap bitmap = dVar.a.getBitmap();
                 this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.v, this.f2924f, this.f2920b);
+                canvas.drawBitmap(bitmap, this.v, this.f2437f, this.f2433b);
             } else {
                 this.v.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2931b.g(canvas, this.v, this.f2924f, this.f2920b);
+                dVar.f2442b.g(canvas, this.v, this.f2437f, this.f2433b);
             }
             canvas.restore();
         }

@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,6 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.SevenZipUtils;
+import com.baidubce.http.Headers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,18 +65,18 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract void onError(int i2, String str);
+        public abstract void a(int i, String str);
 
-        public abstract void onSuccess(String str);
+        public abstract void b(String str);
     }
 
     /* loaded from: classes5.dex */
@@ -86,7 +86,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39775b;
+        public String f30634b;
 
         public b(InsertGalleryAsyncTask insertGalleryAsyncTask, boolean z, String str) {
             Interceptable interceptable = $ic;
@@ -95,22 +95,22 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {insertGalleryAsyncTask, Boolean.valueOf(z), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = z;
-            this.f39775b = str;
+            this.f30634b = str;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39775b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30634b : (String) invokeV.objValue;
         }
 
         public boolean b() {
@@ -127,9 +127,9 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,14 +161,14 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean download(String str, String str2, int i2) {
+    private boolean download(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, str2, i)) == null) {
             int b2 = c.a.d.c.j.b.d().b().b();
             int b3 = c.a.d.c.j.b.d().c().b();
             boolean z = false;
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 try {
                     z = realDownload(str, str2, b3, b2);
                     break;
@@ -187,12 +187,12 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? download(this.url, this.imagePath, 3) : invokeV.booleanValue;
     }
 
-    private HttpURLConnection getConnect(URL url, int i2, int i3) throws SocketException, ProtocolException {
+    private HttpURLConnection getConnect(URL url, int i, int i2) throws SocketException, ProtocolException {
         InterceptResult invokeLII;
         String c2;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, url, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, url, i, i2)) == null) {
             HttpURLConnection httpURLConnection2 = null;
             try {
             } catch (Exception e2) {
@@ -220,8 +220,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 }
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.setRequestMethod("GET");
-                    httpURLConnection2.setConnectTimeout(i2);
-                    httpURLConnection2.setReadTimeout(i3);
+                    httpURLConnection2.setConnectTimeout(i);
+                    httpURLConnection2.setReadTimeout(i2);
                     return httpURLConnection2;
                 }
                 throw new SocketException();
@@ -236,7 +236,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                return ".jpg";
             }
             if (str.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)) {
                 return EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
@@ -244,8 +244,8 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             if (str.endsWith(".PNG")) {
                 return ".PNG";
             }
-            if (str.endsWith(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX)) {
-                return ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+            if (str.endsWith(".jpg")) {
+                return ".jpg";
             }
             if (str.endsWith(".jpeg")) {
                 return ".jpeg";
@@ -269,7 +269,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                     return ".PNG";
                 }
                 if (str2.startsWith("jpg")) {
-                    return ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                    return ".jpg";
                 }
                 if (str2.startsWith("jpeg")) {
                     return ".jpeg";
@@ -284,7 +284,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                     return ".GIF";
                 }
             }
-            return ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+            return ".jpg";
         }
         return (String) invokeL.objValue;
     }
@@ -391,24 +391,24 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.imageFile)));
     }
 
-    private boolean realDownload(String str, String str2, int i2, int i3) throws Exception {
+    private boolean realDownload(String str, String str2, int i, int i2) throws Exception {
         InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;
         FileOutputStream fileOutputStream;
         int responseCode;
         String lowerCase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65546, this, str, str2, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65546, this, str, str2, i, i2)) == null) {
             InputStream inputStream = null;
             try {
-                httpURLConnection = getConnect(new URL(str), i2, i3);
+                httpURLConnection = getConnect(new URL(str), i, i2);
                 try {
                     fileOutputStream = new FileOutputStream(handleFile(str2), true);
                     try {
                         httpURLConnection.connect();
                         responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == 302) {
-                            String headerField = httpURLConnection.getHeaderField("Location");
+                            String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
                             c.a.d.f.m.a.e(httpURLConnection);
                             try {
                                 if (this.imageFile != null) {
@@ -433,7 +433,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                             c.a.d.f.m.a.d(fileOutputStream);
                             FileOutputStream fileOutputStream2 = new FileOutputStream(this.imageFile, true);
                             try {
-                                httpURLConnection = getConnect(new URL(headerField), i2, i3);
+                                httpURLConnection = getConnect(new URL(headerField), i, i2);
                                 httpURLConnection.connect();
                                 responseCode = httpURLConnection.getResponseCode();
                                 fileOutputStream = fileOutputStream2;
@@ -501,9 +501,9 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             String str = this.url;
             byte[] decode = Base64.decode(str.substring(str.indexOf(",") + 1, this.url.length()), 0);
-            for (int i2 = 0; i2 < decode.length; i2++) {
-                if (decode[i2] < 0) {
-                    decode[i2] = (byte) (decode[i2] + 256);
+            for (int i = 0; i < decode.length; i++) {
+                if (decode[i] < 0) {
+                    decode[i] = (byte) (decode[i] + 256);
                 }
             }
             FileOutputStream fileOutputStream2 = null;
@@ -554,10 +554,10 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.from = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.from = i;
         }
     }
 
@@ -601,12 +601,12 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
             if (bVar == null) {
                 a aVar = this.insertGalleryListener;
                 if (aVar != null) {
-                    aVar.onError(-2, "error");
+                    aVar.a(-2, "error");
                 }
             } else if (!bVar.b()) {
                 a aVar2 = this.insertGalleryListener;
                 if (aVar2 != null) {
-                    aVar2.onError(-1, bVar.a());
+                    aVar2.a(-1, bVar.a());
                 }
             } else {
                 if (this.renameGif && isGifFile(new File(this.imagePath))) {
@@ -618,7 +618,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
                 notifyGallery();
                 a aVar3 = this.insertGalleryListener;
                 if (aVar3 != null) {
-                    aVar3.onSuccess(this.imagePath);
+                    aVar3.b(this.imagePath);
                 }
             }
         }

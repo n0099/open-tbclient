@@ -13,30 +13,42 @@ import java.util.ArrayList;
 public class BlackListItemData extends AbstractImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f43513e;
+    /* renamed from: b  reason: collision with root package name */
+    public String f33773b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f43514f;
+    /* renamed from: c  reason: collision with root package name */
+    public String f33774c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f43515g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f43516h;
+    /* renamed from: d  reason: collision with root package name */
+    public String f33775d;
 
     public BlackListItemData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f33774c = str;
+        }
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f33775d = str;
         }
     }
 
@@ -44,9 +56,9 @@ public class BlackListItemData extends AbstractImageProvider {
     public ArrayList<String> getPhotoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(w());
+            arrayList.add(y());
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;
@@ -55,52 +67,38 @@ public class BlackListItemData extends AbstractImageProvider {
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43513e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f43513e = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.a = j;
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f43514f = str;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.f33773b = str;
         }
     }
 
-    public String w() {
+    public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43515g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33774c : (String) invokeV.objValue;
     }
 
-    public String x() {
+    public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (StringUtils.isNull(this.f43516h)) {
-                return this.f43514f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (StringUtils.isNull(this.f33775d)) {
+                return this.f33773b;
             }
-            return this.f43516h;
+            return this.f33775d;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f43515g = str;
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f43516h = str;
-        }
     }
 }

@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSessionManager<T>, DefaultDrmSession.ProvisioningManager<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CENC_SCHEME_MIME_TYPE = "cenc";
@@ -59,7 +58,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     public final List<DefaultDrmSession<T>> sessions;
     public final UUID uuid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventListener {
         void onDrmKeysLoaded();
 
@@ -70,7 +69,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         void onDrmSessionManagerError(Exception exc);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class MediaDrmEventListener implements ExoMediaDrm.OnEventListener<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +82,9 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDrmSessionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,16 +94,16 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
 
         @Override // com.google.android.exoplayer2.drm.ExoMediaDrm.OnEventListener
-        public void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i2, int i3, byte[] bArr2) {
+        public void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{exoMediaDrm, bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2}) == null) && this.this$0.mode == 0) {
-                this.this$0.mediaDrmHandler.obtainMessage(i2, bArr).sendToTarget();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{exoMediaDrm, bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2}) == null) && this.this$0.mode == 0) {
+                this.this$0.mediaDrmHandler.obtainMessage(i, bArr).sendToTarget();
             }
         }
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class MediaDrmHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,9 +118,9 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDrmSessionManager, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -147,7 +146,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Mode {
     }
 
@@ -160,9 +159,9 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
             newInitContext.initArgs = r2;
             Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((UUID) objArr2[0], (ExoMediaDrm) objArr2[1], (MediaDrmCallback) objArr2[2], (HashMap) objArr2[3], (Handler) objArr2[4], (EventListener) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -177,27 +176,27 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, drmInitData, uuid, z)) == null) {
             ArrayList arrayList = new ArrayList(drmInitData.schemeDataCount);
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 boolean z2 = true;
-                if (i2 >= drmInitData.schemeDataCount) {
+                if (i >= drmInitData.schemeDataCount) {
                     break;
                 }
-                DrmInitData.SchemeData schemeData = drmInitData.get(i2);
+                DrmInitData.SchemeData schemeData = drmInitData.get(i);
                 if (!schemeData.matches(uuid) && (!C.CLEARKEY_UUID.equals(uuid) || !schemeData.matches(C.COMMON_PSSH_UUID))) {
                     z2 = false;
                 }
                 if (z2 && (schemeData.data != null || z)) {
                     arrayList.add(schemeData);
                 }
-                i2++;
+                i++;
             }
             if (arrayList.isEmpty()) {
                 return null;
             }
             if (C.WIDEVINE_UUID.equals(uuid)) {
-                for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    DrmInitData.SchemeData schemeData2 = (DrmInitData.SchemeData) arrayList.get(i3);
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    DrmInitData.SchemeData schemeData2 = (DrmInitData.SchemeData) arrayList.get(i2);
                     int parseVersion = schemeData2.hasData() ? PsshAtomUtil.parseVersion(schemeData2.data) : -1;
                     if (Util.SDK_INT < 23 && parseVersion == 0) {
                         return schemeData2;
@@ -296,9 +295,9 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, illegalStateException};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -432,14 +431,14 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
     }
 
-    public void setMode(int i2, byte[] bArr) {
+    public void setMode(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr) == null) {
             Assertions.checkState(this.sessions.isEmpty());
-            if (i2 == 1 || i2 == 3) {
+            if (i == 1 || i == 3) {
                 Assertions.checkNotNull(bArr);
             }
-            this.mode = i2;
+            this.mode = i;
             this.offlineLicenseKeySetId = bArr;
         }
     }
@@ -467,9 +466,9 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
             newInitContext.initArgs = r2;
             Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((UUID) objArr2[0], (ExoMediaDrm) objArr2[1], (MediaDrmCallback) objArr2[2], (HashMap) objArr2[3], (Handler) objArr2[4], (EventListener) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -479,16 +478,16 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         }
     }
 
-    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener, boolean z, int i2) {
+    public DefaultDrmSessionManager(UUID uuid, ExoMediaDrm<T> exoMediaDrm, MediaDrmCallback mediaDrmCallback, HashMap<String, String> hashMap, Handler handler, EventListener eventListener, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap, handler, eventListener, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -504,12 +503,12 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
         this.eventHandler = handler;
         this.eventListener = eventListener;
         this.multiSession = z;
-        this.initialDrmRequestRetryCount = i2;
+        this.initialDrmRequestRetryCount = i;
         this.mode = 0;
         this.sessions = new ArrayList();
         this.provisioningSessions = new ArrayList();
         if (z) {
-            exoMediaDrm.setPropertyString("sessionSharing", c.l);
+            exoMediaDrm.setPropertyString("sessionSharing", "enable");
         }
         exoMediaDrm.setOnEventListener(new MediaDrmEventListener());
     }

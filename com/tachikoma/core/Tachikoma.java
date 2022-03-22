@@ -25,7 +25,7 @@ import com.tachikoma.core.module.handler.TKLifeCycle;
 import com.tachikoma.core.utility.TKAsync;
 import com.tachikoma.core.utility.TKContextUtil;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Tachikoma {
     public static /* synthetic */ Interceptable $ic;
     public static final Tachikoma instance;
@@ -60,9 +60,9 @@ public class Tachikoma {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -94,9 +94,9 @@ public class Tachikoma {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, tKJSContextInitCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -126,9 +126,9 @@ public class Tachikoma {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, tKJSContext};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -230,12 +230,12 @@ public class Tachikoma {
         return (TKJSContext) invokeL.objValue;
     }
 
-    public void printPerformance(String str, int i2) {
+    public void printPerformance(String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048586, this, str, i2) == null) || getInstance().performancePlugin == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) || getInstance().performancePlugin == null) {
             return;
         }
-        getInstance().performancePlugin.printPerformance(str, i2);
+        getInstance().performancePlugin.printPerformance(str, i);
     }
 
     public void registerLifeCycle(Application application) {

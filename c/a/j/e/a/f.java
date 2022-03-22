@@ -14,13 +14,13 @@ public final class f {
     public final TaskStatus a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f3602b;
+    public final c f3098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TaskProcessData f3603c;
+    public final TaskProcessData f3099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3604d;
+    public final String f3100d;
 
     public f(TaskStatus taskStatus, c cVar, TaskProcessData taskProcessData, String str) {
         Interceptable interceptable = $ic;
@@ -29,25 +29,25 @@ public final class f {
             newInitContext.initArgs = r2;
             Object[] objArr = {taskStatus, cVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = taskStatus;
-        this.f3602b = cVar;
-        this.f3603c = taskProcessData;
-        this.f3604d = str;
+        this.f3098b = cVar;
+        this.f3099c = taskProcessData;
+        this.f3100d = str;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.f3602b + "\n totalProcess:" + this.f3603c + "\n extra:" + this.f3604d;
+            return "taskStatus:" + this.a + "\n uiConfig:" + this.f3098b + "\n totalProcess:" + this.f3099c + "\n extra:" + this.f3100d;
         }
         return (String) invokeV.objValue;
     }

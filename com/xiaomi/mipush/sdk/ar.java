@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ar implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class ar implements ServiceConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {anVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,18 +43,18 @@ public class ar implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this.a) {
-                this.a.f75a = new Messenger(iBinder);
-                this.a.f59447c = false;
-                list = this.a.f78a;
+                this.a.f51a = new Messenger(iBinder);
+                this.a.f44066c = false;
+                list = this.a.f54a;
                 for (Message message : list) {
                     try {
-                        messenger = this.a.f75a;
+                        messenger = this.a.f51a;
                         messenger.send(message);
                     } catch (RemoteException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
                 }
-                list2 = this.a.f78a;
+                list2 = this.a.f54a;
                 list2.clear();
             }
         }
@@ -64,8 +64,8 @@ public class ar implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f75a = null;
-            this.a.f59447c = false;
+            this.a.f51a = null;
+            this.a.f44066c = false;
         }
     }
 }

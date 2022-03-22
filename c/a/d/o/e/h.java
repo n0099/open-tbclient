@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a<n, V> m;
+    public a<n, V> i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -26,9 +26,9 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -53,23 +53,23 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
         V M;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, gVar)) == null) {
-            a<n, V> aVar = this.m;
+            a<n, V> aVar = this.i;
             if (aVar == null) {
                 return null;
             }
-            if (this.f3079h == aVar.y()) {
-                M = this.m.L(viewGroup, gVar.g());
-            } else if (this.f3079h == this.m.w()) {
-                M = this.m.J(viewGroup, gVar.g());
-            } else if (this.f3079h == this.m.x()) {
-                M = this.m.K(viewGroup, gVar.g());
-            } else if (this.f3079h == this.m.v()) {
-                M = this.m.I(viewGroup, gVar.g());
+            if (this.f2570d == aVar.y()) {
+                M = this.i.L(viewGroup, gVar.e());
+            } else if (this.f2570d == this.i.w()) {
+                M = this.i.J(viewGroup, gVar.e());
+            } else if (this.f2570d == this.i.x()) {
+                M = this.i.K(viewGroup, gVar.e());
+            } else if (this.f2570d == this.i.v()) {
+                M = this.i.I(viewGroup, gVar.e());
             } else {
-                M = this.m.M(viewGroup);
+                M = this.i.M(viewGroup);
             }
             if (M != null) {
-                V(this.m.A());
+                V(this.i.A());
                 return M;
             }
             throw new NullPointerException("Order error or holder created is NullPointerException");
@@ -80,27 +80,27 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: a0 */
-    public View S(int i2, View view, ViewGroup viewGroup, g gVar, V v) {
+    public View S(int i, View view, ViewGroup viewGroup, g gVar, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, gVar, v})) == null) {
-            a<n, V> aVar = this.m;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view, viewGroup, gVar, v})) == null) {
+            a<n, V> aVar = this.i;
             if (aVar == null) {
                 return null;
             }
-            if (this.f3079h == aVar.y()) {
-                return this.m.R(i2, view, viewGroup, gVar.g(), v);
+            if (this.f2570d == aVar.y()) {
+                return this.i.R(i, view, viewGroup, gVar.e(), v);
             }
-            if (this.f3079h == this.m.w()) {
-                return this.m.P(i2, view, viewGroup, gVar.g(), v);
+            if (this.f2570d == this.i.w()) {
+                return this.i.P(i, view, viewGroup, gVar.e(), v);
             }
-            if (this.f3079h == this.m.x()) {
-                return this.m.Q(i2, view, viewGroup, gVar.g(), v);
+            if (this.f2570d == this.i.x()) {
+                return this.i.Q(i, view, viewGroup, gVar.e(), v);
             }
-            if (this.f3079h == this.m.v()) {
-                return this.m.O(i2, view, viewGroup, gVar.g(), v);
+            if (this.f2570d == this.i.v()) {
+                return this.i.O(i, view, viewGroup, gVar.e(), v);
             }
-            return this.m.S(i2, view, viewGroup, gVar.g(), v);
+            return this.i.S(i, view, viewGroup, gVar.e(), v);
         }
         return (View) invokeCommon.objValue;
     }
@@ -108,7 +108,7 @@ public class h<V extends TypeAdapter.ViewHolder> extends a<g, V> {
     public void b0(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.m = aVar;
+            this.i = aVar;
         }
     }
 }

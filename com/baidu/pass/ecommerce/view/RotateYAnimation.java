@@ -23,9 +23,9 @@ public class RotateYAnimation extends Animation {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,13 +49,13 @@ public class RotateYAnimation extends Animation {
     }
 
     @Override // android.view.animation.Animation
-    public void initialize(int i2, int i3, int i4, int i5) {
+    public void initialize(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            super.initialize(i2, i3, i4, i5);
-            int i6 = i2 / 2;
-            this.centerX = i6;
-            this.centerY = i6;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
+            super.initialize(i, i2, i3, i4);
+            int i5 = i / 2;
+            this.centerX = i5;
+            this.centerY = i5;
             setDuration(3000L);
             setInterpolator(new DecelerateInterpolator());
         }

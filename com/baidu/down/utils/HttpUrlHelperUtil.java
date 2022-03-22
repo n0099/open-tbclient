@@ -1,6 +1,7 @@
 package com.baidu.down.utils;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.IDN;
 import java.net.URLEncoder;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpUrlHelperUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -39,9 +40,9 @@ public class HttpUrlHelperUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,8 +53,8 @@ public class HttpUrlHelperUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                     return true;
                 }
@@ -82,17 +83,17 @@ public class HttpUrlHelperUtil {
         return invokeCommon.intValue;
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, String str2) {
+    public static int delimiterOffset(String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            while (i2 < i3) {
-                if (str2.indexOf(str.charAt(i2)) != -1) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            while (i < i2) {
+                if (str2.indexOf(str.charAt(i)) != -1) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -117,58 +118,58 @@ public class HttpUrlHelperUtil {
         return (String) invokeL.objValue;
     }
 
-    public static int skipLeadingAsciiWhitespace(String str, int i2, int i3) {
+    public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i2, i3)) == null) {
-            while (i2 < i3) {
-                char charAt = str.charAt(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
                 if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i2;
+                    return i;
                 }
-                i2++;
-            }
-            return i3;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static int skipTrailingAsciiWhitespace(String str, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i2, i3)) == null) {
-            for (int i4 = i3 - 1; i4 >= i2; i4--) {
-                char charAt = str.charAt(i4);
-                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i4 + 1;
-                }
+                i++;
             }
             return i2;
         }
         return invokeLII.intValue;
     }
 
-    public static String writeByte(int i2) {
-        InterceptResult invokeI;
+    public static int skipTrailingAsciiWhitespace(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) ? new String(new byte[]{(byte) i2}) : (String) invokeI.objValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
+        }
+        return invokeLII.intValue;
     }
 
-    public static String writeHexadecimalUnsignedLong(long j2) {
+    public static String writeByte(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? new String(new byte[]{(byte) i}) : (String) invokeI.objValue;
+    }
+
+    public static String writeHexadecimalUnsignedLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            if (j == 0) {
                 return writeByte(48);
             }
-            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j2)) / 4) + 1;
+            int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j)) / 4) + 1;
             byte[] bArr = new byte[numberOfTrailingZeros];
-            for (int i2 = numberOfTrailingZeros - 1; i2 >= 0; i2--) {
-                bArr[i2] = DIGITS[(int) (15 & j2)];
-                j2 >>>= 4;
+            for (int i = numberOfTrailingZeros - 1; i >= 0; i--) {
+                bArr[i] = DIGITS[(int) (15 & j)];
+                j >>>= 4;
             }
             try {
-                return URLEncoder.encode(new String(bArr), "utf-8");
+                return URLEncoder.encode(new String(bArr), IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
                 return "";
@@ -177,26 +178,26 @@ public class HttpUrlHelperUtil {
         return (String) invokeJ.objValue;
     }
 
-    public static String writeUtf8CodePoint(int i2) {
+    public static String writeUtf8CodePoint(int i) {
         InterceptResult invokeI;
         byte[] bArr;
         byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
-            if (i2 < 128) {
-                bArr2 = new byte[]{(byte) i2};
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            if (i < 128) {
+                bArr2 = new byte[]{(byte) i};
             } else {
-                if (i2 < 2048) {
-                    bArr = new byte[]{(byte) ((i2 >> 6) | 192), (byte) ((i2 & 63) | 128)};
-                } else if (i2 < 65536) {
-                    if (i2 >= 55296 && i2 <= 57343) {
-                        throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
+                if (i < 2048) {
+                    bArr = new byte[]{(byte) ((i >> 6) | 192), (byte) ((i & 63) | 128)};
+                } else if (i < 65536) {
+                    if (i >= 55296 && i <= 57343) {
+                        throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
                     }
-                    bArr = new byte[]{(byte) ((i2 >> 12) | 224), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
-                } else if (i2 > 1114111) {
-                    throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
+                    bArr = new byte[]{(byte) ((i >> 12) | 224), (byte) (((i >> 6) & 63) | 128), (byte) ((i & 63) | 128)};
+                } else if (i > 1114111) {
+                    throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
                 } else {
-                    bArr = new byte[]{(byte) ((i2 >> 18) | 240), (byte) (((i2 >> 12) & 63) | 128), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
+                    bArr = new byte[]{(byte) ((i >> 18) | 240), (byte) (((i >> 12) & 63) | 128), (byte) (((i >> 6) & 63) | 128), (byte) ((i & 63) | 128)};
                 }
                 bArr2 = bArr;
             }
@@ -205,42 +206,42 @@ public class HttpUrlHelperUtil {
         return (String) invokeI.objValue;
     }
 
-    public static byte[] writeUtf8CodePoint2(int i2) {
+    public static byte[] writeUtf8CodePoint2(int i) {
         InterceptResult invokeI;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) {
-            if (i2 < 128) {
-                return new byte[]{(byte) i2};
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            if (i < 128) {
+                return new byte[]{(byte) i};
             }
-            if (i2 < 2048) {
-                bArr = new byte[]{(byte) ((i2 >> 6) | 192), (byte) ((i2 & 63) | 128)};
-            } else if (i2 < 65536) {
-                if (i2 >= 55296 && i2 <= 57343) {
-                    throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
+            if (i < 2048) {
+                bArr = new byte[]{(byte) ((i >> 6) | 192), (byte) ((i & 63) | 128)};
+            } else if (i < 65536) {
+                if (i >= 55296 && i <= 57343) {
+                    throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
                 }
-                bArr = new byte[]{(byte) ((i2 >> 12) | 224), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
-            } else if (i2 > 1114111) {
-                throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i2));
+                bArr = new byte[]{(byte) ((i >> 12) | 224), (byte) (((i >> 6) & 63) | 128), (byte) ((i & 63) | 128)};
+            } else if (i > 1114111) {
+                throw new IllegalArgumentException("Unexpected code point: " + Integer.toHexString(i));
             } else {
-                bArr = new byte[]{(byte) ((i2 >> 18) | 240), (byte) (((i2 >> 12) & 63) | 128), (byte) (((i2 >> 6) & 63) | 128), (byte) ((i2 & 63) | 128)};
+                bArr = new byte[]{(byte) ((i >> 18) | 240), (byte) (((i >> 12) & 63) | 128), (byte) (((i >> 6) & 63) | 128), (byte) ((i & 63) | 128)};
             }
             return bArr;
         }
         return (byte[]) invokeI.objValue;
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Character.valueOf(c2)})) == null) {
-            while (i2 < i3) {
-                if (str.charAt(i2) == c2) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c2) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }

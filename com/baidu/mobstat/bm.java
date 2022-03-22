@@ -22,15 +22,15 @@ public final class bm {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static byte[] a(int i2, byte[] bArr) throws Exception {
+        public static byte[] a(int i, byte[] bArr) throws Exception {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bArr)) == null) {
-                int i3 = i2 - 1;
-                if (i3 >= 0) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, bArr)) == null) {
+                int i2 = i - 1;
+                if (i2 >= 0) {
                     String[] strArr = br.a;
-                    if (strArr.length > i3) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
+                    if (strArr.length > i2) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(1, secretKeySpec);
                         return cipher.doFinal(bArr);
@@ -41,15 +41,15 @@ public final class bm {
             return (byte[]) invokeIL.objValue;
         }
 
-        public static byte[] b(int i2, byte[] bArr) throws Exception {
+        public static byte[] b(int i, byte[] bArr) throws Exception {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, bArr)) == null) {
-                int i3 = i2 - 1;
-                if (i3 >= 0) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, bArr)) == null) {
+                int i2 = i - 1;
+                if (i2 >= 0) {
                     String[] strArr = br.a;
-                    if (strArr.length > i3) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
+                    if (strArr.length > i2) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i2].getBytes(), "AES");
                         Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(2, secretKeySpec);
                         return cipher.doFinal(bArr);
@@ -60,12 +60,12 @@ public final class bm {
             return (byte[]) invokeIL.objValue;
         }
 
-        public static String c(int i2, byte[] bArr) {
+        public static String c(int i, byte[] bArr) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, bArr)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, bArr)) == null) {
                 try {
-                    return bp.b(a(i2, bArr));
+                    return bp.b(a(i, bArr));
                 } catch (Exception unused) {
                     return "";
                 }
@@ -73,15 +73,15 @@ public final class bm {
             return (String) invokeIL.objValue;
         }
 
-        public static String d(int i2, byte[] bArr) {
+        public static String d(int i, byte[] bArr) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, bArr)) == null) {
-                String c2 = c(i2, bArr);
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+                String c2 = c(i, bArr);
                 if (TextUtils.isEmpty(c2)) {
                     return "";
                 }
-                return c2 + "|" + i2;
+                return c2 + "|" + i;
             }
             return (String) invokeIL.objValue;
         }

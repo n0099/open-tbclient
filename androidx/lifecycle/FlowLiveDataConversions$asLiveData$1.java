@@ -36,9 +36,9 @@ public final class FlowLiveDataConversions$asLiveData$1 extends SuspendLambda im
             newInitContext.initArgs = r2;
             Object[] objArr = {flow, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -75,8 +75,8 @@ public final class FlowLiveDataConversions$asLiveData$1 extends SuspendLambda im
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 LiveDataScope liveDataScope = this.p$;
                 Flow flow = this.$this_asLiveData;
@@ -87,7 +87,7 @@ public final class FlowLiveDataConversions$asLiveData$1 extends SuspendLambda im
                 if (flow.collect(flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 Flow flow2 = (Flow) this.L$1;

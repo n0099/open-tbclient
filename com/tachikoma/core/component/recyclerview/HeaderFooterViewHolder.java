@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.yoga.YogaUnit;
 import com.kwad.yoga.YogaValue;
 import com.tachikoma.core.yoga.layout.YogaLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, yogaValue, yogaValue2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

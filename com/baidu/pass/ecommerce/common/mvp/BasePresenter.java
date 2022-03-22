@@ -20,9 +20,9 @@ public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -48,13 +48,13 @@ public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V
         this.wrf = null;
     }
 
-    public void doFailure(int i2, String str) {
+    public void doFailure(int i, String str) {
         V view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) || (view = getView()) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (view = getView()) == null) {
             return;
         }
-        view.doFailure(i2, str);
+        view.doFailure(i, str);
     }
 
     public void doResult(Object obj) {
@@ -80,39 +80,39 @@ public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V
         return (V) invokeV.objValue;
     }
 
-    public void showLoading(int i2) {
+    public void showLoading(int i) {
         V view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (view = getView()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (view = getView()) == null) {
             return;
         }
-        view.showLoading(i2);
+        view.showLoading(i);
     }
 
-    public void doFailure(int i2, int i3, String str) {
+    public void doFailure(int i, int i2, String str) {
         V view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (view = getView()) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) || (view = getView()) == null) {
             return;
         }
-        view.doFailure(i2, i3, str);
+        view.doFailure(i, i2, str);
     }
 
-    public void doResult(int i2, Object obj) {
+    public void doResult(int i, Object obj) {
         V view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, obj) == null) || (view = getView()) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) || (view = getView()) == null) {
             return;
         }
-        view.doResult(i2, obj);
+        view.doResult(i, obj);
     }
 
-    public void doResult(int i2, Object obj, String str) {
+    public void doResult(int i, Object obj, String str) {
         V view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048581, this, i2, obj, str) == null) || (view = getView()) == null) {
+        if (!(interceptable == null || interceptable.invokeILL(1048581, this, i, obj, str) == null) || (view = getView()) == null) {
             return;
         }
-        view.doResult(i2, obj, str);
+        view.doResult(i, obj, str);
     }
 }

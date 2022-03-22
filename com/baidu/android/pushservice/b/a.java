@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.b;
 
 import android.content.Context;
 import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +38,7 @@ public class a {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b2, "utf-8"));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b2, IMAudioTransRequest.CHARSET));
                     while (true) {
                         try {
                             try {

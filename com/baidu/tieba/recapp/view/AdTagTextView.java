@@ -23,25 +23,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static final char[] f46236e;
+    /* renamed from: b  reason: collision with root package name */
+    public static final char[] f35768b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f46237f;
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f35769c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView mDesc;
+    public TextView a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f46238e;
+        public int a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VerticalImageSpan(Drawable drawable) {
@@ -52,9 +50,9 @@ public class AdTagTextView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {drawable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Drawable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -64,38 +62,38 @@ public class AdTagTextView extends LinearLayout {
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
+        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
                 Drawable drawable = getDrawable();
                 canvas.save();
-                canvas.translate(f2, (((i6 - i4) - drawable.getBounds().bottom) / 2) + i4);
+                canvas.translate(f2, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
                 drawable.draw(canvas);
                 canvas.restore();
             }
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
+        public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
                 Rect bounds = getDrawable().getBounds();
                 if (fontMetricsInt != null) {
                     Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i4 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i5 = (bounds.bottom - bounds.top) / 2;
-                    int i6 = i4 / 4;
-                    int i7 = i5 - i6;
-                    int i8 = -(i5 + i6);
-                    fontMetricsInt.ascent = i8;
-                    fontMetricsInt.top = i8;
-                    fontMetricsInt.bottom = i7;
-                    fontMetricsInt.descent = i7;
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    fontMetricsInt.bottom = i6;
+                    fontMetricsInt.descent = i6;
                 }
-                int i9 = bounds.right;
-                this.f46238e = i9;
-                return i9;
+                int i8 = bounds.right;
+                this.a = i8;
+                return i8;
             }
             return invokeCommon.intValue;
         }
@@ -114,8 +112,8 @@ public class AdTagTextView extends LinearLayout {
                 return;
             }
         }
-        f46236e = new char[]{21704};
-        f46237f = new String(f46236e);
+        f35768b = new char[]{21704};
+        f35769c = new String(f35768b);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -127,9 +125,9 @@ public class AdTagTextView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -139,20 +137,13 @@ public class AdTagTextView extends LinearLayout {
         }
     }
 
-    public final void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.mDesc = (TextView) LayoutInflater.from(context).inflate(layoutId(), this).findViewById(R.id.desc_tv);
-        }
-    }
-
-    public SpannableStringBuilder getTitleWithAdTag(String str) {
+    public SpannableStringBuilder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Drawable drawable = SkinManager.getDrawable(R.drawable.ad_tag_icon);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800c8);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f46237f);
+            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f35769c);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));
             spannableStringBuilder.setSpan(new VerticalImageSpan(drawable), str.length() + 1, spannableStringBuilder.length(), 17);
             return spannableStringBuilder;
@@ -160,10 +151,17 @@ public class AdTagTextView extends LinearLayout {
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public int layoutId() {
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f090781);
+        }
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.ad_tag_text_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0074 : invokeV.intValue;
     }
 
     public void onChangeSkinType() {
@@ -176,7 +174,7 @@ public class AdTagTextView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             setVisibility(0);
-            this.mDesc.setText(getTitleWithAdTag(str));
+            this.a.setText(a(str));
         }
     }
 
@@ -189,9 +187,9 @@ public class AdTagTextView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -199,6 +197,6 @@ public class AdTagTextView extends LinearLayout {
                 return;
             }
         }
-        a(context);
+        b(context);
     }
 }

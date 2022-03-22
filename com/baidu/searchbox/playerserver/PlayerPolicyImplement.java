@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +49,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,9 +84,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this, r8};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             super((Looper) newInitContext2.callArgs[0]);
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
@@ -99,19 +100,19 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                 public void handleMessage(Message message) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                        int i4 = message.what;
-                        if (i4 == 1) {
+                        int i3 = message.what;
+                        if (i3 == 1) {
                             this.this$0.onUpdateConfig();
                             if (PlayerPolicyImplement.access$104(this.this$0) > 1) {
                                 this.this$0.mPullCfgSuccessfully = 1;
                             }
                             sendEmptyMessageDelayed(1, (this.this$0.mPullCfgSuccessfully == 0 ? 10L : this.this$0.mUpdateInterval) * 1000);
-                        } else if (i4 == 2) {
+                        } else if (i3 == 2) {
                             Object obj = message.obj;
                             if (obj instanceof IPlayerConfig) {
                                 this.this$0.onRegister((IPlayerConfig) obj);
                             }
-                        } else if (i4 != 3) {
+                        } else if (i3 != 3) {
                         } else {
                             Object obj2 = message.obj;
                             if (obj2 instanceof IPlayerConfig) {
@@ -125,9 +126,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     }
 
     public static /* synthetic */ long access$104(PlayerPolicyImplement playerPolicyImplement) {
-        long j2 = playerPolicyImplement.mRetryCount + 1;
-        playerPolicyImplement.mRetryCount = j2;
-        return j2;
+        long j = playerPolicyImplement.mRetryCount + 1;
+        playerPolicyImplement.mRetryCount = j;
+        return j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -175,9 +176,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -190,6 +191,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                     public void onFailure(Call call, IOException iOException) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
+                            Log.d(PlayerPolicyImplement.TAG, "onFailure: ");
                         }
                     }
 
@@ -205,19 +207,25 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                                         return;
                                     }
                                     this.this$0.notify(string);
-                                    JSONObject jSONObject = new JSONObject(string);
-                                    if (jSONObject.getInt("errno") == 0) {
-                                        this.this$0.mUpdateInterval = jSONObject.getJSONObject("bandwidth_config").getLong("update_interval");
-                                        this.this$0.mPullCfgSuccessfully = 1;
-                                        this.this$0.mRetryCount = 0L;
+                                    try {
+                                        JSONObject jSONObject = new JSONObject(string);
+                                        if (jSONObject.getInt("errno") == 0) {
+                                            this.this$0.mUpdateInterval = jSONObject.getJSONObject("bandwidth_config").getLong("update_interval");
+                                            this.this$0.mPullCfgSuccessfully = 1;
+                                            this.this$0.mRetryCount = 0L;
+                                        }
+                                    } catch (Exception e2) {
+                                        Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e2);
                                     }
-                                } catch (IOException | Exception unused) {
+                                } catch (IOException e3) {
+                                    Log.e(PlayerPolicyImplement.TAG, "onResponse: ", e3);
                                 }
                             }
                         }
                     }
                 });
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.e(TAG, "onUpdateConfig: ", e2);
             }
         }
     }
@@ -242,9 +250,9 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, str};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

@@ -15,18 +15,18 @@ public abstract class ThirdLoginCallback extends WebAuthListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void onAuthFailure(int i2, String str) {
+    public void onAuthFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
         }
     }
 

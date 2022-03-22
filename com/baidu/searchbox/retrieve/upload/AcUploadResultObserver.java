@@ -1,8 +1,9 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.b.a;
+import c.a.x0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -54,9 +55,9 @@ public class AcUploadResultObserver implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -114,14 +115,14 @@ public class AcUploadResultObserver implements a {
         }
     }
 
-    @Override // c.a.a1.b.a
+    @Override // c.a.x0.b.a
     public String getBizType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "acupload" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.a1.b.a
+    @Override // c.a.x0.b.a
     public void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {
@@ -138,7 +139,7 @@ public class AcUploadResultObserver implements a {
                 activeUpObj.setFileType(optString4);
                 if (z) {
                     if (DEBUG) {
-                        String str3 = str + " has received active upload success";
+                        Log.d(TAG, str + " has received active upload success");
                     }
                     if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString3) || TextUtils.isEmpty(str2)) {
                         return;
@@ -160,9 +161,9 @@ public class AcUploadResultObserver implements a {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, optString2, str2, jSONObject2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -175,11 +176,11 @@ public class AcUploadResultObserver implements a {
                         }
 
                         @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-                        public void onFailure(String str4) {
+                        public void onFailure(String str3) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, str3) == null) {
                                 if (AcUploadResultObserver.DEBUG) {
-                                    String str5 = "active upload file, success: but failed to report to performance platform. errMsg is :" + str4;
+                                    Log.d(AcUploadResultObserver.TAG, "active upload file, success: but failed to report to performance platform. errMsg is :" + str3);
                                 }
                                 this.this$0.dispatchActiveResult(false, this.val$invokeSource, this.val$msg, this.val$extInfo);
                             }
@@ -189,18 +190,22 @@ public class AcUploadResultObserver implements a {
                         public void onSuccess() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                boolean unused = AcUploadResultObserver.DEBUG;
+                                if (AcUploadResultObserver.DEBUG) {
+                                    Log.d(AcUploadResultObserver.TAG, "active upload success: has reported to performance platform. ");
+                                }
                                 this.this$0.dispatchActiveResult(true, this.val$invokeSource, this.val$msg, this.val$extInfo);
                             }
                         }
                     });
                     return;
                 }
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "Active upload failed");
+                }
                 statActiveUploadData(false, activeUpObj, str2);
                 dispatchActiveResult(false, optString2, str2, jSONObject2);
             } else if (DEBUG) {
-                String str4 = "Active upload result: " + z + ", bizType: " + str;
+                Log.d(TAG, "Active upload result: " + z + ", bizType: " + str);
             }
         }
     }

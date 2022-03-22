@@ -1,8 +1,10 @@
 package com.baidu.tieba.frs.commontab;
 
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
-import c.a.q0.k0.b.g;
+import c.a.o0.c1.b0;
+import c.a.o0.c1.f;
+import c.a.o0.k0.b.g;
+import c.a.p0.g1.f.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,9 +37,9 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,8 +52,8 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         this.sortType = 0;
     }
 
-    @Override // c.a.q0.k0.b.i
-    public Object e(boolean z) {
+    @Override // c.a.o0.k0.b.i
+    public Object f(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -64,9 +66,14 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
             builder.tab_name = this.tabName;
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            long j2 = this.lastThreadId;
-            if (j2 >= 0) {
-                builder.last_thread_id = Long.valueOf(j2);
+            String d2 = c.e().d("frs_feed");
+            builder.ad_bear_sid = d2;
+            builder.ad_bear_context = f.g(d2, f.f());
+            builder.ad_bear_sid_price = Double.valueOf(f.i());
+            builder.has_ad_bear = Integer.valueOf(f.n(builder.ad_bear_sid) ? 1 : 0);
+            long j = this.lastThreadId;
+            if (j >= 0) {
+                builder.last_thread_id = Long.valueOf(j);
             }
             builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
@@ -81,8 +88,8 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.q0.k0.b.f
-    public HashMap<String, Object> s() {
+    @Override // c.a.o0.k0.b.f
+    public HashMap<String, Object> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -91,8 +98,8 @@ public class FrsCommonTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.q0.k0.b.f
-    public HashMap<String, String> u() {
+    @Override // c.a.o0.k0.b.f
+    public HashMap<String, String> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

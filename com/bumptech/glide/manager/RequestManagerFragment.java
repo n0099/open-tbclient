@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RMFragment";
@@ -37,7 +37,7 @@ public class RequestManagerFragment extends Fragment {
     @Nullable
     public RequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class RequestManagerFragment extends Fragment {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {requestManagerFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,9 +96,9 @@ public class RequestManagerFragment extends Fragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ActivityFragmentLifecycle) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -227,8 +227,10 @@ public class RequestManagerFragment extends Fragment {
             super.onAttach(activity);
             try {
                 registerFragmentWithRoot(activity);
-            } catch (IllegalStateException unused) {
-                Log.isLoggable(TAG, 5);
+            } catch (IllegalStateException e2) {
+                if (Log.isLoggable(TAG, 5)) {
+                    Log.w(TAG, "Unable to register fragment with root", e2);
+                }
             }
         }
     }
@@ -307,9 +309,9 @@ public class RequestManagerFragment extends Fragment {
             newInitContext.initArgs = r2;
             Object[] objArr = {activityFragmentLifecycle};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

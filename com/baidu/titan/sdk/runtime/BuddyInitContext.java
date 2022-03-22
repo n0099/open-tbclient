@@ -15,8 +15,8 @@ public class BuddyInitContext {
         return this.last;
     }
 
-    public BuddyInitHolder makeNext(int i2, int i3) {
-        BuddyInitHolder buddyInitHolder = new BuddyInitHolder(i2, i3);
+    public BuddyInitHolder makeNext(int i, int i2) {
+        BuddyInitHolder buddyInitHolder = new BuddyInitHolder(i, i2);
         if (this.head == null) {
             this.head = buddyInitHolder;
         }

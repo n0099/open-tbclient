@@ -5,6 +5,7 @@ import android.graphics.SurfaceTexture;
 import android.media.PlaybackParams;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -36,7 +37,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SimpleExoPlayer implements ExoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleExoPlayer";
@@ -65,13 +66,13 @@ public class SimpleExoPlayer implements ExoPlayer {
     public int videoScalingMode;
 
     /* renamed from: com.google.android.exoplayer2.SimpleExoPlayer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ComponentListener implements VideoRendererEventListener, AudioRendererEventListener, TextOutput, MetadataOutput, SurfaceHolder.Callback, TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +85,9 @@ public class SimpleExoPlayer implements ExoPlayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {simpleExoPlayer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,12 +97,12 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioRendererEventListener
-        public void onAudioDecoderInitialized(String str, long j2, long j3) {
+        public void onAudioDecoderInitialized(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.this$0.audioDebugListener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.this$0.audioDebugListener == null) {
                 return;
             }
-            this.this$0.audioDebugListener.onAudioDecoderInitialized(str, j2, j3);
+            this.this$0.audioDebugListener.onAudioDecoderInitialized(str, j, j2);
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioRendererEventListener
@@ -140,23 +141,23 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioRendererEventListener
-        public void onAudioSessionId(int i2) {
+        public void onAudioSessionId(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.this$0.audioSessionId = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.this$0.audioSessionId = i;
                 if (this.this$0.audioDebugListener != null) {
-                    this.this$0.audioDebugListener.onAudioSessionId(i2);
+                    this.this$0.audioDebugListener.onAudioSessionId(i);
                 }
             }
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioRendererEventListener
-        public void onAudioSinkUnderrun(int i2, long j2, long j3) {
+        public void onAudioSinkUnderrun(int i, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.this$0.audioDebugListener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || this.this$0.audioDebugListener == null) {
                 return;
             }
-            this.this$0.audioDebugListener.onAudioSinkUnderrun(i2, j2, j3);
+            this.this$0.audioDebugListener.onAudioSinkUnderrun(i, j, j2);
         }
 
         @Override // com.google.android.exoplayer2.text.TextOutput
@@ -171,12 +172,12 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.video.VideoRendererEventListener
-        public void onDroppedFrames(int i2, long j2) {
+        public void onDroppedFrames(int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.this$0.videoDebugListener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || this.this$0.videoDebugListener == null) {
                 return;
             }
-            this.this$0.videoDebugListener.onDroppedFrames(i2, j2);
+            this.this$0.videoDebugListener.onDroppedFrames(i, j);
         }
 
         @Override // com.google.android.exoplayer2.metadata.MetadataOutput
@@ -207,9 +208,9 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048586, this, surfaceTexture, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048586, this, surfaceTexture, i, i2) == null) {
                 this.this$0.setVideoSurfaceInternal(new Surface(surfaceTexture), true);
             }
         }
@@ -226,9 +227,9 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
-        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048588, this, surfaceTexture, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048588, this, surfaceTexture, i, i2) == null) {
             }
         }
 
@@ -240,12 +241,12 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.video.VideoRendererEventListener
-        public void onVideoDecoderInitialized(String str, long j2, long j3) {
+        public void onVideoDecoderInitialized(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.this$0.videoDebugListener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.this$0.videoDebugListener == null) {
                 return;
             }
-            this.this$0.videoDebugListener.onVideoDecoderInitialized(str, j2, j3);
+            this.this$0.videoDebugListener.onVideoDecoderInitialized(str, j, j2);
         }
 
         @Override // com.google.android.exoplayer2.video.VideoRendererEventListener
@@ -283,23 +284,23 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
 
         @Override // com.google.android.exoplayer2.video.VideoRendererEventListener
-        public void onVideoSizeChanged(int i2, int i3, int i4, float f2) {
+        public void onVideoSizeChanged(int i, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
                 Iterator it = this.this$0.videoListeners.iterator();
                 while (it.hasNext()) {
-                    ((VideoListener) it.next()).onVideoSizeChanged(i2, i3, i4, f2);
+                    ((VideoListener) it.next()).onVideoSizeChanged(i, i2, i3, f2);
                 }
                 if (this.this$0.videoDebugListener != null) {
-                    this.this$0.videoDebugListener.onVideoSizeChanged(i2, i3, i4, f2);
+                    this.this$0.videoDebugListener.onVideoSizeChanged(i, i2, i3, f2);
                 }
             }
         }
 
         @Override // android.view.SurfaceHolder.Callback
-        public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
+        public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048595, this, surfaceHolder, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(1048595, this, surfaceHolder, i, i2, i3) == null) {
             }
         }
 
@@ -324,11 +325,11 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface VideoListener {
         void onRenderedFirstFrame();
 
-        void onVideoSizeChanged(int i2, int i3, int i4, float f2);
+        void onVideoSizeChanged(int i, int i2, int i3, float f2);
     }
 
     public SimpleExoPlayer(RenderersFactory renderersFactory, TrackSelector trackSelector, LoadControl loadControl) {
@@ -338,9 +339,9 @@ public class SimpleExoPlayer implements ExoPlayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {renderersFactory, trackSelector, loadControl};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -354,18 +355,18 @@ public class SimpleExoPlayer implements ExoPlayer {
         ComponentListener componentListener = this.componentListener;
         Renderer[] createRenderers = renderersFactory.createRenderers(handler, componentListener, componentListener, componentListener, componentListener);
         this.renderers = createRenderers;
+        int i3 = 0;
         int i4 = 0;
-        int i5 = 0;
         for (Renderer renderer : createRenderers) {
             int trackType = renderer.getTrackType();
             if (trackType == 1) {
-                i5++;
-            } else if (trackType == 2) {
                 i4++;
+            } else if (trackType == 2) {
+                i3++;
             }
         }
-        this.videoRendererCount = i4;
-        this.audioRendererCount = i5;
+        this.videoRendererCount = i3;
+        this.audioRendererCount = i4;
         this.audioVolume = 1.0f;
         this.audioSessionId = 0;
         this.audioAttributes = AudioAttributes.DEFAULT;
@@ -378,7 +379,9 @@ public class SimpleExoPlayer implements ExoPlayer {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             TextureView textureView = this.textureView;
             if (textureView != null) {
-                if (textureView.getSurfaceTextureListener() == this.componentListener) {
+                if (textureView.getSurfaceTextureListener() != this.componentListener) {
+                    Log.w(TAG, "SurfaceTextureListener already unset or replaced.");
+                } else {
                     this.textureView.setSurfaceTextureListener(null);
                 }
                 this.textureView = null;
@@ -397,11 +400,11 @@ public class SimpleExoPlayer implements ExoPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65550, this, surface, z) == null) {
             ExoPlayer.ExoPlayerMessage[] exoPlayerMessageArr = new ExoPlayer.ExoPlayerMessage[this.videoRendererCount];
-            int i2 = 0;
+            int i = 0;
             for (Renderer renderer : this.renderers) {
                 if (renderer.getTrackType() == 2) {
-                    exoPlayerMessageArr[i2] = new ExoPlayer.ExoPlayerMessage(renderer, 1, surface);
-                    i2++;
+                    exoPlayerMessageArr[i] = new ExoPlayer.ExoPlayerMessage(renderer, 1, surface);
+                    i++;
                 }
             }
             Surface surface2 = this.surface;
@@ -685,10 +688,10 @@ public class SimpleExoPlayer implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public int getRendererType(int i2) {
+    public int getRendererType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) ? this.player.getRendererType(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) ? this.player.getRendererType(i) : invokeI.intValue;
     }
 
     @Override // com.google.android.exoplayer2.Player
@@ -811,10 +814,10 @@ public class SimpleExoPlayer implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public void seekTo(long j2) {
+    public void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
-            this.player.seekTo(j2);
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
+            this.player.seekTo(j);
         }
     }
 
@@ -840,11 +843,11 @@ public class SimpleExoPlayer implements ExoPlayer {
         if (interceptable == null || interceptable.invokeL(1048638, this, audioAttributes) == null) {
             this.audioAttributes = audioAttributes;
             ExoPlayer.ExoPlayerMessage[] exoPlayerMessageArr = new ExoPlayer.ExoPlayerMessage[this.audioRendererCount];
-            int i2 = 0;
+            int i = 0;
             for (Renderer renderer : this.renderers) {
                 if (renderer.getTrackType() == 1) {
-                    exoPlayerMessageArr[i2] = new ExoPlayer.ExoPlayerMessage(renderer, 3, audioAttributes);
-                    i2++;
+                    exoPlayerMessageArr[i] = new ExoPlayer.ExoPlayerMessage(renderer, 3, audioAttributes);
+                    i++;
                 }
             }
             this.player.sendMessages(exoPlayerMessageArr);
@@ -859,11 +862,11 @@ public class SimpleExoPlayer implements ExoPlayer {
     }
 
     @Deprecated
-    public void setAudioStreamType(int i2) {
+    public void setAudioStreamType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
-            int audioUsageForStreamType = Util.getAudioUsageForStreamType(i2);
-            setAudioAttributes(new AudioAttributes.Builder().setUsage(audioUsageForStreamType).setContentType(Util.getAudioContentTypeForStreamType(i2)).build());
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
+            int audioUsageForStreamType = Util.getAudioUsageForStreamType(i);
+            setAudioAttributes(new AudioAttributes.Builder().setUsage(audioUsageForStreamType).setContentType(Util.getAudioContentTypeForStreamType(i)).build());
         }
     }
 
@@ -911,10 +914,10 @@ public class SimpleExoPlayer implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public void setRepeatMode(int i2) {
+    public void setRepeatMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
-            this.player.setRepeatMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048645, this, i) == null) {
+            this.player.setRepeatMode(i);
         }
     }
 
@@ -955,17 +958,17 @@ public class SimpleExoPlayer implements ExoPlayer {
         }
     }
 
-    public void setVideoScalingMode(int i2) {
+    public void setVideoScalingMode(int i) {
         Renderer[] rendererArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
-            this.videoScalingMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
+            this.videoScalingMode = i;
             ExoPlayer.ExoPlayerMessage[] exoPlayerMessageArr = new ExoPlayer.ExoPlayerMessage[this.videoRendererCount];
-            int i3 = 0;
+            int i2 = 0;
             for (Renderer renderer : this.renderers) {
                 if (renderer.getTrackType() == 2) {
-                    exoPlayerMessageArr[i3] = new ExoPlayer.ExoPlayerMessage(renderer, 4, Integer.valueOf(i2));
-                    i3++;
+                    exoPlayerMessageArr[i2] = new ExoPlayer.ExoPlayerMessage(renderer, 4, Integer.valueOf(i));
+                    i2++;
                 }
             }
             this.player.sendMessages(exoPlayerMessageArr);
@@ -1015,7 +1018,9 @@ public class SimpleExoPlayer implements ExoPlayer {
                 setVideoSurfaceInternal(null, true);
                 return;
             }
-            textureView.getSurfaceTextureListener();
+            if (textureView.getSurfaceTextureListener() != null) {
+                Log.w(TAG, "Replacing existing SurfaceTextureListener.");
+            }
             textureView.setSurfaceTextureListener(this.componentListener);
             SurfaceTexture surfaceTexture = textureView.isAvailable() ? textureView.getSurfaceTexture() : null;
             setVideoSurfaceInternal(surfaceTexture != null ? new Surface(surfaceTexture) : null, true);
@@ -1028,11 +1033,11 @@ public class SimpleExoPlayer implements ExoPlayer {
         if (interceptable == null || interceptable.invokeF(1048655, this, f2) == null) {
             this.audioVolume = f2;
             ExoPlayer.ExoPlayerMessage[] exoPlayerMessageArr = new ExoPlayer.ExoPlayerMessage[this.audioRendererCount];
-            int i2 = 0;
+            int i = 0;
             for (Renderer renderer : this.renderers) {
                 if (renderer.getTrackType() == 1) {
-                    exoPlayerMessageArr[i2] = new ExoPlayer.ExoPlayerMessage(renderer, 2, Float.valueOf(f2));
-                    i2++;
+                    exoPlayerMessageArr[i] = new ExoPlayer.ExoPlayerMessage(renderer, 2, Float.valueOf(f2));
+                    i++;
                 }
             }
             this.player.sendMessages(exoPlayerMessageArr);
@@ -1063,18 +1068,18 @@ public class SimpleExoPlayer implements ExoPlayer {
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public void seekTo(int i2, long j2) {
+    public void seekTo(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.player.seekTo(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.player.seekTo(i, j);
         }
     }
 
     @Override // com.google.android.exoplayer2.Player
-    public void seekToDefaultPosition(int i2) {
+    public void seekToDefaultPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
-            this.player.seekToDefaultPosition(i2);
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
+            this.player.seekToDefaultPosition(i);
         }
     }
 }

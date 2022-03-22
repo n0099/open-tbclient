@@ -40,6 +40,7 @@ import com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter;
 import com.baidu.pass.ecommerce.presenter.OnceLocationManager;
 import com.baidu.pass.ecommerce.view.ScrollLayout;
 import com.baidu.pass.ecommerce.view.ScrollRecyclerView;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseOptionActivity;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.sapi2.utils.Log;
@@ -103,9 +104,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -209,33 +210,33 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            TitleBarView titleBarView = (TitleBarView) findViewById(R.id.sapi_sdk_map_location_poi_title);
+            TitleBarView titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091bb4);
             this.titleBarView = titleBarView;
             titleBarView.setTitle("定位地址");
-            this.titleBarView.setLeft("取消", this);
+            this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
             this.titleBarView.setRight("确认", this);
-            this.mapView = (MapView) findViewById(R.id.sapi_sdk_location_poi_map_view);
-            this.mapControllerView = findViewById(R.id.sapi_loc_map_controller_view);
-            this.mapMarkLayout = findViewById(R.id.sapi_loc_map_marker_view);
-            this.mapMaskView = findViewById(R.id.sapi_loc_map_shape_mask);
-            this.mapLocBtn = (ImageView) findViewById(R.id.sapi_sdk_map_loc_btn);
-            this.mapZoomInBtn = (ImageView) findViewById(R.id.sapi_sdk_map_zoom_in_btn);
-            this.mapZoomOutBtn = (ImageView) findViewById(R.id.sapi_sdk_map_zoom_out_btn);
-            this.mScrollLayout = (ScrollLayout) findViewById(R.id.sapi_sdk_scroll_layout);
-            this.mRecyclerView = (RecyclerView) findViewById(R.id.sapi_sdk_recycler_view);
-            this.mSearchBox = (LinearLayout) findViewById(R.id.sapi_sdk_search_box);
-            this.addrMapSearchEt = (EditText) findViewById(R.id.sapi_sdk_map_addr_search_et);
-            this.cleanSearchTextBtn = (ImageView) findViewById(R.id.sapi_sdk_clean_map_addr_search_text);
-            this.searchBoxLine = findViewById(R.id.sapi_sdk_search_box_line);
-            this.cancelSearchBtn = (TextView) findViewById(R.id.sapi_sdk_cancel_query_map_addr);
-            this.mapAddrEmpty = (TextView) findViewById(R.id.sapi_sdk_map_addr_empty_notice);
+            this.mapView = (MapView) findViewById(R.id.obfuscated_res_0x7f091bad);
+            this.mapControllerView = findViewById(R.id.obfuscated_res_0x7f091b31);
+            this.mapMarkLayout = findViewById(R.id.obfuscated_res_0x7f091b32);
+            this.mapMaskView = findViewById(R.id.obfuscated_res_0x7f091b33);
+            this.mapLocBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb2);
+            this.mapZoomInBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb6);
+            this.mapZoomOutBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb7);
+            this.mScrollLayout = (ScrollLayout) findViewById(R.id.obfuscated_res_0x7f091bc0);
+            this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbd);
+            this.mSearchBox = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bc1);
+            this.addrMapSearchEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091bb1);
+            this.cleanSearchTextBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b7e);
+            this.searchBoxLine = findViewById(R.id.obfuscated_res_0x7f091bc4);
+            this.cancelSearchBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b7a);
+            this.mapAddrEmpty = (TextView) findViewById(R.id.obfuscated_res_0x7f091bae);
             this.mapLocBtn.setOnClickListener(this);
             this.mapZoomInBtn.setOnClickListener(this);
             this.mapZoomOutBtn.setOnClickListener(this);
             this.cancelSearchBtn.setOnClickListener(this);
             this.cleanSearchTextBtn.setOnClickListener(this);
-            this.loadingView = (SweepLightLoadingView) findViewById(R.id.sapi_sdk_addr_loading_view);
-            this.mapAddrListLoading = findViewById(R.id.sapi_sdk_map_addr_list_loading);
+            this.loadingView = (SweepLightLoadingView) findViewById(R.id.obfuscated_res_0x7f091b56);
+            this.mapAddrListLoading = findViewById(R.id.obfuscated_res_0x7f091baf);
             initLayoutParams();
             initRecyclerView();
             this.mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(this) { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.1
@@ -250,9 +251,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -262,12 +263,12 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+                public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i2) == null) {
-                        super.onScrollStateChanged(recyclerView, i2);
-                        Log.d(MapLocationAddrActivity.TAG, "onScrollStateChanged newState=" + i2);
-                        if (i2 == 0 && ((MapLocationPoiPresenter) this.this$0.presenter).isHasNextPage()) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i) == null) {
+                        super.onScrollStateChanged(recyclerView, i);
+                        Log.d(MapLocationAddrActivity.TAG, "onScrollStateChanged newState=" + i);
+                        if (i == 0 && ((MapLocationPoiPresenter) this.this$0.presenter).isHasNextPage()) {
                             ((MapLocationPoiPresenter) this.this$0.presenter).queryNextPageAddrList(false);
                         }
                     }
@@ -276,18 +277,18 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
             if (this.isDarkMode) {
                 this.titleBarView.setDarkMode();
                 this.mapMaskView.setVisibility(0);
-                findViewById(R.id.sapi_sdk_addr_query_panel).setBackgroundResource(R.drawable.sapi_sdk_addr_map_scroll_layout_dark_bg);
-                this.mSearchBox.setBackgroundResource(R.drawable.sapi_sdk_addr_map_scroll_layout_dark_bg);
-                findViewById(R.id.sapi_sdk_panel_handler_view).setBackgroundResource(R.drawable.sapi_sdk_addr_map_scroll_top_line_dark);
-                findViewById(R.id.sapi_sdk_search_box_layout).setBackgroundResource(R.drawable.sapi_sdk_addr_map_search_box_bg_dark);
-                ((ImageView) findViewById(R.id.sapi_sdk_search_box_ic)).setImageResource(R.drawable.sapi_sdk_map_addr_search_box_dark);
-                this.addrMapSearchEt.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_map_search_hint_text_dark_color));
-                this.addrMapSearchEt.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_map_search_text_dark_color));
-                findViewById(R.id.sapi_sdk_search_box_line).setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
-                this.cancelSearchBtn.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                ((TextView) findViewById(R.id.sapi_sdk_map_addr_loading_tips)).setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_custom_tag_no_checked_text_dark_color));
-                this.mapAddrEmpty.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_map_search_empty_dark_color));
-                this.cleanSearchTextBtn.setImageResource(R.drawable.sapi_sdk_common_et_clean_bg_dark);
+                findViewById(R.id.obfuscated_res_0x7f091b64).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fe4);
+                this.mSearchBox.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fe4);
+                findViewById(R.id.obfuscated_res_0x7f091bbc).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fe6);
+                findViewById(R.id.obfuscated_res_0x7f091bc3).setBackgroundResource(R.drawable.obfuscated_res_0x7f080fe8);
+                ((ImageView) findViewById(R.id.obfuscated_res_0x7f091bc2)).setImageResource(R.drawable.obfuscated_res_0x7f081043);
+                this.addrMapSearchEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060976));
+                this.addrMapSearchEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060978));
+                findViewById(R.id.obfuscated_res_0x7f091bc4).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
+                this.cancelSearchBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091bb0)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
+                this.mapAddrEmpty.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060974));
+                this.cleanSearchTextBtn.setImageResource(R.drawable.obfuscated_res_0x7f081000);
             }
         }
     }
@@ -366,9 +367,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -400,9 +401,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -434,9 +435,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -471,9 +472,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -509,9 +510,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -521,9 +522,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                 }
 
                 @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-                public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+                public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i2, i3, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, charSequence, i, i2, i3) == null) {
                         if (this.this$0.isAutoUpdateSearchContent) {
                             this.this$0.isAutoUpdateSearchContent = false;
                             return;
@@ -557,9 +558,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -569,25 +570,25 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                 }
 
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardHide(int i2) {
+                public void keyBoardHide(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         this.this$0.isSoftKeyBoardShowing = false;
                         this.this$0.updatePanelSmallSize();
                     }
                 }
 
                 @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-                public void keyBoardShow(int i2) {
+                public void keyBoardShow(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                         this.this$0.isSoftKeyBoardShowing = true;
                         if (this.this$0.isFocusSearchBoxEt) {
                             this.this$0.isFocusSearchBoxEt = false;
                             ((MapLocationPoiPresenter) this.this$0.presenter).setQueryAddrListType(1);
                             this.this$0.openMapAddrListLayout();
                         }
-                        this.this$0.mapAddrEmpty.postDelayed(new Runnable(this, i2) { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.7.1
+                        this.this$0.mapAddrEmpty.postDelayed(new Runnable(this, i) { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.7.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass7 this$1;
@@ -598,18 +599,18 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                                 if (interceptable3 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, Integer.valueOf(i2)};
+                                    Object[] objArr = {this, Integer.valueOf(i)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
                                     }
                                 }
                                 this.this$1 = this;
-                                this.val$height = i2;
+                                this.val$height = i;
                             }
 
                             @Override // java.lang.Runnable
@@ -646,9 +647,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -659,9 +660,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.pass.ecommerce.view.ScrollRecyclerView.RecyclerViewItemClickListener
-                public void onItemClickListener(int i2, JSONObject jSONObject) {
+                public void onItemClickListener(int i, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, jSONObject) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, jSONObject) == null) {
                         this.this$0.addrMapSearchEt.clearFocus();
                         this.this$0.selectedAddrJsonObj = jSONObject;
                         ((MapLocationPoiPresenter) this.this$0.presenter).setSelectedAddrId(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID));
@@ -692,9 +693,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -734,10 +735,10 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i2, int i3, String str, String str2) {
+    public void doFailure(int i, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-            if (1004 == i2) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+            if (1004 == i) {
                 this.isInitLoadComplete = true;
             }
             if (!TextUtils.isEmpty(str)) {
@@ -748,13 +749,13 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i2, Object obj, String str) {
+    public void doResult(int i, Object obj, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) {
-            if (i2 == 1001) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, obj, str) == null) {
+            if (i == 1001) {
                 processMapLocData((MyLocationData) obj);
-            } else if (i2 != 1004) {
-                if (i2 != 1005) {
+            } else if (i != 1004) {
+                if (i != 1005) {
                     return;
                 }
                 processMapLoc2Region((JSONObject) obj);
@@ -771,14 +772,14 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.finish();
-            overridePendingTransition(0, R.anim.sapi_sdk_anim_activity_push_bottom_out);
+            overridePendingTransition(0, R.anim.obfuscated_res_0x7f0100fd);
         }
     }
 
     @Override // com.baidu.pass.ecommerce.view.ScrollLayout.OnScrollChangedListener
-    public void onChildScroll(int i2) {
+    public void onChildScroll(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 
@@ -793,11 +794,11 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
             }
             BaseOptionActivity.lastClickTime = currentTimeMillis;
             int id = view.getId();
-            if (R.id.sapi_sdk_titlebar_left_btn == id) {
+            if (R.id.obfuscated_res_0x7f091bd4 == id) {
                 finish();
-            } else if (R.id.sapi_sdk_titlebar_right_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bd5 == id) {
                 ((MapLocationPoiPresenter) this.presenter).mapLocItem2RegoinDetail(this.selectedAddrJsonObj);
-            } else if (R.id.sapi_sdk_cancel_query_map_addr == id) {
+            } else if (R.id.obfuscated_res_0x7f091b7a == id) {
                 this.isUserGestureDragMap = false;
                 hideSearchOptionViews();
                 closeMapAddrListLayout();
@@ -807,29 +808,28 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
                 ((MapLocationPoiPresenter) this.presenter).cleanUserSearchAndEmptyQueryContent();
                 this.mapLocAddrAdapter.setDatas(((MapLocationPoiPresenter) this.presenter).getAddrListByUserMapChoice(), ((MapLocationPoiPresenter) this.presenter).isHasNextPageByUserMapChoiceLoc());
                 this.mRecyclerView.setVisibility(0);
-            } else if (R.id.sapi_sdk_clean_map_addr_search_text == id) {
+            } else if (R.id.obfuscated_res_0x7f091b7e == id) {
                 this.addrMapSearchEt.setText("");
-            } else if (R.id.sapi_sdk_map_loc_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bb2 == id) {
                 ((MapLocationPoiPresenter) this.presenter).setQueryAddrListType(0);
                 ((MapLocationPoiPresenter) this.presenter).queryAddrListByLocAddr();
-            } else if (R.id.sapi_sdk_map_zoom_in_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bb6 == id) {
                 this.baiduMap.setMapStatus(MapStatusUpdateFactory.zoomIn());
-            } else if (R.id.sapi_sdk_map_zoom_out_btn == id) {
+            } else if (R.id.obfuscated_res_0x7f091bb7 == id) {
                 this.baiduMap.setMapStatus(MapStatusUpdateFactory.zoomOut());
             }
         }
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             try {
                 super.onCreate(bundle);
                 if (this.addressManageDTO != null && this.addressManageDTO.mapStatusAndLocateCallback != null) {
-                    setContentView(R.layout.layout_sapi_sdk_map_location_poi_activity);
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sek_title_bar_bg_start_color));
-                    setEnableSliding(false);
+                    setContentView(R.layout.obfuscated_res_0x7f0d04dc);
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f0609fa));
                     initView();
                     initMapView();
                     setListener();
@@ -900,9 +900,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i2) {
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, mapStatus, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, mapStatus, i) == null) {
         }
     }
 
@@ -952,9 +952,9 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i2) {
+    public void showLoading(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i2) == null) && i2 == 1004) {
+        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i == 1004) {
             this.mapAddrListLoading.setVisibility(0);
         }
     }

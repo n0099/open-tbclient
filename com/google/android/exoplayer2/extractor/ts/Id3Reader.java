@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.extractor.ts;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Id3Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID3_HEADER_SIZE = 10;
@@ -29,9 +30,9 @@ public final class Id3Reader implements ElementaryStreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,9 +46,9 @@ public final class Id3Reader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) && this.writingSample) {
             int bytesLeft = parsableByteArray.bytesLeft();
-            int i2 = this.sampleBytesRead;
-            if (i2 < 10) {
-                int min = Math.min(bytesLeft, 10 - i2);
+            int i = this.sampleBytesRead;
+            if (i < 10) {
+                int min = Math.min(bytesLeft, 10 - i);
                 System.arraycopy(parsableByteArray.data, parsableByteArray.getPosition(), this.id3Header.data, this.sampleBytesRead, min);
                 if (this.sampleBytesRead + min == 10) {
                     this.id3Header.setPosition(0);
@@ -55,6 +56,7 @@ public final class Id3Reader implements ElementaryStreamReader {
                         this.id3Header.skipBytes(3);
                         this.sampleSize = this.id3Header.readSynchSafeInt() + 10;
                     } else {
+                        Log.w(TAG, "Discarding invalid ID3 tag");
                         this.writingSample = false;
                         return;
                     }
@@ -79,20 +81,20 @@ public final class Id3Reader implements ElementaryStreamReader {
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
     public void packetFinished() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.writingSample && (i2 = this.sampleSize) != 0 && this.sampleBytesRead == i2) {
-            this.output.sampleMetadata(this.sampleTimeUs, 1, i2, 0, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.writingSample && (i = this.sampleSize) != 0 && this.sampleBytesRead == i) {
+            this.output.sampleMetadata(this.sampleTimeUs, 1, i, 0, null);
             this.writingSample = false;
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) && z) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) && z) {
             this.writingSample = true;
-            this.sampleTimeUs = j2;
+            this.sampleTimeUs = j;
             this.sampleSize = 0;
             this.sampleBytesRead = 0;
         }

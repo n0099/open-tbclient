@@ -30,11 +30,11 @@ public final class IndexingIterator<T> implements Iterator<IndexedValue<? extend
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
     public final IndexedValue<T> next() {
-        int i2 = this.index;
-        this.index = i2 + 1;
-        if (i2 < 0) {
+        int i = this.index;
+        this.index = i + 1;
+        if (i < 0) {
             CollectionsKt__CollectionsKt.throwIndexOverflow();
         }
-        return new IndexedValue<>(i2, this.iterator.next());
+        return new IndexedValue<>(i, this.iterator.next());
     }
 }

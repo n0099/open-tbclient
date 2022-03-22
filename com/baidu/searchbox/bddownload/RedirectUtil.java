@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.net.ProtocolException;
 /* loaded from: classes4.dex */
@@ -22,9 +23,9 @@ public class RedirectUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,22 +33,22 @@ public class RedirectUtil {
     }
 
     @NonNull
-    public static String getRedirectedUrl(DownloadConnection.Connected connected, int i2) throws IOException {
+    public static String getRedirectedUrl(DownloadConnection.Connected connected, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, connected, i2)) == null) {
-            String responseHeaderField = connected.getResponseHeaderField("Location");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, connected, i)) == null) {
+            String responseHeaderField = connected.getResponseHeaderField(Headers.LOCATION);
             if (responseHeaderField != null) {
                 return responseHeaderField;
             }
-            throw new ProtocolException("Response code is " + i2 + " but can't find Location field");
+            throw new ProtocolException("Response code is " + i + " but can't find Location field");
         }
         return (String) invokeLI.objValue;
     }
 
-    public static boolean isRedirect(int i2) {
+    public static boolean isRedirect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == 301 || i2 == 302 || i2 == 303 || i2 == 300 || i2 == 307 || i2 == 308 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 301 || i == 302 || i == 303 || i == 300 || i == 307 || i == 308 : invokeI.booleanValue;
     }
 }

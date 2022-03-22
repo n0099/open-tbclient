@@ -17,9 +17,9 @@ public class g1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,7 +30,7 @@ public class g1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, context) == null) {
             try {
-                String str2 = r0.a + r0.f53793d;
+                String str2 = r0.a + r0.f38968d;
                 String e2 = s0.e(context);
                 if (!TextUtils.isEmpty(e2)) {
                     str2 = str2 + "?" + e2;

@@ -36,9 +36,9 @@ public abstract class Overlay {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,14 +47,14 @@ public abstract class Overlay {
         this.y = System.currentTimeMillis() + "_" + hashCode();
     }
 
-    public static void a(int i2, Bundle bundle) {
+    public static void a(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, bundle) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putFloat("red", ((i2 >> 16) & 255) / 255.0f);
-            bundle2.putFloat("green", ((i2 >> 8) & 255) / 255.0f);
-            bundle2.putFloat("blue", (i2 & 255) / 255.0f);
-            bundle2.putFloat(AnimationProperty.OPACITY, (i2 >>> 24) / 255.0f);
+            bundle2.putFloat("red", ((i >> 16) & 255) / 255.0f);
+            bundle2.putFloat("green", ((i >> 8) & 255) / 255.0f);
+            bundle2.putFloat("blue", (i & 255) / 255.0f);
+            bundle2.putFloat(AnimationProperty.OPACITY, (i >>> 24) / 255.0f);
             bundle.putBundle("color", bundle2);
         }
     }
@@ -65,10 +65,10 @@ public abstract class Overlay {
             int size = list.size();
             double[] dArr = new double[size];
             double[] dArr2 = new double[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                GeoPoint ll2mc = CoordUtil.ll2mc(list.get(i2));
-                dArr[i2] = ll2mc.getLongitudeE6();
-                dArr2[i2] = ll2mc.getLatitudeE6();
+            for (int i = 0; i < size; i++) {
+                GeoPoint ll2mc = CoordUtil.ll2mc(list.get(i));
+                dArr[i] = ll2mc.getLongitudeE6();
+                dArr2[i] = ll2mc.getLatitudeE6();
             }
             bundle.putDoubleArray("x_array", dArr);
             bundle.putDoubleArray("y_array", dArr2);
@@ -140,10 +140,10 @@ public abstract class Overlay {
         }
     }
 
-    public void setZIndex(int i2) {
+    public void setZIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.z = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.z = i;
             this.listener.b(this);
         }
     }

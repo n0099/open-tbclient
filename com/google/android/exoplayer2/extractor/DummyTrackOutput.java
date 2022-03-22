@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DummyTrackOutput implements TrackOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public final class DummyTrackOutput implements TrackOutput {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,11 +38,11 @@ public final class DummyTrackOutput implements TrackOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public int sampleData(ExtractorInput extractorInput, int i2, boolean z) throws IOException, InterruptedException {
+    public int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{extractorInput, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int skip = extractorInput.skip(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{extractorInput, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int skip = extractorInput.skip(i);
             if (skip == -1) {
                 if (z) {
                     return -1;
@@ -55,17 +55,17 @@ public final class DummyTrackOutput implements TrackOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void sampleMetadata(long j2, int i2, int i3, int i4, TrackOutput.CryptoData cryptoData) {
+    public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), cryptoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
         }
     }
 
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
-    public void sampleData(ParsableByteArray parsableByteArray, int i2) {
+    public void sampleData(ParsableByteArray parsableByteArray, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parsableByteArray, i2) == null) {
-            parsableByteArray.skipBytes(i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parsableByteArray, i) == null) {
+            parsableByteArray.skipBytes(i);
         }
     }
 }

@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.TextureBufferImpl;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,27 +28,27 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public final int width;
     public final YuvConverter yuvConverter;
 
-    public TextureBufferImpl(int i2, int i3, VideoFrame.TextureBuffer.Type type, int i4, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
+    public TextureBufferImpl(int i, int i2, VideoFrame.TextureBuffer.Type type, int i3, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), type, Integer.valueOf(i4), matrix, handler, yuvConverter, runnable};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), type, Integer.valueOf(i3), matrix, handler, yuvConverter, runnable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.unscaledWidth = i2;
-        this.unscaledHeight = i3;
-        this.width = i2;
-        this.height = i3;
+        this.unscaledWidth = i;
+        this.unscaledHeight = i2;
+        this.width = i;
+        this.height = i2;
         this.type = type;
-        this.id = i4;
+        this.id = i3;
         this.transformMatrix = matrix;
         this.toI420Handler = handler;
         this.yuvConverter = yuvConverter;
@@ -59,22 +59,22 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         return this.yuvConverter.convert(this);
     }
 
-    public TextureBufferImpl applyTransformMatrix(Matrix matrix, int i2, int i3) {
+    public TextureBufferImpl applyTransformMatrix(Matrix matrix, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix, i2, i3)) == null) ? applyTransformMatrix(matrix, i2, i3, i2, i3) : (TextureBufferImpl) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix, i, i2)) == null) ? applyTransformMatrix(matrix, i, i2, i, i2) : (TextureBufferImpl) invokeLII.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             Matrix matrix = new Matrix();
-            int i8 = this.height;
-            matrix.preTranslate(i2 / this.width, (i8 - (i3 + i5)) / i8);
-            matrix.preScale(i4 / this.width, i5 / this.height);
-            return applyTransformMatrix(matrix, Math.round((this.unscaledWidth * i4) / this.width), Math.round((this.unscaledHeight * i5) / this.height), i6, i7);
+            int i7 = this.height;
+            matrix.preTranslate(i / this.width, (i7 - (i2 + i4)) / i7);
+            matrix.preScale(i3 / this.width, i4 / this.height);
+            return applyTransformMatrix(matrix, Math.round((this.unscaledWidth * i3) / this.width), Math.round((this.unscaledHeight * i4) / this.height), i5, i6);
         }
         return (VideoFrame.Buffer) invokeCommon.objValue;
     }
@@ -146,7 +146,7 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
     public VideoFrame.I420Buffer toI420() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (VideoFrame.I420Buffer) ThreadUtils.invokeAtFrontUninterruptibly(this.toI420Handler, new Callable() { // from class: h.c.x
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (VideoFrame.I420Buffer) ThreadUtils.invokeAtFrontUninterruptibly(this.toI420Handler, new Callable() { // from class: f.c.x
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,14 +159,14 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         }) : (VideoFrame.I420Buffer) invokeV.objValue;
     }
 
-    private TextureBufferImpl applyTransformMatrix(Matrix matrix, int i2, int i3, int i4, int i5) {
+    private TextureBufferImpl applyTransformMatrix(Matrix matrix, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{matrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{matrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             Matrix matrix2 = new Matrix(this.transformMatrix);
             matrix2.preConcat(matrix);
             retain();
-            return new TextureBufferImpl(i2, i3, i4, i5, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: h.c.b
+            return new TextureBufferImpl(i, i2, i3, i4, this.type, this.id, matrix2, this.toI420Handler, this.yuvConverter, new Runnable() { // from class: f.c.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,27 +182,27 @@ public class TextureBufferImpl implements VideoFrame.TextureBuffer {
         return (TextureBufferImpl) invokeCommon.objValue;
     }
 
-    public TextureBufferImpl(int i2, int i3, int i4, int i5, VideoFrame.TextureBuffer.Type type, int i6, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
+    public TextureBufferImpl(int i, int i2, int i3, int i4, VideoFrame.TextureBuffer.Type type, int i5, Matrix matrix, Handler handler, YuvConverter yuvConverter, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), type, Integer.valueOf(i6), matrix, handler, yuvConverter, runnable};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), type, Integer.valueOf(i5), matrix, handler, yuvConverter, runnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.unscaledWidth = i2;
-        this.unscaledHeight = i3;
-        this.width = i4;
-        this.height = i5;
+        this.unscaledWidth = i;
+        this.unscaledHeight = i2;
+        this.width = i3;
+        this.height = i4;
         this.type = type;
-        this.id = i6;
+        this.id = i5;
         this.transformMatrix = matrix;
         this.toI420Handler = handler;
         this.yuvConverter = yuvConverter;

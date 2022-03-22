@@ -48,9 +48,9 @@ public class MethodProfileData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,9 +58,9 @@ public class MethodProfileData {
         }
 
         public static /* synthetic */ long access$1108(MethodStats methodStats) {
-            long j2 = methodStats.mInvocationCount;
-            methodStats.mInvocationCount = 1 + j2;
-            return j2;
+            long j = methodStats.mInvocationCount;
+            methodStats.mInvocationCount = 1 + j;
+            return j;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -222,9 +222,9 @@ public class MethodProfileData {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -250,9 +250,9 @@ public class MethodProfileData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -376,24 +376,24 @@ public class MethodProfileData {
             }
         }
 
-        private void addExclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
+        private void addExclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mExclusiveThreadTime += j2;
+                    methodStats.mExclusiveThreadTime += j;
                 } else {
-                    methodStats.mExclusiveGlobalTime += j2;
+                    methodStats.mExclusiveGlobalTime += j;
                 }
             }
         }
 
-        private void addInclusiveTime(MethodStats methodStats, long j2, ClockType clockType) {
+        private void addInclusiveTime(MethodStats methodStats, long j, ClockType clockType) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j2), clockType}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{methodStats, Long.valueOf(j), clockType}) == null) {
                 if (clockType == ClockType.THREAD) {
-                    methodStats.mInclusiveThreadTime += j2;
+                    methodStats.mInclusiveThreadTime += j;
                 } else {
-                    methodStats.mInclusiveGlobalTime += j2;
+                    methodStats.mInclusiveGlobalTime += j;
                 }
             }
         }

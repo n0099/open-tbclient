@@ -13,7 +13,7 @@ import com.tachikoma.core.api.IRequestDelegateInner;
 import com.tachikoma.core.api.IWebImageHandlerInner;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TKBuilder";
@@ -28,9 +28,9 @@ public class TKBuilder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

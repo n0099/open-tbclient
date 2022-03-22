@@ -23,9 +23,9 @@ public interface AutoSizeableTextView {
 
     int getAutoSizeTextType();
 
-    void setAutoSizeTextTypeUniformWithConfiguration(int i2, int i3, int i4, int i5) throws IllegalArgumentException;
+    void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException;
 
-    void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i2) throws IllegalArgumentException;
+    void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException;
 
-    void setAutoSizeTextTypeWithDefaults(int i2);
+    void setAutoSizeTextTypeWithDefaults(int i);
 }

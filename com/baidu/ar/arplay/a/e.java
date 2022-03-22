@@ -2,6 +2,7 @@ package com.baidu.ar.arplay.a;
 
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,9 +59,9 @@ public class e {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -91,9 +92,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -114,9 +115,9 @@ public class e {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -167,9 +168,9 @@ public class e {
         return (MediaPlayer) invokeL.objValue;
     }
 
-    private void a(a aVar, String str, String str2, int i2, MediaPlayer.OnCompletionListener onCompletionListener, boolean z, String str3, long j2) {
+    private void a(a aVar, String str, String str2, int i, MediaPlayer.OnCompletionListener onCompletionListener, boolean z, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i2), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{aVar, str, str2, Integer.valueOf(i), onCompletionListener, Boolean.valueOf(z), str3, Long.valueOf(j)}) == null) {
             try {
                 if (this.dE.containsKey(str)) {
                     b bVar = this.dE.get(str);
@@ -190,8 +191,8 @@ public class e {
                     MediaPlayer mediaPlayer = new MediaPlayer();
                     bVar2.df = mediaPlayer;
                     mediaPlayer.setDataSource(str2);
-                    bVar2.dM = i2;
-                    bVar2.dL = new SurfaceTexture(i2);
+                    bVar2.dM = i;
+                    bVar2.dL = new SurfaceTexture(i);
                     bVar2.dg.dT = Long.valueOf(str).longValue();
                     bVar2.dg.dU = str3;
                     bVar2.df.setSurface(new Surface(bVar2.dL));
@@ -209,9 +210,9 @@ public class e {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, bVar2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -222,14 +223,14 @@ public class e {
                         }
 
                         @Override // android.media.MediaPlayer.OnErrorListener
-                        public boolean onError(MediaPlayer mediaPlayer2, int i3, int i4) {
+                        public boolean onError(MediaPlayer mediaPlayer2, int i2, int i3) {
                             InterceptResult invokeLII;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
+                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i2, i3)) == null) {
                                 b bVar3 = this.dI;
                                 com.baidu.ar.arplay.a.a.b bVar4 = bVar3.dg;
                                 bVar4.dX = "ERROR";
-                                bVar4.dY = i3;
+                                bVar4.dY = i2;
                                 e.a(bVar3);
                                 return true;
                             }
@@ -239,7 +240,7 @@ public class e {
                     bVar2.df.setLooping(z);
                     bVar2.df.prepareAsync();
                     com.baidu.ar.arplay.c.b.b(TAG, "wrapper.mMediaPlayer.prepareAsync()");
-                    bVar2.df.setOnPreparedListener(new MediaPlayer.OnPreparedListener(this, bVar2, j2) { // from class: com.baidu.ar.arplay.a.e.5
+                    bVar2.df.setOnPreparedListener(new MediaPlayer.OnPreparedListener(this, bVar2, j) { // from class: com.baidu.ar.arplay.a.e.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ e dH;
@@ -251,11 +252,11 @@ public class e {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, bVar2, Long.valueOf(j2)};
+                                Object[] objArr = {this, bVar2, Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -263,7 +264,7 @@ public class e {
                             }
                             this.dH = this;
                             this.dI = bVar2;
-                            this.de = j2;
+                            this.de = j;
                         }
 
                         @Override // android.media.MediaPlayer.OnPreparedListener
@@ -308,9 +309,9 @@ public class e {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, bVar2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -321,13 +322,13 @@ public class e {
                         }
 
                         @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-                        public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i3) {
+                        public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLI(1048576, this, mediaPlayer2, i3) == null) {
+                            if (interceptable2 == null || interceptable2.invokeLI(1048576, this, mediaPlayer2, i2) == null) {
                                 b bVar3 = this.dI;
                                 com.baidu.ar.arplay.a.a.b bVar4 = bVar3.dg;
                                 bVar4.dX = "INFO";
-                                bVar4.eb = i3;
+                                bVar4.eb = i2;
                                 e.a(bVar3);
                             }
                         }
@@ -345,9 +346,9 @@ public class e {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, bVar2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -358,17 +359,17 @@ public class e {
                         }
 
                         @Override // android.media.MediaPlayer.OnInfoListener
-                        public boolean onInfo(MediaPlayer mediaPlayer2, int i3, int i4) {
+                        public boolean onInfo(MediaPlayer mediaPlayer2, int i2, int i3) {
                             InterceptResult invokeLII;
                             String str4;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
+                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i2, i3)) == null) {
                                 b bVar3 = this.dI;
                                 com.baidu.ar.arplay.a.a.b bVar4 = bVar3.dg;
                                 bVar4.dX = "INFO";
-                                if (i3 == 701) {
+                                if (i2 == 701) {
                                     str4 = "buffer_start";
-                                } else if (i3 != 702) {
+                                } else if (i2 != 702) {
                                     return false;
                                 } else {
                                     str4 = "buffer_end";
@@ -434,9 +435,9 @@ public class e {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -612,9 +613,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -637,9 +638,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, eVar, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -674,9 +675,9 @@ public class e {
                         this.dH.c(ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, this.cZ);
                         return;
                     }
-                    int i2 = a2 - 1;
-                    this.dH.dF.put(this.dJ.getId(), Integer.valueOf(i2));
-                    this.dJ.i(i2);
+                    int i = a2 - 1;
+                    this.dH.dF.put(this.dJ.getId(), Integer.valueOf(i));
+                    this.dJ.i(i);
                     this.dH.a(this.dJ, this.cZ);
                 }
             }, eVar.aR(), eVar.aN(), eVar.aP(), eVar.aO());
@@ -702,10 +703,10 @@ public class e {
         }
     }
 
-    public void a(a aVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, int i3, String str3, long j2) {
+    public void a(a aVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, int i2, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{aVar, str, str2, onCompletionListener, Integer.valueOf(i2), Integer.valueOf(i3), str3, Long.valueOf(j2)}) == null) {
-            a(aVar, str, str2, i2, onCompletionListener, false, str3, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{aVar, str, str2, onCompletionListener, Integer.valueOf(i), Integer.valueOf(i2), str3, Long.valueOf(j)}) == null) {
+            a(aVar, str, str2, i, onCompletionListener, false, str3, j);
         }
     }
 
@@ -743,18 +744,19 @@ public class e {
         }
     }
 
-    public void a(String str, int i2) {
+    public void a(String str, int i) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, str, i2) == null) || (bVar = this.dE.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) || (bVar = this.dE.get(str)) == null) {
             return;
         }
-        bVar.dL = new SurfaceTexture(i2);
+        bVar.dL = new SurfaceTexture(i);
         try {
             bVar.df.setSurface(new Surface(bVar.dL));
         } catch (Exception unused) {
+            Log.i("VideoPlayerManager", "MediaPlayer setSurface failed.");
         }
-        bVar.dM = i2;
+        bVar.dM = i;
     }
 
     public void aB() {
@@ -802,9 +804,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -852,10 +854,10 @@ public class e {
         }
     }
 
-    public void c(int i2, HashMap<String, Object> hashMap) {
+    public void c(int i, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048590, this, i2, hashMap) == null) {
-            ARPMessage.getInstance().sendMessage(i2, hashMap);
+        if (interceptable == null || interceptable.invokeIL(1048590, this, i, hashMap) == null) {
+            ARPMessage.getInstance().sendMessage(i, hashMap);
         }
     }
 
@@ -877,9 +879,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -909,9 +911,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

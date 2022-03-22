@@ -23,31 +23,27 @@ public class RoundWebview extends SapiWebView {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36802b;
+    public float f28554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f36803c;
+    public float f28555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f36804d;
+    public float f28556d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36805e;
+    public int f28557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36806f;
+    public int f28558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36807g;
+    public int f28559g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36808h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f36809i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f36810j;
+    public int f28560h;
+    public Paint i;
+    public Paint j;
     public float[] k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +55,9 @@ public class RoundWebview extends SapiWebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -70,9 +66,9 @@ public class RoundWebview extends SapiWebView {
             }
         }
         this.a = 0.0f;
-        this.f36802b = 0.0f;
-        this.f36803c = 0.0f;
-        this.f36804d = 0.0f;
+        this.f28554b = 0.0f;
+        this.f28555c = 0.0f;
+        this.f28556d = 0.0f;
         this.k = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
         a(context, attributeSet);
     }
@@ -81,20 +77,20 @@ public class RoundWebview extends SapiWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, attributeSet) == null) {
             Paint paint = new Paint();
-            this.f36809i = paint;
+            this.i = paint;
             paint.setColor(-1);
-            this.f36809i.setAntiAlias(true);
-            this.f36809i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.i.setAntiAlias(true);
+            this.i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
             Paint paint2 = new Paint();
-            this.f36810j = paint2;
+            this.j = paint2;
             paint2.setXfermode(null);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.sapi_sdk_bottom_left, R.attr.sapi_sdk_bottom_right, R.attr.sapi_sdk_top_left, R.attr.sapi_sdk_top_right});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f040515, R.attr.obfuscated_res_0x7f04051b, R.attr.obfuscated_res_0x7f04051c});
             this.a = obtainStyledAttributes.getDimension(2, 0.0f);
-            this.f36802b = obtainStyledAttributes.getDimension(3, 0.0f);
-            this.f36803c = obtainStyledAttributes.getDimension(0, 0.0f);
+            this.f28554b = obtainStyledAttributes.getDimension(3, 0.0f);
+            this.f28555c = obtainStyledAttributes.getDimension(0, 0.0f);
             float dimension = obtainStyledAttributes.getDimension(1, 0.0f);
-            this.f36804d = dimension;
-            a(this.a, this.f36802b, dimension, this.f36803c);
+            this.f28556d = dimension;
+            a(this.a, this.f28554b, dimension, this.f28555c);
         }
     }
 
@@ -102,38 +98,38 @@ public class RoundWebview extends SapiWebView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f36807g = getScrollX();
-            this.f36808h = getScrollY();
+            this.f28559g = getScrollX();
+            this.f28560h = getScrollY();
             Path path = new Path();
-            int i2 = this.f36808h;
-            path.addRoundRect(new RectF(0.0f, i2, this.f36807g + this.f36805e, i2 + this.f36806f), this.k, Path.Direction.CW);
+            int i = this.f28560h;
+            path.addRoundRect(new RectF(0.0f, i, this.f28559g + this.f28557e, i + this.f28558f), this.k, Path.Direction.CW);
             canvas.clipPath(path);
             super.onDraw(canvas);
         }
     }
 
     @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            this.f36805e = getMeasuredWidth();
-            this.f36806f = getMeasuredHeight();
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            this.f28557e = getMeasuredWidth();
+            this.f28558f = getMeasuredHeight();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundWebview(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundWebview(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -142,9 +138,9 @@ public class RoundWebview extends SapiWebView {
             }
         }
         this.a = 0.0f;
-        this.f36802b = 0.0f;
-        this.f36803c = 0.0f;
-        this.f36804d = 0.0f;
+        this.f28554b = 0.0f;
+        this.f28555c = 0.0f;
+        this.f28556d = 0.0f;
         this.k = new float[]{0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
         a(context, attributeSet);
     }

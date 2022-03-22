@@ -1,5 +1,6 @@
 package androidx.core.util;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,9 +28,9 @@ public class AtomicFile {
             newInitContext.initArgs = r2;
             Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,7 +72,8 @@ public class AtomicFile {
             fileOutputStream.close();
             this.mBaseName.delete();
             this.mBackupName.renameTo(this.mBaseName);
-        } catch (IOException unused) {
+        } catch (IOException e2) {
+            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "failWrite: Got exception:", e2);
         }
     }
 
@@ -84,7 +86,8 @@ public class AtomicFile {
         try {
             fileOutputStream.close();
             this.mBackupName.delete();
-        } catch (IOException unused) {
+        } catch (IOException e2) {
+            Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "finishWrite: Got exception:", e2);
         }
     }
 
@@ -119,17 +122,17 @@ public class AtomicFile {
         FileInputStream openRead = openRead();
         try {
             byte[] bArr = new byte[openRead.available()];
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                int read = openRead.read(bArr, i2, bArr.length - i2);
+                int read = openRead.read(bArr, i, bArr.length - i);
                 if (read <= 0) {
                     return bArr;
                 }
-                i2 += read;
+                i += read;
                 int available = openRead.available();
-                if (available > bArr.length - i2) {
-                    byte[] bArr2 = new byte[available + i2];
-                    System.arraycopy(bArr, 0, bArr2, 0, i2);
+                if (available > bArr.length - i) {
+                    byte[] bArr2 = new byte[available + i];
+                    System.arraycopy(bArr, 0, bArr2, 0, i);
                     bArr = bArr2;
                 }
             }
@@ -146,7 +149,7 @@ public class AtomicFile {
             if (this.mBaseName.exists()) {
                 if (!this.mBackupName.exists()) {
                     if (!this.mBaseName.renameTo(this.mBackupName)) {
-                        String str = "Couldn't rename file " + this.mBaseName + " to backup file " + this.mBackupName;
+                        Log.w(com.google.android.exoplayer2.util.AtomicFile.TAG, "Couldn't rename file " + this.mBaseName + " to backup file " + this.mBackupName);
                     }
                 } else {
                     this.mBaseName.delete();

@@ -12,22 +12,22 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector2 f27396b;
+    public Vector2 f22628b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Vector2 f27397c;
+    public Vector2 f22629c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27398d;
+    public int f22630d;
 
     public i() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

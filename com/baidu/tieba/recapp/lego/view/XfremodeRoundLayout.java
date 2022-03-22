@@ -16,19 +16,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class XfremodeRoundLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Shape a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Shape f46169e;
+    /* renamed from: b  reason: collision with root package name */
+    public Paint f35735b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Paint f46170f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float[] f46171g;
+    /* renamed from: c  reason: collision with root package name */
+    public float[] f35736c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public XfremodeRoundLayout(Context context) {
@@ -39,9 +37,9 @@ public class XfremodeRoundLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -56,26 +54,26 @@ public class XfremodeRoundLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            Shape shape = this.f46169e;
+            Shape shape = this.a;
             if (shape != null) {
-                shape.draw(canvas, this.f46170f);
+                shape.draw(canvas, this.f35735b);
             }
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (z) {
-                if (this.f46169e == null) {
+                if (this.a == null) {
                     RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    this.f46169e = new RoundRectShape(fArr, rectF, this.f46171g);
+                    this.a = new RoundRectShape(fArr, rectF, this.f35736c);
                 }
-                this.f46169e.resize(getWidth(), getHeight());
+                this.a.resize(getWidth(), getHeight());
             }
         }
     }
@@ -83,7 +81,7 @@ public class XfremodeRoundLayout extends RelativeLayout {
     public void setRoundLayoutRadius(float[] fArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f46171g = Arrays.copyOf(fArr, fArr.length);
+            this.f35736c = Arrays.copyOf(fArr, fArr.length);
         }
     }
 
@@ -96,9 +94,9 @@ public class XfremodeRoundLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -109,17 +107,17 @@ public class XfremodeRoundLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public XfremodeRoundLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public XfremodeRoundLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -129,11 +127,11 @@ public class XfremodeRoundLayout extends RelativeLayout {
         }
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f46170f = paint;
+        this.f35735b = paint;
         paint.setAntiAlias(true);
-        this.f46170f.setColor(-7829368);
-        this.f46170f.setStyle(Paint.Style.FILL);
-        this.f46170f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f35735b.setColor(-7829368);
+        this.f35735b.setStyle(Paint.Style.FILL);
+        this.f35735b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 
     public void setRoundLayoutRadius(float f2) {

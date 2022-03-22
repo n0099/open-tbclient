@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableBuffer<T, C extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
     public final int size;
     public final int skip;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class PublisherBufferExactSubscriber<T, C extends Collection<? super T>> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,23 +44,23 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         public Subscription s;
         public final int size;
 
-        public PublisherBufferExactSubscriber(Subscriber<? super C> subscriber, int i2, Callable<C> callable) {
+        public PublisherBufferExactSubscriber(Subscriber<? super C> subscriber, int i, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), callable};
+                Object[] objArr = {subscriber, Integer.valueOf(i), callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.size = i2;
+            this.size = i;
             this.bufferSupplier = callable;
         }
 
@@ -118,14 +118,14 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 }
             }
             c2.add(t);
-            int i2 = this.index + 1;
-            if (i2 == this.size) {
+            int i = this.index + 1;
+            if (i == this.size) {
                 this.index = 0;
                 this.buffer = null;
                 this.actual.onNext(c2);
                 return;
             }
-            this.index = i2;
+            this.index = i;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -138,15 +138,15 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                this.s.request(BackpressureHelper.multiplyCap(j2, this.size));
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+                this.s.request(BackpressureHelper.multiplyCap(j, this.size));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements FlowableSubscriber<T>, Subscription, BooleanSupplier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7370244972039324525L;
@@ -163,24 +163,24 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         public final int size;
         public final int skip;
 
-        public PublisherBufferOverlappingSubscriber(Subscriber<? super C> subscriber, int i2, int i3, Callable<C> callable) {
+        public PublisherBufferOverlappingSubscriber(Subscriber<? super C> subscriber, int i, int i2, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3), callable};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2), callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.size = i2;
-            this.skip = i3;
+            this.size = i;
+            this.skip = i2;
             this.bufferSupplier = callable;
             this.once = new AtomicBoolean();
             this.buffers = new ArrayDeque<>();
@@ -209,9 +209,9 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             this.done = true;
-            long j2 = this.produced;
-            if (j2 != 0) {
-                BackpressureHelper.produced(this, j2);
+            long j = this.produced;
+            if (j != 0) {
+                BackpressureHelper.produced(this, j);
             }
             QueueDrainHelper.postComplete(this.actual, this.buffers, this, this);
         }
@@ -239,9 +239,9 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             ArrayDeque<C> arrayDeque = this.buffers;
-            int i2 = this.index;
-            int i3 = i2 + 1;
-            if (i2 == 0) {
+            int i = this.index;
+            int i2 = i + 1;
+            if (i == 0) {
                 try {
                     arrayDeque.offer((Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer"));
                 } catch (Throwable th) {
@@ -262,10 +262,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
             while (it.hasNext()) {
                 ((Collection) it.next()).add(t);
             }
-            if (i3 == this.skip) {
-                i3 = 0;
+            if (i2 == this.skip) {
+                i2 = 0;
             }
-            this.index = i3;
+            this.index = i2;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -278,19 +278,19 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && !QueueDrainHelper.postCompleteRequest(j2, this.actual, this.buffers, this, this)) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && !QueueDrainHelper.postCompleteRequest(j, this.actual, this.buffers, this, this)) {
                 if (!this.once.get() && this.once.compareAndSet(false, true)) {
-                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j2 - 1)));
+                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j - 1)));
                     return;
                 }
-                this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
+                this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5616169793639412593L;
@@ -304,24 +304,24 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         public final int size;
         public final int skip;
 
-        public PublisherBufferSkipSubscriber(Subscriber<? super C> subscriber, int i2, int i3, Callable<C> callable) {
+        public PublisherBufferSkipSubscriber(Subscriber<? super C> subscriber, int i, int i2, Callable<C> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3), callable};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2), callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.size = i2;
-            this.skip = i3;
+            this.size = i;
+            this.skip = i2;
             this.bufferSupplier = callable;
         }
 
@@ -369,9 +369,9 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             C c2 = this.buffer;
-            int i2 = this.index;
-            int i3 = i2 + 1;
-            if (i2 == 0) {
+            int i = this.index;
+            int i2 = i + 1;
+            if (i == 0) {
                 try {
                     c2 = (C) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
                     this.buffer = c2;
@@ -389,10 +389,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                     this.actual.onNext(c2);
                 }
             }
-            if (i3 == this.skip) {
-                i3 = 0;
+            if (i2 == this.skip) {
+                i2 = 0;
             }
-            this.index = i3;
+            this.index = i2;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -405,38 +405,38 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(j2, this.size), BackpressureHelper.multiplyCap(this.skip - this.size, j2 - 1)));
+                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(j, this.size), BackpressureHelper.multiplyCap(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
+                this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBuffer(Flowable<T> flowable, int i2, int i3, Callable<C> callable) {
+    public FlowableBuffer(Flowable<T> flowable, int i, int i2, Callable<C> callable) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Integer.valueOf(i2), Integer.valueOf(i3), callable};
+            Object[] objArr = {flowable, Integer.valueOf(i), Integer.valueOf(i2), callable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.size = i2;
-        this.skip = i3;
+        this.size = i;
+        this.skip = i2;
         this.bufferSupplier = callable;
     }
 
@@ -444,11 +444,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
     public void subscribeActual(Subscriber<? super C> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            int i2 = this.size;
-            int i3 = this.skip;
-            if (i2 == i3) {
-                this.source.subscribe((FlowableSubscriber) new PublisherBufferExactSubscriber(subscriber, i2, this.bufferSupplier));
-            } else if (i3 > i2) {
+            int i = this.size;
+            int i2 = this.skip;
+            if (i == i2) {
+                this.source.subscribe((FlowableSubscriber) new PublisherBufferExactSubscriber(subscriber, i, this.bufferSupplier));
+            } else if (i2 > i) {
                 this.source.subscribe((FlowableSubscriber) new PublisherBufferSkipSubscriber(subscriber, this.size, this.skip, this.bufferSupplier));
             } else {
                 this.source.subscribe((FlowableSubscriber) new PublisherBufferOverlappingSubscriber(subscriber, this.size, this.skip, this.bufferSupplier));

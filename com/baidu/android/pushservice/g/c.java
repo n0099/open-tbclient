@@ -14,22 +14,22 @@ public abstract class c implements Runnable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f30575b;
+    public short f24447b;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30575b = (short) 99;
+        this.f24447b = (short) 99;
     }
 
     public c(String str, short s) {
@@ -39,17 +39,17 @@ public abstract class c implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Short.valueOf(s)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f30575b = (short) 99;
+        this.f24447b = (short) 99;
         this.a = str;
-        this.f30575b = s;
+        this.f24447b = s;
     }
 
     public abstract void a();
@@ -57,7 +57,7 @@ public abstract class c implements Runnable {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f30575b = s;
+            this.f24447b = s;
         }
     }
 
@@ -71,7 +71,7 @@ public abstract class c implements Runnable {
     public short d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30575b : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24447b : invokeV.shortValue;
     }
 
     @Override // java.lang.Runnable

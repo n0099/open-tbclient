@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.model;
 
-import c.a.q0.k0.b.g;
-import c.a.q0.k0.b.h;
+import c.a.o0.k0.b.g;
+import c.a.o0.k0.b.h;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +22,9 @@ public abstract class NetAutoModel<T extends g, D extends h, ActivityType> exten
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (g) objArr2[1], (NetModel.NetModelType) objArr2[2]);
                 newInitContext.thisArg = this;

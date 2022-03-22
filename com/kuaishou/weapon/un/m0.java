@@ -9,6 +9,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,10 +32,10 @@ public class m0 {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53724b;
+    public static final String f38908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53725c;
+    public static final String f38909c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +52,8 @@ public class m0 {
             }
         }
         a = u1.a("x8aN0czB1Y3CzcfRzMrHjdvTzNDGx43708zQxsfrxs/TxtHQ");
-        f53724b = u1.a("x8aN0czB1Y3CzcfRzMrHjdvTzNDGx43708zQxsfh0crHxMY=");
-        f53725c = u1.a("wMzOjcbPx8bRx9HK1cbR0I3RytHWjcbH29ONwMzNxcrEjebH+9PgzM3FysTkz8zBws8=");
+        f38908b = u1.a("x8aN0czB1Y3CzcfRzMrHjdvTzNDGx43708zQxsfh0crHxMY=");
+        f38909c = u1.a("wMzOjcbPx8bRx9HK1cbR0I3RytHWjcbH29ONwMzNxcrEjebH+9PgzM3FysTkz8zBws8=");
     }
 
     public m0() {
@@ -60,9 +61,9 @@ public class m0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -124,17 +125,17 @@ public class m0 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, method)) == null) ? method != null && Modifier.isNative(method.getModifiers()) : invokeL.booleanValue;
     }
 
-    public int a(Context context, int i2, Set set) {
+    public int a(Context context, int i, Set set) {
         InterceptResult invokeLIL;
         String str;
         boolean a2;
         Class cls;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, set)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i, set)) == null) {
             try {
                 if (ClassLoader.getSystemClassLoader() != null) {
-                    switch (i2) {
+                    switch (i) {
                         case 13:
                             str = "getDeviceId";
                             a2 = a(context, str, set);
@@ -149,7 +150,7 @@ public class m0 {
                             return a2 ? 1 : 0;
                         case 16:
                             cls = Settings.Secure.class;
-                            str2 = "getString";
+                            str2 = SharedPreferenceManager.OPERATION_GET_STRING;
                             a2 = a(cls, str2, set);
                             return a2 ? 1 : 0;
                         case 17:
@@ -305,7 +306,7 @@ public class m0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                Class<?> loadClass = ClassLoader.getSystemClassLoader().loadClass(f53724b);
+                Class<?> loadClass = ClassLoader.getSystemClassLoader().loadClass(f38908b);
                 if (loadClass != null) {
                     Field declaredField = loadClass.getDeclaredField("sHookedMethodCallbacks");
                     declaredField.setAccessible(true);

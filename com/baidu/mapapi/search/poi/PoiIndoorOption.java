@@ -21,9 +21,9 @@ public class PoiIndoorOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,11 +33,11 @@ public class PoiIndoorOption {
         this.pageSize = 10;
     }
 
-    public PoiIndoorOption poiCurrentPage(int i2) {
+    public PoiIndoorOption poiCurrentPage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.currentPage = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            this.currentPage = i;
             return this;
         }
         return (PoiIndoorOption) invokeI.objValue;
@@ -73,11 +73,11 @@ public class PoiIndoorOption {
         return (PoiIndoorOption) invokeL.objValue;
     }
 
-    public PoiIndoorOption poiPageSize(int i2) {
+    public PoiIndoorOption poiPageSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.pageSize = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.pageSize = i;
             return this;
         }
         return (PoiIndoorOption) invokeI.objValue;

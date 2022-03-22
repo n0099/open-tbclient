@@ -1,8 +1,8 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
 import android.util.Base64;
-import c.a.q0.c1.b0;
-import c.a.q0.c1.v0;
+import c.a.o0.c1.b0;
+import c.a.o0.c1.v0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CompleteTaskReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TASK_TYPE_DEFAULT = 0;
@@ -27,17 +27,17 @@ public class CompleteTaskReqMsg extends NetMessage {
     public String mToken;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CompleteTaskReqMsg(int i2) {
+    public CompleteTaskReqMsg(int i) {
         super(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -45,7 +45,7 @@ public class CompleteTaskReqMsg extends NetMessage {
                 return;
             }
         }
-        this.mTaskType = i2;
+        this.mTaskType = i;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

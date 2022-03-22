@@ -25,31 +25,27 @@ public class m0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4056b;
+    public int f3456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4057c;
+    public int f3457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4058d;
+    public int f3458d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4059e;
+    public int f3459e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4060f;
+    public int f3460f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4061g;
+    public int f3461g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4062h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f4063i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f4064j;
+    public int f3462h;
+    public int i;
+    public boolean j;
 
     static {
         InterceptResult invokeClinit;
@@ -78,90 +74,90 @@ public class m0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f4056b = n;
-        this.f4057c = p;
-        this.f4058d = k;
-        this.f4059e = 0;
-        this.f4060f = l;
-        this.f4061g = m;
-        this.f4062h = R.color.CAM_X0205;
-        this.f4063i = q;
+        this.f3456b = n;
+        this.f3457c = p;
+        this.f3458d = k;
+        this.f3459e = 0;
+        this.f3460f = l;
+        this.f3461g = m;
+        this.f3462h = R.color.CAM_X0205;
+        this.i = q;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4064j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4062h = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f3462h = i;
         }
     }
 
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f4059e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f3459e = i;
         }
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f4063i = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.i = i;
         }
     }
 
-    public void e(int i2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f4060f = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f3460f = i;
         }
     }
 
-    public void f(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f4061g = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f3461g = i;
         }
     }
 
-    public void g(int i2) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    public void h(int i2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f4056b = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f3456b = i;
         }
     }
 
-    public void i(int i2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f4058d = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f3458d = i;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f4064j = z;
+            this.j = z;
         }
     }
 }

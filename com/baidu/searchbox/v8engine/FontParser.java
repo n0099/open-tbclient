@@ -54,9 +54,9 @@ public class FontParser {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,22 +71,22 @@ public class FontParser {
         public final float styleValue;
         public final int tag;
 
-        public Axis(int i2, float f2) {
+        public Axis(int i, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Float.valueOf(f2)};
+                Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.tag = i2;
+            this.tag = i;
             this.styleValue = f2;
         }
     }
@@ -103,9 +103,9 @@ public class FontParser {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -132,9 +132,9 @@ public class FontParser {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, list, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,25 +157,25 @@ public class FontParser {
         public int ttcIndex;
         public int weight;
 
-        public Font(String str, int i2, List<Axis> list, int i3, boolean z) {
+        public Font(String str, int i, List<Axis> list, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), list, Integer.valueOf(i3), Boolean.valueOf(z)};
+                Object[] objArr = {str, Integer.valueOf(i), list, Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.fontName = str;
-            this.ttcIndex = i2;
+            this.ttcIndex = i;
             this.axes = list;
-            this.weight = i3;
+            this.weight = i2;
             this.isItalic = z;
         }
     }
@@ -206,9 +206,9 @@ public class FontParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -297,27 +297,27 @@ public class FontParser {
         return (Config) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008e, code lost:
         if (r2.equals("zh") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0097, code lost:
         if (r2.equals("zh-Hant") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x009c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00a0, code lost:
         if (r2.equals("zh-Hans") == false) goto L34;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x009e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a2, code lost:
         r5 = new java.lang.StringBuilder();
         r5.append(r2);
         r5.append("/");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
         if (r4.isItalic == false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b2, code lost:
         r6 = "normal";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
         r5.append(r6);
         r5.append("/");
         r5.append(r4.weight);
@@ -396,13 +396,13 @@ public class FontParser {
     public static void skip(XmlPullParser xmlPullParser) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, xmlPullParser) == null) {
-            int i2 = 1;
-            while (i2 > 0) {
+            int i = 1;
+            while (i > 0) {
                 int next = xmlPullParser.next();
                 if (next == 2) {
-                    i2++;
+                    i++;
                 } else if (next == 3) {
-                    i2--;
+                    i--;
                 }
             }
         }

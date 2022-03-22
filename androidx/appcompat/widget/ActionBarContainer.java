@@ -46,9 +46,9 @@ public class ActionBarContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -150,19 +150,19 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             View view = this.mTabContainer;
             boolean z2 = true;
             boolean z3 = false;
             boolean z4 = (view == null || view.getVisibility() == 8) ? false : true;
             if (view != null && view.getVisibility() != 8) {
                 int measuredHeight = getMeasuredHeight();
-                int i6 = ((FrameLayout.LayoutParams) view.getLayoutParams()).bottomMargin;
-                view.layout(i2, (measuredHeight - view.getMeasuredHeight()) - i6, i4, measuredHeight - i6);
+                int i5 = ((FrameLayout.LayoutParams) view.getLayoutParams()).bottomMargin;
+                view.layout(i, (measuredHeight - view.getMeasuredHeight()) - i5, i3, measuredHeight - i5);
             }
             if (this.mIsSplit) {
                 Drawable drawable2 = this.mSplitBackground;
@@ -199,19 +199,19 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         int measuredHeightWithMargins;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            if (this.mActionBarView == null && View.MeasureSpec.getMode(i3) == Integer.MIN_VALUE && (i4 = this.mHeight) >= 0) {
-                i3 = View.MeasureSpec.makeMeasureSpec(Math.min(i4, View.MeasureSpec.getSize(i3)), Integer.MIN_VALUE);
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            if (this.mActionBarView == null && View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE && (i3 = this.mHeight) >= 0) {
+                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i3, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
             if (this.mActionBarView == null) {
                 return;
             }
-            int mode = View.MeasureSpec.getMode(i3);
+            int mode = View.MeasureSpec.getMode(i2);
             View view = this.mTabContainer;
             if (view == null || view.getVisibility() == 8 || mode == 1073741824) {
                 return;
@@ -221,7 +221,7 @@ public class ActionBarContainer extends FrameLayout {
             } else {
                 measuredHeightWithMargins = !isCollapsed(this.mContextView) ? getMeasuredHeightWithMargins(this.mContextView) : 0;
             }
-            setMeasuredDimension(getMeasuredWidth(), Math.min(measuredHeightWithMargins + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i3) : Integer.MAX_VALUE));
+            setMeasuredDimension(getMeasuredWidth(), Math.min(measuredHeightWithMargins + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
         }
     }
 
@@ -347,11 +347,11 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            super.setVisibility(i2);
-            boolean z = i2 == 0;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            super.setVisibility(i);
+            boolean z = i == 0;
             Drawable drawable = this.mBackground;
             if (drawable != null) {
                 drawable.setVisible(z, false);
@@ -378,12 +378,12 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i2) {
+    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, view, callback, i2)) == null) {
-            if (i2 != 0) {
-                return super.startActionModeForChild(view, callback, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, view, callback, i)) == null) {
+            if (i != 0) {
+                return super.startActionModeForChild(view, callback, i);
             }
             return null;
         }
@@ -406,9 +406,9 @@ public class ActionBarContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

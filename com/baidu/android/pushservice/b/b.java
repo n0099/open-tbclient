@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
@@ -20,10 +21,10 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30279b;
+    public String f24181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30280c;
+    public String f24182c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -32,9 +33,9 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,26 +49,26 @@ public class b {
         b.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = new File(this.f30280c).exists() ? a.a(this.a, this.f30280c) : a.a();
+            String a = new File(this.f24182c).exists() ? a.a(this.a, this.f24182c) : a.a();
             if (!TextUtils.isEmpty(a)) {
                 try {
                     byte[] decode = Base64.decode(a.getBytes(), 2);
                     if (decode != null && decode.length > 0) {
-                        this.f30279b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), "utf-8");
+                        this.f24181b = new String(BaiduAppSSOJni.decryptAES(decode, decode.length, 0), IMAudioTransRequest.CHARSET);
                     }
                 } catch (Exception e2) {
                     e = e2;
                     cVar = new b.c(this.a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f30279b);
+                    return !TextUtils.isEmpty(this.f24181b);
                 } catch (UnsatisfiedLinkError e3) {
                     e = e3;
                     cVar = new b.c(this.a);
                     cVar.a(Log.getStackTraceString(e)).a();
-                    return !TextUtils.isEmpty(this.f30279b);
+                    return !TextUtils.isEmpty(this.f24181b);
                 }
             }
-            return !TextUtils.isEmpty(this.f30279b);
+            return !TextUtils.isEmpty(this.f24181b);
         }
         return invokeV.booleanValue;
     }
@@ -75,6 +76,6 @@ public class b {
     public boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f30280c, str) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) ? a.a(context, this.f24182c, str) : invokeLL.booleanValue;
     }
 }

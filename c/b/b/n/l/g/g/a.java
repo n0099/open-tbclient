@@ -11,21 +11,21 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<f> f27376b;
+    public c.b.b.q.a<f> f22608b;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27376b = new c.b.b.q.a<>();
+        this.f22608b = new c.b.b.q.a<>();
     }
 }

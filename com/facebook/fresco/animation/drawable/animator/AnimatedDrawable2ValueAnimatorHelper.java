@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
 @TargetApi(11)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawable2ValueAnimatorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class AnimatedDrawable2ValueAnimatorHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,9 +44,9 @@ public class AnimatedDrawable2ValueAnimatorHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {animatedDrawable2};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -67,15 +67,15 @@ public class AnimatedDrawable2ValueAnimatorHelper {
     }
 
     @Nullable
-    public static ValueAnimator createValueAnimator(AnimatedDrawable2 animatedDrawable2, int i2) {
+    public static ValueAnimator createValueAnimator(AnimatedDrawable2 animatedDrawable2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, animatedDrawable2, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, animatedDrawable2, i)) == null) {
             ValueAnimator createValueAnimator = createValueAnimator(animatedDrawable2);
             if (createValueAnimator == null) {
                 return null;
             }
-            createValueAnimator.setRepeatCount((int) Math.max(i2 / animatedDrawable2.getLoopDurationMs(), 1L));
+            createValueAnimator.setRepeatCount((int) Math.max(i / animatedDrawable2.getLoopDurationMs(), 1L));
             return createValueAnimator;
         }
         return (ValueAnimator) invokeLI.objValue;

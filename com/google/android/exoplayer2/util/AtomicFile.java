@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.util;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AtomicFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AtomicFile";
@@ -22,7 +23,7 @@ public final class AtomicFile {
     public final File backupName;
     public final File baseName;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AtomicFileOutputStream extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +37,9 @@ public final class AtomicFile {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,7 +59,8 @@ public final class AtomicFile {
             flush();
             try {
                 this.fileOutputStream.getFD().sync();
-            } catch (IOException unused) {
+            } catch (IOException e2) {
+                Log.w(AtomicFile.TAG, "Failed to sync file descriptor:", e2);
             }
             this.fileOutputStream.close();
         }
@@ -72,10 +74,10 @@ public final class AtomicFile {
         }
 
         @Override // java.io.OutputStream
-        public void write(int i2) throws IOException {
+        public void write(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.fileOutputStream.write(i2);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.fileOutputStream.write(i);
             }
         }
 
@@ -88,10 +90,10 @@ public final class AtomicFile {
         }
 
         @Override // java.io.OutputStream
-        public void write(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+        public void write(@NonNull byte[] bArr, int i, int i2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
-                this.fileOutputStream.write(bArr, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+                this.fileOutputStream.write(bArr, i, i2);
             }
         }
     }
@@ -103,9 +105,9 @@ public final class AtomicFile {
             newInitContext.initArgs = r2;
             Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -156,7 +158,7 @@ public final class AtomicFile {
             if (this.baseName.exists()) {
                 if (!this.backupName.exists()) {
                     if (!this.baseName.renameTo(this.backupName)) {
-                        String str = "Couldn't rename file " + this.baseName + " to backup file " + this.backupName;
+                        Log.w(TAG, "Couldn't rename file " + this.baseName + " to backup file " + this.backupName);
                     }
                 } else {
                     this.baseName.delete();

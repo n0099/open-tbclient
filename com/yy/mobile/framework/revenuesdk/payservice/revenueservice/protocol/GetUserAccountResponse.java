@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,8 +60,8 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                 JSONArray optJSONArray = jSONObject.optJSONArray("accountList");
                 this.accountList = new HashMap();
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                         if (optJSONObject != null) {
                             MyBalanceInfo.Account account = new MyBalanceInfo.Account();
                             account.currencyType = optJSONObject.optInt("currencyType", 0);
@@ -77,8 +77,8 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                 if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                     return;
                 }
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
                     if (optJSONObject2 != null) {
                         MyBalanceInfo.AccountPeriod accountPeriod = new MyBalanceInfo.AccountPeriod();
                         accountPeriod.currencyType = optJSONObject2.optInt("currencyType", 0);

@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,20 +30,20 @@ public final class b {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65536, null, inputStream, outputStream, bArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 
     public static String a(InputStream inputStream) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
             if (inputStream == null) {

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.ss.android.download.api.config.h;
 import com.ss.android.download.api.config.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements h {
     public s a;
 
@@ -28,7 +28,7 @@ public class b implements h {
     }
 
     @Override // com.ss.android.download.api.config.h
-    public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         s sVar;
         if (iArr.length <= 0 || (sVar = this.a) == null) {
             return;

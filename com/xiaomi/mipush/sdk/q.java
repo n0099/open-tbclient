@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ea;
 import com.xiaomi.push.hk;
 import com.xiaomi.push.service.aq;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class q extends aq.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(int i2, String str, Context context) {
-        super(i2, str);
+    public q(int i, String str, Context context) {
+        super(i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, context};
+            Object[] objArr = {Integer.valueOf(i), str, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;

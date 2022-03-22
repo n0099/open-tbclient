@@ -25,9 +25,9 @@ public abstract class ConnectableObservable<T> extends Observable<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,22 +62,22 @@ public abstract class ConnectableObservable<T> extends Observable<T> {
     }
 
     @NonNull
-    public Observable<T> autoConnect(int i2) {
+    public Observable<T> autoConnect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? autoConnect(i2, Functions.emptyConsumer()) : (Observable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? autoConnect(i, Functions.emptyConsumer()) : (Observable) invokeI.objValue;
     }
 
     @NonNull
-    public Observable<T> autoConnect(int i2, @NonNull Consumer<? super Disposable> consumer) {
+    public Observable<T> autoConnect(int i, @NonNull Consumer<? super Disposable> consumer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, consumer)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, consumer)) == null) {
+            if (i <= 0) {
                 connect(consumer);
                 return RxJavaPlugins.onAssembly((ConnectableObservable) this);
             }
-            return RxJavaPlugins.onAssembly(new ObservableAutoConnect(this, i2, consumer));
+            return RxJavaPlugins.onAssembly(new ObservableAutoConnect(this, i, consumer));
         }
         return (Observable) invokeIL.objValue;
     }

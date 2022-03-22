@@ -25,9 +25,9 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,10 +37,10 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.mDatas.get(i2));
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
+            viewGroup.removeView(this.mDatas.get(i));
         }
     }
 
@@ -53,12 +53,12 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-            viewGroup.addView(this.mDatas.get(i2));
-            return this.mDatas.get(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            viewGroup.addView(this.mDatas.get(i));
+            return this.mDatas.get(i);
         }
         return invokeLI.objValue;
     }

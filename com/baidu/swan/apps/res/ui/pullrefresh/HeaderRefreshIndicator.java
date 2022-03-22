@@ -2,9 +2,8 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.animation.TranslateAnimation;
-import c.a.p0.a.p2.n0;
-import c.a.p0.a.s0.a;
+import c.a.n0.a.p2.n0;
+import c.a.n0.a.s0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.tieba.R;
@@ -12,25 +11,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean isInited;
-    public boolean r;
+    public boolean n;
+    public boolean o;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HeaderRefreshIndicator(Context context) {
-        this(context, (AttributeSet) null);
+        this(context, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -40,32 +39,36 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         }
     }
 
-    public void changeTheme(boolean z) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    public void initIfNeed() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.isInited) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.n) {
             return;
         }
-        this.isInited = true;
-        this.r = a.M().a();
-        initResources();
+        this.n = true;
+        this.o = a.M().a();
+        j();
         setTextSize(1, 11.0f);
         setCompoundDrawablePadding(n0.f(getContext(), 5.0f));
-        initCornerRadius(0);
+        b(0);
     }
 
-    public void initResources() {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setBackground(getResources().getDrawable(R.drawable.aiapps_pull_refresh_success_tip_bg));
-            setTextColor(getResources().getColor(R.color.aiapps_pull_refresh_result_text_color));
-            initDrawable(getResources().getDrawable(R.drawable.aiapps_pull_refresh_success_tip_icon), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b9));
+            setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603d1));
+            c(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ba), 0, n0.f(getContext(), 11.0f), n0.f(getContext(), 11.0f));
         }
+    }
+
+    public void k() {
+        boolean a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.o == (a = a.M().a())) {
+            return;
+        }
+        j();
+        this.o = a;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -73,56 +76,15 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            resetTheme();
+            k();
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-        }
-    }
-
-    public void resetTheme() {
-        boolean a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a = a.M().a())) {
-            return;
-        }
-        initResources();
-        this.r = a;
-    }
-
-    public void startAnim() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, getHeight(), 0.0f);
-            translateAnimation.setDuration(280L);
-            setAnimation(translateAnimation);
-            translateAnimation.startNow();
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HeaderRefreshIndicator(Context context, boolean z) {
-        this(context, null, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.onMeasure(i, i2);
         }
     }
 
@@ -135,9 +97,9 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -145,30 +107,7 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
                 return;
             }
         }
-        this.isInited = false;
-        this.r = false;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.isInited = false;
-        this.r = false;
+        this.n = false;
+        this.o = false;
     }
 }

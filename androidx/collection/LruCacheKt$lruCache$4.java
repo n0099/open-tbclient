@@ -21,17 +21,17 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
     public final /* synthetic */ Function2 $sizeOf;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LruCacheKt$lruCache$4(Function2 function2, Function1 function1, Function4 function4, int i2, int i3) {
-        super(i3);
+    public LruCacheKt$lruCache$4(Function2 function2, Function1 function1, Function4 function4, int i, int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {function2, function1, function4, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {function2, function1, function4, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,7 +41,7 @@ public final class LruCacheKt$lruCache$4 extends LruCache<K, V> {
         this.$sizeOf = function2;
         this.$create = function1;
         this.$onEntryRemoved = function4;
-        this.$maxSize = i2;
+        this.$maxSize = i;
     }
 
     /* JADX WARN: Type inference failed for: r1v0, types: [V, java.lang.Object] */

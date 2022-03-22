@@ -31,10 +31,10 @@ public abstract class b implements c.a.j.h.b.a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c.a.j.h.b.a f3673b;
+    public static c.a.j.h.b.a f3161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f3674c;
+    public static final a f3162c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -47,9 +47,9 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -135,7 +135,7 @@ public abstract class b implements c.a.j.h.b.a {
         public final void n(c.a.j.h.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-                b.f3673b = aVar;
+                b.f3161b = aVar;
             }
         }
 
@@ -178,9 +178,9 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -222,9 +222,9 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -236,11 +236,11 @@ public abstract class b implements c.a.j.h.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
                 if (bArr != null) {
-                    int i2 = 0;
+                    int i = 0;
                     for (byte b2 : bArr) {
-                        i2 = (i2 << 8) | (b2 & 255);
+                        i = (i << 8) | (b2 & 255);
                     }
-                    return i2;
+                    return i;
                 }
                 return 0;
             }
@@ -263,10 +263,10 @@ public abstract class b implements c.a.j.h.b.a {
             return (g) invokeV.objValue;
         }
 
-        public static byte[] d(int i2) {
+        public static byte[] d(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new byte[]{(byte) ((i2 >> 24) & 255), (byte) ((i2 >> 16) & 255), (byte) ((i2 >> 8) & 255), (byte) (i2 & 255)} : (byte[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
         }
 
         public l b(m mVar, byte[] bArr) {
@@ -276,8 +276,8 @@ public abstract class b implements c.a.j.h.b.a {
                 l lVar = new l();
                 try {
                     k a2 = c.a.j.h.b.b$d.b.a(bArr);
-                    byte i2 = a2.i();
-                    if (i2 == 21) {
+                    byte i = a2.i();
+                    if (i == 21) {
                         c.a.j.h.b.b$b.a a3 = c.a.j.h.b.b$b.a.a(a2.o());
                         if (a3 != null) {
                             String b2 = a3.b();
@@ -290,7 +290,7 @@ public abstract class b implements c.a.j.h.b.a {
                             } else {
                                 lVar.b(-1);
                             }
-                            if (b.f3674c.h().d()) {
+                            if (b.f3162c.h().d()) {
                                 if (a3.b() != null) {
                                     DebugTrace debugTrace2 = DebugTrace.a;
                                     debugTrace2.a("BdtlsPostRequest response alert message=" + b2);
@@ -301,7 +301,7 @@ public abstract class b implements c.a.j.h.b.a {
                         } else {
                             lVar.b(-1);
                         }
-                    } else if (i2 == 23) {
+                    } else if (i == 23) {
                         lVar.c(new String(AES.aesDecrypt(a2.p(), mVar.q())));
                         lVar.b(1);
                     }
@@ -327,7 +327,7 @@ public abstract class b implements c.a.j.h.b.a {
                     if (b2 == null) {
                         return null;
                     }
-                    k a2 = k.f3699i.a();
+                    k a2 = k.i.a();
                     a2.a((byte) 22);
                     a2.c((short) b2.length);
                     a2.j(b2);
@@ -349,7 +349,7 @@ public abstract class b implements c.a.j.h.b.a {
                     return null;
                 }
                 try {
-                    k a2 = k.f3699i.a();
+                    k a2 = k.i.a();
                     a2.a((byte) 23);
                     byte[] r = mVar.r();
                     if (r != null && r.length > 0 && r.length <= 32767) {
@@ -377,15 +377,15 @@ public abstract class b implements c.a.j.h.b.a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: d  reason: collision with root package name */
-        public static volatile h f3726d;
+        public static volatile h f3209d;
         public transient /* synthetic */ FieldHolder $fh;
         public m a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ConcurrentLinkedQueue<c.a.j.h.b.b$b.h> f3727b;
+        public ConcurrentLinkedQueue<c.a.j.h.b.b$b.h> f3210b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f3728c;
+        public volatile boolean f3211c;
 
         /* loaded from: classes.dex */
         public static class a implements Function0<Unit> {
@@ -397,9 +397,9 @@ public abstract class b implements c.a.j.h.b.a {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -422,44 +422,42 @@ public abstract class b implements c.a.j.h.b.a {
 
         /* renamed from: c.a.j.h.b.b$h$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0168b implements Runnable {
+        public class RunnableC0174b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3729e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ c.a.j.h.b.b$f.b f3212b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.j.h.b.b$f.b f3730f;
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ h f3213c;
 
-            /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h f3731g;
-
-            public RunnableC0168b(h hVar, String str, c.a.j.h.b.b$f.b bVar) {
+            public RunnableC0174b(h hVar, String str, c.a.j.h.b.b$f.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {hVar, str, bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3731g = hVar;
-                this.f3729e = str;
-                this.f3730f = bVar;
+                this.f3213c = hVar;
+                this.a = str;
+                this.f3212b = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3731g.l(this.f3729e, this.f3730f);
+                    this.f3213c.l(this.a, this.f3212b);
                 }
             }
         }
@@ -477,9 +475,9 @@ public abstract class b implements c.a.j.h.b.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {hVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -498,12 +496,12 @@ public abstract class b implements c.a.j.h.b.a {
                         try {
                             DebugTrace.a.a("doHandShake response");
                             if (z && bArr != null && (a = c.a.j.h.b.b$d.b.a(bArr)) != null) {
-                                byte i2 = a.i();
+                                byte i = a.i();
                                 byte[] o = a.o();
                                 if (o != null) {
                                     DebugTrace debugTrace = DebugTrace.a;
-                                    debugTrace.a("doHandShake response schemeType =" + ((int) i2));
-                                    if (i2 == 21) {
+                                    debugTrace.a("doHandShake response schemeType =" + ((int) i));
+                                    if (i == 21) {
                                         DebugTrace.a.a("doHandShake alert");
                                         c.a.j.h.b.b$b.a a2 = c.a.j.h.b.b$b.a.a(o);
                                         if (a2 != null) {
@@ -512,12 +510,12 @@ public abstract class b implements c.a.j.h.b.a {
                                                 str = a2.b();
                                             }
                                         }
-                                    } else if (i2 == 22) {
+                                    } else if (i == 22) {
                                         if (c.a.j.h.b.b$d.a.a(this.a.a, o) != null) {
                                             DebugTrace.a.a("doHandShake serverHello");
                                             this.a.a.b(1);
                                             while (true) {
-                                                c.a.j.h.b.b$b.h hVar = (c.a.j.h.b.b$b.h) this.a.f3727b.poll();
+                                                c.a.j.h.b.b$b.h hVar = (c.a.j.h.b.b$b.h) this.a.f3210b.poll();
                                                 if (hVar == null) {
                                                     return;
                                                 }
@@ -535,7 +533,7 @@ public abstract class b implements c.a.j.h.b.a {
                         }
                         this.a.f(str);
                     } finally {
-                        this.a.f3728c = false;
+                        this.a.f3211c = false;
                     }
                 }
             }
@@ -555,7 +553,7 @@ public abstract class b implements c.a.j.h.b.a {
                 }
             }
             c.a.j.h.d.h.a(new a());
-            f3726d = new h();
+            f3209d = new h();
         }
 
         public h() {
@@ -563,31 +561,31 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.a = new m();
-            this.f3728c = false;
-            this.f3727b = new ConcurrentLinkedQueue<>();
+            this.f3211c = false;
+            this.f3210b = new ConcurrentLinkedQueue<>();
         }
 
         public static h b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3726d : (h) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f3209d : (h) invokeV.objValue;
         }
 
-        public final void c(int i2, c.a.j.h.b.b$f.b bVar) {
+        public final void c(int i, c.a.j.h.b.b$f.b bVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) || bVar == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) || bVar == null) {
                 return;
             }
-            bVar.b(i2);
+            bVar.b(i);
         }
 
         public final void f(String str) {
@@ -596,14 +594,14 @@ public abstract class b implements c.a.j.h.b.a {
                 return;
             }
             DebugTrace.a.a("onHandshakeError");
-            int i2 = TextUtils.equals(str, "down grade") ? 2 : -1;
-            this.a.b(i2);
+            int i = TextUtils.equals(str, "down grade") ? 2 : -1;
+            this.a.b(i);
             while (true) {
-                c.a.j.h.b.b$b.h poll = this.f3727b.poll();
+                c.a.j.h.b.b$b.h poll = this.f3210b.poll();
                 if (poll == null) {
                     return;
                 }
-                if (i2 == 2) {
+                if (i == 2) {
                     o(poll.a(), poll.b());
                 } else {
                     c.a.j.h.b.b$f.b b2 = poll.b();
@@ -617,7 +615,7 @@ public abstract class b implements c.a.j.h.b.a {
         public void g(String str, c.a.j.h.b.b$f.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0168b(this, str, bVar), "SessionController");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0174b(this, str, bVar), "SessionController");
             }
         }
 
@@ -638,10 +636,10 @@ public abstract class b implements c.a.j.h.b.a {
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, bVar) == null) {
                 if (this.a.a() != 2) {
                     if (!this.a.k()) {
-                        if (this.f3727b == null) {
-                            this.f3727b = new ConcurrentLinkedQueue<>();
+                        if (this.f3210b == null) {
+                            this.f3210b = new ConcurrentLinkedQueue<>();
                         }
-                        this.f3727b.offer(new c.a.j.h.b.b$b.h(str, bVar));
+                        this.f3210b.offer(new c.a.j.h.b.b$b.h(str, bVar));
                         m();
                         return;
                     }
@@ -656,17 +654,17 @@ public abstract class b implements c.a.j.h.b.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 DebugTrace.a.a("doHandShake");
-                if (this.f3728c) {
+                if (this.f3211c) {
                     DebugTrace.a.a("doHandShake isHandshakeRunning");
                     return;
                 }
-                this.f3728c = true;
+                this.f3211c = true;
                 byte[] e2 = g.c().e(this.a);
                 if (e2 != null && e2.length > 0) {
                     new c.a.j.h.b.b$f.c().a(e2, new c(this));
                     return;
                 }
-                this.f3728c = false;
+                this.f3211c = false;
                 f("record data error");
             }
         }
@@ -721,7 +719,7 @@ public abstract class b implements c.a.j.h.b.a {
                 return;
             }
         }
-        f3674c = new a(null);
+        f3162c = new a(null);
     }
 
     public b() {
@@ -729,9 +727,9 @@ public abstract class b implements c.a.j.h.b.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -739,7 +737,7 @@ public abstract class b implements c.a.j.h.b.a {
     }
 
     public static final /* synthetic */ c.a.j.h.b.a m() {
-        c.a.j.h.b.a aVar = f3673b;
+        c.a.j.h.b.a aVar = f3161b;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException(Transition.MATCH_INSTANCE_STR);
         }

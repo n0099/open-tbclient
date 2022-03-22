@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -29,7 +30,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "avcC";
@@ -88,9 +89,9 @@ public final class AvcConfigurationBox extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -120,10 +121,10 @@ public final class AvcConfigurationBox extends AbstractBox {
         ajc$tjp_22 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "hasExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "boolean"), Cea708Decoder.COMMAND_DLC);
         ajc$tjp_23 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setHasExts", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "boolean", "hasExts", "", "void"), Cea708Decoder.COMMAND_SPL);
         ajc$tjp_24 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContentSize", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "long"), 157);
-        ajc$tjp_25 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContent", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), 163);
+        ajc$tjp_25 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getContent", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "java.nio.ByteBuffer", "byteBuffer", "", "void"), MatroskaExtractor.ID_SIMPLE_BLOCK);
         ajc$tjp_26 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSPS", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "[Ljava.lang.String;"), w0.d0);
         ajc$tjp_27 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getPPS", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "[Ljava.lang.String;"), 172);
-        ajc$tjp_28 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getavcDecoderConfigurationRecord", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "com.coremedia.iso.boxes.h264.AvcConfigurationBox$AVCDecoderConfigurationRecord"), 177);
+        ajc$tjp_28 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getavcDecoderConfigurationRecord", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "com.coremedia.iso.boxes.h264.AvcConfigurationBox$AVCDecoderConfigurationRecord"), w0.u);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getAvcLevelIndication", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 66);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getLengthSizeMinusOne", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "int"), 70);
         ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSequenceParameterSets", "com.coremedia.iso.boxes.h264.AvcConfigurationBox", "", "", "", "java.util.List"), 74);
@@ -311,51 +312,51 @@ public final class AvcConfigurationBox extends AbstractBox {
         return invokeV.booleanValue;
     }
 
-    public void setAvcLevelIndication(int i2) {
+    public void setAvcLevelIndication(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.avcLevelIndication = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_10, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.avcLevelIndication = i;
         }
     }
 
-    public void setAvcProfileIndication(int i2) {
+    public void setAvcProfileIndication(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.avcProfileIndication = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.avcProfileIndication = i;
         }
     }
 
-    public void setBitDepthChromaMinus8(int i2) {
+    public void setBitDepthChromaMinus8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_19, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_19, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i;
         }
     }
 
-    public void setBitDepthLumaMinus8(int i2) {
+    public void setBitDepthLumaMinus8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_17, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i;
         }
     }
 
-    public void setChromaFormat(int i2) {
+    public void setChromaFormat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.chromaFormat = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_15, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.chromaFormat = i;
         }
     }
 
-    public void setConfigurationVersion(int i2) {
+    public void setConfigurationVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.configurationVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.configurationVersion = i;
         }
     }
 
@@ -367,11 +368,11 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    public void setLengthSizeMinusOne(int i2) {
+    public void setLengthSizeMinusOne(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i;
         }
     }
 
@@ -383,11 +384,11 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    public void setProfileCompatibility(int i2) {
+    public void setProfileCompatibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i2)));
-            this.avcDecoderConfigurationRecord.profileCompatibility = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.intObject(i)));
+            this.avcDecoderConfigurationRecord.profileCompatibility = i;
         }
     }
 
@@ -407,7 +408,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AVCDecoderConfigurationRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -434,9 +435,9 @@ public final class AvcConfigurationBox extends AbstractBox {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -478,8 +479,8 @@ public final class AvcConfigurationBox extends AbstractBox {
                     byteBuffer.put(bArr2);
                 }
                 if (this.hasExts) {
-                    int i2 = this.avcProfileIndication;
-                    if (i2 == 100 || i2 == 110 || i2 == 122 || i2 == 144) {
+                    int i = this.avcProfileIndication;
+                    if (i == 100 || i == 110 || i == 122 || i == 144) {
                         BitWriterBuffer bitWriterBuffer2 = new BitWriterBuffer(byteBuffer);
                         bitWriterBuffer2.writeBits(this.chromaFormatPaddingBits, 6);
                         bitWriterBuffer2.writeBits(this.chromaFormat, 2);
@@ -498,24 +499,24 @@ public final class AvcConfigurationBox extends AbstractBox {
 
         public long getContentSize() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                long j2 = 6;
+                long j = 6;
                 for (byte[] bArr : this.sequenceParameterSets) {
-                    j2 = j2 + 2 + bArr.length;
+                    j = j + 2 + bArr.length;
                 }
-                long j3 = j2 + 1;
+                long j2 = j + 1;
                 for (byte[] bArr2 : this.pictureParameterSets) {
-                    j3 = j3 + 2 + bArr2.length;
+                    j2 = j2 + 2 + bArr2.length;
                 }
-                if (this.hasExts && ((i2 = this.avcProfileIndication) == 100 || i2 == 110 || i2 == 122 || i2 == 144)) {
-                    j3 += 4;
+                if (this.hasExts && ((i = this.avcProfileIndication) == 100 || i == 110 || i == 122 || i == 144)) {
+                    j2 += 4;
                     for (byte[] bArr3 : this.sequenceParameterSetExts) {
-                        j3 = j3 + 2 + bArr3.length;
+                        j2 = j2 + 2 + bArr3.length;
                     }
                 }
-                return j3;
+                return j2;
             }
             return invokeV.longValue;
         }
@@ -596,16 +597,16 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
 
         public AVCDecoderConfigurationRecord(ByteBuffer byteBuffer) {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {byteBuffer};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -632,13 +633,13 @@ public final class AvcConfigurationBox extends AbstractBox {
             this.lengthSizeMinusOne = bitReaderBuffer.readBits(2);
             this.numberOfSequenceParameterSetsPaddingBits = bitReaderBuffer.readBits(3);
             int readBits = bitReaderBuffer.readBits(5);
-            for (int i5 = 0; i5 < readBits; i5++) {
+            for (int i4 = 0; i4 < readBits; i4++) {
                 byte[] bArr = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                 byteBuffer.get(bArr);
                 this.sequenceParameterSets.add(bArr);
             }
             long readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            for (int i6 = 0; i6 < readUInt8; i6++) {
+            for (int i5 = 0; i5 < readUInt8; i5++) {
                 byte[] bArr2 = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                 byteBuffer.get(bArr2);
                 this.pictureParameterSets.add(bArr2);
@@ -646,7 +647,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             if (byteBuffer.remaining() < 4) {
                 this.hasExts = false;
             }
-            if (this.hasExts && ((i2 = this.avcProfileIndication) == 100 || i2 == 110 || i2 == 122 || i2 == 144)) {
+            if (this.hasExts && ((i = this.avcProfileIndication) == 100 || i == 110 || i == 122 || i == 144)) {
                 BitReaderBuffer bitReaderBuffer2 = new BitReaderBuffer(byteBuffer);
                 this.chromaFormatPaddingBits = bitReaderBuffer2.readBits(6);
                 this.chromaFormat = bitReaderBuffer2.readBits(2);
@@ -655,7 +656,7 @@ public final class AvcConfigurationBox extends AbstractBox {
                 this.bitDepthChromaMinus8PaddingBits = bitReaderBuffer2.readBits(5);
                 this.bitDepthChromaMinus8 = bitReaderBuffer2.readBits(3);
                 long readUInt82 = IsoTypeReader.readUInt8(byteBuffer);
-                for (int i7 = 0; i7 < readUInt82; i7++) {
+                for (int i6 = 0; i6 < readUInt82; i6++) {
                     byte[] bArr3 = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                     byteBuffer.get(bArr3);
                     this.sequenceParameterSetExts.add(bArr3);

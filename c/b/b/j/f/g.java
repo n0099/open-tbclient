@@ -19,10 +19,10 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f27119b;
+    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f22375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27120c;
+    public a f22376c;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.l.d> {
@@ -30,29 +30,29 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public p.b f27121b;
+        public p.b f22377b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             p.b bVar = new p.b();
-            this.f27121b = bVar;
+            this.f22377b = bVar;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
-            bVar.f27147g = textureFilter;
-            bVar.f27146f = textureFilter;
+            bVar.f22403g = textureFilter;
+            bVar.f22402f = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
-            bVar.f27149i = textureWrap;
-            bVar.f27148h = textureWrap;
+            bVar.i = textureWrap;
+            bVar.f22404h = textureWrap;
         }
     }
 
@@ -65,17 +65,17 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27119b = new c.b.b.q.a<>();
-        this.f27120c = new a();
+        this.f22375b = new c.b.b.q.a<>();
+        this.f22376c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,14 +95,14 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
             }
             w.b<String, c.b.b.n.l.g.g.b> bVar = new w.b<>();
             bVar.a = str;
-            bVar.f27662b = h2;
-            synchronized (this.f27119b) {
-                this.f27119b.a(bVar);
+            bVar.f22866b = h2;
+            synchronized (this.f22375b) {
+                this.f22375b.a(bVar);
             }
-            p.b bVar2 = p != null ? p.f27121b : this.f27120c.f27121b;
-            a.b<ModelMaterial> it = h2.f27378c.iterator();
+            p.b bVar2 = p != null ? p.f22377b : this.f22376c.f22377b;
+            a.b<ModelMaterial> it = h2.f22610c.iterator();
             while (it.hasNext()) {
-                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().f29755i;
+                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().i;
                 if (aVar3 != null) {
                     a.b<c.b.b.n.l.g.g.i> it2 = aVar3.iterator();
                     while (it2.hasNext()) {
@@ -134,12 +134,12 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
         c.b.b.n.l.g.g.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, eVar, str, aVar, p)) == null) {
-            synchronized (this.f27119b) {
+            synchronized (this.f22375b) {
                 bVar = null;
-                for (int i2 = 0; i2 < this.f27119b.f27499f; i2++) {
-                    if (this.f27119b.get(i2).a.equals(str)) {
-                        bVar = this.f27119b.get(i2).f27662b;
-                        this.f27119b.h(i2);
+                for (int i = 0; i < this.f22375b.f22717b; i++) {
+                    if (this.f22375b.get(i).a.equals(str)) {
+                        bVar = this.f22375b.get(i).f22866b;
+                        this.f22375b.i(i);
                     }
                 }
             }

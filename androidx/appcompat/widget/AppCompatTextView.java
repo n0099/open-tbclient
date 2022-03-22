@@ -55,9 +55,9 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -290,31 +290,31 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.onLayout(z, i2, i3, i4, i5);
+                appCompatTextHelper.onLayout(z, i, i2, i3, i4);
             }
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             consumeTextFutureAndSetBlocking();
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
     @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048594, this, charSequence, i2, i3, i4) == null) {
-            super.onTextChanged(charSequence, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeLIII(1048594, this, charSequence, i, i2, i3) == null) {
+            super.onTextChanged(charSequence, i, i2, i3);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper == null || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || !appCompatTextHelper.isAutoSizeEnabled()) {
                 return;
@@ -325,48 +325,48 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i2, int i3, int i4, int i5) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048595, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048595, this, i, i2, i3, i4) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+                super.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
                 return;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
             }
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i2) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048596, this, iArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048596, this, iArr, i) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+                super.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
                 return;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+                appCompatTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
             }
         }
     }
 
     @Override // android.widget.TextView, androidx.core.widget.AutoSizeableTextView
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setAutoSizeTextTypeWithDefaults(int i2) {
+    public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setAutoSizeTextTypeWithDefaults(i2);
+                super.setAutoSizeTextTypeWithDefaults(i);
                 return;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.setAutoSizeTextTypeWithDefaults(i2);
+                appCompatTextHelper.setAutoSizeTextTypeWithDefaults(i);
             }
         }
     }
@@ -384,13 +384,13 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i2) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            super.setBackgroundResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            super.setBackgroundResource(i);
             AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
             if (appCompatBackgroundHelper != null) {
-                appCompatBackgroundHelper.onSetBackgroundResource(i2);
+                appCompatBackgroundHelper.onSetBackgroundResource(i);
             }
         }
     }
@@ -454,34 +454,34 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setFirstBaselineToTopHeight(@IntRange(from = 0) @Px int i2) {
+    public void setFirstBaselineToTopHeight(@IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                super.setFirstBaselineToTopHeight(i2);
+                super.setFirstBaselineToTopHeight(i);
             } else {
-                TextViewCompat.setFirstBaselineToTopHeight(this, i2);
+                TextViewCompat.setFirstBaselineToTopHeight(this, i);
             }
         }
     }
 
     @Override // android.widget.TextView
-    public void setLastBaselineToBottomHeight(@IntRange(from = 0) @Px int i2) {
+    public void setLastBaselineToBottomHeight(@IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                super.setLastBaselineToBottomHeight(i2);
+                super.setLastBaselineToBottomHeight(i);
             } else {
-                TextViewCompat.setLastBaselineToBottomHeight(this, i2);
+                TextViewCompat.setLastBaselineToBottomHeight(this, i);
             }
         }
     }
 
     @Override // android.widget.TextView
-    public void setLineHeight(@IntRange(from = 0) @Px int i2) {
+    public void setLineHeight(@IntRange(from = 0) @Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            TextViewCompat.setLineHeight(this, i2);
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            TextViewCompat.setLineHeight(this, i);
         }
     }
 
@@ -535,13 +535,13 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i2) {
+    public void setTextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048615, this, context, i2) == null) {
-            super.setTextAppearance(context, i2);
+        if (interceptable == null || interceptable.invokeLI(1048615, this, context, i) == null) {
+            super.setTextAppearance(context, i);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.onSetTextAppearance(context, i2);
+                appCompatTextHelper.onSetTextAppearance(context, i);
             }
         }
     }
@@ -578,29 +578,29 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextSize(int i2, float f2) {
+    public void setTextSize(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setTextSize(i2, f2);
+                super.setTextSize(i, f2);
                 return;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.setTextSize(i2, f2);
+                appCompatTextHelper.setTextSize(i, f2);
             }
         }
     }
 
     @Override // android.widget.TextView
-    public void setTypeface(@Nullable Typeface typeface, int i2) {
+    public void setTypeface(@Nullable Typeface typeface, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048620, this, typeface, i2) == null) {
-            Typeface create = (typeface == null || i2 <= 0) ? null : TypefaceCompat.create(getContext(), typeface, i2);
+        if (interceptable == null || interceptable.invokeLI(1048620, this, typeface, i) == null) {
+            Typeface create = (typeface == null || i <= 0) ? null : TypefaceCompat.create(getContext(), typeface, i);
             if (create != null) {
                 typeface = create;
             }
-            super.setTypeface(typeface, i2);
+            super.setTypeface(typeface, i);
         }
     }
 
@@ -613,9 +613,9 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -626,17 +626,17 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(TintContextWrapper.wrap(context), attributeSet, i2);
+    public AppCompatTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(TintContextWrapper.wrap(context), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -647,21 +647,21 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
         ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
         this.mTextHelper.applyCompoundDrawablesTints();
         this.mTextClassifierHelper = new AppCompatTextClassifierHelper(this);
     }
 
     @Override // android.widget.TextView
     @RequiresApi(17)
-    public void setCompoundDrawablesRelativeWithIntrinsicBounds(int i2, int i3, int i4, int i5) {
+    public void setCompoundDrawablesRelativeWithIntrinsicBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048602, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
             Context context = getContext();
-            setCompoundDrawablesRelativeWithIntrinsicBounds(i2 != 0 ? AppCompatResources.getDrawable(context, i2) : null, i3 != 0 ? AppCompatResources.getDrawable(context, i3) : null, i4 != 0 ? AppCompatResources.getDrawable(context, i4) : null, i5 != 0 ? AppCompatResources.getDrawable(context, i5) : null);
+            setCompoundDrawablesRelativeWithIntrinsicBounds(i != 0 ? AppCompatResources.getDrawable(context, i) : null, i2 != 0 ? AppCompatResources.getDrawable(context, i2) : null, i3 != 0 ? AppCompatResources.getDrawable(context, i3) : null, i4 != 0 ? AppCompatResources.getDrawable(context, i4) : null);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
                 appCompatTextHelper.onSetCompoundDrawables();
@@ -670,11 +670,11 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setCompoundDrawablesWithIntrinsicBounds(int i2, int i3, int i4, int i5) {
+    public void setCompoundDrawablesWithIntrinsicBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048604, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048604, this, i, i2, i3, i4) == null) {
             Context context = getContext();
-            setCompoundDrawablesWithIntrinsicBounds(i2 != 0 ? AppCompatResources.getDrawable(context, i2) : null, i3 != 0 ? AppCompatResources.getDrawable(context, i3) : null, i4 != 0 ? AppCompatResources.getDrawable(context, i4) : null, i5 != 0 ? AppCompatResources.getDrawable(context, i5) : null);
+            setCompoundDrawablesWithIntrinsicBounds(i != 0 ? AppCompatResources.getDrawable(context, i) : null, i2 != 0 ? AppCompatResources.getDrawable(context, i2) : null, i3 != 0 ? AppCompatResources.getDrawable(context, i3) : null, i4 != 0 ? AppCompatResources.getDrawable(context, i4) : null);
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
                 appCompatTextHelper.onSetCompoundDrawables();

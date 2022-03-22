@@ -2,9 +2,9 @@ package com.baidu.tieba.tbean;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.v0;
-import c.a.q0.q0.c;
-import c.a.q0.q0.h;
+import c.a.o0.c1.v0;
+import c.a.o0.q0.c;
+import c.a.o0.q0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,39 +41,39 @@ public class BuyTBeanActivityStatic {
 
         /* renamed from: com.baidu.tieba.tbean.BuyTBeanActivityStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1947a implements c {
+        public class C1891a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1947a(a aVar) {
+            public C1891a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
 
-            @Override // c.a.q0.q0.c
+            @Override // c.a.o0.q0.c
             public void a(h hVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
-                    TbWebViewActivity.YYPayResultCallback4CallJs.sendYYPayResultCallback4CallJs();
+                    TbWebViewActivity.YYPayResultCallback4CallJs.b();
                 }
             }
 
-            @Override // c.a.q0.q0.c
-            public void onFail(int i2, String str) {
+            @Override // c.a.o0.q0.c
+            public void onFail(int i, String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                    TbWebViewActivity.YYPayResultCallback4CallJs.sendYYPayResultCallback4CallJs();
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                    TbWebViewActivity.YYPayResultCallback4CallJs.b();
                 }
             }
         }
@@ -83,9 +83,9 @@ public class BuyTBeanActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -103,11 +103,11 @@ public class BuyTBeanActivityStatic {
                         return 3;
                     }
                     if (str.contains("tdoudiscount:")) {
-                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE), new C1947a(this));
+                        CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE), new C1891a(this));
                         return 0;
                     }
-                    Bundle i2 = v0.i(str);
-                    if (i2 != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i2.getString("path"))) {
+                    Bundle i = v0.i(str);
+                    if (i != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i.getString("path"))) {
                         CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, v0.d(str, MemberPayStatistic.REFER_PAGE), v0.d(str, MemberPayStatistic.CLICK_ZONE));
                         return 0;
                     }
@@ -132,7 +132,7 @@ public class BuyTBeanActivityStatic {
             }
         }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        c.a.r0.y3.g0.a.f(306001, GetYinJiResponseMessage.class, false);
+        c.a.p0.a4.g0.a.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -143,9 +143,9 @@ public class BuyTBeanActivityStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -175,7 +175,7 @@ public class BuyTBeanActivityStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, c.a.r0.y3.g0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, c.a.p0.a4.g0.a.a(BuyTBeanModel.GET_ICON_URL, 306001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

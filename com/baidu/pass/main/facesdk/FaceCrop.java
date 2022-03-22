@@ -1,5 +1,6 @@
 package com.baidu.pass.main.facesdk;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
@@ -38,6 +39,24 @@ public class FaceCrop {
         }
     }
 
+    public FaceCrop() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        BDFaceInstance bDFaceInstance = new BDFaceInstance();
+        this.bdFaceInstance = bDFaceInstance;
+        bDFaceInstance.getDefautlInstance();
+    }
+
     public FaceCrop(BDFaceInstance bDFaceInstance) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,9 +64,9 @@ public class FaceCrop {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDFaceInstance};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -59,32 +78,33 @@ public class FaceCrop {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native BDFaceImageInstance nativeCropFaceByBox(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByBox(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, int[] iArr);
 
-    private native BDFaceIsOutBoundary nativeCropFaceByBoxIsOutofBoundary(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceIsOutBoundary nativeCropFaceByBoxIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByBoxParam(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceImageInstance nativeCropFaceByBoxParam(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByLandmark(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByLandmark(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, int[] iArr);
 
-    private native BDFaceIsOutBoundary nativeCropFaceByLandmarkIsOutofBoundary(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceIsOutBoundary nativeCropFaceByLandmarkIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByLandmarkParam(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native BDFaceImageInstance nativeCropFaceByLandmarkParam(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
-    private native long nativeCropFaceByLandmarkParamInstance(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
+    private native long nativeCropFaceByLandmarkParamInstance(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeCropImageInit(long j2);
+    public native int nativeCropImageInit(long j);
 
-    private native BDFaceImageInstance nativeResizeImage(BDFaceImageInstance bDFaceImageInstance, int i2, BDFaceSDKCommon.BDFaceImageType bDFaceImageType);
+    private native BDFaceImageInstance nativeResizeImage(BDFaceImageInstance bDFaceImageInstance, int i, BDFaceSDKCommon.BDFaceImageType bDFaceImageType);
 
-    private native int nativeUnInitCropImage(long j2);
+    private native int nativeUnInitCropImage(long j);
 
     public BDFaceImageInstance cropFaceByBox(BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, AtomicInteger atomicInteger) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bDFaceImageInstance, faceInfo, Float.valueOf(f2), atomicInteger})) == null) {
             if (bDFaceImageInstance == null || faceInfo == null || atomicInteger == null) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -104,6 +124,7 @@ public class FaceCrop {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bDFaceImageInstance, faceInfo, bDFaceCropParam)) == null) {
             if (bDFaceImageInstance == null || faceInfo == null || bDFaceCropParam == null) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -117,16 +138,23 @@ public class FaceCrop {
 
     public BDFaceImageInstance cropFaceByBoxParam(BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam) {
         InterceptResult invokeLLL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bDFaceImageInstance, faceInfo, bDFaceCropParam)) == null) {
             if (bDFaceImageInstance == null || faceInfo == null || bDFaceCropParam == null) {
-                return null;
+                str = TAG;
+                str2 = "Parameter is null";
+            } else {
+                long index = this.bdFaceInstance.getIndex();
+                if (index != 0) {
+                    return nativeCropFaceByBoxParam(index, bDFaceImageInstance, faceInfo, bDFaceCropParam);
+                }
+                str = TAG;
+                str2 = "instanceIndex == 0";
             }
-            long index = this.bdFaceInstance.getIndex();
-            if (index == 0) {
-                return null;
-            }
-            return nativeCropFaceByBoxParam(index, bDFaceImageInstance, faceInfo, bDFaceCropParam);
+            Log.v(str, str2);
+            return null;
         }
         return (BDFaceImageInstance) invokeLLL.objValue;
     }
@@ -136,6 +164,7 @@ public class FaceCrop {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bDFaceImageInstance, fArr, Float.valueOf(f2), Boolean.valueOf(z), atomicInteger})) == null) {
             if (bDFaceImageInstance == null || atomicInteger == null || fArr.length < 0) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -155,6 +184,7 @@ public class FaceCrop {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, bDFaceImageInstance, fArr, bDFaceCropParam)) == null) {
             if (bDFaceImageInstance == null || fArr == null || bDFaceCropParam == null || fArr.length == 0) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -171,6 +201,7 @@ public class FaceCrop {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, bDFaceImageInstance, fArr, bDFaceCropParam)) == null) {
             if (bDFaceImageInstance == null || fArr == null || bDFaceCropParam == null || fArr.length == 0) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -187,6 +218,7 @@ public class FaceCrop {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, bDFaceImageInstance, fArr, bDFaceCropParam)) == null) {
             if (bDFaceImageInstance == null || fArr == null || bDFaceCropParam == null || fArr.length == 0) {
+                Log.v(TAG, "Parameter is null");
                 return null;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -214,9 +246,9 @@ public class FaceCrop {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, callback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -228,34 +260,43 @@ public class FaceCrop {
 
                 @Override // java.lang.Runnable
                 public void run() {
+                    Callback callback2;
+                    String str;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long index = this.this$0.bdFaceInstance.getIndex();
-                        if (index != 0) {
-                            int nativeCropImageInit = this.this$0.nativeCropImageInit(index);
-                            if (nativeCropImageInit == 0) {
-                                this.val$callback.onResponse(nativeCropImageInit, "抠图能力加载成功");
+                        int i = -1;
+                        if (index == 0) {
+                            callback2 = this.val$callback;
+                            str = "抠图能力加载失败 instanceIndex=0";
+                        } else {
+                            try {
+                                i = this.this$0.nativeCropImageInit(index);
+                            } catch (Throwable th) {
+                                th.printStackTrace();
+                            }
+                            callback2 = this.val$callback;
+                            if (i == 0) {
+                                callback2.onResponse(i, "抠图能力加载成功");
                                 return;
                             }
-                            Callback callback2 = this.val$callback;
-                            callback2.onResponse(nativeCropImageInit, "抠图能力加载失败: " + nativeCropImageInit);
-                            return;
+                            str = "抠图能力加载失败: " + i;
                         }
-                        this.val$callback.onResponse(-1, "抠图能力加载失败 instanceIndex=0");
+                        callback2.onResponse(i, str);
                     }
                 }
             });
         }
     }
 
-    public BDFaceImageInstance resizeImage(BDFaceImageInstance bDFaceImageInstance, int i2) {
+    public BDFaceImageInstance resizeImage(BDFaceImageInstance bDFaceImageInstance, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bDFaceImageInstance, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bDFaceImageInstance, i)) == null) {
             if (bDFaceImageInstance == null) {
                 return null;
             }
-            return nativeResizeImage(bDFaceImageInstance, i2, bDFaceImageInstance.imageType);
+            return nativeResizeImage(bDFaceImageInstance, i, bDFaceImageInstance.imageType);
         }
         return (BDFaceImageInstance) invokeLI.objValue;
     }
@@ -268,26 +309,12 @@ public class FaceCrop {
             if (index == 0) {
                 return -1;
             }
-            return nativeUnInitCropImage(index);
-        }
-        return invokeV.intValue;
-    }
-
-    public FaceCrop() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            try {
+                return nativeUnInitCropImage(index);
+            } catch (Throwable unused) {
+                return -1;
             }
         }
-        BDFaceInstance bDFaceInstance = new BDFaceInstance();
-        this.bdFaceInstance = bDFaceInstance;
-        bDFaceInstance.getDefautlInstance();
+        return invokeV.intValue;
     }
 }

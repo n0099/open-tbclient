@@ -5,16 +5,16 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import c.a.w.b.a;
-import c.a.w.f.g.b;
-import c.a.w.f.g.c;
+import c.a.v.b.a;
+import c.a.v.f.g.b;
+import c.a.v.f.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_NEXT = "scheme_next";
@@ -32,9 +32,9 @@ public class LiveFeedPageActivity extends AppCompatActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +74,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             this.mBaiduLiveTabContainer = aVar;
             setContentView(aVar.z());
             this.mBaiduLiveTabContainer.K();
-            c.a.w.b.c.a.s(this, str4, "chenjinshi");
+            c.a.v.b.c.a.s(this, str4, "chenjinshi");
             if (!TextUtils.isEmpty(str)) {
                 if (this.handler == null) {
                     this.handler = new Handler();
@@ -82,12 +82,10 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                 this.handler.postDelayed(new Runnable(this, str) { // from class: com.baidu.live.LiveFeedPageActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ String a;
 
-                    /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f33310e;
-
-                    /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ LiveFeedPageActivity f33311f;
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ LiveFeedPageActivity f25659b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -96,26 +94,26 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f33311f = this;
-                        this.f33310e = str;
+                        this.f25659b = this;
+                        this.a = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.a.w.c.b.c g2;
+                        c.a.v.c.b.c g2;
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (g2 = LiveFeedPageSdk.f().g()) == null) {
                             return;
                         }
-                        g2.invokeScheme(this.f33311f, this.f33310e);
+                        g2.invokeScheme(this.f25659b, this.a);
                     }
                 }, 350L);
             }

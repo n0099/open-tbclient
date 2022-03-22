@@ -49,16 +49,16 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         public final ZipSubscriber<T, R>[] subscribers;
         public final Function<? super Object[], ? extends R> zipper;
 
-        public ZipCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i2, int i3, boolean z) {
+        public ZipCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,11 +67,11 @@ public final class FlowableZip<T, R> extends Flowable<R> {
             this.actual = subscriber;
             this.zipper = function;
             this.delayErrors = z;
-            ZipSubscriber<T, R>[] zipSubscriberArr = new ZipSubscriber[i2];
-            for (int i6 = 0; i6 < i2; i6++) {
-                zipSubscriberArr[i6] = new ZipSubscriber<>(this, i3);
+            ZipSubscriber<T, R>[] zipSubscriberArr = new ZipSubscriber[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                zipSubscriberArr[i5] = new ZipSubscriber<>(this, i2);
             }
-            this.current = new Object[i2];
+            this.current = new Object[i];
             this.subscribers = zipSubscriberArr;
             this.requested = new AtomicLong();
             this.errors = new AtomicThrowable();
@@ -238,13 +238,13 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                 ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
                 int length = zipSubscriberArr.length;
                 Object[] objArr = this.current;
-                int i2 = 1;
+                int i = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        int i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i3 == 0) {
+                        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
                             return;
@@ -255,9 +255,9 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                                 return;
                             }
                             boolean z3 = false;
-                            for (int i4 = 0; i4 < length; i4++) {
-                                ZipSubscriber<T, R> zipSubscriber = zipSubscriberArr[i4];
-                                if (objArr[i4] == null) {
+                            for (int i3 = 0; i3 < length; i3++) {
+                                ZipSubscriber<T, R> zipSubscriber = zipSubscriberArr[i3];
+                                if (objArr[i3] == null) {
                                     try {
                                         z = zipSubscriber.done;
                                         SimpleQueue<T> simpleQueue = zipSubscriber.queue;
@@ -283,7 +283,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                                         }
                                     }
                                     if (!z2) {
-                                        objArr[i4] = poll;
+                                        objArr[i3] = poll;
                                     }
                                     z3 = true;
                                 }
@@ -293,7 +293,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                             }
                             try {
                                 subscriber.onNext((Object) ObjectHelper.requireNonNull(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
-                                j3++;
+                                j2++;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
                                 Exceptions.throwIfFatal(th2);
@@ -304,7 +304,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
                             }
                         }
                     }
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -321,23 +321,23 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
-        public void subscribe(Publisher<? extends T>[] publisherArr, int i2) {
+        public void subscribe(Publisher<? extends T>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, publisherArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048581, this, publisherArr, i) == null) {
                 ZipSubscriber<T, R>[] zipSubscriberArr = this.subscribers;
-                for (int i3 = 0; i3 < i2 && !this.cancelled; i3++) {
+                for (int i2 = 0; i2 < i && !this.cancelled; i2++) {
                     if (!this.delayErrors && this.errors.get() != null) {
                         return;
                     }
-                    publisherArr[i3].subscribe(zipSubscriberArr[i3]);
+                    publisherArr[i2].subscribe(zipSubscriberArr[i2]);
                 }
             }
         }
@@ -356,24 +356,24 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         public SimpleQueue<T> queue;
         public int sourceMode;
 
-        public ZipSubscriber(ZipCoordinator<T, R> zipCoordinator, int i2) {
+        public ZipSubscriber(ZipCoordinator<T, R> zipCoordinator, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zipCoordinator, Integer.valueOf(i2)};
+                Object[] objArr = {zipCoordinator, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = zipCoordinator;
-            this.prefetch = i2;
-            this.limit = i2 - (i2 >> 2);
+            this.prefetch = i;
+            this.limit = i - (i >> 2);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -438,31 +438,31 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || this.sourceMode == 1) {
+            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.sourceMode == 1) {
                 return;
             }
-            long j3 = this.produced + j2;
-            if (j3 >= this.limit) {
+            long j2 = this.produced + j;
+            if (j2 >= this.limit) {
                 this.produced = 0L;
-                get().request(j3);
+                get().request(j2);
                 return;
             }
-            this.produced = j3;
+            this.produced = j2;
         }
     }
 
-    public FlowableZip(Publisher<? extends T>[] publisherArr, Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i2, boolean z) {
+    public FlowableZip(Publisher<? extends T>[] publisherArr, Iterable<? extends Publisher<? extends T>> iterable, Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisherArr, iterable, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {publisherArr, iterable, function, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -471,7 +471,7 @@ public final class FlowableZip<T, R> extends Flowable<R> {
         this.sources = publisherArr;
         this.sourcesIterable = iterable;
         this.zipper = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayError = z;
     }
 
@@ -496,14 +496,14 @@ public final class FlowableZip<T, R> extends Flowable<R> {
             } else {
                 length = publisherArr.length;
             }
-            int i2 = length;
-            if (i2 == 0) {
+            int i = length;
+            if (i == 0) {
                 EmptySubscription.complete(subscriber);
                 return;
             }
-            ZipCoordinator zipCoordinator = new ZipCoordinator(subscriber, this.zipper, i2, this.bufferSize, this.delayError);
+            ZipCoordinator zipCoordinator = new ZipCoordinator(subscriber, this.zipper, i, this.bufferSize, this.delayError);
             subscriber.onSubscribe(zipCoordinator);
-            zipCoordinator.subscribe(publisherArr, i2);
+            zipCoordinator.subscribe(publisherArr, i);
         }
     }
 }

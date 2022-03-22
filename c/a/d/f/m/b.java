@@ -74,49 +74,49 @@ public abstract class b {
         return invokeLF.floatValue;
     }
 
-    public static int e(String str, int i2) {
+    public static int e(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
             if (str == null) {
-                return i2;
+                return i;
             }
             try {
                 return Integer.parseInt(str);
             } catch (Exception unused) {
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
     }
 
-    public static int f(String str, int i2, int i3) {
+    public static int f(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
             if (str == null) {
-                return i2;
+                return i;
             }
             try {
-                return Integer.parseInt(str, i3);
+                return Integer.parseInt(str, i2);
             } catch (Exception unused) {
-                return i2;
+                return i;
             }
         }
         return invokeLII.intValue;
     }
 
-    public static long g(String str, long j2) {
+    public static long g(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
             if (str == null) {
-                return j2;
+                return j;
             }
             try {
                 return Long.parseLong(str);
             } catch (Exception unused) {
-                return j2;
+                return j;
             }
         }
         return invokeLJ.longValue;

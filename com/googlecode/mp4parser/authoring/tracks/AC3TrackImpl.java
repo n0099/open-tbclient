@@ -295,9 +295,9 @@ public class AC3TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DataSource) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -309,7 +309,7 @@ public class AC3TrackImpl extends AbstractTrack {
 
     private AudioSampleEntry createAudioSampleEntry() throws IOException {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(this.samples.get(0).asByteBuffer());
@@ -317,13 +317,13 @@ public class AC3TrackImpl extends AbstractTrack {
                 bitReaderBuffer.readBits(16);
                 int readBits = bitReaderBuffer.readBits(2);
                 if (readBits == 0) {
-                    i2 = 48000;
+                    i = 48000;
                 } else if (readBits == 1) {
-                    i2 = 44100;
+                    i = 44100;
                 } else if (readBits != 2) {
                     throw new RuntimeException("Unsupported Sample Rate");
                 } else {
-                    i2 = 32000;
+                    i = 32000;
                 }
                 int readBits2 = bitReaderBuffer.readBits(6);
                 int readBits3 = bitReaderBuffer.readBits(5);
@@ -331,7 +331,7 @@ public class AC3TrackImpl extends AbstractTrack {
                 int readBits5 = bitReaderBuffer.readBits(3);
                 if (readBits3 != 16) {
                     if (readBits3 == 9) {
-                        i2 /= 2;
+                        i /= 2;
                     } else if (readBits3 != 8 && readBits3 != 6) {
                         throw new RuntimeException("Unsupported bsid");
                     }
@@ -356,7 +356,7 @@ public class AC3TrackImpl extends AbstractTrack {
                             int readBits6 = bitReaderBuffer.readBits(1);
                             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE8);
                             audioSampleEntry.setChannelCount(2);
-                            audioSampleEntry.setSampleRate(i2);
+                            audioSampleEntry.setSampleRate(i);
                             audioSampleEntry.setDataReferenceIndex(1);
                             audioSampleEntry.setSampleSize(16);
                             AC3SpecificBox aC3SpecificBox = new AC3SpecificBox();
@@ -380,14 +380,14 @@ public class AC3TrackImpl extends AbstractTrack {
         return (AudioSampleEntry) invokeV.objValue;
     }
 
-    private int getFrameSize(int i2, int i3) {
+    private int getFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
-            int i4 = i2 >>> 1;
-            int i5 = i2 & 1;
-            if (i4 <= 18 && i5 <= 1 && i3 <= 2) {
-                return bitRateAndFrameSizeTable[i4][i5][i3][1] * 2;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2)) == null) {
+            int i3 = i >>> 1;
+            int i4 = i & 1;
+            if (i3 <= 18 && i4 <= 1 && i2 <= 2) {
+                return bitRateAndFrameSizeTable[i3][i4][i2][1] * 2;
             }
             throw new RuntimeException("Cannot determine framesize of current sample");
         }
@@ -417,9 +417,9 @@ public class AC3TrackImpl extends AbstractTrack {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, Long.valueOf(r7), Long.valueOf(frameSize), r11};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -568,9 +568,9 @@ public class AC3TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

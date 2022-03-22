@@ -61,9 +61,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cursorAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Handler) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -105,9 +105,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cursorAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -145,9 +145,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cursor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -195,12 +195,12 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i2, View view, ViewGroup viewGroup) {
+    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view, viewGroup)) == null) {
             if (this.mDataValid) {
-                this.mCursor.moveToPosition(i2);
+                this.mCursor.moveToPosition(i);
                 if (view == null) {
                     view = newDropDownView(this.mContext, this.mCursor, viewGroup);
                 }
@@ -232,27 +232,27 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i2) {
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             if (!this.mDataValid || (cursor = this.mCursor) == null) {
                 return null;
             }
-            cursor.moveToPosition(i2);
+            cursor.moveToPosition(i);
             return this.mCursor;
         }
         return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.mDataValid && (cursor = this.mCursor) != null && cursor.moveToPosition(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (this.mDataValid && (cursor = this.mCursor) != null && cursor.moveToPosition(i)) {
                 return this.mCursor.getLong(this.mRowIDColumn);
             }
             return 0L;
@@ -261,19 +261,19 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view, viewGroup)) == null) {
             if (this.mDataValid) {
-                if (this.mCursor.moveToPosition(i2)) {
+                if (this.mCursor.moveToPosition(i)) {
                     if (view == null) {
                         view = newView(this.mContext, this.mCursor, viewGroup);
                     }
                     bindView(view, this.mContext, this.mCursor);
                     return view;
                 }
-                throw new IllegalStateException("couldn't move cursor to position " + i2);
+                throw new IllegalStateException("couldn't move cursor to position " + i);
             }
             throw new IllegalStateException("this should only be called when the cursor is valid");
         }
@@ -376,11 +376,11 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         return (Cursor) invokeL.objValue;
     }
 
-    public void init(Context context, Cursor cursor, int i2) {
+    public void init(Context context, Cursor cursor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048588, this, context, cursor, i2) == null) {
-            if ((i2 & 1) == 1) {
-                i2 |= 2;
+        if (interceptable == null || interceptable.invokeLLI(1048588, this, context, cursor, i) == null) {
+            if ((i & 1) == 1) {
+                i |= 2;
                 this.mAutoRequery = true;
             } else {
                 this.mAutoRequery = false;
@@ -390,7 +390,7 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
             this.mDataValid = z;
             this.mContext = context;
             this.mRowIDColumn = z ? cursor.getColumnIndexOrThrow("_id") : -1;
-            if ((i2 & 2) == 2) {
+            if ((i & 2) == 2) {
                 this.mChangeObserver = new ChangeObserver(this);
                 this.mDataSetObserver = new MyDataSetObserver(this);
             } else {
@@ -417,9 +417,9 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cursor, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -428,21 +428,21 @@ public abstract class CursorAdapter extends BaseAdapter implements Filterable, C
         init(context, cursor, z ? 1 : 2);
     }
 
-    public CursorAdapter(Context context, Cursor cursor, int i2) {
+    public CursorAdapter(Context context, Cursor cursor, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cursor, Integer.valueOf(i2)};
+            Object[] objArr = {context, cursor, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        init(context, cursor, i2);
+        init(context, cursor, i);
     }
 }

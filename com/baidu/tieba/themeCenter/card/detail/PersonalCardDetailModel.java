@@ -15,15 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.p0.f4.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.d4.a f47068e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f36366b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f47069f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f47070g;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f36367c;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -32,17 +30,17 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         public final /* synthetic */ PersonalCardDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PersonalCardDetailModel personalCardDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public a(PersonalCardDetailModel personalCardDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalCardDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {personalCardDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -62,12 +60,12 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             boolean z = responsedMessage instanceof PersonalCardDetailHttpReponse;
             if (z || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
                 if (z) {
-                    this.a.f47068e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+                    this.a.a = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
                 } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                    this.a.f47068e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+                    this.a.a = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
                 }
-                if (this.a.f47069f != null) {
-                    this.a.f47069f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f47068e);
+                if (this.a.f36366b != null) {
+                    this.a.f36366b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
                 }
             }
         }
@@ -75,7 +73,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i2, String str, c.a.r0.d4.a aVar);
+        void a(int i, String str, c.a.p0.f4.a aVar);
     }
 
     public PersonalCardDetailModel() {
@@ -83,24 +81,33 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47070g = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        c.a.r0.y3.g0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        c.a.r0.y3.g0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
-        registerListener(this.f47070g);
+        this.f36367c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
+        c.a.p0.a4.g0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        c.a.p0.a4.g0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        registerListener(this.f36367c);
     }
 
-    public void A(b bVar) {
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f47069f = bVar;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
+            personalCardDetailRequest.setCardId(j);
+            sendMessage(personalCardDetailRequest);
+        }
+    }
+
+    public void C(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.f36366b = bVar;
         }
     }
 
@@ -108,7 +115,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -118,7 +125,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -126,17 +133,8 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47070g);
-        }
-    }
-
-    public void z(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
-            personalCardDetailRequest.setCardId(j2);
-            sendMessage(personalCardDetailRequest);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f36367c);
         }
     }
 }

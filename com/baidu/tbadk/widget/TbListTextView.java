@@ -22,9 +22,7 @@ import java.util.List;
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f39909e;
+    public boolean a;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -33,10 +31,10 @@ public class TbListTextView extends TextView {
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f39910b;
+        public final List<Object> f30745b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f39911c;
+        public final List<Object> f30746c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -45,17 +43,17 @@ public class TbListTextView extends TextView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z), list, list2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = z;
-            this.f39910b = list;
-            this.f39911c = list2;
+            this.f30745b = list;
+            this.f30746c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -80,22 +78,22 @@ public class TbListTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39909e = true;
+        this.a = true;
     }
 
-    public final a a(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
+    public final a a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, spannableStringBuilder, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, spannableStringBuilder, i, i2)) == null) {
             Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
             ArrayList arrayList = new ArrayList(spans.length);
             ArrayList arrayList2 = new ArrayList(spans.length);
@@ -111,7 +109,7 @@ public class TbListTextView extends TextView {
                     arrayList2.add(obj);
                 }
                 try {
-                    g(spannableStringBuilder, i2, i3);
+                    g(spannableStringBuilder, i, i2);
                     return a.a(arrayList, arrayList2);
                 } catch (IndexOutOfBoundsException e2) {
                     BdLog.e(e2.getMessage());
@@ -122,94 +120,94 @@ public class TbListTextView extends TextView {
         return (a) invokeLII.objValue;
     }
 
-    public final void b(int i2, int i3) {
+    public final void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            g(getText().toString(), i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            g(getText().toString(), i, i2);
         }
     }
 
-    public final void c(int i2, int i3) {
+    public final void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             CharSequence text = getText();
             if (text instanceof Spanned) {
-                d(new SpannableStringBuilder(text), i2, i3);
+                d(new SpannableStringBuilder(text), i, i2);
             } else {
-                b(i2, i3);
+                b(i, i2);
             }
         }
     }
 
-    public final void d(SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
+    public final void d(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, spannableStringBuilder, i2, i3) == null) {
-            a a2 = a(spannableStringBuilder, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048579, this, spannableStringBuilder, i, i2) == null) {
+            a a2 = a(spannableStringBuilder, i, i2);
             if (a2.a) {
-                f(i2, i3, spannableStringBuilder, a2);
+                f(i, i2, spannableStringBuilder, a2);
             } else {
-                b(i2, i3);
+                b(i, i2);
             }
         }
     }
 
-    public final boolean e(CharSequence charSequence, int i2) {
+    public final boolean e(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, charSequence, i2)) == null) ? charSequence == null || i2 < 0 || i2 >= charSequence.length() || charSequence.charAt(i2) != ' ' : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, charSequence, i)) == null) ? charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ' : invokeLI.booleanValue;
     }
 
-    public final void f(int i2, int i3, SpannableStringBuilder spannableStringBuilder, a aVar) {
+    public final void f(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f39911c) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), spannableStringBuilder, aVar}) == null) {
+            for (Object obj : aVar.f30746c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
-                    g(spannableStringBuilder, i2, i3);
+                    g(spannableStringBuilder, i, i2);
                 } catch (IndexOutOfBoundsException unused) {
                     spannableStringBuilder.insert(spanEnd, " ");
                 }
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f39910b) {
+                for (Object obj2 : aVar.f30745b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
-                    int i4 = spanStart - 1;
-                    spannableStringBuilder.delete(i4, spanStart);
+                    int i3 = spanStart - 1;
+                    spannableStringBuilder.delete(i3, spanStart);
                     try {
-                        g(spannableStringBuilder, i2, i3);
+                        g(spannableStringBuilder, i, i2);
                         z = false;
                     } catch (IndexOutOfBoundsException unused2) {
-                        spannableStringBuilder.insert(i4, " ");
+                        spannableStringBuilder.insert(i3, " ");
                     }
                 }
                 break loop1;
             }
             if (z) {
                 setText(spannableStringBuilder);
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
             }
         }
     }
 
-    public final void g(CharSequence charSequence, int i2, int i3) {
+    public final void g(CharSequence charSequence, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, charSequence, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, charSequence, i, i2) == null) {
             setText(charSequence);
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             try {
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
             } catch (IndexOutOfBoundsException unused) {
-                c(i2, i3);
+                c(i, i2);
             }
         }
     }
@@ -219,7 +217,7 @@ public class TbListTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            if (!this.f39909e) {
+            if (!this.a) {
                 return super.onTouchEvent(motionEvent);
             }
             setLongClickable(false);
@@ -232,7 +230,7 @@ public class TbListTextView extends TextView {
     public void setCheckSelection(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f39909e = z;
+            this.a = z;
         }
     }
 
@@ -245,9 +243,9 @@ public class TbListTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -255,21 +253,21 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f39909e = true;
+        this.a = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbListTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TbListTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -277,6 +275,6 @@ public class TbListTextView extends TextView {
                 return;
             }
         }
-        this.f39909e = true;
+        this.a = true;
     }
 }

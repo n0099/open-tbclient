@@ -45,9 +45,9 @@ public class UniKV implements SharedPreferences {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -139,23 +139,23 @@ public class UniKV implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
             SharedPreferences sharedPreferences = this.mInstance;
-            return sharedPreferences == null ? i2 : sharedPreferences.getInt(str, i2);
+            return sharedPreferences == null ? i : sharedPreferences.getInt(str, i);
         }
         return invokeLI.intValue;
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             SharedPreferences sharedPreferences = this.mInstance;
-            return sharedPreferences == null ? j2 : sharedPreferences.getLong(str, j2);
+            return sharedPreferences == null ? j : sharedPreferences.getLong(str, j);
         }
         return invokeLJ.longValue;
     }
@@ -200,22 +200,22 @@ public class UniKV implements SharedPreferences {
         sharedPreferences.edit().putFloat(str, f2).apply();
     }
 
-    public void putInt(String str, int i2) {
+    public void putInt(String str, int i) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048587, this, str, i2) == null) || (sharedPreferences = this.mInstance) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) || (sharedPreferences = this.mInstance) == null) {
             return;
         }
-        sharedPreferences.edit().putInt(str, i2).apply();
+        sharedPreferences.edit().putInt(str, i).apply();
     }
 
-    public void putLong(String str, long j2) {
+    public void putLong(String str, long j) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) || (sharedPreferences = this.mInstance) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) || (sharedPreferences = this.mInstance) == null) {
             return;
         }
-        sharedPreferences.edit().putLong(str, j2).apply();
+        sharedPreferences.edit().putLong(str, j).apply();
     }
 
     public void putString(String str, String str2) {
@@ -274,9 +274,9 @@ public class UniKV implements SharedPreferences {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -286,23 +286,23 @@ public class UniKV implements SharedPreferences {
         }
     }
 
-    public UniKV(String str, int i2) {
+    public UniKV(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
         if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
-            this.mInstance = KVStorageFactory.getSharedPreferences(str, i2);
+            this.mInstance = KVStorageFactory.getSharedPreferences(str, i);
         } else {
             this.mInstance = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         }
@@ -315,9 +315,9 @@ public class UniKV implements SharedPreferences {
             newInitContext.initArgs = r2;
             Object[] objArr = {sharedPreferences};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

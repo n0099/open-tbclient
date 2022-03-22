@@ -34,14 +34,14 @@ import com.kwad.yoga.YogaPositionType;
 import com.kwad.yoga.YogaWrap;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class YogaLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final YogaNode mYogaNode;
     public final Map<View, YogaNode> mYogaNodes;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,17 +49,17 @@ public class YogaLayout extends ViewGroup {
         public SparseArray<String> stringAttributes;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -69,11 +69,11 @@ public class YogaLayout extends ViewGroup {
             }
             this.numericAttributes = new SparseArray<>();
             this.stringAttributes = new SparseArray<>();
-            if (i2 >= 0) {
-                this.numericAttributes.put(55, Float.valueOf(i2));
+            if (i >= 0) {
+                this.numericAttributes.put(55, Float.valueOf(i));
             }
-            if (i3 >= 0) {
-                this.numericAttributes.put(20, Float.valueOf(i3));
+            if (i2 >= 0) {
+                this.numericAttributes.put(20, Float.valueOf(i2));
             }
         }
 
@@ -89,9 +89,9 @@ public class YogaLayout extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -101,25 +101,25 @@ public class YogaLayout extends ViewGroup {
             }
             this.numericAttributes = new SparseArray<>();
             this.stringAttributes = new SparseArray<>();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.yg_alignContent, R.attr.yg_alignItems, R.attr.yg_alignSelf, R.attr.yg_aspectRatio, R.attr.yg_borderAll, R.attr.yg_borderBottom, R.attr.yg_borderEnd, R.attr.yg_borderHorizontal, R.attr.yg_borderLeft, R.attr.yg_borderRight, R.attr.yg_borderStart, R.attr.yg_borderTop, R.attr.yg_borderVertical, R.attr.yg_direction, R.attr.yg_display, R.attr.yg_flex, R.attr.yg_flexBasis, R.attr.yg_flexDirection, R.attr.yg_flexGrow, R.attr.yg_flexShrink, R.attr.yg_height, R.attr.yg_justifyContent, R.attr.yg_marginAll, R.attr.yg_marginBottom, R.attr.yg_marginEnd, R.attr.yg_marginHorizontal, R.attr.yg_marginLeft, R.attr.yg_marginRight, R.attr.yg_marginStart, R.attr.yg_marginTop, R.attr.yg_marginVertical, R.attr.yg_maxHeight, R.attr.yg_maxWidth, R.attr.yg_minHeight, R.attr.yg_minWidth, R.attr.yg_overflow, R.attr.yg_paddingAll, R.attr.yg_paddingBottom, R.attr.yg_paddingEnd, R.attr.yg_paddingHorizontal, R.attr.yg_paddingLeft, R.attr.yg_paddingRight, R.attr.yg_paddingStart, R.attr.yg_paddingTop, R.attr.yg_paddingVertical, R.attr.yg_positionAll, R.attr.yg_positionBottom, R.attr.yg_positionEnd, R.attr.yg_positionHorizontal, R.attr.yg_positionLeft, R.attr.yg_positionRight, R.attr.yg_positionStart, R.attr.yg_positionTop, R.attr.yg_positionType, R.attr.yg_positionVertical, R.attr.yg_width, R.attr.yg_wrap});
-            int i4 = ((ViewGroup.LayoutParams) this).width;
-            if (i4 >= 0) {
-                this.numericAttributes.put(55, Float.valueOf(i4));
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406a1, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f0406a3, R.attr.obfuscated_res_0x7f0406a4, R.attr.obfuscated_res_0x7f0406a5, R.attr.obfuscated_res_0x7f0406a6, R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8, R.attr.obfuscated_res_0x7f0406a9, R.attr.obfuscated_res_0x7f0406aa, R.attr.obfuscated_res_0x7f0406ab, R.attr.obfuscated_res_0x7f0406ac, R.attr.obfuscated_res_0x7f0406ad, R.attr.obfuscated_res_0x7f0406ae, R.attr.obfuscated_res_0x7f0406af, R.attr.obfuscated_res_0x7f0406b0, R.attr.obfuscated_res_0x7f0406b1, R.attr.obfuscated_res_0x7f0406b2, R.attr.obfuscated_res_0x7f0406b3, R.attr.obfuscated_res_0x7f0406b4, R.attr.obfuscated_res_0x7f0406b5, R.attr.obfuscated_res_0x7f0406b6, R.attr.obfuscated_res_0x7f0406b7, R.attr.obfuscated_res_0x7f0406b8, R.attr.obfuscated_res_0x7f0406b9, R.attr.obfuscated_res_0x7f0406ba, R.attr.obfuscated_res_0x7f0406bb, R.attr.obfuscated_res_0x7f0406bc, R.attr.obfuscated_res_0x7f0406bd, R.attr.obfuscated_res_0x7f0406be, R.attr.obfuscated_res_0x7f0406bf, R.attr.obfuscated_res_0x7f0406c0, R.attr.obfuscated_res_0x7f0406c1, R.attr.obfuscated_res_0x7f0406c2, R.attr.obfuscated_res_0x7f0406c3, R.attr.obfuscated_res_0x7f0406c4, R.attr.obfuscated_res_0x7f0406c5, R.attr.obfuscated_res_0x7f0406c6, R.attr.obfuscated_res_0x7f0406c7, R.attr.obfuscated_res_0x7f0406c8, R.attr.obfuscated_res_0x7f0406c9, R.attr.obfuscated_res_0x7f0406ca, R.attr.obfuscated_res_0x7f0406cb, R.attr.obfuscated_res_0x7f0406cc, R.attr.obfuscated_res_0x7f0406cd, R.attr.obfuscated_res_0x7f0406ce, R.attr.obfuscated_res_0x7f0406cf, R.attr.obfuscated_res_0x7f0406d0, R.attr.obfuscated_res_0x7f0406d1, R.attr.obfuscated_res_0x7f0406d2, R.attr.obfuscated_res_0x7f0406d3, R.attr.obfuscated_res_0x7f0406d4, R.attr.obfuscated_res_0x7f0406d5, R.attr.obfuscated_res_0x7f0406d6, R.attr.obfuscated_res_0x7f0406d7, R.attr.obfuscated_res_0x7f0406d8, R.attr.obfuscated_res_0x7f0406d9});
+            int i3 = ((ViewGroup.LayoutParams) this).width;
+            if (i3 >= 0) {
+                this.numericAttributes.put(55, Float.valueOf(i3));
             }
-            int i5 = ((ViewGroup.LayoutParams) this).height;
-            if (i5 >= 0) {
-                this.numericAttributes.put(20, Float.valueOf(i5));
+            int i4 = ((ViewGroup.LayoutParams) this).height;
+            if (i4 >= 0) {
+                this.numericAttributes.put(20, Float.valueOf(i4));
             }
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i6 = 0; i6 < indexCount; i6++) {
-                int index = obtainStyledAttributes.getIndex(i6);
+            for (int i5 = 0; i5 < indexCount; i5++) {
+                int index = obtainStyledAttributes.getIndex(i5);
                 TypedValue typedValue = new TypedValue();
                 obtainStyledAttributes.getValue(index, typedValue);
-                int i7 = typedValue.type;
-                if (i7 == 5) {
+                int i6 = typedValue.type;
+                if (i6 == 5) {
                     sparseArray = this.numericAttributes;
                     f2 = obtainStyledAttributes.getDimensionPixelSize(index, 0);
-                } else if (i7 == 3) {
+                } else if (i6 == 3) {
                     sparseArray = this.stringAttributes;
                     string = obtainStyledAttributes.getString(index);
                     sparseArray.put(index, string);
@@ -142,9 +142,9 @@ public class YogaLayout extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -168,7 +168,7 @@ public class YogaLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ViewMeasureFunction implements YogaMeasureFunction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,9 +178,9 @@ public class YogaLayout extends ViewGroup {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -224,9 +224,9 @@ public class YogaLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -245,9 +245,9 @@ public class YogaLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -258,17 +258,17 @@ public class YogaLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YogaLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public YogaLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -284,7 +284,7 @@ public class YogaLayout extends ViewGroup {
     }
 
     public static void applyLayoutParams(LayoutParams layoutParams, YogaNode yogaNode, View view) {
-        int i2;
+        int i;
         YogaEdge yogaEdge;
         YogaEdge yogaEdge2;
         YogaEdge yogaEdge3;
@@ -297,7 +297,7 @@ public class YogaLayout extends ViewGroup {
         YogaEdge yogaEdge10;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, layoutParams, yogaNode, view) == null) {
-            int i3 = 1;
+            int i2 = 1;
             if (Build.VERSION.SDK_INT >= 17 && view.getResources().getConfiguration().getLayoutDirection() == 1) {
                 yogaNode.setDirection(YogaDirection.RTL);
             }
@@ -311,17 +311,17 @@ public class YogaLayout extends ViewGroup {
                     yogaNode.setPadding(YogaEdge.BOTTOM, rect.bottom);
                 }
             }
-            int i4 = 0;
+            int i3 = 0;
             while (true) {
-                i2 = 16;
-                if (i4 >= layoutParams.numericAttributes.size()) {
+                i = 16;
+                if (i3 >= layoutParams.numericAttributes.size()) {
                     break;
                 }
-                int keyAt = layoutParams.numericAttributes.keyAt(i4);
-                float floatValue = layoutParams.numericAttributes.valueAt(i4).floatValue();
+                int keyAt = layoutParams.numericAttributes.keyAt(i3);
+                float floatValue = layoutParams.numericAttributes.valueAt(i3).floatValue();
                 if (keyAt == 0) {
                     yogaNode.setAlignContent(YogaAlign.fromInt(Math.round(floatValue)));
-                } else if (keyAt == i3) {
+                } else if (keyAt == i2) {
                     yogaNode.setAlignItems(YogaAlign.fromInt(Math.round(floatValue)));
                 } else if (keyAt == 2) {
                     yogaNode.setAlignSelf(YogaAlign.fromInt(Math.round(floatValue)));
@@ -446,13 +446,13 @@ public class YogaLayout extends ViewGroup {
                     }
                     yogaNode.setBorder(yogaEdge10, floatValue);
                 }
-                i4++;
-                i3 = 1;
+                i3++;
+                i2 = 1;
             }
-            int i5 = 0;
-            while (i5 < layoutParams.stringAttributes.size()) {
-                int keyAt2 = layoutParams.stringAttributes.keyAt(i5);
-                String valueAt = layoutParams.stringAttributes.valueAt(i5);
+            int i4 = 0;
+            while (i4 < layoutParams.stringAttributes.size()) {
+                int keyAt2 = layoutParams.stringAttributes.keyAt(i4);
+                String valueAt = layoutParams.stringAttributes.valueAt(i4);
                 if (valueAt.equals("auto")) {
                     if (keyAt2 == 26) {
                         yogaEdge6 = YogaEdge.LEFT;
@@ -477,7 +477,7 @@ public class YogaLayout extends ViewGroup {
                 }
                 if (valueAt.endsWith("%")) {
                     float parseFloat = Float.parseFloat(valueAt.substring(0, valueAt.length() - 1));
-                    if (keyAt2 == i2) {
+                    if (keyAt2 == i) {
                         yogaNode.setFlexBasisPercent(parseFloat);
                     } else if (keyAt2 == 20) {
                         yogaNode.setHeightPercent(parseFloat);
@@ -562,8 +562,8 @@ public class YogaLayout extends ViewGroup {
                         yogaNode.setMarginPercent(yogaEdge5, parseFloat);
                     }
                 }
-                i5++;
-                i2 = 16;
+                i4++;
+                i = 16;
             }
         }
     }
@@ -582,23 +582,23 @@ public class YogaLayout extends ViewGroup {
                 view.layout(round, round2, view.getMeasuredWidth() + round, view.getMeasuredHeight() + round2);
             }
             int childCount = yogaNode.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
+            for (int i = 0; i < childCount; i++) {
                 if (equals(view)) {
-                    applyLayoutRecursive(yogaNode.getChildAt(i2), f2, f3);
+                    applyLayoutRecursive(yogaNode.getChildAt(i), f2, f3);
                 } else if (!(view instanceof YogaLayout)) {
-                    applyLayoutRecursive(yogaNode.getChildAt(i2), yogaNode.getLayoutX() + f2, yogaNode.getLayoutY() + f3);
+                    applyLayoutRecursive(yogaNode.getChildAt(i), yogaNode.getLayoutX() + f2, yogaNode.getLayoutY() + f3);
                 }
             }
         }
     }
 
-    private void createLayout(int i2, int i3) {
+    private void createLayout(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65541, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
-            int mode = View.MeasureSpec.getMode(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
+        if (interceptable == null || interceptable.invokeII(65541, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
             if (mode2 == 1073741824) {
                 this.mYogaNode.setHeight(size2);
             }
@@ -622,15 +622,15 @@ public class YogaLayout extends ViewGroup {
             return;
         }
         YogaNode owner = yogaNode.getOwner();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= owner.getChildCount()) {
+            if (i >= owner.getChildCount()) {
                 break;
-            } else if (owner.getChildAt(i2).equals(yogaNode)) {
-                owner.removeChildAt(i2);
+            } else if (owner.getChildAt(i).equals(yogaNode)) {
+                owner.removeChildAt(i);
                 break;
             } else {
-                i2++;
+                i++;
             }
         }
         yogaNode.setData(null);
@@ -641,10 +641,10 @@ public class YogaLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         YogaNode yogaNodeJNIFinalizer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
             this.mYogaNode.setMeasureFunction(null);
             if (view instanceof VirtualYogaLayout) {
                 VirtualYogaLayout virtualYogaLayout = (VirtualYogaLayout) view;
@@ -654,7 +654,7 @@ public class YogaLayout extends ViewGroup {
                 yogaNode2.addChildAt(yogaNode, yogaNode2.getChildCount());
                 return;
             }
-            super.addView(view, i2, layoutParams);
+            super.addView(view, i, layoutParams);
             if (this.mYogaNodes.containsKey(view)) {
                 return;
             }
@@ -728,8 +728,8 @@ public class YogaLayout extends ViewGroup {
                 return;
             }
             int childCount = this.mYogaNode.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                YogaNode childAt = this.mYogaNode.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                YogaNode childAt = this.mYogaNode.getChildAt(i);
                 if (childAt.getData() instanceof YogaLayout) {
                     ((YogaLayout) childAt.getData()).invalidate(view);
                 }
@@ -739,22 +739,22 @@ public class YogaLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (!(getParent() instanceof YogaLayout)) {
-                createLayout(View.MeasureSpec.makeMeasureSpec(i4 - i2, 1073741824), View.MeasureSpec.makeMeasureSpec(i5 - i3, 1073741824));
+                createLayout(View.MeasureSpec.makeMeasureSpec(i3 - i, 1073741824), View.MeasureSpec.makeMeasureSpec(i4 - i2, 1073741824));
             }
             applyLayoutRecursive(this.mYogaNode, 0.0f, 0.0f);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (!(getParent() instanceof YogaLayout)) {
-                createLayout(i2, i3);
+                createLayout(i, i2);
             }
             setMeasuredDimension(Math.round(this.mYogaNode.getLayoutWidth()), Math.round(this.mYogaNode.getLayoutHeight()));
         }
@@ -765,8 +765,8 @@ public class YogaLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                removeViewFromYogaTree(getChildAt(i2), false);
+            for (int i = 0; i < childCount; i++) {
+                removeViewFromYogaTree(getChildAt(i), false);
             }
             super.removeAllViews();
         }
@@ -777,8 +777,8 @@ public class YogaLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                removeViewFromYogaTree(getChildAt(i2), true);
+            for (int i = 0; i < childCount; i++) {
+                removeViewFromYogaTree(getChildAt(i), true);
             }
             super.removeAllViewsInLayout();
         }
@@ -794,11 +794,11 @@ public class YogaLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i2) {
+    public void removeViewAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            removeViewFromYogaTree(getChildAt(i2), false);
-            super.removeViewAt(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            removeViewFromYogaTree(getChildAt(i), false);
+            super.removeViewAt(i);
         }
     }
 
@@ -812,24 +812,24 @@ public class YogaLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViews(int i2, int i3) {
+    public void removeViews(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            for (int i4 = i2; i4 < i2 + i3; i4++) {
-                removeViewFromYogaTree(getChildAt(i4), false);
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                removeViewFromYogaTree(getChildAt(i3), false);
             }
-            super.removeViews(i2, i3);
+            super.removeViews(i, i2);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewsInLayout(int i2, int i3) {
+    public void removeViewsInLayout(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            for (int i4 = i2; i4 < i2 + i3; i4++) {
-                removeViewFromYogaTree(getChildAt(i4), true);
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                removeViewFromYogaTree(getChildAt(i3), true);
             }
-            super.removeViewsInLayout(i2, i3);
+            super.removeViewsInLayout(i, i2);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.a;
+import c.a.p0.a4.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
@@ -31,21 +31,21 @@ public class DeepLinkAction {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void callbackFailed(DeepLinkCallback deepLinkCallback, int i2, String str, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
+    public static void callbackFailed(DeepLinkCallback deepLinkCallback, int i, String str, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65537, null, deepLinkCallback, i2, str, deepLinkResponse) == null) {
-            SchemeActionHelper.printLog("callback onFailed-->errNo=" + i2 + ",errMsg =" + str);
+        if (interceptable == null || interceptable.invokeLILL(65537, null, deepLinkCallback, i, str, deepLinkResponse) == null) {
+            SchemeActionHelper.printLog("callback onFailed-->errNo=" + i + ",errMsg =" + str);
             if (deepLinkCallback != null) {
-                deepLinkCallback.onFailed(i2, str, deepLinkResponse);
+                deepLinkCallback.onFailed(i, str, deepLinkResponse);
             }
         }
     }
@@ -156,9 +156,9 @@ public class DeepLinkAction {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {deepLinkResponse};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -168,10 +168,10 @@ public class DeepLinkAction {
                 }
 
                 @Override // com.baidu.tbadk.core.util.schemeaction.deeplink.OpenAppCallback
-                public void onFailed(int i2) {
+                public void onFailed(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.val$msg.onFailed("app", i2);
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        this.val$msg.onFailed("app", i);
                     }
                 }
             };
@@ -205,7 +205,7 @@ public class DeepLinkAction {
                     return true;
                 }
             }
-            deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, DeepLinkCode.ERROR_LINK_NOT_MATCH);
+            deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -200);
             return false;
         }
         return invokeLLLL.booleanValue;
@@ -230,9 +230,9 @@ public class DeepLinkAction {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {deepLinkResponse};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -242,10 +242,10 @@ public class DeepLinkAction {
                 }
 
                 @Override // com.baidu.tbadk.core.util.schemeaction.deeplink.OpenAppCallback
-                public void onFailed(int i2) {
+                public void onFailed(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.val$msg.onFailed("market", i2);
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        this.val$msg.onFailed("market", i);
                     }
                 }
             })) {

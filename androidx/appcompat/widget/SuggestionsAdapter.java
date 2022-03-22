@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,9 +83,9 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -107,9 +108,9 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context, searchView, searchableInfo, weakHashMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Cursor) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -174,12 +175,12 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 }
                 Drawable drawable = packageManager.getDrawable(componentName.getPackageName(), iconResource, activityInfo.applicationInfo);
                 if (drawable == null) {
-                    String str = "Invalid icon resource " + iconResource + " for " + componentName.flattenToShortString();
+                    Log.w(LOG_TAG, "Invalid icon resource " + iconResource + " for " + componentName.flattenToShortString());
                     return null;
                 }
                 return drawable;
             } catch (PackageManager.NameNotFoundException e2) {
-                e2.toString();
+                Log.w(LOG_TAG, e2.toString());
                 return null;
             }
         }
@@ -238,17 +239,17 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                     Drawable createFromStream = Drawable.createFromStream(openInputStream, null);
                     try {
                         openInputStream.close();
-                    } catch (IOException unused2) {
-                        String str = "Error closing icon stream for " + uri;
+                    } catch (IOException e2) {
+                        Log.e(LOG_TAG, "Error closing icon stream for " + uri, e2);
                     }
                     return createFromStream;
                 }
                 throw new FileNotFoundException("Failed to open " + uri);
-            } catch (FileNotFoundException e2) {
-                String str2 = "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2.getMessage();
+            } catch (FileNotFoundException e3) {
+                Log.w(LOG_TAG, "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e3.getMessage());
                 return null;
             }
-            String str22 = "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2.getMessage();
+            Log.w(LOG_TAG, "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e3.getMessage());
             return null;
         }
         return (Drawable) invokeL.objValue;
@@ -272,7 +273,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 storeInIconCache(str2, drawable);
                 return drawable;
             } catch (Resources.NotFoundException unused) {
-                String str3 = "Icon resource not found: " + str;
+                Log.w(LOG_TAG, "Icon resource not found: " + str);
                 return null;
             } catch (NumberFormatException unused2) {
                 Drawable checkIconCache2 = checkIconCache(str);
@@ -291,11 +292,11 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, cursor)) == null) {
-            int i2 = this.mIconName1Col;
-            if (i2 == -1) {
+            int i = this.mIconName1Col;
+            if (i == -1) {
                 return null;
             }
-            Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i2));
+            Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i));
             return drawableFromResourceValue != null ? drawableFromResourceValue : getDefaultIcon1();
         }
         return (Drawable) invokeL.objValue;
@@ -305,37 +306,38 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, cursor)) == null) {
-            int i2 = this.mIconName2Col;
-            if (i2 == -1) {
+            int i = this.mIconName2Col;
+            if (i == -1) {
                 return null;
             }
-            return getDrawableFromResourceValue(cursor.getString(i2));
+            return getDrawableFromResourceValue(cursor.getString(i));
         }
         return (Drawable) invokeL.objValue;
     }
 
-    public static String getStringOrNull(Cursor cursor, int i2) {
+    public static String getStringOrNull(Cursor cursor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, cursor, i2)) == null) {
-            if (i2 == -1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, cursor, i)) == null) {
+            if (i == -1) {
                 return null;
             }
             try {
-                return cursor.getString(i2);
-            } catch (Exception unused) {
+                return cursor.getString(i);
+            } catch (Exception e2) {
+                Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e2);
                 return null;
             }
         }
         return (String) invokeLI.objValue;
     }
 
-    private void setViewDrawable(ImageView imageView, Drawable drawable, int i2) {
+    private void setViewDrawable(ImageView imageView, Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65548, this, imageView, drawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65548, this, imageView, drawable, i) == null) {
             imageView.setImageDrawable(drawable);
             if (drawable == null) {
-                imageView.setVisibility(i2);
+                imageView.setVisibility(i);
                 return;
             }
             imageView.setVisibility(0);
@@ -379,8 +381,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, context, cursor) == null) {
             ChildViewCache childViewCache = (ChildViewCache) view.getTag();
-            int i2 = this.mFlagsCol;
-            int i3 = i2 != -1 ? cursor.getInt(i2) : 0;
+            int i = this.mFlagsCol;
+            int i2 = i != -1 ? cursor.getInt(i) : 0;
             if (childViewCache.mText1 != null) {
                 setViewText(childViewCache.mText1, getStringOrNull(cursor, this.mText1Col));
             }
@@ -414,8 +416,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             if (imageView2 != null) {
                 setViewDrawable(imageView2, getIcon2(cursor), 8);
             }
-            int i4 = this.mQueryRefinement;
-            if (i4 != 2 && (i4 != 1 || (i3 & 1) == 0)) {
+            int i3 = this.mQueryRefinement;
+            if (i3 != 2 && (i3 != 1 || (i2 & 1) == 0)) {
                 childViewCache.mIconRefine.setVisibility(8);
                 return;
             }
@@ -430,6 +432,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) {
             if (this.mClosed) {
+                Log.w(LOG_TAG, "Tried to change cursor after adapter was closed.");
                 if (cursor != null) {
                     cursor.close();
                     return;
@@ -446,7 +449,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                     this.mIconName2Col = cursor.getColumnIndex("suggest_icon_2");
                     this.mFlagsCol = cursor.getColumnIndex("suggest_flags");
                 }
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.e(LOG_TAG, "error changing cursor and caching columns", e2);
             }
         }
     }
@@ -523,13 +527,14 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i2, View view, ViewGroup viewGroup) {
+    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view, viewGroup)) == null) {
             try {
-                return super.getDropDownView(i2, view, viewGroup);
+                return super.getDropDownView(i, view, viewGroup);
             } catch (RuntimeException e2) {
+                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
                 View newDropDownView = newDropDownView(this.mContext, this.mCursor, viewGroup);
                 if (newDropDownView != null) {
                     ((ChildViewCache) newDropDownView.getTag()).mText1.setText(e2.toString());
@@ -546,11 +551,11 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mQueryRefinement : invokeV.intValue;
     }
 
-    public Cursor getSearchManagerSuggestions(SearchableInfo searchableInfo, String str, int i2) {
+    public Cursor getSearchManagerSuggestions(SearchableInfo searchableInfo, String str, int i) {
         InterceptResult invokeLLI;
         String suggestAuthority;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, searchableInfo, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, searchableInfo, str, i)) == null) {
             String[] strArr = null;
             if (searchableInfo == null || (suggestAuthority = searchableInfo.getSuggestAuthority()) == null) {
                 return null;
@@ -568,8 +573,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 fragment.appendPath(str);
             }
             String[] strArr2 = strArr;
-            if (i2 > 0) {
-                fragment.appendQueryParameter(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(i2));
+            if (i > 0) {
+                fragment.appendQueryParameter(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(i));
             }
             return this.mContext.getContentResolver().query(fragment.build(), null, suggestSelection, strArr2, null);
         }
@@ -577,13 +582,14 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view, viewGroup)) == null) {
             try {
-                return super.getView(i2, view, viewGroup);
+                return super.getView(i, view, viewGroup);
             } catch (RuntimeException e2) {
+                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
                 View newView = newView(this.mContext, this.mCursor, viewGroup);
                 if (newView != null) {
                     ((ChildViewCache) newView.getTag()).mText1.setText(e2.toString());
@@ -659,7 +665,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                         searchManagerSuggestions.getCount();
                         return searchManagerSuggestions;
                     }
-                } catch (RuntimeException unused) {
+                } catch (RuntimeException e2) {
+                    Log.w(LOG_TAG, "Search suggestions query threw an exception.", e2);
                 }
             }
             return null;
@@ -667,10 +674,10 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return (Cursor) invokeL.objValue;
     }
 
-    public void setQueryRefinement(int i2) {
+    public void setQueryRefinement(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mQueryRefinement = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mQueryRefinement = i;
         }
     }
 }

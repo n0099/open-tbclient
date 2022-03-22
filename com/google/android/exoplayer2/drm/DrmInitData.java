@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DrmInitData> CREATOR;
@@ -30,7 +30,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     @Nullable
     public final String schemeType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SchemeData implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SchemeData> CREATOR;
@@ -63,9 +63,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -84,10 +84,10 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public SchemeData[] newArray(int i2) {
+                public SchemeData[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SchemeData[i2] : (SchemeData[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SchemeData[i] : (SchemeData[]) invokeI.objValue;
                 }
             };
         }
@@ -101,9 +101,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {uuid, str, bArr};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((UUID) objArr2[0], (String) objArr2[1], (byte[]) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                     newInitContext.thisArg = this;
@@ -170,9 +170,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
                 parcel.writeLong(this.uuid.getMostSignificantBits());
                 parcel.writeLong(this.uuid.getLeastSignificantBits());
                 parcel.writeString(this.mimeType);
@@ -188,9 +188,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {uuid, str, bArr, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;
@@ -209,9 +209,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -246,9 +246,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -267,10 +267,10 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public DrmInitData[] newArray(int i2) {
+            public DrmInitData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new DrmInitData[i2] : (DrmInitData[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new DrmInitData[i] : (DrmInitData[]) invokeI.objValue;
             }
         };
     }
@@ -284,9 +284,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (SchemeData[]) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -359,9 +359,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
             parcel.writeString(this.schemeType);
             parcel.writeTypedArray(this.schemeDatas, 0);
         }
@@ -376,9 +376,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (SchemeData[]) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -411,9 +411,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {schemeDataArr};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (SchemeData[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -423,10 +423,10 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         }
     }
 
-    public SchemeData get(int i2) {
+    public SchemeData get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.schemeDatas[i2] : (SchemeData) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.schemeDatas[i] : (SchemeData) invokeI.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -438,9 +438,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, schemeDataArr};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (SchemeData[]) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -457,9 +457,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z), schemeDataArr};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -479,9 +479,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -26,7 +26,7 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public final SingleObserver<? super Long> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60689d;
+        public Disposable f45299d;
 
         public CountMaybeObserver(SingleObserver<? super Long> singleObserver) {
             Interceptable interceptable = $ic;
@@ -35,9 +35,9 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,8 +50,8 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60689d.dispose();
-                this.f60689d = DisposableHelper.DISPOSED;
+                this.f45299d.dispose();
+                this.f45299d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -59,14 +59,14 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60689d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45299d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f60689d = DisposableHelper.DISPOSED;
+                this.f45299d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(0L);
             }
         }
@@ -75,7 +75,7 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f60689d = DisposableHelper.DISPOSED;
+                this.f45299d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -83,8 +83,8 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f60689d, disposable)) {
-                this.f60689d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45299d, disposable)) {
+                this.f45299d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -93,7 +93,7 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.f60689d = DisposableHelper.DISPOSED;
+                this.f45299d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(1L);
             }
         }
@@ -106,9 +106,9 @@ public final class MaybeCount<T> extends Single<Long> implements HasUpstreamMayb
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

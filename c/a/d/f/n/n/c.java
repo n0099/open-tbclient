@@ -39,9 +39,9 @@ public class c {
             while (it.hasNext()) {
                 c.a.d.f.n.j.d dVar = (c.a.d.f.n.j.d) it.next();
                 if (dVar != null) {
-                    long j2 = dVar.f2746c;
-                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis) {
-                        arrayList3.add(dVar.f2745b);
+                    long j = dVar.f2270c;
+                    if (j != 0 && j + 604800000 < currentTimeMillis) {
+                        arrayList3.add(dVar.f2269b);
                     } else {
                         arrayList2.add(dVar);
                     }
@@ -67,15 +67,15 @@ public class c {
                 }
                 ArrayList arrayList = new ArrayList();
                 int size = a.size();
-                long j2 = 0;
-                for (int i2 = 0; i2 < size; i2++) {
-                    c.a.d.f.n.j.d dVar = a.get(i2);
-                    j2 += dVar.a;
+                long j = 0;
+                for (int i = 0; i < size; i++) {
+                    c.a.d.f.n.j.d dVar = a.get(i);
+                    j += dVar.a;
                     arrayList.add(dVar);
-                    if (j2 >= 20480) {
+                    if (j >= 20480) {
                         bdUploadingLogInfo.add(arrayList);
                         arrayList = new ArrayList();
-                        j2 = 0;
+                        j = 0;
                     }
                 }
                 if (arrayList.size() > 0) {

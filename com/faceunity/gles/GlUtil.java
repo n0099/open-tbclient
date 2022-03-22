@@ -2,6 +2,7 @@ package com.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] IDENTITY_MATRIX;
@@ -44,9 +45,9 @@ public class GlUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -59,12 +60,14 @@ public class GlUtil {
         if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        throw new RuntimeException(str + ": glError 0x" + Integer.toHexString(glGetError));
+        String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
+        Log.e("Grafika", str2);
+        throw new RuntimeException(str2);
     }
 
-    public static void checkLocation(int i2, String str) {
+    public static void checkLocation(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i2, str) == null) || i2 >= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || i >= 0) {
             return;
         }
         throw new RuntimeException("Unable to locate '" + str + "' in program");
@@ -84,21 +87,21 @@ public class GlUtil {
         return (FloatBuffer) invokeL.objValue;
     }
 
-    public static int createImageTexture(ByteBuffer byteBuffer, int i2, int i3, int i4) {
+    public static int createImageTexture(ByteBuffer byteBuffer, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65541, null, byteBuffer, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65541, null, byteBuffer, i, i2, i3)) == null) {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
-            int i5 = iArr[0];
+            int i4 = iArr[0];
             checkGlError("glGenTextures");
-            GLES20.glBindTexture(3553, i5);
+            GLES20.glBindTexture(3553, i4);
             GLES20.glTexParameteri(3553, 10241, 9729);
             GLES20.glTexParameteri(3553, 10240, 9729);
             checkGlError("loadImageTexture");
-            GLES20.glTexImage2D(3553, 0, i4, i2, i3, 0, i4, 5121, byteBuffer);
+            GLES20.glTexImage2D(3553, 0, i3, i, i2, 0, i3, 5121, byteBuffer);
             checkGlError("loadImageTexture");
-            return i5;
+            return i4;
         }
         return invokeLIII.intValue;
     }
@@ -114,6 +117,9 @@ public class GlUtil {
             }
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
+            if (glCreateProgram == 0) {
+                Log.e("Grafika", "Could not create program");
+            }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
             GLES20.glAttachShader(glCreateProgram, loadShader);
@@ -122,7 +128,8 @@ public class GlUtil {
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
             if (iArr[0] != 1) {
-                GLES20.glGetProgramInfoLog(glCreateProgram);
+                Log.e("Grafika", "Could not link program: ");
+                Log.e("Grafika", GLES20.glGetProgramInfoLog(glCreateProgram));
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
@@ -131,19 +138,22 @@ public class GlUtil {
         return invokeLL.intValue;
     }
 
-    public static int loadShader(int i2, String str) {
+    public static int loadShader(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i2, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i2);
-            checkGlError("glCreateShader type=" + i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, null, i, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i);
+            checkGlError("glCreateShader type=" + i);
             GLES20.glShaderSource(glCreateShader, str);
             GLES20.glCompileShader(glCreateShader);
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                String str2 = "Could not compile shader " + i2 + ":";
-                String str3 = " " + GLES20.glGetShaderInfoLog(glCreateShader);
+                Log.e("Grafika", "Could not compile shader " + i + ":");
+                StringBuilder sb = new StringBuilder();
+                sb.append(" ");
+                sb.append(GLES20.glGetShaderInfoLog(glCreateShader));
+                Log.e("Grafika", sb.toString());
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -155,9 +165,9 @@ public class GlUtil {
     public static void logVersionInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            String str = "vendor  : " + GLES20.glGetString(7936);
-            String str2 = "renderer: " + GLES20.glGetString(7937);
-            String str3 = "version : " + GLES20.glGetString(7938);
+            Log.i("Grafika", "vendor  : " + GLES20.glGetString(7936));
+            Log.i("Grafika", "renderer: " + GLES20.glGetString(7937));
+            Log.i("Grafika", "version : " + GLES20.glGetString(7938));
         }
     }
 }

@@ -15,10 +15,10 @@ public class c {
     public Type[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Type f2498b;
+    public Type f2056b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f2499c;
+    public Class<?> f2057c;
 
     public c(Type type) {
         Interceptable interceptable = $ic;
@@ -27,28 +27,28 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {type};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2498b = null;
-        this.f2499c = null;
+        this.f2056b = null;
+        this.f2057c = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
             this.a = parameterizedType.getActualTypeArguments();
             Type rawType = parameterizedType.getRawType();
-            this.f2498b = rawType;
+            this.f2056b = rawType;
             Type[] typeArr = this.a;
             if (typeArr == null || typeArr.length <= 0) {
                 return;
             }
             try {
-                this.f2499c = (Class) rawType;
+                this.f2057c = (Class) rawType;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -56,7 +56,7 @@ public class c {
             }
         }
         try {
-            this.f2499c = (Class) type;
+            this.f2057c = (Class) type;
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class c {
     public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2499c : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2057c : (Class) invokeV.objValue;
     }
 
     public Type[] b() {

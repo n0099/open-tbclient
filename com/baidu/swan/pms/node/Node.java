@@ -2,9 +2,9 @@ package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.q.j.d;
-import c.a.p0.q.j.e;
-import c.a.p0.q.j.j.c;
+import c.a.n0.q.j.d;
+import c.a.n0.q.j.e;
+import c.a.n0.q.j.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Node {
     public static final /* synthetic */ Node[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,24 +42,24 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", c.class, c.a.p0.q.j.j.d.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", c.a.p0.q.j.k.d.class, c.a.p0.q.j.k.e.class, true);
-        CERES = new Node("CERES", 2, "ceres", c.a.p0.q.j.h.c.class, c.a.p0.q.j.h.d.class);
-        Node node = new Node("COMMON", 3, "common", c.a.p0.q.j.i.c.class, c.a.p0.q.j.i.d.class);
+        HOST = new Node("HOST", 0, "host", c.class, c.a.n0.q.j.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", c.a.n0.q.j.k.d.class, c.a.n0.q.j.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", c.a.n0.q.j.h.c.class, c.a.n0.q.j.h.d.class);
+        Node node = new Node("COMMON", 3, "common", c.a.n0.q.j.i.c.class, c.a.n0.q.j.i.d.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
 
-    public Node(String str, int i2, String str2, Class cls, Class cls2, boolean z) {
+    public Node(String str, int i, String str2, Class cls, Class cls2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, cls, cls2, Boolean.valueOf(z)};
+            Object[] objArr = {str, Integer.valueOf(i), str2, cls, cls2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -142,16 +142,16 @@ public final class Node {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsDataArray : invokeV.booleanValue;
     }
 
-    public Node(String str, int i2, String str2, Class cls, Class cls2) {
+    public Node(String str, int i, String str2, Class cls, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, cls, cls2};
+            Object[] objArr = {str, Integer.valueOf(i), str2, cls, cls2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

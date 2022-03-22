@@ -22,20 +22,20 @@ import kotlin.ranges.IntRange;
 public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMKt {
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final <T> List<T> List(int i2, Function1<? super Integer, ? extends T> function1) {
-        ArrayList arrayList = new ArrayList(i2);
-        for (int i3 = 0; i3 < i2; i3++) {
-            arrayList.add(function1.invoke(Integer.valueOf(i3)));
+    public static final <T> List<T> List(int i, Function1<? super Integer, ? extends T> function1) {
+        ArrayList arrayList = new ArrayList(i);
+        for (int i2 = 0; i2 < i; i2++) {
+            arrayList.add(function1.invoke(Integer.valueOf(i2)));
         }
         return arrayList;
     }
 
     @SinceKotlin(version = "1.1")
     @InlineOnly
-    public static final <T> List<T> MutableList(int i2, Function1<? super Integer, ? extends T> function1) {
-        ArrayList arrayList = new ArrayList(i2);
-        for (int i3 = 0; i3 < i2; i3++) {
-            arrayList.add(function1.invoke(Integer.valueOf(i3)));
+    public static final <T> List<T> MutableList(int i, Function1<? super Integer, ? extends T> function1) {
+        ArrayList arrayList = new ArrayList(i);
+        for (int i2 = 0; i2 < i; i2++) {
+            arrayList.add(function1.invoke(Integer.valueOf(i2)));
         }
         return arrayList;
     }
@@ -51,50 +51,50 @@ public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMK
         return new ArrayAsCollection(asCollection, false);
     }
 
-    public static final <T extends Comparable<? super T>> int binarySearch(List<? extends T> binarySearch, T t, int i2, int i3) {
+    public static final <T extends Comparable<? super T>> int binarySearch(List<? extends T> binarySearch, T t, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i2, i3);
-        int i4 = i3 - 1;
-        while (i2 <= i4) {
-            int i5 = (i2 + i4) >>> 1;
-            int compareValues = ComparisonsKt__ComparisonsKt.compareValues(binarySearch.get(i5), t);
+        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i, i2);
+        int i3 = i2 - 1;
+        while (i <= i3) {
+            int i4 = (i + i3) >>> 1;
+            int compareValues = ComparisonsKt__ComparisonsKt.compareValues(binarySearch.get(i4), t);
             if (compareValues < 0) {
-                i2 = i5 + 1;
+                i = i4 + 1;
             } else if (compareValues <= 0) {
-                return i5;
+                return i4;
             } else {
-                i4 = i5 - 1;
+                i3 = i4 - 1;
             }
         }
-        return -(i2 + 1);
+        return -(i + 1);
     }
 
-    public static /* synthetic */ int binarySearch$default(List list, Comparable comparable, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(List list, Comparable comparable, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = list.size();
+        if ((i3 & 4) != 0) {
+            i2 = list.size();
         }
-        return binarySearch(list, comparable, i2, i3);
+        return binarySearch(list, comparable, i, i2);
     }
 
-    public static final <T, K extends Comparable<? super K>> int binarySearchBy(List<? extends T> binarySearchBy, K k, int i2, int i3, Function1<? super T, ? extends K> selector) {
+    public static final <T, K extends Comparable<? super K>> int binarySearchBy(List<? extends T> binarySearchBy, K k, int i, int i2, Function1<? super T, ? extends K> selector) {
         Intrinsics.checkNotNullParameter(binarySearchBy, "$this$binarySearchBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        return binarySearch(binarySearchBy, i2, i3, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, k));
+        return binarySearch(binarySearchBy, i, i2, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, k));
     }
 
-    public static /* synthetic */ int binarySearchBy$default(List binarySearchBy, Comparable comparable, int i2, int i3, Function1 selector, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearchBy$default(List binarySearchBy, Comparable comparable, int i, int i2, Function1 selector, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = binarySearchBy.size();
+        if ((i3 & 4) != 0) {
+            i2 = binarySearchBy.size();
         }
         Intrinsics.checkNotNullParameter(binarySearchBy, "$this$binarySearchBy");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        return binarySearch(binarySearchBy, i2, i3, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, comparable));
+        return binarySearch(binarySearchBy, i, i2, new CollectionsKt__CollectionsKt$binarySearchBy$1(selector, comparable));
     }
 
     @SinceKotlin(version = "1.3")
@@ -176,14 +176,14 @@ public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMK
         return collection != 0 ? collection : emptyList();
     }
 
-    public static final void rangeCheck$CollectionsKt__CollectionsKt(int i2, int i3, int i4) {
-        if (i3 > i4) {
-            throw new IllegalArgumentException("fromIndex (" + i3 + ") is greater than toIndex (" + i4 + ").");
-        } else if (i3 < 0) {
-            throw new IndexOutOfBoundsException("fromIndex (" + i3 + ") is less than zero.");
-        } else if (i4 <= i2) {
+    public static final void rangeCheck$CollectionsKt__CollectionsKt(int i, int i2, int i3) {
+        if (i2 > i3) {
+            throw new IllegalArgumentException("fromIndex (" + i2 + ") is greater than toIndex (" + i3 + ").");
+        } else if (i2 < 0) {
+            throw new IndexOutOfBoundsException("fromIndex (" + i2 + ") is less than zero.");
+        } else if (i3 <= i) {
         } else {
-            throw new IndexOutOfBoundsException("toIndex (" + i4 + ") is greater than size (" + i2 + ").");
+            throw new IndexOutOfBoundsException("toIndex (" + i3 + ") is greater than size (" + i + ").");
         }
     }
 
@@ -213,21 +213,21 @@ public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMK
         return elements.length == 0 ? new ArrayList<>() : new ArrayList<>(new ArrayAsCollection(elements, true));
     }
 
-    public static /* synthetic */ int binarySearch$default(List list, Object obj, Comparator comparator, int i2, int i3, int i4, Object obj2) {
-        if ((i4 & 4) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(List list, Object obj, Comparator comparator, int i, int i2, int i3, Object obj2) {
+        if ((i3 & 4) != 0) {
+            i = 0;
         }
-        if ((i4 & 8) != 0) {
-            i3 = list.size();
+        if ((i3 & 8) != 0) {
+            i2 = list.size();
         }
-        return binarySearch(list, obj, comparator, i2, i3);
+        return binarySearch(list, obj, comparator, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
     @InlineOnly
-    public static final <E> List<E> buildList(int i2, @BuilderInference Function1<? super List<E>, Unit> function1) {
-        List createListBuilder = CollectionsKt__CollectionsJVMKt.createListBuilder(i2);
+    public static final <E> List<E> buildList(int i, @BuilderInference Function1<? super List<E>, Unit> function1) {
+        List createListBuilder = CollectionsKt__CollectionsJVMKt.createListBuilder(i);
         function1.invoke(createListBuilder);
         return CollectionsKt__CollectionsJVMKt.build(createListBuilder);
     }
@@ -254,53 +254,53 @@ public class CollectionsKt__CollectionsKt extends CollectionsKt__CollectionsJVMK
         return list != 0 ? list : emptyList();
     }
 
-    public static /* synthetic */ int binarySearch$default(List list, int i2, int i3, Function1 function1, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int binarySearch$default(List list, int i, int i2, Function1 function1, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = list.size();
+        if ((i3 & 2) != 0) {
+            i2 = list.size();
         }
-        return binarySearch(list, i2, i3, function1);
+        return binarySearch(list, i, i2, function1);
     }
 
     /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
-    public static final <T> int binarySearch(List<? extends T> binarySearch, T t, Comparator<? super T> comparator, int i2, int i3) {
+    public static final <T> int binarySearch(List<? extends T> binarySearch, T t, Comparator<? super T> comparator, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i2, i3);
-        int i4 = i3 - 1;
-        while (i2 <= i4) {
-            int i5 = (i2 + i4) >>> 1;
-            int compare = comparator.compare((T) binarySearch.get(i5), t);
+        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i, i2);
+        int i3 = i2 - 1;
+        while (i <= i3) {
+            int i4 = (i + i3) >>> 1;
+            int compare = comparator.compare((T) binarySearch.get(i4), t);
             if (compare < 0) {
-                i2 = i5 + 1;
+                i = i4 + 1;
             } else if (compare <= 0) {
-                return i5;
+                return i4;
             } else {
-                i4 = i5 - 1;
+                i3 = i4 - 1;
             }
         }
-        return -(i2 + 1);
+        return -(i + 1);
     }
 
     /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
-    public static final <T> int binarySearch(List<? extends T> binarySearch, int i2, int i3, Function1<? super T, Integer> comparison) {
+    public static final <T> int binarySearch(List<? extends T> binarySearch, int i, int i2, Function1<? super T, Integer> comparison) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
         Intrinsics.checkNotNullParameter(comparison, "comparison");
-        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i2, i3);
-        int i4 = i3 - 1;
-        while (i2 <= i4) {
-            int i5 = (i2 + i4) >>> 1;
-            int intValue = comparison.invoke((T) binarySearch.get(i5)).intValue();
+        rangeCheck$CollectionsKt__CollectionsKt(binarySearch.size(), i, i2);
+        int i3 = i2 - 1;
+        while (i <= i3) {
+            int i4 = (i + i3) >>> 1;
+            int intValue = comparison.invoke((T) binarySearch.get(i4)).intValue();
             if (intValue < 0) {
-                i2 = i5 + 1;
+                i = i4 + 1;
             } else if (intValue <= 0) {
-                return i5;
+                return i4;
             } else {
-                i4 = i5 - 1;
+                i3 = i4 - 1;
             }
         }
-        return -(i2 + 1);
+        return -(i + 1);
     }
 }

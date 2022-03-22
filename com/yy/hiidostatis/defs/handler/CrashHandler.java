@@ -22,8 +22,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
 import java.util.UUID;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public static Context mContext;
@@ -33,9 +32,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static IStatisAPI mStatisAPI;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnHandlerListener {
-        void handler(int i2, String str, String str2);
+        void handler(int i, String str, String str2);
     }
 
     public CrashHandler(Context context, IStatisAPI iStatisAPI, IOnStatisListener iOnStatisListener, OnHandlerListener onHandlerListener) {
@@ -45,9 +44,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iStatisAPI, iOnStatisListener, onHandlerListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,18 +58,18 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         mOnHandlerListener = onHandlerListener;
     }
 
-    public static void crashCallBack(int i2, String str) {
+    public static void crashCallBack(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
             Object[] objArr = new Object[1];
-            objArr[0] = i2 == 1 ? ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA : "native";
+            objArr[0] = i == 1 ? ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA : "native";
             L.debug("CrashHandler", "%s crash occur.", objArr);
             String replace = str.replace(".dmp", ".log");
             L.brief("crashCallBack,dmpFilePath=%s,logFilePath=%s", str, replace);
             FileUtil.writeFile(replace, generateCrashLog());
             OnHandlerListener onHandlerListener = mOnHandlerListener;
             if (onHandlerListener != null) {
-                onHandlerListener.handler(i2, str, replace);
+                onHandlerListener.handler(i, str, replace);
             }
         }
     }
@@ -99,7 +98,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 if (readLine != null) {
                     if (!readLine.contains(L.getTag())) {
                         stringBuffer.append(readLine);
-                        stringBuffer.append(StringUtils.LF);
+                        stringBuffer.append("\n");
                     }
                 } else {
                     bufferedReader.close();
@@ -119,7 +118,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             StringBuilder sb = new StringBuilder();
             for (StackTraceElement stackTraceElement : new Throwable("").getStackTrace()) {
                 sb.append(stackTraceElement.toString());
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             return sb.toString();
         }
@@ -153,9 +152,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, th};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

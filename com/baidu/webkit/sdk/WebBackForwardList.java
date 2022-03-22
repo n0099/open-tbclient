@@ -15,9 +15,9 @@ public abstract class WebBackForwardList implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -26,13 +26,13 @@ public abstract class WebBackForwardList implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract WebBackForwardList m104clone();
+    public abstract WebBackForwardList m97clone();
 
     public abstract int getCurrentIndex();
 
     public abstract WebHistoryItem getCurrentItem();
 
-    public abstract WebHistoryItem getItemAtIndex(int i2);
+    public abstract WebHistoryItem getItemAtIndex(int i);
 
     public abstract int getSize();
 }

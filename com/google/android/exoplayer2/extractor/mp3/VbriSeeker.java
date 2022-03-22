@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VbriSeeker implements Mp3Extractor.Seeker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,16 +19,16 @@ public final class VbriSeeker implements Mp3Extractor.Seeker {
     public final long[] positions;
     public final long[] timesUs;
 
-    public VbriSeeker(long[] jArr, long[] jArr2, long j2) {
+    public VbriSeeker(long[] jArr, long[] jArr2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jArr, jArr2, Long.valueOf(j2)};
+            Object[] objArr = {jArr, jArr2, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,37 +36,37 @@ public final class VbriSeeker implements Mp3Extractor.Seeker {
         }
         this.timesUs = jArr;
         this.positions = jArr2;
-        this.durationUs = j2;
+        this.durationUs = j;
     }
 
-    public static VbriSeeker create(MpegAudioHeader mpegAudioHeader, ParsableByteArray parsableByteArray, long j2, long j3) {
+    public static VbriSeeker create(MpegAudioHeader mpegAudioHeader, ParsableByteArray parsableByteArray, long j, long j2) {
         InterceptResult invokeCommon;
         int readUnsignedByte;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{mpegAudioHeader, parsableByteArray, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{mpegAudioHeader, parsableByteArray, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             parsableByteArray.skipBytes(10);
             int readInt = parsableByteArray.readInt();
             if (readInt <= 0) {
                 return null;
             }
-            int i2 = mpegAudioHeader.sampleRate;
-            long scaleLargeTimestamp = Util.scaleLargeTimestamp(readInt, 1000000 * (i2 >= 32000 ? MP3TrackImpl.SAMPLES_PER_FRAME : 576), i2);
+            int i = mpegAudioHeader.sampleRate;
+            long scaleLargeTimestamp = Util.scaleLargeTimestamp(readInt, 1000000 * (i >= 32000 ? MP3TrackImpl.SAMPLES_PER_FRAME : 576), i);
             int readUnsignedShort = parsableByteArray.readUnsignedShort();
             int readUnsignedShort2 = parsableByteArray.readUnsignedShort();
             int readUnsignedShort3 = parsableByteArray.readUnsignedShort();
-            int i3 = 2;
+            int i2 = 2;
             parsableByteArray.skipBytes(2);
-            long j4 = j2 + mpegAudioHeader.frameSize;
-            int i4 = readUnsignedShort + 1;
-            long[] jArr = new long[i4];
-            long[] jArr2 = new long[i4];
+            long j3 = j + mpegAudioHeader.frameSize;
+            int i3 = readUnsignedShort + 1;
+            long[] jArr = new long[i3];
+            long[] jArr2 = new long[i3];
             jArr[0] = 0;
-            jArr2[0] = j4;
-            int i5 = 1;
-            while (i5 < i4) {
+            jArr2[0] = j3;
+            int i4 = 1;
+            while (i4 < i3) {
                 if (readUnsignedShort3 == 1) {
                     readUnsignedByte = parsableByteArray.readUnsignedByte();
-                } else if (readUnsignedShort3 == i3) {
+                } else if (readUnsignedShort3 == i2) {
                     readUnsignedByte = parsableByteArray.readUnsignedShort();
                 } else if (readUnsignedShort3 == 3) {
                     readUnsignedByte = parsableByteArray.readUnsignedInt24();
@@ -75,17 +75,17 @@ public final class VbriSeeker implements Mp3Extractor.Seeker {
                 } else {
                     readUnsignedByte = parsableByteArray.readUnsignedIntToInt();
                 }
-                int i6 = i4;
-                j4 += readUnsignedByte * readUnsignedShort2;
-                int i7 = readUnsignedShort2;
-                int i8 = readUnsignedShort3;
-                jArr[i5] = (i5 * scaleLargeTimestamp) / readUnsignedShort;
-                jArr2[i5] = j3 == -1 ? j4 : Math.min(j3, j4);
-                i5++;
-                i4 = i6;
-                readUnsignedShort2 = i7;
-                readUnsignedShort3 = i8;
-                i3 = 2;
+                int i5 = i3;
+                j3 += readUnsignedByte * readUnsignedShort2;
+                int i6 = readUnsignedShort2;
+                int i7 = readUnsignedShort3;
+                jArr[i4] = (i4 * scaleLargeTimestamp) / readUnsignedShort;
+                jArr2[i4] = j2 == -1 ? j3 : Math.min(j2, j3);
+                i4++;
+                i3 = i5;
+                readUnsignedShort2 = i6;
+                readUnsignedShort3 = i7;
+                i2 = 2;
             }
             return new VbriSeeker(jArr, jArr2, scaleLargeTimestamp);
         }
@@ -100,17 +100,17 @@ public final class VbriSeeker implements Mp3Extractor.Seeker {
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j2) {
+    public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.positions[Util.binarySearchFloor(this.timesUs, j2, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.positions[Util.binarySearchFloor(this.timesUs, j, true, true)] : invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.mp3.Mp3Extractor.Seeker
-    public long getTimeUs(long j2) {
+    public long getTimeUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.timesUs[Util.binarySearchFloor(this.positions, j2, true, true)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.timesUs[Util.binarySearchFloor(this.positions, j, true, true)] : invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap

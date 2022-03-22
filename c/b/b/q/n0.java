@@ -25,9 +25,9 @@ public class n0 implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -165,34 +165,34 @@ public class n0 implements c {
             } else {
                 b2 = 0;
             }
-            long j2 = -1;
+            long j = -1;
             if (readByte == 35) {
-                j2 = i(dataInputStream, false, -1L);
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                if (i2 < 0) {
+                j = i(dataInputStream, false, -1L);
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i < 0) {
                     throw new GdxRuntimeException("Unrecognized data type");
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return jsonValue;
                 }
                 readByte = b2 == 0 ? dataInputStream.readByte() : b2;
             }
             JsonValue jsonValue2 = null;
-            long j3 = 0;
+            long j2 = 0;
             while (dataInputStream.available() > 0 && readByte != 93) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.k = jsonValue;
+                c2.f23795g = jsonValue;
                 if (jsonValue2 != null) {
-                    c2.m = jsonValue2;
-                    jsonValue2.l = c2;
-                    jsonValue.n++;
+                    c2.i = jsonValue2;
+                    jsonValue2.f23796h = c2;
+                    jsonValue.j++;
                 } else {
-                    jsonValue.f29775j = c2;
-                    jsonValue.n = 1;
+                    jsonValue.f23794f = c2;
+                    jsonValue.j = 1;
                 }
-                if (j2 > 0) {
-                    j3++;
-                    if (j3 >= j2) {
+                if (j > 0) {
+                    j2++;
+                    if (j2 >= j) {
                         break;
                     }
                 }
@@ -212,18 +212,18 @@ public class n0 implements c {
             long n = b2 == 65 ? n(dataInputStream) : m(dataInputStream);
             JsonValue jsonValue = new JsonValue(JsonValue.ValueType.array);
             JsonValue jsonValue2 = null;
-            long j2 = 0;
-            while (j2 < n) {
+            long j = 0;
+            while (j < n) {
                 JsonValue c2 = c(dataInputStream, readByte);
-                c2.k = jsonValue;
+                c2.f23795g = jsonValue;
                 if (jsonValue2 != null) {
-                    jsonValue2.l = c2;
-                    jsonValue.n++;
+                    jsonValue2.f23796h = c2;
+                    jsonValue.j++;
                 } else {
-                    jsonValue.f29775j = c2;
-                    jsonValue.n = 1;
+                    jsonValue.f23794f = c2;
+                    jsonValue.j = 1;
                 }
-                j2++;
+                j++;
                 jsonValue2 = c2;
             }
             return jsonValue;
@@ -244,36 +244,36 @@ public class n0 implements c {
             } else {
                 b2 = 0;
             }
-            long j2 = -1;
+            long j = -1;
             if (readByte == 35) {
-                j2 = i(dataInputStream, false, -1L);
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                if (i2 < 0) {
+                j = i(dataInputStream, false, -1L);
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i < 0) {
                     throw new GdxRuntimeException("Unrecognized data type");
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return jsonValue;
                 }
                 readByte = dataInputStream.readByte();
             }
             JsonValue jsonValue2 = null;
-            long j3 = 0;
+            long j2 = 0;
             while (dataInputStream.available() > 0 && readByte != 125) {
                 String k = k(dataInputStream, true, readByte);
                 JsonValue c2 = c(dataInputStream, b2 == 0 ? dataInputStream.readByte() : b2);
                 c2.Q(k);
-                c2.k = jsonValue;
+                c2.f23795g = jsonValue;
                 if (jsonValue2 != null) {
-                    c2.m = jsonValue2;
-                    jsonValue2.l = c2;
-                    jsonValue.n++;
+                    c2.i = jsonValue2;
+                    jsonValue2.f23796h = c2;
+                    jsonValue.j++;
                 } else {
-                    jsonValue.f29775j = c2;
-                    jsonValue.n = 1;
+                    jsonValue.f23794f = c2;
+                    jsonValue.j = 1;
                 }
-                if (j2 > 0) {
-                    j3++;
-                    if (j3 >= j2) {
+                if (j > 0) {
+                    j2++;
+                    if (j2 >= j) {
                         break;
                     }
                 }
@@ -285,10 +285,10 @@ public class n0 implements c {
         return (JsonValue) invokeL.objValue;
     }
 
-    public long h(DataInputStream dataInputStream, byte b2, boolean z, long j2) throws IOException {
+    public long h(DataInputStream dataInputStream, byte b2, boolean z, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{dataInputStream, Byte.valueOf(b2), Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{dataInputStream, Byte.valueOf(b2), Boolean.valueOf(z), Long.valueOf(j)})) == null) {
             if (b2 == 105) {
                 return m(dataInputStream);
             }
@@ -301,15 +301,15 @@ public class n0 implements c {
             if (b2 == 76) {
                 return dataInputStream.readLong();
             }
-            return z ? ((b2 & 255) << 24) | ((dataInputStream.readByte() & 255) << 16) | ((dataInputStream.readByte() & 255) << 8) | (dataInputStream.readByte() & 255) : j2;
+            return z ? ((b2 & 255) << 24) | ((dataInputStream.readByte() & 255) << 16) | ((dataInputStream.readByte() & 255) << 8) | (dataInputStream.readByte() & 255) : j;
         }
         return invokeCommon.longValue;
     }
 
-    public long i(DataInputStream dataInputStream, boolean z, long j2) throws IOException {
+    public long i(DataInputStream dataInputStream, boolean z, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{dataInputStream, Boolean.valueOf(z), Long.valueOf(j2)})) == null) ? h(dataInputStream, dataInputStream.readByte(), z, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{dataInputStream, Boolean.valueOf(z), Long.valueOf(j)})) == null) ? h(dataInputStream, dataInputStream.readByte(), z, j) : invokeCommon.longValue;
     }
 
     public String j(DataInputStream dataInputStream, byte b2) throws IOException {
@@ -322,28 +322,28 @@ public class n0 implements c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{dataInputStream, Boolean.valueOf(z), Byte.valueOf(b2)})) == null) {
-            long j2 = -1;
+            long j = -1;
             if (b2 == 83) {
-                j2 = i(dataInputStream, true, -1L);
+                j = i(dataInputStream, true, -1L);
             } else if (b2 == 115) {
-                j2 = m(dataInputStream);
+                j = m(dataInputStream);
             } else if (z) {
-                j2 = h(dataInputStream, b2, false, -1L);
+                j = h(dataInputStream, b2, false, -1L);
             }
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 >= 0) {
-                return i2 > 0 ? l(dataInputStream, j2) : "";
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                return i > 0 ? l(dataInputStream, j) : "";
             }
             throw new GdxRuntimeException("Unrecognized data type, string expected");
         }
         return (String) invokeCommon.objValue;
     }
 
-    public String l(DataInputStream dataInputStream, long j2) throws IOException {
+    public String l(DataInputStream dataInputStream, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, dataInputStream, j2)) == null) {
-            byte[] bArr = new byte[(int) j2];
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048587, this, dataInputStream, j)) == null) {
+            byte[] bArr = new byte[(int) j];
             dataInputStream.readFully(bArr);
             return new String(bArr, "UTF-8");
         }

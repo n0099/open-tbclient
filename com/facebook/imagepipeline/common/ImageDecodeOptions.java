@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageDecodeOptions {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageDecodeOptions DEFAULTS;
@@ -54,9 +54,9 @@ public class ImageDecodeOptions {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageDecodeOptionsBuilder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -1,8 +1,9 @@
 package com.baidu.swan.games.view.webview;
 
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.p0.a.a;
+import c.a.n0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GameWebViewJavascriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -41,9 +42,9 @@ public class GameWebViewJavascriptInterface {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,10 +55,12 @@ public class GameWebViewJavascriptInterface {
     public void closeGameWebView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = DEBUG;
-            c.a.p0.j.p0.h.a E = c.a.p0.j.p0.h.a.E();
-            if (E != null) {
-                E.close();
+            if (DEBUG) {
+                Log.i(TAG, "closeGameWebView");
+            }
+            c.a.n0.j.p0.h.a F = c.a.n0.j.p0.h.a.F();
+            if (F != null) {
+                F.close();
             }
         }
     }
@@ -66,10 +69,12 @@ public class GameWebViewJavascriptInterface {
     public void onGameLoadingFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean z = DEBUG;
-            c.a.p0.j.p0.h.a E = c.a.p0.j.p0.h.a.E();
-            if (E != null) {
-                E.H();
+            if (DEBUG) {
+                Log.i(TAG, "onGameLoadingFinish");
+            }
+            c.a.n0.j.p0.h.a F = c.a.n0.j.p0.h.a.F();
+            if (F != null) {
+                F.I();
             }
         }
     }

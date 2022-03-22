@@ -29,9 +29,9 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -62,13 +62,13 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void c(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+    public void c(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i2, hashMap, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048582, this, i, hashMap, bArr) == null) {
             if (this.executCallbackInChildThread) {
-                onSuccess(i2, bArr == null ? null : new String(bArr), hashMap);
+                onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
             } else {
-                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), hashMap, bArr}));
+                sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), hashMap, bArr}));
             }
         }
     }
@@ -77,16 +77,16 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
-            int i2 = message.what;
-            if (i2 == 0) {
+            int i = message.what;
+            if (i == 0) {
                 Object[] objArr = (Object[]) message.obj;
                 a(((Integer) objArr[0]).intValue(), (HashMap) objArr[1], (byte[]) objArr[2]);
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 Object[] objArr2 = (Object[]) message.obj;
                 a((Throwable) objArr2[0], (String) objArr2[1]);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 onStart();
-            } else if (i2 != 3) {
+            } else if (i != 3) {
             } else {
                 onFinish();
             }
@@ -111,16 +111,16 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void onSuccess(int i2, String str) {
+    public void onSuccess(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
         }
     }
 
-    public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
+    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048588, this, i2, str, hashMap) == null) {
-            onSuccess(i2, str);
+        if (interceptable == null || interceptable.invokeILL(1048588, this, i, str, hashMap) == null) {
+            onSuccess(i, str);
         }
     }
 
@@ -131,9 +131,9 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -151,9 +151,9 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Looper) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -163,10 +163,10 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void a(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+    public void a(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, hashMap, bArr) == null) {
-            onSuccess(i2, bArr == null ? null : new String(bArr), hashMap);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap, bArr) == null) {
+            onSuccess(i, bArr == null ? null : new String(bArr), hashMap);
         }
     }
 
@@ -190,9 +190,9 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -210,15 +210,15 @@ public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
         }
     }
 
-    public void b(int i2, HashMap<String, String> hashMap, byte[] bArr) {
+    public void b(int i, HashMap<String, String> hashMap, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, hashMap, bArr) == null) {
-            if (i2 == 200) {
-                c(i2, hashMap, bArr);
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, hashMap, bArr) == null) {
+            if (i == 200) {
+                c(i, hashMap, bArr);
                 return;
             }
             String str = bArr == null ? null : new String(bArr);
-            b(new HttpErrorException(i2, str), str);
+            b(new HttpErrorException(i, str), str);
         }
     }
 }

@@ -15,7 +15,6 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.searchbox.fluency.BdTracesManager;
 import com.baidu.searchbox.fluency.listener.FrameRateListener;
 import com.baidu.searchbox.fluency.tracer.DropLevel;
@@ -42,7 +41,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.math.MathKt__MathJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 W2\u00020\u0001:\u0002WXB\u0017\u0012\u0006\u0010\u001d\u001a\u00020\u001c\u0012\u0006\u0010(\u001a\u00020'¢\u0006\u0004\bU\u0010VJ\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004JO\u0010\u0011\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u0010\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0011\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u001a\u001a\u00020\u0019H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001e\u001a\u00020\u00022\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\f¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\f¢\u0006\u0004\b\"\u0010!J\u0015\u0010$\u001a\u00020\u00022\u0006\u0010#\u001a\u00020\f¢\u0006\u0004\b$\u0010%J\r\u0010&\u001a\u00020\u0002¢\u0006\u0004\b&\u0010\u0004JG\u0010-\u001a\u00020\u00022\u0006\u0010(\u001a\u00020'2\u0006\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010)\u001a\u00020\n2\u0006\u0010*\u001a\u00020\n2\u0006\u0010+\u001a\u00020\n2\u0006\u0010,\u001a\u00020\nH\u0002¢\u0006\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00101\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b1\u00100R\u0016\u0010\u001d\u001a\u00020\u001c8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001d\u00102R\u0016\u00104\u001a\u0002038\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u00109\u001a\u00020\u00168\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b9\u0010:R\u0016\u0010(\u001a\u00020'8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010;R\u0016\u0010=\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0016\u0010?\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b?\u00100R\u0018\u0010@\u001a\u0004\u0018\u00010\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bB\u00100R\u0016\u0010 \u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010CR\u0016\u0010\"\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010CR\u0016\u0010D\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010>R\u0016\u0010E\u001a\u00020\u00078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u0010FR\u0016\u0010G\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR\u0016\u0010I\u001a\u00020\u00198\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bI\u0010AR\u0016\u0010J\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bJ\u0010>R\u0016\u0010K\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bK\u00100R\u0016\u0010L\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bL\u00100R\u0016\u0010M\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bM\u0010>R\u0016\u0010N\u001a\u00020\u00078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010FR\u0016\u0010P\u001a\u00020O8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bP\u0010QR\u0016\u0010S\u001a\u00020R8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bS\u0010T¨\u0006Y"}, d2 = {"Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener;", "", "dismiss", "()V", "", "topPage", "", "startNs", "endNs", "", "dropFrame", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doFrameAsync", "(Ljava/lang/String;JJIZJJJ)V", FpsConstants.REPORT_FPS, "getColor", "(I)I", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "Landroid/content/Context;", "context", "initLayoutParams", "(Landroid/content/Context;)V", "isEnable", "()Z", "isShowing", c.l, "setEnable", "(Z)V", "show", "Lcom/baidu/searchbox/fluency/view/FpsFloatView;", "floatView", "normal", "middle", "high", "frozen", "updateView", "(Lcom/baidu/searchbox/fluency/view/FpsFloatView;ILjava/lang/String;IIII)V", "belongColor", "I", "bestColor", "Landroid/content/Context;", "Landroid/util/DisplayMetrics;", "displayMetrics", "Landroid/util/DisplayMetrics;", "", FpsConstants.REPORT_DROP_LEVEL, "[I", "executor", "Ljava/util/concurrent/Executor;", "Lcom/baidu/searchbox/fluency/view/FpsFloatView;", "", "frameIntervalMs", "F", "frozenColor", "handler", "Landroid/os/Handler;", "highColor", "Z", "lastCost", "lastFrames", "J", "lastTopPage", "Ljava/lang/String;", "mainHandler", "maxFps", "middleColor", "normalColor", "sumFrameCost", "sumFrames", "Landroid/view/WindowManager$LayoutParams;", "windowLp", "Landroid/view/WindowManager$LayoutParams;", "Landroid/view/WindowManager;", "windowManager", "Landroid/view/WindowManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/searchbox/fluency/view/FpsFloatView;)V", "Companion", "FloatOnTouchListener", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0015\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0012\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000 W2\u00020\u0001:\u0002WXB\u0017\u0012\u0006\u0010\u001d\u001a\u00020\u001c\u0012\u0006\u0010(\u001a\u00020'¢\u0006\u0004\bU\u0010VJ\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004JO\u0010\u0011\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\t\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u0010\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0014\u001a\u00020\n2\u0006\u0010\u0013\u001a\u00020\nH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0011\u0010\u0017\u001a\u0004\u0018\u00010\u0016H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u001a\u001a\u00020\u0019H\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0017\u0010\u001e\u001a\u00020\u00022\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\r\u0010 \u001a\u00020\f¢\u0006\u0004\b \u0010!J\r\u0010\"\u001a\u00020\f¢\u0006\u0004\b\"\u0010!J\u0015\u0010$\u001a\u00020\u00022\u0006\u0010#\u001a\u00020\f¢\u0006\u0004\b$\u0010%J\r\u0010&\u001a\u00020\u0002¢\u0006\u0004\b&\u0010\u0004JG\u0010-\u001a\u00020\u00022\u0006\u0010(\u001a\u00020'2\u0006\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010)\u001a\u00020\n2\u0006\u0010*\u001a\u00020\n2\u0006\u0010+\u001a\u00020\n2\u0006\u0010,\u001a\u00020\nH\u0002¢\u0006\u0004\b-\u0010.R\u0016\u0010/\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00101\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b1\u00100R\u0016\u0010\u001d\u001a\u00020\u001c8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001d\u00102R\u0016\u00104\u001a\u0002038\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b7\u00108R\u0016\u00109\u001a\u00020\u00168\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b9\u0010:R\u0016\u0010(\u001a\u00020'8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b(\u0010;R\u0016\u0010=\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0016\u0010?\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b?\u00100R\u0018\u0010@\u001a\u0004\u0018\u00010\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010AR\u0016\u0010B\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bB\u00100R\u0016\u0010 \u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010CR\u0016\u0010\"\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010CR\u0016\u0010D\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010>R\u0016\u0010E\u001a\u00020\u00078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u0010FR\u0016\u0010G\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR\u0016\u0010I\u001a\u00020\u00198\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bI\u0010AR\u0016\u0010J\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bJ\u0010>R\u0016\u0010K\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bK\u00100R\u0016\u0010L\u001a\u00020\n8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bL\u00100R\u0016\u0010M\u001a\u00020<8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bM\u0010>R\u0016\u0010N\u001a\u00020\u00078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010FR\u0016\u0010P\u001a\u00020O8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bP\u0010QR\u0016\u0010S\u001a\u00020R8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bS\u0010T¨\u0006Y"}, d2 = {"Lcom/baidu/searchbox/fluency/view/FpsDecorator;", "Lcom/baidu/searchbox/fluency/listener/FrameRateListener;", "", "dismiss", "()V", "", "topPage", "", "startNs", "endNs", "", "dropFrame", "", "isVsyncFrame", "inputCostNs", "animationCostNs", "traversalCostNs", "doFrameAsync", "(Ljava/lang/String;JJIZJJJ)V", FpsConstants.REPORT_FPS, "getColor", "(I)I", "Ljava/util/concurrent/Executor;", "getExecutor", "()Ljava/util/concurrent/Executor;", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "Landroid/content/Context;", "context", "initLayoutParams", "(Landroid/content/Context;)V", "isEnable", "()Z", "isShowing", "enable", "setEnable", "(Z)V", "show", "Lcom/baidu/searchbox/fluency/view/FpsFloatView;", "floatView", "normal", "middle", "high", "frozen", "updateView", "(Lcom/baidu/searchbox/fluency/view/FpsFloatView;ILjava/lang/String;IIII)V", "belongColor", "I", "bestColor", "Landroid/content/Context;", "Landroid/util/DisplayMetrics;", "displayMetrics", "Landroid/util/DisplayMetrics;", "", FpsConstants.REPORT_DROP_LEVEL, "[I", "executor", "Ljava/util/concurrent/Executor;", "Lcom/baidu/searchbox/fluency/view/FpsFloatView;", "", "frameIntervalMs", "F", "frozenColor", "handler", "Landroid/os/Handler;", "highColor", "Z", "lastCost", "lastFrames", "J", "lastTopPage", "Ljava/lang/String;", "mainHandler", "maxFps", "middleColor", "normalColor", "sumFrameCost", "sumFrames", "Landroid/view/WindowManager$LayoutParams;", "windowLp", "Landroid/view/WindowManager$LayoutParams;", "Landroid/view/WindowManager;", "windowManager", "Landroid/view/WindowManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/searchbox/fluency/view/FpsFloatView;)V", "Companion", "FloatOnTouchListener", "lib-fps_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class FpsDecorator extends FrameRateListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -87,9 +86,9 @@ public final class FpsDecorator extends FrameRateListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -140,9 +139,9 @@ public final class FpsDecorator extends FrameRateListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fpsDecorator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -178,7 +177,7 @@ public final class FpsDecorator extends FrameRateListener {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(final View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
                 Integer valueOf = motionEvent != null ? Integer.valueOf(motionEvent.getAction()) : null;
@@ -196,9 +195,9 @@ public final class FpsDecorator extends FrameRateListener {
                         FpsDecorator.access$getWindowLp$p(this.this$0).y += (int) ((y - this.downY) / f2);
                         FpsDecorator.access$getWindowLp$p(this.this$0).y = FpsDecorator.access$getWindowLp$p(this.this$0).y < 0 ? 0 : FpsDecorator.access$getWindowLp$p(this.this$0).y;
                         FpsDecorator.access$getWindowLp$p(this.this$0).x = FpsDecorator.access$getWindowLp$p(this.this$0).x >= 0 ? FpsDecorator.access$getWindowLp$p(this.this$0).x : 0;
-                        int i3 = this.this$0.displayMetrics.widthPixels;
+                        int i2 = this.this$0.displayMetrics.widthPixels;
                         Intrinsics.checkNotNull(view);
-                        int width = i3 - view.getWidth();
+                        int width = i2 - view.getWidth();
                         WindowManager.LayoutParams access$getWindowLp$p = FpsDecorator.access$getWindowLp$p(this.this$0);
                         if (FpsDecorator.access$getWindowLp$p(this.this$0).x <= width) {
                             width = FpsDecorator.access$getWindowLp$p(this.this$0).x;
@@ -206,15 +205,15 @@ public final class FpsDecorator extends FrameRateListener {
                         access$getWindowLp$p.x = width;
                         FpsDecorator.access$getWindowManager$p(this.this$0).updateViewLayout(view, FpsDecorator.access$getWindowLp$p(this.this$0));
                     } else if (valueOf != null && valueOf.intValue() == 1) {
-                        int i4 = FpsDecorator.access$getWindowLp$p(this.this$0).x;
+                        int i3 = FpsDecorator.access$getWindowLp$p(this.this$0).x;
                         if (FpsDecorator.access$getWindowLp$p(this.this$0).x > this.this$0.displayMetrics.widthPixels / 2) {
-                            int i5 = this.this$0.displayMetrics.widthPixels;
+                            int i4 = this.this$0.displayMetrics.widthPixels;
                             Intrinsics.checkNotNull(view);
-                            i2 = i5 - view.getWidth();
+                            i = i4 - view.getWidth();
                         } else {
-                            i2 = 0;
+                            i = 0;
                         }
-                        ValueAnimator animator = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("trans", i4, i2));
+                        ValueAnimator animator = ValueAnimator.ofPropertyValuesHolder(PropertyValuesHolder.ofInt("trans", i3, i));
                         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$FloatOnTouchListener$onTouch$1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -228,9 +227,9 @@ public final class FpsDecorator extends FrameRateListener {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, view};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i6 = newInitContext.flag;
-                                    if ((i6 & 1) != 0) {
-                                        int i7 = i6 & 2;
+                                    int i5 = newInitContext.flag;
+                                    if ((i5 & 1) != 0) {
+                                        int i6 = i5 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -268,17 +267,17 @@ public final class FpsDecorator extends FrameRateListener {
             return invokeLL.booleanValue;
         }
 
-        public final void setDownOffsetX(int i2) {
+        public final void setDownOffsetX(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.downOffsetX = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.downOffsetX = i;
             }
         }
 
-        public final void setDownOffsetY(int i2) {
+        public final void setDownOffsetY(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.downOffsetY = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.downOffsetY = i;
             }
         }
 
@@ -321,9 +320,9 @@ public final class FpsDecorator extends FrameRateListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, floatView};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -338,11 +337,11 @@ public final class FpsDecorator extends FrameRateListener {
         this.displayMetrics = new DisplayMetrics();
         this.isEnable = true;
         this.mainHandler = FpsHandlerThread.INSTANCE.getDefaultMainHandler();
-        this.bestColor = this.context.getResources().getColor(R.color.level_best_color);
-        this.normalColor = this.context.getResources().getColor(R.color.level_normal_color);
-        this.middleColor = this.context.getResources().getColor(R.color.level_middle_color);
-        this.highColor = this.context.getResources().getColor(R.color.level_high_color);
-        this.frozenColor = this.context.getResources().getColor(R.color.level_frozen_color);
+        this.bestColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f06076f);
+        this.normalColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060773);
+        this.middleColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060772);
+        this.highColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060771);
+        this.frozenColor = this.context.getResources().getColor(R.color.obfuscated_res_0x7f060770);
         this.belongColor = this.bestColor;
         this.dropLevel = new int[DropLevel.values().length];
         this.lastTopPage = "default";
@@ -358,9 +357,9 @@ public final class FpsDecorator extends FrameRateListener {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -397,9 +396,9 @@ public final class FpsDecorator extends FrameRateListener {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r7};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -445,20 +444,20 @@ public final class FpsDecorator extends FrameRateListener {
         return windowManager;
     }
 
-    private final int getColor(int i2) {
+    private final int getColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, this, i2)) == null) {
-            if (i2 > 57) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, this, i)) == null) {
+            if (i > 57) {
                 return this.bestColor;
             }
-            if (i2 > 50) {
+            if (i > 50) {
                 return this.normalColor;
             }
-            if (i2 > 35) {
+            if (i > 35) {
                 return this.middleColor;
             }
-            if (i2 > 20) {
+            if (i > 20) {
                 return this.highColor;
             }
             return this.frozenColor;
@@ -576,21 +575,21 @@ public final class FpsDecorator extends FrameRateListener {
         }
     }
 
-    private final void updateView(final FpsFloatView fpsFloatView, final int i2, final String str, final int i3, final int i4, final int i5, final int i6) {
+    private final void updateView(final FpsFloatView fpsFloatView, final int i, final String str, final int i2, final int i3, final int i4, final int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{fpsFloatView, Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            int i7 = i3 + i4 + i5 + i6;
-            float f2 = i7 <= 0 ? 0.0f : ((i6 * 1.0f) / i7) * 60;
-            float f3 = i7 <= 0 ? 0.0f : ((i5 * 1.0f) / i7) * 30;
-            float f4 = i7 <= 0 ? 0.0f : ((i4 * 1.0f) / i7) * 15;
-            float f5 = i7 <= 0 ? 0.0f : ((i3 * 1.0f) / i7) * 5;
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{fpsFloatView, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            int i6 = i2 + i3 + i4 + i5;
+            float f2 = i6 <= 0 ? 0.0f : ((i5 * 1.0f) / i6) * 60;
+            float f3 = i6 <= 0 ? 0.0f : ((i4 * 1.0f) / i6) * 30;
+            float f4 = i6 <= 0 ? 0.0f : ((i3 * 1.0f) / i6) * 15;
+            float f5 = i6 <= 0 ? 0.0f : ((i2 * 1.0f) / i6) * 5;
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             final String format = String.format("平均丢帧: %.1f", Arrays.copyOf(new Object[]{Float.valueOf(f2 + f3 + f4 + f5)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            float f6 = i7 <= 0 ? 0.0f : (i6 * 1.0f) / i7;
-            float f7 = i7 <= 0 ? 0.0f : (i5 * 1.0f) / i7;
-            float f8 = i7 <= 0 ? 0.0f : (i4 * 1.0f) / i7;
-            float f9 = i7 > 0 ? (i3 * 1.0f) / i7 : 0.0f;
+            float f6 = i6 <= 0 ? 0.0f : (i5 * 1.0f) / i6;
+            float f7 = i6 <= 0 ? 0.0f : (i4 * 1.0f) / i6;
+            float f8 = i6 <= 0 ? 0.0f : (i3 * 1.0f) / i6;
+            float f9 = i6 > 0 ? (i2 * 1.0f) / i6 : 0.0f;
             StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
             final String format2 = String.format("%.2f", Arrays.copyOf(new Object[]{Float.valueOf(f6)}, 1));
             Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(format, *args)");
@@ -603,11 +602,11 @@ public final class FpsDecorator extends FrameRateListener {
             StringCompanionObject stringCompanionObject5 = StringCompanionObject.INSTANCE;
             final String format5 = String.format("%.2f", Arrays.copyOf(new Object[]{Float.valueOf(f9)}, 1));
             Intrinsics.checkNotNullExpressionValue(format5, "java.lang.String.format(format, *args)");
-            this.belongColor = getColor(i2);
+            this.belongColor = getColor(i);
             StringCompanionObject stringCompanionObject6 = StringCompanionObject.INSTANCE;
-            final String format6 = String.format("%d FPS", Arrays.copyOf(new Object[]{Integer.valueOf(i2)}, 1));
+            final String format6 = String.format("%d FPS", Arrays.copyOf(new Object[]{Integer.valueOf(i)}, 1));
             Intrinsics.checkNotNullExpressionValue(format6, "java.lang.String.format(format, *args)");
-            this.mainHandler.post(new Runnable(this, fpsFloatView, i2, format6, format, str, i6, i5, i4, i3, format2, format3, format4, format5) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$updateView$1
+            this.mainHandler.post(new Runnable(this, fpsFloatView, i, format6, format, str, i5, i4, i3, i2, format2, format3, format4, format5) { // from class: com.baidu.searchbox.fluency.view.FpsDecorator$updateView$1
                 public static /* synthetic */ Interceptable $ic;
                 public final /* synthetic */ String $expectStr;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -630,11 +629,11 @@ public final class FpsDecorator extends FrameRateListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r3;
-                        Object[] objArr = {this, fpsFloatView, Integer.valueOf(i2), format6, format, str, Integer.valueOf(i6), Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3), format2, format3, format4, format5};
+                        Object[] objArr = {this, fpsFloatView, Integer.valueOf(i), format6, format, str, Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3), Integer.valueOf(i2), format2, format3, format4, format5};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i8 = newInitContext.flag;
-                        if ((i8 & 1) != 0) {
-                            int i9 = i8 & 2;
+                        int i7 = newInitContext.flag;
+                        if ((i7 & 1) != 0) {
+                            int i8 = i7 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -642,14 +641,14 @@ public final class FpsDecorator extends FrameRateListener {
                     }
                     this.this$0 = this;
                     this.$floatView = fpsFloatView;
-                    this.$fps = i2;
+                    this.$fps = i;
                     this.$fpsStr = format6;
                     this.$expectStr = format;
                     this.$topPage = str;
-                    this.$frozen = i6;
-                    this.$high = i5;
-                    this.$middle = i4;
-                    this.$normal = i3;
+                    this.$frozen = i5;
+                    this.$high = i4;
+                    this.$middle = i3;
+                    this.$normal = i2;
                     this.$ratioFrozen = format2;
                     this.$ratioHigh = format3;
                     this.$ratioMiddle = format4;
@@ -658,14 +657,14 @@ public final class FpsDecorator extends FrameRateListener {
 
                 @Override // java.lang.Runnable
                 public final void run() {
-                    int i8;
+                    int i7;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.$floatView.getChartView().addFps(this.$fps);
                         this.$floatView.getFpsView().setText(this.$fpsStr);
                         TextView fpsView = this.$floatView.getFpsView();
-                        i8 = this.this$0.belongColor;
-                        fpsView.setTextColor(i8);
+                        i7 = this.this$0.belongColor;
+                        fpsView.setTextColor(i7);
                         this.$floatView.getDropExpectView().setText(this.$expectStr);
                         this.$floatView.getTopPageView().setText(this.$topPage);
                         this.$floatView.getLevelFrozensView().setText(String.valueOf(this.$frozen));
@@ -697,9 +696,9 @@ public final class FpsDecorator extends FrameRateListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -728,34 +727,34 @@ public final class FpsDecorator extends FrameRateListener {
     }
 
     @Override // com.baidu.searchbox.fluency.listener.FrameRateListener
-    public void doFrameAsync(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
+    public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
-            super.doFrameAsync(topPage, j2, j3, i2, z, j4, j5, j6);
+            super.doFrameAsync(topPage, j, j2, i, z, j3, j4, j5);
             if (!TextUtils.equals(topPage, this.lastTopPage)) {
                 this.lastTopPage = topPage;
                 ArraysKt___ArraysJvmKt.fill$default(this.dropLevel, 0, 0, 0, 6, (Object) null);
             }
-            float f2 = this.sumFrameCost + ((i2 + 1) * this.frameIntervalMs);
+            float f2 = this.sumFrameCost + ((i + 1) * this.frameIntervalMs);
             this.sumFrameCost = f2;
-            long j7 = this.sumFrames + 1;
-            this.sumFrames = j7;
+            long j6 = this.sumFrames + 1;
+            this.sumFrames = j6;
             float f3 = f2 - this.lastCost;
-            long j8 = j7 - this.lastFrames;
-            if (i2 >= 40) {
+            long j7 = j6 - this.lastFrames;
+            if (i >= 40) {
                 int[] iArr = this.dropLevel;
                 int index = DropLevel.DROPPED_FROZEN.getIndex();
                 iArr[index] = iArr[index] + 1;
-            } else if (i2 >= 25) {
+            } else if (i >= 25) {
                 int[] iArr2 = this.dropLevel;
                 int index2 = DropLevel.DROPPED_HIGH.getIndex();
                 iArr2[index2] = iArr2[index2] + 1;
-            } else if (i2 >= 10) {
+            } else if (i >= 10) {
                 int[] iArr3 = this.dropLevel;
                 int index3 = DropLevel.DROPPED_MIDDLE.getIndex();
                 iArr3[index3] = iArr3[index3] + 1;
-            } else if (i2 >= 3) {
+            } else if (i >= 3) {
                 int[] iArr4 = this.dropLevel;
                 int index4 = DropLevel.DROPPED_NORMAL.getIndex();
                 iArr4[index4] = iArr4[index4] + 1;
@@ -765,7 +764,7 @@ public final class FpsDecorator extends FrameRateListener {
                 iArr5[index5] = iArr5[index5] + 1;
             }
             if (f3 >= 200) {
-                updateView(this.floatView, MathKt__MathJVMKt.roundToInt(Math.min(this.maxFps, (((float) j8) * 1000.0f) / f3)), topPage, this.dropLevel[DropLevel.DROPPED_NORMAL.getIndex()], this.dropLevel[DropLevel.DROPPED_MIDDLE.getIndex()], this.dropLevel[DropLevel.DROPPED_HIGH.getIndex()], this.dropLevel[DropLevel.DROPPED_FROZEN.getIndex()]);
+                updateView(this.floatView, MathKt__MathJVMKt.roundToInt(Math.min(this.maxFps, (((float) j7) * 1000.0f) / f3)), topPage, this.dropLevel[DropLevel.DROPPED_NORMAL.getIndex()], this.dropLevel[DropLevel.DROPPED_MIDDLE.getIndex()], this.dropLevel[DropLevel.DROPPED_HIGH.getIndex()], this.dropLevel[DropLevel.DROPPED_FROZEN.getIndex()]);
                 this.lastCost = this.sumFrameCost;
                 this.lastFrames = this.sumFrames;
             }
@@ -813,9 +812,9 @@ public final class FpsDecorator extends FrameRateListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

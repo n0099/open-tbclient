@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StatFsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_DISK_YELLOW_LEVEL_IN_BYTES = 419430400;
@@ -43,7 +43,7 @@ public class StatFsHelper {
     public long mLastRestatTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StorageType {
         public static final /* synthetic */ StorageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -70,16 +70,16 @@ public class StatFsHelper {
             $VALUES = new StorageType[]{INTERNAL, storageType};
         }
 
-        public StorageType(String str, int i2) {
+        public StorageType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -123,9 +123,9 @@ public class StatFsHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -313,13 +313,13 @@ public class StatFsHelper {
         }
     }
 
-    public boolean testLowDiskSpace(StorageType storageType, long j2) {
+    public boolean testLowDiskSpace(StorageType storageType, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, storageType, j)) == null) {
             ensureInitialized();
             long availableStorageSpace = getAvailableStorageSpace(storageType);
-            return availableStorageSpace <= 0 || availableStorageSpace < j2;
+            return availableStorageSpace <= 0 || availableStorageSpace < j;
         }
         return invokeLJ.booleanValue;
     }

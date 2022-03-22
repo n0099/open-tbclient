@@ -1,5 +1,5 @@
 package com.kwad.v8.inspector;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface DebuggerConnectionListener {
     void onDebuggerConnected();
 

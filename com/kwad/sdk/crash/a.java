@@ -4,12 +4,12 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.utils.i;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f55063b;
+    public static volatile boolean f40146b;
 
     public static synchronized void a() {
         synchronized (a.class) {
@@ -23,22 +23,22 @@ public class a {
                         } catch (Throwable unused) {
                         }
                     }
-                }, TimeUnit.SECONDS.toMillis(c.f55098f));
+                }, TimeUnit.SECONDS.toMillis(c.f40175f));
             }
         }
     }
 
     public static void a(@NonNull b bVar) {
-        if (bVar.f55070g == null || f55063b) {
+        if (bVar.f40153g == null || f40146b) {
             return;
         }
-        f55063b = true;
+        f40146b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f55070g);
-            com.kwad.sdk.crash.kwai.a.a(bVar.f55070g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f40153g);
+            com.kwad.sdk.crash.kwai.a.a(bVar.f40153g, bVar.n);
             d.a().a(bVar);
             c();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f55070g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f40153g));
             a();
         } catch (Throwable unused) {
         }
@@ -62,8 +62,8 @@ public class a {
     public static void c() {
         com.kwad.sdk.crash.b.c.d().a(com.kwad.sdk.crash.kwai.a.b(), new e() { // from class: com.kwad.sdk.crash.a.2
             @Override // com.kwad.sdk.crash.e
-            public void a(int i2, ExceptionMessage exceptionMessage) {
-                d.a().a(i2, exceptionMessage);
+            public void a(int i, ExceptionMessage exceptionMessage) {
+                d.a().a(i, exceptionMessage);
             }
         }, new com.kwad.sdk.crash.report.a() { // from class: com.kwad.sdk.crash.a.3
             @Override // com.kwad.sdk.crash.report.c

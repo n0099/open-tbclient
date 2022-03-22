@@ -45,16 +45,16 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         public int sourceMode;
         public final Scheduler.Worker worker;
 
-        public ObserveOnObserver(Observer<? super T> observer, Scheduler.Worker worker, boolean z, int i2) {
+        public ObserveOnObserver(Observer<? super T> observer, Scheduler.Worker worker, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, worker, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {observer, worker, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,7 +63,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
             this.actual = observer;
             this.worker = worker;
             this.delayError = z;
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         public boolean checkTerminated(boolean z, boolean z2, Observer<? super T> observer) {
@@ -130,7 +130,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         public void drainFused() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
                     Throwable th = this.error;
@@ -150,8 +150,8 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
                         this.worker.dispose();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -163,7 +163,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 SimpleQueue<T> simpleQueue = this.queue;
                 Observer<? super T> observer = this.actual;
-                int i2 = 1;
+                int i = 1;
                 while (!checkTerminated(this.done, simpleQueue.isEmpty(), observer)) {
                     while (true) {
                         boolean z = this.done;
@@ -174,8 +174,8 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
                                 return;
                             }
                             if (z2) {
-                                i2 = addAndGet(-i2);
-                                if (i2 == 0) {
+                                i = addAndGet(-i);
+                                if (i == 0) {
                                     return;
                                 }
                             } else {
@@ -280,11 +280,11 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -314,17 +314,17 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableObserveOn(ObservableSource<T> observableSource, Scheduler scheduler, boolean z, int i2) {
+    public ObservableObserveOn(ObservableSource<T> observableSource, Scheduler scheduler, boolean z, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, scheduler, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -333,7 +333,7 @@ public final class ObservableObserveOn<T> extends AbstractObservableWithUpstream
         }
         this.scheduler = scheduler;
         this.delayError = z;
-        this.bufferSize = i2;
+        this.bufferSize = i;
     }
 
     @Override // io.reactivex.Observable

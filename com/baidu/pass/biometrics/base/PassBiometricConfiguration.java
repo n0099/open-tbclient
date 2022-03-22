@@ -2,6 +2,7 @@ package com.baidu.pass.biometrics.base;
 
 import android.app.Application;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
@@ -10,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class PassBiometricConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
@@ -20,7 +22,8 @@ public class PassBiometricConfiguration {
     public final String appSignKey;
 
     /* renamed from: b  reason: collision with root package name */
-    public Application f36114b;
+    public Application f27882b;
+    public Map<String, String> faceResPaths;
     public final String licenseFileName;
     public final String licenseID;
     public String passDomain;
@@ -44,34 +47,31 @@ public class PassBiometricConfiguration {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36115b;
+        public String f27883b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36116c;
+        public String f27884c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36117d;
+        public String f27885d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f36118e;
+        public String f27886e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f36119f;
+        public String f27887f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f36120g;
+        public String f27888g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f36121h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f36122i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public boolean f36123j;
+        public String f27889h;
+        public int i;
+        public boolean j;
         public boolean k;
         public Application l;
         public boolean m;
+        public Map<String, String> n;
 
         public Builder(Application application) {
             Interceptable interceptable = $ic;
@@ -80,15 +80,15 @@ public class PassBiometricConfiguration {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {application};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36123j = false;
+            this.j = false;
             this.k = false;
             this.m = true;
             this.l = application;
@@ -98,9 +98,9 @@ public class PassBiometricConfiguration {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f36115b) && !TextUtils.isEmpty(this.f36116c)) {
-                    if (this.f36119f == null) {
-                        this.f36119f = PassBioEnv.PASSPORT_DOMAIN;
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f27883b) && !TextUtils.isEmpty(this.f27884c)) {
+                    if (this.f27887f == null) {
+                        this.f27887f = PassBioEnv.PASSPORT_DOMAIN;
                     }
                     return new PassBiometricConfiguration(this, null);
                 }
@@ -129,12 +129,22 @@ public class PassBiometricConfiguration {
             return (Builder) invokeZ.objValue;
         }
 
+        public Builder setFaceResPaths(Map<String, String> map) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
+                this.n = map;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public Builder setProductLicenseInfo(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-                this.f36117d = str;
-                this.f36118e = str2;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                this.f27885d = str;
+                this.f27886e = str2;
                 return this;
             }
             return (Builder) invokeLL.objValue;
@@ -143,10 +153,10 @@ public class PassBiometricConfiguration {
         public Builder setProductLineInfo(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, str3)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
                 this.a = str;
-                this.f36115b = str2;
-                this.f36116c = str3;
+                this.f27883b = str2;
+                this.f27884c = str3;
                 return this;
             }
             return (Builder) invokeLLL.objValue;
@@ -155,8 +165,8 @@ public class PassBiometricConfiguration {
         public Builder setRuntimeEnvironment(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.f36119f = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.f27887f = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -165,20 +175,20 @@ public class PassBiometricConfiguration {
         public Builder showPmnRationaleDialog(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f36123j = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.j = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder sofireSdkConfig(String str, String str2, int i2) {
+        public Builder sofireSdkConfig(String str, String str2, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, str, str2, i2)) == null) {
-                this.f36120g = str;
-                this.f36121h = str2;
-                this.f36122i = i2;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) {
+                this.f27888g = str;
+                this.f27889h = str2;
+                this.i = i;
                 return this;
             }
             return (Builder) invokeLLI.objValue;
@@ -199,7 +209,7 @@ public class PassBiometricConfiguration {
     public Application getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36114b : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27882b : (Application) invokeV.objValue;
     }
 
     public boolean isAgreeDangerousProtocol() {
@@ -222,9 +232,9 @@ public class PassBiometricConfiguration {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -232,17 +242,18 @@ public class PassBiometricConfiguration {
         }
         this.a = true;
         this.tpl = builder.a;
-        this.appId = builder.f36115b;
-        this.appSignKey = builder.f36116c;
-        this.passDomain = builder.f36119f;
-        this.licenseID = builder.f36117d;
-        this.licenseFileName = builder.f36118e;
-        this.sofireAppKey = builder.f36120g;
-        this.sofireSecKey = builder.f36121h;
-        this.sofireHostID = builder.f36122i;
+        this.appId = builder.f27883b;
+        this.appSignKey = builder.f27884c;
+        this.passDomain = builder.f27887f;
+        this.licenseID = builder.f27885d;
+        this.licenseFileName = builder.f27886e;
+        this.sofireAppKey = builder.f27888g;
+        this.sofireSecKey = builder.f27889h;
+        this.sofireHostID = builder.i;
         this.a = builder.m;
         debug(builder.k);
-        this.showPmnRationaleDialog = builder.f36123j;
-        this.f36114b = builder.l;
+        this.showPmnRationaleDialog = builder.j;
+        this.f27882b = builder.l;
+        this.faceResPaths = builder.n;
     }
 }

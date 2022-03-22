@@ -21,7 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpRetryStrategyDataParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -55,9 +55,9 @@ public class HttpRetryStrategyDataParse {
     public long mFetchServerDataElapsedTime;
     public Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnFetchRetryDataRequestListener {
-        void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2);
+        void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i);
     }
 
     public HttpRetryStrategyDataParse() {
@@ -65,9 +65,9 @@ public class HttpRetryStrategyDataParse {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -98,9 +98,9 @@ public class HttpRetryStrategyDataParse {
                 httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt("live_time");
                 httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
                 if (optJSONArray != null && !TextUtils.isEmpty(httpDNSCacheInfo.mHost)) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        if (Utils.isIpAddress(optJSONArray.getString(i2))) {
-                            httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i2));
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        if (Utils.isIpAddress(optJSONArray.getString(i))) {
+                            httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
                         }
                     }
                 }
@@ -133,9 +133,9 @@ public class HttpRetryStrategyDataParse {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onFetchRetryDataRequestListener, Long.valueOf(elapsedRealtime)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -178,9 +178,9 @@ public class HttpRetryStrategyDataParse {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Long.valueOf(elapsedRealtime), onFetchRetryDataRequestListener, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -233,15 +233,15 @@ public class HttpRetryStrategyDataParse {
                                     if (httpDNSCacheInfo.mMode == 4 || httpDNSCacheInfo.mMode == 5 || httpDNSCacheInfo.mMode == 7) {
                                         JSONArray optJSONArray = optJSONObject.optJSONArray(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_ARR);
                                         if (optJSONArray != null && optJSONArray.length() > 0) {
-                                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                                                 RetryRequestInfo retryRequestInfo = new RetryRequestInfo();
                                                 retryRequestInfo.url = jSONObject2.optString("url");
                                                 retryRequestInfo.header = new HashMap();
                                                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("header");
                                                 if (optJSONArray2 != null && optJSONArray2.length() > 0 && optJSONArray2 != null && optJSONArray2.length() > 0) {
-                                                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                                        JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
+                                                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                                        JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
                                                         retryRequestInfo.header.put(jSONObject3.optString("name"), jSONObject3.optString("value"));
                                                     }
                                                 }

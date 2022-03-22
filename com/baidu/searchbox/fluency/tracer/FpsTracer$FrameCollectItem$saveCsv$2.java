@@ -45,9 +45,9 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
             newInitContext.initArgs = r2;
             Object[] objArr = {frameCollectItem, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -84,7 +84,7 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
         String str;
-        int i2;
+        int i;
         int[] iArr;
         int[] iArr2;
         int[] iArr3;
@@ -103,20 +103,20 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                     logcat.e(FpsTracer.TAG, "saveCsv, exception: " + e2);
                 }
                 if (TextUtils.equals(str, ExternalTransferSpeedStats.FEED_PAGE)) {
-                    i2 = this.this$0.sumFrames;
-                    int roundToInt = MathKt__MathJVMKt.roundToInt(Math.min(60.0f, (i2 * 1000.0f) / this.this$0.getSumFrameCost()));
+                    i = this.this$0.sumFrames;
+                    int roundToInt = MathKt__MathJVMKt.roundToInt(Math.min(60.0f, (i * 1000.0f) / this.this$0.getSumFrameCost()));
                     Logcat logcat2 = Logcat.INSTANCE;
                     logcat2.d(FpsTracer.TAG, "[saveCsv] fps: " + roundToInt + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.this$0.toString());
                     iArr = this.this$0.dropLevel;
-                    int i3 = iArr[DropLevel.DROPPED_FROZEN.getIndex()];
+                    int i2 = iArr[DropLevel.DROPPED_FROZEN.getIndex()];
                     iArr2 = this.this$0.dropLevel;
-                    int i4 = iArr2[DropLevel.DROPPED_HIGH.getIndex()];
+                    int i3 = iArr2[DropLevel.DROPPED_HIGH.getIndex()];
                     iArr3 = this.this$0.dropLevel;
-                    int i5 = iArr3[DropLevel.DROPPED_MIDDLE.getIndex()];
+                    int i4 = iArr3[DropLevel.DROPPED_MIDDLE.getIndex()];
                     iArr4 = this.this$0.dropLevel;
-                    int i6 = iArr4[DropLevel.DROPPED_NORMAL.getIndex()];
+                    int i5 = iArr4[DropLevel.DROPPED_NORMAL.getIndex()];
                     iArr5 = this.this$0.dropLevel;
-                    int i7 = iArr5[DropLevel.DROPPED_BEST.getIndex()];
+                    int i6 = iArr5[DropLevel.DROPPED_BEST.getIndex()];
                     csvFile = this.this$0.this$0.getCsvFile();
                     if (!csvFile.exists()) {
                         Logcat logcat3 = Logcat.INSTANCE;
@@ -131,6 +131,8 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         StringBuilder sb = new StringBuilder();
                         sb.append(roundToInt);
                         sb.append(',');
+                        sb.append(i2);
+                        sb.append(',');
                         sb.append(i3);
                         sb.append(',');
                         sb.append(i4);
@@ -138,8 +140,6 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         sb.append(i5);
                         sb.append(',');
                         sb.append(i6);
-                        sb.append(',');
-                        sb.append(i7);
                         String sb2 = sb.toString();
                         Charset charset = Charsets.UTF_8;
                         if (sb2 != null) {
@@ -160,6 +160,8 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append(roundToInt);
                         sb3.append(',');
+                        sb3.append(i2);
+                        sb3.append(',');
                         sb3.append(i3);
                         sb3.append(',');
                         sb3.append(i4);
@@ -167,8 +169,6 @@ public final class FpsTracer$FrameCollectItem$saveCsv$2 extends SuspendLambda im
                         sb3.append(i5);
                         sb3.append(',');
                         sb3.append(i6);
-                        sb3.append(',');
-                        sb3.append(i7);
                         String sb4 = sb3.toString();
                         Charset charset2 = Charsets.UTF_8;
                         if (sb4 != null) {

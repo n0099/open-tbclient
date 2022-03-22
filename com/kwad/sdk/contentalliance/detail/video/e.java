@@ -6,11 +6,11 @@ public class e implements d {
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a(long j2, long j3) {
+    public void a(long j, long j2) {
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.video.d

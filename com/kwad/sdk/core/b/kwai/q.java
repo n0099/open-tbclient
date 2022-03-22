@@ -32,9 +32,9 @@ public class q implements com.kwad.sdk.core.d<AdProductInfo> {
         adProductInfo.couponList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("couponList");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 CouponInfo couponInfo = new CouponInfo();
-                couponInfo.parseJson(optJSONArray.optJSONObject(i2));
+                couponInfo.parseJson(optJSONArray.optJSONObject(i));
                 adProductInfo.couponList.add(couponInfo);
             }
         }

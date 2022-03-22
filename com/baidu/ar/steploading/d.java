@@ -39,9 +39,9 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,22 +56,22 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, iCallback, iError, iProgressCallback)) == null) ? com.baidu.ar.e.d.b(new e(this.mContext, this.xA, this.xB), str).d(new c(this.xA, str, this.xB, iProgressCallback)).d(new b(iCallback, iError)) : (ICancellable) invokeLLLL.objValue;
     }
 
-    public static void d(String str, int i2) {
+    public static void d(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str);
-            hashMap.put(Constants.KEYS.RET, Integer.valueOf(i2));
+            hashMap.put(Constants.KEYS.RET, Integer.valueOf(i));
             ARPMessage.getInstance().sendMessage(5003, hashMap);
         }
     }
 
-    public static void e(String str, int i2) {
+    public static void e(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, str);
-            hashMap.put("progress", Integer.valueOf(i2));
+            hashMap.put("progress", Integer.valueOf(i));
             ARPMessage.getInstance().sendMessage(5002, hashMap);
         }
     }
@@ -97,9 +97,9 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -133,9 +133,9 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -146,9 +146,9 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                 }
 
                 @Override // com.baidu.ar.callback.IError
-                public void onError(int i2, String str3, Exception exc) {
+                public void onError(int i, String str3, Exception exc) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str3, exc) == null) {
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str3, exc) == null) {
                         d.d(this.xG, -1);
                     }
                 }
@@ -166,9 +166,9 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -180,10 +180,10 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
                 }
 
                 @Override // com.baidu.ar.ihttp.IProgressCallback
-                public void onProgress(int i2, int i3) {
+                public void onProgress(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) && this.xF && i3 > 0) {
-                        d.e(this.xG, (int) (((i2 * 90) * 1.0f) / i3));
+                    if ((interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) && this.xF && i2 > 0) {
+                        d.e(this.xG, (int) (((i * 90) * 1.0f) / i2));
                     }
                 }
             });
@@ -191,15 +191,15 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
     }
 
     @Override // com.baidu.ar.lua.c
-    public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+    public void a(int i, int i2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
-            if (i2 == 5001) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
+            if (i == 5001) {
                 if (hashMap != null) {
                     this.xE = false;
                     r(hashMap);
                 }
-            } else if (i2 == 1901 && com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 3010) {
+            } else if (i == 1901 && com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 3010) {
                 this.xE = true;
                 ICallbackWith<IStepLoading> iCallbackWith = this.xC;
                 if (iCallbackWith != null) {

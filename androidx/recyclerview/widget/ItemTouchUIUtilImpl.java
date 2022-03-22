@@ -40,9 +40,9 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,8 +55,8 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, recyclerView, view)) == null) {
             int childCount = recyclerView.getChildCount();
             float f2 = 0.0f;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = recyclerView.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = recyclerView.getChildAt(i);
                 if (childAt != view) {
                     float elevation = ViewCompat.getElevation(childAt);
                     if (elevation > f2) {
@@ -86,9 +86,9 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i2, boolean z) {
+    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, recyclerView, view, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, recyclerView, view, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R$id.item_touch_helper_previous_elevation) == null) {
                 Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
                 ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
@@ -100,9 +100,9 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i2, boolean z) {
+    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, recyclerView, view, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, recyclerView, view, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
         }
     }
 

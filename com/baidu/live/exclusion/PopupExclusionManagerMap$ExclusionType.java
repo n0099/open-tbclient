@@ -59,16 +59,16 @@ public final class PopupExclusionManagerMap$ExclusionType {
         $VALUES = new PopupExclusionManagerMap$ExclusionType[]{LIVE_HOME_SWIPE_TO_VIEW_MORE, LIVE_HOME_PANEL, LIVE_HOME_MID_INSERT_POP, LIVE_HOME_FREE_GIFT_GUID_BUBBLE, LIVE_HOME_PAY_CHAT_AUDIO_GUIDE, LIVE_HOME_FOLLOW_GUIDE, LIVE_HOME_SEND_GIFT, LIVE_HOME_CHAT_AUDIO_GUIDE, LIVE_HOME_ASK_ANSWER_GUIDE, LIVE_HOME_SEND_GIFT_GUIDE_BUBBLE, LIVE_HOME_CONSULT_FOLLOW_GUIDE, LIVE_HOME_CONSULT_NOVICE_GUIDE, LIVE_HOME_CONSULT_ENDLIVE_REMIND, popupExclusionManagerMap$ExclusionType};
     }
 
-    public PopupExclusionManagerMap$ExclusionType(String str, int i2) {
+    public PopupExclusionManagerMap$ExclusionType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

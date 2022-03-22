@@ -52,9 +52,9 @@ public abstract class BaseRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,9 +76,9 @@ public abstract class BaseRequest {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -106,9 +106,9 @@ public abstract class BaseRequest {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -160,9 +160,9 @@ public abstract class BaseRequest {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -259,9 +259,9 @@ public abstract class BaseRequest {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, netCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -292,9 +292,9 @@ public abstract class BaseRequest {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, netCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -310,10 +310,10 @@ public abstract class BaseRequest {
                 /* JADX WARN: Code restructure failed: missing block: B:14:0x0054, code lost:
                     r7 = "未知错误";
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:15:0x0056, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:15:0x0057, code lost:
                     r4.val$callback.onFailure(-10000, r7);
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:16:0x005d, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:16:0x005e, code lost:
                     return;
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:9:0x004a, code lost:
@@ -323,13 +323,13 @@ public abstract class BaseRequest {
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
-                public void onFailure(Throwable th, int i2, String str) {
+                public void onFailure(Throwable th, int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, th, i2, str) != null) {
+                    if (interceptable2 != null && interceptable2.invokeLIL(1048576, this, th, i, str) != null) {
                         return;
                     }
                     this.this$0.releaseActionTimeHandler();
-                    Log.d(BaseRequest.TAG, "Failure: url=" + this.this$0.getRelativeUrl() + " code=" + i2 + " response=" + str);
+                    Log.d(BaseRequest.TAG, "Failure: url=" + this.this$0.getRelativeUrl() + " code=" + i + " response=" + str);
                     if (this.val$callback == null) {
                         return;
                     }
@@ -339,19 +339,19 @@ public abstract class BaseRequest {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i2, String str) {
+                public void onSuccess(int i, String str) {
                     int optInt;
                     String optString;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                         this.this$0.releaseActionTimeHandler();
                         Log.d(BaseRequest.TAG, "Success: url=" + this.this$0.getRelativeUrl() + " response=" + str);
                         NetCallback netCallback2 = this.val$callback;
                         if (netCallback2 == null) {
                             return;
                         }
-                        if (200 != i2) {
-                            netCallback2.onFailure(i2, str);
+                        if (200 != i) {
+                            netCallback2.onFailure(i, str);
                             return;
                         }
                         try {

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.account.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.NativeBds;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,9 +42,9 @@ public final class SocialEncodeUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -61,13 +62,13 @@ public final class SocialEncodeUtils {
                 return new String(NativeBds.dae(str2, Base64.decode(str, 11)));
             } catch (Exception e2) {
                 if (DEBUG) {
-                    String str3 = "getSocialDecrypt plainText:" + str + ", exception:" + e2;
+                    Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e2);
                     return "";
                 }
                 return "";
             } catch (UnsatisfiedLinkError e3) {
                 if (DEBUG) {
-                    String str4 = "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e3;
+                    Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e3);
                     throw e3;
                 }
                 return "";
@@ -87,7 +88,7 @@ public final class SocialEncodeUtils {
                 return new String(Base64.encode(NativeBds.ae(str2, str), 11));
             } catch (Exception e2) {
                 if (DEBUG) {
-                    String str3 = "getSocialEncryption plainText:" + str + ", exception:" + e2;
+                    Log.i(TAG, "getSocialEncryption plainText:" + str + ", exception:" + e2);
                 }
                 return "";
             }

@@ -19,9 +19,9 @@ public class JsonFieldConverter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,13 +61,13 @@ public class JsonFieldConverter {
         }
     }
 
-    public static void putInt(String str, int i2, JSONObject jSONObject) {
+    public static void putInt(String str, int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, str, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65537, null, str, i, jSONObject) == null) {
             try {
-                jSONObject.put(str, i2);
+                jSONObject.put(str, i);
             } catch (JSONException e2) {
-                Log.e(TAG, "put int field key=" + str + " value=" + i2 + " is error " + e2.getMessage());
+                Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e2.getMessage());
             }
         }
     }

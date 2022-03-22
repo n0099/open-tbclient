@@ -4,13 +4,13 @@ import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.util.PageDialogHelper;
+import com.baidu.tbadk.util.PageDialogHelper$PayForm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -37,9 +37,9 @@ public class BuyTBeanActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,11 +49,11 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         getIntent().putExtra("gift_tbean", f2);
     }
 
-    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i2) {
+    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i);
             return this;
         }
         return (BuyTBeanActivityConfig) invokeI.objValue;
@@ -77,28 +77,28 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         }
     }
 
-    public BuyTBeanActivityConfig setTBeanLeftToBuyGift(long j2) {
+    public BuyTBeanActivityConfig setTBeanLeftToBuyGift(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            getIntent().putExtra(TBEAN_LEFT_TO_BUY_ALA_GIFT, j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            getIntent().putExtra(TBEAN_LEFT_TO_BUY_ALA_GIFT, j);
             return this;
         }
         return (BuyTBeanActivityConfig) invokeJ.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuyTBeanActivityConfig(Context context, float f2, int i2, String str, PageDialogHelper.PayForm payForm) {
+    public BuyTBeanActivityConfig(Context context, float f2, int i, String str, PageDialogHelper$PayForm pageDialogHelper$PayForm) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i2), str, payForm};
+            Object[] objArr = {context, Float.valueOf(f2), Integer.valueOf(i), str, pageDialogHelper$PayForm};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -107,7 +107,7 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("gift_tbean", f2);
         getIntent().putExtra("scene_id", str);
-        getIntent().putExtra("pay_type", i2);
-        getIntent().putExtra(PAY_FORM, payForm);
+        getIntent().putExtra("pay_type", i);
+        getIntent().putExtra(PAY_FORM, pageDialogHelper$PayForm);
     }
 }

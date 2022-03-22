@@ -2,6 +2,7 @@ package com.baidu.spswitch.emotion.resource;
 
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
@@ -47,7 +48,7 @@ public class EmotionAPSManager {
 
     /* loaded from: classes4.dex */
     public interface EmotionInstallResultCb {
-        void onResult(int i2, String str);
+        void onResult(int i, String str);
     }
 
     /* loaded from: classes4.dex */
@@ -77,9 +78,9 @@ public class EmotionAPSManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -212,7 +213,7 @@ public class EmotionAPSManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String path = AppRuntime.getAppContext().getFilesDir().getPath();
             if (DEBUG) {
-                String str = "getEmotionRootDir = " + path;
+                Log.d(TAG, "getEmotionRootDir = " + path);
             }
             return new File(path, EMOTION_ROOT_DIR_NAME);
         }
@@ -231,7 +232,9 @@ public class EmotionAPSManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             File emotionRootDir = getEmotionRootDir();
             if (!emotionRootDir.exists()) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "getRestoreFileList return, emotionRootDir.exists = false");
+                }
                 return null;
             }
             File[] listFiles = emotionRootDir.listFiles(new FileFilter() { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.3
@@ -243,9 +246,9 @@ public class EmotionAPSManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -260,7 +263,9 @@ public class EmotionAPSManager {
                 }
             });
             if (listFiles == null || listFiles.length <= 0) {
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "getRestoreFileList return, emotionRootDir.listFiles = empty");
+                }
                 return null;
             }
             return listFiles;
@@ -328,9 +333,9 @@ public class EmotionAPSManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {jArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -377,9 +382,9 @@ public class EmotionAPSManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {jArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -426,14 +431,20 @@ public class EmotionAPSManager {
             if (!emotionResourceInfo.isAvailable()) {
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "emotion resource is not available.");
-                boolean z3 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "saveEmotionResource failed, emotion resource is not available");
+                    return;
+                }
                 return;
             }
             IResourceProvider build = new EmotionResourceProvider.Builder(AppRuntime.getAppContext()).setZipInputPath(emotionResourceInfo.mEmotionResSavePath).build();
             if (build == null) {
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "failed to build provider.");
-                boolean z4 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "saveEmotionResource failed, failed to build provider");
+                    return;
+                }
                 return;
             }
             emotionResourceInfo.mProvider = build;
@@ -451,7 +462,7 @@ public class EmotionAPSManager {
                         this.mResourceMap.put(emotionResourceInfo.mPkgName, emotionResourceInfo);
                         this.mLoaded = true;
                         if (DEBUG) {
-                            String str = "loadToMem success, pkgName = " + emotionResourceInfo.mPkgName;
+                            Log.d(TAG, "loadToMem success, pkgName = " + emotionResourceInfo.mPkgName);
                         }
                     }
                 }
@@ -460,7 +471,7 @@ public class EmotionAPSManager {
                     saveEmotionResourceInfo(emotionResourceInfo);
                     emotionInstallResultCb.onResult(0, "emotion install success, loadToMem = " + z);
                     if (DEBUG) {
-                        String str2 = "emotion install success, loadToMem = " + z;
+                        Log.d(TAG, "emotion install success, loadToMem = " + z);
                         return;
                     }
                     return;
@@ -468,14 +479,17 @@ public class EmotionAPSManager {
                 build.releaseResource();
                 removeTargetResources(emotionResourceInfo.mPkgName, emotionResourceInfo.mVersion);
                 emotionInstallResultCb.onResult(1, "failed to load EmotionInfo.");
-                boolean z5 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "saveEmotionResource failed, failed to load EmotionInfo");
+                    return;
+                }
                 return;
             }
             removeOldResources(emotionResourceInfo);
             saveEmotionResourceInfo(emotionResourceInfo);
             emotionInstallResultCb.onResult(0, "emotion install success, loadToMem = " + z);
             if (DEBUG) {
-                String str3 = "emotion install success, loadToMem = " + z;
+                Log.d(TAG, "emotion install success, loadToMem = " + z);
             }
         }
     }
@@ -499,8 +513,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j2 : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j2))) {
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
                     return true;
                 }
             }
@@ -517,8 +531,8 @@ public class EmotionAPSManager {
                 return false;
             }
             String name = file.getName();
-            for (long j2 : jArr) {
-                if (TextUtils.equals(name, String.valueOf(j2))) {
+            for (long j : jArr) {
+                if (TextUtils.equals(name, String.valueOf(j))) {
                     return false;
                 }
             }
@@ -533,18 +547,20 @@ public class EmotionAPSManager {
             if (emotionResourceInfo != null && emotionInstallResultCb != null) {
                 if (!emotionResourceInfo.isValid()) {
                     emotionInstallResultCb.onResult(1, "emotionInfo invalid.");
-                    boolean z2 = DEBUG;
-                    return;
+                    if (DEBUG) {
+                        Log.d(TAG, "doAPSProcess failed, emotionInfo invalid");
+                    }
                 } else if (makeEmotionRootDirIfNeeded() && copyEmotionResourceFile(emotionResourceInfo, emotionInstallResultCb)) {
                     saveEmotionResource(emotionResourceInfo, emotionInstallResultCb, z);
-                    return;
                 } else {
                     emotionInstallResultCb.onResult(1, "failed to make emotion root dir or copyEmotionResourceFile.");
-                    boolean z3 = DEBUG;
-                    return;
+                    if (DEBUG) {
+                        Log.d(TAG, "doAPSProcess failed, failed to make praise root dir or copyEmotionResourceFile");
+                    }
                 }
+            } else if (DEBUG) {
+                Log.d(TAG, "doAPSProcess failed, both emotionInfo and callback must not be null");
             }
-            boolean z4 = DEBUG;
         }
     }
 
@@ -569,13 +585,13 @@ public class EmotionAPSManager {
             sb.append("表情APS根目录:" + getEmotionRootDir().getPath());
             sb.append("\n合法资源清单:\n");
             Map<String, EmotionResourceInfo> map = this.mResourceMap;
-            int i2 = 1;
+            int i = 1;
             if (map != null && !map.isEmpty()) {
                 Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
                 while (it != null && it.hasNext()) {
                     EmotionResourceInfo value = it.next().getValue();
                     if (value != null) {
-                        sb.append("\n======第" + i2 + "个资源包======\n");
+                        sb.append("\n======第" + i + "个资源包======\n");
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("包名:");
                         sb2.append(value.mPkgName);
@@ -585,18 +601,18 @@ public class EmotionAPSManager {
                         sb.append("\n最大宿主版本号:" + value.mMaxHostVer);
                         sb.append("\nAPS下载路径:" + value.mDownloadFilePath);
                         sb.append("\n包存储路径:" + value.mEmotionResSavePath);
-                        i2++;
+                        i++;
                     }
                 }
             } else {
                 File[] restoreFileList = getRestoreFileList();
                 if (restoreFileList != null && restoreFileList.length > 0) {
-                    i2 = 0;
+                    i = 0;
                 }
                 sb.append("\n暂无\n");
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("\n表情资源: ");
-                sb3.append(i2 != 0 ? "下载失败\n" : "下载成功\n");
+                sb3.append(i != 0 ? "下载失败\n" : "下载成功\n");
                 sb.append(sb3.toString());
             }
             return sb.toString();
@@ -637,18 +653,21 @@ public class EmotionAPSManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.mLoaded) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "loadResourcesIfNeeded return, mLoaded = true");
+                    return;
+                }
                 return;
             }
             File[] restoreFileList = getRestoreFileList();
             if (restoreFileList != null && restoreFileList.length > 0) {
                 int length = restoreFileList.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         break;
                     }
-                    File file = restoreFileList[i2];
+                    File file = restoreFileList[i];
                     EmotionResourceInfo restoreEmotionResourceInfo = restoreEmotionResourceInfo(file);
                     if (restoreEmotionResourceInfo != null) {
                         EmotionResourceInfo emotionResourceInfo = this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
@@ -663,35 +682,35 @@ public class EmotionAPSManager {
                                 this.mResourceMap.put(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo);
                                 this.mLoaded = true;
                                 if (DEBUG) {
-                                    String str = "loadResourcesIfNeeded success, pkgName = " + restoreEmotionResourceInfo.mPkgName;
+                                    Log.d(TAG, "loadResourcesIfNeeded success, pkgName = " + restoreEmotionResourceInfo.mPkgName);
                                 }
                             } else {
                                 build.releaseResource();
                                 removeTargetResources(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo.mVersion);
                                 FileUtils.deleteFile(file);
                                 if (DEBUG) {
-                                    String str2 = "loadResourcesIfNeeded failed1, pkgName = " + restoreEmotionResourceInfo.mPkgName;
+                                    Log.d(TAG, "loadResourcesIfNeeded failed1, pkgName = " + restoreEmotionResourceInfo.mPkgName);
                                 }
                             }
                         } else {
                             removeTargetResources(restoreEmotionResourceInfo.mPkgName, restoreEmotionResourceInfo.mVersion);
                             FileUtils.deleteFile(file);
                             if (DEBUG) {
-                                String str3 = "loadResourcesIfNeeded failed2, pkgName = " + restoreEmotionResourceInfo.mPkgName;
+                                Log.d(TAG, "loadResourcesIfNeeded failed2, pkgName = " + restoreEmotionResourceInfo.mPkgName);
                             }
                         }
                     } else {
                         FileUtils.deleteFile(file);
                     }
-                    i2++;
+                    i++;
                 }
-                if (this.mLoaded) {
+                if (this.mLoaded || !DEBUG) {
                     return;
                 }
-                boolean z2 = DEBUG;
-                return;
+                Log.d(TAG, "loadResourcesIfNeeded failed totally");
+            } else if (DEBUG) {
+                Log.d(TAG, "loadResourcesIfNeeded return, emotionRootDir.listFiles = empty");
             }
-            boolean z3 = DEBUG;
         }
     }
 
@@ -710,9 +729,9 @@ public class EmotionAPSManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -722,9 +741,9 @@ public class EmotionAPSManager {
                 }
 
                 @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
-                public void onResult(int i2, String str) {
+                public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
             }, true);
@@ -746,9 +765,9 @@ public class EmotionAPSManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -758,9 +777,9 @@ public class EmotionAPSManager {
                 }
 
                 @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
-                public void onResult(int i2, String str) {
+                public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
             }, true);
@@ -801,9 +820,9 @@ public class EmotionAPSManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

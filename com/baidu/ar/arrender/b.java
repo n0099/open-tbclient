@@ -102,8 +102,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rotationType, mirriorType)) == null) {
             PixelRotation pixelRotation = PixelRotation.NoRotation;
-            int i2 = AnonymousClass1.gG[rotationType.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.gG[rotationType.ordinal()];
+            if (i == 1) {
                 if (mirriorType == MirriorType.NO_MIRRIOR) {
                     return PixelRotation.NoRotation;
                 }
@@ -114,7 +114,7 @@ public class b {
                     return PixelRotation.FlipHorizontal;
                 }
                 return PixelRotation.FlipVertical;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 if (mirriorType == MirriorType.NO_MIRRIOR) {
                     return PixelRotation.RotateRight;
                 }
@@ -125,7 +125,7 @@ public class b {
                     return PixelRotation.RotateRightFlipHorizontal;
                 }
                 return PixelRotation.RotateRightFlipVertical;
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 if (mirriorType == MirriorType.NO_MIRRIOR) {
                     return PixelRotation.Rotate180;
                 }
@@ -136,7 +136,7 @@ public class b {
                     return PixelRotation.FlipVertical;
                 }
                 return PixelRotation.FlipHorizontal;
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 return pixelRotation;
             } else {
                 if (mirriorType == MirriorType.NO_MIRRIOR) {
@@ -164,9 +164,9 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, scaleType)) == null) {
-            int i2 = AnonymousClass1.gH[scaleType.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2 || i2 == 3) {
+            int i = AnonymousClass1.gH[scaleType.ordinal()];
+            if (i != 1) {
+                if (i == 2 || i == 3) {
                     return OutputFillMode.KeepRatioFill;
                 }
                 return null;
@@ -176,21 +176,21 @@ public class b {
         return (OutputFillMode) invokeL.objValue;
     }
 
-    public static Size a(int i2, int i3, int i4, int i5) {
+    public static Size a(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i2, i3, i4, i5)) == null) {
-            Size size = new Size(i2, i3);
-            if (i2 > 0 && i3 > 0 && i4 > 0 && i5 > 0) {
-                float f2 = i2;
-                float f3 = i3;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
+            Size size = new Size(i, i2);
+            if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
+                float f2 = i;
+                float f3 = i2;
                 float f4 = f2 / f3;
-                float f5 = i4 / i5;
+                float f5 = i3 / i4;
                 if (f4 < f5) {
                     size.setWidth((int) (f3 * f5));
-                    size.setHeight(i3);
+                    size.setHeight(i2);
                 } else if (f4 > f5) {
-                    size.setWidth(i2);
+                    size.setWidth(i);
                     size.setHeight((int) (f2 / f5));
                 }
             }
@@ -205,10 +205,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, orientation)) == null) {
             HashMap hashMap = new HashMap();
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[orientation.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    str = i2 == 3 ? "landscape_left" : "landscape_right";
+            int i = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[orientation.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    str = i == 3 ? "landscape_left" : "landscape_right";
                 }
                 hashMap.put("orient", str);
                 return hashMap;
@@ -327,21 +327,21 @@ public class b {
         pointF.set(f4, f5);
     }
 
-    public static Size b(int i2, int i3, int i4, int i5) {
+    public static Size b(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65544, null, i2, i3, i4, i5)) == null) {
-            Size size = new Size(i2, i3);
-            if (i2 > 0 && i3 > 0 && i4 > 0 && i5 > 0) {
-                float f2 = i2;
-                float f3 = i3;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65544, null, i, i2, i3, i4)) == null) {
+            Size size = new Size(i, i2);
+            if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
+                float f2 = i;
+                float f3 = i2;
                 float f4 = f2 / f3;
-                float f5 = i4 / i5;
+                float f5 = i3 / i4;
                 if (f4 > f5) {
                     size.setWidth((int) (f3 * f5));
-                    size.setHeight(i3);
+                    size.setHeight(i2);
                 } else if (f4 < f5) {
-                    size.setWidth(i2);
+                    size.setWidth(i);
                     size.setHeight((int) (f2 / f5));
                 }
             }

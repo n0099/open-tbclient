@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NovelPayPanelActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BOOK_ID = "book_id";
@@ -21,26 +21,26 @@ public class NovelPayPanelActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NovelPayPanelActivityConfig(Context context, int i2, String str, int i3) {
+    public NovelPayPanelActivityConfig(Context context, int i, String str, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("book_type", i2);
+        getIntent().putExtra("book_type", i);
         getIntent().putExtra("book_id", str);
-        getIntent().putExtra("page_id", i3);
+        getIntent().putExtra("page_id", i2);
     }
 
     public void setForm(String str) {
@@ -52,12 +52,12 @@ public class NovelPayPanelActivityConfig extends IntentConfig {
         intent.putExtra("from", str);
     }
 
-    public void setPayType(int i2) {
+    public void setPayType(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra("pay_type", i2);
+        intent.putExtra("pay_type", i);
     }
 }

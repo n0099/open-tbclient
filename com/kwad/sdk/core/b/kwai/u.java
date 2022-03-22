@@ -32,9 +32,9 @@ public class u implements com.kwad.sdk.core.d<AdTemplate> {
         adTemplate.adInfoList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 AdInfo adInfo = new AdInfo();
-                adInfo.parseJson(optJSONArray.optJSONObject(i2));
+                adInfo.parseJson(optJSONArray.optJSONObject(i));
                 adTemplate.adInfoList.add(adInfo);
             }
         }

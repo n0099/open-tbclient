@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FadeDrawable extends ArrayDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -70,9 +70,9 @@ public class FadeDrawable extends ArrayDrawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawableArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Drawable[]) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -82,13 +82,13 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    private void drawDrawableWithAlpha(Canvas canvas, Drawable drawable, int i2) {
+    private void drawDrawableWithAlpha(Canvas canvas, Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, this, canvas, drawable, i2) == null) || drawable == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, this, canvas, drawable, i) == null) || drawable == null || i <= 0) {
             return;
         }
         this.mPreventInvalidateCount++;
-        drawable.mutate().setAlpha(i2);
+        drawable.mutate().setAlpha(i);
         this.mPreventInvalidateCount--;
         drawable.draw(canvas);
     }
@@ -124,21 +124,21 @@ public class FadeDrawable extends ArrayDrawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65543, this, f2)) == null) {
             boolean z = true;
-            for (int i2 = 0; i2 < this.mLayers.length; i2++) {
-                int i3 = this.mIsLayerOn[i2] ? 1 : -1;
+            for (int i = 0; i < this.mLayers.length; i++) {
+                int i2 = this.mIsLayerOn[i] ? 1 : -1;
                 int[] iArr = this.mAlphas;
-                iArr[i2] = (int) (this.mStartAlphas[i2] + (i3 * 255 * f2));
-                if (iArr[i2] < 0) {
-                    iArr[i2] = 0;
+                iArr[i] = (int) (this.mStartAlphas[i] + (i2 * 255 * f2));
+                if (iArr[i] < 0) {
+                    iArr[i] = 0;
                 }
                 int[] iArr2 = this.mAlphas;
-                if (iArr2[i2] > 255) {
-                    iArr2[i2] = 255;
+                if (iArr2[i] > 255) {
+                    iArr2[i] = 255;
                 }
-                if (this.mIsLayerOn[i2] && this.mAlphas[i2] < 255) {
+                if (this.mIsLayerOn[i] && this.mAlphas[i] < 255) {
                     z = false;
                 }
-                if (!this.mIsLayerOn[i2] && this.mAlphas[i2] > 0) {
+                if (!this.mIsLayerOn[i] && this.mAlphas[i] > 0) {
                     z = false;
                 }
             }
@@ -169,22 +169,22 @@ public class FadeDrawable extends ArrayDrawable {
         if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) != null) {
             return;
         }
-        int i2 = this.mTransitionState;
-        int i3 = 0;
+        int i = this.mTransitionState;
+        int i2 = 0;
         boolean z = true;
-        if (i2 != 0) {
-            if (i2 == 1) {
+        if (i != 0) {
+            if (i == 1) {
                 Preconditions.checkState(this.mDurationMs > 0);
                 updateAlphas = updateAlphas(sGlobalFadingEnable ? ((float) (getCurrentTimeMs() - this.mStartTimeMs)) / this.mDurationMs : 1.0f);
                 this.mTransitionState = updateAlphas ? 2 : 1;
             }
             while (true) {
                 drawableArr = this.mLayers;
-                if (i3 < drawableArr.length) {
+                if (i2 < drawableArr.length) {
                     break;
                 }
-                drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
-                i3++;
+                drawDrawableWithAlpha(canvas, drawableArr[i2], (this.mAlphas[i2] * this.mAlpha) / 255);
+                i2++;
             }
             if (z) {
                 invalidateSelf();
@@ -202,10 +202,10 @@ public class FadeDrawable extends ArrayDrawable {
         z = updateAlphas;
         while (true) {
             drawableArr = this.mLayers;
-            if (i3 < drawableArr.length) {
+            if (i2 < drawableArr.length) {
             }
-            drawDrawableWithAlpha(canvas, drawableArr[i3], (this.mAlphas[i3] * this.mAlpha) / 255);
-            i3++;
+            drawDrawableWithAlpha(canvas, drawableArr[i2], (this.mAlphas[i2] * this.mAlpha) / 255);
+            i2++;
         }
         if (z) {
         }
@@ -228,11 +228,11 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    public void fadeInLayer(int i2) {
+    public void fadeInLayer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.mTransitionState = 0;
-            this.mIsLayerOn[i2] = true;
+            this.mIsLayerOn[i] = true;
             invalidateSelf();
         }
     }
@@ -246,32 +246,32 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    public void fadeOutLayer(int i2) {
+    public void fadeOutLayer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.mTransitionState = 0;
-            this.mIsLayerOn[i2] = false;
+            this.mIsLayerOn[i] = false;
             invalidateSelf();
         }
     }
 
-    public void fadeToLayer(int i2) {
+    public void fadeToLayer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.mTransitionState = 0;
             Arrays.fill(this.mIsLayerOn, false);
-            this.mIsLayerOn[i2] = true;
+            this.mIsLayerOn[i] = true;
             invalidateSelf();
         }
     }
 
-    public void fadeUpToLayer(int i2) {
+    public void fadeUpToLayer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.mTransitionState = 0;
-            int i3 = i2 + 1;
-            Arrays.fill(this.mIsLayerOn, 0, i3, true);
-            Arrays.fill(this.mIsLayerOn, i3, this.mLayers.length, false);
+            int i2 = i + 1;
+            Arrays.fill(this.mIsLayerOn, 0, i2, true);
+            Arrays.fill(this.mIsLayerOn, i2, this.mLayers.length, false);
             invalidateSelf();
         }
     }
@@ -280,8 +280,8 @@ public class FadeDrawable extends ArrayDrawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.mTransitionState = 2;
-            for (int i2 = 0; i2 < this.mLayers.length; i2++) {
-                this.mAlphas[i2] = this.mIsLayerOn[i2] ? 255 : 0;
+            for (int i = 0; i < this.mLayers.length; i++) {
+                this.mAlphas[i] = this.mIsLayerOn[i] ? 255 : 0;
             }
             invalidateSelf();
         }
@@ -321,10 +321,10 @@ public class FadeDrawable extends ArrayDrawable {
         }
     }
 
-    public boolean isLayerOn(int i2) {
+    public boolean isLayerOn(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) ? this.mIsLayerOn[i2] : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? this.mIsLayerOn[i] : invokeI.booleanValue;
     }
 
     public void reset() {
@@ -336,19 +336,19 @@ public class FadeDrawable extends ArrayDrawable {
     }
 
     @Override // com.facebook.drawee.drawable.ArrayDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || this.mAlpha == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || this.mAlpha == i) {
             return;
         }
-        this.mAlpha = i2;
+        this.mAlpha = i;
         invalidateSelf();
     }
 
-    public void setTransitionDuration(int i2) {
+    public void setTransitionDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mDurationMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mDurationMs = i;
             if (this.mTransitionState == 1) {
                 this.mTransitionState = 0;
             }
@@ -364,9 +364,9 @@ public class FadeDrawable extends ArrayDrawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawableArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Drawable[]) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

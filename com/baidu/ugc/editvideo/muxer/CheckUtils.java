@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.i.c;
-import c.a.y0.l.a;
-import c.a.y0.r.h;
-import c.a.y0.r.n;
+import c.a.v0.i.c;
+import c.a.v0.l.a;
+import c.a.v0.r.h;
+import c.a.v0.r.n;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,9 +36,9 @@ public class CheckUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -151,8 +151,8 @@ public class CheckUtils {
         for (AudioPlayTrackData audioPlayTrackData : videoMuxerData.getAudioPlayTrackDataList()) {
             if (audioPlayTrackData != null && !h.e(audioPlayTrackData.mAudioPlayDataList)) {
                 ArrayList arrayList = new ArrayList();
-                int i2 = 0;
-                while (i2 < segmentsDuration) {
+                int i = 0;
+                while (i < segmentsDuration) {
                     Iterator<AudioPlayData> it = audioPlayTrackData.mAudioPlayDataList.iterator();
                     while (true) {
                         if (it.hasNext()) {
@@ -160,16 +160,16 @@ public class CheckUtils {
                             if (next.end <= 0) {
                                 next.end = n.f(next.audioPath);
                             }
-                            int i3 = next.end;
-                            int i4 = next.start;
-                            if ((i3 - i4) + i2 > segmentsDuration) {
-                                int i5 = (segmentsDuration - i2) + i4;
-                                next.end = i5;
-                                i2 += i5 - i4;
+                            int i2 = next.end;
+                            int i3 = next.start;
+                            if ((i2 - i3) + i > segmentsDuration) {
+                                int i4 = (segmentsDuration - i) + i3;
+                                next.end = i4;
+                                i += i4 - i3;
                                 arrayList.add(next);
                                 break;
                             }
-                            i2 += i3 - i4;
+                            i += i2 - i3;
                             arrayList.add(next);
                         }
                     }
@@ -284,8 +284,8 @@ public class CheckUtils {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
                 MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
-                    long j2 = multiMediaData.originalDuration;
-                    return (j2 == 0 || multiMediaData.end == j2) && multiMediaData.volume == 1.0f;
+                    long j = multiMediaData.originalDuration;
+                    return (j == 0 || multiMediaData.end == j) && multiMediaData.volume == 1.0f;
                 }
                 return false;
             }
@@ -301,8 +301,8 @@ public class CheckUtils {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
                 MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
-                    long j2 = multiMediaData.originalDuration;
-                    return (j2 == 0 || multiMediaData.end == j2) && multiMediaData.angle == 0.0f && multiMediaData.scaleX == 1.0f && multiMediaData.scaleY == 1.0f && multiMediaData.x == 0.0f && multiMediaData.y == 0.0f && !multiMediaData.addDefaultEffect;
+                    long j = multiMediaData.originalDuration;
+                    return (j == 0 || multiMediaData.end == j) && multiMediaData.angle == 0.0f && multiMediaData.scaleX == 1.0f && multiMediaData.scaleY == 1.0f && multiMediaData.x == 0.0f && multiMediaData.y == 0.0f && !multiMediaData.addDefaultEffect;
                 }
                 return false;
             }
@@ -350,8 +350,8 @@ public class CheckUtils {
 
     public static boolean checkResolution(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, videoMuxerData)) == null) {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
@@ -360,13 +360,13 @@ public class CheckUtils {
                     float f2 = multiMediaData.angle;
                     float f3 = multiMediaData.rotation;
                     if ((f2 + f3) % 360.0f == 90.0f || (f2 + f3) % 360.0f == 270.0f) {
-                        i2 = multiMediaData.height;
-                        i3 = multiMediaData.width;
-                    } else {
+                        i = multiMediaData.height;
                         i2 = multiMediaData.width;
-                        i3 = multiMediaData.height;
+                    } else {
+                        i = multiMediaData.width;
+                        i2 = multiMediaData.height;
                     }
-                    return a.g(i2, i3);
+                    return a.g(i, i2);
                 }
             }
             return false;
@@ -394,8 +394,8 @@ public class CheckUtils {
 
     public static boolean checkVideoRatio(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, videoMuxerData)) == null) {
             if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
@@ -403,13 +403,13 @@ public class CheckUtils {
                 if (multiMediaData.type == 1) {
                     float f2 = multiMediaData.rotation;
                     if (f2 % 360.0f == 90.0f || f2 % 360.0f == 270.0f) {
-                        i2 = multiMediaData.height;
-                        i3 = multiMediaData.width;
-                    } else {
+                        i = multiMediaData.height;
                         i2 = multiMediaData.width;
-                        i3 = multiMediaData.height;
+                    } else {
+                        i = multiMediaData.width;
+                        i2 = multiMediaData.height;
                     }
-                    return videoMuxerData.getVideoRatio() != (((float) i3) * 1.0f) / ((float) i2);
+                    return videoMuxerData.getVideoRatio() != (((float) i2) * 1.0f) / ((float) i);
                 }
                 return false;
             }
@@ -420,41 +420,41 @@ public class CheckUtils {
 
     public static void syncMusicData(VideoMuxerData videoMuxerData) {
         MusicData musicData;
-        int i2;
+        int i;
         AudioPlayData audioPlayData;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65559, null, videoMuxerData) == null) || videoMuxerData == null || (musicData = videoMuxerData.getMusicData()) == null || musicData.mVolume <= 0.0f || videoMuxerData.getPhotoDataList() == null) {
             return;
         }
-        int i3 = 0;
+        int i2 = 0;
         int segmentsDuration = (int) MultiDataSourceUtil.getSegmentsDuration(videoMuxerData.getCurrThemeEffect() != null ? (MediaTrack) h.c(videoMuxerData.getCurrThemeEffect().mediaTracks, 0) : null);
         int f2 = n.f(musicData.localPath);
         ArrayList arrayList = new ArrayList();
-        int i4 = musicData.startPosition;
-        if (f2 - i4 < segmentsDuration) {
-            if (f2 > 0 && f2 - i4 <= 0) {
+        int i3 = musicData.startPosition;
+        if (f2 - i3 < segmentsDuration) {
+            if (f2 > 0 && f2 - i3 <= 0) {
                 musicData.startPosition = 0;
             }
             if (f2 - musicData.startPosition > 0) {
                 while (true) {
-                    i2 = segmentsDuration - i3;
-                    if (i2 < f2 - musicData.startPosition) {
+                    i = segmentsDuration - i2;
+                    if (i < f2 - musicData.startPosition) {
                         break;
                     }
                     arrayList.add(new AudioPlayData(musicData.localPath, musicData.startPosition, f2, musicData.mVolume));
-                    i3 += f2 - musicData.startPosition;
+                    i2 += f2 - musicData.startPosition;
                 }
-                if (i3 < segmentsDuration) {
+                if (i2 < segmentsDuration) {
                     String str = musicData.localPath;
-                    int i5 = musicData.startPosition;
-                    audioPlayData = new AudioPlayData(str, i5, i2 + i5, musicData.mVolume);
+                    int i4 = musicData.startPosition;
+                    audioPlayData = new AudioPlayData(str, i4, i + i4, musicData.mVolume);
                 }
             }
             videoMuxerData.setAudioPlayDataList(arrayList);
         }
         String str2 = musicData.localPath;
-        int i6 = musicData.startPosition;
-        audioPlayData = new AudioPlayData(str2, i6, segmentsDuration + i6, musicData.mVolume);
+        int i5 = musicData.startPosition;
+        audioPlayData = new AudioPlayData(str2, i5, segmentsDuration + i5, musicData.mVolume);
         arrayList.add(audioPlayData);
         videoMuxerData.setAudioPlayDataList(arrayList);
     }

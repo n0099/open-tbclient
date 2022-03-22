@@ -43,9 +43,9 @@ public class UriBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,11 +131,11 @@ public class UriBuilder {
         return (UriBuilder) invokeL.objValue;
     }
 
-    public UriBuilder flags(int i2) {
+    public UriBuilder flags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.mFlags = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.mFlags = i;
             return this;
         }
         return (UriBuilder) invokeI.objValue;
@@ -260,21 +260,21 @@ public class UriBuilder {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mIsValidated : invokeV.booleanValue;
     }
 
-    public UriBuilder requestCode(int i2) {
+    public UriBuilder requestCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            this.mRequestCode = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.mRequestCode = i;
             return this;
         }
         return (UriBuilder) invokeI.objValue;
     }
 
-    public UriBuilder schemeFrom(int i2) {
+    public UriBuilder schemeFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            this.mSchemeFrom = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.mSchemeFrom = i;
             return this;
         }
         return (UriBuilder) invokeI.objValue;
@@ -287,12 +287,12 @@ public class UriBuilder {
         }
     }
 
-    public UriBuilder transitionAnim(int i2, int i3) {
+    public UriBuilder transitionAnim(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048600, this, i2, i3)) == null) {
-            this.mEnterAnim = i2;
-            this.mExitAnim = i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048600, this, i, i2)) == null) {
+            this.mEnterAnim = i;
+            this.mExitAnim = i2;
             return this;
         }
         return (UriBuilder) invokeII.objValue;
@@ -358,9 +358,9 @@ public class UriBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -383,9 +383,9 @@ public class UriBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, obj};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

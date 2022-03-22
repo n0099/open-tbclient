@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ActAdditionListenerController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class ActAdditionListenerController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public class ActAdditionListenerController {
     public StatisContent getActAddition(Act act, ActListener actListener) {
         InterceptResult invokeLL;
         Map<String, String> additionParams;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, act, actListener)) == null) {
             StatisContent statisContent = null;
@@ -59,39 +59,39 @@ public class ActAdditionListenerController {
                     ActAdditionListener actAdditionListener = (ActAdditionListener) actListener;
                     if (actAdditionListener.getAdditionMap() != null && !actAdditionListener.getAdditionMap().isEmpty()) {
                         statisContent = new StatisContent();
-                        i2 = actAdditionListener.getAdditionMap().size();
+                        i = actAdditionListener.getAdditionMap().size();
                         for (Map.Entry<String, String> entry : actAdditionListener.getAdditionMap().entrySet()) {
                             if (!Util.empty(entry.getKey()) && !Util.empty(entry.getValue())) {
                                 statisContent.put(entry.getKey(), entry.getValue());
                             }
                         }
-                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i2));
+                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
                     }
-                    i2 = 0;
-                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i2));
+                    i = 0;
+                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
                 } else {
                     if (actListener instanceof ActBakAdditionListener) {
                         ActBakAdditionListener actBakAdditionListener = (ActBakAdditionListener) actListener;
                         StatisContent statisContent2 = new StatisContent();
                         if (Util.empty(actBakAdditionListener.getBak1())) {
-                            i2 = 0;
+                            i = 0;
                         } else {
                             statisContent2.put("bak1", actBakAdditionListener.getBak1());
-                            i2 = 1;
+                            i = 1;
                         }
                         if (!Util.empty(actBakAdditionListener.getBak2())) {
                             statisContent2.put("bak2", actBakAdditionListener.getBak2());
-                            i2++;
+                            i++;
                         }
                         if (!Util.empty(actBakAdditionListener.getBak3())) {
                             statisContent2.put("bak3", actBakAdditionListener.getBak3());
-                            i2++;
+                            i++;
                         }
                         statisContent = statisContent2;
-                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i2));
+                        L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
                     }
-                    i2 = 0;
-                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i2));
+                    i = 0;
+                    L.debug(this, "getActAddition act[%s], listener[%s], ActAddition size[%d]", actListener.getAct(), actListener, Integer.valueOf(i));
                 }
             }
             HiidoSdkAdditionDelegate hiidoSdkAdditionDelegate = this.hiidoSdkAdditionDelegate;

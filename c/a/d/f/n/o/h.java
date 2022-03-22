@@ -19,10 +19,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f2790c;
+        public final /* synthetic */ c.a.d.f.n.j.a f2311c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f2791d;
+        public final /* synthetic */ boolean f2312d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar, boolean z) {
@@ -33,9 +33,9 @@ public class h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, action, aVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -43,8 +43,8 @@ public class h {
                     return;
                 }
             }
-            this.f2790c = aVar;
-            this.f2791d = z;
+            this.f2311c = aVar;
+            this.f2312d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -53,9 +53,9 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f2790c.F(getFileInfo().length());
-                    if (this.f2791d || this.f2790c.l() > 20480) {
-                        h.b(this.f2790c);
+                    this.f2311c.F(getFileInfo().length());
+                    if (this.f2312d || this.f2311c.l() > 20480) {
+                        h.b(this.f2311c);
                     }
                 }
             }
@@ -77,9 +77,9 @@ public class h {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {str, str2, str3, str4, action, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3], (DiskFileOperate.Action) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -111,7 +111,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f2792c;
+        public final /* synthetic */ c.a.d.f.n.j.a f2313c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar) {
@@ -122,9 +122,9 @@ public class h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, action, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -132,7 +132,7 @@ public class h {
                     return;
                 }
             }
-            this.f2792c = aVar;
+            this.f2313c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -141,7 +141,7 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f2792c.F(getFileInfo().length());
+                    this.f2313c.F(getFileInfo().length());
                 }
             }
         }

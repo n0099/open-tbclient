@@ -40,9 +40,9 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,8 +115,8 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                 Bundle bundle3 = builder.getExtras().getBundle(NotificationCompat.CarExtender.EXTRA_CAR_EXTENDER);
                 bundle3 = bundle3 == null ? new Bundle() : bundle3;
                 Bundle bundle4 = new Bundle();
-                for (int i4 = 0; i4 < builder.mInvisibleActions.size(); i4++) {
-                    bundle4.putBundle(Integer.toString(i4), NotificationCompatJellybean.getBundleForAction(builder.mInvisibleActions.get(i4)));
+                for (int i3 = 0; i3 < builder.mInvisibleActions.size(); i3++) {
+                    bundle4.putBundle(Integer.toString(i3), NotificationCompatJellybean.getBundleForAction(builder.mInvisibleActions.get(i3)));
                 }
                 bundle3.putBundle(NotificationCompat.CarExtender.EXTRA_INVISIBLE_ACTIONS, bundle4);
                 builder.getExtras().putBundle(NotificationCompat.CarExtender.EXTRA_CAR_EXTENDER, bundle3);
@@ -159,11 +159,11 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
             }
             this.mBuilder.setVibrate(null);
             this.mBuilder.setSound(null);
-            int i5 = notification.defaults & (-2);
+            int i4 = notification.defaults & (-2);
+            notification.defaults = i4;
+            int i5 = i4 & (-3);
             notification.defaults = i5;
-            int i6 = i5 & (-3);
-            notification.defaults = i6;
-            this.mBuilder.setDefaults(i6);
+            this.mBuilder.setDefaults(i5);
             if (Build.VERSION.SDK_INT >= 26) {
                 if (TextUtils.isEmpty(this.mBuilderCompat.mGroupKey)) {
                     this.mBuilder.setGroup(NotificationCompat.GROUP_KEY_SILENT);
@@ -178,9 +178,9 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
         Bundle bundle;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, action) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 20) {
-                if (i2 >= 16) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 20) {
+                if (i >= 16) {
                     this.mActionExtrasList.add(NotificationCompatJellybean.writeActionAndGetExtras(this.mBuilder, action));
                     return;
                 }
@@ -224,9 +224,9 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
         if (interceptable == null || interceptable.invokeL(65538, this, notification) == null) {
             notification.sound = null;
             notification.vibrate = null;
-            int i2 = notification.defaults & (-2);
-            notification.defaults = i2;
-            notification.defaults = i2 & (-3);
+            int i = notification.defaults & (-2);
+            notification.defaults = i;
+            notification.defaults = i & (-3);
         }
     }
 
@@ -269,11 +269,11 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26) {
                 return this.mBuilder.build();
             }
-            if (i2 >= 24) {
+            if (i >= 24) {
                 Notification build = this.mBuilder.build();
                 if (this.mGroupAlertBehavior != 0) {
                     if (build.getGroup() != null && (build.flags & 512) != 0 && this.mGroupAlertBehavior == 2) {
@@ -284,7 +284,7 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                     }
                 }
                 return build;
-            } else if (i2 >= 21) {
+            } else if (i >= 21) {
                 this.mBuilder.setExtras(this.mExtras);
                 Notification build2 = this.mBuilder.build();
                 RemoteViews remoteViews = this.mContentView;
@@ -308,7 +308,7 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                     }
                 }
                 return build2;
-            } else if (i2 >= 20) {
+            } else if (i >= 20) {
                 this.mBuilder.setExtras(this.mExtras);
                 Notification build3 = this.mBuilder.build();
                 RemoteViews remoteViews4 = this.mContentView;
@@ -328,7 +328,7 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                     }
                 }
                 return build3;
-            } else if (i2 >= 19) {
+            } else if (i >= 19) {
                 SparseArray<Bundle> buildActionExtrasMap = NotificationCompatJellybean.buildActionExtrasMap(this.mActionExtrasList);
                 if (buildActionExtrasMap != null) {
                     this.mExtras.putSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS, buildActionExtrasMap);
@@ -344,7 +344,7 @@ public class NotificationCompatBuilder implements NotificationBuilderWithBuilder
                     build4.bigContentView = remoteViews7;
                 }
                 return build4;
-            } else if (i2 >= 16) {
+            } else if (i >= 16) {
                 Notification build5 = this.mBuilder.build();
                 Bundle extras = NotificationCompat.getExtras(build5);
                 Bundle bundle = new Bundle(this.mExtras);

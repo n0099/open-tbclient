@@ -21,16 +21,16 @@ public abstract class MessageTask {
     public int mRetry;
     public e mTimeOut;
 
-    public MessageTask(int i2) {
+    public MessageTask(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,7 +38,7 @@ public abstract class MessageTask {
         }
         this.mParallel = null;
         this.mNeedEncrypt = true;
-        this.mCmd = i2;
+        this.mCmd = i;
         check();
     }
 
@@ -101,17 +101,17 @@ public abstract class MessageTask {
         }
     }
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mPriority = i;
         }
     }
 
-    public void setRetry(int i2) {
+    public void setRetry(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mRetry = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mRetry = i;
         }
     }
 

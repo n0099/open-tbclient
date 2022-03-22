@@ -14,7 +14,7 @@ public class d {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f30275b;
+    public c f24177b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -23,15 +23,15 @@ public class d {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30275b = cVar;
+        this.f24177b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -40,8 +40,8 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 == null || TextUtils.isEmpty(b2.f30268b)) {
-                return new d(c.f30273b);
+            if (b2 == null || TextUtils.isEmpty(b2.f24170b)) {
+                return new d(c.f24175b);
             }
             d dVar = new d(c.a);
             dVar.a = b2;
@@ -53,6 +53,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30275b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24177b : (c) invokeV.objValue;
     }
 }

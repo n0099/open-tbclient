@@ -23,9 +23,9 @@ public final class CircularArray<E> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,17 +39,17 @@ public final class CircularArray<E> {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             E[] eArr = this.mElements;
             int length = eArr.length;
-            int i2 = this.mHead;
-            int i3 = length - i2;
-            int i4 = length << 1;
-            if (i4 >= 0) {
-                E[] eArr2 = (E[]) new Object[i4];
-                System.arraycopy(eArr, i2, eArr2, 0, i3);
-                System.arraycopy(this.mElements, 0, eArr2, i3, this.mHead);
+            int i = this.mHead;
+            int i2 = length - i;
+            int i3 = length << 1;
+            if (i3 >= 0) {
+                E[] eArr2 = (E[]) new Object[i3];
+                System.arraycopy(eArr, i, eArr2, 0, i2);
+                System.arraycopy(this.mElements, 0, eArr2, i2, this.mHead);
                 this.mElements = eArr2;
                 this.mHead = 0;
                 this.mTail = length;
-                this.mCapacityBitmask = i4 - 1;
+                this.mCapacityBitmask = i3 - 1;
                 return;
             }
             throw new RuntimeException("Max array capacity exceeded");
@@ -59,10 +59,10 @@ public final class CircularArray<E> {
     public void addFirst(E e2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, e2) == null) {
-            int i2 = (this.mHead - 1) & this.mCapacityBitmask;
-            this.mHead = i2;
-            this.mElements[i2] = e2;
-            if (i2 == this.mTail) {
+            int i = (this.mHead - 1) & this.mCapacityBitmask;
+            this.mHead = i;
+            this.mElements[i] = e2;
+            if (i == this.mTail) {
                 doubleCapacity();
             }
         }
@@ -72,11 +72,11 @@ public final class CircularArray<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2) == null) {
             E[] eArr = this.mElements;
-            int i2 = this.mTail;
-            eArr[i2] = e2;
-            int i3 = this.mCapacityBitmask & (i2 + 1);
-            this.mTail = i3;
-            if (i3 == this.mHead) {
+            int i = this.mTail;
+            eArr[i] = e2;
+            int i2 = this.mCapacityBitmask & (i + 1);
+            this.mTail = i2;
+            if (i2 == this.mHead) {
                 doubleCapacity();
             }
         }
@@ -89,14 +89,14 @@ public final class CircularArray<E> {
         }
     }
 
-    public E get(int i2) {
+    public E get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (i2 < 0 || i2 >= size()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i < 0 || i >= size()) {
                 throw new ArrayIndexOutOfBoundsException();
             }
-            return this.mElements[this.mCapacityBitmask & (this.mHead + i2)];
+            return this.mElements[this.mCapacityBitmask & (this.mHead + i)];
         }
         return (E) invokeI.objValue;
     }
@@ -105,9 +105,9 @@ public final class CircularArray<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.mHead;
-            if (i2 != this.mTail) {
-                return this.mElements[i2];
+            int i = this.mHead;
+            if (i != this.mTail) {
+                return this.mElements[i];
             }
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -118,10 +118,10 @@ public final class CircularArray<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.mHead;
-            int i3 = this.mTail;
-            if (i2 != i3) {
-                return this.mElements[(i3 - 1) & this.mCapacityBitmask];
+            int i = this.mHead;
+            int i2 = this.mTail;
+            if (i != i2) {
+                return this.mElements[(i2 - 1) & this.mCapacityBitmask];
             }
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -138,12 +138,12 @@ public final class CircularArray<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.mHead;
-            if (i2 != this.mTail) {
+            int i = this.mHead;
+            if (i != this.mTail) {
                 E[] eArr = this.mElements;
-                E e2 = eArr[i2];
-                eArr[i2] = null;
-                this.mHead = (i2 + 1) & this.mCapacityBitmask;
+                E e2 = eArr[i];
+                eArr[i] = null;
+                this.mHead = (i + 1) & this.mCapacityBitmask;
                 return e2;
             }
             throw new ArrayIndexOutOfBoundsException();
@@ -155,14 +155,14 @@ public final class CircularArray<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = this.mHead;
-            int i3 = this.mTail;
-            if (i2 != i3) {
-                int i4 = this.mCapacityBitmask & (i3 - 1);
+            int i = this.mHead;
+            int i2 = this.mTail;
+            if (i != i2) {
+                int i3 = this.mCapacityBitmask & (i2 - 1);
                 E[] eArr = this.mElements;
-                E e2 = eArr[i4];
-                eArr[i4] = null;
-                this.mTail = i4;
+                E e2 = eArr[i3];
+                eArr[i3] = null;
+                this.mTail = i3;
                 return e2;
             }
             throw new ArrayIndexOutOfBoundsException();
@@ -170,35 +170,35 @@ public final class CircularArray<E> {
         return (E) invokeV.objValue;
     }
 
-    public void removeFromEnd(int i2) {
-        int i3;
+    public void removeFromEnd(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || i <= 0) {
             return;
         }
-        if (i2 <= size()) {
-            int i4 = this.mTail;
-            int i5 = i2 < i4 ? i4 - i2 : 0;
-            int i6 = i5;
+        if (i <= size()) {
+            int i3 = this.mTail;
+            int i4 = i < i3 ? i3 - i : 0;
+            int i5 = i4;
             while (true) {
-                i3 = this.mTail;
-                if (i6 >= i3) {
+                i2 = this.mTail;
+                if (i5 >= i2) {
                     break;
                 }
-                this.mElements[i6] = null;
-                i6++;
+                this.mElements[i5] = null;
+                i5++;
             }
-            int i7 = i3 - i5;
-            int i8 = i2 - i7;
-            this.mTail = i3 - i7;
-            if (i8 > 0) {
+            int i6 = i2 - i4;
+            int i7 = i - i6;
+            this.mTail = i2 - i6;
+            if (i7 > 0) {
                 int length = this.mElements.length;
                 this.mTail = length;
-                int i9 = length - i8;
-                for (int i10 = i9; i10 < this.mTail; i10++) {
-                    this.mElements[i10] = null;
+                int i8 = length - i7;
+                for (int i9 = i8; i9 < this.mTail; i9++) {
+                    this.mElements[i9] = null;
                 }
-                this.mTail = i9;
+                this.mTail = i8;
                 return;
             }
             return;
@@ -206,29 +206,29 @@ public final class CircularArray<E> {
         throw new ArrayIndexOutOfBoundsException();
     }
 
-    public void removeFromStart(int i2) {
+    public void removeFromStart(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i <= 0) {
             return;
         }
-        if (i2 <= size()) {
+        if (i <= size()) {
             int length = this.mElements.length;
-            int i3 = this.mHead;
-            if (i2 < length - i3) {
-                length = i3 + i2;
+            int i2 = this.mHead;
+            if (i < length - i2) {
+                length = i2 + i;
             }
-            for (int i4 = this.mHead; i4 < length; i4++) {
-                this.mElements[i4] = null;
+            for (int i3 = this.mHead; i3 < length; i3++) {
+                this.mElements[i3] = null;
             }
-            int i5 = this.mHead;
-            int i6 = length - i5;
-            int i7 = i2 - i6;
-            this.mHead = this.mCapacityBitmask & (i5 + i6);
-            if (i7 > 0) {
-                for (int i8 = 0; i8 < i7; i8++) {
-                    this.mElements[i8] = null;
+            int i4 = this.mHead;
+            int i5 = length - i4;
+            int i6 = i - i5;
+            this.mHead = this.mCapacityBitmask & (i4 + i5);
+            if (i6 > 0) {
+                for (int i7 = 0; i7 < i6; i7++) {
+                    this.mElements[i7] = null;
                 }
-                this.mHead = i7;
+                this.mHead = i6;
                 return;
             }
             return;
@@ -242,28 +242,28 @@ public final class CircularArray<E> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.mTail - this.mHead) & this.mCapacityBitmask : invokeV.intValue;
     }
 
-    public CircularArray(int i2) {
+    public CircularArray(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i2 < 1) {
+        if (i < 1) {
             throw new IllegalArgumentException("capacity must be >= 1");
         }
-        if (i2 <= 1073741824) {
-            i2 = Integer.bitCount(i2) != 1 ? Integer.highestOneBit(i2 - 1) << 1 : i2;
-            this.mCapacityBitmask = i2 - 1;
-            this.mElements = (E[]) new Object[i2];
+        if (i <= 1073741824) {
+            i = Integer.bitCount(i) != 1 ? Integer.highestOneBit(i - 1) << 1 : i;
+            this.mCapacityBitmask = i - 1;
+            this.mElements = (E[]) new Object[i];
             return;
         }
         throw new IllegalArgumentException("capacity must be <= 2^30");

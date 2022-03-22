@@ -3,6 +3,7 @@ package com.baidu.searchbox.launch;
 import android.os.Looper;
 import android.os.MessageQueue;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.IDyeConfig;
@@ -97,9 +98,9 @@ public class SmartLaunchStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -150,18 +151,22 @@ public class SmartLaunchStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? isFirstAvailableTimeNormal : invokeV.booleanValue;
     }
 
-    public static boolean isTimeAvailable(long j2) {
+    public static boolean isTimeAvailable(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) ? j2 >= 100 && j2 < 30000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) ? j >= 100 && j < 30000 : invokeJ.booleanValue;
     }
 
     public static void onConfirmPrivacy() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65554, null) == null) && Looper.myLooper() == Looper.getMainLooper()) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "onConfirmPrivacy begin.");
+            }
             if (!sPrivacyDialogIdle) {
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "onConfirmPrivacy process privacy dialog begin.");
+                }
                 processPrivacyDialogIdle();
             }
             Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler(System.currentTimeMillis()) { // from class: com.baidu.searchbox.launch.SmartLaunchStats.1
@@ -176,9 +181,9 @@ public class SmartLaunchStats {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Long.valueOf(r6)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -192,13 +197,15 @@ public class SmartLaunchStats {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        boolean unused = SmartLaunchStats.DEBUG;
+                        if (SmartLaunchStats.DEBUG) {
+                            Log.d(SmartLaunchStats.TAG, "confirm privacy dialog idle begin.");
+                        }
                         long currentTimeMillis = System.currentTimeMillis() - this.val$confirmPrivacyTime;
                         if (SmartLaunchStats.isTimeAvailable(currentTimeMillis)) {
-                            long unused2 = SmartLaunchStats.sAfterLaunchAvailableTime = currentTimeMillis;
+                            long unused = SmartLaunchStats.sAfterLaunchAvailableTime = currentTimeMillis;
                         }
                         if (SmartLaunchStats.DEBUG) {
-                            String str = "onConfirmPrivacy sAfterLaunchAvailableTime:" + SmartLaunchStats.sAfterLaunchAvailableTime;
+                            Log.d(SmartLaunchStats.TAG, "onConfirmPrivacy sAfterLaunchAvailableTime:" + SmartLaunchStats.sAfterLaunchAvailableTime);
                             return false;
                         }
                         return false;
@@ -212,7 +219,9 @@ public class SmartLaunchStats {
     public static void onPrivacyDialogShow() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65555, null) == null) && Looper.myLooper() == Looper.getMainLooper()) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "onPrivacyDialogShow begin.");
+            }
             Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.searchbox.launch.SmartLaunchStats.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -222,9 +231,9 @@ public class SmartLaunchStats {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -237,7 +246,9 @@ public class SmartLaunchStats {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         boolean unused = SmartLaunchStats.sPrivacyDialogIdle = true;
-                        boolean unused2 = SmartLaunchStats.DEBUG;
+                        if (SmartLaunchStats.DEBUG) {
+                            Log.d(SmartLaunchStats.TAG, "show privacy dialog idle begin.");
+                        }
                         SmartLaunchStats.processPrivacyDialogIdle();
                         return false;
                     }
@@ -252,42 +263,41 @@ public class SmartLaunchStats {
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (sFirstAvailableTime == -1 && sProcessAvailableTime == -1) {
-                long j2 = currentTimeMillis - sAppStartTimeStamp;
-                if (isTimeAvailable(j2)) {
-                    sFirstAvailableTime = j2;
+                long j = currentTimeMillis - sAppStartTimeStamp;
+                if (isTimeAvailable(j)) {
+                    sFirstAvailableTime = j;
                 }
                 long processLaunchDuration = sFirstAvailableTime + SpeedStatsManager.getInstance().getProcessLaunchDuration();
                 if (isTimeAvailable(processLaunchDuration)) {
                     sProcessAvailableTime = processLaunchDuration;
                 }
                 if (DEBUG) {
-                    String str = "onPrivacyDialogShow sFirstAvailableTime:" + sFirstAvailableTime + " sProcessAvailableTime:" + sProcessAvailableTime;
-                    return;
+                    Log.d(TAG, "onPrivacyDialogShow sFirstAvailableTime:" + sFirstAvailableTime + " sProcessAvailableTime:" + sProcessAvailableTime);
                 }
-                return;
+            } else if (DEBUG) {
+                Log.d(TAG, "onPrivacyDialogShow process done. do nothing.");
             }
-            boolean z = DEBUG;
         }
     }
 
-    public static void setAppStartEndTimeStamp(long j2) {
+    public static void setAppStartEndTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65557, null, j2) == null) {
-            sAppStartEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65557, null, j) == null) {
+            sAppStartEndTimeStamp = j;
         }
     }
 
-    public static void setAppStartTimeStamp(long j2) {
+    public static void setAppStartTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65558, null, j2) == null) {
-            sAppStartTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65558, null, j) == null) {
+            sAppStartTimeStamp = j;
         }
     }
 
-    public static void setAppUserPerceptionStartTime(long j2) {
+    public static void setAppUserPerceptionStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65559, null, j2) == null) {
-            sUserPerceptionAppStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(65559, null, j) == null) {
+            sUserPerceptionAppStartTime = j;
         }
     }
 
@@ -295,50 +305,54 @@ public class SmartLaunchStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65560, null, z) == null) {
             isFirstAvailableTimeNormal = z;
-            boolean z2 = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "sFirstAvailableTime is not normal, throw it away");
+            }
         }
     }
 
-    public static void setFirstTouchTime(long j2) {
+    public static void setFirstTouchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65561, null, j2) == null) {
-            long j3 = sAppStartTimeStamp;
-            if (j3 == -1) {
+        if (interceptable == null || interceptable.invokeJ(65561, null, j) == null) {
+            long j2 = sAppStartTimeStamp;
+            if (j2 == -1) {
                 return;
             }
-            sFirstTouchTime = j2 - j3;
+            sFirstTouchTime = j - j2;
         }
     }
 
-    public static void setIdleTaskEndTime(long j2) {
+    public static void setIdleTaskEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, null, j2) == null) {
-            sIdleTaskEndTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(65562, null, j) == null) {
+            sIdleTaskEndTimeStamp = j;
         }
     }
 
-    public static void setIdleTaskStartTime(long j2) {
+    public static void setIdleTaskStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65563, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65563, null, j) == null) {
             if (sFirstAvailableTime == -1 && sAfterLaunchAvailableTime == -1 && sProcessAvailableTime == -1) {
-                long j3 = j2 - sAppStartTimeStamp;
+                long j2 = j - sAppStartTimeStamp;
+                if (isTimeAvailable(j2)) {
+                    sFirstAvailableTime = j2;
+                }
+                long j3 = j - sAppStartEndTimeStamp;
                 if (isTimeAvailable(j3)) {
-                    sFirstAvailableTime = j3;
+                    sAfterLaunchAvailableTime = j3;
                 }
-                long j4 = j2 - sAppStartEndTimeStamp;
-                if (isTimeAvailable(j4)) {
-                    sAfterLaunchAvailableTime = j4;
-                }
-                long j5 = sUserPerceptionAppStartTime;
-                if (j5 > 0) {
-                    long j6 = j4 + j5;
-                    if (isTimeAvailable(j6)) {
-                        sProcessAvailableTime = j6;
+                long j4 = sUserPerceptionAppStartTime;
+                if (j4 > 0) {
+                    long j5 = j3 + j4;
+                    if (isTimeAvailable(j5)) {
+                        sProcessAvailableTime = j5;
                     }
                 }
             }
-            sIdleTaskStartTimeStamp = j2;
-            boolean z = DEBUG;
+            sIdleTaskStartTimeStamp = j;
+            if (DEBUG) {
+                Log.d(TAG, "########## TTI end");
+            }
         }
     }
 
@@ -355,9 +369,9 @@ public class SmartLaunchStats {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -370,17 +384,21 @@ public class SmartLaunchStats {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         if (SpeedStatsManager.getInstance().getAppLaunchDuration() < 0) {
-                            boolean unused = SmartLaunchStats.DEBUG;
+                            if (SmartLaunchStats.DEBUG) {
+                                Log.d(SmartLaunchStats.TAG, "launch is not finish ! do not remove idleHandler!");
+                            }
                             return true;
                         } else if (SpeedRuntime.getSpeedContext().isAdShowing()) {
-                            boolean unused2 = SmartLaunchStats.DEBUG;
+                            if (SmartLaunchStats.DEBUG) {
+                                Log.d(SmartLaunchStats.TAG, "ad is not finish ! do not remove idleHandler!");
+                            }
                             return true;
                         } else if (SmartLaunchStats.sIdleTaskStartTimeStamp == -1) {
                             SmartLaunchStats.setIdleTaskStartTime(System.currentTimeMillis());
                             LaunchedTaskSpeedStats.getInstance().endStatistics();
                             new SmartLaunchTaskManager().schedule(SpeedRuntime.getAppContext());
                             if (SmartLaunchStats.DEBUG) {
-                                String str = "set idle time! tti:" + SmartLaunchStats.sFirstAvailableTime;
+                                Log.d(SmartLaunchStats.TAG, "set idle time! tti:" + SmartLaunchStats.sFirstAvailableTime);
                                 return false;
                             }
                             return false;
@@ -425,15 +443,15 @@ public class SmartLaunchStats {
             jSONObject2.put("device_score", ScheduleStrategy.getDeviceScore());
             List<SmartLaunchTask> registeredPersonalLaunchTasks = SmartLaunchScheduler.getInstance().getRegisteredPersonalLaunchTasks();
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < registeredPersonalLaunchTasks.size(); i2++) {
-                registeredPersonalLaunchTasks.get(i2);
+            for (int i = 0; i < registeredPersonalLaunchTasks.size(); i++) {
+                registeredPersonalLaunchTasks.get(i);
             }
             jSONObject2.put("count", 0);
             jSONObject2.put(UBC_BUSINESS_KEY, jSONArray);
             jSONObject.put("ext", jSONObject2);
             this.mUbcManager.onEvent(UBC_START_LAUNCH_ID, jSONObject);
             if (DEBUG) {
-                jSONObject.toString();
+                Log.d(TAG, jSONObject.toString());
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

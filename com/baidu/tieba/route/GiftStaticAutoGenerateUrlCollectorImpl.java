@@ -2,6 +2,7 @@ package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +21,9 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,6 +38,8 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.gift.buyGift.GiftStatic");
+            hashMap.put("2002003", "com.baidu.tieba.gift.buyGift.GiftStatic");
+            hashMap.put("3001000", "com.baidu.tieba.gift.buyGift.GiftStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -52,6 +55,8 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
             arrayList.add("MyGiftListActivityConfig");
             arrayList.add("BuyGiftActivityConfig");
             arrayList.add("GiftTabActivityConfig");
+            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT);
+            arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_USER_GIFT);
             hashMap.put("com.baidu.tieba.gift.buyGift.GiftStatic", arrayList);
             return hashMap;
         }

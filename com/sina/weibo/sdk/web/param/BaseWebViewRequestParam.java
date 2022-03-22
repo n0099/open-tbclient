@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public abstract class BaseWebViewRequestParam {
     public String transaction;
 
     /* renamed from: com.sina.weibo.sdk.web.param.BaseWebViewRequestParam$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$sina$weibo$sdk$web$WebRequestType;
         public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public abstract class BaseWebViewRequestParam {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 
@@ -73,9 +73,9 @@ public abstract class BaseWebViewRequestParam {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -97,12 +97,12 @@ public abstract class BaseWebViewRequestParam {
             BaseWebViewRequestData baseWebViewRequestData = this.baseData;
             if (baseWebViewRequestData != null) {
                 bundle.putSerializable(SchemeCollecter.CLASSIFY_BASE, baseWebViewRequestData);
-                int i2 = AnonymousClass1.$SwitchMap$com$sina$weibo$sdk$web$WebRequestType[this.baseData.getType().ordinal()];
-                if (i2 == 1) {
+                int i = AnonymousClass1.$SwitchMap$com$sina$weibo$sdk$web$WebRequestType[this.baseData.getType().ordinal()];
+                if (i == 1) {
                     bundle.putInt("type", 0);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     bundle.putInt("type", 1);
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     bundle.putInt("type", 2);
                 }
                 bundle.putString(WBConstants.TRAN, this.transaction);
@@ -166,9 +166,9 @@ public abstract class BaseWebViewRequestParam {
             newInitContext.initArgs = r2;
             Object[] objArr = {authInfo, webRequestType, str, str2, str3, context};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -178,22 +178,22 @@ public abstract class BaseWebViewRequestParam {
         }
     }
 
-    public BaseWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3, Context context) {
+    public BaseWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i2), str2, str3, context};
+            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3, context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.baseData = new BaseWebViewRequestData(authInfo, webRequestType, str, i2, str2, str3);
+        this.baseData = new BaseWebViewRequestData(authInfo, webRequestType, str, i, str2, str3);
         this.context = context;
         this.transaction = String.valueOf(System.currentTimeMillis());
     }

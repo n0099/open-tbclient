@@ -23,10 +23,10 @@ public abstract class PathUtils {
     public static AsyncTask<Void, Void, String[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f48706b;
+    public static Context f37645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f48707c;
+    public static String f37646c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -73,19 +73,19 @@ public abstract class PathUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String b(int i2) {
+    public static String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? a.a[i2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? a.a[i] : (String) invokeI.objValue;
     }
 
     public static String[] c() {
@@ -113,11 +113,11 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String[] strArr = new String[4];
-            strArr[0] = f48706b.getDir(f48707c, 0).getPath();
-            strArr[1] = f48706b.getDir("textures", 0).getPath();
-            strArr[2] = f48706b.getDatabasePath("foo").getParent();
-            if (f48706b.getCacheDir() != null) {
-                strArr[3] = f48706b.getCacheDir().getPath();
+            strArr[0] = f37645b.getDir(f37646c, 0).getPath();
+            strArr[1] = f37645b.getDir("textures", 0).getPath();
+            strArr[2] = f37645b.getDatabasePath("foo").getParent();
+            if (f37645b.getCacheDir() != null) {
+                strArr[3] = f37645b.getCacheDir().getPath();
             }
             return strArr;
         }
@@ -174,8 +174,8 @@ public abstract class PathUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
-            int i2 = applicationInfo.flags;
-            return ((i2 & 128) != 0 || (i2 & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
+            int i = applicationInfo.flags;
+            return ((i & 128) != 0 || (i & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
         }
         return (String) invokeL.objValue;
     }

@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.v.m0.d;
-import c.a.b0.v.v0.h;
-import c.a.b0.v.w.c;
-import c.a.b0.x.b;
+import c.a.a0.v.m0.d;
+import c.a.a0.v.v0.h;
+import c.a.a0.v.w.c;
+import c.a.a0.x.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -132,9 +132,9 @@ public class BdVideoSeries implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -196,19 +196,19 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? searchID : (String) invokeV.objValue;
     }
 
-    public static String getTextWithSecond(int i2) {
+    public static String getTextWithSecond(int i) {
         InterceptResult invokeI;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            int i3 = i2 / 3600;
-            int i4 = (i2 % 3600) / 60;
-            int i5 = i2 % 60;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
             try {
-                if (i3 != 0) {
-                    format = String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
+                if (i2 != 0) {
+                    format = String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
                 } else {
-                    format = String.format(Locale.US, "%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i5));
+                    format = String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
                 }
                 return format;
             } catch (Exception e2) {
@@ -274,18 +274,18 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return invokeCommon.doubleValue;
     }
 
-    public static int parseIntSafe(@Nullable String str, int i2) {
+    public static int parseIntSafe(@Nullable String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return i2;
+                return i;
             }
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
                 h.a(e2.getMessage());
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
@@ -329,8 +329,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdVideo)) == null) {
             List<BdVideo> list = this.mVideoList;
             if (list != null && (size = list.size()) > 0) {
-                for (int i2 = 0; i2 < size; i2++) {
-                    if (this.mVideoList.get(i2).equalsCustom(bdVideo)) {
+                for (int i = 0; i < size; i++) {
+                    if (this.mVideoList.get(i).equalsCustom(bdVideo)) {
                         return true;
                     }
                 }
@@ -348,15 +348,15 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? (obj instanceof BdVideoSeries) && (str = this.mDetailId) != null && str.equals(((BdVideoSeries) obj).getDetailId()) : invokeL.booleanValue;
     }
 
-    public BdVideo findVideoByIndex(int i2) {
+    public BdVideo findVideoByIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             List<BdVideo> list = this.mVideoList;
-            if (list == null || i2 < 0 || i2 >= list.size()) {
+            if (list == null || i < 0 || i >= list.size()) {
                 return null;
             }
-            return this.mVideoList.get(i2);
+            return this.mVideoList.get(i);
         }
         return (BdVideo) invokeI.objValue;
     }
@@ -400,7 +400,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String getClarityTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? c.a.b0.v.d.b().getResources().getString(R.string.nad_clarity_sd) : this.mClarityTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? c.a.a0.v.d.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b53) : this.mClarityTitle : (String) invokeV.objValue;
     }
 
     public long getCreateTime() {
@@ -706,8 +706,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            int i2 = this.mSelectedIndex;
-            if (i2 < 0 || i2 >= this.mVideoList.size()) {
+            int i = this.mSelectedIndex;
+            if (i < 0 || i >= this.mVideoList.size()) {
                 this.mSelectedIndex = 0;
             }
             return this.mVideoList.get(this.mSelectedIndex);
@@ -761,11 +761,11 @@ public class BdVideoSeries implements Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            int i2 = this.mStartPosition;
-            if (i2 < 0) {
+            int i = this.mStartPosition;
+            if (i < 0) {
                 return -1;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -892,15 +892,15 @@ public class BdVideoSeries implements Serializable, Cloneable {
     }
 
     @Nullable
-    public BdVideo getVideoByIndex(int i2) {
+    public BdVideo getVideoByIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048654, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048654, this, i)) == null) {
             List<BdVideo> list = this.mVideoList;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.mVideoList.size()) {
+            if (list == null || list.size() <= 0 || i < 0 || i >= this.mVideoList.size()) {
                 return null;
             }
-            return this.mVideoList.get(i2);
+            return this.mVideoList.get(i);
         }
         return (BdVideo) invokeI.objValue;
     }
@@ -968,14 +968,14 @@ public class BdVideoSeries implements Serializable, Cloneable {
             List<BdVideo> list = this.mVideoList;
             if (list != null) {
                 int size = list.size();
-                int i2 = this.mSelectedIndex;
-                if (size == i2 + 1) {
-                    return hasFinishedPlayingVideo(this.mVideoList.get(i2));
+                int i = this.mSelectedIndex;
+                if (size == i + 1) {
+                    return hasFinishedPlayingVideo(this.mVideoList.get(i));
                 }
                 return false;
             }
-            int i3 = this.mTempVideoCount;
-            if (i3 == -1 || i3 != this.mSelectedIndex + 1) {
+            int i2 = this.mTempVideoCount;
+            if (i2 == -1 || i2 != this.mSelectedIndex + 1) {
                 return false;
             }
             return isLengthTheSameNotZero(this.mSelectedVideoCurrentLength, this.mSelectedVideoTotalLength);
@@ -1008,8 +1008,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (this.mVideoList != null) {
                 return getVideoCount() == 1;
             }
-            int i2 = this.mTempVideoCount;
-            return i2 != -1 && i2 == 1;
+            int i = this.mTempVideoCount;
+            return i != -1 && i == 1;
         }
         return invokeV.booleanValue;
     }
@@ -1106,8 +1106,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (!TextUtils.isEmpty(this.mSiteListJason) && !TextUtils.isEmpty(str)) {
                 try {
                     JSONArray jSONArray = new JSONArray(this.mSiteListJason);
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
                         if (jSONObject != null && jSONObject.has(JSON_SITE_NAME) && jSONObject.has(JSON_SITE_LOGO) && str.equals(jSONObject.getString(JSON_SITE_NAME))) {
                             return jSONObject.getString(JSON_SITE_LOGO);
                         }
@@ -1128,10 +1128,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         this.mVideoList = null;
     }
 
-    public void setAccessTime(long j2) {
+    public void setAccessTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048683, this, j2) == null) {
-            this.mAccessTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048683, this, j) == null) {
+            this.mAccessTime = j;
         }
     }
 
@@ -1183,7 +1183,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             try {
                 setClarityUrlList(new JSONArray(str));
             } catch (JSONException e2) {
-                if (c.a.b0.v.d.f()) {
+                if (c.a.a0.v.d.f()) {
                     e2.printStackTrace();
                 }
                 this.mClarityList = new ClarityUrlList();
@@ -1191,10 +1191,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setCreateTime(long j2) {
+    public void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048693, this, j2) == null) {
-            this.mCreateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048693, this, j) == null) {
+            this.mCreateTime = j;
         }
     }
 
@@ -1205,17 +1205,17 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setDuration(int i2) {
+    public void setDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i2) == null) {
-            this.mDurationMs = i2 * 1000;
+        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
+            this.mDurationMs = i * 1000;
         }
     }
 
-    public void setDurationMs(int i2) {
+    public void setDurationMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048696, this, i2) == null) {
-            this.mDurationMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
+            this.mDurationMs = i;
         }
     }
 
@@ -1314,10 +1314,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setId(long j2) {
+    public void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048710, this, j2) == null) {
-            this.mId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048710, this, j) == null) {
+            this.mId = j;
         }
     }
 
@@ -1356,10 +1356,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setLoadFrom(int i2) {
+    public void setLoadFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048716, this, i2) == null) {
-            this.mLoadFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048716, this, i) == null) {
+            this.mLoadFrom = i;
         }
     }
 
@@ -1398,10 +1398,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setMoovSize(int i2) {
+    public void setMoovSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048722, this, i2) == null) {
-            this.mMoovSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048722, this, i) == null) {
+            this.mMoovSize = i;
         }
     }
 
@@ -1426,10 +1426,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setOffset(int i2) {
+    public void setOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048726, this, i2) == null) {
-            this.mOffset = i2;
+        if (interceptable == null || interceptable.invokeI(1048726, this, i) == null) {
+            this.mOffset = i;
         }
     }
 
@@ -1475,17 +1475,17 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setPosition(int i2) {
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048733, this, i2) == null) {
-            this.mPositionMs = i2 * 1000;
+        if (interceptable == null || interceptable.invokeI(1048733, this, i) == null) {
+            this.mPositionMs = i * 1000;
         }
     }
 
-    public void setPositionMs(int i2) {
+    public void setPositionMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048734, this, i2) == null) {
-            this.mPositionMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048734, this, i) == null) {
+            this.mPositionMs = i;
         }
     }
 
@@ -1496,12 +1496,12 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setPrepareTime(long j2) {
+    public void setPrepareTime(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048736, this, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048736, this, j) == null) || j <= 0) {
             return;
         }
-        this.mPrepareTime = j2;
+        this.mPrepareTime = j;
     }
 
     public void setPreview6sUrl(String str) {
@@ -1547,17 +1547,17 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setSelectedIndex(int i2) {
+    public void setSelectedIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048743, this, i2) == null) {
-            this.mSelectedIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
+            this.mSelectedIndex = i;
         }
     }
 
-    public void setSelectedNum(int i2) {
+    public void setSelectedNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048744, this, i2) == null) {
-            this.mSelectedNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048744, this, i) == null) {
+            this.mSelectedNum = i;
         }
     }
 
@@ -1582,10 +1582,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setSeriesType(int i2) {
+    public void setSeriesType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048748, this, i2) == null) {
-            this.mSeriesType = i2;
+        if (interceptable == null || interceptable.invokeI(1048748, this, i) == null) {
+            this.mSeriesType = i;
         }
     }
 
@@ -1623,10 +1623,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setStartPosition(int i2) {
+    public void setStartPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048753, this, i2) == null) {
-            this.mStartPosition = i2;
+        if (interceptable == null || interceptable.invokeI(1048753, this, i) == null) {
+            this.mStartPosition = i;
         }
     }
 
@@ -1637,10 +1637,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setTempVideoCount(int i2) {
+    public void setTempVideoCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048755, this, i2) == null) {
-            this.mTempVideoCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048755, this, i) == null) {
+            this.mTempVideoCount = i;
         }
     }
 
@@ -1651,10 +1651,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setTitleSizePx(int i2) {
+    public void setTitleSizePx(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048757, this, i2) == null) {
-            this.mTitleSizePx = i2;
+        if (interceptable == null || interceptable.invokeI(1048757, this, i) == null) {
+            this.mTitleSizePx = i;
         }
     }
 
@@ -1665,10 +1665,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setUpdateTime(long j2) {
+    public void setUpdateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048759, this, j2) == null) {
-            this.mUpdateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048759, this, j) == null) {
+            this.mUpdateTime = j;
         }
     }
 
@@ -1700,10 +1700,10 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setVideoBps(int i2) {
+    public void setVideoBps(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048764, this, i2) == null) {
-            this.mBps = i2;
+        if (interceptable == null || interceptable.invokeI(1048764, this, i) == null) {
+            this.mBps = i;
         }
     }
 
@@ -1773,11 +1773,11 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (!z || clarityUrlList == null || clarityUrlList.size() <= 0) {
                 return;
             }
-            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f35792f);
+            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f27660b);
             if (clarityByOriginRank != null) {
                 this.mClarityList.setCurrentClarityUrl(clarityByOriginRank);
-                if (c.a.b0.v.w.d.b()) {
-                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f35793g);
+                if (c.a.a0.v.w.d.b()) {
+                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f27661c);
                     return;
                 }
                 return;
@@ -1789,7 +1789,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public void updateClarityUrlListFromMPD() {
         JSONArray b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b2 = c.a.b0.v.n0.a.b.b(this.mMPD)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b2 = c.a.a0.v.n0.a.b.b(this.mMPD)) == null) {
             return;
         }
         updateClarityUrlList(b2, true);
@@ -1802,8 +1802,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
         if (!(interceptable == null || interceptable.invokeL(1048774, this, bdVideo) == null) || (list = this.mVideoList) == null || (size = list.size()) <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < size; i2++) {
-            BdVideo bdVideo2 = this.mVideoList.get(i2);
+        for (int i = 0; i < size; i++) {
+            BdVideo bdVideo2 = this.mVideoList.get(i);
             if (bdVideo2.equalsCustom(bdVideo)) {
                 this.mVideoList.remove(bdVideo2);
                 this.mVideoList.add(bdVideo);
@@ -1814,7 +1814,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BdVideoSeries m42clone() {
+    public BdVideoSeries m40clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1828,14 +1828,14 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return (BdVideoSeries) invokeV.objValue;
     }
 
-    public int getVideoIndex(long j2) {
+    public int getVideoIndex(long j) {
         InterceptResult invokeJ;
         List<BdVideo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j2)) == null) {
-            if (j2 >= 0 && (list = this.mVideoList) != null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j)) == null) {
+            if (j >= 0 && (list = this.mVideoList) != null) {
                 for (BdVideo bdVideo : list) {
-                    if (bdVideo.getId() == j2) {
+                    if (bdVideo.getId() == j) {
                         return this.mVideoList.indexOf(bdVideo);
                     }
                 }
@@ -1849,7 +1849,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048691, this, str, z) == null) {
             if (z) {
-                JSONArray b2 = c.a.b0.v.n0.a.b.b(str);
+                JSONArray b2 = c.a.a0.v.n0.a.b.b(str);
                 if (b2 != null) {
                     setClarityUrlList(b2);
                     return;
@@ -1871,7 +1871,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048771, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                JSONArray b2 = c.a.b0.v.n0.a.b.b(str);
+                JSONArray b2 = c.a.a0.v.n0.a.b.b(str);
                 if (b2 != null) {
                     updateClarityUrlList(b2, z);
                     return;

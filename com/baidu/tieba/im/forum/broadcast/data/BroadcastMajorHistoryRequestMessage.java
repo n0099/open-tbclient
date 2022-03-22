@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -26,7 +26,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public List<Long> bcastIds;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f43536common;
+    public CommonReq f33790common;
     public long forumId;
     public long lastId;
     public int needCount;
@@ -39,9 +39,9 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -57,7 +57,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f61253common = this.f43536common;
+            builder.f45589common = this.f33790common;
             builder.query_type = Integer.valueOf(this.queryType);
             builder.forum_id = Long.valueOf(this.forumId);
             builder.need_cnt = Integer.valueOf(this.needCount);
@@ -77,7 +77,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f43536common = commonReq;
+            this.f33790common = commonReq;
         }
     }
 }

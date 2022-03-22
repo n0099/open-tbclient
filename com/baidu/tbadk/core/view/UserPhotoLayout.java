@@ -39,9 +39,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f39242e;
+        public final /* synthetic */ UserPhotoLayout a;
 
         public a(UserPhotoLayout userPhotoLayout) {
             Interceptable interceptable = $ic;
@@ -50,15 +48,15 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userPhotoLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39242e = userPhotoLayout;
+            this.a = userPhotoLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -71,8 +69,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f39242e.mUserPhotoPool != null) {
-                this.f39242e.mUserPhotoPool.e((HeadImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.a.mUserPhotoPool != null) {
+                this.a.mUserPhotoPool.e((HeadImageView) view2);
             }
         }
     }
@@ -90,9 +88,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -165,83 +163,79 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final int f39243e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ UserPhotoLayout f30208b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f39244f;
-
-        public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
-            this(userPhotoLayout, i2);
+        public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i, a aVar) {
+            this(userPhotoLayout, i);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39244f.mChildClickListener == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f30208b.mChildClickListener == null) {
                 return;
             }
-            this.f39244f.mChildClickListener.a(this.f39243e);
+            this.f30208b.mChildClickListener.a(this.a);
         }
 
-        public c(UserPhotoLayout userPhotoLayout, int i2) {
+        public c(UserPhotoLayout userPhotoLayout, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {userPhotoLayout, Integer.valueOf(i2)};
+                Object[] objArr = {userPhotoLayout, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39244f = userPhotoLayout;
-            this.f39243e = i2;
+            this.f30208b = userPhotoLayout;
+            this.a = i;
         }
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        void a(int i2);
+        void a(int i);
     }
 
     /* loaded from: classes5.dex */
     public static class e implements AbsListView.RecyclerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public int f39245e;
-
-        public e(int i2) {
+        public e(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39245e = 0;
-            this.f39245e = i2;
+            this.a = 0;
+            this.a = i;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f39245e)) != null && (findViewById instanceof UserPhotoLayout)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.a)) != null && (findViewById instanceof UserPhotoLayout)) {
                 ((UserPhotoLayout) findViewById).reset();
             }
         }
@@ -265,9 +259,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -277,10 +271,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public static c.a.d.f.k.b<HeadImageView> createUserPhotoPool(Context context, int i2) {
+    public static c.a.d.f.k.b<HeadImageView> createUserPhotoPool(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? new c.a.d.f.k.b<>(new b(context), i2, 0) : (c.a.d.f.k.b) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) ? new c.a.d.f.k.b<>(new b(context), i, 0) : (c.a.d.f.k.b) invokeLI.objValue;
     }
 
     private HeadImageView getImageView(Context context) {
@@ -316,8 +310,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             return;
         }
         long drawingTime = getDrawingTime();
-        for (int i2 = 0; i2 < this.mChildCount; i2++) {
-            drawChild(canvas, (HeadImageView) getChildAt(i2), drawingTime);
+        for (int i = 0; i < this.mChildCount; i++) {
+            drawChild(canvas, (HeadImageView) getChildAt(i), drawingTime);
         }
     }
 
@@ -334,38 +328,38 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (this.mChildCount == 0) {
                 return;
             }
-            int i6 = 0;
-            while (i6 < this.mChildCount) {
-                int i7 = this.mPadding;
-                int i8 = this.mItemSize;
-                int i9 = i7 * i6;
-                i6++;
-                ((HeadImageView) getChildAt(i6)).layout((i7 * i6) + (i8 * i6), 0, i9 + (i8 * i6), i8);
+            int i5 = 0;
+            while (i5 < this.mChildCount) {
+                int i6 = this.mPadding;
+                int i7 = this.mItemSize;
+                int i8 = i6 * i5;
+                i5++;
+                ((HeadImageView) getChildAt(i5)).layout((i6 * i5) + (i7 * i5), 0, i8 + (i7 * i5), i7);
             }
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int i4 = this.mChildCount;
-            if (i4 == 0) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            int i3 = this.mChildCount;
+            if (i3 == 0) {
                 setMeasuredDimension(0, 0);
                 return;
             }
-            int i5 = this.mItemSize;
-            setMeasuredDimension((i4 * i5) + ((i4 - 1) * this.mPadding), i5);
-            for (int i6 = 0; i6 < this.mChildCount; i6++) {
-                int i7 = this.mItemSize;
-                measureChild((HeadImageView) getChildAt(i6), i7, i7);
+            int i4 = this.mItemSize;
+            setMeasuredDimension((i3 * i4) + ((i3 - 1) * this.mPadding), i4);
+            for (int i5 = 0; i5 < this.mChildCount; i5++) {
+                int i6 = this.mItemSize;
+                measureChild((HeadImageView) getChildAt(i5), i6, i6);
             }
         }
     }
@@ -405,33 +399,33 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             }
             int size = list.size();
             this.mChildCount = size;
-            int i2 = this.mNormalShowCount;
-            if (size > i2) {
-                this.mChildCount = i2;
+            int i = this.mNormalShowCount;
+            if (size > i) {
+                this.mChildCount = i;
             }
-            for (int i3 = 0; i3 < this.mChildCount; i3++) {
+            for (int i2 = 0; i2 < this.mChildCount; i2++) {
                 HeadImageView imageView = getImageView(this.mContext);
                 imageView.setAutoChangeStyle(this.mAutoChangeStyle);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(imageView);
-                imageView.startLoad(this.mDatas.get(i3).getPortrait(), 12, false);
+                imageView.J(this.mDatas.get(i2).getPortrait(), 12, false);
             }
             requestLayout();
             invalidate();
         }
     }
 
-    public void setItemSize(int i2) {
+    public void setItemSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mItemSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mItemSize = i;
         }
     }
 
-    public void setNormalShowCount(int i2) {
+    public void setNormalShowCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mNormalShowCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mNormalShowCount = i;
         }
     }
 
@@ -451,9 +445,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -469,7 +463,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mNormalShowCount = 6;
         this.mContext = context;
         this.mPadding = n.d(context, 5);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
         Context context2 = this.mContext;
         if (context2 instanceof f) {
             f fVar = (f) context2;
@@ -483,10 +477,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2) {
+    public void addView(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
-            super.addView(view, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
+            super.addView(view, i);
             view.setOnClickListener(new c(this, getChildCount() - 1, null));
         }
     }

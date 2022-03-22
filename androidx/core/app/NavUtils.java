@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -29,9 +30,9 @@ public final class NavUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,7 +57,7 @@ public final class NavUtils {
                     }
                     return new Intent().setComponent(componentName);
                 } catch (PackageManager.NameNotFoundException unused) {
-                    String str = "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest";
+                    Log.e(TAG, "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
                     return null;
                 }
             }
@@ -125,15 +126,15 @@ public final class NavUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, componentName)) == null) {
             PackageManager packageManager = context.getPackageManager();
-            int i2 = Build.VERSION.SDK_INT;
-            int i3 = 640;
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 29) {
-                i3 = 269222528;
-            } else if (i4 >= 24) {
-                i3 = 787072;
+            int i = Build.VERSION.SDK_INT;
+            int i2 = 640;
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 29) {
+                i2 = 269222528;
+            } else if (i3 >= 24) {
+                i2 = 787072;
             }
-            ActivityInfo activityInfo = packageManager.getActivityInfo(componentName, i3);
+            ActivityInfo activityInfo = packageManager.getActivityInfo(componentName, i2);
             if (Build.VERSION.SDK_INT < 16 || (str = activityInfo.parentActivityName) == null) {
                 Bundle bundle = activityInfo.metaData;
                 if (bundle == null || (string = bundle.getString(PARENT_ACTIVITY)) == null) {

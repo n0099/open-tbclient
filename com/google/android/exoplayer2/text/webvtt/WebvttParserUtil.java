@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttParserUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern COMMENT;
@@ -42,9 +42,9 @@ public final class WebvttParserUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -95,15 +95,15 @@ public final class WebvttParserUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 2);
-            long j2 = 0;
+            long j = 0;
             for (String str2 : split[0].split(":")) {
-                j2 = (j2 * 60) + Long.parseLong(str2);
+                j = (j * 60) + Long.parseLong(str2);
             }
-            long j3 = j2 * 1000;
+            long j2 = j * 1000;
             if (split.length == 2) {
-                j3 += Long.parseLong(split[1]);
+                j2 += Long.parseLong(split[1]);
             }
-            return j3 * 1000;
+            return j2 * 1000;
         }
         return invokeL.longValue;
     }

@@ -14,30 +14,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SimpleNavigationBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f61609e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f45940b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f61610f;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f45941c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f61611g;
+    /* renamed from: d  reason: collision with root package name */
+    public c f45942d;
 
-    /* renamed from: h  reason: collision with root package name */
-    public c f61612h;
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleNavigationBar f61613e;
+        public final /* synthetic */ SimpleNavigationBar a;
 
         public a(SimpleNavigationBar simpleNavigationBar) {
             Interceptable interceptable = $ic;
@@ -46,34 +42,32 @@ public class SimpleNavigationBar extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {simpleNavigationBar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61613e = simpleNavigationBar;
+            this.a = simpleNavigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f61613e.f61612h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f45942d == null) {
                 return;
             }
-            this.f61613e.f61612h.onBackPress();
+            this.a.f45942d.onBackPress();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleNavigationBar f61614e;
+        public final /* synthetic */ SimpleNavigationBar a;
 
         public b(SimpleNavigationBar simpleNavigationBar) {
             Interceptable interceptable = $ic;
@@ -82,28 +76,28 @@ public class SimpleNavigationBar extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {simpleNavigationBar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61614e = simpleNavigationBar;
+            this.a = simpleNavigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f61614e.f61612h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f45942d == null) {
                 return;
             }
-            this.f61614e.f61612h.onRightClick();
+            this.a.f45942d.onRightClick();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void onBackPress();
 
@@ -119,9 +113,9 @@ public class SimpleNavigationBar extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -134,19 +128,19 @@ public class SimpleNavigationBar extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_navigation, (ViewGroup) this, true);
-            this.f61611g = (ImageView) findViewById(R.id.iv_back);
-            this.f61609e = (TextView) findViewById(R.id.tv_title);
-            this.f61610f = (TextView) findViewById(R.id.tv_right);
-            this.f61611g.setOnClickListener(new a(this));
-            this.f61610f.setOnClickListener(new b(this));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0667, (ViewGroup) this, true);
+            this.f45941c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc3);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.f45940b = (TextView) findViewById(R.id.obfuscated_res_0x7f092205);
+            this.f45941c.setOnClickListener(new a(this));
+            this.f45940b.setOnClickListener(new b(this));
         }
     }
 
     public void setCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f61612h = cVar;
+            this.f45942d = cVar;
         }
     }
 
@@ -155,17 +149,17 @@ public class SimpleNavigationBar extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null || str.isEmpty()) {
             return;
         }
-        this.f61610f.setText(str);
-        this.f61610f.setVisibility(0);
+        this.f45940b.setText(str);
+        this.f45940b.setVisibility(0);
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (str != null && !str.isEmpty()) {
-                this.f61609e.setText(str);
+                this.a.setText(str);
             }
-            this.f61609e.setVisibility(0);
+            this.a.setVisibility(0);
         }
     }
 
@@ -178,9 +172,9 @@ public class SimpleNavigationBar extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -191,17 +185,17 @@ public class SimpleNavigationBar extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleNavigationBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SimpleNavigationBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

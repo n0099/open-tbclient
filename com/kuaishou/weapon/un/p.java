@@ -19,31 +19,27 @@ public class p {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f53755b;
+    public int f38935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f53756c;
+    public String f38936c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53757d;
+    public String f38937d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53758e;
+    public String f38938e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f53759f;
+    public Context f38939f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ClassLoader f53760g;
+    public ClassLoader f38940g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53761h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f53762i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f53763j;
+    public String f38941h;
+    public String i;
+    public String j;
     public String k;
     public ActivityInfo[] l;
     public String m;
@@ -66,9 +62,9 @@ public class p {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,37 +73,37 @@ public class p {
         this.y = -1;
     }
 
-    public p(int i2, String str, String str2) {
+    public p(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.y = -1;
-        this.a = i2;
-        this.f53757d = str;
-        this.f53758e = str2;
+        this.a = i;
+        this.f38937d = str;
+        this.f38938e = str2;
     }
 
-    public p(PackageInfo packageInfo, int i2, String str, String str2, String str3, String str4) {
+    public p(PackageInfo packageInfo, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {packageInfo, Integer.valueOf(i2), str, str2, str3, str4};
+            Object[] objArr = {packageInfo, Integer.valueOf(i), str, str2, str3, str4};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -115,11 +111,11 @@ public class p {
         }
         this.y = -1;
         this.s = packageInfo;
-        this.a = i2;
-        this.f53756c = str;
-        this.f53757d = str2;
-        this.f53762i = str3;
-        this.f53763j = str4;
+        this.a = i;
+        this.f38936c = str;
+        this.f38937d = str2;
+        this.i = str3;
+        this.j = str4;
     }
 
     public p(String str, String str2) {
@@ -129,17 +125,17 @@ public class p {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.y = -1;
-        this.f53757d = str;
-        this.f53758e = str2;
+        this.f38937d = str;
+        this.f38938e = str2;
     }
 
     public boolean equals(Object obj) {
@@ -150,8 +146,8 @@ public class p {
                 return true;
             }
             if (obj != null && p.class == obj.getClass()) {
-                String str = this.f53756c;
-                String str2 = ((p) obj).f53756c;
+                String str = this.f38936c;
+                String str2 = ((p) obj).f38936c;
                 if (str == null) {
                     if (str2 != null) {
                         return false;
@@ -170,7 +166,7 @@ public class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f53756c;
+            String str = this.f38936c;
             return (str == null ? 0 : str.hashCode()) + 31;
         }
         return invokeV.intValue;
@@ -181,7 +177,7 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return "WeaponApkInfo [key=" + this.a + ", apkInitStatus=" + this.f53755b + ", apkPackageName=" + this.f53756c + ", apkVersionName=" + this.f53757d + ", apkPkgPath=" + this.f53758e + ", apkHostContext=" + this.f53759f + ", classLoader=" + this.f53760g + ", apkLibPath=" + this.f53761h + ", apkDownloadURL=" + this.f53762i + ", apkMD5=" + this.f53763j + ", apkSignMD5=" + this.k + ", activities=" + Arrays.toString(this.l) + ", dataDir=" + this.m + ", apkDexPath=" + this.n + ", apkClassName=" + this.o + ", apkParseSuc=" + this.p + ", apkApplicationTheme=" + this.q + ", apkIntentFilters=" + this.r + ", apkCloudPkgInfo=" + this.s + ", apkStartTime=" + this.t + ", duration=" + this.u + ", network=" + this.v + ", apkIsOnce=" + this.w + ", apkRunStatus=" + this.x + PreferencesUtil.RIGHT_MOUNT;
+                return "WeaponApkInfo [key=" + this.a + ", apkInitStatus=" + this.f38935b + ", apkPackageName=" + this.f38936c + ", apkVersionName=" + this.f38937d + ", apkPkgPath=" + this.f38938e + ", apkHostContext=" + this.f38939f + ", classLoader=" + this.f38940g + ", apkLibPath=" + this.f38941h + ", apkDownloadURL=" + this.i + ", apkMD5=" + this.j + ", apkSignMD5=" + this.k + ", activities=" + Arrays.toString(this.l) + ", dataDir=" + this.m + ", apkDexPath=" + this.n + ", apkClassName=" + this.o + ", apkParseSuc=" + this.p + ", apkApplicationTheme=" + this.q + ", apkIntentFilters=" + this.r + ", apkCloudPkgInfo=" + this.s + ", apkStartTime=" + this.t + ", duration=" + this.u + ", network=" + this.v + ", apkIsOnce=" + this.w + ", apkRunStatus=" + this.x + PreferencesUtil.RIGHT_MOUNT;
             } catch (Throwable unused) {
                 return "";
             }

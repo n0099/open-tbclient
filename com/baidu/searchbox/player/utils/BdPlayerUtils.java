@@ -52,24 +52,24 @@ public final class BdPlayerUtils {
         return invokeL.intValue;
     }
 
-    public static final String getTextWithSecond(int i2, boolean z) {
+    public static final String getTextWithSecond(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
                 return "";
             }
-            int i3 = i2 / 3600;
-            int i4 = (i2 % 3600) / 60;
-            int i5 = i2 % 60;
-            if (i3 == 0 && !z) {
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i4), Integer.valueOf(i5)}, 2));
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
                 return format;
             }
             StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}, 3));
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
             Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
             return format2;
         }
@@ -111,37 +111,37 @@ public final class BdPlayerUtils {
     }
 
     @JvmOverloads
-    public static final int parseIntSafe(String str, int i2) {
+    public static final int parseIntSafe(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
             if (str == null || str.length() == 0) {
-                return i2;
+                return i;
             }
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e2) {
                 BdVideoLog.e("parseInt catch exception:", e2);
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
     }
 
-    public static /* synthetic */ int parseIntSafe$default(String str, int i2, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int parseIntSafe$default(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return parseIntSafe(str, i2);
+        return parseIntSafe(str, i);
     }
 
-    public static final void setVolume(Context context, int i2) {
+    public static final void setVolume(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
             Object systemService = context != null ? context.getSystemService("audio") : null;
             AudioManager audioManager = systemService instanceof AudioManager ? systemService : null;
             if (audioManager != null) {
-                audioManager.setStreamVolume(3, i2, 8);
+                audioManager.setStreamVolume(3, i, 8);
             }
         }
     }

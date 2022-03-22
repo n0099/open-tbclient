@@ -18,9 +18,9 @@ public class HistoryTraceManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,13 +61,13 @@ public class HistoryTraceManager {
         bVar.a();
     }
 
-    public void renderHistoryTrace(BaiduMap baiduMap, HistoryTraceData historyTraceData, HistoryTraceDisplayOptions historyTraceDisplayOptions, int i2) {
+    public void renderHistoryTrace(BaiduMap baiduMap, HistoryTraceData historyTraceData, HistoryTraceDisplayOptions historyTraceDisplayOptions, int i) {
         com.baidu.mapsdkplatform.comapi.synchronization.b.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, baiduMap, historyTraceData, historyTraceDisplayOptions, i2) == null) || (bVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, baiduMap, historyTraceData, historyTraceDisplayOptions, i) == null) || (bVar = this.a) == null) {
             return;
         }
-        bVar.a(baiduMap, historyTraceData, historyTraceDisplayOptions, i2);
+        bVar.a(baiduMap, historyTraceData, historyTraceDisplayOptions, i);
     }
 
     public void setHttpsEnable(boolean z) {

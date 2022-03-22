@@ -39,9 +39,9 @@ public final class EAN13Reader extends UPCEANReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -50,12 +50,12 @@ public final class EAN13Reader extends UPCEANReader {
         this.decodeMiddleCounters = new int[4];
     }
 
-    public static void determineFirstDigit(StringBuilder sb, int i2) throws NotFoundException {
+    public static void determineFirstDigit(StringBuilder sb, int i) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, sb, i2) == null) {
-            for (int i3 = 0; i3 < 10; i3++) {
-                if (i2 == FIRST_DIGIT_ENCODINGS[i3]) {
-                    sb.insert(0, (char) (i3 + 48));
+        if (interceptable == null || interceptable.invokeLI(65538, null, sb, i) == null) {
+            for (int i2 = 0; i2 < 10; i2++) {
+                if (i == FIRST_DIGIT_ENCODINGS[i2]) {
+                    sb.insert(0, (char) (i2 + 48));
                     return;
                 }
             }
@@ -74,27 +74,27 @@ public final class EAN13Reader extends UPCEANReader {
             iArr2[2] = 0;
             iArr2[3] = 0;
             int size = bitArray.getSize();
-            int i2 = iArr[1];
-            int i3 = 0;
-            for (int i4 = 0; i4 < 6 && i2 < size; i4++) {
-                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
+            int i = iArr[1];
+            int i2 = 0;
+            for (int i3 = 0; i3 < 6 && i < size; i3++) {
+                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
                 sb.append((char) ((decodeDigit % 10) + 48));
-                for (int i5 : iArr2) {
-                    i2 += i5;
+                for (int i4 : iArr2) {
+                    i += i4;
                 }
                 if (decodeDigit >= 10) {
-                    i3 |= 1 << (5 - i4);
+                    i2 |= 1 << (5 - i3);
                 }
             }
-            determineFirstDigit(sb, i3);
-            int i6 = UPCEANReader.findGuardPattern(bitArray, i2, true, UPCEANReader.MIDDLE_PATTERN)[1];
-            for (int i7 = 0; i7 < 6 && i6 < size; i7++) {
-                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i6, UPCEANReader.L_PATTERNS) + 48));
-                for (int i8 : iArr2) {
-                    i6 += i8;
+            determineFirstDigit(sb, i2);
+            int i5 = UPCEANReader.findGuardPattern(bitArray, i, true, UPCEANReader.MIDDLE_PATTERN)[1];
+            for (int i6 = 0; i6 < 6 && i5 < size; i6++) {
+                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i5, UPCEANReader.L_PATTERNS) + 48));
+                for (int i7 : iArr2) {
+                    i5 += i7;
                 }
             }
-            return i6;
+            return i5;
         }
         return invokeLLL.intValue;
     }

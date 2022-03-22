@@ -15,10 +15,10 @@ public class LazyKt__LazyJVMKt {
     public static final <T> Lazy<T> lazy(LazyThreadSafetyMode mode, Function0<? extends T> initializer) {
         Intrinsics.checkNotNullParameter(mode, "mode");
         Intrinsics.checkNotNullParameter(initializer, "initializer");
-        int i2 = LazyKt.WhenMappings.$EnumSwitchMapping$0[mode.ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 == 3) {
+        int i = LazyKt.WhenMappings.$EnumSwitchMapping$0[mode.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
                     return new UnsafeLazyImpl(initializer);
                 }
                 throw new NoWhenBranchMatchedException();

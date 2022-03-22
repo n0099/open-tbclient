@@ -18,7 +18,7 @@ import org.webrtc.EglBase;
 import org.webrtc.EglRenderer;
 import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceViewRenderer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Callback, VideoSink, RendererCommon.RendererEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SurfaceViewRenderer";
@@ -42,9 +42,9 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -96,15 +96,15 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             ThreadUtils.checkIsOnMainThread();
             if (this.enableFixedSize && this.rotatedFrameWidth != 0 && this.rotatedFrameHeight != 0 && getWidth() != 0 && getHeight() != 0) {
                 float width = getWidth() / getHeight();
-                int i2 = this.rotatedFrameWidth;
-                int i3 = this.rotatedFrameHeight;
-                if (i2 / i3 > width) {
-                    i2 = (int) (i3 * width);
+                int i = this.rotatedFrameWidth;
+                int i2 = this.rotatedFrameHeight;
+                if (i / i2 > width) {
+                    i = (int) (i2 * width);
                 } else {
-                    i3 = (int) (i2 / width);
+                    i2 = (int) (i / width);
                 }
-                int min = Math.min(getWidth(), i2);
-                int min2 = Math.min(getHeight(), i3);
+                int min = Math.min(getWidth(), i);
+                int min2 = Math.min(getHeight(), i2);
                 logD("updateSurfaceSize. Layout size: " + getWidth() + "x" + getHeight() + ", frame size: " + this.rotatedFrameWidth + "x" + this.rotatedFrameHeight + ", requested surface size: " + min + "x" + min2 + ", old surface size: " + this.surfaceWidth + "x" + this.surfaceHeight);
                 if (min == this.surfaceWidth && min2 == this.surfaceHeight) {
                     return;
@@ -120,9 +120,9 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
         }
     }
 
-    public /* synthetic */ void a(int i2, int i3) {
-        this.rotatedFrameWidth = i2;
-        this.rotatedFrameHeight = i3;
+    public /* synthetic */ void a(int i, int i2) {
+        this.rotatedFrameWidth = i;
+        this.rotatedFrameHeight = i2;
         updateSurfaceSize();
         requestLayout();
     }
@@ -173,18 +173,18 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     }
 
     @Override // org.webrtc.RendererCommon.RendererEvents
-    public void onFrameResolutionChanged(final int i2, int i3, int i4) {
+    public void onFrameResolutionChanged(final int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
             RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
             if (rendererEvents != null) {
-                rendererEvents.onFrameResolutionChanged(i2, i3, i4);
+                rendererEvents.onFrameResolutionChanged(i, i2, i3);
             }
-            final int i5 = (i4 == 0 || i4 == 180) ? i2 : i3;
-            if (i4 == 0 || i4 == 180) {
-                i2 = i3;
+            final int i4 = (i3 == 0 || i3 == 180) ? i : i2;
+            if (i3 == 0 || i3 == 180) {
+                i = i2;
             }
-            postOrRun(new Runnable() { // from class: h.c.w
+            postOrRun(new Runnable() { // from class: f.c.w
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -192,7 +192,7 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        SurfaceViewRenderer.this.a(i5, i2);
+                        SurfaceViewRenderer.this.a(i4, i);
                     }
                 }
             });
@@ -200,21 +200,21 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     }
 
     @Override // android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             ThreadUtils.checkIsOnMainThread();
-            this.eglRenderer.setLayoutAspectRatio((i4 - i2) / (i5 - i3));
+            this.eglRenderer.setLayoutAspectRatio((i3 - i) / (i4 - i2));
             updateSurfaceSize();
         }
     }
 
     @Override // android.view.SurfaceView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
             ThreadUtils.checkIsOnMainThread();
-            Point measure = this.videoLayoutMeasure.measure(i2, i3, this.rotatedFrameWidth, this.rotatedFrameHeight);
+            Point measure = this.videoLayoutMeasure.measure(i, i2, this.rotatedFrameWidth, this.rotatedFrameHeight);
             setMeasuredDimension(measure.x, measure.y);
             logD("onMeasure(). New size: " + measure.x + "x" + measure.y);
         }
@@ -274,9 +274,9 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048596, this, surfaceHolder, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048596, this, surfaceHolder, i, i2, i3) == null) {
         }
     }
 
@@ -334,9 +334,9 @@ public class SurfaceViewRenderer extends SurfaceView implements SurfaceHolder.Ca
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

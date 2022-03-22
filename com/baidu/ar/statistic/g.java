@@ -10,9 +10,9 @@ public interface g {
 
     void onEvent(String str, Map<String, String> map);
 
-    void onEventDebounce(String str, long j2, String str2);
+    void onEventDebounce(String str, long j, String str2);
 
-    void onEventDebounce(String str, long j2, Map<String, String> map);
+    void onEventDebounce(String str, long j, Map<String, String> map);
 
     void onEventEnd(String str);
 

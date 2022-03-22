@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
@@ -30,9 +30,9 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,8 +53,8 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
             } else if (d.b(this.userName)) {
                 str = "userName is null";
             } else {
-                int i2 = this.miniprogramType;
-                if (i2 >= 0 && i2 <= 2) {
+                int i = this.miniprogramType;
+                if (i >= 0 && i <= 2) {
                     return true;
                 }
                 str = "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW";

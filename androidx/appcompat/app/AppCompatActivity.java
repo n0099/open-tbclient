@@ -47,9 +47,9 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -108,10 +108,10 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public <T extends View> T findViewById(@IdRes int i2) {
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? (T) getDelegate().findViewById(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? (T) getDelegate().findViewById(i) : (T) invokeI.objValue;
     }
 
     @NonNull
@@ -228,24 +228,24 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048593, this, i, keyEvent)) == null) {
             if (performMenuItemShortcut(keyEvent)) {
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public final boolean onMenuItemSelected(int i2, @NonNull MenuItem menuItem) {
+    public final boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i2, menuItem)) == null) {
-            if (super.onMenuItemSelected(i2, menuItem)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, menuItem)) == null) {
+            if (super.onMenuItemSelected(i, menuItem)) {
                 return true;
             }
             ActionBar supportActionBar = getSupportActionBar();
@@ -258,23 +258,23 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i2, Menu menu) {
+    public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i2, menu)) == null) ? super.onMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i, menu)) == null) ? super.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
-    public void onNightModeChanged(int i2) {
+    public void onNightModeChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
         }
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i2, @NonNull Menu menu) {
+    public void onPanelClosed(int i, @NonNull Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, menu) == null) {
-            super.onPanelClosed(i2, menu);
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, menu) == null) {
+            super.onPanelClosed(i, menu);
         }
     }
 
@@ -380,10 +380,10 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i2) {
+    public void onTitleChanged(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048608, this, charSequence, i2) == null) {
-            super.onTitleChanged(charSequence, i2);
+        if (interceptable == null || interceptable.invokeLI(1048608, this, charSequence, i) == null) {
+            super.onTitleChanged(charSequence, i);
             getDelegate().setTitle(charSequence);
         }
     }
@@ -413,10 +413,10 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void setContentView(@LayoutRes int i2) {
+    public void setContentView(@LayoutRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            getDelegate().setContentView(i2);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            getDelegate().setContentView(i);
         }
     }
 
@@ -428,9 +428,9 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Deprecated
-    public void setSupportProgress(int i2) {
+    public void setSupportProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
         }
     }
 
@@ -456,11 +456,11 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(@StyleRes int i2) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            super.setTheme(i2);
-            getDelegate().setTheme(i2);
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            super.setTheme(i);
+            getDelegate().setTheme(i);
         }
     }
 
@@ -486,10 +486,10 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
         }
     }
 
-    public boolean supportRequestWindowFeature(int i2) {
+    public boolean supportRequestWindowFeature(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) ? getDelegate().requestWindowFeature(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i)) == null) ? getDelegate().requestWindowFeature(i) : invokeI.booleanValue;
     }
 
     public boolean supportShouldUpRecreateTask(@NonNull Intent intent) {
@@ -500,17 +500,17 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @ContentView
-    public AppCompatActivity(@LayoutRes int i2) {
-        super(i2);
+    public AppCompatActivity(@LayoutRes int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

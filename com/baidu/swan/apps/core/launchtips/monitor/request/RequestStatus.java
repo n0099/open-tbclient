@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.tachikoma.core.component.input.ReturnKeyType;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes4.dex */
@@ -38,7 +37,7 @@ public final class RequestStatus {
             }
         }
         STATUS_SEND = new RequestStatus("STATUS_SEND", 0, ReturnKeyType.SEND);
-        STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+        STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, "ok");
         STATUS_FAILED = new RequestStatus("STATUS_FAILED", 2, "failRate");
         STATUS_UNKNOWN = new RequestStatus("STATUS_UNKNOWN", 3, "unknown");
         STATUS_SLOW = new RequestStatus("STATUS_SLOW", 4, "slow");
@@ -48,16 +47,16 @@ public final class RequestStatus {
         $VALUES = new RequestStatus[]{STATUS_SEND, STATUS_SUCCESS, STATUS_FAILED, STATUS_UNKNOWN, STATUS_SLOW, STATUS_CORE_FAILED, requestStatus};
     }
 
-    public RequestStatus(String str, int i2, String str2) {
+    public RequestStatus(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

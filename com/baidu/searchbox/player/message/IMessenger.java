@@ -8,7 +8,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.interfaces.InternalEventDispatcher;
 /* loaded from: classes4.dex */
 public interface IMessenger {
-    void addInterceptor(int i2, @NonNull IVideoEventInterceptor iVideoEventInterceptor);
+    void addInterceptor(int i, @NonNull IVideoEventInterceptor iVideoEventInterceptor);
 
     void addInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor);
 
@@ -18,7 +18,7 @@ public interface IMessenger {
 
     void notifyEvent(@NonNull VideoEvent videoEvent);
 
-    void register(int i2, @NonNull INeuron iNeuron);
+    void register(int i, @NonNull INeuron iNeuron);
 
     void release();
 

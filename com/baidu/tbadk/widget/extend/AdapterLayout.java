@@ -5,7 +5,7 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.q0.e1.f.a.b;
+import c.a.o0.e1.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,11 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f39923e;
-    public b mAdapter;
-    public DataSetObserver mObserver;
+    /* renamed from: b  reason: collision with root package name */
+    public DataSetObserver f30757b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f30758c;
 
     /* loaded from: classes5.dex */
     public class a extends DataSetObserver {
@@ -34,9 +36,9 @@ public abstract class AdapterLayout extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adapterLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,7 +51,7 @@ public abstract class AdapterLayout extends ViewGroup {
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.resetLayout();
+                this.a.c();
             }
         }
     }
@@ -63,9 +65,9 @@ public abstract class AdapterLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -75,81 +77,81 @@ public abstract class AdapterLayout extends ViewGroup {
         }
     }
 
-    public final void a() {
+    public void a() {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f39923e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.a) == null || (dataSetObserver = this.f30757b) == null) {
             return;
         }
-        bVar.d(dataSetObserver);
-        this.f39923e = true;
+        bVar.e(dataSetObserver);
+        this.a = null;
+        this.f30757b = null;
     }
 
     public final void b() {
         b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f39923e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null || (dataSetObserver = this.f30757b) == null || this.f30758c) {
             return;
         }
-        this.f39923e = false;
+        bVar.d(dataSetObserver);
+        this.f30758c = true;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+            return;
+        }
+        removeAllViews();
+        int a2 = this.a.a();
+        for (int i = 0; i < a2; i++) {
+            View b2 = this.a.b(i, this);
+            b2.setFocusable(true);
+            addView(b2);
+        }
+    }
+
+    public final void d() {
+        b bVar;
+        DataSetObserver dataSetObserver;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.a) == null || (dataSetObserver = this.f30757b) == null || !this.f30758c) {
+            return;
+        }
+        this.f30758c = false;
         bVar.e(dataSetObserver);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            a();
+            b();
         }
-    }
-
-    public void onDestroyed() {
-        b bVar;
-        DataSetObserver dataSetObserver;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null) {
-            return;
-        }
-        bVar.e(dataSetObserver);
-        this.mAdapter = null;
-        this.mObserver = null;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
             super.onDetachedFromWindow();
-        }
-    }
-
-    public void resetLayout() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mAdapter == null) {
-            return;
-        }
-        removeAllViews();
-        int a2 = this.mAdapter.a();
-        for (int i2 = 0; i2 < a2; i2++) {
-            View b2 = this.mAdapter.b(i2, this);
-            b2.setFocusable(true);
-            addView(b2);
         }
     }
 
     public void setAdapter(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            b();
+            d();
             if (bVar != null) {
-                this.mAdapter = bVar;
-                this.mObserver = new a(this);
-                a();
-                resetLayout();
+                this.a = bVar;
+                this.f30757b = new a(this);
+                b();
+                c();
                 return;
             }
             throw new NullPointerException("FlowBaseAdapter is null");
@@ -165,9 +167,9 @@ public abstract class AdapterLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -178,17 +180,17 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdapterLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdapterLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -196,6 +198,6 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f39923e = false;
+        this.f30758c = false;
     }
 }

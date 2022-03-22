@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class CountingOutputStream extends FilterOutputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((OutputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -51,19 +51,19 @@ public class CountingOutputStream extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-            ((FilterOutputStream) this).out.write(bArr, i2, i3);
-            this.mCount += i3;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) {
+            ((FilterOutputStream) this).out.write(bArr, i, i2);
+            this.mCount += i2;
         }
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            ((FilterOutputStream) this).out.write(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            ((FilterOutputStream) this).out.write(i);
             this.mCount++;
         }
     }

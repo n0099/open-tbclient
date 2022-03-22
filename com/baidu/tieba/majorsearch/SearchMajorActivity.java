@@ -2,7 +2,7 @@ package com.baidu.tieba.majorsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.f2.b.a;
+import c.a.p0.h2.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -25,9 +25,9 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,13 +43,13 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
             a aVar = this.mController;
             if (aVar != null) {
-                aVar.i(i2);
+                aVar.i(i);
             }
         }
     }
@@ -74,7 +74,7 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
         this.mController.m(errorData);
         getRefreshView().h(R.drawable.new_pic_emotion_07);
         showNetRefreshViewNoClick(this.mController.g().d(), null);
-        getRefreshView().o(getString(R.string.search_major_no_data));
+        getRefreshView().o(getString(R.string.obfuscated_res_0x7f0f109c));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

@@ -3,6 +3,7 @@ package com.baidu.rtc.logreport;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.rtc.CommonDefine;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
@@ -113,16 +114,16 @@ public class ErrorInfoReport {
             $VALUES = new ErrorCode[]{LOGIN_ERROR, LOGIN_TIMEOUT, SIGNAL_CHANNEL_CONNECTION_LOST, ROOM_LIVE_PUBLISH_FAIL, ANCHOR_LIVE_PUBLISH_FAIL, ROOM_LIVE_INTRERRUPT, ANCHOR_LIVE_INTRERRUPT, VIDEO_SENDING_MEDIA_FAILED, AUDIO_SENDING_MEDIA_FAILED, PEERCONNECTION_CREATE_ERROR, MEDIA_CHANNEL_CONNECTION_LOST, SO_LATER_DOWNLOADING_FAIL, SO_LATER_LOADING_FAIL, KEEPALIVE_TIMEOUT, USR_ALREADY_EXIST, HANG_UP, SET_EXTERNAL_SURFACE_ERROR, OTHER_ERROR, ENTER_FAILED, ENTER_TIMEOUT, AUDIO_STUCK, VIDEO_STUCK, BAD_END_TO_END_DELAY, errorCode};
         }
 
-        public ErrorCode(String str, int i2, int i3, String str2) {
+        public ErrorCode(String str, int i, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -131,7 +132,7 @@ public class ErrorInfoReport {
                     return;
                 }
             }
-            this.code = i3;
+            this.code = i2;
             this.message = str2;
         }
 
@@ -180,9 +181,9 @@ public class ErrorInfoReport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -289,10 +290,10 @@ public class ErrorInfoReport {
         }
     }
 
-    public void reportErrorInfo(ErrorCode errorCode, long j2, BigInteger bigInteger, BigInteger bigInteger2) {
+    public void reportErrorInfo(ErrorCode errorCode, long j, BigInteger bigInteger, BigInteger bigInteger2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{errorCode, Long.valueOf(j2), bigInteger, bigInteger2}) == null) {
-            reportErrorInfo(errorCode, j2, this.serverIpMap.containsKey(bigInteger) ? this.serverIpMap.get(bigInteger) : "", bigInteger2.longValue(), bigInteger.longValue());
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{errorCode, Long.valueOf(j), bigInteger, bigInteger2}) == null) {
+            reportErrorInfo(errorCode, j, this.serverIpMap.containsKey(bigInteger) ? this.serverIpMap.get(bigInteger) : "", bigInteger2.longValue(), bigInteger.longValue());
         }
     }
 
@@ -329,10 +330,10 @@ public class ErrorInfoReport {
         }
     }
 
-    public void setCode(int i2) {
+    public void setCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.code = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.code = i;
         }
     }
 
@@ -357,10 +358,10 @@ public class ErrorInfoReport {
         }
     }
 
-    public void setPublishHandleId(long j2) {
+    public void setPublishHandleId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-            this.publisherHandleId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.publisherHandleId = j;
         }
     }
 
@@ -371,31 +372,31 @@ public class ErrorInfoReport {
         }
     }
 
-    public void setRoomId(long j2) {
+    public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.roomId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.roomId = j;
         }
     }
 
-    public void setSessionId(long j2) {
+    public void setSessionId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j2) == null) {
-            this.sessionId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
+            this.sessionId = j;
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
-            this.userId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.userId = j;
         }
     }
 
-    public void setValue(long j2) {
+    public void setValue(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.value = j2;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.value = j;
         }
     }
 
@@ -413,45 +414,45 @@ public class ErrorInfoReport {
         }
     }
 
-    public void reportErrorInfo(ErrorCode errorCode, long j2, String str, long j3, long j4) {
+    public void reportErrorInfo(ErrorCode errorCode, long j, String str, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{errorCode, Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            reportErrorInfo(errorCode.getErrorCode(), errorCode.getMessage(), j2, str, j3, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{errorCode, Long.valueOf(j), str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            reportErrorInfo(errorCode.getErrorCode(), errorCode.getMessage(), j, str, j2, j3);
         }
     }
 
-    public void reportErrorInfo(int i2, String str, long j2, long j3) {
+    public void reportErrorInfo(int i, String str, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            reportErrorInfo(i2, str, -1L, getRemoteIp(), j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            reportErrorInfo(i, str, -1L, getRemoteIp(), j, j2);
         }
     }
 
-    public void reportErrorInfo(int i2, String str, long j2, String str2, long j3, long j4) {
+    public void reportErrorInfo(int i, String str, long j, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2, Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("env", this.env);
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("version", this.version);
-                jSONObject.put("device", RtcLogReport.getDeviceModel());
+                jSONObject.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
                 jSONObject.put("clientIp", this.clientIp);
                 jSONObject.put("serverIp", str2);
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
                 jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, this.roomId);
                 jSONObject.put("userId", this.userId);
-                if (j3 > 0) {
-                    jSONObject.put("feedId", j3);
+                if (j2 > 0) {
+                    jSONObject.put("feedId", j2);
                 }
                 jSONObject.put("sessionId", this.sessionId);
-                jSONObject.put("handleId", j4);
-                jSONObject.put("code", i2);
+                jSONObject.put("handleId", j3);
+                jSONObject.put("code", i);
                 if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("message", i2);
+                    jSONObject.put("message", i);
                 }
-                if (j2 > 0) {
-                    jSONObject.put("value", j2);
+                if (j > 0) {
+                    jSONObject.put("value", j);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

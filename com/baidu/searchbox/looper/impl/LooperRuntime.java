@@ -2,12 +2,14 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.i0.a.b.b;
-import c.a.i0.a.b.c;
-import c.a.i0.a.b.d;
-import c.h.b.a.j.a;
+import android.util.Log;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.c;
+import c.a.g0.a.b.d;
+import c.e.b.a.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.searchbox.looper.ioc.ILooperNeedContext_LooperRuntime_Provider;
@@ -57,9 +59,9 @@ public class LooperRuntime {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -83,9 +85,9 @@ public class LooperRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -142,7 +144,10 @@ public class LooperRuntime {
             }
             for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
                 if (iLooperRegister != null && iLooperRegister.checkEnable()) {
-                    AppConfig.isDebug();
+                    if (AppConfig.isDebug()) {
+                        Log.d(BlockMonitor.TAG, "enableLooper = true");
+                        return true;
+                    }
                     return true;
                 }
             }
@@ -188,7 +193,7 @@ public class LooperRuntime {
     public void initmLooperNeedContext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.i0.a.b.a b2 = c.a.i0.a.b.a.b();
+            c.a.g0.a.b.a b2 = c.a.g0.a.b.a.b();
             this.mLooperNeedContext = b2;
             b2.a(new ILooperNeedContext_LooperRuntime_Provider());
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HasChargeInActivityResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,27 +19,27 @@ public class HasChargeInActivityResult {
     public String startTime;
     public String tip;
 
-    public HasChargeInActivityResult(int i2, String str, String str2, boolean z, String str3, int i3) {
+    public HasChargeInActivityResult(int i, String str, String str2, boolean z, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Boolean.valueOf(z), str3, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Boolean.valueOf(z), str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.activityId = i2;
+        this.activityId = i;
         this.startTime = str;
         this.endTime = str2;
         this.hasCharge = z;
         this.tip = str3;
-        this.chargeCount = i3;
+        this.chargeCount = i2;
     }
 
     public int getActivityId() {

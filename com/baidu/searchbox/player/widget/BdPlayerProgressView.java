@@ -50,9 +50,9 @@ public class BdPlayerProgressView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -62,18 +62,18 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    private int calculateLeftOffest(int i2, int i3) {
+    private int calculateLeftOffest(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i2, i3)) == null) {
-            int i4 = this.mGravity;
-            if (i4 != 0) {
-                if (i4 == 1 || i4 != 2) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
+            int i3 = this.mGravity;
+            if (i3 != 0) {
+                if (i3 == 1 || i3 != 2) {
                     return 0;
                 }
-                return getMeasuredWidth() - i3;
+                return getMeasuredWidth() - i2;
             }
-            return (getMeasuredWidth() - i3) / 2;
+            return (getMeasuredWidth() - i2) / 2;
         }
         return invokeII.intValue;
     }
@@ -82,8 +82,8 @@ public class BdPlayerProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) {
             Paint.FontMetricsInt fontMetricsInt = this.mPaint.getFontMetricsInt();
-            int i2 = fontMetricsInt.top;
-            int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i2) / 2) - i2;
+            int i = fontMetricsInt.top;
+            int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i) / 2) - i;
             canvas.drawText(this.mPositionText, calculateLeftOffest(this.mGravity, (int) this.mPaint.measureText(this.mPositionText)), measuredHeight, this.mPaint);
         }
     }
@@ -92,18 +92,18 @@ public class BdPlayerProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, canvas) == null) {
             Paint.FontMetricsInt fontMetricsInt = this.mPaint.getFontMetricsInt();
-            int i2 = fontMetricsInt.top;
-            int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i2) / 2) - i2;
+            int i = fontMetricsInt.top;
+            int measuredHeight = (((getMeasuredHeight() - fontMetricsInt.bottom) + i) / 2) - i;
             canvas.drawText(this.mTimeText, calculateLeftOffest(this.mGravity, (int) this.mPaint.measureText(this.mTimeText)), measuredHeight, this.mPaint);
         }
     }
 
-    private int setMeasuredHeight(int i2) {
+    private int setMeasuredHeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             if (mode == 1073741824) {
                 return this.DEFAULT_HEIGHT;
             }
@@ -115,13 +115,13 @@ public class BdPlayerProgressView extends View {
         return invokeI.intValue;
     }
 
-    private int setMeasuredWidth(int i2) {
+    private int setMeasuredWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
             int measureText = (int) this.mPaint.measureText(this.mProgressMode == 1 ? DEFAULT_PROGRESS_TIME_TEXT : DEFAULT_TIME_TEXT);
-            int mode = View.MeasureSpec.getMode(i2);
-            return mode == 1073741824 ? View.MeasureSpec.getSize(i2) : mode == Integer.MIN_VALUE ? measureText : this.DEFAULT_WIDTH;
+            int mode = View.MeasureSpec.getMode(i);
+            return mode == 1073741824 ? View.MeasureSpec.getSize(i) : mode == Integer.MIN_VALUE ? measureText : this.DEFAULT_WIDTH;
         }
         return invokeI.intValue;
     }
@@ -155,20 +155,20 @@ public class BdPlayerProgressView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.mProgressMode;
-            if (i2 == 1) {
+            int i = this.mProgressMode;
+            if (i == 1) {
                 drawProgressText(canvas);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 drawTimeText(canvas);
             }
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            setMeasuredDimension(setMeasuredWidth(i2), setMeasuredHeight(i3));
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            setMeasuredDimension(setMeasuredWidth(i), setMeasuredHeight(i2));
         }
     }
 
@@ -180,10 +180,10 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mTextColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mTextColor = i;
         }
     }
 
@@ -213,9 +213,9 @@ public class BdPlayerProgressView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -227,17 +227,17 @@ public class BdPlayerProgressView extends View {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @SuppressLint({"CustomViewStyleable"})
-    public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BdPlayerProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -252,7 +252,7 @@ public class BdPlayerProgressView extends View {
         this.DEFAULT_HEIGHT = BdPlayerUtils.dp2px(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.bdvideoplayer_progressGravity, R.attr.bdvideoplayer_progressTextColor, R.attr.bdvideoplayer_progressTextMode, R.attr.bdvideoplayer_progressTextSize});
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c1, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f0400c3, R.attr.obfuscated_res_0x7f0400c4});
             this.mTextSize = typedArray.getDimension(3, 15.0f);
             this.mTextColor = typedArray.getColor(1, -1);
             this.mGravity = typedArray.getInt(0, 1);

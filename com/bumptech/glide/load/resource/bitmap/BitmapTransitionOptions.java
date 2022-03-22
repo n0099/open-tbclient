@@ -14,7 +14,7 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.BitmapTransitionFactory;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitmapTransitionOptions extends TransitionOptions<BitmapTransitionOptions, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -69,17 +69,17 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
     }
 
     @NonNull
-    public static BitmapTransitionOptions withCrossFade(int i2) {
+    public static BitmapTransitionOptions withCrossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new BitmapTransitionOptions().crossFade(i2) : (BitmapTransitionOptions) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new BitmapTransitionOptions().crossFade(i) : (BitmapTransitionOptions) invokeI.objValue;
     }
 
     @NonNull
-    public BitmapTransitionOptions crossFade(int i2) {
+    public BitmapTransitionOptions crossFade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? crossFade(new DrawableCrossFadeFactory.Builder(i2)) : (BitmapTransitionOptions) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? crossFade(new DrawableCrossFadeFactory.Builder(i)) : (BitmapTransitionOptions) invokeI.objValue;
     }
 
     @NonNull

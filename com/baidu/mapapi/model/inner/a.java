@@ -12,22 +12,22 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f34120b;
+    public Point f26356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f34121c;
+    public Point f26357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ArrayList<Point>> f34122d;
+    public ArrayList<ArrayList<Point>> f26358d;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

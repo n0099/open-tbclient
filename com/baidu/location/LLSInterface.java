@@ -13,7 +13,7 @@ public interface LLSInterface {
 
     void onDestroy();
 
-    int onStartCommand(Intent intent, int i2, int i3);
+    int onStartCommand(Intent intent, int i, int i2);
 
     void onTaskRemoved(Intent intent);
 

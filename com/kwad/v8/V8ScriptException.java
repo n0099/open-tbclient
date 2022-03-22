@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class V8ScriptException extends V8RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,40 +20,40 @@ public abstract class V8ScriptException extends V8RuntimeException {
     public final String sourceLine;
     public final int startColumn;
 
-    public V8ScriptException(String str, int i2, String str2, String str3, int i3, int i4, String str4, Throwable th) {
+    public V8ScriptException(String str, int i, String str2, String str3, int i2, int i3, String str4, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, Integer.valueOf(i3), Integer.valueOf(i4), str4, th};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, th};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.fileName = str;
-        this.lineNumber = i2;
+        this.lineNumber = i;
         this.jsMessage = str2;
         this.sourceLine = str3;
-        this.startColumn = i3;
-        this.endColumn = i4;
+        this.startColumn = i2;
+        this.endColumn = i3;
         this.jsStackTrace = str4;
         if (th != null) {
             initCause(th);
         }
     }
 
-    private char[] createCharSequence(int i2, char c2) {
+    private char[] createCharSequence(int i, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
-            char[] cArr = new char[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = c2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+            char[] cArr = new char[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                cArr[i2] = c2;
             }
             return cArr;
         }
@@ -66,7 +65,7 @@ public abstract class V8ScriptException extends V8RuntimeException {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (this.jsStackTrace != null) {
-                return StringUtils.LF + this.jsStackTrace;
+                return "\n" + this.jsStackTrace;
             }
             return "";
         }
@@ -83,9 +82,9 @@ public abstract class V8ScriptException extends V8RuntimeException {
                 sb.append('\n');
                 sb.append(this.sourceLine);
                 sb.append('\n');
-                int i2 = this.startColumn;
-                if (i2 >= 0) {
-                    sb.append(createCharSequence(i2, WebvttCueParser.CHAR_SPACE));
+                int i = this.startColumn;
+                if (i >= 0) {
+                    sb.append(createCharSequence(i, WebvttCueParser.CHAR_SPACE));
                     sb.append(createCharSequence(this.endColumn - this.startColumn, '^'));
                 }
             }
@@ -157,7 +156,7 @@ public abstract class V8ScriptException extends V8RuntimeException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return createMessageLine() + createMessageDetails() + createJSStackDetails() + StringUtils.LF + getClass().getName();
+            return createMessageLine() + createMessageDetails() + createJSStackDetails() + "\n" + getClass().getName();
         }
         return (String) invokeV.objValue;
     }

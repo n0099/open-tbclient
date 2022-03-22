@@ -36,16 +36,16 @@ public final class EmotionResourceInfo {
     public IResourceProvider mProvider;
     public final long mVersion;
 
-    public EmotionResourceInfo(String str, String str2, String str3, long j2, String str4, String str5) {
+    public EmotionResourceInfo(String str, String str2, String str3, long j, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Long.valueOf(j2), str4, str5};
+            Object[] objArr = {str, str2, str3, Long.valueOf(j), str4, str5};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,7 +54,7 @@ public final class EmotionResourceInfo {
         this.mPkgName = str;
         this.mDownloadFilePath = str2;
         this.mEmotionResSavePath = str3;
-        this.mVersion = j2;
+        this.mVersion = j;
         this.mMinHostVer = str4;
         this.mMaxHostVer = str5;
         this.mAppContext = AppRuntime.getAppContext();
@@ -83,17 +83,17 @@ public final class EmotionResourceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             String[] split = str.split(VERSION_NAME_SEPARATOR_REGEX);
-            int i2 = 0;
-            long j2 = 0;
-            while (i2 < 4) {
+            int i = 0;
+            long j = 0;
+            while (i < 4) {
                 try {
-                    j2 = i2 < split.length ? (j2 * 100) + Integer.valueOf(split[i2]).intValue() : j2 * 100;
-                    i2++;
+                    j = i < split.length ? (j * 100) + Integer.valueOf(split[i]).intValue() : j * 100;
+                    i++;
                 } catch (NumberFormatException unused) {
                     return 0L;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -141,8 +141,8 @@ public final class EmotionResourceInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int hashCode = (TextUtils.isEmpty(this.mPkgName) ? 0 : this.mPkgName.hashCode()) * 31;
             int hashCode2 = TextUtils.isEmpty(this.mEmotionResSavePath) ? 0 : this.mEmotionResSavePath.hashCode();
-            long j2 = this.mVersion;
-            return ((((((hashCode + hashCode2) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (TextUtils.isEmpty(this.mMinHostVer) ? 0 : this.mMinHostVer.hashCode())) * 31) + (TextUtils.isEmpty(this.mMaxHostVer) ? 0 : this.mMaxHostVer.hashCode());
+            long j = this.mVersion;
+            return ((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (TextUtils.isEmpty(this.mMinHostVer) ? 0 : this.mMinHostVer.hashCode())) * 31) + (TextUtils.isEmpty(this.mMaxHostVer) ? 0 : this.mMaxHostVer.hashCode());
         }
         return invokeV.intValue;
     }

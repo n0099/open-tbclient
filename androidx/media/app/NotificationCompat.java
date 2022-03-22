@@ -41,9 +41,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,10 +77,10 @@ public class NotificationCompat {
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
-        public int getBigContentViewLayoutResource(int i2) {
+        public int getBigContentViewLayoutResource(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 <= 3 ? R$layout.notification_template_big_media_narrow_custom : R$layout.notification_template_big_media_custom : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i <= 3 ? R$layout.notification_template_big_media_narrow_custom : R$layout.notification_template_big_media_custom : invokeI.intValue;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
@@ -187,9 +187,9 @@ public class NotificationCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -212,9 +212,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -309,8 +309,8 @@ public class NotificationCompat {
                 RemoteViews applyStandardTemplate = applyStandardTemplate(false, getBigContentViewLayoutResource(min), false);
                 applyStandardTemplate.removeAllViews(R$id.media_actions);
                 if (min > 0) {
-                    for (int i2 = 0; i2 < min; i2++) {
-                        applyStandardTemplate.addView(R$id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(i2)));
+                    for (int i = 0; i < min; i++) {
+                        applyStandardTemplate.addView(R$id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(i)));
                     }
                 }
                 if (this.mShowCancelButton) {
@@ -335,11 +335,11 @@ public class NotificationCompat {
                 int min = iArr == null ? 0 : Math.min(iArr.length, 3);
                 applyStandardTemplate.removeAllViews(R$id.media_actions);
                 if (min > 0) {
-                    for (int i2 = 0; i2 < min; i2++) {
-                        if (i2 < size) {
-                            applyStandardTemplate.addView(R$id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i2])));
+                    for (int i = 0; i < min; i++) {
+                        if (i < size) {
+                            applyStandardTemplate.addView(R$id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
                         } else {
-                            throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i2), Integer.valueOf(size - 1)));
+                            throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i), Integer.valueOf(size - 1)));
                         }
                     }
                 }
@@ -357,10 +357,10 @@ public class NotificationCompat {
             return (RemoteViews) invokeV.objValue;
         }
 
-        public int getBigContentViewLayoutResource(int i2) {
+        public int getBigContentViewLayoutResource(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 <= 3 ? R$layout.notification_template_big_media_narrow : R$layout.notification_template_big_media : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i <= 3 ? R$layout.notification_template_big_media_narrow : R$layout.notification_template_big_media : invokeI.intValue;
         }
 
         public int getContentViewLayoutResource() {
@@ -446,9 +446,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

@@ -1,11 +1,11 @@
 package com.ss.android.socialbase.downloader.exception;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseException {
     public final int a;
 
-    public b(int i2, int i3, String str) {
-        super(i2, str);
-        this.a = i3;
+    public b(int i, int i2, String str) {
+        super(i, str);
+        this.a = i2;
     }
 
     public int a() {

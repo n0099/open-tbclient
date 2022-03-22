@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.g2.a;
+import c.a.p0.i2.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -27,9 +27,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -90,7 +90,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view.getId() == R.id.loading_cancel_text) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view.getId() == R.id.obfuscated_res_0x7f09130e) {
             finish();
             hideDialog();
         }
@@ -105,17 +105,17 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.widget_loading_plugin);
+            setContentView(R.layout.obfuscated_res_0x7f0d08c8);
             Intent intent = getIntent();
             this.showHideView = intent.getBooleanExtra("showHideView", false);
             this.mDialogId = intent.getLongExtra("dialogId", -1L);
-            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.progress_bar);
+            PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09192e);
             this.mRoundProgressBar = pluginRoundProgressBar;
             pluginRoundProgressBar.setMax(100);
             this.mRoundProgressBar.setRoundColor(0);
             this.mRoundProgressBar.setTextColor(-1);
             this.mRoundProgressBar.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.loading_cancel_text);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09130e);
             this.mCancel = textView;
             if (this.showHideView) {
                 textView.setVisibility(8);
@@ -129,12 +129,12 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         }
     }
 
-    public void setRoundProgress(int i2) {
+    public void setRoundProgress(int i) {
         PluginRoundProgressBar pluginRoundProgressBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (pluginRoundProgressBar = this.mRoundProgressBar) == null || pluginRoundProgressBar.getProgress() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (pluginRoundProgressBar = this.mRoundProgressBar) == null || pluginRoundProgressBar.getProgress() == i) {
             return;
         }
-        this.mRoundProgressBar.setProgress(i2);
+        this.mRoundProgressBar.setProgress(i);
     }
 }

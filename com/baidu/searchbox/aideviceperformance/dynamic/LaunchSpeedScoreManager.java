@@ -2,6 +2,7 @@ package com.baidu.searchbox.aideviceperformance.dynamic;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ai.AlgorithmType;
 import com.baidu.searchbox.ai.InferenceException;
@@ -57,9 +58,9 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {iDynamicModelProvider};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -92,15 +93,15 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                 long currentTimeMillis = System.currentTimeMillis();
                 inferenceWrapper.init(AlgorithmType.GLM_REGRESSOR, ModelManager.getDevicePerformanceModelInfo(ModelInfoDataProvider.DevicePerformanceModelInfoType.DynamicLR));
                 if (DEBUG) {
-                    String str = "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis);
+                    Log.d(TAG, "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
                 double d2 = calculateAverageLaunchTime;
                 Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d2, 2.0d), (float) Math.pow(d2, 3.0d), (float) Math.pow(d2, 4.0d)}));
                 long currentTimeMillis2 = System.currentTimeMillis();
                 Float f2 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
-                    String str2 = "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2);
-                    String str3 = "predictByLRModel Result: " + f2;
+                    Log.d(TAG, "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
+                    Log.d(TAG, "predictByLRModel Result: " + f2);
                 }
                 if (f2.floatValue() < 0.0f) {
                     f2 = Float.valueOf(0.0f);
@@ -178,7 +179,7 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
             if (DEBUG) {
-                String str = "getLaunchSpeedScore : " + f2;
+                Log.d(TAG, "getLaunchSpeedScore : " + f2);
             }
             return f2;
         }
@@ -186,10 +187,10 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.dynamic.ILaunchSpeedScoreManager
-    public void putLaunchSpeedData(Context context, long j2, long j3) {
+    public void putLaunchSpeedData(Context context, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            ExecutorUtilsExt.postOnElastic(new Runnable(this, j2, j3, context) { // from class: com.baidu.searchbox.aideviceperformance.dynamic.LaunchSpeedScoreManager.1
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            ExecutorUtilsExt.postOnElastic(new Runnable(this, j, j2, context) { // from class: com.baidu.searchbox.aideviceperformance.dynamic.LaunchSpeedScoreManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LaunchSpeedScoreManager this$0;
@@ -202,19 +203,19 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3), context};
+                        Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2), context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$launchTime = j2;
-                    this.val$timestamp = j3;
+                    this.val$launchTime = j;
+                    this.val$timestamp = j2;
                     this.val$cx = context;
                 }
 
@@ -228,7 +229,7 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
                         LaunchTimeSQLiteOpenHelper.getInstance(this.val$cx).insert(contentValues);
                         this.this$0.updateLaunchSpeedScore(this.val$cx);
                         if (LaunchSpeedScoreManager.DEBUG) {
-                            String str = "putLaunchSpeedData : " + this.val$launchTime;
+                            Log.d(LaunchSpeedScoreManager.TAG, "putLaunchSpeedData : " + this.val$launchTime);
                         }
                     }
                 }
@@ -240,25 +241,29 @@ public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            long j2 = DeviceInfoSharedPreferenceWrapper.getInstance().getLong(SP_KEY_LAUNCH_SCORE_TIME, -1L);
-            if (System.currentTimeMillis() > j2 && System.currentTimeMillis() - j2 < 604800000) {
-                boolean z = DEBUG;
+            long j = DeviceInfoSharedPreferenceWrapper.getInstance().getLong(SP_KEY_LAUNCH_SCORE_TIME, -1L);
+            if (System.currentTimeMillis() > j && System.currentTimeMillis() - j < 604800000) {
+                if (DEBUG) {
+                    Log.d(TAG, "launch speed score cache hasn't expired.");
+                }
                 return false;
             }
             this.mModelManager.checkAndUpdatePresetModel();
             float predictByLRModel = predictByLRModel(context);
             if (predictByLRModel < 0.0f) {
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "predictByLRModel return invalid value");
+                }
                 return false;
             }
             float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_LAUNCH_SPEED_SCORE, -1.0f);
             if (Math.abs(predictByLRModel - f2) > 0.03f) {
                 DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_LAUNCH_SPEED_SCORE, predictByLRModel);
                 if (DEBUG) {
-                    String str = "launch speed score updated.  launchSpeedScore:" + predictByLRModel;
+                    Log.d(TAG, "launch speed score updated.  launchSpeedScore:" + predictByLRModel);
                 }
             } else if (DEBUG) {
-                String str2 = "launch speed score diff insignificant : launchSpeedScore:" + predictByLRModel + "  launchSpeedScoreCache:" + f2;
+                Log.d(TAG, "launch speed score diff insignificant : launchSpeedScore:" + predictByLRModel + "  launchSpeedScoreCache:" + f2);
             }
             DeviceInfoSharedPreferenceWrapper.getInstance().putLong(SP_KEY_LAUNCH_SCORE_TIME, System.currentTimeMillis());
             return true;

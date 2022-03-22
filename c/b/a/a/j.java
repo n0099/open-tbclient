@@ -15,16 +15,16 @@ public class j {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<f> f27063b;
+    public c.b.b.q.a<f> f22322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.a.c.b<f> f27064c;
+    public c.b.a.c.b<f> f22323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w<Class<?>, f> f27065d;
+    public w<Class<?>, f> f22324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f27066e;
+    public c f22325e;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -42,9 +42,9 @@ public class j {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,12 +58,12 @@ public class j {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, fVar2)) == null) {
-                int i2 = fVar.f27038e;
-                int i3 = fVar2.f27038e;
-                if (i2 > i3) {
+                int i = fVar.a;
+                int i2 = fVar2.a;
+                if (i > i2) {
                     return 1;
                 }
-                return i2 == i3 ? 0 : -1;
+                return i == i2 ? 0 : -1;
             }
             return invokeLL.intValue;
         }
@@ -87,9 +87,9 @@ public class j {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,10 +97,10 @@ public class j {
         }
         this.a = new b(null);
         c.b.b.q.a<f> aVar = new c.b.b.q.a<>(true, 16);
-        this.f27063b = aVar;
-        this.f27064c = new c.b.a.c.b<>(aVar);
-        this.f27065d = new w<>();
-        this.f27066e = cVar;
+        this.f22322b = aVar;
+        this.f22323c = new c.b.a.c.b<>(aVar);
+        this.f22324d = new w<>();
+        this.f22325e = cVar;
     }
 
     public void a(f fVar) {
@@ -111,30 +111,30 @@ public class j {
             if (b2 != null) {
                 d(b2);
             }
-            this.f27063b.a(fVar);
-            this.f27065d.i(cls, fVar);
-            this.f27063b.sort(this.a);
-            this.f27066e.b(fVar);
+            this.f22322b.a(fVar);
+            this.f22324d.i(cls, fVar);
+            this.f22322b.sort(this.a);
+            this.f22325e.b(fVar);
         }
     }
 
     public <T extends f> T b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.f27065d.c(cls) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.f22324d.c(cls) : (T) invokeL.objValue;
     }
 
     public c.b.a.c.b<f> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27064c : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22323c : (c.b.a.c.b) invokeV.objValue;
     }
 
     public void d(f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) && this.f27063b.i(fVar, true)) {
-            this.f27065d.k(fVar.getClass());
-            this.f27066e.a(fVar);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) && this.f22322b.j(fVar, true)) {
+            this.f22324d.k(fVar.getClass());
+            this.f22325e.a(fVar);
         }
     }
 }

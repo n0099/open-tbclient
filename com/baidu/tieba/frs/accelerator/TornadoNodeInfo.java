@@ -28,9 +28,9 @@ public class TornadoNodeInfo implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,9 +52,9 @@ public class TornadoNodeInfo implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray(AcceleratorActivityConfig.NODE_INFO);
             if (optJSONArray != null) {
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
                     try {
-                        arrayList.add(NodeInfo.parseJson(optJSONArray.getJSONObject(i2)));
+                        arrayList.add(NodeInfo.parseJson(optJSONArray.getJSONObject(i)));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }

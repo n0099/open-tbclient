@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.t;
 import com.fun.openid.sdk.v;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class u implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class u implements ServiceConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {vVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,21 +38,21 @@ public class u implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c2056a;
+        t c1933a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
                 v vVar = this.a;
-                int i2 = t.a.a;
+                int i = t.a.a;
                 if (iBinder == null) {
-                    c2056a = null;
+                    c1933a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IDeviceidInterface.Stub.DESCRIPTOR);
-                    c2056a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C2056a(iBinder) : (t) queryLocalInterface;
+                    c1933a = (queryLocalInterface == null || !(queryLocalInterface instanceof t)) ? new t.a.C1933a(iBinder) : (t) queryLocalInterface;
                 }
-                vVar.f52921b = c2056a;
+                vVar.f38680b = c1933a;
                 v vVar2 = this.a;
-                v.a aVar = vVar2.f52923d;
+                v.a aVar = vVar2.f38682d;
                 if (aVar != null) {
                     aVar.a("Deviceid Service Connected", vVar2);
                 }
@@ -65,7 +65,7 @@ public class u implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f52921b = null;
+            this.a.f38680b = null;
         }
     }
 }

@@ -62,9 +62,9 @@ public class BaseKernelLayer extends AbsLayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseKernelLayer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,9 +103,9 @@ public class BaseKernelLayer extends AbsLayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -575,27 +575,27 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void seekTo(int i2) {
-        int i3;
+    public void seekTo(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             int duration = this.mVideoKernel.getDuration();
-            if (duration > 1 && i2 > (i3 = duration - 1)) {
-                i2 = i3;
+            if (duration > 1 && i > (i2 = duration - 1)) {
+                i = i2;
             }
-            this.mVideoKernel.seekToMs(i2 * 1000);
+            this.mVideoKernel.seekToMs(i * 1000);
         }
     }
 
-    public void seekToMs(int i2, int i3) {
-        int i4;
+    public void seekToMs(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048612, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048612, this, i, i2) == null) {
             int durationMs = this.mVideoKernel.getDurationMs();
-            if (durationMs > 1 && i2 > (i4 = durationMs - 1)) {
-                i2 = i4;
+            if (durationMs > 1 && i > (i3 = durationMs - 1)) {
+                i = i3;
             }
-            this.mVideoKernel.seekToMs(i2, i3);
+            this.mVideoKernel.seekToMs(i, i2);
         }
     }
 
@@ -615,10 +615,10 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void setDecodeMode(int i2) {
+    public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.mVideoKernel.setDecodeMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mVideoKernel.setDecodeMode(i);
         }
     }
 
@@ -733,18 +733,18 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void setVideoRotation(int i2) {
+    public void setVideoRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.mVideoKernel.setVideoRotation(i2);
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            this.mVideoKernel.setVideoRotation(i);
         }
     }
 
     @PublicMethod
-    public void setVideoScalingMode(int i2) {
+    public void setVideoScalingMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.mVideoKernel.setVideoScalingMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.mVideoKernel.setVideoScalingMode(i);
         }
     }
 
@@ -788,10 +788,10 @@ public class BaseKernelLayer extends AbsLayer {
         }
     }
 
-    public void switchMediaSource(int i2) {
+    public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.mVideoKernel.switchMediaSource(i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.mVideoKernel.switchMediaSource(i);
         }
     }
 
@@ -847,9 +847,9 @@ public class BaseKernelLayer extends AbsLayer {
             newInitContext.initArgs = r2;
             Object[] objArr = {absVideoKernel};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -6,27 +6,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AudioProcessor {
     public static final ByteBuffer EMPTY_BUFFER = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnhandledFormatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UnhandledFormatException(int i2, int i3, int i4) {
-            super("Unhandled format: " + i2 + " Hz, " + i3 + " channels in encoding " + i4);
+        public UnhandledFormatException(int i, int i2, int i3) {
+            super("Unhandled format: " + i + " Hz, " + i2 + " channels in encoding " + i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -36,7 +36,7 @@ public interface AudioProcessor {
         }
     }
 
-    boolean configure(int i2, int i3, int i4) throws UnhandledFormatException;
+    boolean configure(int i, int i2, int i3) throws UnhandledFormatException;
 
     void flush();
 

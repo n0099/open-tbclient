@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.dumix.face.FaceListener;
@@ -68,9 +69,9 @@ public class DuXRSessionFace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duXRSessionFace};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -80,18 +81,18 @@ public class DuXRSessionFace {
         }
 
         @Override // com.baidu.smallgame.sdk.permission.PermissionListener
-        public void onPermissionResult(String str, int i2) {
+        public void onPermissionResult(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                if (i2 == 0) {
-                    String str2 = "Permission ok!@ permissionState:" + i2;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (i == 0) {
+                    Log.i(DuXRSessionFace.TAG, "Permission ok!@ permissionState:" + i);
                     this.a.initAlgoModule();
                     return;
                 }
-                int i3 = i2 + 1000;
+                int i2 = i + 1000;
                 DuXRSessionFace duXRSessionFace = this.a;
-                duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i3);
-                String str3 = "Permission fail:" + i3;
+                duXRSessionFace.sessionCreateFail(duXRSessionFace.mNativeSessionHandle, i2);
+                Log.i(DuXRSessionFace.TAG, "Permission fail:" + i2);
             }
         }
     }
@@ -100,9 +101,7 @@ public class DuXRSessionFace {
     public class b implements SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f31477e;
+        public final /* synthetic */ DuXRSessionFace a;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -111,22 +110,22 @@ public class DuXRSessionFace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duXRSessionFace};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31477e = duXRSessionFace;
+            this.a = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f31477e;
+                DuXRSessionFace duXRSessionFace = this.a;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
@@ -136,9 +135,7 @@ public class DuXRSessionFace {
     public class c implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f31478e;
+        public final /* synthetic */ DuXRSessionFace a;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -147,25 +144,25 @@ public class DuXRSessionFace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duXRSessionFace};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31478e = duXRSessionFace;
+            this.a = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f31478e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.a.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f31478e.mSessionHandler.sendMessage(message);
+                this.a.mSessionHandler.sendMessage(message);
             }
         }
     }
@@ -182,9 +179,9 @@ public class DuXRSessionFace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duXRSessionFace};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -207,9 +204,9 @@ public class DuXRSessionFace {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {duXRSessionFace, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -273,9 +270,9 @@ public class DuXRSessionFace {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -357,10 +354,10 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void onCameraFrameAvailable(long j2);
+    public native void onCameraFrameAvailable(long j);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void onSessionFrameTracked(long j2, long j3);
+    public native void onSessionFrameTracked(long j, long j2);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void releaseCamera() {
@@ -378,22 +375,22 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void sessionCreateFail(long j2, int i2);
+    public native void sessionCreateFail(long j, int i);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void sessionCreateSuccess(long j2);
+    public native void sessionCreateSuccess(long j);
 
-    private void setOptimalPreviewSize(List<Camera.Size> list, int i2, int i3) {
+    private void setOptimalPreviewSize(List<Camera.Size> list, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65564, this, list, i2, i3) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65564, this, list, i, i2) == null) || list == null) {
             return;
         }
-        double d2 = i2 / i3;
+        double d2 = i / i2;
         Camera.Size size = null;
         double d3 = Double.MAX_VALUE;
         for (Camera.Size size2 : list) {
-            if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i3) < d3) {
-                d3 = Math.abs(size2.height - i3);
+            if (Math.abs((size2.width / size2.height) - d2) <= 0.1d && Math.abs(size2.height - i2) < d3) {
+                d3 = Math.abs(size2.height - i2);
                 size = size2;
             }
         }
@@ -456,19 +453,19 @@ public class DuXRSessionFace {
         return (float[]) invokeV.objValue;
     }
 
-    public void startSession(int i2, int i3, int i4) {
+    public void startSession(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
             Context context = getContext();
             this.mContext = context;
             if (context == null) {
                 sessionCreateFail(this.mNativeSessionHandle, 1000);
                 return;
             }
-            this.mTextureId = i4;
-            PermissionProxy permissionProxy = c.a.l0.a.a.o;
+            this.mTextureId = i3;
+            PermissionProxy permissionProxy = c.a.j0.a.a.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

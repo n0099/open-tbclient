@@ -1,8 +1,10 @@
 package com.baidu.searchbox.dns.d;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.dns.statistics.HttpDNSStat;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
@@ -44,9 +46,9 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -88,16 +90,16 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         }
     }
 
-    public c(boolean z, String str, int i2) {
+    public c(boolean z, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -106,13 +108,13 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         this.N = false;
         this.E = z;
         this.F = str;
-        this.H = i2;
+        this.H = i;
     }
 
-    public static void a(long j2) {
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
-            M = j2;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            M = j;
         }
     }
 
@@ -142,7 +144,9 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || !O || this.H != 2 || M <= 0 || System.currentTimeMillis() - M <= FlushManager.ReportTimer.DEFAULT_INTERVAL || (a2 = b.o().a("httpsdns.baidu.com", false, 2)) == null) {
             return;
         }
-        boolean z = DnsUtil.DEBUG;
+        if (DnsUtil.DEBUG) {
+            Log.d(DnsUtil.TAG, " start update domain task: httpsdns.baidu.com");
+        }
         a2.start();
     }
 
@@ -151,16 +155,18 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         if ((interceptable == null || interceptable.invokeV(65544, this) == null) && O && this.H == 2) {
             L = null;
             M = -1L;
-            boolean z = DnsUtil.DEBUG;
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, "changeToBGPServer");
+            }
         }
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (DnsUtil.DEBUG) {
-                String str = " server error: " + i2;
+                Log.d(DnsUtil.TAG, " server error: " + i);
             }
             this.N = true;
         }
@@ -175,7 +181,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
             if (this.E) {
                 hashMap.put("label", this.F);
             } else {
-                hashMap.put("dn", this.F);
+                hashMap.put(Config.DEVICE_NAME, this.F);
             }
             hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, com.baidu.searchbox.dns.a.a.e().g());
             hashMap.put("type", "ipv4,ipv6");
@@ -195,7 +201,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             if (DnsUtil.DEBUG) {
-                String str2 = " response " + str;
+                Log.d(DnsUtil.TAG, " response " + str);
             }
             return new com.baidu.searchbox.dns.d.a.b(str);
         }
@@ -257,7 +263,9 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     public void a(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            boolean z = DnsUtil.DEBUG;
+            if (DnsUtil.DEBUG) {
+                Log.d(DnsUtil.TAG, " exception: ", exc);
+            }
             this.N = true;
         }
     }

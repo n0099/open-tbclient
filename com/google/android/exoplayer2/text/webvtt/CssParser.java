@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CssParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_END = "}";
@@ -55,9 +55,9 @@ public final class CssParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -106,22 +106,22 @@ public final class CssParser {
         if (position + 2 > limit) {
             return false;
         }
-        int i2 = position + 1;
+        int i = position + 1;
         if (bArr[position] != 47) {
             return false;
         }
-        int i3 = i2 + 1;
-        if (bArr[i2] != 42) {
+        int i2 = i + 1;
+        if (bArr[i] != 42) {
             return false;
         }
         while (true) {
-            int i4 = i3 + 1;
-            if (i4 < limit) {
-                if (((char) bArr[i3]) == '*' && ((char) bArr[i4]) == '/') {
-                    i3 = i4 + 1;
-                    limit = i3;
+            int i3 = i2 + 1;
+            if (i3 < limit) {
+                if (((char) bArr[i2]) == '*' && ((char) bArr[i3]) == '/') {
+                    i2 = i3 + 1;
+                    limit = i2;
                 } else {
-                    i3 = i4;
+                    i2 = i3;
                 }
             } else {
                 parsableByteArray.skipBytes(limit - parsableByteArray.getPosition());
@@ -275,10 +275,10 @@ public final class CssParser {
         }
     }
 
-    public static char peekCharAtPosition(ParsableByteArray parsableByteArray, int i2) {
+    public static char peekCharAtPosition(ParsableByteArray parsableByteArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i2)) == null) ? (char) parsableByteArray.data[i2] : invokeLI.charValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, parsableByteArray, i)) == null) ? (char) parsableByteArray.data[i] : invokeLI.charValue;
     }
 
     public static String readCueTarget(ParsableByteArray parsableByteArray) {
@@ -289,9 +289,9 @@ public final class CssParser {
             int limit = parsableByteArray.limit();
             boolean z = false;
             while (position < limit && !z) {
-                int i2 = position + 1;
+                int i = position + 1;
                 z = ((char) parsableByteArray.data[position]) == ')';
-                position = i2;
+                position = i;
             }
             return parsableByteArray.readString((position - 1) - parsableByteArray.getPosition()).trim();
         }

@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;
@@ -59,9 +59,9 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -69,15 +69,15 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap createBitmap(int i2, int i3, BitmapFactory.Options options) {
+    public static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeIIL;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i2, i3, options)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, options)) == null) {
             if (IN_BITMAP_SUPPORTED && options != null && (bitmap = options.inBitmap) != null && bitmap.isMutable()) {
                 return options.inBitmap;
             }
-            return mBitmapCreator.createNakedBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            return mBitmapCreator.createNakedBitmap(i, i2, Bitmap.Config.ARGB_8888);
         }
         return (Bitmap) invokeIIL.objValue;
     }
@@ -96,12 +96,12 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, options)) == null) {
             if (options != null) {
-                int i2 = options.inSampleSize;
-                float f2 = i2 > 1 ? 1.0f / i2 : 1.0f;
+                int i = options.inSampleSize;
+                float f2 = i > 1 ? 1.0f / i : 1.0f;
                 if (options.inScaled) {
-                    int i3 = options.inDensity;
-                    int i4 = options.inTargetDensity;
-                    return (i3 == 0 || i4 == 0 || i3 == options.inScreenDensity) ? f2 : i4 / i3;
+                    int i2 = options.inDensity;
+                    int i3 = options.inTargetDensity;
+                    return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f2 : i3 / i2;
                 }
                 return f2;
             }
@@ -132,20 +132,20 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
+    public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Bitmap originalDecodeByteArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
             StaticWebpNativeLoader.ensure();
-            if (WebpSupportStatus.sIsWebpSupportRequired && WebpSupportStatus.isWebpHeader(bArr, i2, i3)) {
-                originalDecodeByteArray = nativeDecodeByteArray(bArr, i2, i3, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
+            if (WebpSupportStatus.sIsWebpSupportRequired && WebpSupportStatus.isWebpHeader(bArr, i, i2)) {
+                originalDecodeByteArray = nativeDecodeByteArray(bArr, i, i2, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
                 if (originalDecodeByteArray == null) {
                     sendWebpErrorLog("webp_direct_decode_array");
                 }
                 setWebpBitmapOptions(originalDecodeByteArray, options);
             } else {
-                originalDecodeByteArray = originalDecodeByteArray(bArr, i2, i3, options);
+                originalDecodeByteArray = originalDecodeByteArray(bArr, i, i2, options);
                 if (originalDecodeByteArray == null) {
                     sendWebpErrorLog("webp_direct_decode_array_failed_on_no_webp");
                 }
@@ -220,14 +220,14 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
 
     @DoNotStrip
     @Nullable
-    public static Bitmap hookDecodeResource(Resources resources, int i2, BitmapFactory.Options options) {
+    public static Bitmap hookDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, resources, i2, options)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, resources, i, options)) == null) {
             TypedValue typedValue = new TypedValue();
             Bitmap bitmap = null;
             try {
-                InputStream openRawResource = resources.openRawResource(i2, typedValue);
+                InputStream openRawResource = resources.openRawResource(i, typedValue);
                 bitmap = hookDecodeResourceStream(resources, typedValue, openRawResource, null, options);
                 if (openRawResource != null) {
                     openRawResource.close();
@@ -251,11 +251,11 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
                 options = new BitmapFactory.Options();
             }
             if (options.inDensity == 0 && typedValue != null) {
-                int i2 = typedValue.density;
-                if (i2 == 0) {
+                int i = typedValue.density;
+                if (i == 0) {
                     options.inDensity = 160;
-                } else if (i2 != 65535) {
-                    options.inDensity = i2;
+                } else if (i != 65535) {
+                    options.inDensity = i;
                 }
             }
             if (options.inTargetDensity == 0 && resources != null) {
@@ -294,19 +294,19 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options, float f2, byte[] bArr2);
+    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f2, byte[] bArr2);
 
     @DoNotStrip
     public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
 
     @DoNotStrip
-    public static native long nativeSeek(FileDescriptor fileDescriptor, long j2, boolean z);
+    public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
 
     @DoNotStrip
-    public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
+    public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? BitmapFactory.decodeByteArray(bArr, i2, i3, options) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? BitmapFactory.decodeByteArray(bArr, i, i2, options) : (Bitmap) invokeCommon.objValue;
     }
 
     @DoNotStrip
@@ -324,10 +324,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeResource(Resources resources, int i2, BitmapFactory.Options options) {
+    public static Bitmap originalDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65563, null, resources, i2, options)) == null) ? BitmapFactory.decodeResource(resources, i2, options) : (Bitmap) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65563, null, resources, i, options)) == null) ? BitmapFactory.decodeResource(resources, i, options) : (Bitmap) invokeLIL.objValue;
     }
 
     @DoNotStrip
@@ -354,13 +354,13 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static void setBitmapSize(@Nullable BitmapFactory.Options options, int i2, int i3) {
+    public static void setBitmapSize(@Nullable BitmapFactory.Options options, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65568, null, options, i2, i3) == null) || options == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65568, null, options, i, i2) == null) || options == null) {
             return;
         }
-        options.outWidth = i2;
-        options.outHeight = i3;
+        options.outWidth = i;
+        options.outHeight = i2;
     }
 
     public static void setDensityFromOptions(Bitmap bitmap, BitmapFactory.Options options) {
@@ -368,14 +368,14 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         if (!(interceptable == null || interceptable.invokeLL(65569, null, bitmap, options) == null) || bitmap == null || options == null) {
             return;
         }
-        int i2 = options.inDensity;
-        if (i2 != 0) {
-            bitmap.setDensity(i2);
-            int i3 = options.inTargetDensity;
-            if (i3 == 0 || i2 == i3 || i2 == options.inScreenDensity || !options.inScaled) {
+        int i = options.inDensity;
+        if (i != 0) {
+            bitmap.setDensity(i);
+            int i2 = options.inTargetDensity;
+            if (i2 == 0 || i == i2 || i == options.inScreenDensity || !options.inScaled) {
                 return;
             }
-            bitmap.setDensity(i3);
+            bitmap.setDensity(i2);
         } else if (!IN_BITMAP_SUPPORTED || options.inBitmap == null) {
         } else {
             bitmap.setDensity(160);
@@ -383,15 +383,15 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static boolean setOutDimensions(BitmapFactory.Options options, int i2, int i3) {
+    public static boolean setOutDimensions(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65570, null, options, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65570, null, options, i, i2)) == null) {
             if (options == null || !options.inJustDecodeBounds) {
                 return false;
             }
-            options.outWidth = i2;
-            options.outHeight = i3;
+            options.outWidth = i;
+            options.outHeight = i2;
             return true;
         }
         return invokeLII.booleanValue;
@@ -440,10 +440,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @Override // com.facebook.common.webp.WebpBitmapFactory
-    public Bitmap decodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
+    public Bitmap decodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? hookDecodeByteArray(bArr, i2, i3, options) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? hookDecodeByteArray(bArr, i, i2, options) : (Bitmap) invokeCommon.objValue;
     }
 
     @Override // com.facebook.common.webp.WebpBitmapFactory
@@ -484,10 +484,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3) {
+    public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, bArr, i2, i3)) == null) ? BitmapFactory.decodeByteArray(bArr, i2, i3) : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65556, null, bArr, i, i2)) == null) ? BitmapFactory.decodeByteArray(bArr, i, i2) : (Bitmap) invokeLII.objValue;
     }
 
     @DoNotStrip
@@ -505,10 +505,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeResource(Resources resources, int i2) {
+    public static Bitmap originalDecodeResource(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, resources, i2)) == null) ? BitmapFactory.decodeResource(resources, i2) : (Bitmap) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, resources, i)) == null) ? BitmapFactory.decodeResource(resources, i) : (Bitmap) invokeLI.objValue;
     }
 
     @DoNotStrip
@@ -526,17 +526,17 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeResource(Resources resources, int i2) {
+    public static Bitmap hookDecodeResource(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, resources, i2)) == null) ? hookDecodeResource(resources, i2, null) : (Bitmap) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, resources, i)) == null) ? hookDecodeResource(resources, i, null) : (Bitmap) invokeLI.objValue;
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeByteArray(byte[] bArr, int i2, int i3) {
+    public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) ? hookDecodeByteArray(bArr, i2, i3, null) : (Bitmap) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) ? hookDecodeByteArray(bArr, i, i2, null) : (Bitmap) invokeLII.objValue;
     }
 
     @DoNotStrip

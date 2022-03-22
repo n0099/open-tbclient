@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_IP_AVAILABLE = 2;
@@ -34,9 +34,9 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,14 +93,14 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
 
     public long getTestAverageSpeed() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j2 = this.mDownloadTimes;
-            if (j2 == 0 || (i2 = this.mTestSpeedThread) == 0) {
+            long j = this.mDownloadTimes;
+            if (j == 0 || (i = this.mTestSpeedThread) == 0) {
                 return 0L;
             }
-            return (this.mDownloadBytes * 1000) / (j2 * i2);
+            return (this.mDownloadBytes * 1000) / (j * i);
         }
         return invokeV.longValue;
     }
@@ -109,25 +109,25 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     @Override // java.lang.Comparable
     public int compareTo(HttpDNSInfo httpDNSInfo) {
         InterceptResult invokeL;
+        int i;
         int i2;
         int i3;
         int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpDNSInfo)) == null) {
-            long j2 = this.mDownloadTimes;
-            if (j2 == 0 || (i2 = this.mTestSpeedThread) == 0) {
+            long j = this.mDownloadTimes;
+            if (j == 0 || (i = this.mTestSpeedThread) == 0) {
                 return 1;
             }
-            long j3 = httpDNSInfo.mDownloadTimes;
-            if (j3 == 0 || (i3 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j2 * i2))) > ((float) (httpDNSInfo.mDownloadBytes / (j3 * i3)))) {
+            long j2 = httpDNSInfo.mDownloadTimes;
+            if (j2 == 0 || (i2 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j * i))) > ((float) (httpDNSInfo.mDownloadBytes / (j2 * i2)))) {
                 return -1;
             }
-            if (i4 != 0 || (i5 = this.mCDNSequence) > (i6 = httpDNSInfo.mCDNSequence)) {
+            if (i3 != 0 || (i4 = this.mCDNSequence) > (i5 = httpDNSInfo.mCDNSequence)) {
                 return 1;
             }
-            return i5 < i6 ? -1 : 0;
+            return i4 < i5 ? -1 : 0;
         }
         return invokeL.intValue;
     }

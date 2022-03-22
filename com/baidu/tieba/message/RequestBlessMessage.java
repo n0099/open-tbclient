@@ -1,6 +1,6 @@
 package com.baidu.tieba.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestBlessMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44557common;
+    public CommonReq f34531common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -34,9 +34,9 @@ public class RequestBlessMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -52,7 +52,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f61473common = this.f44557common;
+            builder.f45813common = this.f34531common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
@@ -69,17 +69,17 @@ public class RequestBlessMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setClickType(int i2) {
+    public void setClickType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.click_type = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.click_type = i;
         }
     }
 
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f44557common = commonReq;
+            this.f34531common = commonReq;
         }
     }
 
@@ -90,17 +90,17 @@ public class RequestBlessMessage extends NetMessage {
         }
     }
 
-    public void setPkIndex(int i2) {
+    public void setPkIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.pk_index = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.pk_index = i;
         }
     }
 
-    public void setPkType(int i2) {
+    public void setPkType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.pk_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.pk_type = i;
         }
     }
 
@@ -111,10 +111,10 @@ public class RequestBlessMessage extends NetMessage {
         }
     }
 
-    public void setUserPkId(long j2) {
+    public void setUserPkId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.user_pk_id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.user_pk_id = j;
         }
     }
 }

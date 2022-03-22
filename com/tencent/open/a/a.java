@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.tencent.open.log.SLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final Uri a;
@@ -102,7 +103,7 @@ public class a {
                     }
                     return null;
                 }
-                String string = query.getString(query.getColumnIndex("proxy"));
+                String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
                 if (query != null) {
                     query.close();
                 }

@@ -1,8 +1,8 @@
 package com.baidu.nadcore.thread.executor;
 
-import c.a.b0.d0.c.c;
-import c.a.b0.d0.c.d;
-import c.a.b0.d0.c.e;
+import c.a.a0.d0.c.c;
+import c.a.a0.d0.c.d;
+import c.a.a0.d0.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,10 +21,10 @@ public abstract class BaseExecutorCell {
     public LinkedList<ElasticTask> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35772b;
+    public int f27643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f35773c;
+    public ThreadPoolExecutor f27644c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -58,16 +58,16 @@ public abstract class BaseExecutorCell {
             $VALUES = new ExecutorType[]{ARTERY, DREDGE_NORMAL, DREDGE_DISASTER, executorType};
         }
 
-        public ExecutorType(String str, int i2) {
+        public ExecutorType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -97,7 +97,7 @@ public abstract class BaseExecutorCell {
         public final /* synthetic */ ElasticTask a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseExecutorCell f35774b;
+        public final /* synthetic */ BaseExecutorCell f27645b;
 
         public a(BaseExecutorCell baseExecutorCell, ElasticTask elasticTask) {
             Interceptable interceptable = $ic;
@@ -106,15 +106,15 @@ public abstract class BaseExecutorCell {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseExecutorCell, elasticTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f35774b = baseExecutorCell;
+            this.f27645b = baseExecutorCell;
             this.a = elasticTask;
         }
 
@@ -122,7 +122,7 @@ public abstract class BaseExecutorCell {
         public void afterExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f35774b.g(this.a);
+                this.f27645b.g(this.a);
             }
         }
 
@@ -130,7 +130,7 @@ public abstract class BaseExecutorCell {
         public void beforeExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f35774b.f(this.a);
+                this.f27645b.f(this.a);
             }
         }
     }
@@ -175,43 +175,43 @@ public abstract class BaseExecutorCell {
         }
     }
 
-    public BaseExecutorCell(int i2) {
+    public BaseExecutorCell(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new LinkedList<>();
-        this.f35772b = i2;
+        this.f27643b = i;
     }
 
-    public static BaseExecutorCell b(int i2, ExecutorType executorType) {
+    public static BaseExecutorCell b(int i, ExecutorType executorType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, executorType)) == null) {
-            int i3 = b.a[executorType.ordinal()];
-            if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 != 3) {
-                        if (i3 != 4) {
-                            return new d(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, executorType)) == null) {
+            int i2 = b.a[executorType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            return new d(i);
                         }
-                        return new e(i2);
+                        return new e(i);
                     }
-                    return new c(i2);
+                    return new c(i);
                 }
-                return new d(i2);
+                return new d(i);
             }
-            return new c.a.b0.d0.c.a(i2);
+            return new c.a.a0.d0.c.a(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }
@@ -226,7 +226,7 @@ public abstract class BaseExecutorCell {
                 if (a()) {
                     elasticTask.h(new a(this, elasticTask));
                     this.a.add(elasticTask);
-                    this.f35773c.execute(elasticTask);
+                    this.f27644c.execute(elasticTask);
                     return true;
                 }
                 return false;

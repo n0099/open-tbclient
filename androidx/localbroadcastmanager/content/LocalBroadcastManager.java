@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -49,9 +50,9 @@ public final class LocalBroadcastManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {intent, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,9 +79,9 @@ public final class LocalBroadcastManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {intentFilter, broadcastReceiver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -132,9 +133,9 @@ public final class LocalBroadcastManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -158,9 +159,9 @@ public final class LocalBroadcastManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -218,11 +219,11 @@ public final class LocalBroadcastManager {
                 this.mPendingBroadcasts.toArray(broadcastRecordArr);
                 this.mPendingBroadcasts.clear();
             }
-            for (int i2 = 0; i2 < size; i2++) {
-                BroadcastRecord broadcastRecord = broadcastRecordArr[i2];
+            for (int i = 0; i < size; i++) {
+                BroadcastRecord broadcastRecord = broadcastRecordArr[i];
                 int size2 = broadcastRecord.receivers.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    ReceiverRecord receiverRecord = broadcastRecord.receivers.get(i3);
+                for (int i2 = 0; i2 < size2; i2++) {
+                    ReceiverRecord receiverRecord = broadcastRecord.receivers.get(i2);
                     if (!receiverRecord.dead) {
                         receiverRecord.receiver.onReceive(this.mAppContext, broadcastRecord.intent);
                     }
@@ -242,8 +243,8 @@ public final class LocalBroadcastManager {
                     this.mReceivers.put(broadcastReceiver, arrayList);
                 }
                 arrayList.add(receiverRecord);
-                for (int i2 = 0; i2 < intentFilter.countActions(); i2++) {
-                    String action = intentFilter.getAction(i2);
+                for (int i = 0; i < intentFilter.countActions(); i++) {
+                    String action = intentFilter.getAction(i);
                     ArrayList<ReceiverRecord> arrayList2 = this.mActions.get(action);
                     if (arrayList2 == null) {
                         arrayList2 = new ArrayList<>(1);
@@ -257,7 +258,7 @@ public final class LocalBroadcastManager {
 
     public boolean sendBroadcast(@NonNull Intent intent) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         String str;
         ArrayList arrayList;
         ArrayList<ReceiverRecord> arrayList2;
@@ -272,28 +273,31 @@ public final class LocalBroadcastManager {
                 Set<String> categories = intent.getCategories();
                 boolean z = (intent.getFlags() & 8) != 0;
                 if (z) {
-                    String str3 = "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent;
+                    Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
                 }
                 ArrayList<ReceiverRecord> arrayList3 = this.mActions.get(intent.getAction());
                 if (arrayList3 != null) {
                     if (z) {
-                        String str4 = "Action list: " + arrayList3;
+                        Log.v(TAG, "Action list: " + arrayList3);
                     }
                     ArrayList arrayList4 = null;
-                    int i3 = 0;
-                    while (i3 < arrayList3.size()) {
-                        ReceiverRecord receiverRecord = arrayList3.get(i3);
+                    int i2 = 0;
+                    while (i2 < arrayList3.size()) {
+                        ReceiverRecord receiverRecord = arrayList3.get(i2);
                         if (z) {
-                            String str5 = "Matching against filter " + receiverRecord.filter;
+                            Log.v(TAG, "Matching against filter " + receiverRecord.filter);
                         }
                         if (receiverRecord.broadcasting) {
-                            i2 = i3;
+                            if (z) {
+                                Log.v(TAG, "  Filter's target already added");
+                            }
+                            i = i2;
                             arrayList2 = arrayList3;
                             str = action;
                             str2 = resolveTypeIfNeeded;
                             arrayList = arrayList4;
                         } else {
-                            i2 = i3;
+                            i = i2;
                             str = action;
                             arrayList = arrayList4;
                             arrayList2 = arrayList3;
@@ -301,29 +305,29 @@ public final class LocalBroadcastManager {
                             int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, TAG);
                             if (match >= 0) {
                                 if (z) {
-                                    String str6 = "  Filter matched!  match=0x" + Integer.toHexString(match);
+                                    Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
                                 }
                                 arrayList4 = arrayList == null ? new ArrayList() : arrayList;
                                 arrayList4.add(receiverRecord);
                                 receiverRecord.broadcasting = true;
-                                i3 = i2 + 1;
+                                i2 = i + 1;
                                 action = str;
                                 arrayList3 = arrayList2;
                                 resolveTypeIfNeeded = str2;
                             } else if (z) {
-                                String str7 = "  Filter did not match: " + (match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category");
+                                Log.v(TAG, "  Filter did not match: " + (match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category"));
                             }
                         }
                         arrayList4 = arrayList;
-                        i3 = i2 + 1;
+                        i2 = i + 1;
                         action = str;
                         arrayList3 = arrayList2;
                         resolveTypeIfNeeded = str2;
                     }
                     ArrayList arrayList5 = arrayList4;
                     if (arrayList5 != null) {
-                        for (int i4 = 0; i4 < arrayList5.size(); i4++) {
-                            ((ReceiverRecord) arrayList5.get(i4)).broadcasting = false;
+                        for (int i3 = 0; i3 < arrayList5.size(); i3++) {
+                            ((ReceiverRecord) arrayList5.get(i3)).broadcasting = false;
                         }
                         this.mPendingBroadcasts.add(new BroadcastRecord(intent, arrayList5));
                         if (!this.mHandler.hasMessages(1)) {
@@ -356,8 +360,8 @@ public final class LocalBroadcastManager {
                 for (int size = remove.size() - 1; size >= 0; size--) {
                     ReceiverRecord receiverRecord = remove.get(size);
                     receiverRecord.dead = true;
-                    for (int i2 = 0; i2 < receiverRecord.filter.countActions(); i2++) {
-                        String action = receiverRecord.filter.getAction(i2);
+                    for (int i = 0; i < receiverRecord.filter.countActions(); i++) {
+                        String action = receiverRecord.filter.getAction(i);
                         ArrayList<ReceiverRecord> arrayList = this.mActions.get(action);
                         if (arrayList != null) {
                             for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {

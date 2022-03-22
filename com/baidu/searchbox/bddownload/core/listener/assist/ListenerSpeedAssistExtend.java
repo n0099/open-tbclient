@@ -24,13 +24,13 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
 
     /* loaded from: classes4.dex */
     public interface Listener4SpeedCallback {
-        void blockEnd(@NonNull DownloadTask downloadTask, int i2, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
+        void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
 
         void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4SpeedModel listener4SpeedModel);
 
-        void progress(@NonNull DownloadTask downloadTask, long j2, @NonNull SpeedCalculator speedCalculator);
+        void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator);
 
-        void progressBlock(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull SpeedCalculator speedCalculator);
+        void progressBlock(@NonNull DownloadTask downloadTask, int i, long j, @NonNull SpeedCalculator speedCalculator);
 
         void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator);
     }
@@ -43,17 +43,17 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
         public SpeedCalculator taskSpeed;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Listener4SpeedModel(int i2) {
-            super(i2);
+        public Listener4SpeedModel(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -62,10 +62,10 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
             }
         }
 
-        public SpeedCalculator getBlockSpeed(int i2) {
+        public SpeedCalculator getBlockSpeed(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.blockSpeeds.get(i2) : (SpeedCalculator) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.blockSpeeds.get(i) : (SpeedCalculator) invokeI.objValue;
         }
 
         public SpeedCalculator getTaskSpeed() {
@@ -82,8 +82,8 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
                 this.taskSpeed = new SpeedCalculator();
                 this.blockSpeeds = new SparseArray<>();
                 int blockCount = breakpointInfo.getBlockCount();
-                for (int i2 = 0; i2 < blockCount; i2++) {
-                    this.blockSpeeds.put(i2, new SpeedCalculator());
+                for (int i = 0; i < blockCount; i++) {
+                    this.blockSpeeds.put(i, new SpeedCalculator());
                 }
             }
         }
@@ -94,9 +94,9 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -104,15 +104,15 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.AssistExtend
-    public boolean dispatchBlockEnd(DownloadTask downloadTask, int i2, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public boolean dispatchBlockEnd(DownloadTask downloadTask, int i, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i2, listener4Model)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, listener4Model)) == null) {
             Listener4SpeedModel listener4SpeedModel = (Listener4SpeedModel) listener4Model;
-            listener4SpeedModel.blockSpeeds.get(i2).endTask();
+            listener4SpeedModel.blockSpeeds.get(i).endTask();
             Listener4SpeedCallback listener4SpeedCallback = this.callback;
             if (listener4SpeedCallback != null) {
-                listener4SpeedCallback.blockEnd(downloadTask, i2, listener4Model.info.getBlock(i2), listener4SpeedModel.getBlockSpeed(i2));
+                listener4SpeedCallback.blockEnd(downloadTask, i, listener4Model.info.getBlock(i), listener4SpeedModel.getBlockSpeed(i));
                 return true;
             }
             return true;
@@ -121,16 +121,16 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.AssistExtend
-    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i, long j, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2), listener4Model})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), listener4Model})) == null) {
             Listener4SpeedModel listener4SpeedModel = (Listener4SpeedModel) listener4Model;
-            listener4SpeedModel.blockSpeeds.get(i2).downloading(j2);
-            listener4SpeedModel.taskSpeed.downloading(j2);
+            listener4SpeedModel.blockSpeeds.get(i).downloading(j);
+            listener4SpeedModel.taskSpeed.downloading(j);
             Listener4SpeedCallback listener4SpeedCallback = this.callback;
             if (listener4SpeedCallback != null) {
-                listener4SpeedCallback.progressBlock(downloadTask, i2, listener4Model.blockCurrentOffsetMap.get(i2).longValue(), listener4SpeedModel.getBlockSpeed(i2));
+                listener4SpeedCallback.progressBlock(downloadTask, i, listener4Model.blockCurrentOffsetMap.get(i).longValue(), listener4SpeedModel.getBlockSpeed(i));
                 this.callback.progress(downloadTask, listener4Model.currentOffset, listener4SpeedModel.taskSpeed);
                 return true;
             }
@@ -184,9 +184,9 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-    public Listener4SpeedModel create(int i2) {
+    public Listener4SpeedModel create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new Listener4SpeedModel(i2) : (Listener4SpeedModel) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new Listener4SpeedModel(i) : (Listener4SpeedModel) invokeI.objValue;
     }
 }

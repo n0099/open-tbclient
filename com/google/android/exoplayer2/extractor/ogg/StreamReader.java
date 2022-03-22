@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class StreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_END_OF_INPUT = 3;
@@ -39,13 +39,13 @@ public abstract class StreamReader {
     public TrackOutput trackOutput;
 
     /* renamed from: com.google.android.exoplayer2.extractor.ogg.StreamReader$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SetupData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public abstract class StreamReader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -67,7 +67,7 @@ public abstract class StreamReader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnseekableOggSeeker implements OggSeeker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,9 +77,9 @@ public abstract class StreamReader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -104,10 +104,10 @@ public abstract class StreamReader {
         }
 
         @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
-        public long startSeek(long j2) {
+        public long startSeek(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
                 return 0L;
             }
             return invokeJ.longValue;
@@ -123,9 +123,9 @@ public abstract class StreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -197,9 +197,9 @@ public abstract class StreamReader {
             ParsableByteArray payload = this.oggPacket.getPayload();
             long preparePayload = preparePayload(payload);
             if (preparePayload >= 0) {
-                long j2 = this.currentGranule;
-                if (j2 + preparePayload >= this.targetGranule) {
-                    long convertGranuleToTime = convertGranuleToTime(j2);
+                long j = this.currentGranule;
+                if (j + preparePayload >= this.targetGranule) {
+                    long convertGranuleToTime = convertGranuleToTime(j);
                     this.trackOutput.sampleData(payload, payload.limit());
                     this.trackOutput.sampleMetadata(convertGranuleToTime, 1, payload.limit(), 0, null);
                     this.targetGranule = -1L;
@@ -211,16 +211,16 @@ public abstract class StreamReader {
         return invokeLL.intValue;
     }
 
-    public long convertGranuleToTime(long j2) {
+    public long convertGranuleToTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? (j2 * 1000000) / this.sampleRate : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? (j * 1000000) / this.sampleRate : invokeJ.longValue;
     }
 
-    public long convertTimeToGranule(long j2) {
+    public long convertTimeToGranule(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? (this.sampleRate * j2) / 1000000 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? (this.sampleRate * j) / 1000000 : invokeJ.longValue;
     }
 
     public void init(ExtractorOutput extractorOutput, TrackOutput trackOutput) {
@@ -232,10 +232,10 @@ public abstract class StreamReader {
         }
     }
 
-    public void onSeekEnd(long j2) {
+    public void onSeekEnd(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.currentGranule = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.currentGranule = j;
         }
     }
 
@@ -245,10 +245,10 @@ public abstract class StreamReader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, extractorInput, positionHolder)) == null) {
-            int i2 = this.state;
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 == 2) {
+            int i = this.state;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
                         return readPayload(extractorInput, positionHolder);
                     }
                     throw new IllegalStateException();
@@ -262,7 +262,7 @@ public abstract class StreamReader {
         return invokeLL.intValue;
     }
 
-    public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j2, SetupData setupData) throws IOException, InterruptedException;
+    public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j, SetupData setupData) throws IOException, InterruptedException;
 
     public void reset(boolean z) {
         Interceptable interceptable = $ic;
@@ -279,14 +279,14 @@ public abstract class StreamReader {
         }
     }
 
-    public final void seek(long j2, long j3) {
+    public final void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.oggPacket.reset();
-            if (j2 == 0) {
+            if (j == 0) {
                 reset(!this.seekMapSet);
             } else if (this.state != 0) {
-                this.targetGranule = this.oggSeeker.startSeek(j3);
+                this.targetGranule = this.oggSeeker.startSeek(j2);
                 this.state = 2;
             }
         }

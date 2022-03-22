@@ -1,5 +1,6 @@
 package com.baidu.turbonet.net;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,8 @@ public class OkHttpInterceptor implements Interceptor {
             Field declaredField = RealResponseBody.class.getDeclaredField("source");
             a = declaredField;
             declaredField.setAccessible(true);
-        } catch (NoSuchFieldException unused) {
+        } catch (NoSuchFieldException e2) {
+            Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e2);
             a = null;
         }
     }

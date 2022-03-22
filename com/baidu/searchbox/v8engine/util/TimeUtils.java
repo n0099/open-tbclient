@@ -54,34 +54,34 @@ public class TimeUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int accumField(int i2, int i3, boolean z, int i4) {
+    public static int accumField(int i, int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            int i5 = 0;
-            if (i2 > 999) {
-                while (i2 != 0) {
-                    i5++;
-                    i2 /= 10;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+            int i4 = 0;
+            if (i > 999) {
+                while (i != 0) {
+                    i4++;
+                    i /= 10;
                 }
-                return i5 + i3;
-            } else if (i2 > 99 || (z && i4 >= 3)) {
-                return i3 + 3;
+                return i4 + i2;
+            } else if (i > 99 || (z && i3 >= 3)) {
+                return i2 + 3;
             } else {
-                if (i2 > 9 || (z && i4 >= 2)) {
-                    return i3 + 2;
+                if (i > 9 || (z && i3 >= 2)) {
+                    return i2 + 2;
                 }
-                if (z || i2 > 0) {
-                    return i3 + 1;
+                if (z || i > 0) {
+                    return i2 + 1;
                 }
                 return 0;
             }
@@ -89,207 +89,207 @@ public class TimeUtils {
         return invokeCommon.intValue;
     }
 
-    public static void formatDuration(long j2, StringBuilder sb) {
+    public static void formatDuration(long j, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65542, null, j2, sb) == null) {
+        if (interceptable == null || interceptable.invokeJL(65542, null, j, sb) == null) {
             synchronized (sFormatSync) {
-                sb.append(sFormatStr, 0, formatDurationLocked(j2, 0));
+                sb.append(sFormatStr, 0, formatDurationLocked(j, 0));
             }
         }
     }
 
-    public static int formatDurationLocked(long j2, int i2) {
+    public static int formatDurationLocked(long j, int i) {
         InterceptResult invokeCommon;
         char c2;
+        int i2;
         int i3;
         int i4;
         int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            long j3 = j2;
-            if (sFormatStr.length < i2) {
-                sFormatStr = new char[i2];
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            long j2 = j;
+            if (sFormatStr.length < i) {
+                sFormatStr = new char[i];
             }
             char[] cArr = sFormatStr;
-            int i8 = 0;
-            int i9 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-            if (i9 == 0) {
-                int i10 = i2 - 1;
-                while (i8 < i10) {
-                    cArr[i8] = WebvttCueParser.CHAR_SPACE;
-                    i8++;
-                }
-                cArr[i8] = '0';
-                return i8 + 1;
-            }
-            if (i9 > 0) {
-                c2 = '+';
-            } else {
-                c2 = SignatureImpl.SEP;
-                j3 = -j3;
-            }
-            int i11 = (int) (j3 % 1000);
-            int floor = (int) Math.floor(j3 / 1000);
-            if (floor >= 86400) {
-                i3 = floor / 86400;
-                floor -= 86400 * i3;
-            } else {
-                i3 = 0;
-            }
-            if (floor >= 3600) {
-                i4 = floor / 3600;
-                floor -= i4 * 3600;
-            } else {
-                i4 = 0;
-            }
-            if (floor >= 60) {
-                int i12 = floor / 60;
-                i5 = floor - (i12 * 60);
-                i6 = i12;
-            } else {
-                i5 = floor;
-                i6 = 0;
-            }
-            if (i2 != 0) {
-                int accumField = accumField(i3, 1, false, 0);
-                int accumField2 = accumField + accumField(i4, 1, accumField > 0, 2);
-                int accumField3 = accumField2 + accumField(i6, 1, accumField2 > 0, 2);
-                int accumField4 = accumField3 + accumField(i5, 1, accumField3 > 0, 2);
-                i7 = 0;
-                for (int accumField5 = accumField4 + accumField(i11, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i2; accumField5++) {
+            int i7 = 0;
+            int i8 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            if (i8 == 0) {
+                int i9 = i - 1;
+                while (i7 < i9) {
                     cArr[i7] = WebvttCueParser.CHAR_SPACE;
                     i7++;
                 }
-            } else {
-                i7 = 0;
+                cArr[i7] = '0';
+                return i7 + 1;
             }
-            cArr[i7] = c2;
-            int i13 = i7 + 1;
-            boolean z = i2 != 0;
-            int printFieldLocked = printFieldLocked(cArr, i3, 'd', i13, false, 0);
-            int printFieldLocked2 = printFieldLocked(cArr, i4, 'h', printFieldLocked, printFieldLocked != i13, z ? 2 : 0);
-            int printFieldLocked3 = printFieldLocked(cArr, i6, 'm', printFieldLocked2, printFieldLocked2 != i13, z ? 2 : 0);
-            int printFieldLocked4 = printFieldLocked(cArr, i5, 's', printFieldLocked3, printFieldLocked3 != i13, z ? 2 : 0);
-            int printFieldLocked5 = printFieldLocked(cArr, i11, 'm', printFieldLocked4, true, (!z || printFieldLocked4 == i13) ? 0 : 3);
+            if (i8 > 0) {
+                c2 = '+';
+            } else {
+                c2 = SignatureImpl.SEP;
+                j2 = -j2;
+            }
+            int i10 = (int) (j2 % 1000);
+            int floor = (int) Math.floor(j2 / 1000);
+            if (floor >= 86400) {
+                i2 = floor / 86400;
+                floor -= 86400 * i2;
+            } else {
+                i2 = 0;
+            }
+            if (floor >= 3600) {
+                i3 = floor / 3600;
+                floor -= i3 * 3600;
+            } else {
+                i3 = 0;
+            }
+            if (floor >= 60) {
+                int i11 = floor / 60;
+                i4 = floor - (i11 * 60);
+                i5 = i11;
+            } else {
+                i4 = floor;
+                i5 = 0;
+            }
+            if (i != 0) {
+                int accumField = accumField(i2, 1, false, 0);
+                int accumField2 = accumField + accumField(i3, 1, accumField > 0, 2);
+                int accumField3 = accumField2 + accumField(i5, 1, accumField2 > 0, 2);
+                int accumField4 = accumField3 + accumField(i4, 1, accumField3 > 0, 2);
+                i6 = 0;
+                for (int accumField5 = accumField4 + accumField(i10, 2, true, accumField4 > 0 ? 3 : 0) + 1; accumField5 < i; accumField5++) {
+                    cArr[i6] = WebvttCueParser.CHAR_SPACE;
+                    i6++;
+                }
+            } else {
+                i6 = 0;
+            }
+            cArr[i6] = c2;
+            int i12 = i6 + 1;
+            boolean z = i != 0;
+            int printFieldLocked = printFieldLocked(cArr, i2, 'd', i12, false, 0);
+            int printFieldLocked2 = printFieldLocked(cArr, i3, 'h', printFieldLocked, printFieldLocked != i12, z ? 2 : 0);
+            int printFieldLocked3 = printFieldLocked(cArr, i5, 'm', printFieldLocked2, printFieldLocked2 != i12, z ? 2 : 0);
+            int printFieldLocked4 = printFieldLocked(cArr, i4, 's', printFieldLocked3, printFieldLocked3 != i12, z ? 2 : 0);
+            int printFieldLocked5 = printFieldLocked(cArr, i10, 'm', printFieldLocked4, true, (!z || printFieldLocked4 == i12) ? 0 : 3);
             cArr[printFieldLocked5] = 's';
             return printFieldLocked5 + 1;
         }
         return invokeCommon.intValue;
     }
 
-    public static String formatForLogging(long j2) {
+    public static String formatForLogging(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j2)) == null) ? j2 <= 0 ? "unknown" : sLoggingFormat.format(new Date(j2)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) ? j <= 0 ? "unknown" : sLoggingFormat.format(new Date(j)) : (String) invokeJ.objValue;
     }
 
-    public static String formatUptime(long j2) {
+    public static String formatUptime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
-            long uptimeMillis = j2 - SystemClock.uptimeMillis();
-            int i2 = (uptimeMillis > 0L ? 1 : (uptimeMillis == 0L ? 0 : -1));
-            if (i2 > 0) {
-                return j2 + " (in " + uptimeMillis + " ms)";
-            } else if (i2 < 0) {
-                return j2 + " (" + (-uptimeMillis) + " ms ago)";
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
+            long uptimeMillis = j - SystemClock.uptimeMillis();
+            int i = (uptimeMillis > 0L ? 1 : (uptimeMillis == 0L ? 0 : -1));
+            if (i > 0) {
+                return j + " (in " + uptimeMillis + " ms)";
+            } else if (i < 0) {
+                return j + " (" + (-uptimeMillis) + " ms ago)";
             } else {
-                return j2 + " (now)";
+                return j + " (now)";
             }
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String logTimeOfDay(long j2) {
+    public static String logTimeOfDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
             Calendar calendar = Calendar.getInstance();
-            if (j2 >= 0) {
-                calendar.setTimeInMillis(j2);
+            if (j >= 0) {
+                calendar.setTimeInMillis(j);
                 return String.format("%tm-%td %tH:%tM:%tS.%tL", calendar, calendar, calendar, calendar, calendar, calendar);
             }
-            return Long.toString(j2);
+            return Long.toString(j);
         }
         return (String) invokeJ.objValue;
     }
 
-    public static int printFieldLocked(char[] cArr, int i2, char c2, int i3, boolean z, int i4) {
+    public static int printFieldLocked(char[] cArr, int i, char c2, int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
-        int i5;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{cArr, Integer.valueOf(i2), Character.valueOf(c2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            if (z || i2 > 0) {
-                if (i2 > 999) {
-                    int i6 = 0;
-                    while (i2 != 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{cArr, Integer.valueOf(i), Character.valueOf(c2), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+            if (z || i > 0) {
+                if (i > 999) {
+                    int i5 = 0;
+                    while (i != 0) {
                         char[] cArr2 = sTmpFormatStr;
-                        if (i6 >= cArr2.length) {
+                        if (i5 >= cArr2.length) {
                             break;
                         }
-                        cArr2[i6] = (char) ((i2 % 10) + 48);
-                        i6++;
-                        i2 /= 10;
+                        cArr2[i5] = (char) ((i % 10) + 48);
+                        i5++;
+                        i /= 10;
                     }
                     while (true) {
-                        i6--;
-                        if (i6 < 0) {
+                        i5--;
+                        if (i5 < 0) {
                             break;
                         }
-                        cArr[i3] = sTmpFormatStr[i6];
-                        i3++;
+                        cArr[i2] = sTmpFormatStr[i5];
+                        i2++;
                     }
                 } else {
-                    if ((!z || i4 < 3) && i2 <= 99) {
-                        i5 = i3;
+                    if ((!z || i3 < 3) && i <= 99) {
+                        i4 = i2;
                     } else {
-                        int i7 = i2 / 100;
-                        cArr[i3] = (char) (i7 + 48);
-                        i5 = i3 + 1;
-                        i2 -= i7 * 100;
+                        int i6 = i / 100;
+                        cArr[i2] = (char) (i6 + 48);
+                        i4 = i2 + 1;
+                        i -= i6 * 100;
                     }
-                    if ((z && i4 >= 2) || i2 > 9 || i3 != i5) {
-                        int i8 = i2 / 10;
-                        cArr[i5] = (char) (i8 + 48);
-                        i5++;
-                        i2 -= i8 * 10;
+                    if ((z && i3 >= 2) || i > 9 || i2 != i4) {
+                        int i7 = i / 10;
+                        cArr[i4] = (char) (i7 + 48);
+                        i4++;
+                        i -= i7 * 10;
                     }
-                    cArr[i5] = (char) (i2 + 48);
-                    i3 = i5 + 1;
+                    cArr[i4] = (char) (i + 48);
+                    i2 = i4 + 1;
                 }
-                cArr[i3] = c2;
-                return i3 + 1;
+                cArr[i2] = c2;
+                return i2 + 1;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static void formatDuration(long j2, PrintWriter printWriter, int i2) {
+    public static void formatDuration(long j, PrintWriter printWriter, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), printWriter, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), printWriter, Integer.valueOf(i)}) == null) {
             synchronized (sFormatSync) {
-                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j2, i2)));
+                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j, i)));
             }
         }
     }
 
-    public static void formatDuration(long j2, PrintWriter printWriter) {
+    public static void formatDuration(long j, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j2, printWriter) == null) {
-            formatDuration(j2, printWriter, 0);
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
+            formatDuration(j, printWriter, 0);
         }
     }
 
-    public static void formatDuration(long j2, long j3, PrintWriter printWriter) {
+    public static void formatDuration(long j, long j2, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), printWriter}) == null) {
-            if (j2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), printWriter}) == null) {
+            if (j == 0) {
                 printWriter.print("--");
             } else {
-                formatDuration(j2 - j3, printWriter, 0);
+                formatDuration(j - j2, printWriter, 0);
             }
         }
     }

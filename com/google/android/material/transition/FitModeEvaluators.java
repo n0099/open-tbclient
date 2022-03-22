@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FitModeEvaluators {
     public static /* synthetic */ Interceptable $ic;
     public static final FitModeEvaluator HEIGHT;
@@ -38,9 +38,9 @@ public class FitModeEvaluators {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -84,9 +84,9 @@ public class FitModeEvaluators {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -130,26 +130,26 @@ public class FitModeEvaluators {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static FitModeEvaluator get(int i2, boolean z, RectF rectF, RectF rectF2) {
+    public static FitModeEvaluator get(int i, boolean z, RectF rectF, RectF rectF2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), rectF, rectF2})) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), rectF, rectF2})) == null) {
+            if (i == 0) {
                 return shouldAutoFitToWidth(z, rectF, rectF2) ? WIDTH : HEIGHT;
-            } else if (i2 != 1) {
-                if (i2 == 2) {
+            } else if (i != 1) {
+                if (i == 2) {
                     return HEIGHT;
                 }
-                throw new IllegalArgumentException("Invalid fit mode: " + i2);
+                throw new IllegalArgumentException("Invalid fit mode: " + i);
             } else {
                 return WIDTH;
             }

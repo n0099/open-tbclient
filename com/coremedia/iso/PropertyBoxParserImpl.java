@@ -20,7 +20,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static String[] EMPTY_STRING_ARRAY;
@@ -54,9 +54,9 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -114,18 +114,18 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                 if (this.param.length > 0) {
                     Class<?>[] clsArr = new Class[this.param.length];
                     Object[] objArr = new Object[this.param.length];
-                    for (int i2 = 0; i2 < this.param.length; i2++) {
-                        if ("userType".equals(this.param[i2])) {
-                            objArr[i2] = bArr;
-                            clsArr[i2] = byte[].class;
-                        } else if ("type".equals(this.param[i2])) {
-                            objArr[i2] = str;
-                            clsArr[i2] = String.class;
-                        } else if ("parent".equals(this.param[i2])) {
-                            objArr[i2] = str2;
-                            clsArr[i2] = String.class;
+                    for (int i = 0; i < this.param.length; i++) {
+                        if ("userType".equals(this.param[i])) {
+                            objArr[i] = bArr;
+                            clsArr[i] = byte[].class;
+                        } else if ("type".equals(this.param[i])) {
+                            objArr[i] = str;
+                            clsArr[i] = String.class;
+                        } else if ("parent".equals(this.param[i])) {
+                            objArr[i] = str2;
+                            clsArr[i] = String.class;
                         } else {
-                            throw new InternalError("No such param: " + this.param[i2]);
+                            throw new InternalError("No such param: " + this.param[i]);
                         }
                     }
                     return (Box) cls.getConstructor(clsArr).newInstance(objArr);
@@ -209,9 +209,9 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {properties};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

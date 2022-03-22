@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SpeedStatsMainTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_STAGE = "activity";
+    public static final String AD_FLAG = "Ad_";
     public static final String AD_SHOW = "adshow";
     public static final String APP_CREATE_FLAG = "AppCreate_";
     public static final String APP_CREATE_STAGE = "appCreate";
@@ -28,9 +29,9 @@ public class SpeedStatsMainTable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

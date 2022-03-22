@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UnitDrawableDecoder implements ResourceDecoder<Drawable, Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class UnitDrawableDecoder implements ResourceDecoder<Drawable, Drawable> 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,9 +45,9 @@ public class UnitDrawableDecoder implements ResourceDecoder<Drawable, Drawable> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     @Nullable
-    public Resource<Drawable> decode(@NonNull Drawable drawable, int i2, int i3, @NonNull Options options) {
+    public Resource<Drawable> decode(@NonNull Drawable drawable, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawable, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? NonOwnedDrawableResource.newInstance(drawable) : (Resource) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawable, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? NonOwnedDrawableResource.newInstance(drawable) : (Resource) invokeCommon.objValue;
     }
 }

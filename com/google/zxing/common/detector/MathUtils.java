@@ -16,9 +16,9 @@ public final class MathUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,22 +49,22 @@ public final class MathUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) {
-            int i2 = 0;
-            for (int i3 : iArr) {
-                i2 += i3;
+            int i = 0;
+            for (int i2 : iArr) {
+                i += i2;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static float distance(int i2, int i3, int i4, int i5) {
+    public static float distance(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
+            int i5 = i - i3;
             int i6 = i2 - i4;
-            int i7 = i3 - i5;
-            return (float) Math.sqrt((i6 * i6) + (i7 * i7));
+            return (float) Math.sqrt((i5 * i5) + (i6 * i6));
         }
         return invokeIIII.floatValue;
     }

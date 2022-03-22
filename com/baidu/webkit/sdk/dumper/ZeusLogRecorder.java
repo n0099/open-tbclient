@@ -28,7 +28,6 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes6.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     public static /* synthetic */ Interceptable $ic = null;
@@ -64,9 +63,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zeusLogRecorder, str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,9 +125,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zeusLogRecorder, process, writer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -162,7 +161,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                             String nextLine = scanner.nextLine();
                             if (this.this$0.isProcessIdInLine(nextLine) && nextLine != null && nextLine.trim().length() != 0) {
                                 this.writer.write(nextLine);
-                                this.writer.write(StringUtils.LF);
+                                this.writer.write("\n");
                             }
                         }
                     }
@@ -202,9 +201,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Thread.UncaughtExceptionHandler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -264,23 +263,23 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                 start.waitFor();
                 watchThread.setOver(true);
                 watchThread.interrupt();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     if (!watchThread.isAlive()) {
                         break;
                     }
                     Thread.sleep(1000L);
-                    int i3 = i2 + 1;
-                    if (i2 > 30) {
-                        Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i3 * 20));
+                    int i2 = i + 1;
+                    if (i > 30) {
+                        Log.e(TAG, "thread over %1$d secs, WatchThread is still alive", Integer.valueOf(i2 * 20));
                         break;
                     }
-                    i2 = i3;
+                    i = i2;
                 }
                 do {
                     if (isProcessIdInLine(str)) {
                         writer.write(str);
-                        writer.write(StringUtils.LF);
+                        writer.write("\n");
                     }
                     str = bufferedReader.readLine();
                 } while (str != null);
@@ -476,9 +475,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -488,16 +487,16 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                 }
 
                 @Override // com.baidu.webkit.sdk.dumper.ZeusLogUploader.OnFinishedListener
-                public void onFinished(String str2, int i2, String str3) {
+                public void onFinished(String str2, int i, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str2, i2, str3) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str2, i, str3) == null) {
                         int decrementAndGet = this.this$0.unUploadFileSize.decrementAndGet();
                         if (decrementAndGet < 0) {
                             Log.e(ZeusLogRecorder.TAG, "upload file over length, file name is %1$s: ", str2);
                             this.this$0.quitUploadLog();
                             return;
                         }
-                        boolean z = i2 == 0;
+                        boolean z = i == 0;
                         String substring = str2.substring(str2.lastIndexOf("/") + 1);
                         Log.i(ZeusLogRecorder.TAG, "upload %1$s %2$s", substring, Boolean.valueOf(z));
                         this.this$0.list.add(new LogRecordBean(this.this$0, substring, z));
@@ -532,9 +531,9 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

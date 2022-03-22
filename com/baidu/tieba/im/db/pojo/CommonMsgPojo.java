@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
-import c.a.r0.s1.s.a;
-import c.a.r0.s1.w.c;
+import c.a.p0.u1.s.a;
+import c.a.p0.u1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -62,9 +62,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -294,17 +294,17 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public void setCreate_time(long j2) {
+    public void setCreate_time(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.create_time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.create_time = j;
         }
     }
 
-    public void setCustomGroupType(int i2) {
+    public void setCustomGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.customGroupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.customGroupType = i;
         }
     }
 
@@ -315,10 +315,10 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public void setFollowStatus(int i2) {
+    public void setFollowStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.followStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.followStatus = i;
         }
     }
 
@@ -329,38 +329,38 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public void setIsFriend(int i2) {
+    public void setIsFriend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.isFriend = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.isFriend = i;
         }
     }
 
-    public void setIs_delete(int i2) {
+    public void setIs_delete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.is_delete = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.is_delete = i;
         }
     }
 
-    public void setMid(long j2) {
+    public void setMid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
-            this.mid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
+            this.mid = j;
         }
     }
 
-    public void setMsg_status(int i2) {
+    public void setMsg_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.msg_status = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.msg_status = i;
         }
     }
 
-    public void setMsg_type(int i2) {
+    public void setMsg_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.msg_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.msg_type = i;
         }
     }
 
@@ -378,17 +378,17 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public void setRead_flag(int i2) {
+    public void setRead_flag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.read_flag = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.read_flag = i;
         }
     }
 
-    public void setRid(long j2) {
+    public void setRid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048617, this, j2) == null) {
-            this.rid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048617, this, j) == null) {
+            this.rid = j;
         }
     }
 
@@ -406,10 +406,10 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         }
     }
 
-    public void setSid(long j2) {
+    public void setSid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
-            this.sid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
+            this.sid = j;
         }
     }
 
@@ -459,33 +459,33 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
     */
     public ChatMessage toChatMessage() {
         InterceptResult invokeV;
+        long j;
         long j2;
         long j3;
-        long j4;
         ChatMessage personalChatMessage;
         UserData userInfo;
         UserData toUserInfo;
         OldUserData oldUserData;
-        long j5;
+        long j4;
         OldUserData oldUserData2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            long j6 = 0;
+            long j5 = 0;
             try {
-                j3 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+                j2 = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
                 try {
                 } catch (Exception e2) {
-                    long j7 = j3;
+                    long j6 = j2;
                     e = e2;
-                    j2 = j7;
+                    j = j6;
                     e.printStackTrace();
-                    j3 = j2;
-                    j4 = 0;
+                    j2 = j;
+                    j3 = 0;
                     if (TextUtils.isEmpty(this.toUid)) {
                     }
                     personalChatMessage.setMsgId(this.mid);
-                    personalChatMessage.setUserId(j3);
-                    personalChatMessage.setToUserId(j4);
+                    personalChatMessage.setUserId(j2);
+                    personalChatMessage.setToUserId(j3);
                     personalChatMessage.setRecordId(this.rid);
                     this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
                     this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
@@ -510,10 +510,10 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                 }
             } catch (Exception e3) {
                 e = e3;
-                j2 = 0;
+                j = 0;
             }
             if (this.toUid != null && this.toUid.length() > 0) {
-                j4 = Long.parseLong(this.toUid);
+                j3 = Long.parseLong(this.toUid);
                 if (TextUtils.isEmpty(this.toUid)) {
                     personalChatMessage = new GroupChatMessage();
                     personalChatMessage.setGroupId(this.gid);
@@ -521,8 +521,8 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                     personalChatMessage = new PersonalChatMessage();
                 }
                 personalChatMessage.setMsgId(this.mid);
-                personalChatMessage.setUserId(j3);
-                personalChatMessage.setToUserId(j4);
+                personalChatMessage.setUserId(j2);
+                personalChatMessage.setToUserId(j3);
                 personalChatMessage.setRecordId(this.rid);
                 this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
                 this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
@@ -540,11 +540,11 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                         oldUserData2.setToUserData(userInfo);
                     }
                     try {
-                        j5 = Long.parseLong(userInfo.getUserId());
+                        j4 = Long.parseLong(userInfo.getUserId());
                     } catch (Exception unused) {
-                        j5 = 0;
+                        j4 = 0;
                     }
-                    personalChatMessage.setUserId(j5);
+                    personalChatMessage.setUserId(j4);
                 }
                 toUserInfo = personalChatMessage.getToUserInfo();
                 if (toUserInfo != null) {
@@ -552,22 +552,22 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                         oldUserData.setToUserData(toUserInfo);
                     }
                     try {
-                        j6 = Long.parseLong(toUserInfo.getUserId());
+                        j5 = Long.parseLong(toUserInfo.getUserId());
                     } catch (Exception unused2) {
                     }
-                    personalChatMessage.setToUserId(j6);
+                    personalChatMessage.setToUserId(j5);
                 }
                 c.n(personalChatMessage);
                 personalChatMessage.setIsFriend(this.isFriend);
                 personalChatMessage.setFollowStatus(this.followStatus);
                 return personalChatMessage;
             }
-            j4 = 0;
+            j3 = 0;
             if (TextUtils.isEmpty(this.toUid)) {
             }
             personalChatMessage.setMsgId(this.mid);
-            personalChatMessage.setUserId(j3);
-            personalChatMessage.setToUserId(j4);
+            personalChatMessage.setUserId(j2);
+            personalChatMessage.setToUserId(j3);
             personalChatMessage.setRecordId(this.rid);
             this.user_info_data = (UserData) OrmObject.objectWithJsonStr(this.user_info, UserData.class);
             this.to_user_info_data = (UserData) OrmObject.objectWithJsonStr(this.to_user_info, UserData.class);
@@ -600,9 +600,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {chatMessage};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -622,9 +622,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f21975i);
+                this.gid = String.valueOf(a.i);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.f21976j);
+                this.gid = String.valueOf(a.j);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

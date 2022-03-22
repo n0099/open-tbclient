@@ -15,32 +15,32 @@ public class GL2JNILib {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static native void close(int i2);
+    public static native void close(int i);
 
     public static native int create();
 
-    public static native int getSTMatrixHandle(int i2);
+    public static native int getSTMatrixHandle(int i);
 
-    public static native void init(int i2, GL2RenderJNIView gL2RenderJNIView);
+    public static native void init(int i, GL2RenderJNIView gL2RenderJNIView);
 
-    public static native void ratio(int i2, int i3);
+    public static native void ratio(int i, int i2);
 
-    public static native void render(int i2);
+    public static native void render(int i);
 
-    public static native void setSurfaceTex(int i2, Surface surface, int i3);
+    public static native void setSurfaceTex(int i, Surface surface, int i2);
 
-    public static native void setviewport(int i2, int i3, int i4);
+    public static native void setviewport(int i, int i2, int i3);
 
-    public static native void stretch(int i2, int i3);
+    public static native void stretch(int i, int i2);
 
-    public static native void transform(int i2, float f2, float f3, float f4, float f5, int i3);
+    public static native void transform(int i, float f2, float f3, float f4, float f5, int i2);
 }

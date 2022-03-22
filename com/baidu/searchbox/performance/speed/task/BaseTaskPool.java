@@ -16,36 +16,36 @@ public abstract class BaseTaskPool {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public List<LaunchTask> getTaskList(int i2, int i3) {
+    public List<LaunchTask> getTaskList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
-                    return onPrivacyPolicyGranted(i3);
+                    return onPrivacyPolicyGranted(i2);
                 }
-                return onAppCreateSecond(i3);
+                return onAppCreateSecond(i2);
             }
-            return onAppCreateFirst(i3);
+            return onAppCreateFirst(i2);
         }
         return (List) invokeII.objValue;
     }
 
-    public abstract List<LaunchTask> onAppCreateFirst(int i2);
+    public abstract List<LaunchTask> onAppCreateFirst(int i);
 
-    public abstract List<LaunchTask> onAppCreateSecond(int i2);
+    public abstract List<LaunchTask> onAppCreateSecond(int i);
 
-    public abstract List<LaunchTask> onPrivacyPolicyGranted(int i2);
+    public abstract List<LaunchTask> onPrivacyPolicyGranted(int i);
 }

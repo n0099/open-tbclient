@@ -7,10 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
-import c.a.r0.y3.m0.a;
+import c.a.p0.a4.m0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
@@ -21,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SkinInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext P;
-    public SkinInfo Q;
-    public a.b R;
+    public TbPageContext v0;
+    public SkinInfo w0;
+    public a.b x0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -38,56 +37,49 @@ public class ThreadSkinView extends TbImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init();
-    }
-
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setVisibility(8);
-        }
+        v();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (skinInfo = this.Q) == null || StringUtils.isNull(skinInfo.url)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (skinInfo = this.w0) == null || StringUtils.isNull(skinInfo.url)) {
             return;
         }
-        a.b bVar = this.R;
+        a.b bVar = this.x0;
         if (bVar != null) {
-            bVar.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.R.d(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-            this.R.e();
+            bVar.delete("action_type");
+            this.x0.d("action_type", "CLICK");
+            this.x0.e();
         }
-        UrlManager.getInstance().dealOneLink(this.P, new String[]{this.Q.url});
+        UrlManager.getInstance().dealOneLink(this.v0, new String[]{this.w0.url});
     }
 
     public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, skinInfo, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-                this.P = tbPageContext;
-                if (this.Q != skinInfo && bVar != null) {
-                    this.R = bVar;
-                    bVar.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                    this.R.d("obj_id", skinInfo.obj_id);
-                    this.R.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.R.d("obj_name", skinInfo.monitor_id);
-                    this.R.d(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-                    this.R.e();
+                this.v0 = tbPageContext;
+                if (this.w0 != skinInfo && bVar != null) {
+                    this.x0 = bVar;
+                    bVar.delete("action_type");
+                    this.x0.d("obj_id", skinInfo.obj_id);
+                    this.x0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.x0.d("obj_name", skinInfo.monitor_id);
+                    this.x0.d("action_type", "VIEW_TRUE");
+                    this.x0.e();
                 }
-                this.Q = skinInfo;
+                this.w0 = skinInfo;
                 int k = n.k(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = k;
@@ -99,14 +91,14 @@ public class ThreadSkinView extends TbImageView {
                         if (e2 > 0 && e3 > 0) {
                             layoutParams.height = (int) (layoutParams.width * (e3 / e2));
                         } else {
-                            layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
+                            layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
                         }
                     }
                 } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
                 }
                 setLayoutParams(layoutParams);
-                startLoad(skinInfo.skin, 10, false);
+                J(skinInfo.skin, 10, false);
                 setOnClickListener(this);
                 setScaleType(ImageView.ScaleType.CENTER_CROP);
                 setVisibility(0);
@@ -116,18 +108,25 @@ public class ThreadSkinView extends TbImageView {
         }
     }
 
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(8);
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadSkinView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ThreadSkinView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -135,7 +134,7 @@ public class ThreadSkinView extends TbImageView {
                 return;
             }
         }
-        init();
+        v();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -147,9 +146,9 @@ public class ThreadSkinView extends TbImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -157,6 +156,6 @@ public class ThreadSkinView extends TbImageView {
                 return;
             }
         }
-        init();
+        v();
     }
 }

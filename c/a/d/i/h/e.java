@@ -21,9 +21,9 @@ public abstract class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,9 +34,9 @@ public abstract class e {
 
     public abstract String a();
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a) {
             return;
         }
         this.a = true;
@@ -44,23 +44,23 @@ public abstract class e {
             return;
         }
         try {
-            new JSONObject().put("version", i2);
+            new JSONObject().put("version", i);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
     }
 
-    public void c(int i2, long j2) {
+    public void c(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             String a = a();
             if (TextUtils.isEmpty(a)) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j2)));
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
             String str = a + "_download";
-            if (i2 == 0) {
+            if (i == 0) {
                 d.c(str, arrayList);
             } else {
                 d.b(str, arrayList);
@@ -68,17 +68,17 @@ public abstract class e {
         }
     }
 
-    public void d(int i2, int i3) {
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             String a = a();
             if (TextUtils.isEmpty(a)) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i3)));
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
             String str = a + "_install";
-            if (i2 == 13) {
+            if (i == 13) {
                 d.c(str, arrayList);
             } else {
                 d.b(str, arrayList);
@@ -86,17 +86,17 @@ public abstract class e {
         }
     }
 
-    public void e(int i2, int i3) {
+    public void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             String a = a();
             if (TextUtils.isEmpty(a)) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i3)));
+            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
             String str = a + "_launch";
-            if (i2 == 14) {
+            if (i == 14) {
                 d.c(str, arrayList);
             } else {
                 d.b(str, arrayList);

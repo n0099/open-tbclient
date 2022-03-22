@@ -3,6 +3,7 @@ package com.squareup.wire;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -30,7 +31,7 @@ public abstract class Message {
     public transient boolean haveCachedSerializedSize;
     public transient UnknownFieldMap unknownFields;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Builder<T extends Message> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +42,9 @@ public abstract class Message {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -78,31 +79,31 @@ public abstract class Message {
             return (UnknownFieldMap) invokeV.objValue;
         }
 
-        public void addFixed32(int i2, int i3) {
+        public void addFixed32(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                ensureUnknownFieldMap().addFixed32(i2, Integer.valueOf(i3));
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                ensureUnknownFieldMap().addFixed32(i, Integer.valueOf(i2));
             }
         }
 
-        public void addFixed64(int i2, long j2) {
+        public void addFixed64(int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j2));
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addFixed64(i, Long.valueOf(j));
             }
         }
 
-        public void addLengthDelimited(int i2, ByteString byteString) {
+        public void addLengthDelimited(int i, ByteString byteString) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, byteString) == null) {
-                ensureUnknownFieldMap().addLengthDelimited(i2, byteString);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, byteString) == null) {
+                ensureUnknownFieldMap().addLengthDelimited(i, byteString);
             }
         }
 
-        public void addVarint(int i2, long j2) {
+        public void addVarint(int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j2));
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                ensureUnknownFieldMap().addVarint(i, Long.valueOf(j));
             }
         }
 
@@ -122,9 +123,9 @@ public abstract class Message {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {message};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -138,7 +139,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Datatype {
         public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
         public static /* synthetic */ Interceptable $ic;
@@ -284,9 +285,9 @@ public abstract class Message {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -311,7 +312,7 @@ public abstract class Message {
             TYPES_BY_NAME.put("sint64", SINT64);
             TYPES_BY_NAME.put("bool", BOOL);
             TYPES_BY_NAME.put("enum", ENUM);
-            TYPES_BY_NAME.put("string", STRING);
+            TYPES_BY_NAME.put(EMABTest.TYPE_STRING, STRING);
             TYPES_BY_NAME.put("bytes", BYTES);
             TYPES_BY_NAME.put("message", MESSAGE);
             TYPES_BY_NAME.put("fixed32", FIXED32);
@@ -322,16 +323,16 @@ public abstract class Message {
             TYPES_BY_NAME.put("double", DOUBLE);
         }
 
-        public Datatype(String str, int i2, int i3) {
+        public Datatype(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -340,7 +341,7 @@ public abstract class Message {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
         public static Datatype of(String str) {
@@ -409,7 +410,7 @@ public abstract class Message {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Label {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ Label[] ENUM$VALUES;
@@ -449,9 +450,9 @@ public abstract class Message {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -468,16 +469,16 @@ public abstract class Message {
             };
         }
 
-        public Label(String str, int i2, int i3) {
+        public Label(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -486,7 +487,7 @@ public abstract class Message {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
         public static Label valueOf(String str) {
@@ -550,9 +551,9 @@ public abstract class Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -583,10 +584,10 @@ public abstract class Message {
         return (List) invokeL.objValue;
     }
 
-    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i2) {
+    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i2)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2)) : (E) ((Enum) invokeLI.objValue);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cls, i)) == null) ? (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i)) : (E) ((Enum) invokeLI.objValue);
     }
 
     public static <T> List<T> immutableCopyOf(List<T> list) {
@@ -712,10 +713,10 @@ public abstract class Message {
         return invokeLL.booleanValue;
     }
 
-    public void writeTo(byte[] bArr, int i2, int i3) {
+    public void writeTo(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            write(WireOutput.newInstance(bArr, i2, i3));
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            write(WireOutput.newInstance(bArr, i, i2));
         }
     }
 }

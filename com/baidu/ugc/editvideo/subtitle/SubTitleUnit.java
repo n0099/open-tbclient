@@ -8,8 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.g;
-import c.a.y0.r.h;
+import c.a.v0.r.g;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,9 +81,9 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -214,8 +214,8 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
             ArrayList arrayList = new ArrayList();
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    SubTitleUnit parseBean = parseBean(jSONArray.optString(i2));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    SubTitleUnit parseBean = parseBean(jSONArray.optString(i));
                     if (parseBean != null) {
                         arrayList.add(parseBean);
                     }
@@ -317,7 +317,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m102clone() throws CloneNotSupportedException {
+    public SubTitleUnit m96clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SubTitleUnit) super.clone() : (SubTitleUnit) invokeV.objValue;
@@ -333,23 +333,23 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
             float f3 = (float) (this.endTime - this.startTime);
             ArrayList arrayList = new ArrayList();
             if (f3 < 1000.0f) {
-                int i2 = this.currentIndex;
-                ofFloat = ValueAnimator.ofFloat(i2, i2 + 0.999999f);
+                int i = this.currentIndex;
+                ofFloat = ValueAnimator.ofFloat(i, i + 0.999999f);
                 ofFloat.setDuration(f3);
                 ofFloat.addUpdateListener(animatorUpdateListener);
                 linearInterpolator = new LinearInterpolator();
             } else {
                 if (this.isPreviousRotated) {
-                    int i3 = this.currentIndex;
-                    ValueAnimator ofFloat2 = ValueAnimator.ofFloat(i3, i3 + 0.3f);
+                    int i2 = this.currentIndex;
+                    ValueAnimator ofFloat2 = ValueAnimator.ofFloat(i2, i2 + 0.3f);
                     ofFloat2.setDuration(10L);
                     ofFloat2.addUpdateListener(animatorUpdateListener);
                     ofFloat2.setInterpolator(new LinearInterpolator());
                     arrayList.add(ofFloat2);
                     f2 = 10.0f;
                 } else {
-                    int i4 = this.currentIndex;
-                    ValueAnimator ofFloat3 = ValueAnimator.ofFloat(i4, i4 + 0.3f);
+                    int i3 = this.currentIndex;
+                    ValueAnimator ofFloat3 = ValueAnimator.ofFloat(i3, i3 + 0.3f);
                     ofFloat3.setDuration(300L);
                     ofFloat3.addUpdateListener(animatorUpdateListener);
                     ofFloat3.setInterpolator(new LinearInterpolator());
@@ -357,21 +357,21 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                     f2 = 300.0f;
                 }
                 float f4 = f3 - f2;
-                int i5 = this.currentIndex;
-                ValueAnimator ofFloat4 = ValueAnimator.ofFloat(i5 + 0.3f, i5 + 0.5f);
+                int i4 = this.currentIndex;
+                ValueAnimator ofFloat4 = ValueAnimator.ofFloat(i4 + 0.3f, i4 + 0.5f);
                 ofFloat4.setDuration(200L);
                 ofFloat4.addUpdateListener(animatorUpdateListener);
                 ofFloat4.setInterpolator(new LinearInterpolator());
                 arrayList.add(ofFloat4);
                 float f5 = f4 - 200.0f;
                 if (this.rotate != 0) {
-                    int i6 = this.currentIndex;
-                    ofFloat = ValueAnimator.ofFloat(i6 + 0.8f, i6 + 0.999999f);
+                    int i5 = this.currentIndex;
+                    ofFloat = ValueAnimator.ofFloat(i5 + 0.8f, i5 + 0.999999f);
                     ofFloat.setDuration(200L);
                     ofFloat.addUpdateListener(animatorUpdateListener);
                     ofFloat.setInterpolator(new LinearInterpolator());
-                    int i7 = this.currentIndex;
-                    ValueAnimator ofFloat5 = ValueAnimator.ofFloat(i7 + 0.5f, i7 + 0.8f);
+                    int i6 = this.currentIndex;
+                    ValueAnimator ofFloat5 = ValueAnimator.ofFloat(i6 + 0.5f, i6 + 0.8f);
                     ofFloat5.setDuration(f5 - 200.0f);
                     ofFloat5.addUpdateListener(animatorUpdateListener);
                     ofFloat5.setInterpolator(new LinearInterpolator());
@@ -381,8 +381,8 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                     animatorSet.playSequentially(arrayList);
                     return animatorSet;
                 }
-                int i8 = this.currentIndex;
-                ofFloat = ValueAnimator.ofFloat(i8 + 0.5f, i8 + 0.999999f);
+                int i7 = this.currentIndex;
+                ofFloat = ValueAnimator.ofFloat(i7 + 0.5f, i7 + 0.999999f);
                 ofFloat.setDuration(f5);
                 ofFloat.addUpdateListener(animatorUpdateListener);
                 linearInterpolator = new LinearInterpolator();

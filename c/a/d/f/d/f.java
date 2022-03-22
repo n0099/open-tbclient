@@ -22,24 +22,24 @@ public class f {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinkedList<g<?>> f2519b;
+        public LinkedList<g<?>> f2074b;
 
-        public a(int i2) {
+        public a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i2;
+            this.a = i;
         }
 
         @Override // c.a.d.f.d.e
@@ -56,8 +56,8 @@ public class f {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f2519b.clear();
-                this.f2519b = null;
+                this.f2074b.clear();
+                this.f2074b = null;
             }
         }
 
@@ -65,7 +65,7 @@ public class f {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f2519b = new LinkedList<>();
+                this.f2074b = new LinkedList<>();
             }
         }
 
@@ -81,23 +81,23 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
-                if (gVar.f2525f < System.currentTimeMillis()) {
+                if (gVar.f2080f < System.currentTimeMillis()) {
                     return gVar.a;
                 }
-                this.f2519b.add(gVar);
+                this.f2074b.add(gVar);
                 String str = null;
-                if (this.f2519b.size() > getMaxSize()) {
-                    long j2 = 0;
-                    int i2 = -1;
-                    for (int i3 = 0; i3 < this.f2519b.size(); i3++) {
-                        g<?> gVar2 = this.f2519b.get(i3);
-                        if (i2 == -1 || gVar2.f2524e < j2) {
+                if (this.f2074b.size() > getMaxSize()) {
+                    long j = 0;
+                    int i = -1;
+                    for (int i2 = 0; i2 < this.f2074b.size(); i2++) {
+                        g<?> gVar2 = this.f2074b.get(i2);
+                        if (i == -1 || gVar2.f2079e < j) {
                             str = gVar2.a;
-                            j2 = gVar2.f2524e;
-                            i2 = i3;
+                            j = gVar2.f2079e;
+                            i = i2;
                         }
                     }
-                    this.f2519b.remove(i2);
+                    this.f2074b.remove(i);
                 }
                 return str;
             }
@@ -112,25 +112,25 @@ public class f {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HashMap<String, Long> f2520b;
+        public HashMap<String, Long> f2075b;
 
-        public b(int i2) {
+        public b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2520b = new HashMap<>();
-            this.a = i2;
+            this.f2075b = new HashMap<>();
+            this.a = i;
         }
 
         @Override // c.a.d.f.d.e
@@ -148,11 +148,11 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar)) == null) {
-                String i2 = i(gVar.a);
+                String i = i(gVar.a);
                 synchronized (this) {
-                    this.f2520b.put(gVar.a, Long.valueOf(gVar.f2524e));
+                    this.f2075b.put(gVar.a, Long.valueOf(gVar.f2079e));
                 }
-                return i2;
+                return i;
             }
             return (String) invokeL.objValue;
         }
@@ -176,7 +176,7 @@ public class f {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gVar)) == null) {
-                if (gVar.f2525f < System.currentTimeMillis()) {
+                if (gVar.f2080f < System.currentTimeMillis()) {
                     return gVar.a;
                 }
                 return d(gVar);
@@ -196,18 +196,18 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
                 String str2 = null;
-                if (!this.f2520b.containsKey(str) && this.f2520b.size() >= this.a) {
+                if (!this.f2075b.containsKey(str) && this.f2075b.size() >= this.a) {
                     synchronized (this) {
-                        long j2 = -1;
-                        for (Map.Entry<String, Long> entry : this.f2520b.entrySet()) {
+                        long j = -1;
+                        for (Map.Entry<String, Long> entry : this.f2075b.entrySet()) {
                             long longValue = entry.getValue().longValue();
-                            if (j2 == -1 || j2 > longValue) {
+                            if (j == -1 || j > longValue) {
                                 str2 = entry.getKey();
-                                j2 = longValue;
+                                j = longValue;
                             }
                         }
                         if (str2 != null) {
-                            this.f2520b.remove(str2);
+                            this.f2075b.remove(str2);
                         }
                     }
                     return str2;
@@ -222,7 +222,7 @@ public class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 synchronized (this) {
-                    this.f2520b.clear();
+                    this.f2075b.clear();
                 }
             }
         }
@@ -238,9 +238,9 @@ public class f {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -268,14 +268,14 @@ public class f {
         }
     }
 
-    public static e a(int i2, boolean z) {
+    public static e a(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (z) {
-                return new b(i2);
+                return new b(i);
             }
-            return new a(i2);
+            return new a(i);
         }
         return (e) invokeCommon.objValue;
     }

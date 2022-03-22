@@ -34,9 +34,9 @@ public class CropAlgo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -47,13 +47,13 @@ public class CropAlgo {
 
     public native byte[] nativeCorpFace(c cVar);
 
-    public native float[] nativeGetFaceBoxList(long j2);
+    public native float[] nativeGetFaceBoxList(long j);
 
-    public native float[] nativeTrackingPoints(long j2);
+    public native float[] nativeTrackingPoints(long j);
 
-    public native long nativeWriteCameraDataToHandel(long j2, byte[] bArr, int i2, int i3, float f2);
+    public native long nativeWriteCameraDataToHandel(long j, byte[] bArr, int i, int i2, float f2);
 
-    public native long nativeWriteFaceDataToHandel(long j2, byte[] bArr);
+    public native long nativeWriteFaceDataToHandel(long j, byte[] bArr);
 
-    public native void nativeWriteTypeToHandle(long j2);
+    public native void nativeWriteTypeToHandle(long j);
 }

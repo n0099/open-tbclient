@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class ANRCollector {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,9 +27,9 @@ public class ANRCollector {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -94,9 +93,9 @@ public class ANRCollector {
                             return sb2;
                         } else if (readLine3.contains("----- pid ") && (readLine = bufferedReader.readLine()) != null && readLine.equals(str2)) {
                             sb.append(readLine3);
-                            sb.append(StringUtils.LF);
+                            sb.append("\n");
                             sb.append(readLine);
-                            sb.append(StringUtils.LF);
+                            sb.append("\n");
                             do {
                                 readLine2 = bufferedReader.readLine();
                                 if (readLine2 == null) {
@@ -108,7 +107,7 @@ public class ANRCollector {
                                     return sb3;
                                 }
                                 sb.append(readLine2);
-                                sb.append(StringUtils.LF);
+                                sb.append("\n");
                             } while (!readLine2.contains("----- end "));
                         }
                     }
@@ -217,7 +216,7 @@ public class ANRCollector {
                                 return sb3;
                             } while (!readLine2.contains("\"main\" prio="));
                             sb.append(readLine2);
-                            sb.append(StringUtils.LF);
+                            sb.append("\n");
                             do {
                                 readLine3 = bufferedReader.readLine();
                                 if (readLine3 == null) {
@@ -229,7 +228,7 @@ public class ANRCollector {
                                     return sb4;
                                 } else if (readLine3.startsWith("  at ")) {
                                     sb.append(readLine3.replace("  at ", ""));
-                                    sb.append(StringUtils.LF);
+                                    sb.append("\n");
                                 }
                             } while (!readLine3.equals(""));
                         }

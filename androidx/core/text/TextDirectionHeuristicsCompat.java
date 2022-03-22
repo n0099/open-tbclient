@@ -54,9 +54,9 @@ public final class TextDirectionHeuristicsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -66,18 +66,18 @@ public final class TextDirectionHeuristicsCompat {
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
-        public int checkRtl(CharSequence charSequence, int i2, int i3) {
+        public int checkRtl(CharSequence charSequence, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, charSequence, i2, i3)) == null) {
-                int i4 = i3 + i2;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, charSequence, i, i2)) == null) {
+                int i3 = i2 + i;
                 boolean z = false;
-                while (i2 < i4) {
-                    int isRtlText = TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i2)));
+                while (i < i3) {
+                    int isRtlText = TextDirectionHeuristicsCompat.isRtlText(Character.getDirectionality(charSequence.charAt(i)));
                     if (isRtlText != 0) {
                         if (isRtlText != 1) {
                             continue;
-                            i2++;
+                            i++;
                         } else if (!this.mLookForRtl) {
                             return 1;
                         }
@@ -85,7 +85,7 @@ public final class TextDirectionHeuristicsCompat {
                         return 0;
                     }
                     z = true;
-                    i2++;
+                    i++;
                 }
                 if (z) {
                     return this.mLookForRtl ? 1 : 0;
@@ -123,9 +123,9 @@ public final class TextDirectionHeuristicsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -133,17 +133,17 @@ public final class TextDirectionHeuristicsCompat {
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicsCompat.TextDirectionAlgorithm
-        public int checkRtl(CharSequence charSequence, int i2, int i3) {
+        public int checkRtl(CharSequence charSequence, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, charSequence, i2, i3)) == null) {
-                int i4 = i3 + i2;
-                int i5 = 2;
-                while (i2 < i4 && i5 == 2) {
-                    i5 = TextDirectionHeuristicsCompat.isRtlTextOrFormat(Character.getDirectionality(charSequence.charAt(i2)));
-                    i2++;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, charSequence, i, i2)) == null) {
+                int i3 = i2 + i;
+                int i4 = 2;
+                while (i < i3 && i4 == 2) {
+                    i4 = TextDirectionHeuristicsCompat.isRtlTextOrFormat(Character.getDirectionality(charSequence.charAt(i)));
+                    i++;
                 }
-                return i5;
+                return i4;
             }
             return invokeLII.intValue;
         }
@@ -151,7 +151,7 @@ public final class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     public interface TextDirectionAlgorithm {
-        int checkRtl(CharSequence charSequence, int i2, int i3);
+        int checkRtl(CharSequence charSequence, int i, int i2);
     }
 
     /* loaded from: classes.dex */
@@ -167,9 +167,9 @@ public final class TextDirectionHeuristicsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {textDirectionAlgorithm};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -178,11 +178,11 @@ public final class TextDirectionHeuristicsCompat {
             this.mAlgorithm = textDirectionAlgorithm;
         }
 
-        private boolean doCheck(CharSequence charSequence, int i2, int i3) {
+        private boolean doCheck(CharSequence charSequence, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, charSequence, i2, i3)) == null) {
-                int checkRtl = this.mAlgorithm.checkRtl(charSequence, i2, i3);
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, charSequence, i, i2)) == null) {
+                int checkRtl = this.mAlgorithm.checkRtl(charSequence, i, i2);
                 if (checkRtl != 0) {
                     if (checkRtl != 1) {
                         return defaultIsRtl();
@@ -197,22 +197,22 @@ public final class TextDirectionHeuristicsCompat {
         public abstract boolean defaultIsRtl();
 
         @Override // androidx.core.text.TextDirectionHeuristicCompat
-        public boolean isRtl(char[] cArr, int i2, int i3) {
+        public boolean isRtl(char[] cArr, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3)) == null) ? isRtl(CharBuffer.wrap(cArr), i2, i3) : invokeLII.booleanValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2)) == null) ? isRtl(CharBuffer.wrap(cArr), i, i2) : invokeLII.booleanValue;
         }
 
         @Override // androidx.core.text.TextDirectionHeuristicCompat
-        public boolean isRtl(CharSequence charSequence, int i2, int i3) {
+        public boolean isRtl(CharSequence charSequence, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3)) == null) {
-                if (charSequence != null && i2 >= 0 && i3 >= 0 && charSequence.length() - i3 >= i2) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2)) == null) {
+                if (charSequence != null && i >= 0 && i2 >= 0 && charSequence.length() - i2 >= i) {
                     if (this.mAlgorithm == null) {
                         return defaultIsRtl();
                     }
-                    return doCheck(charSequence, i2, i3);
+                    return doCheck(charSequence, i, i2);
                 }
                 throw new IllegalArgumentException();
             }
@@ -235,9 +235,9 @@ public final class TextDirectionHeuristicsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {textDirectionAlgorithm, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((TextDirectionAlgorithm) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -284,9 +284,9 @@ public final class TextDirectionHeuristicsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((TextDirectionAlgorithm) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -329,36 +329,36 @@ public final class TextDirectionHeuristicsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int isRtlText(int i2) {
+    public static int isRtlText(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                return (i2 == 1 || i2 == 2) ? 0 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                return (i == 1 || i == 2) ? 0 : 2;
             }
             return 1;
         }
         return invokeI.intValue;
     }
 
-    public static int isRtlTextOrFormat(int i2) {
+    public static int isRtlTextOrFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 == 1 || i2 == 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 0) {
+                if (i == 1 || i == 2) {
                     return 0;
                 }
-                switch (i2) {
+                switch (i) {
                     case 14:
                     case 15:
                         break;

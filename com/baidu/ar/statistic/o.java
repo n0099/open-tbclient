@@ -17,9 +17,9 @@ public class o implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,12 +52,12 @@ public class o implements f {
     }
 
     @Override // com.baidu.ar.statistic.f
-    public void recordAlgoTimeCost(String str, String str2, long j2, int i2) {
+    public void recordAlgoTimeCost(String str, String str2, long j, int i) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (fVar = this.wR) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)}) == null) || (fVar = this.wR) == null) {
             return;
         }
-        fVar.recordAlgoTimeCost(str, str2, j2, i2);
+        fVar.recordAlgoTimeCost(str, str2, j, i);
     }
 }

@@ -41,7 +41,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -86,9 +86,9 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, fileMsg};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (FileMsg) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -110,7 +110,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
 
     private void checkAndAdjustByAverageSpeed() {
         List<WeakReference<AsyncHttpRequest>> taskHttpRequestList;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (taskHttpRequestList = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getTaskHttpRequestList(this.myContext)) == null) {
             return;
@@ -124,17 +124,17 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                     long testConfigurationGetLong = DownPrefUtils.testConfigurationGetLong(this.mContext, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MAX, 10L);
                     long testConfigurationGetLong2 = DownPrefUtils.testConfigurationGetLong(this.mContext, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MIN, 20L) * 1024;
                     if (!firstAvailableDownloadIpInfo.mUrl.equals(multiSrcAsyncHttpRequest.mRequestUrl) && testAverageSpeed != 0) {
-                        long j3 = multiSrcAsyncHttpRequest.mAverageSpeed;
-                        if ((j3 / testAverageSpeed) * 100 < 100 - testConfigurationGetLong && testAverageSpeed - j3 > testConfigurationGetLong2) {
+                        long j2 = multiSrcAsyncHttpRequest.mAverageSpeed;
+                        if ((j2 / testAverageSpeed) * 100 < 100 - testConfigurationGetLong && testAverageSpeed - j2 > testConfigurationGetLong2) {
                             long segEndByPos = this.mProgressInfo.getSegEndByPos(multiSrcAsyncHttpRequest.mCurFilePos);
-                            long j4 = multiSrcAsyncHttpRequest.mAverageSpeed;
-                            if (j4 == 0) {
-                                j2 = 2147483647L;
+                            long j3 = multiSrcAsyncHttpRequest.mAverageSpeed;
+                            if (j3 == 0) {
+                                j = 2147483647L;
                             } else {
-                                long j5 = multiSrcAsyncHttpRequest.mRequestBytes;
-                                j2 = ((segEndByPos - j5) / j4) - ((segEndByPos - j5) / testAverageSpeed);
+                                long j4 = multiSrcAsyncHttpRequest.mRequestBytes;
+                                j = ((segEndByPos - j4) / j3) - ((segEndByPos - j4) / testAverageSpeed);
                             }
-                            if (j2 > 5) {
+                            if (j > 5) {
                                 MultiSrcTaskMsg multiSrcTaskMsg = new MultiSrcTaskMsg();
                                 multiSrcTaskMsg.mTask = this;
                                 multiSrcTaskMsg.request = multiSrcAsyncHttpRequest;
@@ -216,9 +216,9 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onFetchDataRequestListener, Long.valueOf(elapsedRealtime)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -265,9 +265,9 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Long.valueOf(elapsedRealtime), onFetchDataRequestListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -321,7 +321,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                     statisticInfo.sdkVer = com.baidu.down.utils.Constants.SDK_VER;
                                     this.this$0.mDownInfoMode = Integer.parseInt(optJSONObject.optString("mode", "-1"));
                                     statisticInfo.mode = this.this$0.mDownInfoMode;
-                                    int parseInt = Integer.parseInt(optJSONObject.optString("tn", "-1"));
+                                    int parseInt = Integer.parseInt(optJSONObject.optString(MultiSrcBinaryReqTask.DOWNFLOW_TN, "-1"));
                                     if (parseInt > 0) {
                                         this.this$0.mMaxThread = parseInt;
                                     }
@@ -410,20 +410,20 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                         httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
                         httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
                         if (optJSONArray != null && !TextUtils.isEmpty(this.mHost)) {
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                if (Utils.isIpAddress(optJSONArray.getString(i2))) {
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                if (Utils.isIpAddress(optJSONArray.getString(i))) {
                                     HttpDNSInfo httpDNSInfo = new HttpDNSInfo();
-                                    String replace = getReplaceIpUrl().replace(host, optJSONArray.getString(i2));
+                                    String replace = getReplaceIpUrl().replace(host, optJSONArray.getString(i));
                                     httpDNSInfo.mUrl = replace;
                                     if (Utils.isUrlContainsQ(replace)) {
                                         httpDNSInfo.mUrl += "&xcode=" + optString;
                                     } else {
                                         httpDNSInfo.mUrl += "?xcode=" + optString;
                                     }
-                                    httpDNSInfo.mCDNSequence = i2;
-                                    httpDNSInfo.mCNDIp = optJSONArray.getString(i2);
+                                    httpDNSInfo.mCDNSequence = i;
+                                    httpDNSInfo.mCNDIp = optJSONArray.getString(i);
                                     treeSet.add(httpDNSInfo);
-                                    httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i2));
+                                    httpDNSCacheInfo.mIpList.add(optJSONArray.getString(i));
                                 }
                             }
                         }
@@ -450,18 +450,18 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
             if (z) {
                 try {
                     String host = new URL(getReplaceIpUrl()).getHost();
-                    for (int i2 = 0; i2 < httpDNSCacheInfo.mIpList.size(); i2++) {
-                        if (Utils.isIpAddress(httpDNSCacheInfo.mIpList.get(i2))) {
+                    for (int i = 0; i < httpDNSCacheInfo.mIpList.size(); i++) {
+                        if (Utils.isIpAddress(httpDNSCacheInfo.mIpList.get(i))) {
                             HttpDNSInfo httpDNSInfo = new HttpDNSInfo();
-                            String replace = getReplaceIpUrl().replace(host, httpDNSCacheInfo.mIpList.get(i2));
+                            String replace = getReplaceIpUrl().replace(host, httpDNSCacheInfo.mIpList.get(i));
                             httpDNSInfo.mUrl = replace;
                             if (Utils.isUrlContainsQ(replace)) {
                                 httpDNSInfo.mUrl += "&xcode=" + httpDNSCacheInfo.mXCode;
                             } else {
                                 httpDNSInfo.mUrl += "?xcode=" + httpDNSCacheInfo.mXCode;
                             }
-                            httpDNSInfo.mCDNSequence = i2;
-                            httpDNSInfo.mCNDIp = httpDNSCacheInfo.mIpList.get(i2);
+                            httpDNSInfo.mCDNSequence = i;
+                            httpDNSInfo.mCNDIp = httpDNSCacheInfo.mIpList.get(i);
                             treeSet.add(httpDNSInfo);
                         }
                     }
@@ -579,13 +579,13 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             Iterator<HttpDNSInfo> it = this.mPriorityHttpDNSInfoSet.iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
                 HttpDNSInfo next = it.next();
                 if (next.mStatus != 3) {
-                    i2++;
+                    i++;
                 }
-                if (i2 > this.mMaxTestIpCount) {
+                if (i > this.mMaxTestIpCount) {
                     break;
                 } else if (next.mStatus == 0) {
                     if (z) {
@@ -598,8 +598,8 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
             Iterator<HttpDNSInfo> it2 = this.mPriorityHttpDNSInfoSet.iterator();
             while (it2.hasNext()) {
                 HttpDNSInfo next2 = it2.next();
-                int i3 = next2.mStatus;
-                if (i3 == 1 || i3 == 2) {
+                int i2 = next2.mStatus;
+                if (i2 == 1 || i2 == 2) {
                     if (z) {
                         next2.mTestSpeedThread++;
                     }
@@ -668,10 +668,10 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
             if (this.mProgressInfo.getSegmentCount() > 0) {
                 ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
                 for (ProgressInfo.Segment segment : this.mProgressInfo.getSegments()) {
-                    long j2 = segment.current;
-                    long j3 = segment.end;
-                    if (j2 < j3) {
-                        startSegment(j2, j3, 0);
+                    long j = segment.current;
+                    long j2 = segment.end;
+                    if (j < j2) {
+                        startSegment(j, j2, 0);
                         if (netWorkType == ConnectManager.NetWorkType.TYPE_2G) {
                             return;
                         }
@@ -683,11 +683,11 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
         }
     }
 
-    public void notifyTaskStatus(int i2) {
+    public void notifyTaskStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             if (DownPrefUtils.getString(this.mContext, DownPrefUtils.PREF_CONFI_IS_UPLOAD_LOG, "1").equals("1")) {
-                switch (i2) {
+                switch (i) {
                     case 1004:
                     case 1006:
                         if (((MultiSrcBinaryTaskHandler) this.mTaskHandler).isNeedStat()) {
@@ -754,9 +754,9 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -792,8 +792,8 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                 } else {
                                     ((MultiSrcBinaryTaskHandler) this.this$0.mTaskHandler).setNeedMultiSrc(false);
                                 }
-                                for (int i2 = 0; i2 < this.this$0.mOnFetchDataRequestListener.size(); i2++) {
-                                    ((OnFetchDataRequestListener) this.this$0.mOnFetchDataRequestListener.get(i2)).afterRequest(z2, treeSet);
+                                for (int i = 0; i < this.this$0.mOnFetchDataRequestListener.size(); i++) {
+                                    ((OnFetchDataRequestListener) this.this$0.mOnFetchDataRequestListener.get(i)).afterRequest(z2, treeSet);
                                 }
                                 this.this$0.mOnFetchDataRequestListener.clear();
                                 this.this$0.isRetryDownloadInfo = false;
@@ -807,35 +807,35 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
         }
     }
 
-    public void savePriorityDownloadIpConnectTime(String str, long j2) {
+    public void savePriorityDownloadIpConnectTime(String str, long j) {
         TreeSet<HttpDNSInfo> treeSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048590, this, str, j2) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
             return;
         }
         Iterator<HttpDNSInfo> it = this.mPriorityHttpDNSInfoSet.iterator();
         while (it.hasNext()) {
             HttpDNSInfo next = it.next();
             if (str.equals(next.mUrl)) {
-                next.mHttpConnectTime.add(Long.valueOf(j2));
+                next.mHttpConnectTime.add(Long.valueOf(j));
             }
         }
     }
 
-    public void setHttpDNSInfoStatus(String str, int i2) {
+    public void setHttpDNSInfoStatus(String str, int i) {
         TreeSet<HttpDNSInfo> treeSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048591, this, str, i2) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLI(1048591, this, str, i) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
             return;
         }
         Iterator<HttpDNSInfo> it = this.mPriorityHttpDNSInfoSet.iterator();
         while (it.hasNext()) {
             HttpDNSInfo next = it.next();
             if (str.equals(next.mUrl)) {
-                if (i2 == 2 && next.mStatus != 1) {
+                if (i == 2 && next.mStatus != 1) {
                     return;
                 }
-                next.mStatus = i2;
+                next.mStatus = i;
             }
         }
     }
@@ -891,9 +891,9 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;

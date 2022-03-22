@@ -38,9 +38,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -110,10 +110,10 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -145,10 +145,10 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.width = i;
         }
     }
 }

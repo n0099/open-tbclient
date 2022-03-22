@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import c.a.d.f.p.m;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +22,9 @@ public class YYLiveConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,10 +75,10 @@ public class YYLiveConfig {
         }
     }
 
-    public void updateStatusAndCache(int i2) {
+    public void updateStatusAndCache(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.yyIsConvert = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.yyIsConvert = i;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("yy_pay_open", this.yyPayOpen);

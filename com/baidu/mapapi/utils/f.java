@@ -12,25 +12,25 @@ public final class f implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f34349b;
+    public final /* synthetic */ int f26562b;
 
-    public f(Context context, int i2) {
+    public f(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f34349b = i2;
+        this.f26562b = i;
     }
 
     @Override // java.lang.Runnable
@@ -42,7 +42,7 @@ public final class f implements Runnable {
             do {
                 if (System.currentTimeMillis() - currentTimeMillis > 3000) {
                     b.a(this.a);
-                    b.a(this.f34349b, this.a);
+                    b.a(this.f26562b, this.a);
                 }
                 thread = b.v;
             } while (!thread.isInterrupted());

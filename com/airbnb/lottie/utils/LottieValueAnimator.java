@@ -57,14 +57,14 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
     }
 
     @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j2) {
+    public void doFrame(long j) {
         postFrameCallback();
         if (this.composition == null || !isRunning()) {
             return;
         }
         L.beginSection("LottieValueAnimator#doFrame");
-        long j3 = this.lastFrameTimeNs;
-        float frameDurationNs = ((float) (j3 != 0 ? j2 - j3 : 0L)) / getFrameDurationNs();
+        long j2 = this.lastFrameTimeNs;
+        float frameDurationNs = ((float) (j2 != 0 ? j - j2 : 0L)) / getFrameDurationNs();
         float f2 = this.frame;
         if (isReversed()) {
             frameDurationNs = -frameDurationNs;
@@ -73,7 +73,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         this.frame = f3;
         boolean z = !MiscUtils.contains(f3, getMinFrame(), getMaxFrame());
         this.frame = MiscUtils.clamp(this.frame, getMinFrame(), getMaxFrame());
-        this.lastFrameTimeNs = j2;
+        this.lastFrameTimeNs = j;
         notifyUpdate();
         if (z) {
             if (getRepeatCount() != -1 && this.repeatCount >= getRepeatCount()) {
@@ -89,7 +89,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
                 } else {
                     this.frame = isReversed() ? getMaxFrame() : getMinFrame();
                 }
-                this.lastFrameTimeNs = j2;
+                this.lastFrameTimeNs = j;
             }
         }
         verifyFrame();
@@ -262,14 +262,14 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         throw new IllegalArgumentException(String.format("minFrame (%s) must be <= maxFrame (%s)", Float.valueOf(f2), Float.valueOf(f3)));
     }
 
-    public void setMinFrame(int i2) {
-        setMinAndMaxFrames(i2, (int) this.maxFrame);
+    public void setMinFrame(int i) {
+        setMinAndMaxFrames(i, (int) this.maxFrame);
     }
 
     @Override // android.animation.ValueAnimator
-    public void setRepeatMode(int i2) {
-        super.setRepeatMode(i2);
-        if (i2 == 2 || !this.speedReversedForRepeatMode) {
+    public void setRepeatMode(int i) {
+        super.setRepeatMode(i);
+        if (i == 2 || !this.speedReversedForRepeatMode) {
             return;
         }
         this.speedReversedForRepeatMode = false;

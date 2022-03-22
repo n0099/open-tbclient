@@ -11,7 +11,7 @@ import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseConsumer<T> implements Consumer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,16 +33,16 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         this.mIsFinished = false;
     }
 
-    public static boolean isLast(int i2) {
+    public static boolean isLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? (i2 & 1) == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & 1) == 1 : invokeI.booleanValue;
     }
 
-    public static boolean isNotLast(int i2) {
+    public static boolean isNotLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? !isLast(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? !isLast(i) : invokeI.booleanValue;
     }
 
     public static int simpleStatusForIsLast(boolean z) {
@@ -51,28 +51,28 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         return (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) ? z ? 1 : 0 : invokeZ.intValue;
     }
 
-    public static boolean statusHasAnyFlag(int i2, int i3) {
+    public static boolean statusHasAnyFlag(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? (i2 & i3) != 0 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? (i & i2) != 0 : invokeII.booleanValue;
     }
 
-    public static boolean statusHasFlag(int i2, int i3) {
+    public static boolean statusHasFlag(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) ? (i2 & i3) == i3 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) ? (i & i2) == i2 : invokeII.booleanValue;
     }
 
-    public static int turnOffStatusFlag(int i2, int i3) {
+    public static int turnOffStatusFlag(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? i2 & (~i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i & (~i2) : invokeII.intValue;
     }
 
-    public static int turnOnStatusFlag(int i2, int i3) {
+    public static int turnOnStatusFlag(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i2, i3)) == null) ? i2 | i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i, i2)) == null) ? i | i2 : invokeII.intValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.Consumer
@@ -116,16 +116,16 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
     public abstract void onFailureImpl(Throwable th);
 
     @Override // com.facebook.imagepipeline.producers.Consumer
-    public synchronized void onNewResult(@Nullable T t, int i2) {
+    public synchronized void onNewResult(@Nullable T t, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, t, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, t, i) == null) {
             synchronized (this) {
                 if (this.mIsFinished) {
                     return;
                 }
-                this.mIsFinished = isLast(i2);
+                this.mIsFinished = isLast(i);
                 try {
-                    onNewResultImpl(t, i2);
+                    onNewResultImpl(t, i);
                 } catch (Exception e2) {
                     onUnhandledException(e2);
                 }
@@ -133,7 +133,7 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
         }
     }
 
-    public abstract void onNewResultImpl(T t, int i2);
+    public abstract void onNewResultImpl(T t, int i);
 
     @Override // com.facebook.imagepipeline.producers.Consumer
     public synchronized void onProgressUpdate(float f2) {

@@ -23,9 +23,9 @@ public class a implements TakePictureCallback {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,9 +43,9 @@ public class a implements TakePictureCallback {
     }
 
     @Override // com.baidu.ar.arplay.core.renderer.TakePictureCallback
-    public void onPictureTake(boolean z, Bitmap bitmap, long j2) {
+    public void onPictureTake(boolean z, Bitmap bitmap, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), bitmap, Long.valueOf(j2)}) == null) || this.tC == null || TextUtils.isEmpty(this.tB)) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), bitmap, Long.valueOf(j)}) == null) || this.tC == null || TextUtils.isEmpty(this.tB)) {
             return;
         }
         i.d(new File(this.tB));

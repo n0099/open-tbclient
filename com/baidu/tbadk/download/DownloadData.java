@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.v.e;
+import c.a.o0.v.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,9 +68,9 @@ public class DownloadData implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -315,10 +315,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.errorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.errorCode = i;
         }
     }
 
@@ -336,10 +336,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -350,10 +350,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.length = j;
         }
     }
 
@@ -378,10 +378,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setNotifyId(int i2) {
+    public void setNotifyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.notifyId = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.notifyId = i;
         }
     }
 
@@ -392,24 +392,24 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setPosition(int i2) {
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.position = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.position = i;
         }
     }
 
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.size = j;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            this.status = i;
         }
     }
 
@@ -427,10 +427,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -448,10 +448,10 @@ public class DownloadData implements Serializable, Cloneable {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.width = i;
         }
     }
 
@@ -462,9 +462,9 @@ public class DownloadData implements Serializable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -493,9 +493,9 @@ public class DownloadData implements Serializable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -525,9 +525,9 @@ public class DownloadData implements Serializable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, eVar};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

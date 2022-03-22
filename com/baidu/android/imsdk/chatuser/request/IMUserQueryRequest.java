@@ -30,23 +30,23 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     public long mAppid;
     public String mKey;
 
-    public IMUserQueryRequest(Context context, long j2) {
+    public IMUserQueryRequest(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -67,25 +67,25 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
             String str = bArr != null ? new String(bArr) : "";
-            if (th == null && i2 != 1005 && i2 != 1000) {
-                str = "http response is error! response code:" + i2;
-                i2 = 1011;
+            if (th == null && i != 1005 && i != 1000) {
+                str = "http response is error! response code:" + i;
+                i = 1011;
             }
-            ChatUserManagerImpl.getInstance(this.mContext).onQueryResult(i2, str, null, this.mKey);
+            ChatUserManagerImpl.getInstance(this.mContext).onQueryResult(i, str, null, this.mKey);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d("", "IMUserQueryRequest  " + str2);
             LinkedList linkedList = new LinkedList();
@@ -94,11 +94,11 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i3 = jSONObject2.getInt("error_code");
+                    i2 = jSONObject2.getInt("error_code");
                     JSONArray jSONArray2 = jSONObject2.getJSONArray("contacters");
-                    int i4 = 0;
-                    while (i4 < jSONArray2.length()) {
-                        JSONObject jSONObject3 = jSONArray2.getJSONObject(i4);
+                    int i3 = 0;
+                    while (i3 < jSONArray2.length()) {
+                        JSONObject jSONObject3 = jSONArray2.getJSONObject(i3);
                         long optLong = jSONObject3.optLong("contacter");
                         int optInt = jSONObject3.optInt("contacter_type");
                         int optInt2 = jSONObject3.optInt("do_not_disturb");
@@ -118,17 +118,17 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                                 arrayList.add(groupInfo);
                             }
                         }
-                        i4++;
+                        i3++;
                         jSONArray2 = jSONArray;
                     }
                     str = Constants.ERROR_MSG_SUCCESS;
                 } else {
-                    i3 = jSONObject.getInt("error_code");
+                    i2 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMUserQueryRequest", "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
@@ -138,7 +138,7 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                 GroupInfo groupInfo2 = (GroupInfo) it.next();
                 GroupInfoDAOImpl.setGroupDisturb(this.mContext, groupInfo2.getGroupId(), groupInfo2.getDisturb());
             }
-            ChatUserManagerImpl.getInstance(this.mContext).onQueryResult(i3, str, linkedList, this.mKey);
+            ChatUserManagerImpl.getInstance(this.mContext).onQueryResult(i2, str, linkedList, this.mKey);
         }
     }
 
@@ -157,17 +157,17 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public IMUserQueryRequest(Context context, long j2, String str) {
-        this(context, j2);
+    public IMUserQueryRequest(Context context, long j, String str) {
+        this(context, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;

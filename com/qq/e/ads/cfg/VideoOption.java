@@ -8,38 +8,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VideoOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f57514b;
+    public final int f42319b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f57515c;
+    public final boolean f42320c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f57516d;
+    public final boolean f42321d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f57517e;
+    public final boolean f42322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f57518f;
+    public final boolean f42323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f57519g;
+    public final boolean f42324g;
 
     /* renamed from: com.qq.e.ads.cfg.VideoOption$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class AutoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALWAYS = 1;
@@ -52,9 +52,9 @@ public class VideoOption {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,50 +62,50 @@ public class VideoOption {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57520b;
+        public int f42325b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f57521c;
+        public boolean f42326c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f57522d;
+        public boolean f42327d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f57523e;
+        public boolean f42328e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f57524f;
+        public boolean f42329f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f57525g;
+        public boolean f42330g;
 
         public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = true;
-            this.f57520b = 1;
-            this.f57521c = true;
-            this.f57522d = true;
-            this.f57523e = true;
-            this.f57524f = false;
-            this.f57525g = false;
+            this.f42325b = 1;
+            this.f42326c = true;
+            this.f42327d = true;
+            this.f42328e = true;
+            this.f42329f = false;
+            this.f42330g = false;
         }
 
         public VideoOption build() {
@@ -124,15 +124,15 @@ public class VideoOption {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setAutoPlayPolicy(int i2) {
+        public Builder setAutoPlayPolicy(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (i2 < 0 || i2 > 2) {
-                    i2 = 1;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i < 0 || i > 2) {
+                    i = 1;
                     GDTLogger.e("setAutoPlayPolicy 设置失败，值只能为0到2之间的数值, 重置为 : 1");
                 }
-                this.f57520b = i2;
+                this.f42325b = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -142,7 +142,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f57525g = z;
+                this.f42330g = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -152,7 +152,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f57523e = z;
+                this.f42328e = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -162,7 +162,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f57524f = z;
+                this.f42329f = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -172,7 +172,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.f57522d = z;
+                this.f42327d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -182,7 +182,7 @@ public class VideoOption {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.f57521c = z;
+                this.f42326c = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -190,7 +190,7 @@ public class VideoOption {
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class VideoADContainerRender {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEV = 2;
@@ -203,9 +203,9 @@ public class VideoOption {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -214,7 +214,7 @@ public class VideoOption {
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class VideoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO = 1;
@@ -227,9 +227,9 @@ public class VideoOption {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -244,21 +244,21 @@ public class VideoOption {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = builder.a;
-        this.f57514b = builder.f57520b;
-        this.f57515c = builder.f57521c;
-        this.f57516d = builder.f57522d;
-        this.f57517e = builder.f57523e;
-        this.f57518f = builder.f57524f;
-        this.f57519g = builder.f57525g;
+        this.f42319b = builder.f42325b;
+        this.f42320c = builder.f42326c;
+        this.f42321d = builder.f42327d;
+        this.f42322e = builder.f42328e;
+        this.f42323f = builder.f42329f;
+        this.f42324g = builder.f42330g;
     }
 
     public /* synthetic */ VideoOption(Builder builder, AnonymousClass1 anonymousClass1) {
@@ -274,7 +274,7 @@ public class VideoOption {
     public int getAutoPlayPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57514b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42319b : invokeV.intValue;
     }
 
     public JSONObject getOptions() {
@@ -284,8 +284,8 @@ public class VideoOption {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.a));
-                jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f57514b));
-                jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f57519g));
+                jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f42319b));
+                jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f42324g));
             } catch (Exception e2) {
                 GDTLogger.d("Get video options error: " + e2.getMessage());
             }
@@ -297,30 +297,30 @@ public class VideoOption {
     public boolean isDetailPageMuted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57519g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42324g : invokeV.booleanValue;
     }
 
     public boolean isEnableDetailPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57517e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42322e : invokeV.booleanValue;
     }
 
     public boolean isEnableUserControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57518f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42323f : invokeV.booleanValue;
     }
 
     public boolean isNeedCoverImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57516d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42321d : invokeV.booleanValue;
     }
 
     public boolean isNeedProgressBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57515c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42320c : invokeV.booleanValue;
     }
 }

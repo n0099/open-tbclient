@@ -12,19 +12,19 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "DES/ECB/NoPadding";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51761b = "DESede/ECB/NoPadding";
+    public static String f38182b = "DESede/ECB/NoPadding";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51762c = "AES/ECB/NoPadding";
+    public static String f38183c = "AES/ECB/NoPadding";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f51763d;
+    public static final char[] f38184d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class d {
                 return;
             }
         }
-        f51763d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        f38184d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(File file) {
@@ -116,13 +116,13 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             if (bArr != null && (length = bArr.length) > 0) {
                 char[] cArr = new char[length << 1];
-                int i2 = 0;
-                for (int i3 = 0; i3 < length; i3++) {
-                    int i4 = i2 + 1;
-                    char[] cArr2 = f51763d;
-                    cArr[i2] = cArr2[(bArr[i3] >>> 4) & 15];
-                    i2 = i4 + 1;
-                    cArr[i4] = cArr2[bArr[i3] & 15];
+                int i = 0;
+                for (int i2 = 0; i2 < length; i2++) {
+                    int i3 = i + 1;
+                    char[] cArr2 = f38184d;
+                    cArr[i] = cArr2[(bArr[i2] >>> 4) & 15];
+                    i = i3 + 1;
+                    cArr[i3] = cArr2[bArr[i2] & 15];
                 }
                 return new String(cArr);
             }
@@ -138,8 +138,8 @@ public final class d {
             boolean z = false;
             if (str != null) {
                 int length = str.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (!Character.isWhitespace(str.charAt(i2))) {
+                for (int i = 0; i < length; i++) {
+                    if (!Character.isWhitespace(str.charAt(i))) {
                         break;
                     }
                 }

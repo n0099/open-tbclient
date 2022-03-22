@@ -39,16 +39,16 @@ public class CallStackReconstructor {
         }
     }
 
-    public CallStackReconstructor(long j2) {
+    public CallStackReconstructor(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -56,14 +56,14 @@ public class CallStackReconstructor {
         }
         this.mTopLevelCalls = new ArrayList();
         this.mCallStack = new Stack<>();
-        this.mTopLevelCallId = j2;
+        this.mTopLevelCallId = j;
     }
 
-    private void enterMethod(long j2, int i2, int i3) {
+    private void enterMethod(long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            Call.Builder builder = new Call.Builder(j2);
-            builder.setMethodEntryTime(i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            Call.Builder builder = new Call.Builder(j);
+            builder.setMethodEntryTime(i, i2);
             if (this.mCallStack.isEmpty()) {
                 this.mTopLevelCalls.add(builder);
             } else {
@@ -73,32 +73,32 @@ public class CallStackReconstructor {
         }
     }
 
-    private void exitMethod(long j2, int i2, int i3) {
+    private void exitMethod(long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (!this.mCallStack.isEmpty()) {
                 Call.Builder pop = this.mCallStack.pop();
-                if (pop.getMethodId() == j2) {
-                    pop.setMethodExitTime(i2, i3);
+                if (pop.getMethodId() == j) {
+                    pop.setMethodExitTime(i, i2);
                     return;
                 }
-                throw new RuntimeException(String.format("Error during call stack reconstruction. Attempt to exit from method 0x%1$x while in method 0x%2$x", Long.valueOf(pop.getMethodId()), Long.valueOf(j2)));
+                throw new RuntimeException(String.format("Error during call stack reconstruction. Attempt to exit from method 0x%1$x while in method 0x%2$x", Long.valueOf(pop.getMethodId()), Long.valueOf(j)));
             }
-            Call.Builder builder = new Call.Builder(j2);
+            Call.Builder builder = new Call.Builder(j);
             for (Call.Builder builder2 : this.mTopLevelCalls) {
                 builder.addCallee(builder2);
             }
             this.mTopLevelCalls.clear();
             this.mTopLevelCalls.add(builder);
-            builder.setMethodExitTime(i2, i3);
+            builder.setMethodExitTime(i, i2);
+            int i3 = i - 1;
             int i4 = i2 - 1;
-            int i5 = i3 - 1;
             if (builder.getCallees() != null && !builder.getCallees().isEmpty()) {
                 Call.Builder builder3 = builder.getCallees().get(0);
-                i4 = Math.max(builder3.getMethodEntryThreadTime() - 1, 0);
-                i5 = Math.max(builder3.getMethodEntryGlobalTime() - 1, 0);
+                i3 = Math.max(builder3.getMethodEntryThreadTime() - 1, 0);
+                i4 = Math.max(builder3.getMethodEntryGlobalTime() - 1, 0);
             }
-            builder.setMethodEntryTime(i4, i5);
+            builder.setMethodEntryTime(i3, i4);
         }
     }
 
@@ -114,13 +114,13 @@ public class CallStackReconstructor {
         }
     }
 
-    public void addTraceAction(long j2, TraceAction traceAction, int i2, int i3) {
+    public void addTraceAction(long j, TraceAction traceAction, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), traceAction, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), traceAction, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (traceAction == TraceAction.METHOD_ENTER) {
-                enterMethod(j2, i2, i3);
+                enterMethod(j, i, i2);
             } else {
-                exitMethod(j2, i2, i3);
+                exitMethod(j, i, i2);
             }
         }
     }
@@ -135,21 +135,21 @@ public class CallStackReconstructor {
         return (Call) invokeV.objValue;
     }
 
-    private void exitMethod(long j2, int i2, int i3, @Nullable List<Call.Builder> list) {
+    private void exitMethod(long j, int i, int i2, @Nullable List<Call.Builder> list) {
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), list}) == null) {
             if (list == null || list.isEmpty()) {
-                int i6 = i3 + 1;
-                i4 = i2 + 1;
-                i5 = i6;
+                int i5 = i2 + 1;
+                i3 = i + 1;
+                i4 = i5;
             } else {
                 Call.Builder builder = list.get(list.size() - 1);
-                i4 = builder.getMethodExitThreadTime() + 1;
-                i5 = builder.getMethodExitGlobalTime() + 1;
+                i3 = builder.getMethodExitThreadTime() + 1;
+                i4 = builder.getMethodExitGlobalTime() + 1;
             }
-            exitMethod(j2, i4, i5);
+            exitMethod(j, i3, i4);
         }
     }
 }

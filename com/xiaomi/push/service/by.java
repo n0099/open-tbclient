@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class by extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class by extends ContentObserver {
             newInitContext.initArgs = r2;
             Object[] objArr = {xMPushService, handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -36,13 +36,13 @@ public class by extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m619f;
+        boolean m598f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.onChange(z);
-            m619f = this.a.m619f();
-            com.xiaomi.channel.commonutils.logger.b.m133a("ExtremePowerMode:" + m619f);
-            if (!m619f) {
+            m598f = this.a.m598f();
+            com.xiaomi.channel.commonutils.logger.b.m112a("ExtremePowerMode:" + m598f);
+            if (!m598f) {
                 this.a.a(true);
                 return;
             }

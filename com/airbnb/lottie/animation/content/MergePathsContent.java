@@ -58,8 +58,8 @@ public class MergePathsContent implements PathContent, GreedyContent {
     }
 
     private void addPaths() {
-        for (int i2 = 0; i2 < this.pathContents.size(); i2++) {
-            this.path.addPath(this.pathContents.get(i2).getPath());
+        for (int i = 0; i < this.pathContents.size(); i++) {
+            this.path.addPath(this.pathContents.get(i).getPath());
         }
     }
 
@@ -85,8 +85,8 @@ public class MergePathsContent implements PathContent, GreedyContent {
         if (pathContent2 instanceof ContentGroup) {
             ContentGroup contentGroup2 = (ContentGroup) pathContent2;
             List<PathContent> pathList2 = contentGroup2.getPathList();
-            for (int i2 = 0; i2 < pathList2.size(); i2++) {
-                Path path2 = pathList2.get(i2).getPath();
+            for (int i = 0; i < pathList2.size(); i++) {
+                Path path2 = pathList2.get(i).getPath();
                 path2.transform(contentGroup2.getTransformationMatrix());
                 this.firstPath.addPath(path2);
             }
@@ -120,16 +120,16 @@ public class MergePathsContent implements PathContent, GreedyContent {
         if (this.mergePaths.isHidden()) {
             return this.path;
         }
-        int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode[this.mergePaths.getMode().ordinal()];
-        if (i2 == 1) {
+        int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode[this.mergePaths.getMode().ordinal()];
+        if (i == 1) {
             addPaths();
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             opFirstPathWithRest(Path.Op.UNION);
-        } else if (i2 == 3) {
+        } else if (i == 3) {
             opFirstPathWithRest(Path.Op.REVERSE_DIFFERENCE);
-        } else if (i2 == 4) {
+        } else if (i == 4) {
             opFirstPathWithRest(Path.Op.INTERSECT);
-        } else if (i2 == 5) {
+        } else if (i == 5) {
             opFirstPathWithRest(Path.Op.XOR);
         }
         return this.path;
@@ -137,8 +137,8 @@ public class MergePathsContent implements PathContent, GreedyContent {
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < this.pathContents.size(); i2++) {
-            this.pathContents.get(i2).setContents(list, list2);
+        for (int i = 0; i < this.pathContents.size(); i++) {
+            this.pathContents.get(i).setContents(list, list2);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.dns.util;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.dns.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,9 +45,9 @@ public class DnsUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,8 +55,8 @@ public class DnsUtil {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x001e  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -86,7 +87,7 @@ public class DnsUtil {
                 }
             }
             if (DEBUG) {
-                String str = " IPv4Reachable: " + z + ", isIPv6Reachable: " + z2;
+                Log.i(TAG, " IPv4Reachable: " + z + ", isIPv6Reachable: " + z2);
             }
             if (!z && z2) {
                 stackType = 3;

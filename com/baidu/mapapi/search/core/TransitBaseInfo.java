@@ -19,16 +19,16 @@ public class TransitBaseInfo implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34161b;
+    public String f26395b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34162c;
+    public String f26396c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34163d;
+    public String f26397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34164e;
+    public String f26398e;
 
     static {
         InterceptResult invokeClinit;
@@ -51,9 +51,9 @@ public class TransitBaseInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,19 +67,19 @@ public class TransitBaseInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = parcel.readString();
-        this.f34161b = parcel.readString();
-        this.f34162c = parcel.readString();
-        this.f34163d = parcel.readString();
-        this.f34164e = parcel.readString();
+        this.f26395b = parcel.readString();
+        this.f26396c = parcel.readString();
+        this.f26397d = parcel.readString();
+        this.f26398e = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -95,25 +95,25 @@ public class TransitBaseInfo implements Parcelable {
     public String getArriveStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34162c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26396c : (String) invokeV.objValue;
     }
 
     public String getArriveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34164e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26398e : (String) invokeV.objValue;
     }
 
     public String getDepartureStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34161b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26395b : (String) invokeV.objValue;
     }
 
     public String getDepartureTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34163d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26397d : (String) invokeV.objValue;
     }
 
     public String getName() {
@@ -125,28 +125,28 @@ public class TransitBaseInfo implements Parcelable {
     public void setArriveStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f34162c = str;
+            this.f26396c = str;
         }
     }
 
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f34164e = str;
+            this.f26398e = str;
         }
     }
 
     public void setDepartureStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f34161b = str;
+            this.f26395b = str;
         }
     }
 
     public void setDepartureTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f34163d = str;
+            this.f26397d = str;
         }
     }
 
@@ -158,14 +158,14 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f34161b);
-            parcel.writeString(this.f34162c);
-            parcel.writeString(this.f34163d);
-            parcel.writeString(this.f34164e);
+            parcel.writeString(this.f26395b);
+            parcel.writeString(this.f26396c);
+            parcel.writeString(this.f26397d);
+            parcel.writeString(this.f26398e);
         }
     }
 }

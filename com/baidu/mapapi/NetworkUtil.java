@@ -22,9 +22,9 @@ public class NetworkUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,47 +49,47 @@ public class NetworkUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-            int i2 = 1;
+            int i = 1;
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.getType() != 1) {
                     switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                         case 1:
                         case 2:
-                            i2 = 6;
+                            i = 6;
                             break;
                         case 3:
                         case 9:
                         case 10:
                         case 15:
-                            i2 = 9;
+                            i = 9;
                             break;
                         case 4:
-                            i2 = 5;
+                            i = 5;
                             break;
                         case 5:
                         case 6:
                         case 7:
                         case 12:
-                            i2 = 7;
+                            i = 7;
                             break;
                         case 8:
-                            i2 = 8;
+                            i = 8;
                             break;
                         case 11:
-                            i2 = 2;
+                            i = 2;
                             break;
                         case 13:
-                            i2 = 4;
+                            i = 4;
                             break;
                         case 14:
-                            i2 = 10;
+                            i = 10;
                             break;
                     }
                 }
-                return Integer.toString(i2);
+                return Integer.toString(i);
             }
-            i2 = 0;
-            return Integer.toString(i2);
+            i = 0;
+            return Integer.toString(i);
         }
         return (String) invokeL.objValue;
     }
@@ -177,12 +177,12 @@ public class NetworkUtil {
             if (context == null) {
                 return false;
             }
-            int i2 = -1;
+            int i = -1;
             try {
-                i2 = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getWifiState();
+                i = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getWifiState();
             } catch (Exception unused) {
             }
-            return i2 == 3;
+            return i == 3;
         }
         return invokeL.booleanValue;
     }

@@ -24,7 +24,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes.dex */
 public class TableInfo {
@@ -47,16 +46,16 @@ public class TableInfo {
         public final int primaryKeyPosition;
         public final String type;
 
-        public Column(String str, String str2, boolean z, int i2) {
+        public Column(String str, String str2, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {str, str2, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,7 +64,7 @@ public class TableInfo {
             this.name = str;
             this.type = str2;
             this.notNull = z;
-            this.primaryKeyPosition = i2;
+            this.primaryKeyPosition = i;
             this.affinity = findAffinity(str2);
         }
 
@@ -134,7 +133,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Column{name='" + this.name + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", affinity='" + this.affinity + ExtendedMessageFormat.QUOTE + ", notNull=" + this.notNull + ", primaryKeyPosition=" + this.primaryKeyPosition + ExtendedMessageFormat.END_FE;
+                return "Column{name='" + this.name + "', type='" + this.type + "', affinity='" + this.affinity + "', notNull=" + this.notNull + ", primaryKeyPosition=" + this.primaryKeyPosition + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -163,9 +162,9 @@ public class TableInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, list, list2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -207,7 +206,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "ForeignKey{referenceTable='" + this.referenceTable + ExtendedMessageFormat.QUOTE + ", onDelete='" + this.onDelete + ExtendedMessageFormat.QUOTE + ", onUpdate='" + this.onUpdate + ExtendedMessageFormat.QUOTE + ", columnNames=" + this.columnNames + ", referenceColumnNames=" + this.referenceColumnNames + ExtendedMessageFormat.END_FE;
+                return "ForeignKey{referenceTable='" + this.referenceTable + "', onDelete='" + this.onDelete + "', onUpdate='" + this.onUpdate + "', columnNames=" + this.columnNames + ", referenceColumnNames=" + this.referenceColumnNames + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -223,23 +222,23 @@ public class TableInfo {
         public final int mSequence;
         public final String mTo;
 
-        public ForeignKeyWithSequence(int i2, int i3, String str, String str2) {
+        public ForeignKeyWithSequence(int i, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, str2};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mId = i2;
-            this.mSequence = i3;
+            this.mId = i;
+            this.mSequence = i2;
             this.mFrom = str;
             this.mTo = str2;
         }
@@ -250,8 +249,8 @@ public class TableInfo {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, foreignKeyWithSequence)) == null) {
-                int i2 = this.mId - foreignKeyWithSequence.mId;
-                return i2 == 0 ? this.mSequence - foreignKeyWithSequence.mSequence : i2;
+                int i = this.mId - foreignKeyWithSequence.mId;
+                return i == 0 ? this.mSequence - foreignKeyWithSequence.mSequence : i;
             }
             return invokeL.intValue;
         }
@@ -274,9 +273,9 @@ public class TableInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z), list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -322,7 +321,7 @@ public class TableInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "Index{name='" + this.name + ExtendedMessageFormat.QUOTE + ", unique=" + this.unique + ", columns=" + this.columns + ExtendedMessageFormat.END_FE;
+                return "Index{name='" + this.name + "', unique=" + this.unique + ", columns=" + this.columns + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -335,9 +334,9 @@ public class TableInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, map, set, set2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -390,8 +389,8 @@ public class TableInfo {
             int columnIndex4 = cursor.getColumnIndex("to");
             int count = cursor.getCount();
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < count; i2++) {
-                cursor.moveToPosition(i2);
+            for (int i = 0; i < count; i++) {
+                cursor.moveToPosition(i);
                 arrayList.add(new ForeignKeyWithSequence(cursor.getInt(columnIndex), cursor.getInt(columnIndex2), cursor.getString(columnIndex3), cursor.getString(columnIndex4)));
             }
             Collections.sort(arrayList);
@@ -414,14 +413,14 @@ public class TableInfo {
                 int columnIndex5 = query.getColumnIndex("on_update");
                 List<ForeignKeyWithSequence> readForeignKeyFieldMappings = readForeignKeyFieldMappings(query);
                 int count = query.getCount();
-                for (int i2 = 0; i2 < count; i2++) {
-                    query.moveToPosition(i2);
+                for (int i = 0; i < count; i++) {
+                    query.moveToPosition(i);
                     if (query.getInt(columnIndex2) == 0) {
-                        int i3 = query.getInt(columnIndex);
+                        int i2 = query.getInt(columnIndex);
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
                         for (ForeignKeyWithSequence foreignKeyWithSequence : readForeignKeyFieldMappings) {
-                            if (foreignKeyWithSequence.mId == i3) {
+                            if (foreignKeyWithSequence.mId == i2) {
                                 arrayList.add(foreignKeyWithSequence.mFrom);
                                 arrayList2.add(foreignKeyWithSequence.mTo);
                             }
@@ -553,7 +552,7 @@ public class TableInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TableInfo{name='" + this.name + ExtendedMessageFormat.QUOTE + ", columns=" + this.columns + ", foreignKeys=" + this.foreignKeys + ", indices=" + this.indices + ExtendedMessageFormat.END_FE;
+            return "TableInfo{name='" + this.name + "', columns=" + this.columns + ", foreignKeys=" + this.foreignKeys + ", indices=" + this.indices + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -567,9 +566,9 @@ public class TableInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, map, set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Map) objArr2[1], (Set) objArr2[2], (Set) objArr2[3]);
                 newInitContext.thisArg = this;

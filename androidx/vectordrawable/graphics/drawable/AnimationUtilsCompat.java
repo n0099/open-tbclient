@@ -40,9 +40,9 @@ public class AnimationUtilsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -101,37 +101,37 @@ public class AnimationUtilsCompat {
         }
     }
 
-    public static Interpolator loadInterpolator(Context context, int i2) throws Resources.NotFoundException {
+    public static Interpolator loadInterpolator(Context context, int i) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return AnimationUtils.loadInterpolator(context, i2);
+                return AnimationUtils.loadInterpolator(context, i);
             }
             XmlResourceParser xmlResourceParser = null;
             try {
                 try {
-                    if (i2 == 17563663) {
+                    if (i == 17563663) {
                         return new FastOutLinearInInterpolator();
                     }
-                    if (i2 == 17563661) {
+                    if (i == 17563661) {
                         return new FastOutSlowInInterpolator();
                     }
-                    if (i2 == 17563662) {
+                    if (i == 17563662) {
                         return new LinearOutSlowInInterpolator();
                     }
-                    XmlResourceParser animation = context.getResources().getAnimation(i2);
+                    XmlResourceParser animation = context.getResources().getAnimation(i);
                     Interpolator createInterpolatorFromXml = createInterpolatorFromXml(context, context.getResources(), context.getTheme(), animation);
                     if (animation != null) {
                         animation.close();
                     }
                     return createInterpolatorFromXml;
                 } catch (IOException e2) {
-                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
+                    Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
                     notFoundException.initCause(e2);
                     throw notFoundException;
                 } catch (XmlPullParserException e3) {
-                    Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i2));
+                    Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
                     notFoundException2.initCause(e3);
                     throw notFoundException2;
                 }

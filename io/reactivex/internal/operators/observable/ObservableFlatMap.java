@@ -49,22 +49,22 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         public final MergeObserver<T, U> parent;
         public volatile SimpleQueue<U> queue;
 
-        public InnerObserver(MergeObserver<T, U> mergeObserver, long j2) {
+        public InnerObserver(MergeObserver<T, U> mergeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mergeObserver, Long.valueOf(j2)};
+                Object[] objArr = {mergeObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.id = j2;
+            this.id = j;
             this.parent = mergeObserver;
         }
 
@@ -173,16 +173,16 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             CANCELLED = new InnerObserver[0];
         }
 
-        public MergeObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i2, int i3) {
+        public MergeObserver(Observer<? super U> observer, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {observer, function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -192,10 +192,10 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             this.actual = observer;
             this.mapper = function;
             this.delayErrors = z;
-            this.maxConcurrency = i2;
-            this.bufferSize = i3;
-            if (i2 != Integer.MAX_VALUE) {
-                this.sources = new ArrayDeque(i2);
+            this.maxConcurrency = i;
+            this.bufferSize = i2;
+            if (i != Integer.MAX_VALUE) {
+                this.sources = new ArrayDeque(i);
             }
             this.observers = new AtomicReference<>(EMPTY);
         }
@@ -292,11 +292,11 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void drainLoop() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 Observer<? super U> observer = this.actual;
-                int i3 = 1;
+                int i2 = 1;
                 while (!checkTerminate()) {
                     SimplePlainQueue<U> simplePlainQueue = this.queue;
                     if (simplePlainQueue != null) {
@@ -316,12 +316,12 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     boolean z2 = false;
                     if (this.maxConcurrency != Integer.MAX_VALUE) {
                         synchronized (this) {
-                            i2 = this.sources.size();
+                            i = this.sources.size();
                         }
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
-                    if (z && ((simplePlainQueue2 == null || simplePlainQueue2.isEmpty()) && length == 0 && i2 == 0)) {
+                    if (z && ((simplePlainQueue2 == null || simplePlainQueue2.isEmpty()) && length == 0 && i == 0)) {
                         Throwable terminate = this.errors.terminate();
                         if (terminate != ExceptionHelper.TERMINATED) {
                             if (terminate == null) {
@@ -335,28 +335,28 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                         return;
                     }
                     if (length != 0) {
-                        long j2 = this.lastId;
-                        int i4 = this.lastIndex;
-                        if (length <= i4 || innerObserverArr[i4].id != j2) {
-                            if (length <= i4) {
-                                i4 = 0;
+                        long j = this.lastId;
+                        int i3 = this.lastIndex;
+                        if (length <= i3 || innerObserverArr[i3].id != j) {
+                            if (length <= i3) {
+                                i3 = 0;
                             }
-                            for (int i5 = 0; i5 < length && innerObserverArr[i4].id != j2; i5++) {
-                                i4++;
-                                if (i4 == length) {
-                                    i4 = 0;
+                            for (int i4 = 0; i4 < length && innerObserverArr[i3].id != j; i4++) {
+                                i3++;
+                                if (i3 == length) {
+                                    i3 = 0;
                                 }
                             }
-                            this.lastIndex = i4;
-                            this.lastId = innerObserverArr[i4].id;
+                            this.lastIndex = i3;
+                            this.lastId = innerObserverArr[i3].id;
                         }
-                        int i6 = 0;
+                        int i5 = 0;
                         boolean z3 = false;
-                        while (i6 < length) {
+                        while (i5 < length) {
                             if (checkTerminate()) {
                                 return;
                             }
-                            InnerObserver<T, U> innerObserver = innerObserverArr[i4];
+                            InnerObserver<T, U> innerObserver = innerObserverArr[i3];
                             while (!checkTerminate()) {
                                 SimpleQueue<U> simpleQueue = innerObserver.queue;
                                 if (simpleQueue != null) {
@@ -378,7 +378,7 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                                                 return;
                                             }
                                             removeInner(innerObserver);
-                                            i6++;
+                                            i5++;
                                             z3 = true;
                                         }
                                     }
@@ -392,16 +392,16 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                                     }
                                     z3 = true;
                                 }
-                                i4++;
-                                if (i4 == length) {
-                                    i4 = 0;
+                                i3++;
+                                if (i3 == length) {
+                                    i3 = 0;
                                 }
-                                i6++;
+                                i5++;
                             }
                             return;
                         }
-                        this.lastIndex = i4;
-                        this.lastId = innerObserverArr[i4].id;
+                        this.lastIndex = i3;
+                        this.lastId = innerObserverArr[i3].id;
                         z2 = z3;
                     }
                     if (z2) {
@@ -418,8 +418,8 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                             continue;
                         }
                     } else {
-                        i3 = addAndGet(-i3);
-                        if (i3 == 0) {
+                        i2 = addAndGet(-i2);
+                        if (i2 == 0) {
                             return;
                         }
                     }
@@ -504,27 +504,27 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (innerObserverArr[i3] == innerObserver) {
-                            i2 = i3;
+                        } else if (innerObserverArr[i2] == innerObserver) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         innerObserverArr2 = EMPTY;
                     } else {
                         InnerObserver<?, ?>[] innerObserverArr3 = new InnerObserver[length - 1];
-                        System.arraycopy(innerObserverArr, 0, innerObserverArr3, 0, i2);
-                        System.arraycopy(innerObserverArr, i2 + 1, innerObserverArr3, i2, (length - i2) - 1);
+                        System.arraycopy(innerObserverArr, 0, innerObserverArr3, 0, i);
+                        System.arraycopy(innerObserverArr, i + 1, innerObserverArr3, i, (length - i) - 1);
                         innerObserverArr2 = innerObserverArr3;
                     }
                 } while (!this.observers.compareAndSet(innerObserverArr, innerObserverArr2));
@@ -553,9 +553,9 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
                     }
                     observableSource = poll;
                 }
-                long j2 = this.uniqueId;
-                this.uniqueId = 1 + j2;
-                InnerObserver<T, U> innerObserver = new InnerObserver<>(this, j2);
+                long j = this.uniqueId;
+                this.uniqueId = 1 + j;
+                InnerObserver<T, U> innerObserver = new InnerObserver<>(this, j);
                 if (addInner(innerObserver)) {
                     observableSource.subscribe(innerObserver);
                 }
@@ -630,17 +630,17 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableFlatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i2, int i3) {
+    public ObservableFlatMap(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends U>> function, boolean z, int i, int i2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, function, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {observableSource, function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -649,8 +649,8 @@ public final class ObservableFlatMap<T, U> extends AbstractObservableWithUpstrea
         }
         this.mapper = function;
         this.delayErrors = z;
-        this.maxConcurrency = i2;
-        this.bufferSize = i3;
+        this.maxConcurrency = i;
+        this.bufferSize = i2;
     }
 
     @Override // io.reactivex.Observable

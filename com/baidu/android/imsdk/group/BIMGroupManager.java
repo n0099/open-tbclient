@@ -32,9 +32,9 @@ public class BIMGroupManager extends BaseManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,16 +49,16 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context).addGroupMembers(str, arrayList, bIMValueCallBack);
     }
 
-    public static void clearStarGroup(Context context, long j2) {
+    public static void clearStarGroup(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65538, null, context, j2) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeLJ(65538, null, context, j) == null) || BaseManager.isNullContext(context)) {
             return;
         }
         try {
-            String valueOf = String.valueOf(j2);
+            String valueOf = String.valueOf(j);
             String str = BaseManager.TAG;
-            LogUtils.d(str, "clearStarGroup quitgroup " + j2);
-            DialogRecordDBManager.getInstance(context).delete(1, j2);
+            LogUtils.d(str, "clearStarGroup quitgroup " + j);
+            DialogRecordDBManager.getInstance(context).delete(1, j);
             ConversationManagerImpl.getInstance(context).deleteConversation(1, valueOf);
             GroupInfoDAOImpl.quitGroup(context, valueOf);
         } catch (Exception e2) {
@@ -67,12 +67,12 @@ public class BIMGroupManager extends BaseManager {
         }
     }
 
-    public static void createGroup(Context context, int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
+    public static void createGroup(Context context, int i, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i2), str, arrayList, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i), str, arrayList, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).createGroup(i2, str, arrayList, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).createGroup(i, str, arrayList, bIMValueCallBack);
     }
 
     public static void delFansGroupMember(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
@@ -201,14 +201,14 @@ public class BIMGroupManager extends BaseManager {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, context, str)) == null) ? GroupMessageDAOImpl.getUnReadCount(context, str) : invokeLL.intValue;
     }
 
-    public static String getNickName(Context context, String str, long j2) {
+    public static String getNickName(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             if (BaseManager.isNullContext(context)) {
                 return null;
             }
-            return GroupManagerImpl.getInstance(context).getNickName(str, String.valueOf(j2));
+            return GroupManagerImpl.getInstance(context).getNickName(str, String.valueOf(j));
         }
         return (String) invokeCommon.objValue;
     }
@@ -238,20 +238,20 @@ public class BIMGroupManager extends BaseManager {
         }
     }
 
-    public static void joinFansGroup(Context context, String str, String str2, int i2, BIMValueCallBack<String> bIMValueCallBack) {
+    public static void joinFansGroup(Context context, String str, String str2, int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, str, str2, Integer.valueOf(i2), bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{context, str, str2, Integer.valueOf(i), bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, null, true, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i, null, true, bIMValueCallBack);
     }
 
-    public static void joinGroup(Context context, String str, String str2, int i2, String str3, BIMValueCallBack<String> bIMValueCallBack) {
+    public static void joinGroup(Context context, String str, String str2, int i, String str3, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, str, str2, Integer.valueOf(i2), str3, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65565, null, new Object[]{context, str, str2, Integer.valueOf(i), str3, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, str3, false, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i, str3, false, bIMValueCallBack);
     }
 
     public static void joinStarGroup(Context context, String str, BIMValueCallBack<String> bIMValueCallBack) {
@@ -300,12 +300,12 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context).setNickName(str, Utility.getLongByString(AccountManager.getUid(context), 0L), str2, true, bIMValueCallBack);
     }
 
-    public static void setNickName(Context context, String str, long j2, String str2, BIMValueCallBack<String> bIMValueCallBack) {
+    public static void setNickName(Context context, String str, long j, String str2, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65572, null, new Object[]{context, str, Long.valueOf(j2), str2, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65572, null, new Object[]{context, str, Long.valueOf(j), str2, bIMValueCallBack}) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).setNickName(str, j2, str2, false, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).setNickName(str, j, str2, false, bIMValueCallBack);
     }
 
     public static void updateGroupName(Context context, String str, String str2, BIMValueCallBack<String> bIMValueCallBack) {
@@ -315,12 +315,12 @@ public class BIMGroupManager extends BaseManager {
         }
     }
 
-    public static void getGroupList(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i2, int i3) {
+    public static void getGroupList(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65555, null, context, bIMValueCallBack, i2, i3) == null) || BaseManager.isNullContext(context)) {
+        if (!(interceptable == null || interceptable.invokeLLII(65555, null, context, bIMValueCallBack, i, i2) == null) || BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).getGroupList(bIMValueCallBack, i2, i3);
+        GroupManagerImpl.getInstance(context).getGroupList(bIMValueCallBack, i, i2);
     }
 
     public static ArrayList<GroupMember> getNickName(Context context, String str) {
@@ -335,15 +335,15 @@ public class BIMGroupManager extends BaseManager {
         return (ArrayList) invokeLL.objValue;
     }
 
-    public static ArrayList<GroupMember> getGroupMember(Context context, String str, int i2) {
+    public static ArrayList<GroupMember> getGroupMember(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65556, null, context, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65556, null, context, str, i)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return null;
             }
-            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(context, str, null, i2);
-            if (i2 == 0 || groupMember == null || (groupMember != null && groupMember.size() > 0)) {
+            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(context, str, null, i);
+            if (i == 0 || groupMember == null || (groupMember != null && groupMember.size() > 0)) {
                 GroupManagerImpl.getInstance(context).getGroupMember(1, str, null, null);
             }
             return groupMember;

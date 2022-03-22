@@ -15,9 +15,9 @@ public class u1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,8 +29,8 @@ public class u1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             byte[] a = k1.a(str, 2);
-            for (int i2 = 0; i2 < a.length; i2++) {
-                a[i2] = (byte) (a[i2] ^ 163);
+            for (int i = 0; i < a.length; i++) {
+                a[i] = (byte) (a[i] ^ 163);
             }
             return new String(a);
         }

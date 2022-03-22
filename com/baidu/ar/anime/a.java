@@ -23,11 +23,11 @@ public class a extends j {
     public int cj;
     public int ck;
     public boolean cl;
-    public InterfaceC1743a cm;
+    public InterfaceC1704a cm;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1743a {
+    public interface InterfaceC1704a {
         void b(FramePixels framePixels);
     }
 
@@ -51,9 +51,9 @@ public class a extends j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,10 +69,10 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC1743a interfaceC1743a) {
+    public void a(InterfaceC1704a interfaceC1704a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1743a) == null) {
-            this.cm = interfaceC1743a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC1704a) == null) {
+            this.cm = interfaceC1704a;
         }
     }
 
@@ -119,9 +119,9 @@ public class a extends j {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, framePixels)) == null) {
             if (this.cl) {
                 this.cl = false;
-                InterfaceC1743a interfaceC1743a = this.cm;
-                if (interfaceC1743a != null) {
-                    interfaceC1743a.b(framePixels);
+                InterfaceC1704a interfaceC1704a = this.cm;
+                if (interfaceC1704a != null) {
+                    interfaceC1704a.b(framePixels);
                     return true;
                 }
                 return true;

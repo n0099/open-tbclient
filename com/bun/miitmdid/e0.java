@@ -1,5 +1,6 @@
 package com.bun.miitmdid;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f51517b;
+    public static boolean f37965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f51518c;
+    public static boolean f37966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f51519d;
+    public static boolean f37967d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +44,9 @@ public class e0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,8 +55,8 @@ public class e0 {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f51518c) {
-            String.format("[%s] %s", str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && f37966c) {
+            Log.d("OAIDSDK", String.format("[%s] %s", str, str2));
         }
     }
 
@@ -63,9 +64,9 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             synchronized (e0.class) {
-                f51519d = z;
-                f51518c = z;
-                f51517b = z;
+                f37967d = z;
+                f37966c = z;
+                f37965b = z;
                 a = z;
             }
         }
@@ -73,22 +74,22 @@ public class e0 {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f51519d) {
-            String.format("[%s] %s", str, str2);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && f37967d) {
+            Log.e("OAIDSDK", String.format("[%s] %s", str, str2));
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
-            String.format("[%s] %s", str, str2);
+            Log.i("OAIDSDK", String.format("[%s] %s", str, str2));
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f51517b) {
-            String.format("[%s] %s", str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && f37965b) {
+            Log.w("OAIDSDK", String.format("[%s] %s", str, str2));
         }
     }
 }

@@ -23,56 +23,52 @@ import tbclient.GetIconList.Custom;
 public class BuyTBeanGiftBagView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<c.a.p0.b4.e.a> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public LinkedList<c.a.r0.z3.e.a> f46855e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f46856f;
+    /* renamed from: b  reason: collision with root package name */
+    public b f36225b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.p0.b4.e.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.z3.e.a f46857e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BuyTBeanGiftBagView f36226b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BuyTBeanGiftBagView f46858f;
-
-        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, c.a.r0.z3.e.a aVar) {
+        public a(BuyTBeanGiftBagView buyTBeanGiftBagView, c.a.p0.b4.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {buyTBeanGiftBagView, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46858f = buyTBeanGiftBagView;
-            this.f46857e = aVar;
+            this.f36226b = buyTBeanGiftBagView;
+            this.a = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46858f.f46856f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f36226b.f36225b == null) {
                 return;
             }
-            this.f46858f.f46856f.a(this.f46857e);
+            this.f36226b.f36225b.a(this.a);
         }
     }
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(c.a.r0.z3.e.a aVar);
+        void a(c.a.p0.b4.e.a aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,20 +80,20 @@ public class BuyTBeanGiftBagView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46855e = new LinkedList<>();
+        this.a = new LinkedList<>();
         c();
     }
 
-    public final void b(c.a.r0.z3.e.a aVar) {
+    public final void b(c.a.p0.b4.e.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
@@ -109,9 +105,9 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.tbds182));
         layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
         addView(tbImageView, layoutParams);
-        Custom custom = aVar.f25819e;
+        Custom custom = aVar.a;
         if (custom != null && !StringUtils.isNull(custom.package_pic)) {
-            tbImageView.startLoad(aVar.f25819e.package_pic, 10, false);
+            tbImageView.J(aVar.a.package_pic, 10, false);
         }
         tbImageView.setOnClickListener(new a(this, aVar));
     }
@@ -123,15 +119,15 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         }
     }
 
-    public void onBindData(List<c.a.r0.z3.e.a> list) {
+    public void d(List<c.a.p0.b4.e.a> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f46855e.clear();
-        this.f46855e.addAll(list);
+        this.a.clear();
+        this.a.addAll(list);
         removeAllViews();
-        Iterator<c.a.r0.z3.e.a> it = this.f46855e.iterator();
+        Iterator<c.a.p0.b4.e.a> it = this.a.iterator();
         while (it.hasNext()) {
             b(it.next());
         }
@@ -140,7 +136,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
     public void setClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f46856f = bVar;
+            this.f36225b = bVar;
         }
     }
 
@@ -153,9 +149,9 @@ public class BuyTBeanGiftBagView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -163,22 +159,22 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 return;
             }
         }
-        this.f46855e = new LinkedList<>();
+        this.a = new LinkedList<>();
         c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -186,7 +182,7 @@ public class BuyTBeanGiftBagView extends LinearLayout {
                 return;
             }
         }
-        this.f46855e = new LinkedList<>();
+        this.a = new LinkedList<>();
         c();
     }
 }

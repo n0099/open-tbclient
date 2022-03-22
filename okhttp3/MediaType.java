@@ -13,7 +13,8 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+import kotlin.text.Typography;
+/* loaded from: classes8.dex */
 public final class MediaType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;
@@ -51,9 +52,9 @@ public final class MediaType {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -89,17 +90,17 @@ public final class MediaType {
                                 group2 = matcher2.group(3);
                             }
                             if (str2 != null && !group2.equalsIgnoreCase(str2)) {
-                                throw new IllegalArgumentException("Multiple charsets defined: \"" + str2 + "\" and: \"" + group2 + "\" for: \"" + str + '\"');
+                                throw new IllegalArgumentException("Multiple charsets defined: \"" + str2 + "\" and: \"" + group2 + "\" for: \"" + str + Typography.quote);
                             }
                             str2 = group2;
                         }
                     } else {
-                        throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(end) + "\" for: \"" + str + '\"');
+                        throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(end) + "\" for: \"" + str + Typography.quote);
                     }
                 }
                 return new MediaType(str, lowerCase, lowerCase2, str2);
             }
-            throw new IllegalArgumentException("No subtype found for: \"" + str + '\"');
+            throw new IllegalArgumentException("No subtype found for: \"" + str + Typography.quote);
         }
         return (MediaType) invokeL.objValue;
     }

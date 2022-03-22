@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.BaseSystemDialogFragment;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class e extends BaseSystemDialogFragment {
     public abstract View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, Bundle bundle);
 

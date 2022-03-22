@@ -9,7 +9,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public abstract class s {
             if (capacity < 22) {
                 return -1;
             }
-            int i2 = capacity - 22;
-            int min = Math.min(i2, 65535);
-            for (int i3 = 0; i3 <= min; i3++) {
-                int i4 = i2 - i3;
-                if (byteBuffer.getInt(i4) == 101010256 && (byteBuffer.getShort(i4 + 20) & UShort.MAX_VALUE) == i3) {
-                    return i4;
+            int i = capacity - 22;
+            int min = Math.min(i, 65535);
+            for (int i2 = 0; i2 <= min; i2++) {
+                int i3 = i - i2;
+                if (byteBuffer.getInt(i3) == 101010256 && (byteBuffer.getShort(i3 + 20) & UShort.MAX_VALUE) == i2) {
+                    return i3;
                 }
             }
             return -1;
@@ -66,16 +66,16 @@ public abstract class s {
         return invokeL.intValue;
     }
 
-    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i2) {
+    public static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, randomAccessFile, i2)) == null) {
-            if (i2 >= 0 && i2 <= 65535) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, randomAccessFile, i)) == null) {
+            if (i >= 0 && i <= 65535) {
                 long length = randomAccessFile.length();
                 if (length < 22) {
                     return null;
                 }
-                ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i2, length - 22)) + 22);
+                ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 long capacity = length - allocate.capacity();
                 randomAccessFile.seek(capacity);
@@ -89,20 +89,20 @@ public abstract class s {
                 slice.order(ByteOrder.LITTLE_ENDIAN);
                 return Pair.create(slice, Long.valueOf(capacity + d2));
             }
-            throw new IllegalArgumentException("maxCommentSize: ".concat(String.valueOf(i2)));
+            throw new IllegalArgumentException("maxCommentSize: ".concat(String.valueOf(i)));
         }
         return (Pair) invokeLI.objValue;
     }
 
-    public static final boolean a(RandomAccessFile randomAccessFile, long j2) {
+    public static final boolean a(RandomAccessFile randomAccessFile, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j2)) == null) {
-            long j3 = j2 - 20;
-            if (j3 < 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j)) == null) {
+            long j2 = j - 20;
+            if (j2 < 0) {
                 return false;
             }
-            randomAccessFile.seek(j3);
+            randomAccessFile.seek(j2);
             return randomAccessFile.readInt() == 1347094023;
         }
         return invokeLJ.booleanValue;
@@ -118,9 +118,9 @@ public abstract class s {
         return invokeL.longValue;
     }
 
-    public static long a(ByteBuffer byteBuffer, int i2) {
+    public static long a(ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i2)) == null) ? byteBuffer.getInt(i2) & 4294967295L : invokeLI.longValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
     }
 }

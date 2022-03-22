@@ -53,16 +53,16 @@ public final class NetRequestStatusCode {
         $VALUES = new NetRequestStatusCode[]{NO_ERROR, URL_ERROR, METHOD_ERROR, DATA_TYPE_ERROR, RESPONSE_TYPE_ERROR, HEADER_CLASS_TYPE_ERROR, HEADER_OBJECT_EMPTY_ERROR, DATA_ERROR, CALLBACK_ERROR, ENVIRONMENT_INVALID, netRequestStatusCode};
     }
 
-    public NetRequestStatusCode(String str, int i2) {
+    public NetRequestStatusCode(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

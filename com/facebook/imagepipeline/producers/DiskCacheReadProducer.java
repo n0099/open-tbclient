@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -39,9 +39,9 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedDiskCache, bufferedDiskCache2, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,13 +55,13 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
+    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (producerListener.requiresExtraMap(str)) {
                 if (z) {
-                    return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));
+                    return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
                 }
                 return ImmutableMap.of("cached_value_found", String.valueOf(z));
             }
@@ -106,9 +106,9 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, r7, r8, consumer, producerContext};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -173,9 +173,9 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, atomicBoolean};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

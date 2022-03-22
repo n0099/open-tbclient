@@ -81,9 +81,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter, context, subMenuBuilder, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (MenuBuilder) objArr2[1], (View) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
@@ -124,9 +124,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -164,9 +164,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter, overflowPopup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -207,9 +207,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -238,9 +238,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                         newInitContext2.initArgs = r2;
                         Object[] objArr3 = {this, this, actionMenuPresenter};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             super((View) newInitContext2.callArgs[0]);
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
@@ -329,11 +329,11 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // android.widget.ImageView
-        public boolean setFrame(int i2, int i3, int i4, int i5) {
+        public boolean setFrame(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) {
-                boolean frame = super.setFrame(i2, i3, i4, i5);
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i, i2, i3, i4)) == null) {
+                boolean frame = super.setFrame(i, i2, i3, i4);
                 Drawable drawable = getDrawable();
                 Drawable background = getBackground();
                 if (drawable != null && background != null) {
@@ -365,9 +365,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter, context, menuBuilder, view, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (MenuBuilder) objArr2[1], (View) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
@@ -406,9 +406,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {actionMenuPresenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -480,9 +480,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -501,10 +501,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
             };
         }
@@ -514,9 +514,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -534,9 +534,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 parcel.writeInt(this.openSubMenuId);
             }
         }
@@ -548,9 +548,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -569,9 +569,9 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -592,8 +592,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 return null;
             }
             int childCount = viewGroup.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
                 if ((childAt instanceof MenuView.ItemView) && ((MenuView.ItemView) childAt).getItemData() == menuItem) {
                     return childAt;
                 }
@@ -624,14 +624,14 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     }
 
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public boolean filterLeftoverView(ViewGroup viewGroup, int i2) {
+    public boolean filterLeftoverView(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-            if (viewGroup.getChildAt(i2) == this.mOverflowButton) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            if (viewGroup.getChildAt(i) == this.mOverflowButton) {
                 return false;
             }
-            return super.filterLeftoverView(viewGroup, i2);
+            return super.filterLeftoverView(viewGroup, i);
         }
         return invokeLI.booleanValue;
     }
@@ -640,90 +640,90 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     public boolean flagActionItems() {
         InterceptResult invokeV;
         ArrayList<MenuItemImpl> arrayList;
+        int i;
         int i2;
         int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ActionMenuPresenter actionMenuPresenter = this;
             MenuBuilder menuBuilder = actionMenuPresenter.mMenu;
             View view = null;
-            int i6 = 0;
+            int i5 = 0;
             if (menuBuilder != null) {
                 arrayList = menuBuilder.getVisibleItems();
-                i2 = arrayList.size();
+                i = arrayList.size();
             } else {
                 arrayList = null;
-                i2 = 0;
+                i = 0;
             }
-            int i7 = actionMenuPresenter.mMaxItems;
-            int i8 = actionMenuPresenter.mActionItemWidthLimit;
+            int i6 = actionMenuPresenter.mMaxItems;
+            int i7 = actionMenuPresenter.mActionItemWidthLimit;
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             ViewGroup viewGroup = (ViewGroup) actionMenuPresenter.mMenuView;
             boolean z = false;
+            int i8 = 0;
             int i9 = 0;
-            int i10 = 0;
-            for (int i11 = 0; i11 < i2; i11++) {
-                MenuItemImpl menuItemImpl = arrayList.get(i11);
+            for (int i10 = 0; i10 < i; i10++) {
+                MenuItemImpl menuItemImpl = arrayList.get(i10);
                 if (menuItemImpl.requiresActionButton()) {
-                    i9++;
+                    i8++;
                 } else if (menuItemImpl.requestsActionButton()) {
-                    i10++;
+                    i9++;
                 } else {
                     z = true;
                 }
                 if (actionMenuPresenter.mExpandedActionViewsExclusive && menuItemImpl.isActionViewExpanded()) {
-                    i7 = 0;
+                    i6 = 0;
                 }
             }
-            if (actionMenuPresenter.mReserveOverflow && (z || i10 + i9 > i7)) {
-                i7--;
+            if (actionMenuPresenter.mReserveOverflow && (z || i9 + i8 > i6)) {
+                i6--;
             }
-            int i12 = i7 - i9;
+            int i11 = i6 - i8;
             SparseBooleanArray sparseBooleanArray = actionMenuPresenter.mActionButtonGroups;
             sparseBooleanArray.clear();
             if (actionMenuPresenter.mStrictWidthLimit) {
-                int i13 = actionMenuPresenter.mMinCellSize;
-                i4 = i8 / i13;
-                i3 = i13 + ((i8 % i13) / i4);
+                int i12 = actionMenuPresenter.mMinCellSize;
+                i3 = i7 / i12;
+                i2 = i12 + ((i7 % i12) / i3);
             } else {
+                i2 = 0;
                 i3 = 0;
-                i4 = 0;
             }
+            int i13 = 0;
             int i14 = 0;
-            int i15 = 0;
-            while (i14 < i2) {
-                MenuItemImpl menuItemImpl2 = arrayList.get(i14);
+            while (i13 < i) {
+                MenuItemImpl menuItemImpl2 = arrayList.get(i13);
                 if (menuItemImpl2.requiresActionButton()) {
                     View itemView = actionMenuPresenter.getItemView(menuItemImpl2, view, viewGroup);
                     if (actionMenuPresenter.mStrictWidthLimit) {
-                        i4 -= ActionMenuView.measureChildForCells(itemView, i3, i4, makeMeasureSpec, i6);
+                        i3 -= ActionMenuView.measureChildForCells(itemView, i2, i3, makeMeasureSpec, i5);
                     } else {
                         itemView.measure(makeMeasureSpec, makeMeasureSpec);
                     }
                     int measuredWidth = itemView.getMeasuredWidth();
-                    i8 -= measuredWidth;
-                    if (i15 == 0) {
-                        i15 = measuredWidth;
+                    i7 -= measuredWidth;
+                    if (i14 == 0) {
+                        i14 = measuredWidth;
                     }
                     int groupId = menuItemImpl2.getGroupId();
                     if (groupId != 0) {
                         sparseBooleanArray.put(groupId, true);
                     }
                     menuItemImpl2.setIsActionButton(true);
-                    i5 = i2;
+                    i4 = i;
                 } else if (menuItemImpl2.requestsActionButton()) {
                     int groupId2 = menuItemImpl2.getGroupId();
                     boolean z2 = sparseBooleanArray.get(groupId2);
-                    boolean z3 = (i12 > 0 || z2) && i8 > 0 && (!actionMenuPresenter.mStrictWidthLimit || i4 > 0);
+                    boolean z3 = (i11 > 0 || z2) && i7 > 0 && (!actionMenuPresenter.mStrictWidthLimit || i3 > 0);
                     boolean z4 = z3;
-                    i5 = i2;
+                    i4 = i;
                     if (z3) {
                         View itemView2 = actionMenuPresenter.getItemView(menuItemImpl2, null, viewGroup);
                         if (actionMenuPresenter.mStrictWidthLimit) {
-                            int measureChildForCells = ActionMenuView.measureChildForCells(itemView2, i3, i4, makeMeasureSpec, 0);
-                            i4 -= measureChildForCells;
+                            int measureChildForCells = ActionMenuView.measureChildForCells(itemView2, i2, i3, makeMeasureSpec, 0);
+                            i3 -= measureChildForCells;
                             if (measureChildForCells == 0) {
                                 z4 = false;
                             }
@@ -732,44 +732,44 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                         }
                         boolean z5 = z4;
                         int measuredWidth2 = itemView2.getMeasuredWidth();
-                        i8 -= measuredWidth2;
-                        if (i15 == 0) {
-                            i15 = measuredWidth2;
+                        i7 -= measuredWidth2;
+                        if (i14 == 0) {
+                            i14 = measuredWidth2;
                         }
-                        z3 = z5 & (!actionMenuPresenter.mStrictWidthLimit ? i8 + i15 <= 0 : i8 < 0);
+                        z3 = z5 & (!actionMenuPresenter.mStrictWidthLimit ? i7 + i14 <= 0 : i7 < 0);
                     }
                     if (z3 && groupId2 != 0) {
                         sparseBooleanArray.put(groupId2, true);
                     } else if (z2) {
                         sparseBooleanArray.put(groupId2, false);
-                        for (int i16 = 0; i16 < i14; i16++) {
-                            MenuItemImpl menuItemImpl3 = arrayList.get(i16);
+                        for (int i15 = 0; i15 < i13; i15++) {
+                            MenuItemImpl menuItemImpl3 = arrayList.get(i15);
                             if (menuItemImpl3.getGroupId() == groupId2) {
                                 if (menuItemImpl3.isActionButton()) {
-                                    i12++;
+                                    i11++;
                                 }
                                 menuItemImpl3.setIsActionButton(false);
                             }
                         }
                     }
                     if (z3) {
-                        i12--;
+                        i11--;
                     }
                     menuItemImpl2.setIsActionButton(z3);
                 } else {
-                    i5 = i2;
+                    i4 = i;
                     menuItemImpl2.setIsActionButton(false);
-                    i14++;
+                    i13++;
                     view = null;
                     actionMenuPresenter = this;
-                    i2 = i5;
-                    i6 = 0;
+                    i = i4;
+                    i5 = 0;
                 }
-                i14++;
+                i13++;
                 view = null;
                 actionMenuPresenter = this;
-                i2 = i5;
-                i6 = 0;
+                i = i4;
+                i5 = 0;
             }
             return true;
         }
@@ -878,7 +878,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             if (!this.mMaxItemsSet) {
                 this.mMaxItems = actionBarPolicy.getMaxActionButtons();
             }
-            int i2 = this.mWidthLimit;
+            int i = this.mWidthLimit;
             if (this.mReserveOverflow) {
                 if (this.mOverflowButton == null) {
                     OverflowMenuButton overflowMenuButton = new OverflowMenuButton(this, this.mSystemContext);
@@ -891,11 +891,11 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                     this.mOverflowButton.measure(makeMeasureSpec, makeMeasureSpec);
                 }
-                i2 -= this.mOverflowButton.getMeasuredWidth();
+                i -= this.mOverflowButton.getMeasuredWidth();
             } else {
                 this.mOverflowButton = null;
             }
-            this.mActionItemWidthLimit = i2;
+            this.mActionItemWidthLimit = i;
             this.mMinCellSize = (int) (resources.getDisplayMetrics().density * 56.0f);
         }
     }
@@ -946,10 +946,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public void onRestoreInstanceState(Parcelable parcelable) {
-        int i2;
+        int i;
         MenuItem findItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, parcelable) == null) || !(parcelable instanceof SavedState) || (i2 = ((SavedState) parcelable).openSubMenuId) <= 0 || (findItem = this.mMenu.findItem(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, parcelable) == null) || !(parcelable instanceof SavedState) || (i = ((SavedState) parcelable).openSubMenuId) <= 0 || (findItem = this.mMenu.findItem(i)) == null) {
             return;
         }
         onSubMenuSelected((SubMenuBuilder) findItem.getSubMenu());
@@ -984,17 +984,17 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 }
                 this.mOpenSubMenuId = subMenuBuilder.getItem().getItemId();
                 int size = subMenuBuilder.size();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= size) {
+                    if (i >= size) {
                         break;
                     }
-                    MenuItem item = subMenuBuilder.getItem(i2);
+                    MenuItem item = subMenuBuilder.getItem(i);
                     if (item.isVisible() && item.getIcon() != null) {
                         z = true;
                         break;
                     }
-                    i2++;
+                    i++;
                 }
                 ActionButtonSubmenu actionButtonSubmenu = new ActionButtonSubmenu(this, this.mContext, subMenuBuilder, findViewForItem);
                 this.mActionButtonPopup = actionButtonSubmenu;
@@ -1030,10 +1030,10 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    public void setItemLimit(int i2) {
+    public void setItemLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mMaxItems = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mMaxItems = i;
             this.mMaxItemsSet = true;
         }
     }
@@ -1067,20 +1067,20 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
     }
 
-    public void setWidthLimit(int i2, boolean z) {
+    public void setWidthLimit(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.mWidthLimit = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.mWidthLimit = i;
             this.mStrictWidthLimit = z;
             this.mWidthLimitSet = true;
         }
     }
 
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public boolean shouldIncludeItem(int i2, MenuItemImpl menuItemImpl) {
+    public boolean shouldIncludeItem(int i, MenuItemImpl menuItemImpl) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i2, menuItemImpl)) == null) ? menuItemImpl.isActionButton() : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048601, this, i, menuItemImpl)) == null) ? menuItemImpl.isActionButton() : invokeIL.booleanValue;
     }
 
     public boolean showOverflowMenu() {
@@ -1110,8 +1110,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             if (menuBuilder != null) {
                 ArrayList<MenuItemImpl> actionItems = menuBuilder.getActionItems();
                 int size = actionItems.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ActionProvider supportActionProvider = actionItems.get(i2).getSupportActionProvider();
+                for (int i = 0; i < size; i++) {
+                    ActionProvider supportActionProvider = actionItems.get(i).getSupportActionProvider();
                     if (supportActionProvider != null) {
                         supportActionProvider.setSubUiVisibilityListener(this);
                     }

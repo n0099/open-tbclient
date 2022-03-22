@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -31,7 +31,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.k.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
+        c.h.a.a.a.d("AbstractMessageHandler", "start SubScribeAliasStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBALIAS_STATUS.equals(i(intent));
     }
 

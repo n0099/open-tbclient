@@ -23,9 +23,9 @@ public final class TrafficStatsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -48,18 +48,18 @@ public final class TrafficStatsCompat {
     }
 
     @Deprecated
-    public static void incrementOperationCount(int i2) {
+    public static void incrementOperationCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            TrafficStats.incrementOperationCount(i2);
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            TrafficStats.incrementOperationCount(i);
         }
     }
 
     @Deprecated
-    public static void setThreadStatsTag(int i2) {
+    public static void setThreadStatsTag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
-            TrafficStats.setThreadStatsTag(i2);
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            TrafficStats.setThreadStatsTag(i);
         }
     }
 
@@ -106,10 +106,10 @@ public final class TrafficStatsCompat {
     }
 
     @Deprecated
-    public static void incrementOperationCount(int i2, int i3) {
+    public static void incrementOperationCount(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3) == null) {
-            TrafficStats.incrementOperationCount(i2, i3);
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            TrafficStats.incrementOperationCount(i, i2);
         }
     }
 }

@@ -54,9 +54,9 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -70,22 +70,22 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(Context context, String str, String str2, String str3, Network network, String str4) {
+    public String a(Context context, String str, String str2, String str3, Network network, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{context, str, str2, str3, network, str4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{context, str, str2, str3, network, str4, str5})) == null) {
             String b2 = b();
             String a2 = g.a(context, str, str2, str3, b2);
-            String str5 = a;
-            CtAuth.info(str5, "request params : " + a2);
-            String a3 = d.a(context, "https://id6.me/auth/preauth.do", a2, network, str4);
             String str6 = a;
-            CtAuth.info(str6, "request result : " + a3);
+            CtAuth.info(str6, "request params : " + a2);
+            String a3 = d.a(context, "https://id6.me/auth/preauth.do", a2, network, str4, str5);
+            String str7 = a;
+            CtAuth.info(str7, "request result : " + a3);
             String b3 = b(context, a3, b2, network);
             if (TextUtils.isEmpty(b3)) {
                 return "{\"result\":80001,\"msg\":\"请求异常\"}";
             }
-            cn.com.chinatelecom.gateway.lib.b.e.a(str4, b3, a2);
+            cn.com.chinatelecom.gateway.lib.b.e.a(str5, b3, a2);
             return b3;
         }
         return (String) invokeCommon.objValue;
@@ -97,20 +97,20 @@ public final class a {
         if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65541, null, context, list, str, network)) != null) {
             return (String) invokeLLLL.objValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= list.size()) {
+            if (i >= list.size()) {
                 return null;
             }
             try {
-                String str2 = list.get(i2);
-                if (!TextUtils.isEmpty(list.get(i2)) && context != null && Build.VERSION.SDK_INT < 21) {
+                String str2 = list.get(i);
+                if (!TextUtils.isEmpty(list.get(i)) && context != null && Build.VERSION.SDK_INT < 21) {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                     if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                         ((Boolean) Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(e.a(e.b(str2))))).booleanValue();
                     }
                 }
-                String a2 = a(context, list.get(i2), str, network);
+                String a2 = a(context, list.get(i), str, network);
                 try {
                     JSONObject jSONObject = TextUtils.isEmpty(a2) ? null : new JSONObject(a2);
                     if (jSONObject != null && jSONObject.getInt("result") == 0) {
@@ -122,7 +122,7 @@ public final class a {
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            i2++;
+            i++;
         }
     }
 
@@ -132,54 +132,54 @@ public final class a {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) ? cn.com.chinatelecom.gateway.lib.a.a.c(str, str2) : (String) invokeLL.objValue;
     }
 
-    private void a(Context context, String str, i.a aVar, int i2, PreCodeListener preCodeListener) {
+    private void a(Context context, String str, i.a aVar, int i, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{context, str, aVar, Integer.valueOf(i2), preCodeListener}) == null) {
-            i.a(new Runnable(this, i.b(aVar), i2, aVar, str, context, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.4
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{context, str, aVar, Integer.valueOf(i), preCodeListener}) == null) {
+            i.a().a(new Runnable(this, i.a().b(aVar), i, aVar, str, context, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Future a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f29257b;
+                public final /* synthetic */ int f23685b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ i.a f29258c;
+                public final /* synthetic */ i.a f23686c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f29259d;
+                public final /* synthetic */ String f23687d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Context f29260e;
+                public final /* synthetic */ Context f23688e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f29261f;
+                public final /* synthetic */ PreCodeListener f23689f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f29262g;
+                public final /* synthetic */ a f23690g;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r7, Integer.valueOf(i2), aVar, str, context, preCodeListener};
+                        Object[] objArr = {this, r7, Integer.valueOf(i), aVar, str, context, preCodeListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f29262g = this;
+                    this.f23690g = this;
                     this.a = r7;
-                    this.f29257b = i2;
-                    this.f29258c = aVar;
-                    this.f29259d = str;
-                    this.f29260e = context;
-                    this.f29261f = preCodeListener;
+                    this.f23685b = i;
+                    this.f23686c = aVar;
+                    this.f23687d = str;
+                    this.f23688e = context;
+                    this.f23689f = preCodeListener;
                 }
 
                 /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF, INVOKE, IF] complete} */
@@ -192,34 +192,34 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.a.get(this.f29257b, TimeUnit.MILLISECONDS);
+                            this.a.get(this.f23685b, TimeUnit.MILLISECONDS);
                             Future future2 = this.a;
                             if (future2 == null || future2.isDone()) {
                             }
                         } catch (Throwable th) {
                             try {
-                                this.f29258c.a(true);
+                                this.f23686c.a(true);
                                 String str3 = "{\"result\":80000,\"msg\":\"请求超时\"}";
                                 if (th instanceof TimeoutException) {
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f29259d, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f29259d).h("submitOnTimeoutInterrupted()");
-                                    context2 = this.f29260e;
-                                    str2 = this.f29259d;
-                                    preCodeListener2 = this.f29261f;
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f23687d, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f23687d).h("submitOnTimeoutInterrupted()");
+                                    context2 = this.f23688e;
+                                    str2 = this.f23687d;
+                                    preCodeListener2 = this.f23689f;
                                 } else {
-                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f29259d, "{\"result\":80001,\"msg\":\"请求异常\"}", "");
-                                    cn.com.chinatelecom.gateway.lib.b.b a2 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f29259d);
+                                    cn.com.chinatelecom.gateway.lib.b.e.a(this.f23687d, "{\"result\":80001,\"msg\":\"请求异常\"}", "");
+                                    cn.com.chinatelecom.gateway.lib.b.b a2 = cn.com.chinatelecom.gateway.lib.b.e.a(this.f23687d);
                                     StringBuilder sb = new StringBuilder();
                                     sb.append("submitOnTimeoutInterrupted other exception : ");
                                     sb.append(th.getMessage());
                                     a2.h(sb.toString());
                                     CtAuth.warn(a.a, "submitOnTimeoutInterrupted other exception", th);
-                                    context2 = this.f29260e;
-                                    str2 = this.f29259d;
-                                    preCodeListener2 = this.f29261f;
+                                    context2 = this.f23688e;
+                                    str2 = this.f23687d;
+                                    preCodeListener2 = this.f23689f;
                                     str3 = "{\"result\":80001,\"msg\":\"请求异常\"}";
                                 }
-                                CtAuth.postResultOnMainThread(context2, str3, str2, preCodeListener2);
+                                CtAuth.postResult(context2, str3, str2, preCodeListener2);
                                 if (future == null) {
                                     return;
                                 }
@@ -280,8 +280,8 @@ public final class a {
                             ArrayList arrayList = new ArrayList();
                             JSONArray optJSONArray = jSONObject2.optJSONArray("urls");
                             if (optJSONArray != null) {
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    arrayList.add(optJSONArray.getString(i2));
+                                for (int i = 0; i < optJSONArray.length(); i++) {
+                                    arrayList.add(optJSONArray.getString(i));
                                 }
                             }
                             if (arrayList.isEmpty()) {
@@ -335,125 +335,135 @@ public final class a {
     public void a(Context context, String str, String str2, String str3, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, context, str, str2, str3, preCodeListener) == null) {
-            int i2 = CtAuth.mTotalTimeout;
-            int i3 = i2 <= 0 ? 10000 : i2;
+            int i = CtAuth.mTotalTimeout;
+            int i2 = i <= 0 ? 10000 : i;
             String a2 = c.a();
-            cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(c.a(context)).d("preauth").c(f.f(context));
-            a(context, a2, new i.a(this, context, str, str2, str3, a2, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.1
+            String a3 = c.a(context);
+            cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(a3).d("preauth").c(f.f(context)).i(context.getPackageName());
+            a(context, a2, new i.a(this, context, str, str2, str3, a3, a2, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f29237b;
+                public final /* synthetic */ String f23664b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f29238c;
+                public final /* synthetic */ String f23665c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f29239d;
+                public final /* synthetic */ String f23666d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f29240e;
+                public final /* synthetic */ String f23667e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f29241f;
+                public final /* synthetic */ String f23668f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f29242g;
+                public final /* synthetic */ PreCodeListener f23669g;
+
+                /* renamed from: h  reason: collision with root package name */
+                public final /* synthetic */ a f23670h;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, str, str2, str3, a2, preCodeListener};
+                        Object[] objArr = {this, context, str, str2, str3, a3, a2, preCodeListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f29242g = this;
+                    this.f23670h = this;
                     this.a = context;
-                    this.f29237b = str;
-                    this.f29238c = str2;
-                    this.f29239d = str3;
-                    this.f29240e = a2;
-                    this.f29241f = preCodeListener;
+                    this.f23664b = str;
+                    this.f23665c = str2;
+                    this.f23666d = str3;
+                    this.f23667e = a3;
+                    this.f23668f = a2;
+                    this.f23669g = preCodeListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        String a3 = this.f29242g.a(this.a, this.f29237b, this.f29238c, this.f29239d, null, this.f29240e);
+                        String a4 = this.f23670h.a(this.a, this.f23664b, this.f23665c, this.f23666d, null, this.f23667e, this.f23668f);
                         if (a()) {
                             return;
                         }
-                        CtAuth.postResultOnMainThread(this.a, a3, this.f29240e, this.f29241f);
+                        CtAuth.postResult(this.a, a4, this.f23668f, this.f23669g);
                     }
                 }
-            }, i3, preCodeListener);
+            }, i2, preCodeListener);
         }
     }
 
     public void b(Context context, String str, String str2, String str3, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, preCodeListener) == null) {
-            int i2 = CtAuth.mTotalTimeout;
-            int i3 = i2 <= 0 ? 10000 : i2;
+            int i = CtAuth.mTotalTimeout;
+            int i2 = i <= 0 ? 10000 : i;
             String a2 = c.a();
-            cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(c.a(context)).d("preauth").c(f.f(context));
+            String a3 = c.a(context);
+            cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(a3).d("preauth").c(f.f(context)).i(context.getPackageName());
             if (Build.VERSION.SDK_INT < 21) {
-                a(context, a2, new i.a(this, context, str, str2, str3, a2, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.3
+                a(context, a2, new i.a(this, context, str, str2, str3, a3, a2, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f29251b;
+                    public final /* synthetic */ String f23678b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f29252c;
+                    public final /* synthetic */ String f23679c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f29253d;
+                    public final /* synthetic */ String f23680d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f29254e;
+                    public final /* synthetic */ String f23681e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ PreCodeListener f29255f;
+                    public final /* synthetic */ String f23682f;
 
                     /* renamed from: g  reason: collision with root package name */
-                    public final /* synthetic */ a f29256g;
+                    public final /* synthetic */ PreCodeListener f23683g;
+
+                    /* renamed from: h  reason: collision with root package name */
+                    public final /* synthetic */ a f23684h;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, str, str2, str3, a2, preCodeListener};
+                            Object[] objArr = {this, context, str, str2, str3, a3, a2, preCodeListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f29256g = this;
+                        this.f23684h = this;
                         this.a = context;
-                        this.f29251b = str;
-                        this.f29252c = str2;
-                        this.f29253d = str3;
-                        this.f29254e = a2;
-                        this.f29255f = preCodeListener;
+                        this.f23678b = str;
+                        this.f23679c = str2;
+                        this.f23680d = str3;
+                        this.f23681e = a3;
+                        this.f23682f = a2;
+                        this.f23683g = preCodeListener;
                     }
 
                     @Override // java.lang.Runnable
@@ -464,74 +474,74 @@ public final class a {
                                 if (a()) {
                                     return;
                                 }
-                                CtAuth.postResultOnMainThread(this.a, h.a(80800, "WIFI切换超时"), this.f29254e, this.f29255f);
+                                CtAuth.postResult(this.a, h.a(80800, "WIFI切换超时"), this.f23682f, this.f23683g);
                             } else if (a()) {
                             } else {
-                                String a3 = this.f29256g.a(this.a, this.f29251b, this.f29252c, this.f29253d, null, this.f29254e);
+                                String a4 = this.f23684h.a(this.a, this.f23678b, this.f23679c, this.f23680d, null, this.f23681e, this.f23682f);
                                 if (a()) {
                                     return;
                                 }
-                                CtAuth.postResultOnMainThread(this.a, a3, this.f29254e, this.f29255f);
+                                CtAuth.postResult(this.a, a4, this.f23682f, this.f23683g);
                             }
                         }
                     }
-                }, i3, preCodeListener);
+                }, i2, preCodeListener);
                 return;
             }
             e eVar = new e();
-            eVar.a(context, new e.a(this, a2, context, str, str2, str3, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.2
+            eVar.a(context, new e.a(this, a2, context, str, str2, str3, a3, preCodeListener) { // from class: cn.com.chinatelecom.gateway.lib.c.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f29243b;
+                public final /* synthetic */ Context f23671b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f29244c;
+                public final /* synthetic */ String f23672c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f29245d;
+                public final /* synthetic */ String f23673d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f29246e;
+                public final /* synthetic */ String f23674e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f29247f;
+                public final /* synthetic */ String f23675f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ a f29248g;
+                public final /* synthetic */ PreCodeListener f23676g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public boolean f29249h;
-
-                /* renamed from: i  reason: collision with root package name */
-                public boolean f29250i;
+                public final /* synthetic */ a f23677h;
+                public boolean i;
+                public boolean j;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, a2, context, str, str2, str3, preCodeListener};
+                        Object[] objArr = {this, a2, context, str, str2, str3, a3, preCodeListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f29248g = this;
+                    this.f23677h = this;
                     this.a = a2;
-                    this.f29243b = context;
-                    this.f29244c = str;
-                    this.f29245d = str2;
-                    this.f29246e = str3;
-                    this.f29247f = preCodeListener;
-                    this.f29249h = false;
-                    this.f29250i = false;
+                    this.f23671b = context;
+                    this.f23672c = str;
+                    this.f23673d = str2;
+                    this.f23674e = str3;
+                    this.f23675f = a3;
+                    this.f23676g = preCodeListener;
+                    this.i = false;
+                    this.j = false;
                 }
 
                 @Override // cn.com.chinatelecom.gateway.lib.c.e.a
@@ -539,53 +549,53 @@ public final class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         synchronized (this) {
-                            this.f29249h = true;
-                            if (!this.f29250i) {
+                            this.i = true;
+                            if (!this.j) {
                                 cn.com.chinatelecom.gateway.lib.b.e.a(this.a, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
-                                CtAuth.postResultOnMainThread(this.f29243b, "{\"result\":80000,\"msg\":\"请求超时\"}", this.a, this.f29247f);
+                                CtAuth.postResult(this.f23671b, "{\"result\":80000,\"msg\":\"请求超时\"}", this.a, this.f23676g);
                             }
                         }
                     }
                 }
 
                 @Override // cn.com.chinatelecom.gateway.lib.c.e.a
-                public synchronized void a(int i4, String str4, long j2) {
+                public synchronized void a(int i3, String str4, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), str4, Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i3), str4, Long.valueOf(j)}) == null) {
                         synchronized (this) {
-                            if (!this.f29249h && !this.f29250i) {
-                                this.f29250i = true;
-                                cn.com.chinatelecom.gateway.lib.b.b a3 = cn.com.chinatelecom.gateway.lib.b.e.a(this.a);
-                                a3.h("switchToMobile_L  onFail()  expendTime : " + j2).a(i4).f(str4).b(j2);
-                                CtAuth.postResultOnMainThread(this.f29243b, h.a(i4, str4), this.a, this.f29247f);
+                            if (!this.i && !this.j) {
+                                this.j = true;
+                                cn.com.chinatelecom.gateway.lib.b.b a4 = cn.com.chinatelecom.gateway.lib.b.e.a(this.a);
+                                a4.h("switchToMobile_L  onFail()  expendTime : " + j).a(i3).f(str4).b(j);
+                                CtAuth.postResult(this.f23671b, h.a(i3, str4), this.a, this.f23676g);
                                 String str5 = a.a;
-                                CtAuth.info(str5, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j2);
+                                CtAuth.info(str5, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j);
                             }
                         }
                     }
                 }
 
                 @Override // cn.com.chinatelecom.gateway.lib.c.e.a
-                public void a(Network network, long j2) {
+                public void a(Network network, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, network, j2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, network, j) == null) {
                         String str4 = a.a;
-                        CtAuth.info(str4, "Switching network successfully (L) , expendTime ：" + j2);
-                        if (this.f29249h || this.f29250i) {
+                        CtAuth.info(str4, "Switching network successfully (L) , expendTime ：" + j);
+                        if (this.i || this.j) {
                             return;
                         }
-                        cn.com.chinatelecom.gateway.lib.b.e.a(this.a).b(j2);
-                        String a3 = this.f29248g.a(this.f29243b, this.f29244c, this.f29245d, this.f29246e, network, this.a);
+                        cn.com.chinatelecom.gateway.lib.b.e.a(this.a).b(j);
+                        String a4 = this.f23677h.a(this.f23671b, this.f23672c, this.f23673d, this.f23674e, network, this.f23675f, this.a);
                         synchronized (this) {
-                            if (!this.f29249h && !this.f29250i) {
-                                this.f29250i = true;
-                                CtAuth.postResultOnMainThread(this.f29243b, a3, this.a, this.f29247f);
+                            if (!this.i && !this.j) {
+                                this.j = true;
+                                CtAuth.postResult(this.f23671b, a4, this.a, this.f23676g);
                             }
                         }
                     }
                 }
             });
-            eVar.a(i3);
+            eVar.a(i2);
         }
     }
 }

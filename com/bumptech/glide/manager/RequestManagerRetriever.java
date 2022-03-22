@@ -35,7 +35,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final RequestManagerFactory DEFAULT_FACTORY;
@@ -57,7 +57,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final ArrayMap<View, Fragment> tempViewToFragment;
     public final ArrayMap<View, androidx.fragment.app.Fragment> tempViewToSupportFragment;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
@@ -85,9 +85,9 @@ public class RequestManagerRetriever implements Handler.Callback {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -111,9 +111,9 @@ public class RequestManagerRetriever implements Handler.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {requestManagerFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -176,10 +176,10 @@ public class RequestManagerRetriever implements Handler.Callback {
         if (interceptable != null && interceptable.invokeLL(65541, this, fragmentManager, arrayMap) != null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = i2 + 1;
-            this.tempBundle.putInt("key", i2);
+            int i2 = i + 1;
+            this.tempBundle.putInt("key", i);
             Fragment fragment = null;
             try {
                 fragment = fragmentManager.getFragment(this.tempBundle, "key");
@@ -194,7 +194,7 @@ public class RequestManagerRetriever implements Handler.Callback {
                     findAllFragmentsWithViews(fragment.getChildFragmentManager(), arrayMap);
                 }
             }
-            i2 = i3;
+            i = i2;
         }
     }
 
@@ -353,20 +353,20 @@ public class RequestManagerRetriever implements Handler.Callback {
         Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, message)) == null) {
-            int i2 = message.what;
+            int i = message.what;
             Object obj3 = null;
             boolean z = true;
-            if (i2 == 1) {
+            if (i == 1) {
                 obj = (FragmentManager) message.obj;
                 remove = this.pendingRequestManagerFragments.remove(obj);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 obj = (androidx.fragment.app.FragmentManager) message.obj;
                 remove = this.pendingSupportRequestManagerFragments.remove(obj);
             } else {
                 z = false;
                 obj2 = null;
                 if (z && obj3 == null && Log.isLoggable(TAG, 5)) {
-                    String str = "Failed to remove expected request manager fragment, manager: " + obj2;
+                    Log.w(TAG, "Failed to remove expected request manager fragment, manager: " + obj2);
                 }
                 return z;
             }
@@ -374,7 +374,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             obj3 = remove;
             obj2 = obj4;
             if (z) {
-                String str2 = "Failed to remove expected request manager fragment, manager: " + obj2;
+                Log.w(TAG, "Failed to remove expected request manager fragment, manager: " + obj2);
             }
             return z;
         }

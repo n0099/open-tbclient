@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -75,12 +75,12 @@ public class e {
                 return "";
             }
             char[] cArr = new char[bArr.length * 2];
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                byte b2 = bArr[i2];
-                int i3 = i2 * 2;
+            for (int i = 0; i < bArr.length; i++) {
+                byte b2 = bArr[i];
+                int i2 = i * 2;
                 char[] cArr2 = a;
-                cArr[i3 + 1] = cArr2[b2 & 15];
-                cArr[i3] = cArr2[((byte) (b2 >>> 4)) & 15];
+                cArr[i2 + 1] = cArr2[b2 & 15];
+                cArr[i2] = cArr2[((byte) (b2 >>> 4)) & 15];
             }
             return new String(cArr);
         }

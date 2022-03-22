@@ -18,10 +18,10 @@ public class b implements c {
     public Cursor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentValues f2494b;
+    public final ContentValues f2052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<String> f2495c;
+    public final Set<String> f2053c;
 
     public b(Cursor cursor) {
         Interceptable interceptable = $ic;
@@ -30,23 +30,23 @@ public class b implements c {
             newInitContext.initArgs = r2;
             Object[] objArr = {cursor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = cursor;
-        this.f2494b = null;
-        this.f2495c = new TreeSet();
+        this.f2052b = null;
+        this.f2053c = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
-            for (int i4 = 0; i4 < columnCount; i4++) {
-                String columnName = cursor.getColumnName(i4);
+            for (int i3 = 0; i3 < columnCount; i3++) {
+                String columnName = cursor.getColumnName(i3);
                 if (columnName != null) {
-                    this.f2495c.add(columnName);
+                    this.f2053c.add(columnName);
                 }
             }
         }
@@ -59,11 +59,11 @@ public class b implements c {
             return;
         }
         if (obj == null) {
-            this.f2494b.putNull(str);
+            this.f2052b.putNull(str);
         } else if (obj.getClass() != Boolean.TYPE && obj.getClass() != Boolean.class) {
             if (obj.getClass() != Byte.TYPE && obj.getClass() != Byte.class) {
                 if (obj.getClass() == byte[].class) {
-                    this.f2494b.put(str, (byte[]) obj);
+                    this.f2052b.put(str, (byte[]) obj);
                     return;
                 } else if (obj.getClass() != Double.TYPE && obj.getClass() != Double.class) {
                     if (obj.getClass() != Float.TYPE && obj.getClass() != Float.class) {
@@ -71,30 +71,30 @@ public class b implements c {
                             if (obj.getClass() != Long.TYPE && obj.getClass() != Long.class) {
                                 if (obj.getClass() != Short.TYPE && obj.getClass() != Short.class) {
                                     if (obj.getClass() == String.class) {
-                                        this.f2494b.put(str, (String) obj);
+                                        this.f2052b.put(str, (String) obj);
                                         return;
                                     }
                                     return;
                                 }
-                                this.f2494b.put(str, (Short) obj);
+                                this.f2052b.put(str, (Short) obj);
                                 return;
                             }
-                            this.f2494b.put(str, (Long) obj);
+                            this.f2052b.put(str, (Long) obj);
                             return;
                         }
-                        this.f2494b.put(str, (Integer) obj);
+                        this.f2052b.put(str, (Integer) obj);
                         return;
                     }
-                    this.f2494b.put(str, (Float) obj);
+                    this.f2052b.put(str, (Float) obj);
                     return;
                 } else {
-                    this.f2494b.put(str, (Double) obj);
+                    this.f2052b.put(str, (Double) obj);
                     return;
                 }
             }
-            this.f2494b.put(str, (Byte) obj);
+            this.f2052b.put(str, (Byte) obj);
         } else {
-            this.f2494b.put(str, (Boolean) obj);
+            this.f2052b.put(str, (Boolean) obj);
         }
     }
 
@@ -180,7 +180,7 @@ public class b implements c {
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2495c : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2053c : (Set) invokeV.objValue;
     }
 
     public b(ContentValues contentValues) {
@@ -190,15 +190,15 @@ public class b implements c {
             newInitContext.initArgs = r2;
             Object[] objArr = {contentValues};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2494b = contentValues;
-        this.f2495c = new TreeSet();
+        this.f2052b = contentValues;
+        this.f2053c = new TreeSet();
     }
 }

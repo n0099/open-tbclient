@@ -73,49 +73,47 @@ public class TbCDNTachometerService extends BdBaseService {
         public TbCdnIpListData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43920b;
+        public int f34081b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f43921c;
+        public boolean f34082c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f43922d;
+        public long f34083d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43923e;
+        public String f34084e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbCdnTachometerModel f43924f;
+        public TbCdnTachometerModel f34085f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f43925g;
+        public boolean f34086g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f43926h;
+        public String f34087h;
+        public final /* synthetic */ TbCDNTachometerService i;
 
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ TbCDNTachometerService f43927i;
-
-        public CustomMsgData(TbCDNTachometerService tbCDNTachometerService, TbCdnIpListData tbCdnIpListData, int i2) {
+        public CustomMsgData(TbCDNTachometerService tbCDNTachometerService, TbCdnIpListData tbCdnIpListData, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbCDNTachometerService, tbCdnIpListData, Integer.valueOf(i2)};
+                Object[] objArr = {tbCDNTachometerService, tbCdnIpListData, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43927i = tbCDNTachometerService;
-            this.f43925g = false;
-            this.f43926h = null;
+            this.i = tbCDNTachometerService;
+            this.f34086g = false;
+            this.f34087h = null;
             this.a = tbCdnIpListData;
-            this.f43920b = i2;
+            this.f34081b = i;
         }
     }
 
@@ -140,9 +138,9 @@ public class TbCDNTachometerService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -180,9 +178,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -203,53 +201,53 @@ public class TbCDNTachometerService extends BdBaseService {
                             if (customMsgData == null) {
                                 return;
                             }
-                            String str = customMsgData.f43923e;
-                            boolean z = customMsgData.f43921c;
-                            long j2 = customMsgData.f43922d;
-                            String valueOf = String.valueOf(j2);
-                            int i4 = 0;
-                            if (customMsgData.f43926h != null && customMsgData.f43926h.length() > 0) {
+                            String str = customMsgData.f34084e;
+                            boolean z = customMsgData.f34082c;
+                            long j = customMsgData.f34083d;
+                            String valueOf = String.valueOf(j);
+                            int i3 = 0;
+                            if (customMsgData.f34087h != null && customMsgData.f34087h.length() > 0) {
                                 this.a.canBroadCast = true;
-                                if (!z || j2 > this.a.hiPhotosMaxTime) {
+                                if (!z || j > this.a.hiPhotosMaxTime) {
                                     this.a.isNormal = false;
                                 }
                             }
                             if (z) {
-                                if (j2 <= 200 && str != null && str.length() != 0) {
+                                if (j <= 200 && str != null && str.length() != 0) {
                                     ArrayList arrayList = (ArrayList) this.a.cdnIpMap.get(str);
-                                    for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                                        this.a.optimalIpList.add((String) arrayList.get(i5));
+                                    for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                                        this.a.optimalIpList.add((String) arrayList.get(i4));
                                     }
                                 }
-                                if (j2 <= 1500 && str != null && str.length() != 0) {
+                                if (j <= 1500 && str != null && str.length() != 0) {
                                     ArrayList arrayList2 = (ArrayList) this.a.cdnIpMap.get(str);
                                     if (this.a.belowOnePointFiveIpList.size() > 0) {
+                                        int i5 = 0;
                                         int i6 = 0;
-                                        int i7 = 0;
                                         while (true) {
-                                            if (i6 >= this.a.belowOnePointFiveIpList.size()) {
-                                                i6 = i7;
+                                            if (i5 >= this.a.belowOnePointFiveIpList.size()) {
+                                                i5 = i6;
                                                 break;
                                             }
-                                            String[] split = ((String) this.a.belowOnePointFiveIpList.get(i6)).split("_");
+                                            String[] split = ((String) this.a.belowOnePointFiveIpList.get(i5)).split("_");
                                             if (split.length >= 2) {
-                                                if (b.g(split[1], 0L) > j2) {
+                                                if (b.g(split[1], 0L) > j) {
                                                     break;
                                                 }
-                                                i7 = i6 + 1;
+                                                i6 = i5 + 1;
                                             }
-                                            i6++;
+                                            i5++;
                                         }
-                                        if (i6 <= this.a.belowOnePointFiveIpList.size()) {
-                                            while (i4 < arrayList2.size()) {
-                                                this.a.belowOnePointFiveIpList.add(i6, ((String) arrayList2.get(i4)) + "_" + valueOf);
-                                                i4++;
+                                        if (i5 <= this.a.belowOnePointFiveIpList.size()) {
+                                            while (i3 < arrayList2.size()) {
+                                                this.a.belowOnePointFiveIpList.add(i5, ((String) arrayList2.get(i3)) + "_" + valueOf);
+                                                i3++;
                                             }
                                         }
                                     } else {
-                                        while (i4 < arrayList2.size()) {
-                                            this.a.belowOnePointFiveIpList.add(((String) arrayList2.get(i4)) + "_" + valueOf);
-                                            i4++;
+                                        while (i3 < arrayList2.size()) {
+                                            this.a.belowOnePointFiveIpList.add(((String) arrayList2.get(i3)) + "_" + valueOf);
+                                            i3++;
                                         }
                                     }
                                 }
@@ -277,9 +275,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -312,9 +310,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -336,22 +334,22 @@ public class TbCDNTachometerService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void BroadcastCdnIp() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.canBroadCast) {
             ArrayList<String> arrayList = new ArrayList<>();
             if (this.optimalIpList.size() >= 5) {
                 int size = this.optimalIpList.size();
-                i2 = size <= 5 ? size : 5;
-                for (int i3 = 0; i3 < i2; i3++) {
-                    arrayList.add(this.optimalIpList.get(i3));
+                i = size <= 5 ? size : 5;
+                for (int i2 = 0; i2 < i; i2++) {
+                    arrayList.add(this.optimalIpList.get(i2));
                 }
             } else if (this.belowOnePointFiveIpList.size() > 0) {
                 int size2 = this.belowOnePointFiveIpList.size();
-                i2 = size2 <= 5 ? size2 : 5;
-                for (int i4 = 0; i4 < i2; i4++) {
+                i = size2 <= 5 ? size2 : 5;
+                for (int i3 = 0; i3 < i; i3++) {
                     try {
-                        arrayList.add(this.belowOnePointFiveIpList.get(i4).split("_")[0]);
+                        arrayList.add(this.belowOnePointFiveIpList.get(i3).split("_")[0]);
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     }
@@ -367,13 +365,13 @@ public class TbCDNTachometerService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65550, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 1) {
             return;
         }
-        int i2 = size / 2;
+        int i = size / 2;
         Random random = new Random();
-        for (int i3 = 0; i3 < i2; i3++) {
+        for (int i2 = 0; i2 < i; i2++) {
             int nextInt = random.nextInt(size);
             if (nextInt < size) {
-                arrayList.set(i3, arrayList.get(nextInt));
-                arrayList.set(nextInt, arrayList.get(i3));
+                arrayList.set(i2, arrayList.get(nextInt));
+                arrayList.set(nextInt, arrayList.get(i2));
             }
         }
     }
@@ -421,15 +419,15 @@ public class TbCDNTachometerService extends BdBaseService {
             } else if (this.returnRequestNum >= this.cdnIpMap.size()) {
                 BroadcastCdnIp();
             } else if (this.lastNotifyIpCount < this.optimalIpList.size() && System.currentTimeMillis() - this.lastNotifyIpTime >= 2000) {
-                int i2 = this.lastNotifyIpCount;
+                int i = this.lastNotifyIpCount;
                 this.lastNotifyIpCount = this.optimalIpList.size();
                 this.lastNotifyIpTime = System.currentTimeMillis();
-                if (i2 != 0) {
+                if (i != 0) {
                     ArrayList<String> arrayList2 = new ArrayList<>();
                     int size = this.optimalIpList.size();
-                    int i3 = size <= 5 ? size : 5;
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        arrayList2.add(this.optimalIpList.get(i4));
+                    int i2 = size <= 5 ? size : 5;
+                    for (int i3 = 0; i3 < i2; i3++) {
+                        arrayList2.add(this.optimalIpList.get(i3));
                     }
                     broadCast(arrayList2);
                 }
@@ -451,39 +449,39 @@ public class TbCDNTachometerService extends BdBaseService {
         if (interceptable == null || interceptable.invokeL(65555, this, tbCdnIpListData) == null) {
             this.numOfThrowIp = 0;
             if (tbCdnIpListData != null && tbCdnIpListData.a == 0) {
-                if (!tbCdnIpListData.f43932f) {
+                if (!tbCdnIpListData.f34092f) {
                     broadCastAndStopSelf(null);
                     return;
-                } else if (tbCdnIpListData.f43931e.size() == 0) {
+                } else if (tbCdnIpListData.f34091e.size() == 0) {
                     broadCastAndStopSelf(null);
                     return;
                 } else {
-                    breakUpIpList(tbCdnIpListData.f43931e);
-                    String str = tbCdnIpListData.f43929c;
-                    String str2 = tbCdnIpListData.f43933g;
-                    String str3 = tbCdnIpListData.f43930d;
+                    breakUpIpList(tbCdnIpListData.f34091e);
+                    String str = tbCdnIpListData.f34089c;
+                    String str2 = tbCdnIpListData.f34093g;
+                    String str3 = tbCdnIpListData.f34090d;
                     if (str == null || str2 == null || str3 == null) {
                         return;
                     }
-                    int size = tbCdnIpListData.f43931e.size();
+                    int size = tbCdnIpListData.f34091e.size();
                     if (size > 0) {
                         CustomMsgData customMsgData = new CustomMsgData(this, tbCdnIpListData, 0);
-                        customMsgData.f43924f = this.cdnTachometerModel;
-                        customMsgData.f43925g = this.isNormal;
-                        customMsgData.f43926h = "c.hiphotos.baidu.com";
+                        customMsgData.f34085f = this.cdnTachometerModel;
+                        customMsgData.f34086g = this.isNormal;
+                        customMsgData.f34087h = "c.hiphotos.baidu.com";
                         CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                         customMessage.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage);
                     }
-                    for (int i2 = 0; i2 < size; i2++) {
-                        ArrayList<String> arrayList = tbCdnIpListData.f43931e.get(i2);
+                    for (int i = 0; i < size; i++) {
+                        ArrayList<String> arrayList = tbCdnIpListData.f34091e.get(i);
                         String str4 = arrayList.size() > 0 ? arrayList.get(0) : "";
                         if (!this.cdnIpMap.containsKey(str4)) {
                             this.cdnIpMap.put(str4, arrayList);
                         }
-                        CustomMsgData customMsgData2 = new CustomMsgData(this, tbCdnIpListData, i2);
-                        customMsgData2.f43924f = this.cdnTachometerModel;
-                        customMsgData2.f43925g = this.isNormal;
+                        CustomMsgData customMsgData2 = new CustomMsgData(this, tbCdnIpListData, i);
+                        customMsgData2.f34085f = this.cdnTachometerModel;
+                        customMsgData2.f34086g = this.isNormal;
                         CustomMessage customMessage2 = new CustomMessage(2017000, customMsgData2);
                         customMessage2.setTag(this.mId);
                         MessageManager.getInstance().sendMessage(customMessage2);
@@ -501,14 +499,14 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = c.a.q0.r.j0.b.k().m(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = c.a.o0.r.j0.b.k().m(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 != lastTachometerTime && currentTimeMillis - lastTachometerTime < 300000) {
                         return;
                     }
                     lastTachometerTime = currentTimeMillis;
-                    c.a.q0.r.j0.b.k().x(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                    c.a.o0.r.j0.b.k().x(LAST_GETCDNLIST_TIME, currentTimeMillis);
                 }
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);
@@ -567,17 +565,17 @@ public class TbCDNTachometerService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
+            super.onStart(intent, i);
             if (intent != null) {
                 this.isNormal = intent.getBooleanExtra("isNormal", false);
             }
             Message message = new Message();
             message.what = 1002;
             this.handler.sendMessageDelayed(message, 60000L);
-            this.startID = i2;
+            this.startID = i;
             getIPList();
         }
     }

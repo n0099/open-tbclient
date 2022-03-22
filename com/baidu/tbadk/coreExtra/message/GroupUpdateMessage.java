@@ -29,9 +29,9 @@ public class GroupUpdateMessage implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -119,31 +119,31 @@ public class GroupUpdateMessage implements Serializable {
         }
     }
 
-    public void setGrade(int i2) {
+    public void setGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.grade = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.grade = i;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setGroupType(int i2) {
+    public void setGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.groupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.groupType = i;
         }
     }
 
-    public void setLastMsgId(long j2) {
+    public void setLastMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.lastMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.lastMsgId = j;
         }
     }
 

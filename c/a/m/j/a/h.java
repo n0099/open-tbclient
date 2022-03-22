@@ -13,72 +13,72 @@ public final class h implements i {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
-    public h(int i2) {
+    public h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
+        this.a = i;
     }
 
     @Override // c.a.m.j.a.i
-    public int a(int i2) {
+    public int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = this.a;
-            return i3 - (i2 % i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
         }
         return invokeI.intValue;
     }
 
     @Override // c.a.m.j.a.i
-    public int a(byte[] bArr, int i2, int i3) {
+    public int a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
-            if (bArr == null || i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
                 return 0;
             }
-            int i5 = i3 + i2;
-            int i6 = bArr[i5 - 1];
-            int i7 = i6 & 255;
-            if (i7 < 1 || i7 > this.a || (i4 = i5 - i7) < i2) {
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
                 return -1;
             }
-            for (int i8 = 0; i8 < i7; i8++) {
-                if (bArr[i4 + i8] != i6) {
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
                     return -1;
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }
 
     @Override // c.a.m.j.a.i
-    public void b(byte[] bArr, int i2, int i3) throws ShortBufferException {
+    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
             return;
         }
-        if (i2 + i3 > bArr.length) {
+        if (i + i2 > bArr.length) {
             throw new ShortBufferException("Buffer too small to hold padding");
         }
-        byte b2 = (byte) (i3 & 255);
-        for (int i4 = 0; i4 < i3; i4++) {
-            bArr[i4 + i2] = b2;
+        byte b2 = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b2;
         }
     }
 }

@@ -18,30 +18,30 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
     public final Object[] mPool;
     public int mPoolSize;
 
-    public FixSizePool(int i2) {
+    public FixSizePool(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mPool = new Object[i2 <= 0 ? 2 : i2];
+        this.mPool = new Object[i <= 0 ? 2 : i];
     }
 
     private boolean isInPool(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
-            for (int i2 = 0; i2 < this.mPoolSize; i2++) {
-                if (this.mPool[i2] == t) {
+            for (int i = 0; i < this.mPoolSize; i++) {
+                if (this.mPool[i] == t) {
                     return true;
                 }
             }
@@ -64,11 +64,11 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || isInPool(t)) {
             return;
         }
-        int i2 = this.mPoolSize;
+        int i = this.mPoolSize;
         Object[] objArr = this.mPool;
-        if (i2 < objArr.length) {
-            objArr[i2] = t;
-            this.mPoolSize = i2 + 1;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.mPoolSize = i + 1;
         }
         t.onRelease();
     }
@@ -80,17 +80,17 @@ public abstract class FixSizePool<T extends IPoolItem> implements IPool<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.mPoolSize;
-            if (i2 <= 0) {
+            int i = this.mPoolSize;
+            if (i <= 0) {
                 T createItem = createItem();
                 createItem.onInit();
                 return createItem;
             }
-            int i3 = i2 - 1;
+            int i2 = i - 1;
             Object[] objArr = this.mPool;
-            T t = (T) objArr[i3];
-            objArr[i3] = null;
-            this.mPoolSize = i2 - 1;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.mPoolSize = i - 1;
             t.onInit();
             return t;
         }

@@ -18,25 +18,25 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, bVar)) == null) {
             View c2 = bVar.c(layoutInflater);
             MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.f29822c = bVar.getXOffset();
-            layoutParams.f29823d = bVar.getYOffset();
+            layoutParams.f23834c = bVar.getXOffset();
+            layoutParams.f23835d = bVar.getYOffset();
             layoutParams.a = bVar.a();
-            layoutParams.f29821b = bVar.b();
+            layoutParams.f23833b = bVar.b();
             c2.setLayoutParams(layoutParams);
             return c2;
         }
         return (View) invokeLL.objValue;
     }
 
-    public static Rect b(View view, int i2, int i3) {
+    public static Rect b(View view, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view, i, i2)) == null) {
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
             Rect rect = new Rect();
             rect.set(iArr[0], iArr[1], iArr[0] + view.getMeasuredWidth(), iArr[1] + view.getMeasuredHeight());
-            rect.offset(-i2, -i3);
+            rect.offset(-i, -i2);
             return rect;
         }
         return (Rect) invokeLII.objValue;

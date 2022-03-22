@@ -32,9 +32,9 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,12 +63,12 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
     public final void complete(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            int i2 = get();
-            while (i2 != 8) {
-                if ((i2 & (-3)) != 0) {
+            int i = get();
+            while (i != 8) {
+                if ((i & (-3)) != 0) {
                     return;
                 }
-                if (i2 == 2) {
+                if (i == 2) {
                     lazySet(3);
                     Subscriber<? super T> subscriber = this.actual;
                     subscriber.onNext(t);
@@ -82,8 +82,8 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
                 if (compareAndSet(0, 1)) {
                     return;
                 }
-                i2 = get();
-                if (i2 == 4) {
+                i = get();
+                if (i == 4) {
                     this.value = null;
                     return;
                 }
@@ -129,16 +129,16 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
+    public final void request(long j) {
         T t;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
             do {
-                int i2 = get();
-                if ((i2 & (-2)) != 0) {
+                int i = get();
+                if ((i & (-2)) != 0) {
                     return;
                 }
-                if (i2 == 1) {
+                if (i == 1) {
                     if (!compareAndSet(1, 3) || (t = this.value) == null) {
                         return;
                     }
@@ -156,11 +156,11 @@ public class DeferredScalarSubscription<T> extends BasicIntQueueSubscription<T> 
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public final int requestFusion(int i2) {
+    public final int requestFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if ((i2 & 2) != 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if ((i & 2) != 0) {
                 lazySet(8);
                 return 2;
             }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLDebugHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.TextureView;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
@@ -79,9 +80,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gLTextureView, iArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,9 +101,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 }
                 int length = iArr.length;
                 int[] iArr2 = new int[length + 2];
-                int i2 = length - 1;
-                System.arraycopy(iArr, 0, iArr2, 0, i2);
-                iArr2[i2] = 12352;
+                int i = length - 1;
+                System.arraycopy(iArr, 0, iArr2, 0, i);
+                iArr2[i] = 12352;
                 iArr2[length] = 4;
                 iArr2[length + 1] = 12344;
                 return iArr2;
@@ -117,10 +118,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, egl10, eGLDisplay)) == null) {
                 int[] iArr = new int[1];
                 if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, null, 0, iArr)) {
-                    int i2 = iArr[0];
-                    if (i2 > 0) {
-                        EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                        if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i2, iArr)) {
+                    int i = iArr[0];
+                    if (i > 0) {
+                        EGLConfig[] eGLConfigArr = new EGLConfig[i];
+                        if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i, iArr)) {
                             EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
                             if (chooseConfig != null) {
                                 return chooseConfig;
@@ -153,17 +154,17 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public final /* synthetic */ GLTextureView this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ComponentSizeChooser(GLTextureView gLTextureView, int i2, int i3, int i4, int i5, int i6, int i7) {
-            super(gLTextureView, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, MonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, 12322, i4, 12321, i5, 12325, i6, 12326, i7, 12344});
+        public ComponentSizeChooser(GLTextureView gLTextureView, int i, int i2, int i3, int i4, int i5, int i6) {
+            super(gLTextureView, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i, MonitorType.MONITOR_TYPE_INIT_WEBKIT, i2, 12322, i3, 12321, i4, 12325, i5, 12326, i6, 12344});
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gLTextureView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+                Object[] objArr = {gLTextureView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i8 = newInitContext.flag;
-                if ((i8 & 1) != 0) {
-                    int i9 = i8 & 2;
+                int i7 = newInitContext.flag;
+                if ((i7 & 1) != 0) {
+                    int i8 = i7 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((GLTextureView) objArr2[0], (int[]) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -173,18 +174,18 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
             this.this$0 = gLTextureView;
             this.mValue = new int[1];
-            this.mRedSize = i2;
-            this.mGreenSize = i3;
-            this.mBlueSize = i4;
-            this.mAlphaSize = i5;
-            this.mDepthSize = i6;
-            this.mStencilSize = i7;
+            this.mRedSize = i;
+            this.mGreenSize = i2;
+            this.mBlueSize = i3;
+            this.mAlphaSize = i4;
+            this.mDepthSize = i5;
+            this.mStencilSize = i6;
         }
 
-        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
+        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3 : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.mValue) ? this.mValue[0] : i2 : invokeCommon.intValue;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.BaseConfigChooser
@@ -221,9 +222,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -237,7 +238,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, egl10, eGLDisplay, eGLConfig, obj)) == null) {
                 try {
                     return egl10.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, null);
-                } catch (IllegalArgumentException unused) {
+                } catch (IllegalArgumentException e2) {
+                    Log.e(GLTextureView.TAG, "eglCreateWindowSurface", e2);
                     return null;
                 }
             }
@@ -294,9 +296,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {weakReference};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -320,19 +322,19 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             this.mEglSurface = null;
         }
 
-        public static String formatEglError(String str, int i2) {
+        public static String formatEglError(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
-                return str + " failed: " + i2;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+                return str + " failed: " + i;
             }
             return (String) invokeLI.objValue;
         }
 
-        public static void logEglErrorAsWarning(String str, String str2, int i2) {
+        public static void logEglErrorAsWarning(String str, String str2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(65539, null, str, str2, i2) == null) {
-                formatEglError(str2, i2);
+            if (interceptable == null || interceptable.invokeLLI(65539, null, str, str2, i) == null) {
+                Log.w(str, formatEglError(str2, i));
             }
         }
 
@@ -385,7 +387,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                 logEglErrorAsWarning("EGLHelper", "eglMakeCurrent", this.mEgl.eglGetError());
                                 return false;
                             }
-                            this.mEgl.eglGetError();
+                            if (this.mEgl.eglGetError() == 12299) {
+                                Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
+                            }
                             return false;
                         }
                         throw new RuntimeException("mEglConfig not initialized");
@@ -459,10 +463,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? !this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface) ? this.mEgl.eglGetError() : CommandMessage.COMMAND_BASE : invokeV.intValue;
         }
 
-        public static void throwEglException(String str, int i2) {
+        public static void throwEglException(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65541, null, str, i2) == null) {
-                throw new RuntimeException(formatEglError(str, i2));
+            if (interceptable == null || interceptable.invokeLI(65541, null, str, i) == null) {
+                throw new RuntimeException(formatEglError(str, i));
             }
         }
     }
@@ -498,9 +502,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {weakReference};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -534,8 +538,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             boolean z7 = false;
             boolean z8 = false;
             boolean z9 = false;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             boolean z10 = false;
             while (true) {
                 Runnable runnable = null;
@@ -618,11 +622,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                         }
                                         if (this.mHaveEglSurface) {
                                             if (this.mSizeChanged) {
-                                                int i4 = this.mWidth;
-                                                int i5 = this.mHeight;
+                                                int i3 = this.mWidth;
+                                                int i4 = this.mHeight;
                                                 this.mSizeChanged = false;
+                                                i = i3;
                                                 i2 = i4;
-                                                i3 = i5;
                                                 z2 = false;
                                                 z7 = true;
                                                 z9 = true;
@@ -671,7 +675,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                         if (z9) {
                             GLTextureView gLTextureView3 = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView3 != null) {
-                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i2, i3);
+                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i, i2);
                             }
                             z9 = false;
                         }
@@ -737,13 +741,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         public int getRenderMode() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (GLTextureView.sGLThreadManager) {
-                    i2 = this.mRenderMode;
+                    i = this.mRenderMode;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -784,12 +788,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
-        public void onWindowResize(int i2, int i3) {
+        public void onWindowResize(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
                 synchronized (GLTextureView.sGLThreadManager) {
-                    this.mWidth = i2;
-                    this.mHeight = i3;
+                    this.mWidth = i;
+                    this.mHeight = i2;
                     this.mSizeChanged = true;
                     this.mRequestRender = true;
                     this.mRenderComplete = false;
@@ -872,12 +876,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
-        public void setRenderMode(int i2) {
+        public void setRenderMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                if (i2 >= 0 && i2 <= 1) {
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                if (i >= 0 && i <= 1) {
                     synchronized (GLTextureView.sGLThreadManager) {
-                        this.mRenderMode = i2;
+                        this.mRenderMode = i;
                         GLTextureView.sGLThreadManager.notifyAll();
                     }
                     return;
@@ -955,9 +959,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -1085,9 +1089,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1101,7 +1105,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mBuilder.length() <= 0) {
                 return;
             }
-            this.mBuilder.toString();
+            Log.v(GLTextureView.TAG, this.mBuilder.toString());
             StringBuilder sb = this.mBuilder;
             sb.delete(0, sb.length());
         }
@@ -1123,11 +1127,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         @Override // java.io.Writer
-        public void write(char[] cArr, int i2, int i3) {
+        public void write(char[] cArr, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3) == null) {
-                for (int i4 = 0; i4 < i3; i4++) {
-                    char c2 = cArr[i2 + i4];
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2) == null) {
+                for (int i3 = 0; i3 < i2; i3++) {
+                    char c2 = cArr[i + i3];
                     if (c2 == '\n') {
                         flushBuilder();
                     } else {
@@ -1142,7 +1146,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
-        void onSurfaceChanged(GL10 gl10, int i2, int i3);
+        void onSurfaceChanged(GL10 gl10, int i, int i2);
 
         void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig);
     }
@@ -1162,9 +1166,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gLTextureView, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((GLTextureView) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue(), ((Integer) objArr2[6]).intValue());
                     newInitContext.thisArg = this;
@@ -1201,9 +1205,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -1276,10 +1280,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.View.OnLayoutChangeListener
-    public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+    public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            surfaceChanged(getSurfaceTexture(), 0, i4 - i2, i5 - i3);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+            surfaceChanged(getSurfaceTexture(), 0, i3 - i, i4 - i2);
         }
     }
 
@@ -1298,11 +1302,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
             surfaceCreated(surfaceTexture);
-            surfaceChanged(surfaceTexture, 0, i2, i3);
+            surfaceChanged(surfaceTexture, 0, i, i2);
         }
     }
 
@@ -1318,10 +1322,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i2, i3) == null) {
-            surfaceChanged(surfaceTexture, 0, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i, i2) == null) {
+            surfaceChanged(surfaceTexture, 0, i, i2);
         }
     }
 
@@ -1346,10 +1350,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void setDebugFlags(int i2) {
+    public void setDebugFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mDebugFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mDebugFlags = i;
         }
     }
 
@@ -1361,11 +1365,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void setEGLContextClientVersion(int i2) {
+    public void setEGLContextClientVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             checkRenderThreadState();
-            this.mEGLContextClientVersion = i2;
+            this.mEGLContextClientVersion = i;
         }
     }
 
@@ -1399,10 +1403,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void setRenderMode(int i2) {
+    public void setRenderMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mGLThread.setRenderMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mGLThread.setRenderMode(i);
         }
     }
 
@@ -1426,10 +1430,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    public void surfaceChanged(SurfaceTexture surfaceTexture, int i2, int i3, int i4) {
+    public void surfaceChanged(SurfaceTexture surfaceTexture, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048602, this, surfaceTexture, i2, i3, i4) == null) {
-            this.mGLThread.onWindowResize(i3, i4);
+        if (interceptable == null || interceptable.invokeLIII(1048602, this, surfaceTexture, i, i2, i3) == null) {
+            this.mGLThread.onWindowResize(i2, i3);
         }
     }
 
@@ -1461,9 +1465,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gLTextureView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1494,7 +1498,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLContext) == null) || egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
                 return;
             }
-            String str = "display:" + eGLDisplay + " context: " + eGLContext;
+            Log.e("DefaultContextFactory", "display:" + eGLDisplay + " context: " + eGLContext);
             EglHelper.throwEglException("eglDestroyContex", egl10.eglGetError());
         }
 
@@ -1519,9 +1523,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -1533,10 +1537,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         init();
     }
 
-    public void setEGLConfigChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public void setEGLConfigChooser(int i, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            setEGLConfigChooser(new ComponentSizeChooser(this, i2, i3, i4, i5, i6, i7));
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            setEGLConfigChooser(new ComponentSizeChooser(this, i, i2, i3, i4, i5, i6));
         }
     }
 }

@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,9 +67,9 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -88,42 +87,42 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getOffsetToFirstIV", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "int"), 33);
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 92);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.util.List", "entries", "", "void"), 96);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "equals", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.lang.Object", "o", "", "boolean"), IChannelPay.ID_IPAY_PAY_GAME);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "equals", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.lang.Object", "o", "", "boolean"), 164);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", TTDownloadField.TT_HASHCODE, "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "int"), w0.M);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 199);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), w0.b1);
     }
 
-    private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j2, int i2) {
+    private List<CencSampleAuxiliaryDataFormat> parseEntries(ByteBuffer byteBuffer, long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{byteBuffer, Long.valueOf(j2), Integer.valueOf(i2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{byteBuffer, Long.valueOf(j), Integer.valueOf(i)})) != null) {
             return (List) invokeCommon.objValue;
         }
         LinkedList linkedList = new LinkedList();
         while (true) {
-            long j3 = j2 - 1;
-            if (j2 <= 0) {
+            long j2 = j - 1;
+            if (j <= 0) {
                 return linkedList;
             }
             try {
                 CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = new CencSampleAuxiliaryDataFormat();
-                byte[] bArr = new byte[i2];
+                byte[] bArr = new byte[i];
                 cencSampleAuxiliaryDataFormat.iv = bArr;
                 byteBuffer.get(bArr);
                 if ((getFlags() & 2) > 0) {
                     int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
                     cencSampleAuxiliaryDataFormat.pairs = new LinkedList();
                     while (true) {
-                        int i3 = readUInt16 - 1;
+                        int i2 = readUInt16 - 1;
                         if (readUInt16 <= 0) {
                             break;
                         }
                         cencSampleAuxiliaryDataFormat.pairs.add(cencSampleAuxiliaryDataFormat.createPair(IsoTypeReader.readUInt16(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
-                        readUInt16 = i3;
+                        readUInt16 = i2;
                     }
                 }
                 linkedList.add(cencSampleAuxiliaryDataFormat);
-                j2 = j3;
+                j = j2;
             } catch (BufferUnderflowException unused) {
                 return null;
             }
@@ -276,9 +275,9 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_4, this, this));
-            int i2 = ((this.algorithmId * 31) + this.ivSize) * 31;
+            int i = ((this.algorithmId * 31) + this.ivSize) * 31;
             byte[] bArr = this.kid;
-            int hashCode = (i2 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
+            int hashCode = (i + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
             List<CencSampleAuxiliaryDataFormat> list = this.entries;
             return hashCode + (list != null ? list.hashCode() : 0);
         }

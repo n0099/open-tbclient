@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8 extends V8Object {
     public static /* synthetic */ Interceptable $ic;
     public static boolean initialized;
@@ -55,13 +55,13 @@ public class V8 extends V8Object {
     public Map<Long, V8Value> v8WeakReferences;
 
     /* renamed from: com.kwad.v8.V8$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MethodDescriptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class V8 extends V8Object {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -120,9 +120,9 @@ public class V8 extends V8Object {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -140,9 +140,9 @@ public class V8 extends V8Object {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -167,211 +167,211 @@ public class V8 extends V8Object {
         this.objectHandle = _getGlobalObject(this.v8RuntimePtr);
     }
 
-    private native void _acquireLock(long j2);
+    private native void _acquireLock(long j);
 
-    private native void _add(long j2, long j3, String str, double d2);
+    private native void _add(long j, long j2, String str, double d2);
 
-    private native void _add(long j2, long j3, String str, int i2);
+    private native void _add(long j, long j2, String str, int i);
 
-    private native void _add(long j2, long j3, String str, String str2);
+    private native void _add(long j, long j2, String str, String str2);
 
-    private native void _add(long j2, long j3, String str, boolean z);
+    private native void _add(long j, long j2, String str, boolean z);
 
-    private native void _addArrayBooleanItem(long j2, long j3, boolean z);
+    private native void _addArrayBooleanItem(long j, long j2, boolean z);
 
-    private native void _addArrayDoubleItem(long j2, long j3, double d2);
+    private native void _addArrayDoubleItem(long j, long j2, double d2);
 
-    private native void _addArrayIntItem(long j2, long j3, int i2);
+    private native void _addArrayIntItem(long j, long j2, int i);
 
-    private native void _addArrayNullItem(long j2, long j3);
+    private native void _addArrayNullItem(long j, long j2);
 
-    private native void _addArrayObjectItem(long j2, long j3, long j4);
+    private native void _addArrayObjectItem(long j, long j2, long j3);
 
-    private native void _addArrayStringItem(long j2, long j3, String str);
+    private native void _addArrayStringItem(long j, long j2, String str);
 
-    private native void _addArrayUndefinedItem(long j2, long j3);
+    private native void _addArrayUndefinedItem(long j, long j2);
 
-    private native void _addNull(long j2, long j3, String str);
+    private native void _addNull(long j, long j2, String str);
 
-    private native void _addObject(long j2, long j3, String str, long j4);
+    private native void _addObject(long j, long j2, String str, long j3);
 
-    private native void _addUndefined(long j2, long j3, String str);
+    private native void _addUndefined(long j, long j2, String str);
 
-    private native Object _arrayGet(long j2, int i2, long j3, int i3);
+    private native Object _arrayGet(long j, int i, long j2, int i2);
 
-    private native boolean _arrayGetBoolean(long j2, long j3, int i2);
+    private native boolean _arrayGetBoolean(long j, long j2, int i);
 
-    private native int _arrayGetBooleans(long j2, long j3, int i2, int i3, boolean[] zArr);
+    private native int _arrayGetBooleans(long j, long j2, int i, int i2, boolean[] zArr);
 
-    private native boolean[] _arrayGetBooleans(long j2, long j3, int i2, int i3);
+    private native boolean[] _arrayGetBooleans(long j, long j2, int i, int i2);
 
-    private native byte _arrayGetByte(long j2, long j3, int i2);
+    private native byte _arrayGetByte(long j, long j2, int i);
 
-    private native int _arrayGetBytes(long j2, long j3, int i2, int i3, byte[] bArr);
+    private native int _arrayGetBytes(long j, long j2, int i, int i2, byte[] bArr);
 
-    private native byte[] _arrayGetBytes(long j2, long j3, int i2, int i3);
+    private native byte[] _arrayGetBytes(long j, long j2, int i, int i2);
 
-    private native double _arrayGetDouble(long j2, long j3, int i2);
+    private native double _arrayGetDouble(long j, long j2, int i);
 
-    private native int _arrayGetDoubles(long j2, long j3, int i2, int i3, double[] dArr);
+    private native int _arrayGetDoubles(long j, long j2, int i, int i2, double[] dArr);
 
-    private native double[] _arrayGetDoubles(long j2, long j3, int i2, int i3);
+    private native double[] _arrayGetDoubles(long j, long j2, int i, int i2);
 
-    private native int _arrayGetInteger(long j2, long j3, int i2);
+    private native int _arrayGetInteger(long j, long j2, int i);
 
-    private native int _arrayGetIntegers(long j2, long j3, int i2, int i3, int[] iArr);
+    private native int _arrayGetIntegers(long j, long j2, int i, int i2, int[] iArr);
 
-    private native int[] _arrayGetIntegers(long j2, long j3, int i2, int i3);
+    private native int[] _arrayGetIntegers(long j, long j2, int i, int i2);
 
-    private native int _arrayGetSize(long j2, long j3);
+    private native int _arrayGetSize(long j, long j2);
 
-    private native String _arrayGetString(long j2, long j3, int i2);
+    private native String _arrayGetString(long j, long j2, int i);
 
-    private native int _arrayGetStrings(long j2, long j3, int i2, int i3, String[] strArr);
+    private native int _arrayGetStrings(long j, long j2, int i, int i2, String[] strArr);
 
-    private native String[] _arrayGetStrings(long j2, long j3, int i2, int i3);
+    private native String[] _arrayGetStrings(long j, long j2, int i, int i2);
 
-    private native void _clearWeak(long j2, long j3);
+    private native void _clearWeak(long j, long j2);
 
-    private native boolean _contains(long j2, long j3, String str);
+    private native boolean _contains(long j, long j2, String str);
 
-    private native long _createInspector(long j2, V8InspectorDelegate v8InspectorDelegate, String str);
+    private native long _createInspector(long j, V8InspectorDelegate v8InspectorDelegate, String str);
 
     private native long _createIsolate(String str);
 
-    private native void _createTwin(long j2, long j3, long j4);
+    private native void _createTwin(long j, long j2, long j3);
 
-    private native ByteBuffer _createV8ArrayBufferBackingStore(long j2, long j3, int i2);
+    private native ByteBuffer _createV8ArrayBufferBackingStore(long j, long j2, int i);
 
-    private native void _dispatchProtocolMessage(long j2, long j3, String str);
+    private native void _dispatchProtocolMessage(long j, long j2, String str);
 
-    private native boolean _equals(long j2, long j3, long j4);
+    private native boolean _equals(long j, long j2, long j3);
 
-    private native boolean _executeBooleanFunction(long j2, long j3, String str, long j4);
+    private native boolean _executeBooleanFunction(long j, long j2, String str, long j3);
 
-    private native boolean _executeBooleanScript(long j2, String str, String str2, int i2);
+    private native boolean _executeBooleanScript(long j, String str, String str2, int i);
 
-    private native double _executeDoubleFunction(long j2, long j3, String str, long j4);
+    private native double _executeDoubleFunction(long j, long j2, String str, long j3);
 
-    private native double _executeDoubleScript(long j2, String str, String str2, int i2);
+    private native double _executeDoubleScript(long j, String str, String str2, int i);
 
-    private native Object _executeFunction(long j2, int i2, long j3, String str, long j4);
+    private native Object _executeFunction(long j, int i, long j2, String str, long j3);
 
-    private native Object _executeFunction(long j2, long j3, long j4, long j5);
+    private native Object _executeFunction(long j, long j2, long j3, long j4);
 
-    private native int _executeIntegerFunction(long j2, long j3, String str, long j4);
+    private native int _executeIntegerFunction(long j, long j2, String str, long j3);
 
-    private native int _executeIntegerScript(long j2, String str, String str2, int i2);
+    private native int _executeIntegerScript(long j, String str, String str2, int i);
 
-    private native Object _executeScript(long j2, int i2, String str, String str2, int i3);
+    private native Object _executeScript(long j, int i, String str, String str2, int i2);
 
-    private native String _executeStringFunction(long j2, long j3, String str, long j4);
+    private native String _executeStringFunction(long j, long j2, String str, long j3);
 
-    private native String _executeStringScript(long j2, String str, String str2, int i2);
+    private native String _executeStringScript(long j, String str, String str2, int i);
 
-    private native void _executeVoidFunction(long j2, long j3, String str, long j4);
+    private native void _executeVoidFunction(long j, long j2, String str, long j3);
 
-    private native void _executeVoidScript(long j2, String str, String str2, int i2);
+    private native void _executeVoidScript(long j, String str, String str2, int i);
 
-    private native Object _get(long j2, int i2, long j3, String str);
+    private native Object _get(long j, int i, long j2, String str);
 
-    private native int _getArrayType(long j2, long j3);
+    private native int _getArrayType(long j, long j2);
 
-    private native boolean _getBoolean(long j2, long j3, String str);
+    private native boolean _getBoolean(long j, long j2, String str);
 
     public static native long _getBuildID();
 
-    private native String _getConstructorName(long j2, long j3);
+    private native String _getConstructorName(long j, long j2);
 
-    private native double _getDouble(long j2, long j3, String str);
+    private native double _getDouble(long j, long j2, String str);
 
-    private native long _getGlobalObject(long j2);
+    private native long _getGlobalObject(long j);
 
-    private native int _getInteger(long j2, long j3, String str);
+    private native int _getInteger(long j, long j2, String str);
 
-    private native String[] _getKeys(long j2, long j3);
+    private native String[] _getKeys(long j, long j2);
 
-    private native String _getString(long j2, long j3, String str);
+    private native String _getString(long j, long j2, String str);
 
-    private native int _getType(long j2, long j3);
+    private native int _getType(long j, long j2);
 
-    private native int _getType(long j2, long j3, int i2);
+    private native int _getType(long j, long j2, int i);
 
-    private native int _getType(long j2, long j3, int i2, int i3);
+    private native int _getType(long j, long j2, int i, int i2);
 
-    private native int _getType(long j2, long j3, String str);
+    private native int _getType(long j, long j2, String str);
 
     public static native String _getVersion();
 
-    private native int _identityHash(long j2, long j3);
+    private native int _identityHash(long j, long j2);
 
-    private native long _initEmptyContainer(long j2);
+    private native long _initEmptyContainer(long j);
 
-    private native long _initNewV8Array(long j2);
+    private native long _initNewV8Array(long j);
 
-    private native long _initNewV8ArrayBuffer(long j2, int i2);
+    private native long _initNewV8ArrayBuffer(long j, int i);
 
-    private native long _initNewV8ArrayBuffer(long j2, ByteBuffer byteBuffer, int i2);
+    private native long _initNewV8ArrayBuffer(long j, ByteBuffer byteBuffer, int i);
 
-    private native long _initNewV8Float32Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8Float32Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8Float64Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8Float64Array(long j, long j2, int i, int i2);
 
-    private native long[] _initNewV8Function(long j2);
+    private native long[] _initNewV8Function(long j);
 
-    private native long _initNewV8Int16Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8Int16Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8Int32Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8Int32Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8Int8Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8Int8Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8Object(long j2);
+    private native long _initNewV8Object(long j);
 
-    private native long _initNewV8UInt16Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8UInt16Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8UInt32Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8UInt32Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8UInt8Array(long j2, long j3, int i2, int i3);
+    private native long _initNewV8UInt8Array(long j, long j2, int i, int i2);
 
-    private native long _initNewV8UInt8ClampedArray(long j2, long j3, int i2, int i3);
+    private native long _initNewV8UInt8ClampedArray(long j, long j2, int i, int i2);
 
     public static native boolean _isNodeCompatible();
 
-    public static native boolean _isRunning(long j2);
+    public static native boolean _isRunning(long j);
 
-    private native boolean _isWeak(long j2, long j3);
+    private native boolean _isWeak(long j, long j2);
 
-    private native void _lowMemoryNotification(long j2);
+    private native void _lowMemoryNotification(long j);
 
-    public static native boolean _pumpMessageLoop(long j2);
+    public static native boolean _pumpMessageLoop(long j);
 
-    private native long _registerJavaMethod(long j2, long j3, String str, boolean z);
+    private native long _registerJavaMethod(long j, long j2, String str, boolean z);
 
-    private native void _release(long j2, long j3);
+    private native void _release(long j, long j2);
 
-    private native void _releaseLock(long j2);
+    private native void _releaseLock(long j);
 
-    private native void _releaseMethodDescriptor(long j2, long j3);
+    private native void _releaseMethodDescriptor(long j, long j2);
 
-    private native void _releaseRuntime(long j2);
+    private native void _releaseRuntime(long j);
 
-    private native boolean _sameValue(long j2, long j3, long j4);
+    private native boolean _sameValue(long j, long j2, long j3);
 
-    private native void _schedulePauseOnNextStatement(long j2, long j3, String str);
+    private native void _schedulePauseOnNextStatement(long j, long j2, String str);
 
     public static native void _setFlags(String str);
 
-    private native void _setPrototype(long j2, long j3, long j4);
+    private native void _setPrototype(long j, long j2, long j3);
 
-    private native void _setWeak(long j2, long j3);
+    private native void _setWeak(long j, long j2);
 
-    public static native void _startNodeJS(long j2, String str);
+    public static native void _startNodeJS(long j, String str);
 
-    private native boolean _strictEquals(long j2, long j3, long j4);
+    private native boolean _strictEquals(long j, long j2, long j3);
 
-    private native void _terminateExecution(long j2);
+    private native void _terminateExecution(long j);
 
-    private native String _toString(long j2, long j3);
+    private native String _toString(long j, long j2);
 
     private void checkArgs(Object[] objArr) {
         Interceptable interceptable = $ic;
@@ -479,51 +479,51 @@ public class V8 extends V8Object {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65650, this, new Object[]{v8Object, methodDescriptor, v8Array, Boolean.valueOf(z)})) == null) {
             int length = methodDescriptor.method.getParameterTypes().length;
-            int i2 = z ? length - 1 : length;
+            int i = z ? length - 1 : length;
             Object[] defaultValues = setDefaultValues(new Object[length], methodDescriptor.method.getParameterTypes(), v8Object, methodDescriptor.includeReceiver);
             ArrayList arrayList = new ArrayList();
-            populateParamters(v8Array, i2, defaultValues, arrayList, methodDescriptor.includeReceiver);
+            populateParamters(v8Array, i, defaultValues, arrayList, methodDescriptor.includeReceiver);
             if (z) {
                 Object varArgContainer = getVarArgContainer(methodDescriptor.method.getParameterTypes(), arrayList.size());
                 System.arraycopy(arrayList.toArray(), 0, varArgContainer, 0, arrayList.size());
-                defaultValues[i2] = varArgContainer;
+                defaultValues[i] = varArgContainer;
             }
             return defaultValues;
         }
         return (Object[]) invokeCommon.objValue;
     }
 
-    private Object getArrayItem(V8Array v8Array, int i2) {
+    private Object getArrayItem(V8Array v8Array, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65651, this, v8Array, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65651, this, v8Array, i)) == null) {
             try {
-                int type = v8Array.getType(i2);
+                int type = v8Array.getType(i);
                 if (type != 10) {
                     if (type != 99) {
                         switch (type) {
                             case 1:
-                                return Integer.valueOf(v8Array.getInteger(i2));
+                                return Integer.valueOf(v8Array.getInteger(i));
                             case 2:
-                                return Double.valueOf(v8Array.getDouble(i2));
+                                return Double.valueOf(v8Array.getDouble(i));
                             case 3:
-                                return Boolean.valueOf(v8Array.getBoolean(i2));
+                                return Boolean.valueOf(v8Array.getBoolean(i));
                             case 4:
-                                return v8Array.getString(i2);
+                                return v8Array.getString(i);
                             case 5:
                             case 8:
-                                return v8Array.getArray(i2);
+                                return v8Array.getArray(i);
                             case 6:
-                                return v8Array.getObject(i2);
+                                return v8Array.getObject(i);
                             case 7:
-                                return v8Array.getObject(i2);
+                                return v8Array.getObject(i);
                             default:
                                 return null;
                         }
                     }
                     return getUndefined();
                 }
-                return v8Array.get(i2);
+                return v8Array.get(i);
             } catch (V8ResultUndefined unused) {
                 return null;
             }
@@ -567,15 +567,15 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(65657, null)) == null) ? _getVersion() : (String) invokeV.objValue;
     }
 
-    private Object getVarArgContainer(Class<?>[] clsArr, int i2) {
+    private Object getVarArgContainer(Class<?>[] clsArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65658, this, clsArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65658, this, clsArr, i)) == null) {
             Class<?> cls = clsArr[clsArr.length - 1];
             if (cls.isArray()) {
                 cls = cls.getComponentType();
             }
-            return Array.newInstance(cls, i2);
+            return Array.newInstance(cls, i);
         }
         return invokeLI.objValue;
     }
@@ -654,15 +654,15 @@ public class V8 extends V8Object {
         }
     }
 
-    private void populateParamters(V8Array v8Array, int i2, Object[] objArr, List<Object> list, boolean z) {
+    private void populateParamters(V8Array v8Array, int i, Object[] objArr, List<Object> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65666, this, new Object[]{v8Array, Integer.valueOf(i2), objArr, list, Boolean.valueOf(z)}) == null) {
-            for (int i3 = z ? 1 : 0; i3 < v8Array.length() + (z ? 1 : 0); i3++) {
-                Object arrayItem = getArrayItem(v8Array, i3 - (z ? 1 : 0));
-                if (i3 >= i2) {
+        if (interceptable == null || interceptable.invokeCommon(65666, this, new Object[]{v8Array, Integer.valueOf(i), objArr, list, Boolean.valueOf(z)}) == null) {
+            for (int i2 = z ? 1 : 0; i2 < v8Array.length() + (z ? 1 : 0); i2++) {
+                Object arrayItem = getArrayItem(v8Array, i2 - (z ? 1 : 0));
+                if (i2 >= i) {
                     list.add(arrayItem);
                 } else {
-                    objArr[i3] = arrayItem;
+                    objArr[i2] = arrayItem;
                 }
             }
         }
@@ -713,14 +713,14 @@ public class V8 extends V8Object {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65670, this, new Object[]{objArr, clsArr, v8Object, Boolean.valueOf(z)})) == null) {
-            int i2 = 0;
+            int i = 0;
             if (z) {
                 objArr[0] = v8Object;
-                i2 = 1;
+                i = 1;
             }
-            while (i2 < objArr.length) {
-                objArr[i2] = getDefaultValue(clsArr[i2]);
-                i2++;
+            while (i < objArr.length) {
+                objArr[i] = getDefaultValue(clsArr[i]);
+                i++;
             }
             return objArr;
         }
@@ -735,94 +735,94 @@ public class V8 extends V8Object {
         }
     }
 
-    public void acquireLock(long j2) {
+    public void acquireLock(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            _acquireLock(j2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            _acquireLock(j);
         }
     }
 
-    public void add(long j2, long j3, String str, double d2) {
+    public void add(long j, long j2, String str, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Double.valueOf(d2)}) == null) {
-            _add(j2, j3, str, d2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Double.valueOf(d2)}) == null) {
+            _add(j, j2, str, d2);
         }
     }
 
-    public void add(long j2, long j3, String str, int i2) {
+    public void add(long j, long j2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i2)}) == null) {
-            _add(j2, j3, str, i2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i)}) == null) {
+            _add(j, j2, str, i);
         }
     }
 
-    public void add(long j2, long j3, String str, String str2) {
+    public void add(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
-            _add(j2, j3, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            _add(j, j2, str, str2);
         }
     }
 
-    public void add(long j2, long j3, String str, boolean z) {
+    public void add(long j, long j2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Boolean.valueOf(z)}) == null) {
-            _add(j2, j3, str, z);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Boolean.valueOf(z)}) == null) {
+            _add(j, j2, str, z);
         }
     }
 
-    public void addArrayBooleanItem(long j2, long j3, boolean z) {
+    public void addArrayBooleanItem(long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            _addArrayBooleanItem(j2, j3, z);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            _addArrayBooleanItem(j, j2, z);
         }
     }
 
-    public void addArrayDoubleItem(long j2, long j3, double d2) {
+    public void addArrayDoubleItem(long j, long j2, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Double.valueOf(d2)}) == null) {
-            _addArrayDoubleItem(j2, j3, d2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2)}) == null) {
+            _addArrayDoubleItem(j, j2, d2);
         }
     }
 
-    public void addArrayIntItem(long j2, long j3, int i2) {
+    public void addArrayIntItem(long j, long j2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-            _addArrayIntItem(j2, j3, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            _addArrayIntItem(j, j2, i);
         }
     }
 
-    public void addArrayNullItem(long j2, long j3) {
+    public void addArrayNullItem(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _addArrayNullItem(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _addArrayNullItem(j, j2);
         }
     }
 
-    public void addArrayObjectItem(long j2, long j3, long j4) {
+    public void addArrayObjectItem(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            _addArrayObjectItem(j2, j3, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            _addArrayObjectItem(j, j2, j3);
         }
     }
 
-    public void addArrayStringItem(long j2, long j3, String str) {
+    public void addArrayStringItem(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
-            _addArrayStringItem(j2, j3, str);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            _addArrayStringItem(j, j2, str);
         }
     }
 
-    public void addArrayUndefinedItem(long j2, long j3) {
+    public void addArrayUndefinedItem(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _addArrayUndefinedItem(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _addArrayUndefinedItem(j, j2);
         }
     }
 
-    public void addNull(long j2, long j3, String str) {
+    public void addNull(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
-            _addNull(j2, j3, str);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            _addNull(j, j2, str);
         }
     }
 
@@ -837,10 +837,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void addObject(long j2, long j3, String str, long j4) {
+    public void addObject(long j, long j2, String str, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)}) == null) {
-            _addObject(j2, j3, str, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)}) == null) {
+            _addObject(j, j2, str, j3);
         }
     }
 
@@ -858,120 +858,120 @@ public class V8 extends V8Object {
         }
     }
 
-    public void addUndefined(long j2, long j3, String str) {
+    public void addUndefined(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
-            _addUndefined(j2, j3, str);
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            _addUndefined(j, j2, str);
         }
     }
 
-    public Object arrayGet(long j2, int i2, long j3, int i3) {
+    public Object arrayGet(long j, int i, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3)})) == null) ? _arrayGet(j2, i2, j3, i3) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? _arrayGet(j, i, j2, i2) : invokeCommon.objValue;
     }
 
-    public boolean arrayGetBoolean(long j2, long j3, int i2) {
+    public boolean arrayGetBoolean(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _arrayGetBoolean(j2, j3, i2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _arrayGetBoolean(j, j2, i) : invokeCommon.booleanValue;
     }
 
-    public int arrayGetBooleans(long j2, long j3, int i2, int i3, boolean[] zArr) {
+    public int arrayGetBooleans(long j, long j2, int i, int i2, boolean[] zArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), zArr})) == null) ? _arrayGetBooleans(j2, j3, i2, i3, zArr) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), zArr})) == null) ? _arrayGetBooleans(j, j2, i, i2, zArr) : invokeCommon.intValue;
     }
 
-    public boolean[] arrayGetBooleans(long j2, long j3, int i2, int i3) {
+    public boolean[] arrayGetBooleans(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _arrayGetBooleans(j2, j3, i2, i3) : (boolean[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _arrayGetBooleans(j, j2, i, i2) : (boolean[]) invokeCommon.objValue;
     }
 
-    public byte arrayGetByte(long j2, long j3, int i2) {
+    public byte arrayGetByte(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _arrayGetByte(j2, j3, i2) : invokeCommon.byteValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _arrayGetByte(j, j2, i) : invokeCommon.byteValue;
     }
 
-    public int arrayGetBytes(long j2, long j3, int i2, int i3, byte[] bArr) {
+    public int arrayGetBytes(long j, long j2, int i, int i2, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) ? _arrayGetBytes(j2, j3, i2, i3, bArr) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), bArr})) == null) ? _arrayGetBytes(j, j2, i, i2, bArr) : invokeCommon.intValue;
     }
 
-    public byte[] arrayGetBytes(long j2, long j3, int i2, int i3) {
+    public byte[] arrayGetBytes(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _arrayGetBytes(j2, j3, i2, i3) : (byte[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _arrayGetBytes(j, j2, i, i2) : (byte[]) invokeCommon.objValue;
     }
 
-    public double arrayGetDouble(long j2, long j3, int i2) {
+    public double arrayGetDouble(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _arrayGetDouble(j2, j3, i2) : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _arrayGetDouble(j, j2, i) : invokeCommon.doubleValue;
     }
 
-    public int arrayGetDoubles(long j2, long j3, int i2, int i3, double[] dArr) {
+    public int arrayGetDoubles(long j, long j2, int i, int i2, double[] dArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), dArr})) == null) ? _arrayGetDoubles(j2, j3, i2, i3, dArr) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), dArr})) == null) ? _arrayGetDoubles(j, j2, i, i2, dArr) : invokeCommon.intValue;
     }
 
-    public double[] arrayGetDoubles(long j2, long j3, int i2, int i3) {
+    public double[] arrayGetDoubles(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _arrayGetDoubles(j2, j3, i2, i3) : (double[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _arrayGetDoubles(j, j2, i, i2) : (double[]) invokeCommon.objValue;
     }
 
-    public int arrayGetInteger(long j2, long j3, int i2) {
+    public int arrayGetInteger(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _arrayGetInteger(j2, j3, i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _arrayGetInteger(j, j2, i) : invokeCommon.intValue;
     }
 
-    public int arrayGetIntegers(long j2, long j3, int i2, int i3, int[] iArr) {
+    public int arrayGetIntegers(long j, long j2, int i, int i2, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), iArr})) == null) ? _arrayGetIntegers(j2, j3, i2, i3, iArr) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), iArr})) == null) ? _arrayGetIntegers(j, j2, i, i2, iArr) : invokeCommon.intValue;
     }
 
-    public int[] arrayGetIntegers(long j2, long j3, int i2, int i3) {
+    public int[] arrayGetIntegers(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _arrayGetIntegers(j2, j3, i2, i3) : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _arrayGetIntegers(j, j2, i, i2) : (int[]) invokeCommon.objValue;
     }
 
-    public int arrayGetSize(long j2, long j3) {
+    public int arrayGetSize(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _arrayGetSize(j2, j3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _arrayGetSize(j, j2) : invokeCommon.intValue;
     }
 
-    public String arrayGetString(long j2, long j3, int i2) {
+    public String arrayGetString(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _arrayGetString(j2, j3, i2) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _arrayGetString(j, j2, i) : (String) invokeCommon.objValue;
     }
 
-    public int arrayGetStrings(long j2, long j3, int i2, int i3, String[] strArr) {
+    public int arrayGetStrings(long j, long j2, int i, int i2, String[] strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), strArr})) == null) ? _arrayGetStrings(j2, j3, i2, i3, strArr) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), strArr})) == null) ? _arrayGetStrings(j, j2, i, i2, strArr) : invokeCommon.intValue;
     }
 
-    public String[] arrayGetStrings(long j2, long j3, int i2, int i3) {
+    public String[] arrayGetStrings(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _arrayGetStrings(j2, j3, i2, i3) : (String[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _arrayGetStrings(j, j2, i, i2) : (String[]) invokeCommon.objValue;
     }
 
-    public Object callObjectJavaMethod(long j2, V8Object v8Object, V8Array v8Array) {
+    public Object callObjectJavaMethod(long j, V8Object v8Object, V8Array v8Array) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j2), v8Object, v8Array})) == null) {
-            MethodDescriptor methodDescriptor = this.functionRegistry.get(Long.valueOf(j2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Long.valueOf(j), v8Object, v8Array})) == null) {
+            MethodDescriptor methodDescriptor = this.functionRegistry.get(Long.valueOf(j));
             JavaCallback javaCallback = methodDescriptor.callback;
             if (javaCallback != null) {
                 return checkResult(javaCallback.invoke(v8Object, v8Array));
@@ -998,10 +998,10 @@ public class V8 extends V8Object {
         return invokeCommon.objValue;
     }
 
-    public void callVoidJavaMethod(long j2, V8Object v8Object, V8Array v8Array) {
+    public void callVoidJavaMethod(long j, V8Object v8Object, V8Array v8Array) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j2), v8Object, v8Array}) == null) {
-            MethodDescriptor methodDescriptor = this.functionRegistry.get(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Long.valueOf(j), v8Object, v8Array}) == null) {
+            MethodDescriptor methodDescriptor = this.functionRegistry.get(Long.valueOf(j));
             JavaVoidCallback javaVoidCallback = methodDescriptor.voidCallback;
             if (javaVoidCallback != null) {
                 javaVoidCallback.invoke(v8Object, v8Array);
@@ -1048,10 +1048,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void clearWeak(long j2, long j3) {
+    public void clearWeak(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _clearWeak(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _clearWeak(j, j2);
         }
     }
 
@@ -1063,18 +1063,18 @@ public class V8 extends V8Object {
         }
     }
 
-    public boolean contains(long j2, long j3, String str) {
+    public boolean contains(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _contains(j2, j3, str) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _contains(j, j2, str) : invokeCommon.booleanValue;
     }
 
-    public void createAndRegisterMethodDescriptor(JavaCallback javaCallback, long j2) {
+    public void createAndRegisterMethodDescriptor(JavaCallback javaCallback, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048618, this, javaCallback, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048618, this, javaCallback, j) == null) {
             MethodDescriptor methodDescriptor = new MethodDescriptor(this, null);
             methodDescriptor.callback = javaCallback;
-            this.functionRegistry.put(Long.valueOf(j2), methodDescriptor);
+            this.functionRegistry.put(Long.valueOf(j), methodDescriptor);
         }
     }
 
@@ -1091,10 +1091,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void createTwin(long j2, long j3, long j4) {
+    public void createTwin(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            _createTwin(j2, j3, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            _createTwin(j, j2, j3);
         }
     }
 
@@ -1106,31 +1106,31 @@ public class V8 extends V8Object {
         }
     }
 
-    public ByteBuffer createV8ArrayBufferBackingStore(long j2, long j3, int i2) {
+    public ByteBuffer createV8ArrayBufferBackingStore(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _createV8ArrayBufferBackingStore(j2, j3, i2) : (ByteBuffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _createV8ArrayBufferBackingStore(j, j2, i) : (ByteBuffer) invokeCommon.objValue;
     }
 
-    public void dispatchProtocolMessage(long j2, String str) {
+    public void dispatchProtocolMessage(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048624, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048624, this, j, str) == null) {
             checkThread();
-            _dispatchProtocolMessage(this.v8RuntimePtr, j2, str);
+            _dispatchProtocolMessage(this.v8RuntimePtr, j, str);
         }
     }
 
-    public void disposeMethodID(long j2) {
+    public void disposeMethodID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
-            this.functionRegistry.remove(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            this.functionRegistry.remove(Long.valueOf(j));
         }
     }
 
-    public boolean equals(long j2, long j3, long j4) {
+    public boolean equals(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? _equals(j2, j3, j4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _equals(j, j2, j3) : invokeCommon.booleanValue;
     }
 
     public V8Array executeArrayScript(String str) {
@@ -1139,12 +1139,12 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) ? executeArrayScript(str, null, 0) : (V8Array) invokeL.objValue;
     }
 
-    public V8Array executeArrayScript(String str, String str2, int i2) {
+    public V8Array executeArrayScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048628, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048628, this, str, str2, i)) == null) {
             checkThread();
-            Object executeScript = executeScript(str, str2, i2);
+            Object executeScript = executeScript(str, str2, i);
             if (executeScript instanceof V8Array) {
                 return (V8Array) executeScript;
             }
@@ -1153,16 +1153,16 @@ public class V8 extends V8Object {
         return (V8Array) invokeLLI.objValue;
     }
 
-    public boolean executeBooleanFunction(long j2, long j3, String str, long j4) {
+    public boolean executeBooleanFunction(long j, long j2, String str, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)})) == null) ? _executeBooleanFunction(j2, j3, str, j4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)})) == null) ? _executeBooleanFunction(j, j2, str, j3) : invokeCommon.booleanValue;
     }
 
-    public boolean executeBooleanScript(long j2, String str, String str2, int i2) {
+    public boolean executeBooleanScript(long j, String str, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)})) == null) ? _executeBooleanScript(j2, str, str2, i2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048630, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)})) == null) ? _executeBooleanScript(j, str, str2, i) : invokeCommon.booleanValue;
     }
 
     public boolean executeBooleanScript(String str) {
@@ -1171,27 +1171,27 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) ? executeBooleanScript(str, null, 0) : invokeL.booleanValue;
     }
 
-    public boolean executeBooleanScript(String str, String str2, int i2) {
+    public boolean executeBooleanScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048632, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048632, this, str, str2, i)) == null) {
             checkThread();
             checkScript(str);
-            return executeBooleanScript(this.v8RuntimePtr, str, str2, i2);
+            return executeBooleanScript(this.v8RuntimePtr, str, str2, i);
         }
         return invokeLLI.booleanValue;
     }
 
-    public double executeDoubleFunction(long j2, long j3, String str, long j4) {
+    public double executeDoubleFunction(long j, long j2, String str, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)})) == null) ? _executeDoubleFunction(j2, j3, str, j4) : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)})) == null) ? _executeDoubleFunction(j, j2, str, j3) : invokeCommon.doubleValue;
     }
 
-    public double executeDoubleScript(long j2, String str, String str2, int i2) {
+    public double executeDoubleScript(long j, String str, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048634, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)})) == null) ? _executeDoubleScript(j2, str, str2, i2) : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048634, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)})) == null) ? _executeDoubleScript(j, str, str2, i) : invokeCommon.doubleValue;
     }
 
     public double executeDoubleScript(String str) {
@@ -1200,39 +1200,39 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, str)) == null) ? executeDoubleScript(str, null, 0) : invokeL.doubleValue;
     }
 
-    public double executeDoubleScript(String str, String str2, int i2) {
+    public double executeDoubleScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048636, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048636, this, str, str2, i)) == null) {
             checkThread();
             checkScript(str);
-            return executeDoubleScript(this.v8RuntimePtr, str, str2, i2);
+            return executeDoubleScript(this.v8RuntimePtr, str, str2, i);
         }
         return invokeLLI.doubleValue;
     }
 
-    public Object executeFunction(long j2, int i2, long j3, String str, long j4) {
+    public Object executeFunction(long j, int i, long j2, String str, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048637, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4)})) == null) ? _executeFunction(j2, i2, j3, str, j4) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048637, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3)})) == null) ? _executeFunction(j, i, j2, str, j3) : invokeCommon.objValue;
     }
 
-    public Object executeFunction(long j2, long j3, long j4, long j5) {
+    public Object executeFunction(long j, long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048638, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)})) == null) ? _executeFunction(j2, j3, j4, j5) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048638, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? _executeFunction(j, j2, j3, j4) : invokeCommon.objValue;
     }
 
-    public int executeIntegerFunction(long j2, long j3, String str, long j4) {
+    public int executeIntegerFunction(long j, long j2, String str, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)})) == null) ? _executeIntegerFunction(j2, j3, str, j4) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)})) == null) ? _executeIntegerFunction(j, j2, str, j3) : invokeCommon.intValue;
     }
 
-    public int executeIntegerScript(long j2, String str, String str2, int i2) {
+    public int executeIntegerScript(long j, String str, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)})) == null) ? _executeIntegerScript(j2, str, str2, i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)})) == null) ? _executeIntegerScript(j, str, str2, i) : invokeCommon.intValue;
     }
 
     public int executeIntegerScript(String str) {
@@ -1241,13 +1241,13 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, str)) == null) ? executeIntegerScript(str, null, 0) : invokeL.intValue;
     }
 
-    public int executeIntegerScript(String str, String str2, int i2) {
+    public int executeIntegerScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048642, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048642, this, str, str2, i)) == null) {
             checkThread();
             checkScript(str);
-            return executeIntegerScript(this.v8RuntimePtr, str, str2, i2);
+            return executeIntegerScript(this.v8RuntimePtr, str, str2, i);
         }
         return invokeLLI.intValue;
     }
@@ -1270,12 +1270,12 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, str)) == null) ? executeObjectScript(str, null, 0) : (V8Object) invokeL.objValue;
     }
 
-    public V8Object executeObjectScript(String str, String str2, int i2) {
+    public V8Object executeObjectScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048645, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048645, this, str, str2, i)) == null) {
             checkThread();
-            Object executeScript = executeScript(str, str2, i2);
+            Object executeScript = executeScript(str, str2, i);
             if (executeScript instanceof V8Object) {
                 return (V8Object) executeScript;
             }
@@ -1284,10 +1284,10 @@ public class V8 extends V8Object {
         return (V8Object) invokeLLI.objValue;
     }
 
-    public Object executeScript(long j2, int i2, String str, String str2, int i3) {
+    public Object executeScript(long j, int i, String str, String str2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, str2, Integer.valueOf(i3)})) == null) ? _executeScript(j2, i2, str, str2, i3) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) ? _executeScript(j, i, str, str2, i2) : invokeCommon.objValue;
     }
 
     public Object executeScript(String str) {
@@ -1307,27 +1307,27 @@ public class V8 extends V8Object {
         return invokeLL.objValue;
     }
 
-    public Object executeScript(String str, String str2, int i2) {
+    public Object executeScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048649, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048649, this, str, str2, i)) == null) {
             checkThread();
             checkScript(str);
-            return executeScript(getV8RuntimePtr(), 0, str, str2, i2);
+            return executeScript(getV8RuntimePtr(), 0, str, str2, i);
         }
         return invokeLLI.objValue;
     }
 
-    public String executeStringFunction(long j2, long j3, String str, long j4) {
+    public String executeStringFunction(long j, long j2, String str, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048650, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)})) == null) ? _executeStringFunction(j2, j3, str, j4) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048650, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)})) == null) ? _executeStringFunction(j, j2, str, j3) : (String) invokeCommon.objValue;
     }
 
-    public String executeStringScript(long j2, String str, String str2, int i2) {
+    public String executeStringScript(long j, String str, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048651, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)})) == null) ? _executeStringScript(j2, str, str2, i2) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048651, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)})) == null) ? _executeStringScript(j, str, str2, i) : (String) invokeCommon.objValue;
     }
 
     public String executeStringScript(String str) {
@@ -1336,28 +1336,28 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, str)) == null) ? executeStringScript(str, null, 0) : (String) invokeL.objValue;
     }
 
-    public String executeStringScript(String str, String str2, int i2) {
+    public String executeStringScript(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048653, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048653, this, str, str2, i)) == null) {
             checkThread();
             checkScript(str);
-            return executeStringScript(this.v8RuntimePtr, str, str2, i2);
+            return executeStringScript(this.v8RuntimePtr, str, str2, i);
         }
         return (String) invokeLLI.objValue;
     }
 
-    public void executeVoidFunction(long j2, long j3, String str, long j4) {
+    public void executeVoidFunction(long j, long j2, String str, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4)}) == null) {
-            _executeVoidFunction(j2, j3, str, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048654, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3)}) == null) {
+            _executeVoidFunction(j, j2, str, j3);
         }
     }
 
-    public void executeVoidScript(long j2, String str, String str2, int i2) {
+    public void executeVoidScript(long j, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) {
-            _executeVoidScript(j2, str, str2, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) {
+            _executeVoidScript(j, str, str2, i);
         }
     }
 
@@ -1368,37 +1368,37 @@ public class V8 extends V8Object {
         }
     }
 
-    public void executeVoidScript(String str, String str2, int i2) {
+    public void executeVoidScript(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048657, this, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048657, this, str, str2, i) == null) {
             checkThread();
             checkScript(str);
-            executeVoidScript(this.v8RuntimePtr, str, str2, i2);
+            executeVoidScript(this.v8RuntimePtr, str, str2, i);
         }
     }
 
-    public Object get(long j2, int i2, long j3, String str) {
+    public Object get(long j, int i, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str})) == null) ? _get(j2, i2, j3, str) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str})) == null) ? _get(j, i, j2, str) : invokeCommon.objValue;
     }
 
-    public int getArrayType(long j2, long j3) {
+    public int getArrayType(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _getArrayType(j2, j3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048659, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _getArrayType(j, j2) : invokeCommon.intValue;
     }
 
-    public boolean getBoolean(long j2, long j3, String str) {
+    public boolean getBoolean(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _getBoolean(j2, j3, str) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _getBoolean(j, j2, str) : invokeCommon.booleanValue;
     }
 
-    public String getConstructorName(long j2, long j3) {
+    public String getConstructorName(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048661, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _getConstructorName(j2, j3) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048661, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _getConstructorName(j, j2) : (String) invokeCommon.objValue;
     }
 
     public Object getData(String str) {
@@ -1414,10 +1414,10 @@ public class V8 extends V8Object {
         return invokeL.objValue;
     }
 
-    public double getDouble(long j2, long j3, String str) {
+    public double getDouble(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048663, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _getDouble(j2, j3, str) : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048663, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _getDouble(j, j2, str) : invokeCommon.doubleValue;
     }
 
     public V8Executor getExecutor(V8Object v8Object) {
@@ -1434,16 +1434,16 @@ public class V8 extends V8Object {
         return (V8Executor) invokeL.objValue;
     }
 
-    public int getInteger(long j2, long j3, String str) {
+    public int getInteger(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048665, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _getInteger(j2, j3, str) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048665, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _getInteger(j, j2, str) : invokeCommon.intValue;
     }
 
-    public String[] getKeys(long j2, long j3) {
+    public String[] getKeys(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048666, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _getKeys(j2, j3) : (String[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048666, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _getKeys(j, j2) : (String[]) invokeCommon.objValue;
     }
 
     public V8Locker getLocker() {
@@ -1458,34 +1458,34 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.objectReferences - this.v8WeakReferences.size() : invokeV.longValue;
     }
 
-    public String getString(long j2, long j3, String str) {
+    public String getString(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048669, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _getString(j2, j3, str) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048669, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _getString(j, j2, str) : (String) invokeCommon.objValue;
     }
 
-    public int getType(long j2, long j3) {
+    public int getType(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048670, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _getType(j2, j3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048670, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _getType(j, j2) : invokeCommon.intValue;
     }
 
-    public int getType(long j2, long j3, int i2) {
+    public int getType(long j, long j2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048671, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)})) == null) ? _getType(j2, j3, i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048671, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? _getType(j, j2, i) : invokeCommon.intValue;
     }
 
-    public int getType(long j2, long j3, int i2, int i3) {
+    public int getType(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048672, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _getType(j2, j3, i2, i3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048672, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _getType(j, j2, i, i2) : invokeCommon.intValue;
     }
 
-    public int getType(long j2, long j3, String str) {
+    public int getType(long j, long j2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048673, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? _getType(j2, j3, str) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048673, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? _getType(j, j2, str) : invokeCommon.intValue;
     }
 
     public long getV8RuntimePtr() {
@@ -1494,104 +1494,104 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.v8RuntimePtr : invokeV.longValue;
     }
 
-    public int identityHash(long j2, long j3) {
+    public int identityHash(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048675, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _identityHash(j2, j3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048675, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _identityHash(j, j2) : invokeCommon.intValue;
     }
 
-    public long initEmptyContainer(long j2) {
+    public long initEmptyContainer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048676, this, j2)) == null) ? _initEmptyContainer(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048676, this, j)) == null) ? _initEmptyContainer(j) : invokeJ.longValue;
     }
 
-    public long initNewV8Array(long j2) {
+    public long initNewV8Array(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048677, this, j2)) == null) ? _initNewV8Array(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048677, this, j)) == null) ? _initNewV8Array(j) : invokeJ.longValue;
     }
 
-    public long initNewV8ArrayBuffer(long j2, int i2) {
+    public long initNewV8ArrayBuffer(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? _initNewV8ArrayBuffer(j2, i2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? _initNewV8ArrayBuffer(j, i) : invokeCommon.longValue;
     }
 
-    public long initNewV8ArrayBuffer(long j2, ByteBuffer byteBuffer, int i2) {
+    public long initNewV8ArrayBuffer(long j, ByteBuffer byteBuffer, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048679, this, new Object[]{Long.valueOf(j2), byteBuffer, Integer.valueOf(i2)})) == null) ? _initNewV8ArrayBuffer(j2, byteBuffer, i2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048679, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)})) == null) ? _initNewV8ArrayBuffer(j, byteBuffer, i) : invokeCommon.longValue;
     }
 
-    public long initNewV8Float32Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8Float32Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048680, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8Float32Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048680, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8Float32Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8Float64Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8Float64Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048681, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8Float64Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048681, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8Float64Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long[] initNewV8Function(long j2) {
+    public long[] initNewV8Function(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048682, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048682, this, j)) == null) {
             checkThread();
-            return _initNewV8Function(j2);
+            return _initNewV8Function(j);
         }
         return (long[]) invokeJ.objValue;
     }
 
-    public long initNewV8Int16Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8Int16Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048683, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8Int16Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048683, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8Int16Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8Int32Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8Int32Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048684, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8Int32Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048684, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8Int32Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8Int8Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8Int8Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048685, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8Int8Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048685, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8Int8Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8Object(long j2) {
+    public long initNewV8Object(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048686, this, j2)) == null) ? _initNewV8Object(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048686, this, j)) == null) ? _initNewV8Object(j) : invokeJ.longValue;
     }
 
-    public long initNewV8UInt16Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8UInt16Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048687, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8UInt16Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048687, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8UInt16Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8UInt32Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8UInt32Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8UInt32Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048688, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8UInt32Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8UInt8Array(long j2, long j3, int i2, int i3) {
+    public long initNewV8UInt8Array(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048689, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8UInt8Array(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048689, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8UInt8Array(j, j2, i, i2) : invokeCommon.longValue;
     }
 
-    public long initNewV8UInt8ClampedArray(long j2, long j3, int i2, int i3) {
+    public long initNewV8UInt8ClampedArray(long j, long j2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048690, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? _initNewV8UInt8ClampedArray(j2, j3, i2, i3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048690, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? _initNewV8UInt8ClampedArray(j, j2, i, i2) : invokeCommon.longValue;
     }
 
     public boolean isRunning() {
@@ -1600,10 +1600,10 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) ? _isRunning(this.v8RuntimePtr) : invokeV.booleanValue;
     }
 
-    public boolean isWeak(long j2, long j3) {
+    public boolean isWeak(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048692, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _isWeak(j2, j3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048692, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _isWeak(j, j2) : invokeCommon.booleanValue;
     }
 
     public void lowMemoryNotification() {
@@ -1614,10 +1614,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void lowMemoryNotification(long j2) {
+    public void lowMemoryNotification(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048694, this, j2) == null) {
-            _lowMemoryNotification(j2);
+        if (interceptable == null || interceptable.invokeJ(1048694, this, j) == null) {
+            _lowMemoryNotification(j);
         }
     }
 
@@ -1627,30 +1627,30 @@ public class V8 extends V8Object {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? _pumpMessageLoop(this.v8RuntimePtr) : invokeV.booleanValue;
     }
 
-    public void registerCallback(JavaCallback javaCallback, long j2, String str) {
+    public void registerCallback(JavaCallback javaCallback, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048696, this, new Object[]{javaCallback, Long.valueOf(j2), str}) == null) {
-            createAndRegisterMethodDescriptor(javaCallback, registerJavaMethod(getV8RuntimePtr(), j2, str, false));
+        if (interceptable == null || interceptable.invokeCommon(1048696, this, new Object[]{javaCallback, Long.valueOf(j), str}) == null) {
+            createAndRegisterMethodDescriptor(javaCallback, registerJavaMethod(getV8RuntimePtr(), j, str, false));
         }
     }
 
-    public void registerCallback(Object obj, Method method, long j2, String str, boolean z) {
+    public void registerCallback(Object obj, Method method, long j, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048697, this, new Object[]{obj, method, Long.valueOf(j2), str, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048697, this, new Object[]{obj, method, Long.valueOf(j), str, Boolean.valueOf(z)}) == null) {
             MethodDescriptor methodDescriptor = new MethodDescriptor(this, null);
             methodDescriptor.object = obj;
             methodDescriptor.method = method;
             methodDescriptor.includeReceiver = z;
-            long registerJavaMethod = registerJavaMethod(getV8RuntimePtr(), j2, str, isVoidMethod(method));
+            long registerJavaMethod = registerJavaMethod(getV8RuntimePtr(), j, str, isVoidMethod(method));
             this.methodId = registerJavaMethod;
             this.functionRegistry.put(Long.valueOf(registerJavaMethod), methodDescriptor);
         }
     }
 
-    public long registerJavaMethod(long j2, long j3, String str, boolean z) {
+    public long registerJavaMethod(long j, long j2, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Boolean.valueOf(z)})) == null) ? _registerJavaMethod(j2, j3, str, z) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Boolean.valueOf(z)})) == null) ? _registerJavaMethod(j, j2, str, z) : invokeCommon.longValue;
     }
 
     public void registerResource(Releasable releasable) {
@@ -1675,12 +1675,12 @@ public class V8 extends V8Object {
         }
     }
 
-    public void registerVoidCallback(JavaVoidCallback javaVoidCallback, long j2, String str) {
+    public void registerVoidCallback(JavaVoidCallback javaVoidCallback, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048701, this, new Object[]{javaVoidCallback, Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048701, this, new Object[]{javaVoidCallback, Long.valueOf(j), str}) == null) {
             MethodDescriptor methodDescriptor = new MethodDescriptor(this, null);
             methodDescriptor.voidCallback = javaVoidCallback;
-            this.functionRegistry.put(Long.valueOf(registerJavaMethod(getV8RuntimePtr(), j2, str, true)), methodDescriptor);
+            this.functionRegistry.put(Long.valueOf(registerJavaMethod(getV8RuntimePtr(), j, str, true)), methodDescriptor);
         }
     }
 
@@ -1693,10 +1693,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void release(long j2, long j3) {
+    public void release(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048703, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _release(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048703, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _release(j, j2);
         }
     }
 
@@ -1747,17 +1747,17 @@ public class V8 extends V8Object {
         }
     }
 
-    public void releaseLock(long j2) {
+    public void releaseLock(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048705, this, j2) == null) {
-            _releaseLock(j2);
+        if (interceptable == null || interceptable.invokeJ(1048705, this, j) == null) {
+            _releaseLock(j);
         }
     }
 
-    public void releaseMethodDescriptor(long j2, long j3) {
+    public void releaseMethodDescriptor(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048706, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _releaseMethodDescriptor(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048706, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _releaseMethodDescriptor(j, j2);
         }
     }
 
@@ -1799,17 +1799,17 @@ public class V8 extends V8Object {
         }
     }
 
-    public boolean sameValue(long j2, long j3, long j4) {
+    public boolean sameValue(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048711, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? _sameValue(j2, j3, j4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048711, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _sameValue(j, j2, j3) : invokeCommon.booleanValue;
     }
 
-    public void schedulePauseOnNextStatement(long j2, String str) {
+    public void schedulePauseOnNextStatement(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048712, this, j2, str) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048712, this, j, str) == null) {
             checkThread();
-            _schedulePauseOnNextStatement(this.v8RuntimePtr, j2, str);
+            _schedulePauseOnNextStatement(this.v8RuntimePtr, j, str);
         }
     }
 
@@ -1825,10 +1825,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void setPrototype(long j2, long j3, long j4) {
+    public void setPrototype(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048714, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            _setPrototype(j2, j3, j4);
+        if (interceptable == null || interceptable.invokeCommon(1048714, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            _setPrototype(j, j2, j3);
         }
     }
 
@@ -1839,10 +1839,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public void setWeak(long j2, long j3) {
+    public void setWeak(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048716, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            _setWeak(j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(1048716, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            _setWeak(j, j2);
         }
     }
 
@@ -1864,10 +1864,10 @@ public class V8 extends V8Object {
         }
     }
 
-    public boolean strictEquals(long j2, long j3, long j4) {
+    public boolean strictEquals(long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048718, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? _strictEquals(j2, j3, j4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048718, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _strictEquals(j, j2, j3) : invokeCommon.booleanValue;
     }
 
     public void terminateExecution() {
@@ -1878,26 +1878,26 @@ public class V8 extends V8Object {
         }
     }
 
-    public void terminateExecution(long j2) {
+    public void terminateExecution(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048720, this, j2) == null) {
-            _terminateExecution(j2);
+        if (interceptable == null || interceptable.invokeJ(1048720, this, j) == null) {
+            _terminateExecution(j);
         }
     }
 
-    public String toString(long j2, long j3) {
+    public String toString(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048721, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? _toString(j2, j3) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048721, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? _toString(j, j2) : (String) invokeCommon.objValue;
     }
 
-    public void weakReferenceReleased(long j2) {
+    public void weakReferenceReleased(long j) {
         V8Value v8Value;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048722, this, j2) == null) || (v8Value = this.v8WeakReferences.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048722, this, j) == null) || (v8Value = this.v8WeakReferences.get(Long.valueOf(j))) == null) {
             return;
         }
-        this.v8WeakReferences.remove(Long.valueOf(j2));
+        this.v8WeakReferences.remove(Long.valueOf(j));
         try {
             v8Value.close();
         } catch (Exception unused) {

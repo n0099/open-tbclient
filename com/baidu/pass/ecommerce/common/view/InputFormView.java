@@ -48,9 +48,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -63,12 +63,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.layout_sapi_sdk_common_input_form, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.sapi_sdk_input_et);
-            this.mImg = (ImageView) inflate.findViewById(R.id.sapi_sdk_input_icon);
-            this.mBottomLine = inflate.findViewById(R.id.sapi_sdk_input_line);
-            this.mCleanEtBtn = inflate.findViewById(R.id.sapi_sdk_input_clean_icon);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.sapi_sdk_input_clean_icon_dark_shape);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091b9b);
+            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b9d);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b9e);
+            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091b99);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091b9a);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -117,7 +117,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view.getId() == R.id.sapi_sdk_input_clean_icon) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view.getId() == R.id.obfuscated_res_0x7f091b99) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
@@ -140,9 +140,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_hint_text_dark_color));
-                this.mEditText.setTextColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_text_dark_color));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_addr_edit_input_bottom_line_bg_dark_color));
+                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091a));
+                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
             }
         }
     }
@@ -169,17 +169,17 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InputFormView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public InputFormView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -187,7 +187,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkHint, R.attr.SapiSdkInputIcon, R.attr.SapiSdkInputPhone, R.attr.SapiSdkMaxLength, R.attr.SapiSdkMinLines, R.attr.SapiSdkShowInputBottomLine, R.attr.SapiSdkSingleLine}, i2, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04001b, R.attr.obfuscated_res_0x7f04002a, R.attr.obfuscated_res_0x7f04002b, R.attr.obfuscated_res_0x7f04002d, R.attr.obfuscated_res_0x7f04002e, R.attr.obfuscated_res_0x7f040031, R.attr.obfuscated_res_0x7f040033}, i, 0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(5, true);
         this.mIconResId = obtainStyledAttributes.getResourceId(1, 0);
         this.mMinLines = obtainStyledAttributes.getInt(4, 1);

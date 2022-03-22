@@ -7,9 +7,9 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.b;
-import c.a.y0.r.c;
-import c.a.y0.r.w;
+import c.a.v0.r.b;
+import c.a.v0.r.c;
+import c.a.v0.r.w;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,9 +50,9 @@ public class FileUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -139,10 +139,10 @@ public class FileUtils {
                 try {
                     fileChannel2 = file.getChannel();
                     long size = fileChannel.size();
-                    long j2 = 0;
-                    while (j2 < size) {
-                        long j3 = size - j2;
-                        j2 += fileChannel2.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
+                    long j = 0;
+                    while (j < size) {
+                        long j2 = size - j;
+                        j += fileChannel2.transferFrom(fileChannel, j, j2 > 31457280 ? 31457280L : j2);
                     }
                     z = true;
                     closeable = file;
@@ -391,11 +391,11 @@ public class FileUtils {
                 if (file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (listFiles[i2].isFile()) {
-                            listFiles[i2].delete();
+                    for (int i = 0; i < length; i++) {
+                        if (listFiles[i].isFile()) {
+                            listFiles[i].delete();
                         } else {
-                            deleteFileOrDir(listFiles[i2]);
+                            deleteFileOrDir(listFiles[i]);
                         }
                     }
                 }
@@ -429,7 +429,7 @@ public class FileUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            File file = new File(isSDMounted() ? c.a.y0.b.c().getContext().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
+            File file = new File(isSDMounted() ? c.a.v0.b.c().getContext().getExternalFilesDir(null) : null, FaceItem.DIR_UGC_DEFAULT);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -464,21 +464,21 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             FileInputStream fileInputStream = null;
             try {
                 try {
                     if (file.exists()) {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
                         try {
-                            j2 = fileInputStream2.available();
+                            j = fileInputStream2.available();
                             fileInputStream = fileInputStream2;
                         } catch (Exception e2) {
                             e = e2;
                             fileInputStream = fileInputStream2;
                             c.g(e);
                             b.b(fileInputStream);
-                            return j2;
+                            return j;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -493,7 +493,7 @@ public class FileUtils {
                 e = e3;
             }
             b.b(fileInputStream);
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -524,8 +524,8 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
-            File file = new File(c.a.y0.b.c().a(), str);
-            return (file.exists() || file.mkdirs()) ? file : c.a.y0.b.c().getContext().getCacheDir();
+            File file = new File(c.a.v0.b.c().a(), str);
+            return (file.exists() || file.mkdirs()) ? file : c.a.v0.b.c().getContext().getCacheDir();
         }
         return (File) invokeL.objValue;
     }
@@ -534,7 +534,7 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, file)) == null) {
-            long j2 = 0;
+            long j = 0;
             if (file == null || !file.exists()) {
                 return 0L;
             }
@@ -549,9 +549,9 @@ public class FileUtils {
                 return 0L;
             }
             for (File file2 : listFiles) {
-                j2 += getSize(file2);
+                j += getSize(file2);
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -684,11 +684,11 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String saveBitmap(String str, String str2, Bitmap bitmap, int i2, Bitmap.CompressFormat compressFormat) {
+    public static String saveBitmap(String str, String str2, Bitmap bitmap, int i, Bitmap.CompressFormat compressFormat) {
         InterceptResult invokeCommon;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65579, null, new Object[]{str, str2, bitmap, Integer.valueOf(i2), compressFormat})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65579, null, new Object[]{str, str2, bitmap, Integer.valueOf(i), compressFormat})) == null) {
             FileOutputStream fileOutputStream2 = null;
             if (bitmap != null) {
                 try {
@@ -708,7 +708,7 @@ public class FileUtils {
                         } else {
                             FileOutputStream fileOutputStream3 = new FileOutputStream(file2);
                             try {
-                                bitmap.compress(compressFormat, i2, fileOutputStream3);
+                                bitmap.compress(compressFormat, i, fileOutputStream3);
                                 String absolutePath = file2.getAbsolutePath();
                                 b.b(fileOutputStream3);
                                 return absolutePath;
@@ -746,16 +746,16 @@ public class FileUtils {
         return (String) invokeCommon.objValue;
     }
 
-    public static String saveBitmap2JPG(String str, String str2, Bitmap bitmap, int i2) {
+    public static String saveBitmap2JPG(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65580, null, str, str2, bitmap, i2)) == null) ? saveBitmap(str, str2, bitmap, i2, Bitmap.CompressFormat.JPEG) : (String) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65580, null, str, str2, bitmap, i)) == null) ? saveBitmap(str, str2, bitmap, i, Bitmap.CompressFormat.JPEG) : (String) invokeLLLI.objValue;
     }
 
-    public static String saveBitmap2PNG(String str, String str2, Bitmap bitmap, int i2) {
+    public static String saveBitmap2PNG(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65581, null, str, str2, bitmap, i2)) == null) ? saveBitmap(str, str2, bitmap, i2, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65581, null, str, str2, bitmap, i)) == null) ? saveBitmap(str, str2, bitmap, i, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
     }
 
     public static boolean saveText(String str, String str2) {

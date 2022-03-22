@@ -5,11 +5,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
     public List<Presenter> a = new ArrayList();
 
-    public abstract c a(ViewGroup viewGroup, int i2);
+    public abstract c a(ViewGroup viewGroup, int i);
 
     public void a() {
         for (Presenter presenter : this.a) {
@@ -28,15 +28,15 @@ public abstract class d extends RecyclerView.Adapter<c> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(c cVar, int i2) {
-        cVar.a.a(cVar.f54546b);
+    public void onBindViewHolder(c cVar, int i) {
+        cVar.a.a(cVar.f39661b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: b */
-    public final c onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        c a = a(viewGroup, i2);
+    public final c onCreateViewHolder(ViewGroup viewGroup, int i) {
+        c a = a(viewGroup, i);
         this.a.add(a.a);
         return a;
     }

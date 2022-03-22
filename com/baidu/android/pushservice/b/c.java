@@ -21,28 +21,26 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30281b;
+    public String f24183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30282c;
+    public int f24184c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<e> f30283d;
+    public ArrayList<e> f24185d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<f> f30284e;
+    public ArrayList<f> f24186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30285f;
+    public String f24187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30286g;
+    public String f24188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f30287h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f30288i;
+    public a f24189h;
+    public int i;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -51,10 +49,10 @@ public class c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30289b;
+        public int f24190b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f30290c;
+        public final /* synthetic */ c f24191c;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,15 +61,15 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30290c = cVar;
+            this.f24191c = cVar;
         }
     }
 
@@ -82,22 +80,22 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30288i = 0;
+        this.i = 0;
         this.a = str;
         a(context, str);
     }
 
     private void a(Context context, String str) {
         String str2;
-        int i2;
+        int i;
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, context, str) == null) {
@@ -128,9 +126,9 @@ public class c {
                 if (jSONObject.has("osversion")) {
                     JSONArray jSONArray = jSONObject.getJSONArray("osversion");
                     str2 = "apkversion";
-                    int i3 = 0;
-                    while (i3 < jSONArray.length()) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    int i2 = 0;
+                    while (i2 < jSONArray.length()) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         JSONArray jSONArray2 = jSONArray;
                         e eVar = new e();
                         String str6 = str4;
@@ -144,12 +142,12 @@ public class c {
                         } else if (string2.equalsIgnoreCase("regular")) {
                             eVar.a(2);
                             arrayList.add(eVar);
-                            i3++;
+                            i2++;
                             jSONArray = jSONArray2;
                             str4 = str6;
                         }
                         arrayList.add(eVar);
-                        i3++;
+                        i2++;
                         jSONArray = jSONArray2;
                         str4 = str6;
                     }
@@ -160,9 +158,9 @@ public class c {
                 ArrayList<f> arrayList2 = new ArrayList<>();
                 if (jSONObject.has("systemprop")) {
                     JSONArray jSONArray3 = jSONObject.getJSONArray("systemprop");
-                    int i4 = 0;
-                    while (i4 < jSONArray3.length()) {
-                        JSONObject jSONObject3 = jSONArray3.getJSONObject(i4);
+                    int i3 = 0;
+                    while (i3 < jSONArray3.length()) {
+                        JSONObject jSONObject3 = jSONArray3.getJSONObject(i3);
                         f fVar = new f();
                         JSONArray jSONArray4 = jSONArray3;
                         fVar.a(jSONObject3.getString("key"));
@@ -177,25 +175,25 @@ public class c {
                                 fVar.a(1);
                                 fVar.c(jSONObject3.getString("regular"));
                                 arrayList2.add(fVar);
-                                i4++;
+                                i3++;
                                 jSONArray3 = jSONArray4;
                                 str5 = str3;
                             }
                         }
                         fVar.c(jSONObject3.getString("regular"));
                         arrayList2.add(fVar);
-                        i4++;
+                        i3++;
                         jSONArray3 = jSONArray4;
                         str5 = str3;
                     }
                 }
                 if (jSONObject.has("proxyswitch")) {
                     try {
-                        i2 = Integer.parseInt(jSONObject.getString("proxyswitch"));
+                        i = Integer.parseInt(jSONObject.getString("proxyswitch"));
                     } catch (NumberFormatException unused) {
-                        i2 = 0;
+                        i = 0;
                     }
-                    b(i2);
+                    b(i);
                 }
                 if (jSONObject.has("apkname")) {
                     b(jSONObject.getString("apkname"));
@@ -223,108 +221,108 @@ public class c {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30287h : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24189h : (a) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f30282c = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f24184c = i;
         }
     }
 
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             a aVar = new a(this);
-            this.f30287h = aVar;
-            aVar.a = i2;
-            aVar.f30289b = i3;
+            this.f24189h = aVar;
+            aVar.a = i;
+            aVar.f24190b = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f30281b = str;
+            this.f24183b = str;
         }
     }
 
     public void a(ArrayList<e> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f30283d = arrayList;
+            this.f24185d = arrayList;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30281b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24183b : (String) invokeV.objValue;
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f30288i = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.i = i;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f30285f = str;
+            this.f24187f = str;
         }
     }
 
     public void b(ArrayList<f> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.f30284e = arrayList;
+            this.f24186e = arrayList;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30282c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f24184c : invokeV.intValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f30286g = str;
+            this.f24188g = str;
         }
     }
 
     public ArrayList<e> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30283d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f24185d : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<f> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30284e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f24186e : (ArrayList) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30285f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f24187f : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f30286g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f24188g : (String) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f30288i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.i : invokeV.intValue;
     }
 
     public String toString() {

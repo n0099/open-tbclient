@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RealResponseBody extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,23 +19,23 @@ public final class RealResponseBody extends ResponseBody {
     public final String contentTypeString;
     public final BufferedSource source;
 
-    public RealResponseBody(@Nullable String str, long j2, BufferedSource bufferedSource) {
+    public RealResponseBody(@Nullable String str, long j, BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), bufferedSource};
+            Object[] objArr = {str, Long.valueOf(j), bufferedSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.contentTypeString = str;
-        this.contentLength = j2;
+        this.contentLength = j;
         this.source = bufferedSource;
     }
 

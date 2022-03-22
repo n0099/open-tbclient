@@ -17,21 +17,21 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdUniqueId f2477d;
+    public static BdUniqueId f2035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdUniqueId f2478e;
+    public static BdUniqueId f2036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static d f2479f;
+    public static d f2037f;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallel f2480b;
+    public BdAsyncTaskParallel f2038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdAsyncTaskParallel f2481c;
+    public BdAsyncTaskParallel f2039c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +46,9 @@ public class d {
                 return;
             }
         }
-        f2477d = BdUniqueId.gen();
-        f2478e = BdUniqueId.gen();
-        f2479f = null;
+        f2035d = BdUniqueId.gen();
+        f2036e = BdUniqueId.gen();
+        f2037f = null;
     }
 
     public d() {
@@ -56,19 +56,19 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2480b = null;
-        this.f2481c = null;
-        this.f2480b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.f2481c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f2038b = null;
+        this.f2039c = null;
+        this.f2038b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.f2039c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         this.a = new b();
     }
 
@@ -76,14 +76,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2479f == null) {
+            if (f2037f == null) {
                 synchronized (d.class) {
-                    if (f2479f == null) {
-                        f2479f = new d();
+                    if (f2037f == null) {
+                        f2037f = new d();
                     }
                 }
             }
-            return f2479f;
+            return f2037f;
         }
         return (d) invokeV.objValue;
     }
@@ -96,9 +96,9 @@ public class d {
                 return false;
             }
             if (diskFileOperate.isSdCard()) {
-                return e(diskFileOperate, f2477d, this.f2480b, 10);
+                return e(diskFileOperate, f2035d, this.f2038b, 10);
             }
-            return e(diskFileOperate, f2478e, this.f2481c, 5);
+            return e(diskFileOperate, f2036e, this.f2039c, 5);
         }
         return invokeL.booleanValue;
     }
@@ -153,18 +153,18 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, diskFileOperate) == null) || (c2 = c(diskFileOperate)) == null) {
             return;
         }
-        BdAsyncTask.removeAllTask(f2477d, c2);
-        BdAsyncTask.removeAllTask(f2478e, c2);
+        BdAsyncTask.removeAllTask(f2035d, c2);
+        BdAsyncTask.removeAllTask(f2036e, c2);
     }
 
-    public final boolean e(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i2) {
+    public final boolean e(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048581, this, diskFileOperate, bdUniqueId, bdAsyncTaskParallel, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048581, this, diskFileOperate, bdUniqueId, bdAsyncTaskParallel, i)) == null) {
             if (diskFileOperate == null) {
                 return false;
             }
-            if (diskFileOperate.getOperateType() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < i2 + diskFileOperate.getTrySuccessWeight()) {
+            if (diskFileOperate.getOperateType() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < i + diskFileOperate.getTrySuccessWeight()) {
                 return b(diskFileOperate, bdUniqueId, bdAsyncTaskParallel);
             }
             return false;

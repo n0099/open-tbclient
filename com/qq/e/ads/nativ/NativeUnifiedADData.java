@@ -11,7 +11,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;
@@ -36,7 +36,7 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     void bindCTAViews(List<View> list);
 
-    void bindImageViews(List<ImageView> list, int i2);
+    void bindImageViews(List<ImageView> list, int i);
 
     void bindImageViews(List<ImageView> list, byte[] bArr);
 
@@ -121,11 +121,11 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
 
     void resumeVideo();
 
-    void sendLossNotification(int i2, int i3, String str);
+    void sendLossNotification(int i, int i2, String str);
 
-    void sendWinNotification(int i2);
+    void sendWinNotification(int i);
 
-    void setBidECPM(int i2);
+    void setBidECPM(int i);
 
     void setNativeAdEventListener(NativeADEventListener nativeADEventListener);
 

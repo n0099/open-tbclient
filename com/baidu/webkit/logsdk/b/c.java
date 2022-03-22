@@ -16,10 +16,10 @@ public final class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f51462b;
+    public HashSet<String> f37915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f51463c;
+    public HashSet<String> f37916c;
 
     public c(String str) {
         Interceptable interceptable = $ic;
@@ -28,9 +28,9 @@ public final class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,8 +38,8 @@ public final class c {
         }
         this.a = "full";
         this.a = str;
-        this.f51462b = new HashSet<>();
-        this.f51463c = new HashSet<>();
+        this.f37915b = new HashSet<>();
+        this.f37916c = new HashSet<>();
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -47,10 +47,10 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-            String string = jSONArray.getString(i2);
+        for (int i = 0; i < jSONArray.length(); i++) {
+            String string = jSONArray.getString(i);
             if (!TextUtils.isEmpty(string)) {
-                this.f51462b.add(string);
+                this.f37915b.add(string);
             }
         }
     }
@@ -60,10 +60,10 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-            String string = jSONArray.getString(i2);
+        for (int i = 0; i < jSONArray.length(); i++) {
+            String string = jSONArray.getString(i);
             if (!TextUtils.isEmpty(string)) {
-                this.f51463c.add(string);
+                this.f37916c.add(string);
             }
         }
     }

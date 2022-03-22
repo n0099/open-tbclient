@@ -16,7 +16,6 @@ import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -57,9 +56,9 @@ public class EC3SpecificBox extends AbstractBox {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -70,7 +69,7 @@ public class EC3SpecificBox extends AbstractBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Entry{fscod=" + this.fscod + ", bsid=" + this.bsid + ", bsmod=" + this.bsmod + ", acmod=" + this.acmod + ", lfeon=" + this.lfeon + ", reserved=" + this.reserved + ", num_dep_sub=" + this.num_dep_sub + ", chan_loc=" + this.chan_loc + ", reserved2=" + this.reserved2 + ExtendedMessageFormat.END_FE;
+                return "Entry{fscod=" + this.fscod + ", bsid=" + this.bsid + ", bsmod=" + this.bsmod + ", acmod=" + this.acmod + ", lfeon=" + this.lfeon + ", reserved=" + this.reserved + ", num_dep_sub=" + this.num_dep_sub + ", chan_loc=" + this.chan_loc + ", reserved2=" + this.reserved2 + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -99,9 +98,9 @@ public class EC3SpecificBox extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -131,7 +130,7 @@ public class EC3SpecificBox extends AbstractBox {
             BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(byteBuffer);
             this.dataRate = bitReaderBuffer.readBits(13);
             this.numIndSub = bitReaderBuffer.readBits(3) + 1;
-            for (int i2 = 0; i2 < this.numIndSub; i2++) {
+            for (int i = 0; i < this.numIndSub; i++) {
                 Entry entry = new Entry();
                 entry.fscod = bitReaderBuffer.readBits(2);
                 entry.bsid = bitReaderBuffer.readBits(5);
@@ -190,11 +189,11 @@ public class EC3SpecificBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            long j2 = 2;
+            long j = 2;
             for (Entry entry : this.entries) {
-                j2 += entry.num_dep_sub > 0 ? 4L : 3L;
+                j += entry.num_dep_sub > 0 ? 4L : 3L;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -229,11 +228,11 @@ public class EC3SpecificBox extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public void setDataRate(int i2) {
+    public void setDataRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.intObject(i2)));
-            this.dataRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this, Conversions.intObject(i)));
+            this.dataRate = i;
         }
     }
 
@@ -245,11 +244,11 @@ public class EC3SpecificBox extends AbstractBox {
         }
     }
 
-    public void setNumIndSub(int i2) {
+    public void setNumIndSub(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i2)));
-            this.numIndSub = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this, Conversions.intObject(i)));
+            this.numIndSub = i;
         }
     }
 }

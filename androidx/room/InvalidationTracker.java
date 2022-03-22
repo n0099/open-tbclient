@@ -2,6 +2,7 @@ package androidx.room;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -76,25 +77,25 @@ public class InvalidationTracker {
         public final int[] mTriggerStateChanges;
         public final boolean[] mTriggerStates;
 
-        public ObservedTableTracker(int i2) {
+        public ObservedTableTracker(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            long[] jArr = new long[i2];
+            long[] jArr = new long[i];
             this.mTableObservers = jArr;
-            this.mTriggerStates = new boolean[i2];
-            this.mTriggerStateChanges = new int[i2];
+            this.mTriggerStates = new boolean[i];
+            this.mTriggerStateChanges = new int[i];
             Arrays.fill(jArr, 0L);
             Arrays.fill(this.mTriggerStates, false);
         }
@@ -107,22 +108,22 @@ public class InvalidationTracker {
                 synchronized (this) {
                     if (this.mNeedsSync && !this.mPendingSync) {
                         int length = this.mTableObservers.length;
-                        int i2 = 0;
+                        int i = 0;
                         while (true) {
-                            int i3 = 1;
-                            if (i2 < length) {
-                                boolean z = this.mTableObservers[i2] > 0;
-                                if (z != this.mTriggerStates[i2]) {
+                            int i2 = 1;
+                            if (i < length) {
+                                boolean z = this.mTableObservers[i] > 0;
+                                if (z != this.mTriggerStates[i]) {
                                     int[] iArr = this.mTriggerStateChanges;
                                     if (!z) {
-                                        i3 = 2;
+                                        i2 = 2;
                                     }
-                                    iArr[i2] = i3;
+                                    iArr[i] = i2;
                                 } else {
-                                    this.mTriggerStateChanges[i2] = 0;
+                                    this.mTriggerStateChanges[i] = 0;
                                 }
-                                this.mTriggerStates[i2] = z;
-                                i2++;
+                                this.mTriggerStates[i] = z;
+                                i++;
                             } else {
                                 this.mPendingSync = true;
                                 this.mNeedsSync = false;
@@ -143,10 +144,10 @@ public class InvalidationTracker {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr)) == null) {
                 synchronized (this) {
                     z = false;
-                    for (int i2 : iArr) {
-                        long j2 = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = 1 + j2;
-                        if (j2 == 0) {
+                    for (int i : iArr) {
+                        long j = this.mTableObservers[i];
+                        this.mTableObservers[i] = 1 + j;
+                        if (j == 0) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -164,10 +165,10 @@ public class InvalidationTracker {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
                 synchronized (this) {
                     z = false;
-                    for (int i2 : iArr) {
-                        long j2 = this.mTableObservers[i2];
-                        this.mTableObservers[i2] = j2 - 1;
-                        if (j2 == 1) {
+                    for (int i : iArr) {
+                        long j = this.mTableObservers[i];
+                        this.mTableObservers[i] = j - 1;
+                        if (j == 1) {
                             this.mNeedsSync = true;
                             z = true;
                         }
@@ -205,9 +206,9 @@ public class InvalidationTracker {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, iArr, strArr, jArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -231,18 +232,18 @@ public class InvalidationTracker {
             if (interceptable == null || interceptable.invokeL(1048576, this, jArr) == null) {
                 int length = this.mTableIds.length;
                 Set<String> set = null;
-                for (int i2 = 0; i2 < length; i2++) {
-                    long j2 = jArr[this.mTableIds[i2]];
+                for (int i = 0; i < length; i++) {
+                    long j = jArr[this.mTableIds[i]];
                     long[] jArr2 = this.mVersions;
-                    if (jArr2[i2] < j2) {
-                        jArr2[i2] = j2;
+                    if (jArr2[i] < j) {
+                        jArr2[i] = j;
                         if (length == 1) {
                             set = this.mSingleTableSet;
                         } else {
                             if (set == null) {
                                 set = new ArraySet<>(length);
                             }
-                            set.add(this.mTableNames[i2]);
+                            set.add(this.mTableNames[i]);
                         }
                     }
                 }
@@ -269,9 +270,9 @@ public class InvalidationTracker {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {invalidationTracker, observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String[]) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -320,9 +321,9 @@ public class InvalidationTracker {
             newInitContext.initArgs = r2;
             Object[] objArr = {roomDatabase, strArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -345,9 +346,9 @@ public class InvalidationTracker {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -365,9 +366,9 @@ public class InvalidationTracker {
                     boolean z = false;
                     while (query.moveToNext()) {
                         try {
-                            long j2 = query.getLong(0);
-                            this.this$0.mTableVersions[query.getInt(1)] = j2;
-                            this.this$0.mMaxVersion = j2;
+                            long j = query.getLong(0);
+                            this.this$0.mTableVersions[query.getInt(1)] = j;
+                            this.this$0.mMaxVersion = j;
                             z = true;
                         } finally {
                             query.close();
@@ -385,41 +386,41 @@ public class InvalidationTracker {
                     Lock closeLock = this.this$0.mDatabase.getCloseLock();
                     boolean z = false;
                     try {
-                        closeLock.lock();
-                    } catch (SQLiteException | IllegalStateException unused) {
-                    } catch (Throwable th) {
-                        closeLock.unlock();
-                        throw th;
-                    }
-                    if (!this.this$0.ensureInitialization()) {
-                        closeLock.unlock();
-                    } else if (!this.this$0.mPendingRefresh.compareAndSet(true, false)) {
-                        closeLock.unlock();
-                    } else if (this.this$0.mDatabase.inTransaction()) {
-                        closeLock.unlock();
-                    } else {
-                        this.this$0.mCleanupStatement.executeUpdateDelete();
-                        this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
-                        if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
-                            SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
-                            try {
-                                writableDatabase.beginTransaction();
-                                z = checkUpdatedTable();
-                                writableDatabase.setTransactionSuccessful();
-                                writableDatabase.endTransaction();
-                            } catch (Throwable th2) {
-                                writableDatabase.endTransaction();
-                                throw th2;
-                            }
-                        } else {
-                            z = checkUpdatedTable();
+                        try {
+                            closeLock.lock();
+                        } finally {
+                            closeLock.unlock();
                         }
-                        closeLock.unlock();
-                        if (z) {
-                            synchronized (this.this$0.mObserverMap) {
-                                Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
-                                while (it.hasNext()) {
-                                    it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
+                    } catch (SQLiteException | IllegalStateException e2) {
+                        Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
+                    }
+                    if (this.this$0.ensureInitialization()) {
+                        if (this.this$0.mPendingRefresh.compareAndSet(true, false)) {
+                            if (this.this$0.mDatabase.inTransaction()) {
+                                return;
+                            }
+                            this.this$0.mCleanupStatement.executeUpdateDelete();
+                            this.this$0.mQueryArgs[0] = Long.valueOf(this.this$0.mMaxVersion);
+                            if (this.this$0.mDatabase.mWriteAheadLoggingEnabled) {
+                                SupportSQLiteDatabase writableDatabase = this.this$0.mDatabase.getOpenHelper().getWritableDatabase();
+                                try {
+                                    writableDatabase.beginTransaction();
+                                    z = checkUpdatedTable();
+                                    writableDatabase.setTransactionSuccessful();
+                                    writableDatabase.endTransaction();
+                                } catch (Throwable th) {
+                                    writableDatabase.endTransaction();
+                                    throw th;
+                                }
+                            } else {
+                                z = checkUpdatedTable();
+                            }
+                            if (z) {
+                                synchronized (this.this$0.mObserverMap) {
+                                    Iterator<Map.Entry<Observer, ObserverWrapper>> it = this.this$0.mObserverMap.iterator();
+                                    while (it.hasNext()) {
+                                        it.next().getValue().checkForInvalidation(this.this$0.mTableVersions);
+                                    }
                                 }
                             }
                         }
@@ -432,10 +433,10 @@ public class InvalidationTracker {
         this.mTableIdLookup = new ArrayMap<>();
         int length = strArr.length;
         this.mTableNames = new String[length];
-        for (int i4 = 0; i4 < length; i4++) {
-            String lowerCase = strArr[i4].toLowerCase(Locale.US);
-            this.mTableIdLookup.put(lowerCase, Integer.valueOf(i4));
-            this.mTableNames[i4] = lowerCase;
+        for (int i3 = 0; i3 < length; i3++) {
+            String lowerCase = strArr[i3].toLowerCase(Locale.US);
+            this.mTableIdLookup.put(lowerCase, Integer.valueOf(i3));
+            this.mTableNames[i3] = lowerCase;
         }
         long[] jArr = new long[strArr.length];
         this.mTableVersions = jArr;
@@ -454,11 +455,11 @@ public class InvalidationTracker {
         }
     }
 
-    private void startTrackingTable(SupportSQLiteDatabase supportSQLiteDatabase, int i2) {
+    private void startTrackingTable(SupportSQLiteDatabase supportSQLiteDatabase, int i) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, supportSQLiteDatabase, i2) == null) {
-            String str = this.mTableNames[i2];
+        if (interceptable == null || interceptable.invokeLI(65539, this, supportSQLiteDatabase, i) == null) {
+            String str = this.mTableNames[i];
             StringBuilder sb = new StringBuilder();
             for (String str2 : TRIGGERS) {
                 sb.setLength(0);
@@ -471,18 +472,18 @@ public class InvalidationTracker {
                 sb.append("` BEGIN INSERT OR REPLACE INTO ");
                 sb.append(UPDATE_TABLE_NAME);
                 sb.append(" VALUES(null, ");
-                sb.append(i2);
+                sb.append(i);
                 sb.append("); END");
                 supportSQLiteDatabase.execSQL(sb.toString());
             }
         }
     }
 
-    private void stopTrackingTable(SupportSQLiteDatabase supportSQLiteDatabase, int i2) {
+    private void stopTrackingTable(SupportSQLiteDatabase supportSQLiteDatabase, int i) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, supportSQLiteDatabase, i2) == null) {
-            String str = this.mTableNames[i2];
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, supportSQLiteDatabase, i) == null) {
+            String str = this.mTableNames[i];
             StringBuilder sb = new StringBuilder();
             for (String str2 : TRIGGERS) {
                 sb.setLength(0);
@@ -502,13 +503,13 @@ public class InvalidationTracker {
             int[] iArr = new int[strArr.length];
             int length = strArr.length;
             long[] jArr = new long[strArr.length];
-            for (int i2 = 0; i2 < length; i2++) {
-                Integer num = this.mTableIdLookup.get(strArr[i2].toLowerCase(Locale.US));
+            for (int i = 0; i < length; i++) {
+                Integer num = this.mTableIdLookup.get(strArr[i].toLowerCase(Locale.US));
                 if (num != null) {
-                    iArr[i2] = num.intValue();
-                    jArr[i2] = this.mMaxVersion;
+                    iArr[i] = num.intValue();
+                    jArr[i] = this.mMaxVersion;
                 } else {
-                    throw new IllegalArgumentException("There is no table with name " + strArr[i2]);
+                    throw new IllegalArgumentException("There is no table with name " + strArr[i]);
                 }
             }
             ObserverWrapper observerWrapper = new ObserverWrapper(observer, iArr, strArr, jArr);
@@ -537,7 +538,11 @@ public class InvalidationTracker {
                 if (!this.mInitialized) {
                     this.mDatabase.getOpenHelper().getWritableDatabase();
                 }
-                return this.mInitialized;
+                if (this.mInitialized) {
+                    return true;
+                }
+                Log.e(Room.LOG_TAG, "database is not initialized even though it is open");
+                return false;
             }
             return false;
         }
@@ -549,6 +554,7 @@ public class InvalidationTracker {
         if (interceptable == null || interceptable.invokeL(1048579, this, supportSQLiteDatabase) == null) {
             synchronized (this) {
                 if (this.mInitialized) {
+                    Log.e(Room.LOG_TAG, "Invalidation tracker is initialized twice :/.");
                     return;
                 }
                 supportSQLiteDatabase.beginTransaction();
@@ -612,19 +618,20 @@ public class InvalidationTracker {
                 }
                 int length = tablesToSync.length;
                 supportSQLiteDatabase.beginTransaction();
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = tablesToSync[i2];
-                    if (i3 == 1) {
-                        startTrackingTable(supportSQLiteDatabase, i2);
-                    } else if (i3 == 2) {
-                        stopTrackingTable(supportSQLiteDatabase, i2);
+                for (int i = 0; i < length; i++) {
+                    int i2 = tablesToSync[i];
+                    if (i2 == 1) {
+                        startTrackingTable(supportSQLiteDatabase, i);
+                    } else if (i2 == 2) {
+                        stopTrackingTable(supportSQLiteDatabase, i);
                     }
                 }
                 supportSQLiteDatabase.setTransactionSuccessful();
                 supportSQLiteDatabase.endTransaction();
                 this.mObservedTableTracker.onSyncCompleted();
                 closeLock.unlock();
-            } catch (SQLiteException | IllegalStateException unused) {
+            } catch (SQLiteException | IllegalStateException e2) {
+                Log.e(Room.LOG_TAG, "Cannot run invalidation tracker. Is the db closed?", e2);
                 return;
             }
         }
@@ -643,9 +650,9 @@ public class InvalidationTracker {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, strArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -665,9 +672,9 @@ public class InvalidationTracker {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {strArr};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

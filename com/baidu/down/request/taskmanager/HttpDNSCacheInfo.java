@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpDNSCacheInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -49,9 +49,9 @@ public class HttpDNSCacheInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,14 +64,14 @@ public class HttpDNSCacheInfo {
         this.mDownFlowCostTime = -1L;
     }
 
-    public String getRetryStrategyUrlUseIp(String str, int i2) {
+    public String getRetryStrategyUrlUseIp(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             List<String> list = this.mIpList;
-            if (list == null || list.size() - 1 >= i2) {
+            if (list == null || list.size() - 1 >= i) {
                 try {
-                    String replace = str.replace(new URL(str).getHost(), this.mIpList.get(i2));
+                    String replace = str.replace(new URL(str).getHost(), this.mIpList.get(i));
                     if (URLUtil.isHttpsUrl(str)) {
                         replace = replace.replaceFirst("https://", "http://");
                     }
@@ -100,8 +100,8 @@ public class HttpDNSCacheInfo {
             } else {
                 retryStrategyUrlUseIp = ((exc instanceof HttpResponseException) || (exc instanceof ConnectTimeoutException) || (exc instanceof RetryStrategyException)) ? getRetryStrategyUrlUseIp(str, 1) : null;
             }
-            int i2 = this.mMode;
-            if (i2 == 4) {
+            int i = this.mMode;
+            if (i == 4) {
                 if (!TextUtils.isEmpty(retryStrategyUrlUseIp)) {
                     RetryRequestInfo retryRequestInfo = new RetryRequestInfo();
                     retryRequestInfo.url = retryStrategyUrlUseIp;
@@ -113,7 +113,7 @@ public class HttpDNSCacheInfo {
                 if (!Utils.isEmpty(this.mRetryRequestUrl)) {
                     arrayList.addAll(this.mRetryRequestUrl);
                 }
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 if (!Utils.isEmpty(this.mRetryRequestUrl)) {
                     arrayList.addAll(this.mRetryRequestUrl);
                 }
@@ -125,8 +125,8 @@ public class HttpDNSCacheInfo {
                     hashMap2.put("host", this.mHost);
                     arrayList.add(retryRequestInfo2);
                 }
-            } else if (i2 != 6) {
-                if (i2 == 7 && !Utils.isEmpty(this.mRetryRequestUrl)) {
+            } else if (i != 6) {
+                if (i == 7 && !Utils.isEmpty(this.mRetryRequestUrl)) {
                     arrayList.addAll(this.mRetryRequestUrl);
                 }
             } else if (!TextUtils.isEmpty(retryStrategyUrlUseIp)) {
@@ -168,8 +168,8 @@ public class HttpDNSCacheInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            int i2 = this.mIpLiveTime;
-            return i2 > 0 ? elapsedRealtime - this.mRequestTime < ((long) Math.min(i2, this.mDownFlowLiveTime)) * 1000 : elapsedRealtime - this.mRequestTime < ((long) this.mDownFlowLiveTime) * 1000;
+            int i = this.mIpLiveTime;
+            return i > 0 ? elapsedRealtime - this.mRequestTime < ((long) Math.min(i, this.mDownFlowLiveTime)) * 1000 : elapsedRealtime - this.mRequestTime < ((long) this.mDownFlowLiveTime) * 1000;
         }
         return invokeL.booleanValue;
     }

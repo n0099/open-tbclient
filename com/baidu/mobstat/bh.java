@@ -13,7 +13,7 @@ public class bh extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static bh f35171b;
+    public static bh f27308b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class bh extends ba {
                 return;
             }
         }
-        f35171b = new bh();
+        f27308b = new bh();
     }
 
     public bh() {
@@ -37,9 +37,9 @@ public class bh extends ba {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -49,7 +49,7 @@ public class bh extends ba {
     public static bh c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35171b : (bh) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27308b : (bh) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba

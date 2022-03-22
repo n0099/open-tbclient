@@ -33,9 +33,9 @@ public class BdStatSwitchData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,8 +104,8 @@ public class BdStatSwitchData implements Serializable {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
             if (bdStatisticsWriteConfigItem != null) {
                 BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
                 bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
@@ -130,10 +130,10 @@ public class BdStatSwitchData implements Serializable {
         }
     }
 
-    public int geUploadCycle(String str, int i2) {
+    public int geUploadCycle(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) ? this.uploadConfig.geUploadCycle(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this.uploadConfig.geUploadCycle(str, i) : invokeLI.intValue;
     }
 
     public ArrayList<String> getChiledTypes(String str) {
@@ -142,10 +142,10 @@ public class BdStatSwitchData implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.mChildTypes.get(str) : (ArrayList) invokeL.objValue;
     }
 
-    public int getMaxAlertCount(String str, int i2) {
+    public int getMaxAlertCount(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.uploadConfig.getMaxAlertCount(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? this.uploadConfig.getMaxAlertCount(str, i) : invokeLI.intValue;
     }
 
     public BdUploadStatMsgData getTmpSwitchConfData(String str) {

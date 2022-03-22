@@ -32,7 +32,6 @@ import kotlin.collections.ArraysKt___ArraysJvmKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Reflection;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\b\u0000\u0018\u0000 \u001f2\u00020\u00012\u00020\u0002:\u0001\u001fB\u0005¢\u0006\u0002\u0010\u0003J\u0014\u0010\u0012\u001a\u0004\u0018\u00010\u00132\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J\b\u0010\u0016\u001a\u00020\u0017H\u0016J\b\u0010\u0018\u001a\u00020\u0017H\u0016J\u0012\u0010\u0019\u001a\u00020\u00172\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J\u0012\u0010\u001a\u001a\u00020\u001b2\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J\u0010\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\u0010\u0010\u001d\u001a\u00020\u00172\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\b\u0010\u001e\u001a\u00020\u0017H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\b\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000bR\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TrdVpnService;", "Landroid/net/VpnService;", "Lcom/baidu/yunjiasu/tornadosdk/TrdVpnBinderInterface;", "()V", AbsServerManager.BUNDLE_BINDER, "Lcom/baidu/yunjiasu/tornadosdk/TrdVpnAIDL;", "broadcastReceiver", "Lcom/baidu/yunjiasu/tornadosdk/TrdVpnBroadcast;", "connectivityManager", "Landroid/net/ConnectivityManager;", "getConnectivityManager", "()Landroid/net/ConnectivityManager;", "connectivityManager$delegate", "Lkotlin/Lazy;", "executorService", "Ljava/util/concurrent/ExecutorService;", "pfd", "Landroid/os/ParcelFileDescriptor;", "onBind", "Landroid/os/IBinder;", "intent", "Landroid/content/Intent;", "onCreate", "", MissionEvent.MESSAGE_DESTROY, "onRebind", "onUnbind", "", "setupVPN", "start", "stopVPN", "Companion", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class TrdVpnService extends VpnService implements TrdVpnBinderInterface {
@@ -57,9 +56,9 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -92,9 +91,9 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -126,7 +125,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             Tun2tornado.INSTANCE.setDebug(tornadoSetting.getDebug());
             Tun2tornado.INSTANCE.setLog(tornadoSetting.getPrintLog());
             LogTo logTo = LogTo.INSTANCE;
-            logTo.i(TAG, "setupVPN(): {Region: " + tornadoSetting.getGameRegion() + ", GameID: " + tornadoSetting.getGameID() + ", GameName: " + tornadoSetting.getGameName() + ExtendedMessageFormat.END_FE);
+            logTo.i(TAG, "setupVPN(): {Region: " + tornadoSetting.getGameRegion() + ", GameID: " + tornadoSetting.getGameID() + ", GameName: " + tornadoSetting.getGameName() + '}');
             Tun2tornado.INSTANCE.setOperationInterface(t2TOperationInterface);
             TrdVpnNetwork.INSTANCE.init(this, getConnectivityManager(), tornadoSetting.getEnablePingCMD(), tornadoSetting.getEnableIPv6());
             TrdVpnNetwork.INSTANCE.register();
@@ -142,7 +141,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CUID:", tornadoSetting.getAuthCUID()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_TOKEN:", tornadoSetting.getAuthToken()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CLIENT_VERSION:", tornadoSetting.getClientVersion()));
-            this.executorService.submit(new Runnable() { // from class: c.a.c1.a.b
+            this.executorService.submit(new Runnable() { // from class: c.a.z0.a.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -150,7 +149,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TrdVpnService.m107setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
+                        TrdVpnService.m100setupVPN$lambda0(TornadoSetting.this, this, trdVpnConfig);
                     }
                 }
             });
@@ -160,7 +159,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     }
 
     /* renamed from: setupVPN$lambda-0  reason: not valid java name */
-    public static final void m107setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
+    public static final void m100setupVPN$lambda0(TornadoSetting setting, TrdVpnService this$0, TrdVpnConfig trdConf) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, setting, this$0, trdConf) == null) {
             Intrinsics.checkNotNullParameter(setting, "$setting");
@@ -175,22 +174,22 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
                 blocking.addAddress(trdConf.getAddr(), trdConf.getADDRPrefixLength());
                 blocking.addDnsServer(trdConf.getDnsServer1()).addDnsServer(trdConf.getDnsServer2()).addRoute(trdConf.getRoute(), trdConf.getRoutePrefixLength());
                 if (!setting.getVpnAllowedAllApp()) {
-                    int i2 = 0;
+                    int i = 0;
                     if (!(setting.getVpnDisallowedPackages().length == 0)) {
                         String[] vpnDisallowedPackages = setting.getVpnDisallowedPackages();
                         int length = vpnDisallowedPackages.length;
-                        while (i2 < length) {
-                            String str = vpnDisallowedPackages[i2];
-                            i2++;
+                        while (i < length) {
+                            String str = vpnDisallowedPackages[i];
+                            i++;
                             blocking.addDisallowedApplication(str);
                         }
                     } else {
                         blocking.addAllowedApplication(setting.getGameName());
                         String[] vpnAllowedPackages = setting.getVpnAllowedPackages();
                         int length2 = vpnAllowedPackages.length;
-                        while (i2 < length2) {
-                            String str2 = vpnAllowedPackages[i2];
-                            i2++;
+                        while (i < length2) {
+                            String str2 = vpnAllowedPackages[i];
+                            i++;
                             blocking.addAllowedApplication(str2);
                         }
                     }
@@ -224,10 +223,10 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
     }
 
     @Override // com.baidu.yunjiasu.tornadosdk.TrdVpnBinderInterface
-    public String getRuntimeInfo(long j2) {
+    public String getRuntimeInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? TrdVpnBinderInterface.DefaultImpls.getRuntimeInfo(this, j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? TrdVpnBinderInterface.DefaultImpls.getRuntimeInfo(this, j) : (String) invokeJ.objValue;
     }
 
     @Override // android.net.VpnService, android.app.Service

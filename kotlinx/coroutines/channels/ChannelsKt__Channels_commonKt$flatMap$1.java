@@ -11,7 +11,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "E", "R", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$flatMap$1", f = "Channels.common.kt", i = {0, 1, 1, 2, 2}, l = {1291, Constants.PLUGIN.ASSET_PLUGIN_VERSION, Constants.PLUGIN.ASSET_PLUGIN_VERSION}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "e", "$this$produce", "e"}, s = {"L$0", "L$0", "L$1", "L$0", "L$1"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt__Channels_commonKt$flatMap$1 extends SuspendLambda implements Function2<ProducerScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_flatMap;
     public final /* synthetic */ Function2 $transform;
@@ -62,13 +62,13 @@ public final class ChannelsKt__Channels_commonKt$flatMap$1 extends SuspendLambda
         ChannelsKt__Channels_commonKt$flatMap$1 channelsKt__Channels_commonKt$flatMap$12;
         Object hasNext;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             ProducerScope producerScope3 = this.p$;
             it = this.$this_flatMap.iterator();
             producerScope = producerScope3;
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             ResultKt.throwOnFailure(obj);
             producerScope2 = (ProducerScope) this.L$0;
             channelIterator = (ChannelIterator) this.L$1;
@@ -76,7 +76,7 @@ public final class ChannelsKt__Channels_commonKt$flatMap$1 extends SuspendLambda
             channelsKt__Channels_commonKt$flatMap$1 = this;
             if (!((Boolean) obj).booleanValue()) {
             }
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             Object obj3 = this.L$1;
             producerScope2 = (ProducerScope) this.L$0;
             ResultKt.throwOnFailure(obj);
@@ -130,7 +130,7 @@ public final class ChannelsKt__Channels_commonKt$flatMap$1 extends SuspendLambda
             } else {
                 return Unit.INSTANCE;
             }
-        } else if (i2 != 3) {
+        } else if (i != 3) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             it = (ChannelIterator) this.L$2;

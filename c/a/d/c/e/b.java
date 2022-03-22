@@ -27,10 +27,10 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
         public CustomMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CustomMessageTask f2386b;
+        public CustomMessageTask f1958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f2387c;
+        public final /* synthetic */ b f1959c;
 
         public a(b bVar, CustomMessage customMessage, CustomMessageTask customMessageTask) {
             Interceptable interceptable = $ic;
@@ -39,17 +39,17 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar, customMessage, customMessageTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2387c = bVar;
+            this.f1959c = bVar;
             this.a = null;
-            this.f2386b = null;
+            this.f1958b = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             if (customMessage != null) {
@@ -61,7 +61,7 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 setPriority(4);
             }
             this.a = customMessage;
-            this.f2386b = customMessageTask;
+            this.f1958b = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,16 +71,16 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                CustomMessageTask customMessageTask = this.f2386b;
+                CustomMessageTask customMessageTask = this.f1958b;
                 if (customMessageTask == null) {
                     return null;
                 }
                 if (customMessageTask.getRunnable() == null) {
-                    BdLog.e("CustomTask :" + this.f2386b.getClass().getName() + "did not contain a runnable!!");
+                    BdLog.e("CustomTask :" + this.f1958b.getClass().getName() + "did not contain a runnable!!");
                     return null;
                 }
                 try {
-                    return this.f2386b.getRunnable().run(this.a);
+                    return this.f1958b.getRunnable().run(this.a);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -103,10 +103,10 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null) {
                     customResponsedMessage.setOrginalMessage(this.a);
-                    this.f2387c.a.dispatchResponsedMessage(customResponsedMessage);
+                    this.f1959c.a.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
-                BdLog.e("CustomTask :" + this.f2386b.getClass().getName() + "returns a NULL!!");
+                BdLog.e("CustomTask :" + this.f1958b.getClass().getName() + "returns a NULL!!");
             }
         }
     }
@@ -120,9 +120,9 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
             newInitContext.initArgs = r2;
             Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -132,11 +132,11 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
     }
 
     @Override // c.a.d.c.b
-    public LinkedList<CustomMessage<?>> e(int i2, BdUniqueId bdUniqueId) {
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) {
-            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, i2 != 0 ? String.valueOf(i2) : null);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
             LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
@@ -151,10 +151,10 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
     }
 
     @Override // c.a.d.c.b
-    public void h(int i2, BdUniqueId bdUniqueId) {
+    public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            BdAsyncTask.removeAllTask(bdUniqueId, i2 != 0 ? String.valueOf(i2) : null);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            BdAsyncTask.removeAllTask(bdUniqueId, i != 0 ? String.valueOf(i) : null);
         }
     }
 

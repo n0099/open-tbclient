@@ -122,16 +122,16 @@ public class ConstraintAnchor {
             $VALUES = new ConnectionType[]{RELAXED, connectionType};
         }
 
-        public ConnectionType(String str, int i2) {
+        public ConnectionType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -184,16 +184,16 @@ public class ConstraintAnchor {
             $VALUES = new Strength[]{NONE, STRONG, strength};
         }
 
-        public Strength(String str, int i2) {
+        public Strength(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -258,16 +258,16 @@ public class ConstraintAnchor {
             $VALUES = new Type[]{NONE, LEFT, TOP, RIGHT, BOTTOM, BASELINE, CENTER, CENTER_X, type};
         }
 
-        public Type(String str, int i2) {
+        public Type(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -297,9 +297,9 @@ public class ConstraintAnchor {
             newInitContext.initArgs = r2;
             Object[] objArr = {constraintWidget, type};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -328,8 +328,8 @@ public class ConstraintAnchor {
             }
             ArrayList<ConstraintAnchor> anchors = constraintWidget.getAnchors();
             int size = anchors.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintAnchor constraintAnchor = anchors.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintAnchor constraintAnchor = anchors.get(i);
                 if (constraintAnchor.isSimilarDimensionConnection(this) && constraintAnchor.isConnected() && isConnectionToMe(constraintAnchor.getTarget().getOwner(), hashSet)) {
                     return true;
                 }
@@ -339,10 +339,10 @@ public class ConstraintAnchor {
         return invokeLL.booleanValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i2, Strength strength, int i3) {
+    public boolean connect(ConstraintAnchor constraintAnchor, int i, Strength strength, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{constraintAnchor, Integer.valueOf(i2), strength, Integer.valueOf(i3)})) == null) ? connect(constraintAnchor, i2, -1, strength, i3, false) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{constraintAnchor, Integer.valueOf(i), strength, Integer.valueOf(i2)})) == null) ? connect(constraintAnchor, i, -1, strength, i2, false) : invokeCommon.booleanValue;
     }
 
     public int getConnectionCreator() {
@@ -569,23 +569,23 @@ public class ConstraintAnchor {
                 case 9:
                     return false;
                 case 2:
-                    int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i2 == 3 || i2 == 7;
+                    int i = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i == 3 || i == 7;
                 case 3:
-                    int i3 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i3 == 2 || i3 == 7;
+                    int i2 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i2 == 2 || i2 == 7;
                 case 4:
-                    int i4 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i4 == 5 || i4 == 8;
+                    int i3 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i3 == 5 || i3 == 8;
                 case 5:
-                    int i5 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i5 == 4 || i5 == 8;
+                    int i4 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i4 == 4 || i4 == 8;
                 case 7:
-                    int i6 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i6 == 2 || i6 == 3;
+                    int i5 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i5 == 2 || i5 == 3;
                 case 8:
-                    int i7 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
-                    return i7 == 4 || i7 == 5;
+                    int i6 = AnonymousClass1.$SwitchMap$androidx$constraintlayout$solver$widgets$ConstraintAnchor$Type[constraintAnchor.getType().ordinal()];
+                    return i6 == 4 || i6 == 5;
                 default:
                     throw new AssertionError(this.mType.name());
             }
@@ -683,10 +683,10 @@ public class ConstraintAnchor {
         }
     }
 
-    public void setConnectionCreator(int i2) {
+    public void setConnectionCreator(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mConnectionCreator = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mConnectionCreator = i;
         }
     }
 
@@ -697,17 +697,17 @@ public class ConstraintAnchor {
         }
     }
 
-    public void setGoneMargin(int i2) {
+    public void setGoneMargin(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048604, this, i2) == null) && isConnected()) {
-            this.mGoneMargin = i2;
+        if ((interceptable == null || interceptable.invokeI(1048604, this, i) == null) && isConnected()) {
+            this.mGoneMargin = i;
         }
     }
 
-    public void setMargin(int i2) {
+    public void setMargin(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048605, this, i2) == null) && isConnected()) {
-            this.mMargin = i2;
+        if ((interceptable == null || interceptable.invokeI(1048605, this, i) == null) && isConnected()) {
+            this.mMargin = i;
         }
     }
 
@@ -727,10 +727,10 @@ public class ConstraintAnchor {
         return (String) invokeV.objValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i2, int i3, Strength strength, int i4, boolean z) {
+    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2, Strength strength, int i3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{constraintAnchor, Integer.valueOf(i2), Integer.valueOf(i3), strength, Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{constraintAnchor, Integer.valueOf(i), Integer.valueOf(i2), strength, Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             if (constraintAnchor == null) {
                 this.mTarget = null;
                 this.mMargin = 0;
@@ -740,14 +740,14 @@ public class ConstraintAnchor {
                 return true;
             } else if (z || isValidConnection(constraintAnchor)) {
                 this.mTarget = constraintAnchor;
-                if (i2 > 0) {
-                    this.mMargin = i2;
+                if (i > 0) {
+                    this.mMargin = i;
                 } else {
                     this.mMargin = 0;
                 }
-                this.mGoneMargin = i3;
+                this.mGoneMargin = i2;
                 this.mStrength = strength;
-                this.mConnectionCreator = i4;
+                this.mConnectionCreator = i3;
                 return true;
             } else {
                 return false;
@@ -769,15 +769,15 @@ public class ConstraintAnchor {
         return invokeL.booleanValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i2, int i3) {
+    public boolean connect(ConstraintAnchor constraintAnchor, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constraintAnchor, i2, i3)) == null) ? connect(constraintAnchor, i2, -1, Strength.STRONG, i3, false) : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, constraintAnchor, i, i2)) == null) ? connect(constraintAnchor, i, -1, Strength.STRONG, i2, false) : invokeLII.booleanValue;
     }
 
-    public boolean connect(ConstraintAnchor constraintAnchor, int i2) {
+    public boolean connect(ConstraintAnchor constraintAnchor, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, constraintAnchor, i2)) == null) ? connect(constraintAnchor, i2, -1, Strength.STRONG, 0, false) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, constraintAnchor, i)) == null) ? connect(constraintAnchor, i, -1, Strength.STRONG, 0, false) : invokeLI.booleanValue;
     }
 }

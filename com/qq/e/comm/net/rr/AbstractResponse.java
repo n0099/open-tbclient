@@ -10,14 +10,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractResponse implements Response {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpURLConnection a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57696b;
+    public int f42470b;
 
     public AbstractResponse(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
@@ -26,21 +26,21 @@ public abstract class AbstractResponse implements Response {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f57696b = 0;
+        this.f42470b = 0;
         if (httpURLConnection == null) {
             throw new AssertionError("AbstractResponse parameter is null");
         }
         this.a = httpURLConnection;
         try {
-            this.f57696b = httpURLConnection.getResponseCode();
+            this.f42470b = httpURLConnection.getResponseCode();
         } catch (IOException e2) {
             throw new AssertionError(e2);
         }
@@ -81,7 +81,7 @@ public abstract class AbstractResponse implements Response {
     public int getStatusCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57696b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42470b : invokeV.intValue;
     }
 
     @Override // com.qq.e.comm.net.rr.Response

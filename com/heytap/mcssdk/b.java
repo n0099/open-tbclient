@@ -36,9 +36,9 @@ public interface b extends c {
     void setAliases(List<String> list);
 
     @Deprecated
-    void setNotificationType(int i2);
+    void setNotificationType(int i);
 
-    void setPushTime(List<Integer> list, int i2, int i3, int i4, int i5);
+    void setPushTime(List<Integer> list, int i, int i2, int i3, int i4);
 
     void setRegisterID(String str);
 

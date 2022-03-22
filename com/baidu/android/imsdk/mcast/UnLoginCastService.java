@@ -71,9 +71,9 @@ public class UnLoginCastService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {unLoginCastService, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -86,8 +86,8 @@ public class UnLoginCastService {
 
         @Override // com.baidu.android.imsdk.mcast.UpMessageManager.Task
         public void work() {
+            int i;
             int i2;
-            int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
@@ -103,41 +103,41 @@ public class UnLoginCastService {
                     String str = UnLoginCastService.TAG;
                     LogUtils.d(str, "FXF work data is " + jSONArray.toString());
                     JSONArray jSONArray2 = new JSONArray();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        JSONArray jSONArray3 = jSONArray.getJSONObject(i4).getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-                        for (int i5 = 0; i5 < jSONArray3.length(); i5++) {
-                            JSONObject jSONObject2 = jSONArray3.getJSONObject(i5);
+                    for (int i3 = 0; i3 < length; i3++) {
+                        JSONArray jSONArray3 = jSONArray.getJSONObject(i3).getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
+                        for (int i4 = 0; i4 < jSONArray3.length(); i4++) {
+                            JSONObject jSONObject2 = jSONArray3.getJSONObject(i4);
                             if (jSONObject2.optInt("origin_id", -1) != Utility.getTriggerId(UnLoginCastService.mContext)) {
                                 jSONArray2.put(jSONObject2);
                             }
                         }
                     }
                     int length2 = jSONArray2.length();
-                    int i6 = (int) (optLong / C.NANOS_PER_SECOND);
-                    if (i6 == 0) {
-                        i3 = i6;
-                        i2 = 0;
-                    } else if (length2 >= i6) {
-                        i2 = length2 / i6;
-                        i3 = i6;
+                    int i5 = (int) (optLong / C.NANOS_PER_SECOND);
+                    if (i5 == 0) {
+                        i2 = i5;
+                        i = 0;
+                    } else if (length2 >= i5) {
+                        i = length2 / i5;
+                        i2 = i5;
                     } else {
-                        i2 = 1;
-                        i3 = length2;
+                        i = 1;
+                        i2 = length2;
                     }
                     String str2 = UnLoginCastService.TAG;
-                    LogUtils.d(str2, "HBBH work ts duration is " + optLong + " " + i6 + " num is " + i2 + " size is " + length2);
-                    if (i2 <= 0) {
+                    LogUtils.d(str2, "HBBH work ts duration is " + optLong + " " + i5 + " num is " + i + " size is " + length2);
+                    if (i <= 0) {
                         ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(this.this$0.mCastId, jSONArray2);
                         return;
                     }
-                    int i7 = 0;
-                    for (int i8 = 0; i8 < i3 && this.this$0.isActive && !this.this$0.isSeek; i8++) {
+                    int i6 = 0;
+                    for (int i7 = 0; i7 < i2 && this.this$0.isActive && !this.this$0.isSeek; i7++) {
                         JSONArray jSONArray4 = new JSONArray();
-                        int i9 = 0;
-                        while (i9 < i2) {
-                            jSONArray4.put(jSONArray2.get(i7));
-                            i9++;
-                            i7++;
+                        int i8 = 0;
+                        while (i8 < i) {
+                            jSONArray4.put(jSONArray2.get(i6));
+                            i8++;
+                            i6++;
                         }
                         String str3 = UnLoginCastService.TAG;
                         LogUtils.d(str3, "FXF upload a ts message  " + jSONArray4.toString());
@@ -148,15 +148,15 @@ public class UnLoginCastService {
                             e2.printStackTrace();
                         }
                     }
-                    if (!this.this$0.isActive || this.this$0.isSeek || i7 >= length2) {
+                    if (!this.this$0.isActive || this.this$0.isSeek || i6 >= length2) {
                         return;
                     }
                     JSONArray jSONArray5 = new JSONArray();
-                    int i10 = i7;
-                    while (i7 < length2) {
-                        jSONArray5.put(jSONArray2.get(i10));
-                        i7++;
-                        i10++;
+                    int i9 = i6;
+                    while (i6 < length2) {
+                        jSONArray5.put(jSONArray2.get(i9));
+                        i6++;
+                        i9++;
                     }
                     String str4 = UnLoginCastService.TAG;
                     LogUtils.d(str4, "FXF upload a last ts message  " + jSONArray5.toString());
@@ -191,9 +191,9 @@ public class UnLoginCastService {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -245,9 +245,9 @@ public class UnLoginCastService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -257,10 +257,10 @@ public class UnLoginCastService {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.GetM3u8CallBack
-                public void onResult(int i2, byte[] bArr) {
+                public void onResult(int i, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, bArr) == null) {
-                        this.this$0.handleOnM3u8Callback(i2, bArr);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, bArr) == null) {
+                        this.this$0.handleOnM3u8Callback(i, bArr);
                     }
                 }
             });
@@ -286,9 +286,9 @@ public class UnLoginCastService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -298,17 +298,17 @@ public class UnLoginCastService {
                 }
 
                 @Override // com.baidu.android.imsdk.mcast.GetM3u8CallBack
-                public void onResult(int i2, byte[] bArr) {
+                public void onResult(int i, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, bArr) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, bArr) == null) {
                         String str2 = UnLoginCastService.TAG;
-                        LogUtils.d(str2, "FXF receive a ts file " + i2);
-                        if (i2 == 0 || i2 == 200) {
+                        LogUtils.d(str2, "FXF receive a ts file " + i);
+                        if (i == 0 || i == 200) {
                             this.this$0.onResultTs(bArr);
                             return;
                         }
                         String str3 = UnLoginCastService.TAG;
-                        LogUtils.e(str3, "FXF getTstask error " + i2);
+                        LogUtils.e(str3, "FXF getTstask error " + i);
                     }
                 }
             });
@@ -356,8 +356,8 @@ public class UnLoginCastService {
                         }
                     }
                     if (arrayList != null && arrayList.size() > 0) {
-                        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                            this.mTss.add(arrayList.get(i2));
+                        for (int i = 0; i < arrayList.size(); i++) {
+                            this.mTss.add(arrayList.get(i));
                         }
                         synchronized (this.mawakeLock) {
                             this.mawakeLock.notifyAll();
@@ -399,19 +399,19 @@ public class UnLoginCastService {
         }
     }
 
-    private boolean proofreadTimeAxis(long j2) {
+    private boolean proofreadTimeAxis(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j)) == null) {
             if (this.mType == 1) {
-                long j3 = j2 - this.startSeekTsTime;
+                long j2 = j - this.startSeekTsTime;
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) - this.startSeekTime;
                 if (this.mAxisTimer == null) {
                     this.mAxisTimer = new Timer(true);
                 }
-                if (j3 - currentTimeMillis > 5) {
+                if (j2 - currentTimeMillis > 5) {
                     String str = TAG;
-                    LogUtils.d(str, "startSeekTsTime = " + this.startSeekTsTime + "  currenttstime =  " + j2 + " past = " + j3);
+                    LogUtils.d(str, "startSeekTsTime = " + this.startSeekTsTime + "  currenttstime =  " + j + " past = " + j2);
                     String str2 = TAG;
                     StringBuilder sb = new StringBuilder();
                     sb.append("startSeekTime = ");
@@ -431,9 +431,9 @@ public class UnLoginCastService {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -483,7 +483,7 @@ public class UnLoginCastService {
                     if (!this.isActive) {
                         break;
                     }
-                    for (int i2 = 0; i2 < size && this.isActive && !this.isSeek; i2++) {
+                    for (int i = 0; i < size && this.isActive && !this.isSeek; i++) {
                         ParseM3u8.TS peek = this.mTss.peek();
                         if (proofreadTimeAxis(peek.relativetime)) {
                             break;
@@ -491,7 +491,7 @@ public class UnLoginCastService {
                         this.mTss.poll();
                         getTstask(peek.tsfile);
                         String str = TAG;
-                        LogUtils.d(str, "FXF request ts " + i2 + " " + peek.tsfile + " " + peek.relativetime);
+                        LogUtils.d(str, "FXF request ts " + i + " " + peek.tsfile + " " + peek.relativetime);
                     }
                 }
             }
@@ -499,15 +499,15 @@ public class UnLoginCastService {
         }
     }
 
-    public void handleOnM3u8Callback(int i2, byte[] bArr) {
+    public void handleOnM3u8Callback(int i, byte[] bArr) {
         boolean onResultM3u8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
             String str = TAG;
-            LogUtils.d(str, "FXF receive a m3u8 file " + i2);
-            if (i2 != 0 && i2 != 200) {
+            LogUtils.d(str, "FXF receive a m3u8 file " + i);
+            if (i != 0 && i != 200) {
                 String str2 = TAG;
-                LogUtils.e(str2, "FXF getM3u8task error " + i2);
+                LogUtils.e(str2, "FXF getM3u8task error " + i);
                 onResultM3u8 = true;
             } else {
                 this.mTryTimes = 0;
@@ -526,9 +526,9 @@ public class UnLoginCastService {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -564,13 +564,13 @@ public class UnLoginCastService {
         }
     }
 
-    public void replay(String str, String str2, int i2) {
+    public void replay(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
             LogUtils.d(TAG, "FXF replay--->");
             this.isActive = true;
             this.mPause = false;
-            this.mType = i2;
+            this.mType = i;
             this.mRoomUrl = str2;
             this.mCastId = str;
             Thread thread = new Thread(this) { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.4
@@ -585,9 +585,9 @@ public class UnLoginCastService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -618,9 +618,9 @@ public class UnLoginCastService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -644,8 +644,8 @@ public class UnLoginCastService {
                         if (arrayList.size() > 0) {
                             this.this$0.startSeekTime = System.currentTimeMillis() / 1000;
                             this.this$0.startSeekTsTime = arrayList.get(0).relativetime;
-                            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                                this.this$0.mTss.add(arrayList.get(i3));
+                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                                this.this$0.mTss.add(arrayList.get(i2));
                             }
                             synchronized (this.this$0.mawakeLock) {
                                 this.this$0.mawakeLock.notifyAll();
@@ -659,16 +659,16 @@ public class UnLoginCastService {
         }
     }
 
-    public void seek(int i2) {
+    public void seek(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             LogUtils.d(TAG, "FXF start seek--->");
-            this.mPosition = i2;
+            this.mPosition = i;
             if (this.mType != 1) {
                 return;
             }
             if (this.mPause) {
-                this.mPausePosition = i2;
+                this.mPausePosition = i;
             } else if (this.isActive) {
                 this.isSeek = true;
                 LogUtils.d(TAG, "FXF start seek...");
@@ -684,9 +684,9 @@ public class UnLoginCastService {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -715,8 +715,8 @@ public class UnLoginCastService {
                                 if (arrayList.size() > 0) {
                                     this.this$0.startSeekTime = System.currentTimeMillis() / 1000;
                                     this.this$0.startSeekTsTime = arrayList.get(0).relativetime;
-                                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                                        this.this$0.mTss.add(arrayList.get(i3));
+                                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                                        this.this$0.mTss.add(arrayList.get(i2));
                                     }
                                     synchronized (this.this$0.mawakeLock) {
                                         this.this$0.mawakeLock.notifyAll();
@@ -731,26 +731,26 @@ public class UnLoginCastService {
         }
     }
 
-    public void setPullInterval(int i2) {
+    public void setPullInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mInterval = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mInterval = i;
             String str = TAG;
             LogUtils.d(str, "setPullInterval " + this.mInterval);
         }
     }
 
-    public int startService(String str, String str2, int i2) {
+    public int startService(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i)) == null) {
             LogUtils.d(TAG, "FXF startService--->");
             if (this.isActive) {
                 stopService(0);
             }
             this.mPause = false;
             this.isActive = true;
-            this.mType = i2;
+            this.mType = i;
             this.mRoomUrl = str2;
             this.mCastId = str;
             Thread thread = new Thread(this) { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.1
@@ -765,9 +765,9 @@ public class UnLoginCastService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -793,16 +793,16 @@ public class UnLoginCastService {
         return invokeLLI.intValue;
     }
 
-    public void stopService(int i2) {
+    public void stopService(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             LogUtils.d(TAG, "FXF stopService--->");
             this.isActive = false;
-            if (i2 == 0) {
+            if (i == 0) {
                 this.mLastpm = null;
             }
             this.mTryTimes = 0;
-            if (i2 == 1 && this.mType == 1) {
+            if (i == 1 && this.mType == 1) {
                 if (this.mTss.size() > 0) {
                     this.mPausePosition = (int) this.mTss.peek().relativetime;
                 } else {

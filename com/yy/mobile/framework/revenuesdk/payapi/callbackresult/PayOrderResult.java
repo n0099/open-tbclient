@@ -9,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayOrderResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,22 +23,22 @@ public class PayOrderResult {
     public final PollingModeInfo pollingModeInfo;
     public final int result;
 
-    public PayOrderResult(int i2, String str, String str2, String str3, String str4, String str5, String str6, PollingModeInfo pollingModeInfo) {
+    public PayOrderResult(int i, String str, String str2, String str3, String str4, String str5, String str6, PollingModeInfo pollingModeInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, str5, str6, pollingModeInfo};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, str5, str6, pollingModeInfo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.result = i2;
+        this.result = i;
         this.payUrl = str;
         this.payChannel = str2;
         this.orderId = str3;
@@ -113,7 +112,7 @@ public class PayOrderResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PayOrderResult{result=" + this.result + ", payUrl='" + this.payUrl + ExtendedMessageFormat.QUOTE + ", payChannel='" + this.payChannel + ExtendedMessageFormat.QUOTE + ", orderId='" + this.orderId + ExtendedMessageFormat.QUOTE + ", payMethod='" + this.payMethod + ExtendedMessageFormat.QUOTE + ", expand='" + this.expand + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PayOrderResult{result=" + this.result + ", payUrl='" + this.payUrl + "', payChannel='" + this.payChannel + "', orderId='" + this.orderId + "', payMethod='" + this.payMethod + "', expand='" + this.expand + "'}";
         }
         return (String) invokeV.objValue;
     }

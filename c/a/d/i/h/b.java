@@ -33,39 +33,39 @@ public class b {
         hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new a());
     }
 
-    public static void a(String str, int i2) {
+    public static void a(String str, int i) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i2) == null) || (eVar = a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || (eVar = a.get(str)) == null) {
             return;
         }
-        eVar.b(i2);
+        eVar.b(i);
     }
 
-    public static void b(String str, int i2, long j2) {
+    public static void b(String str, int i, long j) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (eVar = a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) || (eVar = a.get(str)) == null) {
             return;
         }
-        eVar.c(i2, j2);
+        eVar.c(i, j);
     }
 
-    public static void c(String str, int i2, int i3) {
+    public static void c(String str, int i, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i2, i3) == null) || (eVar = a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) || (eVar = a.get(str)) == null) {
             return;
         }
-        eVar.d(i2, i3);
+        eVar.d(i, i2);
     }
 
-    public static void d(String str, int i2, int i3) {
+    public static void d(String str, int i, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, i3) == null) || (eVar = a.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) || (eVar = a.get(str)) == null) {
             return;
         }
-        eVar.e(i2, i3);
+        eVar.e(i, i2);
     }
 }

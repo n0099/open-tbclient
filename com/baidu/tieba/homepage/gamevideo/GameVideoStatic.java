@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.gamevideo;
 
-import c.a.q0.z0.b;
-import c.a.r0.y3.g0.a;
+import c.a.o0.z0.b;
+import c.a.p0.a4.g0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -41,9 +41,9 @@ public class GameVideoStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

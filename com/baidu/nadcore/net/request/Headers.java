@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
@@ -33,9 +32,9 @@ public final class Headers {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -56,9 +55,9 @@ public final class Headers {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,8 +86,8 @@ public final class Headers {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                c.a.b0.x.a.b(this.a, str);
-                c.a.b0.x.a.b(this.a, str2.trim());
+                c.a.a0.x.a.b(this.a, str);
+                c.a.a0.x.a.b(this.a, str2.trim());
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -104,14 +103,14 @@ public final class Headers {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                int i2 = 0;
-                while (i2 < c.a.b0.x.a.k(this.a)) {
-                    if (str.equalsIgnoreCase((String) c.a.b0.x.a.d(this.a, i2))) {
-                        c.a.b0.x.a.i(this.a, i2);
-                        c.a.b0.x.a.i(this.a, i2);
-                        i2 -= 2;
+                int i = 0;
+                while (i < c.a.a0.x.a.k(this.a)) {
+                    if (str.equalsIgnoreCase((String) c.a.a0.x.a.d(this.a, i))) {
+                        c.a.a0.x.a.i(this.a, i);
+                        c.a.a0.x.a.i(this.a, i);
+                        i -= 2;
                     }
-                    i2 += 2;
+                    i += 2;
                 }
                 return this;
             }
@@ -142,16 +141,16 @@ public final class Headers {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[c.a.b0.x.a.k(list)]);
+        this.a = (String[]) list.toArray(new String[c.a.a0.x.a.k(list)]);
     }
 
     public static void a(String str) throws IllegalUnicodeException {
@@ -160,10 +159,10 @@ public final class Headers {
             if (str != null) {
                 if (!str.isEmpty()) {
                     int length = str.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        char charAt = str.charAt(i2);
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
                         if (charAt <= ' ' || charAt >= 127) {
-                            throw new IllegalUnicodeException(c("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
+                            throw new IllegalUnicodeException(c("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
                         }
                     }
                     return;
@@ -179,10 +178,10 @@ public final class Headers {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
             if (str != null) {
                 int length = str.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    char charAt = str.charAt(i2);
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
                     if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
-                        throw new IllegalUnicodeException(c("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str2, str));
+                        throw new IllegalUnicodeException(c("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt), Integer.valueOf(i), str2, str));
                     }
                 }
                 return;
@@ -224,10 +223,10 @@ public final class Headers {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Headers) && Arrays.equals(((Headers) obj).a, this.a) : invokeL.booleanValue;
     }
 
-    public String f(int i2) {
+    public String f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.a[i2 * 2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a[i * 2] : (String) invokeI.objValue;
     }
 
     public int g() {
@@ -236,10 +235,10 @@ public final class Headers {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.length / 2 : invokeV.intValue;
     }
 
-    public String h(int i2) {
+    public String h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.a[(i2 * 2) + 1] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a[(i * 2) + 1] : (String) invokeI.objValue;
     }
 
     public int hashCode() {
@@ -254,11 +253,11 @@ public final class Headers {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             int g2 = g();
-            for (int i2 = 0; i2 < g2; i2++) {
-                sb.append(f(i2));
+            for (int i = 0; i < g2; i++) {
+                sb.append(f(i));
                 sb.append(": ");
-                sb.append(h(i2));
-                sb.append(StringUtils.LF);
+                sb.append(h(i));
+                sb.append("\n");
             }
             return sb.toString();
         }

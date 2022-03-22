@@ -44,9 +44,9 @@ public class HandAR extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -55,30 +55,30 @@ public class HandAR extends c {
         this.cb = null;
     }
 
-    private void b(long j2) {
+    private void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65541, this, j2) == null) || (algoHandleController = this.cb) == null || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65541, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
             return;
         }
-        long handleType = algoHandleController.getHandleType(j2);
+        long handleType = algoHandleController.getHandleType(j);
         HandDetector handDetector = this.qu;
         if (handDetector == null || handleType != 19) {
             return;
         }
-        handDetector.b(j2);
+        handDetector.b(j);
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 19) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 19) {
                 return;
             }
-            b(j2);
+            b(j);
         }
     }
 
@@ -128,9 +128,9 @@ public class HandAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

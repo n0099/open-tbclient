@@ -5,11 +5,11 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e implements Handler.Callback {
     public volatile Handler a = new Handler(a.a, this);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static final Looper a;
 
@@ -20,7 +20,7 @@ public final class e implements Handler.Callback {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         long a();
     }
@@ -57,7 +57,7 @@ public final class e implements Handler.Callback {
         }
     }
 
-    public void a(b bVar, long j2) {
+    public void a(b bVar, long j) {
         Handler handler = this.a;
         if (handler == null) {
             return;
@@ -65,6 +65,6 @@ public final class e implements Handler.Callback {
         Message obtain = Message.obtain();
         obtain.what = 0;
         obtain.obj = bVar;
-        handler.sendMessageDelayed(obtain, j2);
+        handler.sendMessageDelayed(obtain, j);
     }
 }

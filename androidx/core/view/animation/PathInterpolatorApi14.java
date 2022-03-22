@@ -24,9 +24,9 @@ public class PathInterpolatorApi14 implements Interpolator {
             newInitContext.initArgs = r2;
             Object[] objArr = {path};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -34,14 +34,14 @@ public class PathInterpolatorApi14 implements Interpolator {
         }
         PathMeasure pathMeasure = new PathMeasure(path, false);
         float length = pathMeasure.getLength();
-        int i4 = ((int) (length / 0.002f)) + 1;
-        this.mX = new float[i4];
-        this.mY = new float[i4];
+        int i3 = ((int) (length / 0.002f)) + 1;
+        this.mX = new float[i3];
+        this.mY = new float[i3];
         float[] fArr = new float[2];
-        for (int i5 = 0; i5 < i4; i5++) {
-            pathMeasure.getPosTan((i5 * length) / (i4 - 1), fArr, null);
-            this.mX[i5] = fArr[0];
-            this.mY[i5] = fArr[1];
+        for (int i4 = 0; i4 < i3; i4++) {
+            pathMeasure.getPosTan((i4 * length) / (i3 - 1), fArr, null);
+            this.mX[i4] = fArr[0];
+            this.mY[i4] = fArr[1];
         }
     }
 
@@ -80,24 +80,24 @@ public class PathInterpolatorApi14 implements Interpolator {
             if (f2 >= 1.0f) {
                 return 1.0f;
             }
-            int i2 = 0;
+            int i = 0;
             int length = this.mX.length - 1;
-            while (length - i2 > 1) {
-                int i3 = (i2 + length) / 2;
-                if (f2 < this.mX[i3]) {
-                    length = i3;
+            while (length - i > 1) {
+                int i2 = (i + length) / 2;
+                if (f2 < this.mX[i2]) {
+                    length = i2;
                 } else {
-                    i2 = i3;
+                    i = i2;
                 }
             }
             float[] fArr = this.mX;
-            float f3 = fArr[length] - fArr[i2];
+            float f3 = fArr[length] - fArr[i];
             if (f3 == 0.0f) {
-                return this.mY[i2];
+                return this.mY[i];
             }
             float[] fArr2 = this.mY;
-            float f4 = fArr2[i2];
-            return f4 + (((f2 - fArr[i2]) / f3) * (fArr2[length] - f4));
+            float f4 = fArr2[i];
+            return f4 + (((f2 - fArr[i]) / f3) * (fArr2[length] - f4));
         }
         return invokeF.floatValue;
     }
@@ -111,9 +111,9 @@ public class PathInterpolatorApi14 implements Interpolator {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Path) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -131,9 +131,9 @@ public class PathInterpolatorApi14 implements Interpolator {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Path) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

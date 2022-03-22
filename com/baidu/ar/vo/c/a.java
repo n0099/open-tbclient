@@ -32,24 +32,24 @@ public class a implements c {
         yY = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f};
     }
 
-    public a(d dVar, int i2, int i3) {
+    public a(d dVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {dVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.yw = dVar;
-        this.mPreviewWidth = i2;
-        this.mPreviewHeight = i3;
+        this.mPreviewWidth = i;
+        this.mPreviewHeight = i2;
     }
 
     @Override // com.baidu.ar.vo.c.c

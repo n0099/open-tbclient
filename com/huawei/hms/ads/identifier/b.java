@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,6 +27,7 @@ public class b {
 
     public static PackageInfo b(Context context, String str) {
         InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             if (TextUtils.isEmpty(str) || context == null) {
@@ -37,7 +39,13 @@ public class b {
                     return packageManager.getPackageInfo(str, 128);
                 }
                 return null;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
+            } catch (PackageManager.NameNotFoundException unused) {
+                str2 = "getPackageInfo NameNotFoundException";
+                Log.w("ApkUtil", str2);
+                return null;
+            } catch (Exception unused2) {
+                str2 = "getPackageInfo Exception";
+                Log.w("ApkUtil", str2);
                 return null;
             }
         }

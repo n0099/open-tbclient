@@ -33,9 +33,9 @@ public class DredgeManager implements Recordable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,14 +48,14 @@ public class DredgeManager implements Recordable {
     private void downgradeStrategy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            int i2 = this.currentDredgeStrategy;
-            if (1 == i2) {
+            int i = this.currentDredgeStrategy;
+            if (1 == i) {
                 getFirstDredgeExecutor().shutdown();
                 this.currentDredgeStrategy = 0;
-            } else if (2 == i2) {
+            } else if (2 == i) {
                 getSecondDredgeExecutor().shutdown();
                 this.currentDredgeStrategy = 1;
-            } else if (3 == i2) {
+            } else if (3 == i) {
                 getDisasterDredgeExecutor().shutdown();
                 this.currentDredgeStrategy = 2;
             }
@@ -65,14 +65,14 @@ public class DredgeManager implements Recordable {
     private void upgradeStrategy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            int i2 = this.currentDredgeStrategy;
-            if (i2 == 0) {
+            int i = this.currentDredgeStrategy;
+            if (i == 0) {
                 getFirstDredgeExecutor().open();
                 this.currentDredgeStrategy = 1;
-            } else if (1 == i2) {
+            } else if (1 == i) {
                 getSecondDredgeExecutor().open();
                 this.currentDredgeStrategy = 2;
-            } else if (2 == i2) {
+            } else if (2 == i) {
                 getDisasterDredgeExecutor().open();
                 this.currentDredgeStrategy = 3;
             }
@@ -107,11 +107,11 @@ public class DredgeManager implements Recordable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask)) == null) {
-            int i2 = this.currentDredgeStrategy;
-            if (i2 == 0) {
+            int i = this.currentDredgeStrategy;
+            if (i == 0) {
                 return false;
             }
-            return i2 == 1 ? getFirstDredgeExecutor().execute(elasticTask) : i2 == 2 ? getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) : i2 == 3 && (getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) || getDisasterDredgeExecutor().execute(elasticTask));
+            return i == 1 ? getFirstDredgeExecutor().execute(elasticTask) : i == 2 ? getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) : i == 3 && (getFirstDredgeExecutor().execute(elasticTask) || getSecondDredgeExecutor().execute(elasticTask) || getDisasterDredgeExecutor().execute(elasticTask));
         }
         return invokeL.booleanValue;
     }

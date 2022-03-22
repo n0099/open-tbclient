@@ -17,7 +17,7 @@ public abstract class NetworkQualityListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Executor) invokeV.objValue;
     }
 
-    public abstract void b(int i2);
+    public abstract void b(int i);
 
     public void c(String str) {
         Interceptable interceptable = $ic;

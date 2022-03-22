@@ -48,9 +48,9 @@ public class Static {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -66,26 +66,26 @@ public class Static {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
                             TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                            if (data != null && data.a != null && data.a.f43931e != null) {
+                            if (data != null && data.a != null && data.a.f34091e != null) {
                                 String str = "";
                                 boolean z = false;
-                                if (data.f43926h == null) {
-                                    if (data.f43920b < data.a.f43931e.size()) {
-                                        ArrayList<String> arrayList = data.a.f43931e.get(data.f43920b);
+                                if (data.f34087h == null) {
+                                    if (data.f34081b < data.a.f34091e.size()) {
+                                        ArrayList<String> arrayList = data.a.f34091e.get(data.f34081b);
                                         if (arrayList.size() > 0) {
                                             str = arrayList.get(0);
                                         }
                                     }
-                                } else if (data.f43926h.length() > 0) {
-                                    str = data.f43926h;
+                                } else if (data.f34087h.length() > 0) {
+                                    str = data.f34087h;
                                     z = true;
                                 }
                                 if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                                    data.f43921c = data.f43924f.getTestImageData(data.a.f43929c, str, data.a.f43933g, data.a.f43930d, data.f43925g);
-                                    data.f43922d = System.currentTimeMillis() - currentTimeMillis;
-                                    data.f43923e = str;
+                                    data.f34082c = data.f34085f.getTestImageData(data.a.f34089c, str, data.a.f34093g, data.a.f34090d, data.f34086g);
+                                    data.f34083d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.f34084e = str;
                                     if (z) {
-                                        data.f43926h = str;
+                                        data.f34087h = str;
                                     }
                                     return new CustomResponsedMessage<>(2017000, data);
                                 }
@@ -109,9 +109,9 @@ public class Static {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -134,9 +134,9 @@ public class Static {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -159,9 +159,9 @@ public class Static {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

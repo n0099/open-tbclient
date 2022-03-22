@@ -40,9 +40,9 @@ public final class s1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -182,11 +182,11 @@ public final class s1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
             char[] cArr2 = new char[bArr.length * 2];
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                byte b2 = bArr[i2];
-                int i3 = i2 * 2;
-                cArr2[i3] = cArr[(b2 >>> 4) & 15];
-                cArr2[i3 + 1] = cArr[b2 & 15];
+            for (int i = 0; i < bArr.length; i++) {
+                byte b2 = bArr[i];
+                int i2 = i * 2;
+                cArr2[i2] = cArr[(b2 >>> 4) & 15];
+                cArr2[i2 + 1] = cArr[b2 & 15];
             }
             return new String(cArr2);
         }
@@ -201,9 +201,9 @@ public final class s1 {
                 return new byte[0];
             }
             byte[] bArr = new byte[str.length() / 2];
-            for (int i2 = 0; i2 < str.length() / 2; i2++) {
-                int i3 = i2 * 2;
-                bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
+            for (int i = 0; i < str.length() / 2; i++) {
+                int i2 = i * 2;
+                bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
             }
             return bArr;
         }

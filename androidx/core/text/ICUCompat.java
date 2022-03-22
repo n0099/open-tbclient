@@ -2,6 +2,7 @@ package androidx.core.text;
 
 import android.icu.util.ULocale;
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,9 +36,9 @@ public final class ICUCompat {
                 return;
             }
         }
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 21) {
-            if (i2 < 24) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            if (i < 24) {
                 try {
                     sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
                     return;
@@ -53,9 +54,10 @@ public final class ICUCompat {
                 sGetScriptMethod = cls.getMethod("getScript", String.class);
                 sAddLikelySubtagsMethod = cls.getMethod("addLikelySubtags", String.class);
             }
-        } catch (Exception unused) {
+        } catch (Exception e3) {
             sGetScriptMethod = null;
             sAddLikelySubtagsMethod = null;
+            Log.w(TAG, e3);
         }
     }
 
@@ -64,9 +66,9 @@ public final class ICUCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -82,7 +84,10 @@ public final class ICUCompat {
                 if (sAddLikelySubtagsMethod != null) {
                     return (String) sAddLikelySubtagsMethod.invoke(null, locale2);
                 }
-            } catch (IllegalAccessException | InvocationTargetException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.w(TAG, e2);
+            } catch (InvocationTargetException e3) {
+                Log.w(TAG, e3);
             }
             return locale2;
         }
@@ -97,7 +102,10 @@ public final class ICUCompat {
                 if (sGetScriptMethod != null) {
                     return (String) sGetScriptMethod.invoke(null, str);
                 }
-            } catch (IllegalAccessException | InvocationTargetException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.w(TAG, e2);
+            } catch (InvocationTargetException e3) {
+                Log.w(TAG, e3);
             }
             return null;
         }
@@ -109,14 +117,18 @@ public final class ICUCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, locale)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 24) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 24) {
                 return ULocale.addLikelySubtags(ULocale.forLocale(locale)).getScript();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 try {
                     return ((Locale) sAddLikelySubtagsMethod.invoke(null, locale)).getScript();
-                } catch (IllegalAccessException | InvocationTargetException unused) {
+                } catch (IllegalAccessException e2) {
+                    Log.w(TAG, e2);
+                    return locale.getScript();
+                } catch (InvocationTargetException e3) {
+                    Log.w(TAG, e3);
                     return locale.getScript();
                 }
             }

@@ -7,13 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Md5Crypt {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APR1_PREFIX = "$apr1$";
@@ -27,9 +26,9 @@ public class Md5Crypt {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -82,7 +81,7 @@ public class Md5Crypt {
             if (str == null) {
                 group = B64.getRandomSalt(8);
             } else {
-                Matcher matcher = Pattern.compile(PayTypeItemView.PayTypeItemViewData.MASK_FLAG + str2.replace("$", "\\$") + "([\\.\\/a-zA-Z0-9]{1,8}).*").matcher(str);
+                Matcher matcher = Pattern.compile("^" + str2.replace("$", "\\$") + "([\\.\\/a-zA-Z0-9]{1,8}).*").matcher(str);
                 if (matcher.find()) {
                     group = matcher.group(1);
                 } else {
@@ -99,17 +98,17 @@ public class Md5Crypt {
             md5Digest2.update(bytes);
             md5Digest2.update(bArr);
             byte[] digest = md5Digest2.digest();
-            int i2 = length;
+            int i = length;
             while (true) {
-                int i3 = 16;
-                if (i2 <= 0) {
+                int i2 = 16;
+                if (i <= 0) {
                     break;
                 }
-                if (i2 <= 16) {
-                    i3 = i2;
+                if (i <= 16) {
+                    i2 = i;
                 }
-                md5Digest.update(digest, 0, i3);
-                i2 -= 16;
+                md5Digest.update(digest, 0, i2);
+                i -= 16;
             }
             Arrays.fill(digest, (byte) 0);
             while (length > 0) {
@@ -122,21 +121,21 @@ public class Md5Crypt {
             }
             StringBuilder sb = new StringBuilder(str2 + group + "$");
             byte[] digest2 = md5Digest.digest();
-            for (int i4 = 0; i4 < 1000; i4++) {
+            for (int i3 = 0; i3 < 1000; i3++) {
                 md5Digest2 = DigestUtils.getMd5Digest();
-                int i5 = i4 & 1;
-                if (i5 != 0) {
+                int i4 = i3 & 1;
+                if (i4 != 0) {
                     md5Digest2.update(bArr);
                 } else {
                     md5Digest2.update(digest2, 0, 16);
                 }
-                if (i4 % 3 != 0) {
+                if (i3 % 3 != 0) {
                     md5Digest2.update(bytes);
                 }
-                if (i4 % 7 != 0) {
+                if (i3 % 7 != 0) {
                     md5Digest2.update(bArr);
                 }
-                if (i5 != 0) {
+                if (i4 != 0) {
                     md5Digest2.update(digest2, 0, 16);
                 } else {
                     md5Digest2.update(bArr);

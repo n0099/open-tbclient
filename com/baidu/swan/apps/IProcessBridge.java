@@ -27,9 +27,9 @@ public interface IProcessBridge extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -47,9 +47,9 @@ public interface IProcessBridge extends IInterface {
         }
 
         @Override // com.baidu.swan.apps.IProcessBridge
-        public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+        public void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, iAsyncProcessCallback) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, iAsyncProcessCallback) == null) {
             }
         }
 
@@ -94,9 +94,9 @@ public interface IProcessBridge extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -113,18 +113,18 @@ public interface IProcessBridge extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IProcessBridge
-            public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+            public void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, iAsyncProcessCallback) == null) {
+                if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, iAsyncProcessCallback) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                         obtain.writeString(str);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         obtain.writeStrongBinder(iAsyncProcessCallback != null ? iAsyncProcessCallback.asBinder() : null);
                         if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().callMainProcessAsync(str, i2, iAsyncProcessCallback);
+                            Stub.getDefaultImpl().callMainProcessAsync(str, i, iAsyncProcessCallback);
                         } else {
                             obtain2.readException();
                         }
@@ -203,9 +203,9 @@ public interface IProcessBridge extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -257,18 +257,18 @@ public interface IProcessBridge extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1) {
                     parcel.enforceInterface(DESCRIPTOR);
                     send(parcel.readInt() != 0 ? (Message) Message.CREATOR.createFromParcel(parcel) : null);
                     return true;
-                } else if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 1598968902) {
-                            return super.onTransact(i2, parcel, parcel2, i3);
+                } else if (i != 2) {
+                    if (i != 3) {
+                        if (i != 1598968902) {
+                            return super.onTransact(i, parcel, parcel2, i2);
                         }
                         parcel2.writeString(DESCRIPTOR);
                         return true;
@@ -302,7 +302,7 @@ public interface IProcessBridge extends IInterface {
         }
     }
 
-    void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException;
+    void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException;
 
     Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException;
 

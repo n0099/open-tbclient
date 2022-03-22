@@ -44,9 +44,9 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -103,9 +103,9 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient, builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -277,9 +277,9 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((OkHttpClient) objArr2[0], (Request.Builder) objArr2[1]);
                 newInitContext.thisArg = this;

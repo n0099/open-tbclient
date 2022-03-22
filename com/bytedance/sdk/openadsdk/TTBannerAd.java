@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface TTBannerAd {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AdInteractionListener {
-        void onAdClicked(View view, int i2);
+        void onAdClicked(View view, int i);
 
-        void onAdShow(View view, int i2);
+        void onAdShow(View view, int i);
     }
 
     View getBannerView();
@@ -27,5 +27,5 @@ public interface TTBannerAd {
 
     void setShowDislikeIcon(TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback);
 
-    void setSlideIntervalTime(int i2);
+    void setSlideIntervalTime(int i);
 }

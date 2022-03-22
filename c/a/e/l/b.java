@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.e.d;
-import c.a.q0.r.r.e;
+import c.a.o0.r.r.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.FacadeEmptyViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends c.a.d.o.e.a<d, FacadeEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> m;
+    public TbPageContext<?> i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -29,9 +29,9 @@ public class b extends c.a.d.o.e.a<d, FacadeEmptyViewHolder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -39,7 +39,7 @@ public class b extends c.a.d.o.e.a<d, FacadeEmptyViewHolder> {
                 return;
             }
         }
-        this.m = tbPageContext;
+        this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class b extends c.a.d.o.e.a<d, FacadeEmptyViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view = new View(this.m.getPageActivity());
+            View view = new View(this.i.getPageActivity());
             view.setVisibility(8);
             return new FacadeEmptyViewHolder(view);
         }
@@ -59,12 +59,12 @@ public class b extends c.a.d.o.e.a<d, FacadeEmptyViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: a0 */
-    public View S(int i2, View view, ViewGroup viewGroup, d dVar, FacadeEmptyViewHolder facadeEmptyViewHolder) {
+    public View S(int i, View view, ViewGroup viewGroup, d dVar, FacadeEmptyViewHolder facadeEmptyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, facadeEmptyViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, dVar, facadeEmptyViewHolder})) == null) {
             e.h(dVar);
-            return facadeEmptyViewHolder.getView();
+            return facadeEmptyViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

@@ -16,7 +16,7 @@ import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RoundedCorners extends BitmapTransformation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.RoundedCorners";
@@ -40,23 +40,23 @@ public final class RoundedCorners extends BitmapTransformation {
         ID_BYTES = ID.getBytes(Key.CHARSET);
     }
 
-    public RoundedCorners(int i2) {
+    public RoundedCorners(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Preconditions.checkArgument(i2 > 0, "roundingRadius must be greater than 0.");
-        this.roundingRadius = i2;
+        Preconditions.checkArgument(i > 0, "roundingRadius must be greater than 0.");
+        this.roundingRadius = i;
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -74,10 +74,10 @@ public final class RoundedCorners extends BitmapTransformation {
     }
 
     @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i2, i3)) == null) ? TransformationUtils.roundedCorners(bitmapPool, bitmap, this.roundingRadius) : (Bitmap) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i, i2)) == null) ? TransformationUtils.roundedCorners(bitmapPool, bitmap, this.roundingRadius) : (Bitmap) invokeLLII.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key

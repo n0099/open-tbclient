@@ -18,7 +18,6 @@ import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class DivideTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
@@ -26,23 +25,23 @@ public class DivideTimeScaleTrack implements Track {
     public Track source;
     public int timeScaleDivisor;
 
-    public DivideTimeScaleTrack(Track track, int i2) {
+    public DivideTimeScaleTrack(Track track, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Integer.valueOf(i2)};
+            Object[] objArr = {track, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = track;
-        this.timeScaleDivisor = i2;
+        this.timeScaleDivisor = i;
     }
 
     public List<CompositionTimeToSample.Entry> adjustCtts() {
@@ -74,11 +73,11 @@ public class DivideTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = 0;
-            for (long j3 : getSampleDurations()) {
-                j2 += j3;
+            long j = 0;
+            for (long j2 : getSampleDurations()) {
+                j += j2;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -118,8 +117,8 @@ public class DivideTimeScaleTrack implements Track {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long[] jArr = new long[this.source.getSampleDurations().length];
             new LinkedList();
-            for (int i2 = 0; i2 < this.source.getSampleDurations().length; i2++) {
-                jArr[i2] = this.source.getSampleDurations()[i2] / this.timeScaleDivisor;
+            for (int i = 0; i < this.source.getSampleDurations().length; i++) {
+                jArr[i] = this.source.getSampleDurations()[i] / this.timeScaleDivisor;
             }
             return jArr;
         }
@@ -163,7 +162,7 @@ public class DivideTimeScaleTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "MultiplyTimeScaleTrack{source=" + this.source + ExtendedMessageFormat.END_FE;
+            return "MultiplyTimeScaleTrack{source=" + this.source + '}';
         }
         return (String) invokeV.objValue;
     }

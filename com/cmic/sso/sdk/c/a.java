@@ -1,383 +1,123 @@
 package com.cmic.sso.sdk.c;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.IWalletLoginListener;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import com.cmic.sso.sdk.b.b.g;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.xiaomi.mipush.sdk.MiPushCommandMessage;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class a extends g {
+import com.baidubce.http.Headers;
+import com.cmic.sso.sdk.c.b.d;
+import com.cmic.sso.sdk.c.b.g;
+import com.cmic.sso.sdk.c.c.c;
+import com.cmic.sso.sdk.e.q;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public CopyOnWriteArrayList<Throwable> a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52071b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f52072c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f52073d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f52074e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f52075f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f52076g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f52077h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f52078i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f52079j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public JSONArray o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public String x;
-    public String y;
-    public String z;
+    public String f38419b;
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f52071b = null;
-        this.f52072c = null;
-        this.f52073d = null;
-        this.f52074e = null;
-        this.f52075f = null;
-        this.f52076g = null;
-        this.f52077h = null;
-        this.f52078i = null;
-        this.f52079j = null;
-        this.k = "";
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.p = null;
-        this.q = null;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.u = null;
-        this.v = null;
-        this.w = null;
-        this.x = null;
-        this.y = null;
-        this.a = new CopyOnWriteArrayList<>();
     }
 
-    public void A(String str) {
+    public c a(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
+        InterceptResult invokeLLL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.A = str;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
+            Map<String, List<String>> b2 = bVar.b();
+            if (TextUtils.isEmpty(this.a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+                this.a = list.get(0);
+            }
+            q.b(aVar, String.valueOf(bVar.a()));
+            List<String> list2 = b2.get(Headers.LOCATION);
+            if (list2 == null || list2.isEmpty()) {
+                list2 = b2.get(Headers.LOCATION.toLowerCase());
+            }
+            if (list2 != null && list2.size() > 0) {
+                String str = list2.get(0);
+                this.f38419b = str;
+                if (!TextUtils.isEmpty(str)) {
+                    String b3 = aVar.b("operatortype", "0");
+                    if ("2".equals(b3)) {
+                        q.a(aVar, "getUnicomMobile");
+                    } else if ("3".equals(b3)) {
+                        q.a(aVar, "getTelecomMobile");
+                    } else {
+                        q.a(aVar, "NONE");
+                    }
+                }
+            }
+            Log.d(Headers.LOCATION, this.f38419b);
+            c a = a(this.f38419b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
+            a.a(cVar.h());
+            return a;
         }
+        return (c) invokeLLL.objValue;
     }
 
-    public void B(String str) {
+    public c b(c cVar, com.cmic.sso.sdk.c.d.b bVar, com.cmic.sso.sdk.a aVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.B = str;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar, aVar)) == null) {
+            String b2 = aVar.b("operatortype", "0");
+            if ("2".equals(b2)) {
+                q.a(aVar, "getNewUnicomPhoneNumberNotify");
+            } else if ("3".equals(b2)) {
+                q.a(aVar, "getNewTelecomPhoneNumberNotify");
+            } else {
+                q.a(aVar, "NONE");
+            }
+            q.b(aVar, String.valueOf(bVar.a()));
+            d dVar = new d(cVar.k().a(), "1.0", bVar.c());
+            dVar.c(aVar.b("userCapaid"));
+            if (aVar.c("logintype") != 3) {
+                dVar.b("authz");
+            } else {
+                dVar.b("pre");
+            }
+            c a = a(this.a, cVar.f(), "POST", dVar);
+            a.a(cVar.h());
+            this.a = null;
+            return a;
         }
+        return (c) invokeLLL.objValue;
     }
 
-    public void C(String str) {
+    private c a(String str, String str2, String str3, g gVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.C = str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, str2, str3, gVar)) == null) {
+            c cVar = new c(str, gVar, str3, str2);
+            if (str3.equals("GET")) {
+                cVar.a("Content-Type", "application/x-www-form-urlencoded");
+            }
+            return cVar;
         }
+        return (c) invokeLLLL.objValue;
     }
 
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.D = str;
-        }
-    }
-
-    @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.cmic.sso.sdk.b.b.g
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONArray) == null) {
-            this.o = jSONArray;
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f52071b = str;
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.z = str;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.w = str;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.x = str;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.y = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.s = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f52073d = str;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f52074e = str;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f52075f = str;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f52078i = str;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.v = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.p = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.t = str;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.u = str;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f52072c = str;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f52076g = str;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.r = str;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f52077h = str;
-        }
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f52079j = str;
-        }
-    }
-
-    public void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.q = str;
-        }
-    }
-
-    @Override // com.cmic.sso.sdk.b.b.g
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("appid", this.f52071b);
-                jSONObject.put("traceId", this.f52072c);
-                jSONObject.put("appName", this.f52073d);
-                jSONObject.put("appVersion", this.f52074e);
-                jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
-                jSONObject.put("clientType", "android");
-                jSONObject.put("timeOut", this.f52075f);
-                jSONObject.put("requestTime", this.f52076g);
-                jSONObject.put("responseTime", this.f52077h);
-                jSONObject.put("elapsedTime", this.f52078i);
-                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f52079j);
-                jSONObject.put("interfaceType", this.k);
-                jSONObject.put("interfaceCode", this.l);
-                jSONObject.put("interfaceElasped", this.m);
-                jSONObject.put(IWalletLoginListener.KEY_LOGIN_TYPE, this.n);
-                jSONObject.put("exceptionStackTrace", this.o);
-                jSONObject.put("operatorType", this.p);
-                jSONObject.put("networkType", this.q);
-                jSONObject.put("networkClass", this.r);
-                jSONObject.put("brand", this.s);
-                jSONObject.put("reqDevice", this.t);
-                jSONObject.put("reqSystem", this.u);
-                jSONObject.put("simCardNum", this.v);
-                jSONObject.put("imsiState", this.w);
-                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, this.x);
-                jSONObject.put("is_root", this.y);
-                jSONObject.put("is_phoneStatePermission", this.z);
-                jSONObject.put("AID", this.A);
-                jSONObject.put("sysOperType", this.B);
-                jSONObject.put("scripType", this.C);
-                if (!TextUtils.isEmpty(this.D)) {
-                    jSONObject.put("eip", this.D);
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

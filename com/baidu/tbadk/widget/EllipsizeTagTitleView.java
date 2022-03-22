@@ -31,56 +31,58 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EllipsizeTagTitleView extends View implements q {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: D */
-    public static final int CAM_X0105 = 2131099660;
-
-    /* renamed from: E */
+    /* renamed from: A */
     public static final int CAM_X0301 = 2131099742;
+    public static final int B;
+    public static final int C;
+    public static final int D;
+    public static final int E;
     public static final int F;
     public static final int G;
     public static final int H;
-    public static final int I;
-    public static final int J;
-    public static final int K;
-    public static final int L;
+
+    /* renamed from: z */
+    public static final int CAM_X0105 = 2131099660;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextPaint A;
-    public Paint.FontMetrics B;
-    public RectF C;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f30667b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f30668c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f30669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39812e;
+    public int f30670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39813f;
+    public int f30671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39814g;
+    public int f30672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39815h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f39816i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f39817j;
+    public int f30673h;
+    public int i;
+    public int j;
     public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public String p;
-    public final float[] q;
-    public float r;
-    public float s;
-    public float t;
-    public float u;
-    public int v;
-    public int w;
-    public String x;
-    public String y;
-    public TextPaint z;
+    public String l;
+    public final float[] m;
+    public float n;
+    public float o;
+    public float p;
+    public float q;
+    public int r;
+    public int s;
+    public String t;
+    public String u;
+    public TextPaint v;
+    public TextPaint w;
+    public Paint.FontMetrics x;
+    public RectF y;
 
     static {
         InterceptResult invokeClinit;
@@ -95,13 +97,13 @@ public class EllipsizeTagTitleView extends View implements q {
                 return;
             }
         }
-        F = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        G = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        H = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        I = n.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        J = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        K = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        L = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = n.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -113,9 +115,9 @@ public class EllipsizeTagTitleView extends View implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -128,41 +130,41 @@ public class EllipsizeTagTitleView extends View implements q {
     private float getSingleOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.s - this.z.getFontMetrics().descent : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.o - this.v.getFontMetrics().descent : invokeV.floatValue;
     }
 
-    public final int a(int i2, float f2) {
+    public final int a(int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            TextPaint textPaint = this.z;
-            String str = this.x;
-            return textPaint.breakText(str, i2, str.length(), true, f2, this.q);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+            TextPaint textPaint = this.v;
+            String str = this.t;
+            return textPaint.breakText(str, i, str.length(), true, f2, this.m);
         }
         return invokeCommon.intValue;
     }
 
-    public final int b(int i2) {
+    public final int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int length = this.x.length();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int length = this.t.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                int a = a(i3, i4 == this.f39816i + (-1) ? i2 - this.v : i2);
-                i4++;
-                int i5 = this.f39816i;
-                if (i4 >= i5) {
-                    return i5;
+            while (i2 < length) {
+                int a = a(i2, i3 == this.f30670e + (-1) ? i - this.r : i);
+                i3++;
+                int i4 = this.f30670e;
+                if (i3 >= i4) {
+                    return i4;
                 }
-                int i6 = a + i3;
-                if (i6 == length) {
-                    return ((int) (((float) i2) - this.z.measureText(this.x, i3, length))) < this.v ? i4 + 1 : i4;
+                int i5 = a + i2;
+                if (i5 == length) {
+                    return ((int) (((float) i) - this.v.measureText(this.t, i2, length))) < this.r ? i3 + 1 : i3;
                 }
-                i3 = i6;
+                i2 = i5;
             }
-            return i4;
+            return i3;
         }
         return invokeI.intValue;
     }
@@ -171,10 +173,10 @@ public class EllipsizeTagTitleView extends View implements q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.y)) {
+            if (TextUtils.isEmpty(this.u)) {
                 return 0;
             }
-            return (int) (0 + this.t + (this.k * 2) + this.m);
+            return (int) (0 + this.p + (this.f30672g * 2) + this.i);
         }
         return invokeV.intValue;
     }
@@ -183,10 +185,10 @@ public class EllipsizeTagTitleView extends View implements q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.y)) {
+            if (TextUtils.isEmpty(this.u)) {
                 return 0;
             }
-            return this.m + ((int) this.A.measureText(this.y)) + 0 + (this.l * 2) + this.f39817j;
+            return this.i + ((int) this.w.measureText(this.u)) + 0 + (this.f30673h * 2) + this.f30671f;
         }
         return invokeV.intValue;
     }
@@ -196,8 +198,8 @@ public class EllipsizeTagTitleView extends View implements q {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
             return;
         }
-        String str = this.p;
-        canvas.drawText(str, 0, str.length(), f2, f3, (Paint) this.z);
+        String str = this.l;
+        canvas.drawText(str, 0, str.length(), f2, f3, (Paint) this.v);
     }
 
     public final void f(Canvas canvas, float f2) {
@@ -205,8 +207,8 @@ public class EllipsizeTagTitleView extends View implements q {
         if (!(interceptable == null || interceptable.invokeLF(1048581, this, canvas, f2) == null) || canvas == null) {
             return;
         }
-        this.A.setStyle(Paint.Style.FILL);
-        canvas.drawText(this.y, this.C.left + this.l, (f2 + (this.t / 2.0f)) - this.u, this.A);
+        this.w.setStyle(Paint.Style.FILL);
+        canvas.drawText(this.u, this.y.left + this.f30673h, (f2 + (this.p / 2.0f)) - this.q, this.w);
     }
 
     public final void g(Canvas canvas, float f2, float f3) {
@@ -214,74 +216,74 @@ public class EllipsizeTagTitleView extends View implements q {
         if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
             return;
         }
-        RectF rectF = this.C;
-        int i2 = this.m;
-        float f4 = f3 + ((i2 * 1.0f) / 2.0f);
+        RectF rectF = this.y;
+        int i = this.i;
+        float f4 = f3 + ((i * 1.0f) / 2.0f);
         rectF.left = f4;
-        int i3 = this.w;
-        rectF.top = f2 - ((i3 * 1.0f) / 2.0f);
-        rectF.right = ((f4 + this.v) - this.f39817j) + ((i2 * 1.0f) / 2.0f);
-        rectF.bottom = f2 + ((i3 * 1.0f) / 2.0f);
-        this.A.setStyle(Paint.Style.STROKE);
-        this.A.setStrokeWidth(this.m);
-        RectF rectF2 = this.C;
-        int i4 = this.n;
-        canvas.drawRoundRect(rectF2, i4, i4, this.A);
+        int i2 = this.s;
+        rectF.top = f2 - ((i2 * 1.0f) / 2.0f);
+        rectF.right = ((f4 + this.r) - this.f30671f) + ((i * 1.0f) / 2.0f);
+        rectF.bottom = f2 + ((i2 * 1.0f) / 2.0f);
+        this.w.setStyle(Paint.Style.STROKE);
+        this.w.setStrokeWidth(this.i);
+        RectF rectF2 = this.y;
+        int i3 = this.j;
+        canvas.drawRoundRect(rectF2, i3, i3, this.w);
     }
 
-    public final void h(Canvas canvas, int i2, int i3, float f2, float f3) {
+    public final void h(Canvas canvas, int i, int i2, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
             return;
         }
-        canvas.drawText(this.x, i2, i3, f2, f3, (Paint) this.z);
+        canvas.drawText(this.t, i, i2, f2, f3, (Paint) this.v);
     }
 
     public final void i(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
-            int length = this.x.length();
+            int length = this.t.length();
             float singleOffset = getSingleOffset();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                Paint.FontMetrics fontMetrics = this.B;
+            while (i < length) {
+                Paint.FontMetrics fontMetrics = this.x;
                 float f2 = ((fontMetrics.ascent + singleOffset) + (fontMetrics.descent + singleOffset)) / 2.0f;
-                if (i3 == this.f39816i - 1) {
-                    float width = getWidth() - this.v;
-                    int a = i2 + a(i2, width);
-                    if (a == length && this.q[0] < width) {
-                        h(canvas, i2, a, 0.0f, singleOffset);
-                        g(canvas, f2, this.q[0] + this.f39817j);
+                if (i2 == this.f30670e - 1) {
+                    float width = getWidth() - this.r;
+                    int a = i + a(i, width);
+                    if (a == length && this.m[0] < width) {
+                        h(canvas, i, a, 0.0f, singleOffset);
+                        g(canvas, f2, this.m[0] + this.f30671f);
                         f(canvas, f2);
                         return;
                     }
-                    h(canvas, i2, i2 + a(i2, (int) (width - this.r)), 0.0f, singleOffset);
-                    e(canvas, this.q[0], singleOffset);
-                    g(canvas, f2, this.q[0] + this.r + this.f39817j);
+                    h(canvas, i, i + a(i, (int) (width - this.n)), 0.0f, singleOffset);
+                    e(canvas, this.m[0], singleOffset);
+                    g(canvas, f2, this.m[0] + this.n + this.f30671f);
                     f(canvas, f2);
                     return;
                 }
                 float width2 = getWidth();
-                int a2 = i2 + a(i2, width2);
-                h(canvas, i2, a2, 0.0f, singleOffset);
+                int a2 = i + a(i, width2);
+                h(canvas, i, a2, 0.0f, singleOffset);
                 if (a2 == length) {
-                    float[] fArr = this.q;
-                    if (fArr[0] + this.v < width2) {
-                        g(canvas, f2, fArr[0] + this.f39817j);
+                    float[] fArr = this.m;
+                    if (fArr[0] + this.r < width2) {
+                        g(canvas, f2, fArr[0] + this.f30671f);
                         f(canvas, f2);
                         return;
                     }
-                    float singleOffset2 = singleOffset + getSingleOffset() + this.f39815h;
-                    Paint.FontMetrics fontMetrics2 = this.B;
+                    float singleOffset2 = singleOffset + getSingleOffset() + this.f30669d;
+                    Paint.FontMetrics fontMetrics2 = this.x;
                     float f3 = ((fontMetrics2.ascent + singleOffset2) + (singleOffset2 + fontMetrics2.descent)) / 2.0f;
                     g(canvas, f3, 0.0f);
                     f(canvas, f3);
                     return;
                 }
-                singleOffset += getSingleOffset() + this.f39815h;
-                i3++;
-                i2 = a2;
+                singleOffset += getSingleOffset() + this.f30669d;
+                i2++;
+                i = a2;
             }
         }
     }
@@ -289,28 +291,28 @@ public class EllipsizeTagTitleView extends View implements q {
     public final void j(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
-            int length = this.x.length();
+            int length = this.t.length();
             float singleOffset = getSingleOffset();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i3 < length) {
+            while (i2 < length) {
                 int width = getWidth();
-                if (i2 == this.f39816i - 1) {
+                if (i == this.f30670e - 1) {
                     float f2 = width;
-                    int breakText = i3 + this.z.breakText(this.x, i3, length, true, f2, this.q);
-                    if (breakText == length && this.q[0] < f2) {
-                        h(canvas, i3, breakText, 0.0f, singleOffset);
+                    int breakText = i2 + this.v.breakText(this.t, i2, length, true, f2, this.m);
+                    if (breakText == length && this.m[0] < f2) {
+                        h(canvas, i2, breakText, 0.0f, singleOffset);
                         return;
                     }
-                    h(canvas, i3, i3 + a(i3, (int) (getWidth() - this.r)), 0.0f, singleOffset);
-                    e(canvas, this.q[0], singleOffset);
+                    h(canvas, i2, i2 + a(i2, (int) (getWidth() - this.n)), 0.0f, singleOffset);
+                    e(canvas, this.m[0], singleOffset);
                     return;
                 }
-                int a = i3 + a(i3, width);
-                h(canvas, i3, a, 0.0f, singleOffset);
-                singleOffset += getSingleOffset() + this.f39815h;
-                i2++;
-                i3 = a;
+                int a = i2 + a(i2, width);
+                h(canvas, i2, a, 0.0f, singleOffset);
+                singleOffset += getSingleOffset() + this.f30669d;
+                i++;
+                i2 = a;
             }
         }
     }
@@ -318,51 +320,51 @@ public class EllipsizeTagTitleView extends View implements q {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style});
-            this.f39814g = obtainStyledAttributes.getInt(9, CAM_X0105);
-            this.f39813f = obtainStyledAttributes.getInt(11, 0);
-            this.f39812e = obtainStyledAttributes.getDimensionPixelSize(10, F);
-            this.f39815h = obtainStyledAttributes.getDimensionPixelSize(1, G);
-            this.f39816i = obtainStyledAttributes.getInt(2, 2);
-            this.p = obtainStyledAttributes.getString(0);
-            this.f39817j = obtainStyledAttributes.getInt(5, H);
-            this.k = obtainStyledAttributes.getInt(7, K);
-            this.l = obtainStyledAttributes.getInt(6, L);
-            this.m = obtainStyledAttributes.getInt(8, I);
-            this.n = obtainStyledAttributes.getInt(4, J);
-            this.o = obtainStyledAttributes.getInt(9, CAM_X0301);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f0405c9, R.attr.obfuscated_res_0x7f0405ca, R.attr.obfuscated_res_0x7f0405cb, R.attr.obfuscated_res_0x7f0405cc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d0, R.attr.obfuscated_res_0x7f0405d1, R.attr.obfuscated_res_0x7f0405d2});
+            this.f30668c = obtainStyledAttributes.getInt(9, CAM_X0105);
+            this.f30667b = obtainStyledAttributes.getInt(11, 0);
+            this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
+            this.f30669d = obtainStyledAttributes.getDimensionPixelSize(1, C);
+            this.f30670e = obtainStyledAttributes.getInt(2, 2);
+            this.l = obtainStyledAttributes.getString(0);
+            this.f30671f = obtainStyledAttributes.getInt(5, D);
+            this.f30672g = obtainStyledAttributes.getInt(7, G);
+            this.f30673h = obtainStyledAttributes.getInt(6, H);
+            this.i = obtainStyledAttributes.getInt(8, E);
+            this.j = obtainStyledAttributes.getInt(4, F);
+            this.k = obtainStyledAttributes.getInt(9, CAM_X0301);
             obtainStyledAttributes.recycle();
             TextPaint textPaint = new TextPaint(1);
-            this.z = textPaint;
-            textPaint.setTextSize(this.f39812e);
-            if (this.f39813f == 1) {
-                this.z.setTypeface(Typeface.DEFAULT_BOLD);
+            this.v = textPaint;
+            textPaint.setTextSize(this.a);
+            if (this.f30667b == 1) {
+                this.v.setTypeface(Typeface.DEFAULT_BOLD);
             } else {
-                this.z.setTypeface(Typeface.DEFAULT);
+                this.v.setTypeface(Typeface.DEFAULT);
             }
-            this.z.setColor(SkinManager.getColor(this.f39814g));
-            this.z.getFontMetrics(this.B);
-            if (TextUtils.isEmpty(this.p)) {
-                this.p = "...#";
+            this.v.setColor(SkinManager.getColor(this.f30668c));
+            this.v.getFontMetrics(this.x);
+            if (TextUtils.isEmpty(this.l)) {
+                this.l = "...#";
             }
-            this.r = this.z.measureText(this.p);
+            this.n = this.v.measureText(this.l);
             TextPaint textPaint2 = new TextPaint(1);
-            this.A = textPaint2;
-            textPaint2.setColor(SkinManager.getColor(this.o));
-            this.A.setTextSize(n.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
-            if (this.A.getFontMetrics() != null) {
-                this.t = this.A.getFontMetrics().descent - this.A.getFontMetrics().ascent;
-                this.u = this.A.getFontMetrics().descent;
+            this.w = textPaint2;
+            textPaint2.setColor(SkinManager.getColor(this.k));
+            this.w.setTextSize(n.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            if (this.w.getFontMetrics() != null) {
+                this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
+                this.q = this.w.getFontMetrics().descent;
             }
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i2) == null) {
-            this.z.setColor(SkinManager.getColor(this.f39814g));
-            this.A.setColor(SkinManager.getColor(this.o));
+        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
+            this.v.setColor(SkinManager.getColor(this.f30668c));
+            this.w.setColor(SkinManager.getColor(this.k));
             invalidate();
         }
     }
@@ -372,10 +374,10 @@ public class EllipsizeTagTitleView extends View implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, canvas) == null) {
             super.onDraw(canvas);
-            if (TextUtils.isEmpty(this.x)) {
+            if (TextUtils.isEmpty(this.t)) {
                 return;
             }
-            if (TextUtils.isEmpty(this.y)) {
+            if (TextUtils.isEmpty(this.u)) {
                 j(canvas);
             } else {
                 i(canvas);
@@ -384,28 +386,28 @@ public class EllipsizeTagTitleView extends View implements q {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size2 = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
             if (mode != 1073741824) {
-                size = ((int) this.z.measureText(this.x)) + this.v;
+                size = ((int) this.v.measureText(this.t)) + this.r;
             }
             if (mode2 != 1073741824) {
-                if (this.z.getFontMetrics() != null) {
-                    float f2 = this.z.getFontMetrics().descent - this.z.getFontMetrics().ascent;
-                    this.s = f2;
-                    int i4 = this.w;
-                    if (f2 < i4) {
-                        this.s = i4;
+                if (this.v.getFontMetrics() != null) {
+                    float f2 = this.v.getFontMetrics().descent - this.v.getFontMetrics().ascent;
+                    this.o = f2;
+                    int i3 = this.s;
+                    if (f2 < i3) {
+                        this.o = i3;
                     }
                 }
                 int b2 = b(size);
-                size2 = (int) (0 + (this.s * b2) + (this.f39815h * (b2 - 1)));
+                size2 = (int) (0 + (this.o * b2) + (this.f30669d * (b2 - 1)));
             }
             setMeasuredDimension(size, size2);
         }
@@ -414,10 +416,10 @@ public class EllipsizeTagTitleView extends View implements q {
     public void setTitleAndTag(@NonNull String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            this.x = str;
-            this.y = str2;
-            this.v = d();
-            this.w = c();
+            this.t = str;
+            this.u = str2;
+            this.r = d();
+            this.s = c();
         }
     }
 
@@ -430,9 +432,9 @@ public class EllipsizeTagTitleView extends View implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -443,17 +445,17 @@ public class EllipsizeTagTitleView extends View implements q {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EllipsizeTagTitleView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EllipsizeTagTitleView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -461,22 +463,22 @@ public class EllipsizeTagTitleView extends View implements q {
                 return;
             }
         }
-        this.f39812e = F;
-        this.f39813f = 1;
-        this.f39814g = CAM_X0105;
-        this.f39815h = G;
-        this.f39816i = 2;
-        this.f39817j = H;
-        this.k = K;
-        this.l = L;
-        this.m = I;
-        this.n = J;
-        this.o = CAM_X0301;
-        this.p = "...#";
-        this.q = new float[1];
-        this.x = "";
-        this.B = new Paint.FontMetrics();
-        this.C = new RectF();
+        this.a = B;
+        this.f30667b = 1;
+        this.f30668c = CAM_X0105;
+        this.f30669d = C;
+        this.f30670e = 2;
+        this.f30671f = D;
+        this.f30672g = G;
+        this.f30673h = H;
+        this.i = E;
+        this.j = F;
+        this.k = CAM_X0301;
+        this.l = "...#";
+        this.m = new float[1];
+        this.t = "";
+        this.x = new Paint.FontMetrics();
+        this.y = new RectF();
         k(context, attributeSet);
     }
 }

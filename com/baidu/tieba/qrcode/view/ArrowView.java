@@ -17,28 +17,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static int f46073i = 20;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f46074j = 13;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: e  reason: collision with root package name */
-    public int f46075e;
+    public static int f35687e = 20;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46076f;
+    public static int f35688f = 13;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f46077g;
+    /* renamed from: b  reason: collision with root package name */
+    public int f35689b;
 
-    /* renamed from: h  reason: collision with root package name */
-    public Path f46078h;
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f35690c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Path f35691d;
 
     static {
         InterceptResult invokeClinit;
@@ -64,9 +62,9 @@ public class ArrowView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -79,13 +77,13 @@ public class ArrowView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f46073i = n.f(context, R.dimen.tbds20);
-            f46074j = n.f(context, R.dimen.tbds13);
+            f35687e = n.f(context, R.dimen.tbds20);
+            f35688f = n.f(context, R.dimen.tbds13);
             Paint paint = new Paint();
-            this.f46077g = paint;
+            this.f35690c = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-            this.f46077g.setAntiAlias(true);
-            this.f46078h = new Path();
+            this.f35690c.setAntiAlias(true);
+            this.f35691d = new Path();
         }
     }
 
@@ -94,41 +92,41 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f46078h.reset();
-            this.f46078h.moveTo(this.f46075e / 2, 0.0f);
-            this.f46078h.lineTo(0.0f, this.f46076f);
-            this.f46078h.lineTo(this.f46075e, this.f46076f);
-            this.f46078h.close();
-            canvas.drawPath(this.f46078h, this.f46077g);
+            this.f35691d.reset();
+            this.f35691d.moveTo(this.a / 2, 0.0f);
+            this.f35691d.lineTo(0.0f, this.f35689b);
+            this.f35691d.lineTo(this.a, this.f35689b);
+            this.f35691d.close();
+            canvas.drawPath(this.f35691d, this.f35690c);
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size2 = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f46073i, f46074j);
+                setMeasuredDimension(f35687e, f35688f);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f46073i, size2);
+                setMeasuredDimension(f35687e, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, f46074j);
+                setMeasuredDimension(size, f35688f);
             }
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            this.f46075e = i2;
-            this.f46076f = i3;
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.a = i;
+            this.f35689b = i2;
         }
     }
 
@@ -141,9 +139,9 @@ public class ArrowView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

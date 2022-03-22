@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c.a;
-import c.a.q0.c1.e0;
-import c.a.q0.c1.g0;
-import c.a.q0.r.r.e2;
+import c.a.o0.c.a;
+import c.a.o0.c1.e0;
+import c.a.o0.c1.g0;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -26,7 +26,7 @@ public final class TiePlusStat {
     public static final g0<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g0<Integer> f40211b;
+    public static final g0<Integer> f31011b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -59,16 +59,16 @@ public final class TiePlusStat {
             $VALUES = new CardBtnType[]{DOWNLOAD, cardBtnType};
         }
 
-        public CardBtnType(String str, int i2, int i3) {
+        public CardBtnType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -77,7 +77,7 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0012, code lost:
@@ -86,16 +86,16 @@ public final class TiePlusStat {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public static CardBtnType create(int i2, int i3) {
+        public static CardBtnType create(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-                if (i2 == 36) {
-                    if (i3 != 1) {
-                        if (i3 == 2) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+                if (i == 36) {
+                    if (i2 != 1) {
+                        if (i2 == 2) {
                             return DOWNLOAD;
                         }
-                        if (i3 != 3) {
+                        if (i2 != 3) {
                         }
                     }
                     return H5;
@@ -158,16 +158,16 @@ public final class TiePlusStat {
             $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, MESSAGE, APPOINT, landingType};
         }
 
-        public LandingType(String str, int i2, int i3) {
+        public LandingType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -176,16 +176,16 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
         @NonNull
-        public static LandingType create(int i2) {
+        public static LandingType create(int i) {
             InterceptResult invokeI;
             LandingType landingType;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                switch (i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                switch (i) {
                     case 1:
                         landingType = H5;
                         break;
@@ -270,16 +270,16 @@ public final class TiePlusStat {
             $VALUES = new Locate[]{HOME, FRS, PB, PB_COMMENT, VIDEO_MIDDLE_COMMENT, VIDEO_MOUNT, locate};
         }
 
-        public Locate(String str, int i2, int i3) {
+        public Locate(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -288,7 +288,7 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
         public static Locate valueOf(String str) {
@@ -338,16 +338,16 @@ public final class TiePlusStat {
             $VALUES = new RichTextType[]{LINK, CARD, MESSAGE, richTextType};
         }
 
-        public RichTextType(String str, int i2, int i3) {
+        public RichTextType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -356,15 +356,15 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
-        public static RichTextType create(int i2) {
+        public static RichTextType create(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 35) {
-                    if (i2 != 36) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                if (i != 35) {
+                    if (i != 36) {
                         return null;
                     }
                     return CARD;
@@ -416,8 +416,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12100h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12101i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f9873h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -427,16 +427,16 @@ public final class TiePlusStat {
             $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, DOWNLOAD_FINISHED, WECHAT_DIALOG_EXPOSE, statType};
         }
 
-        public StatType(@NonNull String str, int i2, String str2, int i3) {
+        public StatType(@NonNull String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -446,7 +446,7 @@ public final class TiePlusStat {
                 }
             }
             this.urlKey = str2;
-            this.billingTypeValue = i3;
+            this.billingTypeValue = i2;
         }
 
         public static StatType valueOf(String str) {
@@ -494,16 +494,16 @@ public final class TiePlusStat {
             $VALUES = new ThreadType[]{IMAGE_TEXT, VIDEO_NORMAL, threadType};
         }
 
-        public ThreadType(String str, int i2, int i3) {
+        public ThreadType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -512,17 +512,17 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
-        public static ThreadType create(@NonNull e2 e2Var) {
+        public static ThreadType create(@NonNull ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e2Var)) == null) {
-                if (e2Var.J2()) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadData)) == null) {
+                if (threadData.isVideoWorksInfo()) {
                     return VIDEO_WORK;
                 }
-                if (e2Var.I2()) {
+                if (threadData.isVideoThreadType()) {
                     return VIDEO_NORMAL;
                 }
                 return IMAGE_TEXT;
@@ -573,16 +573,16 @@ public final class TiePlusStat {
             $VALUES = new WechatDialogType[]{COPY, wechatDialogType};
         }
 
-        public WechatDialogType(String str, int i2, int i3) {
+        public WechatDialogType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -591,7 +591,7 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
         }
 
         public static WechatDialogType valueOf(String str) {
@@ -621,7 +621,7 @@ public final class TiePlusStat {
             }
         }
         a = new g0<>(3000, TimeUnit.MILLISECONDS);
-        f40211b = new g0<>(3000, TimeUnit.MILLISECONDS);
+        f31011b = new g0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -651,11 +651,11 @@ public final class TiePlusStat {
         return invokeLL.intValue;
     }
 
-    public static void b(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i3, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
+    public static void b(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i2, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), statType, locate, threadType, richTextType, Integer.valueOf(i3), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || a.a(Integer.valueOf(i2))) {
-                StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i3).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), statType, locate, threadType, richTextType, Integer.valueOf(i2), landingType, str, str2, str3, str4, cardBtnType}) == null) {
+            if (statType != StatType.EXPOSE || a.a(Integer.valueOf(i))) {
+                StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i2).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
                 if (cardBtnType != null) {
                     addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
                 }
@@ -664,11 +664,11 @@ public final class TiePlusStat {
         }
     }
 
-    public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
+    public static void c(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f40211b.a(Integer.valueOf(i2))) {
-                a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
+            if (statType != StatType.EXPOSE || f31011b.a(Integer.valueOf(i))) {
+                a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
             }
         }
     }

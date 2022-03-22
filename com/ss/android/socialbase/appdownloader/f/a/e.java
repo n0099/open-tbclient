@@ -6,6 +6,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.sofire.utility.CommonMethods;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +17,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:116:0x0144 */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x006a, code lost:
@@ -48,7 +50,7 @@ public class e {
         ZipFile zipFile3;
         ZipInputStream zipInputStream4;
         int b2;
-        long j2;
+        long j;
         a aVar = null;
         aVar = null;
         String str = null;
@@ -73,7 +75,7 @@ public class e {
                                 zipInputStream5.closeEntry();
                             } catch (Throwable unused) {
                             }
-                        } else if ("AndroidManifest.xml".equals(nextEntry.getName())) {
+                        } else if (CommonMethods.ANDROID_MANIFEST_FILENAME.equals(nextEntry.getName())) {
                             zipFile3 = null;
                             zipEntry = nextEntry;
                             fileInputStream = fileInputStream3;
@@ -133,7 +135,7 @@ public class e {
                             break;
                         }
                         zipEntry2 = entries.nextElement();
-                        if (!zipEntry2.isDirectory() && "AndroidManifest.xml".equals(zipEntry2.getName())) {
+                        if (!zipEntry2.isDirectory() && CommonMethods.ANDROID_MANIFEST_FILENAME.equals(zipEntry2.getName())) {
                             break;
                         }
                     }
@@ -151,7 +153,7 @@ public class e {
             }
             if (zipEntry != null) {
                 try {
-                    if ("AndroidManifest.xml".equals(zipEntry.getName())) {
+                    if (CommonMethods.ANDROID_MANIFEST_FILENAME.equals(zipEntry.getName())) {
                         a aVar2 = new a();
                         try {
                             aVar2.a(zipInputStream3);
@@ -164,24 +166,24 @@ public class e {
                             int e2 = aVar2.e();
                             String str2 = null;
                             String str3 = null;
-                            for (int i2 = 0; i2 != e2; i2++) {
-                                if (PushManager.APP_VERSION_NAME.equals(aVar2.a(i2))) {
-                                    str2 = a(aVar2, i2);
-                                } else if (PushManager.APP_VERSION_CODE.equals(aVar2.a(i2))) {
-                                    str = a(aVar2, i2);
-                                } else if ("package".equals(aVar2.a(i2))) {
-                                    str3 = a(aVar2, i2);
+                            for (int i = 0; i != e2; i++) {
+                                if (PushManager.APP_VERSION_NAME.equals(aVar2.a(i))) {
+                                    str2 = a(aVar2, i);
+                                } else if (PushManager.APP_VERSION_CODE.equals(aVar2.a(i))) {
+                                    str = a(aVar2, i);
+                                } else if ("package".equals(aVar2.a(i))) {
+                                    str3 = a(aVar2, i);
                                 }
                             }
                             try {
-                                j2 = Long.parseLong(str);
+                                j = Long.parseLong(str);
                             } catch (c unused6) {
-                                j2 = -1;
+                                j = -1;
                             }
-                            if (j2 != -1) {
+                            if (j != -1) {
                                 PackageInfo packageInfo = new PackageInfo();
                                 packageInfo.versionName = str2;
-                                packageInfo.versionCode = (int) j2;
+                                packageInfo.versionCode = (int) j;
                                 packageInfo.packageName = str3;
                                 if (zipInputStream4 != null) {
                                     try {
@@ -237,35 +239,35 @@ public class e {
         }
     }
 
-    public static String a(int i2) {
-        return (i2 >>> 24) == 1 ? "android:" : "";
+    public static String a(int i) {
+        return (i >>> 24) == 1 ? "android:" : "";
     }
 
-    public static PackageInfo b(@NonNull Context context, @NonNull File file, int i2) {
+    public static PackageInfo b(@NonNull Context context, @NonNull File file, int i) {
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null) {
             a("unzip_getpackagearchiveinfo", "packageManager == null");
             return null;
         }
         try {
-            return packageManager.getPackageArchiveInfo(file.getPath(), i2);
+            return packageManager.getPackageArchiveInfo(file.getPath(), i);
         } catch (Throwable th) {
             a("unzip_getpackagearchiveinfo", "pm.getPackageArchiveInfo failed: " + th.getMessage());
             return null;
         }
     }
 
-    public static PackageInfo a(@NonNull Context context, @NonNull File file, int i2) {
-        int i3;
-        if (com.ss.android.socialbase.downloader.i.a.a(268435456) && (i3 = Build.VERSION.SDK_INT) >= 21 && i3 < 26) {
+    public static PackageInfo a(@NonNull Context context, @NonNull File file, int i) {
+        int i2;
+        if (com.ss.android.socialbase.downloader.i.a.a(LaunchTaskConstants.OTHER_PROCESS) && (i2 = Build.VERSION.SDK_INT) >= 21 && i2 < 26) {
             try {
                 return a(file);
             } catch (Throwable th) {
                 a("getPackageInfo::unzip_getpackagearchiveinfo", th.getMessage());
-                return b(context, file, i2);
+                return b(context, file, i);
             }
         }
-        return b(context, file, i2);
+        return b(context, file, i);
     }
 
     public static void a(@NonNull String str, @NonNull String str2) {
@@ -281,11 +283,11 @@ public class e {
         g2.a(str, jSONObject, null, null);
     }
 
-    public static String a(a aVar, int i2) {
-        int b2 = aVar.b(i2);
-        int c2 = aVar.c(i2);
+    public static String a(a aVar, int i) {
+        int b2 = aVar.b(i);
+        int c2 = aVar.c(i);
         if (b2 == 3) {
-            return aVar.d(i2);
+            return aVar.d(i);
         }
         return b2 == 2 ? String.format("?%s%08X", a(c2), Integer.valueOf(c2)) : (b2 < 16 || b2 > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c2), Integer.valueOf(b2)) : String.valueOf(c2);
     }

@@ -3,6 +3,7 @@ package com.tachikoma.core.component.listview.viewpager;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.core.view.InputDeviceCompat;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecyclerViewPager extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +30,7 @@ public class RecyclerViewPager extends RecyclerView {
     public ScrollEventAdapter mScrollEventAdapter;
     public PagerSnapHelper mSnapHelper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,66 +40,66 @@ public class RecyclerViewPager extends RecyclerView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void onPageScrollStateChanged(int i2) {
+        public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        public void onPageScrolled(int i2, float f2, @Px int i3) {
+        public void onPageScrolled(int i, float f2, @Px int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
             }
         }
 
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnPageChangeListener {
-        void onPageScrollStateChanged(int i2);
+        void onPageScrollStateChanged(int i);
 
-        void onPageScrolled(int i2, float f2, @Px int i3);
+        void onPageScrolled(int i, float f2, @Px int i2);
 
-        void onPageSelected(int i2, int i3);
+        void onPageSelected(int i, int i2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SmoothScrollToPosition implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mPosition;
         public final RecyclerView mRecyclerView;
 
-        public SmoothScrollToPosition(int i2, RecyclerView recyclerView) {
+        public SmoothScrollToPosition(int i, RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), recyclerView};
+                Object[] objArr = {Integer.valueOf(i), recyclerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mPosition = i2;
+            this.mPosition = i;
             this.mRecyclerView = recyclerView;
         }
 
@@ -120,9 +121,9 @@ public class RecyclerViewPager extends RecyclerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -141,9 +142,9 @@ public class RecyclerViewPager extends RecyclerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -154,17 +155,17 @@ public class RecyclerViewPager extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecyclerViewPager(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RecyclerViewPager(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -187,10 +188,10 @@ public class RecyclerViewPager extends RecyclerView {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
-    public boolean fling(int i2, int i3) {
+    public boolean fling(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? super.fling(i2, i3) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? super.fling(i, i2) : invokeII.booleanValue;
     }
 
     public int getCurrentItem() {
@@ -199,30 +200,31 @@ public class RecyclerViewPager extends RecyclerView {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurrentItem : invokeV.intValue;
     }
 
-    public void notifyPageScrolled(int i2, float f2, @Px int i3) {
+    public void notifyPageScrolled(int i, float f2, @Px int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
             for (OnPageChangeListener onPageChangeListener : this.mPageListeners) {
-                onPageChangeListener.onPageScrolled(i2, f2, i3);
+                onPageChangeListener.onPageScrolled(i, f2, i2);
             }
         }
     }
 
-    public void notifyPageSelected(int i2, int i3) {
+    public void notifyPageSelected(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            String str = "position: " + i2 + " mPrevPosition: " + i3;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            String str = this.TAG;
+            Log.i(str, "position: " + i + " mPrevPosition: " + i2);
             for (OnPageChangeListener onPageChangeListener : this.mPageListeners) {
-                onPageChangeListener.onPageSelected(i2, i3);
+                onPageChangeListener.onPageSelected(i, i2);
             }
         }
     }
 
-    public void notifyScrollStateChanged(int i2) {
+    public void notifyScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             for (OnPageChangeListener onPageChangeListener : this.mPageListeners) {
-                onPageChangeListener.onPageScrollStateChanged(i2);
+                onPageChangeListener.onPageScrollStateChanged(i);
             }
         }
     }
@@ -234,20 +236,20 @@ public class RecyclerViewPager extends RecyclerView {
         }
     }
 
-    public void setCurrent(int i2) {
+    public void setCurrent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            setCurrentItem(i2, false);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            setCurrentItem(i, false);
         }
     }
 
-    public final void setCurrentItem(int i2, boolean z) {
+    public final void setCurrentItem(int i, boolean z) {
         RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (adapter = getAdapter()) == null || adapter.getItemCount() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (adapter = getAdapter()) == null || adapter.getItemCount() <= 0) {
             return;
         }
-        int min = Math.min(Math.max(i2, 0), adapter.getItemCount() - 1);
+        int min = Math.min(Math.max(i, 0), adapter.getItemCount() - 1);
         if (min == this.mCurrentItem && this.mScrollEventAdapter.isIdle()) {
             return;
         }
@@ -273,10 +275,10 @@ public class RecyclerViewPager extends RecyclerView {
         post(new SmoothScrollToPosition(min, this));
     }
 
-    public void setDirection(int i2) {
+    public void setDirection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), i2, false);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), i, false);
             super.setLayoutManager(linearLayoutManager);
             ScrollEventAdapter scrollEventAdapter = new ScrollEventAdapter(linearLayoutManager);
             this.mScrollEventAdapter = scrollEventAdapter;
@@ -293,9 +295,9 @@ public class RecyclerViewPager extends RecyclerView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,29 +307,29 @@ public class RecyclerViewPager extends RecyclerView {
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeCallback
-                public void onPageScrollStateChanged(int i3) {
+                public void onPageScrollStateChanged(int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
-                        super.onPageScrollStateChanged(i3);
-                        this.this$0.notifyScrollStateChanged(i3);
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        super.onPageScrollStateChanged(i2);
+                        this.this$0.notifyScrollStateChanged(i2);
                     }
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeCallback
-                public void onPageScrolled(int i3, float f2, int i4) {
+                public void onPageScrolled(int i2, float f2, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4)}) == null) {
-                        super.onPageScrolled(i3, f2, i4);
-                        this.this$0.notifyPageScrolled(i3, f2, i4);
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+                        super.onPageScrolled(i2, f2, i3);
+                        this.this$0.notifyPageScrolled(i2, f2, i3);
                     }
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeCallback
-                public void onPageSelected(int i3) {
+                public void onPageSelected(int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i3) == null) {
-                        super.onPageSelected(i3);
-                        this.this$0.mCurrentItem = i3;
+                    if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+                        super.onPageSelected(i2);
+                        this.this$0.mCurrentItem = i2;
                         RecyclerViewPager recyclerViewPager = this.this$0;
                         recyclerViewPager.notifyPageSelected(recyclerViewPager.mCurrentItem, this.this$0.mPrevItem);
                         RecyclerViewPager recyclerViewPager2 = this.this$0;
@@ -347,10 +349,10 @@ public class RecyclerViewPager extends RecyclerView {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
-    public void smoothScrollToPosition(int i2) {
+    public void smoothScrollToPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            super.smoothScrollToPosition(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            super.smoothScrollToPosition(i);
             LinearSmoothScroller linearSmoothScroller = new LinearSmoothScroller(this, getContext()) { // from class: com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -365,9 +367,9 @@ public class RecyclerViewPager extends RecyclerView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r8};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             super((Context) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -384,7 +386,7 @@ public class RecyclerViewPager extends RecyclerView {
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) ? super.calculateSpeedPerPixel(displayMetrics) * 3.0f : invokeL.floatValue;
                 }
             };
-            linearSmoothScroller.setTargetPosition(i2);
+            linearSmoothScroller.setTargetPosition(i);
             getLayoutManager().startSmoothScroll(linearSmoothScroller);
         }
     }

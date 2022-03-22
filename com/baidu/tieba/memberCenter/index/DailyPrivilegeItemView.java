@@ -6,12 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.a.j;
-import c.a.q0.w0.a;
-import c.a.r0.h2.c.k.h;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,24 +16,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DailyPrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f34462b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f34463c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f34464d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44440e;
+    public PrivilegeTextView f34465e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f44441f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f44442g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TbImageView f44443h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public PrivilegeTextView f44444i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f44445j;
+    public TextView f34466f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DailyPrivilegeItemView(Context context) {
@@ -50,52 +42,32 @@ public class DailyPrivilegeItemView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44440e = context;
+        this.a = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f44440e).inflate(R.layout.index_daily_item, this);
-            this.f44441f = inflate;
-            this.f44442g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            TbImageView tbImageView = (TbImageView) this.f44441f.findViewById(R.id.privilege_tag_icon);
-            this.f44443h = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f44443h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f44444i = (PrivilegeTextView) this.f44441f.findViewById(R.id.privilege_title);
-            this.f44445j = (TextView) this.f44441f.findViewById(R.id.privilege_desc);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e7, this);
+            this.f34462b = inflate;
+            this.f34463c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091904);
+            TbImageView tbImageView = (TbImageView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091912);
+            this.f34464d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f34464d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f34465e = (PrivilegeTextView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091913);
+            this.f34466f = (TextView) this.f34462b.findViewById(R.id.obfuscated_res_0x7f091903);
         }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f44440e), this.f44441f);
-        }
-    }
-
-    public void renderView(h hVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) || hVar == null) {
-            return;
-        }
-        this.f44442g.setIsRound(false);
-        this.f44442g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
-        this.f44442g.startLoad(hVar.a(), 10, false);
-        this.f44445j.setText(hVar.d());
-        this.f44444i.setText(hVar.b());
-        this.f44443h.startLoad(hVar.c(), 10, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,9 +79,9 @@ public class DailyPrivilegeItemView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -117,22 +89,22 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f44440e = context;
+        this.a = context;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DailyPrivilegeItemView(Context context, AttributeSet attributeSet, int i2) {
+    public DailyPrivilegeItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -140,7 +112,7 @@ public class DailyPrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f44440e = context;
+        this.a = context;
         a();
     }
 }

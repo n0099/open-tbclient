@@ -12,13 +12,13 @@ public class c implements Runnable {
     public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f36368b;
+    public final /* synthetic */ SearchResult f28185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f36369c;
+    public final /* synthetic */ Object f28186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f36370d;
+    public final /* synthetic */ a f28187d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
@@ -27,18 +27,18 @@ public class c implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, dVar, searchResult, obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36370d = aVar;
+        this.f28187d = aVar;
         this.a = dVar;
-        this.f36368b = searchResult;
-        this.f36369c = obj;
+        this.f28185b = searchResult;
+        this.f28186c = obj;
     }
 
     @Override // java.lang.Runnable
@@ -47,11 +47,11 @@ public class c implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        this.f36370d.a.lock();
+        this.f28187d.a.lock();
         try {
-            this.a.a(this.f36368b, this.f36369c);
+            this.a.a(this.f28185b, this.f28186c);
         } finally {
-            this.f36370d.a.unlock();
+            this.f28187d.a.unlock();
         }
     }
 }

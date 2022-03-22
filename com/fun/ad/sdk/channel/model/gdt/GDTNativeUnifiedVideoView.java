@@ -25,24 +25,24 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GDTNativeUnifiedVideoView extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaView f52799d;
+    public MediaView f38545d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f52800e;
+    public ImageView f38546e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f52801f;
+    public View.OnClickListener f38547f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52802g;
+    public float f38548g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class GDTNativeUnifiedVideoView extends w {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gDTNativeUnifiedVideoView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,9 +72,9 @@ public class GDTNativeUnifiedVideoView extends w {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.e("GDTNativeUnifiedAd video onVideoClicked", new Object[0]);
                 GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView = this.a;
-                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f52801f;
+                View.OnClickListener onClickListener = gDTNativeUnifiedVideoView.f38547f;
                 if (onClickListener != null) {
-                    onClickListener.onClick(gDTNativeUnifiedVideoView.f52799d);
+                    onClickListener.onClick(gDTNativeUnifiedVideoView.f38545d);
                 }
             }
         }
@@ -104,9 +104,9 @@ public class GDTNativeUnifiedVideoView extends w {
         }
 
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
-        public void onVideoLoaded(int i2) {
+        public void onVideoLoaded(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
                 LogPrinter.e("GDTNativeUnifiedAd video onVideoLoaded", new Object[0]);
             }
         }
@@ -169,9 +169,9 @@ public class GDTNativeUnifiedVideoView extends w {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -190,9 +190,9 @@ public class GDTNativeUnifiedVideoView extends w {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -203,17 +203,17 @@ public class GDTNativeUnifiedVideoView extends w {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public GDTNativeUnifiedVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -221,7 +221,7 @@ public class GDTNativeUnifiedVideoView extends w {
                 return;
             }
         }
-        this.f52802g = 1.78f;
+        this.f38548g = 1.78f;
     }
 
     @Override // com.fun.module.gdt.w
@@ -230,10 +230,10 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f52898c);
-            arrayList.add(((w) this).f52897b);
+            arrayList.add(this.f38653c);
+            arrayList.add(((w) this).f38652b);
             arrayList.add(((w) this).a);
-            arrayList.add(this.f52800e);
+            arrayList.add(this.f38546e);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -244,10 +244,10 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f52800e);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getIconUrl(), this.f38546e);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f52802g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            nativeUnifiedADData.bindMediaView(this.f52799d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
+            this.f38548g = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            nativeUnifiedADData.bindMediaView(this.f38545d, new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(FunAdSdk.getFunAdConfig().isVideoSoundEnable ^ true).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this));
         }
     }
 
@@ -256,28 +256,28 @@ public class GDTNativeUnifiedVideoView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f52799d = (MediaView) findViewById(R.id.ad_video);
-            this.f52800e = (ImageView) findViewById(R.id.ad_icon);
+            this.f38545d = (MediaView) findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.f38546e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a5);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52799d.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f52802g);
-            this.f52799d.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38545d.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / this.f38548g);
+            this.f38545d.setLayoutParams(layoutParams);
         }
     }
 
     public void setVideoOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f52801f = onClickListener;
+            this.f38547f = onClickListener;
         }
     }
 }

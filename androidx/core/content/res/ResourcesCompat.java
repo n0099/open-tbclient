@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.util.TypedValue;
 import androidx.annotation.AnyRes;
 import androidx.annotation.ColorInt;
@@ -54,9 +55,9 @@ public final class ResourcesCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -64,13 +65,13 @@ public final class ResourcesCompat {
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public final void callbackFailAsync(int i2, @Nullable Handler handler) {
+        public final void callbackFailAsync(int i, @Nullable Handler handler) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, handler) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, handler) == null) {
                 if (handler == null) {
                     handler = new Handler(Looper.getMainLooper());
                 }
-                handler.post(new Runnable(this, i2) { // from class: androidx.core.content.res.ResourcesCompat.FontCallback.2
+                handler.post(new Runnable(this, i) { // from class: androidx.core.content.res.ResourcesCompat.FontCallback.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FontCallback this$0;
@@ -81,18 +82,18 @@ public final class ResourcesCompat {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i2)};
+                            Object[] objArr = {this, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$reason = i2;
+                        this.val$reason = i;
                     }
 
                     @Override // java.lang.Runnable
@@ -126,9 +127,9 @@ public final class ResourcesCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, typeface};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -149,7 +150,7 @@ public final class ResourcesCompat {
             }
         }
 
-        public abstract void onFontRetrievalFailed(int i2);
+        public abstract void onFontRetrievalFailed(int i);
 
         public abstract void onFontRetrieved(@NonNull Typeface typeface);
     }
@@ -189,9 +190,9 @@ public final class ResourcesCompat {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                     }
@@ -207,14 +208,16 @@ public final class ResourcesCompat {
                                 Method declaredMethod = Resources.Theme.class.getDeclaredMethod("rebase", new Class[0]);
                                 sRebaseMethod = declaredMethod;
                                 declaredMethod.setAccessible(true);
-                            } catch (NoSuchMethodException unused) {
+                            } catch (NoSuchMethodException e2) {
+                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e2);
                             }
                             sRebaseMethodFetched = true;
                         }
                         if (sRebaseMethod != null) {
                             try {
                                 sRebaseMethod.invoke(theme, new Object[0]);
-                            } catch (IllegalAccessException | InvocationTargetException unused2) {
+                            } catch (IllegalAccessException | InvocationTargetException e3) {
+                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e3);
                                 sRebaseMethod = null;
                             }
                         }
@@ -234,9 +237,9 @@ public final class ResourcesCompat {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -256,9 +259,9 @@ public final class ResourcesCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -268,10 +271,10 @@ public final class ResourcesCompat {
         public static void rebase(@NonNull Resources.Theme theme) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, theme) == null) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 29) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 29) {
                     ImplApi29.rebase(theme);
-                } else if (i2 >= 23) {
+                } else if (i >= 23) {
                     ImplApi23.rebase(theme);
                 }
             }
@@ -283,9 +286,9 @@ public final class ResourcesCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -293,123 +296,123 @@ public final class ResourcesCompat {
     }
 
     @ColorInt
-    public static int getColor(@NonNull Resources resources, @ColorRes int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static int getColor(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, resources, i, theme)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return resources.getColor(i2, theme);
+                return resources.getColor(i, theme);
             }
-            return resources.getColor(i2);
+            return resources.getColor(i);
         }
         return invokeLIL.intValue;
     }
 
     @Nullable
-    public static ColorStateList getColorStateList(@NonNull Resources resources, @ColorRes int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static ColorStateList getColorStateList(@NonNull Resources resources, @ColorRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, resources, i, theme)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return resources.getColorStateList(i2, theme);
+                return resources.getColorStateList(i, theme);
             }
-            return resources.getColorStateList(i2);
+            return resources.getColorStateList(i);
         }
         return (ColorStateList) invokeLIL.objValue;
     }
 
     @Nullable
-    public static Drawable getDrawable(@NonNull Resources resources, @DrawableRes int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static Drawable getDrawable(@NonNull Resources resources, @DrawableRes int i, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return resources.getDrawable(i2, theme);
+                return resources.getDrawable(i, theme);
             }
-            return resources.getDrawable(i2);
+            return resources.getDrawable(i);
         }
         return (Drawable) invokeLIL.objValue;
     }
 
     @Nullable
-    public static Drawable getDrawableForDensity(@NonNull Resources resources, @DrawableRes int i2, int i3, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
+    public static Drawable getDrawableForDensity(@NonNull Resources resources, @DrawableRes int i, int i2, @Nullable Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resources, Integer.valueOf(i2), Integer.valueOf(i3), theme})) == null) {
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 21) {
-                return resources.getDrawableForDensity(i2, i3, theme);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{resources, Integer.valueOf(i), Integer.valueOf(i2), theme})) == null) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 21) {
+                return resources.getDrawableForDensity(i, i2, theme);
             }
-            if (i4 >= 15) {
-                return resources.getDrawableForDensity(i2, i3);
+            if (i3 >= 15) {
+                return resources.getDrawableForDensity(i, i2);
             }
-            return resources.getDrawable(i2);
+            return resources.getDrawable(i);
         }
         return (Drawable) invokeCommon.objValue;
     }
 
-    public static float getFloat(@NonNull Resources resources, @DimenRes int i2) {
+    public static float getFloat(@NonNull Resources resources, @DimenRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, resources, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, resources, i)) == null) {
             TypedValue typedValue = new TypedValue();
-            resources.getValue(i2, typedValue, true);
+            resources.getValue(i, typedValue, true);
             if (typedValue.type == 4) {
                 return typedValue.getFloat();
             }
-            throw new Resources.NotFoundException("Resource ID #0x" + Integer.toHexString(i2) + " type #0x" + Integer.toHexString(typedValue.type) + " is not valid");
+            throw new Resources.NotFoundException("Resource ID #0x" + Integer.toHexString(i) + " type #0x" + Integer.toHexString(typedValue.type) + " is not valid");
         }
         return invokeLI.floatValue;
     }
 
     @Nullable
-    public static Typeface getFont(@NonNull Context context, @FontRes int i2) throws Resources.NotFoundException {
+    public static Typeface getFont(@NonNull Context context, @FontRes int i) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
             if (context.isRestricted()) {
                 return null;
             }
-            return loadFont(context, i2, new TypedValue(), 0, null, null, false);
+            return loadFont(context, i, new TypedValue(), 0, null, null, false);
         }
         return (Typeface) invokeLI.objValue;
     }
 
-    public static Typeface loadFont(@NonNull Context context, int i2, TypedValue typedValue, int i3, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
+    public static Typeface loadFont(@NonNull Context context, int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i2), typedValue, Integer.valueOf(i3), fontCallback, handler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
             Resources resources = context.getResources();
-            resources.getValue(i2, typedValue, true);
-            Typeface loadFont = loadFont(context, resources, typedValue, i2, i3, fontCallback, handler, z);
+            resources.getValue(i, typedValue, true);
+            Typeface loadFont = loadFont(context, resources, typedValue, i, i2, fontCallback, handler, z);
             if (loadFont == null && fontCallback == null) {
-                throw new Resources.NotFoundException("Font resource ID #0x" + Integer.toHexString(i2) + " could not be retrieved.");
+                throw new Resources.NotFoundException("Font resource ID #0x" + Integer.toHexString(i) + " could not be retrieved.");
             }
             return loadFont;
         }
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static void getFont(@NonNull Context context, @FontRes int i2, @NonNull FontCallback fontCallback, @Nullable Handler handler) throws Resources.NotFoundException {
+    public static void getFont(@NonNull Context context, @FontRes int i, @NonNull FontCallback fontCallback, @Nullable Handler handler) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65544, null, context, i2, fontCallback, handler) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65544, null, context, i, fontCallback, handler) == null) {
             Preconditions.checkNotNull(fontCallback);
             if (context.isRestricted()) {
                 fontCallback.callbackFailAsync(-4, handler);
             } else {
-                loadFont(context, i2, new TypedValue(), 0, fontCallback, handler, false);
+                loadFont(context, i, new TypedValue(), 0, fontCallback, handler, false);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0093  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00a7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Typeface loadFont(@NonNull Context context, Resources resources, TypedValue typedValue, int i2, int i3, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
+    public static Typeface loadFont(@NonNull Context context, Resources resources, TypedValue typedValue, int i, int i2, @Nullable FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, resources, typedValue, Integer.valueOf(i2), Integer.valueOf(i3), fontCallback, handler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, resources, typedValue, Integer.valueOf(i), Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
             CharSequence charSequence = typedValue.string;
             if (charSequence != null) {
                 String charSequence2 = charSequence.toString();
@@ -419,7 +422,7 @@ public final class ResourcesCompat {
                     }
                     return null;
                 }
-                Typeface findFromCache = TypefaceCompat.findFromCache(resources, i2, i3);
+                Typeface findFromCache = TypefaceCompat.findFromCache(resources, i, i2);
                 if (findFromCache != null) {
                     if (fontCallback != null) {
                         fontCallback.callbackSuccessAsync(findFromCache, handler);
@@ -428,16 +431,17 @@ public final class ResourcesCompat {
                 }
                 try {
                     if (charSequence2.toLowerCase().endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
-                        FontResourcesParserCompat.FamilyResourceEntry parse = FontResourcesParserCompat.parse(resources.getXml(i2), resources);
+                        FontResourcesParserCompat.FamilyResourceEntry parse = FontResourcesParserCompat.parse(resources.getXml(i), resources);
                         if (parse == null) {
+                            Log.e(TAG, "Failed to find font-family tag");
                             if (fontCallback != null) {
                                 fontCallback.callbackFailAsync(-3, handler);
                             }
                             return null;
                         }
-                        return TypefaceCompat.createFromResourcesFamilyXml(context, parse, resources, i2, i3, fontCallback, handler, z);
+                        return TypefaceCompat.createFromResourcesFamilyXml(context, parse, resources, i, i2, fontCallback, handler, z);
                     }
-                    Typeface createFromResourcesFontFile = TypefaceCompat.createFromResourcesFontFile(context, resources, i2, charSequence2, i3);
+                    Typeface createFromResourcesFontFile = TypefaceCompat.createFromResourcesFontFile(context, resources, i, charSequence2, i2);
                     if (fontCallback != null) {
                         if (createFromResourcesFontFile != null) {
                             fontCallback.callbackSuccessAsync(createFromResourcesFontFile, handler);
@@ -446,33 +450,33 @@ public final class ResourcesCompat {
                         }
                     }
                     return createFromResourcesFontFile;
-                } catch (IOException unused) {
-                    String str = "Failed to read xml resource " + charSequence2;
+                } catch (IOException e2) {
+                    Log.e(TAG, "Failed to read xml resource " + charSequence2, e2);
                     if (fontCallback != null) {
                         fontCallback.callbackFailAsync(-3, handler);
                     }
                     return null;
-                } catch (XmlPullParserException unused2) {
-                    String str2 = "Failed to parse xml resource " + charSequence2;
+                } catch (XmlPullParserException e3) {
+                    Log.e(TAG, "Failed to parse xml resource " + charSequence2, e3);
                     if (fontCallback != null) {
                     }
                     return null;
                 }
             }
-            throw new Resources.NotFoundException("Resource \"" + resources.getResourceName(i2) + "\" (" + Integer.toHexString(i2) + ") is not a Font: " + typedValue);
+            throw new Resources.NotFoundException("Resource \"" + resources.getResourceName(i) + "\" (" + Integer.toHexString(i) + ") is not a Font: " + typedValue);
         }
         return (Typeface) invokeCommon.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface getFont(@NonNull Context context, @FontRes int i2, TypedValue typedValue, int i3, @Nullable FontCallback fontCallback) throws Resources.NotFoundException {
+    public static Typeface getFont(@NonNull Context context, @FontRes int i, TypedValue typedValue, int i2, @Nullable FontCallback fontCallback) throws Resources.NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i2), typedValue, Integer.valueOf(i3), fontCallback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), typedValue, Integer.valueOf(i2), fontCallback})) == null) {
             if (context.isRestricted()) {
                 return null;
             }
-            return loadFont(context, i2, typedValue, i3, fontCallback, null, true);
+            return loadFont(context, i, typedValue, i2, fontCallback, null, true);
         }
         return (Typeface) invokeCommon.objValue;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter.privilege.achievementmark.message;
 
-import c.a.r0.a0.l.g.c.b.c;
+import c.a.p0.c0.l.g.c.c.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;
@@ -29,9 +29,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,11 +42,11 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
@@ -56,8 +56,8 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("mark_info");
             if (optJSONArray != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
                         c cVar = new c();
                         cVar.c(optJSONObject3);

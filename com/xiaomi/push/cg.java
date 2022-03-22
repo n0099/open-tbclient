@@ -22,50 +22,50 @@ import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cg {
     public static /* synthetic */ Interceptable $ic;
     public static volatile cg a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f178a;
+    public Context f154a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cf f179a;
+    public cf f155a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<a> f180a;
+    public final ArrayList<a> f156a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final HashMap<String, ce> f181a;
+    public final HashMap<String, ce> f157a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ThreadPoolExecutor f182a;
+    public ThreadPoolExecutor f158a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public ce f183a;
+        public ce f159a;
 
         /* renamed from: a  reason: collision with other field name */
-        public a f184a;
+        public a f160a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f185a;
+        public String f161a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakReference<Context> f186a;
+        public WeakReference<Context> f162a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Random f187a;
+        public Random f163a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59510b;
+        public String f44128b;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -74,28 +74,28 @@ public class cg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f183a = null;
-            this.f187a = new Random();
+            this.f159a = null;
+            this.f163a = new Random();
             this.a = 0;
-            this.f185a = str;
+            this.f161a = str;
         }
 
         public SQLiteDatabase a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f183a.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f159a.getWritableDatabase() : (SQLiteDatabase) invokeV.objValue;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object m278a() {
+        public Object m257a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -105,18 +105,18 @@ public class cg {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m279a() {
+        public String m258a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f185a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f161a : (String) invokeV.objValue;
         }
 
         public void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-                a aVar = this.f184a;
+                a aVar = this.f160a;
                 if (aVar != null) {
-                    aVar.a(context, m278a());
+                    aVar.a(context, m257a());
                 }
                 b(context);
             }
@@ -134,24 +134,24 @@ public class cg {
         public void a(ce ceVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, ceVar, context) == null) {
-                this.f183a = ceVar;
-                this.f59510b = ceVar.a();
-                this.f186a = new WeakReference<>(context);
+                this.f159a = ceVar;
+                this.f44128b = ceVar.a();
+                this.f162a = new WeakReference<>(context);
             }
         }
 
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-                this.f184a = aVar;
+                this.f160a = aVar;
             }
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m280a() {
+        public boolean m259a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f183a == null || TextUtils.isEmpty(this.f59510b) || this.f186a == null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f159a == null || TextUtils.isEmpty(this.f44128b) || this.f162a == null : invokeV.booleanValue;
         }
 
         public void b(Context context) {
@@ -165,74 +165,74 @@ public class cg {
             WeakReference<Context> weakReference;
             Context context;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f186a) == null || (context = weakReference.get()) == null || context.getFilesDir() == null || this.f183a == null || TextUtils.isEmpty(this.f185a)) {
+            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (weakReference = this.f162a) == null || (context = weakReference.get()) == null || context.getFilesDir() == null || this.f159a == null || TextUtils.isEmpty(this.f161a)) {
                 return;
             }
-            File file = new File(this.f185a);
+            File file = new File(this.f161a);
             v.a(context, new File(file.getParentFile(), bl.b(file.getAbsolutePath())), new ci(this, context));
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class b<T> extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f188a;
+        public String f164a;
 
         /* renamed from: a  reason: collision with other field name */
-        public List<String> f189a;
+        public List<String> f165a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String[] f190a;
+        public String[] f166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<T> f59511b;
+        public List<T> f44129b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59512c;
+        public String f44130c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59513d;
+        public String f44131d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59514e;
+        public String f44132e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2) {
+        public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, list, str2, strArr, str3, str4, str5, Integer.valueOf(i2)};
+                Object[] objArr = {str, list, str2, strArr, str3, str4, str5, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f59511b = new ArrayList();
-            this.f189a = list;
-            this.f188a = str2;
-            this.f190a = strArr;
-            this.f59512c = str3;
-            this.f59513d = str4;
-            this.f59514e = str5;
-            this.a = i2;
+            this.f44129b = new ArrayList();
+            this.f165a = list;
+            this.f164a = str2;
+            this.f166a = strArr;
+            this.f44130c = str3;
+            this.f44131d = str4;
+            this.f44132e = str5;
+            this.a = i;
         }
 
         @Override // com.xiaomi.push.cg.a
         public SQLiteDatabase a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((a) this).f183a.getReadableDatabase() : (SQLiteDatabase) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((a) this).f159a.getReadableDatabase() : (SQLiteDatabase) invokeV.objValue;
         }
 
         public abstract T a(Context context, Cursor cursor);
@@ -242,34 +242,34 @@ public class cg {
             String[] strArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sQLiteDatabase) == null) {
-                this.f59511b.clear();
-                List<String> list = this.f189a;
+                this.f44129b.clear();
+                List<String> list = this.f165a;
                 if (list == null || list.size() <= 0) {
                     strArr = null;
                 } else {
-                    String[] strArr2 = new String[this.f189a.size()];
-                    this.f189a.toArray(strArr2);
+                    String[] strArr2 = new String[this.f165a.size()];
+                    this.f165a.toArray(strArr2);
                     strArr = strArr2;
                 }
-                int i2 = this.a;
-                Cursor query = sQLiteDatabase.query(super.f59510b, strArr, this.f188a, this.f190a, this.f59512c, this.f59513d, this.f59514e, i2 > 0 ? String.valueOf(i2) : null);
+                int i = this.a;
+                Cursor query = sQLiteDatabase.query(super.f44128b, strArr, this.f164a, this.f166a, this.f44130c, this.f44131d, this.f44132e, i > 0 ? String.valueOf(i) : null);
                 if (query != null && query.moveToFirst()) {
                     do {
                         T a = a(context, query);
                         if (a != null) {
-                            this.f59511b.add(a);
+                            this.f44129b.add(a);
                         }
                     } while (query.moveToNext());
                     query.close();
                 }
-                a(context, (List) this.f59511b);
+                a(context, (List) this.f44129b);
             }
         }
 
         public abstract void a(Context context, List<T> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,9 +284,9 @@ public class cg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -328,14 +328,14 @@ public class cg {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String[] f191a;
+        public String[] f167a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(String str, String str2, String[] strArr) {
@@ -346,9 +346,9 @@ public class cg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, strArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -356,19 +356,19 @@ public class cg {
                 }
             }
             this.a = str2;
-            this.f191a = strArr;
+            this.f167a = strArr;
         }
 
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.delete(this.f59510b, this.a, this.f191a);
+                sQLiteDatabase.delete(this.f44128b, this.a, this.f167a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -383,9 +383,9 @@ public class cg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, contentValues};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -399,7 +399,7 @@ public class cg {
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, sQLiteDatabase) == null) {
-                sQLiteDatabase.insert(this.f59510b, null, this.a);
+                sQLiteDatabase.insert(this.f44128b, null, this.a);
             }
         }
     }
@@ -411,30 +411,30 @@ public class cg {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f181a = new HashMap<>();
-        this.f182a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f180a = new ArrayList<>();
-        this.f178a = context;
+        this.f157a = new HashMap<>();
+        this.f158a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f156a = new ArrayList<>();
+        this.f154a = context;
     }
 
     private ce a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            ce ceVar = this.f181a.get(str);
+            ce ceVar = this.f157a.get(str);
             if (ceVar == null) {
-                synchronized (this.f181a) {
+                synchronized (this.f157a) {
                     if (ceVar == null) {
-                        ceVar = this.f179a.a(this.f178a, str);
-                        this.f181a.put(str, ceVar);
+                        ceVar = this.f155a.a(this.f154a, str);
+                        this.f157a.put(str, ceVar);
                     }
                 }
             }
@@ -462,12 +462,12 @@ public class cg {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ai.a(this.f178a).b(new ch(this), com.xiaomi.push.service.aq.a(this.f178a).a(hk.bh.a(), 5));
+            ai.a(this.f154a).b(new ch(this), com.xiaomi.push.service.aq.a(this.f154a).a(hk.bh.a(), 5));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m277a(String str) {
+    public String m256a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? a(str).a() : (String) invokeL.objValue;
@@ -479,55 +479,55 @@ public class cg {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f179a == null) {
+        if (this.f155a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m279a = aVar.m279a();
-        synchronized (this.f181a) {
-            ceVar = this.f181a.get(m279a);
+        String m258a = aVar.m258a();
+        synchronized (this.f157a) {
+            ceVar = this.f157a.get(m258a);
             if (ceVar == null) {
-                ceVar = this.f179a.a(this.f178a, m279a);
-                this.f181a.put(m279a, ceVar);
+                ceVar = this.f155a.a(this.f154a, m258a);
+                this.f157a.put(m258a, ceVar);
             }
         }
-        if (this.f182a.isShutdown()) {
+        if (this.f158a.isShutdown()) {
             return;
         }
-        aVar.a(ceVar, this.f178a);
-        synchronized (this.f180a) {
-            this.f180a.add(aVar);
+        aVar.a(ceVar, this.f154a);
+        synchronized (this.f156a) {
+            this.f156a.add(aVar);
             a();
         }
     }
 
     public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f182a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f158a.isShutdown()) {
             return;
         }
-        this.f182a.execute(runnable);
+        this.f158a.execute(runnable);
     }
 
     public void a(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            if (this.f179a == null) {
+            if (this.f155a == null) {
                 throw new IllegalStateException("should exec setDbHelperFactory method first!");
             }
             HashMap hashMap = new HashMap();
-            if (this.f182a.isShutdown()) {
+            if (this.f158a.isShutdown()) {
                 return;
             }
             Iterator<a> it = arrayList.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next.m280a()) {
-                    next.a(a(next.m279a()), this.f178a);
+                if (next.m259a()) {
+                    next.a(a(next.m258a()), this.f154a);
                 }
-                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m279a());
+                ArrayList arrayList2 = (ArrayList) hashMap.get(next.m258a());
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList();
-                    hashMap.put(next.m279a(), arrayList2);
+                    hashMap.put(next.m258a(), arrayList2);
                 }
                 arrayList2.add(next);
             }
@@ -535,8 +535,8 @@ public class cg {
                 ArrayList arrayList3 = (ArrayList) hashMap.get(str);
                 if (arrayList3 != null && arrayList3.size() > 0) {
                     c cVar = new c(str, arrayList3);
-                    cVar.a(((a) arrayList3.get(0)).f183a, this.f178a);
-                    this.f182a.execute(cVar);
+                    cVar.a(((a) arrayList3.get(0)).f159a, this.f154a);
+                    this.f158a.execute(cVar);
                 }
             }
         }
@@ -548,21 +548,21 @@ public class cg {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (this.f179a == null) {
+        if (this.f155a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m279a = aVar.m279a();
-        synchronized (this.f181a) {
-            ceVar = this.f181a.get(m279a);
+        String m258a = aVar.m258a();
+        synchronized (this.f157a) {
+            ceVar = this.f157a.get(m258a);
             if (ceVar == null) {
-                ceVar = this.f179a.a(this.f178a, m279a);
-                this.f181a.put(m279a, ceVar);
+                ceVar = this.f155a.a(this.f154a, m258a);
+                this.f157a.put(m258a, ceVar);
             }
         }
-        if (this.f182a.isShutdown()) {
+        if (this.f158a.isShutdown()) {
             return;
         }
-        aVar.a(ceVar, this.f178a);
+        aVar.a(ceVar, this.f154a);
         a((Runnable) aVar);
     }
 }

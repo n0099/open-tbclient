@@ -50,9 +50,9 @@ public class ParseM3u8 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parseM3u8};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,9 +82,9 @@ public class ParseM3u8 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -167,29 +167,29 @@ public class ParseM3u8 {
         return invokeLL.longValue;
     }
 
-    public List<TS> getLatestTS(long j2) {
+    public List<TS> getLatestTS(long j) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
-            int i2 = -1;
+            int i = -1;
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
-                i2++;
-                if (it.next().time == j2) {
+                i++;
+                if (it.next().time == j) {
                     z = true;
                     break;
                 }
             }
-            if (!z || this.mTslist.size() <= i2) {
+            if (!z || this.mTslist.size() <= i) {
                 return null;
             }
             ArrayList<TS> arrayList = this.mTslist;
-            return arrayList.subList(i2, arrayList.size());
+            return arrayList.subList(i, arrayList.size());
         }
         return (List) invokeJ.objValue;
     }
@@ -207,28 +207,28 @@ public class ParseM3u8 {
         return invokeV.longValue;
     }
 
-    public List<TS> getNewAppendTS(long j2) {
+    public List<TS> getNewAppendTS(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
             boolean z = false;
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                i2++;
-                if (it.next().time == j2) {
+                i++;
+                if (it.next().time == j) {
                     z = true;
                     break;
                 }
             }
-            if (!z || this.mTslist.size() <= i2) {
+            if (!z || this.mTslist.size() <= i) {
                 return null;
             }
             ArrayList<TS> arrayList = this.mTslist;
-            return arrayList.subList(i2, arrayList.size());
+            return arrayList.subList(i, arrayList.size());
         }
         return (List) invokeJ.objValue;
     }
@@ -285,27 +285,27 @@ public class ParseM3u8 {
         }
     }
 
-    public List<TS> getTslist(int i2) {
+    public List<TS> getTslist(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
-            int i3 = -1;
+            int i2 = -1;
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
-                i3++;
-                if (it.next().relativetime >= i2) {
+                i2++;
+                if (it.next().relativetime >= i) {
                     z = true;
                     break;
                 }
             }
             if (z) {
                 ArrayList<TS> arrayList = this.mTslist;
-                return arrayList.subList(i3, arrayList.size());
+                return arrayList.subList(i2, arrayList.size());
             }
             return null;
         }

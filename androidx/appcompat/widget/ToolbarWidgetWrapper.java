@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -73,9 +74,9 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             newInitContext.initArgs = r2;
             Object[] objArr = {toolbar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Toolbar) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -148,10 +149,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            int i2 = this.mDisplayOpts;
-            if ((i2 & 2) == 0) {
+            int i = this.mDisplayOpts;
+            if ((i & 2) == 0) {
                 drawable = null;
-            } else if ((i2 & 1) != 0) {
+            } else if ((i & 1) != 0) {
                 drawable = this.mLogo;
                 if (drawable == null) {
                     drawable = this.mIcon;
@@ -164,10 +165,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void animateToVisibility(int i2) {
+    public void animateToVisibility(int i) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (viewPropertyAnimatorCompat = setupAnimatorToVisibility(i2, 200L)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, 200L)) == null) {
             return;
         }
         viewPropertyAnimatorCompat.start();
@@ -333,6 +334,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     public void initIndeterminateProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            Log.i(TAG, "Progress display unsupported");
         }
     }
 
@@ -340,6 +342,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     public void initProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            Log.i(TAG, "Progress display unsupported");
         }
     }
 
@@ -413,12 +416,12 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDefaultNavigationContentDescription(int i2) {
+    public void setDefaultNavigationContentDescription(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || i2 == this.mDefaultNavigationContentDescription) {
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || i == this.mDefaultNavigationContentDescription) {
             return;
         }
-        this.mDefaultNavigationContentDescription = i2;
+        this.mDefaultNavigationContentDescription = i;
         if (TextUtils.isEmpty(this.mToolbar.getNavigationContentDescription())) {
             setNavigationContentDescription(this.mDefaultNavigationContentDescription);
         }
@@ -435,24 +438,24 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDisplayOptions(int i2) {
+    public void setDisplayOptions(int i) {
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            int i3 = this.mDisplayOpts ^ i2;
-            this.mDisplayOpts = i2;
-            if (i3 != 0) {
-                if ((i3 & 4) != 0) {
-                    if ((i2 & 4) != 0) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            int i2 = this.mDisplayOpts ^ i;
+            this.mDisplayOpts = i;
+            if (i2 != 0) {
+                if ((i2 & 4) != 0) {
+                    if ((i & 4) != 0) {
                         updateHomeAccessibility();
                     }
                     updateNavigationIcon();
                 }
-                if ((i3 & 3) != 0) {
+                if ((i2 & 3) != 0) {
                     updateToolbarLogo();
                 }
-                if ((i3 & 8) != 0) {
-                    if ((i2 & 8) != 0) {
+                if ((i2 & 8) != 0) {
+                    if ((i & 8) != 0) {
                         this.mToolbar.setTitle(this.mTitle);
                         this.mToolbar.setSubtitle(this.mSubtitle);
                     } else {
@@ -460,10 +463,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                         this.mToolbar.setSubtitle((CharSequence) null);
                     }
                 }
-                if ((i3 & 16) == 0 || (view = this.mCustomView) == null) {
+                if ((i2 & 16) == 0 || (view = this.mCustomView) == null) {
                     return;
                 }
-                if ((i2 & 16) != 0) {
+                if ((i & 16) != 0) {
                     this.mToolbar.addView(view);
                 } else {
                     this.mToolbar.removeView(view);
@@ -483,12 +486,12 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDropdownSelectedPosition(int i2) {
+    public void setDropdownSelectedPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             Spinner spinner = this.mSpinner;
             if (spinner != null) {
-                spinner.setSelection(i2);
+                spinner.setSelection(i);
                 return;
             }
             throw new IllegalStateException("Can't set dropdown selected position without an adapter");
@@ -528,18 +531,18 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setIcon(int i2) {
+    public void setIcon(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            setIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            setIcon(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
         }
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setLogo(int i2) {
+    public void setLogo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            setLogo(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            setLogo(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
         }
     }
 
@@ -592,14 +595,14 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationMode(int i2) {
-        int i3;
+    public void setNavigationMode(int i) {
+        int i2;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048625, this, i2) == null) || i2 == (i3 = this.mNavigationMode)) {
+        if (!(interceptable == null || interceptable.invokeI(1048625, this, i) == null) || i == (i2 = this.mNavigationMode)) {
             return;
         }
-        if (i3 == 1) {
+        if (i2 == 1) {
             Spinner spinner = this.mSpinner;
             if (spinner != null) {
                 ViewParent parent = spinner.getParent();
@@ -608,19 +611,19 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     toolbar.removeView(this.mSpinner);
                 }
             }
-        } else if (i3 == 2 && (view = this.mTabView) != null) {
+        } else if (i2 == 2 && (view = this.mTabView) != null) {
             ViewParent parent2 = view.getParent();
             Toolbar toolbar2 = this.mToolbar;
             if (parent2 == toolbar2) {
                 toolbar2.removeView(this.mTabView);
             }
         }
-        this.mNavigationMode = i2;
-        if (i2 != 0) {
-            if (i2 == 1) {
+        this.mNavigationMode = i;
+        if (i != 0) {
+            if (i == 1) {
                 ensureSpinner();
                 this.mToolbar.addView(this.mSpinner, 0);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 View view2 = this.mTabView;
                 if (view2 != null) {
                     this.mToolbar.addView(view2, 0);
@@ -630,7 +633,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     layoutParams.gravity = BadgeDrawable.BOTTOM_START;
                 }
             } else {
-                throw new IllegalArgumentException("Invalid navigation mode " + i2);
+                throw new IllegalArgumentException("Invalid navigation mode " + i);
             }
         }
     }
@@ -656,10 +659,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
-            this.mToolbar.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+            this.mToolbar.setVisibility(i);
         }
     }
 
@@ -681,11 +684,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j2).setListener(new ViewPropertyAnimatorListenerAdapter(this, i2) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return ViewCompat.animate(this.mToolbar).alpha(i == 0 ? 1.0f : 0.0f).setDuration(j).setListener(new ViewPropertyAnimatorListenerAdapter(this, i) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public boolean mCanceled;
@@ -697,18 +700,18 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$visibility = i2;
+                    this.val$visibility = i;
                     this.mCanceled = false;
                 }
 
@@ -748,17 +751,17 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mToolbar.showOverflowMenu() : invokeV.booleanValue;
     }
 
-    public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i2, int i3) {
+    public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i, int i2) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {toolbar, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {toolbar, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -828,7 +831,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             this.mDisplayOpts = detectDisplayOptions();
         }
         obtainStyledAttributes.recycle();
-        setDefaultNavigationContentDescription(i2);
+        setDefaultNavigationContentDescription(i);
         this.mHomeDescription = this.mToolbar.getNavigationContentDescription();
         this.mToolbar.setNavigationOnClickListener(new View.OnClickListener(this) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.1
             public static /* synthetic */ Interceptable $ic;
@@ -843,9 +846,9 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -886,18 +889,18 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationContentDescription(int i2) {
+    public void setNavigationContentDescription(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            setNavigationContentDescription(i2 == 0 ? null : getContext().getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            setNavigationContentDescription(i == 0 ? null : getContext().getString(i));
         }
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationIcon(int i2) {
+    public void setNavigationIcon(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            setNavigationIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            setNavigationIcon(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
         }
     }
 }

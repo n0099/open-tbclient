@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FrameSequence implements Serializable {
     public static final AtomicBoolean ISLOADED = new AtomicBoolean(false);
     public int mDefaultLoopCount;
@@ -16,29 +16,29 @@ public class FrameSequence implements Serializable {
     public boolean mOpaque;
     public int mWidth;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class State implements Serializable {
         public long mNativeState;
 
-        public State(long j2) {
-            this.mNativeState = j2;
+        public State(long j) {
+            this.mNativeState = j;
         }
 
         public void destroy() {
-            long j2 = this.mNativeState;
-            if (j2 != 0) {
-                FrameSequence.nativeDestroyState(j2);
+            long j = this.mNativeState;
+            if (j != 0) {
+                FrameSequence.nativeDestroyState(j);
                 this.mNativeState = 0L;
             }
         }
 
-        public long getFrame(int i2, Bitmap bitmap, int i3) {
+        public long getFrame(int i, Bitmap bitmap, int i2) {
             if (bitmap == null || bitmap.getConfig() != Bitmap.Config.ARGB_8888) {
                 throw new IllegalArgumentException("Bitmap passed must be non-null and ARGB_8888");
             }
-            long j2 = this.mNativeState;
-            if (j2 != 0) {
-                return FrameSequence.nativeGetFrame(j2, i2, bitmap, i3);
+            long j = this.mNativeState;
+            if (j != 0) {
+                return FrameSequence.nativeGetFrame(j, i, bitmap, i2);
             }
             throw new IllegalStateException("attempted to draw destroyed FrameSequenceState");
         }
@@ -56,13 +56,13 @@ public class FrameSequence implements Serializable {
     public FrameSequence() {
     }
 
-    public FrameSequence(long j2, int i2, int i3, boolean z, int i4, int i5) {
-        this.mNativeFrameSequence = j2;
-        this.mWidth = i2;
-        this.mHeight = i3;
+    public FrameSequence(long j, int i, int i2, boolean z, int i3, int i4) {
+        this.mNativeFrameSequence = j;
+        this.mWidth = i;
+        this.mHeight = i2;
         this.mOpaque = z;
-        this.mFrameCount = i4;
-        this.mDefaultLoopCount = i5;
+        this.mFrameCount = i3;
+        this.mDefaultLoopCount = i4;
     }
 
     @Nullable
@@ -74,13 +74,13 @@ public class FrameSequence implements Serializable {
     }
 
     @Nullable
-    public static FrameSequence decodeByteArray(byte[] bArr, int i2, int i3) {
+    public static FrameSequence decodeByteArray(byte[] bArr, int i, int i2) {
         if (ISLOADED.get()) {
             if (bArr != null) {
-                if (i2 < 0 || i3 < 0 || i2 + i3 > bArr.length) {
+                if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
                     throw new IllegalArgumentException("invalid offset/length parameters");
                 }
-                return nativeDecodeByteArray(bArr, i2, i3);
+                return nativeDecodeByteArray(bArr, i, i2);
             }
             throw new IllegalArgumentException();
         }
@@ -119,24 +119,24 @@ public class FrameSequence implements Serializable {
         return ISLOADED.get();
     }
 
-    public static native long nativeCreateState(long j2);
+    public static native long nativeCreateState(long j);
 
-    public static native FrameSequence nativeDecodeByteArray(byte[] bArr, int i2, int i3);
+    public static native FrameSequence nativeDecodeByteArray(byte[] bArr, int i, int i2);
 
-    public static native FrameSequence nativeDecodeByteBuffer(ByteBuffer byteBuffer, int i2, int i3);
+    public static native FrameSequence nativeDecodeByteBuffer(ByteBuffer byteBuffer, int i, int i2);
 
     public static native FrameSequence nativeDecodeStream(InputStream inputStream, byte[] bArr);
 
-    public static native void nativeDestroyFrameSequence(long j2);
+    public static native void nativeDestroyFrameSequence(long j);
 
-    public static native void nativeDestroyState(long j2);
+    public static native void nativeDestroyState(long j);
 
-    public static native long nativeGetFrame(long j2, int i2, Bitmap bitmap, int i3);
+    public static native long nativeGetFrame(long j, int i, Bitmap bitmap, int i2);
 
     public State createState() {
-        long j2 = this.mNativeFrameSequence;
-        if (j2 != 0) {
-            long nativeCreateState = nativeCreateState(j2);
+        long j = this.mNativeFrameSequence;
+        if (j != 0) {
+            long nativeCreateState = nativeCreateState(j);
             if (nativeCreateState == 0) {
                 return null;
             }
@@ -146,9 +146,9 @@ public class FrameSequence implements Serializable {
     }
 
     public void destroy() {
-        long j2 = this.mNativeFrameSequence;
-        if (j2 != 0) {
-            nativeDestroyFrameSequence(j2);
+        long j = this.mNativeFrameSequence;
+        if (j != 0) {
+            nativeDestroyFrameSequence(j);
         }
     }
 

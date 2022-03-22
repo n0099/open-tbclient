@@ -44,17 +44,17 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
-        super(context, attributeSet, i2);
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -62,13 +62,13 @@ public class AppCompatPopupWindow extends PopupWindow {
                 return;
             }
         }
-        init(context, attributeSet, i2, 0);
+        init(context, attributeSet, i, 0);
     }
 
-    private void init(Context context, AttributeSet attributeSet, int i2, int i3) {
+    private void init(Context context, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, this, context, attributeSet, i2, i3) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.PopupWindow, i2, i3);
+        if (interceptable == null || interceptable.invokeLLII(65539, this, context, attributeSet, i, i2) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.PopupWindow, i, i2);
             if (obtainStyledAttributes.hasValue(R$styleable.PopupWindow_overlapAnchor)) {
                 setSupportOverlapAnchor(obtainStyledAttributes.getBoolean(R$styleable.PopupWindow_overlapAnchor, false));
             }
@@ -89,39 +89,39 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i2, int i3) {
+    public void showAsDropDown(View view, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, view, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048576, this, view, i, i2) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i3 -= view.getHeight();
+                i2 -= view.getHeight();
             }
-            super.showAsDropDown(view, i2, i3);
+            super.showAsDropDown(view, i, i2);
         }
     }
 
     @Override // android.widget.PopupWindow
-    public void update(View view, int i2, int i3, int i4, int i5) {
+    public void update(View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i3 -= view.getHeight();
+                i2 -= view.getHeight();
             }
-            super.update(view, i2, i3, i4, i5);
+            super.update(view, i, i2, i3, i4);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
-        super(context, attributeSet, i2, i3);
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -129,17 +129,17 @@ public class AppCompatPopupWindow extends PopupWindow {
                 return;
             }
         }
-        init(context, attributeSet, i2, i3);
+        init(context, attributeSet, i, i2);
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i2, int i3, int i4) {
+    public void showAsDropDown(View view, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, i2, i3) == null) {
             if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-                i3 -= view.getHeight();
+                i2 -= view.getHeight();
             }
-            super.showAsDropDown(view, i2, i3, i4);
+            super.showAsDropDown(view, i, i2, i3);
         }
     }
 }

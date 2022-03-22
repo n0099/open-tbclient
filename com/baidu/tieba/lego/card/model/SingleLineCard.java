@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.z1.o.j.c;
-import c.a.r0.z1.o.k.b;
+import c.a.p0.b2.o.j.c;
+import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -51,9 +51,9 @@ public class SingleLineCard extends BaseCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -86,8 +86,8 @@ public class SingleLineCard extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("params");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.params = new ArrayList(length);
-        for (int i4 = 0; i4 < length; i4++) {
-            this.params.add(optJSONArray.optString(i4));
+        for (int i3 = 0; i3 < length; i3++) {
+            this.params.add(optJSONArray.optString(i3));
         }
         this.paramColor = b.b(jSONObject.optString("pColor", ""));
         this.paramColorNight = b.b(jSONObject.optString("pColorNight", ""));

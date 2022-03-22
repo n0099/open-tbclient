@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class de implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoggerInterface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f59535b;
+    public LoggerInterface f44151b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
         Interceptable interceptable = $ic;
@@ -22,18 +22,18 @@ public class de implements LoggerInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {loggerInterface, loggerInterface2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f59535b = null;
+        this.f44151b = null;
         this.a = loggerInterface;
-        this.f59535b = loggerInterface2;
+        this.f44151b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
@@ -44,7 +44,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str);
             }
-            LoggerInterface loggerInterface2 = this.f59535b;
+            LoggerInterface loggerInterface2 = this.f44151b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str);
             }
@@ -59,7 +59,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str, th);
             }
-            LoggerInterface loggerInterface2 = this.f59535b;
+            LoggerInterface loggerInterface2 = this.f44151b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str, th);
             }

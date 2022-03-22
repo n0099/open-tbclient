@@ -39,9 +39,9 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {roomDatabase, supportSQLiteQuery, Boolean.valueOf(z), strArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((RoomDatabase) objArr2[0], (RoomSQLiteQuery) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (String[]) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -121,9 +121,9 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {roomDatabase, roomSQLiteQuery, Boolean.valueOf(z), strArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -148,9 +148,9 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, strArr};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((String[]) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -172,14 +172,14 @@ public abstract class LimitOffsetDataSource<T> extends PositionalDataSource<T> {
     }
 
     @Nullable
-    public List<T> loadRange(int i2, int i3) {
+    public List<T> loadRange(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
             RoomSQLiteQuery acquire = RoomSQLiteQuery.acquire(this.mLimitOffsetQuery, this.mSourceQuery.getArgCount() + 2);
             acquire.copyArgumentsFrom(this.mSourceQuery);
-            acquire.bindLong(acquire.getArgCount() - 1, i3);
-            acquire.bindLong(acquire.getArgCount(), i2);
+            acquire.bindLong(acquire.getArgCount() - 1, i2);
+            acquire.bindLong(acquire.getArgCount(), i);
             if (this.mInTransaction) {
                 this.mDb.beginTransaction();
                 Cursor cursor = null;

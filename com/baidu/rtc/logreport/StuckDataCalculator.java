@@ -18,16 +18,16 @@ public class StuckDataCalculator {
     public Runnable stuckRunnable;
     public Handler stuckTimer;
 
-    public StuckDataCalculator(int i2) {
+    public StuckDataCalculator(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,9 +49,9 @@ public class StuckDataCalculator {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -70,7 +70,7 @@ public class StuckDataCalculator {
             }
         };
         this.stuckTimer = new Handler(Looper.getMainLooper());
-        this.stuckInterval = i2;
+        this.stuckInterval = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,9 +79,9 @@ public class StuckDataCalculator {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.frameStartTime;
-            if (currentTimeMillis - j2 > this.stuckInterval && (sLIReportInterface = this.mStuckEvent) != null) {
-                sLIReportInterface.onStuckData(j2, currentTimeMillis);
+            long j = this.frameStartTime;
+            if (currentTimeMillis - j > this.stuckInterval && (sLIReportInterface = this.mStuckEvent) != null) {
+                sLIReportInterface.onStuckData(j, currentTimeMillis);
             }
             this.frameStartTime = System.currentTimeMillis();
         }

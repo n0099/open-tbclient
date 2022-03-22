@@ -13,24 +13,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class d implements Serializable, Comparable<d> {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f36959b;
+    public static final d f28687b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f36960c;
+    public final byte[] f28688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient int f36961d;
+    public transient int f28689d;
 
     /* renamed from: e  reason: collision with root package name */
-    public transient String f36962e;
+    public transient String f28690e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +45,7 @@ public class d implements Serializable, Comparable<d> {
             }
         }
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f36959b = a(new byte[0]);
+        f28687b = a(new byte[0]);
     }
 
     public d(byte[] bArr) {
@@ -56,15 +55,15 @@ public class d implements Serializable, Comparable<d> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36960c = bArr;
+        this.f28688c = bArr;
     }
 
     public static d a(byte... bArr) {
@@ -83,15 +82,15 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            byte[] bArr = this.f36960c;
+            byte[] bArr = this.f28688c;
             char[] cArr = new char[bArr.length * 2];
-            int i2 = 0;
+            int i = 0;
             for (byte b2 : bArr) {
-                int i3 = i2 + 1;
+                int i2 = i + 1;
                 char[] cArr2 = a;
-                cArr[i2] = cArr2[(b2 >> 4) & 15];
-                i2 = i3 + 1;
-                cArr[i3] = cArr2[b2 & 15];
+                cArr[i] = cArr2[(b2 >> 4) & 15];
+                i = i2 + 1;
+                cArr[i2] = cArr2[b2 & 15];
             }
             return new String(cArr);
         }
@@ -101,13 +100,13 @@ public class d implements Serializable, Comparable<d> {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36960c.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28688c.length : invokeV.intValue;
     }
 
     public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (byte[]) this.f36960c.clone() : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (byte[]) this.f28688c.clone() : (byte[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -120,7 +119,7 @@ public class d implements Serializable, Comparable<d> {
             if (obj instanceof d) {
                 d dVar = (d) obj;
                 int c2 = dVar.c();
-                byte[] bArr = this.f36960c;
+                byte[] bArr = this.f28688c;
                 if (c2 == bArr.length && dVar.a(0, bArr, 0, bArr.length)) {
                     return true;
                 }
@@ -134,12 +133,12 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i2 = this.f36961d;
-            if (i2 != 0) {
-                return i2;
+            int i = this.f28689d;
+            if (i != 0) {
+                return i;
             }
-            int hashCode = Arrays.hashCode(this.f36960c);
-            this.f36961d = hashCode;
+            int hashCode = Arrays.hashCode(this.f28688c);
+            this.f28689d = hashCode;
             return hashCode;
         }
         return invokeV.intValue;
@@ -150,22 +149,22 @@ public class d implements Serializable, Comparable<d> {
         StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f36960c.length == 0) {
+            if (this.f28688c.length == 0) {
                 return "[size=0]";
             }
             String a2 = a();
             int a3 = a(a2, 64);
             if (a3 == -1) {
-                if (this.f36960c.length <= 64) {
+                if (this.f28688c.length <= 64) {
                     return "[hex=" + b() + PreferencesUtil.RIGHT_MOUNT;
                 }
-                return "[size=" + this.f36960c.length + " hex=" + a(0, 64).b() + "…]";
+                return "[size=" + this.f28688c.length + " hex=" + a(0, 64).b() + "…]";
             }
-            String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace(StringUtils.LF, "\\n").replace(StringUtils.CR, "\\r");
+            String replace = a2.substring(0, a3).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
             if (a3 < a2.length()) {
                 sb = new StringBuilder();
                 sb.append("[size=");
-                sb.append(this.f36960c.length);
+                sb.append(this.f28688c.length);
                 sb.append(" text=");
                 sb.append(replace);
                 sb.append("…]");
@@ -184,33 +183,33 @@ public class d implements Serializable, Comparable<d> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.f36962e;
+            String str = this.f28690e;
             if (str != null) {
                 return str;
             }
-            String str2 = new String(this.f36960c, com.baidu.searchbox.v8engine.net.b.a);
-            this.f36962e = str2;
+            String str2 = new String(this.f28688c, com.baidu.searchbox.v8engine.net.b.a);
+            this.f28690e = str2;
             return str2;
         }
         return (String) invokeV.objValue;
     }
 
-    public d a(int i2, int i3) {
+    public d a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
-            if (i2 >= 0) {
-                byte[] bArr = this.f36960c;
-                if (i3 > bArr.length) {
-                    throw new IllegalArgumentException("endIndex > length(" + this.f36960c.length + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (i >= 0) {
+                byte[] bArr = this.f28688c;
+                if (i2 > bArr.length) {
+                    throw new IllegalArgumentException("endIndex > length(" + this.f28688c.length + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                int i4 = i3 - i2;
-                if (i4 >= 0) {
-                    if (i2 == 0 && i3 == bArr.length) {
+                int i3 = i2 - i;
+                if (i3 >= 0) {
+                    if (i == 0 && i2 == bArr.length) {
                         return this;
                     }
-                    byte[] bArr2 = new byte[i4];
-                    System.arraycopy(this.f36960c, i2, bArr2, 0, i4);
+                    byte[] bArr2 = new byte[i3];
+                    System.arraycopy(this.f28688c, i, bArr2, 0, i3);
                     return new d(bArr2);
                 }
                 throw new IllegalArgumentException("endIndex < beginIndex");
@@ -220,25 +219,25 @@ public class d implements Serializable, Comparable<d> {
         return (d) invokeII.objValue;
     }
 
-    public byte a(int i2) {
+    public byte a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f36960c[i2] : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.f28688c[i] : invokeI.byteValue;
     }
 
-    public boolean a(int i2, d dVar, int i3, int i4) {
+    public boolean a(int i, d dVar, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), dVar, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? dVar.a(i3, this.f36960c, i2, i4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), dVar, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? dVar.a(i2, this.f28688c, i, i3) : invokeCommon.booleanValue;
     }
 
-    public boolean a(int i2, byte[] bArr, int i3, int i4) {
+    public boolean a(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i2 >= 0) {
-                byte[] bArr2 = this.f36960c;
-                if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && j.a(bArr2, i2, bArr, i3, i4)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i >= 0) {
+                byte[] bArr2 = this.f28688c;
+                if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && j.a(bArr2, i, bArr, i2, i3)) {
                     return true;
                 }
             }
@@ -257,9 +256,9 @@ public class d implements Serializable, Comparable<d> {
             int c2 = c();
             int c3 = dVar.c();
             int min = Math.min(c2, c3);
-            for (int i2 = 0; i2 < min; i2++) {
-                int a2 = a(i2) & 255;
-                int a3 = dVar.a(i2) & 255;
+            for (int i = 0; i < min; i++) {
+                int a2 = a(i) & 255;
+                int a3 = dVar.a(i) & 255;
                 if (a2 != a3) {
                     return a2 < a3 ? -1 : 1;
                 }
@@ -272,23 +271,23 @@ public class d implements Serializable, Comparable<d> {
         return invokeL.intValue;
     }
 
-    public static int a(String str, int i2) {
+    public static int a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                if (i4 == i2) {
-                    return i3;
+            while (i2 < length) {
+                if (i3 == i) {
+                    return i2;
                 }
-                int codePointAt = str.codePointAt(i3);
+                int codePointAt = str.codePointAt(i2);
                 if ((Character.isISOControl(codePointAt) && codePointAt != 10 && codePointAt != 13) || codePointAt == 65533) {
                     return -1;
                 }
-                i4++;
-                i3 += Character.charCount(codePointAt);
+                i3++;
+                i2 += Character.charCount(codePointAt);
             }
             return str.length();
         }

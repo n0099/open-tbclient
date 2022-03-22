@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Build {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHECK_TOKEN_SDK_INT = 620824064;
@@ -27,8 +27,8 @@ public final class Build {
     public static final int PAY_INSURANCE_SDK_INT = 620823552;
     public static final int PAY_SUPPORTED_SDK_INT = 570425345;
     public static final int SCAN_QRCODE_AUTH_SUPPORTED_SDK_INT = 587268097;
-    public static final int SDK_INT = 637928448;
-    public static final String SDK_VERSION_NAME = "android 6.6.4";
+    public static final int SDK_INT = 621086720;
+    public static final String SDK_VERSION_NAME = "android 5.5.8";
     public static final int SEND_25M_IMAGE_SDK_INT = 620889088;
     public static final int SEND_AUTH_SCOPE_SNSAPI_WXAAPP_INFO_SUPPORTED_SDK_INT = 621086464;
     public static final int SEND_BUSINESS_CARD_SDK_INT = 620889344;
@@ -48,9 +48,9 @@ public final class Build {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,7 +63,7 @@ public final class Build {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return 6;
+            return 5;
         }
         return invokeV.intValue;
     }
@@ -72,7 +72,7 @@ public final class Build {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 6;
+            return 5;
         }
         return invokeV.intValue;
     }

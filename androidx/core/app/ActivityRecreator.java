@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
@@ -54,9 +55,9 @@ public final class ActivityRecreator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,9 +152,9 @@ public final class ActivityRecreator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -260,19 +261,19 @@ public final class ActivityRecreator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 == 26 || i2 == 27;
+            int i = Build.VERSION.SDK_INT;
+            return i == 26 || i == 27;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean queueOnStopIfNecessary(Object obj, int i2, Activity activity) {
+    public static boolean queueOnStopIfNecessary(Object obj, int i, Activity activity) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, obj, i2, activity)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, obj, i, activity)) == null) {
             try {
                 Object obj2 = tokenField.get(activity);
-                if (obj2 == obj && activity.hashCode() == i2) {
+                if (obj2 == obj && activity.hashCode() == i) {
                     mainHandler.postAtFrontOfQueue(new Runnable(mainThreadField.get(activity), obj2) { // from class: androidx.core.app.ActivityRecreator.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -286,9 +287,9 @@ public final class ActivityRecreator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {r6, obj2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -312,16 +313,19 @@ public final class ActivityRecreator {
                                     if (e2.getClass() == RuntimeException.class && e2.getMessage() != null && e2.getMessage().startsWith("Unable to stop")) {
                                         throw e2;
                                     }
-                                } catch (Throwable unused) {
+                                } catch (Throwable th) {
+                                    Log.e(ActivityRecreator.LOG_TAG, "Exception while invoking performStopActivity", th);
                                 }
                             }
                         }
                     });
                     return true;
                 }
-            } catch (Throwable unused) {
+                return false;
+            } catch (Throwable th) {
+                Log.e(LOG_TAG, "Exception while fetching field values", th);
+                return false;
             }
-            return false;
         }
         return invokeLIL.booleanValue;
     }
@@ -361,9 +365,9 @@ public final class ActivityRecreator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {lifecycleCheckCallbacks, obj2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -399,9 +403,9 @@ public final class ActivityRecreator {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {application, lifecycleCheckCallbacks};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;

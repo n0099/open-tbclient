@@ -2,13 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.os.Bundle;
 import c.a.d.f.p.m;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.t1;
-import c.a.r0.d1.b1;
-import c.a.r0.d1.j0;
-import c.a.r0.f0.d0.o;
-import c.a.r0.y3.h0;
-import c.a.r0.y3.l;
+import c.a.o0.r.r.q1;
+import c.a.p0.a4.h0;
+import c.a.p0.a4.l;
+import c.a.p0.f1.b1;
+import c.a.p0.f1.j0;
+import c.a.p0.h0.e0.o;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -26,6 +25,7 @@ import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageLightActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -61,17 +61,17 @@ public class FRSExtraStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -86,10 +86,10 @@ public class FRSExtraStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, t1.i4, null));
-                absDelegateAdapterList.add(new c.a.r0.d1.r1.a.a(null, o.k, true));
-                absDelegateAdapterList.add(new c.a.r0.d1.r1.a.b(null, h0.j4, null));
-                absDelegateAdapterList.add(new c.a.r0.d1.v1.a(null, c.a.r0.g1.b.f17482i, null));
+                absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, q1.f10936c, null));
+                absDelegateAdapterList.add(new c.a.p0.f1.r1.a.a(null, o.f15339g, true));
+                absDelegateAdapterList.add(new c.a.p0.f1.r1.a.b(null, h0.f12198d, null));
+                absDelegateAdapterList.add(new c.a.p0.f1.v1.a(null, c.a.p0.i1.b.f15492e, null));
             }
         }
     }
@@ -104,9 +104,9 @@ public class FRSExtraStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -134,9 +134,9 @@ public class FRSExtraStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -217,17 +217,17 @@ public class FRSExtraStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2) {
-            super(i2);
+        public d(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -244,19 +244,19 @@ public class FRSExtraStatic {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof j0) {
                     j0 j0Var = (j0) data;
-                    j0Var.a(new c.a.r0.d1.w1.a(j0Var.c(), j0Var.d()));
+                    j0Var.a(new c.a.p0.f1.w1.a(j0Var.c(), j0Var.d()));
                     for (FrsTabInfo frsTabInfo : j0Var.f()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
-                            c.a.r0.d1.a2.c cVar = new c.a.r0.d1.a2.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
+                            c.a.p0.f1.a2.c cVar = new c.a.p0.f1.a2.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                             j0Var.a(cVar);
                             if (j0Var.getContext() == null) {
                                 continue;
                             } else {
-                                c.a.q0.h0.c fragmentTabStructure = cVar.getFragmentTabStructure();
-                                if (fragmentTabStructure == null) {
+                                c.a.o0.h0.c b2 = cVar.b();
+                                if (b2 == null) {
                                     return;
                                 }
-                                fragmentTabStructure.a.setArguments(new Bundle());
+                                b2.a.setArguments(new Bundle());
                             }
                         }
                     }
@@ -271,17 +271,17 @@ public class FRSExtraStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2) {
-            super(i2);
+        public e(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -295,7 +295,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.r0.d1.t1.c(null, l.f25065g, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.p0.f1.t1.c(null, l.f12265c, true));
             }
         }
     }
@@ -310,9 +310,9 @@ public class FRSExtraStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -323,7 +323,7 @@ public class FRSExtraStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new c.a.r0.d1.t1.a()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016468, new c.a.p0.f1.t1.a()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -348,8 +348,8 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        e2.W3.set(true);
-        c.a.r0.d1.e.a.set(new b1());
+        ThreadData.isFRSExtraLoaded.set(true);
+        c.a.p0.f1.e.a.set(new b1());
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerTask(new CustomMessageTask(2003016, new b()));
         UrlManager.getInstance().addListener(new c());
@@ -364,9 +364,9 @@ public class FRSExtraStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

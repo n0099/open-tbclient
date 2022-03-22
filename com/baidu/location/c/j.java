@@ -15,7 +15,7 @@ public class j implements Runnable {
     public final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i.a f33750b;
+    public final /* synthetic */ i.a f26033b;
 
     public j(i.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -24,15 +24,15 @@ public class j implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33750b = aVar;
+        this.f26033b = aVar;
         this.a = z;
     }
 
@@ -41,11 +41,11 @@ public class j implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z = this.f33750b.a.f33747j;
+            z = this.f26033b.a.j;
             if (!z) {
-                this.f33750b.a.f33747j = this.a;
+                this.f26033b.a.j = this.a;
             }
-            this.f33750b.a.q();
+            this.f26033b.a.q();
             l.c().h();
             if (System.currentTimeMillis() - t.b() <= 5000) {
                 x.a().c();

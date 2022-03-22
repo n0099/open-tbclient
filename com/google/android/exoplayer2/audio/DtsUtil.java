@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
@@ -18,7 +17,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DtsUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHANNELS_BY_AMODE;
@@ -41,7 +40,7 @@ public final class DtsUtil {
         }
         CHANNELS_BY_AMODE = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
         SAMPLE_RATE_BY_SFREQ = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, w0.X3, 24000, 48000, -1, -1};
-        TWICE_BITRATE_KBPS_BY_RATE = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, 1536, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
+        TWICE_BITRATE_KBPS_BY_RATE = new int[]{64, 112, 128, 192, 224, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, 1536, 1920, 2048, 2304, 2560, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
     }
 
     public DtsUtil() {
@@ -49,9 +48,9 @@ public final class DtsUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -76,13 +75,13 @@ public final class DtsUtil {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, bArr, str, str2, drmInitData)) == null) {
             ParsableBitArray parsableBitArray = new ParsableBitArray(bArr);
             parsableBitArray.skipBits(60);
-            int i2 = CHANNELS_BY_AMODE[parsableBitArray.readBits(6)];
-            int i3 = SAMPLE_RATE_BY_SFREQ[parsableBitArray.readBits(4)];
+            int i = CHANNELS_BY_AMODE[parsableBitArray.readBits(6)];
+            int i2 = SAMPLE_RATE_BY_SFREQ[parsableBitArray.readBits(4)];
             int readBits = parsableBitArray.readBits(5);
             int[] iArr = TWICE_BITRATE_KBPS_BY_RATE;
-            int i4 = readBits >= iArr.length ? -1 : (iArr[readBits] * 1000) / 2;
+            int i3 = readBits >= iArr.length ? -1 : (iArr[readBits] * 1000) / 2;
             parsableBitArray.skipBits(10);
-            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_DTS, null, i4, -1, i2 + (parsableBitArray.readBits(2) > 0 ? 1 : 0), i3, null, drmInitData, 0, str2);
+            return Format.createAudioSampleFormat(str, MimeTypes.AUDIO_DTS, null, i3, -1, i + (parsableBitArray.readBits(2) > 0 ? 1 : 0), i2, null, drmInitData, 0, str2);
         }
         return (Format) invokeLLLL.objValue;
     }

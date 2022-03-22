@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
-import c.a.r0.s1.g.b;
-import c.a.r0.s1.g.c;
+import c.a.p0.u1.g.b;
+import c.a.p0.u1.g.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +28,9 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,9 +39,9 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
         }
     }
 
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) || bArr == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) || bArr == null) {
             return;
         }
         ForumMenuResIdl forumMenuResIdl = (ForumMenuResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumMenuResIdl.class);
@@ -56,9 +56,9 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
             getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
             getOfficialBarMenuDatas().e(new ArrayList());
             int size = forumMenuResIdl.data.parent_menu.size();
-            for (int i3 = 0; i3 < size; i3++) {
+            for (int i2 = 0; i2 < size; i2++) {
                 b bVar = new b();
-                Menu menu = forumMenuResIdl.data.parent_menu.get(i3);
+                Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
                 bVar.f(menu.action_type.intValue());
                 bVar.g(menu.content);
                 bVar.h(menu.create_time.intValue());
@@ -70,8 +70,8 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                 List<SubMenu> list = menu.sub_menu;
                 if (list != null) {
                     int size2 = list.size();
-                    for (int i4 = 0; i4 < size2; i4++) {
-                        SubMenu subMenu = menu.sub_menu.get(i4);
+                    for (int i3 = 0; i3 < size2; i3++) {
+                        SubMenu subMenu = menu.sub_menu.get(i3);
                         b bVar2 = new b();
                         bVar2.f(subMenu.action_type.intValue());
                         bVar2.g(subMenu.content);

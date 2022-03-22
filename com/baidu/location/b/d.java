@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Jni;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -47,10 +48,8 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f33606f = "0";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static d f33607j;
+    public static String f25910f = "0";
+    public static d j;
     public transient /* synthetic */ FieldHolder $fh;
     public a A;
     public boolean B;
@@ -69,25 +68,23 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Location f33608b;
+    public Location f25911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Location f33609c;
+    public Location f25912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuilder f33610d;
+    public StringBuilder f25913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33611e;
+    public long f25914e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33612g;
+    public int f25915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f33613h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public double f33614i;
+    public double f25916h;
+    public double i;
     public int k;
     public double l;
     public String m;
@@ -112,7 +109,7 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f33615b;
+        public final /* synthetic */ d f25917b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -121,15 +118,15 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33615b = dVar;
+            this.f25917b = dVar;
             this.a = null;
             this.k = new HashMap();
         }
@@ -138,7 +135,7 @@ public class d {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33794h = "http://loc.map.baidu.com/cc.php";
+                this.f26072h = "http://loc.map.baidu.com/cc.php";
                 String encode = Jni.encode(this.a);
                 this.a = null;
                 this.k.put("q", encode);
@@ -158,12 +155,12 @@ public class d {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                if (z && (str = this.f33796j) != null) {
+                if (z && (str = this.j) != null) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        jSONObject.put("prod", com.baidu.location.e.b.f33768e);
-                        jSONObject.put("uptime", System.currentTimeMillis());
-                        this.f33615b.e(jSONObject.toString());
+                        jSONObject.put("prod", com.baidu.location.e.b.f26049e);
+                        jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
+                        this.f25917b.e(jSONObject.toString());
                     } catch (Exception unused) {
                     }
                 }
@@ -195,9 +192,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -228,19 +225,19 @@ public class d {
         this.G = 0L;
         this.H = 500;
         this.a = 0L;
-        this.f33608b = null;
-        this.f33609c = null;
-        this.f33610d = null;
-        this.f33611e = 0L;
+        this.f25911b = null;
+        this.f25912c = null;
+        this.f25913d = null;
+        this.f25914e = 0L;
         this.I = null;
         this.J = new byte[4];
         this.K = null;
         this.L = 0;
         this.M = null;
         this.N = false;
-        this.f33612g = 0;
-        this.f33613h = 116.22345545d;
-        this.f33614i = 40.245667323d;
+        this.f25915g = 0;
+        this.f25916h = 116.22345545d;
+        this.i = 40.245667323d;
         this.I = new Handler();
     }
 
@@ -248,10 +245,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f33607j == null) {
-                f33607j = new d();
+            if (j == null) {
+                j = new d();
             }
-            return f33607j;
+            return j;
         }
         return (d) invokeV.objValue;
     }
@@ -270,7 +267,7 @@ public class d {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("POST");
-                httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
+                httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
                 httpsURLConnection.setRequestProperty("connection", IntentConfig.CLOSE);
                 httpsURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
                 if (file == null || !file.exists()) {
@@ -306,9 +303,9 @@ public class d {
                 int responseCode = httpsURLConnection.getResponseCode();
                 outputStream.close();
                 httpsURLConnection.disconnect();
-                int i2 = this.y + 400;
-                this.y = i2;
-                c(i2);
+                int i = this.y + 400;
+                this.y = i;
+                c(i);
                 return responseCode == 200 ? "1" : "0";
             } catch (MalformedURLException | IOException unused) {
                 return "0";
@@ -327,8 +324,8 @@ public class d {
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                         if (runningAppProcessInfo.processName.equals(str)) {
-                            int i2 = runningAppProcessInfo.importance;
-                            if (i2 == 200 || i2 == 100) {
+                            int i = runningAppProcessInfo.importance;
+                            if (i == 200 || i == 100) {
                                 z = true;
                             }
                         }
@@ -341,10 +338,10 @@ public class d {
         return invokeLL.booleanValue;
     }
 
-    private byte[] a(int i2) {
+    private byte[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) ? new byte[]{(byte) (i2 & 255), (byte) ((65280 & i2) >> 8), (byte) ((16711680 & i2) >> 16), (byte) ((i2 & (-16777216)) >> 24)} : (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) ? new byte[]{(byte) (i & 255), (byte) ((65280 & i) >> 8), (byte) ((16711680 & i) >> 16), (byte) ((i & (-16777216)) >> 24)} : (byte[]) invokeI.objValue;
     }
 
     private byte[] a(String str) {
@@ -359,15 +356,15 @@ public class d {
             byte nextInt2 = (byte) new Random().nextInt(255);
             byte[] bArr = new byte[bytes.length + 2];
             int length = bytes.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                bArr[i3] = (byte) (bytes[i2] ^ nextInt);
+            while (i < length) {
+                bArr[i2] = (byte) (bytes[i] ^ nextInt);
+                i++;
                 i2++;
-                i3++;
             }
-            bArr[i3] = nextInt;
-            bArr[i3 + 1] = nextInt2;
+            bArr[i2] = nextInt;
+            bArr[i2 + 1] = nextInt2;
             return bArr;
         }
         return (byte[]) invokeL.objValue;
@@ -383,12 +380,12 @@ public class d {
         return (String) invokeL.objValue;
     }
 
-    private void b(int i2) {
+    private void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
-            byte[] a2 = a(i2);
-            for (int i3 = 0; i3 < 4; i3++) {
-                this.M.add(Byte.valueOf(a2[i3]));
+        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+            byte[] a2 = a(i);
+            for (int i2 = 0; i2 < 4; i2++) {
+                this.M.add(Byte.valueOf(a2[i2]));
             }
         }
     }
@@ -408,14 +405,14 @@ public class d {
             return;
         }
         this.N = true;
-        d(com.baidu.location.e.b.f33768e);
+        d(com.baidu.location.e.b.f26049e);
         j();
         d();
     }
 
-    private void c(int i2) {
+    private void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65550, this, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(65550, this, i) == null) || i == 0) {
             return;
         }
         try {
@@ -443,7 +440,7 @@ public class d {
             }
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
-            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i2).getBytes();
+            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
@@ -521,8 +518,8 @@ public class d {
             if (jSONObject.has("nondrper")) {
                 this.x = jSONObject.getInt("nondrper");
             }
-            if (jSONObject.has("uptime")) {
-                this.z = jSONObject.getLong("uptime");
+            if (jSONObject.has(Config.DEVICE_UPTIME)) {
+                this.z = jSONObject.getLong(Config.DEVICE_UPTIME);
             }
             k();
         } catch (JSONException unused) {
@@ -542,28 +539,28 @@ public class d {
             if (length >= 4) {
                 length = 4;
             }
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 try {
-                    this.J[i2] = (byte) (Integer.valueOf(split[i2]).intValue() & 255);
+                    this.J[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
                 } catch (Exception unused) {
                 }
             }
-            this.K = a(com.baidu.location.e.b.f33768e + ":" + com.baidu.location.e.b.a().f33775c);
+            this.K = a(com.baidu.location.e.b.f26049e + ":" + com.baidu.location.e.b.a().f26054c);
         }
     }
 
     private void d(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, location) == null) {
-            this.f33611e = System.currentTimeMillis();
+            this.f25914e = System.currentTimeMillis();
             b((int) (location.getTime() / 1000));
             b((int) (location.getLongitude() * 1000000.0d));
             b((int) (location.getLatitude() * 1000000.0d));
-            int i2 = !location.hasBearing();
-            int i3 = !location.hasSpeed();
-            this.M.add(Byte.valueOf(i2 > 0 ? (byte) 32 : (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
-            this.M.add(Byte.valueOf(i3 > 0 ? Byte.MIN_VALUE : (byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
-            this.f33608b = location;
+            int i = !location.hasBearing();
+            int i2 = !location.hasSpeed();
+            this.M.add(Byte.valueOf(i > 0 ? (byte) 32 : (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+            this.M.add(Byte.valueOf(i2 > 0 ? Byte.MIN_VALUE : (byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
+            this.f25911b = location;
         }
     }
 
@@ -581,7 +578,7 @@ public class d {
                     byte[] bArr = new byte[readInt2];
                     randomAccessFile.read(bArr, 0, readInt2);
                     String str2 = new String(bArr);
-                    int i2 = 1;
+                    int i = 1;
                     if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
                         try {
                             String[] split = str2.split(":");
@@ -592,10 +589,10 @@ public class d {
                         }
                     }
                     while (true) {
-                        if (i2 > readInt) {
+                        if (i > readInt) {
                             break;
                         }
-                        randomAccessFile.seek(i2 * 2048);
+                        randomAccessFile.seek(i * 2048);
                         int readInt3 = randomAccessFile.readInt();
                         byte[] bArr2 = new byte[readInt3];
                         randomAccessFile.read(bArr2, 0, readInt3);
@@ -604,7 +601,7 @@ public class d {
                             c(str3);
                             break;
                         }
-                        i2++;
+                        i++;
                     }
                     randomAccessFile.close();
                 }
@@ -631,24 +628,24 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(65556, this, location) == null) || location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.f33608b.getLongitude()) * 1000000.0d);
-        int latitude = (int) ((location.getLatitude() - this.f33608b.getLatitude()) * 1000000.0d);
-        int i2 = !location.hasBearing();
-        int i3 = !location.hasSpeed();
+        int longitude = (int) ((location.getLongitude() - this.f25911b.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.f25911b.getLatitude()) * 1000000.0d);
+        int i = !location.hasBearing();
+        int i2 = !location.hasSpeed();
         char c2 = longitude > 0 ? (char) 0 : (char) 1;
         int abs = Math.abs(longitude);
         char c3 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.f33609c = null;
-            this.f33609c = this.f33608b;
+            this.f25912c = null;
+            this.f25912c = this.f25911b;
         }
-        this.f33608b = location;
-        if (location != null && this.f33609c != null && location.getTime() > this.f33609c.getTime() && this.f33608b.getTime() - this.f33609c.getTime() < 5000) {
-            long time = this.f33608b.getTime() - this.f33609c.getTime();
+        this.f25911b = location;
+        if (location != null && this.f25912c != null && location.getTime() > this.f25912c.getTime() && this.f25911b.getTime() - this.f25912c.getTime() < 5000) {
+            long time = this.f25911b.getTime() - this.f25912c.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.f33608b.getAltitude(), this.f33608b.getLongitude(), this.f33609c.getLatitude(), this.f33609c.getLongitude(), fArr);
-            double speed = ((fArr[0] - (this.f33609c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
+            Location.distanceBetween(this.f25911b.getAltitude(), this.f25911b.getLongitude(), this.f25912c.getLatitude(), this.f25912c.getLongitude(), fArr);
+            double speed = ((fArr[0] - (this.f25912c.getSpeed() * ((float) time))) * 2.0f) / ((float) (time * time));
             if (speed > this.F) {
                 this.F = (float) speed;
             }
@@ -657,7 +654,7 @@ public class d {
         this.M.add(Byte.valueOf((byte) ((abs & 65280) >> 8)));
         this.M.add(Byte.valueOf((byte) (abs2 & 255)));
         this.M.add(Byte.valueOf((byte) ((abs2 & 65280) >> 8)));
-        if (i2 > 0) {
+        if (i > 0) {
             bearing = c3 > 0 ? (byte) 96 : (byte) 32;
         } else {
             bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
@@ -666,7 +663,7 @@ public class d {
             }
         }
         this.M.add(Byte.valueOf(bearing));
-        if (i3 > 0) {
+        if (i2 > 0) {
             this.M.add(Byte.MIN_VALUE);
         } else {
             this.M.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & ByteCompanionObject.MAX_VALUE)));
@@ -703,22 +700,22 @@ public class d {
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(2L);
                 int readInt = randomAccessFile2.readInt();
-                int i2 = 1;
-                while (i2 <= readInt) {
-                    randomAccessFile2.seek(i2 * 2048);
+                int i = 1;
+                while (i <= readInt) {
+                    randomAccessFile2.seek(i * 2048);
                     int readInt2 = randomAccessFile2.readInt();
                     byte[] bArr = new byte[readInt2];
                     randomAccessFile2.read(bArr, 0, readInt2);
-                    if (new String(bArr).contains(com.baidu.location.e.b.f33768e)) {
+                    if (new String(bArr).contains(com.baidu.location.e.b.f26049e)) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
-                if (i2 >= readInt) {
+                if (i >= readInt) {
                     randomAccessFile2.seek(2L);
-                    randomAccessFile2.writeInt(i2);
+                    randomAccessFile2.writeInt(i);
                 }
-                randomAccessFile2.seek(i2 * 2048);
+                randomAccessFile2.seek(i * 2048);
                 byte[] bytes2 = str.getBytes();
                 randomAccessFile2.writeInt(bytes2.length);
                 randomAccessFile2.write(bytes2);
@@ -804,9 +801,9 @@ public class d {
             if (this.B) {
                 if (this.C) {
                     if (this.E < this.t) {
-                        int i2 = this.D + this.p;
-                        this.D = i2;
-                        if (i2 > this.u && System.currentTimeMillis() - this.G <= this.v * 1000) {
+                        int i = this.D + this.p;
+                        this.D = i;
+                        if (i > this.u && System.currentTimeMillis() - this.G <= this.v * 1000) {
                             return false;
                         }
                     } else {
@@ -832,10 +829,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             this.M = null;
-            this.f33611e = 0L;
+            this.f25914e = 0L;
             this.L = 0;
-            this.f33608b = null;
-            this.f33609c = null;
+            this.f25911b = null;
+            this.f25912c = null;
             this.E = 0.0f;
             this.F = 0.0f;
         }
@@ -843,7 +840,7 @@ public class d {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.f33611e == 0 || System.currentTimeMillis() - this.f33611e < this.p * 1000) {
+        if (!(interceptable == null || interceptable.invokeV(65561, this) == null) || this.f25914e == 0 || System.currentTimeMillis() - this.f25914e < this.p * 1000) {
             return;
         }
         if (com.baidu.location.f.getServiceContext().getSharedPreferences("loc_navi_mode", 4).getBoolean("is_navi_on", false)) {
@@ -851,12 +848,12 @@ public class d {
         } else if (this.n == 1 && !f()) {
             g();
         } else {
-            if (com.baidu.location.e.b.f33768e.equals("com.ubercab.driver")) {
+            if (com.baidu.location.e.b.f26049e.equals("com.ubercab.driver")) {
                 if (e()) {
                     g();
                     return;
                 }
-            } else if (!a(com.baidu.location.e.b.f33768e, com.baidu.location.f.getServiceContext())) {
+            } else if (!a(com.baidu.location.e.b.f26049e, com.baidu.location.f.getServiceContext())) {
                 g();
                 return;
             }
@@ -867,8 +864,8 @@ public class d {
                 this.M.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
                 this.M.set(3, Byte.valueOf((byte) (this.L & 255)));
                 byte[] bArr = new byte[size];
-                for (int i2 = 0; i2 < size; i2++) {
-                    bArr[i2] = this.M.get(i2).byteValue();
+                for (int i = 0; i < size; i++) {
+                    bArr[i] = this.M.get(i).byteValue();
                 }
                 File file = new File(com.baidu.location.e.k.k(), "baidu/tempdata");
                 if (!file.exists()) {
@@ -901,7 +898,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             this.M.add((byte) 0);
             this.M.add((byte) 0);
-            if (f33606f.equals("0")) {
+            if (f25910f.equals("0")) {
                 list = this.M;
                 b2 = -82;
             } else {
@@ -916,8 +913,8 @@ public class d {
             this.M.add(Byte.valueOf(this.J[3]));
             int length = this.K.length;
             this.M.add(Byte.valueOf((byte) ((length + 1) & 255)));
-            for (int i2 = 0; i2 < length; i2++) {
-                this.M.add(Byte.valueOf(this.K[i2]));
+            for (int i = 0; i < length; i++) {
+                this.M.add(Byte.valueOf(this.K[i]));
             }
         }
     }

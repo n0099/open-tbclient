@@ -13,21 +13,21 @@ public class FadeInBitmapDisplayer implements BitmapDisplayer {
     public final boolean animateFromNetwork;
     public final int durationMillis;
 
-    public FadeInBitmapDisplayer(int i2) {
-        this(i2, true, true, true);
+    public FadeInBitmapDisplayer(int i) {
+        this(i, true, true, true);
     }
 
-    public FadeInBitmapDisplayer(int i2, boolean z, boolean z2, boolean z3) {
-        this.durationMillis = i2;
+    public FadeInBitmapDisplayer(int i, boolean z, boolean z2, boolean z3) {
+        this.durationMillis = i;
         this.animateFromNetwork = z;
         this.animateFromDisk = z2;
         this.animateFromMemory = z3;
     }
 
-    public static void animate(View view, int i2) {
+    public static void animate(View view, int i) {
         if (view != null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(i2);
+            alphaAnimation.setDuration(i);
             alphaAnimation.setInterpolator(new DecelerateInterpolator());
             view.startAnimation(alphaAnimation);
         }

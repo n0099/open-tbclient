@@ -43,9 +43,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -105,9 +105,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -189,9 +189,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void w(long j2) {
+    public void w(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65550, this, j2) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeJ(65550, this, j) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
         this.uK.Q(false);
@@ -255,16 +255,16 @@ public class b {
         }
     }
 
-    public void v(long j2) {
+    public void v(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            int i2 = (int) (j2 >> 32);
-            int i3 = (int) j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            int i = (int) (j >> 32);
+            int i2 = (int) j;
             if (this.uJ == null || !this.ua) {
                 return;
             }
             Handler handler = this.uJ;
-            handler.sendMessage(handler.obtainMessage(1003, i2, i3));
+            handler.sendMessage(handler.obtainMessage(1003, i, i2));
         }
     }
 }

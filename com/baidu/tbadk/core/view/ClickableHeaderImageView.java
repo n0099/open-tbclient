@@ -4,8 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import c.a.d.f.m.b;
-import c.a.q0.m.d;
-import c.a.q0.r.r.e2;
+import c.a.o0.m.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -13,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,19 +23,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d mInterceptClickEventListener;
-    public View.OnClickListener mOnClickListener;
-    public e2 v0;
-    public boolean w0;
-    public View.OnClickListener x0;
+    public ThreadData S0;
+    public boolean T0;
+    public View.OnClickListener U0;
+    public d V0;
+    public View.OnClickListener W0;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClickableHeaderImageView f38973e;
+        public final /* synthetic */ ClickableHeaderImageView a;
 
         public a(ClickableHeaderImageView clickableHeaderImageView) {
             Interceptable interceptable = $ic;
@@ -44,34 +42,34 @@ public class ClickableHeaderImageView extends HeadImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {clickableHeaderImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38973e = clickableHeaderImageView;
+            this.a = clickableHeaderImageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d dVar = this.f38973e.mInterceptClickEventListener;
-                if ((dVar == null || !dVar.onClickEvent(view)) && this.f38973e.v0 != null) {
-                    MetaData t = this.f38973e.w0 ? this.f38973e.v0.z1().t() : this.f38973e.v0.J();
-                    if (t == null || StringUtils.isNull(t.getName_show()) || StringUtils.isNull(t.getUserId())) {
+                d dVar = this.a.V0;
+                if ((dVar == null || !dVar.a(view)) && this.a.S0 != null) {
+                    MetaData s = this.a.T0 ? this.a.S0.getTopAgreePost().s() : this.a.S0.getAuthor();
+                    if (s == null || StringUtils.isNull(s.getName_show()) || StringUtils.isNull(s.getUserId())) {
                         return;
                     }
-                    long g2 = b.g(t.getUserId(), 0L);
-                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.f38973e.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), t.isBigV());
-                    createNormalConfig.setSourceTid(this.f38973e.v0.w1());
-                    createNormalConfig.setSourceNid(this.f38973e.v0.H0());
+                    long g2 = b.g(s.getUserId(), 0L);
+                    PersonPolymericActivityConfig createNormalConfig = new PersonPolymericActivityConfig(this.a.getContext()).createNormalConfig(g2, g2 == b.g(TbadkCoreApplication.getCurrentAccount(), 0L), s.isBigV());
+                    createNormalConfig.setSourceTid(this.a.S0.getTid());
+                    createNormalConfig.setSourceNid(this.a.S0.getNid());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
-                    if (this.f38973e.x0 != null) {
-                        this.f38973e.x0.onClick(view);
+                    if (this.a.U0 != null) {
+                        this.a.U0.onClick(view);
                     }
                 }
             }
@@ -87,69 +85,69 @@ public class ClickableHeaderImageView extends HeadImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
-        init();
-    }
-
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setOnClickListener(this.mOnClickListener);
-            setDefaultResource(17170445);
-            setPlaceHolder(1);
-        }
+        this.W0 = new a(this);
+        v();
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.x0 = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.U0 = onClickListener;
         }
     }
 
-    public void setData(e2 e2Var, boolean z, boolean z2) {
-        MetaData J;
+    public void setData(ThreadData threadData, boolean z, boolean z2) {
+        MetaData author;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{e2Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || e2Var == null || e2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{threadData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || threadData == null || threadData.getAuthor() == null) {
             return;
         }
-        this.v0 = e2Var;
-        this.w0 = z2;
+        this.S0 = threadData;
+        this.T0 = z2;
         if (z2) {
-            J = e2Var.z1().t();
+            author = threadData.getTopAgreePost().s();
         } else {
-            J = e2Var.J();
+            author = threadData.getAuthor();
         }
-        setContentDescription(J.getName_show() + getContext().getString(R.string.somebodys_portrait));
-        setUserId(J.getUserId());
-        setUserName(J.getUserName());
-        if (e2Var.p1() != null && (this.v0.s1() == 49 || this.v0.s1() == 69)) {
-            setUrl(e2Var.J().getAvater());
-            startLoad(e2Var.J().getAvater(), 28, false);
+        setContentDescription(author.getName_show() + getContext().getString(R.string.obfuscated_res_0x7f0f1185));
+        setUserId(author.getUserId());
+        setUserName(author.getUserName());
+        if (threadData.getThreadAlaInfo() != null && (this.S0.getThreadType() == 49 || this.S0.getThreadType() == 69)) {
+            setUrl(threadData.getAuthor().getAvater());
+            J(threadData.getAuthor().getAvater(), 28, false);
         } else {
-            setUrl(J.getAvater());
-            if (!StringUtils.isNull(J.getAvater()) && J.getAvater().contains("http")) {
-                startLoad(J.getAvater(), 10, false);
+            setUrl(author.getAvater());
+            if (!StringUtils.isNull(author.getAvater()) && author.getAvater().contains("http")) {
+                J(author.getAvater(), 10, false);
             } else {
-                startLoad(J.getAvater(), 28, false);
+                J(author.getAvater(), 28, false);
             }
         }
-        UtilHelper.showHeadImageViewBigV(this, J);
+        UtilHelper.showHeadImageViewBigV(this, author);
     }
 
     public void setOnInterceptClickEventListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.mInterceptClickEventListener = dVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
+            this.V0 = dVar;
+        }
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            setOnClickListener(this.W0);
+            setDefaultResource(17170445);
+            setPlaceHolder(1);
         }
     }
 
@@ -162,9 +160,9 @@ public class ClickableHeaderImageView extends HeadImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -172,31 +170,31 @@ public class ClickableHeaderImageView extends HeadImageView {
                 return;
             }
         }
-        this.mOnClickListener = new a(this);
-        init();
+        this.W0 = new a(this);
+        v();
     }
 
-    public void setData(e2 e2Var, boolean z) {
+    public void setData(ThreadData threadData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, e2Var, z) == null) {
-            setData(e2Var, z, false);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, threadData, z) == null) {
+            setData(threadData, z, false);
         }
     }
 
-    public void setData(e2 e2Var) {
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) {
-            setData(e2Var, true);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            setData(threadData, true);
         }
     }
 
     public void setData(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData) == null) || metaData == null) {
             return;
         }
-        e2 e2Var = new e2();
-        e2Var.C3(metaData);
-        setData(e2Var);
+        ThreadData threadData = new ThreadData();
+        threadData.setAuthor(metaData);
+        setData(threadData);
     }
 }

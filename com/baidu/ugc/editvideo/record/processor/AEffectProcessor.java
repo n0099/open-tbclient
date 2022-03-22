@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.j;
-import c.a.y0.b;
-import c.a.y0.r.h;
+import c.a.v0.b;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -34,9 +34,9 @@ public class AEffectProcessor extends BaseEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,9 +90,9 @@ public class AEffectProcessor extends BaseEffectProcessor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, list, map};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -119,19 +119,19 @@ public class AEffectProcessor extends BaseEffectProcessor {
         }
     }
 
-    public int onProcessFrame(int i2, float[] fArr) {
+    public int onProcessFrame(int i, float[] fArr) {
         InterceptResult invokeIL;
         int c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, fArr)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, fArr)) == null) {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.m(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c2 = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
                 c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }
-            return c2 == 0 ? i2 : c2;
+            return c2 == 0 ? i : c2;
         }
         return invokeIL.intValue;
     }
@@ -160,10 +160,10 @@ public class AEffectProcessor extends BaseEffectProcessor {
         }
     }
 
-    public void startRecordAnim(int i2, long j2) {
+    public void startRecordAnim(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.runOnDraw.add(new Runnable(this, i2, j2) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.runOnDraw.add(new Runnable(this, i, j) { // from class: com.baidu.ugc.editvideo.record.processor.AEffectProcessor.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AEffectProcessor this$0;
@@ -175,19 +175,19 @@ public class AEffectProcessor extends BaseEffectProcessor {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2)};
+                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$currentIndex = i2;
-                    this.val$playTime = j2;
+                    this.val$currentIndex = i;
+                    this.val$playTime = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -218,9 +218,9 @@ public class AEffectProcessor extends BaseEffectProcessor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, list};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -243,19 +243,19 @@ public class AEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i2, float[] fArr) {
+    public int onProcessFrame(e eVar, int i, float[] fArr) {
         InterceptResult invokeLIL;
         int c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eVar, i2, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eVar, i, fArr)) == null) {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.m(i2, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c2 = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
                 c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }
-            return c2 == 0 ? i2 : c2;
+            return c2 == 0 ? i : c2;
         }
         return invokeLIL.intValue;
     }

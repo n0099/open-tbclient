@@ -22,22 +22,22 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Bitmap a(byte[] bArr, int i2, int i3) {
+    public static Bitmap a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i2, i3)) == null) {
-            YuvImage yuvImage = new YuvImage(bArr, 17, i2, i3, null);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            YuvImage yuvImage = new YuvImage(bArr, 17, i, i2, null);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            yuvImage.compressToJpeg(new Rect(0, 0, i2, i3), 80, byteArrayOutputStream);
+            yuvImage.compressToJpeg(new Rect(0, 0, i, i2), 80, byteArrayOutputStream);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
             Matrix matrix = new Matrix();
             matrix.reset();
@@ -52,13 +52,13 @@ public class a {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap b(Bitmap bitmap, int i2) {
+    public static Bitmap b(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
             if (bitmap != null) {
                 Matrix matrix = new Matrix();
-                matrix.postRotate(i2);
+                matrix.postRotate(i);
                 return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             }
             return bitmap;
@@ -66,10 +66,10 @@ public class a {
         return (Bitmap) invokeLI.objValue;
     }
 
-    public static byte[] a(Bitmap bitmap, int i2) {
+    public static byte[] a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -77,7 +77,7 @@ public class a {
             matrix.setScale(1.0f, 1.0f);
             Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            createBitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+            createBitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         }
         return (byte[]) invokeLI.objValue;

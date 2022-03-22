@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SpeedStatData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SpeedStatData";
@@ -29,9 +29,9 @@ public class SpeedStatData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -78,15 +78,15 @@ public class SpeedStatData {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, taskSpeedStat, configSpeedStat)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (taskSpeedStat != null && !Utils.isEmpty(taskSpeedStat.getSpeedStatThreadList())) {
-                int i2 = taskSpeedStat.status;
-                if (i2 == 1004 || i2 == 1006) {
+                int i = taskSpeedStat.status;
+                if (i == 1004 || i == 1006) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = 0;
-                    for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
-                        ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i3);
-                        j2 += (threadSpeedStat.dend + threadSpeedStat.dTempDownSize) - threadSpeedStat.dstart;
+                    long j = 0;
+                    for (int i2 = 0; i2 < taskSpeedStat.getSpeedStatThreadList().size(); i2++) {
+                        ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i2);
+                        j += (threadSpeedStat.dend + threadSpeedStat.dTempDownSize) - threadSpeedStat.dstart;
                     }
-                    if (configSpeedStat != null && (Math.abs(currentTimeMillis - taskSpeedStat.startTimeMillis) < configSpeedStat.cfgMinTime * 1000 || j2 < configSpeedStat.cfgMinSize)) {
+                    if (configSpeedStat != null && (Math.abs(currentTimeMillis - taskSpeedStat.startTimeMillis) < configSpeedStat.cfgMinTime * 1000 || j < configSpeedStat.cfgMinSize)) {
                         return null;
                     }
                 }
@@ -116,8 +116,8 @@ public class SpeedStatData {
                 jSONObject.put("startwritetime", taskSpeedStat.startWriteTimeMillis + "");
                 jSONObject.put("endwritetime", taskSpeedStat.endWriteTimeMillis + "");
                 JSONArray jSONArray = new JSONArray();
-                for (int i4 = 0; i4 < taskSpeedStat.getSpeedStatThreadList().size(); i4++) {
-                    ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i4);
+                for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
+                    ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i3);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat2.cqid);
                     jSONObject2.put("url", threadSpeedStat2.url);
@@ -126,10 +126,10 @@ public class SpeedStatData {
                         jSONObject2.put("dt", threadSpeedStat2.dt + "");
                     }
                     jSONObject2.put("drs", threadSpeedStat2.drs);
-                    long j3 = threadSpeedStat2.downEndTime - threadSpeedStat2.downStartTime;
-                    if (j3 > 0 && threadSpeedStat2.downEndTime > 0) {
-                        long j4 = (((threadSpeedStat2.dend + threadSpeedStat2.dTempDownSize) - threadSpeedStat2.dstart) * 1000) / j3;
-                        jSONObject2.put("dspt", j4 + "");
+                    long j2 = threadSpeedStat2.downEndTime - threadSpeedStat2.downStartTime;
+                    if (j2 > 0 && threadSpeedStat2.downEndTime > 0) {
+                        long j3 = (((threadSpeedStat2.dend + threadSpeedStat2.dTempDownSize) - threadSpeedStat2.dstart) * 1000) / j2;
+                        jSONObject2.put("dspt", j3 + "");
                     } else {
                         jSONObject2.put("dspt", "0");
                     }

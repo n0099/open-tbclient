@@ -8,6 +8,7 @@ import android.graphics.fonts.FontVariationAxis;
 import android.net.Uri;
 import android.os.CancellationSignal;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -61,9 +62,9 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,7 +81,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             method = obtainCreateFromFamiliesWithDefaultMethod(obtainFontFamily);
             cls = obtainFontFamily;
         } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            String str = "Unable to collect necessary methods for class " + e2.getClass().getName();
+            Log.e(TAG, "Unable to collect necessary methods for class " + e2.getClass().getName(), e2);
             method = null;
             constructor = null;
             method2 = null;
@@ -107,12 +108,12 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         }
     }
 
-    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i2, int i3, int i4, @Nullable FontVariationAxis[] fontVariationAxisArr) {
+    private boolean addFontFromAssetManager(Context context, Object obj, String str, int i, int i2, int i3, @Nullable FontVariationAxis[] fontVariationAxisArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{context, obj, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontVariationAxisArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{context, obj, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fontVariationAxisArr})) == null) {
             try {
-                return ((Boolean) this.mAddFontFromAssetManager.invoke(obj, context.getAssets(), str, 0, Boolean.FALSE, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontVariationAxisArr)).booleanValue();
+                return ((Boolean) this.mAddFontFromAssetManager.invoke(obj, context.getAssets(), str, 0, Boolean.FALSE, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fontVariationAxisArr)).booleanValue();
             } catch (IllegalAccessException | InvocationTargetException unused) {
                 return false;
             }
@@ -120,12 +121,12 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         return invokeCommon.booleanValue;
     }
 
-    private boolean addFontFromBuffer(Object obj, ByteBuffer byteBuffer, int i2, int i3, int i4) {
+    private boolean addFontFromBuffer(Object obj, ByteBuffer byteBuffer, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{obj, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{obj, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             try {
-                return ((Boolean) this.mAddFontFromBuffer.invoke(obj, byteBuffer, Integer.valueOf(i2), null, Integer.valueOf(i3), Integer.valueOf(i4))).booleanValue();
+                return ((Boolean) this.mAddFontFromBuffer.invoke(obj, byteBuffer, Integer.valueOf(i), null, Integer.valueOf(i2), Integer.valueOf(i3))).booleanValue();
             } catch (IllegalAccessException | InvocationTargetException unused) {
                 return false;
             }
@@ -150,7 +151,9 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Method method = this.mAddFontFromAssetManager;
+            if (this.mAddFontFromAssetManager == null) {
+                Log.w(TAG, "Unable to collect necessary private methods. Fallback to legacy implementation.");
+            }
             return this.mAddFontFromAssetManager != null;
         }
         return invokeV.booleanValue;
@@ -188,13 +191,13 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
 
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
     @Nullable
-    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i2) {
+    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fontFamilyFilesResourceEntry, resources, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
             if (!isFontFamilyPrivateAPIAvailable()) {
-                return super.createFromFontFamilyFilesResourceEntry(context, fontFamilyFilesResourceEntry, resources, i2);
+                return super.createFromFontFamilyFilesResourceEntry(context, fontFamilyFilesResourceEntry, resources, i);
             }
             Object newFamily = newFamily();
             if (newFamily == null) {
@@ -216,16 +219,16 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
 
     @Override // androidx.core.graphics.TypefaceCompatApi21Impl, androidx.core.graphics.TypefaceCompatBaseImpl
     @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i2) {
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Typeface createFromFamiliesWithDefault;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, cancellationSignal, fontInfoArr, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, cancellationSignal, fontInfoArr, i)) == null) {
             if (fontInfoArr.length < 1) {
                 return null;
             }
             if (!isFontFamilyPrivateAPIAvailable()) {
-                FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
+                FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i);
                 try {
                     ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), "r", cancellationSignal);
                     if (openFileDescriptor == null) {
@@ -263,7 +266,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
                 abortCreation(newFamily);
                 return null;
             } else if (freeze(newFamily) && (createFromFamiliesWithDefault = createFromFamiliesWithDefault(newFamily)) != null) {
-                return Typeface.create(createFromFamiliesWithDefault, i2);
+                return Typeface.create(createFromFamiliesWithDefault, i);
             } else {
                 return null;
             }
@@ -273,12 +276,12 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
     @Nullable
-    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i2, String str, int i3) {
+    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
             if (!isFontFamilyPrivateAPIAvailable()) {
-                return super.createFromResourcesFontFile(context, resources, i2, str, i3);
+                return super.createFromResourcesFontFile(context, resources, i, str, i2);
             }
             Object newFamily = newFamily();
             if (newFamily == null) {

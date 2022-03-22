@@ -36,8 +36,8 @@ public class r extends b<List<String>> {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray(b())) != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                String optString = optJSONArray.optString(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
                 if (optString != null && !optString.isEmpty()) {
                     arrayList.add(optString);
                 }

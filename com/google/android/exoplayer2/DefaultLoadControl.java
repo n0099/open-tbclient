@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultLoadControl implements LoadControl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABOVE_HIGH_WATERMARK = 0;
@@ -41,9 +41,9 @@ public final class DefaultLoadControl implements LoadControl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((DefaultAllocator) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,14 +52,14 @@ public final class DefaultLoadControl implements LoadControl {
         }
     }
 
-    private int getBufferTimeState(long j2) {
+    private int getBufferTimeState(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2)) == null) {
-            if (j2 > this.maxBufferUs) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) {
+            if (j > this.maxBufferUs) {
                 return 0;
             }
-            return j2 < this.minBufferUs ? 2 : 1;
+            return j < this.minBufferUs ? 2 : 1;
         }
         return invokeJ.intValue;
     }
@@ -115,9 +115,9 @@ public final class DefaultLoadControl implements LoadControl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, rendererArr, trackGroupArray, trackSelectionArray) == null) {
             this.targetBufferSize = 0;
-            for (int i2 = 0; i2 < rendererArr.length; i2++) {
-                if (trackSelectionArray.get(i2) != null) {
-                    this.targetBufferSize += Util.getDefaultBufferSize(rendererArr[i2].getTrackType());
+            for (int i = 0; i < rendererArr.length; i++) {
+                if (trackSelectionArray.get(i) != null) {
+                    this.targetBufferSize += Util.getDefaultBufferSize(rendererArr[i].getTrackType());
                 }
             }
             this.allocator.setTargetBufferSize(this.targetBufferSize);
@@ -125,11 +125,11 @@ public final class DefaultLoadControl implements LoadControl {
     }
 
     @Override // com.google.android.exoplayer2.LoadControl
-    public boolean shouldContinueLoading(long j2) {
+    public boolean shouldContinueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            int bufferTimeState = getBufferTimeState(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            int bufferTimeState = getBufferTimeState(j);
             boolean z = true;
             boolean z2 = this.allocator.getTotalBytesAllocated() >= this.targetBufferSize;
             boolean z3 = this.isBuffering;
@@ -151,12 +151,12 @@ public final class DefaultLoadControl implements LoadControl {
     }
 
     @Override // com.google.android.exoplayer2.LoadControl
-    public boolean shouldStartPlayback(long j2, boolean z) {
+    public boolean shouldStartPlayback(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            long j3 = z ? this.bufferForPlaybackAfterRebufferUs : this.bufferForPlaybackUs;
-            return j3 <= 0 || j2 >= j3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            long j2 = z ? this.bufferForPlaybackAfterRebufferUs : this.bufferForPlaybackUs;
+            return j2 <= 0 || j >= j2;
         }
         return invokeCommon.booleanValue;
     }
@@ -170,9 +170,9 @@ public final class DefaultLoadControl implements LoadControl {
             newInitContext.initArgs = r2;
             Object[] objArr = {defaultAllocator};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DefaultAllocator) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue());
                 newInitContext.thisArg = this;
@@ -183,17 +183,17 @@ public final class DefaultLoadControl implements LoadControl {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultLoadControl(DefaultAllocator defaultAllocator, int i2, int i3, long j2, long j3) {
-        this(defaultAllocator, i2, i3, j2, j3, null);
+    public DefaultLoadControl(DefaultAllocator defaultAllocator, int i, int i2, long j, long j2) {
+        this(defaultAllocator, i, i2, j, j2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultAllocator, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {defaultAllocator, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DefaultAllocator) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), (PriorityTaskManager) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -203,26 +203,26 @@ public final class DefaultLoadControl implements LoadControl {
         }
     }
 
-    public DefaultLoadControl(DefaultAllocator defaultAllocator, int i2, int i3, long j2, long j3, PriorityTaskManager priorityTaskManager) {
+    public DefaultLoadControl(DefaultAllocator defaultAllocator, int i, int i2, long j, long j2, PriorityTaskManager priorityTaskManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultAllocator, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), priorityTaskManager};
+            Object[] objArr = {defaultAllocator, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), priorityTaskManager};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.allocator = defaultAllocator;
-        this.minBufferUs = i2 * 1000;
-        this.maxBufferUs = i3 * 1000;
-        this.bufferForPlaybackUs = j2 * 1000;
-        this.bufferForPlaybackAfterRebufferUs = j3 * 1000;
+        this.minBufferUs = i * 1000;
+        this.maxBufferUs = i2 * 1000;
+        this.bufferForPlaybackUs = j * 1000;
+        this.bufferForPlaybackAfterRebufferUs = j2 * 1000;
         this.priorityTaskManager = priorityTaskManager;
     }
 }

@@ -6,16 +6,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface NetworkFetcher<FETCH_STATE extends FetchState> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
         void onCancellation();
 
         void onFailure(Throwable th);
 
-        void onResponse(InputStream inputStream, int i2) throws IOException;
+        void onResponse(InputStream inputStream, int i) throws IOException;
     }
 
     FETCH_STATE createFetchState(Consumer<EncodedImage> consumer, ProducerContext producerContext);
@@ -23,9 +23,9 @@ public interface NetworkFetcher<FETCH_STATE extends FetchState> {
     void fetch(FETCH_STATE fetch_state, Callback callback);
 
     @Nullable
-    Map<String, String> getExtraMap(FETCH_STATE fetch_state, int i2);
+    Map<String, String> getExtraMap(FETCH_STATE fetch_state, int i);
 
-    void onFetchCompletion(FETCH_STATE fetch_state, int i2);
+    void onFetchCompletion(FETCH_STATE fetch_state, int i);
 
     boolean shouldPropagate(FETCH_STATE fetch_state);
 }

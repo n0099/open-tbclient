@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,9 +63,9 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,8 +93,8 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         }
         float f6 = b2.x;
         float f7 = b2.y;
-        int i2 = this.mSelectStatus;
-        if (104 == i2 || 103 == i2) {
+        int i = this.mSelectStatus;
+        if (104 == i || 103 == i) {
             float f8 = b2.angle + f5;
             b2.angle = f8;
             b2.angle = f8 % 360.0f;
@@ -108,8 +108,8 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                 this.mChangeMoveProperty = true;
             }
         }
-        int i3 = this.mSelectStatus;
-        if (103 == i3 || 104 == i3) {
+        int i2 = this.mSelectStatus;
+        if (103 == i2 || 104 == i2) {
             float min = Math.min(b2.scaleX, this.mMaxScale);
             b2.scaleX = min;
             b2.scaleX = Math.max(min, this.mMinScale);
@@ -155,7 +155,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
 
     private boolean handleTouchPress(float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             this.mChangeMoveProperty = false;
@@ -178,11 +178,11 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                 }
             } else {
                 if (this.mCurrentItem.c(f2, f3)) {
-                    i2 = 106;
+                    i = 106;
                 } else if (this.mCurrentItem.b(f2, f3)) {
-                    i2 = 104;
+                    i = 104;
                 } else if (this.mCurrentItem.d(f2, f3)) {
-                    i2 = 105;
+                    i = 105;
                 } else {
                     if (this.mCurrentItem.a(f2, f3)) {
                         this.mSelectStatus = 101;
@@ -193,7 +193,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                         this.mSelectStatus = 103;
                     }
                 }
-                this.mSelectStatus = i2;
+                this.mSelectStatus = i;
                 if (this.mCurrentItem != null) {
                     this.mSelectStatus = 103;
                 }
@@ -211,21 +211,21 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                 this.mSelectStatus = 100;
                 return;
             }
-            int i2 = this.mSelectStatus;
-            if (i2 != 106) {
-                if (i2 == 105) {
+            int i = this.mSelectStatus;
+            if (i != 106) {
+                if (i == 105) {
                     OnChangeStickerListener onChangeStickerListener = this.mInnerOnChangeStickerListener;
                     if (onChangeStickerListener != null) {
                         onChangeStickerListener.onEditSticker(this.mCurrentItem.b(), this.mEditTrackType);
                     }
                 } else if (this.mChangeMoveProperty || !this.mCurrentItem.a(f2, f3)) {
-                    int i3 = this.mSelectStatus;
-                    if (i3 == 102) {
+                    int i2 = this.mSelectStatus;
+                    if (i2 == 102) {
                         if (this.mCurrentItem != null && this.mInnerOnChangeStickerListener != null) {
                             this.mCurrentItem = null;
                             this.mInnerOnChangeStickerListener.onClickStickerOutside(this.mEditTrackType);
                         }
-                    } else if (i3 == 107) {
+                    } else if (i2 == 107) {
                         this.mSelectStatus = 101;
                     }
                 } else {
@@ -246,8 +246,8 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i2 = this.mSelectStatus;
-            return 104 == i2 || 107 == i2 || 103 == i2;
+            int i = this.mSelectStatus;
+            return 104 == i || 107 == i || 103 == i;
         }
         return invokeV.booleanValue;
     }
@@ -291,25 +291,25 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     }
 
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || h.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
-            i2 = 0;
+            i = 0;
         } else {
-            i2 = this.mStickerItems.indexOf(aVar);
+            i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
             if (!h.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }
         OnChangeStickerListener onChangeStickerListener = this.mInnerOnChangeStickerListener;
-        if (onChangeStickerListener == null || i2 == -1) {
+        if (onChangeStickerListener == null || i == -1) {
             return;
         }
-        onChangeStickerListener.onDeleteSticker(aVar.b(), i2, str, z);
+        onChangeStickerListener.onDeleteSticker(aVar.b(), i, str, z);
     }
 
     public void deleteStickerData(MultiMediaData multiMediaData, String str) {
@@ -319,7 +319,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
             return;
         }
         a aVar = null;
-        for (int i2 = 0; i2 < this.mStickerItems.size() && ((aVar = this.mStickerItems.get(i2)) == null || (b2 = aVar.b()) == null || !b2.uuid.equals(multiMediaData.uuid)); i2++) {
+        for (int i = 0; i < this.mStickerItems.size() && ((aVar = this.mStickerItems.get(i)) == null || (b2 = aVar.b()) == null || !b2.uuid.equals(multiMediaData.uuid)); i++) {
         }
         if (aVar == null) {
             return;

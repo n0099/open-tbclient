@@ -1,7 +1,6 @@
 package com.baidu.searchbox.http.cookie;
 
 import android.text.TextUtils;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,9 +27,9 @@ public class CookieJarImpl implements CookieJar {
             newInitContext.initArgs = r2;
             Object[] objArr = {cookieManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,8 +47,8 @@ public class CookieJarImpl implements CookieJar {
             }
             StringBuilder sb = new StringBuilder();
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127) {
                     sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                 } else {
@@ -67,11 +66,11 @@ public class CookieJarImpl implements CookieJar {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, httpUrl, str)) == null) {
             ArrayList arrayList = new ArrayList();
             int length = str.length();
-            int i2 = 0;
-            while (i2 < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i2, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, (char) a.f29503h);
-                String trimSubstring = Util.trimSubstring(str, i2, delimiterOffset2);
+            int i = 0;
+            while (i < length) {
+                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
+                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
+                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
                 String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
                 if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {
                     trimSubstring2 = trimSubstring2.substring(1, trimSubstring2.length() - 1);
@@ -81,7 +80,7 @@ public class CookieJarImpl implements CookieJar {
                 if (!TextUtils.isEmpty(encodeIllegalInfo) && this.cookieManager.shouldSendCookie(httpUrl.toString(), encodeIllegalInfo)) {
                     arrayList.add(new Cookie.Builder().name(encodeIllegalInfo).value(encodeIllegalInfo2).domain(httpUrl.host()).build());
                 }
-                i2 = delimiterOffset + 1;
+                i = delimiterOffset + 1;
             }
             return arrayList;
         }

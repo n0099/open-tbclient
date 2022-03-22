@@ -54,9 +54,9 @@ public class BitmapType {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -86,9 +86,9 @@ public class BitmapType {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -132,11 +132,11 @@ public class BitmapType {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, bitmap, ninePatchChunk)) == null) {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap, 1, 1, bitmap.getWidth() - 2, bitmap.getHeight() - 2);
-                    int i2 = resources.getDisplayMetrics().densityDpi;
-                    float density = i2 / bitmap.getDensity();
+                    int i = resources.getDisplayMetrics().densityDpi;
+                    float density = i / bitmap.getDensity();
                     if (density != 1.0f) {
                         Bitmap createScaledBitmap = Bitmap.createScaledBitmap(createBitmap, Math.round(createBitmap.getWidth() * density), Math.round(createBitmap.getHeight() * density), true);
-                        createScaledBitmap.setDensity(i2);
+                        createScaledBitmap.setDensity(i);
                         ninePatchChunk.padding = new Rect(Math.round(ninePatchChunk.padding.left * density), Math.round(ninePatchChunk.padding.top * density), Math.round(ninePatchChunk.padding.right * density), Math.round(ninePatchChunk.padding.bottom * density));
                         recalculateDivs(density, ninePatchChunk.xDivs);
                         recalculateDivs(density, ninePatchChunk.yDivs);
@@ -160,9 +160,9 @@ public class BitmapType {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -192,9 +192,9 @@ public class BitmapType {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -218,16 +218,16 @@ public class BitmapType {
         $VALUES = new BitmapType[]{NinePatch, RawNinePatch, PlainImage, bitmapType};
     }
 
-    public BitmapType(String str, int i2) {
+    public BitmapType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

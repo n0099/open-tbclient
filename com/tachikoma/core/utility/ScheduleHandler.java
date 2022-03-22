@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScheduleHandler extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,38 +17,38 @@ public class ScheduleHandler extends Handler {
     public final Runnable mRunnable;
     public boolean mStopped;
 
-    public ScheduleHandler(long j2, Runnable runnable) {
+    public ScheduleHandler(long j, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), runnable};
+            Object[] objArr = {Long.valueOf(j), runnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mStopped = true;
-        this.mInterval = j2;
+        this.mInterval = j;
         this.mRunnable = runnable;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScheduleHandler(Looper looper, long j2, Runnable runnable) {
+    public ScheduleHandler(Looper looper, long j, Runnable runnable) {
         super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {looper, Long.valueOf(j2), runnable};
+            Object[] objArr = {looper, Long.valueOf(j), runnable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -56,7 +56,7 @@ public class ScheduleHandler extends Handler {
             }
         }
         this.mStopped = true;
-        this.mInterval = j2;
+        this.mInterval = j;
         this.mRunnable = runnable;
     }
 
@@ -67,11 +67,11 @@ public class ScheduleHandler extends Handler {
         }
     }
 
-    public void delayStart(long j2) {
+    public void delayStart(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && this.mStopped) {
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.mStopped) {
             this.mStopped = false;
-            sendEmptyMessageDelayed(0, j2);
+            sendEmptyMessageDelayed(0, j);
         }
     }
 

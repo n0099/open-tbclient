@@ -16,26 +16,26 @@ public final class DecodedNumeric extends DecodedObject {
     public final int secondDigit;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DecodedNumeric(int i2, int i3, int i4) throws FormatException {
-        super(i2);
+    public DecodedNumeric(int i, int i2, int i3) throws FormatException {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i3 >= 0 && i3 <= 10 && i4 >= 0 && i4 <= 10) {
-            this.firstDigit = i3;
-            this.secondDigit = i4;
+        if (i2 >= 0 && i2 <= 10 && i3 >= 0 && i3 <= 10) {
+            this.firstDigit = i2;
+            this.secondDigit = i3;
             return;
         }
         throw FormatException.getFormatInstance();

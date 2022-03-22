@@ -2,6 +2,7 @@ package com.baidu.helios.trusts.zone.verifier;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,34 +49,34 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C1802b implements c {
+    /* loaded from: classes3.dex */
+    public static final class C1756b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
-        public C1802b(ByteBuffer byteBuffer) {
+        public C1756b(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {byteBuffer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,14 +93,14 @@ public class b {
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
-        public void a(MessageDigest[] messageDigestArr, long j2, int i2) throws IOException {
+        public void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException {
             ByteBuffer slice;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j), Integer.valueOf(i)}) == null) {
                 synchronized (this.a) {
-                    int i3 = (int) j2;
-                    this.a.position(i3);
-                    this.a.limit(i3 + i2);
+                    int i2 = (int) j;
+                    this.a.position(i2);
+                    this.a.limit(i2 + i);
                     slice = this.a.slice();
                 }
                 for (MessageDigest messageDigest : messageDigestArr) {
@@ -110,57 +111,57 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         long a();
 
-        void a(MessageDigest[] messageDigestArr, long j2, int i2) throws IOException;
+        void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileChannel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f33226b;
+        public final long f25580b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f33227c;
+        public final long f25581c;
 
-        public d(FileChannel fileChannel, long j2, long j3) {
+        public d(FileChannel fileChannel, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fileChannel, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {fileChannel, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = fileChannel;
-            this.f33226b = j2;
-            this.f33227c = j3;
+            this.f25580b = j;
+            this.f25581c = j2;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33227c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25581c : invokeV.longValue;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
-        public void a(MessageDigest[] messageDigestArr, long j2, int i2) throws IOException {
+        public void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-                MappedByteBuffer map = this.a.map(FileChannel.MapMode.READ_ONLY, this.f33226b + j2, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+                MappedByteBuffer map = this.a.map(FileChannel.MapMode.READ_ONLY, this.f25580b + j, i);
                 for (MessageDigest messageDigest : messageDigestArr) {
                     map.position(0);
                     messageDigest.update(map);
@@ -169,52 +170,52 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f33228b;
+        public final long f25582b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f33229c;
+        public final long f25583c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f33230d;
+        public final long f25584d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ByteBuffer f33231e;
+        public final ByteBuffer f25585e;
 
-        public e(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2) {
+        public e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {byteBuffer, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer2};
+                Object[] objArr = {byteBuffer, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = byteBuffer;
-            this.f33228b = j2;
-            this.f33229c = j3;
-            this.f33230d = j4;
-            this.f33231e = byteBuffer2;
+            this.f25582b = j;
+            this.f25583c = j2;
+            this.f25584d = j3;
+            this.f25585e = byteBuffer2;
         }
 
-        public /* synthetic */ e(ByteBuffer byteBuffer, long j2, long j3, long j4, ByteBuffer byteBuffer2, a aVar) {
-            this(byteBuffer, j2, j3, j4, byteBuffer2);
+        public /* synthetic */ e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2, a aVar) {
+            this(byteBuffer, j, j2, j3, byteBuffer2);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class f extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long a = 1;
@@ -229,9 +230,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -249,9 +250,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -262,13 +263,13 @@ public class b {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f33232b;
+        public byte[] f25586b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(X509Certificate x509Certificate, byte[] bArr) {
@@ -279,27 +280,27 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {x509Certificate, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((X509Certificate) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33232b = bArr;
+            this.f25586b = bArr;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.h, java.security.cert.Certificate
         public byte[] getEncoded() throws CertificateEncodingException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33232b : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25586b : (byte[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class h extends X509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,9 +313,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {x509Certificate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -510,25 +511,25 @@ public class b {
         }
     }
 
-    public static int a(int i2, int i3) {
+    public static int a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) {
-            if (i2 == 1) {
-                if (i3 != 1) {
-                    if (i3 == 2) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
+            if (i == 1) {
+                if (i2 != 1) {
+                    if (i2 == 2) {
                         return -1;
                     }
-                    throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i3);
+                    throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i2);
                 }
                 return 0;
-            } else if (i2 != 2) {
-                throw new IllegalArgumentException("Unknown digestAlgorithm1: " + i2);
-            } else if (i3 != 1) {
-                if (i3 == 2) {
+            } else if (i != 2) {
+                throw new IllegalArgumentException("Unknown digestAlgorithm1: " + i);
+            } else if (i2 != 1) {
+                if (i2 == 2) {
                     return 0;
                 }
-                throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i3);
+                throw new IllegalArgumentException("Unknown digestAlgorithm2: " + i2);
             } else {
                 return 1;
             }
@@ -536,58 +537,58 @@ public class b {
         return invokeII.intValue;
     }
 
-    public static final long b(long j2) {
+    public static final long b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) ? ((j2 + 1048576) - 1) / 1048576 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? ((j + 1048576) - 1) / 1048576 : invokeJ.longValue;
     }
 
-    public static long c(ByteBuffer byteBuffer, long j2) throws f {
+    public static long c(ByteBuffer byteBuffer, long j) throws f {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j2)) == null) {
-            long j3 = c.a.q.l.a.d.a.j(byteBuffer);
-            if (j3 < j2) {
-                if (c.a.q.l.a.d.a.k(byteBuffer) + j3 == j2) {
-                    return j3;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
+            long j2 = c.a.p.l.a.d.a.j(byteBuffer);
+            if (j2 < j) {
+                if (c.a.p.l.a.d.a.k(byteBuffer) + j2 == j) {
+                    return j2;
                 }
                 throw new f("ZIP Central Directory is not immediately followed by End of Central Directory");
             }
-            throw new f("ZIP Central Directory offset out of range: " + j3 + ". ZIP End of Central Directory offset: " + j2);
+            throw new f("ZIP Central Directory offset out of range: " + j2 + ". ZIP End of Central Directory offset: " + j);
         }
         return invokeLJ.longValue;
     }
 
-    public static Pair<ByteBuffer, Long> d(RandomAccessFile randomAccessFile, long j2) throws IOException, f {
+    public static Pair<ByteBuffer, Long> d(RandomAccessFile randomAccessFile, long j) throws IOException, f {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, randomAccessFile, j2)) == null) {
-            if (j2 < 32) {
-                throw new f("APK too small for APK Signing Block. ZIP Central Directory offset: " + j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, randomAccessFile, j)) == null) {
+            if (j < 32) {
+                throw new f("APK too small for APK Signing Block. ZIP Central Directory offset: " + j);
             }
             ByteBuffer allocate = ByteBuffer.allocate(24);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
-            randomAccessFile.seek(j2 - allocate.capacity());
+            randomAccessFile.seek(j - allocate.capacity());
             randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
             if (allocate.getLong(8) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_LO && allocate.getLong(16) == ApkSignatureSchemeV2Verifier.APK_SIG_BLOCK_MAGIC_HI) {
-                long j3 = allocate.getLong(0);
-                if (j3 < allocate.capacity() || j3 > 2147483639) {
-                    throw new f("APK Signing Block size out of range: " + j3);
+                long j2 = allocate.getLong(0);
+                if (j2 < allocate.capacity() || j2 > 2147483639) {
+                    throw new f("APK Signing Block size out of range: " + j2);
                 }
-                int i2 = (int) (8 + j3);
-                long j4 = j2 - i2;
-                if (j4 < 0) {
-                    throw new f("APK Signing Block offset out of range: " + j4);
+                int i = (int) (8 + j2);
+                long j3 = j - i;
+                if (j3 < 0) {
+                    throw new f("APK Signing Block offset out of range: " + j3);
                 }
-                ByteBuffer allocate2 = ByteBuffer.allocate(i2);
+                ByteBuffer allocate2 = ByteBuffer.allocate(i);
                 allocate2.order(ByteOrder.LITTLE_ENDIAN);
-                randomAccessFile.seek(j4);
+                randomAccessFile.seek(j3);
                 randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                long j5 = allocate2.getLong(0);
-                if (j5 == j3) {
-                    return Pair.create(allocate2, Long.valueOf(j4));
+                long j4 = allocate2.getLong(0);
+                if (j4 == j2) {
+                    return Pair.create(allocate2, Long.valueOf(j3));
                 }
-                throw new f("APK Signing Block sizes in header and footer do not match: " + j5 + " vs " + j3);
+                throw new f("APK Signing Block sizes in header and footer do not match: " + j4 + " vs " + j2);
             }
             throw new f("No APK Signing Block before ZIP Central Directory");
         }
@@ -601,7 +602,7 @@ public class b {
             Pair<ByteBuffer, Long> q = q(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) q.first;
             long longValue = ((Long) q.second).longValue();
-            if (c.a.q.l.a.d.a.g(randomAccessFile, longValue)) {
+            if (c.a.p.l.a.d.a.g(randomAccessFile, longValue)) {
                 throw new f("ZIP64 APK not supported");
             }
             long c2 = c(byteBuffer, longValue);
@@ -611,39 +612,39 @@ public class b {
         return (e) invokeL.objValue;
     }
 
-    public static String f(int i2) {
+    public static String f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 == 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 1) {
+                if (i == 2) {
                     return "SHA-512";
                 }
-                throw new IllegalArgumentException("Unknown content digest algorthm: " + i2);
+                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
             }
             return "SHA-256";
         }
         return (String) invokeI.objValue;
     }
 
-    public static ByteBuffer g(ByteBuffer byteBuffer, int i2) throws BufferUnderflowException {
+    public static ByteBuffer g(ByteBuffer byteBuffer, int i) throws BufferUnderflowException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, byteBuffer, i2)) == null) {
-            if (i2 < 0) {
-                throw new IllegalArgumentException("size: " + i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, byteBuffer, i)) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("size: " + i);
             }
             int limit = byteBuffer.limit();
             int position = byteBuffer.position();
-            int i3 = i2 + position;
-            if (i3 < position || i3 > limit) {
+            int i2 = i + position;
+            if (i2 < position || i2 > limit) {
                 throw new BufferUnderflowException();
             }
-            byteBuffer.limit(i3);
+            byteBuffer.limit(i2);
             try {
                 ByteBuffer slice = byteBuffer.slice();
                 slice.order(byteBuffer.order());
-                byteBuffer.position(i3);
+                byteBuffer.position(i2);
                 return slice;
             } finally {
                 byteBuffer.limit(limit);
@@ -652,25 +653,25 @@ public class b {
         return (ByteBuffer) invokeLI.objValue;
     }
 
-    public static ByteBuffer h(ByteBuffer byteBuffer, int i2, int i3) {
+    public static ByteBuffer h(ByteBuffer byteBuffer, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, byteBuffer, i2, i3)) == null) {
-            if (i2 < 0) {
-                throw new IllegalArgumentException("start: " + i2);
-            } else if (i3 < i2) {
-                throw new IllegalArgumentException("end < start: " + i3 + " < " + i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, byteBuffer, i, i2)) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("start: " + i);
+            } else if (i2 < i) {
+                throw new IllegalArgumentException("end < start: " + i2 + " < " + i);
             } else {
                 int capacity = byteBuffer.capacity();
-                if (i3 > byteBuffer.capacity()) {
-                    throw new IllegalArgumentException("end > capacity: " + i3 + " > " + capacity);
+                if (i2 > byteBuffer.capacity()) {
+                    throw new IllegalArgumentException("end > capacity: " + i2 + " > " + capacity);
                 }
                 int limit = byteBuffer.limit();
                 int position = byteBuffer.position();
                 try {
                     byteBuffer.position(0);
-                    byteBuffer.limit(i3);
-                    byteBuffer.position(i2);
+                    byteBuffer.limit(i2);
+                    byteBuffer.position(i);
                     ByteBuffer slice = byteBuffer.slice();
                     slice.order(byteBuffer.order());
                     return slice;
@@ -684,13 +685,13 @@ public class b {
         return (ByteBuffer) invokeLII.objValue;
     }
 
-    public static void i(int i2, byte[] bArr, int i3) {
+    public static void i(int i, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3)}) == null) {
-            bArr[i3] = (byte) (i2 & 255);
-            bArr[i3 + 1] = (byte) ((i2 >>> 8) & 255);
-            bArr[i3 + 2] = (byte) ((i2 >>> 16) & 255);
-            bArr[i3 + 3] = (byte) ((i2 >>> 24) & 255);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)}) == null) {
+            bArr[i2] = (byte) (i & 255);
+            bArr[i2 + 1] = (byte) ((i >>> 8) & 255);
+            bArr[i2 + 2] = (byte) ((i >>> 16) & 255);
+            bArr[i2 + 3] = (byte) ((i >>> 24) & 255);
         }
     }
 
@@ -701,30 +702,30 @@ public class b {
         }
     }
 
-    public static void k(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j2, long j3, long j4, ByteBuffer byteBuffer) throws SecurityException {
-        c c1802b;
-        c c1802b2;
+    public static void k(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
+        c c1756b;
+        c c1756b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), byteBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer}) == null) {
             if (map.isEmpty()) {
                 throw new SecurityException("No digests provided");
             }
-            if (j2 > 1048576) {
-                c1802b = new d(randomAccessFile.getChannel(), 0L, j2);
-                c1802b2 = new d(randomAccessFile.getChannel(), j3, j4 - j3);
+            if (j > 1048576) {
+                c1756b = new d(randomAccessFile.getChannel(), 0L, j);
+                c1756b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
             } else {
-                ByteBuffer allocate = ByteBuffer.allocate((int) j2);
+                ByteBuffer allocate = ByteBuffer.allocate((int) j);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(0L);
                     randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                    c1802b = new C1802b(allocate);
-                    ByteBuffer allocate2 = ByteBuffer.allocate((int) (j4 - j3));
+                    c1756b = new C1756b(allocate);
+                    ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                     allocate2.order(ByteOrder.LITTLE_ENDIAN);
                     try {
-                        randomAccessFile.seek(j3);
+                        randomAccessFile.seek(j2);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        c1802b2 = new C1802b(allocate2);
+                        c1756b2 = new C1756b(allocate2);
                     } catch (IOException e2) {
                         throw new SecurityException("Failed to get apk contents", e2);
                     }
@@ -734,21 +735,21 @@ public class b {
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            c.a.q.l.a.d.a.f(duplicate, j2);
-            C1802b c1802b3 = new C1802b(duplicate);
+            c.a.p.l.a.d.a.f(duplicate, j);
+            C1756b c1756b3 = new C1756b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
-            int i2 = 0;
+            int i = 0;
             for (Integer num : map.keySet()) {
-                iArr[i2] = num.intValue();
-                i2++;
+                iArr[i] = num.intValue();
+                i++;
             }
             try {
-                byte[][] m = m(iArr, new c[]{c1802b, c1802b2, c1802b3});
-                for (int i3 = 0; i3 < size; i3++) {
-                    int i4 = iArr[i3];
-                    if (!MessageDigest.isEqual(map.get(Integer.valueOf(i4)), m[i3])) {
-                        throw new SecurityException(f(i4) + " digest of contents did not verify");
+                byte[][] m = m(iArr, new c[]{c1756b, c1756b2, c1756b3});
+                for (int i2 = 0; i2 < size; i2++) {
+                    int i3 = iArr[i2];
+                    if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), m[i2])) {
+                        throw new SecurityException(f(i3) + " digest of contents did not verify");
                     }
                 }
             } catch (DigestException e4) {
@@ -768,33 +769,33 @@ public class b {
             ArrayList arrayList = new ArrayList();
             byte[] bArr = null;
             byte[] bArr2 = null;
-            int i2 = -1;
-            int i3 = 0;
+            int i = -1;
+            int i2 = 0;
             while (u2.hasRemaining()) {
-                i3++;
+                i2++;
                 try {
                     ByteBuffer u3 = u(u2);
                     if (u3.remaining() < 8) {
                         throw new SecurityException("Signature record too short");
                     }
-                    int i4 = u3.getInt();
-                    arrayList.add(Integer.valueOf(i4));
-                    if (z(i4) && (i2 == -1 || p(i4, i2) > 0)) {
+                    int i3 = u3.getInt();
+                    arrayList.add(Integer.valueOf(i3));
+                    if (z(i3) && (i == -1 || p(i3, i) > 0)) {
                         bArr2 = x(u3);
-                        i2 = i4;
+                        i = i3;
                     }
                 } catch (IOException | BufferUnderflowException e2) {
-                    throw new SecurityException("Failed to parse signature record #" + i3, e2);
+                    throw new SecurityException("Failed to parse signature record #" + i2, e2);
                 }
             }
-            if (i2 == -1) {
-                if (i3 == 0) {
+            if (i == -1) {
+                if (i2 == 0) {
                     throw new SecurityException("No signatures found");
                 }
                 throw new SecurityException("No supported signatures found");
             }
-            String w = w(i2);
-            Pair<String, ? extends AlgorithmParameterSpec> y = y(i2);
+            String w = w(i);
+            Pair<String, ? extends AlgorithmParameterSpec> y = y(i);
             String str = (String) y.first;
             AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) y.second;
             try {
@@ -811,38 +812,38 @@ public class b {
                 u.clear();
                 ByteBuffer u4 = u(u);
                 ArrayList arrayList2 = new ArrayList();
-                int i5 = 0;
+                int i4 = 0;
                 while (u4.hasRemaining()) {
-                    i5++;
+                    i4++;
                     try {
                         ByteBuffer u5 = u(u4);
                         if (u5.remaining() < 8) {
                             throw new IOException("Record too short");
                         }
-                        int i6 = u5.getInt();
-                        arrayList2.add(Integer.valueOf(i6));
-                        if (i6 == i2) {
+                        int i5 = u5.getInt();
+                        arrayList2.add(Integer.valueOf(i5));
+                        if (i5 == i) {
                             bArr = x(u5);
                         }
                     } catch (IOException | BufferUnderflowException e3) {
-                        throw new IOException("Failed to parse digest record #" + i5, e3);
+                        throw new IOException("Failed to parse digest record #" + i4, e3);
                     }
                 }
                 if (arrayList.equals(arrayList2)) {
-                    byte[] put = map.put(Integer.valueOf(t(i2)), bArr);
+                    byte[] put = map.put(Integer.valueOf(t(i)), bArr);
                     if (put != null && !MessageDigest.isEqual(put, bArr)) {
                         throw new SecurityException(f(t) + " contents digest does not match the digest specified by a preceding signer");
                     }
                     ByteBuffer u6 = u(u);
                     ArrayList arrayList3 = new ArrayList();
-                    int i7 = 0;
+                    int i6 = 0;
                     while (u6.hasRemaining()) {
-                        i7++;
+                        i6++;
                         byte[] x2 = x(u6);
                         try {
                             arrayList3.add(new g((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(x2)), x2));
                         } catch (CertificateException e4) {
-                            throw new SecurityException("Failed to decode certificate #" + i7, e4);
+                            throw new SecurityException("Failed to decode certificate #" + i6, e4);
                         }
                     }
                     if (arrayList3.isEmpty()) {
@@ -867,92 +868,92 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, iArr, cVarArr)) == null) {
             c[] cVarArr2 = cVarArr;
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
             for (c cVar : cVarArr2) {
-                j3 += b(cVar.a());
+                j2 += b(cVar.a());
             }
-            if (j3 >= 2097151) {
-                throw new DigestException("Too many chunks: " + j3);
+            if (j2 >= 2097151) {
+                throw new DigestException("Too many chunks: " + j2);
             }
-            int i2 = (int) j3;
+            int i = (int) j2;
             byte[][] bArr = new byte[iArr.length];
-            for (int i3 = 0; i3 < iArr.length; i3++) {
-                byte[] bArr2 = new byte[(o(iArr[i3]) * i2) + 5];
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                byte[] bArr2 = new byte[(o(iArr[i2]) * i) + 5];
                 bArr2[0] = 90;
-                i(i2, bArr2, 1);
-                bArr[i3] = bArr2;
+                i(i, bArr2, 1);
+                bArr[i2] = bArr2;
             }
             byte[] bArr3 = new byte[5];
             bArr3[0] = -91;
             int length = iArr.length;
             MessageDigest[] messageDigestArr = new MessageDigest[length];
-            for (int i4 = 0; i4 < iArr.length; i4++) {
-                String f2 = f(iArr[i4]);
+            for (int i3 = 0; i3 < iArr.length; i3++) {
+                String f2 = f(iArr[i3]);
                 try {
-                    messageDigestArr[i4] = MessageDigest.getInstance(f2);
+                    messageDigestArr[i3] = MessageDigest.getInstance(f2);
                 } catch (NoSuchAlgorithmException e2) {
                     throw new RuntimeException(f2 + " digest not supported", e2);
                 }
             }
             int length2 = cVarArr2.length;
+            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            int i7 = 0;
-            while (i5 < length2) {
-                c cVar2 = cVarArr2[i5];
-                int i8 = length2;
-                int i9 = i5;
+            while (i4 < length2) {
+                c cVar2 = cVarArr2[i4];
+                int i7 = length2;
+                int i8 = i4;
                 long a2 = cVar2.a();
-                long j4 = j2;
-                while (a2 > j2) {
+                long j3 = j;
+                while (a2 > j) {
                     int min = (int) Math.min(a2, 1048576L);
                     i(min, bArr3, 1);
-                    for (int i10 = 0; i10 < length; i10++) {
-                        messageDigestArr[i10].update(bArr3);
+                    for (int i9 = 0; i9 < length; i9++) {
+                        messageDigestArr[i9].update(bArr3);
                     }
                     try {
-                        cVar2.a(messageDigestArr, j4, min);
-                        int i11 = 0;
-                        while (i11 < iArr.length) {
-                            int i12 = iArr[i11];
+                        cVar2.a(messageDigestArr, j3, min);
+                        int i10 = 0;
+                        while (i10 < iArr.length) {
+                            int i11 = iArr[i10];
                             byte[] bArr4 = bArr3;
-                            byte[] bArr5 = bArr[i11];
-                            int o = o(i12);
+                            byte[] bArr5 = bArr[i10];
+                            int o = o(i11);
                             c cVar3 = cVar2;
-                            int i13 = length;
-                            int digest = messageDigestArr[i11].digest(bArr5, (i6 * o) + 5, o);
+                            int i12 = length;
+                            int digest = messageDigestArr[i10].digest(bArr5, (i5 * o) + 5, o);
                             if (digest != o) {
                                 throw new RuntimeException("Unexpected output size of " + messageDigest.getAlgorithm() + " digest: " + digest);
                             }
-                            i11++;
+                            i10++;
                             bArr3 = bArr4;
                             cVar2 = cVar3;
-                            length = i13;
+                            length = i12;
                         }
-                        long j5 = min;
-                        j4 += j5;
-                        a2 -= j5;
-                        i6++;
+                        long j4 = min;
+                        j3 += j4;
+                        a2 -= j4;
+                        i5++;
                         bArr3 = bArr3;
-                        j2 = 0;
+                        j = 0;
                     } catch (IOException e3) {
-                        throw new DigestException("Failed to digest chunk #" + i6 + " of section #" + i7, e3);
+                        throw new DigestException("Failed to digest chunk #" + i5 + " of section #" + i6, e3);
                     }
                 }
-                i7++;
-                i5 = i9 + 1;
+                i6++;
+                i4 = i8 + 1;
                 cVarArr2 = cVarArr;
-                length2 = i8;
-                j2 = 0;
+                length2 = i7;
+                j = 0;
             }
             byte[][] bArr6 = new byte[iArr.length];
-            for (int i14 = 0; i14 < iArr.length; i14++) {
-                int i15 = iArr[i14];
-                byte[] bArr7 = bArr[i14];
-                String f3 = f(i15);
+            for (int i13 = 0; i13 < iArr.length; i13++) {
+                int i14 = iArr[i13];
+                byte[] bArr7 = bArr[i13];
+                String f3 = f(i14);
                 try {
-                    bArr6[i14] = MessageDigest.getInstance(f3).digest(bArr7);
+                    bArr6[i13] = MessageDigest.getInstance(f3).digest(bArr7);
                 } catch (NoSuchAlgorithmException e4) {
                     throw new RuntimeException(f3 + " digest not supported", e4);
                 }
@@ -972,20 +973,20 @@ public class b {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
                     ByteBuffer u = u(eVar.a);
-                    int i2 = 0;
+                    int i = 0;
                     while (u.hasRemaining()) {
-                        i2++;
+                        i++;
                         try {
                             arrayList.add(l(u(u), hashMap, certificateFactory));
                         } catch (IOException | SecurityException | BufferUnderflowException e2) {
-                            throw new SecurityException("Failed to parse/verify signer #" + i2 + " block", e2);
+                            throw new SecurityException("Failed to parse/verify signer #" + i + " block", e2);
                         }
                     }
-                    if (i2 >= 1) {
+                    if (i >= 1) {
                         if (hashMap.isEmpty()) {
                             throw new SecurityException("No content digests found");
                         }
-                        k(hashMap, randomAccessFile, fileDescriptor, eVar.f33228b, eVar.f33229c, eVar.f33230d, eVar.f33231e);
+                        k(hashMap, randomAccessFile, fileDescriptor, eVar.f25582b, eVar.f25583c, eVar.f25584d, eVar.f25585e);
                         return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
                     }
                     throw new SecurityException("No signers found");
@@ -999,32 +1000,32 @@ public class b {
         return (X509Certificate[][]) invokeLLL.objValue;
     }
 
-    public static int o(int i2) {
+    public static int o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 == 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
+            if (i != 1) {
+                if (i == 2) {
                     return 64;
                 }
-                throw new IllegalArgumentException("Unknown content digest algorthm: " + i2);
+                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
             }
             return 32;
         }
         return invokeI.intValue;
     }
 
-    public static int p(int i2, int i3) {
+    public static int p(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65551, null, i2, i3)) == null) ? a(t(i2), t(i3)) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65551, null, i, i2)) == null) ? a(t(i), t(i2)) : invokeII.intValue;
     }
 
     public static Pair<ByteBuffer, Long> q(RandomAccessFile randomAccessFile) throws IOException, f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> b2 = c.a.q.l.a.d.a.b(randomAccessFile);
+            Pair<ByteBuffer, Long> b2 = c.a.p.l.a.d.a.b(randomAccessFile);
             if (b2 != null) {
                 return b2;
             }
@@ -1039,22 +1040,22 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
             j(byteBuffer);
             ByteBuffer h2 = h(byteBuffer, 8, byteBuffer.capacity() - 24);
-            int i2 = 0;
+            int i = 0;
             while (h2.hasRemaining()) {
-                i2++;
+                i++;
                 if (h2.remaining() < 8) {
-                    throw new f("Insufficient data to read size of APK Signing Block entry #" + i2);
+                    throw new f("Insufficient data to read size of APK Signing Block entry #" + i);
                 }
-                long j2 = h2.getLong();
-                if (j2 < 4 || j2 > 2147483647L) {
-                    throw new f("APK Signing Block entry #" + i2 + " size out of range: " + j2);
+                long j = h2.getLong();
+                if (j < 4 || j > 2147483647L) {
+                    throw new f("APK Signing Block entry #" + i + " size out of range: " + j);
                 }
-                int i3 = (int) j2;
-                int position = h2.position() + i3;
-                if (i3 > h2.remaining()) {
-                    throw new f("APK Signing Block entry #" + i2 + " size out of range: " + i3 + ", available: " + h2.remaining());
+                int i2 = (int) j;
+                int position = h2.position() + i2;
+                if (i2 > h2.remaining()) {
+                    throw new f("APK Signing Block entry #" + i + " size out of range: " + i2 + ", available: " + h2.remaining());
                 } else if (h2.getInt() == 1896449818) {
-                    return g(h2, i3 - 4);
+                    return g(h2, i2 - 4);
                 } else {
                     h2.position(position);
                 }
@@ -1072,28 +1073,28 @@ public class b {
             try {
                 return v(randomAccessFile);
             } finally {
-                c.a.q.h.c.a.c.c(randomAccessFile);
+                c.a.p.h.c.a.c.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;
     }
 
-    public static int t(int i2) {
+    public static int t(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) {
-            if (i2 != 513) {
-                if (i2 != 514) {
-                    if (i2 != 769) {
-                        switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
+            if (i != 513) {
+                if (i != 514) {
+                    if (i != 769) {
+                        switch (i) {
                             case 257:
-                            case 259:
+                            case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                                 return 1;
-                            case 258:
+                            case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                             case 260:
                                 return 2;
                             default:
-                                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i2 & (-1)));
+                                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                         }
                     }
                     return 1;
@@ -1112,12 +1113,12 @@ public class b {
             if (byteBuffer.remaining() < 4) {
                 throw new IOException("Remaining buffer too short to contain length of length-prefixed field. Remaining: " + byteBuffer.remaining());
             }
-            int i2 = byteBuffer.getInt();
-            if (i2 >= 0) {
-                if (i2 <= byteBuffer.remaining()) {
-                    return g(byteBuffer, i2);
+            int i = byteBuffer.getInt();
+            if (i >= 0) {
+                if (i <= byteBuffer.remaining()) {
+                    return g(byteBuffer, i);
                 }
-                throw new IOException("Length-prefixed field longer than remaining buffer. Field length: " + i2 + ", remaining: " + byteBuffer.remaining());
+                throw new IOException("Length-prefixed field longer than remaining buffer. Field length: " + i + ", remaining: " + byteBuffer.remaining());
             }
             throw new IllegalArgumentException("Negative length");
         }
@@ -1130,22 +1131,22 @@ public class b {
         return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, randomAccessFile)) == null) ? n(randomAccessFile, randomAccessFile.getFD(), e(randomAccessFile)) : (X509Certificate[][]) invokeL.objValue;
     }
 
-    public static String w(int i2) {
+    public static String w(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i2)) == null) {
-            if (i2 == 513 || i2 == 514) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            if (i == 513 || i == 514) {
                 return "EC";
             }
-            if (i2 != 769) {
-                switch (i2) {
+            if (i != 769) {
+                switch (i) {
                     case 257:
-                    case 258:
-                    case 259:
+                    case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
+                    case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                     case 260:
-                        return "RSA";
+                        return RSAUtil.ALGORITHM_RSA;
                     default:
-                        throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i2 & (-1)));
+                        throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                 }
             }
             return "DSA";
@@ -1157,38 +1158,38 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, byteBuffer)) == null) {
-            int i2 = byteBuffer.getInt();
-            if (i2 >= 0) {
-                if (i2 <= byteBuffer.remaining()) {
-                    byte[] bArr = new byte[i2];
+            int i = byteBuffer.getInt();
+            if (i >= 0) {
+                if (i <= byteBuffer.remaining()) {
+                    byte[] bArr = new byte[i];
                     byteBuffer.get(bArr);
                     return bArr;
                 }
-                throw new IOException("Underflow while reading length-prefixed value. Length: " + i2 + ", available: " + byteBuffer.remaining());
+                throw new IOException("Underflow while reading length-prefixed value. Length: " + i + ", available: " + byteBuffer.remaining());
             }
             throw new IOException("Negative length");
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static Pair<String, ? extends AlgorithmParameterSpec> y(int i2) {
+    public static Pair<String, ? extends AlgorithmParameterSpec> y(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            if (i2 != 513) {
-                if (i2 != 514) {
-                    if (i2 != 769) {
-                        switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
+            if (i != 513) {
+                if (i != 514) {
+                    if (i != 769) {
+                        switch (i) {
                             case 257:
                                 return Pair.create("SHA256withRSA/PSS", new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));
-                            case 258:
+                            case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                                 return Pair.create("SHA512withRSA/PSS", new PSSParameterSpec("SHA-512", "MGF1", MGF1ParameterSpec.SHA512, 64, 1));
-                            case 259:
+                            case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                                 return Pair.create("SHA256withRSA", null);
                             case 260:
                                 return Pair.create("SHA512withRSA", null);
                             default:
-                                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i2 & (-1)));
+                                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                         }
                     }
                     return Pair.create("SHA256withDSA", null);
@@ -1200,17 +1201,17 @@ public class b {
         return (Pair) invokeI.objValue;
     }
 
-    public static boolean z(int i2) {
+    public static boolean z(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65561, null, i2)) == null) {
-            if (i2 == 513 || i2 == 514 || i2 == 769) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65561, null, i)) == null) {
+            if (i == 513 || i == 514 || i == 769) {
                 return true;
             }
-            switch (i2) {
+            switch (i) {
                 case 257:
-                case 258:
-                case 259:
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
+                case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                 case 260:
                     return true;
                 default:

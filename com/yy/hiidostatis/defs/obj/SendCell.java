@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SendCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "*&Hjkfa{{07";
@@ -28,17 +29,17 @@ public class SendCell {
     public long timestamp;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SendCell(String str, long j2) {
-        this(0L, str, j2, 0, System.currentTimeMillis());
+    public SendCell(String str, long j) {
+        this(0L, str, j, 0, System.currentTimeMillis());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2)};
+            Object[] objArr = {str, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), (String) objArr2[1], ((Long) objArr2[2]).longValue(), ((Integer) objArr2[3]).intValue(), ((Long) objArr2[4]).longValue());
                 newInitContext.thisArg = this;
@@ -66,8 +67,8 @@ public class SendCell {
             try {
                 byte[] readInputStream = Util.readInputStream(fileInputStream);
                 long parseId = parseId(file.getName());
-                long j2 = NumberUtil.getLong(readInputStream, 0);
-                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), "utf-8").trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j2);
+                long j = NumberUtil.getLong(readInputStream, 0);
+                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), IMAudioTransRequest.CHARSET).trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
                 try {
                     fileInputStream.close();
                 } catch (IOException e2) {
@@ -175,9 +176,9 @@ public class SendCell {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.retry + 1;
-            this.retry = i2;
-            return i2;
+            int i = this.retry + 1;
+            this.retry = i;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -194,7 +195,7 @@ public class SendCell {
         }
         FileOutputStream fileOutputStream = null;
         try {
-            byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes("utf-8"));
+            byte[] encrypt = new AesCipher((randomFile.getName() + AES_KEY).getBytes()).encrypt(this.content.getBytes(IMAudioTransRequest.CHARSET));
             FileOutputStream fileOutputStream2 = new FileOutputStream(randomFile);
             try {
                 fileOutputStream2.write(NumberUtil.getBytes(this.timestamp));
@@ -239,25 +240,25 @@ public class SendCell {
         }
     }
 
-    public SendCell(long j2, String str, long j3, int i2, long j4) {
+    public SendCell(long j, String str, long j2, int i, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.content = str;
-        this.retry = i2;
-        this.expire = j3;
-        this.timestamp = j4;
-        this.id = j2 == 0 ? createId() : j2;
+        this.retry = i;
+        this.expire = j2;
+        this.timestamp = j3;
+        this.id = j == 0 ? createId() : j;
     }
 }

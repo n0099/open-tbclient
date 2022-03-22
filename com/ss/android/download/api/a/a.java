@@ -11,10 +11,10 @@ import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.k;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.model.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements k {
     @Override // com.ss.android.download.api.config.k
-    public void a(int i2, @Nullable Context context, DownloadModel downloadModel, String str, Drawable drawable, int i3) {
+    public void a(int i, @Nullable Context context, DownloadModel downloadModel, String str, Drawable drawable, int i2) {
         Toast.makeText(context, str, 0).show();
     }
 
@@ -27,34 +27,34 @@ public class a implements k {
         if (bVar == null) {
             return null;
         }
-        AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.f57886b).setMessage(bVar.f57887c).setPositiveButton(bVar.f57888d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
+        AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.f42649b).setMessage(bVar.f42650c).setPositiveButton(bVar.f42651d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
-                b.InterfaceC2174b interfaceC2174b = com.ss.android.download.api.model.b.this.f57892h;
-                if (interfaceC2174b != null) {
-                    interfaceC2174b.a(dialogInterface);
+            public void onClick(DialogInterface dialogInterface, int i) {
+                b.InterfaceC2035b interfaceC2035b = com.ss.android.download.api.model.b.this.f42655h;
+                if (interfaceC2035b != null) {
+                    interfaceC2035b.a(dialogInterface);
                 }
             }
-        }).setNegativeButton(bVar.f57889e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
+        }).setNegativeButton(bVar.f42652e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i2) {
-                b.InterfaceC2174b interfaceC2174b = com.ss.android.download.api.model.b.this.f57892h;
-                if (interfaceC2174b != null) {
-                    interfaceC2174b.b(dialogInterface);
+            public void onClick(DialogInterface dialogInterface, int i) {
+                b.InterfaceC2035b interfaceC2035b = com.ss.android.download.api.model.b.this.f42655h;
+                if (interfaceC2035b != null) {
+                    interfaceC2035b.b(dialogInterface);
                 }
             }
         }).show();
-        show.setCanceledOnTouchOutside(bVar.f57890f);
+        show.setCanceledOnTouchOutside(bVar.f42653f);
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.download.api.a.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                b.InterfaceC2174b interfaceC2174b = com.ss.android.download.api.model.b.this.f57892h;
-                if (interfaceC2174b != null) {
-                    interfaceC2174b.c(dialogInterface);
+                b.InterfaceC2035b interfaceC2035b = com.ss.android.download.api.model.b.this.f42655h;
+                if (interfaceC2035b != null) {
+                    interfaceC2035b.c(dialogInterface);
                 }
             }
         });
-        Drawable drawable = bVar.f57891g;
+        Drawable drawable = bVar.f42654g;
         if (drawable != null) {
             show.setIcon(drawable);
         }

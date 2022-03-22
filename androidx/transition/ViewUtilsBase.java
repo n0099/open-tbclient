@@ -2,6 +2,7 @@ package androidx.transition;
 
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.annotation.NonNull;
@@ -33,9 +34,9 @@ public class ViewUtilsBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,7 +53,8 @@ public class ViewUtilsBase {
             Method declaredMethod = View.class.getDeclaredMethod("setFrame", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             sSetFrameMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException unused) {
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve setFrame method", e2);
         }
         sSetFrameFetched = true;
     }
@@ -120,14 +122,14 @@ public class ViewUtilsBase {
         }
     }
 
-    public void setLeftTopRightBottom(@NonNull View view, int i2, int i3, int i4, int i5) {
+    public void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             fetchSetFrame();
             Method method = sSetFrameMethod;
             if (method != null) {
                 try {
-                    method.invoke(view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
+                    method.invoke(view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
                 } catch (IllegalAccessException unused) {
                 } catch (InvocationTargetException e2) {
                     throw new RuntimeException(e2.getCause());
@@ -148,22 +150,23 @@ public class ViewUtilsBase {
         }
     }
 
-    public void setTransitionVisibility(@NonNull View view, int i2) {
+    public void setTransitionVisibility(@NonNull View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, view, i) == null) {
             if (!sViewFlagsFieldFetched) {
                 try {
                     Field declaredField = View.class.getDeclaredField("mViewFlags");
                     sViewFlagsField = declaredField;
                     declaredField.setAccessible(true);
                 } catch (NoSuchFieldException unused) {
+                    Log.i(TAG, "fetchViewFlagsField: ");
                 }
                 sViewFlagsFieldFetched = true;
             }
             Field field = sViewFlagsField;
             if (field != null) {
                 try {
-                    sViewFlagsField.setInt(view, i2 | (field.getInt(view) & (-13)));
+                    sViewFlagsField.setInt(view, i | (field.getInt(view) & (-13)));
                 } catch (IllegalAccessException unused2) {
                 }
             }

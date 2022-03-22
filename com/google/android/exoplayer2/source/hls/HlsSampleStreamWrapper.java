@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loader.ReleaseCallback, SequenceableLoader, ExtractorOutput, SampleQueue.UpstreamFormatChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIMARY_TYPE_AUDIO = 2;
@@ -72,34 +72,34 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
     public TrackGroupArray trackGroups;
     public final int trackType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback extends SequenceableLoader.Callback<HlsSampleStreamWrapper> {
         void onPlaylistRefreshRequired(HlsMasterPlaylist.HlsUrl hlsUrl);
 
         void onPrepared();
     }
 
-    public HlsSampleStreamWrapper(int i2, Callback callback, HlsChunkSource hlsChunkSource, Allocator allocator, long j2, Format format, int i3, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher) {
+    public HlsSampleStreamWrapper(int i, Callback callback, HlsChunkSource hlsChunkSource, Allocator allocator, long j, Format format, int i2, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), callback, hlsChunkSource, allocator, Long.valueOf(j2), format, Integer.valueOf(i3), eventDispatcher};
+            Object[] objArr = {Integer.valueOf(i), callback, hlsChunkSource, allocator, Long.valueOf(j), format, Integer.valueOf(i2), eventDispatcher};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.trackType = i2;
+        this.trackType = i;
         this.callback = callback;
         this.chunkSource = hlsChunkSource;
         this.allocator = allocator;
         this.muxedAudioFormat = format;
-        this.minLoadableRetryCount = i3;
+        this.minLoadableRetryCount = i2;
         this.eventDispatcher = eventDispatcher;
         this.loader = new Loader("Loader:HlsSampleStreamWrapper");
         this.nextChunkHolder = new HlsChunkSource.HlsChunkHolder();
@@ -118,9 +118,9 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -138,23 +138,23 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
             }
         };
         this.handler = new Handler();
-        this.lastSeekPositionUs = j2;
-        this.pendingResetPositionUs = j2;
+        this.lastSeekPositionUs = j;
+        this.pendingResetPositionUs = j;
     }
 
     private void buildTracks() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             int length = this.sampleQueues.length;
-            int i2 = 0;
+            int i = 0;
             char c2 = 0;
-            int i3 = -1;
+            int i2 = -1;
             while (true) {
                 char c3 = 3;
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
                 }
-                String str = this.sampleQueues[i2].getUpstreamFormat().sampleMimeType;
+                String str = this.sampleQueues[i].getUpstreamFormat().sampleMimeType;
                 if (!MimeTypes.isVideo(str)) {
                     if (MimeTypes.isAudio(str)) {
                         c3 = 2;
@@ -163,34 +163,34 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                     }
                 }
                 if (c3 > c2) {
-                    i3 = i2;
+                    i2 = i;
                     c2 = c3;
-                } else if (c3 == c2 && i3 != -1) {
-                    i3 = -1;
+                } else if (c3 == c2 && i2 != -1) {
+                    i2 = -1;
                 }
-                i2++;
+                i++;
             }
             TrackGroup trackGroup = this.chunkSource.getTrackGroup();
-            int i4 = trackGroup.length;
+            int i3 = trackGroup.length;
             this.primaryTrackGroupIndex = -1;
             this.trackGroupEnabledStates = new boolean[length];
             this.trackGroupIsAudioVideoFlags = new boolean[length];
             TrackGroup[] trackGroupArr = new TrackGroup[length];
-            for (int i5 = 0; i5 < length; i5++) {
-                Format upstreamFormat = this.sampleQueues[i5].getUpstreamFormat();
+            for (int i4 = 0; i4 < length; i4++) {
+                Format upstreamFormat = this.sampleQueues[i4].getUpstreamFormat();
                 String str2 = upstreamFormat.sampleMimeType;
                 boolean z = MimeTypes.isVideo(str2) || MimeTypes.isAudio(str2);
-                this.trackGroupIsAudioVideoFlags[i5] = z;
+                this.trackGroupIsAudioVideoFlags[i4] = z;
                 this.haveAudioVideoTrackGroups = z | this.haveAudioVideoTrackGroups;
-                if (i5 == i3) {
-                    Format[] formatArr = new Format[i4];
-                    for (int i6 = 0; i6 < i4; i6++) {
-                        formatArr[i6] = deriveFormat(trackGroup.getFormat(i6), upstreamFormat);
+                if (i4 == i2) {
+                    Format[] formatArr = new Format[i3];
+                    for (int i5 = 0; i5 < i3; i5++) {
+                        formatArr[i5] = deriveFormat(trackGroup.getFormat(i5), upstreamFormat);
                     }
-                    trackGroupArr[i5] = new TrackGroup(formatArr);
-                    this.primaryTrackGroupIndex = i5;
+                    trackGroupArr[i4] = new TrackGroup(formatArr);
+                    this.primaryTrackGroupIndex = i4;
                 } else {
-                    trackGroupArr[i5] = new TrackGroup(deriveFormat((c2 == 3 && MimeTypes.isAudio(upstreamFormat.sampleMimeType)) ? this.muxedAudioFormat : null, upstreamFormat));
+                    trackGroupArr[i4] = new TrackGroup(deriveFormat((c2 == 3 && MimeTypes.isAudio(upstreamFormat.sampleMimeType)) ? this.muxedAudioFormat : null, upstreamFormat));
                 }
             }
             this.trackGroups = new TrackGroupArray(trackGroupArr);
@@ -238,17 +238,17 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, hlsMediaChunk)) != null) {
             return invokeL.booleanValue;
         }
-        int i2 = hlsMediaChunk.uid;
-        int i3 = 0;
+        int i = hlsMediaChunk.uid;
+        int i2 = 0;
         while (true) {
             SampleQueue[] sampleQueueArr = this.sampleQueues;
-            if (i3 >= sampleQueueArr.length) {
+            if (i2 >= sampleQueueArr.length) {
                 return true;
             }
-            if (this.trackGroupEnabledStates[i3] && sampleQueueArr[i3].peekSourceId() == i2) {
+            if (this.trackGroupEnabledStates[i2] && sampleQueueArr[i2].peekSourceId() == i) {
                 return false;
             }
-            i3++;
+            i2++;
         }
     }
 
@@ -258,17 +258,17 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? getCodecsOfType(str, 1) : (String) invokeL.objValue;
     }
 
-    public static String getCodecsOfType(String str, int i2) {
+    public static String getCodecsOfType(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             String[] split = str.split("(\\s*,\\s*)|(\\s*$)");
             StringBuilder sb = new StringBuilder();
             for (String str2 : split) {
-                if (i2 == MimeTypes.getTrackTypeOfCodec(str2)) {
+                if (i == MimeTypes.getTrackTypeOfCodec(str2)) {
                     if (sb.length() > 0) {
                         sb.append(",");
                     }
@@ -333,54 +333,54 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean seekInsideBufferUs(long j2) {
+    private boolean seekInsideBufferUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(65549, this, j2)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(65549, this, j)) != null) {
             return invokeJ.booleanValue;
         }
         int length = this.sampleQueues.length;
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= length) {
+            if (i >= length) {
                 return true;
             }
-            SampleQueue sampleQueue = this.sampleQueues[i2];
+            SampleQueue sampleQueue = this.sampleQueues[i];
             sampleQueue.rewind();
-            if ((sampleQueue.advanceTo(j2, true, false) != -1) || (!this.trackGroupIsAudioVideoFlags[i2] && this.haveAudioVideoTrackGroups)) {
+            if ((sampleQueue.advanceTo(j, true, false) != -1) || (!this.trackGroupIsAudioVideoFlags[i] && this.haveAudioVideoTrackGroups)) {
                 sampleQueue.discardToRead();
-                i2++;
+                i++;
             }
         }
     }
 
-    private void setTrackGroupEnabledState(int i2, boolean z) {
+    private void setTrackGroupEnabledState(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            Assertions.checkState(this.trackGroupEnabledStates[i2] != z);
-            this.trackGroupEnabledStates[i2] = z;
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            Assertions.checkState(this.trackGroupEnabledStates[i] != z);
+            this.trackGroupEnabledStates[i] = z;
             this.enabledTrackCount += z ? 1 : -1;
         }
     }
 
     @Override // com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j2) {
+    public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         HlsMediaChunk last;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             if (this.loadingFinished || this.loader.isLoading()) {
                 return false;
             }
             if (isPendingReset()) {
                 last = null;
-                j3 = this.pendingResetPositionUs;
+                j2 = this.pendingResetPositionUs;
             } else {
                 last = this.mediaChunks.getLast();
-                j3 = last.endTimeUs;
+                j2 = last.endTimeUs;
             }
-            this.chunkSource.getNextChunk(last, j2, j3, this.nextChunkHolder);
+            this.chunkSource.getNextChunk(last, j, j2, this.nextChunkHolder);
             HlsChunkSource.HlsChunkHolder hlsChunkHolder = this.nextChunkHolder;
             boolean z = hlsChunkHolder.endOfStream;
             Chunk chunk = hlsChunkHolder.chunk;
@@ -417,12 +417,12 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         continueLoading(this.lastSeekPositionUs);
     }
 
-    public void discardBuffer(long j2) {
+    public void discardBuffer(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             int length = this.sampleQueues.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                this.sampleQueues[i2].discardTo(j2, false, this.trackGroupEnabledStates[i2]);
+            for (int i = 0; i < length; i++) {
+                this.sampleQueues[i].discardTo(j, false, this.trackGroupEnabledStates[i]);
             }
         }
     }
@@ -448,18 +448,18 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
             if (isPendingReset()) {
                 return this.pendingResetPositionUs;
             }
-            long j2 = this.lastSeekPositionUs;
+            long j = this.lastSeekPositionUs;
             HlsMediaChunk last = this.mediaChunks.getLast();
             if (!last.isLoadCompleted()) {
                 last = this.mediaChunks.size() > 1 ? this.mediaChunks.get(linkedList.size() - 2) : null;
             }
             if (last != null) {
-                j2 = Math.max(j2, last.endTimeUs);
+                j = Math.max(j, last.endTimeUs);
             }
             for (SampleQueue sampleQueue : this.sampleQueues) {
-                j2 = Math.max(j2, sampleQueue.getLargestQueuedTimestampUs());
+                j = Math.max(j, sampleQueue.getLargestQueuedTimestampUs());
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -486,11 +486,11 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.trackGroups : (TrackGroupArray) invokeV.objValue;
     }
 
-    public void init(int i2, boolean z) {
+    public void init(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             for (SampleQueue sampleQueue : this.sampleQueues) {
-                sampleQueue.sourceId(i2);
+                sampleQueue.sourceId(i);
             }
             if (z) {
                 for (SampleQueue sampleQueue2 : this.sampleQueues) {
@@ -500,10 +500,10 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         }
     }
 
-    public boolean isReady(int i2) {
+    public boolean isReady(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.loadingFinished || (!isPendingReset() && this.sampleQueues[i2].hasNextSample()) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.loadingFinished || (!isPendingReset() && this.sampleQueues[i].hasNextSample()) : invokeI.booleanValue;
     }
 
     public void maybeThrowError() throws IOException {
@@ -529,10 +529,10 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         }
     }
 
-    public void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j2) {
+    public void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048594, this, hlsUrl, j2) == null) {
-            this.chunkSource.onPlaylistBlacklisted(hlsUrl, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048594, this, hlsUrl, j) == null) {
+            this.chunkSource.onPlaylistBlacklisted(hlsUrl, j);
         }
     }
 
@@ -553,14 +553,14 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         }
     }
 
-    public int readData(int i2, FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
+    public int readData(int i, FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), formatHolder, decoderInputBuffer, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), formatHolder, decoderInputBuffer, Boolean.valueOf(z)})) == null) {
             if (isPendingReset()) {
                 return -3;
             }
-            int read = this.sampleQueues[i2].read(formatHolder, decoderInputBuffer, z, this.loadingFinished, this.lastSeekPositionUs);
+            int read = this.sampleQueues[i].read(formatHolder, decoderInputBuffer, z, this.loadingFinished, this.lastSeekPositionUs);
             if (read == -4) {
                 discardToRead();
             }
@@ -590,13 +590,13 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         }
     }
 
-    public boolean seekToUs(long j2, boolean z) {
+    public boolean seekToUs(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            this.lastSeekPositionUs = j2;
-            if (z || isPendingReset() || !seekInsideBufferUs(j2)) {
-                this.pendingResetPositionUs = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            this.lastSeekPositionUs = j;
+            if (z || isPendingReset() || !seekInsideBufferUs(j)) {
+                this.pendingResetPositionUs = j;
                 this.loadingFinished = false;
                 this.mediaChunks.clear();
                 if (this.loader.isLoading()) {
@@ -616,40 +616,40 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j2, boolean z) {
+    public boolean selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j, boolean z) {
         InterceptResult invokeCommon;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             Assertions.checkState(this.prepared);
-            int i2 = this.enabledTrackCount;
-            int i3 = 0;
-            for (int i4 = 0; i4 < trackSelectionArr.length; i4++) {
-                if (sampleStreamArr[i4] != null && (trackSelectionArr[i4] == null || !zArr[i4])) {
-                    setTrackGroupEnabledState(((HlsSampleStream) sampleStreamArr[i4]).group, false);
-                    sampleStreamArr[i4] = null;
+            int i = this.enabledTrackCount;
+            int i2 = 0;
+            for (int i3 = 0; i3 < trackSelectionArr.length; i3++) {
+                if (sampleStreamArr[i3] != null && (trackSelectionArr[i3] == null || !zArr[i3])) {
+                    setTrackGroupEnabledState(((HlsSampleStream) sampleStreamArr[i3]).group, false);
+                    sampleStreamArr[i3] = null;
                 }
             }
-            boolean z4 = z || (!this.seenFirstTrackSelection ? j2 == this.lastSeekPositionUs : i2 != 0);
+            boolean z4 = z || (!this.seenFirstTrackSelection ? j == this.lastSeekPositionUs : i != 0);
             TrackSelection trackSelection = this.chunkSource.getTrackSelection();
             boolean z5 = z4;
             TrackSelection trackSelection2 = trackSelection;
-            for (int i5 = 0; i5 < trackSelectionArr.length; i5++) {
-                if (sampleStreamArr[i5] == null && trackSelectionArr[i5] != null) {
-                    TrackSelection trackSelection3 = trackSelectionArr[i5];
+            for (int i4 = 0; i4 < trackSelectionArr.length; i4++) {
+                if (sampleStreamArr[i4] == null && trackSelectionArr[i4] != null) {
+                    TrackSelection trackSelection3 = trackSelectionArr[i4];
                     int indexOf = this.trackGroups.indexOf(trackSelection3.getTrackGroup());
                     setTrackGroupEnabledState(indexOf, true);
                     if (indexOf == this.primaryTrackGroupIndex) {
                         this.chunkSource.selectTracks(trackSelection3);
                         trackSelection2 = trackSelection3;
                     }
-                    sampleStreamArr[i5] = new HlsSampleStream(this, indexOf);
-                    zArr2[i5] = true;
+                    sampleStreamArr[i4] = new HlsSampleStream(this, indexOf);
+                    zArr2[i4] = true;
                     if (!z5) {
                         SampleQueue sampleQueue = this.sampleQueues[indexOf];
                         sampleQueue.rewind();
-                        z5 = sampleQueue.advanceTo(j2, true, true) == -1 && sampleQueue.getReadIndex() != 0;
+                        z5 = sampleQueue.advanceTo(j, true, true) == -1 && sampleQueue.getReadIndex() != 0;
                     }
                 }
             }
@@ -660,9 +660,9 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                 if (this.loader.isLoading()) {
                     SampleQueue[] sampleQueueArr = this.sampleQueues;
                     int length = sampleQueueArr.length;
-                    while (i3 < length) {
-                        sampleQueueArr[i3].discardToEnd();
-                        i3++;
+                    while (i2 < length) {
+                        sampleQueueArr[i2].discardToEnd();
+                        i2++;
                     }
                     this.loader.cancelLoading();
                 } else {
@@ -671,7 +671,7 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
             } else {
                 if (!this.mediaChunks.isEmpty() && !Util.areEqual(trackSelection2, trackSelection)) {
                     if (!this.seenFirstTrackSelection) {
-                        trackSelection2.updateSelectedTrack(j2, j2 < 0 ? -j2 : 0L, C.TIME_UNSET);
+                        trackSelection2.updateSelectedTrack(j, j < 0 ? -j : 0L, C.TIME_UNSET);
                         if (trackSelection2.getSelectedIndexInTrackGroup() == this.chunkSource.getTrackGroup().indexOf(this.mediaChunks.getLast().trackFormat)) {
                             z3 = false;
                             if (z3) {
@@ -679,12 +679,12 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                                 z2 = true;
                                 z5 = true;
                                 if (z5) {
-                                    seekToUs(j2, z2);
-                                    while (i3 < sampleStreamArr.length) {
-                                        if (sampleStreamArr[i3] != null) {
-                                            zArr2[i3] = true;
+                                    seekToUs(j, z2);
+                                    while (i2 < sampleStreamArr.length) {
+                                        if (sampleStreamArr[i2] != null) {
+                                            zArr2[i2] = true;
                                         }
-                                        i3++;
+                                        i2++;
                                     }
                                 }
                             }
@@ -711,47 +711,47 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
         }
     }
 
-    public void setSampleOffsetUs(long j2) {
+    public void setSampleOffsetUs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            this.sampleOffsetUs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+            this.sampleOffsetUs = j;
             for (SampleQueue sampleQueue : this.sampleQueues) {
-                sampleQueue.setSampleOffsetUs(j2);
+                sampleQueue.setSampleOffsetUs(j);
             }
         }
     }
 
-    public int skipData(int i2, long j2) {
+    public int skipData(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            int i3 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            int i2 = 0;
             if (isPendingReset()) {
                 return 0;
             }
-            SampleQueue sampleQueue = this.sampleQueues[i2];
-            if (this.loadingFinished && j2 > sampleQueue.getLargestQueuedTimestampUs()) {
-                i3 = sampleQueue.advanceToEnd();
+            SampleQueue sampleQueue = this.sampleQueues[i];
+            if (this.loadingFinished && j > sampleQueue.getLargestQueuedTimestampUs()) {
+                i2 = sampleQueue.advanceToEnd();
             } else {
-                int advanceTo = sampleQueue.advanceTo(j2, true, true);
+                int advanceTo = sampleQueue.advanceTo(j, true, true);
                 if (advanceTo != -1) {
-                    i3 = advanceTo;
+                    i2 = advanceTo;
                 }
             }
-            if (i3 > 0) {
+            if (i2 > 0) {
                 discardToRead();
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(Chunk chunk, long j2, long j3, boolean z) {
+    public void onLoadCanceled(Chunk chunk, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{chunk, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.eventDispatcher.loadCanceled(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j2, j3, chunk.bytesLoaded());
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{chunk, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.eventDispatcher.loadCanceled(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j, j2, chunk.bytesLoaded());
             if (z) {
                 return;
             }
@@ -764,11 +764,11 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(Chunk chunk, long j2, long j3) {
+    public void onLoadCompleted(Chunk chunk, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{chunk, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{chunk, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.chunkSource.onChunkLoadCompleted(chunk);
-            this.eventDispatcher.loadCompleted(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j2, j3, chunk.bytesLoaded());
+            this.eventDispatcher.loadCompleted(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j, j2, chunk.bytesLoaded());
             if (!this.prepared) {
                 continueLoading(this.lastSeekPositionUs);
             } else {
@@ -779,10 +779,10 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(Chunk chunk, long j2, long j3, IOException iOException) {
+    public int onLoadError(Chunk chunk, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{chunk, Long.valueOf(j2), Long.valueOf(j3), iOException})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{chunk, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
             long bytesLoaded = chunk.bytesLoaded();
             boolean isMediaChunk = isMediaChunk(chunk);
             boolean z = true;
@@ -794,7 +794,7 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
                     this.pendingResetPositionUs = this.lastSeekPositionUs;
                 }
             }
-            this.eventDispatcher.loadError(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j2, j3, chunk.bytesLoaded(), iOException, z);
+            this.eventDispatcher.loadError(chunk.dataSpec, chunk.type, this.trackType, chunk.trackFormat, chunk.trackSelectionReason, chunk.trackSelectionData, chunk.startTimeUs, chunk.endTimeUs, j, j2, chunk.bytesLoaded(), iOException, z);
             if (z) {
                 if (!this.prepared) {
                     continueLoading(this.lastSeekPositionUs);
@@ -810,24 +810,24 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
-    public SampleQueue track(int i2, int i3) {
+    public SampleQueue track(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048606, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048606, this, i, i2)) == null) {
             int length = this.sampleQueues.length;
-            for (int i4 = 0; i4 < length; i4++) {
-                if (this.sampleQueueTrackIds[i4] == i2) {
-                    return this.sampleQueues[i4];
+            for (int i3 = 0; i3 < length; i3++) {
+                if (this.sampleQueueTrackIds[i3] == i) {
+                    return this.sampleQueues[i3];
                 }
             }
             SampleQueue sampleQueue = new SampleQueue(this.allocator);
             sampleQueue.setSampleOffsetUs(this.sampleOffsetUs);
             sampleQueue.setUpstreamFormatChangeListener(this);
-            int i5 = length + 1;
-            int[] copyOf = Arrays.copyOf(this.sampleQueueTrackIds, i5);
+            int i4 = length + 1;
+            int[] copyOf = Arrays.copyOf(this.sampleQueueTrackIds, i4);
             this.sampleQueueTrackIds = copyOf;
-            copyOf[length] = i2;
-            SampleQueue[] sampleQueueArr = (SampleQueue[]) Arrays.copyOf(this.sampleQueues, i5);
+            copyOf[length] = i;
+            SampleQueue[] sampleQueueArr = (SampleQueue[]) Arrays.copyOf(this.sampleQueues, i4);
             this.sampleQueues = sampleQueueArr;
             sampleQueueArr[length] = sampleQueue;
             return sampleQueue;

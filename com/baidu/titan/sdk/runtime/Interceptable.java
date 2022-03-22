@@ -1,73 +1,73 @@
 package com.baidu.titan.sdk.runtime;
 /* loaded from: classes6.dex */
 public interface Interceptable {
-    InterceptResult invokeB(int i2, Object obj, byte b2);
+    InterceptResult invokeB(int i, Object obj, byte b2);
 
-    InterceptResult invokeCommon(int i2, Object obj, Object[] objArr);
+    InterceptResult invokeCommon(int i, Object obj, Object[] objArr);
 
-    InterceptResult invokeF(int i2, Object obj, float f2);
+    InterceptResult invokeF(int i, Object obj, float f2);
 
-    InterceptResult invokeI(int i2, Object obj, int i3);
+    InterceptResult invokeI(int i, Object obj, int i2);
 
-    InterceptResult invokeII(int i2, Object obj, int i3, int i4);
+    InterceptResult invokeII(int i, Object obj, int i2, int i3);
 
-    InterceptResult invokeIII(int i2, Object obj, int i3, int i4, int i5);
+    InterceptResult invokeIII(int i, Object obj, int i2, int i3, int i4);
 
-    InterceptResult invokeIIII(int i2, Object obj, int i3, int i4, int i5, int i6);
+    InterceptResult invokeIIII(int i, Object obj, int i2, int i3, int i4, int i5);
 
-    InterceptResult invokeIIL(int i2, Object obj, int i3, int i4, Object obj2);
+    InterceptResult invokeIIL(int i, Object obj, int i2, int i3, Object obj2);
 
-    InterceptResult invokeIL(int i2, Object obj, int i3, Object obj2);
+    InterceptResult invokeIL(int i, Object obj, int i2, Object obj2);
 
-    InterceptResult invokeILL(int i2, Object obj, int i3, Object obj2, Object obj3);
+    InterceptResult invokeILL(int i, Object obj, int i2, Object obj2, Object obj3);
 
-    void invokeInitBody(int i2, InitContext initContext);
+    void invokeInitBody(int i, InitContext initContext);
 
-    InterceptResult invokeJ(int i2, Object obj, long j2);
+    InterceptResult invokeJ(int i, Object obj, long j);
 
-    InterceptResult invokeJL(int i2, Object obj, long j2, Object obj2);
+    InterceptResult invokeJL(int i, Object obj, long j, Object obj2);
 
-    InterceptResult invokeL(int i2, Object obj, Object obj2);
+    InterceptResult invokeL(int i, Object obj, Object obj2);
 
-    InterceptResult invokeLF(int i2, Object obj, Object obj2, float f2);
+    InterceptResult invokeLF(int i, Object obj, Object obj2, float f2);
 
-    InterceptResult invokeLI(int i2, Object obj, Object obj2, int i3);
+    InterceptResult invokeLI(int i, Object obj, Object obj2, int i2);
 
-    InterceptResult invokeLII(int i2, Object obj, Object obj2, int i3, int i4);
+    InterceptResult invokeLII(int i, Object obj, Object obj2, int i2, int i3);
 
-    InterceptResult invokeLIII(int i2, Object obj, Object obj2, int i3, int i4, int i5);
+    InterceptResult invokeLIII(int i, Object obj, Object obj2, int i2, int i3, int i4);
 
-    InterceptResult invokeLIL(int i2, Object obj, Object obj2, int i3, Object obj3);
+    InterceptResult invokeLIL(int i, Object obj, Object obj2, int i2, Object obj3);
 
-    InterceptResult invokeLILL(int i2, Object obj, Object obj2, int i3, Object obj3, Object obj4);
+    InterceptResult invokeLILL(int i, Object obj, Object obj2, int i2, Object obj3, Object obj4);
 
-    InterceptResult invokeLJ(int i2, Object obj, Object obj2, long j2);
+    InterceptResult invokeLJ(int i, Object obj, Object obj2, long j);
 
-    InterceptResult invokeLL(int i2, Object obj, Object obj2, Object obj3);
+    InterceptResult invokeLL(int i, Object obj, Object obj2, Object obj3);
 
-    InterceptResult invokeLLI(int i2, Object obj, Object obj2, Object obj3, int i3);
+    InterceptResult invokeLLI(int i, Object obj, Object obj2, Object obj3, int i2);
 
-    InterceptResult invokeLLII(int i2, Object obj, Object obj2, Object obj3, int i3, int i4);
+    InterceptResult invokeLLII(int i, Object obj, Object obj2, Object obj3, int i2, int i3);
 
-    InterceptResult invokeLLIL(int i2, Object obj, Object obj2, Object obj3, int i3, Object obj4);
+    InterceptResult invokeLLIL(int i, Object obj, Object obj2, Object obj3, int i2, Object obj4);
 
-    InterceptResult invokeLLL(int i2, Object obj, Object obj2, Object obj3, Object obj4);
+    InterceptResult invokeLLL(int i, Object obj, Object obj2, Object obj3, Object obj4);
 
-    InterceptResult invokeLLLI(int i2, Object obj, Object obj2, Object obj3, Object obj4, int i3);
+    InterceptResult invokeLLLI(int i, Object obj, Object obj2, Object obj3, Object obj4, int i2);
 
-    InterceptResult invokeLLLL(int i2, Object obj, Object obj2, Object obj3, Object obj4, Object obj5);
+    InterceptResult invokeLLLL(int i, Object obj, Object obj2, Object obj3, Object obj4, Object obj5);
 
-    InterceptResult invokeLLLLL(int i2, Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6);
+    InterceptResult invokeLLLLL(int i, Object obj, Object obj2, Object obj3, Object obj4, Object obj5, Object obj6);
 
-    InterceptResult invokeLLZ(int i2, Object obj, Object obj2, Object obj3, boolean z);
+    InterceptResult invokeLLZ(int i, Object obj, Object obj2, Object obj3, boolean z);
 
-    InterceptResult invokeLZ(int i2, Object obj, Object obj2, boolean z);
+    InterceptResult invokeLZ(int i, Object obj, Object obj2, boolean z);
 
-    void invokeUnInit(int i2, InitContext initContext);
+    void invokeUnInit(int i, InitContext initContext);
 
-    InterceptResult invokeV(int i2, Object obj);
+    InterceptResult invokeV(int i, Object obj);
 
-    InterceptResult invokeZ(int i2, Object obj, boolean z);
+    InterceptResult invokeZ(int i, Object obj, boolean z);
 
-    InterceptResult invokeZL(int i2, Object obj, boolean z, Object obj2);
+    InterceptResult invokeZL(int i, Object obj, boolean z, Object obj2);
 }

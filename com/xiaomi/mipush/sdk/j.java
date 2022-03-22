@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ e f98a;
+    public final /* synthetic */ e f74a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f99a;
+    public final /* synthetic */ String f75a;
 
     public j(String str, Context context, e eVar) {
         Interceptable interceptable = $ic;
@@ -25,47 +25,47 @@ public final class j implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, context, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f99a = str;
+        this.f75a = str;
         this.a = context;
-        this.f98a = eVar;
+        this.f74a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f99a)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f75a)) {
             return;
         }
-        String[] split = this.f99a.split(Constants.WAVE_SEPARATOR);
+        String[] split = this.f75a.split(Constants.WAVE_SEPARATOR);
         int length = split.length;
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= length) {
+            if (i >= length) {
                 str = "";
                 break;
             }
-            String str2 = split[i2];
+            String str2 = split[i];
             if (!TextUtils.isEmpty(str2) && str2.startsWith("token:")) {
                 str = str2.substring(str2.indexOf(":") + 1);
                 break;
             }
-            i2++;
+            i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.a, this.f98a, str);
-        i.m193a(this.a);
+        com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : receive correct token");
+        i.d(this.a, this.f74a, str);
+        i.m172a(this.a);
     }
 }

@@ -17,9 +17,9 @@ public final class VelocityTrackerCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -27,16 +27,16 @@ public final class VelocityTrackerCompat {
     }
 
     @Deprecated
-    public static float getXVelocity(VelocityTracker velocityTracker, int i2) {
+    public static float getXVelocity(VelocityTracker velocityTracker, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, velocityTracker, i2)) == null) ? velocityTracker.getXVelocity(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, velocityTracker, i)) == null) ? velocityTracker.getXVelocity(i) : invokeLI.floatValue;
     }
 
     @Deprecated
-    public static float getYVelocity(VelocityTracker velocityTracker, int i2) {
+    public static float getYVelocity(VelocityTracker velocityTracker, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, velocityTracker, i2)) == null) ? velocityTracker.getYVelocity(i2) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, velocityTracker, i)) == null) ? velocityTracker.getYVelocity(i) : invokeLI.floatValue;
     }
 }

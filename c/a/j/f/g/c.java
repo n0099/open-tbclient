@@ -20,15 +20,15 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f3662d;
+    public static final b f3150d;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f3663b;
+    public final String f3151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TaskResponseData f3664c;
+    public final TaskResponseData f3152c;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -43,9 +43,9 @@ public final class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,9 +94,9 @@ public final class c {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -127,27 +127,27 @@ public final class c {
                 return;
             }
         }
-        f3662d = new b(null);
+        f3150d = new b(null);
     }
 
-    public c(int i2, String str, TaskResponseData taskResponseData) {
+    public c(int i, String str, TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, taskResponseData};
+            Object[] objArr = {Integer.valueOf(i), str, taskResponseData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f3663b = str;
-        this.f3664c = taskResponseData;
+        this.a = i;
+        this.f3151b = str;
+        this.f3152c = taskResponseData;
     }
 
     public final boolean a() {
@@ -165,16 +165,16 @@ public final class c {
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3663b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3151b : (String) invokeV.objValue;
     }
 
     public final TaskResponseData d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3664c : (TaskResponseData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3152c : (TaskResponseData) invokeV.objValue;
     }
 
-    public /* synthetic */ c(int i2, String str, TaskResponseData taskResponseData, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i2, str, (i3 & 4) != 0 ? null : taskResponseData);
+    public /* synthetic */ c(int i, String str, TaskResponseData taskResponseData, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, str, (i2 & 4) != 0 ? null : taskResponseData);
     }
 }

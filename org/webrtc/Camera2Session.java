@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import h.c.g0;
+import f.c.g0;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +31,7 @@ import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Camera2Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera2Session";
@@ -65,13 +65,13 @@ public class Camera2Session implements CameraSession {
     public final int width;
 
     /* renamed from: org.webrtc.Camera2Session$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CameraCaptureCallback extends CameraCaptureSession.CaptureCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +81,9 @@ public class Camera2Session implements CameraSession {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -103,7 +103,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class CameraStateCallback extends CameraDevice.StateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,9 +116,9 @@ public class Camera2Session implements CameraSession {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {camera2Session};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -127,16 +127,16 @@ public class Camera2Session implements CameraSession {
             this.this$0 = camera2Session;
         }
 
-        private String getErrorDescription(int i2) {
+        private String getErrorDescription(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 != 5) {
-                                    return "Unknown camera error: " + i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    return "Unknown camera error: " + i;
                                 }
                                 return "Camera service has encountered a fatal error.";
                             }
@@ -178,11 +178,11 @@ public class Camera2Session implements CameraSession {
         }
 
         @Override // android.hardware.camera2.CameraDevice.StateCallback
-        public void onError(CameraDevice cameraDevice, int i2) {
+        public void onError(CameraDevice cameraDevice, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cameraDevice, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cameraDevice, i) == null) {
                 this.this$0.checkIsOnCameraThread();
-                this.this$0.reportError(getErrorDescription(i2));
+                this.this$0.reportError(getErrorDescription(i));
             }
         }
 
@@ -209,7 +209,7 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class CaptureSessionCallback extends CameraCaptureSession.StateCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,9 +222,9 @@ public class Camera2Session implements CameraSession {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {camera2Session};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -236,8 +236,8 @@ public class Camera2Session implements CameraSession {
         private void chooseFocusMode(CaptureRequest.Builder builder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, builder) == null) {
-                for (int i2 : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES)) {
-                    if (i2 == 3) {
+                for (int i : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES)) {
+                    if (i == 3) {
                         builder.set(CaptureRequest.CONTROL_AF_MODE, 3);
                         Logging.d(Camera2Session.TAG, "Using continuous video auto-focus.");
                         return;
@@ -252,8 +252,8 @@ public class Camera2Session implements CameraSession {
             if (interceptable == null || interceptable.invokeL(65539, this, builder) == null) {
                 int[] iArr = (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.LENS_INFO_AVAILABLE_OPTICAL_STABILIZATION);
                 if (iArr != null) {
-                    for (int i2 : iArr) {
-                        if (i2 == 1) {
+                    for (int i : iArr) {
+                        if (i == 1) {
                             builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 1);
                             builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 0);
                             Logging.d(Camera2Session.TAG, "Using optical stabilization.");
@@ -261,8 +261,8 @@ public class Camera2Session implements CameraSession {
                         }
                     }
                 }
-                for (int i3 : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES)) {
-                    if (i3 == 1) {
+                for (int i2 : (int[]) this.this$0.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES)) {
+                    if (i2 == 1) {
                         builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 1);
                         builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 0);
                         Logging.d(Camera2Session.TAG, "Using video stabilization.");
@@ -314,7 +314,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: h.c.f
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: f.c.f
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -341,7 +341,7 @@ public class Camera2Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -368,16 +368,16 @@ public class Camera2Session implements CameraSession {
             $VALUES = new SessionState[]{RUNNING, sessionState};
         }
 
-        public SessionState(String str, int i2) {
+        public SessionState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -418,16 +418,16 @@ public class Camera2Session implements CameraSession {
         camera2ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera2.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
     }
 
-    public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
+    public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -443,9 +443,9 @@ public class Camera2Session implements CameraSession {
         this.cameraManager = cameraManager;
         this.surfaceTextureHelper = surfaceTextureHelper;
         this.cameraId = str;
-        this.width = i2;
-        this.height = i3;
-        this.framerate = i4;
+        this.width = i;
+        this.height = i2;
+        this.framerate = i3;
         start();
     }
 
@@ -457,10 +457,10 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
+    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            new Camera2Session(createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(65564, null, new Object[]{createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            new Camera2Session(createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, i, i2, i3);
         }
     }
 

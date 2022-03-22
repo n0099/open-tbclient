@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.ZipInputStream;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class NetworkFetcher {
     public final Context appContext;
@@ -83,7 +82,7 @@ public class NetworkFetcher {
                 return resultFromConnection;
             }
             String errorFromConnection = getErrorFromConnection(httpURLConnection);
-            return new LottieResult<>(new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + StringUtils.LF + errorFromConnection));
+            return new LottieResult<>(new IllegalArgumentException("Unable to fetch " + this.url + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + errorFromConnection));
         } catch (Exception e2) {
             return new LottieResult<>(e2);
         } finally {

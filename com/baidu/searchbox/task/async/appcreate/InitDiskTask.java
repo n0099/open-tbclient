@@ -24,9 +24,9 @@ public class InitDiskTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,7 +37,7 @@ public class InitDiskTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new a.InterfaceC0099a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().k(new a.InterfaceC0088a(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitDiskTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitDiskTask this$0;
@@ -49,9 +49,9 @@ public class InitDiskTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -60,7 +60,7 @@ public class InitDiskTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.d.a.k.a.InterfaceC0099a
+                @Override // c.a.d.a.k.a.InterfaceC0088a
                 public void onDatabaseCreated(SQLiteDatabase sQLiteDatabase) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, sQLiteDatabase) == null) {

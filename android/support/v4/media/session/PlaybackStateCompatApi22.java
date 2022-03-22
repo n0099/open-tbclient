@@ -21,9 +21,9 @@ public class PlaybackStateCompatApi22 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,20 +36,20 @@ public class PlaybackStateCompatApi22 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) ? ((PlaybackState) obj).getExtras() : (Bundle) invokeL.objValue;
     }
 
-    public static Object newInstance(int i2, long j2, long j3, float f2, long j4, CharSequence charSequence, long j5, List<Object> list, long j6, Bundle bundle) {
+    public static Object newInstance(int i, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Long.valueOf(j4), charSequence, Long.valueOf(j5), list, Long.valueOf(j6), bundle})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), charSequence, Long.valueOf(j4), list, Long.valueOf(j5), bundle})) == null) {
             PlaybackState.Builder builder = new PlaybackState.Builder();
-            builder.setState(i2, j2, f2, j5);
-            builder.setBufferedPosition(j3);
-            builder.setActions(j4);
+            builder.setState(i, j, f2, j4);
+            builder.setBufferedPosition(j2);
+            builder.setActions(j3);
             builder.setErrorMessage(charSequence);
             Iterator<Object> it = list.iterator();
             while (it.hasNext()) {
                 builder.addCustomAction((PlaybackState.CustomAction) it.next());
             }
-            builder.setActiveQueueItemId(j6);
+            builder.setActiveQueueItemId(j5);
             builder.setExtras(bundle);
             return builder.build();
         }

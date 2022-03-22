@@ -121,9 +121,9 @@ public class LifecycleRegistry extends Lifecycle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lifecycleObserver, state};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,9 +151,9 @@ public class LifecycleRegistry extends Lifecycle {
             newInitContext.initArgs = r2;
             Object[] objArr = {lifecycleOwner};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -205,12 +205,12 @@ public class LifecycleRegistry extends Lifecycle {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, state)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
+            int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
                                 throw new IllegalArgumentException("Unexpected state value " + state);
                             }
                             throw new IllegalArgumentException();
@@ -342,18 +342,18 @@ public class LifecycleRegistry extends Lifecycle {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, state)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2) {
+            int i = AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$State[state.ordinal()];
+            if (i != 1) {
+                if (i == 2) {
                     return Lifecycle.Event.ON_START;
                 }
-                if (i2 == 3) {
+                if (i == 3) {
                     return Lifecycle.Event.ON_RESUME;
                 }
-                if (i2 == 4) {
+                if (i == 4) {
                     throw new IllegalArgumentException();
                 }
-                if (i2 != 5) {
+                if (i != 5) {
                     throw new IllegalArgumentException("Unexpected state value " + state);
                 }
             }

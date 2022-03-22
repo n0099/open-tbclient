@@ -10,11 +10,13 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.message.a.k;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,7 +47,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final WeakReference<Context> f30241d;
+        public final WeakReference<Context> f24145d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -56,16 +58,16 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30241d = new WeakReference<>(context);
+            this.f24145d = new WeakReference<>(context);
         }
     }
 
@@ -76,17 +78,17 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f30242b;
+        public static final b f24146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f30243c;
+        public static final b f24147c;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f30244e;
+        public static final /* synthetic */ b[] f24148e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f30245d;
+        public int f24149d;
 
         static {
             InterceptResult invokeClinit;
@@ -102,22 +104,22 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 }
             }
             a = new b("MSG_PASS", 0, 1);
-            f30242b = new b("MSG_ARRIVED", 1, 2);
+            f24146b = new b("MSG_ARRIVED", 1, 2);
             b bVar = new b("MSG_CLICKED", 2, 3);
-            f30243c = bVar;
-            f30244e = new b[]{a, f30242b, bVar};
+            f24147c = bVar;
+            f24148e = new b[]{a, f24146b, bVar};
         }
 
-        public b(String str, int i2, int i3) {
+        public b(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -126,14 +128,14 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f30245d = i3;
+            this.f24149d = i2;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f30245d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f24149d : invokeV.intValue;
         }
     }
 
@@ -142,9 +144,9 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -158,7 +160,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (intent.getBooleanExtra("IS_HMS_PASS_MSG_KEY", false)) {
                     handleHuaweiMessageCallBack(context, intent.getStringExtra("HMS_PASS_MSG_VALUE_KEY"), null);
                 } else {
-                    handleHuaweiMessageCallBack(context, new String(intent.getByteArrayExtra("msg_data"), "utf-8"), new String(intent.getByteArrayExtra("device_token"), "utf-8"));
+                    handleHuaweiMessageCallBack(context, new String(intent.getByteArrayExtra("msg_data"), IMAudioTransRequest.CHARSET), new String(intent.getByteArrayExtra("device_token"), IMAudioTransRequest.CHARSET));
                 }
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -177,12 +179,12 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 } catch (JSONException unused) {
                 }
             }
-            if (m.i(context) && !m.l(context, iVar.f30952j)) {
+            if (m.i(context) && !m.l(context, iVar.j)) {
                 String str3 = iVar.m;
-                if (e.a(context, str3, iVar.f30952j + a2)) {
+                if (e.a(context, str3, iVar.j + a2)) {
                     if (iVar.k == k.k.b()) {
                         m.k(context);
-                    } else if (iVar.k == k.f30925g.b() || iVar.k == k.f30920b.b()) {
+                    } else if (iVar.k == k.f24766g.b() || iVar.k == k.f24761b.b()) {
                         onMessage(context, a2, null, 0);
                     }
                 }
@@ -196,13 +198,13 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             int intExtra = intent.getIntExtra("mz_push_msg_type", 0);
             String c2 = iVar.c(context, intent.getStringExtra("mz_notification_self_define_content"));
-            if (m.l(context, iVar.f30952j)) {
+            if (m.l(context, iVar.j)) {
                 return;
             }
             String str = iVar.m;
-            if (e.a(context, str, (iVar.f30952j + c2).replaceAll("\\\\", "")) && intExtra == b.f30243c.a()) {
+            if (e.a(context, str, (iVar.j + c2).replaceAll("\\\\", "")) && intExtra == b.f24147c.a()) {
                 onNotificationClicked(context, intent.getStringExtra("mz_notification_title"), intent.getStringExtra("mz_notification_content"), c2);
-                new b.a(context).a("3").b(iVar.f30952j).a(System.currentTimeMillis()).b(601010L).a();
+                new b.a(context).a("3").b(iVar.j).a(System.currentTimeMillis()).b(601010L).a();
             }
         }
     }
@@ -231,7 +233,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 try {
                     Intent parseUri = Intent.parseUri(stringExtra3, 0);
                     parseUri.setPackage(context.getPackageName());
-                    parseUri.addFlags(268435456);
+                    parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                     if (!TextUtils.isEmpty(stringExtra4)) {
                         JSONObject jSONObject = new JSONObject(stringExtra4);
                         Iterator<String> keys = jSONObject.keys();
@@ -276,7 +278,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 try {
                     Intent parseUri = Intent.parseUri(stringExtra5, 0);
                     parseUri.setPackage(context.getPackageName());
-                    parseUri.addFlags(268435456);
+                    parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                     if (!TextUtils.isEmpty(stringExtra6)) {
                         JSONObject jSONObject = new JSONObject(stringExtra6);
                         Iterator<String> keys = jSONObject.keys();
@@ -295,35 +297,35 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    private void handleXiaomiMessageCallBack(Context context, MiPushMessage miPushMessage, int i2) {
+    private void handleXiaomiMessageCallBack(Context context, MiPushMessage miPushMessage, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, this, context, miPushMessage, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65543, this, context, miPushMessage, i) == null) {
             try {
                 String content = miPushMessage.getContent();
                 com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
                 boolean msgFromXMConsole = msgFromXMConsole(context, content);
                 if (msgFromXMConsole) {
-                    iVar.k = k.f30920b.b();
+                    iVar.k = k.f24761b.b();
                 } else {
                     content = iVar.b(context, content);
                 }
-                if (i2 == b.f30243c.a() || !m.l(context, iVar.f30952j)) {
+                if (i == b.f24147c.a() || !m.l(context, iVar.j)) {
                     if (iVar.k == k.k.b()) {
                         m.k(context);
-                    } else if (iVar.k == k.f30925g.b() || iVar.k == k.f30921c.b() || iVar.k == k.f30920b.b() || iVar.k == k.f30924f.b() || iVar.k == k.f30922d.b() || iVar.k == k.f30923e.b()) {
-                        if (i2 == b.a.a()) {
+                    } else if (iVar.k == k.f24766g.b() || iVar.k == k.f24762c.b() || iVar.k == k.f24761b.b() || iVar.k == k.f24765f.b() || iVar.k == k.f24763d.b() || iVar.k == k.f24764e.b()) {
+                        if (i == b.a.a()) {
                             onMessage(context, content, null, 0);
-                        } else if (i2 == b.f30242b.a()) {
+                        } else if (i == b.f24146b.a()) {
                             onNotificationArrived(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
-                        } else if (i2 == b.f30243c.a()) {
+                        } else if (i == b.f24147c.a()) {
                             onNotificationClicked(context, miPushMessage.getTitle(), miPushMessage.getDescription(), content);
                         }
                     }
                 }
-                if (msgFromXMConsole || i2 != b.f30243c.a()) {
+                if (msgFromXMConsole || i != b.f24147c.a()) {
                     return;
                 }
-                new b.a(context).a("2").b(iVar.f30952j).a(System.currentTimeMillis()).b(601010L).a();
+                new b.a(context).a("2").b(iVar.j).a(System.currentTimeMillis()).b(601010L).a();
             } catch (Throwable th) {
                 new b.c(context).a(Log.getStackTraceString(th)).a();
             }
@@ -345,18 +347,18 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         return invokeLL.booleanValue;
     }
 
-    public static void sendCallback(Context context, Intent intent, int i2, boolean z) {
+    public static void sendCallback(Context context, Intent intent, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, intent, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, intent, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             int intExtra = intent.getIntExtra("baidu_message_type", -1);
             intent.getAction();
-            if (intExtra == k.f30927i.b()) {
+            if (intExtra == k.i.b()) {
                 if (z) {
-                    m.a(context, intent.getStringExtra("message_id"), i2);
+                    m.a(context, intent.getStringExtra("message_id"), i);
                 }
             } else if (!intent.getBooleanExtra("bdpush_deliver_NO_CALLBACK", false) && TextUtils.equals(context.getPackageName(), intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE"))) {
                 intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.MESSAGE_ACK");
-                intent.putExtra("bd.cross.request.RESULT_CODE", i2);
+                intent.putExtra("bd.cross.request.RESULT_CODE", i);
                 com.baidu.android.pushservice.i.b.a(intent);
             }
         }
@@ -377,13 +379,13 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public abstract void onBind(Context context, int i2, String str, String str2, String str3, String str4);
+    public abstract void onBind(Context context, int i, String str, String str2, String str3, String str4);
 
-    public abstract void onDelTags(Context context, int i2, List<String> list, List<String> list2, String str);
+    public abstract void onDelTags(Context context, int i, List<String> list, List<String> list2, String str);
 
-    public abstract void onListTags(Context context, int i2, List<String> list, String str);
+    public abstract void onListTags(Context context, int i, List<String> list, String str);
 
-    public abstract void onMessage(Context context, String str, String str2, int i2);
+    public abstract void onMessage(Context context, String str, String str2, int i);
 
     public abstract void onNotificationArrived(Context context, String str, String str2, String str3);
 
@@ -406,7 +408,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         JSONArray jSONArray2;
         String str;
         String str2;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, context, intent) == null) || context == null || intent == null) {
             return;
@@ -414,7 +416,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         try {
             intent.getByteArrayExtra("baidu_message_secur_info");
             String action = intent.getAction();
-            int i2 = 0;
+            int i = 0;
             if (!TextUtils.equals(action, "com.baidu.android.pushservice.action.MESSAGE")) {
                 if (TextUtils.equals(action, "com.baidu.android.pushservice.action.RECEIVE")) {
                     String stringExtra2 = intent.getStringExtra("method");
@@ -449,14 +451,14 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 long currentTimeMillis = System.currentTimeMillis();
                                 String stringExtra7 = intent.getStringExtra("access_token");
                                 str2 = intent.getStringExtra("secret_key");
-                                j2 = currentTimeMillis;
+                                j = currentTimeMillis;
                                 str = stringExtra7;
                             } else {
                                 str = null;
                                 str2 = null;
-                                j2 = 0;
+                                j = 0;
                             }
-                            com.baidu.android.pushservice.i.i.a(context, string2, string3, optString, string, string4, j2, str, str2);
+                            com.baidu.android.pushservice.i.i.a(context, string2, string3, optString, string, string4, j, str, str2);
                             onBind(context, intExtra, string2, string4, TextUtils.isEmpty(optString) ? string3 : optString, string);
                             com.baidu.android.pushservice.c.c.c(context, m.c(context.getPackageName() + "," + string2 + "," + string4 + ",false," + ((int) com.baidu.android.pushservice.a.a())));
                             return;
@@ -500,15 +502,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             }
                             ArrayList arrayList = new ArrayList();
                             ArrayList arrayList2 = new ArrayList();
-                            while (i2 < jSONArray.length()) {
-                                JSONObject jSONObject4 = jSONArray.getJSONObject(i2);
+                            while (i < jSONArray.length()) {
+                                JSONObject jSONObject4 = jSONArray.getJSONObject(i);
                                 String string6 = jSONObject4.getString("tag");
                                 if (jSONObject4.getInt("result") == 0) {
                                     arrayList.add(string6);
                                 } else {
                                     arrayList2.add(string6);
                                 }
-                                i2++;
+                                i++;
                             }
                             onSetTags(context, intExtra, arrayList, arrayList2, string5);
                             return;
@@ -527,15 +529,15 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                             }
                             ArrayList arrayList3 = new ArrayList();
                             ArrayList arrayList4 = new ArrayList();
-                            while (i2 < jSONArray2.length()) {
-                                JSONObject jSONObject7 = jSONArray2.getJSONObject(i2);
+                            while (i < jSONArray2.length()) {
+                                JSONObject jSONObject7 = jSONArray2.getJSONObject(i);
                                 String string8 = jSONObject7.getString("tag");
                                 if (jSONObject7.getInt("result") == 0) {
                                     arrayList3.add(string8);
                                 } else {
                                     arrayList4.add(string8);
                                 }
-                                i2++;
+                                i++;
                             }
                             onDelTags(context, intExtra, arrayList3, arrayList4, string7);
                             return;
@@ -672,7 +674,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 } else {
                     try {
                         String str5 = new String(intent.getByteArrayExtra("selfshow_info"), "UTF-8");
-                        if (!TextUtils.isEmpty(str5) && (a3 = (a2 = com.baidu.android.pushservice.message.a.i.a(context, str5)).a(context)) != null && m.i(context) && !m.l(context, a2.f30952j)) {
+                        if (!TextUtils.isEmpty(str5) && (a3 = (a2 = com.baidu.android.pushservice.message.a.i.a(context, str5)).a(context)) != null && m.i(context) && !m.l(context, a2.j)) {
                             PushServiceReceiver.a(context, a3);
                             return;
                         }
@@ -696,17 +698,17 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (byteArrayExtra3 == null || byteArrayExtra4 == null || TextUtils.isEmpty(stringExtra14) || TextUtils.isEmpty(stringExtra15) || intExtra3 == -1) {
                     sendCallback(context, intent, 2, true);
                     return;
-                } else if (intExtra3 == k.f30927i.b() || (!m.j(context, stringExtra14) && com.baidu.android.pushservice.c.a.a(context, stringExtra14))) {
+                } else if (intExtra3 == k.i.b() || (!m.j(context, stringExtra14) && com.baidu.android.pushservice.c.a.a(context, stringExtra14))) {
                     new Thread(this, context, intExtra3, stringExtra15, stringExtra14, byteArrayExtra3, byteArrayExtra4, intent, intExtra4, new a(this, context, context, intent) { // from class: com.baidu.android.pushservice.PushMessageReceiver.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ Intent f30230b;
+                        public final /* synthetic */ Intent f24136b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ PushMessageReceiver f30231c;
+                        public final /* synthetic */ PushMessageReceiver f24137c;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -717,28 +719,28 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, context, context, intent};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     super((Context) newInitContext.callArgs[0]);
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
-                            this.f30231c = this;
+                            this.f24137c = this;
                             this.a = context;
-                            this.f30230b = intent;
+                            this.f24136b = intent;
                         }
 
                         @Override // android.os.Handler
                         public void handleMessage(Message message) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.f30241d.get() == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) || this.f24145d.get() == null) {
                                 return;
                             }
-                            this.f30231c.onMessage(this.f30241d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
-                            PushMessageReceiver.sendCallback(this.a, this.f30230b, 10, false);
+                            this.f24137c.onMessage(this.f24145d.get(), message.getData().getString("message"), message.getData().getString("custom_content"), message.getData().getInt("notify_id"));
+                            PushMessageReceiver.sendCallback(this.a, this.f24136b, 10, false);
                         }
                     }) { // from class: com.baidu.android.pushservice.PushMessageReceiver.2
                         public static /* synthetic */ Interceptable $ic;
@@ -746,31 +748,27 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f30232b;
+                        public final /* synthetic */ int f24138b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ String f30233c;
+                        public final /* synthetic */ String f24139c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ String f30234d;
+                        public final /* synthetic */ String f24140d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f30235e;
+                        public final /* synthetic */ byte[] f24141e;
 
                         /* renamed from: f  reason: collision with root package name */
-                        public final /* synthetic */ byte[] f30236f;
+                        public final /* synthetic */ byte[] f24142f;
 
                         /* renamed from: g  reason: collision with root package name */
-                        public final /* synthetic */ Intent f30237g;
+                        public final /* synthetic */ Intent f24143g;
 
                         /* renamed from: h  reason: collision with root package name */
-                        public final /* synthetic */ int f30238h;
-
-                        /* renamed from: i  reason: collision with root package name */
-                        public final /* synthetic */ a f30239i;
-
-                        /* renamed from: j  reason: collision with root package name */
-                        public final /* synthetic */ PushMessageReceiver f30240j;
+                        public final /* synthetic */ int f24144h;
+                        public final /* synthetic */ a i;
+                        public final /* synthetic */ PushMessageReceiver j;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -779,42 +777,42 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, context, Integer.valueOf(intExtra3), stringExtra15, stringExtra14, byteArrayExtra3, byteArrayExtra4, intent, Integer.valueOf(intExtra4), r15};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
-                            this.f30240j = this;
+                            this.j = this;
                             this.a = context;
-                            this.f30232b = intExtra3;
-                            this.f30233c = stringExtra15;
-                            this.f30234d = stringExtra14;
-                            this.f30235e = byteArrayExtra3;
-                            this.f30236f = byteArrayExtra4;
-                            this.f30237g = intent;
-                            this.f30238h = intExtra4;
-                            this.f30239i = r15;
+                            this.f24138b = intExtra3;
+                            this.f24139c = stringExtra15;
+                            this.f24140d = stringExtra14;
+                            this.f24141e = byteArrayExtra3;
+                            this.f24142f = byteArrayExtra4;
+                            this.f24143g = intent;
+                            this.f24144h = intExtra4;
+                            this.i = r15;
                         }
 
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                String[] a6 = com.baidu.android.pushservice.message.a.g.a(this.a, this.f30232b, this.f30233c, this.f30234d, this.f30235e, this.f30236f);
+                                String[] a6 = com.baidu.android.pushservice.message.a.g.a(this.a, this.f24138b, this.f24139c, this.f24140d, this.f24141e, this.f24142f);
                                 if (a6 == null || a6.length != 2) {
-                                    PushMessageReceiver.sendCallback(this.a, this.f30237g, 9, true);
+                                    PushMessageReceiver.sendCallback(this.a, this.f24143g, 9, true);
                                     return;
                                 }
                                 Message message = new Message();
                                 Bundle bundle = new Bundle();
                                 bundle.putString("message", a6[0]);
                                 bundle.putString("custom_content", a6[1]);
-                                bundle.putInt("notify_id", this.f30238h);
+                                bundle.putInt("notify_id", this.f24144h);
                                 message.setData(bundle);
-                                this.f30239i.sendMessage(message);
+                                this.i.sendMessage(message);
                             }
                         }
                     }.start();
@@ -828,13 +826,13 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         }
     }
 
-    public abstract void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str);
+    public abstract void onSetTags(Context context, int i, List<String> list, List<String> list2, String str);
 
-    public abstract void onUnbind(Context context, int i2, String str);
+    public abstract void onUnbind(Context context, int i, String str);
 
-    public void onWidgetBadgeUpdate(Context context, int i2, int i3) {
+    public void onWidgetBadgeUpdate(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, context, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, context, i, i2) == null) {
         }
     }
 }

@@ -31,9 +31,9 @@ public class RequestParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,13 +58,13 @@ public class RequestParams {
                 if (this.channelList == null) {
                     this.channelList = new ArrayList();
                 }
-                for (int i2 = 0; i2 < this.channelList.size(); i2++) {
-                    Channel channel2 = this.channelList.get(i2);
+                for (int i = 0; i < this.channelList.size(); i++) {
+                    Channel channel2 = this.channelList.get(i);
                     if (TextUtils.equals(channel2.channelId, channel.channelId)) {
                         if (PmsConstant.DEBUG) {
                             throw new RuntimeException("请求任务channelId不能重复" + channel2.channelId + "," + channel.channelId);
                         }
-                        this.channelList.set(i2, channel2);
+                        this.channelList.set(i, channel2);
                         return this;
                     }
                 }
@@ -146,9 +146,9 @@ public class RequestParams {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -269,9 +269,9 @@ public class RequestParams {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, list, packageCallback};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -293,9 +293,9 @@ public class RequestParams {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, packageCallback};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (List) objArr2[1], (PackageCallback) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -312,9 +312,9 @@ public class RequestParams {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z), packageCallback};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;

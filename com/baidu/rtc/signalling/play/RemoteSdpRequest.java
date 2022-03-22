@@ -19,23 +19,23 @@ public class RemoteSdpRequest implements IJsonSignalling {
     public final String streamUrl;
     public final long transactionId;
 
-    public RemoteSdpRequest(String str, long j2, String str2) {
+    public RemoteSdpRequest(String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2};
+            Object[] objArr = {str, Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.sdp = str;
-        this.transactionId = j2;
+        this.transactionId = j;
         this.streamUrl = str2;
     }
 

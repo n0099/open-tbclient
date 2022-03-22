@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CenterCrop extends BitmapTransformation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.CenterCrop";
@@ -41,9 +41,9 @@ public class CenterCrop extends BitmapTransformation {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -68,10 +68,10 @@ public class CenterCrop extends BitmapTransformation {
     }
 
     @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i2, i3)) == null) ? TransformationUtils.centerCrop(bitmapPool, bitmap, i2, i3) : (Bitmap) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, bitmapPool, bitmap, i, i2)) == null) ? TransformationUtils.centerCrop(bitmapPool, bitmap, i, i2) : (Bitmap) invokeLLII.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key

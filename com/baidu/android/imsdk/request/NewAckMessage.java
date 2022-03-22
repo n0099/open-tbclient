@@ -51,16 +51,16 @@ public class NewAckMessage extends Message {
         public long ukFromUser;
         public long ukToUser;
 
-        public Tripule(long j2, String str, long j3, String str2, int i2, String str3, long j4, long j5, long j6, int i3, int i4, int i5, String str4, String str5, String str6) {
+        public Tripule(long j, String str, long j2, String str2, int i, String str3, long j3, long j4, long j5, int i2, int i3, int i4, String str4, String str5, String str6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), str, Long.valueOf(j3), str2, Integer.valueOf(i2), str3, Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str4, str5, str6};
+                Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), str2, Integer.valueOf(i), str3, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str4, str5, str6};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -68,19 +68,19 @@ public class NewAckMessage extends Message {
             }
             this.jack = null;
             this.isReliable = false;
-            this.msgid = j2;
+            this.msgid = j;
             this.msgkey = str;
-            this.msgReceiveTime = j3;
+            this.msgReceiveTime = j2;
             this.msgPage = str2;
             this.osName = "android";
-            this.contentType = i2;
+            this.contentType = i;
             this.accountType = str3;
-            this.ukFromUser = j4;
-            this.ukToUser = j5;
-            this.paId = j6;
-            this.paType = i3;
-            this.subPaType = i4;
-            this.paClassType = i5;
+            this.ukFromUser = j3;
+            this.ukToUser = j4;
+            this.paId = j5;
+            this.paType = i2;
+            this.subPaType = i3;
+            this.paClassType = i4;
             this.msgCategory = str4;
             this.businessSource = str5;
             this.thirdId = str6;
@@ -93,17 +93,17 @@ public class NewAckMessage extends Message {
             }
         }
 
-        public void setFromUser(long j2) {
+        public void setFromUser(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.fromUser = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.fromUser = j;
             }
         }
 
-        public void setMcastId(long j2) {
+        public void setMcastId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                this.mcastId = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.mcastId = j;
             }
         }
 
@@ -160,16 +160,16 @@ public class NewAckMessage extends Message {
         }
     }
 
-    public NewAckMessage(Context context, long j2, long j3) {
+    public NewAckMessage(Context context, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -178,8 +178,8 @@ public class NewAckMessage extends Message {
         this.mJsonArray = null;
         this.mContext = null;
         initCommonParameter(context);
-        this.mUk = j2;
-        this.mTriggerId = j3;
+        this.mUk = j;
+        this.mTriggerId = j2;
         this.mContext = context;
         this.tripules = new LinkedList();
         setNeedReplay(true);
@@ -242,11 +242,11 @@ public class NewAckMessage extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i2, str) == null) {
-            super.handleMessageResult(context, jSONObject, i2, str);
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i, str) == null) {
+            super.handleMessageResult(context, jSONObject, i, str);
+            if (i == 0) {
                 DBManager.getInstance(context).deleteCmdMsg(getUUID());
                 AckHandlerThread.getInstance(context).mRetryCount.set(0);
             }
@@ -289,17 +289,17 @@ public class NewAckMessage extends Message {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NewAckMessage(Context context, long j2, long j3, boolean z) {
-        this(context, j2, j3);
+    public NewAckMessage(Context context, long j, long j2, boolean z) {
+        this(context, j, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;

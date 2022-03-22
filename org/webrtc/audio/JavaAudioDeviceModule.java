@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class JavaAudioDeviceModule implements AudioDeviceModule {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JavaAudioDeviceModule";
@@ -31,13 +31,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     public final boolean useStereoOutput;
 
     /* renamed from: org.webrtc.audio.JavaAudioDeviceModule$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface AudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -47,7 +47,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AudioRecordStartErrorCode {
         public static final /* synthetic */ AudioRecordStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,16 +74,16 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             $VALUES = new AudioRecordStartErrorCode[]{AUDIO_RECORD_START_EXCEPTION, audioRecordStartErrorCode};
         }
 
-        public AudioRecordStartErrorCode(String str, int i2) {
+        public AudioRecordStartErrorCode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -106,7 +106,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class AudioSamples {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,24 +115,24 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         public final byte[] data;
         public final int sampleRate;
 
-        public AudioSamples(int i2, int i3, int i4, byte[] bArr) {
+        public AudioSamples(int i, int i2, int i3, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bArr};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.audioFormat = i2;
-            this.channelCount = i3;
-            this.sampleRate = i4;
+            this.audioFormat = i;
+            this.channelCount = i2;
+            this.sampleRate = i3;
             this.data = bArr;
         }
 
@@ -161,7 +161,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface AudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -171,7 +171,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AudioTrackStartErrorCode {
         public static final /* synthetic */ AudioTrackStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -198,16 +198,16 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             $VALUES = new AudioTrackStartErrorCode[]{AUDIO_TRACK_START_EXCEPTION, audioTrackStartErrorCode};
         }
 
-        public AudioTrackStartErrorCode(String str, int i2) {
+        public AudioTrackStartErrorCode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -230,7 +230,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,11 +279,11 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             return (AudioDeviceModule) invokeV.objValue;
         }
 
-        public Builder setAudioContentType(int i2) {
+        public Builder setAudioContentType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.audioContentType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.audioContentType = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -299,11 +299,11 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setAudioSource(int i2) {
+        public Builder setAudioSource(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.audioSource = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.audioSource = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -339,12 +339,12 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setSampleRate(int i2) {
+        public Builder setSampleRate(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                Logging.d(JavaAudioDeviceModule.TAG, "Sample rate overridden to: " + i2);
-                this.sampleRate = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                Logging.d(JavaAudioDeviceModule.TAG, "Sample rate overridden to: " + i);
+                this.sampleRate = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -415,9 +415,9 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -433,23 +433,23 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface ExternalSamplesReadyCallback {
         void onWebRtcAudioExternalSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface RemoteSamplesReadyCallback {
         void onWebRtcAudioRemoteSamplesReady(AudioSamples audioSamples);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface SamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }
 
-    public /* synthetic */ JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
-        this(context, audioManager, webRtcAudioRecord, webRtcAudioTrack, i2, z, z2);
+    public /* synthetic */ JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
+        this(context, audioManager, webRtcAudioRecord, webRtcAudioTrack, i, z, z2);
     }
 
     public static Builder builder(Context context) {
@@ -470,7 +470,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? WebRtcAudioEffects.isNoiseSuppressorSupported() : invokeV.booleanValue;
     }
 
-    public static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2);
+    public static native long nativeCreateAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2);
 
     public ExternalSamplesReadyCallback getExternalSamplesReadyCallback() {
         InterceptResult invokeV;
@@ -481,16 +481,16 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     @Override // org.webrtc.audio.AudioDeviceModule
     public long getNativeAudioDeviceModulePointer() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this.nativeLock) {
                 if (this.nativeAudioDeviceModule == 0) {
                     this.nativeAudioDeviceModule = nativeCreateAudioDeviceModule(this.context, this.audioManager, this.audioInput, this.audioOutput, this.sampleRate, this.useStereoInput, this.useStereoOutput);
                 }
-                j2 = this.nativeAudioDeviceModule;
+                j = this.nativeAudioDeviceModule;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -553,16 +553,16 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         }
     }
 
-    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i2, boolean z, boolean z2) {
+    public JavaAudioDeviceModule(Context context, AudioManager audioManager, WebRtcAudioRecord webRtcAudioRecord, WebRtcAudioTrack webRtcAudioTrack, int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, audioManager, webRtcAudioRecord, webRtcAudioTrack, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {context, audioManager, webRtcAudioRecord, webRtcAudioTrack, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -574,7 +574,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         this.audioManager = audioManager;
         this.audioInput = webRtcAudioRecord;
         this.audioOutput = webRtcAudioTrack;
-        this.sampleRate = i2;
+        this.sampleRate = i;
         this.useStereoInput = z;
         this.useStereoOutput = z2;
     }

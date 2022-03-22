@@ -18,9 +18,9 @@ public abstract class bz implements cb {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -67,7 +67,7 @@ public abstract class bz implements cb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, byVar, cqVar) == null) {
             cr crVar = new cr(cqVar);
-            crVar.a(cq.a.f35241e);
+            crVar.a(cq.a.f27374e);
             byVar.a(crVar);
         }
     }

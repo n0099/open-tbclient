@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DrawableProperties {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNSET = -1;
@@ -24,9 +24,9 @@ public class DrawableProperties {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,27 +45,27 @@ public class DrawableProperties {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) || drawable == null) {
             return;
         }
-        int i2 = this.mAlpha;
-        if (i2 != -1) {
-            drawable.setAlpha(i2);
+        int i = this.mAlpha;
+        if (i != -1) {
+            drawable.setAlpha(i);
         }
         if (this.mIsSetColorFilter) {
             drawable.setColorFilter(this.mColorFilter);
         }
-        int i3 = this.mDither;
-        if (i3 != -1) {
-            drawable.setDither(i3 != 0);
+        int i2 = this.mDither;
+        if (i2 != -1) {
+            drawable.setDither(i2 != 0);
         }
-        int i4 = this.mFilterBitmap;
-        if (i4 != -1) {
-            drawable.setFilterBitmap(i4 != 0);
+        int i3 = this.mFilterBitmap;
+        if (i3 != -1) {
+            drawable.setFilterBitmap(i3 != 0);
         }
     }
 
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mAlpha = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mAlpha = i;
         }
     }
 

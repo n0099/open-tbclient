@@ -10,8 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,26 +20,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class UserDefineConfirmBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RelativeLayout f36236b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f36237c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f36238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46868e;
+    public TextView f36239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f46869f;
+    public TextView f36240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f46870g;
+    public View.OnClickListener f36241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46871h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f46872i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f46873j;
-    public View.OnClickListener k;
-    public String l;
+    public String f36242h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UserDefineConfirmBottomView(Context context) {
@@ -52,9 +52,9 @@ public class UserDefineConfirmBottomView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -67,47 +67,44 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f46868e = context;
-            LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
+            this.a = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0863, (ViewGroup) this, true);
             setOrientation(1);
-            this.f46869f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-            this.f46870g = (LinearLayout) findViewById(R.id.big_tbean_root);
-            this.f46871h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-            this.f46872i = (TextView) findViewById(R.id.big_tbean_jump_tv);
-            this.f46873j = (TextView) findViewById(R.id.user_define_confirm_tv);
-            this.f46869f.setOnClickListener(null);
+            this.f36236b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906bb);
+            this.f36237c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09036b);
+            this.f36238d = (TextView) findViewById(R.id.obfuscated_res_0x7f09036c);
+            this.f36239e = (TextView) findViewById(R.id.obfuscated_res_0x7f09036a);
+            this.f36240f = (TextView) findViewById(R.id.obfuscated_res_0x7f09229e);
+            this.f36236b.setOnClickListener(null);
         }
     }
 
-    public void onChangeSKinType() {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                SkinManager.setBackgroundColor(this.f46870g, R.color.CAM_X0110);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.f36237c.setVisibility(0);
             } else {
-                SkinManager.setBackgroundColor(this.f46870g, R.color.common_color_10333);
+                this.f36237c.setVisibility(4);
             }
-            SkinManager.setViewTextColor(this.f46871h, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f46872i, (int) R.color.CAM_X0106);
-            SkinManager.setBackgroundColor(this.f46869f, R.color.CAM_X0201);
         }
     }
 
-    public void setBigTbeanToastText(int i2) {
+    public void setBigTbeanToastText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String format = String.format(this.f46868e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
-            this.l = format;
-            this.f46871h.setText(format);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f02fe), StringHelper.numberUniform(i));
+            this.f36242h = format;
+            this.f36238d.setText(format);
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.k = onClickListener;
-            this.f46872i.setOnClickListener(onClickListener);
-            this.f46873j.setOnClickListener(this.k);
+            this.f36241g = onClickListener;
+            this.f36239e.setOnClickListener(onClickListener);
+            this.f36240f.setOnClickListener(this.f36241g);
         }
     }
 
@@ -115,31 +112,20 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f46871h.setText(this.l);
-                this.f46871h.setGravity(3);
-                showBitTBeanToastView(true);
-                this.f46873j.setEnabled(true);
-                this.f46870g.setVisibility(0);
-                this.f46872i.setVisibility(0);
+                this.f36238d.setText(this.f36242h);
+                this.f36238d.setGravity(3);
+                b(true);
+                this.f36240f.setEnabled(true);
+                this.f36237c.setVisibility(0);
+                this.f36239e.setVisibility(0);
                 return;
             }
-            this.f46871h.setText(R.string.user_define_max_money);
-            this.f46871h.setGravity(17);
-            this.f46873j.setEnabled(false);
-            showBitTBeanToastView(false);
-            this.f46870g.setVisibility(0);
-            this.f46872i.setVisibility(8);
-        }
-    }
-
-    public void showBitTBeanToastView(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                this.f46870g.setVisibility(0);
-            } else {
-                this.f46870g.setVisibility(4);
-            }
+            this.f36238d.setText(R.string.obfuscated_res_0x7f0f14a2);
+            this.f36238d.setGravity(17);
+            this.f36240f.setEnabled(false);
+            b(false);
+            this.f36237c.setVisibility(0);
+            this.f36239e.setVisibility(8);
         }
     }
 
@@ -152,9 +138,9 @@ public class UserDefineConfirmBottomView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -166,43 +152,21 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserDefineConfirmBottomView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public UserDefineConfirmBottomView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        a(context);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserDefineConfirmBottomView(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class V8Value implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOOLEAN = 3;
@@ -42,9 +42,9 @@ public abstract class V8Value implements Releasable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,9 +60,9 @@ public abstract class V8Value implements Releasable {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,18 +73,18 @@ public abstract class V8Value implements Releasable {
     }
 
     @Deprecated
-    public static String getStringRepresentaion(int i2) {
+    public static String getStringRepresentaion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? getStringRepresentation(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? getStringRepresentation(i) : (String) invokeI.objValue;
     }
 
-    public static String getStringRepresentation(int i2) {
+    public static String getStringRepresentation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != 99) {
-                switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 99) {
+                switch (i) {
                     case 0:
                         return "Null";
                     case 1:
@@ -120,7 +120,7 @@ public abstract class V8Value implements Releasable {
                     case 16:
                         return "Float32Array";
                     default:
-                        throw new IllegalArgumentException("Invalid V8 type: " + i2);
+                        throw new IllegalArgumentException("Invalid V8 type: " + i);
                 }
             }
             return "Undefined";
@@ -128,10 +128,10 @@ public abstract class V8Value implements Releasable {
         return (String) invokeI.objValue;
     }
 
-    public void addObjectReference(long j2) {
+    public void addObjectReference(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.objectHandle = j2;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.objectHandle = j;
             try {
                 this.v8.addObjRef(this);
             } catch (Error e2) {
@@ -246,10 +246,10 @@ public abstract class V8Value implements Releasable {
         return invokeV.intValue;
     }
 
-    public void initialize(long j2, Object obj) {
+    public void initialize(long j, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048587, this, j2, obj) == null) {
-            long initNewV8Object = this.v8.initNewV8Object(j2);
+        if (interceptable == null || interceptable.invokeJL(1048587, this, j, obj) == null) {
+            long initNewV8Object = this.v8.initNewV8Object(j);
             this.released = false;
             addObjectReference(initNewV8Object);
         }

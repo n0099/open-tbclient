@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -51,7 +52,7 @@ public final class StatService implements NoProguard {
         commonParams = hashMap;
         hashMap.put("pid", "111");
         commonParams.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        commonParams.put("device", Build.MODEL);
+        commonParams.put(Config.DEVICE_PART, Build.MODEL);
         ArrayList arrayList = new ArrayList();
         delayRequestName = arrayList;
         arrayList.add("share_read");
@@ -67,9 +68,9 @@ public final class StatService implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -130,9 +131,9 @@ public final class StatService implements NoProguard {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {httpHashMapWrap};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -187,9 +188,9 @@ public final class StatService implements NoProguard {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Boolean.valueOf(r7)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -199,9 +200,9 @@ public final class StatService implements NoProguard {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i2, String str) {
+                public void onSuccess(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
             });
@@ -212,7 +213,7 @@ public final class StatService implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, map) == null) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(AUTO_STATISTIC, Base64.encodeToString(getEventTypeBase64Value(str).getBytes(), 0));
+            httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(str).getBytes(), 0));
             httpHashMapWrap.putAll(commonParams);
             httpHashMapWrap.put("source", "native");
             httpHashMapWrap.put("data_source", "client");
@@ -251,10 +252,10 @@ public final class StatService implements NoProguard {
             }
             sb.append("}");
             Log.d(TAG, "onEventAutoStatistic content=" + sb.toString());
-            map.put(AUTO_STATISTIC, Base64.encodeToString(sb.toString().getBytes(), 0));
+            map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));
             map.put("source", "native");
             map.put("data_source", "client");
-            onEvent(AUTO_STATISTIC, map);
+            onEvent("auto_statistic", map);
         }
     }
 }

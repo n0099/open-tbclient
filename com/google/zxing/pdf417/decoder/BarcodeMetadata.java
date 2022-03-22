@@ -16,26 +16,26 @@ public final class BarcodeMetadata {
     public final int rowCountLowerPart;
     public final int rowCountUpperPart;
 
-    public BarcodeMetadata(int i2, int i3, int i4, int i5) {
+    public BarcodeMetadata(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.columnCount = i2;
-        this.errorCorrectionLevel = i5;
-        this.rowCountUpperPart = i3;
-        this.rowCountLowerPart = i4;
-        this.rowCount = i3 + i4;
+        this.columnCount = i;
+        this.errorCorrectionLevel = i4;
+        this.rowCountUpperPart = i2;
+        this.rowCountLowerPart = i3;
+        this.rowCount = i2 + i3;
     }
 
     public int getColumnCount() {

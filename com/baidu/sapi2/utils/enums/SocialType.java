@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class SocialType {
     public static final /* synthetic */ SocialType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final SocialType CFO;
     public static final SocialType FACEBOOK;
     public static final SocialType GLORY;
     public static final SocialType GOOGLE;
@@ -61,22 +63,23 @@ public final class SocialType {
         TWITTER = new SocialType("TWITTER", 10, 56, "twitter");
         GOOGLE = new SocialType("GOOGLE", 11, 57, "google");
         YY = new SocialType("YY", 12, 58, "YY");
-        QQ_SSO_BACKGROUND = new SocialType("QQ_SSO_BACKGROUND", 13, 100015, "QQ_SSO_BACKGROUND");
-        SocialType socialType = new SocialType("WEIXIN_BACKGROUND", 14, 100042, "微信");
+        CFO = new SocialType("CFO", 13, 60, "CFO");
+        QQ_SSO_BACKGROUND = new SocialType("QQ_SSO_BACKGROUND", 14, HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_DISPLAY_OPTIONS_NULL, "QQ_SSO_BACKGROUND");
+        SocialType socialType = new SocialType("WEIXIN_BACKGROUND", 15, 100042, "微信");
         WEIXIN_BACKGROUND = socialType;
-        $VALUES = new SocialType[]{UNKNOWN, SINA_WEIBO_SSO, QQ_SSO, WEIXIN, HUAWEI, GLORY, IQIYI, XIAOMI, MEIZU, FACEBOOK, TWITTER, GOOGLE, YY, QQ_SSO_BACKGROUND, socialType};
+        $VALUES = new SocialType[]{UNKNOWN, SINA_WEIBO_SSO, QQ_SSO, WEIXIN, HUAWEI, GLORY, IQIYI, XIAOMI, MEIZU, FACEBOOK, TWITTER, GOOGLE, YY, CFO, QQ_SSO_BACKGROUND, socialType};
     }
 
-    public SocialType(String str, int i2, int i3, String str2) {
+    public SocialType(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -85,27 +88,30 @@ public final class SocialType {
                 return;
             }
         }
-        this.type = i3;
+        this.type = i2;
         this.name = str2;
     }
 
-    public static SocialType getSocialType(int i2) {
+    public static SocialType getSocialType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 2) {
-                if (i2 != 15) {
-                    if (i2 != 42) {
-                        if (i2 != 45) {
-                            if (i2 != 47) {
-                                if (i2 != 55) {
-                                    if (i2 != 49) {
-                                        if (i2 != 50) {
-                                            return UNKNOWN;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 2) {
+                if (i != 15) {
+                    if (i != 42) {
+                        if (i != 45) {
+                            if (i != 47) {
+                                if (i != 55) {
+                                    if (i != 60) {
+                                        if (i != 49) {
+                                            if (i != 50) {
+                                                return UNKNOWN;
+                                            }
+                                            return MEIZU;
                                         }
-                                        return MEIZU;
+                                        return XIAOMI;
                                     }
-                                    return XIAOMI;
+                                    return CFO;
                                 }
                                 return FACEBOOK;
                             }

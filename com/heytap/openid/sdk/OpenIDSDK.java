@@ -3,6 +3,7 @@ package com.heytap.openid.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,9 +21,9 @@ public class OpenIDSDK {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,15 +35,16 @@ public class OpenIDSDK {
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             String str = "pkg:" + context.getPackageName() + " clear";
             if (a.a()) {
-                b bVar = b.C2076b.a;
+                b bVar = b.C1937b.a;
                 Context a = a.a(context);
                 synchronized (bVar) {
                     try {
                         if (bVar.a != null) {
-                            a.unbindService(bVar.f53519e);
+                            a.unbindService(bVar.f38730e);
                             bVar.a = null;
                         }
                     } catch (Exception unused) {
+                        Log.e("OpenIDHelper", "ex: unbind fail");
                     }
                 }
             }
@@ -52,13 +54,13 @@ public class OpenIDSDK {
     public static String getAAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? !a.a() ? "" : b.C2076b.a.a(a.a(context), "AUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? !a.a() ? "" : b.C1937b.a.a(a.a(context), "AUID") : (String) invokeL.objValue;
     }
 
     public static String getOAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? !a.a() ? "" : b.C2076b.a.a(a.a(context), "OUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? !a.a() ? "" : b.C1937b.a.a(a.a(context), "OUID") : (String) invokeL.objValue;
     }
 
     public static boolean getOAIDStatus(Context context) {
@@ -66,7 +68,7 @@ public class OpenIDSDK {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (a.a()) {
-                return "TRUE".equalsIgnoreCase(b.C2076b.a.a(a.a(context), "OUID_STATUS"));
+                return "TRUE".equalsIgnoreCase(b.C1937b.a.a(a.a(context), "OUID_STATUS"));
             }
             return false;
         }
@@ -76,19 +78,19 @@ public class OpenIDSDK {
     public static String getUDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? !a.a() ? "" : b.C2076b.a.a(a.a(context), "GUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? !a.a() ? "" : b.C1937b.a.a(a.a(context), "GUID") : (String) invokeL.objValue;
     }
 
     public static String getVAID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? !a.a() ? "" : b.C2076b.a.a(a.a(context), "DUID") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? !a.a() ? "" : b.C1937b.a.a(a.a(context), "DUID") : (String) invokeL.objValue;
     }
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
-            b bVar = b.C2076b.a;
+            b bVar = b.C1937b.a;
             Context a = a.a(context);
             bVar.getClass();
             boolean z = false;
@@ -101,7 +103,7 @@ public class OpenIDSDK {
                 }
             } catch (PackageManager.NameNotFoundException unused) {
             }
-            a.f53515b = z;
+            a.f38726b = z;
             a.a = true;
         }
     }
@@ -110,8 +112,10 @@ public class OpenIDSDK {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            boolean z = a.a;
-            return a.f53515b;
+            if (!a.a) {
+                Log.e("OpenIDHelper", "SDK Need Init First!");
+            }
+            return a.f38726b;
         }
         return invokeV.booleanValue;
     }

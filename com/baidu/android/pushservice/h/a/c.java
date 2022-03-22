@@ -50,9 +50,9 @@ public class c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r8, Short.valueOf(r9), context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Short) objArr2[1]).shortValue());
                             newInitContext.thisArg = this;
@@ -75,9 +75,9 @@ public class c {
     }
 
     public static /* synthetic */ int b() {
-        int i2 = a;
-        a = i2 + 1;
-        return i2;
+        int i = a;
+        a = i + 1;
+        return i;
     }
 
     public static void b(Context context, a aVar) {
@@ -103,10 +103,10 @@ public class c {
                     public final /* synthetic */ boolean a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f30807b;
+                    public final /* synthetic */ Context f24653b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f30808c;
+                    public final /* synthetic */ a f24654c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -115,45 +115,45 @@ public class c {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {Boolean.valueOf(z), context, aVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.a = z;
-                        this.f30807b = context;
-                        this.f30808c = aVar;
+                        this.f24653b = context;
+                        this.f24654c = aVar;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
-                    public void a(int i2, String str) {
+                    public void a(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.a) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) || this.a) {
                             return;
                         }
-                        PushSettings.m(this.f30807b);
-                        if (i2 == 0) {
-                            c.b(this.f30807b, this.f30808c);
+                        PushSettings.m(this.f24653b);
+                        if (i == 0) {
+                            c.b(this.f24653b, this.f24654c);
                             int unused = c.a = 0;
                             return;
                         }
-                        int i3 = 1;
+                        int i2 = 1;
                         if (c.a < 1) {
-                            c.b(this.f30807b, false);
+                            c.b(this.f24653b, false);
                             c.b();
                             return;
                         }
                         int unused2 = c.a = 0;
-                        int o = PushSettings.o(this.f30807b);
+                        int o = PushSettings.o(this.f24653b);
                         if (o >= 3) {
-                            c.b(this.f30807b, this.f30808c);
+                            c.b(this.f24653b, this.f24654c);
                         } else {
-                            i3 = 1 + o;
+                            i2 = 1 + o;
                         }
-                        PushSettings.b(this.f30807b, i3);
+                        PushSettings.b(this.f24653b, i2);
                     }
                 });
             }

@@ -1,8 +1,9 @@
 package com.baidu.swan.apps.event;
 
+import android.util.Log;
 import androidx.annotation.Keep;
-import c.a.p0.a.a;
-import c.a.p0.a.g2.b;
+import c.a.n0.a.a;
+import c.a.n0.a.g2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -44,9 +45,9 @@ public class SwanJSVersionUpdateEvent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,16 +63,16 @@ public class SwanJSVersionUpdateEvent {
         this.mVersionName = null;
     }
 
-    public static void sendEvent(long j2) {
+    public static void sendEvent(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
             SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            c.a.p0.a.s0.a.N().a(swanJSVersionUpdateEvent);
+            c.a.n0.a.s0.a.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
-                String str = "send SwanJSVersionUpdateEvent, downVersion:" + j2 + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX;
+                Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
     }

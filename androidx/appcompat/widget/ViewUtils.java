@@ -2,6 +2,7 @@ package androidx.appcompat.widget;
 
 import android.graphics.Rect;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
@@ -45,6 +46,7 @@ public class ViewUtils {
                 }
                 sComputeFitSystemWindowsMethod.setAccessible(true);
             } catch (NoSuchMethodException unused) {
+                Log.d("ViewUtils", "Could not find method computeFitSystemWindows. Oh well.");
             }
         }
     }
@@ -54,9 +56,9 @@ public class ViewUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,7 +73,8 @@ public class ViewUtils {
         }
         try {
             method.invoke(view, rect, rect2);
-        } catch (Exception unused) {
+        } catch (Exception e2) {
+            Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e2);
         }
     }
 
@@ -92,7 +95,12 @@ public class ViewUtils {
                 method.setAccessible(true);
             }
             method.invoke(view, new Object[0]);
-        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
+        } catch (IllegalAccessException e2) {
+            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
+        } catch (NoSuchMethodException unused) {
+            Log.d("ViewUtils", "Could not find method makeOptionalFitsSystemWindows. Oh well...");
+        } catch (InvocationTargetException e3) {
+            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e3);
         }
     }
 }

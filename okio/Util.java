@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF_8;
@@ -37,21 +37,21 @@ public final class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean arrayRangeEquals(byte[] bArr, int i2, byte[] bArr2, int i3, int i4) {
+    public static boolean arrayRangeEquals(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            for (int i5 = 0; i5 < i4; i5++) {
-                if (bArr[i5 + i2] != bArr2[i5 + i3]) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                if (bArr[i4 + i] != bArr2[i4 + i2]) {
                     return false;
                 }
             }
@@ -60,33 +60,33 @@ public final class Util {
         return invokeCommon.booleanValue;
     }
 
-    public static void checkOffsetAndCount(long j2, long j3, long j4) {
+    public static void checkOffsetAndCount(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
-                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)));
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
+                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)));
             }
         }
     }
 
-    public static int reverseBytesInt(int i2) {
+    public static int reverseBytesInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? ((i2 & 255) << 24) | (((-16777216) & i2) >>> 24) | ((16711680 & i2) >>> 8) | ((65280 & i2) << 8) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? ((i & 255) << 24) | (((-16777216) & i) >>> 24) | ((16711680 & i) >>> 8) | ((65280 & i) << 8) : invokeI.intValue;
     }
 
-    public static long reverseBytesLong(long j2) {
+    public static long reverseBytesLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? ((j2 & 255) << 56) | (((-72057594037927936L) & j2) >>> 56) | ((71776119061217280L & j2) >>> 40) | ((280375465082880L & j2) >>> 24) | ((1095216660480L & j2) >>> 8) | ((4278190080L & j2) << 8) | ((16711680 & j2) << 24) | ((65280 & j2) << 40) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? ((j & 255) << 56) | (((-72057594037927936L) & j) >>> 56) | ((71776119061217280L & j) >>> 40) | ((280375465082880L & j) >>> 24) | ((1095216660480L & j) >>> 8) | ((4278190080L & j) << 8) | ((16711680 & j) << 24) | ((65280 & j) << 40) : invokeJ.longValue;
     }
 
     public static short reverseBytesShort(short s) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s)})) == null) {
-            int i2 = s & UShort.MAX_VALUE;
-            return (short) (((i2 & 255) << 8) | ((65280 & i2) >>> 8));
+            int i = s & UShort.MAX_VALUE;
+            return (short) (((i & 255) << 8) | ((65280 & i) >>> 8));
         }
         return invokeCommon.shortValue;
     }

@@ -12,7 +12,7 @@ import com.baidubce.http.HttpMethodName;
 import com.baidubce.model.AbstractBceRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (HttpMethodName) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -136,10 +136,10 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         }
     }
 
-    public void setExpiration(int i2) {
+    public void setExpiration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.expirationInSeconds = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.expirationInSeconds = i;
         }
     }
 
@@ -194,11 +194,11 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return (GeneratePresignedUrlRequest) invokeL.objValue;
     }
 
-    public GeneratePresignedUrlRequest withExpiration(int i2) {
+    public GeneratePresignedUrlRequest withExpiration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            setExpiration(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            setExpiration(i);
             return this;
         }
         return (GeneratePresignedUrlRequest) invokeI.objValue;
@@ -241,9 +241,9 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, httpMethodName};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

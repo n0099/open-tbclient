@@ -24,9 +24,9 @@ public interface IMultiMediaDataSourceView extends SurfaceTexture.OnFrameAvailab
 
     void replaceCoverStickerData(MultiMediaData multiMediaData);
 
-    void seek(long j2);
+    void seek(long j);
 
-    void setCurrentStickerData(int i2, String str);
+    void setCurrentStickerData(int i, String str);
 
     void setIMultiMediaDataSource(IMultiMediaDataSource iMultiMediaDataSource);
 

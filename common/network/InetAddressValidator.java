@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InetAddressValidator implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_16 = 16;
@@ -46,9 +46,9 @@ public class InetAddressValidator implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -116,33 +116,33 @@ public class InetAddressValidator implements Serializable {
                     if (split.length > 8) {
                         return false;
                     }
+                    int i = 0;
                     int i2 = 0;
-                    int i3 = 0;
-                    for (int i4 = 0; i4 < split.length; i4++) {
-                        String str2 = split[i4];
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        String str2 = split[i3];
                         if (str2.length() == 0) {
-                            if (i3 + 1 > 1) {
+                            if (i2 + 1 > 1) {
                                 return false;
                             }
-                        } else if (i4 == split.length - 1 && str2.contains(".")) {
+                        } else if (i3 == split.length - 1 && str2.contains(".")) {
                             if (!isValidInet4Address(str2)) {
                                 return false;
                             }
-                            i2 += 2;
-                            i3 = 0;
+                            i += 2;
+                            i2 = 0;
                         } else if (str2.length() > 4) {
                             return false;
                         } else {
                             try {
                                 int parseInt = Integer.parseInt(str2, 16);
-                                i3 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
+                                i2 = (parseInt >= 0 && parseInt <= 65535) ? 0 : 0;
                             } catch (NumberFormatException unused) {
                             }
                             return false;
                         }
-                        i2++;
+                        i++;
                     }
-                    return i2 <= 8 && (i2 >= 8 || contains);
+                    return i <= 8 && (i >= 8 || contains);
                 }
                 return false;
             }

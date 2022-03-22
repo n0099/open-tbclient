@@ -27,6 +27,7 @@ import android.webkit.CookieSyncManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.SslErrorHandler;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -39,6 +40,7 @@ import android.webkit.WebViewClient;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -73,7 +75,8 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
+import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -83,10 +86,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.IWalletLoginListener;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.coremedia.iso.boxes.FreeSpaceBox;
-import com.kuaishou.weapon.un.s;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.tachikoma.core.component.input.InputType;
 import com.yy.hiidostatis.defs.controller.SensorController;
@@ -177,6 +177,7 @@ public class SapiWebView extends WebView {
     public int leftBtnIsVisible;
     public LoginTypes mExcludeTypes;
     public boolean mHadMakeBarHide;
+    public boolean mIsCFProess;
     public View noNetworkView;
     public OnBackCallback onBackCallback;
     public OnFinishCallback onFinishCallback;
@@ -220,9 +221,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -235,9 +236,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -262,9 +263,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -277,9 +278,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -318,16 +319,16 @@ public class SapiWebView extends WebView {
             $VALUES = new ActivityLifeCycle[]{ON_RESUME, activityLifeCycle};
         }
 
-        public ActivityLifeCycle(String str, int i2, String str2) {
+        public ActivityLifeCycle(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -383,9 +384,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -432,9 +433,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -461,9 +462,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -487,8 +488,8 @@ public class SapiWebView extends WebView {
                         command.actionName = optJSONObject.optString("name");
                         JSONArray optJSONArray = optJSONObject.optJSONArray("params");
                         if (optJSONArray != null) {
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                command.actionParams.add(optJSONArray.optString(i2));
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                command.actionParams.add(optJSONArray.optString(i));
                             }
                         }
                     }
@@ -529,9 +530,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -566,9 +567,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -586,7 +587,7 @@ public class SapiWebView extends WebView {
         public static final int LEFT_BTN_INVISIBLE = 0;
         public static final int LEFT_BTN_VISIBLE = 1;
 
-        void onLeftBtnVisible(int i2);
+        void onLeftBtnVisible(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -606,9 +607,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -635,9 +636,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -675,7 +676,7 @@ public class SapiWebView extends WebView {
         public static final int PICK_IMAGE_ALBUM = 2;
         public static final int PICK_IMAGE_PHOTO = 1;
 
-        void onPickImage(int i2, int i3, int i4, PickPhotoResult pickPhotoResult);
+        void onPickImage(int i, int i2, int i3, PickPhotoResult pickPhotoResult);
     }
 
     /* loaded from: classes4.dex */
@@ -688,9 +689,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -720,9 +721,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -735,9 +736,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -782,9 +783,9 @@ public class SapiWebView extends WebView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiWebView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -830,9 +831,9 @@ public class SapiWebView extends WebView {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -845,9 +846,9 @@ public class SapiWebView extends WebView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -871,9 +872,9 @@ public class SapiWebView extends WebView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiWebView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -912,7 +913,7 @@ public class SapiWebView extends WebView {
     public interface WebChromeClientCallback {
         boolean isSubClassHandleMessage(String str);
 
-        void onConsoleMessage(String str, int i2, String str2);
+        void onConsoleMessage(String str, int i, String str2);
 
         boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
     }
@@ -961,9 +962,9 @@ public class SapiWebView extends WebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -985,9 +986,9 @@ public class SapiWebView extends WebView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1101,9 +1102,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1113,12 +1114,12 @@ public class SapiWebView extends WebView {
                 }
 
                 @Override // android.webkit.DownloadListener
-                public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
+                public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                         try {
                             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                            intent.setFlags(268435456);
+                            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                             this.this$0.getContext().startActivity(intent);
                         } catch (Throwable th) {
                             Log.e(th);
@@ -1197,9 +1198,9 @@ public class SapiWebView extends WebView {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1241,9 +1242,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1288,9 +1289,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1333,8 +1334,8 @@ public class SapiWebView extends WebView {
             this.isSupFaceLogin = new FaceLoginService().isSupFaceLogin();
             configSapiWebView();
             setAsynJsMehodName();
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 > 10 && i2 < 19) {
+            int i = Build.VERSION.SDK_INT;
+            if (i > 10 && i < 19) {
                 removeJavascriptInterface("searchBoxJavaBridge_");
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
@@ -1352,9 +1353,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1364,12 +1365,12 @@ public class SapiWebView extends WebView {
                 }
 
                 @Override // android.webkit.WebChromeClient
-                public void onConsoleMessage(String str, int i3, String str2) {
+                public void onConsoleMessage(String str, int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
-                        Log.d(str + " -- From line " + i3 + " of " + str2, new Object[0]);
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i2, str2) == null) {
+                        Log.d(str + " -- From line " + i2 + " of " + str2, new Object[0]);
                         if (this.this$0.webChromeClientCallback != null) {
-                            this.this$0.webChromeClientCallback.onConsoleMessage(str, i3, str2);
+                            this.this$0.webChromeClientCallback.onConsoleMessage(str, i2, str2);
                         }
                     }
                 }
@@ -1389,7 +1390,7 @@ public class SapiWebView extends WebView {
                                 return true;
                             }
                         }
-                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(context).setTitle("JavaScript Message").setMessage(str2).setPositiveButton(NewBindCardEntry.BING_CARD_SUCCESS_MSG, new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
+                        AlertDialog.Builder positiveButton = new AlertDialog.Builder(context).setTitle("JavaScript Message").setMessage(str2).setPositiveButton("ok", new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.sapi2.SapiWebView.3.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass3 this$1;
@@ -1402,9 +1403,9 @@ public class SapiWebView extends WebView {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, jsResult};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -1415,9 +1416,9 @@ public class SapiWebView extends WebView {
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialogInterface, int i3) {
+                            public void onClick(DialogInterface dialogInterface, int i2) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeLI(1048576, this, dialogInterface, i3) == null) {
+                                if (interceptable3 == null || interceptable3.invokeLI(1048576, this, dialogInterface, i2) == null) {
                                     this.val$result.confirm();
                                 }
                             }
@@ -1455,9 +1456,9 @@ public class SapiWebView extends WebView {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, str2, jsPromptResult, r9};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -1519,29 +1520,29 @@ public class SapiWebView extends WebView {
                 }
 
                 @Override // android.webkit.WebChromeClient
-                public void onProgressChanged(WebView webView, int i3) {
+                public void onProgressChanged(WebView webView, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048579, this, webView, i3) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048579, this, webView, i2) == null) {
                         if (this.this$0.progressBar != null) {
-                            if (i3 == 100) {
+                            if (i2 == 100) {
                                 this.this$0.progressBar.setVisibility(8);
                             } else {
                                 if (this.this$0.progressBar.getVisibility() == 8) {
                                     this.this$0.progressBar.setVisibility(0);
                                 }
-                                this.this$0.progressBar.setProgress(i3);
+                                this.this$0.progressBar.setProgress(i2);
                             }
                         }
-                        super.onProgressChanged(webView, i3);
+                        super.onProgressChanged(webView, i2);
                     }
                 }
 
                 @Override // android.webkit.WebChromeClient
                 @TargetApi(5)
-                public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+                public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-                        quotaUpdater.updateQuota(j2 * 2);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
+                        quotaUpdater.updateQuota(j * 2);
                     }
                 }
 
@@ -1609,10 +1610,10 @@ public class SapiWebView extends WebView {
         return invokeV.booleanValue;
     }
 
-    private void loadChinaMobileLogin(int i2, List<PassNameValuePair> list) {
+    private void loadChinaMobileLogin(int i, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65589, this, i2, list) == null) {
-            String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i2;
+        if (interceptable == null || interceptable.invokeIL(65589, this, i, list) == null) {
+            String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i;
             if (this.jsCallBacks.loadExternalWebViewCallback != null) {
                 str = str + "&enableExternalWeb=1";
             }
@@ -1657,10 +1658,10 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadNameLogin(int i2) {
+    private void loadNameLogin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65592, this, i2) == null) {
-            String str = addExtras(getLoginUrl(), this.extras) + "&loginInitType=" + i2;
+        if (interceptable == null || interceptable.invokeI(65592, this, i) == null) {
+            String str = addExtras(getLoginUrl(), this.extras) + "&loginInitType=" + i;
             if (this.jsCallBacks.loadExternalWebViewCallback != null) {
                 str = str + "&enableExternalWeb=1";
             }
@@ -1674,11 +1675,11 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadNormalLogin(int i2, List<PassNameValuePair> list) {
+    private void loadNormalLogin(int i, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65593, this, i2, list) == null) {
-            String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i2;
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeIL(65593, this, i, list) == null) {
+            String str = addExtras(getLoginUrl(), list) + "&loginInitType=" + i;
+            if (i == 0) {
                 if (this.jsCallBacks.loadExternalWebViewCallback != null) {
                     str = str + "&enableExternalWeb=1";
                 }
@@ -1689,7 +1690,7 @@ public class SapiWebView extends WebView {
                     str = str + "&hideHelp=1";
                 }
                 loadUrl(str + URL_HASH_LOGIN);
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 loadUrl(str + URL_HASH_LOGIN);
             } else {
                 if (this.jsCallBacks.loadExternalWebViewCallback != null) {
@@ -1706,10 +1707,10 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadPasswordLogin(int i2) {
+    private void loadPasswordLogin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65594, this, i2) == null) {
-            String str = addExtras(getLoginUrl(), this.extras) + "&loginInitType=" + i2;
+        if (interceptable == null || interceptable.invokeI(65594, this, i) == null) {
+            String str = addExtras(getLoginUrl(), this.extras) + "&loginInitType=" + i;
             if (this.jsCallBacks.loadExternalWebViewCallback != null) {
                 str = str + "&enableExternalWeb=1";
             }
@@ -1723,10 +1724,10 @@ public class SapiWebView extends WebView {
         }
     }
 
-    private void loadShareAccounts(int i2, List<PassNameValuePair> list) {
+    private void loadShareAccounts(int i, List<PassNameValuePair> list) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65595, this, i2, list) == null) {
+        if (interceptable == null || interceptable.invokeIL(65595, this, i, list) == null) {
             String loginUrl = getLoginUrl();
             if (this.jsCallBacks.loadExternalWebViewCallback != null) {
                 loginUrl = loginUrl + "&enableExternalWeb=1";
@@ -1742,7 +1743,7 @@ public class SapiWebView extends WebView {
             } else if (new OneKeyLoginSdkCall().checkSupOauth()) {
                 str = loginUrl + "&loginInitType=5";
             } else {
-                str = loginUrl + "&loginInitType=" + i2;
+                str = loginUrl + "&loginInitType=" + i;
             }
             loadUrl(addExtras(str, list) + URL_HASH_SHARE);
         }
@@ -1764,9 +1765,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2160,9 +2161,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2287,7 +2288,7 @@ public class SapiWebView extends WebView {
             return (String) invokeV.objValue;
         }
         TelephonyManager telephonyManager = (TelephonyManager) getContext().getSystemService("phone");
-        if (SapiUtils.checkRequestPermission(s.f53804c, getContext())) {
+        if (SapiUtils.checkRequestPermission("android.permission.READ_PHONE_STATE", getContext())) {
             try {
                 line1Number = telephonyManager.getLine1Number();
             } catch (Exception unused) {
@@ -2347,7 +2348,7 @@ public class SapiWebView extends WebView {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             String str = !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
             String str2 = TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE;
-            String encode = URLEncoder.encode("Sapi_9.4.7.8.2_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
+            String encode = URLEncoder.encode("Sapi_9.5.5_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
             if (!isValidPackage() || TextUtils.isEmpty(this.configuration.userAgent)) {
                 return encode;
             }
@@ -2389,9 +2390,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sapiAccountResponseToAccount, sapiAccountResponse};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2440,9 +2441,9 @@ public class SapiWebView extends WebView {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, sapiAccount};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2472,7 +2473,7 @@ public class SapiWebView extends WebView {
     }
 
     public void handleOpenApiAuthorizeResponse(SocialResponse socialResponse) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048604, this, socialResponse) == null) || socialResponse == null) {
             return;
@@ -2484,7 +2485,7 @@ public class SapiWebView extends WebView {
         if (SapiContext.getInstance().mLastLoginType != null) {
             SapiContext.getInstance().setPreLoginType(SapiContext.getInstance().mLastLoginType.getName());
         }
-        if (socialResponse.accountCenterFlag && ((i2 = socialResponse.errorCode) == 0 || i2 == 110000)) {
+        if (socialResponse.accountCenterFlag && ((i = socialResponse.errorCode) == 0 || i == 110000)) {
             post(new Runnable(this, socialResponse, sapiAccountResponseToAccount) { // from class: com.baidu.sapi2.SapiWebView.14
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -2499,9 +2500,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, socialResponse, sapiAccountResponseToAccount};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2527,8 +2528,8 @@ public class SapiWebView extends WebView {
                 }
             });
         } else if (this.jsCallBacks.authorizationListener != null) {
-            int i3 = socialResponse.errorCode;
-            if (i3 != 0 && i3 != 110000) {
+            int i2 = socialResponse.errorCode;
+            if (i2 != 0 && i2 != 110000) {
                 post(new Runnable(this, socialResponse) { // from class: com.baidu.sapi2.SapiWebView.16
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -2542,9 +2543,9 @@ public class SapiWebView extends WebView {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, socialResponse};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2581,9 +2582,9 @@ public class SapiWebView extends WebView {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, sapiAccountResponseToAccount};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2621,12 +2622,12 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadAccountRealName(String str, String str2, boolean z, String str3, int i2) {
+    public void loadAccountRealName(String str, String str2, boolean z, String str3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Integer.valueOf(i)}) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("okU", SapiHost.getHost(SapiHost.ACTION_INTERCEPT_URL)));
-            arrayList.add(new PassNameValuePair("realname_level", String.valueOf(i2)));
+            arrayList.add(new PassNameValuePair("realname_level", String.valueOf(i)));
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new PassNameValuePair("scene", str2));
             }
@@ -2709,9 +2710,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, str2, str3, str4, str5};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2764,8 +2765,8 @@ public class SapiWebView extends WebView {
                     }
                     int indexOf = str.indexOf("?");
                     if (indexOf > 0) {
-                        int i2 = indexOf + 1;
-                        str = str.substring(0, i2) + SapiUtils.createRequestParams(list) + "&" + str.substring(i2, str.length());
+                        int i = indexOf + 1;
+                        str = str.substring(0, i) + SapiUtils.createRequestParams(list) + "&" + str.substring(i, str.length());
                     } else {
                         str = str + "?" + SapiUtils.createRequestParams(list);
                     }
@@ -2861,9 +2862,9 @@ public class SapiWebView extends WebView {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -2998,11 +2999,11 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public boolean onKeyUp(int i2) {
+    public boolean onKeyUp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i2)) == null) {
-            if (i2 == 4 && this.leftBtnIsVisible == 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i)) == null) {
+            if (i == 4 && this.leftBtnIsVisible == 1) {
                 OnBackCallback onBackCallback = this.onBackCallback;
                 if (onBackCallback != null && this.jsCallBacks.rrLoginResponse == null) {
                     onBackCallback.onBack();
@@ -3016,30 +3017,30 @@ public class SapiWebView extends WebView {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048635, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048635, this, i, i2, i3, i4) == null) {
             ProgressBar progressBar = this.progressBar;
             if (progressBar != null) {
                 AbsoluteLayout.LayoutParams layoutParams = (AbsoluteLayout.LayoutParams) progressBar.getLayoutParams();
-                layoutParams.x = i2;
-                layoutParams.y = i3;
+                layoutParams.x = i;
+                layoutParams.y = i2;
                 this.progressBar.setLayoutParams(layoutParams);
             }
-            super.onScrollChanged(i2, i3, i4, i5);
+            super.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     @Override // android.view.View
-    public boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
+    public boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Boolean.valueOf(z)})) == null) {
             View view = this.noNetworkView;
             if (view == null || view.getVisibility() != 0) {
                 View view2 = this.timeoutView;
                 if (view2 == null || view2.getVisibility() != 0) {
-                    return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
+                    return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
                 }
                 return false;
             }
@@ -3164,7 +3165,7 @@ public class SapiWebView extends WebView {
                             } else if (name.equals("livinguname")) {
                                 sapiAccountResponse2.livingUname = URLDecoder.decode(newPullParser.nextText());
                                 continue;
-                            } else if (IWalletLoginListener.KEY_LOGIN_TYPE.equals(name)) {
+                            } else if ("loginType".equals(name)) {
                                 String nextText3 = newPullParser.nextText();
                                 if ("oneKeyLogin".equals(nextText3)) {
                                     String operatorType = new OneKeyLoginSdkCall().getOperatorType();
@@ -3199,7 +3200,7 @@ public class SapiWebView extends WebView {
                                 sapiAccountResponse2.portraitSign = newPullParser.nextText();
                                 continue;
                             } else if (name.equals("portrait")) {
-                                sapiAccountResponse2.portraitSign = newPullParser.nextText().replace("https://himg.bdimg.com/sys/portrait/item/", "").replace("http://himg.bdimg.com/sys/portrait/item/", "").replace(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "");
+                                sapiAccountResponse2.portraitSign = newPullParser.nextText().replace("https://himg.bdimg.com/sys/portrait/item/", "").replace("http://himg.bdimg.com/sys/portrait/item/", "").replace(".jpg", "");
                                 continue;
                             } else if (name.equals("guest_account")) {
                                 sapiAccountResponse2.isGuestAccount = newPullParser.nextText();
@@ -3288,15 +3289,15 @@ public class SapiWebView extends WebView {
     }
 
     @Override // android.view.View
-    public void scrollTo(int i2, int i3) {
+    public void scrollTo(int i, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048641, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048641, this, i, i2) == null) {
             View view2 = this.noNetworkView;
             if ((view2 != null && view2.getVisibility() == 0) || ((view = this.timeoutView) != null && view.getVisibility() == 0)) {
                 super.scrollTo(0, 0);
             }
-            super.scrollTo(i2, i3);
+            super.scrollTo(i, i2);
         }
     }
 
@@ -3678,10 +3679,10 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void setTimeoutMillis(long j2) {
+    public void setTimeoutMillis(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048695, this, j2) == null) {
-            this.timeoutMillis = j2;
+        if (interceptable == null || interceptable.invokeJ(1048695, this, j) == null) {
+            this.timeoutMillis = j;
         }
     }
 
@@ -3753,9 +3754,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -3813,9 +3814,9 @@ public class SapiWebView extends WebView {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -3889,9 +3890,9 @@ public class SapiWebView extends WebView {
         }
     }
 
-    public void loadLogin(int i2, List<PassNameValuePair> list) {
+    public void loadLogin(int i, List<PassNameValuePair> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048621, this, i2, list) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048621, this, i, list) == null) {
             if (this.configuration.supportFaceLogin && this.jsCallBacks.biometricsIdentifyCallback == null) {
                 throw new RuntimeException("face login is support, the biometricsIdentifyCallback can't be null");
             }
@@ -3901,25 +3902,25 @@ public class SapiWebView extends WebView {
             }
             this.extras = list;
             if (list.contains(EXTRA_SUPPORT_DIRECT_LOGIN)) {
-                loadNormalLogin(i2, list);
-            } else if (4 == i2) {
+                loadNormalLogin(i, list);
+            } else if (4 == i) {
                 loadJoinLogin(list);
-            } else if (i2 == 7) {
-                loadPasswordLogin(i2);
-            } else if (i2 == 6) {
-                loadNameLogin(i2);
+            } else if (i == 7) {
+                loadPasswordLogin(i);
+            } else if (i == 6) {
+                loadNameLogin(i);
             } else {
                 boolean z = ShareUtils.isInV2ShareDisableWhiteList(this.configuration) && this.shareV2Disable;
                 this.shareV2Disable = z;
                 if (this.jsCallBacks.shareAccountClickCallback != null && !z) {
                     list.add(new PassNameValuePair(ShareCallPacking.StatModel.KEY_SHARE_VERSION, "2"));
-                    loadShareAccounts(i2, list);
+                    loadShareAccounts(i, list);
                 } else if (this.isSupFaceLogin) {
                     loadFaceLogin(list);
                 } else if (new OneKeyLoginSdkCall().checkSupOauth()) {
-                    loadChinaMobileLogin(i2, list);
+                    loadChinaMobileLogin(i, list);
                 } else {
-                    loadNormalLogin(i2, list);
+                    loadNormalLogin(i, list);
                 }
             }
             SapiStatUtil.statLoadLogin(null);
@@ -3968,9 +3969,9 @@ public class SapiWebView extends WebView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiWebView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -3979,8 +3980,8 @@ public class SapiWebView extends WebView {
             this.this$0 = sapiWebView;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x015d, code lost:
-            if (r10.contains(r4.getHost() + r4.getPath()) != false) goto L39;
+        /* JADX WARN: Code restructure failed: missing block: B:32:0x0179, code lost:
+            if ((r5.getHost() + r5.getPath()).contains(r4.getHost() + r4.getPath()) != false) goto L44;
          */
         @Override // android.webkit.WebViewClient
         /*
@@ -4012,18 +4013,22 @@ public class SapiWebView extends WebView {
                 Uri parse = Uri.parse(SapiAccountManager.getInstance().getAccountService().getUrlAfterAuth());
                 Uri parse2 = Uri.parse(SapiAccountManager.getInstance().getAccountService().getUrlFinishBind());
                 Uri parse3 = Uri.parse(SapiAccountManager.getInstance().getAccountService().getUrlSSOFinish());
-                Uri parse4 = Uri.parse(SapiAccountManager.getInstance().getAccountService().getAccountCenterUrl(SapiWebView.ACCOUNT_CENTER));
-                if (str.contains(parse4.getHost() + parse4.getPath())) {
+                Uri parse4 = Uri.parse(str);
+                Uri parse5 = Uri.parse(SapiAccountManager.getInstance().getAccountService().getAccountCenterUrl(SapiWebView.ACCOUNT_CENTER));
+                if (str.contains(parse5.getHost() + parse5.getPath())) {
                     this.this$0.shouldClose = true;
                 } else {
                     this.this$0.shouldClose = false;
                 }
-                if (!str.contains(parse.getHost() + parse.getPath())) {
-                    if (!str.contains(parse2.getHost() + parse2.getPath())) {
-                    }
+                if (!(parse4.getHost() + parse4.getPath()).contains(parse.getHost() + parse.getPath())) {
                 }
                 if (!"center".equals(Uri.parse(str).getQueryParameter("wapsec"))) {
                     this.this$0.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '1', 'prompt_on_cancel']}}));");
+                }
+                if (!this.this$0.mIsCFProess) {
+                    if ((parse4.getHost() + parse4.getPath()).contains(parse2.getHost() + parse2.getPath()) && !"center".equals(Uri.parse(str).getQueryParameter("wapsec"))) {
+                        this.this$0.loadUrl("javascript:prompt(JSON.stringify({'action':{'name': 'authorized_response', 'params': [document.body.innerHTML, '1', 'prompt_on_cancel']}}));");
+                    }
                 }
                 this.this$0.timeoutHandler.removeCallbacks(this.this$0.timeoutTask);
                 if (this.this$0.webviewClientCallback != null) {
@@ -4069,9 +4074,9 @@ public class SapiWebView extends WebView {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -4105,9 +4110,9 @@ public class SapiWebView extends WebView {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -4133,7 +4138,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC18312 this$2;
+                                            public final /* synthetic */ RunnableC17842 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 
@@ -4144,9 +4149,9 @@ public class SapiWebView extends WebView {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this, cookieBduss, cookiePtoken};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -4235,9 +4240,9 @@ public class SapiWebView extends WebView {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -4269,11 +4274,11 @@ public class SapiWebView extends WebView {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-                super.onReceivedError(webView, i2, str, str2);
-                if (i2 == -8 || i2 == -6 || i2 == -2 || i2 == -5) {
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
+                if (i == -8 || i == -6 || i == -2 || i == -5) {
                     this.this$0.handleTimeout();
                 }
             }
@@ -4312,9 +4317,9 @@ public class SapiWebView extends WebView {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -4324,18 +4329,18 @@ public class SapiWebView extends WebView {
                                 }
 
                                 @Override // android.content.DialogInterface.OnClickListener
-                                public void onClick(DialogInterface dialogInterface, int i2) {
+                                public void onClick(DialogInterface dialogInterface, int i) {
                                     Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                                         Intent intent = new Intent("android.settings.DATE_SETTINGS");
-                                        intent.setFlags(268435456);
+                                        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                                         this.this$1.this$0.getContext().startActivity(intent);
                                         dialogInterface.dismiss();
                                         StatService.onEvent("sslerr_date_setting", null);
                                     }
                                 }
                             });
-                            builder.setNegativeButton("取消", new DialogInterface.OnClickListener(this) { // from class: com.baidu.sapi2.SapiWebView.2.5
+                            builder.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new DialogInterface.OnClickListener(this) { // from class: com.baidu.sapi2.SapiWebView.2.5
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$1;
@@ -4347,9 +4352,9 @@ public class SapiWebView extends WebView {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -4359,9 +4364,9 @@ public class SapiWebView extends WebView {
                                 }
 
                                 @Override // android.content.DialogInterface.OnClickListener
-                                public void onClick(DialogInterface dialogInterface, int i2) {
+                                public void onClick(DialogInterface dialogInterface, int i) {
                                     Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                                         dialogInterface.dismiss();
                                         StatService.onEvent("sslerr_date_cancel", null);
                                     }
@@ -4379,16 +4384,26 @@ public class SapiWebView extends WebView {
         }
 
         @Override // android.webkit.WebViewClient
+        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, renderProcessGoneDetail)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // android.webkit.WebViewClient
         public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, webResourceRequest)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, webResourceRequest)) == null) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     try {
                         if (webResourceRequest.getUrl().toString().contains(SapiWebView.CUSTOM_CSS_INTERPRETER_URL)) {
                             String str = SapiAccountManager.getInstance().getSapiConfiguration().skin;
                             if (!TextUtils.isEmpty(str)) {
-                                return new WebResourceResponse("text/css", "utf-8", SapiCoreUtil.getCacheInputStream(this.this$0.getContext(), str));
+                                return new WebResourceResponse("text/css", IMAudioTransRequest.CHARSET, SapiCoreUtil.getCacheInputStream(this.this$0.getContext(), str));
                             }
                         }
                     } catch (Exception unused) {
@@ -4403,9 +4418,9 @@ public class SapiWebView extends WebView {
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
                 if (str != null) {
-                    if (!str.startsWith("sms") && !str.startsWith(InputType.TEL) && !str.startsWith("bdscenter")) {
+                    if (!str.startsWith(LoginConstants.SMS_LOGIN) && !str.startsWith(InputType.TEL) && !str.startsWith("bdscenter")) {
                         if (str.startsWith("wtloginmqq")) {
                             return true;
                         }
@@ -4419,7 +4434,7 @@ public class SapiWebView extends WebView {
                     } else {
                         try {
                             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                            intent.setFlags(268435456);
+                            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                             this.this$0.getContext().startActivity(intent);
                         } catch (Throwable th) {
                             Log.e(th);
@@ -4439,13 +4454,13 @@ public class SapiWebView extends WebView {
         public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
                 if (Build.VERSION.SDK_INT < 21) {
                     try {
                         if (str.contains(SapiWebView.CUSTOM_CSS_INTERPRETER_URL)) {
                             String str2 = SapiAccountManager.getInstance().getSapiConfiguration().skin;
                             if (!TextUtils.isEmpty(str2)) {
-                                return new WebResourceResponse("text/css", "utf-8", SapiCoreUtil.getCacheInputStream(this.this$0.getContext(), str2));
+                                return new WebResourceResponse("text/css", IMAudioTransRequest.CHARSET, SapiCoreUtil.getCacheInputStream(this.this$0.getContext(), str2));
                             }
                         }
                     } catch (Exception unused) {
@@ -4466,9 +4481,9 @@ public class SapiWebView extends WebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -4491,9 +4506,9 @@ public class SapiWebView extends WebView {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -4517,17 +4532,17 @@ public class SapiWebView extends WebView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SapiWebView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SapiWebView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -4550,9 +4565,9 @@ public class SapiWebView extends WebView {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

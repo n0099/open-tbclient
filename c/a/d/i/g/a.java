@@ -35,16 +35,16 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
             if (signatureArr != null) {
-                int i2 = 0;
+                int i = 0;
                 for (Signature signature : signatureArr) {
-                    i2 += signature.toByteArray().length;
+                    i += signature.toByteArray().length;
                 }
-                byte[] bArr = new byte[i2];
-                int i3 = 0;
+                byte[] bArr = new byte[i];
+                int i2 = 0;
                 for (Signature signature2 : signatureArr) {
                     byte[] byteArray = signature2.toByteArray();
-                    System.arraycopy(byteArray, 0, bArr, i3, byteArray.length);
-                    i3 += byteArray.length;
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
                 }
                 return bArr;
             }

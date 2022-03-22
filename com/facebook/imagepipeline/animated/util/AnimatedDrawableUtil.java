@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_DURATION_MS_FOR_MIN = 100;
@@ -22,27 +22,27 @@ public class AnimatedDrawableUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean isOutsideRange(int i2, int i3, int i4) {
+    public static boolean isOutsideRange(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i2, i3, i4)) == null) {
-            if (i2 == -1 || i3 == -1) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
+            if (i == -1 || i2 == -1) {
                 return true;
             }
-            if (i2 <= i3) {
-                if (i4 < i2 || i4 > i3) {
+            if (i <= i2) {
+                if (i3 < i || i3 > i2) {
                     return true;
                 }
-            } else if (i4 < i2 && i4 > i3) {
+            } else if (i3 < i && i3 > i2) {
                 return true;
             }
             return false;
@@ -53,19 +53,19 @@ public class AnimatedDrawableUtil {
     public void fixFrameDurations(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iArr) == null) {
-            for (int i2 = 0; i2 < iArr.length; i2++) {
-                if (iArr[i2] < 11) {
-                    iArr[i2] = 100;
+            for (int i = 0; i < iArr.length; i++) {
+                if (iArr[i] < 11) {
+                    iArr[i] = 100;
                 }
             }
         }
     }
 
-    public int getFrameForTimestampMs(int[] iArr, int i2) {
+    public int getFrameForTimestampMs(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i2)) == null) {
-            int binarySearch = Arrays.binarySearch(iArr, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i)) == null) {
+            int binarySearch = Arrays.binarySearch(iArr, i);
             return binarySearch < 0 ? ((-binarySearch) - 1) - 1 : binarySearch;
         }
         return invokeLI.intValue;
@@ -76,10 +76,10 @@ public class AnimatedDrawableUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
             int[] iArr2 = new int[iArr.length];
-            int i2 = 0;
-            for (int i3 = 0; i3 < iArr.length; i3++) {
-                iArr2[i3] = i2;
-                i2 += iArr[i3];
+            int i = 0;
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                iArr2[i2] = i;
+                i += iArr[i2];
             }
             return iArr2;
         }
@@ -91,11 +91,11 @@ public class AnimatedDrawableUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bitmap)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 19) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19) {
                 return bitmap.getAllocationByteCount();
             }
-            if (i2 >= 12) {
+            if (i >= 12) {
                 return bitmap.getByteCount();
             }
             return bitmap.getWidth() * bitmap.getHeight() * 4;
@@ -107,11 +107,11 @@ public class AnimatedDrawableUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
-            int i2 = 0;
-            for (int i3 : iArr) {
-                i2 += i3;
+            int i = 0;
+            for (int i2 : iArr) {
+                i += i2;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }

@@ -71,9 +71,9 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {concatMapCompletableObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -114,16 +114,16 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
             }
         }
 
-        public ConcatMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i2) {
+        public ConcatMapCompletableObserver(CompletableObserver completableObserver, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {completableObserver, function, errorMode, Integer.valueOf(i2)};
+                Object[] objArr = {completableObserver, function, errorMode, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -132,10 +132,10 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
             this.downstream = completableObserver;
             this.mapper = function;
             this.errorMode = errorMode;
-            this.prefetch = i2;
+            this.prefetch = i;
             this.errors = new AtomicThrowable();
             this.inner = new ConcatMapInnerObserver(this);
-            this.queue = new SpscArrayQueue(i2);
+            this.queue = new SpscArrayQueue(i);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -174,14 +174,14 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
                                 return;
                             }
                         } else if (!z2) {
-                            int i2 = this.prefetch;
-                            int i3 = i2 - (i2 >> 1);
-                            int i4 = this.consumed + 1;
-                            if (i4 == i3) {
+                            int i = this.prefetch;
+                            int i2 = i - (i >> 1);
+                            int i3 = this.consumed + 1;
+                            if (i3 == i2) {
                                 this.consumed = 0;
-                                this.upstream.request(i3);
+                                this.upstream.request(i2);
                             } else {
-                                this.consumed = i4;
+                                this.consumed = i3;
                             }
                             try {
                                 CompletableSource completableSource = (CompletableSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null CompletableSource");
@@ -302,16 +302,16 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
         }
     }
 
-    public FlowableConcatMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i2) {
+    public FlowableConcatMapCompletable(Flowable<T> flowable, Function<? super T, ? extends CompletableSource> function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, function, errorMode, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, function, errorMode, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -320,7 +320,7 @@ public final class FlowableConcatMapCompletable<T> extends Completable {
         this.source = flowable;
         this.mapper = function;
         this.errorMode = errorMode;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Completable

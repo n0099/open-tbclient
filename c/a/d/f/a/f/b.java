@@ -19,7 +19,7 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f2484f;
+    public Rect f2042f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, String str2, DiskFileOperate.Action action) {
@@ -30,9 +30,9 @@ public class b extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -40,8 +40,8 @@ public class b extends c {
                 return;
             }
         }
-        this.f2484f = null;
-        this.f2484f = new Rect();
+        this.f2042f = null;
+        this.f2042f = new Rect();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x007b A[RETURN] */
@@ -55,18 +55,18 @@ public class b extends c {
         ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null && this.f2486c.b(bArr)) {
-                long j2 = this.f2486c.f2491b;
-                if (j2 == 0 || j2 >= System.currentTimeMillis()) {
-                    if (this.f2485b == null) {
+            if (bArr != null && this.f2044c.b(bArr)) {
+                long j = this.f2044c.f2049b;
+                if (j == 0 || j >= System.currentTimeMillis()) {
+                    if (this.f2043b == null) {
                         BitmapFactory.Options options = new BitmapFactory.Options();
-                        this.f2485b = options;
+                        this.f2043b = options;
                         options.inDither = false;
-                        int i2 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                        BitmapFactory.Options options2 = this.f2485b;
-                        options2.inScreenDensity = i2;
-                        options2.inTargetDensity = i2;
-                        options2.inDensity = i2;
+                        int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
+                        BitmapFactory.Options options2 = this.f2043b;
+                        options2.inScreenDensity = i;
+                        options2.inTargetDensity = i;
+                        options2.inDensity = i;
                     }
                     int a = c.a.a();
                     ByteArrayInputStream byteArrayInputStream2 = null;
@@ -80,7 +80,7 @@ public class b extends c {
                         th = th;
                     }
                     try {
-                        this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f2484f, this.f2485b);
+                        this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f2042f, this.f2043b);
                         c.a.d.f.m.a.c(byteArrayInputStream);
                     } catch (Error e3) {
                         e = e3;
@@ -106,6 +106,6 @@ public class b extends c {
     public Rect g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2484f : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2042f : (Rect) invokeV.objValue;
     }
 }

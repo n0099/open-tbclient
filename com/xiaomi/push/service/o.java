@@ -12,23 +12,23 @@ import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class o extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f971a;
+    public String f947a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f972a;
+    public byte[] f948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60025b;
+    public String f44588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60026c;
+    public String f44589c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -39,9 +39,9 @@ public class o extends XMPushService.i {
             newInitContext.initArgs = r2;
             Object[] objArr = {xMPushService, str, str2, str3, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,10 +49,10 @@ public class o extends XMPushService.i {
             }
         }
         this.a = xMPushService;
-        this.f971a = str;
-        this.f972a = bArr;
-        this.f60025b = str2;
-        this.f60026c = str3;
+        this.f947a = str;
+        this.f948a = bArr;
+        this.f44588b = str2;
+        this.f44589c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -70,7 +70,7 @@ public class o extends XMPushService.i {
             l a = m.a((Context) this.a);
             if (a == null) {
                 try {
-                    a = m.a(this.a, this.f971a, this.f60025b, this.f60026c);
+                    a = m.a(this.a, this.f947a, this.f44588b, this.f44589c);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
                 }
@@ -80,22 +80,22 @@ public class o extends XMPushService.i {
                 p.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<av.b> m664a = av.a().m664a("5");
-            if (m664a.isEmpty()) {
+            Collection<av.b> m643a = av.a().m643a("5");
+            if (m643a.isEmpty()) {
                 next = a.a(this.a);
                 y.a(this.a, next);
                 av.a().a(next);
             } else {
-                next = m664a.iterator().next();
+                next = m643a.iterator().next();
             }
-            if (!this.a.m630c()) {
+            if (!this.a.m609c()) {
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f914a == av.c.f59992c) {
-                    y.a(this.a, this.f971a, this.f972a);
-                } else if (next.f914a == av.c.a) {
+                if (next.f890a == av.c.f44557c) {
+                    y.a(this.a, this.f947a, this.f948a);
+                } else if (next.f890a == av.c.a) {
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();

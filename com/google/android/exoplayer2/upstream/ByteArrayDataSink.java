@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ByteArrayDataSink implements DataSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public final class ByteArrayDataSink implements DataSink {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,21 +54,21 @@ public final class ByteArrayDataSink implements DataSink {
     public void open(DataSpec dataSpec) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec) == null) {
-            long j2 = dataSpec.length;
-            if (j2 == -1) {
+            long j = dataSpec.length;
+            if (j == -1) {
                 this.stream = new ByteArrayOutputStream();
                 return;
             }
-            Assertions.checkArgument(j2 <= 2147483647L);
+            Assertions.checkArgument(j <= 2147483647L);
             this.stream = new ByteArrayOutputStream((int) dataSpec.length);
         }
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSink
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-            this.stream.write(bArr, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) {
+            this.stream.write(bArr, i, i2);
         }
     }
 }

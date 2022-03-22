@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.kwad.sdk.core.videocache.j;
 import com.kwad.sdk.core.videocache.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends SQLiteOpenHelper implements b {
     public static final String[] a = {"_id", "url", "length", "mime"};
 
@@ -19,8 +19,8 @@ public class a extends SQLiteOpenHelper implements b {
     private ContentValues a(n nVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("url", nVar.a);
-        contentValues.put("length", Long.valueOf(nVar.f54869b));
-        contentValues.put("mime", nVar.f54870c);
+        contentValues.put("length", Long.valueOf(nVar.f39964b));
+        contentValues.put("mime", nVar.f39965c);
         return contentValues;
     }
 
@@ -78,7 +78,7 @@ public class a extends SQLiteOpenHelper implements b {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         throw new IllegalStateException("Should not be called. There is no any migration");
     }
 }

@@ -23,9 +23,9 @@ public class RequestPassFriendMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -61,10 +61,10 @@ public class RequestPassFriendMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.st_type : (String) invokeV.objValue;
     }
 
-    public void setFriendId(long j2, String str) {
+    public void setFriendId(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, str) == null) {
-            this.friendId = j2;
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
+            this.friendId = j;
             this.st_type = str;
         }
     }

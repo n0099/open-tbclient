@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.memory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface PoolStatsTracker {
     public static final String BUCKETS_USED_PREFIX = "buckets_used_";
     public static final String FREE_BYTES = "free_bytes";
@@ -9,17 +9,17 @@ public interface PoolStatsTracker {
     public static final String USED_BYTES = "used_bytes";
     public static final String USED_COUNT = "used_count";
 
-    void onAlloc(int i2);
+    void onAlloc(int i);
 
-    void onFree(int i2);
+    void onFree(int i);
 
     void onHardCapReached();
 
     void onSoftCapReached();
 
-    void onValueRelease(int i2);
+    void onValueRelease(int i);
 
-    void onValueReuse(int i2);
+    void onValueReuse(int i);
 
     void setBasePool(BasePool basePool);
 }

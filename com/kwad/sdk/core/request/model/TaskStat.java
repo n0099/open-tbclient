@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.request.model;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskStat extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
     public int adStyle;
     public int count;
@@ -10,9 +10,9 @@ public class TaskStat extends com.kwad.sdk.core.response.kwai.a implements com.k
     public TaskStat() {
     }
 
-    public TaskStat(int i2, int i3, int i4) {
-        this.adStyle = i2;
-        this.taskType = i3;
-        this.count = i4;
+    public TaskStat(int i, int i2, int i3) {
+        this.adStyle = i;
+        this.taskType = i2;
+        this.count = i3;
     }
 }

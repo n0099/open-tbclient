@@ -22,7 +22,7 @@ public interface DecorContentParent {
 
     boolean hideOverflowMenu();
 
-    void initFeature(int i2);
+    void initFeature(int i);
 
     boolean isOverflowMenuShowPending();
 
@@ -32,17 +32,17 @@ public interface DecorContentParent {
 
     void saveToolbarHierarchyState(SparseArray<Parcelable> sparseArray);
 
-    void setIcon(int i2);
+    void setIcon(int i);
 
     void setIcon(Drawable drawable);
 
-    void setLogo(int i2);
+    void setLogo(int i);
 
     void setMenu(Menu menu, MenuPresenter.Callback callback);
 
     void setMenuPrepared();
 
-    void setUiOptions(int i2);
+    void setUiOptions(int i);
 
     void setWindowCallback(Window.Callback callback);
 

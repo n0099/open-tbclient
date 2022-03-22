@@ -32,9 +32,9 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
             newInitContext.initArgs = r2;
             Object[] objArr = {menuBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,10 +53,10 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i2) {
+    public void onClick(DialogInterface dialogInterface, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, i2) == null) {
-            this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i2), 0);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, i) == null) {
+            this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i), 0);
         }
     }
 
@@ -83,7 +83,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Window window;
         View decorView;
@@ -91,8 +91,8 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
         View decorView2;
         KeyEvent.DispatcherState keyDispatcherState2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, dialogInterface, i2, keyEvent)) == null) {
-            if (i2 == 82 || i2 == 4) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, dialogInterface, i, keyEvent)) == null) {
+            if (i == 82 || i == 4) {
                 if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
                     Window window2 = this.mDialog.getWindow();
                     if (window2 != null && (decorView2 = window2.getDecorView()) != null && (keyDispatcherState2 = decorView2.getKeyDispatcherState()) != null) {
@@ -105,7 +105,7 @@ public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogIn
                     return true;
                 }
             }
-            return this.mMenu.performShortcut(i2, keyEvent, 0);
+            return this.mMenu.performShortcut(i, keyEvent, 0);
         }
         return invokeLIL.booleanValue;
     }

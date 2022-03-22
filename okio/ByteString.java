@@ -29,8 +29,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString EMPTY;
@@ -65,9 +64,9 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -76,23 +75,23 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         this.data = bArr;
     }
 
-    public static int codePointIndexToCharIndex(String str, int i2) {
+    public static int codePointIndexToCharIndex(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                if (i4 == i2) {
-                    return i3;
+            while (i2 < length) {
+                if (i3 == i) {
+                    return i2;
                 }
-                int codePointAt = str.codePointAt(i3);
+                int codePointAt = str.codePointAt(i2);
                 if ((Character.isISOControl(codePointAt) && codePointAt != 10 && codePointAt != 13) || codePointAt == 65533) {
                     return -1;
                 }
-                i4++;
-                i3 += Character.charCount(codePointAt);
+                i3++;
+                i2 += Character.charCount(codePointAt);
             }
             return str.length();
         }
@@ -124,9 +123,9 @@ public class ByteString implements Serializable, Comparable<ByteString> {
                 if (str.length() % 2 == 0) {
                     int length = str.length() / 2;
                     byte[] bArr = new byte[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        int i3 = i2 * 2;
-                        bArr[i2] = (byte) ((decodeHexDigit(str.charAt(i3)) << 4) + decodeHexDigit(str.charAt(i3 + 1)));
+                    for (int i = 0; i < length; i++) {
+                        int i2 = i * 2;
+                        bArr[i] = (byte) ((decodeHexDigit(str.charAt(i2)) << 4) + decodeHexDigit(str.charAt(i2 + 1)));
                     }
                     return of(bArr);
                 }
@@ -227,24 +226,24 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (ByteString) invokeL.objValue;
     }
 
-    public static ByteString read(InputStream inputStream, int i2) throws IOException {
+    public static ByteString read(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, inputStream, i)) == null) {
             if (inputStream != null) {
-                if (i2 >= 0) {
-                    byte[] bArr = new byte[i2];
-                    int i3 = 0;
-                    while (i3 < i2) {
-                        int read = inputStream.read(bArr, i3, i2 - i3);
+                if (i >= 0) {
+                    byte[] bArr = new byte[i];
+                    int i2 = 0;
+                    while (i2 < i) {
+                        int read = inputStream.read(bArr, i2, i - i2);
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        i3 += read;
+                        i2 += read;
                     }
                     return new ByteString(bArr);
                 }
-                throw new IllegalArgumentException("byteCount < 0: " + i2);
+                throw new IllegalArgumentException("byteCount < 0: " + i);
             }
             throw new IllegalArgumentException("in == null");
         }
@@ -319,19 +318,19 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return invokeL.booleanValue;
     }
 
-    public byte getByte(int i2) {
+    public byte getByte(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.data[i2] : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.data[i] : invokeI.byteValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 != 0) {
-                return i2;
+            int i = this.hashCode;
+            if (i != 0) {
+                return i;
             }
             int hashCode = Arrays.hashCode(this.data);
             this.hashCode = hashCode;
@@ -346,13 +345,13 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             byte[] bArr = this.data;
             char[] cArr = new char[bArr.length * 2];
-            int i2 = 0;
+            int i = 0;
             for (byte b2 : bArr) {
-                int i3 = i2 + 1;
+                int i2 = i + 1;
                 char[] cArr2 = HEX_DIGITS;
-                cArr[i2] = cArr2[(b2 >> 4) & 15];
-                i2 = i3 + 1;
-                cArr[i3] = cArr2[b2 & 15];
+                cArr[i] = cArr2[(b2 >> 4) & 15];
+                i = i2 + 1;
+                cArr[i2] = cArr2[b2 & 15];
             }
             return new String(cArr);
         }
@@ -401,10 +400,10 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? digest("MD5") : (ByteString) invokeV.objValue;
     }
 
-    public boolean rangeEquals(int i2, ByteString byteString, int i3, int i4) {
+    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), byteString, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? byteString.rangeEquals(i3, this.data, i2, i4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? byteString.rangeEquals(i2, this.data, i, i3) : invokeCommon.booleanValue;
     }
 
     public ByteString sha1() {
@@ -449,10 +448,10 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (String) invokeL.objValue;
     }
 
-    public ByteString substring(int i2) {
+    public ByteString substring(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) ? substring(i2, this.data.length) : (ByteString) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) ? substring(i, this.data.length) : (ByteString) invokeI.objValue;
     }
 
     public ByteString toAsciiLowercase() {
@@ -461,25 +460,25 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048611, this)) != null) {
             return (ByteString) invokeV.objValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             byte[] bArr = this.data;
-            if (i2 >= bArr.length) {
+            if (i >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i2];
+            byte b2 = bArr[i];
             if (b2 >= 65 && b2 <= 90) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i2] = (byte) (b2 + 32);
-                for (int i3 = i2 + 1; i3 < bArr2.length; i3++) {
-                    byte b3 = bArr2[i3];
+                bArr2[i] = (byte) (b2 + 32);
+                for (int i2 = i + 1; i2 < bArr2.length; i2++) {
+                    byte b3 = bArr2[i2];
                     if (b3 >= 65 && b3 <= 90) {
-                        bArr2[i3] = (byte) (b3 + 32);
+                        bArr2[i2] = (byte) (b3 + 32);
                     }
                 }
                 return new ByteString(bArr2);
             }
-            i2++;
+            i++;
         }
     }
 
@@ -489,25 +488,25 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048612, this)) != null) {
             return (ByteString) invokeV.objValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             byte[] bArr = this.data;
-            if (i2 >= bArr.length) {
+            if (i >= bArr.length) {
                 return this;
             }
-            byte b2 = bArr[i2];
+            byte b2 = bArr[i];
             if (b2 >= 97 && b2 <= 122) {
                 byte[] bArr2 = (byte[]) bArr.clone();
-                bArr2[i2] = (byte) (b2 - 32);
-                for (int i3 = i2 + 1; i3 < bArr2.length; i3++) {
-                    byte b3 = bArr2[i3];
+                bArr2[i] = (byte) (b2 - 32);
+                for (int i2 = i + 1; i2 < bArr2.length; i2++) {
+                    byte b3 = bArr2[i2];
                     if (b3 >= 97 && b3 <= 122) {
-                        bArr2[i3] = (byte) (b3 - 32);
+                        bArr2[i2] = (byte) (b3 - 32);
                     }
                 }
                 return new ByteString(bArr2);
             }
-            i2++;
+            i++;
         }
     }
 
@@ -532,7 +531,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
                 }
                 return "[size=" + this.data.length + " hex=" + substring(0, 64).hex() + "…]";
             }
-            String replace = utf8.substring(0, codePointIndexToCharIndex).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace(StringUtils.LF, "\\n").replace(StringUtils.CR, "\\r");
+            String replace = utf8.substring(0, codePointIndexToCharIndex).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
             if (codePointIndexToCharIndex < utf8.length()) {
                 return "[size=" + this.data.length + " text=" + replace + "…]";
             }
@@ -576,11 +575,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
             int size = size();
             int size2 = byteString.size();
             int min = Math.min(size, size2);
-            for (int i2 = 0; i2 < min; i2++) {
-                int i3 = getByte(i2) & 255;
-                int i4 = byteString.getByte(i2) & 255;
-                if (i3 != i4) {
-                    return i3 < i4 ? -1 : 1;
+            for (int i = 0; i < min; i++) {
+                int i2 = getByte(i) & 255;
+                int i3 = byteString.getByte(i) & 255;
+                if (i2 != i3) {
+                    return i2 < i3 ? -1 : 1;
                 }
             }
             if (size == size2) {
@@ -597,25 +596,25 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) ? rangeEquals(size() - bArr.length, bArr, 0, bArr.length) : invokeL.booleanValue;
     }
 
-    public final int indexOf(ByteString byteString, int i2) {
+    public final int indexOf(ByteString byteString, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, byteString, i2)) == null) ? indexOf(byteString.internalArray(), i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, byteString, i)) == null) ? indexOf(byteString.internalArray(), i) : invokeLI.intValue;
     }
 
-    public final int lastIndexOf(ByteString byteString, int i2) {
+    public final int lastIndexOf(ByteString byteString, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, byteString, i2)) == null) ? lastIndexOf(byteString.internalArray(), i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, byteString, i)) == null) ? lastIndexOf(byteString.internalArray(), i) : invokeLI.intValue;
     }
 
-    public boolean rangeEquals(int i2, byte[] bArr, int i3, int i4) {
+    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i >= 0) {
                 byte[] bArr2 = this.data;
-                if (i2 <= bArr2.length - i4 && i3 >= 0 && i3 <= bArr.length - i4 && Util.arrayRangeEquals(bArr2, i2, bArr, i3, i4)) {
+                if (i <= bArr2.length - i3 && i2 >= 0 && i2 <= bArr.length - i3 && Util.arrayRangeEquals(bArr2, i, bArr, i2, i3)) {
                     return true;
                 }
             }
@@ -630,22 +629,22 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, bArr)) == null) ? rangeEquals(0, bArr, 0, bArr.length) : invokeL.booleanValue;
     }
 
-    public ByteString substring(int i2, int i3) {
+    public ByteString substring(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048610, this, i2, i3)) == null) {
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048610, this, i, i2)) == null) {
+            if (i >= 0) {
                 byte[] bArr = this.data;
-                if (i3 > bArr.length) {
+                if (i2 > bArr.length) {
                     throw new IllegalArgumentException("endIndex > length(" + this.data.length + SmallTailInfo.EMOTION_SUFFIX);
                 }
-                int i4 = i3 - i2;
-                if (i4 >= 0) {
-                    if (i2 == 0 && i3 == bArr.length) {
+                int i3 = i2 - i;
+                if (i3 >= 0) {
+                    if (i == 0 && i2 == bArr.length) {
                         return this;
                     }
-                    byte[] bArr2 = new byte[i4];
-                    System.arraycopy(this.data, i2, bArr2, 0, i4);
+                    byte[] bArr2 = new byte[i3];
+                    System.arraycopy(this.data, i, bArr2, 0, i3);
                     return new ByteString(bArr2);
                 }
                 throw new IllegalArgumentException("endIndex < beginIndex");
@@ -655,14 +654,14 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return (ByteString) invokeII.objValue;
     }
 
-    public static ByteString of(byte[] bArr, int i2, int i3) {
+    public static ByteString of(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65548, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65548, null, bArr, i, i2)) == null) {
             if (bArr != null) {
-                Util.checkOffsetAndCount(bArr.length, i2, i3);
-                byte[] bArr2 = new byte[i3];
-                System.arraycopy(bArr, i2, bArr2, 0, i3);
+                Util.checkOffsetAndCount(bArr.length, i, i2);
+                byte[] bArr2 = new byte[i2];
+                System.arraycopy(bArr, i, bArr2, 0, i2);
                 return new ByteString(bArr2);
             }
             throw new IllegalArgumentException("data == null");
@@ -690,12 +689,12 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         }
     }
 
-    public int indexOf(byte[] bArr, int i2) {
+    public int indexOf(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, bArr, i)) == null) {
             int length = this.data.length - bArr.length;
-            for (int max = Math.max(i2, 0); max <= length; max++) {
+            for (int max = Math.max(i, 0); max <= length; max++) {
                 if (Util.arrayRangeEquals(this.data, max, bArr, 0, bArr.length)) {
                     return max;
                 }
@@ -705,11 +704,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         return invokeLI.intValue;
     }
 
-    public int lastIndexOf(byte[] bArr, int i2) {
+    public int lastIndexOf(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, bArr, i2)) == null) {
-            for (int min = Math.min(i2, this.data.length - bArr.length); min >= 0; min--) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, bArr, i)) == null) {
+            for (int min = Math.min(i, this.data.length - bArr.length); min >= 0; min--) {
                 if (Util.arrayRangeEquals(this.data, min, bArr, 0, bArr.length)) {
                     return min;
                 }

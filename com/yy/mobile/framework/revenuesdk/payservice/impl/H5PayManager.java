@@ -25,7 +25,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUERY_RESULT_FAIL = 2;
@@ -47,9 +47,9 @@ public class H5PayManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -164,9 +164,9 @@ public class H5PayManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, h5PayParams, currencyChargeMessage};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -191,9 +191,9 @@ public class H5PayManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onOrderVerifyAck(int i2, String str, H5PayVerifyTask h5PayVerifyTask, GetChargeOrderStatusResult getChargeOrderStatusResult) {
+    public void onOrderVerifyAck(int i, String str, H5PayVerifyTask h5PayVerifyTask, GetChargeOrderStatusResult getChargeOrderStatusResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), str, h5PayVerifyTask, getChargeOrderStatusResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), str, h5PayVerifyTask, getChargeOrderStatusResult}) == null) {
             RLog.info(TAG, "onOrderVerifyAck orderId:" + str);
             synchronized (this) {
                 H5PayParams h5PayParams = h5PayVerifyTask.h5PayParams;
@@ -201,16 +201,16 @@ public class H5PayManager {
                     RLog.error(TAG, "invalid order. maybe user generate a new order, or user switched.", new Object[0]);
                     return;
                 }
-                if (i2 == 1) {
+                if (i == 1) {
                     removeOrderVerifyTask(str);
                     RLog.info(TAG, "verify order status success, notifyPayResult now.");
                     notifyPayResult(str, h5PayParams, getChargeOrderStatusResult);
                 } else {
-                    int i3 = h5PayVerifyTask.mCurrentRetryCount;
-                    int i4 = i3 + 1;
-                    h5PayVerifyTask.mCurrentRetryCount = i4;
-                    if (i3 < 3) {
-                        h5PayVerifyTask.mCurrentRetryInterval = i4 * 1000;
+                    int i2 = h5PayVerifyTask.mCurrentRetryCount;
+                    int i3 = i2 + 1;
+                    h5PayVerifyTask.mCurrentRetryCount = i3;
+                    if (i2 < 3) {
+                        h5PayVerifyTask.mCurrentRetryInterval = i3 * 1000;
                         verifyPayOrder(h5PayVerifyTask);
                         RLog.error(TAG, "retry verify order status again, count is " + h5PayVerifyTask.mCurrentRetryCount, new Object[0]);
                     } else {
@@ -267,9 +267,9 @@ public class H5PayManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, h5PayVerifyTask};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -281,13 +281,13 @@ public class H5PayManager {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                public void onFail(int i2, String str2, PayCallBackBean payCallBackBean) {
+                public void onFail(int i, String str2, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, payCallBackBean) == null) {
-                        RLog.error(H5PayManager.TAG, "verifyOrder onFail code:" + i2 + " failReason:" + str2, new Object[0]);
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, payCallBackBean) == null) {
+                        RLog.error(H5PayManager.TAG, "verifyOrder onFail code:" + i + " failReason:" + str2, new Object[0]);
                         GetChargeOrderStatusResult getChargeOrderStatusResult = new GetChargeOrderStatusResult();
                         getChargeOrderStatusResult.status = 0;
-                        getChargeOrderStatusResult.message = "onFail failReason:" + str2 + " code:" + i2;
+                        getChargeOrderStatusResult.message = "onFail failReason:" + str2 + " code:" + i;
                         this.this$0.onOrderVerifyAck(2, this.val$orderId, this.val$orderVerifyTask, getChargeOrderStatusResult);
                     }
                 }
@@ -397,9 +397,9 @@ public class H5PayManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -433,9 +433,9 @@ public class H5PayManager {
                     RLog.error(TAG, "verifyPayOrder error orderVerifyTask null", new Object[0]);
                     return;
                 }
-                int i2 = h5PayVerifyTask.mCurrentRetryInterval;
-                int i3 = h5PayVerifyTask.mCurrentRetryCount;
-                RLog.debug(TAG, "verifyPayOrder mCurrentRetryInterval:" + i2 + " mCurrentRetryCount:" + i3);
+                int i = h5PayVerifyTask.mCurrentRetryInterval;
+                int i2 = h5PayVerifyTask.mCurrentRetryCount;
+                RLog.debug(TAG, "verifyPayOrder mCurrentRetryInterval:" + i + " mCurrentRetryCount:" + i2);
                 this.mHandler.postDelayed(new Runnable(this, h5PayVerifyTask) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -449,9 +449,9 @@ public class H5PayManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, h5PayVerifyTask};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -470,7 +470,7 @@ public class H5PayManager {
                         }
                         this.this$0.verifyOrder(this.val$orderVerifyTask.mCurrentOrderId);
                     }
-                }, (long) i2);
+                }, (long) i);
             }
         }
     }

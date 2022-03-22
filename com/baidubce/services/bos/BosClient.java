@@ -106,7 +106,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -138,9 +138,9 @@ public class BosClient extends AbstractBceClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((BosClientConfiguration) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -377,13 +377,13 @@ public class BosClient extends AbstractBceClient {
                 internalRequest.addHeader("Content-Disposition", HttpUtils.normalize(objectMetadata.getContentDisposition()));
             }
             if (objectMetadata.getETag() != null) {
-                internalRequest.addHeader("ETag", objectMetadata.getETag());
+                internalRequest.addHeader(Headers.ETAG, objectMetadata.getETag());
             }
             if (objectMetadata.getExpires() != null) {
-                internalRequest.addHeader("Expires", objectMetadata.getExpires());
+                internalRequest.addHeader(Headers.EXPIRES, objectMetadata.getExpires());
             }
             if (objectMetadata.getCacheControl() != null) {
-                internalRequest.addHeader("Cache-Control", objectMetadata.getCacheControl());
+                internalRequest.addHeader(Headers.CACHE_CONTROL, objectMetadata.getCacheControl());
             }
             if (objectMetadata.getStorageClass() != null) {
                 internalRequest.addHeader(Headers.BCE_STORAGE_CLASS, objectMetadata.getStorageClass());
@@ -419,20 +419,20 @@ public class BosClient extends AbstractBceClient {
         }
         ArrayList arrayList = new ArrayList();
         int streamBufferSize = getStreamBufferSize();
-        long j2 = 0;
+        long j = 0;
         while (true) {
             byte[] bArr = new byte[streamBufferSize];
             arrayList.add(bArr);
-            int i2 = 0;
-            while (i2 < streamBufferSize) {
+            int i = 0;
+            while (i < streamBufferSize) {
                 try {
-                    int read = inputStream.read(bArr, i2, streamBufferSize - i2);
+                    int read = inputStream.read(bArr, i, streamBufferSize - i);
                     if (read < 0) {
-                        objectMetadata.setContentLength(j2);
+                        objectMetadata.setContentLength(j);
                         return arrayList;
                     }
-                    j2 += read;
-                    i2 += read;
+                    j += read;
+                    i += read;
                 } catch (IOException e2) {
                     throw new BceClientException("Fail to read data:" + e2.getMessage(), e2);
                 }
@@ -606,10 +606,10 @@ public class BosClient extends AbstractBceClient {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? doesBucketExist(new DoesBucketExistRequest(str)) : invokeL.booleanValue;
     }
 
-    public URL generatePresignedUrl(String str, String str2, int i2) {
+    public URL generatePresignedUrl(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, str2, i2)) == null) ? generatePresignedUrl(str, str2, i2, HttpMethodName.GET) : (URL) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048601, this, str, str2, i)) == null) ? generatePresignedUrl(str, str2, i, HttpMethodName.GET) : (URL) invokeLLI.objValue;
     }
 
     public User getBosAccountOwner() {
@@ -731,9 +731,9 @@ public class BosClient extends AbstractBceClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {bosClientConfiguration};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BceClientConfiguration) objArr2[0], (HttpResponseHandler[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -818,12 +818,12 @@ public class BosClient extends AbstractBceClient {
         return invokeL.booleanValue;
     }
 
-    public URL generatePresignedUrl(String str, String str2, int i2, HttpMethodName httpMethodName) {
+    public URL generatePresignedUrl(String str, String str2, int i, HttpMethodName httpMethodName) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048602, this, str, str2, i2, httpMethodName)) == null) {
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048602, this, str, str2, i, httpMethodName)) == null) {
             GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest(str, str2, httpMethodName);
-            generatePresignedUrlRequest.setExpiration(i2);
+            generatePresignedUrlRequest.setExpiration(i);
             return generatePresignedUrl(generatePresignedUrlRequest);
         }
         return (URL) invokeLLIL.objValue;

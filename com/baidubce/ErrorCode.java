@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ErrorCode {
     public static final /* synthetic */ ErrorCode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -61,16 +61,16 @@ public final class ErrorCode {
         $VALUES = new ErrorCode[]{ACCESS_DENIED, INAPPROPRIATE_JSON, INTERNAL_ERROR, INVALID_ACCESS_KEY_ID, INVALID_HTTP_AUTH_HEADER, INVALID_HTTP_REQUEST, INVALID_URI, MALFORMED_JSON, INVALID_VERSION, OPT_IN_REQUIRED, PRECONDITION_FAILED, REQUEST_EXPIRED, REQUEST_TIME_TOO_SKEWED, errorCode};
     }
 
-    public ErrorCode(String str, int i2, String str2) {
+    public ErrorCode(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

@@ -6,6 +6,7 @@ import android.media.MediaCodecList;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,9 +39,9 @@ public class Mp4ComposerEngine {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,11 +55,11 @@ public class Mp4ComposerEngine {
             if (this.mDurationUs <= 0 && (progressCallback = this.mProgressCallback) != null) {
                 progressCallback.onProgress(-1.0f);
             }
-            long j2 = 0;
+            long j = 0;
             while (!videoTrackTranscoder.isFinished()) {
                 boolean stepPipeline = videoTrackTranscoder.stepPipeline();
-                j2++;
-                if (this.mDurationUs > 0 && j2 % 10 == 0) {
+                j++;
+                if (this.mDurationUs > 0 && j % 10 == 0) {
                     float min = videoTrackTranscoder.isFinished() ? 1.0f : Math.min(1.0f, ((float) videoTrackTranscoder.getWrittenPresentationTimeUs()) / ((float) this.mDurationUs));
                     ProgressCallback progressCallback2 = this.mProgressCallback;
                     if (progressCallback2 != null) {
@@ -80,8 +81,8 @@ public class Mp4ComposerEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             int codecCount = MediaCodecList.getCodecCount();
-            for (int i2 = 0; i2 < codecCount; i2++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i2);
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
                 if (codecInfoAt.isEncoder()) {
                     for (String str2 : codecInfoAt.getSupportedTypes()) {
                         if (str2.equalsIgnoreCase(str)) {
@@ -101,9 +102,9 @@ public class Mp4ComposerEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
             int trackCount = mediaExtractor.getTrackCount();
-            for (int i2 = 0; i2 < trackCount; i2++) {
-                if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
-                    return i2;
+            for (int i = 0; i < trackCount; i++) {
+                if (mediaExtractor.getTrackFormat(i).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
+                    return i;
                 }
             }
             return -1;
@@ -140,6 +141,12 @@ public class Mp4ComposerEngine {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void compose(MediaExtractor mediaExtractor, String str, Mp4Info mp4Info) throws IOException {
         MediaMuxer mediaMuxer;
         Interceptable interceptable = $ic;
@@ -152,16 +159,17 @@ public class Mp4ComposerEngine {
             if (selectVideoTrackIndex >= 0) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
                 String string = trackFormat.getString("mime");
-                int i2 = 25;
+                int i = 25;
                 try {
-                    i2 = trackFormat.getInteger("frame-rate");
-                } catch (Exception unused) {
+                    i = trackFormat.getInteger("frame-rate");
+                } catch (Exception e2) {
+                    Log.e(TAG, "get frame rate (FPS) failed.", e2);
                 }
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
                 createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 0);
                 createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
-                createVideoFormat.setInteger("frame-rate", i2);
+                createVideoFormat.setInteger("frame-rate", i);
                 createVideoFormat.setInteger("i-frame-interval", 0);
                 createVideoFormat.setInteger("color-format", 2130708361);
                 mediaMuxer = new MediaMuxer(str, 0);
@@ -195,12 +203,19 @@ public class Mp4ComposerEngine {
                     th = th2;
                 }
             } else {
-                String str2 = "No video track found in " + str;
+                Log.e(TAG, "No video track found in " + str);
                 throw new RuntimeException("No video track found in " + str);
             }
         } catch (Throwable th3) {
             th = th3;
             mediaMuxer = null;
+            if (videoTrackTranscoder != null) {
+            }
+            if (mediaExtractor != null) {
+            }
+            if (mediaMuxer != null) {
+            }
+            throw th;
         }
     }
 }

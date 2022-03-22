@@ -3,12 +3,12 @@ package com.baidu.android.common.others.url;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.core.Domains;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -57,9 +56,9 @@ public final class UrlUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -168,7 +167,7 @@ public final class UrlUtils {
             try {
                 str2 = new URL(str).getQuery();
             } catch (MalformedURLException e2) {
-                e2.toString();
+                Log.e("UrlUtils", e2.toString());
             }
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -197,9 +196,9 @@ public final class UrlUtils {
             }
             int length = sb.length();
             if (length > 0) {
-                int i2 = length - 1;
-                if (sb.charAt(i2) == '&') {
-                    sb.deleteCharAt(i2);
+                int i = length - 1;
+                if (sb.charAt(i) == '&') {
+                    sb.deleteCharAt(i);
                 }
             }
             return sb.toString();
@@ -216,13 +215,13 @@ public final class UrlUtils {
             }
             int indexOf = str.indexOf(58);
             boolean z = true;
-            for (int i2 = 0; i2 < indexOf; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < indexOf; i++) {
+                char charAt = str.charAt(i);
                 if (!Character.isLetter(charAt)) {
                     break;
                 }
                 z &= Character.isLowerCase(charAt);
-                if (i2 == indexOf - 1 && !z) {
+                if (i == indexOf - 1 && !z) {
                     str = str.substring(0, indexOf).toLowerCase(Locale.getDefault()) + str.substring(indexOf);
                 }
             }
@@ -247,7 +246,7 @@ public final class UrlUtils {
             try {
                 return new URL(str).getHost();
             } catch (MalformedURLException e2) {
-                String str2 = "Incorrect url: " + e2.getMessage();
+                Log.e("UrlUtils", "Incorrect url: " + e2.getMessage());
                 return null;
             }
         }
@@ -267,7 +266,7 @@ public final class UrlUtils {
                 if (lowerCase.contains(".js")) {
                     return "application/x-javascript";
                 }
-                if (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
+                if (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
                     return BdUploadHandler.IMAGE_MIME_TYPE;
                 }
             }
@@ -352,7 +351,7 @@ public final class UrlUtils {
             if (TextUtils.isEmpty(host)) {
                 return false;
             }
-            return host.endsWith(Domains.BAIDU) || host.equals("baidu.com");
+            return host.endsWith(".baidu.com") || host.equals("baidu.com");
         }
         return invokeL.booleanValue;
     }
@@ -370,7 +369,7 @@ public final class UrlUtils {
             try {
                 return COARSE_WEB_URL.matcher(str).matches();
             } catch (Exception e2) {
-                String str2 = "isValidUrl ： query.matcher failed! " + e2.toString();
+                Log.e("UrlUtils", "isValidUrl ： query.matcher failed! " + e2.toString());
                 return false;
             }
         }

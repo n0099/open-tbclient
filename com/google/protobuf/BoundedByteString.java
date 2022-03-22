@@ -49,11 +49,11 @@ public class BoundedByteString extends LiteralByteString {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = this.position;
-                if (i2 < this.limit) {
+                int i = this.position;
+                if (i < this.limit) {
                     byte[] bArr = this.this$0.bytes;
-                    this.position = i2 + 1;
-                    return bArr[i2];
+                    this.position = i + 1;
+                    return bArr[i];
                 }
                 throw new NoSuchElementException();
             }
@@ -75,9 +75,9 @@ public class BoundedByteString extends LiteralByteString {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {boundedByteString};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,58 +100,58 @@ public class BoundedByteString extends LiteralByteString {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BoundedByteString(byte[] bArr, int i2, int i3) {
+    public BoundedByteString(byte[] bArr, int i, int i2) {
         super(bArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((byte[]) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i2 < 0) {
-            throw new IllegalArgumentException("Offset too small: " + i2);
-        } else if (i3 >= 0) {
-            if (i2 + i3 <= bArr.length) {
-                this.bytesOffset = i2;
-                this.bytesLength = i3;
+        if (i < 0) {
+            throw new IllegalArgumentException("Offset too small: " + i);
+        } else if (i2 >= 0) {
+            if (i + i2 <= bArr.length) {
+                this.bytesOffset = i;
+                this.bytesLength = i2;
                 return;
             }
-            throw new IllegalArgumentException("Offset+Length too large: " + i2 + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + i3);
+            throw new IllegalArgumentException("Offset+Length too large: " + i + BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX + i2);
         } else {
-            throw new IllegalArgumentException("Length too small: " + i2);
+            throw new IllegalArgumentException("Length too small: " + i);
         }
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public byte byteAt(int i2) {
+    public byte byteAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= 0) {
-                if (i2 < size()) {
-                    return this.bytes[this.bytesOffset + i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0) {
+                if (i < size()) {
+                    return this.bytes[this.bytesOffset + i];
                 }
-                throw new ArrayIndexOutOfBoundsException("Index too large: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + size());
+                throw new ArrayIndexOutOfBoundsException("Index too large: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + size());
             }
-            throw new ArrayIndexOutOfBoundsException("Index too small: " + i2);
+            throw new ArrayIndexOutOfBoundsException("Index too small: " + i);
         }
         return invokeI.byteValue;
     }
 
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i2, int i3, int i4) {
+    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3, i4) == null) {
-            System.arraycopy(this.bytes, getOffsetIntoBytes() + i2, bArr, i3, i4);
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2, i3) == null) {
+            System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
         }
     }
 

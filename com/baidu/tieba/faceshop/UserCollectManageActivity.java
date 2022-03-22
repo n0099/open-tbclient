@@ -11,14 +11,15 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.t.a;
-import c.a.r0.y0.d;
-import c.a.r0.y0.n;
-import c.a.r0.y0.t;
+import c.a.d.f.p.n;
+import c.a.o0.r.t.a;
+import c.a.p0.a1.d;
+import c.a.p0.a1.o;
+import c.a.p0.a1.u;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UserAlbumActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -40,38 +41,28 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectManageActivity> implements t.l, d.e, d.InterfaceC1521d, n.c {
-    public static /* synthetic */ Interceptable $ic;
+public class UserCollectManageActivity extends BaseActivity<UserCollectManageActivity> implements u.l, d.e, d.InterfaceC0912d, o.c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_SELECT_ALBUM_LIST = "selected_album_list";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f41510e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f41511f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public GridView f41512g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.y0.d f41513h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f41514i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f41515j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public View n;
-    public boolean o;
-    public c.a.q0.r.t.a p;
-    public n q;
-    public c.a.q0.r.l0.a r;
-    public DialogInterface.OnCancelListener s;
-    public PermissionJudgePolicy t;
-    public View.OnClickListener u;
+    public View coverView;
+    public boolean isManageState;
+    public c.a.p0.a1.d mAdapter;
+    public RelativeLayout mControllerView;
+    public TextView mDelete;
+    public c.a.o0.r.t.a mDeleteDialog;
+    public DialogInterface.OnCancelListener mDialogCancelListener;
+    public GridView mGridView;
+    public c.a.o0.r.l0.a mLoadingDialog;
+    public TextView mManage;
+    public TextView mMoveFirst;
+    public NavigationBar mNavigationBar;
+    public View.OnClickListener mOnClickListener;
+    public PermissionJudgePolicy mPermissionJudgement;
+    public TextView mSaveLocal;
+    public o mUpLoadController;
+    public int skinType;
+    public View verticalLine;
 
     /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Void, Void, List<CollectEmotionData>> {
@@ -86,9 +77,9 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -104,14 +95,14 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> n = c.a.r0.y0.g.k().n(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> n = c.a.p0.a1.g.k().n(TbadkCoreApplication.getCurrentAccount());
                 if (n == null || n.size() < 1) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
                 for (CollectEmotionData collectEmotionData : n) {
-                    if (!c.a.q0.b0.d.f12089d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
-                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.q0.b0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
+                    if (!c.a.o0.b0.d.f9862d.equals(collectEmotionData.sharpText) && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                        String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + c.a.o0.b0.d.b() + "/" + collectEmotionData.pid + "_s.jpg";
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
                         imageFileInfo.setFilePath(str);
                         File file = new File(str);
@@ -133,8 +124,8 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         public void onPostExecute(List<CollectEmotionData> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                this.a.f41513h.i(list);
-                this.a.f41513h.notifyDataSetChanged();
+                this.a.mAdapter.i(list);
+                this.a.mAdapter.notifyDataSetChanged();
             }
         }
     }
@@ -143,9 +134,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class b implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41516e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public b(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -154,22 +143,22 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41516e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f41516e.destroyWaitingDialog();
+                this.a.destroyWaitingDialog();
             }
         }
     }
@@ -178,9 +167,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41517e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public c(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -189,22 +176,22 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41517e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f41517e.finish();
+                this.a.finish();
             }
         }
     }
@@ -213,9 +200,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41518e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public d(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -224,39 +209,39 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41518e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (c.a.r0.p2.d.m().n()) {
-                    c.a.d.f.p.n.M(view.getContext(), R.string.face_collect_is_syncing);
+                if (c.a.p0.r2.d.m().n()) {
+                    n.M(view.getContext(), R.string.obfuscated_res_0x7f0f05c8);
                     return;
                 }
-                UserCollectManageActivity userCollectManageActivity = this.f41518e;
-                userCollectManageActivity.o = !userCollectManageActivity.o;
-                if (this.f41518e.o) {
-                    SkinManager.setNavbarTitleColor(this.f41518e.f41511f, R.color.CAM_X0302, R.color.s_navbar_title_color);
-                    this.f41518e.f41511f.setText(R.string.done);
-                    this.f41518e.f41514i.setVisibility(0);
-                    this.f41518e.m.setVisibility(0);
+                UserCollectManageActivity userCollectManageActivity = this.a;
+                userCollectManageActivity.isManageState = !userCollectManageActivity.isManageState;
+                if (this.a.isManageState) {
+                    SkinManager.setNavbarTitleColor(this.a.mManage, R.color.CAM_X0302, R.color.s_navbar_title_color);
+                    this.a.mManage.setText(R.string.obfuscated_res_0x7f0f04e0);
+                    this.a.mControllerView.setVisibility(0);
+                    this.a.coverView.setVisibility(0);
                 } else {
-                    SkinManager.setViewTextColor(this.f41518e.f41511f, R.color.CAM_X0105, 1);
-                    this.f41518e.f41511f.setText(R.string.collect_manage);
-                    this.f41518e.f41514i.setVisibility(8);
-                    this.f41518e.l.setText(R.string.delete);
+                    SkinManager.setViewTextColor(this.a.mManage, R.color.CAM_X0105, 1);
+                    this.a.mManage.setText(R.string.obfuscated_res_0x7f0f03e9);
+                    this.a.mControllerView.setVisibility(8);
+                    this.a.mDelete.setText(R.string.obfuscated_res_0x7f0f048e);
                 }
-                this.f41518e.f41513h.j(this.f41518e.o);
+                this.a.mAdapter.j(this.a.isManageState);
             }
         }
     }
@@ -265,9 +250,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41519e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public e(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -276,46 +259,46 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41519e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f41519e.o) {
-                ArrayList arrayList = new ArrayList(this.f41519e.f41513h.g());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.a.isManageState) {
+                ArrayList arrayList = new ArrayList(this.a.mAdapter.g());
                 if (arrayList.size() == 0) {
                     return;
                 }
-                if (view == this.f41519e.l) {
-                    this.f41519e.t();
+                if (view == this.a.mDelete) {
+                    this.a.showDialog();
                     return;
                 }
-                if (view != this.f41519e.f41515j) {
-                    if (view == this.f41519e.k) {
-                        Activity pageActivity = this.f41519e.getPageContext().getPageActivity();
-                        if (this.f41519e.t == null) {
-                            this.f41519e.t = new PermissionJudgePolicy();
+                if (view != this.a.mMoveFirst) {
+                    if (view == this.a.mSaveLocal) {
+                        Activity pageActivity = this.a.getPageContext().getPageActivity();
+                        if (this.a.mPermissionJudgement == null) {
+                            this.a.mPermissionJudgement = new PermissionJudgePolicy();
                         }
-                        this.f41519e.t.clearRequestPermissionList();
-                        this.f41519e.t.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.f41519e.t.startRequestPermission(pageActivity)) {
+                        this.a.mPermissionJudgement.clearRequestPermissionList();
+                        this.a.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (this.a.mPermissionJudgement.startRequestPermission(pageActivity)) {
                             return;
                         }
-                        t.s().v(arrayList, this.f41519e);
+                        u.s().v(arrayList, this.a);
                     }
                 } else {
-                    t.s().t(arrayList, true, this.f41519e);
+                    u.s().t(arrayList, true, this.a);
                 }
-                this.f41519e.f41513h.e();
+                this.a.mAdapter.e();
             }
         }
     }
@@ -324,9 +307,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class f implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41520e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public f(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -335,25 +316,25 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41520e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                t.s().l(new ArrayList(this.f41520e.f41513h.g()), true, this.f41520e);
+                u.s().l(new ArrayList(this.a.mAdapter.g()), true, this.a);
                 aVar.dismiss();
-                this.f41520e.f41513h.e();
-                this.f41520e.l.setText(R.string.delete);
+                this.a.mAdapter.e();
+                this.a.mDelete.setText(R.string.obfuscated_res_0x7f0f048e);
             }
         }
     }
@@ -362,9 +343,7 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
     public class g implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectManageActivity f41521e;
+        public final /* synthetic */ UserCollectManageActivity a;
 
         public g(UserCollectManageActivity userCollectManageActivity) {
             Interceptable interceptable = $ic;
@@ -373,19 +352,19 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectManageActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41521e = userCollectManageActivity;
+            this.a = userCollectManageActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -398,229 +377,231 @@ public class UserCollectManageActivity extends ProxyAdkBaseActivity<UserCollectM
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = new e(this);
+        this.mOnClickListener = new e(this);
     }
 
-    @Override // c.a.r0.y0.d.e
-    public void b(List<CollectEmotionData> list) {
+    private void initData() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
-            return;
-        }
-        if (list.size() == 0) {
-            this.m.setVisibility(0);
-            this.l.setText(R.string.delete);
-            return;
-        }
-        this.m.setVisibility(8);
-        this.l.setText(String.format(getResources().getString(R.string.collect_delete_tip), Integer.valueOf(list.size())));
-    }
-
-    @Override // c.a.r0.y0.n.c
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                t.s().j(list, this);
-            } else {
-                closeLoadingDialog();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void closeLoadingDialog() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.r.h(false);
-        }
-    }
-
-    @Override // c.a.r0.y0.n.c
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            closeLoadingDialog();
-        }
-    }
-
-    @Override // c.a.r0.y0.d.InterfaceC1521d
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
-        }
-    }
-
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 == -1 && i2 == 25030 && intent.getSerializableExtra("selected_album_list") != null) {
-                ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra("selected_album_list");
-                if (ListUtils.isEmpty(arrayList)) {
-                    return;
-                }
-                u(arrayList);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            getLayoutMode().k(i2 == 1);
-            this.f41513h.k(i2);
-            this.f41510e.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setBackgroundColor(this.f41514i, R.color.CAM_X0201, i2);
-            SkinManager.setBackgroundColor(this.f41512g, R.color.CAM_X0201, i2);
-            if (i2 != 1 && i2 != 4) {
-                SkinManager.setBackgroundColor(this.m, R.color.white_alpha70, i2);
-            } else {
-                SkinManager.setBackgroundColor(this.m, R.color.common_color_10311, i2);
-            }
-            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204, i2);
-        }
-    }
-
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.collect_manage_activity);
-            this.q = new n();
-            s();
-            r();
-        }
-    }
-
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onDestroy();
-            this.f41513h.h(null);
-        }
-    }
-
-    @Override // c.a.r0.y0.t.l
-    public void onResult(int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
-            if (i2 == 1) {
-                c.a.d.f.p.n.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
-            } else if (i2 == 2) {
-                c.a.d.f.p.n.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.operation_success));
-            } else if (i2 == 3) {
-                String format = String.format(getResources().getString(R.string.save_collect_success), Integer.valueOf(i3));
-                if (i4 != 0) {
-                    format = String.format(getResources().getString(R.string.save_collect_success_and_fail), Integer.valueOf(i3), Integer.valueOf(i4));
-                }
-                c.a.d.f.p.n.N(TbadkCoreApplication.getInst().getContext(), format);
-            } else if (i2 == 4) {
-                closeLoadingDialog();
-                if (i3 > 0) {
-                    c.a.d.f.p.n.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_success));
-                } else {
-                    c.a.d.f.p.n.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.face_group_upload_failed));
-                }
-            }
-            r();
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             new a(this).execute(new Void[0]);
-            this.s = new b(this);
+            this.mDialogCancelListener = new b(this);
         }
     }
 
-    public final void s() {
+    private void initUI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.f41510e = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.collect_manage_title));
-            this.f41510e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            if (this.f41510e.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f41510e.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.mNavigationBar = navigationBar;
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f03ea));
+            this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+            if (this.mNavigationBar.getBackImageView() != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809b1, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            TextView addTextButton = this.f41510e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.collect_manage), new d(this));
-            this.f41511f = addTextButton;
+            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f03e9), new d(this));
+            this.mManage = addTextButton;
             SkinManager.setViewTextColor(addTextButton, (int) R.color.CAM_X0105);
-            this.f41512g = (GridView) findViewById(R.id.collect_image_gridview);
-            this.f41514i = (RelativeLayout) findViewById(R.id.controller_layout);
-            TextView textView = (TextView) findViewById(R.id.move_to_first);
-            this.f41515j = textView;
-            textView.setOnClickListener(this.u);
-            TextView textView2 = (TextView) findViewById(R.id.save_to_local);
-            this.k = textView2;
-            textView2.setOnClickListener(this.u);
-            View findViewById = findViewById(R.id.vertical_div_line);
-            this.n = findViewById;
+            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090677);
+            this.mControllerView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906f0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091452);
+            this.mMoveFirst = textView;
+            textView.setOnClickListener(this.mOnClickListener);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf0);
+            this.mSaveLocal = textView2;
+            textView2.setOnClickListener(this.mOnClickListener);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0922f3);
+            this.verticalLine = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
-            TextView textView3 = (TextView) findViewById(R.id.delete_collect_image);
-            this.l = textView3;
-            textView3.setOnClickListener(this.u);
-            this.m = findViewById(R.id.cover);
-            this.f41512g = (GridView) findViewById(R.id.collect_image_gridview);
-            c.a.r0.y0.d dVar = new c.a.r0.y0.d(this);
-            this.f41513h = dVar;
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f09076f);
+            this.mDelete = textView3;
+            textView3.setOnClickListener(this.mOnClickListener);
+            this.coverView = findViewById(R.id.obfuscated_res_0x7f090705);
+            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090677);
+            c.a.p0.a1.d dVar = new c.a.p0.a1.d(this);
+            this.mAdapter = dVar;
             dVar.h(this);
-            this.f41513h.notifyDataSetChanged();
-            this.f41512g.setAdapter((ListAdapter) this.f41513h);
-            this.r = new c.a.q0.r.l0.a(getPageContext());
+            this.mAdapter.notifyDataSetChanged();
+            this.mGridView.setAdapter((ListAdapter) this.mAdapter);
+            this.mLoadingDialog = new c.a.o0.r.l0.a(getPageContext());
             TiebaStatic.log("c12225");
         }
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showDialog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, onCancelListener) == null) {
-            this.r.e(null);
-            this.r.j(getPageContext().getString(R.string.collect_uploading));
-            this.r.h(true);
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.p == null) {
-                c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getPageContext().getPageActivity());
-                this.p = aVar;
-                aVar.setMessageId(R.string.collect_delete_confirm_tip);
-                this.p.setPositiveButton(R.string.dialog_ok, new f(this));
-                this.p.setNegativeButton(R.string.dialog_cancel, new g(this));
-                this.p.setCancelable(true);
-                this.p.create(getPageContext());
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
+            if (this.mDeleteDialog == null) {
+                c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getPageContext().getPageActivity());
+                this.mDeleteDialog = aVar;
+                aVar.setMessageId(R.string.obfuscated_res_0x7f0f03e7);
+                this.mDeleteDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f04d6, new f(this));
+                this.mDeleteDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f04d1, new g(this));
+                this.mDeleteDialog.setCancelable(true);
+                this.mDeleteDialog.create(getPageContext());
             }
-            this.p.show();
+            this.mDeleteDialog.show();
         }
     }
 
-    public final void u(ArrayList<ImageFileInfo> arrayList) {
+    private void startUpload2Cdn(ArrayList<ImageFileInfo> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
+        if (!(interceptable == null || interceptable.invokeL(65552, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12491").param("obj_param1", arrayList.size()));
-        showLoadingDialog(getPageContext().getString(R.string.sending), this.s);
-        this.q.a(arrayList, this);
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f10e8), this.mDialogCancelListener);
+        this.mUpLoadController.a(arrayList, this);
+    }
+
+    @Override // c.a.p0.a1.o.c
+    public void cdnFail() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            closeLoadingDialog();
+        }
+    }
+
+    @Override // c.a.p0.a1.o.c
+    public void cdnSuccess(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                u.s().j(list, this);
+            } else {
+                closeLoadingDialog();
+            }
+        }
+    }
+
+    @Override // c.a.p0.a1.d.InterfaceC0912d
+    public void clickAdd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sendMessage(new CustomMessage(2002001, new UserAlbumActivityConfig(getPageContext().getPageActivity(), 25030)));
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeLoadingDialog() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.mLoadingDialog.h(false);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25030 && intent.getSerializableExtra(KEY_SELECT_ALBUM_LIST) != null) {
+                ArrayList<ImageFileInfo> arrayList = (ArrayList) intent.getSerializableExtra(KEY_SELECT_ALBUM_LIST);
+                if (ListUtils.isEmpty(arrayList)) {
+                    return;
+                }
+                startUpload2Cdn(arrayList);
+            }
+        }
+    }
+
+    @Override // c.a.p0.a1.d.e
+    public void onChange(List<CollectEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
+            return;
+        }
+        if (list.size() == 0) {
+            this.coverView.setVisibility(0);
+            this.mDelete.setText(R.string.obfuscated_res_0x7f0f048e);
+            return;
+        }
+        this.coverView.setVisibility(8);
+        this.mDelete.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f03e8), Integer.valueOf(list.size())));
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.skinType = i;
+            super.onChangeSkinType(i);
+            getLayoutMode().k(i == 1);
+            this.mAdapter.k(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            SkinManager.setBackgroundColor(this.mControllerView, R.color.CAM_X0201, i);
+            SkinManager.setBackgroundColor(this.mGridView, R.color.CAM_X0201, i);
+            if (i != 1 && i != 4) {
+                SkinManager.setBackgroundColor(this.coverView, R.color.white_alpha70, i);
+            } else {
+                SkinManager.setBackgroundColor(this.coverView, R.color.common_color_10311, i);
+            }
+            SkinManager.setBackgroundColor(this.verticalLine, R.color.CAM_X0204, i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d01ee);
+            this.mUpLoadController = new o();
+            initUI();
+            initData();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onDestroy();
+            this.mAdapter.h(null);
+        }
+    }
+
+    @Override // c.a.p0.a1.u.l
+    public void onResult(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
+            if (i == 1) {
+                n.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cda));
+            } else if (i == 2) {
+                n.N(TbadkCoreApplication.getInst().getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0cda));
+            } else if (i == 3) {
+                String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f105e), Integer.valueOf(i2));
+                if (i3 != 0) {
+                    format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f105f), Integer.valueOf(i2), Integer.valueOf(i3));
+                }
+                n.N(TbadkCoreApplication.getInst().getContext(), format);
+            } else if (i == 4) {
+                closeLoadingDialog();
+                if (i2 > 0) {
+                    n.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05d9));
+                } else {
+                    n.N(TbadkCoreApplication.getInst().getContext(), getPageContext().getString(R.string.obfuscated_res_0x7f0f05d8));
+                }
+            }
+            initData();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, str, onCancelListener) == null) {
+            this.mLoadingDialog.e(null);
+            this.mLoadingDialog.j(getPageContext().getString(R.string.obfuscated_res_0x7f0f03ed));
+            this.mLoadingDialog.h(true);
+        }
     }
 }

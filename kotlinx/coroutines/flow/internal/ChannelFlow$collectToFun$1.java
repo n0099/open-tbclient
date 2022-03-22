@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.channels.ProducerScope;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", AdvanceSetting.NETWORK_TYPE, "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlow$collectToFun$1", f = "ChannelFlow.kt", i = {0}, l = {33}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelFlow$collectToFun$1 extends SuspendLambda implements Function2<ProducerScope<? super T>, Continuation<? super Unit>, Object> {
     public Object L$0;
     public int label;
@@ -41,8 +41,8 @@ public final class ChannelFlow$collectToFun$1 extends SuspendLambda implements F
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             ProducerScope producerScope = this.p$0;
             ChannelFlow channelFlow = this.this$0;
@@ -51,7 +51,7 @@ public final class ChannelFlow$collectToFun$1 extends SuspendLambda implements F
             if (channelFlow.collectTo(producerScope, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i2 != 1) {
+        } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             ProducerScope producerScope2 = (ProducerScope) this.L$0;

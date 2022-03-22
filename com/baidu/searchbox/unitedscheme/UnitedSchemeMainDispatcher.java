@@ -3,6 +3,7 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
@@ -73,9 +74,9 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -118,9 +119,9 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         }
     }
 
-    private void doUBCForOutsideAndInside(UnitedSchemeEntity unitedSchemeEntity, int i2, CallbackHandler callbackHandler) {
+    private void doUBCForOutsideAndInside(UnitedSchemeEntity unitedSchemeEntity, int i, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, unitedSchemeEntity, i2, callbackHandler) == null) || unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65539, this, unitedSchemeEntity, i, callbackHandler) == null) || unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) {
             return;
         }
         doUBCForSpecifiedScheme(unitedSchemeEntity, callbackHandler);
@@ -130,7 +131,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("scheme", unitedSchemeEntity.getUri().toString());
                 jSONObject.put("ext", jSONObject2);
-                jSONObject.put("value", String.valueOf(i2));
+                jSONObject.put("value", String.valueOf(i));
                 if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
                     jSONObject.put("from", UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
                 } else {
@@ -145,11 +146,11 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         if (TextUtils.equals(unitedSchemeEntity.getSource(), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
             return;
         }
-        SchemeRuntime.getSchemeIoc().processSchemeFromMobsdk(unitedSchemeEntity, i2);
+        SchemeRuntime.getSchemeIoc().processSchemeFromMobsdk(unitedSchemeEntity, i);
         JSONObject jSONObject3 = new JSONObject();
         try {
             jSONObject3.put("scheme", unitedSchemeEntity.getUri().toString());
-            jSONObject3.put("errorcode", i2);
+            jSONObject3.put("errorcode", i);
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
@@ -162,15 +163,15 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             return;
         }
         ArrayList arrayList = new ArrayList(SchemeUsageStatisticsListener.getStatisticJsinterfaceList());
-        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            if (str.equals((String) arrayList.get(i2))) {
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (str.equals((String) arrayList.get(i))) {
                 buildSchemeEventObject(false, SchemeUsageStatisticsListener.getUrlWithoutQuery(str2), str);
             }
         }
     }
 
     private void doUBCForSpecifiedScheme(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, unitedSchemeEntity, callbackHandler) == null) {
             String allPath = unitedSchemeEntity.getAllPath();
@@ -178,13 +179,13 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 return;
             }
             ArrayList arrayList = new ArrayList(SchemeUsageStatisticsListener.getStatisticSchemeList());
-            while (i2 < arrayList.size()) {
-                String str = (String) arrayList.get(i2);
+            while (i < arrayList.size()) {
+                String str = (String) arrayList.get(i);
                 if (!allPath.equals(str)) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(str);
                     sb.append("/");
-                    i2 = allPath.startsWith(sb.toString()) ? 0 : i2 + 1;
+                    i = allPath.startsWith(sb.toString()) ? 0 : i + 1;
                 }
                 buildSchemeEventObject(true, callbackHandler == null ? "" : SchemeUsageStatisticsListener.getUrlWithoutQuery(callbackHandler.getCurrentPageUrl()), SchemeUsageStatisticsListener.getUrlWithoutQuery(unitedSchemeEntity.getUri().toString()));
             }
@@ -298,7 +299,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                 }
             }
         }
@@ -314,7 +315,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             updateSchemeInfo(unitedSchemeEntity);
             if (unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR) != null) {
                 String param = unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
-                unitedSchemeEntity2 = unitedSchemeEntity.m43clone();
+                unitedSchemeEntity2 = unitedSchemeEntity.m41clone();
                 unitedSchemeEntity2.removeParam(UnitedSchemeConstants.UNITED_SCHEME_SENIOR);
                 unitedSchemeEntity = new UnitedSchemeEntity(Uri.parse(param), unitedSchemeEntity.getSource());
             } else {
@@ -334,19 +335,19 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 }
                 return true;
             }
-            UnitedSchemeEntity m43clone = unitedSchemeEntity.m43clone();
-            String path = m43clone.getPath(true);
+            UnitedSchemeEntity m41clone = unitedSchemeEntity.m41clone();
+            String path = m41clone.getPath(true);
             if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
-                boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m43clone, callbackHandler);
-                JSONObject jSONObject2 = m43clone.result;
+                boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m41clone, callbackHandler);
+                JSONObject jSONObject2 = m41clone.result;
                 if (jSONObject2 != null) {
                     int optInt = jSONObject2.optInt("status", -1);
                     if (optInt != 301 && optInt != 302) {
                         doUBCForOutsideAndInside(unitedSchemeEntity, optInt, callbackHandler);
                         if (optInt != 0) {
-                            UnitedSchemeUtility.callCallback(callbackHandler, m43clone, m43clone.result);
+                            UnitedSchemeUtility.callCallback(callbackHandler, m41clone, m41clone.result);
                         }
-                        unitedSchemeEntity.result = m43clone.result;
+                        unitedSchemeEntity.result = m41clone.result;
                         return dispatch;
                     }
                 } else if (dispatch) {
@@ -356,11 +357,11 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             boolean dispatch2 = super.dispatch(context, unitedSchemeEntity, callbackHandler);
             if (!dispatch2 && unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP) != null) {
-                UnitedSchemeEntity unitedSchemeEntity3 = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m43clone.getSource());
+                UnitedSchemeEntity unitedSchemeEntity3 = new UnitedSchemeEntity(Uri.parse(unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_BACKUP)), m41clone.getSource());
                 dispatch2 = dispatch(context, unitedSchemeEntity3, callbackHandler);
                 unitedSchemeEntity = unitedSchemeEntity3;
             }
-            JSONObject selectResult = selectResult(m43clone, unitedSchemeEntity);
+            JSONObject selectResult = selectResult(m41clone, unitedSchemeEntity);
             if (dispatch2 && unitedSchemeEntity.result == null) {
                 doUBCForOutsideAndInside(unitedSchemeEntity, dispatch2 ? 0 : -2, callbackHandler);
             } else if (selectResult != null) {

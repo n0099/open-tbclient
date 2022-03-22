@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Ac3Extractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AC3_SYNC_WORD = 2935;
@@ -56,9 +56,9 @@ public final class Ac3Extractor implements Extractor {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -82,9 +82,9 @@ public final class Ac3Extractor implements Extractor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -132,9 +132,9 @@ public final class Ac3Extractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.startedPacket = false;
             this.reader.seek();
         }
@@ -161,7 +161,7 @@ public final class Ac3Extractor implements Extractor {
             return invokeL.booleanValue;
         }
         ParsableByteArray parsableByteArray = new ParsableByteArray(10);
-        int i2 = 0;
+        int i = 0;
         while (true) {
             extractorInput.peekFully(parsableByteArray.data, 0, 10);
             parsableByteArray.setPosition(0);
@@ -170,22 +170,22 @@ public final class Ac3Extractor implements Extractor {
             }
             parsableByteArray.skipBytes(3);
             int readSynchSafeInt = parsableByteArray.readSynchSafeInt();
-            i2 += readSynchSafeInt + 10;
+            i += readSynchSafeInt + 10;
             extractorInput.advancePeekPosition(readSynchSafeInt);
         }
         extractorInput.resetPeekPosition();
-        extractorInput.advancePeekPosition(i2);
-        int i3 = i2;
+        extractorInput.advancePeekPosition(i);
+        int i2 = i;
         while (true) {
-            int i4 = 0;
+            int i3 = 0;
             while (true) {
                 extractorInput.peekFully(parsableByteArray.data, 0, 5);
                 parsableByteArray.setPosition(0);
                 if (parsableByteArray.readUnsignedShort() != 2935) {
                     break;
                 }
-                i4++;
-                if (i4 >= 4) {
+                i3++;
+                if (i3 >= 4) {
                     return true;
                 }
                 int parseAc3SyncframeSize = Ac3Util.parseAc3SyncframeSize(parsableByteArray.data);
@@ -194,26 +194,26 @@ public final class Ac3Extractor implements Extractor {
                 }
                 extractorInput.advancePeekPosition(parseAc3SyncframeSize - 5);
             }
-            extractorInput.advancePeekPosition(i3);
+            extractorInput.advancePeekPosition(i2);
         }
     }
 
-    public Ac3Extractor(long j2) {
+    public Ac3Extractor(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.firstSampleTimestampUs = j2;
+        this.firstSampleTimestampUs = j;
         this.reader = new Ac3Reader();
         this.sampleData = new ParsableByteArray((int) MAX_SYNC_FRAME_SIZE);
     }

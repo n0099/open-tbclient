@@ -37,9 +37,9 @@ public final class FeatureCodes {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,7 +60,7 @@ public final class FeatureCodes {
             arrayList.add(Integer.valueOf((int) ADVANCE_BEAUTY));
             arrayList.add(Integer.valueOf((int) BODY_SEG));
             arrayList.add(1800);
-            arrayList.add(1900);
+            arrayList.add(Integer.valueOf((int) SKY_SEG));
             arrayList.add(Integer.valueOf((int) FACE_MULTI));
             arrayList.add(Integer.valueOf((int) FACE_CHANGING));
             arrayList.add(Integer.valueOf((int) BEAUTY_MAKEUP));

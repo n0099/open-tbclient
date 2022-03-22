@@ -8,22 +8,22 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements d {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2178a implements d {
+        /* loaded from: classes7.dex */
+        public static class C2039a implements d {
             public IBinder a;
 
-            public C2178a(IBinder iBinder) {
+            public C2039a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
-                    JSONObject i2 = j.i();
-                    String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("t"), i2.optString("s"));
+                    JSONObject i = j.i();
+                    String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("t"), i.optString("s"));
                 }
                 this.a = iBinder;
             }
@@ -55,14 +55,14 @@ public interface d extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface(a);
                 a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 return true;
-            } else if (i2 != 1598968902) {
-                return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 1598968902) {
+                return super.onTransact(i, parcel, parcel2, i2);
             } else {
                 parcel2.writeString(a);
                 return true;
@@ -77,7 +77,7 @@ public interface d extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                 return (d) queryLocalInterface;
             }
-            return new C2178a(iBinder);
+            return new C2039a(iBinder);
         }
     }
 

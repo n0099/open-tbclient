@@ -16,7 +16,7 @@ public class Segment implements Serializable {
     public final Vector3 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Vector3 f29768b;
+    public final Vector3 f23788b;
 
     public Segment(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
@@ -25,18 +25,18 @@ public class Segment implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector3, vector32};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = new Vector3();
-        this.f29768b = new Vector3();
+        this.f23788b = new Vector3();
         this.a.set(vector3);
-        this.f29768b.set(vector32);
+        this.f23788b.set(vector32);
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +50,7 @@ public class Segment implements Serializable {
                 return false;
             }
             Segment segment = (Segment) obj;
-            return this.a.equals(segment.a) && this.f29768b.equals(segment.f29768b);
+            return this.a.equals(segment.a) && this.f23788b.equals(segment.f23788b);
         }
         return invokeL.booleanValue;
     }
@@ -58,19 +58,19 @@ public class Segment implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f29768b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f23788b.hashCode() : invokeV.intValue;
     }
 
     public float len() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f29768b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f23788b) : invokeV.floatValue;
     }
 
     public float len2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f29768b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f23788b) : invokeV.floatValue;
     }
 
     public Segment(float f2, float f3, float f4, float f5, float f6, float f7) {
@@ -80,17 +80,17 @@ public class Segment implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new Vector3();
-        this.f29768b = new Vector3();
+        this.f23788b = new Vector3();
         this.a.set(f2, f3, f4);
-        this.f29768b.set(f5, f6, f7);
+        this.f23788b.set(f5, f6, f7);
     }
 }

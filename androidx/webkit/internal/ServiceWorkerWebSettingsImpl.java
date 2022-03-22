@@ -29,9 +29,9 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
             newInitContext.initArgs = r2;
             Object[] objArr = {serviceWorkerWebSettings};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -187,14 +187,14 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
     @SuppressLint({"NewApi"})
-    public void setCacheMode(int i2) {
+    public void setCacheMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CACHE_MODE;
             if (webViewFeatureInternal.isSupportedByFramework()) {
-                getFrameworksImpl().setCacheMode(i2);
+                getFrameworksImpl().setCacheMode(i);
             } else if (webViewFeatureInternal.isSupportedByWebView()) {
-                getBoundaryInterface().setCacheMode(i2);
+                getBoundaryInterface().setCacheMode(i);
             } else {
                 throw WebViewFeatureInternal.getUnsupportedOperationException();
             }
@@ -208,9 +208,9 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
             newInitContext.initArgs = r2;
             Object[] objArr = {invocationHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

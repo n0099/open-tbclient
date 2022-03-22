@@ -39,9 +39,9 @@ public class MediaBrowserServiceCompatApi21 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +65,9 @@ public class MediaBrowserServiceCompatApi21 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, serviceCompatProxy};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,12 +78,12 @@ public class MediaBrowserServiceCompatApi21 {
         }
 
         @Override // android.service.media.MediaBrowserService
-        public MediaBrowserService.BrowserRoot onGetRoot(String str, int i2, Bundle bundle) {
+        public MediaBrowserService.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i2, bundle)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, bundle)) == null) {
                 MediaSessionCompat.ensureClassLoader(bundle);
-                BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i2, bundle == null ? null : new Bundle(bundle));
+                BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i, bundle == null ? null : new Bundle(bundle));
                 if (onGetRoot == null) {
                     return null;
                 }
@@ -114,9 +114,9 @@ public class MediaBrowserServiceCompatApi21 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {result};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -171,7 +171,7 @@ public class MediaBrowserServiceCompatApi21 {
 
     /* loaded from: classes.dex */
     public interface ServiceCompatProxy {
-        BrowserRoot onGetRoot(String str, int i2, Bundle bundle);
+        BrowserRoot onGetRoot(String str, int i, Bundle bundle);
 
         void onLoadChildren(String str, ResultWrapper<List<Parcel>> resultWrapper);
     }
@@ -181,9 +181,9 @@ public class MediaBrowserServiceCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

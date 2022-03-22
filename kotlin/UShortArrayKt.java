@@ -8,19 +8,19 @@ public final class UShortArrayKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
-    public static final short[] UShortArray(int i2, Function1<? super Integer, UShort> function1) {
-        short[] sArr = new short[i2];
-        for (int i3 = 0; i3 < i2; i3++) {
-            sArr[i3] = function1.invoke(Integer.valueOf(i3)).m1040unboximpl();
+    public static final short[] UShortArray(int i, Function1<? super Integer, UShort> function1) {
+        short[] sArr = new short[i];
+        for (int i2 = 0; i2 < i; i2++) {
+            sArr[i2] = function1.invoke(Integer.valueOf(i2)).m1019unboximpl();
         }
-        return UShortArray.m1043constructorimpl(sArr);
+        return UShortArray.m1022constructorimpl(sArr);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ushortArrayOf-rL5Bavg  reason: not valid java name */
-    public static final short[] m1059ushortArrayOfrL5Bavg(short... sArr) {
+    public static final short[] m1038ushortArrayOfrL5Bavg(short... sArr) {
         return sArr;
     }
 }

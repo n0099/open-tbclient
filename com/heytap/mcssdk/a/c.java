@@ -23,9 +23,9 @@ public abstract class c implements d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,16 +40,16 @@ public abstract class c implements d {
             if (intent == null) {
                 return null;
             }
-            int i2 = 4096;
+            int i = 4096;
             try {
-                i2 = Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("type")));
+                i = Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra("type")));
             } catch (Exception e2) {
                 LogUtil.e("MessageParser--getMessageByIntent--Exception:" + e2.getMessage());
             }
-            LogUtil.d("MessageParser--getMessageByIntent--type:" + i2);
+            LogUtil.d("MessageParser--getMessageByIntent--type:" + i);
             ArrayList arrayList = new ArrayList();
             for (d dVar : PushManager.getInstance().getParsers()) {
-                if (dVar != null && (a = dVar.a(context, i2, intent)) != null) {
+                if (dVar != null && (a = dVar.a(context, i, intent)) != null) {
                     arrayList.add(a);
                 }
             }

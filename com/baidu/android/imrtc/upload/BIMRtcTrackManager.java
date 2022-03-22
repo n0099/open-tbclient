@@ -22,9 +22,9 @@ public class BIMRtcTrackManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,9 +58,9 @@ public class BIMRtcTrackManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context, bIMRtcPbGenerator};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -71,11 +71,11 @@ public class BIMRtcTrackManager {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-            public void uploadResponse(int i2, String str) {
+            public void uploadResponse(int i, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i2 + ", msg :" + str);
-                    if (i2 == 0) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                    LogUtils.d(BIMRtcTrackManager.TAG, "requestRtcUpload response :" + i + ", msg :" + str);
+                    if (i == 0) {
                         BIMRtcTrackManager.clearRtcTrack(this.val$context, this.val$action);
                     }
                 }
@@ -98,9 +98,9 @@ public class BIMRtcTrackManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

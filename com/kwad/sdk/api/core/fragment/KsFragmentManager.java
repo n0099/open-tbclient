@@ -139,8 +139,8 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
-    public KsFragment findFragmentById(int i2) {
-        Fragment findFragmentById = this.mBase.findFragmentById(i2);
+    public KsFragment findFragmentById(int i) {
+        Fragment findFragmentById = this.mBase.findFragmentById(i);
         if (findFragmentById instanceof IDelegateFragment) {
             return ((IDelegateFragment) findFragmentById).getBase();
         }
@@ -230,14 +230,14 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void popBackStack(int i2, int i3) {
-        this.mBase.popBackStack(i2, i3);
+    public void popBackStack(int i, int i2) {
+        this.mBase.popBackStack(i, i2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public void popBackStack(String str, int i2) {
-        this.mBase.popBackStack(str, i2);
+    public void popBackStack(String str, int i) {
+        this.mBase.popBackStack(str, i);
     }
 
     @KsAdSdkDynamicApi
@@ -248,14 +248,14 @@ public class KsFragmentManager {
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean popBackStackImmediate(int i2, int i3) {
-        return this.mBase.popBackStackImmediate(i2, i3);
+    public boolean popBackStackImmediate(int i, int i2) {
+        return this.mBase.popBackStackImmediate(i, i2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean popBackStackImmediate(String str, int i2) {
-        return this.mBase.popBackStackImmediate(str, i2);
+    public boolean popBackStackImmediate(String str, int i) {
+        return this.mBase.popBackStackImmediate(str, i);
     }
 
     @KsAdSdkDynamicApi

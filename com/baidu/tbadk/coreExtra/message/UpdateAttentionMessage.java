@@ -24,31 +24,27 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39405b;
+        public String f30337b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39406c;
+        public String f30338c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f39407d;
+        public boolean f30339d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f39408e;
+        public boolean f30340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f39409f;
+        public boolean f30341f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f39410g;
+        public HttpResponse f30342g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f39411h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f39412i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public boolean f39413j;
+        public JSONObject f30343h;
+        public boolean i;
+        public boolean j;
         public String k;
         public BlockPopInfoData l;
         public int m;
@@ -58,16 +54,16 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39408e = false;
-            this.f39409f = false;
+            this.f30340e = false;
+            this.f30341f = false;
             this.m = 0;
         }
 
@@ -98,7 +94,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f39411h = jSONObject;
+                this.f30343h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -123,9 +119,9 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;
@@ -142,7 +138,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f39407d;
+            return getData().f30339d;
         }
         return invokeV.booleanValue;
     }
@@ -154,7 +150,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f39409f;
+            return getData().f30341f;
         }
         return invokeV.booleanValue;
     }

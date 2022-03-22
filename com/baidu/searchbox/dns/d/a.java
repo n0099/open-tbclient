@@ -17,16 +17,16 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     public c G;
     public int H;
 
-    public a(boolean z, String str, int i2) {
+    public a(boolean z, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,7 +34,7 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
         }
         this.E = z;
         this.F = str;
-        this.H = i2;
+        this.H = i;
     }
 
     private void a(com.baidu.searchbox.dns.d.a.b bVar) {

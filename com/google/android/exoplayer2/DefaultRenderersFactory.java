@@ -3,6 +3,7 @@ package com.google.android.exoplayer2;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,7 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultRenderersFactory implements RenderersFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_ALLOWED_VIDEO_JOINING_TIME_MS = 5000;
@@ -43,7 +44,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
     public final int extensionRendererMode;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface ExtensionRendererMode {
     }
 
@@ -56,9 +57,9 @@ public class DefaultRenderersFactory implements RenderersFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (DrmSessionManager) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -74,54 +75,59 @@ public class DefaultRenderersFactory implements RenderersFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioProcessor[0] : (AudioProcessor[]) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(12:7|(1:9)|10|11|12|13|(2:14|15)|16|17|18|(2:19|20)|(2:22|23)) */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void buildAudioRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, AudioProcessor[] audioProcessorArr, Handler handler, AudioRendererEventListener audioRendererEventListener, int i2, ArrayList<Renderer> arrayList) {
+    public void buildAudioRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, AudioProcessor[] audioProcessorArr, Handler handler, AudioRendererEventListener audioRendererEventListener, int i, ArrayList<Renderer> arrayList) {
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, drmSessionManager, audioProcessorArr, handler, audioRendererEventListener, Integer.valueOf(i2), arrayList}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, drmSessionManager, audioProcessorArr, handler, audioRendererEventListener, Integer.valueOf(i), arrayList}) != null) {
             return;
         }
         arrayList.add(new MediaCodecAudioRenderer(MediaCodecSelector.DEFAULT, drmSessionManager, true, handler, audioRendererEventListener, AudioCapabilities.getCapabilities(context), audioProcessorArr));
-        if (i2 == 0) {
+        if (i == 0) {
             return;
         }
         int size = arrayList.size();
-        if (i2 == 2) {
+        if (i == 2) {
             size--;
         }
         try {
             try {
-                i3 = size + 1;
+                i2 = size + 1;
+                try {
+                    arrayList.add(size, (Renderer) Class.forName("com.google.android.exoplayer2.ext.opus.LibopusAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+                    Log.i(TAG, "Loaded LibopusAudioRenderer.");
+                } catch (ClassNotFoundException unused) {
+                    size = i2;
+                    i2 = size;
+                    try {
+                        i3 = i2 + 1;
+                        try {
+                            arrayList.add(i2, (Renderer) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+                            Log.i(TAG, "Loaded LibflacAudioRenderer.");
+                        } catch (ClassNotFoundException unused2) {
+                            i2 = i3;
+                            i3 = i2;
+                            arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+                            Log.i(TAG, "Loaded FfmpegAudioRenderer.");
+                        }
+                    } catch (ClassNotFoundException unused3) {
+                    }
+                    arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+                    Log.i(TAG, "Loaded FfmpegAudioRenderer.");
+                }
             } catch (Exception e2) {
                 throw new RuntimeException(e2);
             }
-        } catch (ClassNotFoundException unused) {
+        } catch (ClassNotFoundException unused4) {
         }
         try {
+            i3 = i2 + 1;
+            arrayList.add(i2, (Renderer) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+            Log.i(TAG, "Loaded LibflacAudioRenderer.");
             try {
-                arrayList.add(size, (Renderer) Class.forName("com.google.android.exoplayer2.ext.opus.LibopusAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-            } catch (ClassNotFoundException unused2) {
-                size = i3;
-                i3 = size;
-                i4 = i3 + 1;
-                arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-                arrayList.add(i4, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-            }
-            i4 = i3 + 1;
-            try {
-                arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-            } catch (ClassNotFoundException unused3) {
-                i3 = i4;
-                i4 = i3;
-                arrayList.add(i4, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-            }
-            try {
-                arrayList.add(i4, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
-            } catch (ClassNotFoundException unused4) {
+                arrayList.add(i3, (Renderer) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, AudioRendererEventListener.class, AudioProcessor[].class).newInstance(handler, audioRendererEventListener, audioProcessorArr));
+                Log.i(TAG, "Loaded FfmpegAudioRenderer.");
+            } catch (ClassNotFoundException unused5) {
             } catch (Exception e3) {
                 throw new RuntimeException(e3);
             }
@@ -130,41 +136,42 @@ public class DefaultRenderersFactory implements RenderersFactory {
         }
     }
 
-    public void buildMetadataRenderers(Context context, MetadataOutput metadataOutput, Looper looper, int i2, ArrayList<Renderer> arrayList) {
+    public void buildMetadataRenderers(Context context, MetadataOutput metadataOutput, Looper looper, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, metadataOutput, looper, Integer.valueOf(i2), arrayList}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, metadataOutput, looper, Integer.valueOf(i), arrayList}) == null) {
             arrayList.add(new MetadataRenderer(metadataOutput, looper));
         }
     }
 
-    public void buildMiscellaneousRenderers(Context context, Handler handler, int i2, ArrayList<Renderer> arrayList) {
+    public void buildMiscellaneousRenderers(Context context, Handler handler, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, handler, i2, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, handler, i, arrayList) == null) {
         }
     }
 
-    public void buildTextRenderers(Context context, TextOutput textOutput, Looper looper, int i2, ArrayList<Renderer> arrayList) {
+    public void buildTextRenderers(Context context, TextOutput textOutput, Looper looper, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, textOutput, looper, Integer.valueOf(i2), arrayList}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, textOutput, looper, Integer.valueOf(i), arrayList}) == null) {
             arrayList.add(new TextRenderer(textOutput, looper));
         }
     }
 
-    public void buildVideoRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, long j2, Handler handler, VideoRendererEventListener videoRendererEventListener, int i2, ArrayList<Renderer> arrayList) {
+    public void buildVideoRenderers(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, long j, Handler handler, VideoRendererEventListener videoRendererEventListener, int i, ArrayList<Renderer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{context, drmSessionManager, Long.valueOf(j2), handler, videoRendererEventListener, Integer.valueOf(i2), arrayList}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{context, drmSessionManager, Long.valueOf(j), handler, videoRendererEventListener, Integer.valueOf(i), arrayList}) != null) {
             return;
         }
-        arrayList.add(new MediaCodecVideoRenderer(context, MediaCodecSelector.DEFAULT, j2, drmSessionManager, false, handler, videoRendererEventListener, 50));
-        if (i2 == 0) {
+        arrayList.add(new MediaCodecVideoRenderer(context, MediaCodecSelector.DEFAULT, j, drmSessionManager, false, handler, videoRendererEventListener, 50));
+        if (i == 0) {
             return;
         }
         int size = arrayList.size();
-        if (i2 == 2) {
+        if (i == 2) {
             size--;
         }
         try {
-            arrayList.add(size, (Renderer) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, VideoRendererEventListener.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j2), handler, videoRendererEventListener, 50));
+            arrayList.add(size, (Renderer) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, VideoRendererEventListener.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j), handler, videoRendererEventListener, 50));
+            Log.i(TAG, "Loaded LibvpxVideoRenderer.");
         } catch (ClassNotFoundException unused) {
         } catch (Exception e2) {
             throw new RuntimeException(e2);
@@ -196,9 +203,9 @@ public class DefaultRenderersFactory implements RenderersFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, drmSessionManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (DrmSessionManager) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -209,17 +216,17 @@ public class DefaultRenderersFactory implements RenderersFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i2) {
-        this(context, drmSessionManager, i2, 5000L);
+    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i) {
+        this(context, drmSessionManager, i, 5000L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {context, drmSessionManager, Integer.valueOf(i2)};
+            Object[] objArr = {context, drmSessionManager, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (DrmSessionManager) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
                 newInitContext.thisArg = this;
@@ -229,16 +236,16 @@ public class DefaultRenderersFactory implements RenderersFactory {
         }
     }
 
-    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i2, long j2) {
+    public DefaultRenderersFactory(Context context, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, drmSessionManager, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {context, drmSessionManager, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -246,7 +253,7 @@ public class DefaultRenderersFactory implements RenderersFactory {
         }
         this.context = context;
         this.drmSessionManager = drmSessionManager;
-        this.extensionRendererMode = i2;
-        this.allowedVideoJoiningTimeMs = j2;
+        this.extensionRendererMode = i;
+        this.allowedVideoJoiningTimeMs = j;
     }
 }

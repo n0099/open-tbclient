@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.transition;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.j.b;
+import c.a.v0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,9 +48,9 @@ public class VideoFollowData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -175,10 +175,10 @@ public class VideoFollowData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mNeedSmallWindowWhiteEdge : invokeV.booleanValue;
     }
 
-    public void setAudioType(int i2) {
+    public void setAudioType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mAudioType = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mAudioType = i;
         }
     }
 
@@ -224,17 +224,17 @@ public class VideoFollowData implements Serializable {
         }
     }
 
-    public void setOritation(int i2) {
+    public void setOritation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mOritation = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mOritation = i;
         }
     }
 
-    public void setPreviewScaleType(int i2) {
+    public void setPreviewScaleType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mPreviewScaleType = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mPreviewScaleType = i;
         }
     }
 

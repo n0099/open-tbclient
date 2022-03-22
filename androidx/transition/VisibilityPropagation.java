@@ -38,24 +38,24 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int getViewCoordinate(TransitionValues transitionValues, int i2) {
+    public static int getViewCoordinate(TransitionValues transitionValues, int i) {
         InterceptResult invokeLI;
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, transitionValues, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, transitionValues, i)) == null) {
             if (transitionValues == null || (iArr = (int[]) transitionValues.values.get(PROPNAME_VIEW_CENTER)) == null) {
                 return -1;
             }
-            return iArr[i2];
+            return iArr[i];
         }
         return invokeLI.intValue;
     }

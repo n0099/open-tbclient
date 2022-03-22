@@ -12,7 +12,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.ObservableQueueDrain;
 import io.reactivex.internal.util.QueueDrainHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class QueueDrainObserver<T, U, V> extends QueueDrainSubscriberPad2 implements Observer<T>, ObservableQueueDrain<U, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public abstract class QueueDrainObserver<T, U, V> extends QueueDrainSubscriberPa
             newInitContext.initArgs = r2;
             Object[] objArr = {observer, simplePlainQueue};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -127,9 +127,9 @@ public abstract class QueueDrainObserver<T, U, V> extends QueueDrainSubscriberPa
     }
 
     @Override // io.reactivex.internal.util.ObservableQueueDrain
-    public final int leave(int i2) {
+    public final int leave(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.wip.addAndGet(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.wip.addAndGet(i) : invokeI.intValue;
     }
 }

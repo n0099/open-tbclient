@@ -33,7 +33,7 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIncity ETRANS_SUGGEST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIncity[] f34256b;
+        public static final /* synthetic */ TacticsIncity[] f26481b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -57,19 +57,19 @@ public class MassTransitRoutePlanOption {
             ETRANS_LEAST_TIME = new TacticsIncity("ETRANS_LEAST_TIME", 4, 4);
             TacticsIncity tacticsIncity = new TacticsIncity("ETRANS_SUBWAY_FIRST", 5, 5);
             ETRANS_SUBWAY_FIRST = tacticsIncity;
-            f34256b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
+            f26481b = new TacticsIncity[]{ETRANS_SUGGEST, ETRANS_LEAST_TRANSFER, ETRANS_LEAST_WALK, ETRANS_NO_SUBWAY, ETRANS_LEAST_TIME, tacticsIncity};
         }
 
-        public TacticsIncity(String str, int i2, int i3) {
+        public TacticsIncity(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -79,7 +79,7 @@ public class MassTransitRoutePlanOption {
                 }
             }
             this.a = 0;
-            this.a = i3;
+            this.a = i2;
         }
 
         public static TacticsIncity valueOf(String str) {
@@ -91,7 +91,7 @@ public class MassTransitRoutePlanOption {
         public static TacticsIncity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f34256b.clone() : (TacticsIncity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIncity[]) f26481b.clone() : (TacticsIncity[]) invokeV.objValue;
         }
 
         public int getInt() {
@@ -110,7 +110,7 @@ public class MassTransitRoutePlanOption {
         public static final TacticsIntercity ETRANS_START_EARLY;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TacticsIntercity[] f34257b;
+        public static final /* synthetic */ TacticsIntercity[] f26482b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -131,19 +131,19 @@ public class MassTransitRoutePlanOption {
             ETRANS_START_EARLY = new TacticsIntercity("ETRANS_START_EARLY", 1, 1);
             TacticsIntercity tacticsIntercity = new TacticsIntercity("ETRANS_LEAST_PRICE", 2, 2);
             ETRANS_LEAST_PRICE = tacticsIntercity;
-            f34257b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
+            f26482b = new TacticsIntercity[]{ETRANS_LEAST_TIME, ETRANS_START_EARLY, tacticsIntercity};
         }
 
-        public TacticsIntercity(String str, int i2, int i3) {
+        public TacticsIntercity(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -153,7 +153,7 @@ public class MassTransitRoutePlanOption {
                 }
             }
             this.a = 0;
-            this.a = i3;
+            this.a = i2;
         }
 
         public static TacticsIntercity valueOf(String str) {
@@ -165,7 +165,7 @@ public class MassTransitRoutePlanOption {
         public static TacticsIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f34257b.clone() : (TacticsIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TacticsIntercity[]) f26482b.clone() : (TacticsIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
@@ -184,7 +184,7 @@ public class MassTransitRoutePlanOption {
         public static final TransTypeIntercity ETRANS_TRAIN_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransTypeIntercity[] f34258b;
+        public static final /* synthetic */ TransTypeIntercity[] f26483b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -205,19 +205,19 @@ public class MassTransitRoutePlanOption {
             ETRANS_PLANE_FIRST = new TransTypeIntercity("ETRANS_PLANE_FIRST", 1, 1);
             TransTypeIntercity transTypeIntercity = new TransTypeIntercity("ETRANS_COACH_FIRST", 2, 2);
             ETRANS_COACH_FIRST = transTypeIntercity;
-            f34258b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
+            f26483b = new TransTypeIntercity[]{ETRANS_TRAIN_FIRST, ETRANS_PLANE_FIRST, transTypeIntercity};
         }
 
-        public TransTypeIntercity(String str, int i2, int i3) {
+        public TransTypeIntercity(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -227,7 +227,7 @@ public class MassTransitRoutePlanOption {
                 }
             }
             this.a = 0;
-            this.a = i3;
+            this.a = i2;
         }
 
         public static TransTypeIntercity valueOf(String str) {
@@ -239,7 +239,7 @@ public class MassTransitRoutePlanOption {
         public static TransTypeIntercity[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f34258b.clone() : (TransTypeIntercity[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransTypeIntercity[]) f26483b.clone() : (TransTypeIntercity[]) invokeV.objValue;
         }
 
         public int getInt() {
@@ -254,9 +254,9 @@ public class MassTransitRoutePlanOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -293,24 +293,24 @@ public class MassTransitRoutePlanOption {
         return (MassTransitRoutePlanOption) invokeL.objValue;
     }
 
-    public MassTransitRoutePlanOption pageIndex(int i2) {
+    public MassTransitRoutePlanOption pageIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= 0 && i2 <= 2147483646) {
-                this.mPageIndex = i2 + 1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i <= 2147483646) {
+                this.mPageIndex = i + 1;
             }
             return this;
         }
         return (MassTransitRoutePlanOption) invokeI.objValue;
     }
 
-    public MassTransitRoutePlanOption pageSize(int i2) {
+    public MassTransitRoutePlanOption pageSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (i2 >= 1 && i2 <= 10) {
-                this.mPageSize = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i >= 1 && i <= 10) {
+                this.mPageSize = i;
             }
             return this;
         }

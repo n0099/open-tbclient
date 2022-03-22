@@ -13,36 +13,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f51505b;
+    public static final c f37956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f51506c;
+    public static final c f37957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f51507d;
+    public static final c f37958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f51508e;
+    public static final c f37959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f51509f;
+    public static final c f37960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f51510g;
+    public static final c f37961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f51511h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final c f51512i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final c f51513j;
+    public static final c f37962h;
+    public static final c i;
+    public static final c j;
     public static final c k;
     public static final c l;
     public static final c m;
@@ -71,30 +67,30 @@ public final class c {
             }
         }
         c cVar = new c("UNSUPPORT", 0, -1, "unsupport");
-        f51505b = cVar;
+        f37956b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
-        f51506c = cVar2;
+        f37957c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
-        f51507d = cVar3;
+        f37958d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f51508e = cVar4;
+        f37959e = cVar4;
         c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f51509f = cVar5;
+        f37960f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
-        f51510g = cVar6;
+        f37961g = cVar6;
         c cVar7 = new c("LENOVO", 6, 5, "lenovo");
-        f51511h = cVar7;
+        f37962h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
-        f51512i = cVar8;
-        c cVar9 = new c(com.kuaishou.weapon.un.g.f53624j, 8, 7, ManufacturerUtils.SAMSUNG);
-        f51513j = cVar9;
+        i = cVar8;
+        c cVar9 = new c(com.kuaishou.weapon.un.g.j, 8, 7, ManufacturerUtils.SAMSUNG);
+        j = cVar9;
         c cVar10 = new c("MEIZU", 9, 8, "meizu");
         k = cVar10;
-        c cVar11 = new c(RomUtils.ROM_NUBIA, 10, 10, "nubia");
+        c cVar11 = new c(RomUtils.ROM_NUBIA, 10, 10, RomUtils.MANUFACTURER_NUBIA);
         l = cVar11;
         c cVar12 = new c("ZTE", 11, 11, "ZTE");
         m = cVar12;
-        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.f53623i);
+        c cVar13 = new c(RomTypeUtil.ROM_ONEPLUS, 12, 12, com.kuaishou.weapon.un.g.i);
         n = cVar13;
         c cVar14 = new c("BLACKSHARK", 13, 13, "blackshark");
         o = cVar14;
@@ -138,14 +134,14 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f51505b;
+                return f37956b;
             }
             for (c cVar : values()) {
                 if (cVar.a.equalsIgnoreCase(str)) {
                     return cVar;
                 }
             }
-            return f51505b;
+            return f37956b;
         }
         return (c) invokeL.objValue;
     }

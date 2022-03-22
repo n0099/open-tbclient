@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.m;
-import c.a.q0.w.p.c;
+import c.a.o0.w.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,16 +22,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class ItemInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f43590e;
+    public TextView a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemInfoView(Context context) {
@@ -42,27 +39,46 @@ public class ItemInfoView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 
-    public final SpannableStringBuilder a(List<PbContent> list, String str) {
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b1, (ViewGroup) this, true);
+            setVisibility(8);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef5);
+        }
+    }
+
+    public void b(ForumDetailActivity forumDetailActivity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
+            SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
+            forumDetailActivity.getLayoutMode().k(i == 1);
+            forumDetailActivity.getLayoutMode().j(this);
+        }
+    }
+
+    public final SpannableStringBuilder c(List<PbContent> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
             c cVar = new c();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + StringUtils.LF);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + "\n");
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                PbContent pbContent = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                PbContent pbContent = list.get(i);
                 if (pbContent != null) {
                     if (pbContent.type.intValue() == 2) {
                         Bitmap cashBitmap = BitmapHelper.getCashBitmap(cVar.d(pbContent.text));
@@ -83,33 +99,14 @@ public class ItemInfoView extends LinearLayout {
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
-            setVisibility(8);
-            this.f43590e = (TextView) findViewById(R.id.info_brief_content);
-        }
-    }
-
-    public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i2) == null) {
-            SkinManager.setViewTextColor(this.f43590e, R.color.common_color_10177, 1);
-            forumDetailActivity.getLayoutMode().k(i2 == 1);
-            forumDetailActivity.getLayoutMode().j(this);
-        }
-    }
-
     public void setData(RecommendForumInfo recommendForumInfo) {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
             if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !m.isEmpty(recommendForumInfo.slogan))) {
-                this.f43590e.setText(a(recommendForumInfo.content, recommendForumInfo.slogan));
+                this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.f43590e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064c));
             }
             setVisibility(0);
         }
@@ -124,9 +121,9 @@ public class ItemInfoView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -134,6 +131,6 @@ public class ItemInfoView extends LinearLayout {
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 }

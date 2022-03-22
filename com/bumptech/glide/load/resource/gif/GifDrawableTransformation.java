@@ -15,7 +15,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifDrawableTransformation implements Transformation<GifDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class GifDrawableTransformation implements Transformation<GifDrawable> {
             newInitContext.initArgs = r2;
             Object[] objArr = {transformation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,13 +61,13 @@ public class GifDrawableTransformation implements Transformation<GifDrawable> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<GifDrawable> transform(@NonNull Context context, @NonNull Resource<GifDrawable> resource, int i2, int i3) {
+    public Resource<GifDrawable> transform(@NonNull Context context, @NonNull Resource<GifDrawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) {
             GifDrawable gifDrawable = resource.get();
             Resource<Bitmap> bitmapResource = new BitmapResource(gifDrawable.getFirstFrame(), Glide.get(context).getBitmapPool());
-            Resource<Bitmap> transform = this.wrapped.transform(context, bitmapResource, i2, i3);
+            Resource<Bitmap> transform = this.wrapped.transform(context, bitmapResource, i, i2);
             if (!bitmapResource.equals(transform)) {
                 bitmapResource.recycle();
             }

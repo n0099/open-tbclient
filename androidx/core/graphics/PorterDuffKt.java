@@ -13,10 +13,10 @@ public final class PorterDuffKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final PorterDuffColorFilter toColorFilter(PorterDuff.Mode mode, int i2) {
+    public static final PorterDuffColorFilter toColorFilter(PorterDuff.Mode mode, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, mode, i2)) == null) ? new PorterDuffColorFilter(i2, mode) : (PorterDuffColorFilter) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, mode, i)) == null) ? new PorterDuffColorFilter(i, mode) : (PorterDuffColorFilter) invokeLI.objValue;
     }
 
     public static final PorterDuffXfermode toXfermode(PorterDuff.Mode mode) {

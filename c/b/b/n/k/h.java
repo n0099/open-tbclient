@@ -25,12 +25,10 @@ import java.util.Comparator;
 public class h implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final x<Texture> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final x<Texture> f27287e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27288f;
+    /* renamed from: b  reason: collision with root package name */
+    public final c.b.b.q.a<a> f22524b;
 
     /* loaded from: classes3.dex */
     public static class c {
@@ -39,7 +37,7 @@ public class h implements c.b.b.q.h {
         public final c.b.b.q.a<p> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final c.b.b.q.a<q> f27292b;
+        public final c.b.b.q.a<q> f22526b;
 
         /* loaded from: classes3.dex */
         public class a implements o<q> {
@@ -54,9 +52,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -71,8 +69,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27310i = Integer.parseInt(this.a[1]);
-                    qVar.f27311j = Integer.parseInt(this.a[2]);
+                    qVar.i = Integer.parseInt(this.a[1]);
+                    qVar.j = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -90,9 +88,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -107,31 +105,31 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27308g = Integer.parseInt(this.a[1]);
-                    qVar.f27309h = Integer.parseInt(this.a[2]);
-                    qVar.f27310i = Integer.parseInt(this.a[3]);
-                    qVar.f27311j = Integer.parseInt(this.a[4]);
+                    qVar.f22540g = Integer.parseInt(this.a[1]);
+                    qVar.f22541h = Integer.parseInt(this.a[2]);
+                    qVar.i = Integer.parseInt(this.a[3]);
+                    qVar.j = Integer.parseInt(this.a[4]);
                 }
             }
         }
 
         /* renamed from: c.b.b.n.k.h$c$c  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1637c implements o<q> {
+        public class C1647c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C1637c(c cVar, String[] strArr) {
+            public C1647c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -164,7 +162,7 @@ public class h implements c.b.b.q.h {
             public final /* synthetic */ String[] a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean[] f27293b;
+            public final /* synthetic */ boolean[] f22527b;
 
             public d(c cVar, String[] strArr, boolean[] zArr) {
                 Interceptable interceptable = $ic;
@@ -173,16 +171,16 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr, zArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.a = strArr;
-                this.f27293b = zArr;
+                this.f22527b = zArr;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -194,7 +192,7 @@ public class h implements c.b.b.q.h {
                     int parseInt = Integer.parseInt(this.a[1]);
                     qVar.m = parseInt;
                     if (parseInt != -1) {
-                        this.f27293b[0] = true;
+                        this.f22527b[0] = true;
                     }
                 }
             }
@@ -212,9 +210,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -228,12 +226,12 @@ public class h implements c.b.b.q.h {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, qVar, qVar2)) == null) {
-                    int i2 = qVar.m;
-                    if (i2 == -1) {
-                        i2 = Integer.MAX_VALUE;
+                    int i = qVar.m;
+                    if (i == -1) {
+                        i = Integer.MAX_VALUE;
                     }
-                    int i3 = qVar2.m;
-                    return i2 - (i3 != -1 ? i3 : Integer.MAX_VALUE);
+                    int i2 = qVar2.m;
+                    return i - (i2 != -1 ? i2 : Integer.MAX_VALUE);
                 }
                 return invokeLL.intValue;
             }
@@ -252,9 +250,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -269,8 +267,8 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27295c = Integer.parseInt(this.a[1]);
-                    pVar.f27296d = Integer.parseInt(this.a[2]);
+                    pVar.f22529c = Integer.parseInt(this.a[1]);
+                    pVar.f22530d = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -288,9 +286,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -305,28 +303,28 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27298f = Pixmap.Format.valueOf(this.a[1]);
+                    pVar.f22532f = Pixmap.Format.valueOf(this.a[1]);
                 }
             }
         }
 
         /* renamed from: c.b.b.n.k.h$c$h  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1638h implements o<p> {
+        public class C1648h implements o<p> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C1638h(c cVar, String[] strArr) {
+            public C1648h(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -341,9 +339,9 @@ public class h implements c.b.b.q.h {
             public void a(p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-                    pVar.f27299g = Texture.TextureFilter.valueOf(this.a[1]);
-                    pVar.f27300h = Texture.TextureFilter.valueOf(this.a[2]);
-                    pVar.f27297e = pVar.f27299g.isMipMap();
+                    pVar.f22533g = Texture.TextureFilter.valueOf(this.a[1]);
+                    pVar.f22534h = Texture.TextureFilter.valueOf(this.a[2]);
+                    pVar.f22531e = pVar.f22533g.isMipMap();
                 }
             }
         }
@@ -361,9 +359,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -379,10 +377,10 @@ public class h implements c.b.b.q.h {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
                     if (this.a[1].indexOf(120) != -1) {
-                        pVar.f27301i = Texture.TextureWrap.Repeat;
+                        pVar.i = Texture.TextureWrap.Repeat;
                     }
                     if (this.a[1].indexOf(121) != -1) {
-                        pVar.f27302j = Texture.TextureWrap.Repeat;
+                        pVar.j = Texture.TextureWrap.Repeat;
                     }
                 }
             }
@@ -401,9 +399,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -436,9 +434,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -453,8 +451,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27304c = Integer.parseInt(this.a[1]);
-                    qVar.f27305d = Integer.parseInt(this.a[2]);
+                    qVar.f22536c = Integer.parseInt(this.a[1]);
+                    qVar.f22537d = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -472,9 +470,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -489,8 +487,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27306e = Integer.parseInt(this.a[1]);
-                    qVar.f27307f = Integer.parseInt(this.a[2]);
+                    qVar.f22538e = Integer.parseInt(this.a[1]);
+                    qVar.f22539f = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -508,9 +506,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -525,10 +523,10 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27304c = Integer.parseInt(this.a[1]);
-                    qVar.f27305d = Integer.parseInt(this.a[2]);
-                    qVar.f27306e = Integer.parseInt(this.a[3]);
-                    qVar.f27307f = Integer.parseInt(this.a[4]);
+                    qVar.f22536c = Integer.parseInt(this.a[1]);
+                    qVar.f22537d = Integer.parseInt(this.a[2]);
+                    qVar.f22538e = Integer.parseInt(this.a[3]);
+                    qVar.f22539f = Integer.parseInt(this.a[4]);
                 }
             }
         }
@@ -546,9 +544,9 @@ public class h implements c.b.b.q.h {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar, strArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -563,8 +561,8 @@ public class h implements c.b.b.q.h {
             public void a(q qVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qVar) == null) {
-                    qVar.f27308g = Integer.parseInt(this.a[1]);
-                    qVar.f27309h = Integer.parseInt(this.a[2]);
+                    qVar.f22540g = Integer.parseInt(this.a[1]);
+                    qVar.f22541h = Integer.parseInt(this.a[2]);
                 }
             }
         }
@@ -581,31 +579,27 @@ public class h implements c.b.b.q.h {
             public c.b.b.m.a a;
 
             /* renamed from: b  reason: collision with root package name */
-            public Texture f27294b;
+            public Texture f22528b;
 
             /* renamed from: c  reason: collision with root package name */
-            public float f27295c;
+            public float f22529c;
 
             /* renamed from: d  reason: collision with root package name */
-            public float f27296d;
+            public float f22530d;
 
             /* renamed from: e  reason: collision with root package name */
-            public boolean f27297e;
+            public boolean f22531e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Pixmap.Format f27298f;
+            public Pixmap.Format f22532f;
 
             /* renamed from: g  reason: collision with root package name */
-            public Texture.TextureFilter f27299g;
+            public Texture.TextureFilter f22533g;
 
             /* renamed from: h  reason: collision with root package name */
-            public Texture.TextureFilter f27300h;
-
-            /* renamed from: i  reason: collision with root package name */
-            public Texture.TextureWrap f27301i;
-
-            /* renamed from: j  reason: collision with root package name */
-            public Texture.TextureWrap f27302j;
+            public Texture.TextureFilter f22534h;
+            public Texture.TextureWrap i;
+            public Texture.TextureWrap j;
             public boolean k;
 
             public p() {
@@ -613,21 +607,21 @@ public class h implements c.b.b.q.h {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f27298f = Pixmap.Format.RGBA8888;
+                this.f22532f = Pixmap.Format.RGBA8888;
                 Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-                this.f27299g = textureFilter;
-                this.f27300h = textureFilter;
+                this.f22533g = textureFilter;
+                this.f22534h = textureFilter;
                 Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-                this.f27301i = textureWrap;
-                this.f27302j = textureWrap;
+                this.i = textureWrap;
+                this.j = textureWrap;
             }
         }
 
@@ -638,31 +632,27 @@ public class h implements c.b.b.q.h {
             public p a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f27303b;
+            public String f22535b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f27304c;
+            public int f22536c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f27305d;
+            public int f22537d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f27306e;
+            public int f22538e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f27307f;
+            public int f22539f;
 
             /* renamed from: g  reason: collision with root package name */
-            public float f27308g;
+            public float f22540g;
 
             /* renamed from: h  reason: collision with root package name */
-            public float f27309h;
-
-            /* renamed from: i  reason: collision with root package name */
-            public int f27310i;
-
-            /* renamed from: j  reason: collision with root package name */
-            public int f27311j;
+            public float f22541h;
+            public int i;
+            public int j;
             public int k;
             public boolean l;
             public int m;
@@ -675,9 +665,9 @@ public class h implements c.b.b.q.h {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -703,7 +693,7 @@ public class h implements c.b.b.q.h {
                 }
             }
             this.a = new c.b.b.q.a<>();
-            this.f27292b = new c.b.b.q.a<>();
+            this.f22526b = new c.b.b.q.a<>();
             b(aVar, aVar2, z);
         }
 
@@ -752,7 +742,7 @@ public class h implements c.b.b.q.h {
                 w wVar = new w(15, 0.99f);
                 wVar.i("size", new f(this, strArr));
                 wVar.i("format", new g(this, strArr));
-                wVar.i(CloudControlRequest.REQUEST_KEY_FILTER, new C1638h(this, strArr));
+                wVar.i(CloudControlRequest.REQUEST_KEY_FILTER, new C1648h(this, strArr));
                 wVar.i("repeat", new i(this, strArr));
                 wVar.i("pma", new j(this, strArr));
                 boolean z2 = true;
@@ -764,7 +754,7 @@ public class h implements c.b.b.q.h {
                 wVar2.i("offset", new n(this, strArr));
                 wVar2.i("orig", new a(this, strArr));
                 wVar2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                wVar2.i(AnimationProperty.ROTATE, new C1637c(this, strArr));
+                wVar2.i(AnimationProperty.ROTATE, new C1647c(this, strArr));
                 wVar2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(aVar.m()), 1024);
                 try {
@@ -800,7 +790,7 @@ public class h implements c.b.b.q.h {
                             } else {
                                 q qVar = new q();
                                 qVar.a = pVar;
-                                qVar.f27303b = readLine.trim();
+                                qVar.f22535b = readLine.trim();
                                 if (z) {
                                     qVar.p = z2;
                                 }
@@ -833,22 +823,22 @@ public class h implements c.b.b.q.h {
                                     }
                                     z2 = true;
                                 }
-                                if (qVar.f27310i == 0 && qVar.f27311j == 0) {
-                                    qVar.f27310i = qVar.f27306e;
-                                    qVar.f27311j = qVar.f27307f;
+                                if (qVar.i == 0 && qVar.j == 0) {
+                                    qVar.i = qVar.f22538e;
+                                    qVar.j = qVar.f22539f;
                                 }
-                                if (aVar3 != null && aVar3.f27499f > 0) {
-                                    qVar.n = (String[]) aVar3.m(String.class);
-                                    qVar.o = (int[][]) aVar4.m(int[].class);
+                                if (aVar3 != null && aVar3.f22717b > 0) {
+                                    qVar.n = (String[]) aVar3.n(String.class);
+                                    qVar.o = (int[][]) aVar4.n(int[].class);
                                     aVar3.clear();
                                     aVar4.clear();
                                 }
-                                this.f27292b.a(qVar);
+                                this.f22526b.a(qVar);
                             }
                         }
                         i0.a(bufferedReader);
                         if (zArr[0]) {
-                            this.f27292b.sort(new e(this));
+                            this.f22526b.sort(new e(this));
                         }
                     } catch (Exception e2) {
                         throw new GdxRuntimeException("Error reading texture atlas file: " + aVar, e2);
@@ -866,26 +856,26 @@ public class h implements c.b.b.q.h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27287e = new x<>(4);
-        this.f27288f = new c.b.b.q.a<>();
+        this.a = new x<>(4);
+        this.f22524b = new c.b.b.q.a<>();
     }
 
     public g a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int i2 = this.f27288f.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                if (this.f27288f.get(i3).f27290i.equals(str)) {
-                    return i(this.f27288f.get(i3));
+            int i = this.f22524b.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (this.f22524b.get(i2).i.equals(str)) {
+                    return i(this.f22524b.get(i2));
                 }
             }
             return null;
@@ -897,11 +887,11 @@ public class h implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x.a<Texture> it = this.f27287e.iterator();
+            x.a<Texture> it = this.a.iterator();
             while (it.hasNext()) {
                 it.next().dispose();
             }
-            this.f27287e.b(0);
+            this.a.b(0);
         }
     }
 
@@ -909,10 +899,10 @@ public class h implements c.b.b.q.h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int i2 = this.f27288f.f27499f;
-            for (int i3 = 0; i3 < i2; i3++) {
-                if (this.f27288f.get(i3).f27290i.equals(str)) {
-                    return this.f27288f.get(i3);
+            int i = this.f22524b.f22717b;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (this.f22524b.get(i2).i.equals(str)) {
+                    return this.f22524b.get(i2);
                 }
             }
             return null;
@@ -923,34 +913,34 @@ public class h implements c.b.b.q.h {
     public c.b.b.q.a<a> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27288f : (c.b.b.q.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22524b : (c.b.b.q.a) invokeV.objValue;
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f27287e.c(cVar.a.f27499f);
+            this.a.c(cVar.a.f22717b);
             a.b<c.p> it = cVar.a.iterator();
             while (it.hasNext()) {
                 c.p next = it.next();
-                if (next.f27294b == null) {
-                    next.f27294b = new Texture(next.a, next.f27298f, next.f27297e);
+                if (next.f22528b == null) {
+                    next.f22528b = new Texture(next.a, next.f22532f, next.f22531e);
                 }
-                next.f27294b.l(next.f27299g, next.f27300h);
-                next.f27294b.m(next.f27301i, next.f27302j);
-                this.f27287e.add(next.f27294b);
+                next.f22528b.l(next.f22533g, next.f22534h);
+                next.f22528b.m(next.i, next.j);
+                this.a.add(next.f22528b);
             }
-            this.f27288f.e(cVar.f27292b.f27499f);
-            a.b<c.q> it2 = cVar.f27292b.iterator();
+            this.f22524b.e(cVar.f22526b.f22717b);
+            a.b<c.q> it2 = cVar.f22526b.iterator();
             while (it2.hasNext()) {
                 c.q next2 = it2.next();
-                a aVar = new a(next2.a.f27294b, next2.f27304c, next2.f27305d, next2.l ? next2.f27307f : next2.f27306e, next2.l ? next2.f27306e : next2.f27307f);
-                aVar.f27289h = next2.m;
-                aVar.f27290i = next2.f27303b;
-                aVar.f27291j = next2.f27308g;
-                aVar.k = next2.f27309h;
-                aVar.o = next2.f27311j;
-                aVar.n = next2.f27310i;
+                a aVar = new a(next2.a.f22528b, next2.f22536c, next2.f22537d, next2.l ? next2.f22539f : next2.f22538e, next2.l ? next2.f22538e : next2.f22539f);
+                aVar.f22525h = next2.m;
+                aVar.i = next2.f22535b;
+                aVar.j = next2.f22540g;
+                aVar.k = next2.f22541h;
+                aVar.o = next2.j;
+                aVar.n = next2.i;
                 aVar.p = next2.l;
                 aVar.q = next2.k;
                 aVar.r = next2.n;
@@ -958,7 +948,7 @@ public class h implements c.b.b.q.h {
                 if (next2.p) {
                     aVar.a(false, true);
                 }
-                this.f27288f.a(aVar);
+                this.f22524b.a(aVar);
             }
         }
     }
@@ -988,16 +978,16 @@ public class h implements c.b.b.q.h {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27287e = new x<>(4);
-        this.f27288f = new c.b.b.q.a<>();
+        this.a = new x<>(4);
+        this.f22524b = new c.b.b.q.a<>();
         h(cVar);
     }
 
@@ -1007,13 +997,9 @@ public class h implements c.b.b.q.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f27289h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f27290i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public float f27291j;
+        public int f22525h;
+        public String i;
+        public float j;
         public float k;
         public int l;
         public int m;
@@ -1025,17 +1011,17 @@ public class h implements c.b.b.q.h {
         public int[][] s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Texture texture, int i2, int i3, int i4, int i5) {
-            super(texture, i2, i3, i4, i5);
+        public a(Texture texture, int i, int i2, int i3, int i4) {
+            super(texture, i, i2, i3, i4);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {texture, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Texture) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
@@ -1043,11 +1029,11 @@ public class h implements c.b.b.q.h {
                     return;
                 }
             }
-            this.f27289h = -1;
-            this.n = i4;
-            this.o = i5;
-            this.l = i4;
-            this.m = i5;
+            this.f22525h = -1;
+            this.n = i3;
+            this.o = i4;
+            this.l = i3;
+            this.m = i4;
         }
 
         @Override // c.b.b.n.k.i
@@ -1056,7 +1042,7 @@ public class h implements c.b.b.q.h {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 super.a(z, z2);
                 if (z) {
-                    this.f27291j = (this.n - this.f27291j) - m();
+                    this.j = (this.n - this.j) - m();
                 }
                 if (z2) {
                     this.k = (this.o - this.k) - l();
@@ -1071,9 +1057,9 @@ public class h implements c.b.b.q.h {
                 String[] strArr = this.r;
                 if (strArr != null) {
                     int length = strArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (str.equals(this.r[i2])) {
-                            return this.s[i2];
+                    for (int i = 0; i < length; i++) {
+                        if (str.equals(this.r[i])) {
+                            return this.s[i];
                         }
                     }
                     return null;
@@ -1104,7 +1090,7 @@ public class h implements c.b.b.q.h {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27290i : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (String) invokeV.objValue;
         }
 
         public a(a aVar) {
@@ -1114,19 +1100,19 @@ public class h implements c.b.b.q.h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27289h = -1;
+            this.f22525h = -1;
             i(aVar);
-            this.f27289h = aVar.f27289h;
-            this.f27290i = aVar.f27290i;
-            this.f27291j = aVar.f27291j;
+            this.f22525h = aVar.f22525h;
+            this.i = aVar.i;
+            this.j = aVar.j;
             this.k = aVar.k;
             this.l = aVar.l;
             this.m = aVar.m;
@@ -1154,16 +1140,16 @@ public class h implements c.b.b.q.h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.t = new a(aVar);
-            this.u = aVar.f27291j;
+            this.u = aVar.j;
             this.v = aVar.k;
             i(aVar);
             v(aVar.n / 2.0f, aVar.o / 2.0f);
@@ -1171,9 +1157,9 @@ public class h implements c.b.b.q.h {
             int b2 = aVar.b();
             if (aVar.p) {
                 super.q(true);
-                super.s(aVar.f27291j, aVar.k, b2, c2);
+                super.s(aVar.j, aVar.k, b2, c2);
             } else {
-                super.s(aVar.f27291j, aVar.k, c2, b2);
+                super.s(aVar.j, aVar.k, c2, b2);
             }
             t(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -1202,21 +1188,21 @@ public class h implements c.b.b.q.h {
                 float l = l();
                 float m = m();
                 a aVar = this.t;
-                float f2 = aVar.f27291j;
+                float f2 = aVar.j;
                 float f3 = aVar.k;
                 float C = C();
                 float B = B();
                 a aVar2 = this.t;
-                aVar2.f27291j = this.u;
+                aVar2.j = this.u;
                 aVar2.k = this.v;
                 aVar2.a(z, z2);
                 a aVar3 = this.t;
-                float f4 = aVar3.f27291j;
+                float f4 = aVar3.j;
                 this.u = f4;
                 float f5 = aVar3.k;
                 this.v = f5;
                 float f6 = f4 * C;
-                aVar3.f27291j = f6;
+                aVar3.j = f6;
                 float f7 = f5 * B;
                 aVar3.k = f7;
                 A(f6 - f2, f7 - f3);
@@ -1235,7 +1221,7 @@ public class h implements c.b.b.q.h {
         public float l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.l() + this.t.f27291j : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? super.l() + this.t.j : invokeV.floatValue;
         }
 
         @Override // c.b.b.n.k.g
@@ -1256,7 +1242,7 @@ public class h implements c.b.b.q.h {
         public float o() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.o() - this.t.f27291j : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? super.o() - this.t.j : invokeV.floatValue;
         }
 
         @Override // c.b.b.n.k.g
@@ -1274,21 +1260,21 @@ public class h implements c.b.b.q.h {
                 float l = l();
                 float m = m();
                 a aVar = this.t;
-                float f2 = aVar.f27291j;
+                float f2 = aVar.j;
                 float f3 = aVar.k;
                 float C = C();
                 float B = B();
                 if (z) {
                     a aVar2 = this.t;
-                    aVar2.f27291j = f3;
+                    aVar2.j = f3;
                     aVar2.k = ((aVar2.o * B) - f2) - (aVar2.l * C);
                 } else {
                     a aVar3 = this.t;
-                    aVar3.f27291j = ((aVar3.n * C) - f3) - (aVar3.m * B);
+                    aVar3.j = ((aVar3.n * C) - f3) - (aVar3.m * B);
                     aVar3.k = f2;
                 }
                 a aVar4 = this.t;
-                A(aVar4.f27291j - f2, aVar4.k - f3);
+                A(aVar4.j - f2, aVar4.k - f3);
                 v(l, m);
             }
         }
@@ -1300,13 +1286,13 @@ public class h implements c.b.b.q.h {
                 a aVar = this.t;
                 float f6 = f4 / aVar.n;
                 float f7 = f5 / aVar.o;
-                aVar.f27291j = this.u * f6;
+                aVar.j = this.u * f6;
                 aVar.k = this.v * f7;
-                int i2 = aVar.p ? aVar.m : aVar.l;
+                int i = aVar.p ? aVar.m : aVar.l;
                 a aVar2 = this.t;
-                int i3 = aVar2.p ? aVar2.l : aVar2.m;
+                int i2 = aVar2.p ? aVar2.l : aVar2.m;
                 a aVar3 = this.t;
-                super.s(f2 + aVar3.f27291j, f3 + aVar3.k, i2 * f6, i3 * f7);
+                super.s(f2 + aVar3.j, f3 + aVar3.k, i * f6, i2 * f7);
             }
         }
 
@@ -1321,7 +1307,7 @@ public class h implements c.b.b.q.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 a aVar = this.t;
-                super.v(f2 - aVar.f27291j, f3 - aVar.k);
+                super.v(f2 - aVar.j, f3 - aVar.k);
             }
         }
 
@@ -1340,9 +1326,9 @@ public class h implements c.b.b.q.h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

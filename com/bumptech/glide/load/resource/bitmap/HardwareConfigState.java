@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DecodeFormat;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HardwareConfigState {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File FD_SIZE_LIST;
@@ -47,9 +47,9 @@ public final class HardwareConfigState {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -81,9 +81,9 @@ public final class HardwareConfigState {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
                 boolean z2 = true;
-                int i2 = this.decodesSinceLastFdCheck + 1;
-                this.decodesSinceLastFdCheck = i2;
-                if (i2 >= 50) {
+                int i = this.decodesSinceLastFdCheck + 1;
+                this.decodesSinceLastFdCheck = i;
+                if (i >= 50) {
                     this.decodesSinceLastFdCheck = 0;
                     int length = FD_SIZE_LIST.list().length;
                     if (length >= 700) {
@@ -91,7 +91,7 @@ public final class HardwareConfigState {
                     }
                     this.isHardwareConfigAllowed = z2;
                     if (!this.isHardwareConfigAllowed && Log.isLoggable(Downsampler.TAG, 5)) {
-                        String str = "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700";
+                        Log.w(Downsampler.TAG, "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
                     }
                 }
                 z = this.isHardwareConfigAllowed;
@@ -102,14 +102,14 @@ public final class HardwareConfigState {
     }
 
     @TargetApi(26)
-    public boolean setHardwareConfigIfAllowed(int i2, int i3, BitmapFactory.Options options, DecodeFormat decodeFormat, boolean z, boolean z2) {
+    public boolean setHardwareConfigIfAllowed(int i, int i2, BitmapFactory.Options options, DecodeFormat decodeFormat, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), options, decodeFormat, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), options, decodeFormat, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (!z || Build.VERSION.SDK_INT < 26 || z2) {
                 return false;
             }
-            boolean z3 = i2 >= 128 && i3 >= 128 && isFdSizeBelowHardwareLimit();
+            boolean z3 = i >= 128 && i2 >= 128 && isFdSizeBelowHardwareLimit();
             if (z3) {
                 options.inPreferredConfig = Bitmap.Config.HARDWARE;
                 options.inMutable = false;

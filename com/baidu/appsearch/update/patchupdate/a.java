@@ -21,9 +21,9 @@ public class a implements d {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBuffer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,9 +50,9 @@ public class a implements d {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ByteBuffer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -67,12 +67,12 @@ public class a implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) {
             if (this.a.hasRemaining()) {
-                int i2 = 0;
+                int i = 0;
                 while (this.a.hasRemaining() && byteBuffer.hasRemaining()) {
                     byteBuffer.put(this.a.get());
-                    i2++;
+                    i++;
                 }
-                return i2;
+                return i;
             }
             return -1;
         }
@@ -80,14 +80,14 @@ public class a implements d {
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            if (j2 <= this.a.limit()) {
-                this.a.position((int) j2);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j <= this.a.limit()) {
+                this.a.position((int) j);
                 return;
             }
-            throw new IOException("pos " + j2 + " cannot seek " + this.a.limit());
+            throw new IOException("pos " + j + " cannot seek " + this.a.limit());
         }
     }
 

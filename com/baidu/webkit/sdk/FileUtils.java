@@ -48,9 +48,9 @@ public class FileUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -96,9 +96,9 @@ public class FileUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -114,11 +114,11 @@ public class FileUtils {
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str5)) == null) ? str5.startsWith(this.val$prefix) : invokeLL.booleanValue;
                 }
             })) != null) {
-                for (int i2 = 0; i2 < list.length; i2++) {
-                    if (str4.equals(list[i2])) {
+                for (int i = 0; i < list.length; i++) {
+                    if (str4.equals(list[i])) {
                         return null;
                     }
-                    new File(file, list[i2]).delete();
+                    new File(file, list[i]).delete();
                 }
                 return str4;
             }
@@ -144,9 +144,9 @@ public class FileUtils {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

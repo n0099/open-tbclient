@@ -5,11 +5,11 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static boolean a(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);
-        for (int i2 = 0; i2 < 5; i2++) {
+        for (int i = 0; i < 5; i++) {
             arrayList.add(th.getStackTrace());
             th = th.getCause();
             if (th == null) {

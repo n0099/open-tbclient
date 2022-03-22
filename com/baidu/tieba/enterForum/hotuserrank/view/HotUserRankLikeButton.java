@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.q0.r.l0.n.b;
+import c.a.o0.r.l0.n.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
@@ -27,9 +27,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,28 +38,28 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.q0.r.l0.t.b
-    public void updateLikeStatus(boolean z, int i2) {
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.o0.r.l0.t.b
+    public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
                 b bVar = new b();
                 bVar.t(R.color.CAM_X0109);
                 setConfig(bVar);
                 setClickable(true);
-                if (i2 == 1) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
-                } else if (i2 == 2) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
+                if (i == 1) {
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f68));
+                } else if (i == 2) {
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0507));
                 }
             } else {
                 b bVar2 = new b();
                 bVar2.r(R.color.CAM_X0302);
                 setConfig(bVar2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029b));
             }
-            if (i2 == 2) {
+            if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.width = n.f(getContext(), R.dimen.tbds196);
@@ -72,7 +72,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setLayoutParams(layoutParams2);
                 }
             }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            r(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -85,9 +85,9 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -98,17 +98,17 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

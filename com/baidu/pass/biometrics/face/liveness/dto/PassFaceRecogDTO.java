@@ -49,9 +49,9 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,7 +67,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            PassBiometricDto a = a.b().a("request_data");
+            PassBiometricDto a = a.b().a(a.f27965c);
             if (a instanceof PassFaceRecogDTO) {
                 PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) a;
                 if (TextUtils.isEmpty(passFaceRecogDTO.imageFlag)) {
@@ -118,7 +118,7 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String getSpno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraParamsMap.get("sp_no") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraParamsMap.get(KEY_EXTRA_PASS_PRODUCT_ID) : (String) invokeV.objValue;
     }
 
     public boolean isReturnCutImage() {

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PMSConstants {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class CloudSwitch {
         public static final /* synthetic */ CloudSwitch[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -41,16 +41,16 @@ public class PMSConstants {
             $VALUES = new CloudSwitch[]{NO_DISPLAY, cloudSwitch};
         }
 
-        public CloudSwitch(String str, int i2, int i3) {
+        public CloudSwitch(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -59,7 +59,7 @@ public class PMSConstants {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
         public static CloudSwitch valueOf(String str) {
@@ -76,7 +76,7 @@ public class PMSConstants {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class CustomerService {
         public static final /* synthetic */ CustomerService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,16 +104,16 @@ public class PMSConstants {
             $VALUES = new CustomerService[]{NO_CUSTOMER_SERVICE, customerService};
         }
 
-        public CustomerService(String str, int i2, int i3) {
+        public CustomerService(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -122,7 +122,7 @@ public class PMSConstants {
                     return;
                 }
             }
-            this.type = i3;
+            this.type = i2;
         }
 
         public static CustomerService valueOf(String str) {
@@ -139,7 +139,7 @@ public class PMSConstants {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PayProtected {
         public static final /* synthetic */ PayProtected[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -167,16 +167,16 @@ public class PMSConstants {
             $VALUES = new PayProtected[]{NO_PAY_PROTECTED, payProtected};
         }
 
-        public PayProtected(String str, int i2, int i3) {
+        public PayProtected(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -185,7 +185,7 @@ public class PMSConstants {
                     return;
                 }
             }
-            this.type = i3;
+            this.type = i2;
         }
 
         public static PayProtected valueOf(String str) {
@@ -201,7 +201,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(c.a.p0.q.a aVar) {
+    public static boolean a(c.a.n0.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) ? aVar != null && aVar.x() : invokeL.booleanValue;

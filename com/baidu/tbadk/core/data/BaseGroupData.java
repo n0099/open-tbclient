@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseGroupData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5616188082014345808L;
@@ -41,9 +41,9 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -189,10 +189,10 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setAuthorId(long j2) {
+    public void setAuthorId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.authorId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.authorId = j;
         }
     }
 
@@ -217,38 +217,38 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setCreateTime(int i2) {
+    public void setCreateTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.createTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.createTime = i;
         }
     }
 
-    public void setFlag(int i2) {
+    public void setFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.flag = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.flag = i;
         }
     }
 
-    public void setForumId(int i2) {
+    public void setForumId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.forumId = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.forumId = i;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setGroupType(int i2) {
+    public void setGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.groupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.groupType = i;
         }
     }
 
@@ -273,17 +273,17 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setMaxMemberNum(int i2) {
+    public void setMaxMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.maxMemberNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.maxMemberNum = i;
         }
     }
 
-    public void setMemberNum(int i2) {
+    public void setMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.memberNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.memberNum = i;
         }
     }
 
@@ -315,10 +315,10 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.status = i;
         }
     }
 }

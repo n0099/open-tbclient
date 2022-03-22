@@ -6,23 +6,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CtrlPointProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface CtrlPointListener {
         void onComplete();
 
-        void onError(int i2, int i3);
+        void onError(int i, int i2);
 
-        void onInfo(int i2, int i3, Object obj);
+        void onInfo(int i, int i2, Object obj);
 
         void onPrepared();
 
-        void onSeekCompleted(int i2, int i3);
+        void onSeekCompleted(int i, int i2);
     }
 
     public CtrlPointProvider() {
@@ -30,9 +30,9 @@ public abstract class CtrlPointProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,15 +51,15 @@ public abstract class CtrlPointProvider {
 
     public abstract void play();
 
-    public abstract void seek(long j2);
+    public abstract void seek(long j);
 
     public abstract void setAVTransportUrl(String str);
 
     public abstract void setListener(CtrlPointListener ctrlPointListener);
 
-    public abstract void setMute(int i2);
+    public abstract void setMute(int i);
 
-    public abstract void setPlaybackVolume(int i2);
+    public abstract void setPlaybackVolume(int i);
 
     @Deprecated
     public abstract void shutdown();

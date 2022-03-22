@@ -38,7 +38,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_IN_DURATION = 67;
@@ -86,9 +86,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             newInitContext.initArgs = r2;
             Object[] objArr = {textInputLayout};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TextInputLayout) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -107,9 +107,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -137,9 +137,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr2 = {this, castAutoCompleteTextViewOrThrow};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i4 = newInitContext2.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext2.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -163,16 +163,16 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i3, i4, i5) == null) {
                 }
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
+            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
                 }
             }
         };
@@ -188,9 +188,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -226,9 +226,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((TextInputLayout) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -277,9 +277,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -318,9 +318,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -330,10 +330,10 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.OnEndIconChangedListener
-            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i4) {
+            public void onEndIconChanged(@NonNull TextInputLayout textInputLayout2, int i3) {
                 AutoCompleteTextView autoCompleteTextView;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i4) == null) && (autoCompleteTextView = (AutoCompleteTextView) textInputLayout2.getEditText()) != null && i4 == 3) {
+                if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, textInputLayout2, i3) == null) && (autoCompleteTextView = (AutoCompleteTextView) textInputLayout2.getEditText()) != null && i3 == 3) {
                     autoCompleteTextView.removeTextChangedListener(this.this$0.exposedDropdownEndIconTextWatcher);
                     if (autoCompleteTextView.getOnFocusChangeListener() == this.this$0.onFocusChangeListener) {
                         autoCompleteTextView.setOnFocusChangeListener(null);
@@ -366,11 +366,11 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         }
     }
 
-    private void addRippleEffectOnFilledLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i2, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
+    private void addRippleEffectOnFilledLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65555, this, autoCompleteTextView, i2, iArr, materialShapeDrawable) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65555, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
             int boxBackgroundColor = this.textInputLayout.getBoxBackgroundColor();
-            int[] iArr2 = {MaterialColors.layer(i2, boxBackgroundColor, 0.1f), boxBackgroundColor};
+            int[] iArr2 = {MaterialColors.layer(i, boxBackgroundColor, 0.1f), boxBackgroundColor};
             if (IS_LOLLIPOP) {
                 ViewCompat.setBackground(autoCompleteTextView, new RippleDrawable(new ColorStateList(iArr, iArr2), materialShapeDrawable, materialShapeDrawable));
                 return;
@@ -387,13 +387,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         }
     }
 
-    private void addRippleEffectOnOutlinedLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i2, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
+    private void addRippleEffectOnOutlinedLayout(@NonNull AutoCompleteTextView autoCompleteTextView, int i, int[][] iArr, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         LayerDrawable layerDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65556, this, autoCompleteTextView, i2, iArr, materialShapeDrawable) == null) {
-            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.colorSurface);
+        if (interceptable == null || interceptable.invokeLILL(65556, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
+            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f04016b);
             MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable(materialShapeDrawable.getShapeAppearanceModel());
-            int layer = MaterialColors.layer(i2, color, 0.1f);
+            int layer = MaterialColors.layer(i, color, 0.1f);
             materialShapeDrawable2.setFillColor(new ColorStateList(iArr, new int[]{layer, 0}));
             if (IS_LOLLIPOP) {
                 materialShapeDrawable2.setTint(color);
@@ -422,13 +422,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         return (AutoCompleteTextView) invokeL.objValue;
     }
 
-    private ValueAnimator getAlphaAnimator(int i2, float... fArr) {
+    private ValueAnimator getAlphaAnimator(int i, float... fArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65558, this, i2, fArr)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65558, this, i, fArr)) == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(fArr);
             ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
-            ofFloat.setDuration(i2);
+            ofFloat.setDuration(i);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -441,9 +441,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -465,14 +465,14 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         return (ValueAnimator) invokeIL.objValue;
     }
 
-    private MaterialShapeDrawable getPopUpMaterialShapeDrawable(float f2, float f3, float f4, int i2) {
+    private MaterialShapeDrawable getPopUpMaterialShapeDrawable(float f2, float f3, float f4, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)})) == null) {
             ShapeAppearanceModel build = ShapeAppearanceModel.builder().setTopLeftCornerSize(f2).setTopRightCornerSize(f2).setBottomLeftCornerSize(f3).setBottomRightCornerSize(f3).build();
             MaterialShapeDrawable createWithElevationOverlay = MaterialShapeDrawable.createWithElevationOverlay(this.context, f4);
             createWithElevationOverlay.setShapeAppearanceModel(build);
-            createWithElevationOverlay.setPadding(0, i2, 0, i2);
+            createWithElevationOverlay.setPadding(0, i, 0, i);
             return createWithElevationOverlay;
         }
         return (MaterialShapeDrawable) invokeCommon.objValue;
@@ -496,9 +496,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -573,9 +573,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, autoCompleteTextView};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -615,9 +615,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -671,9 +671,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_shape_corner_size_small_component);
-            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_exposed_dropdown_menu_popup_elevation);
-            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.mtrl_exposed_dropdown_menu_popup_vertical_padding);
+            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070459);
+            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07042f);
+            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070431);
             MaterialShapeDrawable popUpMaterialShapeDrawable = getPopUpMaterialShapeDrawable(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             MaterialShapeDrawable popUpMaterialShapeDrawable2 = getPopUpMaterialShapeDrawable(0.0f, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             this.outlinedPopupBackground = popUpMaterialShapeDrawable;
@@ -681,9 +681,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             this.filledPopupBackground = stateListDrawable;
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.mtrl_dropdown_arrow : R.drawable.mtrl_ic_arrow_drop_down));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d66 : R.drawable.obfuscated_res_0x7f080d67));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.exposed_dropdown_menu_content_description));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05c4));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -696,9 +696,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -724,10 +724,10 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     }
 
     @Override // com.google.android.material.textfield.EndIconDelegate
-    public boolean isBoxBackgroundModeSupported(int i2) {
+    public boolean isBoxBackgroundModeSupported(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i != 0 : invokeI.booleanValue;
     }
 
     @Override // com.google.android.material.textfield.EndIconDelegate

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageFormatCheckerUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public class ImageFormatCheckerUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,38 +41,38 @@ public class ImageFormatCheckerUtils {
         return (byte[]) invokeL.objValue;
     }
 
-    public static int indexOfPattern(byte[] bArr, int i2, byte[] bArr2, int i3) {
+    public static int indexOfPattern(byte[] bArr, int i, byte[] bArr2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), bArr2, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2)})) == null) {
             Preconditions.checkNotNull(bArr);
             Preconditions.checkNotNull(bArr2);
-            if (i3 > i2) {
+            if (i2 > i) {
                 return -1;
             }
-            int i4 = 0;
+            int i3 = 0;
             byte b2 = bArr2[0];
-            int i5 = i2 - i3;
-            while (i4 <= i5) {
-                if (bArr[i4] != b2) {
+            int i4 = i - i2;
+            while (i3 <= i4) {
+                if (bArr[i3] != b2) {
                     do {
-                        i4++;
-                        if (i4 > i5) {
+                        i3++;
+                        if (i3 > i4) {
                             break;
                         }
-                    } while (bArr[i4] != b2);
+                    } while (bArr[i3] != b2);
                 }
-                if (i4 <= i5) {
-                    int i6 = i4 + 1;
-                    int i7 = (i6 + i3) - 1;
-                    for (int i8 = 1; i6 < i7 && bArr[i6] == bArr2[i8]; i8++) {
-                        i6++;
+                if (i3 <= i4) {
+                    int i5 = i3 + 1;
+                    int i6 = (i5 + i2) - 1;
+                    for (int i7 = 1; i5 < i6 && bArr[i5] == bArr2[i7]; i7++) {
+                        i5++;
                     }
-                    if (i6 == i7) {
-                        return i4;
+                    if (i5 == i6) {
+                        return i3;
                     }
                 }
-                i4++;
+                i3++;
             }
             return -1;
         }
@@ -88,8 +88,8 @@ public class ImageFormatCheckerUtils {
             if (bArr2.length > bArr.length) {
                 return false;
             }
-            for (int i2 = 0; i2 < bArr2.length; i2++) {
-                if (bArr[i2] != bArr2[i2]) {
+            for (int i = 0; i < bArr2.length; i++) {
+                if (bArr[i] != bArr2[i]) {
                     return false;
                 }
             }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class GenericBucketRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BUCKET_NAME_LENGTH = 63;
@@ -20,9 +20,9 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,8 +50,8 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
                     if (trim.length() <= 63) {
                         if (isLowercaseOrDigit(trim.charAt(0))) {
                             if (isLowercaseOrDigit(trim.charAt(trim.length() - 1))) {
-                                for (int i2 = 1; i2 < trim.length() - 1; i2++) {
-                                    char charAt = trim.charAt(i2);
+                                for (int i = 1; i < trim.length() - 1; i++) {
+                                    char charAt = trim.charAt(i);
                                     if (!isLowercaseOrDigit(charAt) && charAt != '-') {
                                         throw new IllegalArgumentException("Invalid bucketName:" + trim + ". bucketName should contain only lowercase leters, digits and hyphens(-).");
                                     }
@@ -80,9 +80,9 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

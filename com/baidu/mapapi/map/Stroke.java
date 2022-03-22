@@ -13,23 +13,23 @@ public final class Stroke {
     public final int color;
     public final int strokeWidth;
 
-    public Stroke(int i2, int i3) {
+    public Stroke(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.strokeWidth = i2 <= 0 ? 5 : i2;
-        this.color = i3;
+        this.strokeWidth = i <= 0 ? 5 : i;
+        this.color = i2;
     }
 
     public Bundle a(Bundle bundle) {

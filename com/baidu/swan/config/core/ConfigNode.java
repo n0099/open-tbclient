@@ -2,8 +2,8 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.d.g.a;
-import c.a.p0.d.g.b;
+import c.a.n0.d.g.a;
+import c.a.n0.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
-import io.flutter.embedding.android.FlutterActivityAndFragmentDelegate;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ConfigNode {
     public static final /* synthetic */ ConfigNode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,23 +41,23 @@ public final class ConfigNode {
             }
         }
         HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", a.class, b.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, c.a.p0.d.f.a.class, c.a.p0.d.f.b.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.p0.d.e.a.class, c.a.p0.d.e.b.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.p0.d.h.a.class, c.a.p0.d.h.b.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", c.a.n0.d.f.a.class, c.a.n0.d.f.b.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.n0.d.e.a.class, c.a.n0.d.e.b.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.n0.d.h.a.class, c.a.n0.d.h.b.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }
 
-    public ConfigNode(String str, int i2, String str2, Class cls, Class cls2) {
+    public ConfigNode(String str, int i, String str2, Class cls, Class cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, cls, cls2};
+            Object[] objArr = {str, Integer.valueOf(i), str2, cls, cls2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

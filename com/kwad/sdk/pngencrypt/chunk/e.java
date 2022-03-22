@@ -2,18 +2,18 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f55633b;
+    public final com.kwad.sdk.pngencrypt.k f40647b;
     public List<PngChunk> a = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f55634c = false;
+    public boolean f40648c = false;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
-        this.f55633b = kVar;
+        this.f40647b = kVar;
     }
 
     public static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
@@ -44,11 +44,11 @@ public class e {
         return a(this.a, str, str2);
     }
 
-    public void a(PngChunk pngChunk, int i2) {
-        pngChunk.a(i2);
+    public void a(PngChunk pngChunk, int i) {
+        pngChunk.a(i);
         this.a.add(pngChunk);
         if (pngChunk.a.equals("PLTE")) {
-            this.f55634c = true;
+            this.f40648c = true;
         }
     }
 

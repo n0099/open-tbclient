@@ -33,16 +33,16 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         public Subscription s;
         public final AtomicInteger wip;
 
-        public TakeLastSubscriber(Subscriber<? super T> subscriber, int i2) {
+        public TakeLastSubscriber(Subscriber<? super T> subscriber, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,7 +51,7 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
             this.requested = new AtomicLong();
             this.wip = new AtomicInteger();
             this.actual = subscriber;
-            this.count = i2;
+            this.count = i;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -67,11 +67,11 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.wip.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = this.actual;
-                long j2 = this.requested.get();
+                long j = this.requested.get();
                 while (!this.cancelled) {
                     if (this.done) {
-                        long j3 = 0;
-                        while (j3 != j2) {
+                        long j2 = 0;
+                        while (j2 != j) {
                             if (this.cancelled) {
                                 return;
                             }
@@ -81,11 +81,11 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
                                 return;
                             } else {
                                 subscriber.onNext(obj);
-                                j3++;
+                                j2++;
                             }
                         }
-                        if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                            j2 = this.requested.addAndGet(-j3);
+                        if (j2 != 0 && j != Long.MAX_VALUE) {
+                            j = this.requested.addAndGet(-j2);
                         }
                     }
                     if (this.wip.decrementAndGet() == 0) {
@@ -134,34 +134,34 @@ public final class FlowableTakeLast<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTakeLast(Flowable<T> flowable, int i2) {
+    public FlowableTakeLast(Flowable<T> flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.count = i2;
+        this.count = i;
     }
 
     @Override // io.reactivex.Flowable

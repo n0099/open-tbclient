@@ -27,9 +27,9 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
             newInitContext.initArgs = r2;
             Object[] objArr = {videoMiddlePageLightActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                 bdTypeRecyclerView = null;
             }
-            viewModel.playVideoAtPosition(bdTypeRecyclerView.getFirstCompletelyVisiblePosition());
+            viewModel.o(bdTypeRecyclerView.getFirstCompletelyVisiblePosition());
         }
     }
 
@@ -66,12 +66,12 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                 bdTypeRecyclerView = null;
             }
-            viewModel.playVideoAtPosition(bdTypeRecyclerView.getLastCompletelyVisiblePosition());
+            viewModel.o(bdTypeRecyclerView.getLastCompletelyVisiblePosition());
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-    public void onScrollStateChanged(RecyclerView rv, int i2) {
+    public void onScrollStateChanged(RecyclerView rv, int i) {
         boolean z;
         BdTypeRecyclerView bdTypeRecyclerView;
         BdTypeRecyclerView bdTypeRecyclerView2;
@@ -80,16 +80,16 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
         BdTypeRecyclerView bdTypeRecyclerView5;
         BdTypeRecyclerView bdTypeRecyclerView6;
         BdTypeRecyclerView bdTypeRecyclerView7;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, rv, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, rv, i) == null) {
             Intrinsics.checkNotNullParameter(rv, "rv");
-            super.onScrollStateChanged(rv, i2);
+            super.onScrollStateChanged(rv, i);
             z = this.a.isNeedTwiceScroll;
-            if (!z || i2 != 0) {
-                Integer value = this.a.getViewModel().getCurPlayingVideoPos().getValue();
+            if (!z || i != 0) {
+                Integer value = this.a.getViewModel().c().getValue();
                 BdTypeRecyclerView bdTypeRecyclerView8 = null;
-                if (value != null && i2 == 0) {
+                if (value != null && i == 0) {
                     bdTypeRecyclerView2 = this.a.recyclerView;
                     if (bdTypeRecyclerView2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
@@ -108,7 +108,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                                 bdTypeRecyclerView6 = null;
                             }
                             int firstVisiblePosition = bdTypeRecyclerView6.getFirstVisiblePosition();
-                            Integer value2 = this.a.getViewModel().getCurPlayingVideoPos().getValue();
+                            Integer value2 = this.a.getViewModel().c().getValue();
                             if (value2 == null || firstVisiblePosition != value2.intValue()) {
                                 this.a.isForbidOnceListAutoScroll = true;
                                 VideoMiddlePageViewModel viewModel = this.a.getViewModel();
@@ -117,7 +117,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                                     Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                                     bdTypeRecyclerView7 = null;
                                 }
-                                viewModel.playVideoAtPosition(bdTypeRecyclerView7.getFirstVisiblePosition());
+                                viewModel.o(bdTypeRecyclerView7.getFirstVisiblePosition());
                             }
                         }
                     } else {
@@ -130,7 +130,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                         if (intValue < bdTypeRecyclerView3.getFirstCompletelyVisiblePosition()) {
                             e a = e.a();
                             final VideoMiddlePageLightActivity videoMiddlePageLightActivity = this.a;
-                            a.post(new Runnable() { // from class: c.a.r0.d1.u2.j
+                            a.post(new Runnable() { // from class: c.a.p0.f1.u2.j
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                             if (intValue2 > bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
                                 e a2 = e.a();
                                 final VideoMiddlePageLightActivity videoMiddlePageLightActivity2 = this.a;
-                                a2.post(new Runnable() { // from class: c.a.r0.d1.u2.e
+                                a2.post(new Runnable() { // from class: c.a.p0.f1.u2.e
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,22 +177,22 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                 if (bdTypeRecyclerView8.canScrollVertically(1)) {
                     return;
                 }
-                if (Intrinsics.areEqual(this.a.getViewModel().getHasMore().getValue(), Boolean.FALSE) && Intrinsics.areEqual(this.a.getViewModel().isLoading().getValue(), Boolean.FALSE)) {
-                    this.a.showToast(R.string.no_more_video_content);
+                if (Intrinsics.areEqual(this.a.getViewModel().f().getValue(), Boolean.FALSE) && Intrinsics.areEqual(this.a.getViewModel().k().getValue(), Boolean.FALSE)) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c4a);
                     return;
                 } else if (l.z()) {
-                    this.a.showToast(R.string.hard_loading);
-                    this.a.getViewModel().loadData();
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0804);
+                    this.a.getViewModel().l();
                     return;
                 } else {
-                    this.a.showToast(R.string.neterror);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                     return;
                 }
             }
             this.a.isNeedTwiceScroll = false;
             VideoMiddlePageLightActivity videoMiddlePageLightActivity3 = this.a;
-            i3 = videoMiddlePageLightActivity3.twiceScrollToPosition;
-            videoMiddlePageLightActivity3.scrollCurPlayingVideoToTop(i3);
+            i2 = videoMiddlePageLightActivity3.twiceScrollToPosition;
+            videoMiddlePageLightActivity3.scrollCurPlayingVideoToTop(i2);
         }
     }
 }

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseTrackSelection implements TrackSelection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public abstract class BaseTrackSelection implements TrackSelection {
     public final int[] tracks;
 
     /* renamed from: com.google.android.exoplayer2.trackselection.BaseTrackSelection$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DecreasingBandwidthComparator implements Comparator<Format> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public abstract class BaseTrackSelection implements TrackSelection {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,52 +72,52 @@ public abstract class BaseTrackSelection implements TrackSelection {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackGroup, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i4 = 0;
+        int i3 = 0;
         Assertions.checkState(iArr.length > 0);
         this.group = (TrackGroup) Assertions.checkNotNull(trackGroup);
         int length = iArr.length;
         this.length = length;
         this.formats = new Format[length];
-        for (int i5 = 0; i5 < iArr.length; i5++) {
-            this.formats[i5] = trackGroup.getFormat(iArr[i5]);
+        for (int i4 = 0; i4 < iArr.length; i4++) {
+            this.formats[i4] = trackGroup.getFormat(iArr[i4]);
         }
         Arrays.sort(this.formats, new DecreasingBandwidthComparator(null));
         this.tracks = new int[this.length];
         while (true) {
-            int i6 = this.length;
-            if (i4 < i6) {
-                this.tracks[i4] = trackGroup.indexOf(this.formats[i4]);
-                i4++;
+            int i5 = this.length;
+            if (i3 < i5) {
+                this.tracks[i3] = trackGroup.indexOf(this.formats[i3]);
+                i3++;
             } else {
-                this.blacklistUntilTimes = new long[i6];
+                this.blacklistUntilTimes = new long[i5];
                 return;
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final boolean blacklist(int i2, long j2) {
+    public final boolean blacklist(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            boolean isBlacklisted = isBlacklisted(i2, elapsedRealtime);
-            int i3 = 0;
-            while (i3 < this.length && !isBlacklisted) {
-                isBlacklisted = (i3 == i2 || isBlacklisted(i3, elapsedRealtime)) ? false : true;
-                i3++;
+            boolean isBlacklisted = isBlacklisted(i, elapsedRealtime);
+            int i2 = 0;
+            while (i2 < this.length && !isBlacklisted) {
+                isBlacklisted = (i2 == i || isBlacklisted(i2, elapsedRealtime)) ? false : true;
+                i2++;
             }
             if (isBlacklisted) {
                 long[] jArr = this.blacklistUntilTimes;
-                jArr[i2] = Math.max(jArr[i2], elapsedRealtime + j2);
+                jArr[i] = Math.max(jArr[i], elapsedRealtime + j);
                 return true;
             }
             return false;
@@ -142,24 +142,24 @@ public abstract class BaseTrackSelection implements TrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public int evaluateQueueSize(long j2, List<? extends MediaChunk> list) {
+    public int evaluateQueueSize(long j, List<? extends MediaChunk> list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, list)) == null) ? list.size() : invokeJL.intValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, list)) == null) ? list.size() : invokeJL.intValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final Format getFormat(int i2) {
+    public final Format getFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.formats[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.formats[i] : (Format) invokeI.objValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final int getIndexInTrackGroup(int i2) {
+    public final int getIndexInTrackGroup(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.tracks[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.tracks[i] : invokeI.intValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
@@ -200,9 +200,9 @@ public abstract class BaseTrackSelection implements TrackSelection {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, format)) == null) {
-            for (int i2 = 0; i2 < this.length; i2++) {
-                if (this.formats[i2] == format) {
-                    return i2;
+            for (int i = 0; i < this.length; i++) {
+                if (this.formats[i] == format) {
+                    return i;
                 }
             }
             return -1;
@@ -210,10 +210,10 @@ public abstract class BaseTrackSelection implements TrackSelection {
         return invokeL.intValue;
     }
 
-    public final boolean isBlacklisted(int i2, long j2) {
+    public final boolean isBlacklisted(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? this.blacklistUntilTimes[i2] > j2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? this.blacklistUntilTimes[i] > j : invokeCommon.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
@@ -224,13 +224,13 @@ public abstract class BaseTrackSelection implements TrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public final int indexOf(int i2) {
+    public final int indexOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.length; i3++) {
-                if (this.tracks[i3] == i2) {
-                    return i3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            for (int i2 = 0; i2 < this.length; i2++) {
+                if (this.tracks[i2] == i) {
+                    return i2;
                 }
             }
             return -1;

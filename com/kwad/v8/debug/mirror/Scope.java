@@ -1,7 +1,6 @@
 package com.kwad.v8.debug.mirror;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.webmanager.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.V8Value;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Scope extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCOPE_OBJECT = "scopeObject";
@@ -21,7 +20,7 @@ public class Scope extends Mirror {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ScopeType {
         public static final /* synthetic */ ScopeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -49,7 +48,7 @@ public class Scope extends Mirror {
                 }
             }
             Global = new ScopeType("Global", 0, 0);
-            Local = new ScopeType(b.f31439i, 1, 1);
+            Local = new ScopeType("Local", 1, 1);
             With = new ScopeType("With", 2, 2);
             Closure = new ScopeType("Closure", 3, 3);
             Catch = new ScopeType("Catch", 4, 4);
@@ -59,16 +58,16 @@ public class Scope extends Mirror {
             $VALUES = new ScopeType[]{Global, Local, With, Closure, Catch, Block, scopeType};
         }
 
-        public ScopeType(String str, int i2, int i3) {
+        public ScopeType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -77,7 +76,7 @@ public class Scope extends Mirror {
                     return;
                 }
             }
-            this.index = i3;
+            this.index = i2;
         }
 
         public static ScopeType valueOf(String str) {
@@ -102,9 +101,9 @@ public class Scope extends Mirror {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8Object) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -150,12 +149,12 @@ public class Scope extends Mirror {
         }
     }
 
-    public void setVariableValue(String str, int i2) {
+    public void setVariableValue(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
             v8Array.push(str);
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 this.v8Object.executeVoidFunction(SET_VARIABLE_VALUE, v8Array);
             } finally {

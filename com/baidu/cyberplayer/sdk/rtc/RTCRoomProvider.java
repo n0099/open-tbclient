@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class RTCRoomProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class CyberRtcLiveTransferMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcLiveTransferMode RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION;
@@ -48,16 +48,16 @@ public abstract class RTCRoomProvider {
             a = new CyberRtcLiveTransferMode[]{RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION, cyberRtcLiveTransferMode};
         }
 
-        public CyberRtcLiveTransferMode(String str, int i2) {
+        public CyberRtcLiveTransferMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -81,7 +81,7 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomAudioLevel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,45 +89,45 @@ public abstract class RTCRoomProvider {
         public long userID;
         public int volumeLevel;
 
-        public CyberRtcRoomAudioLevel(long j2, String str, int i2) {
+        public CyberRtcRoomAudioLevel(long j, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), str, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.userID = j2;
+            this.userID = j;
             this.nicName = str;
-            this.volumeLevel = i2;
+            this.volumeLevel = i;
         }
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface CyberRtcRoomDelegate {
-        void onEngineStatisticsInfo(int i2);
+        void onEngineStatisticsInfo(int i);
 
-        void onErrorInfoUpdate(int i2);
+        void onErrorInfoUpdate(int i);
 
-        void onPeerConnectStateUpdate(int i2);
+        void onPeerConnectStateUpdate(int i);
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i2, long j2, String str);
+        void onRoomEventUpdate(int i, long j, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomUserInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,30 +136,30 @@ public abstract class RTCRoomProvider {
         public long userID;
         public String userName;
 
-        public CyberRtcRoomUserInfo(long j2, String str, String str2, int i2) {
+        public CyberRtcRoomUserInfo(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.userID = j2;
+            this.userID = j;
             this.userName = str;
             this.attribute = str2;
-            this.role = i2;
+            this.role = i;
         }
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class CyberRtcRoomVideoDimension {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +172,9 @@ public abstract class RTCRoomProvider {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -184,7 +184,7 @@ public abstract class RTCRoomProvider {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class CyberRtcSoundMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRtcSoundMode RTC_SOUND_MODE_EAR;
@@ -211,16 +211,16 @@ public abstract class RTCRoomProvider {
             a = new CyberRtcSoundMode[]{RTC_SOUND_MODE_SPEAKER, cyberRtcSoundMode};
         }
 
-        public CyberRtcSoundMode(String str, int i2) {
+        public CyberRtcSoundMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -248,22 +248,22 @@ public abstract class RTCRoomProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public abstract void changeSurfaceSize(long j2, int i2, int i3);
+    public abstract void changeSurfaceSize(long j, int i, int i2);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, CyberRtcLiveTransferMode cyberRtcLiveTransferMode);
 
     public abstract void destroy();
 
-    public abstract void destroyExternalSurface(long j2, Surface surface);
+    public abstract void destroyExternalSurface(long j, Surface surface);
 
     public abstract void disbandRoom();
 
@@ -277,21 +277,21 @@ public abstract class RTCRoomProvider {
 
     public abstract CyberRtcRoomAudioLevel[] getRemoteAudioLevels();
 
-    public abstract CyberRtcRoomVideoDimension getRemoteVideoDimension(long j2);
+    public abstract CyberRtcRoomVideoDimension getRemoteVideoDimension(long j);
 
-    public abstract void getUserAttribute(long j2);
+    public abstract void getUserAttribute(long j);
 
     public abstract CyberRtcRoomUserInfo[] getUserListOfRoom();
 
     public abstract boolean initWithAppID(Context context, String str, String str2, String str3, boolean z);
 
-    public abstract void kickOffUserWithID(long j2);
+    public abstract void kickOffUserWithID(long j);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z);
 
-    public abstract boolean loginRtcRoomWithRoomName(String str, long j2, String str2, boolean z, boolean z2);
+    public abstract boolean loginRtcRoomWithRoomName(String str, long j, String str2, boolean z, boolean z2);
 
     public abstract boolean logoutRtcRoom();
 
@@ -303,37 +303,37 @@ public abstract class RTCRoomProvider {
 
     public abstract void publishStreaming();
 
-    public abstract void sendMessageToUser(String str, long j2);
+    public abstract void sendMessageToUser(String str, long j);
 
     public abstract void setAudioRecordDelegate(CyberRTCAudioSamples.CyberRTCSamplesReadyCallback cyberRTCSamplesReadyCallback);
 
     public abstract void setCyberRTCRoomDelegate(CyberRtcRoomDelegate cyberRtcRoomDelegate);
 
-    public abstract void setExternalSurface(long j2, Surface surface);
+    public abstract void setExternalSurface(long j, Surface surface);
 
     public abstract void setParamSettings(CyberRTCSetting cyberRTCSetting, CyberRTCSetting.CyberRTCSettingType cyberRTCSettingType);
 
-    public abstract void setRemoteAudioPlayState(boolean z, long j2);
+    public abstract void setRemoteAudioPlayState(boolean z, long j);
 
     public abstract void setRemoteDisplay(CyberRTCVideoView cyberRTCVideoView);
 
-    public abstract void setRemoteVideoPlayState(boolean z, long j2);
+    public abstract void setRemoteVideoPlayState(boolean z, long j);
 
     public abstract void setSoundMod(CyberRtcSoundMode cyberRtcSoundMode);
 
     public abstract void setUserAttribute(String str);
 
-    public abstract void shutUpUserWithID(long j2);
+    public abstract void shutUpUserWithID(long j);
 
-    public abstract void shutUpUserWithID(long j2, boolean z);
+    public abstract void shutUpUserWithID(long j, boolean z);
 
     public abstract void startPublish();
 
     public abstract void stopPublish();
 
-    public abstract void stopSubscribeStreaming(long j2);
+    public abstract void stopSubscribeStreaming(long j);
 
-    public abstract void subscribeStreaming(int i2, long j2);
+    public abstract void subscribeStreaming(int i, long j);
 
     public abstract void switchCamera();
 }

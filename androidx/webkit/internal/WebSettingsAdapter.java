@@ -21,9 +21,9 @@ public class WebSettingsAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {webSettingsBoundaryInterface};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,17 +56,17 @@ public class WebSettingsAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBoundaryInterface.getSafeBrowsingEnabled() : invokeV.booleanValue;
     }
 
-    public void setDisabledActionModeMenuItems(int i2) {
+    public void setDisabledActionModeMenuItems(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mBoundaryInterface.setDisabledActionModeMenuItems(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mBoundaryInterface.setDisabledActionModeMenuItems(i);
         }
     }
 
-    public void setForceDark(int i2) {
+    public void setForceDark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mBoundaryInterface.setForceDark(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mBoundaryInterface.setForceDark(i);
         }
     }
 

@@ -1,10 +1,10 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface u {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements u {
         @Override // com.ss.android.socialbase.downloader.downloader.u
         public com.ss.android.socialbase.downloader.exception.g a(Throwable th, String str) {

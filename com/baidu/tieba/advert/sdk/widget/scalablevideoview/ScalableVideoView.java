@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y.a.j.a.a;
-import c.a.r0.y.a.j.a.b;
+import c.a.p0.a0.a.j.a.a;
+import c.a.p0.a0.a.j.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,8 +24,10 @@ import java.io.IOException;
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaPlayer mMediaPlayer;
-    public ScalableType mScalableType;
+    public ScalableType a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MediaPlayer f31227b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScalableVideoView(Context context) {
@@ -36,9 +38,9 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,43 +53,85 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.mMediaPlayer == null) {
+            if (this.f31227b == null) {
                 MediaPlayer mediaPlayer = new MediaPlayer();
-                this.mMediaPlayer = mediaPlayer;
+                this.f31227b = mediaPlayer;
                 mediaPlayer.setOnVideoSizeChangedListener(this);
                 setSurfaceTextureListener(this);
                 return;
             }
-            reset();
+            e();
         }
     }
 
-    public final void b(int i2, int i3) {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31227b.isPlaying() : invokeV.booleanValue;
+    }
+
+    public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onPreparedListener) == null) {
+            this.f31227b.setOnPreparedListener(onPreparedListener);
+            this.f31227b.prepareAsync();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e();
+            MediaPlayer mediaPlayer = this.f31227b;
+            if (mediaPlayer != null) {
+                mediaPlayer.release();
+            }
+            this.f31227b = null;
+        }
+    }
+
+    public void e() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mediaPlayer = this.f31227b) == null) {
+            return;
+        }
+        mediaPlayer.reset();
+    }
+
+    public final void f(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || i2 == 0 || i3 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i2, i3)).m(this.mScalableType)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new a(new b(getWidth(), getHeight()), new b(i, i2)).m(this.a)) == null) {
             return;
         }
         setTransform(m);
     }
 
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f31227b.start();
+        }
+    }
+
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMediaPlayer.getCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f31227b.getCurrentPosition() : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mMediaPlayer.getDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f31227b.getDuration() : invokeV.intValue;
     }
 
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MediaPlayer mediaPlayer = this.mMediaPlayer;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            MediaPlayer mediaPlayer = this.f31227b;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -99,8 +143,8 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            MediaPlayer mediaPlayer = this.mMediaPlayer;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            MediaPlayer mediaPlayer = this.f31227b;
             if (mediaPlayer == null) {
                 return 0;
             }
@@ -109,39 +153,34 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
         return invokeV.intValue;
     }
 
-    public boolean isLooping() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mMediaPlayer.isLooping() : invokeV.booleanValue;
-    }
-
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mMediaPlayer.isPlaying() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.f31227b.stop();
+        }
     }
 
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            if (this.mMediaPlayer == null) {
+            if (this.f31227b == null) {
                 return;
             }
-            if (isPlaying()) {
-                stop();
+            if (b()) {
+                h();
             }
-            release();
+            d();
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048589, this, surfaceTexture, i, i2) == null) {
             Surface surface = new Surface(surfaceTexture);
-            MediaPlayer mediaPlayer = this.mMediaPlayer;
+            MediaPlayer mediaPlayer = this.f31227b;
             if (mediaPlayer != null) {
                 mediaPlayer.setSurface(surface);
             }
@@ -152,150 +191,85 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, surfaceTexture)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, surfaceTexture)) == null) {
             return false;
         }
         return invokeL.booleanValue;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048587, this, surfaceTexture, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048591, this, surfaceTexture, i, i2) == null) {
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, surfaceTexture) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, surfaceTexture) == null) {
         }
     }
 
     @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
+    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048589, this, mediaPlayer, i2, i3) == null) {
-            b(i2, i3);
-        }
-    }
-
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.mMediaPlayer.pause();
-        }
-    }
-
-    public void prepare(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onPreparedListener) == null) {
-            this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
-            this.mMediaPlayer.prepare();
-        }
-    }
-
-    public void prepareAsync(MediaPlayer.OnPreparedListener onPreparedListener) throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onPreparedListener) == null) {
-            this.mMediaPlayer.setOnPreparedListener(onPreparedListener);
-            this.mMediaPlayer.prepareAsync();
-        }
-    }
-
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            reset();
-            MediaPlayer mediaPlayer = this.mMediaPlayer;
-            if (mediaPlayer != null) {
-                mediaPlayer.release();
-            }
-            this.mMediaPlayer = null;
-        }
-    }
-
-    public void reset() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (mediaPlayer = this.mMediaPlayer) == null) {
-            return;
-        }
-        mediaPlayer.reset();
-    }
-
-    public void seekTo(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mMediaPlayer.seekTo(i2);
+        if (interceptable == null || interceptable.invokeLII(1048593, this, mediaPlayer, i, i2) == null) {
+            f(i, i2);
         }
     }
 
     public void setDataSource(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             a();
-            this.mMediaPlayer.setDataSource(str);
+            this.f31227b.setDataSource(str);
         }
     }
 
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.mMediaPlayer.setLooping(z);
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.f31227b.setLooping(z);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, onCompletionListener) == null) {
-            this.mMediaPlayer.setOnCompletionListener(onCompletionListener);
+        if (interceptable == null || interceptable.invokeL(1048597, this, onCompletionListener) == null) {
+            this.f31227b.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, onErrorListener) == null) {
-            this.mMediaPlayer.setOnErrorListener(onErrorListener);
+        if (interceptable == null || interceptable.invokeL(1048598, this, onErrorListener) == null) {
+            this.f31227b.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, onInfoListener) == null) {
-            this.mMediaPlayer.setOnInfoListener(onInfoListener);
+        if (interceptable == null || interceptable.invokeL(1048599, this, onInfoListener) == null) {
+            this.f31227b.setOnInfoListener(onInfoListener);
         }
     }
 
     public void setScalableType(ScalableType scalableType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, scalableType) == null) {
-            this.mScalableType = scalableType;
-            b(getVideoWidth(), getVideoHeight());
+        if (interceptable == null || interceptable.invokeL(1048600, this, scalableType) == null) {
+            this.a = scalableType;
+            f(getVideoWidth(), getVideoHeight());
         }
     }
 
     public void setVolume(float f2, float f3) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mediaPlayer = this.mMediaPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (mediaPlayer = this.f31227b) == null) {
             return;
         }
         mediaPlayer.setVolume(f2, f3);
-    }
-
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            this.mMediaPlayer.start();
-        }
-    }
-
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.mMediaPlayer.stop();
-        }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -307,9 +281,9 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -320,18 +294,18 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScalableVideoView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -339,34 +313,20 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
                 return;
             }
         }
-        this.mScalableType = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.scalableType}, 0, 0)) == null) {
+        this.a = ScalableType.NONE;
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04051e}, 0, 0)) == null) {
             return;
         }
-        int i5 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
+        int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
         obtainStyledAttributes.recycle();
-        this.mScalableType = ScalableType.values()[i5];
-    }
-
-    public void prepare() throws IOException, IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            prepare(null);
-        }
-    }
-
-    public void prepareAsync() throws IllegalStateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            prepareAsync(null);
-        }
+        this.a = ScalableType.values()[i4];
     }
 
     public void setDataSource(Context context, Uri uri) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, context, uri) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, context, uri) == null) {
             a();
-            this.mMediaPlayer.setDataSource(context, uri);
+            this.f31227b.setDataSource(context, uri);
         }
     }
 }

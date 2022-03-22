@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public File f995a;
+    public File f971a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Runnable f996a;
+    public Runnable f972a;
 
     public v(Context context, File file) {
         Interceptable interceptable = $ic;
@@ -27,16 +27,16 @@ public abstract class v implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f995a = file;
+        this.f971a = file;
     }
 
     public /* synthetic */ v(Context context, File file, w wVar) {
@@ -60,12 +60,12 @@ public abstract class v implements Runnable {
             u uVar = null;
             try {
                 try {
-                    if (this.f995a == null) {
-                        this.f995a = new File(this.a.getFilesDir(), "default_locker");
+                    if (this.f971a == null) {
+                        this.f971a = new File(this.a.getFilesDir(), "default_locker");
                     }
-                    uVar = u.a(this.a, this.f995a);
-                    if (this.f996a != null) {
-                        this.f996a.run();
+                    uVar = u.a(this.a, this.f971a);
+                    if (this.f972a != null) {
+                        this.f972a.run();
                     }
                     a(this.a);
                     if (uVar == null) {

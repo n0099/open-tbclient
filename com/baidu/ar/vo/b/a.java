@@ -5,5 +5,5 @@ public interface a {
 
     void hi();
 
-    int insertModel(String str, int i2, int i3, float[] fArr, float f2);
+    int insertModel(String str, int i, int i2, float[] fArr, float f2);
 }

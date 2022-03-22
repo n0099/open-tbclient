@@ -24,8 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
 import c.a.l.q;
-import c.a.q0.r.r.e2;
-import c.a.r0.d1.d2.g.e;
+import c.a.p0.f1.d2.g.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,6 +37,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -58,21 +58,19 @@ import java.util.List;
 public class CardItemHotVideoLayout extends LinearLayout implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EMTextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BdRecyclerView f32690b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f32691c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<ThreadData> f32692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f42205e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public BdRecyclerView f42206f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c f42207g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<e2> f42208h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final Point f42209i;
+    public final Point f32693e;
 
     /* loaded from: classes5.dex */
     public class a extends RecyclerView.ItemDecoration {
@@ -87,9 +85,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardItemHotVideoLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,11 +97,11 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(@NonNull Rect rect, int i2, @NonNull RecyclerView recyclerView) {
+        public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i2, recyclerView) == null) {
-                if (i2 != 0) {
-                    if (i2 == this.a.f42208h.size() - 1) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
+                if (i != 0) {
+                    if (i == this.a.f32692d.size() - 1) {
                         rect.set(0, 0, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds19), 0);
                         return;
                     } else {
@@ -120,9 +118,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
     public class b implements BdRecyclerView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemHotVideoLayout f42210e;
+        public final /* synthetic */ CardItemHotVideoLayout a;
 
         public b(CardItemHotVideoLayout cardItemHotVideoLayout) {
             Interceptable interceptable = $ic;
@@ -131,27 +127,27 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardItemHotVideoLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42210e = cardItemHotVideoLayout;
+            this.a = cardItemHotVideoLayout;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdRecyclerView.i
-        public void b(ViewGroup viewGroup, View view, Object obj, int i2, long j2) {
+        public void b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 VideoItemData videoItemData = new VideoItemData();
-                videoItemData.buildWithThreadData((e2) this.f42210e.f42208h.get(i2));
-                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f42210e.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
-                videoPlayActivityConfig.setVideoShowIndex(i2);
+                videoItemData.buildWithThreadData((ThreadData) this.a.f32692d.get(i));
+                VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
+                videoPlayActivityConfig.setVideoShowIndex(i);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                c.a.q0.r.l0.p.b bVar = new c.a.q0.r.l0.p.b(12, i2 + 1);
+                c.a.o0.r.l0.p.b bVar = new c.a.o0.r.l0.p.b(12, i + 1);
                 bVar.p(videoItemData.post_id);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
             }
@@ -168,30 +164,28 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f42211e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ c f32694b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f42212f;
-
-            public a(c cVar, int i2) {
+            public a(c cVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, Integer.valueOf(i2)};
+                    Object[] objArr = {cVar, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f42212f = cVar;
-                this.f42211e = i2;
+                this.f32694b = cVar;
+                this.a = i;
             }
 
             @Override // android.view.View.OnClickListener
@@ -199,11 +193,11 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.buildWithThreadData((e2) this.f42212f.a.f42208h.get(this.f42211e));
-                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f42212f.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
-                    videoPlayActivityConfig.setVideoShowIndex(this.f42211e);
+                    videoItemData.buildWithThreadData((ThreadData) this.f32694b.a.f32692d.get(this.a));
+                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f32694b.a.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
+                    videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    c.a.q0.r.l0.p.b bVar = new c.a.q0.r.l0.p.b(12, this.f42211e + 1);
+                    c.a.o0.r.l0.p.b bVar = new c.a.o0.r.l0.p.b(12, this.a + 1);
                     bVar.p(videoItemData.post_id);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
                 }
@@ -217,9 +211,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardItemHotVideoLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -230,29 +224,29 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: a */
-        public void onBindViewHolder(@NonNull d dVar, int i2) {
+        /* renamed from: d */
+        public void onBindViewHolder(@NonNull d dVar, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i2) == null) || ListUtils.getItem(this.a.f42208h, i2) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) || ListUtils.getItem(this.a.f32692d, i) == null) {
                 return;
             }
-            dVar.a((e2) ListUtils.getItem(this.a.f42208h, i2), i2);
-            dVar.itemView.setOnClickListener(new a(this, i2));
+            dVar.a((ThreadData) ListUtils.getItem(this.a.f32692d, i), i);
+            dVar.itemView.setOnClickListener(new a(this, i));
             if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.q0.r.l0.p.b(11, i2 + 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.o0.r.l0.p.b(11, i + 1)));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @NonNull
-        /* renamed from: c */
-        public d onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+        /* renamed from: e */
+        public d onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
-                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.frs_item_hot_video_view, (ViewGroup) null));
-                dVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) null));
+                dVar.b(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
             return (d) invokeLI.objValue;
@@ -263,10 +257,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.f42208h == null) {
+                if (this.a.f32692d == null) {
                     return 0;
                 }
-                return this.a.f42208h.size();
+                return this.a.f32692d.size();
             }
             return invokeV.intValue;
         }
@@ -279,54 +273,52 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         public final TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ImageView f42213b;
+        public final ImageView f32695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ImageView f42214c;
+        public final ImageView f32696c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final EMTextView f42215d;
+        public final EMTextView f32697d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final EMTextView f42216e;
+        public final EMTextView f32698e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TextView f42217f;
+        public final TextView f32699f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final View f42218g;
+        public final View f32700g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CardItemHotVideoLayout f42219h;
+        public final /* synthetic */ CardItemHotVideoLayout f32701h;
 
         /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ int a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f42220e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ d f32702b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f42221f;
-
-            public a(d dVar, int i2) {
+            public a(d dVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, Integer.valueOf(i2)};
+                    Object[] objArr = {dVar, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f42221f = dVar;
-                this.f42220e = i2;
+                this.f32702b = dVar;
+                this.a = i;
             }
 
             @Override // android.view.View.OnClickListener
@@ -334,11 +326,11 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                     VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.buildWithThreadData((e2) this.f42221f.f42219h.f42208h.get(this.f42220e));
-                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f42221f.f42219h.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
-                    videoPlayActivityConfig.setVideoShowIndex(this.f42220e);
+                    videoItemData.buildWithThreadData((ThreadData) this.f32702b.f32701h.f32692d.get(this.a));
+                    VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this.f32702b.f32701h.getContext(), Arrays.asList(videoItemData), 0, null, "frs");
+                    videoPlayActivityConfig.setVideoShowIndex(this.a);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
-                    c.a.q0.r.l0.p.b bVar = new c.a.q0.r.l0.p.b(12, this.f42220e + 1);
+                    c.a.o0.r.l0.p.b bVar = new c.a.o0.r.l0.p.b(12, this.a + 1);
                     bVar.p(videoItemData.post_id);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bVar));
                 }
@@ -349,12 +341,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         public class b implements View.OnTouchListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ SpannableStringBuilder a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ SpannableStringBuilder f42222e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f42223f;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ d f32703b;
 
             public b(d dVar, SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
@@ -363,16 +353,16 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {dVar, spannableStringBuilder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f42223f = dVar;
-                this.f42222e = spannableStringBuilder;
+                this.f32703b = dVar;
+                this.a = spannableStringBuilder;
             }
 
             @Override // android.view.View.OnTouchListener
@@ -390,12 +380,12 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                     int scrollY = y + textView.getScrollY();
                     Layout layout = textView.getLayout();
                     int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    ClickableSpan[] clickableSpanArr = (ClickableSpan[]) this.f42222e.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+                    ClickableSpan[] clickableSpanArr = (ClickableSpan[]) this.a.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
                     if (clickableSpanArr.length != 0) {
                         clickableSpanArr[0].onClick(textView);
                         return true;
                     }
-                    this.f42223f.f42219h.performClick();
+                    this.f32703b.f32701h.performClick();
                     return false;
                 }
                 return invokeLL.booleanValue;
@@ -414,9 +404,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -444,63 +434,81 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardItemHotVideoLayout, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42219h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.frs_item_hot_video_image);
+            this.f32701h = cardItemHotVideoLayout;
+            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090b46);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setPageId(j.a(view.getContext()).getUniqueId());
-            this.f42218g = view.findViewById(R.id.frs_item_hot_video_image_mask);
-            this.f42213b = (ImageView) view.findViewById(R.id.frs_item_hot_video_play_image);
-            this.f42214c = (ImageView) view.findViewById(R.id.frs_item_hot_video_playback_image);
-            this.f42215d = (EMTextView) view.findViewById(R.id.frs_item_hot_video_playback_num);
-            this.f42216e = (EMTextView) view.findViewById(R.id.frs_item_hot_video_duration);
-            this.f42217f = (TextView) view.findViewById(R.id.frs_item_hot_video_title);
+            this.f32700g = view.findViewById(R.id.obfuscated_res_0x7f090b47);
+            this.f32695b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090b48);
+            this.f32696c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090b49);
+            this.f32697d = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090b4a);
+            this.f32698e = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090b45);
+            this.f32699f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090b4b);
         }
 
         @SuppressLint({"ClickableViewAccessibility"})
-        public void a(e2 e2Var, int i2) {
+        public void a(ThreadData threadData, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, e2Var, i2) == null) || e2Var == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, threadData, i) == null) || threadData == null) {
                 return;
             }
-            this.a.startLoad(e2Var.u1().thumbnail_url, 10, false);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(e2Var.y1());
-            if (e2Var.Y1()) {
-                b(spannableStringBuilder);
+            this.a.J(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
+            if (threadData.isDisplayHighQualityPrefix()) {
+                c(spannableStringBuilder);
             }
-            this.f42217f.setOnClickListener(new a(this, i2));
-            this.f42217f.setOnTouchListener(new b(this, spannableStringBuilder));
-            this.f42217f.setText(spannableStringBuilder);
-            this.f42215d.setText(StringHelper.numFormatOverWan(e2Var.u1().play_count.intValue()));
-            this.f42216e.setText(StringHelper.stringForVideoTime(e2Var.u1().video_duration.intValue() * 1000));
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f32699f.setOnClickListener(new a(this, i));
+            this.f32699f.setOnTouchListener(new b(this, spannableStringBuilder));
+            this.f32699f.setText(spannableStringBuilder);
+            this.f32697d.setText(StringHelper.numFormatOverWan(threadData.getThreadVideoInfo().play_count.intValue()));
+            this.f32698e.setText(StringHelper.stringForVideoTime(threadData.getThreadVideoInfo().video_duration.intValue() * 1000));
+            b(TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void b(SpannableStringBuilder spannableStringBuilder) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spannableStringBuilder) == null) || spannableStringBuilder == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                SkinManager.setImageResource(this.f32695b, R.drawable.obfuscated_res_0x7f080aa1);
+                SkinManager.setBackgroundResource(this.f32696c, R.drawable.obfuscated_res_0x7f080806);
+                c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this.f32699f);
+                d2.z(R.dimen.T_X12);
+                d2.v(R.color.CAM_X0105);
+                c.a.o0.r.v.c d3 = c.a.o0.r.v.c.d(this.f32698e);
+                d3.z(R.dimen.T_X09);
+                d3.v(R.color.CAM_X0101);
+                c.a.o0.r.v.c d4 = c.a.o0.r.v.c.d(this.f32697d);
+                d4.z(R.dimen.T_X09);
+                d4.v(R.color.CAM_X0101);
+                SkinManager.setBackgroundResource(this.f32700g, R.drawable.obfuscated_res_0x7f080290);
+            }
+        }
+
+        public void c(SpannableStringBuilder spannableStringBuilder) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) == null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.frs_item_tab_hot_video_tag_high_quality);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06f6);
             spannableStringBuilder.insert(0, (CharSequence) string);
             int f2 = n.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
             int f3 = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
             int f4 = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
             int f5 = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
             int f6 = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            c.a.q0.r.l0.b bVar = new c.a.q0.r.l0.b(f2, -1, R.color.CAM_X0319, f4, R.color.CAM_X0101, f5, n.f(TbadkCoreApplication.getInst(), R.dimen.tbds40));
+            c.a.o0.r.l0.b bVar = new c.a.o0.r.l0.b(f2, -1, R.color.CAM_X0319, f4, R.color.CAM_X0101, f5, n.f(TbadkCoreApplication.getInst(), R.dimen.tbds40));
             bVar.b(f3);
             bVar.i(f6);
             bVar.f(true);
@@ -508,24 +516,6 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 spannableStringBuilder.setSpan(new c(this), 0, string.length(), 33);
             }
             spannableStringBuilder.setSpan(bVar, 0, string.length(), 33);
-        }
-
-        public void onChangeSkinType(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                SkinManager.setImageResource(this.f42213b, R.drawable.icon_video26);
-                SkinManager.setBackgroundResource(this.f42214c, R.drawable.icon_mask_play_12);
-                c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.f42217f);
-                d2.z(R.dimen.T_X12);
-                d2.v(R.color.CAM_X0105);
-                c.a.q0.r.v.c d3 = c.a.q0.r.v.c.d(this.f42216e);
-                d3.z(R.dimen.T_X09);
-                d3.v(R.color.CAM_X0101);
-                c.a.q0.r.v.c d4 = c.a.q0.r.v.c.d(this.f42215d);
-                d4.z(R.dimen.T_X09);
-                d4.v(R.color.CAM_X0101);
-                SkinManager.setBackgroundResource(this.f42218g, R.drawable.bg_gradient_frs_item_hot_video);
-            }
         }
     }
 
@@ -538,16 +528,16 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42209i = new Point();
+        this.f32693e = new Point();
         c();
     }
 
@@ -556,36 +546,36 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             EMTextView eMTextView = new EMTextView(getContext());
-            this.f42205e = eMTextView;
+            this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.f42205e.setText(R.string.frs_item_tab_hot_video_title);
+            this.a.setText(R.string.obfuscated_res_0x7f0f06f7);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(n.f(getContext(), R.dimen.M_W_X005), n.f(getContext(), R.dimen.tbds32), 0, 0);
-            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.f42205e);
+            c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
-            addView(this.f42205e, layoutParams);
+            addView(this.a, layoutParams);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
-            this.f42206f = bdRecyclerView;
+            this.f32690b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.f42206f.addItemDecoration(new a(this));
-            this.f42206f.setOnItemClickListener(new b(this));
+            this.f32690b.addItemDecoration(new a(this));
+            this.f32690b.setOnItemClickListener(new b(this));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, n.f(getContext(), R.dimen.tbds36), 0, 0);
-            addView(this.f42206f, layoutParams2);
+            addView(this.f32690b, layoutParams2);
             c cVar = new c(this);
-            this.f42207g = cVar;
-            this.f42206f.setAdapter(cVar);
+            this.f32691c = cVar;
+            this.f32690b.setAdapter(cVar);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            this.f42207g.notifyDataSetChanged();
-            c.a.q0.r.v.c.d(this.f42205e).v(R.color.CAM_X0105);
-            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            this.f32691c.notifyDataSetChanged();
+            c.a.o0.r.v.c.d(this.a).v(R.color.CAM_X0105);
+            c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -598,8 +588,8 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent != null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f42209i.set((int) motionEvent.getX(), (int) motionEvent.getY());
-                    if (this.f42206f.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+                    this.f32693e.set((int) motionEvent.getX(), (int) motionEvent.getY());
+                    if (this.f32690b.getFirstCompletelyVisiblePosition() != 0 && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
                         ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
                     }
                 } else {
@@ -607,7 +597,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                     if (motionEvent.getAction() == 2) {
                         boolean z2 = (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled();
                         ViewParent parent = getParent();
-                        if (!z2 && Math.abs(this.f42209i.x - motionEvent.getX()) > Math.abs(this.f42209i.y - motionEvent.getY())) {
+                        if (!z2 && Math.abs(this.f32693e.x - motionEvent.getX()) > Math.abs(this.f32693e.y - motionEvent.getY())) {
                             z = true;
                         }
                         parent.requestDisallowInterceptTouchEvent(z);
@@ -624,8 +614,8 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
     public void setData(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f42208h = eVar.g();
-            this.f42207g.notifyDataSetChanged();
+            this.f32692d = eVar.e();
+            this.f32691c.notifyDataSetChanged();
         }
     }
 
@@ -638,9 +628,9 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -648,22 +638,22 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f42209i = new Point();
+        this.f32693e = new Point();
         c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardItemHotVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CardItemHotVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -671,7 +661,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f42209i = new Point();
+        this.f32693e = new Point();
         c();
     }
 }

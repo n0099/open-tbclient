@@ -57,9 +57,9 @@ public class CouponStatus extends a implements b, Serializable {
         return isNewUser() || (getStatusCode() == 0 && this.currentWatchVideoCount == this.couponActiveConfig.videoThreshold);
     }
 
-    public void setStatusCode(int i2) {
+    public void setStatusCode(int i) {
         if (this.couponStatusInfo != null) {
-            this.couponStatusInfo.statusCode = i2;
+            this.couponStatusInfo.statusCode = i;
         }
     }
 }

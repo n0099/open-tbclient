@@ -58,9 +58,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -232,9 +232,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -612,20 +612,20 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public String getMainFrameIdInfo(int i2) {
+            public String getMainFrameIdInfo(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048614, this, i2)) == null) {
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048614, this, i)) == null) {
                     return null;
                 }
                 return (String) invokeI.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public String getMainFrameIdReferrer(int i2) {
+            public String getMainFrameIdReferrer(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048615, this, i2)) == null) {
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048615, this, i)) == null) {
                     return null;
                 }
                 return (String) invokeI.objValue;
@@ -1029,10 +1029,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public int getWormholeNum(int i2) {
+            public int getWormholeNum(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048656, this, i2)) == null) {
+                if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048656, this, i)) == null) {
                     return 0;
                 }
                 return invokeI.intValue;
@@ -1127,23 +1127,23 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void kernelBrotliPush(long[] jArr, int i2) {
+            public void kernelBrotliPush(long[] jArr, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048667, this, jArr, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLI(1048667, this, jArr, i) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2) {
+            public void kernelEncrypt(byte[] bArr, int i, byte[] bArr2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIL(1048668, this, bArr, i2, bArr2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIL(1048668, this, bArr, i, bArr2) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void notifyBdAppStatusChange(int i2) {
+            public void notifyBdAppStatusChange(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048669, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048669, this, i) == null) {
                 }
             }
 
@@ -1155,9 +1155,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void removeMainFrameIdInfo(int i2) {
+            public void removeMainFrameIdInfo(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048671, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048671, this, i) == null) {
                 }
             }
 
@@ -1183,23 +1183,23 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupDnsJobDelayTime(int i2) {
+            public void setBackupDnsJobDelayTime(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048675, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048675, this, i) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupJobDelayTime(int i2) {
+            public void setBackupJobDelayTime(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048676, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048676, this, i) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupLandingJobDelayTime(int i2) {
+            public void setBackupLandingJobDelayTime(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048677, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048677, this, i) == null) {
                 }
             }
 
@@ -1218,9 +1218,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setConThreshold(int i2) {
+            public void setConThreshold(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048680, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048680, this, i) == null) {
                 }
             }
 
@@ -1323,16 +1323,16 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHisHijackStopAbEnable(int i2) {
+            public void setHisHijackStopAbEnable(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048695, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048695, this, i) == null) {
                 }
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHttpDnsCache(String str, int i2) {
+            public void setHttpDnsCache(String str, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048696, this, str, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLI(1048696, this, str, i) == null) {
                 }
             }
 
@@ -1351,9 +1351,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setIPV6Timeout(int i2) {
+            public void setIPV6Timeout(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048699, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048699, this, i) == null) {
                 }
             }
 
@@ -1386,9 +1386,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setKeepAliveTime(int i2) {
+            public void setKeepAliveTime(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048704, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048704, this, i) == null) {
                 }
             }
 
@@ -1407,9 +1407,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setMaxFatalAllocationFailureSize(int i2) {
+            public void setMaxFatalAllocationFailureSize(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048707, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048707, this, i) == null) {
                 }
             }
 
@@ -1498,9 +1498,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setProxyType(int i2) {
+            public void setProxyType(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048720, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048720, this, i) == null) {
                 }
             }
 
@@ -1512,9 +1512,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setQuicThreshold(int i2) {
+            public void setQuicThreshold(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048722, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048722, this, i) == null) {
                 }
             }
 
@@ -1561,9 +1561,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setSocketGroupNumber(int i2) {
+            public void setSocketGroupNumber(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048729, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048729, this, i) == null) {
                 }
             }
 
@@ -1582,9 +1582,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setSpdyTimeout(int i2) {
+            public void setSpdyTimeout(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048732, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048732, this, i) == null) {
                 }
             }
 
@@ -1631,9 +1631,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setVideoPlayerMode(int i2) {
+            public void setVideoPlayerMode(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048739, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048739, this, i) == null) {
                 }
             }
 
@@ -1676,9 +1676,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void updateFixAdblockLevelInfo(String str, int i2, int i3) {
+            public void updateFixAdblockLevelInfo(String str, int i, int i2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(1048745, this, str, i2, i3) == null) {
+                if (interceptable2 == null || interceptable2.invokeLII(1048745, this, str, i, i2) == null) {
                 }
             }
 
@@ -1710,9 +1710,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1779,9 +1779,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void crashIntentionally(int i2) {
+            public void crashIntentionally(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048583, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048583, this, i) == null) {
                 }
             }
 
@@ -1826,10 +1826,10 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public String getZeusSeriesNum(int i2, int i3, int i4) {
+            public String getZeusSeriesNum(int i, int i2, int i3) {
                 InterceptResult invokeIII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeIII = interceptable2.invokeIII(1048589, this, i2, i3, i4)) == null) ? "" : (String) invokeIII.objValue;
+                return (interceptable2 == null || (invokeIII = interceptable2.invokeIII(1048589, this, i, i2, i3)) == null) ? "" : (String) invokeIII.objValue;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -1867,9 +1867,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void onMemoryPresure(int i2, Activity activity) {
+            public void onMemoryPresure(int i, Activity activity) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048594, this, i2, activity) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048594, this, i, activity) == null) {
                 }
             }
 
@@ -1884,14 +1884,14 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public Uri[] parseFileChooserResult(int i2, Intent intent) {
+            public Uri[] parseFileChooserResult(int i, Intent intent) {
                 InterceptResult invokeIL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(1048596, this, i2, intent)) == null) {
+                if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(1048596, this, i, intent)) == null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        return WebChromeClient.FileChooserParams.parseResult(i2, intent);
+                        return WebChromeClient.FileChooserParams.parseResult(i, intent);
                     }
-                    Uri data = (intent == null || i2 != -1) ? null : intent.getData();
+                    Uri data = (intent == null || i != -1) ? null : intent.getData();
                     if (data == null) {
                         return null;
                     }
@@ -1901,9 +1901,9 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void preconnectUrl(String str, int i2) {
+            public void preconnectUrl(String str, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048597, this, str, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLI(1048597, this, str, i) == null) {
                 }
             }
 

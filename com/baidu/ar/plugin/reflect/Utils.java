@@ -41,9 +41,9 @@ public class Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -96,8 +96,8 @@ public class Utils {
                 return EMPTY_CLASS_ARRAY;
             }
             Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                clsArr[i2] = objArr[i2] == null ? null : objArr[i2].getClass();
+            for (int i = 0; i < objArr.length; i++) {
+                clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
             }
             return clsArr;
         }

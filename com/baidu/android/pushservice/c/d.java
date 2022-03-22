@@ -21,7 +21,7 @@ public class d {
         int columnIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            int i2 = 0;
+            int i = 0;
             Cursor cursor = null;
             try {
                 p = m.p(context, str);
@@ -33,28 +33,28 @@ public class d {
             try {
                 contentResolver = context.getContentResolver();
             } catch (Throwable unused2) {
-                i2 = p;
+                i = p;
             }
             if (contentResolver != null) {
-                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.f30443c.name()}, null, null, null);
+                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.f24329c.name()}, null, null, null);
                 if (cursor == null) {
-                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.f30443c.name()}, null, null, null);
+                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.f24329c.name()}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
-                        columnIndex = cursor.getColumnIndex(c.g.f30443c.name());
+                        columnIndex = cursor.getColumnIndex(c.g.f24329c.name());
                         p = cursor.getInt(columnIndex);
                     }
                 } else if (cursor.moveToFirst()) {
-                    columnIndex = cursor.getColumnIndex(c.g.f30443c.name());
+                    columnIndex = cursor.getColumnIndex(c.g.f24329c.name());
                     p = cursor.getInt(columnIndex);
                 }
-                i2 = p;
+                i = p;
                 if (cursor != null) {
                     try {
                         cursor.close();
                     } catch (Exception unused3) {
                     }
                 }
-                return i2;
+                return i;
             }
             if (cursor != null) {
                 try {

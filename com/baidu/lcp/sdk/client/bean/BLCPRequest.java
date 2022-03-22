@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BLCPRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33258b;
+    public long f25611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f33259c;
+    public byte[] f25612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f33260d;
+    public long f25613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendTimeoutSecond f33261e;
+    public SendTimeoutSecond f25614e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class SendTimeoutSecond {
         public static final /* synthetic */ SendTimeoutSecond[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -57,16 +57,16 @@ public class BLCPRequest {
             $VALUES = new SendTimeoutSecond[]{TIMEOUT_20s, TIMEOUT_30s, TIMEOUT_50s, sendTimeoutSecond};
         }
 
-        public SendTimeoutSecond(String str, int i2) {
+        public SendTimeoutSecond(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -94,18 +94,18 @@ public class BLCPRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = -1L;
-        this.f33258b = -1L;
-        this.f33259c = new byte[0];
-        this.f33260d = -1L;
-        this.f33261e = SendTimeoutSecond.TIMEOUT_120s;
+        this.f25611b = -1L;
+        this.f25612c = new byte[0];
+        this.f25613d = -1L;
+        this.f25614e = SendTimeoutSecond.TIMEOUT_120s;
     }
 }

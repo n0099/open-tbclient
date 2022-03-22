@@ -12,31 +12,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RotateProgressBar extends ProgressBar {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ANIMATION_RESOLUTION = 200;
-    public static final int INCREMENT = 30;
-    public static final int MAX_DEGREE = 360;
-    public static final int MAX_LEVEL = 10000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Drawable mCurrentDrawable;
-    public int mDegree;
-    public int mFrameDuration;
-    public long mLastDrawTime;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Drawable f29117b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f29118c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f29119d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RotateProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RotateProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -44,19 +46,19 @@ public class RotateProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.mDegree = 0;
+        this.a = 0;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mFrameDuration = 200;
+            this.f29119d = 200;
             try {
                 Field declaredField = ProgressBar.class.getDeclaredField("mDuration");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.mFrameDuration = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
+                    this.f29119d = (int) ((declaredField.getInt(this) / 12.0f) + 0.5f);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -76,21 +78,21 @@ public class RotateProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.mCurrentDrawable;
+                Drawable drawable = this.f29117b;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    long uptimeMillis = SystemClock.uptimeMillis() - this.mLastDrawTime;
-                    if (uptimeMillis < this.mFrameDuration) {
-                        postInvalidateDelayed(this.mFrameDuration - uptimeMillis);
+                    long uptimeMillis = SystemClock.uptimeMillis() - this.f29118c;
+                    if (uptimeMillis < this.f29119d) {
+                        postInvalidateDelayed(this.f29119d - uptimeMillis);
                     } else {
-                        this.mLastDrawTime = SystemClock.uptimeMillis();
-                        int i2 = this.mDegree + 30;
-                        this.mDegree = i2;
-                        if (i2 >= 360) {
-                            this.mDegree = 0;
+                        this.f29118c = SystemClock.uptimeMillis();
+                        int i = this.a + 30;
+                        this.a = i;
+                        if (i >= 360) {
+                            this.a = 0;
                         }
-                        drawable.setLevel((int) ((this.mDegree * 10000) / 360.0f));
-                        postInvalidateDelayed(this.mFrameDuration);
+                        drawable.setLevel((int) ((this.a * 10000) / 360.0f));
+                        postInvalidateDelayed(this.f29119d);
                     }
                 }
             }
@@ -104,7 +106,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminate(z);
                 if (z) {
-                    this.mCurrentDrawable = getIndeterminateDrawable();
+                    this.f29117b = getIndeterminateDrawable();
                 }
             }
         }
@@ -117,7 +119,7 @@ public class RotateProgressBar extends ProgressBar {
             synchronized (this) {
                 super.setIndeterminateDrawable(drawable);
                 if (isIndeterminate()) {
-                    this.mCurrentDrawable = drawable;
+                    this.f29117b = drawable;
                 }
             }
         }
@@ -132,9 +134,9 @@ public class RotateProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -142,7 +144,7 @@ public class RotateProgressBar extends ProgressBar {
                 return;
             }
         }
-        this.mDegree = 0;
+        this.a = 0;
         a();
     }
 
@@ -155,16 +157,16 @@ public class RotateProgressBar extends ProgressBar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mDegree = 0;
+        this.a = 0;
         a();
     }
 }

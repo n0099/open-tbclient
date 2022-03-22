@@ -43,9 +43,9 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parallelReduceFullMainSubscriber, biFunction};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,17 +126,17 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
         public final ParallelReduceFullInnerSubscriber<T>[] subscribers;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelReduceFullMainSubscriber(Subscriber<? super T> subscriber, int i2, BiFunction<T, T, T> biFunction) {
+        public ParallelReduceFullMainSubscriber(Subscriber<? super T> subscriber, int i, BiFunction<T, T, T> biFunction) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), biFunction};
+                Object[] objArr = {subscriber, Integer.valueOf(i), biFunction};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -146,13 +146,13 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
             this.current = new AtomicReference<>();
             this.remaining = new AtomicInteger();
             this.error = new AtomicReference<>();
-            ParallelReduceFullInnerSubscriber<T>[] parallelReduceFullInnerSubscriberArr = new ParallelReduceFullInnerSubscriber[i2];
-            for (int i5 = 0; i5 < i2; i5++) {
-                parallelReduceFullInnerSubscriberArr[i5] = new ParallelReduceFullInnerSubscriber<>(this, biFunction);
+            ParallelReduceFullInnerSubscriber<T>[] parallelReduceFullInnerSubscriberArr = new ParallelReduceFullInnerSubscriber[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                parallelReduceFullInnerSubscriberArr[i4] = new ParallelReduceFullInnerSubscriber<>(this, biFunction);
             }
             this.subscribers = parallelReduceFullInnerSubscriberArr;
             this.reducer = biFunction;
-            this.remaining.lazySet(i2);
+            this.remaining.lazySet(i);
         }
 
         public SlotPair<T> addValue(T t) {
@@ -256,9 +256,9 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -274,17 +274,17 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
         }
 
         public int tryAcquireSlot() {
-            int i2;
+            int i;
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 do {
-                    i2 = get();
-                    if (i2 >= 2) {
+                    i = get();
+                    if (i >= 2) {
                         return -1;
                     }
-                } while (!compareAndSet(i2, i2 + 1));
-                return i2;
+                } while (!compareAndSet(i, i + 1));
+                return i;
             }
             return invokeV.intValue;
         }
@@ -297,9 +297,9 @@ public final class ParallelReduceFull<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {parallelFlowable, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

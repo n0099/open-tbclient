@@ -17,9 +17,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,17 +35,17 @@ public class a {
             return (byte[]) invokeL.objValue;
         }
         d dVar = new d();
-        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * d.f4153b));
+        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * d.f3739b));
         b.a(b2, dVar.b(), bArr.length);
-        int i2 = 0;
+        int i = 0;
         while (true) {
             e[] eVarArr = this.a;
-            if (i2 >= eVarArr.length) {
-                return Arrays.copyOf(dVar.b(), d.f4153b);
+            if (i >= eVarArr.length) {
+                return Arrays.copyOf(dVar.b(), d.f3739b);
             }
-            e eVar = eVarArr[i2];
-            i2++;
-            int length = bArr.length + (d.f4153b * i2);
+            e eVar = eVarArr[i];
+            i++;
+            int length = bArr.length + (d.f3739b * i);
             dVar.a(eVar.b(b2, 0, length), eVar.d(), eVar.a(), eVar.c());
             b.a(b2, dVar.b(), length);
         }

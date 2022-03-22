@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -50,9 +50,9 @@ public class JpegTranscoderUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,22 +60,22 @@ public class JpegTranscoderUtils {
     }
 
     @VisibleForTesting
-    public static int calculateDownsampleNumerator(int i2) {
+    public static int calculateDownsampleNumerator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? Math.max(1, 8 / i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? Math.max(1, 8 / i) : invokeI.intValue;
     }
 
     @VisibleForTesting
-    public static float determineResizeRatio(ResizeOptions resizeOptions, int i2, int i3) {
+    public static float determineResizeRatio(ResizeOptions resizeOptions, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, resizeOptions, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, resizeOptions, i, i2)) == null) {
             if (resizeOptions == null) {
                 return 1.0f;
             }
-            float f2 = i2;
-            float f3 = i3;
+            float f2 = i;
+            float f3 = i2;
             float max = Math.max(resizeOptions.width / f2, resizeOptions.height / f3);
             float f4 = resizeOptions.maxBitmapSize;
             if (f2 * max > f4) {
@@ -171,20 +171,20 @@ public class JpegTranscoderUtils {
     }
 
     @Nullable
-    public static Matrix getTransformationMatrixFromInvertedExif(int i2) {
+    public static Matrix getTransformationMatrixFromInvertedExif(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
             Matrix matrix = new Matrix();
-            if (i2 == 2) {
+            if (i == 2) {
                 matrix.setScale(-1.0f, 1.0f);
-            } else if (i2 == 7) {
+            } else if (i == 7) {
                 matrix.setRotate(-90.0f);
                 matrix.postScale(-1.0f, 1.0f);
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 matrix.setRotate(180.0f);
                 matrix.postScale(-1.0f, 1.0f);
-            } else if (i2 != 5) {
+            } else if (i != 5) {
                 return null;
             } else {
                 matrix.setRotate(90.0f);
@@ -195,11 +195,11 @@ public class JpegTranscoderUtils {
         return (Matrix) invokeI.objValue;
     }
 
-    public static boolean isExifOrientationAllowed(int i2) {
+    public static boolean isExifOrientationAllowed(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 3:
@@ -216,10 +216,10 @@ public class JpegTranscoderUtils {
         return invokeI.booleanValue;
     }
 
-    public static boolean isRotationAngleAllowed(int i2) {
+    public static boolean isRotationAngleAllowed(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? i2 >= 0 && i2 <= 270 && i2 % 90 == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? i >= 0 && i <= 270 && i % 90 == 0 : invokeI.booleanValue;
     }
 
     @VisibleForTesting

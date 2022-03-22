@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class ActiveUpObj {
     public static /* synthetic */ Interceptable $ic;
@@ -27,9 +26,9 @@ public class ActiveUpObj {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, list, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -124,7 +123,7 @@ public class ActiveUpObj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "ActiveUpObj{mType='" + this.mType + ExtendedMessageFormat.QUOTE + ", mDataId='" + this.mDataId + ExtendedMessageFormat.QUOTE + ", mSpace='" + this.mSpace.toString() + ExtendedMessageFormat.QUOTE + ", mFileId'" + this.mFileID + ExtendedMessageFormat.QUOTE + ", mFileType'" + this.mFileType + ExtendedMessageFormat.QUOTE + ", mFileMeta='" + this.mFileMeta + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "ActiveUpObj{mType='" + this.mType + "', mDataId='" + this.mDataId + "', mSpace='" + this.mSpace.toString() + "', mFileId'" + this.mFileID + "', mFileType'" + this.mFileType + "', mFileMeta='" + this.mFileMeta + "'}";
         }
         return (String) invokeV.objValue;
     }

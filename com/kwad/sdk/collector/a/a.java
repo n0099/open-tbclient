@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public C2086a f54045b;
+    public C1947a f39194b;
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2086a {
+    public static class C1947a {
         public List<String> a;
 
-        public C2086a(List<String> list) {
+        public C1947a(List<String> list) {
             this.a = list;
         }
 
@@ -28,9 +28,9 @@ public class a extends d {
     }
 
     public a(List<String> list) {
-        C2086a c2086a = new C2086a(list);
-        this.f54045b = c2086a;
-        a("targetAppInfo", c2086a.a());
+        C1947a c1947a = new C1947a(list);
+        this.f39194b = c1947a;
+        a("targetAppInfo", c1947a.a());
         b(CommandMessage.SDK_VERSION, "3.3.17.4");
         a("sdkVersionCode", 3031704);
     }

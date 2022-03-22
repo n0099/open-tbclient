@@ -3,9 +3,12 @@ package com.fun.ad.sdk;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-/* loaded from: classes7.dex */
+import java.util.List;
+/* loaded from: classes6.dex */
 public interface FunAdFactory {
     void destroyAd(String str);
+
+    List<CacheStatistic> getCacheStatistics(String str);
 
     @Deprecated
     FunNativeAd getNativeAd(Context context, String str);

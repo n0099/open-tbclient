@@ -79,16 +79,16 @@ public class FrameMetricsAggregator {
             }
         }
 
-        public FrameMetricsApi24Impl(int i2) {
+        public FrameMetricsApi24Impl(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -108,9 +108,9 @@ public class FrameMetricsAggregator {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i5 = newInitContext2.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -120,9 +120,9 @@ public class FrameMetricsAggregator {
                 }
 
                 @Override // android.view.Window.OnFrameMetricsAvailableListener
-                public void onFrameMetricsAvailable(Window window, FrameMetrics frameMetrics, int i5) {
+                public void onFrameMetricsAvailable(Window window, FrameMetrics frameMetrics, int i4) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, window, frameMetrics, i5) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, window, frameMetrics, i4) == null) {
                         FrameMetricsApi24Impl frameMetricsApi24Impl = this.this$0;
                         if ((frameMetricsApi24Impl.mTrackingFlags & 1) != 0) {
                             frameMetricsApi24Impl.addDurationItem(frameMetricsApi24Impl.mMetrics[0], frameMetrics.getMetric(8));
@@ -162,7 +162,7 @@ public class FrameMetricsAggregator {
                     }
                 }
             };
-            this.mTrackingFlags = i2;
+            this.mTrackingFlags = i;
         }
 
         @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
@@ -175,10 +175,10 @@ public class FrameMetricsAggregator {
                     handlerThread.start();
                     sHandler = new Handler(sHandlerThread.getLooper());
                 }
-                for (int i2 = 0; i2 <= 8; i2++) {
+                for (int i = 0; i <= 8; i++) {
                     SparseIntArray[] sparseIntArrayArr = this.mMetrics;
-                    if (sparseIntArrayArr[i2] == null && (this.mTrackingFlags & (1 << i2)) != 0) {
-                        sparseIntArrayArr[i2] = new SparseIntArray();
+                    if (sparseIntArrayArr[i] == null && (this.mTrackingFlags & (1 << i)) != 0) {
+                        sparseIntArrayArr[i] = new SparseIntArray();
                     }
                 }
                 activity.getWindow().addOnFrameMetricsAvailableListener(this.mListener, sHandler);
@@ -186,14 +186,14 @@ public class FrameMetricsAggregator {
             }
         }
 
-        public void addDurationItem(SparseIntArray sparseIntArray, long j2) {
+        public void addDurationItem(SparseIntArray sparseIntArray, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j2) == null) || sparseIntArray == null) {
+            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j) == null) || sparseIntArray == null) {
                 return;
             }
-            int i2 = (int) ((500000 + j2) / 1000000);
-            if (j2 >= 0) {
-                sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
+            int i = (int) ((500000 + j) / 1000000);
+            if (j >= 0) {
+                sparseIntArray.put(i, sparseIntArray.get(i) + 1);
             }
         }
 
@@ -267,9 +267,9 @@ public class FrameMetricsAggregator {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -332,9 +332,9 @@ public class FrameMetricsAggregator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -378,23 +378,23 @@ public class FrameMetricsAggregator {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mInstance.stop() : (SparseIntArray[]) invokeV.objValue;
     }
 
-    public FrameMetricsAggregator(int i2) {
+    public FrameMetricsAggregator(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         if (Build.VERSION.SDK_INT >= 24) {
-            this.mInstance = new FrameMetricsApi24Impl(i2);
+            this.mInstance = new FrameMetricsApi24Impl(i);
         } else {
             this.mInstance = new FrameMetricsBaseImpl();
         }

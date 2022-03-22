@@ -27,46 +27,46 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f37325b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f37326c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f37327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48249e;
+    public HeadImageView f37328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48250f;
+    public TextView f37329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48251g;
+    public TextView f37330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f48252h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f48253i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f48254j;
+    public TbImageView f37331h;
+    public EditText i;
+    public View j;
     public TextView k;
-    public TbImageView l;
-    public EditText m;
-    public View n;
-    public TextView o;
-    public View p;
-    public TextView q;
+    public View l;
+    public TextView m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
     public int r;
     public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public c x;
+    public c t;
 
     /* loaded from: classes6.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareSdkView f48255e;
+        public final /* synthetic */ ShareSdkView a;
 
         public a(ShareSdkView shareSdkView) {
             Interceptable interceptable = $ic;
@@ -75,57 +75,57 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shareSdkView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48255e = shareSdkView;
+            this.a = shareSdkView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (editable.length() > this.f48255e.r * 2) {
-                    if (this.f48255e.s != 0) {
-                        this.f48255e.s = 0;
-                        ShareSdkView shareSdkView = this.f48255e;
-                        shareSdkView.t = shareSdkView.v;
-                        this.f48255e.m.setPadding(this.f48255e.w, this.f48255e.s, this.f48255e.w, this.f48255e.t);
+                if (editable.length() > this.a.n * 2) {
+                    if (this.a.o != 0) {
+                        this.a.o = 0;
+                        ShareSdkView shareSdkView = this.a;
+                        shareSdkView.p = shareSdkView.r;
+                        this.a.i.setPadding(this.a.s, this.a.o, this.a.s, this.a.p);
                     }
-                } else if (editable.length() > this.f48255e.r) {
-                    if (this.f48255e.s != this.f48255e.v) {
-                        ShareSdkView shareSdkView2 = this.f48255e;
-                        shareSdkView2.s = shareSdkView2.v;
-                        ShareSdkView shareSdkView3 = this.f48255e;
-                        shareSdkView3.t = shareSdkView3.v;
-                        this.f48255e.m.setPadding(this.f48255e.w, this.f48255e.s, this.f48255e.w, this.f48255e.t);
+                } else if (editable.length() > this.a.n) {
+                    if (this.a.o != this.a.r) {
+                        ShareSdkView shareSdkView2 = this.a;
+                        shareSdkView2.o = shareSdkView2.r;
+                        ShareSdkView shareSdkView3 = this.a;
+                        shareSdkView3.p = shareSdkView3.r;
+                        this.a.i.setPadding(this.a.s, this.a.o, this.a.s, this.a.p);
                     }
-                } else if (this.f48255e.s != this.f48255e.u) {
-                    ShareSdkView shareSdkView4 = this.f48255e;
-                    shareSdkView4.s = shareSdkView4.u;
-                    ShareSdkView shareSdkView5 = this.f48255e;
-                    shareSdkView5.t = shareSdkView5.u;
-                    this.f48255e.m.setPadding(this.f48255e.w, this.f48255e.s, this.f48255e.w, this.f48255e.t);
+                } else if (this.a.o != this.a.q) {
+                    ShareSdkView shareSdkView4 = this.a;
+                    shareSdkView4.o = shareSdkView4.q;
+                    ShareSdkView shareSdkView5 = this.a;
+                    shareSdkView5.p = shareSdkView5.q;
+                    this.a.i.setPadding(this.a.s, this.a.o, this.a.s, this.a.p);
                 }
             }
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -143,9 +143,9 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shareSdkView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -158,9 +158,9 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-                ViewGroup.LayoutParams layoutParams = this.a.l.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.a.f37331h.getLayoutParams();
                 layoutParams.height = ((n.k(this.a.getContext()) - n.f(this.a.getContext(), R.dimen.tbds408)) * 9) / 16;
-                this.a.l.setLayoutParams(layoutParams);
+                this.a.f37331h.setLayoutParams(layoutParams);
             }
         }
 
@@ -186,16 +186,16 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48249e = 3;
+        this.a = 3;
         k(context);
     }
 
@@ -204,77 +204,77 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(16);
-            LayoutInflater.from(context).inflate(R.layout.share_sdk_view, (ViewGroup) this, true);
-            this.f48250f = findViewById(R.id.share_sdk_content_root);
-            this.f48251g = (TextView) findViewById(R.id.share_sdk_forum);
-            this.f48252h = findViewById(R.id.share_sdk_content_container);
-            this.f48253i = (HeadImageView) findViewById(R.id.share_sdk_appicon);
-            this.f48254j = (TextView) findViewById(R.id.share_sdk_appname);
-            this.k = (TextView) findViewById(R.id.share_sdk_content);
-            this.l = (TbImageView) findViewById(R.id.share_sdk_img);
-            this.m = (EditText) findViewById(R.id.share_sdk_edit);
-            this.n = findViewById(R.id.share_sdk_content_line);
-            this.o = (TextView) findViewById(R.id.share_sdk_cancel);
-            this.p = findViewById(R.id.share_sdk_action_line);
-            this.q = (TextView) findViewById(R.id.share_sdk_share);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0775, (ViewGroup) this, true);
+            this.f37325b = findViewById(R.id.obfuscated_res_0x7f091cd8);
+            this.f37326c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cda);
+            this.f37327d = findViewById(R.id.obfuscated_res_0x7f091cd6);
+            this.f37328e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091cd2);
+            this.f37329f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd3);
+            this.f37330g = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd5);
+            this.f37331h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cdb);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091cd9);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091cd7);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd4);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091cd1);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091cdc);
             setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.q.setOnClickListener(this);
-            this.f48253i.setIsRound(true);
-            this.f48253i.setIsPreDrawBorder(true);
-            this.f48253i.setDrawBorder(true);
-            this.f48253i.setBorderWidth(n.f(context, R.dimen.tbds1));
-            this.f48253i.setDefaultResource(R.color.CAM_X0205);
-            this.f48253i.setRadius(n.f(context, R.dimen.ds70));
-            this.l.setDefaultBgResource(R.drawable.pic_share_default_applets);
-            this.r = (n.k(getContext()) - n.f(getContext(), R.dimen.tbds516)) / n.f(getContext(), R.dimen.tbds45);
-            this.u = n.f(getContext(), R.dimen.tbds27);
-            this.v = n.f(getContext(), R.dimen.tbds11);
-            this.w = n.f(getContext(), R.dimen.tbds36);
-            int i2 = this.u;
-            this.s = i2;
-            this.t = i2;
-            this.m.addTextChangedListener(new a(this));
-            onChangeSkinType();
+            this.k.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.f37328e.setIsRound(true);
+            this.f37328e.setIsPreDrawBorder(true);
+            this.f37328e.setDrawBorder(true);
+            this.f37328e.setBorderWidth(n.f(context, R.dimen.tbds1));
+            this.f37328e.setDefaultResource(R.color.CAM_X0205);
+            this.f37328e.setRadius(n.f(context, R.dimen.obfuscated_res_0x7f070266));
+            this.f37331h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f4a);
+            this.n = (n.k(getContext()) - n.f(getContext(), R.dimen.tbds516)) / n.f(getContext(), R.dimen.tbds45);
+            this.q = n.f(getContext(), R.dimen.tbds27);
+            this.r = n.f(getContext(), R.dimen.tbds11);
+            this.s = n.f(getContext(), R.dimen.tbds36);
+            int i = this.q;
+            this.o = i;
+            this.p = i;
+            this.i.addTextChangedListener(new a(this));
+            l();
         }
     }
 
-    public void onChangeSkinType() {
+    public void l() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48249e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        this.f48249e = skinType;
+        this.a = skinType;
         SkinManager.setBackgroundColor(this, R.color.black_alpha30);
-        SkinManager.setBackgroundResource(this.f48250f, R.drawable.share_sdk_bg);
-        SkinManager.setViewTextColor(this.f48251g, (int) R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.f48252h, R.color.CAM_X0205);
-        this.f48253i.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
-        this.f48253i.setSkinType(this.f48249e);
-        SkinManager.setViewTextColor(this.f48254j, (int) R.color.CAM_X0106);
+        SkinManager.setBackgroundResource(this.f37325b, R.drawable.share_sdk_bg);
+        SkinManager.setViewTextColor(this.f37326c, (int) R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f37327d, R.color.CAM_X0205);
+        this.f37328e.setBorderColor(SkinManager.getColor(R.color.CAM_X0111));
+        this.f37328e.setSkinType(this.a);
+        SkinManager.setViewTextColor(this.f37329f, (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f37330g, (int) R.color.CAM_X0105);
+        this.f37331h.setSkinType(this.a);
+        this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        SkinManager.setBackgroundResource(this.i, R.drawable.share_sdk_input_shape_bg);
+        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
         SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-        this.l.setSkinType(this.f48249e);
-        this.m.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        SkinManager.setBackgroundResource(this.m, R.drawable.share_sdk_input_shape_bg);
-        SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
-        SkinManager.setBackgroundColor(this.p, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0302);
+        SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0302);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view == this.o) {
+            if (view == this.k) {
                 if (getParent() != null) {
                     ((ViewGroup) getParent()).removeView(this);
                 }
-            } else if (view == this.q && ViewHelper.checkUpIsLogin(getContext())) {
-                String obj = this.m.getText().toString();
-                c cVar = this.x;
+            } else if (view == this.m && ViewHelper.checkUpIsLogin(getContext())) {
+                String obj = this.i.getText().toString();
+                c cVar = this.t;
                 if (cVar != null) {
                     cVar.a(obj);
                 }
@@ -289,35 +289,35 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.x = null;
+            this.t = null;
             super.onDetachedFromWindow();
         }
     }
 
-    public void setData(c.a.r0.q4.p.c cVar) {
+    public void setData(c.a.p0.s4.p.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             if (cVar == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.f48251g.setText(String.format(getResources().getString(R.string.share_sdk_forum), cVar.f21307f));
-            this.f48253i.startLoad(cVar.f21305d, 10, false);
-            this.f48254j.setText(cVar.f21304c);
-            if (StringUtils.isNull(cVar.f21309h)) {
-                this.k.setVisibility(8);
+            this.f37326c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1133), cVar.f18406f));
+            this.f37328e.J(cVar.f18404d, 10, false);
+            this.f37329f.setText(cVar.f18403c);
+            if (StringUtils.isNull(cVar.f18408h)) {
+                this.f37330g.setVisibility(8);
             } else {
-                this.k.setText(cVar.f21309h);
+                this.f37330g.setText(cVar.f18408h);
             }
-            this.l.setEvent(new b(this));
-            this.l.startLoad(cVar.f21310i, 42, false);
+            this.f37331h.setEvent(new b(this));
+            this.f37331h.J(cVar.i, 42, false);
         }
     }
 
     public void setOnShareListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.x = cVar;
+            this.t = cVar;
         }
     }
 
@@ -330,9 +330,9 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -340,22 +340,22 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f48249e = 3;
+        this.a = 3;
         k(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareSdkView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ShareSdkView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -363,7 +363,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
                 return;
             }
         }
-        this.f48249e = 3;
+        this.a = 3;
         k(context);
     }
 }

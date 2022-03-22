@@ -1,6 +1,6 @@
 package com.baidu.tbadk.getUserInfo;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -19,17 +19,17 @@ public class GetUserInfoRequstData extends NetMessage {
     public int screenWidth;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetUserInfoRequstData(int i2, int i3) {
-        super(i2, i3);
+    public GetUserInfoRequstData(int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -63,17 +63,17 @@ public class GetUserInfoRequstData extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mUid : invokeV.longValue;
     }
 
-    public void setScreenWidth(int i2) {
+    public void setScreenWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.screenWidth = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.screenWidth = i;
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mUid = j;
         }
     }
 }

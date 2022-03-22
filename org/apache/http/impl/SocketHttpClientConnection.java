@@ -15,7 +15,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SocketHttpClientConnection extends AbstractHttpClientConnection implements HttpInetConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class SocketHttpClientConnection extends AbstractHttpClientConnection imp
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,19 +66,19 @@ public class SocketHttpClientConnection extends AbstractHttpClientConnection imp
         }
     }
 
-    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i2, HttpParams httpParams) throws IOException {
+    public SessionInputBuffer createSessionInputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, socket, i2, httpParams)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, socket, i, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (SessionInputBuffer) invokeLIL.objValue;
     }
 
-    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i2, HttpParams httpParams) throws IOException {
+    public SessionOutputBuffer createSessionOutputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, socket, i2, httpParams)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, socket, i, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (SessionOutputBuffer) invokeLIL.objValue;
@@ -154,9 +154,9 @@ public class SocketHttpClientConnection extends AbstractHttpClientConnection imp
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i2) {
+    public void setSocketTimeout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

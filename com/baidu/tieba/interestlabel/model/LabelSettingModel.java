@@ -25,21 +25,19 @@ import java.util.List;
 public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c.a.p0.z1.c.a f34152b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.p0.z1.b.b f34153c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c.a.d.c.g.a f34154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f43990e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.x1.c.a f43991f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.x1.b.b f43992g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f43993h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f43994i;
+    public c.a.d.c.g.a f34155e;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -48,17 +46,17 @@ public class LabelSettingModel extends BdBaseModel {
         public final /* synthetic */ LabelSettingModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(LabelSettingModel labelSettingModel, int i2, int i3) {
-            super(i2, i3);
+        public a(LabelSettingModel labelSettingModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {labelSettingModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {labelSettingModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -75,8 +73,8 @@ public class LabelSettingModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.f43991f != null) {
-                this.a.f43991f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? this.a.f43992g : null, responsedMessage.getError());
+            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.f34152b != null) {
+                this.a.f34152b.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? this.a.f34153c : null, responsedMessage.getError());
             }
         }
     }
@@ -88,17 +86,17 @@ public class LabelSettingModel extends BdBaseModel {
         public final /* synthetic */ LabelSettingModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(LabelSettingModel labelSettingModel, int i2, int i3) {
-            super(i2, i3);
+        public b(LabelSettingModel labelSettingModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {labelSettingModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {labelSettingModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -117,12 +115,12 @@ public class LabelSettingModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof ResponseHttpSubLabelMessage) || (responsedMessage instanceof ResponseSocketSubLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.a.f43990e.showToast(responsedMessage.getErrorString());
+                    this.a.a.showToast(responsedMessage.getErrorString());
                 }
-                if (this.a.f43991f == null) {
+                if (this.a.f34152b == null) {
                     return;
                 }
-                this.a.f43991f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                this.a.f34152b.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
             }
         }
     }
@@ -136,28 +134,28 @@ public class LabelSettingModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43993h = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
-        this.f43994i = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
-        this.f43990e = tbPageContext;
-        this.f43992g = new c.a.r0.x1.b.b();
-        registerListener(this.f43993h);
-        registerListener(this.f43994i);
+        this.f34154d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
+        this.f34155e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
+        this.a = tbPageContext;
+        this.f34153c = new c.a.p0.z1.b.b();
+        registerListener(this.f34154d);
+        registerListener(this.f34155e);
     }
 
-    public void B() {
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!l.A()) {
-                c.a.r0.x1.c.a aVar = this.f43991f;
+                c.a.p0.z1.c.a aVar = this.f34152b;
                 if (aVar != null) {
                     aVar.callback(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
@@ -166,17 +164,17 @@ public class LabelSettingModel extends BdBaseModel {
             }
             RequestGetLabelMessage requestGetLabelMessage = new RequestGetLabelMessage();
             requestGetLabelMessage.setFrom(1);
-            requestGetLabelMessage.setLabelDataSet(this.f43992g);
+            requestGetLabelMessage.setLabelDataSet(this.f34153c);
             requestGetLabelMessage.setTag(this.unique_id);
             sendMessage(requestGetLabelMessage);
         }
     }
 
-    public void C(List<Integer> list) {
+    public void E(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!l.A()) {
-                this.f43990e.showToast((int) R.string.neterror);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c15);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -186,10 +184,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void D(c.a.r0.x1.c.a aVar) {
+    public void F(c.a.p0.z1.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f43991f = aVar;
+            this.f34152b = aVar;
         }
     }
 

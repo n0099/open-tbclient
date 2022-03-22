@@ -51,9 +51,9 @@ public class DeviceInfoUtil {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -67,8 +67,8 @@ public class DeviceInfoUtil {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
                     String name = file.getName();
                     if (name.startsWith("cpu")) {
-                        for (int i2 = 3; i2 < name.length(); i2++) {
-                            if (name.charAt(i2) < '0' || name.charAt(i2) > '9') {
+                        for (int i = 3; i < name.length(); i++) {
+                            if (name.charAt(i) < '0' || name.charAt(i) > '9') {
                                 return false;
                             }
                         }
@@ -86,9 +86,9 @@ public class DeviceInfoUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -106,13 +106,10 @@ public class DeviceInfoUtil {
                 e2.printStackTrace();
                 str = null;
             }
-            if (str == null) {
-                return 0;
+            if (str != null) {
+                return Integer.valueOf(str.contains("aarch64") ? 64 : 32);
             }
-            if (str.contains("aarch64")) {
-                return 64;
-            }
-            return 32;
+            return 0;
         }
         return (Integer) invokeV.objValue;
     }
@@ -279,7 +276,10 @@ public class DeviceInfoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             try {
-                return new BufferedReader(new FileReader("/proc/cpuinfo")).readLine().split(":\\s+", 2)[1];
+                String[] split = new BufferedReader(new FileReader("/proc/cpuinfo")).readLine().split(":\\s+", 2);
+                for (int i = 0; i < split.length; i++) {
+                }
+                return split[1];
             } catch (FileNotFoundException e2) {
                 e2.printStackTrace();
                 return null;
@@ -309,7 +309,7 @@ public class DeviceInfoUtil {
         return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? Build.SERIAL : (String) invokeV.objValue;
     }
 
-    public static String getFieldFromCpuinfo(String str) throws IOException {
+    public static String getFieldFromCpuinfo(String str) {
         InterceptResult invokeL;
         Matcher matcher;
         Interceptable interceptable = $ic;
@@ -360,40 +360,40 @@ public class DeviceInfoUtil {
         return invokeL.longValue;
     }
 
-    public static String getStorageInfo(Context context, int i2) {
+    public static String getStorageInfo(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, context, i2)) == null) {
-            String storagePath = getStoragePath(context, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, context, i)) == null) {
+            String storagePath = getStoragePath(context, i);
             if (!isSDCardMount() || storagePath == null || storagePath.toString().equals("")) {
                 return "无外置SD卡";
             }
             StatFs statFs = new StatFs(new File(storagePath).getPath());
             long blockCountLong = statFs.getBlockCountLong();
             long blockSizeLong = statFs.getBlockSizeLong();
-            long j2 = blockCountLong * blockSizeLong;
+            long j = blockCountLong * blockSizeLong;
             long availableBlocksLong = statFs.getAvailableBlocksLong() * blockSizeLong;
-            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j2);
+            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j);
         }
         return (String) invokeLI.objValue;
     }
 
-    public static String getStoragePath(Context context, int i2) {
+    public static String getStoragePath(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65553, null, context, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65553, null, context, i)) != null) {
             return (String) invokeLI.objValue;
         }
         StorageManager storageManager = (StorageManager) context.getSystemService("storage");
         try {
             String[] strArr = (String[]) storageManager.getClass().getMethod("getVolumePaths", new Class[0]).invoke(storageManager, new Object[0]);
-            if (i2 != 0) {
-                if (i2 == 1 && strArr.length > 1) {
-                    return strArr[i2];
+            if (i != 0) {
+                if (i == 1 && strArr.length > 1) {
+                    return strArr[i];
                 }
                 return null;
             }
-            return strArr[i2];
+            return strArr[i];
         } catch (Exception e2) {
             e2.printStackTrace();
         }

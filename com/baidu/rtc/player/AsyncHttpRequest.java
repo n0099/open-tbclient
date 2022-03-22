@@ -1,5 +1,6 @@
 package com.baidu.rtc.player;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.player.AsyncHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,9 +42,9 @@ public class AsyncHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, asyncHttpEvents};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,7 +70,7 @@ public class AsyncHttpRequest {
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: c.a.j0.d.a
+            new Thread(new Runnable() { // from class: c.a.h0.d.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,6 +116,7 @@ public class AsyncHttpRequest {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     outputStream.write(bArr, 0, bArr.length);
                     outputStream.close();
+                    Log.d("AsyncHttpRequest", this.message);
                 }
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode != 200) {

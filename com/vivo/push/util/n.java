@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class n implements o {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -41,9 +41,9 @@ public final class n implements o {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -174,13 +174,13 @@ public final class n implements o {
         }
     }
 
-    private void a(Context context, String str, int i2) {
+    private void a(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, this, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65538, this, context, str, i) == null) {
             com.vivo.push.b.n nVar = new com.vivo.push.b.n();
             nVar.b(str);
-            nVar.a(i2);
-            if (i2 > 0) {
+            nVar.a(i);
+            if (i > 0) {
                 d("LogController", str);
             }
             if (context.getPackageName().equals("com.vivo.pushservice")) {

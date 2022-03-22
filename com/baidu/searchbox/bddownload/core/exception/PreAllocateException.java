@@ -15,25 +15,25 @@ public class PreAllocateException extends IOException {
     public final long requireSpace;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PreAllocateException(long j2, long j3) {
-        super("There is Free space less than Require space: " + j3 + " < " + j2);
+    public PreAllocateException(long j, long j2) {
+        super("There is Free space less than Require space: " + j2 + " < " + j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.requireSpace = j2;
-        this.freeSpace = j3;
+        this.requireSpace = j;
+        this.freeSpace = j2;
     }
 
     public long getFreeSpace() {

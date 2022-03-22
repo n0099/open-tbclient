@@ -47,9 +47,9 @@ public class ListFragment extends Fragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,9 +68,9 @@ public class ListFragment extends Fragment {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -100,9 +100,9 @@ public class ListFragment extends Fragment {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -112,10 +112,10 @@ public class ListFragment extends Fragment {
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
-                    this.this$0.onListItemClick((ListView) adapterView, view, i4, j2);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                    this.this$0.onListItemClick((ListView) adapterView, view, i3, j);
                 }
             }
         };
@@ -259,9 +259,9 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i2, long j2) {
+    public void onListItemClick(@NonNull ListView listView, @NonNull View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{listView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
@@ -335,11 +335,11 @@ public class ListFragment extends Fragment {
         }
     }
 
-    public void setSelection(int i2) {
+    public void setSelection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             ensureList();
-            this.mList.setSelection(i2);
+            this.mList.setSelection(i);
         }
     }
 

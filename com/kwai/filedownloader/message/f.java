@@ -12,7 +12,7 @@ import com.kwai.filedownloader.message.a;
 import com.kwai.filedownloader.message.d;
 import com.kwai.filedownloader.message.h;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,7 +33,7 @@ public class f {
 
     public static MessageSnapshot a(byte b2, com.kwai.filedownloader.c.c cVar, d.a aVar) {
         InterceptResult invokeCommon;
-        MessageSnapshot c2157d;
+        MessageSnapshot c2018d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), cVar, aVar})) == null) {
             int a = cVar.a();
@@ -42,7 +42,7 @@ public class f {
                     return cVar.q() ? new d.b(a, false, cVar.h()) : new h.b(a, false, (int) cVar.h());
                 }
                 if (b2 == -1) {
-                    c2157d = cVar.q() ? new d.C2157d(a, cVar.g(), aVar.b()) : new h.d(a, (int) cVar.g(), aVar.b());
+                    c2018d = cVar.q() ? new d.C2018d(a, cVar.g(), aVar.b()) : new h.d(a, (int) cVar.g(), aVar.b());
                 } else if (b2 == 1) {
                     return cVar.q() ? new d.f(a, cVar.g(), cVar.h()) : new h.f(a, (int) cVar.g(), (int) cVar.h());
                 } else if (b2 == 2) {
@@ -55,37 +55,37 @@ public class f {
                         String a2 = com.kwai.filedownloader.e.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
                         com.kwai.filedownloader.e.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
                         IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a2, aVar.b()) : new IllegalStateException(a2);
-                        return cVar.q() ? new d.C2157d(a, cVar.g(), illegalStateException) : new h.d(a, (int) cVar.g(), illegalStateException);
+                        return cVar.q() ? new d.C2018d(a, cVar.g(), illegalStateException) : new h.d(a, (int) cVar.g(), illegalStateException);
                     }
                     return new MessageSnapshot.b(a);
                 } else {
-                    c2157d = cVar.q() ? new d.h(a, cVar.g(), aVar.b(), aVar.c()) : new h.C2158h(a, (int) cVar.g(), aVar.b(), aVar.c());
+                    c2018d = cVar.q() ? new d.h(a, cVar.g(), aVar.b(), aVar.c()) : new h.C2019h(a, (int) cVar.g(), aVar.b(), aVar.c());
                 }
-                return c2157d;
+                return c2018d;
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.a("please use #catchWarn instead %d", Integer.valueOf(a)));
         }
         return (MessageSnapshot) invokeCommon.objValue;
     }
 
-    public static MessageSnapshot a(int i2, long j2, long j3, boolean z) {
+    public static MessageSnapshot a(int i, long j, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? j3 > 2147483647L ? z ? new d.i(i2, j2, j3) : new d.j(i2, j2, j3) : z ? new h.i(i2, (int) j2, (int) j3) : new h.j(i2, (int) j2, (int) j3) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? j2 > 2147483647L ? z ? new d.i(i, j, j2) : new d.j(i, j, j2) : z ? new h.i(i, (int) j, (int) j2) : new h.j(i, (int) j, (int) j2) : (MessageSnapshot) invokeCommon.objValue;
     }
 
-    public static MessageSnapshot a(int i2, long j2, Throwable th) {
+    public static MessageSnapshot a(int i, long j, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), th})) == null) ? j2 > 2147483647L ? new d.C2157d(i2, j2, th) : new h.d(i2, (int) j2, th) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C2018d(i, j, th) : new h.d(i, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
     }
 
-    public static MessageSnapshot a(int i2, File file, boolean z) {
+    public static MessageSnapshot a(int i, File file, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), file, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), file, Boolean.valueOf(z)})) == null) {
             long length = file.length();
-            return length > 2147483647L ? z ? new d.a(i2, true, length) : new d.b(i2, true, length) : z ? new h.a(i2, true, (int) length) : new h.b(i2, true, (int) length);
+            return length > 2147483647L ? z ? new d.a(i, true, length) : new d.b(i, true, length) : z ? new h.a(i, true, (int) length) : new h.b(i, true, (int) length);
         }
         return (MessageSnapshot) invokeCommon.objValue;
     }
@@ -101,7 +101,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageSnapshot)) == null) {
             if (messageSnapshot.b() == -3) {
-                return new a.C2156a(messageSnapshot);
+                return new a.C2017a(messageSnapshot);
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
         }

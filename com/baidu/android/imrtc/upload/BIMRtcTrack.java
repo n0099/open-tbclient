@@ -61,9 +61,9 @@ public class BIMRtcTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,11 +81,11 @@ public class BIMRtcTrack {
             request.aliasId = -1L;
         }
 
-        public RequestBuilder aliasId(long j2) {
+        public RequestBuilder aliasId(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-                this.request.aliasId = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                this.request.aliasId = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -98,11 +98,11 @@ public class BIMRtcTrack {
             }
         }
 
-        public RequestBuilder errorCode(long j2) {
+        public RequestBuilder errorCode(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.request.errorCode = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.request.errorCode = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -138,21 +138,21 @@ public class BIMRtcTrack {
             return (RequestBuilder) invokeL.objValue;
         }
 
-        public RequestBuilder requestTime(long j2) {
+        public RequestBuilder requestTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                this.request.timestamp = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.request.timestamp = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
         }
 
-        public RequestBuilder responseTime(long j2) {
+        public RequestBuilder responseTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
-                this.request.responseTime = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.request.responseTime = j;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -164,9 +164,9 @@ public class BIMRtcTrack {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -190,9 +190,9 @@ public class BIMRtcTrack {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {actionType, r7, obj};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

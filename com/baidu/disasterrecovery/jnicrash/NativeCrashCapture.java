@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NativeCrashCapture implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -31,7 +31,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static c.a.o.a.b sNativeCrashHandler;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class NativeCrashCapture implements NoProGuard {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class NativeCrashCapture implements NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -99,7 +99,9 @@ public class NativeCrashCapture implements NoProGuard {
                 }
                 return;
             }
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "beginNativeCrash");
+            }
             c.a.o.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
                 bVar2.onCrashStart();
@@ -130,10 +132,13 @@ public class NativeCrashCapture implements NoProGuard {
                     c.a.o.a.a.a();
                 }
                 file.delete();
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "nativeInit success");
+                }
             } catch (Throwable th) {
                 if (DEBUG) {
                     th.printStackTrace();
+                    Log.d(TAG, "nativeInit failed");
                 }
             }
         }
@@ -159,7 +164,8 @@ public class NativeCrashCapture implements NoProGuard {
                     sInit = true;
                     file.delete();
                     if (DEBUG) {
-                        String str = "load native-crash.so success, arch is: " + System.getProperty("os.arch").toLowerCase();
+                        String lowerCase = System.getProperty("os.arch").toLowerCase();
+                        Log.d(TAG, "load native-crash.so success, arch is: " + lowerCase);
                     }
                 }
             } catch (Throwable th) {
@@ -172,14 +178,18 @@ public class NativeCrashCapture implements NoProGuard {
 
     public static void makeCrash() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && sInit) {
-            nativeCrash();
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            if (sInit) {
+                nativeCrash();
+            } else {
+                Log.e(TAG, "so hasn't been loaded.");
+            }
         }
     }
 
     public static native int nativeCrash();
 
-    public static native int nativeInit(int i2);
+    public static native int nativeInit(int i);
 
     public static void preloadKIKKAT() {
         Interceptable interceptable = $ic;
@@ -190,21 +200,23 @@ public class NativeCrashCapture implements NoProGuard {
         b.a();
     }
 
-    public static void uncaughtNativeCrash(String str, int i2, int i3) {
+    public static void uncaughtNativeCrash(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65546, null, str, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65546, null, str, i, i2) == null) {
             if (Build.VERSION.SDK_INT > 19) {
                 c.a.o.a.b bVar = sNativeCrashHandler;
                 if (bVar != null) {
-                    bVar.uncaughtNativeCrash(str, i2, i3);
+                    bVar.uncaughtNativeCrash(str, i, i2);
                     return;
                 }
                 return;
             }
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "uncaughtNativeCrash");
+            }
             c.a.o.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
-                bVar2.uncaughtNativeCrash(str, i2, i3);
+                bVar2.uncaughtNativeCrash(str, i, i2);
             }
         }
     }

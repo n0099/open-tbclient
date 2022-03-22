@@ -23,9 +23,9 @@ public class AlaSharedPrefHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,28 +83,28 @@ public class AlaSharedPrefHelper {
         return invokeLF.floatValue;
     }
 
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            return sharedPreferences.getInt(str, i2);
+            return sharedPreferences.getInt(str, i);
         }
         return invokeLI.intValue;
     }
 
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
             try {
                 SharedPreferences sharedPreferences = getSharedPreferences();
                 this.mSP = sharedPreferences;
-                return sharedPreferences.getLong(str, j2);
+                return sharedPreferences.getLong(str, j);
             } catch (ClassCastException e2) {
                 BdLog.e(e2);
-                return j2;
+                return j;
             }
         }
         return invokeLJ.longValue;
@@ -150,21 +150,21 @@ public class AlaSharedPrefHelper {
         }
     }
 
-    public void putInt(String str, int i2) {
+    public void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            EditorHelper.putInt(sharedPreferences, str, i2);
+            EditorHelper.putInt(sharedPreferences, str, i);
         }
     }
 
-    public void putLong(String str, long j2) {
+    public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            EditorHelper.putLong(sharedPreferences, str, j2);
+            EditorHelper.putLong(sharedPreferences, str, j);
         }
     }
 

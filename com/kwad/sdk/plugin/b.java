@@ -3,9 +3,9 @@ package com.kwad.sdk.plugin;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b extends d {
-    void a(int i2);
+    void a(int i);
 
     void a(Context context);
 

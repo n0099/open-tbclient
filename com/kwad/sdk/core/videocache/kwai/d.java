@@ -9,20 +9,20 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements Comparator<File> {
         public a() {
         }
 
-        private int a(long j2, long j3) {
-            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-            if (i2 < 0) {
+        private int a(long j, long j2) {
+            int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (i < 0) {
                 return -1;
             }
-            return i2 == 0 ? 0 : 1;
+            return i == 0 ? 0 : 1;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,10 +75,10 @@ public class d {
             return;
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rwd");
-        long j2 = length - 1;
-        randomAccessFile.seek(j2);
+        long j = length - 1;
+        randomAccessFile.seek(j);
         byte readByte = randomAccessFile.readByte();
-        randomAccessFile.seek(j2);
+        randomAccessFile.seek(j);
         randomAccessFile.write(readByte);
         randomAccessFile.close();
     }

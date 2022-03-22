@@ -17,7 +17,7 @@ public class f {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f53615b;
+    public static Location f38816b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -25,9 +25,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,22 +38,22 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a || f53615b != null || context == null) {
-                return f53615b;
+            if (a || f38816b != null || context == null) {
+                return f38816b;
             }
             if (v.a(context).a(64)) {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f53615b = a(context, locationManager);
+                        f38816b = a(context, locationManager);
                     }
-                    if (f53615b == null && locationManager.isProviderEnabled("network")) {
-                        f53615b = b(context, locationManager);
+                    if (f38816b == null && locationManager.isProviderEnabled("network")) {
+                        f38816b = b(context, locationManager);
                     }
-                    if (f53615b == null && locationManager.isProviderEnabled("passive")) {
-                        f53615b = c(context, locationManager);
+                    if (f38816b == null && locationManager.isProviderEnabled("passive")) {
+                        f38816b = c(context, locationManager);
                     }
-                    return f53615b;
+                    return f38816b;
                 } catch (Exception unused) {
                     a = true;
                     return null;
@@ -70,7 +70,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f53808g, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission("android.permission.ACCESS_FINE_LOCATION", Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -92,7 +92,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f53808g, Process.myPid(), Process.myUid()) == 0 || context.checkPermission(s.f53809h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission("android.permission.ACCESS_FINE_LOCATION", Process.myPid(), Process.myUid()) == 0 || context.checkPermission("android.permission.ACCESS_COARSE_LOCATION", Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -114,7 +114,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f53809h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission("android.permission.ACCESS_COARSE_LOCATION", Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                     if (lastKnownLocation == null) {
                         a = true;

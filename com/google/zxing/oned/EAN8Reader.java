@@ -20,9 +20,9 @@ public final class EAN8Reader extends UPCEANReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,21 +42,21 @@ public final class EAN8Reader extends UPCEANReader {
             iArr2[2] = 0;
             iArr2[3] = 0;
             int size = bitArray.getSize();
-            int i2 = iArr[1];
-            for (int i3 = 0; i3 < 4 && i2 < size; i3++) {
-                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_PATTERNS) + 48));
-                for (int i4 : iArr2) {
-                    i2 += i4;
+            int i = iArr[1];
+            for (int i2 = 0; i2 < 4 && i < size; i2++) {
+                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_PATTERNS) + 48));
+                for (int i3 : iArr2) {
+                    i += i3;
                 }
             }
-            int i5 = UPCEANReader.findGuardPattern(bitArray, i2, true, UPCEANReader.MIDDLE_PATTERN)[1];
-            for (int i6 = 0; i6 < 4 && i5 < size; i6++) {
-                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i5, UPCEANReader.L_PATTERNS) + 48));
-                for (int i7 : iArr2) {
-                    i5 += i7;
+            int i4 = UPCEANReader.findGuardPattern(bitArray, i, true, UPCEANReader.MIDDLE_PATTERN)[1];
+            for (int i5 = 0; i5 < 4 && i4 < size; i5++) {
+                sb.append((char) (UPCEANReader.decodeDigit(bitArray, iArr2, i4, UPCEANReader.L_PATTERNS) + 48));
+                for (int i6 : iArr2) {
+                    i4 += i6;
                 }
             }
-            return i5;
+            return i4;
         }
         return invokeLLL.intValue;
     }

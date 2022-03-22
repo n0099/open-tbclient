@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.exoplayer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -43,9 +43,9 @@ public abstract class MultiMediaAdapter {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,9 +77,9 @@ public abstract class MultiMediaAdapter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -96,26 +96,26 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             int count = getCount();
-            int i2 = this.mCurItem + 1;
-            if (this.isLoopingPreload && i2 == count && count > 2) {
-                i2 = 0;
+            int i = this.mCurItem + 1;
+            if (this.isLoopingPreload && i == count && count > 2) {
+                i = 0;
             }
-            while (i2 < count) {
-                if (isPlayerType(i2)) {
-                    ItemInfo infoForPosition = infoForPosition(i2);
+            while (i < count) {
+                if (isPlayerType(i)) {
+                    ItemInfo infoForPosition = infoForPosition(i);
                     if (infoForPosition == null) {
-                        MultiMediaData instantiatePlayer = instantiatePlayer(i2);
+                        MultiMediaData instantiatePlayer = instantiatePlayer(i);
                         if (instantiatePlayer == null) {
                             return null;
                         }
                         ItemInfo itemInfo = new ItemInfo(null);
                         itemInfo.data = instantiatePlayer;
-                        itemInfo.position = i2;
+                        itemInfo.position = i;
                         return itemInfo;
                     }
                     return infoForPosition;
                 }
-                i2++;
+                i++;
             }
             return null;
         }
@@ -128,22 +128,22 @@ public abstract class MultiMediaAdapter {
         if (interceptable != null && (invokeV = interceptable.invokeV(65539, this)) != null) {
             return (ItemInfo) invokeV.objValue;
         }
-        int i2 = this.mCurItem;
+        int i = this.mCurItem;
         while (true) {
-            i2--;
-            if (i2 < 0) {
+            i--;
+            if (i < 0) {
                 return null;
             }
-            if (isPlayerType(i2)) {
-                ItemInfo infoForPosition = infoForPosition(i2);
+            if (isPlayerType(i)) {
+                ItemInfo infoForPosition = infoForPosition(i);
                 if (infoForPosition == null) {
-                    MultiMediaData instantiatePlayer = instantiatePlayer(i2);
+                    MultiMediaData instantiatePlayer = instantiatePlayer(i);
                     if (instantiatePlayer == null) {
                         return null;
                     }
                     ItemInfo itemInfo = new ItemInfo(null);
                     itemInfo.data = instantiatePlayer;
-                    itemInfo.position = i2;
+                    itemInfo.position = i;
                     return itemInfo;
                 }
                 return infoForPosition;
@@ -156,8 +156,8 @@ public abstract class MultiMediaAdapter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 int b2 = h.b(this.mItems);
-                for (int i2 = 0; i2 < b2; i2++) {
-                    ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i2);
+                for (int i = 0; i < b2; i++) {
+                    ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i);
                     if (itemInfo != null) {
                         destroyPlayer(itemInfo.position, itemInfo.data);
                     }
@@ -167,43 +167,43 @@ public abstract class MultiMediaAdapter {
         }
     }
 
-    public synchronized void clearByIndex(int i2) {
+    public synchronized void clearByIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             synchronized (this) {
                 int b2 = h.b(this.mItems);
-                int i3 = -1;
-                int i4 = 0;
+                int i2 = -1;
+                int i3 = 0;
                 while (true) {
-                    if (i4 < b2) {
-                        ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i4);
-                        if (itemInfo != null && itemInfo.position == i2) {
+                    if (i3 < b2) {
+                        ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i3);
+                        if (itemInfo != null && itemInfo.position == i) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
-                            i3 = i4;
+                            i2 = i3;
                             break;
                         }
-                        i4++;
+                        i3++;
                     } else {
                         break;
                     }
                 }
-                h.g(this.mItems, i3);
+                h.g(this.mItems, i2);
             }
         }
     }
 
-    public abstract void destroyPlayer(int i2, MultiMediaData multiMediaData);
+    public abstract void destroyPlayer(int i, MultiMediaData multiMediaData);
 
     public abstract int getCount();
 
-    public ItemInfo infoForPosition(int i2) {
+    public ItemInfo infoForPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             int b2 = h.b(this.mItems);
-            for (int i3 = 0; i3 < b2; i3++) {
-                ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i3);
-                if (itemInfo != null && itemInfo.position == i2) {
+            for (int i2 = 0; i2 < b2; i2++) {
+                ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i2);
+                if (itemInfo != null && itemInfo.position == i) {
                     return itemInfo;
                 }
             }
@@ -212,19 +212,19 @@ public abstract class MultiMediaAdapter {
         return (ItemInfo) invokeI.objValue;
     }
 
-    public abstract MultiMediaData instantiatePlayer(int i2);
+    public abstract MultiMediaData instantiatePlayer(int i);
 
-    public abstract boolean isPlayerType(int i2);
+    public abstract boolean isPlayerType(int i);
 
-    public synchronized void positionChanged(int i2) {
+    public synchronized void positionChanged(int i) {
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             synchronized (this) {
                 this.mChangedList.clear();
-                this.mCurItem = i2;
-                boolean isPlayerType = isPlayerType(i2);
+                this.mCurItem = i;
+                boolean isPlayerType = isPlayerType(i);
                 if (isPlayerType) {
                     ItemInfo infoForPosition = infoForPosition(this.mCurItem);
                     if (infoForPosition == null) {
@@ -241,22 +241,22 @@ public abstract class MultiMediaAdapter {
                 }
                 ItemInfo previous = getPrevious();
                 if (previous != null) {
-                    i3 = previous.position;
+                    i2 = previous.position;
                     this.mChangedList.add(previous);
                 } else {
-                    i3 = -1;
+                    i2 = -1;
                 }
                 ItemInfo next = getNext();
                 if (next != null) {
-                    i4 = next.position;
+                    i3 = next.position;
                     this.mChangedList.add(next);
                 } else {
-                    i4 = -1;
+                    i3 = -1;
                 }
                 int b2 = h.b(this.mItems);
-                for (int i5 = 0; i5 < b2; i5++) {
-                    ItemInfo itemInfo2 = (ItemInfo) h.c(this.mItems, i5);
-                    if (itemInfo2 != null && itemInfo2.position != i3 && itemInfo2.position != i4 && itemInfo2.position != this.mCurItem) {
+                for (int i4 = 0; i4 < b2; i4++) {
+                    ItemInfo itemInfo2 = (ItemInfo) h.c(this.mItems, i4);
+                    if (itemInfo2 != null && itemInfo2.position != i2 && itemInfo2.position != i3 && itemInfo2.position != this.mCurItem) {
                         destroyPlayer(itemInfo2.position, itemInfo2.data);
                     }
                 }
@@ -270,19 +270,19 @@ public abstract class MultiMediaAdapter {
         }
     }
 
-    public synchronized void seek0AndClearOther(MultiMediaData multiMediaData, int i2) {
+    public synchronized void seek0AndClearOther(MultiMediaData multiMediaData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, multiMediaData, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, multiMediaData, i) == null) {
             synchronized (this) {
                 int b2 = h.b(this.mItems);
-                for (int i3 = 0; i3 < b2; i3++) {
-                    ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i3);
+                for (int i2 = 0; i2 < b2; i2++) {
+                    ItemInfo itemInfo = (ItemInfo) h.c(this.mItems, i2);
                     if (itemInfo != null) {
                         if (multiMediaData == null || itemInfo.data == null || !TextUtils.equals(multiMediaData.uuid, itemInfo.data.uuid)) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
-                            h.g(this.mItems, i3);
+                            h.g(this.mItems, i2);
                         } else {
-                            itemInfo.position = i2;
+                            itemInfo.position = i;
                         }
                     }
                 }

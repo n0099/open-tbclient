@@ -51,9 +51,9 @@ public final class ColorUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -150,14 +150,14 @@ public final class ColorUtils {
         }
     }
 
-    public static void RGBToHSL(@IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @IntRange(from = 0, to = 255) int i4, @NonNull float[] fArr) {
+    public static void RGBToHSL(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull float[] fArr) {
         float f2;
         float abs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr}) == null) {
-            float f3 = i2 / 255.0f;
-            float f4 = i3 / 255.0f;
-            float f5 = i4 / 255.0f;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), fArr}) == null) {
+            float f3 = i / 255.0f;
+            float f4 = i2 / 255.0f;
+            float f5 = i3 / 255.0f;
             float max = Math.max(f3, Math.max(f4, f5));
             float min = Math.min(f3, Math.min(f4, f5));
             float f6 = max - min;
@@ -179,23 +179,23 @@ public final class ColorUtils {
         }
     }
 
-    public static void RGBToLAB(@IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @IntRange(from = 0, to = 255) int i4, @NonNull double[] dArr) {
+    public static void RGBToLAB(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), dArr}) == null) {
-            RGBToXYZ(i2, i3, i4, dArr);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), dArr}) == null) {
+            RGBToXYZ(i, i2, i3, dArr);
             XYZToLAB(dArr[0], dArr[1], dArr[2], dArr);
         }
     }
 
-    public static void RGBToXYZ(@IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @IntRange(from = 0, to = 255) int i4, @NonNull double[] dArr) {
+    public static void RGBToXYZ(@IntRange(from = 0, to = 255) int i, @IntRange(from = 0, to = 255) int i2, @IntRange(from = 0, to = 255) int i3, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), dArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), dArr}) == null) {
             if (dArr.length == 3) {
-                double d2 = i2 / 255.0d;
+                double d2 = i / 255.0d;
                 double pow = d2 < 0.04045d ? d2 / 12.92d : Math.pow((d2 + 0.055d) / 1.055d, 2.4d);
-                double d3 = i3 / 255.0d;
+                double d3 = i2 / 255.0d;
                 double pow2 = d3 < 0.04045d ? d3 / 12.92d : Math.pow((d3 + 0.055d) / 1.055d, 2.4d);
-                double d4 = i4 / 255.0d;
+                double d4 = i3 / 255.0d;
                 double pow3 = d4 < 0.04045d ? d4 / 12.92d : Math.pow((d4 + 0.055d) / 1.055d, 2.4d);
                 dArr[0] = ((0.4124d * pow) + (0.3576d * pow2) + (0.1805d * pow3)) * 100.0d;
                 dArr[1] = ((0.2126d * pow) + (0.7152d * pow2) + (0.0722d * pow3)) * 100.0d;
@@ -236,12 +236,12 @@ public final class ColorUtils {
     }
 
     @ColorInt
-    public static int blendARGB(@ColorInt int i2, @ColorInt int i3, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static int blendARGB(@ColorInt int i, @ColorInt int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
             float f3 = 1.0f - f2;
-            return Color.argb((int) ((Color.alpha(i2) * f3) + (Color.alpha(i3) * f2)), (int) ((Color.red(i2) * f3) + (Color.red(i3) * f2)), (int) ((Color.green(i2) * f3) + (Color.green(i3) * f2)), (int) ((Color.blue(i2) * f3) + (Color.blue(i3) * f2)));
+            return Color.argb((int) ((Color.alpha(i) * f3) + (Color.alpha(i2) * f2)), (int) ((Color.red(i) * f3) + (Color.red(i2) * f2)), (int) ((Color.green(i) * f3) + (Color.green(i2) * f2)), (int) ((Color.blue(i) * f3) + (Color.blue(i2) * f2)));
         }
         return invokeCommon.intValue;
     }
@@ -274,57 +274,57 @@ public final class ColorUtils {
         }
     }
 
-    public static double calculateContrast(@ColorInt int i2, @ColorInt int i3) {
+    public static double calculateContrast(@ColorInt int i, @ColorInt int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65549, null, i2, i3)) == null) {
-            if (Color.alpha(i3) == 255) {
-                if (Color.alpha(i2) < 255) {
-                    i2 = compositeColors(i2, i3);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65549, null, i, i2)) == null) {
+            if (Color.alpha(i2) == 255) {
+                if (Color.alpha(i) < 255) {
+                    i = compositeColors(i, i2);
                 }
-                double calculateLuminance = calculateLuminance(i2) + 0.05d;
-                double calculateLuminance2 = calculateLuminance(i3) + 0.05d;
+                double calculateLuminance = calculateLuminance(i) + 0.05d;
+                double calculateLuminance2 = calculateLuminance(i2) + 0.05d;
                 return Math.max(calculateLuminance, calculateLuminance2) / Math.min(calculateLuminance, calculateLuminance2);
             }
-            throw new IllegalArgumentException("background can not be translucent: #" + Integer.toHexString(i3));
+            throw new IllegalArgumentException("background can not be translucent: #" + Integer.toHexString(i2));
         }
         return invokeII.doubleValue;
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
-    public static double calculateLuminance(@ColorInt int i2) {
+    public static double calculateLuminance(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
             double[] tempDouble3Array = getTempDouble3Array();
-            colorToXYZ(i2, tempDouble3Array);
+            colorToXYZ(i, tempDouble3Array);
             return tempDouble3Array[1] / 100.0d;
         }
         return invokeI.doubleValue;
     }
 
-    public static int calculateMinimumAlpha(@ColorInt int i2, @ColorInt int i3, float f2) {
+    public static int calculateMinimumAlpha(@ColorInt int i, @ColorInt int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
-            int i4 = 255;
-            if (Color.alpha(i3) == 255) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+            int i3 = 255;
+            if (Color.alpha(i2) == 255) {
                 double d2 = f2;
-                if (calculateContrast(setAlphaComponent(i2, 255), i3) < d2) {
+                if (calculateContrast(setAlphaComponent(i, 255), i2) < d2) {
                     return -1;
                 }
-                int i5 = 0;
-                for (int i6 = 0; i6 <= 10 && i4 - i5 > 1; i6++) {
-                    int i7 = (i5 + i4) / 2;
-                    if (calculateContrast(setAlphaComponent(i2, i7), i3) < d2) {
-                        i5 = i7;
+                int i4 = 0;
+                for (int i5 = 0; i5 <= 10 && i3 - i4 > 1; i5++) {
+                    int i6 = (i4 + i3) / 2;
+                    if (calculateContrast(setAlphaComponent(i, i6), i2) < d2) {
+                        i4 = i6;
                     } else {
-                        i4 = i7;
+                        i3 = i6;
                     }
                 }
-                return i4;
+                return i3;
             }
-            throw new IllegalArgumentException("background can not be translucent: #" + Integer.toHexString(i3));
+            throw new IllegalArgumentException("background can not be translucent: #" + Integer.toHexString(i2));
         }
         return invokeCommon.intValue;
     }
@@ -346,53 +346,53 @@ public final class ColorUtils {
         return invokeCommon.floatValue;
     }
 
-    public static void colorToHSL(@ColorInt int i2, @NonNull float[] fArr) {
+    public static void colorToHSL(@ColorInt int i, @NonNull float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65553, null, i2, fArr) == null) {
-            RGBToHSL(Color.red(i2), Color.green(i2), Color.blue(i2), fArr);
+        if (interceptable == null || interceptable.invokeIL(65553, null, i, fArr) == null) {
+            RGBToHSL(Color.red(i), Color.green(i), Color.blue(i), fArr);
         }
     }
 
-    public static void colorToLAB(@ColorInt int i2, @NonNull double[] dArr) {
+    public static void colorToLAB(@ColorInt int i, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65554, null, i2, dArr) == null) {
-            RGBToLAB(Color.red(i2), Color.green(i2), Color.blue(i2), dArr);
+        if (interceptable == null || interceptable.invokeIL(65554, null, i, dArr) == null) {
+            RGBToLAB(Color.red(i), Color.green(i), Color.blue(i), dArr);
         }
     }
 
-    public static void colorToXYZ(@ColorInt int i2, @NonNull double[] dArr) {
+    public static void colorToXYZ(@ColorInt int i, @NonNull double[] dArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65555, null, i2, dArr) == null) {
-            RGBToXYZ(Color.red(i2), Color.green(i2), Color.blue(i2), dArr);
+        if (interceptable == null || interceptable.invokeIL(65555, null, i, dArr) == null) {
+            RGBToXYZ(Color.red(i), Color.green(i), Color.blue(i), dArr);
         }
     }
 
-    public static int compositeAlpha(int i2, int i3) {
+    public static int compositeAlpha(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65556, null, i2, i3)) == null) ? 255 - (((255 - i3) * (255 - i2)) / 255) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65556, null, i, i2)) == null) ? 255 - (((255 - i2) * (255 - i)) / 255) : invokeII.intValue;
     }
 
-    public static int compositeColors(@ColorInt int i2, @ColorInt int i3) {
+    public static int compositeColors(@ColorInt int i, @ColorInt int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65557, null, i2, i3)) == null) {
-            int alpha = Color.alpha(i3);
-            int alpha2 = Color.alpha(i2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65557, null, i, i2)) == null) {
+            int alpha = Color.alpha(i2);
+            int alpha2 = Color.alpha(i);
             int compositeAlpha = compositeAlpha(alpha2, alpha);
-            return Color.argb(compositeAlpha, compositeComponent(Color.red(i2), alpha2, Color.red(i3), alpha, compositeAlpha), compositeComponent(Color.green(i2), alpha2, Color.green(i3), alpha, compositeAlpha), compositeComponent(Color.blue(i2), alpha2, Color.blue(i3), alpha, compositeAlpha));
+            return Color.argb(compositeAlpha, compositeComponent(Color.red(i), alpha2, Color.red(i2), alpha, compositeAlpha), compositeComponent(Color.green(i), alpha2, Color.green(i2), alpha, compositeAlpha), compositeComponent(Color.blue(i), alpha2, Color.blue(i2), alpha, compositeAlpha));
         }
         return invokeII.intValue;
     }
 
-    public static int compositeComponent(int i2, int i3, int i4, int i5, int i6) {
+    public static int compositeComponent(int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            if (i6 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+            if (i5 == 0) {
                 return 0;
             }
-            return (((i2 * 255) * i3) + ((i4 * i5) * (255 - i3))) / (i6 * 255);
+            return (((i * 255) * i2) + ((i3 * i4) * (255 - i2))) / (i5 * 255);
         }
         return invokeCommon.intValue;
     }
@@ -403,10 +403,10 @@ public final class ColorUtils {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
     }
 
-    public static int constrain(int i2, int i3, int i4) {
+    public static int constrain(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65561, null, i2, i3, i4)) == null) ? i2 < i3 ? i3 : i2 > i4 ? i4 : i2 : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65561, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
     }
 
     public static double distanceEuclidean(@NonNull double[] dArr, @NonNull double[] dArr2) {
@@ -437,14 +437,14 @@ public final class ColorUtils {
     }
 
     @ColorInt
-    public static int setAlphaComponent(@ColorInt int i2, @IntRange(from = 0, to = 255) int i3) {
+    public static int setAlphaComponent(@ColorInt int i, @IntRange(from = 0, to = 255) int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65565, null, i2, i3)) == null) {
-            if (i3 < 0 || i3 > 255) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65565, null, i, i2)) == null) {
+            if (i2 < 0 || i2 > 255) {
                 throw new IllegalArgumentException("alpha must be between 0 and 255.");
             }
-            return (i2 & 16777215) | (i3 << 24);
+            return (i & 16777215) | (i2 << 24);
         }
         return invokeII.intValue;
     }
@@ -469,8 +469,8 @@ public final class ColorUtils {
                     alpha /= components2[componentCount];
                     alpha2 /= components2[componentCount];
                 }
-                for (int i2 = 0; i2 < componentCount; i2++) {
-                    components2[i2] = (components[i2] * alpha) + (components2[i2] * alpha2);
+                for (int i = 0; i < componentCount; i++) {
+                    components2[i] = (components[i] * alpha) + (components2[i] * alpha2);
                 }
                 return Color.valueOf(components2, color2.getColorSpace());
             }

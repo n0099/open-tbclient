@@ -13,7 +13,7 @@ import com.facebook.common.references.CloseableReference;
 import java.io.IOException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     public int mCount;
     public final MemoryChunkPool mPool;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class InvalidStreamException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -54,9 +54,9 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryChunkPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((MemoryChunkPool) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -85,14 +85,14 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @VisibleForTesting
-    public void realloc(int i2) {
+    public void realloc(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             ensureValid();
-            if (i2 <= this.mBufRef.get().getSize()) {
+            if (i <= this.mBufRef.get().getSize()) {
                 return;
             }
-            MemoryChunk memoryChunk = this.mPool.get(i2);
+            MemoryChunk memoryChunk = this.mPool.get(i);
             this.mBufRef.get().copy(0, memoryChunk, 0, this.mCount);
             this.mBufRef.close();
             this.mBufRef = CloseableReference.of(memoryChunk, this.mPool);
@@ -107,33 +107,33 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            write(new byte[]{(byte) i2});
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            write(new byte[]{(byte) i});
         }
     }
 
-    public MemoryPooledByteBufferOutputStream(MemoryChunkPool memoryChunkPool, int i2) {
+    public MemoryPooledByteBufferOutputStream(MemoryChunkPool memoryChunkPool, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {memoryChunkPool, Integer.valueOf(i2)};
+            Object[] objArr = {memoryChunkPool, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Preconditions.checkArgument(i2 > 0);
+        Preconditions.checkArgument(i > 0);
         MemoryChunkPool memoryChunkPool2 = (MemoryChunkPool) Preconditions.checkNotNull(memoryChunkPool);
         this.mPool = memoryChunkPool2;
         this.mCount = 0;
-        this.mBufRef = CloseableReference.of(memoryChunkPool2.get(i2), this.mPool);
+        this.mBufRef = CloseableReference.of(memoryChunkPool2.get(i), this.mPool);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -149,17 +149,17 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i2, i3) == null) {
-            if (i2 >= 0 && i3 >= 0 && i2 + i3 <= bArr.length) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i, i2) == null) {
+            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
                 ensureValid();
-                realloc(this.mCount + i3);
-                this.mBufRef.get().write(this.mCount, bArr, i2, i3);
-                this.mCount += i3;
+                realloc(this.mCount + i2);
+                this.mBufRef.get().write(this.mCount, bArr, i, i2);
+                this.mCount += i2;
                 return;
             }
-            throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i2 + "; regionLength=" + i3);
+            throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
         }
     }
 }

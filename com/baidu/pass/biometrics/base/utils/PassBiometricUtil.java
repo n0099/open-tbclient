@@ -29,31 +29,27 @@ public class PassBiometricUtil {
     public static final String a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36164b = 480;
+    public static final int f27928b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36165c = 480;
+    public static final int f27929c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f36166d = 192;
+    public static final int f27930d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f36167e = 480;
+    public static final int f27931e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f36168f = 620;
+    public static final int f27932f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f36169g = 250;
+    public static final int f27933g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f36170h = 250;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f36171i = 728;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f36172j = 194;
+    public static final int f27934h = 250;
+    public static final int i = 728;
+    public static final int j = 194;
     public static final int k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;
@@ -149,9 +145,9 @@ public class PassBiometricUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr != null && iArr.length == 2) {
                 int i2 = ((iArr[0] * 480) / 750) / 2;
-                int i3 = ((iArr[1] * 620) / 1335) / 2;
+                int i3 = ((iArr[1] * f27932f) / 1335) / 2;
                 Point point = new Point();
-                point.set(iArr[0] / 2, (iArr[1] * 728) / 1335);
+                point.set(iArr[0] / 2, (iArr[1] * i) / 1335);
                 int i4 = point.x;
                 int i5 = point.y;
                 return new Rect(i4 - i2, i5 - i3, i4 + i2, i5 + i3);

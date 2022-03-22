@@ -43,8 +43,8 @@ public final class Detector {
         public final ResultPoint to;
         public final int transitions;
 
-        public /* synthetic */ ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i2, AnonymousClass1 anonymousClass1) {
-            this(resultPoint, resultPoint2, i2);
+        public /* synthetic */ ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i, AnonymousClass1 anonymousClass1) {
+            this(resultPoint, resultPoint2, i);
         }
 
         public ResultPoint getFrom() {
@@ -74,16 +74,16 @@ public final class Detector {
             return (String) invokeV.objValue;
         }
 
-        public ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i2) {
+        public ResultPointsAndTransitions(ResultPoint resultPoint, ResultPoint resultPoint2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {resultPoint, resultPoint2, Integer.valueOf(i2)};
+                Object[] objArr = {resultPoint, resultPoint2, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -91,7 +91,7 @@ public final class Detector {
             }
             this.from = resultPoint;
             this.to = resultPoint2;
-            this.transitions = i2;
+            this.transitions = i;
         }
     }
 
@@ -105,9 +105,9 @@ public final class Detector {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -134,9 +134,9 @@ public final class Detector {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -146,11 +146,11 @@ public final class Detector {
         this.rectangleDetector = new WhiteRectangleDetector(bitMatrix);
     }
 
-    private ResultPoint correctTopRight(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i2) {
+    private ResultPoint correctTopRight(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i2)})) == null) {
-            float f2 = i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i)})) == null) {
+            float f2 = i;
             float distance = distance(resultPoint, resultPoint2) / f2;
             float distance2 = distance(resultPoint3, resultPoint4);
             ResultPoint resultPoint5 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance), resultPoint4.getY() + (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)));
@@ -168,18 +168,18 @@ public final class Detector {
         return (ResultPoint) invokeCommon.objValue;
     }
 
-    private ResultPoint correctTopRightRectangular(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i2, int i3) {
+    private ResultPoint correctTopRightRectangular(ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            float distance = distance(resultPoint, resultPoint2) / i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            float distance = distance(resultPoint, resultPoint2) / i;
             float distance2 = distance(resultPoint3, resultPoint4);
             ResultPoint resultPoint5 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint3.getX()) / distance2) * distance), resultPoint4.getY() + (distance * ((resultPoint4.getY() - resultPoint3.getY()) / distance2)));
-            float distance3 = distance(resultPoint, resultPoint3) / i3;
+            float distance3 = distance(resultPoint, resultPoint3) / i2;
             float distance4 = distance(resultPoint2, resultPoint4);
             ResultPoint resultPoint6 = new ResultPoint(resultPoint4.getX() + (((resultPoint4.getX() - resultPoint2.getX()) / distance4) * distance3), resultPoint4.getY() + (distance3 * ((resultPoint4.getY() - resultPoint2.getY()) / distance4)));
             if (isValid(resultPoint5)) {
-                return (isValid(resultPoint6) && Math.abs(i2 - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i3 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(i2 - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i3 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
+                return (isValid(resultPoint6) && Math.abs(i - transitionsBetween(resultPoint3, resultPoint5).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint5).getTransitions()) > Math.abs(i - transitionsBetween(resultPoint3, resultPoint6).getTransitions()) + Math.abs(i2 - transitionsBetween(resultPoint2, resultPoint6).getTransitions())) ? resultPoint6 : resultPoint5;
             } else if (isValid(resultPoint6)) {
                 return resultPoint6;
             } else {
@@ -209,13 +209,13 @@ public final class Detector {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, resultPoint)) == null) ? resultPoint.getX() >= 0.0f && resultPoint.getX() < ((float) this.image.getWidth()) && resultPoint.getY() > 0.0f && resultPoint.getY() < ((float) this.image.getHeight()) : invokeL.booleanValue;
     }
 
-    public static BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i2, int i3) throws NotFoundException {
+    public static BitMatrix sampleGrid(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            float f2 = i2 - 0.5f;
-            float f3 = i3 - 0.5f;
-            return GridSampler.getInstance().sampleGrid(bitMatrix, i2, i3, 0.5f, 0.5f, f2, 0.5f, f2, f3, 0.5f, f3, resultPoint.getX(), resultPoint.getY(), resultPoint4.getX(), resultPoint4.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint2.getX(), resultPoint2.getY());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            float f2 = i - 0.5f;
+            float f3 = i2 - 0.5f;
+            return GridSampler.getInstance().sampleGrid(bitMatrix, i, i2, 0.5f, 0.5f, f2, 0.5f, f2, f3, 0.5f, f3, resultPoint.getX(), resultPoint.getY(), resultPoint4.getX(), resultPoint4.getY(), resultPoint3.getX(), resultPoint3.getY(), resultPoint2.getX(), resultPoint2.getY());
         }
         return (BitMatrix) invokeCommon.objValue;
     }
@@ -228,7 +228,7 @@ public final class Detector {
             int y = (int) resultPoint.getY();
             int x2 = (int) resultPoint2.getX();
             int y2 = (int) resultPoint2.getY();
-            int i2 = 0;
+            int i = 0;
             boolean z = Math.abs(y2 - y) > Math.abs(x2 - x);
             if (z) {
                 y = x;
@@ -238,27 +238,27 @@ public final class Detector {
             }
             int abs = Math.abs(x2 - x);
             int abs2 = Math.abs(y2 - y);
-            int i3 = (-abs) / 2;
-            int i4 = y < y2 ? 1 : -1;
-            int i5 = x >= x2 ? -1 : 1;
+            int i2 = (-abs) / 2;
+            int i3 = y < y2 ? 1 : -1;
+            int i4 = x >= x2 ? -1 : 1;
             boolean z2 = this.image.get(z ? y : x, z ? x : y);
             while (x != x2) {
                 boolean z3 = this.image.get(z ? y : x, z ? x : y);
                 if (z3 != z2) {
-                    i2++;
+                    i++;
                     z2 = z3;
                 }
-                i3 += abs2;
-                if (i3 > 0) {
+                i2 += abs2;
+                if (i2 > 0) {
                     if (y == y2) {
                         break;
                     }
-                    y += i4;
-                    i3 -= abs;
+                    y += i3;
+                    i2 -= abs;
                 }
-                x += i5;
+                x += i4;
             }
-            return new ResultPointsAndTransitions(resultPoint, resultPoint2, i2, null);
+            return new ResultPointsAndTransitions(resultPoint, resultPoint2, i, null);
         }
         return (ResultPointsAndTransitions) invokeLL.objValue;
     }
@@ -319,13 +319,13 @@ public final class Detector {
                 if ((transitions & 1) == 1) {
                     transitions++;
                 }
-                int i2 = transitions + 2;
+                int i = transitions + 2;
                 if ((transitions2 & 1) == 1) {
                     transitions2++;
                 }
-                int i3 = transitions2 + 2;
-                if (i2 * 4 < i3 * 7 && i3 * 4 < i2 * 7) {
-                    ResultPoint correctTopRight = correctTopRight(resultPoint12, resultPoint11, resultPoint13, resultPoint, Math.min(i3, i2));
+                int i2 = transitions2 + 2;
+                if (i * 4 < i2 * 7 && i2 * 4 < i * 7) {
+                    ResultPoint correctTopRight = correctTopRight(resultPoint12, resultPoint11, resultPoint13, resultPoint, Math.min(i2, i));
                     if (correctTopRight != null) {
                         resultPoint = correctTopRight;
                     }
@@ -333,12 +333,12 @@ public final class Detector {
                     if ((max & 1) == 1) {
                         max++;
                     }
-                    int i4 = max;
-                    sampleGrid = sampleGrid(this.image, resultPoint13, resultPoint12, resultPoint11, resultPoint, i4, i4);
+                    int i3 = max;
+                    sampleGrid = sampleGrid(this.image, resultPoint13, resultPoint12, resultPoint11, resultPoint, i3, i3);
                     resultPoint2 = resultPoint13;
                 } else {
                     resultPoint2 = resultPoint13;
-                    ResultPoint correctTopRightRectangular = correctTopRightRectangular(resultPoint12, resultPoint11, resultPoint13, resultPoint, i2, i3);
+                    ResultPoint correctTopRightRectangular = correctTopRightRectangular(resultPoint12, resultPoint11, resultPoint13, resultPoint, i, i2);
                     if (correctTopRightRectangular != null) {
                         resultPoint = correctTopRightRectangular;
                     }
@@ -347,11 +347,11 @@ public final class Detector {
                     if ((transitions3 & 1) == 1) {
                         transitions3++;
                     }
-                    int i5 = transitions3;
+                    int i4 = transitions3;
                     if ((transitions4 & 1) == 1) {
                         transitions4++;
                     }
-                    sampleGrid = sampleGrid(this.image, resultPoint2, resultPoint12, resultPoint11, resultPoint, i5, transitions4);
+                    sampleGrid = sampleGrid(this.image, resultPoint2, resultPoint12, resultPoint11, resultPoint, i4, transitions4);
                 }
                 return new DetectorResult(sampleGrid, new ResultPoint[]{resultPoint2, resultPoint12, resultPoint11, resultPoint});
             }

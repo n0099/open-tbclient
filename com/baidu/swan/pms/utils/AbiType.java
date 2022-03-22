@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,7 +56,7 @@ public final class AbiType {
         }
         AbiType abiType = new AbiType("ARMEABI", 0, "armeabi", new AbiType[0]);
         ARMEABI = abiType;
-        AbiType abiType2 = new AbiType("ARMEABI_V7A", 1, "armeabi-v7a", abiType);
+        AbiType abiType2 = new AbiType("ARMEABI_V7A", 1, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, abiType);
         ARMEABI_V7A = abiType2;
         ARM64_V8A = new AbiType("ARM64_V8A", 2, "arm64-v8a", abiType2, ARMEABI);
         AbiType abiType3 = new AbiType("X86", 3, "x86", ARMEABI_V7A, ARMEABI);
@@ -66,16 +67,16 @@ public final class AbiType {
         sIndex = new HashMap();
     }
 
-    public AbiType(String str, int i2, String str2, AbiType... abiTypeArr) {
+    public AbiType(String str, int i, String str2, AbiType... abiTypeArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, abiTypeArr};
+            Object[] objArr = {str, Integer.valueOf(i), str2, abiTypeArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

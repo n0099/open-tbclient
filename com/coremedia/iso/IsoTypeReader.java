@@ -13,7 +13,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;
@@ -42,9 +42,9 @@ public final class IsoTypeReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -63,14 +63,14 @@ public final class IsoTypeReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, byteBuffer)) == null) {
             byteBuffer.get(codeBytes);
             byte[] bArr = codeBytes;
-            int i2 = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((bArr[2] << 8) & 65280);
-            String str = (String) codeCache.get(i2);
+            int i = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((bArr[2] << 8) & 65280);
+            String str = (String) codeCache.get(i);
             if (str != null) {
                 return str;
             }
             try {
                 String str2 = new String(codeBytes, "ISO-8859-1");
-                codeCache.put(i2, str2);
+                codeCache.put(i, str2);
                 return str2;
             } catch (UnsupportedEncodingException e2) {
                 throw new RuntimeException(e2);
@@ -118,8 +118,8 @@ public final class IsoTypeReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
             int readUInt16 = readUInt16(byteBuffer);
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < 3; i2++) {
-                sb.append((char) (((readUInt16 >> ((2 - i2) * 5)) & 31) + 96));
+            for (int i = 0; i < 3; i++) {
+                sb.append((char) (((readUInt16 >> ((2 - i) * 5)) & 31) + 96));
             }
             return sb.toString();
         }
@@ -164,8 +164,8 @@ public final class IsoTypeReader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, byteBuffer)) == null) {
-            long j2 = byteBuffer.getInt();
-            return j2 < 0 ? j2 + 4294967296L : j2;
+            long j = byteBuffer.getInt();
+            return j < 0 ? j + 4294967296L : j;
         }
         return invokeL.longValue;
     }
@@ -195,11 +195,11 @@ public final class IsoTypeReader {
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byte2int(byteBuffer.get()) : invokeL.intValue;
     }
 
-    public static String readString(ByteBuffer byteBuffer, int i2) {
+    public static String readString(ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, byteBuffer, i2)) == null) {
-            byte[] bArr = new byte[i2];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, byteBuffer, i)) == null) {
+            byte[] bArr = new byte[i];
             byteBuffer.get(bArr);
             return Utf8.convert(bArr);
         }

@@ -28,51 +28,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ANIMATION_DURATION = 2000;
-    public static final int w;
-    public static final int x;
+    public static /* synthetic */ Interceptable $ic;
+    public static final int s;
+    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f35263b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f35264c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f35265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f45553e;
+    public ImageView f35266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f45554f;
+    public ImageView f35267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f45555g;
+    public TextView f35268g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f45556h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f45557i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f45558j;
-    public TextView k;
+    public AnimatorSet f35269h;
+    public AnimatorSet i;
+    public AnimatorSet j;
+    public AnimatorSet k;
     public AnimatorSet l;
     public AnimatorSet m;
     public AnimatorSet n;
-    public AnimatorSet o;
-    public AnimatorSet p;
-    public AnimatorSet q;
-    public AnimatorSet r;
-    public c s;
-    public boolean t;
-    public Runnable u;
-    public Runnable v;
+    public c o;
+    public boolean p;
+    public Runnable q;
+    public Runnable r;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f45559e;
+        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView a;
 
         public a(PbFullScreenFloatingHuajiAninationView pbFullScreenFloatingHuajiAninationView) {
             Interceptable interceptable = $ic;
@@ -81,33 +80,31 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbFullScreenFloatingHuajiAninationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45559e = pbFullScreenFloatingHuajiAninationView;
+            this.a = pbFullScreenFloatingHuajiAninationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45559e.b();
+                this.a.b();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f45560e;
+        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView a;
 
         public b(PbFullScreenFloatingHuajiAninationView pbFullScreenFloatingHuajiAninationView) {
             Interceptable interceptable = $ic;
@@ -116,31 +113,31 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbFullScreenFloatingHuajiAninationView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45560e = pbFullScreenFloatingHuajiAninationView;
+            this.a = pbFullScreenFloatingHuajiAninationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ViewGroup viewGroup = (ViewGroup) ((Activity) this.f45560e.getContext()).getWindow().getDecorView();
-                if (this.f45560e.getParent() == null || this.f45560e.getParent() != viewGroup) {
+                ViewGroup viewGroup = (ViewGroup) ((Activity) this.a.getContext()).getWindow().getDecorView();
+                if (this.a.getParent() == null || this.a.getParent() != viewGroup) {
                     return;
                 }
-                viewGroup.removeView(this.f45560e);
+                viewGroup.removeView(this.a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void onAnimationEnd();
     }
@@ -158,8 +155,8 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 return;
             }
         }
-        w = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds48);
-        x = n.k(TbadkCoreApplication.getInst());
+        s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c4);
+        t = n.k(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -171,48 +168,48 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.t = false;
-        this.u = new a(this);
-        this.v = new b(this);
+        this.p = false;
+        this.q = new a(this);
+        this.r = new b(this);
         c();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.t = false;
-            e.a().post(this.v);
-            c cVar = this.s;
+            this.p = false;
+            e.a().post(this.r);
+            c cVar = this.o;
             if (cVar != null) {
                 cVar.onAnimationEnd();
             }
-            removeCallbacks(this.u);
+            removeCallbacks(this.q);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.pb_full_screen_floating_huaji_view, this);
-            this.f45553e = (ImageView) findViewById(R.id.pb_video_floating_big_huaji);
-            this.f45554f = (ImageView) findViewById(R.id.pb_video_floating_small_huaji1);
-            this.f45555g = (ImageView) findViewById(R.id.pb_video_floating_small_huaji2);
-            this.f45556h = (ImageView) findViewById(R.id.pb_video_floating_small_huaji3);
-            this.f45557i = (ImageView) findViewById(R.id.pb_video_floating_small_huaji4);
-            this.f45558j = (ImageView) findViewById(R.id.pb_video_floating_small_huaji5);
-            TextView textView = (TextView) findViewById(R.id.pb_video_floating_huaji_tip);
-            this.k = textView;
-            textView.setX((x - w) / 2);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d067d, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091736);
+            this.f35263b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091738);
+            this.f35264c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091739);
+            this.f35265d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09173a);
+            this.f35266e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09173b);
+            this.f35267f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09173c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091737);
+            this.f35268g = textView;
+            textView.setX((t - s) / 2);
+            e(TbadkCoreApplication.getInst().getSkinType());
             d();
         }
     }
@@ -220,126 +217,126 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.l = new AnimatorSet();
-            Drawable drawable = SkinManager.getDrawable(R.drawable.icon_floor_bigpraised_floating);
-            ImageView imageView = this.f45553e;
-            float intrinsicWidth = (x - drawable.getIntrinsicWidth()) / 2;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", x, intrinsicWidth);
+            this.f35269h = new AnimatorSet();
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08070b);
+            ImageView imageView = this.a;
+            float intrinsicWidth = (t - drawable.getIntrinsicWidth()) / 2;
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", t, intrinsicWidth);
             ofFloat.setDuration(400L);
-            ImageView imageView2 = this.f45553e;
+            ImageView imageView2 = this.a;
             float intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView2, "X", intrinsicWidth, intrinsicWidth2);
             ofFloat2.setDuration(500L);
             ofFloat2.setStartDelay(1000L);
-            this.l.playTogether(ofFloat, ofFloat2);
-            this.m = new AnimatorSet();
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f45554f, "X", x, intrinsicWidth2);
+            this.f35269h.playTogether(ofFloat, ofFloat2);
+            this.i = new AnimatorSet();
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f35263b, "X", t, intrinsicWidth2);
             ofFloat3.setDuration(600L);
             ofFloat3.setStartDelay(800L);
-            this.m.play(ofFloat3);
-            this.n = new AnimatorSet();
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f45555g, "X", x, intrinsicWidth2);
+            this.i.play(ofFloat3);
+            this.j = new AnimatorSet();
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f35264c, "X", t, intrinsicWidth2);
             ofFloat4.setDuration(600L);
             ofFloat4.setStartDelay(800L);
-            this.n.play(ofFloat4);
-            this.o = new AnimatorSet();
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f45556h, "X", x, intrinsicWidth2);
+            this.j.play(ofFloat4);
+            this.k = new AnimatorSet();
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f35265d, "X", t, intrinsicWidth2);
             ofFloat5.setDuration(300L);
             ofFloat5.setStartDelay(1100L);
-            this.o.play(ofFloat5);
-            this.p = new AnimatorSet();
-            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.f45557i, "X", x, intrinsicWidth2);
+            this.k.play(ofFloat5);
+            this.l = new AnimatorSet();
+            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.f35266e, "X", t, intrinsicWidth2);
             ofFloat6.setDuration(200L);
             ofFloat6.setStartDelay(IMLikeRequest.TIME_INTERVAL);
-            this.p.play(ofFloat6);
-            this.q = new AnimatorSet();
-            ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.f45558j, "X", x, intrinsicWidth2);
+            this.l.play(ofFloat6);
+            this.m = new AnimatorSet();
+            ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.f35267f, "X", t, intrinsicWidth2);
             ofFloat7.setDuration(150L);
             ofFloat7.setStartDelay(1400L);
-            this.q.play(ofFloat7);
-            this.r = new AnimatorSet();
-            ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.k, AnimationProperty.SCALE_X, 0.0f, 2.0f, 1.0f);
+            this.m.play(ofFloat7);
+            this.n = new AnimatorSet();
+            ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.f35268g, AnimationProperty.SCALE_X, 0.0f, 2.0f, 1.0f);
             ofFloat8.setDuration(500L);
             ofFloat8.setStartDelay(400L);
-            ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.k, AnimationProperty.SCALE_Y, 0.0f, 2.0f, 1.0f);
+            ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.f35268g, AnimationProperty.SCALE_Y, 0.0f, 2.0f, 1.0f);
             ofFloat9.setDuration(500L);
             ofFloat8.setStartDelay(400L);
-            ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.k, "X", x / 2, intrinsicWidth2);
+            ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.f35268g, "X", t / 2, intrinsicWidth2);
             ofFloat10.setDuration(300L);
             ofFloat10.setStartDelay(700L);
-            this.r.playTogether(ofFloat8, ofFloat9, ofFloat10);
+            this.n.playTogether(ofFloat8, ofFloat9, ofFloat10);
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void e(int i) {
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.black_alpha60);
-            c.a.q0.s.c.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            c.a.o0.s.c.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch == null || !activitySwitch.a()) {
-                i3 = R.drawable.icon_floor_praised_floating;
-                i4 = R.drawable.icon_floor_bigpraised_floating;
+                i2 = R.drawable.obfuscated_res_0x7f08070d;
+                i3 = R.drawable.obfuscated_res_0x7f08070b;
             } else {
-                i3 = R.drawable.icon_floor_praised_floating_xmas;
-                i4 = R.drawable.icon_floor_bigpraised_floating_xmas;
+                i2 = R.drawable.icon_floor_praised_floating_xmas;
+                i3 = R.drawable.icon_floor_bigpraised_floating_xmas;
             }
-            SkinManager.setImageResource(this.f45553e, i4);
-            SkinManager.setImageResource(this.f45554f, i3);
-            SkinManager.setImageResource(this.f45555g, i3);
-            SkinManager.setImageResource(this.f45556h, i3);
-            SkinManager.setImageResource(this.f45557i, i3);
-            SkinManager.setImageResource(this.f45558j, i3);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
+            SkinManager.setImageResource(this.a, i3);
+            SkinManager.setImageResource(this.f35263b, i2);
+            SkinManager.setImageResource(this.f35264c, i2);
+            SkinManager.setImageResource(this.f35265d, i2);
+            SkinManager.setImageResource(this.f35266e, i2);
+            SkinManager.setImageResource(this.f35267f, i2);
+            SkinManager.setViewTextColor(this.f35268g, (int) R.color.CAM_X0101);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || UtilHelper.getRealScreenOrientation(getContext()) == 2 || this.p) {
+            return;
+        }
+        this.p = true;
+        ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);
+        postDelayed(this.q, 2000L);
+        this.f35269h.start();
+        this.i.start();
+        this.j.start();
+        this.k.start();
+        this.l.start();
+        this.m.start();
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.p) {
+            b();
+            this.f35269h.cancel();
+            this.i.cancel();
+            this.j.cancel();
+            this.k.cancel();
+            this.l.cancel();
+            this.m.cancel();
+            this.n.cancel();
         }
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
             if (configuration.orientation == 2) {
-                stopAnimation();
+                g();
             }
         }
     }
 
     public void setFloatingHuajiAninationListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.s = cVar;
-        }
-    }
-
-    public void startAnimation(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || UtilHelper.getRealScreenOrientation(getContext()) == 2 || this.t) {
-            return;
-        }
-        this.t = true;
-        ((ViewGroup) ((Activity) getContext()).getWindow().getDecorView()).addView(this);
-        postDelayed(this.u, 2000L);
-        this.l.start();
-        this.m.start();
-        this.n.start();
-        this.o.start();
-        this.p.start();
-        this.q.start();
-    }
-
-    public void stopAnimation() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.t) {
-            b();
-            this.l.cancel();
-            this.m.cancel();
-            this.n.cancel();
-            this.o.cancel();
-            this.p.cancel();
-            this.q.cancel();
-            this.r.cancel();
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.o = cVar;
         }
     }
 
@@ -352,9 +349,9 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -362,24 +359,24 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 return;
             }
         }
-        this.t = false;
-        this.u = new a(this);
-        this.v = new b(this);
+        this.p = false;
+        this.q = new a(this);
+        this.r = new b(this);
         c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbFullScreenFloatingHuajiAninationView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PbFullScreenFloatingHuajiAninationView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -387,9 +384,9 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                 return;
             }
         }
-        this.t = false;
-        this.u = new a(this);
-        this.v = new b(this);
+        this.p = false;
+        this.q = new a(this);
+        this.r = new b(this);
         c();
     }
 }

@@ -22,9 +22,9 @@ public class CryptoUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -114,10 +114,10 @@ public class CryptoUtil {
                 return null;
             }
             byte[] bArr = new byte[str.length() / 2];
-            for (int i2 = 0; i2 < str.length() / 2; i2++) {
-                int i3 = i2 * 2;
-                int i4 = i3 + 1;
-                bArr[i2] = (byte) ((Integer.parseInt(str.substring(i3, i4), 16) * 16) + Integer.parseInt(str.substring(i4, i3 + 2), 16));
+            for (int i = 0; i < str.length() / 2; i++) {
+                int i2 = i * 2;
+                int i3 = i2 + 1;
+                bArr[i] = (byte) ((Integer.parseInt(str.substring(i2, i3), 16) * 16) + Integer.parseInt(str.substring(i3, i2 + 2), 16));
             }
             return bArr;
         }
@@ -129,11 +129,11 @@ public class CryptoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
             int length = bArr.length % 2 == 0 ? bArr.length : bArr.length - 1;
-            for (int i2 = 0; i2 < length; i2 += 2) {
-                byte b2 = bArr[i2];
-                int i3 = i2 + 1;
-                bArr[i2] = bArr[i3];
-                bArr[i3] = b2;
+            for (int i = 0; i < length; i += 2) {
+                byte b2 = bArr[i];
+                int i2 = i + 1;
+                bArr[i] = bArr[i2];
+                bArr[i2] = b2;
             }
             return bArr;
         }

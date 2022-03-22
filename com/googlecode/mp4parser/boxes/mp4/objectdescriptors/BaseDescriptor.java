@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.IsoTypeReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {0})
 /* loaded from: classes7.dex */
 public abstract class BaseDescriptor {
@@ -42,9 +41,9 @@ public abstract class BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -75,19 +74,19 @@ public abstract class BaseDescriptor {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tag : invokeV.intValue;
     }
 
-    public final void parse(int i2, ByteBuffer byteBuffer) throws IOException {
+    public final void parse(int i, ByteBuffer byteBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, byteBuffer) == null) {
-            this.tag = i2;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, byteBuffer) == null) {
+            this.tag = i;
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             this.sizeOfInstance = readUInt8 & 127;
-            int i3 = 1;
+            int i2 = 1;
             while ((readUInt8 >>> 7) == 1) {
                 readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-                i3++;
+                i2++;
                 this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
             }
-            this.sizeBytes = i3;
+            this.sizeBytes = i2;
             ByteBuffer slice = byteBuffer.slice();
             slice.limit(this.sizeOfInstance);
             parseDetail(slice);
@@ -101,7 +100,7 @@ public abstract class BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "BaseDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + ExtendedMessageFormat.END_FE;
+            return "BaseDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + '}';
         }
         return (String) invokeV.objValue;
     }

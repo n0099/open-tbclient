@@ -17,12 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f41870e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f41871f;
+    /* renamed from: b  reason: collision with root package name */
+    public final c.a.d.c.g.a f32394b;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -31,17 +29,17 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         public final /* synthetic */ ADRequestModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ADRequestModel aDRequestModel, int i2, int i3) {
-            super(i2, i3);
+        public a(ADRequestModel aDRequestModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aDRequestModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {aDRequestModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -59,11 +57,11 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
             boolean z = responsedMessage instanceof ADSocketResponseMessage;
-            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.a.f41870e != null) {
+            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && this.a.a != null) {
                 if (z) {
-                    this.a.f41870e.a((ADSocketResponseMessage) responsedMessage);
+                    this.a.a.a((ADSocketResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof ADHttpResponseMessage) {
-                    this.a.f41870e.b((ADHttpResponseMessage) responsedMessage);
+                    this.a.a.b((ADHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -85,26 +83,33 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41871f = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        c.a.r0.y3.g0.a.h(309611, ADSocketResponseMessage.class, false, false);
-        c.a.r0.y3.g0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.f41871f);
+        this.f32394b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        c.a.p0.a4.g0.a.h(309611, ADSocketResponseMessage.class, false, false);
+        c.a.p0.a4.g0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.f32394b);
+    }
+
+    public void A(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -114,7 +119,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -122,27 +127,20 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f41871f);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f32394b);
         }
     }
 
-    public void x(long j2, int i2, int i3) {
+    public void z(long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             cancelMessage();
             ADRequestMessage aDRequestMessage = new ADRequestMessage();
-            aDRequestMessage.setFid(j2);
-            aDRequestMessage.setRn(i3);
-            aDRequestMessage.setOffset(i2);
+            aDRequestMessage.setFid(j);
+            aDRequestMessage.setRn(i2);
+            aDRequestMessage.setOffset(i);
             sendMessage(aDRequestMessage);
-        }
-    }
-
-    public void y(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f41870e = bVar;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tun2tornadolite.booster;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -40,9 +41,9 @@ public final class LogTo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,7 +55,9 @@ public final class LogTo {
         if (interceptable == null || interceptable.invokeLL(1048576, this, tag, msg) == null) {
             Intrinsics.checkNotNullParameter(tag, "tag");
             Intrinsics.checkNotNullParameter(msg, "msg");
-            boolean z = debug;
+            if (debug) {
+                Log.d(tag, msg);
+            }
         }
     }
 
@@ -63,7 +66,9 @@ public final class LogTo {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tag, msg) == null) {
             Intrinsics.checkNotNullParameter(tag, "tag");
             Intrinsics.checkNotNullParameter(msg, "msg");
-            boolean z = debug;
+            if (debug) {
+                Log.e(tag, msg);
+            }
         }
     }
 
@@ -78,7 +83,9 @@ public final class LogTo {
         if (interceptable == null || interceptable.invokeLL(1048579, this, tag, msg) == null) {
             Intrinsics.checkNotNullParameter(tag, "tag");
             Intrinsics.checkNotNullParameter(msg, "msg");
-            boolean z = debug;
+            if (debug) {
+                Log.i(tag, msg);
+            }
         }
     }
 

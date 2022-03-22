@@ -42,16 +42,16 @@ public class VideoTrackTranscoder {
     public final int mTrackIndex;
     public long mWrittenPresentationTimeUs;
 
-    public VideoTrackTranscoder(MediaExtractor mediaExtractor, int i2, MediaFormat mediaFormat, QueuedMuxer queuedMuxer) {
+    public VideoTrackTranscoder(MediaExtractor mediaExtractor, int i, MediaFormat mediaFormat, QueuedMuxer queuedMuxer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mediaExtractor, Integer.valueOf(i2), mediaFormat, queuedMuxer};
+            Object[] objArr = {mediaExtractor, Integer.valueOf(i), mediaFormat, queuedMuxer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,19 +59,19 @@ public class VideoTrackTranscoder {
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         this.mExtractor = mediaExtractor;
-        this.mTrackIndex = i2;
+        this.mTrackIndex = i;
         this.mOutputFormat = mediaFormat;
         this.mMuxer = queuedMuxer;
     }
 
-    private int drainDecoder(long j2) {
+    private int drainDecoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
             if (this.mIsDecoderEOS) {
                 return 0;
             }
-            int dequeueOutputBuffer = this.mDecoder.dequeueOutputBuffer(this.mBufferInfo, j2);
+            int dequeueOutputBuffer = this.mDecoder.dequeueOutputBuffer(this.mBufferInfo, j);
             if (dequeueOutputBuffer == -3 || dequeueOutputBuffer == -2) {
                 return 1;
             }
@@ -97,14 +97,14 @@ public class VideoTrackTranscoder {
         return invokeJ.intValue;
     }
 
-    private int drainEncoder(long j2) {
+    private int drainEncoder(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             if (this.mIsEncoderEOS) {
                 return 0;
             }
-            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, j2);
+            int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, j);
             if (dequeueOutputBuffer == -3) {
                 this.mEncoderOutputBuffers = this.mEncoder.getOutputBuffers();
                 return 1;
@@ -119,10 +119,10 @@ public class VideoTrackTranscoder {
             } else if (dequeueOutputBuffer != -1) {
                 if (this.mActualOutputFormat != null) {
                     MediaCodec.BufferInfo bufferInfo = this.mBufferInfo;
-                    int i2 = bufferInfo.flags;
-                    if ((i2 & 4) != 0) {
+                    int i = bufferInfo.flags;
+                    if ((i & 4) != 0) {
                         this.mIsEncoderEOS = true;
-                        bufferInfo.set(0, 0, 0L, i2);
+                        bufferInfo.set(0, 0, 0L, i);
                     }
                     MediaCodec.BufferInfo bufferInfo2 = this.mBufferInfo;
                     if ((bufferInfo2.flags & 2) != 0) {
@@ -142,16 +142,16 @@ public class VideoTrackTranscoder {
         return invokeJ.intValue;
     }
 
-    private int drainExtractor(long j2) {
+    private int drainExtractor(long j) {
         InterceptResult invokeJ;
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
             if (this.mIsExtractorEOS) {
                 return 0;
             }
             int sampleTrackIndex = this.mExtractor.getSampleTrackIndex();
-            if ((sampleTrackIndex < 0 || sampleTrackIndex == this.mTrackIndex) && (dequeueInputBuffer = this.mDecoder.dequeueInputBuffer(j2)) >= 0) {
+            if ((sampleTrackIndex < 0 || sampleTrackIndex == this.mTrackIndex) && (dequeueInputBuffer = this.mDecoder.dequeueInputBuffer(j)) >= 0) {
                 if (sampleTrackIndex < 0) {
                     this.mIsExtractorEOS = true;
                     this.mDecoder.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);

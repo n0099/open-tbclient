@@ -28,15 +28,15 @@ public class AdAsyncRequestModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<PlaceId, String> f40338d;
+    public static final Map<PlaceId, String> f31104d;
     public transient /* synthetic */ FieldHolder $fh;
     public final PlaceId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f40339b;
+    public final b f31105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f40340c;
+    public final HttpMessageListener f31106c;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -45,17 +45,17 @@ public class AdAsyncRequestModel {
         public final /* synthetic */ AdAsyncRequestModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AdAsyncRequestModel adAsyncRequestModel, int i2) {
-            super(i2);
+        public a(AdAsyncRequestModel adAsyncRequestModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {adAsyncRequestModel, Integer.valueOf(i2)};
+                Object[] objArr = {adAsyncRequestModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -77,8 +77,8 @@ public class AdAsyncRequestModel {
                         return;
                     }
                 }
-                if (this.a.f40339b != null) {
-                    this.a.f40339b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
+                if (this.a.f31105b != null) {
+                    this.a.f31105b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
                 }
             }
         }
@@ -102,7 +102,7 @@ public class AdAsyncRequestModel {
                 return;
             }
         }
-        f40338d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
+        f31104d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -111,9 +111,9 @@ public class AdAsyncRequestModel {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -133,18 +133,18 @@ public class AdAsyncRequestModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar, placeId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f40340c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+        this.f31106c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
         this.a = placeId;
-        this.f40339b = bVar;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f40338d.get(placeId));
+        this.f31105b = bVar;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f31104d.get(placeId));
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsNeedAddStatisticsParam(false);
@@ -152,20 +152,20 @@ public class AdAsyncRequestModel {
         tbHttpMessageTask.setmIsNBaiduServer(false);
         tbHttpMessageTask.setResponsedClass(AdAsyncResponseData.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f40340c);
+        MessageManager.getInstance().registerListener(this.f31106c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f40340c);
+            MessageManager.getInstance().unRegisterListener(this.f31106c);
         }
     }
 
-    public void d(Map<String, String> map, int i2) {
+    public void d(Map<String, String> map, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, i2) == null) {
-            MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.a, map, i2));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, i) == null) {
+            MessageManager.getInstance().sendMessage(new AdAsyncRequestData(this.a, map, i));
         }
     }
 }

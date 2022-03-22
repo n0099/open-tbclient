@@ -3,6 +3,7 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,8 +38,8 @@ public class e {
             JSONArray optJSONArray = jSONObject.optJSONArray("pkgs");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    fVar.jK.add(optJSONArray.getString(i2));
+                for (int i = 0; i < length; i++) {
+                    fVar.jK.add(optJSONArray.getString(i));
                 }
             }
             String optString = jSONObject.optString("pkg");
@@ -52,8 +53,8 @@ public class e {
             JSONArray jSONArray = jSONObject.getJSONArray("features");
             ArrayList arrayList = new ArrayList();
             int length2 = jSONArray.length();
-            for (int i3 = 0; i3 < length2; i3++) {
-                arrayList.add(Integer.valueOf(jSONArray.getInt(i3)));
+            for (int i2 = 0; i2 < length2; i2++) {
+                arrayList.add(Integer.valueOf(jSONArray.getInt(i2)));
             }
             fVar.jN = arrayList;
         }
@@ -63,19 +64,19 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            int i2 = 0;
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(bArr, 0)));
+            int i = 0;
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(bArr, 0)));
             Cipher cipher = Cipher.getInstance("RSA/None/PKCS1Padding");
             cipher.init(2, generatePublic);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int length = bArr2.length;
-            while (length > i2) {
-                int i3 = length - i2;
-                if (i3 > 128) {
-                    i3 = 128;
+            while (length > i) {
+                int i2 = length - i;
+                if (i2 > 128) {
+                    i2 = 128;
                 }
-                byte[] doFinal = cipher.doFinal(bArr2, i2, i3);
-                i2 += i3;
+                byte[] doFinal = cipher.doFinal(bArr2, i, i2);
+                i += i2;
                 byteArrayOutputStream.write(doFinal);
             }
             return byteArrayOutputStream.toByteArray();

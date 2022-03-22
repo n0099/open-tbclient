@@ -16,7 +16,7 @@ public interface IImageLoader {
 
     boolean isInited();
 
-    void load(@NonNull Context context, ImageView imageView, Object obj, @DrawableRes int i2, @DrawableRes int i3);
+    void load(@NonNull Context context, ImageView imageView, Object obj, @DrawableRes int i, @DrawableRes int i2);
 
     void load(@NonNull Context context, String str, ImageView imageView, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener);
 

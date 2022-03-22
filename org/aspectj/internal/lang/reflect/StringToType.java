@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjTypeSystem;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StringToType {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class StringToType {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,10 +36,10 @@ public class StringToType {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) {
             StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
             Type[] typeArr = new Type[stringTokenizer.countTokens()];
-            int i2 = 0;
+            int i = 0;
             while (stringTokenizer.hasMoreTokens()) {
-                typeArr[i2] = stringToType(stringTokenizer.nextToken().trim(), cls);
-                i2++;
+                typeArr[i] = stringToType(stringTokenizer.nextToken().trim(), cls);
+                i++;
             }
             return typeArr;
         }
@@ -64,9 +64,9 @@ public class StringToType {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6, r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -112,9 +112,9 @@ public class StringToType {
                 return makeParameterizedType(str, cls);
             } catch (ClassNotFoundException unused) {
                 TypeVariable[] typeParameters = cls.getTypeParameters();
-                for (int i2 = 0; i2 < typeParameters.length; i2++) {
-                    if (typeParameters[i2].getName().equals(str)) {
-                        return typeParameters[i2];
+                for (int i = 0; i < typeParameters.length; i++) {
+                    if (typeParameters[i].getName().equals(str)) {
+                        return typeParameters[i];
                     }
                 }
                 throw new ClassNotFoundException(str);

@@ -13,8 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Option<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final CacheKeyUpdater<Object> EMPTY_UPDATER;
@@ -24,7 +23,7 @@ public final class Option<T> {
     public final String key;
     public volatile byte[] keyBytes;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface CacheKeyUpdater<T> {
         void update(@NonNull byte[] bArr, @NonNull T t, @NonNull MessageDigest messageDigest);
     }
@@ -51,9 +50,9 @@ public final class Option<T> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -76,9 +75,9 @@ public final class Option<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, t, cacheKeyUpdater};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,7 +151,7 @@ public final class Option<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Option{key='" + this.key + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "Option{key='" + this.key + "'}";
         }
         return (String) invokeV.objValue;
     }

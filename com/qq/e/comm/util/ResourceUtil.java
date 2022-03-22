@@ -4,13 +4,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResourceUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +23,9 @@ public class ResourceUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,7 +53,7 @@ public class ResourceUtil {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }
-            return resources.getIdentifier(str, "drawable", context.getPackageName());
+            return resources.getIdentifier(str, ResourceManager.DRAWABLE, context.getPackageName());
         }
         return invokeLL.intValue;
     }
@@ -76,7 +79,7 @@ public class ResourceUtil {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }
-            return resources.getIdentifier(str, "layout", context.getPackageName());
+            return resources.getIdentifier(str, TtmlNode.TAG_LAYOUT, context.getPackageName());
         }
         return invokeLL.intValue;
     }
@@ -89,7 +92,7 @@ public class ResourceUtil {
             if (context == null || TextUtils.isEmpty(str) || (resources = context.getResources()) == null) {
                 return -1;
             }
-            return resources.getIdentifier(str, "string", context.getPackageName());
+            return resources.getIdentifier(str, EMABTest.TYPE_STRING, context.getPackageName());
         }
         return invokeLL.intValue;
     }

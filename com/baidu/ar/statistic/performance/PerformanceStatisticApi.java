@@ -19,7 +19,7 @@ public class PerformanceStatisticApi implements f {
     public int xc;
     public boolean xd;
     public a xe;
-    public a.C1758a xf;
+    public a.C1719a xf;
     public f.a xg;
 
     public PerformanceStatisticApi() {
@@ -27,9 +27,9 @@ public class PerformanceStatisticApi implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,12 +44,12 @@ public class PerformanceStatisticApi implements f {
     private void gs() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.xf == null) {
-            a.C1758a c1758a = new a.C1758a();
-            this.xf = c1758a;
-            int i2 = this.xc + 1;
-            this.xc = i2;
-            c1758a.xn = i2;
-            this.xe.xm.add(c1758a);
+            a.C1719a c1719a = new a.C1719a();
+            this.xf = c1719a;
+            int i = this.xc + 1;
+            this.xc = i;
+            c1719a.xn = i;
+            this.xe.xm.add(c1719a);
         }
     }
 
@@ -99,18 +99,18 @@ public class PerformanceStatisticApi implements f {
     }
 
     @Override // com.baidu.ar.statistic.f
-    public void recordAlgoTimeCost(String str, String str2, long j2, int i2) {
+    public void recordAlgoTimeCost(String str, String str2, long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)}) == null) {
             try {
                 if (this.xd) {
                     gs();
-                    a.C1758a.C1759a c1759a = new a.C1758a.C1759a();
-                    c1759a.name = str;
-                    c1759a.xr = str2;
-                    c1759a.xs = j2;
-                    c1759a.count = i2;
-                    this.xf.xq.add(c1759a);
+                    a.C1719a.C1720a c1720a = new a.C1719a.C1720a();
+                    c1720a.name = str;
+                    c1720a.xr = str2;
+                    c1720a.xs = j;
+                    c1720a.count = i;
+                    this.xf.xq.add(c1720a);
                 }
             } catch (RuntimeException e2) {
                 e2.printStackTrace();

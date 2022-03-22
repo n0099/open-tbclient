@@ -17,7 +17,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class RevenueDataParser implements IRevenueDataParser {
     public static final /* synthetic */ RevenueDataParser[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,16 +44,16 @@ public final class RevenueDataParser implements IRevenueDataParser {
         $VALUES = new RevenueDataParser[]{revenueDataParser};
     }
 
-    public RevenueDataParser(String str, int i2) {
+    public RevenueDataParser(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -78,10 +78,10 @@ public final class RevenueDataParser implements IRevenueDataParser {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
-    public void onRequestError(int i2, int i3, String str, int i4, int i5, String str2) {
+    public void onRequestError(int i, int i2, String str, int i3, int i4, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4), Integer.valueOf(i5), str2}) == null) {
-            ThreadPool.getDefault().networkIO().execute(new Runnable(this, i2, str, str2, i3, i4, i5) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.2
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2}) == null) {
+            ThreadPool.getDefault().networkIO().execute(new Runnable(this, i, str, str2, i2, i3, i4) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RevenueDataParser this$0;
@@ -97,23 +97,23 @@ public final class RevenueDataParser implements IRevenueDataParser {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), str, str2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                        Object[] objArr = {this, Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i6 = newInitContext.flag;
-                        if ((i6 & 1) != 0) {
-                            int i7 = i6 & 2;
+                        int i5 = newInitContext.flag;
+                        if ((i5 & 1) != 0) {
+                            int i6 = i5 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$appId = i2;
+                    this.val$appId = i;
                     this.val$seq = str;
                     this.val$message = str2;
-                    this.val$userchannel = i3;
-                    this.val$cmd = i4;
-                    this.val$srvErrorCode = i5;
+                    this.val$userchannel = i2;
+                    this.val$cmd = i3;
+                    this.val$srvErrorCode = i4;
                 }
 
                 @Override // java.lang.Runnable
@@ -147,9 +147,9 @@ public final class RevenueDataParser implements IRevenueDataParser {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, revenueBroadcastData};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -178,10 +178,10 @@ public final class RevenueDataParser implements IRevenueDataParser {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataParser
-    public void parserRevenueResponseData(int i2, int i3, byte[] bArr) {
+    public void parserRevenueResponseData(int i, int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, bArr) == null) {
-            ThreadPool.getDefault().networkIO().execute(new Runnable(this, bArr, i2, i3) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.1
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bArr) == null) {
+            ThreadPool.getDefault().networkIO().execute(new Runnable(this, bArr, i, i2) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.data.RevenueDataParser.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RevenueDataParser this$0;
@@ -194,11 +194,11 @@ public final class RevenueDataParser implements IRevenueDataParser {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bArr, Integer.valueOf(i2), Integer.valueOf(i3)};
+                        Object[] objArr = {this, bArr, Integer.valueOf(i), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -206,8 +206,8 @@ public final class RevenueDataParser implements IRevenueDataParser {
                     }
                     this.this$0 = this;
                     this.val$responseData = bArr;
-                    this.val$appId = i2;
-                    this.val$userchannel = i3;
+                    this.val$appId = i;
+                    this.val$userchannel = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -242,9 +242,9 @@ public final class RevenueDataParser implements IRevenueDataParser {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, revenueUnicastData};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -14,7 +14,7 @@ public final class BuildConfig {
     public static final String FLAVOR = "";
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.sapi2.openbduss";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "9.4.7.8.2";
+    public static final String VERSION_NAME = "9.5.5";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {
@@ -22,9 +22,9 @@ public final class BuildConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -51,9 +51,9 @@ public class PackageMangerProxy extends PackageManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {packageManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,10 +90,10 @@ public class PackageMangerProxy extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     @Deprecated
-    public void addPreferredActivity(IntentFilter intentFilter, int i2, ComponentName[] componentNameArr, ComponentName componentName) {
+    public void addPreferredActivity(IntentFilter intentFilter, int i, ComponentName[] componentNameArr, ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048579, this, intentFilter, i2, componentNameArr, componentName) == null) {
-            this.mPm.addPreferredActivity(intentFilter, i2, componentNameArr, componentName);
+        if (interceptable == null || interceptable.invokeLILL(1048579, this, intentFilter, i, componentNameArr, componentName) == null) {
+            this.mPm.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
         }
     }
 
@@ -151,9 +151,9 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public void extendVerificationTimeout(int i2, int i3, long j2) {
+    public void extendVerificationTimeout(int i, int i2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
         }
     }
 
@@ -185,10 +185,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, componentName, i2)) == null) ? this.mPm.getActivityInfo(componentName, i2) : (ActivityInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, componentName, i)) == null) ? this.mPm.getActivityInfo(componentName, i) : (ActivityInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -199,10 +199,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PermissionGroupInfo> getAllPermissionGroups(int i2) {
+    public List<PermissionGroupInfo> getAllPermissionGroups(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) ? this.mPm.getAllPermissionGroups(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) ? this.mPm.getAllPermissionGroups(i) : (List) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -240,10 +240,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ApplicationInfo getApplicationInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+    public ApplicationInfo getApplicationInfo(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i2)) == null) ? this.mPm.getApplicationInfo(str, i2) : (ApplicationInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, str, i)) == null) ? this.mPm.getApplicationInfo(str, i) : (ApplicationInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -261,10 +261,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ChangedPackages getChangedPackages(int i2) {
+    public ChangedPackages getChangedPackages(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
             return null;
         }
         return (ChangedPackages) invokeI.objValue;
@@ -285,24 +285,24 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getDrawable(String str, int i2, ApplicationInfo applicationInfo) {
+    public Drawable getDrawable(String str, int i, ApplicationInfo applicationInfo) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048609, this, str, i2, applicationInfo)) == null) ? this.mPm.getDrawable(str, i2, applicationInfo) : (Drawable) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048609, this, str, i, applicationInfo)) == null) ? this.mPm.getDrawable(str, i, applicationInfo) : (Drawable) invokeLIL.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ApplicationInfo> getInstalledApplications(int i2) {
+    public List<ApplicationInfo> getInstalledApplications(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) ? this.mPm.getInstalledApplications(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) ? this.mPm.getInstalledApplications(i) : (List) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getInstalledPackages(int i2) {
+    public List<PackageInfo> getInstalledPackages(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.mPm.getInstalledPackages(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) ? this.mPm.getInstalledPackages(i) : (List) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -331,10 +331,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048615, this, componentName, i2)) == null) ? this.mPm.getInstrumentationInfo(componentName, i2) : (InstrumentationInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048615, this, componentName, i)) == null) ? this.mPm.getInstrumentationInfo(componentName, i) : (InstrumentationInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -355,17 +355,17 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public String getNameForUid(int i2) {
+    public String getNameForUid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i2)) == null) ? this.mPm.getNameForUid(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i)) == null) ? this.mPm.getNameForUid(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageArchiveInfo(String str, int i2) {
+    public PackageInfo getPackageArchiveInfo(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, str, i2)) == null) ? this.mPm.getPackageArchiveInfo(str, i2) : (PackageInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, str, i)) == null) ? this.mPm.getPackageArchiveInfo(str, i) : (PackageInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -376,32 +376,32 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public int[] getPackageGids(String str, int i2) throws PackageManager.NameNotFoundException {
+    public int[] getPackageGids(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048621, this, str, i2)) == null) ? new int[0] : (int[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048621, this, str, i)) == null) ? new int[0] : (int[]) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int i2) throws PackageManager.NameNotFoundException {
+    public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048622, this, versionedPackage, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048622, this, versionedPackage, i)) == null) {
             return null;
         }
         return (PackageInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+    public PackageInfo getPackageInfo(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Plugin plugin2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048623, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048623, this, str, i)) == null) {
             if (TextUtils.equals(this.mPackageName, str) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPackageName)) != null) {
                 return plugin2.getPluginPackageInfo();
             }
-            return this.mPm.getPackageInfo(str, i2);
+            return this.mPm.getPackageInfo(str, i);
         }
         return (PackageInfo) invokeLI.objValue;
     }
@@ -417,44 +417,44 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public int getPackageUid(String str, int i2) throws PackageManager.NameNotFoundException {
+    public int getPackageUid(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i)) == null) {
             return 0;
         }
         return invokeLI.intValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public String[] getPackagesForUid(int i2) {
+    public String[] getPackagesForUid(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) ? this.mPm.getPackagesForUid(i2) : (String[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i)) == null) ? this.mPm.getPackagesForUid(i) : (String[]) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getPackagesHoldingPermissions(String[] strArr, int i2) {
+    public List<PackageInfo> getPackagesHoldingPermissions(String[] strArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048627, this, strArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048627, this, strArr, i)) == null) {
             return null;
         }
         return (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionGroupInfo getPermissionGroupInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+    public PermissionGroupInfo getPermissionGroupInfo(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048628, this, str, i2)) == null) ? this.mPm.getPermissionGroupInfo(str, i2) : (PermissionGroupInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048628, this, str, i)) == null) ? this.mPm.getPermissionGroupInfo(str, i) : (PermissionGroupInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionInfo getPermissionInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+    public PermissionInfo getPermissionInfo(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048629, this, str, i2)) == null) ? this.mPm.getPermissionInfo(str, i2) : (PermissionInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048629, this, str, i)) == null) ? this.mPm.getPermissionInfo(str, i) : (PermissionInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -465,24 +465,24 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getPreferredPackages(int i2) {
+    public List<PackageInfo> getPreferredPackages(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) ? this.mPm.getPreferredPackages(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i)) == null) ? this.mPm.getPreferredPackages(i) : (List) invokeI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048632, this, componentName, i2)) == null) ? this.mPm.getProviderInfo(componentName, i2) : (ProviderInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048632, this, componentName, i)) == null) ? this.mPm.getProviderInfo(componentName, i) : (ProviderInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048633, this, componentName, i2)) == null) ? this.mPm.getReceiverInfo(componentName, i2) : (ActivityInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048633, this, componentName, i)) == null) ? this.mPm.getReceiverInfo(componentName, i) : (ActivityInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -500,17 +500,17 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048637, this, componentName, i2)) == null) ? this.mPm.getServiceInfo(componentName, i2) : (ServiceInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048637, this, componentName, i)) == null) ? this.mPm.getServiceInfo(componentName, i) : (ServiceInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<SharedLibraryInfo> getSharedLibraries(int i2) {
+    public List<SharedLibraryInfo> getSharedLibraries(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048638, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048638, this, i)) == null) {
             return null;
         }
         return (List) invokeI.objValue;
@@ -531,17 +531,17 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public CharSequence getText(String str, int i2, ApplicationInfo applicationInfo) {
+    public CharSequence getText(String str, int i, ApplicationInfo applicationInfo) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048641, this, str, i2, applicationInfo)) == null) ? this.mPm.getText(str, i2, applicationInfo) : (CharSequence) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048641, this, str, i, applicationInfo)) == null) ? this.mPm.getText(str, i, applicationInfo) : (CharSequence) invokeLIL.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getUserBadgedDrawableForDensity(Drawable drawable, UserHandle userHandle, Rect rect, int i2) {
+    public Drawable getUserBadgedDrawableForDensity(Drawable drawable, UserHandle userHandle, Rect rect, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048642, this, drawable, userHandle, rect, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048642, this, drawable, userHandle, rect, i)) == null) {
             return null;
         }
         return (Drawable) invokeLLLI.objValue;
@@ -568,10 +568,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public XmlResourceParser getXml(String str, int i2, ApplicationInfo applicationInfo) {
+    public XmlResourceParser getXml(String str, int i, ApplicationInfo applicationInfo) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048645, this, str, i2, applicationInfo)) == null) ? this.mPm.getXml(str, i2, applicationInfo) : (XmlResourceParser) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048645, this, str, i, applicationInfo)) == null) ? this.mPm.getXml(str, i, applicationInfo) : (XmlResourceParser) invokeLIL.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -582,10 +582,10 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public boolean hasSystemFeature(String str, int i2) {
+    public boolean hasSystemFeature(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048647, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048647, this, str, i)) == null) {
             return false;
         }
         return invokeLI.booleanValue;
@@ -629,65 +629,65 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i2) {
+    public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048652, this, intent, i2)) == null) ? this.mPm.queryBroadcastReceivers(intent, i2) : (List) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048652, this, intent, i)) == null) ? this.mPm.queryBroadcastReceivers(intent, i) : (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ProviderInfo> queryContentProviders(String str, int i2, int i3) {
+    public List<ProviderInfo> queryContentProviders(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048653, this, str, i2, i3)) == null) ? this.mPm.queryContentProviders(str, i2, i3) : (List) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048653, this, str, i, i2)) == null) ? this.mPm.queryContentProviders(str, i, i2) : (List) invokeLII.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<InstrumentationInfo> queryInstrumentation(String str, int i2) {
+    public List<InstrumentationInfo> queryInstrumentation(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048654, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048654, this, str, i)) == null) {
             return null;
         }
         return (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentActivities(Intent intent, int i2) {
+    public List<ResolveInfo> queryIntentActivities(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048655, this, intent, i2)) == null) ? this.mPm.queryIntentActivities(intent, i2) : (List) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048655, this, intent, i)) == null) ? this.mPm.queryIntentActivities(intent, i) : (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i2) {
+    public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048656, this, componentName, intentArr, intent, i2)) == null) ? this.mPm.queryIntentActivityOptions(componentName, intentArr, intent, i2) : (List) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048656, this, componentName, intentArr, intent, i)) == null) ? this.mPm.queryIntentActivityOptions(componentName, intentArr, intent, i) : (List) invokeLLLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentContentProviders(Intent intent, int i2) {
+    public List<ResolveInfo> queryIntentContentProviders(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048657, this, intent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048657, this, intent, i)) == null) {
             return null;
         }
         return (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentServices(Intent intent, int i2) {
+    public List<ResolveInfo> queryIntentServices(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048658, this, intent, i2)) == null) ? this.mPm.queryIntentServices(intent, i2) : (List) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048658, this, intent, i)) == null) ? this.mPm.queryIntentServices(intent, i) : (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PermissionInfo> queryPermissionsByGroup(String str, int i2) throws PackageManager.NameNotFoundException {
+    public List<PermissionInfo> queryPermissionsByGroup(String str, int i) throws PackageManager.NameNotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048659, this, str, i2)) == null) ? this.mPm.queryPermissionsByGroup(str, i2) : (List) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048659, this, str, i)) == null) ? this.mPm.queryPermissionsByGroup(str, i) : (List) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
@@ -708,46 +708,46 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ResolveInfo resolveActivity(Intent intent, int i2) {
+    public ResolveInfo resolveActivity(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048662, this, intent, i2)) == null) ? this.mPm.resolveActivity(intent, i2) : (ResolveInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048662, this, intent, i)) == null) ? this.mPm.resolveActivity(intent, i) : (ResolveInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public ProviderInfo resolveContentProvider(String str, int i2) {
+    public ProviderInfo resolveContentProvider(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048663, this, str, i2)) == null) ? this.mPm.resolveContentProvider(str, i2) : (ProviderInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048663, this, str, i)) == null) ? this.mPm.resolveContentProvider(str, i) : (ProviderInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public ResolveInfo resolveService(Intent intent, int i2) {
+    public ResolveInfo resolveService(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048664, this, intent, i2)) == null) ? this.mPm.resolveService(intent, i2) : (ResolveInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048664, this, intent, i)) == null) ? this.mPm.resolveService(intent, i) : (ResolveInfo) invokeLI.objValue;
     }
 
     @Override // android.content.pm.PackageManager
-    public void setApplicationCategoryHint(@NonNull String str, int i2) {
+    public void setApplicationCategoryHint(@NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048665, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048665, this, str, i) == null) {
         }
     }
 
     @Override // android.content.pm.PackageManager
-    public void setApplicationEnabledSetting(String str, int i2, int i3) {
+    public void setApplicationEnabledSetting(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048666, this, str, i2, i3) == null) {
-            this.mPm.setApplicationEnabledSetting(str, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048666, this, str, i, i2) == null) {
+            this.mPm.setApplicationEnabledSetting(str, i, i2);
         }
     }
 
     @Override // android.content.pm.PackageManager
-    public void setComponentEnabledSetting(ComponentName componentName, int i2, int i3) {
+    public void setComponentEnabledSetting(ComponentName componentName, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048667, this, componentName, i2, i3) == null) {
-            this.mPm.setComponentEnabledSetting(componentName, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048667, this, componentName, i, i2) == null) {
+            this.mPm.setComponentEnabledSetting(componentName, i, i2);
         }
     }
 
@@ -780,18 +780,18 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public void verifyPendingInstall(int i2, int i3) {
+    public void verifyPendingInstall(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048672, this, i2, i3) == null) {
-            this.mPm.verifyPendingInstall(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048672, this, i, i2) == null) {
+            this.mPm.verifyPendingInstall(i, i2);
         }
     }
 
     @Override // android.content.pm.PackageManager
-    public int checkSignatures(int i2, int i3) {
+    public int checkSignatures(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) ? this.mPm.checkSignatures(i2, i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) ? this.mPm.checkSignatures(i, i2) : invokeII.intValue;
     }
 
     @Override // android.content.pm.PackageManager

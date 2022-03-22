@@ -20,21 +20,21 @@ public final class PoiFilter implements Parcelable {
     public static final Parcelable.Creator<PoiFilter> CREATOR;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<SortName, String> f34192f;
+    public static Map<SortName, String> f26425f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34193b;
+    public String f26426b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34194c;
+    public String f26427c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34195d;
+    public String f26428d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34196e;
+    public String f26429e;
 
     /* loaded from: classes4.dex */
     public static final class Builder {
@@ -43,61 +43,61 @@ public final class PoiFilter implements Parcelable {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34197b;
+        public String f26430b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34198c;
+        public String f26431c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34199d;
+        public String f26432d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f34200e;
+        public String f26433e;
 
         public Builder() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            PoiFilter.f34192f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f34192f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
-            PoiFilter.f34192f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
-            PoiFilter.f34192f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
-            PoiFilter.f34192f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
-            PoiFilter.f34192f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f34192f.put(SortName.CaterSortName.DEFAULT, "default");
-            PoiFilter.f34192f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
-            PoiFilter.f34192f.put(SortName.CaterSortName.CATER_PRICE, "price");
-            PoiFilter.f34192f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
-            PoiFilter.f34192f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
-            PoiFilter.f34192f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f34192f.put(SortName.LifeSortName.DEFAULT, "default");
-            PoiFilter.f34192f.put(SortName.LifeSortName.PRICE, "price");
-            PoiFilter.f34192f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
-            PoiFilter.f34192f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
-            PoiFilter.f34192f.put(SortName.LifeSortName.DISTANCE, "distance");
+            PoiFilter.f26425f.put(SortName.HotelSortName.DEFAULT, "default");
+            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
+            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
+            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
+            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
+            PoiFilter.f26425f.put(SortName.CaterSortName.DEFAULT, "default");
+            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
+            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_PRICE, "price");
+            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
+            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
+            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
+            PoiFilter.f26425f.put(SortName.LifeSortName.DEFAULT, "default");
+            PoiFilter.f26425f.put(SortName.LifeSortName.PRICE, "price");
+            PoiFilter.f26425f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
+            PoiFilter.f26425f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
+            PoiFilter.f26425f.put(SortName.LifeSortName.DISTANCE, "distance");
         }
 
         public PoiFilter build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.f34197b, this.f34198c, this.f34200e, this.f34199d) : (PoiFilter) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.f26430b, this.f26431c, this.f26433e, this.f26432d) : (PoiFilter) invokeV.objValue;
         }
 
         public Builder industryType(IndustryType industryType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, industryType)) == null) {
-                int i2 = d.a[industryType.ordinal()];
-                this.a = i2 != 1 ? i2 != 2 ? i2 != 3 ? "" : "life" : "cater" : "hotel";
+                int i = d.a[industryType.ordinal()];
+                this.a = i != 1 ? i != 2 ? i != 3 ? "" : "life" : "cater" : "hotel";
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -107,7 +107,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f34200e = z ? "1" : "0";
+                this.f26433e = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -117,7 +117,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f34199d = z ? "1" : "0";
+                this.f26432d = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -128,18 +128,18 @@ public final class PoiFilter implements Parcelable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sortName)) == null) {
                 if (!TextUtils.isEmpty(this.a) && sortName != null) {
-                    this.f34197b = (String) PoiFilter.f34192f.get(sortName);
+                    this.f26430b = (String) PoiFilter.f26425f.get(sortName);
                 }
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder sortRule(int i2) {
+        public Builder sortRule(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f34198c = i2 + "";
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.f26431c = i + "";
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -176,16 +176,16 @@ public final class PoiFilter implements Parcelable {
             a = new IndustryType[]{HOTEL, CATER, industryType};
         }
 
-        public IndustryType(String str, int i2) {
+        public IndustryType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -247,16 +247,16 @@ public final class PoiFilter implements Parcelable {
                 a = new CaterSortName[]{DEFAULT, CATER_PRICE, CATER_DISTANCE, CATER_TASTE_RATING, CATER_OVERALL_RATING, caterSortName};
             }
 
-            public CaterSortName(String str, int i2) {
+            public CaterSortName(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -315,16 +315,16 @@ public final class PoiFilter implements Parcelable {
                 a = new HotelSortName[]{DEFAULT, HOTEL_PRICE, HOTEL_DISTANCE, HOTEL_TOTAL_SCORE, HOTEL_LEVEL, hotelSortName};
             }
 
-            public HotelSortName(String str, int i2) {
+            public HotelSortName(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -381,16 +381,16 @@ public final class PoiFilter implements Parcelable {
                 a = new LifeSortName[]{DEFAULT, PRICE, DISTANCE, LIFE_OVERALL_RATING, lifeSortName};
             }
 
-            public LifeSortName(String str, int i2) {
+            public LifeSortName(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -427,7 +427,7 @@ public final class PoiFilter implements Parcelable {
                 return;
             }
         }
-        f34192f = new HashMap();
+        f26425f = new HashMap();
         CREATOR = new c();
     }
 
@@ -438,24 +438,24 @@ public final class PoiFilter implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f34193b = "";
-        this.f34194c = "";
-        this.f34195d = "";
-        this.f34196e = "";
+        this.f26426b = "";
+        this.f26427c = "";
+        this.f26428d = "";
+        this.f26429e = "";
         this.a = parcel.readString();
-        this.f34193b = parcel.readString();
-        this.f34194c = parcel.readString();
-        this.f34196e = parcel.readString();
-        this.f34195d = parcel.readString();
+        this.f26426b = parcel.readString();
+        this.f26427c = parcel.readString();
+        this.f26429e = parcel.readString();
+        this.f26428d = parcel.readString();
     }
 
     public PoiFilter(String str, String str2, String str3, String str4, String str5) {
@@ -465,24 +465,24 @@ public final class PoiFilter implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, str5};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f34193b = "";
-        this.f34194c = "";
-        this.f34195d = "";
-        this.f34196e = "";
+        this.f26426b = "";
+        this.f26427c = "";
+        this.f26428d = "";
+        this.f26429e = "";
         this.a = str;
-        this.f34193b = str2;
-        this.f34194c = str3;
-        this.f34196e = str4;
-        this.f34195d = str5;
+        this.f26426b = str2;
+        this.f26427c = str3;
+        this.f26429e = str4;
+        this.f26428d = str5;
     }
 
     @Override // android.os.Parcelable
@@ -505,24 +505,24 @@ public final class PoiFilter implements Parcelable {
                 sb.append(this.a);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f34193b)) {
+            if (!TextUtils.isEmpty(this.f26426b)) {
                 sb.append("sort_name:");
-                sb.append(this.f34193b);
+                sb.append(this.f26426b);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f34194c)) {
+            if (!TextUtils.isEmpty(this.f26427c)) {
                 sb.append("sort_rule:");
-                sb.append(this.f34194c);
+                sb.append(this.f26427c);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f34196e)) {
+            if (!TextUtils.isEmpty(this.f26429e)) {
                 sb.append("discount:");
-                sb.append(this.f34196e);
+                sb.append(this.f26429e);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f34195d)) {
+            if (!TextUtils.isEmpty(this.f26428d)) {
                 sb.append("groupon:");
-                sb.append(this.f34195d);
+                sb.append(this.f26428d);
                 sb.append("|");
             }
             if (!TextUtils.isEmpty(sb.toString())) {
@@ -534,14 +534,14 @@ public final class PoiFilter implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f34193b);
-            parcel.writeString(this.f34194c);
-            parcel.writeString(this.f34196e);
-            parcel.writeString(this.f34195d);
+            parcel.writeString(this.f26426b);
+            parcel.writeString(this.f26427c);
+            parcel.writeString(this.f26429e);
+            parcel.writeString(this.f26428d);
         }
     }
 }

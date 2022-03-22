@@ -14,15 +14,15 @@ import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements l {
     public List<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f58307b;
+    public BroadcastReceiver f43044b;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(List<DownloadInfo> list, int i2) {
+    public void b(List<DownloadInfo> list, int i) {
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -36,13 +36,13 @@ public class b implements l {
         }
         boolean b2 = f.b(N);
         for (DownloadInfo downloadInfo : list) {
-            a(N, downloadInfo, b2, i2);
+            a(N, downloadInfo, b2, i);
         }
         List<Integer> list2 = this.a;
-        if (list2 == null || list2.isEmpty() || this.f58307b != null) {
+        if (list2 == null || list2.isEmpty() || this.f43044b != null) {
             return;
         }
-        this.f58307b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
+        this.f43044b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 final Context applicationContext = context.getApplicationContext();
@@ -57,8 +57,8 @@ public class b implements l {
                                     Integer[] numArr = new Integer[size];
                                     b.this.a.toArray(numArr);
                                     b.this.a.clear();
-                                    for (int i3 = 0; i3 < size; i3++) {
-                                        DownloadInfo downloadInfo2 = Downloader.getInstance(applicationContext).getDownloadInfo(numArr[i3].intValue());
+                                    for (int i2 = 0; i2 < size; i2++) {
+                                        DownloadInfo downloadInfo2 = Downloader.getInstance(applicationContext).getDownloadInfo(numArr[i2].intValue());
                                         if (downloadInfo2 != null && (downloadInfo2.getRealStatus() == -5 || (downloadInfo2.getRealStatus() == -2 && downloadInfo2.isPauseReserveOnWifi()))) {
                                             b.this.a(applicationContext, downloadInfo2, true, 2);
                                         }
@@ -70,21 +70,21 @@ public class b implements l {
                         }
                     });
                     try {
-                        applicationContext.unregisterReceiver(b.this.f58307b);
+                        applicationContext.unregisterReceiver(b.this.f43044b);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
-                    b.this.f58307b = null;
+                    b.this.f43044b = null;
                 }
             }
         };
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            N.registerReceiver(this.f58307b, intentFilter);
+            N.registerReceiver(this.f43044b, intentFilter);
         } catch (Throwable th) {
             th.printStackTrace();
-            this.f58307b = null;
+            this.f43044b = null;
         }
     }
 
@@ -94,20 +94,20 @@ public class b implements l {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.l
-    public void a(final List<DownloadInfo> list, final int i2) {
+    public void a(final List<DownloadInfo> list, final int i) {
         if (f.d()) {
             c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        b.this.b(list, i2);
+                        b.this.b(list, i);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             });
         } else {
-            b(list, i2);
+            b(list, i);
         }
     }
 
@@ -120,10 +120,10 @@ public class b implements l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(Context context, DownloadInfo downloadInfo, boolean z, int i2) {
+    public void a(Context context, DownloadInfo downloadInfo, boolean z, int i) {
         String str;
         boolean z2;
-        int i3;
+        int i2;
         String str2;
         String str3;
         boolean z3;
@@ -170,7 +170,7 @@ public class b implements l {
                                 downloadInfo.setDownloadFromReserveWifi(true);
                                 com.ss.android.socialbase.downloader.downloader.r m = d.j().m();
                                 if (m != null) {
-                                    m.a(downloadInfo, 5, i2);
+                                    m.a(downloadInfo, 5, i);
                                 }
                             }
                             com.ss.android.socialbase.downloader.c.a.c(str3, "launchResume, name = " + downloadInfo.getTitle() + str2 + z3 + ", downloadResumed = " + z4);
@@ -217,7 +217,7 @@ public class b implements l {
                     }
                     com.ss.android.socialbase.downloader.downloader.r m2 = d.j().m();
                     if (m2 != null) {
-                        m2.a(downloadInfo, 5, i2);
+                        m2.a(downloadInfo, 5, i);
                     }
                 } else {
                     if (this.a == null) {
@@ -250,19 +250,19 @@ public class b implements l {
                     }
                     com.ss.android.socialbase.downloader.notification.a e2 = com.ss.android.socialbase.downloader.notification.b.a().e(downloadInfo.getId());
                     if (e2 == null) {
-                        i3 = 1;
+                        i2 = 1;
                         com.ss.android.socialbase.appdownloader.e.a aVar = new com.ss.android.socialbase.appdownloader.e.a(context, downloadInfo.getId(), downloadInfo.getTitle(), downloadInfo.getSavePath(), downloadInfo.getName(), downloadInfo.getExtra());
                         com.ss.android.socialbase.downloader.notification.b.a().a(aVar);
                         e2 = aVar;
                     } else {
-                        i3 = 1;
+                        i2 = 1;
                         e2.a(downloadInfo);
                     }
                     e2.b(downloadInfo.getTotalBytes());
                     e2.a(downloadInfo.getTotalBytes());
                     e2.a(downloadInfo.getStatus(), null, false, false);
                     downloadInfo.setLastUninstallResumeTime(currentTimeMillis2);
-                    downloadInfo.setUninstallResumeCount(downloadInfo.getUninstallResumeCount() + i3);
+                    downloadInfo.setUninstallResumeCount(downloadInfo.getUninstallResumeCount() + i2);
                     downloadInfo.updateSpData();
                     return;
                 }

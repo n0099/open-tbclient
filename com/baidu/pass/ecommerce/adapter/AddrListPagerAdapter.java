@@ -26,9 +26,9 @@ public class AddrListPagerAdapter extends PagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,26 +37,26 @@ public class AddrListPagerAdapter extends PagerAdapter {
         this.mViews = list;
     }
 
-    private int fixPositionInViewList(int i2) {
+    private int fixPositionInViewList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             if (this.mViews == null) {
                 return 0;
             }
-            if (i2 < 0) {
-                i2 = 0;
+            if (i < 0) {
+                i = 0;
             }
-            return i2 >= this.mViews.size() ? this.mViews.size() - 1 : i2;
+            return i >= this.mViews.size() ? this.mViews.size() - 1 : i;
         }
         return invokeI.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.mViews.get(fixPositionInViewList(i2)));
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
+            viewGroup.removeView(this.mViews.get(fixPositionInViewList(i)));
         }
     }
 
@@ -72,12 +72,12 @@ public class AddrListPagerAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-            int fixPositionInViewList = fixPositionInViewList(i2);
-            viewGroup.addView(this.mViews.get(i2));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            int fixPositionInViewList = fixPositionInViewList(i);
+            viewGroup.addView(this.mViews.get(i));
             return this.mViews.get(fixPositionInViewList);
         }
         return invokeLI.objValue;

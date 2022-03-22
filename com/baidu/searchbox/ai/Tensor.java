@@ -46,9 +46,9 @@ public final class Tensor implements AutoCloseable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,7 +64,7 @@ public final class Tensor implements AutoCloseable {
         }
     }
 
-    public static native ByteBuffer buffer(long j2, int i2);
+    public static native ByteBuffer buffer(long j, int i);
 
     public static Tensor createInstance(Object obj) {
         InterceptResult invokeL;
@@ -83,26 +83,26 @@ public final class Tensor implements AutoCloseable {
         return (Tensor) invokeL.objValue;
     }
 
-    public static native long createNaTensor(int i2, long[] jArr);
+    public static native long createNaTensor(int i, long[] jArr);
 
-    public static native long createNaTensorAndSetValue(int i2, long[] jArr, Object obj);
+    public static native long createNaTensorAndSetValue(int i, long[] jArr, Object obj);
 
-    public static native void deleteNaTensor(long j2, int i2);
+    public static native void deleteNaTensor(long j, int i);
 
-    public static void fillShape(Object obj, int i2, long[] jArr) {
+    public static void fillShape(Object obj, int i, long[] jArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65549, null, obj, i2, jArr) == null) || jArr == null || i2 == jArr.length) {
+        if (!(interceptable == null || interceptable.invokeLIL(65549, null, obj, i, jArr) == null) || jArr == null || i == jArr.length) {
             return;
         }
         int length = Array.getLength(obj);
         if (length != 0) {
-            if (jArr[i2] == 0) {
-                jArr[i2] = length;
-            } else if (jArr[i2] != length) {
-                throw new IllegalArgumentException(String.format("mismatched lengths (%d and %d) in dimension %d", Long.valueOf(jArr[i2]), Integer.valueOf(length), Integer.valueOf(i2)));
+            if (jArr[i] == 0) {
+                jArr[i] = length;
+            } else if (jArr[i] != length) {
+                throw new IllegalArgumentException(String.format("mismatched lengths (%d and %d) in dimension %d", Long.valueOf(jArr[i]), Integer.valueOf(length), Integer.valueOf(i)));
             }
-            for (int i3 = 0; i3 < length; i3++) {
-                fillShape(Array.get(obj, i3), i2 + 1, jArr);
+            for (int i2 = 0; i2 < length; i2++) {
+                fillShape(Array.get(obj, i2), i + 1, jArr);
             }
             return;
         }
@@ -120,20 +120,20 @@ public final class Tensor implements AutoCloseable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, jArr)) == null) {
             long[] jArr2 = new long[1];
-            long j2 = 1;
-            for (long j3 : jArr) {
-                j2 *= j3;
+            long j = 1;
+            for (long j2 : jArr) {
+                j *= j2;
             }
-            jArr2[0] = j2;
+            jArr2[0] = j;
             return jArr2;
         }
         return (long[]) invokeL.objValue;
     }
 
-    private ByteBuffer getBuffer(int i2) {
+    private ByteBuffer getBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i2)) == null) ? buffer(this.nativeHandle, i2).order(ByteOrder.nativeOrder()) : (ByteBuffer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65552, this, i)) == null) ? buffer(this.nativeHandle, i).order(ByteOrder.nativeOrder()) : (ByteBuffer) invokeI.objValue;
     }
 
     public static Tensor innerCreateInstance(DataType dataType, long[] jArr) {
@@ -154,12 +154,12 @@ public final class Tensor implements AutoCloseable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, obj)) == null) {
             Class<?> cls = obj.getClass();
-            int i2 = 0;
+            int i = 0;
             while (cls.isArray()) {
                 cls = cls.getComponentType();
-                i2++;
+                i++;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -178,24 +178,24 @@ public final class Tensor implements AutoCloseable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, jArr)) == null) {
-            int i2 = 1;
-            for (long j2 : jArr) {
-                i2 *= (int) j2;
+            int i = 1;
+            for (long j : jArr) {
+                i *= (int) j;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static native long readArray(long j2, int i2, Object obj);
+    public static native long readArray(long j, int i, Object obj);
 
     @Override // java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.nativeHandle;
-            if (j2 != 0) {
-                deleteNaTensor(j2, this.datatype.value());
+            long j = this.nativeHandle;
+            if (j != 0) {
+                deleteNaTensor(j, this.datatype.value());
                 this.nativeHandle = 0L;
             }
         }

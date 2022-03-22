@@ -1,9 +1,10 @@
 package com.baidu.tieba.ala.livecard.models;
 
 import c.a.d.o.e.n;
-import c.a.q0.r.r.e2;
-import c.a.r0.d1.c1;
+import c.a.p0.f1.c1;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,17 +25,17 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public c1 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaTabResponseMessage(int i2) {
-        super(i2);
+    public FrsPageAlaTabResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,9 +45,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode != 200 || error < 0 || jSONObject == null) {
@@ -58,33 +59,33 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
             c1 c1Var = new c1();
             this.pageInfo = c1Var;
-            c1Var.f15369g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.f16773c = optJSONObject.optInt("pn");
+            c1Var.f13866g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.f14893c = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
                 this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();
-                this.pageInfo.f16772b = frsPageAlaTabRequestMessage.getForumId();
+                this.pageInfo.f14892b = frsPageAlaTabRequestMessage.getForumId();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray.length() > 0) {
                 this.mThreadList = new ArrayList<>();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    e2 e2Var = new e2();
-                    e2Var.Q3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    e2Var.c3(jSONObject2);
-                    this.mThreadList.add(e2Var);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    ThreadData threadData = new ThreadData();
+                    threadData.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    threadData.parserJson(jSONObject2);
+                    this.mThreadList.add(threadData);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("alt_list");
             if (optJSONArray2.length() > 0) {
                 this.mAltList = new ArrayList<>();
-                for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                    JSONObject jSONObject3 = optJSONArray2.getJSONObject(i4);
-                    e2 e2Var2 = new e2();
-                    e2Var2.Q3(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
-                    e2Var2.c3(jSONObject3);
-                    this.mAltList.add(e2Var2);
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject jSONObject3 = optJSONArray2.getJSONObject(i3);
+                    ThreadData threadData2 = new ThreadData();
+                    threadData2.setFromType(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY);
+                    threadData2.parserJson(jSONObject3);
+                    this.mAltList.add(threadData2);
                 }
             }
         }

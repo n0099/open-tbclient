@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePreparationStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FRAMES_TO_PREPARE = 3;
@@ -41,9 +41,9 @@ public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePre
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -53,13 +53,13 @@ public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePre
     }
 
     @Override // com.facebook.fresco.animation.bitmap.preparation.BitmapFramePreparationStrategy
-    public void prepareFrames(BitmapFramePreparer bitmapFramePreparer, BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i2) {
+    public void prepareFrames(BitmapFramePreparer bitmapFramePreparer, BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048576, this, bitmapFramePreparer, bitmapFrameCache, animationBackend, i2) == null) {
-            for (int i3 = 1; i3 <= this.mFramesToPrepare; i3++) {
-                int frameCount = (i2 + i3) % animationBackend.getFrameCount();
+        if (interceptable == null || interceptable.invokeLLLI(1048576, this, bitmapFramePreparer, bitmapFrameCache, animationBackend, i) == null) {
+            for (int i2 = 1; i2 <= this.mFramesToPrepare; i2++) {
+                int frameCount = (i + i2) % animationBackend.getFrameCount();
                 if (FLog.isLoggable(2)) {
-                    FLog.v(TAG, "Preparing frame %d, last drawn: %d", Integer.valueOf(frameCount), Integer.valueOf(i2));
+                    FLog.v(TAG, "Preparing frame %d, last drawn: %d", Integer.valueOf(frameCount), Integer.valueOf(i));
                 }
                 if (!bitmapFramePreparer.prepareFrame(bitmapFrameCache, animationBackend, frameCount)) {
                     return;
@@ -68,21 +68,21 @@ public class FixedNumberBitmapFramePreparationStrategy implements BitmapFramePre
         }
     }
 
-    public FixedNumberBitmapFramePreparationStrategy(int i2) {
+    public FixedNumberBitmapFramePreparationStrategy(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.mFramesToPrepare = i2;
+        this.mFramesToPrepare = i;
     }
 }

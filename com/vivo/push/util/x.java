@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class x extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static x f59338b;
+    public static x f43969b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public x() {
@@ -22,9 +22,9 @@ public final class x extends b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,10 +37,10 @@ public final class x extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (x.class) {
-                if (f59338b == null) {
-                    f59338b = new x();
+                if (f43969b == null) {
+                    f43969b = new x();
                 }
-                xVar = f59338b;
+                xVar = f43969b;
             }
             return xVar;
         }
@@ -81,7 +81,7 @@ public final class x extends b {
 
     public static byte[] c(String str) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             byte[] bArr = null;
@@ -89,12 +89,12 @@ public final class x extends b {
                 String[] split = str.split(",");
                 if (split.length > 0) {
                     bArr = new byte[split.length];
-                    i2 = split.length;
+                    i = split.length;
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
-                    bArr[i3] = Byte.parseByte(split[i3].trim());
+                for (int i2 = 0; i2 < i; i2++) {
+                    bArr[i2] = Byte.parseByte(split[i2].trim());
                 }
             } catch (Exception e2) {
                 p.a("SharePreferenceManager", "getCodeBytes error:" + e2.getMessage());

@@ -2,6 +2,7 @@ package com.baidu.searchbox;
 
 import android.app.Activity;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -52,9 +53,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -82,9 +83,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -135,9 +136,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -290,7 +291,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static void startTiming() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "App使用时长统计开始：startTiming");
+            }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("duration", "0");
@@ -315,7 +318,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         ubc.flowSetValueWithDuration(sFlow, generateValueJson());
         ubc.flowEnd(sFlow);
         sFlow = null;
-        boolean z = DEBUG;
+        if (DEBUG) {
+            Log.d(TAG, "App使用时长统计结束：stopTiming");
+        }
     }
 
     public static void updateTiming() {
@@ -327,7 +332,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
         }
         ubc.flowSetValueWithDuration(sFlow, generateValueJson());
-        boolean z = DEBUG;
+        if (DEBUG) {
+            Log.d(TAG, "App使用时长统计更新（最小间隔5分钟）：updateTiming");
+        }
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle

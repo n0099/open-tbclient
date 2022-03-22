@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
-import c.a.q0.r.l0.t.a;
+import c.a.o0.r.l0.t.a;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -121,9 +121,9 @@ public class MetaData extends OrmObject implements Serializable, a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -279,7 +279,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.fansNickName : (String) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -353,7 +353,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.is_god_user : invokeV.intValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.likeNum : invokeV.intValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -469,7 +469,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.pendantData : (UserPendantData) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -536,7 +536,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -603,7 +603,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -716,25 +716,25 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.isMem = user.is_mem.intValue();
         this.mIconInfo.clear();
         if (list != null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
+            for (int i = 0; i < list.size(); i++) {
                 IconData iconData = new IconData();
-                iconData.parserProtobuf(list.get(i2));
+                iconData.parserProtobuf(list.get(i));
                 this.mIconInfo.add(iconData);
             }
         }
         this.mTShowIconInfo.clear();
         if (list2 != null) {
-            for (int i3 = 0; i3 < list2.size(); i3++) {
+            for (int i2 = 0; i2 < list2.size(); i2++) {
                 IconData iconData2 = new IconData();
-                iconData2.parserProtobuf(list2.get(i3));
+                iconData2.parserProtobuf(list2.get(i2));
                 this.mTShowIconInfo.add(iconData2);
             }
         }
         this.mTShowIconInfoNew.clear();
         if (list3 != null) {
-            for (int i4 = 0; i4 < list3.size(); i4++) {
+            for (int i3 = 0; i3 < list3.size(); i3++) {
                 IconData iconData3 = new IconData();
-                iconData3.parserProtobuf(list3.get(i4));
+                iconData3.parserProtobuf(list3.get(i3));
                 this.mTShowIconInfoNew.add(iconData3);
             }
         }
@@ -836,10 +836,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setAuthType(int i2) {
+    public void setAuthType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
-            this.authType = i2;
+        if (interceptable == null || interceptable.invokeI(1048652, this, i) == null) {
+            this.authType = i;
         }
     }
 
@@ -864,10 +864,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setConcern_num(int i2) {
+    public void setConcern_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
-            this.concernNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
+            this.concernNum = i;
         }
     }
 
@@ -885,11 +885,11 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    @Override // c.a.q0.r.l0.t.a
-    public void setFansNum(int i2) {
+    @Override // c.a.o0.r.l0.t.a
+    public void setFansNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048659, this, i2) == null) {
-            this.fansNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
+            this.fansNum = i;
         }
     }
 
@@ -900,17 +900,17 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setGender(int i2) {
+    public void setGender(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            this.gender = i2;
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
+            this.gender = i;
         }
     }
 
-    public void setGiftNum(int i2) {
+    public void setGiftNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
-            this.giftNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048662, this, i) == null) {
+            this.giftNum = i;
         }
     }
 
@@ -957,10 +957,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setIsBaZhu(int i2) {
+    public void setIsBaZhu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048669, this, i2) == null) {
-            this.is_bazhu = i2;
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
+            this.is_bazhu = i;
         }
     }
 
@@ -971,14 +971,14 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setIsFollower(int i2) {
+    public void setIsFollower(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048671, this, i2) == null) {
-            this.is_follower = i2;
+        if (interceptable == null || interceptable.invokeI(1048671, this, i) == null) {
+            this.is_follower = i;
         }
     }
 
-    @Override // c.a.q0.r.l0.t.a
+    @Override // c.a.o0.r.l0.t.a
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
@@ -997,10 +997,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setIsGodUser(int i2) {
+    public void setIsGodUser(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048674, this, i2) == null) {
-            this.is_god_user = i2;
+        if (interceptable == null || interceptable.invokeI(1048674, this, i) == null) {
+            this.is_god_user = i;
         }
     }
 
@@ -1015,60 +1015,60 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setIsManager(int i2) {
+    public void setIsManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048676, this, i2) == null) {
-            this.is_manager = i2;
+        if (interceptable == null || interceptable.invokeI(1048676, this, i) == null) {
+            this.is_manager = i;
         }
     }
 
-    public void setIsMyFollower(int i2) {
+    public void setIsMyFollower(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048677, this, i2) == null) {
-            this.is_my_follower = i2;
+        if (interceptable == null || interceptable.invokeI(1048677, this, i) == null) {
+            this.is_my_follower = i;
         }
     }
 
-    public void setIsNearlyAt(int i2) {
+    public void setIsNearlyAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048678, this, i2) == null) {
-            this.is_nearlyAt = i2;
+        if (interceptable == null || interceptable.invokeI(1048678, this, i) == null) {
+            this.is_nearlyAt = i;
         }
     }
 
-    public void setIsOriginalAuthor(int i2) {
+    public void setIsOriginalAuthor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048679, this, i2) == null) {
-            this.isOriginalAuthor = i2;
+        if (interceptable == null || interceptable.invokeI(1048679, this, i) == null) {
+            this.isOriginalAuthor = i;
         }
     }
 
-    public void setLeft_call_num(int i2) {
+    public void setLeft_call_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048680, this, i2) == null) {
-            this.left_call_num = i2;
+        if (interceptable == null || interceptable.invokeI(1048680, this, i) == null) {
+            this.left_call_num = i;
         }
     }
 
-    public void setLevel_id(int i2) {
+    public void setLevel_id(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048681, this, i2) == null) {
-            this.level_id = i2;
+        if (interceptable == null || interceptable.invokeI(1048681, this, i) == null) {
+            this.level_id = i;
         }
     }
 
-    public void setLikeNum(int i2) {
+    public void setLikeNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048682, this, i2) == null) {
-            this.likeNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048682, this, i) == null) {
+            this.likeNum = i;
         }
     }
 
-    @Override // c.a.q0.r.l0.t.a
-    public void setLikeStatus(int i2) {
+    @Override // c.a.o0.r.l0.t.a
+    public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048683, this, i2) == null) {
-            this.likeStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
+            this.likeStatus = i;
         }
     }
 
@@ -1135,17 +1135,17 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setThreadNum(int i2) {
+    public void setThreadNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048693, this, i2) == null) {
-            this.threadNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
+            this.threadNum = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048694, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048694, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -1163,10 +1163,10 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setUserIdLong(long j2) {
+    public void setUserIdLong(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048697, this, j2) == null) {
-            this.userId = String.valueOf(j2);
+        if (interceptable == null || interceptable.invokeJ(1048697, this, j) == null) {
+            this.userId = String.valueOf(j);
         }
     }
 
@@ -1280,23 +1280,23 @@ public class MetaData extends OrmObject implements Serializable, a {
                 optJSONObject = jSONObject.optJSONObject("god_data");
                 optJSONObject2 = jSONObject.optJSONObject("tb_vip");
                 if (optJSONArray != null) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
-                        iconData.parserJson(optJSONArray.getJSONObject(i2));
+                        iconData.parserJson(optJSONArray.getJSONObject(i));
                         this.mIconInfo.add(iconData);
                     }
                 }
                 if (optJSONArray2 != null) {
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         IconData iconData2 = new IconData();
-                        iconData2.parserJson(optJSONArray2.getJSONObject(i3));
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
                         this.mTShowIconInfo.add(iconData2);
                     }
                 }
                 if (optJSONArray3 != null) {
-                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         IconData iconData3 = new IconData();
-                        iconData3.parserJson(optJSONArray3.getJSONObject(i4));
+                        iconData3.parserJson(optJSONArray3.getJSONObject(i3));
                         this.mTShowIconInfoNew.add(iconData3);
                     }
                 }
@@ -1367,9 +1367,9 @@ public class MetaData extends OrmObject implements Serializable, a {
                 this.forumToolAuth.clear();
                 optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
                 if (optJSONArray4 != null) {
-                    for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                         ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
-                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i5)).optLong("perm"));
+                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i4)).optLong("perm"));
                         this.forumToolAuth.add(builder2.build(false));
                     }
                 }
@@ -1377,8 +1377,8 @@ public class MetaData extends OrmObject implements Serializable, a {
                 this.managerForum.clear();
                 optJSONArray5 = jSONObject.optJSONArray("manager_forum");
                 if (optJSONArray5 != null) {
-                    for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
-                        JSONObject optJSONObject11 = optJSONArray5.optJSONObject(i6);
+                    for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
+                        JSONObject optJSONObject11 = optJSONArray5.optJSONObject(i5);
                         BazhuGradeData bazhuGradeData = new BazhuGradeData();
                         bazhuGradeData.parserJson(optJSONObject11);
                         this.managerForum.add(bazhuGradeData);

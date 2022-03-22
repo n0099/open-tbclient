@@ -9,57 +9,58 @@ import android.content.pm.ProviderInfo;
 import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile b f57411g;
+    public static volatile b f42230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f57412h;
+    public static boolean f42231h;
     public transient /* synthetic */ FieldHolder $fh;
     public OpenId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OpenId f57413b;
+    public OpenId f42232b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OpenId f57414c;
+    public OpenId f42233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OpenId f57415d;
+    public OpenId f42234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SupportInfo f57416e;
+    public SupportInfo f42235e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BroadcastReceiver f57417f;
+    public BroadcastReceiver f42236f;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new OpenId("udid");
-        this.f57413b = new OpenId("oaid");
-        this.f57415d = new OpenId("vaid");
-        this.f57414c = new OpenId("aaid");
-        this.f57416e = new SupportInfo();
+        this.f42232b = new OpenId("oaid");
+        this.f42234d = new OpenId("vaid");
+        this.f42233c = new OpenId("aaid");
+        this.f42235e = new SupportInfo();
     }
 
     public static ValueData a(Cursor cursor) {
@@ -104,22 +105,22 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f57411g == null) {
+            if (f42230g == null) {
                 synchronized (b.class) {
-                    if (f57411g == null) {
-                        f57411g = new b();
+                    if (f42230g == null) {
+                        f42230g = new b();
                     }
                 }
             }
-            return f57411g;
+            return f42230g;
         }
         return (b) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            boolean z = f57412h;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && f42231h) {
+            Log.d("OpenIdManager", str);
         }
     }
 
@@ -128,13 +129,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if ("oaid".equals(str)) {
-                return this.f57413b;
+                return this.f42232b;
             }
             if ("vaid".equals(str)) {
-                return this.f57415d;
+                return this.f42234d;
             }
             if ("aaid".equals(str)) {
-                return this.f57414c;
+                return this.f42233c;
             }
             if ("udid".equals(str)) {
                 return this.a;
@@ -257,7 +258,7 @@ public class b {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            f57412h = z;
+            f42231h = z;
         }
     }
 
@@ -325,8 +326,8 @@ public class b {
         if (interceptable != null && (invokeLZ = interceptable.invokeLZ(1048580, this, context, z)) != null) {
             return invokeLZ.booleanValue;
         }
-        if (this.f57416e.isCached() && !z) {
-            return this.f57416e.isSupport();
+        if (this.f42235e.isCached() && !z) {
+            return this.f42235e.isSupport();
         }
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null) {
@@ -340,27 +341,27 @@ public class b {
         }
         if (packageInfo != null) {
             str = packageInfo.versionName;
-            if (!this.f57416e.isCached() && this.f57416e.isSameVersion(str)) {
+            if (!this.f42235e.isCached() && this.f42235e.isSameVersion(str)) {
                 b("use same version cache, safeVersion : " + str);
-                return this.f57416e.isSupport();
+                return this.f42235e.isSupport();
             }
-            this.f57416e.setVersionName(str);
+            this.f42235e.setVersionName(str);
             resolveContentProvider = packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0);
             boolean z2 = true;
             if ((resolveContentProvider == null && (resolveContentProvider.applicationInfo.flags & 1) != 0 && TextUtils.equals("com.meizu.safe", resolveContentProvider.packageName)) ? false : false) {
                 b("is not Supported, for isLegalProvider : false");
-                this.f57416e.setSupport(false);
+                this.f42235e.setSupport(false);
                 return false;
             }
             boolean a = a(context);
             b("query support, result : " + a);
-            this.f57416e.setSupport(a);
+            this.f42235e.setSupport(a);
             return a;
         }
         str = null;
-        if (!this.f57416e.isCached()) {
+        if (!this.f42235e.isCached()) {
         }
-        this.f57416e.setVersionName(str);
+        this.f42235e.setVersionName(str);
         resolveContentProvider = packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0);
         boolean z22 = true;
         if ((resolveContentProvider == null && (resolveContentProvider.applicationInfo.flags & 1) != 0 && TextUtils.equals("com.meizu.safe", resolveContentProvider.packageName)) ? false : false) {
@@ -371,13 +372,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             synchronized (this) {
-                if (this.f57417f != null) {
+                if (this.f42236f != null) {
                     return;
                 }
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.meizu.flyme.openid.ACTION_OPEN_ID_CHANGE");
                 a aVar = new a();
-                this.f57417f = aVar;
+                this.f42236f = aVar;
                 context.registerReceiver(aVar, intentFilter, "com.meizu.flyme.openid.permission.OPEN_ID_CHANGE", null);
             }
         }

@@ -26,16 +26,16 @@ public class MenuAdapter extends BaseAdapter {
     public final int mItemLayoutRes;
     public final boolean mOverflowOnly;
 
-    public MenuAdapter(MenuBuilder menuBuilder, LayoutInflater layoutInflater, boolean z, int i2) {
+    public MenuAdapter(MenuBuilder menuBuilder, LayoutInflater layoutInflater, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {menuBuilder, layoutInflater, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {menuBuilder, layoutInflater, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,7 +45,7 @@ public class MenuAdapter extends BaseAdapter {
         this.mOverflowOnly = z;
         this.mInflater = layoutInflater;
         this.mAdapterMenu = menuBuilder;
-        this.mItemLayoutRes = i2;
+        this.mItemLayoutRes = i;
         findExpandedIndex();
     }
 
@@ -56,9 +56,9 @@ public class MenuAdapter extends BaseAdapter {
             if (expandedItem != null) {
                 ArrayList<MenuItemImpl> nonActionItems = this.mAdapterMenu.getNonActionItems();
                 int size = nonActionItems.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    if (nonActionItems.get(i2) == expandedItem) {
-                        this.mExpandedIndex = i2;
+                for (int i = 0; i < size; i++) {
+                    if (nonActionItems.get(i) == expandedItem) {
+                        this.mExpandedIndex = i;
                         return;
                     }
                 }
@@ -94,29 +94,29 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) {
             if (view == null) {
                 view = this.mInflater.inflate(this.mItemLayoutRes, viewGroup, false);
             }
-            int groupId = getItem(i2).getGroupId();
-            int i3 = i2 - 1;
+            int groupId = getItem(i).getGroupId();
+            int i2 = i - 1;
             ListMenuItemView listMenuItemView = (ListMenuItemView) view;
-            listMenuItemView.setGroupDividerEnabled(this.mAdapterMenu.isGroupDividerEnabled() && groupId != (i3 >= 0 ? getItem(i3).getGroupId() : groupId));
+            listMenuItemView.setGroupDividerEnabled(this.mAdapterMenu.isGroupDividerEnabled() && groupId != (i2 >= 0 ? getItem(i2).getGroupId() : groupId));
             MenuView.ItemView itemView = (MenuView.ItemView) view;
             if (this.mForceShowIcon) {
                 listMenuItemView.setForceShowIcon(true);
             }
-            itemView.initialize(getItem(i2), 0);
+            itemView.initialize(getItem(i), 0);
             return view;
         }
         return (View) invokeILL.objValue;
@@ -140,16 +140,16 @@ public class MenuAdapter extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    public MenuItemImpl getItem(int i2) {
+    public MenuItemImpl getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             ArrayList<MenuItemImpl> nonActionItems = this.mOverflowOnly ? this.mAdapterMenu.getNonActionItems() : this.mAdapterMenu.getVisibleItems();
-            int i3 = this.mExpandedIndex;
-            if (i3 >= 0 && i2 >= i3) {
-                i2++;
+            int i2 = this.mExpandedIndex;
+            if (i2 >= 0 && i >= i2) {
+                i++;
             }
-            return nonActionItems.get(i2);
+            return nonActionItems.get(i);
         }
         return (MenuItemImpl) invokeI.objValue;
     }

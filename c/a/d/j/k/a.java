@@ -32,18 +32,18 @@ public class a {
 
     /* renamed from: c.a.d.j.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0118a implements Comparator<Object> {
+    public static class C0107a implements Comparator<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0118a() {
+        public C0107a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -74,9 +74,9 @@ public class a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -106,16 +106,16 @@ public class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3019b;
+        public String f2519b;
 
         public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -145,13 +145,13 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
             Class<?> componentType = obj.getClass().getComponentType();
             int length = Array.getLength(obj);
-            int i2 = length + 1;
-            Object newInstance = Array.newInstance(componentType, i2);
-            for (int i3 = 0; i3 < i2; i3++) {
-                if (i3 < length) {
-                    Array.set(newInstance, i3, Array.get(obj, i3));
+            int i = length + 1;
+            Object newInstance = Array.newInstance(componentType, i);
+            for (int i2 = 0; i2 < i; i2++) {
+                if (i2 < length) {
+                    Array.set(newInstance, i2, Array.get(obj, i2));
                 } else {
-                    Array.set(newInstance, i3, obj2);
+                    Array.set(newInstance, i2, obj2);
                 }
             }
             return newInstance;
@@ -174,11 +174,11 @@ public class a {
                 int length = Array.getLength(obj);
                 int length2 = Array.getLength(obj2) + length;
                 Object newInstance = Array.newInstance(componentType, length2);
-                for (int i2 = 0; i2 < length2; i2++) {
-                    if (i2 < length) {
-                        Array.set(newInstance, i2, Array.get(obj, i2));
+                for (int i = 0; i < length2; i++) {
+                    if (i < length) {
+                        Array.set(newInstance, i, Array.get(obj, i));
                     } else {
-                        Array.set(newInstance, i2, Array.get(obj2, i2 - length));
+                        Array.set(newInstance, i, Array.get(obj2, i - length));
                     }
                 }
                 return newInstance;
@@ -450,7 +450,7 @@ public class a {
                         for (String str2 : (String[]) f(dexClassLoader, DexClassLoader.class, "mLibPaths")) {
                             arrayList.add(str2);
                         }
-                        Collections.sort(arrayList, new C0118a());
+                        Collections.sort(arrayList, new C0107a());
                     } catch (Exception unused) {
                         o(pathClassLoader, PathClassLoader.class, "mLibPaths", c(f(pathClassLoader, PathClassLoader.class, "mLibPaths"), f(dexClassLoader, DexClassLoader.class, "mLibPaths")));
                     }
@@ -480,7 +480,7 @@ public class a {
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65550, null, z, th)) == null) {
             c cVar = new c();
             cVar.a = z;
-            cVar.f3019b = th != null ? th.getLocalizedMessage() : null;
+            cVar.f2519b = th != null ? th.getLocalizedMessage() : null;
             return cVar;
         }
         return (c) invokeZL.objValue;

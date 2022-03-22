@@ -43,9 +43,7 @@ public class PluginCenter {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f29852e;
+        public final /* synthetic */ PluginCenter a;
 
         public a(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -54,22 +52,22 @@ public class PluginCenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29852e = pluginCenter;
+            this.a = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29852e.retryLaunchPlugins();
+                this.a.retryLaunchPlugins();
             }
         }
     }
@@ -78,9 +76,7 @@ public class PluginCenter {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenter f29853e;
+        public final /* synthetic */ PluginCenter a;
 
         public b(PluginCenter pluginCenter) {
             Interceptable interceptable = $ic;
@@ -89,22 +85,22 @@ public class PluginCenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29853e = pluginCenter;
+            this.a = pluginCenter;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29853e.retryLaunchAllPlugins();
+                this.a.retryLaunchAllPlugins();
             }
         }
     }
@@ -129,9 +125,9 @@ public class PluginCenter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -175,8 +171,8 @@ public class PluginCenter {
             if (concurrentHashMap != null && concurrentHashMap.size() != 0 && this.mPluginsMap.size() != 1) {
                 StringBuilder sb = new StringBuilder();
                 Iterator<Map.Entry<String, Plugin>> it = this.mPluginsMap.entrySet().iterator();
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 while (true) {
                     Plugin.c cVar = null;
                     if (!it.hasNext()) {
@@ -188,25 +184,25 @@ public class PluginCenter {
                         Plugin value = next.getValue();
                         PluginSetting h2 = c.j().h(key);
                         if (h2 == null || !h2.isPatch || (!TextUtils.isEmpty(h2.replaceMethodClasses) && PluginPackageManager.u().w() <= 0)) {
-                            long j2 = 4001;
+                            long j = 4001;
                             if (value != null && !value.isLoaded()) {
-                                j2 = System.currentTimeMillis() - value.getLastLaunchTime();
-                                if (j2 > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
+                                j = System.currentTimeMillis() - value.getLastLaunchTime();
+                                if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                                     cVar = value.initWithBroadcast(key);
                                     if (cVar.a) {
                                         if (PluginPackageManager.u().B()) {
                                             c.a.d.j.h.a.b().g("plugin_load_retry_succ");
                                         }
                                     } else if (PluginPackageManager.u().B()) {
-                                        c.a.d.j.h.a.b().n("plugin_loaded_failed", key, cVar.f29849b, cVar.f29850c);
+                                        c.a.d.j.h.a.b().n("plugin_loaded_failed", key, cVar.f23859b, cVar.f23860c);
                                     }
                                 }
                             }
                             if (value != null) {
                                 if (value.isLoaded()) {
-                                    i3++;
-                                } else {
                                     i2++;
+                                } else {
+                                    i++;
                                     if (PluginPackageManager.u().B()) {
                                         PluginSetting h3 = c.j().h(key);
                                         if (h3 != null) {
@@ -238,14 +234,14 @@ public class PluginCenter {
                                         }
                                         if (cVar != null) {
                                             sb.append("-");
-                                            sb.append(cVar.f29849b);
+                                            sb.append(cVar.f23859b);
                                             sb.append("-");
-                                            sb.append(cVar.f29850c);
+                                            sb.append(cVar.f23860c);
                                         } else {
                                             sb.append("-ret==null");
                                         }
                                     }
-                                    if (j2 > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
+                                    if (j > PLUGIN_RETRY_MIN_TIME_INTERVAL) {
                                         c.a.d.j.j.g.a.b().f(value.getPackageName());
                                     }
                                 }
@@ -253,7 +249,7 @@ public class PluginCenter {
                         }
                     }
                 }
-                if (PluginPackageManager.u().B() && i2 > 0) {
+                if (PluginPackageManager.u().B() && i > 0) {
                     c.a.d.j.h.a.b().m("plugin_load", "retry_load_allplugin", null, sb.toString());
                 }
                 if (this.hadRecordPluginLoadLogger || this.mPluginsMap.size() <= 1) {
@@ -261,11 +257,11 @@ public class PluginCenter {
                 }
                 this.hadRecordPluginLoadLogger = true;
                 if (PluginPackageManager.u().B()) {
-                    int i4 = i3 + i2;
-                    if (i4 > 0) {
-                        c.a.d.j.h.a.b().h("plugin_load", i4);
+                    int i3 = i2 + i;
+                    if (i3 > 0) {
+                        c.a.d.j.h.a.b().h("plugin_load", i3);
                     }
-                    if (i2 <= 0 && c.a.d.j.h.a.b().f()) {
+                    if (i <= 0 && c.a.d.j.h.a.b().f()) {
                         c.a.d.j.h.a.b().g("plugin_load_resolve");
                     }
                     c.a.d.j.h.a.b().s(false);
@@ -283,7 +279,7 @@ public class PluginCenter {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             ConcurrentHashMap<String, Plugin> concurrentHashMap = this.mPluginsMap;
             if (concurrentHashMap != null && concurrentHashMap.size() != 0) {
-                int i2 = 0;
+                int i = 0;
                 StringBuilder sb = new StringBuilder();
                 for (Map.Entry<String, Plugin> entry : this.mPluginsMap.entrySet()) {
                     if (entry != null && entry.getKey() != null && entry.getValue() != null) {
@@ -303,7 +299,7 @@ public class PluginCenter {
                                     c.a.d.j.h.a.b().g("plugin_load_retry_succ");
                                 }
                             } else {
-                                i2++;
+                                i++;
                                 if (PluginPackageManager.u().B()) {
                                     PluginSetting h3 = c.j().h(key);
                                     if (h3 != null) {
@@ -334,15 +330,15 @@ public class PluginCenter {
                                         sb.append(value.getPluginApkFilePath());
                                     }
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f29849b);
+                                    sb.append(initWithBroadcast.f23859b);
                                     sb.append("-");
-                                    sb.append(initWithBroadcast.f29850c);
+                                    sb.append(initWithBroadcast.f23860c);
                                 }
                             }
                         }
                     }
                 }
-                if (!PluginPackageManager.u().B() || i2 <= 0) {
+                if (!PluginPackageManager.u().B() || i <= 0) {
                     return;
                 }
                 c.a.d.j.h.a.b().m("plugin_load", "retry_load_singleplugin", null, sb.toString());
@@ -352,10 +348,10 @@ public class PluginCenter {
         }
     }
 
-    public boolean bindService(Context context, String str, Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean bindService(Context context, String str, Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, intent, serviceConnection, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, intent, serviceConnection, Integer.valueOf(i)})) == null) {
             n.c();
             if (context == null) {
                 if (BdBaseApplication.getInst().isDebugMode()) {
@@ -367,7 +363,7 @@ public class PluginCenter {
             if (plugin2 == null || !plugin2.isLoaded()) {
                 return false;
             }
-            return plugin2.bindService(context, intent, serviceConnection, i2);
+            return plugin2.bindService(context, intent, serviceConnection, i);
         }
         return invokeCommon.booleanValue;
     }
@@ -585,7 +581,7 @@ public class PluginCenter {
             Plugin.c cVar = new Plugin.c();
             if (TextUtils.isEmpty(str)) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
-                    cVar.f29849b = "pluginName_is_null";
+                    cVar.f23859b = "pluginName_is_null";
                     cVar.a = false;
                     return cVar;
                 }
@@ -593,11 +589,11 @@ public class PluginCenter {
             }
             PluginSetting h2 = c.j().h(str);
             if (h2 == null) {
-                cVar.f29849b = "pluginSetting_is_null";
+                cVar.f23859b = "pluginSetting_is_null";
                 cVar.a = false;
                 return cVar;
             } else if (h2.versionCode < PluginPackageManager.t()) {
-                cVar.f29849b = "launch_lowversion";
+                cVar.f23859b = "launch_lowversion";
                 cVar.a = false;
                 c.a.d.j.h.a.b().i("plugincenter_launch_lowversion", str);
                 c.a.d.j.h.a b2 = c.a.d.j.h.a.b();

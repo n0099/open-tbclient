@@ -12,8 +12,8 @@ public class EncodeUtils {
         }
         StringBuilder sb = new StringBuilder();
         int length = bArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            sb.append(String.format("%02x", Byte.valueOf(bArr[i2])));
+        for (int i = 0; i < length; i++) {
+            sb.append(String.format("%02x", Byte.valueOf(bArr[i])));
         }
         return sb.toString();
     }

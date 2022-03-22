@@ -60,9 +60,9 @@ public class ShortcutInfoCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -207,11 +207,11 @@ public class ShortcutInfoCompat {
         }
 
         @NonNull
-        public Builder setRank(int i2) {
+        public Builder setRank(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                this.mInfo.mRank = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                this.mInfo.mRank = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -247,9 +247,9 @@ public class ShortcutInfoCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {shortcutInfoCompat};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -288,9 +288,9 @@ public class ShortcutInfoCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, shortcutInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -317,9 +317,9 @@ public class ShortcutInfoCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -336,14 +336,14 @@ public class ShortcutInfoCompat {
             Person[] personArr = this.mPersons;
             if (personArr != null && personArr.length > 0) {
                 persistableBundle.putInt(EXTRA_PERSON_COUNT, personArr.length);
-                int i2 = 0;
-                while (i2 < this.mPersons.length) {
+                int i = 0;
+                while (i < this.mPersons.length) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(EXTRA_PERSON_);
-                    int i3 = i2 + 1;
-                    sb.append(i3);
-                    persistableBundle.putPersistableBundle(sb.toString(), this.mPersons[i2].toPersistableBundle());
-                    i2 = i3;
+                    int i2 = i + 1;
+                    sb.append(i2);
+                    persistableBundle.putPersistableBundle(sb.toString(), this.mPersons[i].toPersistableBundle());
+                    i = i2;
                 }
             }
             persistableBundle.putBoolean(EXTRA_LONG_LIVED, this.mIsLongLived);
@@ -378,16 +378,16 @@ public class ShortcutInfoCompat {
             if (persistableBundle == null || !persistableBundle.containsKey(EXTRA_PERSON_COUNT)) {
                 return null;
             }
-            int i2 = persistableBundle.getInt(EXTRA_PERSON_COUNT);
-            Person[] personArr = new Person[i2];
-            int i3 = 0;
-            while (i3 < i2) {
+            int i = persistableBundle.getInt(EXTRA_PERSON_COUNT);
+            Person[] personArr = new Person[i];
+            int i2 = 0;
+            while (i2 < i) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(EXTRA_PERSON_);
-                int i4 = i3 + 1;
-                sb.append(i4);
-                personArr[i3] = Person.fromPersistableBundle(persistableBundle.getPersistableBundle(sb.toString()));
-                i3 = i4;
+                int i3 = i2 + 1;
+                sb.append(i3);
+                personArr[i2] = Person.fromPersistableBundle(persistableBundle.getPersistableBundle(sb.toString()));
+                i2 = i3;
             }
             return personArr;
         }
@@ -529,8 +529,8 @@ public class ShortcutInfoCompat {
                 if (personArr != null && personArr.length > 0) {
                     int length = personArr.length;
                     android.app.Person[] personArr2 = new android.app.Person[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        personArr2[i2] = this.mPersons[i2].toAndroidPerson();
+                    for (int i = 0; i < length; i++) {
+                        personArr2[i] = this.mPersons[i].toAndroidPerson();
                     }
                     intents.setPersons(personArr2);
                 }

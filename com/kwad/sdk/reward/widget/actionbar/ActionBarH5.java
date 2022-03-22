@@ -14,20 +14,20 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ActionBarH5 extends FrameLayout implements d {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f56200b;
+    public TextView f41128b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f56201c;
+    public AdTemplate f41129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56202d;
+    public a f41130d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(boolean z);
     }
@@ -42,34 +42,34 @@ public class ActionBarH5 extends FrameLayout implements d {
         a(context);
     }
 
-    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ActionBarH5(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         a(context);
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-        this.a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-        this.f56200b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d047a, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091089);
+        this.f41128b = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
     }
 
     private void a(View view, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C2095a(view.getContext()).a(this.f56201c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+        com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.f41129c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
-                if (ActionBarH5.this.f56202d != null) {
-                    ActionBarH5.this.f56202d.a(z);
+                if (ActionBarH5.this.f41130d != null) {
+                    ActionBarH5.this.f41130d.a(z);
                 }
             }
         }));
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f56201c = adTemplate;
-        this.f56202d = aVar;
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.a.setText(com.kwad.sdk.core.response.a.a.s(j2));
-        this.f56200b.setText(com.kwad.sdk.core.response.a.a.A(j2));
+        this.f41129c = adTemplate;
+        this.f41130d = aVar;
+        AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.a.setText(com.kwad.sdk.core.response.a.a.s(j));
+        this.f41128b.setText(com.kwad.sdk.core.response.a.a.A(j));
         setClickable(true);
         new f(this, this);
     }
@@ -81,7 +81,7 @@ public class ActionBarH5 extends FrameLayout implements d {
 
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
-        if (c.g(this.f56201c)) {
+        if (c.g(this.f41129c)) {
             a(view, false);
         }
     }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tieba.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends b {
     public ComplianceTextView a;
 
@@ -19,7 +19,7 @@ public class a extends b {
     public void a() {
         super.a();
         c cVar = (c) p();
-        if (cVar.f55180f) {
+        if (cVar.f40251f) {
             a((View) this.a);
         }
         this.a.setVisibility(0);
@@ -34,6 +34,6 @@ public class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.a = (ComplianceTextView) a(R.id.ksad_compliance_view);
+        this.a = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091058);
     }
 }

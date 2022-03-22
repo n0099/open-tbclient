@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.upstream.ParsingLoadable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> 
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, downloaderConstructorHelper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Uri) objArr2[0], (DownloaderConstructorHelper) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -53,17 +53,17 @@ public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> 
             return (List) invokeLLZ.objValue;
         }
         ArrayList arrayList = new ArrayList();
-        int i2 = 0;
+        int i = 0;
         while (true) {
             SsManifest.StreamElement[] streamElementArr = ssManifest.streamElements;
-            if (i2 >= streamElementArr.length) {
+            if (i >= streamElementArr.length) {
                 return arrayList;
             }
-            SsManifest.StreamElement streamElement = streamElementArr[i2];
-            for (int i3 = 0; i3 < streamElement.formats.length; i3++) {
-                arrayList.addAll(getSegments(dataSource, ssManifest, new TrackKey[]{new TrackKey(i2, i3)}, z));
+            SsManifest.StreamElement streamElement = streamElementArr[i];
+            for (int i2 = 0; i2 < streamElement.formats.length; i2++) {
+                arrayList.addAll(getSegments(dataSource, ssManifest, new TrackKey[]{new TrackKey(i, i2)}, z));
             }
-            i2++;
+            i++;
         }
     }
 
@@ -90,8 +90,8 @@ public final class SsDownloader extends SegmentDownloader<SsManifest, TrackKey> 
             ArrayList arrayList = new ArrayList();
             for (TrackKey trackKey : trackKeyArr) {
                 SsManifest.StreamElement streamElement = ssManifest.streamElements[trackKey.streamElementIndex];
-                for (int i2 = 0; i2 < streamElement.chunkCount; i2++) {
-                    arrayList.add(new SegmentDownloader.Segment(streamElement.getStartTimeUs(i2), new DataSpec(streamElement.buildRequestUri(trackKey.trackIndex, i2))));
+                for (int i = 0; i < streamElement.chunkCount; i++) {
+                    arrayList.add(new SegmentDownloader.Segment(streamElement.getStartTimeUs(i), new DataSpec(streamElement.buildRequestUri(trackKey.trackIndex, i))));
                 }
             }
             return arrayList;

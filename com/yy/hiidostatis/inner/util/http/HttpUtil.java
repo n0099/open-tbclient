@@ -2,6 +2,7 @@ package com.yy.hiidostatis.inner.util.http;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.AppInfo;
 import com.yy.hiidostatis.inner.util.log.L;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -27,13 +27,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public class HttpUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,9 +85,9 @@ public class HttpUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -103,16 +103,16 @@ public class HttpUtil {
                 str2 = null;
             } else {
                 StringBuffer stringBuffer = new StringBuffer();
-                int i2 = 0;
+                int i = 0;
                 for (Map.Entry<String, String> entry : map.entrySet()) {
-                    int i3 = i2 + 1;
-                    if (i2 > 0) {
+                    int i2 = i + 1;
+                    if (i > 0) {
                         stringBuffer.append("&");
                     }
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
-                    i2 = i3;
+                    i = i2;
                 }
                 str2 = stringBuffer.toString();
                 stringBuffer.setLength(0);
@@ -130,10 +130,10 @@ public class HttpUtil {
                 return "";
             }
             try {
-                Field declaredField = httpURLConnection.getClass().getDeclaredField(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE);
+                Field declaredField = httpURLConnection.getClass().getDeclaredField("route");
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(httpURLConnection);
-                Field declaredField2 = obj.getClass().getDeclaredField("proxy");
+                Field declaredField2 = obj.getClass().getDeclaredField(IMTrack.AckBuilder.PROXY_TYPE);
                 declaredField2.setAccessible(true);
                 Field declaredField3 = obj.getClass().getDeclaredField("inetSocketAddress");
                 declaredField3.setAccessible(true);
@@ -545,11 +545,11 @@ public class HttpUtil {
 
     public static HttpURLConnection urlToUrlConnection(String str) throws IOException {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
             URL url = new URL(str);
-            if (Build.VERSION.SDK_INT > 27 && ((i2 = AppInfo.INSTANCE.targetSdkVersion) > 27 || i2 == 0)) {
+            if (Build.VERSION.SDK_INT > 27 && ((i = AppInfo.INSTANCE.targetSdkVersion) > 27 || i == 0)) {
                 if (!url.getProtocol().equalsIgnoreCase("https")) {
                     url = new URL("https" + str.substring(url.getProtocol().length()));
                 }

@@ -10,13 +10,13 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableFromSingle<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<T> single;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CompletableFromSingleObserver<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class CompletableFromSingle<T> extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,9 +72,9 @@ public final class CompletableFromSingle<T> extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

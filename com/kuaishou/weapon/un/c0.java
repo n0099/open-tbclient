@@ -2,6 +2,7 @@ package com.kuaishou.weapon.un;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +23,9 @@ public class c0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,7 +71,7 @@ public class c0 {
             try {
                 Process start = new ProcessBuilder("/system/bin/cat", "/proc/cpuinfo").start();
                 StringBuffer stringBuffer = new StringBuffer();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream(), "utf-8"));
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(start.getInputStream(), IMAudioTransRequest.CHARSET));
                 while (true) {
                     String readLine = bufferedReader.readLine();
                     if (TextUtils.isEmpty(readLine)) {

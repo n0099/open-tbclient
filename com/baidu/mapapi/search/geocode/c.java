@@ -19,9 +19,9 @@ public final class c implements Parcelable.Creator<ReverseGeoCodeResult.AddressC
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,9 +40,9 @@ public final class c implements Parcelable.Creator<ReverseGeoCodeResult.AddressC
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ReverseGeoCodeResult.AddressComponent[] newArray(int i2) {
+    public ReverseGeoCodeResult.AddressComponent[] newArray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ReverseGeoCodeResult.AddressComponent[i2] : (ReverseGeoCodeResult.AddressComponent[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ReverseGeoCodeResult.AddressComponent[i] : (ReverseGeoCodeResult.AddressComponent[]) invokeI.objValue;
     }
 }

@@ -22,17 +22,17 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public int mStatusCode;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HttpResponsedMessage(int i2) {
-        super(i2);
+    public HttpResponsedMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,7 +47,7 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
     public String getContentEncoding() {
         InterceptResult invokeV;
@@ -98,15 +98,15 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.mStatusCode;
-            return i2 == 200 || i2 / 100 == 3;
+            int i = this.mStatusCode;
+            return i == 200 || i / 100 == 3;
         }
         return invokeV.booleanValue;
     }
 
-    public void logStatInBackground(int i2, f fVar) {
+    public void logStatInBackground(int i, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, fVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, fVar) == null) {
         }
     }
 
@@ -140,10 +140,10 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         }
     }
 
-    public void setStatusCode(int i2, String str) {
+    public void setStatusCode(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i2, str) == null) {
-            this.mStatusCode = i2;
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, str) == null) {
+            this.mStatusCode = i;
             if (isSuccess()) {
                 return;
             }

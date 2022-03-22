@@ -17,16 +17,16 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
     public boolean mSelfListener;
     public BdUniqueId mTag;
 
-    public MessageListener(int i2) {
+    public MessageListener(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
         this.mCmd = 0;
         this.mTag = null;
         this.mSelfListener = false;
-        this.mCmd = i2;
+        this.mCmd = i;
     }
 
     public int getCmd() {
@@ -72,16 +72,16 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
         }
     }
 
-    public MessageListener(int i2, boolean z) {
+    public MessageListener(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -90,7 +90,7 @@ public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
         this.mCmd = 0;
         this.mTag = null;
         this.mSelfListener = false;
-        this.mCmd = i2;
+        this.mCmd = i;
         this.mSelfListener = z;
     }
 }

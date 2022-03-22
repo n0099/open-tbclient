@@ -52,16 +52,16 @@ public class DownloadStrategy {
         @NonNull
         public BreakpointInfo info;
 
-        public ResumeAvailableResponseCheck(@NonNull DownloadConnection.Connected connected, int i2, @NonNull BreakpointInfo breakpointInfo) {
+        public ResumeAvailableResponseCheck(@NonNull DownloadConnection.Connected connected, int i, @NonNull BreakpointInfo breakpointInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {connected, Integer.valueOf(i2), breakpointInfo};
+                Object[] objArr = {connected, Integer.valueOf(i), breakpointInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,7 +69,7 @@ public class DownloadStrategy {
             }
             this.connected = connected;
             this.info = breakpointInfo;
-            this.blockIndex = i2;
+            this.blockIndex = i;
         }
 
         public void inspect() throws IOException {
@@ -109,9 +109,9 @@ public class DownloadStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -121,20 +121,20 @@ public class DownloadStrategy {
         this.manager = null;
     }
 
-    public int determineBlockCount(@NonNull DownloadTask downloadTask, long j2) {
+    public int determineBlockCount(@NonNull DownloadTask downloadTask, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, downloadTask, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, downloadTask, j)) == null) {
             if (downloadTask.getSetConnectionCount() != null) {
                 return downloadTask.getSetConnectionCount().intValue();
             }
-            if (j2 < 5242880) {
+            if (j < 5242880) {
                 return 1;
             }
-            if (j2 < 52428800) {
+            if (j < 52428800) {
                 return 2;
             }
-            return j2 < 104857600 ? 3 : 4;
+            return j < 104857600 ? 3 : 4;
         }
         return invokeLJ.intValue;
     }
@@ -164,19 +164,19 @@ public class DownloadStrategy {
     }
 
     @Nullable
-    public ResumeFailedCause getPreconditionFailedCause(int i2, boolean z, @NonNull BreakpointInfo breakpointInfo, @Nullable String str) {
+    public ResumeFailedCause getPreconditionFailedCause(int i, boolean z, @NonNull BreakpointInfo breakpointInfo, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), breakpointInfo, str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), breakpointInfo, str})) == null) {
             String etag = breakpointInfo.getEtag();
-            if (i2 == 412) {
+            if (i == 412) {
                 return ResumeFailedCause.RESPONSE_PRECONDITION_FAILED;
             }
             if (Util.isEmpty(etag) || Util.isEmpty(str) || str.equals(etag)) {
-                if (i2 == 201 && z) {
+                if (i == 201 && z) {
                     return ResumeFailedCause.RESPONSE_CREATED_RANGE_NOT_FROM_0;
                 }
-                if (i2 == 205 && z) {
+                if (i == 205 && z) {
                     return ResumeFailedCause.RESPONSE_RESET_RANGE_NOT_FROM_0;
                 }
                 return null;
@@ -186,18 +186,18 @@ public class DownloadStrategy {
         return (ResumeFailedCause) invokeCommon.objValue;
     }
 
-    public boolean inspectAnotherSameInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2) {
+    public boolean inspectAnotherSameInfo(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
         InterceptResult invokeCommon;
         BreakpointStore breakpointStore;
         BreakpointInfo findAnotherInfoFromCompare;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j)})) == null) {
             if (downloadTask.isFilenameFromResponse() && (findAnotherInfoFromCompare = (breakpointStore = BdDownload.with().breakpointStore()).findAnotherInfoFromCompare(downloadTask, breakpointInfo)) != null) {
                 breakpointStore.remove(findAnotherInfoFromCompare.getId());
                 if (findAnotherInfoFromCompare.getTotalOffset() <= BdDownload.with().downloadStrategy().reuseIdledSameInfoThresholdBytes()) {
                     return false;
                 }
-                if ((findAnotherInfoFromCompare.getEtag() == null || findAnotherInfoFromCompare.getEtag().equals(breakpointInfo.getEtag())) && findAnotherInfoFromCompare.getTotalLength() == j2 && findAnotherInfoFromCompare.getFile() != null && findAnotherInfoFromCompare.getFile().exists()) {
+                if ((findAnotherInfoFromCompare.getEtag() == null || findAnotherInfoFromCompare.getEtag().equals(breakpointInfo.getEtag())) && findAnotherInfoFromCompare.getTotalLength() == j && findAnotherInfoFromCompare.getFile() != null && findAnotherInfoFromCompare.getFile().exists()) {
                     breakpointInfo.reuseBlocks(findAnotherInfoFromCompare);
                     Util.d(TAG, "Reuse another same info: " + breakpointInfo);
                     return true;
@@ -254,12 +254,12 @@ public class DownloadStrategy {
         }
     }
 
-    public boolean isServerCanceled(int i2, boolean z) {
+    public boolean isServerCanceled(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 == 206 || i2 == 200) {
-                return i2 == 200 && z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i == 206 || i == 200) {
+                return i == 200 && z;
             }
             return true;
         }
@@ -278,10 +278,10 @@ public class DownloadStrategy {
         return invokeZ.booleanValue;
     }
 
-    public ResumeAvailableResponseCheck resumeAvailableResponseCheck(DownloadConnection.Connected connected, int i2, BreakpointInfo breakpointInfo) {
+    public ResumeAvailableResponseCheck resumeAvailableResponseCheck(DownloadConnection.Connected connected, int i, BreakpointInfo breakpointInfo) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048585, this, connected, i2, breakpointInfo)) == null) ? new ResumeAvailableResponseCheck(connected, i2, breakpointInfo) : (ResumeAvailableResponseCheck) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048585, this, connected, i, breakpointInfo)) == null) ? new ResumeAvailableResponseCheck(connected, i, breakpointInfo) : (ResumeAvailableResponseCheck) invokeLIL.objValue;
     }
 
     public long reuseIdledSameInfoThresholdBytes() {
@@ -337,8 +337,8 @@ public class DownloadStrategy {
                         length = file.length();
                     }
                 }
-                long j2 = length;
-                afterCompleted.addBlock(new BlockInfo(0L, j2, j2));
+                long j = length;
+                afterCompleted.addBlock(new BlockInfo(0L, j, j));
             }
             DownloadTask.TaskHideWrapper.setBreakpointInfo(downloadTask, afterCompleted);
         }
@@ -356,9 +356,9 @@ public class DownloadStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -424,9 +424,9 @@ public class DownloadStrategy {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

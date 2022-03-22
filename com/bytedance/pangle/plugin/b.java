@@ -32,12 +32,12 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public final class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -79,9 +79,9 @@ public final class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -97,28 +97,28 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean a(File file, String str, int i2) {
+    public static boolean a(File file, String str, int i) {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65538, null, file, str, i2)) != null) {
+        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65538, null, file, str, i)) != null) {
             return invokeLLI.booleanValue;
         }
         StringBuilder sb = new StringBuilder();
         try {
             try {
                 com.bytedance.pangle.log.c a2 = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_INSTALL, "PluginInstaller", "install:".concat(String.valueOf(str)));
-                a(com.bytedance.pangle.b.b.f51586e, b.a.l, str, i2, -1L, null, null);
-                e.a(PluginDirHelper.getPackageVersionDir(str, i2));
+                a(com.bytedance.pangle.b.b.f38020e, b.a.l, str, i, -1L, null, null);
+                e.a(PluginDirHelper.getPackageVersionDir(str, i));
                 long a3 = a2.a("cleanDir");
                 if (a3 > 30 || a3 < 0) {
                     sb.append("cleanDir cost:");
@@ -126,7 +126,7 @@ public final class b {
                     sb.append(";");
                 }
                 try {
-                    ApkVerifier verifier = g.a().f51712b.getVerifier();
+                    ApkVerifier verifier = g.a().f38133b.getVerifier();
                     if (verifier != null) {
                         if (!verifier.verify(file)) {
                             throw new RuntimeException("安装包签名校验失败[0]");
@@ -140,7 +140,7 @@ public final class b {
                         sb.append(a4);
                         sb.append(";");
                     }
-                    ZeusParam zeusParam = g.a().f51712b;
+                    ZeusParam zeusParam = g.a().f38133b;
                     if (zeusParam != null) {
                         try {
                             if (zeusParam.checkMatchHostAbi()) {
@@ -149,7 +149,7 @@ public final class b {
                                         throw new a("插件包包含so不符合宿主ABI类型", (byte) 0);
                                     }
                                 } catch (Exception e2) {
-                                    a(com.bytedance.pangle.b.b.f51587f, b.a.u, str, i2, -1L, null, e2);
+                                    a(com.bytedance.pangle.b.b.f38021f, b.a.u, str, i, -1L, null, e2);
                                     throw new a("插件包包含so不符合宿主ABI类型", e2, (byte) 0);
                                 }
                             }
@@ -166,14 +166,14 @@ public final class b {
                         sb.append(a5);
                         sb.append(";");
                     }
-                    b(file, str, i2);
+                    b(file, str, i);
                     long a6 = a2.a("checkPermissions");
                     if (a6 > 30 || a6 < 0) {
                         sb.append("checkPermissions cost:");
                         sb.append(a6);
                         sb.append(";");
                     }
-                    String sourceFile = PluginDirHelper.getSourceFile(str, i2);
+                    String sourceFile = PluginDirHelper.getSourceFile(str, i);
                     try {
                         String absolutePath = file.getAbsolutePath();
                         if (!TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(sourceFile)) {
@@ -200,7 +200,7 @@ public final class b {
                             sb.append(";");
                         }
                         try {
-                            com.bytedance.pangle.helper.b.a(new File(PluginDirHelper.getSourceFile(str, i2)), new File(PluginDirHelper.getNativeLibraryDir(str, i2)), str);
+                            com.bytedance.pangle.helper.b.a(new File(PluginDirHelper.getSourceFile(str, i)), new File(PluginDirHelper.getNativeLibraryDir(str, i)), str);
                             long a8 = a2.a("copySo");
                             if (a8 > 30 || a8 < 0) {
                                 sb.append("copySo cost:");
@@ -208,8 +208,8 @@ public final class b {
                                 sb.append(";");
                             }
                             try {
-                                String dalvikCacheDir = PluginDirHelper.getDalvikCacheDir(str, i2);
-                                String nativeLibraryDir = PluginDirHelper.getNativeLibraryDir(str, i2);
+                                String dalvikCacheDir = PluginDirHelper.getDalvikCacheDir(str, i);
+                                String nativeLibraryDir = PluginDirHelper.getNativeLibraryDir(str, i);
                                 String absolutePath2 = file.getAbsolutePath();
                                 if (Build.VERSION.SDK_INT < 26) {
                                     try {
@@ -220,10 +220,10 @@ public final class b {
                                         e5.printStackTrace();
                                     }
                                 }
-                                String sourceFile2 = PluginDirHelper.getSourceFile(str, i2);
-                                if (g.a().f51712b.fastDex2Oat()) {
-                                    int i3 = Build.VERSION.SDK_INT;
-                                    if (i3 >= 21 && i3 < 26) {
+                                String sourceFile2 = PluginDirHelper.getSourceFile(str, i);
+                                if (g.a().f38133b.fastDex2Oat()) {
+                                    int i2 = Build.VERSION.SDK_INT;
+                                    if (i2 >= 21 && i2 < 26) {
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append(dalvikCacheDir);
                                         sb2.append(File.separator);
@@ -240,7 +240,7 @@ public final class b {
                                         String sb3 = sb2.toString();
                                         File file4 = new File(sb3);
                                         if (!file4.exists() || !com.bytedance.pangle.d.c.a(file4)) {
-                                            int i4 = b.a.f51610b;
+                                            int i3 = b.a.f38040b;
                                             ArrayList arrayList = new ArrayList();
                                             arrayList.add("dex2oat");
                                             if (Build.VERSION.SDK_INT >= 24) {
@@ -250,12 +250,12 @@ public final class b {
                                                 arrayList.add("&");
                                             }
                                             arrayList.add("--instruction-set=" + com.bytedance.pangle.d.b.a());
-                                            if (i4 == b.a.a) {
+                                            if (i3 == b.a.a) {
                                                 arrayList.add("--compiler-filter=verify-none");
-                                            } else if (i4 == b.a.f51610b) {
+                                            } else if (i3 == b.a.f38040b) {
                                                 arrayList.add("--compiler-filter=interpret-only");
                                             } else {
-                                                int i5 = b.a.f51611c;
+                                                int i4 = b.a.f38041c;
                                             }
                                             arrayList.add("--dex-file=".concat(String.valueOf(sourceFile2)));
                                             arrayList.add("--oat-file=".concat(String.valueOf(sb3)));
@@ -280,23 +280,23 @@ public final class b {
                                     sb.append(a10);
                                     sb.append(";");
                                 }
-                                a(com.bytedance.pangle.b.b.f51587f, b.a.m, str, i2, a2.a(), sb.toString(), null);
+                                a(com.bytedance.pangle.b.b.f38021f, b.a.m, str, i, a2.a(), sb.toString(), null);
                                 a2.b("success");
                                 return true;
                             } catch (Exception e6) {
-                                a(com.bytedance.pangle.b.b.f51587f, b.a.t, str, i2, -1L, null, e6);
+                                a(com.bytedance.pangle.b.b.f38021f, b.a.t, str, i, -1L, null, e6);
                                 throw new a("dexOpt失败", e6, (byte) 0);
                             }
                         } catch (Exception e7) {
-                            a(com.bytedance.pangle.b.b.f51587f, b.a.r, str, i2, -1L, null, e7);
+                            a(com.bytedance.pangle.b.b.f38021f, b.a.r, str, i, -1L, null, e7);
                             throw new a("安装包动态库拷贝失败", e7, (byte) 0);
                         }
                     } catch (Exception e8) {
-                        a(com.bytedance.pangle.b.b.f51587f, b.a.q, str, i2, -1L, null, e8);
+                        a(com.bytedance.pangle.b.b.f38021f, b.a.q, str, i, -1L, null, e8);
                         throw new a("安装包拷贝失败", e8, (byte) 0);
                     }
                 } catch (Exception e9) {
-                    a(com.bytedance.pangle.b.b.f51587f, b.a.o, str, i2, -1L, null, e9);
+                    a(com.bytedance.pangle.b.b.f38021f, b.a.o, str, i, -1L, null, e9);
                     throw new a(e9.getMessage(), e9, (byte) 0);
                 }
             } catch (a e10) {
@@ -305,16 +305,16 @@ public final class b {
             }
         } catch (Exception e11) {
             ZeusLogger.e(ZeusLogger.TAG_INSTALL, "PluginInstaller " + str + " install failed unknown error.", e11);
-            a(com.bytedance.pangle.b.b.f51587f, b.a.n, str, i2, -1L, sb.toString(), e11);
+            a(com.bytedance.pangle.b.b.f38021f, b.a.n, str, i, -1L, sb.toString(), e11);
             return false;
         }
     }
 
-    public static void b(File file, String str, int i2) {
+    public static void b(File file, String str, int i) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, file, str, i2) == null) {
-            ZeusParam zeusParam = g.a().f51712b;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, file, str, i) == null) {
+            ZeusParam zeusParam = g.a().f38133b;
             try {
                 PackageInfo packageInfo = Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 4096);
                 PackageInfo packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 4096);
@@ -336,23 +336,23 @@ public final class b {
                     throw new a("The following permissions are declared in the plugin but not in the host: ".concat(String.valueOf(arrayList)), (byte) 0);
                 }
             } catch (Exception e2) {
-                a(com.bytedance.pangle.b.b.f51587f, b.a.p, str, i2, -1L, null, e2);
+                a(com.bytedance.pangle.b.b.f38021f, b.a.p, str, i, -1L, null, e2);
                 throw new a("安装包权限校验失败", e2, (byte) 0);
             }
         }
     }
 
-    public static void a(String str, int i2, @NonNull String str2, int i3, long j2, String str3, @Nullable Throwable th) {
+    public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Long.valueOf(j2), str3, th}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3, th}) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject.putOpt("status_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i2)));
+                jSONObject.putOpt("status_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i)));
                 jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.d.a(str2));
-                jSONObject.putOpt("version_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i3)));
-                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j2)));
+                jSONObject.putOpt("version_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i2)));
+                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j)));
                 jSONObject2.putOpt("throwable", com.bytedance.pangle.log.d.a(th));
                 jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
                 jSONObject2.putOpt("message", com.bytedance.pangle.log.d.a(str3));

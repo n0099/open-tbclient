@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PreShowPersonViewABTest extends AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ABTEST_GROUP_KEY;
-    public static final String TYPE_A = "12_21_pre_show_person_a";
-    public static final String TYPE_B = "12_21_pre_show_person_b";
+    public static final String TYPE_A = "12_22_pre_show_person_a";
+    public static final String TYPE_B = "12_22_pre_show_person_b";
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<String> mABTestList;
     public UsbAbTestSwitch mCurrentUsbAbTest;
@@ -42,9 +42,9 @@ public class PreShowPersonViewABTest extends AbsGroupUbsABTest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

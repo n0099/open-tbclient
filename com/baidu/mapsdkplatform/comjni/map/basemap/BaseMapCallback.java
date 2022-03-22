@@ -37,24 +37,24 @@ public class BaseMapCallback {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int ReqLayerData(Bundle bundle, long j2, int i2, Bundle bundle2) {
+    public static int ReqLayerData(Bundle bundle, long j, int i, Bundle bundle2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j2), Integer.valueOf(i2), bundle2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bundle, Long.valueOf(j), Integer.valueOf(i), bundle2})) == null) {
             int size = a.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                b valueAt = a.valueAt(i3);
-                if (valueAt != null && valueAt.a(j2)) {
-                    return valueAt.a(bundle, j2, i2, bundle2);
+            for (int i2 = 0; i2 < size; i2++) {
+                b valueAt = a.valueAt(i2);
+                if (valueAt != null && valueAt.a(j)) {
+                    return valueAt.a(bundle, j, i, bundle2);
                 }
             }
             return 0;
@@ -62,17 +62,17 @@ public class BaseMapCallback {
         return invokeCommon.intValue;
     }
 
-    public static void addLayerDataInterface(long j2, b bVar) {
+    public static void addLayerDataInterface(long j, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65539, null, j2, bVar) == null) {
-            a.put(j2, bVar);
+        if (interceptable == null || interceptable.invokeJL(65539, null, j, bVar) == null) {
+            a.put(j, bVar);
         }
     }
 
-    public static void removeLayerDataInterface(long j2) {
+    public static void removeLayerDataInterface(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
-            a.remove(j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
+            a.remove(j);
         }
     }
 }

@@ -103,17 +103,17 @@ public class ApkSignatureSchemeV1Verifier {
                         } else if (certificateArr == null) {
                             certificateArr = loadCertificates;
                         } else {
-                            for (int i2 = 0; i2 < certificateArr.length; i2++) {
-                                int i3 = 0;
+                            for (int i = 0; i < certificateArr.length; i++) {
+                                int i2 = 0;
                                 while (true) {
-                                    if (i3 >= loadCertificates.length) {
+                                    if (i2 >= loadCertificates.length) {
                                         z = false;
                                         break;
-                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(loadCertificates[i3])) {
+                                    } else if (certificateArr[i] != null && certificateArr[i].equals(loadCertificates[i2])) {
                                         z = true;
                                         break;
                                     } else {
-                                        i3++;
+                                        i2++;
                                     }
                                 }
                                 if (!z || certificateArr.length != loadCertificates.length) {

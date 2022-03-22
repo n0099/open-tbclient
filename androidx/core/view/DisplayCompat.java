@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +31,9 @@ public final class DisplayCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,12 +57,12 @@ public final class DisplayCompat {
                 return new Point(3840, DISPLAY_SIZE_4K_HEIGHT);
             }
             Point point = new Point();
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 Display.Mode mode = display.getMode();
                 point.x = mode.getPhysicalWidth();
                 point.y = mode.getPhysicalHeight();
-            } else if (i2 >= 17) {
+            } else if (i >= 17) {
                 display.getRealSize(point);
             } else {
                 display.getSize(point);
@@ -82,12 +83,12 @@ public final class DisplayCompat {
                 Display.Mode[] supportedModes = display.getSupportedModes();
                 ArrayList arrayList = new ArrayList(supportedModes.length);
                 boolean z = false;
-                for (int i2 = 0; i2 < supportedModes.length; i2++) {
-                    if (physicalSizeEquals(supportedModes[i2], physicalDisplaySize)) {
-                        arrayList.add(i2, new ModeCompat(supportedModes[i2], true));
+                for (int i = 0; i < supportedModes.length; i++) {
+                    if (physicalSizeEquals(supportedModes[i], physicalDisplaySize)) {
+                        arrayList.add(i, new ModeCompat(supportedModes[i], true));
                         z = true;
                     } else {
-                        arrayList.add(i2, new ModeCompat(supportedModes[i2], false));
+                        arrayList.add(i, new ModeCompat(supportedModes[i], false));
                     }
                 }
                 if (!z) {
@@ -107,7 +108,7 @@ public final class DisplayCompat {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class).invoke(cls, str);
+                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
             } catch (Exception unused) {
                 return null;
             }
@@ -191,9 +192,9 @@ public final class DisplayCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {point};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -239,9 +240,9 @@ public final class DisplayCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mode, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

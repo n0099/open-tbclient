@@ -43,9 +43,9 @@ public class ChatMsgFactory {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -58,9 +58,9 @@ public class ChatMsgFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,35 +80,35 @@ public class ChatMsgFactory {
         return (ChatMsgFactory) invokeV.objValue;
     }
 
-    public ChatMsg newChatMsg(Context context, int i2, int i3, int i4) {
+    public ChatMsg newChatMsg(Context context, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048576, this, context, i2, i3, i4)) == null) {
-            if (i2 != 0 && i2 != 1) {
-                if (i2 == 2 || i2 == 3) {
-                    return newMsgInstanceByCmd(context, i4);
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048576, this, context, i, i2, i3)) == null) {
+            if (i != 0 && i != 1) {
+                if (i == 2 || i == 3) {
+                    return newMsgInstanceByCmd(context, i3);
                 }
-                if (i2 != 4 && i2 != 6) {
+                if (i != 4 && i != 6) {
                     return null;
                 }
             }
-            return newMsgInstanceByType(context, i3);
+            return newMsgInstanceByType(context, i2);
         }
         return (ChatMsg) invokeLIII.objValue;
     }
 
-    public ChatMsg newMsgInstanceByCmd(Context context, int i2) {
+    public ChatMsg newMsgInstanceByCmd(Context context, int i) {
         InterceptResult invokeLI;
         NotifyCustomerMsg notifyCustomerMsg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 50) {
-                        if (i2 == 60) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 50) {
+                        if (i == 60) {
                             notifyCustomerMsg = new NotifyCustomerMsg(60);
-                        } else if (i2 != 62) {
-                            switch (i2) {
+                        } else if (i != 62) {
+                            switch (i) {
                                 case 20:
                                     return new PaSync();
                                 case 21:
@@ -134,24 +134,24 @@ public class ChatMsgFactory {
         return (ChatMsg) invokeLI.objValue;
     }
 
-    public ChatMsg newMsgInstanceByType(Context context, int i2) {
+    public ChatMsg newMsgInstanceByType(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2)) == null) {
-            if (IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i2)) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 != 12) {
-                                    if (i2 != 13) {
-                                        if (i2 != 32) {
-                                            if (i2 != 33) {
-                                                if (i2 != 35) {
-                                                    if (i2 != 36) {
-                                                        if (i2 != 100) {
-                                                            if (i2 != 101) {
-                                                                switch (i2) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
+            if (IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i)) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 12) {
+                                    if (i != 13) {
+                                        if (i != 32) {
+                                            if (i != 33) {
+                                                if (i != 35) {
+                                                    if (i != 36) {
+                                                        if (i != 100) {
+                                                            if (i != 101) {
+                                                                switch (i) {
                                                                     case 5:
                                                                         return new RealTimeAudioMsg();
                                                                     case 6:
@@ -163,7 +163,7 @@ public class ChatMsgFactory {
                                                                     case 9:
                                                                         return new MultiGraphicTextMsg();
                                                                     default:
-                                                                        switch (i2) {
+                                                                        switch (i) {
                                                                             case 16:
                                                                                 return new RedPackMsg();
                                                                             case 18:
@@ -207,7 +207,7 @@ public class ChatMsgFactory {
                                                                             case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
                                                                                 return new UnSubscribeMsg();
                                                                             default:
-                                                                                switch (i2) {
+                                                                                switch (i) {
                                                                                     case 20:
                                                                                         return new ConfigMsg();
                                                                                     case 21:
@@ -215,7 +215,7 @@ public class ChatMsgFactory {
                                                                                     case 22:
                                                                                         return new SchemaMsg();
                                                                                     default:
-                                                                                        switch (i2) {
+                                                                                        switch (i) {
                                                                                             case 24:
                                                                                                 return new InterActiveMsg();
                                                                                             case 25:
@@ -231,7 +231,7 @@ public class ChatMsgFactory {
                                                                                             case 30:
                                                                                                 return new BonusMsg();
                                                                                             default:
-                                                                                                switch (i2) {
+                                                                                                switch (i) {
                                                                                                     case 38:
                                                                                                         return new BrandMsg();
                                                                                                     case 39:

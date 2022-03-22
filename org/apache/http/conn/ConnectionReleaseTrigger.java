@@ -2,7 +2,7 @@ package org.apache.http.conn;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ConnectionReleaseTrigger {
     void abortConnection() throws IOException;
 

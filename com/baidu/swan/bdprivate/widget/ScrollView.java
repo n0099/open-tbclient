@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ScrollView extends android.widget.ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -45,8 +45,8 @@ public class ScrollView extends android.widget.ScrollView {
     @Override // android.widget.ScrollView
     public int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
             if (getChildCount() == 0) {
@@ -54,33 +54,33 @@ public class ScrollView extends android.widget.ScrollView {
             }
             int height = getHeight();
             int scrollY = getScrollY();
-            int i4 = scrollY + height;
+            int i3 = scrollY + height;
             int verticalFadingEdgeLength = getVerticalFadingEdgeLength();
             if (rect.top > 0) {
                 scrollY += verticalFadingEdgeLength;
             }
             if (rect.bottom < getChildAt(0).getHeight()) {
-                i4 -= verticalFadingEdgeLength;
+                i3 -= verticalFadingEdgeLength;
             }
-            int i5 = rect.top;
-            if (i5 > i4 && rect.bottom > i4 && i5 > scrollY) {
+            int i4 = rect.top;
+            if (i4 > i3 && rect.bottom > i3 && i4 > scrollY) {
                 if (rect.height() > height) {
-                    i3 = rect.top - scrollY;
+                    i2 = rect.top - scrollY;
                 } else {
-                    i3 = rect.bottom - i4;
+                    i2 = rect.bottom - i3;
                 }
-                return Math.min(i3 + 0, getChildAt(0).getBottom() - i4);
+                return Math.min(i2 + 0, getChildAt(0).getBottom() - i3);
             }
-            int i6 = rect.bottom;
-            if (i6 >= scrollY || rect.top >= scrollY || i6 >= i4) {
+            int i5 = rect.bottom;
+            if (i5 >= scrollY || rect.top >= scrollY || i5 >= i3) {
                 return 0;
             }
             if (rect.height() > height) {
-                i2 = 0 - (i4 - rect.bottom);
+                i = 0 - (i3 - rect.bottom);
             } else {
-                i2 = 0 - (scrollY - rect.top);
+                i = 0 - (scrollY - rect.top);
             }
-            return Math.max(i2, -getScrollY());
+            return Math.max(i, -getScrollY());
         }
         return invokeL.intValue;
     }
@@ -94,9 +94,9 @@ public class ScrollView extends android.widget.ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,9 +116,9 @@ public class ScrollView extends android.widget.ScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

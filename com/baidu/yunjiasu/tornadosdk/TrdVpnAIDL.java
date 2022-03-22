@@ -24,9 +24,9 @@ public final class TrdVpnAIDL extends ITrdVpnInterface.Stub {
             newInitContext.initArgs = r2;
             Object[] objArr = {svc};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,10 +37,10 @@ public final class TrdVpnAIDL extends ITrdVpnInterface.Stub {
     }
 
     @Override // com.baidu.yunjiasu.tornadosdk.ITrdVpnInterface
-    public String getRuntimeInfo(long j2) {
+    public String getRuntimeInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? this.vpnService.getRuntimeInfo(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.vpnService.getRuntimeInfo(j) : (String) invokeJ.objValue;
     }
 
     @Override // com.baidu.yunjiasu.tornadosdk.ITrdVpnInterface

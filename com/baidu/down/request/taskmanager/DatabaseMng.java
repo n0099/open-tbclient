@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DatabaseMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "bddownloads.db";
@@ -32,9 +32,9 @@ public class DatabaseMng {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,15 +80,15 @@ public class DatabaseMng {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, contentValues)) == null) ? this.mDownLoad.insertOrUpdate(this.mDb, contentValues) : invokeL.intValue;
     }
 
-    public long insertToDatabase(String str, String str2, String str3, int i2) {
+    public long insertToDatabase(String str, String str2, String str3, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048581, this, str, str2, str3, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048581, this, str, str2, str3, i)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("uri", str);
             contentValues.put("name", str2);
             contentValues.put("path", str3);
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(i2));
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(i));
             return this.mDownLoad.insert(this.mDb, contentValues);
         }
         return invokeLLLI.longValue;

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "tx3g";
@@ -29,7 +29,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public StyleRecord styleRecord;
     public int verticalJustification;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -103,25 +103,25 @@ public class TextSampleEntry extends AbstractSampleEntry {
             }
         }
 
-        public BoxRecord(int i2, int i3, int i4, int i5) {
+        public BoxRecord(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.top = i2;
-            this.left = i3;
-            this.bottom = i4;
-            this.right = i5;
+            this.top = i;
+            this.left = i2;
+            this.bottom = i3;
+            this.right = i4;
         }
     }
 
@@ -132,9 +132,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -246,9 +246,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(38);
             dataSource.read(allocate);
             allocate.position(6);
@@ -268,7 +268,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
             StyleRecord styleRecord = new StyleRecord();
             this.styleRecord = styleRecord;
             styleRecord.parse(allocate);
-            parseContainer(dataSource, j2 - 38, boxParser);
+            parseContainer(dataSource, j - 38, boxParser);
         }
     }
 
@@ -308,10 +308,10 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setHorizontalJustification(int i2) {
+    public void setHorizontalJustification(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.horizontalJustification = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.horizontalJustification = i;
         }
     }
 
@@ -362,10 +362,10 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setVerticalJustification(int i2) {
+    public void setVerticalJustification(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.verticalJustification = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.verticalJustification = i;
         }
     }
 
@@ -387,7 +387,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StyleRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -403,9 +403,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -458,9 +458,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
+                int i = ((((((((this.startChar * 31) + this.endChar) * 31) + this.fontId) * 31) + this.faceStyleFlags) * 31) + this.fontSize) * 31;
                 int[] iArr = this.textColor;
-                return i2 + (iArr != null ? Arrays.hashCode(iArr) : 0);
+                return i + (iArr != null ? Arrays.hashCode(iArr) : 0);
             }
             return invokeV.intValue;
         }
@@ -482,27 +482,27 @@ public class TextSampleEntry extends AbstractSampleEntry {
             }
         }
 
-        public StyleRecord(int i2, int i3, int i4, int i5, int i6, int[] iArr) {
+        public StyleRecord(int i, int i2, int i3, int i4, int i5, int[] iArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), iArr};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.textColor = new int[]{255, 255, 255, 255};
-            this.startChar = i2;
-            this.endChar = i3;
-            this.fontId = i4;
-            this.faceStyleFlags = i5;
-            this.fontSize = i6;
+            this.startChar = i;
+            this.endChar = i2;
+            this.fontId = i3;
+            this.faceStyleFlags = i4;
+            this.fontSize = i5;
             this.textColor = iArr;
         }
     }
@@ -516,9 +516,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

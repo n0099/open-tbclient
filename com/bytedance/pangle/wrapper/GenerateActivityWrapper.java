@@ -62,7 +62,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class GenerateActivityWrapper extends Activity implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -108,10 +108,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public PendingIntent createPendingResult(int i2, Intent intent, int i3) {
+    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), intent, Integer.valueOf(i3)})) == null) ? this.mOriginActivity.createPendingResult(i2, intent, i3) : (PendingIntent) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) ? this.mOriginActivity.createPendingResult(i, intent, i2) : (PendingIntent) invokeCommon.objValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -173,10 +173,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public View findViewById(int i2) {
+    public View findViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? this.mOriginActivity.findViewById(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? this.mOriginActivity.findViewById(i) : (View) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -188,18 +188,18 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void finishActivity(int i2) {
+    public void finishActivity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mOriginActivity.finishActivity(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mOriginActivity.finishActivity(i);
         }
     }
 
     @Override // android.app.Activity
-    public void finishActivityFromChild(Activity activity, int i2) {
+    public void finishActivityFromChild(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, activity, i2) == null) {
-            this.mOriginActivity.finishActivityFromChild(activity, i2);
+        if (interceptable == null || interceptable.invokeLI(1048592, this, activity, i) == null) {
+            this.mOriginActivity.finishActivityFromChild(activity, i);
         }
     }
 
@@ -355,10 +355,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public SharedPreferences getPreferences(int i2) {
+    public SharedPreferences getPreferences(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? this.mOriginActivity.getPreferences(i2) : (SharedPreferences) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) ? this.mOriginActivity.getPreferences(i) : (SharedPreferences) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -546,10 +546,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void onActivityReenter(int i2, Intent intent) {
+    public void onActivityReenter(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048641, this, i2, intent) == null) {
-            this.mOriginActivity.onActivityReenter(i2, intent);
+        if (interceptable == null || interceptable.invokeIL(1048641, this, i, intent) == null) {
+            this.mOriginActivity.onActivityReenter(i, intent);
         }
     }
 
@@ -656,17 +656,17 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i2, Menu menu) {
+    public boolean onCreatePanelMenu(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048655, this, i2, menu)) == null) ? this.mOriginActivity.onCreatePanelMenu(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048655, this, i, menu)) == null) ? this.mOriginActivity.onCreatePanelMenu(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public View onCreatePanelView(int i2) {
+    public View onCreatePanelView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048656, this, i2)) == null) ? this.mOriginActivity.onCreatePanelView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048656, this, i)) == null) ? this.mOriginActivity.onCreatePanelView(i) : (View) invokeI.objValue;
     }
 
     @Override // android.app.Activity
@@ -715,38 +715,38 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048664, this, i2, keyEvent)) == null) ? this.mOriginActivity.onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048664, this, i, keyEvent)) == null) ? this.mOriginActivity.onKeyDown(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048665, this, i2, keyEvent)) == null) ? this.mOriginActivity.onKeyLongPress(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048665, this, i, keyEvent)) == null) ? this.mOriginActivity.onKeyLongPress(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048666, this, i2, i3, keyEvent)) == null) ? this.mOriginActivity.onKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048666, this, i, i2, keyEvent)) == null) ? this.mOriginActivity.onKeyMultiple(i, i2, keyEvent) : invokeIIL.booleanValue;
     }
 
     @Override // android.app.Activity
-    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048667, this, i2, keyEvent)) == null) ? this.mOriginActivity.onKeyShortcut(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048667, this, i, keyEvent)) == null) ? this.mOriginActivity.onKeyShortcut(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048668, this, i2, keyEvent)) == null) ? this.mOriginActivity.onKeyUp(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048668, this, i, keyEvent)) == null) ? this.mOriginActivity.onKeyUp(i, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -774,17 +774,17 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048672, this, i2, menuItem)) == null) ? this.mOriginActivity.onMenuItemSelected(i2, menuItem) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048672, this, i, menuItem)) == null) ? this.mOriginActivity.onMenuItemSelected(i, menuItem) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i2, Menu menu) {
+    public boolean onMenuOpened(int i, Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048673, this, i2, menu)) == null) ? this.mOriginActivity.onMenuOpened(i2, menu) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048673, this, i, menu)) == null) ? this.mOriginActivity.onMenuOpened(i, menu) : invokeIL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -825,10 +825,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i2, Menu menu) {
+    public void onPanelClosed(int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048680, this, i2, menu) == null) {
-            this.mOriginActivity.onPanelClosed(i2, menu);
+        if (interceptable == null || interceptable.invokeIL(1048680, this, i, menu) == null) {
+            this.mOriginActivity.onPanelClosed(i, menu);
         }
     }
 
@@ -879,10 +879,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i2, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i2, view, menu)) == null) ? this.mOriginActivity.onPreparePanel(i2, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i, view, menu)) == null) ? this.mOriginActivity.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -902,10 +902,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onProvideKeyboardShortcuts(List list, Menu menu, int i2) {
+    public void onProvideKeyboardShortcuts(List list, Menu menu, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048691, this, list, menu, i2) == null) {
-            this.mOriginActivity.onProvideKeyboardShortcuts(list, menu, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048691, this, list, menu, i) == null) {
+            this.mOriginActivity.onProvideKeyboardShortcuts(list, menu, i);
         }
     }
 
@@ -917,10 +917,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048693, this, i2, strArr, iArr) == null) {
-            this.mOriginActivity.onRequestPermissionsResult(i2, strArr, iArr);
+        if (interceptable == null || interceptable.invokeILL(1048693, this, i, strArr, iArr) == null) {
+            this.mOriginActivity.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -985,10 +985,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i2) {
+    public void onTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048703, this, i2) == null) {
-            this.mOriginActivity.onTrimMemory(i2);
+        if (interceptable == null || interceptable.invokeI(1048703, this, i) == null) {
+            this.mOriginActivity.onTrimMemory(i);
         }
     }
 
@@ -1040,10 +1040,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048711, this, i2, i3) == null) {
-            this.mOriginActivity.overridePendingTransition(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048711, this, i, i2) == null) {
+            this.mOriginActivity.overridePendingTransition(i, i2);
         }
     }
 
@@ -1125,10 +1125,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048722, this, i2) == null) {
-            this.mOriginActivity.setContentView(i2);
+        if (interceptable == null || interceptable.invokeI(1048722, this, i) == null) {
+            this.mOriginActivity.setContentView(i);
         }
     }
 
@@ -1197,10 +1197,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048733, this, i2) == null) {
-            this.mOriginActivity.setRequestedOrientation(i2);
+        if (interceptable == null || interceptable.invokeI(1048733, this, i) == null) {
+            this.mOriginActivity.setRequestedOrientation(i);
         }
     }
 
@@ -1221,10 +1221,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048736, this, i2) == null) {
-            this.mOriginActivity.setTheme(i2);
+        if (interceptable == null || interceptable.invokeI(1048736, this, i) == null) {
+            this.mOriginActivity.setTheme(i);
         }
     }
 
@@ -1237,10 +1237,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setTitleColor(int i2) {
+    public void setTitleColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048739, this, i2) == null) {
-            this.mOriginActivity.setTitleColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048739, this, i) == null) {
+            this.mOriginActivity.setTitleColor(i);
         }
     }
 
@@ -1276,11 +1276,11 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // com.bytedance.pangle.wrapper.a
-    public void setWrapperActivityTheme(int i2) {
+    public void setWrapperActivityTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048744, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048744, this, i) == null) {
             try {
-                super.setTheme(i2);
+                super.setTheme(i);
             } catch (Exception unused) {
             }
         }
@@ -1339,57 +1339,57 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i2) {
+    public void startActivityForResult(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048755, this, intent, i2) == null) {
-            this.mOriginActivity.startActivityForResult(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048755, this, intent, i) == null) {
+            this.mOriginActivity.startActivityForResult(intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i2) {
+    public void startActivityFromChild(Activity activity, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048757, this, activity, intent, i2) == null) {
-            this.mOriginActivity.startActivityFromChild(activity, intent, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048757, this, activity, intent, i) == null) {
+            this.mOriginActivity.startActivityFromChild(activity, intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048759, this, fragment, intent, i2) == null) {
-            this.mOriginActivity.startActivityFromFragment(fragment, intent, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048759, this, fragment, intent, i) == null) {
+            this.mOriginActivity.startActivityFromFragment(fragment, intent, i);
         }
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i2) {
+    public boolean startActivityIfNeeded(Intent intent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048761, this, intent, i2)) == null) ? this.mOriginActivity.startActivityIfNeeded(intent, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048761, this, intent, i)) == null) ? this.mOriginActivity.startActivityIfNeeded(intent, i) : invokeLI.booleanValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048763, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mOriginActivity.startIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048763, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048765, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.mOriginActivity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048765, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) {
+    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048767, this, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i2, intent, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048767, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
         }
     }
 
@@ -1534,10 +1534,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048708, this, callback, i2)) == null) ? this.mOriginActivity.onWindowStartingActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048708, this, callback, i)) == null) ? this.mOriginActivity.onWindowStartingActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     @Override // android.app.Activity
@@ -1549,18 +1549,18 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048737, this, i2) == null) {
-            this.mOriginActivity.setTitle(i2);
+        if (interceptable == null || interceptable.invokeI(1048737, this, i) == null) {
+            this.mOriginActivity.setTitle(i);
         }
     }
 
     @Override // android.app.Activity
-    public ActionMode startActionMode(ActionMode.Callback callback, int i2) {
+    public ActionMode startActionMode(ActionMode.Callback callback, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048750, this, callback, i2)) == null) ? this.mOriginActivity.startActionMode(callback, i2) : (ActionMode) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048750, this, callback, i)) == null) ? this.mOriginActivity.startActionMode(callback, i) : (ActionMode) invokeLI.objValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -1580,57 +1580,57 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i2, Bundle bundle) {
+    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048756, this, intent, i2, bundle) == null) {
-            this.mOriginActivity.startActivityForResult(intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLIL(1048756, this, intent, i, bundle) == null) {
+            this.mOriginActivity.startActivityForResult(intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromChild(Activity activity, Intent intent, int i2, Bundle bundle) {
+    public void startActivityFromChild(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048758, this, activity, intent, i2, bundle) == null) {
-            this.mOriginActivity.startActivityFromChild(activity, intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLLIL(1048758, this, activity, intent, i, bundle) == null) {
+            this.mOriginActivity.startActivityFromChild(activity, intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2, Bundle bundle) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048760, this, fragment, intent, i2, bundle) == null) {
-            this.mOriginActivity.startActivityFromFragment(fragment, intent, i2, bundle);
+        if (interceptable == null || interceptable.invokeLLIL(1048760, this, fragment, intent, i, bundle) == null) {
+            this.mOriginActivity.startActivityFromFragment(fragment, intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public boolean startActivityIfNeeded(Intent intent, int i2, Bundle bundle) {
+    public boolean startActivityIfNeeded(Intent intent, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048762, this, intent, i2, bundle)) == null) ? this.mOriginActivity.startActivityIfNeeded(intent, i2, bundle) : invokeLIL.booleanValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048762, this, intent, i, bundle)) == null) ? this.mOriginActivity.startActivityIfNeeded(intent, i, bundle) : invokeLIL.booleanValue;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4, Bundle bundle) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048764, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mOriginActivity.startIntentSender(intentSender, intent, i2, i3, i4, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048764, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+            this.mOriginActivity.startIntentSender(intentSender, intent, i, i2, i3, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5, Bundle bundle) {
+    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048766, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            this.mOriginActivity.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048766, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+            this.mOriginActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5, Bundle bundle) {
+    public void startIntentSenderFromChild(Activity activity, IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048768, this, new Object[]{activity, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i2, intent, i3, i4, i5, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048768, this, new Object[]{activity, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+            this.mOriginActivity.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 

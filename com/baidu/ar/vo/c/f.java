@@ -14,17 +14,17 @@ public class f extends a implements c {
     public com.baidu.ar.vo.b.a zc;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(d dVar, com.baidu.ar.vo.a.b bVar, int i2, int i3) {
-        super(dVar, i2, i3);
+    public f(d dVar, com.baidu.ar.vo.a.b bVar, int i, int i2) {
+        super(dVar, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, bVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {dVar, bVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((d) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -35,10 +35,10 @@ public class f extends a implements c {
         this.zb = bVar;
     }
 
-    private int b(float[] fArr, int i2) {
+    private int b(float[] fArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, fArr, i2)) == null) ? 90.0f - ((float) (((Math.acos((double) (-fArr[10])) * 180.0d) * 1.0d) / 3.141592653589793d)) > ((float) i2) ? 0 : 1 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, fArr, i)) == null) ? 90.0f - ((float) (((Math.acos((double) (-fArr[10])) * 180.0d) * 1.0d) / 3.141592653589793d)) > ((float) i) ? 0 : 1 : invokeLI.intValue;
     }
 
     public void a(com.baidu.ar.vo.b.a aVar) {
@@ -56,8 +56,8 @@ public class f extends a implements c {
             float[] a = this.zc.a(this.zb.hg(), fArr);
             if (a != null) {
                 String a2 = this.yw.a(this.zb);
-                int i2 = (int) a[0];
-                if (i2 == 0) {
+                int i = (int) a[0];
+                if (i == 0) {
                     int b2 = b(fArr, this.zb.hg());
                     if (b2 == 0) {
                         this.yw.hl();
@@ -65,7 +65,7 @@ public class f extends a implements c {
                         this.yw.hm();
                     }
                     this.yw.r(new float[16]);
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     this.yw.a(a2, (int) a[1], (int) a[2], a.yY, this.zb.hf());
                     this.yw.hn();
                     return true;

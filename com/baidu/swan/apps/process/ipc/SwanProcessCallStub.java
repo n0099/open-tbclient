@@ -7,7 +7,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
-import c.a.p0.a.o1.b.e;
+import c.a.n0.a.o1.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             newInitContext.initArgs = r2;
             Object[] objArr = {handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,9 +41,9 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
     }
 
     @Override // com.baidu.swan.apps.IProcessBridge
-    public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+    public void callMainProcessAsync(String str, int i, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, iAsyncProcessCallback) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, iAsyncProcessCallback) == null) {
         }
     }
 

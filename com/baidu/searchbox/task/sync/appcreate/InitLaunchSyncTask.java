@@ -1,9 +1,11 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.r.k;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.r.a0.b;
+import c.a.o0.r.k;
+import c.a.p0.s;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -31,9 +33,9 @@ public class InitLaunchSyncTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,9 +57,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -66,7 +68,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.q0.c1.k0
+                @Override // c.a.o0.c1.k0
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -85,6 +87,7 @@ public class InitLaunchSyncTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
+        k kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -114,9 +117,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -138,7 +141,11 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            k kVar = new k();
+            if (b.a().a) {
+                kVar = new s();
+            } else {
+                kVar = new k();
+            }
             TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(kVar);
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(kVar);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());

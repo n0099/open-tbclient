@@ -1,6 +1,6 @@
 package com.xiaomi.push.service;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ai {
     /* renamed from: a */
-    void mo682a();
+    void mo661a();
 }

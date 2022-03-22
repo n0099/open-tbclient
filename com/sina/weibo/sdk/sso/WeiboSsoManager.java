@@ -3,9 +3,9 @@ package com.sina.weibo.sdk.sso;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.a;
-import c.p.a.b;
-import c.p.a.c;
+import c.l.a.a;
+import c.l.a.b;
+import c.l.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
@@ -50,9 +50,9 @@ public final class WeiboSsoManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -89,9 +89,9 @@ public final class WeiboSsoManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -100,7 +100,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // c.p.a.b
+                    @Override // c.l.a.b
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -143,10 +143,10 @@ public final class WeiboSsoManager {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
             c cVar = new c();
-            cVar.k(context);
-            cVar.j(str);
-            cVar.l("1478195010");
-            cVar.m("1000_0001");
+            cVar.j(context);
+            cVar.i(str);
+            cVar.k("1478195010");
+            cVar.l("1000_0001");
             WeiboSsoSdk.j(cVar);
             initAid();
         }
@@ -157,9 +157,9 @@ public final class WeiboSsoManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

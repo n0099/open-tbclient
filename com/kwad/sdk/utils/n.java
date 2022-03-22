@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static void a(Context context, View view) {
         InputMethodManager inputMethodManager;
@@ -16,9 +16,9 @@ public class n {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
-        for (int i2 = 0; i2 < 3; i2++) {
+        for (int i = 0; i < 3; i++) {
             try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
+                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i]);
                 if (!declaredField.isAccessible()) {
                     declaredField.setAccessible(true);
                 }
@@ -58,8 +58,8 @@ public class n {
             } else if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    a(viewGroup.getChildAt(i2));
+                for (int i = 0; i < childCount; i++) {
+                    a(viewGroup.getChildAt(i));
                 }
             }
         }

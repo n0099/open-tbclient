@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
-import c.a.y0.r.g;
+import c.a.v0.r.c;
+import c.a.v0.r.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +57,7 @@ public class VLogAudioPlayer {
 
     /* loaded from: classes6.dex */
     public interface OnProgressListener {
-        void getCurrentDuration(long j2);
+        void getCurrentDuration(long j);
     }
 
     /* loaded from: classes6.dex */
@@ -73,9 +73,9 @@ public class VLogAudioPlayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {vLogAudioPlayer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,7 +89,7 @@ public class VLogAudioPlayer {
             OnProgressListener onProgressListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j2 = 0;
+                long j = 0;
                 if (this.this$0.mCurrentState == -1 || this.this$0.mCurrentState == 0 || this.this$0.mCurrentState == 1 || this.this$0.mCurrentState == 2 || this.this$0.mCurrentState == 3) {
                     if (this.this$0.mOnProgressListener == null) {
                         return;
@@ -106,15 +106,15 @@ public class VLogAudioPlayer {
                     }
                     if (this.this$0.mOnProgressListener != null) {
                         onProgressListener = this.this$0.mOnProgressListener;
-                        j2 = this.this$0.mMediaPlayer.getCurrentPosition();
-                        onProgressListener.getCurrentDuration(j2);
+                        j = this.this$0.mMediaPlayer.getCurrentPosition();
+                        onProgressListener.getCurrentDuration(j);
                     }
                     return;
                 } else if (this.this$0.mOnProgressListener == null) {
                     return;
                 }
                 onProgressListener = this.this$0.mOnProgressListener;
-                onProgressListener.getCurrentDuration(j2);
+                onProgressListener.getCurrentDuration(j);
             }
         }
     }
@@ -124,9 +124,9 @@ public class VLogAudioPlayer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -146,9 +146,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -158,11 +158,11 @@ public class VLogAudioPlayer {
             }
 
             @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
-            public boolean onInfo(IMediaPlayer iMediaPlayer, int i4, int i5) {
+            public boolean onInfo(IMediaPlayer iMediaPlayer, int i3, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i4, i5)) == null) {
-                    this.this$0.notifyInfo(iMediaPlayer, i4, i5);
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i3, i4)) == null) {
+                    this.this$0.notifyInfo(iMediaPlayer, i3, i4);
                     return false;
                 }
                 return invokeLII.booleanValue;
@@ -180,9 +180,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -215,9 +215,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -227,13 +227,13 @@ public class VLogAudioPlayer {
             }
 
             @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
-            public boolean onError(IMediaPlayer iMediaPlayer, int i4, int i5) {
+            public boolean onError(IMediaPlayer iMediaPlayer, int i3, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i4, i5)) == null) {
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i3, i4)) == null) {
                     this.this$0.mCurrentState = -1;
                     this.this$0.mTargetState = -1;
-                    this.this$0.notifyError(iMediaPlayer, i4, i5);
+                    this.this$0.notifyError(iMediaPlayer, i3, i4);
                     return false;
                 }
                 return invokeLII.booleanValue;
@@ -251,9 +251,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -282,9 +282,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -298,9 +298,9 @@ public class VLogAudioPlayer {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
                     this.this$0.mCurrentState = 3;
-                    long j2 = this.this$0.mSeekWhenPrepared;
-                    if (j2 != 0) {
-                        this.this$0.seekTo(j2);
+                    long j = this.this$0.mSeekWhenPrepared;
+                    if (j != 0) {
+                        this.this$0.seekTo(j);
                     }
                     this.this$0.notifyPrepared(iMediaPlayer);
                     if (this.this$0.mTargetState == 4) {
@@ -322,9 +322,9 @@ public class VLogAudioPlayer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -370,21 +370,21 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyError(IMediaPlayer iMediaPlayer, int i2, int i3) {
+    public void notifyError(IMediaPlayer iMediaPlayer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65567, this, iMediaPlayer, i2, i3) == null) || this.mOnErrorListener == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65567, this, iMediaPlayer, i, i2) == null) || this.mOnErrorListener == null) {
             return;
         }
-        this.mOnErrorListener.onError(iMediaPlayer, i2, i3);
+        this.mOnErrorListener.onError(iMediaPlayer, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyInfo(IMediaPlayer iMediaPlayer, int i2, int i3) {
+    public void notifyInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65568, this, iMediaPlayer, i2, i3) == null) || this.mOnInfoListener == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65568, this, iMediaPlayer, i, i2) == null) || this.mOnInfoListener == null) {
             return;
         }
-        this.mOnInfoListener.onInfo(iMediaPlayer, i2, i3);
+        this.mOnInfoListener.onInfo(iMediaPlayer, i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -472,16 +472,16 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void seekToInternal(long j2) {
+    public void seekToInternal(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65576, this, j2) == null) {
-            this.mSeekWhenPrepared = j2;
+        if (interceptable == null || interceptable.invokeJ(65576, this, j) == null) {
+            this.mSeekWhenPrepared = j;
             try {
                 QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
                 if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                    this.mSeekWhenPrepared = j2;
+                    this.mSeekWhenPrepared = j;
                 } else {
-                    qMExoWrapperMediaPlayer.seekTo(j2);
+                    qMExoWrapperMediaPlayer.seekTo(j);
                     this.mSeekWhenPrepared = 0L;
                 }
             } catch (Exception e2) {
@@ -573,8 +573,8 @@ public class VLogAudioPlayer {
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, this, list)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             AudioPlayData audioPlayData = null;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                AudioPlayData audioPlayData2 = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                AudioPlayData audioPlayData2 = list.get(i);
                 if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                     mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
                     int c2 = g.c(mediaMetadataRetriever.extractMetadata(9), 0);
@@ -595,34 +595,34 @@ public class VLogAudioPlayer {
                 return false;
             }
             ArrayList arrayList = new ArrayList();
-            int i3 = 0;
-            for (int i4 = 0; i4 < list.size(); i4++) {
-                AudioPlayData audioPlayData3 = list.get(i4);
-                int i5 = audioPlayData3.end - audioPlayData3.start;
-                if (i5 < 0) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                AudioPlayData audioPlayData3 = list.get(i3);
+                int i4 = audioPlayData3.end - audioPlayData3.start;
+                if (i4 < 0) {
                     return false;
                 }
-                if (i5 != 0) {
+                if (i4 != 0) {
                     if (TextUtils.isEmpty(audioPlayData3.audioPath)) {
-                        int i6 = audioPlayData.realDuration;
-                        int i7 = i5 / i6;
-                        int i8 = i5 % i6;
-                        for (int i9 = 0; i9 < i7; i9++) {
+                        int i5 = audioPlayData.realDuration;
+                        int i6 = i4 / i5;
+                        int i7 = i4 % i5;
+                        for (int i8 = 0; i8 < i6; i8++) {
                             AudioPlayData audioPlayData4 = new AudioPlayData(audioPlayData.audioPath, 0, audioPlayData.end, 0.0f);
                             audioPlayData4.realDuration = audioPlayData.realDuration;
-                            i3 += audioPlayData.end;
-                            audioPlayData4.relativeMaxDuration = i3;
+                            i2 += audioPlayData.end;
+                            audioPlayData4.relativeMaxDuration = i2;
                             arrayList.add(audioPlayData4);
                         }
-                        if (i8 > 0) {
-                            audioPlayData3 = new AudioPlayData(audioPlayData.audioPath, 0, i8, 0.0f);
+                        if (i7 > 0) {
+                            audioPlayData3 = new AudioPlayData(audioPlayData.audioPath, 0, i7, 0.0f);
                             audioPlayData3.realDuration = audioPlayData.realDuration;
-                            i3 += i8;
+                            i2 += i7;
                         }
                     } else {
-                        i3 = (i3 + audioPlayData3.end) - audioPlayData3.start;
+                        i2 = (i2 + audioPlayData3.end) - audioPlayData3.start;
                     }
-                    audioPlayData3.relativeMaxDuration = i3;
+                    audioPlayData3.relativeMaxDuration = i2;
                     arrayList.add(audioPlayData3);
                 }
             }
@@ -634,14 +634,14 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateVolume(long j2) {
+    public void updateVolume(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65582, this, j2) == null) || j2 <= 0 || this.handledAudioList == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65582, this, j) == null) || j <= 0 || this.handledAudioList == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.handledAudioList.size(); i2++) {
-            AudioPlayData audioPlayData = this.handledAudioList.get(i2);
-            if (audioPlayData.relativeMaxDuration >= j2) {
+        for (int i = 0; i < this.handledAudioList.size(); i++) {
+            AudioPlayData audioPlayData = this.handledAudioList.get(i);
+            if (audioPlayData.relativeMaxDuration >= j) {
                 float volume = this.mMediaPlayer.getVolume();
                 float f2 = audioPlayData.volume;
                 if (volume != f2) {
@@ -742,9 +742,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -783,9 +783,9 @@ public class VLogAudioPlayer {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -821,9 +821,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -859,9 +859,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -882,11 +882,11 @@ public class VLogAudioPlayer {
         }
     }
 
-    public void seekTo(long j2) {
+    public void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mSeekWhenPrepared = j2;
-            schedule(new Runnable(this, j2) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mSeekWhenPrepared = j;
+            schedule(new Runnable(this, j) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VLogAudioPlayer this$0;
@@ -897,18 +897,18 @@ public class VLogAudioPlayer {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2)};
+                        Object[] objArr = {this, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$pos = j2;
+                    this.val$pos = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -938,9 +938,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -985,9 +985,9 @@ public class VLogAudioPlayer {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, list};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1005,10 +1005,10 @@ public class VLogAudioPlayer {
                         this.this$0.handledAudioList = new ArrayList();
                     }
                     this.this$0.handledAudioList.clear();
-                    for (int i2 = 0; i2 < this.val$playDataList.size(); i2++) {
-                        AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i2);
+                    for (int i = 0; i < this.val$playDataList.size(); i++) {
+                        AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i);
                         if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m101clone());
+                            this.this$0.handledAudioList.add(audioPlayData.m95clone());
                         }
                     }
                     VLogAudioPlayer vLogAudioPlayer = this.this$0;
@@ -1085,9 +1085,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Float.valueOf(f2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1109,11 +1109,11 @@ public class VLogAudioPlayer {
         }
     }
 
-    public void setVolume(int i2, float f2) {
+    public void setVolume(int i, float f2) {
         List<AudioPlayData> list;
         AudioPlayData audioPlayData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (list = this.handledAudioList) == null || i2 < 0 || f2 < 0.0f || list.size() <= i2 || (audioPlayData = this.handledAudioList.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) || (list = this.handledAudioList) == null || i < 0 || f2 < 0.0f || list.size() <= i || (audioPlayData = this.handledAudioList.get(i)) == null) {
             return;
         }
         audioPlayData.volume = f2;
@@ -1138,9 +1138,9 @@ public class VLogAudioPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

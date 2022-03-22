@@ -22,10 +22,10 @@ public final class DanmuProgressManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f47453b;
+    public static final a f36661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Lazy<DanmuProgressManager> f47454c;
+    public static final Lazy<DanmuProgressManager> f36662c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Long> a;
 
@@ -39,9 +39,9 @@ public final class DanmuProgressManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -55,7 +55,7 @@ public final class DanmuProgressManager {
         public final DanmuProgressManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f47454c.getValue() : (DanmuProgressManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f36662c.getValue() : (DanmuProgressManager) invokeV.objValue;
         }
     }
 
@@ -72,8 +72,8 @@ public final class DanmuProgressManager {
                 return;
             }
         }
-        f47453b = new a(null);
-        f47454c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
+        f36661b = new a(null);
+        f36662c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
     }
 
     public DanmuProgressManager() {
@@ -81,9 +81,9 @@ public final class DanmuProgressManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -119,11 +119,11 @@ public final class DanmuProgressManager {
         return invokeL.longValue;
     }
 
-    public final void d(String url, long j2) {
+    public final void d(String url, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, url, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, url, j) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
-            this.a.put(url, Long.valueOf(j2));
+            this.a.put(url, Long.valueOf(j));
         }
     }
 }

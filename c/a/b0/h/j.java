@@ -1,72 +1,58 @@
 package c.a.b0.h;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public interface j {
+public class j {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public static final ServiceReference f1542d = new ServiceReference("nad.core", "hostCI");
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final j f1543e = new a();
-
-    /* loaded from: classes.dex */
-    public static class a implements j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static g a(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            g gVar = new g();
+            if (uri != null) {
+                String queryParameter = uri.getQueryParameter("downloaded_size");
+                long longValue = !TextUtils.isEmpty(queryParameter) ? Long.valueOf(queryParameter).longValue() : 0L;
+                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
+                long longValue2 = TextUtils.isEmpty(queryParameter2) ? 0L : Long.valueOf(queryParameter2).longValue();
+                gVar.a = longValue;
+                gVar.f1944b = longValue2;
             }
+            return gVar;
         }
-
-        @Override // c.a.b0.h.j
-        @NonNull
-        public String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // c.a.b0.h.j
-        @NonNull
-        public String r() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // c.a.b0.h.j
-        @NonNull
-        public String s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-        }
+        return (g) invokeL.objValue;
     }
 
-    @NonNull
-    String n();
+    public static Uri b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.getAuth(ContextHolder.getApplicationContext())).build() : (Uri) invokeV.objValue;
+    }
 
-    @NonNull
-    String r();
+    public static Uri c(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.getAuth(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build() : (Uri) invokeCommon.objValue;
+    }
 
-    @NonNull
-    String s();
+    public static Uri d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.getAuth(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
+    }
+
+    public static Uri e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.getAuth(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
+    }
 }

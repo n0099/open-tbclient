@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.HttpException;
@@ -26,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -42,7 +43,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +53,9 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -69,7 +70,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
@@ -91,17 +92,17 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpUrlFetcher(GlideUrl glideUrl, int i2) {
-        this(glideUrl, i2, DEFAULT_CONNECTION_FACTORY);
+    public HttpUrlFetcher(GlideUrl glideUrl, int i) {
+        this(glideUrl, i, DEFAULT_CONNECTION_FACTORY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {glideUrl, Integer.valueOf(i2)};
+            Object[] objArr = {glideUrl, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((GlideUrl) objArr2[0], ((Integer) objArr2[1]).intValue(), (HttpUrlConnectionFactory) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -119,7 +120,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                 this.stream = ContentLengthInputStream.obtain(httpURLConnection.getInputStream(), httpURLConnection.getContentLength());
             } else {
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "Got non empty content encoding: " + httpURLConnection.getContentEncoding();
+                    Log.d(TAG, "Got non empty content encoding: " + httpURLConnection.getContentEncoding());
                 }
                 this.stream = httpURLConnection.getInputStream();
             }
@@ -128,23 +129,23 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         return (InputStream) invokeL.objValue;
     }
 
-    public static boolean isHttpOk(int i2) {
+    public static boolean isHttpOk(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 / 100 == 2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i / 100 == 2 : invokeI.booleanValue;
     }
 
-    public static boolean isHttpRedirect(int i2) {
+    public static boolean isHttpRedirect(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 / 100 == 3 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i / 100 == 3 : invokeI.booleanValue;
     }
 
-    private InputStream loadDataWithRedirects(URL url, int i2, URL url2, Map<String, String> map) throws IOException {
+    private InputStream loadDataWithRedirects(URL url, int i, URL url2, Map<String, String> map) throws IOException {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65542, this, url, i2, url2, map)) == null) {
-            if (i2 < 5) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65542, this, url, i, url2, map)) == null) {
+            if (i < 5) {
                 if (url2 != null) {
                     try {
                         if (url.toURI().equals(url2.toURI())) {
@@ -177,11 +178,11 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                     }
                     throw new HttpException(this.urlConnection.getResponseMessage(), responseCode);
                 }
-                String headerField = this.urlConnection.getHeaderField("Location");
+                String headerField = this.urlConnection.getHeaderField(Headers.LOCATION);
                 if (!TextUtils.isEmpty(headerField)) {
                     URL url3 = new URL(url, headerField);
                     cleanup();
-                    return loadDataWithRedirects(url3, i2 + 1, url, map);
+                    return loadDataWithRedirects(url3, i + 1, url, map);
                 }
                 throw new HttpException("Received empty or null redirect url");
             }
@@ -243,7 +244,9 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                 try {
                     dataCallback.onDataReady(loadDataWithRedirects(this.glideUrl.toURL(), 0, null, this.glideUrl.getHeaders()));
                 } catch (IOException e2) {
-                    Log.isLoggable(TAG, 3);
+                    if (Log.isLoggable(TAG, 3)) {
+                        Log.d(TAG, "Failed to load data for url", e2);
+                    }
                     dataCallback.onLoadFailed(e2);
                     if (!Log.isLoggable(TAG, 2)) {
                         return;
@@ -254,11 +257,11 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                     sb = new StringBuilder();
                     sb.append("Finished http url fetcher fetch in ");
                     sb.append(LogTime.getElapsedMillis(logTime));
-                    sb.toString();
+                    Log.v(TAG, sb.toString());
                 }
             } catch (Throwable th) {
                 if (Log.isLoggable(TAG, 2)) {
-                    String str = "Finished http url fetcher fetch in " + LogTime.getElapsedMillis(logTime);
+                    Log.v(TAG, "Finished http url fetcher fetch in " + LogTime.getElapsedMillis(logTime));
                 }
                 throw th;
             }
@@ -266,23 +269,23 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     }
 
     @VisibleForTesting
-    public HttpUrlFetcher(GlideUrl glideUrl, int i2, HttpUrlConnectionFactory httpUrlConnectionFactory) {
+    public HttpUrlFetcher(GlideUrl glideUrl, int i, HttpUrlConnectionFactory httpUrlConnectionFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {glideUrl, Integer.valueOf(i2), httpUrlConnectionFactory};
+            Object[] objArr = {glideUrl, Integer.valueOf(i), httpUrlConnectionFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.glideUrl = glideUrl;
-        this.timeout = i2;
+        this.timeout = i;
         this.connectionFactory = httpUrlConnectionFactory;
     }
 }

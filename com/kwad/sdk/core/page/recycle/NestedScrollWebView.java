@@ -12,54 +12,50 @@ import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.VelocityTrackerCompat;
 import com.kwad.sdk.core.page.widget.webview.KsAdWebView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NestedScrollWebView extends KsAdWebView implements NestedScrollingChild {
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54530c;
+    public int f39647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54531d;
+    public int f39648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f54532e;
+    public final int[] f39649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f54533f;
+    public final int[] f39650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54534g;
+    public int f39651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54535h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f54536i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f54537j;
+    public boolean f39652h;
+    public int i;
+    public int j;
     public NestedScrollingChildHelper k;
     public VelocityTracker l;
     public int m;
 
     public NestedScrollWebView(Context context) {
         super(context);
-        this.f54532e = new int[2];
-        this.f54533f = new int[2];
+        this.f39649e = new int[2];
+        this.f39650f = new int[2];
         a((AttributeSet) null);
     }
 
     public NestedScrollWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f54532e = new int[2];
-        this.f54533f = new int[2];
+        this.f39649e = new int[2];
+        this.f39650f = new int[2];
         a(attributeSet);
     }
 
-    public NestedScrollWebView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        this.f54532e = new int[2];
-        this.f54533f = new int[2];
+    public NestedScrollWebView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f39649e = new int[2];
+        this.f39650f = new int[2];
         a(attributeSet);
     }
 
@@ -68,8 +64,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
         ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());
         this.k = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
-        this.f54537j = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.f54536i = viewConfiguration.getScaledMinimumFlingVelocity();
+        this.j = viewConfiguration.getScaledMaximumFlingVelocity();
+        this.i = viewConfiguration.getScaledMinimumFlingVelocity();
     }
 
     private void d() {
@@ -86,13 +82,13 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
-        return this.k.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
+    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
+        return this.k.dispatchNestedPreScroll(i, i2, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
-        return this.k.dispatchNestedScroll(i2, i3, i4, i5, iArr);
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
+        return this.k.dispatchNestedScroll(i, i2, i3, i4, iArr);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
@@ -106,16 +102,16 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
     }
 
     @Override // android.webkit.WebView, android.widget.AbsoluteLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         if (this.m != 0) {
-            i3 = View.MeasureSpec.makeMeasureSpec(((getContext() instanceof Activity ? com.kwad.sdk.a.kwai.a.b((Activity) getContext()) : com.kwad.sdk.a.kwai.a.b(getContext())) - (com.kwad.sdk.utils.d.a() ? com.kwad.sdk.a.kwai.a.a(getContext()) : 0)) - this.m, 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec(((getContext() instanceof Activity ? com.kwad.sdk.a.kwai.a.b((Activity) getContext()) : com.kwad.sdk.a.kwai.a.b(getContext())) - (com.kwad.sdk.utils.d.a() ? com.kwad.sdk.a.kwai.a.a(getContext()) : 0)) - this.m, 1073741824);
         }
-        super.onMeasure(i2, i3);
+        super.onMeasure(i, i2);
     }
 
     @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView, android.webkit.WebView, android.view.View
-    public void onScrollChanged(int i2, int i3, int i4, int i5) {
-        super.onScrollChanged(i2, i3, i4, i5);
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
         if (hasFocus()) {
             return;
         }
@@ -130,41 +126,41 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
         boolean z = false;
         if (actionMasked == 0) {
-            this.f54534g = 0;
+            this.f39651g = 0;
         }
         if (this.l == null) {
             this.l = VelocityTracker.obtain();
         }
         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
         int y = (int) motionEvent.getY();
-        motionEvent.offsetLocation(0.0f, this.f54534g);
+        motionEvent.offsetLocation(0.0f, this.f39651g);
         if (actionMasked != 0) {
             if (actionMasked != 1) {
                 if (actionMasked == 2) {
-                    int i2 = this.f54530c - y;
-                    if (dispatchNestedPreScroll(0, i2, this.f54533f, this.f54532e)) {
-                        i2 -= this.f54533f[1];
-                        obtain.offsetLocation(0.0f, this.f54532e[1]);
-                        this.f54534g += this.f54532e[1];
+                    int i = this.f39647c - y;
+                    if (dispatchNestedPreScroll(0, i, this.f39650f, this.f39649e)) {
+                        i -= this.f39650f[1];
+                        obtain.offsetLocation(0.0f, this.f39649e[1]);
+                        this.f39651g += this.f39649e[1];
                     }
                     int scrollY = getScrollY();
-                    this.f54530c = y - this.f54532e[1];
-                    int max = Math.max(0, scrollY + i2);
-                    int i3 = i2 - (max - scrollY);
-                    if (dispatchNestedScroll(0, max - i3, 0, i3, this.f54532e)) {
-                        this.f54530c = this.f54530c - this.f54532e[1];
+                    this.f39647c = y - this.f39649e[1];
+                    int max = Math.max(0, scrollY + i);
+                    int i2 = i - (max - scrollY);
+                    if (dispatchNestedScroll(0, max - i2, 0, i2, this.f39649e)) {
+                        this.f39647c = this.f39647c - this.f39649e[1];
                         obtain.offsetLocation(0.0f, iArr[1]);
-                        this.f54534g += this.f54532e[1];
+                        this.f39651g += this.f39649e[1];
                     }
-                    if (Math.abs(this.f54533f[1]) >= 5 || Math.abs(this.f54532e[1]) >= 5) {
-                        if (!this.f54535h) {
-                            this.f54535h = true;
+                    if (Math.abs(this.f39650f[1]) >= 5 || Math.abs(this.f39649e[1]) >= 5) {
+                        if (!this.f39652h) {
+                            this.f39652h = true;
                             super.onTouchEvent(MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0));
                         }
                         onTouchEvent = false;
                     } else {
-                        if (this.f54535h) {
-                            this.f54535h = false;
+                        if (this.f39652h) {
+                            this.f39652h = false;
                             onTouchEvent = false;
                         } else {
                             onTouchEvent = super.onTouchEvent(obtain);
@@ -180,30 +176,30 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
                 }
             }
             this.l.addMovement(motionEvent);
-            this.l.computeCurrentVelocity(1000, this.f54537j);
+            this.l.computeCurrentVelocity(1000, this.j);
             float f2 = -VelocityTrackerCompat.getYVelocity(this.l, MotionEventCompat.getPointerId(motionEvent, actionIndex));
-            if (Math.abs(f2) > this.f54536i && !dispatchNestedPreFling(0.0f, f2) && hasNestedScrollingParent()) {
+            if (Math.abs(f2) > this.i && !dispatchNestedPreFling(0.0f, f2) && hasNestedScrollingParent()) {
                 dispatchNestedFling(0.0f, f2, true);
             }
             boolean onTouchEvent2 = super.onTouchEvent(motionEvent);
             stopNestedScroll();
-            if (Math.abs(motionEvent.getY() - this.f54530c) < 10.0f && Math.abs(motionEvent.getX() - this.f54531d) < 10.0f) {
+            if (Math.abs(motionEvent.getY() - this.f39647c) < 10.0f && Math.abs(motionEvent.getX() - this.f39648d) < 10.0f) {
                 d();
             }
             onTouchEvent = onTouchEvent2;
             z = true;
         } else {
-            this.f54530c = y;
-            this.f54531d = (int) motionEvent.getX();
+            this.f39647c = y;
+            this.f39648d = (int) motionEvent.getX();
             startNestedScroll(2);
-            int[] iArr2 = this.f54533f;
+            int[] iArr2 = this.f39650f;
             iArr2[0] = 0;
             iArr2[1] = 0;
-            int[] iArr3 = this.f54532e;
+            int[] iArr3 = this.f39649e;
             iArr3[0] = 0;
             iArr3[1] = 0;
             onTouchEvent = super.onTouchEvent(motionEvent);
-            this.f54535h = false;
+            this.f39652h = false;
         }
         if (!z) {
             this.l.addMovement(motionEvent);
@@ -217,8 +213,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean startNestedScroll(int i2) {
-        return this.k.startNestedScroll(i2);
+    public boolean startNestedScroll(int i) {
+        return this.k.startNestedScroll(i);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild

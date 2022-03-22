@@ -14,13 +14,13 @@ import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.log.Logger;
 import com.tachikoma.core.module.TKBuilder;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKModuleManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<Class<?>, Object> handlerMap;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final TKModuleManager INSTANCE;
@@ -47,9 +47,9 @@ public class TKModuleManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -62,9 +62,9 @@ public class TKModuleManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

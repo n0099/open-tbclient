@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.w1;
-import c.a.q0.t.a;
+import c.a.o0.r.r.t1;
+import c.a.o0.t.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AccessState;
@@ -45,7 +45,7 @@ public class PostWriteCallBackData implements Serializable {
     public a mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public w1 mReplyPrivacyTip;
+    public t1 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -62,9 +62,9 @@ public class PostWriteCallBackData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,10 +168,10 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.proZone : invokeV.intValue;
     }
 
-    public w1 getReplyPrivacyTip() {
+    public t1 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mReplyPrivacyTip : (w1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mReplyPrivacyTip : (t1) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -263,10 +263,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.errorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.errorCode = i;
         }
     }
 
@@ -277,10 +277,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setGeneralTabId(int i2) {
+    public void setGeneralTabId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.generalTabId = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.generalTabId = i;
         }
     }
 
@@ -291,10 +291,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setIsCopyTWZhibo(int i2) {
+    public void setIsCopyTWZhibo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.isCopyTWZhibo = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.isCopyTWZhibo = i;
         }
     }
 
@@ -312,17 +312,17 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setProZone(int i2) {
+    public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.proZone = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.proZone = i;
         }
     }
 
-    public void setReplyPrivacyTip(w1 w1Var) {
+    public void setReplyPrivacyTip(t1 t1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, w1Var) == null) {
-            this.mReplyPrivacyTip = w1Var;
+        if (interceptable == null || interceptable.invokeL(1048612, this, t1Var) == null) {
+            this.mReplyPrivacyTip = t1Var;
         }
     }
 
@@ -361,16 +361,16 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public PostWriteCallBackData(int i2, String str, String str2, String str3) {
+    public PostWriteCallBackData(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -381,7 +381,7 @@ public class PostWriteCallBackData implements Serializable {
         this.accessState = null;
         this.sensitiveWords = null;
         this.isDyamicCallback = false;
-        this.errorCode = i2;
+        this.errorCode = i;
         this.errorString = str;
         this.preMsg = str2;
         this.colorMsg = str3;

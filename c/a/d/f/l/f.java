@@ -11,31 +11,27 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2685b;
+    public int f2219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2686c;
+    public long f2220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2687d;
+    public int f2221d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2688e;
+    public int f2222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2689f;
+    public long f2223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2690g;
+    public int f2224g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2691h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f2692i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f2693j;
+    public int f2225h;
+    public long i;
+    public int j;
     public long k;
     public int l;
     public long m;
@@ -58,9 +54,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -71,15 +67,15 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            this.f2685b = 0;
-            this.f2686c = 0L;
-            this.f2687d = 0;
-            this.f2688e = 0;
-            this.f2689f = 0L;
-            this.f2690g = 0;
-            this.f2691h = 0;
-            this.f2692i = 0L;
-            this.f2693j = 0;
+            this.f2219b = 0;
+            this.f2220c = 0L;
+            this.f2221d = 0;
+            this.f2222e = 0;
+            this.f2223f = 0L;
+            this.f2224g = 0;
+            this.f2225h = 0;
+            this.i = 0L;
+            this.j = 0;
             this.k = 0L;
             this.l = 0;
             this.m = 0L;

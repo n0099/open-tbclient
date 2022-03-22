@@ -79,9 +79,9 @@ public class DTSTrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -144,11 +144,11 @@ public class DTSTrackImpl extends AbstractTrack {
         }
     }
 
-    private boolean parseAuprhdr(int i2, ByteBuffer byteBuffer) {
+    private boolean parseAuprhdr(int i, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, byteBuffer)) == null) {
             byteBuffer.get();
             short s = byteBuffer.getShort();
             this.maxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
@@ -161,35 +161,35 @@ public class DTSTrackImpl extends AbstractTrack {
                 this.bcCoreMaxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
                 this.bcCoreBitRate = byteBuffer.getShort();
                 this.bcCoreChannelMask = byteBuffer.getShort();
-                i3 = 28;
+                i2 = 28;
             } else {
-                i3 = 21;
+                i2 = 21;
             }
             if ((s & 4) > 0) {
                 this.lsbTrimPercent = byteBuffer.get();
-                i3++;
+                i2++;
             }
             if ((s & 8) > 0) {
                 this.lbrCodingPresent = 1;
             }
-            while (i3 < i2) {
+            while (i2 < i) {
                 byteBuffer.get();
-                i3++;
+                i2++;
             }
             return true;
         }
         return invokeIL.booleanValue;
     }
 
-    private boolean parseCoressmd(int i2, ByteBuffer byteBuffer) {
+    private boolean parseCoressmd(int i, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, byteBuffer)) == null) {
             this.coreMaxSampleRate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             this.coreBitRate = byteBuffer.getShort();
             this.coreChannelMask = byteBuffer.getShort();
             this.coreFramePayloadInBytes = byteBuffer.getInt();
-            for (int i3 = 11; i3 < i2; i3++) {
+            for (int i2 = 11; i2 < i; i2++) {
                 byteBuffer.get();
             }
             return true;
@@ -197,10 +197,10 @@ public class DTSTrackImpl extends AbstractTrack {
         return invokeIL.booleanValue;
     }
 
-    private boolean parseDtshdhdr(int i2, ByteBuffer byteBuffer) {
+    private boolean parseDtshdhdr(int i, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, byteBuffer)) == null) {
             byteBuffer.getInt();
             byteBuffer.get();
             byteBuffer.getInt();
@@ -220,7 +220,7 @@ public class DTSTrackImpl extends AbstractTrack {
             } else {
                 this.numExtSubStreams = 0;
             }
-            for (int i3 = 14; i3 < i2; i3++) {
+            for (int i2 = 14; i2 < i; i2++) {
                 byteBuffer.get();
             }
             return true;
@@ -228,23 +228,23 @@ public class DTSTrackImpl extends AbstractTrack {
         return invokeIL.booleanValue;
     }
 
-    private boolean parseExtssmd(int i2, ByteBuffer byteBuffer) {
+    private boolean parseExtssmd(int i, ByteBuffer byteBuffer) {
         InterceptResult invokeIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, this, i2, byteBuffer)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65543, this, i, byteBuffer)) == null) {
             this.extAvgBitrate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
             if (this.isVBR) {
                 this.extPeakBitrate = (byteBuffer.get() << YogaNodeJNIBase.HAS_NEW_LAYOUT) | (byteBuffer.getShort() & UShort.MAX_VALUE);
                 this.extSmoothBuffSize = byteBuffer.getShort();
-                i3 = 8;
+                i2 = 8;
             } else {
                 this.extFramePayloadInBytes = byteBuffer.getInt();
-                i3 = 7;
+                i2 = 7;
             }
-            while (i3 < i2) {
+            while (i2 < i) {
                 byteBuffer.get();
-                i3++;
+                i2++;
             }
             return true;
         }
@@ -256,9 +256,9 @@ public class DTSTrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             ArrayList arrayList = new ArrayList(CastUtils.l2i(this.dataSource.size() / this.frameSize));
-            int i2 = this.dataOffset;
-            while (this.frameSize + i2 < this.dataSource.size()) {
-                arrayList.add(new Sample(this, i2) { // from class: com.googlecode.mp4parser.authoring.tracks.DTSTrackImpl.1
+            int i = this.dataOffset;
+            while (this.frameSize + i < this.dataSource.size()) {
+                arrayList.add(new Sample(this, i) { // from class: com.googlecode.mp4parser.authoring.tracks.DTSTrackImpl.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DTSTrackImpl this$0;
@@ -269,18 +269,18 @@ public class DTSTrackImpl extends AbstractTrack {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i2)};
+                            Object[] objArr = {this, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$currentPosition = i2;
+                        this.val$currentPosition = i;
                     }
 
                     @Override // com.googlecode.mp4parser.authoring.Sample
@@ -312,7 +312,7 @@ public class DTSTrackImpl extends AbstractTrack {
                         }
                     }
                 });
-                i2 += this.frameSize;
+                i += this.frameSize;
             }
             long[] jArr = new long[arrayList.size()];
             this.sampleDurations = jArr;
@@ -1353,35 +1353,35 @@ public class DTSTrackImpl extends AbstractTrack {
             return invokeV.booleanValue;
         }
         ByteBuffer map = this.dataSource.map(0L, ANRMonitor.ANR_TIMEOUT_MS);
+        int i = map.getInt();
         int i2 = map.getInt();
-        int i3 = map.getInt();
-        if (i2 != 1146377032 || i3 != 1145586770) {
+        if (i != 1146377032 || i2 != 1145586770) {
             return false;
         }
         while (true) {
-            if ((i2 != 1398035021 || i3 != 1145132097) && map.remaining() > 100) {
-                int i4 = (int) map.getLong();
-                if (i2 == 1146377032 && i3 == 1145586770) {
-                    if (!parseDtshdhdr(i4, map)) {
+            if ((i != 1398035021 || i2 != 1145132097) && map.remaining() > 100) {
+                int i3 = (int) map.getLong();
+                if (i == 1146377032 && i2 == 1145586770) {
+                    if (!parseDtshdhdr(i3, map)) {
                         return false;
                     }
-                } else if (i2 == 1129271877 && i3 == 1397968196) {
-                    if (!parseCoressmd(i4, map)) {
+                } else if (i == 1129271877 && i2 == 1397968196) {
+                    if (!parseCoressmd(i3, map)) {
                         return false;
                     }
-                } else if (i2 == 1096110162 && i3 == 759710802) {
-                    if (!parseAuprhdr(i4, map)) {
+                } else if (i == 1096110162 && i2 == 759710802) {
+                    if (!parseAuprhdr(i3, map)) {
                         return false;
                     }
-                } else if (i2 != 1163416659 || i3 != 1398754628) {
-                    for (int i5 = 0; i5 < i4; i5++) {
+                } else if (i != 1163416659 || i2 != 1398754628) {
+                    for (int i4 = 0; i4 < i3; i4++) {
                         map.get();
                     }
-                } else if (!parseExtssmd(i4, map)) {
+                } else if (!parseExtssmd(i3, map)) {
                     return false;
                 }
+                i = map.getInt();
                 i2 = map.getInt();
-                i3 = map.getInt();
             }
         }
     }
@@ -1466,9 +1466,9 @@ public class DTSTrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASSERT = 7;
@@ -41,9 +41,9 @@ public class FLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -89,10 +89,10 @@ public class FLog {
         }
     }
 
-    public static boolean isLoggable(int i2) {
+    public static boolean isLoggable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65581, null, i2)) == null) ? sHandler.isLoggable(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65581, null, i)) == null) ? sHandler.isLoggable(i) : invokeI.booleanValue;
     }
 
     public static void setLoggingDelegate(LoggingDelegate loggingDelegate) {
@@ -106,10 +106,10 @@ public class FLog {
         }
     }
 
-    public static void setMinimumLoggingLevel(int i2) {
+    public static void setMinimumLoggingLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65583, null, i2) == null) {
-            sHandler.setMinimumLoggingLevel(i2);
+        if (interceptable == null || interceptable.invokeI(65583, null, i) == null) {
+            sHandler.setMinimumLoggingLevel(i);
         }
     }
 

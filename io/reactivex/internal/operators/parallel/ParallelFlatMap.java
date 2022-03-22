@@ -21,16 +21,16 @@ public final class ParallelFlatMap<T, R> extends ParallelFlowable<R> {
     public final int prefetch;
     public final ParallelFlowable<T> source;
 
-    public ParallelFlatMap(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i2, int i3) {
+    public ParallelFlatMap(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends Publisher<? extends R>> function, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parallelFlowable, function, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {parallelFlowable, function, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,8 +39,8 @@ public final class ParallelFlatMap<T, R> extends ParallelFlowable<R> {
         this.source = parallelFlowable;
         this.mapper = function;
         this.delayError = z;
-        this.maxConcurrency = i2;
-        this.prefetch = i3;
+        this.maxConcurrency = i;
+        this.prefetch = i2;
     }
 
     @Override // io.reactivex.parallel.ParallelFlowable
@@ -56,8 +56,8 @@ public final class ParallelFlatMap<T, R> extends ParallelFlowable<R> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
             Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                subscriberArr2[i2] = FlowableFlatMap.subscribe(subscriberArr[i2], this.mapper, this.delayError, this.maxConcurrency, this.prefetch);
+            for (int i = 0; i < length; i++) {
+                subscriberArr2[i] = FlowableFlatMap.subscribe(subscriberArr[i], this.mapper, this.delayError, this.maxConcurrency, this.prefetch);
             }
             this.source.subscribe(subscriberArr2);
         }

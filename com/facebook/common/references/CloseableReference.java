@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final ResourceReleaser<Closeable> DEFAULT_CLOSEABLE_RELEASER;
@@ -33,7 +33,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     public final LeakHandler mLeakHandler;
     public final SharedReference<T> mSharedReference;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference);
     }
@@ -61,9 +61,9 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -91,9 +91,9 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -117,9 +117,9 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {sharedReference, leakHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -153,7 +153,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 if (isValid()) {
-                    return m111clone();
+                    return m104clone();
                 }
                 return null;
             }
@@ -276,7 +276,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public synchronized CloseableReference<T> m111clone() {
+    public synchronized CloseableReference<T> m104clone() {
         InterceptResult invokeV;
         CloseableReference<T> closeableReference;
         Interceptable interceptable = $ic;
@@ -344,9 +344,9 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {t, resourceReleaser, leakHandler};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

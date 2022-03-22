@@ -17,24 +17,24 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34445d;
+    public static final String f26655d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34446b;
+    public int f26656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34447c;
+    public int f26657c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34448e;
+    public long f26658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f34449f;
+    public a f26659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f34450g;
+    public final j f26660g;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -54,7 +54,7 @@ public class MapRenderer implements GLSurfaceView.Renderer {
                 return;
             }
         }
-        f34445d = MapRenderer.class.getSimpleName();
+        f26655d = MapRenderer.class.getSimpleName();
     }
 
     public MapRenderer(j jVar, a aVar) {
@@ -64,16 +64,16 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             newInitContext.initArgs = r2;
             Object[] objArr = {jVar, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f34449f = aVar;
-        this.f34450g = jVar;
+        this.f26659f = aVar;
+        this.f26660g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -87,19 +87,19 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f34448e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f26658e != 0 : invokeV.booleanValue;
     }
 
-    public static native void nativeInit(long j2);
+    public static native void nativeInit(long j);
 
-    public static native int nativeRender(long j2);
+    public static native int nativeRender(long j);
 
-    public static native void nativeResize(long j2, int i2, int i3);
+    public static native void nativeResize(long j, int i, int i2);
 
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f34448e = j2;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.f26658e = j;
         }
     }
 
@@ -111,27 +111,27 @@ public class MapRenderer implements GLSurfaceView.Renderer {
                 a(gl10);
                 return;
             }
-            if (this.f34447c <= 1) {
-                nativeResize(this.f34448e, this.a, this.f34446b);
-                this.f34447c++;
+            if (this.f26657c <= 1) {
+                nativeResize(this.f26658e, this.a, this.f26656b);
+                this.f26657c++;
             }
-            this.f34449f.f();
-            int nativeRender = nativeRender(this.f34448e);
-            if (this.f34450g.a() == null) {
+            this.f26659f.f();
+            int nativeRender = nativeRender(this.f26658e);
+            if (this.f26660g.a() == null) {
                 return;
             }
-            if (this.f34450g.a().f34501h != null) {
-                for (l lVar : this.f34450g.a().f34501h) {
-                    if (this.f34450g.a() == null) {
+            if (this.f26660g.a().f26705h != null) {
+                for (l lVar : this.f26660g.a().f26705h) {
+                    if (this.f26660g.a() == null) {
                         return;
                     }
-                    ab J = this.f34450g.a().J();
+                    ab J = this.f26660g.a().J();
                     if (lVar != null) {
                         lVar.a(gl10, J);
                     }
                 }
             }
-            j jVar = this.f34450g;
+            j jVar = this.f26660g;
             if (nativeRender == 1) {
                 jVar.requestRender();
             } else if (jVar.a().b()) {
@@ -145,12 +145,12 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, gl10, i2, i3) == null) {
-            long j2 = this.f34448e;
-            if (j2 != 0) {
-                nativeResize(j2, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, gl10, i, i2) == null) {
+            long j = this.f26658e;
+            if (j != 0) {
+                nativeResize(j, i, i2);
             }
         }
     }
@@ -159,9 +159,9 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, gl10, eGLConfig) == null) {
-            nativeInit(this.f34448e);
+            nativeInit(this.f26658e);
             if (a()) {
-                this.f34449f.f();
+                this.f26659f.f();
             }
         }
     }

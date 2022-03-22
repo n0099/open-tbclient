@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -71,23 +71,23 @@ public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public V removeAt(int i2) {
+    public V removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             this.hashCode = 0;
-            return (V) super.removeAt(i2);
+            return (V) super.removeAt(i);
         }
         return (V) invokeI.objValue;
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public V setValueAt(int i2, V v) {
+    public V setValueAt(int i, V v) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, v)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, v)) == null) {
             this.hashCode = 0;
-            return (V) super.setValueAt(i2, v);
+            return (V) super.setValueAt(i, v);
         }
         return (V) invokeIL.objValue;
     }

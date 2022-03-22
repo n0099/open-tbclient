@@ -14,11 +14,11 @@ public class b {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f33590b;
+    public static b f25896b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33591c;
+    public int f25897c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,15 +41,15 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f33591c = -1;
+        this.f25897c = -1;
     }
 
     public static b a() {
@@ -58,25 +58,25 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a) {
-                if (f33590b == null) {
-                    f33590b = new b();
+                if (f25896b == null) {
+                    f25896b = new b();
                 }
-                bVar = f33590b;
+                bVar = f25896b;
             }
             return bVar;
         }
         return (b) invokeV.objValue;
     }
 
-    public void a(int i2, int i3, String str) {
+    public void a(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || i3 == this.f33591c) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) || i2 == this.f25897c) {
             return;
         }
-        this.f33591c = i3;
+        this.f25897c = i2;
         Bundle bundle = new Bundle();
-        bundle.putInt("loctype", i2);
-        bundle.putInt("diagtype", i3);
+        bundle.putInt("loctype", i);
+        bundle.putInt("diagtype", i2);
         bundle.putByteArray("diagmessage", str.getBytes());
         a.a().a(bundle, 303);
     }

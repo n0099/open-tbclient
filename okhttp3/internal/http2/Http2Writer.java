@@ -18,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http2.Hpack;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Http2Writer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -53,9 +53,9 @@ public final class Http2Writer implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedSink, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,25 +69,25 @@ public final class Http2Writer implements Closeable {
         this.maxFrameSize = 16384;
     }
 
-    private void writeContinuationFrames(int i2, long j2) throws IOException {
+    private void writeContinuationFrames(int i, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            while (j2 > 0) {
-                int min = (int) Math.min(this.maxFrameSize, j2);
-                long j3 = min;
-                j2 -= j3;
-                frameHeader(i2, min, (byte) 9, j2 == 0 ? (byte) 4 : (byte) 0);
-                this.sink.write(this.hpackBuffer, j3);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            while (j > 0) {
+                int min = (int) Math.min(this.maxFrameSize, j);
+                long j2 = min;
+                j -= j2;
+                frameHeader(i, min, (byte) 9, j == 0 ? (byte) 4 : (byte) 0);
+                this.sink.write(this.hpackBuffer, j2);
             }
         }
     }
 
-    public static void writeMedium(BufferedSink bufferedSink, int i2) throws IOException {
+    public static void writeMedium(BufferedSink bufferedSink, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, bufferedSink, i2) == null) {
-            bufferedSink.writeByte((i2 >>> 16) & 255);
-            bufferedSink.writeByte((i2 >>> 8) & 255);
-            bufferedSink.writeByte(i2 & 255);
+        if (interceptable == null || interceptable.invokeLI(65539, null, bufferedSink, i) == null) {
+            bufferedSink.writeByte((i >>> 16) & 255);
+            bufferedSink.writeByte((i >>> 8) & 255);
+            bufferedSink.writeByte(i & 255);
         }
     }
 
@@ -140,12 +140,12 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void data(boolean z, int i2, Buffer buffer, int i3) throws IOException {
+    public synchronized void data(boolean z, int i, Buffer buffer, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), buffer, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), buffer, Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 if (!this.closed) {
-                    dataFrame(i2, z ? (byte) 1 : (byte) 0, buffer, i3);
+                    dataFrame(i, z ? (byte) 1 : (byte) 0, buffer, i2);
                 } else {
                     throw new IOException("closed");
                 }
@@ -153,12 +153,12 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public void dataFrame(int i2, byte b2, Buffer buffer, int i3) throws IOException {
+    public void dataFrame(int i, byte b2, Buffer buffer, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Byte.valueOf(b2), buffer, Integer.valueOf(i3)}) == null) {
-            frameHeader(i2, i3, (byte) 0, b2);
-            if (i3 > 0) {
-                this.sink.write(buffer, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b2), buffer, Integer.valueOf(i2)}) == null) {
+            frameHeader(i, i2, (byte) 0, b2);
+            if (i2 > 0) {
+                this.sink.write(buffer, i2);
             }
         }
     }
@@ -176,34 +176,34 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public void frameHeader(int i2, int i3, byte b2, byte b3) throws IOException {
+    public void frameHeader(int i, int i2, byte b2, byte b3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Byte.valueOf(b2), Byte.valueOf(b3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2), Byte.valueOf(b3)}) == null) {
             if (logger.isLoggable(Level.FINE)) {
-                logger.fine(Http2.frameLog(false, i2, i3, b2, b3));
+                logger.fine(Http2.frameLog(false, i, i2, b2, b3));
             }
-            int i4 = this.maxFrameSize;
-            if (i3 > i4) {
-                throw Http2.illegalArgument("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(i4), Integer.valueOf(i3));
+            int i3 = this.maxFrameSize;
+            if (i2 > i3) {
+                throw Http2.illegalArgument("FRAME_SIZE_ERROR length > %d: %d", Integer.valueOf(i3), Integer.valueOf(i2));
             }
-            if ((Integer.MIN_VALUE & i2) != 0) {
-                throw Http2.illegalArgument("reserved bit set: %s", Integer.valueOf(i2));
+            if ((Integer.MIN_VALUE & i) != 0) {
+                throw Http2.illegalArgument("reserved bit set: %s", Integer.valueOf(i));
             }
-            writeMedium(this.sink, i3);
+            writeMedium(this.sink, i2);
             this.sink.writeByte(b2 & 255);
             this.sink.writeByte(b3 & 255);
-            this.sink.writeInt(i2 & Integer.MAX_VALUE);
+            this.sink.writeInt(i & Integer.MAX_VALUE);
         }
     }
 
-    public synchronized void goAway(int i2, ErrorCode errorCode, byte[] bArr) throws IOException {
+    public synchronized void goAway(int i, ErrorCode errorCode, byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048583, this, i2, errorCode, bArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048583, this, i, errorCode, bArr) == null) {
             synchronized (this) {
                 if (!this.closed) {
                     if (errorCode.httpCode != -1) {
                         frameHeader(0, bArr.length + 8, (byte) 7, (byte) 0);
-                        this.sink.writeInt(i2);
+                        this.sink.writeInt(i);
                         this.sink.writeInt(errorCode.httpCode);
                         if (bArr.length > 0) {
                             this.sink.write(bArr);
@@ -219,12 +219,12 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void headers(int i2, List<Header> list) throws IOException {
+    public synchronized void headers(int i, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, list) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) {
             synchronized (this) {
                 if (!this.closed) {
-                    headers(false, i2, list);
+                    headers(false, i, list);
                 } else {
                     throw new IOException("closed");
                 }
@@ -238,14 +238,14 @@ public final class Http2Writer implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.maxFrameSize : invokeV.intValue;
     }
 
-    public synchronized void ping(boolean z, int i2, int i3) throws IOException {
+    public synchronized void ping(boolean z, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             synchronized (this) {
                 if (!this.closed) {
                     frameHeader(0, 8, (byte) 6, z ? (byte) 1 : (byte) 0);
+                    this.sink.writeInt(i);
                     this.sink.writeInt(i2);
-                    this.sink.writeInt(i3);
                     this.sink.flush();
                 } else {
                     throw new IOException("closed");
@@ -254,21 +254,21 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void pushPromise(int i2, int i3, List<Header> list) throws IOException {
+    public synchronized void pushPromise(int i, int i2, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048588, this, i2, i3, list) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, list) == null) {
             synchronized (this) {
                 if (!this.closed) {
                     this.hpackWriter.writeHeaders(list);
                     long size = this.hpackBuffer.size();
                     int min = (int) Math.min(this.maxFrameSize - 4, size);
-                    long j2 = min;
-                    int i4 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
-                    frameHeader(i2, min + 4, (byte) 5, i4 == 0 ? (byte) 4 : (byte) 0);
-                    this.sink.writeInt(i3 & Integer.MAX_VALUE);
-                    this.sink.write(this.hpackBuffer, j2);
-                    if (i4 > 0) {
-                        writeContinuationFrames(i2, size - j2);
+                    long j = min;
+                    int i3 = (size > j ? 1 : (size == j ? 0 : -1));
+                    frameHeader(i, min + 4, (byte) 5, i3 == 0 ? (byte) 4 : (byte) 0);
+                    this.sink.writeInt(i2 & Integer.MAX_VALUE);
+                    this.sink.write(this.hpackBuffer, j);
+                    if (i3 > 0) {
+                        writeContinuationFrames(i, size - j);
                     }
                 } else {
                     throw new IOException("closed");
@@ -277,13 +277,13 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void rstStream(int i2, ErrorCode errorCode) throws IOException {
+    public synchronized void rstStream(int i, ErrorCode errorCode) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i2, errorCode) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, errorCode) == null) {
             synchronized (this) {
                 if (!this.closed) {
                     if (errorCode.httpCode != -1) {
-                        frameHeader(i2, 4, (byte) 3, (byte) 0);
+                        frameHeader(i, 4, (byte) 3, (byte) 0);
                         this.sink.writeInt(errorCode.httpCode);
                         this.sink.flush();
                     } else {
@@ -301,14 +301,14 @@ public final class Http2Writer implements Closeable {
         if (interceptable == null || interceptable.invokeL(1048590, this, settings) == null) {
             synchronized (this) {
                 if (!this.closed) {
-                    int i2 = 0;
+                    int i = 0;
                     frameHeader(0, settings.size() * 6, (byte) 4, (byte) 0);
-                    while (i2 < 10) {
-                        if (settings.isSet(i2)) {
-                            this.sink.writeShort(i2 == 4 ? 3 : i2 == 7 ? 4 : i2);
-                            this.sink.writeInt(settings.get(i2));
+                    while (i < 10) {
+                        if (settings.isSet(i)) {
+                            this.sink.writeShort(i == 4 ? 3 : i == 7 ? 4 : i);
+                            this.sink.writeInt(settings.get(i));
                         }
-                        i2++;
+                        i++;
                     }
                     this.sink.flush();
                 } else {
@@ -318,12 +318,12 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void synReply(boolean z, int i2, List<Header> list) throws IOException {
+    public synchronized void synReply(boolean z, int i, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), list}) == null) {
             synchronized (this) {
                 if (!this.closed) {
-                    headers(z, i2, list);
+                    headers(z, i, list);
                 } else {
                     throw new IOException("closed");
                 }
@@ -331,12 +331,12 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void synStream(boolean z, int i2, int i3, List<Header> list) throws IOException {
+    public synchronized void synStream(boolean z, int i, int i2, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), list}) == null) {
             synchronized (this) {
                 if (!this.closed) {
-                    headers(z, i2, list);
+                    headers(z, i, list);
                 } else {
                     throw new IOException("closed");
                 }
@@ -344,41 +344,41 @@ public final class Http2Writer implements Closeable {
         }
     }
 
-    public synchronized void windowUpdate(int i2, long j2) throws IOException {
+    public synchronized void windowUpdate(int i, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             synchronized (this) {
                 if (this.closed) {
                     throw new IOException("closed");
                 }
-                if (j2 != 0 && j2 <= 2147483647L) {
-                    frameHeader(i2, 4, (byte) 8, (byte) 0);
-                    this.sink.writeInt((int) j2);
+                if (j != 0 && j <= 2147483647L) {
+                    frameHeader(i, 4, (byte) 8, (byte) 0);
+                    this.sink.writeInt((int) j);
                     this.sink.flush();
                 } else {
-                    throw Http2.illegalArgument("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j2));
+                    throw Http2.illegalArgument("windowSizeIncrement == 0 || windowSizeIncrement > 0x7fffffffL: %s", Long.valueOf(j));
                 }
             }
         }
     }
 
-    public void headers(boolean z, int i2, List<Header> list) throws IOException {
+    public void headers(boolean z, int i, List<Header> list) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), list}) == null) {
             if (!this.closed) {
                 this.hpackWriter.writeHeaders(list);
                 long size = this.hpackBuffer.size();
                 int min = (int) Math.min(this.maxFrameSize, size);
-                long j2 = min;
-                int i3 = (size > j2 ? 1 : (size == j2 ? 0 : -1));
-                byte b2 = i3 == 0 ? (byte) 4 : (byte) 0;
+                long j = min;
+                int i2 = (size > j ? 1 : (size == j ? 0 : -1));
+                byte b2 = i2 == 0 ? (byte) 4 : (byte) 0;
                 if (z) {
                     b2 = (byte) (b2 | 1);
                 }
-                frameHeader(i2, min, (byte) 1, b2);
-                this.sink.write(this.hpackBuffer, j2);
-                if (i3 > 0) {
-                    writeContinuationFrames(i2, size - j2);
+                frameHeader(i, min, (byte) 1, b2);
+                this.sink.write(this.hpackBuffer, j);
+                if (i2 > 0) {
+                    writeContinuationFrames(i, size - j);
                     return;
                 }
                 return;

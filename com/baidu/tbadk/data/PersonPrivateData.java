@@ -13,24 +13,22 @@ import tbclient.PrivSets;
 public class PersonPrivateData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f39548e;
+    public int a;
 
     public PersonPrivateData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39548e = 1;
+        this.a = 1;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -39,27 +37,27 @@ public class PersonPrivateData extends OrmObject {
             return;
         }
         jSONObject.optInt("location", 1);
-        this.f39548e = jSONObject.optInt("like", 1);
+        this.a = jSONObject.optInt("like", 1);
         jSONObject.optInt("group", 1);
         jSONObject.optInt("post", 1);
         jSONObject.optInt("friend", 1);
         jSONObject.optInt("live", 1);
     }
 
-    public int w() {
+    public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39548e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void x(PrivSets privSets) {
+    public void z(PrivSets privSets) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, privSets) == null) || privSets == null) {
             return;
         }
         try {
             privSets.location.intValue();
-            this.f39548e = privSets.like.intValue();
+            this.a = privSets.like.intValue();
             privSets.group.intValue();
             privSets.post.intValue();
             privSets.friend.intValue();

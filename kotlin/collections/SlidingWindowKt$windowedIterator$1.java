@@ -17,7 +17,7 @@ import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.sequences.SequenceScope;
 @Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {}, l = {34, 40, 49, 55, 58}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Iterator $iterator;
     public final /* synthetic */ boolean $partialWindows;
@@ -31,10 +31,10 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SlidingWindowKt$windowedIterator$1(int i2, int i3, Iterator it, boolean z, boolean z2, Continuation continuation) {
+    public SlidingWindowKt$windowedIterator$1(int i, int i2, Iterator it, boolean z, boolean z2, Continuation continuation) {
         super(2, continuation);
-        this.$size = i2;
-        this.$step = i3;
+        this.$size = i;
+        this.$step = i2;
         this.$iterator = it;
         this.$reuseBuffer = z;
         this.$partialWindows = z2;
@@ -70,12 +70,12 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final Object invokeSuspend(Object obj) {
-        int i2;
+        int i;
         RingBuffer ringBuffer;
         Iterator it;
         SequenceScope sequenceScope;
         SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$1;
-        int i3;
+        int i2;
         SequenceScope sequenceScope2;
         SlidingWindowKt$windowedIterator$1 slidingWindowKt$windowedIterator$12;
         ArrayList arrayList;
@@ -83,15 +83,15 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
         RingBuffer ringBuffer2;
         SequenceScope sequenceScope3;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i4 = this.label;
-        if (i4 == 0) {
+        int i3 = this.label;
+        if (i3 == 0) {
             ResultKt.throwOnFailure(obj);
             SequenceScope sequenceScope4 = (SequenceScope) this.L$0;
             int coerceAtMost = RangesKt___RangesKt.coerceAtMost(this.$size, 1024);
-            i2 = this.$step - this.$size;
-            if (i2 >= 0) {
+            i = this.$step - this.$size;
+            if (i >= 0) {
                 ArrayList arrayList2 = new ArrayList(coerceAtMost);
-                i3 = 0;
+                i2 = 0;
                 sequenceScope2 = sequenceScope4;
                 slidingWindowKt$windowedIterator$12 = this;
                 arrayList = arrayList2;
@@ -117,8 +117,8 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
             if (slidingWindowKt$windowedIterator$1.$partialWindows) {
             }
             return Unit.INSTANCE;
-        } else if (i4 == 1) {
-            i3 = this.I$0;
+        } else if (i3 == 1) {
+            i2 = this.I$0;
             it2 = (Iterator) this.L$2;
             arrayList = (ArrayList) this.L$1;
             sequenceScope2 = (SequenceScope) this.L$0;
@@ -129,26 +129,26 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
             } else {
                 arrayList.clear();
             }
-            i2 = i3;
+            i = i2;
             while (it2.hasNext()) {
                 Object next = it2.next();
-                if (i3 > 0) {
-                    i3--;
+                if (i2 > 0) {
+                    i2--;
                 } else {
                     arrayList.add(next);
                     if (arrayList.size() == slidingWindowKt$windowedIterator$12.$size) {
                         slidingWindowKt$windowedIterator$12.L$0 = sequenceScope2;
                         slidingWindowKt$windowedIterator$12.L$1 = arrayList;
                         slidingWindowKt$windowedIterator$12.L$2 = it2;
-                        slidingWindowKt$windowedIterator$12.I$0 = i2;
+                        slidingWindowKt$windowedIterator$12.I$0 = i;
                         slidingWindowKt$windowedIterator$12.label = 1;
                         if (sequenceScope2.yield(arrayList, slidingWindowKt$windowedIterator$12) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                        i3 = i2;
+                        i2 = i;
                         if (slidingWindowKt$windowedIterator$12.$reuseBuffer) {
                         }
-                        i2 = i3;
+                        i = i2;
                         while (it2.hasNext()) {
                         }
                     }
@@ -165,8 +165,8 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
             }
             return Unit.INSTANCE;
         } else {
-            if (i4 != 2) {
-                if (i4 == 3) {
+            if (i3 != 2) {
+                if (i3 == 3) {
                     it = (Iterator) this.L$2;
                     ringBuffer = (RingBuffer) this.L$1;
                     sequenceScope = (SequenceScope) this.L$0;
@@ -177,8 +177,8 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                         ringBuffer.add((RingBuffer) it.next());
                         if (ringBuffer.isFull()) {
                             int size = ringBuffer.size();
-                            int i5 = slidingWindowKt$windowedIterator$1.$size;
-                            if (size >= i5) {
+                            int i4 = slidingWindowKt$windowedIterator$1.$size;
+                            if (size >= i4) {
                                 RandomAccess arrayList3 = slidingWindowKt$windowedIterator$1.$reuseBuffer ? ringBuffer : new ArrayList(ringBuffer);
                                 slidingWindowKt$windowedIterator$1.L$0 = sequenceScope;
                                 slidingWindowKt$windowedIterator$1.L$1 = ringBuffer;
@@ -191,7 +191,7 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                                 while (it.hasNext()) {
                                 }
                             } else {
-                                ringBuffer = ringBuffer.expanded(i5);
+                                ringBuffer = ringBuffer.expanded(i4);
                             }
                         }
                     }
@@ -202,7 +202,7 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                         }
                     }
                     return Unit.INSTANCE;
-                } else if (i4 == 4) {
+                } else if (i3 == 4) {
                     ringBuffer2 = (RingBuffer) this.L$1;
                     sequenceScope3 = (SequenceScope) this.L$0;
                     ResultKt.throwOnFailure(obj);
@@ -231,7 +231,7 @@ public final class SlidingWindowKt$windowedIterator$1 extends RestrictedSuspendL
                             return Unit.INSTANCE;
                         }
                     }
-                } else if (i4 != 5) {
+                } else if (i3 != 5) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 }
             }

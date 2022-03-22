@@ -85,9 +85,9 @@ public class VmTraceData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -118,53 +118,53 @@ public class VmTraceData {
             }
         }
 
-        private long createUniqueMethodIdForThread(int i2) {
+        private long createUniqueMethodIdForThread(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i2)) == null) {
-                long j2 = Long.MAX_VALUE - i2;
-                this.mMethods.put(Long.valueOf(j2), new MethodInfo(j2, this.mThreads.get(i2), "", "", "", 0));
-                return j2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i)) == null) {
+                long j = Long.MAX_VALUE - i;
+                this.mMethods.put(Long.valueOf(j), new MethodInfo(j, this.mThreads.get(i), "", "", "", 0));
+                return j;
             }
             return invokeI.longValue;
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void addMethod(long j2, MethodInfo methodInfo) {
+        public void addMethod(long j, MethodInfo methodInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048576, this, j2, methodInfo) == null) {
-                this.mMethods.put(Long.valueOf(j2), methodInfo);
+            if (interceptable == null || interceptable.invokeJL(1048576, this, j, methodInfo) == null) {
+                this.mMethods.put(Long.valueOf(j), methodInfo);
             }
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void addMethodAction(int i2, long j2, TraceAction traceAction, int i3, int i4) {
+        public void addMethodAction(int i, long j, TraceAction traceAction, int i2, int i3) {
             CallStackReconstructor callStackReconstructor;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), traceAction, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-                if (this.mThreads.get(i2) == null) {
-                    this.mThreads.put(i2, String.format("Thread id: %1$d", Integer.valueOf(i2)));
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), traceAction, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+                if (this.mThreads.get(i) == null) {
+                    this.mThreads.put(i, String.format("Thread id: %1$d", Integer.valueOf(i)));
                 }
-                if (this.mMethods.get(Long.valueOf(j2)) == null) {
-                    this.mMethods.put(Long.valueOf(j2), new MethodInfo(j2, "unknown", "unknown", "unknown", "unknown", -1));
+                if (this.mMethods.get(Long.valueOf(j)) == null) {
+                    this.mMethods.put(Long.valueOf(j), new MethodInfo(j, "unknown", "unknown", "unknown", "unknown", -1));
                 }
-                CallStackReconstructor callStackReconstructor2 = this.mStackReconstructors.get(i2);
+                CallStackReconstructor callStackReconstructor2 = this.mStackReconstructors.get(i);
                 if (callStackReconstructor2 == null) {
-                    CallStackReconstructor callStackReconstructor3 = new CallStackReconstructor(createUniqueMethodIdForThread(i2));
-                    this.mStackReconstructors.put(i2, callStackReconstructor3);
+                    CallStackReconstructor callStackReconstructor3 = new CallStackReconstructor(createUniqueMethodIdForThread(i));
+                    this.mStackReconstructors.put(i, callStackReconstructor3);
                     callStackReconstructor = callStackReconstructor3;
                 } else {
                     callStackReconstructor = callStackReconstructor2;
                 }
-                callStackReconstructor.addTraceAction(j2, traceAction, i3, i4);
+                callStackReconstructor.addTraceAction(j, traceAction, i2, i3);
             }
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void addThread(int i2, String str) {
+        public void addThread(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-                this.mThreads.put(i2, str);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.mThreads.put(i, str);
             }
         }
 
@@ -172,8 +172,8 @@ public class VmTraceData {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                for (int i2 = 0; i2 < this.mStackReconstructors.size(); i2++) {
-                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i2), this.mStackReconstructors.valueAt(i2).getTopLevel());
+                for (int i = 0; i < this.mStackReconstructors.size(); i++) {
+                    this.mTopLevelCalls.put(this.mStackReconstructors.keyAt(i), this.mStackReconstructors.valueAt(i).getTopLevel());
                 }
                 VmTraceData vmTraceData = new VmTraceData(this, null);
                 computeTimingStatistics(vmTraceData);
@@ -207,18 +207,18 @@ public class VmTraceData {
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void setStartTimeUs(long j2) {
+        public void setStartTimeUs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.mStartTimeUs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.mStartTimeUs = j;
             }
         }
 
         @Override // com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceHandler
-        public void setVersion(int i2) {
+        public void setVersion(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.mVersion = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.mVersion = i;
             }
         }
     }
@@ -245,10 +245,10 @@ public class VmTraceData {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mElapsedTimeUs : invokeV.longValue;
     }
 
-    public MethodInfo getMethod(long j2) {
+    public MethodInfo getMethod(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.mMethods.get(Long.valueOf(j2)) : (MethodInfo) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mMethods.get(Long.valueOf(j)) : (MethodInfo) invokeJ.objValue;
     }
 
     public Map<Long, MethodInfo> getMethods() {
@@ -344,9 +344,9 @@ public class VmTraceData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -356,14 +356,14 @@ public class VmTraceData {
         }
 
         @NonNull
-        private MethodProfileData.Builder getProfileDataBuilder(long j2) {
+        private MethodProfileData.Builder getProfileDataBuilder(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
-                MethodProfileData.Builder builder = this.mBuilderMap.get(Long.valueOf(j2));
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+                MethodProfileData.Builder builder = this.mBuilderMap.get(Long.valueOf(j));
                 if (builder == null) {
                     MethodProfileData.Builder builder2 = new MethodProfileData.Builder();
-                    this.mBuilderMap.put(Long.valueOf(j2), builder2);
+                    this.mBuilderMap.put(Long.valueOf(j), builder2);
                     return builder2;
                 }
                 return builder;
@@ -410,9 +410,9 @@ public class VmTraceData {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -427,9 +427,9 @@ public class VmTraceData {
         this.mStartTimeUs = builder.mStartTimeUs;
         this.mElapsedTimeUs = builder.mElapsedTimeUs;
         this.mThreadInfo = new HashMap(builder.mThreads.size());
-        for (int i4 = 0; i4 < builder.mThreads.size(); i4++) {
-            int keyAt = builder.mThreads.keyAt(i4);
-            String str = (String) builder.mThreads.valueAt(i4);
+        for (int i3 = 0; i3 < builder.mThreads.size(); i3++) {
+            int keyAt = builder.mThreads.keyAt(i3);
+            String str = (String) builder.mThreads.valueAt(i3);
             if (this.mThreadInfo.get(str) != null) {
                 str = String.format("%1$s-%2$d", str, Integer.valueOf(keyAt));
             }
@@ -456,15 +456,15 @@ public class VmTraceData {
         return (List) invokeZ.objValue;
     }
 
-    public double getDurationPercentage(long j2, ThreadInfo threadInfo, ClockType clockType) {
+    public double getDurationPercentage(long j, ThreadInfo threadInfo, ClockType clockType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), threadInfo, clockType})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), threadInfo, clockType})) == null) {
             Call topLevelCall = getThread(threadInfo.getName()).getTopLevelCall();
             if (topLevelCall == null) {
                 return 100.0d;
             }
-            return (j2 / TimeSelector.create(clockType, true).get(getMethod(topLevelCall.getMethodId()), threadInfo, TimeUnit.NANOSECONDS)) * 100.0d;
+            return (j / TimeSelector.create(clockType, true).get(getMethod(topLevelCall.getMethodId()), threadInfo, TimeUnit.NANOSECONDS)) * 100.0d;
         }
         return invokeCommon.doubleValue;
     }

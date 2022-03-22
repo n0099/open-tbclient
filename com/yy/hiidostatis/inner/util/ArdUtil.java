@@ -26,6 +26,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,7 +36,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import com.kuaishou.weapon.un.z;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.BufferedReader;
@@ -55,7 +55,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -103,9 +103,9 @@ public class ArdUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -346,9 +346,9 @@ public class ArdUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            int i2 = mCpuNum;
-            if (i2 != 0) {
-                return i2;
+            int i = mCpuNum;
+            if (i != 0) {
+                return i;
             }
             try {
                 int length = new File("/sys/devices/system/cpu/").listFiles(new FileFilter() { // from class: com.yy.hiidostatis.inner.util.ArdUtil.1CpuFilter
@@ -360,9 +360,9 @@ public class ArdUtil {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -418,18 +418,18 @@ public class ArdUtil {
 
     public static int getDeviceOrientation(Context context) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             try {
-                i2 = context.getResources().getConfiguration().orientation;
+                i = context.getResources().getConfiguration().orientation;
             } catch (Throwable th) {
                 L.debug("ArdUtil", "getDeviceOrientation exception . %s", th);
             }
-            if (i2 == 2) {
+            if (i == 2) {
                 return 1;
             }
-            return i2 == 1 ? 0 : 0;
+            return i == 1 ? 0 : 0;
         }
         return invokeL.intValue;
     }
@@ -494,7 +494,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, s.f53805d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -521,8 +521,8 @@ public class ArdUtil {
                         if (nextElement.getName().equalsIgnoreCase("wlan0") && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
                             StringBuilder sb = new StringBuilder();
                             int length = hardwareAddress.length;
-                            for (int i2 = 0; i2 < length; i2++) {
-                                sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
+                            for (int i = 0; i < length; i++) {
+                                sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
                             }
                             if (sb.length() > 0) {
                                 sb.deleteCharAt(sb.length() - 1);
@@ -571,7 +571,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream(z.f53880b);
+                    fileInputStream = new FileInputStream(z.f39039b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -901,9 +901,9 @@ public class ArdUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            long j2 = mTotalInternalStorgeSize;
-            if (j2 != 0) {
-                return j2;
+            long j = mTotalInternalStorgeSize;
+            if (j != 0) {
+                return j;
             }
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
@@ -923,9 +923,9 @@ public class ArdUtil {
         if (interceptable != null && (invokeV = interceptable.invokeV(65573, null)) != null) {
             return invokeV.longValue;
         }
-        long j2 = mTotal;
-        if (j2 != 0) {
-            return j2;
+        long j = mTotal;
+        if (j != 0) {
+            return j;
         }
         BufferedReader bufferedReader2 = null;
         try {
@@ -1044,12 +1044,12 @@ public class ArdUtil {
     }
 
     @SuppressLint({"NewApi"})
-    public static long getUidRxBytes(int i2) {
+    public static long getUidRxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65578, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65578, null, i)) == null) {
             if (Build.VERSION.SDK_INT >= 8) {
-                return TrafficStats.getUidRxBytes(i2);
+                return TrafficStats.getUidRxBytes(i);
             }
             return 0L;
         }
@@ -1057,12 +1057,12 @@ public class ArdUtil {
     }
 
     @SuppressLint({"NewApi"})
-    public static long getUidTxBytes(int i2) {
+    public static long getUidTxBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65579, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65579, null, i)) == null) {
             if (Build.VERSION.SDK_INT >= 8) {
-                return TrafficStats.getUidTxBytes(i2);
+                return TrafficStats.getUidTxBytes(i);
             }
             return 0L;
         }
@@ -1097,9 +1097,9 @@ public class ArdUtil {
                 if (mVer != -1) {
                     return mVer;
                 }
-                int i2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-                mVer = i2;
-                return i2;
+                int i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                mVer = i;
+                return i;
             } catch (Throwable unused) {
                 L.debug("ArdUtil", "Failed to read version No.", new Object[0]);
                 mVer = -1;
@@ -1109,12 +1109,12 @@ public class ArdUtil {
         return invokeL.intValue;
     }
 
-    public static int getVolume(Context context, int i2) {
+    public static int getVolume(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, context, i)) == null) {
             try {
-                return ((AudioManager) context.getSystemService("audio")).getStreamVolume(i2);
+                return ((AudioManager) context.getSystemService("audio")).getStreamVolume(i);
             } catch (Throwable th) {
                 L.debug("ArdUtil", "getVolume exception . %s", th);
                 return -1;
@@ -1129,7 +1129,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, s.f53805d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1149,7 +1149,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, s.f53805d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();
@@ -1245,7 +1245,7 @@ public class ArdUtil {
     public static boolean isValidMac(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equalsIgnoreCase("02:00:00:00:00:00")) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equalsIgnoreCase(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isWifiActive(Context context) {
@@ -1276,9 +1276,9 @@ public class ArdUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
-            long j2 = mTotalMem;
-            if (j2 != 0) {
-                return j2;
+            long j = mTotalMem;
+            if (j != 0) {
+                return j;
             }
             if (Build.VERSION.SDK_INT >= 16 && context != null) {
                 try {

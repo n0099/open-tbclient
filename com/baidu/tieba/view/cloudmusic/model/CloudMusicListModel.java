@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -24,15 +25,13 @@ import org.json.JSONObject;
 public class CloudMusicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.p0.q4.m.j.a<CloudMusicData.MusicTagList> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.o4.l.j.a<CloudMusicData.MusicTagList> f47907e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f37059b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f47908f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f47909g;
+    /* renamed from: c  reason: collision with root package name */
+    public final HttpMessageListener f37060c;
 
     /* loaded from: classes6.dex */
     public static class VideoCloudMusicListResponseMessage extends JsonHttpResponsedMessage {
@@ -41,17 +40,17 @@ public class CloudMusicListModel extends BdBaseModel {
         public CloudMusicData.MusicTagList mCloudMusicWithTagData;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public VideoCloudMusicListResponseMessage(int i2) {
-            super(i2);
+        public VideoCloudMusicListResponseMessage(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,9 +60,9 @@ public class CloudMusicListModel extends BdBaseModel {
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
                 int statusCode = getStatusCode();
                 int error = getError();
                 if (statusCode == 200 && error == 0 && jSONObject != null) {
@@ -80,17 +79,17 @@ public class CloudMusicListModel extends BdBaseModel {
         public final /* synthetic */ CloudMusicListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CloudMusicListModel cloudMusicListModel, int i2) {
-            super(i2);
+        public a(CloudMusicListModel cloudMusicListModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cloudMusicListModel, Integer.valueOf(i2)};
+                Object[] objArr = {cloudMusicListModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -104,11 +103,11 @@ public class CloudMusicListModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.a.f47907e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && this.a.a != null) {
                 if (httpResponsedMessage.hasError() && httpResponsedMessage.getError() != 0) {
-                    CloudMusicListModel.x(this.a);
+                    CloudMusicListModel.z(this.a);
                 }
-                this.a.f47907e.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
+                this.a.a.a(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
             }
         }
     }
@@ -122,33 +121,57 @@ public class CloudMusicListModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47908f = 1;
-        this.f47909g = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
-        z();
-        this.f47909g.setTag(getUniqueId());
-        this.f47909g.setSelfListener(true);
-        registerListener(this.f47909g);
+        this.f37059b = 1;
+        this.f37060c = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
+        B();
+        this.f37060c.setTag(getUniqueId());
+        this.f37060c.setSelfListener(true);
+        registerListener(this.f37060c);
     }
 
-    public static /* synthetic */ int x(CloudMusicListModel cloudMusicListModel) {
-        int i2 = cloudMusicListModel.f47908f;
-        cloudMusicListModel.f47908f = i2 - 1;
-        return i2;
+    public static /* synthetic */ int z(CloudMusicListModel cloudMusicListModel) {
+        int i = cloudMusicListModel.f37059b;
+        cloudMusicListModel.f37059b = i - 1;
+        return i;
     }
 
-    public void A() {
+    public void A(int i, c.a.p0.q4.m.j.a<CloudMusicData.MusicTagList> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47908f = 1;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, aVar) == null) || aVar == null || i < 0) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
+        int i2 = this.f37059b + 1;
+        this.f37059b = i2;
+        httpMessage.addParam(Config.PACKAGE_NAME, i2);
+        httpMessage.addParam("rn", 10);
+        httpMessage.addParam(TiebaStatic.Params.TAG_ID, i);
+        sendMessage(httpMessage);
+        this.a = aVar;
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicTagList");
+            tbHttpMessageTask.setResponsedClass(VideoCloudMusicListResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f37059b = 1;
         }
     }
 
@@ -156,7 +179,7 @@ public class CloudMusicListModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
             return false;
         }
@@ -167,33 +190,9 @@ public class CloudMusicListModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public void y(int i2, c.a.r0.o4.l.j.a<CloudMusicData.MusicTagList> aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, aVar) == null) || aVar == null || i2 < 0) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
-        int i3 = this.f47908f + 1;
-        this.f47908f = i3;
-        httpMessage.addParam("pn", i3);
-        httpMessage.addParam("rn", 10);
-        httpMessage.addParam(TiebaStatic.Params.TAG_ID, i2);
-        sendMessage(httpMessage);
-        this.f47907e = aVar;
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicTagList");
-            tbHttpMessageTask.setResponsedClass(VideoCloudMusicListResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
     }
 }

@@ -21,6 +21,7 @@ public class UrlSchemaHelper {
     public static final String FROM_ENTER_FORUM = "unidispatch/enterforum";
     public static final String FROM_FORUM_SQUARE = "unidispatch/forumsquare";
     public static final String FROM_YUN_PUSH = "&from_yunpush=1";
+    public static final String FROM_YUN_PUSH_TWO = "?from_yunpush=1";
     public static final String GOTO_ACTIVE_VIDEO = "http://tieba.baidu.com/mo/q/videoactive?id=";
     public static final String GOTO_BUBBLE_LIST = "jumptobubble_list";
     public static final String GOTO_ENTERFORUM_TAB = "jump_enter_forum=1";
@@ -43,7 +44,9 @@ public class UrlSchemaHelper {
     public static final String HTTPS_JUMP_TO_HOT_TOPIC2 = "https://tieba.baidu.com/mo/q/hotMessage?topic_id=";
     public static final String HTTPS_JUMP_TO_HOT_TOPIC3 = "http://tieba.baidu.com/mo/q/hotMessage?topic_id=";
     public static final String HTTPS_JUMP_TO_HOT_TOPIC_NEW = "https://tieba.baidu.com/mo/q/newhotmessage?";
+    public static final String HTTPS_JUMP_TO_USER_GIFT = "https://tieba.baidu.com/user/gift";
     public static final String HTTP_JUMP_TOPIC_DETAIL = "http://tieba.baidu.com/mo/q/newtopic/detail";
+    public static final String HTTP_JUMP_TO_USER_GIFT = "http://tieba.baidu.com/user/gift";
     public static final String JUMP_TO_CHAT = "http://tieba.baidu.com/mo/q/chat";
     public static final String JUMP_TO_HOT_TOPIC = "http://tieba.baidu.com/mo/q/hotmessage?topic_id=";
     public static final String JUMP_TO_HOT_TOPIC2 = "http://tieba.baidu.com/mo/q/hotMessage?topic_id=";
@@ -174,9 +177,9 @@ public class UrlSchemaHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

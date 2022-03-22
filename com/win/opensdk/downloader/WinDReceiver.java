@@ -5,13 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.q.a.b3;
-import c.q.a.h2;
-import c.q.a.r0;
-import c.q.a.t2;
-import c.q.a.x2;
+import c.m.a.b3;
+import c.m.a.h2;
+import c.m.a.r0;
+import c.m.a.t2;
+import c.m.a.x2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +22,7 @@ import com.kuaishou.weapon.un.w0;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +32,9 @@ public class WinDReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,7 +81,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     t2 a = x2.a(context);
                     try {
-                        a.f29126b = x2.d("wie", new b3(info));
+                        a.f23575b = x2.d("wie", new b3(info));
                         a.k("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -112,12 +113,12 @@ public class WinDReceiver extends BroadcastReceiver {
                     b3 b3Var = new b3(info);
                     String open = info.getOpen();
                     try {
-                        a.f29126b = x2.d("wiop", b3Var);
+                        a.f23575b = x2.d("wiop", b3Var);
                         a.l("msg", x2.b(open));
                     } catch (JSONException unused) {
                     }
                     a.m();
-                    launchIntentForPackage.setFlags(268435456);
+                    launchIntentForPackage.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     context.startActivity(launchIntentForPackage);
                     h2.e(context, str);
                 }

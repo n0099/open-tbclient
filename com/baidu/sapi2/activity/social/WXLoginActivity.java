@@ -53,9 +53,9 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {wXLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -110,36 +110,36 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    private void b(int i2, Intent intent) {
+    private void b(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, this, i2, intent) == null) || SocialLoginBase.getWXinvokeCallback() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65539, this, i, intent) == null) || SocialLoginBase.getWXinvokeCallback() == null) {
             return;
         }
-        SocialLoginBase.getWXinvokeCallback().onResult(i2, intent);
+        SocialLoginBase.getWXinvokeCallback().onResult(i, intent);
     }
 
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ((BaseSSOLoginActivity) this).f36710g = v;
-            ((BaseSSOLoginActivity) this).f36708e = w;
-            ((BaseSSOLoginActivity) this).f36709f = x;
+            ((BaseSSOLoginActivity) this).f28475g = v;
+            ((BaseSSOLoginActivity) this).f28473e = w;
+            ((BaseSSOLoginActivity) this).f28474f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (((BaseSSOLoginActivity) this).f36709f) {
+            if (((BaseSSOLoginActivity) this).f28474f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
@@ -174,8 +174,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f36708e;
-                x = ((BaseSSOLoginActivity) this).f36709f;
+                w = ((BaseSSOLoginActivity) this).f28473e;
+                x = ((BaseSSOLoginActivity) this).f28474f;
                 a(new a(this));
                 return;
             }
@@ -184,18 +184,18 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.a(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 
@@ -216,20 +216,20 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
-    public void a(int i2, Intent intent) {
+    public void a(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, intent) == null) {
-            super.a(i2, intent);
-            b(i2, intent);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intent) == null) {
+            super.a(i, intent);
+            b(i, intent);
         }
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.b(i2);
-            b(i2, (Intent) null);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.b(i);
+            b(i, (Intent) null);
         }
     }
 

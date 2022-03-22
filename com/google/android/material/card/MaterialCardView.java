@@ -7,6 +7,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Checkable;
@@ -35,7 +36,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
@@ -43,7 +44,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_CardView = 2131755892;
+    public static final int obfuscated_res_0x7f100352 = 2131755858;
     public static final int[] DRAGGED_STATE_SET;
     public static final String LOG_TAG = "MaterialCardView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public boolean isParentCardViewDoneInitializing;
     public OnCheckedChangeListener onCheckedChangeListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }
@@ -74,7 +75,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
         CHECKABLE_STATE_SET = new int[]{16842911};
         CHECKED_STATE_SET = new int[]{16842912};
-        DRAGGED_STATE_SET = new int[]{R.attr.state_dragged};
+        DRAGGED_STATE_SET = new int[]{R.attr.obfuscated_res_0x7f040589};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -86,9 +87,9 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -264,11 +265,11 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i + 3);
             if (isCheckable()) {
                 FrameLayout.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
             }
@@ -306,18 +307,18 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             this.cardViewHelper.onMeasure(getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
-    public void setAncestorContentPadding(int i2, int i3, int i4, int i5) {
+    public void setAncestorContentPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
-            super.setContentPadding(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048600, this, i, i2, i3, i4) == null) {
+            super.setContentPadding(i, i2, i3, i4);
         }
     }
 
@@ -334,6 +335,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048602, this, drawable) == null) && this.isParentCardViewDoneInitializing) {
             if (!this.cardViewHelper.isBackgroundOverwritten()) {
+                Log.i(LOG_TAG, "Setting a custom background is not supported.");
                 this.cardViewHelper.setBackgroundOverwritten(true);
             }
             super.setBackgroundDrawable(drawable);
@@ -348,10 +350,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setCardBackgroundColor(@ColorInt int i2) {
+    public void setCardBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.cardViewHelper.setCardBackgroundColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.cardViewHelper.setCardBackgroundColor(ColorStateList.valueOf(i));
         }
     }
 
@@ -394,10 +396,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setCheckedIconResource(@DrawableRes int i2) {
+    public void setCheckedIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.cardViewHelper.setCheckedIcon(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.cardViewHelper.setCheckedIcon(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
@@ -421,10 +423,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     @Override // androidx.cardview.widget.CardView
-    public void setContentPadding(int i2, int i3, int i4, int i5) {
+    public void setContentPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048614, this, i2, i3, i4, i5) == null) {
-            this.cardViewHelper.setUserContentPadding(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048614, this, i, i2, i3, i4) == null) {
+            this.cardViewHelper.setUserContentPadding(i, i2, i3, i4);
         }
     }
 
@@ -488,10 +490,10 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setRippleColorResource(@ColorRes int i2) {
+    public void setRippleColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.cardViewHelper.setRippleColor(AppCompatResources.getColorStateList(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.cardViewHelper.setRippleColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
@@ -506,17 +508,17 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         }
     }
 
-    public void setStrokeColor(@ColorInt int i2) {
+    public void setStrokeColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
-            this.cardViewHelper.setStrokeColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            this.cardViewHelper.setStrokeColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setStrokeWidth(@Dimension int i2) {
+    public void setStrokeWidth(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.cardViewHelper.setStrokeWidth(i2);
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.cardViewHelper.setStrokeWidth(i);
         }
     }
 
@@ -546,16 +548,16 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.materialCardViewStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040414);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -581,17 +583,17 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialCardView(Context context, AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_CardView), attributeSet, i2);
+    public MaterialCardView(Context context, AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100352), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -602,8 +604,8 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
         this.checked = false;
         this.dragged = false;
         this.isParentCardViewDoneInitializing = true;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.cardForegroundColor, R.attr.checkedIcon, R.attr.checkedIconTint, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.state_dragged, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_CardView, new int[0]);
-        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i2, Widget_MaterialComponents_CardView);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{16843237, R.attr.obfuscated_res_0x7f040119, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591}, i, obfuscated_res_0x7f100352, new int[0]);
+        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this, attributeSet, i, obfuscated_res_0x7f100352);
         this.cardViewHelper = materialCardViewHelper;
         materialCardViewHelper.setCardBackgroundColor(super.getCardBackgroundColor());
         this.cardViewHelper.setUserContentPadding(super.getContentPaddingLeft(), super.getContentPaddingTop(), super.getContentPaddingRight(), super.getContentPaddingBottom());

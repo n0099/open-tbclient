@@ -20,9 +20,9 @@ public final class t {
         return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) ? Float.floatToRawIntBits(f2) : invokeF.intValue;
     }
 
-    public static float c(int i2) {
+    public static float c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? Float.intBitsToFloat(i2 & (-16777217)) : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? Float.intBitsToFloat(i & (-16777217)) : invokeI.floatValue;
     }
 }

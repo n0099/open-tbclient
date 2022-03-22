@@ -42,18 +42,18 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Tencent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_LOGIN = 10001;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Tencent f59180c;
+    public static Tencent f43817c;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59181b;
+    public String f43818b;
 
     public Tencent(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -62,9 +62,9 @@ public class Tencent {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,7 +103,7 @@ public class Tencent {
                 createInstance = createInstance(str, context);
                 SLog.i("openSDK_LOG.Tencent", "createInstance()  -- start, appId = " + str + ", authorities=" + str2);
                 if (createInstance != null) {
-                    createInstance.f59181b = str2;
+                    createInstance.f43818b = str2;
                 } else {
                     SLog.i("openSDK_LOG.Tencent", "null == tencent set mAuthorities fail");
                 }
@@ -121,11 +121,11 @@ public class Tencent {
                 if (TextUtils.isEmpty(str)) {
                     SLog.i("openSDK_LOG.Tencent", "TextUtils.isEmpty(appId)");
                     return null;
-                } else if (f59180c == null) {
+                } else if (f43817c == null) {
                     SLog.i("openSDK_LOG.Tencent", "sInstance == null");
                     return null;
                 } else {
-                    return str.equals(f59180c.getAppId()) ? f59180c.f59181b : "";
+                    return str.equals(f43817c.getAppId()) ? f43817c.f43818b : "";
                 }
             }
         }
@@ -174,21 +174,21 @@ public class Tencent {
         return invokeL.booleanValue;
     }
 
-    public static boolean onActivityResultData(int i2, int i3, Intent intent, IUiListener iUiListener) {
+    public static boolean onActivityResultData(int i, int i2, Intent intent, IUiListener iUiListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), intent, iUiListener})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, iUiListener})) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("onActivityResultData() reqcode = ");
-            sb.append(i2);
+            sb.append(i);
             sb.append(", resultcode = ");
-            sb.append(i3);
+            sb.append(i2);
             sb.append(", data = null ? ");
             sb.append(intent == null);
             sb.append(", listener = null ? ");
             sb.append(iUiListener == null);
             SLog.i("openSDK_LOG.Tencent", sb.toString());
-            return UIListenerManager.getInstance().onActivityResult(i2, i3, intent, iUiListener);
+            return UIListenerManager.getInstance().onActivityResult(i, i2, intent, iUiListener);
         }
         return invokeCommon.booleanValue;
     }
@@ -455,10 +455,10 @@ public class Tencent {
         }
     }
 
-    public boolean onActivityResult(int i2, int i3, Intent intent) {
+    public boolean onActivityResult(int i, int i2, Intent intent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048598, this, i2, i3, intent)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048598, this, i, i2, intent)) == null) {
             SLog.i("openSDK_LOG.Tencent", "onActivityResult() deprecated, will do nothing");
             return false;
         }
@@ -580,7 +580,7 @@ public class Tencent {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048613, this, activity, bundle, iUiListener) == null) {
             SLog.i("openSDK_LOG.Tencent", "shareToQQ()");
-            if (TextUtils.isEmpty(this.f59181b)) {
+            if (TextUtils.isEmpty(this.f43818b)) {
                 iUiListener.onWarning(-19);
             }
             new QQShare(activity, this.a.b()).shareToQQ(activity, bundle, iUiListener);
@@ -683,16 +683,16 @@ public class Tencent {
                     SLog.e("openSDK_LOG.Tencent", "appId should not be empty!");
                     return null;
                 }
-                if (f59180c == null) {
-                    f59180c = new Tencent(str, context);
-                } else if (!str.equals(f59180c.getAppId())) {
-                    f59180c.logout(context);
-                    f59180c = new Tencent(str, context);
+                if (f43817c == null) {
+                    f43817c = new Tencent(str, context);
+                } else if (!str.equals(f43817c.getAppId())) {
+                    f43817c.logout(context);
+                    f43817c = new Tencent(str, context);
                 }
                 if (a(context, str)) {
                     g.a(context, str);
                     SLog.i("openSDK_LOG.Tencent", "createInstance()  -- end");
-                    return f59180c;
+                    return f43817c;
                 }
                 return null;
             }
@@ -700,12 +700,12 @@ public class Tencent {
         return (Tencent) invokeLL.objValue;
     }
 
-    public void setAvatar(Activity activity, Bundle bundle, IUiListener iUiListener, int i2, int i3) {
+    public void setAvatar(Activity activity, Bundle bundle, IUiListener iUiListener, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{activity, bundle, iUiListener, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{activity, bundle, iUiListener, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             SLog.i("openSDK_LOG.Tencent", "setAvatar()");
-            bundle.putInt("exitAnim", i3);
-            activity.overridePendingTransition(i2, 0);
+            bundle.putInt("exitAnim", i2);
+            activity.overridePendingTransition(i, 0);
             setAvatar(activity, bundle, iUiListener);
         }
     }

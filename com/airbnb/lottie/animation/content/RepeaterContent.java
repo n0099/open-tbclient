@@ -79,16 +79,16 @@ public class RepeaterContent implements DrawingContent, PathContent, GreedyConte
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         float floatValue = this.copies.getValue().floatValue();
         float floatValue2 = this.offset.getValue().floatValue();
         float floatValue3 = this.transform.getStartOpacity().getValue().floatValue() / 100.0f;
         float floatValue4 = this.transform.getEndOpacity().getValue().floatValue() / 100.0f;
-        for (int i3 = ((int) floatValue) - 1; i3 >= 0; i3--) {
+        for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            float f2 = i3;
+            float f2 = i2;
             this.matrix.preConcat(this.transform.getMatrixForRepeater(f2 + floatValue2));
-            this.contentGroup.draw(canvas, this.matrix, (int) (i2 * MiscUtils.lerp(floatValue3, floatValue4, f2 / floatValue)));
+            this.contentGroup.draw(canvas, this.matrix, (int) (i * MiscUtils.lerp(floatValue3, floatValue4, f2 / floatValue)));
         }
     }
 
@@ -108,8 +108,8 @@ public class RepeaterContent implements DrawingContent, PathContent, GreedyConte
         this.path.reset();
         float floatValue = this.copies.getValue().floatValue();
         float floatValue2 = this.offset.getValue().floatValue();
-        for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
-            this.matrix.set(this.transform.getMatrixForRepeater(i2 + floatValue2));
+        for (int i = ((int) floatValue) - 1; i >= 0; i--) {
+            this.matrix.set(this.transform.getMatrixForRepeater(i + floatValue2));
             this.path.addPath(path, this.matrix);
         }
         return this.path;
@@ -121,8 +121,8 @@ public class RepeaterContent implements DrawingContent, PathContent, GreedyConte
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content

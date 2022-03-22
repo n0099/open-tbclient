@@ -14,25 +14,25 @@ public class q {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34540b;
+    public String f26738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34541c;
+    public int f26739c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34542d;
+    public int f26740d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<q> f34543e;
+    public ArrayList<q> f26741e;
 
     public q() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,13 +42,13 @@ public class q {
     public ArrayList<q> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34543e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26741e : (ArrayList) invokeV.objValue;
     }
 
     public void a(ArrayList<q> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f34543e = arrayList;
+            this.f26741e = arrayList;
         }
     }
 }

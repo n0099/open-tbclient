@@ -11,7 +11,6 @@ import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {5})
 /* loaded from: classes7.dex */
 public class DecoderSpecificInfo extends BaseDescriptor {
@@ -24,9 +23,9 @@ public class DecoderSpecificInfo extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,12 +59,12 @@ public class DecoderSpecificInfo extends BaseDescriptor {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) || (i2 = this.sizeOfInstance) <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) || (i = this.sizeOfInstance) <= 0) {
             return;
         }
-        byte[] bArr = new byte[i2];
+        byte[] bArr = new byte[i];
         this.bytes = bArr;
         byteBuffer.get(bArr);
     }
@@ -92,7 +91,7 @@ public class DecoderSpecificInfo extends BaseDescriptor {
             sb.append("{bytes=");
             byte[] bArr = this.bytes;
             sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

@@ -31,10 +31,10 @@ public class c {
         return invokeLF.floatValue;
     }
 
-    public static int a(Object obj, int i2) {
+    public static int a(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, obj, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, obj, i)) == null) {
             if (obj != null) {
                 if (obj instanceof Integer) {
                     return ((Integer) obj).intValue();
@@ -47,20 +47,20 @@ public class c {
                         return Integer.parseInt((String) obj);
                     } catch (NumberFormatException e2) {
                         e2.printStackTrace();
-                        return i2;
+                        return i;
                     }
                 }
-                return i2;
+                return i;
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
 
-    public static long a(Object obj, long j2) {
+    public static long a(Object obj, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, obj, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, obj, j)) == null) {
             if (obj != null) {
                 if ((obj instanceof Long) || (obj instanceof Float)) {
                     return ((Long) obj).longValue();
@@ -70,12 +70,12 @@ public class c {
                         return Long.parseLong((String) obj);
                     } catch (NumberFormatException e2) {
                         e2.printStackTrace();
-                        return j2;
+                        return j;
                     }
                 }
-                return j2;
+                return j;
             }
-            return j2;
+            return j;
         }
         return invokeLJ.longValue;
     }

@@ -34,9 +34,9 @@ public class c implements l {
             newInitContext.initArgs = r2;
             Object[] objArr = {gVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((g) objArr2[0], (com.baidu.ar.ihttp.a) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -53,9 +53,9 @@ public class c implements l {
             newInitContext.initArgs = r2;
             Object[] objArr = {gVar, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -115,7 +115,7 @@ public class c implements l {
             if (this.qH) {
                 return null;
             }
-            int i2 = 0;
+            int i = 0;
             try {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) this.qK.url.openConnection();
@@ -140,15 +140,15 @@ public class c implements l {
                                     this.qL.setDoOutput(true);
                                     OutputStream outputStream = this.qL.getOutputStream();
                                     byte[] bArr = new byte[1024];
-                                    int i3 = 0;
+                                    int i2 = 0;
                                     for (InputStream inputStream : inputStreamArr) {
                                         while (true) {
                                             int read = inputStream.read(bArr);
                                             if (read != -1) {
                                                 outputStream.write(bArr, 0, read);
                                                 if (this.qN != null) {
-                                                    i3 += read;
-                                                    this.qN.onProgress(i3, size);
+                                                    i2 += read;
+                                                    this.qN.onProgress(i2, size);
                                                 }
                                             }
                                         }
@@ -172,9 +172,9 @@ public class c implements l {
                     }
                     if (inputStreamArr != null) {
                         int length = inputStreamArr.length;
-                        while (i2 < length) {
-                            j.closeQuietly(inputStreamArr[i2]);
-                            i2++;
+                        while (i < length) {
+                            j.closeQuietly(inputStreamArr[i]);
+                            i++;
                         }
                     }
                     return iVar;
@@ -185,9 +185,9 @@ public class c implements l {
                     }
                     if (0 != 0) {
                         int length2 = r2.length;
-                        while (i2 < length2) {
-                            j.closeQuietly(r2[i2]);
-                            i2++;
+                        while (i < length2) {
+                            j.closeQuietly(r2[i]);
+                            i++;
                         }
                     }
                     throw th;

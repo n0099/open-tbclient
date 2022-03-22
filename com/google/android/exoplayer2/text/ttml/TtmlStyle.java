@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Assertions;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TtmlStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FONT_SIZE_UNIT_EM = 2;
@@ -41,12 +41,12 @@ public final class TtmlStyle {
     public int underline;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface StyleFlags {
     }
 
@@ -55,9 +55,9 @@ public final class TtmlStyle {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -172,11 +172,11 @@ public final class TtmlStyle {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.underline == 1 : invokeV.booleanValue;
     }
 
-    public TtmlStyle setBackgroundColor(int i2) {
+    public TtmlStyle setBackgroundColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.backgroundColor = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.backgroundColor = i;
             this.hasBackgroundColor = true;
             return this;
         }
@@ -194,12 +194,12 @@ public final class TtmlStyle {
         return (TtmlStyle) invokeZ.objValue;
     }
 
-    public TtmlStyle setFontColor(int i2) {
+    public TtmlStyle setFontColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             Assertions.checkState(this.inheritableStyle == null);
-            this.fontColor = i2;
+            this.fontColor = i;
             this.hasFontColor = true;
             return this;
         }
@@ -227,11 +227,11 @@ public final class TtmlStyle {
         return (TtmlStyle) invokeF.objValue;
     }
 
-    public TtmlStyle setFontSizeUnit(int i2) {
+    public TtmlStyle setFontSizeUnit(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.fontSizeUnit = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.fontSizeUnit = i;
             return this;
         }
         return (TtmlStyle) invokeI.objValue;

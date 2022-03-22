@@ -17,11 +17,11 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNIFavorite f34752b;
+    public JNIFavorite f26928b;
 
     /* renamed from: com.baidu.mapsdkplatform.comjni.map.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1817a {
+    public static class C1771a {
         public static /* synthetic */ Interceptable $ic;
         public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,17 +54,17 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 0L;
-        this.f34752b = null;
-        this.f34752b = new JNIFavorite();
+        this.f26928b = null;
+        this.f26928b = new JNIFavorite();
     }
 
     public int a(Bundle bundle) {
@@ -72,7 +72,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             try {
-                return this.f34752b.GetAll(this.a, bundle);
+                return this.f26928b.GetAll(this.a, bundle);
             } catch (Throwable unused) {
                 return 0;
             }
@@ -84,45 +84,45 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long Create = this.f34752b.Create();
+            long Create = this.f26928b.Create();
             this.a = Create;
             return Create;
         }
         return invokeV.longValue;
     }
 
-    public boolean a(int i2) {
+    public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f34752b.SetType(this.a, i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.f26928b.SetType(this.a, i) : invokeI.booleanValue;
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f34752b.Remove(this.a, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f26928b.Remove(this.a, str) : invokeL.booleanValue;
     }
 
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            C1817a.b();
-            return this.f34752b.Add(this.a, str, str2);
+            C1771a.b();
+            return this.f26928b.Add(this.a, str, str2);
         }
         return invokeLL.booleanValue;
     }
 
-    public boolean a(String str, String str2, String str3, int i2, int i3, int i4) {
+    public boolean a(String str, String str2, String str3, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? this.f34752b.Load(this.a, str, str2, str3, i2, i3, i4) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? this.f26928b.Load(this.a, str, str2, str3, i, i2, i3) : invokeCommon.booleanValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34752b.Release(this.a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26928b.Release(this.a) : invokeV.intValue;
     }
 
     public String b(String str) {
@@ -130,7 +130,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             try {
-                return this.f34752b.GetValue(this.a, str);
+                return this.f26928b.GetValue(this.a, str);
             } catch (Exception unused) {
                 return null;
             }
@@ -142,8 +142,8 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            C1817a.b();
-            return this.f34752b.Update(this.a, str, str2);
+            C1771a.b();
+            return this.f26928b.Update(this.a, str, str2);
         }
         return invokeLL.booleanValue;
     }
@@ -151,7 +151,7 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f34752b.Clear(this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26928b.Clear(this.a) : invokeV.booleanValue;
     }
 
     public boolean c(String str) {
@@ -159,7 +159,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             try {
-                return this.f34752b.IsExist(this.a, str);
+                return this.f26928b.IsExist(this.a, str);
             } catch (Throwable unused) {
                 return false;
             }
@@ -170,6 +170,6 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f34752b.SaveCache(this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26928b.SaveCache(this.a) : invokeV.booleanValue;
     }
 }

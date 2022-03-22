@@ -59,9 +59,9 @@ public class Slide extends Visibility {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -86,9 +86,9 @@ public class Slide extends Visibility {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -133,9 +133,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -159,9 +159,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -191,9 +191,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -217,9 +217,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -243,9 +243,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -275,9 +275,9 @@ public class Slide extends Visibility {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         AnonymousClass1 anonymousClass1 = (AnonymousClass1) newInitContext.callArgs[0];
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -299,9 +299,9 @@ public class Slide extends Visibility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -373,41 +373,41 @@ public class Slide extends Visibility {
         return (Animator) invokeLLLL.objValue;
     }
 
-    public void setSlideEdge(int i2) {
+    public void setSlideEdge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (i2 == 3) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i == 3) {
                 this.mSlideCalculator = sCalculateLeft;
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 this.mSlideCalculator = sCalculateRight;
-            } else if (i2 == 48) {
+            } else if (i == 48) {
                 this.mSlideCalculator = sCalculateTop;
-            } else if (i2 == 80) {
+            } else if (i == 80) {
                 this.mSlideCalculator = sCalculateBottom;
-            } else if (i2 == 8388611) {
+            } else if (i == 8388611) {
                 this.mSlideCalculator = sCalculateStart;
-            } else if (i2 == 8388613) {
+            } else if (i == 8388613) {
                 this.mSlideCalculator = sCalculateEnd;
             } else {
                 throw new IllegalArgumentException("Invalid slide direction");
             }
-            this.mSlideEdge = i2;
+            this.mSlideEdge = i;
             SidePropagation sidePropagation = new SidePropagation();
-            sidePropagation.setSide(i2);
+            sidePropagation.setSide(i);
             setPropagation(sidePropagation);
         }
     }
 
-    public Slide(int i2) {
+    public Slide(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -415,7 +415,7 @@ public class Slide extends Visibility {
         }
         this.mSlideCalculator = sCalculateBottom;
         this.mSlideEdge = 80;
-        setSlideEdge(i2);
+        setSlideEdge(i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -428,9 +428,9 @@ public class Slide extends Visibility {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

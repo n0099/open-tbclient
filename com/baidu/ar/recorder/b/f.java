@@ -41,9 +41,9 @@ public class f extends b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -102,8 +102,8 @@ public class f extends b {
     }
 
     @Override // com.baidu.ar.recorder.b.b
-    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
-        super.a(z, byteBuffer, i2, j2);
+    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i, long j) {
+        super.a(z, byteBuffer, i, j);
     }
 
     @Override // com.baidu.ar.recorder.b.b

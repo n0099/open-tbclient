@@ -29,8 +29,7 @@ import com.tachikoma.core.component.text.TKText;
 import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.manager.IProvider;
 import java.util.HashMap;
-import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AttributeProvider implements IProvider<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +39,9 @@ public class AttributeProvider implements IProvider<Object> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -187,7 +186,7 @@ public class AttributeProvider implements IProvider<Object> {
                     break;
                 case 1666774561:
                     if (str.equals("com.tachikoma.core.component.listview.TKIndicator")) {
-                        c2 = CharUtils.CR;
+                        c2 = '\r';
                         break;
                     }
                     c2 = 65535;

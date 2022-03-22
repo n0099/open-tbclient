@@ -13,10 +13,9 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.f;
-import c.a.y0.r.v;
+import c.a.v0.r.f;
+import c.a.v0.r.v;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,9 +103,9 @@ public class NewSubTitleCreater {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((List) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -123,9 +122,9 @@ public class NewSubTitleCreater {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -143,35 +142,35 @@ public class NewSubTitleCreater {
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap createSubtitleBitmap(SubTitleUnit subTitleUnit) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, subTitleUnit)) == null) {
             SubTitleConfig subTitleConfig = this.mSubTitleConfig;
             if (subTitleConfig != null && subTitleConfig.mVideoWidth > 0 && subTitleConfig.mVideoHeight > 0 && !TextUtils.isEmpty(subTitleUnit.line)) {
                 initConfig(subTitleUnit);
                 initXY(subTitleUnit);
-                int i3 = subTitleUnit.width;
-                if (i3 > 0 && (i2 = subTitleUnit.height) > 0) {
-                    Bitmap createBitmap = Bitmap.createBitmap(i3, i2, Bitmap.Config.ARGB_8888);
+                int i2 = subTitleUnit.width;
+                if (i2 > 0 && (i = subTitleUnit.height) > 0) {
+                    Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
                     Canvas canvas = new Canvas(createBitmap);
                     f.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
-                    int i4 = 0;
+                    int i3 = 0;
                     if (!TextUtils.isEmpty(subTitleUnit.line)) {
                         SubTitleConfig.StrokeConfig strokeConfig = subTitleUnit.chineseStrokeConfig;
                         if (strokeConfig != null && strokeConfig.strokeWidth > 0.0f) {
-                            i4 = drawChineseText(subTitleUnit, canvas, Paint.Style.STROKE);
+                            i3 = drawChineseText(subTitleUnit, canvas, Paint.Style.STROKE);
                         }
                         if (subTitleUnit.isChineseCenterBlank != 1) {
-                            i4 = drawChineseText(subTitleUnit, canvas, Paint.Style.FILL);
+                            i3 = drawChineseText(subTitleUnit, canvas, Paint.Style.FILL);
                         }
                     }
                     if (this.mSubTitleConfig.mIsNeedEng && !TextUtils.isEmpty(subTitleUnit.engLine)) {
                         SubTitleConfig.StrokeConfig strokeConfig2 = subTitleUnit.engStrokeConfig;
                         if (strokeConfig2 != null && strokeConfig2.strokeWidth > 0.0f) {
-                            drawEngText(subTitleUnit, canvas, i4, Paint.Style.STROKE);
+                            drawEngText(subTitleUnit, canvas, i3, Paint.Style.STROKE);
                         }
                         if (subTitleUnit.isEngCenterBlank != 1) {
-                            drawEngText(subTitleUnit, canvas, i4, Paint.Style.FILL);
+                            drawEngText(subTitleUnit, canvas, i3, Paint.Style.FILL);
                         }
                     }
                     return createBitmap;
@@ -192,14 +191,14 @@ public class NewSubTitleCreater {
     private int drawChineseText(SubTitleUnit subTitleUnit, Canvas canvas, Paint.Style style) {
         InterceptResult invokeLLL;
         float measureText;
-        int i2;
+        int i;
         int[] d2;
+        int i2;
         int i3;
-        int i4;
         SubTitleConfig.StrokeConfig strokeConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, this, subTitleUnit, canvas, style)) == null) {
-            int i5 = 1;
+            int i4 = 1;
             TextPaint textPaint = new TextPaint(1);
             TextPaint textPaint2 = new TextPaint();
             TextPaint textPaint3 = new TextPaint();
@@ -227,71 +226,71 @@ public class NewSubTitleCreater {
                 }
             }
             int g2 = f.g(textPaint);
-            int i6 = subTitleUnit.padding;
-            int i7 = subTitleUnit.backgroudPaddingLeft;
+            int i5 = subTitleUnit.padding;
+            int i6 = subTitleUnit.backgroudPaddingLeft;
             int abs = (g2 / 2) + ((int) (Math.abs(textPaint.ascent() + textPaint.descent()) / 2.0f)) + subTitleUnit.padding + subTitleUnit.backgroudPaddingTop;
-            int i8 = 0;
-            while (i8 < this.mLineCount) {
-                int i9 = subTitleUnit.padding;
-                int i10 = subTitleUnit.backgroudPaddingTop;
-                int i11 = (g2 * i8) + i9 + i10;
-                int i12 = i8 + 1;
-                int i13 = i9 + (g2 * i12) + i10;
-                int i14 = AnonymousClass2.$SwitchMap$android$graphics$Paint$Align[subTitleUnit.textGravity.ordinal()];
-                if (i14 == i5) {
-                    measureText = (subTitleUnit.width - textPaint.measureText(this.mTextContents.get(i8))) - subTitleUnit.padding;
-                } else if (i14 != 3) {
-                    i2 = subTitleUnit.padding + subTitleUnit.backgroudPaddingLeft;
-                    int i15 = i2;
+            int i7 = 0;
+            while (i7 < this.mLineCount) {
+                int i8 = subTitleUnit.padding;
+                int i9 = subTitleUnit.backgroudPaddingTop;
+                int i10 = (g2 * i7) + i8 + i9;
+                int i11 = i7 + 1;
+                int i12 = i8 + (g2 * i11) + i9;
+                int i13 = AnonymousClass2.$SwitchMap$android$graphics$Paint$Align[subTitleUnit.textGravity.ordinal()];
+                if (i13 == i4) {
+                    measureText = (subTitleUnit.width - textPaint.measureText(this.mTextContents.get(i7))) - subTitleUnit.padding;
+                } else if (i13 != 3) {
+                    i = subTitleUnit.padding + subTitleUnit.backgroudPaddingLeft;
+                    int i14 = i;
                     d2 = f.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
-                    int i16 = i8;
-                    int i17 = abs;
-                    f.e(canvas, textPaint, i15, i11, i13, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                    int i15 = i7;
+                    int i16 = abs;
+                    f.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                     if (d2[0] == 0) {
-                        i3 = i15;
-                        i4 = i17;
-                        canvas.drawText(this.mTextContents.get(i16), i3, i4, textPaint2);
+                        i2 = i14;
+                        i3 = i16;
+                        canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint2);
                     } else {
-                        i3 = i15;
-                        i4 = i17;
+                        i2 = i14;
+                        i3 = i16;
                     }
                     if (d2[1] == 0) {
-                        canvas.drawText(this.mTextContents.get(i16), i3, i4, textPaint3);
+                        canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint3);
                     }
-                    canvas.drawText(this.mTextContents.get(i16), i3, i4, textPaint);
-                    abs = i4 + g2;
-                    i8 = i12;
-                    i5 = 1;
+                    canvas.drawText(this.mTextContents.get(i15), i2, i3, textPaint);
+                    abs = i3 + g2;
+                    i7 = i11;
+                    i4 = 1;
                 } else {
-                    measureText = (subTitleUnit.width - textPaint.measureText(this.mTextContents.get(i8))) / 2.0f;
+                    measureText = (subTitleUnit.width - textPaint.measureText(this.mTextContents.get(i7))) / 2.0f;
                 }
-                i2 = (int) measureText;
-                int i152 = i2;
+                i = (int) measureText;
+                int i142 = i;
                 d2 = f.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
-                int i162 = i8;
-                int i172 = abs;
-                f.e(canvas, textPaint, i152, i11, i13, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                int i152 = i7;
+                int i162 = abs;
+                f.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 if (d2[0] == 0) {
                 }
                 if (d2[1] == 0) {
                 }
-                canvas.drawText(this.mTextContents.get(i162), i3, i4, textPaint);
-                abs = i4 + g2;
-                i8 = i12;
-                i5 = 1;
+                canvas.drawText(this.mTextContents.get(i152), i2, i3, textPaint);
+                abs = i3 + g2;
+                i7 = i11;
+                i4 = 1;
             }
             return abs - subTitleUnit.padding;
         }
         return invokeLLL.intValue;
     }
 
-    private void drawEngText(SubTitleUnit subTitleUnit, Canvas canvas, int i2, Paint.Style style) {
+    private void drawEngText(SubTitleUnit subTitleUnit, Canvas canvas, int i, Paint.Style style) {
         SubTitleConfig.StrokeConfig strokeConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, this, subTitleUnit, canvas, i2, style) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65546, this, subTitleUnit, canvas, i, style) == null) {
             canvas.save();
             SubTitleConfig subTitleConfig = this.mSubTitleConfig;
-            canvas.translate(0.0f, i2 + (subTitleConfig.mLinePadding / subTitleConfig.mScale));
+            canvas.translate(0.0f, i + (subTitleConfig.mLinePadding / subTitleConfig.mScale));
             TextPaint textPaint = new TextPaint(1);
             textPaint.setColor(subTitleUnit.engTextColor);
             textPaint.setStyle(style);
@@ -314,12 +313,12 @@ public class NewSubTitleCreater {
                 }
             }
             Layout.Alignment alignment = Layout.Alignment.ALIGN_CENTER;
-            int i3 = AnonymousClass2.$SwitchMap$android$graphics$Paint$Align[subTitleUnit.textGravity.ordinal()];
-            Layout.Alignment alignment2 = i3 != 1 ? i3 != 2 ? Layout.Alignment.ALIGN_CENTER : Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE;
+            int i2 = AnonymousClass2.$SwitchMap$android$graphics$Paint$Align[subTitleUnit.textGravity.ordinal()];
+            Layout.Alignment alignment2 = i2 != 1 ? i2 != 2 ? Layout.Alignment.ALIGN_CENTER : Layout.Alignment.ALIGN_NORMAL : Layout.Alignment.ALIGN_OPPOSITE;
             String str = subTitleUnit.engLine;
             int width = canvas.getWidth();
-            int i4 = subTitleUnit.padding;
-            getMeasuredStaticLayout(str, textPaint, width + i4, this.mSubTitleConfig.maxEngLineNum, alignment2, i4).draw(canvas);
+            int i3 = subTitleUnit.padding;
+            getMeasuredStaticLayout(str, textPaint, width + i3, this.mSubTitleConfig.maxEngLineNum, alignment2, i3).draw(canvas);
             canvas.restore();
         }
     }
@@ -367,36 +366,36 @@ public class NewSubTitleCreater {
         return invokeV.intValue;
     }
 
-    public static StaticLayout getMeasuredStaticLayout(String str, TextPaint textPaint, int i2, int i3, Layout.Alignment alignment, int i4) {
+    public static StaticLayout getMeasuredStaticLayout(String str, TextPaint textPaint, int i, int i2, Layout.Alignment alignment, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, textPaint, Integer.valueOf(i2), Integer.valueOf(i3), alignment, Integer.valueOf(i4)})) == null) {
-            StaticLayout staticLayout = new StaticLayout(str, 0, str.length(), textPaint, i2, alignment, 1.0f, 0.0f, false, TextUtils.TruncateAt.END, i2);
-            if (staticLayout.getLineCount() > i3) {
-                String substring = str.substring(0, staticLayout.getLineEnd(i3 - 1));
-                return new StaticLayout(substring, 0, substring.length(), textPaint, i2, alignment, 1.0f, i4, false, TextUtils.TruncateAt.END, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, textPaint, Integer.valueOf(i), Integer.valueOf(i2), alignment, Integer.valueOf(i3)})) == null) {
+            StaticLayout staticLayout = new StaticLayout(str, 0, str.length(), textPaint, i, alignment, 1.0f, 0.0f, false, TextUtils.TruncateAt.END, i);
+            if (staticLayout.getLineCount() > i2) {
+                String substring = str.substring(0, staticLayout.getLineEnd(i2 - 1));
+                return new StaticLayout(substring, 0, substring.length(), textPaint, i, alignment, 1.0f, i3, false, TextUtils.TruncateAt.END, i);
             }
             return staticLayout;
         }
         return (StaticLayout) invokeCommon.objValue;
     }
 
-    private int[] getSubtileDefaultCenterPosition(SubTitleUnit subTitleUnit, int i2, int i3, int i4, int i5, int i6) {
+    private int[] getSubtileDefaultCenterPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{subTitleUnit, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i2 - i4) / 2, (i3 - (i5 / 2)) - i6} : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (i2 - (i4 / 2)) - i5} : (int[]) invokeCommon.objValue;
     }
 
-    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i2, int i3, int i4, int i5, float f2) {
+    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{subTitleUnit, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i2 - i4) / 2, (int) ((i3 * f2) - (i5 / 2))} : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (int) ((i2 * f2) - (i4 / 2))} : (int[]) invokeCommon.objValue;
     }
 
-    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i2, int i3, int i4, int i5, int i6) {
+    private int[] getSubtileDefaultPosition(SubTitleUnit subTitleUnit, int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{subTitleUnit, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i2 - i4) / 2, (i3 - i5) - i6} : (int[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, this, new Object[]{subTitleUnit, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? (subTitleUnit == null || TextUtils.isEmpty(subTitleUnit.line)) ? new int[]{0, 0} : new int[]{(i - i3) / 2, (i2 - i4) - i5} : (int[]) invokeCommon.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:58:0x014c  */
@@ -413,7 +412,7 @@ public class NewSubTitleCreater {
         float f3;
         float f4;
         SubTitleConfig subTitleConfig;
-        int i2;
+        int i;
         float abs3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, subTitleUnit)) == null) {
@@ -472,20 +471,20 @@ public class NewSubTitleCreater {
                 }
                 if (measureText > 0.0f) {
                     String str = subTitleUnit.engLine;
-                    int i3 = subTitleUnit.padding;
+                    int i2 = subTitleUnit.padding;
                     f2 = measureText;
-                    f3 = getMeasuredStaticLayout(str, textPaint2, (int) ((measureText - f5) - (i3 * 2)), this.mSubTitleConfig.maxEngLineNum, Layout.Alignment.ALIGN_CENTER, i3).getHeight() + abs3;
+                    f3 = getMeasuredStaticLayout(str, textPaint2, (int) ((measureText - f5) - (i2 * 2)), this.mSubTitleConfig.maxEngLineNum, Layout.Alignment.ALIGN_CENTER, i2).getHeight() + abs3;
                     if (f2 <= 0.0f) {
-                        StaticLayout measuredStaticLayout = getMeasuredStaticLayout(subTitleUnit.line, textPaint, (int) ((f2 - abs) - (i2 * 2)), this.mSubTitleConfig.maxChineseLineNum, Layout.Alignment.ALIGN_CENTER, subTitleUnit.padding);
+                        StaticLayout measuredStaticLayout = getMeasuredStaticLayout(subTitleUnit.line, textPaint, (int) ((f2 - abs) - (i * 2)), this.mSubTitleConfig.maxChineseLineNum, Layout.Alignment.ALIGN_CENTER, subTitleUnit.padding);
                         f4 = measuredStaticLayout.getHeight() + abs2;
                         this.mLineCount = measuredStaticLayout.getLineCount();
-                        int i4 = 0;
-                        for (int i5 = 0; i5 < this.mLineCount; i5++) {
-                            int lineEnd = measuredStaticLayout.getLineEnd(i5);
+                        int i3 = 0;
+                        for (int i4 = 0; i4 < this.mLineCount; i4++) {
+                            int lineEnd = measuredStaticLayout.getLineEnd(i4);
                             if (lineEnd != 0) {
-                                this.mTextContents.add(subTitleUnit.line.substring(i4, lineEnd));
-                                f2 = Math.max(f2, textPaint.measureText(this.mTextContents.get(i5)) + abs + (subTitleUnit.padding * 2));
-                                i4 = lineEnd;
+                                this.mTextContents.add(subTitleUnit.line.substring(i3, lineEnd));
+                                f2 = Math.max(f2, textPaint.measureText(this.mTextContents.get(i4)) + abs + (subTitleUnit.padding * 2));
+                                i3 = lineEnd;
                             }
                         }
                     } else {
@@ -590,34 +589,34 @@ public class NewSubTitleCreater {
             this.mNineBitmap = a;
             NinePatchChunk f2 = f.f(a, subTitleUnit.mTextStyleEntity);
             this.mNinePatchChunk = f2;
-            int i2 = subtileWH[0];
-            subTitleUnit.width = i2;
-            int i3 = subtileWH[1];
-            subTitleUnit.height = i3;
+            int i = subtileWH[0];
+            subTitleUnit.width = i;
+            int i2 = subtileWH[1];
+            subTitleUnit.height = i2;
             subTitleUnit.backgroudPaddingLeft = 0;
             subTitleUnit.backgroudPaddingTop = 0;
             if (f2 != null) {
                 Rect rect = f2.padding;
-                int i4 = rect.left;
-                subTitleUnit.backgroudPaddingLeft = i4;
-                int i5 = rect.top;
-                subTitleUnit.backgroudPaddingTop = i5;
+                int i3 = rect.left;
+                subTitleUnit.backgroudPaddingLeft = i3;
+                int i4 = rect.top;
+                subTitleUnit.backgroudPaddingTop = i4;
+                int i5 = i + i3;
+                subTitleUnit.width = i5;
                 int i6 = i2 + i4;
-                subTitleUnit.width = i6;
-                int i7 = i3 + i5;
-                subTitleUnit.height = i7;
-                int i8 = i6 + rect.right;
-                subTitleUnit.width = i8;
-                subTitleUnit.height = i7 + rect.bottom;
+                subTitleUnit.height = i6;
+                int i7 = i5 + rect.right;
+                subTitleUnit.width = i7;
+                subTitleUnit.height = i6 + rect.bottom;
                 Bitmap bitmap = this.mNineBitmap;
-                if (bitmap != null && i8 < bitmap.getWidth()) {
+                if (bitmap != null && i7 < bitmap.getWidth()) {
                     subTitleUnit.width = this.mNineBitmap.getWidth();
                 }
             }
             if (subTitleUnit.leftPercent == -1.0f || subTitleUnit.topPercent == -1.0f) {
                 SubTitleConfig subTitleConfig = this.mSubTitleConfig;
-                int i9 = subTitleConfig.gravity;
-                int[] subtileDefaultPosition = i9 == 1 ? getSubtileDefaultPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, subTitleConfig.mBottomPadding) : i9 == 2 ? getSubtileDefaultCenterPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, subTitleConfig.mBottomPadding) : getSubtileDefaultPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, 0.5f);
+                int i8 = subTitleConfig.gravity;
+                int[] subtileDefaultPosition = i8 == 1 ? getSubtileDefaultPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, subTitleConfig.mBottomPadding) : i8 == 2 ? getSubtileDefaultCenterPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, subTitleConfig.mBottomPadding) : getSubtileDefaultPosition(subTitleUnit, subTitleConfig.mVideoWidth, subTitleConfig.mVideoHeight, subTitleUnit.width, subTitleUnit.height, 0.5f);
                 if (subTitleUnit.leftPercent == -1.0f || subTitleUnit.x == -1) {
                     subTitleUnit.x = subtileDefaultPosition[0];
                 }
@@ -658,9 +657,9 @@ public class NewSubTitleCreater {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, subTitleUnit, Boolean.valueOf(z)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -678,7 +677,7 @@ public class NewSubTitleCreater {
                             Bitmap createSubtitleBitmap = this.this$0.createSubtitleBitmap(this.val$subTitleUnit);
                             if (this.this$0.saveBitmap) {
                                 String str = this.this$0.savePath;
-                                FileUtils.saveBitmap2JPG(str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, createSubtitleBitmap, 90);
+                                FileUtils.saveBitmap2JPG(str, System.currentTimeMillis() + ".jpg", createSubtitleBitmap, 90);
                             }
                             if (createSubtitleBitmap == null || createSubtitleBitmap.isRecycled()) {
                                 return;
@@ -716,18 +715,18 @@ public class NewSubTitleCreater {
         this.mHandler = new Handler(this.mHandlerThread.getLooper());
     }
 
-    public SubTitleUnit getSubTitle(long j2, long j3) {
+    public SubTitleUnit getSubTitle(long j, long j2) {
         InterceptResult invokeCommon;
         Bitmap value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (this.mSubTitleUnits == null || this.mSubtitleCache == null) {
                 return getEmptySubTitle();
             }
             synchronized (this.mSubtitleCache) {
                 SubTitleUnit subTitleUnit = null;
                 for (SubTitleUnit subTitleUnit2 : this.mSubTitleUnits) {
-                    if (subTitleUnit2.startTime <= j3) {
+                    if (subTitleUnit2.startTime <= j2) {
                         if (subTitleUnit != null) {
                             if (this.mSubtitleCache.get(getCacheKey(subTitleUnit2)) == null) {
                                 onGetSubtitleBitmap(subTitleUnit2, false);
@@ -743,7 +742,7 @@ public class NewSubTitleCreater {
                                 }
                             }
                             return subTitleUnit;
-                        } else if (j2 < subTitleUnit2.startTime || j2 > subTitleUnit2.endTime) {
+                        } else if (j < subTitleUnit2.startTime || j > subTitleUnit2.endTime) {
                             String cacheKey = getCacheKey(subTitleUnit2);
                             Bitmap bitmap = this.mSubtitleCache.get(cacheKey);
                             if (bitmap != null) {
@@ -777,17 +776,17 @@ public class NewSubTitleCreater {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSubTitleConfig : (SubTitleConfig) invokeV.objValue;
     }
 
-    public SubTitleUnit getSubTitleSync(long j2) {
+    public SubTitleUnit getSubTitleSync(long j) {
         InterceptResult invokeJ;
         SubTitleUnit subTitleUnit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit2 : list) {
-                if (j2 >= subTitleUnit2.startTime && j2 <= subTitleUnit2.endTime) {
+                if (j >= subTitleUnit2.startTime && j <= subTitleUnit2.endTime) {
                     Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
                     if (bitmap == null || bitmap.isRecycled()) {
                         if (!this.mSubtitleCache.isEmpty()) {

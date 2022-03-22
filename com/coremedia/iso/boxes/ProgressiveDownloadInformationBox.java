@@ -16,10 +16,9 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ProgressiveDownloadInformationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "pdin";
@@ -29,30 +28,30 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long initialDelay;
         public long rate;
 
-        public Entry(long j2, long j3) {
+        public Entry(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.rate = j2;
-            this.initialDelay = j3;
+            this.rate = j;
+            this.initialDelay = j2;
         }
 
         public boolean equals(Object obj) {
@@ -87,24 +86,24 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j2 = this.rate;
-                long j3 = this.initialDelay;
-                return (((int) (j2 ^ (j2 >>> 32))) * 31) + ((int) (j3 ^ (j3 >>> 32)));
+                long j = this.rate;
+                long j2 = this.initialDelay;
+                return (((int) (j ^ (j >>> 32))) * 31) + ((int) (j2 ^ (j2 >>> 32)));
             }
             return invokeV.intValue;
         }
 
-        public void setInitialDelay(long j2) {
+        public void setInitialDelay(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.initialDelay = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.initialDelay = j;
             }
         }
 
-        public void setRate(long j2) {
+        public void setRate(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.rate = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.rate = j;
             }
         }
 
@@ -112,7 +111,7 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "Entry{rate=" + this.rate + ", initialDelay=" + this.initialDelay + ExtendedMessageFormat.END_FE;
+                return "Entry{rate=" + this.rate + ", initialDelay=" + this.initialDelay + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -141,9 +140,9 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -214,7 +213,7 @@ public class ProgressiveDownloadInformationBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "ProgressiveDownloadInfoBox{entries=" + this.entries + ExtendedMessageFormat.END_FE;
+            return "ProgressiveDownloadInfoBox{entries=" + this.entries + '}';
         }
         return (String) invokeV.objValue;
     }

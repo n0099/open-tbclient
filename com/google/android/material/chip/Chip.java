@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.PointerIcon;
@@ -71,7 +72,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
@@ -81,7 +82,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_Chip_Action = 2131755894;
+    public static final int obfuscated_res_0x7f100354 = 2131755860;
     public static final Rect EMPTY_BOUNDS;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
@@ -113,7 +114,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @NonNull
     public final ChipTouchHelper touchHelper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,9 +129,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                 newInitContext.initArgs = r2;
                 Object[] objArr = {chip, chip2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -159,15 +160,15 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
 
         @Override // androidx.customview.widget.ExploreByTouchHelper
-        public boolean onPerformActionForVirtualView(int i2, int i3, Bundle bundle) {
+        public boolean onPerformActionForVirtualView(int i, int i2, Bundle bundle) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, bundle)) == null) {
-                if (i3 == 16) {
-                    if (i2 == 0) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, bundle)) == null) {
+                if (i2 == 16) {
+                    if (i == 0) {
                         return this.this$0.performClick();
                     }
-                    if (i2 == 1) {
+                    if (i == 1) {
                         return this.this$0.performCloseIconClick();
                     }
                     return false;
@@ -198,10 +199,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
 
         @Override // androidx.customview.widget.ExploreByTouchHelper
-        public void onPopulateNodeForVirtualView(int i2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onPopulateNodeForVirtualView(int i, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048580, this, i2, accessibilityNodeInfoCompat) == null) {
-                if (i2 == 1) {
+            if (interceptable == null || interceptable.invokeIL(1048580, this, i, accessibilityNodeInfoCompat) == null) {
+                if (i == 1) {
                     CharSequence closeIconContentDescription = this.this$0.getCloseIconContentDescription();
                     if (closeIconContentDescription != null) {
                         accessibilityNodeInfoCompat.setContentDescription(closeIconContentDescription);
@@ -210,7 +211,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         Context context = this.this$0.getContext();
                         Object[] objArr = new Object[1];
                         objArr[0] = TextUtils.isEmpty(text) ? "" : text;
-                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.mtrl_chip_close_icon_content_description, objArr).trim());
+                        accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0ae4, objArr).trim());
                     }
                     accessibilityNodeInfoCompat.setBoundsInParent(this.this$0.getCloseIconTouchBoundsInt());
                     accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
@@ -223,9 +224,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
 
         @Override // androidx.customview.widget.ExploreByTouchHelper
-        public void onVirtualViewKeyboardFocusChanged(int i2, boolean z) {
+        public void onVirtualViewKeyboardFocusChanged(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && i2 == 1) {
+            if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && i == 1) {
                 this.this$0.closeIconFocused = z;
                 this.this$0.refreshDrawableState();
             }
@@ -259,9 +260,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -283,39 +284,39 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            int i2 = 0;
-            int i3 = isEnabled() ? 1 : 0;
+            int i = 0;
+            int i2 = isEnabled() ? 1 : 0;
             if (this.closeIconFocused) {
-                i3++;
+                i2++;
             }
             if (this.closeIconHovered) {
-                i3++;
+                i2++;
             }
             if (this.closeIconPressed) {
-                i3++;
+                i2++;
             }
             if (isChecked()) {
-                i3++;
+                i2++;
             }
-            int[] iArr = new int[i3];
+            int[] iArr = new int[i2];
             if (isEnabled()) {
                 iArr[0] = 16842910;
-                i2 = 1;
+                i = 1;
             }
             if (this.closeIconFocused) {
-                iArr[i2] = 16842908;
-                i2++;
+                iArr[i] = 16842908;
+                i++;
             }
             if (this.closeIconHovered) {
-                iArr[i2] = 16843623;
-                i2++;
+                iArr[i] = 16843623;
+                i++;
             }
             if (this.closeIconPressed) {
-                iArr[i2] = 16842919;
-                i2++;
+                iArr[i] = 16842919;
+                i++;
             }
             if (isChecked()) {
-                iArr[i2] = 16842913;
+                iArr[i] = 16842913;
             }
             return iArr;
         }
@@ -386,7 +387,14 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         declaredMethod.invoke(this.touchHelper, Integer.MIN_VALUE);
                         return true;
                     }
-                } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
+                } catch (IllegalAccessException e2) {
+                    Log.e(TAG, "Unable to send Accessibility Exit event", e2);
+                } catch (NoSuchFieldException e3) {
+                    Log.e(TAG, "Unable to send Accessibility Exit event", e3);
+                } catch (NoSuchMethodException e4) {
+                    Log.e(TAG, "Unable to send Accessibility Exit event", e4);
+                } catch (InvocationTargetException e5) {
+                    Log.e(TAG, "Unable to send Accessibility Exit event", e5);
                 }
             }
             return false;
@@ -405,10 +413,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         return invokeV.booleanValue;
     }
 
-    private void initMinTouchTarget(Context context, @Nullable AttributeSet attributeSet, int i2) {
+    private void initMinTouchTarget(Context context, @Nullable AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65555, this, context, attributeSet, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.checkedIcon, R.attr.checkedIconEnabled, R.attr.checkedIconTint, R.attr.checkedIconVisible, R.attr.chipBackgroundColor, R.attr.chipCornerRadius, R.attr.chipEndPadding, R.attr.chipIcon, R.attr.chipIconEnabled, R.attr.chipIconSize, R.attr.chipIconTint, R.attr.chipIconVisible, R.attr.chipMinHeight, R.attr.chipMinTouchTargetSize, R.attr.chipStartPadding, R.attr.chipStrokeColor, R.attr.chipStrokeWidth, R.attr.chipSurfaceColor, R.attr.closeIcon, R.attr.closeIconEnabled, R.attr.closeIconEndPadding, R.attr.closeIconSize, R.attr.closeIconStartPadding, R.attr.closeIconTint, R.attr.closeIconVisible, R.attr.ensureMinTouchTargetSize, R.attr.hideMotionSpec, R.attr.iconEndPadding, R.attr.iconStartPadding, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.textEndPadding, R.attr.textStartPadding}, i2, Widget_MaterialComponents_Chip_Action, new int[0]);
+        if (interceptable == null || interceptable.invokeLLI(65555, this, context, attributeSet, i) == null) {
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f04012f, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040133, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04014a, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402ac, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040556, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f}, i, obfuscated_res_0x7f100354, new int[0]);
             this.ensureMinTouchTargetSize = obtainStyledAttributes.getBoolean(31, false);
             this.minTouchTargetSize = (int) Math.ceil(obtainStyledAttributes.getDimension(19, (float) Math.ceil(ViewUtils.dpToPx(getContext(), 48))));
             obtainStyledAttributes.recycle();
@@ -432,9 +440,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -458,10 +466,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         });
     }
 
-    private void insetChipBackgroundDrawable(int i2, int i3, int i4, int i5) {
+    private void insetChipBackgroundDrawable(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65557, this, i2, i3, i4, i5) == null) {
-            this.insetBackgroundDrawable = new InsetDrawable((Drawable) this.chipDrawable, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(65557, this, i, i2, i3, i4) == null) {
+            this.insetBackgroundDrawable = new InsetDrawable((Drawable) this.chipDrawable, i, i2, i3, i4);
         }
     }
 
@@ -574,13 +582,18 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         if (!(interceptable == null || interceptable.invokeL(65567, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_BACKGROUND);
+        if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_BACKGROUND) != null) {
+            Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
+        }
         if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableLeft") == null) {
             if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableStart") == null) {
                 if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableEnd") == null) {
                     if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableRight") == null) {
                         if (attributeSet.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "singleLine", true) && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "lines", 1) == 1 && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "minLines", 1) == 1 && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "maxLines", 1) == 1) {
-                            attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_GRAVITY, 8388627);
+                            if (attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_GRAVITY, 8388627) != 8388627) {
+                                Log.w(TAG, "Chip text must be vertically center and start aligned");
+                                return;
+                            }
                             return;
                         }
                         throw new UnsupportedOperationException("Chip does not support multi-line text");
@@ -626,11 +639,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
     }
 
-    public boolean ensureAccessibleTouchTarget(@Dimension int i2) {
+    public boolean ensureAccessibleTouchTarget(@Dimension int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.minTouchTargetSize = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.minTouchTargetSize = i;
             if (!shouldEnsureMinTouchTargetSize()) {
                 if (this.insetBackgroundDrawable != null) {
                     removeBackgroundInset();
@@ -639,8 +652,8 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                 }
                 return false;
             }
-            int max = Math.max(0, i2 - this.chipDrawable.getIntrinsicHeight());
-            int max2 = Math.max(0, i2 - this.chipDrawable.getIntrinsicWidth());
+            int max = Math.max(0, i - this.chipDrawable.getIntrinsicHeight());
+            int max2 = Math.max(0, i - this.chipDrawable.getIntrinsicWidth());
             if (max2 <= 0 && max <= 0) {
                 if (this.insetBackgroundDrawable != null) {
                     removeBackgroundInset();
@@ -649,28 +662,28 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                 }
                 return false;
             }
-            int i3 = max2 > 0 ? max2 / 2 : 0;
-            int i4 = max > 0 ? max / 2 : 0;
+            int i2 = max2 > 0 ? max2 / 2 : 0;
+            int i3 = max > 0 ? max / 2 : 0;
             if (this.insetBackgroundDrawable != null) {
                 Rect rect = new Rect();
                 this.insetBackgroundDrawable.getPadding(rect);
-                if (rect.top == i4 && rect.bottom == i4 && rect.left == i3 && rect.right == i3) {
+                if (rect.top == i3 && rect.bottom == i3 && rect.left == i2 && rect.right == i2) {
                     updateBackgroundDrawable();
                     return true;
                 }
             }
             if (Build.VERSION.SDK_INT >= 16) {
-                if (getMinHeight() != i2) {
-                    setMinHeight(i2);
+                if (getMinHeight() != i) {
+                    setMinHeight(i);
                 }
-                if (getMinWidth() != i2) {
-                    setMinWidth(i2);
+                if (getMinWidth() != i) {
+                    setMinWidth(i);
                 }
             } else {
-                setMinHeight(i2);
-                setMinWidth(i2);
+                setMinHeight(i);
+                setMinWidth(i);
             }
-            insetChipBackgroundDrawable(i3, i4, i3, i4);
+            insetChipBackgroundDrawable(i2, i3, i2, i3);
             updateBackgroundDrawable();
             return true;
         }
@@ -1156,11 +1169,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
-            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i + 2);
             if (isChecked()) {
                 CheckBox.mergeDrawableStates(onCreateDrawableState, SELECTED_STATE);
             }
@@ -1173,11 +1186,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onFocusChanged(boolean z, int i2, Rect rect) {
+    public void onFocusChanged(boolean z, int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
-            super.onFocusChanged(z, i2, rect);
-            this.touchHelper.onFocusChanged(z, i2, rect);
+        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
+            super.onFocusChanged(z, i, rect);
+            this.touchHelper.onFocusChanged(z, i, rect);
         }
     }
 
@@ -1219,10 +1232,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @Override // android.widget.Button, android.widget.TextView, android.view.View
     @Nullable
     @TargetApi(24)
-    public PointerIcon onResolvePointerIcon(@NonNull MotionEvent motionEvent, int i2) {
+    public PointerIcon onResolvePointerIcon(@NonNull MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048624, this, motionEvent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048624, this, motionEvent, i)) == null) {
             if (getCloseIconTouchBounds().contains(motionEvent.getX(), motionEvent.getY()) && isEnabled()) {
                 return PointerIcon.getSystemIcon(getContext(), 1002);
             }
@@ -1233,12 +1246,12 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
 
     @Override // android.widget.TextView, android.view.View
     @TargetApi(17)
-    public void onRtlPropertiesChanged(int i2) {
+    public void onRtlPropertiesChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            super.onRtlPropertiesChanged(i2);
-            if (this.lastLayoutDirection != i2) {
-                this.lastLayoutDirection = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            super.onRtlPropertiesChanged(i);
+            if (this.lastLayoutDirection != i) {
+                this.lastLayoutDirection = i;
                 updatePaddingInternal();
             }
         }
@@ -1311,16 +1324,19 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackground(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, drawable) == null) {
-            if (drawable == getBackgroundDrawable() || drawable == this.ripple) {
+            if (drawable != getBackgroundDrawable() && drawable != this.ripple) {
+                Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
+            } else {
                 super.setBackground(drawable);
             }
         }
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            Log.w(TAG, "Do not set the background color; Chip manages its own background drawable.");
         }
     }
 
@@ -1328,16 +1344,19 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, drawable) == null) {
-            if (drawable == getBackgroundDrawable() || drawable == this.ripple) {
+            if (drawable != getBackgroundDrawable() && drawable != this.ripple) {
+                Log.w(TAG, "Do not set the background drawable; Chip manages its own background drawable.");
+            } else {
                 super.setBackgroundDrawable(drawable);
             }
         }
     }
 
     @Override // androidx.appcompat.widget.AppCompatCheckBox, android.view.View
-    public void setBackgroundResource(int i2) {
+    public void setBackgroundResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            Log.w(TAG, "Do not set the background resource; Chip manages its own background drawable.");
         }
     }
 
@@ -1345,6 +1364,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, colorStateList) == null) {
+            Log.w(TAG, "Do not set the background tint list; Chip manages its own background drawable.");
         }
     }
 
@@ -1352,6 +1372,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, mode) == null) {
+            Log.w(TAG, "Do not set the background tint mode; Chip manages its own background drawable.");
         }
     }
 
@@ -1364,13 +1385,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCheckable(z);
     }
 
-    public void setCheckableResource(@BoolRes int i2) {
+    public void setCheckableResource(@BoolRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048635, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048635, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCheckableResource(i2);
+        chipDrawable.setCheckableResource(i);
     }
 
     @Override // android.widget.CompoundButton, android.widget.Checkable
@@ -1410,20 +1431,20 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Deprecated
-    public void setCheckedIconEnabledResource(@BoolRes int i2) {
+    public void setCheckedIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            setCheckedIconVisible(i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            setCheckedIconVisible(i);
         }
     }
 
-    public void setCheckedIconResource(@DrawableRes int i2) {
+    public void setCheckedIconResource(@DrawableRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048640, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCheckedIconResource(i2);
+        chipDrawable.setCheckedIconResource(i);
     }
 
     public void setCheckedIconTint(@Nullable ColorStateList colorStateList) {
@@ -1435,22 +1456,22 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCheckedIconTint(colorStateList);
     }
 
-    public void setCheckedIconTintResource(@ColorRes int i2) {
+    public void setCheckedIconTintResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048642, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048642, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCheckedIconTintResource(i2);
+        chipDrawable.setCheckedIconTintResource(i);
     }
 
-    public void setCheckedIconVisible(@BoolRes int i2) {
+    public void setCheckedIconVisible(@BoolRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048643, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048643, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCheckedIconVisible(i2);
+        chipDrawable.setCheckedIconVisible(i);
     }
 
     public void setChipBackgroundColor(@Nullable ColorStateList colorStateList) {
@@ -1462,13 +1483,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipBackgroundColor(colorStateList);
     }
 
-    public void setChipBackgroundColorResource(@ColorRes int i2) {
+    public void setChipBackgroundColorResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048646, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048646, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipBackgroundColorResource(i2);
+        chipDrawable.setChipBackgroundColorResource(i);
     }
 
     @Deprecated
@@ -1482,13 +1503,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Deprecated
-    public void setChipCornerRadiusResource(@DimenRes int i2) {
+    public void setChipCornerRadiusResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048648, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048648, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipCornerRadiusResource(i2);
+        chipDrawable.setChipCornerRadiusResource(i);
     }
 
     public void setChipDrawable(@NonNull ChipDrawable chipDrawable) {
@@ -1513,13 +1534,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipEndPadding(f2);
     }
 
-    public void setChipEndPaddingResource(@DimenRes int i2) {
+    public void setChipEndPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048651, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048651, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipEndPaddingResource(i2);
+        chipDrawable.setChipEndPaddingResource(i);
     }
 
     public void setChipIcon(@Nullable Drawable drawable) {
@@ -1540,20 +1561,20 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Deprecated
-    public void setChipIconEnabledResource(@BoolRes int i2) {
+    public void setChipIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048654, this, i2) == null) {
-            setChipIconVisible(i2);
+        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
+            setChipIconVisible(i);
         }
     }
 
-    public void setChipIconResource(@DrawableRes int i2) {
+    public void setChipIconResource(@DrawableRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048655, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048655, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipIconResource(i2);
+        chipDrawable.setChipIconResource(i);
     }
 
     public void setChipIconSize(float f2) {
@@ -1565,13 +1586,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipIconSize(f2);
     }
 
-    public void setChipIconSizeResource(@DimenRes int i2) {
+    public void setChipIconSizeResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048657, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048657, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipIconSizeResource(i2);
+        chipDrawable.setChipIconSizeResource(i);
     }
 
     public void setChipIconTint(@Nullable ColorStateList colorStateList) {
@@ -1583,22 +1604,22 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipIconTint(colorStateList);
     }
 
-    public void setChipIconTintResource(@ColorRes int i2) {
+    public void setChipIconTintResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048659, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048659, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipIconTintResource(i2);
+        chipDrawable.setChipIconTintResource(i);
     }
 
-    public void setChipIconVisible(@BoolRes int i2) {
+    public void setChipIconVisible(@BoolRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048660, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048660, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipIconVisible(i2);
+        chipDrawable.setChipIconVisible(i);
     }
 
     public void setChipMinHeight(float f2) {
@@ -1610,13 +1631,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipMinHeight(f2);
     }
 
-    public void setChipMinHeightResource(@DimenRes int i2) {
+    public void setChipMinHeightResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048663, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048663, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipMinHeightResource(i2);
+        chipDrawable.setChipMinHeightResource(i);
     }
 
     public void setChipStartPadding(float f2) {
@@ -1628,13 +1649,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipStartPadding(f2);
     }
 
-    public void setChipStartPaddingResource(@DimenRes int i2) {
+    public void setChipStartPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048665, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048665, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipStartPaddingResource(i2);
+        chipDrawable.setChipStartPaddingResource(i);
     }
 
     public void setChipStrokeColor(@Nullable ColorStateList colorStateList) {
@@ -1646,13 +1667,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipStrokeColor(colorStateList);
     }
 
-    public void setChipStrokeColorResource(@ColorRes int i2) {
+    public void setChipStrokeColorResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048667, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048667, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipStrokeColorResource(i2);
+        chipDrawable.setChipStrokeColorResource(i);
     }
 
     public void setChipStrokeWidth(float f2) {
@@ -1664,13 +1685,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setChipStrokeWidth(f2);
     }
 
-    public void setChipStrokeWidthResource(@DimenRes int i2) {
+    public void setChipStrokeWidthResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048669, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048669, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setChipStrokeWidthResource(i2);
+        chipDrawable.setChipStrokeWidthResource(i);
     }
 
     @Deprecated
@@ -1682,10 +1703,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Deprecated
-    public void setChipTextResource(@StringRes int i2) {
+    public void setChipTextResource(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048671, this, i2) == null) {
-            setText(getResources().getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048671, this, i) == null) {
+            setText(getResources().getString(i));
         }
     }
 
@@ -1718,10 +1739,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Deprecated
-    public void setCloseIconEnabledResource(@BoolRes int i2) {
+    public void setCloseIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048675, this, i2) == null) {
-            setCloseIconVisible(i2);
+        if (interceptable == null || interceptable.invokeI(1048675, this, i) == null) {
+            setCloseIconVisible(i);
         }
     }
 
@@ -1734,21 +1755,21 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCloseIconEndPadding(f2);
     }
 
-    public void setCloseIconEndPaddingResource(@DimenRes int i2) {
+    public void setCloseIconEndPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048677, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048677, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCloseIconEndPaddingResource(i2);
+        chipDrawable.setCloseIconEndPaddingResource(i);
     }
 
-    public void setCloseIconResource(@DrawableRes int i2) {
+    public void setCloseIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048678, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048678, this, i) == null) {
             ChipDrawable chipDrawable = this.chipDrawable;
             if (chipDrawable != null) {
-                chipDrawable.setCloseIconResource(i2);
+                chipDrawable.setCloseIconResource(i);
             }
             updateAccessibilityDelegate();
         }
@@ -1763,13 +1784,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCloseIconSize(f2);
     }
 
-    public void setCloseIconSizeResource(@DimenRes int i2) {
+    public void setCloseIconSizeResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048680, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048680, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCloseIconSizeResource(i2);
+        chipDrawable.setCloseIconSizeResource(i);
     }
 
     public void setCloseIconStartPadding(float f2) {
@@ -1781,13 +1802,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCloseIconStartPadding(f2);
     }
 
-    public void setCloseIconStartPaddingResource(@DimenRes int i2) {
+    public void setCloseIconStartPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048682, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048682, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCloseIconStartPaddingResource(i2);
+        chipDrawable.setCloseIconStartPaddingResource(i);
     }
 
     public void setCloseIconTint(@Nullable ColorStateList colorStateList) {
@@ -1799,19 +1820,19 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setCloseIconTint(colorStateList);
     }
 
-    public void setCloseIconTintResource(@ColorRes int i2) {
+    public void setCloseIconTintResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048684, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048684, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setCloseIconTintResource(i2);
+        chipDrawable.setCloseIconTintResource(i);
     }
 
-    public void setCloseIconVisible(@BoolRes int i2) {
+    public void setCloseIconVisible(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048685, this, i2) == null) {
-            setCloseIconVisible(getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048685, this, i) == null) {
+            setCloseIconVisible(getResources().getBoolean(i));
         }
     }
 
@@ -1846,14 +1867,14 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setCompoundDrawablesRelativeWithIntrinsicBounds(int i2, int i3, int i4, int i5) {
+    public void setCompoundDrawablesRelativeWithIntrinsicBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048689, this, i2, i3, i4, i5) == null) {
-            if (i2 != 0) {
+        if (interceptable == null || interceptable.invokeIIII(1048689, this, i, i2, i3, i4) == null) {
+            if (i != 0) {
                 throw new UnsupportedOperationException("Please set start drawable using R.attr#chipIcon.");
             }
-            if (i4 == 0) {
-                super.setCompoundDrawablesRelativeWithIntrinsicBounds(i2, i3, i4, i5);
+            if (i3 == 0) {
+                super.setCompoundDrawablesRelativeWithIntrinsicBounds(i, i2, i3, i4);
                 return;
             }
             throw new UnsupportedOperationException("Please set end drawable using R.attr#closeIcon.");
@@ -1861,14 +1882,14 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setCompoundDrawablesWithIntrinsicBounds(int i2, int i3, int i4, int i5) {
+    public void setCompoundDrawablesWithIntrinsicBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048691, this, i2, i3, i4, i5) == null) {
-            if (i2 != 0) {
+        if (interceptable == null || interceptable.invokeIIII(1048691, this, i, i2, i3, i4) == null) {
+            if (i != 0) {
                 throw new UnsupportedOperationException("Please set start drawable using R.attr#chipIcon.");
             }
-            if (i4 == 0) {
-                super.setCompoundDrawablesWithIntrinsicBounds(i2, i3, i4, i5);
+            if (i3 == 0) {
+                super.setCompoundDrawablesWithIntrinsicBounds(i, i2, i3, i4);
                 return;
             }
             throw new UnsupportedOperationException("Please set end drawable using R.attr#closeIcon.");
@@ -1915,10 +1936,14 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setGravity(int i2) {
+    public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048696, this, i2) == null) && i2 == 8388627) {
-            super.setGravity(i2);
+        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
+            if (i != 8388627) {
+                Log.w(TAG, "Chip text must be vertically center and start aligned");
+            } else {
+                super.setGravity(i);
+            }
         }
     }
 
@@ -1931,13 +1956,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setHideMotionSpec(motionSpec);
     }
 
-    public void setHideMotionSpecResource(@AnimatorRes int i2) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048698, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048698, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setHideMotionSpecResource(i2);
+        chipDrawable.setHideMotionSpecResource(i);
     }
 
     public void setIconEndPadding(float f2) {
@@ -1949,13 +1974,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setIconEndPadding(f2);
     }
 
-    public void setIconEndPaddingResource(@DimenRes int i2) {
+    public void setIconEndPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048700, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048700, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setIconEndPaddingResource(i2);
+        chipDrawable.setIconEndPaddingResource(i);
     }
 
     public void setIconStartPadding(float f2) {
@@ -1967,30 +1992,30 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setIconStartPadding(f2);
     }
 
-    public void setIconStartPaddingResource(@DimenRes int i2) {
+    public void setIconStartPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048702, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048702, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setIconStartPaddingResource(i2);
+        chipDrawable.setIconStartPaddingResource(i);
     }
 
     @Override // android.view.View
-    public void setLayoutDirection(int i2) {
+    public void setLayoutDirection(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048703, this, i2) == null) || this.chipDrawable == null || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeI(1048703, this, i) == null) || this.chipDrawable == null || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        super.setLayoutDirection(i2);
+        super.setLayoutDirection(i);
     }
 
     @Override // android.widget.TextView
-    public void setLines(int i2) {
+    public void setLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048704, this, i2) == null) {
-            if (i2 <= 1) {
-                super.setLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048704, this, i) == null) {
+            if (i <= 1) {
+                super.setLines(i);
                 return;
             }
             throw new UnsupportedOperationException("Chip does not support multi-line text");
@@ -1998,11 +2023,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setMaxLines(int i2) {
+    public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048705, this, i2) == null) {
-            if (i2 <= 1) {
-                super.setMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048705, this, i) == null) {
+            if (i <= 1) {
+                super.setMaxLines(i);
                 return;
             }
             throw new UnsupportedOperationException("Chip does not support multi-line text");
@@ -2010,23 +2035,23 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setMaxWidth(@Px int i2) {
+    public void setMaxWidth(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048706, this, i2) == null) {
-            super.setMaxWidth(i2);
+        if (interceptable == null || interceptable.invokeI(1048706, this, i) == null) {
+            super.setMaxWidth(i);
             ChipDrawable chipDrawable = this.chipDrawable;
             if (chipDrawable != null) {
-                chipDrawable.setMaxWidth(i2);
+                chipDrawable.setMaxWidth(i);
             }
         }
     }
 
     @Override // android.widget.TextView
-    public void setMinLines(int i2) {
+    public void setMinLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
-            if (i2 <= 1) {
-                super.setMinLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
+            if (i <= 1) {
+                super.setMinLines(i);
                 return;
             }
             throw new UnsupportedOperationException("Chip does not support multi-line text");
@@ -2062,13 +2087,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
     }
 
-    public void setRippleColorResource(@ColorRes int i2) {
+    public void setRippleColorResource(@ColorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048711, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048711, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setRippleColorResource(i2);
+        chipDrawable.setRippleColorResource(i);
         if (this.chipDrawable.getUseCompatRipple()) {
             return;
         }
@@ -2092,13 +2117,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setShowMotionSpec(motionSpec);
     }
 
-    public void setShowMotionSpecResource(@AnimatorRes int i2) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048714, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048714, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setShowMotionSpecResource(i2);
+        chipDrawable.setShowMotionSpecResource(i);
     }
 
     @Override // android.widget.TextView
@@ -2140,10 +2165,10 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         }
     }
 
-    public void setTextAppearanceResource(@StyleRes int i2) {
+    public void setTextAppearanceResource(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048720, this, i2) == null) {
-            setTextAppearance(getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048720, this, i) == null) {
+            setTextAppearance(getContext(), i);
         }
     }
 
@@ -2156,13 +2181,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setTextEndPadding(f2);
     }
 
-    public void setTextEndPaddingResource(@DimenRes int i2) {
+    public void setTextEndPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048722, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048722, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setTextEndPaddingResource(i2);
+        chipDrawable.setTextEndPaddingResource(i);
     }
 
     public void setTextStartPadding(float f2) {
@@ -2174,13 +2199,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         chipDrawable.setTextStartPadding(f2);
     }
 
-    public void setTextStartPaddingResource(@DimenRes int i2) {
+    public void setTextStartPaddingResource(@DimenRes int i) {
         ChipDrawable chipDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048724, this, i2) == null) || (chipDrawable = this.chipDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048724, this, i) == null) || (chipDrawable = this.chipDrawable) == null) {
             return;
         }
-        chipDrawable.setTextStartPaddingResource(i2);
+        chipDrawable.setTextStartPaddingResource(i);
     }
 
     public boolean shouldEnsureMinTouchTargetSize() {
@@ -2191,16 +2216,16 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Chip(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.chipStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04013c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2222,17 +2247,17 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Chip(Context context, AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_Chip_Action), attributeSet, i2);
+    public Chip(Context context, AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100354), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2254,9 +2279,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2266,9 +2291,9 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
             }
 
             @Override // com.google.android.material.resources.TextAppearanceFontCallback
-            public void onFontRetrievalFailed(int i5) {
+            public void onFontRetrievalFailed(int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i5) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i4) == null) {
                 }
             }
 
@@ -2285,11 +2310,11 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         };
         Context context2 = getContext();
         validateAttributes(attributeSet);
-        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i2, Widget_MaterialComponents_Chip_Action);
-        initMinTouchTarget(context2, attributeSet, i2);
+        ChipDrawable createFromAttributes = ChipDrawable.createFromAttributes(context2, attributeSet, i, obfuscated_res_0x7f100354);
+        initMinTouchTarget(context2, attributeSet, i);
         setChipDrawable(createFromAttributes);
         createFromAttributes.setElevation(ViewCompat.getElevation(this));
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.checkedIcon, R.attr.checkedIconEnabled, R.attr.checkedIconTint, R.attr.checkedIconVisible, R.attr.chipBackgroundColor, R.attr.chipCornerRadius, R.attr.chipEndPadding, R.attr.chipIcon, R.attr.chipIconEnabled, R.attr.chipIconSize, R.attr.chipIconTint, R.attr.chipIconVisible, R.attr.chipMinHeight, R.attr.chipMinTouchTargetSize, R.attr.chipStartPadding, R.attr.chipStrokeColor, R.attr.chipStrokeWidth, R.attr.chipSurfaceColor, R.attr.closeIcon, R.attr.closeIconEnabled, R.attr.closeIconEndPadding, R.attr.closeIconSize, R.attr.closeIconStartPadding, R.attr.closeIconTint, R.attr.closeIconVisible, R.attr.ensureMinTouchTargetSize, R.attr.hideMotionSpec, R.attr.iconEndPadding, R.attr.iconStartPadding, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.textEndPadding, R.attr.textStartPadding}, i2, Widget_MaterialComponents_Chip_Action, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f04012f, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040133, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04014a, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402ac, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040556, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f}, i, obfuscated_res_0x7f100354, new int[0]);
         if (Build.VERSION.SDK_INT < 23) {
             setTextColor(MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1));
         }
@@ -2365,26 +2390,26 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i2) {
+    public void setTextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048718, this, context, i2) == null) {
-            super.setTextAppearance(context, i2);
+        if (interceptable == null || interceptable.invokeLI(1048718, this, context, i) == null) {
+            super.setTextAppearance(context, i);
             ChipDrawable chipDrawable = this.chipDrawable;
             if (chipDrawable != null) {
-                chipDrawable.setTextAppearanceResource(i2);
+                chipDrawable.setTextAppearanceResource(i);
             }
             updateTextPaintDrawState();
         }
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(int i2) {
+    public void setTextAppearance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048717, this, i2) == null) {
-            super.setTextAppearance(i2);
+        if (interceptable == null || interceptable.invokeI(1048717, this, i) == null) {
+            super.setTextAppearance(i);
             ChipDrawable chipDrawable = this.chipDrawable;
             if (chipDrawable != null) {
-                chipDrawable.setTextAppearanceResource(i2);
+                chipDrawable.setTextAppearanceResource(i);
             }
             updateTextPaintDrawState();
         }

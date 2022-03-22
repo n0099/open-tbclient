@@ -10,11 +10,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.MainThread;
 import com.kwad.sdk.core.d.a;
 import com.kwad.sdk.utils.z;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdBaseFrameLayout extends FrameLayout {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final z.a f54871b = new z.a();
+    public static final z.a f39966b = new z.a();
     public View.OnTouchListener a;
 
     public AdBaseFrameLayout(Context context) {
@@ -25,8 +25,8 @@ public class AdBaseFrameLayout extends FrameLayout {
         super(context, attributeSet);
     }
 
-    public AdBaseFrameLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdBaseFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -51,17 +51,17 @@ public class AdBaseFrameLayout extends FrameLayout {
         }
         int action = motionEvent.getAction();
         if (action == 0) {
-            f54871b.a(getWidth(), getHeight());
-            f54871b.a(motionEvent.getX(), motionEvent.getY());
+            f39966b.a(getWidth(), getHeight());
+            f39966b.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            f54871b.b(motionEvent.getX(), motionEvent.getY());
+            f39966b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return f54871b;
+        return f39966b;
     }
 
     @Override // android.view.View

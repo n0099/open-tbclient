@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.n;
-import c.a.r0.f0.b0;
-import c.a.r0.w2.i.b;
-import c.a.r0.x2.d.h;
+import c.a.p0.h0.b0;
+import c.a.p0.y2.j.b;
+import c.a.p0.z2.d.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public b0 mOnCardSubClickListenner;
     public Bundle mUrlBundle;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends b0<h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f45648b;
+        public final /* synthetic */ PersonCenterMoreActivity f35365b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -50,29 +50,29 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personCenterMoreActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45648b = personCenterMoreActivity;
+            this.f35365b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.f0.b0
+        @Override // c.a.p0.h0.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f45648b.mItemData = hVar;
-                if (this.f45648b.mItemData == null || this.f45648b.requestPermission()) {
+                this.f35365b.mItemData = hVar;
+                if (this.f35365b.mItemData == null || this.f35365b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f45648b;
-                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
+                PersonCenterMoreActivity personCenterMoreActivity = this.f35365b;
+                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.f20950g);
             }
         }
     }
@@ -82,9 +82,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,14 +119,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                n.M(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                n.M(getPageContext().getPageActivity(), R.string.obfuscated_res_0x7f0f0448);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.q0.l.a.v(getPageContext().getPageActivity(), true, str);
+            c.a.o0.l.a.v(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -145,10 +145,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             b bVar = this.mMoreController;
             if (bVar != null) {
                 bVar.c();
@@ -165,7 +165,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.mUrlBundle = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.person_center_more_layout);
+            setContentView(R.layout.obfuscated_res_0x7f0d06b5);
             b bVar = new b(getPageContext(), this.mUrlBundle, this.mOnCardSubClickListenner);
             this.mMoreController = bVar;
             bVar.b();
@@ -173,10 +173,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, strArr, iArr) == null) && 25040 == i2 && iArr[0] == 0) {
-            dealUrlMapClick(this.mItemData.k);
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
+            dealUrlMapClick(this.mItemData.f20950g);
         }
     }
 }

@@ -23,7 +23,6 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class l1 {
@@ -31,13 +30,13 @@ public class l1 {
     public static String a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53711b = null;
+    public static String f38897b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53712c = "16";
+    public static final String f38898c = "16";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f53713d = "62c80c436b7547a68a12774c67519836";
+    public static final String f38899d = "62c80c436b7547a68a12774c67519836";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -47,7 +46,7 @@ public class l1 {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f53714b;
+        public final /* synthetic */ Context f38900b;
 
         public a(String str, Context context) {
             Interceptable interceptable = $ic;
@@ -56,23 +55,23 @@ public class l1 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f53714b = context;
+            this.f38900b = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g1.a(this.a, this.f53714b);
+                g1.a(this.a, this.f38900b);
             }
         }
     }
@@ -82,9 +81,9 @@ public class l1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -101,17 +100,17 @@ public class l1 {
                 Method[] declaredMethods = obj.getClass().getDeclaredMethods();
                 Method method = null;
                 int length = declaredMethods.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         break;
                     }
-                    Method method2 = declaredMethods[i2];
+                    Method method2 = declaredMethods[i];
                     if (a(method2, str, clsArr)) {
                         method = method2;
                         break;
                     }
-                    i2++;
+                    i++;
                 }
                 if (method != null) {
                     return method.invoke(obj, objArr);
@@ -143,7 +142,7 @@ public class l1 {
             return;
         }
         try {
-            JSONObject a2 = new d1(str, q0.f53776f).a(context);
+            JSONObject a2 = new d1(str, q0.f38953f).a(context);
             if (map == null || map.size() <= 0) {
                 a2.put("module_section", new JSONObject());
             } else {
@@ -263,7 +262,7 @@ public class l1 {
             }
             try {
                 Runtime runtime = Runtime.getRuntime();
-                runtime.exec("chmod " + str2 + " " + str + StringUtils.LF).waitFor();
+                runtime.exec("chmod " + str2 + " " + str + "\n").waitFor();
                 return true;
             } catch (Throwable th) {
                 a(th);
@@ -286,8 +285,8 @@ public class l1 {
                     if (((parameterTypes == null || parameterTypes.length == 0) && clsArr != null && clsArr.length > 0) || parameterTypes.length != clsArr.length) {
                         return false;
                     }
-                    for (int i2 = 0; i2 < parameterTypes.length; i2++) {
-                        if (parameterTypes[i2] != clsArr[i2]) {
+                    for (int i = 0; i < parameterTypes.length; i++) {
+                        if (parameterTypes[i] != clsArr[i]) {
                             return false;
                         }
                     }
@@ -303,7 +302,7 @@ public class l1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f53711b)) {
+            if (TextUtils.isEmpty(a) || TextUtils.isEmpty(f38897b)) {
                 String k = new d(context).k();
                 if (TextUtils.isEmpty(k)) {
                     return new String[2];
@@ -313,10 +312,10 @@ public class l1 {
                     return new String[2];
                 }
                 a = split[0];
-                f53711b = split[1];
+                f38897b = split[1];
                 return split;
             }
-            return new String[]{a, f53711b};
+            return new String[]{a, f38897b};
         }
         return (String[]) invokeL.objValue;
     }
@@ -343,7 +342,7 @@ public class l1 {
                 String userId = n.i().b().getUserId();
                 String k = k();
                 String channel = n.i().b().getChannel();
-                String j2 = j();
+                String j = j();
                 String m = m();
                 String str = "";
                 jSONObject.put("userId", TextUtils.isEmpty(userId) ? "" : URLEncoder.encode(userId, "UTF-8"));
@@ -351,7 +350,7 @@ public class l1 {
                 jSONObject.put("channel", TextUtils.isEmpty(channel) ? "" : URLEncoder.encode(channel, "UTF-8"));
                 try {
                     if (new d(context).b(d.Z0)) {
-                        jSONObject.put(SearchJsBridge.COOKIE_MOD, TextUtils.isEmpty(j2) ? "" : URLEncoder.encode(j2, "UTF-8"));
+                        jSONObject.put(SearchJsBridge.COOKIE_MOD, TextUtils.isEmpty(j) ? "" : URLEncoder.encode(j, "UTF-8"));
                         if (!TextUtils.isEmpty(m)) {
                             str = URLEncoder.encode(m, "UTF-8");
                         }
@@ -608,7 +607,7 @@ public class l1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65557, null, str, str2) == null) {
             a = str;
-            f53711b = str2;
+            f38897b = str2;
         }
     }
 

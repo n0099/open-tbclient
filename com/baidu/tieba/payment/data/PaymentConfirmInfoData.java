@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;
@@ -22,7 +22,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public String tbs;
     public UserInfo user_info;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class GoodsInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NAME_LENGTH_MAX = 7;
@@ -42,9 +42,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -104,17 +104,17 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.tdou_num : invokeV.longValue;
         }
 
-        public void setCurrency(int i2) {
+        public void setCurrency(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.currency = i2;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.currency = i;
             }
         }
 
-        public void setGoods_duration(int i2) {
+        public void setGoods_duration(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.goods_duration = i2;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.goods_duration = i;
             }
         }
 
@@ -125,10 +125,10 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             }
         }
 
-        public void setGoods_num(int i2) {
+        public void setGoods_num(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.goods_num = i2;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.goods_num = i;
             }
         }
 
@@ -146,22 +146,22 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             }
         }
 
-        public void setGoods_user_level(int i2) {
+        public void setGoods_user_level(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.goods_user_level = i2;
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                this.goods_user_level = i;
             }
         }
 
-        public void setTdou_num(long j2) {
+        public void setTdou_num(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-                this.tdou_num = j2;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                this.tdou_num = j;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class OrderInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2732450616226807443L;
@@ -174,7 +174,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public long scene_id;
         public long timestamp;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class Cpath extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7950965099930244673L;
@@ -186,7 +186,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int tip_days;
             public int tip_exist;
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes5.dex */
             public static final class Member extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final long serialVersionUID = 8094155826429200428L;
@@ -199,9 +199,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                         }
@@ -240,9 +240,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -285,10 +285,10 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tip_exist : invokeV.intValue;
             }
 
-            public void setGettdou_cashier(int i2) {
+            public void setGettdou_cashier(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                    this.gettdou_cashier = i2;
+                if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                    this.gettdou_cashier = i;
                 }
             }
 
@@ -299,31 +299,31 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 }
             }
 
-            public void setPay_cashier(int i2) {
+            public void setPay_cashier(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                    this.pay_cashier = i2;
+                if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                    this.pay_cashier = i;
                 }
             }
 
-            public void setPurchase(int i2) {
+            public void setPurchase(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                    this.purchase = i2;
+                if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                    this.purchase = i;
                 }
             }
 
-            public void setTip_days(int i2) {
+            public void setTip_days(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                    this.tip_days = i2;
+                if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                    this.tip_days = i;
                 }
             }
 
-            public void setTip_exist(int i2) {
+            public void setTip_exist(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                    this.tip_exist = i2;
+                if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                    this.tip_exist = i;
                 }
             }
         }
@@ -333,9 +333,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -412,29 +412,29 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             }
         }
 
-        public void setPay_type(int i2) {
+        public void setPay_type(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.pay_type = i2;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.pay_type = i;
             }
         }
 
-        public void setScene_id(long j2) {
+        public void setScene_id(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-                this.scene_id = j2;
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+                this.scene_id = j;
             }
         }
 
-        public void setTimestamp(long j2) {
+        public void setTimestamp(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                this.timestamp = j2;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                this.timestamp = j;
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4710995963160510207L;
@@ -448,7 +448,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String user_name_utf8;
         public String user_nickname;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public static final class UserScores extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -667999598567432177L;
@@ -467,9 +467,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -524,59 +524,59 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.update_time : invokeV.longValue;
             }
 
-            public void setCurrency(int i2) {
+            public void setCurrency(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                    this.currency = i2;
+                if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                    this.currency = i;
                 }
             }
 
-            public void setLevel(int i2) {
+            public void setLevel(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                    this.level = i2;
+                if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                    this.level = i;
                 }
             }
 
-            public void setLimit(int i2) {
+            public void setLimit(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                    this.limit = i2;
+                if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                    this.limit = i;
                 }
             }
 
-            public void setScores_fetch(int i2) {
+            public void setScores_fetch(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                    this.scores_fetch = i2;
+                if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                    this.scores_fetch = i;
                 }
             }
 
-            public void setScores_money(long j2) {
+            public void setScores_money(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-                    this.scores_money = j2;
+                if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+                    this.scores_money = j;
                 }
             }
 
-            public void setScores_other(long j2) {
+            public void setScores_other(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                    this.scores_other = j2;
+                if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                    this.scores_other = j;
                 }
             }
 
-            public void setScores_total(long j2) {
+            public void setScores_total(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-                    this.scores_total = j2;
+                if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+                    this.scores_total = j;
                 }
             }
 
-            public void setUpdate_time(long j2) {
+            public void setUpdate_time(long j) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-                    this.update_time = j2;
+                if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                    this.update_time = j;
                 }
             }
         }
@@ -586,9 +586,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -705,9 +705,9 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

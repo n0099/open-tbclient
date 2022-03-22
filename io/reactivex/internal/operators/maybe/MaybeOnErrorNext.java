@@ -38,7 +38,7 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
             public final MaybeObserver<? super T> actual;
 
             /* renamed from: d  reason: collision with root package name */
-            public final AtomicReference<Disposable> f60710d;
+            public final AtomicReference<Disposable> f45320d;
 
             public NextMaybeObserver(MaybeObserver<? super T> maybeObserver, AtomicReference<Disposable> atomicReference) {
                 Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {maybeObserver, atomicReference};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.actual = maybeObserver;
-                this.f60710d = atomicReference;
+                this.f45320d = atomicReference;
             }
 
             @Override // io.reactivex.MaybeObserver
@@ -79,7 +79,7 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
             public void onSubscribe(Disposable disposable) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) {
-                    DisposableHelper.setOnce(this.f60710d, disposable);
+                    DisposableHelper.setOnce(this.f45320d, disposable);
                 }
             }
 
@@ -99,9 +99,9 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, function, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -180,9 +180,9 @@ public final class MaybeOnErrorNext<T> extends AbstractMaybeWithUpstream<T, T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource, function, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MaybeSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

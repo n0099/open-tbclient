@@ -44,16 +44,16 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
         public final long time;
         public final TimeUnit unit;
 
-        public SkipLastTimedSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+        public SkipLastTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,10 +61,10 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
             }
             this.requested = new AtomicLong();
             this.actual = subscriber;
-            this.time = j2;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.delayError = z;
         }
 
@@ -127,16 +127,16 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
                 boolean z = this.delayError;
                 TimeUnit timeUnit = this.unit;
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.time;
-                int i2 = 1;
+                long j = this.time;
+                int i = 1;
                 do {
-                    long j3 = this.requested.get();
-                    long j4 = 0;
-                    while (j4 != j3) {
+                    long j2 = this.requested.get();
+                    long j3 = 0;
+                    while (j3 != j2) {
                         boolean z2 = this.done;
                         Long l = (Long) spscLinkedArrayQueue.peek();
                         boolean z3 = l == null;
-                        boolean z4 = (z3 || l.longValue() <= scheduler.now(timeUnit) - j2) ? z3 : true;
+                        boolean z4 = (z3 || l.longValue() <= scheduler.now(timeUnit) - j) ? z3 : true;
                         if (checkTerminated(z2, z4, subscriber, z)) {
                             return;
                         }
@@ -145,13 +145,13 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
                         }
                         spscLinkedArrayQueue.poll();
                         subscriber.onNext(spscLinkedArrayQueue.poll());
-                        j4++;
+                        j3++;
                     }
-                    if (j4 != 0) {
-                        BackpressureHelper.produced(this.requested, j4);
+                    if (j3 != 0) {
+                        BackpressureHelper.produced(this.requested, j3);
                     }
-                    i2 = addAndGet(-i2);
-                } while (i2 != 0);
+                    i = addAndGet(-i);
+                } while (i != 0);
             }
         }
 
@@ -194,37 +194,37 @@ public final class FlowableSkipLastTimed<T> extends AbstractFlowableWithUpstream
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkipLastTimed(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+    public FlowableSkipLastTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.time = j2;
+        this.time = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayError = z;
     }
 

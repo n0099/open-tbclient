@@ -1,7 +1,8 @@
 package com.baidu.swan.apps;
 
-import c.a.p0.a.u.d;
-import c.a.p0.a.v0.e.b;
+import android.util.Log;
+import c.a.n0.a.u.d;
+import c.a.n0.a.v0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
@@ -21,9 +22,9 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,7 +43,9 @@ public class SwanAppClearCacheErrorActivity extends SwanAppErrorActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onRestart();
-            boolean z = SwanAppErrorActivity.DEBUG;
+            if (SwanAppErrorActivity.DEBUG) {
+                Log.d(TAG, "SwanAppClearCacheErrorActivity#onRestart");
+            }
             if (this.mHasGotoClearCache) {
                 this.mHasGotoClearCache = false;
                 try {

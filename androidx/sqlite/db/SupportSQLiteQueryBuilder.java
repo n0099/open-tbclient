@@ -50,9 +50,9 @@ public final class SupportSQLiteQueryBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public final class SupportSQLiteQueryBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, sb, strArr) == null) {
             int length = strArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                String str = strArr[i2];
-                if (i2 > 0) {
+            for (int i = 0; i < length; i++) {
+                String str = strArr[i];
+                if (i > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append(str);

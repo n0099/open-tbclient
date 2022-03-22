@@ -13,9 +13,9 @@ public interface DownloadCallback {
 
     void onDownloadPause(PackageInfo packageInfo);
 
-    void onDownloadProgress(PackageInfo packageInfo, long j2, long j3);
+    void onDownloadProgress(PackageInfo packageInfo, long j, long j2);
 
-    void onDownloadResume(PackageInfo packageInfo, long j2, long j3);
+    void onDownloadResume(PackageInfo packageInfo, long j, long j2);
 
     void onDownloadStart(PackageInfo packageInfo);
 

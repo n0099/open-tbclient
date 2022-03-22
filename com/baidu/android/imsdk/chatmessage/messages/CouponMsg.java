@@ -53,9 +53,9 @@ public class CouponMsg extends NormalMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -74,10 +74,10 @@ public class CouponMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public CouponMsg[] newArray(int i2) {
+            public CouponMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new CouponMsg[i2] : (CouponMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CouponMsg[i] : (CouponMsg[]) invokeI.objValue;
             }
         };
     }
@@ -185,10 +185,10 @@ public class CouponMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
-    public void setAppid(long j2) {
+    public void setAppid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.mAppid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.mAppid = j;
         }
     }
 
@@ -213,17 +213,17 @@ public class CouponMsg extends NormalMsg {
         }
     }
 
-    public void setDiscountType(int i2) {
+    public void setDiscountType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mDiscountType = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mDiscountType = i;
         }
     }
 
-    public boolean setJsonContent(String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7) {
+    public boolean setJsonContent(String str, String str2, String str3, int i, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{str, str2, str3, Integer.valueOf(i2), str4, str5, str6, str7})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4, str5, str6, str7})) == null) {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str4) || TextUtils.isEmpty(str3)) {
                 return false;
             }
@@ -233,7 +233,7 @@ public class CouponMsg extends NormalMsg {
                 jSONObject.put("logo", str);
                 jSONObject.put("name", str2);
                 jSONObject.put("desc", str3);
-                jSONObject.put("discount_type", i2);
+                jSONObject.put("discount_type", i);
                 jSONObject.put("discount", str4);
                 jSONObject.put("bgcolor", str5);
                 jSONObject.put("url", str6);
@@ -283,10 +283,10 @@ public class CouponMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048600, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048600, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.mType);
             parcel.writeLong(this.mAppid);
             parcel.writeString(this.mLogo);
@@ -305,9 +305,9 @@ public class CouponMsg extends NormalMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -325,9 +325,9 @@ public class CouponMsg extends NormalMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

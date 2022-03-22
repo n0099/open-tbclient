@@ -10,8 +10,9 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
-import c.a.q0.a.c;
-import c.a.q0.p0.d;
+import c.a.o0.a.c;
+import c.a.o0.p0.d;
+import c.a.p0.l4.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,9 +48,9 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,8 +96,8 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
         VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
         if (videoMiddlePageFragment == null) {
-            videoMiddlePageFragment = VideoMiddlePageFragment.getInstance(this.mFrom, this.mId);
-            supportFragmentManager.beginTransaction().add(R.id.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
+            videoMiddlePageFragment = VideoMiddlePageFragment.L0(this.mFrom, this.mId);
+            supportFragmentManager.beginTransaction().add(R.id.obfuscated_res_0x7f092346, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
         }
         this.mFragment = videoMiddlePageFragment;
     }
@@ -124,7 +125,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,9 +184,9 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || UtilHelper.isFlyMeOs()) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || UtilHelper.isFlyMeOs()) {
             return;
         }
         UtilHelper.changeStatusBarIconAndTextColor(true, this);
@@ -215,11 +216,11 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.activity_video_middle_page_layout);
+            setContentView(R.layout.obfuscated_res_0x7f0d005d);
             init();
             if (Build.VERSION.SDK_INT >= 28) {
                 if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
-                    c.a.r0.j4.d.b(1, getWindow().getAttributes(), getWindow());
+                    e.b(1, getWindow().getAttributes(), getWindow());
                 }
             }
         }
@@ -234,18 +235,18 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         VideoMiddlePageFragment videoMiddlePageFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoMiddlePageFragment = this.mFragment) != null) {
-                if (videoMiddlePageFragment.onKeyDown(i2)) {
+                if (videoMiddlePageFragment.P0(i)) {
                     return true;
                 }
-                return super.onKeyDown(i2, keyEvent);
+                return super.onKeyDown(i, keyEvent);
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -255,7 +256,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            c.a.q0.a.d.y().G();
+            c.a.o0.a.d.y().G();
         }
     }
 
@@ -267,7 +268,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (m.isEmpty(this.mId)) {
                 return;
             }
-            c.a.q0.a.d.y().R(c.a0, b.g(this.mId, 0L));
+            c.a.o0.a.d.y().R(c.a0, b.g(this.mId, 0L));
         }
     }
 

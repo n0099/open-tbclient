@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$ifEmpty$1", f = "Sequences.kt", i = {}, l = {69, 71}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super T>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function0 $defaultValue;
     public final /* synthetic */ Sequence $this_ifEmpty;
@@ -44,8 +44,8 @@ public final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendL
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             SequenceScope sequenceScope = (SequenceScope) this.L$0;
             Iterator it = this.$this_ifEmpty.iterator();
@@ -60,7 +60,7 @@ public final class SequencesKt__SequencesKt$ifEmpty$1 extends RestrictedSuspendL
                     return coroutine_suspended;
                 }
             }
-        } else if (i2 != 1 && i2 != 2) {
+        } else if (i != 1 && i != 2) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             ResultKt.throwOnFailure(obj);

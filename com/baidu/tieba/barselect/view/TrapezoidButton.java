@@ -18,12 +18,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TrapezoidButton extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f40933e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Path f40934f;
+    /* renamed from: b  reason: collision with root package name */
+    public Path f31601b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TrapezoidButton(Context context) {
@@ -34,9 +32,9 @@ public class TrapezoidButton extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -49,13 +47,13 @@ public class TrapezoidButton extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40934f = new Path();
+            this.f31601b = new Path();
             Paint paint = new Paint();
-            this.f40933e = paint;
+            this.a = paint;
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-            this.f40933e.setColor(-1);
-            this.f40933e.setStyle(Paint.Style.FILL);
-            this.f40933e.setAntiAlias(true);
+            this.a.setColor(-1);
+            this.a.setStyle(Paint.Style.FILL);
+            this.a.setAntiAlias(true);
             setLayerType(1, null);
         }
     }
@@ -67,13 +65,13 @@ public class TrapezoidButton extends LinearLayout {
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
             super.dispatchDraw(canvas);
             int height = canvas.getHeight();
-            this.f40934f.reset();
-            this.f40934f.moveTo(0.0f, 0.0f);
+            this.f31601b.reset();
+            this.f31601b.moveTo(0.0f, 0.0f);
             float f2 = height;
-            this.f40934f.lineTo(0.0f, f2);
-            this.f40934f.lineTo(f2 * 0.45f, 0.0f);
-            this.f40934f.close();
-            canvas.drawPath(this.f40934f, this.f40933e);
+            this.f31601b.lineTo(0.0f, f2);
+            this.f31601b.lineTo(f2 * 0.45f, 0.0f);
+            this.f31601b.close();
+            canvas.drawPath(this.f31601b, this.a);
             canvas.restoreToCount(saveLayer);
         }
     }
@@ -87,9 +85,9 @@ public class TrapezoidButton extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

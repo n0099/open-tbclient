@@ -48,11 +48,11 @@ public final class b {
         return a(bArr, bArr2, 1);
     }
 
-    public static byte[] a(byte[] bArr, byte[] bArr2, int i2) {
+    public static byte[] a(byte[] bArr, byte[] bArr2, int i) {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(i2, secretKeySpec);
+            cipher.init(i, secretKeySpec);
             return cipher.doFinal(bArr2);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);

@@ -18,23 +18,23 @@ public final class Timed<T> {
     public final TimeUnit unit;
     public final T value;
 
-    public Timed(@NonNull T t, long j2, @NonNull TimeUnit timeUnit) {
+    public Timed(@NonNull T t, long j, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t, Long.valueOf(j2), timeUnit};
+            Object[] objArr = {t, Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.value = t;
-        this.time = j2;
+        this.time = j;
         this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
     }
 
@@ -57,8 +57,8 @@ public final class Timed<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             T t = this.value;
             int hashCode = t != null ? t.hashCode() : 0;
-            long j2 = this.time;
-            return (((hashCode * 31) + ((int) (j2 ^ (j2 >>> 31)))) * 31) + this.unit.hashCode();
+            long j = this.time;
+            return (((hashCode * 31) + ((int) (j ^ (j >>> 31)))) * 31) + this.unit.hashCode();
         }
         return invokeV.intValue;
     }

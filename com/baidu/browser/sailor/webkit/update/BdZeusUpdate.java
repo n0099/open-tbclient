@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.k.b.c.b;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
@@ -33,25 +34,25 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdZeusUpdate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f31713e;
+    public static BdZeusUpdate f25005e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31714b;
+    public String f25006b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31715c;
+    public String f25007c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f31716d;
+    public boolean f25008d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,9 +66,9 @@ public class BdZeusUpdate {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdZeusUpdate, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,22 +87,22 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
+        public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i) == null) {
                 this.mOutputStream.reset();
             }
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
+        public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i) == null) {
                 if (this.mOutputStream == null) {
                     this.mOutputStream = new ByteArrayOutputStream();
                 }
-                if (i2 > 0) {
-                    this.mOutputStream.write(bArr, 0, i2);
+                if (i > 0) {
+                    this.mOutputStream.write(bArr, 0, i);
                 }
             }
         }
@@ -114,26 +115,26 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+        public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i)) == null) {
                 return false;
             }
             return invokeLLI.booleanValue;
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+        public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i) == null) {
             }
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+        public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i) == null) {
             }
         }
 
@@ -144,20 +145,20 @@ public class BdZeusUpdate {
                 ByteArrayOutputStream byteArrayOutputStream = this.mOutputStream;
                 if (byteArrayOutputStream != null) {
                     try {
-                        String byteArrayOutputStream2 = byteArrayOutputStream.toString("utf-8");
+                        String byteArrayOutputStream2 = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
                         Log.d(EngineManager.LOG_TAG, "received data = ".concat(String.valueOf(byteArrayOutputStream2)));
                         if (byteArrayOutputStream2.length() > 0) {
                             JSONObject jSONObject = new JSONObject(byteArrayOutputStream2);
                             if (jSONObject.has("data")) {
                                 JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                                 if (jSONObject2.has("version")) {
-                                    this.this$0.f31714b = jSONObject2.getString("version");
+                                    this.this$0.f25006b = jSONObject2.getString("version");
                                 }
                                 if (jSONObject2.has("link")) {
                                     this.this$0.a = jSONObject2.getString("link");
                                 }
                                 if (jSONObject2.has(PackageTable.MD5)) {
-                                    this.this$0.f31715c = jSONObject2.getString(PackageTable.MD5);
+                                    this.this$0.f25007c = jSONObject2.getString(PackageTable.MD5);
                                 }
                             }
                         }
@@ -185,9 +186,9 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+        public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i, i2) == null) {
             }
         }
 
@@ -208,16 +209,14 @@ public class BdZeusUpdate {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f31717e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdZeusUpdate f31718f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ BdZeusUpdate f25009b;
 
         public a(BdZeusUpdate bdZeusUpdate, Context context) {
             Interceptable interceptable = $ic;
@@ -226,33 +225,33 @@ public class BdZeusUpdate {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdZeusUpdate, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f31718f = bdZeusUpdate;
-            this.f31717e = context;
+            this.f25009b = bdZeusUpdate;
+            this.a = context;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             LoadErrorCode loadErrorCode;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f31717e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
                 return;
             }
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            BdZeusUpdate bdZeusUpdate = this.f31718f;
-            Context context = this.f31717e;
+            BdZeusUpdate bdZeusUpdate = this.f25009b;
+            Context context = this.a;
             if (!WebKitFactory.isUserPrivacyEnabled()) {
                 loadErrorCode = WebKitFactory.getLoadErrorCode();
-                i2 = 1000;
-            } else if (bdZeusUpdate.f31716d) {
+                i = 1000;
+            } else if (bdZeusUpdate.f25008d) {
                 return;
             } else {
                 if (b.d(context)) {
@@ -260,13 +259,13 @@ public class BdZeusUpdate {
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
                     bdNet.start(bdZesuUpdateTask, false);
-                    bdZeusUpdate.f31716d = true;
+                    bdZeusUpdate.f25008d = true;
                     return;
                 }
                 loadErrorCode = WebKitFactory.getLoadErrorCode();
-                i2 = 1001;
+                i = 1001;
             }
-            loadErrorCode.addDownloadInfo(i2);
+            loadErrorCode.addDownloadInfo(i);
         }
     }
 
@@ -290,9 +289,9 @@ public class BdZeusUpdate {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -303,14 +302,14 @@ public class BdZeusUpdate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f31713e == null) {
+            if (f25005e == null) {
                 synchronized (BdZeusUpdate.class) {
-                    if (f31713e == null) {
-                        f31713e = new BdZeusUpdate();
+                    if (f25005e == null) {
+                        f25005e = new BdZeusUpdate();
                     }
                 }
             }
-            return f31713e;
+            return f25005e;
         }
         return (BdZeusUpdate) invokeV.objValue;
     }
@@ -339,14 +338,14 @@ public class BdZeusUpdate {
             }
             String str2 = Build.MODEL;
             String str3 = Build.VERSION.RELEASE;
-            int i2 = Build.VERSION.SDK_INT;
+            int i = Build.VERSION.SDK_INT;
             String str4 = Build.MANUFACTURER;
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(str2.replace("_", "-"));
             stringBuffer.append("_");
             stringBuffer.append(str3);
             stringBuffer.append("_");
-            stringBuffer.append(i2);
+            stringBuffer.append(i);
             stringBuffer.append("_");
             stringBuffer.append(str4.replace("_", "-"));
             String f3 = b.f(stringBuffer.toString().replace(" ", "-"));
@@ -399,8 +398,8 @@ public class BdZeusUpdate {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 long[] jArr = new long[8];
-                for (int i2 = 0; i2 < 8; i2++) {
-                    jArr[i2] = 0;
+                for (int i = 0; i < 8; i++) {
+                    jArr[i] = 0;
                 }
                 try {
                     String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
@@ -537,8 +536,8 @@ public class BdZeusUpdate {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             boolean z = false;
             if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f31714b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f31715c);
+                if (e(zeusVersionName, this.f25006b)) {
+                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f25007c);
                     return;
                 } else {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1003);
@@ -551,7 +550,7 @@ public class BdZeusUpdate {
             }
             if (z) {
                 try {
-                    float a2 = c.a.k.a.k.b.a() / 1024.0f;
+                    float a2 = c.a.k.a.k.a.a() / 1024.0f;
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
                     if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;
@@ -563,7 +562,7 @@ public class BdZeusUpdate {
             BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f31715c);
+            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f25007c);
         }
     }
 }

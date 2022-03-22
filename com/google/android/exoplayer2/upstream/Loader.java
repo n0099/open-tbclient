@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Loader implements LoaderErrorThrower {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DONT_RETRY = 2;
@@ -28,17 +29,17 @@ public final class Loader implements LoaderErrorThrower {
     public final ExecutorService downloadExecutorService;
     public IOException fatalError;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback<T extends Loadable> {
-        void onLoadCanceled(T t, long j2, long j3, boolean z);
+        void onLoadCanceled(T t, long j, long j2, boolean z);
 
-        void onLoadCompleted(T t, long j2, long j3);
+        void onLoadCompleted(T t, long j, long j2);
 
-        int onLoadError(T t, long j2, long j3, IOException iOException);
+        int onLoadError(T t, long j, long j2, IOException iOException);
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class LoadTask<T extends Loadable> extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CANCEL = 1;
@@ -59,17 +60,17 @@ public final class Loader implements LoaderErrorThrower {
         public final /* synthetic */ Loader this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LoadTask(Loader loader, Looper looper, T t, Callback<T> callback, int i2, long j2) {
+        public LoadTask(Loader loader, Looper looper, T t, Callback<T> callback, int i, long j) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {loader, looper, t, callback, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {loader, looper, t, callback, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -79,8 +80,8 @@ public final class Loader implements LoaderErrorThrower {
             this.this$0 = loader;
             this.loadable = t;
             this.callback = callback;
-            this.defaultMinRetryCount = i2;
-            this.startTimeMs = j2;
+            this.defaultMinRetryCount = i;
+            this.startTimeMs = j;
         }
 
         private void execute() {
@@ -134,31 +135,32 @@ public final class Loader implements LoaderErrorThrower {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.released) {
                 return;
             }
-            int i2 = message.what;
-            if (i2 == 0) {
+            int i = message.what;
+            if (i == 0) {
                 execute();
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 finish();
                 long elapsedRealtime = SystemClock.elapsedRealtime();
-                long j2 = elapsedRealtime - this.startTimeMs;
+                long j = elapsedRealtime - this.startTimeMs;
                 if (this.loadable.isLoadCanceled()) {
-                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j2, false);
+                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j, false);
                     return;
                 }
-                int i3 = message.what;
-                if (i3 == 1) {
-                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j2, false);
-                } else if (i3 == 2) {
+                int i2 = message.what;
+                if (i2 == 1) {
+                    this.callback.onLoadCanceled(this.loadable, elapsedRealtime, j, false);
+                } else if (i2 == 2) {
                     try {
-                        this.callback.onLoadCompleted(this.loadable, elapsedRealtime, j2);
+                        this.callback.onLoadCompleted(this.loadable, elapsedRealtime, j);
                     } catch (RuntimeException e2) {
+                        Log.e(TAG, "Unexpected exception handling load completed", e2);
                         this.this$0.fatalError = new UnexpectedLoaderException(e2);
                     }
-                } else if (i3 != 3) {
+                } else if (i2 != 3) {
                 } else {
                     IOException iOException = (IOException) message.obj;
                     this.currentError = iOException;
-                    int onLoadError = this.callback.onLoadError(this.loadable, elapsedRealtime, j2, iOException);
+                    int onLoadError = this.callback.onLoadError(this.loadable, elapsedRealtime, j, iOException);
                     if (onLoadError == 3) {
                         this.this$0.fatalError = this.currentError;
                     } else if (onLoadError != 2) {
@@ -171,10 +173,10 @@ public final class Loader implements LoaderErrorThrower {
             }
         }
 
-        public void maybeThrowError(int i2) throws IOException {
+        public void maybeThrowError(int i) throws IOException {
             IOException iOException;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && (iOException = this.currentError) != null && this.errorCount > i2) {
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (iOException = this.currentError) != null && this.errorCount > i) {
                 throw iOException;
             }
         }
@@ -204,23 +206,26 @@ public final class Loader implements LoaderErrorThrower {
                         return;
                     }
                     obtainMessage(3, e2).sendToTarget();
-                } catch (OutOfMemoryError e3) {
-                    if (this.released) {
-                        return;
-                    }
-                    obtainMessage(3, new UnexpectedLoaderException(e3)).sendToTarget();
-                } catch (Error e4) {
+                } catch (Error e3) {
+                    Log.e(TAG, "Unexpected error loading stream", e3);
                     if (!this.released) {
-                        obtainMessage(4, e4).sendToTarget();
+                        obtainMessage(4, e3).sendToTarget();
                     }
-                    throw e4;
+                    throw e3;
                 } catch (InterruptedException unused) {
                     Assertions.checkState(this.loadable.isLoadCanceled());
                     if (this.released) {
                         return;
                     }
                     sendEmptyMessage(2);
-                } catch (Exception e5) {
+                } catch (Exception e4) {
+                    Log.e(TAG, "Unexpected exception loading stream", e4);
+                    if (this.released) {
+                        return;
+                    }
+                    obtainMessage(3, new UnexpectedLoaderException(e4)).sendToTarget();
+                } catch (OutOfMemoryError e5) {
+                    Log.e(TAG, "OutOfMemory error loading stream", e5);
                     if (this.released) {
                         return;
                     }
@@ -229,13 +234,13 @@ public final class Loader implements LoaderErrorThrower {
             }
         }
 
-        public void start(long j2) {
+        public void start(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
                 Assertions.checkState(this.this$0.currentTask == null);
                 this.this$0.currentTask = this;
-                if (j2 > 0) {
-                    sendEmptyMessageDelayed(0, j2);
+                if (j > 0) {
+                    sendEmptyMessageDelayed(0, j);
                 } else {
                     execute();
                 }
@@ -243,7 +248,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Loadable {
         void cancelLoad();
 
@@ -252,12 +257,12 @@ public final class Loader implements LoaderErrorThrower {
         void load() throws IOException, InterruptedException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ReleaseCallback {
         void onLoaderReleased();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ReleaseTask extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,9 +275,9 @@ public final class Loader implements LoaderErrorThrower {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {releaseCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -298,7 +303,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,9 +317,9 @@ public final class Loader implements LoaderErrorThrower {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -332,9 +337,9 @@ public final class Loader implements LoaderErrorThrower {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -371,31 +376,31 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    public <T extends Loadable> long startLoading(T t, Callback<T> callback, int i2) {
+    public <T extends Loadable> long startLoading(T t, Callback<T> callback, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, t, callback, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, t, callback, i)) == null) {
             Looper myLooper = Looper.myLooper();
             Assertions.checkState(myLooper != null);
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            new LoadTask(this, myLooper, t, callback, i2, elapsedRealtime).start(0L);
+            new LoadTask(this, myLooper, t, callback, i, elapsedRealtime).start(0L);
             return elapsedRealtime;
         }
         return invokeLLI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.LoaderErrorThrower
-    public void maybeThrowError(int i2) throws IOException {
+    public void maybeThrowError(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             IOException iOException = this.fatalError;
             if (iOException == null) {
                 LoadTask<? extends Loadable> loadTask = this.currentTask;
                 if (loadTask != null) {
-                    if (i2 == Integer.MIN_VALUE) {
-                        i2 = loadTask.defaultMinRetryCount;
+                    if (i == Integer.MIN_VALUE) {
+                        i = loadTask.defaultMinRetryCount;
                     }
-                    loadTask.maybeThrowError(i2);
+                    loadTask.maybeThrowError(i);
                     return;
                 }
                 return;

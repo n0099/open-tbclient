@@ -17,7 +17,6 @@ import com.coremedia.iso.boxes.HandlerBox;
 import com.coremedia.iso.boxes.MediaBox;
 import com.coremedia.iso.boxes.MediaHeaderBox;
 import com.coremedia.iso.boxes.MediaInformationBox;
-import com.coremedia.iso.boxes.MovieBox;
 import com.coremedia.iso.boxes.MovieHeaderBox;
 import com.coremedia.iso.boxes.OriginalFormatBox;
 import com.coremedia.iso.boxes.ProtectionSchemeInformationBox;
@@ -47,7 +46,6 @@ import com.coremedia.iso.boxes.fragment.TrackFragmentBox;
 import com.coremedia.iso.boxes.fragment.TrackFragmentHeaderBox;
 import com.coremedia.iso.boxes.fragment.TrackRunBox;
 import com.coremedia.iso.boxes.h264.AvcConfigurationBox;
-import com.coremedia.iso.boxes.mdat.MediaDataBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.SubtitleSampleEntry;
 import com.coremedia.iso.boxes.sampleentry.TextSampleEntry;
@@ -68,7 +66,7 @@ import com.googlecode.mp4parser.boxes.ultraviolet.SampleEncryptionBox;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Atom {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFINES_LARGE_SIZE = 1;
@@ -172,7 +170,7 @@ public abstract class Atom {
     public transient /* synthetic */ FieldHolder $fh;
     public final int type;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ContainerAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,24 +179,24 @@ public abstract class Atom {
         public final List<LeafAtom> leafChildren;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ContainerAtom(int i2, long j2) {
-            super(i2);
+        public ContainerAtom(int i, long j) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.endPosition = j2;
+            this.endPosition = j;
             this.leafChildren = new ArrayList();
             this.containerChildren = new ArrayList();
         }
@@ -210,36 +208,36 @@ public abstract class Atom {
             }
         }
 
-        public int getChildAtomOfTypeCount(int i2) {
+        public int getChildAtomOfTypeCount(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
                 int size = this.leafChildren.size();
-                int i3 = 0;
-                for (int i4 = 0; i4 < size; i4++) {
-                    if (this.leafChildren.get(i4).type == i2) {
-                        i3++;
+                int i2 = 0;
+                for (int i3 = 0; i3 < size; i3++) {
+                    if (this.leafChildren.get(i3).type == i) {
+                        i2++;
                     }
                 }
                 int size2 = this.containerChildren.size();
-                for (int i5 = 0; i5 < size2; i5++) {
-                    if (this.containerChildren.get(i5).type == i2) {
-                        i3++;
+                for (int i4 = 0; i4 < size2; i4++) {
+                    if (this.containerChildren.get(i4).type == i) {
+                        i2++;
                     }
                 }
-                return i3;
+                return i2;
             }
             return invokeI.intValue;
         }
 
-        public ContainerAtom getContainerAtomOfType(int i2) {
+        public ContainerAtom getContainerAtomOfType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
                 int size = this.containerChildren.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    ContainerAtom containerAtom = this.containerChildren.get(i3);
-                    if (containerAtom.type == i2) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    ContainerAtom containerAtom = this.containerChildren.get(i2);
+                    if (containerAtom.type == i) {
                         return containerAtom;
                     }
                 }
@@ -248,14 +246,14 @@ public abstract class Atom {
             return (ContainerAtom) invokeI.objValue;
         }
 
-        public LeafAtom getLeafAtomOfType(int i2) {
+        public LeafAtom getLeafAtomOfType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 int size = this.leafChildren.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    LeafAtom leafAtom = this.leafChildren.get(i3);
-                    if (leafAtom.type == i2) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    LeafAtom leafAtom = this.leafChildren.get(i2);
+                    if (leafAtom.type == i) {
                         return leafAtom;
                     }
                 }
@@ -282,24 +280,24 @@ public abstract class Atom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LeafAtom extends Atom {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ParsableByteArray data;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LeafAtom(int i2, ParsableByteArray parsableByteArray) {
-            super(i2);
+        public LeafAtom(int i, ParsableByteArray parsableByteArray) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), parsableByteArray};
+                Object[] objArr = {Integer.valueOf(i), parsableByteArray};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -330,7 +328,7 @@ public abstract class Atom {
         TYPE_hev1 = Util.getIntegerCodeForString(MediaCodecUtil.CODEC_ID_HEV1);
         TYPE_s263 = Util.getIntegerCodeForString(VisualSampleEntry.TYPE2);
         TYPE_d263 = Util.getIntegerCodeForString("d263");
-        TYPE_mdat = Util.getIntegerCodeForString(MediaDataBox.TYPE);
+        TYPE_mdat = Util.getIntegerCodeForString("mdat");
         TYPE_mp4a = Util.getIntegerCodeForString(AudioSampleEntry.TYPE3);
         TYPE__mp3 = Util.getIntegerCodeForString(".mp3");
         TYPE_wave = Util.getIntegerCodeForString(AppleWaveBox.TYPE);
@@ -350,7 +348,7 @@ public abstract class Atom {
         TYPE_trex = Util.getIntegerCodeForString(TrackExtendsBox.TYPE);
         TYPE_trun = Util.getIntegerCodeForString(TrackRunBox.TYPE);
         TYPE_sidx = Util.getIntegerCodeForString(SegmentIndexBox.TYPE);
-        TYPE_moov = Util.getIntegerCodeForString(MovieBox.TYPE);
+        TYPE_moov = Util.getIntegerCodeForString("moov");
         TYPE_mvhd = Util.getIntegerCodeForString(MovieHeaderBox.TYPE);
         TYPE_trak = Util.getIntegerCodeForString(TrackBox.TYPE);
         TYPE_mdia = Util.getIntegerCodeForString(MediaBox.TYPE);
@@ -418,43 +416,43 @@ public abstract class Atom {
         TYPE_alac = Util.getIntegerCodeForString("alac");
     }
 
-    public Atom(int i2) {
+    public Atom(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.type = i2;
+        this.type = i;
     }
 
-    public static String getAtomTypeString(int i2) {
+    public static String getAtomTypeString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            return "" + ((char) ((i2 >> 24) & 255)) + ((char) ((i2 >> 16) & 255)) + ((char) ((i2 >> 8) & 255)) + ((char) (i2 & 255));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return "" + ((char) ((i >> 24) & 255)) + ((char) ((i >> 16) & 255)) + ((char) ((i >> 8) & 255)) + ((char) (i & 255));
         }
         return (String) invokeI.objValue;
     }
 
-    public static int parseFullAtomFlags(int i2) {
+    public static int parseFullAtomFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 & 16777215 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i & 16777215 : invokeI.intValue;
     }
 
-    public static int parseFullAtomVersion(int i2) {
+    public static int parseFullAtomVersion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? (i2 >> 24) & 255 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i >> 24) & 255 : invokeI.intValue;
     }
 
     public String toString() {

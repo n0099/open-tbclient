@@ -5,11 +5,10 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.t0.b;
+import c.a.p0.a4.t0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
@@ -22,36 +21,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WorkPostNotifyFlutterData {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String FAIL_POST = "102";
+    public static final String SUCC_POST = "2";
+    public static final String SUCC_UPLOAD_VIDEO = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f38803b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38804c;
-    @Nullable
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f38805d;
-    @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f38806e;
+    public String errorMessage;
     @NonNull
-
-    /* renamed from: f  reason: collision with root package name */
-    public NewWriteThreadData4Flutter f38807f;
+    public String flutterPageId;
+    @Nullable
+    public String forumId;
+    @Nullable
+    public String forumName;
+    public String status;
     @NonNull
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f38808g;
+    public NewWriteThreadData4Flutter threadData;
+    public String videoId;
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NewWriteThreadData4Flutter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +55,7 @@ public class WorkPostNotifyFlutterData {
         public VideoInfo videoInfo;
 
         @Keep
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class Author {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +70,9 @@ public class WorkPostNotifyFlutterData {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -91,7 +81,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class Location {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +92,9 @@ public class WorkPostNotifyFlutterData {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -113,7 +103,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class VideoInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -139,9 +129,9 @@ public class WorkPostNotifyFlutterData {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -154,9 +144,9 @@ public class WorkPostNotifyFlutterData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -168,7 +158,7 @@ public class WorkPostNotifyFlutterData {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,38 +171,38 @@ public class WorkPostNotifyFlutterData {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.f38803b = str2;
-        this.f38804c = str3;
+        this.status = str;
+        this.videoId = str2;
+        this.errorMessage = str3;
     }
 
-    public static WorkPostNotifyFlutterData e(String str) {
+    public static WorkPostNotifyFlutterData notifyFlutterPostFail(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new WorkPostNotifyFlutterData(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, "", str) : (WorkPostNotifyFlutterData) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new WorkPostNotifyFlutterData("102", "", str) : (WorkPostNotifyFlutterData) invokeL.objValue;
     }
 
-    public static WorkPostNotifyFlutterData f(String str) {
+    public static WorkPostNotifyFlutterData notifyFlutterPostSucc(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new WorkPostNotifyFlutterData("2", str, "") : (WorkPostNotifyFlutterData) invokeL.objValue;
     }
 
-    public static WorkPostNotifyFlutterData g() {
+    public static WorkPostNotifyFlutterData notifyFlutterVideoUploadSucc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new WorkPostNotifyFlutterData("1", "", "") : (WorkPostNotifyFlutterData) invokeV.objValue;
     }
 
-    public static NewWriteThreadData4Flutter h(@NonNull WriteData writeData) {
+    public static NewWriteThreadData4Flutter parseFromWriteData4Flutter(@NonNull WriteData writeData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
@@ -231,7 +221,7 @@ public class WorkPostNotifyFlutterData {
             videoInfo.postType = writeData.getType();
             videoInfo.videoUrl = videoInfo2.getVideoUrl();
             NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
-            location.name = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
+            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d2);
             NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
@@ -253,65 +243,65 @@ public class WorkPostNotifyFlutterData {
     }
 
     @NonNull
-    public String a() {
+    public String getFlutterPageId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38808g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.flutterPageId : (String) invokeV.objValue;
     }
 
     @Nullable
-    public String b() {
+    public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38805d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.forumId : (String) invokeV.objValue;
     }
 
     @Nullable
-    public String c() {
+    public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38806e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumName : (String) invokeV.objValue;
     }
 
     @Nullable
-    public Map<String, Object> d() {
+    public Map<String, Object> getThreadDataMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f38807f;
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.threadData;
             if (newWriteThreadData4Flutter == null) {
                 return null;
             }
-            return DataExt.h(newWriteThreadData4Flutter);
+            return DataExt.toMap(newWriteThreadData4Flutter);
         }
         return (Map) invokeV.objValue;
     }
 
-    public void i(@NonNull String str) {
+    public void setFlutterPageId(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f38808g = str;
+            this.flutterPageId = str;
         }
     }
 
-    public void j(@Nullable String str) {
+    public void setForumId(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f38805d = str;
+            this.forumId = str;
         }
     }
 
-    public void k(@Nullable String str) {
+    public void setForumName(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f38806e = str;
+            this.forumName = str;
         }
     }
 
-    public void l(@NonNull WriteData writeData) {
+    public void setThreadDataByWriteData(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.f38807f = h(writeData);
+            this.threadData = parseFromWriteData4Flutter(writeData);
         }
     }
 }

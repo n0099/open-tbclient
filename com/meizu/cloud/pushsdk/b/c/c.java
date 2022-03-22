@@ -5,12 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public final String[] a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public final List<String> a = new ArrayList(20);
 
@@ -22,20 +21,20 @@ public final class c {
                 throw new IllegalArgumentException("name is empty");
             }
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127) {
-                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
+                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
                 }
             }
             if (str2 == null) {
                 throw new IllegalArgumentException("value == null");
             }
             int length2 = str2.length();
-            for (int i3 = 0; i3 < length2; i3++) {
-                char charAt2 = str2.charAt(i3);
+            for (int i2 = 0; i2 < length2; i2++) {
+                char charAt2 = str2.charAt(i2);
                 if (charAt2 <= 31 || charAt2 >= 127) {
-                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i3), str, str2));
+                    throw new IllegalArgumentException(String.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
                 }
             }
         }
@@ -69,15 +68,15 @@ public final class c {
             throw new IllegalArgumentException("Expected alternating header names and values");
         }
         String[] strArr2 = (String[]) strArr.clone();
-        for (int i2 = 0; i2 < strArr2.length; i2++) {
-            if (strArr2[i2] == null) {
+        for (int i = 0; i < strArr2.length; i++) {
+            if (strArr2[i] == null) {
                 throw new IllegalArgumentException("Headers cannot be null");
             }
-            strArr2[i2] = strArr2[i2].trim();
+            strArr2[i] = strArr2[i].trim();
         }
-        for (int i3 = 0; i3 < strArr2.length; i3 += 2) {
-            String str = strArr2[i3];
-            String str2 = strArr2[i3 + 1];
+        for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
+            String str = strArr2[i2];
+            String str2 = strArr2[i2 + 1];
             if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
                 throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
             }
@@ -98,23 +97,23 @@ public final class c {
         return this.a.length / 2;
     }
 
-    public String a(int i2) {
-        return this.a[i2 * 2];
+    public String a(int i) {
+        return this.a[i * 2];
     }
 
     public String a(String str) {
         return a(this.a, str);
     }
 
-    public String b(int i2) {
-        return this.a[(i2 * 2) + 1];
+    public String b(int i) {
+        return this.a[(i * 2) + 1];
     }
 
     public Set<String> b() {
         TreeSet treeSet = new TreeSet(String.CASE_INSENSITIVE_ORDER);
         int a2 = a();
-        for (int i2 = 0; i2 < a2; i2++) {
-            treeSet.add(a(i2));
+        for (int i = 0; i < a2; i++) {
+            treeSet.add(a(i));
         }
         return Collections.unmodifiableSet(treeSet);
     }
@@ -128,11 +127,11 @@ public final class c {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int a2 = a();
-        for (int i2 = 0; i2 < a2; i2++) {
-            sb.append(a(i2));
+        for (int i = 0; i < a2; i++) {
+            sb.append(a(i));
             sb.append(": ");
-            sb.append(b(i2));
-            sb.append(StringUtils.LF);
+            sb.append(b(i));
+            sb.append("\n");
         }
         return sb.toString();
     }

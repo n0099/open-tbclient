@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.bk;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bl implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public class bl implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bkVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,14 +36,14 @@ public class bl implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                concurrentHashMap = this.a.f942a;
+                concurrentHashMap = this.a.f918a;
                 for (bk.a aVar : concurrentHashMap.values()) {
                     aVar.run();
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("Sync job exception :" + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m112a("Sync job exception :" + e2.getMessage());
             }
-            this.a.f943a = false;
+            this.a.f919a = false;
         }
     }
 }

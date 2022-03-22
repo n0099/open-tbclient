@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class gn {
     public static /* synthetic */ Interceptable $ic;
     public static Random a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final char[] f444a;
+    public static final char[] f420a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f59709b;
+    public static final char[] f44310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f59710c;
+    public static final char[] f44311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f59711d;
+    public static final char[] f44312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f59712e;
+    public static final char[] f44313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f59713f;
+    public static char[] f44314f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,25 +44,25 @@ public class gn {
                 return;
             }
         }
-        f444a = "&quot;".toCharArray();
-        f59709b = "&apos;".toCharArray();
-        f59710c = "&amp;".toCharArray();
-        f59711d = "&lt;".toCharArray();
-        f59712e = "&gt;".toCharArray();
+        f420a = "&quot;".toCharArray();
+        f44310b = "&apos;".toCharArray();
+        f44311c = "&amp;".toCharArray();
+        f44312d = "&lt;".toCharArray();
+        f44313e = "&gt;".toCharArray();
         a = new Random();
-        f59713f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f44314f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (i2 < 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i < 1) {
                 return null;
             }
-            char[] cArr = new char[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                cArr[i3] = f59713f[a.nextInt(71)];
+            char[] cArr = new char[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                cArr[i2] = f44314f[a.nextInt(71)];
             }
             return new String(cArr);
         }
@@ -79,53 +79,53 @@ public class gn {
             char[] charArray = str.toCharArray();
             int length = charArray.length;
             StringBuilder sb = new StringBuilder((int) (length * 1.3d));
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                char c2 = charArray[i2];
+            while (i < length) {
+                char c2 = charArray[i];
                 if (c2 <= '>') {
                     if (c2 == '<') {
-                        if (i2 > i3) {
-                            sb.append(charArray, i3, i2 - i3);
+                        if (i > i2) {
+                            sb.append(charArray, i2, i - i2);
                         }
-                        i3 = i2 + 1;
-                        sb.append(f59711d);
+                        i2 = i + 1;
+                        sb.append(f44312d);
                     } else if (c2 == '>') {
-                        if (i2 > i3) {
-                            sb.append(charArray, i3, i2 - i3);
+                        if (i > i2) {
+                            sb.append(charArray, i2, i - i2);
                         }
-                        i3 = i2 + 1;
-                        sb.append(f59712e);
+                        i2 = i + 1;
+                        sb.append(f44313e);
                     } else if (c2 == '&') {
-                        if (i2 > i3) {
-                            sb.append(charArray, i3, i2 - i3);
+                        if (i > i2) {
+                            sb.append(charArray, i2, i - i2);
                         }
-                        int i4 = i2 + 5;
-                        if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
-                            i3 = i2 + 1;
-                            sb.append(f59710c);
+                        int i3 = i + 5;
+                        if (length <= i3 || charArray[i + 1] != '#' || !Character.isDigit(charArray[i + 2]) || !Character.isDigit(charArray[i + 3]) || !Character.isDigit(charArray[i + 4]) || charArray[i3] != ';') {
+                            i2 = i + 1;
+                            sb.append(f44311c);
                         }
                     } else if (c2 == '\"') {
-                        if (i2 > i3) {
-                            sb.append(charArray, i3, i2 - i3);
+                        if (i > i2) {
+                            sb.append(charArray, i2, i - i2);
                         }
-                        i3 = i2 + 1;
-                        sb.append(f444a);
+                        i2 = i + 1;
+                        sb.append(f420a);
                     } else if (c2 == '\'') {
-                        if (i2 > i3) {
-                            sb.append(charArray, i3, i2 - i3);
+                        if (i > i2) {
+                            sb.append(charArray, i2, i - i2);
                         }
-                        i3 = i2 + 1;
-                        sb.append(f59709b);
+                        i2 = i + 1;
+                        sb.append(f44310b);
                     }
                 }
-                i2++;
+                i++;
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return str;
             }
-            if (i2 > i3) {
-                sb.append(charArray, i3, i2 - i3);
+            if (i > i2) {
+                sb.append(charArray, i2, i - i2);
             }
             return sb.toString();
         }
@@ -151,16 +151,16 @@ public class gn {
         StringBuilder sb = new StringBuilder(charArray.length);
         sb.append(charArray, 0, indexOf);
         sb.append(charArray2);
-        int i2 = indexOf + length;
+        int i = indexOf + length;
         while (true) {
-            int indexOf2 = str.indexOf(str2, i2);
+            int indexOf2 = str.indexOf(str2, i);
             if (indexOf2 <= 0) {
-                sb.append(charArray, i2, charArray.length - i2);
+                sb.append(charArray, i, charArray.length - i);
                 return sb.toString();
             }
-            sb.append(charArray, i2, indexOf2 - i2);
+            sb.append(charArray, i, indexOf2 - i);
             sb.append(charArray2);
-            i2 = indexOf2 + length;
+            i = indexOf2 + length;
         }
     }
 

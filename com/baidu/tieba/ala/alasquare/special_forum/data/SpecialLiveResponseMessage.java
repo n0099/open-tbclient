@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.special_forum.data;
 
-import c.a.r0.a0.f.g.c.a;
-import c.a.r0.a0.f.g.c.h;
-import c.a.r0.a0.f.g.c.i;
+import c.a.p0.c0.f.g.c.a;
+import c.a.p0.c0.f.g.c.h;
+import c.a.p0.c0.f.g.c.i;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -28,9 +28,9 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,10 +40,10 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null) {
                 return;
             }
@@ -58,28 +58,28 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                     if (jSONObject2 != null) {
                         SpecialLiveTabInfo specialLiveTabInfo = new SpecialLiveTabInfo();
                         specialLiveTabInfo.parse(jSONObject2);
                         arrayList.add(specialLiveTabInfo);
                     }
                 }
-                this.mData.f14449b = arrayList;
+                this.mData.f13082b = arrayList;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
                 alaUserInfoData.parserJson(optJSONObject2);
-                this.mData.f14451d = alaUserInfoData;
+                this.mData.f13084d = alaUserInfoData;
             }
-            this.mData.f14450c = jSONObject.optInt("is_like") == 1;
+            this.mData.f13083c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
                 i iVar = new i();
                 iVar.a(optJSONObject3);
-                this.mData.f14452e = iVar;
+                this.mData.f13085e = iVar;
             }
         }
     }

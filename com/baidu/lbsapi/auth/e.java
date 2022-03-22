@@ -12,19 +12,19 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f33244b;
+    public List<HashMap<String, String>> f25597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f33245c;
+    public a<String> f25598c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -36,16 +36,16 @@ public class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33244b = null;
-        this.f33245c = null;
+        this.f25597b = null;
+        this.f25598c = null;
         this.a = context;
     }
 
@@ -97,7 +97,7 @@ public class e {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f33245c;
+            a<String> aVar = this.f25598c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -106,7 +106,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<HashMap<String, String>> list) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, list) == null) {
             com.baidu.lbsapi.auth.a.a("syncConnect start Thread id = " + String.valueOf(Thread.currentThread().getId()));
@@ -115,17 +115,17 @@ public class e {
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            int i3 = 0;
-            while (i3 < list.size()) {
-                com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  start!!!");
-                HashMap<String, String> hashMap = list.get(i3);
+            int i2 = 0;
+            while (i2 < list.size()) {
+                com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
+                HashMap<String, String> hashMap = list.get(i2);
                 g gVar = new g(this.a);
                 if (gVar.a()) {
                     String a2 = gVar.a(hashMap);
                     if (a2 == null) {
                         a2 = "";
                     }
-                    com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  result:" + a2);
+                    com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  result:" + a2);
                     arrayList.add(a2);
                     try {
                         JSONObject jSONObject = new JSONObject(a2);
@@ -142,14 +142,14 @@ public class e {
                     arrayList.add(ErrorMessage.a("Current network is not available."));
                 }
                 com.baidu.lbsapi.auth.a.a("syncConnect end");
-                i3++;
+                i2++;
             }
-            com.baidu.lbsapi.auth.a.a("--iiiiii:" + i3 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
-            if (list.size() <= 0 || i3 != list.size() || arrayList.size() <= 0 || i3 != arrayList.size() || i3 - 1 <= 0) {
+            com.baidu.lbsapi.auth.a.a("--iiiiii:" + i2 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
+            if (list.size() <= 0 || i2 != list.size() || arrayList.size() <= 0 || i2 != arrayList.size() || i2 - 1 <= 0) {
                 return;
             }
             try {
-                JSONObject jSONObject2 = new JSONObject((String) arrayList.get(i2));
+                JSONObject jSONObject2 = new JSONObject((String) arrayList.get(i));
                 if (!jSONObject2.has("status") || jSONObject2.getInt("status") == 0) {
                     return;
                 }
@@ -164,8 +164,8 @@ public class e {
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
-            this.f33244b = a(hashMap, strArr);
-            this.f33245c = aVar;
+            this.f25597b = a(hashMap, strArr);
+            this.f25598c = aVar;
             new Thread(new f(this)).start();
         }
     }

@@ -25,9 +25,9 @@ public class FetchTaskManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -88,10 +88,10 @@ public class FetchTaskManager {
         }
     }
 
-    public void saveRetryCount(int i2) {
+    public void saveRetryCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mSharedPrefsWrapper.putInt(SP_TASK_RETRY_COUNT_KEY, i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mSharedPrefsWrapper.putInt(SP_TASK_RETRY_COUNT_KEY, i);
         }
     }
 

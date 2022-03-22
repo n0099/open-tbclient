@@ -6,7 +6,7 @@ import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-import c.a.l0.a.e.a;
+import c.a.j0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
@@ -54,9 +54,9 @@ public class WebGLImageLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webGLImage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,9 +85,9 @@ public class WebGLImageLoader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -130,9 +130,9 @@ public class WebGLImageLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -211,9 +211,9 @@ public class WebGLImageLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6, webGLImage, Integer.valueOf(r8), src};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,9 +305,9 @@ public class WebGLImageLoader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {v8Engine, r7, webGLImage, Integer.valueOf(r9)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -331,14 +331,14 @@ public class WebGLImageLoader {
         }
     }
 
-    public static void loadBitmapData(WebGLImage webGLImage, int i2, Bitmap bitmap) {
+    public static void loadBitmapData(WebGLImage webGLImage, int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, null, webGLImage, i2, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65546, null, webGLImage, i, bitmap) == null) {
             if (bitmap != null && webGLImage.setBitmapData(bitmap)) {
-                webGLImage.onLoadSuccess(i2);
+                webGLImage.onLoadSuccess(i);
                 return;
             }
-            webGLImage.onLoadFailed(i2, "load bitmap failed, src is " + webGLImage.src());
+            webGLImage.onLoadFailed(i, "load bitmap failed, src is " + webGLImage.src());
         }
     }
 
@@ -359,9 +359,9 @@ public class WebGLImageLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {webGLImage, Integer.valueOf(r7), bitmap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -400,9 +400,9 @@ public class WebGLImageLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6, webGLImage, Integer.valueOf(r8)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -443,11 +443,11 @@ public class WebGLImageLoader {
         }
     }
 
-    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i2, String str, Object obj) {
+    public static void loadImageFromConvertedSource(WebGLImage webGLImage, int i, String str, Object obj) {
         Bitmap decodeStream;
         Bitmap decodeStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65550, null, webGLImage, i2, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65550, null, webGLImage, i, str, obj) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             if (Build.VERSION.SDK_INT >= 19) {
                 options.inPremultiplied = false;
@@ -499,7 +499,7 @@ public class WebGLImageLoader {
                     imageBitmapBean.increaseRefCount();
                 }
             }
-            loadBitmapData(webGLImage, i2, decodeStream);
+            loadBitmapData(webGLImage, i, decodeStream);
         }
     }
 
@@ -521,9 +521,9 @@ public class WebGLImageLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6, r7, webGLImage, Integer.valueOf(r9)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

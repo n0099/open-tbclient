@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.source.chunk;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import com.google.android.exoplayer2.extractor.DummyTrackOutput;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.source.SampleQueue;
 import com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOutputProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseMediaChunkOutput";
@@ -25,9 +26,9 @@ public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOu
             newInitContext.initArgs = r2;
             Object[] objArr = {iArr, sampleQueueArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,48 +45,48 @@ public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOu
             return (int[]) invokeV.objValue;
         }
         int[] iArr = new int[this.sampleQueues.length];
-        int i2 = 0;
+        int i = 0;
         while (true) {
             SampleQueue[] sampleQueueArr = this.sampleQueues;
-            if (i2 >= sampleQueueArr.length) {
+            if (i >= sampleQueueArr.length) {
                 return iArr;
             }
-            if (sampleQueueArr[i2] != null) {
-                iArr[i2] = sampleQueueArr[i2].getWriteIndex();
+            if (sampleQueueArr[i] != null) {
+                iArr[i] = sampleQueueArr[i].getWriteIndex();
             }
-            i2++;
+            i++;
         }
     }
 
-    public void setSampleOffsetUs(long j2) {
+    public void setSampleOffsetUs(long j) {
         SampleQueue[] sampleQueueArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             for (SampleQueue sampleQueue : this.sampleQueues) {
                 if (sampleQueue != null) {
-                    sampleQueue.setSampleOffsetUs(j2);
+                    sampleQueue.setSampleOffsetUs(j);
                 }
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper.TrackOutputProvider
-    public TrackOutput track(int i2, int i3) {
+    public TrackOutput track(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) != null) {
+        if (interceptable != null && (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) != null) {
             return (TrackOutput) invokeII.objValue;
         }
-        int i4 = 0;
+        int i3 = 0;
         while (true) {
             int[] iArr = this.trackTypes;
-            if (i4 < iArr.length) {
-                if (i3 == iArr[i4]) {
-                    return this.sampleQueues[i4];
+            if (i3 < iArr.length) {
+                if (i2 == iArr[i3]) {
+                    return this.sampleQueues[i3];
                 }
-                i4++;
+                i3++;
             } else {
-                String str = "Unmatched track of type: " + i3;
+                Log.e(TAG, "Unmatched track of type: " + i2);
                 return new DummyTrackOutput();
             }
         }

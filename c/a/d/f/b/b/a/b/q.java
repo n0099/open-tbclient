@@ -24,9 +24,9 @@ public class q implements h {
             newInitContext.initArgs = r2;
             Object[] objArr = {sparseArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,8 +95,8 @@ public class q implements h {
             Type[] b2 = cVar.b();
             JSONObject jSONObject = new JSONObject();
             int size = this.a.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                int keyAt = this.a.keyAt(i2);
+            for (int i = 0; i < size; i++) {
+                int keyAt = this.a.keyAt(i);
                 Object obj = this.a.get(keyAt);
                 if (obj != null) {
                     if (b2 != null && b2.length >= 1) {

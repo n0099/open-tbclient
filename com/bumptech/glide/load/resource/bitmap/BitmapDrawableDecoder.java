@@ -17,7 +17,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType, BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType
             newInitContext.initArgs = r2;
             Object[] objArr = {context, resourceDecoder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Resources) objArr2[0], (ResourceDecoder) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,10 +46,10 @@ public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<BitmapDrawable> decode(@NonNull DataType datatype, int i2, int i3, @NonNull Options options) throws IOException {
+    public Resource<BitmapDrawable> decode(@NonNull DataType datatype, int i, int i2, @NonNull Options options) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{datatype, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(datatype, i2, i3, options)) : (Resource) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{datatype, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(datatype, i, i2, options)) : (Resource) invokeCommon.objValue;
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
@@ -69,9 +69,9 @@ public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, bitmapPool, resourceDecoder};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Resources) objArr2[0], (ResourceDecoder) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -88,9 +88,9 @@ public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, resourceDecoder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

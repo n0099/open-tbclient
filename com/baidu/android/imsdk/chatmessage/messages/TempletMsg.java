@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -73,9 +74,9 @@ public class TempletMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -94,10 +95,10 @@ public class TempletMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Commodity[] newArray(int i2) {
+                public Commodity[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Commodity[i2] : (Commodity[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Commodity[i] : (Commodity[]) invokeI.objValue;
                 }
             };
         }
@@ -107,9 +108,9 @@ public class TempletMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -166,9 +167,9 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
                 parcel.writeString(this.mName);
                 parcel.writeString(this.mValue);
                 parcel.writeString(this.mColor);
@@ -182,9 +183,9 @@ public class TempletMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -228,9 +229,9 @@ public class TempletMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -249,10 +250,10 @@ public class TempletMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Image[] newArray(int i2) {
+                public Image[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Image[i2] : (Image[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Image[i] : (Image[]) invokeI.objValue;
                 }
             };
         }
@@ -262,9 +263,9 @@ public class TempletMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -306,9 +307,9 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
                 parcel.writeString(this.image);
                 parcel.writeString(this.url);
                 parcel.writeString(this.title);
@@ -323,9 +324,9 @@ public class TempletMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -369,9 +370,9 @@ public class TempletMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -390,10 +391,10 @@ public class TempletMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Link[] newArray(int i2) {
+                public Link[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Link[i2] : (Link[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Link[i] : (Link[]) invokeI.objValue;
                 }
             };
         }
@@ -403,9 +404,9 @@ public class TempletMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -441,9 +442,9 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
                 parcel.writeString(this.content);
                 parcel.writeString(this.title);
                 parcel.writeString(this.url);
@@ -457,9 +458,9 @@ public class TempletMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -504,9 +505,9 @@ public class TempletMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -525,10 +526,10 @@ public class TempletMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Video[] newArray(int i2) {
+                public Video[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Video[i2] : (Video[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Video[i] : (Video[]) invokeI.objValue;
                 }
             };
         }
@@ -538,9 +539,9 @@ public class TempletMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -588,9 +589,9 @@ public class TempletMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
                 parcel.writeString(this.cover);
                 parcel.writeString(this.url);
                 parcel.writeString(this.title);
@@ -606,9 +607,9 @@ public class TempletMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -644,9 +645,9 @@ public class TempletMsg extends NormalMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -665,10 +666,10 @@ public class TempletMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public TempletMsg[] newArray(int i2) {
+            public TempletMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new TempletMsg[i2] : (TempletMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new TempletMsg[i] : (TempletMsg[]) invokeI.objValue;
             }
         };
     }
@@ -678,9 +679,9 @@ public class TempletMsg extends NormalMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -801,7 +802,7 @@ public class TempletMsg extends NormalMsg {
                     return false;
                 }
                 this.mDetailurl = jSONObject.optString("detail_url");
-                JSONObject optJSONObject = jSONObject.optJSONObject("first");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Config.TRACE_VISIT_FIRST);
                 if (optJSONObject != null) {
                     this.mFirstName = optJSONObject.optString("value");
                     this.mFirstColor = optJSONObject.optString("color");
@@ -819,13 +820,13 @@ public class TempletMsg extends NormalMsg {
                         this.mCommodity = new Commodity[length2];
                     }
                     LogUtils.d("TempletMsg", "size is " + length2);
-                    for (int i2 = 0; i2 < length2; i2++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    for (int i = 0; i < length2; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         Commodity commodity = new Commodity();
                         commodity.setName(jSONObject2.getString("name"));
                         commodity.setValue(jSONObject2.optString("value", ""));
                         commodity.setColor(jSONObject2.optString("color", "#000000"));
-                        this.mCommodity[i2] = commodity;
+                        this.mCommodity[i] = commodity;
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("image");
@@ -853,11 +854,11 @@ public class TempletMsg extends NormalMsg {
                         if (length > 3) {
                             length = 3;
                         }
-                        for (int i3 = 0; i3 < length; i3++) {
+                        for (int i2 = 0; i2 < length; i2++) {
                             Link link = new Link();
-                            link.content = jSONArray.getJSONObject(i3).getString("content");
-                            link.title = jSONArray.getJSONObject(i3).optString("detail_title");
-                            link.url = jSONArray.getJSONObject(i3).getString("detail_url");
+                            link.content = jSONArray.getJSONObject(i2).getString("content");
+                            link.title = jSONArray.getJSONObject(i2).optString("detail_title");
+                            link.url = jSONArray.getJSONObject(i2).getString("detail_url");
                             this.mLinks.add(link);
                         }
                         return true;
@@ -903,7 +904,7 @@ public class TempletMsg extends NormalMsg {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("value", str2);
                 jSONObject2.put("color", str3);
-                jSONObject.put("first", jSONObject2);
+                jSONObject.put(Config.TRACE_VISIT_FIRST, jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("value", str4);
                 jSONObject3.put("color", str5);
@@ -929,10 +930,10 @@ public class TempletMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mDetailurl);
             parcel.writeString(this.mFirstName);
@@ -943,12 +944,12 @@ public class TempletMsg extends NormalMsg {
             int length = commodityArr != null ? commodityArr.length : 0;
             parcel.writeInt(length);
             if (length > 0) {
-                parcel.writeTypedArray(this.mCommodity, i2);
+                parcel.writeTypedArray(this.mCommodity, i);
             }
             parcel.writeInt(this.mMode);
             parcel.writeTypedList(this.mLinks);
-            parcel.writeParcelable(this.mImage, i2);
-            parcel.writeParcelable(this.mVideo, i2);
+            parcel.writeParcelable(this.mImage, i);
+            parcel.writeParcelable(this.mVideo, i);
         }
     }
 
@@ -961,9 +962,9 @@ public class TempletMsg extends NormalMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

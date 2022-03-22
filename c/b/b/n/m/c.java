@@ -22,30 +22,32 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Application, c.b.b.q.a<c>> m;
-    public static int n;
-    public static boolean o;
+    public static final Map<Application, c.b.b.q.a<c>> i;
+    public static int j;
+    public static boolean k;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.b.b.q.a<T> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f22657b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f22658c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f22659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.q.a<T> f27432e;
+    public int f22660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27433f;
+    public boolean f22661f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27434g;
+    public boolean f22662g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27435h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f27436i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f27437j;
-    public boolean k;
-    public AbstractC1639c<? extends c<T>> l;
+    public AbstractC1649c<? extends c<T>> f22663h;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -61,48 +63,46 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27438b;
+        public boolean f22664b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27439c;
+        public boolean f22665c;
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f27438b || this.f27439c) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.f22664b || this.f22665c) ? false : true : invokeV.booleanValue;
         }
     }
 
     /* renamed from: c.b.b.n.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC1639c<U extends c<? extends c.b.b.n.e>> {
+    public static abstract class AbstractC1649c<U extends c<? extends c.b.b.n.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27440b;
+        public int f22666b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.b.b.q.a<b> f27441c;
+        public c.b.b.q.a<b> f22667c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f27442d;
+        public a f22668d;
 
         /* renamed from: e  reason: collision with root package name */
-        public a f27443e;
+        public a f22669e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f27444f;
+        public a f22670f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f27445g;
+        public boolean f22671g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f27446h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f27447i;
+        public boolean f22672h;
+        public boolean i;
     }
 
     static {
@@ -118,8 +118,8 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
                 return;
             }
         }
-        m = new HashMap();
-        o = false;
+        i = new HashMap();
+        k = false;
     }
 
     public c() {
@@ -135,25 +135,25 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27432e = new c.b.b.q.a<>();
+        this.a = new c.b.b.q.a<>();
     }
 
     public static void a(Application application, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, application, cVar) == null) {
-            c.b.b.q.a<c> aVar = m.get(application);
+            c.b.b.q.a<c> aVar = i.get(application);
             if (aVar == null) {
                 aVar = new c.b.b.q.a<>();
             }
             aVar.a(cVar);
-            m.put(application, aVar);
+            i.put(application, aVar);
         }
     }
 
     public static void i(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, application) == null) {
-            m.remove(application);
+            i.remove(application);
         }
     }
 
@@ -173,8 +173,8 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sb)) == null) {
             sb.append("Managed buffers/app: { ");
-            for (Application application : m.keySet()) {
-                sb.append(m.get(application).f27499f);
+            for (Application application : i.keySet()) {
+                sb.append(i.get(application).f22717b);
                 sb.append(" ");
             }
             sb.append("}");
@@ -186,10 +186,10 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public static void n(Application application) {
         c.b.b.q.a<c> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, application) == null) || c.b.b.f.f27078f == null || (aVar = m.get(application)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, application) == null) || c.b.b.f.f22335f == null || (aVar = i.get(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < aVar.f27499f; i2++) {
+        for (int i2 = 0; i2 < aVar.f22717b; i2++) {
             aVar.get(i2).g();
         }
     }
@@ -198,24 +198,24 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f27078f;
-            a.b<T> it = this.f27432e.iterator();
+            c.b.b.n.c cVar = c.b.b.f.f22335f;
+            a.b<T> it = this.a.iterator();
             while (it.hasNext()) {
                 k(it.next());
             }
-            if (this.f27437j) {
-                cVar.p(this.f27436i);
+            if (this.f22661f) {
+                cVar.p(this.f22660e);
             } else {
-                if (this.l.f27446h) {
-                    cVar.p(this.f27434g);
+                if (this.f22663h.f22672h) {
+                    cVar.p(this.f22658c);
                 }
-                if (this.l.f27445g) {
-                    cVar.p(this.f27435h);
+                if (this.f22663h.f22671g) {
+                    cVar.p(this.f22659d);
                 }
             }
-            cVar.r(this.f27433f);
-            if (m.get(c.b.b.f.a) != null) {
-                m.get(c.b.b.f.a).i(this, true);
+            cVar.r(this.f22657b);
+            if (i.get(c.b.b.f.a) != null) {
+                i.get(c.b.b.f.a).j(this, true);
             }
         }
     }
@@ -226,135 +226,135 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f27078f;
+            c.b.b.n.c cVar = c.b.b.f.f22335f;
             h();
-            if (!o) {
-                o = true;
+            if (!k) {
+                k = true;
                 if (c.b.b.f.a.getType() == Application.ApplicationType.iOS) {
                     IntBuffer asIntBuffer = ByteBuffer.allocateDirect(64).order(ByteOrder.nativeOrder()).asIntBuffer();
                     cVar.C(36006, asIntBuffer);
-                    n = asIntBuffer.get(0);
+                    j = asIntBuffer.get(0);
                 } else {
-                    n = 0;
+                    j = 0;
                 }
             }
             int Q = cVar.Q();
-            this.f27433f = Q;
+            this.f22657b = Q;
             cVar.f(36160, Q);
-            AbstractC1639c<? extends c<T>> abstractC1639c = this.l;
-            int i3 = abstractC1639c.a;
-            int i4 = abstractC1639c.f27440b;
-            if (abstractC1639c.f27446h) {
+            AbstractC1649c<? extends c<T>> abstractC1649c = this.f22663h;
+            int i3 = abstractC1649c.a;
+            int i4 = abstractC1649c.f22666b;
+            if (abstractC1649c.f22672h) {
                 int P = cVar.P();
-                this.f27434g = P;
+                this.f22658c = P;
                 cVar.m(36161, P);
-                cVar.e(36161, this.l.f27443e.a, i3, i4);
+                cVar.e(36161, this.f22663h.f22669e.a, i3, i4);
             }
-            if (this.l.f27445g) {
+            if (this.f22663h.f22671g) {
                 int P2 = cVar.P();
-                this.f27435h = P2;
+                this.f22659d = P2;
                 cVar.m(36161, P2);
-                cVar.e(36161, this.l.f27442d.a, i3, i4);
+                cVar.e(36161, this.f22663h.f22668d.a, i3, i4);
             }
-            if (this.l.f27447i) {
+            if (this.f22663h.i) {
                 int P3 = cVar.P();
-                this.f27436i = P3;
+                this.f22660e = P3;
                 cVar.m(36161, P3);
-                cVar.e(36161, this.l.f27444f.a, i3, i4);
+                cVar.e(36161, this.f22663h.f22670f.a, i3, i4);
             }
-            boolean z = this.l.f27441c.f27499f > 1;
-            this.k = z;
+            boolean z = this.f22663h.f22667c.f22717b > 1;
+            this.f22662g = z;
             if (z) {
-                a.b<b> it = this.l.f27441c.iterator();
+                a.b<b> it = this.f22663h.f22667c.iterator();
                 int i5 = 0;
                 while (it.hasNext()) {
                     b next = it.next();
                     T j2 = j(next);
-                    this.f27432e.a(j2);
+                    this.a.a(j2);
                     if (next.a()) {
                         cVar.B(36160, i5 + 36064, 3553, j2.i(), 0);
                         i5++;
-                    } else if (next.f27438b) {
+                    } else if (next.f22664b) {
                         cVar.B(36160, 36096, 3553, j2.i(), 0);
-                    } else if (next.f27439c) {
+                    } else if (next.f22665c) {
                         cVar.B(36160, 36128, 3553, j2.i(), 0);
                     }
                 }
                 i2 = i5;
             } else {
-                T j3 = j(this.l.f27441c.first());
-                this.f27432e.a(j3);
-                cVar.N(j3.f27223e, j3.i());
+                T j3 = j(this.f22663h.f22667c.f());
+                this.a.a(j3);
+                cVar.N(j3.a, j3.i());
                 i2 = 0;
             }
-            if (this.k) {
+            if (this.f22662g) {
                 IntBuffer d2 = BufferUtils.d(i2);
                 for (int i6 = 0; i6 < i2; i6++) {
                     d2.put(i6 + 36064);
                 }
                 d2.position(0);
-                c.b.b.f.f27079g.c(i2, d2);
+                c.b.b.f.f22336g.c(i2, d2);
             } else {
-                f(this.f27432e.first());
+                f(this.a.f());
             }
-            if (this.l.f27446h) {
-                cVar.k(36160, 36096, 36161, this.f27434g);
+            if (this.f22663h.f22672h) {
+                cVar.k(36160, 36096, 36161, this.f22658c);
             }
-            if (this.l.f27445g) {
-                cVar.k(36160, 36128, 36161, this.f27435h);
+            if (this.f22663h.f22671g) {
+                cVar.k(36160, 36128, 36161, this.f22659d);
             }
-            if (this.l.f27447i) {
-                cVar.k(36160, 33306, 36161, this.f27436i);
+            if (this.f22663h.i) {
+                cVar.k(36160, 33306, 36161, this.f22660e);
             }
             cVar.m(36161, 0);
-            a.b<T> it2 = this.f27432e.iterator();
+            a.b<T> it2 = this.a.iterator();
             while (it2.hasNext()) {
-                cVar.N(it2.next().f27223e, 0);
+                cVar.N(it2.next().a, 0);
             }
             int t = cVar.t(36160);
             if (t == 36061) {
-                AbstractC1639c<? extends c<T>> abstractC1639c2 = this.l;
-                if (abstractC1639c2.f27446h && abstractC1639c2.f27445g && (c.b.b.f.f27074b.a("GL_OES_packed_depth_stencil") || c.b.b.f.f27074b.a("GL_EXT_packed_depth_stencil"))) {
-                    if (this.l.f27446h) {
-                        cVar.p(this.f27434g);
-                        this.f27434g = 0;
+                AbstractC1649c<? extends c<T>> abstractC1649c2 = this.f22663h;
+                if (abstractC1649c2.f22672h && abstractC1649c2.f22671g && (c.b.b.f.f22331b.a("GL_OES_packed_depth_stencil") || c.b.b.f.f22331b.a("GL_EXT_packed_depth_stencil"))) {
+                    if (this.f22663h.f22672h) {
+                        cVar.p(this.f22658c);
+                        this.f22658c = 0;
                     }
-                    if (this.l.f27445g) {
-                        cVar.p(this.f27435h);
-                        this.f27435h = 0;
+                    if (this.f22663h.f22671g) {
+                        cVar.p(this.f22659d);
+                        this.f22659d = 0;
                     }
-                    if (this.l.f27447i) {
-                        cVar.p(this.f27436i);
-                        this.f27436i = 0;
+                    if (this.f22663h.i) {
+                        cVar.p(this.f22660e);
+                        this.f22660e = 0;
                     }
                     int P4 = cVar.P();
-                    this.f27436i = P4;
-                    this.f27437j = true;
+                    this.f22660e = P4;
+                    this.f22661f = true;
                     cVar.m(36161, P4);
                     cVar.e(36161, 35056, i3, i4);
                     cVar.m(36161, 0);
-                    cVar.k(36160, 36096, 36161, this.f27436i);
-                    cVar.k(36160, 36128, 36161, this.f27436i);
+                    cVar.k(36160, 36096, 36161, this.f22660e);
+                    cVar.k(36160, 36128, 36161, this.f22660e);
                     t = cVar.t(36160);
                 }
             }
-            cVar.f(36160, n);
+            cVar.f(36160, j);
             if (t != 36053) {
-                a.b<T> it3 = this.f27432e.iterator();
+                a.b<T> it3 = this.a.iterator();
                 while (it3.hasNext()) {
                     k(it3.next());
                 }
-                if (this.f27437j) {
-                    cVar.b(this.f27436i);
+                if (this.f22661f) {
+                    cVar.b(this.f22660e);
                 } else {
-                    if (this.l.f27446h) {
-                        cVar.p(this.f27434g);
+                    if (this.f22663h.f22672h) {
+                        cVar.p(this.f22658c);
                     }
-                    if (this.l.f27445g) {
-                        cVar.p(this.f27435h);
+                    if (this.f22663h.f22671g) {
+                        cVar.p(this.f22659d);
                     }
                 }
-                cVar.r(this.f27433f);
+                cVar.r(this.f22657b);
                 if (t == 36054) {
                     throw new IllegalStateException("Frame buffer couldn't be constructed: incomplete attachment");
                 }
@@ -375,19 +375,19 @@ public abstract class c<T extends c.b.b.n.e> implements c.b.b.q.h {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.b.b.f.f27074b.b()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || c.b.b.f.f22331b.b()) {
             return;
         }
-        AbstractC1639c<? extends c<T>> abstractC1639c = this.l;
-        if (!abstractC1639c.f27447i) {
-            c.b.b.q.a<b> aVar = abstractC1639c.f27441c;
-            if (aVar.f27499f <= 1) {
+        AbstractC1649c<? extends c<T>> abstractC1649c = this.f22663h;
+        if (!abstractC1649c.i) {
+            c.b.b.q.a<b> aVar = abstractC1649c.f22667c;
+            if (aVar.f22717b <= 1) {
                 a.b<b> it = aVar.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (!next.f27438b) {
-                        if (!next.f27439c) {
-                            if (next.a && !c.b.b.f.f27074b.a("OES_texture_float")) {
+                    if (!next.f22664b) {
+                        if (!next.f22665c) {
+                            if (next.a && !c.b.b.f.f22331b.a("OES_texture_float")) {
                                 throw new GdxRuntimeException("Float texture FrameBuffer Attachment not available on GLES 2.0");
                             }
                         } else {

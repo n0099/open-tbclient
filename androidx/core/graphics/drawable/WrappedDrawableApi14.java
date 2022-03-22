@@ -55,9 +55,9 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
             newInitContext.initArgs = r2;
             Object[] objArr = {wrappedDrawableState, resources};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -300,25 +300,25 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) ? this.mDrawable.setLevel(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) ? this.mDrawable.setLevel(i) : invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-            scheduleSelf(runnable, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+            scheduleSelf(runnable, j);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mDrawable.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mDrawable.setAlpha(i);
         }
     }
 
@@ -332,10 +332,10 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i2) {
+    public void setChangingConfigurations(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mDrawable.setChangingConfigurations(i2);
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mDrawable.setChangingConfigurations(i);
         }
     }
 
@@ -374,10 +374,10 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i2) {
+    public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            setTintList(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            setTintList(ColorStateList.valueOf(i));
         }
     }
 
@@ -445,9 +445,9 @@ public class WrappedDrawableApi14 extends Drawable implements Drawable.Callback,
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

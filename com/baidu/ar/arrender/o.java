@@ -12,7 +12,7 @@ public class o extends com.baidu.ar.ability.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f31452io;
+    public byte[] f24816io;
     public int mHeight;
     public int mWidth;
 
@@ -21,9 +21,9 @@ public class o extends com.baidu.ar.ability.c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,14 +33,14 @@ public class o extends com.baidu.ar.ability.c {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            this.f31452io = bArr;
+            this.f24816io = bArr;
         }
     }
 
     public byte[] bZ() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31452io : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24816io : (byte[]) invokeV.objValue;
     }
 
     public int getHeight() {
@@ -55,17 +55,17 @@ public class o extends com.baidu.ar.ability.c {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mWidth : invokeV.intValue;
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mHeight = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mWidth = i;
         }
     }
 }

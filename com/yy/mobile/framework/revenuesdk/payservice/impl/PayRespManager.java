@@ -37,7 +37,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayRespManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PayRespManager";
@@ -54,9 +54,9 @@ public class PayRespManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {iPayReporter, iPayServiceCallback, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,9 +105,9 @@ public class PayRespManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, accountDelayMessage};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -168,9 +168,9 @@ public class PayRespManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, consumeConfirmMessage};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -213,9 +213,9 @@ public class PayRespManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, currencyChargeMessage};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -284,9 +284,9 @@ public class PayRespManager {
         }
     }
 
-    private void onGetChargeOrderStatus(IResponse iResponse, int i2) {
+    private void onGetChargeOrderStatus(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, this, iResponse, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65546, this, iResponse, i) == null) {
             GetChargeOrderStatusResult getChargeOrderStatusResult = (GetChargeOrderStatusResult) getResponseData(GetChargeOrderStatusResult.class, iResponse);
             IRequest request = iResponse.getRequest();
             HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -300,7 +300,7 @@ public class PayRespManager {
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_CHARGE_ORDER_STATUS_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryChargeOrderStatus success!" + iResponse.getMessage();
-                        cReportResponse.mCmd = i2;
+                        cReportResponse.mCmd = i;
                         this.mPayReporter.onQueryChargeOrderStatus(cReportResponse);
                         return;
                     }
@@ -313,7 +313,7 @@ public class PayRespManager {
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_CHARGE_ORDER_STATUS_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryChargeOrderStatus fail!" + iResponse.getMessage();
-                    cReportResponse.mCmd = i2;
+                    cReportResponse.mCmd = i;
                     this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                 }
             }
@@ -356,9 +356,9 @@ public class PayRespManager {
         }
     }
 
-    private void onGetUserYbDetails(IResponse iResponse, int i2) {
+    private void onGetUserYbDetails(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, this, iResponse, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65549, this, iResponse, i) == null) {
             GetUserYbDetailsResult getUserYbDetailsResult = (GetUserYbDetailsResult) getResponseData(GetUserYbDetailsResult.class, iResponse);
             IRequest request = iResponse.getRequest();
             HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -372,7 +372,7 @@ public class PayRespManager {
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_USER_YB_DETAIL_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryUserYbDetails success!" + iResponse.getMessage();
-                        cReportResponse.mCmd = i2;
+                        cReportResponse.mCmd = i;
                         this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                         return;
                     }
@@ -385,32 +385,32 @@ public class PayRespManager {
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_USER_YB_DETAIL_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryUserYbDetails fail!" + iResponse.getMessage();
-                    cReportResponse.mCmd = i2;
+                    cReportResponse.mCmd = i;
                     this.mPayReporter.onQueryUserYbDetails(cReportResponse);
                 }
             }
         }
     }
 
-    private void onOrderProduct(IResponse iResponse, int i2) {
+    private void onOrderProduct(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, this, iResponse, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65550, this, iResponse, i) == null) {
             IRequest request = iResponse.getRequest();
             PayOrderResult payOrderResult = (PayOrderResult) getResponseData(PayOrderResult.class, iResponse);
             if (request != null) {
                 ChargeCurrencyReqParams chargeCurrencyReqParams = (ChargeCurrencyReqParams) request.getExtParam();
                 HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-                long j2 = 0;
+                long j = 0;
                 if (chargeCurrencyReqParams != null) {
                     cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
                     cReportResponse.mUid = chargeCurrencyReqParams.getUid();
-                    j2 = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
-                    cReportResponse.mDelay = j2 + "";
-                    cReportResponse.mCmd = i2;
+                    j = System.currentTimeMillis() - chargeCurrencyReqParams.getRequestTime();
+                    cReportResponse.mDelay = j + "";
+                    cReportResponse.mCmd = i;
                     cReportResponse.mServiceName = this.mDefalutServiceName;
                     cReportResponse.mFunctionName = this.mDefalutFunctionName;
                 }
-                long j3 = j2;
+                long j2 = j;
                 RLog.info("AppPayServiceImpl", "onOrderProduct---mDefalutServiceName:" + this.mDefalutServiceName + "---mDefalutFunctionName:" + this.mDefalutFunctionName + "---mRealFunctionName:" + cReportResponse.mServiceName + "---mRealFunctionName:" + cReportResponse.mFunctionName);
                 if (payOrderResult != null) {
                     cReportResponse.mOrderId = payOrderResult.getOrderId();
@@ -422,19 +422,19 @@ public class PayRespManager {
                             this.mPayServiceCallback.showVerifyViewWithInfoString(challengeExtension, chargeCurrencyReqParams, iResponse, request);
                             return;
                         } else {
-                            this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j3);
+                            this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, payOrderResult, request, cReportResponse, j2);
                             return;
                         }
                     }
-                    this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j3);
+                    this.mPayServiceCallback.dealOnOrderInter(iResponse, chargeCurrencyReqParams, null, request, cReportResponse, j2);
                 }
             }
         }
     }
 
-    private void onQueryProductList(IResponse iResponse, int i2) {
+    private void onQueryProductList(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, this, iResponse, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65551, this, iResponse, i) == null) {
             IRequest request = iResponse.getRequest();
             ProductListResult productListResult = (ProductListResult) getResponseData(ProductListResult.class, iResponse);
             HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -448,7 +448,7 @@ public class PayRespManager {
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "queryProductList success!" + iResponse.getMessage();
-                        cReportResponse.mCmd = i2;
+                        cReportResponse.mCmd = i;
                         this.mPayReporter.onQueryProductList(cReportResponse);
                         return;
                     }
@@ -461,16 +461,16 @@ public class PayRespManager {
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "queryProductList fail!" + iResponse.getMessage();
-                    cReportResponse.mCmd = i2;
+                    cReportResponse.mCmd = i;
                     this.mPayReporter.onQueryProductList(cReportResponse);
                 }
             }
         }
     }
 
-    private void onQueryProductListChannels(IResponse iResponse, int i2) {
+    private void onQueryProductListChannels(IResponse iResponse, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65552, this, iResponse, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65552, this, iResponse, i) == null) {
             IRequest request = iResponse.getRequest();
             ProductListResult productListResult = (ProductListResult) getResponseData(ProductListResult.class, iResponse);
             HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -484,7 +484,7 @@ public class PayRespManager {
                         cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_SUCCESS;
                         cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                         cReportResponse.mErrMsg = "onQueryProductListChannels success!" + iResponse.getMessage();
-                        cReportResponse.mCmd = i2;
+                        cReportResponse.mCmd = i;
                         this.mPayReporter.onQueryProductList(cReportResponse);
                         return;
                     }
@@ -497,7 +497,7 @@ public class PayRespManager {
                     cReportResponse.mEventaliae = EventAlias.PayEventAlias.QUERY_PRODUCT_LIST_FAIL;
                     cReportResponse.mErrCode = iResponse.getResponseCode() + "";
                     cReportResponse.mErrMsg = "onQueryProductListChannels fail!" + iResponse.getMessage();
-                    cReportResponse.mCmd = i2;
+                    cReportResponse.mCmd = i;
                     this.mPayReporter.onQueryProductList(cReportResponse);
                 }
             }
@@ -558,15 +558,15 @@ public class PayRespManager {
         }
     }
 
-    public void onFail(String str, int i2, String str2, IResult iResult, PayCallBackBean payCallBackBean) {
+    public void onFail(String str, int i, String str2, IResult iResult, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), str2, iResult, payCallBackBean}) == null) || iResult == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), str2, iResult, payCallBackBean}) == null) || iResult == null) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            iResult.onFail(i2, str2, payCallBackBean);
+            iResult.onFail(i, str2, payCallBackBean);
         } else {
-            ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, iResult, i2, str2, payCallBackBean) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespManager.5
+            ThreadPool.getDefault().mainThreadIO().execute(new Runnable(this, iResult, i, str2, payCallBackBean) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayRespManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayRespManager this$0;
@@ -580,11 +580,11 @@ public class PayRespManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, iResult, Integer.valueOf(i2), str2, payCallBackBean};
+                        Object[] objArr = {this, iResult, Integer.valueOf(i), str2, payCallBackBean};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -592,7 +592,7 @@ public class PayRespManager {
                     }
                     this.this$0 = this;
                     this.val$callback = iResult;
-                    this.val$code = i2;
+                    this.val$code = i;
                     this.val$message = str2;
                     this.val$payCallBackBean = payCallBackBean;
                 }
@@ -608,41 +608,41 @@ public class PayRespManager {
         }
     }
 
-    public void onRevenueResponse(int i2, IResponse iResponse) {
+    public void onRevenueResponse(int i, IResponse iResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, iResponse) == null) {
-            RLog.debug(TAG, "onRevenueResponse command = " + i2);
-            if (i2 == 1005) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, iResponse) == null) {
+            RLog.debug(TAG, "onRevenueResponse command = " + i);
+            if (i == 1005) {
                 onQueryUserAccount(iResponse);
-            } else if (i2 == 1052) {
+            } else if (i == 1052) {
                 onGetChargeCouponDiscount(iResponse);
-            } else if (i2 == 1054) {
+            } else if (i == 1054) {
                 onQueryRechargeHistory(iResponse);
-            } else if (i2 == 1068) {
+            } else if (i == 1068) {
                 onGetUserYbDetails(iResponse, RevenueServerConst.GetUserYbDetailsRequest);
-            } else if (i2 == 1071) {
+            } else if (i == 1071) {
                 onBannerConfig(iResponse);
-            } else if (i2 == 40423235) {
+            } else if (i == 40423235) {
                 onConsumeConfirmMessage(iResponse);
-            } else if (i2 == 40423898) {
+            } else if (i == 40423898) {
                 onCurrencyChargeMessage(iResponse);
-            } else if (i2 == 40424536) {
+            } else if (i == 40424536) {
                 onAccountDelayMessage(iResponse);
-            } else if (i2 == 1021) {
+            } else if (i == 1021) {
                 onQueryProductList(iResponse, 1021);
-            } else if (i2 == 1022) {
+            } else if (i == 1022) {
                 onOrderProduct(iResponse, 1022);
-            } else if (i2 == 1025) {
+            } else if (i == 1025) {
                 onExchangeCurrency(iResponse);
-            } else if (i2 == 1026) {
+            } else if (i == 1026) {
                 onGetHasChargeInActivity(iResponse);
-            } else if (i2 == 1046) {
+            } else if (i == 1046) {
                 onQueryUserAccountHistory(iResponse);
-            } else if (i2 == 1047) {
+            } else if (i == 1047) {
                 onGetUserCouponStore(iResponse);
-            } else if (i2 == 1060) {
+            } else if (i == 1060) {
                 onQueryProductListChannels(iResponse, RevenueServerConst.GetChargeCurrencyConfigByChannelsRequest);
-            } else if (i2 != 1061) {
+            } else if (i != 1061) {
                 onErrorRespone(iResponse);
             } else {
                 onGetChargeOrderStatus(iResponse, RevenueServerConst.GetChargeOrderStatusRequest);
@@ -676,9 +676,9 @@ public class PayRespManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, callback, t, payCallBackBean};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -31,12 +31,12 @@ public abstract class ZipUtils {
         return findZipEndOfCentralDirectoryRecord != null ? findZipEndOfCentralDirectoryRecord : findZipEndOfCentralDirectoryRecord(randomAccessFile, 65535);
     }
 
-    public static int getUnsignedInt16(ByteBuffer byteBuffer, int i2) {
-        return byteBuffer.getShort(i2) & UShort.MAX_VALUE;
+    public static int getUnsignedInt16(ByteBuffer byteBuffer, int i) {
+        return byteBuffer.getShort(i) & UShort.MAX_VALUE;
     }
 
-    public static long getUnsignedInt32(ByteBuffer byteBuffer, int i2) {
-        return byteBuffer.getInt(i2) & 4294967295L;
+    public static long getUnsignedInt32(ByteBuffer byteBuffer, int i) {
+        return byteBuffer.getInt(i) & 4294967295L;
     }
 
     public static long getZipEocdCentralDirectoryOffset(ByteBuffer byteBuffer) {
@@ -49,35 +49,35 @@ public abstract class ZipUtils {
         return getUnsignedInt32(byteBuffer, byteBuffer.position() + 12);
     }
 
-    public static final boolean isZip64EndOfCentralDirectoryLocatorPresent(RandomAccessFile randomAccessFile, long j2) throws IOException {
-        long j3 = j2 - 20;
-        if (j3 < 0) {
+    public static final boolean isZip64EndOfCentralDirectoryLocatorPresent(RandomAccessFile randomAccessFile, long j) throws IOException {
+        long j2 = j - 20;
+        if (j2 < 0) {
             return false;
         }
-        randomAccessFile.seek(j3);
+        randomAccessFile.seek(j2);
         return randomAccessFile.readInt() == 1347094023;
     }
 
-    public static void setUnsignedInt32(ByteBuffer byteBuffer, int i2, long j2) {
-        if (j2 >= 0 && j2 <= 4294967295L) {
-            byteBuffer.putInt(byteBuffer.position() + i2, (int) j2);
+    public static void setUnsignedInt32(ByteBuffer byteBuffer, int i, long j) {
+        if (j >= 0 && j <= 4294967295L) {
+            byteBuffer.putInt(byteBuffer.position() + i, (int) j);
             return;
         }
-        throw new IllegalArgumentException("uint32 value of out range: " + j2);
+        throw new IllegalArgumentException("uint32 value of out range: " + j);
     }
 
-    public static void setZipEocdCentralDirectoryOffset(ByteBuffer byteBuffer, long j2) {
+    public static void setZipEocdCentralDirectoryOffset(ByteBuffer byteBuffer, long j) {
         assertByteOrderLittleEndian(byteBuffer);
-        setUnsignedInt32(byteBuffer, byteBuffer.position() + 16, j2);
+        setUnsignedInt32(byteBuffer, byteBuffer.position() + 16, j);
     }
 
-    public static Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile, int i2) throws IOException {
-        if (i2 >= 0 && i2 <= 65535) {
+    public static Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile, int i) throws IOException {
+        if (i >= 0 && i <= 65535) {
             long length = randomAccessFile.length();
             if (length < 22) {
                 return null;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i2, length - 22)) + 22);
+            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             long capacity = length - allocate.capacity();
             randomAccessFile.seek(capacity);
@@ -91,7 +91,7 @@ public abstract class ZipUtils {
             slice.order(ByteOrder.LITTLE_ENDIAN);
             return Pair.create(slice, Long.valueOf(capacity + findZipEndOfCentralDirectoryRecord));
         }
-        throw new IllegalArgumentException("maxCommentSize: " + i2);
+        throw new IllegalArgumentException("maxCommentSize: " + i);
     }
 
     public static int findZipEndOfCentralDirectoryRecord(ByteBuffer byteBuffer) {
@@ -100,12 +100,12 @@ public abstract class ZipUtils {
         if (capacity < 22) {
             return -1;
         }
-        int i2 = capacity - 22;
-        int min = Math.min(i2, 65535);
-        for (int i3 = 0; i3 < min; i3++) {
-            int i4 = i2 - i3;
-            if (byteBuffer.getInt(i4) == 101010256 && getUnsignedInt16(byteBuffer, i4 + 20) == i3) {
-                return i4;
+        int i = capacity - 22;
+        int min = Math.min(i, 65535);
+        for (int i2 = 0; i2 < min; i2++) {
+            int i3 = i - i2;
+            if (byteBuffer.getInt(i3) == 101010256 && getUnsignedInt16(byteBuffer, i3 + 20) == i2) {
+                return i3;
             }
         }
         return -1;

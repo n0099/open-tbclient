@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,13 +27,13 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f44343b;
+    public Context f34377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f44344c;
+    public List<String> f34378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f44345d;
+    public b f34379d;
 
     /* loaded from: classes5.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -51,16 +50,16 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchMajorResultItemAdapter, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = (TextView) view.findViewById(R.id.tv_major_name);
+            this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921cf);
         }
     }
 
@@ -68,12 +67,10 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44346e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SearchMajorResultItemAdapter f44347f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ SearchMajorResultItemAdapter f34380b;
 
         public a(SearchMajorResultItemAdapter searchMajorResultItemAdapter, String str) {
             Interceptable interceptable = $ic;
@@ -82,25 +79,25 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchMajorResultItemAdapter, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44347f = searchMajorResultItemAdapter;
-            this.f44346e = str;
+            this.f34380b = searchMajorResultItemAdapter;
+            this.a = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44347f.f44345d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f34380b.f34379d == null) {
                 return;
             }
-            this.f44347f.f44345d.a(this.f44346e);
+            this.f34380b.f34379d.a(this.a);
         }
     }
 
@@ -116,18 +113,18 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44343b = context;
+        this.f34377b = context;
     }
 
-    public final void b(TextView textView, String str) {
+    public final void e(TextView textView, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a)) {
             return;
@@ -145,12 +142,42 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         textView.setText(spannableStringBuilder);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: f */
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder, i) == null) || (list = this.f34378c) == null) {
+            return;
+        }
+        String str = list.get(i);
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        viewHolder.a.setText(str);
+        SkinManager.setViewTextColor(viewHolder.a, (int) R.color.CAM_X0105);
+        SkinManager.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
+        e(viewHolder.a, str);
+        viewHolder.itemView.setOnClickListener(new a(this, str));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @NonNull
+    /* renamed from: g */
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f34377b).inflate(R.layout.obfuscated_res_0x7f0d0752, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<String> list = this.f44344c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> list = this.f34378c;
             if (list == null) {
                 return 0;
             }
@@ -159,63 +186,35 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         return invokeV.intValue;
     }
 
-    public void setData(List<String> list) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f44344c = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void setKeyWord(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             this.a = str;
         }
     }
 
-    public void setNoData() {
+    public void i() {
         List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (list = this.f44344c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (list = this.f34378c) == null) {
             return;
         }
         list.clear();
         notifyDataSetChanged();
     }
 
-    public void setOnItemClickListener(b bVar) {
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f44345d = bVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.f34379d = bVar;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
-        List<String> list;
+    public void setData(List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i2) == null) || (list = this.f44344c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.f34378c = list;
+            notifyDataSetChanged();
         }
-        String str = list.get(i2);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        viewHolder.a.setText(str);
-        SkinManager.setViewTextColor(viewHolder.a, (int) R.color.CAM_X0105);
-        SkinManager.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-        b(viewHolder.a, str);
-        viewHolder.itemView.setOnClickListener(new a(this, str));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new ViewHolder(this, LayoutInflater.from(this.f44343b).inflate(R.layout.search_major_item_layout, viewGroup, false)) : (ViewHolder) invokeLI.objValue;
     }
 }

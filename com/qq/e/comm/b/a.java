@@ -29,32 +29,32 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f57610b;
+    public static final a f42395b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Boolean a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C2170a implements NetworkCallBack {
+    /* loaded from: classes7.dex */
+    public class C2031a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C2170a(a aVar, PM pm) {
+        public C2031a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, pm};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,8 +86,8 @@ public class a {
                             return;
                         }
                         JSONObject jSONObject = new JSONObject(stringContent);
-                        int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
-                        if (i2 == 0) {
+                        int i = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
+                        if (i == 0) {
                             if (this.a != null) {
                                 try {
                                     this.a.getPOFactory().config(1, stringContent);
@@ -108,7 +108,7 @@ public class a {
                         }
                         sb = new StringBuilder();
                         sb.append("Response Error,retCode=");
-                        sb.append(i2);
+                        sb.append(i);
                     } else {
                         sb = new StringBuilder();
                         sb.append("SDK server response code error while launch or activate,code:");
@@ -139,7 +139,7 @@ public class a {
                 return;
             }
         }
-        f57610b = new a();
+        f42395b = new a();
     }
 
     public a() {
@@ -147,9 +147,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -161,7 +161,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f57610b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42395b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -169,10 +169,10 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a(SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, Context context, long j2) {
+    private void a(SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, Context context, long j) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{sm, pm, deviceStatus, aPPStatus, context, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{sm, pm, deviceStatus, aPPStatus, context, Long.valueOf(j)}) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject = new JSONObject();
@@ -197,9 +197,9 @@ public class a {
                     jSONObject.put("sdk", com.qq.e.comm.net.a.a(pm));
                     JSONObject jSONObject4 = new JSONObject();
                     JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("sdk_init_time", (System.nanoTime() - j2) / 1000000);
+                    jSONObject5.put("sdk_init_time", (System.nanoTime() - j) / 1000000);
                     jSONObject4.put("performance", jSONObject5);
-                    jSONObject.put("biz", jSONObject4);
+                    jSONObject.put(Constants.KEYS.BIZ, jSONObject4);
                 } catch (JSONException unused) {
                     jSONObject2 = jSONObject;
                     GDTLogger.d("JSONException while build init req");
@@ -209,7 +209,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2170a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2031a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -217,20 +217,20 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2170a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2031a(this, pm));
         }
     }
 
-    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j2) {
+    public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j2)}) == null) || this.a.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.a.booleanValue()) {
             return;
         }
         synchronized (a.class) {
             if (this.a.booleanValue()) {
                 return;
             }
-            a(sm, pm, deviceStatus, aPPStatus, context, j2);
+            a(sm, pm, deviceStatus, aPPStatus, context, j);
             this.a = Boolean.TRUE;
         }
     }

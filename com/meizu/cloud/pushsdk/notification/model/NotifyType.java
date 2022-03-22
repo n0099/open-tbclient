@@ -3,10 +3,9 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NotifyType implements Parcelable {
     public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +18,8 @@ public class NotifyType implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public NotifyType[] newArray(int i2) {
-            return new NotifyType[i2];
+        public NotifyType[] newArray(int i) {
+            return new NotifyType[i];
         }
     };
     public static final String LIGHTS = "l";
@@ -47,7 +46,7 @@ public class NotifyType implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.k.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
+                c.h.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -79,7 +78,7 @@ public class NotifyType implements Parcelable {
             return notifyType;
         }
         str = "no such tag notify_type";
-        c.k.a.a.a.b("notify_type", str);
+        c.h.a.a.a.b("notify_type", str);
         return notifyType;
     }
 
@@ -113,11 +112,11 @@ public class NotifyType implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyType{vibrate=" + this.vibrate + ", lights=" + this.lights + ", sound=" + this.sound + ExtendedMessageFormat.END_FE;
+        return "NotifyType{vibrate=" + this.vibrate + ", lights=" + this.lights + ", sound=" + this.sound + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeByte(this.vibrate ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.lights ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.sound ? (byte) 1 : (byte) 0);

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static Method sGetFileDescriptorMethod;
@@ -39,9 +39,9 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,21 +50,21 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         this.mWebpBitmapFactory = WebpSupportStatus.loadWebpBitmapFactoryIfExists();
     }
 
-    public static MemoryFile copyToMemoryFile(CloseableReference<PooledByteBuffer> closeableReference, int i2, @Nullable byte[] bArr) throws IOException {
+    public static MemoryFile copyToMemoryFile(CloseableReference<PooledByteBuffer> closeableReference, int i, @Nullable byte[] bArr) throws IOException {
         InterceptResult invokeLIL;
         OutputStream outputStream;
         LimitedInputStream limitedInputStream;
         PooledByteBufferInputStream pooledByteBufferInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, closeableReference, i2, bArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, closeableReference, i, bArr)) == null) {
             PooledByteBufferInputStream pooledByteBufferInputStream2 = null;
             OutputStream outputStream2 = null;
-            MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i2);
+            MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i);
             memoryFile.allowPurging(false);
             try {
                 pooledByteBufferInputStream = new PooledByteBufferInputStream(closeableReference.get());
                 try {
-                    limitedInputStream = new LimitedInputStream(pooledByteBufferInputStream, i2);
+                    limitedInputStream = new LimitedInputStream(pooledByteBufferInputStream, i);
                 } catch (Throwable th) {
                     th = th;
                     outputStream = null;
@@ -79,7 +79,7 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
                 outputStream2 = memoryFile.getOutputStream();
                 ByteStreams.copy(limitedInputStream, outputStream2);
                 if (bArr != null) {
-                    memoryFile.writeBytes(bArr, 0, i2, bArr.length);
+                    memoryFile.writeBytes(bArr, 0, i, bArr.length);
                 }
                 CloseableReference.closeSafely(closeableReference);
                 Closeables.closeQuietly(pooledByteBufferInputStream);
@@ -100,15 +100,15 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         return (MemoryFile) invokeLIL.objValue;
     }
 
-    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, byte[] bArr, BitmapFactory.Options options) {
+    private Bitmap decodeFileDescriptorAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, byte[] bArr, BitmapFactory.Options options) {
         InterceptResult invokeLILL;
         MemoryFile copyToMemoryFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, this, closeableReference, i2, bArr, options)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, this, closeableReference, i, bArr, options)) == null) {
             MemoryFile memoryFile = null;
             try {
                 try {
-                    copyToMemoryFile = copyToMemoryFile(closeableReference, i2, bArr);
+                    copyToMemoryFile = copyToMemoryFile(closeableReference, i, bArr);
                 } catch (Throwable th) {
                     th = th;
                 }
@@ -181,11 +181,11 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options) {
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableReference, i2, options)) == null) {
-            return decodeFileDescriptorAsPurgeable(closeableReference, i2, DalvikPurgeableDecoder.endsWithEOI(closeableReference, i2) ? null : DalvikPurgeableDecoder.EOI, options);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableReference, i, options)) == null) {
+            return decodeFileDescriptorAsPurgeable(closeableReference, i, DalvikPurgeableDecoder.endsWithEOI(closeableReference, i) ? null : DalvikPurgeableDecoder.EOI, options);
         }
         return (Bitmap) invokeLIL.objValue;
     }

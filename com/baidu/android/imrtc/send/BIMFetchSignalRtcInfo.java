@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
@@ -24,9 +23,9 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,27 +46,27 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLimit : invokeV.intValue;
     }
 
-    public void setFetchTime(long j2) {
+    public void setFetchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.mFetchTime = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.mFetchTime = j;
         }
     }
 
-    public void setLimit(int i2) {
+    public void setLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mLimit = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mLimit = i;
         }
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, str, str2)) == null) {
-            BIMFetchSignalRtcInfo bIMFetchSignalRtcInfo = new BIMFetchSignalRtcInfo(super.toRtcInfo(i2, str, str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, str, str2)) == null) {
+            BIMFetchSignalRtcInfo bIMFetchSignalRtcInfo = new BIMFetchSignalRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 bIMFetchSignalRtcInfo.setLimit(jSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT));
@@ -104,7 +103,7 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "BIMFetchSignalRtcInfo{" + super.toString() + "mLimit=" + this.mLimit + ", mFetchTime=" + this.mFetchTime + ExtendedMessageFormat.END_FE;
+            return "BIMFetchSignalRtcInfo{" + super.toString() + "mLimit=" + this.mLimit + ", mFetchTime=" + this.mFetchTime + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -116,9 +115,9 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {bIMRtcInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -10,8 +10,8 @@ public class du implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         eVar.a = jSONObject.optBoolean("needPromopt");
-        eVar.f54899b = jSONObject.optBoolean("needReport");
-        eVar.f54900c = jSONObject.optInt("showTime");
+        eVar.f39989b = jSONObject.optBoolean("needReport");
+        eVar.f39990c = jSONObject.optInt("showTime");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class du implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "needPromopt", eVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "needReport", eVar.f54899b);
-        com.kwad.sdk.utils.t.a(jSONObject, "showTime", eVar.f54900c);
+        com.kwad.sdk.utils.t.a(jSONObject, "needReport", eVar.f39989b);
+        com.kwad.sdk.utils.t.a(jSONObject, "showTime", eVar.f39990c);
         return jSONObject;
     }
 }

@@ -4,16 +4,16 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54037b;
+    public String f39186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54038c;
+    public String f39187c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54039d;
+    public String f39188d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54040e;
+    public String f39189e;
 
     public e a(String str) {
         this.a = str;
@@ -21,34 +21,34 @@ public class e {
     }
 
     public String a() {
-        return this.f54037b;
+        return this.f39186b;
     }
 
     public e b(String str) {
-        this.f54037b = str;
+        this.f39186b = str;
         return this;
     }
 
     public String b() {
-        return this.f54038c;
+        return this.f39187c;
     }
 
     public e c(String str) {
-        this.f54038c = str;
+        this.f39187c = str;
         return this;
     }
 
     public String c() {
-        return this.f54039d;
+        return this.f39188d;
     }
 
     public e d(String str) {
-        this.f54039d = str;
+        this.f39188d = str;
         return this;
     }
 
     public e e(String str) {
-        this.f54040e = str;
+        this.f39189e = str;
         return this;
     }
 }

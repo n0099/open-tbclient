@@ -22,7 +22,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderSt
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayResultPoller {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class PayResultPoller {
     public IAppPayService payService;
     public IPayServiceCallback payServiceCallback;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface PollerListener {
-        void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str);
+        void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i, String str);
 
         void onSuccess(ChargeCurrencyReqParams chargeCurrencyReqParams, GetChargeOrderStatusResult getChargeOrderStatusResult);
     }
@@ -45,9 +45,9 @@ public class PayResultPoller {
             newInitContext.initArgs = r2;
             Object[] objArr = {iAppPayService, iPayServiceCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,12 +60,12 @@ public class PayResultPoller {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public GetChargeOrderStatusReqParams createOrderStatusReqParams(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str) {
+    public GetChargeOrderStatusReqParams createOrderStatusReqParams(ChargeCurrencyReqParams chargeCurrencyReqParams, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, chargeCurrencyReqParams, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, chargeCurrencyReqParams, i, str)) == null) {
             GetChargeOrderStatusReqParams getChargeOrderStatusReqParams = new GetChargeOrderStatusReqParams();
-            getChargeOrderStatusReqParams.setAppId(i2);
+            getChargeOrderStatusReqParams.setAppId(i);
             getChargeOrderStatusReqParams.setOrderId(str);
             getChargeOrderStatusReqParams.setUid(chargeCurrencyReqParams.getUid());
             getChargeOrderStatusReqParams.setToken(chargeCurrencyReqParams.getToken());
@@ -98,9 +98,9 @@ public class PayResultPoller {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, pollingModeInfo, chargeCurrencyReqParams, getChargeOrderStatusReqParams, pollerListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -114,14 +114,14 @@ public class PayResultPoller {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+                public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
-                        RLog.error("PayResultPoller", "doGetPayResult onFail code:" + i2, new Object[0]);
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
+                        RLog.error("PayResultPoller", "doGetPayResult onFail code:" + i, new Object[0]);
                         this.this$0.tryGetPayResult(this.val$chargeCurrencyReqParams, this.val$chargeOrderStatusReqParams.getAppId(), this.val$chargeOrderStatusReqParams.getOrderId(), this.val$pollingModeInfo, this.val$callback);
                         PollerListener pollerListener2 = this.val$callback;
                         if (pollerListener2 != null) {
-                            pollerListener2.onFail(this.val$chargeCurrencyReqParams, i2, str);
+                            pollerListener2.onFail(this.val$chargeCurrencyReqParams, i, str);
                         }
                     }
                 }
@@ -193,9 +193,9 @@ public class PayResultPoller {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, currencyChargeMessage};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -217,17 +217,17 @@ public class PayResultPoller {
         }
     }
 
-    public void tryGetPayResult(ChargeCurrencyReqParams chargeCurrencyReqParams, int i2, String str, PollingModeInfo pollingModeInfo, PollerListener pollerListener) {
+    public void tryGetPayResult(ChargeCurrencyReqParams chargeCurrencyReqParams, int i, String str, PollingModeInfo pollingModeInfo, PollerListener pollerListener) {
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{chargeCurrencyReqParams, Integer.valueOf(i2), str, pollingModeInfo, pollerListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{chargeCurrencyReqParams, Integer.valueOf(i), str, pollingModeInfo, pollerListener}) == null) {
             if (chargeCurrencyReqParams.getProtocolType() == ProtocolType.UNKNOW || chargeCurrencyReqParams.getProtocolType() != ProtocolType.HTTP) {
                 RLog.error("PayResultPoller", "tryGetPayResult failed ProtocolType error", new Object[0]);
-            } else if (pollingModeInfo != null && (i3 = pollingModeInfo.pollInterval) >= 0 && (i4 = pollingModeInfo.totalPollTimes) > 0) {
-                int i5 = pollingModeInfo.hasPolledTimes;
-                if (i5 >= i4) {
-                    GetChargeOrderStatusReqParams createOrderStatusReqParams = createOrderStatusReqParams(chargeCurrencyReqParams, i2, str);
+            } else if (pollingModeInfo != null && (i2 = pollingModeInfo.pollInterval) >= 0 && (i3 = pollingModeInfo.totalPollTimes) > 0) {
+                int i4 = pollingModeInfo.hasPolledTimes;
+                if (i4 >= i3) {
+                    GetChargeOrderStatusReqParams createOrderStatusReqParams = createOrderStatusReqParams(chargeCurrencyReqParams, i, str);
                     GetChargeOrderStatusResult getChargeOrderStatusResult = new GetChargeOrderStatusResult();
                     getChargeOrderStatusResult.status = 0;
                     getChargeOrderStatusResult.message = PayFailMsg.FAILED_GET_RESULT_TIME_OUT;
@@ -235,11 +235,11 @@ public class PayResultPoller {
                     RLog.info("PayResultPoller", "tryGetPayResult all times pollingModeInfo:" + pollingModeInfo);
                     return;
                 }
-                if (i5 == 0) {
-                    i3 = 2;
+                if (i4 == 0) {
+                    i2 = 2;
                 }
-                RLog.info("PayResultPoller", "tryGetPayResult post delay:" + i3 + " pollingModeInfo:" + pollingModeInfo);
-                this.mMainHandler.postDelayed(new Runnable(this, chargeCurrencyReqParams, i2, str, pollingModeInfo, pollerListener) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayResultPoller.1
+                RLog.info("PayResultPoller", "tryGetPayResult post delay:" + i2 + " pollingModeInfo:" + pollingModeInfo);
+                this.mMainHandler.postDelayed(new Runnable(this, chargeCurrencyReqParams, i, str, pollingModeInfo, pollerListener) { // from class: com.yy.mobile.framework.revenuesdk.payservice.impl.PayResultPoller.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PayResultPoller this$0;
@@ -254,11 +254,11 @@ public class PayResultPoller {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, chargeCurrencyReqParams, Integer.valueOf(i2), str, pollingModeInfo, pollerListener};
+                            Object[] objArr = {this, chargeCurrencyReqParams, Integer.valueOf(i), str, pollingModeInfo, pollerListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i6 = newInitContext.flag;
-                            if ((i6 & 1) != 0) {
-                                int i7 = i6 & 2;
+                            int i5 = newInitContext.flag;
+                            if ((i5 & 1) != 0) {
+                                int i6 = i5 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -266,7 +266,7 @@ public class PayResultPoller {
                         }
                         this.this$0 = this;
                         this.val$chargeCurrencyReqParams = chargeCurrencyReqParams;
-                        this.val$appId = i2;
+                        this.val$appId = i;
                         this.val$orderId = str;
                         this.val$pollingModeInfo = pollingModeInfo;
                         this.val$callback = pollerListener;
@@ -282,10 +282,10 @@ public class PayResultPoller {
                             this.this$0.doGetPayResult(this.val$chargeCurrencyReqParams, createOrderStatusReqParams2, pollingModeInfo2, this.val$callback);
                         }
                     }
-                }, ((long) i3) * 1000);
+                }, ((long) i2) * 1000);
             } else {
                 RLog.error("PayResultPoller", "tryGetPayResult  params error pollingModeInfo:" + pollingModeInfo, new Object[0]);
-                GetChargeOrderStatusReqParams createOrderStatusReqParams2 = createOrderStatusReqParams(chargeCurrencyReqParams, i2, str);
+                GetChargeOrderStatusReqParams createOrderStatusReqParams2 = createOrderStatusReqParams(chargeCurrencyReqParams, i, str);
                 GetChargeOrderStatusResult getChargeOrderStatusResult2 = new GetChargeOrderStatusResult();
                 getChargeOrderStatusResult2.status = -1;
                 getChargeOrderStatusResult2.message = "支付订单查询失败 error " + pollingModeInfo;

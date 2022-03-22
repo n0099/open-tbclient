@@ -11,7 +11,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;", "Lkotlin/collections/IndexedValue;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$withIndex$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1}, l = {1658, 1659}, m = "invokeSuspend", n = {"$this$produce", "index", "$this$produce", "index", "e"}, s = {"L$0", "I$0", "L$0", "I$0", "L$1"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt__Channels_commonKt$withIndex$1 extends SuspendLambda implements Function2<ProducerScope<? super IndexedValue<? extends E>>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $this_withIndex;
     public int I$0;
@@ -49,33 +49,33 @@ public final class ChannelsKt__Channels_commonKt$withIndex$1 extends SuspendLamb
     */
     public final Object invokeSuspend(Object obj) {
         ProducerScope producerScope;
-        int i2;
+        int i;
         ChannelIterator it;
         ChannelsKt__Channels_commonKt$withIndex$1 channelsKt__Channels_commonKt$withIndex$1;
         ChannelsKt__Channels_commonKt$withIndex$1 channelsKt__Channels_commonKt$withIndex$12;
         ProducerScope producerScope2;
-        int i3;
+        int i2;
         ChannelIterator channelIterator;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i4 = this.label;
-        if (i4 == 0) {
+        int i3 = this.label;
+        if (i3 == 0) {
             ResultKt.throwOnFailure(obj);
             producerScope = this.p$;
-            i2 = 0;
+            i = 0;
             it = this.$this_withIndex.iterator();
             channelsKt__Channels_commonKt$withIndex$1 = this;
-        } else if (i4 == 1) {
+        } else if (i3 == 1) {
             channelIterator = (ChannelIterator) this.L$1;
-            i3 = this.I$0;
+            i2 = this.I$0;
             producerScope2 = (ProducerScope) this.L$0;
             ResultKt.throwOnFailure(obj);
             channelsKt__Channels_commonKt$withIndex$12 = this;
             if (!((Boolean) obj).booleanValue()) {
                 Object next = channelIterator.next();
-                int i5 = i3 + 1;
-                IndexedValue indexedValue = new IndexedValue(i3, next);
+                int i4 = i2 + 1;
+                IndexedValue indexedValue = new IndexedValue(i2, next);
                 channelsKt__Channels_commonKt$withIndex$12.L$0 = producerScope2;
-                channelsKt__Channels_commonKt$withIndex$12.I$0 = i5;
+                channelsKt__Channels_commonKt$withIndex$12.I$0 = i4;
                 channelsKt__Channels_commonKt$withIndex$12.L$1 = next;
                 channelsKt__Channels_commonKt$withIndex$12.L$2 = channelIterator;
                 channelsKt__Channels_commonKt$withIndex$12.label = 2;
@@ -85,22 +85,22 @@ public final class ChannelsKt__Channels_commonKt$withIndex$1 extends SuspendLamb
                 it = channelIterator;
                 producerScope = producerScope2;
                 channelsKt__Channels_commonKt$withIndex$1 = channelsKt__Channels_commonKt$withIndex$12;
-                i2 = i5;
+                i = i4;
             } else {
                 return Unit.INSTANCE;
             }
-        } else if (i4 != 2) {
+        } else if (i3 != 2) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
-            int i6 = this.I$0;
+            int i5 = this.I$0;
             ResultKt.throwOnFailure(obj);
             producerScope = (ProducerScope) this.L$0;
             channelsKt__Channels_commonKt$withIndex$1 = this;
             it = (ChannelIterator) this.L$2;
-            i2 = i6;
+            i = i5;
         }
         channelsKt__Channels_commonKt$withIndex$1.L$0 = producerScope;
-        channelsKt__Channels_commonKt$withIndex$1.I$0 = i2;
+        channelsKt__Channels_commonKt$withIndex$1.I$0 = i;
         channelsKt__Channels_commonKt$withIndex$1.L$1 = it;
         channelsKt__Channels_commonKt$withIndex$1.label = 1;
         Object hasNext = it.hasNext(channelsKt__Channels_commonKt$withIndex$1);
@@ -112,7 +112,7 @@ public final class ChannelsKt__Channels_commonKt$withIndex$1 extends SuspendLamb
         obj = hasNext;
         channelsKt__Channels_commonKt$withIndex$12 = channelsKt__Channels_commonKt$withIndex$13;
         ChannelIterator channelIterator2 = it;
-        i3 = i2;
+        i2 = i;
         channelIterator = channelIterator2;
         if (!((Boolean) obj).booleanValue()) {
         }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Locale;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class FieldNamingPolicy implements FieldNamingStrategy {
     public static final /* synthetic */ FieldNamingPolicy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -49,9 +49,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -81,9 +81,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -113,9 +113,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -145,9 +145,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -177,9 +177,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -209,9 +209,9 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -232,16 +232,16 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
         $VALUES = new FieldNamingPolicy[]{IDENTITY, UPPER_CAMEL_CASE, UPPER_CAMEL_CASE_WITH_SPACES, LOWER_CASE_WITH_UNDERSCORES, LOWER_CASE_WITH_DASHES, fieldNamingPolicy};
     }
 
-    public FieldNamingPolicy(String str, int i2) {
+    public FieldNamingPolicy(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -251,12 +251,12 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
         }
     }
 
-    public static String modifyString(char c2, String str, int i2) {
+    public static String modifyString(char c2, String str, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2), str, Integer.valueOf(i2)})) == null) {
-            if (i2 < str.length()) {
-                return c2 + str.substring(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2), str, Integer.valueOf(i)})) == null) {
+            if (i < str.length()) {
+                return c2 + str.substring(i);
             }
             return String.valueOf(c2);
         }
@@ -269,8 +269,8 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             StringBuilder sb = new StringBuilder();
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (Character.isUpperCase(charAt) && sb.length() != 0) {
                     sb.append(str2);
                 }
@@ -286,18 +286,18 @@ public abstract class FieldNamingPolicy implements FieldNamingStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             StringBuilder sb = new StringBuilder();
-            int i2 = 0;
+            int i = 0;
             char charAt = str.charAt(0);
             int length = str.length();
-            while (i2 < length - 1 && !Character.isLetter(charAt)) {
+            while (i < length - 1 && !Character.isLetter(charAt)) {
                 sb.append(charAt);
-                i2++;
-                charAt = str.charAt(i2);
+                i++;
+                charAt = str.charAt(i);
             }
             if (Character.isUpperCase(charAt)) {
                 return str;
             }
-            sb.append(modifyString(Character.toUpperCase(charAt), str, i2 + 1));
+            sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
             return sb.toString();
         }
         return (String) invokeL.objValue;

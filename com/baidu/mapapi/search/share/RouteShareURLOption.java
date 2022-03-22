@@ -29,7 +29,7 @@ public class RouteShareURLOption {
         public static final RouteShareMode FOOT_ROUTE_SHARE_MODE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RouteShareMode[] f34291b;
+        public static final /* synthetic */ RouteShareMode[] f26513b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -51,19 +51,19 @@ public class RouteShareURLOption {
             CYCLE_ROUTE_SHARE_MODE = new RouteShareMode("CYCLE_ROUTE_SHARE_MODE", 2, 2);
             RouteShareMode routeShareMode = new RouteShareMode("BUS_ROUTE_SHARE_MODE", 3, 3);
             BUS_ROUTE_SHARE_MODE = routeShareMode;
-            f34291b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
+            f26513b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
         }
 
-        public RouteShareMode(String str, int i2, int i3) {
+        public RouteShareMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -73,7 +73,7 @@ public class RouteShareURLOption {
                 }
             }
             this.a = -1;
-            this.a = i3;
+            this.a = i2;
         }
 
         public static RouteShareMode valueOf(String str) {
@@ -85,7 +85,7 @@ public class RouteShareURLOption {
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f34291b.clone() : (RouteShareMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f26513b.clone() : (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {
@@ -100,9 +100,9 @@ public class RouteShareURLOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -114,11 +114,11 @@ public class RouteShareURLOption {
         this.mCityCode = -1;
     }
 
-    public RouteShareURLOption cityCode(int i2) {
+    public RouteShareURLOption cityCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.mCityCode = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            this.mCityCode = i;
             return this;
         }
         return (RouteShareURLOption) invokeI.objValue;
@@ -140,11 +140,11 @@ public class RouteShareURLOption {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMode : (RouteShareMode) invokeV.objValue;
     }
 
-    public RouteShareURLOption pn(int i2) {
+    public RouteShareURLOption pn(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.mPn = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.mPn = i;
             return this;
         }
         return (RouteShareURLOption) invokeI.objValue;

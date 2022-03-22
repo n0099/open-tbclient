@@ -28,21 +28,21 @@ public final class j {
         a = Charset.forName("UTF-8");
     }
 
-    public static void a(long j2, long j3, long j4) {
+    public static void a(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
-                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
+                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)));
             }
         }
     }
 
-    public static boolean a(byte[] bArr, int i2, byte[] bArr2, int i3, int i4) {
+    public static boolean a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            for (int i5 = 0; i5 < i4; i5++) {
-                if (bArr[i5 + i2] != bArr2[i5 + i3]) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                if (bArr[i4 + i] != bArr2[i4 + i2]) {
                     return false;
                 }
             }

@@ -27,7 +27,7 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Bdtls$ServerHello extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CIPHERSUITE_FIELD_NUMBER = 2;
@@ -48,7 +48,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
     public Bdtls$Random random_;
     public ByteString sKR_;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<Bdtls$ServerHello> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,47 +77,45 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ServerHello, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Bdtls$Random f29406b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ByteString f29407c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f29408d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f38225e;
+        public ByteString f29409e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Bdtls$Random f38226f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public ByteString f38227g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f38228h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public ByteString f38229i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public List<Bdtls$Extension> f38230j;
+        public List<Bdtls$Extension> f29410f;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38226f = Bdtls$Random.getDefaultInstance();
+            this.f29406b = Bdtls$Random.getDefaultInstance();
             ByteString byteString = ByteString.EMPTY;
-            this.f38227g = byteString;
-            this.f38229i = byteString;
-            this.f38230j = Collections.emptyList();
+            this.f29407c = byteString;
+            this.f29409e = byteString;
+            this.f29410f = Collections.emptyList();
             maybeForceBuilderInitialization();
         }
 
@@ -170,14 +168,14 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdtls$Random)) == null) {
-                if ((this.f38225e & 1) == 1 && this.f38226f != Bdtls$Random.getDefaultInstance()) {
-                    Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder(this.f38226f);
+                if ((this.a & 1) == 1 && this.f29406b != Bdtls$Random.getDefaultInstance()) {
+                    Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder(this.f29406b);
                     newBuilder.u(bdtls$Random);
-                    this.f38226f = newBuilder.buildPartial();
+                    this.f29406b = newBuilder.buildPartial();
                 } else {
-                    this.f38226f = bdtls$Random;
+                    this.f29406b = bdtls$Random;
                 }
-                this.f38225e |= 1;
+                this.a |= 1;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -188,8 +186,8 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f38225e |= 2;
-                    this.f38227g = byteString;
+                    this.a |= 2;
+                    this.f29407c = byteString;
                     return this;
                 }
                 throw null;
@@ -197,12 +195,12 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             return (b) invokeL.objValue;
         }
 
-        public b D(int i2) {
+        public b D(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.f38225e |= 4;
-                this.f38228h = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.a |= 4;
+                this.f29408d = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -213,8 +211,8 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f38225e |= 8;
-                    this.f38229i = byteString;
+                    this.a |= 8;
+                    this.f29409e = byteString;
                     return this;
                 }
                 throw null;
@@ -230,11 +228,11 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
 
         public final void ensureExtensionsIsMutable() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (this.f38225e & 16) == 16) {
+            if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (this.a & 16) == 16) {
                 return;
             }
-            this.f38230j = new ArrayList(this.f38230j);
-            this.f38225e |= 16;
+            this.f29410f = new ArrayList(this.f29410f);
+            this.a |= 16;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -243,8 +241,8 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
                 if (x() && v() && w() && y() && u().isInitialized()) {
-                    for (int i2 = 0; i2 < t(); i2++) {
-                        if (!s(i2).isInitialized()) {
+                    for (int i = 0; i < t(); i++) {
+                        if (!s(i).isInitialized()) {
                             return false;
                         }
                     }
@@ -290,28 +288,28 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (c.a.p0.c.a.i.a) null);
-                int i2 = this.f38225e;
-                int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bdtls$ServerHello.random_ = this.f38226f;
-                if ((i2 & 2) == 2) {
-                    i3 |= 2;
+                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (c.a.n0.c.a.i.a) null);
+                int i = this.a;
+                int i2 = (i & 1) != 1 ? 0 : 1;
+                bdtls$ServerHello.random_ = this.f29406b;
+                if ((i & 2) == 2) {
+                    i2 |= 2;
                 }
-                bdtls$ServerHello.cipherSuite_ = this.f38227g;
-                if ((i2 & 4) == 4) {
-                    i3 |= 4;
+                bdtls$ServerHello.cipherSuite_ = this.f29407c;
+                if ((i & 4) == 4) {
+                    i2 |= 4;
                 }
-                bdtls$ServerHello.lifeTime_ = this.f38228h;
-                if ((i2 & 8) == 8) {
-                    i3 |= 8;
+                bdtls$ServerHello.lifeTime_ = this.f29408d;
+                if ((i & 8) == 8) {
+                    i2 |= 8;
                 }
-                bdtls$ServerHello.sKR_ = this.f38229i;
-                if ((this.f38225e & 16) == 16) {
-                    this.f38230j = Collections.unmodifiableList(this.f38230j);
-                    this.f38225e &= -17;
+                bdtls$ServerHello.sKR_ = this.f29409e;
+                if ((this.a & 16) == 16) {
+                    this.f29410f = Collections.unmodifiableList(this.f29410f);
+                    this.a &= -17;
                 }
-                bdtls$ServerHello.extensions_ = this.f38230j;
-                bdtls$ServerHello.bitField0_ = i3;
+                bdtls$ServerHello.extensions_ = this.f29410f;
+                bdtls$ServerHello.bitField0_ = i2;
                 return bdtls$ServerHello;
             }
             return (Bdtls$ServerHello) invokeV.objValue;
@@ -322,20 +320,20 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
                 super.clear();
-                this.f38226f = Bdtls$Random.getDefaultInstance();
-                int i2 = this.f38225e & (-2);
-                this.f38225e = i2;
+                this.f29406b = Bdtls$Random.getDefaultInstance();
+                int i = this.a & (-2);
+                this.a = i;
                 ByteString byteString = ByteString.EMPTY;
-                this.f38227g = byteString;
-                int i3 = i2 & (-3);
-                this.f38225e = i3;
-                this.f38228h = 0;
-                int i4 = i3 & (-5);
-                this.f38225e = i4;
-                this.f38229i = byteString;
-                this.f38225e = i4 & (-9);
-                this.f38230j = Collections.emptyList();
-                this.f38225e &= -17;
+                this.f29407c = byteString;
+                int i2 = i & (-3);
+                this.a = i2;
+                this.f29408d = 0;
+                int i3 = i2 & (-5);
+                this.a = i3;
+                this.f29409e = byteString;
+                this.a = i3 & (-9);
+                this.f29410f = Collections.emptyList();
+                this.a &= -17;
                 return this;
             }
             return (b) invokeV.objValue;
@@ -364,46 +362,46 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? Bdtls$ServerHello.getDefaultInstance() : (Bdtls$ServerHello) invokeV.objValue;
         }
 
-        public Bdtls$Extension s(int i2) {
+        public Bdtls$Extension s(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? this.f38230j.get(i2) : (Bdtls$Extension) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) ? this.f29410f.get(i) : (Bdtls$Extension) invokeI.objValue;
         }
 
         public int t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f38230j.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f29410f.size() : invokeV.intValue;
         }
 
         public Bdtls$Random u() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f38226f : (Bdtls$Random) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f29406b : (Bdtls$Random) invokeV.objValue;
         }
 
         public boolean v() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.f38225e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.a & 2) == 2 : invokeV.booleanValue;
         }
 
         public boolean w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? (this.f38225e & 4) == 4 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? (this.a & 4) == 4 : invokeV.booleanValue;
         }
 
         public boolean x() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? (this.f38225e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? (this.a & 1) == 1 : invokeV.booleanValue;
         }
 
         public boolean y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.f38225e & 8) == 8 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? (this.a & 8) == 8 : invokeV.booleanValue;
         }
 
         public b z(Bdtls$ServerHello bdtls$ServerHello) {
@@ -426,12 +424,12 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
                     E(bdtls$ServerHello.getSKR());
                 }
                 if (!bdtls$ServerHello.extensions_.isEmpty()) {
-                    if (this.f38230j.isEmpty()) {
-                        this.f38230j = bdtls$ServerHello.extensions_;
-                        this.f38225e &= -17;
+                    if (this.f29410f.isEmpty()) {
+                        this.f29410f = bdtls$ServerHello.extensions_;
+                        this.a &= -17;
                     } else {
                         ensureExtensionsIsMutable();
-                        this.f38230j.addAll(bdtls$ServerHello.extensions_);
+                        this.f29410f.addAll(bdtls$ServerHello.extensions_);
                     }
                 }
                 return this;
@@ -479,7 +477,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         bdtls$ServerHello.initFields();
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.p0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -525,10 +523,10 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.cipherSuite_ : (ByteString) invokeV.objValue;
     }
 
-    public Bdtls$Extension getExtensions(int i2) {
+    public Bdtls$Extension getExtensions(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.extensions_.get(i2) : (Bdtls$Extension) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.extensions_.get(i) : (Bdtls$Extension) invokeI.objValue;
     }
 
     public int getExtensionsCount() {
@@ -543,13 +541,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
     }
 
-    public c.a.p0.c.a.i.b getExtensionsOrBuilder(int i2) {
+    public c.a.n0.c.a.i.b getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? this.extensions_.get(i2) : (c.a.p0.c.a.i.b) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (c.a.n0.c.a.i.b) invokeI.objValue;
     }
 
-    public List<? extends c.a.p0.c.a.i.b> getExtensionsOrBuilderList() {
+    public List<? extends c.a.n0.c.a.i.b> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
@@ -585,9 +583,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.memoizedSerializedSize;
-            if (i2 != -1) {
-                return i2;
+            int i = this.memoizedSerializedSize;
+            if (i != -1) {
+                return i;
             }
             int computeMessageSize = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeMessageSize(1, this.random_) + 0 : 0;
             if ((this.bitField0_ & 2) == 2) {
@@ -599,8 +597,8 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             if ((this.bitField0_ & 8) == 8) {
                 computeMessageSize += CodedOutputStream.computeBytesSize(4, this.sKR_);
             }
-            for (int i3 = 0; i3 < this.extensions_.size(); i3++) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(5, this.extensions_.get(i3));
+            for (int i2 = 0; i2 < this.extensions_.size(); i2++) {
+                computeMessageSize += CodedOutputStream.computeMessageSize(5, this.extensions_.get(i2));
             }
             this.memoizedSerializedSize = computeMessageSize;
             return computeMessageSize;
@@ -656,8 +654,8 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
             } else {
-                for (int i2 = 0; i2 < getExtensionsCount(); i2++) {
-                    if (!getExtensions(i2).isInitialized()) {
+                for (int i = 0; i < getExtensionsCount(); i++) {
+                    if (!getExtensions(i).isInitialized()) {
                         this.memoizedIsInitialized = (byte) 0;
                         return false;
                     }
@@ -693,13 +691,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             if ((this.bitField0_ & 8) == 8) {
                 codedOutputStream.writeBytes(4, this.sKR_);
             }
-            for (int i2 = 0; i2 < this.extensions_.size(); i2++) {
-                codedOutputStream.writeMessage(5, this.extensions_.get(i2));
+            for (int i = 0; i < this.extensions_.size(); i++) {
+                codedOutputStream.writeMessage(5, this.extensions_.get(i));
             }
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, c.a.p0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, c.a.n0.c.a.i.a aVar) {
         this(builder);
     }
 
@@ -759,9 +757,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -797,9 +795,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -836,9 +834,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             newInitContext.initArgs = r2;
             Object[] objArr = {codedInputStream, extensionRegistryLite};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

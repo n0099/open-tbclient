@@ -46,11 +46,11 @@ public class d {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f56931c = ad;
-        bVar.f56933e = true;
+        bVar.f41795c = ad;
+        bVar.f41797e = true;
         bVar.a = str;
-        bVar.f56930b = ah;
-        bVar.f56935g = false;
+        bVar.f41794b = ah;
+        bVar.f41799g = false;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */

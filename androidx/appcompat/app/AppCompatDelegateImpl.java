@@ -27,6 +27,7 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.util.AndroidRuntimeException;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.ContextThemeWrapper;
@@ -107,6 +108,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.Thread;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
@@ -185,9 +187,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -228,24 +230,24 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarDescription(int i2) {
+        public void setActionBarDescription(int i) {
             ActionBar supportActionBar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
                 return;
             }
-            supportActionBar.setHomeActionContentDescription(i2);
+            supportActionBar.setHomeActionContentDescription(i);
         }
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
-        public void setActionBarUpIndicator(Drawable drawable, int i2) {
+        public void setActionBarUpIndicator(Drawable drawable, int i) {
             ActionBar supportActionBar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048580, this, drawable, i2) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048580, this, drawable, i) == null) || (supportActionBar = this.this$0.getSupportActionBar()) == null) {
                 return;
             }
             supportActionBar.setHomeAsUpIndicator(drawable);
-            supportActionBar.setHomeActionContentDescription(i2);
+            supportActionBar.setHomeActionContentDescription(i);
         }
     }
 
@@ -262,9 +264,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -311,9 +313,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -363,9 +365,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -434,9 +436,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AppCompatDelegateImpl) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -494,9 +496,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -552,9 +554,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -593,9 +595,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl, twilightManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AppCompatDelegateImpl) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -647,9 +649,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -659,10 +661,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public static void generateConfigDelta_densityDpi(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
-                int i2 = configuration.densityDpi;
-                int i3 = configuration2.densityDpi;
-                if (i2 != i3) {
-                    configuration3.densityDpi = i3;
+                int i = configuration.densityDpi;
+                int i2 = configuration2.densityDpi;
+                if (i != i2) {
+                    configuration3.densityDpi = i2;
                 }
             }
         }
@@ -679,9 +681,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -713,9 +715,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -725,15 +727,15 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         public static void generateConfigDelta_colorMode(@NonNull Configuration configuration, @NonNull Configuration configuration2, @NonNull Configuration configuration3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, configuration, configuration2, configuration3) == null) {
-                int i2 = configuration.colorMode & 3;
-                int i3 = configuration2.colorMode;
-                if (i2 != (i3 & 3)) {
-                    configuration3.colorMode |= i3 & 3;
+                int i = configuration.colorMode & 3;
+                int i2 = configuration2.colorMode;
+                if (i != (i2 & 3)) {
+                    configuration3.colorMode |= i2 & 3;
                 }
-                int i4 = configuration.colorMode & 12;
-                int i5 = configuration2.colorMode;
-                if (i4 != (i5 & 12)) {
-                    configuration3.colorMode |= i5 & 12;
+                int i3 = configuration.colorMode & 12;
+                int i4 = configuration2.colorMode;
+                if (i3 != (i4 & 12)) {
+                    configuration3.colorMode |= i4 & 12;
                 }
             }
         }
@@ -750,9 +752,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -782,9 +784,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -794,10 +796,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             this.this$0 = appCompatDelegateImpl;
         }
 
-        private boolean isOutOfBounds(int i2, int i3) {
+        private boolean isOutOfBounds(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i2, i3)) == null) ? i2 < -5 || i3 < -5 || i2 > getWidth() + 5 || i3 > getHeight() + 5 : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) ? i < -5 || i2 < -5 || i > getWidth() + 5 || i2 > getHeight() + 5 : invokeII.booleanValue;
         }
 
         @Override // android.view.ViewGroup, android.view.View
@@ -822,10 +824,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // android.view.View
-        public void setBackgroundResource(int i2) {
+        public void setBackgroundResource(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i2));
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
             }
         }
     }
@@ -888,9 +890,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -899,10 +901,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // android.os.Parcelable.Creator
-                    public SavedState[] newArray(int i2) {
+                    public SavedState[] newArray(int i) {
                         InterceptResult invokeI;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                        return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -929,9 +931,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                     }
@@ -965,9 +967,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
 
             @Override // android.os.Parcelable
-            public void writeToParcel(Parcel parcel, int i2) {
+            public void writeToParcel(Parcel parcel, int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                     parcel.writeInt(this.featureId);
                     parcel.writeInt(this.isOpen ? 1 : 0);
                     if (this.isOpen) {
@@ -977,22 +979,22 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
         }
 
-        public PanelFeatureState(int i2) {
+        public PanelFeatureState(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.featureId = i2;
+            this.featureId = i;
             this.refreshDecorView = false;
         }
 
@@ -1101,16 +1103,16 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 Resources.Theme newTheme = context.getResources().newTheme();
                 newTheme.setTo(context.getTheme());
                 newTheme.resolveAttribute(R$attr.actionBarPopupTheme, typedValue, true);
+                int i = typedValue.resourceId;
+                if (i != 0) {
+                    newTheme.applyStyle(i, true);
+                }
+                newTheme.resolveAttribute(R$attr.panelMenuListTheme, typedValue, true);
                 int i2 = typedValue.resourceId;
                 if (i2 != 0) {
                     newTheme.applyStyle(i2, true);
-                }
-                newTheme.resolveAttribute(R$attr.panelMenuListTheme, typedValue, true);
-                int i3 = typedValue.resourceId;
-                if (i3 != 0) {
-                    newTheme.applyStyle(i3, true);
                 } else {
-                    newTheme.applyStyle(R$style.Theme_AppCompat_CompactMenu, true);
+                    newTheme.applyStyle(R$style.obfuscated_res_0x7f100212, true);
                 }
                 androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, 0);
                 contextThemeWrapper.getTheme().setTo(newTheme);
@@ -1136,9 +1138,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1222,9 +1224,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r6};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1241,7 +1243,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     if (!(th instanceof Resources.NotFoundException) || (message = th.getMessage()) == null) {
                         return false;
                     }
-                    return message.contains("drawable") || message.contains("Drawable");
+                    return message.contains(ResourceManager.DRAWABLE) || message.contains("Drawable");
                 }
                 return invokeL.booleanValue;
             }
@@ -1273,9 +1275,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, appCompatCallback};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;
@@ -1339,8 +1341,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            int i2 = this.mLocalNightMode;
-            return i2 != -100 ? i2 : AppCompatDelegate.getDefaultNightMode();
+            int i = this.mLocalNightMode;
+            return i != -100 ? i : AppCompatDelegate.getDefaultNightMode();
         }
         return invokeV.intValue;
     }
@@ -1360,22 +1362,22 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @NonNull
-    private Configuration createOverrideConfigurationForDayNight(@NonNull Context context, int i2, @Nullable Configuration configuration) {
+    private Configuration createOverrideConfigurationForDayNight(@NonNull Context context, int i, @Nullable Configuration configuration) {
         InterceptResult invokeLIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, this, context, i2, configuration)) == null) {
-            if (i2 != 1) {
-                i3 = i2 != 2 ? context.getApplicationContext().getResources().getConfiguration().uiMode & 48 : 32;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, this, context, i, configuration)) == null) {
+            if (i != 1) {
+                i2 = i != 2 ? context.getApplicationContext().getResources().getConfiguration().uiMode & 48 : 32;
             } else {
-                i3 = 16;
+                i2 = 16;
             }
             Configuration configuration2 = new Configuration();
             configuration2.fontScale = 0.0f;
             if (configuration != null) {
                 configuration2.setTo(configuration);
             }
-            configuration2.uiMode = i3 | (configuration2.uiMode & (-49));
+            configuration2.uiMode = i2 | (configuration2.uiMode & (-49));
             return configuration2;
         }
         return (Configuration) invokeLIL.objValue;
@@ -1451,9 +1453,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -1490,9 +1492,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -1541,9 +1543,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1637,98 +1639,98 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 if (f2 != f3) {
                     configuration3.fontScale = f3;
                 }
-                int i2 = configuration.mcc;
-                int i3 = configuration2.mcc;
-                if (i2 != i3) {
-                    configuration3.mcc = i3;
+                int i = configuration.mcc;
+                int i2 = configuration2.mcc;
+                if (i != i2) {
+                    configuration3.mcc = i2;
                 }
-                int i4 = configuration.mnc;
-                int i5 = configuration2.mnc;
-                if (i4 != i5) {
-                    configuration3.mnc = i5;
+                int i3 = configuration.mnc;
+                int i4 = configuration2.mnc;
+                if (i3 != i4) {
+                    configuration3.mnc = i4;
                 }
                 if (Build.VERSION.SDK_INT >= 24) {
                     ConfigurationImplApi24.generateConfigDelta_locale(configuration, configuration2, configuration3);
                 } else if (!ObjectsCompat.equals(configuration.locale, configuration2.locale)) {
                     configuration3.locale = configuration2.locale;
                 }
-                int i6 = configuration.touchscreen;
-                int i7 = configuration2.touchscreen;
-                if (i6 != i7) {
-                    configuration3.touchscreen = i7;
+                int i5 = configuration.touchscreen;
+                int i6 = configuration2.touchscreen;
+                if (i5 != i6) {
+                    configuration3.touchscreen = i6;
                 }
-                int i8 = configuration.keyboard;
-                int i9 = configuration2.keyboard;
-                if (i8 != i9) {
-                    configuration3.keyboard = i9;
+                int i7 = configuration.keyboard;
+                int i8 = configuration2.keyboard;
+                if (i7 != i8) {
+                    configuration3.keyboard = i8;
                 }
-                int i10 = configuration.keyboardHidden;
-                int i11 = configuration2.keyboardHidden;
-                if (i10 != i11) {
-                    configuration3.keyboardHidden = i11;
+                int i9 = configuration.keyboardHidden;
+                int i10 = configuration2.keyboardHidden;
+                if (i9 != i10) {
+                    configuration3.keyboardHidden = i10;
                 }
-                int i12 = configuration.navigation;
-                int i13 = configuration2.navigation;
-                if (i12 != i13) {
-                    configuration3.navigation = i13;
+                int i11 = configuration.navigation;
+                int i12 = configuration2.navigation;
+                if (i11 != i12) {
+                    configuration3.navigation = i12;
                 }
-                int i14 = configuration.navigationHidden;
-                int i15 = configuration2.navigationHidden;
-                if (i14 != i15) {
-                    configuration3.navigationHidden = i15;
+                int i13 = configuration.navigationHidden;
+                int i14 = configuration2.navigationHidden;
+                if (i13 != i14) {
+                    configuration3.navigationHidden = i14;
                 }
-                int i16 = configuration.orientation;
-                int i17 = configuration2.orientation;
-                if (i16 != i17) {
-                    configuration3.orientation = i17;
+                int i15 = configuration.orientation;
+                int i16 = configuration2.orientation;
+                if (i15 != i16) {
+                    configuration3.orientation = i16;
                 }
-                int i18 = configuration.screenLayout & 15;
-                int i19 = configuration2.screenLayout;
-                if (i18 != (i19 & 15)) {
-                    configuration3.screenLayout |= i19 & 15;
+                int i17 = configuration.screenLayout & 15;
+                int i18 = configuration2.screenLayout;
+                if (i17 != (i18 & 15)) {
+                    configuration3.screenLayout |= i18 & 15;
                 }
-                int i20 = configuration.screenLayout & 192;
-                int i21 = configuration2.screenLayout;
-                if (i20 != (i21 & 192)) {
-                    configuration3.screenLayout |= i21 & 192;
+                int i19 = configuration.screenLayout & 192;
+                int i20 = configuration2.screenLayout;
+                if (i19 != (i20 & 192)) {
+                    configuration3.screenLayout |= i20 & 192;
                 }
-                int i22 = configuration.screenLayout & 48;
-                int i23 = configuration2.screenLayout;
-                if (i22 != (i23 & 48)) {
-                    configuration3.screenLayout |= i23 & 48;
+                int i21 = configuration.screenLayout & 48;
+                int i22 = configuration2.screenLayout;
+                if (i21 != (i22 & 48)) {
+                    configuration3.screenLayout |= i22 & 48;
                 }
-                int i24 = configuration.screenLayout & 768;
-                int i25 = configuration2.screenLayout;
-                if (i24 != (i25 & 768)) {
-                    configuration3.screenLayout |= i25 & 768;
+                int i23 = configuration.screenLayout & 768;
+                int i24 = configuration2.screenLayout;
+                if (i23 != (i24 & 768)) {
+                    configuration3.screenLayout |= i24 & 768;
                 }
                 if (Build.VERSION.SDK_INT >= 26) {
                     ConfigurationImplApi26.generateConfigDelta_colorMode(configuration, configuration2, configuration3);
                 }
-                int i26 = configuration.uiMode & 15;
-                int i27 = configuration2.uiMode;
-                if (i26 != (i27 & 15)) {
-                    configuration3.uiMode |= i27 & 15;
+                int i25 = configuration.uiMode & 15;
+                int i26 = configuration2.uiMode;
+                if (i25 != (i26 & 15)) {
+                    configuration3.uiMode |= i26 & 15;
                 }
-                int i28 = configuration.uiMode & 48;
-                int i29 = configuration2.uiMode;
-                if (i28 != (i29 & 48)) {
-                    configuration3.uiMode |= i29 & 48;
+                int i27 = configuration.uiMode & 48;
+                int i28 = configuration2.uiMode;
+                if (i27 != (i28 & 48)) {
+                    configuration3.uiMode |= i28 & 48;
                 }
-                int i30 = configuration.screenWidthDp;
-                int i31 = configuration2.screenWidthDp;
-                if (i30 != i31) {
-                    configuration3.screenWidthDp = i31;
+                int i29 = configuration.screenWidthDp;
+                int i30 = configuration2.screenWidthDp;
+                if (i29 != i30) {
+                    configuration3.screenWidthDp = i30;
                 }
-                int i32 = configuration.screenHeightDp;
-                int i33 = configuration2.screenHeightDp;
-                if (i32 != i33) {
-                    configuration3.screenHeightDp = i33;
+                int i31 = configuration.screenHeightDp;
+                int i32 = configuration2.screenHeightDp;
+                if (i31 != i32) {
+                    configuration3.screenHeightDp = i32;
                 }
-                int i34 = configuration.smallestScreenWidthDp;
-                int i35 = configuration2.smallestScreenWidthDp;
-                if (i34 != i35) {
-                    configuration3.smallestScreenWidthDp = i35;
+                int i33 = configuration.smallestScreenWidthDp;
+                int i34 = configuration2.smallestScreenWidthDp;
+                if (i33 != i34) {
+                    configuration3.smallestScreenWidthDp = i34;
                 }
                 if (Build.VERSION.SDK_INT >= 17) {
                     ConfigurationImplApi17.generateConfigDelta_densityDpi(configuration, configuration2, configuration3);
@@ -1809,8 +1811,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, panelFeatureState)) == null) {
             Context context = this.mContext;
-            int i2 = panelFeatureState.featureId;
-            if ((i2 == 0 || i2 == 108) && this.mDecorContentParent != null) {
+            int i = panelFeatureState.featureId;
+            if ((i == 0 || i == 108) && this.mDecorContentParent != null) {
                 TypedValue typedValue = new TypedValue();
                 Resources.Theme theme = context.getTheme();
                 theme.resolveAttribute(R$attr.actionBarTheme, typedValue, true);
@@ -1844,10 +1846,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeL.booleanValue;
     }
 
-    private void invalidatePanelMenu(int i2) {
+    private void invalidatePanelMenu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, this, i2) == null) {
-            this.mInvalidatePanelMenuFeatures = (1 << i2) | this.mInvalidatePanelMenuFeatures;
+        if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
+            this.mInvalidatePanelMenuFeatures = (1 << i) | this.mInvalidatePanelMenuFeatures;
             if (this.mInvalidatePanelMenuPosted) {
                 return;
             }
@@ -1858,7 +1860,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     private boolean isActivityManifestHandlingUiMode() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
             if (!this.mActivityHandlesUiModeChecked && (this.mHost instanceof Activity)) {
@@ -1868,13 +1870,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
                 try {
                     if (Build.VERSION.SDK_INT >= 29) {
-                        i2 = 269221888;
+                        i = 269221888;
                     } else {
-                        i2 = Build.VERSION.SDK_INT >= 24 ? 786432 : 0;
+                        i = Build.VERSION.SDK_INT >= 24 ? 786432 : 0;
                     }
-                    ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i2);
+                    ActivityInfo activityInfo = packageManager.getActivityInfo(new ComponentName(this.mContext, this.mHost.getClass()), i);
                     this.mActivityHandlesUiMode = (activityInfo == null || (activityInfo.configChanges & 512) == 0) ? false : true;
-                } catch (PackageManager.NameNotFoundException unused) {
+                } catch (PackageManager.NameNotFoundException e2) {
+                    Log.d(AppCompatDelegate.TAG, "Exception while getting ActivityInfo", e2);
                     this.mActivityHandlesUiMode = false;
                 }
             }
@@ -1884,12 +1887,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeV.booleanValue;
     }
 
-    private boolean onKeyDownPanel(int i2, KeyEvent keyEvent) {
+    private boolean onKeyDownPanel(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65560, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65560, this, i, keyEvent)) == null) {
             if (keyEvent.getRepeatCount() == 0) {
-                PanelFeatureState panelState = getPanelState(i2, true);
+                PanelFeatureState panelState = getPanelState(i, true);
                 if (panelState.isOpen) {
                     return false;
                 }
@@ -1900,19 +1903,18 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeIL.booleanValue;
     }
 
-    private boolean onKeyUpPanel(int i2, KeyEvent keyEvent) {
+    private boolean onKeyUpPanel(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         boolean z;
-        AudioManager audioManager;
         DecorContentParent decorContentParent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65561, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65561, this, i, keyEvent)) == null) {
             if (this.mActionMode != null) {
                 return false;
             }
             boolean z2 = true;
-            PanelFeatureState panelState = getPanelState(i2, true);
-            if (i2 == 0 && (decorContentParent = this.mDecorContentParent) != null && decorContentParent.canShowOverflowMenu() && !ViewConfiguration.get(this.mContext).hasPermanentMenuKey()) {
+            PanelFeatureState panelState = getPanelState(i, true);
+            if (i == 0 && (decorContentParent = this.mDecorContentParent) != null && decorContentParent.canShowOverflowMenu() && !ViewConfiguration.get(this.mContext).hasPermanentMenuKey()) {
                 if (!this.mDecorContentParent.isOverflowMenuShowing()) {
                     if (!this.mIsDestroyed && preparePanel(panelState, keyEvent)) {
                         z2 = this.mDecorContentParent.showOverflowMenu();
@@ -1939,8 +1941,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 closePanel(panelState, true);
                 z2 = z3;
             }
-            if (z2 && (audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService("audio")) != null) {
-                audioManager.playSoundEffect(0);
+            if (z2) {
+                AudioManager audioManager = (AudioManager) this.mContext.getApplicationContext().getSystemService("audio");
+                if (audioManager != null) {
+                    audioManager.playSoundEffect(0);
+                } else {
+                    Log.w(AppCompatDelegate.TAG, "Couldn't get audio manager");
+                }
             }
             return z2;
         }
@@ -1948,7 +1955,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     private void openPanel(PanelFeatureState panelFeatureState, KeyEvent keyEvent) {
-        int i2;
+        int i;
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65562, this, panelFeatureState, keyEvent) == null) || panelFeatureState.isOpen || this.mIsDestroyed) {
@@ -1969,9 +1976,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (panelFeatureState.decorView != null && !panelFeatureState.refreshDecorView) {
                 View view = panelFeatureState.createdPanelView;
                 if (view != null && (layoutParams = view.getLayoutParams()) != null && layoutParams.width == -1) {
-                    i2 = -1;
+                    i = -1;
                     panelFeatureState.isHandled = false;
-                    WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams(i2, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
+                    WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
                     layoutParams2.gravity = panelFeatureState.gravity;
                     layoutParams2.windowAnimations = panelFeatureState.windowAnimations;
                     windowManager.addView(panelFeatureState.decorView, layoutParams2);
@@ -2005,9 +2012,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     return;
                 }
             }
-            i2 = -2;
+            i = -2;
             panelFeatureState.isHandled = false;
-            WindowManager.LayoutParams layoutParams22 = new WindowManager.LayoutParams(i2, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
+            WindowManager.LayoutParams layoutParams22 = new WindowManager.LayoutParams(i, -2, panelFeatureState.x, panelFeatureState.y, 1002, 8519680, -3);
             layoutParams22.gravity = panelFeatureState.gravity;
             layoutParams22.windowAnimations = panelFeatureState.windowAnimations;
             windowManager.addView(panelFeatureState.decorView, layoutParams22);
@@ -2015,19 +2022,19 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private boolean performPanelShortcut(PanelFeatureState panelFeatureState, int i2, KeyEvent keyEvent, int i3) {
+    private boolean performPanelShortcut(PanelFeatureState panelFeatureState, int i, KeyEvent keyEvent, int i2) {
         InterceptResult invokeCommon;
         MenuBuilder menuBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{panelFeatureState, Integer.valueOf(i2), keyEvent, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{panelFeatureState, Integer.valueOf(i), keyEvent, Integer.valueOf(i2)})) == null) {
             boolean z = false;
             if (keyEvent.isSystem()) {
                 return false;
             }
             if ((panelFeatureState.isPrepared || preparePanel(panelFeatureState, keyEvent)) && (menuBuilder = panelFeatureState.menu) != null) {
-                z = menuBuilder.performShortcut(i2, keyEvent, i3);
+                z = menuBuilder.performShortcut(i, keyEvent, i2);
             }
-            if (z && (i3 & 1) == 0 && this.mDecorContentParent == null) {
+            if (z && (i2 & 1) == 0 && this.mDecorContentParent == null) {
                 closePanel(panelFeatureState, true);
             }
             return z;
@@ -2056,8 +2063,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (windowCallback != null) {
                 panelFeatureState.createdPanelView = windowCallback.onCreatePanelView(panelFeatureState.featureId);
             }
-            int i2 = panelFeatureState.featureId;
-            boolean z = i2 == 0 || i2 == 108;
+            int i = panelFeatureState.featureId;
+            boolean z = i == 0 || i == 108;
             if (z && (decorContentParent3 = this.mDecorContentParent) != null) {
                 decorContentParent3.setMenuPrepared();
             }
@@ -2145,17 +2152,19 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    private int sanitizeWindowFeatureId(int i2) {
+    private int sanitizeWindowFeatureId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i2)) == null) {
-            if (i2 == 8) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i)) == null) {
+            if (i == 8) {
+                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR id when requesting this feature.");
                 return 108;
-            }
-            if (i2 == 9) {
+            } else if (i == 9) {
+                Log.i(AppCompatDelegate.TAG, "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY id when requesting this feature.");
                 return 109;
+            } else {
+                return i;
             }
-            return i2;
         }
         return invokeI.intValue;
     }
@@ -2208,30 +2217,30 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean updateForNightMode(int i2, boolean z) {
+    private boolean updateForNightMode(int i, boolean z) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(this.mContext, i2, null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(this.mContext, i, null);
             boolean isActivityManifestHandlingUiMode = isActivityManifestHandlingUiMode();
-            int i3 = this.mContext.getResources().getConfiguration().uiMode & 48;
-            int i4 = createOverrideConfigurationForDayNight.uiMode & 48;
+            int i2 = this.mContext.getResources().getConfiguration().uiMode & 48;
+            int i3 = createOverrideConfigurationForDayNight.uiMode & 48;
             boolean z3 = true;
-            if (i3 != i4 && z && !isActivityManifestHandlingUiMode && this.mBaseContextAttached && (sCanReturnDifferentContext || this.mCreated)) {
+            if (i2 != i3 && z && !isActivityManifestHandlingUiMode && this.mBaseContextAttached && (sCanReturnDifferentContext || this.mCreated)) {
                 Object obj = this.mHost;
                 if ((obj instanceof Activity) && !((Activity) obj).isChild()) {
                     ActivityCompat.recreate((Activity) this.mHost);
                     z2 = true;
-                    if (!z2 || i3 == i4) {
+                    if (!z2 || i2 == i3) {
                         z3 = z2;
                     } else {
-                        updateResourcesConfigurationForNightMode(i4, isActivityManifestHandlingUiMode, null);
+                        updateResourcesConfigurationForNightMode(i3, isActivityManifestHandlingUiMode, null);
                     }
                     if (z3) {
                         Object obj2 = this.mHost;
                         if (obj2 instanceof AppCompatActivity) {
-                            ((AppCompatActivity) obj2).onNightModeChanged(i2);
+                            ((AppCompatActivity) obj2).onNightModeChanged(i);
                         }
                     }
                     return z3;
@@ -2248,22 +2257,22 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeCommon.booleanValue;
     }
 
-    private void updateResourcesConfigurationForNightMode(int i2, boolean z, @Nullable Configuration configuration) {
+    private void updateResourcesConfigurationForNightMode(int i, boolean z, @Nullable Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), configuration}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), configuration}) == null) {
             Resources resources = this.mContext.getResources();
             Configuration configuration2 = new Configuration(resources.getConfiguration());
             if (configuration != null) {
                 configuration2.updateFrom(configuration);
             }
-            configuration2.uiMode = i2 | (resources.getConfiguration().uiMode & (-49));
+            configuration2.uiMode = i | (resources.getConfiguration().uiMode & (-49));
             resources.updateConfiguration(configuration2, null);
             if (Build.VERSION.SDK_INT < 26) {
                 ResourcesFlusher.flush(resources);
             }
-            int i3 = this.mThemeResId;
-            if (i3 != 0) {
-                this.mContext.setTheme(i3);
+            int i2 = this.mThemeResId;
+            if (i2 != 0) {
+                this.mContext.setTheme(i2);
                 if (Build.VERSION.SDK_INT >= 23) {
                     this.mContext.getTheme().applyStyle(this.mThemeResId, true);
                 }
@@ -2344,7 +2353,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 Configuration configuration = context.getPackageManager().getResourcesForApplication(context.getApplicationInfo()).getConfiguration();
                 Configuration configuration2 = context.getResources().getConfiguration();
                 Configuration createOverrideConfigurationForDayNight = createOverrideConfigurationForDayNight(context, mapNightMode, configuration.equals(configuration2) ? null : generateConfigDelta(configuration, configuration2));
-                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.Theme_AppCompat_Empty);
+                androidx.appcompat.view.ContextThemeWrapper contextThemeWrapper = new androidx.appcompat.view.ContextThemeWrapper(context, R$style.obfuscated_res_0x7f10021e);
                 contextThemeWrapper.applyOverrideConfiguration(createOverrideConfigurationForDayNight);
                 boolean z = false;
                 try {
@@ -2362,14 +2371,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (Context) invokeL.objValue;
     }
 
-    public void callOnPanelClosed(int i2, PanelFeatureState panelFeatureState, Menu menu) {
+    public void callOnPanelClosed(int i, PanelFeatureState panelFeatureState, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, panelFeatureState, menu) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, panelFeatureState, menu) == null) {
             if (menu == null) {
-                if (panelFeatureState == null && i2 >= 0) {
+                if (panelFeatureState == null && i >= 0) {
                     PanelFeatureState[] panelFeatureStateArr = this.mPanels;
-                    if (i2 < panelFeatureStateArr.length) {
-                        panelFeatureState = panelFeatureStateArr[i2];
+                    if (i < panelFeatureStateArr.length) {
+                        panelFeatureState = panelFeatureStateArr[i];
                     }
                 }
                 if (panelFeatureState != null) {
@@ -2377,7 +2386,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 }
             }
             if ((panelFeatureState == null || panelFeatureState.isOpen) && !this.mIsDestroyed) {
-                this.mAppCompatWindowCallback.getWrapped().onPanelClosed(i2, menu);
+                this.mAppCompatWindowCallback.getWrapped().onPanelClosed(i, menu);
             }
         }
     }
@@ -2396,10 +2405,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         this.mClosingActionMenu = false;
     }
 
-    public void closePanel(int i2) {
+    public void closePanel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            closePanel(getPanelState(i2, true), true);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            closePanel(getPanelState(i, true), true);
         }
     }
 
@@ -2417,8 +2426,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 } else {
                     try {
                         this.mAppCompatViewInflater = (AppCompatViewInflater) Class.forName(string).getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                    } catch (Throwable unused) {
-                        String str2 = "Failed to instantiate custom view inflater " + string + ". Falling back to default.";
+                    } catch (Throwable th) {
+                        Log.i(AppCompatDelegate.TAG, "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
                         this.mAppCompatViewInflater = new AppCompatViewInflater();
                     }
                 }
@@ -2485,11 +2494,11 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeL.booleanValue;
     }
 
-    public void doInvalidatePanelMenu(int i2) {
+    public void doInvalidatePanelMenu(int i) {
         PanelFeatureState panelState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            PanelFeatureState panelState2 = getPanelState(i2, true);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            PanelFeatureState panelState2 = getPanelState(i, true);
             if (panelState2.menu != null) {
                 Bundle bundle = new Bundle();
                 panelState2.menu.saveActionViewStates(bundle);
@@ -2501,7 +2510,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             }
             panelState2.refreshMenuContent = true;
             panelState2.refreshDecorView = true;
-            if ((i2 != 108 && i2 != 0) || this.mDecorContentParent == null || (panelState = getPanelState(0, false)) == null) {
+            if ((i != 108 && i != 0) || this.mDecorContentParent == null || (panelState = getPanelState(0, false)) == null) {
                 return;
             }
             panelState.isPrepared = false;
@@ -2524,8 +2533,8 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, menu)) == null) {
             PanelFeatureState[] panelFeatureStateArr = this.mPanels;
             int length = panelFeatureStateArr != null ? panelFeatureStateArr.length : 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                PanelFeatureState panelFeatureState = panelFeatureStateArr[i2];
+            for (int i = 0; i < length; i++) {
+                PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
                 if (panelFeatureState != null && panelFeatureState.menu == menu) {
                     return panelFeatureState;
                 }
@@ -2537,12 +2546,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     @Override // androidx.appcompat.app.AppCompatDelegate
     @Nullable
-    public <T extends View> T findViewById(@IdRes int i2) {
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             ensureSubDecor();
-            return (T) this.mWindow.findViewById(i2);
+            return (T) this.mWindow.findViewById(i);
         }
         return (T) invokeI.objValue;
     }
@@ -2596,23 +2605,23 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (MenuInflater) invokeV.objValue;
     }
 
-    public PanelFeatureState getPanelState(int i2, boolean z) {
+    public PanelFeatureState getPanelState(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             PanelFeatureState[] panelFeatureStateArr = this.mPanels;
-            if (panelFeatureStateArr == null || panelFeatureStateArr.length <= i2) {
-                PanelFeatureState[] panelFeatureStateArr2 = new PanelFeatureState[i2 + 1];
+            if (panelFeatureStateArr == null || panelFeatureStateArr.length <= i) {
+                PanelFeatureState[] panelFeatureStateArr2 = new PanelFeatureState[i + 1];
                 if (panelFeatureStateArr != null) {
                     System.arraycopy(panelFeatureStateArr, 0, panelFeatureStateArr2, 0, panelFeatureStateArr.length);
                 }
                 this.mPanels = panelFeatureStateArr2;
                 panelFeatureStateArr = panelFeatureStateArr2;
             }
-            PanelFeatureState panelFeatureState = panelFeatureStateArr[i2];
+            PanelFeatureState panelFeatureState = panelFeatureStateArr[i];
             if (panelFeatureState == null) {
-                PanelFeatureState panelFeatureState2 = new PanelFeatureState(i2);
-                panelFeatureStateArr[i2] = panelFeatureState2;
+                PanelFeatureState panelFeatureState2 = new PanelFeatureState(i);
+                panelFeatureStateArr[i] = panelFeatureState2;
                 return panelFeatureState2;
             }
             return panelFeatureState;
@@ -2657,12 +2666,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean hasWindowFeature(int i2) {
+    public boolean hasWindowFeature(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
             if (sanitizeWindowFeatureId == 1) {
                 z = this.mWindowNoTitle;
             } else if (sanitizeWindowFeatureId == 2) {
@@ -2676,7 +2685,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             } else {
                 z = this.mHasActionBar;
             }
-            return z || this.mWindow.hasFeature(i2);
+            return z || this.mWindow.hasFeature(i);
         }
         return invokeI.booleanValue;
     }
@@ -2688,8 +2697,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             LayoutInflater from = LayoutInflater.from(this.mContext);
             if (from.getFactory() == null) {
                 LayoutInflaterCompat.setFactory2(from, this);
+            } else if (from.getFactory2() instanceof AppCompatDelegateImpl) {
             } else {
-                boolean z = from.getFactory2() instanceof AppCompatDelegateImpl;
+                Log.i(AppCompatDelegate.TAG, "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
             }
         }
     }
@@ -2712,25 +2722,25 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mHandleNativeActionModes : invokeV.booleanValue;
     }
 
-    public int mapNightMode(@NonNull Context context, int i2) {
+    public int mapNightMode(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, context, i2)) == null) {
-            if (i2 != -100) {
-                if (i2 != -1) {
-                    if (i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048604, this, context, i)) == null) {
+            if (i != -100) {
+                if (i != -1) {
+                    if (i == 0) {
                         if (Build.VERSION.SDK_INT < 23 || ((UiModeManager) context.getApplicationContext().getSystemService(UiModeManager.class)).getNightMode() != 0) {
                             return getAutoTimeNightModeManager(context).getApplyableNightMode();
                         }
                         return -1;
-                    } else if (i2 != 1 && i2 != 2) {
-                        if (i2 == 3) {
+                    } else if (i != 1 && i != 2) {
+                        if (i == 3) {
                             return getAutoBatteryNightModeManager(context).getApplyableNightMode();
                         }
                         throw new IllegalStateException("Unknown value set for night mode. Please use one of the MODE_NIGHT values from AppCompatDelegate.");
                     }
                 }
-                return i2;
+                return i;
             }
             return -1;
         }
@@ -2836,13 +2846,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048611, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 this.mLongPressBackDown = (keyEvent.getFlags() & 128) != 0;
-            } else if (i2 == 82) {
+            } else if (i == 82) {
                 onKeyDownPanel(0, keyEvent);
                 return true;
             }
@@ -2851,12 +2861,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeIL.booleanValue;
     }
 
-    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048612, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048612, this, i, keyEvent)) == null) {
             ActionBar supportActionBar = getSupportActionBar();
-            if (supportActionBar == null || !supportActionBar.onKeyShortcut(i2, keyEvent)) {
+            if (supportActionBar == null || !supportActionBar.onKeyShortcut(i, keyEvent)) {
                 PanelFeatureState panelFeatureState = this.mPreparedPanel;
                 if (panelFeatureState != null && performPanelShortcut(panelFeatureState, keyEvent.getKeyCode(), keyEvent, 1)) {
                     PanelFeatureState panelFeatureState2 = this.mPreparedPanel;
@@ -2881,11 +2891,11 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         return invokeIL.booleanValue;
     }
 
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 boolean z = this.mLongPressBackDown;
                 this.mLongPressBackDown = false;
                 PanelFeatureState panelState = getPanelState(0, false);
@@ -2897,7 +2907,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 } else if (onBackPressed()) {
                     return true;
                 }
-            } else if (i2 == 82) {
+            } else if (i == 82) {
                 onKeyUpPanel(0, keyEvent);
                 return true;
             }
@@ -2929,24 +2939,24 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
     }
 
-    public void onMenuOpened(int i2) {
+    public void onMenuOpened(int i) {
         ActionBar supportActionBar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048616, this, i2) == null) && i2 == 108 && (supportActionBar = getSupportActionBar()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048616, this, i) == null) && i == 108 && (supportActionBar = getSupportActionBar()) != null) {
             supportActionBar.dispatchMenuVisibilityChanged(true);
         }
     }
 
-    public void onPanelClosed(int i2) {
+    public void onPanelClosed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            if (i2 == 108) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            if (i == 108) {
                 ActionBar supportActionBar = getSupportActionBar();
                 if (supportActionBar != null) {
                     supportActionBar.dispatchMenuVisibilityChanged(false);
                 }
-            } else if (i2 == 0) {
-                PanelFeatureState panelState = getPanelState(i2, true);
+            } else if (i == 0) {
+                PanelFeatureState panelState = getPanelState(i, true);
                 if (panelState.isOpen) {
                     closePanel(panelState, false);
                 }
@@ -3013,11 +3023,11 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public boolean requestWindowFeature(int i2) {
+    public boolean requestWindowFeature(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i2)) == null) {
-            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
+            int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
             if (this.mWindowNoTitle && sanitizeWindowFeatureId == 108) {
                 return false;
             }
@@ -3077,12 +3087,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     @Override // androidx.appcompat.app.AppCompatDelegate
     @RequiresApi(17)
-    public void setLocalNightMode(int i2) {
+    public void setLocalNightMode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048630, this, i2) == null) || this.mLocalNightMode == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048630, this, i) == null) || this.mLocalNightMode == i) {
             return;
         }
-        this.mLocalNightMode = i2;
+        this.mLocalNightMode = i;
         if (this.mBaseContextAttached) {
             applyDayNight();
         }
@@ -3114,10 +3124,10 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setTheme(@StyleRes int i2) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.mThemeResId = i2;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+            this.mThemeResId = i;
         }
     }
 
@@ -3242,9 +3252,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -3276,9 +3286,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                                         newInitContext.initArgs = r2;
                                                         Object[] objArr = {this};
                                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i2 = newInitContext.flag;
-                                                        if ((i2 & 1) != 0) {
-                                                            int i3 = i2 & 2;
+                                                        int i = newInitContext.flag;
+                                                        if ((i & 1) != 0) {
+                                                            int i2 = i & 2;
                                                             newInitContext.thisArg = this;
                                                             interceptable3.invokeInitBody(65536, newInitContext);
                                                             return;
@@ -3344,9 +3354,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -3413,15 +3423,15 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
     public final int updateStatusGuard(@Nullable WindowInsetsCompat windowInsetsCompat, @Nullable Rect rect) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048637, this, windowInsetsCompat, rect)) == null) {
             if (windowInsetsCompat != null) {
-                i2 = windowInsetsCompat.getSystemWindowInsetTop();
+                i = windowInsetsCompat.getSystemWindowInsetTop();
             } else {
-                i2 = rect != null ? rect.top : 0;
+                i = rect != null ? rect.top : 0;
             }
             ActionBarContextView actionBarContextView = this.mActionModeView;
             if (actionBarContextView == null || !(actionBarContextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
@@ -3441,21 +3451,21 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         rect2.set(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                     }
                     ViewUtils.computeFitSystemWindows(this.mSubDecor, rect2, rect3);
-                    int i3 = rect2.top;
-                    int i4 = rect2.left;
-                    int i5 = rect2.right;
+                    int i2 = rect2.top;
+                    int i3 = rect2.left;
+                    int i4 = rect2.right;
                     WindowInsetsCompat rootWindowInsets = ViewCompat.getRootWindowInsets(this.mSubDecor);
                     int systemWindowInsetLeft = rootWindowInsets == null ? 0 : rootWindowInsets.getSystemWindowInsetLeft();
                     int systemWindowInsetRight = rootWindowInsets == null ? 0 : rootWindowInsets.getSystemWindowInsetRight();
-                    if (marginLayoutParams.topMargin == i3 && marginLayoutParams.leftMargin == i4 && marginLayoutParams.rightMargin == i5) {
+                    if (marginLayoutParams.topMargin == i2 && marginLayoutParams.leftMargin == i3 && marginLayoutParams.rightMargin == i4) {
                         z2 = false;
                     } else {
-                        marginLayoutParams.topMargin = i3;
-                        marginLayoutParams.leftMargin = i4;
-                        marginLayoutParams.rightMargin = i5;
+                        marginLayoutParams.topMargin = i2;
+                        marginLayoutParams.leftMargin = i3;
+                        marginLayoutParams.rightMargin = i4;
                         z2 = true;
                     }
-                    if (i3 > 0 && this.mStatusGuard == null) {
+                    if (i2 > 0 && this.mStatusGuard == null) {
                         View view = new View(this.mContext);
                         this.mStatusGuard = view;
                         view.setVisibility(8);
@@ -3480,7 +3490,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         updateStatusGuardColor(this.mStatusGuard);
                     }
                     if (!this.mOverlayActionMode && r5) {
-                        i2 = 0;
+                        i = 0;
                     }
                     z = r5;
                     r5 = z2;
@@ -3499,7 +3509,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (view3 != null) {
                 view3.setVisibility(z ? 0 : 8);
             }
-            return i2;
+            return i;
         }
         return invokeLL.intValue;
     }
@@ -3513,9 +3523,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {dialog, appCompatCallback};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;
@@ -3610,9 +3620,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {context, window, appCompatCallback};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;
@@ -3637,9 +3647,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appCompatDelegateImpl, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Window.Callback) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3671,12 +3681,12 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onCreatePanelMenu(int i2, Menu menu) {
+        public boolean onCreatePanelMenu(int i, Menu menu) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, menu)) == null) {
-                if (i2 != 0 || (menu instanceof MenuBuilder)) {
-                    return super.onCreatePanelMenu(i2, menu);
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, menu)) == null) {
+                if (i != 0 || (menu instanceof MenuBuilder)) {
+                    return super.onCreatePanelMenu(i, menu);
                 }
                 return false;
             }
@@ -3684,39 +3694,39 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onMenuOpened(int i2, Menu menu) {
+        public boolean onMenuOpened(int i, Menu menu) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, menu)) == null) {
-                super.onMenuOpened(i2, menu);
-                this.this$0.onMenuOpened(i2);
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, menu)) == null) {
+                super.onMenuOpened(i, menu);
+                this.this$0.onMenuOpened(i);
                 return true;
             }
             return invokeIL.booleanValue;
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public void onPanelClosed(int i2, Menu menu) {
+        public void onPanelClosed(int i, Menu menu) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048581, this, i2, menu) == null) {
-                super.onPanelClosed(i2, menu);
-                this.this$0.onPanelClosed(i2);
+            if (interceptable == null || interceptable.invokeIL(1048581, this, i, menu) == null) {
+                super.onPanelClosed(i, menu);
+                this.this$0.onPanelClosed(i);
             }
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i2, View view, Menu menu) {
+        public boolean onPreparePanel(int i, View view, Menu menu) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, menu)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view, menu)) == null) {
                 MenuBuilder menuBuilder = menu instanceof MenuBuilder ? (MenuBuilder) menu : null;
-                if (i2 == 0 && menuBuilder == null) {
+                if (i == 0 && menuBuilder == null) {
                     return false;
                 }
                 if (menuBuilder != null) {
                     menuBuilder.setOverrideVisibleItems(true);
                 }
-                boolean onPreparePanel = super.onPreparePanel(i2, view, menu);
+                boolean onPreparePanel = super.onPreparePanel(i, view, menu);
                 if (menuBuilder != null) {
                     menuBuilder.setOverrideVisibleItems(false);
                 }
@@ -3727,15 +3737,15 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
         @RequiresApi(24)
-        public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i2) {
+        public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
             MenuBuilder menuBuilder;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048583, this, list, menu, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048583, this, list, menu, i) == null) {
                 PanelFeatureState panelState = this.this$0.getPanelState(0, true);
                 if (panelState != null && (menuBuilder = panelState.menu) != null) {
-                    super.onProvideKeyboardShortcuts(list, menuBuilder, i2);
+                    super.onProvideKeyboardShortcuts(list, menuBuilder, i);
                 } else {
-                    super.onProvideKeyboardShortcuts(list, menu, i2);
+                    super.onProvideKeyboardShortcuts(list, menu, i);
                 }
             }
         }
@@ -3772,14 +3782,14 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
         @RequiresApi(23)
-        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i2) {
+        public android.view.ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, callback, i2)) == null) {
-                if (this.this$0.isHandleNativeActionModesEnabled() && i2 == 0) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, callback, i)) == null) {
+                if (this.this$0.isHandleNativeActionModesEnabled() && i == 0) {
                     return startAsSupportActionMode(callback);
                 }
-                return super.onWindowStartingActionMode(callback, i2);
+                return super.onWindowStartingActionMode(callback, i);
             }
             return (android.view.ActionMode) invokeLI.objValue;
         }
@@ -3794,9 +3804,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {context, activity, appCompatCallback};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Window) objArr2[1], (AppCompatCallback) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;
@@ -3815,9 +3825,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {context, window, appCompatCallback, obj};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -3838,9 +3848,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -3884,13 +3894,13 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
     }
 
     @Override // androidx.appcompat.app.AppCompatDelegate
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             ensureSubDecor();
             ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
             viewGroup.removeAllViews();
-            LayoutInflater.from(this.mContext).inflate(i2, viewGroup);
+            LayoutInflater.from(this.mContext).inflate(i, viewGroup);
             this.mAppCompatWindowCallback.getWrapped().onContentChanged();
         }
     }

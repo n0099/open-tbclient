@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Option;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DownsampleStrategy {
     public static /* synthetic */ Interceptable $ic;
     public static final DownsampleStrategy AT_LEAST;
@@ -22,7 +22,7 @@ public abstract class DownsampleStrategy {
     public static final Option<DownsampleStrategy> OPTION;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AtLeast extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -42,18 +42,18 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) {
-                int min = Math.min(i3 / i5, i2 / i4);
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+                int min = Math.min(i2 / i4, i / i3);
                 if (min == 0) {
                     return 1.0f;
                 }
@@ -63,7 +63,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AtMost extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,9 +73,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -83,18 +83,18 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.MEMORY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.MEMORY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) {
-                int ceil = (int) Math.ceil(Math.max(i3 / i5, i2 / i4));
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+                int ceil = (int) Math.ceil(Math.max(i2 / i4, i / i3));
                 int max = Math.max(1, Integer.highestOneBit(ceil));
                 return 1.0f / (max << (max >= ceil ? 0 : 1));
             }
@@ -102,7 +102,7 @@ public abstract class DownsampleStrategy {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CenterInside extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,9 +112,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -122,21 +122,21 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) ? Math.min(1.0f, DownsampleStrategy.FIT_CENTER.getScaleFactor(i2, i3, i4, i5)) : invokeIIII.floatValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) ? Math.min(1.0f, DownsampleStrategy.FIT_CENTER.getScaleFactor(i, i2, i3, i4)) : invokeIIII.floatValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CenterOutside extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,9 +146,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -156,21 +156,21 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) ? Math.max(i4 / i2, i5 / i3) : invokeIIII.floatValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) ? Math.max(i3 / i, i4 / i2) : invokeIIII.floatValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FitCenter extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,9 +180,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -190,21 +190,21 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) ? Math.min(i4 / i2, i5 / i3) : invokeIIII.floatValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) ? Math.min(i3 / i, i4 / i2) : invokeIIII.floatValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class None extends DownsampleStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,9 +214,9 @@ public abstract class DownsampleStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -224,17 +224,17 @@ public abstract class DownsampleStrategy {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5) {
+        public SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? SampleSizeRounding.QUALITY : (SampleSizeRounding) invokeIIII.objValue;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DownsampleStrategy
-        public float getScaleFactor(int i2, int i3, int i4, int i5) {
+        public float getScaleFactor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) {
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
                 return 1.0f;
             }
             return invokeIIII.floatValue;
@@ -242,7 +242,7 @@ public abstract class DownsampleStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SampleSizeRounding {
         public static final /* synthetic */ SampleSizeRounding[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -269,16 +269,16 @@ public abstract class DownsampleStrategy {
             $VALUES = new SampleSizeRounding[]{MEMORY, sampleSizeRounding};
         }
 
-        public SampleSizeRounding(String str, int i2) {
+        public SampleSizeRounding(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -330,16 +330,16 @@ public abstract class DownsampleStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public abstract SampleSizeRounding getSampleSizeRounding(int i2, int i3, int i4, int i5);
+    public abstract SampleSizeRounding getSampleSizeRounding(int i, int i2, int i3, int i4);
 
-    public abstract float getScaleFactor(int i2, int i3, int i4, int i5);
+    public abstract float getScaleFactor(int i, int i2, int i3, int i4);
 }

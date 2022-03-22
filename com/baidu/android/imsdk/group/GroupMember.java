@@ -58,9 +58,9 @@ public class GroupMember implements Parcelable, NoProGuard {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -79,24 +79,24 @@ public class GroupMember implements Parcelable, NoProGuard {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public GroupMember[] newArray(int i2) {
+            public GroupMember[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new GroupMember[i2] : (GroupMember[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupMember[i] : (GroupMember[]) invokeI.objValue;
             }
         };
     }
 
-    public GroupMember(long j2, String str, int i2) {
+    public GroupMember(long j, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,9 +110,9 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.valid = 0;
         this.mNickName = "";
         this.mPortrait = "";
-        this.mUk = j2;
+        this.mUk = j;
         this.mName = str;
-        this.role = i2;
+        this.role = i;
     }
 
     @Override // android.os.Parcelable
@@ -191,17 +191,17 @@ public class GroupMember implements Parcelable, NoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.valid : invokeV.intValue;
     }
 
-    public void setAddStatus(int i2) {
+    public void setAddStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.addStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.addStatus = i;
         }
     }
 
-    public void setBduid(long j2) {
+    public void setBduid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.mBduid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.mBduid = j;
         }
     }
 
@@ -212,10 +212,10 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public void setJointime(long j2) {
+    public void setJointime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.jointime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.jointime = j;
         }
     }
 
@@ -240,17 +240,17 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public void setRole(int i2) {
+    public void setRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.role = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.role = i;
         }
     }
 
-    public void setValid(int i2) {
+    public void setValid(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.valid = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.valid = i;
         }
     }
 
@@ -264,9 +264,9 @@ public class GroupMember implements Parcelable, NoProGuard {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i) == null) {
             parcel.writeLong(this.mUk);
             parcel.writeString(this.mName);
             parcel.writeInt(this.role);
@@ -277,16 +277,16 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public GroupMember(String str, long j2, String str2, long j3, int i2, long j4) {
+    public GroupMember(String str, long j, String str2, long j2, int i, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2, Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)};
+            Object[] objArr = {str, Long.valueOf(j), str2, Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -301,11 +301,11 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mNickName = "";
         this.mPortrait = "";
         this.groupid = str;
-        this.mUk = j2;
+        this.mUk = j;
         this.mName = str2;
-        this.mBduid = j3;
-        this.role = i2;
-        this.jointime = j4;
+        this.mBduid = j2;
+        this.role = i;
+        this.jointime = j3;
     }
 
     public GroupMember(Parcel parcel) {
@@ -315,9 +315,9 @@ public class GroupMember implements Parcelable, NoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

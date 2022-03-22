@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -75,9 +74,9 @@ public class BoxAccount {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {boxAccount};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -104,10 +103,10 @@ public class BoxAccount {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.renickname : (String) invokeV.objValue;
         }
 
-        public void setErrorCode(int i2) {
+        public void setErrorCode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.errorCode = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.errorCode = i;
             }
         }
 
@@ -131,9 +130,9 @@ public class BoxAccount {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -254,11 +253,11 @@ public class BoxAccount {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i2 = this.gender;
-            if (i2 == 1) {
+            int i = this.gender;
+            if (i == 1) {
                 return AccountConstants.MALE_TEXT;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return AccountConstants.FEMALE_TEXT;
             }
             return null;
@@ -388,10 +387,10 @@ public class BoxAccount {
         }
     }
 
-    public void setAge(int i2) {
+    public void setAge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.age = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.age = i;
         }
     }
 
@@ -430,10 +429,10 @@ public class BoxAccount {
         }
     }
 
-    public void setDeadline(long j2) {
+    public void setDeadline(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.deadline = j2;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.deadline = j;
         }
     }
 
@@ -451,10 +450,10 @@ public class BoxAccount {
         }
     }
 
-    public void setExpiryTime(int i2) {
+    public void setExpiryTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.expiryTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.expiryTime = i;
         }
     }
 
@@ -465,10 +464,10 @@ public class BoxAccount {
         }
     }
 
-    public void setGender(int i2) {
+    public void setGender(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.gender = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.gender = i;
         }
     }
 
@@ -500,10 +499,10 @@ public class BoxAccount {
         }
     }
 
-    public void setLevel(int i2) {
+    public void setLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.level = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.level = i;
         }
     }
 
@@ -584,10 +583,10 @@ public class BoxAccount {
         }
     }
 
-    public void setVip(int i2) {
+    public void setVip(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            this.vip = i2;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            this.vip = i;
         }
     }
 
@@ -615,7 +614,7 @@ public class BoxAccount {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            return "BoxAccount{uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", displayname='" + this.displayname + ExtendedMessageFormat.QUOTE + ", portrait='" + this.portrait + ExtendedMessageFormat.QUOTE + ", nickname='" + this.nickname + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "BoxAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', portrait='" + this.portrait + "', nickname='" + this.nickname + "'}";
         }
         return (String) invokeV.objValue;
     }

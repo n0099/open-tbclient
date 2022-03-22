@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,6 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
@@ -47,8 +45,8 @@ public class JsonWriter implements Closeable, Flushable {
             }
         }
         REPLACEMENT_CHARS = new String[128];
-        for (int i2 = 0; i2 <= 31; i2++) {
-            REPLACEMENT_CHARS[i2] = String.format("\\u%04x", Integer.valueOf(i2));
+        for (int i = 0; i <= 31; i++) {
+            REPLACEMENT_CHARS[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
         String[] strArr = REPLACEMENT_CHARS;
         strArr[34] = "\\\"";
@@ -74,9 +72,9 @@ public class JsonWriter implements Closeable, Flushable {
             newInitContext.initArgs = r2;
             Object[] objArr = {writer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -136,17 +134,17 @@ public class JsonWriter implements Closeable, Flushable {
         }
     }
 
-    private JsonWriter close(int i2, int i3, String str) throws IOException {
+    private JsonWriter close(int i, int i2, String str) throws IOException {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2, str)) == null) {
             int peek = peek();
-            if (peek != i3 && peek != i2) {
+            if (peek != i2 && peek != i) {
                 throw new IllegalStateException("Nesting problem.");
             }
             if (this.deferredName == null) {
                 this.stackSize--;
-                if (peek == i3) {
+                if (peek == i2) {
                     newline();
                 }
                 this.out.write(str);
@@ -162,19 +160,19 @@ public class JsonWriter implements Closeable, Flushable {
         if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.indent == null) {
             return;
         }
-        this.out.write(StringUtils.LF);
-        int i2 = this.stackSize;
-        for (int i3 = 1; i3 < i2; i3++) {
+        this.out.write("\n");
+        int i = this.stackSize;
+        for (int i2 = 1; i2 < i; i2++) {
             this.out.write(this.indent);
         }
     }
 
-    private JsonWriter open(int i2, String str) throws IOException {
+    private JsonWriter open(int i, String str) throws IOException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, this, i, str)) == null) {
             beforeValue();
-            push(i2);
+            push(i);
             this.out.write(str);
             return this;
         }
@@ -185,36 +183,36 @@ public class JsonWriter implements Closeable, Flushable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            int i2 = this.stackSize;
-            if (i2 != 0) {
-                return this.stack[i2 - 1];
+            int i = this.stackSize;
+            if (i != 0) {
+                return this.stack[i - 1];
             }
             throw new IllegalStateException("JsonWriter is closed.");
         }
         return invokeV.intValue;
     }
 
-    private void push(int i2) {
+    private void push(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            int i3 = this.stackSize;
+        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
+            int i2 = this.stackSize;
             int[] iArr = this.stack;
-            if (i3 == iArr.length) {
-                int[] iArr2 = new int[i3 * 2];
-                System.arraycopy(iArr, 0, iArr2, 0, i3);
+            if (i2 == iArr.length) {
+                int[] iArr2 = new int[i2 * 2];
+                System.arraycopy(iArr, 0, iArr2, 0, i2);
                 this.stack = iArr2;
             }
             int[] iArr3 = this.stack;
-            int i4 = this.stackSize;
-            this.stackSize = i4 + 1;
-            iArr3[i4] = i2;
+            int i3 = this.stackSize;
+            this.stackSize = i3 + 1;
+            iArr3[i3] = i;
         }
     }
 
-    private void replaceTop(int i2) {
+    private void replaceTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, this, i2) == null) {
-            this.stack[this.stackSize - 1] = i2;
+        if (interceptable == null || interceptable.invokeI(65545, this, i) == null) {
+            this.stack[this.stackSize - 1] = i;
         }
     }
 
@@ -223,38 +221,38 @@ public class JsonWriter implements Closeable, Flushable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void string(String str) throws IOException {
-        int i2;
+        int i;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
             String[] strArr = this.htmlSafe ? HTML_SAFE_REPLACEMENT_CHARS : REPLACEMENT_CHARS;
             this.out.write("\"");
             int length = str.length();
-            int i3 = 0;
-            while (i2 < length) {
-                char charAt = str.charAt(i2);
+            int i2 = 0;
+            while (i < length) {
+                char charAt = str.charAt(i);
                 if (charAt < 128) {
                     str2 = strArr[charAt];
-                    i2 = str2 == null ? i2 + 1 : 0;
-                    if (i3 < i2) {
-                        this.out.write(str, i3, i2 - i3);
+                    i = str2 == null ? i + 1 : 0;
+                    if (i2 < i) {
+                        this.out.write(str, i2, i - i2);
                     }
                     this.out.write(str2);
-                    i3 = i2 + 1;
+                    i2 = i + 1;
                 } else {
                     if (charAt == 8232) {
                         str2 = "\\u2028";
                     } else if (charAt == 8233) {
                         str2 = "\\u2029";
                     }
-                    if (i3 < i2) {
+                    if (i2 < i) {
                     }
                     this.out.write(str2);
-                    i3 = i2 + 1;
+                    i2 = i + 1;
                 }
             }
-            if (i3 < length) {
-                this.out.write(str, i3, length - i3);
+            if (i2 < length) {
+                this.out.write(str, i2, length - i2);
             }
             this.out.write("\"");
         }
@@ -450,8 +448,8 @@ public class JsonWriter implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.out.close();
-            int i2 = this.stackSize;
-            if (i2 <= 1 && (i2 != 1 || this.stack[i2 - 1] == 7)) {
+            int i = this.stackSize;
+            if (i <= 1 && (i != 1 || this.stack[i - 1] == 7)) {
                 this.stackSize = 0;
                 return;
             }
@@ -489,13 +487,13 @@ public class JsonWriter implements Closeable, Flushable {
         return (JsonWriter) invokeCommon.objValue;
     }
 
-    public JsonWriter value(long j2) throws IOException {
+    public JsonWriter value(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048593, this, j)) == null) {
             writeDeferredName();
             beforeValue();
-            this.out.write(Long.toString(j2));
+            this.out.write(Long.toString(j));
             return this;
         }
         return (JsonWriter) invokeJ.objValue;
@@ -510,7 +508,7 @@ public class JsonWriter implements Closeable, Flushable {
             }
             writeDeferredName();
             String obj = number.toString();
-            if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals(WalletPayViewController.DEF_CHANNEL_TITLE))) {
+            if (!this.lenient && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
                 throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
             }
             beforeValue();

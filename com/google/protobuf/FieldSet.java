@@ -203,9 +203,9 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -228,11 +228,11 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public static int computeElementSize(WireFormat.FieldType fieldType, int i2, Object obj) {
+    public static int computeElementSize(WireFormat.FieldType fieldType, int i, Object obj) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fieldType, i2, obj)) == null) {
-            int computeTagSize = CodedOutputStream.computeTagSize(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, fieldType, i, obj)) == null) {
+            int computeTagSize = CodedOutputStream.computeTagSize(i);
             if (fieldType == WireFormat.FieldType.GROUP) {
                 computeTagSize *= 2;
             }
@@ -299,17 +299,17 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
             WireFormat.FieldType liteType = fieldDescriptorLite.getLiteType();
             int number = fieldDescriptorLite.getNumber();
             if (fieldDescriptorLite.isRepeated()) {
-                int i2 = 0;
+                int i = 0;
                 if (fieldDescriptorLite.isPacked()) {
                     for (Object obj2 : (List) obj) {
-                        i2 += computeElementSizeNoTag(liteType, obj2);
+                        i += computeElementSizeNoTag(liteType, obj2);
                     }
-                    return CodedOutputStream.computeTagSize(number) + i2 + CodedOutputStream.computeRawVarint32Size(i2);
+                    return CodedOutputStream.computeTagSize(number) + i + CodedOutputStream.computeRawVarint32Size(i);
                 }
                 for (Object obj3 : (List) obj) {
-                    i2 += computeElementSize(liteType, number, obj3);
+                    i += computeElementSize(liteType, number, obj3);
                 }
-                return i2;
+                return i;
             }
             return computeElementSize(liteType, number, obj);
         }
@@ -462,14 +462,14 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public static void writeElement(CodedOutputStream codedOutputStream, WireFormat.FieldType fieldType, int i2, Object obj) throws IOException {
+    public static void writeElement(CodedOutputStream codedOutputStream, WireFormat.FieldType fieldType, int i, Object obj) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65551, null, codedOutputStream, fieldType, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65551, null, codedOutputStream, fieldType, i, obj) == null) {
             if (fieldType == WireFormat.FieldType.GROUP) {
-                codedOutputStream.writeGroup(i2, (MessageLite) obj);
+                codedOutputStream.writeGroup(i, (MessageLite) obj);
                 return;
             }
-            codedOutputStream.writeTag(i2, getWireFormatForFieldType(fieldType, false));
+            codedOutputStream.writeTag(i, getWireFormatForFieldType(fieldType, false));
             writeElementNoTag(codedOutputStream, fieldType, obj);
         }
     }
@@ -547,11 +547,11 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
                 List<Object> list = (List) obj;
                 if (fieldDescriptorLite.isPacked()) {
                     codedOutputStream.writeTag(number, 2);
-                    int i2 = 0;
+                    int i = 0;
                     for (Object obj2 : list) {
-                        i2 += computeElementSizeNoTag(liteType, obj2);
+                        i += computeElementSizeNoTag(liteType, obj2);
                     }
-                    codedOutputStream.writeRawVarint32(i2);
+                    codedOutputStream.writeRawVarint32(i);
                     for (Object obj3 : list) {
                         writeElementNoTag(codedOutputStream, liteType, obj3);
                     }
@@ -614,8 +614,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
                 return this.fields.isImmutable() ? this.fields : Collections.unmodifiableMap(this.fields);
             }
             SmallSortedMap newFieldMap = SmallSortedMap.newFieldMap(16);
-            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                cloneFieldEntry(newFieldMap, this.fields.getArrayEntryAt(i2));
+            for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
+                cloneFieldEntry(newFieldMap, this.fields.getArrayEntryAt(i));
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                 cloneFieldEntry(newFieldMap, entry);
@@ -642,26 +642,26 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.fields.getNumArrayEntries(); i3++) {
-                i2 += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i3));
+            int i = 0;
+            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+                i += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i2));
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
-                i2 += getMessageSetSerializedSize(entry);
+                i += getMessageSetSerializedSize(entry);
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i2) {
+    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fielddescriptortype, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fielddescriptortype, i)) == null) {
             if (fielddescriptortype.isRepeated()) {
                 Object field = getField(fielddescriptortype);
                 if (field != null) {
-                    return ((List) field).get(i2);
+                    return ((List) field).get(i);
                 }
                 throw new IndexOutOfBoundsException();
             }
@@ -690,15 +690,15 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.fields.getNumArrayEntries(); i3++) {
-                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i3);
-                i2 += computeFieldSize(arrayEntryAt.getKey(), arrayEntryAt.getValue());
+            int i = 0;
+            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
+                i += computeFieldSize(arrayEntryAt.getKey(), arrayEntryAt.getValue());
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
-                i2 += computeFieldSize(entry.getKey(), entry.getValue());
+                i += computeFieldSize(entry.getKey(), entry.getValue());
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -725,8 +725,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                if (!isInitialized(this.fields.getArrayEntryAt(i2))) {
+            for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
+                if (!isInitialized(this.fields.getArrayEntryAt(i))) {
                     return false;
                 }
             }
@@ -764,8 +764,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public void mergeFrom(FieldSet<FieldDescriptorType> fieldSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, fieldSet) == null) {
-            for (int i2 = 0; i2 < fieldSet.fields.getNumArrayEntries(); i2++) {
-                mergeFromField(fieldSet.fields.getArrayEntryAt(i2));
+            for (int i = 0; i < fieldSet.fields.getNumArrayEntries(); i++) {
+                mergeFromField(fieldSet.fields.getArrayEntryAt(i));
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : fieldSet.fields.getOverflowEntries()) {
                 mergeFromField(entry);
@@ -797,14 +797,14 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i2, Object obj) {
+    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048594, this, fielddescriptortype, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048594, this, fielddescriptortype, i, obj) == null) {
             if (fielddescriptortype.isRepeated()) {
                 Object field = getField(fielddescriptortype);
                 if (field != null) {
                     verifyType(fielddescriptortype.getLiteType(), obj);
-                    ((List) field).set(i2, obj);
+                    ((List) field).set(i, obj);
                     return;
                 }
                 throw new IndexOutOfBoundsException();
@@ -816,8 +816,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public void writeMessageSetTo(CodedOutputStream codedOutputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, codedOutputStream) == null) {
-            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                writeMessageSetTo(this.fields.getArrayEntryAt(i2), codedOutputStream);
+            for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
+                writeMessageSetTo(this.fields.getArrayEntryAt(i), codedOutputStream);
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
                 writeMessageSetTo(entry, codedOutputStream);
@@ -828,8 +828,8 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, codedOutputStream) == null) {
-            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
+            for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
                 writeField(arrayEntryAt.getKey(), arrayEntryAt.getValue(), codedOutputStream);
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
@@ -840,13 +840,13 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m118clone() {
+    public FieldSet<FieldDescriptorType> m106clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
-            for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
-                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
+            for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
+                Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);
                 newFieldSet.setField(arrayEntryAt.getKey(), arrayEntryAt.getValue());
             }
             for (Map.Entry<FieldDescriptorType, Object> entry : this.fields.getOverflowEntries()) {
@@ -865,9 +865,9 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

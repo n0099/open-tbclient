@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.text.ssa;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,8 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SsaDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOGUE_LINE_PREFIX = "Dialogue: ";
@@ -59,9 +59,9 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((List) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -71,34 +71,34 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
     }
 
     private void parseDialogueLine(String str, List<Cue> list, LongArray longArray) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, str, list, longArray) == null) {
             if (this.formatKeyCount == 0) {
-                String str2 = "Skipping dialogue line before format: " + str;
+                Log.w(TAG, "Skipping dialogue line before format: " + str);
                 return;
             }
             String[] split = str.substring(10).split(",", this.formatKeyCount);
             long parseTimecodeUs = parseTimecodeUs(split[this.formatStartIndex]);
             if (parseTimecodeUs == C.TIME_UNSET) {
-                String str3 = "Skipping invalid timing: " + str;
+                Log.w(TAG, "Skipping invalid timing: " + str);
                 return;
             }
-            String str4 = split[this.formatEndIndex];
-            if (str4.trim().isEmpty()) {
-                j2 = -9223372036854775807L;
+            String str2 = split[this.formatEndIndex];
+            if (str2.trim().isEmpty()) {
+                j = -9223372036854775807L;
             } else {
-                j2 = parseTimecodeUs(str4);
-                if (j2 == C.TIME_UNSET) {
-                    String str5 = "Skipping invalid timing: " + str;
+                j = parseTimecodeUs(str2);
+                if (j == C.TIME_UNSET) {
+                    Log.w(TAG, "Skipping invalid timing: " + str);
                     return;
                 }
             }
-            list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", StringUtils.LF).replaceAll("\\\\n", StringUtils.LF)));
+            list.add(new Cue(split[this.formatTextIndex].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
             longArray.add(parseTimecodeUs);
-            if (j2 != C.TIME_UNSET) {
+            if (j != C.TIME_UNSET) {
                 list.add(null);
-                longArray.add(j2);
+                longArray.add(j);
             }
         }
     }
@@ -130,8 +130,8 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
             this.formatStartIndex = -1;
             this.formatEndIndex = -1;
             this.formatTextIndex = -1;
-            for (int i2 = 0; i2 < this.formatKeyCount; i2++) {
-                String lowerInvariant = Util.toLowerInvariant(split[i2].trim());
+            for (int i = 0; i < this.formatKeyCount; i++) {
+                String lowerInvariant = Util.toLowerInvariant(split[i].trim());
                 int hashCode = lowerInvariant.hashCode();
                 if (hashCode == 100571) {
                     if (lowerInvariant.equals("end")) {
@@ -150,11 +150,11 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
                     c2 = 65535;
                 }
                 if (c2 == 0) {
-                    this.formatStartIndex = i2;
+                    this.formatStartIndex = i;
                 } else if (c2 == 1) {
-                    this.formatEndIndex = i2;
+                    this.formatEndIndex = i;
                 } else if (c2 == 2) {
-                    this.formatTextIndex = i2;
+                    this.formatTextIndex = i;
                 }
             }
         }
@@ -192,9 +192,9 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -214,13 +214,13 @@ public final class SsaDecoder extends SimpleSubtitleDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
-    public SsaSubtitle decode(byte[] bArr, int i2, boolean z) {
+    public SsaSubtitle decode(byte[] bArr, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             ArrayList arrayList = new ArrayList();
             LongArray longArray = new LongArray();
-            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i2);
+            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i);
             if (!this.haveInitializationData) {
                 parseHeader(parsableByteArray);
             }

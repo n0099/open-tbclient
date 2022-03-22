@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.extractor.mkv;
 
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface EbmlReader {
     public static final int TYPE_BINARY = 4;
     public static final int TYPE_FLOAT = 5;

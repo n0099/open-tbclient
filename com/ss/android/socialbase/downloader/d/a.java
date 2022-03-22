@@ -23,9 +23,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static void a(DownloadTask downloadTask, BaseException baseException, int i2) {
+    public static void a(DownloadTask downloadTask, BaseException baseException, int i) {
         if (downloadTask == null) {
             return;
         }
@@ -35,27 +35,27 @@ public class a {
                 return;
             }
             x monitorDepend = downloadTask.getMonitorDepend();
-            boolean isMonitorStatus = DownloadStatus.isMonitorStatus(i2);
-            if (!isMonitorStatus && !(isMonitorStatus = a(downloadInfo.getExtraMonitorStatus(), i2)) && monitorDepend != null && (monitorDepend instanceof com.ss.android.socialbase.downloader.depend.c)) {
-                isMonitorStatus = a(((com.ss.android.socialbase.downloader.depend.c) monitorDepend).a(), i2);
+            boolean isMonitorStatus = DownloadStatus.isMonitorStatus(i);
+            if (!isMonitorStatus && !(isMonitorStatus = a(downloadInfo.getExtraMonitorStatus(), i)) && monitorDepend != null && (monitorDepend instanceof com.ss.android.socialbase.downloader.depend.c)) {
+                isMonitorStatus = a(((com.ss.android.socialbase.downloader.depend.c) monitorDepend).a(), i);
             }
             if (isMonitorStatus) {
                 n depend = downloadTask.getDepend();
                 if (depend != null) {
-                    depend.a(downloadInfo, baseException, i2);
+                    depend.a(downloadInfo, baseException, i);
                 }
-                a(monitorDepend, downloadInfo, baseException, i2);
-                a(com.ss.android.socialbase.downloader.downloader.c.g(), downloadInfo, baseException, i2);
+                a(monitorDepend, downloadInfo, baseException, i);
+                a(com.ss.android.socialbase.downloader.downloader.c.g(), downloadInfo, baseException, i);
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public static boolean a(int[] iArr, int i2) {
+    public static boolean a(int[] iArr, int i) {
         if (iArr != null && iArr.length > 0) {
-            for (int i3 : iArr) {
-                if (i2 == i3) {
+            for (int i2 : iArr) {
+                if (i == i2) {
                     return true;
                 }
             }
@@ -63,7 +63,7 @@ public class a {
         return false;
     }
 
-    public static void a(x xVar, DownloadInfo downloadInfo, BaseException baseException, int i2) {
+    public static void a(x xVar, DownloadInfo downloadInfo, BaseException baseException, int i) {
         if (xVar == null) {
             return;
         }
@@ -72,7 +72,7 @@ public class a {
             if (TextUtils.isEmpty(b2)) {
                 b2 = "default";
             }
-            JSONObject a = a(b2, downloadInfo, baseException, i2);
+            JSONObject a = a(b2, downloadInfo, baseException, i);
             if (a == null) {
                 a = new JSONObject();
             }
@@ -81,35 +81,35 @@ public class a {
         }
     }
 
-    public static void a(b bVar, DownloadInfo downloadInfo, BaseException baseException, int i2) {
+    public static void a(b bVar, DownloadInfo downloadInfo, BaseException baseException, int i) {
         if (bVar == null || !downloadInfo.isNeedSDKMonitor() || TextUtils.isEmpty(downloadInfo.getMonitorScene())) {
             return;
         }
         try {
-            JSONObject a = a(downloadInfo.getMonitorScene(), downloadInfo, baseException, i2);
+            JSONObject a = a(downloadInfo.getMonitorScene(), downloadInfo, baseException, i);
             if (a == null) {
                 a = new JSONObject();
             }
-            if (i2 == -1) {
+            if (i == -1) {
                 a.put("status", baseException.getErrorCode());
                 bVar.a("download_failed", a, null, null);
                 return;
             }
-            a(i2, a, downloadInfo);
+            a(i, a, downloadInfo);
             bVar.a("download_common", a, null, null);
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public static void a(int i2, JSONObject jSONObject, DownloadInfo downloadInfo) throws JSONException {
+    public static void a(int i, JSONObject jSONObject, DownloadInfo downloadInfo) throws JSONException {
         String str;
-        if (i2 == -5) {
+        if (i == -5) {
             str = "download_uncomplete";
-        } else if (i2 == -4) {
+        } else if (i == -4) {
             str = "download_cancel";
-        } else if (i2 != -3) {
-            str = i2 != -2 ? i2 != 0 ? i2 != 2 ? i2 != 6 ? "" : "download_first_start" : "download_start" : "download_create" : "download_pause";
+        } else if (i != -3) {
+            str = i != -2 ? i != 0 ? i != 2 ? i != 6 ? "" : "download_first_start" : "download_start" : "download_create" : "download_pause";
         } else {
             double downloadSpeed = downloadInfo.getDownloadSpeed();
             if (downloadSpeed >= 0.0d) {
@@ -129,11 +129,11 @@ public class a {
         }
     }
 
-    public static JSONObject a(String str, DownloadInfo downloadInfo, BaseException baseException, int i2) {
+    public static JSONObject a(String str, DownloadInfo downloadInfo, BaseException baseException, int i) {
         String str2;
         String str3;
         String str4;
-        int i3;
+        int i2;
         String str5;
         String str6;
         String str7;
@@ -146,20 +146,20 @@ public class a {
                     str2 = k.b();
                     str3 = a(str2);
                     str4 = k.a();
-                    i3 = k.c();
+                    i2 = k.c();
                 } else {
                     str2 = "";
                     str3 = str2;
                     str4 = str3;
-                    i3 = 0;
+                    i2 = 0;
                 }
                 String a = (baseException == null || !(baseException instanceof g)) ? "" : ((g) baseException).a();
                 jSONObject2.put("event_page", str);
                 jSONObject2.put("app_id", str4);
                 jSONObject2.put("device_id", str2);
                 jSONObject2.put("device_id_postfix", str3);
-                jSONObject2.put("update_version", i3);
-                jSONObject2.put("download_status", i2);
+                jSONObject2.put("update_version", i2);
+                jSONObject2.put("download_status", i);
                 if (downloadInfo != null) {
                     jSONObject2.put("setting_tag", com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).c("setting_tag"));
                     jSONObject2.put("download_id", downloadInfo.getId());
@@ -170,7 +170,7 @@ public class a {
                     jSONObject2.put("cur_bytes", downloadInfo.getCurBytes());
                     jSONObject2.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
                     jSONObject2.put("network_quality", downloadInfo.getNetworkQuality());
-                    int i4 = 1;
+                    int i3 = 1;
                     jSONObject2.put("only_wifi", downloadInfo.isOnlyWifi() ? 1 : 0);
                     jSONObject2.put("need_https_degrade", downloadInfo.isNeedHttpsToHttpRetry() ? 1 : 0);
                     jSONObject2.put("https_degrade_retry_used", downloadInfo.isHttpsToHttpRetryUsed() ? 1 : 0);
@@ -190,9 +190,9 @@ public class a {
                     jSONObject2.put("head_connection_error_msg", downloadInfo.getHeadConnectionException() != null ? downloadInfo.getHeadConnectionException() : "");
                     jSONObject2.put("extra", downloadInfo.getExtra() != null ? downloadInfo.getExtra() : "");
                     if (!downloadInfo.isAddListenerToSameTask()) {
-                        i4 = 0;
+                        i3 = 0;
                     }
-                    jSONObject2.put("add_listener_to_same_task", i4);
+                    jSONObject2.put("add_listener_to_same_task", i3);
                     jSONObject2.put("backup_url_count", downloadInfo.getBackUpUrls() != null ? downloadInfo.getBackUpUrls().size() : 0);
                     jSONObject2.put("cur_backup_url_index", downloadInfo.getBackUpUrls() != null ? downloadInfo.getCurBackUpUrlIndex() : -1);
                     jSONObject2.put("forbidden_urls", downloadInfo.getForbiddenBackupUrls() != null ? downloadInfo.getForbiddenBackupUrls().toString() : "");
@@ -246,7 +246,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(@Nullable com.ss.android.socialbase.downloader.network.g gVar, String str, String str2, long j2, String str3, int i2, IOException iOException, DownloadInfo downloadInfo) {
+    public static void a(@Nullable com.ss.android.socialbase.downloader.network.g gVar, String str, String str2, long j, String str3, int i, IOException iOException, DownloadInfo downloadInfo) {
         com.ss.android.socialbase.downloader.g.a a;
         int a2;
         String e2;
@@ -259,14 +259,14 @@ public class a {
         if (downloadInfo == null || (a2 = (a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId())).a("monitor_download_connect", 0)) <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        int i3 = -1;
+        int i2 = -1;
         if (gVar != null) {
             try {
-                i3 = gVar.b();
+                i2 = gVar.b();
                 if (gVar instanceof com.ss.android.socialbase.downloader.network.a) {
                     e2 = ((com.ss.android.socialbase.downloader.network.a) gVar).e();
                     String str4 = "";
-                    if (i3 >= 200 || i3 >= 400) {
+                    if (i2 >= 200 || i2 >= 400) {
                         if (downloadInfo.getCurRetryTime() == 0 && ((httpStatusCode = downloadInfo.getHttpStatusCode()) < 200 || httpStatusCode >= 400)) {
                             return;
                         }
@@ -275,14 +275,14 @@ public class a {
                                 try {
                                     f.a((Throwable) iOException, "");
                                 } catch (BaseException e3) {
-                                    i3 = e3.getErrorCode();
+                                    i2 = e3.getErrorCode();
                                     errorMessage = e3.getErrorMessage();
                                     if (e3 instanceof g) {
                                         str4 = ((g) e3).a();
                                     }
                                 }
                             } else {
-                                i3 = 1049;
+                                i2 = 1049;
                             }
                         }
                     }
@@ -304,14 +304,14 @@ public class a {
                     jSONObject.putOpt("host_real_ip", e2);
                     jSONObject.put("url_path", path);
                     jSONObject.put("url_last_path_segment", lastPathSegment);
-                    jSONObject.put("net_lib", i2);
+                    jSONObject.put("net_lib", i);
                     jSONObject.put("connect_type", str3);
-                    jSONObject.put("status_code", i3);
+                    jSONObject.put("status_code", i2);
                     jSONObject.put("request_log", str4);
                     if (errorMessage != null) {
                         jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, f.a(errorMessage, a.a("exception_msg_length", 500)));
                     }
-                    jSONObject.put("connect_time", j2);
+                    jSONObject.put("connect_time", j);
                     jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
                     jSONObject.put("name", downloadInfo.getTitle());
                     if ((a2 != 1 || a2 == 3) && (g2 = com.ss.android.socialbase.downloader.downloader.c.g()) != null) {
@@ -326,7 +326,7 @@ public class a {
         }
         e2 = null;
         String str42 = "";
-        if (i3 >= 200) {
+        if (i2 >= 200) {
         }
         if (downloadInfo.getCurRetryTime() == 0) {
         }
@@ -347,13 +347,13 @@ public class a {
         jSONObject.putOpt("host_real_ip", e2);
         jSONObject.put("url_path", path);
         jSONObject.put("url_last_path_segment", lastPathSegment);
-        jSONObject.put("net_lib", i2);
+        jSONObject.put("net_lib", i);
         jSONObject.put("connect_type", str3);
-        jSONObject.put("status_code", i3);
+        jSONObject.put("status_code", i2);
         jSONObject.put("request_log", str42);
         if (errorMessage != null) {
         }
-        jSONObject.put("connect_time", j2);
+        jSONObject.put("connect_time", j);
         jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
         jSONObject.put("name", downloadInfo.getTitle());
         if (a2 != 1) {
@@ -364,12 +364,12 @@ public class a {
         com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), "download_connect", jSONObject);
     }
 
-    public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, i iVar, boolean z, boolean z2, BaseException baseException, long j2, long j3, boolean z3, long j4, long j5, long j6, JSONObject jSONObject) {
-        a("download_io", aVar.b("monitor_download_io"), aVar, downloadInfo, str, null, null, iVar, z, z2, baseException, j2, j3, z3, j4, j5, j6, null);
+    public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, i iVar, boolean z, boolean z2, BaseException baseException, long j, long j2, boolean z3, long j3, long j4, long j5, JSONObject jSONObject) {
+        a("download_io", aVar.b("monitor_download_io"), aVar, downloadInfo, str, null, null, iVar, z, z2, baseException, j, j2, z3, j3, j4, j5, null);
     }
 
-    public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, String str2, String str3, boolean z, i iVar, BaseException baseException, long j2, long j3) {
-        a("segment_io", aVar.b("monitor_segment_io"), aVar, downloadInfo, str, str2, str3, iVar, z, false, baseException, j2, j3, false, -1L, -1L, -1L, null);
+    public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, String str2, String str3, boolean z, i iVar, BaseException baseException, long j, long j2) {
+        a("segment_io", aVar.b("monitor_segment_io"), aVar, downloadInfo, str, str2, str3, iVar, z, false, baseException, j, j2, false, -1L, -1L, -1L, null);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -385,18 +385,18 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(String str, int i2, com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str2, String str3, String str4, i iVar, boolean z, boolean z2, BaseException baseException, long j2, long j3, boolean z3, long j4, long j5, long j6, JSONObject jSONObject) {
-        int i3;
+    public static void a(String str, int i, com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str2, String str3, String str4, i iVar, boolean z, boolean z2, BaseException baseException, long j, long j2, boolean z3, long j3, long j4, long j5, JSONObject jSONObject) {
+        int i2;
         String errorMessage;
-        long j7;
+        long j6;
         String str5;
+        int i3;
         int i4;
-        int i5;
         double nanos;
         b g2;
         String str6;
-        int i6;
-        if (i2 <= 0 || j3 <= 0) {
+        int i5;
+        if (i <= 0 || j2 <= 0) {
             return;
         }
         try {
@@ -411,31 +411,31 @@ public class a {
                 }
             }
             if (z) {
-                i3 = 1;
+                i2 = 1;
             } else if (z2) {
-                i3 = 2;
+                i2 = 2;
             } else if (baseException != null) {
-                i3 = !f.c(com.ss.android.socialbase.downloader.downloader.c.N()) ? 1049 : baseException.getErrorCode();
+                i2 = !f.c(com.ss.android.socialbase.downloader.downloader.c.N()) ? 1049 : baseException.getErrorCode();
                 errorMessage = baseException.getErrorMessage();
                 JSONObject jSONObject2 = new JSONObject();
                 if (iVar == null) {
-                    i4 = iVar instanceof e ? 0 : 1;
+                    i3 = iVar instanceof e ? 0 : 1;
                     String a = iVar.a("X-Cache");
                     int contains = TextUtils.isEmpty(a) ? -1 : a.toLowerCase().contains("hit");
                     if (aVar.a("monitor_sla", 1) == 1 && !z && !z2 && (iVar instanceof com.ss.android.socialbase.downloader.network.a)) {
                         ((com.ss.android.socialbase.downloader.network.a) iVar).a(jSONObject2, true);
                     }
-                    j7 = j2;
+                    j6 = j;
                     str5 = iVar instanceof com.ss.android.socialbase.downloader.network.a ? ((com.ss.android.socialbase.downloader.network.a) iVar).f() : "";
-                    i5 = contains;
+                    i4 = contains;
                 } else {
-                    j7 = j2;
+                    j6 = j;
                     str5 = "";
+                    i3 = -1;
                     i4 = -1;
-                    i5 = -1;
                 }
-                double d2 = j7 / 1048576.0d;
-                double d3 = j3;
+                double d2 = j6 / 1048576.0d;
+                double d3 = j2;
                 nanos = d3 / TimeUnit.SECONDS.toNanos(1L);
                 jSONObject2.put("setting_tag", aVar.c("setting_tag"));
                 jSONObject2.put("url_host", host);
@@ -443,9 +443,9 @@ public class a {
                 jSONObject2.putOpt("host_real_ip", str4);
                 jSONObject2.put("url_path", path);
                 jSONObject2.put("url_last_path_segment", lastPathSegment);
-                jSONObject2.put("net_lib", i4);
-                jSONObject2.put("hit_cdn_cache", i5);
-                jSONObject2.put("status_code", i3);
+                jSONObject2.put("net_lib", i3);
+                jSONObject2.put("hit_cdn_cache", i4);
+                jSONObject2.put("status_code", i2);
                 jSONObject2.put("request_log", str5);
                 if (errorMessage != null) {
                     jSONObject2.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, f.a(errorMessage, aVar.a("exception_msg_length", 500)));
@@ -456,16 +456,16 @@ public class a {
                     jSONObject2.put("download_speed", d2 / nanos);
                 }
                 if (z3) {
-                    jSONObject2.put("rw_read_time", j4 / d3);
-                    jSONObject2.put("rw_write_time", j5 / d3);
-                    jSONObject2.put("rw_sync_time", j6 / d3);
+                    jSONObject2.put("rw_read_time", j3 / d3);
+                    jSONObject2.put("rw_write_time", j4 / d3);
+                    jSONObject2.put("rw_sync_time", j5 / d3);
                 }
                 jSONObject2.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
                 jSONObject2.put("name", downloadInfo.getTitle());
-                if (i2 != 1 && i2 != 3) {
-                    i6 = 2;
+                if (i != 1 && i != 3) {
+                    i5 = 2;
                     str6 = str;
-                    if (i2 != i6 || i2 == 3) {
+                    if (i != i5 || i == 3) {
                         com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), str6, jSONObject2);
                     }
                     return;
@@ -477,19 +477,19 @@ public class a {
                 } else {
                     str6 = str;
                 }
-                i6 = 2;
-                if (i2 != i6) {
+                i5 = 2;
+                if (i != i5) {
                 }
                 com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), str6, jSONObject2);
             } else {
-                i3 = 0;
+                i2 = 0;
             }
             errorMessage = null;
             JSONObject jSONObject22 = new JSONObject();
             if (iVar == null) {
             }
-            double d22 = j7 / 1048576.0d;
-            double d32 = j3;
+            double d22 = j6 / 1048576.0d;
+            double d32 = j2;
             nanos = d32 / TimeUnit.SECONDS.toNanos(1L);
             jSONObject22.put("setting_tag", aVar.c("setting_tag"));
             jSONObject22.put("url_host", host);
@@ -497,9 +497,9 @@ public class a {
             jSONObject22.putOpt("host_real_ip", str4);
             jSONObject22.put("url_path", path);
             jSONObject22.put("url_last_path_segment", lastPathSegment);
-            jSONObject22.put("net_lib", i4);
-            jSONObject22.put("hit_cdn_cache", i5);
-            jSONObject22.put("status_code", i3);
+            jSONObject22.put("net_lib", i3);
+            jSONObject22.put("hit_cdn_cache", i4);
+            jSONObject22.put("status_code", i2);
             jSONObject22.put("request_log", str5);
             if (errorMessage != null) {
             }
@@ -511,18 +511,18 @@ public class a {
             }
             jSONObject22.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
             jSONObject22.put("name", downloadInfo.getTitle());
-            if (i2 != 1) {
-                i6 = 2;
+            if (i != 1) {
+                i5 = 2;
                 str6 = str;
-                if (i2 != i6) {
+                if (i != i5) {
                 }
                 com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), str6, jSONObject22);
             }
             g2 = com.ss.android.socialbase.downloader.downloader.c.g();
             if (g2 == null) {
             }
-            i6 = 2;
-            if (i2 != i6) {
+            i5 = 2;
+            if (i != i5) {
             }
             com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), str6, jSONObject22);
         } catch (Throwable th) {

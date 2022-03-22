@@ -13,7 +13,7 @@ import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.memory.BasePool;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryTrimmableRegistry, poolParams, poolStatsTracker};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((MemoryTrimmableRegistry) objArr2[0], (PoolParams) objArr2[1], (PoolStatsTracker) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -40,12 +40,12 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
         }
         SparseIntArray sparseIntArray = poolParams.bucketSizes;
         this.mBucketSizes = new int[sparseIntArray.size()];
-        int i4 = 0;
+        int i3 = 0;
         while (true) {
             int[] iArr = this.mBucketSizes;
-            if (i4 < iArr.length) {
-                iArr[i4] = sparseIntArray.keyAt(i4);
-                i4++;
+            if (i3 < iArr.length) {
+                iArr[i3] = sparseIntArray.keyAt(i3);
+                i3++;
             } else {
                 initialize();
                 return;
@@ -56,23 +56,23 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public abstract MemoryChunk alloc(int i2);
+    public abstract MemoryChunk alloc(int i);
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i2) {
+    public int getBucketedSize(int i) {
         InterceptResult invokeI;
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 > 0) {
-                for (int i3 : this.mBucketSizes) {
-                    if (i3 >= i2) {
-                        return i3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i > 0) {
+                for (int i2 : this.mBucketSizes) {
+                    if (i2 >= i) {
+                        return i2;
                     }
                 }
-                return i2;
+                return i;
             }
-            throw new BasePool.InvalidSizeException(Integer.valueOf(i2));
+            throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
         return invokeI.intValue;
     }
@@ -84,10 +84,10 @@ public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i2) {
+    public int getSizeInBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

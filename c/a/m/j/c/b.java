@@ -10,19 +10,19 @@ public class b {
     public static byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f4227b;
+    public static byte[] f3809b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = f4227b;
+            byte[] bArr = f3809b;
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(a.f4224c).modPow(new BigInteger(a.f4225d), new BigInteger(a.f4226e)).toByteArray();
-            f4227b = byteArray;
+            byte[] byteArray = new BigInteger(a.f3806c).modPow(new BigInteger(a.f3807d), new BigInteger(a.f3808e)).toByteArray();
+            f3809b = byteArray;
             return byteArray;
         }
         return (byte[]) invokeV.objValue;
@@ -36,7 +36,7 @@ public class b {
             if (bArr != null) {
                 return bArr;
             }
-            byte[] byteArray = new BigInteger(a.a).modPow(new BigInteger(a.f4223b), new BigInteger(a.f4226e)).toByteArray();
+            byte[] byteArray = new BigInteger(a.a).modPow(new BigInteger(a.f3805b), new BigInteger(a.f3808e)).toByteArray();
             a = byteArray;
             return byteArray;
         }

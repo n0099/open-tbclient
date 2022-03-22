@@ -25,9 +25,9 @@ public class t0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,12 +44,12 @@ public class t0 {
                 try {
                     d dVar = new d(this.a.a);
                     if (dVar.a(d.t0, 1) == 1) {
-                        long i2 = dVar.i();
+                        long i = dVar.i();
                         long currentTimeMillis = System.currentTimeMillis();
                         long a = dVar.a(d.v0, 6) * 3600000;
-                        String str = " sdk lastReportTime : " + y1.a(i2);
-                        long j2 = currentTimeMillis - i2;
-                        if (j2 >= a) {
+                        String str = " sdk lastReportTime : " + y1.a(i);
+                        long j = currentTimeMillis - i;
+                        if (j >= a) {
                             this.a.b();
                             if (TextUtils.isEmpty(dVar.e(d.R0))) {
                                 String h2 = l1.h();
@@ -61,7 +61,7 @@ public class t0 {
                             context = this.a.a;
                         } else {
                             context = this.a.a;
-                            a -= j2;
+                            a -= j;
                         }
                         j1.c(context, Long.valueOf(a));
                     }
@@ -79,9 +79,9 @@ public class t0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

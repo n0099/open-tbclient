@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.LogWriter;
@@ -38,9 +39,9 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((FragmentFactory) objArr2[0], (ClassLoader) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -64,20 +65,20 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return invokeL.booleanValue;
     }
 
-    public void bumpBackStackNesting(int i2) {
+    public void bumpBackStackNesting(int i) {
         FragmentTransaction.Op op;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.mAddToBackStack) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.mAddToBackStack) {
             if (FragmentManager.isLoggingEnabled(2)) {
-                String str = "Bump nesting in " + this + " by " + i2;
+                Log.v("FragmentManager", "Bump nesting in " + this + " by " + i);
             }
             int size = this.mOps.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                Fragment fragment = this.mOps.get(i3).mFragment;
+            for (int i2 = 0; i2 < size; i2++) {
+                Fragment fragment = this.mOps.get(i2).mFragment;
                 if (fragment != null) {
-                    fragment.mBackStackNesting += i2;
+                    fragment.mBackStackNesting += i;
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        String str2 = "Bump nesting of " + op.mFragment + " to " + op.mFragment.mBackStackNesting;
+                        Log.v("FragmentManager", "Bump nesting of " + op.mFragment + " to " + op.mFragment.mBackStackNesting);
                     }
                 }
             }
@@ -104,7 +105,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             if (!this.mCommitted) {
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    String str = "Commit: " + this;
+                    Log.v("FragmentManager", "Commit: " + this);
                     PrintWriter printWriter = new PrintWriter(new LogWriter("FragmentManager"));
                     dump(GlideException.IndentedAppendable.INDENT, printWriter);
                     printWriter.close();
@@ -157,10 +158,10 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // androidx.fragment.app.FragmentTransaction
-    public void doAddOp(int i2, Fragment fragment, @Nullable String str, int i3) {
+    public void doAddOp(int i, Fragment fragment, @Nullable String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), fragment, str, Integer.valueOf(i3)}) == null) {
-            super.doAddOp(i2, fragment, str, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), fragment, str, Integer.valueOf(i2)}) == null) {
+            super.doAddOp(i, fragment, str, i2);
             fragment.mFragmentManager = this.mManager;
         }
     }
@@ -176,8 +177,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             int size = this.mOps.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                FragmentTransaction.Op op = this.mOps.get(i2);
+            for (int i = 0; i < size; i++) {
+                FragmentTransaction.Op op = this.mOps.get(i);
                 Fragment fragment = op.mFragment;
                 if (fragment != null) {
                     fragment.setNextTransition(this.mTransition);
@@ -302,24 +303,24 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, arrayList, fragment)) == null) {
             Fragment fragment2 = fragment;
-            int i2 = 0;
-            while (i2 < this.mOps.size()) {
-                FragmentTransaction.Op op = this.mOps.get(i2);
-                int i3 = op.mCmd;
-                if (i3 != 1) {
-                    if (i3 == 2) {
+            int i = 0;
+            while (i < this.mOps.size()) {
+                FragmentTransaction.Op op = this.mOps.get(i);
+                int i2 = op.mCmd;
+                if (i2 != 1) {
+                    if (i2 == 2) {
                         Fragment fragment3 = op.mFragment;
-                        int i4 = fragment3.mContainerId;
+                        int i3 = fragment3.mContainerId;
                         boolean z = false;
                         for (int size = arrayList.size() - 1; size >= 0; size--) {
                             Fragment fragment4 = arrayList.get(size);
-                            if (fragment4.mContainerId == i4) {
+                            if (fragment4.mContainerId == i3) {
                                 if (fragment4 == fragment3) {
                                     z = true;
                                 } else {
                                     if (fragment4 == fragment2) {
-                                        this.mOps.add(i2, new FragmentTransaction.Op(9, fragment4));
-                                        i2++;
+                                        this.mOps.add(i, new FragmentTransaction.Op(9, fragment4));
+                                        i++;
                                         fragment2 = null;
                                     }
                                     FragmentTransaction.Op op2 = new FragmentTransaction.Op(3, fragment4);
@@ -327,38 +328,38 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                                     op2.mPopEnterAnim = op.mPopEnterAnim;
                                     op2.mExitAnim = op.mExitAnim;
                                     op2.mPopExitAnim = op.mPopExitAnim;
-                                    this.mOps.add(i2, op2);
+                                    this.mOps.add(i, op2);
                                     arrayList.remove(fragment4);
-                                    i2++;
+                                    i++;
                                 }
                             }
                         }
                         if (z) {
-                            this.mOps.remove(i2);
-                            i2--;
+                            this.mOps.remove(i);
+                            i--;
                         } else {
                             op.mCmd = 1;
                             arrayList.add(fragment3);
                         }
-                    } else if (i3 == 3 || i3 == 6) {
+                    } else if (i2 == 3 || i2 == 6) {
                         arrayList.remove(op.mFragment);
                         Fragment fragment5 = op.mFragment;
                         if (fragment5 == fragment2) {
-                            this.mOps.add(i2, new FragmentTransaction.Op(9, fragment5));
-                            i2++;
+                            this.mOps.add(i, new FragmentTransaction.Op(9, fragment5));
+                            i++;
                             fragment2 = null;
                         }
-                    } else if (i3 != 7) {
-                        if (i3 == 8) {
-                            this.mOps.add(i2, new FragmentTransaction.Op(9, fragment2));
-                            i2++;
+                    } else if (i2 != 7) {
+                        if (i2 == 8) {
+                            this.mOps.add(i, new FragmentTransaction.Op(9, fragment2));
+                            i++;
                             fragment2 = op.mFragment;
                         }
                     }
-                    i2++;
+                    i++;
                 }
                 arrayList.add(op.mFragment);
-                i2++;
+                i++;
             }
             return fragment2;
         }
@@ -371,7 +372,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, arrayList, arrayList2)) == null) {
             if (FragmentManager.isLoggingEnabled(2)) {
-                String str = "Run: " + this;
+                Log.v("FragmentManager", "Run: " + this);
             }
             arrayList.add(this);
             arrayList2.add(Boolean.FALSE);
@@ -456,15 +457,15 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return (FragmentTransaction) invokeL.objValue;
     }
 
-    public boolean interactsWith(int i2) {
+    public boolean interactsWith(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
             int size = this.mOps.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                Fragment fragment = this.mOps.get(i3).mFragment;
-                int i4 = fragment != null ? fragment.mContainerId : 0;
-                if (i4 != 0 && i4 == i2) {
+            for (int i2 = 0; i2 < size; i2++) {
+                Fragment fragment = this.mOps.get(i2).mFragment;
+                int i3 = fragment != null ? fragment.mContainerId : 0;
+                if (i3 != 0 && i3 == i) {
                     return true;
                 }
             }
@@ -484,8 +485,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            for (int i2 = 0; i2 < this.mOps.size(); i2++) {
-                if (isFragmentPostponed(this.mOps.get(i2))) {
+            for (int i = 0; i < this.mOps.size(); i++) {
+                if (isFragmentPostponed(this.mOps.get(i))) {
                     return true;
                 }
             }
@@ -514,8 +515,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.mCommitRunnables == null) {
             return;
         }
-        for (int i2 = 0; i2 < this.mCommitRunnables.size(); i2++) {
-            this.mCommitRunnables.get(i2).run();
+        for (int i = 0; i < this.mCommitRunnables.size(); i++) {
+            this.mCommitRunnables.get(i).run();
         }
         this.mCommitRunnables = null;
     }
@@ -540,8 +541,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     public void setOnStartPostponedListener(Fragment.OnStartEnterTransitionListener onStartEnterTransitionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, onStartEnterTransitionListener) == null) {
-            for (int i2 = 0; i2 < this.mOps.size(); i2++) {
-                FragmentTransaction.Op op = this.mOps.get(i2);
+            for (int i = 0; i < this.mOps.size(); i++) {
+                FragmentTransaction.Op op = this.mOps.get(i);
                 if (isFragmentPostponed(op)) {
                     op.mFragment.setOnStartEnterTransitionListener(onStartEnterTransitionListener);
                 }
@@ -606,10 +607,10 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048608, this, arrayList, fragment)) == null) {
             for (int size = this.mOps.size() - 1; size >= 0; size--) {
                 FragmentTransaction.Op op = this.mOps.get(size);
-                int i2 = op.mCmd;
-                if (i2 != 1) {
-                    if (i2 != 3) {
-                        switch (i2) {
+                int i = op.mCmd;
+                if (i != 1) {
+                    if (i != 3) {
+                        switch (i) {
                             case 8:
                                 fragment = null;
                                 break;
@@ -682,8 +683,8 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
             printWriter.print(str);
             printWriter.println("Operations:");
             int size = this.mOps.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                FragmentTransaction.Op op = this.mOps.get(i2);
+            for (int i = 0; i < size; i++) {
+                FragmentTransaction.Op op = this.mOps.get(i);
                 switch (op.mCmd) {
                     case 0:
                         str2 = "NULL";
@@ -724,7 +725,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
                 }
                 printWriter.print(str);
                 printWriter.print("  Op #");
-                printWriter.print(i2);
+                printWriter.print(i);
                 printWriter.print(": ");
                 printWriter.print(str2);
                 printWriter.print(" ");
@@ -749,30 +750,30 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         }
     }
 
-    public boolean interactsWith(ArrayList<BackStackRecord> arrayList, int i2, int i3) {
+    public boolean interactsWith(ArrayList<BackStackRecord> arrayList, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048598, this, arrayList, i2, i3)) == null) {
-            if (i3 == i2) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048598, this, arrayList, i, i2)) == null) {
+            if (i2 == i) {
                 return false;
             }
             int size = this.mOps.size();
-            int i4 = -1;
-            for (int i5 = 0; i5 < size; i5++) {
-                Fragment fragment = this.mOps.get(i5).mFragment;
-                int i6 = fragment != null ? fragment.mContainerId : 0;
-                if (i6 != 0 && i6 != i4) {
-                    for (int i7 = i2; i7 < i3; i7++) {
-                        BackStackRecord backStackRecord = arrayList.get(i7);
+            int i3 = -1;
+            for (int i4 = 0; i4 < size; i4++) {
+                Fragment fragment = this.mOps.get(i4).mFragment;
+                int i5 = fragment != null ? fragment.mContainerId : 0;
+                if (i5 != 0 && i5 != i3) {
+                    for (int i6 = i; i6 < i2; i6++) {
+                        BackStackRecord backStackRecord = arrayList.get(i6);
                         int size2 = backStackRecord.mOps.size();
-                        for (int i8 = 0; i8 < size2; i8++) {
-                            Fragment fragment2 = backStackRecord.mOps.get(i8).mFragment;
-                            if ((fragment2 != null ? fragment2.mContainerId : 0) == i6) {
+                        for (int i7 = 0; i7 < size2; i7++) {
+                            Fragment fragment2 = backStackRecord.mOps.get(i7).mFragment;
+                            if ((fragment2 != null ? fragment2.mContainerId : 0) == i5) {
                                 return true;
                             }
                         }
                     }
-                    i4 = i6;
+                    i3 = i5;
                 }
             }
             return false;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AddLinkActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUBBLE_NEW_LINK_CONTENT = "bubble_new_link_content";
@@ -18,17 +18,17 @@ public class AddLinkActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddLinkActivityConfig(Context context, int i2, String str, boolean z, String str2) {
+    public AddLinkActivityConfig(Context context, int i, String str, boolean z, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, Boolean.valueOf(z), str2};
+            Object[] objArr = {context, Integer.valueOf(i), str, Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -36,24 +36,24 @@ public class AddLinkActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i);
         getIntent().putExtra(ORIGINAL_LINK_CONTENT, str);
         getIntent().putExtra(IS_SHOW_FIND_NEW_LINK_BUBBLE, z);
         getIntent().putExtra(BUBBLE_NEW_LINK_CONTENT, str2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddLinkActivityConfig(Context context, int i2, int i3, String str) {
+    public AddLinkActivityConfig(Context context, int i, int i2, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -61,8 +61,8 @@ public class AddLinkActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
-        getIntent().putExtra(SPAN_ID, i3);
+        setRequestCode(i);
+        getIntent().putExtra(SPAN_ID, i2);
         getIntent().putExtra(ORIGINAL_LINK_CONTENT, str);
     }
 }

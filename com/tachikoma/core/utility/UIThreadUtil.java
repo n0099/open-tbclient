@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UIThreadUtil {
     public static /* synthetic */ Interceptable $ic;
     public static Handler sMainHandler;
@@ -19,9 +19,9 @@ public class UIThreadUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,15 +34,15 @@ public class UIThreadUtil {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
     }
 
-    public static void postDelay(Runnable runnable, long j2) {
+    public static void postDelay(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65538, null, runnable, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65538, null, runnable, j) == null) {
             synchronized (UIThreadUtil.class) {
                 if (sMainHandler == null) {
                     sMainHandler = new Handler(Looper.getMainLooper());
                 }
             }
-            sMainHandler.postDelayed(runnable, j2);
+            sMainHandler.postDelayed(runnable, j);
         }
     }
 

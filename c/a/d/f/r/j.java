@@ -15,9 +15,9 @@ public class j implements g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -25,7 +25,7 @@ public class j implements g {
     }
 
     @Override // c.a.d.f.r.g
-    public abstract void b(int i2, String str);
+    public abstract void b(int i, String str);
 
     @Override // c.a.d.f.r.g
     public void d(byte[] bArr) {
@@ -42,9 +42,9 @@ public class j implements g {
     }
 
     @Override // c.a.d.f.r.g
-    public void g(int i2, c cVar) {
+    public void g(int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, cVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, cVar) == null) {
         }
     }
 

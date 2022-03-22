@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.ReflectionUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -46,16 +47,16 @@ public final class StorageUtils {
         public final String mPath;
         public final boolean mReadonly;
 
-        public StorageInfo(String str, boolean z, boolean z2, int i2) {
+        public StorageInfo(String str, boolean z, boolean z2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)};
+                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,7 +65,7 @@ public final class StorageUtils {
             this.mPath = str;
             this.mInternal = z;
             this.mReadonly = z2;
-            this.mDisplayNumber = i2;
+            this.mDisplayNumber = i;
         }
 
         public String getDisplayName() {
@@ -108,9 +109,9 @@ public final class StorageUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -125,7 +126,7 @@ public final class StorageUtils {
                 return Environment.getExternalStorageState().equals("mounted");
             } catch (Exception e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                 }
                 return false;
             }
@@ -133,12 +134,12 @@ public final class StorageUtils {
         return invokeV.booleanValue;
     }
 
-    public static String formatSize(long j2) {
+    public static String formatSize(long j) {
         InterceptResult invokeJ;
         double d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
-            double d3 = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            double d3 = j;
             String str = "KB";
             if (d3 >= 1024.0d) {
                 d2 = d3 / 1024.0d;
@@ -178,7 +179,7 @@ public final class StorageUtils {
                     return availableBlocks * blockSize;
                 } catch (IllegalArgumentException e2) {
                     if (DEBUG) {
-                        e2.getMessage();
+                        Log.d(TAG, e2.getMessage());
                     }
                 }
             }
@@ -205,7 +206,7 @@ public final class StorageUtils {
                 return availableBlocks * blockSize;
             } catch (IllegalArgumentException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                     return -1L;
                 }
                 return -1L;
@@ -238,32 +239,42 @@ public final class StorageUtils {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:108:0x01a8 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:109:0x003d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:113:0x003d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:138:0x0050 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0050 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:156:0x0153 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x01a9 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:104:0x01bf */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:116:0x01be */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:117:0x003f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:121:0x003f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:131:0x0057 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:132:0x0057 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01ad A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r7v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r7v1 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v11 */
-    /* JADX WARN: Type inference failed for: r7v15 */
-    /* JADX WARN: Type inference failed for: r7v16 */
-    /* JADX WARN: Type inference failed for: r7v18, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r7v19 */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v23, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r7v24 */
-    /* JADX WARN: Type inference failed for: r7v25 */
-    /* JADX WARN: Type inference failed for: r7v26 */
-    /* JADX WARN: Type inference failed for: r7v27 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v7 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:94:0x01a4 -> B:108:0x01a8). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x01c3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r8v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r8v1 */
+    /* JADX WARN: Type inference failed for: r8v10 */
+    /* JADX WARN: Type inference failed for: r8v11 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v17 */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v19 */
+    /* JADX WARN: Type inference failed for: r8v2 */
+    /* JADX WARN: Type inference failed for: r8v20 */
+    /* JADX WARN: Type inference failed for: r8v21 */
+    /* JADX WARN: Type inference failed for: r8v22 */
+    /* JADX WARN: Type inference failed for: r8v23 */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v25 */
+    /* JADX WARN: Type inference failed for: r8v26 */
+    /* JADX WARN: Type inference failed for: r8v27 */
+    /* JADX WARN: Type inference failed for: r8v28 */
+    /* JADX WARN: Type inference failed for: r8v29 */
+    /* JADX WARN: Type inference failed for: r8v30 */
+    /* JADX WARN: Type inference failed for: r8v31 */
+    /* JADX WARN: Type inference failed for: r8v32 */
+    /* JADX WARN: Type inference failed for: r8v33 */
+    /* JADX WARN: Type inference failed for: r8v34 */
+    /* JADX WARN: Type inference failed for: r8v35 */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v7 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:102:0x01ba -> B:116:0x01be). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -273,18 +284,19 @@ public final class StorageUtils {
         BufferedReader bufferedReader;
         HashSet hashSet;
         BufferedReader bufferedReader2;
-        int i2;
         String str;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             String path = Environment.getExternalStorageDirectory().getPath();
-            int i3 = 1;
+            int i2 = 1;
             boolean z = !Environment.isExternalStorageRemovable();
             String externalStorageState = Environment.getExternalStorageState();
-            BufferedReader bufferedReader3 = "mounted_ro";
-            boolean z2 = externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro");
+            String str2 = "mounted_ro";
+            boolean z2 = false;
+            boolean z3 = externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro");
             boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
             try {
             } catch (Throwable th2) {
@@ -296,118 +308,148 @@ public final class StorageUtils {
                     bufferedReader2 = new BufferedReader(new FileReader("/proc/mounts"));
                 } catch (IOException e2) {
                     e2.printStackTrace();
-                    bufferedReader3 = bufferedReader3;
+                    str2 = str2;
                 }
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader3 = null;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader3 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader3 = 0;
-                th = th;
-                bufferedReader = bufferedReader3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                try {
+                    if (DEBUG) {
+                        Log.d(TAG, "/proc/mounts");
                     }
-                }
-                throw th;
-            }
-            try {
-                boolean z3 = DEBUG;
-                while (true) {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    boolean z4 = DEBUG;
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        bufferedReader3 = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (isFuseStorage(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (isPathAccessable(nextToken2)) {
-                                    i2 = i3 + 1;
-                                    arrayList.add(new StorageInfo(nextToken2, false, bufferedReader3, i3));
-                                    i3 = i2;
-                                }
-                            }
+                    while (true) {
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine == null) {
+                            break;
                         }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new StorageInfo(path, z, bufferedReader3, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i2 = i3 + 1;
-                                    hashMap.put(nextToken, new StorageInfo(nextToken2, false, bufferedReader3, i3));
-                                    i3 = i2;
+                        if (DEBUG) {
+                            Log.d(TAG, readLine);
+                        }
+                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                        String nextToken = stringTokenizer.nextToken();
+                        str2 = stringTokenizer.nextToken();
+                        if (!hashSet.contains(str2)) {
+                            stringTokenizer.nextToken();
+                            boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
+                            if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
+                                boolean isFuseStorage = isFuseStorage(nextToken, str2);
+                                str2 = str2;
+                                if (isFuseStorage) {
+                                    hashSet.add(str2);
+                                    boolean isPathAccessable = isPathAccessable(str2);
+                                    str2 = str2;
+                                    if (isPathAccessable) {
+                                        i = i2 + 1;
+                                        arrayList.add(new StorageInfo(str2, z2, contains, i2));
+                                        i2 = i;
+                                        str2 = str2;
+                                    }
+                                }
+                                z2 = false;
+                            }
+                            if (str2.equals(path)) {
+                                hashSet.add(path);
+                                str2 = -1;
+                                hashMap.put(nextToken, new StorageInfo(path, z, contains, -1));
+                            } else if (readLine.contains("/dev/block/vold")) {
+                                str2 = str2;
+                                if (!readLine.contains("/mnt/secure")) {
+                                    str2 = str2;
+                                    if (!readLine.contains("/mnt/asec")) {
+                                        str2 = str2;
+                                        if (!readLine.contains("/mnt/obb")) {
+                                            str2 = str2;
+                                            if (!readLine.contains("/dev/mapper")) {
+                                                str2 = str2;
+                                                if (!readLine.contains("tmpfs")) {
+                                                    hashSet.add(str2);
+                                                    str2 = str2;
+                                                    if (!hashMap.containsKey(nextToken)) {
+                                                        i = i2 + 1;
+                                                        hashMap.put(nextToken, new StorageInfo(str2, z2, contains, i2));
+                                                        i2 = i;
+                                                        str2 = str2;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                str2 = str2;
+                                if (hashSet.contains(nextToken)) {
+                                    Iterator it = hashMap.keySet().iterator();
+                                    while (true) {
+                                        if (!it.hasNext()) {
+                                            str = null;
+                                            break;
+                                        }
+                                        str = (String) it.next();
+                                        if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
+                                            break;
+                                        }
+                                    }
+                                    hashMap.remove(str);
+                                    hashSet.add(str2);
+                                    str2 = str2;
+                                    if (!hashMap.containsKey(nextToken)) {
+                                        hashMap.put(nextToken, new StorageInfo(str2, false, contains, i2));
+                                        i2++;
+                                        str2 = str2;
+                                    }
                                 }
                             }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (!it.hasNext()) {
-                                    str = null;
-                                    break;
-                                }
-                                str = (String) it.next();
-                                if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                i2 = i3 + 1;
-                                hashMap.put(nextToken, new StorageInfo(nextToken2, false, bufferedReader3, i3));
-                                i3 = i2;
-                            }
+                            z2 = false;
                         }
                     }
-                }
-                for (StorageInfo storageInfo : hashMap.values()) {
-                    bufferedReader3 = isPathAccessable(storageInfo.mPath);
-                    if (bufferedReader3 != 0) {
-                        arrayList.add(storageInfo);
+                    for (StorageInfo storageInfo : hashMap.values()) {
+                        if (isPathAccessable(storageInfo.mPath)) {
+                            arrayList.add(storageInfo);
+                        }
                     }
+                    if (!hashSet.contains(path) && z3) {
+                        arrayList.add(0, new StorageInfo(path, z, equals, -1));
+                    }
+                    bufferedReader2.close();
+                    str2 = str2;
+                } catch (FileNotFoundException e3) {
+                    e = e3;
+                    str2 = bufferedReader2;
+                    e.printStackTrace();
+                    if (str2 != null) {
+                        str2.close();
+                        str2 = str2;
+                    }
+                    return arrayList;
+                } catch (IOException e4) {
+                    e = e4;
+                    str2 = bufferedReader2;
+                    e.printStackTrace();
+                    if (str2 != null) {
+                        str2.close();
+                        str2 = str2;
+                    }
+                    return arrayList;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                if (!hashSet.contains(path) && z2) {
-                    arrayList.add(0, new StorageInfo(path, z, equals, -1));
-                }
-                bufferedReader2.close();
-                bufferedReader3 = bufferedReader3;
             } catch (FileNotFoundException e6) {
                 e = e6;
-                bufferedReader3 = bufferedReader2;
-                e.printStackTrace();
-                if (bufferedReader3 != null) {
-                    bufferedReader3.close();
-                    bufferedReader3 = bufferedReader3;
-                }
-                return arrayList;
+                str2 = null;
             } catch (IOException e7) {
                 e = e7;
-                bufferedReader3 = bufferedReader2;
-                e.printStackTrace();
-                if (bufferedReader3 != null) {
-                    bufferedReader3.close();
-                    bufferedReader3 = bufferedReader3;
-                }
-                return arrayList;
+                str2 = null;
             } catch (Throwable th4) {
                 th = th4;
-                bufferedReader = bufferedReader2;
+                str2 = 0;
+                th = th;
+                bufferedReader = str2;
                 if (bufferedReader != null) {
                 }
                 throw th;
@@ -436,7 +478,7 @@ public final class StorageUtils {
                     return blockCount * blockSize;
                 } catch (IllegalArgumentException e2) {
                     if (DEBUG) {
-                        e2.getMessage();
+                        Log.d(TAG, e2.getMessage());
                     }
                 }
             }
@@ -463,7 +505,7 @@ public final class StorageUtils {
                 return blockCount * blockSize;
             } catch (IllegalArgumentException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                     return -1L;
                 }
                 return -1L;
@@ -491,7 +533,7 @@ public final class StorageUtils {
                     return blockCount * blockSize;
                 } catch (IllegalArgumentException e2) {
                     if (DEBUG) {
-                        e2.getMessage();
+                        Log.d(TAG, e2.getMessage());
                     }
                     return 0L;
                 }
@@ -539,21 +581,21 @@ public final class StorageUtils {
         return (String) invokeL.objValue;
     }
 
-    public static boolean isEnoughSpace(File file, long j2) {
+    public static boolean isEnoughSpace(File file, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65550, null, file, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65550, null, file, j)) == null) {
             try {
                 StatFs statFs = new StatFs(file.getPath());
                 long blockSize = statFs.getBlockSize();
                 long availableBlocks = statFs.getAvailableBlocks();
                 if (DEBUG) {
-                    String str = "Available size:" + (blockSize * availableBlocks);
+                    Log.d(TAG, "Available size:" + (blockSize * availableBlocks));
                 }
-                return blockSize * availableBlocks > j2;
+                return blockSize * availableBlocks > j;
             } catch (IllegalArgumentException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.d(TAG, e2.getMessage());
                 }
                 return false;
             }

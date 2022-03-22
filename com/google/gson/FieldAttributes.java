@@ -13,7 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FieldAttributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class FieldAttributes {
             newInitContext.initArgs = r2;
             Object[] objArr = {field};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,10 +80,10 @@ public final class FieldAttributes {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.field.getName() : (String) invokeV.objValue;
     }
 
-    public boolean hasModifier(int i2) {
+    public boolean hasModifier(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (i2 & this.field.getModifiers()) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (i & this.field.getModifiers()) != 0 : invokeI.booleanValue;
     }
 
     public boolean isSynthetic() {

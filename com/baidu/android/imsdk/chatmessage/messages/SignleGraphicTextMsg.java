@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -56,9 +55,9 @@ public class SignleGraphicTextMsg extends NormalMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -77,10 +76,10 @@ public class SignleGraphicTextMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SignleGraphicTextMsg[] newArray(int i2) {
+            public SignleGraphicTextMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SignleGraphicTextMsg[i2] : (SignleGraphicTextMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SignleGraphicTextMsg[i] : (SignleGraphicTextMsg[]) invokeI.objValue;
             }
         };
     }
@@ -159,7 +158,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
                 JSONObject jSONObject = new JSONObject(getJsonContent());
                 LogUtils.d("", "parse signleGraph msg " + getJsonContent());
                 this.mTitle = jSONObject.getString("title");
-                this.mDigest = jSONObject.optString(LightappBusinessClient.MTD_DIGEST, "");
+                this.mDigest = jSONObject.optString("digest", "");
                 this.mCover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
                 this.mArticleUrl = jSONObject.getString("article_url");
                 if (jSONObject.has("sti_type")) {
@@ -203,17 +202,17 @@ public class SignleGraphicTextMsg extends NormalMsg {
         }
     }
 
-    public boolean setJsonContent(String str, String str2, String str3, String str4, String str5, int i2) {
+    public boolean setJsonContent(String str, String str2, String str3, String str4, String str5, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(LightappBusinessClient.MTD_DIGEST) || TextUtils.isEmpty(str4)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i)})) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty("digest") || TextUtils.isEmpty(str4)) {
                 return false;
             }
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
-                jSONObject.put(LightappBusinessClient.MTD_DIGEST, str2);
+                jSONObject.put("digest", str2);
                 if (!TextUtils.isEmpty(str3)) {
                     jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str3);
                 }
@@ -221,7 +220,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
                     jSONObject.put("article_url", str4);
                 }
                 jSONObject.put("sti_cover1", str5);
-                jSONObject.put("sti_type", i2);
+                jSONObject.put("sti_type", i);
                 return setMsgContent(jSONObject.toString());
             } catch (Exception unused) {
                 LogUtils.e("SignleGraphicTextMsg", "content error!");
@@ -231,10 +230,10 @@ public class SignleGraphicTextMsg extends NormalMsg {
         return invokeCommon.booleanValue;
     }
 
-    public void setSubType(int i2) {
+    public void setSubType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mSubType = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mSubType = i;
         }
     }
 
@@ -246,10 +245,10 @@ public class SignleGraphicTextMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mDigest);
             parcel.writeString(this.mCover);
@@ -265,9 +264,9 @@ public class SignleGraphicTextMsg extends NormalMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -286,9 +285,9 @@ public class SignleGraphicTextMsg extends NormalMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

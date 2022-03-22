@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import c.a.q0.r.t.a;
-import c.a.r0.a0.l.g.a;
-import c.a.r0.a0.l.g.b;
-import c.a.r0.a0.l.g.d.e.a;
-import c.a.r0.a0.l.g.d.e.b;
+import c.a.o0.r.t.a;
+import c.a.p0.c0.l.g.a;
+import c.a.p0.c0.l.g.b;
+import c.a.p0.c0.l.g.d.e.a;
+import c.a.p0.c0.l.g.d.e.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -32,18 +32,18 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public static final String KEY_STATUS_IS_SELECTED = "key_status_is_selected";
     public static final int REQUEST_CODE_EFFECT_DETAIL = 1001;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.a0.l.g.a mBuyPropModel;
+    public c.a.p0.c0.l.g.a mBuyPropModel;
     public AlaEnterEffectData mData;
-    public c.a.r0.a0.l.g.d.e.a mMainView;
-    public c.a.r0.a0.l.g.d.e.b mModel;
-    public b.InterfaceC0952b mModelCallback;
-    public c.a.r0.a0.l.g.d.b mPreViewController;
+    public c.a.p0.c0.l.g.d.e.a mMainView;
+    public c.a.p0.c0.l.g.d.e.b mModel;
+    public b.InterfaceC1010b mModelCallback;
+    public c.a.p0.c0.l.g.d.b mPreViewController;
     public String mSelectedEffectId;
-    public c.a.r0.a0.l.g.b mTDouBuyController;
+    public c.a.p0.c0.l.g.b mTDouBuyController;
     public a.b mViewClickListener;
 
     /* loaded from: classes5.dex */
-    public class a implements b.InterfaceC0952b {
+    public class a implements b.InterfaceC1010b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -55,9 +55,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaEnterEffectDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,7 +66,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // c.a.r0.a0.l.g.d.e.b.InterfaceC0952b
+        @Override // c.a.p0.c0.l.g.d.e.b.InterfaceC1010b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,13 +74,13 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.r0.a0.l.g.d.e.b.InterfaceC0952b
+        @Override // c.a.p0.c0.l.g.d.e.b.InterfaceC1010b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.mData == null) {
                 return;
             }
-            this.a.showToast(R.string.operation_success);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0cda);
             Intent intent = new Intent();
             if (z != (this.a.mData.use_status == 1)) {
                 intent.putExtra(AlaEnterEffectDetailActivity.KEY_SELECTED_EFFECT_ID, this.a.mData.id);
@@ -95,9 +95,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectDetailActivity f40801e;
+        public final /* synthetic */ AlaEnterEffectDetailActivity a;
 
         public b(AlaEnterEffectDetailActivity alaEnterEffectDetailActivity) {
             Interceptable interceptable = $ic;
@@ -106,23 +104,23 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaEnterEffectDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40801e = alaEnterEffectDetailActivity;
+            this.a = alaEnterEffectDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40801e.setResult(0);
-                this.f40801e.finish();
+                this.a.setResult(0);
+                this.a.finish();
             }
         }
     }
@@ -140,9 +138,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaEnterEffectDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,14 +149,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // c.a.r0.a0.l.g.b.c
+        @Override // c.a.p0.c0.l.g.b.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.a.mData != null) {
                 if (this.a.mData.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                    this.a.mMainView.d(this.a.getString(R.string.ala_enter_effect_tdou_buy));
+                    this.a.mMainView.d(this.a.getString(R.string.obfuscated_res_0x7f0f020c));
                 } else {
-                    this.a.mMainView.d(this.a.getString(R.string.ala_enter_effect_get_t_dou));
+                    this.a.mMainView.d(this.a.getString(R.string.obfuscated_res_0x7f0f0205));
                 }
             }
         }
@@ -177,9 +175,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaEnterEffectDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -188,7 +186,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // c.a.r0.a0.l.g.a.b
+        @Override // c.a.p0.c0.l.g.a.b
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -198,12 +196,12 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                     }
                     this.a.mData.isOwn = true;
                     this.a.mMainView.c(this.a.mData);
-                    this.a.showToast(R.string.ala_enter_effect_tdou_buy_success);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f020e);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_ENTER_EFFECT_BUY_SUCCESS, this.a.mData.id));
                 } else if (!StringUtils.isNull(str)) {
                     this.a.showToast(str);
                 } else {
-                    this.a.showToast(R.string.ala_enter_effect_tdou_buy_fail);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f020d);
                 }
             }
         }
@@ -219,9 +217,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public class a implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f40802e;
+            public final /* synthetic */ e a;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -230,24 +226,24 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {eVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f40802e = eVar;
+                this.a = eVar;
             }
 
-            @Override // c.a.q0.r.t.a.e
-            public void onClick(c.a.q0.r.t.a aVar) {
+            @Override // c.a.o0.r.t.a.e
+            public void onClick(c.a.o0.r.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
-                    if (this.f40802e.a.mData != null) {
-                        this.f40802e.a.mModel.b(this.f40802e.a.mData.id, this.f40802e.a.mData.use_status != 1);
+                    if (this.a.a.mData != null) {
+                        this.a.a.mModel.b(this.a.a.mData.id, this.a.a.mData.use_status != 1);
                     }
                 }
             }
@@ -265,17 +261,17 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {eVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
 
-            @Override // c.a.q0.r.t.a.e
-            public void onClick(c.a.q0.r.t.a aVar) {
+            @Override // c.a.o0.r.t.a.e
+            public void onClick(c.a.o0.r.t.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
@@ -290,9 +286,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaEnterEffectDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -301,7 +297,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // c.a.r0.a0.l.g.d.e.a.b
+        @Override // c.a.p0.c0.l.g.d.e.a.b
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mData == null) {
@@ -331,12 +327,12 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
                 return;
             }
-            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(this.a.getActivity());
+            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(this.a.getActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setAutoNight(false);
-            aVar.setMessageId(R.string.ala_effect_replace_tip);
-            aVar.setPositiveButton(R.string.confirm, new a(this));
-            aVar.setNegativeButton(R.string.cancel, new b(this));
+            aVar.setMessageId(R.string.obfuscated_res_0x7f0f01ff);
+            aVar.setPositiveButton(R.string.obfuscated_res_0x7f0f041a, new a(this));
+            aVar.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new b(this));
             aVar.create(this.a.getPageContext());
             aVar.show();
         }
@@ -347,9 +343,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -359,22 +355,22 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         this.mViewClickListener = new e(this);
     }
 
-    public static void startActivityForResult(Activity activity, AlaEnterEffectData alaEnterEffectData, String str, int i2) {
+    public static void startActivityForResult(Activity activity, AlaEnterEffectData alaEnterEffectData, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65543, null, activity, alaEnterEffectData, str, i2) == null) || activity == null || alaEnterEffectData == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(65543, null, activity, alaEnterEffectData, str, i) == null) || activity == null || alaEnterEffectData == null) {
             return;
         }
         Intent intent = new Intent(activity, AlaEnterEffectDetailActivity.class);
         intent.putExtra(KEY_EFFECT_DATA, alaEnterEffectData);
         intent.putExtra(KEY_SELECTED_EFFECT_ID, str);
-        activity.startActivityForResult(intent, i2);
+        activity.startActivityForResult(intent, i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            overridePendingTransition(R.anim.alpha_in, 0);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f01002f, 0);
         }
     }
 
@@ -383,7 +379,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
-            overridePendingTransition(R.anim.alpha_in, R.anim.alpha_out);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f01002f, R.anim.obfuscated_res_0x7f010030);
         }
     }
 
@@ -393,26 +389,26 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.mModel = new c.a.r0.a0.l.g.d.e.b(this.mModelCallback);
+            this.mModel = new c.a.p0.c0.l.g.d.e.b(this.mModelCallback);
             Serializable serializableExtra = getIntent().getSerializableExtra(KEY_EFFECT_DATA);
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
-                showToast(R.string.tb_err_unknown);
+                showToast(R.string.obfuscated_res_0x7f0f135c);
                 setResult(0);
                 finish();
                 return;
             }
             this.mData = (AlaEnterEffectData) serializableExtra;
             this.mSelectedEffectId = getIntent().getStringExtra(KEY_SELECTED_EFFECT_ID);
-            c.a.r0.a0.l.g.d.e.a aVar = new c.a.r0.a0.l.g.d.e.a(getActivity(), this.mData);
+            c.a.p0.c0.l.g.d.e.a aVar = new c.a.p0.c0.l.g.d.e.a(getActivity(), this.mData);
             this.mMainView = aVar;
             aVar.e(this.mViewClickListener);
             this.mMainView.b().setOnClickListener(new b(this));
             setContentView(this.mMainView.b());
-            this.mPreViewController = new c.a.r0.a0.l.g.d.b(getActivity(), this.mMainView.b());
-            c.a.r0.a0.l.g.b bVar = new c.a.r0.a0.l.g.b(getPageContext());
+            this.mPreViewController = new c.a.p0.c0.l.g.d.b(getActivity(), this.mMainView.b());
+            c.a.p0.c0.l.g.b bVar = new c.a.p0.c0.l.g.b(getPageContext());
             this.mTDouBuyController = bVar;
             bVar.e(new c(this));
-            this.mBuyPropModel = new c.a.r0.a0.l.g.a(getPageContext(), new d(this));
+            this.mBuyPropModel = new c.a.p0.c0.l.g.a(getPageContext(), new d(this));
         }
     }
 
@@ -421,11 +417,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.r0.a0.l.g.d.e.b bVar = this.mModel;
+            c.a.p0.c0.l.g.d.e.b bVar = this.mModel;
             if (bVar != null) {
                 bVar.c();
             }
-            c.a.r0.a0.l.g.d.b bVar2 = this.mPreViewController;
+            c.a.p0.c0.l.g.d.b bVar2 = this.mPreViewController;
             if (bVar2 != null) {
                 bVar2.d();
             }
@@ -434,7 +430,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        c.a.r0.a0.l.g.d.b bVar;
+        c.a.p0.c0.l.g.d.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();

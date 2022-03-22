@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Pipe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class Pipe {
     public final Source source;
     public boolean sourceClosed;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class PipeSink implements Sink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public final class Pipe {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pipe};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,22 +85,22 @@ public final class Pipe {
         }
 
         @Override // okio.Sink
-        public void write(Buffer buffer, long j2) throws IOException {
+        public void write(Buffer buffer, long j) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
                 synchronized (this.this$0.buffer) {
                     if (this.this$0.sinkClosed) {
                         throw new IllegalStateException("closed");
                     }
-                    while (j2 > 0) {
+                    while (j > 0) {
                         if (!this.this$0.sourceClosed) {
                             long size = this.this$0.maxBufferSize - this.this$0.buffer.size();
                             if (size == 0) {
                                 this.timeout.waitUntilNotified(this.this$0.buffer);
                             } else {
-                                long min = Math.min(size, j2);
+                                long min = Math.min(size, j);
                                 this.this$0.buffer.write(buffer, min);
-                                j2 -= min;
+                                j -= min;
                                 this.this$0.buffer.notifyAll();
                             }
                         } else {
@@ -112,7 +112,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class PipeSource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +126,9 @@ public final class Pipe {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pipe};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,10 +150,10 @@ public final class Pipe {
         }
 
         @Override // okio.Source
-        public long read(Buffer buffer, long j2) throws IOException {
+        public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
                 synchronized (this.this$0.buffer) {
                     if (!this.this$0.sourceClosed) {
                         while (this.this$0.buffer.size() == 0) {
@@ -162,7 +162,7 @@ public final class Pipe {
                             }
                             this.timeout.waitUntilNotified(this.this$0.buffer);
                         }
-                        long read = this.this$0.buffer.read(buffer, j2);
+                        long read = this.this$0.buffer.read(buffer, j);
                         this.this$0.buffer.notifyAll();
                         return read;
                     }
@@ -180,16 +180,16 @@ public final class Pipe {
         }
     }
 
-    public Pipe(long j2) {
+    public Pipe(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -198,20 +198,20 @@ public final class Pipe {
         this.buffer = new Buffer();
         this.sink = new PipeSink(this);
         this.source = new PipeSource(this);
-        if (j2 >= 1) {
-            this.maxBufferSize = j2;
+        if (j >= 1) {
+            this.maxBufferSize = j;
             return;
         }
-        throw new IllegalArgumentException("maxBufferSize < 1: " + j2);
+        throw new IllegalArgumentException("maxBufferSize < 1: " + j);
     }
 
-    public final Sink sink() {
+    public Sink sink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.sink : (Sink) invokeV.objValue;
     }
 
-    public final Source source() {
+    public Source source() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.source : (Source) invokeV.objValue;

@@ -35,14 +35,14 @@ public class b {
             return -1L;
         }
         byte[] bArr = new byte[4096];
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 

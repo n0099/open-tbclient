@@ -3,10 +3,10 @@ package com.baidu.tbadk.browser;
 import android.webkit.JsPromptResult;
 import c.a.d.f.p.c;
 import c.a.f.a.a;
-import c.a.q0.m0.e;
-import c.a.q0.s.c.l;
-import c.a.r0.f4.d;
-import c.a.r0.y3.o0.b;
+import c.a.o0.m0.e;
+import c.a.o0.s.c.l;
+import c.a.p0.a4.o0.b;
+import c.a.p0.h4.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -23,7 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @a
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UegTbJsBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -43,9 +43,9 @@ public class UegTbJsBridge implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,11 +65,11 @@ public class UegTbJsBridge implements b {
         }
     }
 
-    public c.a.r0.y3.o0.d.c bindingMobileNumber() {
+    public c.a.p0.a4.o0.d.c bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.r0.y3.o0.d.c cVar = new c.a.r0.y3.o0.d.c();
+            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, l.b()));
             } catch (Exception e2) {
@@ -77,21 +77,21 @@ public class UegTbJsBridge implements b {
             }
             return cVar;
         }
-        return (c.a.r0.y3.o0.d.c) invokeV.objValue;
+        return (c.a.p0.a4.o0.d.c) invokeV.objValue;
     }
 
-    public c.a.r0.y3.o0.d.c callNativeSMS(String str, String str2) {
+    public c.a.p0.a4.o0.d.c callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            c.a.r0.y3.o0.d.c cVar = new c.a.r0.y3.o0.d.c();
+            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
             return cVar;
         }
-        return (c.a.r0.y3.o0.d.c) invokeLL.objValue;
+        return (c.a.p0.a4.o0.d.c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.y3.o0.b
+    @Override // c.a.p0.a4.o0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -140,30 +140,30 @@ public class UegTbJsBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.r0.y3.o0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public c.a.p0.a4.o0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
-            c.a.r0.y3.o0.d.c cVar = new c.a.r0.y3.o0.d.c();
+            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
             e.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
             return cVar;
         }
-        return (c.a.r0.y3.o0.d.c) invokeLLLLL.objValue;
+        return (c.a.p0.a4.o0.d.c) invokeLLLLL.objValue;
     }
 
-    public c.a.r0.y3.o0.d.c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
+    public c.a.p0.a4.o0.d.c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, Integer.valueOf(i3)})) == null) {
-            c.a.r0.y3.o0.d.c cVar = new c.a.r0.y3.o0.d.c();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
+            c.a.p0.a4.o0.d.c cVar = new c.a.p0.a4.o0.d.c();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
-                builder.can_post = Integer.valueOf(i2);
+                builder.can_post = Integer.valueOf(i);
                 builder.block_info = str;
                 builder.ahead_info = str2;
                 builder.ahead_url = str3;
                 builder.ok_info = str4;
-                builder.ahead_type = Integer.valueOf(i3);
+                builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
                 d.g(build);
                 d.f(build);
@@ -172,6 +172,6 @@ public class UegTbJsBridge implements b {
             }
             return cVar;
         }
-        return (c.a.r0.y3.o0.d.c) invokeCommon.objValue;
+        return (c.a.p0.a4.o0.d.c) invokeCommon.objValue;
     }
 }

@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MessageAdapter<M extends Message> {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -154,9 +154,9 @@ public final class MessageAdapter<M extends Message> {
             newInitContext.initArgs = r3;
             Object[] objArr = {wire, cls};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -212,14 +212,14 @@ public final class MessageAdapter<M extends Message> {
         return (Class) invokeL.objValue;
     }
 
-    private Class<? extends ProtoEnum> getEnumClass(int i2) {
+    private Class<? extends ProtoEnum> getEnumClass(int i) {
         InterceptResult invokeI;
         Extension<ExtendableMessage<?>, ?> extension;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
             Class<? extends ProtoEnum> cls = fieldInfo == null ? null : fieldInfo.enumType;
-            return (cls != null || (extension = getExtension(i2)) == null) ? cls : extension.getEnumType();
+            return (cls != null || (extension = getExtension(i)) == null) ? cls : extension.getEnumType();
         }
         return (Class) invokeI.objValue;
     }
@@ -254,15 +254,15 @@ public final class MessageAdapter<M extends Message> {
         return (Class) invokeL.objValue;
     }
 
-    private Extension<ExtendableMessage<?>, ?> getExtension(int i2) {
+    private Extension<ExtendableMessage<?>, ?> getExtension(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
             ExtensionRegistry extensionRegistry = this.wire.registry;
             if (extensionRegistry == null) {
                 return null;
             }
-            return extensionRegistry.getExtension(this.messageType, i2);
+            return extensionRegistry.getExtension(this.messageType, i);
         }
         return (Extension) invokeI.objValue;
     }
@@ -272,7 +272,7 @@ public final class MessageAdapter<M extends Message> {
         int serializedSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, extensionMap)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (Extension<T, ?> extension : extensionMap.getExtensions()) {
                 Object obj = extensionMap.get(extension);
                 int tag = extension.getTag();
@@ -287,9 +287,9 @@ public final class MessageAdapter<M extends Message> {
                 } else {
                     serializedSize = getSerializedSize(tag, obj, datatype);
                 }
-                i2 += serializedSize;
+                i += serializedSize;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -299,14 +299,14 @@ public final class MessageAdapter<M extends Message> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.lang.Class<com.squareup.wire.Message> */
     /* JADX DEBUG: Type inference failed for r0v7. Raw type applied. Possible types: java.lang.Class<? extends com.squareup.wire.Message>, java.lang.Class<com.squareup.wire.Message> */
     /* JADX WARN: Multi-variable type inference failed */
-    private Class<Message> getMessageClass(int i2) {
+    private Class<Message> getMessageClass(int i) {
         InterceptResult invokeI;
         Extension<ExtendableMessage<?>, ?> extension;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) {
-            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
+            FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
             Class<Message> cls = fieldInfo == null ? 0 : fieldInfo.messageType;
-            return (cls != 0 || (extension = getExtension(i2)) == null) ? cls : extension.getMessageType();
+            return (cls != 0 || (extension = getExtension(i)) == null) ? cls : extension.getMessageType();
         }
         return (Class) invokeI.objValue;
     }
@@ -345,30 +345,30 @@ public final class MessageAdapter<M extends Message> {
         return (Class) invokeL.objValue;
     }
 
-    private int getPackedSize(List<?> list, int i2, Message.Datatype datatype) {
+    private int getPackedSize(List<?> list, int i, Message.Datatype datatype) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, this, list, i2, datatype)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, this, list, i, datatype)) == null) {
             Iterator<?> it = list.iterator();
-            int i3 = 0;
+            int i2 = 0;
             while (it.hasNext()) {
-                i3 += getSerializedSizeNoTag(it.next(), datatype);
+                i2 += getSerializedSizeNoTag(it.next(), datatype);
             }
-            return WireOutput.varint32Size(WireOutput.makeTag(i2, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i3) + i3;
+            return WireOutput.varint32Size(WireOutput.makeTag(i, WireType.LENGTH_DELIMITED)) + WireOutput.varint32Size(i2) + i2;
         }
         return invokeLIL.intValue;
     }
 
-    private int getRepeatedSize(List<?> list, int i2, Message.Datatype datatype) {
+    private int getRepeatedSize(List<?> list, int i, Message.Datatype datatype) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, this, list, i2, datatype)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65550, this, list, i, datatype)) == null) {
             Iterator<?> it = list.iterator();
-            int i3 = 0;
+            int i2 = 0;
             while (it.hasNext()) {
-                i3 += getSerializedSize(i2, it.next(), datatype);
+                i2 += getSerializedSize(i, it.next(), datatype);
             }
-            return i3;
+            return i2;
         }
         return invokeLIL.intValue;
     }
@@ -425,15 +425,15 @@ public final class MessageAdapter<M extends Message> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.squareup.wire.Wire */
     /* JADX WARN: Multi-variable type inference failed */
-    private Message readMessage(WireInput wireInput, int i2) throws IOException {
+    private Message readMessage(WireInput wireInput, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, this, wireInput, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, this, wireInput, i)) == null) {
             int readVarint32 = wireInput.readVarint32();
             if (wireInput.recursionDepth < 64) {
                 int pushLimit = wireInput.pushLimit(readVarint32);
                 wireInput.recursionDepth++;
-                Message read = this.wire.messageAdapter(getMessageClass(i2)).read(wireInput);
+                Message read = this.wire.messageAdapter(getMessageClass(i)).read(wireInput);
                 wireInput.checkLastTagWas(0);
                 wireInput.recursionDepth--;
                 wireInput.popLimit(pushLimit);
@@ -444,18 +444,18 @@ public final class MessageAdapter<M extends Message> {
         return (Message) invokeLI.objValue;
     }
 
-    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i2, WireType wireType) throws IOException {
+    private void readUnknownField(Message.Builder builder, WireInput wireInput, int i, WireType wireType) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65554, this, builder, wireInput, i2, wireType) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65554, this, builder, wireInput, i, wireType) == null) {
             switch ($SWITCH_TABLE$com$squareup$wire$WireType()[wireType.ordinal()]) {
                 case 1:
-                    builder.addVarint(i2, wireInput.readVarint64());
+                    builder.addVarint(i, wireInput.readVarint64());
                     return;
                 case 2:
-                    builder.addFixed64(i2, wireInput.readFixed64());
+                    builder.addFixed64(i, wireInput.readFixed64());
                     return;
                 case 3:
-                    builder.addLengthDelimited(i2, wireInput.readBytes(wireInput.readVarint32()));
+                    builder.addLengthDelimited(i, wireInput.readBytes(wireInput.readVarint32()));
                     return;
                 case 4:
                     wireInput.skipGroup();
@@ -463,7 +463,7 @@ public final class MessageAdapter<M extends Message> {
                 case 5:
                     return;
                 case 6:
-                    builder.addFixed32(i2, wireInput.readFixed32());
+                    builder.addFixed32(i, wireInput.readFixed32());
                     return;
                 default:
                     throw new RuntimeException("Unsupported wire type: " + wireType);
@@ -471,10 +471,10 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private Object readValue(WireInput wireInput, int i2, Message.Datatype datatype) throws IOException {
+    private Object readValue(WireInput wireInput, int i, Message.Datatype datatype) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65555, this, wireInput, i2, datatype)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65555, this, wireInput, i, datatype)) == null) {
             switch ($SWITCH_TABLE$com$squareup$wire$Message$Datatype()[datatype.ordinal()]) {
                 case 1:
                 case 3:
@@ -489,7 +489,7 @@ public final class MessageAdapter<M extends Message> {
                 case 7:
                     return wireInput.readVarint32() != 0 ? Boolean.TRUE : Boolean.FALSE;
                 case 8:
-                    EnumAdapter enumAdapter = this.wire.enumAdapter(getEnumClass(i2));
+                    EnumAdapter enumAdapter = this.wire.enumAdapter(getEnumClass(i));
                     int readVarint32 = wireInput.readVarint32();
                     try {
                         return enumAdapter.fromInt(readVarint32);
@@ -501,7 +501,7 @@ public final class MessageAdapter<M extends Message> {
                 case 10:
                     return wireInput.readBytes();
                 case 11:
-                    return readMessage(wireInput, i2);
+                    return readMessage(wireInput, i);
                 case 12:
                 case 13:
                     return Integer.valueOf(wireInput.readFixed32());
@@ -531,23 +531,23 @@ public final class MessageAdapter<M extends Message> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, str)) == null) {
             int length = str.length();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                char charAt = str.charAt(i2);
+            while (i < length) {
+                char charAt = str.charAt(i);
                 if (charAt <= 127) {
-                    i3++;
-                } else if (charAt <= 2047) {
-                    i3 += 2;
-                } else if (Character.isHighSurrogate(charAt)) {
-                    i3 += 4;
                     i2++;
+                } else if (charAt <= 2047) {
+                    i2 += 2;
+                } else if (Character.isHighSurrogate(charAt)) {
+                    i2 += 4;
+                    i++;
                 } else {
-                    i3 += 3;
+                    i2 += 3;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeL.intValue;
     }
@@ -588,16 +588,16 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private void writePacked(WireOutput wireOutput, List<?> list, int i2, Message.Datatype datatype) throws IOException {
+    private void writePacked(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65561, this, wireOutput, list, i2, datatype) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65561, this, wireOutput, list, i, datatype) == null) {
             Iterator<?> it = list.iterator();
-            int i3 = 0;
+            int i2 = 0;
             while (it.hasNext()) {
-                i3 += getSerializedSizeNoTag(it.next(), datatype);
+                i2 += getSerializedSizeNoTag(it.next(), datatype);
             }
-            wireOutput.writeTag(i2, WireType.LENGTH_DELIMITED);
-            wireOutput.writeVarint32(i3);
+            wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
+            wireOutput.writeVarint32(i2);
             Iterator<?> it2 = list.iterator();
             while (it2.hasNext()) {
                 writeValueNoTag(wireOutput, it2.next(), datatype);
@@ -605,20 +605,20 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    private void writeRepeated(WireOutput wireOutput, List<?> list, int i2, Message.Datatype datatype) throws IOException {
+    private void writeRepeated(WireOutput wireOutput, List<?> list, int i, Message.Datatype datatype) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65562, this, wireOutput, list, i2, datatype) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65562, this, wireOutput, list, i, datatype) == null) {
             Iterator<?> it = list.iterator();
             while (it.hasNext()) {
-                writeValue(wireOutput, i2, it.next(), datatype);
+                writeValue(wireOutput, i, it.next(), datatype);
             }
         }
     }
 
-    private void writeValue(WireOutput wireOutput, int i2, Object obj, Message.Datatype datatype) throws IOException {
+    private void writeValue(WireOutput wireOutput, int i, Object obj, Message.Datatype datatype) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65563, this, wireOutput, i2, obj, datatype) == null) {
-            wireOutput.writeTag(i2, datatype.wireType());
+        if (interceptable == null || interceptable.invokeLILL(65563, this, wireOutput, i, obj, datatype) == null) {
+            wireOutput.writeTag(i, datatype.wireType());
             writeValueNoTag(wireOutput, obj, datatype);
         }
     }
@@ -725,29 +725,29 @@ public final class MessageAdapter<M extends Message> {
         int serializedSize;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, m)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (FieldInfo fieldInfo : getFields()) {
                 Object fieldValue = getFieldValue(m, fieldInfo);
                 if (fieldValue != null) {
-                    int i3 = fieldInfo.tag;
+                    int i2 = fieldInfo.tag;
                     Message.Datatype datatype = fieldInfo.datatype;
                     Message.Label label = fieldInfo.label;
                     if (label.isRepeated()) {
                         if (label.isPacked()) {
-                            serializedSize = getPackedSize((List) fieldValue, i3, datatype);
+                            serializedSize = getPackedSize((List) fieldValue, i2, datatype);
                         } else {
-                            serializedSize = getRepeatedSize((List) fieldValue, i3, datatype);
+                            serializedSize = getRepeatedSize((List) fieldValue, i2, datatype);
                         }
                     } else {
-                        serializedSize = getSerializedSize(i3, fieldValue, datatype);
+                        serializedSize = getSerializedSize(i2, fieldValue, datatype);
                     }
-                    i2 += serializedSize;
+                    i += serializedSize;
                 }
             }
             if ((m instanceof ExtendableMessage) && (extensionMap = ((ExtendableMessage) m).extensionMap) != 0) {
-                i2 += getExtensionsSerializedSize(extensionMap);
+                i += getExtensionsSerializedSize(extensionMap);
             }
-            return i2 + m.getUnknownFieldsSerializedSize();
+            return i + m.getUnknownFieldsSerializedSize();
         }
         return invokeL.intValue;
     }
@@ -772,7 +772,7 @@ public final class MessageAdapter<M extends Message> {
         Message.Label label;
         Message.Datatype datatype;
         Extension<ExtendableMessage<?>, ?> extension;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, wireInput)) != null) {
             return (M) invokeL.objValue;
@@ -782,9 +782,9 @@ public final class MessageAdapter<M extends Message> {
             Storage storage = new Storage(null);
             while (true) {
                 int readTag = wireInput.readTag();
-                int i2 = readTag >> 3;
+                int i = readTag >> 3;
                 WireType valueOf = WireType.valueOf(readTag);
-                if (i2 == 0) {
+                if (i == 0) {
                     for (Integer num : storage.getTags()) {
                         int intValue = num.intValue();
                         if (this.fieldInfoMap.get(Integer.valueOf(intValue)) != null) {
@@ -795,16 +795,16 @@ public final class MessageAdapter<M extends Message> {
                     }
                     return newInstance.build(true);
                 }
-                FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
+                FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
                 if (fieldInfo != null) {
                     Message.Datatype datatype2 = fieldInfo.datatype;
                     label = fieldInfo.label;
                     datatype = datatype2;
                     extension = null;
                 } else {
-                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i2);
+                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i);
                     if (extension2 == null) {
-                        readUnknownField(newInstance, wireInput, i2, valueOf);
+                        readUnknownField(newInstance, wireInput, i, valueOf);
                     } else {
                         Message.Datatype datatype3 = extension2.getDatatype();
                         extension = extension2;
@@ -817,31 +817,31 @@ public final class MessageAdapter<M extends Message> {
                     long position = wireInput.getPosition();
                     int pushLimit = wireInput.pushLimit(readVarint32);
                     while (true) {
-                        j2 = readVarint32 + position;
-                        if (wireInput.getPosition() >= j2) {
+                        j = readVarint32 + position;
+                        if (wireInput.getPosition() >= j) {
                             break;
                         }
-                        Object readValue = readValue(wireInput, i2, datatype);
+                        Object readValue = readValue(wireInput, i, datatype);
                         if (datatype == Message.Datatype.ENUM && (readValue instanceof Integer)) {
-                            newInstance.addVarint(i2, ((Integer) readValue).intValue());
+                            newInstance.addVarint(i, ((Integer) readValue).intValue());
                         } else {
-                            storage.add(i2, readValue);
+                            storage.add(i, readValue);
                         }
                     }
                     wireInput.popLimit(pushLimit);
-                    if (wireInput.getPosition() != j2) {
+                    if (wireInput.getPosition() != j) {
                         throw new IOException("Packed data had wrong length!");
                     }
                 } else {
-                    Object readValue2 = readValue(wireInput, i2, datatype);
+                    Object readValue2 = readValue(wireInput, i, datatype);
                     if (datatype == Message.Datatype.ENUM && (readValue2 instanceof Integer)) {
-                        newInstance.addVarint(i2, ((Integer) readValue2).intValue());
+                        newInstance.addVarint(i, ((Integer) readValue2).intValue());
                     } else if (label.isRepeated()) {
-                        storage.add(i2, readValue2);
+                        storage.add(i, readValue2);
                     } else if (extension != null) {
                         setExtension((ExtendableMessage.ExtendableBuilder) newInstance, extension, readValue2);
                     } else {
-                        setBuilderField(newInstance, i2, readValue2);
+                        setBuilderField(newInstance, i, readValue2);
                     }
                 }
             }
@@ -852,11 +852,11 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    public void setBuilderField(Message.Builder<M> builder, int i2, Object obj) {
+    public void setBuilderField(Message.Builder<M> builder, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, builder, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048583, this, builder, i, obj) == null) {
             try {
-                this.fieldInfoMap.get(Integer.valueOf(i2)).builderMethod.set(builder, obj);
+                this.fieldInfoMap.get(Integer.valueOf(i)).builderMethod.set(builder, obj);
             } catch (Exception e2) {
                 throw new AssertionError(e2);
             }
@@ -915,17 +915,17 @@ public final class MessageAdapter<M extends Message> {
             for (FieldInfo fieldInfo : getFields()) {
                 Object fieldValue = getFieldValue(m, fieldInfo);
                 if (fieldValue != null) {
-                    int i2 = fieldInfo.tag;
+                    int i = fieldInfo.tag;
                     Message.Datatype datatype = fieldInfo.datatype;
                     Message.Label label = fieldInfo.label;
                     if (label.isRepeated()) {
                         if (label.isPacked()) {
-                            writePacked(wireOutput, (List) fieldValue, i2, datatype);
+                            writePacked(wireOutput, (List) fieldValue, i, datatype);
                         } else {
-                            writeRepeated(wireOutput, (List) fieldValue, i2, datatype);
+                            writeRepeated(wireOutput, (List) fieldValue, i, datatype);
                         }
                     } else {
-                        writeValue(wireOutput, i2, fieldValue, datatype);
+                        writeValue(wireOutput, i, fieldValue, datatype);
                     }
                 }
             }
@@ -936,7 +936,7 @@ public final class MessageAdapter<M extends Message> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Storage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -947,9 +947,9 @@ public final class MessageAdapter<M extends Message> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -958,22 +958,22 @@ public final class MessageAdapter<M extends Message> {
             this.map = new LinkedHashMap();
         }
 
-        public void add(int i2, Object obj) {
+        public void add(int i, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, obj) == null) {
-                List<Object> list = this.map.get(Integer.valueOf(i2));
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+                List<Object> list = this.map.get(Integer.valueOf(i));
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.map.put(Integer.valueOf(i2), list);
+                    this.map.put(Integer.valueOf(i), list);
                 }
                 list.add(obj);
             }
         }
 
-        public List<Object> get(int i2) {
+        public List<Object> get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.map.get(Integer.valueOf(i2)) : (List) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.map.get(Integer.valueOf(i)) : (List) invokeI.objValue;
         }
 
         public Set<Integer> getTags() {
@@ -1000,7 +1000,7 @@ public final class MessageAdapter<M extends Message> {
         return (Extension) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class FieldInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1013,22 +1013,22 @@ public final class MessageAdapter<M extends Message> {
         public final String name;
         public final int tag;
 
-        public FieldInfo(int i2, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
+        public FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class<?> cls, Field field, Field field2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, datatype, label, cls, field, field2};
+                Object[] objArr = {Integer.valueOf(i), str, datatype, label, cls, field, field2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.tag = i2;
+            this.tag = i;
             this.name = str;
             this.datatype = datatype;
             this.label = label;
@@ -1046,14 +1046,14 @@ public final class MessageAdapter<M extends Message> {
             this.builderMethod = field2;
         }
 
-        public /* synthetic */ FieldInfo(int i2, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
-            this(i2, str, datatype, label, cls, field, field2);
+        public /* synthetic */ FieldInfo(int i, String str, Message.Datatype datatype, Message.Label label, Class cls, Field field, Field field2, FieldInfo fieldInfo) {
+            this(i, str, datatype, label, cls, field, field2);
         }
     }
 
-    private int getSerializedSize(int i2, Object obj, Message.Datatype datatype) {
+    private int getSerializedSize(int i, Object obj, Message.Datatype datatype) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(65551, this, i2, obj, datatype)) == null) ? WireOutput.varintTagSize(i2) + getSerializedSizeNoTag(obj, datatype) : invokeILL.intValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(65551, this, i, obj, datatype)) == null) ? WireOutput.varintTagSize(i) + getSerializedSizeNoTag(obj, datatype) : invokeILL.intValue;
     }
 }

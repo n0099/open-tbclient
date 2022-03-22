@@ -27,10 +27,10 @@ public final class e {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f3862b;
+    public static byte[] f3309b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f3863c;
+    public static final e f3310c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +46,8 @@ public final class e {
                 return;
             }
         }
-        f3863c = new e();
-        a = new int[]{219, 74, 195, 53, 166, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, 176, 41, 16, 150, 94, WriteActivity.CONTENT_MAX_COUNT, 21, 62, 77, 117, 76, 201, w0.c1, 66, 209, 249, 34, 66, 113, 52, 203};
+        f3310c = new e();
+        a = new int[]{219, 74, 195, 53, 166, w0.i0, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, WriteActivity.CONTENT_MAX_COUNT, 21, 62, 77, 117, 76, 201, w0.c1, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
     public e() {
@@ -55,9 +55,9 @@ public final class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,25 +71,25 @@ public final class e {
             if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
                 try {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 1; i2 < str.length(); i2 += 2) {
-                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i2 - 1) + "" + str.charAt(i2), CharsKt__CharJVMKt.checkRadix(16))));
+                    for (int i = 1; i < str.length(); i += 2) {
+                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
                     }
                     if (arrayList.size() <= 16) {
                         return "";
                     }
-                    if (f3862b == null) {
-                        f3862b = new byte[a.length];
+                    if (f3309b == null) {
+                        f3309b = new byte[a.length];
                         int length = a.length;
-                        for (int i3 = 0; i3 < length; i3++) {
-                            byte[] bArr = f3862b;
+                        for (int i2 = 0; i2 < length; i2++) {
+                            byte[] bArr = f3309b;
                             if (bArr == null) {
                                 Intrinsics.throwNpe();
                             }
-                            bArr[i3] = (byte) a[i3];
+                            bArr[i2] = (byte) a[i2];
                         }
                     }
                     byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = f3862b;
+                    byte[] bArr2 = f3309b;
                     if (bArr2 == null) {
                         Intrinsics.throwNpe();
                     }
@@ -109,7 +109,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-            Cipher cipher = Cipher.getInstance(i1.f53638c);
+            Cipher cipher = Cipher.getInstance(i1.f38835c);
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
             return cipher.doFinal(bArr3);
         }

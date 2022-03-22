@@ -1,6 +1,7 @@
 package com.google.gson.internal.bind;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JsonTreeReader extends JsonReader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object SENTINEL_CLOSED;
@@ -54,9 +55,9 @@ public final class JsonTreeReader extends JsonReader {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -72,10 +73,10 @@ public final class JsonTreeReader extends JsonReader {
             }
 
             @Override // java.io.Reader
-            public int read(char[] cArr, int i2, int i3) throws IOException {
+            public int read(char[] cArr, int i, int i2) throws IOException {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cArr, i2, i3)) == null) {
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cArr, i, i2)) == null) {
                     throw new AssertionError();
                 }
                 return invokeLII.intValue;
@@ -93,9 +94,9 @@ public final class JsonTreeReader extends JsonReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {jsonElement};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Reader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -137,10 +138,10 @@ public final class JsonTreeReader extends JsonReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Object[] objArr = this.stack;
-            int i2 = this.stackSize - 1;
-            this.stackSize = i2;
-            Object obj = objArr[i2];
-            objArr[i2] = null;
+            int i = this.stackSize - 1;
+            this.stackSize = i;
+            Object obj = objArr[i];
+            objArr[i] = null;
             return obj;
         }
         return invokeV.objValue;
@@ -149,13 +150,13 @@ public final class JsonTreeReader extends JsonReader {
     private void push(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, obj) == null) {
-            int i2 = this.stackSize;
+            int i = this.stackSize;
             Object[] objArr = this.stack;
-            if (i2 == objArr.length) {
-                Object[] objArr2 = new Object[i2 * 2];
-                int[] iArr = new int[i2 * 2];
-                String[] strArr = new String[i2 * 2];
-                System.arraycopy(objArr, 0, objArr2, 0, i2);
+            if (i == objArr.length) {
+                Object[] objArr2 = new Object[i * 2];
+                int[] iArr = new int[i * 2];
+                String[] strArr = new String[i * 2];
+                System.arraycopy(objArr, 0, objArr2, 0, i);
                 System.arraycopy(this.pathIndices, 0, iArr, 0, this.stackSize);
                 System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
                 this.stack = objArr2;
@@ -163,9 +164,9 @@ public final class JsonTreeReader extends JsonReader {
                 this.pathNames = strArr;
             }
             Object[] objArr3 = this.stack;
-            int i3 = this.stackSize;
-            this.stackSize = i3 + 1;
-            objArr3[i3] = obj;
+            int i2 = this.stackSize;
+            this.stackSize = i2 + 1;
+            objArr3[i2] = obj;
         }
     }
 
@@ -204,11 +205,11 @@ public final class JsonTreeReader extends JsonReader {
             expect(JsonToken.END_ARRAY);
             popStack();
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
         }
     }
@@ -220,11 +221,11 @@ public final class JsonTreeReader extends JsonReader {
             expect(JsonToken.END_OBJECT);
             popStack();
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
         }
     }
@@ -236,27 +237,27 @@ public final class JsonTreeReader extends JsonReader {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append('$');
-            int i2 = 0;
-            while (i2 < this.stackSize) {
+            int i = 0;
+            while (i < this.stackSize) {
                 Object[] objArr = this.stack;
-                if (objArr[i2] instanceof JsonArray) {
-                    i2++;
-                    if (objArr[i2] instanceof Iterator) {
+                if (objArr[i] instanceof JsonArray) {
+                    i++;
+                    if (objArr[i] instanceof Iterator) {
                         sb.append('[');
-                        sb.append(this.pathIndices[i2]);
+                        sb.append(this.pathIndices[i]);
                         sb.append(']');
                     }
-                } else if (objArr[i2] instanceof JsonObject) {
-                    i2++;
-                    if (objArr[i2] instanceof Iterator) {
-                        sb.append('.');
+                } else if (objArr[i] instanceof JsonObject) {
+                    i++;
+                    if (objArr[i] instanceof Iterator) {
+                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
                         String[] strArr = this.pathNames;
-                        if (strArr[i2] != null) {
-                            sb.append(strArr[i2]);
+                        if (strArr[i] != null) {
+                            sb.append(strArr[i]);
                         }
                     }
                 }
-                i2++;
+                i++;
             }
             return sb.toString();
         }
@@ -281,11 +282,11 @@ public final class JsonTreeReader extends JsonReader {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             expect(JsonToken.BOOLEAN);
             boolean asBoolean = ((JsonPrimitive) popStack()).getAsBoolean();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
             return asBoolean;
         }
@@ -306,11 +307,11 @@ public final class JsonTreeReader extends JsonReader {
                 throw new NumberFormatException("JSON forbids NaN and infinities: " + asDouble);
             }
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
             return asDouble;
         }
@@ -328,11 +329,11 @@ public final class JsonTreeReader extends JsonReader {
             }
             int asInt = ((JsonPrimitive) peekStack()).getAsInt();
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
             return asInt;
         }
@@ -350,11 +351,11 @@ public final class JsonTreeReader extends JsonReader {
             }
             long asLong = ((JsonPrimitive) peekStack()).getAsLong();
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
             return asLong;
         }
@@ -382,11 +383,11 @@ public final class JsonTreeReader extends JsonReader {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             expect(JsonToken.NULL);
             popStack();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
         }
     }
@@ -401,11 +402,11 @@ public final class JsonTreeReader extends JsonReader {
                 throw new IllegalStateException("Expected " + JsonToken.STRING + " but was " + peek + locationString());
             }
             String asString = ((JsonPrimitive) popStack()).getAsString();
-            int i2 = this.stackSize;
-            if (i2 > 0) {
+            int i = this.stackSize;
+            if (i > 0) {
                 int[] iArr = this.pathIndices;
-                int i3 = i2 - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = i - 1;
+                iArr[i2] = iArr[i2] + 1;
             }
             return asString;
         }
@@ -482,16 +483,16 @@ public final class JsonTreeReader extends JsonReader {
                 this.pathNames[this.stackSize - 2] = StringUtil.NULL_STRING;
             } else {
                 popStack();
-                int i2 = this.stackSize;
-                if (i2 > 0) {
-                    this.pathNames[i2 - 1] = StringUtil.NULL_STRING;
+                int i = this.stackSize;
+                if (i > 0) {
+                    this.pathNames[i - 1] = StringUtil.NULL_STRING;
                 }
             }
-            int i3 = this.stackSize;
-            if (i3 > 0) {
+            int i2 = this.stackSize;
+            if (i2 > 0) {
                 int[] iArr = this.pathIndices;
-                int i4 = i3 - 1;
-                iArr[i4] = iArr[i4] + 1;
+                int i3 = i2 - 1;
+                iArr[i3] = iArr[i3] + 1;
             }
         }
     }

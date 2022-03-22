@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @VisibleForTesting
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Bucket<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BUCKET";
@@ -27,28 +27,28 @@ public class Bucket<V> {
     public final int mItemSize;
     public final int mMaxLength;
 
-    public Bucket(int i2, int i3, int i4, boolean z) {
+    public Bucket(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Preconditions.checkState(i2 > 0);
+        Preconditions.checkState(i > 0);
+        Preconditions.checkState(i2 >= 0);
         Preconditions.checkState(i3 >= 0);
-        Preconditions.checkState(i4 >= 0);
-        this.mItemSize = i2;
-        this.mMaxLength = i3;
+        this.mItemSize = i;
+        this.mMaxLength = i2;
         this.mFreeList = new LinkedList();
-        this.mInUseLength = i4;
+        this.mInUseLength = i3;
         this.mFixBucketsReinitialization = z;
     }
 
@@ -124,9 +124,9 @@ public class Bucket<V> {
                 addToFreeList(v);
                 return;
             }
-            int i2 = this.mInUseLength;
-            if (i2 > 0) {
-                this.mInUseLength = i2 - 1;
+            int i = this.mInUseLength;
+            if (i > 0) {
+                this.mInUseLength = i - 1;
                 addToFreeList(v);
                 return;
             }

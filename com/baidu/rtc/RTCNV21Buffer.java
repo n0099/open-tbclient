@@ -12,17 +12,17 @@ public class RTCNV21Buffer extends NV21Buffer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCNV21Buffer(byte[] bArr, int i2, int i3, @Nullable Runnable runnable) {
-        super(bArr, i2, i3, runnable);
+    public RTCNV21Buffer(byte[] bArr, int i, int i2, @Nullable Runnable runnable) {
+        super(bArr, i, i2, runnable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2), Integer.valueOf(i3), runnable};
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2), runnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((byte[]) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (Runnable) objArr2[3]);
                 newInitContext.thisArg = this;

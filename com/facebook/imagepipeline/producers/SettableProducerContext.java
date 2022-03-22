@@ -9,7 +9,7 @@ import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SettableProducerContext extends BaseProducerContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class SettableProducerContext extends BaseProducerContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {producerContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
                 newInitContext.thisArg = this;
@@ -65,9 +65,9 @@ public class SettableProducerContext extends BaseProducerContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageRequest, producerContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
                 newInitContext.thisArg = this;
@@ -86,9 +86,9 @@ public class SettableProducerContext extends BaseProducerContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageRequest, str, producerListener, obj, requestLevel, Boolean.valueOf(z), Boolean.valueOf(z2), priority};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ImageRequest) objArr2[0], (String) objArr2[1], (ProducerListener) objArr2[2], objArr2[3], (ImageRequest.RequestLevel) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue(), (Priority) objArr2[7]);
                 newInitContext.thisArg = this;

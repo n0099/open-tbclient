@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ShuffleOrder {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -21,17 +21,17 @@ public interface ShuffleOrder {
         public final int[] shuffled;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public DefaultShuffleOrder(int i2) {
-            this(i2, new Random());
+        public DefaultShuffleOrder(int i) {
+            this(i, new Random());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), (Random) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -41,18 +41,18 @@ public interface ShuffleOrder {
             }
         }
 
-        public static int[] createShuffledList(int i2, Random random) {
+        public static int[] createShuffledList(int i, Random random) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, random)) == null) {
-                int[] iArr = new int[i2];
-                int i3 = 0;
-                while (i3 < i2) {
-                    int i4 = i3 + 1;
-                    int nextInt = random.nextInt(i4);
-                    iArr[i3] = iArr[nextInt];
-                    iArr[nextInt] = i3;
-                    i3 = i4;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, random)) == null) {
+                int[] iArr = new int[i];
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    int nextInt = random.nextInt(i3);
+                    iArr[i2] = iArr[nextInt];
+                    iArr[nextInt] = i2;
+                    i2 = i3;
                 }
                 return iArr;
             }
@@ -60,36 +60,36 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public ShuffleOrder cloneAndInsert(int i2, int i3) {
+        public ShuffleOrder cloneAndInsert(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-                int[] iArr = new int[i3];
-                int[] iArr2 = new int[i3];
-                int i4 = 0;
-                while (i4 < i3) {
-                    iArr[i4] = this.random.nextInt(this.shuffled.length + 1);
-                    int i5 = i4 + 1;
-                    int nextInt = this.random.nextInt(i5);
-                    iArr2[i4] = iArr2[nextInt];
-                    iArr2[nextInt] = i4 + i2;
-                    i4 = i5;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+                int[] iArr = new int[i2];
+                int[] iArr2 = new int[i2];
+                int i3 = 0;
+                while (i3 < i2) {
+                    iArr[i3] = this.random.nextInt(this.shuffled.length + 1);
+                    int i4 = i3 + 1;
+                    int nextInt = this.random.nextInt(i4);
+                    iArr2[i3] = iArr2[nextInt];
+                    iArr2[nextInt] = i3 + i;
+                    i3 = i4;
                 }
                 Arrays.sort(iArr);
-                int[] iArr3 = new int[this.shuffled.length + i3];
+                int[] iArr3 = new int[this.shuffled.length + i2];
+                int i5 = 0;
                 int i6 = 0;
-                int i7 = 0;
-                for (int i8 = 0; i8 < this.shuffled.length + i3; i8++) {
-                    if (i6 < i3 && i7 == iArr[i6]) {
-                        iArr3[i8] = iArr2[i6];
-                        i6++;
+                for (int i7 = 0; i7 < this.shuffled.length + i2; i7++) {
+                    if (i5 < i2 && i6 == iArr[i5]) {
+                        iArr3[i7] = iArr2[i5];
+                        i5++;
                     } else {
-                        int i9 = i7 + 1;
-                        iArr3[i8] = this.shuffled[i7];
-                        if (iArr3[i8] >= i2) {
-                            iArr3[i8] = iArr3[i8] + i3;
+                        int i8 = i6 + 1;
+                        iArr3[i7] = this.shuffled[i6];
+                        if (iArr3[i7] >= i) {
+                            iArr3[i7] = iArr3[i7] + i2;
                         }
-                        i7 = i9;
+                        i6 = i8;
                     }
                 }
                 return new DefaultShuffleOrder(iArr3, new Random(this.random.nextLong()));
@@ -98,26 +98,26 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public ShuffleOrder cloneAndRemove(int i2) {
+        public ShuffleOrder cloneAndRemove(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) != null) {
+            if (interceptable != null && (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) != null) {
                 return (ShuffleOrder) invokeI.objValue;
             }
             int[] iArr = new int[this.shuffled.length - 1];
-            int i3 = 0;
+            int i2 = 0;
             boolean z = false;
             while (true) {
                 int[] iArr2 = this.shuffled;
-                if (i3 < iArr2.length) {
-                    if (iArr2[i3] == i2) {
+                if (i2 < iArr2.length) {
+                    if (iArr2[i2] == i) {
                         z = true;
                     } else {
-                        int i4 = z ? i3 - 1 : i3;
+                        int i3 = z ? i2 - 1 : i2;
                         int[] iArr3 = this.shuffled;
-                        iArr[i4] = iArr3[i3] > i2 ? iArr3[i3] - 1 : iArr3[i3];
+                        iArr[i3] = iArr3[i2] > i ? iArr3[i2] - 1 : iArr3[i2];
                     }
-                    i3++;
+                    i2++;
                 } else {
                     return new DefaultShuffleOrder(iArr, new Random(this.random.nextLong()));
                 }
@@ -160,14 +160,14 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public int getNextIndex(int i2) {
+        public int getNextIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                int i3 = this.indexInShuffled[i2] + 1;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                int i2 = this.indexInShuffled[i] + 1;
                 int[] iArr = this.shuffled;
-                if (i3 < iArr.length) {
-                    return iArr[i3];
+                if (i2 < iArr.length) {
+                    return iArr[i2];
                 }
                 return -1;
             }
@@ -175,13 +175,13 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public int getPreviousIndex(int i2) {
+        public int getPreviousIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                int i3 = this.indexInShuffled[i2] - 1;
-                if (i3 >= 0) {
-                    return this.shuffled[i3];
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                int i2 = this.indexInShuffled[i] - 1;
+                if (i2 >= 0) {
+                    return this.shuffled[i2];
                 }
                 return -1;
             }
@@ -189,17 +189,17 @@ public interface ShuffleOrder {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public DefaultShuffleOrder(int i2, long j2) {
-            this(i2, new Random(j2));
+        public DefaultShuffleOrder(int i, long j) {
+            this(i, new Random(j));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), (Random) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -210,17 +210,17 @@ public interface ShuffleOrder {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public DefaultShuffleOrder(int i2, Random random) {
-            this(createShuffledList(i2, random), random);
+        public DefaultShuffleOrder(int i, Random random) {
+            this(createShuffledList(i, random), random);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), random};
+                Object[] objArr = {Integer.valueOf(i), random};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((int[]) objArr2[0], (Random) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -237,9 +237,9 @@ public interface ShuffleOrder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iArr, random};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;
@@ -248,48 +248,48 @@ public interface ShuffleOrder {
             this.shuffled = iArr;
             this.random = random;
             this.indexInShuffled = new int[iArr.length];
-            for (int i4 = 0; i4 < iArr.length; i4++) {
-                this.indexInShuffled[iArr[i4]] = i4;
+            for (int i3 = 0; i3 < iArr.length; i3++) {
+                this.indexInShuffled[iArr[i3]] = i3;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnshuffledShuffleOrder implements ShuffleOrder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int length;
 
-        public UnshuffledShuffleOrder(int i2) {
+        public UnshuffledShuffleOrder(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.length = i2;
+            this.length = i;
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public ShuffleOrder cloneAndInsert(int i2, int i3) {
+        public ShuffleOrder cloneAndInsert(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? new UnshuffledShuffleOrder(this.length + i3) : (ShuffleOrder) invokeII.objValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? new UnshuffledShuffleOrder(this.length + i2) : (ShuffleOrder) invokeII.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public ShuffleOrder cloneAndRemove(int i2) {
+        public ShuffleOrder cloneAndRemove(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new UnshuffledShuffleOrder(this.length - 1) : (ShuffleOrder) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new UnshuffledShuffleOrder(this.length - 1) : (ShuffleOrder) invokeI.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
@@ -304,9 +304,9 @@ public interface ShuffleOrder {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = this.length;
-                if (i2 > 0) {
-                    return i2 - 1;
+                int i = this.length;
+                if (i > 0) {
+                    return i - 1;
                 }
                 return -1;
             }
@@ -321,13 +321,13 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public int getNextIndex(int i2) {
+        public int getNextIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                int i3 = i2 + 1;
-                if (i3 < this.length) {
-                    return i3;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                int i2 = i + 1;
+                if (i2 < this.length) {
+                    return i2;
                 }
                 return -1;
             }
@@ -335,13 +335,13 @@ public interface ShuffleOrder {
         }
 
         @Override // com.google.android.exoplayer2.source.ShuffleOrder
-        public int getPreviousIndex(int i2) {
+        public int getPreviousIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                int i3 = i2 - 1;
-                if (i3 >= 0) {
-                    return i3;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                int i2 = i - 1;
+                if (i2 >= 0) {
+                    return i2;
                 }
                 return -1;
             }
@@ -349,9 +349,9 @@ public interface ShuffleOrder {
         }
     }
 
-    ShuffleOrder cloneAndInsert(int i2, int i3);
+    ShuffleOrder cloneAndInsert(int i, int i2);
 
-    ShuffleOrder cloneAndRemove(int i2);
+    ShuffleOrder cloneAndRemove(int i);
 
     int getFirstIndex();
 
@@ -359,7 +359,7 @@ public interface ShuffleOrder {
 
     int getLength();
 
-    int getNextIndex(int i2);
+    int getNextIndex(int i);
 
-    int getPreviousIndex(int i2);
+    int getPreviousIndex(int i);
 }

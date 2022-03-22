@@ -1,9 +1,9 @@
 package org.webrtc;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface VideoCapturer {
-    void changeCaptureFormat(int i2, int i3, int i4);
+    void changeCaptureFormat(int i, int i2, int i3);
 
     void dispose();
 
@@ -11,7 +11,7 @@ public interface VideoCapturer {
 
     boolean isScreencast();
 
-    void startCapture(int i2, int i3, int i4);
+    void startCapture(int i, int i2, int i3);
 
     void stopCapture() throws InterruptedException;
 }

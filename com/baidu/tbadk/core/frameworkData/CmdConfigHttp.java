@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CmdConfigHttp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AGREE_ME_HTTP_CMD = 1002211;
@@ -82,6 +82,7 @@ public class CmdConfigHttp {
     public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
+    public static final int CMD_ENTER_FORUM_DATA = 1003528;
     public static final int CMD_FETCH_STAMP = 1003522;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FOLLOW_SWITCH = 1002005;
@@ -160,6 +161,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_QM_FILTERS = 1003503;
     public static final int CMD_GET_QM_STICKERS = 1003502;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
+    public static final int CMD_GET_RECOMMEND_FORUM_DATA = 1003527;
     public static final int CMD_GET_RECOMMEND_GOD_LIST = 1003475;
     public static final int CMD_GET_RECOMMEND_TOPIC = 1003515;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
@@ -266,6 +268,7 @@ public class CmdConfigHttp {
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;
     public static final int CMD_SET_IMAGE_WATERMARK_TYPE = 1003447;
+    public static final int CMD_SET_LIKE_FORUM = 1003529;
     public static final int CMD_SET_PENDANT = 1003179;
     public static final int CMD_SET_PERSONAL_CARD = 1003095;
     public static final int CMD_SET_PRIVILEGE = 1003152;
@@ -386,9 +389,9 @@ public class CmdConfigHttp {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -2,6 +2,7 @@ package com.baidu.searchbox.launch;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -119,16 +120,16 @@ public class ScheduleStrategy {
             $VALUES = new DeviceType[]{LOW, MID, deviceType};
         }
 
-        public DeviceType(String str, int i2) {
+        public DeviceType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -185,9 +186,9 @@ public class ScheduleStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -256,17 +257,19 @@ public class ScheduleStrategy {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!isLoadPrivateStickiness) {
                 loadPrivateStickiness();
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "loadPrivateStickiness finished");
+                }
                 isLoadPrivateStickiness = true;
             }
             if (businessPrivateThresholds.containsKey(str) && (d2 = businessPrivateThresholds.get(str)) != null && d2.doubleValue() >= 0.0d) {
                 if (DEBUG) {
-                    String str2 = "stickiness(private) threshold for " + str + " is " + d2;
+                    Log.d(TAG, "stickiness(private) threshold for " + str + " is " + d2);
                 }
                 return d2.doubleValue();
             } else if (commonStickinessThreshold >= 0.0d) {
                 if (DEBUG) {
-                    String str3 = "stickiness(common) threshold for " + str + " is " + commonStickinessThreshold;
+                    Log.d(TAG, "stickiness(common) threshold for " + str + " is " + commonStickinessThreshold);
                 }
                 return commonStickinessThreshold;
             } else {
@@ -282,15 +285,21 @@ public class ScheduleStrategy {
             double deviceScore2 = getDeviceScore();
             deviceScore = deviceScore2;
             if (deviceScore2 > midHighThreshold) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "load stickiness threshold for high-performance devices");
+                }
                 commonStickinessThreshold = 0.001d;
                 loadPrivateStickinessImpl(DeviceType.HIGH);
             } else if (deviceScore2 < lowMidThreshold && deviceScore2 >= 0.0d) {
-                boolean z2 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "load stickiness threshold for low-performance devices");
+                }
                 commonStickinessThreshold = 0.1d;
                 loadPrivateStickinessImpl(DeviceType.LOW);
             } else {
-                boolean z3 = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "load stickiness threshold for mid-performance devices");
+                }
                 commonStickinessThreshold = 0.05d;
                 loadPrivateStickinessImpl(DeviceType.MID);
             }
@@ -309,23 +318,23 @@ public class ScheduleStrategy {
                         String optString = jSONObject.optString(next);
                         if (!TextUtils.isEmpty(optString)) {
                             JSONObject jSONObject2 = new JSONObject(optString);
-                            int i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType[deviceType.ordinal()];
-                            if (i2 == 1) {
+                            int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType[deviceType.ordinal()];
+                            if (i == 1) {
                                 businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(HIGH_DEVICE_STICKINESS_KEY, -1.0d)));
-                            } else if (i2 != 2) {
+                            } else if (i != 2) {
                                 businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(LOW_DEVICE_STICKINESS_KEY, -1.0d)));
                             } else {
                                 businessPrivateThresholds.put(next, Double.valueOf(jSONObject2.optDouble(MID_DEVICE_STICKINESS_KEY, -1.0d)));
                             }
                         }
                         if (DEBUG) {
-                            String str = "businessID:" + next + " ## threshold:" + businessPrivateThresholds.get(next);
+                            Log.d(TAG, "businessID:" + next + " ## threshold:" + businessPrivateThresholds.get(next));
                         }
                     }
                 }
             } catch (JSONException e2) {
                 if (DEBUG) {
-                    String str2 = "business_private_stickiness JsonException" + e2.getStackTrace();
+                    Log.d(TAG, "business_private_stickiness JsonException" + e2.getStackTrace());
                 }
             }
         }

@@ -1,5 +1,6 @@
 package com.sdk.base.framework.f;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f57798b;
+        boolean z = f.f42567b;
     }
 
     public a() {
@@ -34,9 +35,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -46,7 +47,7 @@ public class a {
     public static void a(String str, String str2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, obj, Boolean.valueOf(z)}) == null) && z) {
-            String str3 = "==>" + str2 + "\n==>" + obj;
+            Log.e(str, "==>" + str2 + "\n==>" + obj);
         }
     }
 }

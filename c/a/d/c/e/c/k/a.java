@@ -6,7 +6,7 @@ import java.util.Map;
 public interface a {
     void a(String str);
 
-    boolean b(int i2, String str);
+    boolean b(int i, String str);
 
     void c(c.a.d.f.r.c cVar);
 

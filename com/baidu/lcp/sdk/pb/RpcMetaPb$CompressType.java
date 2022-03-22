@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.Internal;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static final /* synthetic */ RpcMetaPb$CompressType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,9 +48,9 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -60,24 +60,24 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Internal.EnumLiteMap
             /* renamed from: a */
-            public RpcMetaPb$CompressType findValueByNumber(int i2) {
+            public RpcMetaPb$CompressType findValueByNumber(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? RpcMetaPb$CompressType.valueOf(i2) : (RpcMetaPb$CompressType) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? RpcMetaPb$CompressType.valueOf(i) : (RpcMetaPb$CompressType) invokeI.objValue;
             }
         };
     }
 
-    public RpcMetaPb$CompressType(String str, int i2, int i3, int i4) {
+    public RpcMetaPb$CompressType(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -86,7 +86,7 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
                 return;
             }
         }
-        this.value = i4;
+        this.value = i3;
     }
 
     public static Internal.EnumLiteMap<RpcMetaPb$CompressType> internalGetValueMap() {
@@ -114,12 +114,12 @@ public final class RpcMetaPb$CompressType implements Internal.EnumLite {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
     }
 
-    public static RpcMetaPb$CompressType valueOf(int i2) {
+    public static RpcMetaPb$CompressType valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
                     return null;
                 }
                 return COMPRESS_GZIP;

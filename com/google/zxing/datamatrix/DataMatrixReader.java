@@ -53,9 +53,9 @@ public final class DataMatrixReader implements Reader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,21 +72,21 @@ public final class DataMatrixReader implements Reader {
             int[] bottomRightOnBit = bitMatrix.getBottomRightOnBit();
             if (topLeftOnBit != null && bottomRightOnBit != null) {
                 int moduleSize = moduleSize(topLeftOnBit, bitMatrix);
-                int i2 = topLeftOnBit[1];
-                int i3 = bottomRightOnBit[1];
-                int i4 = topLeftOnBit[0];
-                int i5 = ((bottomRightOnBit[0] - i4) + 1) / moduleSize;
-                int i6 = ((i3 - i2) + 1) / moduleSize;
-                if (i5 > 0 && i6 > 0) {
-                    int i7 = moduleSize / 2;
-                    int i8 = i2 + i7;
-                    int i9 = i4 + i7;
-                    BitMatrix bitMatrix2 = new BitMatrix(i5, i6);
-                    for (int i10 = 0; i10 < i6; i10++) {
-                        int i11 = (i10 * moduleSize) + i8;
-                        for (int i12 = 0; i12 < i5; i12++) {
-                            if (bitMatrix.get((i12 * moduleSize) + i9, i11)) {
-                                bitMatrix2.set(i12, i10);
+                int i = topLeftOnBit[1];
+                int i2 = bottomRightOnBit[1];
+                int i3 = topLeftOnBit[0];
+                int i4 = ((bottomRightOnBit[0] - i3) + 1) / moduleSize;
+                int i5 = ((i2 - i) + 1) / moduleSize;
+                if (i4 > 0 && i5 > 0) {
+                    int i6 = moduleSize / 2;
+                    int i7 = i + i6;
+                    int i8 = i3 + i6;
+                    BitMatrix bitMatrix2 = new BitMatrix(i4, i5);
+                    for (int i9 = 0; i9 < i5; i9++) {
+                        int i10 = (i9 * moduleSize) + i7;
+                        for (int i11 = 0; i11 < i4; i11++) {
+                            if (bitMatrix.get((i11 * moduleSize) + i8, i10)) {
+                                bitMatrix2.set(i11, i9);
                             }
                         }
                     }
@@ -104,15 +104,15 @@ public final class DataMatrixReader implements Reader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, iArr, bitMatrix)) == null) {
             int width = bitMatrix.getWidth();
-            int i2 = iArr[0];
-            int i3 = iArr[1];
-            while (i2 < width && bitMatrix.get(i2, i3)) {
-                i2++;
+            int i = iArr[0];
+            int i2 = iArr[1];
+            while (i < width && bitMatrix.get(i, i2)) {
+                i++;
             }
-            if (i2 != width) {
-                int i4 = i2 - iArr[0];
-                if (i4 != 0) {
-                    return i4;
+            if (i != width) {
+                int i3 = i - iArr[0];
+                if (i3 != 0) {
+                    return i3;
                 }
                 throw NotFoundException.getNotFoundInstance();
             }

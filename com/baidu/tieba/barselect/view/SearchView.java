@@ -22,26 +22,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f31594b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f31595c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f31596d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40924e;
+    public View f31597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f40925f;
+    public ImageView f31598f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40926g;
+    public TextView f31599g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40927h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f40928i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f40929j;
-    public TextView k;
-    public View.OnClickListener l;
+    public View.OnClickListener f31600h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SearchView(Context context) {
@@ -52,9 +54,9 @@ public class SearchView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -64,55 +66,55 @@ public class SearchView extends LinearLayout {
         }
     }
 
-    public final void a() {
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40925f = findViewById(R.id.search_view_title_container);
-            this.f40926g = (TextView) findViewById(R.id.search_view_title);
-            this.f40927h = (TextView) findViewById(R.id.search_view_rank);
-            this.f40928i = findViewById(R.id.search_container);
-            this.f40929j = (ImageView) findViewById(R.id.search_bar_icon);
-            this.k = (TextView) findViewById(R.id.search_text);
-        }
-    }
-
-    public void addOnClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && this.l == null) {
-            this.l = onClickListener;
-            this.f40928i.setOnClickListener(onClickListener);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) && this.f31600h == null) {
+            this.f31600h = onClickListener;
+            this.f31597e.setOnClickListener(onClickListener);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f31594b = findViewById(R.id.obfuscated_res_0x7f091c4f);
+            this.f31595c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4e);
+            this.f31596d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4d);
+            this.f31597e = findViewById(R.id.obfuscated_res_0x7f091c23);
+            this.f31598f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c1c);
+            this.f31599g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4b);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f40924e = getContext();
+            this.a = getContext();
             setOrientation(1);
             setMinimumHeight(n.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.vote_search_layout, (ViewGroup) this, true);
-            a();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b8, (ViewGroup) this, true);
+            b();
         }
     }
 
-    public void onSkinChange(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundShapeDrawable(this.f40928i, n.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f40929j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f40926g, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f40927h, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundShapeDrawable(this.f31597e, n.f(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31598f, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f31595c, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.f31596d, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.f31599g, R.color.CAM_X0109, 1, i);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
         }
     }
 
-    public void setRank(int i2) {
+    public void setRank(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f40925f.setVisibility(0);
-            this.f40927h.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.bar_manager_search_num), Integer.valueOf(i2)));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f31594b.setVisibility(0);
+            this.f31596d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02d7), Integer.valueOf(i)));
         }
     }
 
@@ -125,9 +127,9 @@ public class SearchView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -135,6 +137,6 @@ public class SearchView extends LinearLayout {
                 return;
             }
         }
-        b();
+        c();
     }
 }

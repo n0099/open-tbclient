@@ -17,19 +17,19 @@ public class LoadResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void setRet(int i2, String str, Class cls) {
+    public void setRet(int i, String str, Class cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, cls) == null) {
-            this.retCode = i2;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, cls) == null) {
+            this.retCode = i;
             this.errMsg = str;
             this.retClass = cls;
         }

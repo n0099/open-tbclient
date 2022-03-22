@@ -60,9 +60,9 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
             newInitContext.initArgs = r2;
             Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -215,10 +215,10 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public long insert(String str, int i2, ContentValues contentValues) throws SQLException {
+    public long insert(String str, int i, ContentValues contentValues) throws SQLException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048594, this, str, i2, contentValues)) == null) ? this.mDelegate.insertWithOnConflict(str, null, contentValues, i2) : invokeLIL.longValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048594, this, str, i, contentValues)) == null) ? this.mDelegate.insertWithOnConflict(str, null, contentValues, i) : invokeLIL.longValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
@@ -258,10 +258,10 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public boolean needUpgrade(int i2) {
+    public boolean needUpgrade(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? this.mDelegate.needUpgrade(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) ? this.mDelegate.needUpgrade(i) : invokeI.booleanValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
@@ -289,25 +289,25 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public void setMaxSqlCacheSize(int i2) {
+    public void setMaxSqlCacheSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mDelegate.setMaxSqlCacheSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mDelegate.setMaxSqlCacheSize(i);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public long setMaximumSize(long j2) {
+    public long setMaximumSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j2)) == null) ? this.mDelegate.setMaximumSize(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048608, this, j)) == null) ? this.mDelegate.setMaximumSize(j) : invokeJ.longValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public void setPageSize(long j2) {
+    public void setPageSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048609, this, j2) == null) {
-            this.mDelegate.setPageSize(j2);
+        if (interceptable == null || interceptable.invokeJ(1048609, this, j) == null) {
+            this.mDelegate.setPageSize(j);
         }
     }
 
@@ -320,38 +320,38 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public void setVersion(int i2) {
+    public void setVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.mDelegate.setVersion(i2);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.mDelegate.setVersion(i);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public int update(String str, int i2, ContentValues contentValues, String str2, Object[] objArr) {
+    public int update(String str, int i, ContentValues contentValues, String str2, Object[] objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{str, Integer.valueOf(i2), contentValues, str2, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{str, Integer.valueOf(i), contentValues, str2, objArr})) == null) {
             if (contentValues != null && contentValues.size() != 0) {
                 StringBuilder sb = new StringBuilder(120);
                 sb.append("UPDATE ");
-                sb.append(CONFLICT_VALUES[i2]);
+                sb.append(CONFLICT_VALUES[i]);
                 sb.append(str);
                 sb.append(" SET ");
                 int size = contentValues.size();
                 int length = objArr == null ? size : objArr.length + size;
                 Object[] objArr2 = new Object[length];
-                int i3 = 0;
+                int i2 = 0;
                 for (String str3 : contentValues.keySet()) {
-                    sb.append(i3 > 0 ? "," : "");
+                    sb.append(i2 > 0 ? "," : "");
                     sb.append(str3);
-                    objArr2[i3] = contentValues.get(str3);
+                    objArr2[i2] = contentValues.get(str3);
                     sb.append("=?");
-                    i3++;
+                    i2++;
                 }
                 if (objArr != null) {
-                    for (int i4 = size; i4 < length; i4++) {
-                        objArr2[i4] = objArr[i4 - size];
+                    for (int i3 = size; i3 < length; i3++) {
+                        objArr2[i3] = objArr[i3 - size];
                     }
                 }
                 if (!TextUtils.isEmpty(str2)) {
@@ -390,10 +390,10 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
-    public boolean yieldIfContendedSafely(long j2) {
+    public boolean yieldIfContendedSafely(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j2)) == null) ? this.mDelegate.yieldIfContendedSafely(j2) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048614, this, j)) == null) ? this.mDelegate.yieldIfContendedSafely(j) : invokeJ.booleanValue;
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteDatabase
@@ -413,9 +413,9 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, supportSQLiteQuery};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -456,9 +456,9 @@ public class FrameworkSQLiteDatabase implements SupportSQLiteDatabase {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, supportSQLiteQuery};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

@@ -27,11 +27,11 @@ public final class SpannableStringBuilderKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, @ColorInt int i2, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder backgroundColor(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, spannableStringBuilder, i2, function1)) == null) {
-            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, spannableStringBuilder, i, function1)) == null) {
+            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(i);
             int length = spannableStringBuilder.length();
             function1.invoke(spannableStringBuilder);
             spannableStringBuilder.setSpan(backgroundColorSpan, length, spannableStringBuilder.length(), 17);
@@ -64,11 +64,11 @@ public final class SpannableStringBuilderKt {
         return (SpannedString) invokeL.objValue;
     }
 
-    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, @ColorInt int i2, Function1<? super SpannableStringBuilder, Unit> function1) {
+    public static final SpannableStringBuilder color(SpannableStringBuilder spannableStringBuilder, @ColorInt int i, Function1<? super SpannableStringBuilder, Unit> function1) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, spannableStringBuilder, i2, function1)) == null) {
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, spannableStringBuilder, i, function1)) == null) {
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(i);
             int length = spannableStringBuilder.length();
             function1.invoke(spannableStringBuilder);
             spannableStringBuilder.setSpan(foregroundColorSpan, length, spannableStringBuilder.length(), 17);

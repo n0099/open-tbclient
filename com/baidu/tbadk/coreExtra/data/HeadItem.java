@@ -15,16 +15,16 @@ public class HeadItem implements Serializable {
     public String name;
     public int type;
 
-    public HeadItem(String str, String str2, int i2) {
+    public HeadItem(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,7 +32,7 @@ public class HeadItem implements Serializable {
         }
         this.name = str;
         this.content = str2;
-        this.type = i2;
+        this.type = i;
     }
 
     public String getContent() {
@@ -67,10 +67,10 @@ public class HeadItem implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.type = i;
         }
     }
 }

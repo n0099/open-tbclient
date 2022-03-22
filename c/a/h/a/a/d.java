@@ -8,13 +8,13 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(int i2) {
+    public static float a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    return i2 != 3 ? 0.0f : 5.5f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return i != 3 ? 0.0f : 5.5f;
                 }
                 return -7.7f;
             }

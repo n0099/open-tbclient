@@ -28,9 +28,9 @@ public final class MultiFormatUPCEANReader extends OneDReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,15 +60,15 @@ public final class MultiFormatUPCEANReader extends OneDReader {
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, bitArray, map)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
             int[] findStartGuardPattern = UPCEANReader.findStartGuardPattern(bitArray);
             boolean z = false;
             for (UPCEANReader uPCEANReader : this.readers) {
                 try {
-                    Result decodeRow = uPCEANReader.decodeRow(i2, bitArray, findStartGuardPattern, map);
+                    Result decodeRow = uPCEANReader.decodeRow(i, bitArray, findStartGuardPattern, map);
                     boolean z2 = decodeRow.getBarcodeFormat() == BarcodeFormat.EAN_13 && decodeRow.getText().charAt(0) == '0';
                     Collection collection = map == null ? null : (Collection) map.get(DecodeHintType.POSSIBLE_FORMATS);
                     z = (collection == null || collection.contains(BarcodeFormat.UPC_A)) ? true : true;

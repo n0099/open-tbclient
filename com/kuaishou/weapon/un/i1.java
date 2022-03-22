@@ -21,13 +21,13 @@ public final class i1 {
     public static final String a = "AES/CBC/PKCS5Padding";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53637b = "AES";
+    public static final String f38834b = "AES";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53638c = "AES/CBC/PKCS7Padding";
+    public static final String f38835c = "AES/CBC/PKCS7Padding";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f53639d = "AES/CBC/NoPadding";
+    public static final String f38836d = "AES/CBC/NoPadding";
     public transient /* synthetic */ FieldHolder $fh;
 
     public i1() {
@@ -35,9 +35,9 @@ public final class i1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -150,8 +150,8 @@ public final class i1 {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 byte[] bArr3 = new byte[16];
-                for (int i2 = 0; i2 < 16; i2++) {
-                    bArr3[i2] = 0;
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
                 }
                 cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
                 byte[] doFinal = cipher.doFinal(bArr2);
@@ -177,8 +177,8 @@ public final class i1 {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                 byte[] bArr3 = new byte[16];
-                for (int i2 = 0; i2 < 16; i2++) {
-                    bArr3[i2] = 0;
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
                 }
                 cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
                 if (z) {
@@ -310,7 +310,7 @@ public final class i1 {
         FileInputStream fileInputStream;
         CipherInputStream cipherInputStream;
         FileOutputStream fileOutputStream2;
-        int i2;
+        int i;
         byte[] bArr2;
         int read;
         Interceptable interceptable = $ic;
@@ -330,8 +330,8 @@ public final class i1 {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                     byte[] bArr3 = new byte[16];
-                    for (i2 = 0; i2 < 16; i2++) {
-                        bArr3[i2] = 0;
+                    for (i = 0; i < 16; i++) {
+                        bArr3[i] = 0;
                     }
                     cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
                     cipherInputStream = new CipherInputStream(fileInputStream, cipher);
@@ -351,7 +351,7 @@ public final class i1 {
                 }
                 int length = str3.length();
                 StringBuilder sb = new StringBuilder(str3);
-                for (int i3 = 0; i3 < 16 - length; i3++) {
+                for (int i2 = 0; i2 < 16 - length; i2++) {
                     sb.append("0");
                 }
                 substring = sb.toString();
@@ -401,7 +401,7 @@ public final class i1 {
             SecretKeySpec secretKeySpec2 = new SecretKeySpec(str3.getBytes(), "AES");
             Cipher cipher2 = Cipher.getInstance("AES/CBC/PKCS5Padding");
             byte[] bArr32 = new byte[16];
-            while (i2 < 16) {
+            while (i < 16) {
             }
             cipher2.init(2, secretKeySpec2, new IvParameterSpec(bArr32));
             cipherInputStream = new CipherInputStream(fileInputStream, cipher2);
@@ -538,7 +538,7 @@ public final class i1 {
         FileInputStream fileInputStream;
         CipherInputStream cipherInputStream;
         FileOutputStream fileOutputStream2;
-        int i2;
+        int i;
         byte[] bArr2;
         int read;
         Interceptable interceptable = $ic;
@@ -558,8 +558,8 @@ public final class i1 {
                     SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), "AES");
                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
                     byte[] bArr3 = new byte[16];
-                    for (i2 = 0; i2 < 16; i2++) {
-                        bArr3[i2] = 0;
+                    for (i = 0; i < 16; i++) {
+                        bArr3[i] = 0;
                     }
                     cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
                     cipherInputStream = new CipherInputStream(fileInputStream, cipher);
@@ -579,7 +579,7 @@ public final class i1 {
                 }
                 int length = str3.length();
                 StringBuilder sb = new StringBuilder(str3);
-                for (int i3 = 0; i3 < 16 - length; i3++) {
+                for (int i2 = 0; i2 < 16 - length; i2++) {
                     sb.append("0");
                 }
                 substring = sb.toString();
@@ -629,7 +629,7 @@ public final class i1 {
             SecretKeySpec secretKeySpec2 = new SecretKeySpec(str3.getBytes(), "AES");
             Cipher cipher2 = Cipher.getInstance("AES/CBC/PKCS5Padding");
             byte[] bArr32 = new byte[16];
-            while (i2 < 16) {
+            while (i < 16) {
             }
             cipher2.init(1, secretKeySpec2, new IvParameterSpec(bArr32));
             cipherInputStream = new CipherInputStream(fileInputStream, cipher2);

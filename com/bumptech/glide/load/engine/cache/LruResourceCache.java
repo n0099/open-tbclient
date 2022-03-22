@@ -13,24 +13,24 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MemoryCache.ResourceRemovedListener listener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LruResourceCache(long j2) {
-        super(j2);
+    public LruResourceCache(long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -61,12 +61,12 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     @SuppressLint({"InlinedApi"})
-    public void trimMemory(int i2) {
+    public void trimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            if (i2 >= 40) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            if (i >= 40) {
                 clearMemory();
-            } else if (i2 >= 20 || i2 == 15) {
+            } else if (i >= 20 || i == 15) {
                 trimToSize(getMaxSize() / 2);
             }
         }

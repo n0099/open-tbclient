@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProviders;
@@ -18,23 +19,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoContainerLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f45461b;
+    public VideoPbViewModel f35185b;
 
     public VideoZoomBehavior() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,8 +51,8 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
                 return (VideoContainerLayout) viewGroup;
             }
             int childCount = viewGroup.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
                 if ((childAt instanceof ViewGroup) && (a = a((ViewGroup) childAt)) != null) {
                     return a;
                 }
@@ -61,56 +62,68 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         return (VideoContainerLayout) invokeL.objValue;
     }
 
-    public final void b(int i2, AppBarLayout appBarLayout, View view, int i3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.material.appbar.HeaderBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    /* renamed from: b */
+    public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), appBarLayout, view, Integer.valueOf(i3)}) == null) && i3 == 1) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, appBarLayout, motionEvent)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    /* renamed from: c */
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onNestedScroll(coordinatorLayout, appBarLayout, view, i, i2, i3, i4, i5);
+            d(i4, appBarLayout, view, i5);
+        }
+    }
+
+    public final void d(int i, AppBarLayout appBarLayout, View view, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), appBarLayout, view, Integer.valueOf(i2)}) == null) && i2 == 1) {
             int topAndBottomOffset = getTopAndBottomOffset();
-            if ((i2 >= 0 || topAndBottomOffset != 0) && (i2 <= 0 || topAndBottomOffset != (-appBarLayout.getTotalScrollRange()))) {
+            if ((i >= 0 || topAndBottomOffset != 0) && (i <= 0 || topAndBottomOffset != (-appBarLayout.getTotalScrollRange()))) {
                 return;
             }
             ViewCompat.stopNestedScroll(view, 1);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.material.appbar.HeaderBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, coordinatorLayout, appBarLayout, motionEvent)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
     @Override // com.google.android.material.appbar.AppBarLayout.Behavior, com.google.android.material.appbar.ViewOffsetBehavior
-    public boolean setTopAndBottomOffset(int i2) {
+    public boolean setTopAndBottomOffset(int i) {
         InterceptResult invokeI;
         VideoContainerLayout videoContainerLayout;
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            boolean topAndBottomOffset = super.setTopAndBottomOffset(i);
             if (topAndBottomOffset && (videoContainerLayout = this.a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-                int maxHeight = this.a.getMaxHeight() + i2;
+                int maxHeight = this.a.getMaxHeight() + i;
                 if (layoutParams.height != maxHeight) {
                     layoutParams.height = maxHeight;
                     this.a.setLayoutParams(layoutParams);
                 }
-                if (this.f45461b == null && (this.a.getContext() instanceof AbsPbActivity)) {
-                    this.f45461b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
+                if (this.f35185b == null && (this.a.getContext() instanceof AbsPbActivity)) {
+                    this.f35185b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
                 }
-                VideoPbViewModel videoPbViewModel = this.f45461b;
+                VideoPbViewModel videoPbViewModel = this.f35185b;
                 if (videoPbViewModel != null) {
-                    if (i2 > -5) {
-                        MutableLiveData<Boolean> isDetailTabTop = videoPbViewModel.getIsDetailTabTop();
-                        if (isDetailTabTop == null || isDetailTabTop.getValue() == null || !isDetailTabTop.getValue().booleanValue()) {
-                            this.f45461b.setIsDetailTabTop(true);
+                    if (i > -5) {
+                        MutableLiveData<Boolean> e2 = videoPbViewModel.e();
+                        if (e2 == null || e2.getValue() == null || !e2.getValue().booleanValue()) {
+                            this.f35185b.t(true);
                         }
                     } else {
-                        MutableLiveData<Boolean> isDetailTabTop2 = videoPbViewModel.getIsDetailTabTop();
-                        if (isDetailTabTop2 == null || isDetailTabTop2.getValue() == null || isDetailTabTop2.getValue().booleanValue()) {
-                            this.f45461b.setIsDetailTabTop(false);
+                        MutableLiveData<Boolean> e3 = videoPbViewModel.e();
+                        if (e3 == null || e3.getValue() == null || e3.getValue().booleanValue()) {
+                            this.f35185b.t(false);
                         }
                     }
                 }
@@ -129,9 +142,9 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -143,45 +156,35 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i2) {
+    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, appBarLayout, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, coordinatorLayout, appBarLayout, i)) == null) {
             this.a = a(appBarLayout);
-            return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
+            return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
         }
         return invokeLLI.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int[] iArr, int i4) {
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int[] iArr, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
-            super.onNestedPreScroll(coordinatorLayout, appBarLayout, view, i2, i3, iArr, i4);
-            b(i3, appBarLayout, view, i4);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i2, i3, i4, i5, i6);
-            b(i5, appBarLayout, view, i6);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, appBarLayout, view, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
+            super.onNestedPreScroll(coordinatorLayout, appBarLayout, view, i, i2, iArr, i3);
+            d(i2, appBarLayout, view, i3);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i2, int i3) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{coordinatorLayout, appBarLayout, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{coordinatorLayout, appBarLayout, view, view2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             VideoContainerLayout a = a(appBarLayout);
             this.a = a;
-            return (a == null || (i2 & 2) == 0) ? false : true;
+            return (a == null || (i & 2) == 0) ? false : true;
         }
         return invokeCommon.booleanValue;
     }

@@ -23,9 +23,9 @@ public class VoiceMsgData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,24 +59,24 @@ public class VoiceMsgData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.voice_md5 : (String) invokeV.objValue;
     }
 
-    public void setDuring_time(int i2) {
+    public void setDuring_time(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.during_time = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.during_time = i;
         }
     }
 
-    public void setHas_read(int i2) {
+    public void setHas_read(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.has_read = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.has_read = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.type = i;
         }
     }
 

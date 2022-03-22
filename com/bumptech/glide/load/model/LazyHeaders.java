@@ -17,15 +17,14 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LazyHeaders implements Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Map<String, String> combinedHeaders;
     public final Map<String, List<LazyHeaderFactory>> headers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
@@ -62,9 +61,9 @@ public final class LazyHeaders implements Headers {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -122,8 +121,8 @@ public final class LazyHeaders implements Headers {
                 }
                 int length = property.length();
                 StringBuilder sb = new StringBuilder(property.length());
-                for (int i2 = 0; i2 < length; i2++) {
-                    char charAt = property.charAt(i2);
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
                     if ((charAt > 31 || charAt == '\t') && charAt < 127) {
                         sb.append(charAt);
                     } else {
@@ -195,7 +194,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,9 +207,9 @@ public final class LazyHeaders implements Headers {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -248,7 +247,7 @@ public final class LazyHeaders implements Headers {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "StringHeaderFactory{value='" + this.value + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "StringHeaderFactory{value='" + this.value + "'}";
             }
             return (String) invokeV.objValue;
         }
@@ -261,9 +260,9 @@ public final class LazyHeaders implements Headers {
             newInitContext.initArgs = r2;
             Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -279,11 +278,11 @@ public final class LazyHeaders implements Headers {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, list)) == null) {
             StringBuilder sb = new StringBuilder();
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String buildHeader = list.get(i2).buildHeader();
+            for (int i = 0; i < size; i++) {
+                String buildHeader = list.get(i).buildHeader();
                 if (!TextUtils.isEmpty(buildHeader)) {
                     sb.append(buildHeader);
-                    if (i2 != list.size() - 1) {
+                    if (i != list.size() - 1) {
                         sb.append(',');
                     }
                 }
@@ -348,7 +347,7 @@ public final class LazyHeaders implements Headers {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "LazyHeaders{headers=" + this.headers + ExtendedMessageFormat.END_FE;
+            return "LazyHeaders{headers=" + this.headers + '}';
         }
         return (String) invokeV.objValue;
     }

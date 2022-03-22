@@ -43,26 +43,26 @@ public class h extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private TransitResultNode a(int i2, JSONObject jSONObject) {
+    private TransitResultNode a(int i, JSONObject jSONObject) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, jSONObject)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i, jSONObject)) == null) {
             LatLng latLng = null;
             if (jSONObject == null) {
                 return null;
             }
             String optString = jSONObject.optString(ActVideoSetting.WIFI_DISPLAY);
             String optString2 = jSONObject.optString("city_name");
-            int optInt = jSONObject.optInt(i2 == 1 ? "city_code" : AddressField.KEY_CITY_ID);
+            int optInt = jSONObject.optInt(i == 1 ? "city_code" : AddressField.KEY_CITY_ID);
             JSONObject optJSONObject = jSONObject.optJSONObject("location");
             if (optJSONObject != null) {
                 latLng = new LatLng(optJSONObject.optDouble(SuggestAddrField.KEY_LAT), optJSONObject.optDouble(SuggestAddrField.KEY_LNG));
@@ -197,12 +197,12 @@ public class h extends com.baidu.platform.base.d {
             if (jSONArray == null || jSONArray.length() < 0) {
                 return null;
             }
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONArray optJSONArray = jSONArray.optJSONArray(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONArray optJSONArray = jSONArray.optJSONArray(i);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
                             arrayList2.add(a(optJSONObject));
                         }
@@ -264,8 +264,8 @@ public class h extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     MassTransitRouteLine.TransitStep.TrafficCondition trafficCondition = new MassTransitRouteLine.TransitStep.TrafficCondition();
                     trafficCondition.setTrafficStatus(optJSONObject.optInt("status"));
@@ -286,9 +286,9 @@ public class h extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 PriceInfo priceInfo = new PriceInfo();
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     priceInfo.setTicketType(optJSONObject.optInt("ticket_type"));
                     priceInfo.setTicketPrice(optJSONObject.optDouble("ticket_price"));
@@ -306,8 +306,8 @@ public class h extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, jSONArray)) == null) {
             if (jSONArray != null) {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                     if (jSONObject != null) {
                         PoiInfo poiInfo = new PoiInfo();
                         poiInfo.address = jSONObject.optString("address");
@@ -413,8 +413,8 @@ public class h extends com.baidu.platform.base.d {
                                     return false;
                                 }
                                 ArrayList arrayList = new ArrayList();
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                                for (int i = 0; i < optJSONArray.length(); i++) {
+                                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                                     if (optJSONObject2 != null) {
                                         MassTransitRouteLine massTransitRouteLine = new MassTransitRouteLine();
                                         massTransitRouteLine.setDistance(optJSONObject2.optInt("distance"));

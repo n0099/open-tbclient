@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.topic.model;
 
-import c.a.r0.q4.u.p.a0.a.a;
+import c.a.p0.s4.u.p.a0.a.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -29,9 +29,9 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,7 +40,7 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
         }
     }
 
-    @Override // c.a.r0.q4.u.p.a0.a.a
+    @Override // c.a.p0.s4.u.p.a0.a.a
     public List<TopicList> getTopicList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class GetRecommendTopicHttpResMessage extends HttpResponsedMessage implem
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetRecommendTopicResIdl getRecommendTopicResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (getRecommendTopicResIdl = (GetRecommendTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetRecommendTopicResIdl.class)) == null) {
             return;
         }
         Error error = getRecommendTopicResIdl.error;

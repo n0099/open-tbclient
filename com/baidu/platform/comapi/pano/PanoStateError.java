@@ -14,16 +14,16 @@ public final class PanoStateError {
     public static final PanoStateError a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final PanoStateError f36373b;
+    public static final PanoStateError f28190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PanoStateError f36374c;
+    public static final PanoStateError f28191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PanoStateError f36375d;
+    public static final PanoStateError f28192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ PanoStateError[] f36376e;
+    public static final /* synthetic */ PanoStateError[] f28193e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,23 +40,23 @@ public final class PanoStateError {
             }
         }
         a = new PanoStateError("PANO_NO_ERROR", 0);
-        f36373b = new PanoStateError("PANO_UID_ERROR", 1);
-        f36374c = new PanoStateError("PANO_NOT_FOUND", 2);
+        f28190b = new PanoStateError("PANO_UID_ERROR", 1);
+        f28191c = new PanoStateError("PANO_NOT_FOUND", 2);
         PanoStateError panoStateError = new PanoStateError("PANO_NO_TOKEN", 3);
-        f36375d = panoStateError;
-        f36376e = new PanoStateError[]{a, f36373b, f36374c, panoStateError};
+        f28192d = panoStateError;
+        f28193e = new PanoStateError[]{a, f28190b, f28191c, panoStateError};
     }
 
-    public PanoStateError(String str, int i2) {
+    public PanoStateError(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -75,6 +75,6 @@ public final class PanoStateError {
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f36376e.clone() : (PanoStateError[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f28193e.clone() : (PanoStateError[]) invokeV.objValue;
     }
 }

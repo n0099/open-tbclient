@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.q0.r.r.e2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,6 +20,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
@@ -35,18 +35,16 @@ import org.json.JSONObject;
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener mOnClickListener;
-    public e2 r;
-    public Context s;
-    public View.OnClickListener t;
+    public ThreadData m;
+    public Context n;
+    public View.OnClickListener o;
+    public View.OnClickListener p;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HeadPendantClickableView f38997e;
+        public final /* synthetic */ HeadPendantClickableView a;
 
         public a(HeadPendantClickableView headPendantClickableView) {
             Interceptable interceptable = $ic;
@@ -55,15 +53,15 @@ public class HeadPendantClickableView extends HeadPendantView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {headPendantClickableView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38997e = headPendantClickableView;
+            this.a = headPendantClickableView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -74,27 +72,27 @@ public class HeadPendantClickableView extends HeadPendantView {
             String str4;
             String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38997e.r == null || this.f38997e.r.J() == null || StringUtils.isNull(this.f38997e.r.J().getName_show()) || StringUtils.isNull(this.f38997e.r.J().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.m == null || this.a.m.getAuthor() == null || StringUtils.isNull(this.a.m.getAuthor().getName_show()) || StringUtils.isNull(this.a.m.getAuthor().getUserId())) {
                 return;
             }
-            if (this.f38997e.r.a2) {
-                if (this.f38997e.r.s1() == 69) {
+            if (this.a.m.isFromHomPage) {
+                if (this.a.m.getThreadType() == 69) {
                     str5 = YYLiveUtil.SOURCE_HOME_RECOMMEND_LIVE_HEAD;
                 } else {
-                    str5 = this.f38997e.r.s1() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
+                    str5 = this.a.m.getThreadType() == 40 ? YYLiveUtil.SOURCE_HOME_RECOMMEND_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_RECOMMEND_TUWEN_HEAD;
                 }
                 str = str5;
                 str2 = AddFriendActivityConfig.TYPE_HOME_HEAD;
-            } else if (this.f38997e.r.b2()) {
-                if (this.f38997e.r.s1() == 69) {
+            } else if (this.a.m.isFromConcern()) {
+                if (this.a.m.getThreadType() == 69) {
                     str4 = YYLiveUtil.SOURCE_HOME_CONCERN_LIVE_HEAD;
                 } else {
-                    str4 = this.f38997e.r.s1() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
+                    str4 = this.a.m.getThreadType() == 40 ? YYLiveUtil.SOURCE_HOME_CONCERN_VIDEO_HEAD : YYLiveUtil.SOURCE_HOME_CONCERN_TUWEN_HEAD;
                 }
                 str = str4;
                 str2 = AddFriendActivityConfig.TYPE_CONCERN_HEAD;
-            } else if (this.f38997e.r.isFromFrs()) {
-                if (this.f38997e.r.s1() == 69) {
+            } else if (this.a.m.isFromFrs()) {
+                if (this.a.m.getThreadType() == 69) {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB;
                 } else {
                     str3 = YYLiveUtil.SOURCE_FRS_LIVE_HEAD_ + TbSingleton.getInstance().getFrsCurTabType();
@@ -105,31 +103,31 @@ public class HeadPendantClickableView extends HeadPendantView {
                 str = YYLiveUtil.SOURCE_NOT_DEFINE;
                 str2 = "";
             }
-            AlaInfoData alaInfo = this.f38997e.r.J().getAlaInfo();
+            AlaInfoData alaInfo = this.a.m.getAuthor().getAlaInfo();
             if (alaInfo != null && alaInfo.isLegalYYLiveData()) {
-                TbPageContext tbPageContext = this.f38997e.getTbPageContext();
+                TbPageContext tbPageContext = this.a.getTbPageContext();
                 YyExtData yyExtData = alaInfo.mYyExtData;
                 YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
-                HeadPendantClickableView headPendantClickableView = this.f38997e;
-                headPendantClickableView.k(headPendantClickableView.r.w1(), String.valueOf(this.f38997e.r.U()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                HeadPendantClickableView headPendantClickableView = this.a;
+                headPendantClickableView.s(headPendantClickableView.m.getTid(), String.valueOf(this.a.m.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
             } else {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.f38997e.s, this.f38997e.r.J().getUserId(), this.f38997e.r.J().getName_show(), this.f38997e.r.b0(), str2, this.f38997e.r.w1(), this.f38997e.r.H0());
-                personInfoActivityConfig.setIsVideoThread(this.f38997e.r.u1() != null);
-                if (this.f38997e.r.X0() != 1) {
-                    if (this.f38997e.r.X0() != 2) {
-                        if (this.f38997e.r.X0() == 5) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.n, this.a.m.getAuthor().getUserId(), this.a.m.getAuthor().getName_show(), this.a.m.getForum_name(), str2, this.a.m.getTid(), this.a.m.getNid());
+                personInfoActivityConfig.setIsVideoThread(this.a.m.getThreadVideoInfo() != null);
+                if (this.a.m.getResource() != 1) {
+                    if (this.a.m.getResource() != 2) {
+                        if (this.a.m.getResource() == 5) {
                             personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_TOPIC_DETAIL);
                         }
                     } else {
                         personInfoActivityConfig.setVideoPersonFrom("frs");
                     }
                 } else {
-                    personInfoActivityConfig.setVideoPersonFrom("home");
+                    personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
-            if (this.f38997e.t != null) {
-                this.f38997e.t.onClick(view);
+            if (this.a.o != null) {
+                this.a.o.onClick(view);
             }
         }
     }
@@ -143,9 +141,9 @@ public class HeadPendantClickableView extends HeadPendantView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -153,8 +151,8 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.mOnClickListener = aVar;
-        this.s = context;
+        this.p = aVar;
+        this.n = context;
         setOnClickListener(aVar);
     }
 
@@ -174,7 +172,7 @@ public class HeadPendantClickableView extends HeadPendantView {
         return (TbPageContext) invokeV.objValue;
     }
 
-    public final void k(String str, String str2, String str3, String str4, String str5) {
+    public final void s(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -201,38 +199,38 @@ public class HeadPendantClickableView extends HeadPendantView {
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.t = onClickListener;
+            this.o = onClickListener;
         }
     }
 
-    public void setData(e2 e2Var) {
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) {
-            setData(e2Var, false);
+        if (interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) {
+            setData(threadData, false);
         }
     }
 
-    public void setData(e2 e2Var, boolean z) {
+    public void setData(ThreadData threadData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, e2Var, z) == null) || e2Var == null || e2Var.J() == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, threadData, z) == null) || threadData == null || threadData.getAuthor() == null) {
             return;
         }
-        this.r = e2Var;
-        MetaData J = e2Var.J();
-        setContentDescription(J.getName_show() + this.s.getString(R.string.somebodys_portrait));
-        getHeadView().setUserId(J.getUserId());
-        getHeadView().setUserName(J.getUserName());
-        getHeadView().setUrl(J.getAvater());
-        if (J.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-            getHeadView().startLoad(String.valueOf((int) R.drawable.pic_mask_pass_head), 24, false);
-        } else if (!StringUtils.isNull(J.getAvater()) && J.getAvater().startsWith("http")) {
-            getHeadView().startLoad(J.getAvater(), 10, false);
+        this.m = threadData;
+        MetaData author = threadData.getAuthor();
+        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f1185));
+        getHeadView().setUserId(author.getUserId());
+        getHeadView().setUserName(author.getUserName());
+        getHeadView().setUrl(author.getAvater());
+        if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
+            getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f2d), 24, false);
+        } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
+            getHeadView().J(author.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().startLoad(J.getAvater(), 25, false);
+            getHeadView().J(author.getAvater(), 25, false);
         } else {
-            getHeadView().startLoad(J.getAvater(), 28, false);
+            getHeadView().J(author.getAvater(), 28, false);
         }
-        showHeadPendantAndBigV(J, 0);
+        j(author, 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -244,9 +242,9 @@ public class HeadPendantClickableView extends HeadPendantView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -255,25 +253,25 @@ public class HeadPendantClickableView extends HeadPendantView {
             }
         }
         a aVar = new a(this);
-        this.mOnClickListener = aVar;
-        this.s = context;
+        this.p = aVar;
+        this.n = context;
         setOnClickListener(aVar);
     }
 
     public void setData(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
             setData(metaData, false);
         }
     }
 
     public void setData(MetaData metaData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, metaData, z) == null) || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, metaData, z) == null) || metaData == null) {
             return;
         }
-        e2 e2Var = new e2();
-        e2Var.C3(metaData);
-        setData(e2Var, z);
+        ThreadData threadData = new ThreadData();
+        threadData.setAuthor(metaData);
+        setData(threadData, z);
     }
 }

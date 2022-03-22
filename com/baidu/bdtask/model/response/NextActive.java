@@ -17,7 +17,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u000b\b\u0086\b\u0018\u0000 \"2\u00020\u0001:\u0001\"B\u001b\u0012\b\b\u0002\u0010\b\u001a\u00020\u0002\u0012\b\b\u0002\u0010\t\u001a\u00020\u0005¢\u0006\u0004\b \u0010!J\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J$\u0010\n\u001a\u00020\u00002\b\b\u0002\u0010\b\u001a\u00020\u00022\b\b\u0002\u0010\t\u001a\u00020\u0005HÆ\u0001¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\f\u0010\rJ\u001a\u0010\u0011\u001a\u00020\u00102\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eHÖ\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\u0010\u0010\u0014\u001a\u00020\u0013HÖ\u0001¢\u0006\u0004\b\u0014\u0010\u0015J\r\u0010\u0016\u001a\u00020\u0010¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0019\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u0010\u0010\u001b\u001a\u00020\u0005HÖ\u0001¢\u0006\u0004\b\u001b\u0010\u0007R\u0019\u0010\t\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\t\u0010\u001c\u001a\u0004\b\u001d\u0010\u0007R\u0019\u0010\b\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\b\u0010\u001e\u001a\u0004\b\u001f\u0010\u0004¨\u0006#"}, d2 = {"Lcom/baidu/bdtask/model/response/NextActive;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()J", "", "component2", "()Ljava/lang/String;", NextActive.keyUtil, NextActive.keyTaskInfo, "copy", "(JLjava/lang/String;)Lcom/baidu/bdtask/model/response/NextActive;", "deepCopy", "()Lcom/baidu/bdtask/model/response/NextActive;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "isForceCleaned", "()Z", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "Ljava/lang/String;", "getTaskInfo", "J", "getUntil", "<init>", "(JLjava/lang/String;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class NextActive implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -27,7 +27,7 @@ public final class NextActive implements ITaskModelData {
     public final String taskInfo;
     public final long until;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public final class NextActive implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -74,9 +74,9 @@ public final class NextActive implements ITaskModelData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Long) objArr[0]).longValue(), (String) objArr[1], ((Integer) objArr[2]).intValue(), (DefaultConstructorMarker) objArr[3]);
                 newInitContext.thisArg = this;
@@ -86,33 +86,33 @@ public final class NextActive implements ITaskModelData {
         }
     }
 
-    public NextActive(long j2, String str) {
+    public NextActive(long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str};
+            Object[] objArr = {Long.valueOf(j), str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.until = j2;
+        this.until = j;
         this.taskInfo = str;
     }
 
-    public static /* synthetic */ NextActive copy$default(NextActive nextActive, long j2, String str, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            j2 = nextActive.until;
+    public static /* synthetic */ NextActive copy$default(NextActive nextActive, long j, String str, int i, Object obj) {
+        if ((i & 1) != 0) {
+            j = nextActive.until;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             str = nextActive.taskInfo;
         }
-        return nextActive.copy(j2, str);
+        return nextActive.copy(j, str);
     }
 
     public final long component1() {
@@ -127,10 +127,10 @@ public final class NextActive implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.taskInfo : (String) invokeV.objValue;
     }
 
-    public final NextActive copy(long j2, String str) {
+    public final NextActive copy(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str)) == null) ? new NextActive(j2, str) : (NextActive) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str)) == null) ? new NextActive(j, str) : (NextActive) invokeJL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -166,10 +166,10 @@ public final class NextActive implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j2 = this.until;
-            int i2 = ((int) (j2 ^ (j2 >>> 32))) * 31;
+            long j = this.until;
+            int i = ((int) (j ^ (j >>> 32))) * 31;
             String str = this.taskInfo;
-            return i2 + (str != null ? str.hashCode() : 0);
+            return i + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -209,8 +209,8 @@ public final class NextActive implements ITaskModelData {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ NextActive(long j2, String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? 0L : j2, (i2 & 2) != 0 ? "" : str);
+    public /* synthetic */ NextActive(long j, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? 0L : j, (i & 2) != 0 ? "" : str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

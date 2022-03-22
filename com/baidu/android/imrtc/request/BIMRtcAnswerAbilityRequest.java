@@ -31,9 +31,9 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, bIMRtcAnswerAbilityListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,11 +91,11 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
-    public void onFailure(int i2, String str) {
+    public void onFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            LogUtils.e(TAG, "onFailure : errorCOde = " + i2 + " , errorMsg =  " + str);
-            this.mListener.onResult(i2, str, null);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            LogUtils.e(TAG, "onFailure : errorCOde = " + i + " , errorMsg =  " + str);
+            this.mListener.onResult(i, str, null);
         }
     }
 
@@ -107,10 +107,10 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
             LogUtils.e(TAG, "onSuccess :" + str);
             BIMRtcAnswerAbilityListener.BIMRtcAnswerAbilityResult bIMRtcAnswerAbilityResult = new BIMRtcAnswerAbilityListener.BIMRtcAnswerAbilityResult();
             String str2 = "";
-            int i2 = -1;
+            int i = -1;
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                i2 = jSONObject.optInt("error_code");
+                i = jSONObject.optInt("error_code");
                 str2 = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 JSONObject optJSONObject = jSONObject.optJSONObject("payload");
                 bIMRtcAnswerAbilityResult.ability = optJSONObject.optInt("ability");
@@ -119,7 +119,7 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.mListener.onResult(i2, str2, bIMRtcAnswerAbilityResult);
+            this.mListener.onResult(i, str2, bIMRtcAnswerAbilityResult);
         }
     }
 

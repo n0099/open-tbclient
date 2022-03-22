@@ -44,16 +44,16 @@ public class IMFetchConfigMsg extends Message {
         public String mStrMsg;
         public final /* synthetic */ IMFetchConfigMsg this$0;
 
-        public FetchConfigTask(IMFetchConfigMsg iMFetchConfigMsg, Context context, JSONObject jSONObject, int i2, String str) {
+        public FetchConfigTask(IMFetchConfigMsg iMFetchConfigMsg, Context context, JSONObject jSONObject, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iMFetchConfigMsg, context, jSONObject, Integer.valueOf(i2), str};
+                Object[] objArr = {iMFetchConfigMsg, context, jSONObject, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,7 +62,7 @@ public class IMFetchConfigMsg extends Message {
             this.this$0 = iMFetchConfigMsg;
             this.mContext = context;
             this.mObj = jSONObject;
-            this.mErrorCode = i2;
+            this.mErrorCode = i;
             this.mStrMsg = str;
         }
 
@@ -75,15 +75,15 @@ public class IMFetchConfigMsg extends Message {
                 type.t = 0L;
                 if (this.mErrorCode == 0) {
                     try {
-                        long j2 = this.mObj.has(Constants.EXTRA_CONFIG_CURSOR) ? this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR) : 0L;
+                        long j = this.mObj.has(Constants.EXTRA_CONFIG_CURSOR) ? this.mObj.getLong(Constants.EXTRA_CONFIG_CURSOR) : 0L;
                         if (!(this.mObj.has("has_more") ? this.mObj.getBoolean("has_more") : false) || IMFetchConfigMsg.cur_count > 50) {
                             int unused = IMFetchConfigMsg.cur_count = 1;
-                            if (j2 > Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L)) {
-                                Utility.writeLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, j2);
+                            if (j > Utility.readLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, 0L)) {
+                                Utility.writeLongData(this.mContext, Constants.KEY_CONFIG_MAXCURSOR, j);
                             }
                         } else {
                             IMFetchConfigMsg.access$008();
-                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j2, this.this$0.mLimit);
+                            ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, j, this.this$0.mLimit);
                         }
                         if (this.mObj.has(NotificationCompat.CarExtender.KEY_MESSAGES)) {
                             ArrayList<ChatMsg> parserMessage = MessageParser.parserMessage(this.mContext, this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES), type, true, false);
@@ -114,16 +114,16 @@ public class IMFetchConfigMsg extends Message {
         }
     }
 
-    public IMFetchConfigMsg(Context context, long j2, long j3) {
+    public IMFetchConfigMsg(Context context, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -131,16 +131,16 @@ public class IMFetchConfigMsg extends Message {
         }
         initCommonParameter(context);
         this.mContext = context;
-        this.mCursor = j2;
-        this.mLimit = j3;
+        this.mCursor = j;
+        this.mLimit = j2;
         setNeedReplay(true);
         setType(193);
     }
 
     public static /* synthetic */ int access$008() {
-        int i2 = cur_count;
-        cur_count = i2 + 1;
-        return i2;
+        int i = cur_count;
+        cur_count = i + 1;
+        return i;
     }
 
     public static IMFetchConfigMsg newInstance(Context context, Intent intent) {
@@ -183,11 +183,11 @@ public class IMFetchConfigMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            super.handleMessageResult(context, jSONObject, i2, str);
-            TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(this, context, jSONObject, i2, str));
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            super.handleMessageResult(context, jSONObject, i, str);
+            TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(this, context, jSONObject, i, str));
         }
     }
 }

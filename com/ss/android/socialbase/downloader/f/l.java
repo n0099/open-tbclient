@@ -5,38 +5,38 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l implements e {
     public final i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.model.e f58602b;
+    public final com.ss.android.socialbase.downloader.model.e f43316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final e f58603c;
+    public final e f43317c;
 
     public l(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         this.a = iVar;
-        this.f58602b = a(downloadInfo, iVar);
-        this.f58603c = new h(bVar, this);
+        this.f43316b = a(downloadInfo, iVar);
+        this.f43317c = new h(bVar, this);
     }
 
     public e a() {
-        return this.f58603c;
+        return this.f43317c;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
-        this.f58602b.a(aVar.a, 0, aVar.f58564c);
-        this.a.b(aVar.f58564c);
+        this.f43316b.a(aVar.a, 0, aVar.f43284c);
+        this.a.b(aVar.f43284c);
     }
 
     public void c() throws IOException {
-        this.f58602b.c();
+        this.f43316b.c();
     }
 
     public void d() {
-        com.ss.android.socialbase.downloader.i.f.a(this.f58602b);
+        com.ss.android.socialbase.downloader.i.f.a(this.f43316b);
     }
 
     public i e() {
@@ -54,6 +54,6 @@ public class l implements e {
     }
 
     public void b() throws IOException {
-        this.f58602b.b();
+        this.f43316b.b();
     }
 }

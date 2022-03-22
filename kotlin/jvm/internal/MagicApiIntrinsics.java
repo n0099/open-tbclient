@@ -2,25 +2,25 @@ package kotlin.jvm.internal;
 
 import kotlin.SinceKotlin;
 @SinceKotlin(version = "1.2")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MagicApiIntrinsics {
-    public static <T> T anyMagicApiCall(int i2) {
+    public static <T> T anyMagicApiCall(int i) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j2, long j3, Object obj) {
+    public static <T> T anyMagicApiCall(int i, long j, long j2, Object obj) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, long j2, Object obj) {
+    public static <T> T anyMagicApiCall(int i, long j, Object obj) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, Object obj, Object obj2) {
+    public static <T> T anyMagicApiCall(int i, Object obj, Object obj2) {
         return null;
     }
 
-    public static <T> T anyMagicApiCall(int i2, Object obj, Object obj2, Object obj3, Object obj4) {
+    public static <T> T anyMagicApiCall(int i, Object obj, Object obj2, Object obj3, Object obj4) {
         return null;
     }
 
@@ -28,23 +28,23 @@ public class MagicApiIntrinsics {
         return null;
     }
 
-    public static int intMagicApiCall(int i2) {
+    public static int intMagicApiCall(int i) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j2, long j3, Object obj) {
+    public static int intMagicApiCall(int i, long j, long j2, Object obj) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, long j2, Object obj) {
+    public static int intMagicApiCall(int i, long j, Object obj) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, Object obj, Object obj2) {
+    public static int intMagicApiCall(int i, Object obj, Object obj2) {
         return 0;
     }
 
-    public static int intMagicApiCall(int i2, Object obj, Object obj2, Object obj3, Object obj4) {
+    public static int intMagicApiCall(int i, Object obj, Object obj2, Object obj3, Object obj4) {
         return 0;
     }
 
@@ -52,7 +52,7 @@ public class MagicApiIntrinsics {
         return 0;
     }
 
-    public static void voidMagicApiCall(int i2) {
+    public static void voidMagicApiCall(int i) {
     }
 
     public static void voidMagicApiCall(Object obj) {

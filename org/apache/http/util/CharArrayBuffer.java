@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CharArrayBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public CharArrayBuffer(int i2) {
+    public CharArrayBuffer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,9 +31,9 @@ public final class CharArrayBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void append(char[] cArr, int i2, int i3) {
+    public void append(char[] cArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, cArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048583, this, cArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -56,10 +56,10 @@ public final class CharArrayBuffer {
         return invokeV.intValue;
     }
 
-    public char charAt(int i2) {
+    public char charAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.charValue;
@@ -72,17 +72,17 @@ public final class CharArrayBuffer {
         }
     }
 
-    public void ensureCapacity(int i2) {
+    public void ensureCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public int indexOf(int i2, int i3, int i4) {
+    public int indexOf(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i, i2, i3)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeIII.intValue;
@@ -115,26 +115,26 @@ public final class CharArrayBuffer {
         return invokeV.intValue;
     }
 
-    public void setLength(int i2) {
+    public void setLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public String substring(int i2, int i3) {
+    public String substring(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeII.objValue;
     }
 
-    public String substringTrimmed(int i2, int i3) {
+    public String substringTrimmed(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeII.objValue;
@@ -165,18 +165,18 @@ public final class CharArrayBuffer {
         }
     }
 
-    public int indexOf(int i2) {
+    public int indexOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.intValue;
     }
 
-    public void append(CharArrayBuffer charArrayBuffer, int i2, int i3) {
+    public void append(CharArrayBuffer charArrayBuffer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, charArrayBuffer, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, charArrayBuffer, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -195,16 +195,16 @@ public final class CharArrayBuffer {
         }
     }
 
-    public void append(byte[] bArr, int i2, int i3) {
+    public void append(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void append(ByteArrayBuffer byteArrayBuffer, int i2, int i3) {
+    public void append(ByteArrayBuffer byteArrayBuffer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, byteArrayBuffer, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048579, this, byteArrayBuffer, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

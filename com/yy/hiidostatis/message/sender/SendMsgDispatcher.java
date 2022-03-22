@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultListener, ISingleton {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_LIMIT_SIZE_THRESHOLD = 3;
@@ -51,9 +51,9 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
             newInitContext.initArgs = r2;
             Object[] objArr = {messageSupplier, messageSender, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,19 +95,19 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
         }
     }
 
-    public void insertMessageProcessor(int i2, MessageProcessor messageProcessor) {
+    public void insertMessageProcessor(int i, MessageProcessor messageProcessor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, messageProcessor) == null) {
-            this.messageProcessors.add(i2, messageProcessor);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, messageProcessor) == null) {
+            this.messageProcessors.add(i, messageProcessor);
         }
     }
 
     @Override // com.yy.hiidostatis.message.MessageSender.ResultListener
-    public void onResult(int i2, Message message, String str) {
+    public void onResult(int i, Message message, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, message, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, message, str) == null) {
             int decrementAndGet = this.sendingCount.decrementAndGet();
-            if (i2 == 0) {
+            if (i == 0) {
                 L.infoLimitTime(this, "Send Success:%s", message.getMsgId());
                 TraceLog.successMessageLog(message.getMsgId());
                 this.supplier.removeMessage(message.getMsgId());
@@ -159,9 +159,9 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                         return;
                     }
                     this.running = true;
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (!this.running || i2 >= 10) {
+                        if (!this.running || i >= 10) {
                             break;
                         }
                         synchronized (this) {
@@ -183,7 +183,7 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                             while (it.hasNext() && (fetchMessage = it.next().process(fetchMessage)) != null) {
                             }
                             if (fetchMessage != null) {
-                                i2 = this.sendingCount.incrementAndGet();
+                                i = this.sendingCount.incrementAndGet();
                                 this.sender.asyncSend(fetchMessage);
                             }
                         }
@@ -224,9 +224,9 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -248,15 +248,15 @@ public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultLi
         }
     }
 
-    private void execute(long j2) {
+    private void execute(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
             synchronized (this) {
                 if (this.state != 2 || TimeUtil.currentTimeInSecond() - this.preRunTime > 30000) {
                     this.state = 2;
                     this.running = false;
                     this.preRunTime = TimeUtil.currentTimeInSecond();
-                    ThreadPool.getPool().execute(this, j2);
+                    ThreadPool.getPool().execute(this, j);
                 }
             }
         }

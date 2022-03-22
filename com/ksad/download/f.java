@@ -3,7 +3,7 @@ package com.ksad.download;
 import java.io.File;
 /* loaded from: classes7.dex */
 public interface f {
-    void a(int i2);
+    void a(int i);
 
     void a(DownloadTask downloadTask);
 

@@ -65,9 +65,9 @@ public class ViewInfoStore {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -119,9 +119,9 @@ public class ViewInfoStore {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,20 +131,20 @@ public class ViewInfoStore {
         this.mOldChangedHolders = new LongSparseArray<>();
     }
 
-    private RecyclerView.ItemAnimator.ItemHolderInfo popFromLayoutStep(RecyclerView.ViewHolder viewHolder, int i2) {
+    private RecyclerView.ItemAnimator.ItemHolderInfo popFromLayoutStep(RecyclerView.ViewHolder viewHolder, int i) {
         InterceptResult invokeLI;
         InfoRecord valueAt;
         RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewHolder, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewHolder, i)) == null) {
             int indexOfKey = this.mLayoutHolderMap.indexOfKey(viewHolder);
             if (indexOfKey >= 0 && (valueAt = this.mLayoutHolderMap.valueAt(indexOfKey)) != null) {
-                int i3 = valueAt.flags;
-                if ((i3 & i2) != 0) {
-                    valueAt.flags = (~i2) & i3;
-                    if (i2 == 4) {
+                int i2 = valueAt.flags;
+                if ((i2 & i) != 0) {
+                    valueAt.flags = (~i) & i2;
+                    if (i == 4) {
                         itemHolderInfo = valueAt.preInfo;
-                    } else if (i2 == 8) {
+                    } else if (i == 8) {
                         itemHolderInfo = valueAt.postInfo;
                     } else {
                         throw new IllegalArgumentException("Must provide flag PRE or POST");
@@ -186,10 +186,10 @@ public class ViewInfoStore {
         }
     }
 
-    public void addToOldChangeHolders(long j2, RecyclerView.ViewHolder viewHolder) {
+    public void addToOldChangeHolders(long j, RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, viewHolder) == null) {
-            this.mOldChangedHolders.put(j2, viewHolder);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, viewHolder) == null) {
+            this.mOldChangedHolders.put(j, viewHolder);
         }
     }
 
@@ -227,10 +227,10 @@ public class ViewInfoStore {
         }
     }
 
-    public RecyclerView.ViewHolder getFromOldChangeHolders(long j2) {
+    public RecyclerView.ViewHolder getFromOldChangeHolders(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) ? this.mOldChangedHolders.get(j2) : (RecyclerView.ViewHolder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) ? this.mOldChangedHolders.get(j) : (RecyclerView.ViewHolder) invokeJ.objValue;
     }
 
     public boolean isDisappearing(RecyclerView.ViewHolder viewHolder) {
@@ -287,23 +287,23 @@ public class ViewInfoStore {
             for (int size = this.mLayoutHolderMap.size() - 1; size >= 0; size--) {
                 RecyclerView.ViewHolder keyAt = this.mLayoutHolderMap.keyAt(size);
                 InfoRecord removeAt = this.mLayoutHolderMap.removeAt(size);
-                int i2 = removeAt.flags;
-                if ((i2 & 3) == 3) {
+                int i = removeAt.flags;
+                if ((i & 3) == 3) {
                     processCallback.unused(keyAt);
-                } else if ((i2 & 1) != 0) {
+                } else if ((i & 1) != 0) {
                     RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo = removeAt.preInfo;
                     if (itemHolderInfo == null) {
                         processCallback.unused(keyAt);
                     } else {
                         processCallback.processDisappeared(keyAt, itemHolderInfo, removeAt.postInfo);
                     }
-                } else if ((i2 & 14) == 14) {
+                } else if ((i & 14) == 14) {
                     processCallback.processAppeared(keyAt, removeAt.preInfo, removeAt.postInfo);
-                } else if ((i2 & 12) == 12) {
+                } else if ((i & 12) == 12) {
                     processCallback.processPersistent(keyAt, removeAt.preInfo, removeAt.postInfo);
-                } else if ((i2 & 4) != 0) {
+                } else if ((i & 4) != 0) {
                     processCallback.processDisappeared(keyAt, removeAt.preInfo, null);
-                } else if ((i2 & 8) != 0) {
+                } else if ((i & 8) != 0) {
                     processCallback.processAppeared(keyAt, removeAt.preInfo, removeAt.postInfo);
                 }
                 InfoRecord.recycle(removeAt);

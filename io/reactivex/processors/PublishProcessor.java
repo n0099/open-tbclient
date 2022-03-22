@@ -44,9 +44,9 @@ public final class PublishProcessor<T> extends FlowableProcessor<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, publishProcessor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,11 +99,11 @@ public final class PublishProcessor<T> extends FlowableProcessor<T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                long j2 = get();
-                if (j2 == Long.MIN_VALUE) {
+                long j = get();
+                if (j == Long.MIN_VALUE) {
                     return;
                 }
-                if (j2 != 0) {
+                if (j != 0) {
                     this.actual.onNext(t);
                     BackpressureHelper.producedCancel(this, 1L);
                     return;
@@ -114,10 +114,10 @@ public final class PublishProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.addCancel(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.addCancel(this, j);
             }
         }
     }
@@ -144,9 +144,9 @@ public final class PublishProcessor<T> extends FlowableProcessor<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -312,27 +312,27 @@ public final class PublishProcessor<T> extends FlowableProcessor<T> {
                     return;
                 }
                 int length = publishSubscriptionArr.length;
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (publishSubscriptionArr[i3] == publishSubscription) {
-                        i2 = i3;
+                    } else if (publishSubscriptionArr[i2] == publishSubscription) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     publishSubscriptionArr2 = EMPTY;
                 } else {
                     PublishSubscription[] publishSubscriptionArr3 = new PublishSubscription[length - 1];
-                    System.arraycopy(publishSubscriptionArr, 0, publishSubscriptionArr3, 0, i2);
-                    System.arraycopy(publishSubscriptionArr, i2 + 1, publishSubscriptionArr3, i2, (length - i2) - 1);
+                    System.arraycopy(publishSubscriptionArr, 0, publishSubscriptionArr3, 0, i);
+                    System.arraycopy(publishSubscriptionArr, i + 1, publishSubscriptionArr3, i, (length - i) - 1);
                     publishSubscriptionArr2 = publishSubscriptionArr3;
                 }
             } while (!this.subscribers.compareAndSet(publishSubscriptionArr, publishSubscriptionArr2));

@@ -1,5 +1,5 @@
 package com.bumptech.glide.request;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Request {
     void begin();
 

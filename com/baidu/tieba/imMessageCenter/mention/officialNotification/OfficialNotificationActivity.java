@@ -29,9 +29,9 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,35 +55,35 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     private void initViewById() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.root_layout);
-            this.mFragmentContainer = (RelativeLayout) findViewById(R.id.container_layout);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ae5);
+            this.mFragmentContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.system_message));
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1311));
         }
     }
 
-    public static String makeFragmentName(Class cls, long j2) {
+    public static String makeFragmentName(Class cls, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, cls, j2)) == null) {
-            return "android:switcher:" + cls.getSimpleName() + ":" + j2;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, cls, j)) == null) {
+            return "android:switcher:" + cls.getSimpleName() + ":" + j;
         }
         return (String) invokeLJ.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(getPageContext(), i2);
+                navigationBar.onChangeSkinType(getPageContext(), i);
             }
             BaseFragment baseFragment = this.mFragment;
             if (baseFragment != null) {
-                baseFragment.onChangeSkinType(i2);
+                baseFragment.onChangeSkinType(i);
             }
         }
     }
@@ -93,7 +93,7 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.base_fragment_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d0142);
             initViewById();
             initFragment();
         }

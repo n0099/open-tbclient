@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class LocalFetchProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, pooledByteBufferFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,17 +41,17 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
         this.mPooledByteBufferFactory = pooledByteBufferFactory;
     }
 
-    public EncodedImage getByteBufferBackedEncodedImage(InputStream inputStream, int i2) throws IOException {
+    public EncodedImage getByteBufferBackedEncodedImage(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         CloseableReference of;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, inputStream, i)) == null) {
             CloseableReference closeableReference = null;
             try {
-                if (i2 <= 0) {
+                if (i <= 0) {
                     of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream));
                 } else {
-                    of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream, i2));
+                    of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream, i));
                 }
                 closeableReference = of;
                 return new EncodedImage(closeableReference);
@@ -65,10 +65,10 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
 
     public abstract EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException;
 
-    public EncodedImage getEncodedImage(InputStream inputStream, int i2) throws IOException {
+    public EncodedImage getEncodedImage(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i2)) == null) ? getByteBufferBackedEncodedImage(inputStream, i2) : (EncodedImage) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, inputStream, i)) == null) ? getByteBufferBackedEncodedImage(inputStream, i) : (EncodedImage) invokeLI.objValue;
     }
 
     public abstract String getProducerName();
@@ -96,9 +96,9 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, consumer, listener, r14, id, r16, listener, id};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -153,9 +153,9 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, statefulProducerRunnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.a;
-import c.a.q0.c1.v0;
+import c.a.o0.c1.v0;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -49,9 +50,9 @@ public class ThirdStatisticHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -118,23 +119,23 @@ public class ThirdStatisticHelper {
         public String mTid;
         public TiePlusStatisCallback mTiePlusStatisCallback;
 
-        public TiePlusStaticTask(String str, int i2, TiePlusStatisCallback tiePlusStatisCallback) {
+        public TiePlusStaticTask(String str, int i, TiePlusStatisCallback tiePlusStatisCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), tiePlusStatisCallback};
+                Object[] objArr = {str, Integer.valueOf(i), tiePlusStatisCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mTid = str;
-            this.mRequestType = i2;
+            this.mRequestType = i;
             this.mTiePlusStatisCallback = tiePlusStatisCallback;
         }
 
@@ -159,18 +160,18 @@ public class ThirdStatisticHelper {
             return (String) invokeL.objValue;
         }
 
-        private HttpURLConnection getConnection(URL url, int i2, int i3, String str) throws IOException {
+        private HttpURLConnection getConnection(URL url, int i, int i2, String str) throws IOException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{url, Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{url, Integer.valueOf(i), Integer.valueOf(i2), str})) == null) {
                 if (url == null) {
                     return null;
                 }
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setInstanceFollowRedirects(false);
-                httpURLConnection.setConnectTimeout(i2);
-                httpURLConnection.setReadTimeout(i3);
+                httpURLConnection.setConnectTimeout(i);
+                httpURLConnection.setReadTimeout(i2);
                 httpURLConnection.setRequestProperty("User-Agent", v0.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
@@ -200,10 +201,10 @@ public class ThirdStatisticHelper {
             return (String) invokeLL.objValue;
         }
 
-        private void requestResultCallback(int i2) {
+        private void requestResultCallback(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-                if (i2 == 200) {
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+                if (i == 200) {
                     TiePlusStatisCallback tiePlusStatisCallback = this.mTiePlusStatisCallback;
                     if (tiePlusStatisCallback != null) {
                         tiePlusStatisCallback.onSuccess(this.mRequestUrl);
@@ -218,20 +219,20 @@ public class ThirdStatisticHelper {
             }
         }
 
-        private void requestStatistic(int i2, String str) {
+        private void requestStatistic(int i, String str) {
             StatisticItem statisticItem;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65541, this, i2, str) == null) {
-                int i3 = this.mRequestType;
-                if (i3 == 2) {
+            if (interceptable == null || interceptable.invokeIL(65541, this, i, str) == null) {
+                int i2 = this.mRequestType;
+                if (i2 == 2) {
                     statisticItem = new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_CPC_REQUEST_COST_URL);
                 } else {
-                    statisticItem = i3 == 1 ? new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_CPC_REQUEST_SHOW_URL) : null;
+                    statisticItem = i2 == 1 ? new StatisticItem(CommonStatisticKey.KEY_TIE_PLUS_CPC_REQUEST_SHOW_URL) : null;
                 }
                 if (statisticItem != null) {
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.addParam("tid", this.mTid);
-                    statisticItem.addParam("num", i2);
+                    statisticItem.addParam("num", i);
                     statisticItem.addParam("code", str);
                     TiebaStatic.log(statisticItem);
                 }
@@ -251,34 +252,36 @@ public class ThirdStatisticHelper {
                 String str = "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti();
                 this.mRequestUrl = strArr[0];
                 HttpURLConnection httpURLConnection = null;
-                int i2 = 0;
-                for (int i3 = 0; i3 < 3; i3++) {
+                int i = 0;
+                for (int i2 = 0; i2 < 3; i2++) {
                     if (url == null) {
                         try {
                             try {
                                 url = new URL(strArr[0]);
                             } catch (Exception e2) {
-                                requestStatistic(i3 + 1, e2.getMessage());
+                                requestStatistic(i2 + 1, e2.getMessage());
                                 BdLog.e(e2);
                             }
                         } finally {
                             a.e(httpURLConnection);
                         }
                     }
-                    if (i2 != 200) {
-                        if (i2 == 302 || i2 == 301 || i2 == 303) {
-                            String headerField = httpURLConnection.getHeaderField("Location");
-                            if (!StringUtils.isNull(headerField) && url != null) {
-                                if (headerField.startsWith("/")) {
-                                    headerField = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + headerField;
+                    if (i != 200) {
+                        if (i == 302 || i == 301 || i == 303) {
+                            if (httpURLConnection != null) {
+                                String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
+                                if (!StringUtils.isNull(headerField)) {
+                                    if (headerField.startsWith("/")) {
+                                        headerField = url.getProtocol() + "://" + url.getHost() + ":" + url.getPort() + headerField;
+                                    }
+                                    String finalCookie = getFinalCookie(httpURLConnection, str);
+                                    httpURLConnection.disconnect();
+                                    httpURLConnection = getConnection(new URL(headerField), 3000, 3000, finalCookie);
+                                    httpURLConnection.connect();
+                                    i = httpURLConnection.getResponseCode();
+                                    requestStatistic(i2 + 1, String.valueOf(i));
+                                    a.e(httpURLConnection);
                                 }
-                                String finalCookie = getFinalCookie(httpURLConnection, str);
-                                httpURLConnection.disconnect();
-                                httpURLConnection = getConnection(new URL(headerField), 3000, 3000, finalCookie);
-                                httpURLConnection.connect();
-                                i2 = httpURLConnection.getResponseCode();
-                                requestStatistic(i3 + 1, String.valueOf(i2));
-                                a.e(httpURLConnection);
                             }
                         } else if (url != null) {
                             if (httpURLConnection != null) {
@@ -292,13 +295,13 @@ public class ThirdStatisticHelper {
                             if (!StringUtils.isNull(allCookies)) {
                                 ThirdStatisticHelper.cookieCacheMap.put(host, allCookies);
                             }
-                            i2 = httpURLConnection.getResponseCode();
-                            requestStatistic(i3 + 1, String.valueOf(i2));
+                            i = httpURLConnection.getResponseCode();
+                            requestStatistic(i2 + 1, String.valueOf(i));
                             a.e(httpURLConnection);
                         }
                     }
                 }
-                return Integer.valueOf(i2);
+                return Integer.valueOf(i);
             }
             return (Integer) invokeL.objValue;
         }
@@ -342,9 +345,9 @@ public class ThirdStatisticHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -359,11 +362,11 @@ public class ThirdStatisticHelper {
         new ThirdStatisticAsyncTask(null).execute(str + "&TIME=" + System.currentTimeMillis());
     }
 
-    public static void sendTiePlusReq(String str, String str2, int i2, TiePlusStatisCallback tiePlusStatisCallback) {
+    public static void sendTiePlusReq(String str, String str2, int i, TiePlusStatisCallback tiePlusStatisCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, i2, tiePlusStatisCallback) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, i, tiePlusStatisCallback) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        new TiePlusStaticTask(str2, i2, tiePlusStatisCallback).execute(str);
+        new TiePlusStaticTask(str2, i, tiePlusStatisCallback).execute(str);
     }
 }

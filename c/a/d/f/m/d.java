@@ -15,12 +15,10 @@ public abstract class d implements Animation.AnimationListener {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2696e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2697f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ d f2228b;
 
         public a(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -29,23 +27,23 @@ public abstract class d implements Animation.AnimationListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, animation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2697f = dVar;
-            this.f2696e = animation;
+            this.f2228b = dVar;
+            this.a = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2697f.c(this.f2696e);
+                this.f2228b.c(this.a);
             }
         }
     }
@@ -54,12 +52,10 @@ public abstract class d implements Animation.AnimationListener {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2698e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2699f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ d f2229b;
 
         public b(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -68,23 +64,23 @@ public abstract class d implements Animation.AnimationListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, animation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2699f = dVar;
-            this.f2698e = animation;
+            this.f2229b = dVar;
+            this.a = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2699f.a(this.f2698e);
+                this.f2229b.a(this.a);
             }
         }
     }
@@ -93,12 +89,10 @@ public abstract class d implements Animation.AnimationListener {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f2700e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f2701f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ d f2230b;
 
         public c(d dVar, Animation animation) {
             Interceptable interceptable = $ic;
@@ -107,23 +101,23 @@ public abstract class d implements Animation.AnimationListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dVar, animation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2701f = dVar;
-            this.f2700e = animation;
+            this.f2230b = dVar;
+            this.a = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2701f.b(this.f2700e);
+                this.f2230b.b(this.a);
             }
         }
     }
@@ -133,9 +127,9 @@ public abstract class d implements Animation.AnimationListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

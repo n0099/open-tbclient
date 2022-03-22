@@ -4,25 +4,25 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public final ExecutorService a = com.kwad.sdk.core.i.b.b();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f54868b;
+        public final File f39963b;
 
         public a(File file) {
-            this.f54868b = file;
+            this.f39963b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f54868b);
+            e.this.b(this.f39963b);
             return null;
         }
     }
@@ -44,11 +44,11 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     }
 
     private long b(List<File> list) {
-        long j2 = 0;
+        long j = 0;
         for (File file : list) {
-            j2 += file.length();
+            j += file.length();
         }
-        return j2;
+        return j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,5 +62,5 @@ public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
         this.a.submit(new a(file));
     }
 
-    public abstract boolean a(File file, long j2, int i2);
+    public abstract boolean a(File file, long j, int i);
 }

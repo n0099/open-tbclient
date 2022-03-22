@@ -30,9 +30,9 @@ public final class DirectedAcyclicGraph<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,8 +54,8 @@ public final class DirectedAcyclicGraph<T> {
             ArrayList<T> arrayList2 = this.mGraph.get(t);
             if (arrayList2 != null) {
                 int size = arrayList2.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    dfs(arrayList2.get(i2), arrayList, hashSet);
+                for (int i = 0; i < size; i++) {
+                    dfs(arrayList2.get(i), arrayList, hashSet);
                 }
             }
             hashSet.remove(t);
@@ -112,8 +112,8 @@ public final class DirectedAcyclicGraph<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int size = this.mGraph.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.mGraph.valueAt(i2);
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.mGraph.valueAt(i);
                 if (valueAt != null) {
                     poolList(valueAt);
                 }
@@ -142,13 +142,13 @@ public final class DirectedAcyclicGraph<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t)) == null) {
             int size = this.mGraph.size();
             ArrayList arrayList = null;
-            for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.mGraph.valueAt(i2);
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.mGraph.valueAt(i);
                 if (valueAt != null && valueAt.contains(t)) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(this.mGraph.keyAt(i2));
+                    arrayList.add(this.mGraph.keyAt(i));
                 }
             }
             return arrayList;
@@ -164,8 +164,8 @@ public final class DirectedAcyclicGraph<T> {
             this.mSortResult.clear();
             this.mSortTmpMarked.clear();
             int size = this.mGraph.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                dfs(this.mGraph.keyAt(i2), this.mSortResult, this.mSortTmpMarked);
+            for (int i = 0; i < size; i++) {
+                dfs(this.mGraph.keyAt(i), this.mSortResult, this.mSortTmpMarked);
             }
             return this.mSortResult;
         }
@@ -177,8 +177,8 @@ public final class DirectedAcyclicGraph<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
             int size = this.mGraph.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ArrayList<T> valueAt = this.mGraph.valueAt(i2);
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.mGraph.valueAt(i);
                 if (valueAt != null && valueAt.contains(t)) {
                     return true;
                 }

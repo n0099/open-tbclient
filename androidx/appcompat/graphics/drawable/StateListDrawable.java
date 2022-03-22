@@ -52,9 +52,9 @@ public class StateListDrawable extends DrawableContainer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {stateListState, stateListDrawable, resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((DrawableContainer.DrawableContainerState) objArr2[0], (DrawableContainer) objArr2[1], (Resources) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -81,12 +81,12 @@ public class StateListDrawable extends DrawableContainer {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableContainer.DrawableContainerState
-        public void growArray(int i2, int i3) {
+        public void growArray(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                super.growArray(i2, i3);
-                int[][] iArr = new int[i3];
-                System.arraycopy(this.mStateSets, 0, iArr, 0, i2);
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                super.growArray(i, i2);
+                int[][] iArr = new int[i2];
+                System.arraycopy(this.mStateSets, 0, iArr, 0, i);
                 this.mStateSets = iArr;
             }
         }
@@ -97,9 +97,9 @@ public class StateListDrawable extends DrawableContainer {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
                 int[][] iArr2 = this.mStateSets;
                 int childCount = getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    if (StateSet.stateSetMatches(iArr2[i2], iArr)) {
-                        return i2;
+                for (int i = 0; i < childCount; i++) {
+                    if (StateSet.stateSetMatches(iArr2[i], iArr)) {
+                        return i;
                     }
                 }
                 return -1;
@@ -145,9 +145,9 @@ public class StateListDrawable extends DrawableContainer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((StateListState) objArr[0], (Resources) objArr[1]);
                 newInitContext.thisArg = this;
@@ -248,19 +248,19 @@ public class StateListDrawable extends DrawableContainer {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, attributeSet)) == null) {
             int attributeCount = attributeSet.getAttributeCount();
             int[] iArr = new int[attributeCount];
-            int i2 = 0;
-            for (int i3 = 0; i3 < attributeCount; i3++) {
-                int attributeNameResource = attributeSet.getAttributeNameResource(i3);
+            int i = 0;
+            for (int i2 = 0; i2 < attributeCount; i2++) {
+                int attributeNameResource = attributeSet.getAttributeNameResource(i2);
                 if (attributeNameResource != 0 && attributeNameResource != 16842960 && attributeNameResource != 16843161) {
-                    int i4 = i2 + 1;
-                    if (!attributeSet.getAttributeBooleanValue(i3, false)) {
+                    int i3 = i + 1;
+                    if (!attributeSet.getAttributeBooleanValue(i2, false)) {
                         attributeNameResource = -attributeNameResource;
                     }
-                    iArr[i2] = attributeNameResource;
-                    i2 = i4;
+                    iArr[i] = attributeNameResource;
+                    i = i3;
                 }
             }
-            return StateSet.trimStateSet(iArr, i2);
+            return StateSet.trimStateSet(iArr, i);
         }
         return (int[]) invokeL.objValue;
     }
@@ -271,10 +271,10 @@ public class StateListDrawable extends DrawableContainer {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mStateListState.getChildCount() : invokeV.intValue;
     }
 
-    public Drawable getStateDrawable(int i2) {
+    public Drawable getStateDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.mStateListState.getChild(i2) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mStateListState.getChild(i) : (Drawable) invokeI.objValue;
     }
 
     public int getStateDrawableIndex(int[] iArr) {
@@ -289,10 +289,10 @@ public class StateListDrawable extends DrawableContainer {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mStateListState : (StateListState) invokeV.objValue;
     }
 
-    public int[] getStateSet(int i2) {
+    public int[] getStateSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.mStateListState.mStateSets[i2] : (int[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.mStateListState.mStateSets[i] : (int[]) invokeI.objValue;
     }
 
     public void inflate(@NonNull Context context, @NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @NonNull AttributeSet attributeSet, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
@@ -366,9 +366,9 @@ public class StateListDrawable extends DrawableContainer {
             newInitContext.initArgs = r2;
             Object[] objArr = {stateListState, resources};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -393,9 +393,9 @@ public class StateListDrawable extends DrawableContainer {
             newInitContext.initArgs = r2;
             Object[] objArr = {stateListState};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

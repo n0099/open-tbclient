@@ -10,7 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class URIUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class URIUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,10 +31,10 @@ public class URIUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static URI createURI(String str, String str2, int i2, String str3, String str4, String str5) throws URISyntaxException {
+    public static URI createURI(String str, String str2, int i, String str3, String str4, String str5) throws URISyntaxException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (URI) invokeCommon.objValue;

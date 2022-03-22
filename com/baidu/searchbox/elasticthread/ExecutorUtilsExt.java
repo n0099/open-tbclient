@@ -1,6 +1,7 @@
 package com.baidu.searchbox.elasticthread;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
@@ -29,57 +30,63 @@ public class ExecutorUtilsExt {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2, long j2) {
-        int i3;
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || runnable == null) {
-            return;
-        }
-        if (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) {
-            i3 = i2;
-        } else {
-            String str2 = "illegal priority " + i2;
-            i3 = 3;
-        }
-        ElasticConfig.updateConfig();
-        if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postThreadPoolTask(runnable, j2);
-        } else {
-            ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i3, j2);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (runnable == null) {
+                Log.w(TAG, "received a null task ");
+                return;
+            }
+            if (i == 0 || i == 1 || i == 2 || i == 3) {
+                i2 = i;
+            } else {
+                Log.w(TAG, "illegal priority " + i);
+                i2 = 3;
+            }
+            ElasticConfig.updateConfig();
+            if (ElasticConfig.elasticExecutorDisabled()) {
+                BackupExecutors.getInstance().postThreadPoolTask(runnable, j);
+            } else {
+                ElasticTaskScheduler.getInstance().postConcurrentTaskDelay(runnable, getStandardTaskName(str, ELASTIC_TASK_NAME_PREFIX), i2, j);
+            }
         }
     }
 
-    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j2) {
+    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) || runnable == null) {
-            return;
-        }
-        ElasticConfig.updateConfig();
-        if (ElasticConfig.elasticExecutorDisabled()) {
-            BackupExecutors.getInstance().postSerialTask(runnable, j2);
-        } else {
-            ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j2);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            if (runnable == null) {
+                Log.w(TAG, "received a null task ");
+                return;
+            }
+            ElasticConfig.updateConfig();
+            if (ElasticConfig.elasticExecutorDisabled()) {
+                BackupExecutors.getInstance().postSerialTask(runnable, j);
+            } else {
+                ElasticTaskScheduler.getInstance().postSerialTaskDelay(runnable, getStandardTaskName(str, SERIAL_TASK_NAME_PREFIX), 4, j);
+            }
         }
     }
 
     @Deprecated
-    public static Executor getElasticExecutor(String str, int i2) {
+    public static Executor getElasticExecutor(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
             if (ElasticConfig.elasticExecutorDisabled()) {
                 return BackupExecutors.getInstance().getThreadPoolExecutor();
             }
-            return new ElasticExecutor(str, i2);
+            return new ElasticExecutor(str, i);
         }
         return (Executor) invokeLI.objValue;
     }
@@ -115,6 +122,7 @@ public class ExecutorUtilsExt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
+                Log.w(TAG, "received an empty task name ");
                 str = "default";
             }
             String str3 = str2 + str;
@@ -123,10 +131,10 @@ public class ExecutorUtilsExt {
         return (String) invokeLL.objValue;
     }
 
-    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i2) {
+    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, runnable, str, i2) == null) {
-            delayPostOnElastic(runnable, str, i2, 0L);
+        if (interceptable == null || interceptable.invokeLLI(65543, null, runnable, str, i) == null) {
+            delayPostOnElastic(runnable, str, i, 0L);
         }
     }
 

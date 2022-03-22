@@ -4,6 +4,7 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +31,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ProducerSequenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,9 +89,9 @@ public class ProducerSequenceFactory {
             newInitContext.initArgs = r3;
             Object[] objArr = {contentResolver, producerFactory, networkFetcher, Boolean.valueOf(z), Boolean.valueOf(z2), threadHandoffProducerQueue, Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), imageTranscoderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -531,7 +532,7 @@ public class ProducerSequenceFactory {
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
             String valueOf = String.valueOf(uri);
             if (valueOf.length() > 30) {
-                return valueOf.substring(0, 30) + "...";
+                return valueOf.substring(0, 30) + StringHelper.STRING_MORE;
             }
             return valueOf;
         }

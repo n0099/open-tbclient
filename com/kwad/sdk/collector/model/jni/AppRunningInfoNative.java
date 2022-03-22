@@ -8,18 +8,17 @@ import com.kwad.sdk.collector.model.c;
 import com.kwad.sdk.utils.t;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
     public static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 
-    public AppRunningInfoNative(long j2) {
-        this.mPtr = j2;
+    public AppRunningInfoNative(long j) {
+        this.mPtr = j;
     }
 
-    public AppRunningInfoNative(long j2, String str, String str2) {
-        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j2, str, str2);
+    public AppRunningInfoNative(long j, String str, String str2) {
+        this.mPtr = AppStatusNative.nativeCreateAppRunningInfo(j, str, str2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,11 +28,11 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
         if (appRunningInfoNative == null) {
             return 1;
         }
-        int i2 = ((AppStatusNative.appRunningInfoGetLastRunningTime(this) - c.c(appRunningInfoNative)) > 0L ? 1 : ((AppStatusNative.appRunningInfoGetLastRunningTime(this) - c.c(appRunningInfoNative)) == 0L ? 0 : -1));
-        if (i2 == 0) {
+        int i = ((AppStatusNative.appRunningInfoGetLastRunningTime(this) - c.c(appRunningInfoNative)) > 0L ? 1 : ((AppStatusNative.appRunningInfoGetLastRunningTime(this) - c.c(appRunningInfoNative)) == 0L ? 0 : -1));
+        if (i == 0) {
             return 0;
         }
-        return i2 > 0 ? 1 : -1;
+        return i > 0 ? 1 : -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,15 +44,15 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
         return appRunningInfoNative;
     }
 
-    public String a(long j2) {
-        return a.format(new Date(j2));
+    public String a(long j) {
+        return a.format(new Date(j));
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
-        long j2 = this.mPtr;
-        if (j2 != 0) {
-            AppStatusNative.nativeDeleteAppRunningInfo(j2);
+        long j = this.mPtr;
+        if (j != 0) {
+            AppStatusNative.nativeDeleteAppRunningInfo(j);
             this.mPtr = 0L;
         }
     }
@@ -105,6 +104,6 @@ public class AppRunningInfoNative extends NativeObject implements b<AppRunningIn
     }
 
     public String toString() {
-        return "AppRunningInfo{packageName='" + c.b(this) + ExtendedMessageFormat.QUOTE + ", lastRunningTime=" + a(c.c(this)) + ExtendedMessageFormat.END_FE;
+        return "AppRunningInfo{packageName='" + c.b(this) + "', lastRunningTime=" + a(c.c(this)) + '}';
     }
 }

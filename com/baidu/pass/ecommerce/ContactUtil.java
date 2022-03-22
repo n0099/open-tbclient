@@ -12,6 +12,7 @@ import com.baidu.pass.permissions.PermissionsDTO;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,9 +31,9 @@ public class ContactUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -110,9 +111,9 @@ public class ContactUtil {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, getContactCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -151,9 +152,9 @@ public class ContactUtil {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -164,9 +165,9 @@ public class ContactUtil {
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onFailure(int i2) {
+                public void onFailure(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         GetContactResult getContactResult = new GetContactResult();
                         getContactResult.setResultCode(-901);
                         this.this$0.getContactCallback.onCall(getContactResult);
@@ -183,7 +184,7 @@ public class ContactUtil {
                             context2.startActivity(intent);
                             return;
                         }
-                        intent.setFlags(268435456);
+                        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                         this.val$context.startActivity(intent);
                     }
                 }

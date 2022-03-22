@@ -81,21 +81,21 @@ public class StringHelper extends m {
                 return;
             }
         }
-        long j2 = 1000 * 60;
-        MS_TO_MIN = j2;
-        long j3 = j2 * 60;
-        MS_TO_HOUR = j3;
-        MS_TO_DAY = j3 * 24;
-        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
-        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
-        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.day);
-        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
-        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
-        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
-        ALA_CARD_HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_hour);
-        ALA_CARD_MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_min);
+        long j = 1000 * 60;
+        MS_TO_MIN = j;
+        long j2 = j * 60;
+        MS_TO_HOUR = j2;
+        MS_TO_DAY = j2 * 24;
+        HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13bf);
+        MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c4);
+        SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c6);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f046f);
+        TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13be);
+        TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c5);
+        TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c7);
+        ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fa);
+        ALA_CARD_HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fb);
+        ALA_CARD_MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f01fc);
         FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
         FORMATE_DATE_DAY_TIME = new SimpleDateFormat("dd日HH:mm");
@@ -127,9 +127,9 @@ public class StringHelper extends m {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -145,15 +145,15 @@ public class StringHelper extends m {
             }
             StringBuilder sb = new StringBuilder();
             int length = jSONArray.length();
-            int i2 = 0;
-            while (i2 < length) {
+            int i = 0;
+            while (i < length) {
                 try {
-                    sb.append(jSONArray.get(i2));
+                    sb.append(jSONArray.get(i));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                i2++;
-                if (i2 < length) {
+                i++;
+                if (i < length) {
                     sb.append(",");
                 }
             }
@@ -174,46 +174,46 @@ public class StringHelper extends m {
             }
             long[] parseVersion = parseVersion(str);
             long[] parseVersion2 = parseVersion(str2);
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
+            for (int i = 0; i < 3; i++) {
+                j2 += parseVersion[i] << (24 - (i * 8));
+            }
             for (int i2 = 0; i2 < 3; i2++) {
-                j3 += parseVersion[i2] << (24 - (i2 * 8));
+                j += parseVersion2[i2] << (24 - (i2 * 8));
             }
-            for (int i3 = 0; i3 < 3; i3++) {
-                j2 += parseVersion2[i3] << (24 - (i3 * 8));
-            }
-            int i4 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-            if (i4 > 0) {
+            int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i3 > 0) {
                 return 1;
             }
-            return i4 == 0 ? 0 : -1;
+            return i3 == 0 ? 0 : -1;
         }
         return invokeLL.intValue;
     }
 
-    public static String cutChineseAndEnglishWithEmoji(String str, int i2, String str2) {
+    public static String cutChineseAndEnglishWithEmoji(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, str2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = m.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            int i5 = i3 + 1;
-            if (i5 < length) {
+            int i4 = i2 + 1;
+            if (i4 < length) {
                 if (str2 == null) {
                     str2 = "";
                 }
-                String substring = str.substring(0, str.offsetByCodePoints(0, str.codePointCount(0, i5)));
+                String substring = str.substring(0, str.offsetByCodePoints(0, str.codePointCount(0, i4)));
                 if (str.equals(substring)) {
                     return substring;
                 }
@@ -224,94 +224,94 @@ public class StringHelper extends m {
         return (String) invokeLIL.objValue;
     }
 
-    public static String cutChineseAndEnglishWithSuffix(String str, int i2, String str2) {
+    public static String cutChineseAndEnglishWithSuffix(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, str, i2, str2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, str, i, str2)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = m.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            int i5 = i3 + 1;
-            if (i5 < length) {
+            int i4 = i2 + 1;
+            if (i4 < length) {
                 if (str2 == null) {
                     str2 = "";
                 }
-                return str.substring(0, i5) + str2;
+                return str.substring(0, i4) + str2;
             }
             return str;
         }
         return (String) invokeLIL.objValue;
     }
 
-    public static String cutForumNameWithSuffix(String str, int i2, String str2) {
+    public static String cutForumNameWithSuffix(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i2, str2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, str, i, str2)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = m.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            int i5 = i3 + 1;
-            if (i5 < length) {
+            int i4 = i2 + 1;
+            if (i4 < length) {
                 if (str2 == null) {
                     str2 = "";
                 }
-                if (i4 + 2 < i2) {
-                    return str.substring(0, i5) + str2;
+                if (i3 + 2 < i) {
+                    return str.substring(0, i4) + str2;
                 }
-                return str.substring(0, i3) + str2;
+                return str.substring(0, i2) + str2;
             }
             return str;
         }
         return (String) invokeLIL.objValue;
     }
 
-    public static String cutHotTopicShow(String str, int i2, String str2) {
+    public static String cutHotTopicShow(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, str, i2, str2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65544, null, str, i, str2)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
             if (str.indexOf("#") == 0 && str.lastIndexOf("#") == length - 1) {
                 String replaceAll = str.replaceAll("#", "");
+                int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                while (i3 < length) {
-                    i4 = m.isChinese(replaceAll.charAt(i3)) ? i4 + 2 : i4 + 1;
-                    if (i4 >= i2) {
+                while (i2 < length) {
+                    i3 = m.isChinese(replaceAll.charAt(i2)) ? i3 + 2 : i3 + 1;
+                    if (i3 >= i) {
                         break;
                     }
-                    i3++;
+                    i2++;
                 }
                 StringBuilder sb = new StringBuilder();
-                int i5 = i3 + 1;
-                if (i5 < length) {
+                int i4 = i2 + 1;
+                if (i4 < length) {
                     if (str2 == null) {
                         str2 = "";
                     }
                     sb.append("#");
-                    sb.append(replaceAll.substring(0, i5));
+                    sb.append(replaceAll.substring(0, i4));
                     sb.append(str2);
                     sb.append("#");
                     return sb.toString();
@@ -321,34 +321,34 @@ public class StringHelper extends m {
                 sb.append("#");
                 return sb.toString();
             }
-            return cutChineseAndEnglishWithSuffix(str, i2, str2);
+            return cutChineseAndEnglishWithSuffix(str, i, str2);
         }
         return (String) invokeLIL.objValue;
     }
 
     @Deprecated
-    public static String cutStringWithEllipsis(String str, int i2) {
+    public static String cutStringWithEllipsis(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) ? (str == null || i2 < 0 || str.length() == i2) ? str : cutStringWithSuffix(str, i2 - 1, "...") : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) ? (str == null || i < 0 || str.length() == i) ? str : cutStringWithSuffix(str, i - 1, STRING_MORE) : (String) invokeLI.objValue;
     }
 
-    public static String cutStringWithEllipsisNew(String str, int i2) {
+    public static String cutStringWithEllipsisNew(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
-            if (i2 <= 0) {
+            if (i <= 0) {
                 return str;
             }
             try {
-                if (str.codePointCount(0, str.length()) <= i2) {
+                if (str.codePointCount(0, str.length()) <= i) {
                     return str;
                 }
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2 - 1));
-                return substring + "...";
+                String substring = str.substring(0, str.offsetByCodePoints(0, i - 1));
+                return substring + STRING_MORE;
             } catch (Throwable th) {
                 BdLog.e(th);
                 return str;
@@ -357,43 +357,43 @@ public class StringHelper extends m {
         return (String) invokeLI.objValue;
     }
 
-    public static String cutStringWithEllipsisStrict(String str, int i2) {
+    public static String cutStringWithEllipsisStrict(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = m.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = m.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            if (i4 > i2 || i3 + 1 < length) {
-                if (i4 + 2 < i2) {
-                    return str.substring(0, i3 + 1) + "...";
+            if (i3 > i || i2 + 1 < length) {
+                if (i3 + 2 < i) {
+                    return str.substring(0, i2 + 1) + STRING_MORE;
                 }
-                return str.substring(0, i3) + "...";
+                return str.substring(0, i2) + STRING_MORE;
             }
             return str;
         }
         return (String) invokeLI.objValue;
     }
 
-    public static String cutStringWithSuffix(String str, int i2, String str2) {
+    public static String cutStringWithSuffix(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, str, i2, str2)) == null) {
-            if (str == null || i2 < 0 || str.length() <= i2) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, str, i, str2)) == null) {
+            if (str == null || i < 0 || str.length() <= i) {
                 return str;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(str.substring(0, i2));
+            sb.append(str.substring(0, i));
             if (str2 == null) {
                 sb.append("");
             } else {
@@ -416,16 +416,16 @@ public class StringHelper extends m {
             try {
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date2);
-                int i2 = calendar.get(5);
-                int i3 = calendar.get(2);
-                if (i2 < iArr[i3]) {
-                    i3--;
+                int i = calendar.get(5);
+                int i2 = calendar.get(2);
+                if (i < iArr[i2]) {
+                    i2--;
                 }
-                if (i3 < 0) {
-                    i3 = 11;
+                if (i2 < 0) {
+                    i2 = 11;
                 }
-                if (i3 >= 0 && i3 <= 11) {
-                    return strArr[i3];
+                if (i2 >= 0 && i2 <= 11) {
+                    return strArr[i2];
                 }
             } catch (ParseException e2) {
                 e2.printStackTrace();
@@ -459,24 +459,24 @@ public class StringHelper extends m {
         return (String) invokeL.objValue;
     }
 
-    public static String formatDayOrHourTime(long j2) {
+    public static String formatDayOrHourTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j2)) == null) {
-            int i2 = (int) (j2 / 3600000);
-            if (i2 >= 24) {
-                return ((i2 / 24) + 1) + TIME_DAY;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) {
+            int i = (int) (j / 3600000);
+            if (i >= 24) {
+                return ((i / 24) + 1) + TIME_DAY;
             }
-            return (i2 + 1) + TIME_HOUR;
+            return (i + 1) + TIME_HOUR;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String formatDayTime(long j2) {
+    public static String formatDayTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j2)) == null) {
-            return (((j2 / 3600000) / 24) + 1) + TIME_DAY;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65554, null, j)) == null) {
+            return (((j / 3600000) / 24) + 1) + TIME_DAY;
         }
         return (String) invokeJ.objValue;
     }
@@ -497,74 +497,74 @@ public class StringHelper extends m {
         return (String) invokeCommon.objValue;
     }
 
-    public static String formatGiftNumForTDouDisPlay(long j2) {
+    public static String formatGiftNumForTDouDisPlay(long j) {
         InterceptResult invokeJ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            String valueOf = String.valueOf(j2);
-            if (j2 < 100000000) {
-                if (j2 >= 10000000) {
-                    float f2 = ((float) j2) / 10000.0f;
-                    long j3 = j2 / 10000;
-                    if (j2 % 10000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            String valueOf = String.valueOf(j);
+            if (j < 100000000) {
+                if (j >= 10000000) {
+                    float f2 = ((float) j) / 10000.0f;
+                    long j2 = j / 10000;
+                    if (j % 10000000 > 999) {
+                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                     }
-                    return j3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                 }
                 return valueOf;
             }
-            long j4 = j2 % 100000000;
-            if (j4 != 0) {
-                double d2 = ((float) j2) / 1.0E8f;
-                double d3 = j2 / 100000000;
-                if (j4 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            long j3 = j % 100000000;
+            if (j3 != 0) {
+                double d2 = ((float) j) / 1.0E8f;
+                double d3 = j / 100000000;
+                if (j3 > 999999.0d) {
+                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 } else {
-                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 }
                 return str;
             }
-            return (j2 / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String formatNumForTdouDisPlay(long j2) {
+    public static String formatNumForTdouDisPlay(long j) {
         InterceptResult invokeJ;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            String valueOf = String.valueOf(j2);
-            if (j2 < 100000000) {
-                if (j2 >= 1000000) {
-                    float f2 = ((float) j2) / 10000.0f;
-                    long j3 = j2 / 10000;
-                    if (j2 % 1000000 > 999) {
-                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            String valueOf = String.valueOf(j);
+            if (j < 100000000) {
+                if (j >= 1000000) {
+                    float f2 = ((float) j) / 10000.0f;
+                    long j2 = j / 10000;
+                    if (j % 1000000 > 999) {
+                        return String.format("%.2f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                     }
-                    return j3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                    return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                 }
                 return valueOf;
             }
-            long j4 = j2 % 100000000;
-            if (j4 != 0) {
-                double d2 = ((float) j2) / 1.0E8f;
-                double d3 = j2 / 100000000;
-                if (j4 > 999999.0d) {
-                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            long j3 = j % 100000000;
+            if (j3 != 0) {
+                double d2 = ((float) j) / 1.0E8f;
+                double d3 = j / 100000000;
+                if (j3 > 999999.0d) {
+                    str = String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 } else {
-                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                    str = d3 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 }
                 return str;
             }
-            return (j2 / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
         }
         return (String) invokeJ.objValue;
     }
@@ -580,16 +580,16 @@ public class StringHelper extends m {
             if (f2 >= 1.0E8f) {
                 if (f2 % 1.0E8f != 0.0f) {
                     double d2 = f2 / 1.0E8f;
-                    return String.format("%.1f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                    return String.format("%.1f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 }
-                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
             } else if (f2 >= 1000000.0f) {
                 float f3 = f2 / 10000.0f;
-                long j2 = f3;
-                if (f3 > ((float) j2)) {
-                    return String.format("%.1f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                long j = f3;
+                if (f3 > ((float) j)) {
+                    return String.format("%.1f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                 }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
             } else {
                 return valueOf;
             }
@@ -597,26 +597,26 @@ public class StringHelper extends m {
         return (String) invokeF.objValue;
     }
 
-    public static String formatSecondsTime(int i2) {
+    public static String formatSecondsTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            int i3 = i2 / 1000;
-            int i4 = i3 % 60;
-            int i5 = (i3 / 60) % 60;
-            int i6 = i3 / 3600;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
+            int i2 = i / 1000;
+            int i3 = i2 % 60;
+            int i4 = (i2 / 60) % 60;
+            int i5 = i2 / 3600;
             StringBuilder sb = new StringBuilder();
             Formatter formatter = new Formatter(sb, Locale.getDefault());
             sb.setLength(0);
-            return i6 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i6), Integer.valueOf(i5), Integer.valueOf(i4)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4)).toString();
+            return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
         }
         return (String) invokeI.objValue;
     }
 
-    public static String formatTosepara(int i2) {
+    public static String formatTosepara(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i2)) == null) ? new DecimalFormat("#,###").format(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i)) == null) ? new DecimalFormat("#,###").format(i) : (String) invokeI.objValue;
     }
 
     public static String formatYdouOverBaiwanNum(float f2) {
@@ -630,21 +630,21 @@ public class StringHelper extends m {
             if (f2 >= 1.0E8f) {
                 if (f2 % 1.0E8f != 0.0f) {
                     double d2 = f2 / 1.0E8f;
-                    return String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                    return String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 }
-                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
             } else if (f2 < 1000000.0f) {
-                int i2 = (int) f2;
-                if (f2 > i2) {
+                int i = (int) f2;
+                if (f2 > i) {
                     return ((int) (100.0f * f2)) % 10 == 0 ? String.format("%.1f", Float.valueOf(f2)) : String.format("%.2f", Float.valueOf(f2));
                 }
-                return String.valueOf(i2);
+                return String.valueOf(i);
             } else {
-                long j2 = f2 / 10000;
-                if (f2 / 10000.0f > ((float) j2)) {
-                    return String.format("%.2f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                long j = f2 / 10000;
+                if (f2 / 10000.0f > ((float) j)) {
+                    return String.format("%.2f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                 }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                return j + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
             }
         }
         return (String) invokeF.objValue;
@@ -655,14 +655,14 @@ public class StringHelper extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
+                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), 1);
             }
             float d2 = b.d(str, 0.0f);
             if (d2 > 1.0f) {
-                return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(d2)));
+                return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), Integer.valueOf(Math.round(d2)));
             }
             int round = Math.round(d2 * 12.0f);
-            return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), Integer.valueOf(round));
+            return round >= 12 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b8), 1) : round < 1 ? String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), 1) : String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7), Integer.valueOf(round));
         }
         return (String) invokeL.objValue;
     }
@@ -681,21 +681,21 @@ public class StringHelper extends m {
                 return 0;
             }
             int length = str.length();
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 = m.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = m.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static String getChineseFormatTimeString(long j2) {
+    public static String getChineseFormatTimeString(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65570, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMATE_DATE_SECOND_CHINESE) {
                 format = FORMATE_DATE_SECOND_CHINESE.format(date2);
             }
@@ -704,11 +704,11 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getChineseMonthBytime(long j2) {
+    public static String getChineseMonthBytime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j2)) == null) {
-            switch (new Date(j2).getMonth() + 1) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65571, null, j)) == null) {
+            switch (new Date(j).getMonth() + 1) {
                 case 1:
                     return "一月";
                 case 2:
@@ -740,11 +740,11 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getChineseYearBytime(long j2) {
+    public static String getChineseYearBytime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65572, null, j2)) == null) {
-            return getYearBytime(j2) + "年";
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65572, null, j)) == null) {
+            return getYearBytime(j) + "年";
         }
         return (String) invokeJ.objValue;
     }
@@ -791,11 +791,11 @@ public class StringHelper extends m {
         return (String) invokeV.objValue;
     }
 
-    public static String getDateBytime(long j2) {
+    public static String getDateBytime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65576, null, j2)) == null) {
-            int date2 = new Date(j2).getDate();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65576, null, j)) == null) {
+            int date2 = new Date(j).getDate();
             if (date2 < 10) {
                 return "0" + String.valueOf(date2);
             }
@@ -843,12 +843,12 @@ public class StringHelper extends m {
         return (String) invokeL.objValue;
     }
 
-    public static String getDateStringHM(long j2) {
+    public static String getDateStringHM(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65580, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65580, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMATE_DATE_HOUR) {
                 format = FORMATE_DATE_HOUR.format(date2);
             }
@@ -857,12 +857,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringMHH(long j2) {
+    public static String getDateStringMHH(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65581, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65581, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMAT_DATE_MONTH_SECOND_) {
                 format = FORMAT_DATE_MONTH_SECOND_.format(date2);
             }
@@ -871,12 +871,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringMd(long j2) {
+    public static String getDateStringMd(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65582, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMATE_MONTH_DAY) {
                 format = FORMATE_MONTH_DAY.format(date2);
             }
@@ -885,12 +885,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringMdChinease(long j2) {
+    public static String getDateStringMdChinease(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65583, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65583, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMAT_MONTH_DAY_CHINEASE) {
                 format = FORMAT_MONTH_DAY_CHINEASE.format(date2);
             }
@@ -899,12 +899,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringMdHm(long j2) {
+    public static String getDateStringMdHm(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65584, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65584, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMATE_MONTH_DAY_HOUR_MINUTE) {
                 format = FORMATE_MONTH_DAY_HOUR_MINUTE.format(date2);
             }
@@ -913,12 +913,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringMdHmSs(long j2) {
+    public static String getDateStringMdHmSs(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65585, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65585, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMATE_DATE_SECOND) {
                 format = FORMATE_DATE_SECOND.format(date2);
             }
@@ -927,12 +927,12 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getDateStringYMH(long j2) {
+    public static String getDateStringYMH(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65586, null, j)) == null) {
+            Date date2 = new Date(j);
             synchronized (FORMAT_DATE_YEAR_SECOND) {
                 format = FORMAT_DATE_YEAR_SECOND.format(date2);
             }
@@ -967,28 +967,28 @@ public class StringHelper extends m {
         return (String) invokeL.objValue;
     }
 
-    public static String getFixedText(String str, int i2, boolean z) {
+    public static String getFixedText(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             double d2 = 0.0d;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= str.length()) {
+                if (i2 >= str.length()) {
                     break;
                 }
-                char charAt = str.charAt(i3);
+                char charAt = str.charAt(i2);
                 d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-                if (d2 <= i2) {
+                if (d2 <= i) {
                     sb.append(charAt);
-                    i3++;
+                    i2++;
                 } else if (z) {
-                    String fixedText = getFixedText(sb.toString(), i2 - 1, false);
-                    return fixedText + "...";
+                    String fixedText = getFixedText(sb.toString(), i - 1, false);
+                    return fixedText + STRING_MORE;
                 }
             }
             return sb.toString();
@@ -996,13 +996,13 @@ public class StringHelper extends m {
         return (String) invokeCommon.objValue;
     }
 
-    public static String getFormatAlaLiveTime(long j2) {
+    public static String getFormatAlaLiveTime(long j) {
         InterceptResult invokeJ;
         String formatAlaLiveTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65590, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65590, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatAlaLiveTime = getFormatAlaLiveTime(date);
             }
             return formatAlaLiveTime;
@@ -1010,23 +1010,23 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getFormatSize(long j2) {
+    public static String getFormatSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65592, null, j2)) == null) {
-            float f2 = (float) j2;
-            return f2 >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f2 / SIZE_FLOAT_G)) : f2 >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f2 / SIZE_FLOAT_M)) : f2 >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f2 / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.less_than_zero_dot_one_k);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65592, null, j)) == null) {
+            float f2 = (float) j;
+            return f2 >= SIZE_FLOAT_G ? String.format(Locale.getDefault(), "%.1fG", Float.valueOf(f2 / SIZE_FLOAT_G)) : f2 >= SIZE_FLOAT_M ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(f2 / SIZE_FLOAT_M)) : f2 >= SIZE_FLOAT_K / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(f2 / SIZE_FLOAT_K)) : TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d2);
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String getFormatTime(long j2) {
+    public static String getFormatTime(long j) {
         InterceptResult invokeJ;
         String formatTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65593, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65593, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatTime = getFormatTime(date, false);
             }
             return formatTime;
@@ -1034,13 +1034,13 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getFormatTimeForAlaCardCreate(long j2) {
+    public static String getFormatTimeForAlaCardCreate(long j) {
         InterceptResult invokeJ;
         String formatTimeForAlaCardCreate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65595, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65595, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatTimeForAlaCardCreate = getFormatTimeForAlaCardCreate(date);
             }
             return formatTimeForAlaCardCreate;
@@ -1048,13 +1048,13 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getFormatTimeForHomeC(long j2) {
+    public static String getFormatTimeForHomeC(long j) {
         InterceptResult invokeJ;
         String formatTimeHomeC;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65597, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65597, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatTimeHomeC = getFormatTimeHomeC(date);
             }
             return formatTimeHomeC;
@@ -1062,13 +1062,13 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getFormatTimeForJustNow(long j2) {
+    public static String getFormatTimeForJustNow(long j) {
         InterceptResult invokeJ;
         String formatTimeForJustNow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65598, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65598, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatTimeForJustNow = getFormatTimeForJustNow(date, false);
             }
             return formatTimeForJustNow;
@@ -1087,28 +1087,28 @@ public class StringHelper extends m {
             if (time < MS_TO_DAY && time > 0) {
                 if (time < MS_TO_HOUR) {
                     if (time < MS_TO_MIN) {
-                        long j2 = time / MS_TO_SEC;
-                        if (j2 == 0) {
-                            j2 = 1;
+                        long j = time / MS_TO_SEC;
+                        if (j == 0) {
+                            j = 1;
                         }
-                        return String.valueOf(j2) + SEC_BEFORE;
+                        return String.valueOf(j) + SEC_BEFORE;
                     }
                     return String.valueOf(time / MS_TO_MIN) + MIN_BEFORE;
                 }
                 return String.valueOf(time / MS_TO_HOUR) + HOUR_BEFORE;
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.more_one_day);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ad1);
         }
         return (String) invokeL.objValue;
     }
 
-    public static String getFormatTimeShort(long j2) {
+    public static String getFormatTimeShort(long j) {
         InterceptResult invokeJ;
         String formatTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65601, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65601, null, j)) == null) {
             synchronized (date) {
-                date.setTime(j2);
+                date.setTime(j);
                 formatTime = getFormatTime(date, true);
             }
             return formatTime;
@@ -1166,11 +1166,11 @@ public class StringHelper extends m {
         return (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) ? "-∞" : (String) invokeV.objValue;
     }
 
-    public static String getPostTimeInterval(long j2) {
+    public static String getPostTimeInterval(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65605, null, j2)) == null) {
-            long abs = Math.abs(System.currentTimeMillis() - (j2 * 1000));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65605, null, j)) == null) {
+            long abs = Math.abs(System.currentTimeMillis() - (j * 1000));
             if (abs <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return "刚刚";
             }
@@ -1199,11 +1199,11 @@ public class StringHelper extends m {
                 return 0;
             }
             int length = str.length();
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 = m.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = m.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -1213,44 +1213,44 @@ public class StringHelper extends m {
         byte[] bytes;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, str)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (str == null || (bytes = str.getBytes()) == null) {
                 return 0;
             }
             int length = bytes.length;
-            int i3 = 0;
-            while (i2 < length) {
-                int i4 = bytes[i2] & 255;
-                if (i4 >= 252) {
-                    i3 += 2;
-                    i2 += 6;
-                } else if (i4 >= 248) {
-                    i3 += 2;
-                    i2 += 5;
-                } else if (i4 >= 240) {
-                    i3 += 2;
-                    i2 += 4;
-                } else if (i4 >= 224) {
-                    i3 += 2;
-                    i2 += 3;
-                } else if (i4 >= 192) {
-                    i3 += 2;
+            int i2 = 0;
+            while (i < length) {
+                int i3 = bytes[i] & 255;
+                if (i3 >= 252) {
                     i2 += 2;
+                    i += 6;
+                } else if (i3 >= 248) {
+                    i2 += 2;
+                    i += 5;
+                } else if (i3 >= 240) {
+                    i2 += 2;
+                    i += 4;
+                } else if (i3 >= 224) {
+                    i2 += 2;
+                    i += 3;
+                } else if (i3 >= 192) {
+                    i2 += 2;
+                    i += 2;
                 } else {
-                    i3++;
                     i2++;
+                    i++;
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeL.intValue;
     }
 
-    public static int[] getSpecialTextIndex(String str, int i2) {
+    public static int[] getSpecialTextIndex(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65610, null, str, i2)) == null) {
-            String string = TbadkCoreApplication.getInst().getString(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65610, null, str, i)) == null) {
+            String string = TbadkCoreApplication.getInst().getString(i);
             int[] iArr = {str.indexOf(string), iArr[0] + string.length()};
             return iArr;
         }
@@ -1270,20 +1270,20 @@ public class StringHelper extends m {
         return (String) invokeL.objValue;
     }
 
-    public static String getTimeInterval(long j2) {
+    public static String getTimeInterval(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65612, null, j2)) == null) {
-            long abs = Math.abs(System.currentTimeMillis() - (j2 * 1000));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65612, null, j)) == null) {
+            long abs = Math.abs(System.currentTimeMillis() - (j * 1000));
             if (abs <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return "刚刚";
             }
             if (abs >= Long.MAX_VALUE) {
                 return "一个月前";
             }
-            long j3 = MS_TO_DAY;
-            if (abs / j3 != 0) {
-                if (abs / j3 > 30) {
+            long j2 = MS_TO_DAY;
+            if (abs / j2 != 0) {
+                if (abs / j2 > 30) {
                     return "一个月前";
                 }
                 return (abs / MS_TO_DAY) + "天前";
@@ -1296,55 +1296,55 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String getTimeSpace(long j2) {
+    public static String getTimeSpace(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65613, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65613, null, j)) == null) {
+            if (j <= 0) {
                 return "1秒";
             }
-            long j3 = MS_TO_DAY;
-            if (j2 < j3) {
-                if (j2 < MS_TO_HOUR) {
-                    if (j2 < MS_TO_MIN) {
-                        long j4 = j2 / MS_TO_SEC;
-                        if (j4 == 0) {
-                            j4 = 1;
+            long j2 = MS_TO_DAY;
+            if (j < j2) {
+                if (j < MS_TO_HOUR) {
+                    if (j < MS_TO_MIN) {
+                        long j3 = j / MS_TO_SEC;
+                        if (j3 == 0) {
+                            j3 = 1;
                         }
-                        return String.valueOf(j4) + TIME_SECOND;
+                        return String.valueOf(j3) + TIME_SECOND;
                     }
-                    return String.valueOf(j2 / MS_TO_MIN) + TIME_MINUTE;
+                    return String.valueOf(j / MS_TO_MIN) + TIME_MINUTE;
                 }
-                return String.valueOf(j2 / MS_TO_HOUR) + TIME_HOUR;
+                return String.valueOf(j / MS_TO_HOUR) + TIME_HOUR;
             }
-            return String.valueOf(j2 / j3) + TIME_DAY;
+            return String.valueOf(j / j2) + TIME_DAY;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String getUserDescByGender(int i2) {
+    public static String getUserDescByGender(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65614, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.he);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65614, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0818);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.she);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1150);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.he);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0818);
         }
         return (String) invokeI.objValue;
     }
 
-    public static String getWeekString(int i2, int i3, int i4) {
+    public static String getWeekString(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65615, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65615, null, i, i2, i3)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(1, i2);
-            calendar.set(2, i3);
-            calendar.set(5, i4);
+            calendar.set(1, i);
+            calendar.set(2, i2);
+            calendar.set(5, i3);
             switch (calendar.get(7)) {
                 case 1:
                     return "周日";
@@ -1367,12 +1367,12 @@ public class StringHelper extends m {
         return (String) invokeIII.objValue;
     }
 
-    public static String getYearBytime(long j2) {
+    public static String getYearBytime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65616, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65616, null, j)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j2);
+            calendar.setTimeInMillis(j);
             return String.valueOf(calendar.get(1));
         }
         return (String) invokeJ.objValue;
@@ -1388,12 +1388,12 @@ public class StringHelper extends m {
         return invokeV.intValue;
     }
 
-    public static SpannableString highLightText(String str, String str2, int i2, boolean z) {
+    public static SpannableString highLightText(String str, String str2, int i, boolean z) {
         InterceptResult invokeCommon;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65620, null, new Object[]{str, str2, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (!TextUtils.isEmpty(str) && i2 > 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65620, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (!TextUtils.isEmpty(str) && i > 0) {
                 SpannableString spannableString = new SpannableString(str);
                 if (!TextUtils.isEmpty(str2) && str.contains(str2)) {
                     if (z) {
@@ -1401,7 +1401,7 @@ public class StringHelper extends m {
                     } else {
                         lastIndexOf = str.lastIndexOf(str2);
                     }
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), lastIndexOf, str2.length() + lastIndexOf, 33);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i)), lastIndexOf, str2.length() + lastIndexOf, 33);
                 }
                 return spannableString;
             }
@@ -1471,17 +1471,17 @@ public class StringHelper extends m {
         return invokeL.booleanValue;
     }
 
-    public static boolean isTaday(long j2) {
+    public static boolean isTaday(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65626, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65626, null, j)) == null) {
             Time time = new Time();
-            time.set(j2);
-            int i2 = time.year;
-            int i3 = time.month;
-            int i4 = time.monthDay;
+            time.set(j);
+            int i = time.year;
+            int i2 = time.month;
+            int i3 = time.monthDay;
             time.set(System.currentTimeMillis());
-            return i2 == time.year && i3 == time.month && i4 == time.monthDay;
+            return i == time.year && i2 == time.month && i3 == time.monthDay;
         }
         return invokeJ.booleanValue;
     }
@@ -1498,32 +1498,32 @@ public class StringHelper extends m {
         return invokeL.booleanValue;
     }
 
-    public static String long2String(long j2, String str) {
+    public static String long2String(long j, String str) {
         InterceptResult invokeJL;
         Date date2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65628, null, j2, str)) == null) {
-            if (String.valueOf(j2).length() == 10) {
-                date2 = new Date(j2 * 1000);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65628, null, j, str)) == null) {
+            if (String.valueOf(j).length() == 10) {
+                date2 = new Date(j * 1000);
             } else {
-                date2 = new Date(j2);
+                date2 = new Date(j);
             }
             return new SimpleDateFormat(str).format(date2);
         }
         return (String) invokeJL.objValue;
     }
 
-    public static String longNumFormatOver(long j2) {
+    public static String longNumFormatOver(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65629, null, j2)) == null) {
-            if (j2 <= 9999999) {
-                if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65629, null, j)) == null) {
+            if (j <= 9999999) {
+                if (j < 0) {
                     return "0";
                 }
-                return "" + j2;
+                return "" + j;
             }
-            float f2 = ((float) j2) / 10000.0f;
+            float f2 = ((float) j) / 10000.0f;
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
@@ -1533,17 +1533,17 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String longNumFormatOver10000(long j2) {
+    public static String longNumFormatOver10000(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65630, null, j2)) == null) {
-            if (j2 <= 9999) {
-                if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65630, null, j)) == null) {
+            if (j <= 9999) {
+                if (j < 0) {
                     return "0";
                 }
-                return "" + j2;
+                return "" + j;
             }
-            float f2 = ((float) j2) / 10000.0f;
+            float f2 = ((float) j) / 10000.0f;
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
@@ -1553,17 +1553,17 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String longNumFormatOver10000wan(long j2) {
+    public static String longNumFormatOver10000wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65631, null, j2)) == null) {
-            if (j2 <= 9999999) {
-                if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65631, null, j)) == null) {
+            if (j <= 9999999) {
+                if (j < 0) {
                     return "0";
                 }
-                return "" + j2;
+                return "" + j;
             }
-            float f2 = ((float) j2) / 10000.0f;
+            float f2 = ((float) j) / 10000.0f;
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
@@ -1573,34 +1573,34 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String longNumFormatOver10000wanAdd(long j2) {
+    public static String longNumFormatOver10000wanAdd(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65632, null, j2)) == null) {
-            if (j2 > 9990000) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65632, null, j)) == null) {
+            if (j > 9990000) {
                 return "999W+";
             }
-            if (j2 < 0) {
+            if (j < 0) {
                 return "0";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String longNumFormatOver9999wan(long j2) {
+    public static String longNumFormatOver9999wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65633, null, j2)) == null) {
-            if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65633, null, j)) == null) {
+            if (j < 0) {
                 return "0";
             }
-            if (j2 > 99990000) {
+            if (j > 99990000) {
                 return "9999W+";
             }
-            if (j2 > 9999) {
+            if (j > 9999) {
                 DecimalFormat decimalFormat = new DecimalFormat("#.#");
-                float f2 = ((float) j2) / 10000.0f;
+                float f2 = ((float) j) / 10000.0f;
                 if (f2 < 1000.0f) {
                     return decimalFormat.format(f2) + "W";
                 }
@@ -1610,7 +1610,7 @@ public class StringHelper extends m {
                 }
                 return round + "W";
             }
-            return String.valueOf(j2);
+            return String.valueOf(j);
         }
         return (String) invokeJ.objValue;
     }
@@ -1634,52 +1634,52 @@ public class StringHelper extends m {
         return (String) invokeCommon.objValue;
     }
 
-    public static String longNumFormatOver9999wanOnePoint(long j2) {
+    public static String longNumFormatOver9999wanOnePoint(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65635, null, j2)) == null) {
-            if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65635, null, j)) == null) {
+            if (j < 0) {
                 return "0";
             }
-            if (j2 > 99990000) {
+            if (j > 99990000) {
                 return "9999万+";
             }
-            if (j2 > 9999) {
+            if (j > 9999) {
                 DecimalFormat decimalFormat = new DecimalFormat("#0.0");
-                return decimalFormat.format(((float) j2) / 10000.0f) + "万";
+                return decimalFormat.format(((float) j) / 10000.0f) + "万";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
     @Deprecated
-    public static String numFormat(int i2) {
+    public static String numFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65636, null, i2)) == null) {
-            if (i2 > 9999) {
-                return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i2 / 10000.0f));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65636, null, i)) == null) {
+            if (i > 9999) {
+                return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
             }
-            if (i2 < 0) {
+            if (i < 0) {
                 return "0";
             }
-            return "" + i2;
+            return "" + i;
         }
         return (String) invokeI.objValue;
     }
 
-    public static String numFormat9999W(long j2) {
+    public static String numFormat9999W(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65637, null, j2)) == null) {
-            if (j2 <= 9999999) {
-                if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65637, null, j)) == null) {
+            if (j <= 9999999) {
+                if (j < 0) {
                     return "0";
                 }
-                return "" + j2;
+                return "" + j;
             }
-            float f2 = ((float) j2) / 10000.0f;
+            float f2 = ((float) j) / 10000.0f;
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
@@ -1687,51 +1687,51 @@ public class StringHelper extends m {
             if (round >= 9999) {
                 return "9999W+";
             }
-            return j2 + "W";
+            return j + "W";
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOver10000(long j2) {
+    public static String numFormatOver10000(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65638, null, j2)) == null) {
-            if (j2 > 9999) {
-                return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(((float) j2) / 10000.0f));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65638, null, j)) == null) {
+            if (j > 9999) {
+                return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(((float) j) / 10000.0f));
             }
-            if (j2 < 0) {
+            if (j < 0) {
                 return "0";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOver100000ReturnInt(long j2) {
+    public static String numFormatOver100000ReturnInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65639, null, j2)) == null) {
-            if (j2 > 99999) {
-                return ((int) (((float) j2) / 10000.0f)) + "W";
-            } else if (j2 < 0) {
-                return "0";
-            } else {
-                return "" + j2;
-            }
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static String numFormatOver10000ReturnInt(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65640, null, j2)) == null) {
-            if (j2 > 9999) {
-                return ((int) (((float) j2) / 10000.0f)) + "W";
-            } else if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65639, null, j)) == null) {
+            if (j > 99999) {
+                return ((int) (((float) j) / 10000.0f)) + "W";
+            } else if (j < 0) {
                 return "0";
             } else {
-                return "" + j2;
+                return "" + j;
+            }
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static String numFormatOver10000ReturnInt(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65640, null, j)) == null) {
+            if (j > 9999) {
+                return ((int) (((float) j) / 10000.0f)) + "W";
+            } else if (j < 0) {
+                return "0";
+            } else {
+                return "" + j;
             }
         }
         return (String) invokeJ.objValue;
@@ -1757,107 +1757,107 @@ public class StringHelper extends m {
         return (String) invokeF.objValue;
     }
 
-    public static String numFormatOverWan(long j2) {
+    public static String numFormatOverWan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65643, null, j2)) == null) {
-            if (j2 > 99990000) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65643, null, j)) == null) {
+            if (j > 99990000) {
                 return "9999W+";
             }
-            if (j2 >= 10000000) {
-                return String.valueOf(j2 / 10000) + "W";
+            if (j >= 10000000) {
+                return String.valueOf(j / 10000) + "W";
             }
-            int i2 = (j2 > 10000L ? 1 : (j2 == 10000L ? 0 : -1));
-            if (i2 > 0) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j2) / 10000.0f));
+            int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+            if (i > 0) {
+                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return "1W";
             }
-            if (j2 < 0) {
+            if (j < 0) {
                 return "0";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOverWanNa(long j2) {
+    public static String numFormatOverWanNa(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65644, null, j2)) == null) {
-            if (j2 > 99990000) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65644, null, j)) == null) {
+            if (j > 99990000) {
                 return "9999W+";
             }
-            if (j2 >= 10000000) {
-                return String.valueOf(j2 / 10000) + "W";
+            if (j >= 10000000) {
+                return String.valueOf(j / 10000) + "W";
             }
-            int i2 = (j2 > 10000L ? 1 : (j2 == 10000L ? 0 : -1));
-            if (i2 > 0) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j2) / 10000.0f));
+            int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+            if (i > 0) {
+                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return "1W";
             }
-            if (j2 < 0) {
+            if (j < 0) {
                 return "--";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOverWanWithNegative(long j2) {
+    public static String numFormatOverWanWithNegative(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65645, null, j2)) == null) {
-            if (j2 > 99990000) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65645, null, j)) == null) {
+            if (j > 99990000) {
                 return "9999W+";
             }
-            if (j2 >= 10000000) {
-                return String.valueOf(j2 / 10000) + "W";
+            if (j >= 10000000) {
+                return String.valueOf(j / 10000) + "W";
             }
-            int i2 = (j2 > 10000L ? 1 : (j2 == 10000L ? 0 : -1));
-            if (i2 > 0) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j2) / 10000.0f));
+            int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+            if (i > 0) {
+                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return "1W";
             }
-            if (j2 < -99990000) {
+            if (j < -99990000) {
                 return "-9999W+";
             }
-            if (j2 <= -10000000) {
-                return String.valueOf(j2 / 10000) + "W";
+            if (j <= -10000000) {
+                return String.valueOf(j / 10000) + "W";
             }
-            int i3 = (j2 > (-10000L) ? 1 : (j2 == (-10000L) ? 0 : -1));
-            if (i3 < 0) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j2) / 10000.0f));
+            int i2 = (j > (-10000L) ? 1 : (j == (-10000L) ? 0 : -1));
+            if (i2 < 0) {
+                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return "-1W";
             }
-            return "" + j2;
+            return "" + j;
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String numFormatOverWanWithoutDecimals(long j2) {
+    public static String numFormatOverWanWithoutDecimals(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65646, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65646, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 100000) {
-                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j2) / 10000.0f));
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 100000) {
+                return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
             } else {
-                if (j2 < 10000000) {
-                    return (j2 / 10000) + "W";
+                if (j < 10000000) {
+                    return (j / 10000) + "W";
                 }
-                float f2 = ((float) (j2 / 1000000)) / 10.0f;
+                float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 >= 9999.0f) {
                     return "9999KW+";
                 }
@@ -1870,32 +1870,32 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numOver1000(int i2) {
+    public static String numOver1000(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65647, null, i2)) == null) {
-            if (i2 > 1000) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65647, null, i)) == null) {
+            if (i > 1000) {
                 return "999+";
             }
-            if (i2 < 0) {
+            if (i < 0) {
                 return "0";
             }
-            return "" + i2;
+            return "" + i;
         }
         return (String) invokeI.objValue;
     }
 
-    public static String numberUniform(long j2) {
+    public static String numberUniform(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65648, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65648, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 9999000.0d) {
-                float f2 = ((float) (j2 / 1000)) / 10.0f;
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 9999000.0d) {
+                float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
                     return ((int) f2) + "万";
                 }
@@ -1907,23 +1907,23 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormat(long j2) {
+    public static String numberUniformFormat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65649, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65649, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 10000000) {
-                float f2 = ((float) (j2 / 1000)) / 10.0f;
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 10000000) {
+                float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
                     return ((int) f2) + "万";
                 }
                 return f2 + "万";
             } else {
-                float f3 = ((float) (j2 / 1000000)) / 10.0f;
+                float f3 = ((float) (j / 1000000)) / 10.0f;
                 if (f3 % 1.0f == 0.0f) {
                     return ((int) f3) + "千万";
                 }
@@ -1933,23 +1933,23 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormatExtra(long j2) {
+    public static String numberUniformFormatExtra(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65650, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65650, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 10000000) {
-                float f2 = ((float) (j2 / 1000)) / 10.0f;
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 10000000) {
+                float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
                     return ((int) f2) + "W";
                 }
                 return f2 + "W";
             } else {
-                float f3 = ((float) (j2 / 1000000)) / 10.0f;
+                float f3 = ((float) (j / 1000000)) / 10.0f;
                 if (f3 >= 9999.0f) {
                     return "9999KW+";
                 }
@@ -1962,19 +1962,19 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormatExtraWithRound(long j2) {
+    public static String numberUniformFormatExtraWithRound(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65651, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65651, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 10000000) {
-                return String.format("%.1f", Double.valueOf(j2 / 10000.0d)) + "W";
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 10000000) {
+                return String.format("%.1f", Double.valueOf(j / 10000.0d)) + "W";
             } else {
-                float f2 = ((float) (j2 / 1000000)) / 10.0f;
+                float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 >= 9999.0f) {
                     return "9999KW+";
                 }
@@ -1987,25 +1987,25 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormatExtraWithRoundFloat(long j2) {
+    public static String numberUniformFormatExtraWithRoundFloat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65652, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65652, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
+            if (j < 10000) {
+                return j + "";
             }
-            double d2 = j2;
+            double d2 = j;
             if (d2 < 9999000.0d) {
-                float f2 = ((float) (j2 / 1000)) / 10.0f;
+                float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
                     return ((int) f2) + "W";
                 }
                 return f2 + "W";
             } else if (d2 < 9.9999E10d) {
-                float f3 = ((float) (j2 / 1000000)) / 10.0f;
+                float f3 = ((float) (j / 1000000)) / 10.0f;
                 if (f3 % 1.0f == 0.0f) {
                     return ((int) f3) + "KW";
                 }
@@ -2017,23 +2017,23 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormatExtraWithRoundInt(long j2) {
+    public static String numberUniformFormatExtraWithRoundInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65653, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65653, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 10000000) {
-                String format = String.format("%.1f", Double.valueOf(j2 / 10000.0d));
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 10000000) {
+                String format = String.format("%.1f", Double.valueOf(j / 10000.0d));
                 if (format.endsWith(".0")) {
                     format = format.substring(0, format.length() - 2);
                 }
                 return format + "W";
             } else {
-                String format2 = String.format("%.1f", Double.valueOf((j2 / 1000000.0d) / 10.0d));
+                String format2 = String.format("%.1f", Double.valueOf((j / 1000000.0d) / 10.0d));
                 if (format2.endsWith(".0")) {
                     format2 = format2.substring(0, format2.length() - 2);
                 }
@@ -2050,23 +2050,23 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformFormatExtraWithRoundVote(long j2) {
+    public static String numberUniformFormatExtraWithRoundVote(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65654, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65654, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 10000000) {
-                String format = String.format("%.1f", Double.valueOf(j2 / 10000.0d));
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 10000000) {
+                String format = String.format("%.1f", Double.valueOf(j / 10000.0d));
                 if (format.endsWith(".0")) {
                     format = format.substring(0, format.length() - 2);
                 }
                 return format + "w";
             } else {
-                float f2 = ((float) (j2 / 1000000)) / 10.0f;
+                float f2 = ((float) (j / 1000000)) / 10.0f;
                 if (f2 >= 999.0f) {
                     return "999kw+";
                 }
@@ -2079,17 +2079,17 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String numberUniformOver1000Wan(long j2) {
+    public static String numberUniformOver1000Wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65655, null, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65655, null, j)) == null) {
+            if (j <= 0) {
                 return "0";
             }
-            if (j2 < 10000) {
-                return j2 + "";
-            } else if (j2 < 9999000.0d) {
-                float f2 = ((float) (j2 / 1000)) / 10.0f;
+            if (j < 10000) {
+                return j + "";
+            } else if (j < 9999000.0d) {
+                float f2 = ((float) (j / 1000)) / 10.0f;
                 if (f2 % 1.0f == 0.0f) {
                     return ((int) f2) + "W";
                 }
@@ -2117,18 +2117,18 @@ public class StringHelper extends m {
         return (long[]) invokeL.objValue;
     }
 
-    public static String showTimeString(long j2) {
+    public static String showTimeString(long j) {
         InterceptResult invokeJ;
         String valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65657, null, j2)) == null) {
-            Date date2 = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65657, null, j)) == null) {
+            Date date2 = new Date(j);
             if (date2.getMinutes() < 10) {
                 valueOf = "0" + date2.getMinutes();
             } else {
                 valueOf = String.valueOf(date2.getMinutes());
             }
-            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.time_show_afternoon, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.time_show_afternoon, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.time_show_morning, new Object[]{String.valueOf(date2.getHours()), valueOf});
+            return date2.getHours() > 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c8, new Object[]{String.valueOf(date2.getHours() - 12), valueOf}) : date2.getHours() == 12 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c8, new Object[]{String.valueOf(date2.getHours()), valueOf}) : date2.getHours() == 0 ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c9, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f13c9, new Object[]{String.valueOf(date2.getHours()), valueOf});
         }
         return (String) invokeJ.objValue;
     }
@@ -2147,39 +2147,39 @@ public class StringHelper extends m {
         return invokeLL.longValue;
     }
 
-    public static String stringForVideoTime(int i2) {
+    public static String stringForVideoTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65659, null, i2)) == null) {
-            if (i2 < 1000) {
-                i2 = 1000;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65659, null, i)) == null) {
+            if (i < 1000) {
+                i = 1000;
             }
-            int i3 = i2 / 1000;
-            int i4 = i3 % 60;
-            int i5 = (i3 / 60) % 60;
-            int i6 = i3 / 3600;
+            int i2 = i / 1000;
+            int i3 = i2 % 60;
+            int i4 = (i2 / 60) % 60;
+            int i5 = i2 / 3600;
             StringBuilder sb = new StringBuilder();
             Formatter formatter = new Formatter(sb, Locale.getDefault());
             sb.setLength(0);
-            return i6 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i6), Integer.valueOf(i5), Integer.valueOf(i4)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4)).toString();
+            return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
         }
         return (String) invokeI.objValue;
     }
 
-    public static String subString(String str, int i2) {
+    public static String subString(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65660, null, str, i2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65660, null, str, i)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
             StringBuilder sb = new StringBuilder();
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                char charAt = str.charAt(i4);
-                i3 = m.isChinese(charAt) ? i3 + 2 : i3 + 1;
-                if (i3 > i2) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                char charAt = str.charAt(i3);
+                i2 = m.isChinese(charAt) ? i2 + 2 : i2 + 1;
+                if (i2 > i) {
                     break;
                 }
                 sb.append(charAt);
@@ -2189,50 +2189,50 @@ public class StringHelper extends m {
         return (String) invokeLI.objValue;
     }
 
-    public static String subString2(String str, int i2) {
+    public static String subString2(String str, int i) {
         InterceptResult invokeLI;
         byte[] bytes;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65661, null, str, i2)) == null) {
-            if (str == null || i2 < 0 || (bytes = str.getBytes()) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65661, null, str, i)) == null) {
+            if (str == null || i < 0 || (bytes = str.getBytes()) == null) {
                 return null;
             }
             int length = bytes.length;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < length) {
-                int i6 = bytes[i4] & 255;
-                if (i6 >= 252) {
-                    i5 += 2;
-                    i3 = 6;
-                } else if (i6 >= 248) {
-                    i5 += 2;
-                    i3 = 5;
-                } else if (i6 >= 240) {
-                    i5 += 2;
-                    i3 = 4;
-                } else if (i6 >= 224) {
-                    i5 += 2;
-                    i3 = 3;
-                } else if (i6 >= 192) {
-                    i5 += 2;
-                    i3 = 2;
+            while (i3 < length) {
+                int i5 = bytes[i3] & 255;
+                if (i5 >= 252) {
+                    i4 += 2;
+                    i2 = 6;
+                } else if (i5 >= 248) {
+                    i4 += 2;
+                    i2 = 5;
+                } else if (i5 >= 240) {
+                    i4 += 2;
+                    i2 = 4;
+                } else if (i5 >= 224) {
+                    i4 += 2;
+                    i2 = 3;
+                } else if (i5 >= 192) {
+                    i4 += 2;
+                    i2 = 2;
                 } else {
-                    i5++;
-                    i3 = 1;
+                    i4++;
+                    i2 = 1;
                 }
-                if (i5 > i2) {
-                    byte[] bArr = new byte[i4];
-                    System.arraycopy(bytes, 0, bArr, 0, i4);
+                if (i4 > i) {
+                    byte[] bArr = new byte[i3];
+                    System.arraycopy(bytes, 0, bArr, 0, i3);
                     return new String(bArr);
-                } else if (i5 == i2) {
-                    int i7 = i4 + i3;
-                    byte[] bArr2 = new byte[i7];
-                    System.arraycopy(bytes, 0, bArr2, 0, i7);
+                } else if (i4 == i) {
+                    int i6 = i3 + i2;
+                    byte[] bArr2 = new byte[i6];
+                    System.arraycopy(bytes, 0, bArr2, 0, i6);
                     return new String(bArr2);
                 } else {
-                    i4 += i3;
+                    i3 += i2;
                 }
             }
             return str;
@@ -2289,10 +2289,10 @@ public class StringHelper extends m {
         return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    public static String formatTosepara(long j2) {
+    public static String formatTosepara(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j2)) == null) ? new DecimalFormat("#,###").format(j2) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65563, null, j)) == null) ? new DecimalFormat("#,###").format(j) : (String) invokeJ.objValue;
     }
 
     public static String getChatTimeString(Date date2, Date date3) {
@@ -2347,26 +2347,26 @@ public class StringHelper extends m {
                 return 0;
             }
             int length = charSequence.length();
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3++) {
-                i2 = m.isChinese(charSequence.charAt(i3)) ? i2 + 2 : i2 + 1;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                i = m.isChinese(charSequence.charAt(i2)) ? i + 2 : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
 
-    public static String numFormatOver10000wan(long j2) {
+    public static String numFormatOver10000wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65642, null, j2)) == null) {
-            if (j2 <= 9999999) {
-                if (j2 < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65642, null, j)) == null) {
+            if (j <= 9999999) {
+                if (j < 0) {
                     return "0";
                 }
-                return "" + j2;
+                return "" + j;
             }
-            float f2 = ((float) j2) / 10000.0f;
+            float f2 = ((float) j) / 10000.0f;
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
@@ -2376,29 +2376,29 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static CharSequence cutChineseAndEnglishWithSuffix(CharSequence charSequence, int i2, String str) {
+    public static CharSequence cutChineseAndEnglishWithSuffix(CharSequence charSequence, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, charSequence, i2, str)) == null) {
-            if (charSequence == null || i2 <= 0) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, charSequence, i, str)) == null) {
+            if (charSequence == null || i <= 0) {
                 return "";
             }
             int length = charSequence.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = m.isChinese(charSequence.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = m.isChinese(charSequence.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            int i5 = i3 + 1;
-            if (i5 < length) {
+            int i4 = i2 + 1;
+            if (i4 < length) {
                 if (str == null) {
                     str = "";
                 }
-                return ((Object) charSequence.subSequence(0, i5)) + str;
+                return ((Object) charSequence.subSequence(0, i4)) + str;
             }
             return charSequence;
         }
@@ -2414,17 +2414,17 @@ public class StringHelper extends m {
             }
             long time = new Date().getTime() - date2.getTime();
             StringBuilder sb = new StringBuilder();
-            long j2 = time / MS_TO_HOUR;
-            if (j2 > 0) {
-                sb.append(j2 + "小时");
+            long j = time / MS_TO_HOUR;
+            if (j > 0) {
+                sb.append(j + "小时");
             }
-            long j3 = time % MS_TO_HOUR;
-            if (j3 > 0) {
-                long j4 = j3 / MS_TO_MIN;
-                if (j4 == 0) {
-                    j4 = 1;
+            long j2 = time % MS_TO_HOUR;
+            if (j2 > 0) {
+                long j3 = j2 / MS_TO_MIN;
+                if (j3 == 0) {
+                    j3 = 1;
                 }
-                sb.append(j4 + "分钟");
+                sb.append(j3 + "分钟");
             }
             return sb.toString();
         }
@@ -2446,11 +2446,11 @@ public class StringHelper extends m {
                 return m.getDateStringDay(date2);
             } else if (time < MS_TO_HOUR) {
                 if (time < MS_TO_MIN) {
-                    long j2 = time / MS_TO_SEC;
-                    if (j2 == 0) {
-                        j2 = 1;
+                    long j = time / MS_TO_SEC;
+                    if (j == 0) {
+                        j = 1;
                     }
-                    return String.valueOf(j2) + SEC_BEFORE;
+                    return String.valueOf(j) + SEC_BEFORE;
                 }
                 return String.valueOf(time / MS_TO_MIN) + MIN_BEFORE;
             } else {
@@ -2510,26 +2510,26 @@ public class StringHelper extends m {
         return (String) invokeLZ.objValue;
     }
 
-    public static String formatOverBaiwanNum(long j2) {
+    public static String formatOverBaiwanNum(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            String valueOf = String.valueOf(j2);
-            if (j2 >= 100000000) {
-                if (j2 % 100000000 != 0) {
-                    return String.format("%.1f", Double.valueOf(((float) j2) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            String valueOf = String.valueOf(j);
+            if (j >= 100000000) {
+                if (j % 100000000 != 0) {
+                    return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
                 }
-                return (j2 / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
-            } else if (j2 >= 1000000) {
-                float f2 = ((float) j2) / 10000.0f;
-                long j3 = j2 / 10000;
-                if (f2 > ((float) j3)) {
-                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+            } else if (j >= 1000000) {
+                float f2 = ((float) j) / 10000.0f;
+                long j2 = j / 10000;
+                if (f2 > ((float) j2)) {
+                    return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
                 }
-                return j3 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f146d);
             } else {
                 return valueOf;
             }
@@ -2537,29 +2537,29 @@ public class StringHelper extends m {
         return (String) invokeJ.objValue;
     }
 
-    public static String formatSecondsTime(long j2) {
+    public static String formatSecondsTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65561, null, j2)) == null) {
-            long j3 = j2 % 60;
-            long j4 = (j2 / 60) % 60;
-            long j5 = j2 / 3600;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65561, null, j)) == null) {
+            long j2 = j % 60;
+            long j3 = (j / 60) % 60;
+            long j4 = j / 3600;
             StringBuilder sb = new StringBuilder();
             Formatter formatter = new Formatter(sb, Locale.getDefault());
             sb.setLength(0);
-            return j5 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j5), Long.valueOf(j4), Long.valueOf(j3)).toString() : formatter.format("%02d:%02d", Long.valueOf(j4), Long.valueOf(j3)).toString();
+            return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
         }
         return (String) invokeJ.objValue;
     }
 
-    public static SpannableString highLightText(String str, int i2, int i3, int i4) {
+    public static SpannableString highLightText(String str, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65618, null, str, i2, i3, i4)) == null) {
-            if (!TextUtils.isEmpty(str) && i4 > 0) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65618, null, str, i, i2, i3)) == null) {
+            if (!TextUtils.isEmpty(str) && i3 > 0) {
                 SpannableString spannableString = new SpannableString(str);
-                if (i2 < i3 && i2 < str.length() && str.length() >= i3) {
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i4)), i2, i3, 33);
+                if (i < i2 && i < str.length() && str.length() >= i2) {
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i3)), i, i2, 33);
                 }
                 return spannableString;
             }
@@ -2568,9 +2568,9 @@ public class StringHelper extends m {
         return (SpannableString) invokeLIII.objValue;
     }
 
-    public static SpannableString highLightText(String str, String str2, int i2) {
+    public static SpannableString highLightText(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65619, null, str, str2, i2)) == null) ? highLightText(str, str2, i2, true) : (SpannableString) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65619, null, str, str2, i)) == null) ? highLightText(str, str2, i, true) : (SpannableString) invokeLLI.objValue;
     }
 }

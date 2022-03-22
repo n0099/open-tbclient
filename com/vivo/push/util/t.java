@@ -24,13 +24,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59334b;
+    public static String f43965b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -85,8 +85,8 @@ public final class t {
                     f3 = null;
                 }
                 int size = e2.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    String str = e2.get(i2);
+                for (int i = 0; i < size; i++) {
+                    String str = e2.get(i);
                     if (!TextUtils.isEmpty(str) && (f2 = f(applicationContext, str)) != null) {
                         hashMap.put(str, f2);
                         if (f2.d()) {
@@ -132,8 +132,8 @@ public final class t {
         if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (!TextUtils.isEmpty(f59334b)) {
-            return f59334b;
+        if (!TextUtils.isEmpty(f43965b)) {
+            return f43965b;
         }
         Cursor cursor = null;
         try {
@@ -177,7 +177,7 @@ public final class t {
                             e = e6;
                         }
                     }
-                    f59334b = str;
+                    f43965b = str;
                     if (TextUtils.isEmpty(str)) {
                         if (query != null) {
                             try {
@@ -360,8 +360,8 @@ public final class t {
             }
             if (list != null && list.size() > 0) {
                 int size = list.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ResolveInfo resolveInfo = list.get(i2);
+                for (int i = 0; i < size; i++) {
+                    ResolveInfo resolveInfo = list.get(i);
                     if (resolveInfo != null) {
                         String str = resolveInfo.serviceInfo.packageName;
                         if (!TextUtils.isEmpty(str)) {
@@ -388,11 +388,11 @@ public final class t {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            int i2 = a(context, str, "com.vivo.pushservice.action.RECEIVE") ? 0 : -1;
+            int i = a(context, str, "com.vivo.pushservice.action.RECEIVE") ? 0 : -1;
             if (a(context, str, "com.vivo.pushclient.action.RECEIVE")) {
                 return 1;
             }
-            return i2;
+            return i;
         }
         return invokeLL.intValue;
     }
@@ -410,8 +410,8 @@ public final class t {
                 if (queryIntentServices != null && queryIntentServices.size() > 0) {
                     int size = queryIntentServices.size();
                     boolean z = false;
-                    for (int i2 = 0; i2 < size; i2++) {
-                        ResolveInfo resolveInfo = queryIntentServices.get(i2);
+                    for (int i = 0; i < size; i++) {
+                        ResolveInfo resolveInfo = queryIntentServices.get(i);
                         if (resolveInfo != null && (serviceInfo = resolveInfo.serviceInfo) != null) {
                             String str2 = serviceInfo.name;
                             boolean z2 = serviceInfo.exported;
@@ -431,13 +431,13 @@ public final class t {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context, long j2) {
+    public static boolean a(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j)) == null) {
             com.vivo.push.cache.d a2 = com.vivo.push.cache.b.a().a(context);
             if (a2 != null) {
-                return a2.isInBlackList(j2);
+                return a2.isInBlackList(j);
             }
             return false;
         }

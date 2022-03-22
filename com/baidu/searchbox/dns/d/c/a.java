@@ -3,7 +3,9 @@ package com.baidu.searchbox.dns.d.c;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,9 +37,9 @@ public abstract class a<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,10 +59,10 @@ public abstract class a<T> {
                 HttpURLConnection httpURLConnection2 = null;
                 String url = getUrl();
                 if (DnsUtil.DEBUG) {
-                    String str = " sendRequest url:" + url;
+                    Log.d(DnsUtil.TAG, " sendRequest url:" + url);
                 }
-                if (!TextUtils.isEmpty(url)) {
-                    try {
+                try {
+                    if (!TextUtils.isEmpty(url)) {
                         try {
                             if (!v()) {
                                 httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
@@ -79,13 +81,13 @@ public abstract class a<T> {
                         } catch (Exception e2) {
                             throw new com.baidu.searchbox.dns.d.c.a.a(e2.getMessage());
                         }
-                    } finally {
-                        if (httpURLConnection2 != null) {
-                            httpURLConnection2.disconnect();
-                        }
+                    }
+                    throw new com.baidu.searchbox.dns.d.c.a.b("url is empty");
+                } finally {
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
                     }
                 }
-                throw new com.baidu.searchbox.dns.d.c.a.b("url is empty");
             }
             throw new com.baidu.searchbox.dns.d.c.a.b(10002, "request canceled");
         }
@@ -154,12 +156,12 @@ public abstract class a<T> {
         return (String) invokeL.objValue;
     }
 
-    public abstract void c(int i2);
+    public abstract void c(int i);
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005d */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0081 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r6v0, types: [java.net.HttpURLConnection, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r6v10 */
     /* JADX WARN: Type inference failed for: r6v11 */
@@ -189,7 +191,7 @@ public abstract class a<T> {
                             httpURLConnection = new GZIPInputStream(inputStream2);
                         }
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader((InputStream) httpURLConnection, "utf-8"));
+                    bufferedReader = new BufferedReader(new InputStreamReader((InputStream) httpURLConnection, IMAudioTransRequest.CHARSET));
                 } catch (Exception e2) {
                     e = e2;
                 }
@@ -204,7 +206,7 @@ public abstract class a<T> {
                     if (readLine == null) {
                         break;
                     }
-                    stringBuffer.append(new String(readLine.getBytes("utf-8"), "utf-8"));
+                    stringBuffer.append(new String(readLine.getBytes(IMAudioTransRequest.CHARSET), IMAudioTransRequest.CHARSET));
                 }
                 String stringBuffer2 = stringBuffer.toString();
                 if (httpURLConnection != 0) {
@@ -255,10 +257,10 @@ public abstract class a<T> {
         }
     }
 
-    public boolean d(int i2) {
+    public boolean d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? 403 == i2 || 404 == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? 403 == i || 404 == i : invokeI.booleanValue;
     }
 
     public abstract Map<String, Object> getParameters();
@@ -314,9 +316,9 @@ public abstract class a<T> {
     public void a(com.baidu.searchbox.dns.d.c.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            int i2 = this.aj + 1;
-            this.aj = i2;
-            if (i2 <= this.al) {
+            int i = this.aj + 1;
+            this.aj = i;
+            if (i <= this.al) {
                 SystemClock.sleep(5000L);
             } else if (aVar.R() == 10001) {
                 throw new com.baidu.searchbox.dns.d.c.a.b(aVar.R(), aVar.S(), " retry count reach fail ");

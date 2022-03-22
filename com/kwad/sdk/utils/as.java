@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class as {
     public static String a = "";
 
@@ -15,12 +15,12 @@ public class as {
         return context.getSharedPreferences("ksadsdk_egid", 0).getString("KEY_SDK_EGID", "");
     }
 
-    public static void a(@NonNull Context context, String str, int i2) {
-        context.getSharedPreferences("ksadsdk_data_flow_auto_start", 0).edit().putInt(str, i2).apply();
+    public static void a(@NonNull Context context, String str, int i) {
+        context.getSharedPreferences("ksadsdk_data_flow_auto_start", 0).edit().putInt(str, i).apply();
     }
 
-    public static void a(Context context, String str, long j2) {
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j2).apply();
+    public static void a(Context context, String str, long j) {
+        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j).apply();
     }
 
     public static void a(Context context, String str, String str2) {
@@ -35,8 +35,8 @@ public class as {
         return context.getSharedPreferences("ksadsdk_model", 0).getString("KEY_SDK_MODEL", "");
     }
 
-    public static void b(Context context, String str, long j2) {
-        context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j2).apply();
+    public static void b(Context context, String str, long j) {
+        context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j).apply();
     }
 
     public static String c(@NonNull Context context) {

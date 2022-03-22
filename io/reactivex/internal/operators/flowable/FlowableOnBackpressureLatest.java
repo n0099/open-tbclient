@@ -40,9 +40,9 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,12 +128,12 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                 Subscriber<? super T> subscriber = this.actual;
                 AtomicLong atomicLong = this.requested;
                 AtomicReference<T> atomicReference = this.current;
-                int i2 = 1;
+                int i = 1;
                 do {
-                    long j2 = 0;
+                    long j = 0;
                     while (true) {
                         boolean z = false;
-                        if (j2 == atomicLong.get()) {
+                        if (j == atomicLong.get()) {
                             break;
                         }
                         boolean z2 = this.done;
@@ -146,9 +146,9 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
                             break;
                         }
                         subscriber.onNext(obj);
-                        j2++;
+                        j++;
                     }
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -191,10 +191,10 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -209,9 +209,9 @@ public final class FlowableOnBackpressureLatest<T> extends AbstractFlowableWithU
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

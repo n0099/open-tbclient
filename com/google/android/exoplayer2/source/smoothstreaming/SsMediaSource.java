@@ -32,7 +32,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SsMediaSource implements MediaSource, Loader.Callback<ParsingLoadable<SsManifest>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_MS = 30000;
@@ -81,9 +81,9 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
             newInitContext.initArgs = r2;
             Object[] objArr = {ssManifest, factory, handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((SsManifest) objArr2[0], (SsChunkSource.Factory) objArr2[1], ((Integer) objArr2[2]).intValue(), (Handler) objArr2[3], (AdaptiveMediaSourceEventListener) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -98,37 +98,37 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
         SinglePeriodTimeline singlePeriodTimeline;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            for (int i2 = 0; i2 < this.mediaPeriods.size(); i2++) {
-                this.mediaPeriods.get(i2).updateManifest(this.manifest);
+            for (int i = 0; i < this.mediaPeriods.size(); i++) {
+                this.mediaPeriods.get(i).updateManifest(this.manifest);
             }
-            long j2 = Long.MIN_VALUE;
-            long j3 = Long.MAX_VALUE;
+            long j = Long.MIN_VALUE;
+            long j2 = Long.MAX_VALUE;
             for (SsManifest.StreamElement streamElement : this.manifest.streamElements) {
                 if (streamElement.chunkCount > 0) {
-                    j3 = Math.min(j3, streamElement.getStartTimeUs(0));
-                    j2 = Math.max(j2, streamElement.getStartTimeUs(streamElement.chunkCount - 1) + streamElement.getChunkDurationUs(streamElement.chunkCount - 1));
+                    j2 = Math.min(j2, streamElement.getStartTimeUs(0));
+                    j = Math.max(j, streamElement.getStartTimeUs(streamElement.chunkCount - 1) + streamElement.getChunkDurationUs(streamElement.chunkCount - 1));
                 }
             }
-            if (j3 == Long.MAX_VALUE) {
+            if (j2 == Long.MAX_VALUE) {
                 singlePeriodTimeline = new SinglePeriodTimeline(this.manifest.isLive ? -9223372036854775807L : 0L, 0L, 0L, 0L, true, this.manifest.isLive);
             } else {
                 SsManifest ssManifest = this.manifest;
                 if (ssManifest.isLive) {
-                    long j4 = ssManifest.dvrWindowLengthUs;
-                    if (j4 != C.TIME_UNSET && j4 > 0) {
-                        j3 = Math.max(j3, j2 - j4);
+                    long j3 = ssManifest.dvrWindowLengthUs;
+                    if (j3 != C.TIME_UNSET && j3 > 0) {
+                        j2 = Math.max(j2, j - j3);
                     }
-                    long j5 = j3;
-                    long j6 = j2 - j5;
-                    long msToUs = j6 - C.msToUs(this.livePresentationDelayMs);
+                    long j4 = j2;
+                    long j5 = j - j4;
+                    long msToUs = j5 - C.msToUs(this.livePresentationDelayMs);
                     if (msToUs < 5000000) {
-                        msToUs = Math.min(5000000L, j6 / 2);
+                        msToUs = Math.min(5000000L, j5 / 2);
                     }
-                    singlePeriodTimeline = new SinglePeriodTimeline(C.TIME_UNSET, j6, j5, msToUs, true, true);
+                    singlePeriodTimeline = new SinglePeriodTimeline(C.TIME_UNSET, j5, j4, msToUs, true, true);
                 } else {
-                    long j7 = ssManifest.durationUs;
-                    long j8 = j7 != C.TIME_UNSET ? j7 : j2 - j3;
-                    singlePeriodTimeline = new SinglePeriodTimeline(j3 + j8, j8, j3, 0L, true, false);
+                    long j6 = ssManifest.durationUs;
+                    long j7 = j6 != C.TIME_UNSET ? j6 : j - j2;
+                    singlePeriodTimeline = new SinglePeriodTimeline(j2 + j7, j7, j2, 0L, true, false);
                 }
             }
             this.sourceListener.onSourceInfoRefreshed(this, singlePeriodTimeline, this.manifest);
@@ -150,9 +150,9 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -252,17 +252,17 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SsMediaSource(SsManifest ssManifest, SsChunkSource.Factory factory, int i2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
-        this(ssManifest, null, null, null, factory, i2, 30000L, handler, adaptiveMediaSourceEventListener);
+    public SsMediaSource(SsManifest ssManifest, SsChunkSource.Factory factory, int i, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+        this(ssManifest, null, null, null, factory, i, 30000L, handler, adaptiveMediaSourceEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {ssManifest, factory, Integer.valueOf(i2), handler, adaptiveMediaSourceEventListener};
+            Object[] objArr = {ssManifest, factory, Integer.valueOf(i), handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((SsManifest) objArr2[0], (Uri) objArr2[1], (DataSource.Factory) objArr2[2], (ParsingLoadable.Parser) objArr2[3], (SsChunkSource.Factory) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Long) objArr2[6]).longValue(), (Handler) objArr2[7], (AdaptiveMediaSourceEventListener) objArr2[8]);
                 newInitContext.thisArg = this;
@@ -274,21 +274,21 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(ParsingLoadable<SsManifest> parsingLoadable, long j2, long j3, boolean z) {
+    public void onLoadCanceled(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j2, j3, parsingLoadable.bytesLoaded());
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(ParsingLoadable<SsManifest> parsingLoadable, long j2, long j3) {
+    public void onLoadCompleted(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j2, j3, parsingLoadable.bytesLoaded());
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded());
             this.manifest = parsingLoadable.getResult();
-            this.manifestLoadStartTimestamp = j2 - j3;
+            this.manifestLoadStartTimestamp = j - j2;
             processManifest();
             scheduleManifestRefresh();
         }
@@ -296,12 +296,12 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(ParsingLoadable<SsManifest> parsingLoadable, long j2, long j3, IOException iOException) {
+    public int onLoadError(ParsingLoadable<SsManifest> parsingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), iOException})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
             boolean z = iOException instanceof ParserException;
-            this.eventDispatcher.loadError(parsingLoadable.dataSpec, parsingLoadable.type, j2, j3, parsingLoadable.bytesLoaded(), iOException, z);
+            this.eventDispatcher.loadError(parsingLoadable.dataSpec, parsingLoadable.type, j, j2, parsingLoadable.bytesLoaded(), iOException, z);
             return z ? 3 : 0;
         }
         return invokeCommon.intValue;
@@ -316,9 +316,9 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, factory, factory2, handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (SsChunkSource.Factory) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Long) objArr2[4]).longValue(), (Handler) objArr2[5], (AdaptiveMediaSourceEventListener) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -329,17 +329,17 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SsMediaSource(Uri uri, DataSource.Factory factory, SsChunkSource.Factory factory2, int i2, long j2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
-        this(uri, factory, new SsManifestParser(), factory2, i2, j2, handler, adaptiveMediaSourceEventListener);
+    public SsMediaSource(Uri uri, DataSource.Factory factory, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+        this(uri, factory, new SsManifestParser(), factory2, i, j, handler, adaptiveMediaSourceEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, factory2, Integer.valueOf(i2), Long.valueOf(j2), handler, adaptiveMediaSourceEventListener};
+            Object[] objArr = {uri, factory, factory2, Integer.valueOf(i), Long.valueOf(j), handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (ParsingLoadable.Parser) objArr2[2], (SsChunkSource.Factory) objArr2[3], ((Integer) objArr2[4]).intValue(), ((Long) objArr2[5]).longValue(), (Handler) objArr2[6], (AdaptiveMediaSourceEventListener) objArr2[7]);
                 newInitContext.thisArg = this;
@@ -350,17 +350,17 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SsMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i2, long j2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
-        this(null, uri, factory, parser, factory2, i2, j2, handler, adaptiveMediaSourceEventListener);
+    public SsMediaSource(Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+        this(null, uri, factory, parser, factory2, i, j, handler, adaptiveMediaSourceEventListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {uri, factory, parser, factory2, Integer.valueOf(i2), Long.valueOf(j2), handler, adaptiveMediaSourceEventListener};
+            Object[] objArr = {uri, factory, parser, factory2, Integer.valueOf(i), Long.valueOf(j), handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((SsManifest) objArr2[0], (Uri) objArr2[1], (DataSource.Factory) objArr2[2], (ParsingLoadable.Parser) objArr2[3], (SsChunkSource.Factory) objArr2[4], ((Integer) objArr2[5]).intValue(), ((Long) objArr2[6]).longValue(), (Handler) objArr2[7], (AdaptiveMediaSourceEventListener) objArr2[8]);
                 newInitContext.thisArg = this;
@@ -370,16 +370,16 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
         }
     }
 
-    public SsMediaSource(SsManifest ssManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i2, long j2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+    public SsMediaSource(SsManifest ssManifest, Uri uri, DataSource.Factory factory, ParsingLoadable.Parser<? extends SsManifest> parser, SsChunkSource.Factory factory2, int i, long j, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ssManifest, uri, factory, parser, factory2, Integer.valueOf(i2), Long.valueOf(j2), handler, adaptiveMediaSourceEventListener};
+            Object[] objArr = {ssManifest, uri, factory, parser, factory2, Integer.valueOf(i), Long.valueOf(j), handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -396,8 +396,8 @@ public final class SsMediaSource implements MediaSource, Loader.Callback<Parsing
         this.manifestDataSourceFactory = factory;
         this.manifestParser = parser;
         this.chunkSourceFactory = factory2;
-        this.minLoadableRetryCount = i2;
-        this.livePresentationDelayMs = j2;
+        this.minLoadableRetryCount = i;
+        this.livePresentationDelayMs = j;
         this.eventDispatcher = new AdaptiveMediaSourceEventListener.EventDispatcher(handler, adaptiveMediaSourceEventListener);
         this.mediaPeriods = new ArrayList<>();
     }

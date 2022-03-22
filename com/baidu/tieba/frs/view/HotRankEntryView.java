@@ -31,35 +31,31 @@ import tbclient.ShortUserInfo;
 public class HotRankEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f32993b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageOverlayView f32994c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42532e;
+    public ImageView f32996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f42533f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageOverlayView f42534g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f42535h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f42536i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f42537j;
+    public boolean f32997f;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f42538e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ HotRankEntryView f42539f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ HotRankEntryView f32998b;
 
         public a(HotRankEntryView hotRankEntryView, Context context) {
             Interceptable interceptable = $ic;
@@ -68,23 +64,23 @@ public class HotRankEntryView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {hotRankEntryView, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42539f = hotRankEntryView;
-            this.f42538e = context;
+            this.f32998b = hotRankEntryView;
+            this.a = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.f42538e)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotUserRankActivityConfig(this.a)));
             }
         }
     }
@@ -98,9 +94,9 @@ public class HotRankEntryView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -113,34 +109,34 @@ public class HotRankEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.hot_rank_entry, (ViewGroup) this, true);
-            this.f42533f = (ImageView) findViewById(R.id.first_tag);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03aa, (ViewGroup) this, true);
+            this.f32993b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909a7);
             int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62);
             int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
             int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds20);
-            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.image_group);
-            this.f42534g = imageOverlayView;
-            imageOverlayView.init(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
-            this.f42534g.setStrokeStyle(1);
-            this.f42534g.setLoadImageType(12);
-            this.f42535h = (TextView) findViewById(R.id.entry_describe);
-            this.f42536i = (ImageView) findViewById(R.id.arrow);
+            ImageOverlayView imageOverlayView = (ImageOverlayView) findViewById(R.id.obfuscated_res_0x7f090e73);
+            this.f32994c = imageOverlayView;
+            imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
+            this.f32994c.setStrokeStyle(1);
+            this.f32994c.setLoadImageType(12);
+            this.f32995d = (TextView) findViewById(R.id.obfuscated_res_0x7f0908fa);
+            this.f32996e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a3);
             setOnClickListener(new a(this, context));
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == this.f42532e) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.a) {
             return;
         }
-        this.f42532e = i2;
-        SkinManager.setBackgroundResource(this, this.f42537j ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42533f, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
-        this.f42534g.onChangeSkinType();
-        SkinManager.setViewTextColor(this.f42535h, (int) R.color.CAM_X0101);
-        WebPManager.setPureDrawable(this.f42536i, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.a = i;
+        SkinManager.setBackgroundResource(this, this.f32997f ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f32993b, R.drawable.obfuscated_res_0x7f0810e0, SvgManager.SvgResourceStateType.NORMAL);
+        this.f32994c.d();
+        SkinManager.setViewTextColor(this.f32995d, (int) R.color.CAM_X0101);
+        WebPManager.setPureDrawable(this.f32996e, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
     }
 
     public void setData(HotUserRankEntry hotUserRankEntry, boolean z) {
@@ -155,9 +151,9 @@ public class HotRankEntryView extends RelativeLayout {
                 arrayList.add(shortUserInfo.portrait);
             }
         }
-        this.f42534g.setData(arrayList);
-        this.f42537j = z;
-        this.f42535h.setText(!m.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.hot_rank));
+        this.f32994c.setData(arrayList);
+        this.f32997f = z;
+        this.f32995d.setText(!m.isEmpty(hotUserRankEntry.module_name) ? hotUserRankEntry.module_name : getResources().getString(R.string.obfuscated_res_0x7f0f085c));
         SkinManager.setBackgroundResource(this, z ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
     }
 
@@ -170,9 +166,9 @@ public class HotRankEntryView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -180,7 +176,7 @@ public class HotRankEntryView extends RelativeLayout {
                 return;
             }
         }
-        this.f42532e = 3;
+        this.a = 3;
         a(context);
     }
 }

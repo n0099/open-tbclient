@@ -26,31 +26,31 @@ public class a implements b.a {
 
     /* renamed from: com.kwad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2080a {
+    public static class C1941a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ZipFile a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ZipEntry f53893b;
+        public ZipEntry f39050b;
 
-        public C2080a(ZipFile zipFile, ZipEntry zipEntry) {
+        public C1941a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zipFile, zipEntry};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = zipFile;
-            this.f53893b = zipEntry;
+            this.f39050b = zipEntry;
         }
     }
 
@@ -59,9 +59,9 @@ public class a implements b.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -75,76 +75,76 @@ public class a implements b.a {
             return invokeLL.longValue;
         }
         byte[] bArr = new byte[4096];
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (read == -1) {
                 outputStream.flush();
-                return j2;
+                return j;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 
-    private C2080a a(Context context, String[] strArr, String str, c cVar) {
+    private C1941a a(Context context, String[] strArr, String str, c cVar) {
         InterceptResult invokeLLLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, this, context, strArr, str, cVar)) == null) {
             String[] a = a(context);
             int length = a.length;
             char c2 = 0;
             ZipFile zipFile = null;
-            int i3 = 0;
-            while (i3 < length) {
-                String str2 = a[i3];
-                int i4 = 0;
+            int i2 = 0;
+            while (i2 < length) {
+                String str2 = a[i2];
+                int i3 = 0;
                 while (true) {
-                    int i5 = i4 + 1;
-                    i2 = 5;
-                    if (i4 >= 5) {
+                    int i4 = i3 + 1;
+                    i = 5;
+                    if (i3 >= 5) {
                         break;
                     }
                     try {
                         zipFile = new ZipFile(new File(str2), 1);
                         break;
                     } catch (IOException unused) {
-                        i4 = i5;
+                        i3 = i4;
                     }
                 }
                 if (zipFile != null) {
-                    int i6 = 0;
+                    int i5 = 0;
                     while (true) {
-                        int i7 = i6 + 1;
-                        if (i6 >= i2) {
+                        int i6 = i5 + 1;
+                        if (i5 >= i) {
                             break;
                         }
                         int length2 = strArr.length;
-                        int i8 = 0;
-                        while (i8 < length2) {
-                            String str3 = "lib" + File.separatorChar + strArr[i8] + File.separatorChar + str;
+                        int i7 = 0;
+                        while (i7 < length2) {
+                            String str3 = "lib" + File.separatorChar + strArr[i7] + File.separatorChar + str;
                             Object[] objArr = new Object[2];
                             objArr[c2] = str3;
                             objArr[1] = str2;
                             cVar.a("Looking for %s in APK %s...", objArr);
                             ZipEntry entry = zipFile.getEntry(str3);
                             if (entry != null) {
-                                return new C2080a(zipFile, entry);
+                                return new C1941a(zipFile, entry);
                             }
-                            i8++;
+                            i7++;
                             c2 = 0;
                         }
-                        i6 = i7;
-                        i2 = 5;
+                        i5 = i6;
+                        i = 5;
                     }
                 }
-                i3++;
+                i2++;
                 c2 = 0;
             }
             return null;
         }
-        return (C2080a) invokeLLLL.objValue;
+        return (C1941a) invokeLLLL.objValue;
     }
 
     private void a(Closeable closeable) {
@@ -184,18 +184,18 @@ public class a implements b.a {
         if (interceptable != null && interceptable.invokeLLLLL(1048576, this, context, strArr, str, file, cVar) != null) {
             return;
         }
-        C2080a c2080a = null;
+        C1941a c1941a = null;
         Closeable closeable2 = null;
         try {
-            C2080a a2 = a(context, strArr, str, cVar);
+            C1941a a2 = a(context, strArr, str, cVar);
             try {
                 if (a2 == null) {
                     throw new RuntimeException(str);
                 }
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    int i3 = i2 + 1;
-                    if (i2 >= 5) {
+                    int i2 = i + 1;
+                    if (i >= 5) {
                         cVar.a("FATAL! Couldn't extract the library from the APK!");
                         if (a2 != null) {
                             try {
@@ -214,7 +214,7 @@ public class a implements b.a {
                     try {
                         if (file.exists() || file.createNewFile()) {
                             try {
-                                inputStream = a2.a.getInputStream(a2.f53893b);
+                                inputStream = a2.a.getInputStream(a2.f39050b);
                                 try {
                                     closeable = new FileOutputStream(file);
                                 } catch (FileNotFoundException unused2) {
@@ -241,11 +241,11 @@ public class a implements b.a {
                             } catch (FileNotFoundException unused6) {
                                 a(inputStream);
                                 a(closeable);
-                                i2 = i3;
+                                i = i2;
                             } catch (IOException unused7) {
                                 a(inputStream);
                                 a(closeable);
-                                i2 = i3;
+                                i = i2;
                             } catch (Throwable th3) {
                                 th = th3;
                                 closeable2 = inputStream;
@@ -277,15 +277,15 @@ public class a implements b.a {
                         }
                     } catch (IOException unused9) {
                     }
-                    i2 = i3;
+                    i = i2;
                 }
             } catch (Throwable th4) {
                 th = th4;
-                c2080a = a2;
-                if (c2080a != null) {
+                c1941a = a2;
+                if (c1941a != null) {
                     try {
-                        if (c2080a.a != null) {
-                            c2080a.a.close();
+                        if (c1941a.a != null) {
+                            c1941a.a.close();
                         }
                     } catch (IOException unused10) {
                     }

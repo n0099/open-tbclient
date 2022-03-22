@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import c.a.d.a.j;
 import c.a.d.f.q.f;
-import c.a.r0.y3.s0.a;
+import c.a.p0.a4.s0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
@@ -19,12 +19,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VoiceButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public f a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public f f46825e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f46826f;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f36201b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoiceButton(Context context, AttributeSet attributeSet) {
@@ -35,9 +33,9 @@ public class VoiceButton extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -45,7 +43,7 @@ public class VoiceButton extends ImageView {
                 return;
             }
         }
-        this.f46826f = false;
+        this.f36201b = false;
     }
 
     public a getRecorderManager() {
@@ -88,14 +86,14 @@ public class VoiceButton extends ImageView {
                 if (recorderManager == null || !recorderManager.e()) {
                     return false;
                 }
-                this.f46826f = recorderManager.c(this.f46825e, -1);
+                this.f36201b = recorderManager.c(this.a, -1);
                 setPressed(true);
             } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 if (!isPressed()) {
                     setPressed(true);
                 }
             } else {
-                if (this.f46826f && recorderManager != null) {
+                if (this.f36201b && recorderManager != null) {
                     recorderManager.stopRecord();
                 }
                 setPressed(false);
@@ -108,7 +106,7 @@ public class VoiceButton extends ImageView {
     public void setRecorderView(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f46825e = fVar;
+            this.a = fVar;
             a recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.d(fVar);

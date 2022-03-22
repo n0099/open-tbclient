@@ -10,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ConnectionSpec {
     public static /* synthetic */ Interceptable $ic;
     public static final CipherSuite[] APPROVED_CIPHER_SUITES;
@@ -62,9 +61,9 @@ public final class ConnectionSpec {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -156,7 +155,7 @@ public final class ConnectionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.tls) {
-                return ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.cipherSuites)) * 31) + Arrays.hashCode(this.tlsVersions)) * 31) + (!this.supportsTlsExtensions ? 1 : 0);
+                return ((((527 + Arrays.hashCode(this.cipherSuites)) * 31) + Arrays.hashCode(this.tlsVersions)) * 31) + (!this.supportsTlsExtensions ? 1 : 0);
             }
             return 17;
         }
@@ -220,7 +219,7 @@ public final class ConnectionSpec {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,9 +237,9 @@ public final class ConnectionSpec {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -287,8 +286,8 @@ public final class ConnectionSpec {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cipherSuiteArr)) == null) {
                 if (this.tls) {
                     String[] strArr = new String[cipherSuiteArr.length];
-                    for (int i2 = 0; i2 < cipherSuiteArr.length; i2++) {
-                        strArr[i2] = cipherSuiteArr[i2].javaName;
+                    for (int i = 0; i < cipherSuiteArr.length; i++) {
+                        strArr[i] = cipherSuiteArr[i].javaName;
                     }
                     return cipherSuites(strArr);
                 }
@@ -316,8 +315,8 @@ public final class ConnectionSpec {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tlsVersionArr)) == null) {
                 if (this.tls) {
                     String[] strArr = new String[tlsVersionArr.length];
-                    for (int i2 = 0; i2 < tlsVersionArr.length; i2++) {
-                        strArr[i2] = tlsVersionArr[i2].javaName;
+                    for (int i = 0; i < tlsVersionArr.length; i++) {
+                        strArr[i] = tlsVersionArr[i].javaName;
                     }
                     return tlsVersions(strArr);
                 }
@@ -333,9 +332,9 @@ public final class ConnectionSpec {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {connectionSpec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

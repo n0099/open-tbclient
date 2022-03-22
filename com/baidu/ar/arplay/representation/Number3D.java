@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.representation;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -102,16 +103,16 @@ public class Number3D {
             $VALUES = new Axis[]{X, Y, axis};
         }
 
-        public Axis(String str, int i2) {
+        public Axis(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -155,9 +156,9 @@ public class Number3D {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -175,9 +176,9 @@ public class Number3D {
             newInitContext.initArgs = r2;
             Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -195,9 +196,9 @@ public class Number3D {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -215,9 +216,9 @@ public class Number3D {
             newInitContext.initArgs = r2;
             Object[] objArr = {number3D};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -235,15 +236,17 @@ public class Number3D {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
-        int length = strArr.length;
+        if (strArr.length != 3) {
+            Log.e(Number3D.class.getSimpleName(), "Number3D should be initialized with 3 values");
+        }
         try {
             this.x = Float.parseFloat(strArr[0]);
             this.y = Float.parseFloat(strArr[1]);
@@ -285,12 +288,12 @@ public class Number3D {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, axis)) == null) {
             Number3D number3D = new Number3D();
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis[axis.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis[axis.ordinal()];
+            if (i == 1) {
                 number3D.setAll(1.0f, 0.0f, 0.0f);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 number3D.setAll(0.0f, 1.0f, 0.0f);
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 number3D.setAll(0.0f, 0.0f, 1.0f);
             }
             return number3D;
@@ -364,7 +367,7 @@ public class Number3D {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Number3D m32clone() {
+    public Number3D m30clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Number3D(this.x, this.y, this.z) : (Number3D) invokeV.objValue;

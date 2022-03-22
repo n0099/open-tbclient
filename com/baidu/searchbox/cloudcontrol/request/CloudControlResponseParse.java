@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.request;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -51,9 +52,9 @@ public class CloudControlResponseParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,7 +82,9 @@ public class CloudControlResponseParse {
             try {
                 return Long.parseLong(str);
             } catch (Exception unused) {
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "parse version is not long");
+                }
                 return 0L;
             }
         }
@@ -94,10 +97,10 @@ public class CloudControlResponseParse {
         JSONObject jSONObject2;
         String str;
         CloudControlUBCData cloudControlUBCData2;
+        int i;
         int i2;
         int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, z)) == null) {
             int optInt = jSONObject.optInt("errno");
@@ -133,7 +136,7 @@ public class CloudControlResponseParse {
             } else {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject optJSONObject4 = optJSONObject3.optJSONObject("ccs_hotrun_interval");
-                int i6 = 1;
+                int i5 = 1;
                 if (optJSONObject4 != null) {
                     jSONObject2 = optJSONObject2;
                     String optString3 = optJSONObject4.optString("data");
@@ -146,27 +149,27 @@ public class CloudControlResponseParse {
                     String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_INTERVAL_VERSION, "0");
                     if (z && parseLong(optString4) <= parseLong(string)) {
                         jSONObject3.put("valid", "2");
-                        i2 = 1;
-                        i3 = 0;
+                        i = 1;
+                        i2 = 0;
                     } else {
                         this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_INTERVAL_VERSION, optString4);
                         this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_HOTRUNTIME_INTERVAL, optString3);
                         jSONObject3.put("valid", "1");
-                        i2 = 0;
-                        i3 = 1;
+                        i = 0;
+                        i2 = 1;
                     }
                     jSONArray.put(jSONObject3);
                 } else {
                     cloudControlUBCData2 = cloudControlUBCData3;
                     jSONObject2 = optJSONObject2;
                     str = optString2;
+                    i = 0;
                     i2 = 0;
-                    i3 = 0;
-                    i6 = 0;
+                    i5 = 0;
                 }
                 JSONObject optJSONObject5 = optJSONObject3.optJSONObject("ccs_degrade_list");
                 if (optJSONObject5 != null) {
-                    i6++;
+                    i5++;
                     JSONObject optJSONObject6 = optJSONObject5.optJSONObject("data");
                     String optString5 = optJSONObject5.optString("version", "0");
                     JSONObject jSONObject4 = new JSONObject();
@@ -175,13 +178,13 @@ public class CloudControlResponseParse {
                     String string2 = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST_VERSION, "0");
                     if (z && parseLong(optString5) <= parseLong(string2)) {
                         jSONObject4.put("valid", "2");
-                        i2++;
+                        i++;
                     } else {
                         this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_DEGRADE_LIST_VERSION, optString5);
-                        int i7 = i3 + 1;
+                        int i6 = i2 + 1;
                         if (optJSONObject6 != null && optJSONObject6.length() != 0) {
-                            i4 = i2;
-                            i5 = i7;
+                            i3 = i;
+                            i4 = i6;
                             this.mSharedPrefsWrapper.putString("st", optJSONObject6.optString("st", "0"));
                             this.mSharedPrefsWrapper.putString("et", optJSONObject6.optString("et", "0"));
                             this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_RUNTYPE_BLACK, optJSONObject6.optString(KEY_RUNTYPE_BLACK));
@@ -197,8 +200,8 @@ public class CloudControlResponseParse {
                                 this.mSharedPrefsWrapper.putBoolean(CloudControlConstant.SP_KEY_BLACK_PUBPARAM, false);
                             }
                         } else {
-                            i4 = i2;
-                            i5 = i7;
+                            i3 = i;
+                            i4 = i6;
                             this.mSharedPrefsWrapper.putString("st", "0");
                             this.mSharedPrefsWrapper.putString("et", "0");
                             this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_RUNTYPE_BLACK, "");
@@ -206,13 +209,13 @@ public class CloudControlResponseParse {
                             this.mSharedPrefsWrapper.putBoolean(CloudControlConstant.SP_KEY_BLACK_PUBPARAM, false);
                             jSONObject4.put("valid", "0");
                         }
-                        i3 = i5;
                         i2 = i4;
+                        i = i3;
                     }
                     jSONArray.put(jSONObject4);
                 }
                 cloudControlUBCData = cloudControlUBCData2;
-                cloudControlUBCData.collectDegradegInfo(i6, i3, i2, jSONArray);
+                cloudControlUBCData.collectDegradegInfo(i5, i2, i, jSONArray);
             }
             this.mSharedPrefsWrapper.putString(CloudControlConstant.SP_KEY_PUBPARAM, str);
             this.mSharedPrefsWrapper.putLong(CloudControlConstant.SP_KEY_LAST_REQUEST_TIME, System.currentTimeMillis());
@@ -242,9 +245,9 @@ public class CloudControlResponseParse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

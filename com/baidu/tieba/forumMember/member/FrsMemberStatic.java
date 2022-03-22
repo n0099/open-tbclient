@@ -1,17 +1,17 @@
 package com.baidu.tieba.forumMember.member;
 
-import c.a.r0.b1.b.c;
-import c.a.r0.b1.b.d;
-import c.a.r0.b1.c.f;
-import c.a.r0.b1.c.g;
-import c.a.r0.b1.c.h;
-import c.a.r0.b1.c.i;
-import c.a.r0.b1.c.j;
-import c.a.r0.b1.c.k;
-import c.a.r0.b1.c.l;
-import c.a.r0.d1.f0;
-import c.a.r0.d1.g0;
-import c.a.r0.d1.n;
+import c.a.p0.c1.b.c;
+import c.a.p0.c1.b.d;
+import c.a.p0.c1.c.f;
+import c.a.p0.c1.c.g;
+import c.a.p0.c1.c.h;
+import c.a.p0.c1.c.i;
+import c.a.p0.c1.c.j;
+import c.a.p0.c1.c.k;
+import c.a.p0.c1.c.l;
+import c.a.p0.f1.f0;
+import c.a.p0.f1.g0;
+import c.a.p0.f1.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,17 +36,17 @@ public class FrsMemberStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,12 +61,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f15110h));
-                absDelegateAdapterList.add(new i(null, j.f15115g));
-                absDelegateAdapterList.add(new f(null, n.f15854g));
-                absDelegateAdapterList.add(new c.a.r0.b1.b.a(null, c.a.r0.b1.b.b.f15090f));
-                absDelegateAdapterList.add(new c(null, d.k));
-                absDelegateAdapterList.add(new k(null, l.f15119i));
+                absDelegateAdapterList.add(new g(null, h.f13419d));
+                absDelegateAdapterList.add(new i(null, j.f13422c));
+                absDelegateAdapterList.add(new f(null, n.f14248c));
+                absDelegateAdapterList.add(new c.a.p0.c1.b.a(null, c.a.p0.c1.b.b.f13403b));
+                absDelegateAdapterList.add(new c(null, d.f13404g));
+                absDelegateAdapterList.add(new k(null, l.f13424e));
             }
         }
     }
@@ -77,17 +77,17 @@ public class FrsMemberStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -102,8 +102,8 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                c.a.r0.b1.c.d dVar = new c.a.r0.b1.c.d();
-                dVar.E(f0Var.f15468e);
+                c.a.p0.c1.c.d dVar = new c.a.p0.c1.c.d();
+                dVar.E(f0Var.a);
                 f0Var.a(3, dVar);
             }
         }
@@ -133,9 +133,9 @@ public class FrsMemberStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

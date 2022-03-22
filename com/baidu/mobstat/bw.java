@@ -28,7 +28,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
-import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,6 +37,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -58,13 +58,13 @@ public class bw {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35196b;
+    public static String f27333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35197c;
+    public static String f27334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f35198d;
+    public static final Pattern f27335d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,7 +80,7 @@ public class bw {
                 return;
             }
         }
-        f35198d = Pattern.compile("\\s*|\t|\r|\n");
+        f27335d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -201,7 +201,7 @@ public class bw {
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((bo.e(context, com.kuaishou.weapon.un.s.f53808g) || bo.e(context, com.kuaishou.weapon.un.s.f53809h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((bo.e(context, "android.permission.ACCESS_FINE_LOCATION") || bo.e(context, "android.permission.ACCESS_COARSE_LOCATION")) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -221,7 +221,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             try {
-                return (!bo.e(context, com.kuaishou.weapon.un.s.f53808g) || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
+                return (!bo.e(context, "android.permission.ACCESS_FINE_LOCATION") || (lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps")) == null) ? "" : String.format("%s_%s_%s", Long.valueOf(lastKnownLocation.getTime()), Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude()));
             } catch (Exception unused) {
                 return "";
             }
@@ -247,7 +247,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
             try {
-                if (!bo.e(context, com.kuaishou.weapon.un.s.f53805d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+                if (!bo.e(context, "android.permission.ACCESS_WIFI_STATE") || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
                 String macAddress = connectionInfo.getMacAddress();
@@ -284,7 +284,7 @@ public class bw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, context)) == null) {
             String str = android.os.Build.BRAND;
-            if (FaceEnvironment.SDK_VERSION.equals(Build.VERSION.RELEASE) && "TCT".equals(str)) {
+            if ("4.1.1".equals(Build.VERSION.RELEASE) && "TCT".equals(str)) {
                 return "";
             }
             try {
@@ -312,17 +312,17 @@ public class bw {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:10|11|12|(11:14|15|16|17|19|20|(1:24)|25|(2:26|(1:1)(8:32|33|(1:35)|36|(1:44)(1:40)|41|42|43))|48|(1:50)(6:51|52|53|(1:55)|56|57))|67|15|16|17|19|20|(2:22|24)|25|(3:26|(2:28|60)(1:61)|43)|48|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003e, code lost:
         r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x003e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x003f, code lost:
         r4 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00ba A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x00b4 A[ADDED_TO_REGION, EDGE_INSN: B:72:0x00b4->B:44:0x00b4 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0042  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00bc A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00bd  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00b6 A[ADDED_TO_REGION, EDGE_INSN: B:73:0x00b6->B:44:0x00b6 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -331,15 +331,15 @@ public class bw {
         boolean z;
         List<ScanResult> list;
         JSONArray jSONArray;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65570, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (context == null || !bo.e(context, com.kuaishou.weapon.un.s.f53805d)) {
+        if (context == null || !bo.e(context, "android.permission.ACCESS_WIFI_STATE")) {
             return "";
         }
-        if (bo.e(context, com.kuaishou.weapon.un.s.f53808g)) {
+        if (bo.e(context, "android.permission.ACCESS_FINE_LOCATION")) {
             z = ((LocationManager) context.getSystemService("location")).isProviderEnabled("gps");
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -354,9 +354,9 @@ public class bw {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -374,18 +374,18 @@ public class bw {
                 });
             }
             jSONArray = new JSONArray();
-            i2 = 0;
+            i = 0;
             while (true) {
-                int i3 = 1;
-                if (list != null || i2 >= list.size() || i2 >= 30) {
+                int i2 = 1;
+                if (list != null || i >= list.size() || i >= 30) {
                     break;
                 }
                 try {
-                    ScanResult scanResult = list.get(i2);
+                    ScanResult scanResult = list.get(i);
                     StringBuilder sb = new StringBuilder();
                     sb.append(scanResult.BSSID);
                     sb.append("|");
-                    String replaceAll = scanResult.SSID.replaceAll("\\|", "");
+                    String replaceAll = scanResult.SSID.replaceAll(WebChromeClient.PARAM_SEPARATOR, "");
                     if (replaceAll.length() > 30) {
                         replaceAll = replaceAll.substring(0, 30);
                     }
@@ -394,13 +394,13 @@ public class bw {
                     sb.append(scanResult.level);
                     sb.append("|");
                     if (wifiInfo == null || !scanResult.BSSID.equals(wifiInfo.getBSSID())) {
-                        i3 = 0;
+                        i2 = 0;
                     }
-                    sb.append(i3);
+                    sb.append(i2);
                     jSONArray.put(sb.toString());
                 } catch (Exception unused) {
                 }
-                i2++;
+                i++;
             }
             if (jSONArray.length() == 0) {
                 return null;
@@ -434,9 +434,9 @@ public class bw {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i32 = newInitContext.flag;
-                        if ((i32 & 1) != 0) {
-                            int i4 = i32 & 2;
+                        int i22 = newInitContext.flag;
+                        if ((i22 & 1) != 0) {
+                            int i3 = i22 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -454,14 +454,14 @@ public class bw {
             });
         }
         jSONArray = new JSONArray();
-        i2 = 0;
+        i = 0;
         while (true) {
-            int i32 = 1;
+            int i22 = 1;
             if (list != null) {
                 break;
             }
             break;
-            i2++;
+            i++;
         }
         if (jSONArray.length() == 0) {
         }
@@ -536,7 +536,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f35196b;
+            String str = f27333b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -544,7 +544,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f35196b = str;
+                f27333b = str;
             }
             return str;
         }
@@ -570,18 +570,18 @@ public class bw {
                 return "";
             }
             int length = serviceInfoArr.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     str = "";
                     break;
                 }
-                ServiceInfo serviceInfo = serviceInfoArr[i2];
+                ServiceInfo serviceInfo = serviceInfoArr[i];
                 if (y.equals(serviceInfo.processName)) {
                     str = serviceInfo.name;
                     break;
                 }
-                i2++;
+                i++;
             }
             return str == null ? "" : str;
         }
@@ -604,7 +604,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -645,16 +645,16 @@ public class bw {
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (runningAppProcesses == null || i2 >= runningAppProcesses.size()) {
+                        if (runningAppProcesses == null || i >= runningAppProcesses.size()) {
                             break;
                         }
-                        ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
+                        ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
                         if (runningAppProcessInfo != null && runningAppProcessInfo.pid == Process.myPid()) {
                             break;
                         }
-                        i2++;
+                        i++;
                     }
                 } catch (Exception unused) {
                 }
@@ -668,22 +668,22 @@ public class bw {
         return (String) invokeL.objValue;
     }
 
-    public static String b(int i2, Context context) {
+    public static String b(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i, context)) == null) {
             String l = l(context);
-            return TextUtils.isEmpty(l) ? "" : bm.b.c(i2, l.getBytes());
+            return TextUtils.isEmpty(l) ? "" : bm.b.c(i, l.getBytes());
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String c(int i2, Context context) {
+    public static String c(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i2, context)) == null) {
-            String d2 = d(i2, context);
-            String c2 = !TextUtils.isEmpty(d2) ? bm.b.c(i2, d2.getBytes()) : null;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65550, null, i, context)) == null) {
+            String d2 = d(i, context);
+            String c2 = !TextUtils.isEmpty(d2) ? bm.b.c(i, d2.getBytes()) : null;
             return TextUtils.isEmpty(c2) ? "" : c2;
         }
         return (String) invokeIL.objValue;
@@ -706,8 +706,8 @@ public class bw {
                         }
                         StringBuilder sb = new StringBuilder();
                         int length = hardwareAddress.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            sb.append(String.format("%02x:", Byte.valueOf(hardwareAddress[i2])));
+                        for (int i = 0; i < length; i++) {
+                            sb.append(String.format("%02x:", Byte.valueOf(hardwareAddress[i])));
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
@@ -723,10 +723,10 @@ public class bw {
     }
 
     @SuppressLint({"NewApi"})
-    public static String e(int i2, Context context) {
+    public static String e(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65556, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65556, null, i, context)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             byte[] bArr = null;
             try {
@@ -756,22 +756,22 @@ public class bw {
                 }
                 return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
             }
-            String b3 = b(i2, context);
+            String b3 = b(i, context);
             return b3 != null ? b3.replaceAll(":", "") : b3;
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String h(int i2, Context context) {
+    public static String h(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65561, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65561, null, i, context)) == null) {
             String t = t(context);
             if (TextUtils.isEmpty(t)) {
                 return "";
             }
             try {
-                return bm.b.c(i2, t.getBytes());
+                return bm.b.c(i, t.getBytes());
             } catch (Exception unused) {
                 return "";
             }
@@ -782,43 +782,43 @@ public class bw {
     public static String b(Context context, String str) {
         InterceptResult invokeLL;
         int lastIndexOf;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (str != null && (lastIndexOf = str.lastIndexOf(58)) > 0 && (i2 = lastIndexOf + 1) < str.length()) {
-                return str.substring(i2);
+            if (str != null && (lastIndexOf = str.lastIndexOf(58)) > 0 && (i = lastIndexOf + 1) < str.length()) {
+                return str.substring(i);
             }
             return null;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static String f(int i2, Context context) {
+    public static String f(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65558, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65558, null, i, context)) == null) {
             String n = n(context);
-            return TextUtils.isEmpty(n) ? "" : bm.b.c(i2, n.getBytes());
+            return TextUtils.isEmpty(n) ? "" : bm.b.c(i, n.getBytes());
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String g(int i2, Context context) {
+    public static String g(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65559, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65559, null, i, context)) == null) {
             String p = p(context);
-            return TextUtils.isEmpty(p) ? "" : bm.b.d(i2, p.getBytes());
+            return TextUtils.isEmpty(p) ? "" : bm.b.d(i, p.getBytes());
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String a(int i2, Context context) {
+    public static String a(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, context)) == null) {
             try {
-                return bm.b.c(i2, a(context).getBytes());
+                return bm.b.c(i, a(context).getBytes());
             } catch (Exception unused) {
                 return "";
             }
@@ -831,7 +831,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f35197c;
+            String str2 = f27334c;
             if (str2 != null) {
                 return str2;
             }
@@ -847,12 +847,12 @@ public class bw {
                 str = "funtouch";
             }
             if (TextUtils.isEmpty(str)) {
-                String a2 = a("ro.build.display.id");
+                String a2 = a(RomUtils.PROP_RO_BUILD_DISPLAY_ID);
                 if (!TextUtils.isEmpty(a2) && a2.contains("Flyme")) {
                     str = "flyme";
                 }
             }
-            f35197c = str;
+            f27334c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -878,7 +878,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f35198d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f27335d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {
@@ -925,9 +925,9 @@ public class bw {
                     if (read == -1) {
                         break;
                     } else if (read != 20 || cArr[19] == '\r') {
-                        for (int i2 = 0; i2 < read; i2++) {
-                            if (cArr[i2] != '\r') {
-                                stringBuffer.append(cArr[i2]);
+                        for (int i = 0; i < read; i++) {
+                            if (cArr[i] != '\r') {
+                                stringBuffer.append(cArr[i]);
                             }
                         }
                     } else {
@@ -966,25 +966,25 @@ public class bw {
         }
     }
 
-    public static String d(int i2, Context context) {
+    public static String d(int i, Context context) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65554, null, i2, context)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65554, null, i, context)) == null) {
             String a2 = a();
             if (TextUtils.isEmpty(a2)) {
-                a2 = e(i2, context);
+                a2 = e(i, context);
             }
             return TextUtils.isEmpty(a2) ? "" : a2;
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String a(Context context, int i2) {
+    public static String a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
             String m = m(context);
-            return TextUtils.isEmpty(m) ? "" : bm.b.c(i2, m.getBytes());
+            return TextUtils.isEmpty(m) ? "" : bm.b.c(i, m.getBytes());
         }
         return (String) invokeLI.objValue;
     }

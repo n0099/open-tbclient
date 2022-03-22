@@ -38,9 +38,9 @@ public class ViewUtilsApi22 extends ViewUtilsApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -49,11 +49,11 @@ public class ViewUtilsApi22 extends ViewUtilsApi21 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setLeftTopRightBottom(@NonNull View view, int i2, int i3, int i4, int i5) {
+    public void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && sTryHiddenSetLeftTopRightBottom) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && sTryHiddenSetLeftTopRightBottom) {
             try {
-                view.setLeftTopRightBottom(i2, i3, i4, i5);
+                view.setLeftTopRightBottom(i, i2, i3, i4);
             } catch (NoSuchMethodError unused) {
                 sTryHiddenSetLeftTopRightBottom = false;
             }

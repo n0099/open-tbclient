@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.api.b;
 import android.text.TextUtils;
 import java.security.SecureRandom;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -59,17 +59,17 @@ public class b {
         return a;
     }
 
-    public static String a(String str, int i2) {
-        if (str == null || str.length() != i2) {
+    public static String a(String str, int i) {
+        if (str == null || str.length() != i) {
             return null;
         }
-        int i3 = i2 / 2;
-        return str.substring(i3, i2) + str.substring(0, i3);
+        int i2 = i / 2;
+        return str.substring(i2, i) + str.substring(0, i2);
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         try {
-            byte[] bArr = new byte[i2];
+            byte[] bArr = new byte[i];
             new SecureRandom().nextBytes(bArr);
             return c.a(bArr);
         } catch (Exception unused) {

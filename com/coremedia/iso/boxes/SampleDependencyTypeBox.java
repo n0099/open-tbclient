@@ -9,18 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sdtp";
@@ -30,28 +29,28 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int value;
 
-        public Entry(int i2) {
+        public Entry(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.value = i2;
+            this.value = i;
         }
 
         public boolean equals(Object obj) {
@@ -96,31 +95,31 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.value : invokeV.intValue;
         }
 
-        public void setReserved(int i2) {
+        public void setReserved(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.value = ((i2 & 3) << 6) | (this.value & 63);
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.value = ((i & 3) << 6) | (this.value & 63);
             }
         }
 
-        public void setSampleDependsOn(int i2) {
+        public void setSampleDependsOn(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.value = ((i2 & 3) << 4) | (this.value & 207);
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.value = ((i & 3) << 4) | (this.value & 207);
             }
         }
 
-        public void setSampleHasRedundancy(int i2) {
+        public void setSampleHasRedundancy(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.value = (i2 & 3) | (this.value & 252);
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.value = (i & 3) | (this.value & 252);
             }
         }
 
-        public void setSampleIsDependentOn(int i2) {
+        public void setSampleIsDependentOn(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.value = ((i2 & 3) << 2) | (this.value & LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK);
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.value = ((i & 3) << 2) | (this.value & 243);
             }
         }
 
@@ -128,7 +127,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + ExtendedMessageFormat.END_FE;
+                return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -157,9 +156,9 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -173,7 +172,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         Factory factory = new Factory("SampleDependencyTypeBox.java", SampleDependencyTypeBox.class);
         ajc$tjp_0 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.util.List"), 139);
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "java.util.List", "entries", "", "void"), 143);
-        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.lang.String"), 148);
+        ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.SampleDependencyTypeBox", "", "", "", "java.lang.String"), w0.I);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -228,7 +227,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "SampleDependencyTypeBox{entries=" + this.entries + ExtendedMessageFormat.END_FE;
+            return "SampleDependencyTypeBox{entries=" + this.entries + '}';
         }
         return (String) invokeV.objValue;
     }

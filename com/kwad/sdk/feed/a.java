@@ -8,11 +8,11 @@ import com.kwad.sdk.feed.widget.f;
 import com.kwad.sdk.feed.widget.g;
 import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: com.kwad.sdk.feed.a$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
@@ -71,12 +71,12 @@ public class a {
         }
     }
 
-    public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType, int i2) {
+    public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType, int i) {
         if (feedType == FeedType.FEED_TYPE_TEXT_NEW) {
-            return i2 == 1 ? new f(context) : new e(context);
-        } else if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 != 3) {
+            return i == 1 ? new f(context) : new e(context);
+        } else if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
                     com.kwad.sdk.core.d.a.e("KSFeedFactory", "getNewFeedView materialType is unknown");
                     return null;
                 }
@@ -111,9 +111,9 @@ public class a {
     }
 
     public static com.kwad.sdk.feed.widget.base.a c(Context context, FeedType feedType) {
-        int i2 = AnonymousClass1.a[feedType.ordinal()];
-        if (i2 != 2) {
-            if (i2 != 3) {
+        int i = AnonymousClass1.a[feedType.ordinal()];
+        if (i != 2) {
+            if (i != 3) {
                 com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);
                 return null;
             }

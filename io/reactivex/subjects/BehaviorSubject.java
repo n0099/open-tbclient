@@ -58,9 +58,9 @@ public final class BehaviorSubject<T> extends Subject<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, behaviorSubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -125,9 +125,9 @@ public final class BehaviorSubject<T> extends Subject<T> {
             }
         }
 
-        public void emitNext(Object obj, long j2) {
+        public void emitNext(Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j2) == null) || this.cancelled) {
+            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j) == null) || this.cancelled) {
                 return;
             }
             if (!this.fastPath) {
@@ -135,7 +135,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
                     if (this.cancelled) {
                         return;
                     }
-                    if (this.index == j2) {
+                    if (this.index == j) {
                         return;
                     }
                     if (this.emitting) {
@@ -192,9 +192,9 @@ public final class BehaviorSubject<T> extends Subject<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -381,27 +381,27 @@ public final class BehaviorSubject<T> extends Subject<T> {
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (behaviorDisposableArr[i3] == behaviorDisposable) {
-                        i2 = i3;
+                    } else if (behaviorDisposableArr[i2] == behaviorDisposable) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     behaviorDisposableArr2 = EMPTY;
                 } else {
                     BehaviorDisposable[] behaviorDisposableArr3 = new BehaviorDisposable[length - 1];
-                    System.arraycopy(behaviorDisposableArr, 0, behaviorDisposableArr3, 0, i2);
-                    System.arraycopy(behaviorDisposableArr, i2 + 1, behaviorDisposableArr3, i2, (length - i2) - 1);
+                    System.arraycopy(behaviorDisposableArr, 0, behaviorDisposableArr3, 0, i);
+                    System.arraycopy(behaviorDisposableArr, i + 1, behaviorDisposableArr3, i, (length - i) - 1);
                     behaviorDisposableArr2 = behaviorDisposableArr3;
                 }
             } while (!this.subscribers.compareAndSet(behaviorDisposableArr, behaviorDisposableArr2));
@@ -499,9 +499,9 @@ public final class BehaviorSubject<T> extends Subject<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

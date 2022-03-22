@@ -10,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ChapterFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ChapterFrame> CREATOR;
@@ -48,9 +47,9 @@ public final class ChapterFrame extends Id3Frame {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -69,26 +68,26 @@ public final class ChapterFrame extends Id3Frame {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ChapterFrame[] newArray(int i2) {
+            public ChapterFrame[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ChapterFrame[i2] : (ChapterFrame[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ChapterFrame[i] : (ChapterFrame[]) invokeI.objValue;
             }
         };
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChapterFrame(String str, int i2, int i3, long j2, long j3, Id3Frame[] id3FrameArr) {
+    public ChapterFrame(String str, int i, int i2, long j, long j2, Id3Frame[] id3FrameArr) {
         super(ID);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), id3FrameArr};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), id3FrameArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -96,10 +95,10 @@ public final class ChapterFrame extends Id3Frame {
             }
         }
         this.chapterId = str;
-        this.startTimeMs = i2;
-        this.endTimeMs = i3;
-        this.startOffset = j2;
-        this.endOffset = j3;
+        this.startTimeMs = i;
+        this.endTimeMs = i2;
+        this.startOffset = j;
+        this.endOffset = j2;
         this.subFrames = id3FrameArr;
     }
 
@@ -129,10 +128,10 @@ public final class ChapterFrame extends Id3Frame {
         return invokeL.booleanValue;
     }
 
-    public Id3Frame getSubFrame(int i2) {
+    public Id3Frame getSubFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.subFrames[i2] : (Id3Frame) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.subFrames[i] : (Id3Frame) invokeI.objValue;
     }
 
     public int getSubFrameCount() {
@@ -145,17 +144,17 @@ public final class ChapterFrame extends Id3Frame {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = (((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.startTimeMs) * 31) + this.endTimeMs) * 31) + ((int) this.startOffset)) * 31) + ((int) this.endOffset)) * 31;
+            int i = (((((((527 + this.startTimeMs) * 31) + this.endTimeMs) * 31) + ((int) this.startOffset)) * 31) + ((int) this.endOffset)) * 31;
             String str = this.chapterId;
-            return i2 + (str != null ? str.hashCode() : 0);
+            return i + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             parcel.writeString(this.chapterId);
             parcel.writeInt(this.startTimeMs);
             parcel.writeInt(this.endTimeMs);
@@ -177,9 +176,9 @@ public final class ChapterFrame extends Id3Frame {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -193,8 +192,8 @@ public final class ChapterFrame extends Id3Frame {
         this.endOffset = parcel.readLong();
         int readInt = parcel.readInt();
         this.subFrames = new Id3Frame[readInt];
-        for (int i4 = 0; i4 < readInt; i4++) {
-            this.subFrames[i4] = (Id3Frame) parcel.readParcelable(Id3Frame.class.getClassLoader());
+        for (int i3 = 0; i3 < readInt; i3++) {
+            this.subFrames[i3] = (Id3Frame) parcel.readParcelable(Id3Frame.class.getClassLoader());
         }
     }
 }

@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import c.a.b0.x.c;
+import c.a.a0.x.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
@@ -25,7 +25,7 @@ public class AdAppStateManager extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdAppStateManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, c.a.b0.j.d.a> mDatas;
+    public HashMap<String, c.a.a0.j.d.a> mDatas;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -67,7 +67,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
             intentFilter.addDataScheme("package");
-            c.a.b0.h.a.b().registerReceiver(this, intentFilter);
+            c.a.a0.h.a.b().registerReceiver(this, intentFilter);
         }
     }
 
@@ -84,26 +84,26 @@ public class AdAppStateManager extends BroadcastReceiver {
             return;
         }
         Uri data = intent.getData();
-        c.a.b0.j.d.a aVar = (c.a.b0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
+        c.a.a0.j.d.a aVar = (c.a.a0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
         if (aVar == null) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            aVar.f1613c = AdDownloadStatus.INSTALLED;
-            c.a.b0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
-            c.a.b0.j.i.a.e(aVar);
+            aVar.f1246c = AdDownloadStatus.INSTALLED;
+            c.a.a0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
+            c.a.a0.j.i.a.e(aVar);
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-            c.a.b0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
+            c.a.a0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
         }
-        c.a.b0.j.b.a.a().b();
+        c.a.a0.j.b.a.a().b();
     }
 
-    public void register(@NonNull c.a.b0.j.d.a aVar) {
+    public void register(@NonNull c.a.a0.j.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1614d)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1247d)) {
             return;
         }
-        c.e(this.mDatas, aVar.f1614d, aVar);
+        c.e(this.mDatas, aVar.f1247d, aVar);
     }
 
     public AdAppStateManager() {
@@ -111,9 +111,9 @@ public class AdAppStateManager extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

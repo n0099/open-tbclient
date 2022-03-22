@@ -3,7 +3,7 @@ package com.baidu.live.framework.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.w.f.a.b;
+import c.a.v.f.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,26 +18,26 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33505b;
+    public int f25825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33506c;
+    public int f25826c;
 
     public ViewOffsetBehavior() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33505b = 0;
-        this.f33506c = 0;
+        this.f25825b = 0;
+        this.f25826c = 0;
     }
 
     public int E() {
@@ -53,46 +53,46 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         return invokeV.intValue;
     }
 
-    public void F(CoordinatorLayout coordinatorLayout, V v, int i2) {
+    public void F(CoordinatorLayout coordinatorLayout, V v, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, v, i2) == null) {
-            coordinatorLayout.onLayoutChild(v, i2);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, coordinatorLayout, v, i) == null) {
+            coordinatorLayout.C(v, i);
         }
     }
 
-    public boolean G(int i2) {
+    public boolean G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             b bVar = this.a;
             if (bVar != null) {
-                return bVar.d(i2);
+                return bVar.d(i);
             }
-            this.f33505b = i2;
+            this.f25825b = i;
             return false;
         }
         return invokeI.booleanValue;
     }
 
     @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
-    public boolean l(CoordinatorLayout coordinatorLayout, V v, int i2) {
+    public boolean l(CoordinatorLayout coordinatorLayout, V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i2)) == null) {
-            F(coordinatorLayout, v, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, coordinatorLayout, v, i)) == null) {
+            F(coordinatorLayout, v, i);
             if (this.a == null) {
                 this.a = new b(v);
             }
             this.a.b();
-            int i3 = this.f33505b;
-            if (i3 != 0) {
-                this.a.d(i3);
-                this.f33505b = 0;
+            int i2 = this.f25825b;
+            if (i2 != 0) {
+                this.a.d(i2);
+                this.f25825b = 0;
             }
-            int i4 = this.f33506c;
-            if (i4 != 0) {
-                this.a.c(i4);
-                this.f33506c = 0;
+            int i3 = this.f25826c;
+            if (i3 != 0) {
+                this.a.c(i3);
+                this.f25826c = 0;
                 return true;
             }
             return true;
@@ -109,9 +109,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -119,7 +119,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f33505b = 0;
-        this.f33506c = 0;
+        this.f25825b = 0;
+        this.f25826c = 0;
     }
 }

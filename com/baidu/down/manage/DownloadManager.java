@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.DownDetail;
@@ -20,6 +21,7 @@ import com.baidu.down.request.task.BinaryReqTask;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.NamingThreadFactory;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +39,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WEBSUITE_PROGRESS_CHANGE = "com.baidu.appsearch.websuite.download.PROGRESS_CHANGE";
@@ -73,19 +75,19 @@ public final class DownloadManager {
     public IIntercepter mWifiOnlyIntercepter;
     public TaskObserver mtaskObserver;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface DownloadItemFilter {
         boolean filter(Download download);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnProgressChangeListener {
-        void onProgressChanged(long j2, int i2, long j3);
+        void onProgressChanged(long j, int i, long j2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnStateChangeListener {
-        void onStateChanged(long j2, Download download);
+        void onStateChanged(long j, Download download);
     }
 
     static {
@@ -111,9 +113,9 @@ public final class DownloadManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -139,9 +141,9 @@ public final class DownloadManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -184,9 +186,9 @@ public final class DownloadManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -196,89 +198,95 @@ public final class DownloadManager {
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadCancel(String str, long j2, long j3, long j4, String str2) {
+            public void onDownloadCancel(String str, long j, long j2, long j3, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str2}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str2}) == null) {
                     if (DownloadManager.DEBUG) {
-                        String str3 = "--- onDownloadCancel : " + j2 + " filePath =" + str2;
+                        Log.d("DownloadManager", "--- onDownloadCancel : " + j + " filePath =" + str2);
                     }
-                    this.this$0.changeState(Download.DownloadState.CANCEL, j2);
+                    this.this$0.changeState(Download.DownloadState.CANCEL, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadFail(String str, long j2, long j3, String str2, String str3, int i4, DownDetail downDetail) {
+            public void onDownloadFail(String str, long j, long j2, String str2, String str3, int i3, DownDetail downDetail) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), str2, str3, Integer.valueOf(i4), downDetail}) == null) {
-                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2, str3, Integer.valueOf(i3), downDetail}) == null) {
+                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
-                        if (j3 <= download.getTotalbytes().longValue()) {
-                            download.setCurrentbytes(Long.valueOf(j3));
+                        if (j2 <= download.getTotalbytes().longValue()) {
+                            download.setCurrentbytes(Long.valueOf(j2));
                         }
                         download.setFailedReason(str3);
-                        download.setFailedType(Integer.valueOf(i4));
+                        download.setFailedType(Integer.valueOf(i3));
                         if (downDetail != null) {
                             download.mDownDetail = downDetail;
                         }
                         if (DownloadManager.DEBUG) {
-                            String str4 = "failed_type : " + i4 + ", filePath: " + str2 + ", failreason : " + str3 + ", downDetail" + download.mDownDetail;
-                            String str5 = "mDownDetail:" + download.mDownDetail.toString();
+                            Log.i("DownloadManager", "failed_type : " + i3 + ", filePath: " + str2 + ", failreason : " + str3 + ", downDetail" + download.mDownDetail);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("mDownDetail:");
+                            sb.append(download.mDownDetail.toString());
+                            Log.i("DownloadManager", sb.toString());
                         }
                         download.mLastSpeed = 0L;
                     }
-                    this.this$0.changeState(Download.DownloadState.FAILED, j2);
+                    this.this$0.changeState(Download.DownloadState.FAILED, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserverInterface
-            public void onDownloadMsgType(String str, long j2, int i4, Object obj) {
+            public void onDownloadMsgType(String str, long j, int i3, Object obj) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i4), obj}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i3), obj}) == null) {
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadPause(String str, long j2, long j3, long j4, String str2) {
+            public void onDownloadPause(String str, long j, long j2, long j3, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str2}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str2}) == null) {
                     if (DownloadManager.DEBUG) {
-                        String str3 = "--- onDownloadPause : " + j2 + " filePath =" + str2;
+                        Log.d("DownloadManager", "--- onDownloadPause : " + j + " filePath =" + str2);
                     }
-                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
-                        download.setCurrentbytes(Long.valueOf(j3));
+                        download.setCurrentbytes(Long.valueOf(j2));
                         download.mLastSpeed = 0L;
                     }
-                    this.this$0.changeState(Download.DownloadState.PAUSE, j2);
+                    this.this$0.changeState(Download.DownloadState.PAUSE, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadRunning(String str, long j2, long j3, long j4) {
+            public void onDownloadRunning(String str, long j, long j2, long j3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                    if (((Download) this.this$0.mDownloadMap.get(Long.valueOf(j2))) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (((Download) this.this$0.mDownloadMap.get(Long.valueOf(j))) == null) {
                         if (DownloadManager.DEBUG) {
-                            String str2 = "### onDownloadRunning, download not found : " + str + ", id=" + j2;
+                            Log.w("DownloadManager", "### onDownloadRunning, download not found : " + str + ", id=" + j);
                             return;
                         }
                         return;
                     }
                     if (DownloadManager.DEBUG) {
-                        String str3 = "--- onDownloadRunning, download : " + str + ", id=" + j2;
+                        Log.d("DownloadManager", "--- onDownloadRunning, download : " + str + ", id=" + j);
                     }
-                    this.this$0.changeState(Download.DownloadState.WAITING, j2);
+                    this.this$0.changeState(Download.DownloadState.WAITING, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadStart(String str, long j2, long j3, String str2, String str3, String str4, String str5, boolean z, DownDetail downDetail) {
+            public void onDownloadStart(String str, long j, long j2, String str2, String str3, String str4, String str5, boolean z, DownDetail downDetail) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), str2, str3, str4, str5, Boolean.valueOf(z), downDetail}) == null) {
-                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2, str3, str4, str5, Boolean.valueOf(z), downDetail}) == null) {
+                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (DownloadManager.DEBUG) {
-                        String str6 = "onDownloadStart " + download + ", support range : " + z;
-                        String str7 = "onDownloadStart filepath " + str3;
+                        Log.d("DownloadManager", "onDownloadStart " + download + ", support range : " + z);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("onDownloadStart filepath ");
+                        sb.append(str3);
+                        Log.d("DownloadManager", sb.toString());
                     }
                     if (TextUtils.isEmpty(str3)) {
                         return;
@@ -294,7 +302,7 @@ public final class DownloadManager {
                             download.setDownDir(parent);
                         }
                         download.setEtag(str4);
-                        download.setTotalbytes(Long.valueOf(j3));
+                        download.setTotalbytes(Long.valueOf(j2));
                         download.setFileName(file.getName());
                         if (!TextUtils.isEmpty(str5)) {
                             download.setRedownloadReason(str5);
@@ -303,64 +311,67 @@ public final class DownloadManager {
                             download.mDownDetail = downDetail;
                         }
                         if (DownloadManager.DEBUG) {
-                            String str8 = "--- onDownloadStart mDownDetail: " + download.mDownDetail;
+                            Log.d("DownloadManager", "--- onDownloadStart mDownDetail: " + download.mDownDetail);
                         }
                     }
-                    this.this$0.changeState(Download.DownloadState.DOWNLOADING, j2);
+                    this.this$0.changeState(Download.DownloadState.DOWNLOADING, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadSuccess(String str, long j2, long j3, long j4, String str2, long j5) {
+            public void onDownloadSuccess(String str, long j, long j2, long j3, String str2, long j4) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)}) == null) && DownloadManager.DEBUG) {
-                    String str3 = "--- onDownloadSuccess : " + j2;
+                if ((interceptable2 == null || interceptable2.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str2, Long.valueOf(j4)}) == null) && DownloadManager.DEBUG) {
+                    Log.d("DownloadManager", "--- onDownloadSuccess : " + j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloadWait(String str, long j2) {
+            public void onDownloadWait(String str, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLJ(1048583, this, str, j2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLJ(1048583, this, str, j) == null) {
                     if (DownloadManager.DEBUG) {
-                        String str2 = "--- onDownloadWait : " + j2;
+                        Log.d("DownloadManager", "--- onDownloadWait : " + j);
                     }
-                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
                         download.mLastSpeed = 0L;
                     }
-                    this.this$0.changeState(Download.DownloadState.WAITING, j2);
+                    this.this$0.changeState(Download.DownloadState.WAITING, j);
                 }
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onDownloading(String str, long j2, long j3, long j4, long j5, String str2) {
+            public void onDownloading(String str, long j, long j2, long j3, long j4, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), str2}) == null) || j4 == 0 || j3 == 0 || j3 > j4) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str2}) == null) || j3 == 0 || j2 == 0 || j2 > j3) {
                     return;
                 }
-                Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                 if (download == null) {
-                    boolean unused = DownloadManager.DEBUG;
+                    if (DownloadManager.DEBUG) {
+                        Log.e("DownloadManager", "*** onDownloading, found download is null!");
+                        return;
+                    }
                     return;
                 }
-                download.setCurrentbytes(Long.valueOf(j3));
-                download.setTotalbytes(Long.valueOf(j4));
+                download.setCurrentbytes(Long.valueOf(j2));
+                download.setTotalbytes(Long.valueOf(j3));
                 download.setProgressmap(str2);
                 AbstractTask taskByKey = TaskFacade.getInstance(this.this$0.mContext).getBinaryTaskMng().getTaskByKey(str);
                 if (taskByKey instanceof BinaryReqTask) {
                     download.setRealUrl(taskByKey.mRealUrl);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if ((download.mLastSpeed == 0 || j5 != 0) && currentTimeMillis - download.mLastProgressNotiStamp < 200) {
+                if ((download.mLastSpeed == 0 || j4 != 0) && currentTimeMillis - download.mLastProgressNotiStamp < 200) {
                     return;
                 }
                 download.mLastProgressNotiStamp = currentTimeMillis;
                 int progress = download.getProgress();
                 float currentProgress = download.getCurrentProgress();
-                if ((download.mLastSpeed != 0 && j5 == 0) || j4 == Long.MAX_VALUE || Math.abs(currentProgress - download.mLastProgressNoti) >= 0.01f) {
-                    download.mLastSpeed = j5;
-                    this.this$0.notifyProgressChange(j2, progress);
+                if ((download.mLastSpeed != 0 && j4 == 0) || j3 == Long.MAX_VALUE || Math.abs(currentProgress - download.mLastProgressNoti) >= 0.01f) {
+                    download.mLastSpeed = j4;
+                    this.this$0.notifyProgressChange(j, progress);
                     download.mLastProgressNoti = currentProgress;
                 }
                 if (currentTimeMillis - download.mLastProgressSaveStamp > 2000) {
@@ -378,9 +389,9 @@ public final class DownloadManager {
                                 newInitContext2.initArgs = r2;
                                 Object[] objArr2 = {this, download};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
-                                int i4 = newInitContext2.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext2.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext2.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext2);
                                     return;
@@ -402,25 +413,25 @@ public final class DownloadManager {
             }
 
             @Override // com.baidu.down.common.TaskObserver
-            public void onWriteFinish(String str, long j2, long j3, long j4, DownDetail downDetail) {
+            public void onWriteFinish(String str, long j, long j2, long j3, DownDetail downDetail) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), downDetail}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), downDetail}) == null) {
                     if (DownloadManager.DEBUG) {
-                        String str2 = "--- onWriteFinish : " + j2;
+                        Log.d("DownloadManager", "--- onWriteFinish : " + j);
                     }
-                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
+                    Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
-                        download.setTotalbytes(Long.valueOf(j3));
-                        download.setCurrentbytes(Long.valueOf(j3));
+                        download.setTotalbytes(Long.valueOf(j2));
+                        download.setCurrentbytes(Long.valueOf(j2));
                         if (downDetail != null) {
                             download.mDownDetail = downDetail;
                         }
                         if (DownloadManager.DEBUG) {
-                            String str3 = "--- onWriteFinish mDownDetail: " + download.mDownDetail;
+                            Log.d("DownloadManager", "--- onWriteFinish mDownDetail: " + download.mDownDetail);
                         }
                     }
-                    this.this$0.notifyProgressChange(j2, 100);
-                    this.this$0.changeState(Download.DownloadState.FINISH, j2);
+                    this.this$0.notifyProgressChange(j, 100);
+                    this.this$0.changeState(Download.DownloadState.FINISH, j);
                 }
             }
         };
@@ -429,10 +440,10 @@ public final class DownloadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void changeState(Download.DownloadState downloadState, long j2) {
+    public void changeState(Download.DownloadState downloadState, long j) {
         Download download;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65551, this, downloadState, j2) == null) || (download = this.mDownloadMap.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(65551, this, downloadState, j) == null) || (download = this.mDownloadMap.get(Long.valueOf(j))) == null) {
             return;
         }
         if (downloadState == Download.DownloadState.DOWNLOADING && download.getState() == Download.DownloadState.PAUSE) {
@@ -444,17 +455,18 @@ public final class DownloadManager {
                     new File(download.getSavedPathForUser(), download.getFileName()).delete();
                 } catch (Exception e2) {
                     if (DEBUG) {
+                        Log.e("DownloadManager", "delete download file error!!");
                         e2.printStackTrace();
                     }
                 }
             }
             download.setState(downloadState);
-            this.mDownloadMap.remove(Long.valueOf(j2));
+            this.mDownloadMap.remove(Long.valueOf(j));
             this.mDownloadKeyMap.remove(download.getKeyByUser());
             if (DEBUG) {
-                String str = "mDownloadMap remove downloadId: " + j2 + "  mDownloadMap size: " + this.mDownloadMap.size();
+                Log.i("DownloadManager", "mDownloadMap remove downloadId: " + j + "  mDownloadMap size: " + this.mDownloadMap.size());
             }
-            runAsync(new Runnable(this, j2) { // from class: com.baidu.down.manage.DownloadManager.7
+            runAsync(new Runnable(this, j) { // from class: com.baidu.down.manage.DownloadManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadManager this$0;
@@ -465,18 +477,18 @@ public final class DownloadManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2)};
+                        Object[] objArr = {this, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$downloadId = j2;
+                    this.val$downloadId = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -504,9 +516,9 @@ public final class DownloadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, download};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -526,7 +538,7 @@ public final class DownloadManager {
             });
             if (downloadState == Download.DownloadState.FAILED && download.getFailedType().intValue() == 3 && !this.mContext.getFilesDir().getPath().equals(download.getRealDownloadDir()) && !TextUtils.isEmpty(download.getRealDownloadDir()) && !this.mBadFileDir.contains(download.getRealDownloadDir())) {
                 if (DEBUG) {
-                    String str2 = "getSavedPathForUser:" + download.getRealDownloadDir();
+                    Log.i("DownloadManager", "getSavedPathForUser:" + download.getRealDownloadDir());
                 }
                 this.mBadFileDir.add(download.getRealDownloadDir());
                 download.setState(Download.DownloadState.FAILED);
@@ -534,7 +546,7 @@ public final class DownloadManager {
                 return;
             }
         }
-        notifyStateChange(j2, download, downloadState);
+        notifyStateChange(j, download, downloadState);
     }
 
     private File generateDownloadPath(Download download) {
@@ -568,7 +580,9 @@ public final class DownloadManager {
         TaskFacade instanceByConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.i("DownloadManager", "initDownloadJar");
+            }
             try {
                 if (this.mTaskManager != null || (instanceByConfig = TaskFacade.getInstanceByConfig(this.mContext, null)) == null) {
                     return;
@@ -583,26 +597,26 @@ public final class DownloadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyProgressChange(long j2, int i2) {
+    public void notifyProgressChange(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            if (DEBUG && getDownloadInfo(j2) != null) {
-                String str = "notifyProgressChange downloadId " + j2 + " percentage " + i2;
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            if (DEBUG && getDownloadInfo(j) != null) {
+                Log.d("DownloadManager", "notifyProgressChange downloadId " + j + " percentage " + i);
             }
-            this.mProgressNotifyDownloadId = j2;
-            this.mProgressNotifyPercentage = i2;
+            this.mProgressNotifyDownloadId = j;
+            this.mProgressNotifyPercentage = i;
             this.mHandler.removeCallbacks(this.mProgressNotifyRunnable);
             this.mHandler.post(this.mProgressNotifyRunnable);
         }
     }
 
-    private void notifyStateChange(long j2, Download download, Download.DownloadState downloadState) {
+    private void notifyStateChange(long j, Download download, Download.DownloadState downloadState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Long.valueOf(j2), download, downloadState}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Long.valueOf(j), download, downloadState}) == null) {
             if (DEBUG) {
-                String str = "notifyStateChange downloadId " + j2 + " state " + download.getState();
+                Log.d("DownloadManager", "notifyStateChange downloadId " + j + " state " + download.getState());
             }
-            this.mHandler.post(new Runnable(this, downloadState, download, j2) { // from class: com.baidu.down.manage.DownloadManager.6
+            this.mHandler.post(new Runnable(this, downloadState, download, j) { // from class: com.baidu.down.manage.DownloadManager.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadManager this$0;
@@ -615,11 +629,11 @@ public final class DownloadManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, downloadState, download, Long.valueOf(j2)};
+                        Object[] objArr = {this, downloadState, download, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -628,7 +642,7 @@ public final class DownloadManager {
                     this.this$0 = this;
                     this.val$state = downloadState;
                     this.val$download = download;
-                    this.val$downloadId = j2;
+                    this.val$downloadId = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -701,8 +715,8 @@ public final class DownloadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public long startDownload(Download download) {
         InterceptResult invokeL;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, this, download)) == null) {
             if (download == null || TextUtils.isEmpty(download.getUrl())) {
@@ -715,7 +729,7 @@ public final class DownloadManager {
                 return download.getId().longValue();
             }
             if (DEBUG) {
-                String str = "--- startDownload: " + download.getUrl();
+                Log.d("DownloadManager", "--- startDownload: " + download.getUrl());
             }
             download.setFailedReason("");
             download.setAutoPause(Boolean.FALSE);
@@ -728,42 +742,44 @@ public final class DownloadManager {
                 longValue2 = 0;
             }
             if (generateDownloadPath == null || TextUtils.equals(generateDownloadPath.getPath(), download.getSavedPathForUser())) {
-                j2 = longValue;
-                j3 = longValue2;
+                j = longValue;
+                j2 = longValue2;
             } else {
                 savedPathForUser = generateDownloadPath.getPath();
                 download.setProgressmap("");
-                j3 = 0;
                 j2 = 0;
+                j = 0;
             }
             if (DEBUG) {
-                String str2 = "savedPathStr:" + savedPathForUser;
+                Log.d("DownloadManager", "savedPathStr:" + savedPathForUser);
             }
             download.setDownDir(savedPathForUser);
             HashMap hashMap = new HashMap();
-            hashMap.put("referer", DownloadConstants.REFER);
+            hashMap.put(Config.LAUNCH_REFERER, DownloadConstants.REFER);
             if (!TextUtils.isEmpty(download.getUrihost())) {
                 hashMap.put("host", download.getUrihost());
             }
             if (DEBUG) {
-                String str3 = "host:" + download.getUrihost();
-                String str4 = "host:" + download.getUrihost();
+                Log.d("DownloadManager", "host:" + download.getUrihost());
+                Log.d("DownloadManager", "host:" + download.getUrihost());
             }
             if (download.getUrl().contains(BAIDU_DOMAIN_KEYWORD)) {
-                if (hashMap.get("referer") == null) {
-                    hashMap.put("referer", DownloadConstants.REFER);
+                if (hashMap.get(Config.LAUNCH_REFERER) == null) {
+                    hashMap.put(Config.LAUNCH_REFERER, DownloadConstants.REFER);
                 }
-            } else if (hashMap.get("referer") != null) {
-                hashMap.remove("referer");
+            } else if (hashMap.get(Config.LAUNCH_REFERER) != null) {
+                hashMap.remove(Config.LAUNCH_REFERER);
             }
-            FileMsg fileMsg = new FileMsg(download.getUrl(), download.getId().longValue(), savedPathForUser, download.getFileName(), download.getMimetype(), Boolean.TRUE, hashMap, j3, j2, download.getEtag());
+            FileMsg fileMsg = new FileMsg(download.getUrl(), download.getId().longValue(), savedPathForUser, download.getFileName(), download.getMimetype(), Boolean.TRUE, hashMap, j2, j, download.getEtag());
             fileMsg.mPattern = 0;
             fileMsg.mRealUrl = download.getRealUrl();
             if (DEBUG) {
-                String str5 = "---startDownload  fMsg.mPattern: " + fileMsg.mPattern;
+                Log.d("DownloadManager", "---startDownload  fMsg.mPattern: " + fileMsg.mPattern);
             }
             if (download.isWifiOnly()) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d("DownloadManager", "---startDownload isWiFiOnly");
+                }
                 if (this.mWifiOnlyIntercepter == null) {
                     this.mWifiOnlyIntercepter = new IIntercepter(this) { // from class: com.baidu.down.manage.DownloadManager.2
                         public static /* synthetic */ Interceptable $ic;
@@ -777,9 +793,9 @@ public final class DownloadManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -789,25 +805,25 @@ public final class DownloadManager {
                         }
 
                         @Override // com.baidu.down.common.intercepter.IIntercepter
-                        public com.baidu.down.common.intercepter.InterceptResult process(Context context, String str6, long j4, Object obj) {
+                        public com.baidu.down.common.intercepter.InterceptResult process(Context context, String str, long j3, Object obj) {
                             InterceptResult invokeCommon;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{context, str6, Long.valueOf(j4), obj})) == null) {
+                            if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{context, str, Long.valueOf(j3), obj})) == null) {
                                 if (this.this$0.isWifiNetWork()) {
                                     return null;
                                 }
                                 if (DownloadManager.DEBUG) {
-                                    String str7 = "--- None Wifi checked : " + str6;
+                                    Log.i("DownloadManager", "--- None Wifi checked : " + str);
                                 }
-                                Download download2 = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j4));
+                                Download download2 = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j3));
                                 if (download2 == null) {
                                     if (DownloadManager.DEBUG) {
-                                        String str8 = "--- None Wifi set auto paused, can not find download : " + str6;
+                                        Log.e("DownloadManager", "--- None Wifi set auto paused, can not find download : " + str);
                                     }
                                 } else {
                                     download2.setAutoPause(Boolean.TRUE);
                                     if (DownloadManager.DEBUG) {
-                                        String str9 = "--- None Wifi set auto paused : " + str6;
+                                        Log.i("DownloadManager", "--- None Wifi set auto paused : " + str);
                                     }
                                 }
                                 return new com.baidu.down.common.intercepter.InterceptResult(1);
@@ -830,8 +846,8 @@ public final class DownloadManager {
     public void cancel(long... jArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jArr) == null) {
-            for (long j2 : jArr) {
-                Download download = this.mDownloadMap.get(Long.valueOf(j2));
+            for (long j : jArr) {
+                Download download = this.mDownloadMap.get(Long.valueOf(j));
                 if (download != null) {
                     runAsync(new Runnable(this, download) { // from class: com.baidu.down.manage.DownloadManager.3
                         public static /* synthetic */ Interceptable $ic;
@@ -846,9 +862,9 @@ public final class DownloadManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, download};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -883,10 +899,10 @@ public final class DownloadManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mDownloadKeyMap.get(str) : (Download) invokeL.objValue;
     }
 
-    public Download getDownloadInfo(long j2) {
+    public Download getDownloadInfo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.mDownloadMap.get(Long.valueOf(j2)) : (Download) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mDownloadMap.get(Long.valueOf(j)) : (Download) invokeJ.objValue;
     }
 
     public Collection<Download> getDownloadListByFilter(DownloadItemFilter downloadItemFilter) {
@@ -936,7 +952,7 @@ public final class DownloadManager {
                 return false;
             }
             if (DEBUG) {
-                String str = "netWorkInfo: " + activeNetworkInfo;
+                Log.d("DownloadManager", "netWorkInfo: " + activeNetworkInfo);
             }
             return activeNetworkInfo.getTypeName().toLowerCase().equalsIgnoreCase("wifi");
         }
@@ -948,8 +964,8 @@ public final class DownloadManager {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, jArr) == null) || jArr == null || jArr.length <= 0) {
             return;
         }
-        for (long j2 : jArr) {
-            Download download = this.mDownloadMap.get(Long.valueOf(j2));
+        for (long j : jArr) {
+            Download download = this.mDownloadMap.get(Long.valueOf(j));
             if (download != null) {
                 download.setState(Download.DownloadState.PAUSE);
             }
@@ -967,9 +983,9 @@ public final class DownloadManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, jArr};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -984,10 +1000,10 @@ public final class DownloadManager {
                 long[] jArr2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    for (long j3 : this.val$downloadIds) {
-                        Download download2 = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j3));
+                    for (long j2 : this.val$downloadIds) {
+                        Download download2 = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j2));
                         if (download2 != null) {
-                            this.this$0.mTaskManager.pauseDownload(download2.getUrl(), j3);
+                            this.this$0.mTaskManager.pauseDownload(download2.getUrl(), j2);
                         }
                     }
                 }
@@ -1011,18 +1027,18 @@ public final class DownloadManager {
         this.mOnStateChangeListeners.add(onStateChangeListener);
     }
 
-    public void resume(long j2) {
+    public void resume(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            Download download = this.mDownloadMap.get(Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            Download download = this.mDownloadMap.get(Long.valueOf(j));
             if (download == null || download.getState() == Download.DownloadState.DOWNLOADING) {
                 if (download != null) {
-                    notifyStateChange(j2, download, download.getState());
+                    notifyStateChange(j, download, download.getState());
                     return;
                 }
                 return;
             }
-            changeState(Download.DownloadState.WAITING, j2);
+            changeState(Download.DownloadState.WAITING, j);
             if (!new File(download.getSavedPathForUser(), download.getFileName()).exists()) {
                 download.setCurrentbytes(0L);
             }
@@ -1039,9 +1055,9 @@ public final class DownloadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, download};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1073,10 +1089,10 @@ public final class DownloadManager {
         }
     }
 
-    public void setMaxDownloadTask(int i2) {
+    public void setMaxDownloadTask(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mTaskManager.setMaxDownloadThread((i2 <= 0 || i2 > 3) ? 3 : 3);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mTaskManager.setMaxDownloadThread((i <= 0 || i > 3) ? 3 : 3);
         }
     }
 
@@ -1118,9 +1134,9 @@ public final class DownloadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, download};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1141,11 +1157,11 @@ public final class DownloadManager {
         }
     }
 
-    public void updatePriority(Download download, int i2) {
+    public void updatePriority(Download download, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, download, i2) == null) {
-            download.setPriority(i2);
-            this.mTaskManager.updateTaskPrioirty(download.getId().longValue(), i2);
+        if (interceptable == null || interceptable.invokeLI(1048598, this, download, i) == null) {
+            download.setPriority(i);
+            this.mTaskManager.updateTaskPrioirty(download.getId().longValue(), i);
             updateDownload(download);
         }
     }
@@ -1217,9 +1233,9 @@ public final class DownloadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, download};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResultTB implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CMD = "cmd";
@@ -41,9 +41,9 @@ public class ResultTB implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,10 +141,10 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setEndTime(long j2) {
+    public void setEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.endTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.endTime = j;
         }
     }
 
@@ -155,10 +155,10 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -176,17 +176,17 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setSource(int i2) {
+    public void setSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.source = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.source = i;
         }
     }
 
-    public void setTtl(int i2) {
+    public void setTtl(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.ttl = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.ttl = i;
         }
     }
 
@@ -197,10 +197,10 @@ public class ResultTB implements Serializable, Cloneable {
         }
     }
 
-    public void setUpdateTime(long j2) {
+    public void setUpdateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.updateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.updateTime = j;
         }
     }
 

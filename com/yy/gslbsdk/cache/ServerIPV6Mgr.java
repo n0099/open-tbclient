@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ServerIPV6Mgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SERVER_IP_CMC;
@@ -71,9 +71,9 @@ public class ServerIPV6Mgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,8 +87,8 @@ public class ServerIPV6Mgr {
     private void addIspServerIpCache(List<ServerV6TB> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, list) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                ServerV6TB serverV6TB = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                ServerV6TB serverV6TB = list.get(i);
                 if (serverV6TB != null) {
                     int isp = serverV6TB.getIsp();
                     if (!this.mListUsedIsp.contains(Integer.valueOf(isp))) {
@@ -122,16 +122,16 @@ public class ServerIPV6Mgr {
         return (ServerIPV6Mgr) invokeV.objValue;
     }
 
-    private ArrayList<String> getServerIpListFromDb(Context context, int i2) {
+    private ArrayList<String> getServerIpListFromDb(Context context, int i) {
         InterceptResult invokeLI;
         String ip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            List<ServerV6TB> serverV6ByIsp = DBAccessMgr.getInstance(context).getServerV6ByIsp(i2);
+            List<ServerV6TB> serverV6ByIsp = DBAccessMgr.getInstance(context).getServerV6ByIsp(i);
             if (serverV6ByIsp != null && !serverV6ByIsp.isEmpty()) {
-                for (int i3 = 0; i3 < serverV6ByIsp.size(); i3++) {
-                    ServerV6TB serverV6TB = serverV6ByIsp.get(i3);
+                for (int i2 = 0; i2 < serverV6ByIsp.size(); i2++) {
+                    ServerV6TB serverV6TB = serverV6ByIsp.get(i2);
                     if (serverV6TB != null && (ip = serverV6TB.getIp()) != null) {
                         arrayList.add(ip);
                     }
@@ -142,12 +142,12 @@ public class ServerIPV6Mgr {
         return (ArrayList) invokeLI.objValue;
     }
 
-    public boolean canUpdate(Context context, int i2) {
+    public boolean canUpdate(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
             List<ServerV6TB> allServerV6 = DBAccessMgr.getInstance(context).getAllServerV6();
-            return (allServerV6 == null || allServerV6.isEmpty() || i2 <= allServerV6.get(0).getVer()) ? false : true;
+            return (allServerV6 == null || allServerV6.isEmpty() || i <= allServerV6.get(0).getVer()) ? false : true;
         }
         return invokeLI.booleanValue;
     }
@@ -174,13 +174,13 @@ public class ServerIPV6Mgr {
         return (LinkedList) invokeV.objValue;
     }
 
-    public String getOneServerIPByKnownISP(Context context, int i2) {
+    public String getOneServerIPByKnownISP(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i2)) == null) {
-            ArrayList<String> serverIpListFromCache = getServerIpListFromCache(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, context, i)) == null) {
+            ArrayList<String> serverIpListFromCache = getServerIpListFromCache(i);
             if (serverIpListFromCache == null || serverIpListFromCache.isEmpty()) {
-                serverIpListFromCache = getServerIpListFromDb(context, i2);
+                serverIpListFromCache = getServerIpListFromDb(context, i);
             }
             if (serverIpListFromCache == null || serverIpListFromCache.isEmpty()) {
                 return null;
@@ -199,8 +199,8 @@ public class ServerIPV6Mgr {
             }
             ArrayList arrayList = new ArrayList();
             List<Integer> list = this.mListUsedIsp;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                int intValue = list.get(i2).intValue();
+            for (int i = 0; i < list.size(); i++) {
+                int intValue = list.get(i).intValue();
                 ArrayList<String> serverIpListFromCache = getServerIpListFromCache(intValue);
                 if (serverIpListFromCache == null || serverIpListFromCache.isEmpty()) {
                     serverIpListFromCache = getServerIpListFromDb(context, intValue);
@@ -220,19 +220,19 @@ public class ServerIPV6Mgr {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.ArrayList<java.lang.String> */
     /* JADX WARN: Multi-variable type inference failed */
-    public ArrayList<String> getServerIPByKnownISP(Context context, int i2) {
+    public ArrayList<String> getServerIPByKnownISP(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            ArrayList<String> serverIpListFromCache = getServerIpListFromCache(i2);
+            ArrayList<String> serverIpListFromCache = getServerIpListFromCache(i);
             Collections.shuffle(serverIpListFromCache);
             if (serverIpListFromCache.isEmpty()) {
-                serverIpListFromCache = getServerIpListFromDb(context, i2);
+                serverIpListFromCache = getServerIpListFromDb(context, i);
             }
             if (!serverIpListFromCache.isEmpty()) {
-                for (int i3 = 0; i3 < 2 && i3 < serverIpListFromCache.size(); i3++) {
-                    arrayList.add(serverIpListFromCache.get(i3));
+                for (int i2 = 0; i2 < 2 && i2 < serverIpListFromCache.size(); i2++) {
+                    arrayList.add(serverIpListFromCache.get(i2));
                 }
             }
             ArrayList<String> serverIpListFromCache2 = getServerIpListFromCache(5);
@@ -240,14 +240,14 @@ public class ServerIPV6Mgr {
                 serverIpListFromCache2 = getServerIpListFromDb(context, 5);
             }
             if (!serverIpListFromCache2.isEmpty()) {
-                for (int i4 = 0; i4 < 1 && i4 < serverIpListFromCache2.size(); i4++) {
-                    arrayList.add(serverIpListFromCache2.get(i4));
+                for (int i3 = 0; i3 < 1 && i3 < serverIpListFromCache2.size(); i3++) {
+                    arrayList.add(serverIpListFromCache2.get(i3));
                 }
             }
             ArrayList arrayList2 = new ArrayList();
-            for (int i5 = 0; i5 < this.mListUsedIsp.size(); i5++) {
-                int intValue = this.mListUsedIsp.get(i5).intValue();
-                if (i2 != intValue) {
+            for (int i4 = 0; i4 < this.mListUsedIsp.size(); i4++) {
+                int intValue = this.mListUsedIsp.get(i4).intValue();
+                if (i != intValue) {
                     ArrayList<String> serverIpListFromCache3 = getServerIpListFromCache(intValue);
                     if (serverIpListFromCache3.isEmpty()) {
                         serverIpListFromCache3 = getServerIpListFromDb(context, intValue);
@@ -262,11 +262,11 @@ public class ServerIPV6Mgr {
                 arrayList.add(arrayList2.get(0));
             }
             if (arrayList.size() < 3) {
-                for (int i6 = 0; i6 < arrayList.size(); i6++) {
-                    serverIpListFromCache.remove(arrayList.get(i6));
+                for (int i5 = 0; i5 < arrayList.size(); i5++) {
+                    serverIpListFromCache.remove(arrayList.get(i5));
                 }
-                for (int i7 = 0; i7 < serverIpListFromCache.size() && arrayList.size() < 3; i7++) {
-                    arrayList.add(serverIpListFromCache.get(i7));
+                for (int i6 = 0; i6 < serverIpListFromCache.size() && arrayList.size() < 3; i6++) {
+                    arrayList.add(serverIpListFromCache.get(i6));
                 }
             }
             return arrayList;
@@ -280,8 +280,8 @@ public class ServerIPV6Mgr {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             boolean equalsIgnoreCase = "CN".equalsIgnoreCase(GlobalTools.APP_LOCALIZE_CODE);
-            for (int i2 = 0; i2 < this.mListUsedIsp.size(); i2++) {
-                int intValue = this.mListUsedIsp.get(i2).intValue();
+            for (int i = 0; i < this.mListUsedIsp.size(); i++) {
+                int intValue = this.mListUsedIsp.get(i).intValue();
                 ArrayList<String> serverIpListFromCache = getServerIpListFromCache(intValue);
                 if (serverIpListFromCache.isEmpty()) {
                     serverIpListFromCache = getServerIpListFromDb(context, intValue);
@@ -289,15 +289,15 @@ public class ServerIPV6Mgr {
                 if (!serverIpListFromCache.isEmpty()) {
                     if (equalsIgnoreCase) {
                         Collections.shuffle(serverIpListFromCache);
-                        for (int i3 = 0; i3 < 1 && i3 < serverIpListFromCache.size(); i3++) {
-                            arrayList.add(serverIpListFromCache.get(i3));
+                        for (int i2 = 0; i2 < 1 && i2 < serverIpListFromCache.size(); i2++) {
+                            arrayList.add(serverIpListFromCache.get(i2));
                         }
                     } else if (intValue == 6) {
-                        for (int i4 = 0; i4 < 2 && i4 < serverIpListFromCache.size(); i4++) {
-                            arrayList.add(serverIpListFromCache.get(i4));
+                        for (int i3 = 0; i3 < 2 && i3 < serverIpListFromCache.size(); i3++) {
+                            arrayList.add(serverIpListFromCache.get(i3));
                         }
-                        for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                            serverIpListFromCache.remove(arrayList.get(i5));
+                        for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                            serverIpListFromCache.remove(arrayList.get(i4));
                         }
                         if (!serverIpListFromCache.isEmpty()) {
                             Collections.shuffle(serverIpListFromCache);
@@ -315,14 +315,14 @@ public class ServerIPV6Mgr {
                 arrayList2.add(6);
             }
             if (arrayList.size() < 3) {
-                for (int i6 = 0; i6 < arrayList2.size(); i6++) {
-                    int intValue2 = ((Integer) arrayList2.get(i6)).intValue();
+                for (int i5 = 0; i5 < arrayList2.size(); i5++) {
+                    int intValue2 = ((Integer) arrayList2.get(i5)).intValue();
                     ArrayList<String> serverIpListFromCache2 = getServerIpListFromCache(intValue2);
                     if (serverIpListFromCache2.isEmpty()) {
                         serverIpListFromCache2 = getServerIpListFromDb(context, intValue2);
                     }
-                    for (int i7 = 0; i7 < serverIpListFromCache2.size(); i7++) {
-                        String str = serverIpListFromCache2.get(i7);
+                    for (int i6 = 0; i6 < serverIpListFromCache2.size(); i6++) {
+                        String str = serverIpListFromCache2.get(i6);
                         if (!arrayList.contains(str)) {
                             arrayList.add(str);
                             if (arrayList.size() >= 3) {
@@ -337,21 +337,21 @@ public class ServerIPV6Mgr {
         return (ArrayList) invokeL.objValue;
     }
 
-    public ArrayList<String> getServerIpListFromCache(int i2) {
+    public ArrayList<String> getServerIpListFromCache(int i) {
         InterceptResult invokeI;
         ArrayList<ServerV6TB> arrayList;
         ArrayList arrayList2;
         String ip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             ArrayList<String> arrayList3 = new ArrayList<>();
             ConcurrentMap<Integer, ArrayList<ServerV6TB>> concurrentMap = this.mIspServerIpCache;
-            if (concurrentMap != null && concurrentMap.containsKey(Integer.valueOf(i2)) && (arrayList = this.mIspServerIpCache.get(Integer.valueOf(i2))) != null && !arrayList.isEmpty()) {
+            if (concurrentMap != null && concurrentMap.containsKey(Integer.valueOf(i)) && (arrayList = this.mIspServerIpCache.get(Integer.valueOf(i))) != null && !arrayList.isEmpty()) {
                 synchronized (arrayList) {
                     arrayList2 = (ArrayList) arrayList.clone();
                 }
-                for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                    ServerV6TB serverV6TB = (ServerV6TB) arrayList2.get(i3);
+                for (int i2 = 0; i2 < arrayList2.size(); i2++) {
+                    ServerV6TB serverV6TB = (ServerV6TB) arrayList2.get(i2);
                     if (serverV6TB != null && (ip = serverV6TB.getIp()) != null) {
                         arrayList3.add(ip);
                     }
@@ -372,8 +372,8 @@ public class ServerIPV6Mgr {
             if (concurrentMap == null || concurrentMap.isEmpty()) {
                 List<ServerV6TB> allServerV6 = DBAccessMgr.getInstance(context).getAllServerV6();
                 if (allServerV6 != null && !allServerV6.isEmpty()) {
-                    for (int i2 = 0; i2 < allServerV6.size(); i2++) {
-                        if (this.mListUsedIsp.contains(Integer.valueOf(allServerV6.get(i2).getIsp()))) {
+                    for (int i = 0; i < allServerV6.size(); i++) {
+                        if (this.mListUsedIsp.contains(Integer.valueOf(allServerV6.get(i).getIsp()))) {
                             z = false;
                             break;
                         }
@@ -393,8 +393,8 @@ public class ServerIPV6Mgr {
                     } else {
                         hashMap.put(6, SERVER_IP_LOCALIZE);
                     }
-                    for (int i3 = 0; i3 < this.mListUsedIsp.size(); i3++) {
-                        int intValue = this.mListUsedIsp.get(i3).intValue();
+                    for (int i2 = 0; i2 < this.mListUsedIsp.size(); i2++) {
+                        int intValue = this.mListUsedIsp.get(i2).intValue();
                         String[] strArr = (String[]) hashMap.get(Integer.valueOf(intValue));
                         if (strArr != null && strArr.length > 0) {
                             ArrayList<ServerV6TB> arrayList = new ArrayList<>(strArr.length);
@@ -422,9 +422,9 @@ public class ServerIPV6Mgr {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -444,8 +444,8 @@ public class ServerIPV6Mgr {
                                     LogTools.printDebug(ServerIPV6Mgr.TAG, String.format(Locale.US, "initServerIP db server ip is not empty, size is %d ", Integer.valueOf(allServerV62.size())));
                                     return;
                                 }
-                                for (int i4 = 0; i4 < this.this$0.mListUsedIsp.size(); i4++) {
-                                    List<ServerV6TB> list = (List) this.this$0.mIspServerIpCache.get(Integer.valueOf(this.this$0.mListUsedIsp.get(i4).intValue()));
+                                for (int i3 = 0; i3 < this.this$0.mListUsedIsp.size(); i3++) {
+                                    List<ServerV6TB> list = (List) this.this$0.mIspServerIpCache.get(Integer.valueOf(this.this$0.mListUsedIsp.get(i3).intValue()));
                                     if (list != null && list.size() > 0) {
                                         for (ServerV6TB serverV6TB2 : list) {
                                             dBAccessMgr.addServerV6(serverV6TB2);
@@ -503,19 +503,19 @@ public class ServerIPV6Mgr {
                             while (it.hasNext()) {
                             }
                         }
-                        int i2 = 0;
+                        int i = 0;
                         int size = this.mBestServerIpCache.size();
                         while (true) {
-                            if (i2 >= size) {
+                            if (i >= size) {
                                 break;
-                            } else if (serverIPInfo.getScore() < this.mBestServerIpCache.get(i2).getScore()) {
-                                this.mBestServerIpCache.add(i2, serverIPInfo);
+                            } else if (serverIPInfo.getScore() < this.mBestServerIpCache.get(i).getScore()) {
+                                this.mBestServerIpCache.add(i, serverIPInfo);
                                 break;
                             } else {
-                                i2++;
+                                i++;
                             }
                         }
-                        if (i2 == size) {
+                        if (i == size) {
                             this.mBestServerIpCache.add(serverIPInfo);
                         }
                     }

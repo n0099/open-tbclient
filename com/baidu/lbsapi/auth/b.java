@@ -15,12 +15,12 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class b {
             if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
                 char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
                 StringBuilder sb = new StringBuilder(bArr.length * 2);
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    sb.append(cArr[(bArr[i2] & 240) >> 4]);
-                    sb.append(cArr[bArr[i2] & 15]);
+                for (int i = 0; i < bArr.length; i++) {
+                    sb.append(cArr[(bArr[i] & 240) >> 4]);
+                    sb.append(cArr[bArr[i] & 15]);
                 }
                 return sb.toString();
             }
@@ -69,9 +69,9 @@ public class b {
                 str2 = "";
             }
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 = 0; i2 < str2.length(); i2++) {
-                stringBuffer.append(str2.charAt(i2));
-                if (i2 > 0 && i2 % 2 == 1 && i2 < str2.length() - 1) {
+            for (int i = 0; i < str2.length(); i++) {
+                stringBuffer.append(str2.charAt(i));
+                if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
                     stringBuffer.append(":");
                 }
             }
@@ -117,10 +117,10 @@ public class b {
             }
             int length = b2.length;
             String[] strArr = new String[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                strArr[i2] = b2[i2] + ";" + packageName;
+            for (int i = 0; i < length; i++) {
+                strArr[i] = b2[i] + ";" + packageName;
                 if (com.baidu.lbsapi.auth.a.a) {
-                    com.baidu.lbsapi.auth.a.a("mcode" + strArr[i2]);
+                    com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
                 }
             }
             return strArr;
@@ -135,7 +135,7 @@ public class b {
     public static String[] b(Context context, String str) {
         InterceptResult invokeLL;
         String[] strArr;
-        int i2;
+        int i;
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
@@ -146,23 +146,23 @@ public class b {
             }
             if (signatureArr != null && signatureArr.length > 0) {
                 strArr = new String[signatureArr.length];
-                for (int i3 = 0; i3 < signatureArr.length; i3++) {
+                for (int i2 = 0; i2 < signatureArr.length; i2++) {
                     try {
-                        strArr[i3] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i3].toByteArray())));
+                        strArr[i2] = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(signatureArr[i2].toByteArray())));
                     } catch (PackageManager.NameNotFoundException | CertificateException unused2) {
                     }
                 }
                 if (strArr != null && strArr.length > 0) {
                     strArr2 = new String[strArr.length];
-                    for (i2 = 0; i2 < strArr.length; i2++) {
+                    for (i = 0; i < strArr.length; i++) {
                         StringBuffer stringBuffer = new StringBuffer();
-                        for (int i4 = 0; i4 < strArr[i2].length(); i4++) {
-                            stringBuffer.append(strArr[i2].charAt(i4));
-                            if (i4 > 0 && i4 % 2 == 1 && i4 < strArr[i2].length() - 1) {
+                        for (int i3 = 0; i3 < strArr[i].length(); i3++) {
+                            stringBuffer.append(strArr[i].charAt(i3));
+                            if (i3 > 0 && i3 % 2 == 1 && i3 < strArr[i].length() - 1) {
                                 stringBuffer.append(":");
                             }
                         }
-                        strArr2[i2] = stringBuffer.toString();
+                        strArr2[i] = stringBuffer.toString();
                     }
                 }
                 return strArr2;
@@ -170,7 +170,7 @@ public class b {
             strArr = null;
             if (strArr != null) {
                 strArr2 = new String[strArr.length];
-                while (i2 < strArr.length) {
+                while (i < strArr.length) {
                 }
             }
             return strArr2;

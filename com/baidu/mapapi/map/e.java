@@ -22,9 +22,9 @@ public class e implements ai {
             newInitContext.initArgs = r2;
             Object[] objArr = {baiduMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,7 +34,7 @@ public class e implements ai {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
-    public Bundle a(int i2, int i3, int i4, Context context) {
+    public Bundle a(int i, int i2, int i3, Context context) {
         InterceptResult invokeCommon;
         Lock lock;
         Lock lock2;
@@ -42,14 +42,14 @@ public class e implements ai {
         Lock lock3;
         TileOverlay tileOverlay2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), context})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), context})) == null) {
             lock = this.a.J;
             lock.lock();
             try {
                 tileOverlay = this.a.G;
                 if (tileOverlay != null) {
                     tileOverlay2 = this.a.G;
-                    Tile a = tileOverlay2.a(i2, i3, i4);
+                    Tile a = tileOverlay2.a(i, i2, i3);
                     if (a != null) {
                         return a.toBundle();
                     }

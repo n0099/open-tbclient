@@ -1,39 +1,36 @@
 package c.a.p0.y;
 
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.view.View;
-/* loaded from: classes2.dex */
-public interface a {
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends c.a.d.o.e.a<T, V> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c.a.p0.y.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0774a {
-        void a(b bVar);
-
-        void b(b bVar, int i2, int i3);
-
-        void c(b bVar, int i2, int i3, int i4);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
-
-    /* loaded from: classes2.dex */
-    public interface b {
-        void a(MediaPlayer mediaPlayer);
-
-        a b();
-    }
-
-    void addRenderCallback(InterfaceC0774a interfaceC0774a);
-
-    Bitmap getBitmap();
-
-    View getView();
-
-    void release();
-
-    void removeRenderCallback(InterfaceC0774a interfaceC0774a);
-
-    void setAspectRatio(int i2);
-
-    void setVideoSize(int i2, int i3);
 }

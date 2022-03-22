@@ -24,9 +24,9 @@ public final class BitMatrixParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,11 +40,11 @@ public final class BitMatrixParser {
         throw FormatException.getFormatInstance();
     }
 
-    private int copyBit(int i2, int i3, int i4) {
+    private int copyBit(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, this, i2, i3, i4)) == null) {
-            return this.mirror ? this.bitMatrix.get(i3, i2) : this.bitMatrix.get(i2, i3) ? (i4 << 1) | 1 : i4 << 1;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, this, i, i2, i3)) == null) {
+            return this.mirror ? this.bitMatrix.get(i2, i) : this.bitMatrix.get(i, i2) ? (i3 << 1) | 1 : i3 << 1;
         }
         return invokeIII.intValue;
     }
@@ -52,16 +52,16 @@ public final class BitMatrixParser {
     public void mirror() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = 0;
-            while (i2 < this.bitMatrix.getWidth()) {
-                int i3 = i2 + 1;
-                for (int i4 = i3; i4 < this.bitMatrix.getHeight(); i4++) {
-                    if (this.bitMatrix.get(i2, i4) != this.bitMatrix.get(i4, i2)) {
-                        this.bitMatrix.flip(i4, i2);
-                        this.bitMatrix.flip(i2, i4);
+            int i = 0;
+            while (i < this.bitMatrix.getWidth()) {
+                int i2 = i + 1;
+                for (int i3 = i2; i3 < this.bitMatrix.getHeight(); i3++) {
+                    if (this.bitMatrix.get(i, i3) != this.bitMatrix.get(i3, i)) {
+                        this.bitMatrix.flip(i3, i);
+                        this.bitMatrix.flip(i, i3);
                     }
                 }
-                i2 = i3;
+                i = i2;
             }
         }
     }
@@ -77,39 +77,39 @@ public final class BitMatrixParser {
             dataMask.unmaskBitMatrix(this.bitMatrix, height);
             BitMatrix buildFunctionPattern = readVersion.buildFunctionPattern();
             byte[] bArr = new byte[readVersion.getTotalCodewords()];
-            int i2 = height - 1;
+            int i = height - 1;
             boolean z = true;
-            int i3 = i2;
+            int i2 = i;
+            int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
-            while (i3 > 0) {
-                if (i3 == 6) {
-                    i3--;
+            while (i2 > 0) {
+                if (i2 == 6) {
+                    i2--;
                 }
-                for (int i7 = 0; i7 < height; i7++) {
-                    int i8 = z ? i2 - i7 : i7;
-                    for (int i9 = 0; i9 < 2; i9++) {
-                        int i10 = i3 - i9;
-                        if (!buildFunctionPattern.get(i10, i8)) {
-                            i5++;
-                            i6 <<= 1;
-                            if (this.bitMatrix.get(i10, i8)) {
-                                i6 |= 1;
+                for (int i6 = 0; i6 < height; i6++) {
+                    int i7 = z ? i - i6 : i6;
+                    for (int i8 = 0; i8 < 2; i8++) {
+                        int i9 = i2 - i8;
+                        if (!buildFunctionPattern.get(i9, i7)) {
+                            i4++;
+                            i5 <<= 1;
+                            if (this.bitMatrix.get(i9, i7)) {
+                                i5 |= 1;
                             }
-                            if (i5 == 8) {
-                                bArr[i4] = (byte) i6;
-                                i4++;
+                            if (i4 == 8) {
+                                bArr[i3] = (byte) i5;
+                                i3++;
+                                i4 = 0;
                                 i5 = 0;
-                                i6 = 0;
                             }
                         }
                     }
                 }
                 z = !z;
-                i3 -= 2;
+                i2 -= 2;
             }
-            if (i4 == readVersion.getTotalCodewords()) {
+            if (i3 == readVersion.getTotalCodewords()) {
                 return bArr;
             }
             throw FormatException.getFormatInstance();
@@ -125,24 +125,24 @@ public final class BitMatrixParser {
             if (formatInformation != null) {
                 return formatInformation;
             }
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < 6; i4++) {
-                i3 = copyBit(i4, 8, i3);
+            for (int i3 = 0; i3 < 6; i3++) {
+                i2 = copyBit(i3, 8, i2);
             }
-            int copyBit = copyBit(8, 7, copyBit(8, 8, copyBit(7, 8, i3)));
-            for (int i5 = 5; i5 >= 0; i5--) {
-                copyBit = copyBit(8, i5, copyBit);
+            int copyBit = copyBit(8, 7, copyBit(8, 8, copyBit(7, 8, i2)));
+            for (int i4 = 5; i4 >= 0; i4--) {
+                copyBit = copyBit(8, i4, copyBit);
             }
             int height = this.bitMatrix.getHeight();
-            int i6 = height - 7;
-            for (int i7 = height - 1; i7 >= i6; i7--) {
-                i2 = copyBit(8, i7, i2);
+            int i5 = height - 7;
+            for (int i6 = height - 1; i6 >= i5; i6--) {
+                i = copyBit(8, i6, i);
             }
-            for (int i8 = height - 8; i8 < height; i8++) {
-                i2 = copyBit(i8, 8, i2);
+            for (int i7 = height - 8; i7 < height; i7++) {
+                i = copyBit(i7, 8, i);
             }
-            FormatInformation decodeFormatInformation = FormatInformation.decodeFormatInformation(copyBit, i2);
+            FormatInformation decodeFormatInformation = FormatInformation.decodeFormatInformation(copyBit, i);
             this.parsedFormatInfo = decodeFormatInformation;
             if (decodeFormatInformation != null) {
                 return decodeFormatInformation;
@@ -161,29 +161,29 @@ public final class BitMatrixParser {
                 return version;
             }
             int height = this.bitMatrix.getHeight();
-            int i2 = (height - 17) / 4;
-            if (i2 <= 6) {
-                return Version.getVersionForNumber(i2);
+            int i = (height - 17) / 4;
+            if (i <= 6) {
+                return Version.getVersionForNumber(i);
             }
-            int i3 = height - 11;
+            int i2 = height - 11;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 5; i6 >= 0; i6--) {
-                for (int i7 = height - 9; i7 >= i3; i7--) {
-                    i5 = copyBit(i7, i6, i5);
+            for (int i5 = 5; i5 >= 0; i5--) {
+                for (int i6 = height - 9; i6 >= i2; i6--) {
+                    i4 = copyBit(i6, i5, i4);
                 }
             }
-            Version decodeVersionInformation = Version.decodeVersionInformation(i5);
+            Version decodeVersionInformation = Version.decodeVersionInformation(i4);
             if (decodeVersionInformation != null && decodeVersionInformation.getDimensionForVersion() == height) {
                 this.parsedVersion = decodeVersionInformation;
                 return decodeVersionInformation;
             }
-            for (int i8 = 5; i8 >= 0; i8--) {
-                for (int i9 = height - 9; i9 >= i3; i9--) {
-                    i4 = copyBit(i8, i9, i4);
+            for (int i7 = 5; i7 >= 0; i7--) {
+                for (int i8 = height - 9; i8 >= i2; i8--) {
+                    i3 = copyBit(i7, i8, i3);
                 }
             }
-            Version decodeVersionInformation2 = Version.decodeVersionInformation(i4);
+            Version decodeVersionInformation2 = Version.decodeVersionInformation(i3);
             if (decodeVersionInformation2 != null && decodeVersionInformation2.getDimensionForVersion() == height) {
                 this.parsedVersion = decodeVersionInformation2;
                 return decodeVersionInformation2;

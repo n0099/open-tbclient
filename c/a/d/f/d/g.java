@@ -11,28 +11,28 @@ public class g<T> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f2521b;
+    public T f2076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2522c;
+    public String f2077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2523d;
+    public long f2078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2524e;
+    public long f2079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2525f;
+    public long f2080f;
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

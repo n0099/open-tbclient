@@ -21,39 +21,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class eo extends ep {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public PendingIntent f327a;
+    public PendingIntent f303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59600b;
+    public int f44212b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Bitmap f328b;
+    public Bitmap f304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59601c;
+    public int f44213c;
 
     /* renamed from: c  reason: collision with other field name */
-    public CharSequence f329c;
+    public CharSequence f305c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eo(Context context, int i2, String str) {
-        super(context, i2, str);
+    public eo(Context context, int i, String str) {
+        super(context, i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str};
+            Object[] objArr = {context, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -62,35 +62,35 @@ public class eo extends ep {
             }
         }
         this.a = 16777216;
-        this.f59600b = 16777216;
-        this.f59601c = 16777216;
+        this.f44212b = 16777216;
+        this.f44213c = 16777216;
     }
 
-    private Drawable a(int i2, int i3, int i4, float f2) {
+    private Drawable a(int i, int i2, int i3, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
             ShapeDrawable shapeDrawable = new ShapeDrawable();
             shapeDrawable.setShape(new RoundRectShape(new float[]{f2, f2, f2, f2, f2, f2, f2, f2}, null, null));
-            shapeDrawable.getPaint().setColor(i2);
+            shapeDrawable.getPaint().setColor(i);
             shapeDrawable.getPaint().setStyle(Paint.Style.FILL);
-            shapeDrawable.setIntrinsicWidth(i3);
-            shapeDrawable.setIntrinsicHeight(i4);
+            shapeDrawable.setIntrinsicWidth(i2);
+            shapeDrawable.setIntrinsicHeight(i3);
             return shapeDrawable;
         }
         return (Drawable) invokeCommon.objValue;
     }
 
-    private void a(RemoteViews remoteViews, int i2, int i3, int i4, boolean z) {
+    private void a(RemoteViews remoteViews, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{remoteViews, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{remoteViews, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 int a = a(6.0f);
-                remoteViews.setViewPadding(i2, a, 0, a, 0);
+                remoteViews.setViewPadding(i, a, 0, a, 0);
             }
-            int i5 = z ? -1 : -16777216;
-            remoteViews.setTextColor(i3, i5);
-            remoteViews.setTextColor(i4, i5);
+            int i4 = z ? -1 : -16777216;
+            remoteViews.setTextColor(i2, i4);
+            remoteViews.setTextColor(i3, i4);
         }
     }
 
@@ -99,11 +99,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (m358b() && bitmap != null) {
+            if (m337b() && bitmap != null) {
                 if (bitmap.getWidth() != 984 || bitmap.getHeight() < 177 || bitmap.getHeight() > 207) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("colorful notification bg image resolution error, must [984*177, 984*207]");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("colorful notification bg image resolution error, must [984*177, 984*207]");
                 } else {
-                    this.f328b = bitmap;
+                    this.f304b = bitmap;
                 }
             }
             return this;
@@ -115,9 +115,9 @@ public class eo extends ep {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, pendingIntent)) == null) {
-            if (m358b()) {
-                this.f329c = charSequence;
-                this.f327a = pendingIntent;
+            if (m337b()) {
+                this.f305c = charSequence;
+                this.f303a = pendingIntent;
             }
             return this;
         }
@@ -128,11 +128,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (m358b() && !TextUtils.isEmpty(str)) {
+            if (m337b() && !TextUtils.isEmpty(str)) {
                 try {
-                    this.f59600b = Color.parseColor(str);
+                    this.f44212b = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("parse colorful notification button bg color error");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("parse colorful notification button bg color error");
                 }
             }
             return this;
@@ -157,35 +157,35 @@ public class eo extends ep {
         Drawable a4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m358b()) {
-                m357b();
+            if (!m337b()) {
+                m336b();
                 return;
             }
             super.a();
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
             int a5 = a(resources, "icon", "id", packageName);
-            if (((ep) this).f330a == null) {
+            if (((ep) this).f306a == null) {
                 a(a5);
             } else {
-                a().setImageViewBitmap(a5, ((ep) this).f330a);
+                a().setImageViewBitmap(a5, ((ep) this).f306a);
             }
             int a6 = a(resources, "title", "id", packageName);
             int a7 = a(resources, "content", "id", packageName);
-            a().setTextViewText(a6, ((ep) this).f332a);
-            a().setTextViewText(a7, ((ep) this).f59602b);
-            if (!TextUtils.isEmpty(this.f329c)) {
+            a().setTextViewText(a6, ((ep) this).f308a);
+            a().setTextViewText(a7, ((ep) this).f44214b);
+            if (!TextUtils.isEmpty(this.f305c)) {
                 int a8 = a(resources, "buttonContainer", "id", packageName);
                 int a9 = a(resources, "button", "id", packageName);
                 int a10 = a(resources, "buttonBg", "id", packageName);
                 a().setViewVisibility(a8, 0);
-                a().setTextViewText(a9, this.f329c);
-                a().setOnClickPendingIntent(a8, this.f327a);
-                if (this.f59600b != 16777216) {
+                a().setTextViewText(a9, this.f305c);
+                a().setOnClickPendingIntent(a8, this.f303a);
+                if (this.f44212b != 16777216) {
                     int a11 = a(70.0f);
                     int a12 = a(29.0f);
-                    a().setImageViewBitmap(a10, com.xiaomi.push.service.ac.a(a(this.f59600b, a11, a12, a12 / 2.0f)));
-                    a().setTextColor(a9, m356a(this.f59600b) ? -1 : -16777216);
+                    a().setImageViewBitmap(a10, com.xiaomi.push.service.ac.a(a(this.f44212b, a11, a12, a12 / 2.0f)));
+                    a().setTextColor(a9, m335a(this.f44212b) ? -1 : -16777216);
                 }
             }
             int a13 = a(resources, "bg", "id", packageName);
@@ -200,15 +200,15 @@ public class eo extends ep {
                 }
                 a3.setImageViewBitmap(a13, com.xiaomi.push.service.ac.a(a4));
                 a2 = a();
-                z = m356a(this.a);
-            } else if (this.f328b == null) {
+                z = m335a(this.a);
+            } else if (this.f304b == null) {
                 if (Build.VERSION.SDK_INT >= 24) {
                     a().setViewVisibility(a5, 8);
                     a().setViewVisibility(a13, 8);
                     try {
                         bh.a((Object) this, "setStyle", t.a(a(), "android.app.Notification$DecoratedCustomViewStyle").getConstructor(new Class[0]).newInstance(new Object[0]));
                     } catch (Exception unused) {
-                        com.xiaomi.channel.commonutils.logger.b.m133a("load class DecoratedCustomViewStyle failed");
+                        com.xiaomi.channel.commonutils.logger.b.m112a("load class DecoratedCustomViewStyle failed");
                     }
                 }
                 Bundle bundle = new Bundle();
@@ -218,18 +218,18 @@ public class eo extends ep {
             } else {
                 if (l.a(a()) >= 10) {
                     a = a();
-                    bitmap = a(this.f328b, 30.0f);
+                    bitmap = a(this.f304b, 30.0f);
                 } else {
                     a = a();
-                    bitmap = this.f328b;
+                    bitmap = this.f304b;
                 }
                 a.setImageViewBitmap(a13, bitmap);
-                Map<String, String> map = ((ep) this).f334a;
-                if (map != null && this.f59601c == 16777216) {
+                Map<String, String> map = ((ep) this).f310a;
+                if (map != null && this.f44213c == 16777216) {
                     c(map.get("notification_image_text_color"));
                 }
-                int i2 = this.f59601c;
-                z = i2 == 16777216 || !m356a(i2);
+                int i = this.f44213c;
+                z = i == 16777216 || !m335a(i);
                 a2 = a();
             }
             a(a2, a14, a6, a7, z);
@@ -245,7 +245,7 @@ public class eo extends ep {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (l.m599a(a())) {
+            if (l.m578a(a())) {
                 Resources resources = a().getResources();
                 String packageName = a().getPackageName();
                 return (a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || a(resources, "content", "id", packageName) == 0) ? false : true;
@@ -259,11 +259,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (m358b() && !TextUtils.isEmpty(str)) {
+            if (m337b() && !TextUtils.isEmpty(str)) {
                 try {
                     this.a = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("parse colorful notification bg color error");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("parse colorful notification bg color error");
                 }
             }
             return this;
@@ -282,11 +282,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (m358b() && !TextUtils.isEmpty(str)) {
+            if (m337b() && !TextUtils.isEmpty(str)) {
                 try {
-                    this.f59601c = Color.parseColor(str);
+                    this.f44213c = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("parse colorful notification image text color error");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("parse colorful notification image text color error");
                 }
             }
             return this;

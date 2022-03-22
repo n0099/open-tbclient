@@ -3,7 +3,7 @@ package com.ss.android.downloadad.api.download;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdDownloadController implements DownloadController {
     public int mDownloadMode;
     public Object mExtraClickOperation;
@@ -20,7 +20,7 @@ public class AdDownloadController implements DownloadController {
     public boolean mEnableAH = true;
     public boolean mEnableAM = true;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public AdDownloadController controller = new AdDownloadController();
 
@@ -29,12 +29,12 @@ public class AdDownloadController implements DownloadController {
         }
 
         @Deprecated
-        public Builder setDowloadChunkCount(int i2) {
+        public Builder setDowloadChunkCount(int i) {
             return this;
         }
 
-        public Builder setDownloadMode(int i2) {
-            this.controller.mDownloadMode = i2;
+        public Builder setDownloadMode(int i) {
+            this.controller.mDownloadMode = i;
             return this;
         }
 
@@ -74,8 +74,8 @@ public class AdDownloadController implements DownloadController {
             return this;
         }
 
-        public Builder setInterceptFlag(int i2) {
-            this.controller.mInterceptFlag = i2;
+        public Builder setInterceptFlag(int i) {
+            this.controller.mInterceptFlag = i;
             return this;
         }
 
@@ -99,8 +99,8 @@ public class AdDownloadController implements DownloadController {
             return this;
         }
 
-        public Builder setLinkMode(int i2) {
-            this.controller.mLinkMode = i2;
+        public Builder setLinkMode(int i) {
+            this.controller.mLinkMode = i;
             return this;
         }
 
@@ -210,8 +210,8 @@ public class AdDownloadController implements DownloadController {
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
-    public void setDownloadMode(int i2) {
-        this.mDownloadMode = i2;
+    public void setDownloadMode(int i) {
+        this.mDownloadMode = i;
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
@@ -237,8 +237,8 @@ public class AdDownloadController implements DownloadController {
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
-    public void setLinkMode(int i2) {
-        this.mLinkMode = i2;
+    public void setLinkMode(int i) {
+        this.mLinkMode = i;
     }
 
     @Override // com.ss.android.download.api.download.DownloadController
@@ -251,7 +251,7 @@ public class AdDownloadController implements DownloadController {
         try {
             jSONObject.putOpt("link_mode", Integer.valueOf(this.mLinkMode));
             jSONObject.putOpt("download_mode", Integer.valueOf(this.mDownloadMode));
-            int i2 = 1;
+            int i = 1;
             jSONObject.putOpt("enable_back_dialog", Integer.valueOf(this.mIsEnableBackDialog ? 1 : 0));
             jSONObject.putOpt("add_to_manage", Integer.valueOf(this.mIsAddToDownloadManage ? 1 : 0));
             jSONObject.putOpt("use_new_webview", Integer.valueOf(this.mShouldUseNewWebView ? 1 : 0));
@@ -262,9 +262,9 @@ public class AdDownloadController implements DownloadController {
             jSONObject.putOpt("enable_new_activity", Integer.valueOf(this.mEnableNewActivity ? 1 : 0));
             jSONObject.putOpt("enable_ah", Integer.valueOf(this.mEnableAH ? 1 : 0));
             if (!this.mEnableAM) {
-                i2 = 0;
+                i = 0;
             }
-            jSONObject.putOpt("enable_am", Integer.valueOf(i2));
+            jSONObject.putOpt("enable_am", Integer.valueOf(i));
         } catch (Exception e2) {
             j.s().a(e2, "AdDownloadController toJson");
         }

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class AddressSelectedBean implements Serializable, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,9 +50,9 @@ public class AddressSelectedBean implements Serializable, NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -76,7 +75,7 @@ public class AddressSelectedBean implements Serializable, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AddressSelectedBean{countryId='" + this.countryId + ExtendedMessageFormat.QUOTE + ", countryName='" + this.countryName + ExtendedMessageFormat.QUOTE + ", provinceId='" + this.provinceId + ExtendedMessageFormat.QUOTE + ", provinceName='" + this.provinceName + ExtendedMessageFormat.QUOTE + ", cityId='" + this.cityId + ExtendedMessageFormat.QUOTE + ", cityName='" + this.cityName + ExtendedMessageFormat.QUOTE + ", districtId='" + this.districtId + ExtendedMessageFormat.QUOTE + ", districtName='" + this.districtName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "AddressSelectedBean{countryId='" + this.countryId + "', countryName='" + this.countryName + "', provinceId='" + this.provinceId + "', provinceName='" + this.provinceName + "', cityId='" + this.cityId + "', cityName='" + this.cityName + "', districtId='" + this.districtId + "', districtName='" + this.districtName + "'}";
         }
         return (String) invokeV.objValue;
     }

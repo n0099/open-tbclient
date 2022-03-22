@@ -46,9 +46,9 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,20 +63,20 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
                 if (imageView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("playBtn");
                 }
-                imageView.setImageResource(R.drawable.bdvideoplayer_pause);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080213);
                 return;
             }
             ImageView imageView2 = this.playBtn;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("playBtn");
             }
-            imageView2.setImageResource(R.drawable.bdvideoplayer_play);
+            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080214);
         }
     }
 
-    public static /* synthetic */ void setPlayIcon$default(PlayButtonElement playButtonElement, boolean z, int i2, Object obj) {
+    public static /* synthetic */ void setPlayIcon$default(PlayButtonElement playButtonElement, boolean z, int i, Object obj) {
         if (obj == null) {
-            if ((i2 & 1) != 0) {
+            if ((i & 1) != 0) {
                 z = false;
             }
             playButtonElement.setPlayIcon(z);
@@ -183,10 +183,10 @@ public class PlayButtonElement extends AbsElement implements View.OnClickListene
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
     public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, playerStatus, playerStatus2) == null) {
-            if (playerStatus == null || ((i2 = WhenMappings.$EnumSwitchMapping$0[playerStatus.ordinal()]) != 1 && i2 != 2 && i2 != 3)) {
+            if (playerStatus == null || ((i = WhenMappings.$EnumSwitchMapping$0[playerStatus.ordinal()]) != 1 && i != 2 && i != 3)) {
                 setPlayIcon(false);
             } else {
                 setPlayIcon(true);

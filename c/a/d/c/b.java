@@ -6,9 +6,9 @@ import com.baidu.adp.framework.task.MessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public interface b<M extends Message<?>, T extends MessageTask> {
-    LinkedList<M> e(int i2, BdUniqueId bdUniqueId);
+    LinkedList<M> e(int i, BdUniqueId bdUniqueId);
 
     void f(M m, T t);
 
-    void h(int i2, BdUniqueId bdUniqueId);
+    void h(int i, BdUniqueId bdUniqueId);
 }

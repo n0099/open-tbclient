@@ -26,11 +26,11 @@ public class PatchClassInfo {
             JSONArray jSONArray2 = jSONObject.getJSONArray(TitanConstant.KEY_INSTANT_INIT_CLASS);
             patchClassInfo.lazyClassNames = new HashSet<>();
             patchClassInfo.instantClassNames = new HashSet<>();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                patchClassInfo.lazyClassNames.add(jSONArray.getString(i2));
+            for (int i = 0; i < jSONArray.length(); i++) {
+                patchClassInfo.lazyClassNames.add(jSONArray.getString(i));
             }
-            for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                patchClassInfo.instantClassNames.add(jSONArray2.getString(i3));
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                patchClassInfo.instantClassNames.add(jSONArray2.getString(i2));
             }
             return patchClassInfo;
         } catch (JSONException e2) {

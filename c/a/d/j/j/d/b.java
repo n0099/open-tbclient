@@ -15,5 +15,5 @@ public abstract class b {
 
     public abstract void c(BdFileDownloadData bdFileDownloadData);
 
-    public abstract void d(BdFileDownloadData bdFileDownloadData, int i2);
+    public abstract void d(BdFileDownloadData bdFileDownloadData, int i);
 }

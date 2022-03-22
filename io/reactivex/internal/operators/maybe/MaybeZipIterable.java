@@ -35,9 +35,9 @@ public final class MaybeZipIterable<T, R> extends Maybe<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeZipIterable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,9 +62,9 @@ public final class MaybeZipIterable<T, R> extends Maybe<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,28 +80,28 @@ public final class MaybeZipIterable<T, R> extends Maybe<R> {
         if (interceptable == null || interceptable.invokeL(1048576, this, maybeObserver) == null) {
             MaybeSource[] maybeSourceArr = new MaybeSource[8];
             try {
-                int i2 = 0;
+                int i = 0;
                 for (MaybeSource<? extends T> maybeSource : this.sources) {
                     if (maybeSource == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), maybeObserver);
                         return;
                     }
-                    if (i2 == maybeSourceArr.length) {
-                        maybeSourceArr = (MaybeSource[]) Arrays.copyOf(maybeSourceArr, (i2 >> 2) + i2);
+                    if (i == maybeSourceArr.length) {
+                        maybeSourceArr = (MaybeSource[]) Arrays.copyOf(maybeSourceArr, (i >> 2) + i);
                     }
-                    int i3 = i2 + 1;
-                    maybeSourceArr[i2] = maybeSource;
-                    i2 = i3;
+                    int i2 = i + 1;
+                    maybeSourceArr[i] = maybeSource;
+                    i = i2;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     EmptyDisposable.complete(maybeObserver);
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     maybeSourceArr[0].subscribe(new MaybeMap.MapMaybeObserver(maybeObserver, new SingletonArrayFunc(this)));
                 } else {
-                    MaybeZipArray.ZipCoordinator zipCoordinator = new MaybeZipArray.ZipCoordinator(maybeObserver, i2, this.zipper);
+                    MaybeZipArray.ZipCoordinator zipCoordinator = new MaybeZipArray.ZipCoordinator(maybeObserver, i, this.zipper);
                     maybeObserver.onSubscribe(zipCoordinator);
-                    for (int i4 = 0; i4 < i2 && !zipCoordinator.isDisposed(); i4++) {
-                        maybeSourceArr[i4].subscribe(zipCoordinator.observers[i4]);
+                    for (int i3 = 0; i3 < i && !zipCoordinator.isDisposed(); i3++) {
+                        maybeSourceArr[i3].subscribe(zipCoordinator.observers[i3]);
                     }
                 }
             } catch (Throwable th) {

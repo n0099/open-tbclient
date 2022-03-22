@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.b.h.i;
-import h.b.i.a;
-import h.b.i.b;
-import h.b.i.d;
-import h.b.i.e;
-import h.b.i.f;
-import h.b.i.h;
-import h.b.k.c;
+import f.b.h.i;
+import f.b.i.a;
+import f.b.i.b;
+import f.b.i.d;
+import f.b.i.e;
+import f.b.i.f;
+import f.b.i.h;
+import f.b.k.c;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
@@ -29,17 +29,17 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebSocket.Role a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f61004b;
+    public Framedata.Opcode f45366b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class CloseHandshakeType {
         public static final /* synthetic */ CloseHandshakeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -68,16 +68,16 @@ public abstract class Draft {
             $VALUES = new CloseHandshakeType[]{NONE, ONEWAY, closeHandshakeType};
         }
 
-        public CloseHandshakeType(String str, int i2) {
+        public CloseHandshakeType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -101,7 +101,7 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class HandshakeState {
         public static final /* synthetic */ HandshakeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,16 +128,16 @@ public abstract class Draft {
             $VALUES = new HandshakeState[]{MATCHED, handshakeState};
         }
 
-        public HandshakeState(String str, int i2) {
+        public HandshakeState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -180,16 +180,16 @@ public abstract class Draft {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f61004b = null;
+        this.f45366b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -228,8 +228,8 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v21, types: [h.b.i.i, h.b.i.e] */
-    public static h.b.i.c w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
+    /* JADX WARN: Type inference failed for: r10v21, types: [f.b.i.i, f.b.i.e] */
+    public static f.b.i.c w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
         InterceptResult invokeLL;
         d dVar;
         Interceptable interceptable = $ic;
@@ -286,7 +286,7 @@ public abstract class Draft {
             }
             throw new IncompleteHandshakeException(byteBuffer.capacity() + 128);
         }
-        return (h.b.i.c) invokeLL.objValue;
+        return (f.b.i.c) invokeLL.objValue;
     }
 
     public abstract HandshakeState a(a aVar, h hVar) throws InvalidHandshakeException;
@@ -299,12 +299,12 @@ public abstract class Draft {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar)) == null) ? fVar.d("Upgrade").equalsIgnoreCase("websocket") && fVar.d(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains("upgrade") : invokeL.booleanValue;
     }
 
-    public int d(int i2) throws LimitExedeedException, InvalidDataException {
+    public int d(int i) throws LimitExedeedException, InvalidDataException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (i2 >= 0) {
-                return i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i >= 0) {
+                return i;
             }
             throw new InvalidDataException(1002, "Negative count");
         }
@@ -313,18 +313,18 @@ public abstract class Draft {
 
     public List<Framedata> e(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
         InterceptResult invokeLLZ;
-        h.b.h.f iVar;
+        f.b.h.f iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, opcode, byteBuffer, z)) == null) {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f61004b != null) {
-                iVar = new h.b.h.c();
+            if (this.f45366b != null) {
+                iVar = new f.b.h.c();
             } else {
-                this.f61004b = opcode;
+                this.f45366b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
-                    iVar = new h.b.h.a();
+                    iVar = new f.b.h.a();
                 } else {
                     iVar = opcode == Framedata.Opcode.TEXT ? new i() : null;
                 }
@@ -334,9 +334,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f61004b = null;
+                    this.f45366b = null;
                 } else {
-                    this.f61004b = opcode;
+                    this.f45366b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {
@@ -403,9 +403,9 @@ public abstract class Draft {
 
     public abstract b m(b bVar) throws InvalidHandshakeException;
 
-    public abstract h.b.i.c n(a aVar, h.b.i.i iVar) throws InvalidHandshakeException;
+    public abstract f.b.i.c n(a aVar, f.b.i.i iVar) throws InvalidHandshakeException;
 
-    public abstract void o(h.b.c cVar, Framedata framedata) throws InvalidDataException;
+    public abstract void o(f.b.c cVar, Framedata framedata) throws InvalidDataException;
 
     public int r(f fVar) {
         InterceptResult invokeL;

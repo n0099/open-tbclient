@@ -57,9 +57,9 @@ public class IMMediaBuildSessionListener implements IMListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMMediaBuildSessionListener, map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -91,10 +91,10 @@ public class IMMediaBuildSessionListener implements IMListener {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-        public void onResult(int i2, String str, ArrayList<GroupInfo> arrayList) {
+        public void onResult(int i, String str, ArrayList<GroupInfo> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, arrayList) == null) {
-                if (i2 == 0 && arrayList != null && this.mGroupMap != null) {
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList) == null) {
+                if (i == 0 && arrayList != null && this.mGroupMap != null) {
                     Iterator<GroupInfo> it = arrayList.iterator();
                     while (it.hasNext()) {
                         GroupInfo next = it.next();
@@ -105,7 +105,7 @@ public class IMMediaBuildSessionListener implements IMListener {
                         }
                     }
                 }
-                this.this$0.callBack(i2);
+                this.this$0.callBack(i);
             }
         }
     }
@@ -124,9 +124,9 @@ public class IMMediaBuildSessionListener implements IMListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMMediaBuildSessionListener, map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -167,10 +167,10 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
 
         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-        public void onResult(int i2, String str, ArrayList<PaInfo> arrayList) {
+        public void onResult(int i, String str, ArrayList<PaInfo> arrayList) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, arrayList) == null) {
-                if (i2 == 0 && arrayList != null && this.mPaMap != null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
+                if (i == 0 && arrayList != null && this.mPaMap != null) {
                     Iterator<PaInfo> it = arrayList.iterator();
                     while (it.hasNext()) {
                         PaInfo next = it.next();
@@ -181,7 +181,7 @@ public class IMMediaBuildSessionListener implements IMListener {
                         }
                     }
                 }
-                this.this$0.callBack(i2);
+                this.this$0.callBack(i);
             }
         }
     }
@@ -200,9 +200,9 @@ public class IMMediaBuildSessionListener implements IMListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMMediaBuildSessionListener, map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -242,10 +242,10 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
 
         @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-        public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
+        public void onGetUserIdentityResult(int i, List<ChatUser> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, list) == null) {
-                if (i2 == 0 && list != null && this.mUserMap != null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
+                if (i == 0 && list != null && this.mUserMap != null) {
                     for (ChatUser chatUser : list) {
                         ChatSession chatSession = this.mUserMap.get(Long.valueOf(chatUser.getBuid()));
                         if (chatSession != null) {
@@ -254,21 +254,21 @@ public class IMMediaBuildSessionListener implements IMListener {
                         }
                     }
                 }
-                this.this$0.callBack(i2);
+                this.this$0.callBack(i);
             }
         }
     }
 
-    public IMMediaBuildSessionListener(Context context, int i2, int i3, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public IMMediaBuildSessionListener(Context context, int i, int i2, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), iMediaGetChatSessionListener};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), iMediaGetChatSessionListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -284,24 +284,24 @@ public class IMMediaBuildSessionListener implements IMListener {
         this.mResultCode = 0;
         this.count = new AtomicInteger(0);
         this.mContext = context;
-        this.mNewNum = i2;
+        this.mNewNum = i;
         this.mHasMore = z;
         this.mListener = iMediaGetChatSessionListener;
-        this.mTopHasMore = i3;
+        this.mTopHasMore = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callBack(int i2) {
+    public void callBack(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.mResultCode |= i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.mResultCode |= i;
             if (this.count.decrementAndGet() != 0 || this.mListener == null) {
                 return;
             }
             if (this.mResultList.size() > 0) {
                 this.mResultCode = 0;
             } else {
-                this.mResultCode = i2;
+                this.mResultCode = i;
             }
             this.mListener.onMediaGetChatSessionResult(0, this.mNewNum, this.mTopHasMore, this.mHasMore, this.mResultList);
         }

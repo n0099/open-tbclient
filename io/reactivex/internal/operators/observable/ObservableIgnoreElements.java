@@ -21,7 +21,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60728d;
+        public Disposable f45338d;
 
         public IgnoreObservable(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
@@ -30,9 +30,9 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,7 +45,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60728d.dispose();
+                this.f45338d.dispose();
             }
         }
 
@@ -53,7 +53,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60728d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45338d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -83,7 +83,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                this.f60728d = disposable;
+                this.f45338d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -98,9 +98,9 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

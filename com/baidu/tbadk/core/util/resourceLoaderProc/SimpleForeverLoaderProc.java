@@ -23,16 +23,16 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     public boolean isFromCDN;
     public int procType;
 
-    public SimpleForeverLoaderProc(boolean z, int i2) {
+    public SimpleForeverLoaderProc(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,7 +41,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         this.isFromCDN = true;
         this.procType = 0;
         this.isFromCDN = z;
-        this.procType = i2;
+        this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -97,10 +97,10 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             byte[] bArr = new byte[0];
             c createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
@@ -121,14 +121,14 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
                 c.a.d.f.l.a.f(false, 0L);
                 return null;
             }
-            int i4 = l.H() ? 300 : 2000;
+            int i3 = l.H() ? 300 : 2000;
             synchronized (bArr) {
                 try {
-                    bArr.wait(i4);
+                    bArr.wait(i3);
                 } catch (InterruptedException unused) {
                 }
             }
-            a createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i2, i3) : null;
+            a createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2) : null;
             c.a.d.f.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
             return createImageFromDiskPicOperate;
         }

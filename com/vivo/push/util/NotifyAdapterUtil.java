@@ -17,6 +17,7 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HIDE_TITLE = 1;
@@ -64,23 +65,23 @@ public class NotifyAdapterUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean cancelNotify(Context context, int i2) {
+    public static boolean cancelNotify(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             initAdapter(context);
             NotificationManager notificationManager = sNotificationManager;
             if (notificationManager != null) {
-                notificationManager.cancel(i2);
+                notificationManager.cancel(i);
                 return true;
             }
             return false;
@@ -119,9 +120,9 @@ public class NotifyAdapterUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? context.getResources().getConfiguration().locale.getLanguage().endsWith("zh") : invokeL.booleanValue;
     }
 
-    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2, int i2, r.a aVar) {
+    public static void pushNotification(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2), Integer.valueOf(i2), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i), aVar}) == null) {
             p.d(TAG, "pushNotification");
             initAdapter(context);
             int notifyMode = NotifyUtil.getNotifyDataAdapter(context).getNotifyMode(insideNotificationItem);
@@ -129,23 +130,23 @@ public class NotifyAdapterUtil {
                 notifyMode = 1;
             }
             if (notifyMode == 2) {
-                pushNotificationBySystem(context, list, insideNotificationItem, j2, i2, aVar);
+                pushNotificationBySystem(context, list, insideNotificationItem, j, i, aVar);
             } else if (notifyMode == 1) {
-                pushNotificationByCustom(context, list, insideNotificationItem, j2, aVar);
+                pushNotificationByCustom(context, list, insideNotificationItem, j, aVar);
             }
         }
     }
 
-    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2, r.a aVar) {
+    public static void pushNotificationByCustom(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, r.a aVar) {
         Notification notification;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), aVar}) == null) {
             Resources resources = context.getResources();
             String packageName = context.getPackageName();
             String title = insideNotificationItem.getTitle();
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
-            int i2 = context.getApplicationInfo().icon;
+            int i = context.getApplicationInfo().icon;
             if (Build.VERSION.SDK_INT >= 26) {
                 Notification.Builder builder = new Notification.Builder(context, PRIMARY_CHANNEL);
                 if (defaultNotifyIcon > 0) {
@@ -162,7 +163,7 @@ public class NotifyAdapterUtil {
             notification.tickerText = title;
             int defaultSmallIconId = NotifyUtil.getNotifyDataAdapter(context).getDefaultSmallIconId();
             if (defaultSmallIconId <= 0) {
-                defaultSmallIconId = i2;
+                defaultSmallIconId = i;
             }
             notification.icon = defaultSmallIconId;
             RemoteViews remoteViews = new RemoteViews(packageName, NotifyUtil.getNotifyLayoutAdapter(context).getNotificationLayout());
@@ -181,7 +182,7 @@ public class NotifyAdapterUtil {
                 remoteViews.setImageViewBitmap(suitIconId, bitmap);
             } else {
                 if (defaultNotifyIcon <= 0) {
-                    defaultNotifyIcon = i2;
+                    defaultNotifyIcon = i;
                 }
                 remoteViews.setImageViewResource(suitIconId, defaultNotifyIcon);
             }
@@ -238,8 +239,8 @@ public class NotifyAdapterUtil {
             } catch (Exception e2) {
                 p.a(TAG, "pushNotificationByCustom encrypt ：" + e2.getMessage());
             }
-            new com.vivo.push.b.p(packageName, j2, insideNotificationItem).b(intent);
-            notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456);
+            new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
+            notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, LaunchTaskConstants.OTHER_PROCESS);
             if (sNotificationManager != null) {
                 int k = com.vivo.push.e.a().k();
                 try {
@@ -249,7 +250,7 @@ public class NotifyAdapterUtil {
                             aVar.a();
                         }
                     } else if (k == 1) {
-                        sNotificationManager.notify((int) j2, notification);
+                        sNotificationManager.notify((int) j, notification);
                         if (aVar != null) {
                             aVar.a();
                         }
@@ -266,18 +267,18 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j2, int i2, r.a aVar) {
+    public static void pushNotificationBySystem(Context context, List<Bitmap> list, InsideNotificationItem insideNotificationItem, long j, int i, r.a aVar) {
         Bitmap bitmap;
         Notification.Builder builder;
-        int i3;
+        int i2;
         Bitmap bitmap2;
         Bitmap decodeResource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j2), Integer.valueOf(i2), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, list, insideNotificationItem, Long.valueOf(j), Integer.valueOf(i), aVar}) == null) {
             String packageName = context.getPackageName();
             String title = insideNotificationItem.getTitle();
             String content = insideNotificationItem.getContent();
-            int i4 = context.getApplicationInfo().icon;
+            int i3 = context.getApplicationInfo().icon;
             boolean isShowTime = insideNotificationItem.isShowTime();
             AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             int defaultNotifyIcon = NotifyUtil.getNotifyDataAdapter(context).getDefaultNotifyIcon();
@@ -307,14 +308,14 @@ public class NotifyAdapterUtil {
                 if (bitmap != null) {
                     builder.setLargeIcon(bitmap);
                 } else if (Build.VERSION.SDK_INT <= 22) {
-                    builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), i4));
+                    builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), i3));
                 }
             }
             int defaultSmallIconId = NotifyUtil.getNotifyDataAdapter(context).getDefaultSmallIconId();
             if (defaultSmallIconId > 0) {
-                i4 = defaultSmallIconId;
+                i3 = defaultSmallIconId;
             }
-            builder.setSmallIcon(i4);
+            builder.setSmallIcon(i3);
             if (insideNotificationItem.getCompatibleType() != 1) {
                 builder.setContentTitle(title);
             }
@@ -344,13 +345,13 @@ public class NotifyAdapterUtil {
                 builder.setDefaults(1);
             }
             if (list == null || list.size() <= 1) {
-                i3 = i2;
+                i2 = i;
                 bitmap2 = null;
             } else {
                 bitmap2 = list.get(1);
-                i3 = i2;
+                i2 = i;
             }
-            if (i3 != 1 && bitmap2 != null) {
+            if (i2 != 1 && bitmap2 != null) {
                 Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
                 bigPictureStyle.setBigContentTitle(title);
                 bigPictureStyle.setSummaryText(content);
@@ -367,8 +368,8 @@ public class NotifyAdapterUtil {
             } catch (Exception e2) {
                 p.a(TAG, "pushNotificationBySystem encrypt ：" + e2.getMessage());
             }
-            new com.vivo.push.b.p(packageName, j2, insideNotificationItem).b(intent);
-            builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456));
+            new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
+            builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, LaunchTaskConstants.OTHER_PROCESS));
             Notification build = builder.build();
             int k = com.vivo.push.e.a().k();
             NotificationManager notificationManager = sNotificationManager;
@@ -380,7 +381,7 @@ public class NotifyAdapterUtil {
                             aVar.a();
                         }
                     } else if (k == 1) {
-                        notificationManager.notify((int) j2, build);
+                        notificationManager.notify((int) j, build);
                         if (aVar != null) {
                             aVar.a();
                         }
@@ -397,35 +398,35 @@ public class NotifyAdapterUtil {
         }
     }
 
-    public static boolean repealNotifyById(Context context, long j2) {
+    public static boolean repealNotifyById(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, context, j)) == null) {
             int k = com.vivo.push.e.a().k();
             if (k != 0) {
                 if (k == 1) {
-                    return cancelNotify(context, (int) j2);
+                    return cancelNotify(context, (int) j);
                 }
                 p.a(TAG, "unknow cancle notify style ".concat(String.valueOf(k)));
                 return false;
             }
             long b2 = x.b().b("com.vivo.push.notify_key", -1L);
-            if (b2 == j2) {
-                p.d(TAG, "undo showed message ".concat(String.valueOf(j2)));
-                p.a(context, "回收已展示的通知： ".concat(String.valueOf(j2)));
+            if (b2 == j) {
+                p.d(TAG, "undo showed message ".concat(String.valueOf(j)));
+                p.a(context, "回收已展示的通知： ".concat(String.valueOf(j)));
                 return cancelNotify(context, sNotifyId);
             }
-            p.d(TAG, "current showing message id " + b2 + " not match " + j2);
-            p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + j2 + "不匹配");
+            p.d(TAG, "current showing message id " + b2 + " not match " + j);
+            p.a(context, "与已展示的通知" + b2 + "与待回收的通知" + j + "不匹配");
             return false;
         }
         return invokeLJ.booleanValue;
     }
 
-    public static void setNotifyId(int i2) {
+    public static void setNotifyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i2) == null) {
-            sNotifyId = i2;
+        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
+            sNotifyId = i;
         }
     }
 

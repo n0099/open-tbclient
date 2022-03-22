@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,13 +66,13 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_Design_FloatingActionButton = 2131755853;
+    public static final int obfuscated_res_0x7f100326 = 2131755814;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;
@@ -103,7 +104,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public int size;
     public final Rect touchArea;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = true;
@@ -117,9 +118,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -143,28 +144,28 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
         private void offsetIfNeeded(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton) {
             Rect rect;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(65539, this, coordinatorLayout, floatingActionButton) == null) || (rect = floatingActionButton.shadowPadding) == null || rect.centerX() <= 0 || rect.centerY() <= 0) {
                 return;
             }
             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams();
-            int i3 = 0;
+            int i2 = 0;
             if (floatingActionButton.getRight() >= coordinatorLayout.getWidth() - ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin) {
-                i2 = rect.right;
+                i = rect.right;
             } else {
-                i2 = floatingActionButton.getLeft() <= ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin ? -rect.left : 0;
+                i = floatingActionButton.getLeft() <= ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin ? -rect.left : 0;
             }
             if (floatingActionButton.getBottom() >= coordinatorLayout.getHeight() - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) {
-                i3 = rect.bottom;
+                i2 = rect.bottom;
             } else if (floatingActionButton.getTop() <= ((ViewGroup.MarginLayoutParams) layoutParams).topMargin) {
-                i3 = -rect.top;
-            }
-            if (i3 != 0) {
-                ViewCompat.offsetTopAndBottom(floatingActionButton, i3);
+                i2 = -rect.top;
             }
             if (i2 != 0) {
-                ViewCompat.offsetLeftAndRight(floatingActionButton, i2);
+                ViewCompat.offsetTopAndBottom(floatingActionButton, i2);
+            }
+            if (i != 0) {
+                ViewCompat.offsetLeftAndRight(floatingActionButton, i);
             }
         }
 
@@ -279,14 +280,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i2) {
+        public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, coordinatorLayout, floatingActionButton, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, coordinatorLayout, floatingActionButton, i)) == null) {
                 List<View> dependencies = coordinatorLayout.getDependencies(floatingActionButton);
                 int size = dependencies.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    View view = dependencies.get(i3);
+                for (int i2 = 0; i2 < size; i2++) {
+                    View view = dependencies.get(i2);
                     if (view instanceof AppBarLayout) {
                         if (updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view, floatingActionButton)) {
                             break;
@@ -297,7 +298,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                         }
                     }
                 }
-                coordinatorLayout.onLayoutChild(floatingActionButton, i2);
+                coordinatorLayout.onLayoutChild(floatingActionButton, i);
                 offsetIfNeeded(coordinatorLayout, floatingActionButton);
                 return true;
             }
@@ -313,9 +314,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -323,13 +324,13 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.behavior_autoHide});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c6});
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,9 +340,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -369,8 +370,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
-        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i2) {
-            return super.onLayoutChild(coordinatorLayout, floatingActionButton, i2);
+        public /* bridge */ /* synthetic */ boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, int i) {
+            return super.onLayoutChild(coordinatorLayout, floatingActionButton, i);
         }
 
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
@@ -393,9 +394,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -406,7 +407,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class OnVisibilityChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -416,9 +417,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -438,7 +439,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -451,9 +452,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButton};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -486,23 +487,23 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
 
         @Override // com.google.android.material.shadow.ShadowViewDelegate
-        public void setShadowPadding(int i2, int i3, int i4, int i5) {
+        public void setShadowPadding(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-                this.this$0.shadowPadding.set(i2, i3, i4, i5);
+            if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
+                this.this$0.shadowPadding.set(i, i2, i3, i4);
                 FloatingActionButton floatingActionButton = this.this$0;
-                floatingActionButton.setPadding(i2 + floatingActionButton.imagePadding, i3 + this.this$0.imagePadding, i4 + this.this$0.imagePadding, i5 + this.this$0.imagePadding);
+                floatingActionButton.setPadding(i + floatingActionButton.imagePadding, i2 + this.this$0.imagePadding, i3 + this.this$0.imagePadding, i4 + this.this$0.imagePadding);
             }
         }
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -517,9 +518,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButton, transformationCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -586,9 +587,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -626,9 +627,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     private void offsetRectWithShadow(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, rect) == null) {
-            int i2 = rect.left;
+            int i = rect.left;
             Rect rect2 = this.shadowPadding;
-            rect.left = i2 + rect2.left;
+            rect.left = i + rect2.left;
             rect.top += rect2.top;
             rect.right -= rect2.right;
             rect.bottom -= rect2.bottom;
@@ -654,12 +655,12 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         drawable.mutate().setColorFilter(AppCompatDrawableManager.getPorterDuffColorFilter(colorForState, mode));
     }
 
-    public static int resolveAdjustedSize(int i2, int i3) {
+    public static int resolveAdjustedSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i2, i3)) == null) {
-            int mode = View.MeasureSpec.getMode(i3);
-            int size = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i, i2)) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
             if (mode != Integer.MIN_VALUE) {
                 if (mode != 0) {
                     if (mode == 1073741824) {
@@ -667,9 +668,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     }
                     throw new IllegalArgumentException();
                 }
-                return i2;
+                return i;
             }
-            return Math.min(i2, size);
+            return Math.min(i, size);
         }
         return invokeII.intValue;
     }
@@ -695,9 +696,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onVisibilityChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -998,13 +999,13 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048613, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048613, this, i, i2) == null) {
             int sizeDimension = getSizeDimension();
             this.imagePadding = (sizeDimension - this.maxImageSize) / 2;
             getImpl().updatePadding();
-            int min = Math.min(resolveAdjustedSize(sizeDimension, i2), resolveAdjustedSize(sizeDimension, i3));
+            int min = Math.min(resolveAdjustedSize(sizeDimension, i), resolveAdjustedSize(sizeDimension, i2));
             Rect rect = this.shadowPadding;
             setMeasuredDimension(rect.left + min + rect.right, min + rect.top + rect.bottom);
         }
@@ -1075,9 +1076,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            Log.i(LOG_TAG, "Setting a custom background is not supported.");
         }
     }
 
@@ -1085,13 +1087,15 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, drawable) == null) {
+            Log.i(LOG_TAG, "Setting a custom background is not supported.");
         }
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i2) {
+    public void setBackgroundResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            Log.i(LOG_TAG, "Setting a custom background is not supported.");
         }
     }
 
@@ -1122,10 +1126,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatElevationResource(@DimenRes int i2) {
+    public void setCompatElevationResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            setCompatElevation(getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            setCompatElevation(getResources().getDimension(i));
         }
     }
 
@@ -1136,10 +1140,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatHoveredFocusedTranslationZResource(@DimenRes int i2) {
+    public void setCompatHoveredFocusedTranslationZResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
-            setCompatHoveredFocusedTranslationZ(getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+            setCompatHoveredFocusedTranslationZ(getResources().getDimension(i));
         }
     }
 
@@ -1150,19 +1154,19 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setCompatPressedTranslationZResource(@DimenRes int i2) {
+    public void setCompatPressedTranslationZResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            setCompatPressedTranslationZ(getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            setCompatPressedTranslationZ(getResources().getDimension(i));
         }
     }
 
-    public void setCustomSize(@Px int i2) {
+    public void setCustomSize(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            if (i2 >= 0) {
-                if (i2 != this.customSize) {
-                    this.customSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            if (i >= 0) {
+                if (i != this.customSize) {
+                    this.customSize = i;
                     requestLayout();
                     return;
                 }
@@ -1199,10 +1203,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // com.google.android.material.expandable.ExpandableTransformationWidget
-    public void setExpandedComponentIdHint(@IdRes int i2) {
+    public void setExpandedComponentIdHint(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            this.expandableWidgetHelper.setExpandedComponentIdHint(i2);
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            this.expandableWidgetHelper.setExpandedComponentIdHint(i);
         }
     }
 
@@ -1213,10 +1217,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setHideMotionSpecResource(@AnimatorRes int i2) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
+            setHideMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
@@ -1234,18 +1238,18 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(@DrawableRes int i2) {
+    public void setImageResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.imageHelper.setImageResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.imageHelper.setImageResource(i);
             onApplySupportImageTint();
         }
     }
 
-    public void setRippleColor(@ColorInt int i2) {
+    public void setRippleColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
-            setRippleColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
+            setRippleColor(ColorStateList.valueOf(i));
         }
     }
 
@@ -1291,19 +1295,19 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    public void setShowMotionSpecResource(@AnimatorRes int i2) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
-            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+            setShowMotionSpec(MotionSpec.createFromResource(getContext(), i));
         }
     }
 
-    public void setSize(int i2) {
+    public void setSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
             this.customSize = 0;
-            if (i2 != this.size) {
-                this.size = i2;
+            if (i != this.size) {
+                this.size = i;
                 requestLayout();
             }
         }
@@ -1382,10 +1386,10 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     @Override // com.google.android.material.internal.VisibilityAwareImageButton, android.widget.ImageView, android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
-            super.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048657, this, i) == null) {
+            super.setVisibility(i);
         }
     }
 
@@ -1404,16 +1408,16 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.floatingActionButtonStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040217);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1423,20 +1427,20 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    private int getSizeDimension(int i2) {
+    private int getSizeDimension(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-            int i3 = this.customSize;
-            if (i3 != 0) {
-                return i3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            int i2 = this.customSize;
+            if (i2 != 0) {
+                return i2;
             }
             Resources resources = getResources();
-            if (i2 != -1) {
-                if (i2 != 1) {
-                    return resources.getDimensionPixelSize(R.dimen.design_fab_size_normal);
+            if (i != -1) {
+                if (i != 1) {
+                    return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070205);
                 }
-                return resources.getDimensionPixelSize(R.dimen.design_fab_size_mini);
+                return resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070204);
             } else if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < 470) {
                 return getSizeDimension(1);
             } else {
@@ -1470,17 +1474,17 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_FloatingActionButton), attributeSet, i2);
+    public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100326), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1491,7 +1495,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.borderWidth, R.attr.elevation, R.attr.ensureMinTouchTargetSize, R.attr.fabCustomSize, R.attr.fabSize, R.attr.hideMotionSpec, R.attr.hoveredFocusedTranslationZ, R.attr.maxImageSize, R.attr.pressedTranslationZ, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.useCompatPadding}, i2, Widget_Design_FloatingActionButton, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e0, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f040200, R.attr.obfuscated_res_0x7f040201, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402aa, R.attr.obfuscated_res_0x7f04041e, R.attr.obfuscated_res_0x7f0404a5, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040556, R.attr.obfuscated_res_0x7f040670}, i, obfuscated_res_0x7f100326, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);
@@ -1502,17 +1506,17 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.mtrl_fab_min_touch_target);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070444);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);
-        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_Design_FloatingActionButton, ShapeAppearanceModel.PILL).build();
+        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100326, ShapeAppearanceModel.PILL).build();
         boolean z = obtainStyledAttributes.getBoolean(5, false);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();
         AppCompatImageHelper appCompatImageHelper = new AppCompatImageHelper(this);
         this.imageHelper = appCompatImageHelper;
-        appCompatImageHelper.loadFromAttributes(attributeSet, i2);
+        appCompatImageHelper.loadFromAttributes(attributeSet, i);
         this.expandableWidgetHelper = new ExpandableWidgetHelper(this);
         getImpl().setShapeAppearance(build);
         getImpl().initializeBackgroundDrawable(this.backgroundTint, this.backgroundTintMode, this.rippleColor, this.borderWidth);

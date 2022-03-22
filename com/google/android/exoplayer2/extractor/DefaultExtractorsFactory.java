@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.extractor.wav.WavExtractor;
 import java.lang.reflect.Constructor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Constructor<? extends Extractor> FLAC_EXTRACTOR_CONSTRUCTOR;
@@ -59,9 +59,9 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -102,72 +102,72 @@ public final class DefaultExtractorsFactory implements ExtractorsFactory {
         return (Extractor[]) invokeV.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setFragmentedMp4ExtractorFlags(int i2) {
+    public synchronized DefaultExtractorsFactory setFragmentedMp4ExtractorFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             synchronized (this) {
-                this.fragmentedMp4Flags = i2;
+                this.fragmentedMp4Flags = i;
             }
             return this;
         }
         return (DefaultExtractorsFactory) invokeI.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setMatroskaExtractorFlags(int i2) {
+    public synchronized DefaultExtractorsFactory setMatroskaExtractorFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             synchronized (this) {
-                this.matroskaFlags = i2;
+                this.matroskaFlags = i;
             }
             return this;
         }
         return (DefaultExtractorsFactory) invokeI.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setMp3ExtractorFlags(int i2) {
+    public synchronized DefaultExtractorsFactory setMp3ExtractorFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             synchronized (this) {
-                this.mp3Flags = i2;
+                this.mp3Flags = i;
             }
             return this;
         }
         return (DefaultExtractorsFactory) invokeI.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setMp4ExtractorFlags(int i2) {
+    public synchronized DefaultExtractorsFactory setMp4ExtractorFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             synchronized (this) {
-                this.mp4Flags = i2;
+                this.mp4Flags = i;
             }
             return this;
         }
         return (DefaultExtractorsFactory) invokeI.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setTsExtractorFlags(int i2) {
+    public synchronized DefaultExtractorsFactory setTsExtractorFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             synchronized (this) {
-                this.tsFlags = i2;
+                this.tsFlags = i;
             }
             return this;
         }
         return (DefaultExtractorsFactory) invokeI.objValue;
     }
 
-    public synchronized DefaultExtractorsFactory setTsExtractorMode(int i2) {
+    public synchronized DefaultExtractorsFactory setTsExtractorMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             synchronized (this) {
-                this.tsMode = i2;
+                this.tsMode = i;
             }
             return this;
         }

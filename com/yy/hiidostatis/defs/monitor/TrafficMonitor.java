@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class TrafficMonitor {
     public static final /* synthetic */ TrafficMonitor[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -46,16 +46,16 @@ public final class TrafficMonitor {
         $VALUES = new TrafficMonitor[]{trafficMonitor};
     }
 
-    public TrafficMonitor(String str, int i2) {
+    public TrafficMonitor(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -91,12 +91,12 @@ public final class TrafficMonitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.endAlr;
-            long j3 = this.startAlr;
-            if (j2 - j3 < 0) {
+            long j = this.endAlr;
+            long j2 = this.startAlr;
+            if (j - j2 < 0) {
                 return 0L;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeV.longValue;
     }
@@ -105,12 +105,12 @@ public final class TrafficMonitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = this.endAls;
-            long j3 = this.startAls;
-            if (j2 - j3 < 0) {
+            long j = this.endAls;
+            long j2 = this.startAls;
+            if (j - j2 < 0) {
                 return 0L;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeV.longValue;
     }
@@ -119,12 +119,12 @@ public final class TrafficMonitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.endApr;
-            long j3 = this.startApr;
-            if (j2 - j3 < 0) {
+            long j = this.endApr;
+            long j2 = this.startApr;
+            if (j - j2 < 0) {
                 return 0L;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeV.longValue;
     }
@@ -133,12 +133,12 @@ public final class TrafficMonitor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j2 = this.endAps;
-            long j3 = this.startAps;
-            if (j2 - j3 < 0) {
+            long j = this.endAps;
+            long j2 = this.startAps;
+            if (j - j2 < 0) {
                 return 0L;
             }
-            return j2 - j3;
+            return j - j2;
         }
         return invokeV.longValue;
     }

@@ -10,8 +10,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LEN = 4194304;
@@ -34,9 +33,9 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -105,7 +104,7 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
                     this.fileWriter = fileWriter;
                     if (fileWriter != null) {
                         fileWriter.write(str);
-                        this.fileWriter.write(StringUtils.LF);
+                        this.fileWriter.write("\n");
                         this.length.addAndGet(str.length() + 1);
                         this.fileWriter.flush();
                     }
@@ -126,23 +125,23 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     }
 
     @Override // com.yy.hiidostatis.inner.util.log.IBaseStatisLogWriter
-    public void write(int i2, String str) {
+    public void write(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             writeLogOrThrow(str);
         }
     }
 
-    public BaseDefaultStatisLogWriter(String str, int i2, boolean z) {
+    public BaseDefaultStatisLogWriter(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -153,7 +152,7 @@ public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
         this.fileWriter = null;
         this.length = new AtomicLong(0L);
         this.mFilePath = str;
-        int min = Math.min(i2, 33554432);
+        int min = Math.min(i, 33554432);
         this.mLogMaxLen = min;
         this.mLogMaxLen = Math.max(min, 262144);
         this.mWriteDebugLog = z;

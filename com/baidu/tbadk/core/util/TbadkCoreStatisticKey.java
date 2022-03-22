@@ -104,6 +104,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FROM_VIDEO_MIDDLE_PTS = "c14495";
     public static final String KEY_FROM_VIDEO_ROLLBACK = "c14471";
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
+    public static final String KEY_FRS_REQUEST_PAGE = "c14587";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW = "c14367";
@@ -269,9 +270,9 @@ public class TbadkCoreStatisticKey {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -284,9 +285,9 @@ public class TbadkCoreStatisticKey {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

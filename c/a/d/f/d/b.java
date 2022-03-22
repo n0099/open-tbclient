@@ -23,9 +23,9 @@ public class b extends c<byte[]> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((c.a.d.a.k.b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,7 +40,7 @@ public class b extends c<byte[]> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             c.a.d.a.k.b bVar = this.a;
-            bVar.d("DROP TABLE IF EXISTS " + this.f2511b);
+            bVar.d("DROP TABLE IF EXISTS " + this.f2067b);
             return true;
         }
         return invokeL.booleanValue;
@@ -56,7 +56,7 @@ public class b extends c<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v12, types: [T, byte[]] */
     @Override // c.a.d.f.d.c
     public g<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;
@@ -66,7 +66,7 @@ public class b extends c<byte[]> {
         }
         Cursor cursor = null;
         try {
-            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2511b + " where m_key = ?", new String[]{str});
+            Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.f2067b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
                     c.a.d.f.m.a.a(rawQuery);
@@ -74,10 +74,10 @@ public class b extends c<byte[]> {
                 }
                 g<byte[]> gVar = new g<>();
                 gVar.a = rawQuery.getString(0);
-                gVar.f2523d = rawQuery.getLong(1);
-                gVar.f2524e = rawQuery.getLong(2);
-                gVar.f2525f = rawQuery.getLong(3);
-                gVar.f2521b = rawQuery.getBlob(4);
+                gVar.f2078d = rawQuery.getLong(1);
+                gVar.f2079e = rawQuery.getLong(2);
+                gVar.f2080f = rawQuery.getLong(3);
+                gVar.f2076b = rawQuery.getBlob(4);
                 c.a.d.f.m.a.a(rawQuery);
                 return gVar;
             } catch (Throwable th) {
@@ -92,9 +92,9 @@ public class b extends c<byte[]> {
     }
 
     @Override // c.a.d.f.d.c
-    public void k(String str, String str2, int i2, int i3) {
+    public void k(String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
         }
     }
 
@@ -121,10 +121,10 @@ public class b extends c<byte[]> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, gVar)) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("m_key", gVar.a);
-            contentValues.put("m_value", gVar.f2521b);
-            contentValues.put("saveTime", Long.valueOf(gVar.f2523d));
-            contentValues.put("lastHitTime", Long.valueOf(gVar.f2524e));
-            contentValues.put("timeToExpire", Long.valueOf(gVar.f2525f));
+            contentValues.put("m_value", gVar.f2076b);
+            contentValues.put("saveTime", Long.valueOf(gVar.f2078d));
+            contentValues.put("lastHitTime", Long.valueOf(gVar.f2079e));
+            contentValues.put("timeToExpire", Long.valueOf(gVar.f2080f));
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -135,7 +135,7 @@ public class b extends c<byte[]> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.f2511b, new String[0]);
+            return sQLiteDatabase.rawQuery("select * from " + this.f2067b, new String[0]);
         }
         return (Cursor) invokeLL.objValue;
     }

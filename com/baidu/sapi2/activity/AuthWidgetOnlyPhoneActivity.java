@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,23 +21,26 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAM_AUTH_ID = "EXTRA_PARAM_AUTH_ID";
     public static final String EXTRA_PARAM_SCENE = "EXTRA_PARAM_SCENE";
-    public static final String v = "ppsdk://authwidget/u";
+    public static final String w = "ppsdk://authwidget/u";
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
     public String u;
+    public SapiResult v;
 
     public AuthWidgetOnlyPhoneActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.v = new SapiResult();
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -62,7 +66,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onClose();
             if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
-                CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess("验证取消");
+                this.v.setResultCode(-301);
+                this.v.setResultMsg("您已取消操作");
+                CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.v);
             }
             finish();
         }
@@ -73,7 +79,7 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e4);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             this.u = getIntent().getStringExtra(EXTRA_PARAM_SCENE);
             init();
@@ -109,9 +115,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -140,9 +146,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -171,9 +177,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -183,10 +189,10 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
-                public void onLeftBtnVisible(int i2) {
+                public void onLeftBtnVisible(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        if (i2 == 0) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        if (i == 0) {
                             this.a.setBtnVisibility(4, 4, 4);
                         } else {
                             this.a.setBtnVisibility(4, 0, 4);
@@ -206,9 +212,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -234,16 +240,16 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
                 public void shouldOverrideUrlLoading(WebView webView, String str) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(AuthWidgetOnlyPhoneActivity.v)) {
+                    if ((interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.contains(AuthWidgetOnlyPhoneActivity.w)) {
                         if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
-                            CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess("验证通过");
+                            CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess(this.a.t);
                         }
                         this.a.finish();
                     }
                 }
             });
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair("u", v));
+            arrayList.add(new PassNameValuePair("u", w));
             arrayList.add(new PassNameValuePair("scene", this.u));
             arrayList.add(new PassNameValuePair(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, this.t));
             this.sapiWebView.loadAuthWidget(arrayList);
@@ -260,7 +266,9 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
                 return;
             }
             if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
-                CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess("验证取消");
+                this.v.setResultCode(-301);
+                this.v.setResultMsg("您已取消操作");
+                CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.v);
             }
             finish();
         }

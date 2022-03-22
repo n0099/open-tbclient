@@ -14,23 +14,23 @@ public class JsArrayBuffer {
     public byte[] mBuffer;
     public int mLength;
 
-    public JsArrayBuffer(byte[] bArr, int i2) {
+    public JsArrayBuffer(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2)};
+            Object[] objArr = {bArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mBuffer = bArr;
-        this.mLength = i2;
+        this.mLength = i;
     }
 
     public byte[] buffer() {

@@ -91,9 +91,9 @@ public class GroupManagerImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -111,9 +111,9 @@ public class GroupManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -151,11 +151,11 @@ public class GroupManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ChatMsg getInviteMsg(String str, int i2, long j2, long j3) {
+    public ChatMsg getInviteMsg(String str, int i, long j, long j2) {
         String str2;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("group_id", Utility.getLongByString(str, 0L));
@@ -170,9 +170,9 @@ public class GroupManagerImpl {
             fansGroupInviteMsg.setStatus(1);
             fansGroupInviteMsg.setSenderUid(TextUtils.isEmpty(AccountManager.getUid(mContext)) ? "0" : AccountManager.getUid(mContext));
             fansGroupInviteMsg.setCategory(0);
-            fansGroupInviteMsg.setChatType(i2);
-            fansGroupInviteMsg.setContacterBduid(String.valueOf(j2));
-            fansGroupInviteMsg.setContacter(j3);
+            fansGroupInviteMsg.setChatType(i);
+            fansGroupInviteMsg.setContacterBduid(String.valueOf(j));
+            fansGroupInviteMsg.setContacter(j2);
             fansGroupInviteMsg.setMsgTime(System.currentTimeMillis() / 1000);
             return fansGroupInviteMsg;
         }
@@ -211,15 +211,15 @@ public class GroupManagerImpl {
         }
     }
 
-    public void createGroup(int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
+    public void createGroup(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, arrayList, bIMValueCallBack}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, bIMValueCallBack}) == null) {
             if (!isValidGroupName(str)) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
             } else if (AccountManager.isLogin(mContext)) {
-                IMCreateGroupRequest iMCreateGroupRequest = new IMCreateGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), i2, str, arrayList);
+                IMCreateGroupRequest iMCreateGroupRequest = new IMCreateGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), i, str, arrayList);
                 HttpHelper.executor(mContext, iMCreateGroupRequest, iMCreateGroupRequest);
             } else {
                 LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
@@ -251,18 +251,18 @@ public class GroupManagerImpl {
     }
 
     public void delGroupMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -281,18 +281,18 @@ public class GroupManagerImpl {
     }
 
     public void delStarMember(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, arrayList, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -380,9 +380,9 @@ public class GroupManagerImpl {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, Boolean.valueOf(z), arrayList, bIMValueCallBack};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -471,9 +471,9 @@ public class GroupManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, Boolean.valueOf(z), bIMValueCallBack};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -528,9 +528,9 @@ public class GroupManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, Boolean.valueOf(z), str, arrayList, bIMValueCallBack};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -620,9 +620,9 @@ public class GroupManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, arrayList, bIMValueCallBack};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -675,9 +675,9 @@ public class GroupManagerImpl {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, arrayList5};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -688,10 +688,10 @@ public class GroupManagerImpl {
                                         }
 
                                         @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
-                                        public void onGetUsersProfileBatchResult(int i2, String str2, ArrayList<Long> arrayList6, ArrayList<ChatUser> arrayList7) {
+                                        public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList6, ArrayList<ChatUser> arrayList7) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, arrayList6, arrayList7}) == null) {
-                                                if (i2 == 0 && arrayList7 != null && arrayList7.size() > 0) {
+                                            if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, arrayList6, arrayList7}) == null) {
+                                                if (i == 0 && arrayList7 != null && arrayList7.size() > 0) {
                                                     Iterator<ChatUser> it3 = arrayList7.iterator();
                                                     while (it3.hasNext()) {
                                                         ChatUser next = it3.next();
@@ -741,11 +741,11 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i2, int i3) {
+    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048593, this, bIMValueCallBack, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048593, this, bIMValueCallBack, i, i2) == null) {
             if (AccountManager.isLogin(mContext)) {
-                ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i2, i3);
+                ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupList);
                     return;
@@ -759,9 +759,9 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupMember(int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+    public void getGroupMember(int i, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), str, arrayList, bIMValueCallBack}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), str, arrayList, bIMValueCallBack}) == null) {
             if (str == null) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
@@ -771,7 +771,7 @@ public class GroupManagerImpl {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
                 }
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 IMQueryMemberRequest iMQueryMemberRequest = new IMQueryMemberRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, arrayList, 1);
                 HttpHelper.executor(mContext, iMQueryMemberRequest, iMQueryMemberRequest);
             } else {
@@ -786,9 +786,9 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getGroupsInfo(int i2, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
+    public void getGroupsInfo(int i, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048595, this, i2, arrayList, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048595, this, i, arrayList, bIMValueCallBack) == null) {
             if (arrayList == null || arrayList.size() == 0) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
@@ -797,7 +797,7 @@ public class GroupManagerImpl {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
                 }
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
                 HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);
             } else {
@@ -839,18 +839,18 @@ public class GroupManagerImpl {
     }
 
     public void getStarOnline(String str, BIMValueCallBack<Integer> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
                 }
@@ -871,36 +871,36 @@ public class GroupManagerImpl {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void joinGroup(String str, String str2, int i2, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+    public void joinGroup(String str, String str2, int i, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            long j3 = -1;
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{str, str2, Integer.valueOf(i), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
+            long j2 = -1;
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (Exception e2) {
                 e = e2;
-                j2 = -1;
+                j = -1;
             }
             try {
-                j3 = Long.valueOf(str2).longValue();
+                j2 = Long.valueOf(str2).longValue();
             } catch (Exception e3) {
                 e = e3;
                 LogUtils.e(TAG, e.getMessage());
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
-                long j4 = j3;
-                if (j2 >= 0) {
+                long j3 = j2;
+                if (j >= 0) {
                 }
                 if (bIMValueCallBack == null) {
                 }
             }
-            long j42 = j3;
-            if (j2 >= 0 || j42 < 0) {
+            long j32 = j2;
+            if (j >= 0 || j32 < 0) {
                 if (bIMValueCallBack == null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
             } else if (AccountManager.isLogin(mContext)) {
-                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j42, i2, str3);
+                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j32, i, str3);
                 HttpHelper.executor(mContext, iMJoinGroupRequest, iMJoinGroupRequest);
             } else {
                 LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
@@ -912,17 +912,17 @@ public class GroupManagerImpl {
     }
 
     public void joinStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (Exception e2) {
                 LogUtils.e(TAG, e2.getMessage());
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (j2 < 0 && bIMValueCallBack != null) {
+            if (j < 0 && bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
             }
             if (AccountManager.isLogin(mContext)) {
@@ -938,18 +938,18 @@ public class GroupManagerImpl {
     }
 
     public void quitFansGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -966,18 +966,18 @@ public class GroupManagerImpl {
     }
 
     public void quitGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -994,18 +994,18 @@ public class GroupManagerImpl {
     }
 
     public void quitStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, str, bIMValueCallBack) == null) {
             try {
-                j2 = Long.valueOf(str).longValue();
+                j = Long.valueOf(str).longValue();
             } catch (NumberFormatException e2) {
                 String str2 = TAG;
                 LogUtils.e(str2, "groupId : " + str, e2);
                 new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
-                j2 = -1;
+                j = -1;
             }
-            if (0 > j2) {
+            if (0 > j) {
                 if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
                 }
@@ -1040,9 +1040,9 @@ public class GroupManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, r8, iSendMessageListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1056,19 +1056,19 @@ public class GroupManagerImpl {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                    public void onResult(int i2, String str2, List<IMQueryMemberPauidRequest.UserId> list2) {
+                    public void onResult(int i, String str2, List<IMQueryMemberPauidRequest.UserId> list2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2, list2) == null) {
-                            if (i2 == 0 && list2 != null) {
+                        if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, list2) == null) {
+                            if (i == 0 && list2 != null) {
                                 for (IMQueryMemberPauidRequest.UserId userId : list2) {
                                     long pauid = userId.getPauid();
-                                    int i3 = (pauid > 0L ? 1 : (pauid == 0L ? 0 : -1));
-                                    long uk = i3 == 0 ? userId.getUk() : pauid;
-                                    int i4 = i3 == 0 ? 0 : 7;
-                                    ChatMsg inviteMsg = this.this$0.getInviteMsg(this.val$groupId, i4, userId.getBduid(), uk);
+                                    int i2 = (pauid > 0L ? 1 : (pauid == 0L ? 0 : -1));
+                                    long uk = i2 == 0 ? userId.getUk() : pauid;
+                                    int i3 = i2 == 0 ? 0 : 7;
+                                    ChatMsg inviteMsg = this.this$0.getInviteMsg(this.val$groupId, i3, userId.getBduid(), uk);
                                     if (AccountManager.getMediaRole(GroupManagerImpl.mContext)) {
                                         String paThirdId = PaManagerImpl.getInstance(GroupManagerImpl.mContext).getPaThirdId(pauid);
-                                        int businessType = Utility.getBusinessType(i4, 0);
+                                        int businessType = Utility.getBusinessType(i3, 0);
                                         ChatMsgManagerImpl.getInstance(GroupManagerImpl.mContext).mediaSendChatMsg(userId.getBduid(), businessType, pauid, paThirdId, inviteMsg, new IMediaSendChatMsgListener(this, businessType, userId, pauid, paThirdId) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.6.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
@@ -1085,9 +1085,9 @@ public class GroupManagerImpl {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this, Integer.valueOf(businessType), userId, Long.valueOf(pauid), paThirdId};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i5 = newInitContext.flag;
-                                                    if ((i5 & 1) != 0) {
-                                                        int i6 = i5 & 2;
+                                                    int i4 = newInitContext.flag;
+                                                    if ((i4 & 1) != 0) {
+                                                        int i5 = i4 & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -1101,10 +1101,10 @@ public class GroupManagerImpl {
                                             }
 
                                             @Override // com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener
-                                            public void onMediaSendChatMsgResult(int i5, ChatMsg chatMsg) {
+                                            public void onMediaSendChatMsgResult(int i4, ChatMsg chatMsg) {
                                                 Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i5, chatMsg) == null) {
-                                                    if (i5 == 0) {
+                                                if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, chatMsg) == null) {
+                                                    if (i4 == 0) {
                                                         Utility.transformMediaNotify(GroupManagerImpl.mContext, this.val$businessType, this.val$userId.getBduid(), this.val$paid, this.val$thirdId, 2, -1L);
                                                     }
                                                     if (this.this$1.val$count.decrementAndGet() == 0) {
@@ -1127,9 +1127,9 @@ public class GroupManagerImpl {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this, userId};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i5 = newInitContext.flag;
-                                                    if ((i5 & 1) != 0) {
-                                                        int i6 = i5 & 2;
+                                                    int i4 = newInitContext.flag;
+                                                    if ((i4 & 1) != 0) {
+                                                        int i5 = i4 & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -1140,10 +1140,10 @@ public class GroupManagerImpl {
                                             }
 
                                             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-                                            public void onSendMessageResult(int i5, ChatMsg chatMsg) {
+                                            public void onSendMessageResult(int i4, ChatMsg chatMsg) {
                                                 Interceptable interceptable3 = $ic;
-                                                if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i5, chatMsg) == null) {
-                                                    if (i5 == 0) {
+                                                if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, chatMsg) == null) {
+                                                    if (i4 == 0) {
                                                         Utility.transformMediaNotify(GroupManagerImpl.mContext, 1, this.val$userId.getBduid(), -1L, "", 2, -1L);
                                                     }
                                                     if (this.this$1.val$count.decrementAndGet() == 0) {
@@ -1166,18 +1166,18 @@ public class GroupManagerImpl {
         }
     }
 
-    public void setGroupDisturb(String str, int i2, BIMValueCallBack<String> bIMValueCallBack) {
+    public void setGroupDisturb(String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048606, this, str, i2, bIMValueCallBack) == null) {
-            IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i2);
+        if (interceptable == null || interceptable.invokeLIL(1048606, this, str, i, bIMValueCallBack) == null) {
+            IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i);
             HttpHelper.executor(mContext, iMGroupSetRequest, iMGroupSetRequest);
         }
     }
 
-    public void setNickName(String str, long j2, String str2, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
+    public void setNickName(String str, long j, String str2, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Long.valueOf(j2), str2, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            IMSetNickNameRequest iMSetNickNameRequest = new IMSetNickNameRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), z, str, str2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{str, Long.valueOf(j), str2, Boolean.valueOf(z), bIMValueCallBack}) == null) {
+            IMSetNickNameRequest iMSetNickNameRequest = new IMSetNickNameRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), z, str, str2, j);
             HttpHelper.executor(mContext, iMSetNickNameRequest, iMSetNickNameRequest);
         }
     }

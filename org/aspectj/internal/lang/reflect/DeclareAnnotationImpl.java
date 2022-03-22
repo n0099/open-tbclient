@@ -14,7 +14,7 @@ import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclareAnnotation;
 import org.aspectj.lang.reflect.SignaturePattern;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DeclareAnnotationImpl implements DeclareAnnotation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
     public TypePattern typePattern;
 
     /* renamed from: org.aspectj.internal.lang.reflect.DeclareAnnotationImpl$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind;
         public static /* synthetic */ Interceptable $ic;
@@ -73,9 +73,9 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
             newInitContext.initArgs = r2;
             Object[] objArr = {ajType, str, str2, annotation, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -150,17 +150,17 @@ public class DeclareAnnotationImpl implements DeclareAnnotation {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("declare @");
-            int i2 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind[getKind().ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$DeclareAnnotation$Kind[getKind().ordinal()];
+            if (i == 1) {
                 stringBuffer.append("type : ");
                 stringBuffer.append(getTypePattern().asString());
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 stringBuffer.append("method : ");
                 stringBuffer.append(getSignaturePattern().asString());
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 stringBuffer.append("field : ");
                 stringBuffer.append(getSignaturePattern().asString());
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 stringBuffer.append("constructor : ");
                 stringBuffer.append(getSignaturePattern().asString());
             }

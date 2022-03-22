@@ -8,7 +8,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.utils.aj;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends IFragmentActivityProxy {
     public final com.kwad.sdk.h.a.a mPageMonitor = new com.kwad.sdk.h.a.a();
     public final com.kwad.sdk.h.kwai.a mBackPressDelete = new com.kwad.sdk.h.kwai.a();
@@ -18,8 +18,8 @@ public abstract class b extends IFragmentActivityProxy {
         this.mBackPressDelete.a(bVar);
     }
 
-    public void addBackPressable(com.kwad.sdk.h.kwai.b bVar, int i2) {
-        this.mBackPressDelete.a(bVar, i2);
+    public void addBackPressable(com.kwad.sdk.h.kwai.b bVar, int i) {
+        this.mBackPressDelete.a(bVar, i);
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
@@ -71,8 +71,8 @@ public abstract class b extends IFragmentActivityProxy {
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
-    public void setContentView(int i2) {
-        super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i2, null));
+    public void setContentView(int i) {
+        super.setContentView(View.inflate(Wrapper.wrapContextIfNeed(getActivity()), i, null));
     }
 
     public void setEnableDestroyer(boolean z) {

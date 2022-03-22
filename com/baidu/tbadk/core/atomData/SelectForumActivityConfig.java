@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SelectForumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_KEY_BAIJIAHAO_DATA = "extra_key_baijiahao_data";
@@ -50,24 +50,24 @@ public class SelectForumActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectForumActivityConfig(Context context, int i2) {
+    public SelectForumActivityConfig(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 
@@ -102,12 +102,12 @@ public class SelectForumActivityConfig extends IntentConfig {
         getIntent().putParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST", arrayList);
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(EXTRA_KEY_FROM, i2);
+        getIntent().putExtra(EXTRA_KEY_FROM, i);
     }
 
     public void setIsShare(boolean z) {
@@ -118,12 +118,12 @@ public class SelectForumActivityConfig extends IntentConfig {
         getIntent().putExtra("from_share", z);
     }
 
-    public void setLiveId(long j2) {
+    public void setLiveId(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("extra_key_live_id", j2);
+        getIntent().putExtra("extra_key_live_id", j);
     }
 
     public void setMoreForumImg(String str) {
@@ -158,12 +158,12 @@ public class SelectForumActivityConfig extends IntentConfig {
         getIntent().putExtra(EXTRA_KEY_ORIGINAL_THREAD, shareInfo);
     }
 
-    public void setPrivateThread(int i2) {
+    public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i2);
+        getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
     }
 
     public void setTopicId(String str) {

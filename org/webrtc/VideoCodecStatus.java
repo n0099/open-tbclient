@@ -7,9 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class VideoCodecStatus {
     public static final /* synthetic */ VideoCodecStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -44,7 +43,7 @@ public final class VideoCodecStatus {
         }
         REQUEST_SLI = new VideoCodecStatus("REQUEST_SLI", 0, 2);
         NO_OUTPUT = new VideoCodecStatus("NO_OUTPUT", 1, 1);
-        OK = new VideoCodecStatus(StatHelper.SENSOR_OK, 2, 0);
+        OK = new VideoCodecStatus("OK", 2, 0);
         ERROR = new VideoCodecStatus("ERROR", 3, -1);
         LEVEL_EXCEEDED = new VideoCodecStatus("LEVEL_EXCEEDED", 4, -2);
         MEMORY = new VideoCodecStatus("MEMORY", 5, -3);
@@ -59,16 +58,16 @@ public final class VideoCodecStatus {
         $VALUES = new VideoCodecStatus[]{REQUEST_SLI, NO_OUTPUT, OK, ERROR, LEVEL_EXCEEDED, MEMORY, ERR_PARAMETER, ERR_SIZE, TIMEOUT, UNINITIALIZED, ERR_REQUEST_SLI, FALLBACK_SOFTWARE, videoCodecStatus};
     }
 
-    public VideoCodecStatus(String str, int i2, int i3) {
+    public VideoCodecStatus(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -77,7 +76,7 @@ public final class VideoCodecStatus {
                 return;
             }
         }
-        this.number = i3;
+        this.number = i2;
     }
 
     public static VideoCodecStatus valueOf(String str) {

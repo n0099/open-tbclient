@@ -1,7 +1,7 @@
 package com.baidu.poly.wallet.paychannel;
 
 import android.app.Activity;
-import c.a.f0.c.a;
+import c.a.e0.c.a;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */

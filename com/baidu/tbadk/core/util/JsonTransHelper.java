@@ -38,9 +38,9 @@ public class JsonTransHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -78,9 +78,9 @@ public class JsonTransHelper {
             JSONArray optJSONArray = jSONObject.optJSONArray("reasons");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     try {
-                        arrayList.add(optJSONArray.getString(i2));
+                        arrayList.add(optJSONArray.getString(i));
                     } catch (Exception unused) {
                     }
                 }
@@ -129,13 +129,13 @@ public class JsonTransHelper {
             builder.plan_id = Integer.valueOf(jSONObject.optInt("plan_id"));
             builder.user_id = jSONObject.optString("user_id");
             builder.price = jSONObject.optString("price");
-            builder.verify = jSONObject.optString(SmsLoginView.f.f36828j);
+            builder.verify = jSONObject.optString(SmsLoginView.f.j);
             builder.ext_info = jSONObject.optString("ext_info");
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
             int length = optJSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                arrayList.add(parseGoodsFromJson(optJSONArray.optJSONObject(i2)));
+            for (int i = 0; i < length; i++) {
+                arrayList.add(parseGoodsFromJson(optJSONArray.optJSONObject(i)));
             }
             builder.goods_info = arrayList;
             builder.loc_code = jSONObject.optString("loc_code");
@@ -163,8 +163,8 @@ public class JsonTransHelper {
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
             int length = optJSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                arrayList.add(parseThreadPicListFromJson(optJSONArray.optJSONObject(i2)));
+            for (int i = 0; i < length; i++) {
+                arrayList.add(parseThreadPicListFromJson(optJSONArray.optJSONObject(i)));
             }
             builder.thread_pic_list = arrayList;
             builder.label_visible = Integer.valueOf(jSONObject.optInt("label_visible"));
@@ -204,7 +204,7 @@ public class JsonTransHelper {
             builder.ad_start_time = Long.valueOf(jSONObject.optLong("ad_start_time"));
             builder.ad_end_time = Long.valueOf(jSONObject.optLong("ad_end_time"));
             builder.pic_url = jSONObject.optString("pic_url");
-            builder.jump_url = jSONObject.optString("jump_url");
+            builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
             builder.card_title = jSONObject.optString("card_title");
             builder.button_title = jSONObject.optString("button_title");
             builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
@@ -269,8 +269,8 @@ public class JsonTransHelper {
             JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    arrayList.add(parseVideoDescFromJson(optJSONArray.optJSONObject(i2)));
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(parseVideoDescFromJson(optJSONArray.optJSONObject(i)));
                 }
                 builder.video_desc = arrayList;
             }
@@ -370,7 +370,7 @@ public class JsonTransHelper {
                 jSONObject.put("plan_id", app.plan_id);
                 jSONObject.put("user_id", app.user_id);
                 jSONObject.put("price", app.price);
-                jSONObject.put(SmsLoginView.f.f36828j, app.verify);
+                jSONObject.put(SmsLoginView.f.j, app.verify);
                 jSONObject.put("ext_info", app.ext_info);
                 JSONArray jSONArray = new JSONArray();
                 for (GoodsInfo goodsInfo : app.goods_info) {
@@ -449,7 +449,7 @@ public class JsonTransHelper {
                 jSONObject.put("ad_start_time", mcnAdInfo.ad_start_time);
                 jSONObject.put("ad_end_time", mcnAdInfo.ad_end_time);
                 jSONObject.put("pic_url", mcnAdInfo.pic_url);
-                jSONObject.put("jump_url", mcnAdInfo.jump_url);
+                jSONObject.put(BigdayActivityConfig.JUMP_URL, mcnAdInfo.jump_url);
                 jSONObject.put("card_title", mcnAdInfo.card_title);
                 jSONObject.put("button_title", mcnAdInfo.button_title);
                 jSONObject.put("effect_time", mcnAdInfo.effect_time);

@@ -3,6 +3,7 @@ package com.kwai.sodler.lib.ext;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
@@ -11,12 +12,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @SuppressLint({"LongLogTag"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +82,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,8 +114,8 @@ public class d {
     }
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C2159d {
+    /* loaded from: classes7.dex */
+    public static final class C2020d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +145,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +177,7 @@ public class d {
                 if (file != null) {
                     if (file.exists()) {
                         if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                            C2159d.b(classLoader, file);
+                            C2020d.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT == 24) {
                             c.b(classLoader, file);
                         } else if (Build.VERSION.SDK_INT >= 23) {
@@ -189,7 +190,7 @@ public class d {
                         return;
                     }
                 }
-                String.format("installNativeLibraryPath, folder %s is illegal", file);
+                Log.e("Sodler.ShareLibraryLoader", String.format("installNativeLibraryPath, folder %s is illegal", file));
             }
         }
     }

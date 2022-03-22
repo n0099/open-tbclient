@@ -8,9 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.f;
-import com.baidu.sofire.core.g;
-import com.baidu.sofire.utility.z;
+import com.baidu.sofire.core.PluginloaderHub;
+import com.baidu.sofire.core.PluginloaderIntentFilter;
+import com.baidu.sofire.utility.CommonMethods;
+import com.baidu.sofire.utility.ThreadPoolManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,34 +22,28 @@ import java.util.List;
 public class MyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f36979b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f36980c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f36981d;
+    public Callback initCallback;
+    public boolean mIsOnlyNetSelf;
+    public long mLastDoNetChangeTime;
+    public long mSetNetOnlyTime;
 
     public MyReceiver() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Callback(this) { // from class: com.baidu.sofire.MyReceiver.1
+        this.initCallback = new Callback(this) { // from class: com.baidu.sofire.MyReceiver.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ MyReceiver a;
+            public final /* synthetic */ MyReceiver this$0;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -57,162 +52,167 @@ public class MyReceiver extends BroadcastReceiver {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
                     }
                 }
-                this.a = this;
+                this.this$0 = this;
             }
 
             @Override // com.baidu.sofire.ac.Callback
-            public final Object onEnd(Object... objArr) {
+            public Object onEnd(Object... objArr) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objArr)) == null) ? super.onEnd(objArr) : invokeL.objValue;
             }
         };
-        this.f36979b = false;
-        this.f36980c = 0L;
-        this.f36981d = 0L;
+        this.mIsOnlyNetSelf = false;
+        this.mSetNetOnlyTime = 0L;
+        this.mLastDoNetChangeTime = 0L;
     }
 
-    public final MyReceiver a() {
-        InterceptResult invokeV;
+    public static void callDistinction(ClassLoader classLoader, Intent intent, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65538, null, classLoader, intent, context) == null) {
             try {
-                this.f36980c = System.currentTimeMillis();
-                this.f36979b = true;
+                Class<?> loadClass = classLoader.loadClass(intent.getStringExtra("target_class"));
+                loadClass.getDeclaredMethod(intent.getStringExtra("target_method"), Context.class, Intent.class).invoke(loadClass.newInstance(), context.getApplicationContext(), intent);
             } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
             }
-            return this;
         }
-        return (MyReceiver) invokeV.objValue;
+    }
+
+    public static void callanddoAction(Context context, Intent intent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, context, intent, z) == null) {
+            ThreadPoolManager.getInstance(context).execute(new Runnable(intent, context, z) { // from class: com.baidu.sofire.MyReceiver.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ Intent val$intent;
+                public final /* synthetic */ boolean val$isOnlyNetSelf;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {intent, context, Boolean.valueOf(z)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$intent = intent;
+                    this.val$context = context;
+                    this.val$isOnlyNetSelf = z;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    boolean z2;
+                    ApkInfo apkInfoByPackageName;
+                    List<ApkInfo> allLoadedPlugins;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            if ("r".equals(this.val$intent.getStringExtra("t"))) {
+                                String stringExtra = this.val$intent.getStringExtra("c");
+                                Intent intent2 = new Intent();
+                                intent2.putExtra("t", "r");
+                                intent2.putExtra("c", stringExtra);
+                                AwakeReceiver.onReceiveAwakeMessage(this.val$context, intent2);
+                            }
+                            String action = this.val$intent.getAction();
+                            if (this.val$isOnlyNetSelf && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && CommonMethods.isNetworkAvailable(this.val$context) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                                ThreadPoolManager.getInstance(this.val$context).executeCore(new U(this.val$context.getApplicationContext(), 3, false));
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (this.val$isOnlyNetSelf && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && CommonMethods.sNeedCheckConnectivity && !z2 && CommonMethods.isWifiAvailable(this.val$context)) {
+                                ThreadPoolManager.getInstance(this.val$context).executeCore(new U(this.val$context.getApplicationContext(), 3, false));
+                            }
+                            if (this.val$isOnlyNetSelf) {
+                                return;
+                            }
+                            String stringExtra2 = this.val$intent.getStringExtra("from_plugin_package");
+                            if (TextUtils.isEmpty(stringExtra2)) {
+                                PluginloaderHub peekInstance = PluginloaderHub.peekInstance();
+                                if (peekInstance == null || (allLoadedPlugins = peekInstance.getAllLoadedPlugins()) == null) {
+                                    return;
+                                }
+                                for (int i = 0; i < allLoadedPlugins.size(); i++) {
+                                    ApkInfo apkInfo = allLoadedPlugins.get(i);
+                                    if (apkInfo.intentFilters != null) {
+                                        for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
+                                            PluginloaderIntentFilter pluginloaderIntentFilter = apkInfo.intentFilters.get(i2);
+                                            if (pluginloaderIntentFilter.intentFilter.match(this.val$intent.getAction(), this.val$intent.getType(), this.val$intent.getScheme(), this.val$intent.getData(), this.val$intent.getCategories(), "PIF") >= 0) {
+                                                Class<?> loadClass = apkInfo.classLoader.loadClass(pluginloaderIntentFilter.targetClass);
+                                                loadClass.getDeclaredMethod(pluginloaderIntentFilter.targetMethod, Context.class, Intent.class).invoke(loadClass.newInstance(), this.val$context.getApplicationContext(), this.val$intent);
+                                            }
+                                        }
+                                    }
+                                }
+                            } else if (this.val$context.getPackageName().equals(stringExtra2)) {
+                                MyReceiver.callDistinction(this.val$context.getClassLoader(), this.val$intent, this.val$context);
+                            } else {
+                                PluginloaderHub peekInstance2 = PluginloaderHub.peekInstance();
+                                if (peekInstance2 == null || (apkInfoByPackageName = peekInstance2.getApkInfoByPackageName(stringExtra2)) == null) {
+                                    return;
+                                }
+                                MyReceiver.callDistinction(apkInfoByPackageName.classLoader, this.val$intent, this.val$context);
+                            }
+                        } catch (Throwable th) {
+                            CommonMethods.handleNuLException(th);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) || intent == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
         try {
-            if (!this.f36979b || System.currentTimeMillis() - this.f36980c >= 2000) {
+            if (!this.mIsOnlyNetSelf || System.currentTimeMillis() - this.mSetNetOnlyTime >= 2000) {
                 if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                    if (System.currentTimeMillis() - this.f36981d < 100 || !com.baidu.sofire.utility.c.f(context)) {
+                    if (System.currentTimeMillis() - this.mLastDoNetChangeTime < 100 || !CommonMethods.isNetworkAvailable(context)) {
                         return;
                     }
-                    this.f36981d = System.currentTimeMillis();
+                    this.mLastDoNetChangeTime = System.currentTimeMillis();
                 }
-                Context applicationContext = context.getApplicationContext();
-                z.a(applicationContext).a(new Runnable(intent, applicationContext, this.f36979b) { // from class: com.baidu.sofire.MyReceiver.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ Intent a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f36982b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ boolean f36983c;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {intent, applicationContext, Boolean.valueOf(r8)};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = intent;
-                        this.f36982b = applicationContext;
-                        this.f36983c = r8;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        boolean z;
-                        ApkInfo d2;
-                        List<ApkInfo> b2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            try {
-                                if ("r".equals(this.a.getStringExtra("t"))) {
-                                    String stringExtra = this.a.getStringExtra("c");
-                                    Intent intent2 = new Intent();
-                                    intent2.putExtra("t", "r");
-                                    intent2.putExtra("c", stringExtra);
-                                    a.a(this.f36982b, intent2);
-                                }
-                                String action = this.a.getAction();
-                                if (this.f36983c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.f(this.f36982b) && U.sMonitorNetworkWhenUpgradeNoNet) {
-                                    z.a(this.f36982b).b(new U(this.f36982b.getApplicationContext(), 3, false));
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                if (this.f36983c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.utility.c.a && !z && com.baidu.sofire.utility.c.e(this.f36982b)) {
-                                    z.a(this.f36982b).b(new U(this.f36982b.getApplicationContext(), 3, false));
-                                }
-                                if (this.f36983c) {
-                                    return;
-                                }
-                                String stringExtra2 = this.a.getStringExtra("from_plugin_package");
-                                if (TextUtils.isEmpty(stringExtra2)) {
-                                    f a = f.a();
-                                    if (a == null || (b2 = a.b()) == null) {
-                                        return;
-                                    }
-                                    for (int i2 = 0; i2 < b2.size(); i2++) {
-                                        ApkInfo apkInfo = b2.get(i2);
-                                        if (apkInfo.intentFilters != null) {
-                                            for (int i3 = 0; i3 < apkInfo.intentFilters.size(); i3++) {
-                                                g gVar = apkInfo.intentFilters.get(i3);
-                                                if (gVar.f37083d.match(this.a.getAction(), this.a.getType(), this.a.getScheme(), this.a.getData(), this.a.getCategories(), "PIF") >= 0) {
-                                                    Class<?> loadClass = apkInfo.classLoader.loadClass(gVar.f37081b);
-                                                    loadClass.getDeclaredMethod(gVar.f37082c, Context.class, Intent.class).invoke(loadClass.newInstance(), this.f36982b.getApplicationContext(), this.a);
-                                                }
-                                            }
-                                        }
-                                    }
-                                } else if (this.f36982b.getPackageName().equals(stringExtra2)) {
-                                    MyReceiver.a(this.f36982b.getClassLoader(), this.a, this.f36982b);
-                                } else {
-                                    f a2 = f.a();
-                                    if (a2 == null || (d2 = a2.d(stringExtra2)) == null) {
-                                        return;
-                                    }
-                                    MyReceiver.a(d2.classLoader, this.a, this.f36982b);
-                                }
-                            } catch (Throwable unused) {
-                                com.baidu.sofire.utility.c.a();
-                            }
-                        }
-                    }
-                });
+                callanddoAction(context.getApplicationContext(), intent, this.mIsOnlyNetSelf);
             }
-        } catch (Throwable unused) {
-            com.baidu.sofire.utility.c.a();
+        } catch (Throwable th) {
+            CommonMethods.handleNuLException(th);
         }
     }
 
-    public static /* synthetic */ void a(ClassLoader classLoader, Intent intent, Context context) {
-        try {
-            Class<?> loadClass = classLoader.loadClass(intent.getStringExtra("target_class"));
-            loadClass.getDeclaredMethod(intent.getStringExtra("target_method"), Context.class, Intent.class).invoke(loadClass.newInstance(), context.getApplicationContext(), intent);
-        } catch (Throwable unused) {
+    public MyReceiver setOnlyNetSelf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                this.mSetNetOnlyTime = System.currentTimeMillis();
+                this.mIsOnlyNetSelf = true;
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
+            }
+            return this;
         }
+        return (MyReceiver) invokeV.objValue;
     }
 }

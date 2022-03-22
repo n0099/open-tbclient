@@ -51,16 +51,16 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         public int sourceMode;
         public final Scheduler.Worker worker;
 
-        public BaseObserveOnSubscriber(Scheduler.Worker worker, boolean z, int i2) {
+        public BaseObserveOnSubscriber(Scheduler.Worker worker, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {worker, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {worker, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -68,9 +68,9 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             this.worker = worker;
             this.delayError = z;
-            this.prefetch = i2;
+            this.prefetch = i;
             this.requested = new AtomicLong();
-            this.limit = i2 - (i2 >> 2);
+            this.limit = i - (i >> 2);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -186,20 +186,20 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 trySchedule();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public final int requestFusion(int i2) {
+        public final int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -245,17 +245,17 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         public long consumed;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ObserveOnConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Scheduler.Worker worker, boolean z, int i2) {
-            super(worker, z, i2);
+        public ObserveOnConditionalSubscriber(ConditionalSubscriber<? super T> conditionalSubscriber, Scheduler.Worker worker, boolean z, int i) {
+            super(worker, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {conditionalSubscriber, worker, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {conditionalSubscriber, worker, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Scheduler.Worker) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -302,12 +302,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
-                    long j2 = this.consumed + 1;
-                    if (j2 == this.limit) {
+                    long j = this.consumed + 1;
+                    if (j == this.limit) {
                         this.consumed = 0L;
-                        this.s.request(j2);
+                        this.s.request(j);
                     } else {
-                        this.consumed = j2;
+                        this.consumed = j;
                     }
                 }
                 return poll;
@@ -317,21 +317,21 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
 
         @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn.BaseObserveOnSubscriber
         public void runAsync() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
                 return;
             }
             ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j2 = this.produced;
-            long j3 = this.consumed;
-            int i3 = 1;
+            long j = this.produced;
+            long j2 = this.consumed;
+            int i2 = 1;
             while (true) {
-                long j4 = this.requested.get();
+                long j3 = this.requested.get();
                 while (true) {
-                    i2 = (j2 > j4 ? 1 : (j2 == j4 ? 0 : -1));
-                    if (i2 == 0) {
+                    i = (j > j3 ? 1 : (j == j3 ? 0 : -1));
+                    if (i == 0) {
                         break;
                     }
                     boolean z = this.done;
@@ -345,12 +345,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             break;
                         }
                         if (conditionalSubscriber.tryOnNext(obj)) {
-                            j2++;
+                            j++;
                         }
-                        j3++;
-                        if (j3 == this.limit) {
-                            this.s.request(j3);
-                            j3 = 0;
+                        j2++;
+                        if (j2 == this.limit) {
+                            this.s.request(j2);
+                            j2 = 0;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -361,19 +361,19 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                         return;
                     }
                 }
-                if (i2 == 0 && checkTerminated(this.done, simpleQueue.isEmpty(), conditionalSubscriber)) {
+                if (i == 0 && checkTerminated(this.done, simpleQueue.isEmpty(), conditionalSubscriber)) {
                     return;
                 }
-                int i4 = get();
-                if (i3 == i4) {
-                    this.produced = j2;
-                    this.consumed = j3;
-                    i3 = addAndGet(-i3);
-                    if (i3 == 0) {
+                int i3 = get();
+                if (i2 == i3) {
+                    this.produced = j;
+                    this.consumed = j2;
+                    i2 = addAndGet(-i2);
+                    if (i2 == 0) {
                         return;
                     }
                 } else {
-                    i3 = i4;
+                    i2 = i3;
                 }
             }
         }
@@ -382,7 +382,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         public void runBackfused() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
                     this.actual.onNext(null);
@@ -396,8 +396,8 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                         this.worker.dispose();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -412,11 +412,11 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j2 = this.produced;
-            int i2 = 1;
+            long j = this.produced;
+            int i = 1;
             while (true) {
-                long j3 = this.requested.get();
-                while (j2 != j3) {
+                long j2 = this.requested.get();
+                while (j != j2) {
                     try {
                         Object obj = (T) simpleQueue.poll();
                         if (this.cancelled) {
@@ -427,7 +427,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             this.worker.dispose();
                             return;
                         } else if (conditionalSubscriber.tryOnNext(obj)) {
-                            j2++;
+                            j++;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -445,15 +445,15 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                     this.worker.dispose();
                     return;
                 }
-                int i3 = get();
-                if (i2 == i3) {
-                    this.produced = j2;
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                int i2 = get();
+                if (i == i2) {
+                    this.produced = j;
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 } else {
-                    i2 = i3;
+                    i = i2;
                 }
             }
         }
@@ -467,17 +467,17 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         public final Subscriber<? super T> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ObserveOnSubscriber(Subscriber<? super T> subscriber, Scheduler.Worker worker, boolean z, int i2) {
-            super(worker, z, i2);
+        public ObserveOnSubscriber(Subscriber<? super T> subscriber, Scheduler.Worker worker, boolean z, int i) {
+            super(worker, z, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, worker, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, worker, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Scheduler.Worker) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -524,12 +524,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
-                    long j2 = this.produced + 1;
-                    if (j2 == this.limit) {
+                    long j = this.produced + 1;
+                    if (j == this.limit) {
                         this.produced = 0L;
-                        this.s.request(j2);
+                        this.s.request(j);
                     } else {
-                        this.produced = j2;
+                        this.produced = j;
                     }
                 }
                 return poll;
@@ -539,20 +539,20 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
 
         @Override // io.reactivex.internal.operators.flowable.FlowableObserveOn.BaseObserveOnSubscriber
         public void runAsync() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
                 return;
             }
             Subscriber<? super T> subscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j2 = this.produced;
-            int i3 = 1;
+            long j = this.produced;
+            int i2 = 1;
             while (true) {
-                long j3 = this.requested.get();
+                long j2 = this.requested.get();
                 while (true) {
-                    i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                    if (i2 == 0) {
+                    i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    if (i == 0) {
                         break;
                     }
                     boolean z = this.done;
@@ -566,13 +566,13 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             break;
                         }
                         subscriber.onNext(obj);
-                        j2++;
-                        if (j2 == this.limit) {
-                            if (j3 != Long.MAX_VALUE) {
-                                j3 = this.requested.addAndGet(-j2);
+                        j++;
+                        if (j == this.limit) {
+                            if (j2 != Long.MAX_VALUE) {
+                                j2 = this.requested.addAndGet(-j);
                             }
-                            this.s.request(j2);
-                            j2 = 0;
+                            this.s.request(j);
+                            j = 0;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -583,18 +583,18 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                         return;
                     }
                 }
-                if (i2 == 0 && checkTerminated(this.done, simpleQueue.isEmpty(), subscriber)) {
+                if (i == 0 && checkTerminated(this.done, simpleQueue.isEmpty(), subscriber)) {
                     return;
                 }
-                int i4 = get();
-                if (i3 == i4) {
-                    this.produced = j2;
-                    i3 = addAndGet(-i3);
-                    if (i3 == 0) {
+                int i3 = get();
+                if (i2 == i3) {
+                    this.produced = j;
+                    i2 = addAndGet(-i2);
+                    if (i2 == 0) {
                         return;
                     }
                 } else {
-                    i3 = i4;
+                    i2 = i3;
                 }
             }
         }
@@ -603,7 +603,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         public void runBackfused() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z = this.done;
                     this.actual.onNext(null);
@@ -617,8 +617,8 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                         this.worker.dispose();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -633,11 +633,11 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             Subscriber<? super T> subscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j2 = this.produced;
-            int i2 = 1;
+            long j = this.produced;
+            int i = 1;
             while (true) {
-                long j3 = this.requested.get();
-                while (j2 != j3) {
+                long j2 = this.requested.get();
+                while (j != j2) {
                     try {
                         Object obj = (T) simpleQueue.poll();
                         if (this.cancelled) {
@@ -649,7 +649,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             return;
                         }
                         subscriber.onNext(obj);
-                        j2++;
+                        j++;
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         this.s.cancel();
@@ -666,32 +666,32 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                     this.worker.dispose();
                     return;
                 }
-                int i3 = get();
-                if (i2 == i3) {
-                    this.produced = j2;
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                int i2 = get();
+                if (i == i2) {
+                    this.produced = j;
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 } else {
-                    i2 = i3;
+                    i = i2;
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableObserveOn(Flowable<T> flowable, Scheduler scheduler, boolean z, int i2) {
+    public FlowableObserveOn(Flowable<T> flowable, Scheduler scheduler, boolean z, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, scheduler, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {flowable, scheduler, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -700,7 +700,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
         this.scheduler = scheduler;
         this.delayError = z;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Flowable

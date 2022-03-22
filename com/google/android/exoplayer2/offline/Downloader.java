@@ -2,12 +2,12 @@ package com.google.android.exoplayer2.offline;
 
 import androidx.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Downloader {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ProgressListener {
-        void onDownloadProgress(Downloader downloader, float f2, long j2);
+        void onDownloadProgress(Downloader downloader, float f2, long j);
     }
 
     void download(@Nullable ProgressListener progressListener) throws InterruptedException, IOException;

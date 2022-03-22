@@ -8,14 +8,14 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsRefluxContentView extends FrameLayout implements GestureDetector.OnGestureListener {
     public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f55721b;
+    public a f40704b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         boolean a();
 
@@ -32,24 +32,24 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
         a(context, attributeSet, 0);
     }
 
-    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        a(context, attributeSet, i2);
+    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context, attributeSet, i);
     }
 
     @RequiresApi(api = 21)
-    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        a(context, attributeSet, i2);
+    public KsRefluxContentView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        a(context, attributeSet, i);
     }
 
-    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         this.a = new GestureDetector(context, this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        a aVar = this.f55721b;
+        a aVar = this.f40704b;
         if (aVar == null || aVar.a()) {
             com.kwad.sdk.core.d.a.a("KsRefluxContentView", "dispatchTouchEvent consumed");
             return super.dispatchTouchEvent(motionEvent);
@@ -68,7 +68,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onFling");
-        a aVar = this.f55721b;
+        a aVar = this.f40704b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -83,7 +83,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onScroll");
-        a aVar = this.f55721b;
+        a aVar = this.f40704b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -98,7 +98,7 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         com.kwad.sdk.core.d.a.a("KsRefluxContentView", "onSingleTapUp");
-        a aVar = this.f55721b;
+        a aVar = this.f40704b;
         if (aVar != null) {
             return aVar.b();
         }
@@ -106,6 +106,6 @@ public class KsRefluxContentView extends FrameLayout implements GestureDetector.
     }
 
     public void setContentViewListener(a aVar) {
-        this.f55721b = aVar;
+        this.f40704b = aVar;
     }
 }

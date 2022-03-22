@@ -44,16 +44,16 @@ public class DnsParseResult {
     public int stackType;
     public int type;
 
-    public DnsParseResult(List<String> list, int i2, int i3, int i4) {
+    public DnsParseResult(List<String> list, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,9 +65,9 @@ public class DnsParseResult {
         } else {
             this.l = null;
         }
-        this.type = i2;
-        this.k = i3;
-        this.stackType = i4;
+        this.type = i;
+        this.k = i2;
+        this.stackType = i3;
     }
 
     public List<String> getIpList() {

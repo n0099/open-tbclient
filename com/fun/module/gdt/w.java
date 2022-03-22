@@ -17,17 +17,17 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class w extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52897b;
+    public TextView f38652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f52898c;
+    public Button f38653c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public w(Context context) {
@@ -38,9 +38,9 @@ public abstract class w extends NativeAdContainer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -59,9 +59,9 @@ public abstract class w extends NativeAdContainer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -72,17 +72,17 @@ public abstract class w extends NativeAdContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public w(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -97,8 +97,8 @@ public abstract class w extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f52898c);
-            arrayList.add(this.f52897b);
+            arrayList.add(this.f38653c);
+            arrayList.add(this.f38652b);
             arrayList.add(this.a);
             return arrayList;
         }
@@ -108,7 +108,7 @@ public abstract class w extends NativeAdContainer {
     public void a(NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
-            this.f52897b.setText(nativeUnifiedADData.getTitle());
+            this.f38652b.setText(nativeUnifiedADData.getTitle());
             this.a.setText(nativeUnifiedADData.getDesc());
             nativeUnifiedADData.bindAdToView(getContext(), this, null, a());
             b(nativeUnifiedADData);
@@ -117,35 +117,35 @@ public abstract class w extends NativeAdContainer {
 
     public void b(NativeUnifiedADData nativeUnifiedADData) {
         Button button;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeUnifiedADData) == null) {
             if (nativeUnifiedADData.isAppAd()) {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
-                    button = this.f52898c;
-                    i2 = R.string.fun_ad_interaction_type_download;
+                    button = this.f38653c;
+                    i = R.string.obfuscated_res_0x7f0f075a;
                 } else if (appStatus == 1) {
-                    button = this.f52898c;
-                    i2 = R.string.fun_ad_interaction_type_start;
+                    button = this.f38653c;
+                    i = R.string.obfuscated_res_0x7f0f0761;
                 } else if (appStatus == 2) {
-                    button = this.f52898c;
-                    i2 = R.string.fun_ad_interaction_type_update;
+                    button = this.f38653c;
+                    i = R.string.obfuscated_res_0x7f0f0765;
                 } else if (appStatus == 4) {
-                    this.f52898c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
+                    this.f38653c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
-                    button = this.f52898c;
-                    i2 = R.string.fun_ad_interaction_type_install;
+                    button = this.f38653c;
+                    i = R.string.obfuscated_res_0x7f0f075d;
                 } else if (appStatus == 16) {
-                    button = this.f52898c;
-                    i2 = R.string.fun_ad_interaction_type_redownload;
+                    button = this.f38653c;
+                    i = R.string.obfuscated_res_0x7f0f075f;
                 }
-                button.setText(i2);
+                button.setText(i);
             }
-            button = this.f52898c;
-            i2 = R.string.fun_ad_interaction_type_view;
-            button.setText(i2);
+            button = this.f38653c;
+            i = R.string.obfuscated_res_0x7f0f0766;
+            button.setText(i);
         }
     }
 
@@ -154,9 +154,9 @@ public abstract class w extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.ad_description);
-            this.f52897b = (TextView) findViewById(R.id.ad_title);
-            this.f52898c = (Button) findViewById(R.id.ad_creative);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
+            this.f38652b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f3);
+            this.f38653c = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
         }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tun2tornadolite;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +17,7 @@ import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0012\u001a\u00020\u0013J\u001e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u0004J\u0014\u0010\u0018\u001a\u00020\u00192\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u001bJ\u000e\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u001d\u001a\u00020\u0019J\u0016\u0010\u001e\u001a\u00020\u00192\u0006\u0010\u001f\u001a\u00020\u00042\u0006\u0010 \u001a\u00020\u0004J\u000e\u0010!\u001a\u00020\u00132\u0006\u0010\u001d\u001a\u00020\u0019J\u0016\u0010\"\u001a\u00020\u00132\u0006\u0010#\u001a\u00020\n2\u0006\u0010$\u001a\u00020\u0019J\u000e\u0010%\u001a\u00020\n2\u0006\u0010#\u001a\u00020\nJ\u000e\u0010&\u001a\u00020\u00132\u0006\u0010'\u001a\u00020(J&\u0010)\u001a\u00020\u00132\u0006\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020\u00042\u0006\u0010-\u001a\u00020\u00042\u0006\u0010.\u001a\u00020\u0004J\u0006\u0010/\u001a\u00020\u0013R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000¨\u00060"}, d2 = {"Lcom/baidu/tun2tornadolite/Tun2tornado;", "", "()V", "ENV_CHANNEL_NAME", "", "ENV_CLIENT_VERSION", "ENV_CUID", "ENV_SYSTEM_VERSION", "ENV_TOKEN", "EVENT_LOG_DEBUG", "", "EVENT_LOG_ERROR", "EVENT_LOG_INFO", "NETWORK_AUTO", "NETWORK_CELLULER", "NETWORK_OTHER", "NETWORK_VPN", "NETWORK_WIFI", "init", "", "onEvent", "eventCode", "tag", "msg", "prepare", "", "sClientList", "", "setDebug", "b", "setEnv", "name", "value", "setLog", "setNetworkAvailable", "nettype", "isAvailable", "setNetworkSwitchTo", "setOperationInterface", "ai", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "start", "tunfd", "", "region", "gameID", "gamePackageName", IntentConfig.STOP, "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\u0012\u001a\u00020\u0013J\u001e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u0004J\u0014\u0010\u0018\u001a\u00020\u00192\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u001bJ\u000e\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u001d\u001a\u00020\u0019J\u0016\u0010\u001e\u001a\u00020\u00192\u0006\u0010\u001f\u001a\u00020\u00042\u0006\u0010 \u001a\u00020\u0004J\u000e\u0010!\u001a\u00020\u00132\u0006\u0010\u001d\u001a\u00020\u0019J\u0016\u0010\"\u001a\u00020\u00132\u0006\u0010#\u001a\u00020\n2\u0006\u0010$\u001a\u00020\u0019J\u000e\u0010%\u001a\u00020\n2\u0006\u0010#\u001a\u00020\nJ\u000e\u0010&\u001a\u00020\u00132\u0006\u0010'\u001a\u00020(J&\u0010)\u001a\u00020\u00132\u0006\u0010*\u001a\u00020+2\u0006\u0010,\u001a\u00020\u00042\u0006\u0010-\u001a\u00020\u00042\u0006\u0010.\u001a\u00020\u0004J\u0006\u0010/\u001a\u00020\u0013R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000¨\u00060"}, d2 = {"Lcom/baidu/tun2tornadolite/Tun2tornado;", "", "()V", "ENV_CHANNEL_NAME", "", "ENV_CLIENT_VERSION", "ENV_CUID", "ENV_SYSTEM_VERSION", "ENV_TOKEN", "EVENT_LOG_DEBUG", "", "EVENT_LOG_ERROR", "EVENT_LOG_INFO", "NETWORK_AUTO", "NETWORK_CELLULER", "NETWORK_OTHER", "NETWORK_VPN", "NETWORK_WIFI", "init", "", "onEvent", "eventCode", "tag", "msg", "prepare", "", "sClientList", "", "setDebug", "b", "setEnv", "name", "value", "setLog", "setNetworkAvailable", FpsTracer.UBC_KEY_NET_TYPE, "isAvailable", "setNetworkSwitchTo", "setOperationInterface", "ai", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "start", "tunfd", "", "region", "gameID", "gamePackageName", IntentConfig.STOP, "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class Tun2tornado {
     public static /* synthetic */ Interceptable $ic = null;
@@ -57,9 +58,9 @@ public final class Tun2tornado {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -73,16 +74,16 @@ public final class Tun2tornado {
         }
     }
 
-    public final void onEvent(long j2, String tag, String msg) {
+    public final void onEvent(long j, String tag, String msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), tag, msg}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), tag, msg}) == null) {
             Intrinsics.checkNotNullParameter(tag, "tag");
             Intrinsics.checkNotNullParameter(msg, "msg");
-            if (j2 == 0) {
+            if (j == 0) {
                 LogTo.INSTANCE.d(tag, msg);
-            } else if (j2 == 1) {
+            } else if (j == 1) {
                 LogTo.INSTANCE.i(tag, msg);
-            } else if (j2 == 2) {
+            } else if (j == 2) {
                 LogTo.INSTANCE.e(tag, msg);
             }
         }
@@ -156,16 +157,16 @@ public final class Tun2tornado {
         }
     }
 
-    public final void setNetworkAvailable(long j2, boolean z) {
+    public final void setNetworkAvailable(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
         }
     }
 
-    public final long setNetworkSwitchTo(long j2) {
+    public final long setNetworkSwitchTo(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             return 0L;
         }
         return invokeJ.longValue;
@@ -179,13 +180,13 @@ public final class Tun2tornado {
         }
     }
 
-    public final void start(int i2, String region, String gameID, String gamePackageName) {
+    public final void start(int i, String region, String gameID, String gamePackageName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), region, gameID, gamePackageName}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), region, gameID, gamePackageName}) == null) {
             Intrinsics.checkNotNullParameter(region, "region");
             Intrinsics.checkNotNullParameter(gameID, "gameID");
             Intrinsics.checkNotNullParameter(gamePackageName, "gamePackageName");
-            Engine.INSTANCE.start(i2, region, gameID, gamePackageName);
+            Engine.INSTANCE.start(i, region, gameID, gamePackageName);
         }
     }
 

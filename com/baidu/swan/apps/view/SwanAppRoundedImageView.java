@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.s1.a.b;
+import c.a.n0.a.s1.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,36 +19,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanAppRoundedImageView extends ImageView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT_BORDER = 2;
-    public static final int DEFAULT_BORDER_COLOR = -16777216;
-    public static final int DEFAULT_RADIUS = 20;
-    public static final String TAG = "SwanAppRoundedImageView";
-    public static final ImageView.ScaleType[] l;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38109e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f38110f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f38111g;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f38112h;
+    public static final ImageView.ScaleType[] f29335h;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: i  reason: collision with root package name */
-    public Drawable f38113i;
+    /* renamed from: b  reason: collision with root package name */
+    public int f29336b;
 
-    /* renamed from: j  reason: collision with root package name */
-    public Drawable f38114j;
-    public ImageView.ScaleType k;
+    /* renamed from: c  reason: collision with root package name */
+    public int f29337c;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f29338d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Drawable f29339e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Drawable f29340f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView.ScaleType f29341g;
+
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -113,7 +111,7 @@ public class SwanAppRoundedImageView extends ImageView {
                 return;
             }
         }
-        l = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+        f29335h = new ImageView.ScaleType[]{ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -125,55 +123,49 @@ public class SwanAppRoundedImageView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f38109e = 20;
-        this.f38110f = 2;
-        this.f38111g = -16777216;
+        this.a = 20;
+        this.f29336b = 2;
+        this.f29337c = -16777216;
     }
 
     public int getBorder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38110f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29336b : invokeV.intValue;
     }
 
     public int getBorderColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38111g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29337c : invokeV.intValue;
     }
 
     public int getCornerRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38109e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (ImageView.ScaleType) invokeV.objValue;
-    }
-
-    public boolean isRoundBackground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38112h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29341g : (ImageView.ScaleType) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void setBackground(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
             setBackgroundDrawable(drawable);
         }
     }
@@ -182,70 +174,70 @@ public class SwanAppRoundedImageView extends ImageView {
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
-            if (this.f38112h && drawable != null) {
-                this.f38114j = b.b(drawable, this.k, this.f38109e, this.f38110f, this.f38111g);
+        if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
+            if (this.f29338d && drawable != null) {
+                this.f29340f = b.b(drawable, this.f29341g, this.a, this.f29336b, this.f29337c);
             } else {
-                this.f38114j = drawable;
+                this.f29340f = drawable;
             }
-            super.setBackgroundDrawable(this.f38114j);
+            super.setBackgroundDrawable(this.f29340f);
         }
     }
 
-    public void setBorderColor(int i2) {
+    public void setBorderColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f38111g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.f29337c == i) {
             return;
         }
-        this.f38111g = i2;
-        Drawable drawable = this.f38113i;
+        this.f29337c = i;
+        Drawable drawable = this.f29339e;
         if (drawable instanceof b) {
-            ((b) drawable).d(i2);
+            ((b) drawable).d(i);
         }
-        if (this.f38112h) {
-            Drawable drawable2 = this.f38114j;
+        if (this.f29338d) {
+            Drawable drawable2 = this.f29340f;
             if (drawable2 instanceof b) {
-                ((b) drawable2).d(i2);
+                ((b) drawable2).d(i);
             }
         }
-        if (this.f38110f > 0) {
+        if (this.f29336b > 0) {
             invalidate();
         }
     }
 
-    public void setBorderWidth(int i2) {
+    public void setBorderWidth(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f38110f == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.f29336b == i) {
             return;
         }
-        this.f38110f = i2;
-        Drawable drawable = this.f38113i;
+        this.f29336b = i;
+        Drawable drawable = this.f29339e;
         if (drawable instanceof b) {
-            ((b) drawable).e(i2);
+            ((b) drawable).e(i);
         }
-        if (this.f38112h) {
-            Drawable drawable2 = this.f38114j;
+        if (this.f29338d) {
+            Drawable drawable2 = this.f29340f;
             if (drawable2 instanceof b) {
-                ((b) drawable2).e(i2);
+                ((b) drawable2).e(i);
             }
         }
         invalidate();
     }
 
-    public void setCornerRadius(int i2) {
+    public void setCornerRadius(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f38109e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || this.a == i) {
             return;
         }
-        this.f38109e = i2;
-        Drawable drawable = this.f38113i;
+        this.a = i;
+        Drawable drawable = this.f29339e;
         if (drawable instanceof b) {
-            ((b) drawable).f(i2);
+            ((b) drawable).f(i);
         }
-        if (this.f38112h) {
-            Drawable drawable2 = this.f38114j;
+        if (this.f29338d) {
+            Drawable drawable2 = this.f29340f;
             if (drawable2 instanceof b) {
-                ((b) drawable2).f(i2);
+                ((b) drawable2).f(i);
             }
         }
     }
@@ -253,55 +245,55 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
             if (bitmap != null) {
-                b bVar = new b(bitmap, this.f38109e, this.f38110f, this.f38111g);
-                this.f38113i = bVar;
-                ImageView.ScaleType scaleType = this.k;
+                b bVar = new b(bitmap, this.a, this.f29336b, this.f29337c);
+                this.f29339e = bVar;
+                ImageView.ScaleType scaleType = this.f29341g;
                 if (scaleType != null) {
                     bVar.h(scaleType);
                 }
             } else {
-                this.f38113i = null;
+                this.f29339e = null;
             }
-            super.setImageDrawable(this.f38113i);
+            super.setImageDrawable(this.f29339e);
         }
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, drawable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
             if (drawable != null) {
-                this.f38113i = b.b(drawable, this.k, this.f38109e, this.f38110f, this.f38111g);
+                this.f29339e = b.b(drawable, this.f29341g, this.a, this.f29336b, this.f29337c);
             } else {
-                this.f38113i = null;
+                this.f29339e = null;
             }
-            super.setImageDrawable(this.f38113i);
+            super.setImageDrawable(this.f29339e);
         }
     }
 
     public void setRoundBackground(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || this.f38112h == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || this.f29338d == z) {
             return;
         }
-        this.f38112h = z;
+        this.f29338d = z;
         if (z) {
-            Drawable drawable = this.f38114j;
+            Drawable drawable = this.f29340f;
             if (drawable instanceof b) {
-                ((b) drawable).h(this.k);
-                ((b) this.f38114j).f(this.f38109e);
-                ((b) this.f38114j).e(this.f38110f);
-                ((b) this.f38114j).d(this.f38111g);
+                ((b) drawable).h(this.f29341g);
+                ((b) this.f29340f).f(this.a);
+                ((b) this.f29340f).e(this.f29336b);
+                ((b) this.f29340f).d(this.f29337c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
-            Drawable drawable2 = this.f38114j;
+            Drawable drawable2 = this.f29340f;
             if (drawable2 instanceof b) {
                 ((b) drawable2).e(0);
-                ((b) this.f38114j).f(0.0f);
+                ((b) this.f29340f).f(0.0f);
             }
         }
         invalidate();
@@ -310,10 +302,10 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setScaleType(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, scaleType) == null) || scaleType == null || this.k == scaleType) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, scaleType) == null) || scaleType == null || this.f29341g == scaleType) {
             return;
         }
-        this.k = scaleType;
+        this.f29341g = scaleType;
         switch (a.a[scaleType.ordinal()]) {
             case 1:
             case 2:
@@ -328,13 +320,13 @@ public class SwanAppRoundedImageView extends ImageView {
                 super.setScaleType(scaleType);
                 break;
         }
-        Drawable drawable = this.f38113i;
+        Drawable drawable = this.f29339e;
         if ((drawable instanceof b) && ((b) drawable).c() != scaleType) {
-            ((b) this.f38113i).h(scaleType);
+            ((b) this.f29339e).h(scaleType);
         }
-        Drawable drawable2 = this.f38114j;
+        Drawable drawable2 = this.f29340f;
         if ((drawable2 instanceof b) && ((b) drawable2).c() != scaleType) {
-            ((b) this.f38114j).h(scaleType);
+            ((b) this.f29340f).h(scaleType);
         }
         setWillNotCacheDrawing(true);
         requestLayout();
@@ -350,9 +342,9 @@ public class SwanAppRoundedImageView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -363,17 +355,17 @@ public class SwanAppRoundedImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanAppRoundedImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwanAppRoundedImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -381,21 +373,21 @@ public class SwanAppRoundedImageView extends ImageView {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.border_color, R.attr.border_width, R.attr.corner_radius, R.attr.round_background}, i2, 0);
-        int i5 = obtainStyledAttributes.getInt(0, -1);
-        if (i5 >= 0) {
-            setScaleType(l[i5]);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f040512}, i, 0);
+        int i4 = obtainStyledAttributes.getInt(0, -1);
+        if (i4 >= 0) {
+            setScaleType(f29335h[i4]);
         }
-        this.f38109e = obtainStyledAttributes.getDimensionPixelSize(3, -1);
-        this.f38110f = obtainStyledAttributes.getDimensionPixelSize(2, -1);
-        if (this.f38109e < 0) {
-            this.f38109e = 20;
+        this.a = obtainStyledAttributes.getDimensionPixelSize(3, -1);
+        this.f29336b = obtainStyledAttributes.getDimensionPixelSize(2, -1);
+        if (this.a < 0) {
+            this.a = 20;
         }
-        if (this.f38110f < 0) {
-            this.f38110f = 2;
+        if (this.f29336b < 0) {
+            this.f29336b = 2;
         }
-        this.f38111g = obtainStyledAttributes.getColor(1, -16777216);
-        this.f38112h = obtainStyledAttributes.getBoolean(4, false);
+        this.f29337c = obtainStyledAttributes.getColor(1, -16777216);
+        this.f29338d = obtainStyledAttributes.getBoolean(4, false);
         obtainStyledAttributes.recycle();
     }
 }

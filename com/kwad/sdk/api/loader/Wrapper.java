@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import androidx.annotation.Keep;
@@ -36,39 +37,39 @@ public class Wrapper {
         public WeakReference<Context> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53943b;
+        public int f39095b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StackTraceElement[] f53944c;
+        public StackTraceElement[] f39096c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53945d;
+        public int f39097d;
 
         public a() {
             this.a = new WeakReference<>(null);
-            this.f53943b = 0;
-            this.f53944c = null;
-            this.f53945d = 0;
+            this.f39095b = 0;
+            this.f39096c = null;
+            this.f39097d = 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             this.a = new WeakReference<>(null);
-            this.f53943b = 0;
-            this.f53944c = null;
-            this.f53945d = 0;
+            this.f39095b = 0;
+            this.f39096c = null;
+            this.f39097d = 0;
         }
 
         public static /* synthetic */ int b(a aVar) {
-            int i2 = aVar.f53943b;
-            aVar.f53943b = i2 + 1;
-            return i2;
+            int i = aVar.f39095b;
+            aVar.f39095b = i + 1;
+            return i;
         }
 
         public static /* synthetic */ int f(a aVar) {
-            int i2 = aVar.f53945d;
-            aVar.f53945d = i2 + 1;
-            return i2;
+            int i = aVar.f39097d;
+            aVar.f39097d = i + 1;
+            return i;
         }
     }
 
@@ -80,39 +81,43 @@ public class Wrapper {
     }
 
     public static boolean needAutoUnWrap(Context context, a aVar) {
+        String str;
         Context context2 = sResContextCache.get(context);
         String name = context2 != null ? context2.getClass().getName() : "";
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        if (Arrays.equals(stackTrace, aVar.f53944c)) {
-            a.f(aVar);
-            aVar.f53944c = stackTrace;
-            return aVar.f53945d >= 5;
-        } else if (aVar.f53944c != null) {
-            aVar.a();
-            return false;
-        } else {
-            aVar.f53944c = stackTrace;
+        if (!Arrays.equals(stackTrace, aVar.f39096c)) {
+            if (aVar.f39096c != null) {
+                aVar.a();
+                return false;
+            }
+            aVar.f39096c = stackTrace;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < stackTrace.length) {
-                StackTraceElement stackTraceElement = stackTrace[i2];
+            while (i < stackTrace.length) {
+                StackTraceElement stackTraceElement = stackTrace[i];
                 String className = stackTraceElement.getClassName();
-                for (String str : getAutoUnWrapStackList()) {
-                    if (className.contains(str)) {
-                        return true;
-                    }
+                for (String str2 : getAutoUnWrapStackList()) {
+                    str = className.contains(str2) ? "needAutoUnWrap true 命中白名单" : "needAutoUnWrap true 命中白名单";
                 }
                 String methodName = stackTraceElement.getMethodName();
-                i2++;
-                if (i2 < stackTrace.length && CLAZZ_NAME.equals(className) && METHOD_WRAP_CONTEXT.equals(methodName)) {
-                    StackTraceElement stackTraceElement2 = stackTrace[i2];
-                    if (TextUtils.equals(name, stackTraceElement2.getClassName()) && METHOD_GET_BASE_CONTEXT.equals(stackTraceElement2.getMethodName()) && (i3 = i3 + 1) >= 5) {
+                i++;
+                if (i < stackTrace.length && CLAZZ_NAME.equals(className) && METHOD_WRAP_CONTEXT.equals(methodName)) {
+                    StackTraceElement stackTraceElement2 = stackTrace[i];
+                    if (TextUtils.equals(name, stackTraceElement2.getClassName()) && METHOD_GET_BASE_CONTEXT.equals(stackTraceElement2.getMethodName()) && (i2 = i2 + 1) >= 5) {
                         return true;
                     }
                 }
             }
             return false;
         }
+        a.f(aVar);
+        aVar.f39096c = stackTrace;
+        if (aVar.f39097d < 5) {
+            return false;
+        }
+        str = "needAutoUnWrap true 连续相同堆栈";
+        Log.d(TAG, str);
+        return true;
     }
 
     public static ClassLoader replaceExternalClassLoader(ClassLoader classLoader) {
@@ -125,12 +130,12 @@ public class Wrapper {
         return externalResource != null ? externalResource : resources;
     }
 
-    public static Resources.Theme replaceTheme(Resources.Theme theme, Resources.Theme theme2, int i2) {
+    public static Resources.Theme replaceTheme(Resources.Theme theme, Resources.Theme theme2, int i) {
         Resources externalResource = Loader.get().getExternalResource();
         if (externalResource != null) {
             if (theme2 == null) {
                 Resources.Theme newTheme = externalResource.newTheme();
-                newTheme.applyStyle(i2, true);
+                newTheme.applyStyle(i, true);
                 return newTheme;
             }
             return theme2;
@@ -149,7 +154,7 @@ public class Wrapper {
             return false;
         } else {
             a.b(aVar);
-            if (aVar.f53943b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
+            if (aVar.f39095b < (context instanceof Application ? 15 : 5) || !needAutoUnWrap(context, aVar)) {
                 return false;
             }
             aVar.a();

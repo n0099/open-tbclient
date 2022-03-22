@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCombineLatest<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
     @Nullable
     public final Iterable<? extends Publisher<? extends T>> iterable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5082275438355852221L;
@@ -59,16 +59,16 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         public final AtomicLong requested;
         public final CombineLatestInnerSubscriber<T>[] subscribers;
 
-        public CombineLatestCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i2, int i3, boolean z) {
+        public CombineLatestCoordinator(Subscriber<? super R> subscriber, Function<? super Object[], ? extends R> function, int i, int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,13 +76,13 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
             }
             this.actual = subscriber;
             this.combiner = function;
-            CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = new CombineLatestInnerSubscriber[i2];
-            for (int i6 = 0; i6 < i2; i6++) {
-                combineLatestInnerSubscriberArr[i6] = new CombineLatestInnerSubscriber<>(this, i6, i3);
+            CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = new CombineLatestInnerSubscriber[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                combineLatestInnerSubscriberArr[i5] = new CombineLatestInnerSubscriber<>(this, i5, i2);
             }
             this.subscribers = combineLatestInnerSubscriberArr;
-            this.latest = new Object[i2];
-            this.queue = new SpscLinkedArrayQueue<>(i3);
+            this.latest = new Object[i];
+            this.queue = new SpscLinkedArrayQueue<>(i2);
             this.requested = new AtomicLong();
             this.error = new AtomicReference<>();
             this.delayErrors = z;
@@ -168,18 +168,18 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
 
         public void drainAsync() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 Subscriber<? super R> subscriber = this.actual;
                 SpscLinkedArrayQueue<?> spscLinkedArrayQueue = this.queue;
-                int i3 = 1;
+                int i2 = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i == 0) {
                             break;
                         }
                         boolean z = this.done;
@@ -194,7 +194,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                         try {
                             subscriber.onNext((Object) ObjectHelper.requireNonNull(this.combiner.apply((Object[]) spscLinkedArrayQueue.poll()), "The combiner returned a null value"));
                             ((CombineLatestInnerSubscriber) poll).requestOne();
-                            j3++;
+                            j2++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
                             cancelAll();
@@ -203,14 +203,14 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                             return;
                         }
                     }
-                    if (i2 == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
+                    if (i == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                         return;
                     }
-                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j3);
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
                     }
-                    i3 = addAndGet(-i3);
-                } while (i3 != 0);
+                    i2 = addAndGet(-i2);
+                } while (i2 != 0);
             }
         }
 
@@ -219,7 +219,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 Subscriber<? super R> subscriber = this.actual;
                 SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     Throwable th = this.error.get();
                     if (th != null) {
@@ -236,8 +236,8 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                         subscriber.onComplete();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -245,17 +245,17 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
             }
         }
 
-        public void innerComplete(int i2) {
+        public void innerComplete(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
                 synchronized (this) {
                     Object[] objArr = this.latest;
-                    if (objArr[i2] != null) {
-                        int i3 = this.completedSources + 1;
-                        if (i3 == objArr.length) {
+                    if (objArr[i] != null) {
+                        int i2 = this.completedSources + 1;
+                        if (i2 == objArr.length) {
                             this.done = true;
                         } else {
-                            this.completedSources = i3;
+                            this.completedSources = i2;
                             return;
                         }
                     } else {
@@ -266,9 +266,9 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
             }
         }
 
-        public void innerError(int i2, Throwable th) {
+        public void innerError(int i, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, th) == null) {
+            if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, th) == null) {
                 if (ExceptionHelper.addThrowable(this.error, th)) {
                     if (!this.delayErrors) {
                         cancelAll();
@@ -276,34 +276,34 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                         drain();
                         return;
                     }
-                    innerComplete(i2);
+                    innerComplete(i);
                     return;
                 }
                 RxJavaPlugins.onError(th);
             }
         }
 
-        public void innerValue(int i2, T t) {
+        public void innerValue(int i, T t) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048585, this, i2, t) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048585, this, i, t) == null) {
                 synchronized (this) {
                     Object[] objArr = this.latest;
-                    int i3 = this.nonEmptySources;
-                    if (objArr[i2] == null) {
-                        i3++;
-                        this.nonEmptySources = i3;
+                    int i2 = this.nonEmptySources;
+                    if (objArr[i] == null) {
+                        i2++;
+                        this.nonEmptySources = i2;
                     }
-                    objArr[i2] = t;
-                    if (objArr.length == i3) {
-                        this.queue.offer(this.subscribers[i2], objArr.clone());
+                    objArr[i] = t;
+                    if (objArr.length == i2) {
+                        this.queue.offer(this.subscribers[i], objArr.clone());
                         z = false;
                     } else {
                         z = true;
                     }
                 }
                 if (z) {
-                    this.subscribers[i2].requestOne();
+                    this.subscribers[i].requestOne();
                 } else {
                     drain();
                 }
@@ -335,41 +335,41 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                if ((i2 & 4) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                if ((i & 4) != 0) {
                     return 0;
                 }
-                int i3 = i2 & 2;
-                this.outputFused = i3 != 0;
-                return i3;
+                int i2 = i & 2;
+                this.outputFused = i2 != 0;
+                return i2;
             }
             return invokeI.intValue;
         }
 
-        public void subscribe(Publisher<? extends T>[] publisherArr, int i2) {
+        public void subscribe(Publisher<? extends T>[] publisherArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048590, this, publisherArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048590, this, publisherArr, i) == null) {
                 CombineLatestInnerSubscriber<T>[] combineLatestInnerSubscriberArr = this.subscribers;
-                for (int i3 = 0; i3 < i2 && !this.done && !this.cancelled; i3++) {
-                    publisherArr[i3].subscribe(combineLatestInnerSubscriberArr[i3]);
+                for (int i2 = 0; i2 < i && !this.done && !this.cancelled; i2++) {
+                    publisherArr[i2].subscribe(combineLatestInnerSubscriberArr[i2]);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730235182291002949L;
@@ -380,25 +380,25 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         public final int prefetch;
         public int produced;
 
-        public CombineLatestInnerSubscriber(CombineLatestCoordinator<T, ?> combineLatestCoordinator, int i2, int i3) {
+        public CombineLatestInnerSubscriber(CombineLatestCoordinator<T, ?> combineLatestCoordinator, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {combineLatestCoordinator, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {combineLatestCoordinator, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = combineLatestCoordinator;
-            this.index = i2;
-            this.prefetch = i3;
-            this.limit = i3 - (i3 >> 2);
+            this.index = i;
+            this.prefetch = i2;
+            this.limit = i2 - (i2 >> 2);
         }
 
         public void cancel() {
@@ -443,18 +443,18 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         public void requestOne() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                int i2 = this.produced + 1;
-                if (i2 == this.limit) {
+                int i = this.produced + 1;
+                if (i == this.limit) {
                     this.produced = 0;
-                    get().request(i2);
+                    get().request(i);
                     return;
                 }
-                this.produced = i2;
+                this.produced = i;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class SingletonArrayFunc implements Function<T, R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -467,9 +467,9 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flowableCombineLatest};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -487,16 +487,16 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         }
     }
 
-    public FlowableCombineLatest(@NonNull Publisher<? extends T>[] publisherArr, @NonNull Function<? super Object[], ? extends R> function, int i2, boolean z) {
+    public FlowableCombineLatest(@NonNull Publisher<? extends T>[] publisherArr, @NonNull Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisherArr, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {publisherArr, function, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -505,7 +505,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         this.array = publisherArr;
         this.iterable = null;
         this.combiner = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayErrors = z;
     }
 
@@ -550,29 +550,29 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
             } else {
                 length = publisherArr.length;
             }
-            int i2 = length;
-            if (i2 == 0) {
+            int i = length;
+            if (i == 0) {
                 EmptySubscription.complete(subscriber);
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 publisherArr[0].subscribe(new FlowableMap.MapSubscriber(subscriber, new SingletonArrayFunc(this)));
             } else {
-                CombineLatestCoordinator combineLatestCoordinator = new CombineLatestCoordinator(subscriber, this.combiner, i2, this.bufferSize, this.delayErrors);
+                CombineLatestCoordinator combineLatestCoordinator = new CombineLatestCoordinator(subscriber, this.combiner, i, this.bufferSize, this.delayErrors);
                 subscriber.onSubscribe(combineLatestCoordinator);
-                combineLatestCoordinator.subscribe(publisherArr, i2);
+                combineLatestCoordinator.subscribe(publisherArr, i);
             }
         }
     }
 
-    public FlowableCombineLatest(@NonNull Iterable<? extends Publisher<? extends T>> iterable, @NonNull Function<? super Object[], ? extends R> function, int i2, boolean z) {
+    public FlowableCombineLatest(@NonNull Iterable<? extends Publisher<? extends T>> iterable, @NonNull Function<? super Object[], ? extends R> function, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iterable, function, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {iterable, function, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -581,7 +581,7 @@ public final class FlowableCombineLatest<T, R> extends Flowable<R> {
         this.array = null;
         this.iterable = iterable;
         this.combiner = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayErrors = z;
     }
 }

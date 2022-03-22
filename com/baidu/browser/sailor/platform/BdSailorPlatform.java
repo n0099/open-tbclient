@@ -33,6 +33,7 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
+import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
@@ -42,7 +43,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_STATE_BACKGROUND = 0;
@@ -71,7 +72,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public boolean mWebkitTimerPaused;
     public String mWorkspace;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +87,9 @@ public final class BdSailorPlatform implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSailorPlatform, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -120,7 +121,7 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,9 +134,9 @@ public final class BdSailorPlatform implements INoProGuard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSailorPlatform};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -178,9 +179,9 @@ public final class BdSailorPlatform implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -397,11 +398,11 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    private void setNetworkType(int i2) {
+    private void setNetworkType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65556, this, i2) == null) {
-            this.mNetworkType = i2;
-            if (1 == i2 || -1 == i2) {
+        if (interceptable == null || interceptable.invokeI(65556, this, i) == null) {
+            this.mNetworkType = i;
+            if (1 == i || -1 == i) {
                 BdSailor.getInstance().getSailorSettings().setSaveFlow(false);
             }
         }
@@ -430,7 +431,7 @@ public final class BdSailorPlatform implements INoProGuard {
             c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
             try {
                 a2.e();
-                a2.f3918b.clearCache(z);
+                a2.f3381b.clearCache(z);
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
             }
@@ -567,14 +568,14 @@ public final class BdSailorPlatform implements INoProGuard {
         if (bdWebkitManager != null) {
             bdWebkitManager.initWebkit(str, z, cls);
         } else {
-            WebKitFactory.getLoadErrorCode().trace(523);
+            WebKitFactory.getLoadErrorCode().trace(LoadErrorCode.MSG_WEBKIT_MANAGER_IS_NULL);
         }
         long currentTimeMillis = System.currentTimeMillis();
         c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
         Context appContext = getAppContext();
         if (a2.a == null) {
             a2.a = appContext.getApplicationContext();
-            Log.d(c.a.k.b.d.a.f3916d, "in BdWebViewSingleton, init");
+            Log.d(c.a.k.b.d.a.f3379d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -630,17 +631,17 @@ public final class BdSailorPlatform implements INoProGuard {
         bdUploadFeature.onDestroy(activity);
     }
 
-    public final void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
+    public final void onActivityResult(Activity activity, int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), intent}) == null) && 11 == i2) {
-            ((BdUploadFeature) findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)).onResult(activity, i3, intent);
+        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i) {
+            ((BdUploadFeature) findSailorFeature(BdSailorConfig.SAILOR_BASE_UPLOAD)).onResult(activity, i2, intent);
         }
     }
 
-    public final void onReceivedNetworkType(int i2) {
+    public final void onReceivedNetworkType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            setNetworkType(i2);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            setNetworkType(i);
         }
     }
 

@@ -1,10 +1,11 @@
 package com.fun.ad.sdk.internal.api.utils;
 
+import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.g.h;
-import c.g.o0;
-import c.g.u0;
+import c.d.c0;
+import c.d.j;
+import c.d.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,13 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
-    public static final o0 a;
+    public static final Reporter a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u0 mAdIdent;
+    public final c0 mAdIdent;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +38,7 @@ public class AdReporter {
                 return;
             }
         }
-        a = o0.a();
+        a = s.a();
     }
 
     public AdReporter() {
@@ -44,93 +46,93 @@ public class AdReporter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mAdIdent = new u0();
+        this.mAdIdent = new c0();
     }
 
-    public static void adEvent(u0 u0Var, Object obj, Object... objArr) {
+    public static void adEvent(c0 c0Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, u0Var, obj, objArr) == null) {
-            report("ad", u0Var, obj, false, objArr);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, c0Var, obj, objArr) == null) {
+            report("ad", c0Var, obj, false, objArr);
         }
     }
 
-    public static void adEvent(boolean z, u0 u0Var, Object obj, Object... objArr) {
+    public static void adEvent(boolean z, c0 c0Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), u0Var, obj, objArr}) == null) {
-            report("ad", u0Var, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), c0Var, obj, objArr}) == null) {
+            report("ad", c0Var, obj, z, objArr);
         }
     }
 
-    public static void report(String str, u0 u0Var, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, c0 c0Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, u0Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, u0Var.a, u0Var.f28531b, u0Var.f28533d, u0Var.f28534e, u0Var.f28532c, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, c0Var, obj, Boolean.valueOf(z), objArr}) == null) {
+            report(str, c0Var.a, c0Var.f23131b, c0Var.f23133d, c0Var.f23134e, c0Var.f23132c, obj, z, objArr);
         }
     }
 
-    public static void report(String str, String str2, int i2, String str3, String str4, long j2, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, String str2, int i, String str3, String str4, long j, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, Long.valueOf(j2), obj, Boolean.valueOf(z), objArr}) == null) {
-            a.c(str, new HashMap<String, Object>(j2, str2, i2, str4, str3, obj, z, objArr) { // from class: com.fun.ad.sdk.internal.api.utils.AdReporter.1
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), str3, str4, Long.valueOf(j), obj, Boolean.valueOf(z), objArr}) == null) {
+            a.logEvent(str, new HashMap<String, Object>(j, str2, i, str4, str3, obj, z, objArr) { // from class: com.fun.ad.sdk.internal.api.utils.AdReporter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f52878b;
+                public final /* synthetic */ String f38626b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f52879c;
+                public final /* synthetic */ int f38627c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f52880d;
+                public final /* synthetic */ String f38628d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f52881e;
+                public final /* synthetic */ String f38629e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Object f52882f;
+                public final /* synthetic */ Object f38630f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ boolean f52883g;
+                public final /* synthetic */ boolean f38631g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ Object[] f52884h;
+                public final /* synthetic */ Object[] f38632h;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr2 = {Long.valueOf(j2), str2, Integer.valueOf(i2), str4, str3, obj, Boolean.valueOf(z), objArr};
+                        Object[] objArr2 = {Long.valueOf(j), str2, Integer.valueOf(i), str4, str3, obj, Boolean.valueOf(z), objArr};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.a = j2;
-                    this.f52878b = str2;
-                    this.f52879c = i2;
-                    this.f52880d = str4;
-                    this.f52881e = str3;
-                    this.f52882f = obj;
-                    this.f52883g = z;
-                    this.f52884h = objArr;
-                    put("lid", Long.valueOf(j2));
+                    this.a = j;
+                    this.f38626b = str2;
+                    this.f38627c = i;
+                    this.f38628d = str4;
+                    this.f38629e = str3;
+                    this.f38630f = obj;
+                    this.f38631g = z;
+                    this.f38632h = objArr;
+                    put("lid", Long.valueOf(j));
                     put("sid", str2);
-                    put("sidv", Integer.valueOf(i2));
+                    put("sidv", Integer.valueOf(i));
                     put("type", str4);
                     put("aid", str3);
                     put("st", obj);
@@ -141,14 +143,14 @@ public class AdReporter {
                     if (objArr.length % 2 != 0) {
                         throw new IllegalArgumentException("Length of argument 'appends' must be even.");
                     }
-                    int i5 = 0;
+                    int i4 = 0;
                     while (true) {
-                        Object[] objArr3 = this.f52884h;
-                        if (i5 >= objArr3.length) {
+                        Object[] objArr3 = this.f38632h;
+                        if (i4 >= objArr3.length) {
                             return;
                         }
-                        put(objArr3[i5].toString(), this.f52884h[i5 + 1]);
-                        i5 += 2;
+                        put(objArr3[i4].toString(), this.f38632h[i4 + 1]);
+                        i4 += 2;
                     }
                 }
             });
@@ -179,17 +181,17 @@ public class AdReporter {
     public void recordLoadStart(FunAdSlot funAdSlot, Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, funAdSlot, pid) == null) {
-            int a2 = h.a(funAdSlot.getSid(), pid);
-            u0 u0Var = this.mAdIdent;
+            int a2 = j.a(funAdSlot.getSid(), pid);
+            c0 c0Var = this.mAdIdent;
             String sid = funAdSlot.getSid();
             long currentTimeMillis = System.currentTimeMillis();
             String str = pid.pid;
             String str2 = pid.type;
-            u0Var.a = sid;
-            u0Var.f28531b = a2;
-            u0Var.f28532c = currentTimeMillis;
-            u0Var.f28533d = str;
-            u0Var.f28534e = str2;
+            c0Var.a = sid;
+            c0Var.f23131b = a2;
+            c0Var.f23132c = currentTimeMillis;
+            c0Var.f23133d = str;
+            c0Var.f23134e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }
@@ -208,10 +210,15 @@ public class AdReporter {
         }
     }
 
-    public void recordOnClicked(boolean z) {
+    public void recordOnClicked(boolean z, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            adEvent(z, this.mAdIdent, "onclick", new Object[0]);
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, strArr) == null) {
+            String str = (strArr == null || strArr.length <= 0) ? "" : strArr[0];
+            if (TextUtils.isEmpty(str)) {
+                adEvent(z, this.mAdIdent, "onclick", new Object[0]);
+            } else {
+                adEvent(z, this.mAdIdent, "onclick", "tid", str);
+            }
         }
     }
 
@@ -236,10 +243,10 @@ public class AdReporter {
         }
     }
 
-    public void recordRenderFailed(int i2) {
+    public void recordRenderFailed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            adEvent(this.mAdIdent, "render_failed", NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            adEvent(this.mAdIdent, "render_failed", NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i));
         }
     }
 
@@ -257,10 +264,15 @@ public class AdReporter {
         }
     }
 
-    public void recordReward(boolean z) {
+    public void recordReward(boolean z, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            adEvent(this.mAdIdent, "reward", "valid", Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeZL(1048589, this, z, strArr) == null) {
+            String str = (strArr == null || strArr.length <= 0) ? "" : strArr[0];
+            if (TextUtils.isEmpty(str)) {
+                adEvent(this.mAdIdent, "reward", "valid", Boolean.valueOf(z));
+            } else {
+                adEvent(this.mAdIdent, "reward", "valid", Boolean.valueOf(z), "tid", str);
+            }
         }
     }
 
@@ -285,10 +297,15 @@ public class AdReporter {
         }
     }
 
-    public void recordShowSucceed(boolean z) {
+    public void recordShowSucceed(boolean z, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            adEvent(z, this.mAdIdent, "sh_succeed", new Object[0]);
+        if (interceptable == null || interceptable.invokeZL(1048593, this, z, strArr) == null) {
+            String str = (strArr == null || strArr.length <= 0) ? "" : strArr[0];
+            if (TextUtils.isEmpty(str)) {
+                adEvent(z, this.mAdIdent, "sh_succeed", new Object[0]);
+            } else {
+                adEvent(z, this.mAdIdent, "sh_succeed", "tid", str);
+            }
         }
     }
 
@@ -334,10 +351,10 @@ public class AdReporter {
         }
     }
 
-    public void recordVideoErr(int i2) {
+    public void recordVideoErr(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            adEvent(this.mAdIdent, "video_err", NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            adEvent(this.mAdIdent, "video_err", NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i));
         }
     }
 

@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKSpan extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DP;
@@ -66,7 +66,7 @@ public class TKSpan extends TKBase<View> {
     public final List<SpanItem> mSpanItems;
     public List<SpanItemData> mSpans;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SpanItemData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,24 +74,24 @@ public class TKSpan extends TKBase<View> {
         public Object mSpan;
         public int mStart;
 
-        public SpanItemData(Object obj, int i2, int i3) {
+        public SpanItemData(Object obj, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {obj, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mSpan = obj;
-            this.mStart = i2;
-            this.mEnd = i3;
+            this.mStart = i;
+            this.mEnd = i2;
         }
     }
 
@@ -120,9 +120,9 @@ public class TKSpan extends TKBase<View> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -146,40 +146,40 @@ public class TKSpan extends TKBase<View> {
         InterceptResult invokeLL;
         StringBuilder sb;
         Object obj;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, spannableString, spanItem)) == null) {
             String spannableString2 = spannableString.toString();
-            int i3 = spanItem.index;
-            if (i3 < 1) {
+            int i2 = spanItem.index;
+            if (i2 < 1) {
                 sb = new StringBuilder();
                 sb.append(" ");
-            } else if (i3 > spannableString2.length()) {
+            } else if (i2 > spannableString2.length()) {
                 sb = new StringBuilder();
                 sb.append(spannableString2);
                 sb.append(" ");
                 SpannableString spannableString3 = new SpannableString(sb.toString());
                 if (this.mSpans.size() > 0) {
                     for (SpanItemData spanItemData : this.mSpans) {
-                        int i4 = spanItem.index;
-                        int i5 = spanItemData.mStart;
-                        if (i4 <= i5 || i4 >= (i2 = spanItemData.mEnd)) {
-                            int i6 = spanItem.index;
-                            int i7 = spanItemData.mEnd;
-                            if (i6 > i7) {
-                                spannableString3.setSpan(spanItemData.mSpan, spanItemData.mStart, i7, 17);
+                        int i3 = spanItem.index;
+                        int i4 = spanItemData.mStart;
+                        if (i3 <= i4 || i3 >= (i = spanItemData.mEnd)) {
+                            int i5 = spanItem.index;
+                            int i6 = spanItemData.mEnd;
+                            if (i5 > i6) {
+                                spannableString3.setSpan(spanItemData.mSpan, spanItemData.mStart, i6, 17);
                             } else {
-                                int i8 = spanItemData.mStart;
-                                if (i6 < i8 || i6 == i8) {
+                                int i7 = spanItemData.mStart;
+                                if (i5 < i7 || i5 == i7) {
                                     obj = spanItemData.mSpan;
-                                    i8++;
-                                } else if (i6 == i7) {
+                                    i7++;
+                                } else if (i5 == i6) {
                                     obj = spanItemData.mSpan;
                                 }
-                                spannableString3.setSpan(obj, i8, i7 + 1, 17);
+                                spannableString3.setSpan(obj, i7, i6 + 1, 17);
                             }
                         } else {
-                            spannableString3.setSpan(spanItemData.mSpan, i5, i2 + 1, 17);
+                            spannableString3.setSpan(spanItemData.mSpan, i4, i + 1, 17);
                         }
                     }
                 }
@@ -217,9 +217,9 @@ public class TKSpan extends TKBase<View> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, spanItem, spannableString, textView};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -257,9 +257,9 @@ public class TKSpan extends TKBase<View> {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this, r7};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -357,16 +357,16 @@ public class TKSpan extends TKBase<View> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setImageSpan(Drawable drawable, SpannableString spannableString, SpanItem spanItem) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65547, this, drawable, spannableString, spanItem) == null) || drawable == null) {
             return;
         }
         CenterImageSpan centerImageSpan = new CenterImageSpan(drawable, "");
-        int i3 = spanItem.imageWidth;
-        centerImageSpan.setImageRect((i3 <= 0 || spanItem.imageHeight <= 0) ? drawable.getIntrinsicWidth() : (int) TKConverter.dp2px(this.mContext, i3), (spanItem.imageWidth <= 0 || (i2 = spanItem.imageHeight) <= 0) ? drawable.getIntrinsicHeight() : (int) TKConverter.dp2px(this.mContext, i2)).setMarginLeft(TKConverter.dp2px(this.mContext, spanItem.marginLeft)).setMarginRight(TKConverter.dp2px(this.mContext, spanItem.marginRight)).setOffsetY(TKConverter.dp2px(this.mContext, spanItem.offsetY));
-        int i4 = spanItem.index;
-        spannableString.setSpan(centerImageSpan, i4, i4 + 1, 17);
+        int i2 = spanItem.imageWidth;
+        centerImageSpan.setImageRect((i2 <= 0 || spanItem.imageHeight <= 0) ? drawable.getIntrinsicWidth() : (int) TKConverter.dp2px(this.mContext, i2), (spanItem.imageWidth <= 0 || (i = spanItem.imageHeight) <= 0) ? drawable.getIntrinsicHeight() : (int) TKConverter.dp2px(this.mContext, i)).setMarginLeft(TKConverter.dp2px(this.mContext, spanItem.marginLeft)).setMarginRight(TKConverter.dp2px(this.mContext, spanItem.marginRight)).setOffsetY(TKConverter.dp2px(this.mContext, spanItem.offsetY));
+        int i3 = spanItem.index;
+        spannableString.setSpan(centerImageSpan, i3, i3 + 1, 17);
     }
 
     private void setSizeSpan(SpannableString spannableString, SpanItem spanItem) {
@@ -568,9 +568,9 @@ public class TKSpan extends TKBase<View> {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, spanItem};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;

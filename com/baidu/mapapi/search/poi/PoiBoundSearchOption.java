@@ -24,9 +24,9 @@ public class PoiBoundSearchOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,21 +61,21 @@ public class PoiBoundSearchOption {
         return (PoiBoundSearchOption) invokeL.objValue;
     }
 
-    public PoiBoundSearchOption pageCapacity(int i2) {
+    public PoiBoundSearchOption pageCapacity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.mPageCapacity = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.mPageCapacity = i;
             return this;
         }
         return (PoiBoundSearchOption) invokeI.objValue;
     }
 
-    public PoiBoundSearchOption pageNum(int i2) {
+    public PoiBoundSearchOption pageNum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.mPageNum = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.mPageNum = i;
             return this;
         }
         return (PoiBoundSearchOption) invokeI.objValue;
@@ -91,11 +91,11 @@ public class PoiBoundSearchOption {
         return (PoiBoundSearchOption) invokeL.objValue;
     }
 
-    public PoiBoundSearchOption scope(int i2) {
+    public PoiBoundSearchOption scope(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.mScope = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.mScope = i;
             return this;
         }
         return (PoiBoundSearchOption) invokeI.objValue;

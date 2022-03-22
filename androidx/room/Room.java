@@ -3,6 +3,7 @@ package androidx.room;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +23,9 @@ public class Room {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,7 +56,7 @@ public class Room {
             if (!name.isEmpty()) {
                 canonicalName = canonicalName.substring(name.length() + 1);
             }
-            String str3 = canonicalName.replace('.', '_') + str;
+            String str3 = canonicalName.replace(IStringUtil.EXTENSION_SEPARATOR, '_') + str;
             try {
                 if (name.isEmpty()) {
                     str2 = str3;

@@ -23,9 +23,9 @@ public class h extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,7 +37,7 @@ public class h extends c {
     @Override // com.baidu.android.pushservice.message.a.c
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             String e2 = kVar.e();
@@ -45,13 +45,13 @@ public class h extends c {
             int b2 = kVar.b();
             PublicMsg a = i.a(this.a, h2, e2, bArr);
             if (a == null || TextUtils.isEmpty(a.mTitle) || TextUtils.isEmpty(a.mDescription) || TextUtils.isEmpty(a.mUrl)) {
-                i2 = 2;
+                i = 2;
             } else {
                 if (e.a(this.a, a)) {
                     Context context = this.a;
                     if (m.d(context, context.getPackageName())) {
                         e.a(this.a, a, h2, b2);
-                        i2 = 1;
+                        i = 1;
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -59,10 +59,10 @@ public class h extends c {
                 Context context2 = this.a;
                 sb.append(m.d(context2, context2.getPackageName()));
                 sb.toString();
-                i2 = 0;
+                i = 0;
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            gVar.a(i2);
+            gVar.a(i);
             return gVar;
         }
         return (com.baidu.android.pushservice.message.g) invokeLL.objValue;

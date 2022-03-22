@@ -41,9 +41,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,13 +72,13 @@ public class d {
         return invokeL.intValue;
     }
 
-    public boolean a(int i2, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public boolean a(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, byteBuffer, bufferInfo)) == null) {
-            if (i2 != -1) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo)) == null) {
+            if (i != -1) {
                 try {
-                    this.uV.writeSampleData(i2, byteBuffer, bufferInfo);
+                    this.uV.writeSampleData(i, byteBuffer, bufferInfo);
                     return true;
                 } catch (Exception unused) {
                     com.baidu.ar.h.b.b(TAG, "startMuxer error!!!");
@@ -90,15 +90,15 @@ public class d {
         return invokeILL.booleanValue;
     }
 
-    public boolean a(String str, int i2, e eVar) {
+    public boolean a(String str, int i, e eVar) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i2, eVar)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, eVar)) == null) {
             if (!com.baidu.ar.recorder.c.a.ay(str)) {
                 com.baidu.ar.recorder.c.a.ax(str);
             }
             try {
-                this.uV = new MediaMuxer(str, i2);
+                this.uV = new MediaMuxer(str, i);
                 this.uo = eVar;
                 this.uW = false;
                 return true;

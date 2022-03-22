@@ -6,13 +6,13 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface t extends IInterface {
     void a(List<String> list) throws RemoteException;
 
     boolean a() throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements t {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
@@ -26,11 +26,11 @@ public interface t extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof t)) {
                 return (t) queryLocalInterface;
             }
-            return new C2208a(iBinder);
+            return new C2069a(iBinder);
         }
 
         public static t b() {
-            return C2208a.a;
+            return C2069a.a;
         }
 
         @Override // android.os.IInterface
@@ -39,15 +39,15 @@ public interface t extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                 a(parcel.createStringArrayList());
                 parcel2.writeNoException();
                 return true;
-            } else if (i2 != 2) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 2) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                 return true;
@@ -61,15 +61,15 @@ public interface t extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2208a implements t {
+        /* loaded from: classes7.dex */
+        public static class C2069a implements t {
             public static t a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58501b;
+            public IBinder f43229b;
 
-            public C2208a(IBinder iBinder) {
-                this.f58501b = iBinder;
+            public C2069a(IBinder iBinder) {
+                this.f43229b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.t
@@ -79,7 +79,7 @@ public interface t extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                     obtain.writeStringList(list);
-                    if (!this.f58501b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43229b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a(list);
                     } else {
                         obtain2.readException();
@@ -92,7 +92,7 @@ public interface t extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58501b;
+                return this.f43229b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.t
@@ -101,7 +101,7 @@ public interface t extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
-                    if (!this.f58501b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43229b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

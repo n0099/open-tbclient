@@ -24,9 +24,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,7 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "basketball".equals(stringExtra2) ? "bkb" : "";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.sport_ai_app_name), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f119d), "UTF-8");
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
@@ -59,7 +59,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Intent intent2 = new Intent(context, DealIntentService.class);
             intent2.putExtra(DealIntentService.KEY_CLASS, 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.match_is_to_begin), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0a8f), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
         } catch (Exception e3) {
             e3.printStackTrace();
         }

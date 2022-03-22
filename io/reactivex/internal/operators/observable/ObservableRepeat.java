@@ -27,16 +27,16 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
         public final SequentialDisposable sd;
         public final ObservableSource<? extends T> source;
 
-        public RepeatObserver(Observer<? super T> observer, long j2, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
+        public RepeatObserver(Observer<? super T> observer, long j, SequentialDisposable sequentialDisposable, ObservableSource<? extends T> observableSource) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), sequentialDisposable, observableSource};
+                Object[] objArr = {observer, Long.valueOf(j), sequentialDisposable, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,18 +45,18 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
             this.actual = observer;
             this.sd = sequentialDisposable;
             this.source = observableSource;
-            this.remaining = j2;
+            this.remaining = j;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j2 = this.remaining;
-                if (j2 != Long.MAX_VALUE) {
-                    this.remaining = j2 - 1;
+                long j = this.remaining;
+                if (j != Long.MAX_VALUE) {
+                    this.remaining = j - 1;
                 }
-                if (j2 != 0) {
+                if (j != 0) {
                     subscribeNext();
                 } else {
                     this.actual.onComplete();
@@ -91,11 +91,11 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
         public void subscribeNext() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 while (!this.sd.isDisposed()) {
                     this.source.subscribe(this);
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -104,24 +104,24 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableRepeat(Observable<T> observable, long j2) {
+    public ObservableRepeat(Observable<T> observable, long j) {
         super(observable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observable, Long.valueOf(j2)};
+            Object[] objArr = {observable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.count = j2;
+        this.count = j;
     }
 
     @Override // io.reactivex.Observable
@@ -130,8 +130,8 @@ public final class ObservableRepeat<T> extends AbstractObservableWithUpstream<T,
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             SequentialDisposable sequentialDisposable = new SequentialDisposable();
             observer.onSubscribe(sequentialDisposable);
-            long j2 = this.count;
-            new RepeatObserver(observer, j2 != Long.MAX_VALUE ? j2 - 1 : Long.MAX_VALUE, sequentialDisposable, this.source).subscribeNext();
+            long j = this.count;
+            new RepeatObserver(observer, j != Long.MAX_VALUE ? j - 1 : Long.MAX_VALUE, sequentialDisposable, this.source).subscribeNext();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.fun.ad.sdk.internal.api.ripper;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AdRipper {
     void destroy(Object obj);
 
@@ -7,5 +7,5 @@ public interface AdRipper {
 
     void preParseRippedAd(Object obj);
 
-    void report(Object obj, String str, long j2);
+    void report(Object obj, String str, long j);
 }

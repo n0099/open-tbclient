@@ -45,9 +45,9 @@ public final class PaintCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -76,11 +76,11 @@ public final class PaintCompat {
                 if (measureText3 > measureText2 * 2.0f) {
                     return false;
                 }
-                int i2 = 0;
-                while (i2 < length) {
-                    int charCount = Character.charCount(str.codePointAt(i2)) + i2;
-                    f2 += paint.measureText(str, i2, charCount);
-                    i2 = charCount;
+                int i = 0;
+                while (i < length) {
+                    int charCount = Character.charCount(str.codePointAt(i)) + i;
+                    f2 += paint.measureText(str, i, charCount);
+                    i = charCount;
                 }
                 if (measureText3 >= f2) {
                     return false;

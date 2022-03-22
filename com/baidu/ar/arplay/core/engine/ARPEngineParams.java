@@ -24,9 +24,9 @@ public class ARPEngineParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,17 +84,17 @@ public class ARPEngineParams {
         }
     }
 
-    public void setInputHeight(int i2) {
+    public void setInputHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mInputHeight = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mInputHeight = i;
         }
     }
 
-    public void setInputWidth(int i2) {
+    public void setInputWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mInputWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mInputWidth = i;
         }
     }
 
@@ -105,17 +105,17 @@ public class ARPEngineParams {
         }
     }
 
-    public void setOutputHeight(int i2) {
+    public void setOutputHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mOutputHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mOutputHeight = i;
         }
     }
 
-    public void setOutputWidth(int i2) {
+    public void setOutputWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mOutputWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mOutputWidth = i;
         }
     }
 

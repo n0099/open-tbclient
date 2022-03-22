@@ -1,8 +1,8 @@
 package com.ss.android.socialbase.downloader.i;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static boolean a(int i2) {
-        return (com.ss.android.socialbase.downloader.downloader.c.D() & i2) == i2;
+    public static boolean a(int i) {
+        return (com.ss.android.socialbase.downloader.downloader.c.D() & i) == i;
     }
 }

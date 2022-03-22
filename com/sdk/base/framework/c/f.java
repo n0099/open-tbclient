@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "aes_key";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57798b;
+    public static boolean f42567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f57799c;
+    public static boolean f42568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f57800d;
+    public static boolean f42569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f57801e;
+    public static boolean f42570e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +40,10 @@ public class f {
             }
         }
         new HashMap();
-        f57798b = false;
-        f57799c = true;
-        f57800d = false;
-        f57801e = false;
+        f42567b = false;
+        f42568c = true;
+        f42569d = false;
+        f42570e = false;
     }
 
     public f() {
@@ -51,9 +51,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

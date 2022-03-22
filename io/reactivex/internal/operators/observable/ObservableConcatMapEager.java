@@ -44,7 +44,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public InnerQueuedObserver<R> current;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60719d;
+        public Disposable f45329d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final ErrorMode errorMode;
@@ -55,16 +55,16 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         public SimpleQueue<T> queue;
         public int sourceMode;
 
-        public ConcatMapEagerMainObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i2, int i3, ErrorMode errorMode) {
+        public ConcatMapEagerMainObserver(Observer<? super R> observer, Function<? super T, ? extends ObservableSource<? extends R>> function, int i, int i2, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2), Integer.valueOf(i3), errorMode};
+                Object[] objArr = {observer, function, Integer.valueOf(i), Integer.valueOf(i2), errorMode};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,8 +72,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             }
             this.actual = observer;
             this.mapper = function;
-            this.maxConcurrency = i2;
-            this.prefetch = i3;
+            this.maxConcurrency = i;
+            this.prefetch = i2;
             this.errorMode = errorMode;
             this.error = new AtomicThrowable();
             this.observers = new ArrayDeque<>();
@@ -121,10 +121,10 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             ArrayDeque<InnerQueuedObserver<R>> arrayDeque = this.observers;
             Observer<? super R> observer = this.actual;
             ErrorMode errorMode = this.errorMode;
-            int i2 = 1;
+            int i = 1;
             while (true) {
-                int i3 = this.activeCount;
-                while (i3 != this.maxConcurrency) {
+                int i2 = this.activeCount;
+                while (i2 != this.maxConcurrency) {
                     if (this.cancelled) {
                         simpleQueue.clear();
                         disposeAll();
@@ -144,10 +144,10 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                             InnerQueuedObserver<R> innerQueuedObserver = new InnerQueuedObserver<>(this, this.prefetch);
                             arrayDeque.offer(innerQueuedObserver);
                             observableSource.subscribe(innerQueuedObserver);
-                            i3++;
+                            i2++;
                         } catch (Throwable th) {
                             Exceptions.throwIfFatal(th);
-                            this.f60719d.dispose();
+                            this.f45329d.dispose();
                             simpleQueue.clear();
                             disposeAll();
                             this.error.addThrowable(th);
@@ -156,7 +156,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                         }
                     }
                 }
-                this.activeCount = i3;
+                this.activeCount = i2;
                 if (this.cancelled) {
                     simpleQueue.clear();
                     disposeAll();
@@ -223,8 +223,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
                         disposeAll();
                         return;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -246,7 +246,7 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
             if (interceptable == null || interceptable.invokeLL(1048580, this, innerQueuedObserver, th) == null) {
                 if (this.error.addThrowable(th)) {
                     if (this.errorMode == ErrorMode.IMMEDIATE) {
-                        this.f60719d.dispose();
+                        this.f45329d.dispose();
                     }
                     innerQueuedObserver.setDone();
                     drain();
@@ -308,8 +308,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f60719d, disposable)) {
-                this.f60719d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048586, this, disposable) == null) && DisposableHelper.validate(this.f45329d, disposable)) {
+                this.f45329d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);
@@ -334,17 +334,17 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableConcatMapEager(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, ErrorMode errorMode, int i2, int i3) {
+    public ObservableConcatMapEager(ObservableSource<T> observableSource, Function<? super T, ? extends ObservableSource<? extends R>> function, ErrorMode errorMode, int i, int i2) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, function, errorMode, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {observableSource, function, errorMode, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -353,8 +353,8 @@ public final class ObservableConcatMapEager<T, R> extends AbstractObservableWith
         }
         this.mapper = function;
         this.errorMode = errorMode;
-        this.maxConcurrency = i2;
-        this.prefetch = i3;
+        this.maxConcurrency = i;
+        this.prefetch = i2;
     }
 
     @Override // io.reactivex.Observable

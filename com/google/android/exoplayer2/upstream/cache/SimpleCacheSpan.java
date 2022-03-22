@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SimpleCacheSpan extends CacheSpan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CACHE_FILE_PATTERN_V1;
@@ -42,17 +42,17 @@ public final class SimpleCacheSpan extends CacheSpan {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleCacheSpan(String str, long j2, long j3, long j4, File file) {
-        super(str, j2, j3, j4, file);
+    public SimpleCacheSpan(String str, long j, long j2, long j3, File file) {
+        super(str, j, j2, j3, file);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), file};
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), file};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), (File) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -89,29 +89,29 @@ public final class SimpleCacheSpan extends CacheSpan {
         return (SimpleCacheSpan) invokeLL.objValue;
     }
 
-    public static SimpleCacheSpan createClosedHole(String str, long j2, long j3) {
+    public static SimpleCacheSpan createClosedHole(String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new SimpleCacheSpan(str, j2, j3, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new SimpleCacheSpan(str, j, j2, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeCommon.objValue;
     }
 
-    public static SimpleCacheSpan createLookup(String str, long j2) {
+    public static SimpleCacheSpan createLookup(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2)) == null) ? new SimpleCacheSpan(str, j2, -1L, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) ? new SimpleCacheSpan(str, j, -1L, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeLJ.objValue;
     }
 
-    public static SimpleCacheSpan createOpenHole(String str, long j2) {
+    public static SimpleCacheSpan createOpenHole(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j2)) == null) ? new SimpleCacheSpan(str, j2, -1L, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) ? new SimpleCacheSpan(str, j, -1L, C.TIME_UNSET, null) : (SimpleCacheSpan) invokeLJ.objValue;
     }
 
-    public static File getCacheFile(File file, int i2, long j2, long j3) {
+    public static File getCacheFile(File file, int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{file, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            return new File(file, i2 + "." + j2 + "." + j3 + SUFFIX);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{file, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return new File(file, i + "." + j + "." + j2 + SUFFIX);
         }
         return (File) invokeCommon.objValue;
     }
@@ -144,13 +144,13 @@ public final class SimpleCacheSpan extends CacheSpan {
         return (File) invokeLL.objValue;
     }
 
-    public SimpleCacheSpan copyWithUpdatedLastAccessTime(int i2) {
+    public SimpleCacheSpan copyWithUpdatedLastAccessTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             Assertions.checkState(this.isCached);
             long currentTimeMillis = System.currentTimeMillis();
-            return new SimpleCacheSpan(this.key, this.position, this.length, currentTimeMillis, getCacheFile(this.file.getParentFile(), i2, this.position, currentTimeMillis));
+            return new SimpleCacheSpan(this.key, this.position, this.length, currentTimeMillis, getCacheFile(this.file.getParentFile(), i, this.position, currentTimeMillis));
         }
         return (SimpleCacheSpan) invokeI.objValue;
     }

@@ -19,12 +19,12 @@ public class ShapeTrimPath implements ContentModel {
         SIMULTANEOUSLY,
         INDIVIDUALLY;
 
-        public static Type forId(int i2) {
-            if (i2 != 1) {
-                if (i2 == 2) {
+        public static Type forId(int i) {
+            if (i != 1) {
+                if (i == 2) {
                     return INDIVIDUALLY;
                 }
-                throw new IllegalArgumentException("Unknown trim path type " + i2);
+                throw new IllegalArgumentException("Unknown trim path type " + i);
             }
             return SIMULTANEOUSLY;
         }

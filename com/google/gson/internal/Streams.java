@@ -18,7 +18,7 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Streams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class Streams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,14 +85,14 @@ public final class Streams {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, appendable)) == null) ? appendable instanceof Writer ? (Writer) appendable : new AppendableWriter(appendable) : (Writer) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AppendableWriter extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Appendable appendable;
         public final CurrentWrite currentWrite;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class CurrentWrite implements CharSequence {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -103,9 +103,9 @@ public final class Streams {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -113,10 +113,10 @@ public final class Streams {
             }
 
             @Override // java.lang.CharSequence
-            public char charAt(int i2) {
+            public char charAt(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.chars[i2] : invokeI.charValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.chars[i] : invokeI.charValue;
             }
 
             @Override // java.lang.CharSequence
@@ -127,10 +127,10 @@ public final class Streams {
             }
 
             @Override // java.lang.CharSequence
-            public CharSequence subSequence(int i2, int i3) {
+            public CharSequence subSequence(int i, int i2) {
                 InterceptResult invokeII;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.chars, i2, i3 - i2) : (CharSequence) invokeII.objValue;
+                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? new String(this.chars, i, i2 - i) : (CharSequence) invokeII.objValue;
             }
         }
 
@@ -141,9 +141,9 @@ public final class Streams {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {appendable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -168,20 +168,20 @@ public final class Streams {
         }
 
         @Override // java.io.Writer
-        public void write(char[] cArr, int i2, int i3) throws IOException {
+        public void write(char[] cArr, int i, int i2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
                 CurrentWrite currentWrite = this.currentWrite;
                 currentWrite.chars = cArr;
-                this.appendable.append(currentWrite, i2, i3 + i2);
+                this.appendable.append(currentWrite, i, i2 + i);
             }
         }
 
         @Override // java.io.Writer
-        public void write(int i2) throws IOException {
+        public void write(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.appendable.append((char) i2);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.appendable.append((char) i);
             }
         }
     }

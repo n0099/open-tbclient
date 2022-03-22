@@ -1,176 +1,179 @@
 package com.cmic.sso.sdk.d;
 
 import android.content.Context;
-import android.os.Build;
-import android.security.KeyPairGeneratorSpec;
-import android.security.keystore.KeyGenParameterSpec;
 import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-import java.security.KeyPairGenerator;
-import java.security.KeyStore;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.util.Calendar;
-import javax.crypto.Cipher;
-import javax.security.auth.x500.X500Principal;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.cmic.sso.sdk.c.c.d;
+import com.cmic.sso.sdk.e.c;
+import com.cmic.sso.sdk.e.f;
+import com.cmic.sso.sdk.e.k;
+import com.cmic.sso.sdk.e.m;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.cmic.sso.sdk.a a;
 
-    public static boolean a(Context context, boolean z) {
-        InterceptResult invokeLZ;
+    public b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, context, z)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, aVar, aVar2) == null) || aVar == null || aVar2 == null) {
+            return;
+        }
+        aVar.b(aVar2.b("appid", ""));
+        aVar.f(m.a());
+        aVar.i(aVar2.b("interfaceType", ""));
+        aVar.h(aVar2.b("interfaceCode", ""));
+        aVar.g(aVar2.b("interfaceElasped", ""));
+        aVar.l(aVar2.b("timeOut"));
+        aVar.s(aVar2.b("traceId"));
+        aVar.v(aVar2.b("networkClass"));
+        aVar.n(aVar2.b("simCardNum"));
+        aVar.o(aVar2.b("operatortype"));
+        aVar.p(m.b());
+        aVar.q(m.c());
+        aVar.y(String.valueOf(aVar2.b("networktype", 0)));
+        aVar.t(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
+        aVar.w(aVar2.b("endtime"));
+        aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
+        aVar.d(aVar2.b("imsiState"));
+        aVar.z(k.b("AID", ""));
+        aVar.A(aVar2.b("operatortype"));
+        aVar.B(aVar2.b("scripType"));
+        c.a("SendLog", "traceId" + aVar2.b("traceId"));
+    }
+
+    public void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
+        StackTraceElement[] stackTrace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
+            String str2 = "";
             try {
-                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-                keyStore.load(null);
-                if (keyStore.getCertificate("CMCC_SDK") != null) {
-                    return true;
+                a a = aVar.a();
+                String b2 = f.b(context);
+                a.e(str);
+                a.x(aVar.b("loginMethod", ""));
+                if (aVar.b("isCacheScrip", false)) {
+                    a.r("scrip");
+                } else {
+                    a.r("pgw");
                 }
+                a.j(f.a(context));
+                if (!TextUtils.isEmpty(b2)) {
+                    str2 = b2;
+                }
+                a.k(str2);
+                a.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
+                a(a, aVar);
+                JSONArray jSONArray = null;
+                if (a.a.size() > 0) {
+                    jSONArray = new JSONArray();
+                    Iterator<Throwable> it = a.a.iterator();
+                    while (it.hasNext()) {
+                        Throwable next = it.next();
+                        StringBuffer stringBuffer = new StringBuffer();
+                        JSONObject jSONObject = new JSONObject();
+                        for (StackTraceElement stackTraceElement : next.getStackTrace()) {
+                            stringBuffer.append("\n");
+                            stringBuffer.append(stackTraceElement.toString());
+                        }
+                        jSONObject.put("message", next.toString());
+                        jSONObject.put("stack", stringBuffer.toString());
+                        jSONArray.put(jSONObject);
+                    }
+                    a.a.clear();
+                }
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    a.a(jSONArray);
+                }
+                c.a("SendLog", "登录日志");
+                a(a.b(), aVar);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (z) {
-                return a(context);
-            }
-            return false;
         }
-        return invokeLZ.booleanValue;
     }
 
-    public static synchronized byte[] b(Context context) {
-        InterceptResult invokeL;
+    private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            synchronized (b.class) {
-                byte[] bArr = null;
-                try {
-                    KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
-                    keyStore.load(null);
-                    if (TextUtils.isEmpty(b())) {
-                        if (!a(context, false)) {
-                            return null;
-                        }
-                        byte[] a = a();
-                        PublicKey publicKey = keyStore.getCertificate("CMCC_SDK").getPublicKey();
-                        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                        cipher.init(1, publicKey);
-                        a(Base64.encodeToString(cipher.doFinal(a), 0));
-                        bArr = a;
-                    } else {
-                        String b2 = b();
-                        if (!TextUtils.isEmpty(b2)) {
-                            byte[] decode = Base64.decode(b2, 0);
-                            PrivateKey privateKey = (PrivateKey) keyStore.getKey("CMCC_SDK", null);
-                            if (privateKey == null) {
-                                return null;
-                            }
-                            Cipher cipher2 = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                            cipher2.init(2, privateKey);
-                            bArr = cipher2.doFinal(decode);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject, aVar) == null) {
+            this.a = aVar;
+            a(jSONObject);
+        }
+    }
+
+    private void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) {
+            com.cmic.sso.sdk.c.c.a.a().a(jSONObject, this.a, new d(this) { // from class: com.cmic.sso.sdk.d.b.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ b a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                    return bArr;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return null;
+                    this.a = this;
                 }
-            }
-        }
-        return (byte[]) invokeL.objValue;
-    }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                try {
-                    KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
-                    keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("CMCC_SDK", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").setKeySize(2048).build());
-                    Thread.sleep(1000L);
-                    keyPairGenerator.generateKeyPair();
-                    return true;
-                } catch (Exception e2) {
-                    c.a("KeystoreUtil", e2.getMessage());
-                    return false;
+                @Override // com.cmic.sso.sdk.c.c.d
+                public void a(String str, String str2, JSONObject jSONObject2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject2) == null) {
+                        com.cmic.sso.sdk.a.a b2 = this.a.a.b();
+                        HashMap hashMap = new HashMap();
+                        if (!str.equals("103000")) {
+                            if (b2.l() != 0 && b2.k() != 0) {
+                                int a = k.a("logFailTimes", 0) + 1;
+                                if (a >= b2.k()) {
+                                    hashMap.put("logFailTimes", 0);
+                                    hashMap.put("logCloseTime", Long.valueOf(System.currentTimeMillis()));
+                                } else {
+                                    hashMap.put("logFailTimes", Integer.valueOf(a));
+                                }
+                            }
+                        } else {
+                            hashMap.put("logFailTimes", 0);
+                            hashMap.put("logCloseTime", 0L);
+                        }
+                        k.a(hashMap);
+                    }
                 }
-            }
-            Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.add(1, 30);
-            try {
-                if (Build.VERSION.SDK_INT >= 18) {
-                    KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context).setAlias("CMCC_SDK").setSubject(new X500Principal("CN=CMCC_SDK")).setSerialNumber(BigInteger.TEN).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build();
-                    KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
-                    keyPairGenerator2.initialize(build);
-                    Thread.sleep(1000L);
-                    keyPairGenerator2.generateKeyPair();
-                    return true;
-                }
-                return false;
-            } catch (Exception e3) {
-                c.a("KeystoreUtil", e3.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        byte[] b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str) || (b2 = b(context)) == null) {
-                return null;
-            }
-            return a.b(b2, str);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? k.b("AES_KEY", "") : (String) invokeV.objValue;
-    }
-
-    public static byte[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            byte[] bArr = new byte[16];
-            new SecureRandom().nextBytes(bArr);
-            return bArr;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            byte[] b2 = b(context);
-            if (b2 != null) {
-                return a.a(b2, str);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            k.a("AES_KEY", str);
+            });
         }
     }
 }

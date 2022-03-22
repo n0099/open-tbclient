@@ -1,13 +1,15 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.q0.c1.f;
-import c.a.q0.r.j0.b;
-import c.a.r0.e1.a;
+import c.a.d.f.p.n;
+import c.a.o0.c1.f;
+import c.a.o0.r.j0.b;
+import c.a.p0.g1.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,57 +27,32 @@ public class InitBearTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
+    private boolean isNeedPlgSplash() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (UbsABTestHelper.newSplashStrategy()) {
+                return f.w();
+            }
+            return b.k().l("splash_origin_ad_strategy_key", 1) != 0;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
             initBearSdk();
-            SpeedStatsManager.getInstance().setTaskRunTime("AppCreate_InitBear_sdk", System.currentTimeMillis() - currentTimeMillis);
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ InitBearTask this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            MessageManager.getInstance().runTask(new CustomMessage<>(2016571), (Class) null);
-                        }
-                    }
-                });
-                thread.setPriority(10);
-                thread.start();
-            }
         }
     }
 
@@ -98,8 +75,79 @@ public class InitBearTask extends LaunchTask {
 
     public void initBearSdk() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy() && f.i(b.k().l("splash_ad_strategy_key", 0))) {
-            a.i().l();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
+            boolean q = f.q(b.k().l("splash_ad_strategy_key", 0));
+            SpeedStatsManager.getInstance().setIsNeedBear(q);
+            SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
+            if (q) {
+                c.a.p0.g1.b.j().n(new b.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ InitBearTask this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // c.a.p0.g1.b.l
+                    public void initComplete() {
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+                            if (n.B()) {
+                                Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ AnonymousClass1 this$1;
+
+                                    {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable3.invokeUnInit(65536, newInitContext);
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable3.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$1 = this;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable3 = $ic;
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                            MessageManager.getInstance().runTask(new CustomMessage<>(2016571), (Class) null);
+                                        }
+                                    }
+                                });
+                                thread.setPriority(10);
+                                thread.start();
+                                return;
+                            }
+                            MessageManager.getInstance().runTask(new CustomMessage<>(2016571), (Class) null);
+                        }
+                    }
+                });
+            }
         }
     }
 }

@@ -23,9 +23,9 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
             newInitContext.initArgs = r2;
             Object[] objArr = {serviceWorkerWebSettings};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -135,12 +135,12 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerWebSettings
-    public void setCacheMode(int i2) {
+    public void setCacheMode(int i) {
         android.webkit.ServiceWorkerWebSettings serviceWorkerWebSettings;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || Build.VERSION.SDK_INT < 24 || (serviceWorkerWebSettings = this.mSettings) == null) {
             return;
         }
-        serviceWorkerWebSettings.setCacheMode(i2);
+        serviceWorkerWebSettings.setCacheMode(i);
     }
 }

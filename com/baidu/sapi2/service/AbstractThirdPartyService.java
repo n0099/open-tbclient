@@ -18,21 +18,23 @@ public interface AbstractThirdPartyService {
     public static final int RESULT_UNKNOW_ERROR = -1;
     public static final String RESULT_UNKNOW_ERROR_MSG = "未知错误";
 
-    void handleWXLoginResp(Activity activity, String str, String str2, int i2);
+    void handleWXLoginResp(Activity activity, String str, String str2, int i);
 
-    void loadQQLogin(Context context, int i2);
+    void loadCFOSSOLogin(Context context, int i);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i2);
+    void loadQQLogin(Context context, int i);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i, ThirdLoginCallback thirdLoginCallback);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str);
 
-    void loadWechatLogin(Context context, int i2);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str, boolean z);
+
+    void loadWechatLogin(Context context, int i);
 
     void loadYYSSOLogin(Context context, String str);
 
-    void socialBind(Activity activity, SocialType socialType, int i2, String str);
+    void socialBind(Activity activity, SocialType socialType, int i, String str);
 }

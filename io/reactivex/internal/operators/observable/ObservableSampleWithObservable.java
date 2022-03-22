@@ -38,9 +38,9 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (ObservableSource) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -106,9 +106,9 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (ObservableSource) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -160,9 +160,9 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -278,9 +278,9 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sampleMainObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -331,9 +331,9 @@ public final class ObservableSampleWithObservable<T> extends AbstractObservableW
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSource2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

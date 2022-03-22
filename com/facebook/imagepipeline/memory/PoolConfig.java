@@ -13,7 +13,7 @@ import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PoolConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_POOL_MAX_BITMAP_SIZE_DEFAULT = 4194304;
@@ -32,13 +32,13 @@ public class PoolConfig {
     public final PoolStatsTracker mSmallByteArrayPoolStatsTracker;
 
     /* renamed from: com.facebook.imagepipeline.memory.PoolConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,21 +65,21 @@ public class PoolConfig {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoolConfig(this, null) : (PoolConfig) invokeV.objValue;
         }
 
-        public Builder setBitmapPoolMaxBitmapSize(int i2) {
+        public Builder setBitmapPoolMaxBitmapSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.mBitmapPoolMaxBitmapSize = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.mBitmapPoolMaxBitmapSize = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setBitmapPoolMaxPoolSize(int i2) {
+        public Builder setBitmapPoolMaxPoolSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.mBitmapPoolMaxPoolSize = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.mBitmapPoolMaxPoolSize = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -187,9 +187,9 @@ public class PoolConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -294,9 +294,9 @@ public class PoolConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

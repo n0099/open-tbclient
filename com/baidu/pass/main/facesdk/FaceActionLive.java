@@ -1,6 +1,7 @@
 package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -39,6 +40,25 @@ public class FaceActionLive {
         }
     }
 
+    public FaceActionLive() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.isExist = new int[1];
+        BDFaceInstance bDFaceInstance = new BDFaceInstance();
+        this.bdFaceInstance = bDFaceInstance;
+        bDFaceInstance.getDefautlInstance();
+    }
+
     public FaceActionLive(BDFaceInstance bDFaceInstance) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,9 +66,9 @@ public class FaceActionLive {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDFaceInstance};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -61,22 +81,23 @@ public class FaceActionLive {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native int nativeActionLive(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
+    private native int nativeActionLive(long j, int i, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeActionLiveModelInit(long j2, byte[] bArr, byte[] bArr2);
+    public native int nativeActionLiveModelInit(long j, byte[] bArr, byte[] bArr2);
 
-    private native void nativeActionLoadConfig(long j2, BDFaceSDKActionConfig bDFaceSDKActionConfig);
+    private native void nativeActionLoadConfig(long j, BDFaceSDKActionConfig bDFaceSDKActionConfig);
 
-    private native int nativeClearHistory(long j2);
+    private native int nativeClearHistory(long j);
 
-    private native int nativeUninitActionLiveModel(long j2);
+    private native int nativeUninitActionLiveModel(long j);
 
     public int actionLive(BDFaceSDKCommon.BDFaceActionLiveType bDFaceActionLiveType, BDFaceImageInstance bDFaceImageInstance, float[] fArr, AtomicInteger atomicInteger) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bDFaceActionLiveType, bDFaceImageInstance, fArr, atomicInteger)) == null) {
             if (bDFaceImageInstance == null || fArr == null || bDFaceActionLiveType == null || atomicInteger == null) {
+                Log.v(TAG, "Parameter is null");
                 return -1;
             }
             long index = this.bdFaceInstance.getIndex();
@@ -122,9 +143,9 @@ public class FaceActionLive {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, callback, str, str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -141,26 +162,31 @@ public class FaceActionLive {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$context != null) {
-                            long index = this.this$0.bdFaceInstance.getIndex();
-                            if (index == 0) {
-                                return;
-                            }
-                            byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$eyecloseModel);
-                            byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$mouthcloseModel);
-                            if (modelContent.length == 0 || modelContent2.length == 0) {
-                                return;
-                            }
-                            int nativeActionLiveModelInit = this.this$0.nativeActionLiveModelInit(index, modelContent, modelContent2);
-                            if (nativeActionLiveModelInit == 0) {
-                                this.val$callback.onResponse(nativeActionLiveModelInit, "动作活体模型加载成功");
-                                return;
-                            } else {
-                                this.val$callback.onResponse(nativeActionLiveModelInit, "动作活体模型加载失败");
-                                return;
-                            }
+                        if (this.val$context == null) {
+                            this.val$callback.onResponse(1, "没有初始化上下文");
+                            return;
                         }
-                        this.val$callback.onResponse(1, "没有初始化上下文");
+                        long index = this.this$0.bdFaceInstance.getIndex();
+                        if (index == 0) {
+                            return;
+                        }
+                        int i = -1;
+                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$eyecloseModel);
+                        byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$mouthcloseModel);
+                        if (modelContent.length == 0 || modelContent2.length == 0) {
+                            return;
+                        }
+                        try {
+                            i = this.this$0.nativeActionLiveModelInit(index, modelContent, modelContent2);
+                        } catch (Throwable th) {
+                            th.printStackTrace();
+                        }
+                        Callback callback2 = this.val$callback;
+                        if (i == 0) {
+                            callback2.onResponse(i, "动作活体模型加载成功");
+                        } else {
+                            callback2.onResponse(i, "动作活体模型加载失败");
+                        }
                     }
                 }
             });
@@ -177,7 +203,11 @@ public class FaceActionLive {
         if (index == 0) {
             return;
         }
-        nativeActionLoadConfig(index, bDFaceSDKActionConfig);
+        try {
+            nativeActionLoadConfig(index, bDFaceSDKActionConfig);
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
     public int uninitActionLiveModel() {
@@ -188,27 +218,13 @@ public class FaceActionLive {
             if (index == 0) {
                 return -1;
             }
-            return nativeUninitActionLiveModel(index);
-        }
-        return invokeV.intValue;
-    }
-
-    public FaceActionLive() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            try {
+                return nativeUninitActionLiveModel(index);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1;
             }
         }
-        this.isExist = new int[1];
-        BDFaceInstance bDFaceInstance = new BDFaceInstance();
-        this.bdFaceInstance = bDFaceInstance;
-        bDFaceInstance.getDefautlInstance();
+        return invokeV.intValue;
     }
 }

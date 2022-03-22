@@ -20,29 +20,27 @@ public class l {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f30869b;
+        public static final a f24711b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f30870c;
+        public static final a f24712c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f30871d;
+        public static final a f24713d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f30872e;
+        public static final a f24714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f30873f;
+        public static final a f24715f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f30874g;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f30875i;
+        public static final a f24716g;
+        public static final /* synthetic */ a[] i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f30876h;
+        public int f24717h;
 
         static {
             InterceptResult invokeClinit;
@@ -58,14 +56,14 @@ public class l {
                 }
             }
             a = new a("MODEL_O", 0, 1);
-            f30869b = new a("MODEL_C", 1, 2);
-            f30870c = new a("MODEL_HW", 2, 3);
-            f30871d = new a("MODEL_XM", 3, 4);
-            f30872e = new a("MODEL_MZ", 4, 5);
-            f30873f = new a("MODEL_OP", 5, 6);
+            f24711b = new a("MODEL_C", 1, 2);
+            f24712c = new a("MODEL_HW", 2, 3);
+            f24713d = new a("MODEL_XM", 3, 4);
+            f24714e = new a("MODEL_MZ", 4, 5);
+            f24715f = new a("MODEL_OP", 5, 6);
             a aVar = new a("MODEL_VI", 6, 7);
-            f30874g = aVar;
-            f30875i = new a[]{a, f30869b, f30870c, f30871d, f30872e, f30873f, aVar};
+            f24716g = aVar;
+            i = new a[]{a, f24711b, f24712c, f24713d, f24714e, f24715f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -86,14 +84,14 @@ public class l {
                     return;
                 }
             }
-            this.f30876h = i3;
+            this.f24717h = i3;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f30876h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.f24717h : invokeV.intValue;
         }
     }
 
@@ -105,19 +103,19 @@ public class l {
             int a2 = a.a.a();
             int b2 = com.baidu.android.pushservice.b.d.a(context).b();
             if (com.baidu.android.pushservice.b.d.l(context)) {
-                aVar = a.f30870c;
+                aVar = a.f24712c;
             } else if (com.baidu.android.pushservice.b.d.k(context)) {
-                aVar = a.f30871d;
+                aVar = a.f24713d;
             } else if (com.baidu.android.pushservice.b.d.m(context)) {
-                aVar = a.f30873f;
+                aVar = a.f24715f;
             } else if (com.baidu.android.pushservice.b.d.n(context)) {
-                aVar = a.f30874g;
+                aVar = a.f24716g;
             } else if (com.baidu.android.pushservice.b.d.j(context)) {
-                aVar = a.f30872e;
+                aVar = a.f24714e;
             } else if (b2 != 2 && b2 != 4 && b2 != 3) {
                 return a2;
             } else {
-                aVar = a.f30869b;
+                aVar = a.f24711b;
             }
             return aVar.a();
         }

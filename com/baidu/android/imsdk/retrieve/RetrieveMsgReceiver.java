@@ -29,9 +29,9 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,9 +57,9 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IMessageReceiveListener
-    public void onReceiveMessage(int i2, int i3, ArrayList<ChatMsg> arrayList) {
+    public void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, arrayList) == null) || i2 != 0 || arrayList == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, arrayList) == null) || i != 0 || arrayList == null || arrayList.size() <= 0) {
             return;
         }
         synchronized (this) {
@@ -75,8 +75,8 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
                             JSONArray jSONArray = new JSONArray(dataList);
                             if (jSONArray.length() > 0) {
                                 int length = jSONArray.length();
-                                for (int i4 = 0; i4 < length; i4++) {
-                                    RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i4));
+                                for (int i3 = 0; i3 < length; i3++) {
+                                    RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i3));
                                 }
                             }
                         } catch (Exception e2) {

@@ -36,9 +36,9 @@ public class ButtonBarLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -54,16 +54,16 @@ public class ButtonBarLayout extends LinearLayout {
         obtainStyledAttributes.recycle();
     }
 
-    private int getNextVisibleChildIndex(int i2) {
+    private int getNextVisibleChildIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             int childCount = getChildCount();
-            while (i2 < childCount) {
-                if (getChildAt(i2).getVisibility() == 0) {
-                    return i2;
+            while (i < childCount) {
+                if (getChildAt(i).getVisibility() == 0) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
             return -1;
         }
@@ -81,7 +81,7 @@ public class ButtonBarLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             setOrientation(z ? 1 : 0);
             setGravity(z ? 5 : 80);
-            View findViewById = findViewById(R$id.spacer);
+            View findViewById = findViewById(R$id.obfuscated);
             if (findViewById != null) {
                 findViewById.setVisibility(z ? 8 : 4);
             }
@@ -99,27 +99,27 @@ public class ButtonBarLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
-        int i4;
+    public void onMeasure(int i, int i2) {
+        int i3;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i2);
-            int i5 = 0;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
+            int i4 = 0;
             if (this.mAllowStacking) {
                 if (size > this.mLastWidthSize && isStacked()) {
                     setStacked(false);
                 }
                 this.mLastWidthSize = size;
             }
-            if (isStacked() || View.MeasureSpec.getMode(i2) != 1073741824) {
-                i4 = i2;
+            if (isStacked() || View.MeasureSpec.getMode(i) != 1073741824) {
+                i3 = i;
                 z = false;
             } else {
-                i4 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
+                i3 = View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE);
                 z = true;
             }
-            super.onMeasure(i4, i3);
+            super.onMeasure(i3, i2);
             if (this.mAllowStacking && !isStacked()) {
                 if ((getMeasuredWidthAndState() & (-16777216)) == 16777216) {
                     setStacked(true);
@@ -127,7 +127,7 @@ public class ButtonBarLayout extends LinearLayout {
                 }
             }
             if (z) {
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
             }
             int nextVisibleChildIndex = getNextVisibleChildIndex(0);
             if (nextVisibleChildIndex >= 0) {
@@ -139,13 +139,13 @@ public class ButtonBarLayout extends LinearLayout {
                     if (nextVisibleChildIndex2 >= 0) {
                         paddingTop += getChildAt(nextVisibleChildIndex2).getPaddingTop() + ((int) (getResources().getDisplayMetrics().density * 16.0f));
                     }
-                    i5 = paddingTop;
+                    i4 = paddingTop;
                 } else {
-                    i5 = paddingTop + getPaddingBottom();
+                    i4 = paddingTop + getPaddingBottom();
                 }
             }
-            if (ViewCompat.getMinimumHeight(this) != i5) {
-                setMinimumHeight(i5);
+            if (ViewCompat.getMinimumHeight(this) != i4) {
+                setMinimumHeight(i4);
             }
         }
     }

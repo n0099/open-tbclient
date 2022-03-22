@@ -1,13 +1,12 @@
 package com.ss.android.downloadlib.addownload.d;
 
 import android.content.Context;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
 import com.ss.android.downloadlib.addownload.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements d {
     public static com.ss.android.downloadlib.addownload.a.c a;
 
@@ -16,7 +15,7 @@ public class b implements d {
     }
 
     @Override // com.ss.android.downloadlib.addownload.d.d
-    public boolean a(final com.ss.android.downloadad.api.a.b bVar, int i2, final c cVar) {
+    public boolean a(final com.ss.android.downloadad.api.a.b bVar, int i, final c cVar) {
         DownloadInfo a2;
         if (bVar == null || bVar.ad() || !a(bVar) || (a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a())) == null) {
             return false;
@@ -46,7 +45,7 @@ public class b implements d {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.putOpt("pause_optimise_type", "download_percent");
-                            jSONObject.putOpt("pause_optimise_action", QueryResponse.Options.CANCEL);
+                            jSONObject.putOpt("pause_optimise_action", "cancel");
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
@@ -62,8 +61,8 @@ public class b implements d {
         return false;
     }
 
-    private int a(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("pause_optimise_download_percent", 50);
+    private int a(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_download_percent", 50);
     }
 
     private boolean a(com.ss.android.downloadad.api.a.a aVar) {

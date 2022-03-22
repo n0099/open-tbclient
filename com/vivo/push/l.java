@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59273b;
+    public int f43906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f59274c;
+    public o f43907c;
 
     public l(o oVar) {
         Interceptable interceptable = $ic;
@@ -26,18 +26,18 @@ public abstract class l implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59273b = -1;
-        this.f59274c = oVar;
+        this.f43906b = -1;
+        this.f43907c = oVar;
         int b2 = oVar.b();
-        this.f59273b = b2;
+        this.f43906b = b2;
         if (b2 >= 0) {
             this.a = e.a().h();
             return;
@@ -48,7 +48,7 @@ public abstract class l implements Runnable {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59273b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43906b : invokeV.intValue;
     }
 
     public abstract void a(o oVar);
@@ -58,10 +58,10 @@ public abstract class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Context context = this.a;
-            if (context != null && !(this.f59274c instanceof com.vivo.push.b.n)) {
-                com.vivo.push.util.p.a(context, "[执行指令]" + this.f59274c);
+            if (context != null && !(this.f43907c instanceof com.vivo.push.b.n)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f43907c);
             }
-            a(this.f59274c);
+            a(this.f43907c);
         }
     }
 
@@ -72,7 +72,7 @@ public abstract class l implements Runnable {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append("{");
-            o oVar = this.f59274c;
+            o oVar = this.f43907c;
             sb.append(oVar == null ? "[null]" : oVar.toString());
             sb.append("}");
             return sb.toString();

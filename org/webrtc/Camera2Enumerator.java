@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
@@ -61,9 +61,9 @@ public class Camera2Enumerator implements CameraEnumerator {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,13 +73,13 @@ public class Camera2Enumerator implements CameraEnumerator {
         this.cameraManager = (CameraManager) context.getSystemService("camera");
     }
 
-    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i2) {
+    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, rangeArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, rangeArr, i)) == null) {
             ArrayList arrayList = new ArrayList();
             for (Range<Integer> range : rangeArr) {
-                arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(range.getLower().intValue() * i2, range.getUpper().intValue() * i2));
+                arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(range.getLower().intValue() * i, range.getUpper().intValue() * i));
             }
             return arrayList;
         }
@@ -230,7 +230,7 @@ public class Camera2Enumerator implements CameraEnumerator {
 
     public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         InterceptResult invokeLL;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, cameraManager, str)) == null) {
             synchronized (cachedSupportedFormats) {
@@ -245,18 +245,18 @@ public class Camera2Enumerator implements CameraEnumerator {
                     Range[] rangeArr = (Range[]) cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
                     List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = convertFramerates(rangeArr, getFpsUnitFactor(rangeArr));
                     List<Size> supportedSizes = getSupportedSizes(cameraCharacteristics);
-                    int i2 = 0;
+                    int i = 0;
                     for (CameraEnumerationAndroid.CaptureFormat.FramerateRange framerateRange : convertFramerates) {
-                        i2 = Math.max(i2, framerateRange.max);
+                        i = Math.max(i, framerateRange.max);
                     }
                     ArrayList arrayList = new ArrayList();
                     for (Size size : supportedSizes) {
                         try {
-                            j2 = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
+                            j = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
                         } catch (Exception unused) {
-                            j2 = 0;
+                            j = 0;
                         }
-                        int round = j2 == 0 ? i2 : ((int) Math.round(1.0E9d / j2)) * 1000;
+                        int round = j == 0 ? i : ((int) Math.round(1.0E9d / j)) * 1000;
                         arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
                         Logging.d(TAG, SsaDecoder.FORMAT_LINE_PREFIX + size.width + "x" + size.height + "@" + round);
                     }

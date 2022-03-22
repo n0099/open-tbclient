@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.internal.api.config;
 
-import c.g.d0;
+import c.d.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +15,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Ssp extends d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +25,7 @@ public final class Ssp extends d0 {
     public final String sspId;
     public final String type;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Pid extends d0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,17 +42,17 @@ public final class Ssp extends d0 {
         public final int width;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Pid(int i2, ObjectInput objectInput, Ssp ssp) {
-            super(i2);
+        public Pid(int i, ObjectInput objectInput, Ssp ssp) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), objectInput, ssp};
+                Object[] objArr = {Integer.valueOf(i), objectInput, ssp};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -69,12 +68,12 @@ public final class Ssp extends d0 {
             this.width = objectInput.readInt();
             this.height = objectInput.readInt();
             this.interval = objectInput.readInt();
-            if (i2 == 0) {
+            if (i == 0) {
                 objectInput.readInt();
                 objectInput.readInt();
             }
             this.isHorizontal = objectInput.readBoolean();
-            this.basePrice = i2 >= 2 ? objectInput.readDouble() : 0.0d;
+            this.basePrice = i >= 2 ? objectInput.readDouble() : 0.0d;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,9 +85,9 @@ public final class Ssp extends d0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject, ssp};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -134,7 +133,7 @@ public final class Ssp extends d0 {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(Long.valueOf(this.id), this.pid, this.type, Integer.valueOf(this.tmout), Float.valueOf(this.sample), Integer.valueOf(this.width), Integer.valueOf(this.height), Integer.valueOf(this.interval), Boolean.valueOf(this.isHorizontal)) : invokeV.intValue;
         }
 
-        @Override // c.g.d0
+        @Override // c.d.d0
         public void srzableInternal(ObjectOutput objectOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
@@ -155,24 +154,24 @@ public final class Ssp extends d0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Pid{id=" + this.id + ", pid='" + this.pid + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", tmout='" + this.tmout + ExtendedMessageFormat.QUOTE + ", sample='" + this.sample + ExtendedMessageFormat.QUOTE + ", width='" + this.width + ExtendedMessageFormat.QUOTE + ", height='" + this.height + ExtendedMessageFormat.QUOTE + ", interval='" + this.interval + ExtendedMessageFormat.QUOTE + ", isHorizontal='" + this.isHorizontal + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "Pid{id=" + this.id + ", pid='" + this.pid + "', type='" + this.type + "', tmout='" + this.tmout + "', sample='" + this.sample + "', width='" + this.width + "', height='" + this.height + "', interval='" + this.interval + "', isHorizontal='" + this.isHorizontal + "'}";
             }
             return (String) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Ssp(int i2, ObjectInput objectInput) {
-        super(i2);
+    public Ssp(int i, ObjectInput objectInput) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), objectInput};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -183,7 +182,7 @@ public final class Ssp extends d0 {
         this.type = objectInput.readUTF();
         int readInt = objectInput.readInt();
         HashSet hashSet = new HashSet();
-        for (int i5 = 0; i5 < readInt; i5++) {
+        for (int i4 = 0; i4 < readInt; i4++) {
             hashSet.add(new Pid(objectInput.readInt(), objectInput, this));
         }
         this.pids = Collections.unmodifiableSet(hashSet);
@@ -198,9 +197,9 @@ public final class Ssp extends d0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -211,8 +210,8 @@ public final class Ssp extends d0 {
         this.type = jSONObject.getString("type");
         HashSet hashSet = new HashSet();
         JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-            hashSet.add(new Pid(jSONArray.getJSONObject(i4), this));
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            hashSet.add(new Pid(jSONArray.getJSONObject(i3), this));
         }
         this.pids = Collections.unmodifiableSet(hashSet);
     }
@@ -239,7 +238,7 @@ public final class Ssp extends d0 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.sspId, this.type, this.pids) : invokeV.intValue;
     }
 
-    @Override // c.g.d0
+    @Override // c.d.d0
     public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {

@@ -13,7 +13,6 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class RateShareEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
@@ -33,22 +32,22 @@ public class RateShareEntry extends GroupEntry {
         public int availableBitrate;
         public short targetRateShare;
 
-        public Entry(int i2, short s) {
+        public Entry(int i, short s) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Short.valueOf(s)};
+                Object[] objArr = {Integer.valueOf(i), Short.valueOf(s)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.availableBitrate = i2;
+            this.availableBitrate = i;
             this.targetRateShare = s;
         }
 
@@ -86,10 +85,10 @@ public class RateShareEntry extends GroupEntry {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.availableBitrate * 31) + this.targetRateShare : invokeV.intValue;
         }
 
-        public void setAvailableBitrate(int i2) {
+        public void setAvailableBitrate(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.availableBitrate = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.availableBitrate = i;
             }
         }
 
@@ -104,7 +103,7 @@ public class RateShareEntry extends GroupEntry {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "{availableBitrate=" + this.availableBitrate + ", targetRateShare=" + ((int) this.targetRateShare) + ExtendedMessageFormat.END_FE;
+                return "{availableBitrate=" + this.availableBitrate + ", targetRateShare=" + ((int) this.targetRateShare) + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -115,9 +114,9 @@ public class RateShareEntry extends GroupEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -212,9 +211,9 @@ public class RateShareEntry extends GroupEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
+            int i = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
             List<Entry> list = this.entries;
-            return ((((((i2 + (list != null ? list.hashCode() : 0)) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
+            return ((((((i + (list != null ? list.hashCode() : 0)) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
         }
         return invokeV.intValue;
     }
@@ -259,17 +258,17 @@ public class RateShareEntry extends GroupEntry {
         }
     }
 
-    public void setMaximumBitrate(int i2) {
+    public void setMaximumBitrate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.maximumBitrate = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.maximumBitrate = i;
         }
     }
 
-    public void setMinimumBitrate(int i2) {
+    public void setMinimumBitrate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.minimumBitrate = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.minimumBitrate = i;
         }
     }
 

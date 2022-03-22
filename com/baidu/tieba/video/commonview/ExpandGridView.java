@@ -16,18 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ExpandGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Scroller a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Scroller f47119e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f47120f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public a f47121g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f47122h;
+    /* renamed from: b  reason: collision with root package name */
+    public a f36404b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -43,28 +35,25 @@ public class ExpandGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47120f = false;
-        this.f47122h = false;
-        this.f47119e = new Scroller(context);
+        this.a = new Scroller(context);
     }
 
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f47119e.computeScrollOffset()) {
-                this.f47122h = true;
-                int currY = this.f47119e.getCurrY();
-                a aVar = this.f47121g;
+            if (this.a.computeScrollOffset()) {
+                int currY = this.a.getCurrY();
+                a aVar = this.f36404b;
                 if (aVar != null) {
                     aVar.a(currY);
                 }
@@ -73,8 +62,6 @@ public class ExpandGridView extends GridView {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else {
-                this.f47122h = false;
             }
             super.computeScroll();
         }
@@ -85,57 +72,25 @@ public class ExpandGridView extends GridView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() != 3 && motionEvent.getAction() != 1) {
-                this.f47120f = true;
-            } else {
-                this.f47120f = false;
+            if (motionEvent.getAction() != 3) {
+                motionEvent.getAction();
             }
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public boolean isOnAutoScroll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47122h : invokeV.booleanValue;
-    }
-
-    public boolean isOnTouch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47120f : invokeV.booleanValue;
-    }
-
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? super.onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f47121g = aVar;
-        }
-    }
-
-    public void startScroll(int i2, int i3, int i4, int i5, int i6) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.f47119e.startScroll(i2, i3, i4, i5, i6);
-            this.f47122h = true;
-            invalidate();
-        }
-    }
-
-    public void startScroll(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            this.f47119e.startScroll(i2, i3, i4, i5);
-            this.f47122h = true;
-            invalidate();
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f36404b = aVar;
         }
     }
 
@@ -148,9 +103,9 @@ public class ExpandGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -158,23 +113,21 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f47120f = false;
-        this.f47122h = false;
-        this.f47119e = new Scroller(context);
+        this.a = new Scroller(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExpandGridView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ExpandGridView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -182,8 +135,6 @@ public class ExpandGridView extends GridView {
                 return;
             }
         }
-        this.f47120f = false;
-        this.f47122h = false;
-        this.f47119e = new Scroller(context);
+        this.a = new Scroller(context);
     }
 }

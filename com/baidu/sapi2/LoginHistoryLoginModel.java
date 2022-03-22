@@ -2,7 +2,7 @@ package com.baidu.sapi2;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.utils.MD5Utils;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.dto.loginhistory.AccountLoginAction;
 import com.baidu.sapi2.dto.loginhistory.LoginHistoryItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,9 +25,9 @@ public class LoginHistoryLoginModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,7 +42,7 @@ public class LoginHistoryLoginModel {
         }
         Iterator<AccountLoginAction> it = loadHistoryAccounts.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(str, MD5Utils.encryption(it.next().sapiAccount.bduss.getBytes()))) {
+            if (TextUtils.equals(str, SecurityUtil.md5(it.next().sapiAccount.bduss.getBytes(), false))) {
                 it.remove();
             }
         }
@@ -60,21 +60,21 @@ public class LoginHistoryLoginModel {
             }
             ArrayList arrayList = new ArrayList();
             int size = loadHistoryAccounts.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i2);
-                int i3 = 0;
+            for (int i = 0; i < size; i++) {
+                AccountLoginAction accountLoginAction = loadHistoryAccounts.get(i);
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= arrayList.size()) {
+                    if (i2 >= arrayList.size()) {
                         z = false;
                         break;
                     }
-                    LoginHistoryItem loginHistoryItem = (LoginHistoryItem) arrayList.get(i3);
+                    LoginHistoryItem loginHistoryItem = (LoginHistoryItem) arrayList.get(i2);
                     if (TextUtils.equals(loginHistoryItem.bduss, accountLoginAction.sapiAccount.bduss)) {
                         loginHistoryItem.actionTimes.add(String.valueOf(accountLoginAction.loginTimeSecond));
                         z = true;
                         break;
                     }
-                    i3++;
+                    i2++;
                 }
                 if (!z) {
                     LoginHistoryItem loginHistoryItem2 = new LoginHistoryItem();
@@ -125,22 +125,22 @@ public class LoginHistoryLoginModel {
                 loadHistoryAccounts = new ArrayList();
             }
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            long j2 = currentTimeMillis / 86400;
-            int i2 = -1;
-            int i3 = 0;
+            long j = currentTimeMillis / 86400;
+            int i = -1;
+            int i2 = 0;
             while (true) {
-                if (i3 >= loadHistoryAccounts.size()) {
+                if (i2 >= loadHistoryAccounts.size()) {
                     break;
                 }
-                AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i3);
-                long j3 = accountLoginAction.loginTimeSecond;
-                if (currentTimeMillis - j3 > 5) {
-                    long j4 = j3 / 86400;
-                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j2 == j4) {
-                        i2 = i3;
+                AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i2);
+                long j2 = accountLoginAction.loginTimeSecond;
+                if (currentTimeMillis - j2 > 5) {
+                    long j3 = j2 / 86400;
+                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j == j3) {
+                        i = i2;
                         break;
                     }
-                    i3++;
+                    i2++;
                 } else {
                     z = true;
                     break;
@@ -150,8 +150,8 @@ public class LoginHistoryLoginModel {
             if (z) {
                 return;
             }
-            if (i2 >= 0) {
-                loadHistoryAccounts.remove(i2);
+            if (i >= 0) {
+                loadHistoryAccounts.remove(i);
             }
             loadHistoryAccounts.add(0, new AccountLoginAction(currentTimeMillis, sapiAccount));
             if (loadHistoryAccounts.size() > 30) {

@@ -6,12 +6,12 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends Presenter {
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsLogoView f56327b;
+    public KsLogoView f41235b;
 
     private void a(ViewGroup viewGroup) {
         DisplayMetrics displayMetrics = viewGroup.getContext().getResources().getDisplayMetrics();
@@ -31,18 +31,18 @@ public class b extends Presenter {
         super.a();
         com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
         this.a = gVar;
-        KsLogoView ksLogoView = (KsLogoView) gVar.f56438e.findViewById(R.id.ksad_splash_logo_container);
-        this.f56327b = ksLogoView;
+        KsLogoView ksLogoView = (KsLogoView) gVar.f41331e.findViewById(R.id.obfuscated_res_0x7f091145);
+        this.f41235b = ksLogoView;
         a((ViewGroup) ksLogoView);
-        if (this.a.f56437d.adInfoList.isEmpty() || (adSplashInfo = this.a.f56437d.adInfoList.get(0).adSplashInfo) == null) {
+        if (this.a.f41330d.adInfoList.isEmpty() || (adSplashInfo = this.a.f41330d.adInfoList.get(0).adSplashInfo) == null) {
             return;
         }
         if (adSplashInfo.logoPosition == 0) {
-            this.f56327b.setVisibility(8);
+            this.f41235b.setVisibility(8);
             return;
         }
-        this.f56327b.setVisibility(0);
-        this.f56327b.a(this.a.f56437d);
+        this.f41235b.setVisibility(0);
+        this.f41235b.a(this.a.f41330d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

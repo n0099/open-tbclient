@@ -30,9 +30,9 @@ public class c extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,9 +43,9 @@ public class c extends Handler {
         this.wy = new HashMap();
     }
 
-    public void a(int i2, Object obj) {
+    public void a(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
                 if (!TextUtils.isEmpty(ARConfig.getARKey())) {
@@ -59,7 +59,7 @@ public class c extends Handler {
                 }
             }
             Message obtainMessage = obtainMessage();
-            obtainMessage.what = i2;
+            obtainMessage.what = i;
             obtainMessage.obj = obj;
             sendMessage(obtainMessage);
         }
@@ -70,13 +70,13 @@ public class c extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
             super.handleMessage(message);
-            int i2 = message.what;
-            if (i2 == 20) {
+            int i = message.what;
+            if (i == 20) {
                 this.wx.j((a) message.obj);
-            } else if (i2 == 21) {
+            } else if (i == 21) {
                 this.wx.h((List) message.obj);
             } else {
-                switch (i2) {
+                switch (i) {
                     case 1:
                         this.wx.init();
                         return;
@@ -96,7 +96,7 @@ public class c extends Handler {
                         this.wx.e((a) message.obj);
                         return;
                     default:
-                        switch (i2) {
+                        switch (i) {
                             case 97:
                                 this.wx.z(((Long) message.obj).longValue());
                                 return;

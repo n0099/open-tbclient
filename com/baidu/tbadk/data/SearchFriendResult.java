@@ -34,9 +34,9 @@ public class SearchFriendResult extends OrmObject implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -68,10 +68,10 @@ public class SearchFriendResult extends OrmObject implements Serializable {
             }
         }
 
-        public void setUserId(long j2) {
+        public void setUserId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.user_id = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.user_id = j;
             }
         }
 
@@ -88,9 +88,9 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -134,10 +134,10 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         }
     }
 
-    public void setErrorNo(int i2) {
+    public void setErrorNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.errorno = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.errorno = i;
         }
     }
 

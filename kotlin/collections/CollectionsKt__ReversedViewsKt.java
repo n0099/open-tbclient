@@ -19,19 +19,19 @@ public class CollectionsKt__ReversedViewsKt extends CollectionsKt__MutableCollec
         return new ReversedList(asReversed);
     }
 
-    public static final int reverseElementIndex$CollectionsKt__ReversedViewsKt(List<?> list, int i2) {
+    public static final int reverseElementIndex$CollectionsKt__ReversedViewsKt(List<?> list, int i) {
         int lastIndex = CollectionsKt__CollectionsKt.getLastIndex(list);
-        if (i2 < 0 || lastIndex < i2) {
-            throw new IndexOutOfBoundsException("Element index " + i2 + " must be in range [" + new IntRange(0, CollectionsKt__CollectionsKt.getLastIndex(list)) + "].");
+        if (i < 0 || lastIndex < i) {
+            throw new IndexOutOfBoundsException("Element index " + i + " must be in range [" + new IntRange(0, CollectionsKt__CollectionsKt.getLastIndex(list)) + "].");
         }
-        return CollectionsKt__CollectionsKt.getLastIndex(list) - i2;
+        return CollectionsKt__CollectionsKt.getLastIndex(list) - i;
     }
 
-    public static final int reversePositionIndex$CollectionsKt__ReversedViewsKt(List<?> list, int i2) {
+    public static final int reversePositionIndex$CollectionsKt__ReversedViewsKt(List<?> list, int i) {
         int size = list.size();
-        if (i2 < 0 || size < i2) {
-            throw new IndexOutOfBoundsException("Position index " + i2 + " must be in range [" + new IntRange(0, list.size()) + "].");
+        if (i < 0 || size < i) {
+            throw new IndexOutOfBoundsException("Position index " + i + " must be in range [" + new IntRange(0, list.size()) + "].");
         }
-        return list.size() - i2;
+        return list.size() - i;
     }
 }

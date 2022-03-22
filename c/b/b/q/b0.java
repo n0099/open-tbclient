@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
-import org.apache.commons.lang3.CharUtils;
 /* loaded from: classes3.dex */
 public final class b0 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,26 +31,26 @@ public final class b0 {
             BufferedReader bufferedReader = new BufferedReader(reader);
             char c4 = 2;
             char c5 = 1;
-            int i2 = 0;
+            int i = 0;
             char c6 = 0;
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
             while (true) {
-                int i5 = -1;
+                int i4 = -1;
                 boolean z = true;
                 while (true) {
                     int read = bufferedReader.read();
                     if (read == -1) {
-                        if (c6 == c4 && i3 <= 4) {
+                        if (c6 == c4 && i2 <= 4) {
                             throw new IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx");
                         }
-                        if (i5 == -1 && i2 > 0) {
-                            i5 = i2;
+                        if (i4 == -1 && i > 0) {
+                            i4 = i;
                         }
-                        if (i5 >= 0) {
-                            String str = new String(cArr, 0, i2);
-                            String substring = str.substring(0, i5);
-                            String substring2 = str.substring(i5);
+                        if (i4 >= 0) {
+                            String str = new String(cArr, 0, i);
+                            String substring = str.substring(0, i4);
+                            String substring2 = str.substring(i4);
                             if (c6 == c5) {
                                 substring2 = substring2 + "\u0000";
                             }
@@ -61,24 +60,24 @@ public final class b0 {
                         return;
                     }
                     char c7 = (char) read;
-                    if (i2 == cArr.length) {
+                    if (i == cArr.length) {
                         char[] cArr2 = new char[cArr.length * 2];
-                        System.arraycopy(cArr, 0, cArr2, 0, i2);
+                        System.arraycopy(cArr, 0, cArr2, 0, i);
                         cArr = cArr2;
                     }
                     if (c6 == c4) {
                         int digit = Character.digit(c7, 16);
                         if (digit >= 0) {
-                            i4 = (i4 << 4) + digit;
-                            i3++;
-                            if (i3 < 4) {
+                            i3 = (i3 << 4) + digit;
+                            i2++;
+                            if (i2 < 4) {
                                 c4 = 2;
                             }
-                        } else if (i3 <= 4) {
+                        } else if (i2 <= 4) {
                             throw new IllegalArgumentException("Invalid Unicode sequence: illegal character");
                         }
-                        cArr[i2] = (char) i4;
-                        i2++;
+                        cArr[i] = (char) i3;
+                        i++;
                         if (c7 != '\n') {
                             c4 = 2;
                             c6 = 0;
@@ -109,15 +108,15 @@ public final class b0 {
                                     c5 = 1;
                                 }
                             } else if (c7 == ':' || c7 == '=') {
-                                if (i5 == -1) {
-                                    i5 = i2;
+                                if (i4 == -1) {
+                                    i4 = i;
                                     c4 = 2;
                                     c5 = 1;
                                     c6 = 0;
                                 }
                             } else if (c7 == '\\') {
                                 if (c6 == 4) {
-                                    i5 = i2;
+                                    i4 = i;
                                 }
                                 c4 = 2;
                                 c5 = 1;
@@ -127,10 +126,10 @@ public final class b0 {
                                 if (c6 == 3) {
                                     c6 = 5;
                                 }
-                                if (i2 != 0 && i2 != i5) {
+                                if (i != 0 && i != i4) {
                                     c3 = 5;
                                     if (c6 != 5) {
-                                        if (i5 == -1) {
+                                        if (i4 == -1) {
                                             c4 = 2;
                                             c5 = 1;
                                             c6 = 4;
@@ -157,14 +156,14 @@ public final class b0 {
                         } else if (c7 == 'n') {
                             c7 = '\n';
                         } else if (c7 == 'r') {
-                            c7 = CharUtils.CR;
+                            c7 = '\r';
                         } else if (c7 == 't') {
                             c7 = '\t';
                         } else if (c7 == 'u') {
                             c4 = 2;
                             c6 = 2;
+                            i2 = 0;
                             i3 = 0;
-                            i4 = 0;
                         }
                         c6 = 0;
                     } else {
@@ -172,25 +171,25 @@ public final class b0 {
                         c6 = 3;
                     }
                     if (c6 == 4) {
-                        i5 = i2;
+                        i4 = i;
                         c6 = 0;
                     }
-                    cArr[i2] = c7;
-                    i2++;
+                    cArr[i] = c7;
+                    i++;
                     c4 = 2;
                     c5 = 1;
                     z = false;
                 }
-                if (i2 > 0 || (i2 == 0 && i5 == 0)) {
-                    if (i5 == -1) {
-                        i5 = i2;
+                if (i > 0 || (i == 0 && i4 == 0)) {
+                    if (i4 == -1) {
+                        i4 = i;
                     }
-                    String str2 = new String(cArr, 0, i2);
-                    wVar.i(str2.substring(0, i5), str2.substring(i5));
+                    String str2 = new String(cArr, 0, i);
+                    wVar.i(str2.substring(0, i4), str2.substring(i4));
                 }
                 c4 = 2;
                 c5 = 1;
-                i2 = 0;
+                i = 0;
                 c6 = 0;
             }
         } else {

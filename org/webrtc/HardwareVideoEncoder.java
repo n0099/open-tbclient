@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ssa.SsaDecoder;
-import h.c.m0;
+import f.c.m0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -30,7 +30,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HardwareVideoEncoder implements VideoEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
@@ -81,7 +81,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     public final YuvFormat yuvFormat;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static abstract class YuvFormat {
         public static final /* synthetic */ YuvFormat[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,9 +115,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                             newInitContext.thisArg = this;
@@ -150,9 +150,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                             newInitContext.thisArg = this;
@@ -176,16 +176,16 @@ public class HardwareVideoEncoder implements VideoEncoder {
             $VALUES = new YuvFormat[]{I420, yuvFormat};
         }
 
-        public YuvFormat(String str, int i2) {
+        public YuvFormat(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -209,13 +209,13 @@ public class HardwareVideoEncoder implements VideoEncoder {
 
         public abstract void fillBuffer(ByteBuffer byteBuffer, VideoFrame.Buffer buffer);
 
-        public static YuvFormat valueOf(int i2) {
+        public static YuvFormat valueOf(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 19) {
-                    if (i2 != 21 && i2 != 2141391872 && i2 != 2141391876) {
-                        throw new IllegalArgumentException("Unsupported colorFormat: " + i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                if (i != 19) {
+                    if (i != 21 && i != 2141391872 && i != 2141391876) {
+                        throw new IllegalArgumentException("Unsupported colorFormat: " + i);
                     }
                     return NV12;
                 }
@@ -225,16 +225,16 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i2, int i3, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
+    public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String str, VideoCodecType videoCodecType, Integer num, Integer num2, Map<String, String> map, int i, int i2, BitrateAdjuster bitrateAdjuster, EglBase14.Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mediaCodecWrapperFactory, str, videoCodecType, num, num2, map, Integer.valueOf(i2), Integer.valueOf(i3), bitrateAdjuster, context};
+            Object[] objArr = {mediaCodecWrapperFactory, str, videoCodecType, num, num2, map, Integer.valueOf(i), Integer.valueOf(i2), bitrateAdjuster, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -252,8 +252,8 @@ public class HardwareVideoEncoder implements VideoEncoder {
         this.yuvColorFormat = num2;
         this.yuvFormat = YuvFormat.valueOf(num2.intValue());
         this.params = map;
-        this.keyFrameIntervalSec = i2;
-        this.forcedKeyFrameNs = TimeUnit.MILLISECONDS.toNanos(i3);
+        this.keyFrameIntervalSec = i;
+        this.forcedKeyFrameNs = TimeUnit.MILLISECONDS.toNanos(i2);
         this.bitrateAdjuster = bitrateAdjuster;
         this.sharedContext = context;
         this.encodeThreadChecker.detachThread();
@@ -280,9 +280,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -304,10 +304,10 @@ public class HardwareVideoEncoder implements VideoEncoder {
         } : (Thread) invokeV.objValue;
     }
 
-    private VideoCodecStatus encodeByteBuffer(VideoFrame videoFrame, VideoFrame.Buffer buffer, int i2) {
+    private VideoCodecStatus encodeByteBuffer(VideoFrame videoFrame, VideoFrame.Buffer buffer, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, this, videoFrame, buffer, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, this, videoFrame, buffer, i)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             long timestampNs = (videoFrame.getTimestampNs() + 500) / 1000;
             try {
@@ -319,7 +319,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                 try {
                     fillInputBuffer(this.codec.getInputBuffers()[dequeueInputBuffer], buffer);
                     try {
-                        this.codec.queueInputBuffer(dequeueInputBuffer, 0, i2, timestampNs, 0);
+                        this.codec.queueInputBuffer(dequeueInputBuffer, 0, i, timestampNs, 0);
                         return VideoCodecStatus.OK;
                     } catch (IllegalStateException e2) {
                         Logging.e(TAG, "queueInputBuffer failed", e2);
@@ -448,45 +448,45 @@ public class HardwareVideoEncoder implements VideoEncoder {
         }
     }
 
-    private void requestKeyFrame(long j2) {
+    private void requestKeyFrame(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             try {
                 Bundle bundle = new Bundle();
                 bundle.putInt("request-sync", 0);
                 this.codec.setParameters(bundle);
-                this.lastKeyFrameNs = j2;
+                this.lastKeyFrameNs = j;
             } catch (IllegalStateException e2) {
                 Logging.e(TAG, "requestKeyFrame failed", e2);
             }
         }
     }
 
-    private VideoCodecStatus resetCodec(int i2, int i3, boolean z) {
+    private VideoCodecStatus resetCodec(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
             VideoCodecStatus release = release();
             if (release != VideoCodecStatus.OK) {
                 return release;
             }
-            this.width = i2;
-            this.height = i3;
+            this.width = i;
+            this.height = i2;
             this.useSurfaceMode = z;
             return initEncodeInternal();
         }
         return (VideoCodecStatus) invokeCommon.objValue;
     }
 
-    private boolean shouldForceKeyFrame(long j2) {
+    private boolean shouldForceKeyFrame(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65547, this, j)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            long j3 = this.forcedKeyFrameNs;
-            return j3 > 0 && j2 > this.lastKeyFrameNs + j3;
+            long j2 = this.forcedKeyFrameNs;
+            return j2 > 0 && j > this.lastKeyFrameNs + j2;
         }
         return invokeJ.booleanValue;
     }
@@ -653,7 +653,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     public VideoCodecStatus initEncode(VideoEncoder.Settings settings, VideoEncoder.Callback callback) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, settings, callback)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
@@ -662,9 +662,9 @@ public class HardwareVideoEncoder implements VideoEncoder {
             this.width = settings.width;
             this.height = settings.height;
             this.useSurfaceMode = canUseSurface();
-            int i3 = settings.startBitrate;
-            if (i3 != 0 && (i2 = settings.maxFramerate) != 0) {
-                this.bitrateAdjuster.setTargets(i3 * 1000, i2);
+            int i2 = settings.startBitrate;
+            if (i2 != 0 && (i = settings.maxFramerate) != 0) {
+                this.bitrateAdjuster.setTargets(i2 * 1000, i);
             }
             this.adjustedBitrate = this.bitrateAdjuster.getAdjustedBitrateBps();
             Logging.d(TAG, "initEncode: " + this.width + " x " + this.height + ". @ " + settings.startBitrate + "kbps. Fps: " + settings.maxFramerate + " Use surface mode: " + this.useSurfaceMode);
@@ -722,15 +722,15 @@ public class HardwareVideoEncoder implements VideoEncoder {
     }
 
     @Override // org.webrtc.VideoEncoder
-    public VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i2) {
+    public VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bitrateAllocation, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bitrateAllocation, i)) == null) {
             this.encodeThreadChecker.checkIsOnValidThread();
-            if (i2 > 30) {
-                i2 = 30;
+            if (i > 30) {
+                i = 30;
             }
-            this.bitrateAdjuster.setTargets(bitrateAllocation.getSum(), i2);
+            this.bitrateAdjuster.setTargets(bitrateAllocation.getSum(), i);
             return VideoCodecStatus.OK;
         }
         return (VideoCodecStatus) invokeLI.objValue;

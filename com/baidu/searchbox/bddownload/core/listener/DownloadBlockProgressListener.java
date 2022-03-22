@@ -34,9 +34,9 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -46,10 +46,10 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-        public DownloadBlockProgressListenerAssist.Listener4Model create(int i2) {
+        public DownloadBlockProgressListenerAssist.Listener4Model create(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new DownloadBlockProgressListenerAssist.Listener4Model(i2) : (DownloadBlockProgressListenerAssist.Listener4Model) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? new DownloadBlockProgressListenerAssist.Listener4Model(i) : (DownloadBlockProgressListenerAssist.Listener4Model) invokeI.objValue;
         }
     }
 
@@ -60,9 +60,9 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadBlockProgressListenerAssist};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,9 +73,9 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
+    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i2, map) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadTask, i, map) == null) {
         }
     }
 
@@ -103,25 +103,25 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.assist.fetchEnd(downloadTask, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.assist.fetchEnd(downloadTask, i);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public final void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public final void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.assist.fetchProgress(downloadTask, i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.assist.fetchProgress(downloadTask, i, j);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
         }
     }
 
@@ -170,9 +170,9 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((DownloadBlockProgressListenerAssist) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

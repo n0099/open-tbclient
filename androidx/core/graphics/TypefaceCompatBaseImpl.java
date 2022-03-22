@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.CancellationSignal;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
@@ -42,9 +43,9 @@ public class TypefaceCompatBaseImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,10 +64,10 @@ public class TypefaceCompatBaseImpl {
         }
     }
 
-    private FontResourcesParserCompat.FontFileResourceEntry findBestEntry(FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, int i2) {
+    private FontResourcesParserCompat.FontFileResourceEntry findBestEntry(FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, fontFamilyFilesResourceEntry, i2)) == null) ? (FontResourcesParserCompat.FontFileResourceEntry) findBestFont(fontFamilyFilesResourceEntry.getEntries(), i2, new StyleExtractor<FontResourcesParserCompat.FontFileResourceEntry>(this) { // from class: androidx.core.graphics.TypefaceCompatBaseImpl.2
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, fontFamilyFilesResourceEntry, i)) == null) ? (FontResourcesParserCompat.FontFileResourceEntry) findBestFont(fontFamilyFilesResourceEntry.getEntries(), i, new StyleExtractor<FontResourcesParserCompat.FontFileResourceEntry>(this) { // from class: androidx.core.graphics.TypefaceCompatBaseImpl.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TypefaceCompatBaseImpl this$0;
@@ -78,9 +79,9 @@ public class TypefaceCompatBaseImpl {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -107,19 +108,19 @@ public class TypefaceCompatBaseImpl {
         }) : (FontResourcesParserCompat.FontFileResourceEntry) invokeLI.objValue;
     }
 
-    public static <T> T findBestFont(T[] tArr, int i2, StyleExtractor<T> styleExtractor) {
+    public static <T> T findBestFont(T[] tArr, int i, StyleExtractor<T> styleExtractor) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, tArr, i2, styleExtractor)) == null) {
-            int i3 = (i2 & 1) == 0 ? 400 : 700;
-            boolean z = (i2 & 2) != 0;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, tArr, i, styleExtractor)) == null) {
+            int i2 = (i & 1) == 0 ? 400 : 700;
+            boolean z = (i & 2) != 0;
             T t = null;
-            int i4 = Integer.MAX_VALUE;
+            int i3 = Integer.MAX_VALUE;
             for (T t2 : tArr) {
-                int abs = (Math.abs(styleExtractor.getWeight(t2) - i3) * 2) + (styleExtractor.isItalic(t2) == z ? 0 : 1);
-                if (t == null || i4 > abs) {
+                int abs = (Math.abs(styleExtractor.getWeight(t2) - i2) * 2) + (styleExtractor.isItalic(t2) == z ? 0 : 1);
+                if (t == null || i3 > abs) {
                     t = t2;
-                    i4 = abs;
+                    i3 = abs;
                 }
             }
             return t;
@@ -138,7 +139,11 @@ public class TypefaceCompatBaseImpl {
                 Field declaredField = Typeface.class.getDeclaredField("native_instance");
                 declaredField.setAccessible(true);
                 return ((Number) declaredField.get(typeface)).longValue();
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Could not retrieve font from family.", e2);
+                return 0L;
+            } catch (NoSuchFieldException e3) {
+                Log.e(TAG, "Could not retrieve font from family.", e3);
                 return 0L;
             }
         }
@@ -146,15 +151,15 @@ public class TypefaceCompatBaseImpl {
     }
 
     @Nullable
-    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i2) {
+    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i2)) == null) {
-            FontResourcesParserCompat.FontFileResourceEntry findBestEntry = findBestEntry(fontFamilyFilesResourceEntry, i2);
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
+            FontResourcesParserCompat.FontFileResourceEntry findBestEntry = findBestEntry(fontFamilyFilesResourceEntry, i);
             if (findBestEntry == null) {
                 return null;
             }
-            Typeface createFromResourcesFontFile = TypefaceCompat.createFromResourcesFontFile(context, resources, findBestEntry.getResourceId(), findBestEntry.getFileName(), i2);
+            Typeface createFromResourcesFontFile = TypefaceCompat.createFromResourcesFontFile(context, resources, findBestEntry.getResourceId(), findBestEntry.getFileName(), i);
             addFontFamily(createFromResourcesFontFile, fontFamilyFilesResourceEntry);
             return createFromResourcesFontFile;
         }
@@ -162,17 +167,17 @@ public class TypefaceCompatBaseImpl {
     }
 
     @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i2) {
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {
             InputStream inputStream2 = null;
             if (fontInfoArr.length < 1) {
                 return null;
             }
             try {
-                inputStream = context.getContentResolver().openInputStream(findBestInfo(fontInfoArr, i2).getUri());
+                inputStream = context.getContentResolver().openInputStream(findBestInfo(fontInfoArr, i).getUri());
             } catch (IOException unused) {
                 inputStream = null;
             } catch (Throwable th) {
@@ -218,16 +223,16 @@ public class TypefaceCompatBaseImpl {
     }
 
     @Nullable
-    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i2, String str, int i3) {
+    public Typeface createFromResourcesFontFile(Context context, Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
             File tempFile = TypefaceCompatUtil.getTempFile(context);
             if (tempFile == null) {
                 return null;
             }
             try {
-                if (TypefaceCompatUtil.copyToFile(tempFile, resources, i2)) {
+                if (TypefaceCompatUtil.copyToFile(tempFile, resources, i)) {
                     return Typeface.createFromFile(tempFile.getPath());
                 }
                 return null;
@@ -240,10 +245,10 @@ public class TypefaceCompatBaseImpl {
         return (Typeface) invokeCommon.objValue;
     }
 
-    public FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i2) {
+    public FontsContractCompat.FontInfo findBestInfo(FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, fontInfoArr, i2)) == null) ? (FontsContractCompat.FontInfo) findBestFont(fontInfoArr, i2, new StyleExtractor<FontsContractCompat.FontInfo>(this) { // from class: androidx.core.graphics.TypefaceCompatBaseImpl.1
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, fontInfoArr, i)) == null) ? (FontsContractCompat.FontInfo) findBestFont(fontInfoArr, i, new StyleExtractor<FontsContractCompat.FontInfo>(this) { // from class: androidx.core.graphics.TypefaceCompatBaseImpl.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TypefaceCompatBaseImpl this$0;
@@ -255,9 +260,9 @@ public class TypefaceCompatBaseImpl {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

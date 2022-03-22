@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryChunkPool, pooledByteStreams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,22 +63,22 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBufferOutputStream newOutputStream(int i2) {
+    public MemoryPooledByteBufferOutputStream newOutputStream(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? new MemoryPooledByteBufferOutputStream(this.mPool, i2) : (MemoryPooledByteBufferOutputStream) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? new MemoryPooledByteBufferOutputStream(this.mPool, i) : (MemoryPooledByteBufferOutputStream) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBuffer newByteBuffer(int i2) {
+    public MemoryPooledByteBuffer newByteBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            Preconditions.checkArgument(i2 > 0);
-            CloseableReference of = CloseableReference.of(this.mPool.get(i2), this.mPool);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            Preconditions.checkArgument(i > 0);
+            CloseableReference of = CloseableReference.of(this.mPool.get(i), this.mPool);
             try {
-                return new MemoryPooledByteBuffer(of, i2);
+                return new MemoryPooledByteBuffer(of, i);
             } finally {
                 of.close();
             }
@@ -125,11 +125,11 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.PooledByteBufferFactory
-    public MemoryPooledByteBuffer newByteBuffer(InputStream inputStream, int i2) throws IOException {
+    public MemoryPooledByteBuffer newByteBuffer(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, inputStream, i2)) == null) {
-            MemoryPooledByteBufferOutputStream memoryPooledByteBufferOutputStream = new MemoryPooledByteBufferOutputStream(this.mPool, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, inputStream, i)) == null) {
+            MemoryPooledByteBufferOutputStream memoryPooledByteBufferOutputStream = new MemoryPooledByteBufferOutputStream(this.mPool, i);
             try {
                 return newByteBuf(inputStream, memoryPooledByteBufferOutputStream);
             } finally {

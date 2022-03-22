@@ -6,10 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.j0.b;
-import c.a.q0.r.n.d;
-import c.a.r0.q4.u.p.w.c;
-import c.a.r0.q4.u.p.w.e;
+import c.a.o0.r.j0.b;
+import c.a.p0.s4.u.p.w.c;
+import c.a.p0.s4.u.p.w.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,6 +16,7 @@ import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.WorkPublishGuideActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -44,9 +44,9 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,25 +54,25 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
     }
 
     private final void showLog() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c14364");
-            int i3 = this.mFrom;
-            if (i3 == d.f13127d) {
-                i2 = 1;
-            } else if (i3 == d.f13129f) {
-                i2 = 2;
+            int i2 = this.mFrom;
+            if (i2 == WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_HOME_VIDEO) {
+                i = 1;
+            } else if (i2 == WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_VIDEO) {
+                i = 2;
             } else {
-                i2 = i3 == d.f13128e ? 3 : 0;
+                i = i2 == WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE ? 3 : 0;
             }
-            statisticItem.param("obj_source", i2);
+            statisticItem.param("obj_source", i);
             statisticItem.param("obj_type", this.mStatus);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // c.a.r0.q4.u.p.w.c
+    @Override // c.a.p0.s4.u.p.w.c
     public void finishPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -142,11 +142,11 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // c.a.r0.q4.u.p.w.c
-    public void netCallBack(int i2, String str) {
+    @Override // c.a.p0.s4.u.p.w.c
+    public void netCallBack(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
+            if (i == 0) {
                 b.k().w("key_work_video_guide_pop", 0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921624, Boolean.TRUE));
                 setResult(-1);
@@ -154,16 +154,16 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
                 return;
             }
             if (TextUtils.isEmpty(str)) {
-                str = getString(R.string.net_error_please_later);
+                str = getString(R.string.obfuscated_res_0x7f0f0c13);
             }
             getMView().F(str);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             getMView().q();
         }
     }
@@ -173,7 +173,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            View inflate = LayoutInflater.from(this).inflate(R.layout.work_video_guide_activity, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d08df, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(this).inflate(R.lay…deo_guide_activity, null)");
             setMRootView(inflate);
             initParmas();
@@ -186,18 +186,18 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // c.a.r0.q4.u.p.w.c
+    @Override // c.a.p0.s4.u.p.w.c
     public void openUpgrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            getMModel().y(z);
+            getMModel().A(z);
         }
     }
 
-    public final void setMFrom(int i2) {
+    public final void setMFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mFrom = i;
         }
     }
 
@@ -217,10 +217,10 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    public final void setMStatus(int i2) {
+    public final void setMStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mStatus = i;
         }
     }
 

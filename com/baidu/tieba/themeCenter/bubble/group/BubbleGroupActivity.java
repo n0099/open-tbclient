@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
 import android.os.Bundle;
-import c.a.q0.p0.d;
-import c.a.r0.d4.f.b.b;
-import c.a.r0.d4.f.b.c;
-import c.a.r0.d4.h.e;
+import c.a.o0.p0.d;
+import c.a.p0.f4.f.b.b;
+import c.a.p0.f4.f.b.c;
+import c.a.p0.f4.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
@@ -19,7 +19,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel.c mCallback;
-    public c.a.r0.d4.f.a.a mItemController;
+    public c.a.p0.f4.f.a.a mItemController;
     public BubbleGroupModel mModel;
     public c mView;
 
@@ -36,9 +36,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bubbleGroupActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,14 +48,14 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i2, String str, e eVar, List<b> list) {
+        public void a(int i, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, eVar, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
                 this.a.mView.i();
-                if (i2 == 0) {
-                    this.a.mView.k(eVar, list, this.a.mModel.D());
+                if (i == 0) {
+                    this.a.mView.k(eVar, list, this.a.mModel.F());
                     return;
                 }
                 this.a.showToast(str);
@@ -69,9 +69,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,7 +80,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -102,10 +102,10 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
             c cVar = this.mView;
             if (cVar != null) {
                 cVar.f();
@@ -120,8 +120,8 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             super.onCreate(bundle);
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.mModel = bubbleGroupModel;
-            bubbleGroupModel.G(this.mCallback);
-            c.a.r0.d4.f.a.a aVar = new c.a.r0.d4.f.a.a(getPageContext());
+            bubbleGroupModel.I(this.mCallback);
+            c.a.p0.f4.f.a.a aVar = new c.a.p0.f4.f.a.a(getPageContext());
             this.mItemController = aVar;
             c cVar = new c(this, aVar);
             this.mView = cVar;

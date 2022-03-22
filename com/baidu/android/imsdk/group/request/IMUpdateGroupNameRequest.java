@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,9 +51,9 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMUpdateGroupNameRequest, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -65,28 +66,28 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i2;
+            int i;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
-                    i2 = jSONObject.getInt("error_code");
+                    i = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 } catch (JSONException e2) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                    i2 = 1010;
+                    i = 1010;
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     GroupInfoDAOImpl.modifyGroupName(this.this$0.mContext, this.this$0.mGroupId, this.this$0.mGroupName);
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
                 if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                     LogUtils.e(IMUpdateGroupNameRequest.TAG, "update group name, listener is null");
                 } else {
-                    ((BIMValueCallBack) removeListener).onResult(i2, str, this.this$0.mGroupId);
+                    ((BIMValueCallBack) removeListener).onResult(i, str, this.this$0.mGroupId);
                 }
             }
         }
@@ -107,23 +108,23 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMUpdateGroupNameRequest(Context context, String str, long j2, String str2, String str3) {
+    public IMUpdateGroupNameRequest(Context context, String str, long j, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), str2, str3};
+            Object[] objArr = {context, str, Long.valueOf(j), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
         this.mGroupId = str2;
         this.mGroupName = str3;
@@ -151,7 +152,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
                 sb.append("&group_id=");
                 sb.append(this.mGroupId);
                 sb.append("&group_name=");
-                sb.append(URLEncoder.encode(this.mGroupName, "utf-8"));
+                sb.append(URLEncoder.encode(this.mGroupName, IMAudioTransRequest.CHARSET));
                 sb.append("&timestamp=");
                 sb.append(currentTimeMillis);
                 sb.append("&sign=");
@@ -166,10 +167,10 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 return;
@@ -179,9 +180,9 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str = new String(bArr);
             String str2 = TAG;
             LogUtils.d(str2, "json is " + str);

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VideoFrameReleaseTimeHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CHOREOGRAPHER_SAMPLE_DELAY_MILLIS = 500;
@@ -44,7 +44,7 @@ public final class VideoFrameReleaseTimeHelper {
     public final WindowManager windowManager;
 
     @TargetApi(17)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class DefaultDisplayListener implements DisplayManager.DisplayListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public final class VideoFrameReleaseTimeHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {videoFrameReleaseTimeHelper, displayManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,24 +71,24 @@ public final class VideoFrameReleaseTimeHelper {
         }
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
-        public void onDisplayAdded(int i2) {
+        public void onDisplayAdded(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
-        public void onDisplayChanged(int i2) {
+        public void onDisplayChanged(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && i2 == 0) {
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && i == 0) {
                 this.this$0.updateDefaultDisplayRefreshRateParams();
             }
         }
 
         @Override // android.hardware.display.DisplayManager.DisplayListener
-        public void onDisplayRemoved(int i2) {
+        public void onDisplayRemoved(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             }
         }
 
@@ -107,7 +107,7 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_CHOREOGRAPHER = 0;
@@ -142,9 +142,9 @@ public final class VideoFrameReleaseTimeHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -162,9 +162,9 @@ public final class VideoFrameReleaseTimeHelper {
         private void addObserverInternal() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                int i2 = this.observerCount + 1;
-                this.observerCount = i2;
-                if (i2 == 1) {
+                int i = this.observerCount + 1;
+                this.observerCount = i;
+                if (i == 1) {
                     this.choreographer.postFrameCallback(this);
                 }
             }
@@ -186,9 +186,9 @@ public final class VideoFrameReleaseTimeHelper {
         private void removeObserverInternal() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-                int i2 = this.observerCount - 1;
-                this.observerCount = i2;
-                if (i2 == 0) {
+                int i = this.observerCount - 1;
+                this.observerCount = i;
+                if (i == 0) {
                     this.choreographer.removeFrameCallback(this);
                     this.sampledVsyncTimeNs = C.TIME_UNSET;
                 }
@@ -203,10 +203,10 @@ public final class VideoFrameReleaseTimeHelper {
         }
 
         @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j2) {
+        public void doFrame(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.sampledVsyncTimeNs = j2;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.sampledVsyncTimeNs = j;
                 this.choreographer.postFrameCallbackDelayed(this, 500L);
             }
         }
@@ -216,14 +216,14 @@ public final class VideoFrameReleaseTimeHelper {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message)) == null) {
-                int i2 = message.what;
-                if (i2 == 0) {
+                int i = message.what;
+                if (i == 0) {
                     createChoreographerInstanceInternal();
                     return true;
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     addObserverInternal();
                     return true;
-                } else if (i2 != 2) {
+                } else if (i != 2) {
                     return false;
                 } else {
                     removeObserverInternal();
@@ -248,9 +248,9 @@ public final class VideoFrameReleaseTimeHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -259,27 +259,27 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    public static long closestVsync(long j2, long j3, long j4) {
+    public static long closestVsync(long j, long j2, long j3) {
         InterceptResult invokeCommon;
-        long j5;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            long j6 = j3 + (((j2 - j3) / j4) * j4);
-            if (j2 <= j6) {
-                j5 = j6 - j4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            long j5 = j2 + (((j - j2) / j3) * j3);
+            if (j <= j5) {
+                j4 = j5 - j3;
             } else {
-                j6 = j4 + j6;
-                j5 = j6;
+                j5 = j3 + j5;
+                j4 = j5;
             }
-            return j6 - j2 < j2 - j5 ? j6 : j5;
+            return j5 - j < j - j4 ? j5 : j4;
         }
         return invokeCommon.longValue;
     }
 
-    private boolean isDriftTooLarge(long j2, long j3) {
+    private boolean isDriftTooLarge(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? Math.abs((j3 - this.syncUnadjustedReleaseTimeNs) - (j2 - this.syncFramePresentationTimeNs)) > MAX_ALLOWED_DRIFT_NS : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? Math.abs((j2 - this.syncUnadjustedReleaseTimeNs) - (j - this.syncFramePresentationTimeNs)) > MAX_ALLOWED_DRIFT_NS : invokeCommon.booleanValue;
     }
 
     @TargetApi(17)
@@ -312,55 +312,55 @@ public final class VideoFrameReleaseTimeHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long adjustReleaseTime(long j2, long j3) {
+    public long adjustReleaseTime(long j, long j2) {
         InterceptResult invokeCommon;
+        long j3;
         long j4;
-        long j5;
         VSyncSampler vSyncSampler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j6 = 1000 * j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j5 = 1000 * j;
             if (this.haveSync) {
-                if (j2 != this.lastFramePresentationTimeUs) {
+                if (j != this.lastFramePresentationTimeUs) {
                     this.frameCount++;
                     this.adjustedLastFrameTimeNs = this.pendingAdjustedFrameTimeNs;
                 }
-                long j7 = this.frameCount;
-                if (j7 >= 6) {
-                    j5 = this.adjustedLastFrameTimeNs + ((j6 - this.syncFramePresentationTimeNs) / j7);
-                    if (isDriftTooLarge(j5, j3)) {
+                long j6 = this.frameCount;
+                if (j6 >= 6) {
+                    j4 = this.adjustedLastFrameTimeNs + ((j5 - this.syncFramePresentationTimeNs) / j6);
+                    if (isDriftTooLarge(j4, j2)) {
                         this.haveSync = false;
                     } else {
-                        j4 = (this.syncUnadjustedReleaseTimeNs + j5) - this.syncFramePresentationTimeNs;
+                        j3 = (this.syncUnadjustedReleaseTimeNs + j4) - this.syncFramePresentationTimeNs;
                         if (!this.haveSync) {
-                            this.syncFramePresentationTimeNs = j6;
-                            this.syncUnadjustedReleaseTimeNs = j3;
+                            this.syncFramePresentationTimeNs = j5;
+                            this.syncUnadjustedReleaseTimeNs = j2;
                             this.frameCount = 0L;
                             this.haveSync = true;
                         }
-                        this.lastFramePresentationTimeUs = j2;
-                        this.pendingAdjustedFrameTimeNs = j5;
+                        this.lastFramePresentationTimeUs = j;
+                        this.pendingAdjustedFrameTimeNs = j4;
                         vSyncSampler = this.vsyncSampler;
                         if (vSyncSampler != null || this.vsyncDurationNs == C.TIME_UNSET) {
-                            return j4;
+                            return j3;
                         }
-                        long j8 = vSyncSampler.sampledVsyncTimeNs;
-                        return j8 == C.TIME_UNSET ? j4 : closestVsync(j4, j8, this.vsyncDurationNs) - this.vsyncOffsetNs;
+                        long j7 = vSyncSampler.sampledVsyncTimeNs;
+                        return j7 == C.TIME_UNSET ? j3 : closestVsync(j3, j7, this.vsyncDurationNs) - this.vsyncOffsetNs;
                     }
-                } else if (isDriftTooLarge(j6, j3)) {
+                } else if (isDriftTooLarge(j5, j2)) {
                     this.haveSync = false;
                 }
             }
-            j4 = j3;
-            j5 = j6;
+            j3 = j2;
+            j4 = j5;
             if (!this.haveSync) {
             }
-            this.lastFramePresentationTimeUs = j2;
-            this.pendingAdjustedFrameTimeNs = j5;
+            this.lastFramePresentationTimeUs = j;
+            this.pendingAdjustedFrameTimeNs = j4;
             vSyncSampler = this.vsyncSampler;
             if (vSyncSampler != null) {
             }
-            return j4;
+            return j3;
         }
         return invokeCommon.longValue;
     }
@@ -399,9 +399,9 @@ public final class VideoFrameReleaseTimeHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -28,50 +28,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.b {
+public class FollowUserSpinnerBtn extends LinearLayout implements c.a.o0.r.l0.t.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
-    public static final int u;
-    public static final int v;
+    public static final int p;
+    public static final int q;
+    public static final int r;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public FrameLayout f36847b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f36848c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f36849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f47671e;
+    public Paint f36850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f47672f;
+    public int f36851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47673g;
+    public int f36852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47674h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f47675i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f47676j;
-    public int k;
-    public RectF l;
-    public Path m;
-    public String n;
-    public Drawable o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public b s;
+    public RectF f36853h;
+    public Path i;
+    public String j;
+    public Drawable k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public b o;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f47677e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FollowUserSpinnerBtn f47678f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ FollowUserSpinnerBtn f36854b;
 
         public a(FollowUserSpinnerBtn followUserSpinnerBtn, b bVar) {
             Interceptable interceptable = $ic;
@@ -80,26 +80,26 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {followUserSpinnerBtn, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47678f = followUserSpinnerBtn;
-            this.f47677e = bVar;
+            this.f36854b = followUserSpinnerBtn;
+            this.a = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f47677e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.a) == null) {
                 return;
             }
-            bVar.a(!this.f47678f.p, false);
+            bVar.a(!this.f36854b.l, false);
         }
     }
 
@@ -121,9 +121,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
                 return;
             }
         }
-        t = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-        u = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-        v = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        p = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+        q = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+        r = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -135,9 +135,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -147,151 +147,167 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
         }
     }
 
-    public final void b(Context context) {
+    @Override // c.a.o0.r.l0.t.b
+    public void a(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
-            setOrientation(0);
-            this.f47671e = (FrameLayout) findViewById(R.id.leftBox);
-            this.f47672f = (FrameLayout) findViewById(R.id.rightBox);
-            this.f47673g = (TextView) findViewById(R.id.title);
-            this.f47674h = (ImageView) findViewById(R.id.arrow);
-            Paint paint = new Paint(1);
-            this.f47675i = paint;
-            paint.setStyle(Paint.Style.STROKE);
-            this.f47675i.setStrokeCap(Paint.Cap.ROUND);
-            this.f47675i.setStrokeWidth(n.f(context, R.dimen.tbds3));
-            this.l = new RectF();
-            this.m = new Path();
-            this.f47676j = R.color.CAM_X0105;
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f47676j, null);
-            this.o = pureDrawable;
-            this.f47674h.setImageDrawable(pureDrawable);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
         }
     }
 
-    @Override // c.a.q0.r.l0.t.b
-    public void bindOnClickListener(View.OnClickListener onClickListener) {
+    @Override // c.a.o0.r.l0.t.b
+    public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             setOnClickListener(onClickListener);
         }
     }
 
+    @Override // c.a.o0.r.l0.t.b
+    public void c(boolean z, int i, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
+            e(z, i);
+        }
+    }
+
+    @Override // c.a.o0.r.l0.t.b
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
+
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            this.l.set(0.0f, 0.0f, getWidth(), getHeight());
-            this.m.reset();
-            this.m.addRoundRect(this.l, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
-            canvas.clipPath(this.m);
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            this.f36853h.set(0.0f, 0.0f, getWidth(), getHeight());
+            this.i.reset();
+            this.i.addRoundRect(this.f36853h, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
+            canvas.clipPath(this.i);
             super.draw(canvas);
-            if (this.r) {
-                this.f47675i.setColor(SkinManager.getColor(this.f47676j));
-                float right = this.f47671e.getRight();
-                canvas.drawLine(right, this.f47674h.getTop(), right, this.f47674h.getBottom(), this.f47675i);
+            if (this.n) {
+                this.f36850e.setColor(SkinManager.getColor(this.f36851f));
+                float right = this.a.getRight();
+                canvas.drawLine(right, this.f36849d.getTop(), right, this.f36849d.getBottom(), this.f36850e);
             }
+        }
+    }
+
+    @Override // c.a.o0.r.l0.t.b
+    public void e(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            i(z);
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a1, this);
+            setOrientation(0);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091210);
+            this.f36847b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a9d);
+            this.f36848c = (TextView) findViewById(R.id.obfuscated_res_0x7f09202b);
+            this.f36849d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a3);
+            Paint paint = new Paint(1);
+            this.f36850e = paint;
+            paint.setStyle(Paint.Style.STROKE);
+            this.f36850e.setStrokeCap(Paint.Cap.ROUND);
+            this.f36850e.setStrokeWidth(n.f(context, R.dimen.tbds3));
+            this.f36853h = new RectF();
+            this.i = new Path();
+            this.f36851f = R.color.CAM_X0105;
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f36851f, null);
+            this.k = pureDrawable;
+            this.f36849d.setImageDrawable(pureDrawable);
         }
     }
 
     public ImageView getArrow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47674h : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36849d : (ImageView) invokeV.objValue;
     }
 
-    public void onChangeSkinType(int i2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            setBackgroundColor(SkinManager.getColor(this.k));
-            SkinManager.setViewTextColor(this.f47673g, this.f47676j);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f47676j, null);
-            this.o = pureDrawable;
-            this.f47674h.setImageDrawable(pureDrawable);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            setBackgroundColor(SkinManager.getColor(this.f36852g));
+            SkinManager.setViewTextColor(this.f36848c, this.f36851f);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.f36851f, null);
+            this.k = pureDrawable;
+            this.f36849d.setImageDrawable(pureDrawable);
             invalidate();
         }
     }
 
-    @Override // c.a.q0.r.l0.t.b
-    public void onClickEvent(View view) {
+    public void i(boolean z) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (z) {
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0627);
+                this.f36851f = R.color.CAM_X0101;
+                this.f36852g = R.color.CAM_X0904;
+            } else {
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f029b);
+                this.f36851f = R.color.CAM_X0105;
+                this.f36852g = R.color.CAM_X0901;
+            }
+            this.f36848c.setText(this.j);
+            requestLayout();
+            h(0);
+            if (this.n && !this.m && z && !this.l && (bVar = this.o) != null) {
+                bVar.a(true, true);
+            }
+            this.m = false;
         }
     }
 
     public void setFirstUpdate(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.q = z;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.m = z;
         }
     }
 
     public void setOpen(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.p = z;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l = z;
         }
     }
 
     public void setOpenListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.s = bVar;
-            this.f47672f.setOnClickListener(new a(this, bVar));
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.o = bVar;
+            this.f36847b.setOnClickListener(new a(this, bVar));
         }
     }
 
     public void setShowPullBtn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.r = z;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47673g.getLayoutParams();
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.n = z;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f36848c.getLayoutParams();
             if (z) {
-                this.f47672f.setVisibility(0);
-                layoutParams.leftMargin = u;
-                layoutParams.rightMargin = v;
+                this.f36847b.setVisibility(0);
+                layoutParams.leftMargin = q;
+                layoutParams.rightMargin = r;
                 layoutParams.gravity = 16;
                 layoutParams.width = -2;
             } else {
-                this.f47672f.setVisibility(8);
+                this.f36847b.setVisibility(8);
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
                 layoutParams.gravity = 17;
-                layoutParams.width = t;
+                layoutParams.width = p;
             }
-            this.f47673g.setLayoutParams(layoutParams);
+            this.f36848c.setLayoutParams(layoutParams);
             requestLayout();
-        }
-    }
-
-    @Override // c.a.q0.r.l0.t.b
-    public void updateFansNum(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-        }
-    }
-
-    public void updateLikeStatus(boolean z) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                this.n = getResources().getString(R.string.followed);
-                this.f47676j = R.color.CAM_X0101;
-                this.k = R.color.CAM_X0904;
-            } else {
-                this.n = getResources().getString(R.string.attention);
-                this.f47676j = R.color.CAM_X0105;
-                this.k = R.color.CAM_X0901;
-            }
-            this.f47673g.setText(this.n);
-            requestLayout();
-            onChangeSkinType(0);
-            if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {
-                bVar.a(true, true);
-            }
-            this.q = false;
         }
     }
 
@@ -304,9 +320,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -317,17 +333,17 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -335,23 +351,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements c.a.q0.r.l0.t.
                 return;
             }
         }
-        this.q = true;
-        b(context);
-    }
-
-    @Override // c.a.q0.r.l0.t.b
-    public void updateLikeStatus(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            updateLikeStatus(z);
-        }
-    }
-
-    @Override // c.a.q0.r.l0.t.b
-    public void updateLikeStatus(boolean z, int i2, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            updateLikeStatus(z, i2);
-        }
+        this.m = true;
+        g(context);
     }
 }

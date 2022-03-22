@@ -12,7 +12,7 @@ import org.apache.http.conn.OperatedClientConnection;
 import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.impl.conn.AbstractPoolEntry;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicPoolEntry extends AbstractPoolEntry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class BasicPoolEntry extends AbstractPoolEntry {
             newInitContext.initArgs = r2;
             Object[] objArr = {clientConnectionOperator, httpRoute, referenceQueue};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ClientConnectionOperator) objArr2[0], (HttpRoute) objArr2[1]);
                 newInitContext.thisArg = this;

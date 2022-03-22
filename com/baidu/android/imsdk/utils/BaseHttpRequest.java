@@ -29,9 +29,9 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,11 +115,11 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUUId : (String) invokeV.objValue;
     }
 
-    public abstract void onFailure(int i2, byte[] bArr, Throwable th);
+    public abstract void onFailure(int i, byte[] bArr, Throwable th);
 
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, bArr) == null) {
         }
     }
 
@@ -136,16 +136,16 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
         }
     }
 
-    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i2, bArr, th)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048589, this, i, bArr, th)) == null) {
             String str = bArr != null ? new String(bArr) : "";
-            if (th == null && i2 != 1005) {
-                str = "http response is error! response code:" + i2;
-                i2 = 1011;
+            if (th == null && i != 1005) {
+                str = "http response is error! response code:" + i;
+                i = 1011;
             }
-            return new Pair<>(Integer.valueOf(i2), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }
@@ -157,9 +157,9 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface WebViewRequestCallback {
     void closePage();
 
@@ -12,7 +12,7 @@ public interface WebViewRequestCallback {
 
     void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap);
 
-    void onReceivedErrorCallBack(WebView webView, int i2, String str, String str2);
+    void onReceivedErrorCallBack(WebView webView, int i, String str, String str2);
 
     void onReceivedSslErrorCallBack(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
 

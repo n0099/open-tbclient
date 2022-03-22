@@ -42,9 +42,9 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,9 +64,9 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext2.callArgs;
                         super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext2.thisArg = this;
@@ -279,10 +279,10 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void seekToMs(int i2, int i3) {
+    public void seekToMs(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
-            this.mVideoView.seekTo(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
+            this.mVideoView.seekTo(i, i2);
         }
     }
 
@@ -303,10 +303,10 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setDecodeMode(int i2) {
+    public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mVideoView.setDecodeMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mVideoView.setDecodeMode(i);
         }
     }
 
@@ -409,18 +409,18 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoRotation(int i2) {
+    public void setVideoRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.mVideoView.setVideoRotation(i2);
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.mVideoView.setVideoRotation(i);
         }
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoScalingMode(int i2) {
+    public void setVideoScalingMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.mVideoView.setVideoScalingMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.mVideoView.setVideoScalingMode(i);
         }
     }
 
@@ -470,10 +470,10 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void switchMediaSource(int i2) {
+    public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.mVideoView.switchMediaSource(i2);
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.mVideoView.switchMediaSource(i);
         }
     }
 
@@ -496,9 +496,9 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, onSnapShotFrameListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

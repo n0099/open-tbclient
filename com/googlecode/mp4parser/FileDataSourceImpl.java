@@ -26,9 +26,9 @@ public class FileDataSourceImpl implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,10 +46,10 @@ public class FileDataSourceImpl implements DataSource {
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public ByteBuffer map(long j2, long j3) throws IOException {
+    public ByteBuffer map(long j, long j2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? this.fc.map(FileChannel.MapMode.READ_ONLY, j2, j3) : (ByteBuffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.fc.map(FileChannel.MapMode.READ_ONLY, j, j2) : (ByteBuffer) invokeCommon.objValue;
     }
 
     @Override // com.googlecode.mp4parser.DataSource
@@ -74,17 +74,17 @@ public class FileDataSourceImpl implements DataSource {
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public long transferTo(long j2, long j3, WritableByteChannel writableByteChannel) throws IOException {
+    public long transferTo(long j, long j2, WritableByteChannel writableByteChannel) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), writableByteChannel})) == null) ? this.fc.transferTo(j2, j3, writableByteChannel) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), writableByteChannel})) == null) ? this.fc.transferTo(j, j2, writableByteChannel) : invokeCommon.longValue;
     }
 
     @Override // com.googlecode.mp4parser.DataSource
-    public void position(long j2) throws IOException {
+    public void position(long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.fc.position(j2);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.fc.position(j);
         }
     }
 
@@ -95,9 +95,9 @@ public class FileDataSourceImpl implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -113,9 +113,9 @@ public class FileDataSourceImpl implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {fileChannel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

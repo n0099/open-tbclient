@@ -17,9 +17,9 @@ public class a implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -27,9 +27,9 @@ public class a implements c {
     }
 
     @Override // c.b.b.l.a.b0.c
-    public c.a a(int i2, int i3) {
+    public c.a a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? new c.a(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3)) : (c.a) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? new c.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2)) : (c.a) invokeII.objValue;
     }
 }

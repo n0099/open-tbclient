@@ -46,16 +46,16 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
         public Subscription s;
         public R value;
 
-        public ScanSeedSubscriber(Subscriber<? super R> subscriber, BiFunction<R, ? super T, R> biFunction, R r, int i2) {
+        public ScanSeedSubscriber(Subscriber<? super R> subscriber, BiFunction<R, ? super T, R> biFunction, R r, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, biFunction, r, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, biFunction, r, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,9 +64,9 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
             this.actual = subscriber;
             this.accumulator = biFunction;
             this.value = r;
-            this.prefetch = i2;
-            this.limit = i2 - (i2 >> 2);
-            SpscArrayQueue spscArrayQueue = new SpscArrayQueue(i2);
+            this.prefetch = i;
+            this.limit = i - (i >> 2);
+            SpscArrayQueue spscArrayQueue = new SpscArrayQueue(i);
             this.queue = spscArrayQueue;
             spscArrayQueue.offer(r);
             this.requested = new AtomicLong();
@@ -131,15 +131,15 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && getAndIncrement() == 0) {
                 Subscriber<? super R> subscriber = this.actual;
                 SimplePlainQueue<R> simplePlainQueue = this.queue;
-                int i2 = this.limit;
-                int i3 = this.consumed;
-                int i4 = 1;
+                int i = this.limit;
+                int i2 = this.consumed;
+                int i3 = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        int i5 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i5 == 0) {
+                        int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i4 == 0) {
                             break;
                         } else if (this.cancelled) {
                             simplePlainQueue.clear();
@@ -160,16 +160,16 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j3++;
-                                i3++;
-                                if (i3 == i2) {
-                                    this.s.request(i2);
-                                    i3 = 0;
+                                j2++;
+                                i2++;
+                                if (i2 == i) {
+                                    this.s.request(i);
+                                    i2 = 0;
                                 }
                             }
                         }
                     }
-                } while (i4 != 0);
+                } while (i3 != 0);
             }
         }
 
@@ -226,10 +226,10 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -244,9 +244,9 @@ public final class FlowableScanSeed<T, R> extends AbstractFlowableWithUpstream<T
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, callable, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

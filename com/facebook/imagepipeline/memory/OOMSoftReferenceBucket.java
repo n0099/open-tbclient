@@ -10,24 +10,24 @@ import com.facebook.common.references.OOMSoftReference;
 import java.util.LinkedList;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class OOMSoftReferenceBucket<V> extends Bucket<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<OOMSoftReference<V>> mSpareReferences;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OOMSoftReferenceBucket(int i2, int i3, int i4) {
-        super(i2, i3, i4, false);
+    public OOMSoftReferenceBucket(int i, int i2, int i3) {
+        super(i, i2, i3, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;

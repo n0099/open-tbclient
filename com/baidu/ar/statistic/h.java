@@ -26,9 +26,9 @@ public class h implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, obj, iVarArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,8 +52,8 @@ public class h implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.wE.length == 0) {
             return;
@@ -67,13 +67,13 @@ public class h implements Runnable {
             int length = iVarArr.length;
             i iVar = null;
             List<List<a>> list = null;
-            int i4 = 0;
+            int i3 = 0;
             boolean z = false;
             while (true) {
-                if (i4 >= length) {
+                if (i3 >= length) {
                     break;
                 }
-                i iVar2 = iVarArr[i4];
+                i iVar2 = iVarArr[i3];
                 List<List<a>> gn = iVar2.gn();
                 if (iVar2.go()) {
                     z = true;
@@ -83,7 +83,7 @@ public class h implements Runnable {
                     list = gn;
                     break;
                 }
-                i4++;
+                i3++;
                 list = gn;
             }
             if (list != null && list.size() > 0 && iVar != null) {
@@ -92,16 +92,16 @@ public class h implements Runnable {
                     break;
                 }
                 try {
-                    i3 = 0;
+                    i2 = 0;
                     for (List<a> list2 : list) {
                         try {
                             iVar.a(context, list2);
-                            i3 += list2.size();
+                            i2 += list2.size();
                         } catch (Exception e2) {
                             e = e2;
                             this.wC++;
                             e.printStackTrace(System.out);
-                            if (i3 > 0) {
+                            if (i2 > 0) {
                             }
                             if (this.wC > 0) {
                             }
@@ -110,10 +110,10 @@ public class h implements Runnable {
                     this.wC = 0;
                 } catch (Exception e3) {
                     e = e3;
-                    i3 = 0;
+                    i2 = 0;
                 }
-                if (i3 > 0) {
-                    iVar.update(i3);
+                if (i2 > 0) {
+                    iVar.update(i2);
                 }
                 if (this.wC > 0) {
                     continue;
@@ -121,12 +121,12 @@ public class h implements Runnable {
                     break;
                 } else {
                     try {
-                        int i5 = this.wC * 2000;
+                        int i4 = this.wC * 2000;
                         if (this.wC >= 7) {
-                            i5 = 60000;
+                            i4 = 60000;
                         }
                         Thread.currentThread();
-                        Thread.sleep(i5);
+                        Thread.sleep(i4);
                     } catch (InterruptedException e4) {
                         e4.printStackTrace();
                         Thread.currentThread().interrupt();

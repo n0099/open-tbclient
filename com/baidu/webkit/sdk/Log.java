@@ -37,9 +37,9 @@ public final class Log implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -130,10 +130,10 @@ public final class Log implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? sDebugApk : invokeV.booleanValue;
     }
 
-    public static boolean isLoggable(String str, int i2) {
+    public static boolean isLoggable(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, str, i2)) == null) ? i2 >= sMinLogLevel && android.util.Log.isLoggable(str, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, str, i)) == null) ? i >= sMinLogLevel && android.util.Log.isLoggable(str, i) : invokeLI.booleanValue;
     }
 
     public static int p(String str) {
@@ -154,11 +154,11 @@ public final class Log implements INoProGuard {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, str, str2, th)) == null) ? printLog(6, str, str2, th) : invokeLLL.intValue;
     }
 
-    public static int printLog(int i2, String str, String str2, Throwable th) {
+    public static int printLog(int i, String str, String str2, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i2), str, str2, th})) == null) {
-            if (i2 < sMinLogLevel) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i), str, str2, th})) == null) {
+            if (i < sMinLogLevel) {
                 return 0;
             }
             if (str == null) {
@@ -170,7 +170,7 @@ public final class Log implements INoProGuard {
             if (th != null) {
                 str2 = str2 + '\n' + android.util.Log.getStackTraceString(th);
             }
-            switch (i2) {
+            switch (i) {
                 case 2:
                     return android.util.Log.i(str, str2);
                 case 3:
@@ -189,14 +189,14 @@ public final class Log implements INoProGuard {
         return invokeCommon.intValue;
     }
 
-    public static int printLogVargs(int i2, String str, String str2, Object... objArr) {
+    public static int printLogVargs(int i, String str, String str2, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Integer.valueOf(i2), str, str2, objArr})) == null) {
-            if (i2 < sMinLogLevel) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Integer.valueOf(i), str, str2, objArr})) == null) {
+            if (i < sMinLogLevel) {
                 return 0;
             }
-            return printLog(i2, str, String.format(str2, objArr), null);
+            return printLog(i, str, String.format(str2, objArr), null);
         }
         return invokeCommon.intValue;
     }
@@ -209,14 +209,15 @@ public final class Log implements INoProGuard {
         th.printStackTrace();
     }
 
-    public static void setMinLogLevel(int i2, boolean z) {
+    public static void setMinLogLevel(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            String str = "ZeusSDK.ZeusMinLogLevel=" + i2 + ", sDebugApk=" + z;
-            if (i2 < 2 || i2 > 7) {
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            String str = LOG_TAG;
+            android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i + ", sDebugApk=" + z);
+            if (i < 2 || i > 7) {
                 return;
             }
-            sMinLogLevel = i2;
+            sMinLogLevel = i;
             sDebugApk = z;
         }
     }

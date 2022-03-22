@@ -30,7 +30,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes4.dex */
 public class SnapshotUtil {
     public static /* synthetic */ Interceptable $ic = null;
@@ -95,9 +94,9 @@ public class SnapshotUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -128,7 +127,7 @@ public class SnapshotUtil {
                                             fileWriter2.write(String.valueOf(logFile.mCanDelete));
                                             fileWriter2.write("=");
                                             fileWriter2.write(String.valueOf(logFile.mNecessary));
-                                            fileWriter2.write(StringUtils.LF);
+                                            fileWriter2.write("\n");
                                         }
                                     }
                                 }
@@ -353,7 +352,7 @@ public class SnapshotUtil {
                     saveFragmentSnapshot = forwardingProcessEventSceneHandler.saveFragmentSnapshot(context, eventObject, file2);
                 } catch (Exception e2) {
                     if (LLog.sDebug) {
-                        Log.getStackTraceString(e2);
+                        Log.d("SnapshotUtil", Log.getStackTraceString(e2));
                     }
                 }
                 if (saveFragmentSnapshot && file2.exists()) {

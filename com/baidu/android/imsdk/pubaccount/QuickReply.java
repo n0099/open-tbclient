@@ -68,9 +68,9 @@ public class QuickReply implements Parcelable {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -89,10 +89,10 @@ public class QuickReply implements Parcelable {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Act[] newArray(int i2) {
+                public Act[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Act[i2] : (Act[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Act[i] : (Act[]) invokeI.objValue;
                 }
             };
         }
@@ -102,9 +102,9 @@ public class QuickReply implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -145,10 +145,10 @@ public class QuickReply implements Parcelable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsCallBack : invokeV.intValue;
         }
 
-        public void setCallBack(int i2) {
+        public void setCallBack(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.mIsCallBack = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.mIsCallBack = i;
             }
         }
 
@@ -159,10 +159,10 @@ public class QuickReply implements Parcelable {
             }
         }
 
-        public void setType(int i2) {
+        public void setType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.mType = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.mType = i;
             }
         }
 
@@ -174,9 +174,9 @@ public class QuickReply implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
                 parcel.writeInt(this.mType);
                 parcel.writeString(this.mValue);
                 parcel.writeInt(this.mIsCallBack);
@@ -191,9 +191,9 @@ public class QuickReply implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -236,9 +236,9 @@ public class QuickReply implements Parcelable {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -257,10 +257,10 @@ public class QuickReply implements Parcelable {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public ReplyContent[] newArray(int i2) {
+                public ReplyContent[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ReplyContent[i2] : (ReplyContent[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ReplyContent[i] : (ReplyContent[]) invokeI.objValue;
                 }
             };
         }
@@ -270,9 +270,9 @@ public class QuickReply implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -316,11 +316,11 @@ public class QuickReply implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
                 parcel.writeString(this.mName);
-                parcel.writeParcelable(this.mAct, i2);
+                parcel.writeParcelable(this.mAct, i);
             }
         }
 
@@ -331,9 +331,9 @@ public class QuickReply implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -366,9 +366,9 @@ public class QuickReply implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -387,10 +387,10 @@ public class QuickReply implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public QuickReply[] newArray(int i2) {
+            public QuickReply[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new QuickReply[i2] : (QuickReply[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new QuickReply[i] : (QuickReply[]) invokeI.objValue;
             }
         };
     }
@@ -400,9 +400,9 @@ public class QuickReply implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -429,8 +429,8 @@ public class QuickReply implements Parcelable {
                 quickReply.setPaName(jSONObject.optString("src"));
                 JSONArray jSONArray = jSONObject.getJSONArray("button_list");
                 ArrayList<ReplyContent> arrayList = new ArrayList<>();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     ReplyContent replyContent = new ReplyContent();
                     replyContent.setName(jSONObject2.getString("name"));
                     if (jSONObject2.has("act")) {
@@ -532,10 +532,10 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    public void setPaId(long j2) {
+    public void setPaId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.mPaId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.mPaId = j;
         }
     }
 
@@ -546,45 +546,45 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    public void setRefreshTime(long j2) {
+    public void setRefreshTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.mRefreshTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.mRefreshTime = j;
         }
     }
 
-    public void setStatus(long j2) {
+    public void setStatus(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mStatus = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mStatus = j;
         }
     }
 
-    public void setTimeStamp(long j2) {
+    public void setTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.mTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.mTimeStamp = j;
         }
     }
 
-    public void setType(long j2) {
+    public void setType(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.mType = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.mType = j;
         }
     }
 
-    public void setVersionId(long j2) {
+    public void setVersionId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.mVersionId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.mVersionId = j;
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i) == null) {
             parcel.writeLong(this.mType);
             parcel.writeLong(this.mVersionId);
             parcel.writeLong(this.mPaId);
@@ -604,9 +604,9 @@ public class QuickReply implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
